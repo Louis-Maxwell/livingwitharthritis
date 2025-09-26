@@ -1,9 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Phone, Mail, Search } from "lucide-react";
+import DonationBanner from "@/components/DonationBanner";
 
 const Header = () => {
   return (
-    <header className="bg-background border-b border-border">
+    <>
+      <DonationBanner />
+      <header className="bg-background border-b border-border">
       {/* Top bar */}
       <div className="bg-medical-purple text-accent-foreground">
         <div className="container mx-auto px-4">
@@ -54,7 +57,8 @@ const Header = () => {
           </div>
         </div>
       </div>
-    </header>
+      </header>
+    </>
   );
 };
 
