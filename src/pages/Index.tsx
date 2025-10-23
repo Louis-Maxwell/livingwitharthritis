@@ -4,6 +4,7 @@ import AboutSection from "@/components/AboutSection";
 import ServicesGrid from "@/components/ServicesGrid";
 import ConditionsSection from "@/components/ConditionsSection";
 import Footer from "@/components/Footer";
+import DonationNotification from "@/components/DonationNotification";
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
         <ConditionsSection />
       </main>
       <Footer />
+      <DonationNotification />
     </div>
   );
 };
