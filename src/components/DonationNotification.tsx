@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 interface Donation {
   id: number;
@@ -81,14 +80,6 @@ const DonationNotification = () => {
         >
           <X className="w-4 h-4" />
         </button>
-      </div>
-      <div className="mt-3 text-center">
-        <Button 
-          className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-          size="lg"
-        >
-          Donate
-        </Button>
       </div>
     </div>
   );
