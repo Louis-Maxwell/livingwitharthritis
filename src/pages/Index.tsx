@@ -4,6 +4,7 @@ import AboutSection from "@/components/AboutSection";
 import ServicesGrid from "@/components/ServicesGrid";
 import ConditionsSection from "@/components/ConditionsSection";
 import DonationImpactSection from "@/components/DonationImpactSection";
+import DonationTiersSection from "@/components/DonationTiersSection";
 import Footer from "@/components/Footer";
 import DonationNotification from "@/components/DonationNotification";
 
@@ -17,6 +18,7 @@ const Index = () => {
         <ServicesGrid />
         <ConditionsSection />
         <DonationImpactSection />
+        <DonationTiersSection />
       </main>
       <Footer />
       <DonationNotification />
