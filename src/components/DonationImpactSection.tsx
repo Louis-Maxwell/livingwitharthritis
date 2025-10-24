@@ -24,7 +24,7 @@ const DonationImpactSection = () => {
       <div className="container mx-auto max-w-5xl">
         <div className="mb-8">
           <div className="h-1 w-16 bg-destructive mb-4" />
-          <h2 className="text-4xl font-bold text-foreground mb-8">
+          <h2 className="text-2xl font-bold text-foreground mb-8">
             EXPLORE WHAT YOUR DONATION COULD ACHIEVE
           </h2>
         </div>
@@ -33,7 +33,7 @@ const DonationImpactSection = () => {
         <div className="flex gap-0 mb-8 max-w-2xl mx-auto">
           <button
             onClick={() => setDonationType("monthly")}
-            className={`flex-1 py-4 px-8 text-lg font-semibold transition-colors ${
+            className={`flex-1 py-4 px-8 text-base font-semibold transition-colors ${
               donationType === "monthly"
                 ? "bg-destructive text-white"
                 : "bg-muted text-foreground border border-input"
@@ -43,7 +43,7 @@ const DonationImpactSection = () => {
           </button>
           <button
             onClick={() => setDonationType("single")}
-            className={`flex-1 py-4 px-8 text-lg font-semibold transition-colors ${
+            className={`flex-1 py-4 px-8 text-base font-semibold transition-colors ${
               donationType === "single"
                 ? "bg-destructive text-white"
                 : "bg-muted text-foreground border border-input"
@@ -66,7 +66,7 @@ const DonationImpactSection = () => {
                 className="w-full"
               />
             </div>
-            <div className="text-5xl font-bold text-destructive min-w-[120px] text-right">
+            <div className="text-3xl font-bold text-destructive min-w-[100px] text-right">
               £{amount[0]}
             </div>
           </div>
@@ -75,36 +75,36 @@ const DonationImpactSection = () => {
         {/* Impact Display */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div className="text-center">
-            <div className="text-6xl mb-2">🥫</div>
-            <div className="text-5xl font-bold text-foreground mb-2">{impact.foodSachets}</div>
-            <div className="text-sm font-medium text-foreground">
+            <div className="text-4xl mb-2">🥫</div>
+            <div className="text-3xl font-bold text-foreground mb-2">{impact.foodSachets}</div>
+            <div className="text-xs font-medium text-foreground">
               malnutrition treating food sachets
             </div>
           </div>
           
           <div className="text-center flex flex-col items-center">
-            <div className="text-muted-foreground text-xl mb-4">OR</div>
-            <div className="text-6xl mb-2">💉</div>
-            <div className="text-5xl font-bold text-foreground mb-2">{impact.birthKits}</div>
-            <div className="text-sm font-medium text-foreground">
+            <div className="text-muted-foreground text-sm mb-4">OR</div>
+            <div className="text-4xl mb-2">💉</div>
+            <div className="text-3xl font-bold text-foreground mb-2">{impact.birthKits}</div>
+            <div className="text-xs font-medium text-foreground">
               midwives' birth kits
             </div>
           </div>
           
           <div className="text-center flex flex-col items-center">
-            <div className="text-muted-foreground text-xl mb-4">OR</div>
-            <div className="text-6xl mb-2">🌽</div>
-            <div className="text-5xl font-bold text-foreground mb-2">{impact.maizeSeed}</div>
-            <div className="text-sm font-medium text-foreground">
+            <div className="text-muted-foreground text-sm mb-4">OR</div>
+            <div className="text-4xl mb-2">🌽</div>
+            <div className="text-3xl font-bold text-foreground mb-2">{impact.maizeSeed}</div>
+            <div className="text-xs font-medium text-foreground">
               kilos of maize seed
             </div>
           </div>
           
           <div className="text-center flex flex-col items-center">
-            <div className="text-muted-foreground text-xl mb-4">OR</div>
-            <div className="text-6xl mb-2">🧴</div>
-            <div className="text-5xl font-bold text-foreground mb-2">{impact.hygienePacks}</div>
-            <div className="text-sm font-medium text-foreground">
+            <div className="text-muted-foreground text-sm mb-4">OR</div>
+            <div className="text-4xl mb-2">🧴</div>
+            <div className="text-3xl font-bold text-foreground mb-2">{impact.hygienePacks}</div>
+            <div className="text-xs font-medium text-foreground">
               family hygiene packs
             </div>
           </div>
@@ -114,7 +114,7 @@ const DonationImpactSection = () => {
         <div className="flex justify-center">
           <Button 
             size="lg" 
-            className="bg-destructive hover:bg-destructive/90 text-white px-12 py-6 text-lg font-semibold"
+            className="bg-destructive hover:bg-destructive/90 text-white px-8 py-4 text-base font-semibold"
           >
             <Heart className="mr-2 fill-current" />
             MAKE A DONATION
