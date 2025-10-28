@@ -6,52 +6,52 @@ const Header = () => {
   return (
     <>
       <DonationBanner />
-      <header className="bg-background border-b border-border/50 backdrop-blur-sm sticky top-0 z-50">
+      <header className="bg-background border-b border-border">
       {/* Top bar */}
-      <div className="bg-accent text-accent-foreground">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="flex justify-between items-center py-3 text-sm">
-            <div className="flex items-center space-x-8">
-              <a href="#" className="hover:opacity-80 transition-opacity">Membership</a>
-              <a href="#" className="hover:opacity-80 transition-opacity">News</a>
-              <a href="#" className="hover:opacity-80 transition-opacity">Policy</a>
-              <a href="#" className="hover:opacity-80 transition-opacity">About Us</a>
-            </div>
+      <div className="bg-medical-purple text-accent-foreground">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-between items-center py-2 text-sm">
             <div className="flex items-center space-x-6">
-              <div className="flex items-center space-x-2">
+              <span>Membership</span>
+              <span>News</span>
+              <span>Policy</span>
+              <span>About us</span>
+            </div>
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-1">
                 <Phone size={14} />
-                <span>Helpline 0800 5200 520 - Mon-Fri 9am-6pm</span>
+                <span>Helpline 0800 5200 520 - Mon-Friday 9am-6pm</span>
               </div>
-              <a href="#" className="hover:opacity-80 transition-opacity">Contact Us</a>
+              <span>Contact us</span>
             </div>
           </div>
         </div>
       </div>
 
       {/* Main navigation */}
-      <div className="bg-background/95">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="flex justify-between items-center py-5">
+      <div className="bg-background">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-2">
-              <div className="text-2xl font-bold text-foreground tracking-tight">
+              <div className="text-2xl font-bold text-accent">
                 Living With Arthritis
               </div>
             </div>
 
-            <nav className="hidden md:flex items-center space-x-10">
-              <a href="#" className="text-foreground/80 font-medium text-sm hover:text-primary transition-colors">About Arthritis</a>
-              <a href="#" className="text-foreground/80 font-medium text-sm hover:text-primary transition-colors">Get Help</a>
-              <a href="#" className="text-foreground/80 font-medium text-sm hover:text-primary transition-colors">Get Involved</a>
-              <a href="#" className="text-foreground/80 font-medium text-sm hover:text-primary transition-colors">Shop</a>
-              <a href="#" className="text-foreground/80 font-medium text-sm hover:text-primary transition-colors">Research</a>
-              <a href="#" className="text-foreground/80 font-medium text-sm hover:text-primary transition-colors">In Your Area</a>
-              <Button variant="ghost" size="sm" className="hover:bg-muted">
+            <nav className="hidden md:flex items-center space-x-8">
+              <a href="#" className="text-foreground font-medium hover:text-primary transition-colors">ABOUT ARTHRITIS</a>
+              <a href="#" className="text-foreground font-medium hover:text-primary transition-colors">GET HELP</a>
+              <a href="#" className="text-foreground font-medium hover:text-primary transition-colors">GET INVOLVED</a>
+              <a href="#" className="text-foreground font-medium hover:text-primary transition-colors">SHOP</a>
+              <a href="#" className="text-foreground font-medium hover:text-primary transition-colors">RESEARCH</a>
+              <a href="#" className="text-foreground font-medium hover:text-primary transition-colors">IN YOUR AREA</a>
+              <Button variant="outline" size="sm">
                 <Search size={16} />
               </Button>
             </nav>
 
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-8 shadow-soft rounded-lg">
-              Donate
+            <Button className="bg-destructive text-destructive-foreground hover:bg-destructive/90 font-bold px-6">
+              DONATE
             </Button>
           </div>
         </div>
