@@ -114,9 +114,9 @@ export default {
         "slide-up": "slide-up 0.6s ease-out",
       },
       boxShadow: {
-        "soft": "var(--shadow-soft)",
-        "medium": "var(--shadow-medium)",
-        "elevated": "var(--shadow-elevated)",
+        soft: "var(--shadow-soft)",
+        medium: "var(--shadow-medium)",
+        elevated: "var(--shadow-elevated)",
       },
       spacing: {
         '18': '4.5rem',

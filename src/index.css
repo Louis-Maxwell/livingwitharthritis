@@ -8,103 +8,72 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 99%;
-    --foreground: 240 10% 15%;
-
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 15%;
-
+    --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 15%;
-
-    /* Refined emerald green - sophisticated primary */
-    --primary: 158 64% 42%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 158 64% 52%;
     --primary-foreground: 0 0% 100%;
-
-    /* Elegant slate - premium secondary */
-    --secondary: 215 25% 27%;
-    --secondary-foreground: 0 0% 100%;
-
-    /* Deep navy - exclusive accent */
-    --accent: 221 39% 20%;
-    --accent-foreground: 0 0% 100%;
-
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 9% 46%;
-
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 158 64% 42%;
-
-    /* Premium design tokens */
-    --hero-bg: 158 64% 42%;
-    --hero-text: 0 0% 100%;
-    --medical-blue: 215 25% 27%;
-    --medical-purple: 221 39% 20%;
-    --medical-purple-light: 221 39% 30%;
-    --success-green: 158 64% 42%;
-    --gradient-hero: linear-gradient(135deg, hsl(158 64% 42%), hsl(158 64% 52%));
-    --gradient-medical: linear-gradient(135deg, hsl(215 25% 27%), hsl(215 25% 37%));
-    --shadow-soft: 0 1px 3px 0 hsl(0 0% 0% / 0.07), 0 1px 2px 0 hsl(0 0% 0% / 0.05);
-    --shadow-medium: 0 4px 12px -2px hsl(0 0% 0% / 0.08), 0 2px 6px -1px hsl(0 0% 0% / 0.04);
-    --shadow-elevated: 0 10px 40px -5px hsl(0 0% 0% / 0.10), 0 4px 12px -2px hsl(0 0% 0% / 0.06);
-    --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-
-    --radius: 0.75rem;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 215 25% 27%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 158 64% 52%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    --shadow-soft: 0 2px 8px -2px hsl(var(--foreground) / 0.08);
+    --shadow-medium: 0 4px 16px -4px hsl(var(--foreground) / 0.12);
+    --shadow-elevated: 0 8px 24px -6px hsl(var(--foreground) / 0.16);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
-
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
-
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-
-    --primary: 122 39% 59%;
+    --primary: 158 64% 52%;
     --primary-foreground: 0 0% 100%;
-
-    --secondary: 207 90% 64%;
-    --secondary-foreground: 0 0% 100%;
-
-    --accent: 245 39% 35%;
-    --accent-foreground: 0 0% 100%;
-
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-
+    --accent: 215 25% 27%;
+    --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 122 39% 59%;
-
-    --hero-bg: 122 39% 59%;
-    --medical-blue: 207 90% 64%;
-    --medical-purple: 245 39% 35%;
-    --medical-purple-light: 245 39% 45%;
+    --ring: 158 64% 52%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -113,6 +82,11 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    --shadow-soft: 0 2px 8px -2px hsl(var(--foreground) / 0.08);
+    --shadow-medium: 0 4px 16px -4px hsl(var(--foreground) / 0.12);
+    --shadow-elevated: 0 8px 24px -6px hsl(var(--foreground) / 0.16);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
@@ -122,9 +96,11 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
-    font-feature-settings: "kern" 1, "liga" 1;
+    @apply bg-background text-foreground;
+    font-feature-settings: "kern" 1;
     letter-spacing: -0.011em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
   h1, h2, h3, h4, h5, h6 {
