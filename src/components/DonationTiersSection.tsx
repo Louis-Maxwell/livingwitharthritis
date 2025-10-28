@@ -2,7 +2,7 @@ const DonationTiersSection = () => {
   const tiers = [
     {
       amount: "£250+",
-      color: "from-purple-600 to-purple-400",
+      color: "from-teal-700 to-teal-500",
       benefits: [
         "Thank you on Social Media",
         "Your logo on our website",
@@ -12,7 +12,7 @@ const DonationTiersSection = () => {
     },
     {
       amount: "£1000+",
-      color: "from-blue-800 to-blue-600",
+      color: "from-teal-800 to-teal-600",
       benefits: [
         "Thank you on Social Media",
         "Your logo on our website",
@@ -23,7 +23,7 @@ const DonationTiersSection = () => {
     },
     {
       amount: "£5000+",
-      color: "from-pink-600 to-pink-400",
+      color: "from-teal-900 to-teal-700",
       benefits: [
         "Thank you on Social Media",
         "Your logo on our website",
@@ -38,11 +38,11 @@ const DonationTiersSection = () => {
   return (
     <section className="py-16 px-4 bg-background">
       <div className="container mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="flex flex-col md:flex-row gap-8 justify-start">
           {tiers.map((tier, index) => (
             <div
               key={index}
-              className={`bg-gradient-to-br ${tier.color} text-white p-8 rounded-lg shadow-lg relative overflow-hidden`}
+              className={`bg-gradient-to-br ${tier.color} text-white p-8 rounded-lg shadow-lg relative overflow-hidden max-w-sm`}
               style={{
                 clipPath: "polygon(0 0, 100% 0, 100% 95%, 95% 100%, 0 100%)"
               }}
