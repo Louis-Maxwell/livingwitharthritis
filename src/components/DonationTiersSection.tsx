@@ -1,7 +1,7 @@
 const DonationTiersSection = () => {
   const tiers = [
     {
-      amount: "£250+",
+      amount: "£150,000",
       color: "from-teal-700 to-teal-500",
       benefits: [
         "Thank you on Social Media",
