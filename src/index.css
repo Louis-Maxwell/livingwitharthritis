@@ -8,51 +8,52 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 0 0% 99%;
+    --foreground: 240 10% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 240 10% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 240 10% 15%;
 
-    /* Medical Green - Primary brand color */
-    --primary: 122 39% 49%;
+    /* Refined emerald green - sophisticated primary */
+    --primary: 158 64% 42%;
     --primary-foreground: 0 0% 100%;
 
-    /* Healthcare Blue - Secondary brand color */
-    --secondary: 207 90% 54%;
+    /* Elegant slate - premium secondary */
+    --secondary: 215 25% 27%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Dark Medical Purple - Professional accent */
-    --accent: 245 39% 25%;
+    /* Deep navy - exclusive accent */
+    --accent: 221 39% 20%;
     --accent-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 122 39% 49%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 158 64% 42%;
 
-    /* Custom arthritis theme variables */
-    --hero-bg: 122 39% 49%;
+    /* Premium design tokens */
+    --hero-bg: 158 64% 42%;
     --hero-text: 0 0% 100%;
-    --medical-blue: 207 90% 54%;
-    --medical-purple: 245 39% 25%;
-    --medical-purple-light: 245 39% 35%;
-    --success-green: 122 39% 49%;
-    --gradient-hero: linear-gradient(135deg, hsl(122 39% 49%), hsl(122 39% 59%));
-    --gradient-medical: linear-gradient(135deg, hsl(207 90% 54%), hsl(207 90% 64%));
-    --shadow-soft: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.06);
-    --shadow-medium: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -2px hsl(0 0% 0% / 0.05);
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --medical-blue: 215 25% 27%;
+    --medical-purple: 221 39% 20%;
+    --medical-purple-light: 221 39% 30%;
+    --success-green: 158 64% 42%;
+    --gradient-hero: linear-gradient(135deg, hsl(158 64% 42%), hsl(158 64% 52%));
+    --gradient-medical: linear-gradient(135deg, hsl(215 25% 27%), hsl(215 25% 37%));
+    --shadow-soft: 0 1px 3px 0 hsl(0 0% 0% / 0.07), 0 1px 2px 0 hsl(0 0% 0% / 0.05);
+    --shadow-medium: 0 4px 12px -2px hsl(0 0% 0% / 0.08), 0 2px 6px -1px hsl(0 0% 0% / 0.04);
+    --shadow-elevated: 0 10px 40px -5px hsl(0 0% 0% / 0.10), 0 4px 12px -2px hsl(0 0% 0% / 0.06);
+    --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -121,6 +122,12 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "kern" 1, "liga" 1;
+    letter-spacing: -0.011em;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight font-semibold;
   }
 }

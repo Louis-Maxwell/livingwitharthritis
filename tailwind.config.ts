@@ -116,6 +116,11 @@ export default {
       boxShadow: {
         "soft": "var(--shadow-soft)",
         "medium": "var(--shadow-medium)",
+        "elevated": "var(--shadow-elevated)",
+      },
+      spacing: {
+        '18': '4.5rem',
+        '22': '5.5rem',
       },
       backgroundImage: {
         "gradient-hero": "var(--gradient-hero)",

@@ -3,30 +3,32 @@ import heroImage from "@/assets/hero-image.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative bg-gradient-hero text-hero-text overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[500px]">
-          <div className="space-y-6 animate-fade-in">
-            <h1 className="text-5xl font-bold leading-tight">
-              WE ARE HERE FOR YOU
+    <section className="relative bg-gradient-to-br from-primary via-primary to-primary/90 text-primary-foreground overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.1),transparent_50%)]"></div>
+      <div className="container mx-auto px-6 lg:px-12 relative">
+        <div className="grid lg:grid-cols-2 gap-16 items-center py-20 lg:py-28">
+          <div className="space-y-8 animate-fade-in">
+            <h1 className="text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight">
+              We Are Here<br />For You
             </h1>
-            <p className="text-xl leading-relaxed opacity-95">
-              Whether you're looking for information about your arthritis condition, 
-              or you want to support family and friends, we're here to help.
+            <p className="text-xl leading-relaxed opacity-95 max-w-xl font-light">
+              Whether you're seeking information about your arthritis condition 
+              or supporting loved ones, we provide expert guidance every step of the way.
             </p>
             <Button 
               size="lg" 
-              className="bg-accent text-accent-foreground hover:bg-medical-purple-light font-bold px-8 py-3 text-lg shadow-medium transition-all duration-300 hover:shadow-lg transform hover:-translate-y-0.5"
+              className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold px-10 py-6 text-base shadow-elevated transition-all duration-300 hover:shadow-medium hover:-translate-y-0.5 rounded-lg"
             >
-              GET HELP
+              Get Help
             </Button>
           </div>
           
           <div className="relative">
+            <div className="absolute -inset-4 bg-white/10 rounded-2xl blur-2xl"></div>
             <img 
               src={heroImage} 
               alt="Healthcare professional providing support to patient"
-              className="rounded-lg shadow-medium w-full h-[400px] object-cover"
+              className="rounded-2xl shadow-elevated w-full h-[450px] object-cover relative"
             />
           </div>
         </div>
