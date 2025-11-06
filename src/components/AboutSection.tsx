@@ -6,27 +6,27 @@ const AboutSection = () => {
   const arthritisTypes = [
     {
       title: "Osteoarthritis",
-      description: "Osteoarthritis (OA) is the most prevalent form of arthritis, affecting millions of individuals worldwide, especially as they age. OA occurs when the protective cartilage that cushions the ends of your bones gradually wears down over time. It commonly affects joints such as the knees, hips, hands, and spine, causing symptoms like pain, stiffness, and swelling. While OA was once thought to be a simple result of \"wear and tear,\" it is now understood to be a chronic condition requiring long-term management. Regular exercise, physical therapy, weight management, and medications are key to managing symptoms. In severe cases, joint replacement surgery may be considered. Early intervention and a well-rounded treatment plan can help you maintain mobility and manage pain effectively, enabling you to live a more active and fulfilling life.",
+      description: "Osteoarthritis is the most common type of arthritis, often referred to as \"wear and tear\" arthritis. It affects the cartilage in the joints, leading to pain, swelling, and stiffness. It commonly affects older adults but can occur at any age. With proper management, including lifestyle changes like weight management and exercise, people can maintain an active lifestyle and manage symptoms effectively.",
     },
     {
       title: "Rheumatoid Arthritis",
-      description: "Rheumatoid arthritis (RA) is a chronic autoimmune disease that occurs when the body's immune system mistakenly attacks the lining of the joints, causing inflammation, pain, and eventual joint damage. Unlike osteoarthritis, which primarily affects the cartilage, RA affects the synovial membrane—the lining of the joints—leading to swelling and stiffness, which often worsens in the mornings. It typically affects joints in the hands, wrists, and knees and can lead to permanent damage if not treated. RA is more common in women than men, and its symptoms may be systemic, affecting other organs, including the heart and lungs. Early and aggressive treatment with disease-modifying anti-rheumatic drugs (DMARDs), biologics, and physical therapy can significantly reduce symptoms, slow disease progression, and help you live a normal life with fewer flare-ups.",
+      description: "Rheumatoid arthritis (RA) is an autoimmune disorder where the body's immune system attacks healthy joints, causing inflammation, pain, and swelling. This can lead to long-term joint damage. RA commonly affects the wrists, knees, and hands. Early diagnosis and medical treatment can help reduce symptoms, prevent permanent damage, and improve overall quality of life.",
     },
     {
       title: "Psoriatic Arthritis",
-      description: "Psoriatic arthritis (PsA) is an inflammatory arthritis associated with psoriasis, a skin condition that causes red, scaly patches. PsA can affect both the skin and the joints, often leading to painful swelling and stiffness. It typically affects the fingers, toes, and lower back but can impact any joint in the body. In some cases, it can also affect the eyes and cause inflammation in other parts of the body. The severity of PsA can vary from mild to severe and may include episodes of flare-ups followed by periods of remission. Managing PsA requires a comprehensive treatment plan that targets both skin symptoms (psoriasis) and joint symptoms. Medications like nonsteroidal anti-inflammatory drugs (NSAIDs), biologics, and immune-suppressing drugs can help control inflammation and prevent joint damage. Early diagnosis and a personalized treatment plan are essential to achieving long-term control and improving your quality of life.",
+      description: "Psoriatic arthritis is linked to psoriasis, a condition characterized by red, scaly patches on the skin. This type of arthritis primarily affects the skin and joints, causing pain, stiffness, and swelling. It can also affect internal organs in some cases. Early diagnosis and a personalized treatment plan are crucial for managing both skin and joint symptoms.",
     },
     {
       title: "Gout",
-      description: "Gout is a form of arthritis caused by the buildup of uric acid in the bloodstream. When uric acid forms crystals in the joints, it leads to sudden and severe pain, swelling, and redness, often in the big toe. Gout flare-ups can be triggered by consuming purine-rich foods like red meat, shellfish, and alcohol. It is more common in men and typically occurs in middle-aged individuals, though it can affect anyone. Gout is a progressive condition that can lead to joint damage if not properly managed. Treatment involves medications to reduce inflammation and pain during flare-ups, as well as lifestyle changes like avoiding purine-rich foods, staying hydrated, and maintaining a healthy weight. Uric acid-lowering medications may also be prescribed to prevent future attacks. Managing gout effectively requires a combination of medication and lifestyle adjustments to prevent flare-ups and improve long-term joint health.",
+      description: "Gout is caused by an excess of uric acid in the bloodstream, which forms crystals in the joints, leading to sudden and intense pain, often in the big toe. It is commonly seen in middle-aged men, though it can affect anyone. Lifestyle changes, such as avoiding purine-rich foods, and medications can help control symptoms and prevent flare-ups.",
     },
     {
       title: "Juvenile Arthritis",
-      description: "Juvenile arthritis (JA) refers to a group of autoimmune and inflammatory conditions that affect children and teenagers under the age of 16. Unlike adult arthritis, JA can cause joint pain, swelling, and stiffness, and in some cases, it can also affect other organs such as the eyes and internal organs. The exact cause of JA is unknown, but it is thought to involve a combination of genetic and environmental factors. Children with JA may experience periods of remission and flare-ups. The condition can impact their growth, development, and overall quality of life, making early diagnosis and intervention crucial. Treatment for JA typically includes medications to control inflammation and prevent joint damage, as well as physical therapy to maintain joint function. With the right care and management plan, most children with JA can lead normal, active lives.",
+      description: "Juvenile arthritis (JA) affects children and teenagers, causing persistent inflammation in the joints. Symptoms can include joint pain, swelling, and difficulty moving. JA can also impact the eyes and internal organs. Early diagnosis and a comprehensive treatment plan can help manage symptoms and improve a child's quality of life.",
     },
     {
       title: "Axial Spondyloarthritis",
-      description: "Axial spondyloarthritis (AxSpA) is a form of inflammatory arthritis that primarily affects the spine and sacroiliac joints—the joints that connect the spine to the pelvis. This condition leads to pain, stiffness, and inflammation in the lower back and can cause the spine to become fused over time, leading to a loss of mobility. AxSpA often starts in early adulthood and tends to affect men more than women. In addition to spinal symptoms, it can also cause inflammation in the eyes (uveitis), tendons, and other joints. The exact cause of AxSpA is unknown, but genetics play a significant role. Early diagnosis and treatment are essential to manage symptoms, prevent long-term complications, and improve mobility. Nonsteroidal anti-inflammatory drugs (NSAIDs) and biologic medications are commonly used to manage inflammation, and physical therapy can help maintain joint flexibility and improve posture. With the right treatment plan, most individuals with AxSpA can manage the condition and continue living active, fulfilling lives.",
+      description: "Axial spondyloarthritis (AxSpA) is a group of inflammatory diseases that primarily affect the spine and sacroiliac joints, causing pain and stiffness. It can also affect other joints and organs. Early diagnosis and appropriate treatment are essential for managing the condition and preventing further complications.",
     },
   ];
 
@@ -111,9 +111,9 @@ const AboutSection = () => {
                   <CardTitle className="text-xl font-semibold">{type.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-secondary-foreground/85 leading-relaxed">
+                  <p className="text-foreground leading-relaxed">
                     {type.description}
-                  </CardDescription>
+                  </p>
                 </CardContent>
               </Card>
             ))}
