@@ -5,7 +5,6 @@ const FundraisingSection = () => {
     "Corporate Partnerships",
     "Leave a gift in your Will",
     "Fundraising Events",
-    "Donate in Memory",
     "Community Fundraising",
     "Meet our Fundraisers",
     "Volunteer with Us",
