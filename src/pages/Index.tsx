@@ -3,7 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ServicesGrid from "@/components/ServicesGrid";
 import ConditionsSection from "@/components/ConditionsSection";
-
+import FundraisingSection from "@/components/FundraisingSection";
 import DonationTiersSection from "@/components/DonationTiersSection";
 import Footer from "@/components/Footer";
 import DonationNotification from "@/components/DonationNotification";
@@ -17,6 +17,7 @@ const Index = () => {
         <AboutSection />
         <ServicesGrid />
         <ConditionsSection />
+        <FundraisingSection />
         <DonationTiersSection />
       </main>
       <Footer />
