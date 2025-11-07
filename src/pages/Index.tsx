@@ -7,12 +7,14 @@ import FundraisingSection from "@/components/FundraisingSection";
 import DonationTiersSection from "@/components/DonationTiersSection";
 import Footer from "@/components/Footer";
 import DonationNotification from "@/components/DonationNotification";
+import CryptoDonationForm from "@/components/CryptoDonationForm";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <main>
+        <CryptoDonationForm />
         <HeroSection />
         <AboutSection />
         <ServicesGrid />
