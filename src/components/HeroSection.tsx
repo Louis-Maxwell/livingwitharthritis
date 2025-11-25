@@ -1,9 +1,19 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-image.jpg";
+import activityIllustration from "@/assets/activity-illustration.png";
 
 const HeroSection = () => {
   return (
     <section className="relative bg-gradient-hero text-hero-text overflow-hidden">
+      {/* Activity Illustration Banner */}
+      <div className="w-full bg-background py-4">
+        <img 
+          src={activityIllustration} 
+          alt="People engaging in various physical activities"
+          className="w-full max-w-4xl mx-auto h-24 object-contain opacity-80"
+        />
+      </div>
+      
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[500px]">
           <div className="space-y-6 animate-fade-in">
