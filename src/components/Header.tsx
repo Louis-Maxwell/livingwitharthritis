@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Phone, Mail, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import DonationBanner from "@/components/DonationBanner";
 
 const Header = () => {
@@ -18,10 +18,6 @@ const Header = () => {
               <span>About us</span>
             </div>
             <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-1">
-                <Phone size={14} />
-                <span>Helpline 0800 5200 520 - Mon-Friday 9am-6pm</span>
-              </div>
               <span>Contact us</span>
             </div>
           </div>
