@@ -2,21 +2,8 @@ import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
   return (
-    <section className="relative text-hero-text overflow-hidden min-h-[500px]">
-      {/* Background Video */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0"
-      >
-        <source src="/videos/hero-background.mp4" type="video/mp4" />
-      </video>
-      {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/40 z-10" />
-      
-      <div className="container mx-auto px-4 relative z-20">
+    <section className="relative bg-gradient-hero text-hero-text overflow-hidden">
+      <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[500px]">
           <div className="space-y-6 animate-fade-in">
             <h1 className="text-5xl font-bold leading-tight">
