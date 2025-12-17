@@ -106,12 +106,44 @@ export default {
             transform: "translateY(0)",
           },
         },
+        "motion-streak": {
+          "0%": {
+            transform: "translateX(-100%) scaleX(0.3)",
+            opacity: "0",
+          },
+          "20%": {
+            opacity: "1",
+          },
+          "80%": {
+            opacity: "1",
+          },
+          "100%": {
+            transform: "translateX(100%) scaleX(1)",
+            opacity: "0",
+          },
+        },
+        "motion-particle": {
+          "0%": {
+            transform: "translateX(0) scale(1)",
+            opacity: "0.6",
+          },
+          "50%": {
+            transform: "translateX(20px) scale(0.8)",
+            opacity: "1",
+          },
+          "100%": {
+            transform: "translateX(40px) scale(0.4)",
+            opacity: "0",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 0.6s ease-out",
         "slide-up": "slide-up 0.6s ease-out",
+        "motion-streak": "motion-streak 2s ease-in-out infinite",
+        "motion-particle": "motion-particle 1.5s ease-out infinite",
       },
       boxShadow: {
         "soft": "var(--shadow-soft)",

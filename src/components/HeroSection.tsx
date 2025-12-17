@@ -32,18 +32,18 @@ const HeroSection = () => {
             {/* Main illustration container */}
             <div className="relative">
               {/* Motion lines behind cyclist */}
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8 space-y-3">
-                <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-accent/60 to-accent rounded-full animate-pulse" style={{ animationDelay: '0s' }} />
-                <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-primary/50 to-primary/80 rounded-full ml-4 animate-pulse" style={{ animationDelay: '0.2s' }} />
-                <div className="w-20 h-0.5 bg-gradient-to-r from-transparent via-accent/40 to-accent/70 rounded-full ml-2 animate-pulse" style={{ animationDelay: '0.4s' }} />
-                <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-muted-foreground/30 to-muted-foreground/50 rounded-full ml-6 animate-pulse" style={{ animationDelay: '0.6s' }} />
-                <div className="w-18 h-0.5 bg-gradient-to-r from-transparent via-primary/40 to-primary/60 rounded-full ml-3 animate-pulse" style={{ animationDelay: '0.8s' }} />
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8 space-y-3 overflow-visible">
+                <div className="w-28 h-0.5 bg-gradient-to-r from-transparent via-accent/60 to-accent rounded-full animate-motion-streak origin-left" style={{ animationDelay: '0s' }} />
+                <div className="w-20 h-0.5 bg-gradient-to-r from-transparent via-primary/50 to-primary/80 rounded-full ml-4 animate-motion-streak origin-left" style={{ animationDelay: '0.3s' }} />
+                <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-accent/40 to-accent/70 rounded-full ml-2 animate-motion-streak origin-left" style={{ animationDelay: '0.6s' }} />
+                <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-muted-foreground/30 to-muted-foreground/50 rounded-full ml-6 animate-motion-streak origin-left" style={{ animationDelay: '0.9s' }} />
+                <div className="w-22 h-0.5 bg-gradient-to-r from-transparent via-primary/40 to-primary/60 rounded-full ml-3 animate-motion-streak origin-left" style={{ animationDelay: '1.2s' }} />
               </div>
 
               {/* Additional diagonal motion streaks */}
-              <div className="absolute -left-4 top-1/3 -rotate-12 space-y-4 opacity-60">
-                <div className="w-10 h-0.5 bg-gradient-to-r from-transparent to-accent/50 rounded-full" />
-                <div className="w-14 h-0.5 bg-gradient-to-r from-transparent to-primary/40 rounded-full -ml-2" />
+              <div className="absolute -left-4 top-1/3 -rotate-12 space-y-4 opacity-70 overflow-visible">
+                <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-accent/50 rounded-full animate-motion-streak origin-left" style={{ animationDelay: '0.4s' }} />
+                <div className="w-16 h-0.5 bg-gradient-to-r from-transparent to-primary/40 rounded-full -ml-2 animate-motion-streak origin-left" style={{ animationDelay: '0.8s' }} />
               </div>
 
               {/* Decorative circles */}
@@ -57,9 +57,9 @@ const HeroSection = () => {
               </div>
 
               {/* Speed particles */}
-              <div className="absolute left-8 top-1/4 w-2 h-2 bg-accent/60 rounded-full animate-ping" style={{ animationDuration: '2s' }} />
-              <div className="absolute left-16 bottom-1/3 w-1.5 h-1.5 bg-primary/50 rounded-full animate-ping" style={{ animationDuration: '2.5s', animationDelay: '0.5s' }} />
-              <div className="absolute left-4 bottom-1/4 w-1 h-1 bg-accent/40 rounded-full animate-ping" style={{ animationDuration: '3s', animationDelay: '1s' }} />
+              <div className="absolute left-8 top-1/4 w-2 h-2 bg-accent/60 rounded-full animate-motion-particle" style={{ animationDelay: '0s' }} />
+              <div className="absolute left-16 bottom-1/3 w-1.5 h-1.5 bg-primary/50 rounded-full animate-motion-particle" style={{ animationDelay: '0.5s' }} />
+              <div className="absolute left-4 bottom-1/4 w-1 h-1 bg-accent/40 rounded-full animate-motion-particle" style={{ animationDelay: '1s' }} />
               
               {/* Cyclist image */}
               <img 
