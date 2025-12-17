@@ -65,7 +65,7 @@ const HeroSection = () => {
               <img 
                 src={cyclistIllustration} 
                 alt="Active lifestyle illustration" 
-                className="w-full max-w-md h-auto object-contain drop-shadow-lg relative z-10"
+                className="w-full max-w-md h-auto object-contain drop-shadow-lg relative z-10 animate-float"
               />
               
               {/* Bottom decorative line */}
