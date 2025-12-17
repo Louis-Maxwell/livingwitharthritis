@@ -136,6 +136,14 @@ export default {
             opacity: "0",
           },
         },
+        "float": {
+          "0%, 100%": {
+            transform: "translateY(0)",
+          },
+          "50%": {
+            transform: "translateY(-12px)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -144,6 +152,7 @@ export default {
         "slide-up": "slide-up 0.6s ease-out",
         "motion-streak": "motion-streak 2s ease-in-out infinite",
         "motion-particle": "motion-particle 1.5s ease-out infinite",
+        "float": "float 3s ease-in-out infinite",
       },
       boxShadow: {
         "soft": "var(--shadow-soft)",
