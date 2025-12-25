@@ -2,108 +2,113 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Premium Design System - Refined, Elegant, Professional */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core backgrounds - Soft, warm whites */
+    --background: 40 20% 99%;
+    --foreground: 220 25% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 25% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 25% 10%;
 
-    /* Medical Green - Primary brand color */
-    --primary: 122 39% 49%;
+    /* Refined Teal - Primary brand color (sophisticated, calming) */
+    --primary: 168 65% 38%;
     --primary-foreground: 0 0% 100%;
 
-    /* Healthcare Blue - Secondary brand color */
-    --secondary: 207 90% 54%;
+    /* Deep Navy - Secondary brand color (trustworthy, professional) */
+    --secondary: 220 45% 22%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Dark Medical Purple - Professional accent */
-    --accent: 245 39% 25%;
-    --accent-foreground: 0 0% 100%;
+    /* Warm Gold - Accent color (premium, hopeful) */
+    --accent: 38 75% 55%;
+    --accent-foreground: 220 25% 10%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Subtle muted tones */
+    --muted: 40 15% 96%;
+    --muted-foreground: 220 15% 45%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 122 39% 49%;
+    --border: 40 20% 90%;
+    --input: 40 20% 90%;
+    --ring: 168 65% 38%;
 
-    /* Custom arthritis theme variables */
-    --hero-bg: 122 39% 49%;
+    /* Premium theme extensions */
+    --hero-bg: 168 65% 38%;
     --hero-text: 0 0% 100%;
-    --medical-blue: 207 90% 54%;
-    --medical-purple: 245 39% 25%;
-    --medical-purple-light: 245 39% 35%;
-    --success-green: 122 39% 49%;
-    --gradient-hero: linear-gradient(135deg, hsl(122 39% 49%), hsl(122 39% 59%));
-    --gradient-medical: linear-gradient(135deg, hsl(207 90% 54%), hsl(207 90% 64%));
-    --shadow-soft: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.06);
-    --shadow-medium: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -2px hsl(0 0% 0% / 0.05);
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --medical-blue: 205 85% 45%;
+    --medical-purple: 220 45% 22%;
+    --medical-purple-light: 220 45% 32%;
+    --success-green: 168 65% 38%;
+    
+    /* Premium gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(220 45% 22%) 0%, hsl(220 45% 28%) 50%, hsl(168 65% 38%) 100%);
+    --gradient-medical: linear-gradient(180deg, hsl(40 20% 99%) 0%, hsl(40 15% 96%) 100%);
+    --gradient-premium: linear-gradient(135deg, hsl(168 65% 38%) 0%, hsl(168 65% 45%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(220 45% 18%) 0%, hsl(220 45% 12%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(38 75% 55%) 0%, hsl(38 85% 65%) 100%);
+    
+    /* Refined shadows */
+    --shadow-soft: 0 2px 8px -2px hsl(220 25% 10% / 0.08), 0 4px 16px -4px hsl(220 25% 10% / 0.04);
+    --shadow-medium: 0 8px 24px -6px hsl(220 25% 10% / 0.12), 0 12px 32px -8px hsl(220 25% 10% / 0.06);
+    --shadow-elegant: 0 16px 48px -12px hsl(220 25% 10% / 0.16), 0 24px 64px -16px hsl(220 25% 10% / 0.08);
+    --shadow-glow: 0 0 40px hsl(168 65% 38% / 0.15);
+    
+    /* Smooth transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    --transition-fast: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 220 25% 8%;
+    --foreground: 40 20% 96%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 25% 10%;
+    --card-foreground: 40 20% 96%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 25% 10%;
+    --popover-foreground: 40 20% 96%;
 
-    --primary: 122 39% 59%;
+    --primary: 168 65% 45%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 207 90% 64%;
+    --secondary: 220 45% 32%;
     --secondary-foreground: 0 0% 100%;
 
-    --accent: 245 39% 35%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 38 75% 60%;
+    --accent-foreground: 220 25% 10%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 25% 15%;
+    --muted-foreground: 40 15% 65%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 122 39% 59%;
+    --border: 220 25% 18%;
+    --input: 220 25% 18%;
+    --ring: 168 65% 45%;
 
-    --hero-bg: 122 39% 59%;
-    --medical-blue: 207 90% 64%;
-    --medical-purple: 245 39% 35%;
-    --medical-purple-light: 245 39% 45%;
+    --hero-bg: 168 65% 45%;
+    --medical-blue: 205 85% 55%;
+    --medical-purple: 220 45% 32%;
+    --medical-purple-light: 220 45% 42%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -120,7 +125,83 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+
+  /* Premium typography defaults */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+
+  p {
+    @apply font-sans leading-relaxed;
+  }
+}
+
+@layer components {
+  /* Premium link underline animation */
+  .link-underline {
+    @apply relative inline-block;
+  }
+  
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-[1px] bg-current origin-bottom-right scale-x-0 transition-transform duration-300;
+  }
+  
+  .link-underline:hover::after {
+    @apply origin-bottom-left scale-x-100;
+  }
+
+  /* Glassmorphism card */
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50;
+  }
+
+  /* Premium button hover effect */
+  .btn-premium {
+    @apply relative overflow-hidden transition-all duration-300;
+  }
+
+  .btn-premium::before {
+    content: '';
+    @apply absolute inset-0 bg-white/20 translate-y-full transition-transform duration-300;
+  }
+
+  .btn-premium:hover::before {
+    @apply translate-y-0;
+  }
+
+  /* Fade in animation on scroll */
+  .fade-in-section {
+    @apply opacity-0 translate-y-8 transition-all duration-700;
+  }
+
+  .fade-in-section.visible {
+    @apply opacity-100 translate-y-0;
+  }
+}
+
+@layer utilities {
+  /* Text gradient utility */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-premium);
+  }
+
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-gold);
+  }
+
+  /* Premium focus ring */
+  .focus-ring {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background;
   }
 }
