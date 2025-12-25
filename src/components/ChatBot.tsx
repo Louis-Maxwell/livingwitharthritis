@@ -58,7 +58,7 @@ export function ChatBot() {
   };
 
   return (
-    <div className="flex flex-col h-[600px] max-h-[80vh] w-full max-w-2xl mx-auto bg-card rounded-xl border shadow-lg overflow-hidden">
+    <div className="flex flex-col h-full w-full bg-card overflow-hidden">
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 border-b bg-muted/50">
         <div className="flex items-center gap-2">
