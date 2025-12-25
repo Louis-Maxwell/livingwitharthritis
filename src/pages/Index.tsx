@@ -6,7 +6,6 @@ import ConditionsSection from "@/components/ConditionsSection";
 import FundraisingSection from "@/components/FundraisingSection";
 import DonationTiersSection from "@/components/DonationTiersSection";
 import Footer from "@/components/Footer";
-import DonationNotification from "@/components/DonationNotification";
 import { FloatingChatButton } from "@/components/FloatingChatButton";
 
 const Index = () => {
@@ -22,7 +21,6 @@ const Index = () => {
         <DonationTiersSection />
       </main>
       <Footer />
-      <DonationNotification />
       <FloatingChatButton />
     </div>
   );
