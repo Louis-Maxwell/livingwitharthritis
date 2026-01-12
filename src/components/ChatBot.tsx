@@ -2,9 +2,10 @@ import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Send, Bot, User, Trash2, Loader2 } from "lucide-react";
+import { Send, Bot, User, Trash2, Loader2, LogIn } from "lucide-react";
 import { useStreamingChat, Message } from "@/hooks/useStreamingChat";
 import { cn } from "@/lib/utils";
+import { supabase } from "@/integrations/supabase/client";
 
 const ChatMessage = ({ message }: { message: Message }) => {
   const isUser = message.role === "user";
@@ -38,9 +39,26 @@ const ChatMessage = ({ message }: { message: Message }) => {
 
 export function ChatBot() {
   const [input, setInput] = useState("");
-  const { messages, isLoading, sendMessage, clearMessages } = useStreamingChat();
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+  const { messages, isLoading, sendMessage, clearMessages, requiresAuth } = useStreamingChat();
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // Check authentication status
+  useEffect(() => {
+    const checkAuth = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      setIsAuthenticated(!!session);
+    };
+    
+    checkAuth();
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_, session) => {
+      setIsAuthenticated(!!session);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
 
   // Auto-scroll to bottom when new messages arrive
   useEffect(() => {
@@ -56,6 +74,8 @@ export function ChatBot() {
       setInput("");
     }
   };
+
+  const showAuthPrompt = isAuthenticated === false || requiresAuth;
 
   return (
     <div className="flex flex-col h-full w-full bg-card overflow-hidden">
@@ -86,7 +106,16 @@ export function ChatBot() {
 
       {/* Messages */}
       <ScrollArea ref={scrollRef} className="flex-1 p-4">
-        {messages.length === 0 ? (
+        {showAuthPrompt ? (
+          <div className="flex flex-col items-center justify-center h-full text-center text-muted-foreground">
+            <LogIn className="h-12 w-12 mb-4 opacity-50" />
+            <h4 className="font-medium mb-1">Sign in required</h4>
+            <p className="text-sm mb-4">Please sign in to use the AI chat feature.</p>
+            <Button onClick={() => window.location.href = '/auth'}>
+              Sign In
+            </Button>
+          </div>
+        ) : messages.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full text-center text-muted-foreground">
             <Bot className="h-12 w-12 mb-4 opacity-50" />
             <h4 className="font-medium mb-1">Start a conversation</h4>
@@ -119,11 +148,11 @@ export function ChatBot() {
             ref={inputRef}
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Type your message..."
-            disabled={isLoading}
+            placeholder={showAuthPrompt ? "Sign in to chat..." : "Type your message..."}
+            disabled={isLoading || showAuthPrompt}
             className="flex-1"
           />
-          <Button type="submit" disabled={isLoading || !input.trim()} size="icon">
+          <Button type="submit" disabled={isLoading || !input.trim() || showAuthPrompt} size="icon">
             {isLoading ? (
               <Loader2 className="h-4 w-4 animate-spin" />
             ) : (
