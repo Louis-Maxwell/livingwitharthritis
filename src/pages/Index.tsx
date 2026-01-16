@@ -6,6 +6,7 @@ import ConditionsSection from "@/components/ConditionsSection";
 import FundraisingSection from "@/components/FundraisingSection";
 import DonationTiersSection from "@/components/DonationTiersSection";
 import VirtualPhysioSection from "@/components/VirtualPhysioSection";
+import ZohoInvoiceSection from "@/components/ZohoInvoiceSection";
 import Footer from "@/components/Footer";
 import DonationNotification from "@/components/DonationNotification";
 import { FloatingChatButton } from "@/components/FloatingChatButton";
@@ -19,6 +20,7 @@ const Index = () => {
         <AboutSection />
         <ServicesGrid />
         <VirtualPhysioSection />
+        <ZohoInvoiceSection />
         <ConditionsSection />
         <FundraisingSection />
         <DonationTiersSection />
