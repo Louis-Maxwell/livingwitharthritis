@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
-import { X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useRealtimeDonations } from "@/hooks/useRealtimeDonations";
 
 interface Donation {
-  id: number;
+  id: string;
   name: string;
   amount: number;
   location: string;
@@ -12,43 +12,65 @@ interface Donation {
 const DonationNotification = () => {
   const [showNotification, setShowNotification] = useState(false);
   const [currentDonation, setCurrentDonation] = useState<Donation | null>(null);
+  const { latestDonation } = useRealtimeDonations();
 
-  // Simulated donation data
-  const donations: Donation[] = [
-    { id: 1, name: "Linda M.", amount: 100, location: "Novato", country: "United States" },
-    { id: 2, name: "Sarah K.", amount: 50, location: "London", country: "United Kingdom" },
-    { id: 3, name: "Michael R.", amount: 75, location: "Toronto", country: "Canada" },
-    { id: 4, name: "Emma T.", amount: 150, location: "Sydney", country: "Australia" },
-    { id: 5, name: "David L.", amount: 25, location: "Berlin", country: "Germany" },
-    { id: 6, name: "Jessica P.", amount: 200, location: "New York", country: "United States" },
+  // Fallback demo donations for when there are no real donations
+  const demoDonations: Donation[] = [
+    { id: "1", name: "Linda M.", amount: 100, location: "Novato", country: "United States" },
+    { id: "2", name: "Sarah K.", amount: 50, location: "London", country: "United Kingdom" },
+    { id: "3", name: "Michael R.", amount: 75, location: "Toronto", country: "Canada" },
+    { id: "4", name: "Emma T.", amount: 150, location: "Sydney", country: "Australia" },
+    { id: "5", name: "David L.", amount: 25, location: "Berlin", country: "Germany" },
+    { id: "6", name: "Jessica P.", amount: 200, location: "New York", country: "United States" },
   ];
 
+  // Show real-time donation when received
+  useEffect(() => {
+    if (latestDonation) {
+      const donation: Donation = {
+        id: latestDonation.id,
+        name: latestDonation.donor_name || "Anonymous",
+        amount: latestDonation.amount,
+        location: latestDonation.donor_location || "Unknown",
+        country: latestDonation.donor_country || "Unknown",
+      };
+      setCurrentDonation(donation);
+      setShowNotification(true);
+
+      const timeout = setTimeout(() => {
+        setShowNotification(false);
+      }, 6000);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [latestDonation]);
+
+  // Demo rotation for when no real donations come in
   useEffect(() => {
     let donationIndex = 0;
 
     const showNextDonation = () => {
-      setCurrentDonation(donations[donationIndex]);
-      setShowNotification(true);
+      // Only show demo if no real donation is being displayed
+      if (!latestDonation) {
+        setCurrentDonation(demoDonations[donationIndex]);
+        setShowNotification(true);
 
-      // Hide after 6 seconds
-      setTimeout(() => {
-        setShowNotification(false);
-      }, 6000);
+        setTimeout(() => {
+          setShowNotification(false);
+        }, 6000);
 
-      donationIndex = (donationIndex + 1) % donations.length;
+        donationIndex = (donationIndex + 1) % demoDonations.length;
+      }
     };
 
-    // Show first donation after 3 seconds
     const initialTimeout = setTimeout(showNextDonation, 3000);
-
-    // Then show a new donation every 15 seconds
     const interval = setInterval(showNextDonation, 15000);
 
     return () => {
       clearTimeout(initialTimeout);
       clearInterval(interval);
     };
-  }, []);
+  }, [latestDonation]);
 
   if (!showNotification || !currentDonation) return null;
 
@@ -65,7 +87,7 @@ const DonationNotification = () => {
             </span>
             <span className="text-lg">donated</span>
             <span className="font-bold text-primary text-lg">
-              ${currentDonation.amount}
+              £{currentDonation.amount}
             </span>
             <span className="text-xl">🥳</span>
           </div>
@@ -75,10 +97,10 @@ const DonationNotification = () => {
         </div>
         <button
           onClick={() => setShowNotification(false)}
-          className="text-muted-foreground hover:text-foreground transition-colors"
+          className="text-muted-foreground hover:text-foreground transition-colors text-lg leading-none"
           aria-label="Close notification"
         >
-          <X className="w-4 h-4" />
+          ×
         </button>
       </div>
     </div>

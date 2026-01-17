@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Heart, Stethoscope, Users, Calendar, Calculator, BookOpen, Microscope, HandHeart, Phone, Gift } from "lucide-react";
+import { Heart, Stethoscope, Users, Calendar, Calculator, BookOpen, Microscope, HandHeart, Phone, Gift, Loader2 } from "lucide-react";
+import { useDonation } from "@/hooks/useDonation";
 
 const causes = [
   { icon: Heart, label: "Research Fund", color: "bg-primary" },
@@ -17,6 +19,56 @@ const causes = [
 ];
 
 const DonationBanner = () => {
+  const { processDonation, isLoading } = useDonation();
+  const [amount, setAmount] = useState("");
+  const [currency, setCurrency] = useState("GBP");
+  const [fundType, setFundType] = useState("research");
+  const [selectedQuickAmount, setSelectedQuickAmount] = useState<number | null>(100);
+
+  const quickAmounts = [25, 50, 100, 250];
+
+  const handleQuickAmount = (value: number) => {
+    setSelectedQuickAmount(value);
+    setAmount(value.toString());
+  };
+
+  const handleAmountChange = (value: string) => {
+    setAmount(value);
+    const numValue = parseFloat(value);
+    if (quickAmounts.includes(numValue)) {
+      setSelectedQuickAmount(numValue);
+    } else {
+      setSelectedQuickAmount(null);
+    }
+  };
+
+  const handleDonate = async () => {
+    const donationAmount = parseFloat(amount) || selectedQuickAmount || 0;
+    if (donationAmount <= 0) {
+      return;
+    }
+
+    const result = await processDonation({
+      amount: donationAmount,
+      currency,
+      fundType,
+    });
+
+    if (result.success) {
+      setAmount("");
+      setSelectedQuickAmount(100);
+    }
+  };
+
+  const getCurrencySymbol = () => {
+    switch (currency) {
+      case "GBP": return "£";
+      case "USD": return "$";
+      case "EUR": return "€";
+      default: return "£";
+    }
+  };
+
   return (
     <div className="bg-gradient-medical text-secondary-foreground">
       {/* Causes Section */}
@@ -49,8 +101,10 @@ const DonationBanner = () => {
           <div className="flex flex-wrap items-center justify-center gap-3 lg:gap-4">
             {/* Currency Selector */}
             <div className="flex items-center bg-white/95 rounded-lg px-3 py-2 shadow-soft">
-              <span className="text-2xl mr-2">🇬🇧</span>
-              <Select defaultValue="GBP">
+              <span className="text-2xl mr-2">
+                {currency === "GBP" ? "🇬🇧" : currency === "USD" ? "🇺🇸" : "🇪🇺"}
+              </span>
+              <Select value={currency} onValueChange={setCurrency}>
                 <SelectTrigger className="w-16 border-0 p-0 h-auto bg-transparent text-foreground font-semibold">
                   <SelectValue />
                 </SelectTrigger>
@@ -65,29 +119,35 @@ const DonationBanner = () => {
             {/* Amount Input */}
             <Input 
               placeholder="Amount"
+              type="number"
+              min="1"
+              max="100000"
+              value={amount}
+              onChange={(e) => handleAmountChange(e.target.value)}
               className="w-32 bg-white/95 border-0 shadow-soft text-foreground font-medium"
             />
 
             {/* Quick Amount Buttons */}
             <div className="flex gap-2">
-              {['£25', '£50', '£100', '£250'].map((amount, index) => (
+              {quickAmounts.map((value, index) => (
                 <Button
                   key={index}
-                  variant={index === 2 ? "default" : "outline"}
+                  variant={selectedQuickAmount === value ? "default" : "outline"}
                   size="sm"
+                  onClick={() => handleQuickAmount(value)}
                   className={`${
-                    index === 2 
+                    selectedQuickAmount === value 
                       ? "bg-destructive text-destructive-foreground hover:bg-destructive/90" 
                       : "bg-white/95 text-foreground border-white/20 hover:bg-white hover:text-foreground"
                   } font-semibold shadow-soft`}
                 >
-                  {amount}
+                  {getCurrencySymbol()}{value}
                 </Button>
               ))}
             </div>
 
             {/* Fund Selector */}
-            <Select defaultValue="research">
+            <Select value={fundType} onValueChange={setFundType}>
               <SelectTrigger className="w-48 bg-white/95 border-0 shadow-soft text-foreground">
                 <SelectValue />
               </SelectTrigger>
@@ -111,9 +171,18 @@ const DonationBanner = () => {
             {/* Quick Donate Button */}
             <Button 
               size="lg"
-              className="bg-destructive text-destructive-foreground hover:bg-destructive/90 font-bold px-6 py-3 shadow-medium hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
+              onClick={handleDonate}
+              disabled={isLoading || (!amount && !selectedQuickAmount)}
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90 font-bold px-6 py-3 shadow-medium hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 disabled:opacity-50"
             >
-              QUICK DONATE
+              {isLoading ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Processing...
+                </>
+              ) : (
+                "QUICK DONATE"
+              )}
             </Button>
           </div>
         </div>

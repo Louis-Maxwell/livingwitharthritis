@@ -2,3 +2,15 @@ project_id = "ajselqcxoonmcljjbard"
 
 [functions.chat]
 verify_jwt = false
+
+[functions.process-donation]
+verify_jwt = false
+
+[functions.submit-contact]
+verify_jwt = false
+
+[functions.book-appointment]
+verify_jwt = false
+
+[functions.submit-fundraising]
+verify_jwt = false
