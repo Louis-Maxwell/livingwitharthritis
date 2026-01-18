@@ -8,8 +8,6 @@ interface DonationData {
   fundType: string;
   donorName?: string;
   donorEmail?: string;
-  donorLocation?: string;
-  donorCountry?: string;
 }
 
 export function useDonation() {
@@ -18,20 +16,25 @@ export function useDonation() {
   const processDonation = async (data: DonationData) => {
     setIsLoading(true);
     try {
-      const { data: result, error } = await supabase.functions.invoke("process-donation", {
+      const { data: result, error } = await supabase.functions.invoke("create-donation-checkout", {
         body: data,
       });
 
       if (error) {
-        throw new Error(error.message || "Failed to process donation");
+        throw new Error(error.message || "Failed to create checkout session");
       }
 
       if (result?.error) {
         throw new Error(result.error);
       }
 
-      toast.success(result?.message || "Thank you for your donation!");
-      return { success: true, donationId: result?.donationId };
+      if (result?.url) {
+        // Open Stripe Checkout in new tab
+        window.open(result.url, "_blank");
+        return { success: true };
+      }
+
+      throw new Error("No checkout URL received");
     } catch (error) {
       const message = error instanceof Error ? error.message : "Failed to process donation";
       toast.error(message);
