@@ -21,7 +21,6 @@ const Header = () => {
     { label: "Get Help", href: "#help" },
     { label: "Get Involved", href: "#involved" },
     { label: "Shop", href: "#shop" },
-    { label: "Research", href: "#research" },
     { label: "In Your Area", href: "#area" },
   ];
 
@@ -38,36 +37,6 @@ const Header = () => {
             : "bg-background border-b border-border"
         }`}
       >
-        {/* Top bar */}
-        <div className="bg-accent text-accent-foreground">
-          <div className="container mx-auto px-4 md:px-8">
-            <div className="flex justify-between items-center py-2.5 text-sm">
-              <div className="hidden md:flex items-center space-x-8">
-                {["Membership", "News", "Policy", "About us"].map((item, i) => (
-                  <motion.a
-                    key={item}
-                    href="#"
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1, duration: 0.4 }}
-                    className="text-accent-foreground/80 hover:text-accent-foreground transition-colors duration-300 link-underline font-medium"
-                  >
-                    {item}
-                  </motion.a>
-                ))}
-              </div>
-              <motion.a
-                href="#"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-                className="text-accent-foreground/80 hover:text-accent-foreground transition-colors duration-300 font-medium"
-              >
-                Contact us
-              </motion.a>
-            </div>
-          </div>
-        </div>
 
         {/* Main navigation */}
         <div className="bg-transparent">
@@ -79,8 +48,8 @@ const Header = () => {
                 transition={{ duration: 0.6 }}
                 className="flex items-center space-x-2"
               >
-                <div className="text-2xl md:text-3xl font-display font-bold text-foreground tracking-tight">
-                  <span className="text-primary">Living</span> With Arthritis
+                <div className="text-2xl md:text-3xl font-display font-bold text-primary tracking-tight">
+                  Living With Arthritis
                 </div>
               </motion.div>
 
