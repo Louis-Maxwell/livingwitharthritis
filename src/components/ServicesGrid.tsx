@@ -1,14 +1,8 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Phone, Users, MessageCircle, BookOpen, Stethoscope, Calendar, ArrowRight } from "lucide-react";
+import { Users, MessageCircle, BookOpen, Stethoscope, Calendar, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 const services = [
-  {
-    icon: Phone,
-    title: "Helpline",
-    description: "You don't need to face arthritis alone. Our advisors provide expert information and personalized advice.",
-    gradient: "from-emerald-500 to-teal-500",
-  },
   {
     icon: Users,
     title: "Online Community",

@@ -8,7 +8,6 @@ const Footer = () => {
 
   const footerLinks = {
     getHelp: [
-      { label: "Helpline", href: "#" },
       { label: "Online Community", href: "#" },
       { label: "Virtual Assistant", href: "#" },
       { label: "Self Help Tool", href: "#" },
@@ -18,14 +17,6 @@ const Footer = () => {
       { label: "Conditions A-Z", href: "#" },
       { label: "Symptoms", href: "#" },
       { label: "Treatments", href: "#" },
-      { label: "Research", href: "#" },
-      { label: "News & Updates", href: "#" },
-    ],
-    company: [
-      { label: "About Us", href: "#" },
-      { label: "Careers", href: "#" },
-      { label: "Press", href: "#" },
-      { label: "Partners", href: "#" },
     ],
   };
 
@@ -53,9 +44,8 @@ const Footer = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h3 className="text-3xl font-display font-bold mb-4 text-white">
-                <span className="text-primary">Living</span> With
-                <br />Arthritis
+              <h3 className="text-3xl font-display font-bold mb-4 text-primary">
+                Living With Arthritis
               </h3>
               <p className="text-accent-foreground/70 leading-relaxed mb-8 max-w-sm">
                 Supporting 10 million people living with arthritis through 
@@ -118,42 +108,28 @@ const Footer = () => {
             </ul>
           </motion.div>
 
-          {/* Company */}
+          {/* Social links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h4 className="font-bold text-white mb-6">Company</h4>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.label}>
-                  <a href={link.href} className="text-accent-foreground/60 hover:text-white transition-colors duration-200 text-sm">
-                    {link.label}
+            <h4 className="font-bold text-white mb-4">Follow Us</h4>
+            <div className="flex gap-2">
+              {socialLinks.map((social) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    aria-label={social.label}
+                    className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-primary/20 transition-colors duration-200 group"
+                  >
+                    <Icon className="w-4 h-4 text-accent-foreground/60 group-hover:text-white transition-colors" />
                   </a>
-                </li>
-              ))}
-            </ul>
-
-            {/* Social links */}
-            <div className="mt-8">
-              <h4 className="font-bold text-white mb-4">Follow Us</h4>
-              <div className="flex gap-2">
-                {socialLinks.map((social) => {
-                  const Icon = social.icon;
-                  return (
-                    <a
-                      key={social.label}
-                      href={social.href}
-                      aria-label={social.label}
-                      className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-primary/20 transition-colors duration-200 group"
-                    >
-                      <Icon className="w-4 h-4 text-accent-foreground/60 group-hover:text-white transition-colors" />
-                    </a>
-                  );
-                })}
-              </div>
+                );
+              })}
             </div>
           </motion.div>
         </div>
