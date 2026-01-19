@@ -1,3 +1,4 @@
+import { memo, useMemo } from "react";
 import physioMyth1 from "@/assets/physio-myth-1.jpg";
 import physioMyth2 from "@/assets/physio-myth-2.jpg";
 import physioMyth3 from "@/assets/physio-myth-3.jpg";
@@ -5,8 +6,9 @@ import physioMyth4 from "@/assets/physio-myth-4.jpg";
 import { motion } from "framer-motion";
 import { Check, X, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { OptimizedImage } from "@/components/ui/OptimizedImage";
 
-const myths = [
+const MYTHS_DATA = [
   {
     id: 1,
     myth: "You can't get proper treatment without seeing a physio in person.",
@@ -43,7 +45,7 @@ const myths = [
     fact: "Studies show virtual physio patients stick with it longer, get better adherence, and sometimes recover faster over time.",
     image: physioMyth4,
   },
-];
+] as const;
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -58,7 +60,58 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
-const VirtualPhysioSection = () => {
+// Memoized myth card component
+const MythCard = memo(({ item }: { item: typeof MYTHS_DATA[number] }) => (
+  <motion.div variants={itemVariants} className="group">
+    <div className="h-full bg-card rounded-2xl border border-border/50 hover:border-primary/20 hover:shadow-large transition-all duration-500 overflow-hidden">
+      {item.image && (
+        <div className="relative h-48 overflow-hidden">
+          <OptimizedImage
+            src={item.image}
+            alt={`Virtual physiotherapy illustration ${item.id}`}
+            className="w-full h-full transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
+        </div>
+      )}
+      <div className="p-6 space-y-5">
+        <div className="flex items-start gap-3">
+          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-destructive/10 flex items-center justify-center">
+            <X className="w-4 h-4 text-destructive" />
+          </div>
+          <div>
+            <span className="text-xs font-bold text-destructive uppercase tracking-wider">
+              Myth #{item.id}
+            </span>
+            <p className="text-foreground font-medium mt-1 leading-relaxed">
+              "{item.myth}"
+            </p>
+          </div>
+        </div>
+        <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+        <div className="flex items-start gap-3">
+          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+            <Check className="w-4 h-4 text-primary" />
+          </div>
+          <div>
+            <span className="text-xs font-bold text-primary uppercase tracking-wider">
+              Reality
+            </span>
+            <p className="text-muted-foreground text-sm mt-1 leading-relaxed">
+              {item.fact}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </motion.div>
+));
+
+MythCard.displayName = "MythCard";
+
+const VirtualPhysioSection = memo(() => {
+  const myths = useMemo(() => MYTHS_DATA, []);
+
   return (
     <section className="py-24 lg:py-32 bg-background relative overflow-hidden">
       {/* Background decorations */}
@@ -101,60 +154,7 @@ const VirtualPhysioSection = () => {
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16"
         >
           {myths.map((item) => (
-            <motion.div
-              key={item.id}
-              variants={itemVariants}
-              className="group"
-            >
-              <div className="h-full bg-card rounded-2xl border border-border/50 hover:border-primary/20 hover:shadow-large transition-all duration-500 overflow-hidden">
-                {/* Image section */}
-                {item.image && (
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={item.image}
-                      alt={`Virtual physiotherapy illustration ${item.id}`}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
-                  </div>
-                )}
-                
-                <div className="p-6 space-y-5">
-                  {/* Myth */}
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-destructive/10 flex items-center justify-center">
-                      <X className="w-4 h-4 text-destructive" />
-                    </div>
-                    <div>
-                      <span className="text-xs font-bold text-destructive uppercase tracking-wider">
-                        Myth #{item.id}
-                      </span>
-                      <p className="text-foreground font-medium mt-1 leading-relaxed">
-                        "{item.myth}"
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Divider */}
-                  <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-
-                  {/* Fact */}
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Check className="w-4 h-4 text-primary" />
-                    </div>
-                    <div>
-                      <span className="text-xs font-bold text-primary uppercase tracking-wider">
-                        Reality
-                      </span>
-                      <p className="text-muted-foreground text-sm mt-1 leading-relaxed">
-                        {item.fact}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+            <MythCard key={item.id} item={item} />
           ))}
         </motion.div>
 
@@ -188,6 +188,8 @@ const VirtualPhysioSection = () => {
       </div>
     </section>
   );
-};
+});
+
+VirtualPhysioSection.displayName = "VirtualPhysioSection";
 
 export default VirtualPhysioSection;

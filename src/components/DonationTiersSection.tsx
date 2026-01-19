@@ -1,39 +1,43 @@
-const DonationTiersSection = () => {
-  const tiers = [
-    {
-      amount: "£250+",
-      color: "from-teal-700 to-teal-500",
-      benefits: [
-        "Thank you on Social Media",
-        "Your logo on our website",
-        "Our 'supporter' logo for your website",
-        "Certificate"
-      ]
-    },
-    {
-      amount: "£1000+",
-      color: "from-teal-800 to-teal-600",
-      benefits: [
-        "Thank you on Social Media",
-        "Your logo on our website",
-        "Our 'supporter' logo for your website",
-        "Certificate",
-        "Taster Mental Health at Work session"
-      ]
-    },
-    {
-      amount: "£5000+",
-      color: "from-teal-900 to-teal-700",
-      benefits: [
-        "Thank you on Social Media",
-        "Your logo on our website",
-        "Our 'supporter' logo for your website",
-        "Certificate",
-        "Taster Mental Health at Work session",
-        "Personal thank you from our CEO, photo opportunity and press release."
-      ]
-    }
-  ];
+import { memo, useMemo } from "react";
+
+const TIERS_DATA = [
+  {
+    amount: "£250+",
+    color: "from-teal-700 to-teal-500",
+    benefits: [
+      "Thank you on Social Media",
+      "Your logo on our website",
+      "Our 'supporter' logo for your website",
+      "Certificate"
+    ]
+  },
+  {
+    amount: "£1000+",
+    color: "from-teal-800 to-teal-600",
+    benefits: [
+      "Thank you on Social Media",
+      "Your logo on our website",
+      "Our 'supporter' logo for your website",
+      "Certificate",
+      "Taster Mental Health at Work session"
+    ]
+  },
+  {
+    amount: "£5000+",
+    color: "from-teal-900 to-teal-700",
+    benefits: [
+      "Thank you on Social Media",
+      "Your logo on our website",
+      "Our 'supporter' logo for your website",
+      "Certificate",
+      "Taster Mental Health at Work session",
+      "Personal thank you from our CEO, photo opportunity and press release."
+    ]
+  }
+] as const;
+
+const DonationTiersSection = memo(() => {
+  const tiers = useMemo(() => TIERS_DATA, []);
 
   return (
     <section className="py-16 px-4 bg-background">
@@ -64,6 +68,8 @@ const DonationTiersSection = () => {
       </div>
     </section>
   );
-};
+});
+
+DonationTiersSection.displayName = "DonationTiersSection";
 
 export default DonationTiersSection;

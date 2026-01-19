@@ -1,10 +1,11 @@
+import { memo, useMemo } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ChevronRight, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
-const conditions = [
+const CONDITIONS_DATA = [
   {
     title: "Cervical Myelopathy",
     description: "Compression of the spinal cord at neck level due to trauma or structural changes in the neck bones.",
@@ -41,7 +42,7 @@ const conditions = [
     category: "Neurological",
     color: "bg-blue-500",
   },
-];
+] as const;
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -56,7 +57,9 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
-const ConditionsSection = () => {
+const ConditionsSection = memo(() => {
+  const conditions = useMemo(() => CONDITIONS_DATA, []);
+
   return (
     <section className="py-24 lg:py-32 bg-muted/30 relative overflow-hidden">
       {/* Subtle background pattern */}
@@ -146,6 +149,8 @@ const ConditionsSection = () => {
       </div>
     </section>
   );
-};
+});
+
+ConditionsSection.displayName = "ConditionsSection";
 
 export default ConditionsSection;

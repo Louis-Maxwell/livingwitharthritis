@@ -1,10 +1,11 @@
+import { memo, useMemo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Activity, Users, Briefcase, Database, ArrowRight, Quote } from "lucide-react";
 import { motion } from "framer-motion";
 
-const AboutSection = () => {
-  const arthritisTypes = [
+const AboutSection = memo(() => {
+  const arthritisTypes = useMemo(() => [
     {
       title: "Osteoarthritis",
       description: "The most common form, often called \"wear and tear\" arthritis. Affects cartilage in joints, leading to pain and stiffness. Manageable with lifestyle changes.",
@@ -29,14 +30,14 @@ const AboutSection = () => {
       title: "Axial Spondyloarthritis",
       description: "Inflammatory diseases primarily affecting the spine. Early diagnosis prevents further complications.",
     },
-  ];
+  ], []);
 
-  const statistics = [
+  const statistics = useMemo(() => [
     { number: "60M+", label: "Adults diagnosed with arthritis", icon: Users },
     { number: "1 in 4", label: "Adults have a type of arthritis", icon: Activity },
     { number: "52%", label: "Working age adults affected", icon: Briefcase },
     { number: "100+", label: "Arthritis-related conditions", icon: Database },
-  ];
+  ], []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -200,6 +201,8 @@ const AboutSection = () => {
       </div>
     </section>
   );
-};
+});
+
+AboutSection.displayName = "AboutSection";
 
 export default AboutSection;
