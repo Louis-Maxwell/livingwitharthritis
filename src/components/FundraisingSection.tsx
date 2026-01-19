@@ -1,15 +1,19 @@
+import { memo, useMemo } from "react";
 import { Button } from "@/components/ui/button";
+import { OptimizedImage } from "@/components/ui/OptimizedImage";
 
-const FundraisingSection = () => {
-  const fundraisingOptions = [
-    "Corporate Partnerships",
-    "Leave a gift in your Will",
-    "Fundraising Events",
-    "Community Fundraising",
-    "Meet our Fundraisers",
-    "Volunteer with Us",
-    "Philanthropy and Major Gifts",
-  ];
+const FUNDRAISING_OPTIONS = [
+  "Corporate Partnerships",
+  "Leave a gift in your Will",
+  "Fundraising Events",
+  "Community Fundraising",
+  "Meet our Fundraisers",
+  "Volunteer with Us",
+  "Philanthropy and Major Gifts",
+] as const;
+
+const FundraisingSection = memo(() => {
+  const fundraisingOptions = useMemo(() => FUNDRAISING_OPTIONS, []);
 
   return (
     <section className="py-16 bg-background">
@@ -44,10 +48,10 @@ const FundraisingSection = () => {
               </Button>
             </div>
             <div className="mt-4">
-              <img
+              <OptimizedImage
                 src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=200&fit=crop"
                 alt="Young adults together"
-                className="w-full h-32 object-cover rounded-md"
+                className="w-full h-32 rounded-md"
               />
             </div>
           </div>
@@ -55,6 +59,8 @@ const FundraisingSection = () => {
       </div>
     </section>
   );
-};
+});
+
+FundraisingSection.displayName = "FundraisingSection";
 
 export default FundraisingSection;

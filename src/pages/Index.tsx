@@ -1,14 +1,26 @@
+import { lazy, Suspense, memo } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
-import ServicesGrid from "@/components/ServicesGrid";
-import ConditionsSection from "@/components/ConditionsSection";
-import FundraisingSection from "@/components/FundraisingSection";
-import DonationTiersSection from "@/components/DonationTiersSection";
-import VirtualPhysioSection from "@/components/VirtualPhysioSection";
 import Footer from "@/components/Footer";
-import DonationNotification from "@/components/DonationNotification";
 import { FloatingChatButton } from "@/components/FloatingChatButton";
+
+// Lazy load below-fold sections for faster initial load
+const AboutSection = lazy(() => import("@/components/AboutSection"));
+const ServicesGrid = lazy(() => import("@/components/ServicesGrid"));
+const VirtualPhysioSection = lazy(() => import("@/components/VirtualPhysioSection"));
+const ConditionsSection = lazy(() => import("@/components/ConditionsSection"));
+const FundraisingSection = lazy(() => import("@/components/FundraisingSection"));
+const DonationTiersSection = lazy(() => import("@/components/DonationTiersSection"));
+const DonationNotification = lazy(() => import("@/components/DonationNotification"));
+
+// Minimal skeleton for lazy sections
+const SectionLoader = memo(() => (
+  <div className="py-16 flex items-center justify-center">
+    <div className="animate-pulse h-4 w-32 bg-muted rounded" />
+  </div>
+));
+
+SectionLoader.displayName = "SectionLoader";
 
 const Index = () => {
   return (
@@ -16,15 +28,29 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
-        <AboutSection />
-        <ServicesGrid />
-        <VirtualPhysioSection />
-        <ConditionsSection />
-        <FundraisingSection />
-        <DonationTiersSection />
+        <Suspense fallback={<SectionLoader />}>
+          <AboutSection />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <ServicesGrid />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <VirtualPhysioSection />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <ConditionsSection />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <FundraisingSection />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <DonationTiersSection />
+        </Suspense>
       </main>
       <Footer />
-      <DonationNotification />
+      <Suspense fallback={null}>
+        <DonationNotification />
+      </Suspense>
       <FloatingChatButton />
     </div>
   );
