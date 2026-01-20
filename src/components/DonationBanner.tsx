@@ -159,13 +159,11 @@ const DonationBanner = () => {
               </SelectContent>
             </Select>
 
-            {/* Payment Icons */}
-            <div className="flex items-center gap-2 bg-white/95 rounded-lg px-3 py-2 shadow-soft">
-              <div className="text-xs text-muted-foreground font-medium">💳</div>
-              <div className="text-xs text-muted-foreground">Visa</div>
-              <div className="text-xs text-muted-foreground">MC</div>
-              <div className="text-xs text-muted-foreground">💳</div>
-              <div className="text-xs text-muted-foreground">GPay</div>
+            {/* PayPal Badge */}
+            <div className="flex items-center gap-2 bg-[#003087] rounded-lg px-4 py-2 shadow-soft">
+              <span className="text-white font-bold text-sm">Pay</span>
+              <span className="text-[#009cde] font-bold text-sm">Pal</span>
+              <span className="text-white/80 text-xs ml-1">Secure</span>
             </div>
 
             {/* Quick Donate Button */}
