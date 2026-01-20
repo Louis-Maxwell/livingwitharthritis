@@ -10,31 +10,50 @@ interface DonationData {
   donorEmail?: string;
 }
 
+interface PayPalResponse {
+  clientId?: string;
+  orderId?: string;
+  approvalUrl?: string;
+  error?: string;
+}
+
 export function useDonation() {
   const [isLoading, setIsLoading] = useState(false);
+  const [paypalConfig, setPaypalConfig] = useState<{ clientId: string; amount: number; currency: string; fundType: string } | null>(null);
 
   const processDonation = async (data: DonationData) => {
     setIsLoading(true);
     try {
-      const { data: result, error } = await supabase.functions.invoke("create-donation-checkout", {
+      const { data: result, error } = await supabase.functions.invoke<PayPalResponse>("paypal-checkout", {
         body: data,
       });
 
       if (error) {
-        throw new Error(error.message || "Failed to create checkout session");
+        throw new Error(error.message || "Failed to create PayPal checkout");
       }
 
       if (result?.error) {
         throw new Error(result.error);
       }
 
-      if (result?.url) {
-        // Open Stripe Checkout in new tab
-        window.open(result.url, "_blank");
+      // If we got an approval URL (server-side flow), redirect to PayPal
+      if (result?.approvalUrl) {
+        window.open(result.approvalUrl, "_blank");
         return { success: true };
       }
 
-      throw new Error("No checkout URL received");
+      // Otherwise, set up for client-side PayPal buttons
+      if (result?.clientId) {
+        setPaypalConfig({
+          clientId: result.clientId,
+          amount: data.amount,
+          currency: data.currency,
+          fundType: data.fundType,
+        });
+        return { success: true, showPayPalButtons: true, clientId: result.clientId };
+      }
+
+      throw new Error("PayPal configuration error");
     } catch (error) {
       const message = error instanceof Error ? error.message : "Failed to process donation";
       toast.error(message);
@@ -44,5 +63,7 @@ export function useDonation() {
     }
   };
 
-  return { processDonation, isLoading };
+  const clearPaypalConfig = () => setPaypalConfig(null);
+
+  return { processDonation, isLoading, paypalConfig, clearPaypalConfig };
 }
