@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Heart, Stethoscope, Users, Calendar, Calculator, BookOpen, Microscope, HandHeart, Phone, Gift, Loader2 } from "lucide-react";
-import { useDonation } from "@/hooks/useDonation";
+import PayPalDonationModal from "./PayPalDonationModal";
 
 const causes = [
   { icon: Heart, label: "Research Fund", color: "bg-primary" },
@@ -19,11 +19,11 @@ const causes = [
 ];
 
 const DonationBanner = () => {
-  const { processDonation, isLoading } = useDonation();
   const [amount, setAmount] = useState("");
   const [currency, setCurrency] = useState("GBP");
   const [fundType, setFundType] = useState("research");
   const [selectedQuickAmount, setSelectedQuickAmount] = useState<number | null>(100);
+  const [isPayPalModalOpen, setIsPayPalModalOpen] = useState(false);
 
   const quickAmounts = [25, 50, 100, 250];
 
@@ -42,22 +42,16 @@ const DonationBanner = () => {
     }
   };
 
-  const handleDonate = async () => {
+  const handleDonate = () => {
     const donationAmount = parseFloat(amount) || selectedQuickAmount || 0;
     if (donationAmount <= 0) {
       return;
     }
+    setIsPayPalModalOpen(true);
+  };
 
-    const result = await processDonation({
-      amount: donationAmount,
-      currency,
-      fundType,
-    });
-
-    if (result.success) {
-      setAmount("");
-      setSelectedQuickAmount(100);
-    }
+  const handleModalClose = () => {
+    setIsPayPalModalOpen(false);
   };
 
   const getCurrencySymbol = () => {
@@ -68,6 +62,8 @@ const DonationBanner = () => {
       default: return "£";
     }
   };
+
+  const getDonationAmount = () => parseFloat(amount) || selectedQuickAmount || 100;
 
   return (
     <div className="bg-gradient-medical text-secondary-foreground">
@@ -170,21 +166,34 @@ const DonationBanner = () => {
             <Button 
               size="lg"
               onClick={handleDonate}
-              disabled={isLoading || (!amount && !selectedQuickAmount)}
+              disabled={!amount && !selectedQuickAmount}
               className="bg-destructive text-destructive-foreground hover:bg-destructive/90 font-bold px-6 py-3 shadow-medium hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 disabled:opacity-50"
             >
-              {isLoading ? (
-                <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Processing...
-                </>
-              ) : (
-                "QUICK DONATE"
-              )}
+              QUICK DONATE
+            </Button>
+
+            {/* PayPal Button */}
+            <Button 
+              size="lg"
+              onClick={handleDonate}
+              disabled={!amount && !selectedQuickAmount}
+              className="bg-[#0070ba] hover:bg-[#003087] text-white font-bold px-6 py-3 shadow-medium hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 disabled:opacity-50 flex items-center gap-2"
+            >
+              <span className="font-bold">Pay</span>
+              <span className="text-[#00b8ff] font-bold">Pal</span>
             </Button>
           </div>
         </div>
       </div>
+
+      {/* PayPal Modal */}
+      <PayPalDonationModal
+        isOpen={isPayPalModalOpen}
+        onClose={handleModalClose}
+        amount={getDonationAmount()}
+        currency={currency}
+        fundType={fundType}
+      />
     </div>
   );
 };
