@@ -1,19 +1,11 @@
-import { memo, useMemo } from "react";
+import { memo } from "react";
 import { Button } from "@/components/ui/button";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
-
-const FUNDRAISING_OPTIONS = [
-  "Corporate Partnerships",
-  "Leave a gift in your Will",
-  "Fundraising Events",
-  "Community Fundraising",
-  "Meet our Fundraisers",
-  "Volunteer with Us",
-  "Philanthropy and Major Gifts",
-] as const;
+import { useFundraisingOptions } from "@/hooks/useCmsContent";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const FundraisingSection = memo(() => {
-  const fundraisingOptions = useMemo(() => FUNDRAISING_OPTIONS, []);
+  const { data: fundraisingOptions, isLoading } = useFundraisingOptions();
 
   return (
     <section className="py-16 bg-background">
@@ -21,19 +13,27 @@ const FundraisingSection = memo(() => {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Fundraising Options List */}
           <div className="lg:col-span-2 space-y-4">
-            {fundraisingOptions.map((option, index) => (
-              <div
-                key={index}
-                className="border-b border-border pb-4 last:border-0"
-              >
-                <a
-                  href="#"
-                  className="text-primary hover:text-primary/80 font-medium text-lg transition-colors"
+            {isLoading ? (
+              Array.from({ length: 7 }).map((_, i) => (
+                <div key={i} className="border-b border-border pb-4 last:border-0">
+                  <Skeleton className="h-6 w-48" />
+                </div>
+              ))
+            ) : (
+              fundraisingOptions?.map((option) => (
+                <div
+                  key={option.id}
+                  className="border-b border-border pb-4 last:border-0"
                 >
-                  {option}
-                </a>
-              </div>
-            ))}
+                  <a
+                    href="#"
+                    className="text-primary hover:text-primary/80 font-medium text-lg transition-colors"
+                  >
+                    {option.title}
+                  </a>
+                </div>
+              ))
+            )}
           </div>
 
           {/* Young Adult Hub Card */}

@@ -1,4 +1,4 @@
-import { memo, useMemo } from "react";
+import { memo } from "react";
 import physioMyth1 from "@/assets/physio-myth-1.jpg";
 import physioMyth2 from "@/assets/physio-myth-2.jpg";
 import physioMyth3 from "@/assets/physio-myth-3.jpg";
@@ -7,45 +7,16 @@ import { motion } from "framer-motion";
 import { Check, X, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
+import { usePhysioMyths, PhysioMyth } from "@/hooks/useCmsContent";
+import { Skeleton } from "@/components/ui/skeleton";
 
-const MYTHS_DATA = [
-  {
-    id: 1,
-    myth: "You can't get proper treatment without seeing a physio in person.",
-    fact: "Over 85–90% of patients report the same or higher satisfaction with virtual sessions. Most physio success comes through guided exercises and education—which work brilliantly over video.",
-    image: physioMyth1,
-  },
-  {
-    id: 2,
-    myth: "Virtual physio won't help real pain or serious injuries.",
-    fact: "NHS-backed research shows similar results for back pain, neck issues, and sports injuries—whether in-clinic or online. Pain drops, movement improves.",
-    image: physioMyth2,
-  },
-  {
-    id: 3,
-    myth: "It's only for people who can't travel.",
-    fact: "Busy professionals, parents, and night-shift workers choose virtual because it fits their life—no more rushing across town after work.",
-    image: null,
-  },
-  {
-    id: 4,
-    myth: "Online feels cold and less personal.",
-    fact: "Many say it's MORE personal! One-to-one focus, no waiting room chaos. Patients often feel they get deeper attention online.",
-    image: physioMyth3,
-  },
-  {
-    id: 5,
-    myth: "You need fancy gym equipment at home.",
-    fact: "Just YOU. Most plans use bodyweight, a chair, or simple resistance bands. Your physio customises everything to what you have.",
-    image: null,
-  },
-  {
-    id: 6,
-    myth: "Long-term recovery? Virtual won't cut it.",
-    fact: "Studies show virtual physio patients stick with it longer, get better adherence, and sometimes recover faster over time.",
-    image: physioMyth4,
-  },
-] as const;
+// Map image URLs to local imports for fallback
+const imageMap: Record<string, string> = {
+  "/assets/physio-myth-1.jpg": physioMyth1,
+  "/assets/physio-myth-2.jpg": physioMyth2,
+  "/assets/physio-myth-3.jpg": physioMyth3,
+  "/assets/physio-myth-4.jpg": physioMyth4,
+};
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -60,61 +31,88 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
-// Memoized myth card component
-const MythCard = memo(({ item }: { item: typeof MYTHS_DATA[number] }) => (
-  <motion.div variants={itemVariants} className="group">
-    <div className="h-full bg-card rounded-2xl border border-border/50 hover:border-primary/20 hover:shadow-large transition-all duration-500 overflow-hidden">
-      {item.image && (
-        <div className="relative h-48 overflow-hidden">
-          <OptimizedImage
-            src={item.image}
-            alt={`Virtual physiotherapy illustration ${item.id}`}
-            className="w-full h-full transition-transform duration-700 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
-        </div>
-      )}
-      <div className="p-6 space-y-5">
-        <div className="flex items-start gap-3">
-          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-destructive/10 flex items-center justify-center">
-            <X className="w-4 h-4 text-destructive" />
+const MythCard = memo(({ item, index }: { item: PhysioMyth; index: number }) => {
+  const imageSrc = item.image_url ? (imageMap[item.image_url] || item.image_url) : null;
+  
+  return (
+    <motion.div variants={itemVariants} className="group">
+      <div className="h-full bg-card rounded-2xl border border-border/50 hover:border-primary/20 hover:shadow-large transition-all duration-500 overflow-hidden">
+        {imageSrc && (
+          <div className="relative h-48 overflow-hidden">
+            <OptimizedImage
+              src={imageSrc}
+              alt={`Virtual physiotherapy illustration ${index + 1}`}
+              className="w-full h-full transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
           </div>
-          <div>
-            <span className="text-xs font-bold text-destructive uppercase tracking-wider">
-              Myth #{item.id}
-            </span>
-            <p className="text-foreground font-medium mt-1 leading-relaxed">
-              "{item.myth}"
-            </p>
+        )}
+        <div className="p-6 space-y-5">
+          <div className="flex items-start gap-3">
+            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-destructive/10 flex items-center justify-center">
+              <X className="w-4 h-4 text-destructive" />
+            </div>
+            <div>
+              <span className="text-xs font-bold text-destructive uppercase tracking-wider">
+                Myth #{index + 1}
+              </span>
+              <p className="text-foreground font-medium mt-1 leading-relaxed">
+                "{item.myth}"
+              </p>
+            </div>
           </div>
-        </div>
-        <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-        <div className="flex items-start gap-3">
-          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-            <Check className="w-4 h-4 text-primary" />
-          </div>
-          <div>
-            <span className="text-xs font-bold text-primary uppercase tracking-wider">
-              Reality
-            </span>
-            <p className="text-muted-foreground text-sm mt-1 leading-relaxed">
-              {item.fact}
-            </p>
+          <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+          <div className="flex items-start gap-3">
+            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+              <Check className="w-4 h-4 text-primary" />
+            </div>
+            <div>
+              <span className="text-xs font-bold text-primary uppercase tracking-wider">
+                Reality
+              </span>
+              <p className="text-muted-foreground text-sm mt-1 leading-relaxed">
+                {item.fact}
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </motion.div>
-));
+    </motion.div>
+  );
+});
 
 MythCard.displayName = "MythCard";
 
+const MythSkeleton = () => (
+  <div className="h-full bg-card rounded-2xl border border-border/50 overflow-hidden">
+    <Skeleton className="h-48 w-full" />
+    <div className="p-6 space-y-5">
+      <div className="flex items-start gap-3">
+        <Skeleton className="w-8 h-8 rounded-full flex-shrink-0" />
+        <div className="flex-1">
+          <Skeleton className="h-3 w-16 mb-2" />
+          <Skeleton className="h-4 w-full" />
+          <Skeleton className="h-4 w-5/6 mt-1" />
+        </div>
+      </div>
+      <Skeleton className="h-px w-full" />
+      <div className="flex items-start gap-3">
+        <Skeleton className="w-8 h-8 rounded-full flex-shrink-0" />
+        <div className="flex-1">
+          <Skeleton className="h-3 w-12 mb-2" />
+          <Skeleton className="h-4 w-full" />
+          <Skeleton className="h-4 w-4/6 mt-1" />
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
 const VirtualPhysioSection = memo(() => {
-  const myths = useMemo(() => MYTHS_DATA, []);
+  const { data: myths, isLoading } = usePhysioMyths();
 
   return (
     <section className="py-24 lg:py-32 bg-background relative overflow-hidden">
-      {/* Background decorations */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-3xl" />
 
@@ -153,9 +151,17 @@ const VirtualPhysioSection = memo(() => {
           viewport={{ once: true }}
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16"
         >
-          {myths.map((item) => (
-            <MythCard key={item.id} item={item} />
-          ))}
+          {isLoading ? (
+            Array.from({ length: 6 }).map((_, i) => (
+              <motion.div key={i} variants={itemVariants}>
+                <MythSkeleton />
+              </motion.div>
+            ))
+          ) : (
+            myths?.map((item, index) => (
+              <MythCard key={item.id} item={item} index={index} />
+            ))
+          )}
         </motion.div>
 
         {/* Bottom CTA */}

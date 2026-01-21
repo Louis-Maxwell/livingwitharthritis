@@ -1,43 +1,21 @@
-import { memo, useMemo } from "react";
+import { memo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Activity, Users, Briefcase, Database, ArrowRight, Quote } from "lucide-react";
+import { Activity, Users, Briefcase, Database, ArrowRight, Quote, LucideIcon } from "lucide-react";
 import { motion } from "framer-motion";
+import { useArthritisTypes, useStatistics } from "@/hooks/useCmsContent";
+import { Skeleton } from "@/components/ui/skeleton";
+
+const iconMap: Record<string, LucideIcon> = {
+  Users,
+  Activity,
+  Briefcase,
+  Database,
+};
 
 const AboutSection = memo(() => {
-  const arthritisTypes = useMemo(() => [
-    {
-      title: "Osteoarthritis",
-      description: "The most common form, often called \"wear and tear\" arthritis. Affects cartilage in joints, leading to pain and stiffness. Manageable with lifestyle changes.",
-    },
-    {
-      title: "Rheumatoid Arthritis",
-      description: "An autoimmune disorder where the immune system attacks healthy joints. Early diagnosis and treatment prevent permanent damage.",
-    },
-    {
-      title: "Psoriatic Arthritis",
-      description: "Linked to psoriasis, affecting both skin and joints. Personalized treatment plans are crucial for managing symptoms.",
-    },
-    {
-      title: "Gout",
-      description: "Caused by excess uric acid forming crystals in joints. Lifestyle changes and medications effectively control flare-ups.",
-    },
-    {
-      title: "Juvenile Arthritis",
-      description: "Affects children with persistent joint inflammation. Comprehensive treatment helps children lead active lives.",
-    },
-    {
-      title: "Axial Spondyloarthritis",
-      description: "Inflammatory diseases primarily affecting the spine. Early diagnosis prevents further complications.",
-    },
-  ], []);
-
-  const statistics = useMemo(() => [
-    { number: "60M+", label: "Adults diagnosed with arthritis", icon: Users },
-    { number: "1 in 4", label: "Adults have a type of arthritis", icon: Activity },
-    { number: "52%", label: "Working age adults affected", icon: Briefcase },
-    { number: "100+", label: "Arthritis-related conditions", icon: Database },
-  ], []);
+  const { data: arthritisTypes, isLoading: typesLoading } = useArthritisTypes();
+  const { data: statistics, isLoading: statsLoading } = useStatistics();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -54,7 +32,6 @@ const AboutSection = memo(() => {
 
   return (
     <section className="py-24 lg:py-32 bg-gradient-to-b from-secondary via-secondary/95 to-secondary text-secondary-foreground relative overflow-hidden">
-      {/* Decorative elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-white/5 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
@@ -121,22 +98,36 @@ const AboutSection = memo(() => {
             <p className="text-white/60 text-lg">The scope of arthritis impact worldwide</p>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-            {statistics.map((stat, index) => {
-              const Icon = stat.icon;
-              return (
-                <motion.div key={index} variants={itemVariants}>
-                  <Card className="glass-card bg-white/5 border-white/10 hover:bg-white/10 transition-all duration-500 group rounded-2xl">
+            {statsLoading ? (
+              Array.from({ length: 4 }).map((_, i) => (
+                <motion.div key={i} variants={itemVariants}>
+                  <Card className="glass-card bg-white/5 border-white/10 rounded-2xl">
                     <CardContent className="pt-8 pb-6 text-center">
-                      <div className="mb-4 mx-auto w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                        <Icon className="w-6 h-6 text-white/70 group-hover:text-white transition-colors" />
-                      </div>
-                      <div className="text-4xl lg:text-5xl font-display font-bold mb-2 text-white">{stat.number}</div>
-                      <p className="text-sm text-white/60 leading-relaxed">{stat.label}</p>
+                      <Skeleton className="mb-4 mx-auto w-12 h-12 rounded-xl bg-white/10" />
+                      <Skeleton className="h-10 w-20 mx-auto mb-2 bg-white/10" />
+                      <Skeleton className="h-4 w-32 mx-auto bg-white/10" />
                     </CardContent>
                   </Card>
                 </motion.div>
-              );
-            })}
+              ))
+            ) : (
+              statistics?.map((stat) => {
+                const Icon = iconMap[stat.icon_name] || Users;
+                return (
+                  <motion.div key={stat.id} variants={itemVariants}>
+                    <Card className="glass-card bg-white/5 border-white/10 hover:bg-white/10 transition-all duration-500 group rounded-2xl">
+                      <CardContent className="pt-8 pb-6 text-center">
+                        <div className="mb-4 mx-auto w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                          <Icon className="w-6 h-6 text-white/70 group-hover:text-white transition-colors" />
+                        </div>
+                        <div className="text-4xl lg:text-5xl font-display font-bold mb-2 text-white">{stat.number_value}</div>
+                        <p className="text-sm text-white/60 leading-relaxed">{stat.label}</p>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                );
+              })
+            )}
           </div>
         </motion.div>
 
@@ -161,22 +152,39 @@ const AboutSection = memo(() => {
             viewport={{ once: true }}
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-5"
           >
-            {arthritisTypes.map((type, index) => (
-              <motion.div key={index} variants={itemVariants}>
-                <Card className="h-full bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 group rounded-2xl overflow-hidden">
-                  <CardHeader className="pb-3">
-                    <CardTitle className="text-lg font-display font-semibold text-white group-hover:text-primary-foreground transition-colors">
-                      {type.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-white/70 text-sm leading-relaxed">
-                      {type.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+            {typesLoading ? (
+              Array.from({ length: 6 }).map((_, i) => (
+                <motion.div key={i} variants={itemVariants}>
+                  <Card className="h-full bg-white/5 border-white/10 rounded-2xl">
+                    <CardHeader className="pb-3">
+                      <Skeleton className="h-5 w-32 bg-white/10" />
+                    </CardHeader>
+                    <CardContent>
+                      <Skeleton className="h-4 w-full bg-white/10 mb-2" />
+                      <Skeleton className="h-4 w-5/6 bg-white/10 mb-2" />
+                      <Skeleton className="h-4 w-4/6 bg-white/10" />
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))
+            ) : (
+              arthritisTypes?.map((type) => (
+                <motion.div key={type.id} variants={itemVariants}>
+                  <Card className="h-full bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 group rounded-2xl overflow-hidden">
+                    <CardHeader className="pb-3">
+                      <CardTitle className="text-lg font-display font-semibold text-white group-hover:text-primary-foreground transition-colors">
+                        {type.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-white/70 text-sm leading-relaxed">
+                        {type.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))
+            )}
           </motion.div>
         </div>
 
