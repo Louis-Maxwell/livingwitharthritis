@@ -1,39 +1,17 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Users, MessageCircle, BookOpen, Stethoscope, Calendar, ArrowRight } from "lucide-react";
+import { Users, MessageCircle, BookOpen, Stethoscope, Calendar, ArrowRight, HeartHandshake, LucideIcon } from "lucide-react";
 import { motion } from "framer-motion";
+import { useServices, Service } from "@/hooks/useCmsContent";
+import { Skeleton } from "@/components/ui/skeleton";
 
-const services = [
-  {
-    icon: Users,
-    title: "Online Community",
-    description: "Connect with thousands affected by arthritis. Share experiences, find support, and build lasting connections.",
-    gradient: "from-blue-500 to-indigo-500",
-  },
-  {
-    icon: MessageCircle,
-    title: "Chat to AVA",
-    description: "Get instant access to trusted information 24/7 from our AI-powered virtual assistant.",
-    gradient: "from-purple-500 to-pink-500",
-  },
-  {
-    icon: BookOpen,
-    title: "Conditions A-Z",
-    description: "Browse our comprehensive library of arthritis conditions with trusted symptoms and treatment guides.",
-    gradient: "from-orange-500 to-red-500",
-  },
-  {
-    icon: Stethoscope,
-    title: "Self Help Tool",
-    description: "Explore our interactive body map to learn about specific conditions and management strategies.",
-    gradient: "from-cyan-500 to-blue-500",
-  },
-  {
-    icon: Calendar,
-    title: "Book Appointment",
-    description: "Schedule a consultation with our healthcare professionals for personalized care and guidance.",
-    gradient: "from-green-500 to-emerald-500",
-  },
-];
+const iconMap: Record<string, LucideIcon> = {
+  Users,
+  MessageCircle,
+  BookOpen,
+  Stethoscope,
+  Calendar,
+  HeartHandshake,
+};
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -57,14 +35,62 @@ const itemVariants = {
   },
 };
 
+const ServiceCard = ({ service }: { service: Service }) => {
+  const IconComponent = iconMap[service.icon_name] || Users;
+  
+  return (
+    <motion.div variants={itemVariants}>
+      <Card className="group relative h-full bg-card hover:shadow-large transition-all duration-500 cursor-pointer border-border/50 hover:border-primary/20 overflow-hidden rounded-2xl">
+        <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500`} />
+        
+        <CardHeader className="pb-4">
+          <div className={`mb-5 w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} p-0.5`}>
+            <div className="w-full h-full rounded-[14px] bg-card flex items-center justify-center group-hover:bg-transparent transition-all duration-300">
+              <IconComponent className="w-6 h-6 text-foreground group-hover:text-white transition-colors duration-300" />
+            </div>
+          </div>
+          <CardTitle className="text-xl font-display font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+            {service.title}
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <CardDescription className="text-muted-foreground leading-relaxed text-[15px]">
+            {service.description}
+          </CardDescription>
+          <div className="flex items-center text-sm font-semibold text-primary opacity-0 group-hover:opacity-100 transition-all duration-300">
+            Learn more
+            <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+          </div>
+        </CardContent>
+      </Card>
+    </motion.div>
+  );
+};
+
+const ServiceSkeleton = () => (
+  <div className="h-full">
+    <Card className="h-full bg-card border-border/50 rounded-2xl">
+      <CardHeader className="pb-4">
+        <Skeleton className="w-14 h-14 rounded-2xl mb-5" />
+        <Skeleton className="h-6 w-3/4" />
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <Skeleton className="h-4 w-full" />
+        <Skeleton className="h-4 w-5/6" />
+        <Skeleton className="h-4 w-4/6" />
+      </CardContent>
+    </Card>
+  </div>
+);
+
 const ServicesGrid = () => {
+  const { data: services, isLoading } = useServices();
+
   return (
     <section className="py-24 lg:py-32 bg-background relative overflow-hidden">
-      {/* Background decoration */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl" />
       
       <div className="container mx-auto px-4 md:px-8 relative">
-        {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -85,7 +111,6 @@ const ServicesGrid = () => {
           </p>
         </motion.div>
 
-        {/* Services grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -93,37 +118,13 @@ const ServicesGrid = () => {
           viewport={{ once: true, margin: "-50px" }}
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
         >
-          {services.map((service, index) => {
-            const IconComponent = service.icon;
-            return (
-              <motion.div key={index} variants={itemVariants}>
-                <Card className="group relative h-full bg-card hover:shadow-large transition-all duration-500 cursor-pointer border-border/50 hover:border-primary/20 overflow-hidden rounded-2xl">
-                  {/* Gradient overlay on hover */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500`} />
-                  
-                  <CardHeader className="pb-4">
-                    <div className={`mb-5 w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} p-0.5`}>
-                      <div className="w-full h-full rounded-[14px] bg-card flex items-center justify-center group-hover:bg-transparent transition-all duration-300">
-                        <IconComponent className="w-6 h-6 text-foreground group-hover:text-white transition-colors duration-300" />
-                      </div>
-                    </div>
-                    <CardTitle className="text-xl font-display font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
-                      {service.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <CardDescription className="text-muted-foreground leading-relaxed text-[15px]">
-                      {service.description}
-                    </CardDescription>
-                    <div className="flex items-center text-sm font-semibold text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-0 group-hover:translate-x-0">
-                      Learn more
-                      <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            );
-          })}
+          {isLoading ? (
+            Array.from({ length: 6 }).map((_, i) => <ServiceSkeleton key={i} />)
+          ) : (
+            services?.map((service) => (
+              <ServiceCard key={service.id} service={service} />
+            ))
+          )}
         </motion.div>
       </div>
     </section>

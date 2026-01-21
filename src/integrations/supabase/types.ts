@@ -59,6 +59,36 @@ export type Database = {
         }
         Relationships: []
       }
+      arthritis_types: {
+        Row: {
+          created_at: string
+          description: string
+          display_order: number
+          id: string
+          is_active: boolean
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description: string
+          display_order?: number
+          id?: string
+          is_active?: boolean
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          display_order?: number
+          id?: string
+          is_active?: boolean
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       chat_conversations: {
         Row: {
           created_at: string
@@ -115,6 +145,42 @@ export type Database = {
           },
         ]
       }
+      conditions: {
+        Row: {
+          category: string
+          color: string
+          created_at: string
+          description: string
+          display_order: number
+          id: string
+          is_active: boolean
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          category: string
+          color: string
+          created_at?: string
+          description: string
+          display_order?: number
+          id?: string
+          is_active?: boolean
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          color?: string
+          created_at?: string
+          description?: string
+          display_order?: number
+          id?: string
+          is_active?: boolean
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       contact_inquiries: {
         Row: {
           created_at: string
@@ -147,6 +213,39 @@ export type Database = {
           phone?: string | null
           status?: string
           subject?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      donation_tiers: {
+        Row: {
+          amount: string
+          benefits: string[]
+          color: string
+          created_at: string
+          display_order: number
+          id: string
+          is_active: boolean
+          updated_at: string
+        }
+        Insert: {
+          amount: string
+          benefits: string[]
+          color: string
+          created_at?: string
+          display_order?: number
+          id?: string
+          is_active?: boolean
+          updated_at?: string
+        }
+        Update: {
+          amount?: string
+          benefits?: string[]
+          color?: string
+          created_at?: string
+          display_order?: number
+          id?: string
+          is_active?: boolean
           updated_at?: string
         }
         Relationships: []
@@ -234,6 +333,135 @@ export type Database = {
           organization_name?: string | null
           phone?: string | null
           status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      fundraising_options: {
+        Row: {
+          created_at: string
+          display_order: number
+          id: string
+          is_active: boolean
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          display_order?: number
+          id?: string
+          is_active?: boolean
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          display_order?: number
+          id?: string
+          is_active?: boolean
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      physio_myths: {
+        Row: {
+          created_at: string
+          display_order: number
+          fact: string
+          id: string
+          image_url: string | null
+          is_active: boolean
+          myth: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          display_order?: number
+          fact: string
+          id?: string
+          image_url?: string | null
+          is_active?: boolean
+          myth: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          display_order?: number
+          fact?: string
+          id?: string
+          image_url?: string | null
+          is_active?: boolean
+          myth?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      services: {
+        Row: {
+          created_at: string
+          description: string
+          display_order: number
+          gradient: string
+          icon_name: string
+          id: string
+          is_active: boolean
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description: string
+          display_order?: number
+          gradient: string
+          icon_name: string
+          id?: string
+          is_active?: boolean
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          display_order?: number
+          gradient?: string
+          icon_name?: string
+          id?: string
+          is_active?: boolean
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      statistics: {
+        Row: {
+          created_at: string
+          display_order: number
+          icon_name: string
+          id: string
+          is_active: boolean
+          label: string
+          number_value: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          display_order?: number
+          icon_name: string
+          id?: string
+          is_active?: boolean
+          label: string
+          number_value: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          display_order?: number
+          icon_name?: string
+          id?: string
+          is_active?: boolean
+          label?: string
+          number_value?: string
           updated_at?: string
         }
         Relationships: []
