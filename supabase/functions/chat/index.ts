@@ -3,7 +3,9 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 // Allowed origins for CORS - restrict to trusted domains
 const ALLOWED_ORIGINS = [
-  "https://id-preview--3d3ed0e7-eb8c-4aef-b309-fc873c84a796.lovable.app",
+  "https://id-preview--0b2fd6ca-4e21-4ac7-99fa-d741e996f45e.lovable.app",
+  "https://livingwitharthritis.org.uk",
+  "https://www.livingwitharthritis.org.uk",
   "http://localhost:8080",
   "http://localhost:5173",
   "http://localhost:3000",
