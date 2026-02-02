@@ -1,9 +1,29 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-};
+const ALLOWED_ORIGINS = [
+  "https://id-preview--0b2fd6ca-4e21-4ac7-99fa-d741e996f45e.lovable.app",
+  "https://livingwitharthritis.org.uk",
+  "https://www.livingwitharthritis.org.uk",
+  "http://localhost:8080",
+  "http://localhost:5173",
+  "http://localhost:3000",
+];
+
+function getCorsHeaders(req: Request): Record<string, string> {
+  const origin = req.headers.get("Origin") || "";
+  const allowedOrigin = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
+  
+  return {
+    "Access-Control-Allow-Origin": allowedOrigin,
+    "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+  };
+}
+
+// Input validation
+const VALID_CURRENCIES = ["GBP", "USD", "EUR"];
+const VALID_FUND_TYPES = ["research", "support", "helpline", "general"];
+const MAX_AMOUNT = 100000;
+const MIN_AMOUNT = 1;
 
 interface DonationRequest {
   amount: number;
@@ -11,6 +31,52 @@ interface DonationRequest {
   fundType: string;
   donorName?: string;
   donorEmail?: string;
+}
+
+function validateDonation(data: unknown): { valid: boolean; error?: string; donation?: DonationRequest } {
+  if (!data || typeof data !== "object") {
+    return { valid: false, error: "Invalid request body" };
+  }
+
+  const { amount, currency, fundType, donorName, donorEmail } = data as Record<string, unknown>;
+
+  if (typeof amount !== "number" || isNaN(amount)) {
+    return { valid: false, error: "Amount must be a valid number" };
+  }
+
+  if (amount < MIN_AMOUNT || amount > MAX_AMOUNT) {
+    return { valid: false, error: `Amount must be between ${MIN_AMOUNT} and ${MAX_AMOUNT}` };
+  }
+
+  if (typeof currency !== "string" || !VALID_CURRENCIES.includes(currency.toUpperCase())) {
+    return { valid: false, error: "Invalid currency. Allowed: GBP, USD, EUR" };
+  }
+
+  if (typeof fundType !== "string" || !VALID_FUND_TYPES.includes(fundType)) {
+    return { valid: false, error: "Invalid fund type" };
+  }
+
+  if (donorName !== undefined && (typeof donorName !== "string" || donorName.length > 100)) {
+    return { valid: false, error: "Invalid donor name" };
+  }
+
+  if (donorEmail !== undefined && typeof donorEmail === "string") {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(donorEmail) || donorEmail.length > 255) {
+      return { valid: false, error: "Invalid email address" };
+    }
+  }
+
+  return {
+    valid: true,
+    donation: {
+      amount,
+      currency: (currency as string).toUpperCase(),
+      fundType: fundType as string,
+      donorName: donorName as string | undefined,
+      donorEmail: donorEmail as string | undefined,
+    },
+  };
 }
 
 async function getPayPalAccessToken(): Promise<string> {
@@ -80,6 +146,8 @@ async function createPayPalOrder(accessToken: string, amount: number, currency: 
 }
 
 serve(async (req) => {
+  const corsHeaders = getCorsHeaders(req);
+
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
@@ -88,19 +156,33 @@ serve(async (req) => {
     const clientId = Deno.env.get("PAYPAL_CLIENT_ID");
     if (!clientId) throw new Error("PAYPAL_CLIENT_ID is not set");
 
-    const { amount, currency, fundType, donorName, donorEmail }: DonationRequest = await req.json();
-
-    // Validate amount
-    if (!amount || amount < 1) {
-      throw new Error("Invalid donation amount");
+    // Parse and validate request body
+    let requestBody: unknown;
+    try {
+      requestBody = await req.json();
+    } catch {
+      return new Response(
+        JSON.stringify({ error: "Invalid JSON in request body" }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
     }
+
+    const validation = validateDonation(requestBody);
+    if (!validation.valid) {
+      return new Response(
+        JSON.stringify({ error: validation.error }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    const { donation } = validation;
 
     const clientSecret = Deno.env.get("PAYPAL_CLIENT_SECRET");
     
     // If we have client secret, create order server-side
     if (clientSecret) {
       const accessToken = await getPayPalAccessToken();
-      const order = await createPayPalOrder(accessToken, amount, currency, fundType);
+      const order = await createPayPalOrder(accessToken, donation!.amount, donation!.currency, donation!.fundType);
       
       // Find approval URL
       const approvalUrl = order.links?.find((link: any) => link.rel === "approve")?.href;
@@ -118,11 +200,11 @@ serve(async (req) => {
     // Otherwise, return client ID for client-side PayPal buttons
     return new Response(JSON.stringify({ 
       clientId,
-      amount,
-      currency,
-      fundType,
-      donorName,
-      donorEmail,
+      amount: donation!.amount,
+      currency: donation!.currency,
+      fundType: donation!.fundType,
+      donorName: donation!.donorName,
+      donorEmail: donation!.donorEmail,
       message: "Use PayPal JS SDK with the provided client ID"
     }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
