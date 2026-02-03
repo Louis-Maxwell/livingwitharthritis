@@ -84,6 +84,15 @@ function validateDonation(data: unknown): { valid: boolean; error?: string; dona
 async function getPayPalAccessToken(): Promise<string> {
   const clientId = Deno.env.get("PAYPAL_CLIENT_ID");
   const clientSecret = Deno.env.get("PAYPAL_CLIENT_SECRET");
+  const paypalMode = Deno.env.get("PAYPAL_MODE");
+  
+  console.log("PayPal config check:", {
+    hasClientId: !!clientId,
+    clientIdLength: clientId?.length,
+    hasClientSecret: !!clientSecret,
+    clientSecretLength: clientSecret?.length,
+    paypalMode: paypalMode || "sandbox (default)",
+  });
   
   if (!clientId) throw new Error("PAYPAL_CLIENT_ID is not set");
   
@@ -95,9 +104,12 @@ async function getPayPalAccessToken(): Promise<string> {
 
   const auth = btoa(`${clientId}:${clientSecret}`);
   // Use sandbox for testing, production for live
-  const paypalBaseUrl = Deno.env.get("PAYPAL_MODE") === "live" 
+  const paypalBaseUrl = paypalMode === "live" 
     ? "https://api-m.paypal.com" 
     : "https://api-m.sandbox.paypal.com";
+  
+  console.log("PayPal API URL:", paypalBaseUrl);
+  
   const response = await fetch(`${paypalBaseUrl}/v1/oauth2/token`, {
     method: "POST",
     headers: {
@@ -108,8 +120,11 @@ async function getPayPalAccessToken(): Promise<string> {
   });
 
   const data = await response.json();
+  console.log("PayPal auth response status:", response.status);
+  
   if (!response.ok) {
-    throw new Error(`PayPal auth failed: ${data.error_description || "Unknown error"}`);
+    console.error("PayPal auth error details:", JSON.stringify(data));
+    throw new Error(`PayPal auth failed: ${data.error_description || data.error || "Unknown error"}`);
   }
 
   return data.access_token;
