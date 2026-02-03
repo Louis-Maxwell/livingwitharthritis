@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Heart, Stethoscope, Users, Calendar, Calculator, BookOpen, Microscope, HandHeart, Phone, Gift, Loader2 } from "lucide-react";
+import { Heart, Stethoscope, Users, Calendar, BookOpen, Microscope, HandHeart, Phone, Gift, Loader2 } from "lucide-react";
 import PayPalDonationModal from "./PayPalDonationModal";
 
 const causes = [
@@ -10,7 +10,6 @@ const causes = [
   { icon: Stethoscope, label: "Patient Care", color: "bg-medical-blue" },
   { icon: Users, label: "Support Groups", color: "bg-accent" },
   { icon: Calendar, label: "Community Events", color: "bg-primary" },
-  { icon: Calculator, label: "Cost Calculator", color: "bg-medical-blue" },
   { icon: BookOpen, label: "Education", color: "bg-accent" },
   { icon: Microscope, label: "Medical Research", color: "bg-primary" },
   { icon: HandHeart, label: "Care Support", color: "bg-medical-blue" },
