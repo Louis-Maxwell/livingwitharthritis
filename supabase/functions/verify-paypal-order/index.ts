@@ -3,6 +3,8 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const ALLOWED_ORIGINS = [
   "https://id-preview--0b2fd6ca-4e21-4ac7-99fa-d741e996f45e.lovable.app",
+  "https://0b2fd6ca-4e21-4ac7-99fa-d741e996f45e.lovableproject.com",
+  "https://livingwitharthritis.lovable.app",
   "https://livingwitharthritis.org.uk",
   "https://www.livingwitharthritis.org.uk",
   "http://localhost:8080",
