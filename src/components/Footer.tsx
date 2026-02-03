@@ -54,11 +54,11 @@ const Footer = () => {
               
               {/* Contact info */}
               <div className="space-y-3">
-                <a href="tel:08009890031" className="flex items-center gap-3 text-accent-foreground/70 hover:text-white transition-colors group">
+                <a href="tel:07760512084" className="flex items-center gap-3 text-accent-foreground/70 hover:text-white transition-colors group">
                   <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                     <Phone className="w-4 h-4" />
                   </div>
-                  <span>0800 989 0031</span>
+                  <span>07760 512084</span>
                 </a>
                 <a href="mailto:info@livingwitharthritis.org.uk" className="flex items-center gap-3 text-accent-foreground/70 hover:text-white transition-colors group">
                   <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
