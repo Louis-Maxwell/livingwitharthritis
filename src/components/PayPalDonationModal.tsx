@@ -93,24 +93,32 @@ const PayPalDonationModal = ({ isOpen, onClose, amount, currency, fundType }: Pa
         onApprove: async (_data: any, actions: any) => {
           try {
             const order = await actions.order.capture();
-            console.log("Donation successful:", order);
             
-            // Save donation to database
-            await supabase.from("donations").insert({
-              amount,
-              currency,
-              fund_type: fundType,
-              payment_intent_id: order.id,
-              status: "completed",
-              donor_name: order.payer?.name?.given_name || "Anonymous",
-              donor_email: order.payer?.email_address,
+            // Verify and record donation server-side (prevents client manipulation)
+            const { data: verifyResult, error: verifyError } = await supabase.functions.invoke("verify-paypal-order", {
+              body: {
+                orderId: order.id,
+                amount,
+                currency,
+                fundType,
+              },
             });
+
+            if (verifyError) {
+              console.error("Server verification error:", verifyError);
+              throw new Error(verifyError.message || "Failed to verify donation");
+            }
+
+            if (verifyResult?.error) {
+              console.error("Verification failed:", verifyResult.error);
+              throw new Error(verifyResult.error);
+            }
 
             toast.success("Thank you for your generous donation!");
             onClose();
           } catch (err) {
             console.error("Capture error:", err);
-            toast.error("Payment was approved but failed to complete. Please contact support.");
+            toast.error("Payment was approved but verification failed. Please contact support if charged.");
           }
         },
         onError: (err: any) => {
