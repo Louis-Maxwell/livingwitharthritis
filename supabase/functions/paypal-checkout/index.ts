@@ -2,6 +2,8 @@ import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 
 const ALLOWED_ORIGINS = [
   "https://id-preview--0b2fd6ca-4e21-4ac7-99fa-d741e996f45e.lovable.app",
+  "https://0b2fd6ca-4e21-4ac7-99fa-d741e996f45e.lovableproject.com",
+  "https://livingwitharthritis.lovable.app",
   "https://livingwitharthritis.org.uk",
   "https://www.livingwitharthritis.org.uk",
   "http://localhost:8080",
