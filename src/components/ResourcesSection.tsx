@@ -1,5 +1,5 @@
 import { memo, useState } from "react";
-import { ExternalLink, Utensils, Dumbbell, Heart, Home, Users, Activity } from "lucide-react";
+import { ExternalLink, Utensils, Dumbbell, Heart, Home, Users, Activity, Microscope } from "lucide-react";
 import { useHealthyLivingResources } from "@/hooks/useCmsContent";
 import { Skeleton } from "@/components/ui/skeleton";
 import { motion, AnimatePresence } from "framer-motion";
@@ -11,6 +11,7 @@ const categoryIcons: Record<string, typeof Utensils> = {
   "Daily Living": Home,
   "Family & Relationships": Users,
   "Managing Pain": Activity,
+  "Medical Research": Microscope,
 };
 
 const categoryColors: Record<string, string> = {
@@ -20,6 +21,7 @@ const categoryColors: Record<string, string> = {
   "Daily Living": "bg-orange-500/10 text-orange-400",
   "Family & Relationships": "bg-pink-500/10 text-pink-400",
   "Managing Pain": "bg-red-500/10 text-red-400",
+  "Medical Research": "bg-cyan-500/10 text-cyan-400",
 };
 
 const ResourcesSection = memo(() => {
