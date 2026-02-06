@@ -364,6 +364,45 @@ export type Database = {
         }
         Relationships: []
       }
+      healthy_living_resources: {
+        Row: {
+          category: string
+          created_at: string
+          description: string
+          display_order: number
+          external_url: string | null
+          id: string
+          image_url: string | null
+          is_active: boolean
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          category?: string
+          created_at?: string
+          description: string
+          display_order?: number
+          external_url?: string | null
+          id?: string
+          image_url?: string | null
+          is_active?: boolean
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          description?: string
+          display_order?: number
+          external_url?: string | null
+          id?: string
+          image_url?: string | null
+          is_active?: boolean
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       nutrition_sections: {
         Row: {
           content: string
