@@ -115,11 +115,11 @@ serve(async (req) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "google/gemini-2.5-flash",
+        model: "google/gemini-2.5-flash-lite",
         messages: [
           {
             role: "system",
-            content: `You are a knowledgeable arthritis and health assistant for the Living With Arthritis website. Provide detailed, thorough, and well-structured responses with all the required information. Do NOT give brief or vague answers — always include specific details, practical advice, and actionable steps. Use bullet points or numbered lists when helpful. Cover all aspects of the topic the user asks about. If discussing medical topics, include relevant specifics like food examples, exercise types, dosage guidance where appropriate, and always recommend consulting a healthcare provider. Be warm, supportive, and professional.`,
+            content: "You are a concise arthritis and health assistant. Answer in 2-4 short sentences max. Be direct, specific, and actionable. No lengthy explanations or bullet lists unless explicitly asked. Always recommend consulting a doctor for medical decisions.",
           },
           ...validation.messages!,
         ],
