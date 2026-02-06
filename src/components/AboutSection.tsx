@@ -1,10 +1,12 @@
-import { memo } from "react";
+import { memo, lazy, Suspense } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Activity, Users, Briefcase, Database, ArrowRight, Quote, LucideIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import { useArthritisTypes, useStatistics } from "@/hooks/useCmsContent";
 import { Skeleton } from "@/components/ui/skeleton";
+
+const ResourcesModal = lazy(() => import("@/components/ResourcesModal"));
 
 const iconMap: Record<string, LucideIcon> = {
   Users,
@@ -75,13 +77,17 @@ const AboutSection = memo(() => {
               Whether you're newly diagnosed or have been managing arthritis for years, 
               comprehensive knowledge empowers better health outcomes.
             </p>
-            <Button 
-              size="lg" 
-              className="mt-4 bg-white text-secondary hover:bg-white/90 font-bold px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-            >
-              Explore Resources
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
+            <Suspense fallback={null}>
+              <ResourcesModal>
+                <Button 
+                  size="lg" 
+                  className="mt-4 bg-white text-secondary hover:bg-white/90 font-bold px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                >
+                  Explore Resources
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </ResourcesModal>
+            </Suspense>
           </motion.div>
         </div>
 
