@@ -1,41 +1,17 @@
 import { motion } from "framer-motion";
-import { Utensils, Fish, Cherry, Milk, Leaf } from "lucide-react";
+import { Utensils, Fish, Cherry, Milk, Leaf, LucideIcon } from "lucide-react";
+import { useNutritionSections } from "@/hooks/useCmsContent";
+import { Skeleton } from "@/components/ui/skeleton";
+
+const iconMap: Record<string, LucideIcon> = {
+  Fish,
+  Leaf,
+  Cherry,
+  Milk,
+};
 
 const NutritionArticleSection = () => {
-  const sections = [
-    {
-      title: "Autoimmune and Inflammatory Arthritis",
-      icon: Fish,
-      content: `Rheumatoid arthritis has been the primary focus of nutritional research on autoimmune inflammatory arthritides. Diets abundant in omega-3 fatty acids, antioxidants, and phytochemicals—found in fruits, vegetables, fish, olive oil, whole grains, nuts, seeds, and legumes—have been associated with reduced RA symptoms.
-
-The Mediterranean diet, which emphasizes these foods while limiting red meats, processed items, and saturated fats, has shown promise. Cold-water fish (e.g., salmon, sardines, mackerel) provide omega-3s with potent anti-inflammatory effects. Extra-virgin olive oil's compound oleocanthal inhibits pro-inflammatory enzymes similarly to ibuprofen.`,
-      foods: ["Salmon & Sardines", "Olive Oil", "Blueberries", "Green Tea", "Spinach"],
-    },
-    {
-      title: "Osteoarthritis",
-      icon: Leaf,
-      content: `Maintaining a healthy weight is crucial for OA, as excess pounds increase joint stress—each additional pound adds four pounds of pressure on weight-bearing joints like knees and hips.
-
-Vitamins D and K deficiencies correlate with greater cartilage and bone damage. Sources include fatty fish and fortified foods for vitamin D, and leafy greens for vitamin K. Cruciferous vegetables (e.g., broccoli) contain sulforaphane, which may inhibit inflammation and slow progression.`,
-      foods: ["Broccoli", "Leafy Greens", "Fatty Fish", "Pomegranates", "Garlic"],
-    },
-    {
-      title: "Gout",
-      icon: Cherry,
-      content: `Gout has the clearest dietary ties among arthritides. Purines, broken down into uric acid, accumulate in those with impaired excretion, forming painful joint crystals.
-
-Limiting high-purine foods is essential: red meats, most seafood, meat-based gravies, fructose-sweetened drinks, and alcohol (especially beer). Cherries (sweet or tart) provide anthocyanins and quercetin with antioxidant and anti-inflammatory properties, reducing flare frequency.`,
-      foods: ["Cherries", "Low-fat Dairy", "Citrus Fruits", "Coffee", "Vitamin C Foods"],
-    },
-    {
-      title: "Osteoporosis",
-      icon: Milk,
-      content: `Nutrition supports bone density and fracture prevention. Calcium-rich foods—dairy, leafy greens, shellfish, soy products, nuts/seeds—are foundational, alongside vitamin D from fatty fish, egg yolks, mushrooms, and fortified items.
-
-Emerging research highlights fruits, vegetables, and phytochemicals for bone rebuilding. Prunes stand out for vitamins K, boron, and potassium. Mediterranean adherence supports bone health.`,
-      foods: ["Dairy Products", "Prunes", "Almonds", "Chia Seeds", "Egg Yolks"],
-    },
-  ];
+  const { data: sections, isLoading } = useNutritionSections();
 
   return (
     <section className="py-20 lg:py-28 bg-muted/30">
@@ -65,44 +41,52 @@ Emerging research highlights fruits, vegetables, and phytochemicals for bone reb
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 mb-12">
-          {sections.map((section, index) => {
-            const Icon = section.icon;
-            return (
-              <motion.div
-                key={section.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-card rounded-2xl p-8 shadow-sm border border-border hover:shadow-md transition-shadow"
-              >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <Icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground">{section.title}</h3>
+          {isLoading
+            ? Array.from({ length: 4 }).map((_, i) => (
+                <div key={i} className="bg-card rounded-2xl p-8 border border-border">
+                  <Skeleton className="h-12 w-48 mb-6" />
+                  <Skeleton className="h-32 w-full mb-6" />
+                  <Skeleton className="h-8 w-64" />
                 </div>
-                <p className="text-muted-foreground leading-relaxed mb-6 text-sm">
-                  {section.content}
-                </p>
-                <div>
-                  <p className="text-xs font-semibold text-foreground mb-3 uppercase tracking-wide">
-                    Beneficial Foods
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {section.foods.map((food) => (
-                      <span
-                        key={food}
-                        className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full font-medium"
-                      >
-                        {food}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
+              ))
+            : sections?.map((section, index) => {
+                const Icon = iconMap[section.icon_name] || Utensils;
+                return (
+                  <motion.div
+                    key={section.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="bg-card rounded-2xl p-8 shadow-sm border border-border hover:shadow-md transition-shadow"
+                  >
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                        <Icon className="w-6 h-6 text-primary" />
+                      </div>
+                      <h3 className="text-xl font-bold text-foreground">{section.title}</h3>
+                    </div>
+                    <p className="text-muted-foreground leading-relaxed mb-6 text-sm whitespace-pre-line">
+                      {section.content}
+                    </p>
+                    <div>
+                      <p className="text-xs font-semibold text-foreground mb-3 uppercase tracking-wide">
+                        Beneficial Foods
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {section.foods.map((food) => (
+                          <span
+                            key={food}
+                            className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full font-medium"
+                          >
+                            {food}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
         </div>
 
         <motion.div
