@@ -364,6 +364,42 @@ export type Database = {
         }
         Relationships: []
       }
+      nutrition_sections: {
+        Row: {
+          content: string
+          created_at: string
+          display_order: number
+          foods: string[]
+          icon_name: string
+          id: string
+          is_active: boolean
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          display_order?: number
+          foods?: string[]
+          icon_name: string
+          id?: string
+          is_active?: boolean
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          display_order?: number
+          foods?: string[]
+          icon_name?: string
+          id?: string
+          is_active?: boolean
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       physio_myths: {
         Row: {
           created_at: string

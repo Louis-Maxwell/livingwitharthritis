@@ -167,3 +167,28 @@ export function useFundraisingOptions() {
     },
   });
 }
+
+export interface NutritionSection {
+  id: string;
+  title: string;
+  icon_name: string;
+  content: string;
+  foods: string[];
+  display_order: number;
+}
+
+export function useNutritionSections() {
+  return useQuery({
+    queryKey: ["nutrition_sections"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("nutrition_sections")
+        .select("*")
+        .eq("is_active", true)
+        .order("display_order", { ascending: true });
+      
+      if (error) throw error;
+      return data as NutritionSection[];
+    },
+  });
+}
