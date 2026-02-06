@@ -1,12 +1,12 @@
-import { memo, lazy, Suspense } from "react";
+import { memo, lazy, Suspense, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Activity, Users, Briefcase, Database, ArrowRight, Quote, LucideIcon } from "lucide-react";
-import { motion } from "framer-motion";
+import { Activity, Users, Briefcase, Database, ArrowRight, Quote, LucideIcon, ChevronDown } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useArthritisTypes, useStatistics } from "@/hooks/useCmsContent";
 import { Skeleton } from "@/components/ui/skeleton";
 
-const ResourcesModal = lazy(() => import("@/components/ResourcesModal"));
+const ResourcesSection = lazy(() => import("@/components/ResourcesSection"));
 
 const iconMap: Record<string, LucideIcon> = {
   Users,
@@ -16,6 +16,7 @@ const iconMap: Record<string, LucideIcon> = {
 };
 
 const AboutSection = memo(() => {
+  const [showResources, setShowResources] = useState(false);
   const { data: arthritisTypes, isLoading: typesLoading } = useArthritisTypes();
   const { data: statistics, isLoading: statsLoading } = useStatistics();
 
@@ -77,19 +78,25 @@ const AboutSection = memo(() => {
               Whether you're newly diagnosed or have been managing arthritis for years, 
               comprehensive knowledge empowers better health outcomes.
             </p>
-            <Suspense fallback={null}>
-              <ResourcesModal>
-                <Button 
-                  size="lg" 
-                  className="mt-4 bg-white text-secondary hover:bg-white/90 font-bold px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-                >
-                  Explore Resources
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-              </ResourcesModal>
-            </Suspense>
+            <Button 
+              size="lg" 
+              onClick={() => setShowResources(!showResources)}
+              className="mt-4 bg-white text-secondary hover:bg-white/90 font-bold px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+            >
+              Explore Resources
+              <ChevronDown className={`ml-2 w-5 h-5 transition-transform duration-300 ${showResources ? 'rotate-180' : ''}`} />
+            </Button>
           </motion.div>
         </div>
+
+        {/* Inline Resources */}
+        <AnimatePresence>
+          {showResources && (
+            <Suspense fallback={null}>
+              <ResourcesSection />
+            </Suspense>
+          )}
+        </AnimatePresence>
 
         {/* Statistics Section */}
         <motion.div
