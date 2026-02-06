@@ -1,6 +1,5 @@
 import { useState, useCallback } from "react";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
 
 export type Message = {
   role: "user" | "assistant";
@@ -13,41 +12,24 @@ async function streamChat({
   messages,
   onDelta,
   onDone,
-  onAuthRequired,
 }: {
   messages: Message[];
   onDelta: (deltaText: string) => void;
   onDone: () => void;
-  onAuthRequired: () => void;
 }) {
-  // Get current session for authenticated requests
-  const { data: { session } } = await supabase.auth.getSession();
-  
-  if (!session?.access_token) {
-    onAuthRequired();
-    throw new Error("Please sign in to use the chat feature.");
-  }
-
   const resp = await fetch(CHAT_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${session.access_token}`,
+      apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
     },
     body: JSON.stringify({ messages }),
   });
 
   if (!resp.ok) {
     const errorData = await resp.json().catch(() => ({ error: "Request failed" }));
-    if (resp.status === 401) {
-      onAuthRequired();
-      throw new Error("Session expired. Please sign in again.");
-    }
     if (resp.status === 429) {
       throw new Error("Rate limit exceeded. Please try again later.");
-    }
-    if (resp.status === 402) {
-      throw new Error("Payment required. Please add credits to continue.");
     }
     throw new Error(errorData.error || "Failed to get response");
   }
@@ -115,7 +97,6 @@ async function streamChat({
 export function useStreamingChat() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [requiresAuth, setRequiresAuth] = useState(false);
 
   const sendMessage = useCallback(async (input: string) => {
     if (!input.trim() || isLoading) return;
@@ -123,7 +104,6 @@ export function useStreamingChat() {
     const userMsg: Message = { role: "user", content: input.trim() };
     setMessages((prev) => [...prev, userMsg]);
     setIsLoading(true);
-    setRequiresAuth(false);
 
     let assistantSoFar = "";
     const upsertAssistant = (nextChunk: string) => {
@@ -144,21 +124,18 @@ export function useStreamingChat() {
         messages: [...messages, userMsg],
         onDelta: (chunk) => upsertAssistant(chunk),
         onDone: () => setIsLoading(false),
-        onAuthRequired: () => setRequiresAuth(true),
       });
     } catch (error) {
       console.error("Chat error:", error);
       setIsLoading(false);
       toast.error(error instanceof Error ? error.message : "Failed to send message");
-      // Remove the user message if the request failed
       setMessages((prev) => prev.slice(0, -1));
     }
   }, [messages, isLoading]);
 
   const clearMessages = useCallback(() => {
     setMessages([]);
-    setRequiresAuth(false);
   }, []);
 
-  return { messages, isLoading, sendMessage, clearMessages, requiresAuth };
+  return { messages, isLoading, sendMessage, clearMessages };
 }
