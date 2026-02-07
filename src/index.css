@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,700&family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -267,5 +267,37 @@
 
   .mask-fade-bottom {
     mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  }
+
+  /* Editorial section divider */
+  .editorial-divider {
+    @apply relative my-0;
+  }
+
+  .editorial-divider::before {
+    content: '';
+    @apply absolute left-1/2 -translate-x-1/2 w-24 h-px;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary)), transparent);
+  }
+
+  /* Marquee animation */
+  .marquee {
+    animation: marquee 30s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* Cinematic text shadow */
+  .text-cinematic {
+    text-shadow: 0 2px 40px hsl(0 0% 0% / 0.3);
+  }
+
+  /* Editorial caption style */
+  .editorial-caption {
+    font-family: 'DM Sans', sans-serif;
+    @apply uppercase tracking-[0.2em] text-xs font-semibold;
   }
 }
