@@ -1,9 +1,10 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import { Check } from "lucide-react";
 import { motion } from "framer-motion";
 import { useDonationTiers } from "@/hooks/useCmsContent";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
+import PayPalDonationModal from "./PayPalDonationModal";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -34,6 +35,18 @@ const TierSkeleton = () => (
 
 const DonationTiersSection = memo(() => {
   const { data: tiers, isLoading } = useDonationTiers();
+  const [paypalOpen, setPaypalOpen] = useState(false);
+  const [selectedAmount, setSelectedAmount] = useState(0);
+
+  const parseAmount = (amount: string): number => {
+    const num = parseFloat(amount.replace(/[^0-9.]/g, ''));
+    return isNaN(num) ? 0 : num;
+  };
+
+  const handleDonate = (amount: string) => {
+    setSelectedAmount(parseAmount(amount));
+    setPaypalOpen(true);
+  };
 
   return (
     <section className="py-28 lg:py-36 bg-muted/30 relative overflow-hidden">
@@ -80,11 +93,9 @@ const DonationTiersSection = memo(() => {
                 <div className={`relative group h-full rounded-3xl overflow-hidden transition-all duration-700 hover:-translate-y-2 ${
                   i === 1 ? 'ring-2 ring-primary/30' : ''
                 }`}>
-                  {/* Gradient background */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${tier.color} opacity-90`} />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                   
-                  {/* Content */}
                   <div className="relative p-10 lg:p-12 text-white">
                     {i === 1 && (
                       <span className="editorial-caption text-white/60 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full mb-6 inline-block">
@@ -110,6 +121,7 @@ const DonationTiersSection = memo(() => {
                     </ul>
 
                     <Button
+                      onClick={() => handleDonate(tier.amount)}
                       className="w-full bg-white/15 hover:bg-white/25 backdrop-blur-sm text-white border border-white/20 hover:border-white/40 font-semibold py-6 rounded-full transition-all duration-500 uppercase tracking-wider text-xs"
                     >
                       Donate {tier.amount}
@@ -121,6 +133,14 @@ const DonationTiersSection = memo(() => {
           )}
         </motion.div>
       </div>
+
+      <PayPalDonationModal
+        isOpen={paypalOpen}
+        onClose={() => setPaypalOpen(false)}
+        amount={selectedAmount}
+        currency="GBP"
+        fundType="general"
+      />
     </section>
   );
 });
