@@ -62,10 +62,6 @@ const ConditionsSection = memo(() => {
             Medical Resources
             <span className="w-8 h-px bg-border" />
           </span>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
-            Explore our comprehensive guide to arthritis conditions. Find trusted information 
-            about symptoms, treatments, and management strategies.
-          </p>
         </motion.div>
 
         <motion.div
