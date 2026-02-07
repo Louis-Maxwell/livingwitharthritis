@@ -40,7 +40,7 @@ const Footer = () => {
       { label: "Our Mission", href: "#" },
       { label: "Annual Reports", href: "#" },
       { label: "Press & Media", href: "#" },
-      { label: "Careers", href: "#" },
+      
     ],
   };
 
@@ -52,11 +52,7 @@ const Footer = () => {
     { icon: Linkedin, href: "#", label: "LinkedIn" },
   ];
 
-  const accreditations = [
-    "Fundraising Regulator",
-    "Information Standard",
-    "Cyber Essentials",
-  ];
+  const accreditations: string[] = [];
 
   return (
     <footer className="relative bg-accent text-accent-foreground overflow-hidden">
