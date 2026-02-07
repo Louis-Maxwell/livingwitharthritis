@@ -87,7 +87,7 @@ const ServicesGrid = () => {
   const { data: services, isLoading } = useServices();
 
   return (
-    <section className="py-28 lg:py-36 bg-background relative overflow-hidden">
+    <section id="services" className="py-28 lg:py-36 bg-background relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/[0.03] rounded-full blur-3xl" />
       
       <div className="container mx-auto px-4 md:px-8 relative">
