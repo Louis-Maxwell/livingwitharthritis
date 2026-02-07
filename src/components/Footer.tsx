@@ -14,7 +14,7 @@ const Footer = () => {
       { label: "Book Appointment", href: "#" },
     ],
     aboutArthritis: [
-      { label: "Conditions A-Z", href: "#" },
+      
       { label: "Symptoms", href: "#" },
       { label: "Treatments", href: "#" },
     ],
