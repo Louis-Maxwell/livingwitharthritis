@@ -1,8 +1,10 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useFundraisingOptions } from "@/hooks/useCmsContent";
 import { Skeleton } from "@/components/ui/skeleton";
+import { ContactFormModal } from "@/components/ContactFormModal";
+import { Button } from "@/components/ui/button";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -44,9 +46,16 @@ const FundraisingSection = memo(() => {
               <span className="font-display italic font-normal text-muted-foreground">raising</span>
             </h2>
             <div className="w-16 h-1 bg-primary rounded-full mb-6" />
-            <p className="text-muted-foreground leading-relaxed font-light">
+            <p className="text-muted-foreground leading-relaxed font-light mb-8">
               Make a real difference. Explore ways to support arthritis research and care.
             </p>
+            <ContactFormModal
+              trigger={
+                <Button className="btn-gold px-8 py-3 rounded-full text-xs uppercase tracking-wider font-bold">
+                  Get In Touch
+                </Button>
+              }
+            />
           </motion.div>
 
           {/* Right — editorial list */}
@@ -67,20 +76,23 @@ const FundraisingSection = memo(() => {
               ) : (
                 fundraisingOptions?.map((option, i) => (
                   <motion.div key={option.id} variants={itemVariants}>
-                    <a
-                      href="#"
-                      className="group flex items-center justify-between py-6 border-b border-border/50 hover:border-primary/30 transition-all duration-500"
-                    >
-                      <div className="flex items-center gap-5">
-                        <span className="editorial-caption text-muted-foreground/40 w-8">
-                          {String(i + 1).padStart(2, '0')}
-                        </span>
-                        <span className="text-xl lg:text-2xl font-display font-semibold text-foreground group-hover:text-primary transition-colors duration-500">
-                          {option.title}
-                        </span>
-                      </div>
-                      <ArrowRight className="w-5 h-5 text-muted-foreground/30 group-hover:text-primary group-hover:translate-x-1 transition-all duration-300" />
-                    </a>
+                    <ContactFormModal
+                      trigger={
+                        <button
+                          className="group flex items-center justify-between py-6 border-b border-border/50 hover:border-primary/30 transition-all duration-500 w-full text-left cursor-pointer"
+                        >
+                          <div className="flex items-center gap-5">
+                            <span className="editorial-caption text-muted-foreground/40 w-8">
+                              {String(i + 1).padStart(2, '0')}
+                            </span>
+                            <span className="text-xl lg:text-2xl font-display font-semibold text-foreground group-hover:text-primary transition-colors duration-500">
+                              {option.title}
+                            </span>
+                          </div>
+                          <ArrowRight className="w-5 h-5 text-muted-foreground/30 group-hover:text-primary group-hover:translate-x-1 transition-all duration-300" />
+                        </button>
+                      }
+                    />
                   </motion.div>
                 ))
               )}

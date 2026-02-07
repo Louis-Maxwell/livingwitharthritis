@@ -1,26 +1,43 @@
 import { useState } from "react";
-import { Facebook, Twitter, Instagram, Youtube, Linkedin, Mail, Phone, ArrowUp, Heart, Shield, ExternalLink } from "lucide-react";
+import { Facebook, Twitter, Instagram, Youtube, Linkedin, Mail, Phone, ArrowUp, Heart } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleNewsletter = (e: React.FormEvent) => {
+  const handleNewsletter = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
-      toast({
-        title: "Thank you!",
-        description: "You've been subscribed to our newsletter.",
-      });
+    if (!email) return;
+    setIsSubmitting(true);
+    try {
+      const { error } = await supabase
+        .from("newsletter_subscriptions" as any)
+        .insert({ email, source: "footer" } as any);
+      
+      if (error) {
+        if (error.code === "23505") {
+          toast({ title: "Already subscribed!", description: "This email is already on our mailing list." });
+        } else {
+          throw error;
+        }
+      } else {
+        toast({ title: "Thank you!", description: "You've been subscribed to our newsletter." });
+      }
       setEmail("");
+    } catch (err) {
+      toast({ title: "Error", description: "Failed to subscribe. Please try again.", variant: "destructive" });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -52,7 +69,7 @@ const Footer = () => {
     { icon: Linkedin, href: "#", label: "LinkedIn" },
   ];
 
-  const accreditations: string[] = [];
+  
 
   return (
     <footer className="relative bg-accent text-accent-foreground overflow-hidden">
@@ -95,9 +112,10 @@ const Footer = () => {
               />
               <Button
                 type="submit"
+                disabled={isSubmitting}
                 className="btn-gold px-8 rounded-full text-xs uppercase tracking-wider font-bold whitespace-nowrap"
               >
-                Subscribe
+                {isSubmitting ? "..." : "Subscribe"}
               </Button>
             </motion.form>
           </div>
@@ -147,15 +165,6 @@ const Footer = () => {
                 </a>
               </div>
 
-              {/* Accreditations */}
-              <div className="flex flex-wrap gap-2">
-                {accreditations.map((acc) => (
-                  <span key={acc} className="flex items-center gap-1.5 px-3 py-1.5 bg-white/[0.04] rounded-full text-xs text-accent-foreground/40 border border-white/[0.06]">
-                    <Shield className="w-3 h-3 text-gold/60" />
-                    {acc}
-                  </span>
-                ))}
-              </div>
             </motion.div>
           </div>
 

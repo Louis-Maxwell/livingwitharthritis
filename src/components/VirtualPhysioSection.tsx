@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import physioMyth1 from "@/assets/physio-myth-1.jpg";
 import physioMyth2 from "@/assets/physio-myth-2.jpg";
 import physioMyth3 from "@/assets/physio-myth-3.jpg";
@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import { usePhysioMyths, PhysioMyth } from "@/hooks/useCmsContent";
 import { Skeleton } from "@/components/ui/skeleton";
+import { AppointmentModal } from "@/components/AppointmentModal";
 
 const imageMap: Record<string, string> = {
   "/assets/physio-myth-1.jpg": physioMyth1,
@@ -44,7 +45,6 @@ const MythCard = memo(({ item, index }: { item: PhysioMyth; index: number }) => 
               className="w-full h-full transition-transform duration-1000 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
-            {/* Editorial number overlay */}
             <div className="absolute top-4 left-4">
               <span className="editorial-caption text-white/70 bg-foreground/30 backdrop-blur-sm px-3 py-1 rounded-full">
                 Myth {String(index + 1).padStart(2, '0')}
@@ -180,13 +180,17 @@ const VirtualPhysioSection = memo(() => {
               <p className="text-accent-foreground/60 mb-10 text-lg font-light">
                 Flexible. Effective. Personal. And seriously convenient.
               </p>
-              <Button
-                size="lg"
-                className="btn-premium text-primary-foreground font-bold px-12 py-7 rounded-full text-sm uppercase tracking-wider"
-              >
-                Talk to a Physio Today
-                <Sparkles className="ml-2 w-5 h-5" />
-              </Button>
+              <AppointmentModal
+                trigger={
+                  <Button
+                    size="lg"
+                    className="btn-premium text-primary-foreground font-bold px-12 py-7 rounded-full text-sm uppercase tracking-wider"
+                  >
+                    Talk to a Physio Today
+                    <Sparkles className="ml-2 w-5 h-5" />
+                  </Button>
+                }
+              />
             </div>
           </div>
         </motion.div>
