@@ -11,13 +11,13 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.08 },
+    transition: { staggerChildren: 0.06 },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
 };
 
 const ConditionSkeleton = () => (
@@ -32,7 +32,6 @@ const ConditionSkeleton = () => (
     <CardContent className="space-y-4">
       <Skeleton className="h-4 w-full" />
       <Skeleton className="h-4 w-5/6" />
-      <Skeleton className="h-4 w-20" />
     </CardContent>
   </Card>
 );
@@ -41,8 +40,9 @@ const ConditionsSection = memo(() => {
   const { data: conditions, isLoading } = useConditions();
 
   return (
-    <section className="py-24 lg:py-32 bg-muted/30 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-[0.02]">
+    <section className="py-28 lg:py-36 bg-muted/30 relative overflow-hidden">
+      {/* Subtle dot pattern */}
+      <div className="absolute inset-0 opacity-[0.015]">
         <div className="absolute inset-0" style={{
           backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 1px)`,
           backgroundSize: '40px 40px',
@@ -55,15 +55,18 @@ const ConditionsSection = memo(() => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
+          <span className="editorial-caption text-muted-foreground inline-flex items-center gap-3 mb-6">
+            <span className="w-8 h-px bg-border" />
             Medical Resources
+            <span className="w-8 h-px bg-border" />
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-6">
-            Conditions <span className="text-gradient">A-Z</span>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-foreground mb-6 tracking-tight">
+            Conditions{" "}
+            <span className="font-display italic font-normal text-gradient">A–Z</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
             Explore our comprehensive guide to arthritis conditions. Find trusted information 
             about symptoms, treatments, and management strategies.
           </p>
@@ -74,7 +77,7 @@ const ConditionsSection = memo(() => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
         >
           {isLoading ? (
             Array.from({ length: 6 }).map((_, i) => (
@@ -85,31 +88,31 @@ const ConditionsSection = memo(() => {
           ) : (
             conditions?.map((condition) => (
               <motion.div key={condition.id} variants={itemVariants}>
-                <Card className="group h-full bg-card hover:shadow-large transition-all duration-500 cursor-pointer border-border/50 hover:border-primary/20 rounded-2xl overflow-hidden">
+                <Card className="group h-full bg-card hover:shadow-large transition-all duration-700 cursor-pointer border-border/50 hover:border-primary/20 rounded-2xl overflow-hidden">
                   <CardHeader className="pb-3">
                     <div className="flex items-center justify-between mb-3">
                       <Badge className={`${condition.color} text-white text-xs font-semibold px-3 py-1 rounded-full`}>
                         {condition.category}
                       </Badge>
-                      <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center group-hover:bg-primary/10 transition-colors duration-300">
+                      <div className="w-9 h-9 rounded-full bg-muted flex items-center justify-center group-hover:bg-primary/10 transition-all duration-500">
                         <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all duration-300" />
                       </div>
                     </div>
-                    <CardTitle className="text-xl font-display font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+                    <CardTitle className="text-xl font-display font-semibold text-foreground group-hover:text-primary transition-colors duration-500">
                       {condition.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <CardDescription className="text-muted-foreground leading-relaxed">
+                    <CardDescription className="text-muted-foreground leading-relaxed font-light">
                       {condition.description}
                     </CardDescription>
                     <Button
                       variant="ghost"
                       size="sm"
-                      className="p-0 h-auto text-primary font-semibold hover:bg-transparent group-hover:translate-x-1 transition-transform duration-300"
+                      className="p-0 h-auto text-primary font-semibold hover:bg-transparent group-hover:translate-x-1 transition-transform duration-300 text-xs uppercase tracking-wider"
                     >
                       Read more
-                      <ArrowRight className="ml-1 w-4 h-4" />
+                      <ArrowRight className="ml-1 w-3 h-3" />
                     </Button>
                   </CardContent>
                 </Card>
@@ -127,7 +130,7 @@ const ConditionsSection = memo(() => {
         >
           <Button
             size="lg"
-            className="btn-premium text-primary-foreground font-bold px-10 py-6 rounded-full text-base"
+            className="btn-premium text-primary-foreground font-bold px-12 py-7 rounded-full text-sm uppercase tracking-wider"
           >
             View All Conditions
             <ArrowRight className="ml-2 w-5 h-5" />
