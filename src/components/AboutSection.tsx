@@ -148,68 +148,6 @@ const AboutSection = memo(() => {
           </div>
         </motion.div>
 
-        {/* Types of Arthritis — editorial grid */}
-        <div className="mb-28">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-14"
-          >
-            <span className="editorial-caption text-white/40 inline-flex items-center gap-3 mb-4">
-              <span className="w-8 h-px bg-white/30" />
-              Types
-              <span className="w-8 h-px bg-white/30" />
-            </span>
-            <h3 className="text-4xl md:text-5xl font-display font-bold mb-4">Common Types</h3>
-            <p className="text-lg text-white/50 max-w-2xl mx-auto font-light">
-              Understanding different types is essential for proper diagnosis and treatment.
-            </p>
-          </motion.div>
-          
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-5"
-          >
-            {typesLoading ? (
-              Array.from({ length: 6 }).map((_, i) => (
-                <motion.div key={i} variants={itemVariants}>
-                  <Card className="h-full bg-white/[0.04] border-white/[0.08] rounded-2xl">
-                    <CardHeader className="pb-3">
-                      <Skeleton className="h-5 w-32 bg-white/10" />
-                    </CardHeader>
-                    <CardContent>
-                      <Skeleton className="h-4 w-full bg-white/10 mb-2" />
-                      <Skeleton className="h-4 w-5/6 bg-white/10 mb-2" />
-                      <Skeleton className="h-4 w-4/6 bg-white/10" />
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))
-            ) : (
-              arthritisTypes?.map((type, i) => (
-                <motion.div key={type.id} variants={itemVariants}>
-                  <Card className="h-full bg-white/[0.04] backdrop-blur-sm border-white/[0.08] hover:bg-white/[0.08] hover:border-white/[0.15] transition-all duration-700 group rounded-2xl overflow-hidden">
-                    <CardHeader className="pb-3">
-                      <span className="editorial-caption text-white/30 mb-2">0{i + 1}</span>
-                      <CardTitle className="text-xl font-display font-semibold text-white group-hover:text-primary-foreground transition-colors">
-                        {type.title}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-white/55 text-sm leading-relaxed font-light">
-                        {type.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))
-            )}
-          </motion.div>
-        </div>
 
         {/* Quote — editorial blockquote */}
         <motion.div
