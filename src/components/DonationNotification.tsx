@@ -45,12 +45,15 @@ const DonationNotification = () => {
     }
   }, [latestDonation]);
 
-  // Demo rotation for when no real donations come in
+  // Demo rotation — delayed 90s and only once per session
   useEffect(() => {
+    // Check if user already dismissed in this session
+    const dismissed = sessionStorage.getItem("donation_notification_dismissed");
+    if (dismissed) return;
+
     let donationIndex = 0;
 
     const showNextDonation = () => {
-      // Only show demo if no real donation is being displayed
       if (!latestDonation) {
         setCurrentDonation(demoDonations[donationIndex]);
         setShowNotification(true);
@@ -63,8 +66,9 @@ const DonationNotification = () => {
       }
     };
 
-    const initialTimeout = setTimeout(showNextDonation, 3000);
-    const interval = setInterval(showNextDonation, 15000);
+    // Delay first notification by 90 seconds to let users engage first
+    const initialTimeout = setTimeout(showNextDonation, 90000);
+    const interval = setInterval(showNextDonation, 45000);
 
     return () => {
       clearTimeout(initialTimeout);
@@ -96,7 +100,10 @@ const DonationNotification = () => {
           </p>
         </div>
         <button
-          onClick={() => setShowNotification(false)}
+          onClick={() => {
+            setShowNotification(false);
+            sessionStorage.setItem("donation_notification_dismissed", "true");
+          }}
           className="text-muted-foreground hover:text-foreground transition-colors text-lg leading-none"
           aria-label="Close notification"
         >

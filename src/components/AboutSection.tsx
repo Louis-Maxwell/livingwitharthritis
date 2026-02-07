@@ -34,7 +34,7 @@ const AboutSection = memo(() => {
   };
 
   return (
-    <section className="py-28 lg:py-36 bg-gradient-to-b from-secondary via-secondary/95 to-secondary text-secondary-foreground relative overflow-hidden">
+    <section id="resources" className="py-28 lg:py-36 bg-gradient-to-b from-secondary via-secondary/95 to-secondary text-secondary-foreground relative overflow-hidden">
       {/* Background accents */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-white/5 rounded-full blur-3xl" />

@@ -40,7 +40,7 @@ const ConditionsSection = memo(() => {
   const { data: conditions, isLoading } = useConditions();
 
   return (
-    <section className="py-28 lg:py-36 bg-muted/30 relative overflow-hidden">
+    <section id="conditions" className="py-28 lg:py-36 bg-muted/30 relative overflow-hidden">
       {/* Subtle dot pattern */}
       <div className="absolute inset-0 opacity-[0.015]">
         <div className="absolute inset-0" style={{

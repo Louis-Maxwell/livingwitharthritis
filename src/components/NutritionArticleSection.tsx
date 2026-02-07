@@ -27,7 +27,7 @@ const NutritionArticleSection = () => {
   const { data: sections, isLoading } = useNutritionSections();
 
   return (
-    <section className="py-28 lg:py-36 bg-background relative overflow-hidden">
+    <section id="nutrition" className="py-28 lg:py-36 bg-background relative overflow-hidden">
       <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-primary/[0.02] rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 md:px-8 relative">

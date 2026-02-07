@@ -1,15 +1,23 @@
 import { useRef } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, MessageCircle, BookOpen } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const navigate = useNavigate();
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"],
   });
 
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
+  const scrollToAbout = () => {
+    const aboutSection = document.querySelector("section:nth-of-type(2)");
+    aboutSection?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <section ref={sectionRef} className="relative min-h-screen flex items-center overflow-hidden bg-black">
@@ -54,6 +62,27 @@ const HeroSection = () => {
             understands — supporting you through every step of your
             arthritis journey.
           </p>
+
+          {/* CTA buttons */}
+          <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            <Button
+              size="lg"
+              onClick={scrollToAbout}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-1 uppercase tracking-wider text-sm"
+            >
+              <BookOpen className="w-4 h-4 mr-2" />
+              Explore Resources
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              onClick={() => navigate("/chat")}
+              className="border-white/30 text-white hover:bg-white/10 hover:border-white/50 font-bold px-8 py-6 rounded-full shadow-lg transition-all duration-500 hover:-translate-y-1 uppercase tracking-wider text-sm"
+            >
+              <MessageCircle className="w-4 h-4 mr-2" />
+              Talk to Our Assistant
+            </Button>
+          </div>
         </div>
 
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-2">
