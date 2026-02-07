@@ -2,20 +2,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Heart, Stethoscope, Users, Calendar, BookOpen, Microscope, HandHeart, Phone, Gift, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import PayPalDonationModal from "./PayPalDonationModal";
-
-const causes = [
-  { icon: Heart, label: "Research Fund", color: "bg-primary" },
-  { icon: Stethoscope, label: "Patient Care", color: "bg-medical-blue" },
-  { icon: Users, label: "Support Groups", color: "bg-accent" },
-  { icon: Calendar, label: "Community Events", color: "bg-primary" },
-  { icon: BookOpen, label: "Education", color: "bg-accent" },
-  { icon: Microscope, label: "Medical Research", color: "bg-primary" },
-  { icon: HandHeart, label: "Care Support", color: "bg-medical-blue" },
-  { icon: Phone, label: "Helpline Fund", color: "bg-accent" },
-  { icon: Gift, label: "Legacy Giving", color: "bg-primary" }
-];
 
 const DonationBanner = () => {
   const [amount, setAmount] = useState("");
