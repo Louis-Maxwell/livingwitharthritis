@@ -20,20 +20,11 @@ const HeroSection = () => {
   };
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen flex items-center overflow-hidden bg-black">
-      {/* Full-screen video background */}
-      <div className="absolute inset-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/videos/hero-background.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-black/40" />
-      </div>
+    <section ref={sectionRef} className="relative min-h-screen flex items-center overflow-hidden bg-secondary">
+      {/* Lightweight gradient background instead of video */}
+      <div className="absolute inset-0 bg-gradient-to-br from-secondary via-secondary/95 to-primary/20" />
+      <div className="absolute top-20 right-10 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-10 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl" />
 
       <div className="absolute inset-0 noise-overlay" />
 
