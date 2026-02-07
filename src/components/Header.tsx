@@ -21,7 +21,7 @@ const Header = () => {
   }, []);
 
   const navLinks = [
-    { label: "About Arthritis", href: "#about" },
+    { label: "About Arthritis", href: "#about", action: () => setAboutOpen(true) },
     { label: "Get Help", href: "#help" },
     { label: "Get Involved", href: "#involved" },
     { label: "Shop", href: "#shop" },
@@ -39,13 +39,8 @@ const Header = () => {
         className="hidden lg:block bg-accent text-accent-foreground"
       >
         <div className="container mx-auto px-4 md:px-8">
-          <div className="flex justify-between items-center py-2">
-            <div className="flex items-center gap-6">
-              <span className="text-xs text-accent-foreground/70 font-medium">The UK's Leading Arthritis Resource</span>
-            </div>
-            <div className="flex items-center gap-6">
-              <button onClick={() => setAboutOpen(true)} className="text-xs text-accent-foreground/60 hover:text-accent-foreground transition-colors cursor-pointer">About Us</button>
-            </div>
+          <div className="flex justify-center items-center py-2">
+            <span className="text-xs text-accent-foreground/70 font-medium">The UK's Leading Arthritis Resource</span>
           </div>
         </div>
       </motion.div>
@@ -82,17 +77,24 @@ const Header = () => {
             {/* Desktop nav — editorial spacing */}
             <nav className="hidden lg:flex items-center gap-1">
               {navLinks.map((link, i) => (
-                <motion.a
+                <motion.button
                   key={link.label}
-                  href={link.href}
+                  onClick={(e) => {
+                    if (link.action) {
+                      e.preventDefault();
+                      link.action();
+                    } else {
+                      window.location.hash = link.href.replace('#', '');
+                    }
+                  }}
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 + i * 0.06, duration: 0.5 }}
-                  className="relative px-5 py-2.5 text-[13px] font-semibold uppercase tracking-[0.08em] text-muted-foreground hover:text-foreground transition-all duration-400 group"
+                  className="relative px-5 py-2.5 text-[13px] font-semibold uppercase tracking-[0.08em] text-muted-foreground hover:text-foreground transition-all duration-400 group cursor-pointer"
                 >
                   {link.label}
                   <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-primary rounded-full group-hover:w-2/3 transition-all duration-500 ease-out" />
-                </motion.a>
+                </motion.button>
               ))}
             </nav>
 
@@ -141,17 +143,23 @@ const Header = () => {
             >
               <nav className="container mx-auto px-4 py-8 space-y-1">
                 {navLinks.map((link, i) => (
-                  <motion.a
+                  <motion.button
                     key={link.label}
-                    href={link.href}
+                    onClick={() => {
+                      if (link.action) {
+                        link.action();
+                      } else {
+                        window.location.hash = link.href.replace('#', '');
+                      }
+                      setMobileMenuOpen(false);
+                    }}
                     initial={{ opacity: 0, x: -30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.06, duration: 0.4 }}
-                    className="block px-4 py-4 text-xl font-display font-semibold text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-xl transition-all duration-300"
-                    onClick={() => setMobileMenuOpen(false)}
+                    className="block w-full text-left px-4 py-4 text-xl font-display font-semibold text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-xl transition-all duration-300 cursor-pointer"
                   >
                     {link.label}
-                  </motion.a>
+                  </motion.button>
                 ))}
                 <div className="pt-6">
                   <Button className="w-full btn-premium text-primary-foreground font-bold py-4 rounded-full text-base uppercase tracking-wider">
