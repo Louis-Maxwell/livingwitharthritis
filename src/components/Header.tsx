@@ -144,17 +144,44 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile menu */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
+      </motion.header>
+
+      {/* Full-screen mobile slide-in menu */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <>
+            {/* Backdrop */}
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="lg:hidden bg-background border-t border-border/50 overflow-hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[60] lg:hidden"
+              onClick={() => setMobileMenuOpen(false)}
+            />
+            {/* Slide-in panel */}
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 30, stiffness: 300 }}
+              className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-background z-[70] lg:hidden shadow-2xl flex flex-col"
             >
-              <nav className="container mx-auto px-4 py-8 space-y-1">
+              {/* Close button */}
+              <div className="flex items-center justify-between p-6 border-b border-border/30">
+                <span className="text-lg font-display font-bold text-primary">Menu</span>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <X size={22} />
+                </Button>
+              </div>
+
+              {/* Nav links */}
+              <nav className="flex-1 overflow-y-auto px-6 py-8 space-y-2">
                 {navLinks.map((link, i) => (
                   <motion.button
                     key={link.label}
@@ -166,20 +193,22 @@ const Header = () => {
                       }
                       setMobileMenuOpen(false);
                     }}
-                    initial={{ opacity: 0, x: -30 }}
+                    initial={{ opacity: 0, x: 40 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.06, duration: 0.4 }}
+                    transition={{ delay: 0.1 + i * 0.08, duration: 0.4, ease: "easeOut" }}
                     className="block w-full text-left px-4 py-4 text-xl font-display font-semibold text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-xl transition-all duration-300 cursor-pointer"
                   >
                     {link.label}
                   </motion.button>
                 ))}
-                {/* Mobile donate */}
+              </nav>
+
+              {/* Bottom actions */}
+              <div className="p-6 space-y-4 border-t border-border/30">
                 <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.15, duration: 0.4 }}
-                  className="pt-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.25, duration: 0.4 }}
                 >
                   <Button
                     className="w-full btn-gold py-4 rounded-full text-sm uppercase tracking-wider font-bold"
@@ -193,18 +222,17 @@ const Header = () => {
                     Donate Now
                   </Button>
                 </motion.div>
-                {/* Mobile helpline */}
-                <div className="pt-4 text-center">
+                <div className="text-center">
                   <a href="tel:07760512084" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                     <Phone className="w-3.5 h-3.5 inline mr-1.5" />
                     Free Helpline: 07760 512 084
                   </a>
                 </div>
-              </nav>
+              </div>
             </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.header>
+          </>
+        )}
+      </AnimatePresence>
 
       <AboutUsModal open={aboutOpen} onOpenChange={setAboutOpen} />
     </>
