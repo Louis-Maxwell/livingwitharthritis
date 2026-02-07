@@ -1,14 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,700&family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,700&family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Premium Design System - £30k Quality */
+/* £10M Premium Design System */
 
 @layer base {
   :root {
-    /* Refined color palette - sophisticated and premium */
     --background: 40 20% 98%;
     --foreground: 220 25% 10%;
 
@@ -18,15 +17,15 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 25% 10%;
 
-    /* Emerald Primary - Luxurious medical green */
+    /* Deep Emerald Primary */
     --primary: 158 64% 32%;
     --primary-foreground: 0 0% 100%;
 
-    /* Sapphire Secondary - Premium blue */
+    /* Rich Navy Secondary */
     --secondary: 215 70% 45%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Deep Charcoal Accent - Sophisticated dark */
+    /* Deep Charcoal Accent */
     --accent: 220 30% 15%;
     --accent-foreground: 0 0% 100%;
 
@@ -39,6 +38,14 @@
     --border: 40 15% 88%;
     --input: 40 15% 88%;
     --ring: 158 64% 32%;
+
+    /* Premium Gold Accent */
+    --gold: 40 76% 52%;
+    --gold-foreground: 40 20% 10%;
+    --gold-muted: 40 50% 80%;
+
+    /* Warm Amber for highlights */
+    --amber: 30 90% 56%;
 
     /* Premium custom variables */
     --hero-bg: 158 64% 32%;
@@ -54,12 +61,14 @@
     --gradient-premium: linear-gradient(135deg, hsl(158 64% 32%), hsl(215 70% 45%));
     --gradient-dark: linear-gradient(180deg, hsl(220 30% 12%), hsl(220 30% 18%));
     --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    --gradient-gold: linear-gradient(135deg, hsl(40 76% 52%), hsl(30 90% 56%));
     
     /* Premium shadows */
     --shadow-soft: 0 4px 20px -4px hsl(220 30% 15% / 0.08);
     --shadow-medium: 0 12px 40px -12px hsl(220 30% 15% / 0.15);
     --shadow-large: 0 24px 60px -15px hsl(220 30% 15% / 0.2);
     --shadow-glow: 0 0 40px -10px hsl(158 64% 32% / 0.3);
+    --shadow-gold: 0 8px 30px -8px hsl(40 76% 52% / 0.3);
     --shadow-inner: inset 0 2px 4px 0 hsl(220 30% 15% / 0.05);
     
     --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -105,6 +114,11 @@
     --border: 220 25% 15%;
     --input: 220 25% 15%;
     --ring: 158 64% 45%;
+
+    --gold: 40 76% 58%;
+    --gold-foreground: 40 20% 95%;
+    --gold-muted: 40 40% 30%;
+    --amber: 30 90% 60%;
 
     --hero-bg: 158 64% 40%;
     --medical-blue: 215 70% 55%;
@@ -191,6 +205,20 @@
     left: 100%;
   }
 
+  /* Gold premium button */
+  .btn-gold {
+    @apply relative overflow-hidden font-bold;
+    background: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--amber)));
+    color: hsl(var(--gold-foreground));
+    box-shadow: 0 4px 20px -3px hsl(var(--gold) / 0.5);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px -5px hsl(var(--gold) / 0.6);
+  }
+
   /* Elegant divider */
   .divider-elegant {
     @apply relative h-px bg-gradient-to-r from-transparent via-border to-transparent;
@@ -200,6 +228,12 @@
   .text-gradient {
     @apply bg-clip-text text-transparent;
     background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+  }
+
+  /* Gold text gradient */
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--amber)));
   }
 
   /* Hover lift effect */
@@ -252,11 +286,30 @@
     border: 2px solid transparent;
   }
 
+  /* Gold gradient border */
+  .gradient-border-gold {
+    @apply relative;
+    background: linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
+                linear-gradient(135deg, hsl(var(--gold)), hsl(var(--amber))) border-box;
+    border: 2px solid transparent;
+  }
+
   /* Noise texture overlay */
   .noise-overlay::before {
     content: '';
     @apply absolute inset-0 opacity-[0.02] pointer-events-none;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+
+  /* Trust badge styling */
+  .trust-badge {
+    @apply flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/10 text-sm;
+  }
+
+  /* Charity number styling */
+  .charity-reg {
+    font-family: 'DM Sans', sans-serif;
+    @apply text-xs tracking-wider opacity-60;
   }
 }
 
@@ -299,5 +352,10 @@
   .editorial-caption {
     font-family: 'DM Sans', sans-serif;
     @apply uppercase tracking-[0.2em] text-xs font-semibold;
+  }
+
+  /* Serif body text for editorial feel */
+  .font-editorial {
+    font-family: 'Cormorant Garamond', serif;
   }
 }
