@@ -22,10 +22,7 @@ const Header = () => {
 
   const navLinks = [
     { label: "About Arthritis", href: "#about", action: () => setAboutOpen(true) },
-    { label: "Get Help", href: "#help" },
-    { label: "Get Involved", href: "#involved" },
     { label: "Shop", href: "#shop" },
-    { label: "In Your Area", href: "#area" },
   ];
 
   return (
@@ -114,12 +111,6 @@ const Header = () => {
               </Button>
 
               <Button
-                className="hidden sm:flex btn-premium text-primary-foreground font-bold px-7 py-2.5 rounded-full text-sm uppercase tracking-wider"
-              >
-                Donate
-              </Button>
-
-              <Button
                 variant="ghost"
                 size="icon"
                 className="lg:hidden rounded-full"
@@ -161,11 +152,6 @@ const Header = () => {
                     {link.label}
                   </motion.button>
                 ))}
-                <div className="pt-6">
-                  <Button className="w-full btn-premium text-primary-foreground font-bold py-4 rounded-full text-base uppercase tracking-wider">
-                    Donate Now
-                  </Button>
-                </div>
               </nav>
             </motion.div>
           )}

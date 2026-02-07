@@ -121,21 +121,6 @@ const ConditionsSection = memo(() => {
           )}
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center"
-        >
-          <Button
-            size="lg"
-            className="btn-premium text-primary-foreground font-bold px-12 py-7 rounded-full text-sm uppercase tracking-wider"
-          >
-            View All Conditions
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </Button>
-        </motion.div>
       </div>
     </section>
   );
