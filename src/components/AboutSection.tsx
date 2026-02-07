@@ -107,11 +107,6 @@ const AboutSection = memo(() => {
           className="mb-28"
         >
           <div className="text-center mb-14">
-            <span className="editorial-caption text-white/40 inline-flex items-center gap-3 mb-4">
-              <span className="w-8 h-px bg-white/30" />
-              Impact
-              <span className="w-8 h-px bg-white/30" />
-            </span>
             <h3 className="text-4xl md:text-5xl font-display font-bold">By the Numbers</h3>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
