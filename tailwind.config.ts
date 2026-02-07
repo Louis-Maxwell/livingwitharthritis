@@ -57,6 +57,12 @@ export default {
         "medical-purple": "hsl(var(--medical-purple))",
         "medical-purple-light": "hsl(var(--medical-purple-light))",
         "success-green": "hsl(var(--success-green))",
+        gold: {
+          DEFAULT: "hsl(var(--gold))",
+          foreground: "hsl(var(--gold-foreground))",
+          muted: "hsl(var(--gold-muted))",
+        },
+        amber: "hsl(var(--amber))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

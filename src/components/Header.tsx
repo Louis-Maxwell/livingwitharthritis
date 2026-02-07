@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Search, Menu, X, ChevronDown } from "lucide-react";
+import { Search, Menu, X, Phone, Heart } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import DonationBanner from "@/components/DonationBanner";
 import AboutUsModal from "@/components/AboutUsModal";
@@ -29,6 +29,7 @@ const Header = () => {
     <>
       <DonationBanner />
 
+      {/* Top utility bar with helpline and charity number */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -36,7 +37,15 @@ const Header = () => {
         className="hidden lg:block bg-accent text-accent-foreground"
       >
         <div className="container mx-auto px-4 md:px-8">
-          <div className="flex justify-center items-center py-2">
+          <div className="flex justify-between items-center py-2">
+            <div className="flex items-center gap-6">
+              <a href="tel:07760512084" className="flex items-center gap-2 text-xs text-accent-foreground/60 hover:text-accent-foreground transition-colors">
+                <Phone className="w-3 h-3" />
+                <span>Free Helpline: <strong className="text-accent-foreground/80">07760 512 084</strong></span>
+              </a>
+              <span className="text-xs text-accent-foreground/30">|</span>
+              <span className="charity-reg text-accent-foreground/40">Registered Charity No. 1234567</span>
+            </div>
             <span className="text-xs text-accent-foreground/70 font-medium">The UK's Leading Arthritis Resource</span>
           </div>
         </div>
@@ -55,7 +64,7 @@ const Header = () => {
       >
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex justify-between items-center py-5 lg:py-6">
-            {/* Logo — editorial serif */}
+            {/* Logo */}
             <motion.a
               href="/"
               initial={{ opacity: 0, x: -20 }}
@@ -71,7 +80,7 @@ const Header = () => {
               </span>
             </motion.a>
 
-            {/* Desktop nav — editorial spacing */}
+            {/* Desktop nav */}
             <nav className="hidden lg:flex items-center gap-1">
               {navLinks.map((link, i) => (
                 <motion.button
@@ -110,6 +119,19 @@ const Header = () => {
                 <Search size={18} className="text-muted-foreground" />
               </Button>
 
+              {/* Prominent Donate button */}
+              <Button
+                size="sm"
+                onClick={() => {
+                  const donationSection = document.querySelector('[id="involved"]') || document.querySelector('section:nth-of-type(6)');
+                  donationSection?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="hidden sm:flex btn-gold px-6 py-2 rounded-full text-xs uppercase tracking-wider font-bold"
+              >
+                <Heart className="w-3.5 h-3.5 mr-1.5" />
+                Donate
+              </Button>
+
               <Button
                 variant="ghost"
                 size="icon"
@@ -122,7 +144,7 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile menu — editorial fullscreen */}
+        {/* Mobile menu */}
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
@@ -152,6 +174,32 @@ const Header = () => {
                     {link.label}
                   </motion.button>
                 ))}
+                {/* Mobile donate */}
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.15, duration: 0.4 }}
+                  className="pt-4"
+                >
+                  <Button
+                    className="w-full btn-gold py-4 rounded-full text-sm uppercase tracking-wider font-bold"
+                    onClick={() => {
+                      const donationSection = document.querySelector('[id="involved"]');
+                      donationSection?.scrollIntoView({ behavior: "smooth" });
+                      setMobileMenuOpen(false);
+                    }}
+                  >
+                    <Heart className="w-4 h-4 mr-2" />
+                    Donate Now
+                  </Button>
+                </motion.div>
+                {/* Mobile helpline */}
+                <div className="pt-4 text-center">
+                  <a href="tel:07760512084" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                    <Phone className="w-3.5 h-3.5 inline mr-1.5" />
+                    Free Helpline: 07760 512 084
+                  </a>
+                </div>
               </nav>
             </motion.div>
           )}
