@@ -50,19 +50,6 @@ const ConditionsSection = memo(() => {
       </div>
 
       <div className="container mx-auto px-4 md:px-8 relative">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
-        >
-          <span className="editorial-caption text-muted-foreground inline-flex items-center gap-3 mb-6">
-            <span className="w-8 h-px bg-border" />
-            Medical Resources
-            <span className="w-8 h-px bg-border" />
-          </span>
-        </motion.div>
 
         <motion.div
           variants={containerVariants}
