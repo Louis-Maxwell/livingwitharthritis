@@ -45,7 +45,7 @@ const Footer = () => {
               transition={{ duration: 0.6 }}
             >
               <div className="mb-6">
-                <span className="text-3xl font-display font-bold text-accent-foreground leading-none block">
+                <span className="text-3xl font-display font-bold text-primary leading-none block">
                   Living With
                 </span>
                 <span className="text-3xl font-display font-bold text-primary leading-none block">
