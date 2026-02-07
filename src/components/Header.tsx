@@ -30,7 +30,6 @@ const Header = () => {
     <>
       <DonationBanner />
 
-      {/* Editorial top bar */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -40,14 +39,10 @@ const Header = () => {
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex justify-between items-center py-2">
             <div className="flex items-center gap-6">
-              <span className="editorial-caption text-accent-foreground/60">Est. 2024</span>
-              <span className="w-px h-3 bg-accent-foreground/20" />
               <span className="text-xs text-accent-foreground/70 font-medium">The UK's Leading Arthritis Resource</span>
             </div>
             <div className="flex items-center gap-6">
               <a href="#" className="text-xs text-accent-foreground/60 hover:text-accent-foreground transition-colors">About Us</a>
-              <a href="#" className="text-xs text-accent-foreground/60 hover:text-accent-foreground transition-colors">Contact</a>
-              <a href="#" className="text-xs text-accent-foreground/60 hover:text-accent-foreground transition-colors">Newsletter</a>
             </div>
           </div>
         </div>
@@ -74,7 +69,7 @@ const Header = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="flex flex-col"
             >
-              <span className="text-2xl md:text-3xl font-display font-bold text-foreground tracking-tight leading-none">
+              <span className="text-2xl md:text-3xl font-display font-bold text-primary tracking-tight leading-none">
                 Living With
               </span>
               <span className="text-2xl md:text-3xl font-display font-bold text-primary tracking-tight leading-none">
