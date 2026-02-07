@@ -66,29 +66,6 @@ const DonationBanner = () => {
 
   return (
     <div className="bg-gradient-medical text-secondary-foreground">
-      {/* Causes Section */}
-      <div className="bg-accent/90 backdrop-blur-sm">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex flex-wrap justify-center items-center gap-4 lg:gap-6">
-            {causes.map((cause, index) => {
-              const IconComponent = cause.icon;
-              return (
-                <div 
-                  key={index}
-                  className="flex flex-col items-center cursor-pointer group transition-all duration-300 hover:scale-105"
-                >
-                  <div className={`w-12 h-12 lg:w-14 lg:h-14 rounded-full ${cause.color} flex items-center justify-center shadow-soft group-hover:shadow-medium transition-all duration-300`}>
-                    <IconComponent className="w-6 h-6 lg:w-7 lg:h-7 text-white" />
-                  </div>
-                  <span className="text-xs mt-1 text-accent-foreground font-medium text-center max-w-[80px] leading-tight">
-                    {cause.label}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
 
       {/* Donation Form Section */}
       <div className="bg-gradient-medical">
