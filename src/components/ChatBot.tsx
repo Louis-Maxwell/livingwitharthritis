@@ -1,38 +1,69 @@
 import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Send, Bot, User, Trash2, Loader2 } from "lucide-react";
+import { Send, Sparkles, User, Trash2, Loader2, Stethoscope, Apple, Dumbbell, HelpCircle } from "lucide-react";
 import { useStreamingChat, Message } from "@/hooks/useStreamingChat";
 import { cn } from "@/lib/utils";
+import ReactMarkdown from "react-markdown";
+import { motion, AnimatePresence } from "framer-motion";
 
-const ChatMessage = ({ message }: { message: Message }) => {
+const quickSuggestions = [
+  { icon: Stethoscope, label: "What is rheumatoid arthritis?" },
+  { icon: Apple, label: "Best anti-inflammatory foods?" },
+  { icon: Dumbbell, label: "Safe exercises for OA?" },
+  { icon: HelpCircle, label: "When should I see a doctor?" },
+];
+
+const TypingIndicator = () => (
+  <div className="flex items-center gap-1.5 px-3 py-2">
+    {[0, 1, 2].map((i) => (
+      <motion.div
+        key={i}
+        className="w-2 h-2 rounded-full bg-primary/50"
+        animate={{ y: [0, -6, 0] }}
+        transition={{ duration: 0.6, repeat: Infinity, delay: i * 0.15 }}
+      />
+    ))}
+  </div>
+);
+
+const ChatMessage = ({ message, isLatest }: { message: Message; isLatest: boolean }) => {
   const isUser = message.role === "user";
-  
+
   return (
-    <div
-      className={cn(
-        "flex gap-3 p-4 rounded-lg",
-        isUser ? "bg-primary/10" : "bg-muted"
-      )}
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      className={cn("flex gap-3 max-w-[92%]", isUser ? "ml-auto flex-row-reverse" : "")}
     >
       <div
         className={cn(
-          "flex h-8 w-8 shrink-0 items-center justify-center rounded-full",
-          isUser ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"
+          "flex h-8 w-8 shrink-0 items-center justify-center rounded-full mt-1",
+          isUser
+            ? "bg-primary text-primary-foreground"
+            : "bg-gradient-to-br from-primary/20 to-gold/30 text-primary ring-1 ring-primary/10"
         )}
       >
-        {isUser ? <User className="h-4 w-4" /> : <Bot className="h-4 w-4" />}
+        {isUser ? <User className="h-3.5 w-3.5" /> : <Sparkles className="h-3.5 w-3.5" />}
       </div>
-      <div className="flex-1 space-y-2">
-        <p className="text-sm font-medium">
-          {isUser ? "You" : "AI Assistant"}
-        </p>
-        <div className="text-sm text-foreground/90 whitespace-pre-wrap">
-          {message.content}
-        </div>
+      <div
+        className={cn(
+          "rounded-2xl px-4 py-3 text-sm leading-relaxed",
+          isUser
+            ? "bg-primary text-primary-foreground rounded-br-md"
+            : "bg-muted/70 text-foreground rounded-bl-md border border-border/30"
+        )}
+      >
+        {isUser ? (
+          <p>{message.content}</p>
+        ) : (
+          <div className="prose prose-sm dark:prose-invert max-w-none prose-p:my-1 prose-ul:my-1 prose-li:my-0.5 prose-headings:my-2 prose-headings:text-foreground">
+            <ReactMarkdown>{message.content}</ReactMarkdown>
+          </div>
+        )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -40,9 +71,8 @@ export function ChatBot() {
   const [input, setInput] = useState("");
   const { messages, isLoading, sendMessage, clearMessages } = useStreamingChat();
   const scrollRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
 
-  // Auto-scroll to bottom when new messages arrive
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
@@ -51,24 +81,45 @@ export function ChatBot() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (input.trim()) {
+    if (input.trim() && !isLoading) {
       sendMessage(input);
       setInput("");
+      if (inputRef.current) inputRef.current.style.height = "auto";
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSubmit(e);
+    }
+  };
+
+  const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setInput(e.target.value);
+    e.target.style.height = "auto";
+    e.target.style.height = Math.min(e.target.scrollHeight, 120) + "px";
+  };
+
   return (
-    <div className="flex flex-col h-full w-full bg-card overflow-hidden">
+    <div className="flex flex-col h-full w-full bg-background overflow-hidden">
       {/* Header */}
-      <div className="flex items-center justify-between px-4 py-3 border-b bg-muted/50">
-        <div className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center">
-            <Bot className="h-4 w-4 text-primary-foreground" />
+      <div className="flex items-center justify-between px-5 py-4 border-b border-border/30 bg-gradient-to-r from-primary/5 to-gold/5">
+        <div className="flex items-center gap-3">
+          <div className="relative">
+            <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-md">
+              <Sparkles className="h-5 w-5 text-primary-foreground" />
+            </div>
+            <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-primary/70 border-2 border-background" />
           </div>
           <div>
-            <h3 className="font-semibold text-sm">AI Assistant</h3>
-            <p className="text-xs text-muted-foreground">
-              {isLoading ? "Thinking..." : "Online"}
+            <h3 className="font-display font-bold text-sm text-foreground">Arthritis AI</h3>
+            <p className="text-[11px] text-muted-foreground font-medium">
+              {isLoading ? (
+                <span className="text-primary">Thinking…</span>
+              ) : (
+                "Powered by Lovable AI"
+              )}
             </p>
           </div>
         </div>
@@ -77,60 +128,109 @@ export function ChatBot() {
             variant="ghost"
             size="sm"
             onClick={clearMessages}
-            className="text-muted-foreground hover:text-destructive"
+            className="text-muted-foreground hover:text-destructive rounded-lg h-8 w-8 p-0"
           >
-            <Trash2 className="h-4 w-4" />
+            <Trash2 className="h-3.5 w-3.5" />
           </Button>
         )}
       </div>
 
       {/* Messages */}
-      <ScrollArea ref={scrollRef} className="flex-1 p-4">
-        {messages.length === 0 ? (
-          <div className="flex flex-col items-center justify-center h-full text-center text-muted-foreground">
-            <Bot className="h-12 w-12 mb-4 opacity-50" />
-            <h4 className="font-medium mb-1">Start a conversation</h4>
-            <p className="text-sm">Ask me anything and I'll do my best to help!</p>
-          </div>
-        ) : (
-          <div className="space-y-4">
-            {messages.map((message, index) => (
-              <ChatMessage key={index} message={message} />
-            ))}
-            {isLoading && messages[messages.length - 1]?.role === "user" && (
-              <div className="flex gap-3 p-4 rounded-lg bg-muted">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-secondary text-secondary-foreground">
-                  <Loader2 className="h-4 w-4 animate-spin" />
-                </div>
-                <div className="flex-1 space-y-2">
-                  <p className="text-sm font-medium">AI Assistant</p>
-                  <div className="text-sm text-muted-foreground">Thinking...</div>
-                </div>
+      <ScrollArea ref={scrollRef} className="flex-1 px-4 py-4">
+        <AnimatePresence mode="wait">
+          {messages.length === 0 ? (
+            <motion.div
+              key="empty"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              className="flex flex-col items-center justify-center h-full text-center pt-8"
+            >
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/15 to-gold/20 flex items-center justify-center mb-5">
+                <Sparkles className="h-8 w-8 text-primary/60" />
               </div>
-            )}
-          </div>
-        )}
+              <h4 className="font-display font-bold text-lg text-foreground mb-1">
+                Hi, I'm Arthritis AI
+              </h4>
+              <p className="text-sm text-muted-foreground mb-8 max-w-[260px]">
+                Ask me about symptoms, treatments, nutrition, or exercises. I'm here to help.
+              </p>
+
+              <div className="grid grid-cols-2 gap-2 w-full max-w-sm">
+                {quickSuggestions.map((s) => {
+                  const Icon = s.icon;
+                  return (
+                    <button
+                      key={s.label}
+                      onClick={() => sendMessage(s.label)}
+                      className="flex items-start gap-2.5 text-left p-3 rounded-xl border border-border/40 bg-muted/30 hover:bg-muted/60 hover:border-primary/20 transition-all duration-200 group"
+                    >
+                      <Icon className="h-4 w-4 text-primary/60 mt-0.5 shrink-0 group-hover:text-primary transition-colors" />
+                      <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors leading-snug">
+                        {s.label}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </motion.div>
+          ) : (
+            <div className="space-y-4">
+              {messages.map((message, index) => (
+                <ChatMessage
+                  key={index}
+                  message={message}
+                  isLatest={index === messages.length - 1}
+                />
+              ))}
+              {isLoading && messages[messages.length - 1]?.role === "user" && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="flex gap-3"
+                >
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary/20 to-gold/30 text-primary ring-1 ring-primary/10 mt-1">
+                    <Sparkles className="h-3.5 w-3.5" />
+                  </div>
+                  <div className="rounded-2xl rounded-bl-md bg-muted/70 border border-border/30">
+                    <TypingIndicator />
+                  </div>
+                </motion.div>
+              )}
+            </div>
+          )}
+        </AnimatePresence>
       </ScrollArea>
 
       {/* Input */}
-      <form onSubmit={handleSubmit} className="p-4 border-t bg-muted/30">
-        <div className="flex gap-2">
-          <Input
+      <form onSubmit={handleSubmit} className="p-3 border-t border-border/30 bg-muted/20">
+        <div className="flex items-end gap-2 bg-background rounded-2xl border border-border/40 focus-within:border-primary/30 focus-within:ring-2 focus-within:ring-primary/10 transition-all px-4 py-2">
+          <textarea
             ref={inputRef}
             value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Type your message..."
+            onChange={handleTextareaChange}
+            onKeyDown={handleKeyDown}
+            placeholder="Ask about arthritis…"
             disabled={isLoading}
-            className="flex-1"
+            rows={1}
+            className="flex-1 bg-transparent text-sm resize-none outline-none placeholder:text-muted-foreground/50 max-h-[120px] py-1.5 leading-relaxed"
           />
-          <Button type="submit" disabled={isLoading || !input.trim()} size="icon">
+          <Button
+            type="submit"
+            disabled={isLoading || !input.trim()}
+            size="icon"
+            className="h-8 w-8 rounded-xl shrink-0 bg-primary hover:bg-primary/90 transition-colors"
+          >
             {isLoading ? (
-              <Loader2 className="h-4 w-4 animate-spin" />
+              <Loader2 className="h-3.5 w-3.5 animate-spin" />
             ) : (
-              <Send className="h-4 w-4" />
+              <Send className="h-3.5 w-3.5" />
             )}
           </Button>
         </div>
+        <p className="text-[10px] text-muted-foreground/40 text-center mt-2">
+          AI can make mistakes. Always consult your healthcare provider.
+        </p>
       </form>
     </div>
   );
