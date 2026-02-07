@@ -3,10 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Search, Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import DonationBanner from "@/components/DonationBanner";
+import AboutUsModal from "@/components/AboutUsModal";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
   const { scrollY } = useScroll();
   const headerOpacity = useTransform(scrollY, [0, 100], [1, 0.97]);
 
@@ -42,7 +44,7 @@ const Header = () => {
               <span className="text-xs text-accent-foreground/70 font-medium">The UK's Leading Arthritis Resource</span>
             </div>
             <div className="flex items-center gap-6">
-              <a href="#" className="text-xs text-accent-foreground/60 hover:text-accent-foreground transition-colors">About Us</a>
+              <button onClick={() => setAboutOpen(true)} className="text-xs text-accent-foreground/60 hover:text-accent-foreground transition-colors cursor-pointer">About Us</button>
             </div>
           </div>
         </div>
@@ -161,6 +163,8 @@ const Header = () => {
           )}
         </AnimatePresence>
       </motion.header>
+
+      <AboutUsModal open={aboutOpen} onOpenChange={setAboutOpen} />
     </>
   );
 };
