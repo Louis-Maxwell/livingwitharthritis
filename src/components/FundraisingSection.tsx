@@ -1,38 +1,91 @@
 import { memo } from "react";
+import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 import { useFundraisingOptions } from "@/hooks/useCmsContent";
 import { Skeleton } from "@/components/ui/skeleton";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.06 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
+};
 
 const FundraisingSection = memo(() => {
   const { data: fundraisingOptions, isLoading } = useFundraisingOptions();
 
   return (
-    <section className="py-16 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="grid gap-8">
-          {/* Fundraising Options List */}
-          <div className="space-y-4">
-            {isLoading ? (
-              Array.from({ length: 7 }).map((_, i) => (
-                <div key={i} className="border-b border-border pb-4 last:border-0">
-                  <Skeleton className="h-6 w-48" />
-                </div>
-              ))
-            ) : (
-              fundraisingOptions?.map((option) => (
-                <div
-                  key={option.id}
-                  className="border-b border-border pb-4 last:border-0"
-                >
-                  <a
-                    href="#"
-                    className="text-primary hover:text-primary/80 font-medium text-lg transition-colors"
-                  >
-                    {option.title}
-                  </a>
-                </div>
-              ))
-            )}
-          </div>
+    <section className="py-28 lg:py-36 bg-background relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-primary/[0.02] rounded-full blur-3xl" />
+
+      <div className="container mx-auto px-4 md:px-8 relative">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
+          {/* Left — editorial heading */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="lg:col-span-4 lg:sticky lg:top-32 lg:self-start"
+          >
+            <span className="editorial-caption text-muted-foreground inline-flex items-center gap-3 mb-6">
+              <span className="w-8 h-px bg-border" />
+              Get Involved
+            </span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-6 leading-[0.95] tracking-tight">
+              Fund
+              <br />
+              <span className="font-display italic font-normal text-muted-foreground">raising</span>
+            </h2>
+            <div className="w-16 h-1 bg-primary rounded-full mb-6" />
+            <p className="text-muted-foreground leading-relaxed font-light">
+              Make a real difference. Explore ways to support arthritis research and care.
+            </p>
+          </motion.div>
+
+          {/* Right — editorial list */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="lg:col-span-8"
+          >
+            <div className="space-y-0">
+              {isLoading ? (
+                Array.from({ length: 7 }).map((_, i) => (
+                  <div key={i} className="py-6 border-b border-border/50">
+                    <Skeleton className="h-7 w-56" />
+                  </div>
+                ))
+              ) : (
+                fundraisingOptions?.map((option, i) => (
+                  <motion.div key={option.id} variants={itemVariants}>
+                    <a
+                      href="#"
+                      className="group flex items-center justify-between py-6 border-b border-border/50 hover:border-primary/30 transition-all duration-500"
+                    >
+                      <div className="flex items-center gap-5">
+                        <span className="editorial-caption text-muted-foreground/40 w-8">
+                          {String(i + 1).padStart(2, '0')}
+                        </span>
+                        <span className="text-xl lg:text-2xl font-display font-semibold text-foreground group-hover:text-primary transition-colors duration-500">
+                          {option.title}
+                        </span>
+                      </div>
+                      <ArrowRight className="w-5 h-5 text-muted-foreground/30 group-hover:text-primary group-hover:translate-x-1 transition-all duration-300" />
+                    </a>
+                  </motion.div>
+                ))
+              )}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
