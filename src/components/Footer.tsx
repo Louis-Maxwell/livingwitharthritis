@@ -11,9 +11,7 @@ const Footer = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   const handleNewsletter = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,7 +21,7 @@ const Footer = () => {
       const { error } = await supabase
         .from("newsletter_subscriptions" as any)
         .insert({ email, source: "footer" } as any);
-      
+
       if (error) {
         if (error.code === "23505") {
           toast({ title: "Already subscribed!", description: "This email is already on our mailing list." });
@@ -34,7 +32,7 @@ const Footer = () => {
         toast({ title: "Thank you!", description: "You've been subscribed to our newsletter." });
       }
       setEmail("");
-    } catch (err) {
+    } catch {
       toast({ title: "Error", description: "Failed to subscribe. Please try again.", variant: "destructive" });
     } finally {
       setIsSubmitting(false);
@@ -57,7 +55,6 @@ const Footer = () => {
       { label: "Our Mission", href: "#" },
       { label: "Annual Reports", href: "#" },
       { label: "Press & Media", href: "#" },
-      
     ],
   };
 
@@ -69,174 +66,92 @@ const Footer = () => {
     { icon: Linkedin, href: "#", label: "LinkedIn" },
   ];
 
-  
-
   return (
-    <footer className="relative bg-accent text-accent-foreground overflow-hidden">
-      {/* Gold top accent */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
-      
-      {/* Newsletter section */}
-      <div className="border-b border-white/[0.06]">
-        <div className="container mx-auto px-4 md:px-8 py-16 lg:py-20">
-          <div className="grid lg:grid-cols-2 gap-10 items-center max-w-5xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="editorial-caption text-gold mb-3 block">Newsletter</span>
-              <h3 className="text-2xl lg:text-3xl font-display font-bold text-accent-foreground mb-3">
-                Stay <span className="italic font-normal">Informed</span>
-              </h3>
-              <p className="text-accent-foreground/50 text-sm font-light">
+    <footer className="bg-navy text-white">
+      {/* Newsletter */}
+      <div className="border-b border-white/10">
+        <div className="container mx-auto px-4 md:px-8 py-14">
+          <div className="grid lg:grid-cols-2 gap-8 items-center max-w-5xl mx-auto">
+            <div>
+              <span className="section-label text-gold mb-2 block">Newsletter</span>
+              <h3 className="text-2xl font-display font-bold mb-2">Stay informed</h3>
+              <p className="text-white/50 text-sm">
                 Get the latest research, tips, and community news delivered to your inbox.
               </p>
-            </motion.div>
-            <motion.form
-              onSubmit={handleNewsletter}
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="flex gap-3"
-            >
+            </div>
+            <form onSubmit={handleNewsletter} className="flex gap-3">
               <Input
                 type="email"
                 placeholder="Your email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="bg-white/[0.06] border-white/[0.1] text-accent-foreground placeholder:text-accent-foreground/30 rounded-full px-6"
+                className="bg-white/10 border-white/15 text-white placeholder:text-white/30 rounded-full px-5"
                 required
               />
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="btn-gold px-8 rounded-full text-xs uppercase tracking-wider font-bold whitespace-nowrap"
+                className="btn-primary-cta px-6 rounded-full text-sm whitespace-nowrap"
               >
                 {isSubmitting ? "..." : "Subscribe"}
               </Button>
-            </motion.form>
+            </form>
           </div>
         </div>
       </div>
 
-      {/* Main content */}
-      <div className="container mx-auto px-4 md:px-8 py-20 lg:py-28">
-        <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
+      {/* Main links */}
+      <div className="container mx-auto px-4 md:px-8 py-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="mb-6">
-                <span className="text-3xl font-display font-bold text-primary leading-none block">
-                  Living With
-                </span>
-                <span className="text-3xl font-display font-bold text-primary leading-none block">
-                  Arthritis
-                </span>
+            <div className="flex items-center gap-2 mb-5">
+              <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center">
+                <Heart className="w-4 h-4 text-primary-foreground" />
               </div>
-              <p className="text-accent-foreground/50 leading-relaxed mb-8 max-w-sm font-light">
-                Supporting 10 million people living with arthritis through 
-                information, research, and community.
-              </p>
-              
-              {/* Contact */}
-              <div className="space-y-4 mb-8">
-                <a href="tel:07760512084" className="flex items-center gap-4 text-accent-foreground/50 hover:text-accent-foreground transition-colors duration-300 group">
-                  <div className="w-10 h-10 rounded-xl bg-white/[0.04] flex items-center justify-center group-hover:bg-gold/20 transition-colors duration-300">
-                    <Phone className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <span className="text-sm block">07760 512084</span>
-                    <span className="text-xs text-accent-foreground/30">Mon-Fri, 9am-5pm</span>
-                  </div>
-                </a>
-                <a href="mailto:info@livingwitharthritis.org.uk" className="flex items-center gap-4 text-accent-foreground/50 hover:text-accent-foreground transition-colors duration-300 group">
-                  <div className="w-10 h-10 rounded-xl bg-white/[0.04] flex items-center justify-center group-hover:bg-gold/20 transition-colors duration-300">
-                    <Mail className="w-4 h-4" />
-                  </div>
-                  <span className="text-sm">info@livingwitharthritis.org.uk</span>
-                </a>
+              <div>
+                <span className="text-lg font-display font-bold leading-tight block">Living With</span>
+                <span className="text-lg font-display font-bold leading-tight block text-primary">Arthritis</span>
               </div>
-
-            </motion.div>
+            </div>
+            <p className="text-white/50 leading-relaxed mb-6 max-w-sm text-sm">
+              Supporting 10 million people living with arthritis through information, research, and community.
+            </p>
+            <div className="space-y-3">
+              <a href="tel:07760512084" className="flex items-center gap-3 text-white/50 hover:text-white transition-colors text-sm">
+                <Phone className="w-4 h-4" />
+                <span>07760 512 084</span>
+              </a>
+              <a href="mailto:info@livingwitharthritis.org.uk" className="flex items-center gap-3 text-white/50 hover:text-white transition-colors text-sm">
+                <Mail className="w-4 h-4" />
+                <span>info@livingwitharthritis.org.uk</span>
+              </a>
+            </div>
           </div>
 
-          {/* Get Help */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="lg:col-span-2"
-          >
-            <h4 className="editorial-caption text-gold/60 mb-6">Get Help</h4>
-            <ul className="space-y-3">
-              {footerLinks.getHelp.map((link) => (
-                <li key={link.label}>
-                  <a href={link.href} className="text-accent-foreground/50 hover:text-accent-foreground transition-colors duration-300 text-sm font-light">
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* About Arthritis */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-2"
-          >
-            <h4 className="editorial-caption text-gold/60 mb-6">About Arthritis</h4>
-            <ul className="space-y-3">
-              {footerLinks.aboutArthritis.map((link) => (
-                <li key={link.label}>
-                  <a href={link.href} className="text-accent-foreground/50 hover:text-accent-foreground transition-colors duration-300 text-sm font-light">
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* About Us */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.25 }}
-            className="lg:col-span-2"
-          >
-            <h4 className="editorial-caption text-gold/60 mb-6">About Us</h4>
-            <ul className="space-y-3">
-              {footerLinks.aboutUs.map((link) => (
-                <li key={link.label}>
-                  <a href={link.href} className="text-accent-foreground/50 hover:text-accent-foreground transition-colors duration-300 text-sm font-light">
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+          {/* Links */}
+          {[
+            { title: "Get Help", links: footerLinks.getHelp },
+            { title: "About Arthritis", links: footerLinks.aboutArthritis },
+            { title: "About Us", links: footerLinks.aboutUs },
+          ].map((section) => (
+            <div key={section.title} className="lg:col-span-2">
+              <h4 className="section-label text-white/40 mb-4 text-[10px]">{section.title}</h4>
+              <ul className="space-y-2.5">
+                {section.links.map((link) => (
+                  <li key={link.label}>
+                    <a href={link.href} className="text-white/50 hover:text-white transition-colors text-sm">
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
 
           {/* Social */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="lg:col-span-2"
-          >
-            <h4 className="editorial-caption text-gold/60 mb-6">Follow Us</h4>
+          <div className="lg:col-span-2">
+            <h4 className="section-label text-white/40 mb-4 text-[10px]">Follow Us</h4>
             <div className="flex flex-wrap gap-2">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
@@ -245,43 +160,32 @@ const Footer = () => {
                     key={social.label}
                     href={social.href}
                     aria-label={social.label}
-                    className="w-10 h-10 rounded-xl bg-white/[0.04] flex items-center justify-center hover:bg-gold/20 transition-colors duration-300 group"
+                    className="w-9 h-9 rounded-lg bg-white/8 flex items-center justify-center hover:bg-primary/30 transition-colors"
                   >
-                    <Icon className="w-4 h-4 text-accent-foreground/40 group-hover:text-gold transition-colors" />
+                    <Icon className="w-4 h-4 text-white/50" />
                   </a>
                 );
               })}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
 
-      {/* Bottom bar */}
-      <div className="border-t border-white/[0.06]">
-        <div className="container mx-auto px-4 md:px-8 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
-              <p className="text-accent-foreground/30 text-xs editorial-caption text-center md:text-left">
-                © 2025 Living with Arthritis. All rights reserved.
-              </p>
-              <span className="hidden sm:inline text-accent-foreground/15">|</span>
-              <span className="charity-reg text-accent-foreground/30">
-                Registered Charity No. 1234567 | Company No. 7654321
-              </span>
+      {/* Bottom */}
+      <div className="border-t border-white/8">
+        <div className="container mx-auto px-4 md:px-8 py-5">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-3">
+            <p className="text-white/30 text-xs">
+              © 2025 Living with Arthritis. All rights reserved. Registered Charity No. 1234567
+            </p>
+            <div className="flex items-center gap-5 text-xs">
+              <a href="#" className="text-white/30 hover:text-white/60 transition-colors">Privacy</a>
+              <a href="#" className="text-white/30 hover:text-white/60 transition-colors">Terms</a>
+              <a href="#" className="text-white/30 hover:text-white/60 transition-colors">Accessibility</a>
+              <button onClick={scrollToTop} className="w-8 h-8 rounded-lg bg-white/8 flex items-center justify-center hover:bg-primary/30 transition-colors" aria-label="Scroll to top">
+                <ArrowUp className="w-3.5 h-3.5 text-white/40" />
+              </button>
             </div>
-            <div className="flex items-center gap-6 text-xs">
-              <a href="#" className="text-accent-foreground/30 hover:text-accent-foreground/60 transition-colors">Privacy Policy</a>
-              <a href="#" className="text-accent-foreground/30 hover:text-accent-foreground/60 transition-colors">Terms of Service</a>
-              <a href="#" className="text-accent-foreground/30 hover:text-accent-foreground/60 transition-colors">Accessibility</a>
-              <a href="#" className="text-accent-foreground/30 hover:text-accent-foreground/60 transition-colors">Cookie Settings</a>
-            </div>
-            <button
-              onClick={scrollToTop}
-              className="w-10 h-10 rounded-xl bg-white/[0.04] flex items-center justify-center hover:bg-gold/20 transition-colors duration-300 group"
-              aria-label="Scroll to top"
-            >
-              <ArrowUp className="w-4 h-4 text-accent-foreground/40 group-hover:text-gold transition-colors" />
-            </button>
           </div>
         </div>
       </div>

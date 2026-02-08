@@ -1,110 +1,89 @@
 import { memo } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ChevronRight, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useConditions } from "@/hooks/useCmsContent";
 import { Skeleton } from "@/components/ui/skeleton";
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.06 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
-};
-
-const ConditionSkeleton = () => (
-  <Card className="h-full bg-card border-border/50 rounded-2xl">
-    <CardHeader className="pb-3">
-      <div className="flex items-center justify-between mb-3">
-        <Skeleton className="h-6 w-24 rounded-full" />
-        <Skeleton className="w-8 h-8 rounded-full" />
-      </div>
-      <Skeleton className="h-6 w-3/4" />
-    </CardHeader>
-    <CardContent className="space-y-4">
-      <Skeleton className="h-4 w-full" />
-      <Skeleton className="h-4 w-5/6" />
-    </CardContent>
-  </Card>
-);
+import { Button } from "@/components/ui/button";
 
 const ConditionsSection = memo(() => {
   const { data: conditions, isLoading } = useConditions();
 
   return (
-    <section id="conditions" className="py-28 lg:py-36 bg-muted/30 relative overflow-hidden">
-      {/* Subtle dot pattern */}
-      <div className="absolute inset-0 opacity-[0.015]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 1px)`,
-          backgroundSize: '40px 40px',
-        }} />
-      </div>
-
-      <div className="container mx-auto px-4 md:px-8 relative">
-
+    <section id="conditions" className="py-20 lg:py-28 bg-background relative">
+      <div className="container mx-auto px-4 md:px-8">
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14"
         >
+          <span className="section-label text-secondary mb-3 block">Conditions We Cover</span>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4 tracking-tight">
+            Understanding your <span className="text-secondary">condition</span>
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Explore our comprehensive guides on different types of arthritis and related conditions.
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {isLoading ? (
             Array.from({ length: 6 }).map((_, i) => (
-              <motion.div key={i} variants={itemVariants}>
-                <ConditionSkeleton />
-              </motion.div>
+              <Card key={i} className="bg-card border-border/50 rounded-2xl">
+                <CardHeader className="pb-3">
+                  <Skeleton className="h-6 w-24 rounded-full mb-2" />
+                  <Skeleton className="h-6 w-3/4" />
+                </CardHeader>
+                <CardContent><Skeleton className="h-12 w-full" /></CardContent>
+              </Card>
             ))
           ) : (
-            conditions?.map((condition) => (
-              <motion.div key={condition.id} variants={itemVariants}>
-                <Card className="group h-full bg-card hover:shadow-large transition-all duration-700 cursor-pointer border-border/50 hover:border-primary/20 rounded-2xl overflow-hidden">
+            conditions?.map((condition, i) => (
+              <motion.div
+                key={condition.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.06 }}
+              >
+                <Card className="group h-full bg-card hover:shadow-medium transition-all duration-300 cursor-pointer border-border/50 hover:border-secondary/30 rounded-2xl card-hover">
                   <CardHeader className="pb-3">
-                    <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center justify-between mb-2">
                       <Badge className={`${condition.color} text-white text-xs font-semibold px-3 py-1 rounded-full`}>
                         {condition.category}
                       </Badge>
-                      <div className="w-9 h-9 rounded-full bg-muted flex items-center justify-center group-hover:bg-primary/10 transition-all duration-500">
-                        <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all duration-300" />
+                      <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center group-hover:bg-secondary/10 transition-colors">
+                        <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-secondary transition-colors" />
                       </div>
                     </div>
-                    <CardTitle className="text-xl font-display font-semibold text-foreground group-hover:text-primary transition-colors duration-500">
+                    <CardTitle className="text-lg font-display font-semibold text-foreground group-hover:text-secondary transition-colors">
                       {condition.title}
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-4">
-                    <CardDescription className="text-muted-foreground leading-relaxed font-light">
+                  <CardContent>
+                    <CardDescription className="text-muted-foreground leading-relaxed text-sm">
                       {condition.description}
                     </CardDescription>
                     <Button
                       variant="ghost"
                       size="sm"
-                      className="p-0 h-auto text-primary font-semibold hover:bg-transparent group-hover:translate-x-1 transition-transform duration-300 text-xs uppercase tracking-wider"
+                      className="p-0 h-auto mt-3 text-secondary font-semibold hover:bg-transparent text-xs uppercase tracking-wider"
                     >
-                      Read more
-                      <ArrowRight className="ml-1 w-3 h-3" />
+                      Read more <ArrowRight className="ml-1 w-3 h-3" />
                     </Button>
                   </CardContent>
                 </Card>
               </motion.div>
             ))
           )}
-        </motion.div>
-
+        </div>
       </div>
     </section>
   );
 });
 
 ConditionsSection.displayName = "ConditionsSection";
-
 export default ConditionsSection;

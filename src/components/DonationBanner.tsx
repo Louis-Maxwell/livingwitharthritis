@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Loader2 } from "lucide-react";
 import PayPalDonationModal from "./PayPalDonationModal";
 
 const DonationBanner = () => {
@@ -22,23 +21,13 @@ const DonationBanner = () => {
   const handleAmountChange = (value: string) => {
     setAmount(value);
     const numValue = parseFloat(value);
-    if (quickAmounts.includes(numValue)) {
-      setSelectedQuickAmount(numValue);
-    } else {
-      setSelectedQuickAmount(null);
-    }
+    setSelectedQuickAmount(quickAmounts.includes(numValue) ? numValue : null);
   };
 
   const handleDonate = () => {
     const donationAmount = parseFloat(amount) || selectedQuickAmount || 0;
-    if (donationAmount <= 0) {
-      return;
-    }
+    if (donationAmount <= 0) return;
     setIsPayPalModalOpen(true);
-  };
-
-  const handleModalClose = () => {
-    setIsPayPalModalOpen(false);
   };
 
   const getCurrencySymbol = () => {
@@ -53,107 +42,79 @@ const DonationBanner = () => {
   const getDonationAmount = () => parseFloat(amount) || selectedQuickAmount || 100;
 
   return (
-    <div className="bg-gradient-medical text-secondary-foreground">
-
-      {/* Donation Form Section */}
-      <div className="bg-gradient-medical">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex flex-wrap items-center justify-center gap-3 lg:gap-4">
-            {/* Currency Selector */}
-            <div className="flex items-center bg-white/95 rounded-lg px-3 py-2 shadow-soft">
-              <span className="text-2xl mr-2">
-                {currency === "GBP" ? "🇬🇧" : currency === "USD" ? "🇺🇸" : "🇪🇺"}
-              </span>
-              <Select value={currency} onValueChange={setCurrency}>
-                <SelectTrigger className="w-16 border-0 p-0 h-auto bg-transparent text-foreground font-semibold">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="GBP">GBP</SelectItem>
-                  <SelectItem value="USD">USD</SelectItem>
-                  <SelectItem value="EUR">EUR</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
-            {/* Amount Input */}
-            <Input 
-              placeholder="Amount"
-              type="number"
-              min="1"
-              max="100000"
-              value={amount}
-              onChange={(e) => handleAmountChange(e.target.value)}
-              className="w-32 bg-white/95 border-0 shadow-soft text-foreground font-medium"
-            />
-
-            {/* Quick Amount Buttons */}
-            <div className="flex gap-2">
-              {quickAmounts.map((value, index) => (
-                <Button
-                  key={index}
-                  variant={selectedQuickAmount === value ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => handleQuickAmount(value)}
-                  className={`${
-                    selectedQuickAmount === value 
-                      ? "bg-destructive text-destructive-foreground hover:bg-destructive/90" 
-                      : "bg-white/95 text-foreground border-white/20 hover:bg-white hover:text-foreground"
-                  } font-semibold shadow-soft`}
-                >
-                  {getCurrencySymbol()}{value}
-                </Button>
-              ))}
-            </div>
-
-            {/* Fund Selector */}
-            <Select value={fundType} onValueChange={setFundType}>
-              <SelectTrigger className="w-48 bg-white/95 border-0 shadow-soft text-foreground">
+    <div className="bg-secondary text-secondary-foreground">
+      <div className="container mx-auto px-4 py-3">
+        <div className="flex flex-wrap items-center justify-center gap-2 lg:gap-3">
+          <div className="flex items-center bg-white/95 rounded-lg px-3 py-1.5 shadow-soft">
+            <span className="text-lg mr-1.5">
+              {currency === "GBP" ? "🇬🇧" : currency === "USD" ? "🇺🇸" : "🇪🇺"}
+            </span>
+            <Select value={currency} onValueChange={setCurrency}>
+              <SelectTrigger className="w-14 border-0 p-0 h-auto bg-transparent text-foreground font-semibold text-sm">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="research">Arthritis Research Fund</SelectItem>
-                <SelectItem value="support">Patient Support Fund</SelectItem>
-                <SelectItem value="helpline">Helpline Support</SelectItem>
-                <SelectItem value="general">General Donation</SelectItem>
+                <SelectItem value="GBP">GBP</SelectItem>
+                <SelectItem value="USD">USD</SelectItem>
+                <SelectItem value="EUR">EUR</SelectItem>
               </SelectContent>
             </Select>
-
-            {/* PayPal Badge */}
-            <div className="flex items-center gap-2 bg-[#003087] rounded-lg px-4 py-2 shadow-soft">
-              <span className="text-white font-bold text-sm">Pay</span>
-              <span className="text-[#009cde] font-bold text-sm">Pal</span>
-              <span className="text-white/80 text-xs ml-1">Secure</span>
-            </div>
-
-            {/* Quick Donate Button */}
-            <Button 
-              size="lg"
-              onClick={handleDonate}
-              disabled={!amount && !selectedQuickAmount}
-              className="bg-destructive text-destructive-foreground hover:bg-destructive/90 font-bold px-6 py-3 shadow-medium hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 disabled:opacity-50"
-            >
-              QUICK DONATE
-            </Button>
-
-            {/* PayPal Button */}
-            <Button 
-              size="lg"
-              onClick={handleDonate}
-              disabled={!amount && !selectedQuickAmount}
-              className="bg-[#0070ba] hover:bg-[#003087] text-white font-bold px-6 py-3 shadow-medium hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 disabled:opacity-50 flex items-center gap-2"
-            >
-              <span className="font-bold">Pay</span>
-              <span className="text-[#00b8ff] font-bold">Pal</span>
-            </Button>
           </div>
+
+          <Input
+            placeholder="Amount"
+            type="number"
+            min="1"
+            max="100000"
+            value={amount}
+            onChange={(e) => handleAmountChange(e.target.value)}
+            className="w-28 bg-white/95 border-0 shadow-soft text-foreground font-medium text-sm h-9"
+          />
+
+          <div className="flex gap-1.5">
+            {quickAmounts.map((value) => (
+              <Button
+                key={value}
+                variant={selectedQuickAmount === value ? "default" : "outline"}
+                size="sm"
+                onClick={() => handleQuickAmount(value)}
+                className={`${
+                  selectedQuickAmount === value
+                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                    : "bg-white/95 text-foreground border-0 hover:bg-white"
+                } font-semibold shadow-soft text-xs h-9`}
+              >
+                {getCurrencySymbol()}{value}
+              </Button>
+            ))}
+          </div>
+
+          <Select value={fundType} onValueChange={setFundType}>
+            <SelectTrigger className="w-44 bg-white/95 border-0 shadow-soft text-foreground text-sm h-9">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="research">Arthritis Research Fund</SelectItem>
+              <SelectItem value="support">Patient Support Fund</SelectItem>
+              <SelectItem value="helpline">Helpline Support</SelectItem>
+              <SelectItem value="general">General Donation</SelectItem>
+            </SelectContent>
+          </Select>
+
+          <Button
+            size="sm"
+            onClick={handleDonate}
+            disabled={!amount && !selectedQuickAmount}
+            className="btn-primary-cta px-5 h-9 text-xs font-bold"
+          >
+            QUICK DONATE
+          </Button>
         </div>
       </div>
 
-      {/* PayPal Modal */}
       <PayPalDonationModal
         isOpen={isPayPalModalOpen}
-        onClose={handleModalClose}
+        onClose={() => setIsPayPalModalOpen(false)}
         amount={getDonationAmount()}
         currency={currency}
         fundType={fundType}

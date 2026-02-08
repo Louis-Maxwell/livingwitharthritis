@@ -6,33 +6,6 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
 import PayPalDonationModal from "./PayPalDonationModal";
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" as const } },
-};
-
-const TierSkeleton = () => (
-  <div className="bg-card rounded-3xl p-10 border border-border/50">
-    <Skeleton className="h-10 w-32 mb-8" />
-    <div className="space-y-4">
-      {Array.from({ length: 4 }).map((_, i) => (
-        <div key={i} className="flex items-start gap-3">
-          <Skeleton className="w-5 h-5 rounded-full" />
-          <Skeleton className="h-4 w-full" />
-        </div>
-      ))}
-    </div>
-  </div>
-);
-
 const DonationTiersSection = memo(() => {
   const { data: tiers, isLoading } = useDonationTiers();
   const [paypalOpen, setPaypalOpen] = useState(false);
@@ -48,81 +21,79 @@ const DonationTiersSection = memo(() => {
     setPaypalOpen(true);
   };
 
-  return (
-    <section className="py-28 lg:py-36 bg-muted/30 relative overflow-hidden">
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-secondary/[0.03] rounded-full blur-3xl" />
+  const tierStyles = [
+    "bg-secondary",
+    "bg-primary",
+    "bg-navy",
+  ];
 
-      <div className="container mx-auto px-4 md:px-8 relative max-w-6xl">
+  return (
+    <section className="py-20 lg:py-28 bg-background relative">
+      <div className="container mx-auto px-4 md:px-8 max-w-5xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14"
         >
-          <span className="editorial-caption text-muted-foreground inline-flex items-center gap-3 mb-6">
-            <span className="w-8 h-px bg-border" />
-            Support Us
-            <span className="w-8 h-px bg-border" />
-          </span>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-foreground mb-6 tracking-tight">
-            Make a{" "}
-            <span className="font-display italic font-normal text-gradient">Difference</span>
+          <span className="section-label text-primary mb-3 block">Support Us</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-4 tracking-tight">
+            Make a <span className="text-primary">difference</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed font-light">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Every donation directly supports research, patient care, and community programmes.
           </p>
         </motion.div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
-        >
+        <div className="grid md:grid-cols-3 gap-5">
           {isLoading ? (
             Array.from({ length: 3 }).map((_, i) => (
-              <motion.div key={i} variants={itemVariants}>
-                <TierSkeleton />
-              </motion.div>
+              <div key={i} className="bg-card rounded-2xl p-8 border border-border">
+                <Skeleton className="h-10 w-32 mb-6" />
+                <div className="space-y-3">
+                  {Array.from({ length: 4 }).map((_, j) => (
+                    <Skeleton key={j} className="h-4 w-full" />
+                  ))}
+                </div>
+              </div>
             ))
           ) : (
             tiers?.map((tier, i) => (
-              <motion.div key={tier.id} variants={itemVariants}>
-                <div className={`relative group h-full rounded-3xl overflow-hidden transition-all duration-700 hover:-translate-y-2 ${
-                  i === 1 ? 'ring-2 ring-primary/30' : ''
+              <motion.div
+                key={tier.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+              >
+                <div className={`relative group h-full rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-large ${
+                  i === 1 ? 'ring-2 ring-primary/40 ring-offset-2' : ''
                 }`}>
-                  <div className={`absolute inset-0 bg-gradient-to-br ${tier.color} opacity-90`} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                  
-                  <div className="relative p-10 lg:p-12 text-white">
+                  <div className={`${tierStyles[i] || 'bg-secondary'} p-8 lg:p-10 text-white h-full flex flex-col`}>
                     {i === 1 && (
-                      <span className="editorial-caption text-white/60 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full mb-6 inline-block">
+                      <span className="text-xs font-semibold text-white/80 bg-white/15 px-3 py-1 rounded-full mb-4 self-start">
                         Most Popular
                       </span>
                     )}
-                    <h3 className="text-4xl lg:text-5xl font-display font-bold mb-2 tracking-tight">
-                      {tier.amount}
-                    </h3>
-                    <span className="editorial-caption text-white/50 mb-8 block">Donation</span>
-                    
-                    <div className="w-12 h-px bg-white/20 mb-8" />
+                    <h3 className="text-4xl font-display font-bold mb-1 tracking-tight">{tier.amount}</h3>
+                    <span className="section-label text-white/50 mb-6 block text-[10px]">Donation</span>
+                    <div className="w-10 h-px bg-white/20 mb-6" />
 
-                    <ul className="space-y-4 mb-10">
+                    <ul className="space-y-3 mb-8 flex-1">
                       {tier.benefits.map((benefit, idx) => (
-                        <li key={idx} className="flex items-start gap-3">
+                        <li key={idx} className="flex items-start gap-2.5">
                           <div className="flex-shrink-0 w-5 h-5 rounded-full bg-white/20 flex items-center justify-center mt-0.5">
                             <Check className="w-3 h-3 text-white" />
                           </div>
-                          <span className="text-white/85 text-sm font-light leading-relaxed">{benefit}</span>
+                          <span className="text-white/85 text-sm leading-relaxed">{benefit}</span>
                         </li>
                       ))}
                     </ul>
 
                     <Button
                       onClick={() => handleDonate(tier.amount)}
-                      className="w-full bg-white/15 hover:bg-white/25 backdrop-blur-sm text-white border border-white/20 hover:border-white/40 font-semibold py-6 rounded-full transition-all duration-500 uppercase tracking-wider text-xs"
+                      className="w-full bg-white/15 hover:bg-white/25 text-white border border-white/20 hover:border-white/40 font-semibold py-5 rounded-full transition-all text-sm"
                     >
                       Donate {tier.amount}
                     </Button>
@@ -131,7 +102,7 @@ const DonationTiersSection = memo(() => {
               </motion.div>
             ))
           )}
-        </motion.div>
+        </div>
       </div>
 
       <PayPalDonationModal
@@ -146,5 +117,4 @@ const DonationTiersSection = memo(() => {
 });
 
 DonationTiersSection.displayName = "DonationTiersSection";
-
 export default DonationTiersSection;
