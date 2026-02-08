@@ -1,78 +1,66 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,700&family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,700&family=DM+Sans:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* £10M Premium Design System */
+/* Warm Charity Design System — Inspired by Arthritis UK, Dogs Trust, Pure Physio */
 
 @layer base {
   :root {
-    --background: 40 20% 98%;
-    --foreground: 220 25% 10%;
+    --background: 45 33% 97%;
+    --foreground: 220 20% 14%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 25% 10%;
+    --card-foreground: 220 20% 14%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 25% 10%;
+    --popover-foreground: 220 20% 14%;
 
-    /* Deep Emerald Primary */
-    --primary: 158 64% 32%;
+    /* Warm Magenta/Coral Primary — bold and charity-forward */
+    --primary: 340 72% 52%;
     --primary-foreground: 0 0% 100%;
 
-    /* Rich Navy Secondary */
-    --secondary: 215 70% 45%;
+    /* Warm Teal Secondary */
+    --secondary: 172 50% 40%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Deep Charcoal Accent */
-    --accent: 220 30% 15%;
-    --accent-foreground: 0 0% 100%;
+    /* Soft Warm Grey Accent */
+    --accent: 220 14% 96%;
+    --accent-foreground: 220 20% 14%;
 
-    --muted: 40 20% 95%;
-    --muted-foreground: 220 10% 45%;
+    --muted: 40 20% 94%;
+    --muted-foreground: 220 10% 42%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 40 15% 88%;
-    --input: 40 15% 88%;
-    --ring: 158 64% 32%;
+    --border: 40 15% 89%;
+    --input: 40 15% 89%;
+    --ring: 340 72% 52%;
 
-    /* Premium Gold Accent */
-    --gold: 40 76% 52%;
-    --gold-foreground: 40 20% 10%;
-    --gold-muted: 40 50% 80%;
+    /* Charity Gold/Yellow accent — Dogs Trust inspired warmth */
+    --gold: 42 92% 56%;
+    --gold-foreground: 42 40% 12%;
+    --gold-muted: 42 50% 82%;
 
-    /* Warm Amber for highlights */
     --amber: 30 90% 56%;
 
-    /* Premium custom variables */
-    --hero-bg: 158 64% 32%;
-    --hero-text: 0 0% 100%;
-    --medical-blue: 215 70% 45%;
-    --medical-purple: 250 35% 22%;
-    --medical-purple-light: 250 35% 35%;
-    --success-green: 158 64% 32%;
-    
-    /* Luxurious gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(158 64% 28%), hsl(158 64% 38%));
-    --gradient-medical: linear-gradient(135deg, hsl(215 70% 40%), hsl(215 70% 55%));
-    --gradient-premium: linear-gradient(135deg, hsl(158 64% 32%), hsl(215 70% 45%));
-    --gradient-dark: linear-gradient(180deg, hsl(220 30% 12%), hsl(220 30% 18%));
-    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
-    --gradient-gold: linear-gradient(135deg, hsl(40 76% 52%), hsl(30 90% 56%));
-    
-    /* Premium shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(220 30% 15% / 0.08);
-    --shadow-medium: 0 12px 40px -12px hsl(220 30% 15% / 0.15);
-    --shadow-large: 0 24px 60px -15px hsl(220 30% 15% / 0.2);
-    --shadow-glow: 0 0 40px -10px hsl(158 64% 32% / 0.3);
-    --shadow-gold: 0 8px 30px -8px hsl(40 76% 52% / 0.3);
-    --shadow-inner: inset 0 2px 4px 0 hsl(220 30% 15% / 0.05);
-    
-    --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    --transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    /* Navy for footer/dark sections */
+    --navy: 220 40% 18%;
+    --navy-foreground: 0 0% 100%;
+
+    /* Gradient variables */
+    --gradient-hero: linear-gradient(135deg, hsl(340 72% 52%), hsl(340 72% 62%));
+    --gradient-warm: linear-gradient(135deg, hsl(340 72% 52%), hsl(30 90% 56%));
+    --gradient-teal: linear-gradient(135deg, hsl(172 50% 40%), hsl(172 50% 50%));
+    --gradient-dark: linear-gradient(180deg, hsl(220 40% 15%), hsl(220 40% 20%));
+
+    /* Shadows */
+    --shadow-soft: 0 2px 12px -2px hsl(220 20% 14% / 0.06);
+    --shadow-medium: 0 8px 30px -8px hsl(220 20% 14% / 0.1);
+    --shadow-large: 0 20px 50px -12px hsl(220 20% 14% / 0.15);
+    --shadow-primary: 0 8px 24px -6px hsl(340 72% 52% / 0.3);
 
     --radius: 0.75rem;
 
@@ -87,48 +75,46 @@
   }
 
   .dark {
-    --background: 220 25% 6%;
+    --background: 220 25% 7%;
     --foreground: 40 20% 95%;
 
-    --card: 220 25% 9%;
+    --card: 220 25% 10%;
     --card-foreground: 40 20% 95%;
 
-    --popover: 220 25% 9%;
+    --popover: 220 25% 10%;
     --popover-foreground: 40 20% 95%;
 
-    --primary: 158 64% 45%;
+    --primary: 340 72% 58%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 215 70% 55%;
+    --secondary: 172 50% 48%;
     --secondary-foreground: 0 0% 100%;
 
-    --accent: 220 30% 25%;
+    --accent: 220 25% 16%;
     --accent-foreground: 0 0% 100%;
 
-    --muted: 220 25% 12%;
+    --muted: 220 25% 13%;
     --muted-foreground: 220 15% 60%;
 
     --destructive: 0 62.8% 40%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 25% 15%;
-    --input: 220 25% 15%;
-    --ring: 158 64% 45%;
+    --border: 220 25% 18%;
+    --input: 220 25% 18%;
+    --ring: 340 72% 58%;
 
-    --gold: 40 76% 58%;
-    --gold-foreground: 40 20% 95%;
-    --gold-muted: 40 40% 30%;
+    --gold: 42 92% 60%;
+    --gold-foreground: 42 40% 95%;
+    --gold-muted: 42 40% 30%;
     --amber: 30 90% 60%;
 
-    --hero-bg: 158 64% 40%;
-    --medical-blue: 215 70% 55%;
-    --medical-purple: 250 35% 30%;
-    --medical-purple-light: 250 35% 40%;
-    
-    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
-    --shadow-medium: 0 12px 40px -12px hsl(0 0% 0% / 0.4);
-    --shadow-large: 0 24px 60px -15px hsl(0 0% 0% / 0.5);
-    
+    --navy: 220 40% 12%;
+    --navy-foreground: 0 0% 100%;
+
+    --shadow-soft: 0 2px 12px -2px hsl(0 0% 0% / 0.3);
+    --shadow-medium: 0 8px 30px -8px hsl(0 0% 0% / 0.4);
+    --shadow-large: 0 20px 50px -12px hsl(0 0% 0% / 0.5);
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -153,75 +139,62 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', system-ui, sans-serif;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
-    font-weight: 600;
-    letter-spacing: -0.02em;
+    font-weight: 700;
+    letter-spacing: -0.01em;
   }
 
-  /* Premium selection styling */
   ::selection {
-    background: hsl(var(--primary) / 0.2);
+    background: hsl(var(--primary) / 0.15);
     color: hsl(var(--foreground));
   }
 }
 
 @layer components {
-  /* Glass morphism card */
-  .glass-card {
-    @apply bg-card/80 backdrop-blur-xl border border-border/50;
-    box-shadow: var(--shadow-medium);
+  /* Primary CTA button — bold charity style */
+  .btn-primary-cta {
+    @apply relative overflow-hidden font-bold;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    box-shadow: var(--shadow-primary);
+    transition: all 0.3s ease;
   }
 
-  /* Premium button styling */
-  .btn-premium {
-    @apply relative overflow-hidden;
-    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary) / 0.85));
-    box-shadow: 0 4px 15px -3px hsl(var(--primary) / 0.4);
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-
-  .btn-premium:hover {
+  .btn-primary-cta:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px -5px hsl(var(--primary) / 0.5);
+    filter: brightness(1.08);
+    box-shadow: 0 12px 32px -8px hsl(var(--primary) / 0.4);
   }
 
-  .btn-premium::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s;
-  }
-
-  .btn-premium:hover::before {
-    left: 100%;
-  }
-
-  /* Gold premium button */
+  /* Gold donate button */
   .btn-gold {
     @apply relative overflow-hidden font-bold;
     background: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--amber)));
     color: hsl(var(--gold-foreground));
-    box-shadow: 0 4px 20px -3px hsl(var(--gold) / 0.5);
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 16px -3px hsl(var(--gold) / 0.4);
+    transition: all 0.3s ease;
   }
 
   .btn-gold:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px -5px hsl(var(--gold) / 0.6);
+    box-shadow: 0 8px 24px -4px hsl(var(--gold) / 0.5);
   }
 
-  /* Elegant divider */
-  .divider-elegant {
-    @apply relative h-px bg-gradient-to-r from-transparent via-border to-transparent;
+  /* Teal secondary button */
+  .btn-teal {
+    @apply relative overflow-hidden font-semibold;
+    background: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+    transition: all 0.3s ease;
+  }
+
+  .btn-teal:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.08);
   }
 
   /* Text gradient */
@@ -230,86 +203,62 @@
     background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
   }
 
-  /* Gold text gradient */
   .text-gradient-gold {
     @apply bg-clip-text text-transparent;
     background-image: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--amber)));
   }
 
-  /* Hover lift effect */
-  .hover-lift {
+  /* Card hover */
+  .card-hover {
     @apply transition-all duration-300;
   }
 
-  .hover-lift:hover {
-    transform: translateY(-8px);
+  .card-hover:hover {
+    transform: translateY(-4px);
     box-shadow: var(--shadow-large);
   }
 
-  /* Premium underline animation */
-  .link-underline {
-    @apply relative;
+  /* Section caption */
+  .section-label {
+    font-family: 'DM Sans', sans-serif;
+    @apply uppercase tracking-[0.15em] text-xs font-semibold;
   }
 
-  .link-underline::after {
-    content: '';
-    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
-  }
-
-  .link-underline:hover::after {
-    @apply w-full;
-  }
-
-  /* Smooth image reveal */
-  .img-reveal {
-    @apply overflow-hidden;
-  }
-
-  .img-reveal img {
-    @apply transition-transform duration-700 ease-out;
-  }
-
-  .img-reveal:hover img {
-    transform: scale(1.05);
-  }
-
-  /* Floating animation */
-  .float-animation {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  /* Gradient border */
-  .gradient-border {
-    @apply relative;
-    background: linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
-                linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary))) border-box;
-    border: 2px solid transparent;
-  }
-
-  /* Gold gradient border */
-  .gradient-border-gold {
-    @apply relative;
-    background: linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
-                linear-gradient(135deg, hsl(var(--gold)), hsl(var(--amber))) border-box;
-    border: 2px solid transparent;
-  }
-
-  /* Noise texture overlay */
-  .noise-overlay::before {
-    content: '';
-    @apply absolute inset-0 opacity-[0.02] pointer-events-none;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  }
-
-  /* Trust badge styling */
+  /* Trust badge */
   .trust-badge {
-    @apply flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/10 text-sm;
+    @apply flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full border border-border text-sm shadow-soft;
   }
 
-  /* Charity number styling */
+  /* Charity number */
   .charity-reg {
     font-family: 'DM Sans', sans-serif;
     @apply text-xs tracking-wider opacity-60;
+  }
+
+  /* Premium button with shine */
+  .btn-premium {
+    @apply relative overflow-hidden;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    box-shadow: var(--shadow-primary);
+    transition: all 0.3s ease;
+  }
+
+  .btn-premium:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px -8px hsl(var(--primary) / 0.5);
+  }
+
+  /* Gradient medical for donation banner */
+  .bg-gradient-medical {
+    background: linear-gradient(135deg, hsl(var(--secondary)), hsl(172 50% 48%));
+  }
+
+  /* Noise overlay */
+  .noise-overlay::before {
+    content: '';
+    @apply absolute inset-0 opacity-[0.015] pointer-events-none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   }
 }
 
@@ -318,44 +267,16 @@
     text-wrap: balance;
   }
 
-  .mask-fade-bottom {
-    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-  }
-
-  /* Editorial section divider */
-  .editorial-divider {
-    @apply relative my-0;
-  }
-
-  .editorial-divider::before {
-    content: '';
-    @apply absolute left-1/2 -translate-x-1/2 w-24 h-px;
-    background: linear-gradient(90deg, transparent, hsl(var(--primary)), transparent);
-  }
-
-  /* Marquee animation */
-  .marquee {
-    animation: marquee 30s linear infinite;
-  }
-
-  @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-
-  /* Cinematic text shadow */
-  .text-cinematic {
-    text-shadow: 0 2px 40px hsl(0 0% 0% / 0.3);
-  }
-
-  /* Editorial caption style */
   .editorial-caption {
     font-family: 'DM Sans', sans-serif;
-    @apply uppercase tracking-[0.2em] text-xs font-semibold;
+    @apply uppercase tracking-[0.15em] text-xs font-semibold;
   }
 
-  /* Serif body text for editorial feel */
   .font-editorial {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .mask-fade-bottom {
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
   }
 }

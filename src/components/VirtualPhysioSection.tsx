@@ -18,62 +18,51 @@ const imageMap: Record<string, string> = {
   "/assets/physio-myth-4.jpg": physioMyth4,
 };
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.08 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" as const } },
-};
-
 const MythCard = memo(({ item, index }: { item: PhysioMyth; index: number }) => {
   const imageSrc = item.image_url ? (imageMap[item.image_url] || item.image_url) : null;
-  
+
   return (
-    <motion.div variants={itemVariants} className="group">
-      <div className="h-full bg-card rounded-2xl border border-border/50 hover:border-primary/20 hover:shadow-large transition-all duration-700 overflow-hidden">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.08 }}
+      className="group"
+    >
+      <div className="h-full bg-card rounded-2xl border border-border/50 hover:border-primary/20 hover:shadow-medium transition-all duration-300 overflow-hidden card-hover">
         {imageSrc && (
-          <div className="relative h-52 overflow-hidden">
+          <div className="relative h-48 overflow-hidden">
             <OptimizedImage
               src={imageSrc}
-              alt={`Virtual physiotherapy illustration ${index + 1}`}
-              className="w-full h-full transition-transform duration-1000 group-hover:scale-110"
+              alt={`Physiotherapy illustration ${index + 1}`}
+              className="w-full h-full transition-transform duration-500 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
-            <div className="absolute top-4 left-4">
-              <span className="editorial-caption text-white/70 bg-foreground/30 backdrop-blur-sm px-3 py-1 rounded-full">
+            <div className="absolute inset-0 bg-gradient-to-t from-card via-card/10 to-transparent" />
+            <div className="absolute top-3 left-3">
+              <span className="text-xs font-semibold text-white bg-primary/80 backdrop-blur-sm px-3 py-1 rounded-full">
                 Myth {String(index + 1).padStart(2, '0')}
               </span>
             </div>
           </div>
         )}
-        <div className="p-7 space-y-5">
+        <div className="p-6 space-y-4">
           <div className="flex items-start gap-3">
-            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-destructive/10 flex items-center justify-center mt-0.5">
-              <X className="w-4 h-4 text-destructive" />
+            <div className="flex-shrink-0 w-7 h-7 rounded-full bg-destructive/10 flex items-center justify-center mt-0.5">
+              <X className="w-3.5 h-3.5 text-destructive" />
             </div>
             <div>
-              <span className="editorial-caption text-destructive mb-1 block">Myth</span>
-              <p className="text-foreground font-medium leading-relaxed">
-                "{item.myth}"
-              </p>
+              <span className="section-label text-destructive mb-1 block text-[10px]">Myth</span>
+              <p className="text-foreground font-medium text-sm leading-relaxed">"{item.myth}"</p>
             </div>
           </div>
-          <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+          <div className="h-px bg-border" />
           <div className="flex items-start gap-3">
-            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mt-0.5">
-              <Check className="w-4 h-4 text-primary" />
+            <div className="flex-shrink-0 w-7 h-7 rounded-full bg-secondary/10 flex items-center justify-center mt-0.5">
+              <Check className="w-3.5 h-3.5 text-secondary" />
             </div>
             <div>
-              <span className="editorial-caption text-primary mb-1 block">Reality</span>
-              <p className="text-muted-foreground text-sm leading-relaxed font-light">
-                {item.fact}
-              </p>
+              <span className="section-label text-secondary mb-1 block text-[10px]">Reality</span>
+              <p className="text-muted-foreground text-sm leading-relaxed">{item.fact}</p>
             </div>
           </div>
         </div>
@@ -84,114 +73,70 @@ const MythCard = memo(({ item, index }: { item: PhysioMyth; index: number }) => 
 
 MythCard.displayName = "MythCard";
 
-const MythSkeleton = () => (
-  <div className="h-full bg-card rounded-2xl border border-border/50 overflow-hidden">
-    <Skeleton className="h-52 w-full" />
-    <div className="p-7 space-y-5">
-      <div className="flex items-start gap-3">
-        <Skeleton className="w-8 h-8 rounded-full flex-shrink-0" />
-        <div className="flex-1">
-          <Skeleton className="h-3 w-16 mb-2" />
-          <Skeleton className="h-4 w-full" />
-        </div>
-      </div>
-      <Skeleton className="h-px w-full" />
-      <div className="flex items-start gap-3">
-        <Skeleton className="w-8 h-8 rounded-full flex-shrink-0" />
-        <div className="flex-1">
-          <Skeleton className="h-3 w-12 mb-2" />
-          <Skeleton className="h-4 w-full" />
-        </div>
-      </div>
-    </div>
-  </div>
-);
-
 const VirtualPhysioSection = memo(() => {
   const { data: myths, isLoading } = usePhysioMyths();
 
   return (
-    <section className="py-28 lg:py-36 bg-background relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/[0.03] rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary/[0.03] rounded-full blur-3xl" />
-
-      <div className="container mx-auto px-4 md:px-8 relative">
-        {/* Editorial Header */}
+    <section className="py-20 lg:py-28 bg-accent relative">
+      <div className="container mx-auto px-4 md:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14"
         >
-          <span className="editorial-caption text-muted-foreground inline-flex items-center gap-3 mb-6">
-            <span className="w-8 h-px bg-border" />
-            Physiotherapy
-            <span className="w-8 h-px bg-border" />
-          </span>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-foreground mb-6 tracking-tight">
-            Virtual Physio:{" "}
-            <span className="font-display italic font-normal text-gradient">Myths Busted</span>
+          <span className="section-label text-secondary mb-3 block">Physiotherapy</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-4 tracking-tight">
+            Virtual physio: <span className="text-secondary">myths busted</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed font-light">
-            Think online physio is just "nice-to-have" or second-best? Think again. 
-            Thousands are recovering faster and feeling better — all from home.
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Think online physio is second-best? Think again. Thousands are recovering faster — all from home.
           </p>
         </motion.div>
 
-        {/* Myths Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-20"
-        >
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
           {isLoading ? (
             Array.from({ length: 6 }).map((_, i) => (
-              <motion.div key={i} variants={itemVariants}>
-                <MythSkeleton />
-              </motion.div>
+              <div key={i} className="bg-card rounded-2xl border border-border/50 overflow-hidden">
+                <Skeleton className="h-48 w-full" />
+                <div className="p-6 space-y-4">
+                  <Skeleton className="h-16 w-full" />
+                  <Skeleton className="h-16 w-full" />
+                </div>
+              </div>
             ))
           ) : (
             myths?.map((item, index) => (
               <MythCard key={item.id} item={item} index={index} />
             ))
           )}
-        </motion.div>
+        </div>
 
-        {/* Editorial CTA banner */}
+        {/* CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          className="relative"
+          transition={{ duration: 0.6 }}
+          className="bg-navy rounded-3xl p-10 lg:p-16 text-center text-white relative overflow-hidden"
         >
-          <div className="relative bg-accent rounded-3xl p-12 lg:p-20 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10" />
-            <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[100px]" />
-            <div className="relative text-center max-w-2xl mx-auto">
-              <span className="editorial-caption text-accent-foreground/40 mb-6 block">Get Started</span>
-              <h3 className="text-3xl lg:text-4xl font-display font-bold text-accent-foreground mb-4 leading-tight">
-                Virtual physiotherapy isn't the future —{" "}
-                <span className="italic font-normal">it's the now.</span>
-              </h3>
-              <p className="text-accent-foreground/60 mb-10 text-lg font-light">
-                Flexible. Effective. Personal. And seriously convenient.
-              </p>
-              <AppointmentModal
-                trigger={
-                  <Button
-                    size="lg"
-                    className="btn-premium text-primary-foreground font-bold px-12 py-7 rounded-full text-sm uppercase tracking-wider"
-                  >
-                    Talk to a Physio Today
-                    <Sparkles className="ml-2 w-5 h-5" />
-                  </Button>
-                }
-              />
-            </div>
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20" />
+          <div className="relative max-w-2xl mx-auto">
+            <h3 className="text-3xl lg:text-4xl font-display font-bold mb-3">
+              Virtual physiotherapy isn't the future — <span className="text-gold italic font-normal">it's the now.</span>
+            </h3>
+            <p className="text-white/70 mb-8 text-lg">
+              Flexible. Effective. Personal. And seriously convenient.
+            </p>
+            <AppointmentModal
+              trigger={
+                <Button size="lg" className="btn-primary-cta px-10 py-6 rounded-full text-base">
+                  Talk to a Physio Today
+                  <Sparkles className="ml-2 w-5 h-5" />
+                </Button>
+              }
+            />
           </div>
         </motion.div>
       </div>
@@ -200,5 +145,4 @@ const VirtualPhysioSection = memo(() => {
 });
 
 VirtualPhysioSection.displayName = "VirtualPhysioSection";
-
 export default VirtualPhysioSection;
