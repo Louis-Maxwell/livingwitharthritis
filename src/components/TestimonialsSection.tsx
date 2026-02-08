@@ -45,17 +45,19 @@ const TestimonialsSection = () => {
   const t = testimonials[current];
 
   return (
-    <section className="py-20 lg:py-28 bg-background relative">
-      <div className="container mx-auto px-4 md:px-8 max-w-4xl">
+    <section className="py-16 lg:py-24 bg-background relative overflow-hidden section-divider">
+      <div className="gradient-orb w-[400px] h-[400px] bg-gold top-[-50px] left-[20%]" />
+
+      <div className="container mx-auto px-4 md:px-8 max-w-4xl relative">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          transition={{ duration: 0.5 }}
+          className="text-center mb-10"
         >
           <span className="section-label text-gold mb-3 block">Testimonials</span>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-foreground tracking-tight">
             Real stories, <span className="text-gold">real lives</span>
           </h2>
         </motion.div>
@@ -64,46 +66,38 @@ const TestimonialsSection = () => {
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
-              initial={{ opacity: 0, x: 40 }}
+              initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -40 }}
-              transition={{ duration: 0.4 }}
-              className="bg-card rounded-3xl p-8 lg:p-14 border border-border/50 shadow-soft relative"
+              exit={{ opacity: 0, x: -30 }}
+              transition={{ duration: 0.35 }}
+              className="bg-card rounded-3xl p-6 sm:p-10 lg:p-14 border border-border/50 shadow-medium relative overflow-hidden"
             >
-              <Quote className="absolute top-6 right-6 w-12 h-12 text-gold/10" />
+              {/* Warm accent glow */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-full blur-3xl" />
+              <Quote className="absolute top-5 right-5 w-10 h-10 text-gold/10" />
 
-              <div className="flex gap-1 mb-5">
+              <div className="flex gap-0.5 mb-4">
                 {Array.from({ length: t.rating }).map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-gold text-gold" />
                 ))}
               </div>
 
-              <blockquote className="text-lg lg:text-xl font-display text-foreground leading-relaxed mb-8 italic">
+              <blockquote className="text-base sm:text-lg lg:text-xl font-display text-foreground leading-relaxed mb-6 italic">
                 "{t.quote}"
               </blockquote>
 
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between flex-wrap gap-4">
                 <div>
-                  <div className="font-bold text-foreground">{t.name}</div>
-                  <div className="text-sm text-muted-foreground">
+                  <div className="font-bold text-foreground text-sm sm:text-base">{t.name}</div>
+                  <div className="text-xs sm:text-sm text-muted-foreground">
                     {t.condition} · Age {t.age} · {t.location}
                   </div>
                 </div>
                 <div className="flex gap-2">
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    onClick={prev}
-                    className="rounded-full w-10 h-10 border-border hover:border-primary hover:text-primary"
-                  >
+                  <Button variant="outline" size="icon" onClick={prev} className="rounded-full w-9 h-9 border-border hover:border-primary hover:text-primary">
                     <ChevronLeft className="w-4 h-4" />
                   </Button>
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    onClick={next}
-                    className="rounded-full w-10 h-10 border-border hover:border-primary hover:text-primary"
-                  >
+                  <Button variant="outline" size="icon" onClick={next} className="rounded-full w-9 h-9 border-border hover:border-primary hover:text-primary">
                     <ChevronRight className="w-4 h-4" />
                   </Button>
                 </div>
@@ -111,13 +105,13 @@ const TestimonialsSection = () => {
             </motion.div>
           </AnimatePresence>
 
-          <div className="flex justify-center gap-2 mt-6">
+          <div className="flex justify-center gap-2 mt-5">
             {testimonials.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setCurrent(i)}
                 className={`h-2 rounded-full transition-all duration-300 ${
-                  i === current ? "w-8 bg-primary" : "w-2 bg-border hover:bg-muted-foreground/30"
+                  i === current ? "w-7 bg-primary" : "w-2 bg-border hover:bg-muted-foreground/30"
                 }`}
               />
             ))}
