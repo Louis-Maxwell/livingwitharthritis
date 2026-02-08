@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Warm Charity Design System — Inspired by Arthritis UK, Dogs Trust, Pure Physio */
+/* Warm Charity Design System — Indulging & Accessible */
 
 @layer base {
   :root {
@@ -17,7 +17,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 20% 14%;
 
-    /* Warm Magenta/Coral Primary — bold and charity-forward */
+    /* Warm Magenta/Coral Primary */
     --primary: 340 72% 52%;
     --primary-foreground: 0 0% 100%;
 
@@ -39,28 +39,20 @@
     --input: 40 15% 89%;
     --ring: 340 72% 52%;
 
-    /* Charity Gold/Yellow accent — Dogs Trust inspired warmth */
     --gold: 42 92% 56%;
     --gold-foreground: 42 40% 12%;
     --gold-muted: 42 50% 82%;
-
     --amber: 30 90% 56%;
 
-    /* Navy for footer/dark sections */
     --navy: 220 40% 18%;
     --navy-foreground: 0 0% 100%;
-
-    /* Gradient variables */
-    --gradient-hero: linear-gradient(135deg, hsl(340 72% 52%), hsl(340 72% 62%));
-    --gradient-warm: linear-gradient(135deg, hsl(340 72% 52%), hsl(30 90% 56%));
-    --gradient-teal: linear-gradient(135deg, hsl(172 50% 40%), hsl(172 50% 50%));
-    --gradient-dark: linear-gradient(180deg, hsl(220 40% 15%), hsl(220 40% 20%));
 
     /* Shadows */
     --shadow-soft: 0 2px 12px -2px hsl(220 20% 14% / 0.06);
     --shadow-medium: 0 8px 30px -8px hsl(220 20% 14% / 0.1);
     --shadow-large: 0 20px 50px -12px hsl(220 20% 14% / 0.15);
     --shadow-primary: 0 8px 24px -6px hsl(340 72% 52% / 0.3);
+    --shadow-glow: 0 0 30px -5px hsl(340 72% 52% / 0.2);
 
     --radius: 0.75rem;
 
@@ -77,44 +69,32 @@
   .dark {
     --background: 220 25% 7%;
     --foreground: 40 20% 95%;
-
     --card: 220 25% 10%;
     --card-foreground: 40 20% 95%;
-
     --popover: 220 25% 10%;
     --popover-foreground: 40 20% 95%;
-
     --primary: 340 72% 58%;
     --primary-foreground: 0 0% 100%;
-
     --secondary: 172 50% 48%;
     --secondary-foreground: 0 0% 100%;
-
     --accent: 220 25% 16%;
     --accent-foreground: 0 0% 100%;
-
     --muted: 220 25% 13%;
     --muted-foreground: 220 15% 60%;
-
     --destructive: 0 62.8% 40%;
     --destructive-foreground: 0 0% 100%;
-
     --border: 220 25% 18%;
     --input: 220 25% 18%;
     --ring: 340 72% 58%;
-
     --gold: 42 92% 60%;
     --gold-foreground: 42 40% 95%;
     --gold-muted: 42 40% 30%;
     --amber: 30 90% 60%;
-
     --navy: 220 40% 12%;
     --navy-foreground: 0 0% 100%;
-
     --shadow-soft: 0 2px 12px -2px hsl(0 0% 0% / 0.3);
     --shadow-medium: 0 8px 30px -8px hsl(0 0% 0% / 0.4);
     --shadow-large: 0 20px 50px -12px hsl(0 0% 0% / 0.5);
-
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -155,7 +135,7 @@
 }
 
 @layer components {
-  /* Primary CTA button — bold charity style */
+  /* Primary CTA — bold with glow */
   .btn-primary-cta {
     @apply relative overflow-hidden font-bold;
     background: hsl(var(--primary));
@@ -168,6 +148,21 @@
     transform: translateY(-2px);
     filter: brightness(1.08);
     box-shadow: 0 12px 32px -8px hsl(var(--primary) / 0.4);
+  }
+
+  .btn-primary-cta::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.6s ease;
+  }
+
+  .btn-primary-cta:hover::after {
+    left: 100%;
   }
 
   /* Gold donate button */
@@ -184,19 +179,6 @@
     box-shadow: 0 8px 24px -4px hsl(var(--gold) / 0.5);
   }
 
-  /* Teal secondary button */
-  .btn-teal {
-    @apply relative overflow-hidden font-semibold;
-    background: hsl(var(--secondary));
-    color: hsl(var(--secondary-foreground));
-    transition: all 0.3s ease;
-  }
-
-  .btn-teal:hover {
-    transform: translateY(-1px);
-    filter: brightness(1.08);
-  }
-
   /* Text gradient */
   .text-gradient {
     @apply bg-clip-text text-transparent;
@@ -208,34 +190,31 @@
     background-image: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--amber)));
   }
 
-  /* Card hover */
+  /* Card hover with smooth lift */
   .card-hover {
-    @apply transition-all duration-300;
+    @apply transition-all duration-300 ease-out;
   }
 
   .card-hover:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px);
     box-shadow: var(--shadow-large);
   }
 
-  /* Section caption */
+  /* Section label */
   .section-label {
     font-family: 'DM Sans', sans-serif;
     @apply uppercase tracking-[0.15em] text-xs font-semibold;
   }
 
-  /* Trust badge */
   .trust-badge {
     @apply flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full border border-border text-sm shadow-soft;
   }
 
-  /* Charity number */
   .charity-reg {
     font-family: 'DM Sans', sans-serif;
     @apply text-xs tracking-wider opacity-60;
   }
 
-  /* Premium button with shine */
   .btn-premium {
     @apply relative overflow-hidden;
     background: hsl(var(--primary));
@@ -249,16 +228,49 @@
     box-shadow: 0 12px 32px -8px hsl(var(--primary) / 0.5);
   }
 
-  /* Gradient medical for donation banner */
   .bg-gradient-medical {
     background: linear-gradient(135deg, hsl(var(--secondary)), hsl(172 50% 48%));
   }
 
-  /* Noise overlay */
   .noise-overlay::before {
     content: '';
     @apply absolute inset-0 opacity-[0.015] pointer-events-none;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+
+  /* Indulging gradient orbs */
+  .gradient-orb {
+    @apply absolute rounded-full pointer-events-none;
+    filter: blur(80px);
+    opacity: 0.06;
+  }
+
+  /* Smooth reveal animation */
+  .reveal-up {
+    animation: revealUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes revealUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Warm section divider */
+  .section-divider {
+    @apply relative;
+  }
+
+  .section-divider::before {
+    content: '';
+    @apply absolute top-0 left-0 right-0 h-px;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.15), transparent);
   }
 }
 

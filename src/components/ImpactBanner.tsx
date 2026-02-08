@@ -10,11 +10,12 @@ const impactItems = [
 
 const ImpactBanner = () => {
   return (
-    <section className="relative py-16 lg:py-20 bg-navy text-navy-foreground overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-secondary/10" />
+    <section className="relative py-14 lg:py-20 bg-navy text-navy-foreground overflow-hidden section-divider">
+      <div className="gradient-orb w-[400px] h-[400px] bg-primary top-[-50px] right-[-100px]" />
+      <div className="gradient-orb w-[300px] h-[300px] bg-secondary bottom-[-50px] left-[-80px]" />
 
       <div className="container mx-auto px-4 md:px-8 relative">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-10">
           {impactItems.map((item, i) => {
             const Icon = item.icon;
             return (
@@ -23,16 +24,16 @@ const ImpactBanner = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="text-center"
+                transition={{ delay: i * 0.08, duration: 0.5 }}
+                className="text-center group"
               >
-                <div className="mx-auto w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-4">
-                  <Icon className="w-6 h-6 text-gold" />
+                <div className="mx-auto w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center mb-3 group-hover:bg-gold/20 transition-colors duration-300">
+                  <Icon className="w-5 h-5 text-gold" />
                 </div>
-                <div className="text-3xl md:text-4xl font-display font-bold mb-1 tracking-tight">
+                <div className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-1 tracking-tight">
                   {item.stat}
                 </div>
-                <p className="text-sm text-white/60 leading-relaxed max-w-[200px] mx-auto">
+                <p className="text-xs sm:text-sm text-white/55 leading-relaxed max-w-[180px] mx-auto">
                   {item.label}
                 </p>
               </motion.div>

@@ -10,23 +10,24 @@ const FundraisingSection = memo(() => {
   const { data: fundraisingOptions, isLoading } = useFundraisingOptions();
 
   return (
-    <section id="involved" className="py-20 lg:py-28 bg-accent relative">
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
-          {/* Left */}
+    <section id="involved" className="py-16 lg:py-24 bg-accent relative overflow-hidden section-divider">
+      <div className="gradient-orb w-[400px] h-[400px] bg-primary top-[-80px] left-[-100px]" />
+
+      <div className="container mx-auto px-4 md:px-8 relative">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-14">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-4 lg:sticky lg:top-32 lg:self-start"
+            transition={{ duration: 0.5 }}
+            className="lg:col-span-4 lg:sticky lg:top-28 lg:self-start"
           >
             <span className="section-label text-primary mb-3 block">Get Involved</span>
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4 leading-[1.05]">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-foreground mb-3 leading-[1.08]">
               Fundraising
             </h2>
             <div className="w-12 h-1 bg-primary rounded-full mb-4" />
-            <p className="text-muted-foreground leading-relaxed mb-6">
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-5">
               Make a real difference. Explore ways to support arthritis research and care.
             </p>
             <ContactFormModal
@@ -38,36 +39,35 @@ const FundraisingSection = memo(() => {
             />
           </motion.div>
 
-          {/* Right — list */}
           <div className="lg:col-span-8">
             <div className="space-y-0">
               {isLoading ? (
                 Array.from({ length: 7 }).map((_, i) => (
-                  <div key={i} className="py-5 border-b border-border">
-                    <Skeleton className="h-7 w-56" />
+                  <div key={i} className="py-4 border-b border-border">
+                    <Skeleton className="h-6 w-48" />
                   </div>
                 ))
               ) : (
                 fundraisingOptions?.map((option, i) => (
                   <motion.div
                     key={option.id}
-                    initial={{ opacity: 0, x: -15 }}
+                    initial={{ opacity: 0, x: -12 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: i * 0.05 }}
+                    viewport={{ once: true, margin: "-20px" }}
+                    transition={{ duration: 0.35, delay: i * 0.04 }}
                   >
                     <ContactFormModal
                       trigger={
-                        <button className="group flex items-center justify-between py-5 border-b border-border hover:border-primary/30 transition-colors w-full text-left cursor-pointer">
-                          <div className="flex items-center gap-4">
-                            <span className="section-label text-muted-foreground/40 w-8">
+                        <button className="group flex items-center justify-between py-4 border-b border-border hover:border-primary/30 transition-colors w-full text-left cursor-pointer">
+                          <div className="flex items-center gap-3">
+                            <span className="section-label text-muted-foreground/30 w-7 text-[10px]">
                               {String(i + 1).padStart(2, '0')}
                             </span>
-                            <span className="text-lg lg:text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+                            <span className="text-base sm:text-lg lg:text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
                               {option.title}
                             </span>
                           </div>
-                          <ArrowRight className="w-5 h-5 text-muted-foreground/30 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                          <ArrowRight className="w-4 h-4 text-muted-foreground/30 group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0" />
                         </button>
                       }
                     />
