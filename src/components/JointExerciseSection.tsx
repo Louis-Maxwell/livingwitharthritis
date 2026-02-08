@@ -1,7 +1,6 @@
 import { memo, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Dumbbell, Clock, RotateCcw, ChevronRight, Activity } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { X, Dumbbell, Clock, RotateCcw, Activity, MousePointerClick } from "lucide-react";
 
 interface Exercise {
   name: string;
@@ -106,71 +105,100 @@ const jointDatabase: Record<string, JointData> = {
   },
 };
 
-// SVG body outline with clickable hotspot positions
-const jointPositions: { id: string; cx: number; cy: number; label: string }[] = [
-  { id: "neck", cx: 150, cy: 72, label: "Neck" },
-  { id: "shoulder", cx: 107, cy: 105, label: "L Shoulder" },
-  { id: "shoulder", cx: 193, cy: 105, label: "R Shoulder" },
-  { id: "elbow", cx: 88, cy: 170, label: "L Elbow" },
-  { id: "elbow", cx: 212, cy: 170, label: "R Elbow" },
-  { id: "wrist", cx: 75, cy: 232, label: "L Wrist" },
-  { id: "wrist", cx: 225, cy: 232, label: "R Wrist" },
-  { id: "spine", cx: 150, cy: 155, label: "Spine" },
-  { id: "hip", cx: 128, cy: 230, label: "L Hip" },
-  { id: "hip", cx: 172, cy: 230, label: "R Hip" },
-  { id: "knee", cx: 132, cy: 320, label: "L Knee" },
-  { id: "knee", cx: 168, cy: 320, label: "R Knee" },
-  { id: "ankle", cx: 130, cy: 410, label: "L Ankle" },
-  { id: "ankle", cx: 170, cy: 410, label: "R Ankle" },
+// Clickable joint region shapes overlaid on the mannequin
+interface JointRegion {
+  id: string;
+  path: string;
+  label: string;
+  labelX: number;
+  labelY: number;
+}
+
+const jointRegions: JointRegion[] = [
+  // Neck — wide band under jaw
+  { id: "neck", path: "M135,78 Q140,72 150,70 Q160,72 165,78 L165,90 Q160,93 150,94 Q140,93 135,90 Z", label: "Neck", labelX: 150, labelY: 65 },
+  // L Shoulder
+  { id: "shoulder", path: "M100,100 Q95,95 92,102 Q90,112 95,120 L110,118 Q115,108 112,100 Z", label: "L Shoulder", labelX: 82, labelY: 98 },
+  // R Shoulder
+  { id: "shoulder", path: "M200,100 Q205,95 208,102 Q210,112 205,120 L190,118 Q185,108 188,100 Z", label: "R Shoulder", labelX: 218, labelY: 98 },
+  // L Elbow
+  { id: "elbow", path: "M80,168 Q76,160 74,168 Q72,178 76,185 L88,183 Q90,175 88,168 Z", label: "L Elbow", labelX: 62, labelY: 165 },
+  // R Elbow
+  { id: "elbow", path: "M220,168 Q224,160 226,168 Q228,178 224,185 L212,183 Q210,175 212,168 Z", label: "R Elbow", labelX: 238, labelY: 165 },
+  // L Wrist/Hand
+  { id: "wrist", path: "M62,232 Q58,225 56,232 Q54,242 58,250 L72,248 Q76,240 72,232 Z", label: "L Hand", labelX: 46, labelY: 230 },
+  // R Wrist/Hand
+  { id: "wrist", path: "M238,232 Q242,225 244,232 Q246,242 242,250 L228,248 Q224,240 228,232 Z", label: "R Hand", labelX: 254, labelY: 230 },
+  // Spine — mid-back region
+  { id: "spine", path: "M140,140 L160,140 L162,180 L158,195 L142,195 L138,180 Z", label: "Spine", labelX: 150, labelY: 133 },
+  // L Hip
+  { id: "hip", path: "M118,228 Q112,222 110,230 Q108,240 115,248 L130,246 Q135,238 130,228 Z", label: "L Hip", labelX: 98, labelY: 225 },
+  // R Hip
+  { id: "hip", path: "M182,228 Q188,222 190,230 Q192,240 185,248 L170,246 Q165,238 170,228 Z", label: "R Hip", labelX: 202, labelY: 225 },
+  // L Knee
+  { id: "knee", path: "M124,318 Q120,310 118,318 Q116,328 120,336 L136,334 Q140,326 136,318 Z", label: "L Knee", labelX: 108, labelY: 315 },
+  // R Knee
+  { id: "knee", path: "M176,318 Q180,310 182,318 Q184,328 180,336 L164,334 Q160,326 164,318 Z", label: "R Knee", labelX: 192, labelY: 315 },
+  // L Ankle/Foot
+  { id: "ankle", path: "M118,408 Q114,400 112,408 Q110,418 116,426 L132,424 Q136,416 132,408 Z", label: "L Foot", labelX: 102, labelY: 405 },
+  // R Ankle/Foot
+  { id: "ankle", path: "M182,408 Q186,400 188,408 Q190,418 184,426 L168,424 Q164,416 168,408 Z", label: "R Foot", labelX: 198, labelY: 405 },
 ];
 
-const JointHotspot = memo(({ joint, isActive, onClick }: {
-  joint: typeof jointPositions[0];
+const JointRegionHotspot = memo(({ region, isActive, onClick }: {
+  region: JointRegion;
   isActive: boolean;
   onClick: () => void;
-}) => (
-  <g className="cursor-pointer" onClick={onClick} role="button" aria-label={`Exercise plan for ${joint.label}`}>
-    {/* Pulse ring */}
-    <circle
-      cx={joint.cx}
-      cy={joint.cy}
-      r={isActive ? 16 : 12}
-      className={`transition-all duration-300 ${isActive ? "fill-primary/30" : "fill-primary/10"}`}
-    />
-    {isActive && (
-      <circle
-        cx={joint.cx}
-        cy={joint.cy}
-        r={18}
-        fill="none"
-        className="stroke-primary"
-        strokeWidth="2"
-        opacity="0.5"
-      >
-        <animate attributeName="r" from="16" to="24" dur="1.5s" repeatCount="indefinite" />
-        <animate attributeName="opacity" from="0.6" to="0" dur="1.5s" repeatCount="indefinite" />
-      </circle>
-    )}
-    {/* Dot */}
-    <circle
-      cx={joint.cx}
-      cy={joint.cy}
-      r={isActive ? 8 : 6}
-      className={`transition-all duration-300 ${isActive ? "fill-primary" : "fill-primary/70 hover:fill-primary"}`}
-    />
-    {/* Label */}
-    <text
-      x={joint.cx}
-      y={joint.cy - 16}
-      textAnchor="middle"
-      className={`text-[9px] font-semibold fill-foreground/70 pointer-events-none select-none ${isActive ? "fill-primary" : ""}`}
-    >
-      {joint.label}
-    </text>
-  </g>
-));
+}) => {
+  const activeColor = "hsl(172, 50%, 55%)";
+  const hoverColor = "hsl(172, 50%, 65%)";
+  const defaultColor = "hsl(172, 40%, 70%)";
 
-JointHotspot.displayName = "JointHotspot";
+  return (
+    <g
+      className="cursor-pointer"
+      onClick={onClick}
+      role="button"
+      aria-label={`Exercise plan for ${region.label}`}
+    >
+      {/* Glow behind active region */}
+      {isActive && (
+        <path
+          d={region.path}
+          fill={activeColor}
+          opacity="0.3"
+          filter="url(#glow)"
+          transform="scale(1.15)"
+          style={{ transformOrigin: `${region.labelX}px ${region.labelY + 20}px` }}
+        />
+      )}
+      {/* Region fill */}
+      <path
+        d={region.path}
+        fill={isActive ? activeColor : defaultColor}
+        opacity={isActive ? 0.9 : 0.6}
+        className="transition-all duration-300 hover:opacity-90"
+        style={{ filter: isActive ? "none" : "none" }}
+        onMouseEnter={(e) => { e.currentTarget.style.fill = isActive ? activeColor : hoverColor; e.currentTarget.style.opacity = "0.85"; }}
+        onMouseLeave={(e) => { e.currentTarget.style.fill = isActive ? activeColor : defaultColor; e.currentTarget.style.opacity = isActive ? "0.9" : "0.6"; }}
+      />
+      {/* Label */}
+      <text
+        x={region.labelX}
+        y={region.labelY}
+        textAnchor="middle"
+        className="pointer-events-none select-none"
+        fontSize="8"
+        fontWeight={isActive ? "700" : "500"}
+        fill={isActive ? activeColor : "hsl(172, 30%, 45%)"}
+      >
+        {region.label}
+      </text>
+    </g>
+  );
+});
+
+JointRegionHotspot.displayName = "JointRegionHotspot";
 
 const ExercisePanel = memo(({ joint, onClose }: { joint: JointData; onClose: () => void }) => (
   <motion.div
@@ -180,20 +208,19 @@ const ExercisePanel = memo(({ joint, onClose }: { joint: JointData; onClose: () 
     transition={{ type: "spring", stiffness: 300, damping: 30 }}
     className="bg-card rounded-2xl border border-border/50 shadow-medium overflow-hidden"
   >
-    {/* Header */}
-    <div className="bg-gradient-to-r from-primary to-primary/80 p-5 text-white relative">
+    <div className="p-5 relative" style={{ background: "linear-gradient(135deg, hsl(172,50%,40%), hsl(172,50%,50%))" }}>
       <button
         onClick={onClose}
-        className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
+        className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors text-white"
         aria-label="Close exercise panel"
       >
         <X className="w-4 h-4" />
       </button>
       <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center">
+        <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
           <Activity className="w-5 h-5" />
         </div>
-        <div>
+        <div className="text-white">
           <h3 className="text-xl font-display font-bold">{joint.label}</h3>
           <p className="text-white/80 text-xs">Home Exercise Plan</p>
         </div>
@@ -201,7 +228,6 @@ const ExercisePanel = memo(({ joint, onClose }: { joint: JointData; onClose: () 
       <p className="text-white/70 text-sm mt-2 leading-relaxed">💡 {joint.tip}</p>
     </div>
 
-    {/* Exercises */}
     <div className="p-4 space-y-3 max-h-[400px] overflow-y-auto">
       {joint.exercises.map((ex, i) => (
         <motion.div
@@ -209,15 +235,13 @@ const ExercisePanel = memo(({ joint, onClose }: { joint: JointData; onClose: () 
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: i * 0.08 }}
-          className="group p-4 rounded-xl bg-accent/50 hover:bg-accent border border-border/30 hover:border-primary/20 transition-all duration-200"
+          className="group p-4 rounded-xl bg-accent/50 hover:bg-accent border border-border/30 hover:border-secondary/30 transition-all duration-200"
         >
-          <div className="flex items-start justify-between mb-2">
-            <div className="flex items-center gap-2">
-              <span className="w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">
-                {i + 1}
-              </span>
-              <h4 className="font-semibold text-foreground text-sm">{ex.name}</h4>
-            </div>
+          <div className="flex items-center gap-2 mb-2">
+            <span className="w-6 h-6 rounded-full bg-secondary/15 text-secondary text-xs font-bold flex items-center justify-center flex-shrink-0">
+              {i + 1}
+            </span>
+            <h4 className="font-semibold text-foreground text-sm">{ex.name}</h4>
           </div>
           <p className="text-muted-foreground text-xs leading-relaxed mb-2 ml-8">{ex.description}</p>
           <div className="flex gap-3 ml-8">
@@ -232,7 +256,6 @@ const ExercisePanel = memo(({ joint, onClose }: { joint: JointData; onClose: () 
       ))}
     </div>
 
-    {/* Footer */}
     <div className="p-4 border-t border-border/50 bg-accent/30">
       <p className="text-[11px] text-muted-foreground text-center">
         Always consult your physiotherapist before starting a new exercise programme.
@@ -254,29 +277,25 @@ const JointExerciseSection = memo(() => {
 
   return (
     <section id="joint-exercises" className="py-20 lg:py-28 bg-background relative overflow-hidden">
-      {/* Decorative orbs */}
-      <div className="gradient-orb w-80 h-80 bg-primary top-10 -left-40" />
-      <div className="gradient-orb w-60 h-60 bg-secondary bottom-20 -right-20" />
-
       <div className="container mx-auto px-4 md:px-8 relative">
+        {/* Header — minimal like reference */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-10"
         >
-          <span className="section-label text-primary mb-3 block">Interactive Tool</span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-4 tracking-tight">
-            Tap a joint. <span className="text-primary">Get your plan.</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-foreground mb-3 tracking-tight">
+            Choose an area
           </h2>
-          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Click any highlighted joint on the body map below to access tailored home exercise plans designed by physiotherapy experts.
+          <p className="text-base text-muted-foreground max-w-lg mx-auto leading-relaxed">
+            Tap a highlighted region on the body to get a home exercise plan
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-          {/* Body diagram */}
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-start">
+          {/* Body mannequin */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -284,53 +303,113 @@ const JointExerciseSection = memo(() => {
             transition={{ duration: 0.6 }}
             className="flex justify-center"
           >
-            <div className="relative bg-accent/50 rounded-3xl border border-border/50 p-6 sm:p-8 w-full max-w-sm">
-              <svg viewBox="0 0 300 450" className="w-full h-auto" aria-label="Interactive body joint diagram">
-                {/* Body silhouette */}
-                <g className="fill-muted-foreground/10 stroke-muted-foreground/30" strokeWidth="1.5">
+            <div className="relative w-full max-w-[340px]">
+              <svg viewBox="0 0 300 460" className="w-full h-auto" aria-label="Interactive body diagram — choose a joint area">
+                <defs>
+                  <filter id="glow">
+                    <feGaussianBlur stdDeviation="4" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                  {/* Subtle body gradient for 3D mannequin feel */}
+                  <radialGradient id="bodyGrad" cx="50%" cy="35%" r="65%">
+                    <stop offset="0%" stopColor="hsl(0,0%,92%)" />
+                    <stop offset="100%" stopColor="hsl(0,0%,82%)" />
+                  </radialGradient>
+                  <radialGradient id="headGrad" cx="50%" cy="40%" r="60%">
+                    <stop offset="0%" stopColor="hsl(0,0%,90%)" />
+                    <stop offset="100%" stopColor="hsl(0,0%,80%)" />
+                  </radialGradient>
+                </defs>
+
+                {/* === MANNEQUIN BODY === */}
+                <g>
                   {/* Head */}
-                  <ellipse cx="150" cy="38" rx="24" ry="28" />
+                  <ellipse cx="150" cy="38" rx="22" ry="28" fill="url(#headGrad)" stroke="hsl(0,0%,75%)" strokeWidth="0.8" />
+                  {/* Ears */}
+                  <ellipse cx="127" cy="38" rx="4" ry="7" fill="hsl(0,0%,85%)" />
+                  <ellipse cx="173" cy="38" rx="4" ry="7" fill="hsl(0,0%,85%)" />
+                  {/* Eyes hint */}
+                  <circle cx="142" cy="33" r="1.5" fill="hsl(0,0%,70%)" />
+                  <circle cx="158" cy="33" r="1.5" fill="hsl(0,0%,70%)" />
+                  {/* Nose */}
+                  <line x1="150" y1="36" x2="150" y2="42" stroke="hsl(0,0%,75%)" strokeWidth="0.6" />
+                  {/* Mouth */}
+                  <path d="M145,47 Q150,50 155,47" fill="none" stroke="hsl(0,0%,72%)" strokeWidth="0.6" />
+
                   {/* Neck */}
-                  <rect x="142" y="62" width="16" height="18" rx="4" />
+                  <rect x="140" y="64" width="20" height="20" rx="6" fill="url(#bodyGrad)" stroke="hsl(0,0%,75%)" strokeWidth="0.5" />
+
                   {/* Torso */}
-                  <path d="M110 80 Q108 85 105 95 L100 170 Q98 200 110 230 L120 240 Q130 245 140 245 L160 245 Q170 245 180 240 L190 230 Q202 200 200 170 L195 95 Q192 85 190 80 Z" />
+                  <path
+                    d="M108,84 Q102,90 98,110 L94,160 Q92,195 96,220 L108,248 Q120,258 150,260 Q180,258 192,248 L204,220 Q208,195 206,160 L202,110 Q198,90 192,84 Z"
+                    fill="url(#bodyGrad)" stroke="hsl(0,0%,75%)" strokeWidth="0.8"
+                  />
+                  {/* Chest line */}
+                  <path d="M120,105 Q135,115 150,112 Q165,115 180,105" fill="none" stroke="hsl(0,0%,78%)" strokeWidth="0.5" />
+                  {/* Abs hint */}
+                  <line x1="150" y1="130" x2="150" y2="200" stroke="hsl(0,0%,78%)" strokeWidth="0.4" />
+
                   {/* Left arm */}
-                  <path d="M105 95 Q95 100 88 120 L80 170 Q75 195 72 220 L70 240" strokeLinecap="round" fill="none" strokeWidth="12" className="stroke-muted-foreground/10" />
-                  <path d="M105 95 Q95 100 88 120 L80 170 Q75 195 72 220 L70 240" strokeLinecap="round" fill="none" strokeWidth="1.5" />
+                  <path
+                    d="M98,100 Q88,105 82,125 L76,165 Q72,190 66,215 L60,245 Q58,252 62,256 L68,254 Q72,248 74,240 L82,210 Q86,190 90,170 L96,140"
+                    fill="url(#bodyGrad)" stroke="hsl(0,0%,75%)" strokeWidth="0.8"
+                  />
+                  {/* Left hand */}
+                  <path d="M60,245 Q55,255 54,260 L56,264 Q60,262 64,258 L68,254" fill="url(#bodyGrad)" stroke="hsl(0,0%,75%)" strokeWidth="0.6" />
+                  {/* Left fingers */}
+                  <path d="M54,260 L50,268 M56,262 L52,272 M58,263 L56,273 M60,262 L60,270" fill="none" stroke="hsl(0,0%,75%)" strokeWidth="0.5" />
+
                   {/* Right arm */}
-                  <path d="M195 95 Q205 100 212 120 L220 170 Q225 195 228 220 L230 240" strokeLinecap="round" fill="none" strokeWidth="12" className="stroke-muted-foreground/10" />
-                  <path d="M195 95 Q205 100 212 120 L220 170 Q225 195 228 220 L230 240" strokeLinecap="round" fill="none" strokeWidth="1.5" />
+                  <path
+                    d="M202,100 Q212,105 218,125 L224,165 Q228,190 234,215 L240,245 Q242,252 238,256 L232,254 Q228,248 226,240 L218,210 Q214,190 210,170 L204,140"
+                    fill="url(#bodyGrad)" stroke="hsl(0,0%,75%)" strokeWidth="0.8"
+                  />
+                  {/* Right hand */}
+                  <path d="M240,245 Q245,255 246,260 L244,264 Q240,262 236,258 L232,254" fill="url(#bodyGrad)" stroke="hsl(0,0%,75%)" strokeWidth="0.6" />
+                  {/* Right fingers */}
+                  <path d="M246,260 L250,268 M244,262 L248,272 M242,263 L244,273 M240,262 L240,270" fill="none" stroke="hsl(0,0%,75%)" strokeWidth="0.5" />
+
                   {/* Left leg */}
-                  <path d="M125 240 Q128 270 132 300 L133 340 Q133 360 132 380 L130 420" strokeLinecap="round" fill="none" strokeWidth="14" className="stroke-muted-foreground/10" />
-                  <path d="M125 240 Q128 270 132 300 L133 340 Q133 360 132 380 L130 420" strokeLinecap="round" fill="none" strokeWidth="1.5" />
+                  <path
+                    d="M118,250 Q115,270 118,300 L120,330 Q122,350 122,370 L120,400 Q118,420 116,435 L118,440 Q122,442 128,440 L130,435 Q128,420 128,400 L130,370 Q132,350 132,330 L134,300 Q136,275 138,255"
+                    fill="url(#bodyGrad)" stroke="hsl(0,0%,75%)" strokeWidth="0.8"
+                  />
+                  {/* Left foot */}
+                  <path d="M116,435 Q112,440 108,442 L108,446 Q115,448 128,446 L130,442 Q128,440 128,438" fill="url(#bodyGrad)" stroke="hsl(0,0%,75%)" strokeWidth="0.6" />
+
                   {/* Right leg */}
-                  <path d="M175 240 Q172 270 168 300 L167 340 Q167 360 168 380 L170 420" strokeLinecap="round" fill="none" strokeWidth="14" className="stroke-muted-foreground/10" />
-                  <path d="M175 240 Q172 270 168 300 L167 340 Q167 360 168 380 L170 420" strokeLinecap="round" fill="none" strokeWidth="1.5" />
+                  <path
+                    d="M182,250 Q185,270 182,300 L180,330 Q178,350 178,370 L180,400 Q182,420 184,435 L182,440 Q178,442 172,440 L170,435 Q172,420 172,400 L170,370 Q168,350 168,330 L166,300 Q164,275 162,255"
+                    fill="url(#bodyGrad)" stroke="hsl(0,0%,75%)" strokeWidth="0.8"
+                  />
+                  {/* Right foot */}
+                  <path d="M184,435 Q188,440 192,442 L192,446 Q185,448 172,446 L170,442 Q172,440 172,438" fill="url(#bodyGrad)" stroke="hsl(0,0%,75%)" strokeWidth="0.6" />
                 </g>
 
-                {/* Hotspots */}
-                {jointPositions.map((joint, i) => (
-                  <JointHotspot
-                    key={`${joint.id}-${i}`}
-                    joint={joint}
-                    isActive={activeJoint === joint.id}
-                    onClick={() => handleJointClick(joint.id)}
+                {/* === CLICKABLE JOINT REGIONS (teal highlights) === */}
+                {jointRegions.map((region, i) => (
+                  <JointRegionHotspot
+                    key={`${region.id}-${i}`}
+                    region={region}
+                    isActive={activeJoint === region.id}
+                    onClick={() => handleJointClick(region.id)}
                   />
                 ))}
               </svg>
 
-              {/* Mobile prompt */}
+              {/* Prompt below figure */}
               {!activeJoint && (
-                <motion.div
+                <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="text-center mt-4 lg:hidden"
+                  className="text-center text-sm text-muted-foreground mt-4 flex items-center justify-center gap-2"
                 >
-                  <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
-                    <ChevronRight className="w-4 h-4 text-primary animate-pulse" />
-                    Tap a joint to see exercises
-                  </p>
-                </motion.div>
+                  <MousePointerClick className="w-4 h-4 text-secondary" />
+                  Click a highlighted area
+                </motion.p>
               )}
             </div>
           </motion.div>
@@ -353,14 +432,14 @@ const JointExerciseSection = memo(() => {
                   className="h-full flex items-center justify-center"
                 >
                   <div className="text-center p-8 sm:p-12 rounded-2xl border-2 border-dashed border-border/50 bg-accent/20 max-w-md mx-auto">
-                    <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
-                      <Dumbbell className="w-8 h-8 text-primary" />
+                    <div className="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center mx-auto mb-5">
+                      <Dumbbell className="w-8 h-8 text-secondary" />
                     </div>
                     <h3 className="text-xl font-display font-bold text-foreground mb-2">
                       Select a Joint
                     </h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">
-                      Click on any highlighted point on the body diagram to view a personalised home exercise plan for that area.
+                      Click on any teal-highlighted region on the body diagram to view a personalised home exercise plan.
                     </p>
                   </div>
                 </motion.div>
