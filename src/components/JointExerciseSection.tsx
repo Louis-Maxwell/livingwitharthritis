@@ -1,6 +1,7 @@
 import { memo, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Dumbbell, Clock, RotateCcw, Activity, MousePointerClick } from "lucide-react";
+import mannequinImg from "@/assets/body-mannequin.png";
 
 interface Exercise {
   name: string;
@@ -105,100 +106,78 @@ const jointDatabase: Record<string, JointData> = {
   },
 };
 
-// Clickable joint region shapes overlaid on the mannequin
-interface JointRegion {
+// Hotspot positions as % of image dimensions, mapped to the mannequin
+interface Hotspot {
   id: string;
-  path: string;
   label: string;
-  labelX: number;
-  labelY: number;
+  top: string;
+  left: string;
+  width: string;
+  height: string;
 }
 
-const jointRegions: JointRegion[] = [
-  // Neck — wide band under jaw
-  { id: "neck", path: "M135,78 Q140,72 150,70 Q160,72 165,78 L165,90 Q160,93 150,94 Q140,93 135,90 Z", label: "Neck", labelX: 150, labelY: 65 },
-  // L Shoulder
-  { id: "shoulder", path: "M100,100 Q95,95 92,102 Q90,112 95,120 L110,118 Q115,108 112,100 Z", label: "L Shoulder", labelX: 82, labelY: 98 },
-  // R Shoulder
-  { id: "shoulder", path: "M200,100 Q205,95 208,102 Q210,112 205,120 L190,118 Q185,108 188,100 Z", label: "R Shoulder", labelX: 218, labelY: 98 },
-  // L Elbow
-  { id: "elbow", path: "M80,168 Q76,160 74,168 Q72,178 76,185 L88,183 Q90,175 88,168 Z", label: "L Elbow", labelX: 62, labelY: 165 },
-  // R Elbow
-  { id: "elbow", path: "M220,168 Q224,160 226,168 Q228,178 224,185 L212,183 Q210,175 212,168 Z", label: "R Elbow", labelX: 238, labelY: 165 },
-  // L Wrist/Hand
-  { id: "wrist", path: "M62,232 Q58,225 56,232 Q54,242 58,250 L72,248 Q76,240 72,232 Z", label: "L Hand", labelX: 46, labelY: 230 },
-  // R Wrist/Hand
-  { id: "wrist", path: "M238,232 Q242,225 244,232 Q246,242 242,250 L228,248 Q224,240 228,232 Z", label: "R Hand", labelX: 254, labelY: 230 },
-  // Spine — mid-back region
-  { id: "spine", path: "M140,140 L160,140 L162,180 L158,195 L142,195 L138,180 Z", label: "Spine", labelX: 150, labelY: 133 },
-  // L Hip
-  { id: "hip", path: "M118,228 Q112,222 110,230 Q108,240 115,248 L130,246 Q135,238 130,228 Z", label: "L Hip", labelX: 98, labelY: 225 },
-  // R Hip
-  { id: "hip", path: "M182,228 Q188,222 190,230 Q192,240 185,248 L170,246 Q165,238 170,228 Z", label: "R Hip", labelX: 202, labelY: 225 },
-  // L Knee
-  { id: "knee", path: "M124,318 Q120,310 118,318 Q116,328 120,336 L136,334 Q140,326 136,318 Z", label: "L Knee", labelX: 108, labelY: 315 },
-  // R Knee
-  { id: "knee", path: "M176,318 Q180,310 182,318 Q184,328 180,336 L164,334 Q160,326 164,318 Z", label: "R Knee", labelX: 192, labelY: 315 },
-  // L Ankle/Foot
-  { id: "ankle", path: "M118,408 Q114,400 112,408 Q110,418 116,426 L132,424 Q136,416 132,408 Z", label: "L Foot", labelX: 102, labelY: 405 },
-  // R Ankle/Foot
-  { id: "ankle", path: "M182,408 Q186,400 188,408 Q190,418 184,426 L168,424 Q164,416 168,408 Z", label: "R Foot", labelX: 198, labelY: 405 },
+const hotspots: Hotspot[] = [
+  { id: "neck", label: "Neck", top: "12%", left: "42%", width: "16%", height: "4%" },
+  { id: "shoulder", label: "L Shoulder", top: "17%", left: "24%", width: "14%", height: "6%" },
+  { id: "shoulder", label: "R Shoulder", top: "17%", left: "62%", width: "14%", height: "6%" },
+  { id: "elbow", label: "L Elbow", top: "33%", left: "16%", width: "10%", height: "5%" },
+  { id: "elbow", label: "R Elbow", top: "33%", left: "74%", width: "10%", height: "5%" },
+  { id: "wrist", label: "L Hand", top: "48%", left: "12%", width: "12%", height: "5%" },
+  { id: "wrist", label: "R Hand", top: "48%", left: "76%", width: "12%", height: "5%" },
+  { id: "spine", label: "Spine", top: "26%", left: "40%", width: "20%", height: "10%" },
+  { id: "hip", label: "L Hip", top: "44%", left: "30%", width: "14%", height: "6%" },
+  { id: "hip", label: "R Hip", top: "44%", left: "56%", width: "14%", height: "6%" },
+  { id: "knee", label: "L Knee", top: "63%", left: "31%", width: "12%", height: "5%" },
+  { id: "knee", label: "R Knee", top: "63%", left: "57%", width: "12%", height: "5%" },
+  { id: "ankle", label: "L Foot", top: "90%", left: "29%", width: "14%", height: "5%" },
+  { id: "ankle", label: "R Foot", top: "90%", left: "57%", width: "14%", height: "5%" },
 ];
 
-const JointRegionHotspot = memo(({ region, isActive, onClick }: {
-  region: JointRegion;
+const HotspotOverlay = memo(({ spot, isActive, onClick }: {
+  spot: Hotspot;
   isActive: boolean;
   onClick: () => void;
-}) => {
-  const activeColor = "hsl(172, 50%, 55%)";
-  const hoverColor = "hsl(172, 50%, 65%)";
-  const defaultColor = "hsl(172, 40%, 70%)";
+}) => (
+  <button
+    onClick={onClick}
+    aria-label={`Exercise plan for ${spot.label}`}
+    className="absolute rounded-full transition-all duration-300 group"
+    style={{
+      top: spot.top,
+      left: spot.left,
+      width: spot.width,
+      height: spot.height,
+      background: isActive
+        ? "hsla(172, 50%, 50%, 0.55)"
+        : "hsla(172, 50%, 60%, 0.35)",
+      boxShadow: isActive
+        ? "0 0 16px 4px hsla(172, 50%, 50%, 0.4)"
+        : "none",
+      border: isActive
+        ? "2px solid hsla(172, 50%, 50%, 0.7)"
+        : "2px solid transparent",
+    }}
+    onMouseEnter={(e) => {
+      if (!isActive) {
+        e.currentTarget.style.background = "hsla(172, 50%, 55%, 0.5)";
+        e.currentTarget.style.boxShadow = "0 0 12px 2px hsla(172, 50%, 50%, 0.3)";
+      }
+    }}
+    onMouseLeave={(e) => {
+      if (!isActive) {
+        e.currentTarget.style.background = "hsla(172, 50%, 60%, 0.35)";
+        e.currentTarget.style.boxShadow = "none";
+      }
+    }}
+  >
+    {/* Pulse ring for active */}
+    {isActive && (
+      <span className="absolute inset-0 rounded-full animate-ping" style={{ background: "hsla(172, 50%, 50%, 0.2)" }} />
+    )}
+  </button>
+));
 
-  return (
-    <g
-      className="cursor-pointer"
-      onClick={onClick}
-      role="button"
-      aria-label={`Exercise plan for ${region.label}`}
-    >
-      {/* Glow behind active region */}
-      {isActive && (
-        <path
-          d={region.path}
-          fill={activeColor}
-          opacity="0.3"
-          filter="url(#glow)"
-          transform="scale(1.15)"
-          style={{ transformOrigin: `${region.labelX}px ${region.labelY + 20}px` }}
-        />
-      )}
-      {/* Region fill */}
-      <path
-        d={region.path}
-        fill={isActive ? activeColor : defaultColor}
-        opacity={isActive ? 0.9 : 0.6}
-        className="transition-all duration-300 hover:opacity-90"
-        style={{ filter: isActive ? "none" : "none" }}
-        onMouseEnter={(e) => { e.currentTarget.style.fill = isActive ? activeColor : hoverColor; e.currentTarget.style.opacity = "0.85"; }}
-        onMouseLeave={(e) => { e.currentTarget.style.fill = isActive ? activeColor : defaultColor; e.currentTarget.style.opacity = isActive ? "0.9" : "0.6"; }}
-      />
-      {/* Label */}
-      <text
-        x={region.labelX}
-        y={region.labelY}
-        textAnchor="middle"
-        className="pointer-events-none select-none"
-        fontSize="8"
-        fontWeight={isActive ? "700" : "500"}
-        fill={isActive ? activeColor : "hsl(172, 30%, 45%)"}
-      >
-        {region.label}
-      </text>
-    </g>
-  );
-});
-
-JointRegionHotspot.displayName = "JointRegionHotspot";
+HotspotOverlay.displayName = "HotspotOverlay";
 
 const ExercisePanel = memo(({ joint, onClose }: { joint: JointData; onClose: () => void }) => (
   <motion.div
@@ -278,7 +257,6 @@ const JointExerciseSection = memo(() => {
   return (
     <section id="joint-exercises" className="py-20 lg:py-28 bg-background relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-8 relative">
-        {/* Header — minimal like reference */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -295,7 +273,7 @@ const JointExerciseSection = memo(() => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-start">
-          {/* Body mannequin */}
+          {/* 3D Mannequin with overlay hotspots */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -304,103 +282,22 @@ const JointExerciseSection = memo(() => {
             className="flex justify-center"
           >
             <div className="relative w-full max-w-[340px]">
-              <svg viewBox="0 0 300 460" className="w-full h-auto" aria-label="Interactive body diagram — choose a joint area">
-                <defs>
-                  <filter id="glow">
-                    <feGaussianBlur stdDeviation="4" result="blur" />
-                    <feMerge>
-                      <feMergeNode in="blur" />
-                      <feMergeNode in="SourceGraphic" />
-                    </feMerge>
-                  </filter>
-                  {/* Subtle body gradient for 3D mannequin feel */}
-                  <radialGradient id="bodyGrad" cx="50%" cy="35%" r="65%">
-                    <stop offset="0%" stopColor="hsl(0,0%,92%)" />
-                    <stop offset="100%" stopColor="hsl(0,0%,82%)" />
-                  </radialGradient>
-                  <radialGradient id="headGrad" cx="50%" cy="40%" r="60%">
-                    <stop offset="0%" stopColor="hsl(0,0%,90%)" />
-                    <stop offset="100%" stopColor="hsl(0,0%,80%)" />
-                  </radialGradient>
-                </defs>
-
-                {/* === MANNEQUIN BODY === */}
-                <g>
-                  {/* Head */}
-                  <ellipse cx="150" cy="38" rx="22" ry="28" fill="url(#headGrad)" stroke="hsl(0,0%,75%)" strokeWidth="0.8" />
-                  {/* Ears */}
-                  <ellipse cx="127" cy="38" rx="4" ry="7" fill="hsl(0,0%,85%)" />
-                  <ellipse cx="173" cy="38" rx="4" ry="7" fill="hsl(0,0%,85%)" />
-                  {/* Eyes hint */}
-                  <circle cx="142" cy="33" r="1.5" fill="hsl(0,0%,70%)" />
-                  <circle cx="158" cy="33" r="1.5" fill="hsl(0,0%,70%)" />
-                  {/* Nose */}
-                  <line x1="150" y1="36" x2="150" y2="42" stroke="hsl(0,0%,75%)" strokeWidth="0.6" />
-                  {/* Mouth */}
-                  <path d="M145,47 Q150,50 155,47" fill="none" stroke="hsl(0,0%,72%)" strokeWidth="0.6" />
-
-                  {/* Neck */}
-                  <rect x="140" y="64" width="20" height="20" rx="6" fill="url(#bodyGrad)" stroke="hsl(0,0%,75%)" strokeWidth="0.5" />
-
-                  {/* Torso */}
-                  <path
-                    d="M108,84 Q102,90 98,110 L94,160 Q92,195 96,220 L108,248 Q120,258 150,260 Q180,258 192,248 L204,220 Q208,195 206,160 L202,110 Q198,90 192,84 Z"
-                    fill="url(#bodyGrad)" stroke="hsl(0,0%,75%)" strokeWidth="0.8"
-                  />
-                  {/* Chest line */}
-                  <path d="M120,105 Q135,115 150,112 Q165,115 180,105" fill="none" stroke="hsl(0,0%,78%)" strokeWidth="0.5" />
-                  {/* Abs hint */}
-                  <line x1="150" y1="130" x2="150" y2="200" stroke="hsl(0,0%,78%)" strokeWidth="0.4" />
-
-                  {/* Left arm */}
-                  <path
-                    d="M98,100 Q88,105 82,125 L76,165 Q72,190 66,215 L60,245 Q58,252 62,256 L68,254 Q72,248 74,240 L82,210 Q86,190 90,170 L96,140"
-                    fill="url(#bodyGrad)" stroke="hsl(0,0%,75%)" strokeWidth="0.8"
-                  />
-                  {/* Left hand */}
-                  <path d="M60,245 Q55,255 54,260 L56,264 Q60,262 64,258 L68,254" fill="url(#bodyGrad)" stroke="hsl(0,0%,75%)" strokeWidth="0.6" />
-                  {/* Left fingers */}
-                  <path d="M54,260 L50,268 M56,262 L52,272 M58,263 L56,273 M60,262 L60,270" fill="none" stroke="hsl(0,0%,75%)" strokeWidth="0.5" />
-
-                  {/* Right arm */}
-                  <path
-                    d="M202,100 Q212,105 218,125 L224,165 Q228,190 234,215 L240,245 Q242,252 238,256 L232,254 Q228,248 226,240 L218,210 Q214,190 210,170 L204,140"
-                    fill="url(#bodyGrad)" stroke="hsl(0,0%,75%)" strokeWidth="0.8"
-                  />
-                  {/* Right hand */}
-                  <path d="M240,245 Q245,255 246,260 L244,264 Q240,262 236,258 L232,254" fill="url(#bodyGrad)" stroke="hsl(0,0%,75%)" strokeWidth="0.6" />
-                  {/* Right fingers */}
-                  <path d="M246,260 L250,268 M244,262 L248,272 M242,263 L244,273 M240,262 L240,270" fill="none" stroke="hsl(0,0%,75%)" strokeWidth="0.5" />
-
-                  {/* Left leg */}
-                  <path
-                    d="M118,250 Q115,270 118,300 L120,330 Q122,350 122,370 L120,400 Q118,420 116,435 L118,440 Q122,442 128,440 L130,435 Q128,420 128,400 L130,370 Q132,350 132,330 L134,300 Q136,275 138,255"
-                    fill="url(#bodyGrad)" stroke="hsl(0,0%,75%)" strokeWidth="0.8"
-                  />
-                  {/* Left foot */}
-                  <path d="M116,435 Q112,440 108,442 L108,446 Q115,448 128,446 L130,442 Q128,440 128,438" fill="url(#bodyGrad)" stroke="hsl(0,0%,75%)" strokeWidth="0.6" />
-
-                  {/* Right leg */}
-                  <path
-                    d="M182,250 Q185,270 182,300 L180,330 Q178,350 178,370 L180,400 Q182,420 184,435 L182,440 Q178,442 172,440 L170,435 Q172,420 172,400 L170,370 Q168,350 168,330 L166,300 Q164,275 162,255"
-                    fill="url(#bodyGrad)" stroke="hsl(0,0%,75%)" strokeWidth="0.8"
-                  />
-                  {/* Right foot */}
-                  <path d="M184,435 Q188,440 192,442 L192,446 Q185,448 172,446 L170,442 Q172,440 172,438" fill="url(#bodyGrad)" stroke="hsl(0,0%,75%)" strokeWidth="0.6" />
-                </g>
-
-                {/* === CLICKABLE JOINT REGIONS (teal highlights) === */}
-                {jointRegions.map((region, i) => (
-                  <JointRegionHotspot
-                    key={`${region.id}-${i}`}
-                    region={region}
-                    isActive={activeJoint === region.id}
-                    onClick={() => handleJointClick(region.id)}
-                  />
-                ))}
-              </svg>
-
-              {/* Prompt below figure */}
+              <img
+                src={mannequinImg}
+                alt="3D body mannequin — click joints to see exercises"
+                className="w-full h-auto select-none pointer-events-none"
+                draggable={false}
+              />
+              {/* Clickable hotspot overlays */}
+              {hotspots.map((spot, i) => (
+                <HotspotOverlay
+                  key={`${spot.id}-${i}`}
+                  spot={spot}
+                  isActive={activeJoint === spot.id}
+                  onClick={() => handleJointClick(spot.id)}
+                />
+              ))}
+              {/* Prompt */}
               {!activeJoint && (
                 <motion.p
                   initial={{ opacity: 0 }}
@@ -439,7 +336,7 @@ const JointExerciseSection = memo(() => {
                       Select a Joint
                     </h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">
-                      Click on any teal-highlighted region on the body diagram to view a personalised home exercise plan.
+                      Click on any teal-highlighted region on the body to view a personalised home exercise plan.
                     </p>
                   </div>
                 </motion.div>
