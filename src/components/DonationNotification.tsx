@@ -12,7 +12,16 @@ interface Donation {
 const DonationNotification = () => {
   const [showNotification, setShowNotification] = useState(false);
   const [currentDonation, setCurrentDonation] = useState<Donation | null>(null);
+  const [isLeaving, setIsLeaving] = useState(false);
   const { latestDonation } = useRealtimeDonations();
+
+  const hideWithFade = () => {
+    setIsLeaving(true);
+    setTimeout(() => {
+      setShowNotification(false);
+      setIsLeaving(false);
+    }, 600);
+  };
 
   // Fallback demo donations for when there are no real donations
   const demoDonations: Donation[] = [
@@ -20,26 +29,26 @@ const DonationNotification = () => {
     { id: "1", name: "Sarah M.", amount: 150, location: "London", country: "United Kingdom" },
     { id: "2", name: "James W.", amount: 500, location: "Manchester", country: "United Kingdom" },
     { id: "3", name: "Emma T.", amount: 75, location: "Bristol", country: "United Kingdom" },
-    { id: "4", name: "Oliver H.", amount: 1000, location: "Birmingham", country: "United Kingdom" },
+    { id: "4", name: "Oliver H.", amount: 350, location: "Birmingham", country: "United Kingdom" },
     { id: "5", name: "Charlotte B.", amount: 250, location: "Leeds", country: "United Kingdom" },
     { id: "6", name: "William P.", amount: 100, location: "Liverpool", country: "United Kingdom" },
-    { id: "7", name: "Sophie R.", amount: 2000, location: "Edinburgh", country: "United Kingdom" },
-    { id: "8", name: "George F.", amount: 350, location: "Oxford", country: "United Kingdom" },
+    { id: "7", name: "Sophie R.", amount: 480, location: "Edinburgh", country: "United Kingdom" },
+    { id: "8", name: "George F.", amount: 50, location: "Oxford", country: "United Kingdom" },
     { id: "9", name: "Lucy D.", amount: 60, location: "Cambridge", country: "United Kingdom" },
-    { id: "10", name: "Thomas K.", amount: 750, location: "Bath", country: "United Kingdom" },
+    { id: "10", name: "Thomas K.", amount: 200, location: "Bath", country: "United Kingdom" },
     // Muslim names (20%)
-    { id: "11", name: "Fatima A.", amount: 200, location: "Bradford", country: "United Kingdom" },
-    { id: "12", name: "Ahmed K.", amount: 500, location: "Birmingham", country: "United Kingdom" },
-    { id: "13", name: "Amina H.", amount: 1500, location: "London", country: "United Kingdom" },
-    { id: "14", name: "Yusuf M.", amount: 100, location: "Leicester", country: "United Kingdom" },
+    { id: "11", name: "Fatima A.", amount: 120, location: "Bradford", country: "United Kingdom" },
+    { id: "12", name: "Ahmed K.", amount: 400, location: "Birmingham", country: "United Kingdom" },
+    { id: "13", name: "Amina H.", amount: 300, location: "London", country: "United Kingdom" },
+    { id: "14", name: "Yusuf M.", amount: 25, location: "Leicester", country: "United Kingdom" },
     // Russian names (10%)
-    { id: "15", name: "Dmitri V.", amount: 300, location: "London", country: "United Kingdom" },
-    { id: "16", name: "Anastasia P.", amount: 800, location: "Edinburgh", country: "United Kingdom" },
+    { id: "15", name: "Dmitri V.", amount: 180, location: "London", country: "United Kingdom" },
+    { id: "16", name: "Anastasia P.", amount: 450, location: "Edinburgh", country: "United Kingdom" },
     // Welsh names (10%)
-    { id: "17", name: "Rhys D.", amount: 450, location: "Cardiff", country: "United Kingdom" },
-    { id: "18", name: "Seren L.", amount: 120, location: "Swansea", country: "United Kingdom" },
-    // Extra English (fills remaining)
-    { id: "19", name: "Jessica N.", amount: 1200, location: "Nottingham", country: "United Kingdom" },
+    { id: "17", name: "Rhys D.", amount: 350, location: "Cardiff", country: "United Kingdom" },
+    { id: "18", name: "Seren L.", amount: 80, location: "Swansea", country: "United Kingdom" },
+    // Extra English
+    { id: "19", name: "Jessica N.", amount: 275, location: "Nottingham", country: "United Kingdom" },
     { id: "20", name: "Henry C.", amount: 90, location: "York", country: "United Kingdom" },
   ];
 
@@ -55,18 +64,15 @@ const DonationNotification = () => {
       };
       setCurrentDonation(donation);
       setShowNotification(true);
+      setIsLeaving(false);
 
-      const timeout = setTimeout(() => {
-        setShowNotification(false);
-      }, 3000);
-
+      const timeout = setTimeout(hideWithFade, 3000);
       return () => clearTimeout(timeout);
     }
   }, [latestDonation]);
 
   // Demo rotation — delayed 90s and only once per session
   useEffect(() => {
-    // Check if user already dismissed in this session
     const dismissed = sessionStorage.getItem("donation_notification_dismissed");
     if (dismissed) return;
 
@@ -76,16 +82,14 @@ const DonationNotification = () => {
       if (!latestDonation) {
         setCurrentDonation(demoDonations[donationIndex]);
         setShowNotification(true);
+        setIsLeaving(false);
 
-        setTimeout(() => {
-          setShowNotification(false);
-        }, 3000);
+        setTimeout(hideWithFade, 3000);
 
         donationIndex = (donationIndex + 1) % demoDonations.length;
       }
     };
 
-    // Delay first notification by 90 seconds to let users engage first
     const initialTimeout = setTimeout(showNextDonation, 5000);
     const interval = setInterval(showNextDonation, 5000);
 
@@ -99,7 +103,7 @@ const DonationNotification = () => {
 
   return (
     <div 
-      className="fixed bottom-6 left-6 z-50 animate-fade-in"
+      className={`fixed bottom-6 left-6 z-50 transition-all duration-[600ms] ease-in-out ${isLeaving ? 'opacity-0 translate-y-4' : 'animate-fade-in'}`}
       style={{ maxWidth: "320px" }}
     >
       <div className="bg-background border border-border rounded-lg shadow-2xl p-4 flex items-start gap-3 backdrop-blur-sm">
