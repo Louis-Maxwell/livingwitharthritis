@@ -16,12 +16,31 @@ const DonationNotification = () => {
 
   // Fallback demo donations for when there are no real donations
   const demoDonations: Donation[] = [
-    { id: "1", name: "Linda M.", amount: 100, location: "Novato", country: "United States" },
-    { id: "2", name: "Sarah K.", amount: 50, location: "London", country: "United Kingdom" },
-    { id: "3", name: "Michael R.", amount: 75, location: "Toronto", country: "Canada" },
-    { id: "4", name: "Emma T.", amount: 150, location: "Sydney", country: "Australia" },
-    { id: "5", name: "David L.", amount: 25, location: "Berlin", country: "Germany" },
-    { id: "6", name: "Jessica P.", amount: 200, location: "New York", country: "United States" },
+    // English names (50%)
+    { id: "1", name: "Sarah M.", amount: 150, location: "London", country: "United Kingdom" },
+    { id: "2", name: "James W.", amount: 500, location: "Manchester", country: "United Kingdom" },
+    { id: "3", name: "Emma T.", amount: 75, location: "Bristol", country: "United Kingdom" },
+    { id: "4", name: "Oliver H.", amount: 1000, location: "Birmingham", country: "United Kingdom" },
+    { id: "5", name: "Charlotte B.", amount: 250, location: "Leeds", country: "United Kingdom" },
+    { id: "6", name: "William P.", amount: 100, location: "Liverpool", country: "United Kingdom" },
+    { id: "7", name: "Sophie R.", amount: 2000, location: "Edinburgh", country: "United Kingdom" },
+    { id: "8", name: "George F.", amount: 350, location: "Oxford", country: "United Kingdom" },
+    { id: "9", name: "Lucy D.", amount: 60, location: "Cambridge", country: "United Kingdom" },
+    { id: "10", name: "Thomas K.", amount: 750, location: "Bath", country: "United Kingdom" },
+    // Muslim names (20%)
+    { id: "11", name: "Fatima A.", amount: 200, location: "Bradford", country: "United Kingdom" },
+    { id: "12", name: "Ahmed K.", amount: 500, location: "Birmingham", country: "United Kingdom" },
+    { id: "13", name: "Amina H.", amount: 1500, location: "London", country: "United Kingdom" },
+    { id: "14", name: "Yusuf M.", amount: 100, location: "Leicester", country: "United Kingdom" },
+    // Russian names (10%)
+    { id: "15", name: "Dmitri V.", amount: 300, location: "London", country: "United Kingdom" },
+    { id: "16", name: "Anastasia P.", amount: 800, location: "Edinburgh", country: "United Kingdom" },
+    // Welsh names (10%)
+    { id: "17", name: "Rhys D.", amount: 450, location: "Cardiff", country: "United Kingdom" },
+    { id: "18", name: "Seren L.", amount: 120, location: "Swansea", country: "United Kingdom" },
+    // Extra English (fills remaining)
+    { id: "19", name: "Jessica N.", amount: 1200, location: "Nottingham", country: "United Kingdom" },
+    { id: "20", name: "Henry C.", amount: 90, location: "York", country: "United Kingdom" },
   ];
 
   // Show real-time donation when received
