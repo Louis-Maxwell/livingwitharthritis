@@ -17,8 +17,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 20% 14%;
 
-    /* Warm Magenta/Coral Primary */
-    --primary: 340 72% 52%;
+    /* Glowing Red Primary */
+    --primary: 0 85% 50%;
     --primary-foreground: 0 0% 100%;
 
     /* Warm Teal Secondary */
@@ -37,7 +37,7 @@
 
     --border: 40 15% 89%;
     --input: 40 15% 89%;
-    --ring: 340 72% 52%;
+    --ring: 0 85% 50%;
 
     --gold: 42 92% 56%;
     --gold-foreground: 42 40% 12%;
@@ -51,8 +51,8 @@
     --shadow-soft: 0 2px 12px -2px hsl(220 20% 14% / 0.06);
     --shadow-medium: 0 8px 30px -8px hsl(220 20% 14% / 0.1);
     --shadow-large: 0 20px 50px -12px hsl(220 20% 14% / 0.15);
-    --shadow-primary: 0 8px 24px -6px hsl(340 72% 52% / 0.3);
-    --shadow-glow: 0 0 30px -5px hsl(340 72% 52% / 0.2);
+    --shadow-primary: 0 8px 24px -6px hsl(0 85% 50% / 0.35);
+    --shadow-glow: 0 0 30px -5px hsl(0 85% 50% / 0.25);
 
     --radius: 0.75rem;
 
@@ -73,7 +73,7 @@
     --card-foreground: 40 20% 95%;
     --popover: 220 25% 10%;
     --popover-foreground: 40 20% 95%;
-    --primary: 340 72% 58%;
+    --primary: 0 85% 56%;
     --primary-foreground: 0 0% 100%;
     --secondary: 172 50% 48%;
     --secondary-foreground: 0 0% 100%;
@@ -85,7 +85,7 @@
     --destructive-foreground: 0 0% 100%;
     --border: 220 25% 18%;
     --input: 220 25% 18%;
-    --ring: 340 72% 58%;
+    --ring: 0 85% 56%;
     --gold: 42 92% 60%;
     --gold-foreground: 42 40% 95%;
     --gold-muted: 42 40% 30%;
