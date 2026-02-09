@@ -86,8 +86,8 @@ const DonationNotification = () => {
     };
 
     // Delay first notification by 90 seconds to let users engage first
-    const initialTimeout = setTimeout(showNextDonation, 90000);
-    const interval = setInterval(showNextDonation, 45000);
+    const initialTimeout = setTimeout(showNextDonation, 5000);
+    const interval = setInterval(showNextDonation, 5000);
 
     return () => {
       clearTimeout(initialTimeout);
