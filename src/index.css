@@ -135,19 +135,21 @@
 }
 
 @layer components {
-  /* Primary CTA — bold with glow */
+  /* Primary CTA — bold with glow + pulse */
   .btn-primary-cta {
     @apply relative overflow-hidden font-bold;
     background: hsl(var(--primary));
     color: hsl(var(--primary-foreground));
     box-shadow: var(--shadow-primary);
     transition: all 0.3s ease;
+    animation: pulseGlow 2.5s ease-in-out infinite;
   }
 
   .btn-primary-cta:hover {
     transform: translateY(-2px);
     filter: brightness(1.08);
     box-shadow: 0 16px 48px -8px hsl(var(--primary) / 0.6);
+    animation: none;
   }
 
   .btn-primary-cta::after {
@@ -163,6 +165,15 @@
 
   .btn-primary-cta:hover::after {
     left: 100%;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 10px 40px -6px hsl(var(--primary) / 0.55);
+    }
+    50% {
+      box-shadow: 0 10px 60px -4px hsl(var(--primary) / 0.75), 0 0 30px -2px hsl(var(--primary) / 0.3);
+    }
   }
 
   /* Gold donate button */
