@@ -18,22 +18,17 @@ const NutritionArticleSection = lazy(() => import("@/components/NutritionArticle
 const JointExerciseSection = lazy(() => import("@/components/JointExerciseSection"));
 
 // Minimal skeleton for lazy sections
-const SectionLoader = memo(() => (
-  <div className="py-16 flex items-center justify-center">
+const SectionLoader = memo(() => <div className="py-16 flex items-center justify-center">
     <div className="animate-pulse h-4 w-32 bg-muted rounded" />
-  </div>
-));
-
+  </div>);
 SectionLoader.displayName = "SectionLoader";
-
 const Index = () => {
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       <Header />
-      <main>
+      <main className="">
         <HeroSection />
         <Suspense fallback={<SectionLoader />}>
-          <ImpactBanner />
+          
         </Suspense>
         <Suspense fallback={<SectionLoader />}>
           <AboutSection />
@@ -68,8 +63,6 @@ const Index = () => {
         <DonationNotification />
       </Suspense>
       <FloatingChatButton />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
