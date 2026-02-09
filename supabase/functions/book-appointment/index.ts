@@ -1,24 +1,11 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-const ALLOWED_ORIGINS = [
-  "https://id-preview--0b2fd6ca-4e21-4ac7-99fa-d741e996f45e.lovable.app",
-  "https://livingwitharthritis.org.uk",
-  "https://www.livingwitharthritis.org.uk",
-  "http://localhost:8080",
-  "http://localhost:5173",
-  "http://localhost:3000",
-];
-
-function getCorsHeaders(req: Request): Record<string, string> {
-  const origin = req.headers.get("Origin") || "";
-  const allowedOrigin = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
-  
-  return {
-    "Access-Control-Allow-Origin": allowedOrigin,
-    "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-  };
-}
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers":
+    "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
+};
 
 const VALID_APPOINTMENT_TYPES = [
   "consultation",
@@ -102,8 +89,6 @@ function validateAppointment(data: unknown): { valid: boolean; error?: string; a
 }
 
 serve(async (req) => {
-  const corsHeaders = getCorsHeaders(req);
-
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
@@ -137,14 +122,12 @@ serve(async (req) => {
     let userId: string | null = null;
     const authHeader = req.headers.get("Authorization");
     if (authHeader?.startsWith("Bearer ")) {
-      const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY")!;
-      const authClient = createClient(supabaseUrl, supabaseAnonKey, {
-        global: { headers: { Authorization: authHeader } },
-      });
       const token = authHeader.replace("Bearer ", "");
-      const { data: claimsData } = await authClient.auth.getClaims(token);
-      if (claimsData?.claims?.sub) {
-        userId = claimsData.claims.sub as string;
+      const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY")!;
+      const authClient = createClient(supabaseUrl, supabaseAnonKey);
+      const { data: { user } } = await authClient.auth.getUser(token);
+      if (user) {
+        userId = user.id;
       }
     }
 
@@ -154,37 +137,35 @@ serve(async (req) => {
         user_id: userId,
         name: appointment!.name,
         email: appointment!.email,
-        phone: appointment!.phone,
+        phone: appointment!.phone || null,
         appointment_type: appointment!.appointmentType,
         preferred_date: appointment!.preferredDate,
         preferred_time: appointment!.preferredTime,
-        notes: appointment!.notes,
+        notes: appointment!.notes || null,
       })
       .select()
       .single();
 
     if (insertError) {
-      console.error("Appointment insert error:", insertError);
+      console.error("Appointment insert error:", insertError.message);
       return new Response(
-        JSON.stringify({ error: "Failed to book appointment" }),
+        JSON.stringify({ error: "Failed to book appointment. Please try again." }),
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
-
-    console.log("Appointment booked:", data.id);
 
     return new Response(
       JSON.stringify({
         success: true,
         appointmentId: data.id,
-        message: "Your appointment has been booked. We'll confirm shortly!",
+        message: "Your appointment has been booked successfully! We'll confirm shortly.",
       }),
       { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   } catch (error) {
-    console.error("Appointment error:", error);
+    console.error("Appointment error:", error instanceof Error ? error.message : "Unknown");
     return new Response(
-      JSON.stringify({ error: error instanceof Error ? error.message : "Unknown error" }),
+      JSON.stringify({ error: "An unexpected error occurred. Please try again." }),
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   }
