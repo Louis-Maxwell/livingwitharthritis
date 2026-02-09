@@ -43,10 +43,10 @@ const ResourcesSection = memo(() => {
       transition={{ duration: 0.5 }}
       className="mt-10"
     >
-      <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2">
+      <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-2">
         Healthy Living Resources
       </h3>
-      <p className="text-white/60 mb-6">
+      <p className="text-muted-foreground mb-6">
         Curated resources to help you live well with arthritis.
       </p>
 
@@ -57,7 +57,7 @@ const ResourcesSection = memo(() => {
           className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
             !selectedCategory
               ? "bg-primary text-primary-foreground"
-              : "bg-white/10 text-white/70 hover:bg-white/20"
+              : "bg-muted text-muted-foreground hover:bg-accent"
           }`}
         >
           All
@@ -69,7 +69,7 @@ const ResourcesSection = memo(() => {
             className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
               selectedCategory === cat
                 ? "bg-primary text-primary-foreground"
-                : "bg-white/10 text-white/70 hover:bg-white/20"
+                : "bg-muted text-muted-foreground hover:bg-accent"
             }`}
           >
             {cat}
@@ -81,9 +81,9 @@ const ResourcesSection = memo(() => {
       <div className="grid md:grid-cols-2 gap-4">
         {isLoading
           ? Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="p-4 rounded-xl bg-white/5 border border-white/10">
-                <Skeleton className="h-5 w-48 mb-2 bg-white/10" />
-                <Skeleton className="h-4 w-full bg-white/10" />
+              <div key={i} className="p-4 rounded-xl bg-muted border border-border">
+                <Skeleton className="h-5 w-48 mb-2" />
+                <Skeleton className="h-4 w-full" />
               </div>
             ))
           : (
@@ -103,7 +103,7 @@ const ResourcesSection = memo(() => {
                       href={resource.external_url || "#"}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group block p-4 rounded-xl bg-white/5 border border-white/10 hover:border-primary/30 hover:bg-white/10 transition-all"
+                      className="group block p-4 rounded-xl bg-muted border border-border hover:border-primary/30 hover:bg-accent transition-all"
                     >
                       <div className="flex items-start gap-4">
                         <div
@@ -113,12 +113,12 @@ const ResourcesSection = memo(() => {
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 mb-1">
-                            <h4 className="font-semibold text-white group-hover:text-primary transition-colors">
+                            <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">
                               {resource.title}
                             </h4>
-                            <ExternalLink className="w-3.5 h-3.5 text-white/40 opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
+                            <ExternalLink className="w-3.5 h-3.5 text-muted-foreground/40 opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
                           </div>
-                          <p className="text-sm text-white/60 line-clamp-2">
+                          <p className="text-sm text-muted-foreground line-clamp-2">
                             {resource.description}
                           </p>
                           <span
