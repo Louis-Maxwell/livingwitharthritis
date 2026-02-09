@@ -58,7 +58,7 @@ const DonationNotification = () => {
 
       const timeout = setTimeout(() => {
         setShowNotification(false);
-      }, 6000);
+      }, 3000);
 
       return () => clearTimeout(timeout);
     }
@@ -79,7 +79,7 @@ const DonationNotification = () => {
 
         setTimeout(() => {
           setShowNotification(false);
-        }, 6000);
+        }, 3000);
 
         donationIndex = (donationIndex + 1) % demoDonations.length;
       }
