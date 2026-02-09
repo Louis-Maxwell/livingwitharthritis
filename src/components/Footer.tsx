@@ -5,69 +5,110 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
-
+  const {
+    toast
+  } = useToast();
+  const scrollToTop = () => window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
   const handleNewsletter = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
     setIsSubmitting(true);
     try {
-      const { error } = await supabase
-        .from("newsletter_subscriptions" as any)
-        .insert({ email, source: "footer" } as any);
-
+      const {
+        error
+      } = await supabase.from("newsletter_subscriptions" as any).insert({
+        email,
+        source: "footer"
+      } as any);
       if (error) {
         if (error.code === "23505") {
-          toast({ title: "Already subscribed!", description: "This email is already on our mailing list." });
+          toast({
+            title: "Already subscribed!",
+            description: "This email is already on our mailing list."
+          });
         } else {
           throw error;
         }
       } else {
-        toast({ title: "Thank you!", description: "You've been subscribed to our newsletter." });
+        toast({
+          title: "Thank you!",
+          description: "You've been subscribed to our newsletter."
+        });
       }
       setEmail("");
     } catch {
-      toast({ title: "Error", description: "Failed to subscribe. Please try again.", variant: "destructive" });
+      toast({
+        title: "Error",
+        description: "Failed to subscribe. Please try again.",
+        variant: "destructive"
+      });
     } finally {
       setIsSubmitting(false);
     }
   };
-
   const footerLinks = {
-    getHelp: [
-      { label: "Online Community", href: "#involved" },
-      { label: "Virtual Assistant", href: "/chat" },
-      { label: "Self Help Tool", href: "#resources" },
-      { label: "Book Appointment", href: "#services" },
-    ],
-    aboutArthritis: [
-      { label: "Symptoms & Treatments", href: "#conditions" },
-      { label: "Nutrition Guide", href: "#nutrition" },
-      { label: "Virtual Physiotherapy", href: "#services" },
-    ],
-    aboutUs: [
-      { label: "Our Mission", href: "#" },
-      { label: "Annual Reports", href: "#" },
-      { label: "Press & Media", href: "#" },
-    ],
+    getHelp: [{
+      label: "Online Community",
+      href: "#involved"
+    }, {
+      label: "Virtual Assistant",
+      href: "/chat"
+    }, {
+      label: "Self Help Tool",
+      href: "#resources"
+    }, {
+      label: "Book Appointment",
+      href: "#services"
+    }],
+    aboutArthritis: [{
+      label: "Symptoms & Treatments",
+      href: "#conditions"
+    }, {
+      label: "Nutrition Guide",
+      href: "#nutrition"
+    }, {
+      label: "Virtual Physiotherapy",
+      href: "#services"
+    }],
+    aboutUs: [{
+      label: "Our Mission",
+      href: "#"
+    }, {
+      label: "Annual Reports",
+      href: "#"
+    }, {
+      label: "Press & Media",
+      href: "#"
+    }]
   };
-
-  const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Youtube, href: "#", label: "Youtube" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-  ];
-
-  return (
-    <footer className="bg-navy text-white">
+  const socialLinks = [{
+    icon: Facebook,
+    href: "#",
+    label: "Facebook"
+  }, {
+    icon: Twitter,
+    href: "#",
+    label: "Twitter"
+  }, {
+    icon: Instagram,
+    href: "#",
+    label: "Instagram"
+  }, {
+    icon: Youtube,
+    href: "#",
+    label: "Youtube"
+  }, {
+    icon: Linkedin,
+    href: "#",
+    label: "LinkedIn"
+  }];
+  return <footer className="bg-navy text-white">
       {/* Newsletter */}
       <div className="border-b border-white/10">
         <div className="container mx-auto px-4 md:px-8 py-14">
@@ -80,19 +121,8 @@ const Footer = () => {
               </p>
             </div>
             <form onSubmit={handleNewsletter} className="flex gap-3">
-              <Input
-                type="email"
-                placeholder="Your email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="bg-white/10 border-white/15 text-white placeholder:text-white/30 rounded-full px-5"
-                required
-              />
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="btn-primary-cta px-6 rounded-full text-sm whitespace-nowrap"
-              >
+              <Input type="email" placeholder="Your email address" value={email} onChange={e => setEmail(e.target.value)} className="bg-white/10 border-white/15 text-white placeholder:text-white/30 rounded-full px-5" required />
+              <Button type="submit" disabled={isSubmitting} className="btn-primary-cta px-6 rounded-full text-sm whitespace-nowrap">
                 {isSubmitting ? "..." : "Subscribe"}
               </Button>
             </form>
@@ -130,42 +160,36 @@ const Footer = () => {
           </div>
 
           {/* Links */}
-          {[
-            { title: "Get Help", links: footerLinks.getHelp },
-            { title: "About Arthritis", links: footerLinks.aboutArthritis },
-            { title: "About Us", links: footerLinks.aboutUs },
-          ].map((section) => (
-            <div key={section.title} className="lg:col-span-2">
+          {[{
+          title: "Get Help",
+          links: footerLinks.getHelp
+        }, {
+          title: "About Arthritis",
+          links: footerLinks.aboutArthritis
+        }, {
+          title: "About Us",
+          links: footerLinks.aboutUs
+        }].map(section => <div key={section.title} className="lg:col-span-2">
               <h4 className="section-label text-white/40 mb-4 text-[10px]">{section.title}</h4>
               <ul className="space-y-2.5">
-                {section.links.map((link) => (
-                  <li key={link.label}>
+                {section.links.map(link => <li key={link.label}>
                     <a href={link.href} className="text-white/50 hover:text-white transition-colors text-sm">
                       {link.label}
                     </a>
-                  </li>
-                ))}
+                  </li>)}
               </ul>
-            </div>
-          ))}
+            </div>)}
 
           {/* Social */}
           <div className="lg:col-span-2">
             <h4 className="section-label text-white/40 mb-4 text-[10px]">Follow Us</h4>
             <div className="flex flex-wrap gap-2">
-              {socialLinks.map((social) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    aria-label={social.label}
-                    className="w-9 h-9 rounded-lg bg-white/8 flex items-center justify-center hover:bg-primary/30 transition-colors"
-                  >
+              {socialLinks.map(social => {
+              const Icon = social.icon;
+              return <a key={social.label} href={social.href} aria-label={social.label} className="w-9 h-9 rounded-lg bg-white/8 flex items-center justify-center hover:bg-primary/30 transition-colors">
                     <Icon className="w-4 h-4 text-white/50" />
-                  </a>
-                );
-              })}
+                  </a>;
+            })}
             </div>
           </div>
         </div>
@@ -175,9 +199,7 @@ const Footer = () => {
       <div className="border-t border-white/8">
         <div className="container mx-auto px-4 md:px-8 py-5">
           <div className="flex flex-col md:flex-row justify-between items-center gap-3">
-            <p className="text-white/30 text-xs">
-              © 2025 Living with Arthritis. All rights reserved. Registered Charity No. 1234567
-            </p>
+            <p className="text-white/30 text-xs">© 2025 Living with Arthritis. All rights reserved. </p>
             <div className="flex items-center gap-5 text-xs">
               <a href="#" className="text-white/30 hover:text-white/60 transition-colors">Privacy</a>
               <a href="#" className="text-white/30 hover:text-white/60 transition-colors">Terms</a>
@@ -189,8 +211,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
