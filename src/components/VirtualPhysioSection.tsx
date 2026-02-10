@@ -145,4 +145,5 @@ const VirtualPhysioSection = memo(() => {
 });
 
 VirtualPhysioSection.displayName = "VirtualPhysioSection";
+
 export default VirtualPhysioSection;
