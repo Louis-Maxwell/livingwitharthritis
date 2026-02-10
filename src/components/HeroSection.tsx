@@ -14,111 +14,103 @@ const HeroSection = () => {
 
   return (
     <section className="relative overflow-hidden bg-background">
-      {/* Decorative gradient orbs for indulgence */}
-      <div className="gradient-orb w-[500px] h-[500px] bg-primary top-[-100px] right-[-100px]" />
-      <div className="gradient-orb w-[400px] h-[400px] bg-secondary bottom-[-80px] left-[-80px]" />
+      <div className="gradient-orb w-[600px] h-[600px] bg-primary top-[-200px] right-[-200px]" />
+      <div className="gradient-orb w-[500px] h-[500px] bg-secondary bottom-[-150px] left-[-150px]" />
 
-      <div className="container mx-auto px-4 md:px-8 relative">
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center min-h-[calc(100vh-120px)] py-10 lg:py-0">
+      <div className="container mx-auto px-5 md:px-8 relative">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-[calc(100vh-140px)] py-12 lg:py-0">
           {/* Content */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="order-2 lg:order-1"
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="order-2 lg:order-1 max-w-xl"
           >
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1, duration: 0.4 }}
-              className="inline-flex items-center gap-2 bg-primary/10 text-primary rounded-full px-4 py-2 mb-5"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15, duration: 0.5 }}
+              className="inline-flex items-center gap-2 bg-primary/8 text-primary rounded-full px-4 py-2 mb-6"
             >
-              <Heart className="w-4 h-4 animate-pulse" />
-              <span className="text-sm font-semibold">Supporting 10 million people across the UK</span>
+              <Heart className="w-3.5 h-3.5" />
+              <span className="text-xs font-semibold tracking-wide">Supporting 10 million people across the UK</span>
             </motion.div>
 
-            <h1 className="text-[2.5rem] leading-[1.08] sm:text-5xl md:text-6xl lg:text-[4.25rem] font-display font-bold text-foreground tracking-tight mb-5 text-balance">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-display font-bold text-foreground tracking-tight mb-6 leading-[1.06]">
               Living well with{" "}
-              <span className="text-primary relative">
-                arthritis
-                <svg className="absolute -bottom-1 left-0 w-full h-2 text-primary/30" viewBox="0 0 200 8" preserveAspectRatio="none">
-                  <path d="M0 7 Q50 0 100 5 Q150 10 200 3" stroke="currentColor" strokeWidth="3" fill="none" />
-                </svg>
-              </span>{" "}
+              <span className="text-primary">arthritis</span>{" "}
               starts here
             </h1>
 
-            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-7 max-w-xl">
+            <p className="text-base sm:text-lg text-muted-foreground leading-[1.7] mb-8 max-w-md">
               Expert guidance, compassionate care, and a community that
               understands. We're with you every step of your journey.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 mb-6">
+            <div className="flex flex-col sm:flex-row gap-3 mb-8">
               <Button
                 size="lg"
                 onClick={scrollToAbout}
-                className="btn-primary-cta px-7 py-5 sm:py-6 rounded-full text-sm sm:text-base"
+                className="btn-primary-cta px-7 h-12 sm:h-13 rounded-full text-sm"
               >
-                <BookOpen className="w-5 h-5 mr-2" />
+                <BookOpen className="w-4 h-4 mr-2" />
                 Explore Resources
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 onClick={() => navigate("/chat")}
-                className="border-2 border-foreground/15 text-foreground hover:bg-foreground/5 px-7 py-5 sm:py-6 rounded-full text-sm sm:text-base font-semibold"
+                className="border border-border text-foreground hover:bg-accent px-7 h-12 sm:h-13 rounded-full text-sm font-medium"
               >
-                <MessageCircle className="w-5 h-5 mr-2" />
+                <MessageCircle className="w-4 h-4 mr-2" />
                 AI Assistant
               </Button>
             </div>
 
-            <a href="tel:07760512084" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-              <Phone className="w-4 h-4" />
-              <span>Free Helpline: <strong className="text-foreground">07760 512 084</strong></span>
+            <a href="tel:07760512084" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group">
+              <Phone className="w-3.5 h-3.5 group-hover:text-primary transition-colors" />
+              <span>Free Helpline: <strong className="text-foreground font-semibold">07760 512 084</strong></span>
             </a>
           </motion.div>
 
           {/* Image */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="order-1 lg:order-2 relative"
           >
-            <div className="relative rounded-3xl overflow-hidden shadow-large group">
-              {/* Warm gradient border effect */}
-              <div className="absolute -inset-[1px] bg-gradient-to-br from-primary/30 via-transparent to-secondary/30 rounded-3xl z-0" />
-              <div className="relative rounded-3xl overflow-hidden">
-                <img
-                  src={heroImage}
-                  alt="Diverse community of people being active together in a park"
-                  className="w-full h-[260px] sm:h-[350px] lg:h-[480px] object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="eager"
-                  fetchPriority="high"
-                />
-              </div>
+            <div className="relative rounded-[1.75rem] overflow-hidden shadow-large">
+              <img
+                src={heroImage}
+                alt="Diverse community of people being active together in a park"
+                className="w-full h-[280px] sm:h-[380px] lg:h-[520px] object-cover"
+                loading="eager"
+                fetchPriority="high"
+              />
+              {/* Subtle gradient overlay for contrast */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
 
               {/* Floating stats card */}
               <motion.div
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.4 }}
-                className="absolute bottom-3 left-3 right-3 sm:left-4 sm:right-auto sm:bottom-4"
+                transition={{ delay: 0.6, duration: 0.5 }}
+                className="absolute bottom-4 left-4 right-4 sm:left-5 sm:right-auto sm:bottom-5"
               >
-                <div className="bg-white/95 backdrop-blur-md rounded-2xl p-3 sm:p-4 shadow-medium border border-white/50">
-                  <div className="flex items-center gap-3 sm:gap-5">
+                <div className="bg-white/95 backdrop-blur-xl rounded-2xl p-4 shadow-large border border-white/60">
+                  <div className="flex items-center gap-5">
                     {[
                       { val: "100+", label: "Conditions", color: "text-primary" },
                       { val: "24/7", label: "Support", color: "text-secondary" },
                       { val: "£2.5M", label: "Funded", color: "text-gold" },
                     ].map((s, i) => (
-                      <div key={s.label} className="flex items-center gap-3 sm:gap-5">
-                        {i > 0 && <div className="w-px h-8 bg-border" />}
+                      <div key={s.label} className="flex items-center gap-5">
+                        {i > 0 && <div className="w-px h-9 bg-border" />}
                         <div className="text-center">
                           <div className={`text-xl sm:text-2xl font-display font-bold ${s.color}`}>{s.val}</div>
-                          <div className="text-[10px] sm:text-xs text-muted-foreground">{s.label}</div>
+                          <div className="text-[10px] text-muted-foreground font-medium tracking-wide uppercase">{s.label}</div>
                         </div>
                       </div>
                     ))}
