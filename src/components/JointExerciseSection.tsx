@@ -1,6 +1,6 @@
 import { memo, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Dumbbell, Clock, RotateCcw, Activity, MousePointerClick } from "lucide-react";
+import { X, Dumbbell, Clock, RotateCcw, Activity } from "lucide-react";
 import mannequinImg from "@/assets/body-mannequin.png";
 
 interface Exercise {
@@ -106,80 +106,81 @@ const jointDatabase: Record<string, JointData> = {
   },
 };
 
-// Hotspot positions as % of image dimensions, mapped to the mannequin
-interface Hotspot {
+// Joint marker positions — small dots placed on the body joints
+interface JointMarker {
   id: string;
   label: string;
   top: string;
   left: string;
-  width: string;
-  height: string;
 }
 
-const hotspots: Hotspot[] = [
-  { id: "neck", label: "Neck", top: "13%", left: "40%", width: "20%", height: "4%" },
-  { id: "shoulder", label: "L Shoulder", top: "18%", left: "22%", width: "16%", height: "6%" },
-  { id: "shoulder", label: "R Shoulder", top: "18%", left: "62%", width: "16%", height: "6%" },
-  { id: "elbow", label: "L Elbow", top: "34%", left: "14%", width: "12%", height: "5%" },
-  { id: "elbow", label: "R Elbow", top: "34%", left: "74%", width: "12%", height: "5%" },
-  { id: "wrist", label: "L Hand", top: "46%", left: "8%", width: "14%", height: "5%" },
-  { id: "wrist", label: "R Hand", top: "46%", left: "78%", width: "14%", height: "5%" },
-  { id: "spine", label: "Spine", top: "26%", left: "36%", width: "28%", height: "10%" },
-  { id: "hip", label: "L Hip", top: "44%", left: "30%", width: "14%", height: "6%" },
-  { id: "hip", label: "R Hip", top: "44%", left: "56%", width: "14%", height: "6%" },
-  { id: "knee", label: "L Knee", top: "64%", left: "28%", width: "14%", height: "5%" },
-  { id: "knee", label: "R Knee", top: "64%", left: "58%", width: "14%", height: "5%" },
-  { id: "ankle", label: "L Foot", top: "88%", left: "28%", width: "14%", height: "6%" },
-  { id: "ankle", label: "R Foot", top: "88%", left: "58%", width: "14%", height: "6%" },
+const jointMarkers: JointMarker[] = [
+  { id: "neck", label: "Neck", top: "14%", left: "50%" },
+  { id: "shoulder", label: "Shoulders", top: "20%", left: "28%" },
+  { id: "elbow", label: "Elbows", top: "36%", left: "20%" },
+  { id: "wrist", label: "Hands", top: "48%", left: "16%" },
+  { id: "spine", label: "Spine", top: "30%", left: "50%" },
+  { id: "hip", label: "Hips", top: "46%", left: "38%" },
+  { id: "knee", label: "Knees", top: "65%", left: "38%" },
+  { id: "ankle", label: "Feet", top: "92%", left: "38%" },
 ];
 
-const HotspotOverlay = memo(({ spot, isActive, onClick }: {
-  spot: Hotspot;
+const JointDot = memo(({ marker, isActive, onClick }: {
+  marker: JointMarker;
   isActive: boolean;
   onClick: () => void;
 }) => (
   <button
     onClick={onClick}
-    aria-label={`Exercise plan for ${spot.label}`}
-    className="absolute rounded-full transition-all duration-300 group"
+    aria-label={`Exercise plan for ${marker.label}`}
+    className="absolute flex items-center gap-1.5 group cursor-pointer z-10"
     style={{
-      top: spot.top,
-      left: spot.left,
-      width: spot.width,
-      height: spot.height,
-      background: isActive
-        ? "hsla(190, 100%, 60%, 0.6)"
-        : "hsla(190, 100%, 70%, 0.4)",
-      boxShadow: isActive
-        ? "0 0 20px 6px hsla(190, 100%, 60%, 0.5), inset 0 0 8px hsla(190, 100%, 80%, 0.3)"
-        : "0 0 10px 3px hsla(190, 100%, 60%, 0.25)",
-      border: isActive
-        ? "2px solid hsla(190, 100%, 70%, 0.9)"
-        : "2px solid hsla(190, 100%, 70%, 0.5)",
-    }}
-    onMouseEnter={(e) => {
-      if (!isActive) {
-        e.currentTarget.style.background = "hsla(190, 100%, 65%, 0.55)";
-        e.currentTarget.style.boxShadow = "0 0 16px 5px hsla(190, 100%, 60%, 0.4)";
-        e.currentTarget.style.border = "2px solid hsla(190, 100%, 70%, 0.8)";
-      }
-    }}
-    onMouseLeave={(e) => {
-      if (!isActive) {
-        e.currentTarget.style.background = "hsla(190, 100%, 70%, 0.4)";
-        e.currentTarget.style.boxShadow = "0 0 10px 3px hsla(190, 100%, 60%, 0.25)";
-        e.currentTarget.style.border = "2px solid hsla(190, 100%, 70%, 0.5)";
-      }
+      top: marker.top,
+      left: marker.left,
+      transform: "translate(-50%, -50%)",
     }}
   >
-    {/* Pulse ring for active */}
-    {isActive && (
-      <span className="absolute inset-0 rounded-full animate-ping" style={{ background: "hsla(172, 50%, 50%, 0.2)" }} />
-    )}
+    {/* Dot */}
+    <span
+      className="relative flex items-center justify-center"
+    >
+      {/* Pulse ring */}
+      {isActive && (
+        <span
+          className="absolute w-8 h-8 rounded-full animate-ping"
+          style={{ background: "hsla(200, 90%, 50%, 0.25)" }}
+        />
+      )}
+      {/* Outer ring */}
+      <span
+        className="w-5 h-5 rounded-full flex items-center justify-center transition-all duration-300"
+        style={{
+          background: isActive
+            ? "hsl(200, 90%, 50%)"
+            : "hsl(200, 80%, 55%)",
+          boxShadow: isActive
+            ? "0 0 12px 4px hsla(200, 90%, 50%, 0.5)"
+            : "0 0 6px 2px hsla(200, 80%, 55%, 0.3)",
+          border: "2px solid white",
+        }}
+      >
+        <span className="w-1.5 h-1.5 rounded-full bg-white" />
+      </span>
+    </span>
+    {/* Label */}
+    <span
+      className={`text-[11px] font-semibold whitespace-nowrap px-2 py-0.5 rounded-full transition-all duration-200 ${
+        isActive
+          ? "bg-[hsl(200,90%,50%)] text-white shadow-md"
+          : "bg-white/90 text-foreground shadow-sm group-hover:bg-[hsl(200,90%,50%)] group-hover:text-white"
+      }`}
+    >
+      {marker.label}
+    </span>
   </button>
 ));
 
-HotspotOverlay.displayName = "HotspotOverlay";
+JointDot.displayName = "JointDot";
 
 const ExercisePanel = memo(({ joint, onClose }: { joint: JointData; onClose: () => void }) => (
   <motion.div
@@ -189,7 +190,7 @@ const ExercisePanel = memo(({ joint, onClose }: { joint: JointData; onClose: () 
     transition={{ type: "spring", stiffness: 300, damping: 30 }}
     className="bg-card rounded-2xl border border-border/50 shadow-medium overflow-hidden"
   >
-    <div className="p-5 relative" style={{ background: "linear-gradient(135deg, hsl(172,50%,40%), hsl(172,50%,50%))" }}>
+    <div className="p-5 relative" style={{ background: "linear-gradient(135deg, hsl(200,80%,40%), hsl(200,80%,50%))" }}>
       <button
         onClick={onClose}
         className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors text-white"
@@ -257,7 +258,7 @@ const JointExerciseSection = memo(() => {
   const activeData = activeJoint ? jointDatabase[activeJoint] : null;
 
   return (
-    <section id="joint-exercises" className="py-20 lg:py-28 bg-background relative overflow-hidden">
+    <section id="joint-exercises" className="py-20 lg:py-28 bg-muted relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-8 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -270,12 +271,12 @@ const JointExerciseSection = memo(() => {
             Choose an area
           </h2>
           <p className="text-base text-muted-foreground max-w-lg mx-auto leading-relaxed">
-            Tap a highlighted region on the body to get a home exercise plan
+            Click a joint on the body to get a home exercise plan
           </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-start">
-          {/* 3D Mannequin with overlay hotspots */}
+          {/* Body silhouette with joint markers */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -286,30 +287,19 @@ const JointExerciseSection = memo(() => {
             <div className="relative w-full max-w-[340px]">
               <img
                 src={mannequinImg}
-                alt="3D body mannequin — click joints to see exercises"
-                className="w-full h-auto select-none pointer-events-none"
+                alt="Male body diagram — click joints to see exercises"
+                className="w-full h-auto select-none pointer-events-none rounded-2xl"
                 draggable={false}
               />
-              {/* Clickable hotspot overlays */}
-              {hotspots.map((spot, i) => (
-                <HotspotOverlay
-                  key={`${spot.id}-${i}`}
-                  spot={spot}
-                  isActive={activeJoint === spot.id}
-                  onClick={() => handleJointClick(spot.id)}
+              {/* Clickable joint dots */}
+              {jointMarkers.map((marker) => (
+                <JointDot
+                  key={marker.id}
+                  marker={marker}
+                  isActive={activeJoint === marker.id}
+                  onClick={() => handleJointClick(marker.id)}
                 />
               ))}
-              {/* Prompt */}
-              {!activeJoint && (
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="text-center text-sm text-muted-foreground mt-4 flex items-center justify-center gap-2"
-                >
-                  <MousePointerClick className="w-4 h-4 text-secondary" />
-                  Click a highlighted area
-                </motion.p>
-              )}
             </div>
           </motion.div>
 
@@ -330,7 +320,7 @@ const JointExerciseSection = memo(() => {
                   exit={{ opacity: 0 }}
                   className="h-full flex items-center justify-center"
                 >
-                  <div className="text-center p-8 sm:p-12 rounded-2xl border-2 border-dashed border-border/50 bg-accent/20 max-w-md mx-auto">
+                  <div className="text-center p-8 sm:p-12 rounded-2xl border-2 border-dashed border-border/50 bg-background/50 max-w-md mx-auto">
                     <div className="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center mx-auto mb-5">
                       <Dumbbell className="w-8 h-8 text-secondary" />
                     </div>
@@ -338,7 +328,7 @@ const JointExerciseSection = memo(() => {
                       Select a Joint
                     </h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">
-                      Click on any teal-highlighted region on the body to view a personalised home exercise plan.
+                      Click on any joint marker on the body to view a personalised home exercise plan.
                     </p>
                   </div>
                 </motion.div>
