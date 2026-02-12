@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, MessageCircle, Phone, Heart, BookOpen } from "lucide-react";
+import { MessageCircle, Phone, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/hero-community.jpg";
@@ -7,10 +7,6 @@ import heroImage from "@/assets/hero-community.jpg";
 const HeroSection = () => {
   const navigate = useNavigate();
 
-  const scrollToAbout = () => {
-    const aboutSection = document.getElementById("resources");
-    aboutSection?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <section className="relative overflow-hidden bg-background">
@@ -48,15 +44,6 @@ const HeroSection = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 mb-8">
-              <Button
-                size="lg"
-                onClick={scrollToAbout}
-                className="btn-primary-cta px-7 h-12 sm:h-13 rounded-full text-sm"
-              >
-                <BookOpen className="w-4 h-4 mr-2" />
-                Explore Resources
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
               <Button
                 size="lg"
                 variant="outline"
