@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Phone, Heart } from "lucide-react";
+import { Menu, X, Heart } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import DonationBanner from "@/components/DonationBanner";
 import AboutUsModal from "@/components/AboutUsModal";
@@ -83,10 +83,6 @@ const Header = () => {
 
             {/* Right actions */}
             <div className="flex items-center gap-3">
-              <a href="tel:07760512084" className="hidden md:flex items-center gap-1.5 text-[13px] text-muted-foreground hover:text-foreground transition-colors">
-                <Phone className="w-3.5 h-3.5" />
-                <span className="font-medium">07760 512 084</span>
-              </a>
 
               <Button
                 size="sm"
@@ -172,12 +168,6 @@ const Header = () => {
                   <Heart className="w-4 h-4 mr-2" />
                   Donate Now
                 </Button>
-                <div className="text-center">
-                  <a href="tel:07760512084" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
-                    <Phone className="w-3 h-3 inline mr-1" />
-                    Free Helpline: 07760 512 084
-                  </a>
-                </div>
               </div>
             </motion.div>
           </>
