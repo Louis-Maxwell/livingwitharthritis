@@ -117,20 +117,20 @@ interface Hotspot {
 }
 
 const hotspots: Hotspot[] = [
-  { id: "neck", label: "Neck", top: "12%", left: "40%", width: "20%", height: "4%" },
-  { id: "shoulder", label: "L Shoulder", top: "18%", left: "20%", width: "16%", height: "6%" },
-  { id: "shoulder", label: "R Shoulder", top: "18%", left: "64%", width: "16%", height: "6%" },
-  { id: "elbow", label: "L Elbow", top: "34%", left: "16%", width: "12%", height: "5%" },
-  { id: "elbow", label: "R Elbow", top: "34%", left: "72%", width: "12%", height: "5%" },
-  { id: "wrist", label: "L Hand", top: "46%", left: "12%", width: "12%", height: "5%" },
-  { id: "wrist", label: "R Hand", top: "46%", left: "76%", width: "12%", height: "5%" },
-  { id: "spine", label: "Spine", top: "26%", left: "38%", width: "24%", height: "10%" },
+  { id: "neck", label: "Neck", top: "13%", left: "40%", width: "20%", height: "4%" },
+  { id: "shoulder", label: "L Shoulder", top: "18%", left: "22%", width: "16%", height: "6%" },
+  { id: "shoulder", label: "R Shoulder", top: "18%", left: "62%", width: "16%", height: "6%" },
+  { id: "elbow", label: "L Elbow", top: "34%", left: "14%", width: "12%", height: "5%" },
+  { id: "elbow", label: "R Elbow", top: "34%", left: "74%", width: "12%", height: "5%" },
+  { id: "wrist", label: "L Hand", top: "46%", left: "8%", width: "14%", height: "5%" },
+  { id: "wrist", label: "R Hand", top: "46%", left: "78%", width: "14%", height: "5%" },
+  { id: "spine", label: "Spine", top: "26%", left: "36%", width: "28%", height: "10%" },
   { id: "hip", label: "L Hip", top: "44%", left: "30%", width: "14%", height: "6%" },
   { id: "hip", label: "R Hip", top: "44%", left: "56%", width: "14%", height: "6%" },
-  { id: "knee", label: "L Knee", top: "64%", left: "30%", width: "14%", height: "5%" },
-  { id: "knee", label: "R Knee", top: "64%", left: "56%", width: "14%", height: "5%" },
-  { id: "ankle", label: "L Foot", top: "90%", left: "28%", width: "16%", height: "5%" },
-  { id: "ankle", label: "R Foot", top: "90%", left: "56%", width: "16%", height: "5%" },
+  { id: "knee", label: "L Knee", top: "64%", left: "28%", width: "14%", height: "5%" },
+  { id: "knee", label: "R Knee", top: "64%", left: "58%", width: "14%", height: "5%" },
+  { id: "ankle", label: "L Foot", top: "88%", left: "28%", width: "14%", height: "6%" },
+  { id: "ankle", label: "R Foot", top: "88%", left: "58%", width: "14%", height: "6%" },
 ];
 
 const HotspotOverlay = memo(({ spot, isActive, onClick }: {
