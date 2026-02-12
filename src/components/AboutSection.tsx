@@ -1,17 +1,13 @@
-import { memo, lazy, Suspense, useState } from "react";
+import { memo } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Activity, Users, Briefcase, Database, Quote, LucideIcon, ChevronDown } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Activity, Users, Briefcase, Database, Quote, LucideIcon } from "lucide-react";
+import { motion } from "framer-motion";
 import { useStatistics } from "@/hooks/useCmsContent";
 import { Skeleton } from "@/components/ui/skeleton";
-
-const ResourcesSection = lazy(() => import("@/components/ResourcesSection"));
 
 const iconMap: Record<string, LucideIcon> = { Users, Activity, Briefcase, Database };
 
 const AboutSection = memo(() => {
-  const [showResources, setShowResources] = useState(false);
   const { data: statistics, isLoading: statsLoading } = useStatistics();
 
   return (
@@ -49,24 +45,8 @@ const AboutSection = memo(() => {
               We represent 10 million people living with arthritis — professionals,
               researchers, carers, and supporters united by a common goal.
             </p>
-            <Button
-              size="lg"
-              onClick={() => setShowResources(!showResources)}
-              className="mt-4 btn-primary-cta px-7 h-12 rounded-full text-sm"
-            >
-              Explore Resources
-              <ChevronDown className={`ml-2 w-4 h-4 transition-transform duration-300 ${showResources ? 'rotate-180' : ''}`} />
-            </Button>
           </motion.div>
         </div>
-
-        <AnimatePresence>
-          {showResources && (
-            <Suspense fallback={null}>
-              <ResourcesSection />
-            </Suspense>
-          )}
-        </AnimatePresence>
 
         {/* Statistics */}
         <div className="mb-20">
