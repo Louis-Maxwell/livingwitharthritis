@@ -177,32 +177,6 @@ export interface NutritionSection {
   display_order: number;
 }
 
-export interface HealthyLivingResource {
-  id: string;
-  title: string;
-  description: string;
-  category: string;
-  external_url: string | null;
-  image_url: string | null;
-  display_order: number;
-}
-
-export function useHealthyLivingResources() {
-  return useQuery({
-    queryKey: ["healthy_living_resources"],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from("healthy_living_resources")
-        .select("*")
-        .eq("is_active", true)
-        .order("display_order", { ascending: true });
-      
-      if (error) throw error;
-      return data as HealthyLivingResource[];
-    },
-  });
-}
-
 export function useNutritionSections() {
   return useQuery({
     queryKey: ["nutrition_sections"],
