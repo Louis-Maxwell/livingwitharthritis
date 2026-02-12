@@ -148,25 +148,27 @@ const HotspotOverlay = memo(({ spot, isActive, onClick }: {
       width: spot.width,
       height: spot.height,
       background: isActive
-        ? "hsla(172, 50%, 50%, 0.55)"
-        : "hsla(172, 50%, 60%, 0.35)",
+        ? "hsla(190, 100%, 60%, 0.6)"
+        : "hsla(190, 100%, 70%, 0.4)",
       boxShadow: isActive
-        ? "0 0 16px 4px hsla(172, 50%, 50%, 0.4)"
-        : "none",
+        ? "0 0 20px 6px hsla(190, 100%, 60%, 0.5), inset 0 0 8px hsla(190, 100%, 80%, 0.3)"
+        : "0 0 10px 3px hsla(190, 100%, 60%, 0.25)",
       border: isActive
-        ? "2px solid hsla(172, 50%, 50%, 0.7)"
-        : "2px solid transparent",
+        ? "2px solid hsla(190, 100%, 70%, 0.9)"
+        : "2px solid hsla(190, 100%, 70%, 0.5)",
     }}
     onMouseEnter={(e) => {
       if (!isActive) {
-        e.currentTarget.style.background = "hsla(172, 50%, 55%, 0.5)";
-        e.currentTarget.style.boxShadow = "0 0 12px 2px hsla(172, 50%, 50%, 0.3)";
+        e.currentTarget.style.background = "hsla(190, 100%, 65%, 0.55)";
+        e.currentTarget.style.boxShadow = "0 0 16px 5px hsla(190, 100%, 60%, 0.4)";
+        e.currentTarget.style.border = "2px solid hsla(190, 100%, 70%, 0.8)";
       }
     }}
     onMouseLeave={(e) => {
       if (!isActive) {
-        e.currentTarget.style.background = "hsla(172, 50%, 60%, 0.35)";
-        e.currentTarget.style.boxShadow = "none";
+        e.currentTarget.style.background = "hsla(190, 100%, 70%, 0.4)";
+        e.currentTarget.style.boxShadow = "0 0 10px 3px hsla(190, 100%, 60%, 0.25)";
+        e.currentTarget.style.border = "2px solid hsla(190, 100%, 70%, 0.5)";
       }
     }}
   >
