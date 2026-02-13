@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MessageCircle, Phone, Heart } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/hero-community.jpg";
@@ -22,15 +22,7 @@ const HeroSection = () => {
             transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="order-2 lg:order-1 max-w-xl"
           >
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15, duration: 0.5 }}
-              className="inline-flex items-center gap-2 bg-primary/8 text-primary rounded-full px-4 py-2 mb-6"
-            >
-              <Heart className="w-3.5 h-3.5" />
-              <span className="text-xs font-semibold tracking-wide">Supporting 10 million people across the UK</span>
-            </motion.div>
+
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-display font-bold text-foreground tracking-tight mb-6 leading-[1.06]">
               Living well with{" "}
@@ -55,10 +47,6 @@ const HeroSection = () => {
               </Button>
             </div>
 
-            <a href="tel:07760512084" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group">
-              <Phone className="w-3.5 h-3.5 group-hover:text-primary transition-colors" />
-              <span>Free Helpline: <strong className="text-foreground font-semibold">07760 512 084</strong></span>
-            </a>
           </motion.div>
 
           {/* Image */}
@@ -79,31 +67,6 @@ const HeroSection = () => {
               {/* Subtle gradient overlay for contrast */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
 
-              {/* Floating stats card */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.5 }}
-                className="absolute bottom-4 left-4 right-4 sm:left-5 sm:right-auto sm:bottom-5"
-              >
-                <div className="bg-white/95 backdrop-blur-xl rounded-2xl p-4 shadow-large border border-white/60">
-                  <div className="flex items-center gap-5">
-                    {[
-                      { val: "100+", label: "Conditions", color: "text-primary" },
-                      { val: "24/7", label: "Support", color: "text-secondary" },
-                      { val: "£2.5M", label: "Funded", color: "text-gold" },
-                    ].map((s, i) => (
-                      <div key={s.label} className="flex items-center gap-5">
-                        {i > 0 && <div className="w-px h-9 bg-border" />}
-                        <div className="text-center">
-                          <div className={`text-xl sm:text-2xl font-display font-bold ${s.color}`}>{s.val}</div>
-                          <div className="text-[10px] text-muted-foreground font-medium tracking-wide uppercase">{s.label}</div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
             </div>
           </motion.div>
         </div>
