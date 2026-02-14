@@ -14,7 +14,8 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowLeft, DollarSign, Users, TrendingUp, PiggyBank, CalendarDays } from "lucide-react";
+import { ArrowLeft, DollarSign, Users, TrendingUp, PiggyBank, CalendarDays, ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
 import { format } from "date-fns";
 
 const BookingDiary = lazy(() => import("@/components/BookingDiary"));
@@ -88,6 +89,14 @@ const AdminDashboard = () => {
 
           {/* Booking Diary Tab */}
           <TabsContent value="bookings">
+            <div className="mb-4">
+              <Link to="/admin/appointments">
+                <Button variant="outline" className="gap-2">
+                  <ExternalLink className="w-4 h-4" />
+                  Open Full Appointments Manager
+                </Button>
+              </Link>
+            </div>
             <Suspense fallback={<div className="animate-pulse h-[400px] bg-muted rounded-2xl" />}>
               <BookingDiary />
             </Suspense>
