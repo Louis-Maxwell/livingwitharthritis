@@ -61,6 +61,8 @@ const HeroSection = () => {
                 src={heroImage}
                 alt="Diverse community of people being active together in a park"
                 className="w-full h-[280px] sm:h-[380px] lg:h-[520px] object-cover"
+                width={918}
+                height={520}
                 loading="eager"
                 fetchPriority="high"
               />

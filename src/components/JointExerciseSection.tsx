@@ -289,6 +289,8 @@ const JointExerciseSection = memo(() => {
                 src={mannequinImg}
                 alt="Male body diagram — click joints to see exercises"
                 className="w-full h-auto select-none pointer-events-none rounded-2xl"
+                width={340}
+                height={680}
                 draggable={false}
               />
               {/* Clickable joint dots */}
