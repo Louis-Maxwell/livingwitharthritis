@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import { MessageCircle, X, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChatBot } from "./ChatBot";
+
+// Lazy-load ChatBot only when user opens the chat panel (~46KB savings)
+const ChatBot = lazy(() => import("./ChatBot").then(m => ({ default: m.ChatBot })));
 
 export function FloatingChatButton() {
   const [open, setOpen] = useState(false);
@@ -34,7 +36,13 @@ export function FloatingChatButton() {
               >
                 <X className="h-3.5 w-3.5 text-muted-foreground" />
               </button>
-              <ChatBot />
+              <Suspense fallback={
+                <div className="flex items-center justify-center h-full">
+                  <div className="animate-spin rounded-full h-8 w-8 border-4 border-primary border-t-transparent" />
+                </div>
+              }>
+                <ChatBot />
+              </Suspense>
             </motion.div>
           </>
         )}
