@@ -174,7 +174,7 @@ const Footer = () => {
       <div className="border-t border-white/6">
         <div className="container mx-auto px-5 md:px-8 py-5">
           <div className="flex flex-col md:flex-row justify-between items-center gap-3">
-            <p className="text-white/25 text-xs">© 2025 Living with Arthritis. All rights reserved.</p>
+            <p className="text-white/25 text-xs">Living with Arthritis</p>
             <div className="flex items-center gap-5 text-xs">
               <a href="#" className="text-white/25 hover:text-white/50 transition-colors">Privacy</a>
               <a href="#" className="text-white/25 hover:text-white/50 transition-colors">Terms</a>
