@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import heroImage from "@/assets/hero-community.jpg";
+const heroImage = "/images/hero-community.jpg";
 
 const HeroSection = () => {
   const navigate = useNavigate();
