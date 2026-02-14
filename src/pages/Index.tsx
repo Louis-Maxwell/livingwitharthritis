@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
 import { FloatingChatButton } from "@/components/FloatingChatButton";
+import { useDeferredVisible } from "@/hooks/useDeferredVisible";
 
 // Lazy load below-fold sections for faster initial load
 const ImpactBanner = lazy(() => import("@/components/ImpactBanner"));
@@ -18,14 +19,21 @@ const NutritionArticleSection = lazy(() => import("@/components/NutritionArticle
 const JointExerciseSection = lazy(() => import("@/components/JointExerciseSection"));
 
 // Minimal skeleton for lazy sections
-const SectionLoader = memo(() => <div className="py-16 flex items-center justify-center">
+const SectionLoader = memo(() => (
+  <div className="py-16 flex items-center justify-center">
     <div className="animate-pulse h-4 w-32 bg-muted rounded" />
-  </div>);
+  </div>
+));
 SectionLoader.displayName = "SectionLoader";
+
 const Index = () => {
-  return <div className="min-h-screen bg-background">
+  // Defer far-below-fold sections until near viewport (200px margin)
+  const [deferRef, showDeferred] = useDeferredVisible<HTMLDivElement>("400px");
+
+  return (
+    <div className="min-h-screen bg-background">
       <Header />
-      <main className="">
+      <main>
         <HeroSection />
         <Suspense fallback={<SectionLoader />}>
           
@@ -39,30 +47,43 @@ const Index = () => {
         <Suspense fallback={<SectionLoader />}>
           <VirtualPhysioSection />
         </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <ConditionsSection />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <TestimonialsSection />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <FundraisingSection />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <DonationTiersSection />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <JointExerciseSection />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <NutritionArticleSection />
-        </Suspense>
+
+        {/* Deferred sections — only load JS when user scrolls near them */}
+        <div ref={deferRef}>
+          {showDeferred ? (
+            <>
+              <Suspense fallback={<SectionLoader />}>
+                <ConditionsSection />
+              </Suspense>
+              <Suspense fallback={<SectionLoader />}>
+                <TestimonialsSection />
+              </Suspense>
+              <Suspense fallback={<SectionLoader />}>
+                <FundraisingSection />
+              </Suspense>
+              <Suspense fallback={<SectionLoader />}>
+                <DonationTiersSection />
+              </Suspense>
+              <Suspense fallback={<SectionLoader />}>
+                <JointExerciseSection />
+              </Suspense>
+              <Suspense fallback={<SectionLoader />}>
+                <NutritionArticleSection />
+              </Suspense>
+            </>
+          ) : (
+            // Placeholder height so footer doesn't jump
+            <div className="py-16" />
+          )}
+        </div>
       </main>
       <Footer />
       <Suspense fallback={null}>
-        <DonationNotification />
+        {showDeferred && <DonationNotification />}
       </Suspense>
       <FloatingChatButton />
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
