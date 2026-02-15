@@ -1,42 +1,7 @@
-import { useState } from "react";
 import { Facebook, Twitter, Instagram, Youtube, Linkedin, Mail, Phone, ArrowUp, Heart } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
 
 const Footer = () => {
-  const [email, setEmail] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
-
-  const handleNewsletter = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-    setIsSubmitting(true);
-    try {
-      const { error } = await supabase.from("newsletter_subscriptions" as any).insert({
-        email,
-        source: "footer"
-      } as any);
-      if (error) {
-        if (error.code === "23505") {
-          toast({ title: "Already subscribed!", description: "This email is already on our mailing list." });
-        } else {
-          throw error;
-        }
-      } else {
-        toast({ title: "Thank you!", description: "You've been subscribed to our newsletter." });
-      }
-      setEmail("");
-    } catch {
-      toast({ title: "Error", description: "Failed to subscribe. Please try again.", variant: "destructive" });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const footerLinks = {
     getHelp: [
@@ -67,38 +32,6 @@ const Footer = () => {
 
   return (
     <footer className="bg-navy text-white">
-      {/* Newsletter */}
-      <div className="border-b border-white/8">
-        <div className="container mx-auto px-5 md:px-8 py-14">
-          <div className="grid lg:grid-cols-2 gap-8 items-center max-w-4xl mx-auto">
-            <div>
-              <span className="section-label text-gold mb-2 block">Newsletter</span>
-              <h3 className="text-2xl font-display font-bold mb-2">Stay informed</h3>
-              <p className="text-white/40 text-sm leading-relaxed">
-                Get the latest research, tips, and community news delivered to your inbox.
-              </p>
-            </div>
-            <form onSubmit={handleNewsletter} className="flex gap-2.5">
-              <Input
-                type="email"
-                placeholder="Your email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="bg-white/8 border-white/10 text-white placeholder:text-white/25 rounded-full px-5 h-11 text-sm"
-                required
-              />
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="btn-primary-cta px-6 h-11 rounded-full text-xs whitespace-nowrap font-semibold"
-              >
-                {isSubmitting ? "..." : "Subscribe"}
-              </Button>
-            </form>
-          </div>
-        </div>
-      </div>
-
       {/* Main links */}
       <div className="container mx-auto px-5 md:px-8 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
