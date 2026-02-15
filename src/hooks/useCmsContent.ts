@@ -199,6 +199,7 @@ export interface NutritionFoodGalleryItem {
   description: string;
   image_url: string;
   display_order: number;
+  recipe_text: string | null;
 }
 
 export function useNutritionFoodGallery() {
