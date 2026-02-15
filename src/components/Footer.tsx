@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { Facebook, Twitter, Instagram, Youtube, Linkedin, Mail, Phone, ArrowUp, Heart } from "lucide-react";
+import AboutUsModal from "@/components/AboutUsModal";
 
 const Footer = () => {
+  const [aboutOpen, setAboutOpen] = useState(false);
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   const footerLinks = {
@@ -14,7 +17,7 @@ const Footer = () => {
       { label: "Virtual Physiotherapy", href: "#services" },
     ],
     aboutUs: [
-      { label: "Our Mission", href: "#" },
+      { label: "Our Mission", href: "#", onClick: () => setAboutOpen(true) },
     ],
   };
 
@@ -66,9 +69,13 @@ const Footer = () => {
             <div key={section.title} className="lg:col-span-2">
               <h4 className="section-label text-white/30 mb-4 text-[10px]">{section.title}</h4>
               <ul className="space-y-2.5">
-                {section.links.map((link) => (
+                {section.links.map((link: any) => (
                   <li key={link.label}>
-                    <a href={link.href} className="text-white/40 hover:text-white/80 transition-colors text-sm">
+                    <a
+                      href={link.onClick ? undefined : link.href}
+                      onClick={link.onClick ? (e: React.MouseEvent) => { e.preventDefault(); link.onClick(); } : undefined}
+                      className="text-white/40 hover:text-white/80 transition-colors text-sm cursor-pointer"
+                    >
                       {link.label}
                     </a>
                   </li>
@@ -119,6 +126,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <AboutUsModal open={aboutOpen} onOpenChange={setAboutOpen} />
     </footer>
   );
 };
