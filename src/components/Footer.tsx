@@ -5,10 +5,8 @@ const Footer = () => {
 
   const footerLinks = {
     getHelp: [
-      { label: "Online Community", href: "#involved" },
       { label: "Virtual Assistant", href: "/chat" },
       { label: "Self Help Tool", href: "#resources" },
-      { label: "Book Appointment", href: "#services" },
     ],
     aboutArthritis: [
       { label: "Symptoms & Treatments", href: "#conditions" },
@@ -17,8 +15,6 @@ const Footer = () => {
     ],
     aboutUs: [
       { label: "Our Mission", href: "#" },
-      { label: "Annual Reports", href: "#" },
-      { label: "Press & Media", href: "#" },
     ],
   };
 
