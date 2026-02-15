@@ -3,6 +3,20 @@ import { Utensils, Fish, Cherry, Milk, Leaf, LucideIcon } from "lucide-react";
 import { useNutritionSections } from "@/hooks/useCmsContent";
 import { Skeleton } from "@/components/ui/skeleton";
 
+import nutritionSalmon from "@/assets/nutrition-salmon-kale.jpg";
+import nutritionMackerel from "@/assets/nutrition-grilled-mackerel.jpg";
+import nutritionMediterranean from "@/assets/nutrition-mediterranean.jpg";
+import nutritionBerries from "@/assets/nutrition-berries.jpg";
+import nutritionNuts from "@/assets/nutrition-nuts-seeds.jpg";
+
+const foodGallery = [
+  { src: nutritionSalmon, title: "Cast-Iron Salmon & Kale", desc: "Omega-3 rich fatty fish paired with antioxidant greens to ease joint inflammation." },
+  { src: nutritionMackerel, title: "Grilled Mackerel", desc: "Small oily fish packed with anti-inflammatory omega-3s — aim for 2-3 servings per week." },
+  { src: nutritionMediterranean, title: "Mediterranean Platter", desc: "Salmon, olive oil, fruits, vegetables & nuts — the gold standard anti-inflammatory pattern." },
+  { src: nutritionBerries, title: "Mixed Berries Bowl", desc: "Blueberries, raspberries & blackberries provide powerful antioxidants to combat oxidative stress." },
+  { src: nutritionNuts, title: "Nuts & Seeds Mix", desc: "Walnuts, almonds, chia & flaxseeds offer healthy fats and plant-based omega-3s." },
+];
+
 const iconMap: Record<string, LucideIcon> = { Fish, Leaf, Cherry, Milk };
 
 const NutritionArticleSection = () => {
@@ -83,6 +97,50 @@ const NutritionArticleSection = () => {
                 );
               })}
         </div>
+
+        {/* Anti-Inflammatory Food Gallery */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-12"
+        >
+          <h3 className="text-xl sm:text-2xl font-display font-bold text-foreground text-center mb-2">
+            Anti-Inflammatory Foods <span className="text-secondary">in Action</span>
+          </h3>
+          <p className="text-sm text-muted-foreground text-center mb-8 max-w-lg mx-auto">
+            Real meals and ingredients that support joint health and reduce inflammation.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+            {foodGallery.map((item, i) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-30px" }}
+                transition={{ duration: 0.35, delay: i * 0.06 }}
+                className="group relative rounded-2xl overflow-hidden border border-border/50 hover:border-secondary/30 transition-all duration-300 hover:shadow-medium"
+              >
+                <div className="aspect-square overflow-hidden">
+                  <img
+                    src={item.src}
+                    alt={item.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
+                  <h4 className="text-white text-xs sm:text-sm font-bold leading-tight">{item.title}</h4>
+                  <p className="text-white/70 text-[10px] sm:text-[11px] leading-snug mt-1 line-clamp-2">{item.desc}</p>
+                </div>
+                <div className="p-3 bg-card">
+                  <h4 className="text-xs font-bold text-foreground leading-tight group-hover:text-secondary transition-colors">{item.title}</h4>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
 
         {/* Bottom callout */}
         <motion.div
