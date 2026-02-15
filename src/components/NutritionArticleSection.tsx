@@ -1,26 +1,13 @@
 import { motion } from "framer-motion";
 import { Utensils, Fish, Cherry, Milk, Leaf, LucideIcon } from "lucide-react";
-import { useNutritionSections } from "@/hooks/useCmsContent";
+import { useNutritionSections, useNutritionFoodGallery } from "@/hooks/useCmsContent";
 import { Skeleton } from "@/components/ui/skeleton";
-
-import nutritionSalmon from "@/assets/nutrition-salmon-kale.jpg";
-import nutritionMackerel from "@/assets/nutrition-grilled-mackerel.jpg";
-import nutritionMediterranean from "@/assets/nutrition-mediterranean.jpg";
-import nutritionBerries from "@/assets/nutrition-berries.jpg";
-import nutritionNuts from "@/assets/nutrition-nuts-seeds.jpg";
-
-const foodGallery = [
-  { src: nutritionSalmon, title: "Cast-Iron Salmon & Kale", desc: "Omega-3 rich fatty fish paired with antioxidant greens to ease joint inflammation." },
-  { src: nutritionMackerel, title: "Grilled Mackerel", desc: "Small oily fish packed with anti-inflammatory omega-3s — aim for 2-3 servings per week." },
-  { src: nutritionMediterranean, title: "Mediterranean Platter", desc: "Salmon, olive oil, fruits, vegetables & nuts — the gold standard anti-inflammatory pattern." },
-  { src: nutritionBerries, title: "Mixed Berries Bowl", desc: "Blueberries, raspberries & blackberries provide powerful antioxidants to combat oxidative stress." },
-  { src: nutritionNuts, title: "Nuts & Seeds Mix", desc: "Walnuts, almonds, chia & flaxseeds offer healthy fats and plant-based omega-3s." },
-];
 
 const iconMap: Record<string, LucideIcon> = { Fish, Leaf, Cherry, Milk };
 
 const NutritionArticleSection = () => {
   const { data: sections, isLoading } = useNutritionSections();
+  const { data: galleryItems, isLoading: galleryLoading } = useNutritionFoodGallery();
 
   return (
     <section id="nutrition" className="py-20 lg:py-28 bg-accent/50 relative overflow-hidden section-divider">
@@ -113,9 +100,16 @@ const NutritionArticleSection = () => {
             Real meals and ingredients that support joint health and reduce inflammation.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
-            {foodGallery.map((item, i) => (
+            {galleryLoading
+              ? Array.from({ length: 5 }).map((_, i) => (
+                  <div key={i} className="rounded-2xl overflow-hidden border border-border/50">
+                    <Skeleton className="aspect-square w-full" />
+                    <div className="p-3"><Skeleton className="h-4 w-24" /></div>
+                  </div>
+                ))
+              : galleryItems?.map((item, i) => (
               <motion.div
-                key={item.title}
+                key={item.id}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-30px" }}
@@ -124,7 +118,7 @@ const NutritionArticleSection = () => {
               >
                 <div className="aspect-square overflow-hidden">
                   <img
-                    src={item.src}
+                    src={item.image_url}
                     alt={item.title}
                     loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -132,7 +126,7 @@ const NutritionArticleSection = () => {
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
                   <h4 className="text-white text-xs sm:text-sm font-bold leading-tight">{item.title}</h4>
-                  <p className="text-white/70 text-[10px] sm:text-[11px] leading-snug mt-1 line-clamp-2">{item.desc}</p>
+                  <p className="text-white/70 text-[10px] sm:text-[11px] leading-snug mt-1 line-clamp-2">{item.description}</p>
                 </div>
                 <div className="p-3 bg-card">
                   <h4 className="text-xs font-bold text-foreground leading-tight group-hover:text-secondary transition-colors">{item.title}</h4>
