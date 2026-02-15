@@ -13,7 +13,7 @@ const VirtualPhysioSection = lazy(() => import("@/components/VirtualPhysioSectio
 const ConditionsSection = lazy(() => import("@/components/ConditionsSection"));
 const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
 const FundraisingSection = lazy(() => import("@/components/FundraisingSection"));
-const DonationTiersSection = lazy(() => import("@/components/DonationTiersSection"));
+
 const DonationNotification = lazy(() => import("@/components/DonationNotification"));
 const NutritionArticleSection = lazy(() => import("@/components/NutritionArticleSection"));
 const JointExerciseSection = lazy(() => import("@/components/JointExerciseSection"));
@@ -60,9 +60,6 @@ const Index = () => {
               </Suspense>
               <Suspense fallback={<SectionLoader />}>
                 <FundraisingSection />
-              </Suspense>
-              <Suspense fallback={<SectionLoader />}>
-                <DonationTiersSection />
               </Suspense>
               <Suspense fallback={<SectionLoader />}>
                 <JointExerciseSection />
