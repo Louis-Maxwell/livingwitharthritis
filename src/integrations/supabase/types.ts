@@ -465,6 +465,7 @@ export type Database = {
           id: string
           image_url: string
           is_active: boolean
+          recipe_text: string | null
           title: string
           updated_at: string
         }
@@ -475,6 +476,7 @@ export type Database = {
           id?: string
           image_url: string
           is_active?: boolean
+          recipe_text?: string | null
           title: string
           updated_at?: string
         }
@@ -485,6 +487,7 @@ export type Database = {
           id?: string
           image_url?: string
           is_active?: boolean
+          recipe_text?: string | null
           title?: string
           updated_at?: string
         }
