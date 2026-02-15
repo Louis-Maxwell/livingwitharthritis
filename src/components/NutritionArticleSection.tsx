@@ -135,38 +135,6 @@ const NutritionArticleSection = () => {
             ))}
           </div>
         </motion.div>
-
-        {/* Bottom callout */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="bg-navy rounded-3xl p-8 sm:p-12 lg:p-16 text-white relative overflow-hidden"
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-secondary/15 to-primary/8" />
-          <div className="relative max-w-2xl mx-auto text-center">
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold mb-4">
-              The Mediterranean & <span className="text-gold italic font-normal">DASH Approach</span>
-            </h3>
-            <p className="text-white/50 mb-8 text-base sm:text-lg leading-relaxed">
-              Anti-inflammatory diets rich in produce and low in processed foods appear protective across all arthritis types.
-            </p>
-            <div className="flex flex-wrap justify-center gap-2">
-              {[
-                { emoji: "🥗", label: "Fruits & Veg" },
-                { emoji: "🐟", label: "Fatty Fish" },
-                { emoji: "🫒", label: "Olive Oil" },
-                { emoji: "🥜", label: "Nuts & Seeds" },
-                { emoji: "🌾", label: "Whole Grains" },
-              ].map((item) => (
-                <span key={item.label} className="px-3 py-1.5 bg-white/8 rounded-full text-white/65 text-xs sm:text-sm font-medium border border-white/8 hover:bg-white/12 transition-colors">
-                  {item.emoji} {item.label}
-                </span>
-              ))}
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
