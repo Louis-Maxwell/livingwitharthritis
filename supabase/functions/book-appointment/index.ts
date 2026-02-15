@@ -154,6 +154,43 @@ serve(async (req) => {
       );
     }
 
+    // Send email notification to admin
+    const resendApiKey = Deno.env.get("RESEND_API_KEY");
+    if (resendApiKey) {
+      try {
+        const emailRes = await fetch("https://api.resend.com/emails", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${resendApiKey}`,
+          },
+          body: JSON.stringify({
+            from: "Appointments <onboarding@resend.dev>",
+            to: ["louis.maxwell@nhs.net"],
+            subject: `New Appointment Booking: ${appointment!.name} - ${appointment!.appointmentType}`,
+            html: `
+              <h2>New Appointment Booking</h2>
+              <table style="border-collapse:collapse;width:100%;max-width:500px;">
+                <tr><td style="padding:8px;font-weight:bold;">Patient:</td><td style="padding:8px;">${appointment!.name}</td></tr>
+                <tr><td style="padding:8px;font-weight:bold;">Email:</td><td style="padding:8px;">${appointment!.email}</td></tr>
+                <tr><td style="padding:8px;font-weight:bold;">Phone:</td><td style="padding:8px;">${appointment!.phone || "Not provided"}</td></tr>
+                <tr><td style="padding:8px;font-weight:bold;">Type:</td><td style="padding:8px;">${appointment!.appointmentType}</td></tr>
+                <tr><td style="padding:8px;font-weight:bold;">Date:</td><td style="padding:8px;">${appointment!.preferredDate}</td></tr>
+                <tr><td style="padding:8px;font-weight:bold;">Time:</td><td style="padding:8px;">${appointment!.preferredTime}</td></tr>
+                <tr><td style="padding:8px;font-weight:bold;">Notes:</td><td style="padding:8px;">${appointment!.notes || "None"}</td></tr>
+              </table>
+              <p style="margin-top:16px;color:#666;">Log in to the admin dashboard to manage this appointment.</p>
+            `,
+          }),
+        });
+        if (!emailRes.ok) {
+          console.error("Email notification failed:", await emailRes.text());
+        }
+      } catch (emailErr) {
+        console.error("Email send error:", emailErr instanceof Error ? emailErr.message : "Unknown");
+      }
+    }
+
     return new Response(
       JSON.stringify({
         success: true,
