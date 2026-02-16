@@ -1,7 +1,7 @@
-import { memo } from "react";
+import { memo, useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Activity, Users, Briefcase, Database, Quote, LucideIcon } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useStatistics } from "@/hooks/useCmsContent";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -9,10 +9,13 @@ const iconMap: Record<string, LucideIcon> = { Users, Activity, Briefcase, Databa
 
 const AboutSection = memo(() => {
   const { data: statistics, isLoading: statsLoading } = useStatistics();
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
+  const orbY = useTransform(scrollYProgress, [0, 1], [80, -80]);
 
   return (
-    <section id="resources" className="py-24 lg:py-36 bg-background relative overflow-hidden section-divider">
-      <div className="gradient-orb w-[600px] h-[600px] bg-primary top-[5%] right-[-250px]" />
+    <section ref={sectionRef} id="resources" className="py-24 lg:py-36 bg-background relative overflow-hidden section-divider">
+      <motion.div className="gradient-orb w-[600px] h-[600px] bg-primary top-[5%] right-[-250px]" style={{ y: orbY }} />
 
       <div className="container mx-auto px-6 md:px-10 max-w-7xl relative">
         {/* Header */}
