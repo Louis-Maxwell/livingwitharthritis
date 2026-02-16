@@ -1,16 +1,28 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { MessageCircle, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
 const heroImage = "/images/hero-community.jpg";
 
 const HeroSection = () => {
   const navigate = useNavigate();
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
+  const orbX = useTransform(scrollYProgress, [0, 1], [0, 60]);
+  const orbY = useTransform(scrollYProgress, [0, 1], [0, -40]);
 
   return (
-    <section className="relative overflow-hidden bg-background">
-      <div className="gradient-orb w-[800px] h-[800px] bg-primary top-[-300px] right-[-300px]" />
-      <div className="gradient-orb w-[600px] h-[600px] bg-secondary bottom-[-200px] left-[-200px]" />
+    <section ref={sectionRef} className="relative overflow-hidden bg-background">
+      <motion.div className="gradient-orb w-[800px] h-[800px] bg-primary top-[-300px] right-[-300px]" style={{ x: orbX, y: orbY }} />
+      <motion.div className="gradient-orb w-[600px] h-[600px] bg-secondary bottom-[-200px] left-[-200px]" style={{ x: useTransform(scrollYProgress, [0, 1], [0, -40]), y: useTransform(scrollYProgress, [0, 1], [0, 30]) }} />
 
       <div className="container mx-auto px-6 md:px-10 relative">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center min-h-[calc(100vh-100px)] py-16 lg:py-0">
@@ -19,6 +31,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            style={{ y: contentY }}
             className="order-2 lg:order-1 max-w-xl"
           >
             <motion.div
@@ -72,7 +85,7 @@ const HeroSection = () => {
             className="order-1 lg:order-2 relative"
           >
             <div className="relative rounded-[2rem] overflow-hidden shadow-large">
-              <img
+              <motion.img
                 src={heroImage}
                 alt="Diverse community of people being active together in a park"
                 className="w-full h-[300px] sm:h-[400px] lg:h-[560px] object-cover"
@@ -80,6 +93,7 @@ const HeroSection = () => {
                 height={560}
                 loading="eager"
                 fetchPriority="high"
+                style={{ y: imageY, scale: imageScale }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
             </div>

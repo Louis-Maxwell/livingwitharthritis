@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Users, MessageCircle, BookOpen, Stethoscope, Calendar, HeartHandshake, LucideIcon, ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { useServices, Service } from "@/hooks/useCmsContent";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -44,10 +45,13 @@ const ServiceCard = ({ service, index }: { service: Service; index: number }) =>
 
 const ServicesGrid = () => {
   const { data: services, isLoading } = useServices();
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
+  const orbY = useTransform(scrollYProgress, [0, 1], [60, -60]);
 
   return (
-    <section id="services" className="py-24 lg:py-36 bg-accent/30 relative overflow-hidden section-divider">
-      <div className="gradient-orb w-[600px] h-[600px] bg-secondary top-[-150px] left-[-150px]" />
+    <section ref={sectionRef} id="services" className="py-24 lg:py-36 bg-accent/30 relative overflow-hidden section-divider">
+      <motion.div className="gradient-orb w-[600px] h-[600px] bg-secondary top-[-150px] left-[-150px]" style={{ y: orbY }} />
 
       <div className="container mx-auto px-6 md:px-10 relative">
         <motion.div

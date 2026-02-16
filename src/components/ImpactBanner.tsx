@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { TrendingUp, Users, Heart, Globe } from "lucide-react";
 
 const impactItems = [
@@ -9,10 +10,15 @@ const impactItems = [
 ];
 
 const ImpactBanner = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
+  const orbX1 = useTransform(scrollYProgress, [0, 1], [40, -40]);
+  const orbX2 = useTransform(scrollYProgress, [0, 1], [-30, 30]);
+
   return (
-    <section className="relative py-14 lg:py-20 bg-navy text-navy-foreground overflow-hidden section-divider">
-      <div className="gradient-orb w-[400px] h-[400px] bg-primary top-[-50px] right-[-100px]" />
-      <div className="gradient-orb w-[300px] h-[300px] bg-secondary bottom-[-50px] left-[-80px]" />
+    <section ref={sectionRef} className="relative py-14 lg:py-20 bg-navy text-navy-foreground overflow-hidden section-divider">
+      <motion.div className="gradient-orb w-[400px] h-[400px] bg-primary top-[-50px] right-[-100px]" style={{ x: orbX1 }} />
+      <motion.div className="gradient-orb w-[300px] h-[300px] bg-secondary bottom-[-50px] left-[-80px]" style={{ x: orbX2 }} />
 
       <div className="container mx-auto px-4 md:px-8 relative">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-10">
