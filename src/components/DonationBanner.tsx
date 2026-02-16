@@ -42,15 +42,15 @@ const DonationBanner = () => {
   const getDonationAmount = () => parseFloat(amount) || selectedQuickAmount || 100;
 
   return (
-    <div className="bg-secondary text-secondary-foreground">
+    <div className="bg-navy text-navy-foreground">
       <div className="container mx-auto px-4 py-2.5">
         <div className="flex flex-wrap items-center justify-center gap-2">
-          <div className="flex items-center bg-white/90 rounded-lg px-2.5 py-1 shadow-soft">
-            <span className="text-base mr-1">
+          <div className="flex items-center bg-white/10 rounded-full px-3 py-1">
+            <span className="text-sm mr-1.5">
               {currency === "GBP" ? "🇬🇧" : currency === "USD" ? "🇺🇸" : "🇪🇺"}
             </span>
             <Select value={currency} onValueChange={setCurrency}>
-              <SelectTrigger className="w-14 border-0 p-0 h-auto bg-transparent text-foreground font-semibold text-xs">
+              <SelectTrigger className="w-14 border-0 p-0 h-auto bg-transparent text-white/90 font-medium text-xs">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -68,10 +68,10 @@ const DonationBanner = () => {
             max="100000"
             value={amount}
             onChange={(e) => handleAmountChange(e.target.value)}
-            className="w-24 bg-white/90 border-0 shadow-soft text-foreground font-medium text-xs h-8"
+            className="w-24 bg-white/10 border-0 text-white placeholder:text-white/40 font-medium text-xs h-8 rounded-full"
           />
 
-          <div className="flex gap-1">
+          <div className="flex gap-1.5">
             {quickAmounts.map((value) => (
               <Button
                 key={value}
@@ -81,8 +81,8 @@ const DonationBanner = () => {
                 className={`${
                   selectedQuickAmount === value
                     ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                    : "bg-white/90 text-foreground border-0 hover:bg-white"
-                } font-semibold shadow-soft text-xs h-8 px-3`}
+                    : "bg-white/10 text-white/80 border-white/10 hover:bg-white/20 hover:text-white"
+                } font-semibold text-xs h-8 px-3 rounded-full transition-all duration-300`}
               >
                 {getCurrencySymbol()}{value}
               </Button>
@@ -90,7 +90,7 @@ const DonationBanner = () => {
           </div>
 
           <Select value={fundType} onValueChange={setFundType}>
-            <SelectTrigger className="w-40 bg-white/90 border-0 shadow-soft text-foreground text-xs h-8">
+            <SelectTrigger className="w-40 bg-white/10 border-0 text-white/80 text-xs h-8 rounded-full">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -105,9 +105,9 @@ const DonationBanner = () => {
             size="sm"
             onClick={handleDonate}
             disabled={!amount && !selectedQuickAmount}
-            className="btn-primary-cta px-4 h-8 text-[11px] font-bold"
+            className="btn-primary-cta px-5 h-8 text-[11px] font-bold tracking-widest rounded-full"
           >
-            QUICK DONATE
+            DONATE
           </Button>
         </div>
       </div>

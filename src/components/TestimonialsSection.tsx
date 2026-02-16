@@ -45,20 +45,20 @@ const TestimonialsSection = () => {
   const t = testimonials[current];
 
   return (
-    <section className="py-20 lg:py-28 bg-background relative overflow-hidden section-divider">
-      <div className="gradient-orb w-[500px] h-[500px] bg-gold top-[-100px] left-[15%]" />
+    <section className="py-24 lg:py-36 bg-background relative overflow-hidden section-divider">
+      <div className="gradient-orb w-[600px] h-[600px] bg-gold top-[-150px] left-[10%]" />
 
-      <div className="container mx-auto px-5 md:px-8 max-w-3xl relative">
+      <div className="container mx-auto px-6 md:px-10 max-w-3xl relative">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14"
         >
-          <span className="section-label text-gold mb-3 block">Testimonials</span>
+          <span className="section-label text-gold mb-4 block">Testimonials</span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-foreground tracking-tight">
-            Real stories, <span className="text-gold">real lives</span>
+            Real stories, <span className="text-gold italic">real lives</span>
           </h2>
         </motion.div>
 
@@ -66,36 +66,36 @@ const TestimonialsSection = () => {
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
-              initial={{ opacity: 0, x: 24 }}
+              initial={{ opacity: 0, x: 28 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -24 }}
-              transition={{ duration: 0.3 }}
-              className="bg-card rounded-3xl p-7 sm:p-10 lg:p-14 border border-border/50 shadow-medium relative overflow-hidden"
+              exit={{ opacity: 0, x: -28 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="bg-card rounded-[2rem] p-8 sm:p-12 lg:p-16 border border-border/20 shadow-medium relative overflow-hidden"
             >
-              <Quote className="absolute top-5 right-5 w-8 h-8 text-gold/8" />
+              <Quote className="absolute top-6 right-6 w-10 h-10 text-gold/6" />
 
-              <div className="flex gap-0.5 mb-5">
+              <div className="flex gap-1 mb-6">
                 {Array.from({ length: t.rating }).map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-gold text-gold" />
                 ))}
               </div>
 
-              <blockquote className="text-base sm:text-lg lg:text-xl font-display text-foreground leading-[1.6] mb-7 italic">
+              <blockquote className="text-base sm:text-lg lg:text-xl font-display text-foreground leading-[1.6] mb-8 italic">
                 "{t.quote}"
               </blockquote>
 
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <div>
                   <div className="font-semibold text-foreground text-sm">{t.name}</div>
-                  <div className="text-xs text-muted-foreground mt-0.5">
+                  <div className="text-xs text-muted-foreground/50 mt-1 tracking-wide">
                     {t.condition} · Age {t.age} · {t.location}
                   </div>
                 </div>
-                <div className="flex gap-2">
-                  <Button variant="outline" size="icon" onClick={prev} className="rounded-full w-9 h-9 border-border/60 hover:border-primary hover:text-primary transition-colors">
+                <div className="flex gap-2.5">
+                  <Button variant="outline" size="icon" onClick={prev} className="rounded-full w-10 h-10 border-border/30 hover:border-primary hover:text-primary transition-all duration-300">
                     <ChevronLeft className="w-4 h-4" />
                   </Button>
-                  <Button variant="outline" size="icon" onClick={next} className="rounded-full w-9 h-9 border-border/60 hover:border-primary hover:text-primary transition-colors">
+                  <Button variant="outline" size="icon" onClick={next} className="rounded-full w-10 h-10 border-border/30 hover:border-primary hover:text-primary transition-all duration-300">
                     <ChevronRight className="w-4 h-4" />
                   </Button>
                 </div>
@@ -103,13 +103,13 @@ const TestimonialsSection = () => {
             </motion.div>
           </AnimatePresence>
 
-          <div className="flex justify-center gap-1.5 mt-6">
+          <div className="flex justify-center gap-2 mt-8">
             {testimonials.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setCurrent(i)}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  i === current ? "w-6 bg-primary" : "w-1.5 bg-border hover:bg-muted-foreground/30"
+                className={`h-1.5 rounded-full transition-all duration-500 ${
+                  i === current ? "w-8 bg-primary" : "w-2 bg-border hover:bg-muted-foreground/30"
                 }`}
               />
             ))}

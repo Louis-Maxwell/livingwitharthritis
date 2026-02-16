@@ -11,37 +11,37 @@ const AboutSection = memo(() => {
   const { data: statistics, isLoading: statsLoading } = useStatistics();
 
   return (
-    <section id="resources" className="py-20 lg:py-28 bg-background relative overflow-hidden section-divider">
-      <div className="gradient-orb w-[500px] h-[500px] bg-primary top-[5%] right-[-200px]" />
+    <section id="resources" className="py-24 lg:py-36 bg-background relative overflow-hidden section-divider">
+      <div className="gradient-orb w-[600px] h-[600px] bg-primary top-[5%] right-[-250px]" />
 
-      <div className="container mx-auto px-5 md:px-8 max-w-7xl relative">
+      <div className="container mx-auto px-6 md:px-10 max-w-7xl relative">
         {/* Header */}
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start mb-20">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-24">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="section-label text-primary mb-3 block">Understanding Arthritis</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-5 text-foreground leading-[1.06]">
-              Knowledge is <span className="text-primary">power</span>
+            <span className="section-label text-primary mb-4 block">Understanding Arthritis</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.75rem] font-display font-bold mb-6 text-foreground">
+              Knowledge is <span className="text-primary italic">power</span>
             </h2>
-            <div className="w-12 h-0.5 bg-primary rounded-full" />
+            <div className="w-14 h-[2px] bg-primary/30 rounded-full" />
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="space-y-4"
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="space-y-5 lg:pt-4"
           >
-            <p className="text-base sm:text-lg text-muted-foreground leading-[1.7]">
+            <p className="text-base sm:text-lg text-muted-foreground leading-[1.8]">
               Arthritis isn't a singular condition — it's a complex family of over 100 different types.
               Understanding your specific condition is the first step toward effective management.
             </p>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <p className="text-sm text-muted-foreground/70 leading-relaxed">
               We represent 10 million people living with arthritis — professionals,
               researchers, carers, and supporters united by a common goal.
             </p>
@@ -49,15 +49,14 @@ const AboutSection = memo(() => {
         </div>
 
         {/* Statistics */}
-        <div className="mb-20">
-          <h3 className="text-2xl sm:text-3xl font-display font-bold text-center mb-12">By the Numbers</h3>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+        <div className="mb-24">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-8">
             {statsLoading ? (
               Array.from({ length: 4 }).map((_, i) => (
-                <Card key={i} className="bg-accent/50 border-0 rounded-2xl">
-                  <CardContent className="pt-6 pb-5 text-center">
-                    <Skeleton className="mb-2 mx-auto w-9 h-9 rounded-xl" />
-                    <Skeleton className="h-9 w-16 mx-auto mb-1" />
+                <Card key={i} className="bg-card border-border/20 rounded-3xl">
+                  <CardContent className="pt-8 pb-7 text-center">
+                    <Skeleton className="mb-3 mx-auto w-10 h-10 rounded-2xl" />
+                    <Skeleton className="h-10 w-16 mx-auto mb-2" />
                     <Skeleton className="h-3 w-24 mx-auto" />
                   </CardContent>
                 </Card>
@@ -68,20 +67,20 @@ const AboutSection = memo(() => {
                 return (
                   <motion.div
                     key={stat.id}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: i * 0.07 }}
+                    transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    <Card className="bg-accent/50 border border-border/40 rounded-2xl card-hover group">
-                      <CardContent className="pt-7 pb-6 text-center">
-                        <div className="mb-3 mx-auto w-10 h-10 rounded-xl bg-primary/8 flex items-center justify-center group-hover:bg-primary/12 transition-colors">
-                          <Icon className="w-4 h-4 text-primary" />
+                    <Card className="bg-card border border-border/20 rounded-3xl card-hover group">
+                      <CardContent className="pt-8 pb-7 text-center">
+                        <div className="mb-4 mx-auto w-12 h-12 rounded-2xl bg-primary/6 flex items-center justify-center group-hover:bg-primary/10 transition-colors duration-500">
+                          <Icon className="w-5 h-5 text-primary" />
                         </div>
-                        <div className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-foreground mb-1.5 tracking-tight">
+                        <div className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-foreground mb-2 tracking-tight">
                           {stat.number_value}
                         </div>
-                        <p className="text-xs text-muted-foreground font-medium">{stat.label}</p>
+                        <p className="text-xs text-muted-foreground/60 font-medium tracking-wide uppercase">{stat.label}</p>
                       </CardContent>
                     </Card>
                   </motion.div>
@@ -93,19 +92,19 @@ const AboutSection = memo(() => {
 
         {/* Quote */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="bg-accent/60 rounded-3xl p-8 sm:p-12 lg:p-16 relative overflow-hidden border border-border/40"
+          transition={{ duration: 0.6 }}
+          className="bg-card rounded-[2rem] p-10 sm:p-14 lg:p-20 relative overflow-hidden border border-border/20 shadow-soft"
         >
-          <Quote className="absolute top-6 left-6 w-10 h-10 text-primary/6" />
+          <Quote className="absolute top-8 left-8 w-12 h-12 text-primary/5" />
           <div className="relative text-center max-w-2xl mx-auto">
-            <blockquote className="text-lg sm:text-xl lg:text-2xl font-display font-medium mb-5 leading-[1.45] text-foreground italic">
+            <blockquote className="text-lg sm:text-xl lg:text-2xl font-display font-medium mb-6 leading-[1.5] text-foreground italic">
               "You are not alone in your arthritis journey. Your healthcare team advises, but you are in control of your path forward."
             </blockquote>
-            <div className="w-8 h-px bg-primary/20 mx-auto mb-3" />
-            <cite className="text-sm text-muted-foreground not-italic font-medium">Healthcare Professional</cite>
+            <div className="w-10 h-px bg-primary/15 mx-auto mb-4" />
+            <cite className="text-sm text-muted-foreground/50 not-italic font-medium tracking-wide">Healthcare Professional</cite>
           </div>
         </motion.div>
       </div>

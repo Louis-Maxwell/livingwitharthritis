@@ -6,49 +6,49 @@
 
 @layer base {
   :root {
-    --background: 0 0% 99%;
-    --foreground: 220 25% 10%;
+    --background: 40 20% 98%;
+    --foreground: 220 30% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 25% 10%;
+    --card-foreground: 220 30% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 25% 10%;
+    --popover-foreground: 220 30% 8%;
 
-    --primary: 0 78% 52%;
+    --primary: 0 72% 48%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 172 45% 42%;
+    --secondary: 172 40% 38%;
     --secondary-foreground: 0 0% 100%;
 
-    --accent: 220 20% 96%;
-    --accent-foreground: 220 25% 10%;
+    --accent: 40 18% 95%;
+    --accent-foreground: 220 30% 8%;
 
-    --muted: 220 14% 95%;
-    --muted-foreground: 220 10% 46%;
+    --muted: 40 12% 93%;
+    --muted-foreground: 220 10% 42%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 0 78% 52%;
+    --border: 40 10% 90%;
+    --input: 40 10% 90%;
+    --ring: 0 72% 48%;
 
     --gold: 42 92% 56%;
     --gold-foreground: 42 40% 12%;
     --gold-muted: 42 50% 82%;
     --amber: 30 90% 56%;
 
-    --navy: 220 40% 13%;
+    --navy: 220 42% 11%;
     --navy-foreground: 0 0% 100%;
 
-    --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.04);
-    --shadow-medium: 0 4px 16px -2px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.04);
-    --shadow-large: 0 12px 40px -8px rgb(0 0 0 / 0.12), 0 4px 12px -4px rgb(0 0 0 / 0.06);
-    --shadow-primary: 0 8px 24px -4px hsl(0 78% 52% / 0.35);
-    --shadow-glow: 0 0 40px -8px hsl(0 78% 52% / 0.25);
+    --shadow-soft: 0 1px 2px 0 rgb(0 0 0 / 0.03), 0 1px 3px 0 rgb(0 0 0 / 0.02);
+    --shadow-medium: 0 4px 20px -4px rgb(0 0 0 / 0.06), 0 2px 6px -2px rgb(0 0 0 / 0.03);
+    --shadow-large: 0 16px 48px -12px rgb(0 0 0 / 0.1), 0 4px 16px -4px rgb(0 0 0 / 0.04);
+    --shadow-primary: 0 8px 28px -4px hsl(0 72% 48% / 0.25);
+    --shadow-glow: 0 0 48px -8px hsl(0 72% 48% / 0.15);
 
-    --radius: 0.75rem;
+    --radius: 0.875rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -67,9 +67,9 @@
     --card-foreground: 40 20% 95%;
     --popover: 220 20% 9%;
     --popover-foreground: 40 20% 95%;
-    --primary: 0 78% 58%;
+    --primary: 0 72% 54%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 172 45% 48%;
+    --secondary: 172 40% 44%;
     --secondary-foreground: 0 0% 100%;
     --accent: 220 20% 14%;
     --accent-foreground: 0 0% 100%;
@@ -79,12 +79,12 @@
     --destructive-foreground: 0 0% 100%;
     --border: 220 20% 16%;
     --input: 220 20% 16%;
-    --ring: 0 78% 58%;
+    --ring: 0 72% 54%;
     --gold: 42 92% 60%;
     --gold-foreground: 42 40% 95%;
     --gold-muted: 42 40% 30%;
     --amber: 30 90% 60%;
-    --navy: 220 40% 10%;
+    --navy: 220 42% 8%;
     --navy-foreground: 0 0% 100%;
     --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.2);
     --shadow-medium: 0 4px 16px -2px rgb(0 0 0 / 0.3);
@@ -115,33 +115,35 @@
     @apply bg-background text-foreground;
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
     font-feature-settings: "cv11", "ss01";
+    line-height: 1.7;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
   }
 
   ::selection {
-    background: hsl(var(--primary) / 0.12);
+    background: hsl(var(--primary) / 0.1);
     color: hsl(var(--foreground));
   }
 }
 
 @layer components {
   .btn-primary-cta {
-    @apply relative overflow-hidden font-semibold;
+    @apply relative overflow-hidden font-semibold tracking-wide;
     background: hsl(var(--primary));
     color: hsl(var(--primary-foreground));
     box-shadow: var(--shadow-primary);
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .btn-primary-cta:hover {
-    transform: translateY(-1px);
-    filter: brightness(1.06);
-    box-shadow: 0 12px 32px -4px hsl(var(--primary) / 0.45);
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+    box-shadow: 0 14px 36px -6px hsl(var(--primary) / 0.4);
   }
 
   .btn-primary-cta:active {
@@ -153,12 +155,12 @@
     background: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--amber)));
     color: hsl(var(--gold-foreground));
     box-shadow: 0 4px 16px -3px hsl(var(--gold) / 0.3);
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .btn-gold:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 8px 24px -4px hsl(var(--gold) / 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px -4px hsl(var(--gold) / 0.4);
   }
 
   .text-gradient {
@@ -172,17 +174,17 @@
   }
 
   .card-hover {
-    @apply transition-all duration-300 ease-out;
+    @apply transition-all duration-500 ease-out;
   }
 
   .card-hover:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px);
     box-shadow: var(--shadow-large);
   }
 
   .section-label {
     font-family: 'DM Sans', sans-serif;
-    @apply uppercase tracking-[0.18em] text-[11px] font-semibold;
+    @apply uppercase tracking-[0.22em] text-[10px] font-bold;
   }
 
   .trust-badge {
@@ -199,31 +201,31 @@
     background: hsl(var(--primary));
     color: hsl(var(--primary-foreground));
     box-shadow: var(--shadow-primary);
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .btn-premium:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 12px 32px -4px hsl(var(--primary) / 0.45);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 36px -6px hsl(var(--primary) / 0.4);
   }
 
   .bg-gradient-medical {
-    background: linear-gradient(135deg, hsl(var(--secondary)), hsl(172 45% 48%));
+    background: linear-gradient(135deg, hsl(var(--secondary)), hsl(172 40% 44%));
   }
 
   .gradient-orb {
     @apply absolute rounded-full pointer-events-none;
-    filter: blur(100px);
-    opacity: 0.04;
+    filter: blur(120px);
+    opacity: 0.03;
   }
 
   .reveal-up {
-    animation: revealUp 0.5s ease-out forwards;
+    animation: revealUp 0.6s ease-out forwards;
     opacity: 0;
   }
 
   @keyframes revealUp {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
@@ -234,7 +236,13 @@
   .section-divider::before {
     content: '';
     @apply absolute top-0 left-0 right-0 h-px;
-    background: linear-gradient(90deg, transparent, hsl(var(--border)), transparent);
+    background: linear-gradient(90deg, transparent, hsl(var(--border) / 0.5), transparent);
+  }
+
+  /* Premium glass card */
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-border/30;
+    box-shadow: var(--shadow-medium);
   }
 }
 
@@ -245,7 +253,7 @@
 
   .editorial-caption {
     font-family: 'DM Sans', sans-serif;
-    @apply uppercase tracking-[0.18em] text-[11px] font-semibold;
+    @apply uppercase tracking-[0.22em] text-[10px] font-bold;
   }
 
   .font-editorial {
