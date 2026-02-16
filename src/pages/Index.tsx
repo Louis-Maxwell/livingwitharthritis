@@ -10,6 +10,7 @@ const ImpactBanner = lazy(() => import("@/components/ImpactBanner"));
 const AboutSection = lazy(() => import("@/components/AboutSection"));
 const ServicesGrid = lazy(() => import("@/components/ServicesGrid"));
 const VirtualPhysioSection = lazy(() => import("@/components/VirtualPhysioSection"));
+const NutritionArticleSection = lazy(() => import("@/components/NutritionArticleSection"));
 const ConditionsSection = lazy(() => import("@/components/ConditionsSection"));
 const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
 const FundraisingSection = lazy(() => import("@/components/FundraisingSection"));
@@ -45,6 +46,9 @@ const Index = () => {
         </Suspense>
         <Suspense fallback={<SectionLoader />}>
           <VirtualPhysioSection />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <NutritionArticleSection />
         </Suspense>
 
         {/* Deferred sections — only load JS when user scrolls near them */}

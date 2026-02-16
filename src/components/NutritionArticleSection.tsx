@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { Utensils, Fish, Cherry, Milk, Leaf, LucideIcon, X, ChefHat } from "lucide-react";
 import { useNutritionSections, useNutritionFoodGallery, NutritionFoodGalleryItem } from "@/hooks/useCmsContent";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -11,12 +11,15 @@ const NutritionArticleSection = () => {
   const { data: sections, isLoading } = useNutritionSections();
   const { data: galleryItems, isLoading: galleryLoading } = useNutritionFoodGallery();
   const [selectedRecipe, setSelectedRecipe] = useState<NutritionFoodGalleryItem | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
+  const orbY = useTransform(scrollYProgress, [0, 1], [60, -60]);
 
   return (
-    <section id="nutrition" className="py-20 lg:py-28 bg-accent/50 relative overflow-hidden section-divider">
-      <div className="gradient-orb w-[500px] h-[500px] bg-secondary top-[-100px] right-[-150px]" />
+    <section ref={sectionRef} id="nutrition" className="py-24 lg:py-36 bg-accent/30 relative overflow-hidden section-divider">
+      <motion.div className="gradient-orb w-[500px] h-[500px] bg-secondary top-[-100px] right-[-150px]" style={{ y: orbY }} />
 
-      <div className="container mx-auto px-5 md:px-8 relative">
+      <div className="container mx-auto px-6 md:px-10 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -39,10 +42,10 @@ const NutritionArticleSection = () => {
         </motion.div>
 
         {/* Arthritis type nutrition cards */}
-        <div className="grid sm:grid-cols-2 gap-4 sm:gap-5 mb-12">
+        <div className="grid sm:grid-cols-2 gap-5 sm:gap-6 mb-16">
           {isLoading
             ? Array.from({ length: 4 }).map((_, i) => (
-                <div key={i} className="bg-card rounded-2xl p-6 border border-border/50">
+                <div key={i} className="bg-card rounded-3xl p-7 border border-border/20">
                   <Skeleton className="h-8 w-40 mb-4" />
                   <Skeleton className="h-20 w-full mb-4" />
                   <Skeleton className="h-6 w-48" />
@@ -58,7 +61,7 @@ const NutritionArticleSection = () => {
                     viewport={{ once: true, margin: "-40px" }}
                     transition={{ duration: 0.4, delay: index * 0.07 }}
                   >
-                    <div className="group h-full bg-card rounded-2xl p-6 sm:p-7 border border-border/50 hover:border-secondary/20 hover:shadow-medium transition-all duration-300 card-hover relative overflow-hidden">
+                    <div className="group h-full bg-card rounded-3xl p-6 sm:p-7 border border-border/20 hover:border-secondary/20 hover:shadow-large transition-all duration-500 card-hover relative overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-br from-secondary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       <div className="relative">
                         <div className="flex items-center gap-3 mb-4">
@@ -100,10 +103,10 @@ const NutritionArticleSection = () => {
           <p className="text-sm text-muted-foreground text-center mb-8 max-w-lg mx-auto">
             Real meals and ingredients that support joint health. Click any dish with a recipe to view it.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5">
             {galleryLoading
               ? Array.from({ length: 5 }).map((_, i) => (
-                  <div key={i} className="rounded-2xl overflow-hidden border border-border/50">
+                  <div key={i} className="rounded-3xl overflow-hidden border border-border/20">
                     <Skeleton className="aspect-square w-full" />
                     <div className="p-3"><Skeleton className="h-4 w-24" /></div>
                   </div>
@@ -115,7 +118,7 @@ const NutritionArticleSection = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-30px" }}
                 transition={{ duration: 0.35, delay: i * 0.06 }}
-                className={`group relative rounded-2xl overflow-hidden border border-border/50 hover:border-secondary/30 transition-all duration-300 hover:shadow-medium ${item.recipe_text ? "cursor-pointer" : ""}`}
+                className={`group relative rounded-3xl overflow-hidden border border-border/20 hover:border-secondary/30 transition-all duration-500 hover:shadow-large ${item.recipe_text ? "cursor-pointer" : ""}`}
                 onClick={() => item.recipe_text && setSelectedRecipe(item)}
               >
                 <div className="aspect-square overflow-hidden">
