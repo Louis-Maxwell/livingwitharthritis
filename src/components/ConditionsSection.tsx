@@ -1,18 +1,21 @@
-import { memo } from "react";
+import { memo, useRef } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ChevronRight, ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useConditions } from "@/hooks/useCmsContent";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
 
 const ConditionsSection = memo(() => {
   const { data: conditions, isLoading } = useConditions();
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
+  const orbY = useTransform(scrollYProgress, [0, 1], [60, -60]);
 
   return (
-    <section id="conditions" className="py-24 lg:py-36 bg-background relative overflow-hidden section-divider">
-      <div className="gradient-orb w-[600px] h-[600px] bg-secondary bottom-[-150px] right-[-200px]" />
+    <section ref={sectionRef} id="conditions" className="py-24 lg:py-36 bg-background relative overflow-hidden section-divider">
+      <motion.div className="gradient-orb w-[600px] h-[600px] bg-secondary bottom-[-150px] right-[-200px]" style={{ y: orbY }} />
 
       <div className="container mx-auto px-6 md:px-10 relative">
         <motion.div

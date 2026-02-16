@@ -1,9 +1,9 @@
-import { memo, useState } from "react";
+import { memo, useState, useRef } from "react";
 import physioMyth1 from "@/assets/physio-myth-1.jpg";
 import physioMyth2 from "@/assets/physio-myth-2.jpg";
 import physioMyth3 from "@/assets/physio-myth-3.jpg";
 import physioMyth4 from "@/assets/physio-myth-4.jpg";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Check, X, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
@@ -75,9 +75,12 @@ MythCard.displayName = "MythCard";
 
 const VirtualPhysioSection = memo(() => {
   const { data: myths, isLoading } = usePhysioMyths();
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
+  const ctaBgY = useTransform(scrollYProgress, [0, 1], ["0%", "8%"]);
 
   return (
-    <section className="py-24 lg:py-36 bg-accent/30 relative">
+    <section ref={sectionRef} className="py-24 lg:py-36 bg-accent/30 relative">
       <div className="container mx-auto px-6 md:px-10">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -121,7 +124,7 @@ const VirtualPhysioSection = memo(() => {
           transition={{ duration: 0.6 }}
           className="bg-navy rounded-[2rem] p-12 lg:p-20 text-center text-white relative overflow-hidden"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10" />
+          <motion.div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10" style={{ y: ctaBgY }} />
           <div className="relative max-w-xl mx-auto">
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold mb-4">
               Virtual physiotherapy isn't the future — <span className="text-gold italic font-normal">it's the now.</span>
