@@ -15,7 +15,6 @@ const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"
 const FundraisingSection = lazy(() => import("@/components/FundraisingSection"));
 
 const DonationNotification = lazy(() => import("@/components/DonationNotification"));
-const NutritionArticleSection = lazy(() => import("@/components/NutritionArticleSection"));
 const JointExerciseSection = lazy(() => import("@/components/JointExerciseSection"));
 
 // Minimal skeleton for lazy sections
@@ -63,9 +62,6 @@ const Index = () => {
               </Suspense>
               <Suspense fallback={<SectionLoader />}>
                 <JointExerciseSection />
-              </Suspense>
-              <Suspense fallback={<SectionLoader />}>
-                <NutritionArticleSection />
               </Suspense>
             </>
           ) : (

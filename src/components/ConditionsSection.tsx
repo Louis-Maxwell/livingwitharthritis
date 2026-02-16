@@ -11,67 +11,67 @@ const ConditionsSection = memo(() => {
   const { data: conditions, isLoading } = useConditions();
 
   return (
-    <section id="conditions" className="py-20 lg:py-28 bg-background relative overflow-hidden section-divider">
-      <div className="gradient-orb w-[500px] h-[500px] bg-secondary bottom-[-100px] right-[-150px]" />
+    <section id="conditions" className="py-24 lg:py-36 bg-background relative overflow-hidden section-divider">
+      <div className="gradient-orb w-[600px] h-[600px] bg-secondary bottom-[-150px] right-[-200px]" />
 
-      <div className="container mx-auto px-5 md:px-8 relative">
+      <div className="container mx-auto px-6 md:px-10 relative">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-14"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
         >
-          <span className="section-label text-secondary mb-3 block">Conditions We Cover</span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-foreground mb-4 tracking-tight">
-            Understanding your <span className="text-secondary">condition</span>
+          <span className="section-label text-secondary mb-4 block">Conditions We Cover</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-foreground mb-5 tracking-tight">
+            Understanding your <span className="text-secondary italic">condition</span>
           </h2>
-          <p className="text-base text-muted-foreground max-w-lg mx-auto">
+          <p className="text-base text-muted-foreground/70 max-w-lg mx-auto">
             Explore comprehensive guides on different arthritis types.
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {isLoading ? (
             Array.from({ length: 6 }).map((_, i) => (
-              <Card key={i} className="bg-card border-border/50 rounded-2xl">
-                <CardHeader className="pb-3">
+              <Card key={i} className="bg-card border-border/20 rounded-3xl">
+                <CardHeader className="pb-3 p-7">
                   <Skeleton className="h-5 w-20 rounded-full mb-2" />
                   <Skeleton className="h-5 w-3/4" />
                 </CardHeader>
-                <CardContent><Skeleton className="h-12 w-full" /></CardContent>
+                <CardContent className="px-7"><Skeleton className="h-12 w-full" /></CardContent>
               </Card>
             ))
           ) : (
             conditions?.map((condition, i) => (
               <motion.div
                 key={condition.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.4, delay: i * 0.06 }}
+                transition={{ duration: 0.5, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] }}
               >
-                <Card className="group h-full bg-card hover:shadow-medium transition-all duration-300 cursor-pointer border border-border/50 hover:border-secondary/20 rounded-2xl card-hover relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-secondary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <CardHeader className="pb-2 relative">
-                    <div className="flex items-center justify-between mb-2">
-                      <Badge className={`${condition.color} text-white text-[10px] font-semibold px-2.5 py-0.5 rounded-full`}>
+                <Card className="group h-full bg-card hover:shadow-large transition-all duration-500 cursor-pointer border border-border/20 hover:border-secondary/15 rounded-3xl card-hover relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-secondary/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                  <CardHeader className="pb-2 relative p-7">
+                    <div className="flex items-center justify-between mb-3">
+                      <Badge className={`${condition.color} text-white text-[10px] font-bold px-3 py-0.5 rounded-full tracking-wider`}>
                         {condition.category}
                       </Badge>
-                      <div className="w-7 h-7 rounded-full bg-accent flex items-center justify-center group-hover:bg-secondary/8 transition-colors">
-                        <ChevronRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-secondary transition-colors" />
+                      <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center group-hover:bg-secondary/8 transition-colors duration-500">
+                        <ChevronRight className="w-3.5 h-3.5 text-muted-foreground/40 group-hover:text-secondary transition-colors" />
                       </div>
                     </div>
-                    <CardTitle className="text-base sm:text-lg font-display font-semibold text-foreground group-hover:text-secondary transition-colors duration-200">
+                    <CardTitle className="text-base sm:text-lg font-display font-semibold text-foreground group-hover:text-secondary transition-colors duration-300">
                       {condition.title}
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="relative">
-                    <CardDescription className="text-muted-foreground leading-relaxed text-[13px]">
+                  <CardContent className="relative px-7 pb-7">
+                    <CardDescription className="text-muted-foreground leading-[1.7] text-[13px]">
                       {condition.description}
                     </CardDescription>
-                    <Button variant="ghost" size="sm" className="p-0 h-auto mt-3 text-secondary font-semibold hover:bg-transparent text-xs uppercase tracking-wider">
-                      Read more <ArrowRight className="ml-1 w-3 h-3" />
+                    <Button variant="ghost" size="sm" className="p-0 h-auto mt-4 text-secondary font-bold hover:bg-transparent text-xs uppercase tracking-widest">
+                      Read more <ArrowRight className="ml-1.5 w-3 h-3" />
                     </Button>
                   </CardContent>
                 </Card>

@@ -10,29 +10,29 @@ const FundraisingSection = memo(() => {
   const { data: fundraisingOptions, isLoading } = useFundraisingOptions();
 
   return (
-    <section id="involved" className="py-20 lg:py-28 bg-accent/50 relative overflow-hidden section-divider">
-      <div className="gradient-orb w-[500px] h-[500px] bg-primary top-[-100px] left-[-150px]" />
+    <section id="involved" className="py-24 lg:py-36 bg-accent/30 relative overflow-hidden section-divider">
+      <div className="gradient-orb w-[600px] h-[600px] bg-primary top-[-150px] left-[-200px]" />
 
-      <div className="container mx-auto px-5 md:px-8 relative">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
+      <div className="container mx-auto px-6 md:px-10 relative">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="lg:col-span-4 lg:sticky lg:top-28 lg:self-start"
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-4 lg:sticky lg:top-32 lg:self-start"
           >
-            <span className="section-label text-primary mb-3 block">Get Involved</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-foreground mb-4 leading-[1.06]">
+            <span className="section-label text-primary mb-4 block">Get Involved</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-foreground mb-5 leading-[1.04]">
               Fundraising
             </h2>
-            <div className="w-10 h-0.5 bg-primary rounded-full mb-4" />
-            <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+            <div className="w-12 h-[2px] bg-primary/25 rounded-full mb-5" />
+            <p className="text-sm text-muted-foreground/70 leading-[1.7] mb-8">
               Make a real difference. Explore ways to support arthritis research and care.
             </p>
             <ContactFormModal
               trigger={
-                <Button className="btn-primary-cta px-6 h-11 rounded-full text-sm">
+                <Button className="btn-primary-cta px-8 h-12 rounded-full text-sm tracking-wider">
                   Get In Touch
                 </Button>
               }
@@ -43,7 +43,7 @@ const FundraisingSection = memo(() => {
             <div className="space-y-0">
               {isLoading ? (
                 Array.from({ length: 7 }).map((_, i) => (
-                  <div key={i} className="py-4 border-b border-border">
+                  <div key={i} className="py-5 border-b border-border/30">
                     <Skeleton className="h-6 w-48" />
                   </div>
                 ))
@@ -54,20 +54,20 @@ const FundraisingSection = memo(() => {
                     initial={{ opacity: 0, x: -16 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-20px" }}
-                    transition={{ duration: 0.35, delay: i * 0.04 }}
+                    transition={{ duration: 0.4, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
                   >
                     <ContactFormModal
                       trigger={
-                        <button className="group flex items-center justify-between py-4 border-b border-border/60 hover:border-primary/20 transition-colors w-full text-left cursor-pointer">
-                          <div className="flex items-center gap-3">
-                            <span className="section-label text-muted-foreground/25 w-7 text-[10px]">
+                        <button className="group flex items-center justify-between py-5 border-b border-border/30 hover:border-primary/15 transition-all duration-500 w-full text-left cursor-pointer">
+                          <div className="flex items-center gap-4">
+                            <span className="section-label text-muted-foreground/20 w-7 text-[10px]">
                               {String(i + 1).padStart(2, '0')}
                             </span>
-                            <span className="text-base sm:text-lg lg:text-xl font-semibold text-foreground group-hover:text-primary transition-colors duration-200">
+                            <span className="text-base sm:text-lg lg:text-xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
                               {option.title}
                             </span>
                           </div>
-                          <ArrowRight className="w-4 h-4 text-muted-foreground/25 group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0" />
+                          <ArrowRight className="w-4 h-4 text-muted-foreground/20 group-hover:text-primary group-hover:translate-x-2 transition-all duration-500 flex-shrink-0" />
                         </button>
                       }
                     />
