@@ -1,11 +1,24 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers":
-    "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
-};
+const ALLOWED_ORIGINS = [
+  "https://id-preview--0b2fd6ca-4e21-4ac7-99fa-d741e996f45e.lovable.app",
+  "https://livingwitharthritis.org.uk",
+  "https://www.livingwitharthritis.org.uk",
+  "http://localhost:8080",
+  "http://localhost:5173",
+  "http://localhost:3000",
+];
+
+function getCorsHeaders(req: Request): Record<string, string> {
+  const origin = req.headers.get("Origin") || "";
+  const allowedOrigin = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
+  return {
+    "Access-Control-Allow-Origin": allowedOrigin,
+    "Access-Control-Allow-Headers":
+      "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
+  };
+}
 
 const VALID_APPOINTMENT_TYPES = [
   "consultation",
@@ -89,6 +102,7 @@ function validateAppointment(data: unknown): { valid: boolean; error?: string; a
 }
 
 serve(async (req) => {
+  const corsHeaders = getCorsHeaders(req);
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
@@ -118,18 +132,25 @@ serve(async (req) => {
 
     const { appointment } = validation;
 
-    // Get user ID if authenticated
-    let userId: string | null = null;
+    // Require authentication
     const authHeader = req.headers.get("Authorization");
-    if (authHeader?.startsWith("Bearer ")) {
-      const token = authHeader.replace("Bearer ", "");
-      const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY")!;
-      const authClient = createClient(supabaseUrl, supabaseAnonKey);
-      const { data: { user } } = await authClient.auth.getUser(token);
-      if (user) {
-        userId = user.id;
-      }
+    if (!authHeader?.startsWith("Bearer ")) {
+      return new Response(
+        JSON.stringify({ error: "Authentication required. Please log in to book an appointment." }),
+        { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
     }
+    const token = authHeader.replace("Bearer ", "");
+    const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY")!;
+    const authClient = createClient(supabaseUrl, supabaseAnonKey);
+    const { data: { user }, error: authError } = await authClient.auth.getUser(token);
+    if (authError || !user) {
+      return new Response(
+        JSON.stringify({ error: "Invalid session. Please log in again." }),
+        { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+    const userId = user.id;
 
     const { data, error: insertError } = await supabase
       .from("appointments")
