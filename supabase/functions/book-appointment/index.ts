@@ -28,6 +28,13 @@ const VALID_APPOINTMENT_TYPES = [
   "treatment",
 ];
 
+// Available time slots (30-min intervals, 9am-5pm)
+const AVAILABLE_SLOTS = [
+  "09:00", "09:30", "10:00", "10:30", "11:00", "11:30",
+  "12:00", "12:30", "13:00", "13:30", "14:00", "14:30",
+  "15:00", "15:30", "16:00", "16:30",
+];
+
 interface AppointmentRequest {
   name: string;
   email: string;
@@ -79,8 +86,14 @@ function validateAppointment(data: unknown): { valid: boolean; error?: string; a
     return { valid: false, error: "Cannot book appointments in the past" };
   }
 
-  if (typeof preferredTime !== "string" || preferredTime.trim().length === 0) {
-    return { valid: false, error: "Preferred time is required" };
+  // Check day of week (no weekends)
+  const dayOfWeek = selectedDate.getUTCDay();
+  if (dayOfWeek === 0 || dayOfWeek === 6) {
+    return { valid: false, error: "Appointments are only available Monday to Friday" };
+  }
+
+  if (typeof preferredTime !== "string" || !AVAILABLE_SLOTS.includes(preferredTime)) {
+    return { valid: false, error: "Invalid time slot. Please select an available time." };
   }
 
   if (notes !== undefined && typeof notes === "string" && notes.length > 1000) {
@@ -95,7 +108,7 @@ function validateAppointment(data: unknown): { valid: boolean; error?: string; a
       phone: phone ? (phone as string).trim() : undefined,
       appointmentType,
       preferredDate,
-      preferredTime: preferredTime.trim(),
+      preferredTime,
       notes: notes ? (notes as string).trim() : undefined,
     },
   };
@@ -112,6 +125,44 @@ serve(async (req) => {
     const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
+    // Handle GET for available slots
+    if (req.method === "GET") {
+      const url = new URL(req.url);
+      const date = url.searchParams.get("date");
+      if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+        return new Response(
+          JSON.stringify({ error: "Valid date parameter required (YYYY-MM-DD)" }),
+          { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
+
+      // Check if weekend
+      const checkDate = new Date(date);
+      const dow = checkDate.getUTCDay();
+      if (dow === 0 || dow === 6) {
+        return new Response(
+          JSON.stringify({ availableSlots: [], message: "No appointments on weekends" }),
+          { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
+
+      // Fetch booked slots for this date (exclude cancelled)
+      const { data: booked } = await supabase
+        .from("appointments")
+        .select("preferred_time")
+        .eq("preferred_date", date)
+        .neq("status", "cancelled");
+
+      const bookedTimes = new Set((booked || []).map((a: { preferred_time: string }) => a.preferred_time));
+      const availableSlots = AVAILABLE_SLOTS.filter((s) => !bookedTimes.has(s));
+
+      return new Response(
+        JSON.stringify({ availableSlots, totalSlots: AVAILABLE_SLOTS.length, bookedCount: bookedTimes.size }),
+        { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    // POST: book appointment
     let requestBody: unknown;
     try {
       requestBody = await req.json();
@@ -152,6 +203,22 @@ serve(async (req) => {
     }
     const userId = user.id;
 
+    // ---- DOUBLE-BOOKING PREVENTION ----
+    const { data: existing } = await supabase
+      .from("appointments")
+      .select("id")
+      .eq("preferred_date", appointment!.preferredDate)
+      .eq("preferred_time", appointment!.preferredTime)
+      .neq("status", "cancelled")
+      .limit(1);
+
+    if (existing && existing.length > 0) {
+      return new Response(
+        JSON.stringify({ error: "This time slot is already booked. Please choose a different time." }),
+        { status: 409, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
     const { data, error: insertError } = await supabase
       .from("appointments")
       .insert({
@@ -175,28 +242,31 @@ serve(async (req) => {
       );
     }
 
-    // Send email notification to admin
+    // Send emails (admin + patient confirmation)
     const resendApiKey = Deno.env.get("RESEND_API_KEY");
     if (resendApiKey) {
+      const typeLabel = appointment!.appointmentType.charAt(0).toUpperCase() + appointment!.appointmentType.slice(1);
+      const dateFormatted = new Date(appointment!.preferredDate + "T00:00:00").toLocaleDateString("en-GB", {
+        weekday: "long", day: "numeric", month: "long", year: "numeric",
+      });
+
+      // Admin notification
       try {
-        const emailRes = await fetch("https://api.resend.com/emails", {
+        await fetch("https://api.resend.com/emails", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${resendApiKey}`,
-          },
+          headers: { "Content-Type": "application/json", Authorization: `Bearer ${resendApiKey}` },
           body: JSON.stringify({
             from: "Appointments <onboarding@resend.dev>",
             to: ["louis.maxwell@nhs.net"],
-            subject: `New Appointment Booking: ${appointment!.name} - ${appointment!.appointmentType}`,
+            subject: `New Booking: ${appointment!.name} - ${typeLabel} on ${dateFormatted}`,
             html: `
               <h2>New Appointment Booking</h2>
               <table style="border-collapse:collapse;width:100%;max-width:500px;">
                 <tr><td style="padding:8px;font-weight:bold;">Patient:</td><td style="padding:8px;">${appointment!.name}</td></tr>
                 <tr><td style="padding:8px;font-weight:bold;">Email:</td><td style="padding:8px;">${appointment!.email}</td></tr>
                 <tr><td style="padding:8px;font-weight:bold;">Phone:</td><td style="padding:8px;">${appointment!.phone || "Not provided"}</td></tr>
-                <tr><td style="padding:8px;font-weight:bold;">Type:</td><td style="padding:8px;">${appointment!.appointmentType}</td></tr>
-                <tr><td style="padding:8px;font-weight:bold;">Date:</td><td style="padding:8px;">${appointment!.preferredDate}</td></tr>
+                <tr><td style="padding:8px;font-weight:bold;">Type:</td><td style="padding:8px;">${typeLabel}</td></tr>
+                <tr><td style="padding:8px;font-weight:bold;">Date:</td><td style="padding:8px;">${dateFormatted}</td></tr>
                 <tr><td style="padding:8px;font-weight:bold;">Time:</td><td style="padding:8px;">${appointment!.preferredTime}</td></tr>
                 <tr><td style="padding:8px;font-weight:bold;">Notes:</td><td style="padding:8px;">${appointment!.notes || "None"}</td></tr>
               </table>
@@ -204,11 +274,44 @@ serve(async (req) => {
             `,
           }),
         });
-        if (!emailRes.ok) {
-          console.error("Email notification failed:", await emailRes.text());
-        }
-      } catch (emailErr) {
-        console.error("Email send error:", emailErr instanceof Error ? emailErr.message : "Unknown");
+      } catch (e) {
+        console.error("Admin email error:", e instanceof Error ? e.message : "Unknown");
+      }
+
+      // Patient confirmation email
+      try {
+        await fetch("https://api.resend.com/emails", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Authorization: `Bearer ${resendApiKey}` },
+          body: JSON.stringify({
+            from: "Living with Arthritis <onboarding@resend.dev>",
+            to: [appointment!.email],
+            subject: `Appointment Booking Confirmation - ${dateFormatted}`,
+            html: `
+              <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;padding:20px;">
+                <div style="background:linear-gradient(135deg,#0ea5e9,#6366f1);padding:24px;border-radius:12px 12px 0 0;">
+                  <h1 style="color:white;margin:0;font-size:22px;">Appointment Confirmed</h1>
+                </div>
+                <div style="background:#f9fafb;padding:24px;border:1px solid #e5e7eb;border-top:none;border-radius:0 0 12px 12px;">
+                  <p style="color:#374151;font-size:16px;">Dear ${appointment!.name},</p>
+                  <p style="color:#374151;font-size:14px;">Thank you for booking with Living with Arthritis. Your appointment has been received and is pending confirmation.</p>
+                  <div style="background:white;border:1px solid #e5e7eb;border-radius:8px;padding:16px;margin:16px 0;">
+                    <h3 style="margin:0 0 12px;color:#1f2937;font-size:16px;">Booking Details</h3>
+                    <p style="margin:4px 0;color:#374151;font-size:14px;"><strong>Type:</strong> ${typeLabel}</p>
+                    <p style="margin:4px 0;color:#374151;font-size:14px;"><strong>Date:</strong> ${dateFormatted}</p>
+                    <p style="margin:4px 0;color:#374151;font-size:14px;"><strong>Time:</strong> ${appointment!.preferredTime}</p>
+                    <p style="margin:4px 0;color:#374151;font-size:14px;"><strong>Reference:</strong> ${data.id.slice(0, 8).toUpperCase()}</p>
+                  </div>
+                  <p style="color:#6b7280;font-size:13px;">We will contact you shortly to confirm your appointment. If you need to make changes, please get in touch.</p>
+                  <hr style="border:none;border-top:1px solid #e5e7eb;margin:24px 0;" />
+                  <p style="color:#9ca3af;font-size:12px;margin:0;">Living with Arthritis Clinic · This is an automated message.</p>
+                </div>
+              </div>
+            `,
+          }),
+        });
+      } catch (e) {
+        console.error("Patient email error:", e instanceof Error ? e.message : "Unknown");
       }
     }
 
@@ -216,7 +319,7 @@ serve(async (req) => {
       JSON.stringify({
         success: true,
         appointmentId: data.id,
-        message: "Your appointment has been booked successfully! We'll confirm shortly.",
+        message: "Your appointment has been booked successfully! A confirmation email has been sent to you.",
       }),
       { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
