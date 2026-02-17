@@ -1,1 +1,7 @@
 project_id = "nfijkdoifihbgomcnbnb"
+
+[functions.book-appointment]
+verify_jwt = false
+
+[functions.notify-patient-status]
+verify_jwt = false

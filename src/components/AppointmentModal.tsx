@@ -34,14 +34,6 @@ export function AppointmentModal({ trigger }: AppointmentModalProps) {
     setForm((prev) => ({ ...prev, preferredTime: "" }));
 
     try {
-      const { data, error } = await supabase.functions.invoke("book-appointment", {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-        body: null,
-      });
-
-      // The invoke method doesn't support GET with query params well,
-      // so we'll use fetch directly
       const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID;
       const anonKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 
