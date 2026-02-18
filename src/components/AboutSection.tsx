@@ -4,17 +4,19 @@ import { Activity, Users, Briefcase, Database, Quote, LucideIcon } from "lucide-
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useStatistics } from "@/hooks/useCmsContent";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const iconMap: Record<string, LucideIcon> = { Users, Activity, Briefcase, Database };
 
 const AboutSection = memo(() => {
   const { data: statistics, isLoading: statsLoading } = useStatistics();
+  const isMobile = useIsMobile();
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
-  const orbY = useTransform(scrollYProgress, [0, 1], [80, -80]);
+  const orbY = useTransform(scrollYProgress, [0, 1], isMobile ? [0, 0] : [80, -80]);
 
   return (
-    <section ref={sectionRef} id="resources" className="py-24 lg:py-36 bg-background relative overflow-hidden section-divider">
+    <section ref={sectionRef} id="resources" className="py-16 sm:py-24 lg:py-36 bg-background relative overflow-hidden section-divider">
       <motion.div className="gradient-orb w-[600px] h-[600px] bg-primary top-[5%] right-[-250px]" style={{ y: orbY }} />
 
       <div className="container mx-auto px-6 md:px-10 max-w-7xl relative">

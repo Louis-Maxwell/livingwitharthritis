@@ -4,28 +4,35 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
 import { AppointmentModal } from "@/components/AppointmentModal";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const HeroSection = () => {
   const navigate = useNavigate();
+  const isMobile = useIsMobile();
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"],
   });
 
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
-  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
-  const orbX = useTransform(scrollYProgress, [0, 1], [0, 60]);
-  const orbY = useTransform(scrollYProgress, [0, 1], [0, -40]);
+  // Disable parallax on mobile to prevent layout gaps and jank
+  const imageY = useTransform(scrollYProgress, [0, 1], isMobile ? ["0%", "0%"] : ["0%", "18%"]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], isMobile ? [1, 1] : [1, 1.08]);
+  const contentY = useTransform(scrollYProgress, [0, 1], isMobile ? ["0%", "0%"] : ["0%", "12%"]);
+  const orbX = useTransform(scrollYProgress, [0, 1], isMobile ? [0, 0] : [0, 60]);
+  const orbY = useTransform(scrollYProgress, [0, 1], isMobile ? [0, 0] : [0, -40]);
+
+  // Pre-compute second orb transforms (hooks can't be called inline conditionally)
+  const orb2X = useTransform(scrollYProgress, [0, 1], isMobile ? [0, 0] : [0, -40]);
+  const orb2Y = useTransform(scrollYProgress, [0, 1], isMobile ? [0, 0] : [0, 30]);
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden bg-background">
+    <section ref={sectionRef} className="relative overflow-hidden bg-background pb-0">
       <motion.div className="gradient-orb w-[800px] h-[800px] bg-primary top-[-300px] right-[-300px]" style={{ x: orbX, y: orbY }} />
-      <motion.div className="gradient-orb w-[600px] h-[600px] bg-secondary bottom-[-200px] left-[-200px]" style={{ x: useTransform(scrollYProgress, [0, 1], [0, -40]), y: useTransform(scrollYProgress, [0, 1], [0, 30]) }} />
+      <motion.div className="gradient-orb w-[600px] h-[600px] bg-secondary bottom-[-200px] left-[-200px]" style={{ x: orb2X, y: orb2Y }} />
 
       <div className="container mx-auto px-6 md:px-10 relative">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center min-h-[calc(100vh-100px)] py-16 lg:py-0">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center lg:min-h-[calc(100vh-100px)] py-12 sm:py-16 lg:py-0">
           {/* Content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
