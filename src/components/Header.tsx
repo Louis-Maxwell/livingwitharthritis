@@ -34,10 +34,15 @@ const Header = () => {
     { label: "About Arthritis", href: "#about", action: () => setAboutOpen(true) },
     { label: "Our Services", href: "#services" },
     { label: "Conditions", href: "#conditions" },
+    { label: "Articles & Guides", href: "/blog" },
     { label: "Get Involved", href: "#involved" },
   ];
 
   const scrollToSection = (href: string) => {
+    if (!href.startsWith("#")) {
+      window.location.href = href;
+      return;
+    }
     const id = href.replace('#', '');
     const el = document.getElementById(id);
     el?.scrollIntoView({ behavior: "smooth" });
