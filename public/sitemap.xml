@@ -4,16 +4,19 @@
   <url>
     <loc>https://livingwitharthritis.org.uk/</loc>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://livingwitharthritis.org.uk/" />
+    <lastmod>2026-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/chat</loc>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/auth</loc>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
