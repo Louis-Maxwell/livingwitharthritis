@@ -4,6 +4,9 @@ import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
 import { FloatingChatButton } from "@/components/FloatingChatButton";
 import { useDeferredVisible } from "@/hooks/useDeferredVisible";
+import { AppointmentModal } from "@/components/AppointmentModal";
+import { CalendarCheck } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 // Lazy load below-fold sections for faster initial load
 const ImpactBanner = lazy(() => import("@/components/ImpactBanner"));
@@ -79,6 +82,18 @@ const Index = () => {
         {showDeferred && <DonationNotification />}
       </Suspense>
       <FloatingChatButton />
+
+      {/* Sticky mobile booking bar */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 sm:hidden bg-background/95 backdrop-blur-xl border-t border-border/40 px-4 py-3 shadow-large">
+        <AppointmentModal
+          trigger={
+            <Button className="w-full btn-primary-cta h-12 rounded-full text-sm font-bold tracking-wide shadow-medium">
+              <CalendarCheck className="w-4 h-4 mr-2" aria-hidden="true" />
+              Book Free Consultation
+            </Button>
+          }
+        />
+      </div>
     </div>
   );
 };
