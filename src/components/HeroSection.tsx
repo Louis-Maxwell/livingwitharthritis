@@ -1,13 +1,12 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { MessageCircle, ArrowDown, CalendarCheck, ShieldCheck, Users } from "lucide-react";
+import { ArrowDown, CalendarCheck, ShieldCheck, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
 import { AppointmentModal } from "@/components/AppointmentModal";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const HeroSection = () => {
-  const navigate = useNavigate();
+  
   const isMobile = useIsMobile();
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -79,15 +78,6 @@ const HeroSection = () => {
                   </Button>
                 }
               />
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={() => navigate("/chat")}
-                className="border border-border/80 text-foreground hover:bg-accent hover:border-primary/20 px-8 h-13 rounded-full text-sm font-medium transition-all duration-300"
-              >
-                <MessageCircle className="w-4 h-4 mr-2.5" />
-                Ask AI Assistant
-              </Button>
             </div>
 
             <motion.div
