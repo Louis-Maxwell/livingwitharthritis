@@ -2,7 +2,7 @@ import { lazy, Suspense, memo } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
-import { FloatingChatButton } from "@/components/FloatingChatButton";
+
 import { useDeferredVisible } from "@/hooks/useDeferredVisible";
 import { AppointmentModal } from "@/components/AppointmentModal";
 import { CalendarCheck } from "lucide-react";
@@ -83,7 +83,7 @@ const Index = () => {
       <Suspense fallback={null}>
         {showDeferred && <DonationNotification />}
       </Suspense>
-      <FloatingChatButton />
+      
 
       {/* Sticky mobile booking bar */}
       <div className="fixed bottom-0 left-0 right-0 z-40 sm:hidden bg-background/95 backdrop-blur-xl border-t border-border/40 px-4 py-3 shadow-large">
