@@ -1,7 +1,7 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import { ArrowLeft, Clock, Calendar, BookOpen, ArrowRight } from "lucide-react";
+import { ArrowLeft, Clock, Calendar, BookOpen, ArrowRight, ExternalLink } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { FloatingChatButton } from "@/components/FloatingChatButton";
@@ -16,10 +16,11 @@ const ArticlePage = () => {
 
   if (!article) return <Navigate to="/blog" replace />;
 
-  // Related articles (same category, exclude current)
-  const related = articles
-    .filter((a) => a.category === article.category && a.slug !== article.slug)
-    .slice(0, 3);
+  // Related articles: use curated relatedLinks first, fall back to same-category
+  const relatedSlugs = article.relatedLinks?.map((r) => r.slug) ?? [];
+  const related = relatedSlugs.length > 0
+    ? relatedSlugs.map((s) => articles.find((a) => a.slug === s)).filter(Boolean) as typeof articles
+    : articles.filter((a) => a.category === article.category && a.slug !== article.slug).slice(0, 3);
 
   const publishedDate = new Date(article.publishedAt).toLocaleDateString("en-GB", {
     day: "numeric",
@@ -155,8 +156,41 @@ const ArticlePage = () => {
                 ))}
               </div>
 
+              {/* Further Reading – inline keyword-rich internal links */}
+              {article.relatedLinks && article.relatedLinks.length > 0 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.3 }}
+                  className="mt-10 p-6 rounded-2xl bg-muted/50 border border-border/40"
+                >
+                  <h3 className="text-sm font-semibold text-foreground mb-4 uppercase tracking-wide">Further Reading</h3>
+                  <ul className="space-y-2.5">
+                    {article.relatedLinks.map((link) => {
+                      const target = articles.find((a) => a.slug === link.slug);
+                      if (!target) return null;
+                      return (
+                        <li key={link.slug} className="flex items-start gap-2.5">
+                          <ArrowRight className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                          <Link
+                            to={`/blog/${link.slug}`}
+                            className="text-primary hover:underline text-sm font-medium leading-snug"
+                            aria-label={`Read our guide on ${link.anchorText}`}
+                          >
+                            {link.anchorText}
+                          </Link>
+                          <span className="text-xs text-muted-foreground ml-auto flex-shrink-0 hidden sm:block">
+                            {target.readTime}
+                          </span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </motion.div>
+              )}
+
               {/* Medical disclaimer */}
-              <div className="mt-10 p-5 rounded-2xl bg-muted/60 border border-border/40">
+              <div className="mt-8 p-5 rounded-2xl bg-muted/60 border border-border/40">
                 <p className="text-xs text-muted-foreground leading-relaxed">
                   <strong className="text-foreground">Medical disclaimer:</strong> This article is for general informational purposes only and does not constitute medical advice. Always consult your GP, rheumatologist, or physiotherapist before making changes to your treatment or exercise programme.
                 </p>

@@ -9,6 +9,8 @@ export interface Article {
   keywords: string[];
   content: string; // markdown-style plain text sections
   sections: { heading: string; body: string }[];
+  /** Curated cross-article links: { slug, anchorText } */
+  relatedLinks?: { slug: string; anchorText: string }[];
 }
 
 export const articles: Article[] = [
@@ -59,6 +61,11 @@ export const articles: Article[] = [
         body: "Always speak to your GP or a physiotherapist before starting a new exercise regime, especially if your arthritis is severe or you have other health conditions. Start slowly, listen to your body, and build duration gradually. Mild discomfort during exercise is normal; sharp or lasting pain is a signal to stop and seek advice.",
       },
     ],
+    relatedLinks: [
+      { slug: "virtual-physiotherapy-arthritis-uk", anchorText: "virtual physiotherapy for arthritis UK" },
+      { slug: "best-diet-for-joint-pain-uk", anchorText: "anti-inflammatory diet to support your exercise programme" },
+      { slug: "knee-pain-arthritis-uk", anchorText: "specific exercises for knee arthritis" },
+    ],
   },
   {
     slug: "best-diet-for-joint-pain-uk",
@@ -107,6 +114,11 @@ export const articles: Article[] = [
         body: "Every kilogram of excess body weight adds approximately 4 kg of pressure on the knee joint. Losing just 5–10% of your body weight can significantly reduce knee pain. A Mediterranean diet naturally supports weight loss without calorie counting. Pairing it with the low-impact exercises described in our exercise guide gives the best outcomes.",
       },
     ],
+    relatedLinks: [
+      { slug: "arthritis-supplements-uk", anchorText: "evidence-based arthritis supplements like turmeric and omega-3" },
+      { slug: "best-exercises-for-arthritis-uk", anchorText: "best exercises for arthritis UK" },
+      { slug: "gout-uk-guide", anchorText: "dietary changes for gout" },
+    ],
   },
   {
     slug: "osteoarthritis-symptoms-uk",
@@ -150,6 +162,11 @@ export const articles: Article[] = [
         heading: "NHS Treatment Pathway",
         body: "Most UK patients are initially managed with lifestyle advice, physiotherapy referral, and analgesics (paracetamol, then NSAIDs if tolerated). Steroid injections are available for severe flare-ups. In cases where joint damage is severe and quality of life significantly impaired, your GP can refer you for joint replacement surgery. Waiting times vary by NHS trust.",
       },
+    ],
+    relatedLinks: [
+      { slug: "best-exercises-for-arthritis-uk", anchorText: "best exercises for osteoarthritis UK" },
+      { slug: "arthritis-medication-uk", anchorText: "arthritis medications available on the NHS" },
+      { slug: "knee-pain-arthritis-uk", anchorText: "managing knee osteoarthritis" },
     ],
   },
   {
@@ -195,6 +212,11 @@ export const articles: Article[] = [
         body: "Many people with RA lead full, active lives with the right treatment. Regular monitoring appointments with your rheumatology team, occupational therapy for joint protection strategies, and the lifestyle measures that help osteoarthritis (low-impact exercise, anti-inflammatory diet) all contribute. UK charities like Versus Arthritis offer excellent peer support networks.",
       },
     ],
+    relatedLinks: [
+      { slug: "arthritis-medication-uk", anchorText: "DMARDs and biologic drugs for rheumatoid arthritis UK" },
+      { slug: "best-exercises-for-arthritis-uk", anchorText: "low-impact exercises suitable for RA patients" },
+      { slug: "best-diet-for-joint-pain-uk", anchorText: "anti-inflammatory diet for rheumatoid arthritis" },
+    ],
   },
   {
     slug: "arthritis-supplements-uk",
@@ -238,6 +260,11 @@ export const articles: Article[] = [
         heading: "Vitamin D",
         body: "Vitamin D deficiency is widespread in the UK due to limited sunlight. Deficiency is associated with increased pain sensitivity, muscle weakness, and worse arthritis outcomes. The NHS recommends all UK residents consider a 10mcg (400 IU) supplement daily in autumn and winter. Those with darker skin or who avoid sun exposure should take it year-round. Higher doses may be appropriate — ask your GP to test your levels.",
       },
+    ],
+    relatedLinks: [
+      { slug: "best-diet-for-joint-pain-uk", anchorText: "anti-inflammatory foods that support joint health" },
+      { slug: "arthritis-medication-uk", anchorText: "NHS arthritis medications explained" },
+      { slug: "rheumatoid-arthritis-uk-guide", anchorText: "fish oil for rheumatoid arthritis" },
     ],
   },
   {
@@ -283,6 +310,11 @@ export const articles: Article[] = [
         body: "Your physiotherapist will take a detailed history of your symptoms, conduct a visual assessment (asking you to demonstrate movement and range of motion on camera), agree goals with you, and prescribe a home exercise programme. They will typically send a follow-up exercise plan via email or app. Subsequent sessions monitor progress and progress the programme.",
       },
     ],
+    relatedLinks: [
+      { slug: "best-exercises-for-arthritis-uk", anchorText: "arthritis exercises to do at home" },
+      { slug: "knee-pain-arthritis-uk", anchorText: "physiotherapy for knee arthritis UK" },
+      { slug: "hip-pain-arthritis-uk", anchorText: "physiotherapy exercises for hip arthritis" },
+    ],
   },
   {
     slug: "knee-pain-arthritis-uk",
@@ -326,6 +358,11 @@ export const articles: Article[] = [
         heading: "Protecting Your Knees Day-to-Day",
         body: "Footwear matters: avoid flat, unsupportive shoes — cushioned trainers reduce knee impact during walking. Using a walking stick in the opposite hand to your affected knee reduces the load. Sitting at a chair height that keeps knees at 90° reduces knee stress. Avoid kneeling on hard surfaces; use knee pads if necessary.",
       },
+    ],
+    relatedLinks: [
+      { slug: "best-exercises-for-arthritis-uk", anchorText: "low-impact exercises for knee arthritis UK" },
+      { slug: "virtual-physiotherapy-arthritis-uk", anchorText: "virtual physiotherapy for knee osteoarthritis" },
+      { slug: "arthritis-medication-uk", anchorText: "knee injection and NHS pain relief options" },
     ],
   },
   {
@@ -371,6 +408,11 @@ export const articles: Article[] = [
         body: "With consistent allopurinol treatment and appropriate diet changes, most people with gout can become effectively attack-free. The target uric acid level is below 360 μmol/L (UK units). Review your GP annually. If taking diuretics for blood pressure, ask whether alternative antihypertensives (such as losartan, which lowers uric acid) are appropriate for you.",
       },
     ],
+    relatedLinks: [
+      { slug: "best-diet-for-joint-pain-uk", anchorText: "anti-inflammatory diet and foods to avoid with arthritis" },
+      { slug: "arthritis-medication-uk", anchorText: "NSAIDs and corticosteroids for gout attacks on the NHS" },
+      { slug: "osteoarthritis-symptoms-uk", anchorText: "difference between gout and osteoarthritis" },
+    ],
   },
   {
     slug: "hip-pain-arthritis-uk",
@@ -414,6 +456,11 @@ export const articles: Article[] = [
         heading: "Day-to-Day Hip Protection",
         body: "Use a raised toilet seat to reduce hip flexion stress. Choose a higher seat height at work and home. When sleeping, place a pillow between your knees to maintain hip alignment. Invest in a walking stick (used in the opposite hand to the affected hip) to redistribute load. Avoid sitting cross-legged or rotating your hip inward aggressively.",
       },
+    ],
+    relatedLinks: [
+      { slug: "best-exercises-for-arthritis-uk", anchorText: "best exercises for hip arthritis UK" },
+      { slug: "virtual-physiotherapy-arthritis-uk", anchorText: "virtual physiotherapy for hip osteoarthritis" },
+      { slug: "arthritis-medication-uk", anchorText: "pain relief and steroid injections for hip OA" },
     ],
   },
   {
@@ -462,6 +509,11 @@ export const articles: Article[] = [
         heading: "Discussing Medications with Your GP",
         body: "Always tell your GP about all medications, supplements, and herbal remedies you take — many interact with arthritis drugs. Ask specifically about your risk of gastrointestinal, cardiovascular, and renal side effects. Request regular medication reviews (at least annually). You have the right to ask for referral to a rheumatologist if you feel your arthritis is not well controlled.",
       },
+    ],
+    relatedLinks: [
+      { slug: "rheumatoid-arthritis-uk-guide", anchorText: "DMARDs and biologic treatment for rheumatoid arthritis" },
+      { slug: "arthritis-supplements-uk", anchorText: "supplements to take alongside arthritis medication" },
+      { slug: "osteoarthritis-symptoms-uk", anchorText: "when to see your GP for osteoarthritis" },
     ],
   },
 ];
