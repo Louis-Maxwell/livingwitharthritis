@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -9,8 +10,6 @@ import { articles, categoryColors } from "@/data/articles";
 import { Badge } from "@/components/ui/badge";
 
 const CATEGORIES = ["All", "Exercise", "Nutrition", "Conditions", "Physiotherapy", "Treatment"];
-
-import { useState } from "react";
 
 const Blog = () => {
   const [activeCategory, setActiveCategory] = useState("All");
