@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Heart, Construction } from "lucide-react";
+import { Menu, X, Heart, Construction, CalendarCheck } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import DonationBanner from "@/components/DonationBanner";
 import AboutUsModal from "@/components/AboutUsModal";
+import { AppointmentModal } from "@/components/AppointmentModal";
 
 const BuildingBanner = () => (
   <div className="bg-navy text-navy-foreground py-2.5 text-center relative overflow-hidden">
@@ -96,17 +97,30 @@ const Header = () => {
             </nav>
 
             {/* Right actions */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
+              <AppointmentModal
+                trigger={
+                  <Button
+                    size="sm"
+                    className="hidden lg:flex btn-primary-cta h-10 px-5 rounded-full text-xs font-bold tracking-wider"
+                    aria-label="Book a free consultation"
+                  >
+                    <CalendarCheck className="w-3.5 h-3.5 mr-1.5" aria-hidden="true" />
+                    Book Free Consultation
+                  </Button>
+                }
+              />
+
               <Button
                 size="sm"
                 onClick={() => {
                   const el = document.getElementById("involved");
                   el?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="hidden sm:flex btn-primary-cta h-10 px-6 rounded-full text-xs font-bold tracking-wider"
+                className="hidden sm:flex btn-primary-cta h-10 px-5 rounded-full text-xs font-bold tracking-wider opacity-70 hover:opacity-100 bg-transparent border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                 aria-label="Donate to Living With Arthritis"
               >
-                <Heart className="w-3.5 h-3.5 mr-2" aria-hidden="true" />
+                <Heart className="w-3.5 h-3.5 mr-1.5" aria-hidden="true" />
                 Donate
               </Button>
 
@@ -185,8 +199,21 @@ const Header = () => {
               </nav>
 
               <div className="p-6 space-y-3 border-t border-border/30">
+                <AppointmentModal
+                  trigger={
+                    <Button
+                      className="w-full btn-primary-cta h-13 rounded-full text-sm font-bold tracking-wider"
+                      aria-label="Book a free consultation"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      <CalendarCheck className="w-4 h-4 mr-2" aria-hidden="true" />
+                      Book Free Consultation
+                    </Button>
+                  }
+                />
                 <Button
-                  className="w-full btn-primary-cta h-13 rounded-full text-sm font-bold tracking-wider"
+                  variant="outline"
+                  className="w-full h-11 rounded-full text-sm font-semibold border-primary/30 text-primary hover:bg-primary/5"
                   onClick={() => {
                     const el = document.getElementById("involved");
                     el?.scrollIntoView({ behavior: "smooth" });
@@ -195,7 +222,7 @@ const Header = () => {
                   aria-label="Donate to Living With Arthritis"
                 >
                   <Heart className="w-4 h-4 mr-2" aria-hidden="true" />
-                  Donate Now
+                  Donate
                 </Button>
               </div>
             </motion.div>

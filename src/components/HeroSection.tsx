@@ -1,8 +1,9 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { MessageCircle, ArrowDown } from "lucide-react";
+import { MessageCircle, ArrowDown, CalendarCheck, ShieldCheck, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
+import { AppointmentModal } from "@/components/AppointmentModal";
 
 const HeroSection = () => {
   const navigate = useNavigate();
@@ -37,23 +38,40 @@ const HeroSection = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="mb-6"
+              className="mb-6 flex items-center gap-3"
             >
-              <span className="section-label text-primary">Supporting 10 Million People</span>
+              <span className="section-label text-primary">Free NHS-Friendly Support · UK Charity</span>
             </motion.div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-display font-bold text-foreground mb-7 leading-[1.04]">
-              Living well with{" "}
-              <span className="text-primary italic">arthritis</span>{" "}
-              starts here
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-display font-bold text-foreground mb-5 leading-[1.04]">
+              Expert arthritis{" "}
+              <span className="text-primary italic">care</span>{" "}
+              for every UK patient
             </h1>
 
-            <p className="text-base sm:text-lg text-muted-foreground leading-[1.8] mb-10 max-w-md">
-              Expert guidance, compassionate care, and a community that
-              understands. We're with you every step of your journey.
+            <p className="text-base sm:text-lg text-muted-foreground leading-[1.8] mb-4 max-w-md">
+              Join over 10 million people in the UK managing arthritis with confidence. Get personalised physiotherapy, nutrition guidance, and ongoing support — all in one place.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            {/* Trust signals */}
+            <div className="flex flex-wrap gap-4 mb-8 text-xs text-muted-foreground">
+              <span className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-primary" /> NHS-aligned care</span>
+              <span className="flex items-center gap-1.5"><Users className="w-3.5 h-3.5 text-primary" /> 10M+ UK patients</span>
+              <span className="flex items-center gap-1.5"><CalendarCheck className="w-3.5 h-3.5 text-primary" /> Free consultation</span>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <AppointmentModal
+                trigger={
+                  <Button
+                    size="lg"
+                    className="btn-primary-cta px-8 h-13 rounded-full text-sm font-bold tracking-wide shadow-large hover:shadow-xl transition-all duration-300"
+                  >
+                    <CalendarCheck className="w-4 h-4 mr-2.5" />
+                    Book Free Consultation
+                  </Button>
+                }
+              />
               <Button
                 size="lg"
                 variant="outline"
@@ -61,7 +79,7 @@ const HeroSection = () => {
                 className="border border-border/80 text-foreground hover:bg-accent hover:border-primary/20 px-8 h-13 rounded-full text-sm font-medium transition-all duration-300"
               >
                 <MessageCircle className="w-4 h-4 mr-2.5" />
-                AI Assistant
+                Ask AI Assistant
               </Button>
             </div>
 
