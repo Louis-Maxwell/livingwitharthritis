@@ -3,7 +3,6 @@ import { MessageCircle, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
-const heroImage = "/images/hero-community.jpg";
 
 const HeroSection = () => {
   const navigate = useNavigate();
@@ -85,16 +84,27 @@ const HeroSection = () => {
             className="order-1 lg:order-2 relative"
           >
             <div className="relative rounded-[2rem] overflow-hidden shadow-large">
-              <motion.img
-                src={heroImage}
-                alt="Diverse community of people being active together in a park"
-                className="w-full h-[300px] sm:h-[400px] lg:h-[560px] object-cover"
-                width={918}
-                height={560}
-                loading="eager"
-                fetchPriority="high"
-                style={{ y: imageY, scale: imageScale }}
-              />
+              <motion.picture style={{ y: imageY, scale: imageScale }} className="block w-full h-[300px] sm:h-[400px] lg:h-[560px]">
+                {/* WebP — modern browsers */}
+                <source
+                  type="image/webp"
+                  srcSet="/images/hero-community.webp 1280w"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
+                />
+                {/* JPEG fallback */}
+                <img
+                  src="/images/hero-community.jpg"
+                  srcSet="/images/hero-community.jpg 918w"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
+                  alt="British community of people being active together in a UK park — walking, cycling and stretching"
+                  className="w-full h-full object-cover"
+                  width={1280}
+                  height={720}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                />
+              </motion.picture>
               <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
             </div>
             {/* Decorative accent */}
