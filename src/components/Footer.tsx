@@ -10,10 +10,12 @@ const Footer = () => {
     getHelp: [
       { label: "Virtual Assistant", href: "/chat" },
       { label: "Self Help Tool", href: "#resources" },
+      { label: "Book Consultation", href: "#", onClick: () => {} },
     ],
     aboutArthritis: [
       { label: "Symptoms & Treatments", href: "#conditions" },
       { label: "Virtual Physiotherapy", href: "#services" },
+      { label: "Articles & Guides", href: "/blog" },
     ],
     aboutUs: [
       { label: "Our Mission", href: "#", onClick: () => setAboutOpen(true) },

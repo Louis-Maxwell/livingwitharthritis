@@ -7,6 +7,7 @@ import { useDeferredVisible } from "@/hooks/useDeferredVisible";
 import { AppointmentModal } from "@/components/AppointmentModal";
 import { CalendarCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import BlogTeaserSection from "@/components/BlogTeaserSection";
 
 // Lazy load below-fold sections for faster initial load
 const ImpactBanner = lazy(() => import("@/components/ImpactBanner"));
@@ -53,6 +54,7 @@ const Index = () => {
         <Suspense fallback={<SectionLoader />}>
           <NutritionArticleSection />
         </Suspense>
+        <BlogTeaserSection />
 
         {/* Deferred sections — only load JS when user scrolls near them */}
         <div ref={deferRef}>
