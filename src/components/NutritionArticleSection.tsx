@@ -120,6 +120,15 @@ const NutritionArticleSection = () => {
                 transition={{ duration: 0.35, delay: i * 0.06 }}
                 className={`group relative rounded-3xl overflow-hidden border border-border/20 hover:border-secondary/30 transition-all duration-500 hover:shadow-large ${item.recipe_text ? "cursor-pointer" : ""}`}
                 onClick={() => item.recipe_text && setSelectedRecipe(item)}
+                role={item.recipe_text ? "button" : undefined}
+                tabIndex={item.recipe_text ? 0 : undefined}
+                aria-label={item.recipe_text ? `View recipe for ${item.title}` : undefined}
+                onKeyDown={(e) => {
+                  if (item.recipe_text && (e.key === "Enter" || e.key === " ")) {
+                    e.preventDefault();
+                    setSelectedRecipe(item);
+                  }
+                }}
               >
                 <div className="aspect-square overflow-hidden">
                   <img
@@ -129,14 +138,14 @@ const NutritionArticleSection = () => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3" aria-hidden="true">
                   <h4 className="text-white text-xs sm:text-sm font-bold leading-tight">{item.title}</h4>
                   <p className="text-white/70 text-[10px] sm:text-[11px] leading-snug mt-1 line-clamp-2">{item.description}</p>
                 </div>
                 <div className="p-3 bg-card flex items-center justify-between gap-2">
                   <h4 className="text-xs font-bold text-foreground leading-tight group-hover:text-secondary transition-colors">{item.title}</h4>
                   {item.recipe_text && (
-                    <ChefHat className="w-3.5 h-3.5 text-secondary shrink-0" />
+                    <ChefHat className="w-3.5 h-3.5 text-secondary shrink-0" aria-hidden="true" />
                   )}
                 </div>
               </motion.div>
@@ -154,8 +163,12 @@ const NutritionArticleSection = () => {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
             onClick={() => setSelectedRecipe(null)}
+            aria-hidden="true"
           >
             <motion.div
+              role="dialog"
+              aria-modal="true"
+              aria-label={`Recipe: ${selectedRecipe?.title}`}
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -180,9 +193,10 @@ const NutritionArticleSection = () => {
                 </div>
                 <button
                   onClick={() => setSelectedRecipe(null)}
-                  className="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center hover:bg-black/60 transition-colors"
+                  aria-label="Close recipe"
+                  className="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center hover:bg-black/60 transition-colors focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
                 >
-                  <X className="w-4 h-4 text-white" />
+                  <X className="w-4 h-4 text-white" aria-hidden="true" />
                 </button>
               </div>
 
