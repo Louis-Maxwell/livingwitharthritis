@@ -56,15 +56,16 @@ const Header = () => {
             ? "bg-background/85 backdrop-blur-2xl shadow-soft border-b border-border/30"
             : "bg-background/40 backdrop-blur-xl border-b border-transparent"
         }`}
+        role="banner"
       >
         <div className="container mx-auto px-6 md:px-10">
           <div className="flex justify-between items-center h-[72px]">
             {/* Logo */}
-            <a href="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center shadow-soft group-hover:shadow-medium transition-shadow duration-300">
+            <a href="/" className="flex items-center gap-3 group" aria-label="Living With Arthritis – home">
+              <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center shadow-soft group-hover:shadow-medium transition-shadow duration-300" aria-hidden="true">
                 <Heart className="w-4.5 h-4.5 text-primary-foreground" />
               </div>
-              <div className="flex flex-col leading-none">
+              <div className="flex flex-col leading-none" aria-hidden="true">
                 <span className="text-[15px] font-display font-bold text-foreground tracking-tight">
                   Living With
                 </span>
@@ -75,7 +76,7 @@ const Header = () => {
             </a>
 
             {/* Desktop nav */}
-            <nav className="hidden lg:flex items-center gap-1">
+            <nav className="hidden lg:flex items-center gap-1" aria-label="Main navigation">
               {navLinks.map((link) => (
                 <button
                   key={link.label}
@@ -87,7 +88,7 @@ const Header = () => {
                       scrollToSection(link.href);
                     }
                   }}
-                  className="px-4 py-2 text-[13px] font-medium text-muted-foreground hover:text-foreground rounded-full hover:bg-accent/60 transition-all duration-300 cursor-pointer"
+                  className="px-4 py-2 text-[13px] font-medium text-muted-foreground hover:text-foreground rounded-full hover:bg-accent/60 transition-all duration-300 cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
                 >
                   {link.label}
                 </button>
@@ -103,8 +104,9 @@ const Header = () => {
                   el?.scrollIntoView({ behavior: "smooth" });
                 }}
                 className="hidden sm:flex btn-primary-cta h-10 px-6 rounded-full text-xs font-bold tracking-wider"
+                aria-label="Donate to Living With Arthritis"
               >
-                <Heart className="w-3.5 h-3.5 mr-2" />
+                <Heart className="w-3.5 h-3.5 mr-2" aria-hidden="true" />
                 Donate
               </Button>
 
@@ -113,8 +115,11 @@ const Header = () => {
                 size="icon"
                 className="lg:hidden rounded-full h-10 w-10"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+                aria-expanded={mobileMenuOpen}
+                aria-controls="mobile-nav-menu"
               >
-                {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                {mobileMenuOpen ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
               </Button>
             </div>
           </div>
@@ -131,8 +136,13 @@ const Header = () => {
               exit={{ opacity: 0 }}
               className="fixed inset-0 bg-foreground/15 backdrop-blur-sm z-[60] lg:hidden"
               onClick={() => setMobileMenuOpen(false)}
+              aria-hidden="true"
             />
             <motion.div
+              id="mobile-nav-menu"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Navigation menu"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
@@ -141,12 +151,18 @@ const Header = () => {
             >
               <div className="flex items-center justify-between p-6 border-b border-border/30">
                 <span className="text-lg font-display font-bold text-foreground">Menu</span>
-                <Button variant="ghost" size="icon" className="rounded-full h-9 w-9" onClick={() => setMobileMenuOpen(false)}>
-                  <X size={18} />
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full h-9 w-9"
+                  onClick={() => setMobileMenuOpen(false)}
+                  aria-label="Close navigation menu"
+                >
+                  <X size={18} aria-hidden="true" />
                 </Button>
               </div>
 
-              <nav className="flex-1 overflow-y-auto px-5 py-6 space-y-1">
+              <nav className="flex-1 overflow-y-auto px-5 py-6 space-y-1" aria-label="Mobile navigation">
                 {navLinks.map((link, i) => (
                   <motion.button
                     key={link.label}
@@ -161,7 +177,7 @@ const Header = () => {
                       }
                       setMobileMenuOpen(false);
                     }}
-                    className="block w-full text-left px-5 py-4 text-[15px] font-medium text-muted-foreground hover:text-foreground hover:bg-accent/60 rounded-2xl transition-all cursor-pointer"
+                    className="block w-full text-left px-5 py-4 text-[15px] font-medium text-muted-foreground hover:text-foreground hover:bg-accent/60 rounded-2xl transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
                   >
                     {link.label}
                   </motion.button>
@@ -176,8 +192,9 @@ const Header = () => {
                     el?.scrollIntoView({ behavior: "smooth" });
                     setMobileMenuOpen(false);
                   }}
+                  aria-label="Donate to Living With Arthritis"
                 >
-                  <Heart className="w-4 h-4 mr-2" />
+                  <Heart className="w-4 h-4 mr-2" aria-hidden="true" />
                   Donate Now
                 </Button>
               </div>
