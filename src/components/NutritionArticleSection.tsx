@@ -4,6 +4,7 @@ import { Utensils, Fish, Cherry, Milk, Leaf, LucideIcon, X, ChefHat } from "luci
 import { useNutritionSections, useNutritionFoodGallery, NutritionFoodGalleryItem } from "@/hooks/useCmsContent";
 import { Skeleton } from "@/components/ui/skeleton";
 import ReactMarkdown from "react-markdown";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const iconMap: Record<string, LucideIcon> = { Fish, Leaf, Cherry, Milk };
 
@@ -11,9 +12,10 @@ const NutritionArticleSection = () => {
   const { data: sections, isLoading } = useNutritionSections();
   const { data: galleryItems, isLoading: galleryLoading } = useNutritionFoodGallery();
   const [selectedRecipe, setSelectedRecipe] = useState<NutritionFoodGalleryItem | null>(null);
+  const isMobile = useIsMobile();
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
-  const orbY = useTransform(scrollYProgress, [0, 1], [60, -60]);
+  const orbY = useTransform(scrollYProgress, [0, 1], isMobile ? [0, 0] : [60, -60]);
 
   return (
     <section ref={sectionRef} id="nutrition" className="py-24 lg:py-36 bg-accent/30 relative overflow-hidden section-divider">

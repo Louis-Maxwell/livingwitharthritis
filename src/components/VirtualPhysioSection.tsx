@@ -10,6 +10,7 @@ import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import { usePhysioMyths, PhysioMyth } from "@/hooks/useCmsContent";
 import { Skeleton } from "@/components/ui/skeleton";
 import { AppointmentModal } from "@/components/AppointmentModal";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const imageMap: Record<string, string> = {
   "/assets/physio-myth-1.jpg": physioMyth1,
@@ -75,9 +76,10 @@ MythCard.displayName = "MythCard";
 
 const VirtualPhysioSection = memo(() => {
   const { data: myths, isLoading } = usePhysioMyths();
+  const isMobile = useIsMobile();
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
-  const ctaBgY = useTransform(scrollYProgress, [0, 1], ["0%", "8%"]);
+  const ctaBgY = useTransform(scrollYProgress, [0, 1], isMobile ? ["0%", "0%"] : ["0%", "8%"]);
 
   return (
     <section ref={sectionRef} className="py-24 lg:py-36 bg-accent/30 relative">

@@ -6,12 +6,14 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useConditions } from "@/hooks/useCmsContent";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const ConditionsSection = memo(() => {
   const { data: conditions, isLoading } = useConditions();
+  const isMobile = useIsMobile();
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
-  const orbY = useTransform(scrollYProgress, [0, 1], [60, -60]);
+  const orbY = useTransform(scrollYProgress, [0, 1], isMobile ? [0, 0] : [60, -60]);
 
   return (
     <section ref={sectionRef} id="conditions" className="py-24 lg:py-36 bg-background relative overflow-hidden section-divider">
