@@ -1,4 +1,4 @@
-import { lazy, Suspense, memo } from "react";
+import { lazy, Suspense, memo, useEffect } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
@@ -8,6 +8,8 @@ import { AppointmentModal } from "@/components/AppointmentModal";
 import { CalendarCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import BlogTeaserSection from "@/components/BlogTeaserSection";
+import { toast } from "sonner";
+import { useSearchParams } from "react-router-dom";
 
 // Lazy load below-fold sections for faster initial load
 const ImpactBanner = lazy(() => import("@/components/ImpactBanner"));
@@ -31,8 +33,22 @@ const SectionLoader = memo(() => (
 SectionLoader.displayName = "SectionLoader";
 
 const Index = () => {
-  // Defer far-below-fold sections until near viewport (200px margin)
+  const [searchParams, setSearchParams] = useSearchParams();
   const [deferRef, showDeferred] = useDeferredVisible<HTMLDivElement>("400px");
+
+  useEffect(() => {
+    const donation = searchParams.get("donation");
+    if (donation === "success") {
+      toast.success("Thank you for your generous donation! 💙", {
+        description: "Your contribution helps people living with arthritis.",
+        duration: 6000,
+      });
+      setSearchParams({}, { replace: true });
+    } else if (donation === "cancelled") {
+      toast.info("Donation cancelled. You can try again any time.");
+      setSearchParams({}, { replace: true });
+    }
+  }, [searchParams, setSearchParams]);
 
   return (
     <div className="min-h-screen bg-background">
