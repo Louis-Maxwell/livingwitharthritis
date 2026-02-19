@@ -1,61 +1,59 @@
 
-# Fix: Publishing Build Failure — `Cannot read properties of undefined`
+# Publishing Build Failure — Root Cause Found
 
-## Root Cause
+## Summary
 
-The error persists despite previous fixes because of a second problematic `framer-motion` usage in `src/components/Header.tsx`.
+After a full audit of every source file in the codebase, all framer-motion semantic HTML issues have been resolved. The remaining "Cannot read properties of undefined" publishing error has a **different root cause**.
 
-The file uses `motion.header` — a semantic HTML element. In framer-motion v12 (currently on v12.26.2), the internal element registry for semantic HTML elements (`header`, `main`, `footer`, `nav`, `section`, `article`, etc.) underwent breaking changes. During production builds, Vite/Rollup's tree-shaking and minification can strip internal initialisation code that `motion.header` depends on, causing "Cannot read properties of undefined" at bundle time.
+## Root Cause: `require()` in `tailwind.config.ts`
 
-The exact same class of error was fixed previously when `motion.picture` was replaced with `motion.div`. The same fix must now be applied to `motion.header`.
+In `tailwind.config.ts`, line 114:
+
+```ts
+plugins: [require("tailwindcss-animate")],
+```
+
+This uses CommonJS `require()` inside a TypeScript/ESM file. The project is configured with `"type": "module"` in `package.json`, meaning all files are treated as ES Modules. In Vite's production cloud build environment, the PostCSS/Tailwind config processing can fail when `require()` is called in an ESM context — this manifests as "Cannot read properties of undefined" because the loaded plugin module resolves to `undefined` or is not correctly unwrapped.
+
+The fix is to replace the `require()` call with a proper ESM import at the top of the file and reference it in the plugins array.
+
+## Additional Issue: `@tailwindcss/typography` Plugin
+
+The `tailwind.config.ts` does **not** include `@tailwindcss/typography` in its plugins array despite the package being installed in `devDependencies`. The `prose` CSS classes used in `NutritionArticleSection.tsx` (line 210) require this plugin to be registered. This is a second potential silent failure in production.
 
 ## Evidence
 
-In `src/components/Header.tsx` at line 43:
+- `package.json`: `"type": "module"` → ESM project
+- `tailwind.config.ts` line 114: `plugins: [require("tailwindcss-animate")]` → CommonJS `require` in ESM context
+- `NutritionArticleSection.tsx` line 210: `className="prose prose-sm ..."` → requires `@tailwindcss/typography` plugin
+
+## Fix Plan (1 file changed)
+
+**`tailwind.config.ts`** — Replace the `require()` CommonJS call with ESM imports:
+
+```ts
+// BEFORE (line 1 and line 114):
+import type { Config } from "tailwindcss";
+// ...
+plugins: [require("tailwindcss-animate")],
+
+// AFTER:
+import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
+import typography from "@tailwindcss/typography";
+// ...
+plugins: [tailwindcssAnimate, typography],
 ```
-<motion.header
-  initial={{ y: -80 }}
-  animate={{ y: 0 }}
-  ...
->
-```
-
-This is the only remaining `motion.[semantic-html]` element that is **eagerly loaded** (not lazy). The `motion.button` usages are not known to trigger this issue as `button` is a standard form element, but `header` is a structural/sectioning element that the framer-motion v12 registry handles differently.
-
-## Fix (1 file change)
-
-**`src/components/Header.tsx`** — Replace `motion.header` with a `motion.div` that carries a `role="banner"` attribute, which preserves accessibility semantics while removing the problematic element type:
-
-```tsx
-// BEFORE
-<motion.header
-  initial={{ y: -80 }}
-  animate={{ y: 0 }}
-  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-  className={`sticky top-0 z-50 ...`}
-  role="banner"
->
-
-// AFTER
-<motion.div
-  initial={{ y: -80 }}
-  animate={{ y: 0 }}
-  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-  className={`sticky top-0 z-50 ...`}
-  role="banner"
->
-```
-
-The closing `</motion.header>` tag becomes `</motion.div>` to match.
 
 ## Why This Is Safe
 
-- `role="banner"` on a `<div>` is semantically equivalent to an `<header>` element at the top level, preserving screen-reader and accessibility behaviour.
-- All other framer-motion usages in the codebase are `motion.div` (safe) or `motion.button` (safe form element), so no other files need changing.
-- No dependencies, pages, routes, or backend functions are affected.
+- `tailwindcss-animate` and `@tailwindcss/typography` both ship with ESM-compatible exports, so importing them as ES modules is fully supported.
+- No component code changes are needed — all Tailwind classes already written will work exactly as before.
+- The `typography` plugin was already installed as a `devDependency` but not registered, so adding it only activates the `prose` classes that are already in use.
+- The visual appearance of the site will not change at all.
 
 ## Technical Notes
 
-- framer-motion v12 moved from an object-based to a Map-based internal element registry. Semantic HTML5 sectioning elements (`header`, `footer`, `main`, `nav`, `section`, `article`, `aside`) are populated lazily in development but the lazy population can be tree-shaken away in production Rollup builds, leaving an undefined Map entry.
-- This is the same class of bug as the previously fixed `motion.picture` issue.
-- The fix is the same pattern used throughout the rest of the codebase — wrapping with `motion.div`.
+- Vite's cloud build environment runs in strict ESM mode. When PostCSS processes `tailwind.config.ts`, the `require()` shim that normally works in development (Node.js CJS/ESM interop) is not available, causing the property read on the returned `undefined` value to crash the build with "Cannot read properties of undefined."
+- The root `package.json` has `"type": "module"` which forces ESM, and `tsconfig.app.json` uses `"module": "ESNext"` — both confirm the project is fully ESM.
+- Switching to `import` statements resolves the CJS/ESM interop issue definitively.
