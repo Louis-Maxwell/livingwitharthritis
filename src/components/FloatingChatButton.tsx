@@ -32,10 +32,9 @@ export function FloatingChatButton() {
               {/* Close button */}
               <button
                 onClick={() => setOpen(false)}
-                aria-label="Close AI assistant"
-                className="absolute top-3 right-3 z-10 w-7 h-7 rounded-full bg-muted/80 hover:bg-muted flex items-center justify-center transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
+                className="absolute top-3 right-3 z-10 w-7 h-7 rounded-full bg-muted/80 hover:bg-muted flex items-center justify-center transition-colors"
               >
-                <X className="h-3.5 w-3.5 text-muted-foreground" aria-hidden="true" />
+                <X className="h-3.5 w-3.5 text-muted-foreground" />
               </button>
               <Suspense fallback={
                 <div className="flex items-center justify-center h-full">
@@ -54,10 +53,7 @@ export function FloatingChatButton() {
         onClick={() => setOpen(!open)}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        aria-label={open ? "Close AI assistant" : "Open AI assistant"}
-        aria-expanded={open}
-        aria-haspopup="dialog"
-        className={`fixed bottom-6 right-4 sm:right-6 z-[85] h-14 w-14 rounded-full shadow-lg flex items-center justify-center transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${
+        className={`fixed bottom-6 right-4 sm:right-6 z-[85] h-14 w-14 rounded-full shadow-lg flex items-center justify-center transition-colors ${
           open
             ? "bg-muted text-muted-foreground"
             : "bg-primary text-primary-foreground"

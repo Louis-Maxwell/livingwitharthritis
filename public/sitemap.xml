@@ -4,85 +4,16 @@
   <url>
     <loc>https://livingwitharthritis.org.uk/</loc>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://livingwitharthritis.org.uk/" />
-    <lastmod>2026-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog</loc>
-    <lastmod>2026-02-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/best-exercises-for-arthritis-uk</loc>
-    <lastmod>2026-02-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/best-diet-for-joint-pain-uk</loc>
-    <lastmod>2026-02-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/osteoarthritis-symptoms-uk</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/rheumatoid-arthritis-uk-guide</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/arthritis-supplements-uk</loc>
-    <lastmod>2026-02-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/virtual-physiotherapy-arthritis-uk</loc>
-    <lastmod>2026-02-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/knee-pain-arthritis-uk</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/gout-uk-guide</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/hip-pain-arthritis-uk</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/arthritis-medication-uk</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/chat</loc>
-    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/auth</loc>
-    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

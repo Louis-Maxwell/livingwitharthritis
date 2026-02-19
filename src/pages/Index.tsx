@@ -1,15 +1,9 @@
-import { lazy, Suspense, memo, useEffect } from "react";
+import { lazy, Suspense, memo } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
-
+import { FloatingChatButton } from "@/components/FloatingChatButton";
 import { useDeferredVisible } from "@/hooks/useDeferredVisible";
-import { AppointmentModal } from "@/components/AppointmentModal";
-import { CalendarCheck } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import BlogTeaserSection from "@/components/BlogTeaserSection";
-import { toast } from "sonner";
-import { useSearchParams } from "react-router-dom";
 
 // Lazy load below-fold sections for faster initial load
 const ImpactBanner = lazy(() => import("@/components/ImpactBanner"));
@@ -33,22 +27,8 @@ const SectionLoader = memo(() => (
 SectionLoader.displayName = "SectionLoader";
 
 const Index = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  // Defer far-below-fold sections until near viewport (200px margin)
   const [deferRef, showDeferred] = useDeferredVisible<HTMLDivElement>("400px");
-
-  useEffect(() => {
-    const donation = searchParams.get("donation");
-    if (donation === "success") {
-      toast.success("Thank you for your generous donation! 💙", {
-        description: "Your contribution helps people living with arthritis.",
-        duration: 6000,
-      });
-      setSearchParams({}, { replace: true });
-    } else if (donation === "cancelled") {
-      toast.info("Donation cancelled. You can try again any time.");
-      setSearchParams({}, { replace: true });
-    }
-  }, [searchParams, setSearchParams]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -70,7 +50,6 @@ const Index = () => {
         <Suspense fallback={<SectionLoader />}>
           <NutritionArticleSection />
         </Suspense>
-        <BlogTeaserSection />
 
         {/* Deferred sections — only load JS when user scrolls near them */}
         <div ref={deferRef}>
@@ -99,19 +78,7 @@ const Index = () => {
       <Suspense fallback={null}>
         {showDeferred && <DonationNotification />}
       </Suspense>
-      
-
-      {/* Sticky mobile booking bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 sm:hidden bg-background/95 backdrop-blur-xl border-t border-border/40 px-4 py-3 shadow-large">
-        <AppointmentModal
-          trigger={
-            <Button className="w-full btn-primary-cta h-12 rounded-full text-sm font-bold tracking-wide shadow-medium">
-              <CalendarCheck className="w-4 h-4 mr-2" aria-hidden="true" />
-              Book Free Consultation
-            </Button>
-          }
-        />
-      </div>
+      <FloatingChatButton />
     </div>
   );
 };
