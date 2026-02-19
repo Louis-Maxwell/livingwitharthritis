@@ -53,22 +53,20 @@ export default function AuthPage() {
         <div className="bg-card/80 backdrop-blur-xl border border-border/50 rounded-2xl shadow-2xl p-8">
           {/* Header */}
           <div className="text-center mb-8">
-            <motion.h1 
+          <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="font-display text-3xl font-bold text-foreground mb-2"
             >
-              Welcome Back
-            </motion.h1>
-            <motion.p 
+              <h1 className="font-display text-3xl font-bold text-foreground mb-2">Welcome Back</h1>
+            </motion.div>
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="text-muted-foreground"
             >
-              Sign in to access the virtual physiotherapy assistant
-            </motion.p>
+              <p className="text-muted-foreground">Sign in to access the virtual physiotherapy assistant</p>
+            </motion.div>
           </div>
 
           {/* Auth UI */}
