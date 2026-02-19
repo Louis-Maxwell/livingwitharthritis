@@ -40,7 +40,7 @@ const Header = () => {
       
       <DonationBanner />
 
-      <motion.header
+      <motion.div
         initial={{ y: -80 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -130,7 +130,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-      </motion.header>
+      </motion.div>
 
       {/* Mobile menu */}
       <AnimatePresence>
