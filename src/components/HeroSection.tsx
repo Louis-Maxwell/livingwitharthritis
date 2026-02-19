@@ -14,8 +14,9 @@ const HeroSection = () => {
     offset: ["start start", "end start"],
   });
 
-  // Parallax transforms (content only)
-
+  // Disable parallax on mobile to prevent layout gaps and jank
+  const imageY = useTransform(scrollYProgress, [0, 1], isMobile ? ["0%", "0%"] : ["0%", "18%"]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], isMobile ? [1, 1] : [1, 1.08]);
   const contentY = useTransform(scrollYProgress, [0, 1], isMobile ? ["0%", "0%"] : ["0%", "12%"]);
   const orbX = useTransform(scrollYProgress, [0, 1], isMobile ? [0, 0] : [0, 60]);
   const orbY = useTransform(scrollYProgress, [0, 1], isMobile ? [0, 0] : [0, -40]);
@@ -90,29 +91,38 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Decorative visual panel */}
+          {/* Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             className="order-1 lg:order-2 relative"
           >
-            <div className="relative rounded-[2rem] overflow-hidden shadow-large w-full h-[300px] sm:h-[400px] lg:h-[560px] bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/20 flex items-center justify-center">
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 to-secondary/5" />
-              <div className="relative text-center px-10 space-y-6">
-                <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
-                  <ShieldCheck className="w-10 h-10 text-primary" />
-                </div>
-                <p className="text-2xl font-display font-bold text-foreground leading-tight">
-                  10 million people<br /><span className="text-primary italic">living with arthritis</span><br />in the UK
-                </p>
-                <p className="text-sm text-muted-foreground/70 max-w-xs mx-auto leading-relaxed">
-                  Expert support, free consultations, and a community that understands.
-                </p>
-              </div>
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 rounded-full bg-primary/5" />
-              <div className="absolute -top-6 -left-6 w-24 h-24 rounded-full bg-secondary/5" />
+            <div className="relative rounded-[2rem] overflow-hidden shadow-large">
+              <motion.picture style={{ y: imageY, scale: imageScale }} className="block w-full h-[300px] sm:h-[400px] lg:h-[560px]">
+                {/* WebP — modern browsers */}
+                <source
+                  type="image/webp"
+                  srcSet="/images/hero-community.webp 1280w"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
+                />
+                {/* JPEG fallback */}
+                <img
+                  src="/images/hero-community.jpg"
+                  srcSet="/images/hero-community.jpg 918w"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
+                  alt="British community of people being active together in a UK park — walking, cycling and stretching"
+                  className="w-full h-full object-cover"
+                  width={1280}
+                  height={720}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                />
+              </motion.picture>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
             </div>
+            {/* Decorative accent */}
             <div className="absolute -bottom-4 -right-4 w-24 h-24 rounded-2xl bg-primary/5 -z-10" />
             <div className="absolute -top-4 -left-4 w-16 h-16 rounded-2xl bg-secondary/5 -z-10" />
           </motion.div>

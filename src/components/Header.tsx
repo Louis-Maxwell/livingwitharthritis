@@ -1,10 +1,23 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Heart, CalendarCheck } from "lucide-react";
+import { Menu, X, Heart, Construction, CalendarCheck } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import DonationBanner from "@/components/DonationBanner";
 import AboutUsModal from "@/components/AboutUsModal";
 import { AppointmentModal } from "@/components/AppointmentModal";
+
+const BuildingBanner = () => (
+  <div className="bg-navy text-navy-foreground py-2.5 text-center relative overflow-hidden">
+    <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-primary/10" />
+    <div className="container mx-auto px-6 flex items-center justify-center gap-2.5 relative">
+      <Construction className="w-3.5 h-3.5 text-gold animate-pulse" />
+      <p className="text-[11px] sm:text-xs font-medium tracking-wide">
+        This website is currently being built — some features may be incomplete.
+      </p>
+      <Construction className="w-3.5 h-3.5 text-gold animate-pulse hidden sm:block" />
+    </div>
+  </div>
+);
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -37,10 +50,10 @@ const Header = () => {
 
   return (
     <>
-      
+      <BuildingBanner />
       <DonationBanner />
 
-      <motion.div
+      <motion.header
         initial={{ y: -80 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -130,7 +143,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-      </motion.div>
+      </motion.header>
 
       {/* Mobile menu */}
       <AnimatePresence>

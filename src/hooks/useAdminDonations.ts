@@ -11,11 +11,6 @@ interface Donation {
   donor_email: string | null;
   donor_location: string | null;
   donor_country: string | null;
-  donor_address_line1: string | null;
-  donor_address_line2: string | null;
-  donor_city: string | null;
-  donor_postcode: string | null;
-  gift_aid: boolean | null;
   created_at: string;
 }
 

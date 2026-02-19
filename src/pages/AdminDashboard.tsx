@@ -14,7 +14,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowLeft, DollarSign, Users, TrendingUp, PiggyBank, CalendarDays, ExternalLink, Download } from "lucide-react";
+import { ArrowLeft, DollarSign, Users, TrendingUp, PiggyBank, CalendarDays, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
 
@@ -59,61 +59,6 @@ const AdminDashboard = () => {
       general: "General Fund",
     };
     return labels[fund] || fund;
-  };
-
-  const exportGiftAidCSV = () => {
-    const giftAidDonations = donations.filter((d) => d.gift_aid);
-
-    if (giftAidDonations.length === 0) {
-      alert("No Gift Aid donations to export.");
-      return;
-    }
-
-    const headers = [
-      "Title",
-      "First Name",
-      "Last Name",
-      "House Name or Number",
-      "Postcode",
-      "Donation Date",
-      "Donation Amount",
-      "Currency",
-    ];
-
-    const rows = giftAidDonations.map((d) => {
-      const nameParts = (d.donor_name || "").trim().split(" ");
-      const firstName = nameParts.slice(0, -1).join(" ") || nameParts[0] || "";
-      const lastName = nameParts.length > 1 ? nameParts[nameParts.length - 1] : "";
-      const donationDate = format(new Date(d.created_at), "dd/MM/yyyy");
-      const address = [d.donor_address_line1, d.donor_address_line2, d.donor_city]
-        .filter(Boolean)
-        .join(", ");
-
-      return [
-        "",
-        firstName,
-        lastName,
-        address || (d.donor_location ?? ""),
-        d.donor_postcode ?? "",
-        donationDate,
-        Number(d.amount).toFixed(2),
-        d.currency,
-      ];
-    });
-
-    const csvContent = [headers, ...rows]
-      .map((row) => row.map((cell) => `"${String(cell).replace(/"/g, '""')}"`).join(","))
-      .join("\n");
-
-    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = `gift-aid-export-${format(new Date(), "yyyy-MM-dd")}.csv`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
   };
 
   return (
@@ -238,17 +183,8 @@ const AdminDashboard = () => {
 
             {/* Donations Table */}
             <Card>
-              <CardHeader className="flex flex-row items-center justify-between">
+              <CardHeader>
                 <CardTitle>All Donations</CardTitle>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="gap-2"
-                  onClick={exportGiftAidCSV}
-                >
-                  <Download className="w-4 h-4" />
-                  Export Gift Aid CSV
-                </Button>
               </CardHeader>
               <CardContent>
                 {donations.length === 0 ? (
