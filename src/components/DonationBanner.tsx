@@ -2,14 +2,15 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import PayPalDonationModal from "./PayPalDonationModal";
+import { Loader2 } from "lucide-react";
+import { useStripeDonation } from "@/hooks/useStripeDonation";
 
 const DonationBanner = () => {
   const [amount, setAmount] = useState("");
   const [currency, setCurrency] = useState("GBP");
   const [fundType, setFundType] = useState("research");
   const [selectedQuickAmount, setSelectedQuickAmount] = useState<number | null>(100);
-  const [isPayPalModalOpen, setIsPayPalModalOpen] = useState(false);
+  const { processDonation, isLoading } = useStripeDonation();
 
   const quickAmounts = [25, 50, 100, 250];
 
@@ -24,10 +25,10 @@ const DonationBanner = () => {
     setSelectedQuickAmount(quickAmounts.includes(numValue) ? numValue : null);
   };
 
-  const handleDonate = () => {
+  const handleDonate = async () => {
     const donationAmount = parseFloat(amount) || selectedQuickAmount || 0;
     if (donationAmount <= 0) return;
-    setIsPayPalModalOpen(true);
+    await processDonation({ amount: donationAmount, currency, fundType });
   };
 
   const getCurrencySymbol = () => {
@@ -111,22 +112,14 @@ const DonationBanner = () => {
           <Button
             size="sm"
             onClick={handleDonate}
-            disabled={!amount && !selectedQuickAmount}
+            disabled={(!amount && !selectedQuickAmount) || isLoading}
             className="btn-primary-cta px-5 h-8 text-[11px] font-bold tracking-widest rounded-full"
             aria-label={`Donate ${getCurrencySymbol()}${getDonationAmount()} to ${fundType} fund`}
           >
-            DONATE
+            {isLoading ? <Loader2 className="w-3 h-3 animate-spin" /> : "DONATE"}
           </Button>
         </div>
       </div>
-
-      <PayPalDonationModal
-        isOpen={isPayPalModalOpen}
-        onClose={() => setIsPayPalModalOpen(false)}
-        amount={getDonationAmount()}
-        currency={currency}
-        fundType={fundType}
-      />
     </div>
   );
 };

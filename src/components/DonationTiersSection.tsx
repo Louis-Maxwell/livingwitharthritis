@@ -1,24 +1,25 @@
 import { memo, useState } from "react";
-import { Check } from "lucide-react";
+import { Check, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useDonationTiers } from "@/hooks/useCmsContent";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
-import PayPalDonationModal from "./PayPalDonationModal";
+import { useStripeDonation } from "@/hooks/useStripeDonation";
 
 const DonationTiersSection = memo(() => {
-  const { data: tiers, isLoading } = useDonationTiers();
-  const [paypalOpen, setPaypalOpen] = useState(false);
-  const [selectedAmount, setSelectedAmount] = useState(0);
+  const { data: tiers, isLoading: tiersLoading } = useDonationTiers();
+  const { processDonation, isLoading } = useStripeDonation();
+  const [loadingTierId, setLoadingTierId] = useState<string | null>(null);
 
   const parseAmount = (amount: string): number => {
     const num = parseFloat(amount.replace(/[^0-9.]/g, ''));
     return isNaN(num) ? 0 : num;
   };
 
-  const handleDonate = (amount: string) => {
-    setSelectedAmount(parseAmount(amount));
-    setPaypalOpen(true);
+  const handleDonate = async (tierId: string, amount: string) => {
+    setLoadingTierId(tierId);
+    await processDonation({ amount: parseAmount(amount), currency: "GBP", fundType: "general" });
+    setLoadingTierId(null);
   };
 
   const tierStyles = [
@@ -49,7 +50,7 @@ const DonationTiersSection = memo(() => {
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {isLoading ? (
+          {tiersLoading ? (
             Array.from({ length: 3 }).map((_, i) => (
               <div key={i} className="bg-card rounded-2xl p-8 border border-border">
                 <Skeleton className="h-10 w-28 mb-6" />
@@ -61,6 +62,7 @@ const DonationTiersSection = memo(() => {
           ) : (
             tiers?.map((tier, i) => {
               const style = tierStyles[i] || tierStyles[0];
+              const isThisLoading = loadingTierId === tier.id;
               return (
                 <motion.div
                   key={tier.id}
@@ -93,10 +95,15 @@ const DonationTiersSection = memo(() => {
                         </ul>
 
                         <Button
-                          onClick={() => handleDonate(tier.amount)}
+                          onClick={() => handleDonate(tier.id, tier.amount)}
+                          disabled={isLoading}
                           className="w-full bg-white/12 hover:bg-white/20 text-white border border-white/15 hover:border-white/30 font-semibold h-10 rounded-full transition-all text-xs"
                         >
-                          Donate {tier.amount}
+                          {isThisLoading ? (
+                            <Loader2 className="w-4 h-4 animate-spin" />
+                          ) : (
+                            `Donate ${tier.amount}`
+                          )}
                         </Button>
                       </div>
                     </div>
@@ -107,14 +114,6 @@ const DonationTiersSection = memo(() => {
           )}
         </div>
       </div>
-
-      <PayPalDonationModal
-        isOpen={paypalOpen}
-        onClose={() => setPaypalOpen(false)}
-        amount={selectedAmount}
-        currency="GBP"
-        fundType="general"
-      />
     </section>
   );
 });
