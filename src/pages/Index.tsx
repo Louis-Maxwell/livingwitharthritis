@@ -20,7 +20,6 @@ const NutritionArticleSection = lazy(() => import("@/components/NutritionArticle
 const ConditionsSection = lazy(() => import("@/components/ConditionsSection"));
 const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
 const FundraisingSection = lazy(() => import("@/components/FundraisingSection"));
-
 const DonationNotification = lazy(() => import("@/components/DonationNotification"));
 const JointExerciseSection = lazy(() => import("@/components/JointExerciseSection"));
 
@@ -32,12 +31,13 @@ const SectionLoader = memo(() => (
 ));
 SectionLoader.displayName = "SectionLoader";
 
-const Index = () => {
+export default function Index() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [deferRef, showDeferred] = useDeferredVisible<HTMLDivElement>("400px");
 
   useEffect(() => {
     const donation = searchParams.get("donation");
+
     if (donation === "success") {
       toast.success("Thank you for your generous donation! 💙", {
         description: "Your contribution helps people living with arthritis.",
@@ -53,47 +53,57 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+
       <main>
         <HeroSection />
-        <Suspense fallback={<SectionLoader />}></Suspense>
+
         <Suspense fallback={<SectionLoader />}>
           <AboutSection />
         </Suspense>
+
         <Suspense fallback={<SectionLoader />}>
           <ServicesGrid />
         </Suspense>
+
         <Suspense fallback={<SectionLoader />}>
           <VirtualPhysioSection />
         </Suspense>
+
         <Suspense fallback={<SectionLoader />}>
           <NutritionArticleSection />
         </Suspense>
+
         <BlogTeaserSection />
 
-        {/* Deferred sections — only load JS when user scrolls near them */}
+        {/* Deferred sections — only load when user scrolls near them */}
         <div ref={deferRef}>
           {showDeferred ? (
             <>
               <Suspense fallback={<SectionLoader />}>
                 <ConditionsSection />
               </Suspense>
+
               <Suspense fallback={<SectionLoader />}>
                 <TestimonialsSection />
               </Suspense>
+
               <Suspense fallback={<SectionLoader />}>
                 <FundraisingSection />
               </Suspense>
+
               <Suspense fallback={<SectionLoader />}>
                 <JointExerciseSection />
               </Suspense>
             </>
           ) : (
-            // Placeholder height so footer doesn't jump
-            <div className="py-16" />
+            // Prevent layout jump / footer shift
+            <div className="min-h-[60vh] sm:min-h-[80vh]" />
           )}
         </div>
       </main>
+
       <Footer />
+
       <Suspense fallback={null}>{showDeferred && <DonationNotification />}</Suspense>
 
       {/* Sticky mobile booking bar */}
@@ -109,6 +119,4 @@ const Index = () => {
       </div>
     </div>
   );
-};
-
-export default Index;
+}
