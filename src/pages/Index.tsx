@@ -55,9 +55,7 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
-        <Suspense fallback={<SectionLoader />}>
-          
-        </Suspense>
+        <Suspense fallback={<SectionLoader />}></Suspense>
         <Suspense fallback={<SectionLoader />}>
           <AboutSection />
         </Suspense>
@@ -96,10 +94,7 @@ const Index = () => {
         </div>
       </main>
       <Footer />
-      <Suspense fallback={null}>
-        {showDeferred && <DonationNotification />}
-      </Suspense>
-      
+      <Suspense fallback={null}>{showDeferred && <DonationNotification />}</Suspense>
 
       {/* Sticky mobile booking bar */}
       <div className="fixed bottom-0 left-0 right-0 z-40 sm:hidden bg-background/95 backdrop-blur-xl border-t border-border/40 px-4 py-3 shadow-large">
