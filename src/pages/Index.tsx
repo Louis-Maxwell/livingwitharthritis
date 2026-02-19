@@ -12,7 +12,7 @@ import { toast } from "sonner";
 import { useSearchParams } from "react-router-dom";
 
 // Lazy load below-fold sections for faster initial load
-const ImpactBanner = lazy(() => import("@/components/ImpactBanner"));
+
 const AboutSection = lazy(() => import("@/components/AboutSection"));
 const ServicesGrid = lazy(() => import("@/components/ServicesGrid"));
 const VirtualPhysioSection = lazy(() => import("@/components/VirtualPhysioSection"));
@@ -55,9 +55,6 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
-        <Suspense fallback={<SectionLoader />}>
-          
-        </Suspense>
         <Suspense fallback={<SectionLoader />}>
           <AboutSection />
         </Suspense>

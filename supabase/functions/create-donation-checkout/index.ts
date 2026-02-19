@@ -1,24 +1,10 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import Stripe from "https://esm.sh/stripe@18.5.0";
 
-const ALLOWED_ORIGINS = [
-  "https://id-preview--0b2fd6ca-4e21-4ac7-99fa-d741e996f45e.lovable.app",
-  "https://livingwitharthritis.org.uk",
-  "https://www.livingwitharthritis.org.uk",
-  "http://localhost:8080",
-  "http://localhost:5173",
-  "http://localhost:3000",
-];
-
-function getCorsHeaders(req: Request): Record<string, string> {
-  const origin = req.headers.get("Origin") || "";
-  const allowedOrigin = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
-  
-  return {
-    "Access-Control-Allow-Origin": allowedOrigin,
-    "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-  };
-}
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
+};
 
 // Input validation
 const VALID_CURRENCIES = ["GBP", "USD", "EUR"];
@@ -32,6 +18,11 @@ interface DonationRequest {
   fundType: string;
   donorName?: string;
   donorEmail?: string;
+  giftAid?: boolean;
+  addressLine1?: string;
+  addressLine2?: string;
+  city?: string;
+  postcode?: string;
 }
 
 function validateDonation(data: unknown): { valid: boolean; error?: string; donation?: DonationRequest } {
@@ -39,7 +30,7 @@ function validateDonation(data: unknown): { valid: boolean; error?: string; dona
     return { valid: false, error: "Invalid request body" };
   }
 
-  const { amount, currency, fundType, donorName, donorEmail } = data as Record<string, unknown>;
+  const { amount, currency, fundType, donorName, donorEmail, giftAid, addressLine1, addressLine2, city, postcode } = data as Record<string, unknown>;
 
   if (typeof amount !== "number" || isNaN(amount)) {
     return { valid: false, error: "Amount must be a valid number" };
@@ -68,6 +59,20 @@ function validateDonation(data: unknown): { valid: boolean; error?: string; dona
     }
   }
 
+  // Validate Gift Aid address fields (required when giftAid is true)
+  if (giftAid === true) {
+    if (!addressLine1 || typeof addressLine1 !== "string" || addressLine1.trim().length === 0) {
+      return { valid: false, error: "Address line 1 is required for Gift Aid" };
+    }
+    if (!city || typeof city !== "string" || city.trim().length === 0) {
+      return { valid: false, error: "Town/City is required for Gift Aid" };
+    }
+    const postcodeRegex = /^[A-Z]{1,2}[0-9][0-9A-Z]?\s?[0-9][A-Z]{2}$/i;
+    if (!postcode || typeof postcode !== "string" || !postcodeRegex.test(postcode.trim())) {
+      return { valid: false, error: "Valid UK postcode is required for Gift Aid" };
+    }
+  }
+
   return {
     valid: true,
     donation: {
@@ -76,13 +81,16 @@ function validateDonation(data: unknown): { valid: boolean; error?: string; dona
       fundType: fundType as string,
       donorName: donorName as string | undefined,
       donorEmail: donorEmail as string | undefined,
+      giftAid: Boolean(giftAid),
+      addressLine1: addressLine1 as string | undefined,
+      addressLine2: addressLine2 as string | undefined,
+      city: city as string | undefined,
+      postcode: postcode as string | undefined,
     },
   };
 }
 
 serve(async (req) => {
-  const corsHeaders = getCorsHeaders(req);
-
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
@@ -91,7 +99,6 @@ serve(async (req) => {
     const stripeKey = Deno.env.get("STRIPE_SECRET_KEY");
     if (!stripeKey) throw new Error("STRIPE_SECRET_KEY is not set");
 
-    // Parse and validate request body
     let requestBody: unknown;
     try {
       requestBody = await req.json();
@@ -115,9 +122,20 @@ serve(async (req) => {
     // Convert to smallest currency unit (pence/cents)
     const amountInSmallestUnit = Math.round(donation!.amount * 100);
 
+    // Gift Aid increases effective value by 25% — shown in product description
+    const giftAidNote = donation!.giftAid
+      ? ` (+25% Gift Aid = £${(donation!.amount * 1.25).toFixed(2)} effective value)`
+      : "";
+
     const stripe = new Stripe(stripeKey, { apiVersion: "2025-08-27.basil" });
 
-    // Create checkout session with dynamic price_data for donations
+    const fundLabels: Record<string, string> = {
+      research: "Arthritis Research Fund",
+      support: "Patient Support Fund",
+      helpline: "Helpline Support",
+      general: "General Donation",
+    };
+
     const session = await stripe.checkout.sessions.create({
       customer_email: donation!.donorEmail || undefined,
       line_items: [
@@ -125,8 +143,8 @@ serve(async (req) => {
           price_data: {
             currency: donation!.currency.toLowerCase(),
             product_data: {
-              name: `Donation - ${donation!.fundType}`,
-              description: `Thank you for your generous donation to ${donation!.fundType}`,
+              name: `${fundLabels[donation!.fundType] || donation!.fundType}${donation!.giftAid ? " (Gift Aid)" : ""}`,
+              description: `Thank you for your generous donation${giftAidNote}`,
             },
             unit_amount: amountInSmallestUnit,
           },
@@ -139,6 +157,11 @@ serve(async (req) => {
       metadata: {
         fundType: donation!.fundType,
         donorName: donation!.donorName || "Anonymous",
+        giftAid: donation!.giftAid ? "true" : "false",
+        addressLine1: donation!.addressLine1 || "",
+        addressLine2: donation!.addressLine2 || "",
+        city: donation!.city || "",
+        postcode: donation!.postcode || "",
       },
     });
 

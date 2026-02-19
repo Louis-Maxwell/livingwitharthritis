@@ -8,6 +8,11 @@ interface DonationData {
   fundType: string;
   donorName?: string;
   donorEmail?: string;
+  giftAid?: boolean;
+  addressLine1?: string;
+  addressLine2?: string;
+  city?: string;
+  postcode?: string;
 }
 
 export function useStripeDonation() {

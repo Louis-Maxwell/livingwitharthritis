@@ -285,14 +285,20 @@ export type Database = {
           amount: number
           created_at: string
           currency: string
+          donor_address_line1: string | null
+          donor_address_line2: string | null
+          donor_city: string | null
           donor_country: string | null
           donor_email: string | null
           donor_location: string | null
           donor_name: string | null
+          donor_postcode: string | null
           fund_type: string
+          gift_aid: boolean | null
           id: string
           payment_intent_id: string | null
           status: string
+          stripe_session_id: string | null
           updated_at: string
           user_id: string | null
         }
@@ -300,14 +306,20 @@ export type Database = {
           amount: number
           created_at?: string
           currency?: string
+          donor_address_line1?: string | null
+          donor_address_line2?: string | null
+          donor_city?: string | null
           donor_country?: string | null
           donor_email?: string | null
           donor_location?: string | null
           donor_name?: string | null
+          donor_postcode?: string | null
           fund_type?: string
+          gift_aid?: boolean | null
           id?: string
           payment_intent_id?: string | null
           status?: string
+          stripe_session_id?: string | null
           updated_at?: string
           user_id?: string | null
         }
@@ -315,14 +327,20 @@ export type Database = {
           amount?: number
           created_at?: string
           currency?: string
+          donor_address_line1?: string | null
+          donor_address_line2?: string | null
+          donor_city?: string | null
           donor_country?: string | null
           donor_email?: string | null
           donor_location?: string | null
           donor_name?: string | null
+          donor_postcode?: string | null
           fund_type?: string
+          gift_aid?: boolean | null
           id?: string
           payment_intent_id?: string | null
           status?: string
+          stripe_session_id?: string | null
           updated_at?: string
           user_id?: string | null
         }
