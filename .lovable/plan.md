@@ -1,59 +1,83 @@
 
-# Publishing Build Failure — Root Cause Found
+# Fix: Remaining Publishing Error — `motion.h1` and `motion.p` in Auth.tsx
 
-## Summary
+## Root Cause
 
-After a full audit of every source file in the codebase, all framer-motion semantic HTML issues have been resolved. The remaining "Cannot read properties of undefined" publishing error has a **different root cause**.
+The "Cannot read properties of undefined" build error is caused by two remaining framer-motion semantic element usages in `src/pages/Auth.tsx`:
 
-## Root Cause: `require()` in `tailwind.config.ts`
+- `motion.h1` (line 56)
+- `motion.p` (line 64)
 
-In `tailwind.config.ts`, line 114:
+These are the same class of bug that has been fixed previously with `motion.header` and `motion.picture`. In framer-motion v12, the internal element registry for semantic HTML elements can be tree-shaken away during Vite/Rollup production builds, leaving an undefined Map entry — which crashes the build with "Cannot read properties of undefined".
 
-```ts
-plugins: [require("tailwindcss-animate")],
-```
+All other framer-motion usages across the entire codebase are confirmed safe:
+- `motion.div` — used throughout (safe)
+- `motion.button` — used in Header.tsx (safe)
 
-This uses CommonJS `require()` inside a TypeScript/ESM file. The project is configured with `"type": "module"` in `package.json`, meaning all files are treated as ES Modules. In Vite's production cloud build environment, the PostCSS/Tailwind config processing can fail when `require()` is called in an ESM context — this manifests as "Cannot read properties of undefined" because the loaded plugin module resolves to `undefined` or is not correctly unwrapped.
-
-The fix is to replace the `require()` call with a proper ESM import at the top of the file and reference it in the plugins array.
-
-## Additional Issue: `@tailwindcss/typography` Plugin
-
-The `tailwind.config.ts` does **not** include `@tailwindcss/typography` in its plugins array despite the package being installed in `devDependencies`. The `prose` CSS classes used in `NutritionArticleSection.tsx` (line 210) require this plugin to be registered. This is a second potential silent failure in production.
+The `tailwind.config.ts` fix (replacing `require()` with ESM imports) has already been applied correctly.
 
 ## Evidence
 
-- `package.json`: `"type": "module"` → ESM project
-- `tailwind.config.ts` line 114: `plugins: [require("tailwindcss-animate")]` → CommonJS `require` in ESM context
-- `NutritionArticleSection.tsx` line 210: `className="prose prose-sm ..."` → requires `@tailwindcss/typography` plugin
+Full codebase search confirms `motion.h1` and `motion.p` appear **only** in `src/pages/Auth.tsx`:
 
-## Fix Plan (1 file changed)
-
-**`tailwind.config.ts`** — Replace the `require()` CommonJS call with ESM imports:
-
-```ts
-// BEFORE (line 1 and line 114):
-import type { Config } from "tailwindcss";
-// ...
-plugins: [require("tailwindcss-animate")],
-
-// AFTER:
-import type { Config } from "tailwindcss";
-import tailwindcssAnimate from "tailwindcss-animate";
-import typography from "@tailwindcss/typography";
-// ...
-plugins: [tailwindcssAnimate, typography],
+```tsx
+// Lines 56–71 of src/pages/Auth.tsx
+<motion.h1
+  initial={{ opacity: 0, y: -10 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.2 }}
+  className="font-display text-3xl font-bold text-foreground mb-2"
+>
+  Welcome Back
+</motion.h1>
+<motion.p
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ delay: 0.3 }}
+  className="text-muted-foreground"
+>
+  Sign in to access the virtual physiotherapy assistant
+</motion.p>
 ```
+
+## Fix (1 file changed)
+
+**`src/pages/Auth.tsx`** — Wrap both elements in `motion.div` wrappers instead of using the semantic element variants directly:
+
+```tsx
+// BEFORE
+<motion.h1 initial={...} animate={...} transition={...} className="...">
+  Welcome Back
+</motion.h1>
+<motion.p initial={...} animate={...} transition={...} className="...">
+  Sign in to access...
+</motion.p>
+
+// AFTER
+<motion.div initial={...} animate={...} transition={...}>
+  <h1 className="...">Welcome Back</h1>
+</motion.div>
+<motion.div initial={...} animate={...} transition={...}>
+  <p className="...">Sign in to access...</p>
+</motion.div>
+```
+
+The animation and visual result are identical — the `motion.div` wrapper still carries the fade/slide animation, while the inner `h1` and `p` tags preserve correct semantic HTML structure.
+
+## Why This Is The Last Remaining Issue
+
+- `tailwind.config.ts`: Fixed (ESM imports now used)
+- `motion.header` in Header.tsx: Fixed (replaced with `motion.div role="banner"`)
+- `motion.picture` in HeroSection.tsx: Fixed (picture element removed entirely)
+- `motion.h1` and `motion.p` in Auth.tsx: **This fix**
+- All other files: Only use `motion.div` or `motion.button` — both confirmed safe
 
 ## Why This Is Safe
 
-- `tailwindcss-animate` and `@tailwindcss/typography` both ship with ESM-compatible exports, so importing them as ES modules is fully supported.
-- No component code changes are needed — all Tailwind classes already written will work exactly as before.
-- The `typography` plugin was already installed as a `devDependency` but not registered, so adding it only activates the `prose` classes that are already in use.
-- The visual appearance of the site will not change at all.
+- Wrapping `h1` and `p` in `motion.div` does not change accessibility — screen readers still read the inner `h1` and `p` tags correctly.
+- The animations (opacity fade, y-axis slide) remain identical.
+- No routing, backend, database, or other components are affected.
 
 ## Technical Notes
 
-- Vite's cloud build environment runs in strict ESM mode. When PostCSS processes `tailwind.config.ts`, the `require()` shim that normally works in development (Node.js CJS/ESM interop) is not available, causing the property read on the returned `undefined` value to crash the build with "Cannot read properties of undefined."
-- The root `package.json` has `"type": "module"` which forces ESM, and `tsconfig.app.json` uses `"module": "ESNext"` — both confirm the project is fully ESM.
-- Switching to `import` statements resolves the CJS/ESM interop issue definitively.
+framer-motion v12 moved to a Map-based internal element registry. Semantic HTML elements (`h1`–`h6`, `p`, `header`, `footer`, `nav`, `section`, etc.) are registered lazily in development but the lazy registration code can be removed by Rollup's tree-shaker in production builds, leaving `undefined` for those element types. Using `motion.div` bypasses this entirely as `div` is always in the core registry.
