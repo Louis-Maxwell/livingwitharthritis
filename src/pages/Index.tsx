@@ -56,9 +56,6 @@ const Index = () => {
       <main>
         <HeroSection />
         <Suspense fallback={<SectionLoader />}>
-          
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
           <AboutSection />
         </Suspense>
         <Suspense fallback={<SectionLoader />}>
