@@ -1,4 +1,4 @@
-import { lazy, Suspense, memo } from "react";
+import { lazy, Suspense, memo, useEffect } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
@@ -6,7 +6,6 @@ import { useDeferredVisible } from "@/hooks/useDeferredVisible";
 import { AppointmentModal } from "@/components/AppointmentModal";
 import { CalendarCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import BlogTeaserSection from "@/components/BlogTeaserSection";
 import { toast } from "sonner";
 import { useSearchParams } from "react-router-dom";
 
@@ -22,7 +21,7 @@ const DonationNotification = lazy(() => import("@/components/DonationNotificatio
 
 const SectionLoader = memo(() => (
   <div className="py-16 flex items-center justify-center">
-        <div className="animate-pulse h-4 w-32 bg-muted rounded" /> {" "}
+    <div className="animate-pulse h-4 w-32 bg-muted rounded" />
   </div>
 ));
 SectionLoader.displayName = "SectionLoader";
@@ -68,7 +67,7 @@ const articles = [
 
 export default function Index() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [deferRef, showDeferred] = useDeferredVisible<HTMLDivElement>("400px"); // Show success / cancelled donation toast
+  const [deferRef, showDeferred] = useDeferredVisible<HTMLDivElement>("400px");
 
   useEffect(() => {
     const donation = searchParams.get("donation");
@@ -87,63 +86,49 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-background">
-            <Header />     {" "}
+      <Header />
       <main>
-                <HeroSection />       {" "}
+        <HeroSection />
         <Suspense fallback={<SectionLoader />}>
-                    <AboutSection />       {" "}
+          <AboutSection />
         </Suspense>
-               {" "}
         <Suspense fallback={<SectionLoader />}>
-                    <ServicesGrid />       {" "}
+          <ServicesGrid />
         </Suspense>
-               {" "}
         <Suspense fallback={<SectionLoader />}>
-                    <VirtualPhysioSection />       {" "}
+          <VirtualPhysioSection />
         </Suspense>
-               {" "}
         <Suspense fallback={<SectionLoader />}>
-                    <NutritionArticleSection />       {" "}
+          <NutritionArticleSection />
         </Suspense>
-                <BlogTeaserSection />       {" "}
         <div ref={deferRef}>
-                   {" "}
           {showDeferred ? (
             <>
-                           {" "}
               <Suspense fallback={<SectionLoader />}>
-                                <ConditionsSection />             {" "}
+                <ConditionsSection />
               </Suspense>
-                           {" "}
               <Suspense fallback={<SectionLoader />}>
-                                <TestimonialsSection />             {" "}
+                <TestimonialsSection />
               </Suspense>
-                           {" "}
               <Suspense fallback={<SectionLoader />}>
-                                <JointExerciseSection />             {" "}
+                <JointExerciseSection />
               </Suspense>
-                            {/* Evidence-based articles section */}             {" "}
+              {/* Evidence-based articles section */}
               <section className="py-16 px-4 md:px-8 bg-muted/30" aria-labelledby="articles-heading">
-                               {" "}
                 <div className="max-w-7xl mx-auto">
-                                   {" "}
                   <h2 id="articles-heading" className="text-3xl md:text-4xl font-bold text-center mb-6">
-                                        Articles & Guides: Natural Arthritis Relief                  {" "}
+                    Articles & Guides: Natural Arthritis Relief
                   </h2>
-                                   {" "}
                   <p className="text-center text-lg text-muted-foreground mb-12 max-w-3xl mx-auto">
-                                        Trusted low-impact exercise recommendations, pain relief strategies and joint
-                    health guides from leading health organizations.                  {" "}
+                    Trusted low-impact exercise recommendations, pain relief strategies and joint
+                    health guides from leading health organizations.
                   </p>
-                                   {" "}
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                       {" "}
                     {articles.map((article, idx) => (
                       <article
                         key={idx}
                         className="bg-card rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow"
                       >
-                                               {" "}
                         <img
                           src={article.imageUrl}
                           alt={article.alt}
@@ -152,62 +137,46 @@ export default function Index() {
                           width={800}
                           height={480}
                         />
-                                               {" "}
                         <div className="p-6">
-                                                    <h3 className="text-xl font-semibold mb-3">{article.title}</h3>     
-                                              <p className="text-muted-foreground mb-4">{article.excerpt}</p>           
-                                       {" "}
+                          <h3 className="text-xl font-semibold mb-3">{article.title}</h3>
+                          <p className="text-muted-foreground mb-4">{article.excerpt}</p>
                           <a
                             href={article.link}
                             target="_blank"
                             rel="noopener noreferrer nofollow"
                             className="text-primary hover:underline font-medium"
                           >
-                                                        Read More →                          {" "}
+                            Read More →
                           </a>
-                                                 {" "}
                         </div>
-                                             {" "}
                       </article>
                     ))}
-                                     {" "}
                   </div>
-                                   {" "}
                   <div className="text-center mt-12 text-muted-foreground text-sm">
-                                        These resources are provided by respected health organizations. Always consult
-                    your healthcare provider before starting new exercises.                  {" "}
+                    These resources are provided by respected health organizations. Always consult
+                    your healthcare provider before starting new exercises.
                   </div>
-                                 {" "}
                 </div>
-                             {" "}
               </section>
-                         {" "}
             </>
           ) : (
             <div className="min-h-[70vh] sm:min-h-[90vh] bg-muted/20" />
           )}
-                 {" "}
         </div>
-             {" "}
       </main>
-            <Footer />     {" "}
-      <Suspense fallback={null}>        {showDeferred && <DonationNotification />}      </Suspense>     {" "}
-      {/* Mobile sticky CTA */}     {" "}
+      <Footer />
+      <Suspense fallback={null}>{showDeferred && <DonationNotification />}</Suspense>
+      {/* Mobile sticky CTA */}
       <div className="fixed bottom-0 left-0 right-0 z-40 sm:hidden bg-background/95 backdrop-blur-xl border-t border-border/40 px-4 py-3 shadow-large">
-               {" "}
         <AppointmentModal
           trigger={
             <Button className="w-full btn-primary-cta h-12 rounded-full text-sm font-bold tracking-wide shadow-medium">
-                            <CalendarCheck className="w-4 h-4 mr-2" aria-hidden="true" />              Book Free
-              Consultation            {" "}
+              <CalendarCheck className="w-4 h-4 mr-2" aria-hidden="true" />
+              Book Free Consultation
             </Button>
           }
         />
-             {" "}
       </div>
-         {" "}
     </div>
   );
 }
-
-export default Index;
