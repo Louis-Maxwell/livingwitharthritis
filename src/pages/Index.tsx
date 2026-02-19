@@ -6,9 +6,9 @@ import { useDeferredVisible } from "@/hooks/useDeferredVisible";
 import { AppointmentModal } from "@/components/AppointmentModal";
 import { CalendarCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import BlogTeaserSection from "@/components/BlogTeaserSection";
 import { toast } from "sonner";
 import { useSearchParams } from "react-router-dom";
+
 // Lazy-loaded sections
 const AboutSection = lazy(() => import("@/components/AboutSection"));
 const ServicesGrid = lazy(() => import("@/components/ServicesGrid"));
@@ -18,15 +18,16 @@ const ConditionsSection = lazy(() => import("@/components/ConditionsSection"));
 const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
 const JointExerciseSection = lazy(() => import("@/components/JointExerciseSection"));
 const DonationNotification = lazy(() => import("@/components/DonationNotification"));
+
 // Simple loader for Suspense
 const SectionLoader = memo(() => (
   <div className="py-16 flex items-center justify-center">
-        <div className="animate-pulse h-4 w-32 bg-muted rounded" /> {" "}
+    <div className="animate-pulse h-4 w-32 bg-muted rounded" />
   </div>
 ));
 SectionLoader.displayName = "SectionLoader";
-// ────────────────────────────────────────────────
-// Hard-coded fallback articles (used if fetch fails)
+
+// Hard-coded fallback articles
 const fallbackArticles = [
   {
     title: "Exercise Helps Ease Arthritis Pain and Stiffness",
@@ -64,23 +65,18 @@ const fallbackArticles = [
     alt: "Group doing low-impact tai chi for arthritis mobility",
   },
 ];
+
 export default function Index() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [deferRef, showDeferred] = useDeferredVisible<HTMLDivElement>("400px"); // ────────────────────────────────────────────────
-  // Articles state (dynamic)
+  const [deferRef, showDeferred] = useDeferredVisible<HTMLDivElement>("400px");
+
   const [articles, setArticles] = useState<typeof fallbackArticles>([]);
   const [articlesLoading, setArticlesLoading] = useState(true);
   const [articlesError, setArticlesError] = useState<string | null>(null);
+
   useEffect(() => {
     async function fetchArticles() {
       try {
-        // Change this URL later to your real API endpoint, e.g. '/api/articles'
-        // For now we use fallback only – or point to a static JSON if you have one:
-        // const res = await fetch('/data/articles.json');
-        // if (!res.ok) throw new Error('Failed');
-        // const data = await res.json();
-        // setArticles(data.length > 0 ? data : fallbackArticles);
-        // For the moment we just use fallback (no network call)
         setArticles(fallbackArticles);
       } catch (err) {
         console.error("Articles fetch failed:", err);
@@ -93,7 +89,8 @@ export default function Index() {
     if (showDeferred) {
       fetchArticles();
     }
-  }, [showDeferred]); // ────────────────────────────────────────────────
+  }, [showDeferred]);
+
   // Donation toast logic
   useEffect(() => {
     const donation = searchParams.get("donation");
@@ -108,88 +105,67 @@ export default function Index() {
       setSearchParams({}, { replace: true });
     }
   }, [searchParams, setSearchParams]);
+
   return (
     <div className="min-h-screen bg-background">
-            <Header />     {" "}
+      <Header />
       <main>
-                <HeroSection />       {" "}
+        <HeroSection />
         <Suspense fallback={<SectionLoader />}>
-                    <AboutSection />       {" "}
+          <AboutSection />
         </Suspense>
-               {" "}
         <Suspense fallback={<SectionLoader />}>
-                    <ServicesGrid />       {" "}
+          <ServicesGrid />
         </Suspense>
-               {" "}
         <Suspense fallback={<SectionLoader />}>
-                    <VirtualPhysioSection />       {" "}
+          <VirtualPhysioSection />
         </Suspense>
-               {" "}
         <Suspense fallback={<SectionLoader />}>
-                    <NutritionArticleSection />       {" "}
+          <NutritionArticleSection />
         </Suspense>
-                <BlogTeaserSection />       {" "}
         <div ref={deferRef}>
-                   {" "}
           {showDeferred ? (
             <>
-                           {" "}
               <Suspense fallback={<SectionLoader />}>
-                                <ConditionsSection />             {" "}
+                <ConditionsSection />
               </Suspense>
-                           {" "}
               <Suspense fallback={<SectionLoader />}>
-                                <TestimonialsSection />             {" "}
+                <TestimonialsSection />
               </Suspense>
-                           {" "}
               <Suspense fallback={<SectionLoader />}>
-                                <JointExerciseSection />             {" "}
+                <JointExerciseSection />
               </Suspense>
-                            {/* Dynamic Articles & Guides Section */}             {" "}
+              {/* Dynamic Articles & Guides Section */}
               <section className="py-16 px-4 md:px-8 bg-muted/30" aria-labelledby="articles-heading">
-                               {" "}
                 <div className="max-w-7xl mx-auto">
-                                   {" "}
                   <h2 id="articles-heading" className="text-3xl md:text-4xl font-bold text-center mb-6">
-                                        Articles & Guides: Natural Arthritis Relief & Exercises                  {" "}
+                    Articles & Guides: Natural Arthritis Relief & Exercises
                   </h2>
-                                   {" "}
                   <p className="text-center text-lg text-muted-foreground mb-12 max-w-3xl mx-auto">
-                                        Discover free, trusted resources with low-impact exercises, pain relief tips,
-                    and evidence-based guides to help manage arthritis and improve joint health.                  {" "}
+                    Discover free, trusted resources with low-impact exercises, pain relief tips,
+                    and evidence-based guides to help manage arthritis and improve joint health.
                   </p>
-                                   {" "}
-                  {articlesError && <p className="text-center text-destructive mb-8">{articlesError}</p>}               
-                   {" "}
+                  {articlesError && <p className="text-center text-destructive mb-8">{articlesError}</p>}
                   {articlesLoading ? (
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                           {" "}
                       {[...Array(3)].map((_, i) => (
                         <div key={i} className="bg-card rounded-xl overflow-hidden shadow-md">
-                                                    <div className="w-full h-48 bg-muted animate-pulse" />             
-                                     {" "}
+                          <div className="w-full h-48 bg-muted animate-pulse" />
                           <div className="p-6">
-                                                       {" "}
                             <div className="h-6 w-3/4 bg-muted rounded mb-3 animate-pulse" />
-                                                       {" "}
                             <div className="h-4 w-full bg-muted rounded mb-4 animate-pulse" />
-                                                        <div className="h-4 w-32 bg-muted rounded animate-pulse" />     
-                                               {" "}
+                            <div className="h-4 w-32 bg-muted rounded animate-pulse" />
                           </div>
-                                                 {" "}
                         </div>
                       ))}
-                                         {" "}
                     </div>
                   ) : (
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                           {" "}
                       {articles.map((article, idx) => (
                         <article
                           key={idx}
                           className="bg-card rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow"
                         >
-                                                   {" "}
                           <img
                             src={article.imageUrl}
                             alt={article.alt}
@@ -198,63 +174,47 @@ export default function Index() {
                             width={800}
                             height={480}
                           />
-                                                   {" "}
                           <div className="p-6">
-                                                        <h3 className="text-xl font-semibold mb-3">{article.title}</h3> 
-                                                      <p className="text-muted-foreground mb-4">{article.excerpt}</p>   
-                                                   {" "}
+                            <h3 className="text-xl font-semibold mb-3">{article.title}</h3>
+                            <p className="text-muted-foreground mb-4">{article.excerpt}</p>
                             <a
                               href={article.link}
                               target="_blank"
                               rel="noopener noreferrer nofollow"
                               className="text-primary hover:underline font-medium"
                             >
-                                                            Read More →                            {" "}
+                              Read More →
                             </a>
-                                                     {" "}
                           </div>
-                                                 {" "}
                         </article>
                       ))}
-                                         {" "}
                     </div>
                   )}
-                                   {" "}
                   <div className="text-center mt-12 text-muted-foreground">
-                                        These evidence-based resources are free from trusted health organizations.
-                    Consult your healthcare provider before beginning new exercises.                  {" "}
+                    These evidence-based resources are free from trusted health organizations.
+                    Consult your healthcare provider before beginning new exercises.
                   </div>
-                                 {" "}
                 </div>
-                             {" "}
               </section>
-                         {" "}
             </>
           ) : (
             <div className="min-h-[70vh] sm:min-h-[90vh] bg-muted/20" />
           )}
-                 {" "}
         </div>
-             {" "}
       </main>
-            <Footer />     {" "}
-      <Suspense fallback={null}>        {showDeferred && <DonationNotification />}      </Suspense>     {" "}
-      {/* Sticky mobile CTA */}     {" "}
+      <Footer />
+      <Suspense fallback={null}>{showDeferred && <DonationNotification />}</Suspense>
+      {/* Sticky mobile CTA */}
       <div className="fixed bottom-0 left-0 right-0 z-40 sm:hidden bg-background/95 backdrop-blur-xl border-t border-border/40 px-4 py-3 shadow-large">
-               {" "}
         <AppointmentModal
           trigger={
             <Button className="w-full btn-primary-cta h-12 rounded-full text-sm font-bold tracking-wide shadow-medium">
-                            <CalendarCheck className="w-4 h-4 mr-2" aria-hidden="true" />              Book Free
-              Consultation            {" "}
+              <CalendarCheck className="w-4 h-4 mr-2" aria-hidden="true" />
+              Book Free Consultation
             </Button>
           }
         />
-             {" "}
       </div>
-         {" "}
     </div>
   );
 }
-
-export default Index;
