@@ -7,7 +7,6 @@ import { useDeferredVisible } from "@/hooks/useDeferredVisible";
 import { AppointmentModal } from "@/components/AppointmentModal";
 import { CalendarCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import BlogTeaserSection from "@/components/BlogTeaserSection";
 import { toast } from "sonner";
 import { useSearchParams } from "react-router-dom";
 
@@ -145,8 +144,6 @@ export default function Index() {
           <NutritionArticleSection />
         </Suspense>
 
-        <BlogTeaserSection />
-
         <div ref={deferRef}>
           {showDeferred ? (
             <>
@@ -253,4 +250,4 @@ export default function Index() {
   );
 }
 
-export default memo(Index);
+
