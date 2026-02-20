@@ -73,26 +73,12 @@ export default function Index() {
 
   const [articles, setArticles] = useState(fallbackArticles);
   const [articlesLoading, setArticlesLoading] = useState(true);
-  const [articlesError, setArticlesError] = useState<string | null>(null);
 
   useEffect(() => {
-    async function fetchArticles() {
-      try {
-        const res = await fetch("/api/articles");
-        if (!res.ok) throw new Error("Failed to fetch articles");
-        const data = await res.json();
-        setArticles(data.length > 0 ? data : fallbackArticles);
-      } catch (err) {
-        console.warn("Articles fetch failed, using fallback:", err);
-        setArticles(fallbackArticles);
-      } finally {
-        setArticlesLoading(false);
-      }
-    }
-
-    if (isBelowFoldVisible) {
-      fetchArticles();
-    }
+    if (!isBelowFoldVisible) return;
+    // Use static fallback immediately — no backend endpoint exists
+    setArticles(fallbackArticles);
+    setArticlesLoading(false);
   }, [isBelowFoldVisible]);
 
   // Donation toast
@@ -149,13 +135,11 @@ export default function Index() {
               >
                 <div className="max-w-7xl mx-auto">
                   <h2 id="articles-heading" className="text-3xl md:text-4xl font-bold text-center mb-6">
-                    Open Source Guides: Natural Arthritis Relief & Exercises
+                    Open Source Guides: Natural Arthritis Relief &amp; Exercises
                   </h2>
                   <p className="text-center text-lg text-muted-foreground mb-12 max-w-3xl mx-auto">
                     Free resources from public domain sources like Wikipedia for managing arthritis.
                   </p>
-
-                  {articlesError && <p className="text-center text-destructive mb-8">{articlesError}</p>}
 
                   {articlesLoading ? (
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -205,7 +189,7 @@ export default function Index() {
                   )}
 
                   <div className="text-center mt-12 text-muted-foreground">
-                    These resources are from open sources. Consult a provider before exercises.
+                    These resources are from open sources. Consult a provider before starting exercises.
                   </div>
                 </div>
               </section>
