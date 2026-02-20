@@ -1,16 +1,16 @@
-import { lazy, Suspense, memo, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
-import { motion, useScroll, useSpring } from "framer-motion"; // ← add if not present
+import { lazy, Suspense, memo } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
 import { useDeferredVisible } from "@/hooks/useDeferredVisible";
 import { AppointmentModal } from "@/components/AppointmentModal";
-import { CalendarCheck, HeartHandshake } from "lucide-react";
+import { CalendarCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import BlogTeaserSection from "@/components/BlogTeaserSection";
 import { toast } from "sonner";
+import { useSearchParams } from "react-router-dom";
 
-// Ultra-lazy sections
+// Lazy-loaded sections
 const AboutSection = lazy(() => import("@/components/AboutSection"));
 const ServicesGrid = lazy(() => import("@/components/ServicesGrid"));
 const VirtualPhysioSection = lazy(() => import("@/components/VirtualPhysioSection"));
@@ -20,201 +20,193 @@ const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"
 const JointExerciseSection = lazy(() => import("@/components/JointExerciseSection"));
 const DonationNotification = lazy(() => import("@/components/DonationNotification"));
 
-const MinimalLoader = memo(() => (
-  <div className="py-20 flex items-center justify-center">
-    <div className="h-5 w-24 bg-muted/60 rounded animate-pulse" />
+const SectionLoader = memo(() => (
+  <div className="py-16 flex items-center justify-center">
+        <div className="animate-pulse h-4 w-32 bg-muted rounded" /> {" "}
   </div>
 ));
+SectionLoader.displayName = "SectionLoader";
 
+// Trusted fallback health resources
 const articles = [
-  // replaced traceable unsplash → use generic or your own CDN
   {
-    title: "Gentle Exercises to Ease Joint Pain",
-    excerpt: "Low-impact moves recommended by experts",
-    link: "https://www.arthritis.org/health-wellness/healthy-living/physical-activity",
-    image: "/images/exercise-gentle.webp",
-    alt: "Person doing gentle mobility exercise",
+    title: "Exercise Helps Ease Arthritis Pain and Stiffness",
+    excerpt: "Range-of-motion, strengthening, and low-impact aerobic exercises safe for arthritis.",
+    link: "https://www.mayoclinic.org/diseases-conditions/arthritis/in-depth/arthritis/art-20047971",
+    imageUrl: "https://images.unsplash.com/photo-1571019613454-1cfac13c2a8a?auto=format&fit=crop&w=800&q=80",
+    alt: "Senior doing gentle range-of-motion exercises",
   },
   {
-    title: "Eating for Joint Health",
-    excerpt: "Anti-inflammatory foods that help",
-    link: "https://www.arthritis.org/health-wellness/healthy-living/nutrition",
-    image: "/images/food-antiinflam.webp",
-    alt: "Colorful anti-inflammatory meal",
+    title: "14 Joint-Friendly Ways to Work Out With Arthritis",
+    excerpt: "Walking in water, tai chi, yoga and other low-impact activities.",
+    link: "https://www.arthritis.org/health-wellness/healthy-living/physical-activity/other-activities/14-ways-to-work-out-with-arthritis",
+    imageUrl: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80",
+    alt: "Low-impact water exercises for joint health",
   },
   {
-    title: "Living Well with Arthritis — Patient Tips",
-    excerpt: "Real stories & practical advice",
-    link: "https://creakyjoints.org/",
-    image: "/images/living-well.webp",
-    alt: "Smiling person managing daily life",
+    title: "Exercise for Knee and Hip Osteoarthritis",
+    excerpt: "Evidence-based exercise recommendations for pain relief and function.",
+    link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10199279/",
+    imageUrl: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+    alt: "Gentle stretching and strengthening exercises",
   },
-  // add 2–3 more...
+  {
+    title: "Strength Training Benefits for Arthritis",
+    excerpt: "Building muscle to protect joints and improve daily function.",
+    link: "https://www.mayoclinic.org/healthy-lifestyle/fitness/in-depth/strength-training/art-20046670",
+    imageUrl: "https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=800&q=80",
+    alt: "Seated strength training for joint support",
+  },
+  {
+    title: "At-Home Exercises for Healthy Joints",
+    excerpt: "Simple daily stretches and strengthening movements.",
+    link: "https://www.arthritisresearch.ca/arthritis-at-home-exercise-guide",
+    imageUrl: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80",
+    alt: "Group practicing tai chi for mobility",
+  },
 ];
 
-// Quick impact stats (inspired by Arthritis Society Canada / Arthritis Foundation)
-const impactStats = [
-  { value: "4M+", label: "People reached with trusted info" },
-  { value: "$7M+", label: "Invested in arthritis research" },
-  { value: "1 in 5", label: "Adults affected — you're not alone" },
-];
-
-function Index() {
+export default function Index() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [deferRef, isVisible] = useDeferredVisible<HTMLDivElement>("600px");
-
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
+  const [deferRef, showDeferred] = useDeferredVisible<HTMLDivElement>("400px"); // Show success / cancelled donation toast
 
   useEffect(() => {
     const donation = searchParams.get("donation");
+
     if (donation === "success") {
-      toast.success("Thank you! Your support means the world.", {
-        description: "Helping people move better every day.",
+      toast.success("Thank you for your generous donation! 💙", {
+        description: "Your contribution helps people living with arthritis.",
+        duration: 6000,
       });
       setSearchParams({}, { replace: true });
     } else if (donation === "cancelled") {
-      toast.info("Donation cancelled — come back anytime.");
+      toast.info("Donation cancelled. You can try again any time.");
       setSearchParams({}, { replace: true });
     }
   }, [searchParams, setSearchParams]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
-      {/* Progress bar — helps user feel movement & reduces perceived wait */}
-      <motion.div className="fixed top-0 left-0 right-0 h-1 bg-primary origin-left z-50" style={{ scaleX }} />
-
-      <Header />
-
+    <div className="min-h-screen bg-background">
+            <Header />     {" "}
       <main>
-        <HeroSection /> {/* assume it has big CTA + empathetic message */}
-        <Suspense fallback={<MinimalLoader />}>
-          <AboutSection />
+                <HeroSection />       {" "}
+        <Suspense fallback={<SectionLoader />}>
+                    <AboutSection />       {" "}
         </Suspense>
-        <Suspense fallback={<MinimalLoader />}>
-          <ServicesGrid />
+               {" "}
+        <Suspense fallback={<SectionLoader />}>
+                    <ServicesGrid />       {" "}
         </Suspense>
-        {/* Quick engagement — symptom checker teaser (inspired by NRAS / Arthritis Foundation) */}
-        <section className="py-12 px-4 md:px-8 bg-gradient-to-r from-primary/5 to-primary/10">
-          <div className="max-w-5xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">Not sure where to start?</h2>
-            <p className="text-lg text-muted-foreground mb-6">
-              Answer a few quick questions about your symptoms and get personalized guidance.
-            </p>
-            <Button size="lg" variant="default" asChild>
-              <a href="/symptom-checker" className="gap-2">
-                <HeartHandshake className="w-5 h-5" />
-                Try Quick Symptom Guide
-              </a>
-            </Button>
-          </div>
-        </section>
-        <Suspense fallback={<MinimalLoader />}>
-          <VirtualPhysioSection />
+               {" "}
+        <Suspense fallback={<SectionLoader />}>
+                    <VirtualPhysioSection />       {" "}
         </Suspense>
-        <Suspense fallback={<MinimalLoader />}>
-          <NutritionArticleSection />
+               {" "}
+        <Suspense fallback={<SectionLoader />}>
+                    <NutritionArticleSection />       {" "}
         </Suspense>
-        
-        {/* Impact stats — builds trust fast (from Canadian/US charities) */}
-        <section className="py-16 px-4 bg-card/50">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 text-center">
-            {impactStats.map((stat, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <div className="text-4xl md:text-5xl font-bold text-primary">{stat.value}</div>
-                <p className="mt-2 text-muted-foreground">{stat.label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </section>
+                <BlogTeaserSection />       {" "}
         <div ref={deferRef}>
-          {isVisible && (
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7 }}>
-              <Suspense fallback={<MinimalLoader />}>
-                <ConditionsSection />
+                   {" "}
+          {showDeferred ? (
+            <>
+                           {" "}
+              <Suspense fallback={<SectionLoader />}>
+                                <ConditionsSection />             {" "}
               </Suspense>
-
-              <Suspense fallback={<MinimalLoader />}>
-                <TestimonialsSection />
+                           {" "}
+              <Suspense fallback={<SectionLoader />}>
+                                <TestimonialsSection />             {" "}
               </Suspense>
-
-              <Suspense fallback={<MinimalLoader />}>
-                <JointExerciseSection />
+                           {" "}
+              <Suspense fallback={<SectionLoader />}>
+                                <JointExerciseSection />             {" "}
               </Suspense>
-
-              {/* Trusted articles — keep but with better images */}
-              <section className="py-16 px-4 md:px-8">
+                            {/* Evidence-based articles section */}             {" "}
+              <section className="py-16 px-4 md:px-8 bg-muted/30" aria-labelledby="articles-heading">
+                               {" "}
                 <div className="max-w-7xl mx-auto">
-                  <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">Evidence-Based Guides</h2>
-                  <p className="text-center text-lg text-muted-foreground mb-10 max-w-3xl mx-auto">
-                    Practical, trusted advice to help manage pain and stay active.
+                                   {" "}
+                  <h2 id="articles-heading" className="text-3xl md:text-4xl font-bold text-center mb-6">
+                                        Articles & Guides: Natural Arthritis Relief                  {" "}
+                  </h2>
+                                   {" "}
+                  <p className="text-center text-lg text-muted-foreground mb-12 max-w-3xl mx-auto">
+                                        Trusted low-impact exercise recommendations, pain relief strategies and joint
+                    health guides from leading health organizations.                  {" "}
                   </p>
-
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
-                    {articles.map((art, i) => (
-                      <motion.article
-                        key={i}
-                        className="group bg-card rounded-2xl overflow-hidden shadow hover:shadow-xl transition-all duration-300"
-                        whileHover={{ y: -6 }}
+                                   {" "}
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                       {" "}
+                    {articles.map((article, idx) => (
+                      <article
+                        key={idx}
+                        className="bg-card rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow"
                       >
+                                               {" "}
                         <img
-                          src={art.image}
-                          alt={art.alt}
+                          src={article.imageUrl}
+                          alt={article.alt}
+                          className="w-full h-48 object-cover"
                           loading="lazy"
-                          decoding="async"
-                          className="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"
                           width={800}
-                          height={520}
+                          height={480}
                         />
+                                               {" "}
                         <div className="p-6">
-                          <h3 className="text-xl font-semibold mb-2 line-clamp-2">{art.title}</h3>
-                          <p className="text-muted-foreground mb-4 line-clamp-2">{art.excerpt}</p>
+                                                    <h3 className="text-xl font-semibold mb-3">{article.title}</h3>     
+                                              <p className="text-muted-foreground mb-4">{article.excerpt}</p>           
+                                       {" "}
                           <a
-                            href={art.link}
+                            href={article.link}
                             target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-primary font-medium hover:underline inline-flex items-center gap-1"
+                            rel="noopener noreferrer nofollow"
+                            className="text-primary hover:underline font-medium"
                           >
-                            Read guide →
+                                                        Read More →                          {" "}
                           </a>
+                                                 {" "}
                         </div>
-                      </motion.article>
+                                             {" "}
+                      </article>
                     ))}
+                                     {" "}
                   </div>
+                                   {" "}
+                  <div className="text-center mt-12 text-muted-foreground text-sm">
+                                        These resources are provided by respected health organizations. Always consult
+                    your healthcare provider before starting new exercises.                  {" "}
+                  </div>
+                                 {" "}
                 </div>
+                             {" "}
               </section>
-            </motion.div>
+                         {" "}
+            </>
+          ) : (
+            <div className="min-h-[70vh] sm:min-h-[90vh] bg-muted/20" />
           )}
+                 {" "}
         </div>
+             {" "}
       </main>
-
-      <Footer />
-
-      {isVisible && (
-        <Suspense fallback={null}>
-          <DonationNotification />
-        </Suspense>
-      )}
-
-      {/* Improved sticky CTA — more inviting */}
-      <div className="fixed bottom-0 inset-x-0 z-40 sm:hidden bg-gradient-to-t from-background to-background/80 backdrop-blur-lg border-t px-4 py-4 shadow-2xl">
+            <Footer />     {" "}
+      <Suspense fallback={null}>        {showDeferred && <DonationNotification />}      </Suspense>     {" "}
+      {/* Mobile sticky CTA */}     {" "}
+      <div className="fixed bottom-0 left-0 right-0 z-40 sm:hidden bg-background/95 backdrop-blur-xl border-t border-border/40 px-4 py-3 shadow-large">
+               {" "}
         <AppointmentModal
           trigger={
-            <Button className="w-full h-14 rounded-full text-base font-semibold shadow-lg hover:scale-105 transition-transform">
-              <CalendarCheck className="w-5 h-5 mr-2" />
-              Book Your Free Call Today
+            <Button className="w-full btn-primary-cta h-12 rounded-full text-sm font-bold tracking-wide shadow-medium">
+                            <CalendarCheck className="w-4 h-4 mr-2" aria-hidden="true" />              Book Free
+              Consultation            {" "}
             </Button>
           }
         />
+             {" "}
       </div>
+         {" "}
     </div>
   );
 }
-
 export default memo(Index);
