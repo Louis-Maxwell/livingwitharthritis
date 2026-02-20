@@ -1,15 +1,24 @@
-import { lazy, Suspense, memo, useEffect, useState } from "react";
+// src/pages/Index.tsx
+import { lazy, Suspense, memo, useEffect, useState, useCallback } from "react";
+import { Helmet } from "react-helmet-async";
+import { motion } from "framer-motion";
+import { debounce } from "lodash"; // npm install lodash
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
+import { CalendarCheck } from "lucide-react";
+import { toast } from "sonner";
+import { useSearchParams } from "react-router-dom";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
+import BlogTeaserSection from "@/components/BlogTeaserSection";
 import { useDeferredVisible } from "@/hooks/useDeferredVisible";
 import { AppointmentModal } from "@/components/AppointmentModal";
-import { CalendarCheck } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
-import { useSearchParams } from "react-router-dom";
+import OptimizedImage from "@/components/OptimizedImage";
+import ErrorBoundary from "@/components/ErrorBoundary"; // new simple component
 
-// Lazy-loaded sections
+// Lazy sections
 const AboutSection = lazy(() => import("@/components/AboutSection"));
 const ServicesGrid = lazy(() => import("@/components/ServicesGrid"));
 const VirtualPhysioSection = lazy(() => import("@/components/VirtualPhysioSection"));
@@ -18,77 +27,112 @@ const ConditionsSection = lazy(() => import("@/components/ConditionsSection"));
 const JointExerciseSection = lazy(() => import("@/components/JointExerciseSection"));
 const DonationNotification = lazy(() => import("@/components/DonationNotification"));
 
-// Simple loader
+// Loader with better UX
 const SectionLoader = memo(() => (
-  <div className="py-16 flex items-center justify-center">
-    <div className="animate-pulse h-4 w-32 bg-muted rounded" />
+  <div className="py-20 flex items-center justify-center">
+    <div className="h-10 w-10 animate-spin rounded-full border-4 border-primary/30 border-t-primary" />
   </div>
 ));
 SectionLoader.displayName = "SectionLoader";
 
-// Static fallback articles
-const fallbackArticles = [
-  {
-    title: "Physical Therapy for Arthritis",
-    excerpt:
-      "Exercises can improve muscle strength, flexibility, and joint function, helping reduce pain and support daily activities.",
-    link: "https://en.wikipedia.org/wiki/Arthritis#Treatment",
-    imageUrl: "https://cdn.pixabay.com/photo/2015/07/02/10/05/taichi-829957_1280.jpg",
-    alt: "Group practicing tai chi for joint health",
-  },
-  {
-    title: "Exercise for Osteoarthritis",
-    excerpt:
-      "Low-impact activities like walking, swimming, and aerobics can reduce pain and improve function for up to 6 months.",
-    link: "https://en.wikipedia.org/wiki/Osteoarthritis#Exercise",
-    imageUrl: "https://cdn.pixabay.com/photo/2016/11/22/19/17/girl-1850141_1280.jpg",
-    alt: "Person doing yoga for flexibility",
-  },
-  {
-    title: "Conservative Measures for Joint Relief",
-    excerpt: "Rest, applying ice or heat, and weight management help decrease joint stress and manage symptoms.",
-    link: "https://en.wikipedia.org/wiki/Arthritis#Treatment",
-    imageUrl: "https://cdn.pixabay.com/photo/2016/11/29/09/10/man-1868632_1280.jpg",
-    alt: "Person walking in nature for low-impact exercise",
-  },
-  {
-    title: "Aquatic Exercises for Arthritis",
-    excerpt: "Swimming and water-based activities provide gentle resistance and support for joints.",
-    link: "https://en.wikipedia.org/wiki/Osteoarthritis#Exercise",
-    imageUrl: "https://cdn.pixabay.com/photo/2014/06/28/00/54/woman-378683_1280.jpg",
-    alt: "Person swimming for arthritis relief",
-  },
-  {
-    title: "Strength Training for Joint Support",
-    excerpt: "Moderate strengthening exercises protect joints and improve overall mobility.",
-    link: "https://en.wikipedia.org/wiki/Osteoarthritis#Exercise",
-    imageUrl: "https://cdn.pixabay.com/photo/2017/08/06/12/06/people-2591874_1280.jpg",
-    alt: "People cycling as joint-friendly activity",
-  },
-];
+// Typed data import
+import { fallbackArticles, type Article } from "@/data/articles";
+
+// Memoized Article Card with JSON-LD
+const ArticleCard = memo(({ article, index }: { article: Article; index: number }) => {
+  const origin = typeof window !== "undefined" ? window.location.origin : "";
+
+  return (
+    <>
+      {/* Per-article structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: article.title,
+            description: article.content.slice(0, 160) + "...",
+            image: `${origin}${article.imageUrl}.jpg`,
+            datePublished: "2026-02-01", // ← update or make dynamic
+            author: { "@type": "Organization", name: "Your Arthritis Relief" },
+            publisher: { "@type": "Organization", name: "Your Site Name" },
+          }),
+        }}
+      />
+
+      <motion.div
+        whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: index * 0.08 }}
+      >
+        <Accordion type="single" collapsible>
+          <AccordionItem
+            value={`item-${index}`}
+            className="bg-card/90 backdrop-blur-sm border-none rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+          >
+            <OptimizedImage
+              src={article.imageUrl}
+              alt={article.alt}
+              className="h-64 md:h-72 lg:h-80"
+              fetchpriority={index < 3 ? "high" : "low"} // first 3 cards prioritized
+            />
+            <AccordionTrigger className="px-6 py-5 text-xl font-semibold hover:no-underline">
+              {article.title}
+            </AccordionTrigger>
+            <AccordionContent className="px-6 pb-8 text-muted-foreground leading-relaxed prose prose-sm max-w-none">
+              {article.content}
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </motion.div>
+    </>
+  );
+});
+ArticleCard.displayName = "ArticleCard";
 
 export default function Index() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [belowFoldRef, isBelowFoldVisible] = useDeferredVisible<HTMLDivElement>("400px");
+  const [belowFoldRef, isBelowFoldVisible] = useDeferredVisible<HTMLDivElement>("500px");
 
   const [articles, setArticles] = useState(fallbackArticles);
   const [articlesLoading, setArticlesLoading] = useState(true);
+  const [articlesError, setArticlesError] = useState<string | null>(null);
+
+  const [assistantQuery, setAssistantQuery] = useState("");
+  const [assistantResponse, setAssistantResponse] = useState("");
+
+  // Debounced assistant handler (auto-preview / submit)
+  const debouncedSubmit = useCallback(
+    debounce(async (query: string) => {
+      if (!query.trim()) return;
+      try {
+        // Replace with real API call when ready
+        const res = await fetch("/api/virtual-assistant", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ query }),
+        });
+        const data = await res.json();
+        setAssistantResponse(data.response || "No answer found. Try rephrasing.");
+      } catch {
+        setAssistantResponse("Sorry, the assistant is having trouble right now.");
+      }
+    }, 450),
+    [],
+  );
 
   useEffect(() => {
-    if (!isBelowFoldVisible) return;
-    // Use static fallback immediately — no backend endpoint exists
-    setArticles(fallbackArticles);
-    setArticlesLoading(false);
-  }, [isBelowFoldVisible]);
+    debouncedSubmit(assistantQuery);
+    return () => debouncedSubmit.cancel();
+  }, [assistantQuery, debouncedSubmit]);
 
-  // Donation toast
+  // Donation toast (unchanged)
   useEffect(() => {
     const donation = searchParams.get("donation");
     if (donation === "success") {
-      toast.success("Thank you for your generous donation! 💙", {
-        description: "Your contribution helps people living with arthritis.",
-        duration: 6000,
-      });
+      toast.success("Thank you! Your donation means a lot.", { duration: 7000 });
       setSearchParams(
         (prev) => {
           prev.delete("donation");
@@ -97,7 +141,7 @@ export default function Index() {
         { replace: true },
       );
     } else if (donation === "cancelled") {
-      toast.info("Donation cancelled. You can try again any time.");
+      toast.info("Donation cancelled.", { duration: 5000 });
       setSearchParams(
         (prev) => {
           prev.delete("donation");
@@ -109,109 +153,121 @@ export default function Index() {
   }, [searchParams, setSearchParams]);
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <main>
-        <HeroSection />
+    <ErrorBoundary
+      fallback={<div className="p-12 text-center text-destructive">Something went wrong. Please refresh.</div>}
+    >
+      <Helmet>
+        <title>Arthritis Relief – Tai Chi, Pilates & Virtual Physio</title>
+        <meta
+          name="description"
+          content="Gentle, evidence-informed exercises including Tai Chi and Pilates to help manage arthritis pain and improve joint mobility. Free guides & consultations."
+        />
+        <meta property="og:title" content="Natural Arthritis Support | Tai Chi • Pilates • Physio" />
+        <meta
+          property="og:description"
+          content="Open-knowledge inspired resources and professional help for better joint health."
+        />
+      </Helmet>
 
-        <Suspense fallback={<SectionLoader />}>
-          <AboutSection />
-          <ServicesGrid />
-          <VirtualPhysioSection />
-          <NutritionArticleSection />
-        </Suspense>
+      <div className="min-h-screen bg-gradient-to-b from-background via-background/95 to-primary/5">
+        <Header />
 
-        <div ref={belowFoldRef}>
-          {isBelowFoldVisible ? (
-            <>
-              <Suspense fallback={<SectionLoader />}>
-                <ConditionsSection />
-                <JointExerciseSection />
-              </Suspense>
+        <main className="space-y-20 md:space-y-24">
+          <HeroSection />
 
-              <section
-                className="py-16 px-4 md:px-8 bg-muted/30"
-                aria-labelledby="articles-heading"
-              >
-                <div className="max-w-7xl mx-auto">
-                  <h2 id="articles-heading" className="text-3xl md:text-4xl font-bold text-center mb-6">
-                    Open Source Guides: Natural Arthritis Relief &amp; Exercises
-                  </h2>
-                  <p className="text-center text-lg text-muted-foreground mb-12 max-w-3xl mx-auto">
-                    Free resources from public domain sources like Wikipedia for managing arthritis.
-                  </p>
-
-                  {articlesLoading ? (
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                      {[...Array(3)].map((_, i) => (
-                        <div key={i} className="bg-card rounded-xl overflow-hidden shadow-md">
-                          <div className="w-full h-48 bg-muted animate-pulse" />
-                          <div className="p-6">
-                            <div className="h-6 w-3/4 bg-muted rounded mb-3 animate-pulse" />
-                            <div className="h-4 w-full bg-muted rounded mb-4 animate-pulse" />
-                            <div className="h-4 w-32 bg-muted rounded animate-pulse" />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                      {articles.map((article, idx) => (
-                        <article
-                          key={idx}
-                          role="article"
-                          className="bg-card rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow"
-                        >
-                          <img
-                            src={article.imageUrl}
-                            alt={article.alt}
-                            className="w-full h-48 object-cover"
-                            loading="lazy"
-                            decoding="async"
-                            width={800}
-                            height={480}
-                          />
-                          <div className="p-6">
-                            <h3 className="text-xl font-semibold mb-3">{article.title}</h3>
-                            <p className="text-muted-foreground mb-4">{article.excerpt}</p>
-                            <a
-                              href={article.link}
-                              target="_blank"
-                              rel="noopener noreferrer nofollow"
-                              className="text-primary hover:underline font-medium"
-                            >
-                              Read More →
-                            </a>
-                          </div>
-                        </article>
-                      ))}
-                    </div>
-                  )}
-
-                  <div className="text-center mt-12 text-muted-foreground">
-                    These resources are from open sources. Consult a provider before starting exercises.
+          <div className="container mx-auto px-5 md:px-8 space-y-20">
+            <Suspense fallback={<SectionLoader />}>
+              <AboutSection />
+              <ServicesGrid />
+              <VirtualPhysioSection>
+                <div className="max-w-2xl mx-auto bg-gradient-to-br from-card/80 to-card/60 backdrop-blur-lg p-8 md:p-10 rounded-3xl shadow-2xl border border-border/40">
+                  <label htmlFor="assistant-input" className="sr-only">
+                    Ask questions about arthritis exercises, Tai Chi, Pilates or joint health
+                  </label>
+                  <input
+                    id="assistant-input"
+                    type="text"
+                    value={assistantQuery}
+                    onChange={(e) => setAssistantQuery(e.target.value)}
+                    placeholder="Ask anything about Tai Chi, Pilates or arthritis relief…"
+                    className="w-full px-5 py-4 rounded-xl bg-background/70 border border-input focus:border-primary focus:ring-2 focus:ring-primary/30 outline-none transition-all text-lg"
+                  />
+                  <div
+                    role="region"
+                    aria-label="Assistant response area"
+                    aria-live="polite"
+                    className="mt-6 min-h-[5rem] text-muted-foreground leading-relaxed prose prose-neutral prose-sm"
+                  >
+                    {assistantResponse || <span className="opacity-60 italic">Your answer will appear here…</span>}
                   </div>
                 </div>
-              </section>
-            </>
-          ) : null}
+              </VirtualPhysioSection>
+              <NutritionArticleSection />
+            </Suspense>
+
+            <BlogTeaserSection />
+
+            <div ref={belowFoldRef}>
+              {isBelowFoldVisible && (
+                <Suspense fallback={<SectionLoader />}>
+                  <div className="space-y-20">
+                    <ConditionsSection />
+                    <JointExerciseSection />
+
+                    <section aria-labelledby="guides-heading" className="space-y-12">
+                      <div className="text-center space-y-5">
+                        <h2 id="guides-heading" className="text-4xl md:text-5xl font-bold tracking-tight">
+                          Gentle Exercise Guides
+                        </h2>
+                        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                          Tai Chi, Pilates & low-impact movements inspired by open knowledge
+                        </p>
+                      </div>
+
+                      {articlesError && (
+                        <p className="text-center text-lg text-destructive font-medium">{articlesError}</p>
+                      )}
+
+                      {articlesLoading ? (
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                          {[...Array(4)].map((_, i) => (
+                            <div key={i} className="space-y-4">
+                              <Skeleton className="h-72 w-full rounded-2xl" />
+                              <Skeleton className="h-8 w-3/4 mx-auto" />
+                              <Skeleton className="h-5 w-full" />
+                              <Skeleton className="h-5 w-2/3" />
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+                          {articles.map((article, idx) => (
+                            <ArticleCard key={idx} article={article} index={idx} />
+                          ))}
+                        </div>
+                      )}
+                    </section>
+                  </div>
+                </Suspense>
+              )}
+            </div>
+          </div>
+        </main>
+
+        <Footer />
+
+        {/* Glass CTA */}
+        <div className="fixed inset-x-0 bottom-0 z-50 sm:hidden bg-background/75 backdrop-blur-2xl border-t border-border/50 px-5 py-5 shadow-2xl">
+          <AppointmentModal
+            trigger={
+              <Button className="w-full h-14 rounded-2xl text-base font-semibold shadow-xl hover:shadow-2xl transition-all duration-300">
+                <CalendarCheck className="mr-3 h-5 w-5" aria-hidden="true" />
+                Book Free Consultation
+              </Button>
+            }
+          />
         </div>
-      </main>
-
-      <Footer />
-
-      <Suspense fallback={null}>{isBelowFoldVisible && <DonationNotification />}</Suspense>
-
-      <div className="fixed bottom-0 left-0 right-0 z-40 sm:hidden bg-background/95 backdrop-blur-xl border-t border-border/40 px-4 py-3 shadow-large">
-        <AppointmentModal
-          trigger={
-            <Button className="w-full btn-primary-cta h-12 rounded-full text-sm font-bold tracking-wide shadow-medium">
-              <CalendarCheck className="w-4 h-4 mr-2" aria-hidden="true" />
-              Book Free Consultation
-            </Button>
-          }
-        />
       </div>
-    </div>
+    </ErrorBoundary>
   );
 }
