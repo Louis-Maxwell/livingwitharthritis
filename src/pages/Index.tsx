@@ -15,7 +15,7 @@ import Footer from "@/components/Footer";
 import BlogTeaserSection from "@/components/BlogTeaserSection";
 import { useDeferredVisible } from "@/hooks/useDeferredVisible";
 import { AppointmentModal } from "@/components/AppointmentModal";
-import OptimizedImage from "@/components/OptimizedImage";
+import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import ErrorBoundary from "@/components/ErrorBoundary"; // new simple component
 
 // Lazy sections
@@ -76,7 +76,7 @@ const ArticleCard = memo(({ article, index }: { article: Article; index: number 
               src={article.imageUrl}
               alt={article.alt}
               className="h-64 md:h-72 lg:h-80"
-              fetchpriority={index < 3 ? "high" : "low"} // first 3 cards prioritized
+              priority={index < 3}
             />
             <AccordionTrigger className="px-6 py-5 text-xl font-semibold hover:no-underline">
               {article.title}
@@ -179,29 +179,7 @@ export default function Index() {
             <Suspense fallback={<SectionLoader />}>
               <AboutSection />
               <ServicesGrid />
-              <VirtualPhysioSection>
-                <div className="max-w-2xl mx-auto bg-gradient-to-br from-card/80 to-card/60 backdrop-blur-lg p-8 md:p-10 rounded-3xl shadow-2xl border border-border/40">
-                  <label htmlFor="assistant-input" className="sr-only">
-                    Ask questions about arthritis exercises, Tai Chi, Pilates or joint health
-                  </label>
-                  <input
-                    id="assistant-input"
-                    type="text"
-                    value={assistantQuery}
-                    onChange={(e) => setAssistantQuery(e.target.value)}
-                    placeholder="Ask anything about Tai Chi, Pilates or arthritis relief…"
-                    className="w-full px-5 py-4 rounded-xl bg-background/70 border border-input focus:border-primary focus:ring-2 focus:ring-primary/30 outline-none transition-all text-lg"
-                  />
-                  <div
-                    role="region"
-                    aria-label="Assistant response area"
-                    aria-live="polite"
-                    className="mt-6 min-h-[5rem] text-muted-foreground leading-relaxed prose prose-neutral prose-sm"
-                  >
-                    {assistantResponse || <span className="opacity-60 italic">Your answer will appear here…</span>}
-                  </div>
-                </div>
-              </VirtualPhysioSection>
+              <VirtualPhysioSection />
               <NutritionArticleSection />
             </Suspense>
 
