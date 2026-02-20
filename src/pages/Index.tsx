@@ -8,19 +8,17 @@ import { useDeferredVisible } from "@/hooks/useDeferredVisible";
 import { AppointmentModal } from "@/components/AppointmentModal";
 import { CalendarCheck, HeartHandshake } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import BlogTeaserSection from "@/components/BlogTeaserSection";
 import { toast } from "sonner";
 
 // Ultra-lazy sections
 const AboutSection = lazy(() => import("@/components/AboutSection"));
-const ServicesGrid = lazy(() => import("@/components/ServicesGrid"), { ssr: false });
+const ServicesGrid = lazy(() => import("@/components/ServicesGrid"));
 const VirtualPhysioSection = lazy(() => import("@/components/VirtualPhysioSection"));
 const NutritionArticleSection = lazy(() => import("@/components/NutritionArticleSection"));
 const ConditionsSection = lazy(() => import("@/components/ConditionsSection"));
 const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
 const JointExerciseSection = lazy(() => import("@/components/JointExerciseSection"));
 const DonationNotification = lazy(() => import("@/components/DonationNotification"));
-const PatientStoriesCarousel = lazy(() => import("@/components/PatientStoriesCarousel")); // new — see below
 
 const MinimalLoader = memo(() => (
   <div className="py-20 flex items-center justify-center">
@@ -117,7 +115,7 @@ function Index() {
         <Suspense fallback={<MinimalLoader />}>
           <NutritionArticleSection />
         </Suspense>
-        <BlogTeaserSection />
+        
         {/* Impact stats — builds trust fast (from Canadian/US charities) */}
         <section className="py-16 px-4 bg-card/50">
           <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 text-center">
@@ -144,11 +142,6 @@ function Index() {
 
               <Suspense fallback={<MinimalLoader />}>
                 <TestimonialsSection />
-              </Suspense>
-
-              {/* New: Patient stories carousel (inspired by AiArthritis MyStills, CreakyJoints) */}
-              <Suspense fallback={<MinimalLoader />}>
-                <PatientStoriesCarousel /> {/* implement as horizontal scroll with real quotes + photos */}
               </Suspense>
 
               <Suspense fallback={<MinimalLoader />}>
