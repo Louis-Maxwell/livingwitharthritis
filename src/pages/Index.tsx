@@ -6,16 +6,17 @@ import { useDeferredVisible } from "@/hooks/useDeferredVisible";
 import { AppointmentModal } from "@/components/AppointmentModal";
 import { CalendarCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import BlogTeaserSection from "@/components/BlogTeaserSection";
 import { toast } from "sonner";
 import { useSearchParams } from "react-router-dom";
+import { motion } from "framer-motion"; // Added open source Framer Motion for UI animations
 
 // Lazy-loaded sections
 const AboutSection = lazy(() => import("@/components/AboutSection"));
 const ServicesGrid = lazy(() => import("@/components/ServicesGrid"));
-const VirtualPhysioSection = lazy(() => import("@/components/VirtualPhysioSection"));
+const VirtualPhysioSection = lazy(() => import("@/components/VirtualPhysioSection")); // Will improvise to make smarter
 const NutritionArticleSection = lazy(() => import("@/components/NutritionArticleSection"));
 const ConditionsSection = lazy(() => import("@/components/ConditionsSection"));
-const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
 const JointExerciseSection = lazy(() => import("@/components/JointExerciseSection"));
 const DonationNotification = lazy(() => import("@/components/DonationNotification"));
 
@@ -27,48 +28,69 @@ const SectionLoader = memo(() => (
 ));
 SectionLoader.displayName = "SectionLoader";
 
-// ────────────────────────────────────────────────
-// Static fallback articles (updated 2026 sources)
+// Static fallback articles (open source from Wikipedia, paraphrased to avoid issues)
 const fallbackArticles = [
   {
-    title: "Exercising With Chronic Conditions",
+    title: "Physical Therapy for Arthritis",
     excerpt:
-      "Low-impact activities like swimming, walking, and tai chi put less stress on joints and help manage arthritis pain and function.",
-    link: "https://www.nia.nih.gov/health/exercise-and-physical-activity/exercising-chronic-conditions",
-    imageUrl: "https://images.unsplash.com/photo-1571019613454-1cfac13c2a8a?auto=format&fit=crop&w=800&q=80",
-    alt: "Senior doing gentle low-impact exercises for arthritis relief",
+      "Exercises can improve muscle strength, flexibility, and joint function, helping reduce pain and support daily activities.",
+    link: "https://en.wikipedia.org/wiki/Arthritis#Treatment",
+    imageUrl: "https://cdn.pixabay.com/photo/2015/07/02/10/05/taichi-829957_1280.jpg",
+    alt: "Group practicing tai chi for joint health",
   },
   {
-    title: "About Physical Activity and Arthritis – CDC",
+    title: "Exercise for Osteoarthritis",
     excerpt:
-      "Joint-friendly activities include brisk walking, cycling, swimming, water exercises, tai chi, and dancing to reduce pain and improve mood.",
-    link: "https://www.cdc.gov/arthritis/prevention/index.html",
-    imageUrl: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80",
-    alt: "Person walking briskly outdoors for joint health",
+      "Low-impact activities like walking, swimming, and aerobics can reduce pain and improve function for up to 6 months.",
+    link: "https://en.wikipedia.org/wiki/Osteoarthritis#Exercise",
+    imageUrl: "https://cdn.pixabay.com/photo/2016/11/22/19/17/girl-1850141_1280.jpg",
+    alt: "Person doing yoga for flexibility",
   },
   {
-    title: "Managing Arthritis: 6 Natural Ways to Improve Mobility",
-    excerpt:
-      "UCLA Health recommends balancing/stretching (yoga), strength training, and low-impact activities like walking, water workouts, and cycling.",
-    link: "https://www.uclahealth.org/news/article/managing-arthritis-6-natural-ways-improve-mobility-and",
-    imageUrl: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-    alt: "Gentle water-based exercise for arthritis management",
+    title: "Conservative Measures for Joint Relief",
+    excerpt: "Rest, applying ice or heat, and weight management help decrease joint stress and manage symptoms.",
+    link: "https://en.wikipedia.org/wiki/Arthritis#Treatment",
+    imageUrl: "https://cdn.pixabay.com/photo/2016/11/29/09/10/man-1868632_1280.jpg",
+    alt: "Person walking in nature for low-impact exercise",
   },
   {
-    title: "Living With Arthritis: Health Information Basics",
-    excerpt:
-      "NIAMS suggests walking, low-impact aerobics, tai chi, and yoga to lower joint pain, stiffness, and improve flexibility and strength.",
-    link: "https://www.niams.nih.gov/community-outreach-initiative/understanding-joint-health/living-with-arthritis",
-    imageUrl: "https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=800&q=80",
-    alt: "Group practicing tai chi for better joint mobility",
+    title: "Aquatic Exercises for Arthritis",
+    excerpt: "Swimming and water-based activities provide gentle resistance and support for joints.",
+    link: "https://en.wikipedia.org/wiki/Osteoarthritis#Exercise",
+    imageUrl: "https://cdn.pixabay.com/photo/2014/06/28/00/54/woman-378683_1280.jpg",
+    alt: "Person swimming for arthritis relief",
   },
   {
-    title: "The Critical Role of Physical Activity in Knee and Hip Osteoarthritis",
-    excerpt:
-      "PMC/NIH review: Walking, cycling, and aquatic exercise are safe low-impact options that enhance fitness and reduce OA symptoms.",
-    link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10922233/",
-    imageUrl: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80",
-    alt: "Low-impact cycling as joint-friendly arthritis exercise",
+    title: "Strength Training for Joint Support",
+    excerpt: "Moderate strengthening exercises protect joints and improve overall mobility.",
+    link: "https://en.wikipedia.org/wiki/Osteoarthritis#Exercise",
+    imageUrl: "https://cdn.pixabay.com/photo/2017/08/06/12/06/people-2591874_1280.jpg",
+    alt: "People cycling as joint-friendly activity",
+  },
+];
+
+// Fallback conditions data (from Wikipedia, for backend simulation)
+const fallbackConditions = [
+  {
+    title: "Osteoarthritis",
+    description:
+      "Degenerative joint disease from cartilage breakdown, often in weight-bearing joints, worsened by age, injury, or obesity.",
+  },
+  {
+    title: "Rheumatoid Arthritis",
+    description: "Autoimmune condition attacking joint linings, causing inflammation and potential deformity.",
+  },
+  {
+    title: "Gout",
+    description: "Caused by uric acid crystals in joints, leading to sudden painful swelling.",
+  },
+  {
+    title: "Lupus",
+    description: "Autoimmune disorder with joint inflammation, rashes, and organ effects.",
+  },
+  {
+    title: "Septic Arthritis",
+    description: "Infectious arthritis from bacteria, requiring prompt treatment.",
   },
 ];
 
@@ -76,32 +98,53 @@ export default function Index() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [belowFoldRef, isBelowFoldVisible] = useDeferredVisible<HTMLDivElement>("400px");
 
-  // Articles state (now dynamic with backend fetch)
+  // Articles state (dynamic with backend)
   const [articles, setArticles] = useState(fallbackArticles);
   const [articlesLoading, setArticlesLoading] = useState(true);
   const [articlesError, setArticlesError] = useState<string | null>(null);
 
+  // Conditions state (new backend fetch for conditions button/section)
+  const [conditions, setConditions] = useState(fallbackConditions);
+  const [conditionsLoading, setConditionsLoading] = useState(true);
+
   useEffect(() => {
     async function fetchArticles() {
       try {
-        const res = await fetch("/api/articles"); // Replace with your real backend API (e.g., '/api/articles' or external)
+        const res = await fetch("/api/articles");
         if (!res.ok) throw new Error("Failed to fetch articles");
         const data = await res.json();
         setArticles(data.length > 0 ? data : fallbackArticles);
       } catch (err) {
-        console.warn("Articles fetch failed, using fallback:", err);
+        console.error("Articles fetch failed:", err);
+        setArticlesError("Could not load articles. Using fallback.");
+        toast.error("Backend fetch failed—using fallback articles.");
         setArticles(fallbackArticles);
       } finally {
         setArticlesLoading(false);
       }
     }
 
+    async function fetchConditions() {
+      try {
+        const res = await fetch("/api/conditions");
+        if (!res.ok) throw new Error("Failed to fetch conditions");
+        const data = await res.json();
+        setConditions(data.length > 0 ? data : fallbackConditions);
+      } catch (err) {
+        console.error("Conditions fetch failed:", err);
+        toast.error("Backend fetch failed—using fallback conditions.");
+        setConditions(fallbackConditions);
+      } finally {
+        setConditionsLoading(false);
+      }
+    }
+
     if (isBelowFoldVisible) {
       fetchArticles();
+      fetchConditions();
     }
   }, [isBelowFoldVisible]);
 
-  // ────────────────────────────────────────────────
   // Donation toast
   useEffect(() => {
     const donation = searchParams.get("donation");
@@ -129,41 +172,73 @@ export default function Index() {
     }
   }, [searchParams, setSearchParams]);
 
+  // Improvised virtual assistant (simple state for smarter interaction, e.g., Q&A)
+  const [assistantQuery, setAssistantQuery] = useState("");
+  const [assistantResponse, setAssistantResponse] = useState("");
+  const handleAssistantSubmit = async () => {
+    try {
+      // Simulate smarter AI call (could integrate with xAI API or open source model)
+      const res = await fetch("/api/virtual-assistant", {
+        method: "POST",
+        body: JSON.stringify({ query: assistantQuery }),
+      });
+      const data = await res.json();
+      setAssistantResponse(data.response || "Sorry, I couldn't find an answer. Try asking about exercises!");
+    } catch {
+      setAssistantResponse("Error connecting to assistant.");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <main>
         <HeroSection />
 
-        {/* Grouped upper sections – one Suspense */}
         <Suspense fallback={<SectionLoader />}>
           <AboutSection />
           <ServicesGrid />
-          <VirtualPhysioSection />
+          {/* Improvised VirtualPhysioSection with smarter assistant */}
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
+            <VirtualPhysioSection>
+              {/* Added simple chat for smarter virtual assistant */}
+              <input
+                type="text"
+                value={assistantQuery}
+                onChange={(e) => setAssistantQuery(e.target.value)}
+                placeholder="Ask about arthritis exercises..."
+                className="border p-2"
+              />
+              <button onClick={handleAssistantSubmit}>Ask</button>
+              <p>{assistantResponse}</p>
+            </VirtualPhysioSection>
+          </motion.div>
           <NutritionArticleSection />
         </Suspense>
 
-        
+        <BlogTeaserSection />
 
         <div ref={belowFoldRef}>
           {isBelowFoldVisible ? (
             <>
-              {/* Grouped lower sections */}
               <Suspense fallback={<SectionLoader />}>
-                <ConditionsSection />
-                <TestimonialsSection />
+                <ConditionsSection conditions={conditions} loading={conditionsLoading} />
                 <JointExerciseSection />
               </Suspense>
 
-              {/* Articles & Guides Section (self-help tool, now backend-connected) */}
-              <section className="py-16 px-4 md:px-8 bg-muted/30" aria-labelledby="articles-heading">
+              <motion.section
+                className="py-16 px-4 md:px-8 bg-muted/30"
+                aria-labelledby="articles-heading"
+                initial={{ y: 50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.5 }}
+              >
                 <div className="max-w-7xl mx-auto">
                   <h2 id="articles-heading" className="text-3xl md:text-4xl font-bold text-center mb-6">
-                    Articles & Guides: Natural Arthritis Relief & Exercises
+                    Open Source Guides: Natural Arthritis Relief & Exercises
                   </h2>
                   <p className="text-center text-lg text-muted-foreground mb-12 max-w-3xl mx-auto">
-                    Discover free, trusted resources with low-impact exercises, pain relief tips, and evidence-based
-                    guides to help manage arthritis and improve joint health.
+                    Free resources from public domain sources like Wikipedia for managing arthritis.
                   </p>
 
                   {articlesError && <p className="text-center text-destructive mb-8">{articlesError}</p>}
@@ -186,7 +261,7 @@ export default function Index() {
                       {articles.map((article, idx) => (
                         <article
                           key={idx}
-                          role="article" // Improved a11y
+                          role="article"
                           className="bg-card rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow"
                         >
                           <img
@@ -195,7 +270,7 @@ export default function Index() {
                             className="w-full h-48 object-cover"
                             loading="lazy"
                             decoding="async"
-                            fetchPriority="low" // Perf hint for below-fold
+                            fetchPriority="low"
                             width={800}
                             height={480}
                           />
@@ -217,27 +292,22 @@ export default function Index() {
                   )}
 
                   <div className="text-center mt-12 text-muted-foreground">
-                    These evidence-based resources are free from trusted health organizations. Consult your healthcare
-                    provider before beginning new exercises.
+                    These resources are from open sources. Consult a provider before exercises.
                   </div>
                 </div>
-              </section>
+              </motion.section>
             </>
-          ) : (
-            <div className="min-h-[70vh] sm:min-h-[90vh] bg-muted/20" />
-          )}
+          ) : null}
         </div>
       </main>
 
       <Footer />
-      {/* Copyright example – add this (or similar) inside your actual Footer component */}
       <p className="text-center text-sm text-muted-foreground mt-4">
         © {new Date().getFullYear()} Your Site Name. All rights reserved.
       </p>
 
       <Suspense fallback={null}>{isBelowFoldVisible && <DonationNotification />}</Suspense>
 
-      {/* Sticky mobile CTA */}
       <div className="fixed bottom-0 left-0 right-0 z-40 sm:hidden bg-background/95 backdrop-blur-xl border-t border-border/40 px-4 py-3 shadow-large">
         <AppointmentModal
           trigger={
@@ -252,4 +322,4 @@ export default function Index() {
   );
 }
 
-
+export default memo(Index);
