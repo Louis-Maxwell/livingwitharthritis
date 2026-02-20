@@ -89,9 +89,7 @@ export default function Index() {
         const data = await res.json();
         setArticles(data.length > 0 ? data : fallbackArticles);
       } catch (err) {
-        console.error("Articles fetch failed:", err);
-        setArticlesError("Could not load latest articles from backend. Showing default guides.");
-        toast.error("Backend fetch failed—using fallback articles.");
+        console.warn("Articles fetch failed, using fallback:", err);
         setArticles(fallbackArticles);
       } finally {
         setArticlesLoading(false);
