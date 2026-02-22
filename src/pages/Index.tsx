@@ -1,12 +1,12 @@
-import { lazy, Suspense, memo, useEffect, useState } from "react";
+import { lazy, Suspense, memo, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { CalendarCheck } from "lucide-react";
 import { toast } from "sonner";
 import { useSearchParams } from "react-router-dom";
+import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
@@ -23,7 +23,6 @@ const VirtualPhysioSection = lazy(() => import("@/components/VirtualPhysioSectio
 const NutritionArticleSection = lazy(() => import("@/components/NutritionArticleSection"));
 const ConditionsSection = lazy(() => import("@/components/ConditionsSection"));
 const JointExerciseSection = lazy(() => import("@/components/JointExerciseSection"));
-const DonationNotification = lazy(() => import("@/components/DonationNotification"));
 
 const SectionLoader = memo(() => (
   <div className="py-20 flex items-center justify-center">
