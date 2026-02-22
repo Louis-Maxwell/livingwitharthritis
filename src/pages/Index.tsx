@@ -24,7 +24,7 @@ const useVisible = (threshold = "400px") => {
     return () => observer.disconnect();
   }, [threshold]);
 
-  return [ref, visible];
+  return [ref, visible] as const;
 };
 
 // Simple image component
@@ -37,7 +37,7 @@ const SimpleImage = ({ src, alt, className = "", priority = false }) => (
     width={800}
     height={480}
     style={{ opacity: 0, transition: "opacity 0.5s ease" }}
-    onLoad={(e) => (e.target.style.opacity = 1)}
+    onLoad={(e) => ((e.target as HTMLImageElement).style.opacity = "1")}
   />
 );
 
@@ -206,7 +206,7 @@ export default function ArthritisRelief() {
       </section>
 
       {/* Latest Insights / Gentle Exercise Guides */}
-      <section id="insights" className="py-16 bg-gray-50" ref={belowFoldRef}>
+      <section id="insights" className="py-16 bg-gray-50" ref={belowFoldRef as React.RefObject<HTMLElement>}>
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-6 text-teal-800">
             Latest Insights: Gentle Exercise Benefits
@@ -215,7 +215,7 @@ export default function ArthritisRelief() {
             Evidence-informed summaries of Tai Chi, swimming and other joint-friendly activities
           </p>
 
-          {articlesVisible ? (
+          {isBelowFoldVisible ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {latestInsights.map((item, idx) => (
                 <details
