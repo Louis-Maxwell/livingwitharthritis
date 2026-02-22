@@ -76,6 +76,41 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
 
+          {/* Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            className="order-1 lg:order-2 relative"
+          >
+            <div className="relative rounded-[2rem] overflow-hidden shadow-large">
+              <motion.picture style={{ y: imageY, scale: imageScale }} className="block w-full h-[300px] sm:h-[400px] lg:h-[560px]">
+                {/* WebP — modern browsers */}
+                <source
+                  type="image/webp"
+                  srcSet="/images/hero-community.webp 1280w"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
+                />
+                {/* JPEG fallback */}
+                <img
+                  src="/images/hero-community.jpg"
+                  srcSet="/images/hero-community.jpg 918w"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
+                  alt="British community of people being active together in a UK park — walking, cycling and stretching"
+                  className="w-full h-full object-cover"
+                  width={1280}
+                  height={720}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                />
+              </motion.picture>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
+            </div>
+            {/* Decorative accent */}
+            <div className="absolute -bottom-4 -right-4 w-24 h-24 rounded-2xl bg-primary/5 -z-10" />
+            <div className="absolute -top-4 -left-4 w-16 h-16 rounded-2xl bg-secondary/5 -z-10" />
+          </motion.div>
         </div>
       </div>
     </section>
