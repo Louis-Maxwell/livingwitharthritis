@@ -5,7 +5,7 @@
 // ======================================================================
 
 import { useEffect, useState, useRef, useCallback } from "react";
-
+import { toast } from "@/hooks/use-toast";
 
 // Custom debounce
 function customDebounce(fn, delay) {
@@ -175,8 +175,9 @@ export default function ArthritisRelief() {
         const data = await res.json();
         setData(data.length ? data : fallback);
       } catch (err) {
-        console.warn(`[fallback] ${endpoint} unavailable, using defaults.`);
+        console.error(err);
         setData(fallback);
+        toast({ title: "Loading error", description: `Failed to load ${endpoint.split("/").pop()} – using fallback.`, variant: "destructive" });
       } finally {
         setLoading(false);
       }
