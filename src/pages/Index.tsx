@@ -1,9 +1,9 @@
 // Single-file React landing page – Lovable.dev / playground optimized
-// Updated with Pilates + Yoga benefits, concise content, open-source images, fake backend
+// Updated with detailed Tai Chi & Swimming benefits – February 2026
 
 import { useEffect, useState, useRef } from "react";
 
-// Custom debounce
+// Custom debounce (no external libs)
 const customDebounce = (fn, delay) => {
   let timer;
   return (...args) => {
@@ -24,7 +24,7 @@ const useVisible = (threshold = "400px") => {
     return () => observer.disconnect();
   }, [threshold]);
 
-  return [ref, visible] as const;
+  return [ref, visible];
 };
 
 // Simple image component
@@ -36,51 +36,57 @@ const SimpleImage = ({ src, alt, className = "", priority = false }) => (
     loading={priority ? "eager" : "lazy"}
     width={800}
     height={480}
-    style={{ opacity: 0, transition: "opacity 0.6s ease" }}
-    onLoad={(e) => ((e.target as HTMLImageElement).style.opacity = "1")}
+    style={{ opacity: 0, transition: "opacity 0.5s ease" }}
+    onLoad={(e) => (e.target.style.opacity = 1)}
   />
 );
 
 // ────────────────────────────────────────────────
-// Latest Insights articles (concise + new Pilates & Yoga cards)
-const articlesData = [
+// Latest Insights data – expanded with Tai Chi & Swimming benefits
+const latestInsights = [
   {
     title: "Tai Chi for Arthritis Relief",
     content:
-      "Slow, flowing movements improve balance, flexibility, muscle strength, and joint function. Studies show it reduces knee pain by up to 50%, eases stiffness, lowers fall risk, and enhances sleep and quality of life.",
-    imageUrl: "https://cdn.pixabay.com/photo/2017/08/07/14/02/people-2604149_1280.jpg",
-    alt: "Group practicing Tai Chi outdoors",
+      "Tai Chi is a gentle, flowing movement practice that improves balance, flexibility, muscular strength, and joint function while reducing pain and stiffness. Evidence shows it can significantly lower knee osteoarthritis pain (up to 34–54% in studies), decrease joint stiffness, enhance physical function, and reduce fall risk in older adults. It promotes relaxation, better sleep, and overall quality of life. Medical reviews support Tai Chi as a safe, effective non-drug option for osteoarthritis and other forms of arthritis.",
+    imageUrl:
+      "https://marvel-b1-cdn.bc0a.com/f00000000229348/www.silversneakers.com/wp-content/uploads/2017/03/SSBlog_LowImpactWorkouts_700x525-1.jpg",
+    alt: "Group practicing Tai Chi in a peaceful park setting",
   },
   {
-    title: "Pilates Benefits for Arthritis",
+    title: "Swimming & Aquatic Exercise for Arthritis",
     content:
-      "Low-impact Pilates strengthens core muscles, improves posture, and increases joint stability. It reduces pain and stiffness in knee and hip osteoarthritis, enhances flexibility, and supports better daily function with no joint strain.",
-    imageUrl: "https://cdn.pixabay.com/photo/2017/08/01/01/33/beach-2563446_1280.jpg",
-    alt: "Woman doing Pilates on mat near beach",
+      "Swimming and water-based activities provide excellent low-impact exercise for arthritis. Water buoyancy reduces joint stress by up to 90%, allowing freer movement without pain. Studies show it decreases joint pain and stiffness, improves range of motion, strengthens muscles around joints, enhances cardiovascular fitness, and boosts mood through endorphin release. Aquatic exercise often outperforms land-based workouts for pain relief in osteoarthritis and rheumatoid arthritis, while also supporting weight management and overall function.",
+    imageUrl: "https://res.cloudinary.com/sharecare/image/upload/f_auto/v1699550642/articles/tai-chi-yoga",
+    alt: "Person swimming laps in a pool for gentle joint-friendly exercise",
   },
   {
-    title: "Yoga for Joint Health",
+    title: "Range-of-Motion Exercises",
     content:
-      "Gentle yoga increases range of motion, reduces joint stiffness, and strengthens supporting muscles. It lowers inflammation, eases chronic pain, improves balance to prevent falls, and promotes relaxation for better arthritis management.",
-    imageUrl: "https://cdn.pixabay.com/photo/2017/08/06/20/11/woman-2595930_1280.jpg",
-    alt: "Woman in yoga pose at sunrise",
+      "Gentle daily stretches help maintain joint flexibility, reduce morning stiffness, and support easier movement throughout the day.",
+    imageUrl:
+      "https://media.springernature.com/lw685/springer-static/image/art%3A10.1186%2Fs12906-023-04070-0/MediaObjects/12906_2023_4070_Fig2_HTML.png",
+    alt: "Illustrated gentle stretching routine for joints",
   },
   {
-    title: "Swimming & Water Exercise",
+    title: "Strengthening for Joint Support",
     content:
-      "Water buoyancy reduces joint load by up to 90%, allowing pain-free movement. It decreases stiffness, builds strength, improves cardiovascular health, and enhances mood through low-impact, full-body activity.",
-    imageUrl: "https://cdn.pixabay.com/photo/2016/11/29/09/32/woman-1868632_1280.jpg",
-    alt: "Person swimming in pool for joint relief",
+      "Light resistance builds protective muscle around joints, helping stabilize them and improve everyday comfort and function.",
+    imageUrl:
+      "https://lh7-rt.googleusercontent.com/docsz/AD_4nXd_fAVCtF-W6UYkqco0rJGzlrgtyXjpkLAqU7kh2NjGYLK17jMiaRmR8Djr3QfMZbiIEDSDNFUbYWbC6VlWKR7SxpmJVzeXo7xaVrjaEf0KmGC_0C8eglhWiPObAp50NnjsROXwYEeuXdarknq7VL8HPvsaXlsE5TitUQ1kDQ?key=ehC6xXLlbzYj_c-wtJykJw",
+    alt: "Person doing light strength exercises for joint health",
   },
 ];
 
 // ────────────────────────────────────────────────
-// Global styles
+// Global styles (reset + hover effects + fade-in)
 const globalStyles = `
-  body { margin:0; font-family: system-ui, sans-serif; background:#f9fafb; }
+  body { margin:0; font-family: system-ui, -apple-system, sans-serif; background:#f9fafb; }
   button { cursor: pointer; }
   details { transition: all 0.25s ease; }
-  details:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 10px 25px rgba(0,0,0,0.12); }
+  details:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  }
   details[open] summary { font-weight: 600; color: #0d9488; }
   details[open] > div { animation: fadeIn 0.4s ease; }
   summary { list-style: none; outline: none; }
@@ -92,42 +98,11 @@ const globalStyles = `
 // Main component
 export default function ArthritisRelief() {
   const [belowFoldRef, isBelowFoldVisible] = useVisible("400px");
-  const [articles, setArticles] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [insightsVisible, setInsightsVisible] = useState(false);
   const [assistantQuery, setAssistantQuery] = useState("");
   const [assistantResponse, setAssistantResponse] = useState("");
 
-  // Fake backend fetch for articles
-  useEffect(() => {
-    if (!isBelowFoldVisible) return;
-
-    const fetchArticles = async () => {
-      setLoading(true);
-      setError(null);
-
-      // Simulate network + occasional failure
-      await new Promise((resolve) => setTimeout(resolve, 1000 + Math.random() * 800));
-
-      // 15% chance of "backend failure" for demo
-      if (Math.random() < 0.15) {
-        setError("Backend temporarily unavailable – showing fallback content");
-        setArticles(articlesData);
-      } else {
-        setArticles(articlesData);
-      }
-      setLoading(false);
-    };
-
-    fetchArticles();
-  }, [isBelowFoldVisible]);
-
-  // Set title
-  useEffect(() => {
-    document.title = "Arthritis Relief – Gentle Exercises & Joint Health";
-  }, []);
-
-  // Inject styles
+  // Inject global styles
   useEffect(() => {
     const style = document.createElement("style");
     style.textContent = globalStyles;
@@ -135,17 +110,22 @@ export default function ArthritisRelief() {
     return () => style.remove();
   }, []);
 
-  // Debounced assistant
+  // Set page title
+  useEffect(() => {
+    document.title = "Arthritis Relief – Gentle Exercises & Support";
+  }, []);
+
+  // Debounced fake assistant
   const debouncedAssistant = customDebounce((query) => {
     if (!query.trim()) return;
     const q = query.toLowerCase();
-    if (q.includes("tai chi") || q.includes("pilates") || q.includes("yoga") || q.includes("swimming")) {
+    if (q.includes("tai chi") || q.includes("swimming")) {
       setAssistantResponse(
-        "These low-impact activities (Tai Chi, Pilates, yoga, swimming) are among the best for arthritis. They reduce pain, improve flexibility, strengthen supporting muscles, and enhance balance with minimal joint stress.",
+        "Both Tai Chi and swimming are highly recommended for arthritis. They reduce pain and stiffness, improve joint function, balance, and overall well-being while being very gentle on the body.",
       );
     } else {
       setAssistantResponse(
-        "Low-impact movement and gentle stretching usually help most. Always consult your doctor for personalized advice.",
+        "Low-impact movement like walking, gentle stretching, or water exercise often helps most. Consult your healthcare provider for personalized advice.",
       );
     }
   }, 600);
@@ -153,6 +133,13 @@ export default function ArthritisRelief() {
   useEffect(() => {
     debouncedAssistant(assistantQuery);
   }, [assistantQuery]);
+
+  // Fake loading delay for insights
+  useEffect(() => {
+    if (isBelowFoldVisible) {
+      setTimeout(() => setInsightsVisible(true), 1200);
+    }
+  }, [isBelowFoldVisible]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-100 text-gray-900">
@@ -178,7 +165,8 @@ export default function ArthritisRelief() {
             Gentle Movement for Joint Comfort
           </h2>
           <p className="text-lg md:text-xl text-gray-700 mb-10 max-w-3xl mx-auto">
-            Tai Chi, Pilates, yoga, swimming and other low-impact practices to ease arthritis symptoms.
+            Explore Tai Chi, swimming, Pilates and other low-impact activities to ease arthritis symptoms and support
+            daily life.
           </p>
           <button className="bg-teal-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-teal-700 transition shadow-md">
             Get Started Today
@@ -199,11 +187,11 @@ export default function ArthritisRelief() {
               type="text"
               value={assistantQuery}
               onChange={(e) => setAssistantQuery(e.target.value)}
-              placeholder="Ask about Tai Chi, Pilates, yoga or swimming…"
+              placeholder="Ask about Tai Chi, swimming or arthritis relief…"
               className="w-full px-5 py-4 rounded-xl border border-gray-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition text-lg"
             />
             <p className="text-sm text-gray-500 mt-3">
-              Try: "Benefits of Pilates for arthritis?" or "Is yoga good for joints?"
+              Try: "What are the benefits of Tai Chi?" or "Is swimming good for arthritis?"
             </p>
             <div
               role="region"
@@ -217,31 +205,19 @@ export default function ArthritisRelief() {
         </div>
       </section>
 
-      {/* Latest Insights */}
+      {/* Latest Insights / Gentle Exercise Guides */}
       <section id="insights" className="py-16 bg-gray-50" ref={belowFoldRef}>
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-6 text-teal-800">
             Latest Insights: Gentle Exercise Benefits
           </h2>
           <p className="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
-            Concise, evidence-informed benefits of joint-friendly activities
+            Evidence-informed summaries of Tai Chi, swimming and other joint-friendly activities
           </p>
 
-          {loading ? (
+          {articlesVisible ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[...Array(4)].map((_, i) => (
-                <div key={i} className="space-y-4">
-                  <div className="h-72 w-full bg-gray-200 rounded-2xl animate-pulse" />
-                  <div className="h-8 w-3/4 bg-gray-200 rounded mx-auto animate-pulse" />
-                  <div className="h-5 w-full bg-gray-200 rounded animate-pulse" />
-                </div>
-              ))}
-            </div>
-          ) : error ? (
-            <p className="text-center text-red-600 font-medium">{error}</p>
-          ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {articles.map((item, idx) => (
+              {latestInsights.map((item, idx) => (
                 <details
                   key={idx}
                   className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-200 group"
@@ -252,6 +228,16 @@ export default function ArthritisRelief() {
                   </summary>
                   <div className="px-6 pb-8 text-gray-700 leading-relaxed">{item.content}</div>
                 </details>
+              ))}
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[...Array(4)].map((_, i) => (
+                <div key={i} className="space-y-4">
+                  <div className="h-72 w-full bg-gray-200 rounded-2xl animate-pulse" />
+                  <div className="h-8 w-3/4 bg-gray-200 rounded mx-auto animate-pulse" />
+                  <div className="h-5 w-full bg-gray-200 rounded animate-pulse" />
+                </div>
               ))}
             </div>
           )}
