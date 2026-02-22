@@ -26,7 +26,7 @@ const useVisible = (threshold = "400px") => {
     return () => observer.disconnect();
   }, [threshold]);
 
-  return [ref, visible];
+  return [ref, visible] as const;
 };
 
 // ────────────────────────────────────────────────
@@ -40,7 +40,7 @@ const SimpleImage = ({ src, alt, className = "", priority = false }) => (
     width={800}
     height={480}
     style={{ opacity: 0, transition: "opacity 0.5s ease" }}
-    onLoad={(e) => (e.target.style.opacity = 1)}
+    onLoad={(e) => ((e.target as HTMLImageElement).style.opacity = "1")}
   />
 );
 
