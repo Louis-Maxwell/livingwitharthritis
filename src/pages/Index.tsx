@@ -1,10 +1,9 @@
 // Single-file React landing page – Lovable.dev / playground optimized
-// All feedback applied – February 2026 version
+// Updated with Pilates + Yoga benefits, concise content, open-source images, fake backend
 
 import { useEffect, useState, useRef } from "react";
 
-// ────────────────────────────────────────────────
-// Custom debounce (no external libs)
+// Custom debounce
 const customDebounce = (fn, delay) => {
   let timer;
   return (...args) => {
@@ -13,8 +12,7 @@ const customDebounce = (fn, delay) => {
   };
 };
 
-// ────────────────────────────────────────────────
-// Fake visible hook (IntersectionObserver simulation)
+// Fake visible hook
 const useVisible = (threshold = "400px") => {
   const [visible, setVisible] = useState(false);
   const ref = useRef(null);
@@ -26,11 +24,10 @@ const useVisible = (threshold = "400px") => {
     return () => observer.disconnect();
   }, [threshold]);
 
-  return [ref, visible] as const;
+  return [ref, visible];
 };
 
-// ────────────────────────────────────────────────
-// Simple image (no picture element – playground friendly)
+// Simple image component
 const SimpleImage = ({ src, alt, className = "", priority = false }) => (
   <img
     src={src}
@@ -39,89 +36,51 @@ const SimpleImage = ({ src, alt, className = "", priority = false }) => (
     loading={priority ? "eager" : "lazy"}
     width={800}
     height={480}
-    style={{ opacity: 0, transition: "opacity 0.5s ease" }}
-    onLoad={(e) => ((e.target as HTMLImageElement).style.opacity = "1")}
+    style={{ opacity: 0, transition: "opacity 0.6s ease" }}
+    onLoad={(e) => (e.target.style.opacity = 1)}
   />
 );
 
 // ────────────────────────────────────────────────
-// Article data (short for demo, paraphrased to avoid copyright)
-const articles = [
+// Latest Insights articles (concise + new Pilates & Yoga cards)
+const articlesData = [
   {
     title: "Tai Chi for Arthritis Relief",
     content:
-      "This gentle practice involves slow, flowing movements that enhance balance, flexibility, and joint comfort. It's particularly beneficial for older adults and those with joint conditions like osteoarthritis.",
-    imageUrl:
-      "https://marvel-b1-cdn.bc0a.com/f00000000229348/www.silversneakers.com/wp-content/uploads/2017/03/SSBlog_LowImpactWorkouts_700x525-1.jpg",
-    alt: "Group of seniors practicing Tai Chi in park",
+      "Slow, flowing movements improve balance, flexibility, muscle strength, and joint function. Studies show it reduces knee pain by up to 50%, eases stiffness, lowers fall risk, and enhances sleep and quality of life.",
+    imageUrl: "https://cdn.pixabay.com/photo/2017/08/07/14/02/people-2604149_1280.jpg",
+    alt: "Group practicing Tai Chi outdoors",
   },
   {
-    title: "Pilates for Joint Health",
+    title: "Pilates Benefits for Arthritis",
     content:
-      "Pilates focuses on controlled, low-impact exercises to build core strength, improve posture, and provide better support for joints, making it suitable for managing discomfort.",
-    imageUrl:
-      "https://myoa.org.au/sites/default/files/styles/content_main_1000x600/public/2024-10/GettyImages-1663808463.jpg?itok=TVdZ5tw6",
-    alt: "People doing Tai Chi exercises outdoors",
+      "Low-impact Pilates strengthens core muscles, improves posture, and increases joint stability. It reduces pain and stiffness in knee and hip osteoarthritis, enhances flexibility, and supports better daily function with no joint strain.",
+    imageUrl: "https://cdn.pixabay.com/photo/2017/08/01/01/33/beach-2563446_1280.jpg",
+    alt: "Woman doing Pilates on mat near beach",
   },
   {
-    title: "Range-of-Motion Exercises",
+    title: "Yoga for Joint Health",
     content:
-      "These simple stretches help maintain joint flexibility and reduce stiffness. Gently move your joints through their natural range daily, starting slowly to avoid strain.",
-    imageUrl: "https://res.cloudinary.com/sharecare/image/upload/f_auto/v1699550642/articles/tai-chi-yoga",
-    alt: "Women practicing yoga or Tai Chi in park",
+      "Gentle yoga increases range of motion, reduces joint stiffness, and strengthens supporting muscles. It lowers inflammation, eases chronic pain, improves balance to prevent falls, and promotes relaxation for better arthritis management.",
+    imageUrl: "https://cdn.pixabay.com/photo/2017/08/06/20/11/woman-2595930_1280.jpg",
+    alt: "Woman in yoga pose at sunrise",
   },
   {
-    title: "Strengthening for Joint Support",
+    title: "Swimming & Water Exercise",
     content:
-      "Using light resistance, these exercises build muscle around joints to offer protection and improve everyday function. Focus on proper technique to stay safe.",
-    imageUrl:
-      "https://lh7-rt.googleusercontent.com/docsz/AD_4nXd_fAVCtF-W6UYkqco0rJGzlrgtyXjpkLAqU7kh2NjGYLK17jMiaRmR8Djr3QfMZbiIEDSDNFUbYWbC6VlWKR7SxpmJVzeXo7xaVrjaEf0KmGC_0C8eglhWiPObAp50NnjsROXwYEeuXdarknq7VL8HPvsaXlsE5TitUQ1kDQ?key=ehC6xXLlbzYj_c-wtJykJw",
-    alt: "Infographic of joint-friendly exercises",
+      "Water buoyancy reduces joint load by up to 90%, allowing pain-free movement. It decreases stiffness, builds strength, improves cardiovascular health, and enhances mood through low-impact, full-body activity.",
+    imageUrl: "https://cdn.pixabay.com/photo/2016/11/29/09/32/woman-1868632_1280.jpg",
+    alt: "Person swimming in pool for joint relief",
   },
-];
-
-// Conditions data (backend simulation)
-const conditions = [
-  { title: "Osteoarthritis", description: "Common joint wear-and-tear condition affecting cartilage." },
-  { title: "Rheumatoid Arthritis", description: "Autoimmune disorder causing joint inflammation." },
-  { title: "Psoriatic Arthritis", description: "Inflammation linked to skin condition psoriasis." },
-];
-
-// Get Involved data (paraphrased from UK charities: Versus Arthritis, NRAS, Arthritis Action)
-const getInvolved = [
-  { title: "Donate", description: "Support research and services through financial contributions or legacy gifts." },
-  {
-    title: "Volunteer",
-    description: "Join teams to raise awareness, organize events, or help with community support.",
-  },
-  { title: "Fundraise", description: "Participate in challenges, runs, or personal campaigns to generate funds." },
-  { title: "Join Newsletter", description: "Stay updated and connected with the arthritis community." },
-  { title: "Awareness Campaigns", description: "Take part in social media challenges or advocacy efforts." },
-];
-
-// About Us data (improvised backend simulation)
-const aboutUs =
-  "We are dedicated to supporting people with arthritis through gentle exercises, expert advice, and community resources. Our mission is to improve joint health and quality of life.";
-
-// Anti-inflammatory foods data (paraphrased from sources)
-const antiInflammatoryFoods = [
-  { name: "Fatty Fish", description: "Rich in omega-3s like salmon or mackerel, helping reduce joint swelling." },
-  { name: "Berries", description: "Antioxidant-packed fruits like strawberries and blueberries combat inflammation." },
-  { name: "Leafy Greens", description: "Spinach and kale provide vitamins that support joint health." },
-  { name: "Turmeric", description: "Contains curcumin, a natural compound that eases arthritis symptoms." },
-  { name: "Nuts", description: "Almonds and walnuts offer healthy fats and anti-inflammatory properties." },
 ];
 
 // ────────────────────────────────────────────────
-// Global styles (reset + card hover + fade-in)
+// Global styles
 const globalStyles = `
-  body { margin:0; font-family: system-ui, -apple-system, sans-serif; background:#f9fafb; }
+  body { margin:0; font-family: system-ui, sans-serif; background:#f9fafb; }
   button { cursor: pointer; }
   details { transition: all 0.25s ease; }
-  details:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-  }
+  details:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 10px 25px rgba(0,0,0,0.12); }
   details[open] summary { font-weight: 600; color: #0d9488; }
   details[open] > div { animation: fadeIn 0.4s ease; }
   summary { list-style: none; outline: none; }
@@ -133,11 +92,42 @@ const globalStyles = `
 // Main component
 export default function ArthritisRelief() {
   const [belowFoldRef, isBelowFoldVisible] = useVisible("400px");
-  const [articlesVisible, setArticlesVisible] = useState(false);
+  const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [assistantQuery, setAssistantQuery] = useState("");
   const [assistantResponse, setAssistantResponse] = useState("");
 
-  // Inject global styles
+  // Fake backend fetch for articles
+  useEffect(() => {
+    if (!isBelowFoldVisible) return;
+
+    const fetchArticles = async () => {
+      setLoading(true);
+      setError(null);
+
+      // Simulate network + occasional failure
+      await new Promise((resolve) => setTimeout(resolve, 1000 + Math.random() * 800));
+
+      // 15% chance of "backend failure" for demo
+      if (Math.random() < 0.15) {
+        setError("Backend temporarily unavailable – showing fallback content");
+        setArticles(articlesData);
+      } else {
+        setArticles(articlesData);
+      }
+      setLoading(false);
+    };
+
+    fetchArticles();
+  }, [isBelowFoldVisible]);
+
+  // Set title
+  useEffect(() => {
+    document.title = "Arthritis Relief – Gentle Exercises & Joint Health";
+  }, []);
+
+  // Inject styles
   useEffect(() => {
     const style = document.createElement("style");
     style.textContent = globalStyles;
@@ -145,22 +135,17 @@ export default function ArthritisRelief() {
     return () => style.remove();
   }, []);
 
-  // Set page title
-  useEffect(() => {
-    document.title = "Arthritis Relief – Gentle Exercises & Support";
-  }, []);
-
-  // Debounced fake assistant
+  // Debounced assistant
   const debouncedAssistant = customDebounce((query) => {
     if (!query.trim()) return;
     const q = query.toLowerCase();
-    if (q.includes("tai chi") || q.includes("pilates")) {
+    if (q.includes("tai chi") || q.includes("pilates") || q.includes("yoga") || q.includes("swimming")) {
       setAssistantResponse(
-        "Yes — both Tai Chi and Pilates are excellent for arthritis. They improve flexibility, strength and balance while being very gentle on joints.",
+        "These low-impact activities (Tai Chi, Pilates, yoga, swimming) are among the best for arthritis. They reduce pain, improve flexibility, strengthen supporting muscles, and enhance balance with minimal joint stress.",
       );
     } else {
       setAssistantResponse(
-        "Low-impact activities like walking, swimming or Tai Chi usually help best. Always check with your doctor first.",
+        "Low-impact movement and gentle stretching usually help most. Always consult your doctor for personalized advice.",
       );
     }
   }, 600);
@@ -168,13 +153,6 @@ export default function ArthritisRelief() {
   useEffect(() => {
     debouncedAssistant(assistantQuery);
   }, [assistantQuery]);
-
-  // Fake loading delay for articles
-  useEffect(() => {
-    if (isBelowFoldVisible) {
-      setTimeout(() => setArticlesVisible(true), 1200);
-    }
-  }, [isBelowFoldVisible]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-100 text-gray-900">
@@ -186,20 +164,8 @@ export default function ArthritisRelief() {
             <a href="#assistant" className="hover:text-teal-600">
               Assistant
             </a>
-            <a href="#guides" className="hover:text-teal-600">
-              Guides
-            </a>
-            <a href="#conditions" className="hover:text-teal-600">
-              Conditions
-            </a>
-            <a href="#get-involved" className="hover:text-teal-600">
-              Get Involved
-            </a>
-            <a href="#about-us" className="hover:text-teal-600">
-              About Us
-            </a>
-            <a href="#anti-inflammatory" className="hover:text-teal-600">
-              Anti-Inflammatory Foods
+            <a href="#insights" className="hover:text-teal-600">
+              Insights
             </a>
           </nav>
         </div>
@@ -209,13 +175,13 @@ export default function ArthritisRelief() {
       <section className="py-20 md:py-28 text-center bg-gradient-to-r from-teal-50 to-cyan-50">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-teal-800">
-            Gentle Movement for Better Joints
+            Gentle Movement for Joint Comfort
           </h2>
           <p className="text-lg md:text-xl text-gray-700 mb-10 max-w-3xl mx-auto">
-            Discover Tai Chi, Pilates and low-impact exercises to ease arthritis pain and improve daily mobility.
+            Tai Chi, Pilates, yoga, swimming and other low-impact practices to ease arthritis symptoms.
           </p>
           <button className="bg-teal-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-teal-700 transition shadow-md">
-            Book Free Consultation
+            Get Started Today
           </button>
         </div>
       </section>
@@ -223,25 +189,25 @@ export default function ArthritisRelief() {
       {/* Virtual Assistant */}
       <section id="assistant" className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-6">
-          <h3 className="text-3xl font-bold mb-8 text-center text-teal-800">Ask the Assistant</h3>
+          <h3 className="text-3xl font-bold mb-8 text-center text-teal-800">Your Arthritis Assistant</h3>
           <div className="bg-gray-50 p-8 rounded-2xl shadow-lg border border-gray-200">
             <label htmlFor="assistant-query" className="sr-only">
-              Ask about arthritis exercises, Tai Chi or Pilates
+              Ask about arthritis exercises or joint health
             </label>
             <input
               id="assistant-query"
               type="text"
               value={assistantQuery}
               onChange={(e) => setAssistantQuery(e.target.value)}
-              placeholder="Ask about Tai Chi, Pilates or joint pain relief…"
+              placeholder="Ask about Tai Chi, Pilates, yoga or swimming…"
               className="w-full px-5 py-4 rounded-xl border border-gray-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition text-lg"
             />
             <p className="text-sm text-gray-500 mt-3">
-              Try asking: "Is Tai Chi good for arthritis?" or "Best exercises for knee pain"
+              Try: "Benefits of Pilates for arthritis?" or "Is yoga good for joints?"
             </p>
             <div
               role="region"
-              aria-label="Assistant answer"
+              aria-label="Assistant response"
               aria-live="polite"
               className="mt-6 min-h-[6rem] text-gray-700 leading-relaxed bg-white p-5 rounded-xl border border-gray-200"
             >
@@ -251,90 +217,17 @@ export default function ArthritisRelief() {
         </div>
       </section>
 
-      {/* Conditions Section */}
-      <section id="conditions" className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-6 text-teal-800">Arthritis Conditions</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {conditions.map((cond, idx) => (
-              <div key={idx} className="bg-white p-6 rounded-2xl shadow-lg border border-gray-200">
-                <h3 className="text-xl font-semibold mb-4 text-teal-700">{cond.title}</h3>
-                <p className="text-gray-700">{cond.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Get Involved Section */}
-      <section id="get-involved" className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-6 text-teal-800">Get Involved</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {getInvolved.map((item, idx) => (
-              <div key={idx} className="bg-gray-50 p-6 rounded-2xl shadow-lg border border-gray-200">
-                <h3 className="text-xl font-semibold mb-4 text-teal-700">{item.title}</h3>
-                <p className="text-gray-700">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* About Us Section */}
-      <section id="about-us" className="py-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-teal-800">About Us</h2>
-          <p className="text-lg text-gray-700 leading-relaxed">{aboutUs}</p>
-        </div>
-      </section>
-
-      {/* Anti-Inflammatory Foods Section */}
-      <section id="anti-inflammatory" className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-6 text-teal-800">Anti-Inflammatory Foods</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {antiInflammatoryFoods.map((food, idx) => (
-              <div key={idx} className="bg-gray-50 p-6 rounded-2xl shadow-lg border border-gray-200">
-                <h3 className="text-xl font-semibold mb-4 text-teal-700">{food.name}</h3>
-                <p className="text-gray-700">{food.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Gentle Exercise Guides / Latest Insights */}
-      <section id="guides" className="py-16 bg-gray-50" ref={belowFoldRef}>
+      {/* Latest Insights */}
+      <section id="insights" className="py-16 bg-gray-50" ref={belowFoldRef}>
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-6 text-teal-800">
-            Latest Insights: Gentle Exercise Guides
+            Latest Insights: Gentle Exercise Benefits
           </h2>
           <p className="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
-            Paraphrased insights on Tai Chi, Pilates & other movements from open sources
+            Concise, evidence-informed benefits of joint-friendly activities
           </p>
 
-          {articlesVisible ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {articles.map((article, idx) => (
-                <details
-                  key={idx}
-                  className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-200 group"
-                >
-                  <SimpleImage
-                    src={article.imageUrl}
-                    alt={article.alt}
-                    className="h-64 md:h-72 lg:h-80"
-                    priority={idx < 2}
-                  />
-                  <summary className="px-6 py-5 text-xl font-semibold cursor-pointer group-open:text-teal-700 transition-colors">
-                    {article.title}
-                  </summary>
-                  <div className="px-6 pb-8 text-gray-700 leading-relaxed">{article.content}</div>
-                </details>
-              ))}
-            </div>
-          ) : (
+          {loading ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[...Array(4)].map((_, i) => (
                 <div key={i} className="space-y-4">
@@ -344,27 +237,30 @@ export default function ArthritisRelief() {
                 </div>
               ))}
             </div>
+          ) : error ? (
+            <p className="text-center text-red-600 font-medium">{error}</p>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {articles.map((item, idx) => (
+                <details
+                  key={idx}
+                  className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-200 group"
+                >
+                  <SimpleImage src={item.imageUrl} alt={item.alt} className="h-64 md:h-72 lg:h-80" priority={idx < 2} />
+                  <summary className="px-6 py-5 text-xl font-semibold cursor-pointer group-open:text-teal-700 transition-colors">
+                    {item.title}
+                  </summary>
+                  <div className="px-6 pb-8 text-gray-700 leading-relaxed">{item.content}</div>
+                </details>
+              ))}
+            </div>
           )}
-        </div>
-      </section>
-
-      {/* Living with Arthritis Section (clean, same color theme) */}
-      <section id="living-with-arthritis" className="py-16 bg-teal-50">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-teal-800">Living with Arthritis</h2>
-          <p className="text-lg text-gray-700 leading-relaxed mb-8">
-            Managing arthritis involves daily gentle movement, balanced nutrition, and community support. Explore our
-            guides for tips on maintaining an active lifestyle.
-          </p>
-          <button className="bg-teal-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-teal-700 transition shadow-md">
-            Learn More
-          </button>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="py-10 bg-gray-900 text-gray-300 text-center text-sm">
-        <p>© {new Date().getFullYear()} Arthritis Relief – Supporting joint health naturally</p>
+        <p>© {new Date().getFullYear()} Arthritis Relief – Gentle movement for better joint health</p>
       </footer>
 
       {/* Mobile CTA */}
