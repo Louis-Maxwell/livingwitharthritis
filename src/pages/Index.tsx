@@ -5,6 +5,7 @@
 // ======================================================================
 
 import { useEffect, useState, useRef, useCallback } from "react";
+import { toast } from "@/hooks/use-toast";
 
 // Custom debounce
 function customDebounce(fn, delay) {
@@ -27,7 +28,7 @@ function useVisible(threshold = "400px") {
     return () => observer.disconnect();
   }, [threshold]);
 
-  return [ref, visible];
+  return [ref, visible] as const;
 }
 
 // Simple secure image component
@@ -41,7 +42,7 @@ function SimpleImage({ src, alt, className = "", priority = false }) {
       width={800}
       height={480}
       style={{ opacity: 0, transition: "opacity 0.6s ease" }}
-      onLoad={(e) => (e.target.style.opacity = 1)}
+      onLoad={(e) => ((e.target as HTMLImageElement).style.opacity = "1")}
       referrerPolicy="no-referrer" // Security: prevent referrer leakage
       crossOrigin="anonymous"
     />
@@ -176,7 +177,7 @@ export default function ArthritisRelief() {
       } catch (err) {
         console.error(err);
         setData(fallback);
-        toast.error(`Failed to load ${endpoint.split("/").pop()} – using fallback.`);
+        toast({ title: "Loading error", description: `Failed to load ${endpoint.split("/").pop()} – using fallback.`, variant: "destructive" });
       } finally {
         setLoading(false);
       }
@@ -303,7 +304,7 @@ export default function ArthritisRelief() {
             Evidence-informed benefits of joint-friendly activities
           </p>
 
-          {loading ? (
+          {articlesLoading ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[...Array(4)].map((_, i) => (
                 <div key={i} className="space-y-4">
@@ -313,8 +314,8 @@ export default function ArthritisRelief() {
                 </div>
               ))}
             </div>
-          ) : error ? (
-            <p className="text-center text-red-600 font-medium">{error}</p>
+          ) : articlesError ? (
+            <p className="text-center text-red-600 font-medium">{articlesError}</p>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
               {articles.map((article, idx) => (
