@@ -12,8 +12,6 @@ const HeroSection = () => {
     offset: ["start start", "end start"],
   });
 
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
   const orbX = useTransform(scrollYProgress, [0, 1], [0, 60]);
   const orbY = useTransform(scrollYProgress, [0, 1], [0, -40]);
@@ -24,14 +22,13 @@ const HeroSection = () => {
       <motion.div className="gradient-orb w-[600px] h-[600px] bg-secondary bottom-[-200px] left-[-200px]" style={{ x: useTransform(scrollYProgress, [0, 1], [0, -40]), y: useTransform(scrollYProgress, [0, 1], [0, 30]) }} />
 
       <div className="container mx-auto px-6 md:px-10 relative">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center min-h-[calc(100vh-100px)] py-16 lg:py-0">
-          {/* Content */}
+        <div className="flex items-center justify-center min-h-[calc(100vh-100px)] py-16 lg:py-0">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             style={{ y: contentY }}
-            className="order-2 lg:order-1 max-w-xl"
+            className="max-w-2xl text-center"
           >
             <motion.div
               initial={{ opacity: 0 }}
@@ -48,12 +45,12 @@ const HeroSection = () => {
               starts here
             </h1>
 
-            <p className="text-base sm:text-lg text-muted-foreground leading-[1.8] mb-10 max-w-md">
+            <p className="text-base sm:text-lg text-muted-foreground leading-[1.8] mb-10 max-w-md mx-auto">
               Expert guidance, compassionate care, and a community that
               understands. We're with you every step of your journey.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex justify-center">
               <Button
                 size="lg"
                 variant="outline"
@@ -69,47 +66,11 @@ const HeroSection = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1, duration: 0.6 }}
-              className="mt-16 hidden lg:flex items-center gap-2 text-muted-foreground/40"
+              className="mt-16 flex items-center justify-center gap-2 text-muted-foreground/40"
             >
               <ArrowDown className="w-4 h-4 animate-bounce" />
               <span className="text-xs tracking-wider uppercase">Scroll to explore</span>
             </motion.div>
-          </motion.div>
-
-          {/* Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="order-1 lg:order-2 relative"
-          >
-            <div className="relative rounded-[2rem] overflow-hidden shadow-large">
-              <motion.picture style={{ y: imageY, scale: imageScale }} className="block w-full h-[300px] sm:h-[400px] lg:h-[560px]">
-                {/* WebP — modern browsers */}
-                <source
-                  type="image/webp"
-                  srcSet="/images/hero-community.webp 1280w"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
-                />
-                {/* JPEG fallback */}
-                <img
-                  src="/images/hero-community.jpg"
-                  srcSet="/images/hero-community.jpg 918w"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
-                  alt="British community of people being active together in a UK park — walking, cycling and stretching"
-                  className="w-full h-full object-cover"
-                  width={1280}
-                  height={720}
-                  loading="eager"
-                  fetchPriority="high"
-                  decoding="async"
-                />
-              </motion.picture>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
-            </div>
-            {/* Decorative accent */}
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 rounded-2xl bg-primary/5 -z-10" />
-            <div className="absolute -top-4 -left-4 w-16 h-16 rounded-2xl bg-secondary/5 -z-10" />
           </motion.div>
         </div>
       </div>
