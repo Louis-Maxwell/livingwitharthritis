@@ -109,11 +109,10 @@ const fallbackAntiInflammatory = [
 // ────────────────────────────────────────────────
 // Global styles
 const globalStyles = `
-  body { margin:0; font-family: system-ui, sans-serif; background:#f9fafb; color:#111827; }
   button { cursor: pointer; }
   details { transition: all 0.25s ease; }
-  details:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 10px 25px rgba(0,0,0,0.12); }
-  details[open] summary { font-weight: 600; color: #0d9488; }
+  details:hover { transform: translateY(-4px) scale(1.02); box-shadow: var(--shadow-large); }
+  details[open] summary { font-weight: 600; color: hsl(var(--secondary)); }
   details[open] > div { animation: fadeIn 0.4s ease; }
   summary { list-style: none; outline: none; }
   summary::-webkit-details-marker { display: none; }
@@ -214,25 +213,25 @@ export default function ArthritisRelief() {
   }, [assistantQuery, requestCount]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-100 text-gray-900">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
-      <header className="py-6 bg-white border-b shadow-sm sticky top-0 z-10">
+      <header className="py-6 bg-card border-b border-border shadow-soft sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-teal-700">Arthritis Relief</h1>
+          <h1 className="text-2xl font-bold text-secondary">Arthritis Relief</h1>
           <nav className="space-x-6 text-sm md:text-base">
-            <a href="#assistant" className="hover:text-teal-600">
+            <a href="#assistant" className="hover:text-secondary transition-colors">
               Assistant
             </a>
-            <a href="#insights" className="hover:text-teal-600">
+            <a href="#insights" className="hover:text-secondary transition-colors">
               Insights
             </a>
-            <a href="#conditions" className="hover:text-teal-600">
+            <a href="#conditions" className="hover:text-secondary transition-colors">
               Conditions
             </a>
-            <a href="#get-involved" className="hover:text-teal-600">
+            <a href="#get-involved" className="hover:text-secondary transition-colors">
               Get Involved
             </a>
-            <a href="#about-us" className="hover:text-teal-600">
+            <a href="#about-us" className="hover:text-secondary transition-colors">
               About Us
             </a>
           </nav>
@@ -240,25 +239,25 @@ export default function ArthritisRelief() {
       </header>
 
       {/* Hero */}
-      <section className="py-20 md:py-28 text-center bg-gradient-to-r from-teal-50 to-cyan-50">
+      <section className="py-20 md:py-28 text-center bg-accent">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-teal-800">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-secondary">
             Gentle Movement for Joint Comfort
           </h2>
-          <p className="text-lg md:text-xl text-gray-700 mb-10 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-3xl mx-auto">
             Tai Chi, Pilates, yoga, swimming & more – evidence-informed ways to ease arthritis symptoms.
           </p>
-          <button className="bg-teal-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-teal-700 transition shadow-md">
+          <button className="btn-primary-cta px-8 py-4 rounded-full text-lg">
             Get Started Today
           </button>
         </div>
       </section>
 
       {/* Virtual Assistant – Secure */}
-      <section id="assistant" className="py-16 bg-white">
+      <section id="assistant" className="py-16 bg-card">
         <div className="max-w-3xl mx-auto px-6">
-          <h3 className="text-3xl font-bold mb-8 text-center text-teal-800">Your Secure Arthritis Assistant</h3>
-          <div className="bg-gray-50 p-8 rounded-2xl shadow-lg border border-gray-200">
+          <h3 className="text-3xl font-bold mb-8 text-center text-secondary">Your Secure Arthritis Assistant</h3>
+          <div className="glass-card p-8 rounded-2xl">
             <label htmlFor="assistant-query" className="sr-only">
               Ask about arthritis exercises or joint health
             </label>
@@ -268,13 +267,13 @@ export default function ArthritisRelief() {
               value={assistantQuery}
               onChange={(e) => setAssistantQuery(e.target.value)}
               placeholder="Ask about Tai Chi, Pilates, yoga or swimming…"
-              className="w-full px-5 py-4 rounded-xl border border-gray-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition text-lg"
-              maxLength={200} // Prevent very long inputs
+              className="w-full px-5 py-4 rounded-xl border border-input bg-background focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition text-lg"
+              maxLength={200}
             />
-            <p className="text-sm text-gray-500 mt-3">Try: "Benefits of Pilates?" or "Is yoga good for joints?"</p>
+            <p className="text-sm text-muted-foreground mt-3">Try: "Benefits of Pilates?" or "Is yoga good for joints?"</p>
             <button
               onClick={handleAssistantSubmit}
-              className="mt-4 w-full bg-teal-600 text-white py-3 rounded-xl hover:bg-teal-700 transition"
+              className="mt-4 w-full bg-secondary text-secondary-foreground py-3 rounded-xl hover:bg-secondary/90 transition"
             >
               Ask Now
             </button>
@@ -282,11 +281,11 @@ export default function ArthritisRelief() {
               role="region"
               aria-label="Assistant response"
               aria-live="polite"
-              className="mt-6 min-h-[6rem] text-gray-700 leading-relaxed bg-white p-5 rounded-xl border border-gray-200"
+              className="mt-6 min-h-[6rem] text-foreground leading-relaxed bg-background p-5 rounded-xl border border-border"
             >
-              {assistantResponse || <span className="text-gray-500 italic">Your answer will appear here…</span>}
+              {assistantResponse || <span className="text-muted-foreground italic">Your answer will appear here…</span>}
             </div>
-            <p className="text-xs text-gray-500 mt-4 text-center">
+            <p className="text-xs text-muted-foreground mt-4 text-center">
               No personal data is collected or stored. This is a secure, anonymous assistant.
             </p>
           </div>
@@ -294,12 +293,12 @@ export default function ArthritisRelief() {
       </section>
 
       {/* Latest Insights – Articles from backend */}
-      <section id="insights" className="py-16 bg-gray-50" ref={belowFoldRef}>
+      <section id="insights" className="py-16 bg-muted" ref={belowFoldRef}>
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-6 text-teal-800">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-6 text-secondary">
             Latest Insights: Gentle Exercise Guides
           </h2>
-          <p className="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground text-center mb-12 max-w-3xl mx-auto">
             Evidence-informed benefits of joint-friendly activities
           </p>
 
@@ -307,20 +306,20 @@ export default function ArthritisRelief() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[...Array(4)].map((_, i) => (
                 <div key={i} className="space-y-4">
-                  <div className="h-72 w-full bg-gray-200 rounded-2xl animate-pulse" />
-                  <div className="h-8 w-3/4 bg-gray-200 rounded mx-auto animate-pulse" />
-                  <div className="h-5 w-full bg-gray-200 rounded animate-pulse" />
+                  <div className="h-72 w-full bg-accent rounded-2xl animate-pulse" />
+                  <div className="h-8 w-3/4 bg-accent rounded mx-auto animate-pulse" />
+                  <div className="h-5 w-full bg-accent rounded animate-pulse" />
                 </div>
               ))}
             </div>
           ) : articlesError ? (
-            <p className="text-center text-red-600 font-medium">{articlesError}</p>
+            <p className="text-center text-destructive font-medium">{articlesError}</p>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
               {articles.map((article, idx) => (
                 <details
                   key={idx}
-                  className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-200 group"
+                  className="bg-card rounded-2xl overflow-hidden shadow-medium border border-border group card-hover"
                 >
                   <SimpleImage
                     src={article.imageUrl}
@@ -328,10 +327,10 @@ export default function ArthritisRelief() {
                     className="h-64 md:h-72 lg:h-80"
                     priority={idx < 2}
                   />
-                  <summary className="px-6 py-5 text-xl font-semibold cursor-pointer group-open:text-teal-700 transition-colors">
+                  <summary className="px-6 py-5 text-xl font-semibold cursor-pointer group-open:text-secondary transition-colors">
                     {article.title}
                   </summary>
-                  <div className="px-6 pb-8 text-gray-700 leading-relaxed">{article.content}</div>
+                  <div className="px-6 pb-8 text-muted-foreground leading-relaxed">{article.content}</div>
                 </details>
               ))}
             </div>
@@ -340,13 +339,13 @@ export default function ArthritisRelief() {
       </section>
 
       {/* Footer */}
-      <footer className="py-10 bg-gray-900 text-gray-300 text-center text-sm">
+      <footer className="py-10 bg-navy text-navy-foreground/70 text-center text-sm">
         <p>© {new Date().getFullYear()} Arthritis Relief – Gentle movement for better joint health</p>
       </footer>
 
       {/* Mobile CTA */}
-      <div className="fixed inset-x-0 bottom-0 z-50 sm:hidden bg-white/80 backdrop-blur-xl border-t border-gray-200 px-5 py-4 shadow-2xl">
-        <button className="w-full bg-teal-600 text-white h-14 rounded-2xl text-base font-semibold shadow-xl hover:bg-teal-700 transition-all flex items-center justify-center gap-3">
+      <div className="fixed inset-x-0 bottom-0 z-50 sm:hidden bg-card/80 backdrop-blur-xl border-t border-border px-5 py-4 shadow-2xl">
+        <button className="w-full bg-secondary text-secondary-foreground h-14 rounded-2xl text-base font-semibold shadow-xl hover:bg-secondary/90 transition-all flex items-center justify-center gap-3">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2z" />
           </svg>
