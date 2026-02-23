@@ -83,10 +83,12 @@ export default function Index() {
       fallback={<div className="p-12 text-center text-destructive">Something went wrong. Please refresh.</div>}
     >
       <Helmet>
-        <title>Arthritis Relief – Tai Chi, Pilates & Virtual Physio</title>
-        <meta name="description" content="Gentle, evidence-informed exercises including Tai Chi and Pilates to help manage arthritis pain and improve joint mobility. Free guides & consultations." />
-        <meta property="og:title" content="Natural Arthritis Support | Tai Chi • Pilates • Physio" />
-        <meta property="og:description" content="Open-knowledge inspired resources and professional help for better joint health." />
+        <title>Living With Arthritis UK – Free Physio, Diet & Joint Pain Help</title>
+        <meta name="description" content="Free arthritis support for people across the UK. Virtual physiotherapy, anti-inflammatory nutrition plans, joint exercises and community help for osteoarthritis and rheumatoid arthritis." />
+        <meta property="og:title" content="Living With Arthritis UK – Free Physio, Diet & Joint Pain Help" />
+        <meta property="og:description" content="Free NHS-complementary arthritis resources for UK residents: virtual physiotherapy, Mediterranean diet plans, gentle exercises and expert guidance." />
+        <meta property="og:locale" content="en_GB" />
+        <meta name="geo.region" content="GB" />
       </Helmet>
 
       <div className="min-h-screen bg-gradient-to-b from-background via-background/95 to-primary/5">
