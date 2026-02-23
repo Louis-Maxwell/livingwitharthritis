@@ -71,7 +71,7 @@ const Footer = () => {
                 {section.links.map((link: any) => (
                   <li key={link.label}>
                     <a
-                      href={link.onClick ? undefined : link.href}
+                      href={link.href}
                       onClick={link.onClick ? (e: React.MouseEvent) => { e.preventDefault(); link.onClick(); } : undefined}
                       className="text-white/30 hover:text-white/70 transition-colors duration-300 text-sm cursor-pointer"
                     >
