@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Facebook, Twitter, Instagram, Youtube, Linkedin, Mail, Phone, ArrowUp, Heart } from "lucide-react";
+import accreditationLogos from "@/assets/accreditation-logos.png";
 import AboutUsModal from "@/components/AboutUsModal";
 
 const Footer = () => {
@@ -101,6 +102,17 @@ const Footer = () => {
               })}
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Accreditation */}
+      <div className="border-t border-white/5">
+        <div className="container mx-auto px-6 md:px-10 py-8 flex justify-center">
+          <img
+            src={accreditationLogos}
+            alt="Chartered Society of Physiotherapy and Health & Care Professions Council logos"
+            className="h-16 md:h-20 object-contain opacity-80"
+          />
         </div>
       </div>
 
