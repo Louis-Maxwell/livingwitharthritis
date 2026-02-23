@@ -111,7 +111,7 @@ const Footer = () => {
           <img
             src={accreditationLogos}
             alt="Chartered Society of Physiotherapy and Health & Care Professions Council logos"
-            className="h-20 md:h-28 object-contain brightness-0 invert opacity-40"
+            className="h-20 md:h-28 object-contain brightness-0 invert opacity-60"
           />
         </div>
       </div>
