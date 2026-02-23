@@ -87,6 +87,7 @@ export default function Index() {
         <meta name="description" content="Free arthritis support for people across the UK. Virtual physiotherapy, anti-inflammatory nutrition plans, joint exercises and community help for osteoarthritis and rheumatoid arthritis." />
         <meta property="og:title" content="Living With Arthritis UK – Free Physio, Diet & Joint Pain Help" />
         <meta property="og:description" content="Free NHS-complementary arthritis resources for UK residents: virtual physiotherapy, Mediterranean diet plans, gentle exercises and expert guidance." />
+        <meta name="keywords" content="arthritis UK, NHS arthritis, joint pain relief UK, osteoarthritis help, rheumatoid arthritis support, free physiotherapy UK, anti-inflammatory diet UK, arthritis exercises, living with arthritis, joint pain NHS" />
         <meta property="og:locale" content="en_GB" />
         <meta name="geo.region" content="GB" />
       </Helmet>
