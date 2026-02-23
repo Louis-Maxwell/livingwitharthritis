@@ -107,12 +107,14 @@ const Footer = () => {
 
       {/* Accreditation */}
       <div className="border-t border-white/5">
-        <div className="container mx-auto px-6 md:px-10 py-8 flex justify-center">
-          <img
-            src={accreditationLogos}
-            alt="Chartered Society of Physiotherapy and Health & Care Professions Council logos"
-            className="h-16 md:h-20 object-contain opacity-80"
-          />
+        <div className="container mx-auto px-6 md:px-10 py-10 flex justify-center">
+          <div className="bg-white rounded-2xl px-8 py-5">
+            <img
+              src={accreditationLogos}
+              alt="Chartered Society of Physiotherapy and Health & Care Professions Council logos"
+              className="h-20 md:h-28 object-contain"
+            />
+          </div>
         </div>
       </div>
 
