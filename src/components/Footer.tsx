@@ -15,6 +15,7 @@ const Footer = () => {
     aboutArthritis: [
       { label: "Symptoms & Treatments", href: "#conditions" },
       { label: "Virtual Physiotherapy", href: "#services" },
+      { label: "Blog", href: "/blog" },
     ],
     aboutUs: [
       { label: "Our Mission", href: "#", onClick: () => setAboutOpen(true) },
@@ -111,7 +112,7 @@ const Footer = () => {
           <img
             src={accreditationLogos}
             alt="Chartered Society of Physiotherapy and Health & Care Professions Council logos"
-            className="h-20 md:h-28 object-contain brightness-0 invert opacity-60"
+            className="h-20 md:h-28 object-contain"
           />
         </div>
       </div>
