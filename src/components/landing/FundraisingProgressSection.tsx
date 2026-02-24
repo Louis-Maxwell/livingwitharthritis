@@ -1,4 +1,4 @@
-import { memo, useState, useCallback } from "react";
+import { memo, useState, useCallback, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Progress } from "@/components/ui/progress";
 import { Heart, Loader2 } from "lucide-react";
@@ -6,8 +6,28 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 
+const GOAL = 50000;
+
 const FundraisingProgressSection = memo(() => {
   const [isLoading, setIsLoading] = useState(false);
+  const [totalRaised, setTotalRaised] = useState(0);
+
+  useEffect(() => {
+    const fetchTotal = async () => {
+      const { data, error } = await supabase
+        .from("donations")
+        .select("amount")
+        .eq("status", "completed");
+
+      if (!error && data) {
+        const sum = data.reduce((acc, d) => acc + Number(d.amount), 0);
+        setTotalRaised(sum);
+      }
+    };
+    fetchTotal();
+  }, []);
+
+  const progressPercent = Math.min((totalRaised / GOAL) * 100, 100);
 
   const handleDonate = useCallback(async () => {
     setIsLoading(true);
@@ -36,6 +56,20 @@ const FundraisingProgressSection = memo(() => {
     }
   }, []);
 
+  const formattedRaised = new Intl.NumberFormat("en-GB", {
+    style: "currency",
+    currency: "GBP",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(totalRaised);
+
+  const formattedGoal = new Intl.NumberFormat("en-GB", {
+    style: "currency",
+    currency: "GBP",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(GOAL);
+
   return (
     <section className="py-24 lg:py-32 bg-accent/20 section-divider">
       <div className="container mx-auto px-6 md:px-10 max-w-3xl">
@@ -46,11 +80,11 @@ const FundraisingProgressSection = memo(() => {
           </h2>
           <p className="text-muted-foreground mb-8">Every donation helps us provide free physiotherapy and support to more people.</p>
           <div className="max-w-md mx-auto mb-3">
-            <Progress value={68} className="h-3 rounded-full" />
+            <Progress value={progressPercent} className="h-3 rounded-full" />
           </div>
           <div className="flex justify-between text-sm mb-8 max-w-md mx-auto">
-            <span className="text-primary font-bold">£34,000 raised</span>
-            <span className="text-muted-foreground">£50,000 goal</span>
+            <span className="text-primary font-bold">{formattedRaised} raised</span>
+            <span className="text-muted-foreground">{formattedGoal} goal</span>
           </div>
           <Button
             className="rounded-full btn-gold px-8 h-12"
