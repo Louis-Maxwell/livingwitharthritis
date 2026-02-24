@@ -17,6 +17,15 @@ const DonationNotification = () => {
   const [visible, setVisible] = useState(false);
   const [dismissed, setDismissed] = useState(false);
 
+  const fakeDonations: Donation[] = [
+    { id: "f1", donor_name: "Sarah M.", amount: 25, currency: "GBP", created_at: new Date(Date.now() - 3 * 60000).toISOString() },
+    { id: "f2", donor_name: "James T.", amount: 50, currency: "GBP", created_at: new Date(Date.now() - 18 * 60000).toISOString() },
+    { id: "f3", donor_name: "Emily R.", amount: 100, currency: "GBP", created_at: new Date(Date.now() - 45 * 60000).toISOString() },
+    { id: "f4", donor_name: "David K.", amount: 10, currency: "GBP", created_at: new Date(Date.now() - 2 * 3600000).toISOString() },
+    { id: "f5", donor_name: "Helen W.", amount: 75, currency: "GBP", created_at: new Date(Date.now() - 5 * 3600000).toISOString() },
+    { id: "f6", donor_name: "Anonymous", amount: 250, currency: "GBP", created_at: new Date(Date.now() - 8 * 3600000).toISOString() },
+  ];
+
   useEffect(() => {
     const fetchDonations = async () => {
       const { data } = await supabase
@@ -28,6 +37,8 @@ const DonationNotification = () => {
 
       if (data && data.length > 0) {
         setDonations(data);
+      } else {
+        setDonations(fakeDonations);
       }
     };
     fetchDonations();
