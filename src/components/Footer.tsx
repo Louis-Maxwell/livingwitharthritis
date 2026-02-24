@@ -1,10 +1,7 @@
-import { useState } from "react";
 import { Facebook, Twitter, Instagram, Youtube, Linkedin, Mail, Phone, ArrowUp, Heart } from "lucide-react";
 import accreditationLogos from "@/assets/accreditation-logos.png";
-import AboutUsModal from "@/components/AboutUsModal";
 
 const Footer = () => {
-  const [aboutOpen, setAboutOpen] = useState(false);
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   const footerLinks = {
@@ -18,7 +15,7 @@ const Footer = () => {
       { label: "Blog", href: "/blog" },
     ],
     aboutUs: [
-      { label: "Our Mission", href: "#", onClick: () => setAboutOpen(true) },
+      { label: "Our Mission", href: "/about" },
       { label: "Sitemap", href: "/sitemap" },
     ],
   };
@@ -138,7 +135,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <AboutUsModal open={aboutOpen} onOpenChange={setAboutOpen} />
+      
     </footer>
   );
 };

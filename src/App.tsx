@@ -16,6 +16,7 @@ const BlogIndex = lazy(() => import("./pages/BlogIndex"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const Sitemap = lazy(() => import("./pages/Sitemap"));
 const DailyTipDetail = lazy(() => import("./pages/DailyTipDetail"));
+const AboutUs = lazy(() => import("./pages/AboutUs"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading fallback component
@@ -54,6 +55,7 @@ const App = () => (
               <Route path="/blog" element={<BlogIndex />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/daily-tips/:slug" element={<DailyTipDetail />} />
+              <Route path="/about" element={<AboutUs />} />
               <Route path="/sitemap" element={<Sitemap />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
