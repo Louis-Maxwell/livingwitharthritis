@@ -12,21 +12,24 @@ const faqs = [
 ];
 
 const FAQSection = memo(() => (
-  <section className="py-24 lg:py-32 bg-background section-divider">
+  <section className="py-28 lg:py-36 bg-background section-divider">
     <div className="container mx-auto px-6 md:px-10 max-w-3xl">
-      <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-14">
+      <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
         <span className="section-label text-primary mb-4 block">Common Questions</span>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-foreground">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-foreground mb-6">
           Frequently <span className="text-primary italic">asked</span>
         </h2>
+        <div className="luxury-divider">
+          <div className="w-1.5 h-1.5 rounded-full bg-gold/40" />
+        </div>
       </motion.div>
 
-      <Accordion type="single" collapsible className="space-y-3">
+      <Accordion type="single" collapsible className="space-y-4">
         {faqs.map((faq, i) => (
-          <motion.div key={i} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}>
-            <AccordionItem value={`faq-${i}`} className="bg-card border border-border/20 rounded-2xl px-6 data-[state=open]:shadow-md transition-shadow">
-              <AccordionTrigger className="text-left text-sm font-semibold hover:no-underline py-5">{faq.q}</AccordionTrigger>
-              <AccordionContent className="text-muted-foreground text-sm leading-relaxed pb-5">{faq.a}</AccordionContent>
+          <motion.div key={i} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07, duration: 0.5 }}>
+            <AccordionItem value={`faq-${i}`} className="bg-card border border-border/15 rounded-2xl px-7 data-[state=open]:shadow-medium transition-all duration-500 data-[state=open]:border-primary/10">
+              <AccordionTrigger className="text-left text-sm font-semibold hover:no-underline py-6">{faq.q}</AccordionTrigger>
+              <AccordionContent className="text-muted-foreground text-sm leading-[1.8] pb-6">{faq.a}</AccordionContent>
             </AccordionItem>
           </motion.div>
         ))}

@@ -16,18 +16,18 @@ const NewsletterSection = memo(() => {
   };
 
   return (
-    <section className="py-24 lg:py-32 bg-accent/30 section-divider">
+    <section className="py-28 lg:py-36 bg-accent/30 section-divider">
       <div className="container mx-auto px-6 md:px-10 max-w-3xl">
-        <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center">
-          <div className="w-14 h-14 rounded-2xl bg-primary/6 flex items-center justify-center mx-auto mb-6">
-            <Mail className="w-6 h-6 text-primary" />
+        <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center">
+          <div className="w-16 h-16 rounded-2xl bg-primary/6 flex items-center justify-center mx-auto mb-7">
+            <Mail className="w-7 h-7 text-primary" />
           </div>
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground mb-4">Stay <span className="text-primary italic">informed</span></h2>
-          <p className="text-muted-foreground mb-8 max-w-md mx-auto">Get weekly tips on managing arthritis, new research updates, and community stories.</p>
+          <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground mb-5">Stay <span className="text-primary italic">informed</span></h2>
+          <p className="text-muted-foreground mb-10 max-w-md mx-auto leading-relaxed">Get weekly tips on managing arthritis, new research updates, and community stories.</p>
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <Input type="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} className="rounded-full h-12 px-5 bg-card border-border/30" required />
-            <Button type="submit" className="rounded-full h-12 px-6 btn-primary-cta">
-              Subscribe <ArrowRight className="w-4 h-4 ml-1" />
+            <Input type="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} className="rounded-full h-13 px-6 bg-card border-border/20 text-sm focus:border-primary/30 transition-colors" required />
+            <Button type="submit" className="rounded-full h-13 px-7 btn-primary-cta text-sm font-bold tracking-wider">
+              Subscribe <ArrowRight className="w-4 h-4 ml-1.5" />
             </Button>
           </form>
         </motion.div>
