@@ -50,19 +50,19 @@ const Header = () => {
       <motion.header
         initial={{ y: -80 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         className={`sticky top-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-background/85 backdrop-blur-2xl shadow-soft border-b border-border/30"
-            : "bg-background/40 backdrop-blur-xl border-b border-transparent"
+            ? "bg-background/80 backdrop-blur-2xl shadow-medium border-b border-border/20"
+            : "bg-background/30 backdrop-blur-xl border-b border-transparent"
         }`}
       >
         <div className="container mx-auto px-6 md:px-10">
-          <div className="flex justify-between items-center h-[72px]">
+          <div className="flex justify-between items-center h-[76px]">
             {/* Logo */}
             <a href="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center shadow-soft group-hover:shadow-medium transition-shadow duration-300">
-                <Heart className="w-4.5 h-4.5 text-primary-foreground" />
+              <div className="w-11 h-11 rounded-xl bg-primary flex items-center justify-center shadow-soft group-hover:shadow-primary transition-all duration-500 group-hover:scale-105">
+                <Heart className="w-[18px] h-[18px] text-primary-foreground" />
               </div>
               <div className="flex flex-col leading-none">
                 <span className="text-[15px] font-display font-bold text-foreground tracking-tight">
@@ -87,9 +87,10 @@ const Header = () => {
                       scrollToSection(link.href);
                     }
                   }}
-                  className="px-4 py-2 text-[13px] font-medium text-muted-foreground hover:text-foreground rounded-full hover:bg-accent/60 transition-all duration-300 cursor-pointer"
+                  className="px-4 py-2 text-[13px] font-medium text-muted-foreground hover:text-foreground rounded-full hover:bg-accent/60 transition-all duration-300 cursor-pointer relative group"
                 >
                   {link.label}
+                  <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-0 group-hover:w-4 h-[2px] bg-primary/40 rounded-full transition-all duration-300" />
                 </button>
               ))}
             </nav>
@@ -102,7 +103,7 @@ const Header = () => {
                   const el = document.getElementById("involved");
                   el?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="hidden sm:flex btn-primary-cta h-10 px-6 rounded-full text-xs font-bold tracking-wider"
+                className="hidden sm:flex btn-primary-cta h-10 px-7 rounded-full text-xs font-bold tracking-wider"
               >
                 <Heart className="w-3.5 h-3.5 mr-2" />
                 Donate
@@ -170,7 +171,7 @@ const Header = () => {
 
               <div className="p-6 space-y-3 border-t border-border/30">
                 <Button
-                  className="w-full btn-primary-cta h-13 rounded-full text-sm font-bold tracking-wider"
+                  className="w-full btn-primary-cta h-14 rounded-full text-sm font-bold tracking-wider"
                   onClick={() => {
                     const el = document.getElementById("involved");
                     el?.scrollIntoView({ behavior: "smooth" });
@@ -185,8 +186,6 @@ const Header = () => {
           </>
         )}
       </AnimatePresence>
-
-      
     </>
   );
 };

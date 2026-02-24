@@ -45,9 +45,11 @@
     --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.02);
     --shadow-medium: 0 4px 24px -6px rgb(0 0 0 / 0.08), 0 2px 8px -3px rgb(0 0 0 / 0.04);
     --shadow-large: 0 20px 56px -16px rgb(0 0 0 / 0.12), 0 6px 20px -6px rgb(0 0 0 / 0.05);
+    --shadow-xl: 0 32px 72px -20px rgb(0 0 0 / 0.16), 0 12px 32px -8px rgb(0 0 0 / 0.08);
     --shadow-primary: 0 8px 32px -6px hsl(0 72% 48% / 0.28);
     --shadow-glow: 0 0 56px -12px hsl(0 72% 48% / 0.18);
     --shadow-gold: 0 8px 28px -6px hsl(42 92% 56% / 0.3);
+    --shadow-glass: 0 8px 32px rgb(0 0 0 / 0.04), inset 0 1px 0 rgb(255 255 255 / 0.6);
 
     --radius: 0.875rem;
 
@@ -90,6 +92,8 @@
     --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.2);
     --shadow-medium: 0 4px 16px -2px rgb(0 0 0 / 0.3);
     --shadow-large: 0 12px 40px -8px rgb(0 0 0 / 0.4);
+    --shadow-xl: 0 32px 72px -20px rgb(0 0 0 / 0.5);
+    --shadow-glass: 0 8px 32px rgb(0 0 0 / 0.2), inset 0 1px 0 rgb(255 255 255 / 0.05);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -127,28 +131,29 @@
   }
 
   ::selection {
-    background: hsl(var(--primary) / 0.1);
+    background: hsl(var(--primary) / 0.12);
     color: hsl(var(--foreground));
   }
 }
 
 @layer components {
+  /* ─── Buttons ─── */
   .btn-primary-cta {
     @apply relative overflow-hidden font-semibold tracking-wide;
     background: hsl(var(--primary));
     color: hsl(var(--primary-foreground));
     box-shadow: var(--shadow-primary);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .btn-primary-cta:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
     filter: brightness(1.08);
-    box-shadow: 0 14px 36px -6px hsl(var(--primary) / 0.4);
+    box-shadow: 0 18px 44px -8px hsl(var(--primary) / 0.45);
   }
 
   .btn-primary-cta:active {
-    transform: translateY(0);
+    transform: translateY(-1px);
   }
 
   .btn-gold {
@@ -156,14 +161,28 @@
     background: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--amber)));
     color: hsl(var(--gold-foreground));
     box-shadow: 0 4px 16px -3px hsl(var(--gold) / 0.3);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .btn-gold:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 28px -4px hsl(var(--gold) / 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 36px -6px hsl(var(--gold) / 0.45);
   }
 
+  .btn-premium {
+    @apply relative overflow-hidden;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    box-shadow: var(--shadow-primary);
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .btn-premium:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 44px -8px hsl(var(--primary) / 0.45);
+  }
+
+  /* ─── Text effects ─── */
   .text-gradient {
     @apply bg-clip-text text-transparent;
     background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
@@ -174,18 +193,55 @@
     background-image: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--amber)));
   }
 
+  /* ─── Cards ─── */
   .card-hover {
     @apply transition-all duration-500 ease-out;
   }
 
   .card-hover:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-large);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
   }
 
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-border/30;
+    box-shadow: var(--shadow-glass);
+  }
+
+  .glass-card-strong {
+    @apply bg-card/60 backdrop-blur-2xl border border-white/20;
+    box-shadow: var(--shadow-glass), 0 0 0 1px rgb(255 255 255 / 0.08);
+  }
+
+  /* ─── Premium card with inner glow */
+  .premium-card {
+    @apply bg-card border border-border/15 rounded-[2rem] overflow-hidden relative;
+    box-shadow: var(--shadow-medium);
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .premium-card::before {
+    content: '';
+    @apply absolute inset-0 rounded-[2rem] pointer-events-none;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.03), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+
+  .premium-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: hsl(var(--primary) / 0.12);
+  }
+
+  .premium-card:hover::before {
+    opacity: 1;
+  }
+
+  /* ─── Labels ─── */
   .section-label {
-    font-family: 'DM Sans', sans-serif;
-    @apply uppercase tracking-[0.22em] text-[10px] font-bold;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    @apply uppercase tracking-[0.25em] text-[10px] font-bold;
   }
 
   .trust-badge {
@@ -193,23 +249,11 @@
   }
 
   .charity-reg {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     @apply text-xs tracking-wider opacity-60;
   }
 
-  .btn-premium {
-    @apply relative overflow-hidden;
-    background: hsl(var(--primary));
-    color: hsl(var(--primary-foreground));
-    box-shadow: var(--shadow-primary);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .btn-premium:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 14px 36px -6px hsl(var(--primary) / 0.4);
-  }
-
+  /* ─── Gradients ─── */
   .bg-gradient-medical {
     background: linear-gradient(135deg, hsl(var(--secondary)), hsl(172 40% 44%));
   }
@@ -217,9 +261,10 @@
   .gradient-orb {
     @apply absolute rounded-full pointer-events-none;
     filter: blur(140px);
-    opacity: 0.04;
+    opacity: 0.05;
   }
 
+  /* ─── Animations ─── */
   .reveal-up {
     animation: revealUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     opacity: 0;
@@ -230,6 +275,7 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
+  /* ─── Dividers ─── */
   .section-divider {
     @apply relative;
   }
@@ -240,13 +286,7 @@
     background: linear-gradient(90deg, transparent, hsl(var(--border) / 0.5), transparent);
   }
 
-  /* Premium glass card */
-  .glass-card {
-    @apply bg-card/80 backdrop-blur-xl border border-border/30;
-    box-shadow: var(--shadow-medium);
-  }
-
-  /* Shimmer highlight */
+  /* ─── Shimmer ─── */
   .shimmer {
     background: linear-gradient(
       110deg,
@@ -263,14 +303,48 @@
     100% { background-position: -200% 0; }
   }
 
-  /* Decorative line */
+  /* ─── Accent line ─── */
   .accent-line {
     @apply relative;
   }
   .accent-line::after {
     content: '';
-    @apply block w-12 h-[2px] mt-5 rounded-full;
+    @apply block w-14 h-[2px] mt-6 rounded-full;
     background: linear-gradient(90deg, hsl(var(--gold)), hsl(var(--amber)));
+  }
+
+  /* ─── Floating glow (for hero etc) ─── */
+  .glow-pulse {
+    animation: glowPulse 4s ease-in-out infinite;
+  }
+
+  @keyframes glowPulse {
+    0%, 100% { opacity: 0.04; transform: scale(1); }
+    50% { opacity: 0.08; transform: scale(1.05); }
+  }
+
+  /* ─── Number counter style ─── */
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    @apply font-bold tracking-tight;
+    background: linear-gradient(135deg, hsl(var(--foreground)), hsl(var(--foreground) / 0.7));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ─── Luxury divider ─── */
+  .luxury-divider {
+    @apply flex items-center justify-center gap-4 py-2;
+  }
+  .luxury-divider::before,
+  .luxury-divider::after {
+    content: '';
+    @apply h-px flex-1 max-w-[120px];
+    background: linear-gradient(90deg, transparent, hsl(var(--gold) / 0.3));
+  }
+  .luxury-divider::after {
+    background: linear-gradient(90deg, hsl(var(--gold) / 0.3), transparent);
   }
 }
 
@@ -280,8 +354,8 @@
   }
 
   .editorial-caption {
-    font-family: 'DM Sans', sans-serif;
-    @apply uppercase tracking-[0.22em] text-[10px] font-bold;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    @apply uppercase tracking-[0.25em] text-[10px] font-bold;
   }
 
   .font-editorial {
