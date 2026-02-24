@@ -4,7 +4,7 @@ import { Play, ArrowRight, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import videoCtaImage from "@/assets/video-cta-exercise.jpg";
 
-const YOUTUBE_VIDEO_ID = "t4UEYGoZwuw";
+const YOUTUBE_VIDEO_ID = "hEu--9lGdLk";
 
 const VideoCTASection = memo(() => {
   const [playing, setPlaying] = useState(false);
