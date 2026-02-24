@@ -42,11 +42,12 @@
     --navy: 220 42% 11%;
     --navy-foreground: 0 0% 100%;
 
-    --shadow-soft: 0 1px 2px 0 rgb(0 0 0 / 0.03), 0 1px 3px 0 rgb(0 0 0 / 0.02);
-    --shadow-medium: 0 4px 20px -4px rgb(0 0 0 / 0.06), 0 2px 6px -2px rgb(0 0 0 / 0.03);
-    --shadow-large: 0 16px 48px -12px rgb(0 0 0 / 0.1), 0 4px 16px -4px rgb(0 0 0 / 0.04);
-    --shadow-primary: 0 8px 28px -4px hsl(0 72% 48% / 0.25);
-    --shadow-glow: 0 0 48px -8px hsl(0 72% 48% / 0.15);
+    --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.02);
+    --shadow-medium: 0 4px 24px -6px rgb(0 0 0 / 0.08), 0 2px 8px -3px rgb(0 0 0 / 0.04);
+    --shadow-large: 0 20px 56px -16px rgb(0 0 0 / 0.12), 0 6px 20px -6px rgb(0 0 0 / 0.05);
+    --shadow-primary: 0 8px 32px -6px hsl(0 72% 48% / 0.28);
+    --shadow-glow: 0 0 56px -12px hsl(0 72% 48% / 0.18);
+    --shadow-gold: 0 8px 28px -6px hsl(42 92% 56% / 0.3);
 
     --radius: 0.875rem;
 
@@ -215,17 +216,17 @@
 
   .gradient-orb {
     @apply absolute rounded-full pointer-events-none;
-    filter: blur(120px);
-    opacity: 0.03;
+    filter: blur(140px);
+    opacity: 0.04;
   }
 
   .reveal-up {
-    animation: revealUp 0.6s ease-out forwards;
+    animation: revealUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     opacity: 0;
   }
 
   @keyframes revealUp {
-    from { opacity: 0; transform: translateY(24px); }
+    from { opacity: 0; transform: translateY(28px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
@@ -243,6 +244,33 @@
   .glass-card {
     @apply bg-card/80 backdrop-blur-xl border border-border/30;
     box-shadow: var(--shadow-medium);
+  }
+
+  /* Shimmer highlight */
+  .shimmer {
+    background: linear-gradient(
+      110deg,
+      transparent 25%,
+      hsl(var(--primary) / 0.04) 35%,
+      transparent 45%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* Decorative line */
+  .accent-line {
+    @apply relative;
+  }
+  .accent-line::after {
+    content: '';
+    @apply block w-12 h-[2px] mt-5 rounded-full;
+    background: linear-gradient(90deg, hsl(var(--gold)), hsl(var(--amber)));
   }
 }
 
