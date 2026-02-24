@@ -14,6 +14,7 @@ import { useDeferredVisible } from "@/hooks/useDeferredVisible";
 import { AppointmentModal } from "@/components/AppointmentModal";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import DonationNotification from "@/components/DonationNotification";
 import { fallbackArticles, type Article } from "@/data/articles";
 
 // Lazy sections
@@ -131,6 +132,7 @@ export default function Index() {
 
       <div className="min-h-screen bg-gradient-to-b from-background via-background/95 to-primary/5">
         <Header />
+        <DonationNotification />
 
         <main className="space-y-20 md:space-y-24">
           <HeroSection />
