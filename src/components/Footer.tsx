@@ -42,7 +42,7 @@ const Footer = () => {
               </div>
               <div>
                 <span className="text-[15px] font-display font-bold leading-none block tracking-tight">Living With</span>
-                <span className="text-[15px] font-display font-bold leading-none block text-primary mt-0.5 tracking-tight">Arthritis</span>
+                <span className="text-[15px] font-display font-bold leading-none block text-primary mt-0.5 tracking-tight">Arthritis<sup className="text-[8px] align-super">™</sup></span>
               </div>
             </div>
             <p className="text-white/25 leading-[1.7] mb-8 max-w-xs text-sm">
