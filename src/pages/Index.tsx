@@ -17,13 +17,35 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import DonationNotification from "@/components/DonationNotification";
 import { fallbackArticles, type Article } from "@/data/articles";
 
-// Lazy sections
+// Lazy sections (existing)
 const AboutSection = lazy(() => import("@/components/AboutSection"));
 const ServicesGrid = lazy(() => import("@/components/ServicesGrid"));
 const VirtualPhysioSection = lazy(() => import("@/components/VirtualPhysioSection"));
 const NutritionArticleSection = lazy(() => import("@/components/NutritionArticleSection"));
 const ConditionsSection = lazy(() => import("@/components/ConditionsSection"));
 const JointExerciseSection = lazy(() => import("@/components/JointExerciseSection"));
+
+// Lazy sections (20 new landing page sections)
+const TrustBarSection = lazy(() => import("@/components/landing/TrustBarSection"));
+const HowItWorksSection = lazy(() => import("@/components/landing/HowItWorksSection"));
+const ImpactBannerSection = lazy(() => import("@/components/landing/ImpactBannerSection"));
+const TestimonialsSection = lazy(() => import("@/components/landing/TestimonialsSection"));
+const ComparisonSection = lazy(() => import("@/components/landing/ComparisonSection"));
+const ExpertsSection = lazy(() => import("@/components/landing/ExpertsSection"));
+const DailyTipsSection = lazy(() => import("@/components/landing/DailyTipsSection"));
+const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
+const VideoCTASection = lazy(() => import("@/components/landing/VideoCTASection"));
+const CommunitySection = lazy(() => import("@/components/landing/CommunitySection"));
+const FundraisingProgressSection = lazy(() => import("@/components/landing/FundraisingProgressSection"));
+const SymptomCheckerCTA = lazy(() => import("@/components/landing/SymptomCheckerCTA"));
+const AccessibilitySection = lazy(() => import("@/components/landing/AccessibilitySection"));
+const BlogPreviewSection = lazy(() => import("@/components/landing/BlogPreviewSection"));
+const EventsSection = lazy(() => import("@/components/landing/EventsSection"));
+const SocialProofSection = lazy(() => import("@/components/landing/SocialProofSection"));
+const MobileAppCTA = lazy(() => import("@/components/landing/MobileAppCTA"));
+const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSection"));
+const TimelineSection = lazy(() => import("@/components/landing/TimelineSection"));
+const FinalCTASection = lazy(() => import("@/components/landing/FinalCTASection"));
 
 const SectionLoader = memo(() => (
   <div className="py-20 flex items-center justify-center">
@@ -100,31 +122,14 @@ export default function Index() {
           "logo": "https://livingwitharthritis.org.uk/favicon.ico",
           "description": "UK charity providing free virtual physiotherapy, anti-inflammatory nutrition guidance, joint exercises and community support for people living with arthritis.",
           "medicalSpecialty": "Rheumatology",
-          "areaServed": {
-            "@type": "Country",
-            "name": "United Kingdom",
-            "sameAs": "https://en.wikipedia.org/wiki/United_Kingdom"
-          },
+          "areaServed": { "@type": "Country", "name": "United Kingdom", "sameAs": "https://en.wikipedia.org/wiki/United_Kingdom" },
           "serviceType": ["Virtual Physiotherapy", "Nutrition Guidance", "Joint Exercise Programmes", "Arthritis Support"],
           "audience": {
-            "@type": "MedicalAudience",
-            "audienceType": "Patient",
-            "healthCondition": {
-              "@type": "MedicalCondition",
-              "name": "Arthritis",
-              "alternateName": ["Osteoarthritis", "Rheumatoid Arthritis"],
-              "relevantSpecialty": { "@type": "MedicalSpecialty", "name": "Rheumatology" }
-            },
+            "@type": "MedicalAudience", "audienceType": "Patient",
+            "healthCondition": { "@type": "MedicalCondition", "name": "Arthritis", "alternateName": ["Osteoarthritis", "Rheumatoid Arthritis"], "relevantSpecialty": { "@type": "MedicalSpecialty", "name": "Rheumatology" } },
             "geographicArea": { "@type": "Country", "name": "United Kingdom" }
           },
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+44-7760-512-084",
-            "email": "info@livingwitharthritis.org.uk",
-            "contactType": "customer support",
-            "availableLanguage": "English",
-            "areaServed": "GB"
-          },
+          "contactPoint": { "@type": "ContactPoint", "telephone": "+44-7760-512-084", "email": "info@livingwitharthritis.org.uk", "contactType": "customer support", "availableLanguage": "English", "areaServed": "GB" },
           "knowsAbout": ["Osteoarthritis", "Rheumatoid Arthritis", "Joint Pain", "Anti-inflammatory Diet", "Physiotherapy", "NHS Arthritis Support"],
           "inLanguage": "en-GB"
         })}</script>
@@ -134,15 +139,38 @@ export default function Index() {
         <Header />
         <DonationNotification />
 
-        <main className="space-y-20 md:space-y-24">
+        <main className="space-y-0">
           <HeroSection />
+
+          {/* Trust Bar – immediately after hero */}
+          <Suspense fallback={<SectionLoader />}>
+            <TrustBarSection />
+          </Suspense>
 
           <div className="container mx-auto px-5 md:px-8 space-y-20">
             <Suspense fallback={<SectionLoader />}>
               <AboutSection />
               <ServicesGrid />
+            </Suspense>
+
+            {/* Social Proof Bar */}
+            <Suspense fallback={<SectionLoader />}>
+              <SocialProofSection />
+            </Suspense>
+
+            <Suspense fallback={<SectionLoader />}>
+              <HowItWorksSection />
               <VirtualPhysioSection />
+            </Suspense>
+
+            {/* Impact Banner */}
+            <Suspense fallback={<SectionLoader />}>
+              <ImpactBannerSection />
+            </Suspense>
+
+            <Suspense fallback={<SectionLoader />}>
               <NutritionArticleSection />
+              <DailyTipsSection />
             </Suspense>
 
             <div ref={belowFoldRef}>
@@ -151,6 +179,20 @@ export default function Index() {
                   <div className="space-y-20">
                     <ConditionsSection />
                     <JointExerciseSection />
+                    <VideoCTASection />
+                    <TestimonialsSection />
+                    <ComparisonSection />
+                    <ExpertsSection />
+                    <CommunitySection />
+                    <TimelineSection />
+                    <SymptomCheckerCTA />
+                    <FundraisingProgressSection />
+                    <BlogPreviewSection />
+                    <EventsSection />
+                    <AccessibilitySection />
+                    <MobileAppCTA />
+                    <NewsletterSection />
+                    <FAQSection />
 
                     <section aria-labelledby="guides-heading" className="space-y-12">
                       <div className="text-center space-y-5">
@@ -161,13 +203,14 @@ export default function Index() {
                           Tai Chi, Pilates & low-impact movements inspired by open knowledge
                         </p>
                       </div>
-
                       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
                         {articles.map((article, idx) => (
                           <ArticleCard key={idx} article={article} index={idx} />
                         ))}
                       </div>
                     </section>
+
+                    <FinalCTASection />
                   </div>
                 </Suspense>
               )}
