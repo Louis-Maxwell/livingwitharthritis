@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { motion } from "framer-motion";
-import { Smartphone, Bell, BarChart3 } from "lucide-react";
+import { Bell, BarChart3, Smartphone } from "lucide-react";
+import mobileAppMockup from "@/assets/mobile-app-mockup.jpg";
 
 const features = [
   { icon: Bell, text: "Daily exercise reminders" },
@@ -38,11 +39,8 @@ const MobileAppCTA = memo(() => (
 
         <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
           className="flex justify-center">
-          <div className="w-64 h-[500px] bg-navy/5 rounded-[3rem] border-4 border-border/20 relative overflow-hidden flex items-center justify-center">
-            <div className="absolute top-0 inset-x-0 h-8 bg-navy/5 rounded-b-3xl flex justify-center">
-              <div className="w-20 h-5 bg-navy/10 rounded-b-xl" />
-            </div>
-            <Smartphone className="w-12 h-12 text-muted-foreground/20" />
+          <div className="w-64 h-[500px] rounded-[3rem] border-4 border-border/20 relative overflow-hidden shadow-xl">
+            <img src={mobileAppMockup} alt="Health tracking mobile app mockup showing exercise and pain tracking" className="w-full h-full object-cover" loading="lazy" decoding="async" />
           </div>
         </motion.div>
       </div>
