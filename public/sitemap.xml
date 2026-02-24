@@ -47,4 +47,39 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/daily-tips/overview</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/daily-tips/morning-stretches</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/daily-tips/stay-hydrated</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/daily-tips/anti-inflammatory-snacks</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/daily-tips/walk-20-minutes</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/daily-tips/prioritise-sleep</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/daily-tips/pace-yourself</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
