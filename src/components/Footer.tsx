@@ -19,7 +19,7 @@ const Footer = () => {
     ],
     aboutUs: [
       { label: "Our Mission", href: "#", onClick: () => setAboutOpen(true) },
-      { label: "Sitemap", href: "/sitemap.xml" },
+      { label: "Sitemap", href: "/sitemap" },
     ],
   };
 
