@@ -2,14 +2,14 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import PayPalDonationModal from "./PayPalDonationModal";
+import StripeDonationModal from "./StripeDonationModal";
 
 const DonationBanner = () => {
   const [amount, setAmount] = useState("");
   const [currency, setCurrency] = useState("GBP");
   const [fundType, setFundType] = useState("research");
   const [selectedQuickAmount, setSelectedQuickAmount] = useState<number | null>(100);
-  const [isPayPalModalOpen, setIsPayPalModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const quickAmounts = [25, 50, 100, 250];
 
@@ -27,7 +27,7 @@ const DonationBanner = () => {
   const handleDonate = () => {
     const donationAmount = parseFloat(amount) || selectedQuickAmount || 0;
     if (donationAmount <= 0) return;
-    setIsPayPalModalOpen(true);
+    setIsModalOpen(true);
   };
 
   const getCurrencySymbol = () => {
@@ -112,9 +112,9 @@ const DonationBanner = () => {
         </div>
       </div>
 
-      <PayPalDonationModal
-        isOpen={isPayPalModalOpen}
-        onClose={() => setIsPayPalModalOpen(false)}
+      <StripeDonationModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
         amount={getDonationAmount()}
         currency={currency}
         fundType={fundType}
