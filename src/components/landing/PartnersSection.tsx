@@ -11,14 +11,14 @@ const partners = [
 ];
 
 const PartnersSection = memo(() => (
-  <section className="py-16 lg:py-20 section-divider">
+  <section className="py-20 lg:py-24 section-divider">
     <div className="container mx-auto px-6 md:px-10 max-w-5xl">
       <motion.div
-        initial={{ opacity: 0, y: 16 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="text-center mb-10"
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        className="text-center mb-12"
       >
         <span className="section-label text-primary mb-3 block">Trusted By</span>
         <p className="text-sm text-muted-foreground/60 max-w-md mx-auto">
@@ -26,22 +26,26 @@ const PartnersSection = memo(() => (
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-3 md:grid-cols-6 gap-6 items-center">
+      <div className="grid grid-cols-3 md:grid-cols-6 gap-7 items-center">
         {partners.map((p, i) => (
           <motion.div
             key={p.name}
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 16, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.06, duration: 0.4 }}
-            className="flex flex-col items-center gap-2 group"
+            transition={{ delay: i * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col items-center gap-2.5 group"
           >
-            <div className="w-16 h-16 rounded-2xl bg-accent/60 border border-border/20 flex items-center justify-center group-hover:bg-primary/5 group-hover:border-primary/20 transition-colors duration-300">
-              <span className="text-sm font-bold text-primary/70 group-hover:text-primary transition-colors">
+            <motion.div
+              whileHover={{ scale: 1.08, y: -4 }}
+              transition={{ type: "spring", stiffness: 400, damping: 20 }}
+              className="w-[72px] h-[72px] rounded-2xl bg-accent/60 border border-border/15 flex items-center justify-center group-hover:bg-primary/5 group-hover:border-primary/20 group-hover:shadow-medium transition-all duration-500"
+            >
+              <span className="text-sm font-bold text-primary/60 group-hover:text-primary transition-colors duration-300">
                 {p.name}
               </span>
-            </div>
-            <span className="text-[10px] text-muted-foreground/50 text-center leading-tight">
+            </motion.div>
+            <span className="text-[10px] text-muted-foreground/40 text-center leading-tight font-medium">
               {p.label}
             </span>
           </motion.div>

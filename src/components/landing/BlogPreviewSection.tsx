@@ -13,23 +13,41 @@ const posts = [
 const BlogPreviewSection = memo(() => {
   const navigate = useNavigate();
   return (
-    <section className="py-24 lg:py-32 bg-background section-divider">
+    <section className="py-28 lg:py-36 bg-background section-divider">
       <div className="container mx-auto px-6 md:px-10 max-w-6xl">
-        <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex flex-col sm:flex-row sm:items-end justify-between mb-14 gap-4">
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col sm:flex-row sm:items-end justify-between mb-16 gap-4"
+        >
           <div>
             <span className="section-label text-primary mb-4 block">From Our Blog</span>
             <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground">Latest <span className="text-primary italic">articles</span></h2>
           </div>
-          <button onClick={() => navigate("/blog")} className="text-sm font-semibold text-primary flex items-center gap-1 hover:gap-2 transition-all">View all <ArrowRight className="w-4 h-4" /></button>
+          <motion.button
+            whileHover={{ x: 4 }}
+            onClick={() => navigate("/blog")}
+            className="text-sm font-bold text-primary flex items-center gap-1.5 tracking-wider uppercase"
+          >
+            View all <ArrowRight className="w-4 h-4" />
+          </motion.button>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-7">
           {posts.map((p, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}>
-              <Card className="p-6 rounded-3xl border-border/20 card-hover cursor-pointer group h-full flex flex-col">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-primary mb-3">{p.category}</span>
-                <h3 className="text-base font-display font-semibold text-foreground mb-4 group-hover:text-primary transition-colors flex-1">{p.title}</h3>
-                <div className="flex items-center gap-3 text-xs text-muted-foreground/50">
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <Card className="p-7 premium-card cursor-pointer group h-full flex flex-col">
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-4">{p.category}</span>
+                <h3 className="text-base font-display font-semibold text-foreground mb-5 group-hover:text-primary transition-colors duration-300 flex-1">{p.title}</h3>
+                <div className="flex items-center gap-3 text-[11px] text-muted-foreground/40 font-medium">
                   <span>{p.date}</span>
                   <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{p.readTime}</span>
                 </div>

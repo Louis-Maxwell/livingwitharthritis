@@ -71,23 +71,36 @@ const FundraisingProgressSection = memo(() => {
   }).format(GOAL);
 
   return (
-    <section className="py-24 lg:py-32 bg-accent/20 section-divider">
+    <section id="involved" className="py-28 lg:py-36 bg-accent/20 section-divider">
       <div className="container mx-auto px-6 md:px-10 max-w-3xl">
-        <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-card rounded-3xl border border-border/20 p-10 lg:p-14 text-center shadow-soft">
-          <Heart className="w-10 h-10 text-primary mx-auto mb-6" />
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground mb-3">
+        <motion.div
+          initial={{ opacity: 0, y: 32, scale: 0.97 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="premium-card p-12 lg:p-16 text-center"
+        >
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.5, type: "spring", stiffness: 200 }}
+          >
+            <Heart className="w-12 h-12 text-primary mx-auto mb-7" />
+          </motion.div>
+          <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground mb-4">
             Help us reach our <span className="text-primary italic">goal</span>
           </h2>
-          <p className="text-muted-foreground mb-8">Every donation helps us provide free physiotherapy and support to more people.</p>
+          <p className="text-muted-foreground mb-10 leading-relaxed">Every donation helps us provide free physiotherapy and support to more people.</p>
           <div className="max-w-md mx-auto mb-3">
             <Progress value={progressPercent} className="h-3 rounded-full" />
           </div>
-          <div className="flex justify-between text-sm mb-8 max-w-md mx-auto">
+          <div className="flex justify-between text-sm mb-10 max-w-md mx-auto">
             <span className="text-primary font-bold">{formattedRaised} raised</span>
             <span className="text-muted-foreground">{formattedGoal} goal</span>
           </div>
           <Button
-            className="rounded-full btn-gold px-8 h-12"
+            className="rounded-full btn-gold px-9 h-13"
             onClick={handleDonate}
             disabled={isLoading}
           >
