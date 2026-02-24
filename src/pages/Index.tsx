@@ -90,6 +90,43 @@ export default function Index() {
         <meta name="keywords" content="arthritis UK, NHS arthritis, joint pain relief UK, osteoarthritis help, rheumatoid arthritis support, free physiotherapy UK, anti-inflammatory diet UK, arthritis exercises, living with arthritis, joint pain NHS" />
         <meta property="og:locale" content="en_GB" />
         <meta name="geo.region" content="GB" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "MedicalOrganization",
+          "name": "Living With Arthritis",
+          "alternateName": "Living With Arthritis UK",
+          "url": "https://livingwitharthritis.org.uk",
+          "logo": "https://livingwitharthritis.org.uk/favicon.ico",
+          "description": "UK charity providing free virtual physiotherapy, anti-inflammatory nutrition guidance, joint exercises and community support for people living with arthritis.",
+          "medicalSpecialty": "Rheumatology",
+          "areaServed": {
+            "@type": "Country",
+            "name": "United Kingdom",
+            "sameAs": "https://en.wikipedia.org/wiki/United_Kingdom"
+          },
+          "serviceType": ["Virtual Physiotherapy", "Nutrition Guidance", "Joint Exercise Programmes", "Arthritis Support"],
+          "audience": {
+            "@type": "MedicalAudience",
+            "audienceType": "Patient",
+            "healthCondition": {
+              "@type": "MedicalCondition",
+              "name": "Arthritis",
+              "alternateName": ["Osteoarthritis", "Rheumatoid Arthritis"],
+              "relevantSpecialty": { "@type": "MedicalSpecialty", "name": "Rheumatology" }
+            },
+            "geographicArea": { "@type": "Country", "name": "United Kingdom" }
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+44-7760-512-084",
+            "email": "info@livingwitharthritis.org.uk",
+            "contactType": "customer support",
+            "availableLanguage": "English",
+            "areaServed": "GB"
+          },
+          "knowsAbout": ["Osteoarthritis", "Rheumatoid Arthritis", "Joint Pain", "Anti-inflammatory Diet", "Physiotherapy", "NHS Arthritis Support"],
+          "inLanguage": "en-GB"
+        })}</script>
       </Helmet>
 
       <div className="min-h-screen bg-gradient-to-b from-background via-background/95 to-primary/5">
