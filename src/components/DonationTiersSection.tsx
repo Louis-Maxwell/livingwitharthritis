@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 import { useDonationTiers } from "@/hooks/useCmsContent";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
-import PayPalDonationModal from "./PayPalDonationModal";
+import StripeDonationModal from "./StripeDonationModal";
 
 const DonationTiersSection = memo(() => {
   const { data: tiers, isLoading } = useDonationTiers();
-  const [paypalOpen, setPaypalOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const [selectedAmount, setSelectedAmount] = useState(0);
 
   const parseAmount = (amount: string): number => {
@@ -18,7 +18,7 @@ const DonationTiersSection = memo(() => {
 
   const handleDonate = (amount: string) => {
     setSelectedAmount(parseAmount(amount));
-    setPaypalOpen(true);
+    setModalOpen(true);
   };
 
   const tierStyles = [
@@ -108,9 +108,9 @@ const DonationTiersSection = memo(() => {
         </div>
       </div>
 
-      <PayPalDonationModal
-        isOpen={paypalOpen}
-        onClose={() => setPaypalOpen(false)}
+      <StripeDonationModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
         amount={selectedAmount}
         currency="GBP"
         fundType="general"
