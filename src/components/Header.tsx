@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Heart, Construction } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import DonationBanner from "@/components/DonationBanner";
-import AboutUsModal from "@/components/AboutUsModal";
 
 const BuildingBanner = () => (
   <div className="bg-navy text-navy-foreground py-2.5 text-center relative overflow-hidden">
@@ -21,7 +21,7 @@ const BuildingBanner = () => (
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [aboutOpen, setAboutOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -30,7 +30,7 @@ const Header = () => {
   }, []);
 
   const navLinks = [
-    { label: "About Arthritis", href: "#about", action: () => setAboutOpen(true) },
+    { label: "About Arthritis", href: "#about", action: () => navigate("/about") },
     { label: "Our Services", href: "#services" },
     { label: "Conditions", href: "#conditions" },
     { label: "Get Involved", href: "#involved" },
@@ -186,7 +186,7 @@ const Header = () => {
         )}
       </AnimatePresence>
 
-      <AboutUsModal open={aboutOpen} onOpenChange={setAboutOpen} />
+      
     </>
   );
 };
