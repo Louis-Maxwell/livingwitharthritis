@@ -1,4 +1,4 @@
-import { memo, useState, useRef } from "react";
+import { memo, useRef } from "react";
 import physioMyth1 from "@/assets/physio-myth-1.jpg";
 import physioMyth2 from "@/assets/physio-myth-2.jpg";
 import physioMyth3 from "@/assets/physio-myth-3.jpg";
@@ -23,15 +23,15 @@ const MythCard = memo(({ item, index }: { item: PhysioMyth; index: number }) => 
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 32, scale: 0.97 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.5, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.7, delay: index * 0.09, ease: [0.22, 1, 0.36, 1] }}
       className="group"
     >
-      <div className="h-full bg-card rounded-3xl border border-border/20 hover:border-primary/10 hover:shadow-large transition-all duration-500 overflow-hidden card-hover">
+      <div className="h-full premium-card">
         {imageSrc && (
-          <div className="relative h-48 overflow-hidden">
+          <div className="relative h-52 overflow-hidden">
             <OptimizedImage
               src={imageSrc}
               alt={`Physiotherapy illustration ${index + 1}`}
@@ -39,30 +39,30 @@ const MythCard = memo(({ item, index }: { item: PhysioMyth; index: number }) => 
             />
             <div className="absolute inset-0 bg-gradient-to-t from-card via-card/5 to-transparent" />
             <div className="absolute top-4 left-4">
-              <span className="text-[10px] font-bold text-white bg-primary/80 backdrop-blur-sm px-3 py-1 rounded-full uppercase tracking-widest">
+              <span className="text-[10px] font-bold text-white bg-primary/80 backdrop-blur-sm px-3 py-1.5 rounded-full uppercase tracking-[0.2em]">
                 Myth {String(index + 1).padStart(2, '0')}
               </span>
             </div>
           </div>
         )}
-        <div className="p-6 space-y-4">
+        <div className="p-7 space-y-4">
           <div className="flex items-start gap-3">
-            <div className="flex-shrink-0 w-7 h-7 rounded-full bg-destructive/6 flex items-center justify-center mt-0.5">
-              <X className="w-3.5 h-3.5 text-destructive" />
+            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-destructive/6 flex items-center justify-center mt-0.5">
+              <X className="w-4 h-4 text-destructive" />
             </div>
             <div>
               <span className="section-label text-destructive mb-1.5 block text-[10px]">Myth</span>
               <p className="text-foreground font-medium text-sm leading-relaxed">"{item.myth}"</p>
             </div>
           </div>
-          <div className="h-px bg-border/40" />
+          <div className="h-px bg-border/30" />
           <div className="flex items-start gap-3">
-            <div className="flex-shrink-0 w-7 h-7 rounded-full bg-secondary/6 flex items-center justify-center mt-0.5">
-              <Check className="w-3.5 h-3.5 text-secondary" />
+            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-secondary/6 flex items-center justify-center mt-0.5">
+              <Check className="w-4 h-4 text-secondary" />
             </div>
             <div>
               <span className="section-label text-secondary mb-1.5 block text-[10px]">Reality</span>
-              <p className="text-muted-foreground text-sm leading-[1.7]">{item.fact}</p>
+              <p className="text-muted-foreground text-sm leading-[1.75]">{item.fact}</p>
             </div>
           </div>
         </div>
@@ -80,30 +80,33 @@ const VirtualPhysioSection = memo(() => {
   const ctaBgY = useTransform(scrollYProgress, [0, 1], ["0%", "8%"]);
 
   return (
-    <section ref={sectionRef} className="py-24 lg:py-36 bg-accent/30 relative">
+    <section ref={sectionRef} className="py-28 lg:py-40 bg-accent/30 relative">
       <div className="container mx-auto px-6 md:px-10">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.7 }}
+          className="text-center mb-20"
         >
           <span className="section-label text-secondary mb-4 block">Physiotherapy</span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.75rem] font-display font-bold text-foreground mb-5 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.75rem] font-display font-bold text-foreground mb-6 tracking-tight">
             Virtual physio: <span className="text-secondary italic">myths busted</span>
           </h2>
+          <div className="luxury-divider mb-4">
+            <div className="w-1.5 h-1.5 rounded-full bg-gold/40" />
+          </div>
           <p className="text-base text-muted-foreground/70 max-w-xl mx-auto leading-relaxed">
             Think online physio is second-best? Think again. Thousands are recovering faster — all from home.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7 mb-24">
           {isLoading ? (
             Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="bg-card rounded-3xl border border-border/20 overflow-hidden">
-                <Skeleton className="h-48 w-full" />
-                <div className="p-6 space-y-4">
+              <div key={i} className="bg-card rounded-[2rem] border border-border/20 overflow-hidden">
+                <Skeleton className="h-52 w-full" />
+                <div className="p-7 space-y-4">
                   <Skeleton className="h-16 w-full" />
                   <Skeleton className="h-16 w-full" />
                 </div>
@@ -118,18 +121,19 @@ const VirtualPhysioSection = memo(() => {
 
         {/* CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 32, scale: 0.97 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="bg-navy rounded-[2rem] p-12 lg:p-20 text-center text-white relative overflow-hidden"
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="bg-navy rounded-[2rem] p-14 lg:p-24 text-center text-white relative overflow-hidden"
         >
           <motion.div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10" style={{ y: ctaBgY }} />
+          <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
           <div className="relative max-w-xl mx-auto">
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold mb-4">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold mb-5">
               Virtual physiotherapy isn't the future — <span className="text-gold italic font-normal">it's the now.</span>
             </h3>
-            <p className="text-white/40 mb-10 text-base sm:text-lg leading-relaxed">
+            <p className="text-white/35 mb-12 text-base sm:text-lg leading-relaxed">
               Flexible. Effective. Personal. And seriously convenient.
             </p>
             <AppointmentModal
