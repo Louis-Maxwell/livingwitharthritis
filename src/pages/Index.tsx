@@ -25,26 +25,19 @@ const NutritionArticleSection = lazy(() => import("@/components/NutritionArticle
 const ConditionsSection = lazy(() => import("@/components/ConditionsSection"));
 const JointExerciseSection = lazy(() => import("@/components/JointExerciseSection"));
 
-// Lazy sections (20 new landing page sections)
+// Lazy sections (landing page sections – curated for optimal flow)
 const TrustBarSection = lazy(() => import("@/components/landing/TrustBarSection"));
 const HowItWorksSection = lazy(() => import("@/components/landing/HowItWorksSection"));
 const ImpactBannerSection = lazy(() => import("@/components/landing/ImpactBannerSection"));
 const TestimonialsSection = lazy(() => import("@/components/landing/TestimonialsSection"));
-const ComparisonSection = lazy(() => import("@/components/landing/ComparisonSection"));
 const ExpertsSection = lazy(() => import("@/components/landing/ExpertsSection"));
 const DailyTipsSection = lazy(() => import("@/components/landing/DailyTipsSection"));
 const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
 const VideoCTASection = lazy(() => import("@/components/landing/VideoCTASection"));
 const CommunitySection = lazy(() => import("@/components/landing/CommunitySection"));
 const FundraisingProgressSection = lazy(() => import("@/components/landing/FundraisingProgressSection"));
-const SymptomCheckerCTA = lazy(() => import("@/components/landing/SymptomCheckerCTA"));
-const AccessibilitySection = lazy(() => import("@/components/landing/AccessibilitySection"));
 const BlogPreviewSection = lazy(() => import("@/components/landing/BlogPreviewSection"));
-const EventsSection = lazy(() => import("@/components/landing/EventsSection"));
-const SocialProofSection = lazy(() => import("@/components/landing/SocialProofSection"));
-const MobileAppCTA = lazy(() => import("@/components/landing/MobileAppCTA"));
 const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSection"));
-const TimelineSection = lazy(() => import("@/components/landing/TimelineSection"));
 const FinalCTASection = lazy(() => import("@/components/landing/FinalCTASection"));
 
 const SectionLoader = memo(() => (
@@ -153,11 +146,6 @@ export default function Index() {
               <ServicesGrid />
             </Suspense>
 
-            {/* Social Proof Bar */}
-            <Suspense fallback={<SectionLoader />}>
-              <SocialProofSection />
-            </Suspense>
-
             <Suspense fallback={<SectionLoader />}>
               <HowItWorksSection />
               <VirtualPhysioSection />
@@ -173,7 +161,7 @@ export default function Index() {
               <DailyTipsSection />
             </Suspense>
 
-            <div ref={belowFoldRef}>
+          <div ref={belowFoldRef}>
               {isBelowFoldVisible && (
                 <Suspense fallback={<SectionLoader />}>
                   <div className="space-y-20">
@@ -181,16 +169,10 @@ export default function Index() {
                     <JointExerciseSection />
                     <VideoCTASection />
                     <TestimonialsSection />
-                    <ComparisonSection />
                     <ExpertsSection />
                     <CommunitySection />
-                    <TimelineSection />
-                    <SymptomCheckerCTA />
                     <FundraisingProgressSection />
                     <BlogPreviewSection />
-                    <EventsSection />
-                    <AccessibilitySection />
-                    <MobileAppCTA />
                     <NewsletterSection />
                     <FAQSection />
 
