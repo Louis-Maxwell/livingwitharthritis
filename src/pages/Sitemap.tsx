@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Globe, FileText, MessageCircle, BookOpen } from "lucide-react";
+import { Globe, BookOpen, Sun, Heart, MessageCircle, FileText } from "lucide-react";
 
 const sitemapSections = [
   {
@@ -11,6 +11,7 @@ const sitemapSections = [
     links: [
       { label: "Home", href: "/", description: "Arthritis support, services and resources" },
       { label: "Virtual Assistant", href: "/chat", description: "AI-powered arthritis guidance chat" },
+      { label: "Sign In / Register", href: "/auth", description: "Access your account" },
     ],
   },
   {
@@ -26,7 +27,27 @@ const sitemapSections = [
     ],
   },
   {
-    title: "Other",
+    title: "Daily Tips",
+    icon: Sun,
+    links: [
+      { label: "Daily Living Overview", href: "/daily-tips/overview", description: "A holistic approach to managing joint stiffness" },
+      { label: "Morning Stretches", href: "/daily-tips/morning-stretches", description: "Gentle stretches to ease morning stiffness" },
+      { label: "Stay Hydrated", href: "/daily-tips/stay-hydrated", description: "Why hydration matters for joint health" },
+      { label: "Anti-inflammatory Snacks", href: "/daily-tips/anti-inflammatory-snacks", description: "Healthy snacks that fight inflammation" },
+      { label: "Walk 20 Minutes", href: "/daily-tips/walk-20-minutes", description: "Low-impact walking for mobility" },
+      { label: "Prioritise Sleep", href: "/daily-tips/prioritise-sleep", description: "Better sleep for pain management" },
+      { label: "Pace Yourself", href: "/daily-tips/pace-yourself", description: "Energy management throughout the day" },
+    ],
+  },
+  {
+    title: "Support & Donate",
+    icon: Heart,
+    links: [
+      { label: "Donate", href: "/#fundraising", description: "Help us reach our fundraising goal" },
+    ],
+  },
+  {
+    title: "Technical",
     icon: FileText,
     links: [
       { label: "XML Sitemap", href: "/sitemap.xml", description: "Machine-readable sitemap for search engines", external: true },
@@ -39,6 +60,7 @@ const Sitemap = () => (
     <Helmet>
       <title>Sitemap – Living With Arthritis UK</title>
       <meta name="description" content="Browse all pages on Living With Arthritis UK. Find arthritis advice, exercises, diet tips and support resources." />
+      <link rel="canonical" href="https://livingwitharthritis.org.uk/sitemap" />
     </Helmet>
     <div className="min-h-screen bg-background">
       <Header />
@@ -52,7 +74,7 @@ const Sitemap = () => (
             return (
               <section key={section.title}>
                 <div className="flex items-center gap-2.5 mb-4">
-                  <Icon className="w-4.5 h-4.5 text-primary" />
+                  <Icon className="w-5 h-5 text-primary" />
                   <h2 className="font-display text-lg font-semibold text-foreground">{section.title}</h2>
                 </div>
                 <ul className="space-y-1">
