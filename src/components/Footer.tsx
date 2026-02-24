@@ -122,7 +122,7 @@ const Footer = () => {
       <div className="border-t border-white/5">
         <div className="container mx-auto px-6 md:px-10 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-3">
-            <p className="text-white/15 text-xs tracking-wide">Living with Arthritis</p>
+            <p className="text-white/15 text-xs tracking-wide">© {new Date().getFullYear()} Living with Arthritis™</p>
             <div className="flex items-center gap-6 text-xs">
               <a href="#" className="text-white/15 hover:text-white/40 transition-colors duration-300">Privacy</a>
               <a href="#" className="text-white/15 hover:text-white/40 transition-colors duration-300">Terms</a>
