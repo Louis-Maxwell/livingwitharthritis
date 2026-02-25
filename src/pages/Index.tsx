@@ -13,6 +13,7 @@ import { useDeferredVisible } from "@/hooks/useDeferredVisible";
 import { AppointmentModal } from "@/components/AppointmentModal";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import DonationNotification from "@/components/DonationNotification";
+import FeedbackPopup from "@/components/FeedbackPopup";
 
 // Lazy sections (existing)
 const AboutSection = lazy(() => import("@/components/AboutSection"));
@@ -101,6 +102,7 @@ export default function Index() {
       <div className="min-h-screen bg-background">
         <Header />
         <DonationNotification />
+        <FeedbackPopup />
 
         <main className="space-y-0">
           <HeroSection />
