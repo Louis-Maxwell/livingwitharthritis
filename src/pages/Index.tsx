@@ -105,10 +105,6 @@ export default function Index() {
         <main className="space-y-0">
           <HeroSection />
 
-          {/* Trust Bar – immediately after hero */}
-          <Suspense fallback={<SectionLoader />}>
-            <TrustBarSection />
-          </Suspense>
 
           <div className="container mx-auto px-5 md:px-8 space-y-10 md:space-y-14">
             <Suspense fallback={<SectionLoader />}>
