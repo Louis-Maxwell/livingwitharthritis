@@ -35,18 +35,41 @@ const BlogPost = () => {
         <link rel="canonical" href={`https://livingwitharthritis.org.uk/blog/${slug}`} />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Article",
+          "@type": "MedicalWebPage",
           "headline": article.title,
           "description": article.metaDescription,
           "datePublished": article.date,
-          "author": { "@type": "Organization", "name": "Living With Arthritis" },
+          "dateModified": article.date,
+          "author": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk" },
           "publisher": {
             "@type": "Organization",
             "name": "Living With Arthritis",
-            "url": "https://livingwitharthritis.org.uk"
+            "url": "https://livingwitharthritis.org.uk",
+            "logo": { "@type": "ImageObject", "url": "https://livingwitharthritis.org.uk/favicon.ico" }
           },
           "inLanguage": "en-GB",
-          "mainEntityOfPage": `https://livingwitharthritis.org.uk/blog/${slug}`
+          "mainEntityOfPage": `https://livingwitharthritis.org.uk/blog/${slug}`,
+          "about": {
+            "@type": "MedicalCondition",
+            "name": "Arthritis",
+            "alternateName": ["Osteoarthritis", "Rheumatoid Arthritis"]
+          },
+          "audience": {
+            "@type": "MedicalAudience",
+            "audienceType": "Patient",
+            "geographicArea": { "@type": "Country", "name": "United Kingdom" }
+          },
+          "lastReviewed": article.date,
+          "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Patient" }
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://livingwitharthritis.org.uk/blog" },
+            { "@type": "ListItem", "position": 3, "name": article.title, "item": `https://livingwitharthritis.org.uk/blog/${slug}` }
+          ]
         })}</script>
       </Helmet>
       <div className="min-h-screen bg-background">
