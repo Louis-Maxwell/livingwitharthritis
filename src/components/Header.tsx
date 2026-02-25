@@ -68,7 +68,7 @@ const Header = () => {
                 <span className="text-[15px] font-display font-bold text-foreground tracking-tight">
                   Living With
                 </span>
-                <span className="text-[15px] font-display font-bold text-primary tracking-tight">
+                <span className="text-[15px] font-display font-bold text-foreground tracking-tight">
                   Arthritis<sup className="text-[8px] align-super">™</sup>
                 </span>
               </div>
