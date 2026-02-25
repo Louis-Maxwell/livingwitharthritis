@@ -39,6 +39,7 @@ const CommunitySection = lazy(() => import("@/components/landing/CommunitySectio
 const FundraisingProgressSection = lazy(() => import("@/components/landing/FundraisingProgressSection"));
 const BlogPreviewSection = lazy(() => import("@/components/landing/BlogPreviewSection"));
 const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSection"));
+const GetInTouchSection = lazy(() => import("@/components/landing/GetInTouchSection"));
 const FinalCTASection = lazy(() => import("@/components/landing/FinalCTASection"));
 
 const SectionLoader = memo(() => (
@@ -193,6 +194,7 @@ export default function Index() {
                       </div>
                     </section>
 
+                    <GetInTouchSection />
                     <FinalCTASection />
                   </div>
                 </Suspense>
