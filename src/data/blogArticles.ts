@@ -1,3 +1,5 @@
+import { blogArticlesBatch2 } from "./blogArticlesBatch2";
+
 interface BlogArticle {
   title: string;
   metaTitle: string;
@@ -7,7 +9,7 @@ interface BlogArticle {
   content: string;
 }
 
-export const blogArticles: Record<string, BlogArticle> = {
+const blogArticlesBase: Record<string, BlogArticle> = {
   "best-diet-for-joint-pain-uk": {
     title: "Best Diet for Joint Pain in the UK",
     metaTitle: "Best Diet for Joint Pain UK – Anti-Inflammatory Foods That Help",
@@ -238,4 +240,9 @@ export const blogArticles: Record<string, BlogArticle> = {
       <p><em>This article is for information only and does not replace medical advice. Always consult your GP or pharmacist about your medications.</em></p>
     `,
   },
+};
+
+export const blogArticles: Record<string, BlogArticle> = {
+  ...blogArticlesBase,
+  ...blogArticlesBatch2,
 };
