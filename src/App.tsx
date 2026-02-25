@@ -17,6 +17,9 @@ const BlogPost = lazy(() => import("./pages/BlogPost"));
 const Sitemap = lazy(() => import("./pages/Sitemap"));
 const DailyTipDetail = lazy(() => import("./pages/DailyTipDetail"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
+const Osteoarthritis = lazy(() => import("./pages/conditions/Osteoarthritis"));
+const RheumatoidArthritis = lazy(() => import("./pages/conditions/RheumatoidArthritis"));
+const PsoriaticArthritis = lazy(() => import("./pages/conditions/PsoriaticArthritis"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading fallback component
@@ -56,6 +59,9 @@ const App = () => (
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/daily-tips/:slug" element={<DailyTipDetail />} />
               <Route path="/about" element={<AboutUs />} />
+              <Route path="/conditions/osteoarthritis" element={<Osteoarthritis />} />
+              <Route path="/conditions/rheumatoid-arthritis" element={<RheumatoidArthritis />} />
+              <Route path="/conditions/psoriatic-arthritis" element={<PsoriaticArthritis />} />
               <Route path="/sitemap" element={<Sitemap />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

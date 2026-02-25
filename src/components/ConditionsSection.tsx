@@ -6,6 +6,13 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useConditions } from "@/hooks/useCmsContent";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+
+const CONDITION_SLUGS: Record<string, string> = {
+  "Osteoarthritis": "/conditions/osteoarthritis",
+  "Rheumatoid Arthritis": "/conditions/rheumatoid-arthritis",
+  "Psoriatic Arthritis": "/conditions/psoriatic-arthritis",
+};
 
 const ConditionsSection = memo(() => {
   const { data: conditions, isLoading } = useConditions();
@@ -46,15 +53,10 @@ const ConditionsSection = memo(() => {
               </Card>
             ))
           ) : (
-            conditions?.map((condition, i) => (
-              <motion.div
-                key={condition.id}
-                initial={{ opacity: 0, y: 32 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <Card className="group h-full premium-card cursor-pointer">
+            conditions?.map((condition, i) => {
+              const href = CONDITION_SLUGS[condition.title];
+              const cardContent = (
+                <>
                   <div className="absolute inset-0 bg-gradient-to-br from-secondary/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                   <CardHeader className="pb-2 relative p-8">
                     <div className="flex items-center justify-between mb-4">
@@ -80,9 +82,30 @@ const ConditionsSection = memo(() => {
                       Read more <ArrowRight className="ml-2 w-3.5 h-3.5" />
                     </div>
                   </CardContent>
-                </Card>
-              </motion.div>
-            ))
+                </>
+              );
+              return (
+                <motion.div
+                  key={condition.id}
+                  initial={{ opacity: 0, y: 32 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  {href ? (
+                    <Link to={href} className="block h-full no-underline">
+                      <Card className="group h-full premium-card cursor-pointer">
+                        {cardContent}
+                      </Card>
+                    </Link>
+                  ) : (
+                    <Card className="group h-full premium-card cursor-pointer">
+                      {cardContent}
+                    </Card>
+                  )}
+                </motion.div>
+              );
+            })
           )}
         </div>
       </div>
