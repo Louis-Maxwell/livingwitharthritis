@@ -258,7 +258,7 @@ const JointExerciseSection = memo(() => {
   const activeData = activeJoint ? jointDatabase[activeJoint] : null;
 
   return (
-    <section id="joint-exercises" className="py-20 lg:py-28 bg-muted relative overflow-hidden">
+    <section id="joint-exercises" className="py-14 lg:py-20 bg-muted relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-8 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

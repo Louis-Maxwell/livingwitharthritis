@@ -13,7 +13,7 @@ const posts = [
 const BlogPreviewSection = memo(() => {
   const navigate = useNavigate();
   return (
-    <section className="py-28 lg:py-36 bg-background section-divider">
+    <section className="py-14 lg:py-20 bg-background section-divider">
       <div className="container mx-auto px-6 md:px-10 max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 28 }}

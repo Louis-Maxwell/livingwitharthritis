@@ -16,7 +16,7 @@ const NutritionArticleSection = () => {
   const orbY = useTransform(scrollYProgress, [0, 1], [60, -60]);
 
   return (
-    <section ref={sectionRef} id="nutrition" className="py-28 lg:py-40 bg-accent/30 relative overflow-hidden section-divider">
+    <section ref={sectionRef} id="nutrition" className="py-14 lg:py-20 bg-accent/30 relative overflow-hidden section-divider">
       <motion.div className="gradient-orb glow-pulse w-[600px] h-[600px] bg-secondary top-[-150px] right-[-200px]" style={{ y: orbY }} />
 
       <div className="container mx-auto px-6 md:px-10 relative">

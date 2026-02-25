@@ -11,7 +11,7 @@ const partners = [
 ];
 
 const PartnersSection = memo(() => (
-  <section className="py-20 lg:py-24 section-divider">
+  <section className="py-12 lg:py-16 section-divider">
     <div className="container mx-auto px-6 md:px-10 max-w-5xl">
       <motion.div
         initial={{ opacity: 0, y: 20 }}

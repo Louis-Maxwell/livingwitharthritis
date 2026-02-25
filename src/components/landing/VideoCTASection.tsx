@@ -13,7 +13,7 @@ const VideoCTASection = memo(() => {
   const handleClose = useCallback(() => setPlaying(false), []);
 
   return (
-    <section className="py-28 lg:py-36 bg-background section-divider">
+    <section className="py-14 lg:py-20 bg-background section-divider">
       <div className="container mx-auto px-6 md:px-10 max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-14 items-center">
           <motion.div

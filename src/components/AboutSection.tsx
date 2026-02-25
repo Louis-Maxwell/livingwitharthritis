@@ -14,7 +14,7 @@ const AboutSection = memo(() => {
   const orbY = useTransform(scrollYProgress, [0, 1], [60, -60]);
 
   return (
-    <section ref={sectionRef} id="resources" className="py-24 lg:py-32 bg-background relative overflow-hidden section-divider">
+    <section ref={sectionRef} id="resources" className="py-14 lg:py-20 bg-background relative overflow-hidden section-divider">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-primary/[0.03] blur-[120px] pointer-events-none" style={{ transform: `translateY(${orbY})` }} />
 
       <div className="container mx-auto px-6 md:px-10 max-w-7xl relative">

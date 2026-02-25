@@ -10,7 +10,7 @@ const steps = [
 ];
 
 const HowItWorksSection = memo(() => (
-  <section className="py-24 lg:py-32 bg-background relative section-divider">
+  <section className="py-14 lg:py-20 bg-background relative section-divider">
     <div className="container mx-auto px-6 md:px-10 max-w-6xl">
       <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
         <span className="section-label text-primary mb-4 block">Getting Started</span>

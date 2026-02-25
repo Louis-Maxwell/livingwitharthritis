@@ -80,7 +80,7 @@ const VirtualPhysioSection = memo(() => {
   const ctaBgY = useTransform(scrollYProgress, [0, 1], ["0%", "8%"]);
 
   return (
-    <section ref={sectionRef} className="py-28 lg:py-40 bg-accent/30 relative">
+    <section ref={sectionRef} className="py-14 lg:py-20 bg-accent/30 relative">
       <div className="container mx-auto px-6 md:px-10">
         <motion.div
           initial={{ opacity: 0, y: 28 }}

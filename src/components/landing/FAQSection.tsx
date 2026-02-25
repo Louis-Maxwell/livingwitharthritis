@@ -12,7 +12,7 @@ const faqs = [
 ];
 
 const FAQSection = memo(() => (
-  <section className="py-28 lg:py-36 bg-background section-divider">
+  <section className="py-14 lg:py-20 bg-background section-divider">
     <div className="container mx-auto px-6 md:px-10 max-w-3xl">
       <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
         <span className="section-label text-primary mb-4 block">Common Questions</span>
