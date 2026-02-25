@@ -1,7 +1,8 @@
-import { useEffect, lazy, Suspense } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAdmin } from "@/hooks/useAdmin";
 import { useAdminDonations } from "@/hooks/useAdminDonations";
+import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Table,
@@ -14,7 +15,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowLeft, DollarSign, Users, TrendingUp, PiggyBank, CalendarDays, ExternalLink } from "lucide-react";
+import { ArrowLeft, DollarSign, Users, TrendingUp, PiggyBank, CalendarDays, ExternalLink, MessageSquare, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
 
@@ -24,6 +25,21 @@ const AdminDashboard = () => {
   const navigate = useNavigate();
   const { isAdmin, isLoading: adminLoading } = useAdmin();
   const { donations, stats, isLoading: donationsLoading, error } = useAdminDonations();
+  const [feedback, setFeedback] = useState<Array<{ id: string; navigation_rating: number; speed_rating: number; created_at: string }>>([]);
+  const [feedbackLoading, setFeedbackLoading] = useState(true);
+
+  useEffect(() => {
+    if (!isAdmin) return;
+    const fetchFeedback = async () => {
+      const { data } = await supabase
+        .from("feedback_responses")
+        .select("*")
+        .order("created_at", { ascending: false });
+      setFeedback(data || []);
+      setFeedbackLoading(false);
+    };
+    fetchFeedback();
+  }, [isAdmin]);
 
   useEffect(() => {
     if (!adminLoading && !isAdmin) {
@@ -61,6 +77,23 @@ const AdminDashboard = () => {
     return labels[fund] || fund;
   };
 
+  const exportFeedbackCsv = () => {
+    const header = "Date,Navigation Rating,Speed Rating\n";
+    const rows = feedback.map((f) =>
+      `${format(new Date(f.created_at), "yyyy-MM-dd HH:mm")},${f.navigation_rating},${f.speed_rating}`
+    ).join("\n");
+    const blob = new Blob([header + rows], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `feedback-${format(new Date(), "yyyy-MM-dd")}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const avgNav = feedback.length ? (feedback.reduce((s, f) => s + f.navigation_rating, 0) / feedback.length).toFixed(1) : "–";
+  const avgSpeed = feedback.length ? (feedback.reduce((s, f) => s + f.speed_rating, 0) / feedback.length).toFixed(1) : "–";
+
   return (
     <div className="min-h-screen bg-background p-6">
       <div className="max-w-7xl mx-auto space-y-6">
@@ -84,6 +117,10 @@ const AdminDashboard = () => {
             <TabsTrigger value="donations" className="gap-2">
               <DollarSign className="w-4 h-4" />
               Donations
+            </TabsTrigger>
+            <TabsTrigger value="feedback" className="gap-2">
+              <MessageSquare className="w-4 h-4" />
+              Feedback
             </TabsTrigger>
           </TabsList>
 
@@ -228,6 +265,83 @@ const AdminDashboard = () => {
                                 {donation.status}
                               </Badge>
                             </TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* Feedback Tab */}
+          <TabsContent value="feedback" className="space-y-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-xl font-semibold text-foreground">User Feedback</h2>
+                <p className="text-sm text-muted-foreground">{feedback.length} responses collected</p>
+              </div>
+              <Button variant="outline" className="gap-2" onClick={exportFeedbackCsv} disabled={feedback.length === 0}>
+                <Download className="w-4 h-4" />
+                Export CSV
+              </Button>
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-3">
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-sm font-medium">Total Responses</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-2xl font-bold">{feedback.length}</div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-sm font-medium">Avg Navigation Rating</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-2xl font-bold">{avgNav} / 5</div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-sm font-medium">Avg Speed Rating</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-2xl font-bold">{avgSpeed} / 5</div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>All Responses</CardTitle>
+              </CardHeader>
+              <CardContent>
+                {feedbackLoading ? (
+                  <p className="text-center text-muted-foreground py-8">Loading…</p>
+                ) : feedback.length === 0 ? (
+                  <p className="text-center text-muted-foreground py-8">No feedback yet</p>
+                ) : (
+                  <div className="overflow-x-auto">
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead>Date</TableHead>
+                          <TableHead className="text-center">Navigation</TableHead>
+                          <TableHead className="text-center">Speed</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {feedback.map((f) => (
+                          <TableRow key={f.id}>
+                            <TableCell className="whitespace-nowrap">
+                              {format(new Date(f.created_at), "MMM d, yyyy HH:mm")}
+                            </TableCell>
+                            <TableCell className="text-center font-medium">{f.navigation_rating}</TableCell>
+                            <TableCell className="text-center font-medium">{f.speed_rating}</TableCell>
                           </TableRow>
                         ))}
                       </TableBody>
