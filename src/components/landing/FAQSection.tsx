@@ -9,6 +9,10 @@ const faqs = [
   { q: "How does the virtual physiotherapy work?", a: "Book a free consultation through our platform. You'll connect with a registered physiotherapist via video call who'll create a personalised exercise plan." },
   { q: "Can diet really help with arthritis?", a: "Research shows an anti-inflammatory diet, particularly the Mediterranean diet, can reduce pain, stiffness, and inflammation associated with arthritis." },
   { q: "Is the AI assistant a replacement for medical advice?", a: "No. Our AI assistant provides general information and guidance based on published research. Always consult your healthcare professional for personalised medical advice." },
+  { q: "What are the early signs of osteoarthritis?", a: "Early signs include joint pain during or after movement, morning stiffness lasting under 30 minutes, tenderness, loss of flexibility, and a grating sensation. Knees, hips and hands are most commonly affected in the UK." },
+  { q: "Can I claim PIP for arthritis in the UK?", a: "If arthritis has a substantial, long-term effect on your daily activities, you may be eligible for Personal Independence Payment (PIP). Contact Citizens Advice or the DWP for guidance on applying." },
+  { q: "What age does arthritis usually start?", a: "Osteoarthritis is most common after age 50, but rheumatoid arthritis often begins between 30 and 50. Younger people can develop arthritis after injuries or due to autoimmune conditions." },
+  { q: "Does turmeric help with joint pain?", a: "Research suggests curcumin (the active compound in turmeric) has anti-inflammatory properties. A systematic review supports around 1,000 mg/day of curcumin extract for arthritis symptom relief. Use with piperine for better absorption." },
 ];
 
 const FAQSection = memo(() => (

@@ -42,9 +42,30 @@ const BlogIndex = () => (
     <Helmet>
       <title>Arthritis Blog UK – Joint Pain, Diet & Exercise Advice</title>
       <meta name="description" content="Expert UK arthritis articles covering anti-inflammatory diet, NHS exercises, supplements and osteoarthritis management. Free guidance for people living with arthritis." />
-      <meta name="keywords" content="arthritis blog UK, joint pain advice, NHS arthritis, anti-inflammatory diet UK, osteoarthritis exercises" />
+      <meta name="keywords" content="arthritis blog UK, joint pain advice, NHS arthritis, anti-inflammatory diet UK, osteoarthritis exercises, arthritis help UK, joint pain diet, rheumatoid arthritis UK" />
+      <meta property="og:title" content="Arthritis Blog UK – Joint Pain, Diet & Exercise Advice" />
+      <meta property="og:description" content="Expert UK arthritis articles covering anti-inflammatory diet, NHS exercises, supplements and osteoarthritis management." />
       <meta property="og:locale" content="en_GB" />
       <link rel="canonical" href="https://livingwitharthritis.org.uk/blog" />
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Arthritis Blog UK",
+        "description": "Expert UK arthritis articles covering anti-inflammatory diet, NHS exercises, supplements and osteoarthritis management.",
+        "url": "https://livingwitharthritis.org.uk/blog",
+        "inLanguage": "en-GB",
+        "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" },
+        "about": { "@type": "MedicalCondition", "name": "Arthritis" },
+        "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } }
+      })}</script>
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://livingwitharthritis.org.uk/blog" }
+        ]
+      })}</script>
     </Helmet>
     <div className="min-h-screen bg-background">
       <Header />

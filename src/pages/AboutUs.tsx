@@ -41,8 +41,39 @@ const AboutUs = () => {
   return (
     <>
       <Helmet>
-        <title>About Us — Living with Arthritis</title>
-        <meta name="description" content="Learn about Living with Arthritis, founded in 2020 to support millions affected by arthritis through research, education, and community." />
+        <title>About Us — Living With Arthritis UK | Our Mission & Story</title>
+        <meta name="description" content="Learn about Living With Arthritis, a UK charity founded in 2020 to support millions affected by arthritis through free virtual physiotherapy, nutrition guidance and community support." />
+        <meta name="keywords" content="about living with arthritis, arthritis charity UK, arthritis support organisation, arthritis help UK, rheumatology charity" />
+        <meta property="og:title" content="About Us — Living With Arthritis UK" />
+        <meta property="og:description" content="A UK charity supporting people living with arthritis through free virtual physiotherapy, nutrition guidance and community support." />
+        <meta property="og:locale" content="en_GB" />
+        <link rel="canonical" href="https://livingwitharthritis.org.uk/about" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "name": "About Living With Arthritis",
+          "url": "https://livingwitharthritis.org.uk/about",
+          "description": "UK charity founded in 2020 to support millions affected by arthritis through free virtual physiotherapy, nutrition guidance and community support.",
+          "inLanguage": "en-GB",
+          "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" },
+          "mainEntity": {
+            "@type": "NGO",
+            "name": "Living With Arthritis",
+            "foundingDate": "2020",
+            "url": "https://livingwitharthritis.org.uk",
+            "areaServed": { "@type": "Country", "name": "United Kingdom" },
+            "knowsAbout": ["Osteoarthritis", "Rheumatoid Arthritis", "Physiotherapy", "Anti-inflammatory Diet"],
+            "contactPoint": { "@type": "ContactPoint", "telephone": "+44-7760-512-084", "email": "info@livingwitharthritis.org.uk", "contactType": "customer support", "areaServed": "GB" }
+          }
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
+            { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://livingwitharthritis.org.uk/about" }
+          ]
+        })}</script>
       </Helmet>
 
       <div className="min-h-screen bg-background">
