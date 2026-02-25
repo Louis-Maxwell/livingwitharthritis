@@ -15,7 +15,11 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowLeft, DollarSign, Users, TrendingUp, PiggyBank, CalendarDays, ExternalLink, MessageSquare, Download } from "lucide-react";
+import { ArrowLeft, DollarSign, Users, TrendingUp, PiggyBank, CalendarDays, ExternalLink, MessageSquare, Download, CalendarIcon } from "lucide-react";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { cn } from "@/lib/utils";
+import { startOfDay, endOfDay, isWithinInterval } from "date-fns";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
 
@@ -27,6 +31,8 @@ const AdminDashboard = () => {
   const { donations, stats, isLoading: donationsLoading, error } = useAdminDonations();
   const [feedback, setFeedback] = useState<Array<{ id: string; navigation_rating: number; speed_rating: number; created_at: string }>>([]);
   const [feedbackLoading, setFeedbackLoading] = useState(true);
+  const [dateFrom, setDateFrom] = useState<Date | undefined>();
+  const [dateTo, setDateTo] = useState<Date | undefined>();
 
   useEffect(() => {
     if (!isAdmin) return;
@@ -79,7 +85,7 @@ const AdminDashboard = () => {
 
   const exportFeedbackCsv = () => {
     const header = "Date,Navigation Rating,Speed Rating\n";
-    const rows = feedback.map((f) =>
+    const rows = filteredFeedback.map((f) =>
       `${format(new Date(f.created_at), "yyyy-MM-dd HH:mm")},${f.navigation_rating},${f.speed_rating}`
     ).join("\n");
     const blob = new Blob([header + rows], { type: "text/csv" });
@@ -91,8 +97,15 @@ const AdminDashboard = () => {
     URL.revokeObjectURL(url);
   };
 
-  const avgNav = feedback.length ? (feedback.reduce((s, f) => s + f.navigation_rating, 0) / feedback.length).toFixed(1) : "–";
-  const avgSpeed = feedback.length ? (feedback.reduce((s, f) => s + f.speed_rating, 0) / feedback.length).toFixed(1) : "–";
+  const filteredFeedback = feedback.filter((f) => {
+    const date = new Date(f.created_at);
+    if (dateFrom && date < startOfDay(dateFrom)) return false;
+    if (dateTo && date > endOfDay(dateTo)) return false;
+    return true;
+  });
+
+  const avgNav = filteredFeedback.length ? (filteredFeedback.reduce((s, f) => s + f.navigation_rating, 0) / filteredFeedback.length).toFixed(1) : "–";
+  const avgSpeed = filteredFeedback.length ? (filteredFeedback.reduce((s, f) => s + f.speed_rating, 0) / filteredFeedback.length).toFixed(1) : "–";
 
   return (
     <div className="min-h-screen bg-background p-6">
@@ -277,15 +290,47 @@ const AdminDashboard = () => {
 
           {/* Feedback Tab */}
           <TabsContent value="feedback" className="space-y-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <h2 className="text-xl font-semibold text-foreground">User Feedback</h2>
-                <p className="text-sm text-muted-foreground">{feedback.length} responses collected</p>
+                <p className="text-sm text-muted-foreground">
+                  {filteredFeedback.length} of {feedback.length} responses
+                  {(dateFrom || dateTo) && " (filtered)"}
+                </p>
               </div>
-              <Button variant="outline" className="gap-2" onClick={exportFeedbackCsv} disabled={feedback.length === 0}>
-                <Download className="w-4 h-4" />
-                Export CSV
-              </Button>
+              <div className="flex flex-wrap items-center gap-2">
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button variant="outline" className={cn("w-[160px] justify-start text-left font-normal", !dateFrom && "text-muted-foreground")}>
+                      <CalendarIcon className="mr-2 h-4 w-4" />
+                      {dateFrom ? format(dateFrom, "MMM d, yyyy") : "From"}
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="start">
+                    <Calendar mode="single" selected={dateFrom} onSelect={setDateFrom} initialFocus className={cn("p-3 pointer-events-auto")} />
+                  </PopoverContent>
+                </Popover>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button variant="outline" className={cn("w-[160px] justify-start text-left font-normal", !dateTo && "text-muted-foreground")}>
+                      <CalendarIcon className="mr-2 h-4 w-4" />
+                      {dateTo ? format(dateTo, "MMM d, yyyy") : "To"}
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="start">
+                    <Calendar mode="single" selected={dateTo} onSelect={setDateTo} initialFocus className={cn("p-3 pointer-events-auto")} />
+                  </PopoverContent>
+                </Popover>
+                {(dateFrom || dateTo) && (
+                  <Button variant="ghost" size="sm" onClick={() => { setDateFrom(undefined); setDateTo(undefined); }}>
+                    Clear
+                  </Button>
+                )}
+                <Button variant="outline" className="gap-2" onClick={exportFeedbackCsv} disabled={filteredFeedback.length === 0}>
+                  <Download className="w-4 h-4" />
+                  Export CSV
+                </Button>
+              </div>
             </div>
 
             <div className="grid gap-4 md:grid-cols-3">
@@ -294,7 +339,7 @@ const AdminDashboard = () => {
                   <CardTitle className="text-sm font-medium">Total Responses</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold">{feedback.length}</div>
+                  <div className="text-2xl font-bold">{filteredFeedback.length}</div>
                 </CardContent>
               </Card>
               <Card>
@@ -322,8 +367,8 @@ const AdminDashboard = () => {
               <CardContent>
                 {feedbackLoading ? (
                   <p className="text-center text-muted-foreground py-8">Loading…</p>
-                ) : feedback.length === 0 ? (
-                  <p className="text-center text-muted-foreground py-8">No feedback yet</p>
+                ) : filteredFeedback.length === 0 ? (
+                  <p className="text-center text-muted-foreground py-8">No feedback found for this period</p>
                 ) : (
                   <div className="overflow-x-auto">
                     <Table>
@@ -335,7 +380,7 @@ const AdminDashboard = () => {
                         </TableRow>
                       </TableHeader>
                       <TableBody>
-                        {feedback.map((f) => (
+                        {filteredFeedback.map((f) => (
                           <TableRow key={f.id}>
                             <TableCell className="whitespace-nowrap">
                               {format(new Date(f.created_at), "MMM d, yyyy HH:mm")}
