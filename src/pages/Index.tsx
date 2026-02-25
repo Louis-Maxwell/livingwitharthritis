@@ -1,21 +1,18 @@
 import { lazy, Suspense, memo, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { Skeleton } from "@/components/ui/skeleton";
+
 import { CalendarCheck } from "lucide-react";
 import { toast } from "sonner";
 import { useSearchParams } from "react-router-dom";
-import { motion } from "framer-motion";
+
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
 import { useDeferredVisible } from "@/hooks/useDeferredVisible";
 import { AppointmentModal } from "@/components/AppointmentModal";
-import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import DonationNotification from "@/components/DonationNotification";
-import { fallbackArticles, type Article } from "@/data/articles";
 
 // Lazy sections (existing)
 const AboutSection = lazy(() => import("@/components/AboutSection"));
@@ -49,40 +46,11 @@ const SectionLoader = memo(() => (
 ));
 SectionLoader.displayName = "SectionLoader";
 
-const ArticleCard = memo(({ article, index }: { article: Article; index: number }) => (
-  <motion.div
-    whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ delay: index * 0.08 }}
-  >
-    <Accordion type="single" collapsible>
-      <AccordionItem
-        value={`item-${index}`}
-        className="bg-card/90 backdrop-blur-sm border-none rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
-      >
-        <OptimizedImage
-          src={article.imageUrl}
-          alt={article.alt}
-          className="h-64 md:h-72 lg:h-80"
-          priority={index < 3}
-        />
-        <AccordionTrigger className="px-6 py-5 text-xl font-semibold hover:no-underline">
-          {article.title}
-        </AccordionTrigger>
-        <AccordionContent className="px-6 pb-8 text-muted-foreground leading-relaxed prose prose-sm max-w-none">
-          {article.content}
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
-  </motion.div>
-));
-ArticleCard.displayName = "ArticleCard";
 
 export default function Index() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [belowFoldRef, isBelowFoldVisible] = useDeferredVisible<HTMLDivElement>("500px");
-  const articles = fallbackArticles;
+  
 
   // Donation toast
   useEffect(() => {
