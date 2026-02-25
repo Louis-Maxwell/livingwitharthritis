@@ -1,10 +1,22 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import Stripe from "https://esm.sh/stripe@18.5.0";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
-};
+// Restricted CORS – only trusted origins
+function getCorsHeaders(req: Request): Record<string, string> {
+  const origin = req.headers.get("Origin") || "";
+  const isAllowed =
+    origin.endsWith(".lovable.app") ||
+    origin.endsWith(".lovableproject.com") ||
+    origin === "https://livingwitharthritis.org.uk" ||
+    origin === "https://www.livingwitharthritis.org.uk" ||
+    origin.startsWith("http://localhost:");
+
+  return {
+    "Access-Control-Allow-Origin": isAllowed ? origin : "https://livingwitharthritis.lovable.app",
+    "Access-Control-Allow-Headers":
+      "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
+  };
+}
 
 // Input validation
 const VALID_CURRENCIES = ["GBP", "USD", "EUR"];
@@ -20,6 +32,16 @@ interface DonationRequest {
   donorEmail?: string;
 }
 
+/** Escape HTML special chars to prevent XSS in Stripe metadata / emails */
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 function validateDonation(data: unknown): { valid: boolean; error?: string; donation?: DonationRequest } {
   if (!data || typeof data !== "object") {
     return { valid: false, error: "Invalid request body" };
@@ -27,7 +49,7 @@ function validateDonation(data: unknown): { valid: boolean; error?: string; dona
 
   const { amount, currency, fundType, donorName, donorEmail } = data as Record<string, unknown>;
 
-  if (typeof amount !== "number" || isNaN(amount)) {
+  if (typeof amount !== "number" || isNaN(amount) || !isFinite(amount)) {
     return { valid: false, error: "Amount must be a valid number" };
   }
 
@@ -60,13 +82,21 @@ function validateDonation(data: unknown): { valid: boolean; error?: string; dona
       amount,
       currency: (currency as string).toUpperCase(),
       fundType: fundType as string,
-      donorName: donorName as string | undefined,
-      donorEmail: donorEmail as string | undefined,
+      donorName: donorName ? escapeHtml((donorName as string).trim()) : undefined,
+      donorEmail: donorEmail ? (donorEmail as string).trim().toLowerCase() : undefined,
     },
   };
 }
 
+// Allowed redirect origins for success/cancel URLs
+const ALLOWED_REDIRECT_ORIGINS = [
+  "https://livingwitharthritis.lovable.app",
+  "https://livingwitharthritis.org.uk",
+  "https://www.livingwitharthritis.org.uk",
+];
+
 serve(async (req) => {
+  const corsHeaders = getCorsHeaders(req);
 
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -76,7 +106,6 @@ serve(async (req) => {
     const stripeKey = Deno.env.get("STRIPE_SECRET_KEY");
     if (!stripeKey) throw new Error("STRIPE_SECRET_KEY is not set");
 
-    // Parse and validate request body
     let requestBody: unknown;
     try {
       requestBody = await req.json();
@@ -97,12 +126,16 @@ serve(async (req) => {
 
     const { donation } = validation;
 
-    // Convert to smallest currency unit (pence/cents)
+    // Validate redirect origin – never trust raw Origin header for redirect URLs
+    const rawOrigin = req.headers.get("origin") || "";
+    const redirectOrigin = ALLOWED_REDIRECT_ORIGINS.includes(rawOrigin)
+      ? rawOrigin
+      : ALLOWED_REDIRECT_ORIGINS[0];
+
     const amountInSmallestUnit = Math.round(donation!.amount * 100);
 
     const stripe = new Stripe(stripeKey, { apiVersion: "2025-08-27.basil" });
 
-    // Create checkout session with dynamic price_data for donations
     const session = await stripe.checkout.sessions.create({
       customer_email: donation!.donorEmail || undefined,
       line_items: [
@@ -119,8 +152,8 @@ serve(async (req) => {
         },
       ],
       mode: "payment",
-      success_url: `${req.headers.get("origin") || "https://livingwitharthritis.lovable.app"}/?donation=success`,
-      cancel_url: `${req.headers.get("origin") || "https://livingwitharthritis.lovable.app"}/?donation=cancelled`,
+      success_url: `${redirectOrigin}/?donation=success`,
+      cancel_url: `${redirectOrigin}/?donation=cancelled`,
       metadata: {
         fundType: donation!.fundType,
         donorName: donation!.donorName || "Anonymous",
@@ -134,7 +167,7 @@ serve(async (req) => {
   } catch (error) {
     const message = error instanceof Error ? error.message : "Unknown error";
     console.error("Donation checkout error:", message);
-    return new Response(JSON.stringify({ error: message }), {
+    return new Response(JSON.stringify({ error: "An error occurred processing your donation." }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
       status: 500,
     });

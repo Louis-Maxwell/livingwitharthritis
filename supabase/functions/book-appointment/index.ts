@@ -1,6 +1,16 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
+/** Escape HTML special chars to prevent XSS in email bodies */
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 const ALLOWED_ORIGINS = [
   "https://id-preview--0b2fd6ca-4e21-4ac7-99fa-d741e996f45e.lovable.app",
   "https://livingwitharthritis.org.uk",
@@ -245,6 +255,10 @@ serve(async (req) => {
     // Send emails (admin + patient confirmation)
     const resendApiKey = Deno.env.get("RESEND_API_KEY");
     if (resendApiKey) {
+      const safeName = escapeHtml(appointment!.name);
+      const safeEmail = escapeHtml(appointment!.email);
+      const safePhone = escapeHtml(appointment!.phone || "Not provided");
+      const safeNotes = escapeHtml(appointment!.notes || "None");
       const typeLabel = appointment!.appointmentType.charAt(0).toUpperCase() + appointment!.appointmentType.slice(1);
       const dateFormatted = new Date(appointment!.preferredDate + "T00:00:00").toLocaleDateString("en-GB", {
         weekday: "long", day: "numeric", month: "long", year: "numeric",
@@ -258,17 +272,17 @@ serve(async (req) => {
           body: JSON.stringify({
             from: "Appointments <onboarding@resend.dev>",
             to: ["louis.maxwell@nhs.net"],
-            subject: `New Booking: ${appointment!.name} - ${typeLabel} on ${dateFormatted}`,
+            subject: `New Booking: ${safeName} - ${typeLabel} on ${dateFormatted}`,
             html: `
               <h2>New Appointment Booking</h2>
               <table style="border-collapse:collapse;width:100%;max-width:500px;">
-                <tr><td style="padding:8px;font-weight:bold;">Patient:</td><td style="padding:8px;">${appointment!.name}</td></tr>
-                <tr><td style="padding:8px;font-weight:bold;">Email:</td><td style="padding:8px;">${appointment!.email}</td></tr>
-                <tr><td style="padding:8px;font-weight:bold;">Phone:</td><td style="padding:8px;">${appointment!.phone || "Not provided"}</td></tr>
+                <tr><td style="padding:8px;font-weight:bold;">Patient:</td><td style="padding:8px;">${safeName}</td></tr>
+                <tr><td style="padding:8px;font-weight:bold;">Email:</td><td style="padding:8px;">${safeEmail}</td></tr>
+                <tr><td style="padding:8px;font-weight:bold;">Phone:</td><td style="padding:8px;">${safePhone}</td></tr>
                 <tr><td style="padding:8px;font-weight:bold;">Type:</td><td style="padding:8px;">${typeLabel}</td></tr>
                 <tr><td style="padding:8px;font-weight:bold;">Date:</td><td style="padding:8px;">${dateFormatted}</td></tr>
                 <tr><td style="padding:8px;font-weight:bold;">Time:</td><td style="padding:8px;">${appointment!.preferredTime}</td></tr>
-                <tr><td style="padding:8px;font-weight:bold;">Notes:</td><td style="padding:8px;">${appointment!.notes || "None"}</td></tr>
+                <tr><td style="padding:8px;font-weight:bold;">Notes:</td><td style="padding:8px;">${safeNotes}</td></tr>
               </table>
               <p style="margin-top:16px;color:#666;">Log in to the admin dashboard to manage this appointment.</p>
             `,
@@ -293,7 +307,7 @@ serve(async (req) => {
                   <h1 style="color:white;margin:0;font-size:22px;">Appointment Confirmed</h1>
                 </div>
                 <div style="background:#f9fafb;padding:24px;border:1px solid #e5e7eb;border-top:none;border-radius:0 0 12px 12px;">
-                  <p style="color:#374151;font-size:16px;">Dear ${appointment!.name},</p>
+                  <p style="color:#374151;font-size:16px;">Dear ${safeName},</p>
                   <p style="color:#374151;font-size:14px;">Thank you for booking with Living with Arthritis. Your appointment has been received and is pending confirmation.</p>
                   <div style="background:white;border:1px solid #e5e7eb;border-radius:8px;padding:16px;margin:16px 0;">
                     <h3 style="margin:0 0 12px;color:#1f2937;font-size:16px;">Booking Details</h3>
