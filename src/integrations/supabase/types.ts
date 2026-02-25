@@ -346,6 +346,27 @@ export type Database = {
         }
         Relationships: []
       }
+      feedback_responses: {
+        Row: {
+          created_at: string
+          id: string
+          navigation_rating: number
+          speed_rating: number
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          navigation_rating: number
+          speed_rating: number
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          navigation_rating?: number
+          speed_rating?: number
+        }
+        Relationships: []
+      }
       fundraising_inquiries: {
         Row: {
           contact_name: string
