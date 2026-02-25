@@ -15,15 +15,15 @@
     --popover: 0 0% 100%;
     --popover-foreground: 210 24% 16%;
 
-    /* Warm teal — inspired by Versus Arthritis */
-    --primary: 174 62% 38%;
+    /* Bold red — charity red */
+    --primary: 0 72% 46%;
     --primary-foreground: 0 0% 100%;
 
-    /* Coral accent */
-    --secondary: 4 78% 62%;
+    /* Softer red accent */
+    --secondary: 0 65% 55%;
     --secondary-foreground: 0 0% 100%;
 
-    --accent: 174 30% 96%;
+    --accent: 0 20% 97%;
     --accent-foreground: 210 24% 16%;
 
     --muted: 210 12% 95%;
@@ -34,7 +34,7 @@
 
     --border: 210 14% 91%;
     --input: 210 14% 91%;
-    --ring: 174 62% 38%;
+    --ring: 0 72% 46%;
 
     --gold: 42 92% 56%;
     --gold-foreground: 42 40% 12%;
@@ -51,8 +51,9 @@
     --shadow-medium: 0 4px 24px -6px rgb(0 0 0 / 0.08), 0 2px 8px -3px rgb(0 0 0 / 0.04);
     --shadow-large: 0 20px 56px -16px rgb(0 0 0 / 0.1), 0 6px 20px -6px rgb(0 0 0 / 0.04);
     --shadow-xl: 0 32px 72px -20px rgb(0 0 0 / 0.14), 0 12px 32px -8px rgb(0 0 0 / 0.06);
-    --shadow-primary: 0 8px 32px -6px hsl(174 62% 38% / 0.25);
-    --shadow-glow: 0 0 56px -12px hsl(174 62% 38% / 0.15);
+    --shadow-primary: 0 8px 32px -6px hsl(0 72% 46% / 0.25);
+    --shadow-glow: 0 0 56px -12px hsl(0 72% 46% / 0.15);
+    --shadow-gold: 0 8px 28px -6px hsl(42 92% 56% / 0.3);
     --shadow-gold: 0 8px 28px -6px hsl(42 92% 56% / 0.3);
     --shadow-glass: 0 8px 32px rgb(0 0 0 / 0.04), inset 0 1px 0 rgb(255 255 255 / 0.6);
 
@@ -75,9 +76,9 @@
     --card-foreground: 30 20% 95%;
     --popover: 210 20% 10%;
     --popover-foreground: 30 20% 95%;
-    --primary: 174 55% 44%;
+    --primary: 0 65% 50%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 4 70% 58%;
+    --secondary: 0 55% 58%;
     --secondary-foreground: 0 0% 100%;
     --accent: 210 20% 14%;
     --accent-foreground: 0 0% 100%;
@@ -87,7 +88,7 @@
     --destructive-foreground: 0 0% 100%;
     --border: 210 20% 16%;
     --input: 210 20% 16%;
-    --ring: 174 55% 44%;
+    --ring: 0 65% 50%;
     --gold: 42 92% 60%;
     --gold-foreground: 42 40% 95%;
     --gold-muted: 42 40% 30%;
@@ -262,7 +263,7 @@
 
   /* ─── Gradients ─── */
   .bg-gradient-medical {
-    background: linear-gradient(135deg, hsl(var(--primary)), hsl(174 55% 44%));
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(0 65% 55%));
   }
 
   .gradient-orb {
