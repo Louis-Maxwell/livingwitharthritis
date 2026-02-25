@@ -178,21 +178,6 @@ export default function Index() {
                     <NewsletterSection />
                     <FAQSection />
 
-                    <section aria-labelledby="guides-heading" className="space-y-12">
-                      <div className="text-center space-y-5">
-                        <h2 id="guides-heading" className="text-4xl md:text-5xl font-bold tracking-tight">
-                          Gentle Exercise Guides
-                        </h2>
-                        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                          Tai Chi, Pilates & low-impact movements inspired by open knowledge
-                        </p>
-                      </div>
-                      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-                        {articles.map((article, idx) => (
-                          <ArticleCard key={idx} article={article} index={idx} />
-                        ))}
-                      </div>
-                    </section>
 
                     <GetInTouchSection />
                     <FinalCTASection />
