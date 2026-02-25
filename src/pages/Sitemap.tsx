@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Globe, BookOpen, Sun, Heart, MessageCircle, FileText } from "lucide-react";
+import { Globe, BookOpen, Sun, Heart, FileText, Stethoscope } from "lucide-react";
 
 const sitemapSections = [
   {
@@ -12,6 +12,15 @@ const sitemapSections = [
       { label: "Home", href: "/", description: "Arthritis support, services and resources" },
       { label: "Virtual Assistant", href: "/chat", description: "AI-powered arthritis guidance chat" },
       { label: "Sign In / Register", href: "/auth", description: "Access your account" },
+    ],
+  },
+  {
+    title: "Condition Guides",
+    icon: Stethoscope,
+    links: [
+      { label: "Osteoarthritis", href: "/conditions/osteoarthritis", description: "Symptoms, causes, exercises and diet for OA" },
+      { label: "Rheumatoid Arthritis", href: "/conditions/rheumatoid-arthritis", description: "Autoimmune arthritis: diagnosis, treatment and living with RA" },
+      { label: "Psoriatic Arthritis", href: "/conditions/psoriatic-arthritis", description: "Joint and skin condition: symptoms, treatment and support" },
     ],
   },
   {
