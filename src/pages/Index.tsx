@@ -130,7 +130,7 @@ export default function Index() {
         })}</script>
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-b from-background via-background/95 to-primary/5">
+      <div className="min-h-screen bg-background">
         <Header />
         <DonationNotification />
 
