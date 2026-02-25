@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, ShieldAlert } from "lucide-react";
+import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, ShieldAlert, BookOpen, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 const BASE = "https://livingwitharthritis.org.uk";
@@ -198,7 +198,50 @@ const RheumatoidArthritis = () => (
           <p><strong>Important:</strong> If you are on methotrexate, discuss alcohol intake and folic acid supplementation with your rheumatologist.</p>
         </Section>
 
-        <div className="mt-16 p-8 rounded-2xl bg-accent border border-border/30">
+        {/* Related Articles */}
+        <section className="mt-16 mb-12">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+              <BookOpen className="w-5 h-5 text-primary" />
+            </div>
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">Related Articles</h2>
+          </div>
+          <div className="grid gap-3">
+            {[
+              { href: "/blog/rheumatoid-arthritis-diet-uk", title: "Best Diet for Rheumatoid Arthritis UK", desc: "Evidence-based anti-inflammatory nutrition guide for RA" },
+              { href: "/blog/arthritis-and-omega-3-fish-oil", title: "Omega-3 & Fish Oil for Arthritis", desc: "How omega-3 fatty acids reduce RA inflammation" },
+              { href: "/blog/arthritis-fatigue-management", title: "Managing Arthritis Fatigue", desc: "Why RA makes you exhausted and strategies to cope" },
+              { href: "/blog/yoga-for-arthritis-beginners", title: "Yoga for Arthritis Beginners", desc: "Gentle modified yoga for joint flexibility and well-being" },
+              { href: "/blog/arthritis-and-pregnancy-uk", title: "Arthritis & Pregnancy UK", desc: "Managing RA before, during and after pregnancy" },
+              { href: "/blog/arthritis-flare-up-management", title: "Managing Arthritis Flare-Ups", desc: "Strategies for coping when symptoms worsen" },
+            ].map((a) => (
+              <Link key={a.href} to={a.href} className="group flex items-center justify-between gap-4 rounded-xl border border-border/40 px-5 py-4 hover:bg-accent transition-colors">
+                <div>
+                  <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">{a.title}</span>
+                  <span className="block text-xs text-muted-foreground mt-0.5">{a.desc}</span>
+                </div>
+                <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary shrink-0 transition-colors" />
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Other Conditions */}
+        <section className="mb-12">
+          <h3 className="font-display text-lg font-semibold text-foreground mb-4">Explore Other Conditions</h3>
+          <div className="grid sm:grid-cols-2 gap-3">
+            <Link to="/conditions/osteoarthritis" className="group rounded-xl border border-border/40 px-5 py-4 hover:bg-accent transition-colors">
+              <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">Osteoarthritis →</span>
+              <span className="block text-xs text-muted-foreground mt-0.5">Degenerative joint disease: symptoms, exercises & diet</span>
+            </Link>
+            <Link to="/conditions/psoriatic-arthritis" className="group rounded-xl border border-border/40 px-5 py-4 hover:bg-accent transition-colors">
+              <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">Psoriatic Arthritis →</span>
+              <span className="block text-xs text-muted-foreground mt-0.5">Joint and skin condition: symptoms, treatment & support</span>
+            </Link>
+          </div>
+        </section>
+
+        <div className="p-8 rounded-2xl bg-accent border border-border/30">
           <h2 className="font-display text-xl font-bold text-foreground mb-3">Living well with RA</h2>
           <p className="text-muted-foreground mb-5">Early diagnosis and treatment can achieve remission. Explore our resources or speak with our AI assistant for personalised guidance.</p>
           <div className="flex flex-wrap gap-3">

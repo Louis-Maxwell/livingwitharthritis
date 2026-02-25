@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, ThermometerSun } from "lucide-react";
+import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, ThermometerSun, BookOpen, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 const BASE = "https://livingwitharthritis.org.uk";
@@ -211,7 +211,50 @@ const Osteoarthritis = () => (
           <p>Glucosamine, chondroitin, and collagen supplements have some evidence for modest symptom relief, though results are mixed. Turmeric/curcumin (500-1000 mg/day) shows more consistent anti-inflammatory benefits. Always consult your GP before starting supplements.</p>
         </Section>
 
-        <div className="mt-16 p-8 rounded-2xl bg-accent border border-border/30">
+        {/* Related Articles */}
+        <section className="mt-16 mb-12">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+              <BookOpen className="w-5 h-5 text-primary" />
+            </div>
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">Related Articles</h2>
+          </div>
+          <div className="grid gap-3">
+            {[
+              { href: "/blog/best-diet-for-joint-pain-uk", title: "Best Diet for Joint Pain UK", desc: "Anti-inflammatory foods and Mediterranean diet guidance" },
+              { href: "/blog/knee-arthritis-exercises-uk", title: "Best Exercises for Knee Arthritis", desc: "Physiotherapy-approved strengthening and flexibility programme" },
+              { href: "/blog/arthritis-pain-relief-natural", title: "Natural Pain Relief for Arthritis", desc: "Evidence-based home remedies that actually work" },
+              { href: "/blog/glucosamine-vs-collagen-arthritis", title: "Glucosamine vs Collagen", desc: "Which supplement is better for your joints?" },
+              { href: "/blog/hip-arthritis-symptoms-uk", title: "Hip Arthritis Symptoms UK", desc: "Signs, diagnosis and treatment options" },
+              { href: "/blog/arthritis-and-cold-weather-uk", title: "Arthritis & Cold Weather", desc: "Why winter makes symptoms worse and what to do" },
+            ].map((a) => (
+              <Link key={a.href} to={a.href} className="group flex items-center justify-between gap-4 rounded-xl border border-border/40 px-5 py-4 hover:bg-accent transition-colors">
+                <div>
+                  <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">{a.title}</span>
+                  <span className="block text-xs text-muted-foreground mt-0.5">{a.desc}</span>
+                </div>
+                <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary shrink-0 transition-colors" />
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Other Conditions */}
+        <section className="mb-12">
+          <h3 className="font-display text-lg font-semibold text-foreground mb-4">Explore Other Conditions</h3>
+          <div className="grid sm:grid-cols-2 gap-3">
+            <Link to="/conditions/rheumatoid-arthritis" className="group rounded-xl border border-border/40 px-5 py-4 hover:bg-accent transition-colors">
+              <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">Rheumatoid Arthritis →</span>
+              <span className="block text-xs text-muted-foreground mt-0.5">Autoimmune joint inflammation: symptoms, DMARDs & biologics</span>
+            </Link>
+            <Link to="/conditions/psoriatic-arthritis" className="group rounded-xl border border-border/40 px-5 py-4 hover:bg-accent transition-colors">
+              <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">Psoriatic Arthritis →</span>
+              <span className="block text-xs text-muted-foreground mt-0.5">Joint and skin condition: symptoms, treatment & support</span>
+            </Link>
+          </div>
+        </section>
+
+        <div className="p-8 rounded-2xl bg-accent border border-border/30">
           <h2 className="font-display text-xl font-bold text-foreground mb-3">Need more support?</h2>
           <p className="text-muted-foreground mb-5">Explore our resources, chat with our AI assistant, or book a virtual physiotherapy consultation.</p>
           <div className="flex flex-wrap gap-3">
