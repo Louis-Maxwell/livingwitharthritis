@@ -36,7 +36,7 @@ export default function FeedbackPopup() {
 
   return (
     <Dialog open={open} onOpenChange={(v) => { if (!v) handleDismiss(); }}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-md !fixed !left-auto !right-6 !bottom-6 !top-auto !translate-x-0 !translate-y-0 data-[state=open]:!slide-in-from-right-full data-[state=closed]:!slide-out-to-right-full data-[state=open]:!slide-in-from-top-0 data-[state=closed]:!slide-out-to-top-0">
         <DialogHeader>
           <DialogTitle className="text-xl">We'd love your feedback!</DialogTitle>
           <DialogDescription>Rate your experience so far (1 = poor, 5 = excellent)</DialogDescription>
