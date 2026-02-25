@@ -1,5 +1,6 @@
 import { blogArticlesBatch2 } from "./blogArticlesBatch2";
 import { blogArticlesBatch3 } from "./blogArticlesBatch3";
+import { blogArticlesBatch4 } from "./blogArticlesBatch4";
 
 interface BlogArticle {
   title: string;
@@ -247,4 +248,5 @@ export const blogArticles: Record<string, BlogArticle> = {
   ...blogArticlesBase,
   ...blogArticlesBatch2,
   ...blogArticlesBatch3,
+  ...blogArticlesBatch4,
 };
