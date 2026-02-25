@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { motion } from "framer-motion";
-import { Star, Quote } from "lucide-react";
+import { Star } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 const testimonials = [
@@ -34,13 +34,13 @@ const TestimonialsSection = memo(() => (
             <Card className="h-full p-7 rounded-3xl border-border/20 bg-card relative group card-hover overflow-hidden">
               {/* Shimmer overlay on hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              <Quote className="absolute top-6 right-6 w-8 h-8 text-primary/5 group-hover:text-primary/10 transition-colors duration-500" />
+              
               <div className="relative">
                 <div className="flex gap-0.5 mb-4">
                   {Array.from({ length: t.rating }).map((_, si) => <Star key={si} className="w-3.5 h-3.5 fill-gold text-gold" />)}
                   {Array.from({ length: 5 - t.rating }).map((_, si) => <Star key={si} className="w-3.5 h-3.5 text-border" />)}
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-6 italic">"{t.text}"</p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-6 italic">{t.text}</p>
                 <div className="flex items-center gap-3">
                   <div className="w-9 h-9 rounded-full bg-primary/8 flex items-center justify-center text-xs font-bold text-primary">
                     {t.name.charAt(0)}
