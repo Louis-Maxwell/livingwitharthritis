@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const FEEDBACK_KEY = "oa_feedback_dismissed";
 
@@ -25,11 +26,15 @@ export default function FeedbackPopup() {
     setOpen(false);
   };
 
-  const handleSubmit = () => {
-    console.log("Feedback submitted:", ratings);
+  const handleSubmit = async () => {
     sessionStorage.setItem(FEEDBACK_KEY, "1");
     setOpen(false);
     toast({ title: "Thank you!", description: "Your feedback helps us improve." });
+
+    await supabase.from("feedback_responses").insert({
+      navigation_rating: ratings.navigation,
+      speed_rating: ratings.speed,
+    });
   };
 
   const allRated = categories.every((c) => ratings[c.id]);
