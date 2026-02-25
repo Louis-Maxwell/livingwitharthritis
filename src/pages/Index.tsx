@@ -40,7 +40,7 @@ const GetInTouchSection = lazy(() => import("@/components/landing/GetInTouchSect
 const FinalCTASection = lazy(() => import("@/components/landing/FinalCTASection"));
 
 const SectionLoader = memo(() => (
-  <div className="py-20 flex items-center justify-center">
+  <div className="py-8 flex items-center justify-center">
     <div className="h-10 w-10 animate-spin rounded-full border-4 border-primary/30 border-t-primary" />
   </div>
 ));
@@ -110,7 +110,7 @@ export default function Index() {
             <TrustBarSection />
           </Suspense>
 
-          <div className="container mx-auto px-5 md:px-8 space-y-20">
+          <div className="container mx-auto px-5 md:px-8 space-y-10 md:space-y-14">
             <Suspense fallback={<SectionLoader />}>
               <AboutSection />
               <ServicesGrid />
@@ -134,7 +134,7 @@ export default function Index() {
           <div ref={belowFoldRef}>
               {isBelowFoldVisible && (
                 <Suspense fallback={<SectionLoader />}>
-                  <div className="space-y-20">
+                  <div className="space-y-10 md:space-y-14">
                     <ConditionsSection />
                     <JointExerciseSection />
                     <VideoCTASection />

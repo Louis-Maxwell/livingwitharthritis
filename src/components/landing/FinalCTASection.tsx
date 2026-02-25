@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const FinalCTASection = memo(() => {
   const navigate = useNavigate();
   return (
-    <section className="py-24 lg:py-32 bg-primary relative overflow-hidden">
+    <section className="py-14 lg:py-20 bg-primary relative overflow-hidden">
       {/* Texture overlay */}
       <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
 

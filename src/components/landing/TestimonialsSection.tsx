@@ -12,7 +12,7 @@ const testimonials = [
 ];
 
 const TestimonialsSection = memo(() => (
-  <section className="py-24 lg:py-32 bg-accent/30 relative overflow-hidden section-divider">
+  <section className="py-14 lg:py-20 bg-accent/30 relative overflow-hidden section-divider">
     <div className="container mx-auto px-6 md:px-10 max-w-7xl relative">
       <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
         <span className="section-label text-primary mb-4 block">Patient Stories</span>

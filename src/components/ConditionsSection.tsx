@@ -14,7 +14,7 @@ const ConditionsSection = memo(() => {
   const orbY = useTransform(scrollYProgress, [0, 1], [60, -60]);
 
   return (
-    <section ref={sectionRef} id="conditions" className="py-28 lg:py-40 bg-background relative overflow-hidden section-divider">
+    <section ref={sectionRef} id="conditions" className="py-14 lg:py-20 bg-background relative overflow-hidden section-divider">
       <motion.div className="gradient-orb glow-pulse w-[700px] h-[700px] bg-secondary bottom-[-200px] right-[-250px]" style={{ y: orbY }} />
 
       <div className="container mx-auto px-6 md:px-10 relative">

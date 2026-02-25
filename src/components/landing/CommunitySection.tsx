@@ -10,7 +10,7 @@ const highlights = [
 ];
 
 const CommunitySection = memo(() => (
-  <section className="py-24 lg:py-32 bg-background section-divider relative overflow-hidden">
+  <section className="py-14 lg:py-20 bg-background section-divider relative overflow-hidden">
     <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-secondary/[0.02] blur-3xl pointer-events-none" />
 
     <div className="container mx-auto px-6 md:px-10 max-w-6xl relative">

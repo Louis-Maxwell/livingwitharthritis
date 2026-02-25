@@ -9,7 +9,7 @@ const stats = [
 ];
 
 const ImpactBannerSection = memo(() => (
-  <section className="py-16 lg:py-20 bg-primary text-primary-foreground relative overflow-hidden">
+  <section className="py-10 lg:py-14 bg-primary text-primary-foreground relative overflow-hidden">
     <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary to-primary" />
     {/* Subtle pattern */}
     <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
