@@ -1,4 +1,4 @@
-import { useEffect, useState, lazy, Suspense } from "react";
+import { useEffect, useState, useMemo, lazy, Suspense } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAdmin } from "@/hooks/useAdmin";
 import { useAdminDonations } from "@/hooks/useAdminDonations";
@@ -22,6 +22,7 @@ import { cn } from "@/lib/utils";
 import { startOfDay, endOfDay, isWithinInterval } from "date-fns";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 
 const BookingDiary = lazy(() => import("@/components/BookingDiary"));
 
@@ -359,6 +360,51 @@ const AdminDashboard = () => {
                 </CardContent>
               </Card>
             </div>
+
+            {/* Rating Distribution Chart */}
+            {filteredFeedback.length > 0 && (
+              <Card>
+                <CardHeader>
+                  <CardTitle>Ratings Over Time</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="h-[300px]">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <BarChart
+                        data={(() => {
+                          const grouped: Record<string, { date: string; navigation: number; speed: number; count: number }> = {};
+                          filteredFeedback.forEach((f) => {
+                            const key = format(new Date(f.created_at), "MMM d");
+                            if (!grouped[key]) grouped[key] = { date: key, navigation: 0, speed: 0, count: 0 };
+                            grouped[key].navigation += f.navigation_rating;
+                            grouped[key].speed += f.speed_rating;
+                            grouped[key].count += 1;
+                          });
+                          return Object.values(grouped)
+                            .map((g) => ({
+                              date: g.date,
+                              Navigation: +(g.navigation / g.count).toFixed(1),
+                              Speed: +(g.speed / g.count).toFixed(1),
+                            }));
+                        })()}
+                        margin={{ top: 5, right: 20, left: 0, bottom: 5 }}
+                      >
+                        <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
+                        <XAxis dataKey="date" className="text-xs fill-muted-foreground" />
+                        <YAxis domain={[0, 5]} ticks={[1, 2, 3, 4, 5]} className="text-xs fill-muted-foreground" />
+                        <Tooltip
+                          contentStyle={{ backgroundColor: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: "8px" }}
+                          labelStyle={{ color: "hsl(var(--foreground))" }}
+                        />
+                        <Legend />
+                        <Bar dataKey="Navigation" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
+                        <Bar dataKey="Speed" fill="hsl(var(--accent-foreground))" radius={[4, 4, 0, 0]} />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </div>
+                </CardContent>
+              </Card>
+            )}
 
             <Card>
               <CardHeader>
