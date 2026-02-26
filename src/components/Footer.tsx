@@ -1,5 +1,7 @@
-import { Facebook, Twitter, Instagram, Youtube, Linkedin, Mail, Phone, ArrowUp, Heart } from "lucide-react";
+import { useState } from "react";
+import { Facebook, Twitter, Instagram, Youtube, Linkedin, Mail, Phone, ArrowUp, Heart, Sparkles } from "lucide-react";
 import accreditationLogos from "@/assets/accreditation-logos.png";
+import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
 
 const Footer = () => {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
@@ -137,6 +139,37 @@ const Footer = () => {
               </button>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Made by MaxwellHealth */}
+      <div className="border-t border-background/[0.04]">
+        <div className="container mx-auto px-6 md:px-10 py-5 flex justify-center">
+          <Popover>
+            <PopoverTrigger asChild>
+              <button className="group flex items-center gap-2 text-background/20 hover:text-background/50 transition-all duration-500 text-[11px] tracking-[0.2em] uppercase font-medium">
+                <span>Made by</span>
+                <span className="relative font-bold bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent group-hover:drop-shadow-[0_0_8px_hsl(var(--primary)/0.6)] transition-all duration-500">
+                  MaxwellHealth
+                </span>
+                <Sparkles className="w-3 h-3 text-primary/40 group-hover:text-primary group-hover:drop-shadow-[0_0_6px_hsl(var(--primary)/0.5)] transition-all duration-500" />
+              </button>
+            </PopoverTrigger>
+            <PopoverContent
+              side="top"
+              className="w-64 bg-foreground border-background/10 text-background shadow-2xl shadow-primary/10 rounded-xl p-5"
+            >
+              <div className="flex flex-col items-center text-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center shadow-lg shadow-primary/20">
+                  <Sparkles className="w-4 h-4 text-primary-foreground" />
+                </div>
+                <div>
+                  <p className="text-sm font-bold tracking-tight bg-gradient-to-r from-background to-background/80 bg-clip-text text-transparent">MaxwellHealth</p>
+                  <p className="text-[11px] text-background/40 mt-1 leading-relaxed">Crafted with care for better health outcomes.</p>
+                </div>
+              </div>
+            </PopoverContent>
+          </Popover>
         </div>
       </div>
     </footer>
