@@ -119,6 +119,60 @@ export type Database = {
         }
         Relationships: []
       }
+      blog_comments: {
+        Row: {
+          author_name: string
+          content: string
+          created_at: string
+          id: string
+          slug: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          author_name: string
+          content: string
+          created_at?: string
+          id?: string
+          slug: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          author_name?: string
+          content?: string
+          created_at?: string
+          id?: string
+          slug?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      blog_views: {
+        Row: {
+          created_at: string
+          id: string
+          slug: string
+          updated_at: string
+          view_count: number
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          slug: string
+          updated_at?: string
+          view_count?: number
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          slug?: string
+          updated_at?: string
+          view_count?: number
+        }
+        Relationships: []
+      }
       chat_conversations: {
         Row: {
           created_at: string
@@ -703,6 +757,7 @@ export type Database = {
         }
         Returns: boolean
       }
+      increment_blog_view: { Args: { p_slug: string }; Returns: number }
     }
     Enums: {
       app_role: "admin" | "moderator" | "user"
