@@ -15,7 +15,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowLeft, DollarSign, Users, TrendingUp, PiggyBank, CalendarDays, ExternalLink, MessageSquare, Download, CalendarIcon } from "lucide-react";
+import { ArrowLeft, DollarSign, Users, TrendingUp, PiggyBank, CalendarDays, ExternalLink, MessageSquare, Download, CalendarIcon, FileText, Check, X, Trash2 } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
@@ -34,6 +34,8 @@ const AdminDashboard = () => {
   const [feedbackLoading, setFeedbackLoading] = useState(true);
   const [dateFrom, setDateFrom] = useState<Date | undefined>();
   const [dateTo, setDateTo] = useState<Date | undefined>();
+  const [comments, setComments] = useState<Array<{ id: string; slug: string; author_name: string; content: string; status: string; created_at: string }>>([]);
+  const [commentsLoading, setCommentsLoading] = useState(true);
 
   useEffect(() => {
     if (!isAdmin) return;
@@ -45,7 +47,16 @@ const AdminDashboard = () => {
       setFeedback(data || []);
       setFeedbackLoading(false);
     };
+    const fetchComments = async () => {
+      const { data } = await supabase
+        .from("blog_comments")
+        .select("*")
+        .order("created_at", { ascending: false });
+      setComments((data as any[]) || []);
+      setCommentsLoading(false);
+    };
     fetchFeedback();
+    fetchComments();
   }, [isAdmin]);
 
   useEffect(() => {
@@ -135,6 +146,15 @@ const AdminDashboard = () => {
             <TabsTrigger value="feedback" className="gap-2">
               <MessageSquare className="w-4 h-4" />
               Feedback
+            </TabsTrigger>
+            <TabsTrigger value="comments" className="gap-2">
+              <FileText className="w-4 h-4" />
+              Comments
+              {comments.filter((c) => c.status === "pending").length > 0 && (
+                <Badge variant="destructive" className="ml-1 text-[10px] px-1.5 py-0">
+                  {comments.filter((c) => c.status === "pending").length}
+                </Badge>
+              )}
             </TabsTrigger>
           </TabsList>
 
@@ -433,6 +453,97 @@ const AdminDashboard = () => {
                             </TableCell>
                             <TableCell className="text-center font-medium">{f.navigation_rating}</TableCell>
                             <TableCell className="text-center font-medium">{f.speed_rating}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* Comments Moderation Tab */}
+          <TabsContent value="comments" className="space-y-6">
+            <div>
+              <h2 className="text-xl font-semibold text-foreground">Blog Comment Moderation</h2>
+              <p className="text-sm text-muted-foreground">{comments.length} total comments</p>
+            </div>
+
+            <Card>
+              <CardContent className="pt-6">
+                {commentsLoading ? (
+                  <p className="text-center text-muted-foreground py-8">Loading…</p>
+                ) : comments.length === 0 ? (
+                  <p className="text-center text-muted-foreground py-8">No comments yet</p>
+                ) : (
+                  <div className="overflow-x-auto">
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead>Date</TableHead>
+                          <TableHead>Article</TableHead>
+                          <TableHead>Author</TableHead>
+                          <TableHead>Comment</TableHead>
+                          <TableHead>Status</TableHead>
+                          <TableHead className="text-right">Actions</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {comments.map((c) => (
+                          <TableRow key={c.id}>
+                            <TableCell className="whitespace-nowrap text-sm">
+                              {format(new Date(c.created_at), "MMM d, yyyy")}
+                            </TableCell>
+                            <TableCell className="max-w-[140px] truncate text-sm">{c.slug.replace(/-/g, " ")}</TableCell>
+                            <TableCell className="font-medium text-sm">{c.author_name}</TableCell>
+                            <TableCell className="max-w-[250px] truncate text-sm">{c.content}</TableCell>
+                            <TableCell>
+                              <Badge variant={c.status === "approved" ? "default" : c.status === "rejected" ? "destructive" : "outline"}>
+                                {c.status}
+                              </Badge>
+                            </TableCell>
+                            <TableCell className="text-right">
+                              <div className="flex justify-end gap-1">
+                                {c.status !== "approved" && (
+                                  <Button
+                                    size="icon"
+                                    variant="ghost"
+                                    className="h-7 w-7 text-green-600"
+                                    onClick={async () => {
+                                      await supabase.from("blog_comments").update({ status: "approved" }).eq("id", c.id);
+                                      setComments((prev) => prev.map((x) => x.id === c.id ? { ...x, status: "approved" } : x));
+                                    }}
+                                  >
+                                    <Check className="w-4 h-4" />
+                                  </Button>
+                                )}
+                                {c.status !== "rejected" && (
+                                  <Button
+                                    size="icon"
+                                    variant="ghost"
+                                    className="h-7 w-7 text-orange-500"
+                                    onClick={async () => {
+                                      await supabase.from("blog_comments").update({ status: "rejected" }).eq("id", c.id);
+                                      setComments((prev) => prev.map((x) => x.id === c.id ? { ...x, status: "rejected" } : x));
+                                    }}
+                                  >
+                                    <X className="w-4 h-4" />
+                                  </Button>
+                                )}
+                                <Button
+                                  size="icon"
+                                  variant="ghost"
+                                  className="h-7 w-7 text-destructive"
+                                  onClick={async () => {
+                                    await supabase.from("blog_comments").delete().eq("id", c.id);
+                                    setComments((prev) => prev.filter((x) => x.id !== c.id));
+                                  }}
+                                >
+                                  <Trash2 className="w-4 h-4" />
+                                </Button>
+                              </div>
+                            </TableCell>
                           </TableRow>
                         ))}
                       </TableBody>

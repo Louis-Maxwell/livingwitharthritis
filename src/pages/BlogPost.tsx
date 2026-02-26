@@ -2,12 +2,15 @@ import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Eye } from "lucide-react";
 import { blogArticles } from "@/data/blogArticles";
+import { useBlogViews } from "@/hooks/useBlogViews";
+import BlogComments from "@/components/BlogComments";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const article = blogArticles[slug ?? ""];
+  const viewCount = useBlogViews(slug);
 
   if (!article) {
     return (
@@ -78,9 +81,16 @@ const BlogPost = () => {
           <Link to="/blog" className="text-primary text-sm font-medium inline-flex items-center gap-1.5 mb-8 hover:gap-2.5 transition-all">
             <ArrowLeft className="w-3.5 h-3.5" /> All articles
           </Link>
-          <time className="text-xs text-muted-foreground block mb-3">
-            {new Date(article.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
-          </time>
+          <div className="flex items-center gap-4 mb-3">
+            <time className="text-xs text-muted-foreground">
+              {new Date(article.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
+            </time>
+            {viewCount !== null && (
+              <span className="text-xs text-muted-foreground flex items-center gap-1">
+                <Eye className="w-3 h-3" /> {viewCount.toLocaleString()} view{viewCount !== 1 ? "s" : ""}
+              </span>
+            )}
+          </div>
           <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-8 leading-tight">
             {article.title}
           </h1>
@@ -95,6 +105,9 @@ const BlogPost = () => {
               prose-a:text-primary prose-a:no-underline hover:prose-a:underline"
             dangerouslySetInnerHTML={{ __html: article.content }}
           />
+
+          {/* Comments section */}
+          {slug && <BlogComments slug={slug} />}
         </article>
         <Footer />
       </div>

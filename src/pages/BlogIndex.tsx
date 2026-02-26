@@ -3,8 +3,9 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useBlogViewCounts } from "@/hooks/useBlogViews";
 
 type Category = "All" | "Exercise" | "Nutrition" | "Lifestyle" | "Health" | "Supplements" | "Treatment";
 
@@ -65,6 +66,8 @@ const POSTS_PER_PAGE = 9;
 const BlogIndex = () => {
   const [activeCategory, setActiveCategory] = useState<Category>("All");
   const [currentPage, setCurrentPage] = useState(1);
+  const allSlugs = useMemo(() => blogPosts.map((p) => p.slug), []);
+  const viewCounts = useBlogViewCounts(allSlugs);
 
   const filtered = useMemo(
     () => activeCategory === "All" ? blogPosts : blogPosts.filter((p) => p.category === activeCategory),
@@ -160,9 +163,16 @@ const BlogIndex = () => {
                   {post.title}
                 </h2>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-4">{post.excerpt}</p>
-                <span className="text-primary text-sm font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all">
-                  Read more <ArrowRight className="w-3.5 h-3.5" />
-                </span>
+                <div className="flex items-center justify-between">
+                  <span className="text-primary text-sm font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                    Read more <ArrowRight className="w-3.5 h-3.5" />
+                  </span>
+                  {viewCounts[post.slug] > 0 && (
+                    <span className="text-[11px] text-muted-foreground flex items-center gap-1">
+                      <Eye className="w-3 h-3" /> {viewCounts[post.slug].toLocaleString()}
+                    </span>
+                  )}
+                </div>
               </Link>
             ))}
           </div>
