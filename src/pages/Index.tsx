@@ -32,7 +32,7 @@ const PartnersSection = lazy(() => import("@/components/landing/PartnersSection"
 
 const DailyTipsSection = lazy(() => import("@/components/landing/DailyTipsSection"));
 const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
-const VideoCTASection = lazy(() => import("@/components/landing/VideoCTASection"));
+
 const CommunitySection = lazy(() => import("@/components/landing/CommunitySection"));
 const FundraisingProgressSection = lazy(() => import("@/components/landing/FundraisingProgressSection"));
 const BlogPreviewSection = lazy(() => import("@/components/landing/BlogPreviewSection"));
@@ -135,7 +135,6 @@ export default function Index() {
                   <div className="space-y-10 md:space-y-14">
                     <ConditionsSection />
                     <JointExerciseSection />
-                    <VideoCTASection />
                     <TestimonialsSection />
                     <PartnersSection />
                     <CommunitySection />
