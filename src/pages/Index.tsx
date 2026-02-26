@@ -28,7 +28,7 @@ const TrustBarSection = lazy(() => import("@/components/landing/TrustBarSection"
 const HowItWorksSection = lazy(() => import("@/components/landing/HowItWorksSection"));
 const ImpactBannerSection = lazy(() => import("@/components/landing/ImpactBannerSection"));
 const TestimonialsSection = lazy(() => import("@/components/landing/TestimonialsSection"));
-const PartnersSection = lazy(() => import("@/components/landing/PartnersSection"));
+
 
 const DailyTipsSection = lazy(() => import("@/components/landing/DailyTipsSection"));
 const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
@@ -136,7 +136,7 @@ export default function Index() {
                     <ConditionsSection />
                     <JointExerciseSection />
                     <TestimonialsSection />
-                    <PartnersSection />
+                    
                     <CommunitySection />
                     <FundraisingProgressSection />
                     <BlogPreviewSection />
