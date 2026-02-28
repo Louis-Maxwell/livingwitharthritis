@@ -2,12 +2,12 @@ import { memo } from "react";
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Clock } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const posts = [
-  { title: "5 Morning Routines to Ease Joint Stiffness", category: "Lifestyle", readTime: "4 min", date: "Feb 2026" },
-  { title: "Mediterranean Diet: A Complete Guide for Arthritis", category: "Nutrition", readTime: "7 min", date: "Feb 2026" },
-  { title: "Understanding Flare-Ups and How to Manage Them", category: "Health", readTime: "5 min", date: "Jan 2026" },
+  { slug: "arthritis-and-cold-weather-uk", title: "Arthritis and Cold Weather in the UK: Why Joints Hurt More in Winter", category: "Lifestyle", readTime: "6 min", date: "Feb 2026" },
+  { slug: "best-diet-for-joint-pain-uk", title: "Best Diet for Joint Pain in the UK", category: "Nutrition", readTime: "7 min", date: "Feb 2026" },
+  { slug: "arthritis-flare-up-what-to-do", title: "Arthritis Flare-Up: What to Do When Symptoms Get Worse", category: "Health", readTime: "5 min", date: "Feb 2026" },
 ];
 
 const BlogPreviewSection = memo(() => {
@@ -31,7 +31,7 @@ const BlogPreviewSection = memo(() => {
             onClick={() => navigate("/blog")}
             className="text-sm font-bold text-primary flex items-center gap-1.5 tracking-wider uppercase"
           >
-            View all <ArrowRight className="w-4 h-4" />
+            View all 40+ articles <ArrowRight className="w-4 h-4" />
           </motion.button>
         </motion.div>
 
@@ -44,14 +44,21 @@ const BlogPreviewSection = memo(() => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
-              <Card className="p-7 premium-card cursor-pointer group h-full flex flex-col">
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-4">{p.category}</span>
-                <h3 className="text-base font-display font-semibold text-foreground mb-5 group-hover:text-primary transition-colors duration-300 flex-1">{p.title}</h3>
-                <div className="flex items-center gap-3 text-[11px] text-muted-foreground/40 font-medium">
-                  <span>{p.date}</span>
-                  <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{p.readTime}</span>
-                </div>
-              </Card>
+              <Link to={`/blog/${p.slug}`} className="block h-full">
+                <Card className="p-7 premium-card cursor-pointer group h-full flex flex-col">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-4">{p.category}</span>
+                  <h3 className="text-base font-display font-semibold text-foreground mb-5 group-hover:text-primary transition-colors duration-300 flex-1">{p.title}</h3>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3 text-[11px] text-muted-foreground/40 font-medium">
+                      <span>{p.date}</span>
+                      <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{p.readTime}</span>
+                    </div>
+                    <span className="text-primary text-xs font-medium inline-flex items-center gap-1 group-hover:gap-1.5 transition-all">
+                      Read <ArrowRight className="w-3 h-3" />
+                    </span>
+                  </div>
+                </Card>
+              </Link>
             </motion.div>
           ))}
         </div>

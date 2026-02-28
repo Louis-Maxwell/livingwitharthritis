@@ -1,6 +1,9 @@
 import { memo } from "react";
 import { motion } from "framer-motion";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { ArrowRight, MessageCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useNavigate, Link } from "react-router-dom";
 
 const faqs = [
   { q: "Is this service free?", a: "Yes, all our resources including virtual physiotherapy consultations, nutrition guides, and exercise plans are completely free for UK residents." },
@@ -15,7 +18,9 @@ const faqs = [
   { q: "Does turmeric help with joint pain?", a: "Research suggests curcumin (the active compound in turmeric) has anti-inflammatory properties. A systematic review supports around 1,000 mg/day of curcumin extract for arthritis symptom relief. Use with piperine for better absorption." },
 ];
 
-const FAQSection = memo(() => (
+const FAQSection = memo(() => {
+  const navigate = useNavigate();
+  return (
   <section className="py-14 lg:py-20 bg-background section-divider">
     <div className="container mx-auto px-6 md:px-10 max-w-3xl">
       <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
@@ -38,9 +43,37 @@ const FAQSection = memo(() => (
           </motion.div>
         ))}
       </Accordion>
+
+      {/* Engagement CTA */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="mt-12 text-center space-y-4"
+      >
+        <p className="text-sm text-muted-foreground">
+          Still have questions? Our AI assistant can help.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <Button
+            onClick={() => navigate("/chat")}
+            className="rounded-full h-11 px-6 btn-primary-cta text-xs font-bold tracking-wide"
+          >
+            <MessageCircle className="w-3.5 h-3.5 mr-2" />
+            Ask Our AI Assistant
+          </Button>
+          <Link to="/blog">
+            <Button variant="outline" className="rounded-full h-11 px-6 text-xs font-bold tracking-wide border-2 border-primary/20 text-primary hover:bg-primary/5">
+              Browse Articles <ArrowRight className="w-3.5 h-3.5 ml-2" />
+            </Button>
+          </Link>
+        </div>
+      </motion.div>
     </div>
   </section>
-));
+  );
+});
 
 FAQSection.displayName = "FAQSection";
 export default FAQSection;

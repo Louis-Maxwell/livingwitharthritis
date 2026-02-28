@@ -1,5 +1,7 @@
 import { memo } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import { Users, MessageSquare, Heart, TrendingUp } from "lucide-react";
 
 const highlights = [
@@ -9,7 +11,9 @@ const highlights = [
   { icon: TrendingUp, value: "85%", label: "Report Improvement", color: "bg-primary/8 text-primary" },
 ];
 
-const CommunitySection = memo(() => (
+const CommunitySection = memo(() => {
+  const navigate = useNavigate();
+  return (
   <section className="py-14 lg:py-20 bg-background section-divider relative overflow-hidden">
     <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-secondary/[0.02] blur-3xl pointer-events-none" />
 
@@ -24,9 +28,15 @@ const CommunitySection = memo(() => (
           <p className="text-muted-foreground leading-[1.8] mb-4">
             Join thousands of people across the UK who share tips, encouragement, and understanding. Our community is a safe space to connect with others on the same journey.
           </p>
-          <p className="text-sm text-muted-foreground/50 leading-relaxed">
+          <p className="text-sm text-muted-foreground/50 leading-relaxed mb-6">
             Whether you're newly diagnosed or have lived with arthritis for years, there's a place for you here.
           </p>
+          <Button
+            onClick={() => navigate("/chat")}
+            className="rounded-full h-11 px-6 btn-primary-cta text-xs font-bold tracking-wide"
+          >
+            Join the Conversation
+          </Button>
         </motion.div>
 
         <div className="grid grid-cols-2 gap-5">
@@ -54,7 +64,8 @@ const CommunitySection = memo(() => (
       </div>
     </div>
   </section>
-));
+  );
+});
 
 CommunitySection.displayName = "CommunitySection";
 export default CommunitySection;
