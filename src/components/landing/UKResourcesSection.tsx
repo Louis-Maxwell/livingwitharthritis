@@ -45,7 +45,6 @@ const nhsResources = [
     description:
       "Connect with other people living with arthritis near you. Support groups offer shared experiences, practical tips, and emotional encouragement.",
     links: [
-      { label: "Versus Arthritis – Local Groups", url: "https://www.versusarthritis.org/in-your-area/" },
       { label: "Arthritis Action – Self-Management", url: "https://www.arthritisaction.org.uk/" },
       { label: "NRAS – RA Support Groups", url: "https://nras.org.uk/get-support/" },
     ],
