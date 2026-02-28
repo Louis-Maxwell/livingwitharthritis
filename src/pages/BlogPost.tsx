@@ -6,6 +6,7 @@ import { ArrowLeft, Eye } from "lucide-react";
 import { blogArticles } from "@/data/blogArticles";
 import { useBlogViews } from "@/hooks/useBlogViews";
 import BlogComments from "@/components/BlogComments";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -34,6 +35,15 @@ const BlogPost = () => {
         <meta property="og:title" content={article.metaTitle} />
         <meta property="og:description" content={article.metaDescription} />
         <meta property="og:locale" content="en_GB" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://livingwitharthritis.org.uk/blog/${slug}`} />
+        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="article:published_time" content={article.date} />
+        <meta property="article:section" content="Health" />
+        <meta property="article:tag" content="arthritis" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={article.metaTitle} />
+        <meta name="twitter:description" content={article.metaDescription} />
         <meta name="geo.region" content="GB" />
         <link rel="canonical" href={`https://livingwitharthritis.org.uk/blog/${slug}`} />
         <script type="application/ld+json">{JSON.stringify({
@@ -105,6 +115,9 @@ const BlogPost = () => {
               prose-a:text-primary prose-a:no-underline hover:prose-a:underline"
             dangerouslySetInnerHTML={{ __html: article.content }}
           />
+
+          {/* Related articles for engagement */}
+          {slug && <RelatedArticles currentSlug={slug} />}
 
           {/* Comments section */}
           {slug && <BlogComments slug={slug} />}
