@@ -1,7 +1,6 @@
 import { memo, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Dumbbell, Clock, RotateCcw, Activity } from "lucide-react";
-import mannequinImg from "@/assets/body-mannequin.png";
 
 interface Exercise {
   name: string;
@@ -106,24 +105,159 @@ const jointDatabase: Record<string, JointData> = {
   },
 };
 
-// Joint marker positions — small dots placed on the body joints
+/* ── Anatomical SVG body ── */
+
+const BodySVG = memo(() => (
+  <svg
+    viewBox="0 0 200 520"
+    className="w-full h-auto"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+  >
+    <defs>
+      <linearGradient id="bodyGrad" x1="100" y1="0" x2="100" y2="520" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.12" />
+        <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.04" />
+      </linearGradient>
+      <linearGradient id="strokeGrad" x1="100" y1="0" x2="100" y2="520" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.6" />
+        <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.25" />
+      </linearGradient>
+    </defs>
+
+    {/* Head */}
+    <ellipse cx="100" cy="38" rx="22" ry="28" fill="url(#bodyGrad)" stroke="url(#strokeGrad)" strokeWidth="1.5" />
+    
+    {/* Neck */}
+    <rect x="92" y="64" width="16" height="16" rx="4" fill="url(#bodyGrad)" stroke="url(#strokeGrad)" strokeWidth="1.2" />
+
+    {/* Torso */}
+    <path
+      d="M62 80 Q60 82 58 100 Q54 140 58 180 Q60 200 68 210 L80 215 Q90 218 100 218 Q110 218 120 215 L132 210 Q140 200 142 180 Q146 140 142 100 Q140 82 138 80 Z"
+      fill="url(#bodyGrad)"
+      stroke="url(#strokeGrad)"
+      strokeWidth="1.5"
+    />
+
+    {/* Spine line (subtle) */}
+    <line x1="100" y1="80" x2="100" y2="210" stroke="hsl(var(--primary))" strokeWidth="0.6" strokeOpacity="0.2" strokeDasharray="3 3" />
+
+    {/* Left upper arm */}
+    <path d="M58 88 Q44 95 36 130 Q34 142 36 148" fill="none" stroke="url(#strokeGrad)" strokeWidth="1.5" strokeLinecap="round" />
+    <path d="M62 92 Q50 98 42 130 Q40 142 42 148" fill="none" stroke="url(#strokeGrad)" strokeWidth="1.5" strokeLinecap="round" />
+    <path d="M58 88 Q60 90 62 92" fill="none" stroke="url(#strokeGrad)" strokeWidth="1.2" />
+    <path d="M36 148 Q38 149 42 148" fill="none" stroke="url(#strokeGrad)" strokeWidth="1.2" />
+
+    {/* Left forearm */}
+    <path d="M36 152 Q32 180 28 200 Q26 210 24 218" fill="none" stroke="url(#strokeGrad)" strokeWidth="1.5" strokeLinecap="round" />
+    <path d="M42 152 Q38 180 34 200 Q32 210 30 218" fill="none" stroke="url(#strokeGrad)" strokeWidth="1.5" strokeLinecap="round" />
+
+    {/* Left hand */}
+    <ellipse cx="27" cy="224" rx="7" ry="10" fill="url(#bodyGrad)" stroke="url(#strokeGrad)" strokeWidth="1.2" />
+
+    {/* Right upper arm */}
+    <path d="M142 88 Q156 95 164 130 Q166 142 164 148" fill="none" stroke="url(#strokeGrad)" strokeWidth="1.5" strokeLinecap="round" />
+    <path d="M138 92 Q150 98 158 130 Q160 142 158 148" fill="none" stroke="url(#strokeGrad)" strokeWidth="1.5" strokeLinecap="round" />
+    <path d="M142 88 Q140 90 138 92" fill="none" stroke="url(#strokeGrad)" strokeWidth="1.2" />
+    <path d="M164 148 Q162 149 158 148" fill="none" stroke="url(#strokeGrad)" strokeWidth="1.2" />
+
+    {/* Right forearm */}
+    <path d="M164 152 Q168 180 172 200 Q174 210 176 218" fill="none" stroke="url(#strokeGrad)" strokeWidth="1.5" strokeLinecap="round" />
+    <path d="M158 152 Q162 180 166 200 Q168 210 170 218" fill="none" stroke="url(#strokeGrad)" strokeWidth="1.5" strokeLinecap="round" />
+
+    {/* Right hand */}
+    <ellipse cx="173" cy="224" rx="7" ry="10" fill="url(#bodyGrad)" stroke="url(#strokeGrad)" strokeWidth="1.2" />
+
+    {/* Pelvis */}
+    <path
+      d="M68 210 Q72 230 78 240 L84 250 Q92 258 100 260 Q108 258 116 250 L122 240 Q128 230 132 210"
+      fill="url(#bodyGrad)"
+      stroke="url(#strokeGrad)"
+      strokeWidth="1.5"
+    />
+
+    {/* Left thigh */}
+    <path d="M82 252 Q78 280 76 310 Q74 330 76 340" fill="none" stroke="url(#strokeGrad)" strokeWidth="1.5" strokeLinecap="round" />
+    <path d="M90 256 Q86 280 84 310 Q82 330 84 340" fill="none" stroke="url(#strokeGrad)" strokeWidth="1.5" strokeLinecap="round" />
+    <path d="M76 340 Q78 342 84 340" fill="none" stroke="url(#strokeGrad)" strokeWidth="1.2" />
+
+    {/* Left shin */}
+    <path d="M76 346 Q74 380 74 410 Q74 430 76 440" fill="none" stroke="url(#strokeGrad)" strokeWidth="1.5" strokeLinecap="round" />
+    <path d="M84 346 Q82 380 82 410 Q82 430 84 440" fill="none" stroke="url(#strokeGrad)" strokeWidth="1.5" strokeLinecap="round" />
+
+    {/* Left foot */}
+    <path d="M74 442 Q72 450 68 458 Q66 462 64 464 Q70 470 80 470 Q86 470 88 464 Q86 456 84 448 Q84 444 84 442" fill="url(#bodyGrad)" stroke="url(#strokeGrad)" strokeWidth="1.2" />
+
+    {/* Right thigh */}
+    <path d="M118 252 Q122 280 124 310 Q126 330 124 340" fill="none" stroke="url(#strokeGrad)" strokeWidth="1.5" strokeLinecap="round" />
+    <path d="M110 256 Q114 280 116 310 Q118 330 116 340" fill="none" stroke="url(#strokeGrad)" strokeWidth="1.5" strokeLinecap="round" />
+    <path d="M124 340 Q122 342 116 340" fill="none" stroke="url(#strokeGrad)" strokeWidth="1.2" />
+
+    {/* Right shin */}
+    <path d="M124 346 Q126 380 126 410 Q126 430 124 440" fill="none" stroke="url(#strokeGrad)" strokeWidth="1.5" strokeLinecap="round" />
+    <path d="M116 346 Q118 380 118 410 Q118 430 116 440" fill="none" stroke="url(#strokeGrad)" strokeWidth="1.5" strokeLinecap="round" />
+
+    {/* Right foot */}
+    <path d="M126 442 Q128 450 132 458 Q134 462 136 464 Q130 470 120 470 Q114 470 112 464 Q114 456 116 448 Q116 444 116 442" fill="url(#bodyGrad)" stroke="url(#strokeGrad)" strokeWidth="1.2" />
+
+    {/* Joint circles (anatomical markers) */}
+    {/* Neck */}
+    <circle cx="100" cy="72" r="3.5" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.8" strokeOpacity="0.3" />
+    {/* Shoulders */}
+    <circle cx="58" cy="88" r="4" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.8" strokeOpacity="0.3" />
+    <circle cx="142" cy="88" r="4" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.8" strokeOpacity="0.3" />
+    {/* Elbows */}
+    <circle cx="38" cy="150" r="3.5" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.8" strokeOpacity="0.3" />
+    <circle cx="162" cy="150" r="3.5" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.8" strokeOpacity="0.3" />
+    {/* Wrists */}
+    <circle cx="27" cy="218" r="3" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.8" strokeOpacity="0.3" />
+    <circle cx="173" cy="218" r="3" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.8" strokeOpacity="0.3" />
+    {/* Hips */}
+    <circle cx="80" cy="245" r="4" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.8" strokeOpacity="0.3" />
+    <circle cx="120" cy="245" r="4" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.8" strokeOpacity="0.3" />
+    {/* Knees */}
+    <circle cx="80" cy="343" r="4" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.8" strokeOpacity="0.3" />
+    <circle cx="120" cy="343" r="4" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.8" strokeOpacity="0.3" />
+    {/* Ankles */}
+    <circle cx="80" cy="442" r="3.5" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.8" strokeOpacity="0.3" />
+    <circle cx="120" cy="442" r="3.5" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.8" strokeOpacity="0.3" />
+    {/* Spine mid */}
+    <circle cx="100" cy="150" r="3" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.8" strokeOpacity="0.3" />
+  </svg>
+));
+
+BodySVG.displayName = "BodySVG";
+
+/* ── Joint hotspot markers positioned over the SVG ── */
+
 interface JointMarker {
   id: string;
   label: string;
+  /* percentages relative to the SVG viewBox mapped to the container */
   top: string;
   left: string;
+  labelSide?: "left" | "right";
 }
 
 const jointMarkers: JointMarker[] = [
-  { id: "neck", label: "Neck", top: "14%", left: "50%" },
-  { id: "shoulder", label: "Shoulders", top: "20%", left: "28%" },
-  { id: "elbow", label: "Elbows", top: "36%", left: "20%" },
-  { id: "wrist", label: "Hands", top: "48%", left: "16%" },
-  { id: "spine", label: "Spine", top: "30%", left: "50%" },
-  { id: "hip", label: "Hips", top: "46%", left: "38%" },
-  { id: "knee", label: "Knees", top: "65%", left: "38%" },
-  { id: "ankle", label: "Feet", top: "92%", left: "38%" },
+  { id: "neck",     label: "Neck",            top: "13.8%", left: "50%"  },
+  { id: "shoulder", label: "L Shoulder",       top: "17%",   left: "29%",  labelSide: "left" },
+  { id: "shoulder", label: "R Shoulder",       top: "17%",   left: "71%",  labelSide: "right" },
+  { id: "elbow",    label: "L Elbow",          top: "28.8%", left: "19%",  labelSide: "left" },
+  { id: "elbow",    label: "R Elbow",          top: "28.8%", left: "81%",  labelSide: "right" },
+  { id: "wrist",    label: "L Wrist",          top: "42%",   left: "13.5%", labelSide: "left" },
+  { id: "wrist",    label: "R Wrist",          top: "42%",   left: "86.5%", labelSide: "right" },
+  { id: "spine",    label: "Spine",            top: "28.8%", left: "50%"  },
+  { id: "hip",      label: "L Hip",            top: "47%",   left: "40%",  labelSide: "left" },
+  { id: "hip",      label: "R Hip",            top: "47%",   left: "60%",  labelSide: "right" },
+  { id: "knee",     label: "L Knee",           top: "66%",   left: "40%",  labelSide: "left" },
+  { id: "knee",     label: "R Knee",           top: "66%",   left: "60%",  labelSide: "right" },
+  { id: "ankle",    label: "L Ankle",          top: "85%",   left: "40%",  labelSide: "left" },
+  { id: "ankle",    label: "R Ankle",          top: "85%",   left: "60%",  labelSide: "right" },
 ];
+
+/* ── Joint Dot ── */
 
 const JointDot = memo(({ marker, isActive, onClick }: {
   marker: JointMarker;
@@ -133,46 +267,39 @@ const JointDot = memo(({ marker, isActive, onClick }: {
   <button
     onClick={onClick}
     aria-label={`Exercise plan for ${marker.label}`}
-    className="absolute flex items-center gap-1.5 group cursor-pointer z-10"
+    className="absolute flex items-center gap-1 group cursor-pointer z-10"
     style={{
       top: marker.top,
       left: marker.left,
       transform: "translate(-50%, -50%)",
+      flexDirection: marker.labelSide === "left" ? "row-reverse" : "row",
     }}
   >
-    {/* Dot */}
-    <span
-      className="relative flex items-center justify-center"
-    >
-      {/* Pulse ring */}
+    <span className="relative flex items-center justify-center">
       {isActive && (
         <span
-          className="absolute w-8 h-8 rounded-full animate-ping"
-          style={{ background: "hsla(200, 90%, 50%, 0.25)" }}
+          className="absolute w-7 h-7 rounded-full animate-ping"
+          style={{ background: "hsl(var(--primary) / 0.2)" }}
         />
       )}
-      {/* Outer ring */}
       <span
-        className="w-5 h-5 rounded-full flex items-center justify-center transition-all duration-300"
+        className="w-4 h-4 rounded-full flex items-center justify-center transition-all duration-300 border-2"
         style={{
-          background: isActive
-            ? "hsl(200, 90%, 50%)"
-            : "hsl(200, 80%, 55%)",
+          background: isActive ? "hsl(var(--primary))" : "hsl(var(--primary) / 0.7)",
+          borderColor: "hsl(var(--background))",
           boxShadow: isActive
-            ? "0 0 12px 4px hsla(200, 90%, 50%, 0.5)"
-            : "0 0 6px 2px hsla(200, 80%, 55%, 0.3)",
-          border: "2px solid white",
+            ? "0 0 10px 3px hsl(var(--primary) / 0.4)"
+            : "0 0 4px 1px hsl(var(--primary) / 0.2)",
         }}
       >
-        <span className="w-1.5 h-1.5 rounded-full bg-white" />
+        <span className="w-1 h-1 rounded-full bg-white/90" />
       </span>
     </span>
-    {/* Label */}
     <span
-      className={`text-[11px] font-semibold whitespace-nowrap px-2 py-0.5 rounded-full transition-all duration-200 ${
+      className={`text-[10px] font-medium whitespace-nowrap px-1.5 py-0.5 rounded transition-all duration-200 ${
         isActive
-          ? "bg-[hsl(200,90%,50%)] text-white shadow-md"
-          : "bg-white/90 text-foreground shadow-sm group-hover:bg-[hsl(200,90%,50%)] group-hover:text-white"
+          ? "bg-primary text-primary-foreground shadow-sm"
+          : "bg-card/90 text-muted-foreground shadow-sm group-hover:bg-primary group-hover:text-primary-foreground"
       }`}
     >
       {marker.label}
@@ -182,32 +309,34 @@ const JointDot = memo(({ marker, isActive, onClick }: {
 
 JointDot.displayName = "JointDot";
 
+/* ── Exercise Panel ── */
+
 const ExercisePanel = memo(({ joint, onClose }: { joint: JointData; onClose: () => void }) => (
   <motion.div
     initial={{ opacity: 0, x: 20 }}
     animate={{ opacity: 1, x: 0 }}
     exit={{ opacity: 0, x: 20 }}
     transition={{ type: "spring", stiffness: 300, damping: 30 }}
-    className="bg-card rounded-2xl border border-border/50 shadow-medium overflow-hidden"
+    className="bg-card rounded-2xl border border-border/50 shadow-lg overflow-hidden"
   >
-    <div className="p-5 relative" style={{ background: "linear-gradient(135deg, hsl(200,80%,40%), hsl(200,80%,50%))" }}>
+    <div className="p-5 relative bg-primary">
       <button
         onClick={onClose}
-        className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors text-white"
+        className="absolute top-3 right-3 w-8 h-8 rounded-full bg-primary-foreground/20 hover:bg-primary-foreground/30 flex items-center justify-center transition-colors text-primary-foreground"
         aria-label="Close exercise panel"
       >
         <X className="w-4 h-4" />
       </button>
       <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
+        <div className="w-10 h-10 rounded-xl bg-primary-foreground/20 flex items-center justify-center text-primary-foreground">
           <Activity className="w-5 h-5" />
         </div>
-        <div className="text-white">
+        <div className="text-primary-foreground">
           <h3 className="text-xl font-display font-bold">{joint.label}</h3>
-          <p className="text-white/80 text-xs">Home Exercise Plan</p>
+          <p className="text-primary-foreground/80 text-xs">Home Exercise Plan</p>
         </div>
       </div>
-      <p className="text-white/70 text-sm mt-2 leading-relaxed">💡 {joint.tip}</p>
+      <p className="text-primary-foreground/70 text-sm mt-2 leading-relaxed">💡 {joint.tip}</p>
     </div>
 
     <div className="p-4 space-y-3 max-h-[400px] overflow-y-auto">
@@ -217,20 +346,20 @@ const ExercisePanel = memo(({ joint, onClose }: { joint: JointData; onClose: () 
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: i * 0.08 }}
-          className="group p-4 rounded-xl bg-accent/50 hover:bg-accent border border-border/30 hover:border-secondary/30 transition-all duration-200"
+          className="group p-4 rounded-xl bg-accent/50 hover:bg-accent border border-border/30 hover:border-primary/20 transition-all duration-200"
         >
           <div className="flex items-center gap-2 mb-2">
-            <span className="w-6 h-6 rounded-full bg-secondary/15 text-secondary text-xs font-bold flex items-center justify-center flex-shrink-0">
+            <span className="w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">
               {i + 1}
             </span>
             <h4 className="font-semibold text-foreground text-sm">{ex.name}</h4>
           </div>
           <p className="text-muted-foreground text-xs leading-relaxed mb-2 ml-8">{ex.description}</p>
           <div className="flex gap-3 ml-8">
-            <span className="inline-flex items-center gap-1 text-[10px] font-medium text-secondary bg-secondary/10 px-2 py-0.5 rounded-full">
+            <span className="inline-flex items-center gap-1 text-[10px] font-medium text-primary bg-primary/10 px-2 py-0.5 rounded-full">
               <Clock className="w-3 h-3" /> {ex.duration}
             </span>
-            <span className="inline-flex items-center gap-1 text-[10px] font-medium text-primary bg-primary/10 px-2 py-0.5 rounded-full">
+            <span className="inline-flex items-center gap-1 text-[10px] font-medium text-secondary bg-secondary/10 px-2 py-0.5 rounded-full">
               <RotateCcw className="w-3 h-3" /> {ex.reps}
             </span>
           </div>
@@ -247,6 +376,8 @@ const ExercisePanel = memo(({ joint, onClose }: { joint: JointData; onClose: () 
 ));
 
 ExercisePanel.displayName = "ExercisePanel";
+
+/* ── Main Section ── */
 
 const JointExerciseSection = memo(() => {
   const [activeJoint, setActiveJoint] = useState<string | null>(null);
@@ -284,19 +415,11 @@ const JointExerciseSection = memo(() => {
             transition={{ duration: 0.6 }}
             className="flex justify-center"
           >
-            <div className="relative w-full max-w-[340px]">
-              <img
-                src={mannequinImg}
-                alt="Male body diagram — click joints to see exercises"
-                className="w-full h-auto select-none pointer-events-none rounded-2xl"
-                width={340}
-                height={680}
-                draggable={false}
-              />
-              {/* Clickable joint dots */}
-              {jointMarkers.map((marker) => (
+            <div className="relative w-full max-w-[320px]">
+              <BodySVG />
+              {jointMarkers.map((marker, idx) => (
                 <JointDot
-                  key={marker.id}
+                  key={`${marker.id}-${idx}`}
                   marker={marker}
                   isActive={activeJoint === marker.id}
                   onClick={() => handleJointClick(marker.id)}
@@ -323,8 +446,8 @@ const JointExerciseSection = memo(() => {
                   className="h-full flex items-center justify-center"
                 >
                   <div className="text-center p-8 sm:p-12 rounded-2xl border-2 border-dashed border-border/50 bg-background/50 max-w-md mx-auto">
-                    <div className="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center mx-auto mb-5">
-                      <Dumbbell className="w-8 h-8 text-secondary" />
+                    <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
+                      <Dumbbell className="w-8 h-8 text-primary" />
                     </div>
                     <h3 className="text-xl font-display font-bold text-foreground mb-2">
                       Select a Joint
