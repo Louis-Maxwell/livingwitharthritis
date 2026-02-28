@@ -1,5 +1,4 @@
 import { memo } from "react";
-import { motion } from "framer-motion";
 import {
   Heart,
   Stethoscope,
@@ -14,15 +13,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.1, duration: 0.5, ease: "easeOut" as const },
-  }),
-};
-
 const nhsResources = [
   {
     icon: Stethoscope,
@@ -30,14 +20,8 @@ const nhsResources = [
     description:
       "Access free NHS physiotherapy, rheumatology referrals, and pain management clinics across the UK. Ask your GP for a referral.",
     links: [
-      {
-        label: "NHS Arthritis Overview",
-        url: "https://www.nhs.uk/conditions/arthritis/",
-      },
-      {
-        label: "Find NHS Services Near You",
-        url: "https://www.nhs.uk/service-search",
-      },
+      { label: "NHS Arthritis Overview", url: "https://www.nhs.uk/conditions/arthritis/" },
+      { label: "Find NHS Services Near You", url: "https://www.nhs.uk/service-search" },
     ],
     badge: "NHS",
     badgeColor: "bg-blue-600 text-white",
@@ -48,18 +32,9 @@ const nhsResources = [
     description:
       "If arthritis substantially affects your daily life, you may be eligible for Personal Independence Payment (PIP), Attendance Allowance, or Access to Work grants.",
     links: [
-      {
-        label: "Check PIP Eligibility",
-        url: "https://www.gov.uk/pip",
-      },
-      {
-        label: "Attendance Allowance",
-        url: "https://www.gov.uk/attendance-allowance",
-      },
-      {
-        label: "Citizens Advice – Disability Benefits",
-        url: "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/pip/",
-      },
+      { label: "Check PIP Eligibility", url: "https://www.gov.uk/pip" },
+      { label: "Attendance Allowance", url: "https://www.gov.uk/attendance-allowance" },
+      { label: "Citizens Advice – Disability Benefits", url: "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/pip/" },
     ],
     badge: "Benefits",
     badgeColor: "bg-emerald-600 text-white",
@@ -70,18 +45,9 @@ const nhsResources = [
     description:
       "Connect with other people living with arthritis near you. Support groups offer shared experiences, practical tips, and emotional encouragement.",
     links: [
-      {
-        label: "Versus Arthritis – Local Groups",
-        url: "https://www.versusarthritis.org/in-your-area/",
-      },
-      {
-        label: "Arthritis Action – Self-Management",
-        url: "https://www.arthritisaction.org.uk/",
-      },
-      {
-        label: "NRAS – RA Support Groups",
-        url: "https://nras.org.uk/get-support/",
-      },
+      { label: "Versus Arthritis – Local Groups", url: "https://www.versusarthritis.org/in-your-area/" },
+      { label: "Arthritis Action – Self-Management", url: "https://www.arthritisaction.org.uk/" },
+      { label: "NRAS – RA Support Groups", url: "https://nras.org.uk/get-support/" },
     ],
     badge: "Community",
     badgeColor: "bg-violet-600 text-white",
@@ -92,14 +58,8 @@ const nhsResources = [
     description:
       "Under the Equality Act 2010, arthritis can be classed as a disability. You're entitled to reasonable adjustments at work, including flexible hours and ergonomic equipment.",
     links: [
-      {
-        label: "Equality Act 2010 – GOV.UK",
-        url: "https://www.gov.uk/guidance/equality-act-2010-guidance",
-      },
-      {
-        label: "ACAS – Reasonable Adjustments",
-        url: "https://www.acas.org.uk/reasonable-adjustments",
-      },
+      { label: "Equality Act 2010 – GOV.UK", url: "https://www.gov.uk/guidance/equality-act-2010-guidance" },
+      { label: "ACAS – Reasonable Adjustments", url: "https://www.acas.org.uk/reasonable-adjustments" },
     ],
     badge: "Legal Rights",
     badgeColor: "bg-amber-600 text-white",
@@ -113,14 +73,7 @@ const UKResourcesSection = memo(() => (
     aria-labelledby="uk-resources-heading"
   >
     {/* Header */}
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-60px" }}
-      variants={fadeUp}
-      custom={0}
-      className="text-center mb-10"
-    >
+    <div className="text-center mb-10">
       <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 mb-4">
         <MapPin className="h-4 w-4 text-primary" aria-hidden="true" />
         <span className="text-sm font-semibold text-primary tracking-wide uppercase">
@@ -138,82 +91,57 @@ const UKResourcesSection = memo(() => (
         From NHS services and benefit entitlements to local support groups —
         everything you need to manage arthritis in the United Kingdom.
       </p>
-    </motion.div>
+    </div>
 
     {/* Cards Grid */}
     <div className="grid gap-5 sm:grid-cols-2">
-      {nhsResources.map((resource, i) => {
+      {nhsResources.map((resource) => {
         const Icon = resource.icon;
         return (
-          <motion.div
-            key={resource.title}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-40px" }}
-            variants={fadeUp}
-            custom={i + 1}
-          >
-            <Card className="h-full border border-border/60 bg-card/80 backdrop-blur-sm hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-6 flex flex-col gap-4">
-                <div className="flex items-start justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="rounded-xl bg-primary/10 p-2.5">
-                      <Icon
-                        className="h-5 w-5 text-primary"
-                        aria-hidden="true"
-                      />
-                    </div>
-                    <h3 className="font-semibold text-lg text-foreground">
-                      {resource.title}
-                    </h3>
+          <Card key={resource.title} className="h-full border border-border/60 bg-card/80 backdrop-blur-sm hover:shadow-lg transition-shadow duration-300">
+            <CardContent className="p-6 flex flex-col gap-4">
+              <div className="flex items-start justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="rounded-xl bg-primary/10 p-2.5">
+                    <Icon className="h-5 w-5 text-primary" aria-hidden="true" />
                   </div>
-                  <Badge
-                    className={`${resource.badgeColor} text-xs font-medium shrink-0`}
+                  <h3 className="font-semibold text-lg text-foreground">
+                    {resource.title}
+                  </h3>
+                </div>
+                <Badge className={`${resource.badgeColor} text-xs font-medium shrink-0`}>
+                  {resource.badge}
+                </Badge>
+              </div>
+
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                {resource.description}
+              </p>
+
+              <div className="flex flex-wrap gap-2 mt-auto pt-2">
+                {resource.links.map((link) => (
+                  <Button
+                    key={link.label}
+                    variant="outline"
+                    size="sm"
+                    asChild
+                    className="text-xs h-8 gap-1.5"
                   >
-                    {resource.badge}
-                  </Badge>
-                </div>
-
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {resource.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mt-auto pt-2">
-                  {resource.links.map((link) => (
-                    <Button
-                      key={link.label}
-                      variant="outline"
-                      size="sm"
-                      asChild
-                      className="text-xs h-8 gap-1.5"
-                    >
-                      <a
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <ExternalLink className="h-3 w-3" aria-hidden="true" />
-                        {link.label}
-                      </a>
-                    </Button>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
+                    <a href={link.url} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="h-3 w-3" aria-hidden="true" />
+                      {link.label}
+                    </a>
+                  </Button>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
         );
       })}
     </div>
 
     {/* Bottom trust strip */}
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={fadeUp}
-      custom={5}
-      className="mt-8 flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground"
-    >
+    <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground">
       <span className="inline-flex items-center gap-1.5">
         <Heart className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
         NHS-Complementary Care
@@ -228,7 +156,7 @@ const UKResourcesSection = memo(() => (
         <Shield className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
         Equality Act 2010 Aware
       </span>
-    </motion.div>
+    </div>
   </section>
 ));
 
