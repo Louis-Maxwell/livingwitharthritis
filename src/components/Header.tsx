@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Heart, Construction } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -18,14 +18,29 @@ const BuildingBanner = () => (
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const lastScrollY = useRef(0);
+
+  const handleScroll = useCallback(() => {
+    const currentY = window.scrollY;
+    setScrolled(currentY > 20);
+    // Show header when scrolling up or near top; hide when scrolling down past 300px
+    if (currentY < 300) {
+      setVisible(true);
+    } else if (currentY < lastScrollY.current) {
+      setVisible(true);
+    } else if (currentY > lastScrollY.current + 10) {
+      setVisible(false);
+    }
+    lastScrollY.current = currentY;
+  }, []);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [handleScroll]);
 
   const navLinks = [
     { label: "About Arthritis", href: "#about", action: () => navigate("/about") },
@@ -48,8 +63,8 @@ const Header = () => {
 
       <motion.header
         initial={{ y: -80 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        animate={{ y: visible || mobileMenuOpen ? 0 : -100 }}
+        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
         className={`sticky top-0 z-50 transition-all duration-300 ${
           scrolled
             ? "bg-background/95 backdrop-blur-xl shadow-medium border-b border-border/30"
