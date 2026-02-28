@@ -11,20 +11,17 @@ function escapeHtml(str: string): string {
     .replace(/'/g, "&#039;");
 }
 
-const ALLOWED_ORIGINS = [
-  "https://id-preview--0b2fd6ca-4e21-4ac7-99fa-d741e996f45e.lovable.app",
-  "https://livingwitharthritis.org.uk",
-  "https://www.livingwitharthritis.org.uk",
-  "http://localhost:8080",
-  "http://localhost:5173",
-  "http://localhost:3000",
-];
-
 function getCorsHeaders(req: Request): Record<string, string> {
   const origin = req.headers.get("Origin") || "";
-  const allowedOrigin = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
+  const isAllowed =
+    origin.endsWith(".lovable.app") ||
+    origin.endsWith(".lovableproject.com") ||
+    origin === "https://livingwitharthritis.org.uk" ||
+    origin === "https://www.livingwitharthritis.org.uk" ||
+    origin.startsWith("http://localhost:");
+
   return {
-    "Access-Control-Allow-Origin": allowedOrigin,
+    "Access-Control-Allow-Origin": isAllowed ? origin : "https://livingwitharthritis.lovable.app",
     "Access-Control-Allow-Headers":
       "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
   };
