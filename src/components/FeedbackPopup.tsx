@@ -17,7 +17,7 @@ export default function FeedbackPopup() {
 
   useEffect(() => {
     if (sessionStorage.getItem(FEEDBACK_KEY)) return;
-    const timer = setTimeout(() => setOpen(true), 15000);
+    const timer = setTimeout(() => setOpen(true), 60000);
     return () => clearTimeout(timer);
   }, []);
 
