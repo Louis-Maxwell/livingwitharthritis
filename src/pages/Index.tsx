@@ -39,6 +39,7 @@ const BlogPreviewSection = lazy(() => import("@/components/landing/BlogPreviewSe
 const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSection"));
 const GetInTouchSection = lazy(() => import("@/components/landing/GetInTouchSection"));
 const FinalCTASection = lazy(() => import("@/components/landing/FinalCTASection"));
+const UKResourcesSection = lazy(() => import("@/components/landing/UKResourcesSection"));
 
 const SectionLoader = memo(() => (
   <div className="py-8 flex items-center justify-center">
@@ -138,6 +139,7 @@ export default function Index() {
                     <TestimonialsSection />
                     
                     <CommunitySection />
+                    <UKResourcesSection />
                     <FundraisingProgressSection />
                     <BlogPreviewSection />
                     <NewsletterSection />
