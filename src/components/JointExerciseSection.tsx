@@ -249,12 +249,12 @@ const jointMarkers: JointMarker[] = [
   { id: "wrist",    label: "L Wrist",          top: "42%",   left: "13.5%", labelSide: "left" },
   { id: "wrist",    label: "R Wrist",          top: "42%",   left: "86.5%", labelSide: "right" },
   { id: "spine",    label: "Spine",            top: "28.8%", left: "50%"  },
-  { id: "hip",      label: "L Hip",            top: "47%",   left: "40%",  labelSide: "left" },
-  { id: "hip",      label: "R Hip",            top: "47%",   left: "60%",  labelSide: "right" },
-  { id: "knee",     label: "L Knee",           top: "66%",   left: "40%",  labelSide: "left" },
-  { id: "knee",     label: "R Knee",           top: "66%",   left: "60%",  labelSide: "right" },
-  { id: "ankle",    label: "L Ankle",          top: "85%",   left: "40%",  labelSide: "left" },
-  { id: "ankle",    label: "R Ankle",          top: "85%",   left: "60%",  labelSide: "right" },
+  { id: "hip",      label: "L Hip",            top: "47%",   left: "36%",  labelSide: "left" },
+  { id: "hip",      label: "R Hip",            top: "47%",   left: "64%",  labelSide: "right" },
+  { id: "knee",     label: "L Knee",           top: "66%",   left: "30%",  labelSide: "left" },
+  { id: "knee",     label: "R Knee",           top: "66%",   left: "70%",  labelSide: "right" },
+  { id: "ankle",    label: "L Ankle",          top: "85%",   left: "30%",  labelSide: "left" },
+  { id: "ankle",    label: "R Ankle",          top: "85%",   left: "70%",  labelSide: "right" },
 ];
 
 /* ── Joint Dot ── */
