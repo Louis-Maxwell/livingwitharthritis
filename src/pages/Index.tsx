@@ -35,6 +35,7 @@ const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
 
 const CommunitySection = lazy(() => import("@/components/landing/CommunitySection"));
 const FundraisingProgressSection = lazy(() => import("@/components/landing/FundraisingProgressSection"));
+const TransparencySection = lazy(() => import("@/components/landing/TransparencySection"));
 const BlogPreviewSection = lazy(() => import("@/components/landing/BlogPreviewSection"));
 const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSection"));
 const GetInTouchSection = lazy(() => import("@/components/landing/GetInTouchSection"));
@@ -140,6 +141,7 @@ export default function Index() {
                     
                     <CommunitySection />
                     <UKResourcesSection />
+                    <TransparencySection />
                     <FundraisingProgressSection />
                     <BlogPreviewSection />
                     <NewsletterSection />
