@@ -105,168 +105,166 @@ const jointDatabase: Record<string, JointData> = {
   },
 };
 
-/* ── Physitrack-style clean mannequin — minimal, flat, no internal detail ── */
+/* ── Physitrack-style light anatomical mannequin ── */
 
 const BodySVG = memo(() => (
   <svg
-    viewBox="0 0 200 520"
+    viewBox="0 0 200 480"
     className="w-full h-auto"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     aria-hidden="true"
   >
     <defs>
-      <linearGradient id="bodyFill" x1="60" y1="0" x2="160" y2="520" gradientUnits="userSpaceOnUse">
-        <stop offset="0%" stopColor="hsl(0, 40%, 90%)" />
-        <stop offset="100%" stopColor="hsl(0, 30%, 82%)" />
+      <radialGradient id="bodyMain" cx="45%" cy="40%" r="60%">
+        <stop offset="0%" stopColor="hsl(220 10% 93%)" />
+        <stop offset="100%" stopColor="hsl(220 8% 82%)" />
+      </radialGradient>
+      <linearGradient id="bodyHL" x1="70" y1="0" x2="140" y2="480" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stopColor="hsl(0 0% 100%)" stopOpacity="0.5" />
+        <stop offset="100%" stopColor="hsl(0 0% 100%)" stopOpacity="0" />
       </linearGradient>
-      <linearGradient id="bodyHighlight" x1="80" y1="0" x2="130" y2="520" gradientUnits="userSpaceOnUse">
-        <stop offset="0%" stopColor="hsl(0, 0%, 100%)" stopOpacity="0.35" />
-        <stop offset="100%" stopColor="hsl(0, 0%, 100%)" stopOpacity="0" />
+      <linearGradient id="bodySH" x1="140" y1="0" x2="80" y2="480" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stopColor="hsl(220 10% 68%)" stopOpacity="0" />
+        <stop offset="100%" stopColor="hsl(220 10% 68%)" stopOpacity="0.25" />
       </linearGradient>
-      <filter id="mannequinShadow" x="-15%" y="-3%" width="130%" height="110%">
-        <feDropShadow dx="0" dy="6" stdDeviation="12" floodColor="hsl(0, 20%, 30%)" floodOpacity="0.08" />
+      <filter id="mShadow" x="-10%" y="-3%" width="120%" height="108%">
+        <feDropShadow dx="0" dy="4" stdDeviation="10" floodColor="hsl(220 15% 40%)" floodOpacity="0.1" />
       </filter>
     </defs>
 
-    <g filter="url(#mannequinShadow)">
-      {/* HEAD — simple oval */}
-      <ellipse cx="100" cy="30" rx="22" ry="26" fill="url(#bodyFill)" />
-      <ellipse cx="95" cy="26" rx="13" ry="16" fill="url(#bodyHighlight)" />
+    <g filter="url(#mShadow)">
+      {/* ── HEAD ── */}
+      <ellipse cx="100" cy="28" rx="20" ry="24" fill="url(#bodyMain)" />
+      <ellipse cx="96" cy="25" rx="12" ry="15" fill="url(#bodyHL)" />
+      {/* Face hints */}
+      <ellipse cx="93" cy="22" rx="2.5" ry="1.5" fill="hsl(220 6% 80%)" opacity="0.4" />
+      <ellipse cx="107" cy="22" rx="2.5" ry="1.5" fill="hsl(220 6% 78%)" opacity="0.35" />
+      <path d="M96 31 Q100 34 104 31" stroke="hsl(220 6% 76%)" strokeWidth="0.6" fill="none" opacity="0.35" />
+      {/* Ears */}
+      <ellipse cx="79" cy="28" rx="3" ry="5.5" fill="url(#bodyMain)" />
+      <ellipse cx="121" cy="28" rx="3" ry="5.5" fill="url(#bodyMain)" />
 
-      {/* NECK */}
-      <rect x="88" y="54" width="24" height="18" rx="6" fill="url(#bodyFill)" />
+      {/* ── NECK ── */}
+      <rect x="90" y="50" width="20" height="16" rx="4" fill="url(#bodyMain)" />
+      <rect x="90" y="50" width="10" height="14" rx="3" fill="url(#bodyHL)" />
 
-      {/* TORSO — smooth rounded shape */}
+      {/* ── FULL BODY as connected paths ── */}
+      {/* Torso + shoulder caps as one shape */}
       <path
-        d="M56 70
-           Q42 78 36 100 Q30 130 30 158
-           Q30 180 34 198
-           L40 198
-           Q38 180 38 158 Q38 130 44 100 Q48 84 60 74
+        d="M48 72 Q40 76 36 90 Q30 112 28 140
+           Q28 155 28 162
+           L28 164
+           Q24 182 18 202 Q14 218 10 230
+           L10 232 Q8 240 6 246 Q4 252 6 258 Q10 264 18 262 Q22 258 24 252
+           L26 244 Q30 228 34 212 Q38 196 40 184
+           L40 180
+           Q42 176 44 172
+           Q44 184 48 196 Q52 208 58 218
+           L70 228 Q86 238 100 238
+           Q114 238 130 228 L142 218 Q148 208 152 196 Q156 184 156 172
+           Q158 176 160 180
+           L160 184
+           Q162 196 166 212 Q170 228 174 244
+           L176 252 Q178 258 182 262 Q190 264 194 258 Q196 252 194 246 Q192 240 190 232
+           L190 230 Q186 218 182 202 Q178 182 172 164
+           L172 162
+           Q172 155 172 140
+           Q170 112 164 90 Q160 76 152 72
            Z"
-        fill="url(#bodyFill)"
+        fill="url(#bodyMain)"
       />
+      {/* Torso highlight */}
       <path
-        d="M144 70
-           Q158 78 164 100 Q170 130 170 158
-           Q170 180 166 198
-           L160 198
-           Q162 180 162 158 Q162 130 156 100 Q152 84 140 74
-           Z"
-        fill="url(#bodyFill)"
+        d="M64 72 Q56 88 54 140 Q54 190 72 228 L100 238 Q84 228 76 212 Q66 190 64 140 Q62 100 66 72 Z"
+        fill="url(#bodyHL)"
       />
-      {/* Main torso body */}
+      {/* Torso shadow */}
       <path
-        d="M60 72 Q56 72 52 74
-           L40 198
-           Q42 220 50 238 Q60 254 72 262
-           L76 264 Q88 272 100 274
-           Q112 272 124 264 L128 262
-           Q140 254 150 238 Q158 220 160 198
-           L148 74 Q144 72 140 72
-           Q130 68 100 66 Q70 68 60 72
-           Z"
-        fill="url(#bodyFill)"
-      />
-      {/* Torso highlight overlay */}
-      <path
-        d="M70 72 Q64 80 58 110 Q54 150 56 200 Q60 240 78 264
-           L100 274
-           Q86 268 78 256 Q66 236 62 200 Q58 150 62 110 Q66 82 74 72 Z"
-        fill="url(#bodyHighlight)"
+        d="M136 72 Q144 88 146 140 Q146 190 128 228 L100 238 Q116 228 124 212 Q134 190 136 140 Q138 100 134 72 Z"
+        fill="url(#bodySH)"
       />
 
-      {/* LEFT ARM */}
-      <path
-        d="M36 100 Q28 120 22 148 Q16 176 12 200
-           Q10 210 8 218 Q6 228 8 232
-           L18 232 Q16 226 16 218 Q18 210 20 200
-           Q24 178 30 152 Q34 130 38 112
-           Z"
-        fill="url(#bodyFill)"
-      />
-      {/* Left hand — simple mitt */}
-      <path
-        d="M8 232 Q4 242 2 250 Q0 258 4 264 Q8 268 14 268
-           Q18 268 22 264 Q24 258 22 250 Q20 242 18 232 Z"
-        fill="url(#bodyFill)"
-      />
-      {/* Left thumb */}
-      <ellipse cx="3" cy="244" rx="4" ry="6" fill="url(#bodyFill)" />
+      {/* ── HANDS — fingers splayed ── */}
+      {/* Left hand */}
+      <path d="M6 258 Q4 264 2 270 Q2 274 4 278 L8 280 Q6 274 8 268 L10 270 Q8 276 10 282 L14 282 Q12 276 14 270 L16 270 Q14 278 16 284 L20 282 Q18 276 18 268 L20 260 Q18 254 14 252 Z" fill="url(#bodyMain)" />
+      <path d="M14 252 Q18 250 22 254 Q24 260 22 264 L18 266" fill="url(#bodyMain)" />
+      {/* Right hand */}
+      <path d="M194 258 Q196 264 198 270 Q198 274 196 278 L192 280 Q194 274 192 268 L190 270 Q192 276 190 282 L186 282 Q188 276 186 270 L184 270 Q186 278 184 284 L180 282 Q182 276 182 268 L180 260 Q182 254 186 252 Z" fill="url(#bodyMain)" />
+      <path d="M186 252 Q182 250 178 254 Q176 260 178 264 L182 266" fill="url(#bodyMain)" />
 
-      {/* RIGHT ARM */}
+      {/* ── PELVIS / HIPS ── */}
       <path
-        d="M164 100 Q172 120 178 148 Q184 176 188 200
-           Q190 210 192 218 Q194 228 192 232
-           L182 232 Q184 226 184 218 Q182 210 180 200
-           Q176 178 170 152 Q166 130 162 112
-           Z"
-        fill="url(#bodyFill)"
+        d="M60 220 Q62 240 68 254 L76 264 Q88 274 100 276 Q112 274 124 264 L132 254 Q138 240 140 220 Z"
+        fill="url(#bodyMain)"
       />
-      {/* Right hand — simple mitt */}
-      <path
-        d="M192 232 Q196 242 198 250 Q200 258 196 264 Q192 268 186 268
-           Q182 268 178 264 Q176 258 178 250 Q180 242 182 232 Z"
-        fill="url(#bodyFill)"
-      />
-      {/* Right thumb */}
-      <ellipse cx="197" cy="244" rx="4" ry="6" fill="url(#bodyFill)" />
+      <path d="M60 220 Q62 238 68 254 L76 264 Q86 272 100 274 Q90 270 82 262 Q74 252 70 238 Q66 228 64 220 Z" fill="url(#bodyHL)" />
 
-      {/* PELVIS — smooth connection */}
+      {/* ── LEFT LEG ── */}
       <path
-        d="M62 240 Q64 260 72 274 Q82 286 100 290
-           Q118 286 128 274 Q136 260 138 240 Z"
-        fill="url(#bodyFill)"
+        d="M72 268 Q68 294 66 318 Q64 340 66 354
+           L66 356 Q64 360 66 366 L78 366 Q80 360 78 356
+           L78 354 Q78 340 78 318 Q78 296 82 272 Z"
+        fill="url(#bodyMain)"
+      />
+      <path d="M72 268 Q70 290 68 318 Q66 336 68 350 L70 352 Q68 336 68 318 Q68 294 72 270 Z" fill="url(#bodyHL)" />
+      {/* Kneecap */}
+      <ellipse cx="72" cy="360" rx="5.5" ry="4.5" fill="hsl(220 6% 86%)" opacity="0.35" />
+      {/* Shin */}
+      <path
+        d="M66 368 Q62 396 62 420 Q62 438 64 450
+           L78 450 Q76 438 76 420 Q76 398 78 370 Z"
+        fill="url(#bodyMain)"
+      />
+      <path d="M66 368 Q64 392 64 420 Q64 436 66 446 L68 448 Q66 434 66 420 Q66 396 68 370 Z" fill="url(#bodyHL)" />
+      {/* Calf */}
+      <path d="M64 382 Q58 398 62 414" stroke="hsl(220 6% 76%)" strokeWidth="0.8" fill="none" opacity="0.3" />
+      {/* Foot */}
+      <path
+        d="M62 450 Q58 458 52 464 Q48 468 50 472 Q56 478 70 478 Q80 478 82 472 Q80 466 78 460 Q78 454 78 450 Z"
+        fill="url(#bodyMain)"
       />
 
-      {/* LEFT LEG */}
+      {/* ── RIGHT LEG ── */}
       <path
-        d="M72 278 Q68 310 66 345 Q64 370 66 390
-           Q66 394 68 398
-           L82 398
-           Q80 394 80 390
-           Q80 370 80 345 Q80 312 82 282 Z"
-        fill="url(#bodyFill)"
+        d="M128 268 Q132 294 134 318 Q136 340 134 354
+           L134 356 Q136 360 134 366 L122 366 Q120 360 122 356
+           L122 354 Q122 340 122 318 Q122 296 118 272 Z"
+        fill="url(#bodyMain)"
       />
-      {/* Left shin */}
+      <path d="M128 268 Q130 290 132 318 Q134 336 132 350 L130 352 Q132 336 132 318 Q132 294 128 270 Z" fill="url(#bodySH)" />
+      <ellipse cx="128" cy="360" rx="5.5" ry="4.5" fill="hsl(220 6% 84%)" opacity="0.3" />
       <path
-        d="M66 400 Q62 430 62 455 Q62 472 64 484
-           L80 484
-           Q78 472 78 455 Q78 432 80 402 Z"
-        fill="url(#bodyFill)"
+        d="M134 368 Q138 396 138 420 Q138 438 136 450
+           L122 450 Q124 438 124 420 Q124 398 122 370 Z"
+        fill="url(#bodyMain)"
       />
-      {/* Left foot */}
+      <path d="M134 368 Q136 392 136 420 Q136 436 134 446 L132 448 Q134 434 134 420 Q134 396 132 370 Z" fill="url(#bodySH)" />
+      <path d="M136 382 Q142 398 138 414" stroke="hsl(220 6% 76%)" strokeWidth="0.8" fill="none" opacity="0.3" />
       <path
-        d="M62 484 Q56 494 50 500 Q46 506 50 510
-           Q58 516 72 516 Q82 516 84 510
-           Q82 504 80 496 Q80 490 80 484 Z"
-        fill="url(#bodyFill)"
+        d="M138 450 Q142 458 148 464 Q152 468 150 472 Q144 478 130 478 Q120 478 118 472 Q120 466 122 460 Q122 454 122 450 Z"
+        fill="url(#bodyMain)"
       />
+    </g>
 
-      {/* RIGHT LEG */}
-      <path
-        d="M128 278 Q132 310 134 345 Q136 370 134 390
-           Q134 394 132 398
-           L118 398
-           Q120 394 120 390
-           Q120 370 120 345 Q120 312 118 282 Z"
-        fill="url(#bodyFill)"
-      />
-      {/* Right shin */}
-      <path
-        d="M134 400 Q138 430 138 455 Q138 472 136 484
-           L120 484
-           Q122 472 122 455 Q122 432 120 402 Z"
-        fill="url(#bodyFill)"
-      />
-      {/* Right foot */}
-      <path
-        d="M138 484 Q144 494 150 500 Q154 506 150 510
-           Q142 516 128 516 Q118 516 116 510
-           Q118 504 120 496 Q120 490 120 484 Z"
-        fill="url(#bodyFill)"
-      />
+    {/* ── Muscle definition lines ── */}
+    <g stroke="hsl(220 6% 74%)" strokeWidth="0.7" fill="none" opacity="0.35">
+      {/* Pectorals */}
+      <path d="M74 86 Q90 94 98 90 Q100 92 100 90" />
+      <path d="M126 86 Q110 94 102 90" />
+      {/* Abs */}
+      <line x1="100" y1="92" x2="100" y2="210" />
+      <path d="M92 110 L92 118" /><path d="M108 110 L108 118" />
+      <path d="M92 122 L92 130" /><path d="M108 122 L108 130" />
+      <path d="M92 134 L92 142" /><path d="M108 134 L108 142" />
+      {/* Obliques */}
+      <path d="M78 118 Q82 138 84 158" />
+      <path d="M122 118 Q118 138 116 158" />
+      {/* Navel */}
+      <ellipse cx="100" cy="156" rx="2.5" ry="3" />
+      {/* Deltoids */}
+      <path d="M48 72 Q40 80 36 92" />
+      <path d="M152 72 Q160 80 164 92" />
     </g>
   </svg>
 ));
@@ -287,17 +285,17 @@ const jointMarkers: JointMarker[] = [
   { id: "neck",     label: "Neck",        top: "11%",   left: "50%"  },
   { id: "shoulder", label: "L Shoulder",   top: "15%",   left: "24%",  labelSide: "left" },
   { id: "shoulder", label: "R Shoulder",   top: "15%",   left: "76%",  labelSide: "right" },
-  { id: "elbow",    label: "L Elbow",      top: "28%",   left: "12%",  labelSide: "left" },
-  { id: "elbow",    label: "R Elbow",      top: "28%",   left: "88%",  labelSide: "right" },
-  { id: "wrist",    label: "L Wrist",      top: "43%",   left: "6%",   labelSide: "left" },
-  { id: "wrist",    label: "R Wrist",      top: "43%",   left: "94%",  labelSide: "right" },
-  { id: "spine",    label: "Spine",        top: "24%",   left: "50%"  },
-  { id: "hip",      label: "L Hip",        top: "50%",   left: "34%",  labelSide: "left" },
-  { id: "hip",      label: "R Hip",        top: "50%",   left: "66%",  labelSide: "right" },
-  { id: "knee",     label: "L Knee",       top: "74%",   left: "35%",  labelSide: "left" },
-  { id: "knee",     label: "R Knee",       top: "74%",   left: "65%",  labelSide: "right" },
-  { id: "ankle",    label: "L Ankle",      top: "91%",   left: "33%",  labelSide: "left" },
-  { id: "ankle",    label: "R Ankle",      top: "91%",   left: "67%",  labelSide: "right" },
+  { id: "elbow",    label: "L Elbow",      top: "30%",   left: "14%",  labelSide: "left" },
+  { id: "elbow",    label: "R Elbow",      top: "30%",   left: "86%",  labelSide: "right" },
+  { id: "wrist",    label: "L Wrist",      top: "46%",   left: "8%",   labelSide: "left" },
+  { id: "wrist",    label: "R Wrist",      top: "46%",   left: "92%",  labelSide: "right" },
+  { id: "spine",    label: "Spine",        top: "26%",   left: "50%"  },
+  { id: "hip",      label: "L Hip",        top: "48%",   left: "34%",  labelSide: "left" },
+  { id: "hip",      label: "R Hip",        top: "48%",   left: "66%",  labelSide: "right" },
+  { id: "knee",     label: "L Knee",       top: "75%",   left: "30%",  labelSide: "left" },
+  { id: "knee",     label: "R Knee",       top: "75%",   left: "70%",  labelSide: "right" },
+  { id: "ankle",    label: "L Ankle",      top: "93%",   left: "30%",  labelSide: "left" },
+  { id: "ankle",    label: "R Ankle",      top: "93%",   left: "70%",  labelSide: "right" },
 ];
 
 /* ── Joint Dot — Physitrack-style teal highlight ── */
