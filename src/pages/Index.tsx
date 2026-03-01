@@ -23,16 +23,13 @@ const NutritionArticleSection = lazy(() => import("@/components/NutritionArticle
 const ConditionsSection = lazy(() => import("@/components/ConditionsSection"));
 const JointExerciseSection = lazy(() => import("@/components/JointExerciseSection"));
 
-// Lazy sections (landing page sections – curated for optimal flow)
+// Lazy sections (landing page sections)
 const TrustBarSection = lazy(() => import("@/components/landing/TrustBarSection"));
 const HowItWorksSection = lazy(() => import("@/components/landing/HowItWorksSection"));
 const ImpactBannerSection = lazy(() => import("@/components/landing/ImpactBannerSection"));
 const TestimonialsSection = lazy(() => import("@/components/landing/TestimonialsSection"));
-
-
 const DailyTipsSection = lazy(() => import("@/components/landing/DailyTipsSection"));
 const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
-
 const CommunitySection = lazy(() => import("@/components/landing/CommunitySection"));
 const FundraisingProgressSection = lazy(() => import("@/components/landing/FundraisingProgressSection"));
 const TransparencySection = lazy(() => import("@/components/landing/TransparencySection"));
@@ -52,8 +49,8 @@ SectionLoader.displayName = "SectionLoader";
 
 export default function Index() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [belowFoldRef, isBelowFoldVisible] = useDeferredVisible<HTMLDivElement>("500px");
-  
+  const [midFoldRef, isMidFoldVisible] = useDeferredVisible<HTMLDivElement>("300px");
+  const [bottomFoldRef, isBottomFoldVisible] = useDeferredVisible<HTMLDivElement>("300px");
 
   // Donation toast
   useEffect(() => {
@@ -109,49 +106,86 @@ export default function Index() {
         <main className="space-y-0">
           <HeroSection />
 
-
           <div className="container mx-auto px-5 md:px-8 space-y-10 md:space-y-14">
             <Suspense fallback={<SectionLoader />}>
               <AboutSection />
+            </Suspense>
+
+            <Suspense fallback={<SectionLoader />}>
               <ServicesGrid />
             </Suspense>
 
             <Suspense fallback={<SectionLoader />}>
               <HowItWorksSection />
+            </Suspense>
+
+            <Suspense fallback={<SectionLoader />}>
               <VirtualPhysioSection />
             </Suspense>
 
-            {/* Impact Banner */}
             <Suspense fallback={<SectionLoader />}>
               <ImpactBannerSection />
             </Suspense>
 
             <Suspense fallback={<SectionLoader />}>
               <NutritionArticleSection />
+            </Suspense>
+
+            <Suspense fallback={<SectionLoader />}>
               <DailyTipsSection />
             </Suspense>
 
-          <div ref={belowFoldRef}>
-              {isBelowFoldVisible && (
-                <Suspense fallback={<SectionLoader />}>
+            {/* Mid-fold: deferred until near viewport */}
+            <div ref={midFoldRef}>
+              {isMidFoldVisible && (
+                <>
                   <div className="space-y-10 md:space-y-14">
-                    <ConditionsSection />
-                    <JointExerciseSection />
-                    <TestimonialsSection />
-                    
-                    <CommunitySection />
-                    <UKResourcesSection />
-                    <TransparencySection />
-                    <FundraisingProgressSection />
-                    <BlogPreviewSection />
-                    <NewsletterSection />
-                    <FAQSection />
-
-
-                    <GetInTouchSection />
-                    <FinalCTASection />
+                    <Suspense fallback={<SectionLoader />}>
+                      <ConditionsSection />
+                    </Suspense>
+                    <Suspense fallback={<SectionLoader />}>
+                      <JointExerciseSection />
+                    </Suspense>
+                    <Suspense fallback={<SectionLoader />}>
+                      <TestimonialsSection />
+                    </Suspense>
+                    <Suspense fallback={<SectionLoader />}>
+                      <CommunitySection />
+                    </Suspense>
+                    <Suspense fallback={<SectionLoader />}>
+                      <UKResourcesSection />
+                    </Suspense>
                   </div>
-                </Suspense>
+                </>
+              )}
+            </div>
+
+            {/* Bottom-fold: heaviest sections deferred furthest */}
+            <div ref={bottomFoldRef}>
+              {isBottomFoldVisible && (
+                <div className="space-y-10 md:space-y-14">
+                  <Suspense fallback={<SectionLoader />}>
+                    <TransparencySection />
+                  </Suspense>
+                  <Suspense fallback={<SectionLoader />}>
+                    <FundraisingProgressSection />
+                  </Suspense>
+                  <Suspense fallback={<SectionLoader />}>
+                    <BlogPreviewSection />
+                  </Suspense>
+                  <Suspense fallback={<SectionLoader />}>
+                    <NewsletterSection />
+                  </Suspense>
+                  <Suspense fallback={<SectionLoader />}>
+                    <FAQSection />
+                  </Suspense>
+                  <Suspense fallback={<SectionLoader />}>
+                    <GetInTouchSection />
+                  </Suspense>
+                  <Suspense fallback={<SectionLoader />}>
+                    <FinalCTASection />
+                  </Suspense>
+                </div>
               )}
             </div>
           </div>
