@@ -20,6 +20,7 @@ const AboutUs = lazy(() => import("./pages/AboutUs"));
 const Osteoarthritis = lazy(() => import("./pages/conditions/Osteoarthritis"));
 const RheumatoidArthritis = lazy(() => import("./pages/conditions/RheumatoidArthritis"));
 const PsoriaticArthritis = lazy(() => import("./pages/conditions/PsoriaticArthritis"));
+const SelfHelpTool = lazy(() => import("./pages/SelfHelpTool"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading fallback component
@@ -62,6 +63,7 @@ const App = () => (
               <Route path="/conditions/osteoarthritis" element={<Osteoarthritis />} />
               <Route path="/conditions/rheumatoid-arthritis" element={<RheumatoidArthritis />} />
               <Route path="/conditions/psoriatic-arthritis" element={<PsoriaticArthritis />} />
+              <Route path="/self-help" element={<SelfHelpTool />} />
               <Route path="/sitemap" element={<Sitemap />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

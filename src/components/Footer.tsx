@@ -9,7 +9,7 @@ const Footer = () => {
   const footerLinks = {
     getHelp: [
       { label: "Virtual Assistant", href: "/chat" },
-      { label: "Self Help Tool", href: "#resources" },
+      { label: "Self Help Tool", href: "/self-help" },
     ],
     aboutArthritis: [
       { label: "Symptoms & Treatments", href: "#conditions" },
