@@ -5,7 +5,6 @@ import { ChevronRight, ArrowRight } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useConditions } from "@/hooks/useCmsContent";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const CONDITION_SLUGS: Record<string, string> = {
@@ -13,6 +12,45 @@ const CONDITION_SLUGS: Record<string, string> = {
   "Rheumatoid Arthritis": "/conditions/rheumatoid-arthritis",
   "Psoriatic Arthritis": "/conditions/psoriatic-arthritis",
 };
+
+const DiagnosisFlowChart = memo(() => (
+  <motion.div
+    initial={{ opacity: 0, y: 28 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.7, delay: 0.2 }}
+    className="mt-16 mb-4"
+  >
+    <h3 className="text-xl sm:text-2xl font-display font-bold text-foreground text-center mb-8">
+      Understanding Your <span className="text-secondary italic">Diagnosis Journey</span>
+    </h3>
+    <div className="relative max-w-3xl mx-auto">
+      {/* Flow chart steps */}
+      {[
+        { step: "1", title: "Symptoms Appear", desc: "Joint pain, stiffness, swelling or fatigue", color: "bg-primary/10 text-primary border-primary/20" },
+        { step: "2", title: "Visit Your GP", desc: "Physical examination, medical history review", color: "bg-secondary/10 text-secondary border-secondary/20" },
+        { step: "3", title: "Diagnostic Tests", desc: "Blood tests, X-rays, MRI scans, ultrasound", color: "bg-emerald-500/10 text-emerald-600 border-emerald-500/20" },
+        { step: "4", title: "Specialist Referral", desc: "Rheumatologist assessment and diagnosis", color: "bg-amber-500/10 text-amber-600 border-amber-500/20" },
+        { step: "5", title: "Treatment Plan", desc: "Personalised therapy: exercise, diet, medication", color: "bg-purple-500/10 text-purple-600 border-purple-500/20" },
+      ].map((item, i) => (
+        <div key={item.step} className="flex items-start gap-4 mb-1 last:mb-0">
+          {/* Connector line */}
+          <div className="flex flex-col items-center">
+            <div className={`w-10 h-10 rounded-full ${item.color} border-2 flex items-center justify-center font-display font-bold text-sm shrink-0`}>
+              {item.step}
+            </div>
+            {i < 4 && <div className="w-0.5 h-8 bg-border/50" />}
+          </div>
+          <div className="pt-1.5 pb-4">
+            <p className="font-display font-semibold text-foreground text-sm">{item.title}</p>
+            <p className="text-xs text-muted-foreground mt-0.5">{item.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </motion.div>
+));
+DiagnosisFlowChart.displayName = "DiagnosisFlowChart";
 
 const ConditionsSection = memo(() => {
   const { data: conditions, isLoading } = useConditions();
@@ -55,11 +93,22 @@ const ConditionsSection = memo(() => {
           ) : (
             conditions?.map((condition, i) => {
               const href = CONDITION_SLUGS[condition.title];
+              const imageUrl = (condition as any).image_url;
               const cardContent = (
                 <>
                   <div className="absolute inset-0 bg-gradient-to-br from-secondary/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                  <CardHeader className="pb-2 relative p-8">
-                    <div className="flex items-center justify-between mb-4">
+                  {imageUrl && (
+                    <div className="w-full h-40 overflow-hidden rounded-t-[2rem]">
+                      <img
+                        src={imageUrl}
+                        alt={`${condition.title} illustration`}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+                  <CardHeader className={`pb-2 relative ${imageUrl ? 'p-6 pt-4' : 'p-8'}`}>
+                    <div className="flex items-center justify-between mb-3">
                       <Badge className={`${condition.color} text-white text-[10px] font-bold px-3 py-0.5 rounded-full tracking-wider`}>
                         {condition.category}
                       </Badge>
@@ -74,7 +123,7 @@ const ConditionsSection = memo(() => {
                       {condition.title}
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="relative px-8 pb-8">
+                  <CardContent className={`relative ${imageUrl ? 'px-6 pb-6' : 'px-8 pb-8'}`}>
                     <CardDescription className="text-muted-foreground leading-[1.75] text-[13px]">
                       {condition.description}
                     </CardDescription>
@@ -94,12 +143,12 @@ const ConditionsSection = memo(() => {
                 >
                   {href ? (
                     <Link to={href} className="block h-full no-underline">
-                      <Card className="group h-full premium-card cursor-pointer">
+                      <Card className="group h-full premium-card cursor-pointer overflow-hidden">
                         {cardContent}
                       </Card>
                     </Link>
                   ) : (
-                    <Card className="group h-full premium-card cursor-pointer">
+                    <Card className="group h-full premium-card cursor-pointer overflow-hidden">
                       {cardContent}
                     </Card>
                   )}
@@ -108,6 +157,9 @@ const ConditionsSection = memo(() => {
             })
           )}
         </div>
+
+        {/* Diagnosis Flow Chart */}
+        <DiagnosisFlowChart />
       </div>
     </section>
   );
