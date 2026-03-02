@@ -1,7 +1,6 @@
 import { memo, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Dumbbell, Clock, RotateCcw, Activity } from "lucide-react";
-import bodyMannequin from "@/assets/body-mannequin.png";
 
 interface Exercise {
   name: string;
@@ -106,15 +105,99 @@ const jointDatabase: Record<string, JointData> = {
   },
 };
 
-const BodyImage = memo(() => (
-  <img
-    src={bodyMannequin}
-    alt="Human body diagram for joint exercises"
+/* ── Inline SVG humanoid silhouette with visible joint landmarks ── */
+
+const jointLandmarks = [
+  { cx: 200, cy: 62,  r: 5 },   // Neck
+  { cx: 140, cy: 95,  r: 5 },   // L Shoulder
+  { cx: 260, cy: 95,  r: 5 },   // R Shoulder
+  { cx: 105, cy: 185, r: 4.5 }, // L Elbow
+  { cx: 295, cy: 185, r: 4.5 }, // R Elbow
+  { cx: 78,  cy: 275, r: 4 },   // L Wrist
+  { cx: 322, cy: 275, r: 4 },   // R Wrist
+  { cx: 200, cy: 155, r: 5 },   // Spine
+  { cx: 168, cy: 285, r: 5 },   // L Hip
+  { cx: 232, cy: 285, r: 5 },   // R Hip
+  { cx: 160, cy: 420, r: 5 },   // L Knee
+  { cx: 240, cy: 420, r: 5 },   // R Knee
+  { cx: 155, cy: 540, r: 4 },   // L Ankle
+  { cx: 245, cy: 540, r: 4 },   // R Ankle
+];
+
+const BodySVG = memo(() => (
+  <svg
+    viewBox="0 0 400 600"
     className="w-full h-auto select-none pointer-events-none"
-    draggable={false}
-  />
+    aria-label="Human body diagram for joint exercises"
+    role="img"
+  >
+    <defs>
+      <linearGradient id="bodyGrad" x1="0.5" y1="0" x2="0.5" y2="1">
+        <stop offset="0%" stopColor="#6FA8B8" />
+        <stop offset="100%" stopColor="#3D6B7E" />
+      </linearGradient>
+      <filter id="bodyShadow">
+        <feDropShadow dx="0" dy="2" stdDeviation="6" floodColor="#3D6B7E" floodOpacity="0.18" />
+      </filter>
+    </defs>
+
+    {/* Head */}
+    <ellipse cx="200" cy="32" rx="26" ry="30" fill="url(#bodyGrad)" filter="url(#bodyShadow)" />
+    
+    {/* Neck */}
+    <rect x="190" y="58" width="20" height="22" rx="4" fill="url(#bodyGrad)" />
+
+    {/* Torso */}
+    <path
+      d="M140,80 Q135,78 130,95 L120,160 Q118,180 125,210 L135,260 Q140,280 150,290 L165,295 Q185,300 200,300 Q215,300 235,295 L250,290 Q260,280 265,260 L275,210 Q282,180 280,160 L270,95 Q265,78 260,80 Z"
+      fill="url(#bodyGrad)"
+      filter="url(#bodyShadow)"
+    />
+
+    {/* Left arm */}
+    <path
+      d="M130,95 Q120,100 110,140 L105,185 Q100,210 90,250 L78,275 Q72,290 75,295 Q80,300 85,295 L95,270 Q100,255 105,240"
+      fill="none" stroke="url(#bodyGrad)" strokeWidth="22" strokeLinecap="round" strokeLinejoin="round"
+      filter="url(#bodyShadow)"
+    />
+
+    {/* Right arm */}
+    <path
+      d="M270,95 Q280,100 290,140 L295,185 Q300,210 310,250 L322,275 Q328,290 325,295 Q320,300 315,295 L305,270 Q300,255 295,240"
+      fill="none" stroke="url(#bodyGrad)" strokeWidth="22" strokeLinecap="round" strokeLinejoin="round"
+      filter="url(#bodyShadow)"
+    />
+
+    {/* Left leg */}
+    <path
+      d="M170,295 Q165,320 162,360 L160,420 Q158,460 156,500 L155,540 Q154,555 150,570 Q148,580 155,582 Q162,582 163,570 L165,555"
+      fill="none" stroke="url(#bodyGrad)" strokeWidth="26" strokeLinecap="round" strokeLinejoin="round"
+      filter="url(#bodyShadow)"
+    />
+
+    {/* Right leg */}
+    <path
+      d="M230,295 Q235,320 238,360 L240,420 Q242,460 244,500 L245,540 Q246,555 250,570 Q252,580 245,582 Q238,582 237,570 L235,555"
+      fill="none" stroke="url(#bodyGrad)" strokeWidth="26" strokeLinecap="round" strokeLinejoin="round"
+      filter="url(#bodyShadow)"
+    />
+
+    {/* Joint landmark circles — always visible */}
+    {jointLandmarks.map((j, i) => (
+      <circle
+        key={i}
+        cx={j.cx}
+        cy={j.cy}
+        r={j.r}
+        fill="white"
+        stroke="#3D6B7E"
+        strokeWidth="1.5"
+        opacity="0.85"
+      />
+    ))}
+  </svg>
 ));
-BodyImage.displayName = "BodyImage";
+BodySVG.displayName = "BodySVG";
 
 /* ── Joint hotspot markers positioned over the SVG ── */
 
@@ -302,7 +385,7 @@ const JointExerciseSection = memo(() => {
             className="flex justify-center"
           >
             <div className="relative w-full max-w-[340px]">
-              <BodyImage />
+              <BodySVG />
               {jointMarkers.map((marker, idx) => (
                 <JointDot
                   key={`${marker.id}-${idx}`}
