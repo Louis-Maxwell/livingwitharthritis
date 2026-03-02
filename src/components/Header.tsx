@@ -46,6 +46,7 @@ const Header = () => {
     { label: "About Arthritis", href: "#about", action: () => navigate("/about") },
     { label: "Our Services", href: "#services" },
     { label: "Conditions", href: "#conditions" },
+    { label: "Self Help Tool", href: "/self-help", action: () => navigate("/self-help") },
     { label: "Blog", href: "/blog", action: () => navigate("/blog") },
     { label: "Get Involved", href: "#involved" },
   ];
