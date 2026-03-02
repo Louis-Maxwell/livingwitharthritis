@@ -105,101 +105,19 @@ const jointDatabase: Record<string, JointData> = {
   },
 };
 
-/* ── Inline SVG humanoid silhouette with visible joint landmarks ── */
+import bodyMannequin from "@/assets/body-mannequin.png";
 
-const jointLandmarks = [
-  { cx: 200, cy: 62,  r: 5 },   // Neck
-  { cx: 140, cy: 95,  r: 5 },   // L Shoulder
-  { cx: 260, cy: 95,  r: 5 },   // R Shoulder
-  { cx: 105, cy: 185, r: 4.5 }, // L Elbow
-  { cx: 295, cy: 185, r: 4.5 }, // R Elbow
-  { cx: 78,  cy: 275, r: 4 },   // L Wrist
-  { cx: 322, cy: 275, r: 4 },   // R Wrist
-  { cx: 200, cy: 155, r: 5 },   // Spine
-  { cx: 168, cy: 285, r: 5 },   // L Hip
-  { cx: 232, cy: 285, r: 5 },   // R Hip
-  { cx: 160, cy: 420, r: 5 },   // L Knee
-  { cx: 240, cy: 420, r: 5 },   // R Knee
-  { cx: 155, cy: 540, r: 4 },   // L Ankle
-  { cx: 245, cy: 540, r: 4 },   // R Ankle
-];
-
-const BodySVG = memo(() => (
-  <svg
-    viewBox="0 0 400 600"
+const BodyImage = memo(() => (
+  <img
+    src={bodyMannequin}
+    alt="Human body diagram for joint exercises"
     className="w-full h-auto select-none pointer-events-none"
-    aria-label="Human body diagram for joint exercises"
-    role="img"
-  >
-    <defs>
-      <linearGradient id="bodyGrad" x1="0.5" y1="0" x2="0.5" y2="1">
-        <stop offset="0%" stopColor="#6FA8B8" />
-        <stop offset="100%" stopColor="#3D6B7E" />
-      </linearGradient>
-      <filter id="bodyShadow">
-        <feDropShadow dx="0" dy="2" stdDeviation="6" floodColor="#3D6B7E" floodOpacity="0.18" />
-      </filter>
-    </defs>
-
-    {/* Head */}
-    <ellipse cx="200" cy="32" rx="26" ry="30" fill="url(#bodyGrad)" filter="url(#bodyShadow)" />
-    
-    {/* Neck */}
-    <rect x="190" y="58" width="20" height="22" rx="4" fill="url(#bodyGrad)" />
-
-    {/* Torso */}
-    <path
-      d="M140,80 Q135,78 130,95 L120,160 Q118,180 125,210 L135,260 Q140,280 150,290 L165,295 Q185,300 200,300 Q215,300 235,295 L250,290 Q260,280 265,260 L275,210 Q282,180 280,160 L270,95 Q265,78 260,80 Z"
-      fill="url(#bodyGrad)"
-      filter="url(#bodyShadow)"
-    />
-
-    {/* Left arm */}
-    <path
-      d="M130,95 Q120,100 110,140 L105,185 Q100,210 90,250 L78,275 Q72,290 75,295 Q80,300 85,295 L95,270 Q100,255 105,240"
-      fill="none" stroke="url(#bodyGrad)" strokeWidth="22" strokeLinecap="round" strokeLinejoin="round"
-      filter="url(#bodyShadow)"
-    />
-
-    {/* Right arm */}
-    <path
-      d="M270,95 Q280,100 290,140 L295,185 Q300,210 310,250 L322,275 Q328,290 325,295 Q320,300 315,295 L305,270 Q300,255 295,240"
-      fill="none" stroke="url(#bodyGrad)" strokeWidth="22" strokeLinecap="round" strokeLinejoin="round"
-      filter="url(#bodyShadow)"
-    />
-
-    {/* Left leg */}
-    <path
-      d="M170,295 Q165,320 162,360 L160,420 Q158,460 156,500 L155,540 Q154,555 150,570 Q148,580 155,582 Q162,582 163,570 L165,555"
-      fill="none" stroke="url(#bodyGrad)" strokeWidth="26" strokeLinecap="round" strokeLinejoin="round"
-      filter="url(#bodyShadow)"
-    />
-
-    {/* Right leg */}
-    <path
-      d="M230,295 Q235,320 238,360 L240,420 Q242,460 244,500 L245,540 Q246,555 250,570 Q252,580 245,582 Q238,582 237,570 L235,555"
-      fill="none" stroke="url(#bodyGrad)" strokeWidth="26" strokeLinecap="round" strokeLinejoin="round"
-      filter="url(#bodyShadow)"
-    />
-
-    {/* Joint landmark circles — always visible */}
-    {jointLandmarks.map((j, i) => (
-      <circle
-        key={i}
-        cx={j.cx}
-        cy={j.cy}
-        r={j.r}
-        fill="white"
-        stroke="#3D6B7E"
-        strokeWidth="1.5"
-        opacity="0.85"
-      />
-    ))}
-  </svg>
+    draggable={false}
+  />
 ));
-BodySVG.displayName = "BodySVG";
+BodyImage.displayName = "BodyImage";
 
-/* ── Joint hotspot markers positioned over the SVG ── */
+/* ── Joint hotspot markers positioned over the mannequin image ── */
 
 interface JointMarker {
   id: string;
@@ -210,20 +128,20 @@ interface JointMarker {
 }
 
 const jointMarkers: JointMarker[] = [
-  { id: "neck",     label: "Neck",        top: "12%",   left: "50%"  },
-  { id: "shoulder", label: "L Shoulder",   top: "16%",   left: "24%",  labelSide: "left" },
-  { id: "shoulder", label: "R Shoulder",   top: "16%",   left: "76%",  labelSide: "right" },
-  { id: "elbow",    label: "L Elbow",      top: "32%",   left: "14%",  labelSide: "left" },
-  { id: "elbow",    label: "R Elbow",      top: "32%",   left: "86%",  labelSide: "right" },
-  { id: "wrist",    label: "L Wrist",      top: "48%",   left: "8%",   labelSide: "left" },
-  { id: "wrist",    label: "R Wrist",      top: "48%",   left: "92%",  labelSide: "right" },
-  { id: "spine",    label: "Spine",        top: "27%",   left: "50%"  },
-  { id: "hip",      label: "L Hip",        top: "52%",   left: "34%",  labelSide: "left" },
-  { id: "hip",      label: "R Hip",        top: "52%",   left: "66%",  labelSide: "right" },
-  { id: "knee",     label: "L Knee",       top: "74%",   left: "30%",  labelSide: "left" },
-  { id: "knee",     label: "R Knee",       top: "74%",   left: "70%",  labelSide: "right" },
-  { id: "ankle",    label: "L Ankle",      top: "92%",   left: "30%",  labelSide: "left" },
-  { id: "ankle",    label: "R Ankle",      top: "92%",   left: "70%",  labelSide: "right" },
+  { id: "neck",     label: "Neck",        top: "14%",   left: "50%"  },
+  { id: "shoulder", label: "L Shoulder",   top: "19%",   left: "30%",  labelSide: "left" },
+  { id: "shoulder", label: "R Shoulder",   top: "19%",   left: "70%",  labelSide: "right" },
+  { id: "elbow",    label: "L Elbow",      top: "34%",   left: "18%",  labelSide: "left" },
+  { id: "elbow",    label: "R Elbow",      top: "34%",   left: "82%",  labelSide: "right" },
+  { id: "wrist",    label: "L Wrist",      top: "47%",   left: "12%",  labelSide: "left" },
+  { id: "wrist",    label: "R Wrist",      top: "47%",   left: "88%",  labelSide: "right" },
+  { id: "spine",    label: "Spine",        top: "30%",   left: "50%"  },
+  { id: "hip",      label: "L Hip",        top: "48%",   left: "38%",  labelSide: "left" },
+  { id: "hip",      label: "R Hip",        top: "48%",   left: "62%",  labelSide: "right" },
+  { id: "knee",     label: "L Knee",       top: "68%",   left: "38%",  labelSide: "left" },
+  { id: "knee",     label: "R Knee",       top: "68%",   left: "62%",  labelSide: "right" },
+  { id: "ankle",    label: "L Ankle",      top: "88%",   left: "38%",  labelSide: "left" },
+  { id: "ankle",    label: "R Ankle",      top: "88%",   left: "62%",  labelSide: "right" },
 ];
 
 /* ── Joint Dot — Physitrack-style teal highlight ── */
@@ -385,7 +303,7 @@ const JointExerciseSection = memo(() => {
             className="flex justify-center"
           >
             <div className="relative w-full max-w-[340px]">
-              <BodySVG />
+              <BodyImage />
               {jointMarkers.map((marker, idx) => (
                 <JointDot
                   key={`${marker.id}-${idx}`}
