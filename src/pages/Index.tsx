@@ -1,43 +1,42 @@
-import { lazy, Suspense, memo, useEffect } from "react";
+import { lazy, Suspense, memo, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-import { CalendarCheck } from "lucide-react";
+import { CalendarCheck, Apple, Dumbbell, Stethoscope, Users, MapPin } from "lucide-react";
 import { toast } from "sonner";
 import { useSearchParams } from "react-router-dom";
 
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
-import { useDeferredVisible } from "@/hooks/useDeferredVisible";
 import { AppointmentModal } from "@/components/AppointmentModal";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import DonationNotification from "@/components/DonationNotification";
 import FeedbackPopup from "@/components/FeedbackPopup";
 
-// Lazy sections (existing)
+// Lazy sections – always on page
 const AboutSection = lazy(() => import("@/components/AboutSection"));
 const ServicesGrid = lazy(() => import("@/components/ServicesGrid"));
-const VirtualPhysioSection = lazy(() => import("@/components/VirtualPhysioSection"));
-const NutritionArticleSection = lazy(() => import("@/components/NutritionArticleSection"));
-const ConditionsSection = lazy(() => import("@/components/ConditionsSection"));
-const JointExerciseSection = lazy(() => import("@/components/JointExerciseSection"));
-
-// Lazy sections (landing page sections)
-const TrustBarSection = lazy(() => import("@/components/landing/TrustBarSection"));
 const HowItWorksSection = lazy(() => import("@/components/landing/HowItWorksSection"));
-const ImpactBannerSection = lazy(() => import("@/components/landing/ImpactBannerSection"));
-const TestimonialsSection = lazy(() => import("@/components/landing/TestimonialsSection"));
 const DailyTipsSection = lazy(() => import("@/components/landing/DailyTipsSection"));
-const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
-const CommunitySection = lazy(() => import("@/components/landing/CommunitySection"));
-const FundraisingProgressSection = lazy(() => import("@/components/landing/FundraisingProgressSection"));
-const TransparencySection = lazy(() => import("@/components/landing/TransparencySection"));
 const BlogPreviewSection = lazy(() => import("@/components/landing/BlogPreviewSection"));
-const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSection"));
+const TestimonialsSection = lazy(() => import("@/components/landing/TestimonialsSection"));
+const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
+const FundraisingProgressSection = lazy(() => import("@/components/landing/FundraisingProgressSection"));
 const GetInTouchSection = lazy(() => import("@/components/landing/GetInTouchSection"));
 const FinalCTASection = lazy(() => import("@/components/landing/FinalCTASection"));
+const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSection"));
+const ImpactBannerSection = lazy(() => import("@/components/landing/ImpactBannerSection"));
+
+// Lazy sections – inside tabs (loaded on demand)
+const NutritionArticleSection = lazy(() => import("@/components/NutritionArticleSection"));
+const VirtualPhysioSection = lazy(() => import("@/components/VirtualPhysioSection"));
+const JointExerciseSection = lazy(() => import("@/components/JointExerciseSection"));
+const ConditionsSection = lazy(() => import("@/components/ConditionsSection"));
+const CommunitySection = lazy(() => import("@/components/landing/CommunitySection"));
 const UKResourcesSection = lazy(() => import("@/components/landing/UKResourcesSection"));
+const TransparencySection = lazy(() => import("@/components/landing/TransparencySection"));
 
 const SectionLoader = memo(() => (
   <div className="py-8 flex items-center justify-center">
@@ -46,11 +45,38 @@ const SectionLoader = memo(() => (
 ));
 SectionLoader.displayName = "SectionLoader";
 
+/* ── Tab definitions ── */
+const EXPLORE_TABS = [
+  {
+    value: "nutrition",
+    label: "Nutrition",
+    icon: Apple,
+  },
+  {
+    value: "exercises",
+    label: "Exercises",
+    icon: Dumbbell,
+  },
+  {
+    value: "conditions",
+    label: "Conditions",
+    icon: Stethoscope,
+  },
+  {
+    value: "community",
+    label: "Community",
+    icon: Users,
+  },
+  {
+    value: "resources",
+    label: "UK Resources",
+    icon: MapPin,
+  },
+] as const;
 
 export default function Index() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [midFoldRef, isMidFoldVisible] = useDeferredVisible<HTMLDivElement>("300px");
-  const [bottomFoldRef, isBottomFoldVisible] = useDeferredVisible<HTMLDivElement>("300px");
+  const [activeTab, setActiveTab] = useState<string>("nutrition");
 
   // Donation toast
   useEffect(() => {
@@ -107,87 +133,122 @@ export default function Index() {
           <HeroSection />
 
           <div className="container mx-auto px-5 md:px-8 space-y-10 md:space-y-14">
+            {/* ── Always visible: About + Services ── */}
             <Suspense fallback={<SectionLoader />}>
               <AboutSection />
             </Suspense>
-
             <Suspense fallback={<SectionLoader />}>
               <ServicesGrid />
             </Suspense>
-
             <Suspense fallback={<SectionLoader />}>
               <HowItWorksSection />
             </Suspense>
 
-            <Suspense fallback={<SectionLoader />}>
-              <VirtualPhysioSection />
-            </Suspense>
-
+            {/* ── Impact Banner ── */}
             <Suspense fallback={<SectionLoader />}>
               <ImpactBannerSection />
             </Suspense>
 
-            <Suspense fallback={<SectionLoader />}>
-              <NutritionArticleSection />
-            </Suspense>
+            {/* ══════════════════════════════════════════
+                 TABBED EXPLORE SECTION
+                 Reduces scrolling by grouping heavy content
+                ══════════════════════════════════════════ */}
+            <section id="explore" className="scroll-mt-24">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground tracking-tight">
+                  Explore Our Resources
+                </h2>
+                <p className="text-muted-foreground mt-3 max-w-lg mx-auto text-sm sm:text-base">
+                  Click a tab below to discover nutrition guides, exercises, conditions info, community support and more.
+                </p>
+              </div>
 
+              <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+                <TabsList className="w-full flex flex-wrap justify-center gap-1 bg-muted/50 p-1.5 rounded-2xl h-auto">
+                  {EXPLORE_TABS.map((tab) => {
+                    const Icon = tab.icon;
+                    return (
+                      <TabsTrigger
+                        key={tab.value}
+                        value={tab.value}
+                        className="flex items-center gap-2 px-4 py-2.5 text-xs sm:text-sm font-semibold rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md transition-all duration-200"
+                      >
+                        <Icon className="w-4 h-4" />
+                        <span className="hidden sm:inline">{tab.label}</span>
+                        <span className="sm:hidden">{tab.label.split(" ")[0]}</span>
+                      </TabsTrigger>
+                    );
+                  })}
+                </TabsList>
+
+                <div className="mt-8">
+                  <TabsContent value="nutrition" className="space-y-10 md:space-y-14 mt-0">
+                    <Suspense fallback={<SectionLoader />}>
+                      <NutritionArticleSection />
+                    </Suspense>
+                  </TabsContent>
+
+                  <TabsContent value="exercises" className="space-y-10 md:space-y-14 mt-0">
+                    <Suspense fallback={<SectionLoader />}>
+                      <VirtualPhysioSection />
+                      <JointExerciseSection />
+                    </Suspense>
+                  </TabsContent>
+
+                  <TabsContent value="conditions" className="space-y-10 md:space-y-14 mt-0">
+                    <Suspense fallback={<SectionLoader />}>
+                      <ConditionsSection />
+                    </Suspense>
+                  </TabsContent>
+
+                  <TabsContent value="community" className="space-y-10 md:space-y-14 mt-0">
+                    <Suspense fallback={<SectionLoader />}>
+                      <CommunitySection />
+                      <TransparencySection />
+                    </Suspense>
+                  </TabsContent>
+
+                  <TabsContent value="resources" className="space-y-10 md:space-y-14 mt-0">
+                    <Suspense fallback={<SectionLoader />}>
+                      <UKResourcesSection />
+                    </Suspense>
+                  </TabsContent>
+                </div>
+              </Tabs>
+            </section>
+
+            {/* ── Always visible: Tips, Blog, Testimonials, FAQ, Donate ── */}
             <Suspense fallback={<SectionLoader />}>
               <DailyTipsSection />
             </Suspense>
 
-            {/* Mid-fold: deferred until near viewport */}
-            <div ref={midFoldRef}>
-              {isMidFoldVisible && (
-                <>
-                  <div className="space-y-10 md:space-y-14">
-                    <Suspense fallback={<SectionLoader />}>
-                      <ConditionsSection />
-                    </Suspense>
-                    <Suspense fallback={<SectionLoader />}>
-                      <JointExerciseSection />
-                    </Suspense>
-                    <Suspense fallback={<SectionLoader />}>
-                      <TestimonialsSection />
-                    </Suspense>
-                    <Suspense fallback={<SectionLoader />}>
-                      <CommunitySection />
-                    </Suspense>
-                    <Suspense fallback={<SectionLoader />}>
-                      <UKResourcesSection />
-                    </Suspense>
-                  </div>
-                </>
-              )}
-            </div>
+            <Suspense fallback={<SectionLoader />}>
+              <BlogPreviewSection />
+            </Suspense>
 
-            {/* Bottom-fold: heaviest sections deferred furthest */}
-            <div ref={bottomFoldRef}>
-              {isBottomFoldVisible && (
-                <div className="space-y-10 md:space-y-14">
-                  <Suspense fallback={<SectionLoader />}>
-                    <TransparencySection />
-                  </Suspense>
-                  <Suspense fallback={<SectionLoader />}>
-                    <FundraisingProgressSection />
-                  </Suspense>
-                  <Suspense fallback={<SectionLoader />}>
-                    <BlogPreviewSection />
-                  </Suspense>
-                  <Suspense fallback={<SectionLoader />}>
-                    <NewsletterSection />
-                  </Suspense>
-                  <Suspense fallback={<SectionLoader />}>
-                    <FAQSection />
-                  </Suspense>
-                  <Suspense fallback={<SectionLoader />}>
-                    <GetInTouchSection />
-                  </Suspense>
-                  <Suspense fallback={<SectionLoader />}>
-                    <FinalCTASection />
-                  </Suspense>
-                </div>
-              )}
-            </div>
+            <Suspense fallback={<SectionLoader />}>
+              <TestimonialsSection />
+            </Suspense>
+
+            <Suspense fallback={<SectionLoader />}>
+              <FAQSection />
+            </Suspense>
+
+            <Suspense fallback={<SectionLoader />}>
+              <FundraisingProgressSection />
+            </Suspense>
+
+            <Suspense fallback={<SectionLoader />}>
+              <NewsletterSection />
+            </Suspense>
+
+            <Suspense fallback={<SectionLoader />}>
+              <GetInTouchSection />
+            </Suspense>
+
+            <Suspense fallback={<SectionLoader />}>
+              <FinalCTASection />
+            </Suspense>
           </div>
         </main>
 
