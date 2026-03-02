@@ -93,7 +93,7 @@ const ConditionsSection = memo(() => {
           ) : (
             conditions?.map((condition, i) => {
               const href = CONDITION_SLUGS[condition.title];
-              const imageUrl = (condition as any).image_url;
+              const imageUrl = condition.image_url;
               const cardContent = (
                 <>
                   <div className="absolute inset-0 bg-gradient-to-br from-secondary/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />

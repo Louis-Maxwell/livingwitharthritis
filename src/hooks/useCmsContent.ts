@@ -16,6 +16,7 @@ export interface Condition {
   description: string;
   category: string;
   color: string;
+  image_url: string | null;
   display_order: number;
 }
 
