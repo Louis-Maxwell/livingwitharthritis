@@ -47,7 +47,7 @@ const ServicesGrid = () => {
   const sectionRef = useRef<HTMLElement>(null);
 
   return (
-    <section ref={sectionRef} id="services" className="py-14 lg:py-20 bg-accent/30 relative overflow-hidden section-divider">
+    <section ref={sectionRef} id="services" className="py-14 lg:py-20 section-cream relative overflow-hidden section-divider section-texture">
       <div className="container mx-auto px-6 md:px-10 relative">
         <motion.div
           initial={{ opacity: 0, y: 24 }}

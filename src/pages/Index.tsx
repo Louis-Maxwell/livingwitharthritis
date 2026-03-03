@@ -39,8 +39,8 @@ const UKResourcesSection = lazy(() => import("@/components/landing/UKResourcesSe
 const TransparencySection = lazy(() => import("@/components/landing/TransparencySection"));
 
 const SectionLoader = memo(() => (
-  <div className="py-8 flex items-center justify-center">
-    <div className="h-10 w-10 animate-spin rounded-full border-4 border-primary/30 border-t-primary" />
+  <div className="py-6 flex items-center justify-center">
+    <div className="h-8 w-8 animate-spin rounded-full border-3 border-primary/20 border-t-primary" />
   </div>
 ));
 SectionLoader.displayName = "SectionLoader";
@@ -153,14 +153,16 @@ export default function Index() {
                  TABBED EXPLORE SECTION
                  Reduces scrolling by grouping heavy content
                 ══════════════════════════════════════════ */}
-            <section id="explore" className="scroll-mt-24">
+            <section id="explore" className="scroll-mt-24 section-warm rounded-3xl p-6 sm:p-10 section-texture">
               <div className="text-center mb-8">
+                <span className="section-label text-primary mb-3 block">Discover</span>
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground tracking-tight">
                   Explore Our Resources
                 </h2>
                 <p className="text-muted-foreground mt-3 max-w-lg mx-auto text-sm sm:text-base">
                   Click a tab below to discover nutrition guides, exercises, conditions info, community support and more.
                 </p>
+                <div className="w-16 h-1 bg-primary mx-auto mt-5 rounded-full" />
               </div>
 
               <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">

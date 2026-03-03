@@ -17,9 +17,12 @@ const HeroSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative overflow-hidden bg-background">
+    <section className="relative overflow-hidden bg-gradient-to-br from-[hsl(var(--section-warm))] via-background to-[hsl(var(--section-rose))]">
       {/* Warm gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.04] via-transparent to-secondary/[0.03]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.06] via-transparent to-secondary/[0.04]" />
+      {/* Decorative orbs */}
+      <div className="absolute top-20 left-10 w-[400px] h-[400px] rounded-full bg-primary/[0.04] blur-[100px] pointer-events-none glow-pulse" />
+      <div className="absolute bottom-20 right-10 w-[300px] h-[300px] rounded-full bg-secondary/[0.03] blur-[80px] pointer-events-none" />
 
       <div className="container mx-auto px-6 md:px-10 relative">
         <div className="flex items-center justify-center min-h-[calc(100vh-140px)] py-20 lg:py-0">
