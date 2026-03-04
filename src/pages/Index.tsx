@@ -46,7 +46,7 @@ const SectionLoader = memo(() => (
 SectionLoader.displayName = "SectionLoader";
 
 // Import scroll animation wrapper
-import { AnimatedSection } from "@/components/ui/AnimatedSection";
+// AnimatedSection available for non-lazy content if needed
 
 /* ── Tab definitions ── */
 const EXPLORE_TABS = [
@@ -137,27 +137,18 @@ export default function Index() {
 
           <div className="container mx-auto px-5 md:px-8 space-y-10 md:space-y-14">
             {/* ── Always visible: About + Services ── */}
-            <AnimatedSection>
-              <Suspense fallback={<SectionLoader />}>
-                <AboutSection />
-              </Suspense>
-            </AnimatedSection>
-            <AnimatedSection delay={0.1}>
-              <Suspense fallback={<SectionLoader />}>
-                <ServicesGrid />
-              </Suspense>
-            </AnimatedSection>
-            <AnimatedSection delay={0.15}>
-              <Suspense fallback={<SectionLoader />}>
-                <HowItWorksSection />
-              </Suspense>
-            </AnimatedSection>
-
-            <AnimatedSection>
-              <Suspense fallback={<SectionLoader />}>
-                <ImpactBannerSection />
-              </Suspense>
-            </AnimatedSection>
+            <Suspense fallback={<SectionLoader />}>
+              <AboutSection />
+            </Suspense>
+            <Suspense fallback={<SectionLoader />}>
+              <ServicesGrid />
+            </Suspense>
+            <Suspense fallback={<SectionLoader />}>
+              <HowItWorksSection />
+            </Suspense>
+            <Suspense fallback={<SectionLoader />}>
+              <ImpactBannerSection />
+            </Suspense>
 
             {/* ══════════════════════════════════════════
                  TABBED EXPLORE SECTION
@@ -228,53 +219,37 @@ export default function Index() {
             </section>
 
             {/* ── Always visible: Tips, Blog, Testimonials, FAQ, Donate ── */}
-            <AnimatedSection>
-              <Suspense fallback={<SectionLoader />}>
-                <DailyTipsSection />
-              </Suspense>
-            </AnimatedSection>
+            <Suspense fallback={<SectionLoader />}>
+              <DailyTipsSection />
+            </Suspense>
 
-            <AnimatedSection>
-              <Suspense fallback={<SectionLoader />}>
-                <BlogPreviewSection />
-              </Suspense>
-            </AnimatedSection>
+            <Suspense fallback={<SectionLoader />}>
+              <BlogPreviewSection />
+            </Suspense>
 
-            <AnimatedSection>
-              <Suspense fallback={<SectionLoader />}>
-                <TestimonialsSection />
-              </Suspense>
-            </AnimatedSection>
+            <Suspense fallback={<SectionLoader />}>
+              <TestimonialsSection />
+            </Suspense>
 
-            <AnimatedSection>
-              <Suspense fallback={<SectionLoader />}>
-                <FAQSection />
-              </Suspense>
-            </AnimatedSection>
+            <Suspense fallback={<SectionLoader />}>
+              <FAQSection />
+            </Suspense>
 
-            <AnimatedSection>
-              <Suspense fallback={<SectionLoader />}>
-                <FundraisingProgressSection />
-              </Suspense>
-            </AnimatedSection>
+            <Suspense fallback={<SectionLoader />}>
+              <FundraisingProgressSection />
+            </Suspense>
 
-            <AnimatedSection>
-              <Suspense fallback={<SectionLoader />}>
-                <NewsletterSection />
-              </Suspense>
-            </AnimatedSection>
+            <Suspense fallback={<SectionLoader />}>
+              <NewsletterSection />
+            </Suspense>
 
-            <AnimatedSection>
-              <Suspense fallback={<SectionLoader />}>
-                <GetInTouchSection />
-              </Suspense>
-            </AnimatedSection>
+            <Suspense fallback={<SectionLoader />}>
+              <GetInTouchSection />
+            </Suspense>
 
-            <AnimatedSection>
-              <Suspense fallback={<SectionLoader />}>
-                <FinalCTASection />
-              </Suspense>
-            </AnimatedSection>
+            <Suspense fallback={<SectionLoader />}>
+              <FinalCTASection />
+            </Suspense>
           </div>
         </main>
 
