@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MessageCircle, X } from "lucide-react";
+import { Bot, X } from "lucide-react";
 import { ChatBot } from "@/components/ChatBot";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -21,7 +21,7 @@ export default function ChatBotWidget() {
             </motion.span>
           ) : (
             <motion.span key="open" initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.5, opacity: 0 }} transition={{ duration: 0.15 }}>
-              <MessageCircle className="h-6 w-6" />
+              <Bot className="h-6 w-6" />
             </motion.span>
           )}
         </AnimatePresence>
@@ -34,7 +34,7 @@ export default function ChatBotWidget() {
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.15, ease: "easeOut" }}
             className="fixed bottom-24 right-6 z-50 w-[370px] max-w-[calc(100vw-2rem)] h-[520px] max-h-[calc(100vh-8rem)] rounded-2xl border border-border/60 shadow-2xl overflow-hidden bg-background sm:right-8"
           >
             <ChatBot />
