@@ -3,6 +3,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { MessageSquareHeart } from "lucide-react";
 
 const FEEDBACK_KEY = "oa_feedback_dismissed";
 
@@ -41,13 +42,21 @@ export default function FeedbackPopup() {
 
   return (
     <Dialog open={open} onOpenChange={(v) => { if (!v) handleDismiss(); }}>
-      <DialogContent className="sm:max-w-md !fixed !left-auto !right-6 !bottom-6 !top-auto !translate-x-0 !translate-y-0 !duration-500 data-[state=open]:!slide-in-from-right-full data-[state=open]:!slide-in-from-bottom-0 data-[state=closed]:!slide-out-to-right-full data-[state=closed]:!slide-out-to-bottom-0 data-[state=open]:!fade-in-100 data-[state=closed]:!fade-out-100">
-        <DialogHeader>
-          <DialogTitle className="text-xl">We'd love your feedback!</DialogTitle>
-          <DialogDescription>Rate your experience so far (1 = poor, 5 = excellent)</DialogDescription>
-        </DialogHeader>
+      <DialogContent className="sm:max-w-md !fixed !left-auto !right-6 !bottom-6 !top-auto !translate-x-0 !translate-y-0 !duration-500 data-[state=open]:!slide-in-from-right-full data-[state=open]:!slide-in-from-bottom-0 data-[state=closed]:!slide-out-to-right-full data-[state=closed]:!slide-out-to-bottom-0 data-[state=open]:!fade-in-100 data-[state=closed]:!fade-out-100 p-0 gap-0 rounded-2xl border-border/50 overflow-hidden">
+        {/* Coloured header */}
+        <div className="bg-gradient-to-br from-primary/10 via-primary/5 to-accent px-6 pt-6 pb-4 border-b border-border/30">
+          <DialogHeader>
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-semibold px-3 py-1.5 rounded-full w-fit mb-2">
+              <MessageSquareHeart className="w-3.5 h-3.5" />
+              Quick Survey
+            </div>
+            <DialogTitle className="text-xl font-bold text-foreground">We'd love your feedback!</DialogTitle>
+            <DialogDescription className="text-sm text-muted-foreground">Rate your experience so far (1 = poor, 5 = excellent)</DialogDescription>
+          </DialogHeader>
+        </div>
 
-        <div className="space-y-6 py-2">
+        {/* Content */}
+        <div className="px-6 py-5 bg-primary/[0.02] space-y-6">
           {categories.map((cat) => (
             <div key={cat.id} className="space-y-2">
               <p className="font-medium text-sm text-foreground">{cat.label}</p>
@@ -77,7 +86,8 @@ export default function FeedbackPopup() {
           ))}
         </div>
 
-        <div className="flex justify-end gap-2 pt-2">
+        {/* Footer */}
+        <div className="flex justify-end gap-2 px-6 py-4 border-t border-border/30 bg-primary/[0.02]">
           <Button variant="ghost" size="sm" onClick={handleDismiss}>Skip</Button>
           <Button size="sm" disabled={!allRated} onClick={handleSubmit}>Submit</Button>
         </div>

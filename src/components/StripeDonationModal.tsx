@@ -2,7 +2,7 @@ import { useState, useCallback } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
-import { Loader2, Heart, CreditCard } from "lucide-react";
+import { Loader2, Heart, CreditCard, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface StripeDonationModalProps {
@@ -60,24 +60,31 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType }: St
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="sm:max-w-md">
-        <DialogHeader>
-          <DialogTitle className="flex items-center gap-2 text-xl">
-            <Heart className="h-5 w-5 text-destructive" />
-            Complete Your Donation
-          </DialogTitle>
-          <DialogDescription>
-            Thank you for supporting {getFundLabel()}
-          </DialogDescription>
-        </DialogHeader>
+      <DialogContent className="sm:max-w-md p-0 gap-0 rounded-2xl border-border/50 overflow-hidden">
+        {/* Red-tinted header */}
+        <div className="bg-gradient-to-br from-primary/12 via-primary/6 to-accent px-6 pt-8 pb-6 border-b border-border/30">
+          <DialogHeader>
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-semibold px-3 py-1.5 rounded-full w-fit mb-3">
+              <Heart className="w-3.5 h-3.5" />
+              Thank You
+            </div>
+            <DialogTitle className="text-xl font-bold text-foreground">
+              Complete Your Donation
+            </DialogTitle>
+            <DialogDescription className="text-sm text-muted-foreground">
+              Thank you for supporting {getFundLabel()}
+            </DialogDescription>
+          </DialogHeader>
+        </div>
 
-        <div className="space-y-4 py-4">
-          <div className="bg-muted/50 rounded-lg p-4 text-center">
+        {/* Content */}
+        <div className="px-6 py-6 bg-primary/[0.02] space-y-5">
+          <div className="bg-primary/[0.06] rounded-2xl p-6 text-center border border-primary/10">
             <p className="text-sm text-muted-foreground mb-1">Donation Amount</p>
-            <p className="text-3xl font-bold text-primary">
+            <p className="text-4xl font-bold text-primary">
               {getCurrencySymbol()}{amount.toFixed(2)}
             </p>
-            <p className="text-sm text-muted-foreground mt-1">{getFundLabel()}</p>
+            <p className="text-sm text-muted-foreground mt-2">{getFundLabel()}</p>
           </div>
 
           {error && (
@@ -100,8 +107,8 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType }: St
           </Button>
 
           <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
-            <span>🔒</span>
-            <span>Secured by Stripe</span>
+            <ShieldCheck className="w-3.5 h-3.5 text-primary/50" />
+            <span>Secured by Stripe · 256-bit encryption</span>
           </div>
         </div>
       </DialogContent>
