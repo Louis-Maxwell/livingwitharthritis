@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Heart, Construction, Search } from "lucide-react";
+import { Menu, X, Heart, Construction } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import DonationBanner from "@/components/DonationBanner";
@@ -8,7 +8,7 @@ import DonationBanner from "@/components/DonationBanner";
 const BuildingBanner = () => (
   <div className="bg-foreground text-background py-2 text-center relative">
     <div className="container mx-auto px-6 flex items-center justify-center gap-2 relative">
-      <Construction className="w-3.5 h-3.5 text-primary" />
+      <Construction className="w-3.5 h-3.5 text-secondary" />
       <p className="text-[11px] sm:text-xs font-medium tracking-wide">
         This website is currently being built — some features may be incomplete.
       </p>
@@ -26,6 +26,7 @@ const Header = () => {
   const handleScroll = useCallback(() => {
     const currentY = window.scrollY;
     setScrolled(currentY > 20);
+    // Show header when scrolling up or near top; hide when scrolling down past 300px
     if (currentY < 300) {
       setVisible(true);
     } else if (currentY < lastScrollY.current) {
@@ -42,12 +43,12 @@ const Header = () => {
   }, [handleScroll]);
 
   const navLinks = [
-    { label: "Get help", href: "#services", action: undefined },
-    { label: "Get involved", href: "#involved", action: undefined },
-    { label: "Conditions", href: "#conditions", action: undefined },
-    { label: "About us", href: "/about", action: () => navigate("/about") },
+    { label: "About Arthritis", href: "#about", action: () => navigate("/about") },
+    { label: "Our Services", href: "#services" },
+    { label: "Conditions", href: "#conditions" },
+    { label: "Self Help Tool", href: "/self-help", action: () => navigate("/self-help") },
     { label: "Blog", href: "/blog", action: () => navigate("/blog") },
-    { label: "Self Help", href: "/self-help", action: () => navigate("/self-help") },
+    { label: "Get Involved", href: "#involved" },
   ];
 
   const scrollToSection = (href: string) => {
@@ -71,43 +72,54 @@ const Header = () => {
             : "bg-background border-b border-border/20"
         }`}
       >
-        {/* Top bar with logo and donate */}
         <div className="container mx-auto px-6 md:px-10">
-          <div className="flex justify-between items-center h-[68px]">
-            {/* Logo — BRC-inspired clean layout */}
+          <div className="flex justify-between items-center h-[72px]">
+            {/* Logo */}
             <a href="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
-                <Heart className="w-[18px] h-[18px] text-primary-foreground fill-primary-foreground" />
+              <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center shadow-sm group-hover:shadow-primary transition-all duration-300">
+                <Heart className="w-[17px] h-[17px] text-primary-foreground" />
               </div>
               <div className="flex flex-col leading-none">
-                <span className="text-[15px] font-extrabold text-foreground tracking-tight leading-tight">
+                <span className="text-sm font-extrabold text-foreground tracking-tight leading-tight">
                   Living With
                 </span>
-                <span className="text-[15px] font-extrabold text-primary tracking-tight leading-tight">
+                <span className="text-sm font-extrabold text-primary tracking-tight leading-tight">
                   Arthritis<sup className="text-[7px] align-super ml-0.5">™</sup>
                 </span>
               </div>
             </a>
 
-            {/* Right: Search + Donate */}
-            <div className="flex items-center gap-2">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="hidden sm:flex rounded-lg h-10 w-10 text-muted-foreground hover:text-foreground"
-                aria-label="Search"
-              >
-                <Search className="w-[18px] h-[18px]" />
-              </Button>
+            {/* Desktop nav */}
+            <nav className="hidden lg:flex items-center gap-1">
+              {navLinks.map((link) => (
+                <button
+                  key={link.label}
+                  onClick={(e) => {
+                    if (link.action) {
+                      e.preventDefault();
+                      link.action();
+                    } else {
+                      scrollToSection(link.href);
+                    }
+                  }}
+                  className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground rounded-lg hover:bg-accent transition-all duration-200 cursor-pointer"
+                >
+                  {link.label}
+                </button>
+              ))}
+            </nav>
 
-              {/* BRC-style prominent red donate button */}
+            {/* Right actions */}
+            <div className="flex items-center gap-3">
               <Button
+                size="sm"
                 onClick={() => {
                   const el = document.getElementById("involved");
                   el?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="hidden sm:flex bg-primary hover:bg-primary/90 text-primary-foreground h-11 px-8 rounded-none text-sm font-bold uppercase tracking-widest transition-all duration-200 shadow-none hover:shadow-primary"
+                className="hidden sm:flex btn-secondary-cta h-10 px-6 rounded-full text-xs font-bold tracking-wide"
               >
+                <Heart className="w-3.5 h-3.5 mr-2" />
                 Donate
               </Button>
 
@@ -122,30 +134,6 @@ const Header = () => {
             </div>
           </div>
         </div>
-
-        {/* Navigation bar — BRC-style bottom nav row */}
-        <nav className="hidden lg:block border-t border-border/30">
-          <div className="container mx-auto px-6 md:px-10">
-            <div className="flex items-center gap-0">
-              {navLinks.map((link) => (
-                <button
-                  key={link.label}
-                  onClick={(e) => {
-                    if (link.action) {
-                      e.preventDefault();
-                      link.action();
-                    } else {
-                      scrollToSection(link.href);
-                    }
-                  }}
-                  className="px-5 py-3.5 text-sm font-semibold text-foreground hover:text-primary border-b-2 border-transparent hover:border-primary transition-all duration-200 cursor-pointer"
-                >
-                  {link.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        </nav>
       </motion.header>
 
       {/* Mobile menu */}
@@ -188,7 +176,7 @@ const Header = () => {
                       }
                       setMobileMenuOpen(false);
                     }}
-                    className="block w-full text-left px-5 py-4 text-[15px] font-semibold text-foreground hover:text-primary hover:bg-accent border-b border-border/10 transition-all cursor-pointer"
+                    className="block w-full text-left px-5 py-4 text-[15px] font-semibold text-muted-foreground hover:text-foreground hover:bg-accent rounded-xl transition-all cursor-pointer"
                   >
                     {link.label}
                   </motion.button>
@@ -197,13 +185,14 @@ const Header = () => {
 
               <div className="p-6 space-y-3 border-t border-border/20">
                 <Button
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-14 rounded-none text-sm font-bold uppercase tracking-widest"
+                  className="w-full btn-secondary-cta h-14 rounded-full text-sm font-bold tracking-wide"
                   onClick={() => {
                     const el = document.getElementById("involved");
                     el?.scrollIntoView({ behavior: "smooth" });
                     setMobileMenuOpen(false);
                   }}
                 >
+                  <Heart className="w-4 h-4 mr-2" />
                   Donate Now
                 </Button>
               </div>
