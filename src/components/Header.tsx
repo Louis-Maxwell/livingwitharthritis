@@ -6,9 +6,9 @@ import { useNavigate } from "react-router-dom";
 import DonationBanner from "@/components/DonationBanner";
 
 const BuildingBanner = () => (
-  <div className="bg-foreground text-background py-2 text-center relative">
+  <div className="bg-primary-foreground text-foreground py-2 text-center relative">
     <div className="container mx-auto px-6 flex items-center justify-center gap-2 relative">
-      <Construction className="w-3.5 h-3.5 text-secondary" />
+      <Construction className="w-3.5 h-3.5 text-primary" />
       <p className="text-[11px] sm:text-xs font-medium tracking-wide">
         This website is currently being built — some features may be incomplete.
       </p>
@@ -66,24 +66,20 @@ const Header = () => {
         initial={{ y: -80 }}
         animate={{ y: visible || mobileMenuOpen ? 0 : -100 }}
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className={`sticky top-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-background/95 backdrop-blur-xl shadow-medium border-b border-border/30"
-            : "bg-background border-b border-border/20"
-        }`}
+        className={`sticky top-0 z-50 transition-all duration-300 bg-primary border-b border-primary`}
       >
         <div className="container mx-auto px-6 md:px-10">
           <div className="flex justify-between items-center h-[72px]">
             {/* Logo */}
             <a href="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center shadow-sm group-hover:shadow-primary transition-all duration-300">
-                <Heart className="w-[17px] h-[17px] text-primary-foreground" />
+              <div className="w-10 h-10 rounded-xl bg-primary-foreground flex items-center justify-center shadow-sm transition-all duration-300">
+                <Heart className="w-[17px] h-[17px] text-primary" />
               </div>
               <div className="flex flex-col leading-none">
-                <span className="text-base sm:text-lg font-black text-primary tracking-tight leading-tight uppercase">
+                <span className="text-base sm:text-lg font-black text-primary-foreground tracking-tight leading-tight uppercase">
                   Living With
                 </span>
-                <span className="text-base sm:text-lg font-black text-primary tracking-tight leading-tight uppercase">
+                <span className="text-base sm:text-lg font-black text-primary-foreground tracking-tight leading-tight uppercase">
                   Arthritis<sup className="text-[7px] align-super ml-0.5">™</sup>
                 </span>
               </div>
@@ -102,7 +98,7 @@ const Header = () => {
                       scrollToSection(link.href);
                     }
                   }}
-                  className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground rounded-lg hover:bg-accent transition-all duration-200 cursor-pointer"
+                  className="px-4 py-2 text-sm font-medium text-primary-foreground/80 hover:text-primary-foreground rounded-lg hover:bg-primary-foreground/10 transition-all duration-200 cursor-pointer"
                 >
                   {link.label}
                 </button>
@@ -117,7 +113,7 @@ const Header = () => {
                   const el = document.getElementById("involved");
                   el?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="hidden sm:flex btn-secondary-cta h-10 px-6 rounded-full text-xs font-bold tracking-wide"
+                className="hidden sm:flex h-10 px-6 rounded-full text-xs font-bold tracking-wide bg-primary-foreground text-primary hover:bg-primary-foreground/90 border-0"
               >
                 <Heart className="w-3.5 h-3.5 mr-2" />
                 Donate
@@ -126,7 +122,7 @@ const Header = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="lg:hidden rounded-lg h-10 w-10"
+                className="lg:hidden rounded-lg h-10 w-10 text-primary-foreground hover:bg-primary-foreground/10"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               >
                 {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
