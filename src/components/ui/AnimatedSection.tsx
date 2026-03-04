@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ReactNode } from "react";
 
 interface AnimatedSectionProps {
@@ -22,14 +21,13 @@ export function AnimatedSection({
   delay = 0,
   direction = "up",
 }: AnimatedSectionProps) {
-  const { ref, isVisible } = useScrollAnimation();
   const offset = directionMap[direction];
 
   return (
     <motion.div
-      ref={ref}
       initial={{ opacity: 0, y: offset.y, x: offset.x }}
-      animate={isVisible ? { opacity: 1, y: 0, x: 0 } : { opacity: 0, y: offset.y, x: offset.x }}
+      whileInView={{ opacity: 1, y: 0, x: 0 }}
+      viewport={{ once: true, amount: 0.05 }}
       transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}
     >
