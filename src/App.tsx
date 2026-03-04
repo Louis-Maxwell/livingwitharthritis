@@ -5,8 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { HelmetProvider } from "react-helmet-async";
-import { AnimatePresence } from "framer-motion";
-import { PageTransition } from "@/components/ui/PageTransition";
+
 
 // Lazy load pages for code splitting
 const Index = lazy(() => import("./pages/Index"));
@@ -53,25 +52,23 @@ function AnimatedRoutes() {
   const location = useLocation();
 
   return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<PageTransition><Index /></PageTransition>} />
-        <Route path="/chat" element={<PageTransition><Chat /></PageTransition>} />
-        <Route path="/auth" element={<PageTransition><Auth /></PageTransition>} />
-        <Route path="/admin" element={<PageTransition><AdminDashboard /></PageTransition>} />
-        <Route path="/admin/appointments" element={<PageTransition><AdminAppointments /></PageTransition>} />
-        <Route path="/blog" element={<PageTransition><BlogIndex /></PageTransition>} />
-        <Route path="/blog/:slug" element={<PageTransition><BlogPost /></PageTransition>} />
-        <Route path="/daily-tips/:slug" element={<PageTransition><DailyTipDetail /></PageTransition>} />
-        <Route path="/about" element={<PageTransition><AboutUs /></PageTransition>} />
-        <Route path="/conditions/osteoarthritis" element={<PageTransition><Osteoarthritis /></PageTransition>} />
-        <Route path="/conditions/rheumatoid-arthritis" element={<PageTransition><RheumatoidArthritis /></PageTransition>} />
-        <Route path="/conditions/psoriatic-arthritis" element={<PageTransition><PsoriaticArthritis /></PageTransition>} />
-        <Route path="/self-help" element={<PageTransition><SelfHelpTool /></PageTransition>} />
-        <Route path="/sitemap" element={<PageTransition><Sitemap /></PageTransition>} />
-        <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
-      </Routes>
-    </AnimatePresence>
+    <Routes location={location} key={location.pathname}>
+      <Route path="/" element={<Index />} />
+      <Route path="/chat" element={<Chat />} />
+      <Route path="/auth" element={<Auth />} />
+      <Route path="/admin" element={<AdminDashboard />} />
+      <Route path="/admin/appointments" element={<AdminAppointments />} />
+      <Route path="/blog" element={<BlogIndex />} />
+      <Route path="/blog/:slug" element={<BlogPost />} />
+      <Route path="/daily-tips/:slug" element={<DailyTipDetail />} />
+      <Route path="/about" element={<AboutUs />} />
+      <Route path="/conditions/osteoarthritis" element={<Osteoarthritis />} />
+      <Route path="/conditions/rheumatoid-arthritis" element={<RheumatoidArthritis />} />
+      <Route path="/conditions/psoriatic-arthritis" element={<PsoriaticArthritis />} />
+      <Route path="/self-help" element={<SelfHelpTool />} />
+      <Route path="/sitemap" element={<Sitemap />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 }
 

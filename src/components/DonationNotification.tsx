@@ -89,7 +89,7 @@ const DonationNotification = () => {
   // Show first notification after 5s
   useEffect(() => {
     if (donations.length === 0 || dismissed) return;
-    const timer = setTimeout(() => setVisible(true), 5000);
+    const timer = setTimeout(() => setVisible(true), 8000);
     return () => clearTimeout(timer);
   }, [donations, dismissed]);
 
