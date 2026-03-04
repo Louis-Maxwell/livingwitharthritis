@@ -12,8 +12,10 @@ import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
 import { AppointmentModal } from "@/components/AppointmentModal";
 import ErrorBoundary from "@/components/ErrorBoundary";
-import DonationNotification from "@/components/DonationNotification";
-import FeedbackPopup from "@/components/FeedbackPopup";
+
+// Lazy load non-critical overlays
+const DonationNotification = lazy(() => import("@/components/DonationNotification"));
+const FeedbackPopup = lazy(() => import("@/components/FeedbackPopup"));
 
 
 // Lazy sections – always on page
@@ -130,8 +132,10 @@ export default function Index() {
 
       <div className="min-h-screen bg-background">
         <Header />
-        <DonationNotification />
-        <FeedbackPopup />
+        <Suspense fallback={null}>
+          <DonationNotification />
+          <FeedbackPopup />
+        </Suspense>
 
         <main className="space-y-0">
           <HeroSection />
