@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    --background: 30 20% 99%;
+    --background: 0 0% 100%;
     --foreground: 0 0% 13%;
 
     --card: 0 0% 100%;
@@ -23,20 +23,29 @@
     --secondary: 355 78% 48%;
     --secondary-foreground: 0 0% 100%;
 
-    --accent: 20 14% 96%;
+    --accent: 0 0% 96%;
     --accent-foreground: 0 0% 13%;
 
-    --muted: 25 10% 94%;
+    --muted: 0 0% 95%;
     --muted-foreground: 0 0% 40%;
 
-    /* Section alternating backgrounds */
-    --section-warm: 25 30% 97%;
-    --section-cool: 210 20% 97%;
-    --section-rose: 355 30% 97%;
-    --section-cream: 40 25% 96%;
+    --destructive: 1 85% 54%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 1 85% 54%;
+
+    --gold: 42 92% 56%;
+    --gold-foreground: 42 40% 12%;
+    --gold-muted: 42 50% 82%;
+    --amber: 30 90% 56%;
+
+    --navy: 0 0% 13%;
+    --navy-foreground: 0 0% 100%;
 
     /* Warm background tint */
-    --warm: 25 20% 97%;
+    --warm: 0 10% 98%;
 
     --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.02);
     --shadow-medium: 0 4px 24px -6px rgb(0 0 0 / 0.08), 0 2px 8px -3px rgb(0 0 0 / 0.04);
@@ -282,33 +291,6 @@
     content: '';
     @apply absolute top-0 left-0 right-0 h-px;
     background: linear-gradient(90deg, transparent, hsl(var(--border) / 0.5), transparent);
-  }
-
-  /* ─── Alternating section backgrounds ─── */
-  .section-warm {
-    background: hsl(var(--section-warm));
-  }
-  .section-cool {
-    background: hsl(var(--section-cool));
-  }
-  .section-rose {
-    background: hsl(var(--section-rose));
-  }
-  .section-cream {
-    background: hsl(var(--section-cream));
-  }
-
-  /* ─── Diagonal stripe texture ─── */
-  .section-texture {
-    position: relative;
-  }
-  .section-texture::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    opacity: 0.015;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    pointer-events: none;
   }
 
   /* ─── Shimmer ─── */

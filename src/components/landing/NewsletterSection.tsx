@@ -16,7 +16,7 @@ const NewsletterSection = memo(() => {
   };
 
   return (
-    <section className="py-14 lg:py-20 section-cool section-divider section-texture">
+    <section className="py-14 lg:py-20 bg-accent/30 section-divider">
       <div className="container mx-auto px-6 md:px-10 max-w-3xl">
         <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center">
           <div className="w-16 h-16 rounded-2xl bg-primary/6 flex items-center justify-center mx-auto mb-7">
