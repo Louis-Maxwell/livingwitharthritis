@@ -14,7 +14,7 @@ import { AppointmentModal } from "@/components/AppointmentModal";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import DonationNotification from "@/components/DonationNotification";
 import FeedbackPopup from "@/components/FeedbackPopup";
-const ChatBotWidget = lazy(() => import("@/components/ChatBotWidget"));
+
 
 // Lazy sections – always on page
 const AboutSection = lazy(() => import("@/components/AboutSection"));
@@ -256,9 +256,6 @@ export default function Index() {
 
         <Footer />
 
-        <Suspense fallback={null}>
-          <ChatBotWidget />
-        </Suspense>
 
         <div className="fixed inset-x-0 bottom-0 z-40 sm:hidden bg-background/75 backdrop-blur-2xl border-t border-border/50 px-5 py-5 shadow-2xl">
           <AppointmentModal

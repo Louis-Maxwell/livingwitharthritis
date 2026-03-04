@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { HelmetProvider } from "react-helmet-async";
 
+const ChatBotWidget = lazy(() => import("./components/ChatBotWidget"));
+
 
 // Lazy load pages for code splitting
 const Index = lazy(() => import("./pages/Index"));
@@ -81,6 +83,9 @@ const App = () => (
         <BrowserRouter>
           <Suspense fallback={<PageLoader />}>
             <AnimatedRoutes />
+          </Suspense>
+          <Suspense fallback={null}>
+            <ChatBotWidget />
           </Suspense>
         </BrowserRouter>
       </TooltipProvider>
