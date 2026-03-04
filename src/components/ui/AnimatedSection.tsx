@@ -28,7 +28,7 @@ export function AnimatedSection({
       initial={{ opacity: 0, y: offset.y, x: offset.x }}
       whileInView={{ opacity: 1, y: 0, x: 0 }}
       viewport={{ once: true, amount: 0.05 }}
-      transition={{ duration: 0.2, delay: delay * 0.3, ease: "easeOut" }}
+      transition={{ duration: 0.12, delay: delay * 0.15, ease: "easeOut" }}
       className={className}
     >
       {children}
