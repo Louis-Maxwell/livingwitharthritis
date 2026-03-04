@@ -5,24 +5,22 @@ import { useAdminDonations } from "@/hooks/useAdminDonations";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
+  Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowLeft, DollarSign, Users, TrendingUp, PiggyBank, CalendarDays, ExternalLink, MessageSquare, Download, CalendarIcon, FileText, Check, X, Trash2 } from "lucide-react";
+import { ArrowLeft, DollarSign, Users, TrendingUp, PiggyBank, CalendarDays, ExternalLink, MessageSquare, Download, CalendarIcon, FileText, Check, X, Trash2, RefreshCw, Wifi } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
-import { startOfDay, endOfDay, isWithinInterval } from "date-fns";
+import { startOfDay, endOfDay } from "date-fns";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
+import { SkeletonStats, SkeletonTable } from "@/components/ui/SkeletonCard";
+import { toast } from "sonner";
+import { motion } from "framer-motion";
 
 const BookingDiary = lazy(() => import("@/components/BookingDiary"));
 
@@ -57,6 +55,33 @@ const AdminDashboard = () => {
     };
     fetchFeedback();
     fetchComments();
+
+    // Real-time subscriptions
+    const commentsChannel = supabase
+      .channel('admin-comments')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'blog_comments' }, (payload) => {
+        if (payload.eventType === 'INSERT') {
+          setComments((prev) => [payload.new as any, ...prev]);
+          toast.info("New comment received");
+        } else if (payload.eventType === 'UPDATE') {
+          setComments((prev) => prev.map((c) => c.id === (payload.new as any).id ? payload.new as any : c));
+        } else if (payload.eventType === 'DELETE') {
+          setComments((prev) => prev.filter((c) => c.id !== (payload.old as any).id));
+        }
+      })
+      .subscribe();
+
+    const donationsChannel = supabase
+      .channel('admin-donations')
+      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'donations' }, () => {
+        toast.success("New donation received! 🎉");
+      })
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(commentsChannel);
+      supabase.removeChannel(donationsChannel);
+    };
   }, [isAdmin]);
 
   useEffect(() => {
@@ -67,8 +92,18 @@ const AdminDashboard = () => {
 
   if (adminLoading || donationsLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
-        <div className="animate-spin rounded-full h-12 w-12 border-4 border-primary border-t-transparent" />
+      <div className="min-h-screen bg-background p-6">
+        <div className="max-w-7xl mx-auto space-y-6">
+          <div className="flex items-center gap-4">
+            <div className="w-10 h-10 rounded-lg bg-muted animate-pulse" />
+            <div className="space-y-2">
+              <div className="h-7 w-48 bg-muted rounded animate-pulse" />
+              <div className="h-4 w-64 bg-muted rounded animate-pulse" />
+            </div>
+          </div>
+          <SkeletonStats />
+          <SkeletonTable rows={6} />
+        </div>
       </div>
     );
   }
