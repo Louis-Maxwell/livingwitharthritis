@@ -13,7 +13,7 @@ const posts = [
 const BlogPreviewSection = memo(() => {
   const navigate = useNavigate();
   return (
-    <section className="py-14 lg:py-20 bg-primary text-primary-foreground section-divider relative overflow-hidden">
+    <section className="py-14 lg:py-20 bg-background section-divider">
       <div className="container mx-auto px-6 md:px-10 max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 28 }}
@@ -23,13 +23,13 @@ const BlogPreviewSection = memo(() => {
           className="flex flex-col sm:flex-row sm:items-end justify-between mb-16 gap-4"
         >
           <div>
-            <span className="section-label text-primary-foreground/70 mb-4 block">From Our Blog</span>
-            <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary-foreground">Latest <span className="italic">articles</span></h2>
+            <span className="section-label text-primary mb-4 block">From Our Blog</span>
+            <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground">Latest <span className="text-primary italic">articles</span></h2>
           </div>
           <motion.button
             whileHover={{ x: 4 }}
             onClick={() => navigate("/blog")}
-            className="text-sm font-bold text-primary-foreground flex items-center gap-1.5 tracking-wider uppercase"
+            className="text-sm font-bold text-primary flex items-center gap-1.5 tracking-wider uppercase"
           >
             View all 40+ articles <ArrowRight className="w-4 h-4" />
           </motion.button>
@@ -45,7 +45,7 @@ const BlogPreviewSection = memo(() => {
               transition={{ delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
               <Link to={`/blog/${p.slug}`} className="block h-full">
-                <Card className="p-7 bg-primary-foreground cursor-pointer group h-full flex flex-col rounded-2xl border-0">
+                <Card className="p-7 premium-card cursor-pointer group h-full flex flex-col">
                   <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-4">{p.category}</span>
                   <h3 className="text-base font-display font-semibold text-foreground mb-5 group-hover:text-primary transition-colors duration-300 flex-1">{p.title}</h3>
                   <div className="flex items-center justify-between">

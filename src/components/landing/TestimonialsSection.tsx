@@ -12,25 +12,26 @@ const testimonials = [
 ];
 
 const TestimonialsSection = memo(() => (
-  <section className="py-14 lg:py-20 bg-primary relative overflow-hidden section-divider">
-    <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+  <section className="py-14 lg:py-20 bg-primary/[0.06] relative overflow-hidden section-divider">
     <div className="container mx-auto px-6 md:px-10 max-w-7xl relative">
       <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
-        <span className="section-label text-primary-foreground/70 mb-4 block">Patient Stories</span>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary-foreground mb-5">
-          Real voices, real <span className="italic">impact</span>
+        <span className="section-label text-primary mb-4 block">Patient Stories</span>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-5">
+          Real voices, real <span className="text-primary">impact</span>
         </h2>
-        <p className="text-base text-primary-foreground/70 max-w-lg mx-auto">Hear from people whose lives have been transformed.</p>
-        <div className="w-16 h-1 bg-primary-foreground/30 mx-auto mt-6 rounded-full" />
+        <p className="text-base text-muted-foreground max-w-lg mx-auto">Hear from people whose lives have been transformed.</p>
+        <div className="w-16 h-1 bg-primary mx-auto mt-6 rounded-full" />
       </motion.div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         {testimonials.map((t, i) => (
           <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06, duration: 0.5 }}>
-            <div className="h-full p-7 rounded-2xl border border-primary-foreground/10 bg-primary-foreground relative group card-hover overflow-hidden">
+            <div className="h-full p-7 rounded-2xl border border-border/30 bg-card relative group card-hover overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
               <div className="relative">
                 <div className="flex gap-0.5 mb-4">
-                  {Array.from({ length: t.rating }).map((_, si) => <Star key={si} className="w-4 h-4 fill-primary text-primary" />)}
+                  {Array.from({ length: t.rating }).map((_, si) => <Star key={si} className="w-4 h-4 fill-secondary text-secondary" />)}
                   {Array.from({ length: 5 - t.rating }).map((_, si) => <Star key={si} className="w-4 h-4 text-border" />)}
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-6">"{t.text}"</p>
