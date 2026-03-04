@@ -52,7 +52,7 @@ const ChatMessage = ({ message }: { message: Message; isLatest: boolean }) => {
       {/* Bubble */}
       <div
         className={cn(
-          "max-w-[82%] rounded-2xl px-3.5 py-2.5 text-[13px] leading-relaxed",
+          "max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed",
           isUser
             ? "bg-primary text-primary-foreground rounded-tr-sm"
             : "bg-muted/60 text-foreground rounded-tl-sm"
@@ -61,7 +61,7 @@ const ChatMessage = ({ message }: { message: Message; isLatest: boolean }) => {
         {isUser ? (
           <p>{message.content}</p>
         ) : (
-          <div className="prose prose-sm dark:prose-invert max-w-none prose-p:my-1 prose-ul:my-1 prose-li:my-0.5 prose-headings:my-1.5 prose-headings:text-sm prose-headings:text-foreground">
+          <div className="prose prose-sm dark:prose-invert max-w-none prose-p:my-1.5 prose-p:text-sm prose-p:leading-relaxed prose-ul:my-1.5 prose-li:my-0.5 prose-li:text-sm prose-headings:my-2 prose-headings:text-base prose-headings:font-semibold prose-headings:text-foreground prose-strong:text-foreground">
             <ReactMarkdown>{message.content}</ReactMarkdown>
           </div>
         )}
@@ -148,8 +148,8 @@ export function ChatBot() {
                 <MessageCircle className="h-7 w-7 text-primary/50" />
               </div>
 
-              <p className="font-semibold text-base text-foreground mb-0.5">How can I help?</p>
-              <p className="text-xs text-muted-foreground mb-5 max-w-[220px] leading-relaxed">
+              <p className="font-semibold text-lg text-foreground mb-1">How can I help?</p>
+              <p className="text-sm text-muted-foreground mb-5 max-w-[260px] leading-relaxed">
                 Ask about symptoms, diet, exercises, or treatments for arthritis.
               </p>
 
@@ -169,7 +169,7 @@ export function ChatBot() {
                       <div className="h-8 w-8 rounded-lg bg-primary/8 flex items-center justify-center shrink-0 group-hover:bg-primary/12 transition-colors">
                         <Icon className="h-4 w-4 text-primary/60 group-hover:text-primary transition-colors" />
                       </div>
-                      <span className="text-[12px] text-muted-foreground group-hover:text-foreground transition-colors font-medium">
+                      <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors font-medium">
                         {s.label}
                       </span>
                     </motion.button>
@@ -216,7 +216,7 @@ export function ChatBot() {
             placeholder="Type a message…"
             disabled={isLoading}
             rows={1}
-            className="flex-1 bg-transparent text-sm resize-none outline-none placeholder:text-muted-foreground/40 max-h-[100px] py-1.5 leading-relaxed"
+            className="flex-1 bg-transparent text-[15px] resize-none outline-none placeholder:text-muted-foreground/40 max-h-[100px] py-1.5 leading-relaxed"
           />
           <Button
             type="submit"
