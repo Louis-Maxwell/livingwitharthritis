@@ -80,10 +80,10 @@ const Header = () => {
                 <Heart className="w-[17px] h-[17px] text-primary-foreground" />
               </div>
               <div className="flex flex-col leading-none">
-                <span className="text-sm font-extrabold text-foreground tracking-tight leading-tight">
+                <span className="text-base sm:text-lg font-black text-primary tracking-tight leading-tight uppercase">
                   Living With
                 </span>
-                <span className="text-sm font-extrabold text-primary tracking-tight leading-tight">
+                <span className="text-base sm:text-lg font-black text-primary tracking-tight leading-tight uppercase">
                   Arthritis<sup className="text-[7px] align-super ml-0.5">™</sup>
                 </span>
               </div>

@@ -41,8 +41,8 @@ const Footer = () => {
                 <Heart className="w-[17px] h-[17px] text-primary-foreground" />
               </div>
               <div>
-                <span className="text-sm font-extrabold leading-none block tracking-tight text-background">Living With</span>
-                <span className="text-sm font-extrabold leading-none block text-primary mt-0.5 tracking-tight">Arthritis<sup className="text-[7px] align-super ml-0.5">™</sup></span>
+                <span className="text-base font-black leading-none block tracking-tight text-primary uppercase">Living With</span>
+                <span className="text-base font-black leading-none block text-primary mt-0.5 tracking-tight uppercase">Arthritis<sup className="text-[7px] align-super ml-0.5">™</sup></span>
               </div>
             </div>
             <p className="text-background/40 leading-[1.8] mb-8 max-w-xs text-sm">

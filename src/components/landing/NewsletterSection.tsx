@@ -16,17 +16,19 @@ const NewsletterSection = memo(() => {
   };
 
   return (
-    <section className="py-14 lg:py-20 bg-accent/30 section-divider">
-      <div className="container mx-auto px-6 md:px-10 max-w-3xl">
+    <section className="py-14 lg:py-20 bg-primary text-primary-foreground section-divider relative overflow-hidden">
+      {/* Subtle pattern */}
+      <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+      <div className="container mx-auto px-6 md:px-10 max-w-3xl relative">
         <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center">
-          <div className="w-16 h-16 rounded-2xl bg-primary/6 flex items-center justify-center mx-auto mb-7">
-            <Mail className="w-7 h-7 text-primary" />
+          <div className="w-16 h-16 rounded-2xl bg-primary-foreground/15 flex items-center justify-center mx-auto mb-7">
+            <Mail className="w-7 h-7 text-primary-foreground" />
           </div>
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground mb-5">Stay <span className="text-primary italic">informed</span></h2>
-          <p className="text-muted-foreground mb-10 max-w-md mx-auto leading-relaxed">Get weekly tips on managing arthritis, new research updates, and community stories.</p>
+          <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary-foreground mb-5">Stay <span className="italic">informed</span></h2>
+          <p className="text-primary-foreground/70 mb-10 max-w-md mx-auto leading-relaxed">Get weekly tips on managing arthritis, new research updates, and community stories.</p>
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <Input type="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} className="rounded-full h-13 px-6 bg-card border-border/20 text-sm focus:border-primary/30 transition-colors" required />
-            <Button type="submit" className="rounded-full h-13 px-7 btn-primary-cta text-sm font-bold tracking-wider">
+            <Input type="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} className="rounded-full h-13 px-6 bg-primary-foreground text-foreground border-transparent text-sm focus:ring-2 focus:ring-primary-foreground/50 transition-colors placeholder:text-muted-foreground" required />
+            <Button type="submit" className="rounded-full h-13 px-7 bg-primary-foreground text-primary hover:bg-primary-foreground/90 text-sm font-bold tracking-wider">
               Subscribe <ArrowRight className="w-4 h-4 ml-1.5" />
             </Button>
           </form>

@@ -17,9 +17,9 @@ const HeroSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative overflow-hidden bg-background">
+    <section className="relative overflow-hidden bg-primary/[0.03]">
       {/* Warm gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.04] via-transparent to-secondary/[0.03]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.06] via-transparent to-secondary/[0.04]" />
 
       <div className="container mx-auto px-6 md:px-10 relative">
         <div className="flex items-center justify-center min-h-[calc(100vh-140px)] py-20 lg:py-0">
