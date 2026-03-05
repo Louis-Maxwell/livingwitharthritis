@@ -24,6 +24,7 @@ const Osteoarthritis = lazy(() => import("./pages/conditions/Osteoarthritis"));
 const RheumatoidArthritis = lazy(() => import("./pages/conditions/RheumatoidArthritis"));
 const PsoriaticArthritis = lazy(() => import("./pages/conditions/PsoriaticArthritis"));
 const SelfHelpTool = lazy(() => import("./pages/SelfHelpTool"));
+const ZakatAppeal = lazy(() => import("./pages/ZakatAppeal"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading fallback with skeleton-style animation
@@ -68,6 +69,7 @@ function AnimatedRoutes() {
       <Route path="/conditions/rheumatoid-arthritis" element={<RheumatoidArthritis />} />
       <Route path="/conditions/psoriatic-arthritis" element={<PsoriaticArthritis />} />
       <Route path="/self-help" element={<SelfHelpTool />} />
+      <Route path="/zakat-appeal" element={<ZakatAppeal />} />
       <Route path="/sitemap" element={<Sitemap />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
