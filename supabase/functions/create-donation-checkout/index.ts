@@ -20,7 +20,7 @@ function getCorsHeaders(req: Request): Record<string, string> {
 
 // Input validation
 const VALID_CURRENCIES = ["GBP", "USD", "EUR"];
-const VALID_FUND_TYPES = ["research", "support", "helpline", "general"];
+const VALID_FUND_TYPES = ["research", "support", "helpline", "general", "zakat"];
 const MAX_AMOUNT = 100000;
 const MIN_AMOUNT = 1;
 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -10,6 +11,7 @@ const DonationBanner = () => {
   const [fundType, setFundType] = useState("research");
   const [selectedQuickAmount, setSelectedQuickAmount] = useState<number | null>(100);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   const quickAmounts = [25, 50, 100, 250];
 
@@ -113,15 +115,7 @@ const DonationBanner = () => {
 
           <Button
             size="sm"
-            onClick={() => {
-              setFundType("zakat");
-              const donationAmount = parseFloat(amount) || selectedQuickAmount || 0;
-              if (donationAmount <= 0) {
-                setAmount("100");
-                setSelectedQuickAmount(100);
-              }
-              setIsModalOpen(true);
-            }}
+            onClick={() => navigate("/zakat-appeal")}
             className="bg-emerald-600 hover:bg-emerald-700 text-white px-5 h-8 text-[11px] font-bold tracking-widest rounded-full"
           >
             ZAKAT APPEAL
