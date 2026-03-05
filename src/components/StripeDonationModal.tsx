@@ -31,6 +31,7 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType }: St
       case "research": return "Arthritis Research Fund";
       case "support": return "Patient Support Fund";
       case "helpline": return "Helpline Support";
+      case "zakat": return "Zakat Appeal";
       default: return "General Donation";
     }
   };
