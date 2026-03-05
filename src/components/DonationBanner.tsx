@@ -98,6 +98,7 @@ const DonationBanner = () => {
               <SelectItem value="support">Patient Support Fund</SelectItem>
               <SelectItem value="helpline">Helpline Support</SelectItem>
               <SelectItem value="general">General Donation</SelectItem>
+              <SelectItem value="zakat">Zakat Appeal</SelectItem>
             </SelectContent>
           </Select>
 
@@ -108,6 +109,22 @@ const DonationBanner = () => {
             className="btn-primary-cta px-5 h-8 text-[11px] font-bold tracking-widest rounded-full"
           >
             DONATE
+          </Button>
+
+          <Button
+            size="sm"
+            onClick={() => {
+              setFundType("zakat");
+              const donationAmount = parseFloat(amount) || selectedQuickAmount || 0;
+              if (donationAmount <= 0) {
+                setAmount("100");
+                setSelectedQuickAmount(100);
+              }
+              setIsModalOpen(true);
+            }}
+            className="bg-emerald-600 hover:bg-emerald-700 text-white px-5 h-8 text-[11px] font-bold tracking-widest rounded-full"
+          >
+            ZAKAT APPEAL
           </Button>
         </div>
       </div>
