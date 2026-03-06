@@ -264,19 +264,22 @@ export default function Index() {
           </div>
         </main>
 
-        <Footer />
+        <Suspense fallback={<div className="h-96 bg-foreground" />}>
+          <Footer />
+        </Suspense>
 
-
-        <div className="fixed inset-x-0 bottom-0 z-40 sm:hidden bg-background/75 backdrop-blur-2xl border-t border-border/50 px-5 py-5 shadow-2xl">
-          <AppointmentModal
-            trigger={
-              <Button className="w-full h-14 rounded-2xl text-base font-semibold shadow-xl hover:shadow-2xl transition-all duration-300">
-                <CalendarCheck className="mr-3 h-5 w-5" aria-hidden="true" />
-                Book Free Consultation
-              </Button>
-            }
-          />
-        </div>
+        <Suspense fallback={null}>
+          <div className="fixed inset-x-0 bottom-0 z-40 sm:hidden bg-background/75 backdrop-blur-2xl border-t border-border/50 px-5 py-5 shadow-2xl">
+            <AppointmentModal
+              trigger={
+                <Button className="w-full h-14 rounded-2xl text-base font-semibold shadow-xl hover:shadow-2xl transition-all duration-300">
+                  <CalendarCheck className="mr-3 h-5 w-5" aria-hidden="true" />
+                  Book Free Consultation
+                </Button>
+              }
+            />
+          </div>
+        </Suspense>
       </div>
     </ErrorBoundary>
   );

@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import StripeDonationModal from "./StripeDonationModal";
+
+const StripeDonationModal = lazy(() => import("./StripeDonationModal"));
 
 const DonationBanner = () => {
   const [amount, setAmount] = useState("");
@@ -123,13 +124,17 @@ const DonationBanner = () => {
         </div>
       </div>
 
-      <StripeDonationModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        amount={getDonationAmount()}
-        currency={currency}
-        fundType={fundType}
-      />
+      {isModalOpen && (
+        <Suspense fallback={null}>
+          <StripeDonationModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            amount={getDonationAmount()}
+            currency={currency}
+            fundType={fundType}
+          />
+        </Suspense>
+      )}
     </div>
   );
 };

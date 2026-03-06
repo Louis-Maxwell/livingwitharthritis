@@ -1,9 +1,9 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Heart, Construction } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import DonationBanner from "@/components/DonationBanner";
+
+const DonationBanner = lazy(() => import("@/components/DonationBanner"));
 
 const BuildingBanner = () => (
   <div className="bg-foreground text-background py-2 text-center relative">
@@ -26,7 +26,6 @@ const Header = () => {
   const handleScroll = useCallback(() => {
     const currentY = window.scrollY;
     setScrolled(currentY > 20);
-    // Show header when scrolling up or near top; hide when scrolling down past 300px
     if (currentY < 300) {
       setVisible(true);
     } else if (currentY < lastScrollY.current) {
@@ -60,13 +59,13 @@ const Header = () => {
   return (
     <>
       <BuildingBanner />
-      <DonationBanner />
+      <Suspense fallback={<div className="bg-navy h-[42px]" />}>
+        <DonationBanner />
+      </Suspense>
 
-      <motion.header
-        initial={{ y: -80 }}
-        animate={{ y: visible || mobileMenuOpen ? 0 : -100 }}
-        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className={`sticky top-0 z-50 transition-all duration-300 ${
+      <header
+        style={{ transform: visible || mobileMenuOpen ? "translateY(0)" : "translateY(-100%)" }}
+        className={`sticky top-0 z-50 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
           scrolled
             ? "bg-background/95 backdrop-blur-xl shadow-medium border-b border-border/30"
             : "bg-background border-b border-border/20"
@@ -134,72 +133,60 @@ const Header = () => {
             </div>
           </div>
         </div>
-      </motion.header>
+      </header>
 
       {/* Mobile menu */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-foreground/20 backdrop-blur-sm z-[60] lg:hidden"
-              onClick={() => setMobileMenuOpen(false)}
-            />
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed top-0 right-0 bottom-0 w-[80%] max-w-sm bg-background z-[70] lg:hidden shadow-2xl flex flex-col border-l border-border/30"
-            >
-              <div className="flex items-center justify-between p-6 border-b border-border/20">
-                <span className="text-lg font-extrabold text-foreground">Menu</span>
-                <Button variant="ghost" size="icon" className="rounded-lg h-9 w-9" onClick={() => setMobileMenuOpen(false)}>
-                  <X size={18} />
-                </Button>
-              </div>
+      {mobileMenuOpen && (
+        <>
+          <div
+            className="fixed inset-0 bg-foreground/20 backdrop-blur-sm z-[60] lg:hidden animate-in fade-in duration-200"
+            onClick={() => setMobileMenuOpen(false)}
+          />
+          <div
+            className="fixed top-0 right-0 bottom-0 w-[80%] max-w-sm bg-background z-[70] lg:hidden shadow-2xl flex flex-col border-l border-border/30 animate-in slide-in-from-right duration-300"
+          >
+            <div className="flex items-center justify-between p-6 border-b border-border/20">
+              <span className="text-lg font-extrabold text-foreground">Menu</span>
+              <Button variant="ghost" size="icon" className="rounded-lg h-9 w-9" onClick={() => setMobileMenuOpen(false)}>
+                <X size={18} />
+              </Button>
+            </div>
 
-              <nav className="flex-1 overflow-y-auto px-5 py-6 space-y-1">
-                {navLinks.map((link, i) => (
-                  <motion.button
-                    key={link.label}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.05, duration: 0.3 }}
-                    onClick={() => {
-                      if (link.action) {
-                        link.action();
-                      } else {
-                        scrollToSection(link.href);
-                      }
-                      setMobileMenuOpen(false);
-                    }}
-                    className="block w-full text-left px-5 py-4 text-[15px] font-semibold text-muted-foreground hover:text-foreground hover:bg-accent rounded-xl transition-all cursor-pointer"
-                  >
-                    {link.label}
-                  </motion.button>
-                ))}
-              </nav>
-
-              <div className="p-6 space-y-3 border-t border-border/20">
-                <Button
-                  className="w-full btn-secondary-cta h-14 rounded-full text-sm font-bold tracking-wide"
+            <nav className="flex-1 overflow-y-auto px-5 py-6 space-y-1">
+              {navLinks.map((link) => (
+                <button
+                  key={link.label}
                   onClick={() => {
-                    const el = document.getElementById("involved");
-                    el?.scrollIntoView({ behavior: "smooth" });
+                    if (link.action) {
+                      link.action();
+                    } else {
+                      scrollToSection(link.href);
+                    }
                     setMobileMenuOpen(false);
                   }}
+                  className="block w-full text-left px-5 py-4 text-[15px] font-semibold text-muted-foreground hover:text-foreground hover:bg-accent rounded-xl transition-all cursor-pointer"
                 >
-                  <Heart className="w-4 h-4 mr-2" />
-                  Donate Now
-                </Button>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+                  {link.label}
+                </button>
+              ))}
+            </nav>
+
+            <div className="p-6 space-y-3 border-t border-border/20">
+              <Button
+                className="w-full btn-secondary-cta h-14 rounded-full text-sm font-bold tracking-wide"
+                onClick={() => {
+                  const el = document.getElementById("involved");
+                  el?.scrollIntoView({ behavior: "smooth" });
+                  setMobileMenuOpen(false);
+                }}
+              >
+                <Heart className="w-4 h-4 mr-2" />
+                Donate Now
+              </Button>
+            </div>
+          </div>
+        </>
+      )}
     </>
   );
 };
