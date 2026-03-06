@@ -146,7 +146,7 @@ export default function Index() {
             <QuoteSection />
           </Suspense>
 
-          <div className="container mx-auto px-5 md:px-8 space-y-10 md:space-y-14">
+          <div className="container mx-auto px-5 md:px-8 space-y-10 md:space-y-14 content-deferred">
             {/* ── Always visible: About + Services ── */}
             <Suspense fallback={<SectionLoader />}>
               <AboutSection />
