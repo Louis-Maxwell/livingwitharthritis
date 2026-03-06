@@ -9,9 +9,10 @@ import { useSearchParams } from "react-router-dom";
 
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import Footer from "@/components/Footer";
-import { AppointmentModal } from "@/components/AppointmentModal";
 import ErrorBoundary from "@/components/ErrorBoundary";
+
+const Footer = lazy(() => import("@/components/Footer"));
+const AppointmentModal = lazy(() => import("@/components/AppointmentModal").then(m => ({ default: m.AppointmentModal })));
 
 // Lazy load non-critical overlays
 const DonationNotification = lazy(() => import("@/components/DonationNotification"));
@@ -145,7 +146,7 @@ export default function Index() {
             <QuoteSection />
           </Suspense>
 
-          <div className="container mx-auto px-5 md:px-8 space-y-10 md:space-y-14">
+          <div className="container mx-auto px-5 md:px-8 space-y-10 md:space-y-14 content-deferred">
             {/* ── Always visible: About + Services ── */}
             <Suspense fallback={<SectionLoader />}>
               <AboutSection />
@@ -263,19 +264,22 @@ export default function Index() {
           </div>
         </main>
 
-        <Footer />
+        <Suspense fallback={<div className="h-96 bg-foreground" />}>
+          <Footer />
+        </Suspense>
 
-
-        <div className="fixed inset-x-0 bottom-0 z-40 sm:hidden bg-background/75 backdrop-blur-2xl border-t border-border/50 px-5 py-5 shadow-2xl">
-          <AppointmentModal
-            trigger={
-              <Button className="w-full h-14 rounded-2xl text-base font-semibold shadow-xl hover:shadow-2xl transition-all duration-300">
-                <CalendarCheck className="mr-3 h-5 w-5" aria-hidden="true" />
-                Book Free Consultation
-              </Button>
-            }
-          />
-        </div>
+        <Suspense fallback={null}>
+          <div className="fixed inset-x-0 bottom-0 z-40 sm:hidden bg-background/75 backdrop-blur-2xl border-t border-border/50 px-5 py-5 shadow-2xl">
+            <AppointmentModal
+              trigger={
+                <Button className="w-full h-14 rounded-2xl text-base font-semibold shadow-xl hover:shadow-2xl transition-all duration-300">
+                  <CalendarCheck className="mr-3 h-5 w-5" aria-hidden="true" />
+                  Book Free Consultation
+                </Button>
+              }
+            />
+          </div>
+        </Suspense>
       </div>
     </ErrorBoundary>
   );
