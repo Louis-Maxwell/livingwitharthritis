@@ -31,6 +31,7 @@ const GetInTouchSection = lazy(() => import("@/components/landing/GetInTouchSect
 const FinalCTASection = lazy(() => import("@/components/landing/FinalCTASection"));
 const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSection"));
 const ImpactBannerSection = lazy(() => import("@/components/landing/ImpactBannerSection"));
+const QuoteSection = lazy(() => import("@/components/landing/QuoteSection"));
 
 // Lazy sections – inside tabs (loaded on demand)
 const NutritionArticleSection = lazy(() => import("@/components/NutritionArticleSection"));
