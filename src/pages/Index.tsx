@@ -9,9 +9,10 @@ import { useSearchParams } from "react-router-dom";
 
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import Footer from "@/components/Footer";
-import { AppointmentModal } from "@/components/AppointmentModal";
 import ErrorBoundary from "@/components/ErrorBoundary";
+
+const Footer = lazy(() => import("@/components/Footer"));
+const AppointmentModal = lazy(() => import("@/components/AppointmentModal").then(m => ({ default: m.AppointmentModal })));
 
 // Lazy load non-critical overlays
 const DonationNotification = lazy(() => import("@/components/DonationNotification"));
