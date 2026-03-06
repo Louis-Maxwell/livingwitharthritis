@@ -31,6 +31,7 @@ const GetInTouchSection = lazy(() => import("@/components/landing/GetInTouchSect
 const FinalCTASection = lazy(() => import("@/components/landing/FinalCTASection"));
 const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSection"));
 const ImpactBannerSection = lazy(() => import("@/components/landing/ImpactBannerSection"));
+const QuoteSection = lazy(() => import("@/components/landing/QuoteSection"));
 
 // Lazy sections – inside tabs (loaded on demand)
 const NutritionArticleSection = lazy(() => import("@/components/NutritionArticleSection"));
@@ -139,6 +140,10 @@ export default function Index() {
 
         <main className="space-y-0">
           <HeroSection />
+
+          <Suspense fallback={null}>
+            <QuoteSection />
+          </Suspense>
 
           <div className="container mx-auto px-5 md:px-8 space-y-10 md:space-y-14">
             {/* ── Always visible: About + Services ── */}
