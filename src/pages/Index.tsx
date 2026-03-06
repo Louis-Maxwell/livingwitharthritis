@@ -141,6 +141,10 @@ export default function Index() {
         <main className="space-y-0">
           <HeroSection />
 
+          <Suspense fallback={null}>
+            <QuoteSection />
+          </Suspense>
+
           <div className="container mx-auto px-5 md:px-8 space-y-10 md:space-y-14">
             {/* ── Always visible: About + Services ── */}
             <Suspense fallback={<SectionLoader />}>
