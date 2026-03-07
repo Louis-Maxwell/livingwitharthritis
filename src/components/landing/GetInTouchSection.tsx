@@ -5,7 +5,7 @@ import { ContactFormModal } from "@/components/ContactFormModal";
 
 const GetInTouchSection = memo(() => {
   return (
-    <section aria-labelledby="get-in-touch-heading" className="py-14 lg:py-20 section-divider">
+    <section aria-labelledby="get-in-touch-heading" className="py-14 lg:py-20 bg-tint-green section-divider">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
