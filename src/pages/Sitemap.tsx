@@ -78,7 +78,7 @@ const Sitemap = () => (
       <meta property="og:url" content="https://livingwitharthritis.org.uk/sitemap" />
       <meta property="og:site_name" content="Living With Arthritis UK" />
       <link rel="canonical" href="https://livingwitharthritis.org.uk/sitemap" />
-      <link rel="alternate" hreflang="en-GB" href="https://livingwitharthritis.org.uk/sitemap" />
+      <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/sitemap" />
     </Helmet>
     <div className="min-h-screen bg-background">
       <Header />

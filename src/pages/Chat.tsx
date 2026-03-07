@@ -23,7 +23,7 @@ const Chat = () => {
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/chat" />
-        <link rel="alternate" hreflang="en-GB" href="https://livingwitharthritis.org.uk/chat" />
+        <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/chat" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
