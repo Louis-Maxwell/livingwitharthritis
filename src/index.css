@@ -104,6 +104,13 @@
     --navy: 0 0% 8%;
     --navy-foreground: 0 0% 100%;
     --warm: 0 0% 8%;
+    --tint-blue: 210 30% 12%;
+    --tint-green: 155 25% 11%;
+    --tint-amber: 40 30% 12%;
+    --tint-rose: 350 25% 12%;
+    --tint-violet: 265 25% 12%;
+    --tint-cyan: 190 25% 11%;
+    --tint-peach: 20 30% 12%;
     --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.2);
     --shadow-medium: 0 4px 16px -2px rgb(0 0 0 / 0.3);
     --shadow-large: 0 12px 40px -8px rgb(0 0 0 / 0.4);
