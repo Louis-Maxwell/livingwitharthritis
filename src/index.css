@@ -47,6 +47,15 @@
     /* Warm background tint */
     --warm: 0 10% 98%;
 
+    /* Colourful section tints */
+    --tint-blue: 210 80% 97%;
+    --tint-green: 155 60% 96%;
+    --tint-amber: 40 80% 96%;
+    --tint-rose: 350 70% 97%;
+    --tint-violet: 265 60% 97%;
+    --tint-cyan: 190 70% 96%;
+    --tint-peach: 20 80% 97%;
+
     --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.02);
     --shadow-medium: 0 4px 24px -6px rgb(0 0 0 / 0.08), 0 2px 8px -3px rgb(0 0 0 / 0.04);
     --shadow-large: 0 20px 56px -16px rgb(0 0 0 / 0.1), 0 6px 20px -6px rgb(0 0 0 / 0.04);
