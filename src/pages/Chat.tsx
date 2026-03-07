@@ -61,9 +61,10 @@ const Chat = () => {
             </p>
           </div>
 
-        <ChatBot />
+          <ChatBot />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
