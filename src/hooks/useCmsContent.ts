@@ -194,27 +194,3 @@ export function useNutritionSections() {
   });
 }
 
-export interface NutritionFoodGalleryItem {
-  id: string;
-  title: string;
-  description: string;
-  image_url: string;
-  display_order: number;
-  recipe_text: string | null;
-}
-
-export function useNutritionFoodGallery() {
-  return useQuery({
-    queryKey: ["nutrition_food_gallery"],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from("nutrition_food_gallery")
-        .select("*")
-        .eq("is_active", true)
-        .order("display_order", { ascending: true });
-      
-      if (error) throw error;
-      return data as NutritionFoodGalleryItem[];
-    },
-  });
-}

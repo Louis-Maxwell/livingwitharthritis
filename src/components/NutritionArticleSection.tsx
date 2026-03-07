@@ -1,16 +1,13 @@
-import { useState, useRef } from "react";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
-import { Utensils, Fish, Cherry, Milk, Leaf, LucideIcon, X, ChefHat } from "lucide-react";
-import { useNutritionSections, useNutritionFoodGallery, NutritionFoodGalleryItem } from "@/hooks/useCmsContent";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Utensils, Fish, Cherry, Milk, Leaf, LucideIcon } from "lucide-react";
+import { useNutritionSections } from "@/hooks/useCmsContent";
 import { Skeleton } from "@/components/ui/skeleton";
-import ReactMarkdown from "react-markdown";
 
 const iconMap: Record<string, LucideIcon> = { Fish, Leaf, Cherry, Milk };
 
 const NutritionArticleSection = () => {
   const { data: sections, isLoading } = useNutritionSections();
-  const { data: galleryItems, isLoading: galleryLoading } = useNutritionFoodGallery();
-  const [selectedRecipe, setSelectedRecipe] = useState<NutritionFoodGalleryItem | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
   const orbY = useTransform(scrollYProgress, [0, 1], [60, -60]);
@@ -45,7 +42,7 @@ const NutritionArticleSection = () => {
         </motion.div>
 
         {/* Arthritis type nutrition cards */}
-        <div className="grid sm:grid-cols-2 gap-7 mb-20">
+        <div className="grid sm:grid-cols-2 gap-7">
           {isLoading
             ? Array.from({ length: 4 }).map((_, i) => (
                 <div key={i} className="bg-card rounded-[2rem] p-8 border border-border/20">
@@ -95,118 +92,7 @@ const NutritionArticleSection = () => {
                 );
               })}
         </div>
-
-        {/* Anti-Inflammatory Food Gallery */}
-        <motion.div
-          initial={{ opacity: 0, y: 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <h3 className="text-xl sm:text-2xl font-display font-bold text-foreground text-center mb-3">
-            Anti-Inflammatory Foods <span className="text-secondary">in Action</span>
-          </h3>
-          <p className="text-sm text-muted-foreground text-center mb-10 max-w-lg mx-auto">
-            Real meals and ingredients that support joint health. Click any dish with a recipe to view it.
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 sm:gap-6">
-            {galleryLoading
-              ? Array.from({ length: 5 }).map((_, i) => (
-                  <div key={i} className="rounded-[2rem] overflow-hidden border border-border/20">
-                    <Skeleton className="aspect-square w-full" />
-                    <div className="p-4"><Skeleton className="h-4 w-24" /></div>
-                  </div>
-                ))
-              : galleryItems?.map((item, i) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, scale: 0.93 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "-30px" }}
-                transition={{ duration: 0.5, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] }}
-                whileHover={{ y: -6 }}
-                className={`group relative rounded-[2rem] overflow-hidden border border-border/15 hover:border-secondary/20 transition-all duration-500 hover:shadow-large ${item.recipe_text ? "cursor-pointer" : ""}`}
-                onClick={() => item.recipe_text && setSelectedRecipe(item)}
-              >
-                <div className="aspect-square overflow-hidden">
-                  <img
-                    src={item.image_url}
-                    alt={item.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex flex-col justify-end p-4">
-                  <h4 className="text-white text-xs sm:text-sm font-bold leading-tight">{item.title}</h4>
-                  <p className="text-white/70 text-[10px] sm:text-[11px] leading-snug mt-1 line-clamp-2">{item.description}</p>
-                </div>
-                <div className="p-4 bg-card flex items-center justify-between gap-2">
-                  <h4 className="text-xs font-bold text-foreground leading-tight group-hover:text-secondary transition-colors duration-300">{item.title}</h4>
-                  {item.recipe_text && (
-                    <ChefHat className="w-3.5 h-3.5 text-secondary shrink-0" />
-                  )}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
-
-      {/* Recipe Modal */}
-      <AnimatePresence>
-        {selectedRecipe && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md"
-            onClick={() => setSelectedRecipe(null)}
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.92, y: 24 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.92, y: 24 }}
-              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="bg-card rounded-[2rem] max-w-2xl w-full max-h-[85vh] overflow-hidden border border-border/40 shadow-xl"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Modal header with image */}
-              <div className="relative h-52 sm:h-60 overflow-hidden">
-                <img
-                  src={selectedRecipe.image_url}
-                  alt={selectedRecipe.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-7">
-                  <div className="flex items-center gap-2 mb-2">
-                    <ChefHat className="w-4 h-4 text-secondary" />
-                    <span className="text-secondary text-xs font-semibold uppercase tracking-[0.2em]">Recipe</span>
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-display font-bold text-white">{selectedRecipe.title}</h3>
-                </div>
-                <button
-                  onClick={() => setSelectedRecipe(null)}
-                  className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center hover:bg-black/60 transition-colors"
-                >
-                  <X className="w-4 h-4 text-white" />
-                </button>
-              </div>
-
-              {/* Recipe content */}
-              <div className="p-6 sm:p-8 overflow-y-auto max-h-[calc(85vh-15rem)]">
-                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                  {selectedRecipe.description}
-                </p>
-                <div className="prose prose-sm max-w-none text-foreground [&_strong]:text-foreground [&_strong]:font-bold [&_p]:text-muted-foreground [&_p]:leading-relaxed [&_p]:text-[13px] [&_p]:mb-3 [&_ul]:space-y-1 [&_li]:text-muted-foreground [&_li]:text-[13px]">
-                  <ReactMarkdown>{selectedRecipe.recipe_text || ""}</ReactMarkdown>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 };
