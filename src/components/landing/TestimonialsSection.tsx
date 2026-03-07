@@ -21,9 +21,7 @@ const avatarColors = [
 ];
 
 const TestimonialsSection = memo(() => (
-  <section className="py-14 lg:py-20 relative overflow-hidden section-divider">
-    {/* Subtle background */}
-    <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.03] via-transparent to-primary/[0.03]" />
+  <section className="py-14 lg:py-20 relative overflow-hidden section-divider bg-tint-green">
 
     <div className="container mx-auto px-6 md:px-10 max-w-7xl relative">
       <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
