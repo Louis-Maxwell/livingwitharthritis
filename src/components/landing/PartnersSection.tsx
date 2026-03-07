@@ -2,12 +2,12 @@ import { memo } from "react";
 import { motion } from "framer-motion";
 
 const partners = [
-  { name: "NHS", label: "National Health Service" },
-  { name: "NICE", label: "NICE Guidelines" },
-  { name: "ARUK", label: "Arthritis Research UK" },
-  { name: "CSP", label: "Chartered Society of Physiotherapy" },
-  { name: "RCOT", label: "Royal College of OT" },
-  { name: "BDA", label: "British Dietetic Association" },
+  { name: "NHS", label: "National Health Service", color: "text-blue-600 bg-blue-500/10 border-blue-500/20" },
+  { name: "NICE", label: "NICE Guidelines", color: "text-emerald-600 bg-emerald-500/10 border-emerald-500/20" },
+  { name: "ARUK", label: "Arthritis Research UK", color: "text-violet-600 bg-violet-500/10 border-violet-500/20" },
+  { name: "CSP", label: "Chartered Society of Physiotherapy", color: "text-amber-600 bg-amber-500/10 border-amber-500/20" },
+  { name: "RCOT", label: "Royal College of OT", color: "text-rose-600 bg-rose-500/10 border-rose-500/20" },
+  { name: "BDA", label: "British Dietetic Association", color: "text-cyan-600 bg-cyan-500/10 border-cyan-500/20" },
 ];
 
 const PartnersSection = memo(() => (
@@ -22,11 +22,11 @@ const PartnersSection = memo(() => (
       >
         <span className="section-label text-primary mb-3 block">Trusted By</span>
         <p className="text-sm text-muted-foreground/60 max-w-md mx-auto">
-          Aligned with leading health organisations and evidence-based guidelines.
+          Aligned with leading UK health organisations and evidence-based guidelines.
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-3 md:grid-cols-6 gap-7 items-center">
+      <div className="grid grid-cols-3 md:grid-cols-6 gap-5 items-center">
         {partners.map((p, i) => (
           <motion.div
             key={p.name}
@@ -37,15 +37,15 @@ const PartnersSection = memo(() => (
             className="flex flex-col items-center gap-2.5 group"
           >
             <motion.div
-              whileHover={{ scale: 1.08, y: -4 }}
+              whileHover={{ scale: 1.05, y: -3 }}
               transition={{ type: "spring", stiffness: 400, damping: 20 }}
-              className="w-[72px] h-[72px] rounded-2xl bg-accent/60 border border-border/15 flex items-center justify-center group-hover:bg-primary/5 group-hover:border-primary/20 group-hover:shadow-medium transition-all duration-500"
+              className={`w-[72px] h-[72px] rounded-2xl border flex items-center justify-center ${p.color} group-hover:shadow-md transition-all duration-500`}
             >
-              <span className="text-sm font-bold text-primary/60 group-hover:text-primary transition-colors duration-300">
+              <span className="text-sm font-extrabold">
                 {p.name}
               </span>
             </motion.div>
-            <span className="text-[10px] text-muted-foreground/40 text-center leading-tight font-medium">
+            <span className="text-[10px] text-muted-foreground/50 text-center leading-tight font-medium">
               {p.label}
             </span>
           </motion.div>
