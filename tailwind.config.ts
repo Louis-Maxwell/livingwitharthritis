@@ -61,6 +61,13 @@ export default {
           DEFAULT: "hsl(var(--navy))",
           foreground: "hsl(var(--navy-foreground))",
         },
+        "tint-blue": "hsl(var(--tint-blue))",
+        "tint-green": "hsl(var(--tint-green))",
+        "tint-amber": "hsl(var(--tint-amber))",
+        "tint-rose": "hsl(var(--tint-rose))",
+        "tint-violet": "hsl(var(--tint-violet))",
+        "tint-cyan": "hsl(var(--tint-cyan))",
+        "tint-peach": "hsl(var(--tint-peach))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

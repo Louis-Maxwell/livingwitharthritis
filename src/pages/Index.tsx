@@ -165,7 +165,7 @@ export default function Index() {
                  TABBED EXPLORE SECTION
                  Reduces scrolling by grouping heavy content
                 ══════════════════════════════════════════ */}
-            <section id="explore" className="scroll-mt-24">
+            <section id="explore" className="scroll-mt-24 bg-tint-rose rounded-3xl p-6 md:p-10">
               <div className="text-center mb-8">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground tracking-tight">
                   Explore Our Resources

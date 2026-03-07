@@ -71,7 +71,7 @@ const FundraisingProgressSection = memo(() => {
   }).format(GOAL);
 
   return (
-    <section id="involved" className="py-14 lg:py-20 bg-accent/20 section-divider">
+    <section id="involved" className="py-14 lg:py-20 bg-tint-rose section-divider">
       <div className="container mx-auto px-6 md:px-10 max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 32, scale: 0.97 }}
