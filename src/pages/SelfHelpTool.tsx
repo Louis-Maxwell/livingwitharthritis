@@ -20,10 +20,38 @@ export default function SelfHelpTool() {
     >
       <Helmet>
         <title>Self Help Tool – Joint Exercise Diagram | Living With Arthritis UK</title>
-        <meta
-          name="description"
-          content="Interactive self-help tool for arthritis joint exercises. Click on any joint to discover targeted exercises for pain relief and mobility."
-        />
+        <meta name="description" content="Interactive self-help tool for arthritis joint exercises. Click on any joint to discover targeted exercises for pain relief and mobility." />
+        <meta name="keywords" content="arthritis exercises UK, joint exercise diagram, self help arthritis, physiotherapy exercises, knee exercises arthritis, hip exercises arthritis" />
+        <meta property="og:title" content="Self Help Tool – Joint Exercise Diagram | Living With Arthritis UK" />
+        <meta property="og:description" content="Interactive self-help tool for arthritis joint exercises. Click on any joint to discover targeted exercises." />
+        <meta property="og:locale" content="en_GB" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://livingwitharthritis.org.uk/self-help" />
+        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Self Help Tool – Joint Exercise Diagram" />
+        <meta name="twitter:description" content="Interactive self-help tool for arthritis joint exercises." />
+        <meta name="geo.region" content="GB" />
+        <meta name="geo.placename" content="United Kingdom" />
+        <link rel="canonical" href="https://livingwitharthritis.org.uk/self-help" />
+        <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/self-help" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "MedicalWebPage",
+          "name": "Self Help Tool – Joint Exercise Diagram",
+          "description": "Interactive self-help tool for arthritis joint exercises.",
+          "url": "https://livingwitharthritis.org.uk/self-help",
+          "inLanguage": "en-GB",
+          "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } }
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
+            { "@type": "ListItem", "position": 2, "name": "Self Help Tool", "item": "https://livingwitharthritis.org.uk/self-help" }
+          ]
+        })}</script>
       </Helmet>
 
       <div className="min-h-screen bg-background">

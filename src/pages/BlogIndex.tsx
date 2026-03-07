@@ -91,7 +91,16 @@ const BlogIndex = () => {
         <meta property="og:title" content="Arthritis Blog UK – Joint Pain, Diet & Exercise Advice" />
         <meta property="og:description" content="Expert UK arthritis articles covering anti-inflammatory diet, NHS exercises, supplements and osteoarthritis management." />
         <meta property="og:locale" content="en_GB" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://livingwitharthritis.org.uk/blog" />
+        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Arthritis Blog UK – Joint Pain, Diet & Exercise Advice" />
+        <meta name="twitter:description" content="Expert UK arthritis articles covering anti-inflammatory diet, NHS exercises, supplements and osteoarthritis management." />
+        <meta name="geo.region" content="GB" />
+        <meta name="geo.placename" content="United Kingdom" />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/blog" />
+        <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/blog" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
