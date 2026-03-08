@@ -97,13 +97,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 md:px-10 relative">
         <div className="flex items-center justify-center min-h-[calc(100vh-140px)] py-24 lg:py-0">
           <div className="hero-stagger max-w-[820px] text-center">
-            {/* Trust badge */}
-            <div className="hero-item mb-10">
-              <span className="premium-badge">
-                <Sparkles className="w-3.5 h-3.5" />
-                Trusted by Healthcare Professionals Across the UK
-              </span>
-            </div>
+            {/* Removed trust badge — using social proof badges below instead */}
 
             <h1 className="hero-item text-[2.75rem] sm:text-5xl md:text-6xl lg:text-[4.75rem] font-extrabold text-foreground mb-8 leading-[1.06] tracking-tight text-balance">
               The future of{" "}
