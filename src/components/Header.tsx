@@ -60,6 +60,34 @@ const Header = () => {
   return (
     <>
       <BuildingBanner />
+
+      {/* Premium Logo Bar */}
+      <div className="bg-background border-b border-border/15">
+        <div className="container mx-auto px-6 md:px-10 py-5 flex items-center justify-center">
+          <a href="/" className="flex items-center gap-4 group">
+            <div className="relative">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg group-hover:shadow-primary transition-all duration-500 group-hover:scale-105">
+                <Heart className="w-6 h-6 text-primary-foreground drop-shadow-sm" />
+              </div>
+              <div className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-gold flex items-center justify-center shadow-sm">
+                <span className="text-[7px] font-black text-gold-foreground">™</span>
+              </div>
+            </div>
+            <div className="flex flex-col leading-none">
+              <span className="text-[11px] tracking-[0.35em] uppercase font-semibold text-muted-foreground/60 mb-1">
+                United Kingdom
+              </span>
+              <span className="text-xl sm:text-2xl md:text-[1.7rem] font-black text-foreground tracking-[-0.03em] leading-none uppercase">
+                Living With
+              </span>
+              <span className="text-xl sm:text-2xl md:text-[1.7rem] font-black text-primary tracking-[-0.03em] leading-none uppercase mt-0.5">
+                Arthritis
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+
       <Suspense fallback={<div className="bg-navy h-[42px]" />}>
         <DonationBanner />
       </Suspense>
@@ -73,20 +101,15 @@ const Header = () => {
         }`}
       >
         <div className="container mx-auto px-6 md:px-10">
-          <div className="flex justify-between items-center h-[72px]">
-            {/* Logo */}
-            <a href="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center shadow-sm group-hover:shadow-primary transition-all duration-300">
-                <Heart className="w-[17px] h-[17px] text-primary-foreground" />
+          <div className="flex justify-between items-center h-[56px]">
+            {/* Compact logo for sticky nav */}
+            <a href="/" className="flex items-center gap-2.5 group">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-sm group-hover:shadow-primary transition-all duration-300">
+                <Heart className="w-4 h-4 text-primary-foreground" />
               </div>
-              <div className="flex flex-col leading-none">
-                <span className="text-base sm:text-lg font-black text-primary tracking-tight leading-tight uppercase">
-                  Living With
-                </span>
-                <span className="text-base sm:text-lg font-black text-primary tracking-tight leading-tight uppercase">
-                  Arthritis<sup className="text-[7px] align-super ml-0.5">™</sup>
-                </span>
-              </div>
+              <span className="text-sm font-black text-foreground tracking-tight uppercase hidden sm:block">
+                LWA<span className="text-primary">.</span>
+              </span>
             </a>
 
             {/* Desktop nav */}
