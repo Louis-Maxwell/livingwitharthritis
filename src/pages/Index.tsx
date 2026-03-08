@@ -15,10 +15,33 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 const Footer = lazy(() => import("@/components/Footer"));
 const AppointmentModal = lazy(() => import("@/components/AppointmentModal").then(m => ({ default: m.AppointmentModal })));
 
-// Lazy load non-critical overlays
+// Lazy load non-critical overlays — deferred until after paint
 const DonationNotification = lazy(() => import("@/components/DonationNotification"));
 const FeedbackPopup = lazy(() => import("@/components/FeedbackPopup"));
 const BackToTop = lazy(() => import("@/components/ui/BackToTop"));
+
+// Wrapper to defer overlay loading until browser is idle
+const DeferredOverlays = memo(() => {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const id = typeof requestIdleCallback !== "undefined"
+      ? requestIdleCallback(() => setShow(true), { timeout: 3000 })
+      : setTimeout(() => setShow(true), 2000) as unknown as number;
+    return () => {
+      if (typeof cancelIdleCallback !== "undefined") cancelIdleCallback(id);
+      else clearTimeout(id);
+    };
+  }, []);
+  if (!show) return null;
+  return (
+    <Suspense fallback={null}>
+      <DonationNotification />
+      <FeedbackPopup />
+      <BackToTop />
+    </Suspense>
+  );
+});
+DeferredOverlays.displayName = "DeferredOverlays";
 
 // Lazy sections – always on page
 const AboutSection = lazy(() => import("@/components/AboutSection"));
