@@ -319,8 +319,9 @@ const Header = () => {
           <div
             className="fixed inset-0 bg-foreground/20 backdrop-blur-sm z-[60] lg:hidden animate-in fade-in duration-200"
             onClick={() => setMobileMenuOpen(false)}
+            aria-hidden="true"
           />
-          <div className="fixed top-0 right-0 bottom-0 w-[80%] max-w-sm bg-background z-[70] lg:hidden shadow-2xl flex flex-col border-l border-border/30 animate-in slide-in-from-right duration-300">
+          <div className="fixed top-0 right-0 bottom-0 w-[80%] max-w-sm bg-background z-[70] lg:hidden shadow-2xl flex flex-col border-l border-border/30 animate-in slide-in-from-right duration-300" role="dialog" aria-modal="true" aria-label="Navigation menu">
             <div className="flex items-center justify-between p-6 border-b border-border/20">
               <div className="flex items-center gap-2.5">
                 <LogoMark className="w-8 h-8" />
