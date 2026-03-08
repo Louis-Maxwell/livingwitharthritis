@@ -1,9 +1,6 @@
 import { memo, useRef } from "react";
-import { Card, CardContent } from "@/components/ui/card";
 import { Activity, Users, Briefcase, Database, BookOpen, HeartHandshake, LucideIcon, Sparkles, Shield, Stethoscope } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useStatistics } from "@/hooks/useCmsContent";
-import { Skeleton } from "@/components/ui/skeleton";
 
 const iconMap: Record<string, LucideIcon> = { Users, Activity, Briefcase, Database, BookOpen, HeartHandshake };
 
