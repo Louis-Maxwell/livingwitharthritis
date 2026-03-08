@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Heart, Construction } from "lucide-react";
+import { Menu, X, Heart, Construction, BookOpen } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import lwaLogo from "@/assets/lwa-logo.png";
+import ResourceLibraryModal from "@/components/ResourceLibraryModal";
 
 const DonationBanner = lazy(() => import("@/components/DonationBanner"));
 
