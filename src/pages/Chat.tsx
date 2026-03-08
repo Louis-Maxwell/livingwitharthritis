@@ -1,8 +1,9 @@
 import { Helmet } from "react-helmet-async";
 import { ChatBot } from "@/components/ChatBot";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Bot, Sparkles, Shield, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Badge } from "@/components/ui/badge";
 
 const Chat = () => {
   return (
@@ -44,23 +45,55 @@ const Chat = () => {
         })}</script>
       </Helmet>
       <div className="min-h-screen bg-background">
-        <div className="container max-w-4xl mx-auto py-8 px-4">
-          <div className="mb-6">
-            <Link to="/">
-              <Button variant="ghost" size="sm" className="gap-2">
-                <ArrowLeft className="h-4 w-4" />
-                Back to Home
-              </Button>
-            </Link>
-          </div>
-          
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-foreground mb-2">AI Chat Assistant</h1>
-            <p className="text-muted-foreground">
-              Ask questions and get instant AI-powered responses
-            </p>
-          </div>
+        {/* Decorative header */}
+        <div className="relative bg-gradient-to-br from-primary/6 via-background to-emerald-500/4 border-b border-border/20 overflow-hidden">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-emerald-500/5 rounded-full translate-y-1/2 -translate-x-1/4 blur-3xl pointer-events-none" />
+          <div className="absolute inset-0 pattern-dots opacity-20 pointer-events-none" />
 
+          <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.05]" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20%" cy="40%" r="3" fill="hsl(var(--primary))" />
+            <circle cx="75%" cy="25%" r="2.5" fill="hsl(var(--secondary))" />
+            <circle cx="85%" cy="70%" r="2" fill="hsl(var(--primary))" />
+          </svg>
+
+          <div className="container max-w-4xl mx-auto py-10 px-4 relative z-10">
+            <div className="mb-6">
+              <Link to="/">
+                <Button variant="ghost" size="sm" className="gap-2 rounded-full">
+                  <ArrowLeft className="h-4 w-4" />
+                  Back to Home
+                </Button>
+              </Link>
+            </div>
+            
+            <div className="text-center mb-2">
+              <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 mb-4">
+                <Bot className="h-4 w-4 text-primary" />
+                <span className="text-sm font-semibold text-primary tracking-wide">AI-Powered</span>
+              </div>
+              <h1 className="text-3xl md:text-4xl font-extrabold text-foreground mb-3 tracking-tight">
+                Virtual Arthritis <span className="text-primary">Assistant</span>
+              </h1>
+              <p className="text-muted-foreground max-w-lg mx-auto">
+                Ask questions and get instant AI-powered responses about arthritis management, exercises, diet and UK-specific support.
+              </p>
+              <div className="flex items-center gap-3 justify-center mt-4">
+                <Badge className="bg-emerald-500/10 text-emerald-700 border-0 text-xs">
+                  <Shield className="w-3 h-3 mr-1" />
+                  Evidence-Based
+                </Badge>
+                <Badge className="bg-blue-500/10 text-blue-700 border-0 text-xs">
+                  <Sparkles className="w-3 h-3 mr-1" />
+                  Free & Instant
+                </Badge>
+              </div>
+            </div>
+          </div>
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+        </div>
+
+        <div className="container max-w-4xl mx-auto py-8 px-4">
           <ChatBot />
         </div>
       </div>

@@ -3,8 +3,10 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ArrowRight, ChevronLeft, ChevronRight, Eye } from "lucide-react";
+import PageHero from "@/components/ui/PageHero";
+import { ArrowRight, ChevronLeft, ChevronRight, Eye, BookOpen, Sparkles, Newspaper } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { useBlogViewCounts } from "@/hooks/useBlogViews";
 
 type Category = "All" | "Exercise" | "Nutrition" | "Lifestyle" | "Health" | "Supplements" | "Treatment";
@@ -62,6 +64,26 @@ const blogPosts: BlogPost[] = [
 
 const categories: Category[] = ["All", "Exercise", "Nutrition", "Lifestyle", "Health", "Supplements", "Treatment"];
 const POSTS_PER_PAGE = 9;
+
+const categoryColors: Record<Category, string> = {
+  All: "bg-primary/10 text-primary hover:bg-primary/20 border-primary/20",
+  Exercise: "bg-violet-500/10 text-violet-700 hover:bg-violet-500/20 border-violet-500/20",
+  Nutrition: "bg-emerald-500/10 text-emerald-700 hover:bg-emerald-500/20 border-emerald-500/20",
+  Lifestyle: "bg-sky-500/10 text-sky-700 hover:bg-sky-500/20 border-sky-500/20",
+  Health: "bg-rose-500/10 text-rose-700 hover:bg-rose-500/20 border-rose-500/20",
+  Supplements: "bg-amber-500/10 text-amber-700 hover:bg-amber-500/20 border-amber-500/20",
+  Treatment: "bg-teal-500/10 text-teal-700 hover:bg-teal-500/20 border-teal-500/20",
+};
+
+const categoryAccent: Record<Category, string> = {
+  All: "border-l-primary",
+  Exercise: "border-l-violet-500",
+  Nutrition: "border-l-emerald-500",
+  Lifestyle: "border-l-sky-500",
+  Health: "border-l-rose-500",
+  Supplements: "border-l-amber-500",
+  Treatment: "border-l-teal-500",
+};
 
 const BlogIndex = () => {
   const [activeCategory, setActiveCategory] = useState<Category>("All");
@@ -123,23 +145,39 @@ const BlogIndex = () => {
       </Helmet>
       <div className="min-h-screen bg-background">
         <Header />
-        <main className="container mx-auto px-6 md:px-10 py-16 md:py-24">
-          <h1 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-4">
-            Arthritis Advice &amp; Guidance
-          </h1>
-          <p className="text-muted-foreground max-w-2xl mb-10 text-lg">
-            Evidence-based articles to help UK residents manage arthritis, reduce joint pain and live well.
-          </p>
 
-          {/* Category filters */}
+        {/* Hero */}
+        <PageHero
+          gradient="from-violet-500/8 via-background to-rose-500/5"
+          pattern="dots"
+          badge={
+            <div className="flex items-center gap-3">
+              <Badge className="bg-violet-500/10 text-violet-700 border-0 text-xs font-bold px-3 py-1.5">
+                <Newspaper className="w-3 h-3 mr-1.5" />
+                {blogPosts.length} Articles
+              </Badge>
+              <Badge className="bg-primary/10 text-primary border-0 text-xs font-bold px-3 py-1.5">
+                <Sparkles className="w-3 h-3 mr-1.5" />
+                Evidence-Based
+              </Badge>
+            </div>
+          }
+          title={<>Arthritis Advice <span className="text-primary">&amp; Guidance</span></>}
+          subtitle="Evidence-based articles to help UK residents manage arthritis, reduce joint pain and live well."
+        />
+
+        <main className="container mx-auto px-6 md:px-10 py-10 md:py-16">
+          {/* Category filters — colorful pills */}
           <div className="flex flex-wrap gap-2 mb-10">
             {categories.map((cat) => (
-              <Button
+              <button
                 key={cat}
-                variant={activeCategory === cat ? "default" : "outline"}
-                size="sm"
                 onClick={() => handleCategory(cat)}
-                className="rounded-full text-xs font-semibold tracking-wide"
+                className={`px-4 py-2 rounded-full text-xs font-bold tracking-wide border transition-all duration-200 cursor-pointer ${
+                  activeCategory === cat
+                    ? `${categoryColors[cat]} border-current shadow-sm scale-105`
+                    : "bg-muted/30 text-muted-foreground border-border/30 hover:bg-muted/50"
+                }`}
               >
                 {cat}
                 {cat !== "All" && (
@@ -147,7 +185,7 @@ const BlogIndex = () => {
                     ({blogPosts.filter((p) => p.category === cat).length})
                   </span>
                 )}
-              </Button>
+              </button>
             ))}
           </div>
 
@@ -156,22 +194,24 @@ const BlogIndex = () => {
             Showing {paginated.length} of {filtered.length} article{filtered.length !== 1 ? "s" : ""}
           </p>
 
-          {/* Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Grid — cards with category color accent */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {paginated.map((post) => (
               <Link
                 key={post.slug}
                 to={`/blog/${post.slug}`}
-                className="group rounded-2xl border border-border bg-card p-6 hover:shadow-medium transition-all duration-300"
+                className={`group rounded-2xl border border-border/40 border-l-4 ${categoryAccent[post.category]} bg-card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5`}
               >
-                <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center justify-between mb-3">
                   <time className="text-xs text-muted-foreground">{new Date(post.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</time>
-                  <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-primary">{post.category}</span>
+                  <span className={`text-[10px] font-bold uppercase tracking-[0.15em] px-2 py-0.5 rounded-full ${categoryColors[post.category]}`}>
+                    {post.category}
+                  </span>
                 </div>
-                <h2 className="font-display text-xl font-semibold text-foreground mt-2 mb-3 group-hover:text-primary transition-colors">
+                <h2 className="font-display text-lg font-semibold text-foreground mt-2 mb-3 group-hover:text-primary transition-colors leading-snug">
                   {post.title}
                 </h2>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">{post.excerpt}</p>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">{post.excerpt}</p>
                 <div className="flex items-center justify-between">
                   <span className="text-primary text-sm font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all">
                     Read more <ArrowRight className="w-3.5 h-3.5" />
@@ -194,7 +234,7 @@ const BlogIndex = () => {
                 size="sm"
                 disabled={currentPage === 1}
                 onClick={() => setCurrentPage((p) => p - 1)}
-                className="gap-1"
+                className="gap-1 rounded-full"
               >
                 <ChevronLeft className="w-4 h-4" /> Previous
               </Button>
@@ -204,7 +244,7 @@ const BlogIndex = () => {
                   key={page}
                   variant={page === currentPage ? "default" : "outline"}
                   size="icon"
-                  className="w-9 h-9 text-xs"
+                  className="w-9 h-9 text-xs rounded-full"
                   onClick={() => setCurrentPage(page)}
                 >
                   {page}
@@ -216,7 +256,7 @@ const BlogIndex = () => {
                 size="sm"
                 disabled={currentPage === totalPages}
                 onClick={() => setCurrentPage((p) => p + 1)}
-                className="gap-1"
+                className="gap-1 rounded-full"
               >
                 Next <ChevronRight className="w-4 h-4" />
               </Button>
