@@ -17,33 +17,49 @@ const BuildingBanner = () => (
   </div>
 );
 
-/* Clean SVG logo mark – stylised "A" with a figure */
+/* Dynamic SVG logo mark – flowing figure with curved "A" */
 const LogoMark = ({ className = "" }: { className?: string }) => (
-  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-    {/* Human figure head */}
-    <circle cx="24" cy="8" r="4.5" fill="hsl(var(--primary))" />
-    {/* Body / stylised A shape */}
+  <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+    {/* Head */}
+    <circle cx="28" cy="7.5" r="5" fill="hsl(var(--primary))" />
+    
+    {/* Flowing body – curved torso into "A" legs */}
     <path
-      d="M24 14 L12 42 L17 42 L20 34 L28 34 L31 42 L36 42 L24 14Z"
+      d="M28 13 C28 18, 26 22, 22 26 C18 30, 15 36, 13 46 L19 46 C20 40, 22 35, 24 31 Q26 27, 28 27 Q30 27, 32 31 C34 35, 36 40, 37 46 L43 46 C41 36, 38 30, 34 26 C30 22, 28 18, 28 13Z"
       fill="hsl(var(--primary))"
     />
-    {/* Crossbar */}
-    <rect x="19" y="28" width="10" height="2.5" rx="1" fill="hsl(var(--background))" />
-    {/* Raised arms */}
+    
+    {/* Crossbar – curved */}
     <path
-      d="M24 16 Q18 14 10 6"
-      stroke="hsl(var(--primary))"
-      strokeWidth="3"
+      d="M20.5 36 Q28 33, 35.5 36"
+      stroke="hsl(var(--background))"
+      strokeWidth="2.8"
       strokeLinecap="round"
       fill="none"
     />
+    
+    {/* Left arm – flowing upward curve */}
     <path
-      d="M24 16 Q30 14 38 6"
+      d="M26 17 C22 15, 16 12, 10 5"
       stroke="hsl(var(--primary))"
-      strokeWidth="3"
+      strokeWidth="3.2"
       strokeLinecap="round"
       fill="none"
     />
+    
+    {/* Right arm – flowing upward curve */}
+    <path
+      d="M30 17 C34 15, 40 12, 46 5"
+      stroke="hsl(var(--primary))"
+      strokeWidth="3.2"
+      strokeLinecap="round"
+      fill="none"
+    />
+    
+    {/* Left hand flourish */}
+    <circle cx="9" cy="4" r="2" fill="hsl(var(--primary))" opacity="0.7" />
+    {/* Right hand flourish */}
+    <circle cx="47" cy="4" r="2" fill="hsl(var(--primary))" opacity="0.7" />
   </svg>
 );
 
