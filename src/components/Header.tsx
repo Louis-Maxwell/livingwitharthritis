@@ -155,15 +155,24 @@ const Header = () => {
 
   return (
     <>
+      {/* Skip to content — first focusable element */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-6 focus:py-3 focus:bg-primary focus:text-primary-foreground focus:rounded-xl focus:text-sm focus:font-bold focus:shadow-xl focus:outline-none"
+      >
+        Skip to main content
+      </a>
+
       {/* Clean Logo Bar */}
       <div className="bg-background border-b border-border/15">
         <div className="container mx-auto px-6 md:px-10 py-3.5 flex items-center justify-center">
           <button
             onClick={() => navigate("/")}
             className="flex items-center gap-3 group cursor-pointer select-none"
+            aria-label="Living With Arthritis — Go to homepage"
           >
             <div className="relative w-12 h-12 md:w-14 md:h-14 shrink-0">
-              <LogoMark className="w-full h-full drop-shadow-sm group-hover:scale-105 transition-transform duration-300" />
+              <LogoMark className="w-full h-full drop-shadow-sm group-hover:scale-105 transition-transform duration-300" aria-hidden="true" />
             </div>
             <span className="text-xl sm:text-2xl md:text-[1.7rem] font-black text-primary tracking-tight leading-none uppercase">
               Living With Arthritis
