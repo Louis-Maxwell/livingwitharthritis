@@ -365,6 +365,30 @@
   .luxury-divider::after {
     background: linear-gradient(90deg, hsl(var(--primary) / 0.2), transparent);
   }
+
+  /* ─── Glass-morphism card ─── */
+  .glass-premium {
+    @apply bg-card/70 backdrop-blur-xl border border-border/20 rounded-2xl;
+    box-shadow: var(--shadow-glass), 0 1px 0 0 rgb(255 255 255 / 0.1) inset;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .glass-premium:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-large), 0 1px 0 0 rgb(255 255 255 / 0.15) inset;
+    border-color: hsl(var(--primary) / 0.15);
+  }
+
+  /* ─── Gradient section divider ─── */
+  .gradient-divider {
+    @apply w-full h-px my-0;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.15), hsl(var(--secondary) / 0.1), transparent);
+  }
+
+  /* ─── Wave divider SVG background ─── */
+  .wave-divider {
+    @apply w-full overflow-hidden leading-[0];
+  }
 }
 
 @layer utilities {

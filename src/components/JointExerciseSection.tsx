@@ -113,6 +113,8 @@ const BodyImage = memo(() => (
     alt="Human body diagram for joint exercises"
     className="w-full h-auto select-none pointer-events-none"
     draggable={false}
+    loading="lazy"
+    decoding="async"
   />
 ));
 BodyImage.displayName = "BodyImage";
@@ -144,7 +146,7 @@ const jointMarkers: JointMarker[] = [
   { id: "ankle",    label: "R Ankle",      top: "88%",   left: "62%",  labelSide: "right" },
 ];
 
-/* ── Joint Dot — Physitrack-style teal highlight ── */
+/* ── Joint Dot — Teal-to-cyan highlight with glow ── */
 
 const JointDot = memo(({ marker, isActive, onClick }: {
   marker: JointMarker;
@@ -154,7 +156,7 @@ const JointDot = memo(({ marker, isActive, onClick }: {
   <button
     onClick={onClick}
     aria-label={`Exercise plan for ${marker.label}`}
-    className="absolute flex items-center gap-1 group cursor-pointer z-10"
+    className="absolute flex items-center gap-1.5 group cursor-pointer z-10"
     style={{
       top: marker.top,
       left: marker.left,
@@ -163,31 +165,58 @@ const JointDot = memo(({ marker, isActive, onClick }: {
     }}
   >
     <span className="relative flex items-center justify-center">
+      {/* Outer pulse ring */}
       {isActive && (
         <motion.span
-          initial={{ scale: 0.8, opacity: 0.5 }}
-          animate={{ scale: 2.2, opacity: 0 }}
-          transition={{ duration: 1.4, repeat: Infinity, ease: "easeOut" }}
-          className="absolute w-4 h-4 rounded-full bg-primary/40"
+          initial={{ scale: 0.8, opacity: 0.6 }}
+          animate={{ scale: 2.5, opacity: 0 }}
+          transition={{ duration: 1.6, repeat: Infinity, ease: "easeOut" }}
+          className="absolute w-5 h-5 rounded-full"
+          style={{ background: "hsl(180 70% 45% / 0.4)" }}
         />
       )}
+      {/* Hover glow ring */}
       <span
-        className="w-3.5 h-3.5 rounded-full transition-all duration-300"
+        className="absolute w-8 h-8 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         style={{
-          background: isActive ? "hsl(var(--primary))" : "hsl(var(--primary) / 0.55)",
-          border: isActive ? "2px solid hsl(var(--primary-foreground))" : "1.5px solid hsl(var(--primary) / 0.3)",
-          boxShadow: isActive
-            ? "0 0 12px 3px hsl(var(--primary) / 0.45)"
-            : "0 0 4px 1px hsl(var(--primary) / 0.15)",
+          background: "radial-gradient(circle, hsl(180 70% 50% / 0.25), transparent 70%)",
         }}
       />
+      {/* Main dot */}
+      <span
+        className="w-4 h-4 rounded-full transition-all duration-300 relative z-10"
+        style={{
+          background: isActive
+            ? "linear-gradient(135deg, hsl(180 70% 45%), hsl(200 80% 50%))"
+            : "linear-gradient(135deg, hsl(180 60% 50% / 0.7), hsl(200 70% 55% / 0.7))",
+          border: isActive
+            ? "2.5px solid hsl(0 0% 100%)"
+            : "2px solid hsl(180 60% 50% / 0.4)",
+          boxShadow: isActive
+            ? "0 0 16px 4px hsl(180 70% 50% / 0.5), 0 0 4px 1px hsl(200 80% 50% / 0.3)"
+            : "0 0 6px 2px hsl(180 60% 50% / 0.2)",
+        }}
+      />
+      {/* Active ring */}
+      {isActive && (
+        <motion.span
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          className="absolute w-6 h-6 rounded-full border-2 z-[5]"
+          style={{ borderColor: "hsl(180 70% 50% / 0.6)" }}
+        />
+      )}
     </span>
+    {/* Label */}
     <span
-      className={`text-[10px] font-semibold whitespace-nowrap px-1.5 py-0.5 rounded transition-all duration-200 ${
+      className={`text-[10px] font-semibold whitespace-nowrap px-2 py-1 rounded-lg transition-all duration-200 ${
         isActive
-          ? "bg-primary text-primary-foreground shadow-md"
-          : "text-foreground/70 group-hover:text-primary"
+          ? "text-primary-foreground shadow-lg"
+          : "text-foreground/70 group-hover:text-foreground bg-background/60 group-hover:bg-background/80 backdrop-blur-sm"
       }`}
+      style={isActive ? {
+        background: "linear-gradient(135deg, hsl(180 70% 40%), hsl(200 80% 45%))",
+      } : undefined}
     >
       {marker.label}
     </span>
@@ -200,30 +229,33 @@ JointDot.displayName = "JointDot";
 
 const ExercisePanel = memo(({ joint, onClose }: { joint: JointData; onClose: () => void }) => (
   <motion.div
-    initial={{ opacity: 0, x: 20 }}
+    initial={{ opacity: 0, x: 30 }}
     animate={{ opacity: 1, x: 0 }}
-    exit={{ opacity: 0, x: 20 }}
+    exit={{ opacity: 0, x: 30 }}
     transition={{ type: "spring", stiffness: 300, damping: 30 }}
-    className="bg-card rounded-2xl border border-border/50 shadow-lg overflow-hidden"
+    className="rounded-2xl border border-border/30 shadow-xl overflow-hidden backdrop-blur-sm"
+    style={{ background: "hsl(var(--card))" }}
   >
-    <div className="p-5 relative bg-primary">
+    {/* Header with teal gradient */}
+    <div className="p-5 relative" style={{ background: "linear-gradient(135deg, hsl(180 70% 40%), hsl(200 75% 45%))" }}>
       <button
         onClick={onClose}
-        className="absolute top-3 right-3 w-8 h-8 rounded-full bg-primary-foreground/20 hover:bg-primary-foreground/30 flex items-center justify-center transition-colors text-primary-foreground"
+        className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center transition-colors text-white/90 hover:text-white"
+        style={{ background: "hsl(0 0% 100% / 0.2)" }}
         aria-label="Close exercise panel"
       >
         <X className="w-4 h-4" />
       </button>
       <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 rounded-xl bg-primary-foreground/20 flex items-center justify-center text-primary-foreground">
+        <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white" style={{ background: "hsl(0 0% 100% / 0.2)" }}>
           <Activity className="w-5 h-5" />
         </div>
-        <div className="text-primary-foreground">
+        <div className="text-white">
           <h3 className="text-xl font-display font-bold">{joint.label}</h3>
-          <p className="text-primary-foreground/80 text-xs">Home Exercise Plan</p>
+          <p className="text-white/80 text-xs">Home Exercise Plan</p>
         </div>
       </div>
-      <p className="text-primary-foreground/70 text-sm mt-2 leading-relaxed">💡 {joint.tip}</p>
+      <p className="text-white/70 text-sm mt-2 leading-relaxed">💡 {joint.tip}</p>
     </div>
 
     <div className="p-4 space-y-3 max-h-[400px] overflow-y-auto">
@@ -233,17 +265,20 @@ const ExercisePanel = memo(({ joint, onClose }: { joint: JointData; onClose: () 
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: i * 0.08 }}
-          className="group p-4 rounded-xl bg-accent/50 hover:bg-accent border border-border/30 hover:border-primary/20 transition-all duration-200"
+          className="group p-4 rounded-xl bg-accent/50 hover:bg-accent border border-border/30 hover:border-border/60 transition-all duration-200"
         >
           <div className="flex items-center gap-2 mb-2">
-            <span className="w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">
+            <span
+              className="w-6 h-6 rounded-full text-white text-xs font-bold flex items-center justify-center flex-shrink-0"
+              style={{ background: "linear-gradient(135deg, hsl(180 70% 45%), hsl(200 75% 50%))" }}
+            >
               {i + 1}
             </span>
             <h4 className="font-semibold text-foreground text-sm">{ex.name}</h4>
           </div>
           <p className="text-muted-foreground text-xs leading-relaxed mb-2 ml-8">{ex.description}</p>
           <div className="flex gap-3 ml-8">
-            <span className="inline-flex items-center gap-1 text-[10px] font-medium text-primary bg-primary/10 px-2 py-0.5 rounded-full">
+            <span className="inline-flex items-center gap-1 text-[10px] font-medium px-2 py-0.5 rounded-full" style={{ color: "hsl(180 70% 35%)", background: "hsl(180 70% 45% / 0.1)" }}>
               <Clock className="w-3 h-3" /> {ex.duration}
             </span>
             <span className="inline-flex items-center gap-1 text-[10px] font-medium text-secondary bg-secondary/10 px-2 py-0.5 rounded-full">
@@ -282,7 +317,7 @@ const JointExerciseSection = memo(() => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-10"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-foreground mb-3 tracking-tight">
@@ -294,15 +329,22 @@ const JointExerciseSection = memo(() => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-start">
-          {/* Body silhouette with joint markers */}
+          {/* Body silhouette with gradient overlay and joint markers */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
             className="flex justify-center"
           >
             <div className="relative w-full max-w-[340px]">
+              {/* Subtle gradient backdrop for premium feel */}
+              <div
+                className="absolute inset-0 rounded-3xl -m-4 opacity-40"
+                style={{
+                  background: "radial-gradient(ellipse at center 30%, hsl(200 80% 90% / 0.6), transparent 70%)",
+                }}
+              />
               <BodyImage />
               {jointMarkers.map((marker, idx) => (
                 <JointDot
@@ -332,9 +374,12 @@ const JointExerciseSection = memo(() => {
                   exit={{ opacity: 0 }}
                   className="h-full flex items-center justify-center"
                 >
-                  <div className="text-center p-8 sm:p-12 rounded-2xl border-2 border-dashed border-border/50 bg-background/50 max-w-md mx-auto">
-                    <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
-                      <Dumbbell className="w-8 h-8 text-primary" />
+                  <div className="text-center p-8 sm:p-12 rounded-2xl border-2 border-dashed border-border/50 bg-background/50 max-w-md mx-auto backdrop-blur-sm">
+                    <div
+                      className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5"
+                      style={{ background: "linear-gradient(135deg, hsl(180 70% 45% / 0.15), hsl(200 80% 50% / 0.1))" }}
+                    >
+                      <Dumbbell className="w-8 h-8" style={{ color: "hsl(180 70% 40%)" }} />
                     </div>
                     <h3 className="text-xl font-display font-bold text-foreground mb-2">
                       Select a Joint
