@@ -119,6 +119,51 @@ export type Database = {
         }
         Relationships: []
       }
+      blog_articles: {
+        Row: {
+          category: string
+          content: string
+          created_at: string
+          date: string
+          display_order: number
+          excerpt: string
+          id: string
+          image_url: string | null
+          is_published: boolean
+          slug: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          category?: string
+          content?: string
+          created_at?: string
+          date?: string
+          display_order?: number
+          excerpt: string
+          id?: string
+          image_url?: string | null
+          is_published?: boolean
+          slug: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          content?: string
+          created_at?: string
+          date?: string
+          display_order?: number
+          excerpt?: string
+          id?: string
+          image_url?: string | null
+          is_published?: boolean
+          slug?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       blog_comments: {
         Row: {
           author_name: string
@@ -525,6 +570,45 @@ export type Database = {
           image_url?: string | null
           is_active?: boolean
           title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      joint_exercises: {
+        Row: {
+          created_at: string
+          description: string
+          display_order: number
+          duration: string
+          exercise_name: string
+          id: string
+          is_active: boolean
+          joint_id: string
+          reps: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description: string
+          display_order?: number
+          duration: string
+          exercise_name: string
+          id?: string
+          is_active?: boolean
+          joint_id: string
+          reps: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          display_order?: number
+          duration?: string
+          exercise_name?: string
+          id?: string
+          is_active?: boolean
+          joint_id?: string
+          reps?: string
           updated_at?: string
         }
         Relationships: []
