@@ -216,6 +216,13 @@ const Header = () => {
                         setActiveDropdown(null);
                       }
                     }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Escape" && activeDropdown === link.label) {
+                        setActiveDropdown(null);
+                      }
+                    }}
+                    aria-expanded={link.subs ? activeDropdown === link.label : undefined}
+                    aria-haspopup={link.subs ? "true" : undefined}
                     className={`px-3.5 py-1.5 text-[13px] font-semibold rounded-lg transition-all duration-200 cursor-pointer flex items-center gap-1 ${
                       activeDropdown === link.label
                         ? "text-primary bg-primary/5"
@@ -223,7 +230,7 @@ const Header = () => {
                     }`}
                   >
                     {link.label}
-                    {link.subs && <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === link.label ? "rotate-180" : ""}`} />}
+                    {link.subs && <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === link.label ? "rotate-180" : ""}`} aria-hidden="true" />}
                   </button>
 
                   {/* Rich sub-menu dropdown */}
