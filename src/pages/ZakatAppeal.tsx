@@ -207,8 +207,8 @@ const ZakatAppeal = () => {
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="bg-card rounded-xl p-6 text-center shadow-sm border border-border"
                 >
-                  <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-emerald-100 flex items-center justify-center">
-                    <item.icon className="h-6 w-6 text-emerald-600" />
+                  <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-emerald/10 flex items-center justify-center">
+                    <item.icon className="h-6 w-6 text-emerald" />
                   </div>
                   <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
                   <p className="text-sm text-muted-foreground">{item.desc}</p>
