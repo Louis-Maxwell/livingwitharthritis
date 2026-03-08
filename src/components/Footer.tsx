@@ -46,7 +46,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-background/40 leading-[1.8] mb-8 max-w-xs text-sm">
-              Supporting 10 million people living with arthritis through information, research, and community.
+              Aiming to support over 30 million people globally living with arthritis through information, research, and community.
             </p>
             <div className="space-y-3">
               <a href="tel:07760512084" className="flex items-center gap-3 text-background/40 hover:text-background/70 transition-colors text-sm group">
