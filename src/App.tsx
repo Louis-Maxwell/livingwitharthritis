@@ -7,6 +7,7 @@ import { lazy, Suspense } from "react";
 import { HelmetProvider } from "react-helmet-async";
 
 const ChatBotWidget = lazy(() => import("./components/ChatBotWidget"));
+const CookieConsent = lazy(() => import("./components/CookieConsent"));
 
 
 // Lazy load pages for code splitting
