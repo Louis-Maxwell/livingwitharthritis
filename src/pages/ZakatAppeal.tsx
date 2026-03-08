@@ -74,16 +74,19 @@ const ZakatAppeal = () => {
                 className="mt-10 space-y-6"
               >
                 <h2 className="text-2xl font-bold text-foreground">
-                  Zakat — A Sacred Responsibility
+                  Zakat — Rebuilding Lives After War & Trauma
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Zakat is one of the five fundamental pillars of Islam and represents a duty upon every eligible Muslim. It is an act of worship through giving — a way to purify one's wealth and draw closer to Allah by caring for those in need. The obligation applies to 2.5% of qualifying savings and assets held for a full lunar year, and is required of those whose wealth exceeds the minimum threshold (nisab).
+                  Zakat is one of the five fundamental pillars of Islam — an act of worship through giving that purifies wealth and draws the believer closer to Allah. The obligation applies to 2.5% of qualifying savings and assets held for a full lunar year, required of those whose wealth exceeds the minimum threshold (nisab).
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  At Living With Arthritis, we are committed to ensuring every Zakat contribution is handled with the utmost care, integrity, and in full alignment with Shariah guidelines. Our approach is guided by qualified scholars to guarantee that your Zakat reaches those who are most deserving, providing real relief to individuals and families affected by arthritis.
+                  Across the world, millions of people affected by war, conflict and trauma are left with devastating physical injuries — shattered joints, chronic musculoskeletal pain, and mobility loss that steals their independence. Many survivors cannot afford rehabilitation, leaving them trapped in cycles of pain and poverty. Your Zakat can fund life-changing physiotherapy and rehab sessions for individuals who have endured unimaginable hardship.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  We believe in building a compassionate world where no one suffers alone. Your Zakat can transform the lives of vulnerable community members — helping them access treatment, rehabilitation, and the support they need to live with dignity.
+                  At Living With Arthritis, every Zakat contribution is managed with the utmost care, integrity, and in full alignment with Shariah guidelines. Our approach is guided by qualified scholars to ensure your Zakat reaches those who are most deserving — war survivors, trauma victims, and vulnerable individuals who need rehabilitation to rebuild their lives with dignity and hope.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Whether it's funding a week of physio sessions, sponsoring a full recovery programme, or supporting someone's journey from injury to independence — your generosity has the power to transform a life shattered by conflict into one filled with possibility.
                 </p>
               </motion.div>
             </div>
