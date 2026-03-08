@@ -57,6 +57,11 @@ export default {
           muted: "hsl(var(--gold-muted))",
         },
         amber: "hsl(var(--amber))",
+        emerald: "hsl(var(--emerald))",
+        sky: "hsl(var(--sky))",
+        violet: "hsl(var(--violet))",
+        coral: "hsl(var(--coral))",
+        teal: "hsl(var(--teal))",
         navy: {
           DEFAULT: "hsl(var(--navy))",
           foreground: "hsl(var(--navy-foreground))",
@@ -68,6 +73,9 @@ export default {
         "tint-violet": "hsl(var(--tint-violet))",
         "tint-cyan": "hsl(var(--tint-cyan))",
         "tint-peach": "hsl(var(--tint-peach))",
+        "tint-mint": "hsl(var(--tint-mint))",
+        "tint-lavender": "hsl(var(--tint-lavender))",
+        "tint-coral": "hsl(var(--tint-coral))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

@@ -19,19 +19,21 @@
   }
 }
 
-/* Animated gradient background */
+/* Animated gradient background – more vivid */
 .hero-gradient-bg {
   background: 
     radial-gradient(ellipse 80% 60% at 15% 85%, hsl(var(--tint-blue)) 0%, transparent 55%),
     radial-gradient(ellipse 60% 50% at 85% 15%, hsl(var(--tint-rose)) 0%, transparent 45%),
-    radial-gradient(ellipse 40% 35% at 50% 50%, hsl(var(--tint-amber) / 0.4) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 50% 50%, hsl(var(--tint-amber) / 0.5) 0%, transparent 55%),
+    radial-gradient(ellipse 35% 30% at 75% 75%, hsl(var(--tint-mint) / 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse 30% 25% at 25% 25%, hsl(var(--tint-lavender) / 0.3) 0%, transparent 50%),
     hsl(var(--background));
   animation: heroGradientShift 16s ease-in-out infinite alternate;
 }
 
 @keyframes heroGradientShift {
-  0% { background-position: 0% 0%, 100% 0%, 50% 50%; }
-  100% { background-position: 20% 20%, 80% 40%, 60% 30%; }
+  0% { background-position: 0% 0%, 100% 0%, 50% 50%, 75% 75%, 25% 25%; }
+  100% { background-position: 20% 20%, 80% 40%, 60% 30%, 65% 85%, 35% 15%; }
 }
 
 /* Floating orbs */
@@ -45,7 +47,7 @@
 .hero-orb-1 {
   width: 500px;
   height: 500px;
-  background: hsl(var(--primary) / 0.06);
+  background: hsl(var(--primary) / 0.08);
   top: -120px;
   right: -120px;
   animation: orbFloat1 10s ease-in-out infinite;
@@ -54,7 +56,7 @@
 .hero-orb-2 {
   width: 400px;
   height: 400px;
-  background: hsl(var(--tint-blue));
+  background: hsl(var(--sky) / 0.08);
   bottom: -100px;
   left: -100px;
   animation: orbFloat2 12s ease-in-out infinite;
@@ -63,7 +65,7 @@
 .hero-orb-3 {
   width: 250px;
   height: 250px;
-  background: hsl(var(--gold) / 0.04);
+  background: hsl(var(--gold) / 0.07);
   top: 35%;
   left: 55%;
   animation: orbFloat3 9s ease-in-out infinite;

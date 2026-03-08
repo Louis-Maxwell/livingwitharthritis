@@ -48,13 +48,23 @@
     --warm: 30 20% 98%;
 
     /* Colourful section tints */
-    --tint-blue: 210 80% 97%;
-    --tint-green: 155 60% 96%;
-    --tint-amber: 40 80% 96%;
-    --tint-rose: 350 70% 97%;
-    --tint-violet: 265 60% 97%;
-    --tint-cyan: 190 70% 96%;
-    --tint-peach: 20 80% 97%;
+    --tint-blue: 210 80% 95%;
+    --tint-green: 155 65% 94%;
+    --tint-amber: 40 85% 94%;
+    --tint-rose: 350 75% 95%;
+    --tint-violet: 265 65% 95%;
+    --tint-cyan: 190 75% 94%;
+    --tint-peach: 20 85% 95%;
+    --tint-mint: 160 70% 94%;
+    --tint-lavender: 280 60% 95%;
+    --tint-coral: 10 80% 95%;
+
+    /* Vibrant accent colors */
+    --emerald: 160 70% 42%;
+    --sky: 200 85% 52%;
+    --violet: 265 75% 55%;
+    --coral: 10 78% 58%;
+    --teal: 175 70% 40%;
 
     --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.02);
     --shadow-medium: 0 4px 24px -6px rgb(0 0 0 / 0.06), 0 2px 8px -3px rgb(0 0 0 / 0.03);
@@ -451,6 +461,105 @@
   .feature-pill:hover {
     border-color: hsl(var(--primary) / 0.2);
     box-shadow: var(--shadow-medium);
+  }
+  /* ─── Colorful accent buttons ─── */
+  .btn-emerald {
+    @apply relative overflow-hidden font-bold;
+    background: linear-gradient(135deg, hsl(var(--emerald)), hsl(160 70% 36%));
+    color: white;
+    box-shadow: 0 4px 20px -4px hsl(var(--emerald) / 0.35);
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .btn-emerald:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px -6px hsl(var(--emerald) / 0.45);
+  }
+
+  .btn-sky {
+    @apply relative overflow-hidden font-bold;
+    background: linear-gradient(135deg, hsl(var(--sky)), hsl(210 85% 48%));
+    color: white;
+    box-shadow: 0 4px 20px -4px hsl(var(--sky) / 0.35);
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .btn-sky:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px -6px hsl(var(--sky) / 0.45);
+  }
+
+  .btn-violet {
+    @apply relative overflow-hidden font-bold;
+    background: linear-gradient(135deg, hsl(var(--violet)), hsl(280 70% 50%));
+    color: white;
+    box-shadow: 0 4px 20px -4px hsl(var(--violet) / 0.35);
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .btn-violet:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px -6px hsl(var(--violet) / 0.45);
+  }
+
+  /* ─── Decorative section pattern overlay ─── */
+  .pattern-dots {
+    background-image: radial-gradient(circle, hsl(var(--primary) / 0.04) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .pattern-grid {
+    background-image:
+      linear-gradient(hsl(var(--primary) / 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--primary) / 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .pattern-diagonal {
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 20px,
+      hsl(var(--primary) / 0.02) 20px,
+      hsl(var(--primary) / 0.02) 21px
+    );
+  }
+
+  /* ─── Colorful icon circle ─── */
+  .icon-circle {
+    @apply w-14 h-14 rounded-2xl flex items-center justify-center shrink-0;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .icon-circle:hover {
+    transform: scale(1.08) rotate(-3deg);
+  }
+  .icon-circle-primary { background: hsl(var(--primary) / 0.1); color: hsl(var(--primary)); }
+  .icon-circle-emerald { background: hsl(var(--emerald) / 0.1); color: hsl(var(--emerald)); }
+  .icon-circle-sky { background: hsl(var(--sky) / 0.1); color: hsl(var(--sky)); }
+  .icon-circle-violet { background: hsl(var(--violet) / 0.1); color: hsl(var(--violet)); }
+  .icon-circle-coral { background: hsl(var(--coral) / 0.1); color: hsl(var(--coral)); }
+  .icon-circle-gold { background: hsl(var(--gold) / 0.1); color: hsl(var(--gold)); }
+  .icon-circle-teal { background: hsl(var(--teal) / 0.1); color: hsl(var(--teal)); }
+
+  /* ─── Gradient text variations ─── */
+  .text-gradient-emerald {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--emerald)), hsl(var(--teal)));
+  }
+  .text-gradient-sky {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--sky)), hsl(var(--violet)));
+  }
+  .text-gradient-warm {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--coral)), hsl(var(--gold)));
+  }
+
+  /* ─── Colorful card borders ─── */
+  .card-accent-left {
+    @apply relative overflow-hidden;
+  }
+  .card-accent-left::before {
+    content: '';
+    @apply absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl;
+    background: linear-gradient(180deg, hsl(var(--primary)), hsl(var(--secondary)));
   }
 }
 
