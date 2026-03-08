@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Heart, Construction, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, ShoppingBag, HelpCircle, HandHeart, Users } from "lucide-react";
+import { Menu, X, Heart, Construction, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, ShoppingBag, HelpCircle, HandHeart, Users, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Scale, Baby, Sparkles, Globe, Calendar } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import ResourceLibraryDrawer from "@/components/ResourceLibraryDrawer";
 
@@ -30,6 +30,22 @@ const LogoMark = ({ className = "" }: { className?: string }) => (
   </svg>
 );
 
+type SubItem = {
+  label: string;
+  desc: string;
+  icon: React.ElementType;
+  href: string;
+  action?: () => void;
+  color?: string;
+};
+
+type NavLink = {
+  label: string;
+  href: string;
+  action?: () => void;
+  subs?: SubItem[];
+};
+
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
@@ -56,43 +72,36 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
-  type NavLink = {
-    label: string;
-    href: string;
-    action?: () => void;
-    subs?: { label: string; href: string; action?: () => void }[];
-  };
-
   const navLinks: NavLink[] = [
     {
-      label: "About",
+      label: "About Arthritis",
       href: "/about",
       action: () => navigate("/about"),
       subs: [
-        { label: "What is Arthritis?", href: "/about", action: () => navigate("/about") },
-        { label: "Types of Arthritis", href: "#conditions" },
-        { label: "Risk Factors", href: "/about", action: () => navigate("/about") },
+        { label: "What Is Arthritis?", desc: "Over 100 types affecting millions", icon: Stethoscope, href: "/about", action: () => navigate("/about"), color: "text-sky-600 bg-sky-500/10" },
+        { label: "Types of Arthritis", desc: "OA, RA, Gout, PsA & more", icon: Bone, href: "#conditions", color: "text-violet-600 bg-violet-500/10" },
+        { label: "Risk Factors & Prevention", desc: "Age, weight, genetics & lifestyle", icon: ShieldCheck, href: "/about", action: () => navigate("/about"), color: "text-amber-600 bg-amber-500/10" },
+        { label: "Newly Diagnosed?", desc: "Your essential first steps guide", icon: Sparkles, href: "/about", action: () => navigate("/about"), color: "text-emerald-600 bg-emerald-500/10" },
       ],
     },
     {
-      label: "Services",
+      label: "Managing Arthritis",
       href: "#services",
       subs: [
-        { label: "Physiotherapy", href: "#services" },
-        { label: "Nutrition Guidance", href: "#nutrition" },
-        { label: "AI Chat Support", href: "/chat", action: () => navigate("/chat") },
-        { label: "Exercise Programs", href: "/self-help", action: () => navigate("/self-help") },
+        { label: "Virtual Physiotherapy", desc: "NHS-aligned exercise programmes", icon: Activity, href: "#services", color: "text-primary bg-primary/10" },
+        { label: "Anti-Inflammatory Nutrition", desc: "Mediterranean diet plans & recipes", icon: Utensils, href: "#nutrition", color: "text-emerald-600 bg-emerald-500/10" },
+        { label: "AI Health Assistant", desc: "24/7 evidence-based chat support", icon: MessageCircle, href: "/chat", action: () => navigate("/chat"), color: "text-violet-600 bg-violet-500/10" },
+        { label: "Exercise Programmes", desc: "Joint-specific routines & videos", icon: Dumbbell, href: "/self-help", action: () => navigate("/self-help"), color: "text-sky-600 bg-sky-500/10" },
       ],
     },
     {
       label: "Conditions",
       href: "#conditions",
       subs: [
-        { label: "Osteoarthritis", href: "/conditions/osteoarthritis", action: () => navigate("/conditions/osteoarthritis") },
-        { label: "Rheumatoid Arthritis", href: "/conditions/rheumatoid-arthritis", action: () => navigate("/conditions/rheumatoid-arthritis") },
-        { label: "Psoriatic Arthritis", href: "/conditions/psoriatic-arthritis", action: () => navigate("/conditions/psoriatic-arthritis") },
-        { label: "Gout", href: "#conditions" },
-        { label: "Fibromyalgia", href: "#conditions" },
+        { label: "Osteoarthritis", desc: "The most common form of arthritis", icon: Bone, href: "/conditions/osteoarthritis", action: () => navigate("/conditions/osteoarthritis"), color: "text-sky-600 bg-sky-500/10" },
+        { label: "Rheumatoid Arthritis", desc: "Autoimmune joint inflammation", icon: HeartPulse, href: "/conditions/rheumatoid-arthritis", action: () => navigate("/conditions/rheumatoid-arthritis"), color: "text-rose-600 bg-rose-500/10" },
+        { label: "Psoriatic Arthritis", desc: "Joint pain with skin psoriasis", icon: ShieldCheck, href: "/conditions/psoriatic-arthritis", action: () => navigate("/conditions/psoriatic-arthritis"), color: "text-violet-600 bg-violet-500/10" },
+        { label: "Gout & Other Types", desc: "Crystal, fibromyalgia & more", icon: Stethoscope, href: "#conditions", color: "text-amber-600 bg-amber-500/10" },
       ],
     },
     {
@@ -109,10 +118,10 @@ const Header = () => {
       label: "Get Involved",
       href: "#involved",
       subs: [
-        { label: "Donate", href: "#involved" },
-        { label: "Fundraise", href: "#involved" },
-        { label: "Volunteer", href: "#involved" },
-        { label: "Zakat Appeal", href: "/zakat-appeal", action: () => navigate("/zakat-appeal") },
+        { label: "Donate", desc: "Power the progress for a cure", icon: Heart, href: "#involved", color: "text-primary bg-primary/10" },
+        { label: "Fundraise for Us", desc: "Run, bake, cycle or create", icon: HandHeart, href: "#involved", color: "text-emerald-600 bg-emerald-500/10" },
+        { label: "Volunteer", desc: "Join our community champions", icon: Users, href: "#involved", color: "text-sky-600 bg-sky-500/10" },
+        { label: "Zakat Appeal", desc: "Give your Zakat to joint health", icon: Globe, href: "/zakat-appeal", action: () => navigate("/zakat-appeal"), color: "text-amber-600 bg-amber-500/10" },
       ],
     },
     { label: "Resources", href: "#resources", action: () => setResourceDrawerOpen(true) },
@@ -120,7 +129,6 @@ const Header = () => {
 
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
-  // Close nav dropdown on scroll
   useEffect(() => {
     if (!activeDropdown) return;
     const closeOnScroll = () => setActiveDropdown(null);
@@ -128,7 +136,6 @@ const Header = () => {
     return () => window.removeEventListener("scroll", closeOnScroll);
   }, [activeDropdown]);
 
-  // Close nav dropdown on outside click
   useEffect(() => {
     if (!activeDropdown) return;
     const handleClick = (e: MouseEvent) => {
@@ -147,15 +154,14 @@ const Header = () => {
     el?.scrollIntoView({ behavior: "smooth" });
   };
 
-  // Mobile nav items
   const mobileNavItems = [
-    { label: "About Arthritis", icon: Stethoscope, desc: "Learn about types & causes", href: "/about", action: () => navigate("/about") },
-    { label: "Our Services", icon: Activity, desc: "Physio, rehab & support", href: "#services" },
-    { label: "Conditions", icon: Heart, desc: "OA, RA, Gout & more", href: "#conditions" },
-    { label: "Self Help Tool", icon: HelpCircle, desc: "AI symptom checker", href: "/self-help", action: () => navigate("/self-help") },
-    { label: "Blog", icon: Newspaper, desc: "Articles & research", href: "/blog", action: () => navigate("/blog") },
-    { label: "Get Involved", icon: HandHeart, desc: "Volunteer & fundraise", href: "#involved" },
-    { label: "Resources", icon: BookOpen, desc: "NHS, benefits & guides", href: "#resources", action: () => setResourceDrawerOpen(true) },
+    { label: "About Arthritis", icon: Stethoscope, desc: "Types, causes & what to expect", href: "/about", action: () => navigate("/about") },
+    { label: "Managing Arthritis", icon: Activity, desc: "Physio, nutrition & exercise", href: "#services" },
+    { label: "Conditions", icon: HeartPulse, desc: "OA, RA, Gout, PsA & more", href: "#conditions" },
+    { label: "Self Help Tool", icon: HelpCircle, desc: "Interactive symptom guidance", href: "/self-help", action: () => navigate("/self-help") },
+    { label: "Blog & Research", icon: Newspaper, desc: "40+ evidence-based articles", href: "/blog", action: () => navigate("/blog") },
+    { label: "Get Involved", icon: HandHeart, desc: "Donate, volunteer & fundraise", href: "#involved" },
+    { label: "Resources", icon: BookOpen, desc: "NHS pathways, benefits & guides", href: "#resources", action: () => setResourceDrawerOpen(true) },
   ];
 
   return (
@@ -194,7 +200,7 @@ const Header = () => {
         <div className="container mx-auto px-6 md:px-10">
           <div className="flex justify-between items-center h-[48px]">
 
-            {/* Desktop nav – clean, concise, no arrows */}
+            {/* Desktop nav */}
             <nav className="hidden lg:flex items-center gap-0.5 mx-auto">
               {navLinks.map((link) => (
                 <div key={link.label} className="relative" data-nav-dropdown>
@@ -213,35 +219,48 @@ const Header = () => {
                         setActiveDropdown(null);
                       }
                     }}
-                    className={`px-3.5 py-1.5 text-[13px] font-semibold rounded-lg transition-all duration-200 cursor-pointer ${
+                    className={`px-3.5 py-1.5 text-[13px] font-semibold rounded-lg transition-all duration-200 cursor-pointer flex items-center gap-1 ${
                       activeDropdown === link.label
                         ? "text-primary bg-primary/5"
                         : "text-muted-foreground hover:text-foreground hover:bg-accent"
                     }`}
                   >
                     {link.label}
+                    {link.subs && <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === link.label ? "rotate-180" : ""}`} />}
                   </button>
 
-                  {/* Sub-menu dropdown */}
+                  {/* Rich sub-menu dropdown */}
                   {link.subs && activeDropdown === link.label && (
-                    <div className="absolute top-full left-0 pt-1.5 z-[90] animate-fade-in">
-                      <div className="bg-background border border-border/40 rounded-xl shadow-xl py-1.5 min-w-[190px]">
-                        {link.subs.map((sub) => (
-                          <button
-                            key={sub.label}
-                            onClick={() => {
-                              setActiveDropdown(null);
-                              if (sub.action) {
-                                sub.action();
-                              } else {
-                                scrollToSection(sub.href);
-                              }
-                            }}
-                            className="w-full text-left px-4 py-2 text-[13px] text-muted-foreground hover:text-foreground hover:bg-accent transition-colors cursor-pointer"
-                          >
-                            {sub.label}
-                          </button>
-                        ))}
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-[90] animate-fade-in">
+                      <div className="bg-background border border-border/40 rounded-2xl shadow-xl p-2 min-w-[320px]">
+                        {link.subs.map((sub) => {
+                          const Icon = sub.icon;
+                          return (
+                            <button
+                              key={sub.label}
+                              onClick={() => {
+                                setActiveDropdown(null);
+                                if (sub.action) {
+                                  sub.action();
+                                } else if (sub.href.startsWith("#")) {
+                                  scrollToSection(sub.href);
+                                } else {
+                                  navigate(sub.href);
+                                }
+                              }}
+                              className="w-full text-left flex items-start gap-3 px-3 py-3 rounded-xl hover:bg-accent transition-colors cursor-pointer group/item"
+                            >
+                              <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5 ${sub.color || "text-primary bg-primary/10"}`}>
+                                <Icon className="w-4 h-4" />
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <span className="block text-[13px] font-semibold text-foreground group-hover/item:text-primary transition-colors">{sub.label}</span>
+                                <span className="block text-[11px] text-muted-foreground/70 mt-0.5 leading-snug">{sub.desc}</span>
+                              </div>
+                              <ArrowRight className="w-3.5 h-3.5 text-muted-foreground/30 group-hover/item:text-primary/50 mt-1.5 opacity-0 group-hover/item:opacity-100 transition-all" />
+                            </button>
+                          );
+                        })}
                       </div>
                     </div>
                   )}
