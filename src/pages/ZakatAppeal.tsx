@@ -160,7 +160,7 @@ const ZakatAppeal = () => {
                 <Button
                   onClick={handleDonate}
                   disabled={activeAmount <= 0}
-                  className="w-full h-12 bg-emerald-600 hover:bg-emerald-700 text-white text-lg font-bold rounded-xl"
+                  className="w-full h-12 bg-emerald hover:bg-emerald/90 text-white text-lg font-bold rounded-xl"
                 >
                   <Heart className="mr-2 h-5 w-5" />
                   Donate £{activeAmount > 0 ? activeAmount.toLocaleString() : "0"}
