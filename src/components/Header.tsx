@@ -115,16 +115,84 @@ const Header = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [logoDropdownOpen]);
 
-  const navLinks = [
-    { label: "About Arthritis", href: "#about", action: () => navigate("/about") },
-    { label: "Our Services", href: "#services" },
-    { label: "Conditions", href: "#conditions" },
-    { label: "Self Help Tool", href: "/self-help", action: () => navigate("/self-help") },
-    { label: "Blog", href: "/blog", action: () => navigate("/blog") },
-    { label: "Get Involved", href: "#involved" },
+  type NavLink = {
+    label: string;
+    href: string;
+    action?: () => void;
+    hasIcon?: boolean;
+    subs?: { label: string; href: string; action?: () => void }[];
+  };
+
+  const navLinks: NavLink[] = [
+    {
+      label: "About Arthritis",
+      href: "#about",
+      action: () => navigate("/about"),
+      subs: [
+        { label: "What is Arthritis?", href: "/about", action: () => navigate("/about") },
+        { label: "Types of Arthritis", href: "#conditions" },
+        { label: "Risk Factors", href: "/about", action: () => navigate("/about") },
+        { label: "Diagnosis Journey", href: "#conditions" },
+      ],
+    },
+    {
+      label: "Our Services",
+      href: "#services",
+      subs: [
+        { label: "Physiotherapy", href: "#services" },
+        { label: "Nutrition Guidance", href: "#nutrition" },
+        { label: "AI Chat Support", href: "/chat", action: () => navigate("/chat") },
+        { label: "Exercise Programs", href: "/self-help", action: () => navigate("/self-help") },
+      ],
+    },
+    {
+      label: "Conditions",
+      href: "#conditions",
+      subs: [
+        { label: "Osteoarthritis", href: "/conditions/osteoarthritis", action: () => navigate("/conditions/osteoarthritis") },
+        { label: "Rheumatoid Arthritis", href: "/conditions/rheumatoid-arthritis", action: () => navigate("/conditions/rheumatoid-arthritis") },
+        { label: "Psoriatic Arthritis", href: "/conditions/psoriatic-arthritis", action: () => navigate("/conditions/psoriatic-arthritis") },
+        { label: "Gout", href: "#conditions" },
+        { label: "Fibromyalgia", href: "#conditions" },
+      ],
+    },
+    {
+      label: "Self Help Tool",
+      href: "/self-help",
+      action: () => navigate("/self-help"),
+      subs: [
+        { label: "Joint Exercise Guide", href: "/self-help", action: () => navigate("/self-help") },
+        { label: "Body Diagram", href: "/self-help", action: () => navigate("/self-help") },
+        { label: "Daily Tips", href: "#daily-tips" },
+      ],
+    },
+    {
+      label: "Blog",
+      href: "/blog",
+      action: () => navigate("/blog"),
+      subs: [
+        { label: "Latest Articles", href: "/blog", action: () => navigate("/blog") },
+        { label: "Exercise & Movement", href: "/blog", action: () => navigate("/blog") },
+        { label: "Nutrition & Diet", href: "/blog", action: () => navigate("/blog") },
+        { label: "Mental Health", href: "/blog", action: () => navigate("/blog") },
+      ],
+    },
+    {
+      label: "Get Involved",
+      href: "#involved",
+      subs: [
+        { label: "Donate", href: "#involved" },
+        { label: "Fundraise", href: "#involved" },
+        { label: "Volunteer", href: "#involved" },
+        { label: "Zakat Appeal", href: "/zakat-appeal", action: () => navigate("/zakat-appeal") },
+      ],
+    },
     { label: "Shop", href: "/shop", action: () => navigate("/shop") },
     { label: "Resource Library", href: "#resources", action: () => setResourceModalOpen(true), hasIcon: true },
   ];
+
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const navTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const scrollToSection = (href: string) => {
     const id = href.replace('#', '');
