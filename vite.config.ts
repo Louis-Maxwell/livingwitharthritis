@@ -4,7 +4,6 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
@@ -14,8 +13,9 @@ export default defineConfig(({ mode }) => ({
     react(),
     mode === "development" && componentTagger(),
     ViteImageOptimizer({
-      jpg: { quality: 80 },
-      png: { quality: 80 },
+      jpg: { quality: 75 },
+      png: { quality: 75 },
+      webp: { quality: 75 },
     }),
   ].filter(Boolean),
   resolve: {
@@ -26,6 +26,14 @@ export default defineConfig(({ mode }) => ({
   build: {
     target: "es2020",
     cssMinify: true,
+    minify: "terser",
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+        passes: 2,
+      },
+    },
     rollupOptions: {
       output: {
         manualChunks: {
@@ -33,6 +41,8 @@ export default defineConfig(({ mode }) => ({
           router: ["react-router-dom"],
           motion: ["framer-motion"],
           ui: ["@radix-ui/react-dialog", "@radix-ui/react-tabs", "@radix-ui/react-accordion"],
+          query: ["@tanstack/react-query"],
+          supabase: ["@supabase/supabase-js"],
         },
       },
     },

@@ -5,9 +5,9 @@ import { ArrowRight, Clock } from "lucide-react";
 import { useNavigate, Link } from "react-router-dom";
 
 const posts = [
-  { slug: "arthritis-and-cold-weather-uk", title: "Arthritis and Cold Weather in the UK: Why Joints Hurt More in Winter", category: "Lifestyle", readTime: "6 min", date: "Feb 2026" },
-  { slug: "best-diet-for-joint-pain-uk", title: "Best Diet for Joint Pain in the UK", category: "Nutrition", readTime: "7 min", date: "Feb 2026" },
-  { slug: "arthritis-flare-up-what-to-do", title: "Arthritis Flare-Up: What to Do When Symptoms Get Worse", category: "Health", readTime: "5 min", date: "Feb 2026" },
+  { slug: "arthritis-and-cold-weather-uk", title: "Arthritis and Cold Weather in the UK: Why Joints Hurt More in Winter", category: "Lifestyle", readTime: "6 min", date: "Mar 2026" },
+  { slug: "best-diet-for-joint-pain-uk", title: "Best Diet for Joint Pain in the UK", category: "Nutrition", readTime: "7 min", date: "Mar 2026" },
+  { slug: "arthritis-flare-up-what-to-do", title: "Arthritis Flare-Up: What to Do When Symptoms Get Worse", category: "Health", readTime: "5 min", date: "Mar 2026" },
 ];
 
 const BlogPreviewSection = memo(() => {

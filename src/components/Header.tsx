@@ -101,16 +101,7 @@ const Header = () => {
         }`}
       >
         <div className="container mx-auto px-6 md:px-10">
-          <div className="flex justify-between items-center h-[56px]">
-            {/* Compact logo for sticky nav */}
-            <a href="/" className="flex items-center gap-2.5 group">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-sm group-hover:shadow-primary transition-all duration-300">
-                <Heart className="w-4 h-4 text-primary-foreground" />
-              </div>
-              <span className="text-sm font-black text-foreground tracking-tight uppercase hidden sm:block">
-                LWA<span className="text-primary">.</span>
-              </span>
-            </a>
+          <div className="flex justify-between items-center h-[52px]">
 
             {/* Desktop nav */}
             <nav className="hidden lg:flex items-center gap-0.5">
