@@ -88,13 +88,18 @@ const categoryAccent: Record<Category, string> = {
 const BlogIndex = () => {
   const [activeCategory, setActiveCategory] = useState<Category>("All");
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchQuery, setSearchQuery] = useState("");
   const allSlugs = useMemo(() => blogPosts.map((p) => p.slug), []);
   const viewCounts = useBlogViewCounts(allSlugs);
 
-  const filtered = useMemo(
-    () => activeCategory === "All" ? blogPosts : blogPosts.filter((p) => p.category === activeCategory),
-    [activeCategory]
-  );
+  const filtered = useMemo(() => {
+    let posts = activeCategory === "All" ? blogPosts : blogPosts.filter((p) => p.category === activeCategory);
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase();
+      posts = posts.filter((p) => p.title.toLowerCase().includes(q) || p.excerpt.toLowerCase().includes(q));
+    }
+    return posts;
+  }, [activeCategory, searchQuery]);
 
   const totalPages = Math.ceil(filtered.length / POSTS_PER_PAGE);
   const paginated = filtered.slice((currentPage - 1) * POSTS_PER_PAGE, currentPage * POSTS_PER_PAGE);
@@ -102,6 +107,12 @@ const BlogIndex = () => {
   const handleCategory = (cat: Category) => {
     setActiveCategory(cat);
     setCurrentPage(1);
+  };
+
+  // Estimate reading time from excerpt length (rough proxy)
+  const getReadTime = (excerpt: string) => {
+    const words = excerpt.split(/\s+/).length;
+    return `${Math.max(4, Math.ceil(words / 40) + 3)} min read`;
   };
 
   return (
