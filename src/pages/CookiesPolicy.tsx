@@ -19,7 +19,7 @@ const CookiesPolicy = () => (
         pattern="dots"
         badge={
           <Badge className="bg-muted text-muted-foreground border-0 text-xs font-bold px-3 py-1.5">
-            <Cookie className="w-3 h-3 mr-1.5" /> Last updated: March 2026
+            <FileText className="w-3 h-3 mr-1.5" /> Last updated: March 2026
           </Badge>
         }
         title="Cookies Policy"
