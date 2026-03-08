@@ -305,24 +305,61 @@ const Header = () => {
             {/* Desktop nav */}
             <nav className="hidden lg:flex items-center gap-0.5">
               {navLinks.map((link) => (
-                <button
+                <div
                   key={link.label}
-                  onClick={(e) => {
-                    if (link.action) {
-                      e.preventDefault();
-                      link.action();
-                    } else {
-                      scrollToSection(link.href);
-                    }
+                  className="relative"
+                  onMouseEnter={() => {
+                    if (navTimeoutRef.current) clearTimeout(navTimeoutRef.current);
+                    if (link.subs) setActiveDropdown(link.label);
                   }}
-                  className={`relative px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground rounded-lg hover:bg-accent transition-all duration-200 cursor-pointer group ${
-                    link.hasIcon ? "flex items-center gap-1.5" : ""
-                  }`}
+                  onMouseLeave={() => {
+                    navTimeoutRef.current = setTimeout(() => setActiveDropdown(null), 150);
+                  }}
                 >
-                  {link.hasIcon && <BookOpen className="w-3.5 h-3.5" />}
-                  {link.label}
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full group-hover:w-3/4 transition-all duration-300" />
-                </button>
+                  <button
+                    onClick={(e) => {
+                      if (link.action) {
+                        e.preventDefault();
+                        link.action();
+                      } else {
+                        scrollToSection(link.href);
+                      }
+                      setActiveDropdown(null);
+                    }}
+                    className={`relative px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground rounded-lg hover:bg-accent transition-all duration-200 cursor-pointer group flex items-center gap-1`}
+                  >
+                    {link.hasIcon && <BookOpen className="w-3.5 h-3.5" />}
+                    {link.label}
+                    {link.subs && (
+                      <ChevronDown className={`w-3 h-3 text-muted-foreground/50 transition-transform duration-200 ${activeDropdown === link.label ? "rotate-180" : ""}`} />
+                    )}
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full group-hover:w-3/4 transition-all duration-300" />
+                  </button>
+
+                  {/* Sub-menu dropdown */}
+                  {link.subs && activeDropdown === link.label && (
+                    <div className="absolute top-full left-0 pt-1 z-[90] animate-fade-in">
+                      <div className="bg-background border border-border/40 rounded-xl shadow-xl py-2 min-w-[200px]">
+                        {link.subs.map((sub) => (
+                          <button
+                            key={sub.label}
+                            onClick={() => {
+                              setActiveDropdown(null);
+                              if (sub.action) {
+                                sub.action();
+                              } else {
+                                scrollToSection(sub.href);
+                              }
+                            }}
+                            className="w-full text-left px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-accent transition-colors cursor-pointer"
+                          >
+                            {sub.label}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
               ))}
             </nav>
 
