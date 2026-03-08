@@ -141,6 +141,8 @@ export default function Index() {
         <Suspense fallback={null}>
           <DonationNotification />
           <FeedbackPopup />
+          <BackToTop />
+          <ChatBotWidget />
         </Suspense>
 
         <main className="space-y-0">
