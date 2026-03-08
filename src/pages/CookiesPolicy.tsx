@@ -1,16 +1,33 @@
+import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import PageHero from "@/components/ui/PageHero";
 import { FileText } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
+const Footer = lazy(() => import("@/components/Footer"));
+
 const CookiesPolicy = () => (
   <>
     <Helmet>
-      <title>Cookies Policy | Living With Arthritis UK</title>
-      <meta name="description" content="Cookies Policy for Living With Arthritis UK. Learn about the cookies we use, why we use them, and how you can manage your preferences." />
+      <title>Cookies Policy – How We Use Cookies | Living With Arthritis UK</title>
+      <meta name="description" content="Cookies Policy for Living With Arthritis UK. Learn about essential, functional, analytics and payment cookies we use, why we use them, and how to manage your preferences under UK GDPR." />
       <link rel="canonical" href="https://livingwitharthritis.org.uk/cookies" />
+      <meta property="og:title" content="Cookies Policy | Living With Arthritis UK" />
+      <meta property="og:description" content="Learn how Living With Arthritis UK uses cookies to improve your experience. Manage your cookie preferences easily." />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://livingwitharthritis.org.uk/cookies" />
+      <meta property="og:locale" content="en_GB" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Cookies Policy",
+        "description": "Cookies Policy for Living With Arthritis UK explaining how we use cookies and how to manage preferences.",
+        "url": "https://livingwitharthritis.org.uk/cookies",
+        "inLanguage": "en-GB",
+        "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" }
+      })}</script>
     </Helmet>
     <div className="min-h-screen bg-background">
       <Header />
@@ -25,8 +42,7 @@ const CookiesPolicy = () => (
         title="Cookies Policy"
         subtitle="Learn about the cookies we use, why we use them, and how you can manage your preferences."
       />
-      <main className="container mx-auto px-6 md:px-10 py-10 md:py-16 max-w-4xl">
-
+      <main className="w-full px-6 md:px-10 lg:px-20 py-10 md:py-16 max-w-5xl mx-auto">
         <div className="prose prose-lg max-w-none space-y-8 text-foreground/80 leading-relaxed">
           <section>
             <h2 className="text-xl font-bold text-foreground mt-8 mb-3">1. What Are Cookies?</h2>
@@ -99,7 +115,9 @@ const CookiesPolicy = () => (
           </section>
         </div>
       </main>
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
     </div>
   </>
 );
