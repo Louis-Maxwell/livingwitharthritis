@@ -1,115 +1,180 @@
 import { memo, useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Activity, Users, Briefcase, Database, BookOpen, HeartHandshake, LucideIcon } from "lucide-react";
+import { Activity, Users, Briefcase, Database, BookOpen, HeartHandshake, LucideIcon, Sparkles, Shield, Stethoscope } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useStatistics } from "@/hooks/useCmsContent";
 import { Skeleton } from "@/components/ui/skeleton";
 
 const iconMap: Record<string, LucideIcon> = { Users, Activity, Briefcase, Database, BookOpen, HeartHandshake };
 
+/* Decorative DNA helix SVG */
+const DNAGraphic = () => (
+  <svg viewBox="0 0 80 200" className="absolute right-4 top-1/2 -translate-y-1/2 w-16 h-40 opacity-[0.06]" fill="none">
+    {[0, 40, 80, 120, 160].map((y) => (
+      <g key={y}>
+        <path d={`M10 ${y} Q40 ${y + 10}, 70 ${y}`} stroke="hsl(var(--primary))" strokeWidth="2" />
+        <path d={`M10 ${y + 20} Q40 ${y + 10}, 70 ${y + 20}`} stroke="hsl(var(--secondary))" strokeWidth="2" />
+        <circle cx="10" cy={y} r="3" fill="hsl(var(--primary))" />
+        <circle cx="70" cy={y} r="3" fill="hsl(var(--secondary))" />
+      </g>
+    ))}
+  </svg>
+);
+
+/* Decorative joint illustration */
+const JointGraphic = () => (
+  <svg viewBox="0 0 120 120" className="w-24 h-24 opacity-[0.08]" fill="none">
+    <circle cx="60" cy="40" r="25" stroke="hsl(var(--primary))" strokeWidth="3" />
+    <circle cx="60" cy="80" r="25" stroke="hsl(var(--primary))" strokeWidth="3" />
+    <ellipse cx="60" cy="60" rx="15" ry="8" fill="hsl(var(--primary))" opacity="0.3" />
+  </svg>
+);
+
+const statGradients = [
+  "from-primary/10 to-primary/5 border-primary/15",
+  "from-secondary/10 to-secondary/5 border-secondary/15",
+  "from-emerald-500/10 to-emerald-500/5 border-emerald-500/15",
+  "from-amber-500/10 to-amber-500/5 border-amber-500/15",
+];
+
 const AboutSection = memo(() => {
   const { data: statistics, isLoading: statsLoading } = useStatistics();
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
-  const orbY = useTransform(scrollYProgress, [0, 1], [60, -60]);
+  const orbY = useTransform(scrollYProgress, [0, 1], [40, -40]);
 
   return (
-    <section ref={sectionRef} id="resources" className="py-20 lg:py-28 bg-tint-peach relative overflow-hidden section-divider">
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-primary/[0.02] blur-[140px] pointer-events-none" style={{ transform: `translateY(${orbY})` }} />
+    <section ref={sectionRef} id="resources" className="py-14 lg:py-20 relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-primary/[0.03] rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-48 h-48 bg-secondary/[0.03] rounded-full blur-3xl" />
+        <div className="absolute top-1/3 right-0">
+          <DNAGraphic />
+        </div>
+      </div>
 
       <div className="container mx-auto px-6 md:px-10 max-w-7xl relative">
-        {/* Header */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start mb-24">
+        {/* Header with graphic */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start mb-16">
           <motion.div
-            initial={{ opacity: 0, y: 32 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="section-label text-primary mb-5 block">About Our Mission</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 text-foreground leading-[1.08]">
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-bold px-3.5 py-1.5 rounded-full mb-4">
+              <Sparkles className="w-3.5 h-3.5" />
+              About Our Mission
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-5 text-foreground leading-[1.08]">
               Transforming arthritis care for{" "}
-              <span className="text-gradient">everyone</span>
+              <span className="text-primary">everyone</span>
             </h2>
-            <div className="w-16 h-1 rounded-full bg-gradient-to-r from-primary to-secondary" />
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-12 h-1 rounded-full bg-primary" />
+              <div className="w-6 h-1 rounded-full bg-secondary" />
+              <div className="w-3 h-1 rounded-full bg-primary/40" />
+            </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 32 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="space-y-6 lg:pt-4"
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="relative"
           >
-            <p className="text-base sm:text-lg text-muted-foreground leading-[1.85]">
-              Arthritis isn't a single condition — it's a complex family of over 100 distinct types, each 
-              demanding its own approach. We exist to ensure that no one faces this challenge without 
-              world-class support, regardless of where they live or what they can afford.
-            </p>
-            <p className="text-sm text-muted-foreground/70 leading-[1.8]">
-              We unite patients, clinicians, researchers and community advocates — aiming to support 
-              over 30 million people globally through evidence-based care, cutting-edge technology 
-              and unwavering compassion.
-            </p>
+            <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-6 border border-border/20">
+              <div className="flex items-start gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                  <Stethoscope className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <p className="font-bold text-foreground text-sm mb-1">Did you know?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Arthritis isn't a single condition — it's a complex family of over <strong className="text-foreground">100 distinct types</strong>, each demanding its own approach.
+                  </p>
+                </div>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                We unite patients, clinicians, researchers and community advocates — supporting 
+                over <strong className="text-primary">30 million people</strong> globally through evidence-based care, 
+                cutting-edge technology and unwavering compassion.
+              </p>
+              <div className="flex items-center gap-4 mt-4 pt-4 border-t border-border/20">
+                <div className="flex items-center gap-1.5">
+                  <Shield className="w-3.5 h-3.5 text-primary" />
+                  <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">HCPC Registered</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <Shield className="w-3.5 h-3.5 text-secondary" />
+                  <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">CSP Accredited</span>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
 
-        {/* Statistics */}
-        <div className="mb-24">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-7">
-            {statsLoading ? (
-              Array.from({ length: 4 }).map((_, i) => (
-                <Card key={i} className="bg-card border-border/20 rounded-2xl">
-                  <CardContent className="pt-8 pb-7 text-center">
-                    <Skeleton className="mb-3 mx-auto w-12 h-12 rounded-xl" />
-                    <Skeleton className="h-10 w-16 mx-auto mb-2" />
-                    <Skeleton className="h-3 w-24 mx-auto" />
-                  </CardContent>
-                </Card>
-              ))
-            ) : (
-              statistics?.map((stat, i) => {
-                const Icon = iconMap[stat.icon_name] || Users;
-                return (
-                  <motion.div
-                    key={stat.id}
-                    initial={{ opacity: 0, y: 28 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                  >
-                    <Card className="premium-card group">
-                      <CardContent className="pt-10 pb-9 text-center">
-                        <div className="mb-5 mx-auto w-14 h-14 rounded-2xl bg-primary/6 flex items-center justify-center group-hover:bg-primary/10 transition-colors duration-300">
-                          <Icon className="w-6 h-6 text-primary" />
-                        </div>
-                        <div className="stat-number text-3xl sm:text-4xl lg:text-[2.75rem] mb-2">
-                          {stat.number_value}
-                        </div>
-                        <p className="text-[11px] text-muted-foreground font-semibold tracking-[0.15em] uppercase">{stat.label}</p>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                );
-              })
-            )}
-          </div>
+        {/* Statistics with colorful gradients */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 mb-14">
+          {statsLoading ? (
+            Array.from({ length: 4 }).map((_, i) => (
+              <Card key={i} className="bg-card border-border/20 rounded-2xl">
+                <CardContent className="pt-7 pb-6 text-center">
+                  <Skeleton className="mb-3 mx-auto w-12 h-12 rounded-xl" />
+                  <Skeleton className="h-9 w-16 mx-auto mb-2" />
+                  <Skeleton className="h-3 w-24 mx-auto" />
+                </CardContent>
+              </Card>
+            ))
+          ) : (
+            statistics?.map((stat, i) => {
+              const Icon = iconMap[stat.icon_name] || Users;
+              const gradient = statGradients[i % statGradients.length];
+              return (
+                <motion.div
+                  key={stat.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <Card className={`group bg-gradient-to-br ${gradient} border rounded-2xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}>
+                    <CardContent className="pt-8 pb-7 text-center relative overflow-hidden">
+                      <div className="absolute top-2 right-2 opacity-[0.04]">
+                        <JointGraphic />
+                      </div>
+                      <div className="mb-4 mx-auto w-12 h-12 rounded-xl bg-background/80 flex items-center justify-center shadow-sm">
+                        <Icon className="w-5 h-5 text-primary" />
+                      </div>
+                      <div className="text-3xl sm:text-4xl font-extrabold text-foreground mb-1.5 tracking-tight">
+                        {stat.number_value}
+                      </div>
+                      <p className="text-[10px] text-muted-foreground font-bold tracking-[0.15em] uppercase">{stat.label}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            })
+          )}
         </div>
 
-        {/* Quote */}
+        {/* Quote with colorful accent */}
         <motion.div
-          initial={{ opacity: 0, y: 28 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="bg-accent/40 rounded-3xl p-12 sm:p-16 lg:p-24 relative border border-border/15"
+          transition={{ duration: 0.6 }}
+          className="bg-gradient-to-r from-primary/8 via-background to-secondary/8 rounded-2xl p-8 sm:p-12 relative border border-border/15 overflow-hidden"
         >
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-1 rounded-full bg-gradient-to-r from-primary to-secondary" />
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary to-primary" />
           <div className="relative text-center max-w-2xl mx-auto">
-            <blockquote className="text-lg sm:text-xl lg:text-2xl font-bold mb-7 leading-[1.5] text-foreground">
-              "You are never alone in your arthritis journey. Your healthcare team guides you, but you hold the power to shape your path forward."
+            <div className="text-5xl text-primary/20 font-serif mb-2">"</div>
+            <blockquote className="text-lg sm:text-xl font-bold leading-[1.5] text-foreground -mt-6">
+              You are never alone in your arthritis journey. Your healthcare team guides you, but you hold the power to shape your path forward.
             </blockquote>
-            <cite className="text-sm text-muted-foreground not-italic font-semibold">— Living With Arthritis Clinical Advisory Board</cite>
+            <cite className="text-xs text-muted-foreground not-italic font-semibold mt-4 block">— Living With Arthritis Clinical Advisory Board</cite>
           </div>
         </motion.div>
       </div>
