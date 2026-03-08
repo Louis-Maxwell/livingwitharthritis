@@ -9,6 +9,7 @@ import { useSearchParams } from "react-router-dom";
 
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
 const Footer = lazy(() => import("@/components/Footer"));
@@ -133,6 +134,7 @@ export default function Index() {
       </Helmet>
 
       <div className="min-h-screen bg-background">
+        <ScrollProgress />
         <Header />
         <Suspense fallback={null}>
           <DonationNotification />

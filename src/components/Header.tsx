@@ -89,7 +89,7 @@ const Header = () => {
             </a>
 
             {/* Desktop nav */}
-            <nav className="hidden lg:flex items-center gap-1">
+            <nav className="hidden lg:flex items-center gap-0.5">
               {navLinks.map((link) => (
                 <button
                   key={link.label}
@@ -101,9 +101,10 @@ const Header = () => {
                       scrollToSection(link.href);
                     }
                   }}
-                  className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground rounded-lg hover:bg-accent transition-all duration-200 cursor-pointer"
+                  className="relative px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground rounded-lg hover:bg-accent transition-all duration-200 cursor-pointer group"
                 >
                   {link.label}
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full group-hover:w-3/4 transition-all duration-300" />
                 </button>
               ))}
             </nav>
