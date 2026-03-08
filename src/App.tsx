@@ -72,6 +72,9 @@ function AnimatedRoutes() {
       <Route path="/conditions/psoriatic-arthritis" element={<PsoriaticArthritis />} />
       <Route path="/self-help" element={<SelfHelpTool />} />
       <Route path="/zakat-appeal" element={<ZakatAppeal />} />
+      <Route path="/privacy" element={<PrivacyPolicy />} />
+      <Route path="/cookies" element={<CookiesPolicy />} />
+      <Route path="/shop" element={<NotFound />} />
       <Route path="/sitemap" element={<Sitemap />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
