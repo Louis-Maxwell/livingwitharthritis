@@ -96,20 +96,22 @@ const RheumatoidArthritis = () => (
     </Helmet>
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="container mx-auto px-6 md:px-10 py-16 md:py-24 max-w-3xl">
-        <Link to="/#conditions" className="text-primary text-sm font-medium inline-flex items-center gap-1.5 mb-8 hover:gap-2.5 transition-all">
+      <PageHero
+        badge={
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-500/10 text-sky-600 text-xs font-bold tracking-wider uppercase border border-sky-500/20">
+            <Shield className="w-3.5 h-3.5" /> Autoimmune Condition
+          </span>
+        }
+        title={<>Rheumatoid <span className="text-gradient">Arthritis</span></>}
+        subtitle="Rheumatoid arthritis (RA) affects around 400,000 people in the UK. Unlike osteoarthritis, RA is an autoimmune condition where the body's immune system attacks the joints. Early diagnosis and treatment are crucial for the best outcomes."
+        gradient="from-sky-500/8 via-background to-violet-500/5"
+        pattern="grid"
+      >
+        <Link to="/#conditions" className="text-primary text-sm font-medium inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
           <ArrowLeft className="w-3.5 h-3.5" /> Back to conditions
         </Link>
-
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary/70 mb-3 block">Condition Guide</span>
-          <h1 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-            Rheumatoid Arthritis
-          </h1>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-12">
-            Rheumatoid arthritis (RA) affects around 400,000 people in the UK. Unlike osteoarthritis, RA is an autoimmune condition where the body's immune system attacks the joints. Early diagnosis and treatment are crucial for the best outcomes.
-          </p>
-        </motion.div>
+      </PageHero>
+      <main className="container mx-auto px-6 md:px-10 py-16 md:py-24 max-w-3xl">
 
         <Section icon={Activity} title="What Is Rheumatoid Arthritis?">
           <p>Rheumatoid arthritis is a chronic autoimmune disease in which the immune system mistakenly attacks the <strong>synovium</strong> — the lining of the membranes that surround your joints. This causes inflammation that can eventually destroy cartilage and bone within the joint.</p>
