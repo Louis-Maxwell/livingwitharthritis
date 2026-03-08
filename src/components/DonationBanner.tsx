@@ -12,9 +12,12 @@ const DonationBanner = () => {
   const [fundType, setFundType] = useState("research");
   const [selectedQuickAmount, setSelectedQuickAmount] = useState<number | null>(100);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [recurring, setRecurring] = useState(false);
   const navigate = useNavigate();
 
-  const quickAmounts = [25, 50, 100, 250];
+  const oneTimeAmounts = [25, 50, 100, 250];
+  const monthlyAmounts = [5, 10, 25, 50];
+  const quickAmounts = recurring ? monthlyAmounts : oneTimeAmounts;
 
   const handleQuickAmount = (value: number) => {
     setSelectedQuickAmount(value);
@@ -25,6 +28,14 @@ const DonationBanner = () => {
     setAmount(value);
     const numValue = parseFloat(value);
     setSelectedQuickAmount(quickAmounts.includes(numValue) ? numValue : null);
+  };
+
+  const handleRecurringToggle = (isRecurring: boolean) => {
+    setRecurring(isRecurring);
+    // Reset to first quick amount of the new mode
+    const defaults = isRecurring ? monthlyAmounts : oneTimeAmounts;
+    setSelectedQuickAmount(defaults[2]); // £25 or £100
+    setAmount(defaults[2].toString());
   };
 
   const handleDonate = () => {
@@ -48,6 +59,30 @@ const DonationBanner = () => {
     <div className="bg-navy text-navy-foreground">
       <div className="container mx-auto px-4 py-2.5">
         <div className="flex flex-wrap items-center justify-center gap-2">
+          {/* Recurring toggle */}
+          <div className="flex items-center bg-white/10 rounded-full p-0.5 h-8">
+            <button
+              onClick={() => handleRecurringToggle(false)}
+              className={`px-3 h-7 rounded-full text-[11px] font-bold tracking-wide transition-all ${
+                !recurring
+                  ? "bg-primary text-primary-foreground"
+                  : "text-white/60 hover:text-white/80"
+              }`}
+            >
+              One-time
+            </button>
+            <button
+              onClick={() => handleRecurringToggle(true)}
+              className={`px-3 h-7 rounded-full text-[11px] font-bold tracking-wide transition-all ${
+                recurring
+                  ? "bg-emerald-600 text-white"
+                  : "text-white/60 hover:text-white/80"
+              }`}
+            >
+              Monthly
+            </button>
+          </div>
+
           <div className="flex items-center bg-white/10 rounded-full px-3 py-1">
             <span className="text-sm mr-1.5">
               {currency === "GBP" ? "🇬🇧" : currency === "USD" ? "🇺🇸" : "🇪🇺"}
@@ -83,11 +118,13 @@ const DonationBanner = () => {
                 onClick={() => handleQuickAmount(value)}
                 className={`${
                   selectedQuickAmount === value
-                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                    ? recurring
+                      ? "bg-emerald-600 text-white hover:bg-emerald-700"
+                      : "bg-primary text-primary-foreground hover:bg-primary/90"
                     : "bg-white/10 text-white/80 border-white/10 hover:bg-white/20 hover:text-white"
                 } font-semibold text-xs h-8 px-3 rounded-full transition-all duration-300`}
               >
-                {getCurrencySymbol()}{value}
+                {getCurrencySymbol()}{value}{recurring ? "/mo" : ""}
               </Button>
             ))}
           </div>
@@ -109,9 +146,13 @@ const DonationBanner = () => {
             size="sm"
             onClick={handleDonate}
             disabled={!amount && !selectedQuickAmount}
-            className="btn-primary-cta px-5 h-8 text-[11px] font-bold tracking-widest rounded-full"
+            className={`px-5 h-8 text-[11px] font-bold tracking-widest rounded-full ${
+              recurring
+                ? "bg-emerald-600 hover:bg-emerald-700 text-white"
+                : "btn-primary-cta"
+            }`}
           >
-            DONATE
+            {recurring ? "SUBSCRIBE" : "DONATE"}
           </Button>
 
           <Button
@@ -132,6 +173,7 @@ const DonationBanner = () => {
             amount={getDonationAmount()}
             currency={currency}
             fundType={fundType}
+            recurring={recurring}
           />
         </Suspense>
       )}
