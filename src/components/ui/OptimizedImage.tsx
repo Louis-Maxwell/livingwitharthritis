@@ -8,6 +8,16 @@ interface OptimizedImageProps {
   width?: number;
   height?: number;
   priority?: boolean;
+  /** Optional WebP source for <picture> element */
+  webpSrc?: string;
+}
+
+/** Derive a .webp path from a .jpg/.png path in /public */
+function deriveWebpSrc(src: string): string | undefined {
+  if (src.startsWith("/images/") && /\.(jpe?g|png)$/i.test(src)) {
+    return src.replace(/\.(jpe?g|png)$/i, ".webp");
+  }
+  return undefined;
 }
 
 const OptimizedImage = memo(({
@@ -17,10 +27,13 @@ const OptimizedImage = memo(({
   width,
   height,
   priority = false,
+  webpSrc,
 }: OptimizedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(priority);
-  const imgRef = useRef<HTMLImageElement>(null);
+  const imgRef = useRef<HTMLDivElement>(null);
+
+  const resolvedWebp = webpSrc || deriveWebpSrc(src);
 
   useEffect(() => {
     if (priority) return;
@@ -55,19 +68,22 @@ const OptimizedImage = memo(({
       style={{ width, height }}
     >
       {isInView && (
-        <img
-          src={src}
-          alt={alt}
-          width={width}
-          height={height}
-          loading={priority ? "eager" : "lazy"}
-          decoding="async"
-          onLoad={() => setIsLoaded(true)}
-          className={cn(
-            "w-full h-full object-cover transition-opacity duration-500",
-            isLoaded ? "opacity-100" : "opacity-0"
-          )}
-        />
+        <picture>
+          {resolvedWebp && <source srcSet={resolvedWebp} type="image/webp" />}
+          <img
+            src={src}
+            alt={alt}
+            width={width}
+            height={height}
+            loading={priority ? "eager" : "lazy"}
+            decoding="async"
+            onLoad={() => setIsLoaded(true)}
+            className={cn(
+              "w-full h-full object-cover transition-opacity duration-500",
+              isLoaded ? "opacity-100" : "opacity-0"
+            )}
+          />
+        </picture>
       )}
     </div>
   );
