@@ -178,8 +178,20 @@ const BlogIndex = () => {
         />
 
         <main className="container mx-auto px-6 md:px-10 py-10 md:py-16">
+          {/* Search bar */}
+          <div className="relative max-w-md mb-8">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/50" />
+            <input
+              type="search"
+              placeholder="Search articles..."
+              value={searchQuery}
+              onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }}
+              className="w-full pl-11 pr-4 py-3 rounded-xl border border-border/40 bg-card text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/30 transition-all focus-glow"
+            />
+          </div>
+
           {/* Category filters — colorful pills */}
-          <div className="flex flex-wrap gap-2 mb-10">
+          <div className="flex flex-wrap gap-2 mb-8">
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -192,6 +204,19 @@ const BlogIndex = () => {
               >
                 {cat}
                 {cat !== "All" && (
+                  <span className="ml-1.5 opacity-60">
+                    ({blogPosts.filter((p) => p.category === cat).length})
+                  </span>
+                )}
+              </button>
+            ))}
+          </div>
+
+          {/* Results count */}
+          <p className="text-sm text-muted-foreground mb-6">
+            Showing {paginated.length} of {filtered.length} article{filtered.length !== 1 ? "s" : ""}
+            {searchQuery && <span className="text-primary font-medium"> for "{searchQuery}"</span>}
+          </p>
                   <span className="ml-1.5 opacity-60">
                     ({blogPosts.filter((p) => p.category === cat).length})
                   </span>
