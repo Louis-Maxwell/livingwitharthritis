@@ -116,49 +116,7 @@ const AboutSection = memo(() => {
           </motion.div>
         </div>
 
-        {/* Statistics with colorful gradients */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 mb-14">
-          {statsLoading ? (
-            Array.from({ length: 4 }).map((_, i) => (
-              <Card key={i} className="bg-card border-border/20 rounded-2xl">
-                <CardContent className="pt-7 pb-6 text-center">
-                  <Skeleton className="mb-3 mx-auto w-12 h-12 rounded-xl" />
-                  <Skeleton className="h-9 w-16 mx-auto mb-2" />
-                  <Skeleton className="h-3 w-24 mx-auto" />
-                </CardContent>
-              </Card>
-            ))
-          ) : (
-            statistics?.map((stat, i) => {
-              const Icon = iconMap[stat.icon_name] || Users;
-              const gradient = statGradients[i % statGradients.length];
-              return (
-                <motion.div
-                  key={stat.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  <Card className={`group bg-gradient-to-br ${gradient} border rounded-2xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}>
-                    <CardContent className="pt-8 pb-7 text-center relative overflow-hidden">
-                      <div className="absolute top-2 right-2 opacity-[0.04]">
-                        <JointGraphic />
-                      </div>
-                      <div className="mb-4 mx-auto w-12 h-12 rounded-xl bg-background/80 flex items-center justify-center shadow-sm">
-                        <Icon className="w-5 h-5 text-primary" />
-                      </div>
-                      <div className="text-3xl sm:text-4xl font-extrabold text-foreground mb-1.5 tracking-tight">
-                        {stat.number_value}
-                      </div>
-                      <p className="text-[10px] text-muted-foreground font-bold tracking-[0.15em] uppercase">{stat.label}</p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              );
-            })
-          )}
-        </div>
+        {/* Statistics removed per user request */}
 
         {/* Quote with colorful accent */}
         <motion.div
