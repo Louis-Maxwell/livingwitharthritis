@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import "./HeroSection.css";
 
 const STATS = [
-  { value: 10000000, display: "10M+", label: "People affected", suffix: "+" },
+  { value: 30000000, display: "30M+", label: "Aiming to support globally", suffix: "+" },
   { value: 100, display: "100+", label: "Arthritis types", suffix: "+" },
   { value: 15000, display: "15K+", label: "People helped", suffix: "+" },
 ];
