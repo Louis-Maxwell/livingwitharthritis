@@ -188,7 +188,7 @@ const Header = () => {
       ],
     },
     { label: "Shop", href: "/shop", action: () => navigate("/shop") },
-    { label: "Resource Library", href: "#resources", action: () => setResourceModalOpen(true), hasIcon: true },
+    { label: "Resource Library", href: "#resources", action: () => setResourceModalOpen(true) },
   ];
 
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
