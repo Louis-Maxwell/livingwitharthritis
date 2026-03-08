@@ -327,7 +327,7 @@ const Header = () => {
                 <LogoMark className="w-8 h-8" />
                 <span className="text-lg font-extrabold text-primary">Menu</span>
               </div>
-              <Button variant="ghost" size="icon" className="rounded-lg h-9 w-9" onClick={() => setMobileMenuOpen(false)}>
+              <Button variant="ghost" size="icon" className="rounded-lg h-9 w-9" onClick={() => setMobileMenuOpen(false)} aria-label="Close menu">
                 <X size={18} />
               </Button>
             </div>
