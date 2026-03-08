@@ -217,18 +217,8 @@ const BlogIndex = () => {
             Showing {paginated.length} of {filtered.length} article{filtered.length !== 1 ? "s" : ""}
             {searchQuery && <span className="text-primary font-medium"> for "{searchQuery}"</span>}
           </p>
-                  <span className="ml-1.5 opacity-60">
-                    ({blogPosts.filter((p) => p.category === cat).length})
-                  </span>
-                )}
-              </button>
-            ))}
-          </div>
 
-          {/* Results count */}
-          <p className="text-sm text-muted-foreground mb-6">
-            Showing {paginated.length} of {filtered.length} article{filtered.length !== 1 ? "s" : ""}
-          </p>
+
 
           {/* Grid — cards with category color accent */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
