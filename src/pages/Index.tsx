@@ -134,6 +134,7 @@ export default function Index() {
       </Helmet>
 
       <div className="min-h-screen bg-background">
+        <ScrollProgress />
         <Header />
         <Suspense fallback={null}>
           <DonationNotification />
