@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Heart, Construction, BookOpen, Stethoscope, Activity, Apple, Users, Newspaper, ShoppingBag, HelpCircle, HandHeart } from "lucide-react";
+import { Menu, X, Heart, Construction, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, ShoppingBag, HelpCircle, HandHeart, Users } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import ResourceLibraryModal from "@/components/ResourceLibraryModal";
+import ResourceLibraryDrawer from "@/components/ResourceLibraryDrawer";
 
 const DonationBanner = lazy(() => import("@/components/DonationBanner"));
 
@@ -17,14 +17,11 @@ const BuildingBanner = () => (
   </div>
 );
 
-/* Dynamic SVG logo mark – flowing figure with curved "A" */
+/* Dynamic SVG logo mark */
 const LogoMark = ({ className = "" }: { className?: string }) => (
   <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     <circle cx="28" cy="7.5" r="5" fill="hsl(var(--primary))" />
-    <path
-      d="M28 13 C28 18, 26 22, 22 26 C18 30, 15 36, 13 46 L19 46 C20 40, 22 35, 24 31 Q26 27, 28 27 Q30 27, 32 31 C34 35, 36 40, 37 46 L43 46 C41 36, 38 30, 34 26 C30 22, 28 18, 28 13Z"
-      fill="hsl(var(--primary))"
-    />
+    <path d="M28 13 C28 18, 26 22, 22 26 C18 30, 15 36, 13 46 L19 46 C20 40, 22 35, 24 31 Q26 27, 28 27 Q30 27, 32 31 C34 35, 36 40, 37 46 L43 46 C41 36, 38 30, 34 26 C30 22, 28 18, 28 13Z" fill="hsl(var(--primary))" />
     <path d="M20.5 36 Q28 33, 35.5 36" stroke="hsl(var(--background))" strokeWidth="2.8" strokeLinecap="round" fill="none" />
     <path d="M26 17 C22 15, 16 12, 10 5" stroke="hsl(var(--primary))" strokeWidth="3.2" strokeLinecap="round" fill="none" />
     <path d="M30 17 C34 15, 40 12, 46 5" stroke="hsl(var(--primary))" strokeWidth="3.2" strokeLinecap="round" fill="none" />
@@ -33,26 +30,13 @@ const LogoMark = ({ className = "" }: { className?: string }) => (
   </svg>
 );
 
-const dropdownSections = [
-  { label: "About Arthritis", icon: Stethoscope, desc: "Learn about types & causes", href: "/about" },
-  { label: "Our Services", icon: Activity, desc: "Physio, rehab & support", href: "#services" },
-  { label: "Conditions", icon: Heart, desc: "OA, RA, Gout & more", href: "#conditions" },
-  { label: "Self Help Tool", icon: HelpCircle, desc: "AI symptom checker", href: "/self-help" },
-  { label: "Blog", icon: Newspaper, desc: "Articles & research", href: "/blog" },
-  { label: "Get Involved", icon: HandHeart, desc: "Volunteer & fundraise", href: "#involved" },
-  { label: "Shop", icon: ShoppingBag, desc: "Aids & supplements", href: "/shop" },
-  { label: "Resource Library", icon: BookOpen, desc: "NHS, benefits & guides", href: "#resources" },
-];
-
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [resourceModalOpen, setResourceModalOpen] = useState(false);
-  const [logoDropdownOpen, setLogoDropdownOpen] = useState(false);
+  const [resourceDrawerOpen, setResourceDrawerOpen] = useState(false);
   const navigate = useNavigate();
   const lastScrollY = useRef(0);
-  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleScroll = useCallback(() => {
     const currentY = window.scrollY;
@@ -72,49 +56,26 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
-  // Close dropdown on outside click
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setLogoDropdownOpen(false);
-      }
-    };
-    if (logoDropdownOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [logoDropdownOpen]);
-
-  // Close logo dropdown on scroll
-  useEffect(() => {
-    if (!logoDropdownOpen) return;
-    const closeOnScroll = () => setLogoDropdownOpen(false);
-    window.addEventListener("scroll", closeOnScroll, { passive: true });
-    return () => window.removeEventListener("scroll", closeOnScroll);
-  }, [logoDropdownOpen]);
-
   type NavLink = {
     label: string;
     href: string;
     action?: () => void;
-    hasIcon?: boolean;
     subs?: { label: string; href: string; action?: () => void }[];
   };
 
   const navLinks: NavLink[] = [
     {
-      label: "About Arthritis",
-      href: "#about",
+      label: "About",
+      href: "/about",
       action: () => navigate("/about"),
       subs: [
         { label: "What is Arthritis?", href: "/about", action: () => navigate("/about") },
         { label: "Types of Arthritis", href: "#conditions" },
         { label: "Risk Factors", href: "/about", action: () => navigate("/about") },
-        { label: "Diagnosis Journey", href: "#conditions" },
       ],
     },
     {
-      label: "Our Services",
+      label: "Services",
       href: "#services",
       subs: [
         { label: "Physiotherapy", href: "#services" },
@@ -135,25 +96,14 @@ const Header = () => {
       ],
     },
     {
-      label: "Self Help Tool",
+      label: "Self Help",
       href: "/self-help",
       action: () => navigate("/self-help"),
-      subs: [
-        { label: "Joint Exercise Guide", href: "/self-help", action: () => navigate("/self-help") },
-        { label: "Body Diagram", href: "/self-help", action: () => navigate("/self-help") },
-        { label: "Daily Tips", href: "#daily-tips" },
-      ],
     },
     {
       label: "Blog",
       href: "/blog",
       action: () => navigate("/blog"),
-      subs: [
-        { label: "Latest Articles", href: "/blog", action: () => navigate("/blog") },
-        { label: "Exercise & Movement", href: "/blog", action: () => navigate("/blog") },
-        { label: "Nutrition & Diet", href: "/blog", action: () => navigate("/blog") },
-        { label: "Mental Health", href: "/blog", action: () => navigate("/blog") },
-      ],
     },
     {
       label: "Get Involved",
@@ -165,8 +115,7 @@ const Header = () => {
         { label: "Zakat Appeal", href: "/zakat-appeal", action: () => navigate("/zakat-appeal") },
       ],
     },
-    { label: "Shop", href: "/shop", action: () => navigate("/shop") },
-    { label: "Resource Library", href: "#resources", action: () => setResourceModalOpen(true) },
+    { label: "Resources", href: "#resources", action: () => setResourceDrawerOpen(true) },
   ];
 
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -198,82 +147,36 @@ const Header = () => {
     el?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleDropdownNav = (item: typeof dropdownSections[0]) => {
-    setLogoDropdownOpen(false);
-    if (item.label === "Resource Library") {
-      setResourceModalOpen(true);
-      return;
-    }
-    if (item.href.startsWith("#")) {
-      scrollToSection(item.href);
-    } else {
-      navigate(item.href);
-    }
-  };
+  // Mobile nav items
+  const mobileNavItems = [
+    { label: "About Arthritis", icon: Stethoscope, desc: "Learn about types & causes", href: "/about", action: () => navigate("/about") },
+    { label: "Our Services", icon: Activity, desc: "Physio, rehab & support", href: "#services" },
+    { label: "Conditions", icon: Heart, desc: "OA, RA, Gout & more", href: "#conditions" },
+    { label: "Self Help Tool", icon: HelpCircle, desc: "AI symptom checker", href: "/self-help", action: () => navigate("/self-help") },
+    { label: "Blog", icon: Newspaper, desc: "Articles & research", href: "/blog", action: () => navigate("/blog") },
+    { label: "Get Involved", icon: HandHeart, desc: "Volunteer & fundraise", href: "#involved" },
+    { label: "Resources", icon: BookOpen, desc: "NHS, benefits & guides", href: "#resources", action: () => setResourceDrawerOpen(true) },
+  ];
 
   return (
     <>
       <BuildingBanner />
 
-      {/* Premium Logo Bar */}
-      <div className="bg-background border-b border-border/15 relative" ref={dropdownRef}>
-        <div className="container mx-auto px-6 md:px-10 py-4 flex items-center justify-center">
+      {/* Clean Logo Bar */}
+      <div className="bg-background border-b border-border/15">
+        <div className="container mx-auto px-6 md:px-10 py-3.5 flex items-center justify-center">
           <button
-            onClick={() => setLogoDropdownOpen(!logoDropdownOpen)}
-            className="flex items-center gap-3.5 group cursor-pointer select-none"
-            aria-expanded={logoDropdownOpen}
-            aria-haspopup="true"
+            onClick={() => navigate("/")}
+            className="flex items-center gap-3 group cursor-pointer select-none"
           >
-            {/* CSS Logo Mark */}
-            <div className="relative w-14 h-14 md:w-16 md:h-16 shrink-0">
+            <div className="relative w-12 h-12 md:w-14 md:h-14 shrink-0">
               <LogoMark className="w-full h-full drop-shadow-sm group-hover:scale-105 transition-transform duration-300" />
             </div>
-
-            <div className="flex flex-col leading-none text-left">
-              <span className="text-lg sm:text-xl md:text-2xl font-black text-foreground tracking-tight leading-none uppercase">
-                Living With
-              </span>
-              <span className="text-lg sm:text-xl md:text-2xl font-black text-primary tracking-tight leading-none uppercase mt-px">
-                Arthritis
-              </span>
-            </div>
+            <span className="text-xl sm:text-2xl md:text-[1.7rem] font-black text-primary tracking-tight leading-none uppercase">
+              Living With Arthritis
+            </span>
           </button>
         </div>
-
-        {/* Dropdown Panel */}
-        {logoDropdownOpen && (
-          <div className="absolute left-0 right-0 top-full z-[80] bg-background border-b border-border/30 shadow-xl animate-fade-in">
-            <div className="container mx-auto px-6 md:px-10 py-6">
-              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-4">
-                Quick Navigation
-              </p>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                {dropdownSections.map((item) => {
-                  const Icon = item.icon;
-                  return (
-                    <button
-                      key={item.label}
-                      onClick={() => handleDropdownNav(item)}
-                      className="flex items-start gap-3 p-3 rounded-xl hover:bg-accent transition-colors text-left group/item cursor-pointer"
-                    >
-                      <div className="rounded-lg bg-primary/10 p-2 shrink-0 group-hover/item:bg-primary/15 transition-colors">
-                        <Icon className="w-4 h-4 text-primary" />
-                      </div>
-                      <div className="min-w-0">
-                        <span className="text-sm font-semibold text-foreground block leading-tight">
-                          {item.label}
-                        </span>
-                        <span className="text-[11px] text-muted-foreground leading-tight mt-0.5 block">
-                          {item.desc}
-                        </span>
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        )}
       </div>
 
       <Suspense fallback={<div className="bg-navy h-[42px]" />}>
@@ -289,19 +192,14 @@ const Header = () => {
         }`}
       >
         <div className="container mx-auto px-6 md:px-10">
-          <div className="flex justify-between items-center h-[52px]">
+          <div className="flex justify-between items-center h-[48px]">
 
-            {/* Desktop nav – click-triggered dropdowns, no arrows */}
-            <nav className="hidden lg:flex items-center gap-0.5">
+            {/* Desktop nav – clean, concise, no arrows */}
+            <nav className="hidden lg:flex items-center gap-0.5 mx-auto">
               {navLinks.map((link) => (
-                <div
-                  key={link.label}
-                  className="relative"
-                  data-nav-dropdown
-                >
+                <div key={link.label} className="relative" data-nav-dropdown>
                   <button
                     onClick={(e) => {
-                      // If has subs, toggle dropdown on click
                       if (link.subs) {
                         e.preventDefault();
                         setActiveDropdown(activeDropdown === link.label ? null : link.label);
@@ -315,20 +213,19 @@ const Header = () => {
                         setActiveDropdown(null);
                       }
                     }}
-                    className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 cursor-pointer group flex items-center gap-1 ${
+                    className={`px-3.5 py-1.5 text-[13px] font-semibold rounded-lg transition-all duration-200 cursor-pointer ${
                       activeDropdown === link.label
-                        ? "text-foreground bg-accent"
+                        ? "text-primary bg-primary/5"
                         : "text-muted-foreground hover:text-foreground hover:bg-accent"
                     }`}
                   >
                     {link.label}
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full group-hover:w-3/4 transition-all duration-300" />
                   </button>
 
-                  {/* Sub-menu dropdown – click triggered */}
+                  {/* Sub-menu dropdown */}
                   {link.subs && activeDropdown === link.label && (
-                    <div className="absolute top-full left-0 pt-1 z-[90] animate-fade-in">
-                      <div className="bg-background border border-border/40 rounded-xl shadow-xl py-2 min-w-[200px]">
+                    <div className="absolute top-full left-0 pt-1.5 z-[90] animate-fade-in">
+                      <div className="bg-background border border-border/40 rounded-xl shadow-xl py-1.5 min-w-[190px]">
                         {link.subs.map((sub) => (
                           <button
                             key={sub.label}
@@ -340,7 +237,7 @@ const Header = () => {
                                 scrollToSection(sub.href);
                               }
                             }}
-                            className="w-full text-left px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-accent transition-colors cursor-pointer"
+                            className="w-full text-left px-4 py-2 text-[13px] text-muted-foreground hover:text-foreground hover:bg-accent transition-colors cursor-pointer"
                           >
                             {sub.label}
                           </button>
@@ -350,26 +247,38 @@ const Header = () => {
                   )}
                 </div>
               ))}
-            </nav>
 
-            {/* Right actions */}
-            <div className="flex items-center gap-3">
+              {/* Donate button inline */}
               <Button
                 size="sm"
                 onClick={() => {
                   const el = document.getElementById("involved");
                   el?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="hidden sm:flex btn-primary-cta h-10 px-7 rounded-full text-xs font-bold tracking-wider"
+                className="ml-3 btn-primary-cta h-8 px-5 rounded-full text-[11px] font-bold tracking-wider"
               >
-                <Heart className="w-3.5 h-3.5 mr-2" />
+                <Heart className="w-3 h-3 mr-1.5" />
                 Donate
               </Button>
+            </nav>
 
+            {/* Mobile toggle */}
+            <div className="flex items-center gap-3 lg:hidden ml-auto">
+              <Button
+                size="sm"
+                onClick={() => {
+                  const el = document.getElementById("involved");
+                  el?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="btn-primary-cta h-9 px-5 rounded-full text-[11px] font-bold tracking-wider"
+              >
+                <Heart className="w-3 h-3 mr-1.5" />
+                Donate
+              </Button>
               <Button
                 variant="ghost"
                 size="icon"
-                className="lg:hidden rounded-lg h-10 w-10"
+                className="rounded-lg h-9 w-9"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               >
                 {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -390,7 +299,7 @@ const Header = () => {
             <div className="flex items-center justify-between p-6 border-b border-border/20">
               <div className="flex items-center gap-2.5">
                 <LogoMark className="w-8 h-8" />
-                <span className="text-lg font-extrabold text-foreground">Menu</span>
+                <span className="text-lg font-extrabold text-primary">Menu</span>
               </div>
               <Button variant="ghost" size="icon" className="rounded-lg h-9 w-9" onClick={() => setMobileMenuOpen(false)}>
                 <X size={18} />
@@ -398,14 +307,20 @@ const Header = () => {
             </div>
 
             <nav className="flex-1 overflow-y-auto px-5 py-6 space-y-1">
-              {dropdownSections.map((item) => {
+              {mobileNavItems.map((item) => {
                 const Icon = item.icon;
                 return (
                   <button
                     key={item.label}
                     onClick={() => {
-                      handleDropdownNav(item);
                       setMobileMenuOpen(false);
+                      if (item.action) {
+                        item.action();
+                      } else if (item.href.startsWith("#")) {
+                        scrollToSection(item.href);
+                      } else {
+                        navigate(item.href);
+                      }
                     }}
                     className="flex items-center gap-3 w-full text-left px-4 py-3.5 text-[15px] font-semibold text-muted-foreground hover:text-foreground hover:bg-accent rounded-xl transition-all cursor-pointer"
                   >
@@ -435,7 +350,8 @@ const Header = () => {
           </div>
         </>
       )}
-      <ResourceLibraryModal open={resourceModalOpen} onOpenChange={setResourceModalOpen} />
+
+      <ResourceLibraryDrawer open={resourceDrawerOpen} onOpenChange={setResourceDrawerOpen} />
     </>
   );
 };

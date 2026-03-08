@@ -13,14 +13,14 @@ import zakatHeroImg from "@/assets/zakat-appeal-hero.jpg";
 const ZAKAT_AMOUNTS = [100, 249, 350, 500, 1000, 2500, 5000, 10000];
 
 const AMOUNT_DESCRIPTIONS: Record<number, string> = {
-  100: "Could help fund a physiotherapy session for someone in need",
-  249: "Could provide essential joint-care supplies for a family",
-  350: "Could support a month of rehabilitation exercises",
-  500: "Could fund specialist arthritis consultations",
-  1000: "Could sponsor a full treatment programme",
-  2500: "Could support research into joint health solutions",
-  5000: "Could fund community health outreach initiatives",
-  10000: "Could establish a local support group for patients",
+  100: "Could help fund rehab sessions for someone in need",
+  249: "Could help fund rehab sessions for a family in need",
+  350: "Could help fund a month of rehabilitation sessions for someone in need",
+  500: "Could help fund specialist rehab sessions for someone in need",
+  1000: "Could help fund a full rehab programme for someone in need",
+  2500: "Could help fund community rehab sessions for those in need",
+  5000: "Could help fund outreach rehab sessions for those in need",
+  10000: "Could help fund a local rehab centre for those in need",
 };
 
 const ZakatAppeal = () => {
@@ -105,7 +105,7 @@ const ZakatAppeal = () => {
                 <p className="text-muted-foreground leading-relaxed">
                   Zakat is a means of serving Allah through serving His creation. By fulfilling your Zakat, you align your intentions with justice, mercy, and devotion.
                 </p>
-                <blockquote className="border-l-4 border-emerald-500 pl-4 italic text-muted-foreground">
+                <blockquote className="border-l-4 border-emerald pl-4 italic text-muted-foreground">
                   "Take from their wealth to purify and bless them" — Qur'an 9:103
                 </blockquote>
 
@@ -123,8 +123,8 @@ const ZakatAppeal = () => {
                         }}
                         className={`text-sm font-semibold rounded-lg ${
                           selectedAmount === amt && !customAmount
-                            ? "bg-emerald-600 hover:bg-emerald-700 text-white border-emerald-600"
-                            : "hover:border-emerald-500"
+                            ? "bg-emerald hover:bg-emerald/90 text-white border-emerald"
+                            : "hover:border-emerald"
                         }`}
                       >
                         £{amt.toLocaleString()}
@@ -160,7 +160,7 @@ const ZakatAppeal = () => {
                 <Button
                   onClick={handleDonate}
                   disabled={activeAmount <= 0}
-                  className="w-full h-12 bg-emerald-600 hover:bg-emerald-700 text-white text-lg font-bold rounded-xl"
+                  className="w-full h-12 bg-emerald hover:bg-emerald/90 text-white text-lg font-bold rounded-xl"
                 >
                   <Heart className="mr-2 h-5 w-5" />
                   Donate £{activeAmount > 0 ? activeAmount.toLocaleString() : "0"}
@@ -207,8 +207,8 @@ const ZakatAppeal = () => {
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="bg-card rounded-xl p-6 text-center shadow-sm border border-border"
                 >
-                  <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-emerald-100 flex items-center justify-center">
-                    <item.icon className="h-6 w-6 text-emerald-600" />
+                  <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-emerald/10 flex items-center justify-center">
+                    <item.icon className="h-6 w-6 text-emerald" />
                   </div>
                   <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
                   <p className="text-sm text-muted-foreground">{item.desc}</p>
