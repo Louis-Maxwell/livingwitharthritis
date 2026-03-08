@@ -496,6 +496,86 @@ export type Database = {
         }
         Relationships: []
       }
+      forum_replies: {
+        Row: {
+          content: string
+          created_at: string
+          id: string
+          status: string
+          topic_id: string
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          id?: string
+          status?: string
+          topic_id: string
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          id?: string
+          status?: string
+          topic_id?: string
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "forum_replies_topic_id_fkey"
+            columns: ["topic_id"]
+            isOneToOne: false
+            referencedRelation: "forum_topics"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      forum_topics: {
+        Row: {
+          body: string
+          category: string
+          created_at: string
+          id: string
+          is_pinned: boolean
+          reply_count: number
+          status: string
+          title: string
+          updated_at: string
+          user_id: string | null
+          view_count: number
+        }
+        Insert: {
+          body: string
+          category?: string
+          created_at?: string
+          id?: string
+          is_pinned?: boolean
+          reply_count?: number
+          status?: string
+          title: string
+          updated_at?: string
+          user_id?: string | null
+          view_count?: number
+        }
+        Update: {
+          body?: string
+          category?: string
+          created_at?: string
+          id?: string
+          is_pinned?: boolean
+          reply_count?: number
+          status?: string
+          title?: string
+          updated_at?: string
+          user_id?: string | null
+          view_count?: number
+        }
+        Relationships: []
+      }
       fundraising_inquiries: {
         Row: {
           contact_name: string
@@ -730,6 +810,39 @@ export type Database = {
           is_active?: boolean
           myth?: string
           updated_at?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_initial: string | null
+          bio: string | null
+          condition: string | null
+          created_at: string
+          display_name: string
+          id: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          avatar_initial?: string | null
+          bio?: string | null
+          condition?: string | null
+          created_at?: string
+          display_name?: string
+          id?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          avatar_initial?: string | null
+          bio?: string | null
+          condition?: string | null
+          created_at?: string
+          display_name?: string
+          id?: string
+          updated_at?: string
+          user_id?: string
         }
         Relationships: []
       }
