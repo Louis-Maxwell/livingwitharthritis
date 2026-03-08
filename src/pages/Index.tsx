@@ -148,7 +148,7 @@ export default function Index() {
         <main className="space-y-0">
           <HeroSection />
 
-          <div className="container mx-auto px-5 md:px-8 space-y-0 content-deferred">
+          <div className="w-full px-0 space-y-0 content-deferred">
             {/* Quote */}
             <Suspense fallback={null}>
               <QuoteSection />
@@ -173,70 +173,72 @@ export default function Index() {
                  TABBED EXPLORE SECTION
                  Reduces scrolling by grouping heavy content
                 ══════════════════════════════════════════ */}
-            <section id="explore" className="scroll-mt-24 bg-tint-rose rounded-3xl p-8 md:p-12 border border-border/20">
-              <div className="text-center mb-10">
-                <span className="section-label text-primary mb-4 block">Resources Library</span>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground tracking-tight leading-[1.08]">
-                  Explore our{" "}
-                  <span className="text-gradient">expert resources</span>
-                </h2>
-                <p className="text-muted-foreground mt-4 max-w-lg mx-auto text-sm sm:text-base leading-relaxed">
-                  Discover nutrition guides, physiotherapy exercises, condition information, community support and UK resources — all clinically reviewed.
-                </p>
-              </div>
-
-              <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-                <TabsList className="w-full flex flex-wrap justify-center gap-1 bg-muted/50 p-1.5 rounded-2xl h-auto">
-                  {EXPLORE_TABS.map((tab) => {
-                    const Icon = tab.icon;
-                    return (
-                      <TabsTrigger
-                        key={tab.value}
-                        value={tab.value}
-                        className="flex items-center gap-2 px-4 py-2.5 text-xs sm:text-sm font-semibold rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md transition-all duration-200"
-                      >
-                        <Icon className="w-4 h-4" />
-                        <span className="hidden sm:inline">{tab.label}</span>
-                        <span className="sm:hidden">{tab.label.split(" ")[0]}</span>
-                      </TabsTrigger>
-                    );
-                  })}
-                </TabsList>
-
-                <div className="mt-8">
-                  <TabsContent value="nutrition" className="space-y-10 md:space-y-14 mt-0">
-                    <Suspense fallback={<SectionLoader />}>
-                      <NutritionArticleSection />
-                    </Suspense>
-                  </TabsContent>
-
-                  <TabsContent value="exercises" className="space-y-10 md:space-y-14 mt-0">
-                    <Suspense fallback={<SectionLoader />}>
-                      <VirtualPhysioSection />
-                      <JointExerciseSection />
-                    </Suspense>
-                  </TabsContent>
-
-                  <TabsContent value="conditions" className="space-y-10 md:space-y-14 mt-0">
-                    <Suspense fallback={<SectionLoader />}>
-                      <ConditionsSection />
-                    </Suspense>
-                  </TabsContent>
-
-                  <TabsContent value="community" className="space-y-10 md:space-y-14 mt-0">
-                    <Suspense fallback={<SectionLoader />}>
-                      <CommunitySection />
-                      <TransparencySection />
-                    </Suspense>
-                  </TabsContent>
-
-                  <TabsContent value="resources" className="space-y-10 md:space-y-14 mt-0">
-                    <Suspense fallback={<SectionLoader />}>
-                      <UKResourcesSection />
-                    </Suspense>
-                  </TabsContent>
+            <section id="explore" className="scroll-mt-24 bg-tint-rose p-6 md:p-12 border-y border-border/20">
+              <div className="max-w-7xl mx-auto">
+                <div className="text-center mb-10">
+                  <span className="section-label text-primary mb-4 block">Resources Library</span>
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground tracking-tight leading-[1.08]">
+                    Explore our{" "}
+                    <span className="text-gradient">expert resources</span>
+                  </h2>
+                  <p className="text-muted-foreground mt-4 max-w-lg mx-auto text-sm sm:text-base leading-relaxed">
+                    Discover nutrition guides, physiotherapy exercises, condition information, community support and UK resources — all clinically reviewed.
+                  </p>
                 </div>
-              </Tabs>
+
+                <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+                  <TabsList className="w-full flex flex-wrap justify-center gap-1 bg-muted/50 p-1.5 rounded-2xl h-auto">
+                    {EXPLORE_TABS.map((tab) => {
+                      const Icon = tab.icon;
+                      return (
+                        <TabsTrigger
+                          key={tab.value}
+                          value={tab.value}
+                          className="flex items-center gap-2 px-4 py-2.5 text-xs sm:text-sm font-semibold rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md transition-all duration-200"
+                        >
+                          <Icon className="w-4 h-4" />
+                          <span className="hidden sm:inline">{tab.label}</span>
+                          <span className="sm:hidden">{tab.label.split(" ")[0]}</span>
+                        </TabsTrigger>
+                      );
+                    })}
+                  </TabsList>
+
+                  <div className="mt-8">
+                    <TabsContent value="nutrition" className="space-y-10 md:space-y-14 mt-0">
+                      <Suspense fallback={<SectionLoader />}>
+                        <NutritionArticleSection />
+                      </Suspense>
+                    </TabsContent>
+
+                    <TabsContent value="exercises" className="space-y-10 md:space-y-14 mt-0">
+                      <Suspense fallback={<SectionLoader />}>
+                        <VirtualPhysioSection />
+                        <JointExerciseSection />
+                      </Suspense>
+                    </TabsContent>
+
+                    <TabsContent value="conditions" className="space-y-10 md:space-y-14 mt-0">
+                      <Suspense fallback={<SectionLoader />}>
+                        <ConditionsSection />
+                      </Suspense>
+                    </TabsContent>
+
+                    <TabsContent value="community" className="space-y-10 md:space-y-14 mt-0">
+                      <Suspense fallback={<SectionLoader />}>
+                        <CommunitySection />
+                        <TransparencySection />
+                      </Suspense>
+                    </TabsContent>
+
+                    <TabsContent value="resources" className="space-y-10 md:space-y-14 mt-0">
+                      <Suspense fallback={<SectionLoader />}>
+                        <UKResourcesSection />
+                      </Suspense>
+                    </TabsContent>
+                  </div>
+                </Tabs>
+              </div>
             </section>
 
             {/* ── Always visible: Tips, Blog, Testimonials, FAQ, Donate ── */}

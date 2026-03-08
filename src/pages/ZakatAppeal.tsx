@@ -10,17 +10,14 @@ import DonationBanner from "@/components/DonationBanner";
 import StripeDonationModal from "@/components/StripeDonationModal";
 import zakatHeroImg from "@/assets/zakat-appeal-hero.jpg";
 
-const ZAKAT_AMOUNTS = [100, 249, 350, 500, 1000, 2500, 5000, 10000];
+const ZAKAT_AMOUNTS = [100, 150, 250, 500, 1000];
 
 const AMOUNT_DESCRIPTIONS: Record<number, string> = {
-  100: "Could help fund rehab sessions for someone in need",
-  249: "Could help fund rehab sessions for a family in need",
-  350: "Could help fund a month of rehabilitation sessions for someone in need",
-  500: "Could help fund specialist rehab sessions for someone in need",
-  1000: "Could help fund a full rehab programme for someone in need",
-  2500: "Could help fund community rehab sessions for those in need",
-  5000: "Could help fund outreach rehab sessions for those in need",
-  10000: "Could help fund a local rehab centre for those in need",
+  100: "Could fund a week of physiotherapy rehab sessions for a war or trauma survivor rebuilding their mobility",
+  150: "Could provide a full rehabilitation assessment and personalised recovery plan for someone affected by conflict",
+  250: "Could fund a month of guided rehab exercises and pain management support for a trauma survivor",
+  500: "Could sponsor a complete 8-week rehabilitation programme for an individual recovering from war-related injuries",
+  1000: "Could fund a comprehensive 3-month rehab and mental health recovery programme for a conflict survivor",
 };
 
 const ZakatAppeal = () => {
@@ -77,16 +74,19 @@ const ZakatAppeal = () => {
                 className="mt-10 space-y-6"
               >
                 <h2 className="text-2xl font-bold text-foreground">
-                  Zakat — A Sacred Responsibility
+                  Zakat — Rebuilding Lives After War & Trauma
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Zakat is one of the five fundamental pillars of Islam and represents a duty upon every eligible Muslim. It is an act of worship through giving — a way to purify one's wealth and draw closer to Allah by caring for those in need. The obligation applies to 2.5% of qualifying savings and assets held for a full lunar year, and is required of those whose wealth exceeds the minimum threshold (nisab).
+                  Zakat is one of the five fundamental pillars of Islam — an act of worship through giving that purifies wealth and draws the believer closer to Allah. The obligation applies to 2.5% of qualifying savings and assets held for a full lunar year, required of those whose wealth exceeds the minimum threshold (nisab).
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  At Living With Arthritis, we are committed to ensuring every Zakat contribution is handled with the utmost care, integrity, and in full alignment with Shariah guidelines. Our approach is guided by qualified scholars to guarantee that your Zakat reaches those who are most deserving, providing real relief to individuals and families affected by arthritis.
+                  Across the world, millions of people affected by war, conflict and trauma are left with devastating physical injuries — shattered joints, chronic musculoskeletal pain, and mobility loss that steals their independence. Many survivors cannot afford rehabilitation, leaving them trapped in cycles of pain and poverty. Your Zakat can fund life-changing physiotherapy and rehab sessions for individuals who have endured unimaginable hardship.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  We believe in building a compassionate world where no one suffers alone. Your Zakat can transform the lives of vulnerable community members — helping them access treatment, rehabilitation, and the support they need to live with dignity.
+                  At Living With Arthritis, every Zakat contribution is managed with the utmost care, integrity, and in full alignment with Shariah guidelines. Our approach is guided by qualified scholars to ensure your Zakat reaches those who are most deserving — war survivors, trauma victims, and vulnerable individuals who need rehabilitation to rebuild their lives with dignity and hope.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Whether it's funding a week of physio sessions, sponsoring a full recovery programme, or supporting someone's journey from injury to independence — your generosity has the power to transform a life shattered by conflict into one filled with possibility.
                 </p>
               </motion.div>
             </div>
@@ -103,7 +103,7 @@ const ZakatAppeal = () => {
                   Zakat Appeal
                 </h1>
                 <p className="text-muted-foreground leading-relaxed">
-                  Zakat is a means of serving Allah through serving His creation. By fulfilling your Zakat, you align your intentions with justice, mercy, and devotion.
+                  Your Zakat could help fund rehabilitation sessions for someone who has been involved in war and trauma — restoring their mobility, independence and hope for the future.
                 </p>
                 <blockquote className="border-l-4 border-emerald pl-4 italic text-muted-foreground">
                   "Take from their wealth to purify and bless them" — Qur'an 9:103
@@ -112,7 +112,7 @@ const ZakatAppeal = () => {
                 {/* Amount grid */}
                 <div>
                   <p className="text-sm font-semibold text-foreground mb-3">Select an amount</p>
-                  <div className="grid grid-cols-4 gap-2">
+                  <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
                     {ZAKAT_AMOUNTS.map((amt) => (
                       <Button
                         key={amt}

@@ -29,35 +29,38 @@ const resourceCategories = [
     color: "bg-blue-500/10 text-blue-600",
     badgeColor: "bg-blue-600 text-white",
     items: [
-      { name: "NHS Arthritis Overview", url: "https://www.nhs.uk/conditions/arthritis/", type: "Guide" },
-      { name: "Find NHS Services Near You", url: "https://www.nhs.uk/service-search", type: "Tool" },
-      { name: "NICE Osteoarthritis Guidelines", url: "https://www.nice.org.uk/guidance/cg177", type: "Guideline" },
-      { name: "NICE Rheumatoid Arthritis", url: "https://www.nice.org.uk/guidance/ng100", type: "Guideline" },
+      { name: "NHS Arthritis Overview", url: "https://www.nhs.uk/conditions/arthritis/", type: "Guide", desc: "Comprehensive NHS guide covering symptoms, diagnosis and treatment" },
+      { name: "Find NHS Services Near You", url: "https://www.nhs.uk/service-search", type: "Tool", desc: "Locate physiotherapy, rheumatology and pain clinics in your area" },
+      { name: "NICE Osteoarthritis Guidelines (CG177)", url: "https://www.nice.org.uk/guidance/cg177", type: "Guideline", desc: "Evidence-based clinical recommendations for managing OA" },
+      { name: "NICE Rheumatoid Arthritis (NG100)", url: "https://www.nice.org.uk/guidance/ng100", type: "Guideline", desc: "Best-practice pathways for RA diagnosis and treatment" },
+      { name: "British Society for Rheumatology", url: "https://www.rheumatology.org.uk/", type: "Professional", desc: "UK specialist body for rheumatology education and guidelines" },
     ],
   },
   {
-    category: "Benefits & Rights",
+    category: "Benefits & Legal Rights",
     icon: PoundSterling,
     color: "bg-emerald-500/10 text-emerald-600",
     badgeColor: "bg-emerald-600 text-white",
     items: [
-      { name: "Check PIP Eligibility", url: "https://www.gov.uk/pip", type: "Gov.uk" },
-      { name: "Attendance Allowance", url: "https://www.gov.uk/attendance-allowance", type: "Gov.uk" },
-      { name: "Citizens Advice – Disability Benefits", url: "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/pip/", type: "Advice" },
-      { name: "Equality Act 2010 Guidance", url: "https://www.gov.uk/guidance/equality-act-2010-guidance", type: "Legal" },
-      { name: "ACAS – Reasonable Adjustments", url: "https://www.acas.org.uk/reasonable-adjustments", type: "Workplace" },
+      { name: "Personal Independence Payment (PIP)", url: "https://www.gov.uk/pip", type: "Gov.uk", desc: "Check eligibility and apply for disability living support" },
+      { name: "Attendance Allowance", url: "https://www.gov.uk/attendance-allowance", type: "Gov.uk", desc: "Financial help for over-65s with care needs due to disability" },
+      { name: "Citizens Advice – Disability Benefits", url: "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/pip/", type: "Advice", desc: "Free, independent guidance on claiming disability benefits" },
+      { name: "Equality Act 2010 – Your Rights", url: "https://www.gov.uk/guidance/equality-act-2010-guidance", type: "Legal", desc: "Legal protections against disability discrimination at work" },
+      { name: "ACAS – Reasonable Adjustments", url: "https://www.acas.org.uk/reasonable-adjustments", type: "Workplace", desc: "Employer obligations to accommodate your condition at work" },
+      { name: "Blue Badge Scheme", url: "https://www.gov.uk/apply-blue-badge", type: "Gov.uk", desc: "Apply for disabled parking permits for mobility difficulties" },
     ],
   },
   {
-    category: "Support & Community",
+    category: "Charities & Support Groups",
     icon: Users,
     color: "bg-violet-500/10 text-violet-600",
     badgeColor: "bg-violet-600 text-white",
     items: [
-      { name: "Arthritis Action – Self-Management", url: "https://www.arthritisaction.org.uk/", type: "Charity" },
-      { name: "NRAS – RA Support Groups", url: "https://nras.org.uk/get-support/", type: "Support" },
-      { name: "Versus Arthritis", url: "https://www.versusarthritis.org/", type: "Charity" },
-      { name: "Arthritis Care (Age UK)", url: "https://www.ageuk.org.uk/information-advice/health-wellbeing/conditions-illnesses/arthritis/", type: "Support" },
+      { name: "Versus Arthritis", url: "https://www.versusarthritis.org/", type: "Charity", desc: "UK's largest arthritis charity — research, support and campaigns" },
+      { name: "Arthritis Action – Self-Management", url: "https://www.arthritisaction.org.uk/", type: "Charity", desc: "Practical self-management support and local group meetings" },
+      { name: "NRAS – RA Support Network", url: "https://nras.org.uk/get-support/", type: "Support", desc: "Helpline, peer support groups and RA-specific resources" },
+      { name: "National Ankylosing Spondylitis Society", url: "https://nass.co.uk/", type: "Charity", desc: "Specialist support for AS and axial spondyloarthritis" },
+      { name: "Psoriasis & Psoriatic Arthritis Alliance", url: "https://www.papaa.org/", type: "Support", desc: "Information and community for PsA patients and families" },
     ],
   },
   {
@@ -66,22 +69,24 @@ const resourceCategories = [
     color: "bg-orange-500/10 text-orange-600",
     badgeColor: "bg-orange-600 text-white",
     items: [
-      { name: "Low-Impact Exercises for OA", url: "#exercises", type: "Guide" },
-      { name: "Swimming & Water Aerobics", url: "#exercises", type: "Exercise" },
-      { name: "Yoga & Tai Chi for Joints", url: "#exercises", type: "Exercise" },
-      { name: "Strength Training Guide", url: "#exercises", type: "Guide" },
+      { name: "Low-Impact Exercises for OA", url: "#exercises", type: "Guide", desc: "Gentle joint-friendly exercises for osteoarthritis pain relief" },
+      { name: "Swimming & Water Aerobics", url: "#exercises", type: "Exercise", desc: "Buoyancy-supported movement that's easy on joints" },
+      { name: "Yoga & Tai Chi for Joint Health", url: "#exercises", type: "Exercise", desc: "Mind-body practices proven to reduce stiffness and improve balance" },
+      { name: "Strength Training for Arthritis", url: "#exercises", type: "Guide", desc: "Build muscle support around affected joints safely" },
+      { name: "NHS Couch to 5K (Adapted)", url: "https://www.nhs.uk/live-well/exercise/running-and-aerobic-exercises/get-running-with-couch-to-5k/", type: "Programme", desc: "Gradual walking-to-running programme adaptable for arthritis" },
     ],
   },
   {
-    category: "Nutrition & Diet",
+    category: "Nutrition & Anti-Inflammatory Diet",
     icon: Apple,
     color: "bg-green-500/10 text-green-600",
     badgeColor: "bg-green-600 text-white",
     items: [
-      { name: "Mediterranean Diet for Arthritis", url: "#nutrition", type: "Diet" },
-      { name: "Anti-Inflammatory Foods", url: "#nutrition", type: "Guide" },
-      { name: "Omega-3 Rich Recipes", url: "#nutrition", type: "Recipe" },
-      { name: "Supplements: Glucosamine & Collagen", url: "#nutrition", type: "Guide" },
+      { name: "Mediterranean Diet for Arthritis", url: "#nutrition", type: "Diet", desc: "The gold-standard anti-inflammatory eating pattern for joint health" },
+      { name: "Anti-Inflammatory Foods Guide", url: "#nutrition", type: "Guide", desc: "Key foods that reduce inflammation: oily fish, berries, olive oil, nuts" },
+      { name: "Omega-3 Rich Recipes", url: "#nutrition", type: "Recipe", desc: "Delicious salmon, mackerel and sardine recipes for joint support" },
+      { name: "Supplements: Glucosamine, Collagen & Turmeric", url: "#nutrition", type: "Guide", desc: "Evidence review of popular joint supplements and what works" },
+      { name: "Foods to Avoid with Arthritis", url: "#nutrition", type: "Guide", desc: "Pro-inflammatory foods that may worsen joint pain and swelling" },
     ],
   },
   {
@@ -90,9 +95,10 @@ const resourceCategories = [
     color: "bg-pink-500/10 text-pink-600",
     badgeColor: "bg-pink-600 text-white",
     items: [
-      { name: "Mindfulness for Chronic Pain", url: "#wellbeing", type: "Guide" },
-      { name: "Sleep Improvement Tips", url: "#wellbeing", type: "Tips" },
-      { name: "Managing Stress with Arthritis", url: "#wellbeing", type: "Guide" },
+      { name: "Mindfulness for Chronic Pain", url: "#wellbeing", type: "Guide", desc: "Evidence-based mindfulness techniques to manage pain perception" },
+      { name: "Sleep Improvement for Arthritis", url: "#wellbeing", type: "Tips", desc: "Sleep hygiene strategies when pain disrupts your rest" },
+      { name: "Managing Anxiety & Depression", url: "#wellbeing", type: "Guide", desc: "CBT-based tools for the emotional impact of chronic conditions" },
+      { name: "NHS Talking Therapies", url: "https://www.nhs.uk/mental-health/talking-therapies-medicine-treatments/talking-therapies-and-counselling/nhs-talking-therapies/", type: "NHS", desc: "Free NHS psychological support — self-refer without a GP" },
     ],
   },
   {
@@ -101,10 +107,11 @@ const resourceCategories = [
     color: "bg-cyan-500/10 text-cyan-600",
     badgeColor: "bg-cyan-600 text-white",
     items: [
-      { name: "Turmeric & Curcumin Evidence", url: "#treatments", type: "Research" },
-      { name: "Ginger for Joint Pain", url: "#treatments", type: "Research" },
-      { name: "Pain Management Options", url: "#treatments", type: "Guide" },
-      { name: "When to See a Rheumatologist", url: "#treatments", type: "Advice" },
+      { name: "Turmeric & Curcumin Evidence", url: "#treatments", type: "Research", desc: "Systematic review of curcumin's anti-inflammatory effects on joints" },
+      { name: "Ginger for Joint Pain Relief", url: "#treatments", type: "Research", desc: "Clinical evidence on gingerols reducing OA pain and stiffness" },
+      { name: "Pain Management Options", url: "#treatments", type: "Guide", desc: "From paracetamol to biologics — understanding your treatment ladder" },
+      { name: "When to See a Rheumatologist", url: "#treatments", type: "Advice", desc: "Red flags and referral criteria for specialist assessment" },
+      { name: "DMARDs & Biologic Therapies", url: "#treatments", type: "Guide", desc: "How disease-modifying drugs work to slow inflammatory arthritis" },
     ],
   },
 ];
@@ -163,7 +170,10 @@ const ResourceLibraryModal = memo(({ open, onOpenChange }: ResourceLibraryModalP
                           idx < cat.items.length - 1 ? "border-b border-border/30" : ""
                         }`}
                       >
-                        <td className="px-4 py-3 font-medium text-foreground">{item.name}</td>
+                        <td className="px-4 py-3">
+                          <div className="font-medium text-foreground">{item.name}</div>
+                          <div className="text-xs text-muted-foreground mt-0.5">{item.desc}</div>
+                        </td>
                         <td className="px-4 py-3 hidden sm:table-cell">
                           <Badge className={`${cat.badgeColor} text-[10px]`}>{item.type}</Badge>
                         </td>
