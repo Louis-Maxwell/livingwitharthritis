@@ -198,7 +198,7 @@ const Header = () => {
           <div className="flex justify-between items-center h-[48px]">
 
             {/* Desktop nav */}
-            <nav className="hidden lg:flex items-center gap-0.5 mx-auto">
+            <nav className="hidden lg:flex items-center gap-0.5 mx-auto" aria-label="Main navigation">
               {navLinks.map((link) => (
                 <div key={link.label} className="relative" data-nav-dropdown>
                   <button
