@@ -19,19 +19,21 @@
   }
 }
 
-/* Animated gradient background */
+/* Animated gradient background – more vivid */
 .hero-gradient-bg {
   background: 
     radial-gradient(ellipse 80% 60% at 15% 85%, hsl(var(--tint-blue)) 0%, transparent 55%),
     radial-gradient(ellipse 60% 50% at 85% 15%, hsl(var(--tint-rose)) 0%, transparent 45%),
-    radial-gradient(ellipse 40% 35% at 50% 50%, hsl(var(--tint-amber) / 0.4) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 50% 50%, hsl(var(--tint-amber) / 0.5) 0%, transparent 55%),
+    radial-gradient(ellipse 35% 30% at 75% 75%, hsl(var(--tint-mint) / 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse 30% 25% at 25% 25%, hsl(var(--tint-lavender) / 0.3) 0%, transparent 50%),
     hsl(var(--background));
   animation: heroGradientShift 16s ease-in-out infinite alternate;
 }
 
 @keyframes heroGradientShift {
-  0% { background-position: 0% 0%, 100% 0%, 50% 50%; }
-  100% { background-position: 20% 20%, 80% 40%, 60% 30%; }
+  0% { background-position: 0% 0%, 100% 0%, 50% 50%, 75% 75%, 25% 25%; }
+  100% { background-position: 20% 20%, 80% 40%, 60% 30%, 65% 85%, 35% 15%; }
 }
 
 /* Floating orbs */
