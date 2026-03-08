@@ -155,15 +155,24 @@ const Header = () => {
 
   return (
     <>
+      {/* Skip to content — first focusable element */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-6 focus:py-3 focus:bg-primary focus:text-primary-foreground focus:rounded-xl focus:text-sm focus:font-bold focus:shadow-xl focus:outline-none"
+      >
+        Skip to main content
+      </a>
+
       {/* Clean Logo Bar */}
       <div className="bg-background border-b border-border/15">
         <div className="container mx-auto px-6 md:px-10 py-3.5 flex items-center justify-center">
           <button
             onClick={() => navigate("/")}
             className="flex items-center gap-3 group cursor-pointer select-none"
+            aria-label="Living With Arthritis — Go to homepage"
           >
             <div className="relative w-12 h-12 md:w-14 md:h-14 shrink-0">
-              <LogoMark className="w-full h-full drop-shadow-sm group-hover:scale-105 transition-transform duration-300" />
+              <LogoMark className="w-full h-full drop-shadow-sm group-hover:scale-105 transition-transform duration-300" aria-hidden="true" />
             </div>
             <span className="text-xl sm:text-2xl md:text-[1.7rem] font-black text-primary tracking-tight leading-none uppercase">
               Living With Arthritis
@@ -177,6 +186,7 @@ const Header = () => {
       </Suspense>
 
       <header
+        role="banner"
         style={{ transform: visible || mobileMenuOpen ? "translateY(0)" : "translateY(-100%)" }}
         className={`sticky top-0 z-50 transition-all duration-300 ${
           scrolled
@@ -188,7 +198,7 @@ const Header = () => {
           <div className="flex justify-between items-center h-[48px]">
 
             {/* Desktop nav */}
-            <nav className="hidden lg:flex items-center gap-0.5 mx-auto">
+            <nav className="hidden lg:flex items-center gap-0.5 mx-auto" aria-label="Main navigation">
               {navLinks.map((link) => (
                 <div key={link.label} className="relative" data-nav-dropdown>
                   <button
@@ -206,6 +216,13 @@ const Header = () => {
                         setActiveDropdown(null);
                       }
                     }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Escape" && activeDropdown === link.label) {
+                        setActiveDropdown(null);
+                      }
+                    }}
+                    aria-expanded={link.subs ? activeDropdown === link.label : undefined}
+                    aria-haspopup={link.subs ? "true" : undefined}
                     className={`px-3.5 py-1.5 text-[13px] font-semibold rounded-lg transition-all duration-200 cursor-pointer flex items-center gap-1 ${
                       activeDropdown === link.label
                         ? "text-primary bg-primary/5"
@@ -213,12 +230,12 @@ const Header = () => {
                     }`}
                   >
                     {link.label}
-                    {link.subs && <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === link.label ? "rotate-180" : ""}`} />}
+                    {link.subs && <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === link.label ? "rotate-180" : ""}`} aria-hidden="true" />}
                   </button>
 
                   {/* Rich sub-menu dropdown */}
                   {link.subs && activeDropdown === link.label && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-[90] animate-fade-in">
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-[90] animate-fade-in" role="menu" aria-label={`${link.label} submenu`}>
                       <div className="bg-background border border-border/40 rounded-2xl shadow-xl p-2 min-w-[320px]">
                         {link.subs.map((sub) => {
                           const Icon = sub.icon;
@@ -235,7 +252,7 @@ const Header = () => {
                                   navigate(sub.href);
                                 }
                               }}
-                              className="w-full text-left flex items-start gap-3 px-3 py-3 rounded-xl hover:bg-accent transition-colors cursor-pointer group/item"
+                              className="w-full text-left flex items-start gap-3 px-3 py-3 rounded-xl hover:bg-accent transition-colors cursor-pointer group/item" role="menuitem"
                             >
                               <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5 ${sub.color || "text-primary bg-primary/10"}`}>
                                 <Icon className="w-4 h-4" />
@@ -286,8 +303,10 @@ const Header = () => {
                 size="icon"
                 className="rounded-lg h-9 w-9"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+                aria-expanded={mobileMenuOpen}
               >
-                {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                {mobileMenuOpen ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
               </Button>
             </div>
           </div>
@@ -300,19 +319,20 @@ const Header = () => {
           <div
             className="fixed inset-0 bg-foreground/20 backdrop-blur-sm z-[60] lg:hidden animate-in fade-in duration-200"
             onClick={() => setMobileMenuOpen(false)}
+            aria-hidden="true"
           />
-          <div className="fixed top-0 right-0 bottom-0 w-[80%] max-w-sm bg-background z-[70] lg:hidden shadow-2xl flex flex-col border-l border-border/30 animate-in slide-in-from-right duration-300">
+          <div className="fixed top-0 right-0 bottom-0 w-[80%] max-w-sm bg-background z-[70] lg:hidden shadow-2xl flex flex-col border-l border-border/30 animate-in slide-in-from-right duration-300" role="dialog" aria-modal="true" aria-label="Navigation menu">
             <div className="flex items-center justify-between p-6 border-b border-border/20">
               <div className="flex items-center gap-2.5">
                 <LogoMark className="w-8 h-8" />
                 <span className="text-lg font-extrabold text-primary">Menu</span>
               </div>
-              <Button variant="ghost" size="icon" className="rounded-lg h-9 w-9" onClick={() => setMobileMenuOpen(false)}>
+              <Button variant="ghost" size="icon" className="rounded-lg h-9 w-9" onClick={() => setMobileMenuOpen(false)} aria-label="Close menu">
                 <X size={18} />
               </Button>
             </div>
 
-            <nav className="flex-1 overflow-y-auto px-5 py-6 space-y-1">
+            <nav className="flex-1 overflow-y-auto px-5 py-6 space-y-1" aria-label="Mobile navigation">
               {mobileNavItems.map((item, index) => {
                 const Icon = item.icon;
                 return (

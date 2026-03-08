@@ -146,7 +146,7 @@ export default function Index() {
         <Header />
         <DeferredOverlays />
 
-        <main className="space-y-0">
+        <main id="main-content" className="space-y-0" role="main">
           <HeroSection />
 
           <div className="w-full px-0 space-y-0 content-deferred">
