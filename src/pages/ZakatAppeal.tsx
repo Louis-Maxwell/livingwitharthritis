@@ -10,17 +10,14 @@ import DonationBanner from "@/components/DonationBanner";
 import StripeDonationModal from "@/components/StripeDonationModal";
 import zakatHeroImg from "@/assets/zakat-appeal-hero.jpg";
 
-const ZAKAT_AMOUNTS = [100, 249, 350, 500, 1000, 2500, 5000, 10000];
+const ZAKAT_AMOUNTS = [100, 150, 250, 500, 1000];
 
 const AMOUNT_DESCRIPTIONS: Record<number, string> = {
-  100: "Could help fund rehab sessions for someone in need",
-  249: "Could help fund rehab sessions for a family in need",
-  350: "Could help fund a month of rehabilitation sessions for someone in need",
-  500: "Could help fund specialist rehab sessions for someone in need",
-  1000: "Could help fund a full rehab programme for someone in need",
-  2500: "Could help fund community rehab sessions for those in need",
-  5000: "Could help fund outreach rehab sessions for those in need",
-  10000: "Could help fund a local rehab centre for those in need",
+  100: "Could fund a week of physiotherapy rehab sessions for a war or trauma survivor rebuilding their mobility",
+  150: "Could provide a full rehabilitation assessment and personalised recovery plan for someone affected by conflict",
+  250: "Could fund a month of guided rehab exercises and pain management support for a trauma survivor",
+  500: "Could sponsor a complete 8-week rehabilitation programme for an individual recovering from war-related injuries",
+  1000: "Could fund a comprehensive 3-month rehab and mental health recovery programme for a conflict survivor",
 };
 
 const ZakatAppeal = () => {
