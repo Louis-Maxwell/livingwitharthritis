@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, ShoppingBag, HelpCircle, HandHeart, Users, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Scale, Baby, Sparkles, Globe, Calendar } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import ResourceLibraryDrawer from "@/components/ResourceLibraryDrawer";
+import SiteSearch from "@/components/SiteSearch";
 
 const DonationBanner = lazy(() => import("@/components/DonationBanner"));
 
@@ -69,8 +70,8 @@ const Header = () => {
       subs: [
         { label: "What Is Arthritis?", desc: "Over 100 types affecting millions", icon: Stethoscope, href: "/about", action: () => navigate("/about"), color: "text-sky-600 bg-sky-500/10" },
         { label: "Types of Arthritis", desc: "OA, RA, Gout, PsA & more", icon: Bone, href: "#conditions", color: "text-violet-600 bg-violet-500/10" },
-        { label: "Risk Factors & Prevention", desc: "Age, weight, genetics & lifestyle", icon: ShieldCheck, href: "/about", action: () => navigate("/about"), color: "text-amber-600 bg-amber-500/10" },
-        { label: "Newly Diagnosed?", desc: "Your essential first steps guide", icon: Sparkles, href: "/about", action: () => navigate("/about"), color: "text-emerald-600 bg-emerald-500/10" },
+        { label: "Trust & Credibility", desc: "Governance, advisors & evidence", icon: ShieldCheck, href: "/trust", action: () => navigate("/trust"), color: "text-amber-600 bg-amber-500/10" },
+        { label: "Newly Diagnosed?", desc: "Your essential first steps guide", icon: Sparkles, href: "/community", action: () => navigate("/community"), color: "text-emerald-600 bg-emerald-500/10" },
       ],
     },
     {
@@ -199,6 +200,7 @@ const Header = () => {
 
             {/* Desktop nav */}
             <nav className="hidden lg:flex items-center gap-0.5 mx-auto" aria-label="Main navigation">
+              <SiteSearch />
               {navLinks.map((link) => (
                 <div key={link.label} className="relative" data-nav-dropdown>
                   <button

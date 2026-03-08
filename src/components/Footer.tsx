@@ -21,6 +21,8 @@ const Footer = () => {
     ],
     aboutUs: [
       { label: "Our Mission", href: "/about" },
+      { label: "Trust & Credibility", href: "/trust" },
+      { label: "Community Hub", href: "/community" },
       { label: "Zakat Appeal", href: "/zakat-appeal" },
       { label: "Sitemap", href: "/sitemap" },
     ],

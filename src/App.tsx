@@ -28,6 +28,8 @@ const SelfHelpTool = lazy(() => import("./pages/SelfHelpTool"));
 const ZakatAppeal = lazy(() => import("./pages/ZakatAppeal"));
 const ExerciseHub = lazy(() => import("./pages/ExerciseHub"));
 const DietHub = lazy(() => import("./pages/DietHub"));
+const TrustCredibility = lazy(() => import("./pages/TrustCredibility"));
+const CommunityHub = lazy(() => import("./pages/CommunityHub"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const CookiesPolicy = lazy(() => import("./pages/CookiesPolicy"));
 const AccessibilityPage = lazy(() => import("./pages/Accessibility"));
@@ -78,6 +80,8 @@ function AnimatedRoutes() {
       <Route path="/exercises" element={<ExerciseHub />} />
       <Route path="/diet" element={<DietHub />} />
       <Route path="/zakat-appeal" element={<ZakatAppeal />} />
+      <Route path="/trust" element={<TrustCredibility />} />
+      <Route path="/community" element={<CommunityHub />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/cookies" element={<CookiesPolicy />} />
       <Route path="/accessibility" element={<AccessibilityPage />} />

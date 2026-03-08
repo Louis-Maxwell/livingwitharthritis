@@ -43,6 +43,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://livingwitharthritis.org.uk/trust</loc>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://livingwitharthritis.org.uk/trust" />
+    <lastmod>2026-03-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/community</loc>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://livingwitharthritis.org.uk/community" />
+    <lastmod>2026-03-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://livingwitharthritis.org.uk/zakat-appeal</loc>
     <lastmod>2026-03-08</lastmod>
     <changefreq>monthly</changefreq>
