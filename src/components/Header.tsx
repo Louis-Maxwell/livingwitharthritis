@@ -232,9 +232,6 @@ const Header = () => {
             </div>
 
             <div className="flex flex-col leading-none text-left">
-              <span className="text-[10px] tracking-[0.35em] uppercase font-semibold text-muted-foreground/50 mb-0.5">
-                United Kingdom
-              </span>
               <span className="text-lg sm:text-xl md:text-2xl font-black text-foreground tracking-tight leading-none uppercase">
                 Living With
               </span>
