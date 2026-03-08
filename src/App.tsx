@@ -76,6 +76,7 @@ function AnimatedRoutes() {
       <Route path="/zakat-appeal" element={<ZakatAppeal />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/cookies" element={<CookiesPolicy />} />
+      <Route path="/accessibility" element={<AccessibilityPage />} />
       <Route path="/shop" element={<NotFound />} />
       <Route path="/sitemap" element={<Sitemap />} />
       <Route path="*" element={<NotFound />} />
