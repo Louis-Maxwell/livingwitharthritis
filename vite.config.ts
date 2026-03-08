@@ -21,6 +21,9 @@ export default defineConfig(({ mode }) => ({
     target: "es2020",
     cssMinify: true,
     minify: "esbuild",
+    modulePreload: {
+      polyfill: false, // Modern browsers support modulepreload natively
+    },
     rollupOptions: {
       output: {
         manualChunks: {
@@ -32,6 +35,8 @@ export default defineConfig(({ mode }) => ({
           supabase: ["@supabase/supabase-js"],
           helmet: ["react-helmet-async"],
           markdown: ["react-markdown"],
+          forms: ["react-hook-form", "@hookform/resolvers", "zod"],
+          charts: ["recharts"],
         },
       },
     },
