@@ -186,6 +186,7 @@ const Header = () => {
       </Suspense>
 
       <header
+        role="banner"
         style={{ transform: visible || mobileMenuOpen ? "translateY(0)" : "translateY(-100%)" }}
         className={`sticky top-0 z-50 transition-all duration-300 ${
           scrolled
