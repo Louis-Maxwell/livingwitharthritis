@@ -200,6 +200,7 @@ const Header = () => {
 
             {/* Desktop nav */}
             <nav className="hidden lg:flex items-center gap-0.5 mx-auto" aria-label="Main navigation">
+              <SiteSearch />
               {navLinks.map((link) => (
                 <div key={link.label} className="relative" data-nav-dropdown>
                   <button
