@@ -29,7 +29,7 @@ const JointGraphic = () => (
 
 
 const AboutSection = memo(() => {
-  const { data: statistics, isLoading: statsLoading } = useStatistics();
+  const sectionRef = useRef<HTMLElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
   const orbY = useTransform(scrollYProgress, [0, 1], [40, -40]);
