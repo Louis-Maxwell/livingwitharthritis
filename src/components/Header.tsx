@@ -307,7 +307,7 @@ const Header = () => {
             </div>
 
             <nav className="flex-1 overflow-y-auto px-5 py-6 space-y-1">
-              {mobileNavItems.map((item) => {
+              {mobileNavItems.map((item, index) => {
                 const Icon = item.icon;
                 return (
                   <button
@@ -322,12 +322,15 @@ const Header = () => {
                         navigate(item.href);
                       }
                     }}
-                    className="flex items-center gap-3 w-full text-left px-4 py-3.5 text-[15px] font-semibold text-muted-foreground hover:text-foreground hover:bg-accent rounded-xl transition-all cursor-pointer"
+                    className="flex items-center gap-3 w-full text-left px-4 py-3.5 text-[15px] font-semibold text-muted-foreground hover:text-foreground hover:bg-accent rounded-xl transition-all cursor-pointer group"
+                    style={{ animationDelay: `${index * 50}ms` }}
                   >
-                    <Icon className="w-4 h-4 text-primary shrink-0" />
-                    <div>
-                      <span className="block">{item.label}</span>
-                      <span className="text-[11px] font-normal text-muted-foreground/70">{item.desc}</span>
+                    <div className="w-9 h-9 rounded-lg bg-primary/8 flex items-center justify-center shrink-0 group-hover:bg-primary/15 transition-colors">
+                      <Icon className="w-4 h-4 text-primary" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <span className="block truncate">{item.label}</span>
+                      <span className="text-[11px] font-normal text-muted-foreground/70 truncate block">{item.desc}</span>
                     </div>
                   </button>
                 );
