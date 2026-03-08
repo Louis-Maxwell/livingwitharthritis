@@ -64,29 +64,28 @@ const Header = () => {
 
       {/* Premium Logo Bar */}
       <div className="bg-background border-b border-border/15">
-        <div className="container mx-auto px-6 md:px-10 py-5 flex items-center justify-center">
-          <a href="/" className="flex items-center gap-4 group">
-            <div className="relative">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg group-hover:shadow-primary transition-all duration-500 group-hover:scale-105">
-                <Heart className="w-6 h-6 text-primary-foreground drop-shadow-sm" />
-              </div>
-              <div className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-gold flex items-center justify-center shadow-sm">
-                <span className="text-[7px] font-black text-gold-foreground">™</span>
-              </div>
-            </div>
-            <div className="flex flex-col leading-none">
-              <span className="text-[11px] tracking-[0.35em] uppercase font-semibold text-muted-foreground/60 mb-1">
-                United Kingdom
-              </span>
-              <span className="text-xl sm:text-2xl md:text-[1.7rem] font-black text-foreground tracking-[-0.03em] leading-none uppercase">
-                Living With
-              </span>
-              <span className="text-xl sm:text-2xl md:text-[1.7rem] font-black text-primary tracking-[-0.03em] leading-none uppercase mt-0.5">
-                Arthritis
-              </span>
-            </div>
-          </a>
-        </div>
+         <div className="container mx-auto px-6 md:px-10 py-4 flex items-center justify-center">
+           <a href="/" className="flex items-center gap-4 group">
+             <div className="relative">
+               <img
+                 src={lwaLogo}
+                 alt="Living With Arthritis logo"
+                 className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-500"
+               />
+             </div>
+             <div className="flex flex-col leading-none">
+               <span className="text-[11px] tracking-[0.35em] uppercase font-semibold text-muted-foreground/60 mb-1">
+                 United Kingdom
+               </span>
+               <span className="text-xl sm:text-2xl md:text-[1.7rem] font-black text-foreground tracking-[-0.03em] leading-none uppercase">
+                 Living With
+               </span>
+               <span className="text-xl sm:text-2xl md:text-[1.7rem] font-black text-primary tracking-[-0.03em] leading-none uppercase mt-0.5">
+                 Arthritis
+               </span>
+             </div>
+           </a>
+         </div>
       </div>
 
       <Suspense fallback={<div className="bg-navy h-[42px]" />}>
