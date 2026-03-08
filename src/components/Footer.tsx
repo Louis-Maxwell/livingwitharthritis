@@ -34,7 +34,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-foreground text-background relative overflow-hidden">
+    <footer className="bg-foreground text-background relative overflow-hidden" role="contentinfo" aria-label="Site footer">
       <div className="container mx-auto px-6 md:px-10 py-20 lg:py-24 relative">
         <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-10">
           {/* Brand */}
