@@ -242,6 +242,10 @@ export default function Index() {
             </Suspense>
 
             <Suspense fallback={<SectionLoader />}>
+              <PatientImpactStories />
+            </Suspense>
+
+            <Suspense fallback={<SectionLoader />}>
               <NewsletterSection />
             </Suspense>
 
