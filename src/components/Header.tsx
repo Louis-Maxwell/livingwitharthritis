@@ -1,21 +1,10 @@
 import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Heart, Construction, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, ShoppingBag, HelpCircle, HandHeart, Users, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Scale, Baby, Sparkles, Globe, Calendar } from "lucide-react";
+import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, ShoppingBag, HelpCircle, HandHeart, Users, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Scale, Baby, Sparkles, Globe, Calendar } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import ResourceLibraryDrawer from "@/components/ResourceLibraryDrawer";
 
 const DonationBanner = lazy(() => import("@/components/DonationBanner"));
-
-const BuildingBanner = () => (
-  <div className="bg-foreground text-background py-2 text-center relative">
-    <div className="container mx-auto px-6 flex items-center justify-center gap-2 relative">
-      <Construction className="w-3.5 h-3.5 text-secondary" />
-      <p className="text-[11px] sm:text-xs font-medium tracking-wide">
-        This website is currently being built — some features may be incomplete.
-      </p>
-    </div>
-  </div>
-);
 
 /* Dynamic SVG logo mark */
 const LogoMark = ({ className = "" }: { className?: string }) => (
@@ -166,8 +155,6 @@ const Header = () => {
 
   return (
     <>
-      <BuildingBanner />
-
       {/* Clean Logo Bar */}
       <div className="bg-background border-b border-border/15">
         <div className="container mx-auto px-6 md:px-10 py-3.5 flex items-center justify-center">
@@ -360,13 +347,23 @@ const Header = () => {
               <Button
                 className="w-full btn-secondary-cta h-14 rounded-full text-sm font-bold tracking-wide"
                 onClick={() => {
-                  const el = document.getElementById("involved");
-                  el?.scrollIntoView({ behavior: "smooth" });
                   setMobileMenuOpen(false);
+                  navigate("/chat");
                 }}
               >
-                <Heart className="w-4 h-4 mr-2" />
-                Donate Now
+                <MessageCircle className="w-4 h-4 mr-2" />
+                Talk to AI Assistant
+              </Button>
+              <Button
+                variant="outline"
+                className="w-full h-12 rounded-full text-xs font-semibold"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  navigate("/zakat-appeal");
+                }}
+              >
+                <Globe className="w-3.5 h-3.5 mr-2" />
+                Zakat Appeal
               </Button>
             </div>
           </div>
