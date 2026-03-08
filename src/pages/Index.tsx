@@ -144,16 +144,11 @@ export default function Index() {
         <main className="space-y-0">
           <HeroSection />
 
-          <div className="gradient-divider" />
-
-          <Suspense fallback={null}>
-            <QuoteSection />
-          </Suspense>
-
-          <div className="gradient-divider" />
-
-          <div className="container mx-auto px-5 md:px-8 space-y-10 md:space-y-14 content-deferred">
-            {/* ── Always visible: About + Services ── */}
+          <div className="container mx-auto px-5 md:px-8 space-y-0 content-deferred">
+            {/* Quote */}
+            <Suspense fallback={null}>
+              <QuoteSection />
+            </Suspense>
             <Suspense fallback={<SectionLoader />}>
               <AboutSection />
             </Suspense>
