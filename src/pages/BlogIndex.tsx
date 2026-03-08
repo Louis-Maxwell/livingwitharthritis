@@ -249,14 +249,21 @@ const BlogIndex = () => {
                 </h2>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">{post.excerpt}</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-primary text-sm font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all">
-                    Read more <ArrowRight className="w-3.5 h-3.5" />
-                  </span>
-                  {viewCounts[post.slug] > 0 && (
-                    <span className="text-[11px] text-muted-foreground flex items-center gap-1">
-                      <Eye className="w-3 h-3" /> {viewCounts[post.slug].toLocaleString()}
+                  <div className="flex items-center gap-3">
+                    <span className="text-primary text-sm font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                      Read more <ArrowRight className="w-3.5 h-3.5" />
                     </span>
-                  )}
+                  </div>
+                  <div className="flex items-center gap-3 text-[11px] text-muted-foreground">
+                    <span className="flex items-center gap-1">
+                      <Clock className="w-3 h-3" /> {getReadTime(post.excerpt)}
+                    </span>
+                    {viewCounts[post.slug] > 0 && (
+                      <span className="flex items-center gap-1">
+                        <Eye className="w-3 h-3" /> {viewCounts[post.slug].toLocaleString()}
+                      </span>
+                    )}
+                  </div>
                 </div>
               </Link>
             ))}
