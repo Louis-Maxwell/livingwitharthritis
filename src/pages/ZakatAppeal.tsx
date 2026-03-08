@@ -123,8 +123,8 @@ const ZakatAppeal = () => {
                         }}
                         className={`text-sm font-semibold rounded-lg ${
                           selectedAmount === amt && !customAmount
-                            ? "bg-emerald-600 hover:bg-emerald-700 text-white border-emerald-600"
-                            : "hover:border-emerald-500"
+                            ? "bg-emerald hover:bg-emerald/90 text-white border-emerald"
+                            : "hover:border-emerald"
                         }`}
                       >
                         £{amt.toLocaleString()}
