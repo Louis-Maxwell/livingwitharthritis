@@ -47,7 +47,7 @@
 .hero-orb-1 {
   width: 500px;
   height: 500px;
-  background: hsl(var(--primary) / 0.06);
+  background: hsl(var(--primary) / 0.08);
   top: -120px;
   right: -120px;
   animation: orbFloat1 10s ease-in-out infinite;
@@ -56,7 +56,7 @@
 .hero-orb-2 {
   width: 400px;
   height: 400px;
-  background: hsl(var(--tint-blue));
+  background: hsl(var(--sky) / 0.08);
   bottom: -100px;
   left: -100px;
   animation: orbFloat2 12s ease-in-out infinite;
@@ -65,7 +65,7 @@
 .hero-orb-3 {
   width: 250px;
   height: 250px;
-  background: hsl(var(--gold) / 0.04);
+  background: hsl(var(--gold) / 0.07);
   top: 35%;
   left: 55%;
   animation: orbFloat3 9s ease-in-out infinite;
