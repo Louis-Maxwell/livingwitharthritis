@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Heart, Construction, BookOpen, ChevronDown, Stethoscope, Activity, Apple, Users, Newspaper, ShoppingBag, HelpCircle, HandHeart } from "lucide-react";
+import { Menu, X, Heart, Construction, BookOpen, Stethoscope, Activity, Apple, Users, Newspaper, ShoppingBag, HelpCircle, HandHeart } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import ResourceLibraryModal from "@/components/ResourceLibraryModal";
 
@@ -20,45 +20,15 @@ const BuildingBanner = () => (
 /* Dynamic SVG logo mark – flowing figure with curved "A" */
 const LogoMark = ({ className = "" }: { className?: string }) => (
   <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-    {/* Head */}
     <circle cx="28" cy="7.5" r="5" fill="hsl(var(--primary))" />
-    
-    {/* Flowing body – curved torso into "A" legs */}
     <path
       d="M28 13 C28 18, 26 22, 22 26 C18 30, 15 36, 13 46 L19 46 C20 40, 22 35, 24 31 Q26 27, 28 27 Q30 27, 32 31 C34 35, 36 40, 37 46 L43 46 C41 36, 38 30, 34 26 C30 22, 28 18, 28 13Z"
       fill="hsl(var(--primary))"
     />
-    
-    {/* Crossbar – curved */}
-    <path
-      d="M20.5 36 Q28 33, 35.5 36"
-      stroke="hsl(var(--background))"
-      strokeWidth="2.8"
-      strokeLinecap="round"
-      fill="none"
-    />
-    
-    {/* Left arm – flowing upward curve */}
-    <path
-      d="M26 17 C22 15, 16 12, 10 5"
-      stroke="hsl(var(--primary))"
-      strokeWidth="3.2"
-      strokeLinecap="round"
-      fill="none"
-    />
-    
-    {/* Right arm – flowing upward curve */}
-    <path
-      d="M30 17 C34 15, 40 12, 46 5"
-      stroke="hsl(var(--primary))"
-      strokeWidth="3.2"
-      strokeLinecap="round"
-      fill="none"
-    />
-    
-    {/* Left hand flourish */}
+    <path d="M20.5 36 Q28 33, 35.5 36" stroke="hsl(var(--background))" strokeWidth="2.8" strokeLinecap="round" fill="none" />
+    <path d="M26 17 C22 15, 16 12, 10 5" stroke="hsl(var(--primary))" strokeWidth="3.2" strokeLinecap="round" fill="none" />
+    <path d="M30 17 C34 15, 40 12, 46 5" stroke="hsl(var(--primary))" strokeWidth="3.2" strokeLinecap="round" fill="none" />
     <circle cx="9" cy="4" r="2" fill="hsl(var(--primary))" opacity="0.7" />
-    {/* Right hand flourish */}
     <circle cx="47" cy="4" r="2" fill="hsl(var(--primary))" opacity="0.7" />
   </svg>
 );
@@ -113,6 +83,14 @@ const Header = () => {
       document.addEventListener("mousedown", handleClickOutside);
     }
     return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [logoDropdownOpen]);
+
+  // Close logo dropdown on scroll
+  useEffect(() => {
+    if (!logoDropdownOpen) return;
+    const closeOnScroll = () => setLogoDropdownOpen(false);
+    window.addEventListener("scroll", closeOnScroll, { passive: true });
+    return () => window.removeEventListener("scroll", closeOnScroll);
   }, [logoDropdownOpen]);
 
   type NavLink = {
@@ -192,7 +170,27 @@ const Header = () => {
   ];
 
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const navTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Close nav dropdown on scroll
+  useEffect(() => {
+    if (!activeDropdown) return;
+    const closeOnScroll = () => setActiveDropdown(null);
+    window.addEventListener("scroll", closeOnScroll, { passive: true });
+    return () => window.removeEventListener("scroll", closeOnScroll);
+  }, [activeDropdown]);
+
+  // Close nav dropdown on outside click
+  useEffect(() => {
+    if (!activeDropdown) return;
+    const handleClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest('[data-nav-dropdown]')) {
+        setActiveDropdown(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [activeDropdown]);
 
   const scrollToSection = (href: string) => {
     const id = href.replace('#', '');
@@ -239,12 +237,6 @@ const Header = () => {
                 Arthritis
               </span>
             </div>
-
-            <ChevronDown
-              className={`w-4 h-4 text-muted-foreground/60 ml-1 transition-transform duration-300 ${
-                logoDropdownOpen ? "rotate-180" : ""
-              }`}
-            />
           </button>
         </div>
 
@@ -299,40 +291,41 @@ const Header = () => {
         <div className="container mx-auto px-6 md:px-10">
           <div className="flex justify-between items-center h-[52px]">
 
-            {/* Desktop nav */}
+            {/* Desktop nav – click-triggered dropdowns, no arrows */}
             <nav className="hidden lg:flex items-center gap-0.5">
               {navLinks.map((link) => (
                 <div
                   key={link.label}
                   className="relative"
-                  onMouseEnter={() => {
-                    if (navTimeoutRef.current) clearTimeout(navTimeoutRef.current);
-                    if (link.subs) setActiveDropdown(link.label);
-                  }}
-                  onMouseLeave={() => {
-                    navTimeoutRef.current = setTimeout(() => setActiveDropdown(null), 150);
-                  }}
+                  data-nav-dropdown
                 >
                   <button
                     onClick={(e) => {
-                      if (link.action) {
+                      // If has subs, toggle dropdown on click
+                      if (link.subs) {
                         e.preventDefault();
-                        link.action();
+                        setActiveDropdown(activeDropdown === link.label ? null : link.label);
                       } else {
-                        scrollToSection(link.href);
+                        if (link.action) {
+                          e.preventDefault();
+                          link.action();
+                        } else {
+                          scrollToSection(link.href);
+                        }
+                        setActiveDropdown(null);
                       }
-                      setActiveDropdown(null);
                     }}
-                    className={`relative px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground rounded-lg hover:bg-accent transition-all duration-200 cursor-pointer group flex items-center gap-1`}
+                    className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 cursor-pointer group flex items-center gap-1 ${
+                      activeDropdown === link.label
+                        ? "text-foreground bg-accent"
+                        : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                    }`}
                   >
                     {link.label}
-                    {link.subs && (
-                      <ChevronDown className={`w-3 h-3 text-muted-foreground/50 transition-transform duration-200 ${activeDropdown === link.label ? "rotate-180" : ""}`} />
-                    )}
                     <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full group-hover:w-3/4 transition-all duration-300" />
                   </button>
 
-                  {/* Sub-menu dropdown */}
+                  {/* Sub-menu dropdown – click triggered */}
                   {link.subs && activeDropdown === link.label && (
                     <div className="absolute top-full left-0 pt-1 z-[90] animate-fade-in">
                       <div className="bg-background border border-border/40 rounded-xl shadow-xl py-2 min-w-[200px]">
