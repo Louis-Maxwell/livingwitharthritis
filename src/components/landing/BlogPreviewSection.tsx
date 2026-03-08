@@ -31,7 +31,7 @@ const BlogPreviewSection = memo(() => {
             onClick={() => navigate("/blog")}
             className="text-sm font-bold text-primary flex items-center gap-1.5 tracking-wider uppercase"
           >
-            View all 40+ articles <ArrowRight className="w-4 h-4" />
+            View all 24 articles <ArrowRight className="w-4 h-4" />
           </motion.button>
         </motion.div>
 
