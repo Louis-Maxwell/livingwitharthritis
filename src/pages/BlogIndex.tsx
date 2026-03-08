@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/ui/PageHero";
-import { ArrowRight, ChevronLeft, ChevronRight, Eye, BookOpen, Sparkles, Newspaper } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Eye, BookOpen, Sparkles, Newspaper, Search, Clock, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useBlogViewCounts } from "@/hooks/useBlogViews";
@@ -88,13 +88,18 @@ const categoryAccent: Record<Category, string> = {
 const BlogIndex = () => {
   const [activeCategory, setActiveCategory] = useState<Category>("All");
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchQuery, setSearchQuery] = useState("");
   const allSlugs = useMemo(() => blogPosts.map((p) => p.slug), []);
   const viewCounts = useBlogViewCounts(allSlugs);
 
-  const filtered = useMemo(
-    () => activeCategory === "All" ? blogPosts : blogPosts.filter((p) => p.category === activeCategory),
-    [activeCategory]
-  );
+  const filtered = useMemo(() => {
+    let posts = activeCategory === "All" ? blogPosts : blogPosts.filter((p) => p.category === activeCategory);
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase();
+      posts = posts.filter((p) => p.title.toLowerCase().includes(q) || p.excerpt.toLowerCase().includes(q));
+    }
+    return posts;
+  }, [activeCategory, searchQuery]);
 
   const totalPages = Math.ceil(filtered.length / POSTS_PER_PAGE);
   const paginated = filtered.slice((currentPage - 1) * POSTS_PER_PAGE, currentPage * POSTS_PER_PAGE);
@@ -102,6 +107,12 @@ const BlogIndex = () => {
   const handleCategory = (cat: Category) => {
     setActiveCategory(cat);
     setCurrentPage(1);
+  };
+
+  // Estimate reading time from excerpt length (rough proxy)
+  const getReadTime = (excerpt: string) => {
+    const words = excerpt.split(/\s+/).length;
+    return `${Math.max(4, Math.ceil(words / 40) + 3)} min read`;
   };
 
   return (
@@ -167,8 +178,20 @@ const BlogIndex = () => {
         />
 
         <main className="container mx-auto px-6 md:px-10 py-10 md:py-16">
+          {/* Search bar */}
+          <div className="relative max-w-md mb-8">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/50" />
+            <input
+              type="search"
+              placeholder="Search articles..."
+              value={searchQuery}
+              onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }}
+              className="w-full pl-11 pr-4 py-3 rounded-xl border border-border/40 bg-card text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/30 transition-all focus-glow"
+            />
+          </div>
+
           {/* Category filters — colorful pills */}
-          <div className="flex flex-wrap gap-2 mb-10">
+          <div className="flex flex-wrap gap-2 mb-8">
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -192,7 +215,10 @@ const BlogIndex = () => {
           {/* Results count */}
           <p className="text-sm text-muted-foreground mb-6">
             Showing {paginated.length} of {filtered.length} article{filtered.length !== 1 ? "s" : ""}
+            {searchQuery && <span className="text-primary font-medium"> for "{searchQuery}"</span>}
           </p>
+
+
 
           {/* Grid — cards with category color accent */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -213,14 +239,21 @@ const BlogIndex = () => {
                 </h2>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">{post.excerpt}</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-primary text-sm font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all">
-                    Read more <ArrowRight className="w-3.5 h-3.5" />
-                  </span>
-                  {viewCounts[post.slug] > 0 && (
-                    <span className="text-[11px] text-muted-foreground flex items-center gap-1">
-                      <Eye className="w-3 h-3" /> {viewCounts[post.slug].toLocaleString()}
+                  <div className="flex items-center gap-3">
+                    <span className="text-primary text-sm font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                      Read more <ArrowRight className="w-3.5 h-3.5" />
                     </span>
-                  )}
+                  </div>
+                  <div className="flex items-center gap-3 text-[11px] text-muted-foreground">
+                    <span className="flex items-center gap-1">
+                      <Clock className="w-3 h-3" /> {getReadTime(post.excerpt)}
+                    </span>
+                    {viewCounts[post.slug] > 0 && (
+                      <span className="flex items-center gap-1">
+                        <Eye className="w-3 h-3" /> {viewCounts[post.slug].toLocaleString()}
+                      </span>
+                    )}
+                  </div>
                 </div>
               </Link>
             ))}

@@ -11,6 +11,7 @@
 .hero-stagger .hero-item:nth-child(4) { animation-delay: 300ms; }
 .hero-stagger .hero-item:nth-child(5) { animation-delay: 400ms; }
 .hero-stagger .hero-item:nth-child(6) { animation-delay: 500ms; }
+.hero-stagger .hero-item:nth-child(7) { animation-delay: 600ms; }
 
 @keyframes heroFadeUp {
   to {
@@ -100,6 +101,20 @@
   box-shadow: var(--shadow-medium);
   border-color: hsl(var(--primary) / 0.15);
   background: hsl(var(--card) / 0.9);
+}
+
+/* Quick action pills */
+.quick-action-pill {
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.quick-action-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
+.quick-action-pill:active {
+  transform: translateY(0);
 }
 
 /* Scroll indicator */
