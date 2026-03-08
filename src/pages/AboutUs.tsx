@@ -2,9 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-import { Heart, BookOpen, Rocket, Users, Target, TrendingUp, ArrowLeft } from "lucide-react";
+import { Heart, BookOpen, Rocket, Users, Target, TrendingUp, ArrowLeft, Shield, Sparkles, Globe, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 const sectionIcons: Record<string, React.ElementType> = {
   "Our Story": BookOpen,
@@ -15,13 +16,38 @@ const sectionIcons: Record<string, React.ElementType> = {
   "Looking Ahead": Rocket,
 };
 
+const sectionColors: Record<string, string> = {
+  "Our Story": "from-primary/10 to-primary/5 border-primary/20",
+  "The Scale of Arthritis": "from-amber-500/10 to-amber-500/5 border-amber-500/20",
+  "Our Mission": "from-emerald-500/10 to-emerald-500/5 border-emerald-500/20",
+  "Our Commitment": "from-rose-500/10 to-rose-500/5 border-rose-500/20",
+  "What We've Built": "from-blue-500/10 to-blue-500/5 border-blue-500/20",
+  "Looking Ahead": "from-violet-500/10 to-violet-500/5 border-violet-500/20",
+};
+
+const sectionIconColors: Record<string, string> = {
+  "Our Story": "bg-primary/15 text-primary",
+  "The Scale of Arthritis": "bg-amber-500/15 text-amber-600",
+  "Our Mission": "bg-emerald-500/15 text-emerald-600",
+  "Our Commitment": "bg-rose-500/15 text-rose-600",
+  "What We've Built": "bg-blue-500/15 text-blue-600",
+  "Looking Ahead": "bg-violet-500/15 text-violet-600",
+};
+
 const milestones = [
-  { year: "2020", title: "The Spark", description: "Founded from a personal mission to help millions navigate arthritis with better support and information." },
-  { year: "2021", title: "First 1,000 Users", description: "Our online resource library and community forum reached its first thousand active members." },
-  { year: "2022", title: "Virtual Physio Launch", description: "Launched free virtual physiotherapy consultations, removing barriers to professional guidance." },
-  { year: "2023", title: "AI Symptom Guide", description: "Introduced an AI-powered assistant to help users understand their symptoms and find resources." },
-  { year: "2024", title: "10,000+ Supported", description: "Surpassed 10,000 people supported with evidence-based tools, nutrition plans, and exercise guides." },
-  { year: "2025", title: "National Partnerships", description: "Began collaborating with NHS trusts and leading rheumatology bodies to expand our reach." },
+  { year: "2020", title: "The Spark", description: "Founded from a personal mission to help millions navigate arthritis with better support and information.", color: "bg-primary" },
+  { year: "2021", title: "First 1,000 Users", description: "Our online resource library and community forum reached its first thousand active members.", color: "bg-secondary" },
+  { year: "2022", title: "Virtual Physio Launch", description: "Launched free virtual physiotherapy consultations, removing barriers to professional guidance.", color: "bg-emerald-500" },
+  { year: "2023", title: "AI Symptom Guide", description: "Introduced an AI-powered assistant to help users understand their symptoms and find resources.", color: "bg-amber-500" },
+  { year: "2024", title: "10,000+ Supported", description: "Surpassed 10,000 people supported with evidence-based tools, nutrition plans, and exercise guides.", color: "bg-blue-500" },
+  { year: "2025", title: "National Partnerships", description: "Began collaborating with NHS trusts and leading rheumatology bodies to expand our reach.", color: "bg-violet-500" },
+];
+
+const impactStats = [
+  { value: "10,000+", label: "People Supported", icon: Users, color: "text-primary" },
+  { value: "50+", label: "Exercise Guides", icon: Zap, color: "text-emerald-600" },
+  { value: "100%", label: "Free Access", icon: Shield, color: "text-amber-600" },
+  { value: "UK-Wide", label: "Coverage", icon: Globe, color: "text-blue-600" },
 ];
 
 const AboutUs = () => {
@@ -43,7 +69,6 @@ const AboutUs = () => {
       <Helmet>
         <title>About Us — Living With Arthritis UK | Our Mission & Story</title>
         <meta name="description" content="Learn about Living With Arthritis, a UK charity founded in 2020 to support millions affected by arthritis through free virtual physiotherapy, nutrition guidance and community support." />
-        <meta name="keywords" content="about living with arthritis, arthritis charity UK, arthritis support organisation, arthritis help UK, rheumatology charity" />
         <meta property="og:title" content="About Us — Living With Arthritis UK" />
         <meta property="og:description" content="A UK charity supporting people living with arthritis through free virtual physiotherapy, nutrition guidance and community support." />
         <meta property="og:locale" content="en_GB" />
@@ -53,38 +78,31 @@ const AboutUs = () => {
           "@type": "AboutPage",
           "name": "About Living With Arthritis",
           "url": "https://livingwitharthritis.org.uk/about",
-          "description": "UK charity founded in 2020 to support millions affected by arthritis through free virtual physiotherapy, nutrition guidance and community support.",
           "inLanguage": "en-GB",
-          "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" },
           "mainEntity": {
             "@type": "NGO",
             "name": "Living With Arthritis",
             "foundingDate": "2020",
             "url": "https://livingwitharthritis.org.uk",
             "areaServed": { "@type": "Country", "name": "United Kingdom" },
-            "knowsAbout": ["Osteoarthritis", "Rheumatoid Arthritis", "Physiotherapy", "Anti-inflammatory Diet"],
-            "contactPoint": { "@type": "ContactPoint", "telephone": "+44-7760-512-084", "email": "info@livingwitharthritis.org.uk", "contactType": "customer support", "areaServed": "GB" }
           }
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
-            { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://livingwitharthritis.org.uk/about" }
-          ]
         })}</script>
       </Helmet>
 
       <div className="min-h-screen bg-background">
         {/* Hero */}
-        <section className="relative bg-gradient-to-br from-primary/8 via-accent to-background pt-12 pb-20 lg:pt-16 lg:pb-28 overflow-hidden">
+        <section className="relative bg-gradient-to-br from-primary/8 via-background to-secondary/5 pt-10 pb-16 lg:pt-14 lg:pb-24 overflow-hidden">
           <div className="absolute top-10 right-10 w-72 h-72 rounded-full bg-primary/5 blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-gold/5 blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-secondary/5 blur-3xl pointer-events-none" />
 
-          <div className="container mx-auto px-6 md:px-10 max-w-4xl relative">
+          {/* Decorative circles */}
+          <div className="absolute top-20 left-20 w-3 h-3 rounded-full bg-primary/20" />
+          <div className="absolute top-40 right-32 w-2 h-2 rounded-full bg-secondary/30" />
+          <div className="absolute bottom-20 left-1/3 w-4 h-4 rounded-full bg-primary/10" />
+
+          <div className="container mx-auto px-6 md:px-10 max-w-5xl relative">
             <Link to="/">
-              <Button variant="ghost" size="sm" className="mb-8 rounded-full text-muted-foreground hover:text-foreground -ml-2">
+              <Button variant="ghost" size="sm" className="mb-6 rounded-full text-muted-foreground hover:text-foreground -ml-2">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Home
               </Button>
@@ -95,65 +113,80 @@ const AboutUs = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-semibold px-3 py-1.5 rounded-full mb-6">
-                <Heart className="w-3 h-3" />
-                Est. 2020
+              <div className="flex items-center gap-3 mb-5">
+                <Badge className="bg-primary/10 text-primary border-0 text-xs font-bold px-3 py-1.5">
+                  <Heart className="w-3 h-3 mr-1.5" />
+                  Est. 2020
+                </Badge>
+                <Badge className="bg-secondary/10 text-secondary border-0 text-xs font-bold px-3 py-1.5">
+                  <Sparkles className="w-3 h-3 mr-1.5" />
+                  UK Charity
+                </Badge>
               </div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-foreground tracking-tight leading-[1.1] mb-6">
-                From a personal mission to a <span className="text-primary italic">national movement</span>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-foreground tracking-tight leading-[1.08] mb-5">
+                From a personal mission to a <span className="text-primary">national movement</span>
               </h1>
-              <p className="text-lg text-muted-foreground/70 max-w-xl leading-relaxed">
+              <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
                 How Living with Arthritis grew from one family's experience into a platform supporting thousands across the United Kingdom.
               </p>
+            </motion.div>
+
+            {/* Impact stats row */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-10"
+            >
+              {impactStats.map((stat) => (
+                <div key={stat.label} className="bg-background/80 backdrop-blur-sm border border-border/30 rounded-xl p-4 text-center">
+                  <stat.icon className={`w-5 h-5 mx-auto mb-2 ${stat.color}`} />
+                  <div className="text-xl font-extrabold text-foreground">{stat.value}</div>
+                  <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">{stat.label}</div>
+                </div>
+              ))}
             </motion.div>
           </div>
         </section>
 
-        {/* Content Sections */}
-        <section className="py-20 lg:py-28">
-          <div className="container mx-auto px-6 md:px-10 max-w-3xl">
+        {/* Content Sections - Colorful cards */}
+        <section className="py-14 lg:py-20">
+          <div className="container mx-auto px-6 md:px-10 max-w-4xl">
             {isLoading ? (
-              <div className="space-y-10">
+              <div className="space-y-6">
                 {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="animate-pulse flex items-start gap-5">
-                    <div className="w-12 h-12 bg-muted rounded-xl shrink-0" />
-                    <div className="flex-1 space-y-3">
-                      <div className="h-6 w-1/3 bg-muted rounded" />
-                      <div className="h-4 w-full bg-muted rounded" />
-                      <div className="h-4 w-2/3 bg-muted rounded" />
-                    </div>
-                  </div>
+                  <div key={i} className="animate-pulse bg-muted/20 rounded-2xl h-32" />
                 ))}
               </div>
             ) : (
-              <div className="space-y-0">
+              <div className="space-y-5">
                 {sections.map((section, i) => {
                   const Icon = sectionIcons[section.title] || Heart;
+                  const gradient = sectionColors[section.title] || "from-muted/10 to-muted/5 border-border/20";
+                  const iconColor = sectionIconColors[section.title] || "bg-primary/15 text-primary";
                   return (
                     <motion.div
                       key={section.id}
-                      initial={{ opacity: 0, y: 20 }}
+                      initial={{ opacity: 0, y: 16 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-40px" }}
-                      transition={{ delay: i * 0.08, duration: 0.5, ease: "easeOut" }}
-                      className="group"
+                      viewport={{ once: true, margin: "-30px" }}
+                      transition={{ delay: i * 0.06, duration: 0.5, ease: "easeOut" }}
                     >
-                      <div className="flex items-start gap-6 py-10">
-                        <div className="w-12 h-12 rounded-2xl bg-primary/6 flex items-center justify-center shrink-0 group-hover:bg-primary/12 transition-colors duration-300 mt-1">
-                          <Icon className="w-5 h-5 text-primary" />
-                        </div>
-                        <div>
-                          <h2 className="text-xl font-display font-bold text-foreground mb-3 tracking-tight">
-                            {section.title}
-                          </h2>
-                          <p className="text-muted-foreground leading-[1.8] text-[15px]">
-                            {section.content}
-                          </p>
+                      <div className={`bg-gradient-to-br ${gradient} border rounded-2xl p-6 md:p-8 hover:shadow-md transition-shadow duration-300`}>
+                        <div className="flex items-start gap-4">
+                          <div className={`w-11 h-11 rounded-xl ${iconColor} flex items-center justify-center shrink-0`}>
+                            <Icon className="w-5 h-5" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h2 className="text-lg font-bold text-foreground mb-2 tracking-tight">
+                              {section.title}
+                            </h2>
+                            <p className="text-sm text-muted-foreground leading-[1.8]">
+                              {section.content}
+                            </p>
+                          </div>
                         </div>
                       </div>
-                      {i < sections.length - 1 && (
-                        <div className="h-px bg-border/40 ml-[4.5rem]" />
-                      )}
                     </motion.div>
                   );
                 })}
@@ -162,47 +195,47 @@ const AboutUs = () => {
           </div>
         </section>
 
-        {/* Timeline */}
-        <section className="py-20 lg:py-28 bg-accent/30">
+        {/* Timeline - Colorful */}
+        <section className="py-14 lg:py-20 bg-gradient-to-b from-accent/30 to-background">
           <div className="container mx-auto px-6 md:px-10 max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center mb-16"
+              className="text-center mb-12"
             >
-              <span className="section-label text-primary mb-3 block">Our Journey</span>
-              <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground">
-                Key <span className="text-primary italic">milestones</span>
+              <Badge className="bg-primary/10 text-primary border-0 text-xs font-bold px-3 py-1.5 mb-4">
+                <Sparkles className="w-3 h-3 mr-1.5" />
+                Our Journey
+              </Badge>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground">
+                Key <span className="text-primary">milestones</span>
               </h2>
             </motion.div>
 
             <div className="relative">
-              {/* Vertical line */}
-              <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-border/50 md:-translate-x-px" />
+              <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-primary/30 md:-translate-x-px" />
 
               {milestones.map((m, i) => {
                 const isLeft = i % 2 === 0;
                 return (
                   <motion.div
                     key={m.year}
-                    initial={{ opacity: 0, x: isLeft ? -30 : 30 }}
+                    initial={{ opacity: 0, x: isLeft ? -20 : 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-40px" }}
-                    transition={{ delay: i * 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                    className={`relative flex items-start mb-12 last:mb-0 md:items-center ${
+                    viewport={{ once: true, margin: "-30px" }}
+                    transition={{ delay: i * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                    className={`relative flex items-start mb-8 last:mb-0 md:items-center ${
                       isLeft ? "md:flex-row" : "md:flex-row-reverse"
                     }`}
                   >
-                    {/* Dot */}
-                    <div className="absolute left-6 md:left-1/2 w-3 h-3 rounded-full bg-primary border-4 border-background z-10 -translate-x-1.5 md:-translate-x-1.5 top-5 md:top-auto" />
+                    <div className={`absolute left-6 md:left-1/2 w-3.5 h-3.5 rounded-full ${m.color} border-4 border-background z-10 -translate-x-1.5 md:-translate-x-1.5 top-5 md:top-auto shadow-sm`} />
 
-                    {/* Card */}
                     <div className={`ml-16 md:ml-0 md:w-[calc(50%-2rem)] ${isLeft ? "md:pr-8 md:text-right" : "md:pl-8"}`}>
-                      <div className="bg-card border border-border/20 rounded-2xl p-6 shadow-soft hover:shadow-medium transition-shadow duration-300 group">
-                        <span className="text-xs font-bold text-primary tracking-widest uppercase">{m.year}</span>
-                        <h3 className="text-lg font-display font-bold text-foreground mt-1 mb-2">{m.title}</h3>
-                        <p className="text-sm text-muted-foreground/70 leading-relaxed">{m.description}</p>
+                      <div className="bg-card border border-border/20 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <span className={`text-xs font-extrabold tracking-widest uppercase ${m.color.replace('bg-', 'text-')}`}>{m.year}</span>
+                        <h3 className="text-base font-bold text-foreground mt-1 mb-1.5">{m.title}</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{m.description}</p>
                       </div>
                     </div>
                   </motion.div>
@@ -212,29 +245,30 @@ const AboutUs = () => {
           </div>
         </section>
 
-        {/* CTA Footer */}
-        <section className="py-20 lg:py-24">
+        {/* CTA */}
+        <section className="py-14 lg:py-20">
           <div className="container mx-auto px-6 md:px-10 max-w-2xl text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <div className="rounded-3xl bg-accent/40 border border-border/20 p-10 md:p-14">
-                <Heart className="w-8 h-8 text-primary mx-auto mb-5" />
-                <h2 className="text-2xl font-display font-bold text-foreground mb-3">Join Our Mission</h2>
-                <p className="text-sm text-muted-foreground/70 mb-8 leading-relaxed max-w-md mx-auto">
+              <div className="rounded-2xl bg-gradient-to-br from-primary/8 via-background to-secondary/8 border border-border/20 p-8 md:p-12 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary to-primary" />
+                <Heart className="w-8 h-8 text-primary mx-auto mb-4" />
+                <h2 className="text-2xl font-extrabold text-foreground mb-3">Join Our Mission</h2>
+                <p className="text-sm text-muted-foreground mb-6 leading-relaxed max-w-md mx-auto">
                   Every donation, share, and volunteer hour brings us closer to a world where arthritis no longer limits anyone's potential.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
                   <Link to="/#involved">
-                    <Button className="btn-primary-cta rounded-full px-8 h-12 text-sm font-bold">
+                    <Button className="btn-primary-cta rounded-full px-8 h-11 text-sm font-bold">
                       <Heart className="w-4 h-4 mr-2" />
                       Donate Now
                     </Button>
                   </Link>
                   <Link to="/">
-                    <Button variant="outline" className="rounded-full px-8 h-12 text-sm font-medium border-border/30">
+                    <Button variant="outline" className="rounded-full px-8 h-11 text-sm font-medium border-border/30">
                       Explore Resources
                     </Button>
                   </Link>
