@@ -1,7 +1,7 @@
-import { MessageCircle, ArrowRight, Heart, Users, Activity, ChevronDown, Shield, Sparkles } from "lucide-react";
+import { MessageCircle, ArrowRight, Heart, Activity, ChevronDown, Shield, Sparkles, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, memo } from "react";
 
 import "./HeroSection.css";
 
@@ -53,6 +53,27 @@ function AnimatedCounter({ target, suffix }: { target: number; suffix: string })
   );
 }
 
+/* Quick-access feature pills for immediate engagement */
+const QuickActions = memo(({ navigate }: { navigate: (path: string) => void }) => (
+  <div className="hero-item mt-8 flex flex-wrap justify-center gap-2">
+    {[
+      { label: "🦴 Joint Exercises", action: () => document.getElementById("explore")?.scrollIntoView({ behavior: "smooth" }) },
+      { label: "🥗 Anti-Inflammatory Diet", action: () => document.getElementById("explore")?.scrollIntoView({ behavior: "smooth" }) },
+      { label: "💬 AI Chat Support", action: () => navigate("/chat") },
+      { label: "📖 Blog Articles", action: () => navigate("/blog") },
+    ].map((item) => (
+      <button
+        key={item.label}
+        onClick={item.action}
+        className="quick-action-pill px-4 py-2 rounded-full text-xs font-semibold text-muted-foreground bg-card/60 backdrop-blur-sm border border-border/30 hover:border-primary/20 hover:text-foreground hover:bg-card/90 transition-all duration-300 cursor-pointer"
+      >
+        {item.label}
+      </button>
+    ))}
+  </div>
+));
+QuickActions.displayName = "QuickActions";
+
 const HeroSection = () => {
   const navigate = useNavigate();
 
@@ -95,7 +116,7 @@ const HeroSection = () => {
               is here
             </h1>
 
-            <p className="hero-item text-base sm:text-lg text-muted-foreground leading-[1.9] mb-12 max-w-[560px] mx-auto">
+            <p className="hero-item text-base sm:text-lg text-muted-foreground leading-[1.9] mb-10 max-w-[560px] mx-auto">
               World-class physiotherapy, personalised nutrition science, and AI-powered guidance — 
               completely free. Because everyone deserves expert arthritis support.
             </p>
@@ -121,8 +142,11 @@ const HeroSection = () => {
               </Button>
             </div>
 
+            {/* Quick action pills — reduce bounce by giving immediate pathways */}
+            <QuickActions navigate={navigate} />
+
             {/* Animated stats */}
-            <div className="hero-item mt-16 grid grid-cols-3 gap-4 max-w-lg mx-auto">
+            <div className="hero-item mt-12 grid grid-cols-3 gap-4 max-w-lg mx-auto">
               {STATS.map((stat, i) => (
                 <div key={i} className="hero-stat-card rounded-2xl px-4 py-5 text-center">
                   <AnimatedCounter target={stat.value} suffix={stat.suffix} />
@@ -132,7 +156,7 @@ const HeroSection = () => {
             </div>
 
             {/* Social proof */}
-            <div className="hero-item mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-muted-foreground">
+            <div className="hero-item mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 text-sm text-muted-foreground">
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/10">
                 <Heart className="w-4 h-4 text-primary fill-primary/20" />
                 <span className="font-medium text-foreground">100% Free</span>

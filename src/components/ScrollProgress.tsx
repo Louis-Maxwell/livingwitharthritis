@@ -15,9 +15,9 @@ const ScrollProgress = memo(() => {
   if (progress < 1) return null;
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-[100] h-[3px]">
+    <div className="fixed top-0 left-0 right-0 z-[100] h-[3px]" role="progressbar" aria-valuenow={Math.round(progress)} aria-valuemin={0} aria-valuemax={100} aria-label="Page scroll progress">
       <div
-        className="h-full bg-gradient-to-r from-primary via-secondary to-primary transition-[width] duration-100 ease-out"
+        className="h-full reading-progress"
         style={{ width: `${progress}%` }}
       />
     </div>
