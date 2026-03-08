@@ -31,10 +31,10 @@ const resourceCategories = [
     icon: Stethoscope,
     color: "icon-circle-sky",
     items: [
-      { name: "NHS Arthritis Overview", url: "https://www.nhs.uk/conditions/arthritis/", type: "Guide" },
-      { name: "Find NHS Services Near You", url: "https://www.nhs.uk/service-search", type: "Tool" },
-      { name: "NICE Osteoarthritis Guidelines", url: "https://www.nice.org.uk/guidance/cg177", type: "Guideline" },
-      { name: "NICE Rheumatoid Arthritis", url: "https://www.nice.org.uk/guidance/ng100", type: "Guideline" },
+      { name: "NHS Arthritis Overview", url: "https://www.nhs.uk/conditions/arthritis/", type: "Guide", desc: "Comprehensive NHS guide covering symptoms, diagnosis and treatment" },
+      { name: "Find NHS Services Near You", url: "https://www.nhs.uk/service-search", type: "Tool", desc: "Locate physiotherapy, rheumatology and pain clinics in your area" },
+      { name: "NICE Osteoarthritis Guidelines", url: "https://www.nice.org.uk/guidance/cg177", type: "Guideline", desc: "Evidence-based clinical recommendations for managing OA" },
+      { name: "NICE Rheumatoid Arthritis", url: "https://www.nice.org.uk/guidance/ng100", type: "Guideline", desc: "Best-practice pathways for RA diagnosis and treatment" },
     ],
   },
   {
@@ -42,11 +42,11 @@ const resourceCategories = [
     icon: PoundSterling,
     color: "icon-circle-emerald",
     items: [
-      { name: "Check PIP Eligibility", url: "https://www.gov.uk/pip", type: "Gov.uk" },
-      { name: "Attendance Allowance", url: "https://www.gov.uk/attendance-allowance", type: "Gov.uk" },
-      { name: "Citizens Advice – Disability Benefits", url: "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/pip/", type: "Advice" },
-      { name: "Equality Act 2010 Guidance", url: "https://www.gov.uk/guidance/equality-act-2010-guidance", type: "Legal" },
-      { name: "ACAS – Reasonable Adjustments", url: "https://www.acas.org.uk/reasonable-adjustments", type: "Workplace" },
+      { name: "Check PIP Eligibility", url: "https://www.gov.uk/pip", type: "Gov.uk", desc: "Check eligibility and apply for disability living support" },
+      { name: "Attendance Allowance", url: "https://www.gov.uk/attendance-allowance", type: "Gov.uk", desc: "Financial help for over-65s with care needs due to disability" },
+      { name: "Citizens Advice – Disability Benefits", url: "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/pip/", type: "Advice", desc: "Free, independent guidance on claiming disability benefits" },
+      { name: "Equality Act 2010 Guidance", url: "https://www.gov.uk/guidance/equality-act-2010-guidance", type: "Legal", desc: "Legal protections against disability discrimination at work" },
+      { name: "ACAS – Reasonable Adjustments", url: "https://www.acas.org.uk/reasonable-adjustments", type: "Workplace", desc: "Employer obligations to accommodate your condition at work" },
     ],
   },
   {
@@ -54,9 +54,9 @@ const resourceCategories = [
     icon: Users,
     color: "icon-circle-violet",
     items: [
-      { name: "Arthritis Action – Self-Management", url: "https://www.arthritisaction.org.uk/", type: "Charity" },
-      { name: "NRAS – RA Support Groups", url: "https://nras.org.uk/get-support/", type: "Support" },
-      { name: "Arthritis Care (Age UK)", url: "https://www.ageuk.org.uk/information-advice/health-wellbeing/conditions-illnesses/arthritis/", type: "Support" },
+      { name: "Arthritis Action – Self-Management", url: "https://www.arthritisaction.org.uk/", type: "Charity", desc: "Practical self-management support and local group meetings" },
+      { name: "NRAS – RA Support Groups", url: "https://nras.org.uk/get-support/", type: "Support", desc: "Helpline, peer support groups and RA-specific resources" },
+      { name: "Arthritis Care (Age UK)", url: "https://www.ageuk.org.uk/information-advice/health-wellbeing/conditions-illnesses/arthritis/", type: "Support", desc: "Trusted advice for older adults managing arthritis daily" },
     ],
   },
   {
@@ -64,10 +64,10 @@ const resourceCategories = [
     icon: Dumbbell,
     color: "icon-circle-coral",
     items: [
-      { name: "Low-Impact Exercises for OA", url: "#exercises", type: "Guide" },
-      { name: "Swimming & Water Aerobics", url: "#exercises", type: "Exercise" },
-      { name: "Yoga & Tai Chi for Joints", url: "#exercises", type: "Exercise" },
-      { name: "Strength Training Guide", url: "#exercises", type: "Guide" },
+      { name: "Low-Impact Exercises for OA", url: "#exercises", type: "Guide", desc: "Gentle joint-friendly exercises for osteoarthritis pain relief" },
+      { name: "Swimming & Water Aerobics", url: "#exercises", type: "Exercise", desc: "Buoyancy-supported movement that's easy on joints" },
+      { name: "Yoga & Tai Chi for Joints", url: "#exercises", type: "Exercise", desc: "Mind-body practices proven to reduce stiffness and improve balance" },
+      { name: "Strength Training Guide", url: "#exercises", type: "Guide", desc: "Build muscle support around affected joints safely" },
     ],
   },
   {
@@ -75,10 +75,10 @@ const resourceCategories = [
     icon: Apple,
     color: "icon-circle-emerald",
     items: [
-      { name: "Mediterranean Diet for Arthritis", url: "#nutrition", type: "Diet" },
-      { name: "Anti-Inflammatory Foods", url: "#nutrition", type: "Guide" },
-      { name: "Omega-3 Rich Recipes", url: "#nutrition", type: "Recipe" },
-      { name: "Supplements: Glucosamine & Collagen", url: "#nutrition", type: "Guide" },
+      { name: "Mediterranean Diet for Arthritis", url: "#nutrition", type: "Diet", desc: "The gold-standard anti-inflammatory eating pattern for joint health" },
+      { name: "Anti-Inflammatory Foods", url: "#nutrition", type: "Guide", desc: "Key foods that reduce inflammation: oily fish, berries, olive oil, nuts" },
+      { name: "Omega-3 Rich Recipes", url: "#nutrition", type: "Recipe", desc: "Delicious salmon, mackerel and sardine recipes for joint support" },
+      { name: "Supplements: Glucosamine & Collagen", url: "#nutrition", type: "Guide", desc: "Evidence review of popular joint supplements and what works" },
     ],
   },
   {
@@ -86,9 +86,9 @@ const resourceCategories = [
     icon: Brain,
     color: "icon-circle-violet",
     items: [
-      { name: "Mindfulness for Chronic Pain", url: "#wellbeing", type: "Guide" },
-      { name: "Sleep Improvement Tips", url: "#wellbeing", type: "Tips" },
-      { name: "Managing Stress with Arthritis", url: "#wellbeing", type: "Guide" },
+      { name: "Mindfulness for Chronic Pain", url: "#wellbeing", type: "Guide", desc: "Evidence-based mindfulness techniques to manage pain perception" },
+      { name: "Sleep Improvement Tips", url: "#wellbeing", type: "Tips", desc: "Sleep hygiene strategies when pain disrupts your rest" },
+      { name: "Managing Stress with Arthritis", url: "#wellbeing", type: "Guide", desc: "CBT-based tools for the emotional impact of chronic conditions" },
     ],
   },
   {
@@ -96,10 +96,10 @@ const resourceCategories = [
     icon: Pill,
     color: "icon-circle-teal",
     items: [
-      { name: "Turmeric & Curcumin Evidence", url: "#treatments", type: "Research" },
-      { name: "Ginger for Joint Pain", url: "#treatments", type: "Research" },
-      { name: "Pain Management Options", url: "#treatments", type: "Guide" },
-      { name: "When to See a Rheumatologist", url: "#treatments", type: "Advice" },
+      { name: "Turmeric & Curcumin Evidence", url: "#treatments", type: "Research", desc: "Systematic review of curcumin's anti-inflammatory effects on joints" },
+      { name: "Ginger for Joint Pain", url: "#treatments", type: "Research", desc: "Clinical evidence on gingerols reducing OA pain and stiffness" },
+      { name: "Pain Management Options", url: "#treatments", type: "Guide", desc: "From paracetamol to biologics — understanding your treatment ladder" },
+      { name: "When to See a Rheumatologist", url: "#treatments", type: "Advice", desc: "Red flags and referral criteria for specialist assessment" },
     ],
   },
 ];
