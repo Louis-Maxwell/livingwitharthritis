@@ -450,21 +450,27 @@ export type Database = {
       }
       feedback_responses: {
         Row: {
+          comment: string | null
           created_at: string
           id: string
           navigation_rating: number
+          nps_score: number | null
           speed_rating: number
         }
         Insert: {
+          comment?: string | null
           created_at?: string
           id?: string
           navigation_rating: number
+          nps_score?: number | null
           speed_rating: number
         }
         Update: {
+          comment?: string | null
           created_at?: string
           id?: string
           navigation_rating?: number
+          nps_score?: number | null
           speed_rating?: number
         }
         Relationships: []
