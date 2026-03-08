@@ -1,4 +1,4 @@
-import { lazy, Suspense, memo, useEffect, useState } from "react";
+import { lazy, Suspense, memo, useEffect, useState, useCallback } from "react";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -15,10 +15,33 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 const Footer = lazy(() => import("@/components/Footer"));
 const AppointmentModal = lazy(() => import("@/components/AppointmentModal").then(m => ({ default: m.AppointmentModal })));
 
-// Lazy load non-critical overlays
+// Lazy load non-critical overlays — deferred until after paint
 const DonationNotification = lazy(() => import("@/components/DonationNotification"));
 const FeedbackPopup = lazy(() => import("@/components/FeedbackPopup"));
 const BackToTop = lazy(() => import("@/components/ui/BackToTop"));
+
+// Wrapper to defer overlay loading until browser is idle
+const DeferredOverlays = memo(() => {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const id = typeof requestIdleCallback !== "undefined"
+      ? requestIdleCallback(() => setShow(true), { timeout: 3000 })
+      : setTimeout(() => setShow(true), 2000) as unknown as number;
+    return () => {
+      if (typeof cancelIdleCallback !== "undefined") cancelIdleCallback(id);
+      else clearTimeout(id);
+    };
+  }, []);
+  if (!show) return null;
+  return (
+    <Suspense fallback={null}>
+      <DonationNotification />
+      <FeedbackPopup />
+      <BackToTop />
+    </Suspense>
+  );
+});
+DeferredOverlays.displayName = "DeferredOverlays";
 
 // Lazy sections – always on page
 const AboutSection = lazy(() => import("@/components/AboutSection"));
@@ -121,11 +144,7 @@ export default function Index() {
       <div className="min-h-screen bg-background">
         <ScrollProgress />
         <Header />
-        <Suspense fallback={null}>
-          <DonationNotification />
-          <FeedbackPopup />
-          <BackToTop />
-        </Suspense>
+        <DeferredOverlays />
 
         <main className="space-y-0">
           <HeroSection />
@@ -233,29 +252,41 @@ export default function Index() {
               <TestimonialsSection />
             </Suspense>
 
-            <Suspense fallback={<SectionLoader />}>
-              <FAQSection />
-            </Suspense>
+            <div className="section-deferred">
+              <Suspense fallback={<SectionLoader />}>
+                <FAQSection />
+              </Suspense>
+            </div>
 
-            <Suspense fallback={<SectionLoader />}>
-              <FundraisingProgressSection />
-            </Suspense>
+            <div className="section-deferred">
+              <Suspense fallback={<SectionLoader />}>
+                <FundraisingProgressSection />
+              </Suspense>
+            </div>
 
-            <Suspense fallback={<SectionLoader />}>
-              <PatientImpactStories />
-            </Suspense>
+            <div className="section-deferred">
+              <Suspense fallback={<SectionLoader />}>
+                <PatientImpactStories />
+              </Suspense>
+            </div>
 
-            <Suspense fallback={<SectionLoader />}>
-              <NewsletterSection />
-            </Suspense>
+            <div className="section-deferred">
+              <Suspense fallback={<SectionLoader />}>
+                <NewsletterSection />
+              </Suspense>
+            </div>
 
-            <Suspense fallback={<SectionLoader />}>
-              <GetInTouchSection />
-            </Suspense>
+            <div className="section-deferred">
+              <Suspense fallback={<SectionLoader />}>
+                <GetInTouchSection />
+              </Suspense>
+            </div>
 
-            <Suspense fallback={<SectionLoader />}>
-              <FinalCTASection />
-            </Suspense>
+            <div className="section-deferred">
+              <Suspense fallback={<SectionLoader />}>
+                <FinalCTASection />
+              </Suspense>
+            </div>
           </div>
         </main>
 
