@@ -105,7 +105,7 @@ const ZakatAppeal = () => {
                 <p className="text-muted-foreground leading-relaxed">
                   Zakat is a means of serving Allah through serving His creation. By fulfilling your Zakat, you align your intentions with justice, mercy, and devotion.
                 </p>
-                <blockquote className="border-l-4 border-emerald-500 pl-4 italic text-muted-foreground">
+                <blockquote className="border-l-4 border-emerald pl-4 italic text-muted-foreground">
                   "Take from their wealth to purify and bless them" — Qur'an 9:103
                 </blockquote>
 
