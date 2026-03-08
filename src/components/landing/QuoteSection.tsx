@@ -9,7 +9,7 @@ const credentials = [
 ];
 
 const QuoteSection = memo(() => (
-  <section className="py-20 lg:py-28 bg-primary relative overflow-hidden">
+  <section className="py-14 lg:py-20 bg-primary relative overflow-hidden">
     {/* Refined dot pattern */}
     <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
     
