@@ -48,13 +48,23 @@
     --warm: 30 20% 98%;
 
     /* Colourful section tints */
-    --tint-blue: 210 80% 97%;
-    --tint-green: 155 60% 96%;
-    --tint-amber: 40 80% 96%;
-    --tint-rose: 350 70% 97%;
-    --tint-violet: 265 60% 97%;
-    --tint-cyan: 190 70% 96%;
-    --tint-peach: 20 80% 97%;
+    --tint-blue: 210 80% 95%;
+    --tint-green: 155 65% 94%;
+    --tint-amber: 40 85% 94%;
+    --tint-rose: 350 75% 95%;
+    --tint-violet: 265 65% 95%;
+    --tint-cyan: 190 75% 94%;
+    --tint-peach: 20 85% 95%;
+    --tint-mint: 160 70% 94%;
+    --tint-lavender: 280 60% 95%;
+    --tint-coral: 10 80% 95%;
+
+    /* Vibrant accent colors */
+    --emerald: 160 70% 42%;
+    --sky: 200 85% 52%;
+    --violet: 265 75% 55%;
+    --coral: 10 78% 58%;
+    --teal: 175 70% 40%;
 
     --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.02);
     --shadow-medium: 0 4px 24px -6px rgb(0 0 0 / 0.06), 0 2px 8px -3px rgb(0 0 0 / 0.03);
