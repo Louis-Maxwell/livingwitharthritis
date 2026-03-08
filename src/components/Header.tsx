@@ -22,6 +22,7 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [resourceModalOpen, setResourceModalOpen] = useState(false);
   const navigate = useNavigate();
   const lastScrollY = useRef(0);
 
