@@ -1,6 +1,9 @@
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/ui/PageHero";
+import { Shield } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 const PrivacyPolicy = () => (
   <>
@@ -11,9 +14,18 @@ const PrivacyPolicy = () => (
     </Helmet>
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="container mx-auto px-6 md:px-10 py-16 md:py-24 max-w-4xl">
-        <h1 className="text-3xl md:text-5xl font-extrabold text-foreground mb-8 tracking-tight">Privacy Policy</h1>
-        <p className="text-muted-foreground mb-6 text-sm">Last updated: March 2026</p>
+      <PageHero
+        gradient="from-muted/30 via-background to-muted/10"
+        pattern="grid"
+        badge={
+          <Badge className="bg-muted text-muted-foreground border-0 text-xs font-bold px-3 py-1.5">
+            <Shield className="w-3 h-3 mr-1.5" /> Last updated: March 2026
+          </Badge>
+        }
+        title="Privacy Policy"
+        subtitle="How we collect, use and protect your personal data in accordance with UK GDPR."
+      />
+      <main className="container mx-auto px-6 md:px-10 py-10 md:py-16 max-w-4xl">
 
         <div className="prose prose-lg max-w-none space-y-8 text-foreground/80 leading-relaxed">
           <section>
