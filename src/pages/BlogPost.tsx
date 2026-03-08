@@ -6,6 +6,7 @@ import { ArrowLeft, Eye, BookOpen, Calendar } from "lucide-react";
 import { blogArticles } from "@/data/blogArticles";
 import { useBlogViews } from "@/hooks/useBlogViews";
 import BlogComments from "@/components/BlogComments";
+import BlogHelpfulness from "@/components/BlogHelpfulness";
 import RelatedArticles from "@/components/RelatedArticles";
 import { Badge } from "@/components/ui/badge";
 
