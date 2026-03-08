@@ -18,6 +18,8 @@ const AppointmentModal = lazy(() => import("@/components/AppointmentModal").then
 // Lazy load non-critical overlays
 const DonationNotification = lazy(() => import("@/components/DonationNotification"));
 const FeedbackPopup = lazy(() => import("@/components/FeedbackPopup"));
+const BackToTop = lazy(() => import("@/components/ui/BackToTop"));
+const ChatBotWidget = lazy(() => import("@/components/ChatBotWidget"));
 
 
 // Lazy sections – always on page
