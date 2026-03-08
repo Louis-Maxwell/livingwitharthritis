@@ -95,6 +95,9 @@ const App = () => (
           <Suspense fallback={null}>
             <ChatBotWidget />
           </Suspense>
+          <Suspense fallback={null}>
+            <CookieConsent />
+          </Suspense>
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

@@ -70,7 +70,7 @@ const HeroSection = () => {
             <div className="hero-item mb-8">
               <span className="inline-flex items-center gap-2.5 bg-primary/[0.08] text-primary px-5 py-2.5 rounded-full text-xs font-bold tracking-wide border border-primary/10 shadow-sm">
                 <Users className="w-3.5 h-3.5" />
-                Supporting 10 Million People Across the UK
+                Aiming to Support Over 30 Million People Globally
               </span>
             </div>
 

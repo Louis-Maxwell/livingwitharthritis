@@ -127,8 +127,8 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-background/25 text-xs">© {new Date().getFullYear()} Living with Arthritis™</p>
             <div className="flex items-center gap-6 text-xs">
-              <a href="#" className="text-background/25 hover:text-background/50 transition-colors">Privacy</a>
-              <a href="#" className="text-background/25 hover:text-background/50 transition-colors">Terms</a>
+              <a href="/privacy" className="text-background/25 hover:text-background/50 transition-colors">Privacy</a>
+              <a href="/cookies" className="text-background/25 hover:text-background/50 transition-colors">Cookies</a>
               <a href="#" className="text-background/25 hover:text-background/50 transition-colors">Accessibility</a>
               <button
                 onClick={scrollToTop}
