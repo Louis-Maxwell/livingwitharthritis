@@ -30,6 +30,8 @@ interface DonationRequest {
   fundType: string;
   donorName?: string;
   donorEmail?: string;
+  giftAid?: boolean;
+  recurring?: boolean;
 }
 
 /** Escape HTML special chars to prevent XSS in Stripe metadata / emails */
@@ -47,7 +49,7 @@ function validateDonation(data: unknown): { valid: boolean; error?: string; dona
     return { valid: false, error: "Invalid request body" };
   }
 
-  const { amount, currency, fundType, donorName, donorEmail } = data as Record<string, unknown>;
+  const { amount, currency, fundType, donorName, donorEmail, giftAid, recurring } = data as Record<string, unknown>;
 
   if (typeof amount !== "number" || isNaN(amount) || !isFinite(amount)) {
     return { valid: false, error: "Amount must be a valid number" };
@@ -84,6 +86,8 @@ function validateDonation(data: unknown): { valid: boolean; error?: string; dona
       fundType: fundType as string,
       donorName: donorName ? escapeHtml((donorName as string).trim()) : undefined,
       donorEmail: donorEmail ? (donorEmail as string).trim().toLowerCase() : undefined,
+      giftAid: giftAid === true,
+      recurring: recurring === true,
     },
   };
 }
@@ -133,30 +137,46 @@ serve(async (req) => {
       : ALLOWED_REDIRECT_ORIGINS[0];
 
     const amountInSmallestUnit = Math.round(donation!.amount * 100);
-
     const stripe = new Stripe(stripeKey, { apiVersion: "2025-08-27.basil" });
+
+    const isRecurring = donation!.recurring === true;
+    const productName = isRecurring
+      ? `Monthly Donation - ${donation!.fundType}`
+      : `Donation - ${donation!.fundType}`;
+    const productDescription = isRecurring
+      ? `Monthly recurring donation to ${donation!.fundType}`
+      : `Thank you for your generous donation to ${donation!.fundType}`;
+
+    const priceData: Stripe.Checkout.SessionCreateParams.LineItem.PriceData = {
+      currency: donation!.currency.toLowerCase(),
+      product_data: {
+        name: productName,
+        description: productDescription,
+      },
+      unit_amount: amountInSmallestUnit,
+    };
+
+    // Add recurring interval for subscription mode
+    if (isRecurring) {
+      priceData.recurring = { interval: "month" };
+    }
 
     const session = await stripe.checkout.sessions.create({
       customer_email: donation!.donorEmail || undefined,
       line_items: [
         {
-          price_data: {
-            currency: donation!.currency.toLowerCase(),
-            product_data: {
-              name: `Donation - ${donation!.fundType}`,
-              description: `Thank you for your generous donation to ${donation!.fundType}`,
-            },
-            unit_amount: amountInSmallestUnit,
-          },
+          price_data: priceData,
           quantity: 1,
         },
       ],
-      mode: "payment",
+      mode: isRecurring ? "subscription" : "payment",
       success_url: `${redirectOrigin}/?donation=success`,
       cancel_url: `${redirectOrigin}/?donation=cancelled`,
       metadata: {
         fundType: donation!.fundType,
         donorName: donation!.donorName || "Anonymous",
+        giftAid: donation!.giftAid ? "yes" : "no",
+        recurring: isRecurring ? "monthly" : "one-time",
       },
     });
 

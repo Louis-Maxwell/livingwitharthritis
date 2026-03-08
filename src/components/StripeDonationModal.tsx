@@ -2,7 +2,7 @@ import { useState, useCallback } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
-import { Loader2, Heart, CreditCard, ShieldCheck, Gift, ArrowRight } from "lucide-react";
+import { Loader2, Heart, CreditCard, ShieldCheck, Gift, ArrowRight, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { motion, AnimatePresence } from "framer-motion";
@@ -13,9 +13,10 @@ interface StripeDonationModalProps {
   amount: number;
   currency: string;
   fundType: string;
+  recurring?: boolean;
 }
 
-const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType }: StripeDonationModalProps) => {
+const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recurring = false }: StripeDonationModalProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [giftAid, setGiftAid] = useState(false);
@@ -48,7 +49,7 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType }: St
     setError(null);
     try {
       const { data, error: fnError } = await supabase.functions.invoke("create-donation-checkout", {
-        body: { amount, currency, fundType, giftAid },
+        body: { amount, currency, fundType, giftAid, recurring },
       });
 
       if (fnError) throw new Error(fnError.message);
@@ -64,7 +65,7 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType }: St
     } finally {
       setIsLoading(false);
     }
-  }, [amount, currency, fundType, giftAid, onClose]);
+  }, [amount, currency, fundType, giftAid, recurring, onClose]);
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
@@ -73,14 +74,16 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType }: St
         <div className="bg-gradient-to-br from-primary/12 via-primary/6 to-accent px-6 pt-8 pb-6 border-b border-border/30">
           <DialogHeader>
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-semibold px-3 py-1.5 rounded-full w-fit mb-3">
-              <Heart className="w-3.5 h-3.5" />
-              Thank You
+              {recurring ? <RefreshCw className="w-3.5 h-3.5" /> : <Heart className="w-3.5 h-3.5" />}
+              {recurring ? "Monthly Giving" : "Thank You"}
             </div>
             <DialogTitle className="text-xl font-bold text-foreground">
-              Complete Your Donation
+              {recurring ? "Set Up Monthly Donation" : "Complete Your Donation"}
             </DialogTitle>
             <DialogDescription className="text-sm text-muted-foreground">
-              Thank you for supporting {getFundLabel()}
+              {recurring
+                ? `Support ${getFundLabel()} every month`
+                : `Thank you for supporting ${getFundLabel()}`}
             </DialogDescription>
           </DialogHeader>
         </div>
@@ -88,29 +91,39 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType }: St
         {/* Content */}
         <div className="px-6 py-6 bg-primary/[0.02] space-y-5">
           {/* Amount display */}
-          <div className="bg-primary/[0.06] rounded-2xl p-6 text-center border border-primary/10">
-            <p className="text-sm text-muted-foreground mb-1">Donation Amount</p>
-            <p className="text-4xl font-bold text-primary">
+          <div className={`rounded-2xl p-6 text-center border ${
+            recurring
+              ? "bg-emerald-500/[0.06] border-emerald-500/10"
+              : "bg-primary/[0.06] border-primary/10"
+          }`}>
+            <p className="text-sm text-muted-foreground mb-1">
+              {recurring ? "Monthly Amount" : "Donation Amount"}
+            </p>
+            <p className={`text-4xl font-bold ${recurring ? "text-emerald-600" : "text-primary"}`}>
               {sym}{amount.toFixed(2)}
+              {recurring && <span className="text-lg font-medium text-muted-foreground">/month</span>}
             </p>
             <p className="text-sm text-muted-foreground mt-2">{getFundLabel()}</p>
+            {recurring && (
+              <p className="text-xs text-muted-foreground mt-1">
+                That's {sym}{(amount * 12).toFixed(2)} per year — cancel anytime
+              </p>
+            )}
           </div>
 
           {/* Gift Aid Calculator */}
           {currency === "GBP" && (
             <div className="rounded-2xl border border-emerald-500/20 bg-emerald-500/[0.04] overflow-hidden">
-              {/* Gift Aid header */}
               <div className="flex items-center gap-2.5 px-5 py-3 bg-emerald-500/[0.06] border-b border-emerald-500/10">
                 <Gift className="w-4 h-4 text-emerald-600 shrink-0" />
                 <p className="text-sm font-semibold text-emerald-700">Boost your donation with Gift Aid</p>
               </div>
 
               <div className="px-5 py-4 space-y-4">
-                {/* Visual calculator */}
                 <div className="flex items-center justify-center gap-2 flex-wrap">
                   <div className="text-center px-3 py-2 rounded-xl bg-card border border-border/40">
                     <p className="text-[10px] text-muted-foreground uppercase tracking-wider font-medium">You give</p>
-                    <p className="text-lg font-bold text-foreground">{sym}{amount.toFixed(2)}</p>
+                    <p className="text-lg font-bold text-foreground">{sym}{amount.toFixed(2)}{recurring ? "/mo" : ""}</p>
                   </div>
                   <ArrowRight className="w-4 h-4 text-emerald-500 shrink-0" />
                   <div className="text-center px-3 py-2 rounded-xl bg-card border border-border/40">
@@ -139,7 +152,6 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType }: St
                   </AnimatePresence>
                 </div>
 
-                {/* Checkbox */}
                 <label className="flex items-start gap-3 cursor-pointer group">
                   <Checkbox
                     checked={giftAid}
@@ -164,10 +176,16 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType }: St
           <Button
             onClick={handleCheckout}
             disabled={isLoading}
-            className="w-full h-12 rounded-full btn-primary-cta text-base font-semibold"
+            className={`w-full h-12 rounded-full text-base font-semibold ${
+              recurring
+                ? "bg-emerald-600 hover:bg-emerald-700 text-white"
+                : "btn-primary-cta"
+            }`}
           >
             {isLoading ? (
               <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> Processing…</>
+            ) : recurring ? (
+              <><RefreshCw className="w-4 h-4 mr-2" /> Start Monthly Donation</>
             ) : (
               <><CreditCard className="w-4 h-4 mr-2" /> Pay with Stripe</>
             )}
@@ -175,7 +193,7 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType }: St
 
           <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
             <ShieldCheck className="w-3.5 h-3.5 text-primary/50" />
-            <span>Secured by Stripe · 256-bit encryption</span>
+            <span>Secured by Stripe · 256-bit encryption{recurring ? " · Cancel anytime" : ""}</span>
           </div>
         </div>
       </DialogContent>
