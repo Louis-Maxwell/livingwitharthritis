@@ -62,6 +62,16 @@ const HeroSection = () => {
       <div className="hero-orb hero-orb-1" />
       <div className="hero-orb hero-orb-2" />
       <div className="hero-orb hero-orb-3" />
+      
+      {/* Decorative SVG shapes */}
+      <svg className="absolute top-10 left-10 w-40 h-40 opacity-[0.04] pointer-events-none" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="80" stroke="hsl(var(--primary))" strokeWidth="2" fill="none" />
+        <circle cx="100" cy="100" r="60" stroke="hsl(var(--secondary))" strokeWidth="1.5" fill="none" />
+        <circle cx="100" cy="100" r="40" stroke="hsl(var(--primary))" strokeWidth="1" fill="none" />
+      </svg>
+      <svg className="absolute bottom-20 right-16 w-32 h-32 opacity-[0.04] pointer-events-none" viewBox="0 0 100 100">
+        <polygon points="50,5 95,25 95,75 50,95 5,75 5,25" stroke="hsl(var(--primary))" strokeWidth="1.5" fill="none" />
+      </svg>
 
       <div className="container mx-auto px-6 md:px-10 relative">
         <div className="flex items-center justify-center min-h-[calc(100vh-140px)] py-24 lg:py-0">
