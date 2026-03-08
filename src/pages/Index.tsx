@@ -144,11 +144,7 @@ export default function Index() {
       <div className="min-h-screen bg-background">
         <ScrollProgress />
         <Header />
-        <Suspense fallback={null}>
-          <DonationNotification />
-          <FeedbackPopup />
-          <BackToTop />
-        </Suspense>
+        <DeferredOverlays />
 
         <main className="space-y-0">
           <HeroSection />
