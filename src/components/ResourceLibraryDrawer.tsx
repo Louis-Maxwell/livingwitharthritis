@@ -189,7 +189,8 @@ const ResourceLibraryDrawer = memo(({ open, onOpenChange }: ResourceLibraryDrawe
                       >
                         <div className="flex-1 min-w-0">
                           <span className="text-[13px] font-medium text-foreground block truncate">{item.name}</span>
-                          <Badge variant="secondary" className="text-[9px] mt-0.5 font-medium">{item.type}</Badge>
+                          {item.desc && <span className="text-[11px] text-muted-foreground block mt-0.5 leading-snug">{item.desc}</span>}
+                          <Badge variant="secondary" className="text-[9px] mt-1 font-medium">{item.type}</Badge>
                         </div>
                         {item.url.startsWith("http") ? (
                           <a
