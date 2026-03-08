@@ -252,29 +252,41 @@ export default function Index() {
               <TestimonialsSection />
             </Suspense>
 
-            <Suspense fallback={<SectionLoader />}>
-              <FAQSection />
-            </Suspense>
+            <div className="section-deferred">
+              <Suspense fallback={<SectionLoader />}>
+                <FAQSection />
+              </Suspense>
+            </div>
 
-            <Suspense fallback={<SectionLoader />}>
-              <FundraisingProgressSection />
-            </Suspense>
+            <div className="section-deferred">
+              <Suspense fallback={<SectionLoader />}>
+                <FundraisingProgressSection />
+              </Suspense>
+            </div>
 
-            <Suspense fallback={<SectionLoader />}>
-              <PatientImpactStories />
-            </Suspense>
+            <div className="section-deferred">
+              <Suspense fallback={<SectionLoader />}>
+                <PatientImpactStories />
+              </Suspense>
+            </div>
 
-            <Suspense fallback={<SectionLoader />}>
-              <NewsletterSection />
-            </Suspense>
+            <div className="section-deferred">
+              <Suspense fallback={<SectionLoader />}>
+                <NewsletterSection />
+              </Suspense>
+            </div>
 
-            <Suspense fallback={<SectionLoader />}>
-              <GetInTouchSection />
-            </Suspense>
+            <div className="section-deferred">
+              <Suspense fallback={<SectionLoader />}>
+                <GetInTouchSection />
+              </Suspense>
+            </div>
 
-            <Suspense fallback={<SectionLoader />}>
-              <FinalCTASection />
-            </Suspense>
+            <div className="section-deferred">
+              <Suspense fallback={<SectionLoader />}>
+                <FinalCTASection />
+              </Suspense>
+            </div>
           </div>
         </main>
 
