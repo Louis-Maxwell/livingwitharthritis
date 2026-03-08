@@ -119,8 +119,11 @@ const Header = () => {
                       scrollToSection(link.href);
                     }
                   }}
-                  className="relative px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground rounded-lg hover:bg-accent transition-all duration-200 cursor-pointer group"
+                  className={`relative px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground rounded-lg hover:bg-accent transition-all duration-200 cursor-pointer group ${
+                    (link as any).icon ? "flex items-center gap-1.5" : ""
+                  }`}
                 >
+                  {(link as any).icon && <BookOpen className="w-3.5 h-3.5" />}
                   {link.label}
                   <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full group-hover:w-3/4 transition-all duration-300" />
                 </button>
