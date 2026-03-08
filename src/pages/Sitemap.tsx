@@ -2,13 +2,14 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/ui/PageHero";
 import { motion } from "framer-motion";
 import {
   Globe, BookOpen, Sun, Heart, FileText, Stethoscope, Dumbbell,
   ArrowRight, ExternalLink, Sparkles, Search, MapPin, MessageCircle,
   ShieldCheck, Hand, Footprints, Apple, Moon, Droplets, Lightbulb,
   Activity, Brain, Utensils, Snowflake, Bike, Pill, Fish,
-  ThermometerSun, Waves, Luggage, Salad, Flower2, Zap
+  ThermometerSun, Waves, Luggage, Salad, Flower2, Zap, Map
 } from "lucide-react";
 import { useState, useMemo } from "react";
 import { Input } from "@/components/ui/input";
@@ -64,7 +65,7 @@ const sitemapSections: SitemapSection[] = [
     ],
   },
   {
-    title: "Blog – Diet & Nutrition",
+    title: "Diet & Nutrition",
     icon: Utensils,
     color: "from-orange-500/15 to-amber-500/10",
     iconBg: "bg-orange-500/10 text-orange-600",
@@ -84,7 +85,7 @@ const sitemapSections: SitemapSection[] = [
     ],
   },
   {
-    title: "Blog – Exercise & Movement",
+    title: "Exercise & Movement",
     icon: Dumbbell,
     color: "from-violet-500/15 to-purple-500/10",
     iconBg: "bg-violet-500/10 text-violet-600",
@@ -105,7 +106,7 @@ const sitemapSections: SitemapSection[] = [
     ],
   },
   {
-    title: "Blog – Lifestyle & Wellbeing",
+    title: "Lifestyle & Wellbeing",
     icon: Brain,
     color: "from-cyan-500/15 to-sky-500/10",
     iconBg: "bg-cyan-500/10 text-cyan-600",
@@ -180,7 +181,6 @@ const cardVariants = {
 
 const Sitemap = () => {
   const [search, setSearch] = useState("");
-
   const totalPages = sitemapSections.reduce((acc, s) => acc + s.links.length, 0);
 
   const filteredSections = useMemo(() => {
@@ -209,56 +209,38 @@ const Sitemap = () => {
       </Helmet>
       <div className="min-h-screen bg-background">
         <Header />
-        <main className="container mx-auto px-4 sm:px-6 md:px-10 py-12 md:py-20 max-w-6xl">
-          {/* Hero header */}
-          <div className="text-center mb-10 md:mb-14">
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 bg-primary/[0.08] text-primary px-4 py-2 rounded-full text-xs font-bold tracking-wide mb-5"
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-              {totalPages} Pages · Complete Site Directory
-            </motion.div>
-            <motion.h1
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-4 tracking-tight"
-            >
-              Sitemap
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="text-muted-foreground max-w-lg mx-auto text-base md:text-lg"
-            >
-              Find every page on our website — from condition guides and exercises to nutrition articles and daily tips.
-            </motion.p>
 
-            {/* Search */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="mt-8 max-w-md mx-auto relative"
-            >
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-              <Input
-                placeholder="Search pages…"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="pl-10 h-12 rounded-xl border-border/60 bg-card shadow-sm text-sm"
-              />
-              {search && (
-                <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs text-muted-foreground">
-                  {filteredCount} result{filteredCount !== 1 ? "s" : ""}
-                </span>
-              )}
-            </motion.div>
+        {/* Hero */}
+        <PageHero
+          gradient="from-sky-500/8 via-background to-primary/5"
+          pattern="grid"
+          badge={
+            <Badge className="bg-sky-500/10 text-sky-700 border-0 text-xs font-bold px-3 py-1.5">
+              <Map className="w-3 h-3 mr-1.5" />
+              {totalPages} Pages · Complete Directory
+            </Badge>
+          }
+          title={<>Site <span className="text-primary">Directory</span></>}
+          subtitle="Find every page on our website — from condition guides and exercises to nutrition articles and daily tips."
+        >
+          {/* Search */}
+          <div className="max-w-md relative">
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <Input
+              placeholder="Search pages…"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="pl-10 h-12 rounded-xl border-border/60 bg-card shadow-sm text-sm"
+            />
+            {search && (
+              <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs text-muted-foreground">
+                {filteredCount} result{filteredCount !== 1 ? "s" : ""}
+              </span>
+            )}
           </div>
+        </PageHero>
 
+        <main className="container mx-auto px-4 sm:px-6 md:px-10 py-10 md:py-16 max-w-6xl">
           {/* Quick category chips */}
           <div className="flex flex-wrap justify-center gap-2 mb-10">
             {sitemapSections.slice(0, -1).map((section) => {
@@ -292,7 +274,6 @@ const Sitemap = () => {
                   id={`section-${section.title.replace(/\s+/g, "-").toLowerCase()}`}
                   className={`rounded-2xl border ${section.borderColor} bg-gradient-to-br ${section.color} p-5 md:p-6 transition-all duration-300 hover:shadow-lg scroll-mt-24`}
                 >
-                  {/* Section header */}
                   <div className="flex items-center gap-3 mb-4">
                     <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${section.iconBg} shadow-sm`}>
                       <SectionIcon className="w-5 h-5" />
@@ -305,7 +286,6 @@ const Sitemap = () => {
                     </div>
                   </div>
 
-                  {/* Links */}
                   <ul className="space-y-0.5">
                     {section.links.map((link) => {
                       const LinkIcon = link.icon;

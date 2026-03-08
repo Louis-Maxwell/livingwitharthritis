@@ -95,20 +95,39 @@ const Osteoarthritis = () => (
     </Helmet>
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="container mx-auto px-6 md:px-10 py-16 md:py-24 max-w-3xl">
-        <Link to="/#conditions" className="text-primary text-sm font-medium inline-flex items-center gap-1.5 mb-8 hover:gap-2.5 transition-all">
-          <ArrowLeft className="w-3.5 h-3.5" /> Back to conditions
-        </Link>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary/70 mb-3 block">Condition Guide</span>
-          <h1 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-            Osteoarthritis
-          </h1>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-12">
-            Osteoarthritis (OA) is the most common form of arthritis in the UK, affecting over 8.75 million people. This comprehensive guide covers everything you need to know about living with and managing osteoarthritis.
-          </p>
-        </motion.div>
+      {/* Decorative hero header */}
+      <div className="relative bg-gradient-to-br from-emerald-500/8 via-background to-primary/5 border-b border-border/20 overflow-hidden">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/6 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-56 h-56 bg-primary/5 rounded-full translate-y-1/2 -translate-x-1/4 blur-3xl pointer-events-none" />
+        <div className="absolute inset-0 pattern-dots opacity-20 pointer-events-none" />
+        <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.05]" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12%" cy="35%" r="3" fill="hsl(var(--primary))" />
+          <circle cx="78%" cy="20%" r="2.5" fill="hsl(var(--secondary))" />
+          <circle cx="65%" cy="75%" r="2" fill="hsl(var(--primary))" />
+        </svg>
+
+        <div className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl relative z-10">
+          <Link to="/#conditions" className="text-primary text-sm font-medium inline-flex items-center gap-1.5 mb-6 hover:gap-2.5 transition-all">
+            <ArrowLeft className="w-3.5 h-3.5" /> Back to conditions
+          </Link>
+
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] text-emerald-600 mb-3 bg-emerald-500/10 px-3 py-1 rounded-full">
+              <Activity className="w-3 h-3" /> Condition Guide
+            </span>
+            <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-5 leading-tight tracking-tight">
+              Osteoarthritis
+            </h1>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Osteoarthritis (OA) is the most common form of arthritis in the UK, affecting over 8.75 million people. This comprehensive guide covers everything you need to know about living with and managing osteoarthritis.
+            </p>
+          </motion.div>
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-500/20 to-transparent" />
+      </div>
+
+      <main className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
 
         <Section icon={Activity} title="What Is Osteoarthritis?">
           <p>Osteoarthritis is a degenerative joint disease where the protective cartilage that cushions the ends of your bones gradually wears down over time. As cartilage deteriorates, bones begin to rub against each other, causing pain, swelling, stiffness, and reduced mobility.</p>
