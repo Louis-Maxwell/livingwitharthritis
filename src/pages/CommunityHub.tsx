@@ -9,8 +9,16 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
   Users, MessageCircle, Calendar, Sparkles, ArrowRight,
-  Heart, CheckCircle, Star, Globe, BookOpen, HandHeart
+  Heart, CheckCircle, Star, Globe, BookOpen, HandHeart, Download
 } from "lucide-react";
+import {
+  generateKneeExercisePdf,
+  generateHandExercisePdf,
+  generateMealPlanPdf,
+  generatePainTrackerPdf,
+  generateChairExercisePdf,
+  generateFoodsListPdf,
+} from "@/lib/generatePdf";
 
 const communityFeatures = [
   {
@@ -230,12 +238,48 @@ const CommunityHub = () => {
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {[
-                { title: "Knee Exercise Routine (PDF)", desc: "10-minute daily programme for knee arthritis", icon: "🦵" },
-                { title: "Hand Exercise Guide (PDF)", desc: "Grip strength exercises for hand OA", icon: "✋" },
-                { title: "Weekly Meal Planner", desc: "Anti-inflammatory Mediterranean diet template", icon: "🥗" },
-                { title: "Joint Pain Tracker", desc: "Daily symptom diary worksheet", icon: "📋" },
-                { title: "Chair Exercise Guide", desc: "Seated routines for all abilities", icon: "🪑" },
-                { title: "Anti-Inflammatory Foods List", desc: "Printable shopping checklist", icon: "🛒" },
+                {
+                  title: "Knee Exercise Routine",
+                  desc: "10-minute daily programme for knee osteoarthritis, including 7 targeted exercises with coaching tips.",
+                  icon: "🦵",
+                  pages: "3 pages",
+                  onDownload: generateKneeExercisePdf,
+                },
+                {
+                  title: "Hand Exercise Guide",
+                  desc: "Grip strength & flexibility exercises for hand OA. 7 exercises with step-by-step instructions.",
+                  icon: "✋",
+                  pages: "2 pages",
+                  onDownload: generateHandExercisePdf,
+                },
+                {
+                  title: "7-Day Meal Plan",
+                  desc: "Full Mediterranean-style anti-inflammatory weekly menu with breakfast, lunch, dinner & snacks.",
+                  icon: "🥗",
+                  pages: "3 pages",
+                  onDownload: generateMealPlanPdf,
+                },
+                {
+                  title: "Joint Pain Tracker",
+                  desc: "Daily symptom diary worksheet with a weekly log table and reflection prompts.",
+                  icon: "📋",
+                  pages: "2 pages",
+                  onDownload: generatePainTrackerPdf,
+                },
+                {
+                  title: "Chair Exercise Guide",
+                  desc: "8 seated routines requiring no equipment — suitable for all ability levels and flare-ups.",
+                  icon: "🪑",
+                  pages: "2 pages",
+                  onDownload: generateChairExercisePdf,
+                },
+                {
+                  title: "Anti-Inflammatory Foods List",
+                  desc: "Printable tick-box shopping checklist covering 9 food groups with foods to limit.",
+                  icon: "🛒",
+                  pages: "2 pages",
+                  onDownload: generateFoodsListPdf,
+                },
               ].map((r, i) => (
                 <motion.div
                   key={r.title}
@@ -244,12 +288,24 @@ const CommunityHub = () => {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.06 }}
                 >
-                  <Card className="h-full border border-border/40 hover:border-amber-500/30 transition-colors">
-                    <CardContent className="p-5">
-                      <span className="text-2xl mb-3 block">{r.icon}</span>
+                  <Card className="h-full border border-border/40 hover:border-amber-500/30 transition-all hover:shadow-md group">
+                    <CardContent className="p-5 flex flex-col h-full">
+                      <span className="text-2xl mb-3 block" aria-hidden="true">{r.icon}</span>
                       <h3 className="font-semibold text-foreground text-sm mb-1">{r.title}</h3>
-                      <p className="text-xs text-muted-foreground mb-3">{r.desc}</p>
-                      <Badge variant="outline" className="text-xs">Coming Soon</Badge>
+                      <p className="text-xs text-muted-foreground mb-3 flex-1">{r.desc}</p>
+                      <div className="flex items-center justify-between mt-auto">
+                        <span className="text-xs text-muted-foreground/60">{r.pages} · PDF</span>
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          className="text-xs h-8 gap-1.5 border-amber-500/30 text-amber-700 hover:bg-amber-50 hover:text-amber-800"
+                          onClick={r.onDownload}
+                          aria-label={`Download ${r.title} PDF`}
+                        >
+                          <Download className="w-3.5 h-3.5" />
+                          Download PDF
+                        </Button>
+                      </div>
                     </CardContent>
                   </Card>
                 </motion.div>
