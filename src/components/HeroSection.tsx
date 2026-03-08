@@ -137,12 +137,12 @@ const HeroSection = () => {
                 <Heart className="w-4 h-4 text-primary fill-primary/20" />
                 <span className="font-medium text-foreground">100% Free</span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/5 border border-emerald-500/10">
-                <Shield className="w-4 h-4 text-emerald-600" />
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-emerald/5 border border-emerald/10">
+                <Shield className="w-4 h-4 text-emerald" />
                 <span className="font-medium text-foreground">NHS-Aligned</span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-sky-500/5 border border-sky-500/10">
-                <Activity className="w-4 h-4 text-sky-600" />
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-sky/5 border border-sky/10">
+                <Activity className="w-4 h-4 text-sky" />
                 <span className="font-medium text-foreground">HCPC & CSP Accredited</span>
               </div>
             </div>
