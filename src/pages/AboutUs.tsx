@@ -91,6 +91,7 @@ const AboutUs = () => {
       </Helmet>
 
       <div className="min-h-screen bg-background">
+        <Header />
         {/* Hero with PageHero component */}
         <PageHero
           gradient="from-primary/8 via-background to-emerald-500/5"
