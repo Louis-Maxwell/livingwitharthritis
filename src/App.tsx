@@ -80,6 +80,8 @@ function AnimatedRoutes() {
       <Route path="/exercises" element={<ExerciseHub />} />
       <Route path="/diet" element={<DietHub />} />
       <Route path="/zakat-appeal" element={<ZakatAppeal />} />
+      <Route path="/trust" element={<TrustCredibility />} />
+      <Route path="/community" element={<CommunityHub />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/cookies" element={<CookiesPolicy />} />
       <Route path="/accessibility" element={<AccessibilityPage />} />
