@@ -1,11 +1,11 @@
 import { memo, useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Activity, Users, Briefcase, Database, LucideIcon } from "lucide-react";
+import { Activity, Users, Briefcase, Database, BookOpen, HeartHandshake, LucideIcon } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useStatistics } from "@/hooks/useCmsContent";
 import { Skeleton } from "@/components/ui/skeleton";
 
-const iconMap: Record<string, LucideIcon> = { Users, Activity, Briefcase, Database };
+const iconMap: Record<string, LucideIcon> = { Users, Activity, Briefcase, Database, BookOpen, HeartHandshake };
 
 const AboutSection = memo(() => {
   const { data: statistics, isLoading: statsLoading } = useStatistics();
@@ -14,46 +14,49 @@ const AboutSection = memo(() => {
   const orbY = useTransform(scrollYProgress, [0, 1], [60, -60]);
 
   return (
-    <section ref={sectionRef} id="resources" className="py-14 lg:py-20 bg-tint-peach relative overflow-hidden section-divider">
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-primary/[0.03] blur-[120px] pointer-events-none" style={{ transform: `translateY(${orbY})` }} />
+    <section ref={sectionRef} id="resources" className="py-20 lg:py-28 bg-tint-peach relative overflow-hidden section-divider">
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-primary/[0.02] blur-[140px] pointer-events-none" style={{ transform: `translateY(${orbY})` }} />
 
       <div className="container mx-auto px-6 md:px-10 max-w-7xl relative">
         {/* Header */}
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-start mb-20">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start mb-24">
           <motion.div
-            initial={{ opacity: 0, y: 28 }}
+            initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="section-label text-primary mb-4 block">Understanding Arthritis</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-5 text-foreground">
-              Knowledge is <span className="text-primary">power</span>
+            <span className="section-label text-primary mb-5 block">About Our Mission</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 text-foreground leading-[1.08]">
+              Transforming arthritis care for{" "}
+              <span className="text-gradient">everyone</span>
             </h2>
-            <div className="w-16 h-1 bg-primary rounded-full" />
+            <div className="w-16 h-1 rounded-full bg-gradient-to-r from-primary to-secondary" />
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 28 }}
+            initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="space-y-5 lg:pt-4"
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="space-y-6 lg:pt-4"
           >
-            <p className="text-base sm:text-lg text-muted-foreground leading-[1.8]">
-              Arthritis isn't a singular condition — it's a complex family of over 100 different types.
-              Understanding your specific condition is the first step toward effective management.
+            <p className="text-base sm:text-lg text-muted-foreground leading-[1.85]">
+              Arthritis isn't a single condition — it's a complex family of over 100 distinct types, each 
+              demanding its own approach. We exist to ensure that no one faces this challenge without 
+              world-class support, regardless of where they live or what they can afford.
             </p>
-            <p className="text-sm text-muted-foreground/70 leading-relaxed">
-              We represent 10 million people living with arthritis — professionals,
-              researchers, carers, and supporters united by a common goal.
+            <p className="text-sm text-muted-foreground/70 leading-[1.8]">
+              We unite patients, clinicians, researchers and community advocates — aiming to support 
+              over 30 million people globally through evidence-based care, cutting-edge technology 
+              and unwavering compassion.
             </p>
           </motion.div>
         </div>
 
         {/* Statistics */}
-        <div className="mb-20">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+        <div className="mb-24">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-7">
             {statsLoading ? (
               Array.from({ length: 4 }).map((_, i) => (
                 <Card key={i} className="bg-card border-border/20 rounded-2xl">
@@ -70,20 +73,20 @@ const AboutSection = memo(() => {
                 return (
                   <motion.div
                     key={stat.id}
-                    initial={{ opacity: 0, y: 24 }}
+                    initial={{ opacity: 0, y: 28 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
                   >
                     <Card className="premium-card group">
-                      <CardContent className="pt-8 pb-7 text-center">
-                        <div className="mb-4 mx-auto w-12 h-12 rounded-xl bg-primary/8 flex items-center justify-center group-hover:bg-primary/12 transition-colors duration-300">
-                          <Icon className="w-5 h-5 text-primary" />
+                      <CardContent className="pt-10 pb-9 text-center">
+                        <div className="mb-5 mx-auto w-14 h-14 rounded-2xl bg-primary/6 flex items-center justify-center group-hover:bg-primary/10 transition-colors duration-300">
+                          <Icon className="w-6 h-6 text-primary" />
                         </div>
-                        <div className="stat-number text-3xl sm:text-4xl lg:text-5xl mb-2">
+                        <div className="stat-number text-3xl sm:text-4xl lg:text-[2.75rem] mb-2">
                           {stat.number_value}
                         </div>
-                        <p className="text-xs text-muted-foreground font-semibold tracking-wide uppercase">{stat.label}</p>
+                        <p className="text-[11px] text-muted-foreground font-semibold tracking-[0.15em] uppercase">{stat.label}</p>
                       </CardContent>
                     </Card>
                   </motion.div>
@@ -95,18 +98,18 @@ const AboutSection = memo(() => {
 
         {/* Quote */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="bg-accent/50 rounded-2xl p-10 sm:p-14 lg:p-20 relative border border-border/20"
+          transition={{ duration: 0.7 }}
+          className="bg-accent/40 rounded-3xl p-12 sm:p-16 lg:p-24 relative border border-border/15"
         >
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-1 bg-primary rounded-full" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-1 rounded-full bg-gradient-to-r from-primary to-secondary" />
           <div className="relative text-center max-w-2xl mx-auto">
-            <blockquote className="text-lg sm:text-xl lg:text-2xl font-bold mb-6 leading-[1.5] text-foreground">
-              "You are not alone in your arthritis journey. Your healthcare team advises, but you are in control of your path forward."
+            <blockquote className="text-lg sm:text-xl lg:text-2xl font-bold mb-7 leading-[1.5] text-foreground">
+              "You are never alone in your arthritis journey. Your healthcare team guides you, but you hold the power to shape your path forward."
             </blockquote>
-            <cite className="text-sm text-muted-foreground not-italic font-semibold">— Healthcare Professional</cite>
+            <cite className="text-sm text-muted-foreground not-italic font-semibold">— Living With Arthritis Clinical Advisory Board</cite>
           </div>
         </motion.div>
       </div>

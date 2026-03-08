@@ -1,16 +1,16 @@
 /* CSS-only stagger animation — replaces framer-motion for critical-path Hero */
 .hero-stagger .hero-item {
   opacity: 0;
-  transform: translateY(12px);
-  animation: heroFadeUp 0.5s ease-out forwards;
+  transform: translateY(16px);
+  animation: heroFadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .hero-stagger .hero-item:nth-child(1) { animation-delay: 0ms; }
-.hero-stagger .hero-item:nth-child(2) { animation-delay: 80ms; }
-.hero-stagger .hero-item:nth-child(3) { animation-delay: 160ms; }
-.hero-stagger .hero-item:nth-child(4) { animation-delay: 240ms; }
-.hero-stagger .hero-item:nth-child(5) { animation-delay: 320ms; }
-.hero-stagger .hero-item:nth-child(6) { animation-delay: 400ms; }
+.hero-stagger .hero-item:nth-child(2) { animation-delay: 100ms; }
+.hero-stagger .hero-item:nth-child(3) { animation-delay: 200ms; }
+.hero-stagger .hero-item:nth-child(4) { animation-delay: 300ms; }
+.hero-stagger .hero-item:nth-child(5) { animation-delay: 400ms; }
+.hero-stagger .hero-item:nth-child(6) { animation-delay: 500ms; }
 
 @keyframes heroFadeUp {
   to {
@@ -22,11 +22,11 @@
 /* Animated gradient background */
 .hero-gradient-bg {
   background: 
-    radial-gradient(ellipse 80% 60% at 20% 80%, hsl(var(--tint-blue)) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 50% at 80% 20%, hsl(var(--tint-rose)) 0%, transparent 50%),
-    radial-gradient(ellipse 50% 40% at 50% 50%, hsl(var(--tint-amber) / 0.5) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 60% at 15% 85%, hsl(var(--tint-blue)) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 50% at 85% 15%, hsl(var(--tint-rose)) 0%, transparent 45%),
+    radial-gradient(ellipse 40% 35% at 50% 50%, hsl(var(--tint-amber) / 0.4) 0%, transparent 55%),
     hsl(var(--background));
-  animation: heroGradientShift 12s ease-in-out infinite alternate;
+  animation: heroGradientShift 16s ease-in-out infinite alternate;
 }
 
 @keyframes heroGradientShift {
@@ -39,71 +39,73 @@
   position: absolute;
   border-radius: 50%;
   pointer-events: none;
-  filter: blur(80px);
+  filter: blur(100px);
 }
 
 .hero-orb-1 {
-  width: 400px;
-  height: 400px;
-  background: hsl(var(--primary) / 0.08);
-  top: -100px;
-  right: -100px;
-  animation: orbFloat1 8s ease-in-out infinite;
+  width: 500px;
+  height: 500px;
+  background: hsl(var(--primary) / 0.06);
+  top: -120px;
+  right: -120px;
+  animation: orbFloat1 10s ease-in-out infinite;
 }
 
 .hero-orb-2 {
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
   background: hsl(var(--tint-blue));
-  bottom: -80px;
-  left: -80px;
-  animation: orbFloat2 10s ease-in-out infinite;
+  bottom: -100px;
+  left: -100px;
+  animation: orbFloat2 12s ease-in-out infinite;
 }
 
 .hero-orb-3 {
-  width: 200px;
-  height: 200px;
-  background: hsl(var(--gold) / 0.06);
-  top: 40%;
-  left: 60%;
-  animation: orbFloat3 7s ease-in-out infinite;
+  width: 250px;
+  height: 250px;
+  background: hsl(var(--gold) / 0.04);
+  top: 35%;
+  left: 55%;
+  animation: orbFloat3 9s ease-in-out infinite;
 }
 
 @keyframes orbFloat1 {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-30px, 20px) scale(1.1); }
+  50% { transform: translate(-40px, 25px) scale(1.08); }
 }
 
 @keyframes orbFloat2 {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(20px, -30px) scale(1.05); }
+  50% { transform: translate(25px, -35px) scale(1.05); }
 }
 
 @keyframes orbFloat3 {
-  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
-  50% { transform: translate(-15px, 15px) scale(1.15); opacity: 1; }
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+  50% { transform: translate(-20px, 20px) scale(1.12); opacity: 0.9; }
 }
 
-/* Animated counter */
+/* Stat cards */
 .hero-stat-card {
-  background: hsl(var(--card) / 0.8);
-  backdrop-filter: blur(16px);
-  border: 1px solid hsl(var(--border) / 0.4);
-  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  background: hsl(var(--card) / 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid hsl(var(--border) / 0.3);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .hero-stat-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-medium);
-  border-color: hsl(var(--primary) / 0.2);
+  border-color: hsl(var(--primary) / 0.15);
+  background: hsl(var(--card) / 0.9);
 }
 
 /* Scroll indicator */
 .scroll-indicator {
-  animation: scrollBounce 2s ease-in-out infinite;
+  animation: scrollBounce 2.5s ease-in-out infinite;
 }
 
 @keyframes scrollBounce {
-  0%, 100% { transform: translateY(0); opacity: 0.6; }
-  50% { transform: translateY(8px); opacity: 1; }
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(10px); opacity: 1; }
 }
