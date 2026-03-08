@@ -26,6 +26,8 @@ const RheumatoidArthritis = lazy(() => import("./pages/conditions/RheumatoidArth
 const PsoriaticArthritis = lazy(() => import("./pages/conditions/PsoriaticArthritis"));
 const SelfHelpTool = lazy(() => import("./pages/SelfHelpTool"));
 const ZakatAppeal = lazy(() => import("./pages/ZakatAppeal"));
+const ExerciseHub = lazy(() => import("./pages/ExerciseHub"));
+const DietHub = lazy(() => import("./pages/DietHub"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const CookiesPolicy = lazy(() => import("./pages/CookiesPolicy"));
 const AccessibilityPage = lazy(() => import("./pages/Accessibility"));
@@ -73,6 +75,8 @@ function AnimatedRoutes() {
       <Route path="/conditions/rheumatoid-arthritis" element={<RheumatoidArthritis />} />
       <Route path="/conditions/psoriatic-arthritis" element={<PsoriaticArthritis />} />
       <Route path="/self-help" element={<SelfHelpTool />} />
+      <Route path="/exercises" element={<ExerciseHub />} />
+      <Route path="/diet" element={<DietHub />} />
       <Route path="/zakat-appeal" element={<ZakatAppeal />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/cookies" element={<CookiesPolicy />} />

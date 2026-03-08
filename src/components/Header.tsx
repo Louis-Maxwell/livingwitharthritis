@@ -77,10 +77,10 @@ const Header = () => {
       label: "Managing Arthritis",
       href: "#services",
       subs: [
-        { label: "Virtual Physiotherapy", desc: "NHS-aligned exercise programmes", icon: Activity, href: "#services", color: "text-primary bg-primary/10" },
-        { label: "Anti-Inflammatory Nutrition", desc: "Mediterranean diet plans & recipes", icon: Utensils, href: "#nutrition", color: "text-emerald-600 bg-emerald-500/10" },
+        { label: "Exercise Hub", desc: "Knee, hand, shoulder & chair exercises", icon: Dumbbell, href: "/exercises", action: () => navigate("/exercises"), color: "text-primary bg-primary/10" },
+        { label: "Diet & Nutrition Hub", desc: "Anti-inflammatory & Mediterranean diet", icon: Utensils, href: "/diet", action: () => navigate("/diet"), color: "text-emerald-600 bg-emerald-500/10" },
         { label: "AI Health Assistant", desc: "24/7 evidence-based chat support", icon: MessageCircle, href: "/chat", action: () => navigate("/chat"), color: "text-violet-600 bg-violet-500/10" },
-        { label: "Exercise Programmes", desc: "Joint-specific routines & videos", icon: Dumbbell, href: "/self-help", action: () => navigate("/self-help"), color: "text-sky-600 bg-sky-500/10" },
+        { label: "Self Help Tool", desc: "Interactive joint exercise diagram", icon: Activity, href: "/self-help", action: () => navigate("/self-help"), color: "text-sky-600 bg-sky-500/10" },
       ],
     },
     {

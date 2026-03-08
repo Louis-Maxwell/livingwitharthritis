@@ -46,6 +46,8 @@ const sitemapSections: SitemapSection[] = [
     links: [
       { label: "Home", href: "/", description: "Arthritis support, services and resources", icon: Globe },
       { label: "About Us", href: "/about", description: "Our mission, team and values", icon: ShieldCheck },
+      { label: "Exercise Hub", href: "/exercises", description: "Best exercises for arthritis: knee, hand, shoulder & chair routines", icon: Dumbbell, featured: true, isNew: true },
+      { label: "Diet & Nutrition Hub", href: "/diet", description: "Anti-inflammatory diet, Mediterranean eating & foods to avoid", icon: Utensils, featured: true, isNew: true },
       { label: "Virtual Assistant", href: "/chat", description: "AI-powered arthritis guidance chat", icon: MessageCircle, featured: true },
       { label: "Self Help Tool", href: "/self-help", description: "Interactive joint exercise diagram", icon: Activity },
       { label: "Sign In / Register", href: "/auth", description: "Access your account", icon: MapPin },

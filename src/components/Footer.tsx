@@ -9,8 +9,9 @@ const Footer = () => {
   const footerLinks = {
     getHelp: [
       { label: "Virtual Assistant", href: "/chat" },
+      { label: "Exercise Hub", href: "/exercises" },
+      { label: "Diet & Nutrition Hub", href: "/diet" },
       { label: "Self Help Tool", href: "/self-help" },
-      { label: "Book Consultation", href: "#services" },
     ],
     aboutArthritis: [
       { label: "Osteoarthritis", href: "/conditions/osteoarthritis" },
