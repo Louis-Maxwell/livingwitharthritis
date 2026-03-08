@@ -9,8 +9,16 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
   Users, MessageCircle, Calendar, Sparkles, ArrowRight,
-  Heart, CheckCircle, Star, Globe, BookOpen, HandHeart
+  Heart, CheckCircle, Star, Globe, BookOpen, HandHeart, Download
 } from "lucide-react";
+import {
+  generateKneeExercisePdf,
+  generateHandExercisePdf,
+  generateMealPlanPdf,
+  generatePainTrackerPdf,
+  generateChairExercisePdf,
+  generateFoodsListPdf,
+} from "@/lib/generatePdf";
 
 const communityFeatures = [
   {
