@@ -22,9 +22,9 @@ const jointDatabase: Record<string, JointData> = {
     label: "Neck",
     tip: "Gentle movements help relieve stiffness. Never force through pain.",
     exercises: [
-      { name: "Chin Tucks", duration: "30 sec", reps: "10 reps", description: "Gently draw chin back, creating a double chin. Hold 3 seconds." },
-      { name: "Neck Side Bends", duration: "1 min", reps: "8 each side", description: "Slowly tilt ear toward shoulder, hold 5 seconds each side." },
-      { name: "Neck Rotations", duration: "1 min", reps: "6 each side", description: "Slowly turn head to look over each shoulder, hold 3 seconds." },
+      { name: "Chin Tucks", duration: "30 sec", reps: "10 reps", description: "Gently draw your chin straight back, creating a \"double chin\" position. Hold for 3 seconds, then release. Strengthens the deep cervical flexors and helps correct forward head posture — a common contributor to neck pain." },
+      { name: "Neck Side Bends", duration: "1 min", reps: "8 each side", description: "Slowly tilt your ear toward your shoulder, stretching the opposite side of the neck. Hold for 5 seconds each side. Improves lateral flexibility and relieves tension in the upper trapezius and scalene muscles." },
+      { name: "Neck Rotations", duration: "1 min", reps: "6 each side", description: "Slowly turn your head to look over each shoulder, holding for 3 seconds at end of range. Maintains rotational mobility in the cervical spine, often restricted in cervical spondylosis." },
     ],
   },
   shoulder: {
@@ -32,10 +32,10 @@ const jointDatabase: Record<string, JointData> = {
     label: "Shoulders",
     tip: "Warm up with pendulum swings before exercises. Ice after if sore.",
     exercises: [
-      { name: "Pendulum Swings", duration: "1 min", reps: "10 circles", description: "Lean forward, let arm hang and swing in small circles." },
-      { name: "Wall Slides", duration: "2 min", reps: "10 reps", description: "Stand facing wall, slide hands up keeping elbows and wrists in contact." },
-      { name: "Shoulder Shrugs", duration: "1 min", reps: "12 reps", description: "Raise shoulders to ears, hold 3 seconds, slowly lower." },
-      { name: "Cross-Body Stretch", duration: "1 min", reps: "3 each side", description: "Pull one arm across chest with opposite hand. Hold 15 seconds." },
+      { name: "Pendulum Swings", duration: "1 min", reps: "10 circles", description: "Lean forward with one hand on a table, letting the other arm hang freely. Swing in small, gentle circles. This uses gravity to mobilise the glenohumeral joint without muscular effort — ideal for frozen shoulder recovery." },
+      { name: "Wall Slides", duration: "2 min", reps: "10 reps", description: "Stand facing a wall with forearms and palms against it. Slowly slide hands upward as high as comfortable. Improves shoulder flexion and scapular control while strengthening the serratus anterior." },
+      { name: "Shoulder Shrugs", duration: "1 min", reps: "12 reps", description: "Raise both shoulders toward your ears, hold the tension for 3 seconds, then slowly relax. Relieves upper trapezius tension and improves blood flow to the neck and shoulders." },
+      { name: "Cross-Body Stretch", duration: "1 min", reps: "3 each side", description: "Pull one arm gently across your chest at shoulder height with the opposite hand. Hold for 15 seconds. Improves posterior shoulder flexibility — often restricted in shoulder arthritis or rotator cuff issues." },
     ],
   },
   elbow: {
@@ -43,9 +43,9 @@ const jointDatabase: Record<string, JointData> = {
     label: "Elbows",
     tip: "Avoid gripping objects tightly. Use adaptive aids when possible.",
     exercises: [
-      { name: "Wrist Curls", duration: "2 min", reps: "12 reps", description: "Rest forearm on table, palm up. Curl a light weight up and down." },
-      { name: "Elbow Flexion/Extension", duration: "1 min", reps: "10 reps", description: "Slowly bend and straighten elbow fully. Use light resistance if tolerated." },
-      { name: "Towel Twist", duration: "1 min", reps: "10 reps", description: "Hold towel with both hands, wring it out in each direction." },
+      { name: "Wrist Curls", duration: "2 min", reps: "12 reps", description: "Rest your forearm on a table with palm facing upward. Slowly curl a light dumbbell (0.5–2kg) up, then lower with control. Strengthens wrist flexors and forearm muscles, improving grip strength for daily tasks." },
+      { name: "Elbow Flexion/Extension", duration: "1 min", reps: "10 reps", description: "Slowly bend your elbow bringing your hand toward your shoulder, then straighten fully. Add light resistance as tolerated. Maintains full range of motion and strengthens the biceps and triceps." },
+      { name: "Towel Twist", duration: "1 min", reps: "10 reps", description: "Hold a rolled towel with both hands and wring it in each direction. Strengthens forearm rotators and grip muscles — essential for everyday activities like turning door handles and carrying bags." },
     ],
   },
   wrist: {
@@ -53,10 +53,10 @@ const jointDatabase: Record<string, JointData> = {
     label: "Wrists & Hands",
     tip: "Soak hands in warm water for 10 minutes before exercising.",
     exercises: [
-      { name: "Finger Spreads", duration: "1 min", reps: "10 reps", description: "Spread fingers wide apart, hold 5 seconds, then make a fist." },
-      { name: "Wrist Circles", duration: "1 min", reps: "10 each way", description: "Rotate wrists slowly in circles, both clockwise and anticlockwise." },
-      { name: "Thumb Touches", duration: "1 min", reps: "10 reps", description: "Touch thumb to each fingertip, making an O shape each time." },
-      { name: "Prayer Stretch", duration: "30 sec", reps: "3 holds", description: "Press palms together at chest level, lower hands keeping palms together." },
+      { name: "Finger Spreads", duration: "1 min", reps: "10 reps", description: "Spread all fingers as wide apart as possible, hold for 5 seconds, then slowly close into a gentle fist. Maintains finger joint range of motion and strengthens the intrinsic hand muscles." },
+      { name: "Wrist Circles", duration: "1 min", reps: "10 each way", description: "Rotate your wrists slowly in full circles — both clockwise and anticlockwise. Improves synovial fluid distribution, reduces morning stiffness, and maintains range of motion needed for typing and cooking." },
+      { name: "Thumb Touches", duration: "1 min", reps: "10 reps", description: "Touch the tip of your thumb to each fingertip in turn, making an \"O\" shape each time. Exercises the opponens pollicis, maintaining the precision grip needed for buttons, zips, and writing." },
+      { name: "Prayer Stretch", duration: "30 sec", reps: "3 holds", description: "Press your palms together at chest level in a prayer position. Slowly lower your hands while keeping palms together until you feel a stretch. Excellent for carpal tunnel relief and wrist extension range." },
     ],
   },
   hip: {
@@ -64,10 +64,10 @@ const jointDatabase: Record<string, JointData> = {
     label: "Hips",
     tip: "Always warm up before hip exercises. Avoid deep squats if painful.",
     exercises: [
-      { name: "Hip Circles", duration: "1 min", reps: "10 each way", description: "Stand on one leg (hold support), circle other leg gently." },
-      { name: "Seated Marching", duration: "2 min", reps: "20 reps", description: "Sit upright, march knees up one at a time. Keep core engaged." },
-      { name: "Clamshells", duration: "2 min", reps: "12 each side", description: "Lie on side, knees bent. Open top knee like a clamshell, keep feet together." },
-      { name: "Standing Hip Abduction", duration: "2 min", reps: "10 each side", description: "Stand holding chair, lift leg out to side. Keep body upright." },
+      { name: "Hip Circles", duration: "1 min", reps: "10 each way", description: "Stand on one leg (holding a chair for support), and gently circle the other leg in small, controlled circles. Improves hip joint mobility and activates the deep hip rotators." },
+      { name: "Seated Marching", duration: "2 min", reps: "20 reps", description: "Sit upright in a sturdy chair and march your knees up one at a time, keeping your core engaged. This low-impact exercise strengthens hip flexors and improves circulation." },
+      { name: "Clamshells", duration: "2 min", reps: "12 each side", description: "Lie on your side with knees bent at 45 degrees. Keeping feet together, open the top knee like a clamshell. Targets the gluteus medius — a key stabiliser that, when weak, contributes to hip and knee pain." },
+      { name: "Standing Hip Abduction", duration: "2 min", reps: "10 each side", description: "Stand holding a chair for balance. Lift one leg straight out to the side, keeping your body upright. Strengthens hip abductors, critical for walking stability and reducing compensatory knee stress." },
     ],
   },
   knee: {
@@ -75,10 +75,10 @@ const jointDatabase: Record<string, JointData> = {
     label: "Knees",
     tip: "Low-impact activities like swimming and cycling are great for knee arthritis.",
     exercises: [
-      { name: "Seated Leg Extensions", duration: "2 min", reps: "12 each leg", description: "Sit in chair, slowly straighten one leg. Hold 3 seconds at top." },
-      { name: "Step-Ups", duration: "2 min", reps: "10 each leg", description: "Use a low step. Step up and down slowly, leading with each leg." },
-      { name: "Quad Sets", duration: "2 min", reps: "10 reps", description: "Sit with leg straight. Tighten thigh muscle, pushing knee into floor. Hold 5 sec." },
-      { name: "Hamstring Curls", duration: "2 min", reps: "10 each leg", description: "Stand holding chair, slowly bend knee bringing heel toward bottom." },
+      { name: "Seated Leg Extensions", duration: "2 min", reps: "12 each leg", description: "Sit in a chair with feet flat. Slowly straighten one leg, hold for 3 seconds at the top, then lower with control. Strengthens the quadriceps — the primary muscle group supporting the knee joint." },
+      { name: "Step-Ups", duration: "2 min", reps: "10 each leg", description: "Use a low step (10–15cm). Step up leading with one leg, bring the other up, then step back down. Strengthens quadriceps, glutes, and calf muscles for functional stair climbing." },
+      { name: "Quad Sets", duration: "2 min", reps: "10 reps", description: "Sit with your leg straight. Tighten your thigh muscle firmly, pressing the back of your knee into the surface. Hold for 5 seconds. This isometric exercise strengthens the quadriceps without moving the knee — ideal during flare-ups." },
+      { name: "Hamstring Curls", duration: "2 min", reps: "10 each leg", description: "Stand holding a chair, slowly bend one knee bringing your heel toward your bottom. Strengthens the hamstrings, which work alongside quadriceps to support and protect the knee joint." },
     ],
   },
   ankle: {
@@ -86,10 +86,10 @@ const jointDatabase: Record<string, JointData> = {
     label: "Ankles & Feet",
     tip: "Supportive footwear makes a big difference. Consider orthotic insoles.",
     exercises: [
-      { name: "Ankle Circles", duration: "1 min", reps: "10 each way", description: "Lift foot off floor, rotate ankle in circles both directions." },
-      { name: "Toe Raises", duration: "1 min", reps: "12 reps", description: "Stand holding support, rise onto toes slowly. Hold 3 seconds." },
-      { name: "Towel Scrunches", duration: "1 min", reps: "10 reps", description: "Place towel on floor, scrunch it toward you using only toes." },
-      { name: "Heel-Toe Walks", duration: "2 min", reps: "2 lengths", description: "Walk heel-to-toe in a straight line for balance and ankle strength." },
+      { name: "Ankle Circles", duration: "1 min", reps: "10 each way", description: "Lift foot off the floor and rotate ankle in smooth, controlled circles — both clockwise and anticlockwise. Improves synovial fluid circulation and maintains range of motion in the talocrural joint." },
+      { name: "Toe Raises", duration: "1 min", reps: "12 reps", description: "Stand holding a chair or wall for balance, rise slowly onto your toes, hold for 3 seconds, then lower with control. Strengthens the gastrocnemius and soleus, supporting ankle stability." },
+      { name: "Towel Scrunches", duration: "1 min", reps: "10 reps", description: "Place a small towel flat on the floor. Using only your toes, scrunch and pull it toward you. Strengthens intrinsic foot muscles and improves arch support — beneficial for flat feet alongside arthritis." },
+      { name: "Heel-Toe Walks", duration: "2 min", reps: "2 lengths", description: "Walk in a straight line placing the heel of one foot directly in front of the toes of the other. Improves proprioception, balance, and ankle stability — reducing fall risk for those with lower limb arthritis." },
     ],
   },
   spine: {
@@ -97,14 +97,13 @@ const jointDatabase: Record<string, JointData> = {
     label: "Spine & Back",
     tip: "Keep movements slow and controlled. Stop if you feel sharp pain.",
     exercises: [
-      { name: "Cat-Cow Stretch", duration: "1 min", reps: "8 reps", description: "On all fours, arch back up (cat) then dip it down (cow). Move slowly." },
-      { name: "Pelvic Tilts", duration: "1 min", reps: "10 reps", description: "Lie on back, knees bent. Flatten lower back into floor, hold 5 sec." },
-      { name: "Knee-to-Chest", duration: "2 min", reps: "3 each side", description: "Lie on back, pull one knee to chest. Hold 20 seconds." },
-      { name: "Seated Rotation", duration: "1 min", reps: "6 each side", description: "Sit upright, rotate torso to look behind you. Hold 5 seconds." },
+      { name: "Cat-Cow Stretch", duration: "1 min", reps: "8 reps", description: "On all fours, slowly arch your back toward the ceiling (cat), then gently dip it toward the floor (cow). Mobilises the entire spinal column and is recommended by NICE for chronic low back pain." },
+      { name: "Pelvic Tilts", duration: "1 min", reps: "10 reps", description: "Lie on your back with knees bent and feet flat. Gently flatten your lower back into the floor by tilting your pelvis, hold for 5 seconds. Activates the deep core stabilisers that protect the lumbar spine." },
+      { name: "Knee-to-Chest", duration: "2 min", reps: "3 each side", description: "Lie on your back and gently pull one knee toward your chest, holding with both hands for 20 seconds. Stretches hip flexors, lower back extensors, and glutes — effective for sacroiliac joint stiffness." },
+      { name: "Seated Rotation", duration: "1 min", reps: "6 each side", description: "Sit upright in a chair, cross your arms, and slowly rotate your torso to look behind you. Hold for 5 seconds each side. Improves thoracic spine rotation — often restricted in ankylosing spondylitis." },
     ],
   },
 };
-
 import bodyMannequin from "@/assets/body-mannequin.png";
 
 const BodyImage = memo(() => (
