@@ -332,7 +332,7 @@ const Header = () => {
               </Button>
             </div>
 
-            <nav className="flex-1 overflow-y-auto px-5 py-6 space-y-1">
+            <nav className="flex-1 overflow-y-auto px-5 py-6 space-y-1" aria-label="Mobile navigation">
               {mobileNavItems.map((item, index) => {
                 const Icon = item.icon;
                 return (
