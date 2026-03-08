@@ -27,12 +27,6 @@ const JointGraphic = () => (
   </svg>
 );
 
-const statGradients = [
-  "from-primary/10 to-primary/5 border-primary/15",
-  "from-secondary/10 to-secondary/5 border-secondary/15",
-  "from-emerald-500/10 to-emerald-500/5 border-emerald-500/15",
-  "from-amber-500/10 to-amber-500/5 border-amber-500/15",
-];
 
 const AboutSection = memo(() => {
   const { data: statistics, isLoading: statsLoading } = useStatistics();
