@@ -52,6 +52,7 @@ const Header = () => {
     { label: "Blog", href: "/blog", action: () => navigate("/blog") },
     { label: "Get Involved", href: "#involved" },
     { label: "Shop", href: "/shop", action: () => navigate("/shop") },
+    { label: "Resource Library", href: "#resources", action: () => setResourceModalOpen(true), icon: true },
   ];
 
   const scrollToSection = (href: string) => {
