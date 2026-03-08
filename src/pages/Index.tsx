@@ -9,6 +9,7 @@ import { useSearchParams } from "react-router-dom";
 
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
 const Footer = lazy(() => import("@/components/Footer"));
