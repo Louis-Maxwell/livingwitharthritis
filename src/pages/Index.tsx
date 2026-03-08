@@ -106,13 +106,16 @@ export default function Index() {
       fallback={<div className="p-12 text-center text-destructive">Something went wrong. Please refresh.</div>}
     >
       <Helmet>
-        <title>Living With Arthritis UK – Free Physio, Diet & Joint Pain Help</title>
-        <meta name="description" content="Free arthritis support for people across the UK. Virtual physiotherapy, anti-inflammatory nutrition plans, joint exercises and community help for osteoarthritis and rheumatoid arthritis." />
+        <title>Living With Arthritis UK – Free Physio, Diet Plans & Joint Pain Help</title>
+        <meta name="description" content="Free arthritis support for people across the UK. Virtual physiotherapy, anti-inflammatory Mediterranean diet plans, joint exercises, AI health assistant and community support for osteoarthritis, rheumatoid arthritis and psoriatic arthritis." />
         <meta property="og:title" content="Living With Arthritis UK – Free Physio, Diet & Joint Pain Help" />
-        <meta property="og:description" content="Free NHS-complementary arthritis resources for UK residents: virtual physiotherapy, Mediterranean diet plans, gentle exercises and expert guidance." />
-        <meta name="keywords" content="arthritis UK, NHS arthritis, joint pain relief UK, osteoarthritis help, rheumatoid arthritis support, free physiotherapy UK, anti-inflammatory diet UK, arthritis exercises, living with arthritis, joint pain NHS" />
+        <meta property="og:description" content="Free NHS-complementary arthritis resources for UK residents: virtual physiotherapy, Mediterranean diet plans, gentle exercises, AI chatbot and expert guidance for osteoarthritis and RA." />
+        <meta name="keywords" content="arthritis UK, NHS arthritis help, joint pain relief UK, osteoarthritis help, rheumatoid arthritis support, free physiotherapy UK, anti-inflammatory diet UK, arthritis exercises, living with arthritis, joint pain NHS, arthritis charity UK, knee pain UK, hip pain arthritis, arthritis treatment UK, Mediterranean diet arthritis, arthritis supplements UK, PIP arthritis, arthritis disability UK, psoriatic arthritis support, arthritis flare up help, best diet for arthritis UK, turmeric arthritis UK, glucosamine UK, omega 3 arthritis, arthritis self help, arthritis pain management, gentle exercises arthritis, water aerobics arthritis, yoga for arthritis UK, arthritis support groups UK" />
         <meta property="og:locale" content="en_GB" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://livingwitharthritis.org.uk/" />
         <meta name="geo.region" content="GB" />
+        <link rel="canonical" href="https://livingwitharthritis.org.uk/" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "MedicalOrganization",
@@ -120,17 +123,21 @@ export default function Index() {
           "alternateName": "Living With Arthritis UK",
           "url": "https://livingwitharthritis.org.uk",
           "logo": "https://livingwitharthritis.org.uk/favicon.ico",
-          "description": "UK charity providing free virtual physiotherapy, anti-inflammatory nutrition guidance, joint exercises and community support for people living with arthritis.",
+          "description": "UK charity providing free virtual physiotherapy, anti-inflammatory nutrition guidance, joint exercises, AI health assistant and community support for people living with arthritis.",
           "medicalSpecialty": "Rheumatology",
           "areaServed": { "@type": "Country", "name": "United Kingdom", "sameAs": "https://en.wikipedia.org/wiki/United_Kingdom" },
-          "serviceType": ["Virtual Physiotherapy", "Nutrition Guidance", "Joint Exercise Programmes", "Arthritis Support"],
+          "serviceType": ["Virtual Physiotherapy", "Nutrition Guidance", "Joint Exercise Programmes", "AI Health Assistant", "Arthritis Support", "Zakat Appeal"],
           "audience": {
             "@type": "MedicalAudience", "audienceType": "Patient",
-            "healthCondition": { "@type": "MedicalCondition", "name": "Arthritis", "alternateName": ["Osteoarthritis", "Rheumatoid Arthritis"], "relevantSpecialty": { "@type": "MedicalSpecialty", "name": "Rheumatology" } },
+            "healthCondition": [
+              { "@type": "MedicalCondition", "name": "Osteoarthritis", "alternateName": "OA" },
+              { "@type": "MedicalCondition", "name": "Rheumatoid Arthritis", "alternateName": "RA" },
+              { "@type": "MedicalCondition", "name": "Psoriatic Arthritis" }
+            ],
             "geographicArea": { "@type": "Country", "name": "United Kingdom" }
           },
           "contactPoint": { "@type": "ContactPoint", "telephone": "+44-7760-512-084", "email": "info@livingwitharthritis.org.uk", "contactType": "customer support", "availableLanguage": "English", "areaServed": "GB" },
-          "knowsAbout": ["Osteoarthritis", "Rheumatoid Arthritis", "Joint Pain", "Anti-inflammatory Diet", "Physiotherapy", "NHS Arthritis Support"],
+          "knowsAbout": ["Osteoarthritis", "Rheumatoid Arthritis", "Psoriatic Arthritis", "Joint Pain", "Anti-inflammatory Diet", "Mediterranean Diet", "Physiotherapy", "Turmeric Curcumin", "Glucosamine", "Omega-3", "NHS Arthritis Support", "PIP Disability Benefits", "NICE Guidelines Arthritis"],
           "inLanguage": "en-GB"
         })}</script>
       </Helmet>

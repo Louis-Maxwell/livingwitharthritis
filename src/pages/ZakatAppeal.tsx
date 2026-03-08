@@ -37,11 +37,24 @@ const ZakatAppeal = () => {
   return (
     <>
       <Helmet>
-        <title>Zakat Appeal | Living With Arthritis</title>
-        <meta
-          name="description"
-          content="Fulfil your Zakat obligation by supporting those living with arthritis. Your contribution is managed with full transparency and in accordance with Islamic principles."
-        />
+        <title>Zakat Appeal – Fund Rehab for War & Trauma Survivors | Living With Arthritis UK</title>
+        <meta name="description" content="Give your Zakat to fund physiotherapy and rehabilitation sessions for war and trauma survivors. Shariah-compliant, transparent and life-changing. Donate £100, £150, £250, £500 or £1,000." />
+        <link rel="canonical" href="https://livingwitharthritis.org.uk/zakat-appeal" />
+        <meta property="og:title" content="Zakat Appeal – Fund Rehab for War & Trauma Survivors" />
+        <meta property="og:description" content="Your Zakat could fund life-changing physiotherapy for someone recovering from war injuries. Shariah-compliant. 100% transparent." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://livingwitharthritis.org.uk/zakat-appeal" />
+        <meta property="og:locale" content="en_GB" />
+        <meta name="keywords" content="zakat donation UK, zakat arthritis, zakat rehab, zakat war survivors, Islamic charity UK, zakat physiotherapy, shariah compliant charity, zakat appeal UK" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "DonateAction",
+          "name": "Zakat Appeal – Rehabilitation for War & Trauma Survivors",
+          "description": "Fund physiotherapy and rehabilitation sessions for individuals recovering from war and trauma injuries.",
+          "recipient": { "@type": "Organization", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" },
+          "price": "100",
+          "priceCurrency": "GBP"
+        })}</script>
       </Helmet>
 
       <DonationBanner />
