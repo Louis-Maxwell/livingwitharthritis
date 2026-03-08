@@ -252,7 +252,7 @@ const Header = () => {
                                   navigate(sub.href);
                                 }
                               }}
-                              className="w-full text-left flex items-start gap-3 px-3 py-3 rounded-xl hover:bg-accent transition-colors cursor-pointer group/item" role="menuitem">
+                              className="w-full text-left flex items-start gap-3 px-3 py-3 rounded-xl hover:bg-accent transition-colors cursor-pointer group/item" role="menuitem"
                             >
                               <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5 ${sub.color || "text-primary bg-primary/10"}`}>
                                 <Icon className="w-4 h-4" />
