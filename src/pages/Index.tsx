@@ -180,13 +180,15 @@ export default function Index() {
                  TABBED EXPLORE SECTION
                  Reduces scrolling by grouping heavy content
                 ══════════════════════════════════════════ */}
-            <section id="explore" className="scroll-mt-24 bg-tint-rose rounded-3xl p-6 md:p-10">
-              <div className="text-center mb-8">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground tracking-tight">
-                  Explore Our Resources
+            <section id="explore" className="scroll-mt-24 bg-tint-rose rounded-3xl p-8 md:p-12 border border-border/20">
+              <div className="text-center mb-10">
+                <span className="section-label text-primary mb-4 block">Resources Library</span>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground tracking-tight leading-[1.08]">
+                  Explore our{" "}
+                  <span className="text-gradient">expert resources</span>
                 </h2>
-                <p className="text-muted-foreground mt-3 max-w-lg mx-auto text-sm sm:text-base">
-                  Click a tab below to discover nutrition guides, exercises, conditions info, community support and more.
+                <p className="text-muted-foreground mt-4 max-w-lg mx-auto text-sm sm:text-base leading-relaxed">
+                  Discover nutrition guides, physiotherapy exercises, condition information, community support and UK resources — all clinically reviewed.
                 </p>
               </div>
 
