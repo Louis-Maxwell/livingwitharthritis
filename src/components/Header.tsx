@@ -209,6 +209,7 @@ const Header = () => {
           </div>
         </>
       )}
+      <ResourceLibraryModal open={resourceModalOpen} onOpenChange={setResourceModalOpen} />
     </>
   );
 };
