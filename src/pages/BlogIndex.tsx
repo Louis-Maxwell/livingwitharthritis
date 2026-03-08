@@ -222,37 +222,46 @@ const BlogIndex = () => {
 
           {/* Grid — cards with category color accent */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {paginated.map((post) => (
+            {paginated.map((post, idx) => (
               <Link
                 key={post.slug}
                 to={`/blog/${post.slug}`}
-                className={`group rounded-2xl border border-border/40 border-l-4 ${categoryAccent[post.category]} bg-card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5`}
+                className={`group rounded-2xl border border-border/30 bg-card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1`}
               >
-                <div className="flex items-center justify-between mb-3">
-                  <time className="text-xs text-muted-foreground">{new Date(post.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</time>
-                  <span className={`text-[10px] font-bold uppercase tracking-[0.15em] px-2 py-0.5 rounded-full ${categoryColors[post.category]}`}>
-                    {post.category}
-                  </span>
-                </div>
-                <h2 className="font-display text-lg font-semibold text-foreground mt-2 mb-3 group-hover:text-primary transition-colors leading-snug">
-                  {post.title}
-                </h2>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">{post.excerpt}</p>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className="text-primary text-sm font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all">
-                      Read more <ArrowRight className="w-3.5 h-3.5" />
+                {/* Colorful category top strip */}
+                <div className={`h-1.5 ${
+                  post.category === "Exercise" ? "bg-gradient-to-r from-violet-500 to-violet-400" :
+                  post.category === "Nutrition" ? "bg-gradient-to-r from-emerald-500 to-emerald-400" :
+                  post.category === "Lifestyle" ? "bg-gradient-to-r from-sky-500 to-sky-400" :
+                  post.category === "Health" ? "bg-gradient-to-r from-rose-500 to-rose-400" :
+                  post.category === "Supplements" ? "bg-gradient-to-r from-amber-500 to-amber-400" :
+                  "bg-gradient-to-r from-teal-500 to-teal-400"
+                }`} />
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-3">
+                    <time className="text-xs text-muted-foreground">{new Date(post.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</time>
+                    <span className={`text-[10px] font-bold uppercase tracking-[0.15em] px-2.5 py-1 rounded-full border ${categoryColors[post.category]}`}>
+                      {post.category}
                     </span>
                   </div>
-                  <div className="flex items-center gap-3 text-[11px] text-muted-foreground">
-                    <span className="flex items-center gap-1">
-                      <Clock className="w-3 h-3" /> {getReadTime(post.excerpt)}
+                  <h2 className="font-display text-lg font-semibold text-foreground mt-2 mb-3 group-hover:text-primary transition-colors leading-snug">
+                    {post.title}
+                  </h2>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">{post.excerpt}</p>
+                  <div className="flex items-center justify-between pt-3 border-t border-border/15">
+                    <span className="text-primary text-sm font-medium inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+                      Read more <ArrowRight className="w-3.5 h-3.5" />
                     </span>
-                    {viewCounts[post.slug] > 0 && (
+                    <div className="flex items-center gap-3 text-[11px] text-muted-foreground">
                       <span className="flex items-center gap-1">
-                        <Eye className="w-3 h-3" /> {viewCounts[post.slug].toLocaleString()}
+                        <Clock className="w-3 h-3" /> {getReadTime(post.excerpt)}
                       </span>
-                    )}
+                      {viewCounts[post.slug] > 0 && (
+                        <span className="flex items-center gap-1">
+                          <Eye className="w-3 h-3" /> {viewCounts[post.slug].toLocaleString()}
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
               </Link>
