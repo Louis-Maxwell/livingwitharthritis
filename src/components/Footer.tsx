@@ -1,7 +1,7 @@
-import { useState } from "react";
 import { Facebook, Twitter, Instagram, Youtube, Linkedin, Mail, Phone, ArrowUp, Heart, Sparkles } from "lucide-react";
 import accreditationLogos from "@/assets/accreditation-logos.png";
 import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
@@ -10,14 +10,17 @@ const Footer = () => {
     getHelp: [
       { label: "Virtual Assistant", href: "/chat" },
       { label: "Self Help Tool", href: "/self-help" },
+      { label: "Book Consultation", href: "#services" },
     ],
     aboutArthritis: [
-      { label: "Symptoms & Treatments", href: "#conditions" },
-      { label: "Virtual Physiotherapy", href: "#services" },
-      { label: "Blog", href: "/blog" },
+      { label: "Osteoarthritis", href: "/conditions/osteoarthritis" },
+      { label: "Rheumatoid Arthritis", href: "/conditions/rheumatoid-arthritis" },
+      { label: "Psoriatic Arthritis", href: "/conditions/psoriatic-arthritis" },
+      { label: "Blog & Research", href: "/blog" },
     ],
     aboutUs: [
       { label: "Our Mission", href: "/about" },
+      { label: "Zakat Appeal", href: "/zakat-appeal" },
       { label: "Sitemap", href: "/sitemap" },
     ],
   };
@@ -73,15 +76,14 @@ const Footer = () => {
             <div key={section.title} className="lg:col-span-2">
               <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-background/30 mb-5">{section.title}</h4>
               <ul className="space-y-3">
-                {section.links.map((link: any) => (
+                {section.links.map((link) => (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
-                      onClick={link.onClick ? (e: React.MouseEvent) => { e.preventDefault(); link.onClick(); } : undefined}
+                    <Link
+                      to={link.href}
                       className="text-background/50 hover:text-background/80 transition-colors text-sm cursor-pointer"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -117,6 +119,7 @@ const Footer = () => {
             src={accreditationLogos}
             alt="Chartered Society of Physiotherapy and Health & Care Professions Council logos"
             className="h-20 md:h-28 object-contain"
+            loading="lazy"
           />
         </div>
       </div>
@@ -127,9 +130,9 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-background/25 text-xs">© {new Date().getFullYear()} Living with Arthritis™</p>
             <div className="flex items-center gap-6 text-xs">
-              <a href="/privacy" className="text-background/25 hover:text-background/50 transition-colors">Privacy</a>
-              <a href="/cookies" className="text-background/25 hover:text-background/50 transition-colors">Cookies</a>
-              <a href="#" className="text-background/25 hover:text-background/50 transition-colors">Accessibility</a>
+              <Link to="/privacy" className="text-background/25 hover:text-background/50 transition-colors">Privacy</Link>
+              <Link to="/cookies" className="text-background/25 hover:text-background/50 transition-colors">Cookies</Link>
+              <Link to="/accessibility" className="text-background/25 hover:text-background/50 transition-colors">Accessibility</Link>
               <button
                 onClick={scrollToTop}
                 className="w-9 h-9 rounded-lg bg-background/5 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-200"

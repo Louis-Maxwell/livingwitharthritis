@@ -19,8 +19,6 @@ const AppointmentModal = lazy(() => import("@/components/AppointmentModal").then
 const DonationNotification = lazy(() => import("@/components/DonationNotification"));
 const FeedbackPopup = lazy(() => import("@/components/FeedbackPopup"));
 const BackToTop = lazy(() => import("@/components/ui/BackToTop"));
-const ChatBotWidget = lazy(() => import("@/components/ChatBotWidget"));
-
 
 // Lazy sections – always on page
 const AboutSection = lazy(() => import("@/components/AboutSection"));
@@ -53,36 +51,13 @@ const SectionLoader = memo(() => (
 ));
 SectionLoader.displayName = "SectionLoader";
 
-// Import scroll animation wrapper
-// AnimatedSection available for non-lazy content if needed
-
 /* ── Tab definitions ── */
 const EXPLORE_TABS = [
-  {
-    value: "nutrition",
-    label: "Nutrition",
-    icon: Apple,
-  },
-  {
-    value: "exercises",
-    label: "Exercises",
-    icon: Dumbbell,
-  },
-  {
-    value: "conditions",
-    label: "Conditions",
-    icon: Stethoscope,
-  },
-  {
-    value: "community",
-    label: "Community",
-    icon: Users,
-  },
-  {
-    value: "resources",
-    label: "UK Resources",
-    icon: MapPin,
-  },
+  { value: "nutrition", label: "Nutrition", icon: Apple },
+  { value: "exercises", label: "Exercises", icon: Dumbbell },
+  { value: "conditions", label: "Conditions", icon: Stethoscope },
+  { value: "community", label: "Community", icon: Users },
+  { value: "resources", label: "UK Resources", icon: MapPin },
 ] as const;
 
 export default function Index() {
@@ -149,7 +124,6 @@ export default function Index() {
           <DonationNotification />
           <FeedbackPopup />
           <BackToTop />
-          <ChatBotWidget />
         </Suspense>
 
         <main className="space-y-0">
@@ -176,10 +150,7 @@ export default function Index() {
               <ImpactBannerSection />
             </Suspense>
 
-            {/* ══════════════════════════════════════════
-                 TABBED EXPLORE SECTION
-                 Reduces scrolling by grouping heavy content
-                ══════════════════════════════════════════ */}
+            {/* TABBED EXPLORE SECTION */}
             <section id="explore" className="scroll-mt-24 bg-tint-rose p-6 md:p-12 border-y border-border/20">
               <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-10">
@@ -248,7 +219,7 @@ export default function Index() {
               </div>
             </section>
 
-            {/* ── Always visible: Tips, Blog, Testimonials, FAQ, Donate ── */}
+            {/* Tips, Blog, Testimonials, FAQ, Donate */}
             <Suspense fallback={<SectionLoader />}>
               <DailyTipsSection />
             </Suspense>
