@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import "./HeroSection.css";
 
 const STATS = [
-  { value: 10000000, display: "10M+", label: "People affected", suffix: "+" },
+  { value: 30000000, display: "30M+", label: "Aiming to support globally", suffix: "+" },
   { value: 100, display: "100+", label: "Arthritis types", suffix: "+" },
   { value: 15000, display: "15K+", label: "People helped", suffix: "+" },
 ];
@@ -70,7 +70,7 @@ const HeroSection = () => {
             <div className="hero-item mb-8">
               <span className="inline-flex items-center gap-2.5 bg-primary/[0.08] text-primary px-5 py-2.5 rounded-full text-xs font-bold tracking-wide border border-primary/10 shadow-sm">
                 <Users className="w-3.5 h-3.5" />
-                Supporting 10 Million People Across the UK
+                Aiming to Support Over 30 Million People Globally
               </span>
             </div>
 

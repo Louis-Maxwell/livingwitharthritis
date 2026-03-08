@@ -48,6 +48,7 @@ const Header = () => {
     { label: "Self Help Tool", href: "/self-help", action: () => navigate("/self-help") },
     { label: "Blog", href: "/blog", action: () => navigate("/blog") },
     { label: "Get Involved", href: "#involved" },
+    { label: "Shop", href: "/shop", action: () => navigate("/shop") },
   ];
 
   const scrollToSection = (href: string) => {

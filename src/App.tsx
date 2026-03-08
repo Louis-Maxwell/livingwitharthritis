@@ -7,6 +7,7 @@ import { lazy, Suspense } from "react";
 import { HelmetProvider } from "react-helmet-async";
 
 const ChatBotWidget = lazy(() => import("./components/ChatBotWidget"));
+const CookieConsent = lazy(() => import("./components/CookieConsent"));
 
 
 // Lazy load pages for code splitting
@@ -25,6 +26,8 @@ const RheumatoidArthritis = lazy(() => import("./pages/conditions/RheumatoidArth
 const PsoriaticArthritis = lazy(() => import("./pages/conditions/PsoriaticArthritis"));
 const SelfHelpTool = lazy(() => import("./pages/SelfHelpTool"));
 const ZakatAppeal = lazy(() => import("./pages/ZakatAppeal"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const CookiesPolicy = lazy(() => import("./pages/CookiesPolicy"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading fallback with skeleton-style animation
@@ -70,6 +73,9 @@ function AnimatedRoutes() {
       <Route path="/conditions/psoriatic-arthritis" element={<PsoriaticArthritis />} />
       <Route path="/self-help" element={<SelfHelpTool />} />
       <Route path="/zakat-appeal" element={<ZakatAppeal />} />
+      <Route path="/privacy" element={<PrivacyPolicy />} />
+      <Route path="/cookies" element={<CookiesPolicy />} />
+      <Route path="/shop" element={<NotFound />} />
       <Route path="/sitemap" element={<Sitemap />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
@@ -88,6 +94,9 @@ const App = () => (
           </Suspense>
           <Suspense fallback={null}>
             <ChatBotWidget />
+          </Suspense>
+          <Suspense fallback={null}>
+            <CookieConsent />
           </Suspense>
         </BrowserRouter>
       </TooltipProvider>

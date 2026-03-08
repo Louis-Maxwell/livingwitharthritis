@@ -46,7 +46,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-background/40 leading-[1.8] mb-8 max-w-xs text-sm">
-              Supporting 10 million people living with arthritis through information, research, and community.
+              Aiming to support over 30 million people globally living with arthritis through information, research, and community.
             </p>
             <div className="space-y-3">
               <a href="tel:07760512084" className="flex items-center gap-3 text-background/40 hover:text-background/70 transition-colors text-sm group">
@@ -127,8 +127,8 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-background/25 text-xs">© {new Date().getFullYear()} Living with Arthritis™</p>
             <div className="flex items-center gap-6 text-xs">
-              <a href="#" className="text-background/25 hover:text-background/50 transition-colors">Privacy</a>
-              <a href="#" className="text-background/25 hover:text-background/50 transition-colors">Terms</a>
+              <a href="/privacy" className="text-background/25 hover:text-background/50 transition-colors">Privacy</a>
+              <a href="/cookies" className="text-background/25 hover:text-background/50 transition-colors">Cookies</a>
               <a href="#" className="text-background/25 hover:text-background/50 transition-colors">Accessibility</a>
               <button
                 onClick={scrollToTop}
