@@ -28,6 +28,7 @@ const SelfHelpTool = lazy(() => import("./pages/SelfHelpTool"));
 const ZakatAppeal = lazy(() => import("./pages/ZakatAppeal"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const CookiesPolicy = lazy(() => import("./pages/CookiesPolicy"));
+const AccessibilityPage = lazy(() => import("./pages/Accessibility"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading fallback with skeleton-style animation
@@ -75,6 +76,7 @@ function AnimatedRoutes() {
       <Route path="/zakat-appeal" element={<ZakatAppeal />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/cookies" element={<CookiesPolicy />} />
+      <Route path="/accessibility" element={<AccessibilityPage />} />
       <Route path="/shop" element={<NotFound />} />
       <Route path="/sitemap" element={<Sitemap />} />
       <Route path="*" element={<NotFound />} />

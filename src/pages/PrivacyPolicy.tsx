@@ -1,16 +1,33 @@
+import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import PageHero from "@/components/ui/PageHero";
 import { Shield } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
+const Footer = lazy(() => import("@/components/Footer"));
+
 const PrivacyPolicy = () => (
   <>
     <Helmet>
-      <title>Privacy Policy | Living With Arthritis UK</title>
-      <meta name="description" content="Privacy Policy for Living With Arthritis UK. Learn how we collect, use, and protect your personal data in accordance with UK GDPR." />
+      <title>Privacy Policy – UK GDPR Data Protection | Living With Arthritis UK</title>
+      <meta name="description" content="Privacy Policy for Living With Arthritis UK. Learn how we collect, use, store and protect your personal data in full compliance with UK GDPR and the Data Protection Act 2018." />
       <link rel="canonical" href="https://livingwitharthritis.org.uk/privacy" />
+      <meta property="og:title" content="Privacy Policy | Living With Arthritis UK" />
+      <meta property="og:description" content="How Living With Arthritis UK protects your personal data under UK GDPR. Your privacy matters to us." />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://livingwitharthritis.org.uk/privacy" />
+      <meta property="og:locale" content="en_GB" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Privacy Policy",
+        "description": "Privacy Policy for Living With Arthritis UK — UK GDPR compliant data protection.",
+        "url": "https://livingwitharthritis.org.uk/privacy",
+        "inLanguage": "en-GB",
+        "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" }
+      })}</script>
     </Helmet>
     <div className="min-h-screen bg-background">
       <Header />
@@ -25,8 +42,7 @@ const PrivacyPolicy = () => (
         title="Privacy Policy"
         subtitle="How we collect, use and protect your personal data in accordance with UK GDPR."
       />
-      <main className="container mx-auto px-6 md:px-10 py-10 md:py-16 max-w-4xl">
-
+      <main className="w-full px-6 md:px-10 lg:px-20 py-10 md:py-16 max-w-5xl mx-auto">
         <div className="prose prose-lg max-w-none space-y-8 text-foreground/80 leading-relaxed">
           <section>
             <h2 className="text-xl font-bold text-foreground mt-8 mb-3">1. Who We Are</h2>
@@ -125,7 +141,9 @@ const PrivacyPolicy = () => (
           </section>
         </div>
       </main>
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
     </div>
   </>
 );
