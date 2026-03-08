@@ -664,3 +664,21 @@
   content-visibility: auto;
   contain-intrinsic-size: auto 600px;
 }
+
+/* Per-section content-visibility for deep sections */
+.section-deferred {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 400px;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .hero-stagger .hero-item {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .hero-orb { animation: none; }
+  .hero-gradient-bg { animation: none; }
+  .scroll-indicator { animation: none; }
+}
