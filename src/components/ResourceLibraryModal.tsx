@@ -177,7 +177,6 @@ const ResourceLibraryModal = memo(({ open, onOpenChange }: ResourceLibraryModalP
                         <td className="px-4 py-3 hidden sm:table-cell">
                           <Badge className={`${cat.badgeColor} text-[10px]`}>{item.type}</Badge>
                         </td>
-                        </td>
                         <td className="px-4 py-3 text-right">
                           {item.url.startsWith("http") ? (
                             <Button variant="ghost" size="sm" asChild className="h-7 px-2 text-xs gap-1">
