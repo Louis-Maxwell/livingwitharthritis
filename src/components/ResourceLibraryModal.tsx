@@ -170,9 +170,13 @@ const ResourceLibraryModal = memo(({ open, onOpenChange }: ResourceLibraryModalP
                           idx < cat.items.length - 1 ? "border-b border-border/30" : ""
                         }`}
                       >
-                        <td className="px-4 py-3 font-medium text-foreground">{item.name}</td>
+                        <td className="px-4 py-3">
+                          <div className="font-medium text-foreground">{item.name}</div>
+                          <div className="text-xs text-muted-foreground mt-0.5">{item.desc}</div>
+                        </td>
                         <td className="px-4 py-3 hidden sm:table-cell">
                           <Badge className={`${cat.badgeColor} text-[10px]`}>{item.type}</Badge>
+                        </td>
                         </td>
                         <td className="px-4 py-3 text-right">
                           {item.url.startsWith("http") ? (
