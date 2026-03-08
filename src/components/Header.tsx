@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Heart, Construction } from "lucide-react";
+import { Menu, X, Heart, Construction, BookOpen } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import lwaLogo from "@/assets/lwa-logo.png";
+import ResourceLibraryModal from "@/components/ResourceLibraryModal";
 
 const DonationBanner = lazy(() => import("@/components/DonationBanner"));
 
@@ -21,6 +22,7 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [resourceModalOpen, setResourceModalOpen] = useState(false);
   const navigate = useNavigate();
   const lastScrollY = useRef(0);
 
@@ -50,6 +52,7 @@ const Header = () => {
     { label: "Blog", href: "/blog", action: () => navigate("/blog") },
     { label: "Get Involved", href: "#involved" },
     { label: "Shop", href: "/shop", action: () => navigate("/shop") },
+    { label: "Resource Library", href: "#resources", action: () => setResourceModalOpen(true), icon: true },
   ];
 
   const scrollToSection = (href: string) => {
@@ -116,8 +119,11 @@ const Header = () => {
                       scrollToSection(link.href);
                     }
                   }}
-                  className="relative px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground rounded-lg hover:bg-accent transition-all duration-200 cursor-pointer group"
+                  className={`relative px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground rounded-lg hover:bg-accent transition-all duration-200 cursor-pointer group ${
+                    (link as any).icon ? "flex items-center gap-1.5" : ""
+                  }`}
                 >
+                  {(link as any).icon && <BookOpen className="w-3.5 h-3.5" />}
                   {link.label}
                   <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full group-hover:w-3/4 transition-all duration-300" />
                 </button>
@@ -203,6 +209,7 @@ const Header = () => {
           </div>
         </>
       )}
+      <ResourceLibraryModal open={resourceModalOpen} onOpenChange={setResourceModalOpen} />
     </>
   );
 };
