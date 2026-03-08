@@ -194,6 +194,27 @@ export type Database = {
         }
         Relationships: []
       }
+      blog_helpfulness: {
+        Row: {
+          created_at: string
+          helpful: boolean
+          id: string
+          slug: string
+        }
+        Insert: {
+          created_at?: string
+          helpful: boolean
+          id?: string
+          slug: string
+        }
+        Update: {
+          created_at?: string
+          helpful?: boolean
+          id?: string
+          slug?: string
+        }
+        Relationships: []
+      }
       blog_views: {
         Row: {
           created_at: string
