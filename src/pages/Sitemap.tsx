@@ -157,13 +157,15 @@ const sitemapSections: SitemapSection[] = [
     ],
   },
   {
-    title: "Technical",
+    title: "Legal & Technical",
     icon: FileText,
     color: "from-slate-500/15 to-gray-500/10",
     iconBg: "bg-slate-500/10 text-slate-600",
     borderColor: "border-slate-500/20 hover:border-slate-500/40",
     accentColor: "text-slate-600",
     links: [
+      { label: "Privacy Policy", href: "/privacy", description: "How we protect your personal data (UK GDPR)", icon: ShieldCheck },
+      { label: "Cookies Policy", href: "/cookies", description: "How we use cookies on this website", icon: FileText },
       { label: "XML Sitemap", href: "/sitemap.xml", description: "Machine-readable sitemap for search engines", external: true },
     ],
   },
