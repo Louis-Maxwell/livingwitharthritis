@@ -133,19 +133,17 @@ const HeroSection = () => {
 
             {/* Social proof */}
             <div className="hero-item mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/10">
                 <Heart className="w-4 h-4 text-primary fill-primary/20" />
-                <span className="font-medium">100% Free</span>
+                <span className="font-medium text-foreground">100% Free</span>
               </div>
-              <div className="hidden sm:block w-1 h-1 rounded-full bg-border" />
-              <div className="flex items-center gap-2">
-                <Shield className="w-4 h-4 text-primary/60" />
-                <span className="font-medium">NHS-Aligned</span>
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/5 border border-emerald-500/10">
+                <Shield className="w-4 h-4 text-emerald-600" />
+                <span className="font-medium text-foreground">NHS-Aligned</span>
               </div>
-              <div className="hidden sm:block w-1 h-1 rounded-full bg-border" />
-              <div className="flex items-center gap-2">
-                <Activity className="w-4 h-4 text-primary/60" />
-                <span className="font-medium">HCPC & CSP Accredited</span>
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-sky-500/5 border border-sky-500/10">
+                <Activity className="w-4 h-4 text-sky-600" />
+                <span className="font-medium text-foreground">HCPC & CSP Accredited</span>
               </div>
             </div>
           </div>
