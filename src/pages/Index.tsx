@@ -29,6 +29,7 @@ const BlogPreviewSection = lazy(() => import("@/components/landing/BlogPreviewSe
 const TestimonialsSection = lazy(() => import("@/components/landing/TestimonialsSection"));
 const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
 const FundraisingProgressSection = lazy(() => import("@/components/landing/FundraisingProgressSection"));
+const PatientImpactStories = lazy(() => import("@/components/landing/PatientImpactStories"));
 const GetInTouchSection = lazy(() => import("@/components/landing/GetInTouchSection"));
 const FinalCTASection = lazy(() => import("@/components/landing/FinalCTASection"));
 const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSection"));
@@ -238,6 +239,10 @@ export default function Index() {
 
             <Suspense fallback={<SectionLoader />}>
               <FundraisingProgressSection />
+            </Suspense>
+
+            <Suspense fallback={<SectionLoader />}>
+              <PatientImpactStories />
             </Suspense>
 
             <Suspense fallback={<SectionLoader />}>
