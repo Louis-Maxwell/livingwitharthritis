@@ -1,0 +1,277 @@
+import { Helmet } from "react-helmet-async";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import PageHero from "@/components/ui/PageHero";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import {
+  Utensils, Apple, Fish, Leaf, ArrowRight, CheckCircle,
+  XCircle, Star, ChevronRight, Sparkles, Shield, Heart,
+  AlertTriangle
+} from "lucide-react";
+
+const dietSections = [
+  {
+    id: "anti-inflammatory",
+    title: "Anti-Inflammatory Diet",
+    subtitle: "Reduce Joint Inflammation Naturally",
+    description: "An anti-inflammatory diet focuses on whole foods that reduce chronic inflammation linked to arthritis pain. Rich in omega-3 fatty acids, antioxidants and fibre, this eating pattern can lower inflammatory markers like CRP and IL-6.",
+    icon: Leaf,
+    color: "from-emerald-500/15 to-teal-500/10",
+    iconColor: "text-emerald-600 bg-emerald-500/10",
+    borderColor: "border-emerald-500/20 hover:border-emerald-500/40",
+    href: "/blog/best-diet-for-joint-pain-uk",
+    goodFoods: [
+      "Oily fish (salmon, mackerel, sardines) – omega-3s",
+      "Berries (blueberries, strawberries) – antioxidants",
+      "Leafy greens (spinach, kale) – vitamins C, K",
+      "Turmeric & ginger – curcumin and gingerols",
+      "Extra virgin olive oil – oleocanthal",
+      "Nuts & seeds (walnuts, flaxseeds) – healthy fats",
+    ],
+  },
+  {
+    id: "foods-to-avoid",
+    title: "Foods to Avoid",
+    subtitle: "What May Worsen Arthritis Symptoms",
+    description: "Certain foods can trigger or worsen inflammation, increasing joint pain and stiffness. Reducing these pro-inflammatory foods can complement an anti-inflammatory diet and improve symptom management.",
+    icon: AlertTriangle,
+    color: "from-rose-500/15 to-red-500/10",
+    iconColor: "text-rose-600 bg-rose-500/10",
+    borderColor: "border-rose-500/20 hover:border-rose-500/40",
+    href: "/blog/best-diet-for-joint-pain-uk",
+    badFoods: [
+      "Processed meats (bacon, sausages) – saturated fats",
+      "Refined sugar and sugary drinks – spike inflammation",
+      "White bread and processed carbs – raise blood sugar",
+      "Fried foods and trans fats – promote oxidative stress",
+      "Excessive alcohol – increases uric acid (gout risk)",
+      "Ultra-processed snacks and fast food",
+    ],
+  },
+  {
+    id: "mediterranean",
+    title: "Mediterranean Diet",
+    subtitle: "The Gold Standard for Arthritis",
+    description: "The Mediterranean diet is the most studied eating pattern for arthritis, with strong evidence showing reduced pain, stiffness and inflammation. It emphasises whole grains, vegetables, healthy fats and moderate fish consumption.",
+    icon: Fish,
+    color: "from-sky-500/15 to-blue-500/10",
+    iconColor: "text-sky-600 bg-sky-500/10",
+    borderColor: "border-sky-500/20 hover:border-sky-500/40",
+    href: "/blog/best-diet-for-joint-pain-uk",
+    mealPlan: [
+      { meal: "Breakfast", example: "Greek yoghurt with berries, walnuts and honey" },
+      { meal: "Lunch", example: "Grilled mackerel salad with olive oil and wholegrain bread" },
+      { meal: "Dinner", example: "Baked salmon with roasted vegetables and quinoa" },
+      { meal: "Snacks", example: "Mixed nuts, hummus with carrots, fresh fruit" },
+    ],
+  },
+];
+
+const relatedTopics = [
+  { title: "Turmeric for Arthritis", icon: Sparkles, href: "/blog/turmeric-for-arthritis-uk", desc: "Evidence, dosage and best supplements" },
+  { title: "Omega-3 & Fish Oil", icon: Fish, href: "/blog/arthritis-and-omega-3-fish-oil", desc: "Benefits, dosage and UK food sources" },
+  { title: "Supplements Guide", icon: Heart, href: "/blog/arthritis-supplements-uk", desc: "Glucosamine, collagen and more" },
+  { title: "Meal Planning", icon: Utensils, href: "/blog/meal-planning-arthritis-uk", desc: "Weekly meal plans for joint health" },
+];
+
+const DietHub = () => {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    name: "Best Diet for Arthritis Pain UK – Complete Nutrition Guide",
+    description: "Evidence-based arthritis diet guide covering anti-inflammatory foods, the Mediterranean diet and foods to avoid for joint pain relief.",
+    url: "https://livingwitharthritis.org.uk/diet",
+    mainEntity: {
+      "@type": "MedicalCondition",
+      name: "Arthritis",
+    },
+    about: {
+      "@type": "Diet",
+      dietFeatures: "Anti-inflammatory, Mediterranean, omega-3 rich",
+    },
+  };
+
+  return (
+    <>
+      <Helmet>
+        <title>Best Diet for Arthritis Pain UK | Anti-Inflammatory Foods Guide</title>
+        <meta name="description" content="Evidence-based arthritis diet guide: anti-inflammatory foods, Mediterranean diet, foods to avoid, and meal plans for joint pain relief in the UK." />
+        <link rel="canonical" href="https://livingwitharthritis.org.uk/diet" />
+        <meta property="og:title" content="Best Diet for Arthritis Pain UK – Complete Guide" />
+        <meta property="og:description" content="Anti-inflammatory diet, Mediterranean eating, foods to avoid and meal plans for arthritis." />
+        <meta property="og:url" content="https://livingwitharthritis.org.uk/diet" />
+        <meta property="og:type" content="website" />
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      </Helmet>
+
+      <Header />
+
+      <PageHero
+        badge={<Badge variant="outline" className="bg-primary/5 text-primary border-primary/20"><Utensils className="w-3.5 h-3.5 mr-1.5" /> Diet Hub</Badge>}
+        title={<>Diet for <span className="text-primary">Arthritis</span> Pain UK</>}
+        subtitle="Evidence-based nutrition guide for managing arthritis through diet. Anti-inflammatory foods, Mediterranean eating and foods to avoid for joint pain relief."
+      >
+        <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
+          <span className="flex items-center gap-1.5"><Shield className="w-4 h-4 text-primary" /> Evidence-Based</span>
+          <span className="flex items-center gap-1.5"><CheckCircle className="w-4 h-4 text-emerald-600" /> UK Nutrition Guidance</span>
+          <span className="flex items-center gap-1.5"><Apple className="w-4 h-4 text-amber-600" /> Practical Meal Plans</span>
+        </div>
+      </PageHero>
+
+      <main id="main-content">
+        {/* Quick jump */}
+        <section className="py-8 bg-muted/30 border-b border-border/40">
+          <div className="container mx-auto px-6 md:px-10 max-w-5xl">
+            <p className="text-sm font-medium text-muted-foreground mb-3">Jump to:</p>
+            <div className="flex flex-wrap gap-2">
+              {dietSections.map((s) => (
+                <a key={s.id} href={`#${s.id}`} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background border border-border/60 text-sm font-medium text-foreground hover:border-primary/40 hover:text-primary transition-colors">
+                  <s.icon className="w-3.5 h-3.5" /> {s.title}
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Diet sections */}
+        <section className="py-16 lg:py-24">
+          <div className="container mx-auto px-6 md:px-10 max-w-5xl space-y-16">
+            {dietSections.map((sec, i) => (
+              <motion.div
+                key={sec.id}
+                id={sec.id}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: i * 0.05 }}
+              >
+                <Card className={`border ${sec.borderColor} bg-gradient-to-br ${sec.color} overflow-hidden`}>
+                  <CardContent className="p-8 lg:p-10">
+                    <div className="flex items-start gap-4 mb-6">
+                      <div className={`w-12 h-12 rounded-xl ${sec.iconColor} flex items-center justify-center shrink-0`}>
+                        <sec.icon className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <h2 className="text-2xl font-bold text-foreground">{sec.title}</h2>
+                        <p className="text-sm text-muted-foreground font-medium">{sec.subtitle}</p>
+                      </div>
+                    </div>
+
+                    <p className="text-muted-foreground leading-relaxed mb-6">{sec.description}</p>
+
+                    {/* Good foods list */}
+                    {"goodFoods" in sec && sec.goodFoods && (
+                      <div className="grid sm:grid-cols-2 gap-3 mb-6">
+                        {sec.goodFoods.map((food, j) => (
+                          <div key={j} className="flex items-start gap-2.5 bg-background/60 backdrop-blur-sm rounded-lg p-3 border border-border/30">
+                            <CheckCircle className="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" />
+                            <span className="text-sm text-foreground">{food}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Bad foods list */}
+                    {"badFoods" in sec && sec.badFoods && (
+                      <div className="grid sm:grid-cols-2 gap-3 mb-6">
+                        {sec.badFoods.map((food, j) => (
+                          <div key={j} className="flex items-start gap-2.5 bg-background/60 backdrop-blur-sm rounded-lg p-3 border border-border/30">
+                            <XCircle className="w-4 h-4 text-rose-500 mt-0.5 shrink-0" />
+                            <span className="text-sm text-foreground">{food}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Meal plan */}
+                    {"mealPlan" in sec && sec.mealPlan && (
+                      <div className="space-y-3 mb-6">
+                        <h3 className="text-sm font-semibold text-foreground flex items-center gap-1.5">
+                          <Star className="w-4 h-4 text-amber-500" /> Sample Daily Meal Plan
+                        </h3>
+                        <div className="grid sm:grid-cols-2 gap-3">
+                          {sec.mealPlan.map((m, j) => (
+                            <div key={j} className="bg-background/60 backdrop-blur-sm rounded-lg p-3 border border-border/30">
+                              <span className="text-xs font-bold text-primary uppercase tracking-wide">{m.meal}</span>
+                              <p className="text-sm text-foreground mt-1">{m.example}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="pt-4 border-t border-border/30">
+                      <Button asChild variant="outline" size="sm">
+                        <Link to={sec.href}>Read full guide <ArrowRight className="w-3.5 h-3.5 ml-1.5" /></Link>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Related topics */}
+        <section className="py-16 lg:py-20 bg-muted/20">
+          <div className="container mx-auto px-6 md:px-10 max-w-5xl">
+            <h2 className="text-3xl font-bold text-foreground mb-3">Related Nutrition Topics</h2>
+            <p className="text-muted-foreground mb-10 max-w-2xl">Dive deeper into supplements, specific foods and meal planning for arthritis.</p>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {relatedTopics.map((topic, i) => (
+                <motion.div
+                  key={topic.title}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                >
+                  <Link to={topic.href} className="block group">
+                    <Card className="h-full border border-border/40 hover:border-primary/30 transition-all hover:shadow-md">
+                      <CardContent className="p-6">
+                        <topic.icon className="w-8 h-8 text-primary mb-3" />
+                        <h3 className="font-semibold text-foreground mb-1.5 group-hover:text-primary transition-colors">{topic.title}</h3>
+                        <p className="text-sm text-muted-foreground">{topic.desc}</p>
+                        <span className="inline-flex items-center gap-1 text-xs text-primary font-medium mt-3">
+                          Read more <ChevronRight className="w-3 h-3" />
+                        </span>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="py-16 lg:py-20">
+          <div className="container mx-auto px-6 md:px-10 max-w-3xl text-center">
+            <Sparkles className="w-8 h-8 text-primary mx-auto mb-4" />
+            <h2 className="text-3xl font-bold text-foreground mb-4">Get Personalised Diet Advice</h2>
+            <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
+              Ask our AI Health Assistant about anti-inflammatory recipes, food swaps and meal plans tailored to your arthritis type.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Button asChild size="lg">
+                <Link to="/chat">Talk to Our AI Assistant <ArrowRight className="w-4 h-4 ml-2" /></Link>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <Link to="/exercises">Exercise Hub</Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </>
+  );
+};
+
+export default DietHub;
