@@ -328,7 +328,6 @@ const Header = () => {
                     }}
                     className={`relative px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground rounded-lg hover:bg-accent transition-all duration-200 cursor-pointer group flex items-center gap-1`}
                   >
-                    {link.hasIcon && <BookOpen className="w-3.5 h-3.5" />}
                     {link.label}
                     {link.subs && (
                       <ChevronDown className={`w-3 h-3 text-muted-foreground/50 transition-transform duration-200 ${activeDropdown === link.label ? "rotate-180" : ""}`} />

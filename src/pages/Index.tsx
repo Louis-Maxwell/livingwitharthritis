@@ -153,19 +153,13 @@ export default function Index() {
               <AboutSection />
             </Suspense>
 
-            <div className="gradient-divider" />
-
             <Suspense fallback={<SectionLoader />}>
               <ServicesGrid />
             </Suspense>
 
-            <div className="gradient-divider" />
-
             <Suspense fallback={<SectionLoader />}>
               <HowItWorksSection />
             </Suspense>
-
-            <div className="gradient-divider" />
 
             <Suspense fallback={<SectionLoader />}>
               <ImpactBannerSection />
