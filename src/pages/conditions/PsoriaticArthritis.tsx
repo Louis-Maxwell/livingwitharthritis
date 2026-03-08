@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, Fingerprint, BookOpen, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import PageHero from "@/components/ui/PageHero";
 
 const BASE = "https://livingwitharthritis.org.uk";
 
@@ -95,20 +96,22 @@ const PsoriaticArthritis = () => (
     </Helmet>
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="container mx-auto px-6 md:px-10 py-16 md:py-24 max-w-3xl">
-        <Link to="/#conditions" className="text-primary text-sm font-medium inline-flex items-center gap-1.5 mb-8 hover:gap-2.5 transition-all">
+      <PageHero
+        badge={
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/10 text-violet-600 text-xs font-bold tracking-wider uppercase border border-violet-500/20">
+            <Fingerprint className="w-3.5 h-3.5" /> Joint & Skin Condition
+          </span>
+        }
+        title={<>Psoriatic <span className="text-gradient">Arthritis</span></>}
+        subtitle="Psoriatic arthritis (PsA) affects up to 30% of people with psoriasis in the UK — an estimated 150,000 people. It causes joint inflammation alongside skin symptoms and requires early treatment to prevent permanent joint damage."
+        gradient="from-violet-500/8 via-background to-rose-500/5"
+        pattern="diagonal"
+      >
+        <Link to="/#conditions" className="text-primary text-sm font-medium inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
           <ArrowLeft className="w-3.5 h-3.5" /> Back to conditions
         </Link>
-
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary/70 mb-3 block">Condition Guide</span>
-          <h1 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-            Psoriatic Arthritis
-          </h1>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-12">
-            Psoriatic arthritis (PsA) affects up to 30% of people with psoriasis in the UK — an estimated 150,000 people. It causes joint inflammation alongside skin symptoms and requires early treatment to prevent permanent joint damage.
-          </p>
-        </motion.div>
+      </PageHero>
+      <main className="container mx-auto px-6 md:px-10 py-16 md:py-24 max-w-3xl">
 
         <Section icon={Activity} title="What Is Psoriatic Arthritis?">
           <p>Psoriatic arthritis is a chronic inflammatory condition that combines the joint inflammation of arthritis with the skin disease psoriasis. The immune system attacks both the joints and skin, causing pain, swelling, stiffness, and characteristic scaly skin patches.</p>
