@@ -235,6 +235,17 @@ const Osteoarthritis = () => (
           </ul>
         </Section>
 
+        {/* ─── Quick Self-Management Tips ─── */}
+        <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
+          <h3 className="font-display text-lg font-bold text-foreground mb-4">Daily Self-Care Checklist</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <EmojiCard emoji="🚶" title="Stay Active" description="30 min walking daily" />
+            <EmojiCard emoji="⚖️" title="Healthy Weight" description="Reduces knee pressure by 4× per lb" />
+            <EmojiCard emoji="🐟" title="Eat Well" description="Omega-3 rich Mediterranean diet" />
+            <EmojiCard emoji="😴" title="Sleep Well" description="7-9 hours for joint recovery" />
+          </div>
+        </motion.div>
+
         <Section icon={Pill} title="Treatment & Management">
           <p>While there is no cure for osteoarthritis, a combination of approaches can significantly improve quality of life:</p>
           <h3>Self-Management</h3>
