@@ -12,6 +12,7 @@ import {
   Waves, Bike, Heart, Clock, CheckCircle, Star,
   ChevronRight, Sparkles, Shield
 } from "lucide-react";
+import ExerciseProgressTracker from "@/components/ExerciseProgressTracker";
 
 const exerciseCategories = [
   {
