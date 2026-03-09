@@ -104,17 +104,18 @@
 }
 
 /* Quick action pills */
-.quick-action-pill {
+/* Journey pathway cards */
+.journey-card {
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.quick-action-pill:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-soft);
+.journey-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-medium);
 }
 
-.quick-action-pill:active {
-  transform: translateY(0);
+.journey-card:active {
+  transform: translateY(-1px);
 }
 
 /* Scroll indicator */
