@@ -8,6 +8,7 @@ import { HelmetProvider } from "react-helmet-async";
 
 const ChatBotWidget = lazy(() => import("./components/ChatBotWidget"));
 const CookieConsent = lazy(() => import("./components/CookieConsent"));
+const AccessibilityToolbar = lazy(() => import("./components/AccessibilityToolbar"));
 
 
 // Lazy load pages for code splitting
@@ -107,6 +108,9 @@ const App = () => (
           </Suspense>
           <Suspense fallback={null}>
             <CookieConsent />
+          </Suspense>
+          <Suspense fallback={null}>
+            <AccessibilityToolbar />
           </Suspense>
         </BrowserRouter>
       </TooltipProvider>

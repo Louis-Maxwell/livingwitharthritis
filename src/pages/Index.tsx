@@ -60,6 +60,7 @@ const FinalCTASection = lazy(() => import("@/components/landing/FinalCTASection"
 const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSection"));
 const ImpactBannerSection = lazy(() => import("@/components/landing/ImpactBannerSection"));
 const QuoteSection = lazy(() => import("@/components/landing/QuoteSection"));
+const ImpactMetricsSection = lazy(() => import("@/components/landing/ImpactMetricsSection"));
 
 // Lazy sections – inside tabs (loaded on demand)
 const NutritionArticleSection = lazy(() => import("@/components/NutritionArticleSection"));
@@ -274,6 +275,12 @@ export default function Index() {
             <div className="section-deferred">
               <Suspense fallback={<SectionLoader />}>
                 <PatientImpactStories />
+              </Suspense>
+            </div>
+
+            <div className="section-deferred">
+              <Suspense fallback={<SectionLoader />}>
+                <ImpactMetricsSection />
               </Suspense>
             </div>
 

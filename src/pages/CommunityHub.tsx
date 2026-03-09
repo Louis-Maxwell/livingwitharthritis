@@ -19,6 +19,9 @@ import {
   generatePainTrackerPdf,
   generateChairExercisePdf,
   generateFoodsListPdf,
+  generateShoulderExercisePdf,
+  generateHipExercisePdf,
+  generateProgressTrackerPdf,
 } from "@/lib/generatePdf";
 import PeerSupportForum from "@/components/PeerSupportForum";
 import {
@@ -110,7 +113,7 @@ const CommunityHub = () => {
               <StatCounter value="10M+" label="People with arthritis in the UK" icon={<Users className="w-6 h-6" />} color="primary" />
               <StatCounter value="24/7" label="AI assistant availability" icon={<MessageCircle className="w-6 h-6" />} color="sky" />
               <StatCounter value="50+" label="Free guides & resources" icon={<BookOpen className="w-6 h-6" />} color="emerald" />
-              <StatCounter value="6" label="Downloadable PDF guides" icon={<Download className="w-6 h-6" />} color="amber" />
+              <StatCounter value="9" label="Downloadable PDF guides" icon={<Download className="w-6 h-6" />} color="amber" />
             </div>
           </div>
         </section>
@@ -314,10 +317,13 @@ const CommunityHub = () => {
               {[
                 { title: "Knee Exercise Routine", desc: "10-minute daily programme for knee osteoarthritis, including 7 targeted exercises with coaching tips.", icon: "🦵", pages: "3 pages", onDownload: generateKneeExercisePdf },
                 { title: "Hand Exercise Guide", desc: "Grip strength & flexibility exercises for hand OA. 7 exercises with step-by-step instructions.", icon: "✋", pages: "2 pages", onDownload: generateHandExercisePdf },
-                { title: "7-Day Meal Plan", desc: "Full Mediterranean-style anti-inflammatory weekly menu with breakfast, lunch, dinner & snacks.", icon: "🥗", pages: "3 pages", onDownload: generateMealPlanPdf },
-                { title: "Joint Pain Tracker", desc: "Daily symptom diary worksheet with a weekly log table and reflection prompts.", icon: "📋", pages: "2 pages", onDownload: generatePainTrackerPdf },
+                { title: "Shoulder Exercise Guide", desc: "7 rotator cuff & mobility exercises for shoulder arthritis with daily living tips.", icon: "💪", pages: "3 pages", onDownload: generateShoulderExercisePdf },
+                { title: "Hip Exercise Guide", desc: "7 strengthening & flexibility exercises for hip OA plus daily living adaptations.", icon: "🦴", pages: "3 pages", onDownload: generateHipExercisePdf },
                 { title: "Chair Exercise Guide", desc: "8 seated routines requiring no equipment — suitable for all ability levels and flare-ups.", icon: "🪑", pages: "2 pages", onDownload: generateChairExercisePdf },
+                { title: "7-Day Meal Plan", desc: "Full Mediterranean-style anti-inflammatory weekly menu with breakfast, lunch, dinner & snacks.", icon: "🥗", pages: "3 pages", onDownload: generateMealPlanPdf },
                 { title: "Anti-Inflammatory Foods List", desc: "Printable tick-box shopping checklist covering 9 food groups with foods to limit.", icon: "🛒", pages: "2 pages", onDownload: generateFoodsListPdf },
+                { title: "Joint Pain Tracker", desc: "Daily symptom diary worksheet with a weekly log table and reflection prompts.", icon: "📋", pages: "2 pages", onDownload: generatePainTrackerPdf },
+                { title: "Weekly Exercise Tracker", desc: "Log your exercises, track pain before/after, set goals and celebrate weekly wins.", icon: "📊", pages: "2 pages", onDownload: generateProgressTrackerPdf },
               ].map((r, i) => (
                 <motion.div
                   key={r.title}
