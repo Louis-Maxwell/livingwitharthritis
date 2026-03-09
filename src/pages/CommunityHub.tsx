@@ -19,6 +19,7 @@ import {
   generateChairExercisePdf,
   generateFoodsListPdf,
 } from "@/lib/generatePdf";
+import PeerSupportForum from "@/components/PeerSupportForum";
 
 const communityFeatures = [
   {
