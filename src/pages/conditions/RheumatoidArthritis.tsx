@@ -141,6 +141,20 @@ const RheumatoidArthritis = () => (
           </ul>
         </Section>
 
+        {/* ─── RA vs OA Visual Comparison ─── */}
+        <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
+          <ComparisonCard
+            leftTitle="Rheumatoid Arthritis"
+            rightTitle="Osteoarthritis"
+            rows={[
+              { label: "Cause", left: "Autoimmune attack on joints", right: "Wear-and-tear cartilage loss" },
+              { label: "Pattern", left: "Symmetrical (both sides)", right: "Often one side or localised" },
+              { label: "Stiffness", left: "30+ minutes, often hours", right: "Usually under 30 minutes" },
+              { label: "Onset", left: "Any age (commonly 30–60)", right: "Typically after age 50" },
+            ]}
+          />
+        </motion.div>
+
         <Section icon={ShieldAlert} title="Symptoms of Rheumatoid Arthritis">
           <p>RA symptoms can vary in severity and may come and go in periods called flares. Common symptoms include:</p>
           <ul>
