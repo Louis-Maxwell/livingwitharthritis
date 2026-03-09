@@ -43,6 +43,8 @@ const DeferredOverlays = memo(() => {
 });
 DeferredOverlays.displayName = "DeferredOverlays";
 
+const QuickAccessSection = lazy(() => import("@/components/landing/QuickAccessSection"));
+
 // Lazy sections – always on page
 const AboutSection = lazy(() => import("@/components/AboutSection"));
 const ServicesGrid = lazy(() => import("@/components/ServicesGrid"));
