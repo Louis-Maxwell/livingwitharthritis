@@ -19,6 +19,9 @@ import {
   generatePainTrackerPdf,
   generateChairExercisePdf,
   generateFoodsListPdf,
+  generateShoulderExercisePdf,
+  generateHipExercisePdf,
+  generateProgressTrackerPdf,
 } from "@/lib/generatePdf";
 import PeerSupportForum from "@/components/PeerSupportForum";
 import {
