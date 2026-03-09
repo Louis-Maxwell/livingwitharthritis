@@ -245,6 +245,9 @@ const ExerciseHub = () => {
           </div>
         </section>
 
+        {/* Progress Tracker */}
+        <ExerciseProgressTracker />
+
         {/* CTA */}
         <section className="py-16 lg:py-20">
           <div className="container mx-auto px-6 md:px-10 max-w-3xl text-center">
