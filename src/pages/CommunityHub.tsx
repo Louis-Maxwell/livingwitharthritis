@@ -51,7 +51,7 @@ const newlyDiagnosedSteps = [
   { step: "2", title: "Try Gentle Exercises", desc: "Visit the Exercise Hub for knee, hand and chair-based routines.", href: "/exercises" },
   { step: "3", title: "Improve Your Diet", desc: "Our Diet Hub covers anti-inflammatory foods and meal plans.", href: "/diet" },
   { step: "4", title: "Talk to Our AI Assistant", desc: "Get personalised, evidence-based guidance 24/7.", href: "/chat" },
-  { step: "5", title: "Connect with Community", desc: "You're not alone — join our support community (coming soon).", href: "#community-features" },
+  { step: "5", title: "Connect with Community", desc: "You're not alone — join our peer support forum and resources.", href: "#community-features" },
 ];
 
 const patientStories = [

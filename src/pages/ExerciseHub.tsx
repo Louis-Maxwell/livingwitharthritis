@@ -341,6 +341,9 @@ const ExerciseHub = () => {
 
         <WaveDivider color="hsl(var(--background))" />
 
+        {/* Pedometer */}
+        <Pedometer />
+
         {/* Progress Tracker */}
         <ExerciseProgressTracker />
 
