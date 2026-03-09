@@ -149,12 +149,12 @@ const Header = () => {
   };
 
   const mobileNavItems = [
-    { label: "About Arthritis", icon: Stethoscope, desc: "Types, causes & what to expect", href: "/about", action: () => navigate("/about") },
-    { label: "Managing Arthritis", icon: Activity, desc: "Physio, nutrition & exercise", href: "#services" },
+    { label: "Newly Diagnosed", icon: Sparkles, desc: "Your essential first steps guide", href: "/about", action: () => navigate("/about") },
+    { label: "Track Symptoms", icon: ClipboardList, desc: "Pain journal & symptom diary", href: "/pain-journal", action: () => navigate("/pain-journal") },
+    { label: "Exercises & Diet", icon: Dumbbell, desc: "Physio exercises & nutrition plans", href: "/exercises", action: () => navigate("/exercises") },
     { label: "Conditions", icon: HeartPulse, desc: "OA, RA, Gout, PsA & more", href: "#conditions" },
-    { label: "Self Help Tool", icon: HelpCircle, desc: "Interactive symptom guidance", href: "/self-help", action: () => navigate("/self-help") },
     { label: "Blog & Research", icon: Newspaper, desc: "40+ evidence-based articles", href: "/blog", action: () => navigate("/blog") },
-    { label: "Get Involved", icon: HandHeart, desc: "Donate, volunteer & fundraise", href: "#involved" },
+    { label: "Support Us", icon: HandHeart, desc: "Donate, volunteer & fundraise", href: "#involved" },
     { label: "Resources", icon: BookOpen, desc: "NHS pathways, benefits & guides", href: "#resources", action: () => setResourceDrawerOpen(true) },
   ];
 
