@@ -280,6 +280,12 @@ export default function Index() {
 
             <div className="section-deferred">
               <Suspense fallback={<SectionLoader />}>
+                <ImpactMetricsSection />
+              </Suspense>
+            </div>
+
+            <div className="section-deferred">
+              <Suspense fallback={<SectionLoader />}>
                 <NewsletterSection />
               </Suspense>
             </div>
