@@ -1,5 +1,9 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { createRateLimiter, getClientIp, rateLimitResponse } from "../_shared/rate-limiter.ts";
+
+// 10 booking attempts per IP per 30 minutes
+const limiter = createRateLimiter({ windowMs: 1_800_000, maxRequests: 10 });
 
 /** Escape HTML special chars to prevent XSS in email bodies */
 function escapeHtml(str: string): string {
@@ -128,6 +132,12 @@ serve(async (req) => {
   }
 
   try {
+    // Rate limiting
+    const ip = getClientIp(req);
+    if (!limiter.check(ip)) {
+      return rateLimitResponse(corsHeaders);
+    }
+
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
     const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const supabase = createClient(supabaseUrl, supabaseServiceKey);

@@ -33,24 +33,15 @@ import {
 
 const communityFeatures = [
   {
-    icon: MessageCircle,
-    title: "Peer Support Forum",
-    description: "Connect with others who understand what you're going through. Share experiences, tips and encouragement in a safe, moderated space.",
-    status: "Coming Soon",
-    color: "text-violet-600 bg-violet-500/10",
-  },
-  {
     icon: Calendar,
     title: "Live Webinars & Events",
     description: "Monthly virtual sessions with physiotherapists, dietitians and patient advocates on topics like flare management, exercise programmes and nutrition.",
-    status: "Coming Soon",
     color: "text-sky-600 bg-sky-500/10",
   },
   {
     icon: HandHeart,
     title: "Volunteer & Mentor",
     description: "Give back to the community as a peer mentor, event organiser or content contributor. Support others on their arthritis journey.",
-    status: "Coming Soon",
     color: "text-emerald-600 bg-emerald-500/10",
   },
 ];
@@ -60,7 +51,7 @@ const newlyDiagnosedSteps = [
   { step: "2", title: "Try Gentle Exercises", desc: "Visit the Exercise Hub for knee, hand and chair-based routines.", href: "/exercises" },
   { step: "3", title: "Improve Your Diet", desc: "Our Diet Hub covers anti-inflammatory foods and meal plans.", href: "/diet" },
   { step: "4", title: "Talk to Our AI Assistant", desc: "Get personalised, evidence-based guidance 24/7.", href: "/chat" },
-  { step: "5", title: "Connect with Community", desc: "You're not alone — join our support community (coming soon).", href: "#community-features" },
+  { step: "5", title: "Connect with Community", desc: "You're not alone — join our peer support forum and resources.", href: "#community-features" },
 ];
 
 const patientStories = [
@@ -296,7 +287,7 @@ const CommunityHub = () => {
                       </div>
                       <h3 className="font-semibold text-foreground mb-2">{f.title}</h3>
                       <p className="text-sm text-muted-foreground mb-3">{f.description}</p>
-                      <Badge variant="secondary" className="text-xs">{f.status}</Badge>
+                      
                     </CardContent>
                   </Card>
                 </motion.div>
