@@ -33,24 +33,15 @@ import {
 
 const communityFeatures = [
   {
-    icon: MessageCircle,
-    title: "Peer Support Forum",
-    description: "Connect with others who understand what you're going through. Share experiences, tips and encouragement in a safe, moderated space.",
-    status: "Coming Soon",
-    color: "text-violet-600 bg-violet-500/10",
-  },
-  {
     icon: Calendar,
     title: "Live Webinars & Events",
     description: "Monthly virtual sessions with physiotherapists, dietitians and patient advocates on topics like flare management, exercise programmes and nutrition.",
-    status: "Coming Soon",
     color: "text-sky-600 bg-sky-500/10",
   },
   {
     icon: HandHeart,
     title: "Volunteer & Mentor",
     description: "Give back to the community as a peer mentor, event organiser or content contributor. Support others on their arthritis journey.",
-    status: "Coming Soon",
     color: "text-emerald-600 bg-emerald-500/10",
   },
 ];
