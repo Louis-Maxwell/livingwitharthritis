@@ -83,6 +83,7 @@ const Header = () => {
         { label: "Diet & Nutrition Hub", desc: "Anti-inflammatory & Mediterranean diet", icon: Utensils, href: "/diet", action: () => navigate("/diet"), color: "text-emerald-600 bg-emerald-500/10" },
         { label: "AI Health Assistant", desc: "24/7 evidence-based chat support", icon: MessageCircle, href: "/chat", action: () => navigate("/chat"), color: "text-violet-600 bg-violet-500/10" },
         { label: "Self Help Tool", desc: "Interactive joint exercise diagram", icon: Activity, href: "/self-help", action: () => navigate("/self-help"), color: "text-sky-600 bg-sky-500/10" },
+        { label: "Pain Journal", desc: "Track daily symptoms & pain levels", icon: ClipboardList, href: "/pain-journal", action: () => navigate("/pain-journal"), color: "text-amber-600 bg-amber-500/10" },
       ],
     },
     {
