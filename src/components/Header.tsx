@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, ShoppingBag, HelpCircle, HandHeart, Users, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Scale, Baby, Sparkles, Globe, Calendar } from "lucide-react";
+import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, ShoppingBag, HelpCircle, HandHeart, Users, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Scale, Baby, Sparkles, Globe, Calendar, Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import ResourceLibraryDrawer from "@/components/ResourceLibraryDrawer";
 import SiteSearch from "@/components/SiteSearch";
@@ -40,6 +40,7 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const [resourceDrawerOpen, setResourceDrawerOpen] = useState(false);
   const navigate = useNavigate();
   const lastScrollY = useRef(0);
@@ -47,9 +48,9 @@ const Header = () => {
   const handleScroll = useCallback(() => {
     const currentY = window.scrollY;
     setScrolled(currentY > 20);
-    if (currentY < 300) {
+    if (currentY < 80) {
       setVisible(true);
-    } else if (currentY < lastScrollY.current) {
+    } else if (currentY < lastScrollY.current - 4) {
       setVisible(true);
     } else if (currentY > lastScrollY.current + 10) {
       setVisible(false);
@@ -154,6 +155,8 @@ const Header = () => {
     { label: "Resources", icon: BookOpen, desc: "NHS pathways, benefits & guides", href: "#resources", action: () => setResourceDrawerOpen(true) },
   ];
 
+  const isHidden = !visible && !mobileMenuOpen;
+
   return (
     <>
       {/* Skip to content — first focusable element */}
@@ -164,138 +167,56 @@ const Header = () => {
         Skip to main content
       </a>
 
-      {/* Clean Logo Bar */}
-      <div className="bg-background border-b border-border/15">
-        <div className="container mx-auto px-6 md:px-10 py-3.5 flex items-center justify-center">
-          <button
-            onClick={() => navigate("/")}
-            className="flex items-center gap-3 group cursor-pointer select-none"
-            aria-label="Living With Arthritis — Go to homepage"
-          >
-            <div className="relative w-12 h-12 md:w-14 md:h-14 shrink-0">
-              <LogoMark className="w-full h-full drop-shadow-sm group-hover:scale-105 transition-transform duration-300" aria-hidden="true" />
-            </div>
-            <span className="text-xl sm:text-2xl md:text-[1.7rem] font-black text-primary tracking-tight leading-none uppercase">
-              Living With Arthritis
-            </span>
-          </button>
-        </div>
-      </div>
-
-      <Suspense fallback={<div className="bg-navy h-[42px]" />}>
-        <DonationBanner />
-      </Suspense>
-
-      <header
-        role="banner"
-        style={{ transform: visible || mobileMenuOpen ? "translateY(0)" : "translateY(-100%)" }}
-        className={`sticky top-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-background/95 backdrop-blur-xl shadow-medium border-b border-border/30"
-            : "bg-background border-b border-border/20"
-        }`}
+      {/* ── STICKY WRAPPER — entire header block sticks together ── */}
+      <div
+        className={`sticky top-0 z-50 transition-transform duration-300 ${isHidden ? "-translate-y-full" : "translate-y-0"}`}
       >
-        <div className="container mx-auto px-6 md:px-10">
-          <div className="flex justify-between items-center h-[48px]">
+        {/* Logo Bar */}
+        <div
+          className={`transition-all duration-300 ${
+            scrolled
+              ? "bg-background/95 backdrop-blur-xl border-b border-border/30"
+              : "bg-background border-b border-border/15"
+          }`}
+        >
+          <div className="container mx-auto px-6 md:px-10 py-2.5 flex items-center justify-between gap-4">
+            {/* Logo */}
+            <button
+              onClick={() => navigate("/")}
+              className="flex items-center gap-3 group cursor-pointer select-none"
+              aria-label="Living With Arthritis — Go to homepage"
+            >
+              <div className="relative w-10 h-10 md:w-12 md:h-12 shrink-0">
+                <LogoMark className="w-full h-full drop-shadow-sm group-hover:scale-105 transition-transform duration-300" aria-hidden="true" />
+              </div>
+              <span className="text-lg sm:text-xl md:text-[1.55rem] font-black text-primary tracking-tight leading-none uppercase">
+                Living With Arthritis
+              </span>
+            </button>
 
-            {/* Desktop nav */}
-            <nav className="hidden lg:flex items-center gap-0.5 mx-auto" aria-label="Main navigation">
+            {/* Desktop search inline in logo bar */}
+            <div className="hidden lg:flex items-center">
               <SiteSearch />
-              {navLinks.map((link) => (
-                <div key={link.label} className="relative" data-nav-dropdown>
-                  <button
-                    onClick={(e) => {
-                      if (link.subs) {
-                        e.preventDefault();
-                        setActiveDropdown(activeDropdown === link.label ? null : link.label);
-                      } else {
-                        if (link.action) {
-                          e.preventDefault();
-                          link.action();
-                        } else {
-                          scrollToSection(link.href);
-                        }
-                        setActiveDropdown(null);
-                      }
-                    }}
-                    onKeyDown={(e) => {
-                      if (e.key === "Escape" && activeDropdown === link.label) {
-                        setActiveDropdown(null);
-                      }
-                    }}
-                    aria-expanded={link.subs ? activeDropdown === link.label : undefined}
-                    aria-haspopup={link.subs ? "true" : undefined}
-                    className={`px-3.5 py-1.5 text-[13px] font-semibold rounded-lg transition-all duration-200 cursor-pointer flex items-center gap-1 ${
-                      activeDropdown === link.label
-                        ? "text-primary bg-primary/5"
-                        : "text-muted-foreground hover:text-foreground hover:bg-accent"
-                    }`}
-                  >
-                    {link.label}
-                    {link.subs && <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === link.label ? "rotate-180" : ""}`} aria-hidden="true" />}
-                  </button>
+            </div>
 
-                  {/* Rich sub-menu dropdown */}
-                  {link.subs && activeDropdown === link.label && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-[90] animate-fade-in" role="menu" aria-label={`${link.label} submenu`}>
-                      <div className="bg-background border border-border/40 rounded-2xl shadow-xl p-2 min-w-[320px]">
-                        {link.subs.map((sub) => {
-                          const Icon = sub.icon;
-                          return (
-                            <button
-                              key={sub.label}
-                              onClick={() => {
-                                setActiveDropdown(null);
-                                if (sub.action) {
-                                  sub.action();
-                                } else if (sub.href.startsWith("#")) {
-                                  scrollToSection(sub.href);
-                                } else {
-                                  navigate(sub.href);
-                                }
-                              }}
-                              className="w-full text-left flex items-start gap-3 px-3 py-3 rounded-xl hover:bg-accent transition-colors cursor-pointer group/item" role="menuitem"
-                            >
-                              <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5 ${sub.color || "text-primary bg-primary/10"}`}>
-                                <Icon className="w-4 h-4" />
-                              </div>
-                              <div className="flex-1 min-w-0">
-                                <span className="block text-[13px] font-semibold text-foreground group-hover/item:text-primary transition-colors">{sub.label}</span>
-                                <span className="block text-[11px] text-muted-foreground/70 mt-0.5 leading-snug">{sub.desc}</span>
-                              </div>
-                              <ArrowRight className="w-3.5 h-3.5 text-muted-foreground/30 group-hover/item:text-primary/50 mt-1.5 opacity-0 group-hover/item:opacity-100 transition-all" />
-                            </button>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
-
-              {/* Donate button inline */}
+            {/* Mobile: search icon + hamburger */}
+            <div className="flex items-center gap-2 lg:hidden">
               <Button
-                size="sm"
-                onClick={() => {
-                  const el = document.getElementById("involved");
-                  el?.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="ml-3 btn-primary-cta h-8 px-5 rounded-full text-[11px] font-bold tracking-wider"
+                variant="ghost"
+                size="icon"
+                className="rounded-lg h-9 w-9"
+                onClick={() => setMobileSearchOpen((v) => !v)}
+                aria-label="Open search"
               >
-                <Heart className="w-3 h-3 mr-1.5" />
-                Donate
+                <Search size={18} aria-hidden="true" />
               </Button>
-            </nav>
-
-            {/* Mobile toggle */}
-            <div className="flex items-center gap-3 lg:hidden ml-auto">
               <Button
                 size="sm"
                 onClick={() => {
                   const el = document.getElementById("involved");
                   el?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="btn-primary-cta h-9 px-5 rounded-full text-[11px] font-bold tracking-wider"
+                className="btn-primary-cta h-9 px-4 rounded-full text-[11px] font-bold tracking-wider"
               >
                 <Heart className="w-3 h-3 mr-1.5" />
                 Donate
@@ -312,8 +233,126 @@ const Header = () => {
               </Button>
             </div>
           </div>
+
+          {/* Mobile search bar — slides in below logo */}
+          {mobileSearchOpen && (
+            <div className="lg:hidden px-4 pb-3 border-t border-border/20 pt-3 bg-background/95 backdrop-blur-xl">
+              <SiteSearch />
+            </div>
+          )}
         </div>
-      </header>
+
+        {/* Donation Banner — inside sticky wrapper */}
+        <Suspense fallback={<div className="bg-primary h-[38px]" />}>
+          <DonationBanner />
+        </Suspense>
+
+        {/* Nav Bar */}
+        <header
+          role="banner"
+          className={`transition-all duration-300 ${
+            scrolled
+              ? "bg-background/95 backdrop-blur-xl shadow-md border-b border-border/30"
+              : "bg-background border-b border-border/20"
+          }`}
+        >
+          <div className="container mx-auto px-6 md:px-10">
+            <div className="flex justify-between items-center h-[46px]">
+
+              {/* Desktop nav */}
+              <nav className="hidden lg:flex items-center gap-0.5 mx-auto" aria-label="Main navigation">
+                {navLinks.map((link) => (
+                  <div key={link.label} className="relative" data-nav-dropdown>
+                    <button
+                      onClick={(e) => {
+                        if (link.subs) {
+                          e.preventDefault();
+                          setActiveDropdown(activeDropdown === link.label ? null : link.label);
+                        } else {
+                          if (link.action) {
+                            e.preventDefault();
+                            link.action();
+                          } else {
+                            scrollToSection(link.href);
+                          }
+                          setActiveDropdown(null);
+                        }
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === "Escape" && activeDropdown === link.label) {
+                          setActiveDropdown(null);
+                        }
+                      }}
+                      aria-expanded={link.subs ? activeDropdown === link.label : undefined}
+                      aria-haspopup={link.subs ? "true" : undefined}
+                      className={`px-3.5 py-1.5 text-[13px] font-semibold rounded-lg transition-all duration-200 cursor-pointer flex items-center gap-1 ${
+                        activeDropdown === link.label
+                          ? "text-primary bg-primary/5"
+                          : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                      }`}
+                    >
+                      {link.label}
+                      {link.subs && <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === link.label ? "rotate-180" : ""}`} aria-hidden="true" />}
+                    </button>
+
+                    {/* Rich sub-menu dropdown */}
+                    {link.subs && activeDropdown === link.label && (
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-[90] animate-fade-in" role="menu" aria-label={`${link.label} submenu`}>
+                        <div className="bg-background border border-border/40 rounded-2xl shadow-xl p-2 min-w-[320px]">
+                          {link.subs.map((sub) => {
+                            const Icon = sub.icon;
+                            return (
+                              <button
+                                key={sub.label}
+                                onClick={() => {
+                                  setActiveDropdown(null);
+                                  if (sub.action) {
+                                    sub.action();
+                                  } else if (sub.href.startsWith("#")) {
+                                    scrollToSection(sub.href);
+                                  } else {
+                                    navigate(sub.href);
+                                  }
+                                }}
+                                className="w-full text-left flex items-start gap-3 px-3 py-3 rounded-xl hover:bg-accent transition-colors cursor-pointer group/item" role="menuitem"
+                              >
+                                <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5 ${sub.color || "text-primary bg-primary/10"}`}>
+                                  <Icon className="w-4 h-4" />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                  <span className="block text-[13px] font-semibold text-foreground group-hover/item:text-primary transition-colors">{sub.label}</span>
+                                  <span className="block text-[11px] text-muted-foreground/70 mt-0.5 leading-snug">{sub.desc}</span>
+                                </div>
+                                <ArrowRight className="w-3.5 h-3.5 text-muted-foreground/30 group-hover/item:text-primary/50 mt-1.5 opacity-0 group-hover/item:opacity-100 transition-all" />
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
+
+                {/* Donate button inline */}
+                <Button
+                  size="sm"
+                  onClick={() => {
+                    const el = document.getElementById("involved");
+                    el?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="ml-3 btn-primary-cta h-8 px-5 rounded-full text-[11px] font-bold tracking-wider"
+                >
+                  <Heart className="w-3 h-3 mr-1.5" />
+                  Donate
+                </Button>
+              </nav>
+
+              {/* Mobile placeholder — keeps header height consistent on mobile */}
+              <div className="lg:hidden w-full" />
+            </div>
+          </div>
+        </header>
+      </div>
 
       {/* Mobile menu */}
       {mobileMenuOpen && (

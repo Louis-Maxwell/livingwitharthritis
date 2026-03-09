@@ -43,6 +43,8 @@ const DeferredOverlays = memo(() => {
 });
 DeferredOverlays.displayName = "DeferredOverlays";
 
+const QuickAccessSection = lazy(() => import("@/components/landing/QuickAccessSection"));
+
 // Lazy sections – always on page
 const AboutSection = lazy(() => import("@/components/AboutSection"));
 const ServicesGrid = lazy(() => import("@/components/ServicesGrid"));
@@ -150,6 +152,11 @@ export default function Index() {
           <HeroSection />
 
           <div className="w-full px-0 space-y-0 content-deferred">
+            {/* Quick-access hub cards — right after hero */}
+            <Suspense fallback={<SectionLoader />}>
+              <QuickAccessSection />
+            </Suspense>
+
             {/* Quote */}
             <Suspense fallback={null}>
               <QuoteSection />
