@@ -178,6 +178,18 @@ const Osteoarthritis = () => (
           </ul>
         </Section>
 
+        {/* ─── Risk Factor Chart ─── */}
+        <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12 p-6 rounded-2xl bg-tint-amber border border-border/30">
+          <h3 className="font-display text-lg font-bold text-foreground mb-4">Risk Factor Prevalence</h3>
+          <HorizontalBar items={[
+            { label: "Age over 50", value: 85, color: "hsl(var(--primary))" },
+            { label: "Obesity / overweight", value: 72, color: "hsl(var(--amber))" },
+            { label: "Previous joint injury", value: 58, color: "hsl(var(--sky))" },
+            { label: "Female sex", value: 55, color: "hsl(var(--violet))" },
+            { label: "Genetic factors", value: 40, color: "hsl(var(--emerald))" },
+          ]} />
+        </motion.div>
+
         <Section icon={Dumbbell} title="Best Exercises for Osteoarthritis">
           <p>Regular exercise is one of the most effective treatments for OA. It strengthens muscles around joints, improves flexibility, reduces pain, and helps manage weight. Always start gradually and consult a physiotherapist if unsure.</p>
           <h3>Aerobic / Low-Impact</h3>
