@@ -87,6 +87,7 @@ function AnimatedRoutes() {
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/cookies" element={<CookiesPolicy />} />
       <Route path="/accessibility" element={<AccessibilityPage />} />
+      <Route path="/pain-journal" element={<PainJournal />} />
       <Route path="/shop" element={<NotFound />} />
       <Route path="/sitemap" element={<Sitemap />} />
       <Route path="*" element={<NotFound />} />
