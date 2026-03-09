@@ -112,6 +112,20 @@ const RheumatoidArthritis = () => (
           <ArrowLeft className="w-3.5 h-3.5" /> Back to conditions
         </Link>
       </PageHero>
+      {/* ─── RA Key Stats ─── */}
+      <section className="py-12 lg:py-16 bg-tint-blue">
+        <div className="container mx-auto px-6 md:px-10 max-w-4xl">
+          <p className="section-label text-sky-600 mb-6">Rheumatoid Arthritis at a Glance</p>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <StatCounter value="400K" label="People with RA in the UK" icon={<Users className="w-6 h-6" />} color="sky" />
+            <StatCounter value="3×" label="More common in women" icon={<Heart className="w-6 h-6" />} color="rose" />
+            <StatCounter value="12" suffix=" wks" label="Window of opportunity for treatment" icon={<Clock className="w-6 h-6" />} color="amber" />
+            <StatCounter value="30" suffix="+" label="Minutes morning stiffness" icon={<AlertCircle className="w-6 h-6" />} color="violet" />
+          </div>
+        </div>
+      </section>
+      <WaveDivider color="hsl(var(--background))" />
+
       <main className="container mx-auto px-6 md:px-10 py-16 md:py-24 max-w-3xl">
 
         <Section icon={Activity} title="What Is Rheumatoid Arthritis?">
