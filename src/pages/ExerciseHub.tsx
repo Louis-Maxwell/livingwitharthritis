@@ -12,6 +12,7 @@ import {
   Waves, Bike, Heart, Clock, CheckCircle, Star,
   ChevronRight, Sparkles, Shield
 } from "lucide-react";
+import ExerciseProgressTracker from "@/components/ExerciseProgressTracker";
 
 const exerciseCategories = [
   {
@@ -243,6 +244,9 @@ const ExerciseHub = () => {
             </div>
           </div>
         </section>
+
+        {/* Progress Tracker */}
+        <ExerciseProgressTracker />
 
         {/* CTA */}
         <section className="py-16 lg:py-20">

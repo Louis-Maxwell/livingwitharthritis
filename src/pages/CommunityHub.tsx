@@ -19,6 +19,7 @@ import {
   generateChairExercisePdf,
   generateFoodsListPdf,
 } from "@/lib/generatePdf";
+import PeerSupportForum from "@/components/PeerSupportForum";
 
 const communityFeatures = [
   {
@@ -187,6 +188,9 @@ const CommunityHub = () => {
           </div>
         </section>
 
+        {/* Peer Support Forum */}
+        <PeerSupportForum />
+
         {/* Community features */}
         <section id="community-features" className="py-16 lg:py-20 bg-muted/20">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
@@ -195,12 +199,12 @@ const CommunityHub = () => {
                 <Globe className="w-5 h-5 text-violet-600" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-foreground">Community Features</h2>
+                <h2 className="text-2xl font-bold text-foreground">More Community Features</h2>
                 <p className="text-sm text-muted-foreground">Building a supportive arthritis community in the UK</p>
               </div>
             </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              {communityFeatures.map((f, i) => (
+            <div className="grid md:grid-cols-2 gap-6">
+              {communityFeatures.filter(f => f.title !== "Peer Support Forum").map((f, i) => (
                 <motion.div
                   key={f.title}
                   initial={{ opacity: 0, y: 16 }}
