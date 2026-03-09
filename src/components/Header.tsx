@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, ShoppingBag, HelpCircle, HandHeart, Users, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Scale, Baby, Sparkles, Globe, Calendar, Search } from "lucide-react";
+import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, ShoppingBag, HelpCircle, HandHeart, Users, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Scale, Baby, Sparkles, Globe, Calendar, Search, ClipboardList } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import ResourceLibraryDrawer from "@/components/ResourceLibraryDrawer";
 import SiteSearch from "@/components/SiteSearch";
@@ -83,6 +83,7 @@ const Header = () => {
         { label: "Diet & Nutrition Hub", desc: "Anti-inflammatory & Mediterranean diet", icon: Utensils, href: "/diet", action: () => navigate("/diet"), color: "text-emerald-600 bg-emerald-500/10" },
         { label: "AI Health Assistant", desc: "24/7 evidence-based chat support", icon: MessageCircle, href: "/chat", action: () => navigate("/chat"), color: "text-violet-600 bg-violet-500/10" },
         { label: "Self Help Tool", desc: "Interactive joint exercise diagram", icon: Activity, href: "/self-help", action: () => navigate("/self-help"), color: "text-sky-600 bg-sky-500/10" },
+        { label: "Pain Journal", desc: "Track daily symptoms & pain levels", icon: ClipboardList, href: "/pain-journal", action: () => navigate("/pain-journal"), color: "text-amber-600 bg-amber-500/10" },
       ],
     },
     {
