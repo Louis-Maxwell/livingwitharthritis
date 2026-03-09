@@ -152,6 +152,11 @@ export default function Index() {
           <HeroSection />
 
           <div className="w-full px-0 space-y-0 content-deferred">
+            {/* Quick-access hub cards — right after hero */}
+            <Suspense fallback={<SectionLoader />}>
+              <QuickAccessSection />
+            </Suspense>
+
             {/* Quote */}
             <Suspense fallback={null}>
               <QuoteSection />
