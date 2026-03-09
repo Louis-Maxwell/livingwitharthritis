@@ -13,6 +13,7 @@ import {
   ChevronRight, Sparkles, Shield, TrendingUp, Users, Timer, Target
 } from "lucide-react";
 import ExerciseProgressTracker from "@/components/ExerciseProgressTracker";
+import Pedometer from "@/components/Pedometer";
 import {
   StatCounter,
   ProgressRing,
