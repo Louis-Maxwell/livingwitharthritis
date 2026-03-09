@@ -65,25 +65,32 @@ const Header = () => {
 
   const navLinks: NavLink[] = [
     {
-      label: "About Arthritis",
+      label: "Newly Diagnosed",
       href: "/about",
       action: () => navigate("/about"),
       subs: [
         { label: "What Is Arthritis?", desc: "Over 100 types affecting millions", icon: Stethoscope, href: "/about", action: () => navigate("/about"), color: "text-sky-600 bg-sky-500/10" },
+        { label: "Newly Diagnosed Guide", desc: "Your essential first steps", icon: Sparkles, href: "/community", action: () => navigate("/community"), color: "text-emerald-600 bg-emerald-500/10" },
         { label: "Types of Arthritis", desc: "OA, RA, Gout, PsA & more", icon: Bone, href: "#conditions", color: "text-violet-600 bg-violet-500/10" },
-        { label: "Trust & Credibility", desc: "Governance, advisors & evidence", icon: ShieldCheck, href: "/trust", action: () => navigate("/trust"), color: "text-amber-600 bg-amber-500/10" },
-        { label: "Newly Diagnosed?", desc: "Your essential first steps guide", icon: Sparkles, href: "/community", action: () => navigate("/community"), color: "text-emerald-600 bg-emerald-500/10" },
       ],
     },
     {
-      label: "Managing Arthritis",
-      href: "#services",
+      label: "Track & Manage",
+      href: "/pain-journal",
+      action: () => navigate("/pain-journal"),
+      subs: [
+        { label: "Symptom Journal", desc: "Track daily pain, mood & triggers", icon: ClipboardList, href: "/pain-journal", action: () => navigate("/pain-journal"), color: "text-amber-600 bg-amber-500/10" },
+        { label: "AI Health Assistant", desc: "24/7 evidence-based chat support", icon: MessageCircle, href: "/chat", action: () => navigate("/chat"), color: "text-violet-600 bg-violet-500/10" },
+        { label: "Self Help Tool", desc: "Interactive joint exercise diagram", icon: Activity, href: "/self-help", action: () => navigate("/self-help"), color: "text-sky-600 bg-sky-500/10" },
+      ],
+    },
+    {
+      label: "Treatments",
+      href: "/exercises",
+      action: () => navigate("/exercises"),
       subs: [
         { label: "Exercise Hub", desc: "Knee, hand, shoulder & chair exercises", icon: Dumbbell, href: "/exercises", action: () => navigate("/exercises"), color: "text-primary bg-primary/10" },
         { label: "Diet & Nutrition Hub", desc: "Anti-inflammatory & Mediterranean diet", icon: Utensils, href: "/diet", action: () => navigate("/diet"), color: "text-emerald-600 bg-emerald-500/10" },
-        { label: "AI Health Assistant", desc: "24/7 evidence-based chat support", icon: MessageCircle, href: "/chat", action: () => navigate("/chat"), color: "text-violet-600 bg-violet-500/10" },
-        { label: "Self Help Tool", desc: "Interactive joint exercise diagram", icon: Activity, href: "/self-help", action: () => navigate("/self-help"), color: "text-sky-600 bg-sky-500/10" },
-        { label: "Pain Journal", desc: "Track daily symptoms & pain levels", icon: ClipboardList, href: "/pain-journal", action: () => navigate("/pain-journal"), color: "text-amber-600 bg-amber-500/10" },
       ],
     },
     {
@@ -97,23 +104,18 @@ const Header = () => {
       ],
     },
     {
-      label: "Self Help",
-      href: "/self-help",
-      action: () => navigate("/self-help"),
-    },
-    {
       label: "Blog",
       href: "/blog",
       action: () => navigate("/blog"),
     },
     {
-      label: "Get Involved",
+      label: "Support Us",
       href: "#involved",
       subs: [
         { label: "Donate", desc: "Power the progress for a cure", icon: Heart, href: "#involved", color: "text-primary bg-primary/10" },
         { label: "Fundraise for Us", desc: "Run, bake, cycle or create", icon: HandHeart, href: "#involved", color: "text-emerald-600 bg-emerald-500/10" },
-        { label: "Volunteer", desc: "Join our community champions", icon: Users, href: "#involved", color: "text-sky-600 bg-sky-500/10" },
         { label: "Zakat Appeal", desc: "Give your Zakat to joint health", icon: Globe, href: "/zakat-appeal", action: () => navigate("/zakat-appeal"), color: "text-amber-600 bg-amber-500/10" },
+        { label: "Trust & Credibility", desc: "Governance, advisors & evidence", icon: ShieldCheck, href: "/trust", action: () => navigate("/trust"), color: "text-sky-600 bg-sky-500/10" },
       ],
     },
     { label: "Resources", href: "#resources", action: () => setResourceDrawerOpen(true) },
@@ -147,12 +149,12 @@ const Header = () => {
   };
 
   const mobileNavItems = [
-    { label: "About Arthritis", icon: Stethoscope, desc: "Types, causes & what to expect", href: "/about", action: () => navigate("/about") },
-    { label: "Managing Arthritis", icon: Activity, desc: "Physio, nutrition & exercise", href: "#services" },
+    { label: "Newly Diagnosed", icon: Sparkles, desc: "Your essential first steps guide", href: "/about", action: () => navigate("/about") },
+    { label: "Track Symptoms", icon: ClipboardList, desc: "Pain journal & symptom diary", href: "/pain-journal", action: () => navigate("/pain-journal") },
+    { label: "Exercises & Diet", icon: Dumbbell, desc: "Physio exercises & nutrition plans", href: "/exercises", action: () => navigate("/exercises") },
     { label: "Conditions", icon: HeartPulse, desc: "OA, RA, Gout, PsA & more", href: "#conditions" },
-    { label: "Self Help Tool", icon: HelpCircle, desc: "Interactive symptom guidance", href: "/self-help", action: () => navigate("/self-help") },
     { label: "Blog & Research", icon: Newspaper, desc: "40+ evidence-based articles", href: "/blog", action: () => navigate("/blog") },
-    { label: "Get Involved", icon: HandHeart, desc: "Donate, volunteer & fundraise", href: "#involved" },
+    { label: "Support Us", icon: HandHeart, desc: "Donate, volunteer & fundraise", href: "#involved" },
     { label: "Resources", icon: BookOpen, desc: "NHS pathways, benefits & guides", href: "#resources", action: () => setResourceDrawerOpen(true) },
   ];
 

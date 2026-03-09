@@ -1,4 +1,4 @@
-import { MessageCircle, ArrowRight, Heart, Activity, ChevronDown, Shield, Sparkles, Clock } from "lucide-react";
+import { MessageCircle, ArrowRight, Heart, Activity, ChevronDown, Shield, Sparkles, ClipboardList, Dumbbell, Utensils, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState, memo } from "react";
@@ -6,7 +6,7 @@ import { useEffect, useRef, useState, memo } from "react";
 import "./HeroSection.css";
 
 const STATS = [
-  { value: 30000000, display: "30M+", label: "People to support globally", suffix: "+" },
+  { value: 10000000, display: "10M+", label: "People with arthritis in the UK", suffix: "+" },
   { value: 100, display: "100+", label: "Types of arthritis covered", suffix: "+" },
   { value: 15000, display: "15K+", label: "Lives improved so far", suffix: "+" },
 ];
@@ -53,26 +53,33 @@ function AnimatedCounter({ target, suffix }: { target: number; suffix: string })
   );
 }
 
-/* Quick-access feature pills for immediate engagement */
-const QuickActions = memo(({ navigate }: { navigate: (path: string) => void }) => (
-  <div className="hero-item mt-8 flex flex-wrap justify-center gap-2">
+/* User journey pathways — goal-oriented quick actions */
+const JourneyPaths = memo(({ navigate }: { navigate: (path: string) => void }) => (
+  <div className="hero-item mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto">
     {[
-      { label: "🦴 Joint Exercises", action: () => document.getElementById("explore")?.scrollIntoView({ behavior: "smooth" }) },
-      { label: "🥗 Anti-Inflammatory Diet", action: () => document.getElementById("explore")?.scrollIntoView({ behavior: "smooth" }) },
-      { label: "💬 AI Chat Support", action: () => navigate("/chat") },
-      { label: "📖 Blog Articles", action: () => navigate("/blog") },
-    ].map((item) => (
-      <button
-        key={item.label}
-        onClick={item.action}
-        className="quick-action-pill px-4 py-2 rounded-full text-xs font-semibold text-muted-foreground bg-card/60 backdrop-blur-sm border border-border/30 hover:border-primary/20 hover:text-foreground hover:bg-card/90 transition-all duration-300 cursor-pointer"
-      >
-        {item.label}
-      </button>
-    ))}
+      { icon: ClipboardList, label: "Track Symptoms", desc: "Pain journal", action: () => navigate("/pain-journal"), color: "text-amber-600 bg-amber-500/10 border-amber-200/50" },
+      { icon: Dumbbell, label: "Joint Exercises", desc: "Physio-led", action: () => navigate("/exercises"), color: "text-primary bg-primary/10 border-primary/20" },
+      { icon: Utensils, label: "Diet Plans", desc: "Anti-inflammatory", action: () => navigate("/diet"), color: "text-emerald-600 bg-emerald-500/10 border-emerald-200/50" },
+      { icon: MessageCircle, label: "AI Assistant", desc: "24/7 support", action: () => navigate("/chat"), color: "text-violet-600 bg-violet-500/10 border-violet-200/50" },
+    ].map((item) => {
+      const Icon = item.icon;
+      return (
+        <button
+          key={item.label}
+          onClick={item.action}
+          className={`journey-card group flex flex-col items-center gap-2 px-3 py-4 rounded-2xl border backdrop-blur-sm bg-card/60 hover:bg-card/90 transition-all duration-300 cursor-pointer ${item.color}`}
+        >
+          <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${item.color} group-hover:scale-110 transition-transform`}>
+            <Icon className="w-5 h-5" />
+          </div>
+          <span className="text-xs font-bold text-foreground">{item.label}</span>
+          <span className="text-[10px] text-muted-foreground">{item.desc}</span>
+        </button>
+      );
+    })}
   </div>
 ));
-QuickActions.displayName = "QuickActions";
+JourneyPaths.displayName = "JourneyPaths";
 
 const HeroSection = () => {
   const navigate = useNavigate();
@@ -97,50 +104,60 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 md:px-10 relative">
         <div className="flex items-center justify-center min-h-[calc(100vh-140px)] py-24 lg:py-0">
           <div className="hero-stagger max-w-[820px] text-center">
-            {/* Removed trust badge — using social proof badges below instead */}
+            
+            {/* Empathy-led micro-label */}
+            <div className="hero-item flex items-center justify-center gap-2 mb-6">
+              <span className="px-4 py-1.5 rounded-full text-xs font-semibold bg-primary/8 text-primary border border-primary/15 tracking-wide">
+                Living with arthritis is hard — we make it easier
+              </span>
+            </div>
 
-            <h1 className="hero-item text-[2.75rem] sm:text-5xl md:text-6xl lg:text-[4.75rem] font-extrabold text-foreground mb-8 leading-[1.06] tracking-tight text-balance">
-              The future of{" "}
+            {/* Aspirational headline */}
+            <h1 className="hero-item text-[2.5rem] sm:text-5xl md:text-6xl lg:text-[4.5rem] font-extrabold text-foreground mb-6 leading-[1.06] tracking-tight text-balance">
+              Expert arthritis care,{" "}
               <span className="text-gradient relative inline-block">
-                arthritis care
+                completely free
                 <svg className="absolute -bottom-2 left-0 w-full h-3 text-secondary/30" viewBox="0 0 200 10" preserveAspectRatio="none">
                   <path d="M0 7 Q50 0 100 5 T200 3" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
                 </svg>
-              </span>{" "}
-              is here
+              </span>
             </h1>
 
-            <p className="hero-item text-base sm:text-lg text-muted-foreground leading-[1.9] mb-10 max-w-[560px] mx-auto">
-              World-class physiotherapy, personalised nutrition science, and AI-powered guidance — 
-              completely free. Because everyone deserves expert arthritis support.
+            {/* Problem-solution subheading */}
+            <p className="hero-item text-base sm:text-lg text-muted-foreground leading-[1.9] mb-8 max-w-[580px] mx-auto">
+              Track your symptoms, manage flare-ups, and prepare for GP appointments — with 
+              personalised exercise plans, anti-inflammatory nutrition, and 24/7 AI guidance 
+              from HCPC-registered physiotherapists.
             </p>
 
+            {/* Dual CTA */}
             <div className="hero-item flex flex-col sm:flex-row justify-center gap-4">
               <Button
                 size="lg"
-                onClick={() => navigate("/chat")}
+                onClick={() => navigate("/pain-journal")}
                 className="btn-primary-cta px-10 h-[56px] rounded-full text-sm font-bold tracking-wide group"
               >
-                <MessageCircle className="w-4 h-4 mr-2.5 group-hover:scale-110 transition-transform" />
-                Start Your Journey
+                <ClipboardList className="w-4 h-4 mr-2.5 group-hover:scale-110 transition-transform" />
+                Track Your Symptoms
                 <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => navigate("/chat")}
                 className="btn-ghost-premium px-10 h-[56px] rounded-full text-sm group"
               >
-                Explore What We Offer
+                <MessageCircle className="w-4 h-4 mr-2" />
+                Ask Our AI Assistant
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
             </div>
 
-            {/* Quick action pills — reduce bounce by giving immediate pathways */}
-            <QuickActions navigate={navigate} />
+            {/* Goal-oriented journey paths */}
+            <JourneyPaths navigate={navigate} />
 
             {/* Animated stats */}
-            <div className="hero-item mt-12 grid grid-cols-3 gap-4 max-w-lg mx-auto">
+            <div className="hero-item mt-10 grid grid-cols-3 gap-4 max-w-lg mx-auto">
               {STATS.map((stat, i) => (
                 <div key={i} className="hero-stat-card rounded-2xl px-4 py-5 text-center">
                   <AnimatedCounter target={stat.value} suffix={stat.suffix} />
@@ -149,19 +166,19 @@ const HeroSection = () => {
               ))}
             </div>
 
-            {/* Social proof */}
-            <div className="hero-item mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 text-sm text-muted-foreground">
+            {/* Authority trust badges */}
+            <div className="hero-item mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 text-sm text-muted-foreground">
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/10">
                 <Heart className="w-4 h-4 text-primary fill-primary/20" />
-                <span className="font-medium text-foreground">100% Free</span>
+                <span className="font-medium text-foreground text-xs">100% Free Forever</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-emerald/5 border border-emerald/10">
                 <Shield className="w-4 h-4 text-emerald" />
-                <span className="font-medium text-foreground">NHS-Aligned</span>
+                <span className="font-medium text-foreground text-xs">NHS & NICE Aligned</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-sky/5 border border-sky/10">
                 <Activity className="w-4 h-4 text-sky" />
-                <span className="font-medium text-foreground">HCPC & CSP Accredited</span>
+                <span className="font-medium text-foreground text-xs">HCPC & CSP Registered</span>
               </div>
             </div>
           </div>
