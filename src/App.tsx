@@ -34,6 +34,7 @@ const CommunityHub = lazy(() => import("./pages/CommunityHub"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const CookiesPolicy = lazy(() => import("./pages/CookiesPolicy"));
 const AccessibilityPage = lazy(() => import("./pages/Accessibility"));
+const PainJournal = lazy(() => import("./pages/PainJournal"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading fallback with skeleton-style animation
