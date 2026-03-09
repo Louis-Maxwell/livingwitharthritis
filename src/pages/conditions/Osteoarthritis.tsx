@@ -127,6 +127,20 @@ const Osteoarthritis = () => (
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-500/20 to-transparent" />
       </div>
 
+      {/* ─── Key Stats ─── */}
+      <section className="py-12 lg:py-16 bg-tint-green">
+        <div className="container mx-auto px-6 md:px-10 max-w-4xl">
+          <p className="section-label text-emerald-600 mb-6">Osteoarthritis at a Glance</p>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <StatCounter value="8.75" suffix="M" label="People affected in the UK" icon={<Users className="w-6 h-6" />} color="emerald" />
+            <StatCounter value="50" suffix="+" label="Most common age of onset" icon={<Timer className="w-6 h-6" />} color="sky" />
+            <StatCounter value="40" suffix="%" label="Pain reduction with exercise" icon={<TrendingUp className="w-6 h-6" />} color="amber" />
+            <StatCounter value="5" suffix="%" label="Weight loss target for relief" icon={<Scale className="w-6 h-6" />} color="violet" />
+          </div>
+        </div>
+      </section>
+      <WaveDivider color="hsl(var(--background))" />
+
       <main className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
 
         <Section icon={Activity} title="What Is Osteoarthritis?">
