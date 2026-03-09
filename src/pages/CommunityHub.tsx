@@ -113,7 +113,7 @@ const CommunityHub = () => {
               <StatCounter value="10M+" label="People with arthritis in the UK" icon={<Users className="w-6 h-6" />} color="primary" />
               <StatCounter value="24/7" label="AI assistant availability" icon={<MessageCircle className="w-6 h-6" />} color="sky" />
               <StatCounter value="50+" label="Free guides & resources" icon={<BookOpen className="w-6 h-6" />} color="emerald" />
-              <StatCounter value="6" label="Downloadable PDF guides" icon={<Download className="w-6 h-6" />} color="amber" />
+              <StatCounter value="9" label="Downloadable PDF guides" icon={<Download className="w-6 h-6" />} color="amber" />
             </div>
           </div>
         </section>
