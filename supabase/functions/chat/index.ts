@@ -86,6 +86,12 @@ serve(async (req) => {
   }
 
   try {
+    // Rate limiting
+    const ip = getClientIp(req);
+    if (!limiter.check(ip)) {
+      return rateLimitResponse(corsHeaders);
+    }
+
     // Parse and validate request body
     let requestBody: unknown;
     try {
