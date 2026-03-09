@@ -349,3 +349,125 @@ export function generateFoodsListPdf() {
   footer(doc);
   doc.save("Anti_Inflammatory_Foods_Checklist_LWA.pdf");
 }
+
+/* ─── NEW: Shoulder Exercise Guide ─── */
+export function generateShoulderExercisePdf() {
+  const doc = new jsPDF();
+  header(doc, "Shoulder Exercise Guide", "Gentle mobility & strengthening for shoulder arthritis");
+
+  let y = 50;
+  y = paragraph(doc, y, "Shoulder arthritis can make reaching, lifting and dressing difficult. These exercises aim to maintain range of motion, reduce stiffness and build the rotator cuff and deltoid muscles. Perform daily, using heat on the shoulder for 5 minutes beforehand if helpful.");
+
+  const exercises = [
+    { name: "1. Pendulum Swings", reps: "30 seconds each arm", desc: "Lean forward with one hand on a table. Let the affected arm hang and gently swing it in small circles, then side to side. Gradually increase the arc. Relieves stiffness without loading the joint." },
+    { name: "2. Wall Finger Walk", reps: "5 reps each arm", desc: "Face a wall at arm's length. Walk your fingers up the wall as high as you can comfortably reach. Hold 5 seconds, then walk them down. Improves overhead reach progressively." },
+    { name: "3. Cross-Body Stretch", reps: "Hold 15 seconds, 3 each side", desc: "Bring one arm across your chest. Use the opposite hand to gently press the arm closer. Stretches the posterior shoulder capsule." },
+    { name: "4. External Rotation with Band", reps: "10 each arm", desc: "Hold a resistance band with elbows bent at 90° and tucked to your sides. Rotate your forearm outward against the band. Hold 2 seconds. Strengthens the rotator cuff." },
+    { name: "5. Shoulder Blade Squeeze", reps: "12 reps", desc: "Sit or stand tall. Squeeze your shoulder blades together as if holding a pencil between them. Hold 5 seconds. Improves posture and upper back strength." },
+    { name: "6. Towel Stretch (Behind Back)", reps: "5 reps each side", desc: "Hold a towel behind your back — one hand over the shoulder, the other at the lower back. Gently pull upward with the top hand. Improves internal and external rotation." },
+    { name: "7. Isometric Shoulder Press", reps: "Hold 10 seconds × 5", desc: "Stand in a doorway. Push your palm against the frame at shoulder height without moving the arm. Builds strength without joint movement — ideal during flare-ups." },
+  ];
+
+  for (const ex of exercises) {
+    y = sectionTitle(doc, y, ex.name);
+    doc.setFontSize(9); doc.setFont("helvetica", "italic");
+    doc.text(`Reps: ${ex.reps}`, 18, y);
+    doc.setFont("helvetica", "normal"); y += 5;
+    y = paragraph(doc, y, ex.desc, 10); y += 2;
+  }
+
+  y = sectionTitle(doc, y, "Tips");
+  y = bulletList(doc, y, [
+    "Never force a movement — work within your pain-free range.",
+    "Apply ice for 10 minutes after if the shoulder feels warm or swollen.",
+    "Sleep on the unaffected side with a pillow supporting the painful arm.",
+    "Ask your GP about a referral to a physiotherapist for hands-on guidance.",
+  ]);
+
+  footer(doc);
+  doc.save("Shoulder_Exercise_Guide_LWA.pdf");
+}
+
+/* ─── NEW: Hip Exercise Guide ─── */
+export function generateHipExercisePdf() {
+  const doc = new jsPDF();
+  header(doc, "Hip Exercise Guide", "Strengthening & flexibility for hip osteoarthritis");
+
+  let y = 50;
+  y = paragraph(doc, y, "Hip osteoarthritis is one of the most common causes of reduced mobility. These exercises strengthen the muscles around the hip joint, improve balance and help maintain independence. Do them daily — consistency is more important than intensity.");
+
+  const exercises = [
+    { name: "1. Standing Hip Abduction", reps: "10 each leg", desc: "Stand holding a chair. Lift one leg out to the side, keeping it straight. Hold 2 seconds, lower slowly. Strengthens the gluteus medius, critical for walking stability." },
+    { name: "2. Hip Flexor Stretch (Kneeling)", reps: "Hold 20 seconds each side", desc: "Kneel on one knee with the other foot forward. Push your hips gently forward until you feel a stretch at the front of the back hip. Counters the tightness from sitting." },
+    { name: "3. Bridges", reps: "12 reps", desc: "Lie on your back, knees bent, feet flat. Squeeze your glutes and lift your hips until your body forms a straight line from knees to shoulders. Hold 3 seconds. Strengthens glutes and lower back." },
+    { name: "4. Seated Hip Internal Rotation", reps: "10 each leg", desc: "Sit on a chair. Keeping your knee still, move your foot outward (rotating the hip inward). Hold 3 seconds. Maintains rotational range of motion." },
+    { name: "5. Clamshells", reps: "12 each side", desc: "Lie on your side with knees bent at 45°. Keep feet together and open the top knee like a clamshell. Hold 3 seconds. Targets hip external rotators." },
+    { name: "6. Step-Ups (Low Step)", reps: "8 each leg", desc: "Use a low step (10–15 cm). Step up, straighten, step down. Builds functional strength for stairs." },
+    { name: "7. Supine Hip Circles", reps: "8 each direction, each leg", desc: "Lie on your back and lift one knee. Gently circle the knee in small circles. Lubricates the hip joint and maintains range." },
+  ];
+
+  for (const ex of exercises) {
+    y = sectionTitle(doc, y, ex.name);
+    doc.setFontSize(9); doc.setFont("helvetica", "italic");
+    doc.text(`Reps: ${ex.reps}`, 18, y);
+    doc.setFont("helvetica", "normal"); y += 5;
+    y = paragraph(doc, y, ex.desc, 10); y += 2;
+  }
+
+  y = sectionTitle(doc, y, "Daily Living Tips");
+  y = bulletList(doc, y, [
+    "Use a raised toilet seat and grab rails to reduce deep bending.",
+    "Wear supportive shoes with good cushioning.",
+    "Avoid sitting in very low chairs — aim for seat height at knee level or above.",
+    "Walking aids (a stick in the opposite hand) can reduce hip load by up to 25%.",
+  ]);
+
+  footer(doc);
+  doc.save("Hip_Exercise_Guide_LWA.pdf");
+}
+
+/* ─── NEW: Weekly Exercise Progress Tracker ─── */
+export function generateProgressTrackerPdf() {
+  const doc = new jsPDF();
+  header(doc, "Weekly Exercise Progress Tracker", "Track your activity, set goals & celebrate wins");
+
+  let y = 50;
+  y = paragraph(doc, y, "Use this tracker to build a consistent exercise habit. Record what you did each day, how it felt, and reflect at the end of the week. Print one per week and keep them together to see your progress over time.");
+
+  y = sectionTitle(doc, y, "My Goal This Week");
+  y = paragraph(doc, y, "_______________________________________________________________");
+  y += 2;
+
+  // Table
+  doc.setFillColor(LIGHT.r, LIGHT.g, LIGHT.b);
+  doc.rect(15, y, 180, 8, "F");
+  doc.setFontSize(8); doc.setFont("helvetica", "bold");
+  const cols = ["Day", "Exercise Done", "Duration", "Pain Before (0-10)", "Pain After", "Mood ☺/😐/☹"];
+  const colX = [17, 32, 90, 120, 150, 170];
+  cols.forEach((c, i) => doc.text(c, colX[i], y + 5.5));
+  y += 10;
+  doc.setFont("helvetica", "normal");
+  const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  for (const day of days) {
+    doc.setDrawColor(200, 200, 200);
+    doc.rect(15, y - 1, 180, 12);
+    doc.text(day, 17, y + 6);
+    y += 12;
+  }
+
+  y += 8;
+  y = sectionTitle(doc, y, "Weekly Reflection");
+  y = paragraph(doc, y, "Total exercise sessions this week: _______");
+  y = paragraph(doc, y, "Total minutes active: _______");
+  y = paragraph(doc, y, "Best exercise this week: _______________________________________________");
+  y = paragraph(doc, y, "Biggest challenge: ____________________________________________________");
+  y = paragraph(doc, y, "What I'll do differently next week: ____________________________________");
+
+  y += 4;
+  y = sectionTitle(doc, y, "Celebration Corner 🎉");
+  y = paragraph(doc, y, "Write one thing you're proud of this week, no matter how small:");
+  y = paragraph(doc, y, "_______________________________________________________________");
+
+  footer(doc);
+  doc.save("Weekly_Exercise_Progress_Tracker_LWA.pdf");
+}
