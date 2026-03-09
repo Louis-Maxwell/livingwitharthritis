@@ -109,6 +109,9 @@ const App = () => (
           <Suspense fallback={null}>
             <CookieConsent />
           </Suspense>
+          <Suspense fallback={null}>
+            <AccessibilityToolbar />
+          </Suspense>
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
