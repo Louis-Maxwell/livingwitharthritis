@@ -780,6 +780,57 @@ export type Database = {
         }
         Relationships: []
       }
+      pain_journal_entries: {
+        Row: {
+          activities: string | null
+          created_at: string
+          entry_date: string
+          id: string
+          joints_affected: string[]
+          medications: string | null
+          mood: string | null
+          notes: string | null
+          pain_level: number
+          sleep_quality: number | null
+          stiffness_duration: number | null
+          triggers: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          activities?: string | null
+          created_at?: string
+          entry_date?: string
+          id?: string
+          joints_affected?: string[]
+          medications?: string | null
+          mood?: string | null
+          notes?: string | null
+          pain_level: number
+          sleep_quality?: number | null
+          stiffness_duration?: number | null
+          triggers?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          activities?: string | null
+          created_at?: string
+          entry_date?: string
+          id?: string
+          joints_affected?: string[]
+          medications?: string | null
+          mood?: string | null
+          notes?: string | null
+          pain_level?: number
+          sleep_quality?: number | null
+          stiffness_duration?: number | null
+          triggers?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       physio_myths: {
         Row: {
           created_at: string
