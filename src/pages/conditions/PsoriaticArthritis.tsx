@@ -2,9 +2,10 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, Fingerprint, BookOpen, ArrowRight } from "lucide-react";
+import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, Fingerprint, BookOpen, ArrowRight, Users, TrendingUp, Percent, Eye } from "lucide-react";
 import { motion } from "framer-motion";
 import PageHero from "@/components/ui/PageHero";
+import { StatCounter, HorizontalBar, WaveDivider, EmojiCard } from "@/components/graphics/InfographicElements";
 
 const BASE = "https://livingwitharthritis.org.uk";
 
@@ -111,8 +112,21 @@ const PsoriaticArthritis = () => (
           <ArrowLeft className="w-3.5 h-3.5" /> Back to conditions
         </Link>
       </PageHero>
-      <main className="container mx-auto px-6 md:px-10 py-16 md:py-24 max-w-3xl">
+      {/* ─── PsA Key Stats ─── */}
+      <section className="py-12 lg:py-16 bg-tint-violet">
+        <div className="container mx-auto px-6 md:px-10 max-w-4xl">
+          <p className="section-label text-violet-600 mb-6">Psoriatic Arthritis at a Glance</p>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <StatCounter value="150K" label="People with PsA in the UK" icon={<Users className="w-6 h-6" />} color="violet" />
+            <StatCounter value="30" suffix="%" label="Of psoriasis patients develop PsA" icon={<Percent className="w-6 h-6" />} color="amber" />
+            <StatCounter value="5" label="Distinct PsA patterns" icon={<Fingerprint className="w-6 h-6" />} color="sky" />
+            <StatCounter value="80" suffix="%" label="Develop skin symptoms first" icon={<Eye className="w-6 h-6" />} color="rose" />
+          </div>
+        </div>
+      </section>
+      <WaveDivider color="hsl(var(--background))" />
 
+      <main className="container mx-auto px-6 md:px-10 py-16 md:py-24 max-w-3xl">
         <Section icon={Activity} title="What Is Psoriatic Arthritis?">
           <p>Psoriatic arthritis is a chronic inflammatory condition that combines the joint inflammation of arthritis with the skin disease psoriasis. The immune system attacks both the joints and skin, causing pain, swelling, stiffness, and characteristic scaly skin patches.</p>
           <p>PsA can affect any joint and varies considerably between individuals. It was once considered a mild form of arthritis, but we now know it can be <strong>progressive and destructive</strong> if left untreated.</p>

@@ -2,9 +2,10 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, ShieldAlert, BookOpen, ArrowRight, Shield } from "lucide-react";
+import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, ShieldAlert, BookOpen, ArrowRight, Shield, Users, TrendingUp, Clock, AlertCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import PageHero from "@/components/ui/PageHero";
+import { StatCounter, HorizontalBar, WaveDivider, EmojiCard, ComparisonCard } from "@/components/graphics/InfographicElements";
 
 const BASE = "https://livingwitharthritis.org.uk";
 
@@ -111,6 +112,20 @@ const RheumatoidArthritis = () => (
           <ArrowLeft className="w-3.5 h-3.5" /> Back to conditions
         </Link>
       </PageHero>
+      {/* ─── RA Key Stats ─── */}
+      <section className="py-12 lg:py-16 bg-tint-blue">
+        <div className="container mx-auto px-6 md:px-10 max-w-4xl">
+          <p className="section-label text-sky-600 mb-6">Rheumatoid Arthritis at a Glance</p>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <StatCounter value="400K" label="People with RA in the UK" icon={<Users className="w-6 h-6" />} color="sky" />
+            <StatCounter value="3×" label="More common in women" icon={<Heart className="w-6 h-6" />} color="rose" />
+            <StatCounter value="12" suffix=" wks" label="Window of opportunity for treatment" icon={<Clock className="w-6 h-6" />} color="amber" />
+            <StatCounter value="30" suffix="+" label="Minutes morning stiffness" icon={<AlertCircle className="w-6 h-6" />} color="violet" />
+          </div>
+        </div>
+      </section>
+      <WaveDivider color="hsl(var(--background))" />
+
       <main className="container mx-auto px-6 md:px-10 py-16 md:py-24 max-w-3xl">
 
         <Section icon={Activity} title="What Is Rheumatoid Arthritis?">
@@ -125,6 +140,20 @@ const RheumatoidArthritis = () => (
             <li><strong>Systemic effects:</strong> RA can affect organs; OA is localised to joints</li>
           </ul>
         </Section>
+
+        {/* ─── RA vs OA Visual Comparison ─── */}
+        <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
+          <ComparisonCard
+            leftTitle="Rheumatoid Arthritis"
+            rightTitle="Osteoarthritis"
+            rows={[
+              { label: "Cause", left: "Autoimmune attack on joints", right: "Wear-and-tear cartilage loss" },
+              { label: "Pattern", left: "Symmetrical (both sides)", right: "Often one side or localised" },
+              { label: "Stiffness", left: "30+ minutes, often hours", right: "Usually under 30 minutes" },
+              { label: "Onset", left: "Any age (commonly 30–60)", right: "Typically after age 50" },
+            ]}
+          />
+        </motion.div>
 
         <Section icon={ShieldAlert} title="Symptoms of Rheumatoid Arthritis">
           <p>RA symptoms can vary in severity and may come and go in periods called flares. Common symptoms include:</p>

@@ -10,9 +10,20 @@ import { Link } from "react-router-dom";
 import {
   Dumbbell, Footprints, Hand, ArrowRight, Activity,
   Waves, Bike, Heart, Clock, CheckCircle, Star,
-  ChevronRight, Sparkles, Shield
+  ChevronRight, Sparkles, Shield, TrendingUp, Users, Timer, Target
 } from "lucide-react";
 import ExerciseProgressTracker from "@/components/ExerciseProgressTracker";
+import {
+  StatCounter,
+  ProgressRing,
+  HorizontalBar,
+  WaveDivider,
+  IconStatRow,
+  EmojiCard,
+  ComparisonCard,
+  DonutChart,
+  Timeline,
+} from "@/components/graphics/InfographicElements";
 
 const exerciseCategories = [
   {
@@ -147,13 +158,28 @@ const ExerciseHub = () => {
       </PageHero>
 
       <main id="main-content">
+        {/* ─── Key Stats Infographic ─── */}
+        <section className="py-12 lg:py-16 bg-tint-blue">
+          <div className="container mx-auto px-6 md:px-10 max-w-5xl">
+            <p className="section-label text-primary mb-6">Why Exercise Matters</p>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              <StatCounter value="40" suffix="%" label="Pain reduction with regular exercise" icon={<TrendingUp className="w-6 h-6" />} color="emerald" />
+              <StatCounter value="30" suffix=" min" label="Daily target for best results" icon={<Timer className="w-6 h-6" />} color="sky" />
+              <StatCounter value="8.75" suffix="M" label="People with OA in the UK" icon={<Users className="w-6 h-6" />} color="amber" />
+              <StatCounter value="4" label="Joint-specific routines below" icon={<Target className="w-6 h-6" />} color="violet" />
+            </div>
+          </div>
+        </section>
+
+        <WaveDivider color="hsl(var(--background))" />
+
         {/* Quick jump */}
-        <section className="py-8 bg-muted/30 border-b border-border/40">
+        <section className="py-8 border-b border-border/40">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <p className="text-sm font-medium text-muted-foreground mb-3">Jump to:</p>
             <div className="flex flex-wrap gap-2">
               {exerciseCategories.map((cat) => (
-                <a key={cat.id} href={`#${cat.id}`} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background border border-border/60 text-sm font-medium text-foreground hover:border-primary/40 hover:text-primary transition-colors">
+                <a key={cat.id} href={`#${cat.id}`} className="inline-flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] rounded-full bg-background border border-border/60 text-sm font-medium text-foreground hover:border-primary/40 hover:text-primary transition-colors">
                   <cat.icon className="w-3.5 h-3.5" /> {cat.title}
                 </a>
               ))}
@@ -174,7 +200,7 @@ const ExerciseHub = () => {
                 transition={{ duration: 0.5, delay: i * 0.05 }}
               >
                 <Card className={`border ${cat.borderColor} bg-gradient-to-br ${cat.color} overflow-hidden`}>
-                  <CardContent className="p-8 lg:p-10">
+                  <CardContent className="p-5 sm:p-7 lg:p-10">
                     <div className="flex items-start gap-4 mb-6">
                       <div className={`w-12 h-12 rounded-xl ${cat.iconColor} flex items-center justify-center shrink-0`}>
                         <cat.icon className="w-6 h-6" />
@@ -201,7 +227,7 @@ const ExerciseHub = () => {
                         <Star className="w-4 h-4 text-amber-500" />
                         <strong>Tip:</strong> {cat.tip}
                       </p>
-                      <Button asChild variant="outline" size="sm" className="shrink-0">
+                      <Button asChild variant="outline" size="sm" className="shrink-0 min-h-[44px]">
                         <Link to={cat.href}>Full guide <ArrowRight className="w-3.5 h-3.5 ml-1.5" /></Link>
                       </Button>
                     </div>
@@ -212,8 +238,59 @@ const ExerciseHub = () => {
           </div>
         </section>
 
+        {/* ─── Exercise Effectiveness Chart ─── */}
+        <section className="py-12 lg:py-16 bg-tint-green">
+          <div className="container mx-auto px-6 md:px-10 max-w-5xl">
+            <div className="grid md:grid-cols-2 gap-10 items-center">
+              <div>
+                <p className="section-label text-emerald-600 mb-3">Research Findings</p>
+                <h2 className="text-2xl font-bold text-foreground mb-4">Exercise Effectiveness by Type</h2>
+                <p className="text-sm text-muted-foreground mb-6">Percentage of patients reporting symptom improvement after 12 weeks of consistent exercise.</p>
+                <HorizontalBar
+                  items={[
+                    { label: "Swimming / Hydrotherapy", value: 78, color: "hsl(var(--sky))" },
+                    { label: "Walking (30 min/day)", value: 72, color: "hsl(var(--emerald))" },
+                    { label: "Strength Training", value: 68, color: "hsl(var(--violet))" },
+                    { label: "Yoga / Tai Chi", value: 65, color: "hsl(var(--amber))" },
+                    { label: "Cycling", value: 62, color: "hsl(var(--primary))" },
+                  ]}
+                />
+              </div>
+              <div className="flex flex-col items-center gap-6">
+                <DonutChart
+                  label="Exercise Benefits Breakdown"
+                  segments={[
+                    { percent: 35, color: "hsl(var(--emerald))", label: "Pain relief" },
+                    { percent: 25, color: "hsl(var(--sky))", label: "Mobility" },
+                    { percent: 20, color: "hsl(var(--violet))", label: "Strength" },
+                    { percent: 20, color: "hsl(var(--amber))", label: "Mood" },
+                  ]}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <WaveDivider color="hsl(var(--background))" />
+
+        {/* ─── Quick Tips Emoji Grid ─── */}
+        <section className="py-12 lg:py-16">
+          <div className="container mx-auto px-6 md:px-10 max-w-5xl">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Quick Exercise Tips</h2>
+            <p className="text-sm text-muted-foreground mb-8">Simple guidelines for safe, effective arthritis exercise.</p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+              <EmojiCard emoji="🔥" title="Warm Up" description="5 min gentle movement before each session" />
+              <EmojiCard emoji="💧" title="Stay Hydrated" description="Drink water before, during and after" />
+              <EmojiCard emoji="⏱️" title="Pace Yourself" description="Start slow, increase gradually over weeks" />
+              <EmojiCard emoji="🧊" title="Ice After" description="Apply cold pack if joints feel warm post-exercise" />
+              <EmojiCard emoji="📅" title="Be Consistent" description="Daily short sessions beat weekly long ones" />
+              <EmojiCard emoji="🛑" title="Listen to Pain" description="Sharp pain = stop. Mild ache = OK to continue" />
+            </div>
+          </div>
+        </section>
+
         {/* Additional activities */}
-        <section className="py-16 lg:py-20 bg-muted/20">
+        <section className="py-12 lg:py-16 bg-muted/20">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <h2 className="text-3xl font-bold text-foreground mb-3">More Ways to Stay Active</h2>
             <p className="text-muted-foreground mb-10 max-w-2xl">Low-impact activities that complement your exercise routine and support joint health.</p>
@@ -245,6 +322,25 @@ const ExerciseHub = () => {
           </div>
         </section>
 
+        {/* ─── Weekly Plan Timeline ─── */}
+        <section className="py-12 lg:py-16 bg-tint-peach">
+          <div className="container mx-auto px-6 md:px-10 max-w-3xl">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Sample Weekly Plan</h2>
+            <p className="text-sm text-muted-foreground mb-8">A balanced week of arthritis-friendly exercise.</p>
+            <Timeline items={[
+              { title: "Monday — Knee Strengthening", description: "20 min quad & hamstring routine. Straight leg raises, wall sits." },
+              { title: "Tuesday — Walking", description: "30 min brisk walk with supportive footwear." },
+              { title: "Wednesday — Hand Exercises", description: "15 min grip & flexibility. Finger bends, putty squeezes." },
+              { title: "Thursday — Swimming", description: "30 min pool session or aqua aerobics class." },
+              { title: "Friday — Yoga / Tai Chi", description: "20 min gentle flexibility and balance work." },
+              { title: "Saturday — Chair Exercises", description: "15 min seated routine. Great on lower-energy days." },
+              { title: "Sunday — Rest & Stretch", description: "Gentle 10 min full-body stretching only." },
+            ]} />
+          </div>
+        </section>
+
+        <WaveDivider color="hsl(var(--background))" />
+
         {/* Progress Tracker */}
         <ExerciseProgressTracker />
 
@@ -257,10 +353,10 @@ const ExerciseHub = () => {
               Our AI Health Assistant can recommend exercises based on your specific joints and symptoms. It's free, instant and evidence-based.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button asChild size="lg">
+              <Button asChild size="lg" className="min-h-[44px]">
                 <Link to="/chat">Talk to Our AI Assistant <ArrowRight className="w-4 h-4 ml-2" /></Link>
               </Button>
-              <Button asChild variant="outline" size="lg">
+              <Button asChild variant="outline" size="lg" className="min-h-[44px]">
                 <Link to="/self-help">Interactive Joint Diagram</Link>
               </Button>
             </div>

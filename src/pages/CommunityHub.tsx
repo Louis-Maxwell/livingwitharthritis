@@ -9,7 +9,8 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
   Users, MessageCircle, Calendar, Sparkles, ArrowRight,
-  Heart, CheckCircle, Star, Globe, BookOpen, HandHeart, Download
+  Heart, CheckCircle, Star, Globe, BookOpen, HandHeart, Download,
+  TrendingUp, Award, ThumbsUp
 } from "lucide-react";
 import {
   generateKneeExercisePdf,
@@ -20,6 +21,15 @@ import {
   generateFoodsListPdf,
 } from "@/lib/generatePdf";
 import PeerSupportForum from "@/components/PeerSupportForum";
+import {
+  StatCounter,
+  ProgressRing,
+  HorizontalBar,
+  WaveDivider,
+  EmojiCard,
+  IconStatRow,
+  DonutChart,
+} from "@/components/graphics/InfographicElements";
 
 const communityFeatures = [
   {
@@ -101,8 +111,55 @@ const CommunityHub = () => {
       />
 
       <main id="main-content">
+        {/* ─── Community Impact Stats ─── */}
+        <section className="py-12 lg:py-16 bg-tint-rose">
+          <div className="container mx-auto px-6 md:px-10 max-w-5xl">
+            <p className="section-label text-primary mb-6">Our Community Impact</p>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              <StatCounter value="10M+" label="People with arthritis in the UK" icon={<Users className="w-6 h-6" />} color="primary" />
+              <StatCounter value="24/7" label="AI assistant availability" icon={<MessageCircle className="w-6 h-6" />} color="sky" />
+              <StatCounter value="50+" label="Free guides & resources" icon={<BookOpen className="w-6 h-6" />} color="emerald" />
+              <StatCounter value="6" label="Downloadable PDF guides" icon={<Download className="w-6 h-6" />} color="amber" />
+            </div>
+          </div>
+        </section>
+
+        <WaveDivider color="hsl(var(--background))" />
+
+        {/* ─── Self-management Benefits Chart ─── */}
+        <section className="py-12 lg:py-16">
+          <div className="container mx-auto px-6 md:px-10 max-w-5xl">
+            <div className="grid md:grid-cols-2 gap-10 items-center">
+              <div>
+                <p className="section-label text-primary mb-3">Evidence-Based Benefits</p>
+                <h2 className="text-2xl font-bold text-foreground mb-4">Why Community & Self-Management Work</h2>
+                <p className="text-sm text-muted-foreground mb-6">Research shows that people who actively self-manage their arthritis report better outcomes.</p>
+                <HorizontalBar
+                  items={[
+                    { label: "Less pain with daily exercise", value: 78, color: "hsl(var(--emerald))" },
+                    { label: "Better mood with peer support", value: 72, color: "hsl(var(--sky))" },
+                    { label: "Improved sleep quality", value: 65, color: "hsl(var(--violet))" },
+                    { label: "Reduced GP visits", value: 58, color: "hsl(var(--amber))" },
+                  ]}
+                />
+              </div>
+              <div className="flex flex-col items-center gap-6">
+                <DonutChart
+                  label="What Helps Most"
+                  segments={[
+                    { percent: 30, color: "hsl(var(--emerald))", label: "Exercise" },
+                    { percent: 25, color: "hsl(var(--sky))", label: "Diet" },
+                    { percent: 25, color: "hsl(var(--violet))", label: "Support" },
+                    { percent: 20, color: "hsl(var(--amber))", label: "Education" },
+                  ]}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Newly diagnosed pathway */}
-        <section className="py-16 lg:py-20 bg-muted/20">
+        <section className="py-12 lg:py-16 bg-tint-blue">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <div className="flex items-center gap-3 mb-8">
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
@@ -142,8 +199,26 @@ const CommunityHub = () => {
           </div>
         </section>
 
+        <WaveDivider color="hsl(var(--background))" />
+
+        {/* ─── Emoji Quick Resources ─── */}
+        <section className="py-12 lg:py-16">
+          <div className="container mx-auto px-6 md:px-10 max-w-5xl">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Quick Support Resources</h2>
+            <p className="text-sm text-muted-foreground mb-8">Instant access to key areas of support.</p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+              <EmojiCard emoji="🏋️" title="Exercise Hub" description="Joint-specific routines and programmes" />
+              <EmojiCard emoji="🥗" title="Diet Hub" description="Anti-inflammatory eating guides" />
+              <EmojiCard emoji="🤖" title="AI Assistant" description="24/7 personalised health guidance" />
+              <EmojiCard emoji="📖" title="Blog Articles" description="In-depth condition & lifestyle guides" />
+              <EmojiCard emoji="📋" title="Self-Help Tool" description="Interactive joint pain diagram" />
+              <EmojiCard emoji="💊" title="Supplements" description="Evidence review of common supplements" />
+            </div>
+          </div>
+        </section>
+
         {/* Patient stories */}
-        <section className="py-16 lg:py-20">
+        <section className="py-12 lg:py-16 bg-tint-peach">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <div className="flex items-center gap-3 mb-8">
               <div className="w-10 h-10 rounded-xl bg-rose-500/10 flex items-center justify-center">
@@ -188,11 +263,13 @@ const CommunityHub = () => {
           </div>
         </section>
 
+        <WaveDivider color="hsl(var(--background))" />
+
         {/* Peer Support Forum */}
         <PeerSupportForum />
 
         {/* Community features */}
-        <section id="community-features" className="py-16 lg:py-20 bg-muted/20">
+        <section id="community-features" className="py-12 lg:py-16 bg-tint-violet">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <div className="flex items-center gap-3 mb-8">
               <div className="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center">
@@ -228,8 +305,10 @@ const CommunityHub = () => {
           </div>
         </section>
 
+        <WaveDivider color="hsl(var(--background))" />
+
         {/* Downloadable resources */}
-        <section className="py-16 lg:py-20">
+        <section className="py-12 lg:py-16">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <div className="flex items-center gap-3 mb-8">
               <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center">
@@ -242,48 +321,12 @@ const CommunityHub = () => {
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {[
-                {
-                  title: "Knee Exercise Routine",
-                  desc: "10-minute daily programme for knee osteoarthritis, including 7 targeted exercises with coaching tips.",
-                  icon: "🦵",
-                  pages: "3 pages",
-                  onDownload: generateKneeExercisePdf,
-                },
-                {
-                  title: "Hand Exercise Guide",
-                  desc: "Grip strength & flexibility exercises for hand OA. 7 exercises with step-by-step instructions.",
-                  icon: "✋",
-                  pages: "2 pages",
-                  onDownload: generateHandExercisePdf,
-                },
-                {
-                  title: "7-Day Meal Plan",
-                  desc: "Full Mediterranean-style anti-inflammatory weekly menu with breakfast, lunch, dinner & snacks.",
-                  icon: "🥗",
-                  pages: "3 pages",
-                  onDownload: generateMealPlanPdf,
-                },
-                {
-                  title: "Joint Pain Tracker",
-                  desc: "Daily symptom diary worksheet with a weekly log table and reflection prompts.",
-                  icon: "📋",
-                  pages: "2 pages",
-                  onDownload: generatePainTrackerPdf,
-                },
-                {
-                  title: "Chair Exercise Guide",
-                  desc: "8 seated routines requiring no equipment — suitable for all ability levels and flare-ups.",
-                  icon: "🪑",
-                  pages: "2 pages",
-                  onDownload: generateChairExercisePdf,
-                },
-                {
-                  title: "Anti-Inflammatory Foods List",
-                  desc: "Printable tick-box shopping checklist covering 9 food groups with foods to limit.",
-                  icon: "🛒",
-                  pages: "2 pages",
-                  onDownload: generateFoodsListPdf,
-                },
+                { title: "Knee Exercise Routine", desc: "10-minute daily programme for knee osteoarthritis, including 7 targeted exercises with coaching tips.", icon: "🦵", pages: "3 pages", onDownload: generateKneeExercisePdf },
+                { title: "Hand Exercise Guide", desc: "Grip strength & flexibility exercises for hand OA. 7 exercises with step-by-step instructions.", icon: "✋", pages: "2 pages", onDownload: generateHandExercisePdf },
+                { title: "7-Day Meal Plan", desc: "Full Mediterranean-style anti-inflammatory weekly menu with breakfast, lunch, dinner & snacks.", icon: "🥗", pages: "3 pages", onDownload: generateMealPlanPdf },
+                { title: "Joint Pain Tracker", desc: "Daily symptom diary worksheet with a weekly log table and reflection prompts.", icon: "📋", pages: "2 pages", onDownload: generatePainTrackerPdf },
+                { title: "Chair Exercise Guide", desc: "8 seated routines requiring no equipment — suitable for all ability levels and flare-ups.", icon: "🪑", pages: "2 pages", onDownload: generateChairExercisePdf },
+                { title: "Anti-Inflammatory Foods List", desc: "Printable tick-box shopping checklist covering 9 food groups with foods to limit.", icon: "🛒", pages: "2 pages", onDownload: generateFoodsListPdf },
               ].map((r, i) => (
                 <motion.div
                   key={r.title}
@@ -302,7 +345,7 @@ const CommunityHub = () => {
                         <Button
                           size="sm"
                           variant="outline"
-                          className="text-xs h-8 gap-1.5 border-amber-500/30 text-amber-700 hover:bg-amber-50 hover:text-amber-800"
+                          className="text-xs h-8 gap-1.5 border-amber-500/30 text-amber-700 hover:bg-amber-50 hover:text-amber-800 min-h-[44px]"
                           onClick={r.onDownload}
                           aria-label={`Download ${r.title} PDF`}
                         >
@@ -319,7 +362,7 @@ const CommunityHub = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-16 lg:py-20 bg-muted/20">
+        <section className="py-16 lg:py-20 bg-tint-mint">
           <div className="container mx-auto px-6 md:px-10 max-w-3xl text-center">
             <Heart className="w-8 h-8 text-primary mx-auto mb-4" />
             <h2 className="text-3xl font-bold text-foreground mb-4">Help Us Build This Community</h2>
@@ -327,10 +370,10 @@ const CommunityHub = () => {
               Your donations fund free resources, webinars and support programmes for people living with arthritis across the UK.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button asChild size="lg">
+              <Button asChild size="lg" className="min-h-[44px]">
                 <Link to="/zakat-appeal">Donate Now <ArrowRight className="w-4 h-4 ml-2" /></Link>
               </Button>
-              <Button asChild variant="outline" size="lg">
+              <Button asChild variant="outline" size="lg" className="min-h-[44px]">
                 <Link to="/chat">Talk to Our AI Assistant</Link>
               </Button>
             </div>

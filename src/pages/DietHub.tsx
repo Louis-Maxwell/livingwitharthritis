@@ -10,8 +10,17 @@ import { Link } from "react-router-dom";
 import {
   Utensils, Apple, Fish, Leaf, ArrowRight, CheckCircle,
   XCircle, Star, ChevronRight, Sparkles, Shield, Heart,
-  AlertTriangle
+  AlertTriangle, TrendingDown, Droplets, Flame
 } from "lucide-react";
+import {
+  StatCounter,
+  ProgressRing,
+  HorizontalBar,
+  WaveDivider,
+  EmojiCard,
+  ComparisonCard,
+  DonutChart,
+} from "@/components/graphics/InfographicElements";
 
 const dietSections = [
   {
@@ -85,14 +94,8 @@ const DietHub = () => {
     name: "Best Diet for Arthritis Pain UK – Complete Nutrition Guide",
     description: "Evidence-based arthritis diet guide covering anti-inflammatory foods, the Mediterranean diet and foods to avoid for joint pain relief.",
     url: "https://livingwitharthritis.org.uk/diet",
-    mainEntity: {
-      "@type": "MedicalCondition",
-      name: "Arthritis",
-    },
-    about: {
-      "@type": "Diet",
-      dietFeatures: "Anti-inflammatory, Mediterranean, omega-3 rich",
-    },
+    mainEntity: { "@type": "MedicalCondition", name: "Arthritis" },
+    about: { "@type": "Diet", dietFeatures: "Anti-inflammatory, Mediterranean, omega-3 rich" },
   };
 
   return (
@@ -123,13 +126,47 @@ const DietHub = () => {
       </PageHero>
 
       <main id="main-content">
+        {/* ─── Nutrition Stats Banner ─── */}
+        <section className="py-12 lg:py-16 bg-tint-green">
+          <div className="container mx-auto px-6 md:px-10 max-w-5xl">
+            <p className="section-label text-emerald-600 mb-6">Why Diet Matters</p>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              <StatCounter value="50" suffix="%" label="Inflammation reduction with Mediterranean diet" icon={<TrendingDown className="w-6 h-6" />} color="emerald" />
+              <StatCounter value="5" suffix="%" label="Weight loss target for symptom relief" icon={<Flame className="w-6 h-6" />} color="amber" />
+              <StatCounter value="2" suffix="×" label="Fish servings per week recommended" icon={<Fish className="w-6 h-6" />} color="sky" />
+              <StatCounter value="1000" suffix="mg" label="Daily curcumin for best results" icon={<Droplets className="w-6 h-6" />} color="violet" />
+            </div>
+          </div>
+        </section>
+
+        <WaveDivider color="hsl(var(--background))" />
+
+        {/* ─── Food Comparison ─── */}
+        <section className="py-12 lg:py-16">
+          <div className="container mx-auto px-6 md:px-10 max-w-3xl">
+            <h2 className="text-2xl font-bold text-foreground mb-2">What to Eat vs What to Avoid</h2>
+            <p className="text-sm text-muted-foreground mb-6">A quick reference guide for arthritis-friendly eating.</p>
+            <ComparisonCard
+              leftTitle="Eat More"
+              rightTitle="Eat Less"
+              rows={[
+                { label: "Fats", left: "Olive oil, omega-3 fish, nuts", right: "Trans fats, fried food, margarine" },
+                { label: "Protein", left: "Salmon, lentils, beans, eggs", right: "Processed meats, bacon, sausages" },
+                { label: "Carbs", left: "Whole grains, quinoa, oats", right: "White bread, pastries, sugary cereal" },
+                { label: "Drinks", left: "Green tea, water, berry smoothies", right: "Sugary drinks, excess alcohol" },
+                { label: "Spices", left: "Turmeric, ginger, garlic", right: "Excess salt, MSG" },
+              ]}
+            />
+          </div>
+        </section>
+
         {/* Quick jump */}
-        <section className="py-8 bg-muted/30 border-b border-border/40">
+        <section className="py-8 bg-muted/30 border-y border-border/40">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <p className="text-sm font-medium text-muted-foreground mb-3">Jump to:</p>
             <div className="flex flex-wrap gap-2">
               {dietSections.map((s) => (
-                <a key={s.id} href={`#${s.id}`} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background border border-border/60 text-sm font-medium text-foreground hover:border-primary/40 hover:text-primary transition-colors">
+                <a key={s.id} href={`#${s.id}`} className="inline-flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] rounded-full bg-background border border-border/60 text-sm font-medium text-foreground hover:border-primary/40 hover:text-primary transition-colors">
                   <s.icon className="w-3.5 h-3.5" /> {s.title}
                 </a>
               ))}
@@ -150,7 +187,7 @@ const DietHub = () => {
                 transition={{ duration: 0.5, delay: i * 0.05 }}
               >
                 <Card className={`border ${sec.borderColor} bg-gradient-to-br ${sec.color} overflow-hidden`}>
-                  <CardContent className="p-8 lg:p-10">
+                  <CardContent className="p-5 sm:p-7 lg:p-10">
                     <div className="flex items-start gap-4 mb-6">
                       <div className={`w-12 h-12 rounded-xl ${sec.iconColor} flex items-center justify-center shrink-0`}>
                         <sec.icon className="w-6 h-6" />
@@ -163,7 +200,6 @@ const DietHub = () => {
 
                     <p className="text-muted-foreground leading-relaxed mb-6">{sec.description}</p>
 
-                    {/* Good foods list */}
                     {"goodFoods" in sec && sec.goodFoods && (
                       <div className="grid sm:grid-cols-2 gap-3 mb-6">
                         {sec.goodFoods.map((food, j) => (
@@ -175,7 +211,6 @@ const DietHub = () => {
                       </div>
                     )}
 
-                    {/* Bad foods list */}
                     {"badFoods" in sec && sec.badFoods && (
                       <div className="grid sm:grid-cols-2 gap-3 mb-6">
                         {sec.badFoods.map((food, j) => (
@@ -187,7 +222,6 @@ const DietHub = () => {
                       </div>
                     )}
 
-                    {/* Meal plan */}
                     {"mealPlan" in sec && sec.mealPlan && (
                       <div className="space-y-3 mb-6">
                         <h3 className="text-sm font-semibold text-foreground flex items-center gap-1.5">
@@ -205,7 +239,7 @@ const DietHub = () => {
                     )}
 
                     <div className="pt-4 border-t border-border/30">
-                      <Button asChild variant="outline" size="sm">
+                      <Button asChild variant="outline" size="sm" className="min-h-[44px]">
                         <Link to={sec.href}>Read full guide <ArrowRight className="w-3.5 h-3.5 ml-1.5" /></Link>
                       </Button>
                     </div>
@@ -216,8 +250,75 @@ const DietHub = () => {
           </div>
         </section>
 
+        {/* ─── Nutrient Benefits Chart ─── */}
+        <section className="py-12 lg:py-16 bg-tint-amber">
+          <div className="container mx-auto px-6 md:px-10 max-w-5xl">
+            <div className="grid md:grid-cols-2 gap-10 items-center">
+              <div>
+                <p className="section-label text-amber-600 mb-3">Key Nutrients</p>
+                <h2 className="text-2xl font-bold text-foreground mb-4">Anti-Inflammatory Power Foods</h2>
+                <p className="text-sm text-muted-foreground mb-6">How much each nutrient contributes to reducing arthritis inflammation.</p>
+                <HorizontalBar
+                  items={[
+                    { label: "Omega-3 Fatty Acids", value: 85, color: "hsl(var(--sky))" },
+                    { label: "Curcumin (Turmeric)", value: 78, color: "hsl(var(--amber))" },
+                    { label: "Antioxidants (Berries)", value: 72, color: "hsl(var(--violet))" },
+                    { label: "Oleocanthal (Olive Oil)", value: 65, color: "hsl(var(--emerald))" },
+                    { label: "Gingerols (Ginger)", value: 60, color: "hsl(var(--primary))" },
+                  ]}
+                />
+              </div>
+              <div className="flex flex-col items-center gap-6">
+                <DonutChart
+                  label="Ideal Plate Composition"
+                  segments={[
+                    { percent: 40, color: "hsl(var(--emerald))", label: "Vegetables" },
+                    { percent: 25, color: "hsl(var(--sky))", label: "Lean Protein" },
+                    { percent: 20, color: "hsl(var(--amber))", label: "Whole Grains" },
+                    { percent: 15, color: "hsl(var(--violet))", label: "Healthy Fats" },
+                  ]}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <WaveDivider color="hsl(var(--background))" />
+
+        {/* ─── Quick Tips Emoji Grid ─── */}
+        <section className="py-12 lg:py-16">
+          <div className="container mx-auto px-6 md:px-10 max-w-5xl">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Nutrition Quick Tips</h2>
+            <p className="text-sm text-muted-foreground mb-8">Simple daily habits for joint-friendly eating.</p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+              <EmojiCard emoji="🐟" title="Eat Oily Fish" description="Salmon, mackerel or sardines 2× per week" />
+              <EmojiCard emoji="🫒" title="Use Olive Oil" description="Replace butter with extra virgin olive oil" />
+              <EmojiCard emoji="🫐" title="Berry Boost" description="A handful of berries daily for antioxidants" />
+              <EmojiCard emoji="🥦" title="Go Green" description="Fill half your plate with colourful vegetables" />
+              <EmojiCard emoji="🧡" title="Spice It Up" description="Add turmeric & ginger to meals and smoothies" />
+              <EmojiCard emoji="💧" title="Hydrate Well" description="8 glasses of water daily reduces stiffness" />
+            </div>
+          </div>
+        </section>
+
+        {/* ─── Supplement Comparison Progress Rings ─── */}
+        <section className="py-12 lg:py-16 bg-tint-violet">
+          <div className="container mx-auto px-6 md:px-10 max-w-4xl">
+            <h2 className="text-2xl font-bold text-foreground mb-2 text-center">Supplement Evidence Strength</h2>
+            <p className="text-sm text-muted-foreground mb-8 text-center">Research confidence level for common arthritis supplements.</p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
+              <ProgressRing percent={82} label="Turmeric / Curcumin" sublabel="Strong evidence" color="hsl(var(--amber))" />
+              <ProgressRing percent={55} label="Glucosamine" sublabel="Mixed evidence" color="hsl(var(--emerald))" />
+              <ProgressRing percent={48} label="Collagen" sublabel="Emerging data" color="hsl(var(--sky))" />
+              <ProgressRing percent={75} label="Omega-3 Fish Oil" sublabel="Good evidence" color="hsl(var(--violet))" />
+            </div>
+          </div>
+        </section>
+
+        <WaveDivider color="hsl(var(--background))" />
+
         {/* Related topics */}
-        <section className="py-16 lg:py-20 bg-muted/20">
+        <section className="py-12 lg:py-16">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <h2 className="text-3xl font-bold text-foreground mb-3">Related Nutrition Topics</h2>
             <p className="text-muted-foreground mb-10 max-w-2xl">Dive deeper into supplements, specific foods and meal planning for arthritis.</p>
@@ -250,7 +351,7 @@ const DietHub = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-16 lg:py-20">
+        <section className="py-16 lg:py-20 bg-tint-peach">
           <div className="container mx-auto px-6 md:px-10 max-w-3xl text-center">
             <Sparkles className="w-8 h-8 text-primary mx-auto mb-4" />
             <h2 className="text-3xl font-bold text-foreground mb-4">Get Personalised Diet Advice</h2>
@@ -258,10 +359,10 @@ const DietHub = () => {
               Ask our AI Health Assistant about anti-inflammatory recipes, food swaps and meal plans tailored to your arthritis type.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button asChild size="lg">
+              <Button asChild size="lg" className="min-h-[44px]">
                 <Link to="/chat">Talk to Our AI Assistant <ArrowRight className="w-4 h-4 ml-2" /></Link>
               </Button>
-              <Button asChild variant="outline" size="lg">
+              <Button asChild variant="outline" size="lg" className="min-h-[44px]">
                 <Link to="/exercises">Exercise Hub</Link>
               </Button>
             </div>

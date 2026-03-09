@@ -2,8 +2,9 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, ThermometerSun, BookOpen, ArrowRight } from "lucide-react";
+import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, ThermometerSun, BookOpen, ArrowRight, Users, TrendingUp, Timer, Scale } from "lucide-react";
 import { motion } from "framer-motion";
+import { StatCounter, HorizontalBar, WaveDivider, EmojiCard } from "@/components/graphics/InfographicElements";
 
 const BASE = "https://livingwitharthritis.org.uk";
 
@@ -127,6 +128,20 @@ const Osteoarthritis = () => (
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-500/20 to-transparent" />
       </div>
 
+      {/* ─── Key Stats ─── */}
+      <section className="py-12 lg:py-16 bg-tint-green">
+        <div className="container mx-auto px-6 md:px-10 max-w-4xl">
+          <p className="section-label text-emerald-600 mb-6">Osteoarthritis at a Glance</p>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <StatCounter value="8.75" suffix="M" label="People affected in the UK" icon={<Users className="w-6 h-6" />} color="emerald" />
+            <StatCounter value="50" suffix="+" label="Most common age of onset" icon={<Timer className="w-6 h-6" />} color="sky" />
+            <StatCounter value="40" suffix="%" label="Pain reduction with exercise" icon={<TrendingUp className="w-6 h-6" />} color="amber" />
+            <StatCounter value="5" suffix="%" label="Weight loss target for relief" icon={<Scale className="w-6 h-6" />} color="violet" />
+          </div>
+        </div>
+      </section>
+      <WaveDivider color="hsl(var(--background))" />
+
       <main className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
 
         <Section icon={Activity} title="What Is Osteoarthritis?">
@@ -163,6 +178,18 @@ const Osteoarthritis = () => (
             <li><strong>Other conditions</strong> — diabetes, metabolic disorders, and congenital joint issues</li>
           </ul>
         </Section>
+
+        {/* ─── Risk Factor Chart ─── */}
+        <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12 p-6 rounded-2xl bg-tint-amber border border-border/30">
+          <h3 className="font-display text-lg font-bold text-foreground mb-4">Risk Factor Prevalence</h3>
+          <HorizontalBar items={[
+            { label: "Age over 50", value: 85, color: "hsl(var(--primary))" },
+            { label: "Obesity / overweight", value: 72, color: "hsl(var(--amber))" },
+            { label: "Previous joint injury", value: 58, color: "hsl(var(--sky))" },
+            { label: "Female sex", value: 55, color: "hsl(var(--violet))" },
+            { label: "Genetic factors", value: 40, color: "hsl(var(--emerald))" },
+          ]} />
+        </motion.div>
 
         <Section icon={Dumbbell} title="Best Exercises for Osteoarthritis">
           <p>Regular exercise is one of the most effective treatments for OA. It strengthens muscles around joints, improves flexibility, reduces pain, and helps manage weight. Always start gradually and consult a physiotherapist if unsure.</p>
@@ -208,6 +235,17 @@ const Osteoarthritis = () => (
             <li>Excessive alcohol</li>
           </ul>
         </Section>
+
+        {/* ─── Quick Self-Management Tips ─── */}
+        <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
+          <h3 className="font-display text-lg font-bold text-foreground mb-4">Daily Self-Care Checklist</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <EmojiCard emoji="🚶" title="Stay Active" description="30 min walking daily" />
+            <EmojiCard emoji="⚖️" title="Healthy Weight" description="Reduces knee pressure by 4× per lb" />
+            <EmojiCard emoji="🐟" title="Eat Well" description="Omega-3 rich Mediterranean diet" />
+            <EmojiCard emoji="😴" title="Sleep Well" description="7-9 hours for joint recovery" />
+          </div>
+        </motion.div>
 
         <Section icon={Pill} title="Treatment & Management">
           <p>While there is no cure for osteoarthritis, a combination of approaches can significantly improve quality of life:</p>
