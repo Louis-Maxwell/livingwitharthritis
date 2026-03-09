@@ -1,4 +1,8 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { createRateLimiter, getClientIp, rateLimitResponse } from "../_shared/rate-limiter.ts";
+
+// 30 chat requests per IP per 5 minutes
+const limiter = createRateLimiter({ windowMs: 300_000, maxRequests: 30 });
 
 // Allowed origins for CORS - restrict to trusted domains
 function getCorsHeaders(req: Request): Record<string, string> {
