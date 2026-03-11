@@ -35,6 +35,7 @@ const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const CookiesPolicy = lazy(() => import("./pages/CookiesPolicy"));
 const AccessibilityPage = lazy(() => import("./pages/Accessibility"));
 const PainJournal = lazy(() => import("./pages/PainJournal"));
+const ArthritisFlareUps = lazy(() => import("./pages/ArthritisFlareUps"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading fallback with skeleton-style animation
@@ -88,6 +89,7 @@ function AnimatedRoutes() {
       <Route path="/cookies" element={<CookiesPolicy />} />
       <Route path="/accessibility" element={<AccessibilityPage />} />
       <Route path="/pain-journal" element={<PainJournal />} />
+      <Route path="/arthritis-flare-ups" element={<ArthritisFlareUps />} />
       <Route path="/shop" element={<NotFound />} />
       <Route path="/sitemap" element={<Sitemap />} />
       <Route path="*" element={<NotFound />} />
