@@ -301,7 +301,9 @@ const Header = () => {
                     {/* Rich sub-menu dropdown */}
                     {link.subs && activeDropdown === link.label && (
                       <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-[90] animate-fade-in" role="menu" aria-label={`${link.label} submenu`}>
-                        <div className="bg-background border border-border/40 rounded-2xl shadow-xl p-2 min-w-[320px]">
+                        <div className={`bg-background border border-border/40 rounded-2xl shadow-xl p-2 ${
+                          link.label === "Newly Diagnosed" || link.label === "Support Us" ? "min-w-[420px]" : "min-w-[320px]"
+                        }`}>
                           {link.subs.map((sub) => {
                             const Icon = sub.icon;
                             return (
