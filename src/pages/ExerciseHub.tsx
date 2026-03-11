@@ -10,7 +10,8 @@ import { Link } from "react-router-dom";
 import {
   Dumbbell, Footprints, Hand, ArrowRight, Activity,
   Waves, Bike, Heart, Clock, CheckCircle, Star,
-  ChevronRight, Sparkles, Shield, TrendingUp, Users, Timer, Target
+  ChevronRight, Sparkles, Shield, TrendingUp, Users, Timer, Target,
+  Zap, MessageCircle, BarChart3
 } from "lucide-react";
 import ExerciseProgressTracker from "@/components/ExerciseProgressTracker";
 import Pedometer from "@/components/Pedometer";
@@ -31,7 +32,7 @@ const exerciseCategories = [
     id: "knee",
     title: "Knee Exercises",
     subtitle: "UK Physiotherapy Guide",
-    description: "Strengthen the muscles around your knees to reduce pain and improve stability. These NHS-aligned exercises target quadriceps, hamstrings and calves for better knee support.",
+    description: "Strengthen muscles around your knees to reduce pain and improve stability.",
     icon: Footprints,
     color: "from-sky-500/15 to-blue-500/10",
     iconColor: "text-sky-600 bg-sky-500/10",
@@ -49,7 +50,7 @@ const exerciseCategories = [
     id: "hand",
     title: "Hand Exercises",
     subtitle: "Grip Strength & Dexterity",
-    description: "Improve hand function, reduce stiffness and maintain grip strength with gentle exercises recommended by UK occupational therapists. Ideal for osteoarthritis and rheumatoid arthritis.",
+    description: "Improve hand function and maintain grip strength with gentle exercises.",
     icon: Hand,
     color: "from-emerald-500/15 to-teal-500/10",
     iconColor: "text-emerald-600 bg-emerald-500/10",
@@ -67,7 +68,7 @@ const exerciseCategories = [
     id: "shoulder",
     title: "Shoulder Exercises",
     subtitle: "Flexibility & Pain Relief",
-    description: "Restore range of motion and reduce shoulder stiffness with physiotherapy-approved stretches and strengthening exercises. Suitable for frozen shoulder and shoulder OA.",
+    description: "Restore range of motion and reduce shoulder stiffness with physio-approved stretches.",
     icon: Activity,
     color: "from-violet-500/15 to-purple-500/10",
     iconColor: "text-violet-600 bg-violet-500/10",
@@ -85,7 +86,7 @@ const exerciseCategories = [
     id: "chair",
     title: "Chair Exercises",
     subtitle: "Seated Routines for All Abilities",
-    description: "Safe, effective seated exercises for people with limited mobility or during flare-ups. Approved by UK physiotherapists for arthritis management at any fitness level.",
+    description: "Safe, effective seated exercises for limited mobility or during flare-ups.",
     icon: Dumbbell,
     color: "from-amber-500/15 to-orange-500/10",
     iconColor: "text-amber-600 bg-amber-500/10",
@@ -149,9 +150,17 @@ const ExerciseHub = () => {
       <PageHero
         badge={<Badge variant="outline" className="bg-primary/5 text-primary border-primary/20"><Dumbbell className="w-3.5 h-3.5 mr-1.5" /> Exercise Hub</Badge>}
         title={<>Best Exercises for <span className="text-primary">Arthritis</span> UK</>}
-        subtitle="Evidence-based exercise programmes for knee, hand, shoulder and whole-body arthritis relief. NHS-aligned physiotherapy routines you can do at home."
+        subtitle="NHS-aligned physiotherapy routines you can do at home — for knees, hands, shoulders and whole-body relief."
       >
-        <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
+        <div className="flex flex-wrap gap-3 mt-2">
+          <Button asChild size="lg" className="min-h-[48px] text-base font-semibold shadow-lg hover:shadow-xl transition-shadow">
+            <Link to="/self-help"><Zap className="w-4 h-4 mr-2" /> Interactive Joint Diagram</Link>
+          </Button>
+          <Button asChild variant="outline" size="lg" className="min-h-[48px] text-base">
+            <Link to="/chat"><MessageCircle className="w-4 h-4 mr-2" /> Ask AI for Exercises</Link>
+          </Button>
+        </div>
+        <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mt-4">
           <span className="flex items-center gap-1.5"><Shield className="w-4 h-4 text-primary" /> NHS-Aligned</span>
           <span className="flex items-center gap-1.5"><CheckCircle className="w-4 h-4 text-emerald-600" /> Physiotherapy Approved</span>
           <span className="flex items-center gap-1.5"><Clock className="w-4 h-4 text-amber-600" /> 10–20 min routines</span>
@@ -188,10 +197,10 @@ const ExerciseHub = () => {
           </div>
         </section>
 
-        {/* Exercise categories */}
+        {/* Exercise categories — first 2 */}
         <section className="py-16 lg:py-24">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl space-y-16">
-            {exerciseCategories.map((cat, i) => (
+            {exerciseCategories.slice(0, 2).map((cat, i) => (
               <motion.div
                 key={cat.id}
                 id={cat.id}
@@ -202,7 +211,7 @@ const ExerciseHub = () => {
               >
                 <Card className={`border ${cat.borderColor} bg-gradient-to-br ${cat.color} overflow-hidden`}>
                   <CardContent className="p-5 sm:p-7 lg:p-10">
-                    <div className="flex items-start gap-4 mb-6">
+                    <div className="flex items-start gap-4 mb-4">
                       <div className={`w-12 h-12 rounded-xl ${cat.iconColor} flex items-center justify-center shrink-0`}>
                         <cat.icon className="w-6 h-6" />
                       </div>
@@ -212,9 +221,9 @@ const ExerciseHub = () => {
                       </div>
                     </div>
 
-                    <p className="text-muted-foreground leading-relaxed mb-6">{cat.description}</p>
+                    <p className="text-muted-foreground leading-relaxed mb-5 max-w-2xl">{cat.description}</p>
 
-                    <div className="grid sm:grid-cols-2 gap-3 mb-6">
+                    <div className="grid sm:grid-cols-2 gap-3 mb-5">
                       {cat.exercises.map((ex, j) => (
                         <div key={j} className="flex items-start gap-2.5 bg-background/60 backdrop-blur-sm rounded-lg p-3 border border-border/30">
                           <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
@@ -228,7 +237,81 @@ const ExerciseHub = () => {
                         <Star className="w-4 h-4 text-amber-500" />
                         <strong>Tip:</strong> {cat.tip}
                       </p>
-                      <Button asChild variant="outline" size="sm" className="shrink-0 min-h-[44px]">
+                      <Button asChild className="shrink-0 min-h-[44px] font-semibold">
+                        <Link to={cat.href}>Full guide <ArrowRight className="w-3.5 h-3.5 ml-1.5" /></Link>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* ═══ Mid-page CTA: AI Assistant ═══ */}
+        <section className="py-12 lg:py-16 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 border-y border-primary/10">
+          <div className="container mx-auto px-6 md:px-10 max-w-4xl">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="flex flex-col md:flex-row items-center gap-6 md:gap-10"
+            >
+              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
+                <MessageCircle className="w-8 h-8 text-primary" />
+              </div>
+              <div className="flex-1 text-center md:text-left">
+                <h2 className="text-xl font-bold text-foreground mb-1">Not sure which exercises suit you?</h2>
+                <p className="text-muted-foreground text-sm">Our AI assistant recommends exercises based on your specific joints, pain level and mobility — free and instant.</p>
+              </div>
+              <Button asChild size="lg" className="min-h-[48px] font-semibold shadow-md shrink-0">
+                <Link to="/chat">Get Personalised Plan <ArrowRight className="w-4 h-4 ml-2" /></Link>
+              </Button>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Exercise categories — last 2 */}
+        <section className="py-16 lg:py-24">
+          <div className="container mx-auto px-6 md:px-10 max-w-5xl space-y-16">
+            {exerciseCategories.slice(2).map((cat, i) => (
+              <motion.div
+                key={cat.id}
+                id={cat.id}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: i * 0.05 }}
+              >
+                <Card className={`border ${cat.borderColor} bg-gradient-to-br ${cat.color} overflow-hidden`}>
+                  <CardContent className="p-5 sm:p-7 lg:p-10">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className={`w-12 h-12 rounded-xl ${cat.iconColor} flex items-center justify-center shrink-0`}>
+                        <cat.icon className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <h2 className="text-2xl font-bold text-foreground">{cat.title}</h2>
+                        <p className="text-sm text-muted-foreground font-medium">{cat.subtitle}</p>
+                      </div>
+                    </div>
+
+                    <p className="text-muted-foreground leading-relaxed mb-5 max-w-2xl">{cat.description}</p>
+
+                    <div className="grid sm:grid-cols-2 gap-3 mb-5">
+                      {cat.exercises.map((ex, j) => (
+                        <div key={j} className="flex items-start gap-2.5 bg-background/60 backdrop-blur-sm rounded-lg p-3 border border-border/30">
+                          <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                          <span className="text-sm text-foreground">{ex}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-4 border-t border-border/30">
+                      <p className="text-sm text-muted-foreground flex items-center gap-1.5">
+                        <Star className="w-4 h-4 text-amber-500" />
+                        <strong>Tip:</strong> {cat.tip}
+                      </p>
+                      <Button asChild className="shrink-0 min-h-[44px] font-semibold">
                         <Link to={cat.href}>Full guide <ArrowRight className="w-3.5 h-3.5 ml-1.5" /></Link>
                       </Button>
                     </div>
@@ -245,8 +328,8 @@ const ExerciseHub = () => {
             <div className="grid md:grid-cols-2 gap-10 items-center">
               <div>
                 <p className="section-label text-emerald-600 mb-3">Research Findings</p>
-                <h2 className="text-2xl font-bold text-foreground mb-4">Exercise Effectiveness by Type</h2>
-                <p className="text-sm text-muted-foreground mb-6">Percentage of patients reporting symptom improvement after 12 weeks of consistent exercise.</p>
+                <h2 className="text-2xl font-bold text-foreground mb-2">Exercise Effectiveness by Type</h2>
+                <p className="text-sm text-muted-foreground mb-6">Patients reporting improvement after 12 weeks.</p>
                 <HorizontalBar
                   items={[
                     { label: "Swimming / Hydrotherapy", value: 78, color: "hsl(var(--sky))" },
@@ -294,7 +377,7 @@ const ExerciseHub = () => {
         <section className="py-12 lg:py-16 bg-muted/20">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <h2 className="text-3xl font-bold text-foreground mb-3">More Ways to Stay Active</h2>
-            <p className="text-muted-foreground mb-10 max-w-2xl">Low-impact activities that complement your exercise routine and support joint health.</p>
+            <p className="text-muted-foreground mb-10 max-w-2xl">Low-impact activities that complement your routine.</p>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {additionalActivities.map((act, i) => (
@@ -323,19 +406,42 @@ const ExerciseHub = () => {
           </div>
         </section>
 
+        {/* ═══ Mid-page CTA: Pain Journal ═══ */}
+        <section className="py-12 lg:py-16 bg-gradient-to-r from-violet-500/5 via-violet-500/10 to-violet-500/5 border-y border-violet-500/10">
+          <div className="container mx-auto px-6 md:px-10 max-w-4xl">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="flex flex-col md:flex-row items-center gap-6 md:gap-10"
+            >
+              <div className="w-16 h-16 rounded-2xl bg-violet-500/10 flex items-center justify-center shrink-0">
+                <BarChart3 className="w-8 h-8 text-violet-600" />
+              </div>
+              <div className="flex-1 text-center md:text-left">
+                <h2 className="text-xl font-bold text-foreground mb-1">Track how exercise affects your pain</h2>
+                <p className="text-muted-foreground text-sm">Use the Pain Journal to log symptoms before and after exercise — see patterns and share with your GP.</p>
+              </div>
+              <Button asChild size="lg" className="min-h-[48px] font-semibold bg-violet-600 hover:bg-violet-700 text-white shadow-md shrink-0">
+                <Link to="/pain-journal">Open Pain Journal <ArrowRight className="w-4 h-4 ml-2" /></Link>
+              </Button>
+            </motion.div>
+          </div>
+        </section>
+
         {/* ─── Weekly Plan Timeline ─── */}
         <section className="py-12 lg:py-16 bg-tint-peach">
           <div className="container mx-auto px-6 md:px-10 max-w-3xl">
             <h2 className="text-2xl font-bold text-foreground mb-2">Sample Weekly Plan</h2>
             <p className="text-sm text-muted-foreground mb-8">A balanced week of arthritis-friendly exercise.</p>
             <Timeline items={[
-              { title: "Monday — Knee Strengthening", description: "20 min quad & hamstring routine. Straight leg raises, wall sits." },
+              { title: "Monday — Knee Strengthening", description: "20 min quad & hamstring routine." },
               { title: "Tuesday — Walking", description: "30 min brisk walk with supportive footwear." },
-              { title: "Wednesday — Hand Exercises", description: "15 min grip & flexibility. Finger bends, putty squeezes." },
-              { title: "Thursday — Swimming", description: "30 min pool session or aqua aerobics class." },
-              { title: "Friday — Yoga / Tai Chi", description: "20 min gentle flexibility and balance work." },
-              { title: "Saturday — Chair Exercises", description: "15 min seated routine. Great on lower-energy days." },
-              { title: "Sunday — Rest & Stretch", description: "Gentle 10 min full-body stretching only." },
+              { title: "Wednesday — Hand Exercises", description: "15 min grip & flexibility." },
+              { title: "Thursday — Swimming", description: "30 min pool session or aqua aerobics." },
+              { title: "Friday — Yoga / Tai Chi", description: "20 min gentle flexibility and balance." },
+              { title: "Saturday — Chair Exercises", description: "15 min seated routine for lower-energy days." },
+              { title: "Sunday — Rest & Stretch", description: "Gentle 10 min full-body stretching." },
             ]} />
           </div>
         </section>
@@ -348,22 +454,31 @@ const ExerciseHub = () => {
         {/* Progress Tracker */}
         <ExerciseProgressTracker />
 
-        {/* CTA */}
-        <section className="py-16 lg:py-20">
+        {/* Final CTA */}
+        <section className="py-16 lg:py-24 bg-gradient-to-br from-primary/5 via-background to-primary/5">
           <div className="container mx-auto px-6 md:px-10 max-w-3xl text-center">
-            <Sparkles className="w-8 h-8 text-primary mx-auto mb-4" />
-            <h2 className="text-3xl font-bold text-foreground mb-4">Need Personalised Exercise Advice?</h2>
-            <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-              Our AI Health Assistant can recommend exercises based on your specific joints and symptoms. It's free, instant and evidence-based.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button asChild size="lg" className="min-h-[44px]">
-                <Link to="/chat">Talk to Our AI Assistant <ArrowRight className="w-4 h-4 ml-2" /></Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="min-h-[44px]">
-                <Link to="/self-help">Interactive Joint Diagram</Link>
-              </Button>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
+                <Sparkles className="w-8 h-8 text-primary" />
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Need Personalised Exercise Advice?</h2>
+              <p className="text-muted-foreground mb-8 max-w-xl mx-auto text-lg">
+                Get recommendations tailored to your joints, pain level and fitness — free, instant and evidence-based.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <Button asChild size="lg" className="min-h-[52px] text-base font-semibold shadow-lg hover:shadow-xl transition-shadow">
+                  <Link to="/chat">Talk to Our AI Assistant <ArrowRight className="w-4 h-4 ml-2" /></Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="min-h-[52px] text-base">
+                  <Link to="/self-help">Interactive Joint Diagram</Link>
+                </Button>
+              </div>
+            </motion.div>
           </div>
         </section>
       </main>
