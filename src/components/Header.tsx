@@ -317,16 +317,16 @@ const Header = () => {
                                     navigate(sub.href);
                                   }
                                 }}
-                                className="w-full text-left flex items-start gap-3 px-3 py-3 rounded-xl hover:bg-accent transition-colors cursor-pointer group/item" role="menuitem"
+                                className="w-full text-left flex items-start gap-3 px-3 py-3 rounded-xl hover:bg-accent transition-all duration-200 cursor-pointer group/item hover:translate-x-1 hover:shadow-sm" role="menuitem"
                               >
-                                <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5 ${sub.color || "text-primary bg-primary/10"}`}>
+                                <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5 transition-transform duration-200 group-hover/item:scale-110 ${sub.color || "text-primary bg-primary/10"}`}>
                                   <Icon className="w-4 h-4" />
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                  <span className="block text-[13px] font-semibold text-foreground group-hover/item:text-primary transition-colors">{sub.label}</span>
-                                  <span className="block text-[11px] text-muted-foreground/70 mt-0.5 leading-snug">{sub.desc}</span>
+                                  <span className="block text-[13px] font-semibold text-foreground group-hover/item:text-primary transition-colors duration-200">{sub.label}</span>
+                                  <span className="block text-[11px] text-muted-foreground/70 mt-0.5 leading-snug transition-colors duration-200 group-hover/item:text-muted-foreground">{sub.desc}</span>
                                 </div>
-                                <ArrowRight className="w-3.5 h-3.5 text-muted-foreground/30 group-hover/item:text-primary/50 mt-1.5 opacity-0 group-hover/item:opacity-100 transition-all" />
+                                <ArrowRight className="w-3.5 h-3.5 text-muted-foreground/30 group-hover/item:text-primary/50 mt-1.5 opacity-0 group-hover/item:opacity-100 transition-all duration-200 group-hover/item:translate-x-0.5" />
                               </button>
                             );
                           })}
