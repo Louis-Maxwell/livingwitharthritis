@@ -26,6 +26,7 @@ import {
   DonutChart,
   Timeline,
 } from "@/components/graphics/InfographicElements";
+import InternalLinks from "@/components/InternalLinks";
 
 const exerciseCategories = [
   {
