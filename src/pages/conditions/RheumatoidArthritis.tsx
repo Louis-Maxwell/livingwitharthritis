@@ -294,6 +294,7 @@ const RheumatoidArthritis = () => (
           </div>
         </div>
       </main>
+      <InternalLinks />
       <Footer />
     </div>
   </>

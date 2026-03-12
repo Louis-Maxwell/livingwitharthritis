@@ -400,6 +400,7 @@ const CommunityHub = () => {
         </section>
       </main>
 
+      <InternalLinks />
       <Footer />
     </>
   );

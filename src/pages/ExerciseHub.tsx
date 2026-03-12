@@ -501,6 +501,7 @@ const ExerciseHub = () => {
         </section>
       </main>
 
+      <InternalLinks />
       <Footer />
     </>
   );

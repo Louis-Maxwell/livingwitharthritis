@@ -490,6 +490,7 @@ const DietHub = () => {
         </section>
       </main>
 
+      <InternalLinks />
       <Footer />
     </>
   );
