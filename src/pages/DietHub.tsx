@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import InternalLinks from "@/components/InternalLinks";
+import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import {
   Utensils, Apple, Fish, Leaf, ArrowRight, CheckCircle,
   XCircle, Star, ChevronRight, Sparkles, Shield, Heart,
