@@ -8,6 +8,7 @@ import { useBlogViews } from "@/hooks/useBlogViews";
 import BlogComments from "@/components/BlogComments";
 import BlogHelpfulness from "@/components/BlogHelpfulness";
 import RelatedArticles from "@/components/RelatedArticles";
+import SocialShareButtons from "@/components/SocialShareButtons";
 import { Badge } from "@/components/ui/badge";
 
 const BlogPost = () => {
@@ -123,6 +124,7 @@ const BlogPost = () => {
             dangerouslySetInnerHTML={{ __html: article.content }}
           />
 
+          {slug && <SocialShareButtons title={article.title} slug={slug} />}
           {slug && <BlogHelpfulness slug={slug} />}
           {slug && <RelatedArticles currentSlug={slug} />}
           {slug && <BlogComments slug={slug} />}
