@@ -331,6 +331,7 @@ const Osteoarthritis = () => (
           </div>
         </div>
       </main>
+      <InternalLinks />
       <Footer />
     </div>
   </>
