@@ -26,6 +26,7 @@ import {
   DonutChart,
   Timeline,
 } from "@/components/graphics/InfographicElements";
+import InternalLinks from "@/components/InternalLinks";
 
 const exerciseCategories = [
   {
@@ -500,6 +501,7 @@ const ExerciseHub = () => {
         </section>
       </main>
 
+      <InternalLinks />
       <Footer />
     </>
   );

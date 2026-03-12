@@ -6,6 +6,7 @@ import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, ShieldAlert, BookOpe
 import { motion } from "framer-motion";
 import PageHero from "@/components/ui/PageHero";
 import { StatCounter, HorizontalBar, WaveDivider, EmojiCard, ComparisonCard } from "@/components/graphics/InfographicElements";
+import InternalLinks from "@/components/InternalLinks";
 
 const BASE = "https://livingwitharthritis.org.uk";
 
@@ -293,6 +294,7 @@ const RheumatoidArthritis = () => (
           </div>
         </div>
       </main>
+      <InternalLinks />
       <Footer />
     </div>
   </>
