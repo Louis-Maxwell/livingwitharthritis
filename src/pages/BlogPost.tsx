@@ -10,6 +10,7 @@ import BlogHelpfulness from "@/components/BlogHelpfulness";
 import RelatedArticles from "@/components/RelatedArticles";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import { Badge } from "@/components/ui/badge";
+import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
