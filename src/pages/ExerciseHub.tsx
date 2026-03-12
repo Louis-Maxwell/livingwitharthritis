@@ -27,6 +27,7 @@ import {
   Timeline,
 } from "@/components/graphics/InfographicElements";
 import InternalLinks from "@/components/InternalLinks";
+import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 
 const exerciseCategories = [
   {
