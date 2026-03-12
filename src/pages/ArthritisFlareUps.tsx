@@ -152,6 +152,7 @@ export default function ArthritisFlareUps() {
       </Helmet>
 
       <Header />
+      <PageBreadcrumb segments={[{ label: "Arthritis Flare-Ups" }]} />
 
       {/* ─── Hero ─── */}
       <PageHero

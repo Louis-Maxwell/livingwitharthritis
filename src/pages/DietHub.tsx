@@ -132,6 +132,7 @@ const DietHub = () => {
       </Helmet>
 
       <Header />
+      <PageBreadcrumb segments={[{ label: "Diet Hub" }]} />
 
       <PageHero
         badge={<Badge variant="outline" className="bg-primary/5 text-primary border-primary/20"><Utensils className="w-3.5 h-3.5 mr-1.5" /> Diet Hub</Badge>}

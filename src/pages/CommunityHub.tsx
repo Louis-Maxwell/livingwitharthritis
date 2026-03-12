@@ -120,6 +120,7 @@ const CommunityHub = () => {
       </Helmet>
 
       <Header />
+      <PageBreadcrumb segments={[{ label: "Community Hub" }]} />
 
       <PageHero
         badge={<Badge variant="outline" className="bg-primary/5 text-primary border-primary/20"><Users className="w-3.5 h-3.5 mr-1.5" /> Community</Badge>}

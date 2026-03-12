@@ -78,6 +78,7 @@ const BlogPost = () => {
       </Helmet>
       <div className="min-h-screen bg-background">
         <Header />
+        <PageBreadcrumb segments={[{ label: "Blog", href: "/blog" }, { label: article.title }]} className="max-w-3xl" />
 
         {/* Decorative article header */}
         <div className="relative bg-gradient-to-br from-primary/6 via-background to-violet-500/4 border-b border-border/20 overflow-hidden">

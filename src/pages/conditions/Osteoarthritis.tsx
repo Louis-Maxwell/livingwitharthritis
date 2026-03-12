@@ -105,6 +105,7 @@ const Osteoarthritis = () => (
     </Helmet>
     <div className="min-h-screen bg-background">
       <Header />
+      <PageBreadcrumb segments={[{ label: "Conditions", href: "/#conditions" }, { label: "Osteoarthritis" }]} />
 
       {/* Decorative hero header */}
       <div className="relative bg-gradient-to-br from-emerald-500/8 via-background to-primary/5 border-b border-border/20 overflow-hidden">

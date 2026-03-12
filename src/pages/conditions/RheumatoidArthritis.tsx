@@ -106,6 +106,7 @@ const RheumatoidArthritis = () => (
     </Helmet>
     <div className="min-h-screen bg-background">
       <Header />
+      <PageBreadcrumb segments={[{ label: "Conditions", href: "/#conditions" }, { label: "Rheumatoid Arthritis" }]} />
       <PageHero
         badge={
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-500/10 text-sky-600 text-xs font-bold tracking-wider uppercase border border-sky-500/20">
