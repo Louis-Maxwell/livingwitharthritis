@@ -305,6 +305,7 @@ const BlogIndex = () => {
             </nav>
           )}
         </main>
+        <InternalLinks />
         <Footer />
       </div>
     </>

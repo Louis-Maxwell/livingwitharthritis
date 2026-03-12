@@ -261,6 +261,7 @@ const AboutUs = () => {
             </motion.div>
           </div>
         </section>
+        <InternalLinks />
         <Footer />
       </div>
     </>
