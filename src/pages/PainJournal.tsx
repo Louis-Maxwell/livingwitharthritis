@@ -256,6 +256,7 @@ const PainJournal = () => {
   if (!user) {
     return (
       <>
+        {seoHelmet}
         <Header />
         <div className="min-h-screen flex flex-col items-center justify-center gap-4 px-6">
           <ClipboardList className="w-12 h-12 text-primary" />
