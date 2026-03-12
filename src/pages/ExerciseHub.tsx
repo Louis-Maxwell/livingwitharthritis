@@ -27,6 +27,7 @@ import {
   Timeline,
 } from "@/components/graphics/InfographicElements";
 import InternalLinks from "@/components/InternalLinks";
+import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 
 const exerciseCategories = [
   {
@@ -164,6 +165,7 @@ const ExerciseHub = () => {
       </Helmet>
 
       <Header />
+      <PageBreadcrumb segments={[{ label: "Exercise Hub" }]} />
 
       <PageHero
         badge={<Badge variant="outline" className="bg-primary/5 text-primary border-primary/20"><Dumbbell className="w-3.5 h-3.5 mr-1.5" /> Exercise Hub</Badge>}

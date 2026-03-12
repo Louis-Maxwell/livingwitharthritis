@@ -13,6 +13,7 @@ import {
   Clock, ShieldCheck, HeartPulse, Snowflake, Activity,
   Pill, Apple, BadgeCheck, ChevronRight
 } from "lucide-react";
+import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 
 const defined = (v: string) => `hsl(var(${v}))`;
 
@@ -152,6 +153,7 @@ export default function ArthritisFlareUps() {
       </Helmet>
 
       <Header />
+      <PageBreadcrumb segments={[{ label: "Arthritis Flare-Ups" }]} />
 
       {/* ─── Hero ─── */}
       <PageHero

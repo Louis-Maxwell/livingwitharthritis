@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import InternalLinks from "@/components/InternalLinks";
+import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import {
   Users, MessageCircle, Calendar, Sparkles, ArrowRight,
   Heart, CheckCircle, Star, Globe, BookOpen, HandHeart, Download,
@@ -119,6 +120,7 @@ const CommunityHub = () => {
       </Helmet>
 
       <Header />
+      <PageBreadcrumb segments={[{ label: "Community Hub" }]} />
 
       <PageHero
         badge={<Badge variant="outline" className="bg-primary/5 text-primary border-primary/20"><Users className="w-3.5 h-3.5 mr-1.5" /> Community</Badge>}
