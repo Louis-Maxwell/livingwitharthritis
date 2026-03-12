@@ -300,9 +300,11 @@ const Header = () => {
 
                     {/* Rich sub-menu dropdown */}
                     {link.subs && activeDropdown === link.label && (
-                      <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-[90] animate-fade-in" role="menu" aria-label={`${link.label} submenu`}>
-                        <div className="bg-background border border-border/40 rounded-2xl shadow-xl p-2 min-w-[500px]">
-                          {link.subs.map((sub) => {
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-[90]" role="menu" aria-label={`${link.label} submenu`}>
+                        <div className="relative bg-background border border-border/30 rounded-xl shadow-2xl shadow-black/8 p-1.5 min-w-[340px] animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-200">
+                          {/* Top notch */}
+                          <div className="absolute -top-[6px] left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 bg-background border-l border-t border-border/30" />
+                          {link.subs.map((sub, idx) => {
                             const Icon = sub.icon;
                             return (
                               <button
@@ -317,16 +319,17 @@ const Header = () => {
                                     navigate(sub.href);
                                   }
                                 }}
-                                className="w-full text-left flex items-start gap-3 px-3 py-3 rounded-xl hover:bg-accent transition-all duration-200 cursor-pointer group/item hover:translate-x-1 hover:shadow-sm" role="menuitem"
+                                className={`w-full text-left flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-accent/60 transition-all duration-150 cursor-pointer group/item ${idx > 0 ? "mt-0.5" : ""}`}
+                                role="menuitem"
                               >
-                                <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5 transition-transform duration-200 group-hover/item:scale-110 ${sub.color || "text-primary bg-primary/10"}`}>
+                                <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-200 group-hover/item:scale-110 ${sub.color || "text-primary bg-primary/10"}`}>
                                   <Icon className="w-4 h-4" />
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                  <span className="block text-[13px] font-semibold text-foreground group-hover/item:text-primary transition-colors duration-200">{sub.label}</span>
-                                  <span className="block text-[11px] text-muted-foreground/70 mt-0.5 leading-snug transition-colors duration-200 group-hover/item:text-muted-foreground">{sub.desc}</span>
+                                  <span className="block text-[13px] font-semibold text-foreground group-hover/item:text-primary transition-colors">{sub.label}</span>
+                                  <span className="block text-[11px] text-muted-foreground/60 leading-snug">{sub.desc}</span>
                                 </div>
-                                <ArrowRight className="w-3.5 h-3.5 text-muted-foreground/30 group-hover/item:text-primary/50 mt-1.5 opacity-0 group-hover/item:opacity-100 transition-all duration-200 group-hover/item:translate-x-0.5" />
+                                <ArrowRight className="w-3.5 h-3.5 text-muted-foreground/20 group-hover/item:text-primary/50 opacity-0 group-hover/item:opacity-100 transition-all duration-150 group-hover/item:translate-x-0.5" />
                               </button>
                             );
                           })}
