@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import PageHero from "@/components/ui/PageHero";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import InternalLinks from "@/components/InternalLinks";
 
 const sectionIcons: Record<string, React.ElementType> = {
   "Our Story": BookOpen,
