@@ -259,7 +259,7 @@ const Header = () => {
               : "bg-background border-b border-border/20"
           }`}
         >
-          <div className="container mx-auto px-6 md:px-10">
+          <div className="mx-auto px-6 md:px-10 max-w-[1400px]">
             <div className="flex justify-between items-center h-[46px]">
 
               {/* Desktop nav */}
