@@ -13,6 +13,7 @@ import {
   Clock, ShieldCheck, HeartPulse, Snowflake, Activity,
   Pill, Apple, BadgeCheck, ChevronRight
 } from "lucide-react";
+import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 
 const defined = (v: string) => `hsl(var(${v}))`;
 
