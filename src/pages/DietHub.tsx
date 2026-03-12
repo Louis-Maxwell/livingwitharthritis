@@ -104,12 +104,29 @@ const DietHub = () => {
       <Helmet>
         <title>Best Diet for Arthritis Pain UK | Anti-Inflammatory Foods Guide</title>
         <meta name="description" content="Evidence-based arthritis diet guide: anti-inflammatory foods, Mediterranean diet, foods to avoid, and meal plans for joint pain relief in the UK." />
+        <meta name="keywords" content="arthritis diet UK, anti-inflammatory diet, Mediterranean diet arthritis, foods for joint pain, omega 3 arthritis, turmeric arthritis, arthritis meal plan, foods to avoid arthritis" />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/diet" />
+        <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/diet" />
         <meta property="og:title" content="Best Diet for Arthritis Pain UK – Complete Guide" />
         <meta property="og:description" content="Anti-inflammatory diet, Mediterranean eating, foods to avoid and meal plans for arthritis." />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/diet" />
         <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_GB" />
+        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Best Diet for Arthritis Pain UK – Complete Guide" />
+        <meta name="twitter:description" content="Evidence-based arthritis diet guide: anti-inflammatory foods, Mediterranean diet and meal plans for joint pain relief." />
+        <meta name="geo.region" content="GB" />
+        <meta name="geo.placename" content="United Kingdom" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
+            { "@type": "ListItem", "position": 2, "name": "Diet", "item": "https://livingwitharthritis.org.uk/diet" }
+          ]
+        })}</script>
       </Helmet>
 
       <Header />

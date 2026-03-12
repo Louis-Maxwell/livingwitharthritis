@@ -125,14 +125,30 @@ export default function ArthritisFlareUps() {
     <>
       <Helmet>
         <title>How to Manage Arthritis Flare-Ups — A Complete UK Guide | Living With Arthritis</title>
-        <meta
-          name="description"
-          content="Learn how to manage arthritis flare-ups with expert UK guidance on triggers, immediate relief, anti-inflammatory diet, gentle exercises, mental health support, and prevention strategies."
-        />
-        <link rel="canonical" href="https://livingwitharthritis.lovable.app/arthritis-flare-ups" />
+        <meta name="description" content="Learn how to manage arthritis flare-ups with expert UK guidance on triggers, immediate relief, anti-inflammatory diet, gentle exercises, mental health support, and prevention strategies." />
+        <meta name="keywords" content="arthritis flare up, arthritis flare up what to do, managing arthritis flare ups, arthritis pain relief UK, arthritis triggers, anti-inflammatory diet arthritis, arthritis flare up treatment" />
+        <link rel="canonical" href="https://livingwitharthritis.org.uk/arthritis-flare-ups" />
+        <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/arthritis-flare-ups" />
         <meta property="og:title" content="How to Manage Arthritis Flare-Ups — A Complete UK Guide" />
+        <meta property="og:description" content="Expert UK guide on managing arthritis flare-ups: triggers, relief strategies, diet, exercise and prevention." />
+        <meta property="og:url" content="https://livingwitharthritis.org.uk/arthritis-flare-ups" />
         <meta property="og:type" content="article" />
+        <meta property="og:locale" content="en_GB" />
+        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="How to Manage Arthritis Flare-Ups — A Complete UK Guide" />
+        <meta name="twitter:description" content="Expert UK guide on managing arthritis flare-ups: triggers, relief strategies, diet, exercise and prevention." />
+        <meta name="geo.region" content="GB" />
+        <meta name="geo.placename" content="United Kingdom" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
+            { "@type": "ListItem", "position": 2, "name": "Arthritis Flare-Ups", "item": "https://livingwitharthritis.org.uk/arthritis-flare-ups" }
+          ]
+        })}</script>
       </Helmet>
 
       <Header />

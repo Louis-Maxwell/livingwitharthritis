@@ -92,8 +92,29 @@ const CommunityHub = () => {
       <Helmet>
         <title>Arthritis Community & Support UK | Living With Arthritis</title>
         <meta name="description" content="Join our arthritis community: patient stories, peer support, live webinars, and a step-by-step guide for the newly diagnosed. You're not alone." />
+        <meta name="keywords" content="arthritis support group UK, arthritis community, peer support arthritis, arthritis webinars, newly diagnosed arthritis, arthritis stories UK" />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/community" />
+        <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/community" />
+        <meta property="og:title" content="Arthritis Community & Support UK" />
+        <meta property="og:description" content="Join our arthritis community: patient stories, peer support, live webinars and guided resources." />
+        <meta property="og:url" content="https://livingwitharthritis.org.uk/community" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_GB" />
+        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Arthritis Community & Support UK" />
+        <meta name="twitter:description" content="Join our arthritis community: patient stories, peer support and guided resources for the newly diagnosed." />
+        <meta name="geo.region" content="GB" />
+        <meta name="geo.placename" content="United Kingdom" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
+            { "@type": "ListItem", "position": 2, "name": "Community", "item": "https://livingwitharthritis.org.uk/community" }
+          ]
+        })}</script>
       </Helmet>
 
       <Header />
