@@ -130,10 +130,10 @@ const DonationBanner = () => {
           </div>
 
           <Select value={fundType} onValueChange={setFundType}>
-            <SelectTrigger className="w-40 bg-white/10 border-0 text-white/80 text-xs h-8 rounded-full">
+            <SelectTrigger className="w-40 bg-white/10 border-0 text-white/80 text-xs h-8 rounded-full focus:ring-0 focus:ring-offset-0">
               <SelectValue />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="rounded-lg shadow-lg border-border/30 min-w-[200px]">
               <SelectItem value="research">Arthritis Research Fund</SelectItem>
               <SelectItem value="support">Patient Support Fund</SelectItem>
               <SelectItem value="helpline">Helpline Support</SelectItem>
