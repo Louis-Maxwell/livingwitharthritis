@@ -6,6 +6,7 @@ import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, ThermometerSun, Book
 import { motion } from "framer-motion";
 import { StatCounter, HorizontalBar, WaveDivider, EmojiCard } from "@/components/graphics/InfographicElements";
 import InternalLinks from "@/components/InternalLinks";
+import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 
 const BASE = "https://livingwitharthritis.org.uk";
 
