@@ -8,6 +8,7 @@ import { useBlogViews } from "@/hooks/useBlogViews";
 import BlogComments from "@/components/BlogComments";
 import BlogHelpfulness from "@/components/BlogHelpfulness";
 import RelatedArticles from "@/components/RelatedArticles";
+import SocialShareButtons from "@/components/SocialShareButtons";
 import { Badge } from "@/components/ui/badge";
 
 const BlogPost = () => {
