@@ -88,13 +88,13 @@ const DonationBanner = () => {
               {currency === "GBP" ? "🇬🇧" : currency === "USD" ? "🇺🇸" : "🇪🇺"}
             </span>
             <Select value={currency} onValueChange={setCurrency}>
-              <SelectTrigger className="w-14 border-0 p-0 h-auto bg-transparent text-white/90 font-medium text-xs">
+              <SelectTrigger className="w-14 border-0 p-0 h-auto bg-transparent text-white/90 font-medium text-xs focus:ring-0 focus:ring-offset-0">
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="GBP">GBP</SelectItem>
-                <SelectItem value="USD">USD</SelectItem>
-                <SelectItem value="EUR">EUR</SelectItem>
+              <SelectContent className="rounded-lg shadow-lg border-border/30 min-w-[90px]">
+                <SelectItem value="GBP">🇬🇧 GBP</SelectItem>
+                <SelectItem value="USD">🇺🇸 USD</SelectItem>
+                <SelectItem value="EUR">🇪🇺 EUR</SelectItem>
               </SelectContent>
             </Select>
           </div>
