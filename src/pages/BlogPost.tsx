@@ -124,6 +124,7 @@ const BlogPost = () => {
             dangerouslySetInnerHTML={{ __html: article.content }}
           />
 
+          {slug && <SocialShareButtons title={article.title} slug={slug} />}
           {slug && <BlogHelpfulness slug={slug} />}
           {slug && <RelatedArticles currentSlug={slug} />}
           {slug && <BlogComments slug={slug} />}
