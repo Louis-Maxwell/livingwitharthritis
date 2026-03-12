@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import InternalLinks from "@/components/InternalLinks";
+import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import {
   Users, MessageCircle, Calendar, Sparkles, ArrowRight,
   Heart, CheckCircle, Star, Globe, BookOpen, HandHeart, Download,
