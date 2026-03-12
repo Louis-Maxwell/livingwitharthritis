@@ -88,9 +88,16 @@ const PsoriaticArthritis = () => (
       <meta name="keywords" content="psoriatic arthritis, psoriatic arthritis symptoms, psoriatic arthritis treatment, PsA, psoriasis arthritis, dactylitis, enthesitis, psoriatic arthritis UK, biologic therapy, psoriatic arthritis diet" />
       <meta property="og:title" content="Psoriatic Arthritis – Symptoms, Causes & Treatment" />
       <meta property="og:description" content="Complete UK guide to psoriatic arthritis: symptoms, modern treatments, exercises and self-management." />
+      <meta property="og:url" content={`${BASE}/conditions/psoriatic-arthritis`} />
+      <meta property="og:type" content="article" />
       <meta property="og:locale" content="en_GB" />
+      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Psoriatic Arthritis – Symptoms, Causes & Treatment" />
+      <meta name="twitter:description" content="Complete UK guide to psoriatic arthritis: symptoms, modern treatments, exercises and self-management." />
       <meta name="geo.region" content="GB" />
       <link rel="canonical" href={`${BASE}/conditions/psoriatic-arthritis`} />
+      <link rel="alternate" hrefLang="en-GB" href={`${BASE}/conditions/psoriatic-arthritis`} />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
       <script type="application/ld+json">{JSON.stringify(faqLd)}</script>

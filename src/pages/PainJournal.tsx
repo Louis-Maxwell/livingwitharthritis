@@ -273,10 +273,7 @@ const PainJournal = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Pain & Symptom Journal | Living With Arthritis</title>
-        <meta name="description" content="Track your arthritis symptoms daily. Log pain levels, affected joints, medications, mood and more to identify patterns and share with your GP." />
-      </Helmet>
+      {seoHelmet}
 
       <Header />
 
