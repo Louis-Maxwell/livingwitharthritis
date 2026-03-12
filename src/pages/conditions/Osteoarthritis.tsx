@@ -87,9 +87,16 @@ const Osteoarthritis = () => (
       <meta name="keywords" content="osteoarthritis, osteoarthritis symptoms, osteoarthritis treatment, osteoarthritis exercises, osteoarthritis diet, OA, degenerative joint disease, arthritis UK, knee arthritis, hip arthritis" />
       <meta property="og:title" content="Osteoarthritis – Symptoms, Causes & Management" />
       <meta property="og:description" content="Comprehensive guide to osteoarthritis including symptoms, causes, exercises, diet and self-management for UK patients." />
+      <meta property="og:url" content={`${BASE}/conditions/osteoarthritis`} />
+      <meta property="og:type" content="article" />
       <meta property="og:locale" content="en_GB" />
+      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Osteoarthritis – Symptoms, Causes & Management" />
+      <meta name="twitter:description" content="Comprehensive guide to osteoarthritis for UK patients: symptoms, exercises, diet and treatment." />
       <meta name="geo.region" content="GB" />
       <link rel="canonical" href={`${BASE}/conditions/osteoarthritis`} />
+      <link rel="alternate" hrefLang="en-GB" href={`${BASE}/conditions/osteoarthritis`} />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
       <script type="application/ld+json">{JSON.stringify(faqLd)}</script>

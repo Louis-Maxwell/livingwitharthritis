@@ -88,9 +88,16 @@ const RheumatoidArthritis = () => (
       <meta name="keywords" content="rheumatoid arthritis, rheumatoid arthritis symptoms, rheumatoid arthritis treatment, RA, autoimmune arthritis, DMARDs, biologic therapy, rheumatoid arthritis UK, joint inflammation, rheumatoid arthritis diet" />
       <meta property="og:title" content="Rheumatoid Arthritis – Symptoms, Causes & Treatment" />
       <meta property="og:description" content="Complete UK guide to rheumatoid arthritis: symptoms, diagnosis, modern treatments and self-management." />
+      <meta property="og:url" content={`${BASE}/conditions/rheumatoid-arthritis`} />
+      <meta property="og:type" content="article" />
       <meta property="og:locale" content="en_GB" />
+      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Rheumatoid Arthritis – Symptoms, Causes & Treatment" />
+      <meta name="twitter:description" content="Complete UK guide to rheumatoid arthritis: symptoms, diagnosis, modern treatments and self-management." />
       <meta name="geo.region" content="GB" />
       <link rel="canonical" href={`${BASE}/conditions/rheumatoid-arthritis`} />
+      <link rel="alternate" hrefLang="en-GB" href={`${BASE}/conditions/rheumatoid-arthritis`} />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
       <script type="application/ld+json">{JSON.stringify(faqLd)}</script>

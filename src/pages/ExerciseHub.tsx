@@ -137,12 +137,29 @@ const ExerciseHub = () => {
       <Helmet>
         <title>Best Exercises for Arthritis UK | Knee, Hand & Shoulder Routines</title>
         <meta name="description" content="NHS-aligned arthritis exercises for knees, hands, shoulders and chair-based routines. Evidence-based physiotherapy programmes for osteoarthritis and RA pain relief." />
+        <meta name="keywords" content="arthritis exercises UK, knee exercises arthritis, hand exercises arthritis, shoulder exercises arthritis, NHS physiotherapy, low impact exercises, osteoarthritis exercises, chair exercises arthritis" />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/exercises" />
+        <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/exercises" />
         <meta property="og:title" content="Best Exercises for Arthritis UK – Complete Guide" />
         <meta property="og:description" content="Evidence-based arthritis exercises for every joint. Physiotherapy routines, swimming, yoga and more." />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/exercises" />
         <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_GB" />
+        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Best Exercises for Arthritis UK – Complete Guide" />
+        <meta name="twitter:description" content="NHS-aligned arthritis exercises for knees, hands, shoulders and chair-based routines." />
+        <meta name="geo.region" content="GB" />
+        <meta name="geo.placename" content="United Kingdom" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
+            { "@type": "ListItem", "position": 2, "name": "Exercises", "item": "https://livingwitharthritis.org.uk/exercises" }
+          ]
+        })}</script>
       </Helmet>
 
       <Header />

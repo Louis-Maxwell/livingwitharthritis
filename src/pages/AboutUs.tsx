@@ -72,10 +72,19 @@ const AboutUs = () => {
       <Helmet>
         <title>About Us — Living With Arthritis UK | Our Mission & Story</title>
         <meta name="description" content="Learn about Living With Arthritis, a UK charity founded in 2020 to support millions affected by arthritis through free virtual physiotherapy, nutrition guidance and community support." />
+        <meta name="keywords" content="living with arthritis charity, arthritis UK charity, arthritis support organisation, about living with arthritis" />
         <meta property="og:title" content="About Us — Living With Arthritis UK" />
         <meta property="og:description" content="A UK charity supporting people living with arthritis through free virtual physiotherapy, nutrition guidance and community support." />
+        <meta property="og:url" content="https://livingwitharthritis.org.uk/about" />
+        <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
+        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="About Us — Living With Arthritis UK" />
+        <meta name="twitter:description" content="UK charity supporting people living with arthritis through free physio, nutrition and community." />
+        <meta name="geo.region" content="GB" />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/about" />
+        <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/about" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "AboutPage",

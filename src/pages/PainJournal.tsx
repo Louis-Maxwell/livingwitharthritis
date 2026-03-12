@@ -63,6 +63,46 @@ interface JournalEntry {
 
 const PainJournal = () => {
   const navigate = useNavigate();
+
+  const seoHelmet = (
+    <Helmet>
+      <title>Pain Journal – Track Arthritis Symptoms | Living With Arthritis UK</title>
+      <meta name="description" content="Track your arthritis pain, stiffness, mood and triggers with our free digital pain journal. Monitor patterns and share insights with your GP or rheumatologist." />
+      <meta name="keywords" content="arthritis pain journal, pain diary arthritis, track arthritis symptoms, pain tracker UK, arthritis symptom log, pain management diary" />
+      <link rel="canonical" href="https://livingwitharthritis.org.uk/pain-journal" />
+      <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/pain-journal" />
+      <meta property="og:title" content="Pain Journal – Track Arthritis Symptoms" />
+      <meta property="og:description" content="Free digital pain journal to track arthritis symptoms, mood and triggers." />
+      <meta property="og:url" content="https://livingwitharthritis.org.uk/pain-journal" />
+      <meta property="og:type" content="website" />
+      <meta property="og:locale" content="en_GB" />
+      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:title" content="Pain Journal – Track Arthritis Symptoms" />
+      <meta name="twitter:description" content="Free digital pain journal to track arthritis symptoms, mood and triggers." />
+      <meta name="geo.region" content="GB" />
+      <meta name="geo.placename" content="United Kingdom" />
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Arthritis Pain Journal",
+        "description": "Free digital pain journal to track arthritis symptoms, stiffness, mood and triggers.",
+        "url": "https://livingwitharthritis.org.uk/pain-journal",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
+        "inLanguage": "en-GB"
+      })}</script>
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
+          { "@type": "ListItem", "position": 2, "name": "Pain Journal", "item": "https://livingwitharthritis.org.uk/pain-journal" }
+        ]
+      })}</script>
+    </Helmet>
+  );
   const { toast } = useToast();
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -216,6 +256,7 @@ const PainJournal = () => {
   if (!user) {
     return (
       <>
+        {seoHelmet}
         <Header />
         <div className="min-h-screen flex flex-col items-center justify-center gap-4 px-6">
           <ClipboardList className="w-12 h-12 text-primary" />
@@ -232,10 +273,7 @@ const PainJournal = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Pain & Symptom Journal | Living With Arthritis</title>
-        <meta name="description" content="Track your arthritis symptoms daily. Log pain levels, affected joints, medications, mood and more to identify patterns and share with your GP." />
-      </Helmet>
+      {seoHelmet}
 
       <Header />
 
