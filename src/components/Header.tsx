@@ -205,7 +205,8 @@ const Header = () => {
             </div>
 
             {/* Mobile: search icon + hamburger */}
-            <div className="flex items-center gap-2 lg:hidden">
+            <div className="flex items-center gap-1.5 lg:hidden">
+              <ThemeToggle />
               <Button
                 variant="ghost"
                 size="icon"
