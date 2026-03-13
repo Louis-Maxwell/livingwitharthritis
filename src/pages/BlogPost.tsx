@@ -89,6 +89,7 @@ const BlogPost = () => {
         })}</script>
       </Helmet>
       <div className="min-h-screen bg-background">
+        <ScrollProgress />
         <Header />
         <PageBreadcrumb segments={[{ label: "Blog", href: "/blog" }, { label: article.title }]} className="max-w-3xl" />
 

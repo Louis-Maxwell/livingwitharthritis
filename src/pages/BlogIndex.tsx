@@ -86,8 +86,16 @@ const categoryAccent: Record<Category, string> = {
   Treatment: "border-l-teal-500",
 };
 
-const BlogIndex = () => {
-  const [activeCategory, setActiveCategory] = useState<Category>("All");
+interface BlogIndexProps {
+  initialCategory?: string;
+}
+
+const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
+  const [activeCategory, setActiveCategory] = useState<Category>(
+    initialCategory
+      ? (initialCategory.charAt(0).toUpperCase() + initialCategory.slice(1).toLowerCase()) as Category
+      : "All"
+  );
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
   const allSlugs = useMemo(() => blogPosts.map((p) => p.slug), []);

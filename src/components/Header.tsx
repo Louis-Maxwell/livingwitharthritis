@@ -198,9 +198,10 @@ const Header = () => {
               </span>
             </button>
 
-            {/* Desktop search inline in logo bar */}
-            <div className="hidden lg:flex items-center">
+            {/* Desktop search + theme toggle inline in logo bar */}
+            <div className="hidden lg:flex items-center gap-1">
               <SiteSearch />
+              <ThemeToggle />
             </div>
 
             {/* Mobile: search icon + hamburger */}

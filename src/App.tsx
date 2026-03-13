@@ -103,26 +103,31 @@ function AnimatedRoutes() {
 
 const App = () => (
   <HelmetProvider>
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Suspense fallback={<PageLoader />}>
-            <AnimatedRoutes />
-          </Suspense>
-          <Suspense fallback={null}>
-            <ChatBotWidget />
-          </Suspense>
-          <Suspense fallback={null}>
-            <CookieConsent />
-          </Suspense>
-          <Suspense fallback={null}>
-            <AccessibilityToolbar />
-          </Suspense>
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Suspense fallback={<PageLoader />}>
+              <AnimatedRoutes />
+            </Suspense>
+            <Suspense fallback={null}>
+              <ChatBotWidget />
+            </Suspense>
+            <Suspense fallback={null}>
+              <CookieConsent />
+            </Suspense>
+            <Suspense fallback={null}>
+              <AccessibilityToolbar />
+            </Suspense>
+            <Suspense fallback={null}>
+              <MobileBottomNav />
+            </Suspense>
+          </BrowserRouter>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </ThemeProvider>
   </HelmetProvider>
 );
 
