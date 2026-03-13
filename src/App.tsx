@@ -5,10 +5,12 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { HelmetProvider } from "react-helmet-async";
+import { ThemeProvider } from "next-themes";
 
 const ChatBotWidget = lazy(() => import("./components/ChatBotWidget"));
 const CookieConsent = lazy(() => import("./components/CookieConsent"));
 const AccessibilityToolbar = lazy(() => import("./components/AccessibilityToolbar"));
+const MobileBottomNav = lazy(() => import("./components/MobileBottomNav"));
 
 
 // Lazy load pages for code splitting
@@ -36,6 +38,7 @@ const CookiesPolicy = lazy(() => import("./pages/CookiesPolicy"));
 const AccessibilityPage = lazy(() => import("./pages/Accessibility"));
 const PainJournal = lazy(() => import("./pages/PainJournal"));
 const ArthritisFlareUps = lazy(() => import("./pages/ArthritisFlareUps"));
+const BlogCategory = lazy(() => import("./pages/BlogCategory"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading fallback with skeleton-style animation
@@ -73,6 +76,7 @@ function AnimatedRoutes() {
       <Route path="/admin" element={<AdminDashboard />} />
       <Route path="/admin/appointments" element={<AdminAppointments />} />
       <Route path="/blog" element={<BlogIndex />} />
+      <Route path="/blog/category/:category" element={<BlogCategory />} />
       <Route path="/blog/:slug" element={<BlogPost />} />
       <Route path="/daily-tips/:slug" element={<DailyTipDetail />} />
       <Route path="/about" element={<AboutUs />} />
@@ -99,26 +103,31 @@ function AnimatedRoutes() {
 
 const App = () => (
   <HelmetProvider>
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Suspense fallback={<PageLoader />}>
-            <AnimatedRoutes />
-          </Suspense>
-          <Suspense fallback={null}>
-            <ChatBotWidget />
-          </Suspense>
-          <Suspense fallback={null}>
-            <CookieConsent />
-          </Suspense>
-          <Suspense fallback={null}>
-            <AccessibilityToolbar />
-          </Suspense>
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Suspense fallback={<PageLoader />}>
+              <AnimatedRoutes />
+            </Suspense>
+            <Suspense fallback={null}>
+              <ChatBotWidget />
+            </Suspense>
+            <Suspense fallback={null}>
+              <CookieConsent />
+            </Suspense>
+            <Suspense fallback={null}>
+              <AccessibilityToolbar />
+            </Suspense>
+            <Suspense fallback={null}>
+              <MobileBottomNav />
+            </Suspense>
+          </BrowserRouter>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </ThemeProvider>
   </HelmetProvider>
 );
 

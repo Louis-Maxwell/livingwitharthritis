@@ -707,3 +707,15 @@
 .high-contrast img {
   filter: contrast(1.15);
 }
+
+/* Safe area for mobile bottom nav */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (max-width: 1023px) {
+  footer,
+  .cookie-consent-wrapper {
+    padding-bottom: 4rem;
+  }
+}

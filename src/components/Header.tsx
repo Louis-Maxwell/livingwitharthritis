@@ -4,6 +4,7 @@ import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper
 import { useNavigate } from "react-router-dom";
 import ResourceLibraryDrawer from "@/components/ResourceLibraryDrawer";
 import SiteSearch from "@/components/SiteSearch";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const DonationBanner = lazy(() => import("@/components/DonationBanner"));
 
@@ -197,13 +198,15 @@ const Header = () => {
               </span>
             </button>
 
-            {/* Desktop search inline in logo bar */}
-            <div className="hidden lg:flex items-center">
+            {/* Desktop search + theme toggle inline in logo bar */}
+            <div className="hidden lg:flex items-center gap-1">
               <SiteSearch />
+              <ThemeToggle />
             </div>
 
             {/* Mobile: search icon + hamburger */}
-            <div className="flex items-center gap-2 lg:hidden">
+            <div className="flex items-center gap-1.5 lg:hidden">
+              <ThemeToggle />
               <Button
                 variant="ghost"
                 size="icon"
