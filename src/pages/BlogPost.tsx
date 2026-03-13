@@ -42,12 +42,17 @@ const BlogPost = () => {
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`https://livingwitharthritis.org.uk/blog/${slug}`} />
         <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/og-blog-default.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={article.title} />
         <meta property="article:published_time" content={article.date} />
         <meta property="article:section" content="Health" />
         <meta property="article:tag" content="arthritis" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={article.metaTitle} />
         <meta name="twitter:description" content={article.metaDescription} />
+        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/og-blog-default.jpg" />
         <meta name="geo.region" content="GB" />
         <link rel="canonical" href={`https://livingwitharthritis.org.uk/blog/${slug}`} />
         <script type="application/ld+json">{JSON.stringify({
