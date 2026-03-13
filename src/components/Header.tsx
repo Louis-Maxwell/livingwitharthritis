@@ -4,6 +4,7 @@ import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper
 import { useNavigate } from "react-router-dom";
 import ResourceLibraryDrawer from "@/components/ResourceLibraryDrawer";
 import SiteSearch from "@/components/SiteSearch";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const DonationBanner = lazy(() => import("@/components/DonationBanner"));
 
