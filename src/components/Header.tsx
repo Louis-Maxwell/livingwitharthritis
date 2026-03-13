@@ -175,6 +175,13 @@ const Header = () => {
       <div
         className={`sticky top-0 z-50 transition-transform duration-300 ${isHidden ? "-translate-y-full" : "translate-y-0"}`}
       >
+        {/* Currently Building Banner */}
+        <div className="bg-amber-500 dark:bg-amber-600 text-amber-950 dark:text-amber-50 text-center py-1.5 px-4 text-xs sm:text-sm font-semibold tracking-wide flex items-center justify-center gap-2">
+          <span className="inline-block animate-pulse">🚧</span>
+          <span>This website is currently under construction — some features may be incomplete</span>
+          <span className="inline-block animate-pulse">🚧</span>
+        </div>
+
         {/* Logo Bar */}
         <div
           className={`transition-all duration-300 ${
