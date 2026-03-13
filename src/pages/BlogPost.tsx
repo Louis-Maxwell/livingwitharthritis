@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ArrowLeft, Eye, BookOpen, Calendar } from "lucide-react";
+import { ArrowLeft, Eye, BookOpen, Calendar, Clock } from "lucide-react";
 import { blogArticles } from "@/data/blogArticles";
 import { useBlogViews } from "@/hooks/useBlogViews";
 import BlogComments from "@/components/BlogComments";
@@ -10,7 +10,14 @@ import BlogHelpfulness from "@/components/BlogHelpfulness";
 import RelatedArticles from "@/components/RelatedArticles";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
+
+function getReadingTime(html: string) {
+  const text = html.replace(/<[^>]*>/g, " ");
+  const words = text.trim().split(/\s+/).length;
+  return Math.max(1, Math.ceil(words / 230));
+}
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
