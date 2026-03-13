@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ArrowLeft, Eye, BookOpen, Calendar } from "lucide-react";
+import { ArrowLeft, Eye, BookOpen, Calendar, Clock } from "lucide-react";
 import { blogArticles } from "@/data/blogArticles";
 import { useBlogViews } from "@/hooks/useBlogViews";
 import BlogComments from "@/components/BlogComments";
@@ -10,7 +10,14 @@ import BlogHelpfulness from "@/components/BlogHelpfulness";
 import RelatedArticles from "@/components/RelatedArticles";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
+
+function getReadingTime(html: string) {
+  const text = html.replace(/<[^>]*>/g, " ");
+  const words = text.trim().split(/\s+/).length;
+  return Math.max(1, Math.ceil(words / 230));
+}
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -100,10 +107,13 @@ const BlogPost = () => {
             <Link to="/blog" className="text-primary text-sm font-medium inline-flex items-center gap-1.5 mb-6 hover:gap-2.5 transition-all">
               <ArrowLeft className="w-3.5 h-3.5" /> All articles
             </Link>
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex flex-wrap items-center gap-3 mb-5">
               <Badge className="bg-primary/10 text-primary border-0 text-xs font-bold px-3 py-1.5">
                 <Calendar className="w-3 h-3 mr-1.5" />
                 {new Date(article.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
+              </Badge>
+              <Badge className="bg-muted text-muted-foreground border-0 text-xs px-3 py-1.5">
+                <Clock className="w-3 h-3 mr-1.5" /> {getReadingTime(article.content)} min read
               </Badge>
               {viewCount !== null && (
                 <Badge className="bg-muted text-muted-foreground border-0 text-xs px-3 py-1.5">
@@ -111,9 +121,19 @@ const BlogPost = () => {
                 </Badge>
               )}
             </div>
-            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground leading-tight tracking-tight">
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground leading-tight tracking-tight mb-6">
               {article.title}
             </h1>
+            {/* Author byline */}
+            <div className="flex items-center gap-3">
+              <Avatar className="h-10 w-10 border-2 border-primary/20">
+                <AvatarFallback className="bg-primary/10 text-primary font-bold text-sm">LWA</AvatarFallback>
+              </Avatar>
+              <div className="flex flex-col">
+                <span className="text-sm font-semibold text-foreground">Living With Arthritis Team</span>
+                <span className="text-xs text-muted-foreground">Reviewed by healthcare professionals</span>
+              </div>
+            </div>
           </div>
           <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
         </div>
