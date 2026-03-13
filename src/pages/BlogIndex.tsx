@@ -313,6 +313,47 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
               </Button>
             </nav>
           )}
+
+          {/* Cross-category internal links for SEO */}
+          <nav aria-label="Browse by category" className="mt-16 pt-10 border-t border-border/30">
+            <h2 className="font-display text-xl font-bold text-foreground mb-2">Browse by Category</h2>
+            <p className="text-muted-foreground text-sm mb-6">Explore all our arthritis advice topics</p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {categories.filter((c) => c !== "All").map((cat) => {
+                const count = blogPosts.filter((p) => p.category === cat).length;
+                const isActive = activeCategory === cat;
+                return (
+                  <Link
+                    key={cat}
+                    to={`/blog/category/${cat.toLowerCase()}`}
+                    className={`group flex items-center gap-4 rounded-xl border p-4 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 ${
+                      isActive
+                        ? `${categoryColors[cat]} border-current bg-opacity-20`
+                        : "border-border/40 bg-card hover:border-primary/30"
+                    }`}
+                  >
+                    <span className={`flex items-center justify-center w-10 h-10 rounded-lg text-sm font-bold ${categoryColors[cat]}`}>
+                      {count}
+                    </span>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-display text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
+                        {cat} Articles
+                      </h3>
+                      <p className="text-xs text-muted-foreground mt-0.5">
+                        {cat === "Exercise" && "Physio routines, yoga, swimming & cycling"}
+                        {cat === "Nutrition" && "Anti-inflammatory diet, meal plans & recipes"}
+                        {cat === "Lifestyle" && "Work, travel, gardening & daily living"}
+                        {cat === "Health" && "Symptoms, diagnosis & condition guides"}
+                        {cat === "Supplements" && "Turmeric, omega-3, glucosamine & collagen"}
+                        {cat === "Treatment" && "Medication, TENS, hydrotherapy & relief"}
+                      </p>
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
+                  </Link>
+                );
+              })}
+            </div>
+          </nav>
         </main>
         <InternalLinks />
         <Footer />
