@@ -12,6 +12,7 @@ import SocialShareButtons from "@/components/SocialShareButtons";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
+import ScrollProgress from "@/components/ScrollProgress";
 
 function getReadingTime(html: string) {
   const text = html.replace(/<[^>]*>/g, " ");
