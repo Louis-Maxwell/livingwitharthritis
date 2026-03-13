@@ -94,9 +94,14 @@ const RheumatoidArthritis = () => (
       <meta property="og:type" content="article" />
       <meta property="og:locale" content="en_GB" />
       <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:image" content={`${BASE}/images/og-rheumatoid-arthritis.jpg`} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content="Rheumatoid Arthritis – Symptoms, Causes & Treatment guide" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Rheumatoid Arthritis – Symptoms, Causes & Treatment" />
       <meta name="twitter:description" content="Complete UK guide to rheumatoid arthritis: symptoms, diagnosis, modern treatments and self-management." />
+      <meta name="twitter:image" content={`${BASE}/images/og-rheumatoid-arthritis.jpg`} />
       <meta name="geo.region" content="GB" />
       <link rel="canonical" href={`${BASE}/conditions/rheumatoid-arthritis`} />
       <link rel="alternate" hrefLang="en-GB" href={`${BASE}/conditions/rheumatoid-arthritis`} />
