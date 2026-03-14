@@ -180,7 +180,8 @@ const Header = () => {
         {!bannerDismissed && (
           <div className="bg-amber-500 dark:bg-amber-600 text-amber-950 dark:text-amber-50 text-center py-1.5 px-4 text-xs sm:text-sm font-semibold tracking-wide flex items-center justify-center gap-2 relative">
             <span className="inline-block animate-pulse">🚧</span>
-            <span>This website is currently under construction — some features may be incomplete</span>
+            <span className="hidden sm:inline">This website is currently under construction — expected launch: <strong>Summer 2026</strong></span>
+            <span className="sm:hidden">Under construction — launching <strong>Summer 2026</strong></span>
             <span className="inline-block animate-pulse">🚧</span>
             <button
               onClick={() => {
