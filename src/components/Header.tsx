@@ -43,6 +43,7 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const [resourceDrawerOpen, setResourceDrawerOpen] = useState(false);
+  const [bannerDismissed, setBannerDismissed] = useState(() => sessionStorage.getItem("banner-dismissed") === "true");
   const navigate = useNavigate();
   const lastScrollY = useRef(0);
 
