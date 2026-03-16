@@ -97,7 +97,8 @@ function AnimatedRoutes() {
       <Route path="/accessibility" element={<AccessibilityPage />} />
       <Route path="/pain-journal" element={<PainJournal />} />
       <Route path="/arthritis-flare-ups" element={<ArthritisFlareUps />} />
-      <Route path="/shop" element={<NotFound />} />
+      <Route path="/shop" element={<Shop />} />
+      <Route path="/product/:handle" element={<ProductDetail />} />
       <Route path="/sitemap" element={<Sitemap />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
