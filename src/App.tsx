@@ -105,6 +105,11 @@ function AnimatedRoutes() {
   );
 }
 
+function AppWithSync() {
+  useCartSync();
+  return <AnimatedRoutes />;
+}
+
 const App = () => (
   <HelmetProvider>
     <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
