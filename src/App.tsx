@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { lazy, Suspense } from "react";
+import { useCartSync } from "@/hooks/useCartSync";
 import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "next-themes";
 
@@ -40,6 +41,8 @@ const PainJournal = lazy(() => import("./pages/PainJournal"));
 const ArthritisFlareUps = lazy(() => import("./pages/ArthritisFlareUps"));
 const BlogCategory = lazy(() => import("./pages/BlogCategory"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const Shop = lazy(() => import("./pages/Shop"));
+const ProductDetail = lazy(() => import("./pages/ProductDetail"));
 
 // Loading fallback with skeleton-style animation
 const PageLoader = () => (
@@ -94,11 +97,17 @@ function AnimatedRoutes() {
       <Route path="/accessibility" element={<AccessibilityPage />} />
       <Route path="/pain-journal" element={<PainJournal />} />
       <Route path="/arthritis-flare-ups" element={<ArthritisFlareUps />} />
-      <Route path="/shop" element={<NotFound />} />
+      <Route path="/shop" element={<Shop />} />
+      <Route path="/product/:handle" element={<ProductDetail />} />
       <Route path="/sitemap" element={<Sitemap />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
+}
+
+function AppWithSync() {
+  useCartSync();
+  return <AnimatedRoutes />;
 }
 
 const App = () => (
@@ -110,7 +119,7 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <Suspense fallback={<PageLoader />}>
-              <AnimatedRoutes />
+              <AppWithSync />
             </Suspense>
             <Suspense fallback={null}>
               <ChatBotWidget />

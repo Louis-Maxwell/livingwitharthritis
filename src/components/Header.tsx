@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
+import CartDrawer from "@/components/CartDrawer";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, ShoppingBag, HelpCircle, HandHeart, Users, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Scale, Baby, Sparkles, Globe, Calendar, Search, ClipboardList } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -273,6 +274,22 @@ const Header = () => {
         <Suspense fallback={<div className="bg-primary h-[38px]" />}>
           <DonationBanner />
         </Suspense>
+
+        {/* Shop Bar — below donation banner */}
+        <div className="bg-muted/50 border-b border-border/20 py-1.5">
+          <div className="container mx-auto px-6 md:px-10 flex items-center justify-center gap-3">
+            <Button
+              size="sm"
+              variant="outline"
+              className="h-8 rounded-full text-xs font-semibold gap-1.5 border-primary/30 hover:bg-primary hover:text-primary-foreground transition-colors"
+              onClick={() => navigate("/shop")}
+            >
+              <ShoppingBag className="w-3.5 h-3.5" />
+              Shop
+            </Button>
+            <CartDrawer />
+          </div>
+        </div>
 
         {/* Nav Bar */}
         <header
