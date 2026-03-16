@@ -119,7 +119,7 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <Suspense fallback={<PageLoader />}>
-              <AnimatedRoutes />
+              <AppWithSync />
             </Suspense>
             <Suspense fallback={null}>
               <ChatBotWidget />
