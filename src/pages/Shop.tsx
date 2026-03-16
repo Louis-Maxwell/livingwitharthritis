@@ -9,7 +9,7 @@ import { ShoppingCart, Loader2, Package } from "lucide-react";
 import { toast } from "sonner";
 import { storefrontApiRequest, STOREFRONT_QUERY, type ShopifyProduct } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
-import { PageHero } from "@/components/ui/PageHero";
+import PageHero from "@/components/ui/PageHero";
 
 const Shop = () => {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
