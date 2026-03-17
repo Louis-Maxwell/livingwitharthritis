@@ -122,6 +122,7 @@ const Header = () => {
       ],
     },
     { label: "Resources", href: "#resources", action: () => setResourceDrawerOpen(true) },
+    { label: "Shop", href: "/shop", action: () => navigate("/shop") },
   ];
 
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
