@@ -122,6 +122,7 @@ const Header = () => {
       ],
     },
     { label: "Resources", href: "#resources", action: () => setResourceDrawerOpen(true) },
+    { label: "Shop", href: "/shop", action: () => navigate("/shop") },
   ];
 
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -159,6 +160,7 @@ const Header = () => {
     { label: "Blog & Research", icon: Newspaper, desc: "40+ evidence-based articles", href: "/blog", action: () => navigate("/blog") },
     { label: "Support Us", icon: HandHeart, desc: "Donate, volunteer & fundraise", href: "#involved" },
     { label: "Resources", icon: BookOpen, desc: "NHS pathways, benefits & guides", href: "#resources", action: () => setResourceDrawerOpen(true) },
+    { label: "Shop", icon: ShoppingBag, desc: "Recommended arthritis products", href: "/shop", action: () => navigate("/shop") },
   ];
 
   const isHidden = !visible && !mobileMenuOpen;
@@ -275,21 +277,6 @@ const Header = () => {
           <DonationBanner />
         </Suspense>
 
-        {/* Shop Bar — below donation banner */}
-        <div className="bg-muted/50 border-b border-border/20 py-1.5">
-          <div className="container mx-auto px-6 md:px-10 flex items-center justify-center gap-3">
-            <Button
-              size="sm"
-              variant="outline"
-              className="h-8 rounded-full text-xs font-semibold gap-1.5 border-primary/30 hover:bg-primary hover:text-primary-foreground transition-colors"
-              onClick={() => navigate("/shop")}
-            >
-              <ShoppingBag className="w-3.5 h-3.5" />
-              Shop
-            </Button>
-            <CartDrawer />
-          </div>
-        </div>
 
         {/* Nav Bar */}
         <header
