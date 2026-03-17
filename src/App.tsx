@@ -43,6 +43,9 @@ const BlogCategory = lazy(() => import("./pages/BlogCategory"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Shop = lazy(() => import("./pages/Shop"));
 const ProductDetail = lazy(() => import("./pages/ProductDetail"));
+const ArthritisSupportIndex = lazy(() => import("./pages/ArthritisSupportIndex"));
+const CityArthritisPage = lazy(() => import("./pages/CityArthritisPage"));
+const ExerciseJointPage = lazy(() => import("./pages/ExerciseJointPage"));
 
 // Loading fallback with skeleton-style animation
 const PageLoader = () => (
