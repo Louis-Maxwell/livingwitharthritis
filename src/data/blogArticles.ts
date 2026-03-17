@@ -253,4 +253,8 @@ export const blogArticles: Record<string, BlogArticle> = {
   ...blogArticlesBatch2,
   ...blogArticlesBatch3,
   ...blogArticlesBatch4,
+  ...blogArticlesBatch5,
+  ...blogArticlesBatch6,
+  ...blogArticlesBatch7,
+  ...blogArticlesBatch8,
 };
