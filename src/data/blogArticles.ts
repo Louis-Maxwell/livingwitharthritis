@@ -1,6 +1,10 @@
 import { blogArticlesBatch2 } from "./blogArticlesBatch2";
 import { blogArticlesBatch3 } from "./blogArticlesBatch3";
 import { blogArticlesBatch4 } from "./blogArticlesBatch4";
+import { blogArticlesBatch5 } from "./blogArticlesBatch5";
+import { blogArticlesBatch6 } from "./blogArticlesBatch6";
+import { blogArticlesBatch7 } from "./blogArticlesBatch7";
+import { blogArticlesBatch8 } from "./blogArticlesBatch8";
 
 interface BlogArticle {
   title: string;
