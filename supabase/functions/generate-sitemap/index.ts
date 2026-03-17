@@ -132,6 +132,19 @@ Deno.serve(async (req) => {
       entries.push(urlEntry(`/daily-tips/${slug}`, TODAY, "monthly", "0.7"));
     }
 
+    // UK City pages
+    entries.push(urlEntry("/arthritis-support", TODAY, "weekly", "0.9", true));
+    for (const slug of ukCitySlugs) {
+      entries.push(urlEntry(`/arthritis-support/${slug}`, TODAY, "monthly", "0.8", true));
+    }
+
+    // Exercise × Joint matrix pages
+    for (const ex of exerciseTypes) {
+      for (const joint of jointTypes) {
+        entries.push(urlEntry(`/exercises/${ex}-for-${joint}-arthritis`, TODAY, "monthly", "0.7"));
+      }
+    }
+
     const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
