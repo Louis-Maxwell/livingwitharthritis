@@ -1,66 +1,53 @@
-import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, Loader2, ArrowLeft, Package } from "lucide-react";
-import { toast } from "sonner";
-import { storefrontApiRequest, PRODUCT_BY_HANDLE_QUERY, type ShopifyProduct } from "@/lib/shopify";
-import { useCartStore } from "@/stores/cartStore";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { ArrowLeft, ExternalLink, Star, Package, ShieldCheck, Truck, RotateCcw, Info } from "lucide-react";
+import { affiliateProducts } from "@/data/affiliateProducts";
+import { motion } from "framer-motion";
+
+const StarRating = ({ rating, count }: { rating: number; count: number }) => (
+  <div className="flex items-center gap-2">
+    <div className="flex">
+      {[1, 2, 3, 4, 5].map((s) => (
+        <Star
+          key={s}
+          className={`w-5 h-5 ${
+            s <= Math.floor(rating)
+              ? "fill-amber-400 text-amber-400"
+              : s - 0.5 <= rating
+              ? "fill-amber-400/50 text-amber-400"
+              : "text-muted-foreground/30"
+          }`}
+        />
+      ))}
+    </div>
+    <span className="text-sm text-muted-foreground font-medium">
+      {rating} ({count.toLocaleString()} reviews)
+    </span>
+  </div>
+);
+
+const badgeColors: Record<string, string> = {
+  "Best Seller": "bg-primary text-primary-foreground",
+  "Top Rated": "bg-amber-500 text-white",
+  "Must Have": "bg-emerald-600 text-white",
+  "Popular": "bg-blue-600 text-white",
+};
 
 const ProductDetail = () => {
   const { handle } = useParams<{ handle: string }>();
   const navigate = useNavigate();
-  const [product, setProduct] = useState<ShopifyProduct["node"] | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [selectedVariantIdx, setSelectedVariantIdx] = useState(0);
-  const [selectedImage, setSelectedImage] = useState(0);
-  const { addItem, isLoading: cartLoading } = useCartStore();
 
-  useEffect(() => {
-    async function fetchProduct() {
-      try {
-        const data = await storefrontApiRequest(PRODUCT_BY_HANDLE_QUERY, { handle });
-        if (data?.data?.product) {
-          setProduct(data.data.product);
-        }
-      } catch (error) {
-        console.error("Failed to fetch product:", error);
-      } finally {
-        setLoading(false);
-      }
-    }
-    if (handle) fetchProduct();
-  }, [handle]);
+  const product = affiliateProducts.find((p) => p.id === handle);
 
-  const handleAddToCart = async () => {
-    if (!product) return;
-    const variant = product.variants.edges[selectedVariantIdx]?.node;
-    if (!variant) return;
-    const shopifyProduct: ShopifyProduct = { node: product };
-    await addItem({
-      product: shopifyProduct,
-      variantId: variant.id,
-      variantTitle: variant.title,
-      price: variant.price,
-      quantity: 1,
-      selectedOptions: variant.selectedOptions || [],
-    });
-    toast.success("Added to cart", { description: product.title, position: "top-center" });
-  };
-
-  if (loading) {
-    return (
-      <>
-        <Header />
-        <div className="min-h-screen flex items-center justify-center bg-background">
-          <Loader2 className="h-8 w-8 animate-spin text-primary" />
-        </div>
-        <Footer />
-      </>
-    );
-  }
+  // Related products from same category (exclude current)
+  const related = product
+    ? affiliateProducts.filter((p) => p.category === product.category && p.id !== product.id).slice(0, 3)
+    : [];
 
   if (!product) {
     return (
@@ -78,96 +65,109 @@ const ProductDetail = () => {
     );
   }
 
-  const variant = product.variants.edges[selectedVariantIdx]?.node;
-  const images = product.images.edges;
+  const categoryLabel = {
+    compression: "Compression & Support",
+    exercise: "Exercise Equipment",
+    supplements: "Supplements",
+    "daily-living": "Daily Living Aids",
+    "pain-relief": "Pain Relief",
+    mobility: "Mobility Aids",
+  }[product.category];
 
   return (
     <>
       <Helmet>
-        <title>{product.title} | Shop — Living With Arthritis</title>
-        <meta name="description" content={product.description?.slice(0, 160)} />
+        <title>{product.title} | Recommended Products — Living With Arthritis</title>
+        <meta name="description" content={product.description.slice(0, 160)} />
       </Helmet>
       <Header />
       <main className="min-h-screen bg-background">
-        <div className="container mx-auto px-4 py-8">
-          <Button variant="ghost" size="sm" className="mb-6" onClick={() => navigate("/shop")}>
+        <div className="container mx-auto px-4 sm:px-6 py-8 max-w-6xl">
+          {/* Breadcrumb */}
+          <Button variant="ghost" size="sm" className="mb-6 text-muted-foreground" onClick={() => navigate("/shop")}>
             <ArrowLeft className="h-4 w-4 mr-2" /> Back to Shop
           </Button>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-            {/* Images */}
-            <div className="space-y-4">
-              <div className="aspect-square rounded-xl overflow-hidden bg-muted">
-                {images[selectedImage] ? (
-                  <img
-                    src={images[selectedImage].node.url}
-                    alt={images[selectedImage].node.altText || product.title}
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center">
-                    <Package className="h-16 w-16 text-muted-foreground" />
-                  </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-14">
+            {/* Image */}
+            <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4 }}>
+              <div className="aspect-square rounded-2xl overflow-hidden bg-muted relative">
+                <img src={product.image} alt={product.title} className="w-full h-full object-cover" />
+                {product.badge && (
+                  <Badge className={`absolute top-4 left-4 text-sm ${badgeColors[product.badge] || ""}`}>
+                    {product.badge}
+                  </Badge>
                 )}
               </div>
-              {images.length > 1 && (
-                <div className="flex gap-2 overflow-x-auto">
-                  {images.map((img, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setSelectedImage(idx)}
-                      className={`w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border-2 transition-colors ${
-                        idx === selectedImage ? "border-primary" : "border-transparent"
-                      }`}
-                    >
-                      <img src={img.node.url} alt={img.node.altText || ""} className="w-full h-full object-cover" />
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
+            </motion.div>
 
             {/* Details */}
-            <div className="space-y-6">
-              <h1 className="text-3xl font-bold text-foreground">{product.title}</h1>
-              {variant && (
-                <p className="text-2xl font-bold text-primary">
-                  {variant.price.currencyCode} {parseFloat(variant.price.amount).toFixed(2)}
-                </p>
-              )}
-              <p className="text-muted-foreground leading-relaxed">{product.description}</p>
+            <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4, delay: 0.1 }} className="space-y-5">
+              <div>
+                <Badge variant="secondary" className="mb-3 rounded-full">{categoryLabel}</Badge>
+                <h1 className="text-3xl font-bold text-foreground leading-tight">{product.title}</h1>
+              </div>
 
-              {/* Variant selector */}
-              {product.variants.edges.length > 1 && (
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground">Variant</label>
-                  <div className="flex flex-wrap gap-2">
-                    {product.variants.edges.map((v, idx) => (
-                      <Button
-                        key={v.node.id}
-                        variant={idx === selectedVariantIdx ? "default" : "outline"}
-                        size="sm"
-                        onClick={() => setSelectedVariantIdx(idx)}
-                        disabled={!v.node.availableForSale}
-                      >
-                        {v.node.title}
-                      </Button>
-                    ))}
+              <StarRating rating={product.rating} count={product.reviewCount} />
+
+              <p className="text-2xl font-bold text-foreground">{product.price}</p>
+
+              <p className="text-muted-foreground leading-relaxed text-[0.95rem]">{product.description}</p>
+
+              {/* Trust signals */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                {[
+                  { icon: <ShieldCheck className="w-5 h-5 text-emerald-600" />, label: "Amazon Verified" },
+                  { icon: <Truck className="w-5 h-5 text-blue-600" />, label: "Prime Eligible" },
+                  { icon: <RotateCcw className="w-5 h-5 text-amber-600" />, label: "Easy Returns" },
+                ].map((item) => (
+                  <div key={item.label} className="flex items-center gap-2 p-3 rounded-xl bg-muted/60 border border-border">
+                    {item.icon}
+                    <span className="text-sm font-medium text-foreground">{item.label}</span>
                   </div>
-                </div>
-              )}
+                ))}
+              </div>
 
-              <Button size="lg" className="w-full" onClick={handleAddToCart} disabled={cartLoading || !variant?.availableForSale}>
-                {cartLoading ? (
-                  <Loader2 className="h-5 w-5 animate-spin" />
-                ) : (
-                  <>
-                    <ShoppingCart className="h-5 w-5 mr-2" />
-                    {variant?.availableForSale ? "Add to Cart" : "Sold Out"}
-                  </>
-                )}
+              {/* CTA */}
+              <Button
+                size="lg"
+                className="w-full rounded-xl gap-2 text-base h-12"
+                onClick={() => window.open(product.amazonUrl, "_blank", "noopener,noreferrer")}
+              >
+                Buy on Amazon
+                <ExternalLink className="w-4 h-4" />
               </Button>
-            </div>
+
+              <div className="flex items-start gap-2 text-xs text-muted-foreground">
+                <Info className="w-3.5 h-3.5 flex-shrink-0 mt-0.5" />
+                <span>As an Amazon Associate, we earn from qualifying purchases. Price may vary.</span>
+              </div>
+            </motion.div>
           </div>
+
+          {/* Related Products */}
+          {related.length > 0 && (
+            <section className="mt-16">
+              <h2 className="text-2xl font-bold text-foreground mb-6">You might also like</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                {related.map((rp) => (
+                  <Card
+                    key={rp.id}
+                    className="group cursor-pointer hover:shadow-lg transition-shadow overflow-hidden border-border/60"
+                    onClick={() => navigate(`/product/${rp.id}`)}
+                  >
+                    <div className="aspect-[4/3] overflow-hidden bg-muted">
+                      <img src={rp.image} alt={rp.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                    </div>
+                    <CardContent className="p-4 space-y-1.5">
+                      <h3 className="font-semibold text-foreground line-clamp-1">{rp.title}</h3>
+                      <p className="font-bold text-foreground">{rp.price}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </section>
+          )}
         </div>
       </main>
       <Footer />
