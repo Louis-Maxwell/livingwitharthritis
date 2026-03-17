@@ -36,6 +36,21 @@ const conditionPages = [
   "/conditions/psoriatic-arthritis",
 ];
 
+/* ── UK City pages ── */
+const ukCitySlugs = [
+  "london", "birmingham", "manchester", "leeds", "glasgow", "liverpool", "edinburgh",
+  "bristol", "sheffield", "newcastle", "cardiff", "nottingham", "leicester", "coventry",
+  "belfast", "brighton", "plymouth", "stoke-on-trent", "wolverhampton", "southampton",
+  "derby", "swansea", "aberdeen", "oxford", "cambridge", "exeter", "york", "norwich",
+  "bath", "hull", "portsmouth", "sunderland", "dundee", "middlesbrough", "reading",
+  "peterborough", "blackpool", "ipswich", "preston", "luton", "warrington", "slough",
+  "bournemouth", "cheltenham", "doncaster", "wigan", "wakefield", "gloucester", "lincoln", "worcester",
+];
+
+/* ── Exercise × Joint matrix pages ── */
+const exerciseTypes = ["swimming", "yoga", "cycling", "walking", "tai-chi", "pilates", "stretching", "strength-training"];
+const jointTypes = ["knee", "hip", "shoulder", "hand", "back", "ankle"];
+
 /* ── Daily tips ── */
 const dailyTipSlugs = [
   "overview", "morning-stretches", "stay-hydrated", "anti-inflammatory-snacks",
