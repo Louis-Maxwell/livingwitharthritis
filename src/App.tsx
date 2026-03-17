@@ -43,6 +43,9 @@ const BlogCategory = lazy(() => import("./pages/BlogCategory"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Shop = lazy(() => import("./pages/Shop"));
 const ProductDetail = lazy(() => import("./pages/ProductDetail"));
+const ArthritisSupportIndex = lazy(() => import("./pages/ArthritisSupportIndex"));
+const CityArthritisPage = lazy(() => import("./pages/CityArthritisPage"));
+const ExerciseJointPage = lazy(() => import("./pages/ExerciseJointPage"));
 
 // Loading fallback with skeleton-style animation
 const PageLoader = () => (
@@ -99,6 +102,9 @@ function AnimatedRoutes() {
       <Route path="/arthritis-flare-ups" element={<ArthritisFlareUps />} />
       <Route path="/shop" element={<Shop />} />
       <Route path="/product/:handle" element={<ProductDetail />} />
+      <Route path="/arthritis-support" element={<ArthritisSupportIndex />} />
+      <Route path="/arthritis-support/:city" element={<CityArthritisPage />} />
+      <Route path="/exercises/:slug" element={<ExerciseJointPage />} />
       <Route path="/sitemap" element={<Sitemap />} />
       <Route path="*" element={<NotFound />} />
     </Routes>

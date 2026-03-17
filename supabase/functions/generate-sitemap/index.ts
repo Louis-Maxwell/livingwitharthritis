@@ -36,6 +36,21 @@ const conditionPages = [
   "/conditions/psoriatic-arthritis",
 ];
 
+/* ── UK City pages ── */
+const ukCitySlugs = [
+  "london", "birmingham", "manchester", "leeds", "glasgow", "liverpool", "edinburgh",
+  "bristol", "sheffield", "newcastle", "cardiff", "nottingham", "leicester", "coventry",
+  "belfast", "brighton", "plymouth", "stoke-on-trent", "wolverhampton", "southampton",
+  "derby", "swansea", "aberdeen", "oxford", "cambridge", "exeter", "york", "norwich",
+  "bath", "hull", "portsmouth", "sunderland", "dundee", "middlesbrough", "reading",
+  "peterborough", "blackpool", "ipswich", "preston", "luton", "warrington", "slough",
+  "bournemouth", "cheltenham", "doncaster", "wigan", "wakefield", "gloucester", "lincoln", "worcester",
+];
+
+/* ── Exercise × Joint matrix pages ── */
+const exerciseTypes = ["swimming", "yoga", "cycling", "walking", "tai-chi", "pilates", "stretching", "strength-training"];
+const jointTypes = ["knee", "hip", "shoulder", "hand", "back", "ankle"];
+
 /* ── Daily tips ── */
 const dailyTipSlugs = [
   "overview", "morning-stretches", "stay-hydrated", "anti-inflammatory-snacks",
@@ -115,6 +130,19 @@ Deno.serve(async (req) => {
     // Daily tips
     for (const slug of dailyTipSlugs) {
       entries.push(urlEntry(`/daily-tips/${slug}`, TODAY, "monthly", "0.7"));
+    }
+
+    // UK City pages
+    entries.push(urlEntry("/arthritis-support", TODAY, "weekly", "0.9", true));
+    for (const slug of ukCitySlugs) {
+      entries.push(urlEntry(`/arthritis-support/${slug}`, TODAY, "monthly", "0.8", true));
+    }
+
+    // Exercise × Joint matrix pages
+    for (const ex of exerciseTypes) {
+      for (const joint of jointTypes) {
+        entries.push(urlEntry(`/exercises/${ex}-for-${joint}-arthritis`, TODAY, "monthly", "0.7"));
+      }
     }
 
     const xml = `<?xml version="1.0" encoding="UTF-8"?>
