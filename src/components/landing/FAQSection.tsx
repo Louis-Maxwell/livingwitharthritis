@@ -1,4 +1,5 @@
 import { memo } from "react";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowRight, MessageCircle } from "lucide-react";

@@ -81,6 +81,22 @@ const BlogPost = () => {
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": article.title,
+          "description": article.metaDescription,
+          "image": "https://livingwitharthritis.org.uk/images/og-blog-default.jpg",
+          "datePublished": article.date,
+          "dateModified": article.date,
+          "author": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk" },
+          "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk", "logo": { "@type": "ImageObject", "url": "https://livingwitharthritis.org.uk/favicon.ico", "width": 512, "height": 512 } },
+          "mainEntityOfPage": { "@type": "WebPage", "@id": `https://livingwitharthritis.org.uk/blog/${slug}` },
+          "wordCount": article.content.replace(/<[^>]*>/g, " ").trim().split(/\s+/).length,
+          "inLanguage": "en-GB",
+          "isAccessibleForFree": true,
+          "articleSection": "Health"
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
