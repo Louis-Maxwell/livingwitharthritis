@@ -88,6 +88,7 @@ const FAQSection = memo(() => {
       </motion.div>
     </div>
   </section>
+  </>
   );
 });
 
