@@ -11,6 +11,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import ViewportSection from "@/components/ui/ViewportSection";
 
 const Footer = lazy(() => import("@/components/Footer"));
 const AppointmentModal = lazy(() => import("@/components/AppointmentModal").then(m => ({ default: m.AppointmentModal })));
@@ -167,7 +168,7 @@ export default function Index() {
         <main id="main-content" className="space-y-0" role="main">
           <HeroSection />
 
-          <div className="w-full px-0 space-y-0 content-deferred">
+          <div className="w-full px-0 space-y-0">
             {/* Quick-access hub cards — right after hero */}
             <Suspense fallback={<SectionLoader />}>
               <QuickAccessSection />
@@ -185,137 +186,150 @@ export default function Index() {
               <ServicesGrid />
             </Suspense>
 
-            <Suspense fallback={<SectionLoader />}>
-              <HowItWorksSection />
-            </Suspense>
+            {/* Below-fold: defer rendering until near viewport */}
+            <ViewportSection minHeight="400px" rootMargin="400px">
+              <Suspense fallback={<SectionLoader />}>
+                <HowItWorksSection />
+              </Suspense>
+            </ViewportSection>
 
-            <Suspense fallback={<SectionLoader />}>
-              <ImpactBannerSection />
-            </Suspense>
+            <ViewportSection minHeight="200px" rootMargin="400px">
+              <Suspense fallback={<SectionLoader />}>
+                <ImpactBannerSection />
+              </Suspense>
+            </ViewportSection>
 
             {/* TABBED EXPLORE SECTION */}
-            <section id="explore" className="scroll-mt-24 bg-tint-rose p-6 md:p-12 border-y border-border/20">
-              <div className="max-w-7xl mx-auto">
-                <div className="text-center mb-10">
-                  <span className="section-label text-primary mb-4 block">Resources Library</span>
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground tracking-tight leading-[1.08]">
-                    Explore our{" "}
-                    <span className="text-gradient">expert resources</span>
-                  </h2>
-                  <p className="text-muted-foreground mt-4 max-w-lg mx-auto text-sm sm:text-base leading-relaxed">
-                    Discover nutrition guides, physiotherapy exercises, condition information, community support and UK resources — all clinically reviewed.
-                  </p>
-                </div>
-
-                <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-                  <TabsList className="w-full flex flex-wrap justify-center gap-1 bg-muted/50 p-1.5 rounded-2xl h-auto">
-                    {EXPLORE_TABS.map((tab) => {
-                      const Icon = tab.icon;
-                      return (
-                        <TabsTrigger
-                          key={tab.value}
-                          value={tab.value}
-                          className="flex items-center gap-2 px-4 py-2.5 text-xs sm:text-sm font-semibold rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md transition-all duration-200"
-                        >
-                          <Icon className="w-4 h-4" />
-                          <span className="hidden sm:inline">{tab.label}</span>
-                          <span className="sm:hidden">{tab.label.split(" ")[0]}</span>
-                        </TabsTrigger>
-                      );
-                    })}
-                  </TabsList>
-
-                  <div className="mt-8">
-                    <TabsContent value="nutrition" className="space-y-10 md:space-y-14 mt-0">
-                      <Suspense fallback={<SectionLoader />}>
-                        <NutritionArticleSection />
-                      </Suspense>
-                    </TabsContent>
-
-                    <TabsContent value="exercises" className="space-y-10 md:space-y-14 mt-0">
-                      <Suspense fallback={<SectionLoader />}>
-                        <VirtualPhysioSection />
-                        <JointExerciseSection />
-                      </Suspense>
-                    </TabsContent>
-
-                    <TabsContent value="conditions" className="space-y-10 md:space-y-14 mt-0">
-                      <Suspense fallback={<SectionLoader />}>
-                        <ConditionsSection />
-                      </Suspense>
-                    </TabsContent>
-
-                    <TabsContent value="community" className="space-y-10 md:space-y-14 mt-0">
-                      <Suspense fallback={<SectionLoader />}>
-                        <CommunitySection />
-                        <TransparencySection />
-                      </Suspense>
-                    </TabsContent>
-
-                    <TabsContent value="resources" className="space-y-10 md:space-y-14 mt-0">
-                      <Suspense fallback={<SectionLoader />}>
-                        <UKResourcesSection />
-                      </Suspense>
-                    </TabsContent>
+            <ViewportSection minHeight="600px" rootMargin="400px">
+              <section id="explore" className="scroll-mt-24 bg-tint-rose p-6 md:p-12 border-y border-border/20">
+                <div className="max-w-7xl mx-auto">
+                  <div className="text-center mb-10">
+                    <span className="section-label text-primary mb-4 block">Resources Library</span>
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground tracking-tight leading-[1.08]">
+                      Explore our{" "}
+                      <span className="text-gradient">expert resources</span>
+                    </h2>
+                    <p className="text-muted-foreground mt-4 max-w-lg mx-auto text-sm sm:text-base leading-relaxed">
+                      Discover nutrition guides, physiotherapy exercises, condition information, community support and UK resources — all clinically reviewed.
+                    </p>
                   </div>
-                </Tabs>
-              </div>
-            </section>
 
-            {/* Tips, Blog, Testimonials, FAQ, Donate */}
-            <Suspense fallback={<SectionLoader />}>
-              <DailyTipsSection />
-            </Suspense>
+                  <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+                    <TabsList className="w-full flex flex-wrap justify-center gap-1 bg-muted/50 p-1.5 rounded-2xl h-auto">
+                      {EXPLORE_TABS.map((tab) => {
+                        const Icon = tab.icon;
+                        return (
+                          <TabsTrigger
+                            key={tab.value}
+                            value={tab.value}
+                            className="flex items-center gap-2 px-4 py-2.5 text-xs sm:text-sm font-semibold rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md transition-all duration-200"
+                          >
+                            <Icon className="w-4 h-4" />
+                            <span className="hidden sm:inline">{tab.label}</span>
+                            <span className="sm:hidden">{tab.label.split(" ")[0]}</span>
+                          </TabsTrigger>
+                        );
+                      })}
+                    </TabsList>
 
-            <Suspense fallback={<SectionLoader />}>
-              <BlogPreviewSection />
-            </Suspense>
+                    <div className="mt-8">
+                      <TabsContent value="nutrition" className="space-y-10 md:space-y-14 mt-0">
+                        <Suspense fallback={<SectionLoader />}>
+                          <NutritionArticleSection />
+                        </Suspense>
+                      </TabsContent>
 
-            <Suspense fallback={<SectionLoader />}>
-              <TestimonialsSection />
-            </Suspense>
+                      <TabsContent value="exercises" className="space-y-10 md:space-y-14 mt-0">
+                        <Suspense fallback={<SectionLoader />}>
+                          <VirtualPhysioSection />
+                          <JointExerciseSection />
+                        </Suspense>
+                      </TabsContent>
 
-            <div className="section-deferred">
+                      <TabsContent value="conditions" className="space-y-10 md:space-y-14 mt-0">
+                        <Suspense fallback={<SectionLoader />}>
+                          <ConditionsSection />
+                        </Suspense>
+                      </TabsContent>
+
+                      <TabsContent value="community" className="space-y-10 md:space-y-14 mt-0">
+                        <Suspense fallback={<SectionLoader />}>
+                          <CommunitySection />
+                          <TransparencySection />
+                        </Suspense>
+                      </TabsContent>
+
+                      <TabsContent value="resources" className="space-y-10 md:space-y-14 mt-0">
+                        <Suspense fallback={<SectionLoader />}>
+                          <UKResourcesSection />
+                        </Suspense>
+                      </TabsContent>
+                    </div>
+                  </Tabs>
+                </div>
+              </section>
+            </ViewportSection>
+
+            {/* Deep sections – only render when user scrolls near them */}
+            <ViewportSection minHeight="300px" rootMargin="300px">
+              <Suspense fallback={<SectionLoader />}>
+                <DailyTipsSection />
+              </Suspense>
+            </ViewportSection>
+
+            <ViewportSection minHeight="300px" rootMargin="300px">
+              <Suspense fallback={<SectionLoader />}>
+                <BlogPreviewSection />
+              </Suspense>
+            </ViewportSection>
+
+            <ViewportSection minHeight="300px" rootMargin="300px">
+              <Suspense fallback={<SectionLoader />}>
+                <TestimonialsSection />
+              </Suspense>
+            </ViewportSection>
+
+            <ViewportSection minHeight="400px" rootMargin="300px">
               <Suspense fallback={<SectionLoader />}>
                 <FAQSection />
               </Suspense>
-            </div>
+            </ViewportSection>
 
-            <div className="section-deferred">
+            <ViewportSection minHeight="300px" rootMargin="300px">
               <Suspense fallback={<SectionLoader />}>
                 <FundraisingProgressSection />
               </Suspense>
-            </div>
+            </ViewportSection>
 
-            <div className="section-deferred">
+            <ViewportSection minHeight="300px" rootMargin="300px">
               <Suspense fallback={<SectionLoader />}>
                 <PatientImpactStories />
               </Suspense>
-            </div>
+            </ViewportSection>
 
-            <div className="section-deferred">
+            <ViewportSection minHeight="300px" rootMargin="300px">
               <Suspense fallback={<SectionLoader />}>
                 <ImpactMetricsSection />
               </Suspense>
-            </div>
+            </ViewportSection>
 
-            <div className="section-deferred">
+            <ViewportSection minHeight="200px" rootMargin="300px">
               <Suspense fallback={<SectionLoader />}>
                 <NewsletterSection />
               </Suspense>
-            </div>
+            </ViewportSection>
 
-            <div className="section-deferred">
+            <ViewportSection minHeight="300px" rootMargin="300px">
               <Suspense fallback={<SectionLoader />}>
                 <GetInTouchSection />
               </Suspense>
-            </div>
+            </ViewportSection>
 
-            <div className="section-deferred">
+            <ViewportSection minHeight="200px" rootMargin="300px">
               <Suspense fallback={<SectionLoader />}>
                 <FinalCTASection />
               </Suspense>
-            </div>
+            </ViewportSection>
           </div>
         </main>
 
