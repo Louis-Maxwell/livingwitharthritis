@@ -1,4 +1,5 @@
 import { memo } from "react";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowRight, MessageCircle } from "lucide-react";
@@ -21,6 +22,21 @@ const faqs = [
 const FAQSection = memo(() => {
   const navigate = useNavigate();
   return (
+  <>
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(faq => ({
+          "@type": "Question",
+          "name": faq.q,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.a
+          }
+        }))
+      })}</script>
+    </Helmet>
   <section className="py-14 lg:py-20 bg-tint-violet section-divider">
     <div className="container mx-auto px-6 md:px-10 max-w-3xl">
       <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
@@ -72,6 +88,7 @@ const FAQSection = memo(() => {
       </motion.div>
     </div>
   </section>
+  </>
   );
 });
 
