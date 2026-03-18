@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import { Bot, X } from "lucide-react";
-import { ChatBot } from "@/components/ChatBot";
 import { AnimatePresence, motion } from "framer-motion";
+
+// Only load ChatBot (and its react-markdown dependency) when user opens the widget
+const ChatBot = lazy(() => import("@/components/ChatBot").then(m => ({ default: m.ChatBot })));
 
 export default function ChatBotWidget() {
   const [open, setOpen] = useState(false);
@@ -20,24 +22,31 @@ export default function ChatBotWidget() {
               <X className="h-6 w-6" />
             </motion.span>
           ) : (
-            <motion.span key="open" initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.5, opacity: 0 }} transition={{ duration: 0.15 }}>
+            <motion.span key="open" initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.8, opacity: 0 }} transition={{ duration: 0.15 }}>
               <Bot className="h-6 w-6" />
             </motion.span>
           )}
         </AnimatePresence>
       </button>
 
-      {/* Chat panel */}
+      {/* Chat panel – only loads ChatBot code when opened */}
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            key="chat-panel"
+            initial={{ opacity: 0, y: 40, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ duration: 0.15, ease: "easeOut" }}
-            className="fixed bottom-24 right-6 z-50 w-[370px] max-w-[calc(100vw-2rem)] h-[520px] max-h-[calc(100vh-8rem)] rounded-2xl border border-border/60 shadow-2xl overflow-hidden bg-background sm:right-8"
+            exit={{ opacity: 0, y: 40, scale: 0.95 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="fixed bottom-24 right-4 sm:right-8 z-50 w-[90vw] max-w-md h-[70vh] max-h-[600px] rounded-2xl shadow-2xl overflow-hidden border border-border bg-background"
           >
-            <ChatBot />
+            <Suspense fallback={
+              <div className="flex items-center justify-center h-full">
+                <div className="animate-spin rounded-full h-8 w-8 border-2 border-primary border-t-transparent" />
+              </div>
+            }>
+              <ChatBot />
+            </Suspense>
           </motion.div>
         )}
       </AnimatePresence>

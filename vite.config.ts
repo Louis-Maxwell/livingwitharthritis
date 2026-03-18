@@ -34,9 +34,9 @@ export default defineConfig(({ mode }) => ({
           query: ["@tanstack/react-query"],
           supabase: ["@supabase/supabase-js"],
           helmet: ["react-helmet-async"],
-          markdown: ["react-markdown"],
           forms: ["react-hook-form", "@hookform/resolvers", "zod"],
-          charts: ["recharts"],
+          // NOTE: recharts and react-markdown are NOT in manualChunks
+          // so they only load with their lazy-loaded consumers
         },
       },
     },

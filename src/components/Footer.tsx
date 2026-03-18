@@ -122,6 +122,8 @@ const Footer = () => {
             src={accreditationLogos}
             alt="Chartered Society of Physiotherapy and Health & Care Professions Council logos"
             className="h-20 md:h-28 object-contain"
+            width={320}
+            height={112}
             loading="lazy"
           />
         </div>
