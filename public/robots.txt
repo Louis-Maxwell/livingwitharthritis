@@ -20,4 +20,3 @@ Disallow: /admin
 Disallow: /auth
 
 Sitemap: https://livingwitharthritis.org.uk/sitemap.xml
-Sitemap: https://nfijkdoifihbgomcnbnb.supabase.co/functions/v1/generate-sitemap
