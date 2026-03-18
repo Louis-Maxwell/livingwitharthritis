@@ -57,11 +57,16 @@ const dailyTipSlugs = [
   "walk-20-minutes", "prioritise-sleep", "pace-yourself", "health-tips", "daily-living",
 ];
 
+function escapeXml(str: string): string {
+  return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
+}
+
 function urlEntry(loc: string, lastmod: string, changefreq: string, priority: string, hreflang = false): string {
-  const full = `${BASE}${loc}`;
+  const full = escapeXml(`${BASE}${loc}`);
   let entry = `  <url>\n    <loc>${full}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>`;
   if (hreflang) {
     entry += `\n    <xhtml:link rel="alternate" hreflang="en-GB" href="${full}" />`;
+    entry += `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${full}" />`;
   }
   entry += "\n  </url>";
   return entry;
