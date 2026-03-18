@@ -142,6 +142,21 @@ export default function Index() {
           "knowsAbout": ["Osteoarthritis", "Rheumatoid Arthritis", "Psoriatic Arthritis", "Joint Pain", "Anti-inflammatory Diet", "Mediterranean Diet", "Physiotherapy", "Turmeric Curcumin", "Glucosamine", "Omega-3", "NHS Arthritis Support", "PIP Disability Benefits", "NICE Guidelines Arthritis"],
           "inLanguage": "en-GB"
         })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Living With Arthritis UK",
+          "url": "https://livingwitharthritis.org.uk",
+          "inLanguage": "en-GB",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://livingwitharthritis.org.uk/?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        })}</script>
       </Helmet>
 
       <div className="min-h-screen bg-background">
