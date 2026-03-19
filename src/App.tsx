@@ -46,6 +46,7 @@ const ProductDetail = lazy(() => import("./pages/ProductDetail"));
 const ArthritisSupportIndex = lazy(() => import("./pages/ArthritisSupportIndex"));
 const CityArthritisPage = lazy(() => import("./pages/CityArthritisPage"));
 const ExerciseJointPage = lazy(() => import("./pages/ExerciseJointPage"));
+const CorporateGiving = lazy(() => import("./pages/CorporateGiving"));
 
 // Loading fallback with skeleton-style animation
 const PageLoader = () => (
@@ -106,6 +107,7 @@ function AnimatedRoutes() {
       <Route path="/arthritis-support/:city" element={<CityArthritisPage />} />
       <Route path="/exercises/:slug" element={<ExerciseJointPage />} />
       <Route path="/sitemap" element={<Sitemap />} />
+      <Route path="/corporate-giving" element={<CorporateGiving />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
