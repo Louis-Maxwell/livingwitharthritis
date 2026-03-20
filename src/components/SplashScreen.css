@@ -1,0 +1,73 @@
+/* Splash screen animations */
+
+.splash-entrance {
+  animation: splashEntrance 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes splashEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.splash-logo {
+  animation: splashLogoReveal 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+@keyframes splashLogoReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.7) rotate(-8deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.splash-text {
+  animation: splashTextReveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both;
+}
+
+@keyframes splashTextReveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.splash-pulse {
+  animation: splashPulse 2s ease-in-out infinite;
+}
+
+@keyframes splashPulse {
+  0%, 100% { opacity: 0.3; transform: scale(1.4); }
+  50% { opacity: 0.6; transform: scale(1.7); }
+}
+
+.splash-orb-1 {
+  animation: splashOrb1 6s ease-in-out infinite alternate;
+}
+
+.splash-orb-2 {
+  animation: splashOrb2 8s ease-in-out infinite alternate;
+}
+
+@keyframes splashOrb1 {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-30px, 20px); }
+}
+
+@keyframes splashOrb2 {
+  from { transform: translate(0, 0); }
+  to { transform: translate(20px, -15px); }
+}
