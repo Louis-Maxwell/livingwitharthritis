@@ -1,4 +1,5 @@
 import { useState, useEffect, memo } from "react";
+import "./SplashScreen.css";
 
 /* Inline LogoMark to avoid importing Header */
 const SplashLogo = ({ className = "" }: { className?: string }) => (
