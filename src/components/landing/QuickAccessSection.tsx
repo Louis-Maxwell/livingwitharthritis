@@ -112,7 +112,7 @@ export default function QuickAccessSection() {
 
   return (
     <section
-      className="relative py-16 lg:py-24 overflow-hidden"
+      className="relative py-20 lg:py-28 overflow-hidden"
       style={{ background: "hsl(var(--warm))" }}
       aria-labelledby="quick-access-heading"
     >
