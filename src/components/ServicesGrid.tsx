@@ -59,13 +59,14 @@ const ServicesGrid = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-20"
         >
-          <span className="section-label text-primary mb-5 block">What We Offer</span>
+          <span className="section-label text-primary mb-5 block">Comprehensive Care Platform</span>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-foreground mb-7 leading-[1.06] tracking-tight">
-            Everything you need,{" "}
-            <span className="text-gradient italic">all in one place</span>
+            World-class services,{" "}
+            <span className="text-gradient italic">zero cost</span>
           </h2>
-          <p className="text-muted-foreground max-w-lg mx-auto text-base sm:text-lg leading-relaxed">
-            Comprehensive, clinically-reviewed services designed to support every aspect of your arthritis journey.
+          <p className="text-muted-foreground max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
+            Every service is clinically reviewed, NICE-compliant and designed by our multidisciplinary team of 
+            physiotherapists, nutritionists and rheumatology specialists. No waiting lists, no referrals, no cost.
           </p>
           <div className="luxury-divider mt-8">
             <div className="w-2 h-2 rounded-full bg-primary/30" />
