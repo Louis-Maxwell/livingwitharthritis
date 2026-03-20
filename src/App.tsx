@@ -123,7 +123,12 @@ function AnimatedRoutes() {
 
 function AppWithSync() {
   useCartSync();
-  return <AnimatedRoutes />;
+  return (
+    <>
+      <RouteProgressBar />
+      <AnimatedRoutes />
+    </>
+  );
 }
 
 const App = () => {
