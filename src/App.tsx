@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { lazy, Suspense, useState, useCallback } from "react";
 import { AnimatePresence } from "framer-motion";
 import { PageTransition } from "@/components/ui/PageTransition";
+import { RouteProgressBar } from "@/components/ui/RouteProgressBar";
 import { useCartSync } from "@/hooks/useCartSync";
 import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "next-themes";
