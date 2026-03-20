@@ -6,16 +6,16 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 220 20% 10%;
+    --background: 40 20% 99%;
+    --foreground: 222 24% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 20% 10%;
+    --card-foreground: 222 24% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 10%;
+    --popover-foreground: 222 24% 8%;
 
-    /* British Red Cross red #EE2A24 */
+    /* British Red Cross red #EE2A24 — enriched */
     --primary: 1 85% 54%;
     --primary-foreground: 0 0% 100%;
 
@@ -24,16 +24,16 @@
     --secondary-foreground: 0 0% 100%;
 
     --accent: 220 14% 96%;
-    --accent-foreground: 220 20% 10%;
+    --accent-foreground: 222 24% 8%;
 
-    --muted: 220 14% 95%;
-    --muted-foreground: 220 8% 46%;
+    --muted: 225 14% 95%;
+    --muted-foreground: 222 8% 44%;
 
     --destructive: 1 85% 54%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
+    --border: 225 14% 90%;
+    --input: 225 14% 90%;
     --ring: 1 85% 54%;
 
     --gold: 42 92% 56%;
@@ -41,23 +41,23 @@
     --gold-muted: 42 50% 82%;
     --amber: 30 90% 56%;
 
-    --navy: 220 20% 10%;
+    --navy: 222 24% 8%;
     --navy-foreground: 0 0% 100%;
 
-    /* Warm background tint */
-    --warm: 30 20% 98%;
+    /* Warm cream background */
+    --warm: 36 25% 97%;
 
-    /* Colourful section tints */
-    --tint-blue: 210 80% 95%;
-    --tint-green: 155 65% 94%;
-    --tint-amber: 40 85% 94%;
-    --tint-rose: 350 75% 95%;
-    --tint-violet: 265 65% 95%;
-    --tint-cyan: 190 75% 94%;
-    --tint-peach: 20 85% 95%;
-    --tint-mint: 160 70% 94%;
-    --tint-lavender: 280 60% 95%;
-    --tint-coral: 10 80% 95%;
+    /* Colourful section tints — refined */
+    --tint-blue: 214 78% 95%;
+    --tint-green: 152 62% 94%;
+    --tint-amber: 42 82% 94%;
+    --tint-rose: 348 72% 95%;
+    --tint-violet: 268 62% 95%;
+    --tint-cyan: 192 72% 94%;
+    --tint-peach: 22 82% 95%;
+    --tint-mint: 162 68% 94%;
+    --tint-lavender: 280 58% 95%;
+    --tint-coral: 12 78% 95%;
 
     /* Vibrant accent colors */
     --emerald: 160 70% 42%;
@@ -66,14 +66,16 @@
     --coral: 10 78% 58%;
     --teal: 175 70% 40%;
 
-    --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.02);
-    --shadow-medium: 0 4px 24px -6px rgb(0 0 0 / 0.06), 0 2px 8px -3px rgb(0 0 0 / 0.03);
-    --shadow-large: 0 20px 56px -16px rgb(0 0 0 / 0.08), 0 6px 20px -6px rgb(0 0 0 / 0.03);
-    --shadow-xl: 0 32px 72px -20px rgb(0 0 0 / 0.12), 0 12px 32px -8px rgb(0 0 0 / 0.05);
-    --shadow-primary: 0 8px 32px -6px hsl(1 85% 54% / 0.2);
-    --shadow-glow: 0 0 56px -12px hsl(1 85% 54% / 0.12);
-    --shadow-gold: 0 8px 28px -6px hsl(42 92% 56% / 0.25);
-    --shadow-glass: 0 8px 32px rgb(0 0 0 / 0.03), inset 0 1px 0 rgb(255 255 255 / 0.6);
+    /* Premium shadow system */
+    --shadow-soft: 0 1px 4px 0 rgb(0 0 0 / 0.03), 0 1px 2px -1px rgb(0 0 0 / 0.02);
+    --shadow-medium: 0 8px 30px -8px rgb(0 0 0 / 0.06), 0 2px 10px -4px rgb(0 0 0 / 0.03);
+    --shadow-large: 0 24px 64px -20px rgb(0 0 0 / 0.08), 0 8px 24px -8px rgb(0 0 0 / 0.03);
+    --shadow-xl: 0 40px 80px -24px rgb(0 0 0 / 0.1), 0 16px 40px -12px rgb(0 0 0 / 0.04);
+    --shadow-2xl: 0 56px 100px -28px rgb(0 0 0 / 0.12), 0 24px 56px -16px rgb(0 0 0 / 0.05);
+    --shadow-primary: 0 12px 40px -8px hsl(1 85% 54% / 0.2);
+    --shadow-glow: 0 0 64px -16px hsl(1 85% 54% / 0.1);
+    --shadow-gold: 0 12px 36px -8px hsl(42 92% 56% / 0.2);
+    --shadow-glass: 0 12px 40px rgb(0 0 0 / 0.03), inset 0 1px 0 rgb(255 255 255 / 0.7);
 
     --radius: 0.75rem;
 
