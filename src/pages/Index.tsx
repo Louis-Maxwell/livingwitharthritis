@@ -205,9 +205,9 @@ export default function Index() {
                 <div className="max-w-7xl mx-auto">
                   <div className="text-center mb-10">
                     <span className="section-label text-primary mb-4 block">Resources Library</span>
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground tracking-tight leading-[1.08]">
+                    <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight leading-[1.06]">
                       Explore our{" "}
-                      <span className="text-gradient">expert resources</span>
+                      <span className="text-gradient italic">expert resources</span>
                     </h2>
                     <p className="text-muted-foreground mt-4 max-w-lg mx-auto text-sm sm:text-base leading-relaxed">
                       Discover nutrition guides, physiotherapy exercises, condition information, community support and UK resources — all clinically reviewed.
