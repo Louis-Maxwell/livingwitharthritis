@@ -148,24 +148,32 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   body {
     @apply bg-background text-foreground;
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
     font-feature-settings: "cv11", "ss01";
-    line-height: 1.7;
+    line-height: 1.75;
+    font-size: 16px;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
     font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1.08;
+    letter-spacing: -0.035em;
+    line-height: 1.06;
+  }
+
+  /* Serif display headings */
+  h1, h2 {
+    font-family: 'Playfair Display', 'Plus Jakarta Sans', serif;
+    font-weight: 700;
   }
 
   ::selection {
-    background: hsl(var(--primary) / 0.12);
+    background: hsl(var(--primary) / 0.15);
     color: hsl(var(--foreground));
   }
 }
