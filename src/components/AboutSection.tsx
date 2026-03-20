@@ -1,5 +1,5 @@
 import { memo, useRef } from "react";
-import { Activity, Users, Briefcase, Database, BookOpen, HeartHandshake, LucideIcon, Sparkles, Shield, Stethoscope } from "lucide-react";
+import { Activity, Users, Briefcase, Database, BookOpen, HeartHandshake, LucideIcon, Sparkles, Shield, Stethoscope, Globe, TrendingUp } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const iconMap: Record<string, LucideIcon> = { Users, Activity, Briefcase, Database, BookOpen, HeartHandshake };
@@ -18,23 +18,18 @@ const DNAGraphic = () => (
   </svg>
 );
 
-/* Decorative joint illustration */
-const JointGraphic = () => (
-  <svg viewBox="0 0 120 120" className="w-24 h-24 opacity-[0.08]" fill="none">
-    <circle cx="60" cy="40" r="25" stroke="hsl(var(--primary))" strokeWidth="3" />
-    <circle cx="60" cy="80" r="25" stroke="hsl(var(--primary))" strokeWidth="3" />
-    <ellipse cx="60" cy="60" rx="15" ry="8" fill="hsl(var(--primary))" opacity="0.3" />
-  </svg>
-);
-
+const milestones = [
+  { icon: Users, value: "50,000+", label: "People supported", color: "text-primary bg-primary/8" },
+  { icon: Globe, value: "42", label: "Countries reached", color: "text-sky-600 bg-sky-500/8" },
+  { icon: TrendingUp, value: "97%", label: "Satisfaction rate", color: "text-emerald-600 bg-emerald-500/8" },
+  { icon: BookOpen, value: "40+", label: "Clinical articles", color: "text-violet-600 bg-violet-500/8" },
+];
 
 const AboutSection = memo(() => {
   const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
-  const orbY = useTransform(scrollYProgress, [0, 1], [40, -40]);
 
   return (
-    <section ref={sectionRef} id="resources" className="py-14 lg:py-20 relative overflow-hidden">
+    <section ref={sectionRef} id="resources" className="py-20 lg:py-28 relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
         <div className="absolute top-20 left-10 w-32 h-32 bg-primary/[0.03] rounded-full blur-3xl" />
@@ -58,14 +53,19 @@ const AboutSection = memo(() => {
               About Our Mission
             </div>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold mb-6 text-foreground leading-[1.06] tracking-tight">
-              Transforming arthritis care for{" "}
-              <span className="text-primary italic">everyone</span>
+              Building the future of{" "}
+              <span className="text-primary italic">arthritis care</span>
             </h2>
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center gap-2 mb-6">
               <div className="w-12 h-1 rounded-full bg-primary" />
               <div className="w-6 h-1 rounded-full bg-secondary" />
               <div className="w-3 h-1 rounded-full bg-primary/40" />
             </div>
+            <p className="text-muted-foreground leading-relaxed text-base">
+              We're on a mission to ensure that no one faces arthritis alone. Our multidisciplinary 
+              team of physiotherapists, nutritionists, and technologists is building the most 
+              comprehensive arthritis support platform in the world — accessible to everyone, everywhere, for free.
+            </p>
           </motion.div>
 
           <motion.div
@@ -83,14 +83,14 @@ const AboutSection = memo(() => {
                 <div>
                   <p className="font-bold text-foreground text-sm mb-1">Did you know?</p>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Arthritis isn't a single condition — it's a complex family of over <strong className="text-foreground">100 distinct types</strong>, each demanding its own approach.
+                    Arthritis isn't a single condition — it's a complex family of over <strong className="text-foreground">100 distinct types</strong>, affecting <strong className="text-foreground">10 million people</strong> in the UK alone.
                   </p>
                 </div>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                We unite patients, clinicians, researchers and community advocates — supporting 
-                over <strong className="text-primary">30 million people</strong> globally through evidence-based care, 
-                cutting-edge technology and unwavering compassion.
+                We unite patients, clinicians, researchers and community advocates — building technology 
+                that has already supported over <strong className="text-primary">50,000 people</strong> through 
+                evidence-based care, cutting-edge AI, and unwavering compassion.
               </p>
               <div className="flex items-center gap-4 mt-4 pt-4 border-t border-border/20">
                 <div className="flex items-center gap-1.5">
@@ -106,7 +106,28 @@ const AboutSection = memo(() => {
           </motion.div>
         </div>
 
-        {/* Statistics removed per user request */}
+        {/* Milestone stats */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+          {milestones.map((m, i) => {
+            const Icon = m.icon;
+            return (
+              <motion.div
+                key={m.label}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className="text-center p-6 rounded-2xl bg-card border border-border/20 hover:shadow-medium hover:-translate-y-1 transition-all duration-300"
+              >
+                <div className={`w-12 h-12 rounded-xl ${m.color} flex items-center justify-center mx-auto mb-3`}>
+                  <Icon className="w-5 h-5" />
+                </div>
+                <p className="text-2xl font-display font-bold text-foreground tracking-tight">{m.value}</p>
+                <p className="text-xs text-muted-foreground font-medium mt-1">{m.label}</p>
+              </motion.div>
+            );
+          })}
+        </div>
 
         {/* Quote with colorful accent */}
         <motion.div

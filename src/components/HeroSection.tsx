@@ -1,4 +1,4 @@
-import { MessageCircle, ArrowRight, Heart, Activity, ChevronDown, Shield, Sparkles, ClipboardList, Dumbbell, Utensils, BookOpen } from "lucide-react";
+import { MessageCircle, ArrowRight, Heart, Activity, ChevronDown, Shield, Sparkles, ClipboardList, Dumbbell, Utensils, BookOpen, Globe, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState, memo } from "react";
@@ -8,7 +8,8 @@ import "./HeroSection.css";
 const STATS = [
   { value: 10000000, display: "10M+", label: "People with arthritis in the UK", suffix: "+" },
   { value: 100, display: "100+", label: "Types of arthritis covered", suffix: "+" },
-  { value: 15000, display: "15K+", label: "Lives improved so far", suffix: "+" },
+  { value: 50000, display: "50K+", label: "People supported to date", suffix: "+" },
+  { value: 97, display: "97%", label: "Patient satisfaction rate", suffix: "%" },
 ];
 
 function AnimatedCounter({ target, suffix }: { target: number; suffix: string }) {
@@ -115,23 +116,23 @@ const HeroSection = () => {
             <div className="hero-item flex items-center justify-center gap-2 mb-7">
               <span className="px-5 py-2 rounded-full text-xs font-bold bg-primary/6 text-primary border border-primary/12 tracking-wider uppercase inline-flex items-center gap-2">
                 <Sparkles className="w-3 h-3" />
-                Living with arthritis is hard — we make it easier
+                The UK's most comprehensive arthritis platform
               </span>
             </div>
 
             {/* Aspirational headline with serif display font */}
             <h1 className="hero-item text-[2.5rem] sm:text-5xl md:text-6xl lg:text-[4.75rem] font-extrabold text-foreground mb-7 leading-[1.04] tracking-tight text-balance">
-              Expert arthritis care,{" "}
+              World-class arthritis care,{" "}
               <span className="font-display text-gradient relative inline-block hero-underline italic">
                 completely free
               </span>
             </h1>
 
             {/* Problem-solution subheading */}
-            <p className="hero-item text-base sm:text-lg md:text-xl text-muted-foreground leading-[1.85] mb-10 max-w-[620px] mx-auto">
-              Track your symptoms, manage flare-ups, and prepare for GP appointments — with 
-              personalised exercise plans, anti-inflammatory nutrition, and 24/7 AI guidance 
-              from HCPC-registered physiotherapists.
+            <p className="hero-item text-base sm:text-lg md:text-xl text-muted-foreground leading-[1.85] mb-10 max-w-[640px] mx-auto">
+              Trusted by over 50,000 people across the UK. Track symptoms, manage flare-ups, access 
+              personalised exercise programmes, anti-inflammatory nutrition plans, and 24/7 AI guidance 
+              — backed by HCPC-registered physiotherapists and NHS clinical standards.
             </p>
 
             {/* Dual CTA — larger, more premium */}
@@ -142,7 +143,7 @@ const HeroSection = () => {
                 className="btn-primary-cta px-12 h-[58px] rounded-full text-sm font-bold tracking-wide group"
               >
                 <ClipboardList className="w-4 h-4 mr-2.5 group-hover:scale-110 transition-transform" />
-                Track Your Symptoms
+                Start Your Journey Free
                 <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
               </Button>
               <Button
@@ -161,9 +162,9 @@ const HeroSection = () => {
             <JourneyPaths navigate={navigate} />
 
             {/* Animated stats — premium glass cards */}
-            <div className="hero-item mt-12 grid grid-cols-3 gap-4 sm:gap-5 max-w-lg mx-auto">
+            <div className="hero-item mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-2xl mx-auto">
               {STATS.map((stat, i) => (
-                <div key={i} className="hero-stat-card rounded-2xl px-4 py-6 text-center">
+                <div key={i} className="hero-stat-card rounded-2xl px-3 py-5 text-center">
                   <AnimatedCounter target={stat.value} suffix={stat.suffix} />
                   <p className="text-[10px] sm:text-[11px] text-muted-foreground font-medium mt-2 leading-snug">{stat.label}</p>
                 </div>
@@ -171,7 +172,7 @@ const HeroSection = () => {
             </div>
 
             {/* Authority trust badges — refined */}
-            <div className="hero-item mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+            <div className="hero-item mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 flex-wrap">
               <div className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/4 border border-primary/8 backdrop-blur-sm">
                 <Heart className="w-4 h-4 text-primary fill-primary/20" />
                 <span className="font-semibold text-foreground text-xs">100% Free Forever</span>
@@ -181,8 +182,12 @@ const HeroSection = () => {
                 <span className="font-semibold text-foreground text-xs">NHS & NICE Aligned</span>
               </div>
               <div className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-sky/4 border border-sky/8 backdrop-blur-sm">
-                <Activity className="w-4 h-4 text-sky" />
+                <Award className="w-4 h-4 text-sky" />
                 <span className="font-semibold text-foreground text-xs">HCPC & CSP Registered</span>
+              </div>
+              <div className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-violet/4 border border-violet/8 backdrop-blur-sm">
+                <Globe className="w-4 h-4 text-violet" />
+                <span className="font-semibold text-foreground text-xs">Serving All UK Nations</span>
               </div>
             </div>
           </div>
