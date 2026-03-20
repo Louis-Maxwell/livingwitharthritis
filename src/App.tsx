@@ -119,34 +119,44 @@ function AppWithSync() {
   return <AnimatedRoutes />;
 }
 
-const App = () => (
-  <HelmetProvider>
-    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <Suspense fallback={<PageLoader />}>
-              <AppWithSync />
-            </Suspense>
-            <Suspense fallback={null}>
-              <ChatBotWidget />
-            </Suspense>
-            <Suspense fallback={null}>
-              <CookieConsent />
-            </Suspense>
-            <Suspense fallback={null}>
-              <AccessibilityToolbar />
-            </Suspense>
-            <Suspense fallback={null}>
-              <MobileBottomNav />
-            </Suspense>
-          </BrowserRouter>
-        </TooltipProvider>
-      </QueryClientProvider>
-    </ThemeProvider>
-  </HelmetProvider>
-);
+const App = () => {
+  const [splashDone, setSplashDone] = useState(() => sessionStorage.getItem("splash-done") === "true");
+
+  const handleSplashComplete = useCallback(() => {
+    setSplashDone(true);
+    sessionStorage.setItem("splash-done", "true");
+  }, []);
+
+  return (
+    <HelmetProvider>
+      <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+        <QueryClientProvider client={queryClient}>
+          <TooltipProvider>
+            {!splashDone && <SplashScreen onComplete={handleSplashComplete} />}
+            <Toaster />
+            <Sonner />
+            <BrowserRouter>
+              <Suspense fallback={<PageLoader />}>
+                <AppWithSync />
+              </Suspense>
+              <Suspense fallback={null}>
+                <ChatBotWidget />
+              </Suspense>
+              <Suspense fallback={null}>
+                <CookieConsent />
+              </Suspense>
+              <Suspense fallback={null}>
+                <AccessibilityToolbar />
+              </Suspense>
+              <Suspense fallback={null}>
+                <MobileBottomNav />
+              </Suspense>
+            </BrowserRouter>
+          </TooltipProvider>
+        </QueryClientProvider>
+      </ThemeProvider>
+    </HelmetProvider>
+  );
+};
 
 export default App;
