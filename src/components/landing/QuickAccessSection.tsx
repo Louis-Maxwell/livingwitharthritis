@@ -146,7 +146,7 @@ export default function QuickAccessSection() {
           </span>
           <h2
             id="quick-access-heading"
-            className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight leading-tight mb-4"
+            className="font-display text-3xl sm:text-4xl lg:text-[3.5rem] font-bold text-foreground tracking-tight leading-tight mb-4"
           >
             Everything you need,{" "}
             <span
