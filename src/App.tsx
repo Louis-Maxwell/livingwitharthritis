@@ -79,40 +79,44 @@ function AnimatedRoutes() {
   const location = useLocation();
 
   return (
-    <Routes location={location} key={location.pathname}>
-      <Route path="/" element={<Index />} />
-      <Route path="/chat" element={<Chat />} />
-      <Route path="/auth" element={<Auth />} />
-      <Route path="/admin" element={<AdminDashboard />} />
-      <Route path="/admin/appointments" element={<AdminAppointments />} />
-      <Route path="/blog" element={<BlogIndex />} />
-      <Route path="/blog/category/:category" element={<BlogCategory />} />
-      <Route path="/blog/:slug" element={<BlogPost />} />
-      <Route path="/daily-tips/:slug" element={<DailyTipDetail />} />
-      <Route path="/about" element={<AboutUs />} />
-      <Route path="/conditions/osteoarthritis" element={<Osteoarthritis />} />
-      <Route path="/conditions/rheumatoid-arthritis" element={<RheumatoidArthritis />} />
-      <Route path="/conditions/psoriatic-arthritis" element={<PsoriaticArthritis />} />
-      <Route path="/self-help" element={<SelfHelpTool />} />
-      <Route path="/exercises" element={<ExerciseHub />} />
-      <Route path="/diet" element={<DietHub />} />
-      <Route path="/zakat-appeal" element={<ZakatAppeal />} />
-      <Route path="/trust" element={<TrustCredibility />} />
-      <Route path="/community" element={<CommunityHub />} />
-      <Route path="/privacy" element={<PrivacyPolicy />} />
-      <Route path="/cookies" element={<CookiesPolicy />} />
-      <Route path="/accessibility" element={<AccessibilityPage />} />
-      <Route path="/pain-journal" element={<PainJournal />} />
-      <Route path="/arthritis-flare-ups" element={<ArthritisFlareUps />} />
-      <Route path="/shop" element={<Shop />} />
-      <Route path="/product/:handle" element={<ProductDetail />} />
-      <Route path="/arthritis-support" element={<ArthritisSupportIndex />} />
-      <Route path="/arthritis-support/:city" element={<CityArthritisPage />} />
-      <Route path="/exercises/:slug" element={<ExerciseJointPage />} />
-      <Route path="/sitemap" element={<Sitemap />} />
-      <Route path="/corporate-giving" element={<CorporateGiving />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <AnimatePresence mode="wait">
+      <PageTransition key={location.pathname}>
+        <Routes location={location}>
+          <Route path="/" element={<Index />} />
+          <Route path="/chat" element={<Chat />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/appointments" element={<AdminAppointments />} />
+          <Route path="/blog" element={<BlogIndex />} />
+          <Route path="/blog/category/:category" element={<BlogCategory />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/daily-tips/:slug" element={<DailyTipDetail />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/conditions/osteoarthritis" element={<Osteoarthritis />} />
+          <Route path="/conditions/rheumatoid-arthritis" element={<RheumatoidArthritis />} />
+          <Route path="/conditions/psoriatic-arthritis" element={<PsoriaticArthritis />} />
+          <Route path="/self-help" element={<SelfHelpTool />} />
+          <Route path="/exercises" element={<ExerciseHub />} />
+          <Route path="/diet" element={<DietHub />} />
+          <Route path="/zakat-appeal" element={<ZakatAppeal />} />
+          <Route path="/trust" element={<TrustCredibility />} />
+          <Route path="/community" element={<CommunityHub />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/cookies" element={<CookiesPolicy />} />
+          <Route path="/accessibility" element={<AccessibilityPage />} />
+          <Route path="/pain-journal" element={<PainJournal />} />
+          <Route path="/arthritis-flare-ups" element={<ArthritisFlareUps />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/product/:handle" element={<ProductDetail />} />
+          <Route path="/arthritis-support" element={<ArthritisSupportIndex />} />
+          <Route path="/arthritis-support/:city" element={<CityArthritisPage />} />
+          <Route path="/exercises/:slug" element={<ExerciseJointPage />} />
+          <Route path="/sitemap" element={<Sitemap />} />
+          <Route path="/corporate-giving" element={<CorporateGiving />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </PageTransition>
+    </AnimatePresence>
   );
 }
 
