@@ -1,17 +1,18 @@
 /* CSS-only stagger animation — replaces framer-motion for critical-path Hero */
 .hero-stagger .hero-item {
   opacity: 0;
-  transform: translateY(16px);
-  animation: heroFadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transform: translateY(20px);
+  animation: heroFadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .hero-stagger .hero-item:nth-child(1) { animation-delay: 0ms; }
-.hero-stagger .hero-item:nth-child(2) { animation-delay: 100ms; }
-.hero-stagger .hero-item:nth-child(3) { animation-delay: 200ms; }
-.hero-stagger .hero-item:nth-child(4) { animation-delay: 300ms; }
-.hero-stagger .hero-item:nth-child(5) { animation-delay: 400ms; }
-.hero-stagger .hero-item:nth-child(6) { animation-delay: 500ms; }
-.hero-stagger .hero-item:nth-child(7) { animation-delay: 600ms; }
+.hero-stagger .hero-item:nth-child(2) { animation-delay: 120ms; }
+.hero-stagger .hero-item:nth-child(3) { animation-delay: 240ms; }
+.hero-stagger .hero-item:nth-child(4) { animation-delay: 360ms; }
+.hero-stagger .hero-item:nth-child(5) { animation-delay: 480ms; }
+.hero-stagger .hero-item:nth-child(6) { animation-delay: 600ms; }
+.hero-stagger .hero-item:nth-child(7) { animation-delay: 720ms; }
+.hero-stagger .hero-item:nth-child(8) { animation-delay: 840ms; }
 
 @keyframes heroFadeUp {
   to {
@@ -20,102 +21,112 @@
   }
 }
 
-/* Animated gradient background – more vivid */
+/* Cinematic gradient background */
 .hero-gradient-bg {
   background: 
-    radial-gradient(ellipse 80% 60% at 15% 85%, hsl(var(--tint-blue)) 0%, transparent 55%),
-    radial-gradient(ellipse 60% 50% at 85% 15%, hsl(var(--tint-rose)) 0%, transparent 45%),
-    radial-gradient(ellipse 40% 35% at 50% 50%, hsl(var(--tint-amber) / 0.5) 0%, transparent 55%),
-    radial-gradient(ellipse 35% 30% at 75% 75%, hsl(var(--tint-mint) / 0.3) 0%, transparent 50%),
-    radial-gradient(ellipse 30% 25% at 25% 25%, hsl(var(--tint-lavender) / 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse 80% 50% at 10% 90%, hsl(var(--tint-blue)) 0%, transparent 50%),
+    radial-gradient(ellipse 70% 50% at 90% 10%, hsl(var(--tint-rose)) 0%, transparent 40%),
+    radial-gradient(ellipse 50% 40% at 50% 50%, hsl(var(--tint-amber) / 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 35% at 75% 70%, hsl(var(--tint-mint) / 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse 35% 30% at 25% 30%, hsl(var(--tint-lavender) / 0.25) 0%, transparent 50%),
     hsl(var(--background));
-  animation: heroGradientShift 16s ease-in-out infinite alternate;
+  animation: heroGradientShift 20s ease-in-out infinite alternate;
 }
 
 @keyframes heroGradientShift {
   0% { background-position: 0% 0%, 100% 0%, 50% 50%, 75% 75%, 25% 25%; }
-  100% { background-position: 20% 20%, 80% 40%, 60% 30%, 65% 85%, 35% 15%; }
+  100% { background-position: 15% 15%, 85% 35%, 55% 40%, 70% 80%, 30% 20%; }
 }
 
-/* Floating orbs */
+/* Floating orbs — larger, more cinematic */
 .hero-orb {
   position: absolute;
   border-radius: 50%;
   pointer-events: none;
-  filter: blur(100px);
+  filter: blur(120px);
 }
 
 .hero-orb-1 {
-  width: 500px;
-  height: 500px;
-  background: hsl(var(--primary) / 0.08);
-  top: -120px;
-  right: -120px;
-  animation: orbFloat1 10s ease-in-out infinite;
+  width: 600px;
+  height: 600px;
+  background: hsl(var(--primary) / 0.06);
+  top: -150px;
+  right: -150px;
+  animation: orbFloat1 12s ease-in-out infinite;
 }
 
 .hero-orb-2 {
-  width: 400px;
-  height: 400px;
-  background: hsl(var(--sky) / 0.08);
-  bottom: -100px;
-  left: -100px;
-  animation: orbFloat2 12s ease-in-out infinite;
+  width: 500px;
+  height: 500px;
+  background: hsl(var(--sky) / 0.06);
+  bottom: -120px;
+  left: -120px;
+  animation: orbFloat2 14s ease-in-out infinite;
 }
 
 .hero-orb-3 {
-  width: 250px;
-  height: 250px;
-  background: hsl(var(--gold) / 0.07);
-  top: 35%;
+  width: 300px;
+  height: 300px;
+  background: hsl(var(--gold) / 0.05);
+  top: 30%;
   left: 55%;
-  animation: orbFloat3 9s ease-in-out infinite;
+  animation: orbFloat3 10s ease-in-out infinite;
+}
+
+.hero-orb-4 {
+  width: 200px;
+  height: 200px;
+  background: hsl(var(--emerald) / 0.04);
+  bottom: 20%;
+  right: 15%;
+  animation: orbFloat1 8s ease-in-out infinite reverse;
 }
 
 @keyframes orbFloat1 {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-40px, 25px) scale(1.08); }
+  50% { transform: translate(-30px, 20px) scale(1.06); }
 }
 
 @keyframes orbFloat2 {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(25px, -35px) scale(1.05); }
+  50% { transform: translate(20px, -30px) scale(1.04); }
 }
 
 @keyframes orbFloat3 {
   0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
-  50% { transform: translate(-20px, 20px) scale(1.12); opacity: 0.9; }
+  50% { transform: translate(-15px, 15px) scale(1.1); opacity: 0.9; }
 }
 
-/* Stat cards */
+/* Stat cards — premium glassmorphism */
 .hero-stat-card {
-  background: hsl(var(--card) / 0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid hsl(var(--border) / 0.3);
-  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  background: hsl(var(--card) / 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid hsl(var(--border) / 0.25);
+  box-shadow: 0 4px 24px -4px rgb(0 0 0 / 0.04), inset 0 1px 0 rgb(255 255 255 / 0.5);
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .hero-stat-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-medium);
-  border-color: hsl(var(--primary) / 0.15);
-  background: hsl(var(--card) / 0.9);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--shadow-large), inset 0 1px 0 rgb(255 255 255 / 0.6);
+  border-color: hsl(var(--primary) / 0.2);
+  background: hsl(var(--card) / 0.85);
 }
 
-/* Quick action pills */
-/* Journey pathway cards */
+/* Journey pathway cards — luxury feel */
 .journey-card {
-  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 2px 12px -2px rgb(0 0 0 / 0.04);
 }
 
 .journey-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-medium);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: var(--shadow-large);
 }
 
 .journey-card:active {
-  transform: translateY(-1px);
+  transform: translateY(-1px) scale(1.01);
 }
 
 /* Scroll indicator */
@@ -126,4 +137,37 @@
 @keyframes scrollBounce {
   0%, 100% { transform: translateY(0); opacity: 0.5; }
   50% { transform: translateY(10px); opacity: 1; }
+}
+
+/* Premium underline animation */
+.hero-underline {
+  position: relative;
+  display: inline-block;
+}
+.hero-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)));
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: underlineReveal 1s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
+}
+@keyframes underlineReveal {
+  to { transform: scaleX(1); }
+}
+
+/* Noise texture overlay */
+.hero-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.015;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
 }

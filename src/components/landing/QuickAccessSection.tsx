@@ -112,7 +112,7 @@ export default function QuickAccessSection() {
 
   return (
     <section
-      className="relative py-16 lg:py-24 overflow-hidden"
+      className="relative py-20 lg:py-28 overflow-hidden"
       style={{ background: "hsl(var(--warm))" }}
       aria-labelledby="quick-access-heading"
     >
@@ -146,7 +146,7 @@ export default function QuickAccessSection() {
           </span>
           <h2
             id="quick-access-heading"
-            className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight leading-tight mb-4"
+            className="font-display text-3xl sm:text-4xl lg:text-[3.5rem] font-bold text-foreground tracking-tight leading-tight mb-4"
           >
             Everything you need,{" "}
             <span

@@ -57,9 +57,9 @@ const AboutSection = memo(() => {
               <Sparkles className="w-3.5 h-3.5" />
               About Our Mission
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-5 text-foreground leading-[1.08]">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold mb-6 text-foreground leading-[1.06] tracking-tight">
               Transforming arthritis care for{" "}
-              <span className="text-primary">everyone</span>
+              <span className="text-primary italic">everyone</span>
             </h2>
             <div className="flex items-center gap-2 mb-4">
               <div className="w-12 h-1 rounded-full bg-primary" />
