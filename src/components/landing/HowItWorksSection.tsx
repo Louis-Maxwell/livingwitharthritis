@@ -1,12 +1,13 @@
 import { memo } from "react";
 import { motion } from "framer-motion";
 import { Search, UserCheck, Dumbbell, Heart, ArrowRight } from "lucide-react";
+import AnimatedCounter from "@/components/ui/AnimatedCounter";
 
 const steps = [
-  { icon: Search, title: "Explore Resources", desc: "Browse our curated library of 40+ clinically reviewed exercises, evidence-based nutrition plans, and expert articles — all NICE-compliant.", color: "icon-circle-sky", metric: "40+ resources" },
-  { icon: UserCheck, title: "Get Personalised Guidance", desc: "Use our AI health assistant or book a free virtual consultation with a HCPC-registered physiotherapist. No referral needed.", color: "icon-circle-emerald", metric: "24/7 access" },
-  { icon: Dumbbell, title: "Follow Your Programme", desc: "Begin with tailored low-impact exercises and an anti-inflammatory Mediterranean diet plan designed specifically for your condition.", color: "icon-circle-violet", metric: "78% pain reduction" },
-  { icon: Heart, title: "Transform Your Life", desc: "Track your progress with our symptom journal, connect with 50,000+ people in our community, and celebrate every milestone.", color: "icon-circle-coral", metric: "97% satisfaction" },
+  { icon: Search, title: "Explore Resources", desc: "Browse our curated library of 40+ clinically reviewed exercises, evidence-based nutrition plans, and expert articles — all NICE-compliant.", color: "icon-circle-sky", metricTarget: 40, metricSuffix: "+", metricLabel: "resources" },
+  { icon: UserCheck, title: "Get Personalised Guidance", desc: "Use our AI health assistant or book a free virtual consultation with a HCPC-registered physiotherapist. No referral needed.", color: "icon-circle-emerald", metricDisplay: "24/7", metricLabel: "access" },
+  { icon: Dumbbell, title: "Follow Your Programme", desc: "Begin with tailored low-impact exercises and an anti-inflammatory Mediterranean diet plan designed specifically for your condition.", color: "icon-circle-violet", metricTarget: 78, metricSuffix: "%", metricLabel: "pain reduction" },
+  { icon: Heart, title: "Transform Your Life", desc: "Track your progress with our symptom journal, connect with 50,000+ people in our community, and celebrate every milestone.", color: "icon-circle-coral", metricTarget: 97, metricSuffix: "%", metricLabel: "satisfaction" },
 ];
 
 const stepGradients = [
@@ -18,10 +19,7 @@ const stepGradients = [
 
 const HowItWorksSection = memo(() => (
   <section className="py-24 lg:py-32 bg-tint-blue relative section-divider overflow-hidden">
-    {/* Decorative pattern */}
     <div className="absolute inset-0 pattern-dots pointer-events-none" />
-    
-    {/* Colorful floating shapes */}
     <div className="absolute top-20 right-10 w-24 h-24 rounded-full bg-sky/10 blur-2xl pointer-events-none" />
     <div className="absolute bottom-20 left-10 w-32 h-32 rounded-full bg-emerald/10 blur-2xl pointer-events-none" />
 
@@ -33,7 +31,7 @@ const HowItWorksSection = memo(() => (
           <span className="text-gradient italic">four steps</span>
         </h2>
         <p className="text-muted-foreground max-w-lg mx-auto text-base leading-relaxed mt-4">
-          A structured, evidence-based approach designed by our clinical team. 
+          A structured, evidence-based approach designed by our clinical team.
           Most patients report significant improvement within 8–12 weeks.
         </p>
         <div className="w-16 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mt-8" />
@@ -50,7 +48,15 @@ const HowItWorksSection = memo(() => (
               </div>
               <h3 className="text-lg font-bold text-foreground mb-3">{step.title}</h3>
               <p className="text-sm text-muted-foreground leading-[1.7] mb-3">{step.desc}</p>
-              <span className="inline-flex items-center gap-1 text-[10px] font-bold text-primary uppercase tracking-wider">{step.metric}</span>
+              <span className="inline-flex items-center gap-1 text-[10px] font-bold text-primary uppercase tracking-wider">
+                <AnimatedCounter
+                  target={step.metricTarget ?? 0}
+                  suffix={step.metricSuffix ?? ""}
+                  display={step.metricDisplay}
+                  duration={1800}
+                />
+                {" "}{step.metricLabel}
+              </span>
               {i < steps.length - 1 && (
                 <div className="hidden lg:block absolute top-9 left-[calc(100%_-_20px)] w-10">
                   <ArrowRight className="w-4 h-4 text-primary/20" />
