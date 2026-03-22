@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, memo } from "react";
 
 interface AnimatedCounterProps {
   /** The numeric target to count up to */
-  target: number;
+  target?: number;
   /** Text appended after the number, e.g. "+", "%" */
   suffix?: string;
   /** Text prepended before the number, e.g. "£" */
