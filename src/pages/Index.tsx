@@ -16,24 +16,22 @@ import ViewportSection from "@/components/ui/ViewportSection";
 const Footer = lazy(() => import("@/components/Footer"));
 const AppointmentModal = lazy(() => import("@/components/AppointmentModal").then(m => ({ default: m.AppointmentModal })));
 
-// Lazy load non-critical overlays — deferred until after paint
-const DonationNotification = lazy(() => import("@/components/DonationNotification"));
-const FeedbackPopup = lazy(() => import("@/components/FeedbackPopup"));
-const BackToTop = lazy(() => import("@/components/ui/BackToTop"));
-
-// Wrapper to defer overlay loading until browser is idle
+// Deferred overlays — loaded after paint
 const DeferredOverlays = memo(() => {
   const [show, setShow] = useState(false);
   useEffect(() => {
     const id = typeof requestIdleCallback !== "undefined"
-      ? requestIdleCallback(() => setShow(true), { timeout: 3000 })
-      : setTimeout(() => setShow(true), 2000) as unknown as number;
+      ? requestIdleCallback(() => setShow(true), { timeout: 4000 })
+      : setTimeout(() => setShow(true), 3000) as unknown as number;
     return () => {
       if (typeof cancelIdleCallback !== "undefined") cancelIdleCallback(id);
       else clearTimeout(id);
     };
   }, []);
   if (!show) return null;
+  const DonationNotification = lazy(() => import("@/components/DonationNotification"));
+  const FeedbackPopup = lazy(() => import("@/components/FeedbackPopup"));
+  const BackToTop = lazy(() => import("@/components/ui/BackToTop"));
   return (
     <Suspense fallback={null}>
       <DonationNotification />
@@ -44,12 +42,16 @@ const DeferredOverlays = memo(() => {
 });
 DeferredOverlays.displayName = "DeferredOverlays";
 
+// Above-fold sections — eagerly loaded
 const QuickAccessSection = lazy(() => import("@/components/landing/QuickAccessSection"));
-
-// Lazy sections – always on page
 const AboutSection = lazy(() => import("@/components/AboutSection"));
 const ServicesGrid = lazy(() => import("@/components/ServicesGrid"));
+const QuoteSection = lazy(() => import("@/components/landing/QuoteSection"));
+
+// Below-fold sections — deferred with ViewportSection
 const HowItWorksSection = lazy(() => import("@/components/landing/HowItWorksSection"));
+const SocialProofSection = lazy(() => import("@/components/landing/SocialProofSection"));
+const ImpactBannerSection = lazy(() => import("@/components/landing/ImpactBannerSection"));
 const DailyTipsSection = lazy(() => import("@/components/landing/DailyTipsSection"));
 const BlogPreviewSection = lazy(() => import("@/components/landing/BlogPreviewSection"));
 const TestimonialsSection = lazy(() => import("@/components/landing/TestimonialsSection"));
@@ -59,11 +61,9 @@ const PatientImpactStories = lazy(() => import("@/components/landing/PatientImpa
 const GetInTouchSection = lazy(() => import("@/components/landing/GetInTouchSection"));
 const FinalCTASection = lazy(() => import("@/components/landing/FinalCTASection"));
 const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSection"));
-const ImpactBannerSection = lazy(() => import("@/components/landing/ImpactBannerSection"));
-const QuoteSection = lazy(() => import("@/components/landing/QuoteSection"));
 const ImpactMetricsSection = lazy(() => import("@/components/landing/ImpactMetricsSection"));
 
-// Lazy sections – inside tabs (loaded on demand)
+// Tab sections — loaded on demand
 const NutritionArticleSection = lazy(() => import("@/components/NutritionArticleSection"));
 const VirtualPhysioSection = lazy(() => import("@/components/VirtualPhysioSection"));
 const JointExerciseSection = lazy(() => import("@/components/JointExerciseSection"));
@@ -79,7 +79,6 @@ const SectionLoader = memo(() => (
 ));
 SectionLoader.displayName = "SectionLoader";
 
-/* ── Tab definitions ── */
 const EXPLORE_TABS = [
   { value: "nutrition", label: "Nutrition", icon: Apple },
   { value: "exercises", label: "Exercises", icon: Dumbbell },
@@ -92,7 +91,6 @@ export default function Index() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [activeTab, setActiveTab] = useState<string>("nutrition");
 
-  // Donation toast
   useEffect(() => {
     const donation = searchParams.get("donation");
     if (donation === "success") {
@@ -113,7 +111,7 @@ export default function Index() {
         <meta name="description" content="Free arthritis support for people across the UK. Virtual physiotherapy, anti-inflammatory Mediterranean diet plans, joint exercises, AI health assistant and community support for osteoarthritis, rheumatoid arthritis and psoriatic arthritis." />
         <meta property="og:title" content="Living With Arthritis UK – Free Physio, Diet & Joint Pain Help" />
         <meta property="og:description" content="Free NHS-complementary arthritis resources for UK residents: virtual physiotherapy, Mediterranean diet plans, gentle exercises, AI chatbot and expert guidance for osteoarthritis and RA." />
-        <meta name="keywords" content="arthritis UK, NHS arthritis help, joint pain relief UK, osteoarthritis help, rheumatoid arthritis support, free physiotherapy UK, anti-inflammatory diet UK, arthritis exercises, living with arthritis, joint pain NHS, arthritis charity UK, knee pain UK, hip pain arthritis, arthritis treatment UK, Mediterranean diet arthritis, arthritis supplements UK, PIP arthritis, arthritis disability UK, psoriatic arthritis support, arthritis flare up help, best diet for arthritis UK, turmeric arthritis UK, glucosamine UK, omega 3 arthritis, arthritis self help, arthritis pain management, gentle exercises arthritis, water aerobics arthritis, yoga for arthritis UK, arthritis support groups UK" />
+        <meta name="keywords" content="arthritis UK, NHS arthritis help, joint pain relief UK, osteoarthritis help, rheumatoid arthritis support, free physiotherapy UK, anti-inflammatory diet UK, arthritis exercises, living with arthritis, joint pain NHS, arthritis charity UK" />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/" />
@@ -125,22 +123,11 @@ export default function Index() {
           "name": "Living With Arthritis",
           "alternateName": "Living With Arthritis UK",
           "url": "https://livingwitharthritis.org.uk",
-          "logo": "https://livingwitharthritis.org.uk/favicon.ico",
-          "description": "UK charity providing free virtual physiotherapy, anti-inflammatory nutrition guidance, joint exercises, AI health assistant and community support for people living with arthritis.",
+          "description": "UK charity providing free virtual physiotherapy, nutrition guidance, joint exercises, AI health assistant and community support for people living with arthritis.",
           "medicalSpecialty": "Rheumatology",
-          "areaServed": { "@type": "Country", "name": "United Kingdom", "sameAs": "https://en.wikipedia.org/wiki/United_Kingdom" },
-          "serviceType": ["Virtual Physiotherapy", "Nutrition Guidance", "Joint Exercise Programmes", "AI Health Assistant", "Arthritis Support", "Zakat Appeal"],
-          "audience": {
-            "@type": "MedicalAudience", "audienceType": "Patient",
-            "healthCondition": [
-              { "@type": "MedicalCondition", "name": "Osteoarthritis", "alternateName": "OA" },
-              { "@type": "MedicalCondition", "name": "Rheumatoid Arthritis", "alternateName": "RA" },
-              { "@type": "MedicalCondition", "name": "Psoriatic Arthritis" }
-            ],
-            "geographicArea": { "@type": "Country", "name": "United Kingdom" }
-          },
+          "areaServed": { "@type": "Country", "name": "United Kingdom" },
+          "serviceType": ["Virtual Physiotherapy", "Nutrition Guidance", "Joint Exercise Programmes", "AI Health Assistant"],
           "contactPoint": { "@type": "ContactPoint", "telephone": "+44-7760-512-084", "email": "info@livingwitharthritis.org.uk", "contactType": "customer support", "availableLanguage": "English", "areaServed": "GB" },
-          "knowsAbout": ["Osteoarthritis", "Rheumatoid Arthritis", "Psoriatic Arthritis", "Joint Pain", "Anti-inflammatory Diet", "Mediterranean Diet", "Physiotherapy", "Turmeric Curcumin", "Glucosamine", "Omega-3", "NHS Arthritis Support", "PIP Disability Benefits", "NICE Guidelines Arthritis"],
           "inLanguage": "en-GB"
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
@@ -151,10 +138,7 @@ export default function Index() {
           "inLanguage": "en-GB",
           "potentialAction": {
             "@type": "SearchAction",
-            "target": {
-              "@type": "EntryPoint",
-              "urlTemplate": "https://livingwitharthritis.org.uk/?q={search_term_string}"
-            },
+            "target": { "@type": "EntryPoint", "urlTemplate": "https://livingwitharthritis.org.uk/?q={search_term_string}" },
             "query-input": "required name=search_term_string"
           }
         })}</script>
@@ -169,15 +153,15 @@ export default function Index() {
           <HeroSection />
 
           <div className="w-full px-0 space-y-0">
-            {/* Quick-access hub cards — right after hero */}
+            {/* ABOVE FOLD — eagerly rendered */}
             <Suspense fallback={<SectionLoader />}>
               <QuickAccessSection />
             </Suspense>
 
-            {/* Quote */}
             <Suspense fallback={null}>
               <QuoteSection />
             </Suspense>
+
             <Suspense fallback={<SectionLoader />}>
               <AboutSection />
             </Suspense>
@@ -186,10 +170,16 @@ export default function Index() {
               <ServicesGrid />
             </Suspense>
 
-            {/* Below-fold: defer rendering until near viewport */}
-            <ViewportSection minHeight="400px" rootMargin="400px">
+            {/* BELOW FOLD — viewport-deferred for perf */}
+            <ViewportSection minHeight="300px" rootMargin="400px">
               <Suspense fallback={<SectionLoader />}>
                 <HowItWorksSection />
+              </Suspense>
+            </ViewportSection>
+
+            <ViewportSection minHeight="120px" rootMargin="400px">
+              <Suspense fallback={null}>
+                <SocialProofSection />
               </Suspense>
             </ViewportSection>
 
@@ -234,35 +224,19 @@ export default function Index() {
 
                     <div className="mt-8">
                       <TabsContent value="nutrition" className="space-y-10 md:space-y-14 mt-0">
-                        <Suspense fallback={<SectionLoader />}>
-                          <NutritionArticleSection />
-                        </Suspense>
+                        <Suspense fallback={<SectionLoader />}><NutritionArticleSection /></Suspense>
                       </TabsContent>
-
                       <TabsContent value="exercises" className="space-y-10 md:space-y-14 mt-0">
-                        <Suspense fallback={<SectionLoader />}>
-                          <VirtualPhysioSection />
-                          <JointExerciseSection />
-                        </Suspense>
+                        <Suspense fallback={<SectionLoader />}><VirtualPhysioSection /><JointExerciseSection /></Suspense>
                       </TabsContent>
-
                       <TabsContent value="conditions" className="space-y-10 md:space-y-14 mt-0">
-                        <Suspense fallback={<SectionLoader />}>
-                          <ConditionsSection />
-                        </Suspense>
+                        <Suspense fallback={<SectionLoader />}><ConditionsSection /></Suspense>
                       </TabsContent>
-
                       <TabsContent value="community" className="space-y-10 md:space-y-14 mt-0">
-                        <Suspense fallback={<SectionLoader />}>
-                          <CommunitySection />
-                          <TransparencySection />
-                        </Suspense>
+                        <Suspense fallback={<SectionLoader />}><CommunitySection /><TransparencySection /></Suspense>
                       </TabsContent>
-
                       <TabsContent value="resources" className="space-y-10 md:space-y-14 mt-0">
-                        <Suspense fallback={<SectionLoader />}>
-                          <UKResourcesSection />
-                        </Suspense>
+                        <Suspense fallback={<SectionLoader />}><UKResourcesSection /></Suspense>
                       </TabsContent>
                     </div>
                   </Tabs>
@@ -270,65 +244,45 @@ export default function Index() {
               </section>
             </ViewportSection>
 
-            {/* Deep sections – only render when user scrolls near them */}
+            {/* DEEP SECTIONS — generous rootMargin for smooth reveal */}
             <ViewportSection minHeight="300px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}>
-                <DailyTipsSection />
-              </Suspense>
+              <Suspense fallback={<SectionLoader />}><DailyTipsSection /></Suspense>
             </ViewportSection>
 
             <ViewportSection minHeight="300px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}>
-                <BlogPreviewSection />
-              </Suspense>
+              <Suspense fallback={<SectionLoader />}><BlogPreviewSection /></Suspense>
             </ViewportSection>
 
             <ViewportSection minHeight="300px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}>
-                <TestimonialsSection />
-              </Suspense>
-            </ViewportSection>
-
-            <ViewportSection minHeight="400px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}>
-                <FAQSection />
-              </Suspense>
+              <Suspense fallback={<SectionLoader />}><TestimonialsSection /></Suspense>
             </ViewportSection>
 
             <ViewportSection minHeight="300px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}>
-                <FundraisingProgressSection />
-              </Suspense>
+              <Suspense fallback={<SectionLoader />}><FAQSection /></Suspense>
             </ViewportSection>
 
             <ViewportSection minHeight="300px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}>
-                <PatientImpactStories />
-              </Suspense>
+              <Suspense fallback={<SectionLoader />}><FundraisingProgressSection /></Suspense>
             </ViewportSection>
 
             <ViewportSection minHeight="300px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}>
-                <ImpactMetricsSection />
-              </Suspense>
+              <Suspense fallback={<SectionLoader />}><PatientImpactStories /></Suspense>
+            </ViewportSection>
+
+            <ViewportSection minHeight="300px" rootMargin="300px">
+              <Suspense fallback={<SectionLoader />}><ImpactMetricsSection /></Suspense>
             </ViewportSection>
 
             <ViewportSection minHeight="200px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}>
-                <NewsletterSection />
-              </Suspense>
+              <Suspense fallback={<SectionLoader />}><NewsletterSection /></Suspense>
             </ViewportSection>
 
             <ViewportSection minHeight="300px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}>
-                <GetInTouchSection />
-              </Suspense>
+              <Suspense fallback={<SectionLoader />}><GetInTouchSection /></Suspense>
             </ViewportSection>
 
             <ViewportSection minHeight="200px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}>
-                <FinalCTASection />
-              </Suspense>
+              <Suspense fallback={<SectionLoader />}><FinalCTASection /></Suspense>
             </ViewportSection>
           </div>
         </main>
