@@ -15,12 +15,12 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 30% 10%;
 
-    /* Deep institutional navy — authoritative & premium */
-    --primary: 220 65% 18%;
+    /* Bright red — bold & energetic */
+    --primary: 0 85% 50%;
     --primary-foreground: 0 0% 100%;
 
-    /* Rich teal accent */
-    --secondary: 172 55% 38%;
+    /* Darker red accent */
+    --secondary: 0 75% 42%;
     --secondary-foreground: 0 0% 100%;
 
     --accent: 220 20% 96%;
@@ -34,14 +34,14 @@
 
     --border: 220 16% 91%;
     --input: 220 16% 91%;
-    --ring: 220 65% 18%;
+    --ring: 0 85% 50%;
 
     --gold: 42 82% 52%;
     --gold-foreground: 42 40% 12%;
     --gold-muted: 42 45% 85%;
     --amber: 30 80% 52%;
 
-    --navy: 220 30% 10%;
+    --navy: 0 85% 50%;
     --navy-foreground: 0 0% 100%;
 
     /* Clean white background */
@@ -64,7 +64,7 @@
     --sky: 205 75% 48%;
     --violet: 260 55% 50%;
     --coral: 12 65% 55%;
-    --teal: 172 55% 38%;
+    --teal: 0 75% 42%;
 
     /* Refined shadow system — lighter, more elegant */
     --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.02), 0 1px 2px -1px rgb(0 0 0 / 0.015);
@@ -72,8 +72,8 @@
     --shadow-large: 0 20px 50px -16px rgb(0 0 0 / 0.07), 0 6px 20px -6px rgb(0 0 0 / 0.025);
     --shadow-xl: 0 32px 64px -20px rgb(0 0 0 / 0.08), 0 12px 32px -10px rgb(0 0 0 / 0.03);
     --shadow-2xl: 0 48px 80px -24px rgb(0 0 0 / 0.1), 0 20px 48px -14px rgb(0 0 0 / 0.04);
-    --shadow-primary: 0 10px 32px -6px hsl(220 65% 18% / 0.15);
-    --shadow-glow: 0 0 48px -12px hsl(220 65% 18% / 0.08);
+    --shadow-primary: 0 10px 32px -6px hsl(0 85% 50% / 0.18);
+    --shadow-glow: 0 0 48px -12px hsl(0 85% 50% / 0.1);
     --shadow-gold: 0 10px 30px -6px hsl(42 82% 52% / 0.18);
     --shadow-glass: 0 8px 32px rgb(0 0 0 / 0.025), inset 0 1px 0 rgb(255 255 255 / 0.75);
 
@@ -81,12 +81,12 @@
 
     --sidebar-background: 0 0% 99%;
     --sidebar-foreground: 220 20% 20%;
-    --sidebar-primary: 220 65% 18%;
+    --sidebar-primary: 0 85% 50%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 220 14% 96%;
     --sidebar-accent-foreground: 220 20% 10%;
     --sidebar-border: 220 14% 92%;
-    --sidebar-ring: 220 65% 18%;
+    --sidebar-ring: 0 85% 50%;
   }
 
   .dark {
@@ -96,9 +96,9 @@
     --card-foreground: 0 0% 96%;
     --popover: 220 20% 9%;
     --popover-foreground: 0 0% 96%;
-    --primary: 210 50% 55%;
+    --primary: 0 80% 55%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 172 45% 42%;
+    --secondary: 0 65% 48%;
     --secondary-foreground: 0 0% 100%;
     --accent: 220 16% 13%;
     --accent-foreground: 0 0% 100%;
@@ -108,7 +108,7 @@
     --destructive-foreground: 0 0% 100%;
     --border: 220 14% 15%;
     --input: 220 14% 15%;
-    --ring: 210 50% 55%;
+    --ring: 0 80% 55%;
     --gold: 42 82% 58%;
     --gold-foreground: 42 40% 95%;
     --gold-muted: 42 35% 28%;
@@ -130,12 +130,12 @@
     --shadow-glass: 0 8px 32px rgb(0 0 0 / 0.2), inset 0 1px 0 rgb(255 255 255 / 0.05);
     --sidebar-background: 220 20% 9%;
     --sidebar-foreground: 0 0% 96%;
-    --sidebar-primary: 210 50% 55%;
+    --sidebar-primary: 0 80% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 220 16% 14%;
     --sidebar-accent-foreground: 0 0% 96%;
     --sidebar-border: 220 14% 15%;
-    --sidebar-ring: 210 50% 55%;
+    --sidebar-ring: 0 80% 55%;
   }
 }
 
