@@ -76,7 +76,7 @@ const FinalCTASection = memo(() => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.6 }}
-            className="mt-10 text-primary-foreground/20 text-xs tracking-wider"
+            className="mt-10 text-primary-foreground/50 text-xs tracking-wider"
           >
             Rated 4.9/5 by 2,400+ patients · Resources accessed in 42 countries
           </motion.p>

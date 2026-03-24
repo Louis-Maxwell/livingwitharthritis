@@ -193,7 +193,7 @@ const Footer = () => {
         <div className="container mx-auto px-6 md:px-10 py-6 flex justify-center">
           <Popover>
             <PopoverTrigger asChild>
-              <button className="group flex items-center gap-2 text-primary-foreground/15 hover:text-primary-foreground/45 transition-all duration-500 text-[11px] tracking-[0.25em] uppercase font-medium">
+              <button className="group flex items-center gap-2 text-primary-foreground/40 hover:text-primary-foreground/70 transition-all duration-500 text-[11px] tracking-[0.25em] uppercase font-medium">
                 <span>Designed & Built by</span>
                 <span className="relative font-bold bg-gradient-to-r from-secondary via-secondary/80 to-secondary bg-clip-text text-transparent group-hover:drop-shadow-[0_0_8px_hsl(var(--secondary)/0.6)] transition-all duration-500">
                   MaxwellHealth
