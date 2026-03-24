@@ -6,87 +6,87 @@
 
 @layer base {
   :root {
-    --background: 40 20% 99%;
-    --foreground: 222 24% 8%;
+    --background: 0 0% 100%;
+    --foreground: 220 30% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 24% 8%;
+    --card-foreground: 220 30% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 24% 8%;
+    --popover-foreground: 220 30% 10%;
 
-    /* British Red Cross red #EE2A24 — enriched */
-    --primary: 1 85% 54%;
+    /* Deep institutional navy — authoritative & premium */
+    --primary: 220 65% 18%;
     --primary-foreground: 0 0% 100%;
 
-    /* Deep burgundy secondary */
-    --secondary: 355 78% 48%;
+    /* Rich teal accent */
+    --secondary: 172 55% 38%;
     --secondary-foreground: 0 0% 100%;
 
-    --accent: 220 14% 96%;
-    --accent-foreground: 222 24% 8%;
+    --accent: 220 20% 96%;
+    --accent-foreground: 220 30% 10%;
 
-    --muted: 225 14% 95%;
-    --muted-foreground: 222 8% 44%;
+    --muted: 220 16% 96%;
+    --muted-foreground: 220 10% 46%;
 
-    --destructive: 1 85% 54%;
+    --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 225 14% 90%;
-    --input: 225 14% 90%;
-    --ring: 1 85% 54%;
+    --border: 220 16% 91%;
+    --input: 220 16% 91%;
+    --ring: 220 65% 18%;
 
-    --gold: 42 92% 56%;
+    --gold: 42 82% 52%;
     --gold-foreground: 42 40% 12%;
-    --gold-muted: 42 50% 82%;
-    --amber: 30 90% 56%;
+    --gold-muted: 42 45% 85%;
+    --amber: 30 80% 52%;
 
-    --navy: 222 24% 8%;
+    --navy: 220 30% 10%;
     --navy-foreground: 0 0% 100%;
 
-    /* Warm cream background */
-    --warm: 36 25% 97%;
+    /* Clean white background */
+    --warm: 220 14% 98%;
 
-    /* Colourful section tints — refined */
-    --tint-blue: 214 78% 95%;
-    --tint-green: 152 62% 94%;
-    --tint-amber: 42 82% 94%;
-    --tint-rose: 348 72% 95%;
-    --tint-violet: 268 62% 95%;
-    --tint-cyan: 192 72% 94%;
-    --tint-peach: 22 82% 95%;
-    --tint-mint: 162 68% 94%;
-    --tint-lavender: 280 58% 95%;
-    --tint-coral: 12 78% 95%;
+    /* Subtle pastel tints — refined & muted */
+    --tint-blue: 214 50% 96%;
+    --tint-green: 155 40% 95%;
+    --tint-amber: 42 50% 95%;
+    --tint-rose: 350 40% 96%;
+    --tint-violet: 268 40% 96%;
+    --tint-cyan: 192 45% 95%;
+    --tint-peach: 22 50% 96%;
+    --tint-mint: 162 42% 95%;
+    --tint-lavender: 280 38% 96%;
+    --tint-coral: 12 45% 96%;
 
-    /* Vibrant accent colors */
-    --emerald: 160 70% 42%;
-    --sky: 200 85% 52%;
-    --violet: 265 75% 55%;
-    --coral: 10 78% 58%;
-    --teal: 175 70% 40%;
+    /* Sophisticated accent colors */
+    --emerald: 160 60% 38%;
+    --sky: 205 75% 48%;
+    --violet: 260 55% 50%;
+    --coral: 12 65% 55%;
+    --teal: 172 55% 38%;
 
-    /* Premium shadow system */
-    --shadow-soft: 0 1px 4px 0 rgb(0 0 0 / 0.03), 0 1px 2px -1px rgb(0 0 0 / 0.02);
-    --shadow-medium: 0 8px 30px -8px rgb(0 0 0 / 0.06), 0 2px 10px -4px rgb(0 0 0 / 0.03);
-    --shadow-large: 0 24px 64px -20px rgb(0 0 0 / 0.08), 0 8px 24px -8px rgb(0 0 0 / 0.03);
-    --shadow-xl: 0 40px 80px -24px rgb(0 0 0 / 0.1), 0 16px 40px -12px rgb(0 0 0 / 0.04);
-    --shadow-2xl: 0 56px 100px -28px rgb(0 0 0 / 0.12), 0 24px 56px -16px rgb(0 0 0 / 0.05);
-    --shadow-primary: 0 12px 40px -8px hsl(1 85% 54% / 0.2);
-    --shadow-glow: 0 0 64px -16px hsl(1 85% 54% / 0.1);
-    --shadow-gold: 0 12px 36px -8px hsl(42 92% 56% / 0.2);
-    --shadow-glass: 0 12px 40px rgb(0 0 0 / 0.03), inset 0 1px 0 rgb(255 255 255 / 0.7);
+    /* Refined shadow system — lighter, more elegant */
+    --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.02), 0 1px 2px -1px rgb(0 0 0 / 0.015);
+    --shadow-medium: 0 6px 24px -6px rgb(0 0 0 / 0.05), 0 2px 8px -3px rgb(0 0 0 / 0.02);
+    --shadow-large: 0 20px 50px -16px rgb(0 0 0 / 0.07), 0 6px 20px -6px rgb(0 0 0 / 0.025);
+    --shadow-xl: 0 32px 64px -20px rgb(0 0 0 / 0.08), 0 12px 32px -10px rgb(0 0 0 / 0.03);
+    --shadow-2xl: 0 48px 80px -24px rgb(0 0 0 / 0.1), 0 20px 48px -14px rgb(0 0 0 / 0.04);
+    --shadow-primary: 0 10px 32px -6px hsl(220 65% 18% / 0.15);
+    --shadow-glow: 0 0 48px -12px hsl(220 65% 18% / 0.08);
+    --shadow-gold: 0 10px 30px -6px hsl(42 82% 52% / 0.18);
+    --shadow-glass: 0 8px 32px rgb(0 0 0 / 0.025), inset 0 1px 0 rgb(255 255 255 / 0.75);
 
     --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 0 0% 20%;
-    --sidebar-primary: 0 0% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 0 0% 96%;
-    --sidebar-accent-foreground: 0 0% 10%;
-    --sidebar-border: 0 0% 91%;
-    --sidebar-ring: 1 85% 54%;
+    --sidebar-background: 0 0% 99%;
+    --sidebar-foreground: 220 20% 20%;
+    --sidebar-primary: 220 65% 18%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 220 20% 10%;
+    --sidebar-border: 220 14% 92%;
+    --sidebar-ring: 220 65% 18%;
   }
 
   .dark {
