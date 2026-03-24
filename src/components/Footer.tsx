@@ -131,14 +131,18 @@ const Footer = () => {
       {/* Accreditation */}
       <div className="border-t border-border/30">
         <div className="container mx-auto px-6 md:px-10 py-8 flex justify-center">
-          <img
-            src={accreditationLogos}
-            alt="Chartered Society of Physiotherapy and Health & Care Professions Council logos"
-            className="h-16 md:h-20 object-contain opacity-70"
-            width={320}
-            height={112}
-            loading="lazy"
-          />
+          <picture>
+            <source srcSet={accreditationLogosWebp} type="image/webp" />
+            <img
+              src={accreditationLogosPng}
+              alt="Chartered Society of Physiotherapy and Health & Care Professions Council logos"
+              className="h-16 md:h-20 object-contain opacity-70"
+              width={306}
+              height={112}
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
         </div>
       </div>
 

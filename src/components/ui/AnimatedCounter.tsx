@@ -50,15 +50,18 @@ const AnimatedCounter = memo(({
       ([entry]) => {
         if (entry.isIntersecting && !animated.current) {
           animated.current = true;
-          const start = performance.now();
-          const step = (now: number) => {
-            const progress = Math.min((now - start) / duration, 1);
-            // Quartic ease-out for premium deceleration feel
-            const eased = 1 - Math.pow(1 - progress, 4);
-            setCount(Math.floor(eased * target));
-            if (progress < 1) requestAnimationFrame(step);
-          };
-          requestAnimationFrame(step);
+          // Reset to 0 then animate up for visual effect
+          setCount(0);
+          requestAnimationFrame(() => {
+            const start = performance.now();
+            const step = (now: number) => {
+              const progress = Math.min((now - start) / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 4);
+              setCount(Math.floor(eased * target));
+              if (progress < 1) requestAnimationFrame(step);
+            };
+            requestAnimationFrame(step);
+          });
         }
       },
       { threshold: 0.3 }
