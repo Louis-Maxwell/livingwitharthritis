@@ -81,14 +81,14 @@ const Footer = () => {
             </div>
 
             <div className="space-y-4">
-              <a href="tel:07760512084" className="flex items-center gap-3 text-primary-foreground/35 hover:text-primary-foreground/70 transition-all duration-300 text-sm group">
-                <div className="w-9 h-9 rounded-xl bg-primary-foreground/5 flex items-center justify-center group-hover:bg-secondary/20 group-hover:scale-105 transition-all duration-300">
+              <a href="tel:07760512084" className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300 text-sm group">
+                <div className="w-9 h-9 rounded-xl bg-muted flex items-center justify-center group-hover:bg-primary/10 group-hover:scale-105 transition-all duration-300">
                   <Phone className="w-3.5 h-3.5" />
                 </div>
                 <span>07760 512 084</span>
               </a>
-              <a href="mailto:info@livingwitharthritis.org.uk" className="flex items-center gap-3 text-primary-foreground/35 hover:text-primary-foreground/70 transition-all duration-300 text-sm group">
-                <div className="w-9 h-9 rounded-xl bg-primary-foreground/5 flex items-center justify-center group-hover:bg-secondary/20 group-hover:scale-105 transition-all duration-300">
+              <a href="mailto:info@livingwitharthritis.org.uk" className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300 text-sm group">
+                <div className="w-9 h-9 rounded-xl bg-muted flex items-center justify-center group-hover:bg-primary/10 group-hover:scale-105 transition-all duration-300">
                   <Mail className="w-3.5 h-3.5" />
                 </div>
                 <span>info@livingwitharthritis.org.uk</span>
