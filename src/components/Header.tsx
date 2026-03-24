@@ -181,7 +181,7 @@ const Header = () => {
       >
         {/* Currently Building Banner */}
         {!bannerDismissed && (
-          <div className="bg-amber-500 dark:bg-amber-600 text-amber-950 dark:text-amber-50 text-center py-1.5 px-4 text-xs sm:text-sm font-semibold tracking-wide flex items-center justify-center gap-2 relative">
+          <div className="bg-primary text-primary-foreground text-center py-1.5 px-4 text-xs sm:text-sm font-semibold tracking-wide flex items-center justify-center gap-2 relative">
             <span className="inline-block animate-pulse">🚧</span>
             <span className="hidden sm:inline">This website is currently under construction — expected launch: <strong>Summer 2026</strong></span>
             <span className="sm:hidden">Under construction — launching <strong>Summer 2026</strong></span>
@@ -191,7 +191,7 @@ const Header = () => {
                 setBannerDismissed(true);
                 sessionStorage.setItem("banner-dismissed", "true");
               }}
-              className="absolute right-2 top-1/2 -translate-y-1/2 p-1 rounded-full hover:bg-amber-600/30 dark:hover:bg-amber-500/30 transition-colors"
+              className="absolute right-2 top-1/2 -translate-y-1/2 p-1 rounded-full hover:bg-primary-foreground/10 transition-colors"
               aria-label="Dismiss banner"
             >
               <X className="h-3.5 w-3.5" />
