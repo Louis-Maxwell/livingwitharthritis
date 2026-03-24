@@ -1,5 +1,6 @@
 import { Facebook, Twitter, Instagram, Youtube, Linkedin, Mail, Phone, ArrowUp, Heart, Sparkles } from "lucide-react";
-import accreditationLogos from "@/assets/accreditation-logos.png";
+import accreditationLogosWebp from "@/assets/accreditation-logos.webp";
+import accreditationLogosPng from "@/assets/accreditation-logos.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
