@@ -69,13 +69,13 @@ const Footer = () => {
 
             {/* Institutional badges */}
             <div className="flex flex-wrap gap-2 mb-8">
-              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-foreground/5 border border-primary-foreground/8 text-primary-foreground/35 text-[10px] font-bold tracking-wider">
+              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-muted border border-border/50 text-foreground/70 text-[10px] font-bold tracking-wider">
                 <ShieldCheck className="w-3 h-3" /> HCPC Registered
               </span>
-              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-foreground/8 border border-primary-foreground/12 text-primary-foreground/60 text-[10px] font-bold tracking-wider">
+              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-muted border border-border/50 text-foreground/70 text-[10px] font-bold tracking-wider">
                 <ShieldCheck className="w-3 h-3" /> CSP Accredited
               </span>
-              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-foreground/8 border border-primary-foreground/12 text-primary-foreground/60 text-[10px] font-bold tracking-wider">
+              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-muted border border-border/50 text-foreground/70 text-[10px] font-bold tracking-wider">
                 <Globe className="w-3 h-3" /> 42 Countries
               </span>
             </div>
