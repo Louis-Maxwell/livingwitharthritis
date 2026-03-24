@@ -195,10 +195,10 @@ const Footer = () => {
             <PopoverTrigger asChild>
               <button className="group flex items-center gap-2 text-primary-foreground/15 hover:text-primary-foreground/45 transition-all duration-500 text-[11px] tracking-[0.25em] uppercase font-medium">
                 <span>Designed & Built by</span>
-                <span className="relative font-bold bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent group-hover:drop-shadow-[0_0_8px_hsl(var(--primary)/0.6)] transition-all duration-500">
+                <span className="relative font-bold bg-gradient-to-r from-secondary via-secondary/80 to-secondary bg-clip-text text-transparent group-hover:drop-shadow-[0_0_8px_hsl(var(--secondary)/0.6)] transition-all duration-500">
                   MaxwellHealth
                 </span>
-                <Sparkles className="w-3 h-3 text-primary/30 group-hover:text-primary group-hover:drop-shadow-[0_0_6px_hsl(var(--primary)/0.5)] transition-all duration-500" />
+                <Sparkles className="w-3 h-3 text-secondary/30 group-hover:text-secondary group-hover:drop-shadow-[0_0_6px_hsl(var(--secondary)/0.5)] transition-all duration-500" />
               </button>
             </PopoverTrigger>
             <PopoverContent
