@@ -153,7 +153,7 @@ const Footer = () => {
       </div>
 
       {/* Accreditation */}
-      <div className="border-t border-primary-foreground/[0.05]">
+      <div className="border-t border-border/30">
         <div className="container mx-auto px-6 md:px-10 py-12 flex justify-center">
           <img
             src={accreditationLogos}
