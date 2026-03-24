@@ -1,6 +1,5 @@
-import { Facebook, Twitter, Instagram, Youtube, Linkedin, Mail, Phone, ArrowUp, Heart, Sparkles, Globe, ShieldCheck } from "lucide-react";
+import { Facebook, Twitter, Instagram, Youtube, Linkedin, Mail, Phone, ArrowUp, Heart, Sparkles } from "lucide-react";
 import accreditationLogos from "@/assets/accreditation-logos.png";
-import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -45,52 +44,31 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-background text-foreground relative overflow-hidden border-t border-border/30" role="contentinfo" aria-label="Site footer">
-      {/* Decorative gradient glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/3 blur-[180px] pointer-events-none rounded-full" />
-      
-      <div className="container mx-auto px-6 md:px-10 py-24 lg:py-32 relative">
-        <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-14 lg:gap-10">
+    <footer className="bg-background text-foreground border-t border-border/40" role="contentinfo" aria-label="Site footer">
+      <div className="container mx-auto px-6 md:px-10 py-16 lg:py-20">
+        <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-4">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center shadow-lg">
-                <Heart className="w-5 h-5 text-primary" />
+            <div className="flex items-center gap-2.5 mb-6">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                <Heart className="w-4 h-4 text-primary" />
               </div>
               <div>
-                <span className="text-base font-black leading-none block tracking-tight text-foreground uppercase">Living With</span>
-                <span className="text-base font-black leading-none block text-foreground mt-0.5 tracking-tight uppercase">Arthritis<sup className="text-[7px] align-super ml-0.5">™</sup></span>
+                <span className="text-sm font-bold leading-none block tracking-tight text-foreground">Living With</span>
+                <span className="text-sm font-bold leading-none block text-foreground mt-0.5 tracking-tight">Arthritis<sup className="text-[7px] align-super ml-0.5">™</sup></span>
               </div>
             </div>
-            <p className="text-muted-foreground leading-[1.9] mb-6 max-w-xs text-sm">
-              The UK's most comprehensive arthritis support platform. Building technology that supports 
-              over 50,000 people across all four UK nations through evidence-based, clinically reviewed care.
+            <p className="text-muted-foreground leading-relaxed mb-6 max-w-xs text-sm">
+              The UK's most comprehensive arthritis support platform, trusted by over 50,000 people with evidence-based, clinically reviewed care.
             </p>
 
-            {/* Institutional badges */}
-            <div className="flex flex-wrap gap-2 mb-8">
-              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-muted border border-border/50 text-foreground/70 text-[10px] font-bold tracking-wider">
-                <ShieldCheck className="w-3 h-3" /> HCPC Registered
-              </span>
-              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-muted border border-border/50 text-foreground/70 text-[10px] font-bold tracking-wider">
-                <ShieldCheck className="w-3 h-3" /> CSP Accredited
-              </span>
-              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-muted border border-border/50 text-foreground/70 text-[10px] font-bold tracking-wider">
-                <Globe className="w-3 h-3" /> 42 Countries
-              </span>
-            </div>
-
-            <div className="space-y-4">
-              <a href="tel:07760512084" className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300 text-sm group">
-                <div className="w-9 h-9 rounded-xl bg-muted flex items-center justify-center group-hover:bg-primary/10 group-hover:scale-105 transition-all duration-300">
-                  <Phone className="w-3.5 h-3.5" />
-                </div>
+            <div className="space-y-3">
+              <a href="tel:07760512084" className="flex items-center gap-2.5 text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
+                <Phone className="w-4 h-4" />
                 <span>07760 512 084</span>
               </a>
-              <a href="mailto:info@livingwitharthritis.org.uk" className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300 text-sm group">
-                <div className="w-9 h-9 rounded-xl bg-muted flex items-center justify-center group-hover:bg-primary/10 group-hover:scale-105 transition-all duration-300">
-                  <Mail className="w-3.5 h-3.5" />
-                </div>
+              <a href="mailto:info@livingwitharthritis.org.uk" className="flex items-center gap-2.5 text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
+                <Mail className="w-4 h-4" />
                 <span>info@livingwitharthritis.org.uk</span>
               </a>
             </div>
@@ -103,14 +81,11 @@ const Footer = () => {
             { title: "Organisation", links: footerLinks.aboutUs },
           ].map((section) => (
             <div key={section.title} className="lg:col-span-2">
-              <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground mb-6">{section.title}</h4>
-              <ul className="space-y-3.5">
+              <h4 className="text-xs font-semibold uppercase tracking-widest text-foreground mb-5">{section.title}</h4>
+              <ul className="space-y-3">
                 {section.links.map((link) => (
                   <li key={link.label}>
-                    <Link
-                      to={link.href}
-                      className="text-muted-foreground hover:text-foreground transition-all duration-300 text-sm cursor-pointer hover:translate-x-0.5 inline-block"
-                    >
+                    <Link to={link.href} className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
                       {link.label}
                     </Link>
                   </li>
@@ -121,8 +96,8 @@ const Footer = () => {
 
           {/* Social + Legal */}
           <div className="lg:col-span-2">
-            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground mb-6">Connect</h4>
-            <div className="flex flex-wrap gap-3 mb-8">
+            <h4 className="text-xs font-semibold uppercase tracking-widest text-foreground mb-5">Connect</h4>
+            <div className="flex flex-wrap gap-2 mb-6">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (
@@ -130,7 +105,7 @@ const Footer = () => {
                     key={social.label}
                     href={social.href}
                     aria-label={social.label}
-                    className="w-11 h-11 rounded-xl bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
+                    className="w-9 h-9 rounded-lg bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
                   >
                     <Icon className="w-4 h-4" />
                   </a>
@@ -138,11 +113,11 @@ const Footer = () => {
               })}
             </div>
 
-            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground mb-4">Legal</h4>
-            <ul className="space-y-3">
+            <h4 className="text-xs font-semibold uppercase tracking-widest text-foreground mb-4">Legal</h4>
+            <ul className="space-y-2.5">
               {footerLinks.legal.map((link) => (
                 <li key={link.label}>
-                  <Link to={link.href} className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-xs">
+                  <Link to={link.href} className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
                     {link.label}
                   </Link>
                 </li>
@@ -154,11 +129,11 @@ const Footer = () => {
 
       {/* Accreditation */}
       <div className="border-t border-border/30">
-        <div className="container mx-auto px-6 md:px-10 py-12 flex justify-center">
+        <div className="container mx-auto px-6 md:px-10 py-8 flex justify-center">
           <img
             src={accreditationLogos}
             alt="Chartered Society of Physiotherapy and Health & Care Professions Council logos"
-            className="h-20 md:h-28 object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+            className="h-16 md:h-20 object-contain opacity-70"
             width={320}
             height={112}
             loading="lazy"
@@ -166,19 +141,19 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom */}
+      {/* Bottom bar */}
       <div className="border-t border-border/30">
-        <div className="container mx-auto px-6 md:px-10 py-7">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="container mx-auto px-6 md:px-10 py-5">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-3">
             <div>
-              <p className="text-foreground/70 text-xs tracking-wider">© {new Date().getFullYear()} Living with Arthritis™ — All rights reserved</p>
-              <p className="text-muted-foreground text-[10px] mt-1 tracking-wider">Charity Registration Number: Pending · Registered in England & Wales</p>
+              <p className="text-muted-foreground text-xs">© {new Date().getFullYear()} Living with Arthritis™ — All rights reserved</p>
+              <p className="text-muted-foreground/70 text-[10px] mt-0.5">Charity Registration Number: Pending · Registered in England & Wales</p>
             </div>
             <div className="flex items-center gap-4">
-              <span className="text-muted-foreground text-[10px] tracking-wider">Rated 4.9/5 by 2,400+ patients</span>
+              <span className="text-muted-foreground text-xs">Rated 4.9/5 by 2,400+ patients</span>
               <button
                 onClick={scrollToTop}
-                className="w-10 h-10 rounded-xl bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300"
+                className="w-9 h-9 rounded-lg bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
                 aria-label="Scroll to top"
               >
                 <ArrowUp className="w-3.5 h-3.5" />
@@ -188,34 +163,12 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Made by MaxwellHealth */}
+      {/* Made by */}
       <div className="border-t border-border/30">
-        <div className="container mx-auto px-6 md:px-10 py-6 flex justify-center">
-          <Popover>
-            <PopoverTrigger asChild>
-              <button className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-all duration-500 text-[11px] tracking-[0.25em] uppercase font-medium">
-                <span>Designed & Built by</span>
-                <span className="relative font-bold bg-gradient-to-r from-secondary via-secondary/80 to-secondary bg-clip-text text-transparent group-hover:drop-shadow-[0_0_8px_hsl(var(--secondary)/0.6)] transition-all duration-500">
-                  MaxwellHealth
-                </span>
-                <Sparkles className="w-3 h-3 text-secondary/30 group-hover:text-secondary group-hover:drop-shadow-[0_0_6px_hsl(var(--secondary)/0.5)] transition-all duration-500" />
-              </button>
-            </PopoverTrigger>
-            <PopoverContent
-              side="top"
-              className="w-64 bg-foreground border-primary-foreground/10 text-primary-foreground shadow-2xl shadow-primary/10 rounded-xl p-5"
-            >
-              <div className="flex flex-col items-center text-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-secondary to-secondary/60 flex items-center justify-center shadow-lg shadow-secondary/20">
-                  <Sparkles className="w-4 h-4 text-primary-foreground" />
-                </div>
-                <div>
-                  <p className="text-sm font-bold tracking-tight bg-gradient-to-r from-background to-background/80 bg-clip-text text-transparent">MaxwellHealth</p>
-                  <p className="text-[11px] text-primary-foreground/40 mt-1 leading-relaxed">Crafted with care for better health outcomes.</p>
-                </div>
-              </div>
-            </PopoverContent>
-          </Popover>
+        <div className="container mx-auto px-6 md:px-10 py-4 flex justify-center">
+          <span className="text-muted-foreground/60 text-[10px] tracking-widest uppercase">
+            Designed & Built by <span className="font-semibold text-muted-foreground">MaxwellHealth</span>
+          </span>
         </div>
       </div>
     </footer>
