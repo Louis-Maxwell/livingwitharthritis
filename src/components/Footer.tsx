@@ -45,50 +45,50 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-primary text-primary-foreground relative overflow-hidden" role="contentinfo" aria-label="Site footer">
+    <footer className="bg-background text-foreground relative overflow-hidden border-t border-border/30" role="contentinfo" aria-label="Site footer">
       {/* Decorative gradient glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-secondary/8 blur-[180px] pointer-events-none rounded-full" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/3 blur-[180px] pointer-events-none rounded-full" />
       
       <div className="container mx-auto px-6 md:px-10 py-24 lg:py-32 relative">
         <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-14 lg:gap-10">
           {/* Brand */}
           <div className="lg:col-span-4">
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 rounded-2xl bg-secondary/20 flex items-center justify-center shadow-lg">
-                <Heart className="w-5 h-5 text-secondary" />
+              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center shadow-lg">
+                <Heart className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <span className="text-base font-black leading-none block tracking-tight text-primary-foreground uppercase">Living With</span>
-                <span className="text-base font-black leading-none block text-primary-foreground mt-0.5 tracking-tight uppercase">Arthritis<sup className="text-[7px] align-super ml-0.5">™</sup></span>
+                <span className="text-base font-black leading-none block tracking-tight text-foreground uppercase">Living With</span>
+                <span className="text-base font-black leading-none block text-foreground mt-0.5 tracking-tight uppercase">Arthritis<sup className="text-[7px] align-super ml-0.5">™</sup></span>
               </div>
             </div>
-            <p className="text-primary-foreground/70 leading-[1.9] mb-6 max-w-xs text-sm">
+            <p className="text-muted-foreground leading-[1.9] mb-6 max-w-xs text-sm">
               The UK's most comprehensive arthritis support platform. Building technology that supports 
               over 50,000 people across all four UK nations through evidence-based, clinically reviewed care.
             </p>
 
             {/* Institutional badges */}
             <div className="flex flex-wrap gap-2 mb-8">
-              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-foreground/5 border border-primary-foreground/8 text-primary-foreground/35 text-[10px] font-bold tracking-wider">
+              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-muted border border-border/50 text-foreground/70 text-[10px] font-bold tracking-wider">
                 <ShieldCheck className="w-3 h-3" /> HCPC Registered
               </span>
-              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-foreground/8 border border-primary-foreground/12 text-primary-foreground/60 text-[10px] font-bold tracking-wider">
+              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-muted border border-border/50 text-foreground/70 text-[10px] font-bold tracking-wider">
                 <ShieldCheck className="w-3 h-3" /> CSP Accredited
               </span>
-              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-foreground/8 border border-primary-foreground/12 text-primary-foreground/60 text-[10px] font-bold tracking-wider">
+              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-muted border border-border/50 text-foreground/70 text-[10px] font-bold tracking-wider">
                 <Globe className="w-3 h-3" /> 42 Countries
               </span>
             </div>
 
             <div className="space-y-4">
-              <a href="tel:07760512084" className="flex items-center gap-3 text-primary-foreground/35 hover:text-primary-foreground/70 transition-all duration-300 text-sm group">
-                <div className="w-9 h-9 rounded-xl bg-primary-foreground/5 flex items-center justify-center group-hover:bg-secondary/20 group-hover:scale-105 transition-all duration-300">
+              <a href="tel:07760512084" className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300 text-sm group">
+                <div className="w-9 h-9 rounded-xl bg-muted flex items-center justify-center group-hover:bg-primary/10 group-hover:scale-105 transition-all duration-300">
                   <Phone className="w-3.5 h-3.5" />
                 </div>
                 <span>07760 512 084</span>
               </a>
-              <a href="mailto:info@livingwitharthritis.org.uk" className="flex items-center gap-3 text-primary-foreground/35 hover:text-primary-foreground/70 transition-all duration-300 text-sm group">
-                <div className="w-9 h-9 rounded-xl bg-primary-foreground/5 flex items-center justify-center group-hover:bg-secondary/20 group-hover:scale-105 transition-all duration-300">
+              <a href="mailto:info@livingwitharthritis.org.uk" className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300 text-sm group">
+                <div className="w-9 h-9 rounded-xl bg-muted flex items-center justify-center group-hover:bg-primary/10 group-hover:scale-105 transition-all duration-300">
                   <Mail className="w-3.5 h-3.5" />
                 </div>
                 <span>info@livingwitharthritis.org.uk</span>
@@ -103,13 +103,13 @@ const Footer = () => {
             { title: "Organisation", links: footerLinks.aboutUs },
           ].map((section) => (
             <div key={section.title} className="lg:col-span-2">
-              <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/25 mb-6">{section.title}</h4>
+              <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground mb-6">{section.title}</h4>
               <ul className="space-y-3.5">
                 {section.links.map((link) => (
                   <li key={link.label}>
                     <Link
                       to={link.href}
-                      className="text-primary-foreground/70 hover:text-primary-foreground transition-all duration-300 text-sm cursor-pointer hover:translate-x-0.5 inline-block"
+                      className="text-muted-foreground hover:text-foreground transition-all duration-300 text-sm cursor-pointer hover:translate-x-0.5 inline-block"
                     >
                       {link.label}
                     </Link>
@@ -121,7 +121,7 @@ const Footer = () => {
 
           {/* Social + Legal */}
           <div className="lg:col-span-2">
-            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/25 mb-6">Connect</h4>
+            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground mb-6">Connect</h4>
             <div className="flex flex-wrap gap-3 mb-8">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
@@ -130,7 +130,7 @@ const Footer = () => {
                     key={social.label}
                     href={social.href}
                     aria-label={social.label}
-                    className="w-11 h-11 rounded-xl bg-primary-foreground/5 flex items-center justify-center hover:bg-secondary hover:text-secondary-foreground hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-secondary/20"
+                    className="w-11 h-11 rounded-xl bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
                   >
                     <Icon className="w-4 h-4" />
                   </a>
@@ -138,11 +138,11 @@ const Footer = () => {
               })}
             </div>
 
-            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/25 mb-4">Legal</h4>
+            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground mb-4">Legal</h4>
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.label}>
-                  <Link to={link.href} className="text-primary-foreground/35 hover:text-primary-foreground/60 transition-colors duration-300 text-xs">
+                  <Link to={link.href} className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-xs">
                     {link.label}
                   </Link>
                 </li>
@@ -153,7 +153,7 @@ const Footer = () => {
       </div>
 
       {/* Accreditation */}
-      <div className="border-t border-primary-foreground/[0.05]">
+      <div className="border-t border-border/30">
         <div className="container mx-auto px-6 md:px-10 py-12 flex justify-center">
           <img
             src={accreditationLogos}
@@ -167,18 +167,18 @@ const Footer = () => {
       </div>
 
       {/* Bottom */}
-      <div className="border-t border-primary-foreground/[0.05]">
+      <div className="border-t border-border/30">
         <div className="container mx-auto px-6 md:px-10 py-7">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div>
-              <p className="text-primary-foreground/60 text-xs tracking-wider">© {new Date().getFullYear()} Living with Arthritis™ — All rights reserved</p>
-              <p className="text-primary-foreground/40 text-[10px] mt-1 tracking-wider">Charity Registration Number: Pending · Registered in England & Wales</p>
+              <p className="text-foreground/70 text-xs tracking-wider">© {new Date().getFullYear()} Living with Arthritis™ — All rights reserved</p>
+              <p className="text-muted-foreground text-[10px] mt-1 tracking-wider">Charity Registration Number: Pending · Registered in England & Wales</p>
             </div>
             <div className="flex items-center gap-4">
-              <span className="text-primary-foreground/50 text-[10px] tracking-wider">Rated 4.9/5 by 2,400+ patients</span>
+              <span className="text-muted-foreground text-[10px] tracking-wider">Rated 4.9/5 by 2,400+ patients</span>
               <button
                 onClick={scrollToTop}
-                className="w-10 h-10 rounded-xl bg-primary-foreground/5 flex items-center justify-center hover:bg-secondary hover:text-secondary-foreground hover:scale-105 transition-all duration-300"
+                className="w-10 h-10 rounded-xl bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300"
                 aria-label="Scroll to top"
               >
                 <ArrowUp className="w-3.5 h-3.5" />
@@ -189,11 +189,11 @@ const Footer = () => {
       </div>
 
       {/* Made by MaxwellHealth */}
-      <div className="border-t border-primary-foreground/[0.04]">
+      <div className="border-t border-border/30">
         <div className="container mx-auto px-6 md:px-10 py-6 flex justify-center">
           <Popover>
             <PopoverTrigger asChild>
-              <button className="group flex items-center gap-2 text-primary-foreground/40 hover:text-primary-foreground/70 transition-all duration-500 text-[11px] tracking-[0.25em] uppercase font-medium">
+              <button className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-all duration-500 text-[11px] tracking-[0.25em] uppercase font-medium">
                 <span>Designed & Built by</span>
                 <span className="relative font-bold bg-gradient-to-r from-secondary via-secondary/80 to-secondary bg-clip-text text-transparent group-hover:drop-shadow-[0_0_8px_hsl(var(--secondary)/0.6)] transition-all duration-500">
                   MaxwellHealth
