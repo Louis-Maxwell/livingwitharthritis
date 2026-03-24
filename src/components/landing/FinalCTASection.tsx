@@ -42,9 +42,9 @@ const FinalCTASection = memo(() => {
 
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-primary-foreground mb-8 leading-[1.06] text-balance tracking-tight">
             Your journey to a better life with arthritis{" "}
-            <span className="text-secondary italic">starts right now</span>
+            <span className="text-primary-foreground/90 italic font-extrabold">starts right now</span>
           </h2>
-          <p className="text-primary-foreground/55 text-lg sm:text-xl mb-12 max-w-xl mx-auto leading-relaxed">
+          <p className="text-primary-foreground/80 text-lg sm:text-xl mb-12 max-w-xl mx-auto leading-relaxed">
             World-class, evidence-based arthritis care — completely free. No referral needed, no waiting list, 
             no cost. Trusted by over 50,000 people across the United Kingdom.
           </p>
@@ -54,7 +54,7 @@ const FinalCTASection = memo(() => {
             {benefits.map((b, i) => {
               const Icon = b.icon;
               return (
-                <div key={i} className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary-foreground/[0.06] border border-primary-foreground/[0.06] text-primary-foreground/60 text-xs font-medium hover:bg-primary-foreground/[0.1] transition-colors duration-300">
+                <div key={i} className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary-foreground/[0.08] border border-primary-foreground/[0.1] text-primary-foreground/80 text-xs font-medium hover:bg-primary-foreground/[0.14] transition-colors duration-300">
                   <Icon className="w-3.5 h-3.5" />
                   {b.text}
                 </div>
@@ -76,7 +76,7 @@ const FinalCTASection = memo(() => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.6 }}
-            className="mt-10 text-primary-foreground/20 text-xs tracking-wider"
+            className="mt-10 text-primary-foreground/50 text-xs tracking-wider"
           >
             Rated 4.9/5 by 2,400+ patients · Resources accessed in 42 countries
           </motion.p>

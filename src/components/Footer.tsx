@@ -62,7 +62,7 @@ const Footer = () => {
                 <span className="text-base font-black leading-none block text-primary-foreground mt-0.5 tracking-tight uppercase">Arthritis<sup className="text-[7px] align-super ml-0.5">™</sup></span>
               </div>
             </div>
-            <p className="text-primary-foreground/40 leading-[1.9] mb-6 max-w-xs text-sm">
+            <p className="text-primary-foreground/70 leading-[1.9] mb-6 max-w-xs text-sm">
               The UK's most comprehensive arthritis support platform. Building technology that supports 
               over 50,000 people across all four UK nations through evidence-based, clinically reviewed care.
             </p>
@@ -72,10 +72,10 @@ const Footer = () => {
               <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-foreground/5 border border-primary-foreground/8 text-primary-foreground/35 text-[10px] font-bold tracking-wider">
                 <ShieldCheck className="w-3 h-3" /> HCPC Registered
               </span>
-              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-foreground/5 border border-primary-foreground/8 text-primary-foreground/35 text-[10px] font-bold tracking-wider">
+              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-foreground/8 border border-primary-foreground/12 text-primary-foreground/60 text-[10px] font-bold tracking-wider">
                 <ShieldCheck className="w-3 h-3" /> CSP Accredited
               </span>
-              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-foreground/5 border border-primary-foreground/8 text-primary-foreground/35 text-[10px] font-bold tracking-wider">
+              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-foreground/8 border border-primary-foreground/12 text-primary-foreground/60 text-[10px] font-bold tracking-wider">
                 <Globe className="w-3 h-3" /> 42 Countries
               </span>
             </div>
@@ -109,7 +109,7 @@ const Footer = () => {
                   <li key={link.label}>
                     <Link
                       to={link.href}
-                      className="text-primary-foreground/45 hover:text-primary-foreground/80 transition-all duration-300 text-sm cursor-pointer hover:translate-x-0.5 inline-block"
+                      className="text-primary-foreground/70 hover:text-primary-foreground transition-all duration-300 text-sm cursor-pointer hover:translate-x-0.5 inline-block"
                     >
                       {link.label}
                     </Link>
@@ -171,11 +171,11 @@ const Footer = () => {
         <div className="container mx-auto px-6 md:px-10 py-7">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div>
-              <p className="text-primary-foreground/20 text-xs tracking-wider">© {new Date().getFullYear()} Living with Arthritis™ — All rights reserved</p>
-              <p className="text-primary-foreground/12 text-[10px] mt-1 tracking-wider">Charity Registration Number: Pending · Registered in England & Wales</p>
+              <p className="text-primary-foreground/60 text-xs tracking-wider">© {new Date().getFullYear()} Living with Arthritis™ — All rights reserved</p>
+              <p className="text-primary-foreground/40 text-[10px] mt-1 tracking-wider">Charity Registration Number: Pending · Registered in England & Wales</p>
             </div>
             <div className="flex items-center gap-4">
-              <span className="text-primary-foreground/15 text-[10px] tracking-wider">Rated 4.9/5 by 2,400+ patients</span>
+              <span className="text-primary-foreground/50 text-[10px] tracking-wider">Rated 4.9/5 by 2,400+ patients</span>
               <button
                 onClick={scrollToTop}
                 className="w-10 h-10 rounded-xl bg-primary-foreground/5 flex items-center justify-center hover:bg-secondary hover:text-secondary-foreground hover:scale-105 transition-all duration-300"
@@ -193,7 +193,7 @@ const Footer = () => {
         <div className="container mx-auto px-6 md:px-10 py-6 flex justify-center">
           <Popover>
             <PopoverTrigger asChild>
-              <button className="group flex items-center gap-2 text-primary-foreground/15 hover:text-primary-foreground/45 transition-all duration-500 text-[11px] tracking-[0.25em] uppercase font-medium">
+              <button className="group flex items-center gap-2 text-primary-foreground/40 hover:text-primary-foreground/70 transition-all duration-500 text-[11px] tracking-[0.25em] uppercase font-medium">
                 <span>Designed & Built by</span>
                 <span className="relative font-bold bg-gradient-to-r from-secondary via-secondary/80 to-secondary bg-clip-text text-transparent group-hover:drop-shadow-[0_0_8px_hsl(var(--secondary)/0.6)] transition-all duration-500">
                   MaxwellHealth
