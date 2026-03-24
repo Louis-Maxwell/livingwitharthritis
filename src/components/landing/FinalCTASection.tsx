@@ -15,13 +15,13 @@ const benefits = [
 const FinalCTASection = memo(() => {
   const navigate = useNavigate();
   return (
-    <section className="py-28 lg:py-36 bg-primary relative overflow-hidden">
+    <section className="py-28 lg:py-36 bg-background relative overflow-hidden border-t border-border/30">
       {/* Subtle texture */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, white 0.5px, transparent 0.5px)', backgroundSize: '32px 32px' }} />
+      <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'radial-gradient(circle, hsl(var(--foreground)) 0.5px, transparent 0.5px)', backgroundSize: '32px 32px' }} />
       
       {/* Soft glow */}
-      <div className="absolute top-[-200px] right-[-200px] w-[500px] h-[500px] rounded-full bg-secondary/15 blur-[160px] pointer-events-none" />
-      <div className="absolute bottom-[-150px] left-[-150px] w-[400px] h-[400px] rounded-full bg-gold/10 blur-[140px] pointer-events-none" />
+      <div className="absolute top-[-200px] right-[-200px] w-[500px] h-[500px] rounded-full bg-primary/5 blur-[160px] pointer-events-none" />
+      <div className="absolute bottom-[-150px] left-[-150px] w-[400px] h-[400px] rounded-full bg-primary/5 blur-[140px] pointer-events-none" />
 
       <div className="container mx-auto px-6 md:px-10 max-w-3xl text-center relative">
         <motion.div
