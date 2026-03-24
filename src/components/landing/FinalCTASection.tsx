@@ -42,9 +42,9 @@ const FinalCTASection = memo(() => {
 
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-primary-foreground mb-8 leading-[1.06] text-balance tracking-tight">
             Your journey to a better life with arthritis{" "}
-            <span className="text-secondary italic">starts right now</span>
+            <span className="text-primary-foreground/90 italic font-extrabold">starts right now</span>
           </h2>
-          <p className="text-primary-foreground/55 text-lg sm:text-xl mb-12 max-w-xl mx-auto leading-relaxed">
+          <p className="text-primary-foreground/80 text-lg sm:text-xl mb-12 max-w-xl mx-auto leading-relaxed">
             World-class, evidence-based arthritis care — completely free. No referral needed, no waiting list, 
             no cost. Trusted by over 50,000 people across the United Kingdom.
           </p>
