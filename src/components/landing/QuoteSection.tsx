@@ -12,11 +12,11 @@ const credentials = [
 const QuoteSection = memo(() => (
   <section className="py-24 lg:py-32 bg-primary relative overflow-hidden">
     {/* Texture */}
-    <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: 'radial-gradient(circle, white 0.5px, transparent 0.5px)', backgroundSize: '36px 36px' }} />
+    <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, white 0.5px, transparent 0.5px)', backgroundSize: '36px 36px' }} />
     
     {/* Glow orbs */}
-    <div className="absolute top-[-250px] right-[-250px] w-[600px] h-[600px] rounded-full bg-primary/12 blur-[140px] pointer-events-none" />
-    <div className="absolute bottom-[-250px] left-[-250px] w-[500px] h-[500px] rounded-full bg-secondary/8 blur-[120px] pointer-events-none" />
+    <div className="absolute top-[-250px] right-[-250px] w-[600px] h-[600px] rounded-full bg-secondary/12 blur-[160px] pointer-events-none" />
+    <div className="absolute bottom-[-250px] left-[-250px] w-[500px] h-[500px] rounded-full bg-gold/8 blur-[140px] pointer-events-none" />
 
     <div className="container mx-auto px-6 md:px-10 relative">
       <motion.div
@@ -26,16 +26,16 @@ const QuoteSection = memo(() => (
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="max-w-3xl mx-auto text-center"
       >
-        <Quote className="w-14 h-14 text-primary/30 mx-auto mb-10 rotate-180" />
-        <blockquote className="font-display text-2xl sm:text-3xl md:text-[2rem] lg:text-4xl font-bold text-background leading-[1.35] mb-10 italic tracking-tight">
+        <Quote className="w-14 h-14 text-primary-foreground/15 mx-auto mb-10 rotate-180" />
+        <blockquote className="font-display text-2xl sm:text-3xl md:text-[2rem] lg:text-4xl font-bold text-primary-foreground leading-[1.35] mb-10 italic tracking-tight">
           We believe world-class arthritis care should not be a privilege. Movement is the most powerful medicine — and with the right exercise, 
           nutrition and support, every person can transform how they live with this condition.
         </blockquote>
-        <div className="w-16 h-[2px] bg-primary/40 mx-auto mb-6" />
-        <cite className="text-background/50 text-base sm:text-lg font-semibold not-italic block mb-4 tracking-wide">
+        <div className="w-16 h-[2px] bg-secondary/40 mx-auto mb-6" />
+        <cite className="text-primary-foreground/50 text-base sm:text-lg font-semibold not-italic block mb-4 tracking-wide">
           — The Living With Arthritis Clinical Advisory Board
         </cite>
-        <p className="text-background/25 text-xs mb-14">
+        <p className="text-primary-foreground/25 text-xs mb-14">
           Comprising HCPC-registered physiotherapists, rheumatology consultants and dietitians
         </p>
 
@@ -50,10 +50,10 @@ const QuoteSection = memo(() => (
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 + i * 0.1, duration: 0.4 }}
-                className="flex items-center gap-2.5 bg-background/[0.06] backdrop-blur-sm rounded-full px-6 py-3 border border-background/[0.06] hover:bg-background/[0.1] transition-colors duration-300"
+                className="flex items-center gap-2.5 bg-primary-foreground/[0.06] backdrop-blur-sm rounded-full px-6 py-3 border border-primary-foreground/[0.06] hover:bg-primary-foreground/[0.1] transition-colors duration-300"
               >
-                <Icon className="w-4 h-4 text-primary/70" />
-                <span className="text-background/60 text-xs font-bold tracking-wider">{c.label}</span>
+                <Icon className="w-4 h-4 text-secondary" />
+                <span className="text-primary-foreground/60 text-xs font-bold tracking-wider">{c.label}</span>
               </motion.div>
             );
           })}

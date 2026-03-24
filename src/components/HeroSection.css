@@ -21,11 +21,11 @@
   }
 }
 
-/* Simplified gradient background — fewer layers for GPU perf */
+/* Refined gradient background — clean and light */
 .hero-gradient-bg {
   background: 
     radial-gradient(ellipse 80% 50% at 10% 90%, hsl(var(--tint-blue)) 0%, transparent 50%),
-    radial-gradient(ellipse 70% 50% at 90% 10%, hsl(var(--tint-rose)) 0%, transparent 40%),
+    radial-gradient(ellipse 70% 50% at 90% 10%, hsl(var(--tint-cyan)) 0%, transparent 40%),
     hsl(var(--background));
 }
 
