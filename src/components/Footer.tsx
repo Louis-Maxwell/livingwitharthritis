@@ -47,7 +47,7 @@ const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground relative overflow-hidden" role="contentinfo" aria-label="Site footer">
       {/* Decorative gradient glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/8 blur-[180px] pointer-events-none rounded-full" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-secondary/8 blur-[180px] pointer-events-none rounded-full" />
       
       <div className="container mx-auto px-6 md:px-10 py-24 lg:py-32 relative">
         <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-14 lg:gap-10">
