@@ -56,7 +56,7 @@ function AnimatedStat({ stat }: { stat: typeof stats[0] }) {
 }
 
 const ImpactBannerSection = memo(() => (
-  <section className="py-16 lg:py-20 bg-gradient-to-br from-foreground via-foreground to-primary/30 text-primary-foreground relative overflow-hidden">
+  <section className="py-16 lg:py-20 bg-gradient-to-br from-primary via-primary to-primary/80 text-primary-foreground relative overflow-hidden">
     {/* Animated gradient overlay */}
     <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, white 0%, transparent 50%), radial-gradient(circle at 80% 50%, white 0%, transparent 50%)' }} />
     {/* Refined dot pattern */}
