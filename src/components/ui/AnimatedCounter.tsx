@@ -37,7 +37,8 @@ const AnimatedCounter = memo(({
   compact = false,
   className = "",
 }: AnimatedCounterProps) => {
-  const [count, setCount] = useState(0);
+  // Start with target value to avoid empty LCP element, then animate from 0
+  const [count, setCount] = useState(target ?? 0);
   const ref = useRef<HTMLSpanElement>(null);
   const animated = useRef(false);
 
