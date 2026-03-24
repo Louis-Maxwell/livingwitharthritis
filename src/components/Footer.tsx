@@ -171,8 +171,8 @@ const Footer = () => {
         <div className="container mx-auto px-6 md:px-10 py-7">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div>
-              <p className="text-primary-foreground/20 text-xs tracking-wider">© {new Date().getFullYear()} Living with Arthritis™ — All rights reserved</p>
-              <p className="text-primary-foreground/12 text-[10px] mt-1 tracking-wider">Charity Registration Number: Pending · Registered in England & Wales</p>
+              <p className="text-primary-foreground/60 text-xs tracking-wider">© {new Date().getFullYear()} Living with Arthritis™ — All rights reserved</p>
+              <p className="text-primary-foreground/40 text-[10px] mt-1 tracking-wider">Charity Registration Number: Pending · Registered in England & Wales</p>
             </div>
             <div className="flex items-center gap-4">
               <span className="text-primary-foreground/15 text-[10px] tracking-wider">Rated 4.9/5 by 2,400+ patients</span>
