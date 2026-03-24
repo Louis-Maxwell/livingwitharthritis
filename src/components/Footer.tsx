@@ -54,12 +54,12 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-4">
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg shadow-primary/20">
-                <Heart className="w-5 h-5 text-primary-foreground" />
+              <div className="w-12 h-12 rounded-2xl bg-secondary/20 flex items-center justify-center shadow-lg">
+                <Heart className="w-5 h-5 text-secondary" />
               </div>
               <div>
-                <span className="text-base font-black leading-none block tracking-tight text-primary uppercase">Living With</span>
-                <span className="text-base font-black leading-none block text-primary mt-0.5 tracking-tight uppercase">Arthritis<sup className="text-[7px] align-super ml-0.5">™</sup></span>
+                <span className="text-base font-black leading-none block tracking-tight text-primary-foreground uppercase">Living With</span>
+                <span className="text-base font-black leading-none block text-primary-foreground mt-0.5 tracking-tight uppercase">Arthritis<sup className="text-[7px] align-super ml-0.5">™</sup></span>
               </div>
             </div>
             <p className="text-background/40 leading-[1.9] mb-6 max-w-xs text-sm">
