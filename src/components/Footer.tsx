@@ -167,18 +167,18 @@ const Footer = () => {
       </div>
 
       {/* Bottom */}
-      <div className="border-t border-primary-foreground/[0.05]">
+      <div className="border-t border-border/30">
         <div className="container mx-auto px-6 md:px-10 py-7">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div>
-              <p className="text-primary-foreground/60 text-xs tracking-wider">© {new Date().getFullYear()} Living with Arthritis™ — All rights reserved</p>
-              <p className="text-primary-foreground/40 text-[10px] mt-1 tracking-wider">Charity Registration Number: Pending · Registered in England & Wales</p>
+              <p className="text-foreground/70 text-xs tracking-wider">© {new Date().getFullYear()} Living with Arthritis™ — All rights reserved</p>
+              <p className="text-muted-foreground text-[10px] mt-1 tracking-wider">Charity Registration Number: Pending · Registered in England & Wales</p>
             </div>
             <div className="flex items-center gap-4">
-              <span className="text-primary-foreground/50 text-[10px] tracking-wider">Rated 4.9/5 by 2,400+ patients</span>
+              <span className="text-muted-foreground text-[10px] tracking-wider">Rated 4.9/5 by 2,400+ patients</span>
               <button
                 onClick={scrollToTop}
-                className="w-10 h-10 rounded-xl bg-primary-foreground/5 flex items-center justify-center hover:bg-secondary hover:text-secondary-foreground hover:scale-105 transition-all duration-300"
+                className="w-10 h-10 rounded-xl bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300"
                 aria-label="Scroll to top"
               >
                 <ArrowUp className="w-3.5 h-3.5" />
