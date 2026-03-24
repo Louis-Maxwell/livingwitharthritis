@@ -54,7 +54,7 @@ const FinalCTASection = memo(() => {
             {benefits.map((b, i) => {
               const Icon = b.icon;
               return (
-                <div key={i} className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary-foreground/[0.08] border border-primary-foreground/[0.1] text-primary-foreground/80 text-xs font-medium hover:bg-primary-foreground/[0.14] transition-colors duration-300">
+                <div key={i} className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-muted border border-border/50 text-foreground/80 text-xs font-medium hover:bg-muted/80 transition-colors duration-300">
                   <Icon className="w-3.5 h-3.5" />
                   {b.text}
                 </div>
