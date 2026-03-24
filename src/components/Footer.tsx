@@ -121,7 +121,7 @@ const Footer = () => {
 
           {/* Social + Legal */}
           <div className="lg:col-span-2">
-            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/25 mb-6">Connect</h4>
+            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground mb-6">Connect</h4>
             <div className="flex flex-wrap gap-3 mb-8">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
