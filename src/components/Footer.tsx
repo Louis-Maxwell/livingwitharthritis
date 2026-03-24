@@ -206,7 +206,7 @@ const Footer = () => {
               className="w-64 bg-foreground border-primary-foreground/10 text-primary-foreground shadow-2xl shadow-primary/10 rounded-xl p-5"
             >
               <div className="flex flex-col items-center text-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center shadow-lg shadow-primary/20">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-secondary to-secondary/60 flex items-center justify-center shadow-lg shadow-secondary/20">
                   <Sparkles className="w-4 h-4 text-primary-foreground" />
                 </div>
                 <div>
