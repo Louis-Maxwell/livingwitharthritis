@@ -62,7 +62,7 @@ const Footer = () => {
                 <span className="text-base font-black leading-none block text-primary-foreground mt-0.5 tracking-tight uppercase">Arthritis<sup className="text-[7px] align-super ml-0.5">™</sup></span>
               </div>
             </div>
-            <p className="text-background/40 leading-[1.9] mb-6 max-w-xs text-sm">
+            <p className="text-primary-foreground/40 leading-[1.9] mb-6 max-w-xs text-sm">
               The UK's most comprehensive arthritis support platform. Building technology that supports 
               over 50,000 people across all four UK nations through evidence-based, clinically reviewed care.
             </p>
