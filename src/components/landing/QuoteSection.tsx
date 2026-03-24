@@ -10,7 +10,7 @@ const credentials = [
 ];
 
 const QuoteSection = memo(() => (
-  <section className="py-24 lg:py-32 bg-foreground relative overflow-hidden">
+  <section className="py-24 lg:py-32 bg-primary relative overflow-hidden">
     {/* Texture */}
     <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: 'radial-gradient(circle, white 0.5px, transparent 0.5px)', backgroundSize: '36px 36px' }} />
     

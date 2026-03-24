@@ -10,7 +10,7 @@ const SymptomCheckerCTA = memo(() => {
     <section className="py-24 lg:py-32 bg-background section-divider">
       <div className="container mx-auto px-6 md:px-10 max-w-6xl">
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="bg-navy rounded-[2rem] p-10 lg:p-16 text-center relative overflow-hidden">
+          className="bg-primary rounded-[2rem] p-10 lg:p-16 text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-secondary/10 pointer-events-none" />
           <div className="relative">
             <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-6">
