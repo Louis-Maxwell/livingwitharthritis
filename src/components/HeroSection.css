@@ -41,7 +41,7 @@
 .hero-orb-1 {
   width: 500px;
   height: 500px;
-  background: hsl(var(--primary) / 0.06);
+  background: hsl(var(--primary) / 0.04);
   top: -150px;
   right: -150px;
   animation: orbFloat1 14s ease-in-out infinite;
