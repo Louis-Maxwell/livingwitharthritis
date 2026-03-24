@@ -125,7 +125,7 @@ const VirtualPhysioSection = memo(() => {
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="bg-navy rounded-[2rem] p-14 lg:p-24 text-center text-white relative overflow-hidden"
+          className="bg-primary rounded-[2rem] p-14 lg:p-24 text-center text-white relative overflow-hidden"
         >
           <motion.div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10" style={{ y: ctaBgY }} />
           <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
