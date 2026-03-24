@@ -109,7 +109,7 @@ const Footer = () => {
                   <li key={link.label}>
                     <Link
                       to={link.href}
-                      className="text-primary-foreground/70 hover:text-primary-foreground transition-all duration-300 text-sm cursor-pointer hover:translate-x-0.5 inline-block"
+                      className="text-muted-foreground hover:text-foreground transition-all duration-300 text-sm cursor-pointer hover:translate-x-0.5 inline-block"
                     >
                       {link.label}
                     </Link>
