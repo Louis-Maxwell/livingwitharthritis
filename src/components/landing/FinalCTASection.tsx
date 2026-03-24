@@ -63,10 +63,10 @@ const FinalCTASection = memo(() => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button onClick={() => navigate("/chat")} className="rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/90 px-12 h-[58px] text-base font-bold shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+            <Button onClick={() => navigate("/chat")} className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-12 h-[58px] text-base font-bold shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
               Get Started Free <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
-            <Button variant="outline" onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })} className="rounded-full px-12 h-[58px] text-base border-2 border-primary-foreground/15 text-primary-foreground hover:bg-primary-foreground/8 hover:border-primary-foreground/30 transition-all duration-300 hover:-translate-y-1">
+            <Button variant="outline" onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })} className="rounded-full px-12 h-[58px] text-base border-2 border-border text-foreground hover:bg-muted hover:border-foreground/30 transition-all duration-300 hover:-translate-y-1">
               Explore Services
             </Button>
           </div>
