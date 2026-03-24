@@ -175,7 +175,7 @@ const Footer = () => {
               <p className="text-primary-foreground/40 text-[10px] mt-1 tracking-wider">Charity Registration Number: Pending · Registered in England & Wales</p>
             </div>
             <div className="flex items-center gap-4">
-              <span className="text-primary-foreground/15 text-[10px] tracking-wider">Rated 4.9/5 by 2,400+ patients</span>
+              <span className="text-primary-foreground/50 text-[10px] tracking-wider">Rated 4.9/5 by 2,400+ patients</span>
               <button
                 onClick={scrollToTop}
                 className="w-10 h-10 rounded-xl bg-primary-foreground/5 flex items-center justify-center hover:bg-secondary hover:text-secondary-foreground hover:scale-105 transition-all duration-300"
