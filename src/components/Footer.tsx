@@ -82,13 +82,13 @@ const Footer = () => {
 
             <div className="space-y-4">
               <a href="tel:07760512084" className="flex items-center gap-3 text-primary-foreground/35 hover:text-primary-foreground/70 transition-all duration-300 text-sm group">
-                <div className="w-9 h-9 rounded-xl bg-primary-foreground/5 flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-105 transition-all duration-300">
+                <div className="w-9 h-9 rounded-xl bg-primary-foreground/5 flex items-center justify-center group-hover:bg-secondary/20 group-hover:scale-105 transition-all duration-300">
                   <Phone className="w-3.5 h-3.5" />
                 </div>
                 <span>07760 512 084</span>
               </a>
               <a href="mailto:info@livingwitharthritis.org.uk" className="flex items-center gap-3 text-primary-foreground/35 hover:text-primary-foreground/70 transition-all duration-300 text-sm group">
-                <div className="w-9 h-9 rounded-xl bg-primary-foreground/5 flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-105 transition-all duration-300">
+                <div className="w-9 h-9 rounded-xl bg-primary-foreground/5 flex items-center justify-center group-hover:bg-secondary/20 group-hover:scale-105 transition-all duration-300">
                   <Mail className="w-3.5 h-3.5" />
                 </div>
                 <span>info@livingwitharthritis.org.uk</span>
@@ -130,7 +130,7 @@ const Footer = () => {
                     key={social.label}
                     href={social.href}
                     aria-label={social.label}
-                    className="w-11 h-11 rounded-xl bg-primary-foreground/5 flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
+                    className="w-11 h-11 rounded-xl bg-primary-foreground/5 flex items-center justify-center hover:bg-secondary hover:text-secondary-foreground hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-secondary/20"
                   >
                     <Icon className="w-4 h-4" />
                   </a>
@@ -178,7 +178,7 @@ const Footer = () => {
               <span className="text-primary-foreground/15 text-[10px] tracking-wider">Rated 4.9/5 by 2,400+ patients</span>
               <button
                 onClick={scrollToTop}
-                className="w-10 h-10 rounded-xl bg-primary-foreground/5 flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300"
+                className="w-10 h-10 rounded-xl bg-primary-foreground/5 flex items-center justify-center hover:bg-secondary hover:text-secondary-foreground hover:scale-105 transition-all duration-300"
                 aria-label="Scroll to top"
               >
                 <ArrowUp className="w-3.5 h-3.5" />
