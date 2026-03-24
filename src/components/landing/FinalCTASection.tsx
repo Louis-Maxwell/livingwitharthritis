@@ -35,9 +35,9 @@ const FinalCTASection = memo(() => {
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.5 }}
-            className="w-20 h-20 rounded-3xl bg-primary-foreground/10 flex items-center justify-center mx-auto mb-12 border border-primary-foreground/[0.06]"
+            className="w-20 h-20 rounded-3xl bg-primary/10 flex items-center justify-center mx-auto mb-12 border border-primary/10"
           >
-            <Heart className="w-8 h-8 text-primary-foreground" />
+            <Heart className="w-8 h-8 text-primary" />
           </motion.div>
 
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-primary-foreground mb-8 leading-[1.06] text-balance tracking-tight">
