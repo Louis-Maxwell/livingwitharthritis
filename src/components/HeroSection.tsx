@@ -71,8 +71,8 @@ const HeroSection = memo(() => {
       <div className="hero-orb hero-orb-2" />
       <div className="hero-orb hero-orb-3" />
 
-      <div className="container mx-auto px-6 md:px-10 relative">
-        <div className="flex items-center justify-center min-h-[calc(100vh-140px)] py-24 lg:py-0">
+      <div className="container mx-auto px-4 sm:px-6 md:px-10 relative">
+        <div className="flex items-center justify-center min-h-[calc(100vh-140px)] py-16 sm:py-24 lg:py-0 pb-24 lg:pb-0">
           <div className="hero-stagger max-w-[860px] text-center">
             
             {/* Social proof + live indicator */}
