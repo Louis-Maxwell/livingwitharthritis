@@ -56,7 +56,7 @@ const DonationBanner = () => {
   const getDonationAmount = () => parseFloat(amount) || selectedQuickAmount || 100;
 
   return (
-    <div className="bg-primary text-primary-foreground">
+    <div className="bg-black text-white">
       <div className="container mx-auto px-4 py-2.5">
         <div className="flex flex-wrap items-center justify-center gap-2">
           {/* Recurring toggle */}
