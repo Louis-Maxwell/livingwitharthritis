@@ -2,6 +2,9 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import { createRateLimiter, getClientIp, rateLimitResponse } from "../_shared/rate-limiter.ts";
 
+const ADMIN_EMAIL = "info@livingwitharthritis.org.uk";
+import { createRateLimiter, getClientIp, rateLimitResponse } from "../_shared/rate-limiter.ts";
+
 // 5 contact submissions per IP per 15 minutes
 const limiter = createRateLimiter({ windowMs: 900_000, maxRequests: 5 });
 
@@ -131,6 +134,27 @@ serve(async (req) => {
     }
 
     console.log("Contact inquiry submitted:", data.id);
+
+    // Send admin notification email
+    try {
+      await supabase.functions.invoke('send-transactional-email', {
+        body: {
+          templateName: 'contact-admin-notification',
+          recipientEmail: ADMIN_EMAIL,
+          idempotencyKey: `contact-admin-${data.id}`,
+          templateData: {
+            name: contact!.name,
+            email: contact!.email,
+            phone: contact!.phone || undefined,
+            subject: contact!.subject,
+            message: contact!.message,
+          },
+        },
+      });
+      console.log("Admin notification email queued for contact:", data.id);
+    } catch (emailErr) {
+      console.error("Admin notification email error:", emailErr);
+    }
 
     return new Response(
       JSON.stringify({
