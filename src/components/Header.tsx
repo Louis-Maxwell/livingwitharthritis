@@ -423,7 +423,7 @@ const Header = () => {
                         navigate(item.href);
                       }
                     }}
-                    className="flex items-center gap-3 w-full text-left px-4 py-3.5 text-[15px] font-semibold text-muted-foreground hover:text-foreground hover:bg-accent rounded-xl transition-all cursor-pointer group"
+                    className="flex items-center gap-3 w-full text-left px-4 py-4 text-[15px] font-semibold text-muted-foreground hover:text-foreground hover:bg-accent active:bg-accent/80 rounded-xl transition-all cursor-pointer group min-h-[56px]"
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
                     <div className="w-9 h-9 rounded-lg bg-primary/8 flex items-center justify-center shrink-0 group-hover:bg-primary/15 transition-colors">
