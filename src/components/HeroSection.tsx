@@ -92,7 +92,7 @@ const HeroSection = memo(() => {
             </h1>
 
             {/* Value proposition — shorter, punchier */}
-            <p className="hero-item text-base sm:text-lg md:text-xl text-muted-foreground leading-[1.85] mb-4 max-w-[600px] mx-auto">
+            <p className="hero-item text-sm sm:text-lg md:text-xl text-muted-foreground leading-[1.7] sm:leading-[1.85] mb-3 sm:mb-4 max-w-[600px] mx-auto">
               Free physiotherapy, personalised exercise plans, anti-inflammatory diet guides, and 24/7 AI support — backed by NHS clinical standards.
             </p>
 
