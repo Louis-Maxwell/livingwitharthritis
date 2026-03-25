@@ -141,6 +141,28 @@ serve(async (req) => {
 
     console.log("Fundraising inquiry submitted:", data.id);
 
+    // Send admin notification email
+    try {
+      await supabase.functions.invoke('send-transactional-email', {
+        body: {
+          templateName: 'fundraising-admin-notification',
+          recipientEmail: ADMIN_EMAIL,
+          idempotencyKey: `fundraising-admin-${data.id}`,
+          templateData: {
+            contactName: inquiry!.contactName,
+            email: inquiry!.email,
+            phone: inquiry!.phone || undefined,
+            inquiryType: inquiry!.inquiryType,
+            organizationName: inquiry!.organizationName || undefined,
+            message: inquiry!.message || undefined,
+          },
+        },
+      });
+      console.log("Admin notification email queued for fundraising:", data.id);
+    } catch (emailErr) {
+      console.error("Admin notification email error:", emailErr);
+    }
+
     return new Response(
       JSON.stringify({
         success: true,

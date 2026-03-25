@@ -135,6 +135,27 @@ serve(async (req) => {
 
     console.log("Contact inquiry submitted:", data.id);
 
+    // Send admin notification email
+    try {
+      await supabase.functions.invoke('send-transactional-email', {
+        body: {
+          templateName: 'contact-admin-notification',
+          recipientEmail: ADMIN_EMAIL,
+          idempotencyKey: `contact-admin-${data.id}`,
+          templateData: {
+            name: contact!.name,
+            email: contact!.email,
+            phone: contact!.phone || undefined,
+            subject: contact!.subject,
+            message: contact!.message,
+          },
+        },
+      });
+      console.log("Admin notification email queued for contact:", data.id);
+    } catch (emailErr) {
+      console.error("Admin notification email error:", emailErr);
+    }
+
     return new Response(
       JSON.stringify({
         success: true,
