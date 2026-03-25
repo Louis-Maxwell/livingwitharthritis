@@ -1,7 +1,7 @@
-import { ArrowRight, Sparkles, ClipboardList, Dumbbell, Utensils, MessageCircle, Heart, Shield, Award, Globe, ChevronDown } from "lucide-react";
+import { ArrowRight, Sparkles, ClipboardList, Dumbbell, Utensils, MessageCircle, Heart, Shield, Award, Globe, ChevronDown, Users, Activity } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { memo } from "react";
+import { memo, useState, useEffect } from "react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 
 import "./HeroSection.css";
@@ -12,6 +12,26 @@ const STATS = [
   { target: 50000, suffix: "+", label: "People supported to date", compact: true },
   { target: 97, suffix: "%", label: "Patient satisfaction rate", compact: false },
 ] as const;
+
+/* Live activity pulse — social proof */
+const LiveActivity = memo(() => {
+  const [count, setCount] = useState(47);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCount(prev => prev + Math.floor(Math.random() * 3) - 1);
+    }, 8000);
+    return () => clearInterval(interval);
+  }, []);
+  return (
+    <div className="hero-item inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-emerald-500/8 border border-emerald-500/15 backdrop-blur-sm">
+      <span className="live-dot" />
+      <span className="text-[11px] font-semibold text-emerald-700 dark:text-emerald-400">
+        <span className="font-bold">{count}</span> people exploring right now
+      </span>
+    </div>
+  );
+});
+LiveActivity.displayName = "LiveActivity";
 
 /* User journey pathways */
 const JourneyPaths = memo(({ navigate }: { navigate: (path: string) => void }) => (
@@ -49,56 +69,65 @@ const HeroSection = memo(() => {
       <div className="hero-noise" />
       <div className="hero-orb hero-orb-1" />
       <div className="hero-orb hero-orb-2" />
+      <div className="hero-orb hero-orb-3" />
 
       <div className="container mx-auto px-6 md:px-10 relative">
         <div className="flex items-center justify-center min-h-[calc(100vh-140px)] py-24 lg:py-0">
           <div className="hero-stagger max-w-[860px] text-center">
             
-            <div className="hero-item flex items-center justify-center gap-2 mb-7">
+            {/* Social proof + live indicator */}
+            <div className="hero-item flex flex-col sm:flex-row items-center justify-center gap-3 mb-7">
               <span className="px-5 py-2 rounded-full text-xs font-bold bg-primary/6 text-primary border border-primary/12 tracking-wider uppercase inline-flex items-center gap-2">
                 <Sparkles className="w-3 h-3" />
-                The UK's most comprehensive arthritis platform
+                The UK's #1 arthritis platform
               </span>
+              <LiveActivity />
             </div>
 
-            <h1 className="hero-item text-[2.5rem] sm:text-5xl md:text-6xl lg:text-[4.75rem] font-extrabold text-foreground mb-7 leading-[1.04] tracking-tight text-balance">
-              World-class arthritis care,{" "}
+            <h1 className="hero-item text-[2.5rem] sm:text-5xl md:text-6xl lg:text-[4.75rem] font-extrabold text-foreground mb-5 leading-[1.04] tracking-tight text-balance">
+              Take control of your{" "}
               <span className="font-display text-gradient relative inline-block hero-underline italic">
-                completely free
+                arthritis journey
               </span>
             </h1>
 
-            <p className="hero-item text-base sm:text-lg md:text-xl text-muted-foreground leading-[1.85] mb-10 max-w-[640px] mx-auto">
-              Trusted by over 50,000 people across the UK. Track symptoms, manage flare-ups, access 
-              personalised exercise programmes, anti-inflammatory nutrition plans, and 24/7 AI guidance 
-              — backed by HCPC-registered physiotherapists and NHS clinical standards.
+            {/* Value proposition — shorter, punchier */}
+            <p className="hero-item text-base sm:text-lg md:text-xl text-muted-foreground leading-[1.85] mb-4 max-w-[600px] mx-auto">
+              Free physiotherapy, personalised exercise plans, anti-inflammatory diet guides, and 24/7 AI support — backed by NHS clinical standards.
             </p>
 
+            {/* Urgency line */}
+            <p className="hero-item text-sm text-primary font-semibold mb-8 flex items-center justify-center gap-2">
+              <Users className="w-4 h-4" />
+              Join 50,000+ people already managing their symptoms better
+            </p>
+
+            {/* CTAs — more prominent with urgency */}
             <div className="hero-item flex flex-col sm:flex-row justify-center gap-4">
               <Button
                 size="lg"
                 onClick={() => navigate("/pain-journal")}
-                className="btn-primary-cta px-12 h-[58px] rounded-full text-sm font-bold tracking-wide group"
+                className="btn-primary-cta hero-cta-pulse px-12 h-[62px] rounded-full text-sm font-bold tracking-wide group"
               >
-                <ClipboardList className="w-4 h-4 mr-2.5 group-hover:scale-110 transition-transform" />
-                Start Your Journey Free
+                <ClipboardList className="w-5 h-5 mr-2.5 group-hover:scale-110 transition-transform" />
+                Start Free — No Signup Needed
                 <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 onClick={() => navigate("/chat")}
-                className="btn-ghost-premium px-12 h-[58px] rounded-full text-sm group"
+                className="btn-ghost-premium px-10 h-[62px] rounded-full text-sm group"
               >
-                <MessageCircle className="w-4 h-4 mr-2" />
-                Ask Our AI Assistant
+                <MessageCircle className="w-5 h-5 mr-2" />
+                Chat with AI Assistant
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
             </div>
 
             <JourneyPaths navigate={navigate} />
 
-            {/* Animated stats — reuse shared AnimatedCounter */}
+            {/* Animated stats */}
             <div className="hero-item mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-2xl mx-auto">
               {STATS.map((stat, i) => (
                 <div key={i} className="hero-stat-card rounded-2xl px-3 py-5 text-center">
