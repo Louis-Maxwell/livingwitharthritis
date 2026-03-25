@@ -86,7 +86,7 @@ const Footer = () => {
               <ul className="space-y-3">
                 {section.links.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.href} className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
+                   <Link to={link.href} className="link-underline text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm pb-0.5">
                       {link.label}
                     </Link>
                   </li>
@@ -102,11 +102,11 @@ const Footer = () => {
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (
-                  <a
+                   <a
                     key={social.label}
                     href={social.href}
                     aria-label={social.label}
-                    className="w-9 h-9 rounded-lg bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
+                    className="social-icon w-9 h-9 rounded-lg bg-muted flex items-center justify-center text-muted-foreground hover:text-primary-foreground"
                   >
                     <Icon className="w-4 h-4" />
                   </a>
@@ -158,7 +158,7 @@ const Footer = () => {
               <span className="text-muted-foreground text-xs">Rated 4.9/5 by 2,400+ patients</span>
               <button
                 onClick={scrollToTop}
-                className="w-9 h-9 rounded-lg bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
+                className="social-icon w-9 h-9 rounded-lg bg-muted flex items-center justify-center text-muted-foreground hover:text-primary-foreground btn-press"
                 aria-label="Scroll to top"
               >
                 <ArrowUp className="w-3.5 h-3.5" />
