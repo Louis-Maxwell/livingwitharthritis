@@ -39,7 +39,7 @@ const sectionIconColors: Record<string, string> = {
 };
 
 const milestones = [
-  { year: "2020", title: "The Spark", description: "Founded from a personal mission to help millions navigate arthritis with better support and information.", color: "bg-primary" },
+  { year: "2020", title: "The Spark", description: "Founded by First Contact Practitioners working in the NHS to provide awareness and education about osteoarthritis to patients across the UK.", color: "bg-primary" },
   { year: "2021", title: "First 1,000 Users", description: "Our online resource library and community forum reached its first thousand active members.", color: "bg-secondary" },
   { year: "2022", title: "Virtual Physio Launch", description: "Launched free virtual physiotherapy consultations, removing barriers to professional guidance.", color: "bg-emerald-500" },
   { year: "2023", title: "AI Symptom Guide", description: "Introduced an AI-powered assistant to help users understand their symptoms and find resources.", color: "bg-amber-500" },
