@@ -278,7 +278,7 @@ serve(async (req) => {
           headers: { "Content-Type": "application/json", Authorization: `Bearer ${resendApiKey}` },
           body: JSON.stringify({
             from: "Appointments <onboarding@resend.dev>",
-            to: ["louis.maxwell@nhs.net"],
+            to: ["info@livingwitharthritis.org.uk"],
             subject: `New Booking: ${safeName} - ${typeLabel} on ${dateFormatted}`,
             html: `
               <h2>New Appointment Booking</h2>
