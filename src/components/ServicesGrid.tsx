@@ -21,7 +21,7 @@ const ServiceCard = ({ service, index }: { service: Service; index: number }) =>
     >
       <Card className="group h-full premium-card card-gradient-border cursor-pointer hover-icon-bounce">
         <CardHeader className="pb-3 relative p-8">
-          <div className="mb-7 w-16 h-16 rounded-2xl bg-primary/6 flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-secondary group-hover:scale-105 transition-all duration-400">
+          <div className="icon-target mb-7 w-16 h-16 rounded-2xl bg-primary/6 flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-secondary group-hover:scale-105 transition-all duration-400">
             <IconComponent className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
           </div>
           <CardTitle className="font-display text-lg sm:text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 tracking-tight">
