@@ -1,174 +1,133 @@
-import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
+import Stripe from "https://esm.sh/stripe@18.5.0";
+import { createClient } from "npm:@supabase/supabase-js@2.57.2";
 
-function getCorsHeaders(req: Request): Record<string, string> {
-  const origin = req.headers.get("Origin") || "";
-  const isAllowed =
-    origin.endsWith(".lovable.app") ||
-    origin.endsWith(".lovableproject.com") ||
-    origin === "https://livingwitharthritis.org.uk" ||
-    origin === "https://www.livingwitharthritis.org.uk" ||
-    origin.startsWith("http://localhost:");
-
-  return {
-    "Access-Control-Allow-Origin": isAllowed ? origin : "https://livingwitharthritis.lovable.app",
-    "Access-Control-Allow-Headers":
-      "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
-  };
-}
-
-// Input validation
-const VALID_CURRENCIES = ["GBP", "USD", "EUR"];
-const VALID_FUND_TYPES = ["research", "support", "helpline", "general"];
-const MAX_AMOUNT = 100000;
-const MIN_AMOUNT = 1;
-
-interface DonationRequest {
-  amount: number;
-  currency: string;
-  fundType: string;
-  donorName?: string;
-  donorEmail?: string;
-  donorLocation?: string;
-  donorCountry?: string;
-}
-
-function validateDonation(data: unknown): { valid: boolean; error?: string; donation?: DonationRequest } {
-  if (!data || typeof data !== "object") {
-    return { valid: false, error: "Invalid request body" };
-  }
-
-  const { amount, currency, fundType, donorName, donorEmail, donorLocation, donorCountry } = data as Record<string, unknown>;
-
-  if (typeof amount !== "number" || isNaN(amount)) {
-    return { valid: false, error: "Amount must be a valid number" };
-  }
-
-  if (amount < MIN_AMOUNT || amount > MAX_AMOUNT) {
-    return { valid: false, error: `Amount must be between ${MIN_AMOUNT} and ${MAX_AMOUNT}` };
-  }
-
-  if (typeof currency !== "string" || !VALID_CURRENCIES.includes(currency)) {
-    return { valid: false, error: "Invalid currency" };
-  }
-
-  if (typeof fundType !== "string" || !VALID_FUND_TYPES.includes(fundType)) {
-    return { valid: false, error: "Invalid fund type" };
-  }
-
-  if (donorName !== undefined && (typeof donorName !== "string" || donorName.length > 100)) {
-    return { valid: false, error: "Invalid donor name" };
-  }
-
-  if (donorEmail !== undefined && typeof donorEmail === "string") {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(donorEmail) || donorEmail.length > 255) {
-      return { valid: false, error: "Invalid email address" };
-    }
-  }
-
-  return {
-    valid: true,
-    donation: {
-      amount,
-      currency,
-      fundType,
-      donorName: donorName as string | undefined,
-      donorEmail: donorEmail as string | undefined,
-      donorLocation: donorLocation as string | undefined,
-      donorCountry: donorCountry as string | undefined,
-    },
-  };
-}
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers":
+    "authorization, x-client-info, apikey, content-type, stripe-signature, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
+};
 
 serve(async (req) => {
-  const corsHeaders = getCorsHeaders(req);
-
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
+    const stripeKey = Deno.env.get("STRIPE_SECRET_KEY");
+    const webhookSecret = Deno.env.get("STRIPE_WEBHOOK_SECRET");
+    if (!stripeKey || !webhookSecret) {
+      console.error("Missing STRIPE_SECRET_KEY or STRIPE_WEBHOOK_SECRET");
+      return new Response(JSON.stringify({ error: "Server misconfigured" }), {
+        status: 500,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    const stripe = new Stripe(stripeKey, { apiVersion: "2025-08-27.basil" });
+
+    // Verify Stripe webhook signature
+    const signature = req.headers.get("stripe-signature");
+    if (!signature) {
+      console.error("No stripe-signature header");
+      return new Response(JSON.stringify({ error: "Missing signature" }), {
+        status: 400,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    const body = await req.text();
+    let event: Stripe.Event;
+    try {
+      event = await stripe.webhooks.constructEventAsync(body, signature, webhookSecret);
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "Unknown";
+      console.error("Webhook signature verification failed:", msg);
+      return new Response(JSON.stringify({ error: "Invalid signature" }), {
+        status: 400,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    console.log(`[WEBHOOK] Received event: ${event.type} (${event.id})`);
+
+    // Only handle checkout.session.completed
+    if (event.type !== "checkout.session.completed") {
+      return new Response(JSON.stringify({ received: true }), {
+        status: 200,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    const session = event.data.object as Stripe.Checkout.Session;
+    console.log(`[WEBHOOK] Processing session: ${session.id}`);
+
+    // Extract metadata from the checkout session
+    const metadata = session.metadata || {};
+    const fundType = metadata.fundType || "general";
+    const donorName = metadata.donorName || "Anonymous";
+    const giftAid = metadata.giftAid === "yes";
+    const recurring = metadata.recurring === "monthly";
+
+    // Get amount (convert from smallest unit back to major unit)
+    const amountTotal = session.amount_total ?? 0;
+    const amount = amountTotal / 100;
+    const currency = (session.currency || "gbp").toUpperCase();
+
+    // Get customer details from session
+    const customerEmail = session.customer_details?.email || session.customer_email || null;
+    const customerName = session.customer_details?.name || donorName;
+    const address = session.customer_details?.address;
+
+    // Insert into Supabase using service role
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
     const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
-    // Parse and validate request body
-    let requestBody: unknown;
-    try {
-      requestBody = await req.json();
-    } catch {
-      return new Response(
-        JSON.stringify({ error: "Invalid JSON in request body" }),
-        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
-    }
-
-    const validation = validateDonation(requestBody);
-    if (!validation.valid) {
-      return new Response(
-        JSON.stringify({ error: validation.error }),
-        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
-    }
-
-    const { donation } = validation;
-
-    // Get user ID if authenticated
-    let userId: string | null = null;
-    const authHeader = req.headers.get("Authorization");
-    if (authHeader?.startsWith("Bearer ")) {
-      const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY")!;
-      const authClient = createClient(supabaseUrl, supabaseAnonKey, {
-        global: { headers: { Authorization: authHeader } },
-      });
-      const token = authHeader.replace("Bearer ", "");
-      const { data: claimsData } = await authClient.auth.getClaims(token);
-      if (claimsData?.claims?.sub) {
-        userId = claimsData.claims.sub as string;
-      }
-    }
-
-    // Insert donation record
     const { data: donationRecord, error: insertError } = await supabase
       .from("donations")
       .insert({
-        user_id: userId,
-        amount: donation!.amount,
-        currency: donation!.currency,
-        fund_type: donation!.fundType,
-        donor_name: donation!.donorName,
-        donor_email: donation!.donorEmail,
-        donor_location: donation!.donorLocation,
-        donor_country: donation!.donorCountry,
-        status: "completed", // For demo purposes - in production, integrate with Stripe
+        amount,
+        currency,
+        fund_type: fundType,
+        donor_name: customerName,
+        donor_email: customerEmail,
+        donor_country: address?.country || null,
+        donor_city: address?.city || null,
+        donor_postcode: address?.postal_code || null,
+        donor_address_line1: address?.line1 || null,
+        donor_address_line2: address?.line2 || null,
+        gift_aid: giftAid,
+        status: "completed",
+        stripe_session_id: session.id,
+        payment_intent_id: typeof session.payment_intent === "string"
+          ? session.payment_intent
+          : null,
       })
-      .select()
+      .select("id")
       .single();
 
     if (insertError) {
-      console.error("Donation insert error:", insertError);
-      return new Response(
-        JSON.stringify({ error: "Failed to process donation" }),
-        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
+      console.error("[WEBHOOK] Failed to insert donation:", insertError);
+      // Return 200 anyway so Stripe doesn't retry (we logged the error)
+      return new Response(JSON.stringify({ received: true, error: "Insert failed" }), {
+        status: 200,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
     }
 
-    console.log("Donation processed:", donationRecord.id);
+    console.log(`[WEBHOOK] Donation recorded: ${donationRecord.id} — £${amount} from ${customerName}`);
 
     return new Response(
-      JSON.stringify({
-        success: true,
-        donationId: donationRecord.id,
-        message: "Thank you for your generous donation!",
-      }),
+      JSON.stringify({ received: true, donationId: donationRecord.id }),
       { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   } catch (error) {
-    console.error("Donation error:", error);
-    return new Response(
-      JSON.stringify({ error: error instanceof Error ? error.message : "Unknown error" }),
-      { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-    );
+    const msg = error instanceof Error ? error.message : "Unknown error";
+    console.error("[WEBHOOK] Unhandled error:", msg);
+    return new Response(JSON.stringify({ error: msg }), {
+      status: 500,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
   }
 });
