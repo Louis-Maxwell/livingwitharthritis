@@ -158,7 +158,7 @@ const Footer = () => {
               <span className="text-muted-foreground text-xs">Rated 4.9/5 by 2,400+ patients</span>
               <button
                 onClick={scrollToTop}
-                className="w-9 h-9 rounded-lg bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
+                className="social-icon w-9 h-9 rounded-lg bg-muted flex items-center justify-center text-muted-foreground hover:text-primary-foreground btn-press"
                 aria-label="Scroll to top"
               >
                 <ArrowUp className="w-3.5 h-3.5" />

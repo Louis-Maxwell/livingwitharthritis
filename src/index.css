@@ -590,13 +590,62 @@
     box-shadow: var(--shadow-large);
   }
 
+  /* ─── Magnetic hover — subtle tilt effect ─── */
+  .hover-tilt {
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  .hover-tilt:hover {
+    transform: translateY(-6px) rotateX(2deg) rotateY(-1deg);
+    box-shadow: var(--shadow-xl);
+  }
+
+  /* ─── Icon bounce on hover ─── */
+  .hover-icon-bounce:hover .icon-target {
+    animation: iconBounce 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  @keyframes iconBounce {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.2) rotate(-5deg); }
+    70% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+  }
+
+  /* ─── Underline slide animation for links ─── */
+  .link-underline {
+    @apply relative inline-block;
+  }
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-[2px] rounded-full;
+    background: hsl(var(--primary));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .link-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* ─── Counter number roll animation ─── */
+  .number-roll {
+    display: inline-block;
+    animation: numberRoll 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  @keyframes numberRoll {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
   /* ─── Subtle border glow on focus ─── */
   .focus-glow:focus-within {
     box-shadow: 0 0 0 3px hsl(var(--primary) / 0.12);
     border-color: hsl(var(--primary) / 0.3);
   }
 
-  /* ─── Smooth skeleton loading ─── */
+  /* ─── Enhanced skeleton loading with wave ─── */
   .skeleton-wave {
     background: linear-gradient(
       90deg,
@@ -612,10 +661,109 @@
     100% { background-position: -200% 0; }
   }
 
+  /* ─── Skeleton with pulse + shimmer combo ─── */
+  .skeleton-premium {
+    @apply rounded-xl;
+    background: linear-gradient(
+      110deg,
+      hsl(var(--muted)) 0%,
+      hsl(var(--muted)) 40%,
+      hsl(var(--muted-foreground) / 0.06) 50%,
+      hsl(var(--muted)) 60%,
+      hsl(var(--muted)) 100%
+    );
+    background-size: 250% 100%;
+    animation: skeletonPremium 2s ease-in-out infinite;
+  }
+  @keyframes skeletonPremium {
+    0% { background-position: 250% 0; }
+    100% { background-position: -250% 0; }
+  }
+
+  /* ─── Social icon hover effects ─── */
+  .social-icon {
+    @apply relative overflow-hidden;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .social-icon::before {
+    content: '';
+    @apply absolute inset-0 rounded-lg;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .social-icon:hover::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .social-icon:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: var(--shadow-primary);
+  }
+  .social-icon > * {
+    @apply relative z-10;
+  }
+
+  /* ─── Smooth text reveal ─── */
+  .text-reveal {
+    @apply overflow-hidden;
+  }
+  .text-reveal > * {
+    animation: textRevealUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    opacity: 0;
+  }
+  @keyframes textRevealUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  /* ─── Card border gradient on hover ─── */
+  .card-gradient-border {
+    @apply relative;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .card-gradient-border::after {
+    content: '';
+    @apply absolute inset-0 rounded-2xl pointer-events-none;
+    border: 2px solid transparent;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.2), hsl(var(--secondary) / 0.1)) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+  .card-gradient-border:hover::after {
+    opacity: 1;
+  }
+
+  /* ─── Button press effect ─── */
+  .btn-press {
+    transition: transform 0.15s ease;
+  }
+  .btn-press:active {
+    transform: scale(0.97);
+  }
+
   /* ─── Reading progress indicator ─── */
   .reading-progress {
     background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)));
     transition: width 0.15s ease-out;
+  }
+
+  /* ─── Smooth count-up transition ─── */
+  .count-up {
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* ─── Tooltip arrow ─── */
+  .tooltip-arrow::before {
+    content: '';
+    @apply absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rotate-45;
+    background: hsl(var(--popover));
+    border-left: 1px solid hsl(var(--border));
+    border-top: 1px solid hsl(var(--border));
   }
 }
 
