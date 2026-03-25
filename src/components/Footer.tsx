@@ -102,11 +102,11 @@ const Footer = () => {
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (
-                  <a
+                   <a
                     key={social.label}
                     href={social.href}
                     aria-label={social.label}
-                    className="w-9 h-9 rounded-lg bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
+                    className="social-icon w-9 h-9 rounded-lg bg-muted flex items-center justify-center text-muted-foreground hover:text-primary-foreground"
                   >
                     <Icon className="w-4 h-4" />
                   </a>
