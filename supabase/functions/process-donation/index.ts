@@ -118,6 +118,33 @@ serve(async (req) => {
 
     console.log(`[WEBHOOK] Donation recorded: ${donationRecord.id} — £${amount} from ${customerName}`);
 
+    // Send donation confirmation email if we have a donor email
+    if (customerEmail) {
+      try {
+        const { error: emailError } = await supabase.functions.invoke('send-transactional-email', {
+          body: {
+            templateName: 'donation-confirmation',
+            recipientEmail: customerEmail,
+            idempotencyKey: `donation-confirm-${donationRecord.id}`,
+            templateData: {
+              donorName: customerName,
+              amount: amount.toFixed(2),
+              currency,
+              fundType,
+              giftAid,
+            },
+          },
+        });
+        if (emailError) {
+          console.error("[WEBHOOK] Failed to send confirmation email:", emailError);
+        } else {
+          console.log(`[WEBHOOK] Confirmation email queued for ${customerEmail}`);
+        }
+      } catch (emailErr) {
+        console.error("[WEBHOOK] Email invocation error:", emailErr);
+      }
+    }
+
     return new Response(
       JSON.stringify({ received: true, donationId: donationRecord.id }),
       { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
