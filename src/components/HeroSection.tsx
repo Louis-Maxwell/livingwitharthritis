@@ -84,7 +84,7 @@ const HeroSection = memo(() => {
               <LiveActivity />
             </div>
 
-            <h1 className="hero-item text-[2.5rem] sm:text-5xl md:text-6xl lg:text-[4.75rem] font-extrabold text-foreground mb-5 leading-[1.04] tracking-tight text-balance">
+            <h1 className="hero-item text-[2rem] sm:text-5xl md:text-6xl lg:text-[4.75rem] font-extrabold text-foreground mb-4 sm:mb-5 leading-[1.08] sm:leading-[1.04] tracking-tight text-balance">
               Take control of your{" "}
               <span className="font-display text-gradient relative inline-block hero-underline italic">
                 arthritis journey
