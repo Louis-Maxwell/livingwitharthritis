@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-import { CalendarCheck, Apple, Dumbbell, Stethoscope, Users, MapPin } from "lucide-react";
+import { Apple, Dumbbell, Stethoscope, Users, MapPin } from "lucide-react";
 import { toast } from "sonner";
 import { useSearchParams } from "react-router-dom";
 
