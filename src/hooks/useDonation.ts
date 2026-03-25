@@ -24,7 +24,7 @@ export function useDonation() {
       if (result?.error) throw new Error(result.error);
 
       if (result?.url) {
-        window.open(result.url, "_blank");
+        window.location.href = result.url;
         return { success: true };
       }
 
