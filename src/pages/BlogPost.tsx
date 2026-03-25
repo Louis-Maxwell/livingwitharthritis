@@ -14,6 +14,7 @@ import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import ScrollProgress from "@/components/ScrollProgress";
+import ContinueReadingBar from "@/components/ContinueReadingBar";
 
 function getReadingTime(html: string) {
   const text = html.replace(/<[^>]*>/g, " ");
@@ -179,6 +180,7 @@ const BlogPost = () => {
           {slug && <RelatedArticles currentSlug={slug} />}
           {slug && <BlogComments slug={slug} />}
         </article>
+        {slug && <ContinueReadingBar currentSlug={slug} />}
         <Footer />
       </div>
     </>
