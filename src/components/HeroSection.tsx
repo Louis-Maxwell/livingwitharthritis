@@ -143,7 +143,7 @@ const HeroSection = memo(() => {
             </div>
 
             {/* Trust badges */}
-            <div className="hero-item mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 flex-wrap">
+            <div className="hero-item mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
               <div className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/4 border border-primary/8 backdrop-blur-sm">
                 <Heart className="w-4 h-4 text-primary fill-primary/20" />
                 <span className="font-semibold text-foreground text-xs">100% Free Forever</span>

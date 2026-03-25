@@ -38,7 +38,7 @@ export default function ChatBotWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 40, scale: 0.95 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="fixed bottom-24 right-4 sm:right-8 z-50 w-[90vw] max-w-md h-[70vh] max-h-[600px] rounded-2xl shadow-2xl overflow-hidden border border-border bg-background"
+            className="fixed bottom-[160px] lg:bottom-24 right-3 lg:right-8 z-50 w-[92vw] max-w-md h-[60vh] max-h-[520px] lg:h-[70vh] lg:max-h-[600px] rounded-2xl shadow-2xl overflow-hidden border border-border bg-background"
           >
             <Suspense fallback={
               <div className="flex items-center justify-center h-full">
