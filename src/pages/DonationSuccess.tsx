@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, XCircle, Heart, ArrowLeft, Home } from "lucide-react";
 import { motion } from "framer-motion";
-import confetti from "@/lib/confetti";
+
 
 const DonationSuccess = () => {
   const [searchParams] = useSearchParams();
