@@ -54,24 +54,25 @@ const BlogPreviewSection = memo(() => {
                   {/* Colorful top bar */}
                   <div className={`h-1.5 bg-gradient-to-r ${p.accent}`} />
                   <div className="p-6 flex flex-col flex-1">
-                    <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center justify-between mb-3">
                       <span className={`text-[10px] font-bold uppercase tracking-[0.15em] px-2.5 py-1 rounded-full border ${p.color}`}>{p.category}</span>
-                      {i === 0 && (
-                        <span className="flex items-center gap-1 text-[10px] font-bold text-amber-600">
-                          <TrendingUp className="w-3 h-3" /> Popular
-                        </span>
-                      )}
+                      <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-muted-foreground bg-muted/60 px-2 py-0.5 rounded-full">
+                        <Clock className="w-3 h-3" />{p.readTime}
+                      </span>
                     </div>
                     <div className="text-2xl mb-3">{p.emoji}</div>
                     <h3 className="text-sm font-display font-semibold text-foreground mb-4 group-hover:text-primary transition-colors duration-300 flex-1 leading-snug">{p.title}</h3>
                     <div className="flex items-center justify-between pt-3 border-t border-border/20">
-                      <div className="flex items-center gap-2 text-[10px] text-muted-foreground/50 font-medium">
-                        <span>{p.date}</span>
-                        <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{p.readTime}</span>
-                      </div>
-                      <span className="text-primary text-xs font-medium inline-flex items-center gap-1 group-hover:gap-1.5 transition-all">
-                        <ArrowRight className="w-3 h-3" />
-                      </span>
+                      <span className="text-[10px] text-muted-foreground/50 font-medium">{p.date}</span>
+                      {i === 0 ? (
+                        <span className="flex items-center gap-1 text-[10px] font-bold text-amber-600">
+                          <TrendingUp className="w-3 h-3" /> Popular
+                        </span>
+                      ) : (
+                        <span className="text-primary text-xs font-medium inline-flex items-center gap-1 group-hover:gap-1.5 transition-all">
+                          Read <ArrowRight className="w-3 h-3" />
+                        </span>
+                      )}
                     </div>
                   </div>
                 </Card>
