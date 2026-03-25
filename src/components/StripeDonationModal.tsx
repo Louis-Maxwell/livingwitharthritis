@@ -56,8 +56,8 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
       if (data?.error) throw new Error(data.error);
       if (!data?.url) throw new Error("No checkout URL returned");
 
-      window.open(data.url, "_blank");
       onClose();
+      window.location.href = data.url;
     } catch (err) {
       const msg = err instanceof Error ? err.message : "Failed to create checkout";
       setError(msg);

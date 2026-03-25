@@ -170,8 +170,8 @@ serve(async (req) => {
         },
       ],
       mode: isRecurring ? "subscription" : "payment",
-      success_url: `${redirectOrigin}/?donation=success`,
-      cancel_url: `${redirectOrigin}/?donation=cancelled`,
+      success_url: `${redirectOrigin}/donation-result?donation=success`,
+      cancel_url: `${redirectOrigin}/donation-result?donation=cancelled`,
       metadata: {
         fundType: donation!.fundType,
         donorName: donation!.donorName || "Anonymous",
