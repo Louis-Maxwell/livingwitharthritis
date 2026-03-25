@@ -86,7 +86,7 @@ const Footer = () => {
               <ul className="space-y-3">
                 {section.links.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.href} className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
+                   <Link to={link.href} className="link-underline text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm pb-0.5">
                       {link.label}
                     </Link>
                   </li>
