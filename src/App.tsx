@@ -116,6 +116,7 @@ function AnimatedRoutes() {
           <Route path="/sitemap" element={<Sitemap />} />
           <Route path="/corporate-giving" element={<CorporateGiving />} />
           <Route path="/donation-result" element={<DonationSuccess />} />
+          <Route path="/unsubscribe" element={<Unsubscribe />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </PageTransition>
