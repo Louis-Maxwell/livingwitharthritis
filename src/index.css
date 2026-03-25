@@ -839,6 +839,12 @@
   .hero-orb { animation: none; }
   .hero-gradient-bg { animation: none; }
   .scroll-indicator { animation: none; }
+  .skeleton-premium { animation: none; }
+  .skeleton-wave { animation: none; }
+  .social-icon::before { transition: none; }
+  .hover-tilt:hover { transform: translateY(-4px); }
+  .hover-icon-bounce:hover .icon-target { animation: none; }
+  .link-underline::after { transition: none; }
 }
 
 /* ─── High Contrast Mode ─── */
