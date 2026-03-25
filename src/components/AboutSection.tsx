@@ -117,7 +117,7 @@ const AboutSection = memo(() => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className="text-center p-6 rounded-2xl bg-card border border-border/20 hover:shadow-medium hover:-translate-y-1 transition-all duration-300"
+                className="text-center p-6 rounded-2xl bg-card border border-border/20 hover-tilt card-gradient-border hover:shadow-medium transition-all duration-300 hover-icon-bounce"
               >
                 <div className={`w-12 h-12 rounded-xl ${m.color} flex items-center justify-center mx-auto mb-3`}>
                   <Icon className="w-5 h-5" />
