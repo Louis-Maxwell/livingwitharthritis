@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import InternalLinks from "@/components/InternalLinks";
 import PageHero from "@/components/ui/PageHero";
-import { ArrowRight, ChevronLeft, ChevronRight, Eye, BookOpen, Sparkles, Newspaper, Search, Clock, TrendingUp } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Eye, BookOpen, Sparkles, Newspaper, Search, Clock, TrendingUp, Flame } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useBlogViewCounts } from "@/hooks/useBlogViews";
@@ -227,6 +227,42 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
             {searchQuery && <span className="text-primary font-medium"> for "{searchQuery}"</span>}
           </p>
 
+          {/* Trending articles */}
+          {activeCategory === "All" && !searchQuery && currentPage === 1 && (() => {
+            const trending = [...blogPosts]
+              .sort((a, b) => (viewCounts[b.slug] || 0) - (viewCounts[a.slug] || 0))
+              .slice(0, 3)
+              .filter((p) => (viewCounts[p.slug] || 0) > 0);
+            if (trending.length === 0) return null;
+            return (
+              <div className="mb-10">
+                <h2 className="flex items-center gap-2 font-display text-lg font-bold text-foreground mb-4">
+                  <Flame className="w-5 h-5 text-primary" /> Trending Now
+                </h2>
+                <div className="grid md:grid-cols-3 gap-4">
+                  {trending.map((post, i) => (
+                    <Link
+                      key={post.slug}
+                      to={`/blog/${post.slug}`}
+                      className="group flex items-start gap-4 rounded-xl border border-primary/10 bg-primary/[0.03] p-4 hover:bg-primary/[0.06] transition-all"
+                    >
+                      <span className="text-2xl font-black text-primary/30">
+                        {i + 1}
+                      </span>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors leading-snug line-clamp-2">
+                          {post.title}
+                        </h3>
+                        <span className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
+                          <Eye className="w-3 h-3" /> {(viewCounts[post.slug] || 0).toLocaleString()} views
+                        </span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            );
+          })()}
 
 
           {/* Grid — cards with category color accent */}
