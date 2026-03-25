@@ -6,13 +6,14 @@
 }
 
 .hero-stagger .hero-item:nth-child(1) { animation-delay: 0ms; }
-.hero-stagger .hero-item:nth-child(2) { animation-delay: 100ms; }
-.hero-stagger .hero-item:nth-child(3) { animation-delay: 200ms; }
-.hero-stagger .hero-item:nth-child(4) { animation-delay: 300ms; }
-.hero-stagger .hero-item:nth-child(5) { animation-delay: 400ms; }
-.hero-stagger .hero-item:nth-child(6) { animation-delay: 500ms; }
-.hero-stagger .hero-item:nth-child(7) { animation-delay: 600ms; }
-.hero-stagger .hero-item:nth-child(8) { animation-delay: 700ms; }
+.hero-stagger .hero-item:nth-child(2) { animation-delay: 80ms; }
+.hero-stagger .hero-item:nth-child(3) { animation-delay: 160ms; }
+.hero-stagger .hero-item:nth-child(4) { animation-delay: 220ms; }
+.hero-stagger .hero-item:nth-child(5) { animation-delay: 300ms; }
+.hero-stagger .hero-item:nth-child(6) { animation-delay: 400ms; }
+.hero-stagger .hero-item:nth-child(7) { animation-delay: 500ms; }
+.hero-stagger .hero-item:nth-child(8) { animation-delay: 600ms; }
+.hero-stagger .hero-item:nth-child(9) { animation-delay: 700ms; }
 
 @keyframes heroFadeUp {
   to {
@@ -21,15 +22,16 @@
   }
 }
 
-/* Refined gradient background — clean and light */
+/* Refined gradient background — richer depth */
 .hero-gradient-bg {
   background: 
     radial-gradient(ellipse 80% 50% at 10% 90%, hsl(var(--tint-blue)) 0%, transparent 50%),
     radial-gradient(ellipse 70% 50% at 90% 10%, hsl(var(--tint-cyan)) 0%, transparent 40%),
+    radial-gradient(ellipse 50% 40% at 50% 50%, hsl(var(--tint-rose) / 0.5) 0%, transparent 50%),
     hsl(var(--background));
 }
 
-/* Reduced to 2 orbs for paint performance */
+/* Floating orbs — 3 for depth */
 .hero-orb {
   position: absolute;
   border-radius: 50%;
@@ -56,6 +58,15 @@
   animation: orbFloat2 16s ease-in-out infinite;
 }
 
+.hero-orb-3 {
+  width: 300px;
+  height: 300px;
+  background: hsl(var(--primary) / 0.03);
+  top: 40%;
+  left: 60%;
+  animation: orbFloat3 20s ease-in-out infinite;
+}
+
 @keyframes orbFloat1 {
   0%, 100% { transform: translate(0, 0); }
   50% { transform: translate(-20px, 15px); }
@@ -64,6 +75,12 @@
 @keyframes orbFloat2 {
   0%, 100% { transform: translate(0, 0); }
   50% { transform: translate(15px, -20px); }
+}
+
+@keyframes orbFloat3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-30px, 20px) scale(1.05); }
+  66% { transform: translate(20px, -10px) scale(0.95); }
 }
 
 /* Stat cards — glassmorphism */
@@ -114,7 +131,7 @@
   background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)));
   transform: scaleX(0);
   transform-origin: left;
-  animation: underlineReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+  animation: underlineReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards;
 }
 @keyframes underlineReveal {
   to { transform: scaleX(1); }
@@ -129,4 +146,38 @@
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 128px 128px;
+}
+
+/* Live activity dot */
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: hsl(160 60% 38%);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.live-dot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid hsl(160 60% 38% / 0.4);
+  animation: livePulse 2s ease-out infinite;
+}
+
+@keyframes livePulse {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* CTA pulse glow — draws eye to primary action */
+.hero-cta-pulse {
+  animation: ctaPulse 3s ease-in-out infinite;
+}
+
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: var(--shadow-primary), inset 0 1px 0 0 rgb(255 255 255 / 0.15); }
+  50% { box-shadow: 0 0 40px -4px hsl(var(--primary) / 0.35), var(--shadow-primary), inset 0 1px 0 0 rgb(255 255 255 / 0.15); }
 }
