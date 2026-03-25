@@ -35,7 +35,7 @@ LiveActivity.displayName = "LiveActivity";
 
 /* User journey pathways */
 const JourneyPaths = memo(({ navigate }: { navigate: (path: string) => void }) => (
-  <div className="hero-item mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-2xl mx-auto">
+  <div className="hero-item mt-8 sm:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 max-w-2xl mx-auto">
     {[
       { icon: ClipboardList, label: "Track Symptoms", desc: "Pain journal", path: "/pain-journal", color: "text-amber-600 bg-amber-500/10 border-amber-200/50" },
       { icon: Dumbbell, label: "Joint Exercises", desc: "Physio-led", path: "/exercises", color: "text-primary bg-primary/10 border-primary/20" },
@@ -47,13 +47,13 @@ const JourneyPaths = memo(({ navigate }: { navigate: (path: string) => void }) =
         <button
           key={item.label}
           onClick={() => navigate(item.path)}
-          className={`journey-card group flex flex-col items-center gap-2.5 px-3 py-5 rounded-2xl border backdrop-blur-md bg-card/50 hover:bg-card/90 transition-all duration-400 cursor-pointer ${item.color}`}
+          className={`journey-card group flex flex-col items-center gap-2 sm:gap-2.5 px-2.5 sm:px-3 py-4 sm:py-5 rounded-2xl border backdrop-blur-md bg-card/50 hover:bg-card/90 active:scale-[0.97] transition-all duration-400 cursor-pointer min-h-[88px] ${item.color}`}
         >
-          <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${item.color} group-hover:scale-110 transition-transform duration-300`}>
-            <Icon className="w-5 h-5" />
+          <div className={`w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center ${item.color} group-hover:scale-110 transition-transform duration-300`}>
+            <Icon className="w-[18px] h-[18px] sm:w-5 sm:h-5" />
           </div>
-          <span className="text-xs font-bold text-foreground">{item.label}</span>
-          <span className="text-[10px] text-muted-foreground leading-tight">{item.desc}</span>
+          <span className="text-[11px] sm:text-xs font-bold text-foreground">{item.label}</span>
+          <span className="text-[9px] sm:text-[10px] text-muted-foreground leading-tight">{item.desc}</span>
         </button>
       );
     })}
