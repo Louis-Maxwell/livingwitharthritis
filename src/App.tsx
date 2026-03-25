@@ -114,6 +114,7 @@ function AnimatedRoutes() {
           <Route path="/exercises/:slug" element={<ExerciseJointPage />} />
           <Route path="/sitemap" element={<Sitemap />} />
           <Route path="/corporate-giving" element={<CorporateGiving />} />
+          <Route path="/donation-result" element={<DonationSuccess />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </PageTransition>
