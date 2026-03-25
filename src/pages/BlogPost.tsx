@@ -158,16 +158,20 @@ const BlogPost = () => {
         </div>
 
         <article className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
+          <TableOfContents html={article.content} />
           <div
-            className="prose prose-lg max-w-none text-foreground/85 
-              prose-headings:font-display prose-headings:text-foreground prose-headings:font-semibold
-              prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
-              prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
-              prose-p:leading-relaxed prose-p:mb-4
-              prose-li:leading-relaxed
-              prose-strong:text-foreground
-              prose-a:text-primary prose-a:no-underline hover:prose-a:underline"
-            dangerouslySetInnerHTML={{ __html: article.content }}
+            className="blog-prose prose prose-lg max-w-none text-foreground/85 
+              prose-headings:font-display prose-headings:text-foreground prose-headings:font-bold prose-headings:scroll-mt-24
+              prose-h2:text-[1.65rem] prose-h2:mt-12 prose-h2:mb-5 prose-h2:pb-3 prose-h2:border-b prose-h2:border-border/20
+              prose-h3:text-xl prose-h3:mt-9 prose-h3:mb-3
+              prose-p:leading-[1.85] prose-p:mb-5 prose-p:text-foreground/80
+              prose-li:leading-[1.8] prose-li:text-foreground/80
+              prose-strong:text-foreground prose-strong:font-semibold
+              prose-a:text-primary prose-a:font-medium prose-a:underline prose-a:underline-offset-2 prose-a:decoration-primary/30 hover:prose-a:decoration-primary
+              prose-blockquote:border-l-primary prose-blockquote:bg-primary/5 prose-blockquote:rounded-r-xl prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:not-italic prose-blockquote:text-foreground/90 prose-blockquote:font-medium
+              prose-img:rounded-xl prose-img:shadow-md
+              first:prose-p:first-letter:text-5xl first:prose-p:first-letter:font-bold first:prose-p:first-letter:text-primary first:prose-p:first-letter:float-left first:prose-p:first-letter:mr-3 first:prose-p:first-letter:mt-1 first:prose-p:first-letter:leading-none"
+            dangerouslySetInnerHTML={{ __html: addHeadingIds(article.content) }}
           />
 
           {slug && <SocialShareButtons title={article.title} slug={slug} />}
