@@ -45,7 +45,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-background text-foreground border-t border-border/40" role="contentinfo" aria-label="Site footer">
+    <footer className="bg-background text-foreground border-t border-border/40 pb-20 lg:pb-0" role="contentinfo" aria-label="Site footer">
       <div className="container mx-auto px-6 md:px-10 py-16 lg:py-20">
         <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
           {/* Brand */}
