@@ -180,6 +180,7 @@ const BlogPost = () => {
           {slug && <RelatedArticles currentSlug={slug} />}
           {slug && <BlogComments slug={slug} />}
         </article>
+        {slug && <ContinueReadingBar currentSlug={slug} />}
         <Footer />
       </div>
     </>
