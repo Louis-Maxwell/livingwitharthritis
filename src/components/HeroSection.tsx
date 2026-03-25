@@ -35,7 +35,7 @@ LiveActivity.displayName = "LiveActivity";
 
 /* User journey pathways */
 const JourneyPaths = memo(({ navigate }: { navigate: (path: string) => void }) => (
-  <div className="hero-item mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-2xl mx-auto">
+  <div className="hero-item mt-8 sm:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 max-w-2xl mx-auto">
     {[
       { icon: ClipboardList, label: "Track Symptoms", desc: "Pain journal", path: "/pain-journal", color: "text-amber-600 bg-amber-500/10 border-amber-200/50" },
       { icon: Dumbbell, label: "Joint Exercises", desc: "Physio-led", path: "/exercises", color: "text-primary bg-primary/10 border-primary/20" },
@@ -47,13 +47,13 @@ const JourneyPaths = memo(({ navigate }: { navigate: (path: string) => void }) =
         <button
           key={item.label}
           onClick={() => navigate(item.path)}
-          className={`journey-card group flex flex-col items-center gap-2.5 px-3 py-5 rounded-2xl border backdrop-blur-md bg-card/50 hover:bg-card/90 transition-all duration-400 cursor-pointer ${item.color}`}
+          className={`journey-card group flex flex-col items-center gap-2 sm:gap-2.5 px-2.5 sm:px-3 py-4 sm:py-5 rounded-2xl border backdrop-blur-md bg-card/50 hover:bg-card/90 active:scale-[0.97] transition-all duration-400 cursor-pointer min-h-[88px] ${item.color}`}
         >
-          <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${item.color} group-hover:scale-110 transition-transform duration-300`}>
-            <Icon className="w-5 h-5" />
+          <div className={`w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center ${item.color} group-hover:scale-110 transition-transform duration-300`}>
+            <Icon className="w-[18px] h-[18px] sm:w-5 sm:h-5" />
           </div>
-          <span className="text-xs font-bold text-foreground">{item.label}</span>
-          <span className="text-[10px] text-muted-foreground leading-tight">{item.desc}</span>
+          <span className="text-[11px] sm:text-xs font-bold text-foreground">{item.label}</span>
+          <span className="text-[9px] sm:text-[10px] text-muted-foreground leading-tight">{item.desc}</span>
         </button>
       );
     })}
@@ -71,8 +71,8 @@ const HeroSection = memo(() => {
       <div className="hero-orb hero-orb-2" />
       <div className="hero-orb hero-orb-3" />
 
-      <div className="container mx-auto px-6 md:px-10 relative">
-        <div className="flex items-center justify-center min-h-[calc(100vh-140px)] py-24 lg:py-0">
+      <div className="container mx-auto px-4 sm:px-6 md:px-10 relative">
+        <div className="flex items-center justify-center min-h-[calc(100vh-140px)] py-16 sm:py-24 lg:py-0 pb-24 lg:pb-0">
           <div className="hero-stagger max-w-[860px] text-center">
             
             {/* Social proof + live indicator */}
@@ -84,7 +84,7 @@ const HeroSection = memo(() => {
               <LiveActivity />
             </div>
 
-            <h1 className="hero-item text-[2.5rem] sm:text-5xl md:text-6xl lg:text-[4.75rem] font-extrabold text-foreground mb-5 leading-[1.04] tracking-tight text-balance">
+            <h1 className="hero-item text-[2rem] sm:text-5xl md:text-6xl lg:text-[4.75rem] font-extrabold text-foreground mb-4 sm:mb-5 leading-[1.08] sm:leading-[1.04] tracking-tight text-balance">
               Take control of your{" "}
               <span className="font-display text-gradient relative inline-block hero-underline italic">
                 arthritis journey
@@ -92,7 +92,7 @@ const HeroSection = memo(() => {
             </h1>
 
             {/* Value proposition — shorter, punchier */}
-            <p className="hero-item text-base sm:text-lg md:text-xl text-muted-foreground leading-[1.85] mb-4 max-w-[600px] mx-auto">
+            <p className="hero-item text-sm sm:text-lg md:text-xl text-muted-foreground leading-[1.7] sm:leading-[1.85] mb-3 sm:mb-4 max-w-[600px] mx-auto">
               Free physiotherapy, personalised exercise plans, anti-inflammatory diet guides, and 24/7 AI support — backed by NHS clinical standards.
             </p>
 
@@ -103,25 +103,25 @@ const HeroSection = memo(() => {
             </p>
 
             {/* CTAs — more prominent with urgency */}
-            <div className="hero-item flex flex-col sm:flex-row justify-center gap-4">
+            <div className="hero-item flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
               <Button
                 size="lg"
                 onClick={() => navigate("/pain-journal")}
-                className="btn-primary-cta hero-cta-pulse px-12 h-[62px] rounded-full text-sm font-bold tracking-wide group"
+                className="btn-primary-cta hero-cta-pulse px-8 sm:px-12 h-14 sm:h-[62px] rounded-full text-[13px] sm:text-sm font-bold tracking-wide group active:scale-[0.97]"
               >
-                <ClipboardList className="w-5 h-5 mr-2.5 group-hover:scale-110 transition-transform" />
-                Start Free — No Signup Needed
-                <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                <ClipboardList className="w-5 h-5 mr-2 sm:mr-2.5 group-hover:scale-110 transition-transform" />
+                Start Free — No Signup
+                <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 hidden sm:block" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 onClick={() => navigate("/chat")}
-                className="btn-ghost-premium px-10 h-[62px] rounded-full text-sm group"
+                className="btn-ghost-premium px-8 sm:px-10 h-12 sm:h-[62px] rounded-full text-[13px] sm:text-sm group active:scale-[0.97]"
               >
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Chat with AI Assistant
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300 hidden sm:block" />
               </Button>
             </div>
 
@@ -143,7 +143,7 @@ const HeroSection = memo(() => {
             </div>
 
             {/* Trust badges */}
-            <div className="hero-item mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 flex-wrap">
+            <div className="hero-item mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
               <div className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/4 border border-primary/8 backdrop-blur-sm">
                 <Heart className="w-4 h-4 text-primary fill-primary/20" />
                 <span className="font-semibold text-foreground text-xs">100% Free Forever</span>

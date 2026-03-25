@@ -1,4 +1,4 @@
-import { Home, ClipboardList, MessageCircle, BookOpen } from "lucide-react";
+import { Home, ClipboardList, MessageCircle, BookOpen, CalendarCheck } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const navItems = [
@@ -17,14 +17,14 @@ const MobileBottomNav = () => {
       className="fixed bottom-0 inset-x-0 z-[80] bg-background/95 backdrop-blur-xl border-t border-border/30 lg:hidden safe-area-bottom"
       aria-label="Mobile navigation"
     >
-      <div className="flex items-center justify-around h-16 max-w-md mx-auto px-2">
+      <div className="flex items-center justify-around h-[68px] max-w-md mx-auto px-1">
         {navItems.map(({ label, icon: Icon, href }) => {
           const isActive = pathname === href;
           return (
             <button
               key={href}
               onClick={() => navigate(href)}
-              className={`flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-xl transition-colors min-w-[56px] ${
+              className={`flex flex-col items-center justify-center gap-0.5 min-w-[56px] min-h-[48px] px-3 py-2 rounded-xl transition-colors active:scale-95 ${
                 isActive
                   ? "text-primary"
                   : "text-muted-foreground hover:text-foreground"
