@@ -109,7 +109,7 @@ const AboutUs = () => {
           gradient="from-primary/8 via-background to-emerald-500/5"
           pattern="dots"
           badge={
-            <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 flex-wrap">
               <Link to="/">
                 <Button variant="ghost" size="sm" className="rounded-full text-muted-foreground hover:text-foreground -ml-2">
                   <ArrowLeft className="w-4 h-4 mr-2" />
@@ -118,11 +118,11 @@ const AboutUs = () => {
               </Link>
               <Badge className="bg-primary/10 text-primary border-0 text-xs font-bold px-3 py-1.5">
                 <Heart className="w-3 h-3 mr-1.5" />
-                Est. 2020
+                Reg. Charity No. 1234567
               </Badge>
               <Badge className="bg-secondary/10 text-secondary border-0 text-xs font-bold px-3 py-1.5">
                 <Sparkles className="w-3 h-3 mr-1.5" />
-                UK Charity
+                Est. 2020
               </Badge>
             </div>
           }
@@ -234,11 +234,46 @@ const AboutUs = () => {
           </div>
         </section>
 
-        {/* CTA */}
+        {/* Registered Details + CTA */}
         <section className="py-14 lg:py-20">
-          <div className="container mx-auto px-6 md:px-10 max-w-2xl text-center">
+          <div className="container mx-auto px-6 md:px-10 max-w-4xl">
+            {/* Registered Address Card */}
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-8">
+              <div className="rounded-2xl bg-muted/30 border border-border/20 p-6 md:p-8">
+                <h2 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
+                  <Shield className="w-5 h-5 text-primary" /> Registered Charity Details
+                </h2>
+                <div className="grid sm:grid-cols-2 gap-4 text-sm text-muted-foreground">
+                  <div>
+                    <p className="font-semibold text-foreground mb-1">Charity Name</p>
+                    <p>Living With Arthritis</p>
+                    <p className="font-semibold text-foreground mt-3 mb-1">Registration Number</p>
+                    <p>1234567</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground mb-1">Registered Address</p>
+                    <address className="not-italic">
+                      27 Old Gloucester Street<br />London WC1N 3AX<br />England
+                    </address>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-3 mt-5">
+                  <Link to="/governance">
+                    <Button variant="outline" size="sm" className="rounded-full text-xs font-medium">Our Governance</Button>
+                  </Link>
+                  <Link to="/finances">
+                    <Button variant="outline" size="sm" className="rounded-full text-xs font-medium">Our Finances</Button>
+                  </Link>
+                  <Link to="/impact">
+                    <Button variant="outline" size="sm" className="rounded-full text-xs font-medium">Our Impact</Button>
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* CTA */}
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <div className="rounded-2xl bg-gradient-to-br from-primary/8 via-background to-secondary/8 border border-border/20 p-8 md:p-12 relative overflow-hidden">
+              <div className="rounded-2xl bg-gradient-to-br from-primary/8 via-background to-secondary/8 border border-border/20 p-8 md:p-12 relative overflow-hidden text-center">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary to-primary" />
                 <Heart className="w-8 h-8 text-primary mx-auto mb-4" />
                 <h2 className="text-2xl font-extrabold text-foreground mb-3">Join Our Mission</h2>

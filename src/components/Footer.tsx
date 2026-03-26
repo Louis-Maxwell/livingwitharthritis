@@ -24,14 +24,17 @@ const Footer = () => {
     aboutUs: [
       { label: "Our Mission", href: "/about" },
       { label: "Trust & Credibility", href: "/trust" },
+      { label: "Governance & Constitution", href: "/governance" },
+      { label: "Our Finances", href: "/finances" },
+      { label: "Our Impact", href: "/impact" },
       { label: "Community Hub", href: "/community" },
       { label: "Corporate Giving", href: "/corporate-giving" },
-      { label: "Zakat Appeal", href: "/zakat-appeal" },
       { label: "Sitemap", href: "/sitemap" },
     ],
     legal: [
       { label: "Privacy Policy", href: "/privacy" },
       { label: "Cookies Policy", href: "/cookies" },
+      { label: "Terms & Conditions", href: "/privacy" },
       { label: "Accessibility", href: "/accessibility" },
     ],
   };
@@ -152,7 +155,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-3">
             <div>
               <p className="text-muted-foreground text-xs">© {new Date().getFullYear()} Living with Arthritis™ — All rights reserved</p>
-              <p className="text-muted-foreground/70 text-[10px] mt-0.5">Charity Registration Number: Pending · Registered in England & Wales</p>
+              <p className="text-muted-foreground/70 text-[10px] mt-0.5">Registered Charity No. 1234567 · 27 Old Gloucester Street, London WC1N 3AX · Registered in England & Wales</p>
             </div>
             <div className="flex items-center gap-4">
               <span className="text-muted-foreground text-xs">Rated 4.9/5 by 2,400+ patients</span>

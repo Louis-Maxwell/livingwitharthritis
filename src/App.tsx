@@ -53,6 +53,9 @@ const ExerciseJointPage = lazy(() => import("./pages/ExerciseJointPage"));
 const CorporateGiving = lazy(() => import("./pages/CorporateGiving"));
 const DonationSuccess = lazy(() => import("./pages/DonationSuccess"));
 const Unsubscribe = lazy(() => import("./pages/Unsubscribe"));
+const Governance = lazy(() => import("./pages/Governance"));
+const Finances = lazy(() => import("./pages/Finances"));
+const ImpactStories = lazy(() => import("./pages/ImpactStories"));
 // Loading fallback with skeleton-style animation
 const PageLoader = () => (
   <div className="min-h-screen flex flex-col items-center justify-center bg-background gap-4">
@@ -117,6 +120,9 @@ function AnimatedRoutes() {
           <Route path="/corporate-giving" element={<CorporateGiving />} />
           <Route path="/donation-result" element={<DonationSuccess />} />
           <Route path="/unsubscribe" element={<Unsubscribe />} />
+          <Route path="/governance" element={<Governance />} />
+          <Route path="/finances" element={<Finances />} />
+          <Route path="/impact" element={<ImpactStories />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </PageTransition>
