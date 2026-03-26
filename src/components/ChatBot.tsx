@@ -6,12 +6,16 @@ import { useStreamingChat, Message } from "@/hooks/useStreamingChat";
 import { cn } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import { motion, AnimatePresence } from "framer-motion";
+import chatRheumatoid from "@/assets/chat-rheumatoid.jpg";
+import chatFoods from "@/assets/chat-foods.jpg";
+import chatExercise from "@/assets/chat-exercise.jpg";
+import chatDoctor from "@/assets/chat-doctor.jpg";
 
 const quickSuggestions = [
-  { icon: Stethoscope, label: "What is rheumatoid arthritis?" },
-  { icon: Apple, label: "Best anti-inflammatory foods?" },
-  { icon: Dumbbell, label: "Safe exercises for OA?" },
-  { icon: HelpCircle, label: "When should I see a doctor?" },
+  { icon: Stethoscope, label: "What is rheumatoid arthritis?", image: chatRheumatoid },
+  { icon: Apple, label: "Best anti-inflammatory foods?", image: chatFoods },
+  { icon: Dumbbell, label: "Safe exercises for OA?", image: chatExercise },
+  { icon: HelpCircle, label: "When should I see a doctor?", image: chatDoctor },
 ];
 
 const TypingIndicator = () => (
