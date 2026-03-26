@@ -24,14 +24,17 @@ const Footer = () => {
     aboutUs: [
       { label: "Our Mission", href: "/about" },
       { label: "Trust & Credibility", href: "/trust" },
+      { label: "Governance & Constitution", href: "/governance" },
+      { label: "Our Finances", href: "/finances" },
+      { label: "Our Impact", href: "/impact" },
       { label: "Community Hub", href: "/community" },
       { label: "Corporate Giving", href: "/corporate-giving" },
-      { label: "Zakat Appeal", href: "/zakat-appeal" },
       { label: "Sitemap", href: "/sitemap" },
     ],
     legal: [
       { label: "Privacy Policy", href: "/privacy" },
       { label: "Cookies Policy", href: "/cookies" },
+      { label: "Terms & Conditions", href: "/privacy" },
       { label: "Accessibility", href: "/accessibility" },
     ],
   };
