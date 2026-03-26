@@ -106,22 +106,12 @@ const HeroSection = memo(() => {
             <div className="hero-item flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
               <Button
                 size="lg"
-                onClick={() => navigate("/pain-journal")}
+                onClick={() => navigate("/chat")}
                 className="btn-primary-cta hero-cta-pulse px-8 sm:px-12 h-14 sm:h-[62px] rounded-full text-[13px] sm:text-sm font-bold tracking-wide group active:scale-[0.97]"
               >
-                <ClipboardList className="w-5 h-5 mr-2 sm:mr-2.5 group-hover:scale-110 transition-transform" />
-                Start Free — No Signup
-                <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 hidden sm:block" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={() => navigate("/chat")}
-                className="btn-ghost-premium px-8 sm:px-10 h-12 sm:h-[62px] rounded-full text-[13px] sm:text-sm group active:scale-[0.97]"
-              >
-                <MessageCircle className="w-5 h-5 mr-2" />
+                <MessageCircle className="w-5 h-5 mr-2 sm:mr-2.5 group-hover:scale-110 transition-transform" />
                 Chat with AI Assistant
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300 hidden sm:block" />
+                <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 hidden sm:block" />
               </Button>
             </div>
 
