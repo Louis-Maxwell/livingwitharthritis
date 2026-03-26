@@ -76,11 +76,32 @@ const Shop = () => {
   return (
     <>
       <Helmet>
-        <title>Recommended Products | Living With Arthritis</title>
-        <meta
-          name="description"
-          content="Curated arthritis products including compression gloves, exercise equipment, supplements, and daily living aids — recommended by Living With Arthritis."
-        />
+        <title>Best Arthritis Products UK – Compression Gloves, Supplements & Aids</title>
+        <meta name="description" content="Top-rated arthritis products recommended for UK patients: compression gloves, joint supplements, exercise equipment, daily living aids and ergonomic tools for osteoarthritis and RA relief." />
+        <meta name="keywords" content="arthritis products UK, compression gloves arthritis, arthritis supplements UK, daily living aids arthritis, arthritis gadgets UK, ergonomic tools joint pain, knee support arthritis UK, arthritis exercise equipment, arthritis pain relief products, best arthritis aids UK" />
+        <meta property="og:title" content="Best Arthritis Products UK – Compression Gloves, Supplements & Aids" />
+        <meta property="og:description" content="Curated arthritis products for UK patients: compression gloves, supplements, exercise equipment and daily living aids." />
+        <meta property="og:url" content="https://livingwitharthritis.org.uk/shop" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_GB" />
+        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Best Arthritis Products UK" />
+        <meta name="twitter:description" content="Top-rated arthritis products recommended for UK patients." />
+        <meta name="geo.region" content="GB" />
+        <meta name="geo.placename" content="United Kingdom" />
+        <link rel="canonical" href="https://livingwitharthritis.org.uk/shop" />
+        <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/shop" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "Best Arthritis Products UK",
+          "description": "Curated arthritis products including compression gloves, supplements, exercise equipment and daily living aids for UK patients.",
+          "url": "https://livingwitharthritis.org.uk/shop",
+          "inLanguage": "en-GB",
+          "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" },
+          "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } }
+        })}</script>
       </Helmet>
       <Header />
       <main className="min-h-screen bg-background">

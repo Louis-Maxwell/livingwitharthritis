@@ -125,8 +125,32 @@ const CorporateGiving = () => {
   return (
     <>
       <Helmet>
-        <title>Corporate Giving & Partnerships | Living With Arthritis</title>
-        <meta name="description" content="Partner with us to make a lasting impact. Corporate sponsorship tiers, matched giving programmes, and employee wellness partnerships." />
+        <title>Corporate Giving & Partnerships UK | Living With Arthritis</title>
+        <meta name="description" content="Partner with Living With Arthritis UK to support 10 million people with arthritis. Corporate sponsorship tiers, matched giving, employee wellness programmes and CSR partnerships across the United Kingdom." />
+        <meta name="keywords" content="corporate giving arthritis UK, arthritis charity partnership, CSR arthritis UK, corporate sponsorship charity, employee wellness arthritis, matched giving UK, arthritis fundraising corporate, charity partnership UK" />
+        <meta property="og:title" content="Corporate Giving & Partnerships UK | Living With Arthritis" />
+        <meta property="og:description" content="Partner with us to support 10 million UK arthritis patients. Corporate sponsorship, matched giving and employee wellness." />
+        <meta property="og:url" content="https://livingwitharthritis.org.uk/corporate-giving" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_GB" />
+        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Corporate Giving & Partnerships UK" />
+        <meta name="twitter:description" content="Support 10 million UK arthritis patients through corporate partnerships." />
+        <meta name="geo.region" content="GB" />
+        <meta name="geo.placename" content="United Kingdom" />
+        <link rel="canonical" href="https://livingwitharthritis.org.uk/corporate-giving" />
+        <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/corporate-giving" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Corporate Giving & Partnerships UK",
+          "description": "Corporate sponsorship and partnership opportunities with Living With Arthritis UK charity.",
+          "url": "https://livingwitharthritis.org.uk/corporate-giving",
+          "inLanguage": "en-GB",
+          "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" },
+          "audience": { "@type": "Audience", "audienceType": "Corporate Partners", "geographicArea": { "@type": "Country", "name": "United Kingdom" } }
+        })}</script>
       </Helmet>
       <Header />
       <main className="min-h-screen bg-background">
