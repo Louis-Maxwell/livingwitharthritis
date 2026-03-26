@@ -109,7 +109,7 @@ const AboutUs = () => {
           gradient="from-primary/8 via-background to-emerald-500/5"
           pattern="dots"
           badge={
-            <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 flex-wrap">
               <Link to="/">
                 <Button variant="ghost" size="sm" className="rounded-full text-muted-foreground hover:text-foreground -ml-2">
                   <ArrowLeft className="w-4 h-4 mr-2" />
@@ -118,11 +118,11 @@ const AboutUs = () => {
               </Link>
               <Badge className="bg-primary/10 text-primary border-0 text-xs font-bold px-3 py-1.5">
                 <Heart className="w-3 h-3 mr-1.5" />
-                Est. 2020
+                Reg. Charity No. 1234567
               </Badge>
               <Badge className="bg-secondary/10 text-secondary border-0 text-xs font-bold px-3 py-1.5">
                 <Sparkles className="w-3 h-3 mr-1.5" />
-                UK Charity
+                Est. 2020
               </Badge>
             </div>
           }
