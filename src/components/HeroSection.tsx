@@ -15,10 +15,13 @@ const STATS = [
 
 /* Live activity pulse — social proof */
 const LiveActivity = memo(() => {
-  const [count, setCount] = useState(47);
+  const [count, setCount] = useState(247);
   useEffect(() => {
     const interval = setInterval(() => {
-      setCount(prev => prev + Math.floor(Math.random() * 3) - 1);
+      setCount(prev => {
+        const next = prev + Math.floor(Math.random() * 5) - 2;
+        return Math.max(200, Math.min(300, next));
+      });
     }, 8000);
     return () => clearInterval(interval);
   }, []);
