@@ -6,12 +6,16 @@ import { useStreamingChat, Message } from "@/hooks/useStreamingChat";
 import { cn } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import { motion, AnimatePresence } from "framer-motion";
+import chatRheumatoid from "@/assets/chat-rheumatoid.jpg";
+import chatFoods from "@/assets/chat-foods.jpg";
+import chatExercise from "@/assets/chat-exercise.jpg";
+import chatDoctor from "@/assets/chat-doctor.jpg";
 
 const quickSuggestions = [
-  { icon: Stethoscope, label: "What is rheumatoid arthritis?" },
-  { icon: Apple, label: "Best anti-inflammatory foods?" },
-  { icon: Dumbbell, label: "Safe exercises for OA?" },
-  { icon: HelpCircle, label: "When should I see a doctor?" },
+  { icon: Stethoscope, label: "What is rheumatoid arthritis?", image: chatRheumatoid },
+  { icon: Apple, label: "Best anti-inflammatory foods?", image: chatFoods },
+  { icon: Dumbbell, label: "Safe exercises for OA?", image: chatExercise },
+  { icon: HelpCircle, label: "When should I see a doctor?", image: chatDoctor },
 ];
 
 const TypingIndicator = () => (
@@ -154,22 +158,33 @@ export function ChatBot() {
               </p>
 
               {/* Quick suggestions — clean list style */}
-              <div className="w-full space-y-1.5">
+              <div className="w-full grid grid-cols-2 gap-2">
                 {quickSuggestions.map((s, i) => {
                   const Icon = s.icon;
                   return (
                     <motion.button
                       key={s.label}
-                      initial={{ opacity: 0, x: -6 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: i * 0.05 }}
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: i * 0.06 }}
                       onClick={() => sendMessage(s.label)}
-                      className="w-full flex items-center gap-3 text-left px-3.5 py-2.5 rounded-xl border border-border/40 hover:border-primary/20 hover:bg-primary/[0.03] active:scale-[0.99] transition-all group"
+                      className="flex flex-col text-left rounded-xl border border-border/40 hover:border-primary/30 hover:shadow-md active:scale-[0.98] transition-all group overflow-hidden"
                     >
-                      <div className="h-8 w-8 rounded-lg bg-primary/8 flex items-center justify-center shrink-0 group-hover:bg-primary/12 transition-colors">
-                        <Icon className="h-4 w-4 text-primary/60 group-hover:text-primary transition-colors" />
+                      <div className="relative w-full h-20 overflow-hidden">
+                        <img
+                          src={s.image}
+                          alt={s.label}
+                          loading="lazy"
+                          width={256}
+                          height={80}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+                        <div className="absolute bottom-1.5 left-2 h-6 w-6 rounded-md bg-primary/90 flex items-center justify-center">
+                          <Icon className="h-3 w-3 text-primary-foreground" />
+                        </div>
                       </div>
-                      <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors font-medium">
+                      <span className="text-[11px] text-muted-foreground group-hover:text-foreground transition-colors font-medium px-2.5 py-2 leading-snug">
                         {s.label}
                       </span>
                     </motion.button>
