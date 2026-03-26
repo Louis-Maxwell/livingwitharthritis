@@ -120,6 +120,9 @@ function AnimatedRoutes() {
           <Route path="/corporate-giving" element={<CorporateGiving />} />
           <Route path="/donation-result" element={<DonationSuccess />} />
           <Route path="/unsubscribe" element={<Unsubscribe />} />
+          <Route path="/governance" element={<Governance />} />
+          <Route path="/finances" element={<Finances />} />
+          <Route path="/impact" element={<ImpactStories />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </PageTransition>
