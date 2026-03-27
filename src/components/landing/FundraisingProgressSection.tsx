@@ -313,7 +313,7 @@ const FundraisingProgressSection = memo(() => {
                 <Lock className="w-3.5 h-3.5 text-primary/50" /> 256-bit SSL
               </span>
               <span className="flex items-center gap-1.5">
-                <Shield className="w-3.5 h-3.5 text-primary/50" /> Reg. #1234567
+                <Shield className="w-3.5 h-3.5 text-primary/50" /> UK Registered
               </span>
               <span className="flex items-center gap-1.5">
                 <CheckCircle className="w-3.5 h-3.5 text-emerald-500/70" /> Gift Aid Eligible

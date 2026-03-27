@@ -82,7 +82,6 @@ CONSTITUTION OF LIVING WITH ARTHRITIS
 ======================================
 A Charitable Incorporated Organisation (CIO)
 
-Registered Charity Number: 1234567
 Date of Registration: 15 March 2020
 
 1. NAME
@@ -154,7 +153,7 @@ Regulated by the Charity Commission for England and Wales.
     <>
       <Helmet>
         <title>Governance & Constitution | Living With Arthritis UK Charity</title>
-        <meta name="description" content="Our charity governance structure, board of trustees, constitution, and policies. Registered Charity No. 1234567, regulated by the Charity Commission for England and Wales." />
+        <meta name="description" content="Our charity governance structure, board of trustees, constitution, and policies. Regulated by the Charity Commission for England and Wales." />
         <meta name="keywords" content="charity governance, trustees, constitution, charity commission, registered charity UK, arthritis charity governance" />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/governance" />
         <meta property="og:title" content="Governance & Constitution | Living With Arthritis UK" />
@@ -185,9 +184,6 @@ Regulated by the Charity Commission for England and Wales.
             <Badge variant="outline" className="bg-primary/5 text-primary border-primary/20">
               <Shield className="w-3.5 h-3.5 mr-1.5" /> Charity Governance
             </Badge>
-            <Badge variant="outline" className="bg-emerald-500/5 text-emerald-700 border-emerald-500/20">
-              <Building2 className="w-3.5 h-3.5 mr-1.5" /> Reg. No. 1234567
-            </Badge>
           </div>
         }
         title={<>Our <span className="text-primary">Governance</span> & Constitution</>}
@@ -211,10 +207,6 @@ Regulated by the Charity Commission for England and Wales.
                     <div>
                       <dt className="font-semibold text-foreground">Charity Name</dt>
                       <dd className="text-muted-foreground">Living With Arthritis</dd>
-                    </div>
-                    <div>
-                      <dt className="font-semibold text-foreground">Charity Registration Number</dt>
-                      <dd className="text-muted-foreground">1234567</dd>
                     </div>
                     <div>
                       <dt className="font-semibold text-foreground">Structure</dt>
