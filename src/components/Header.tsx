@@ -242,13 +242,10 @@ const Header = () => {
               </Button>
               <Button
                 size="sm"
-                onClick={() => {
-                  const el = document.getElementById("involved");
-                  el?.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="btn-primary-cta h-9 px-4 rounded-full text-[11px] font-bold tracking-wider"
+                onClick={() => navigate("/zakat-appeal")}
+                className="h-9 px-4 rounded-full text-[11px] font-bold tracking-wider bg-[hsl(0,72%,51%)] hover:bg-[hsl(0,72%,45%)] text-white shadow-md shadow-red-500/20"
               >
-                <Heart className="w-3 h-3 mr-1.5" />
+                <Heart className="w-3 h-3 mr-1.5 fill-white/30" />
                 Donate
               </Button>
               <Button
@@ -367,18 +364,23 @@ const Header = () => {
                   </div>
                 ))}
 
-                {/* Donate button inline */}
+                {/* Persistent Donate button — charity red */}
                 <Button
                   size="sm"
-                  onClick={() => {
-                    const el = document.getElementById("involved");
-                    el?.scrollIntoView({ behavior: "smooth" });
-                  }}
-                  className="ml-3 btn-primary-cta h-8 px-5 rounded-full text-[11px] font-bold tracking-wider"
+                  onClick={() => navigate("/zakat-appeal")}
+                  className="ml-3 h-9 px-6 rounded-full text-[12px] font-bold tracking-wider bg-[hsl(0,72%,51%)] hover:bg-[hsl(0,72%,45%)] text-white shadow-lg shadow-red-500/20 hover:shadow-red-500/30 transition-all duration-200 hover:scale-[1.03] active:scale-[0.97]"
                 >
-                  <Heart className="w-3 h-3 mr-1.5" />
-                  Donate
+                  <Heart className="w-3.5 h-3.5 mr-1.5 fill-white/30" />
+                  Donate Now
                 </Button>
+
+                {/* Ways to Help link */}
+                <button
+                  onClick={() => navigate("/ways-to-help")}
+                  className="ml-1 px-3.5 py-1.5 text-[13px] font-semibold rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent transition-all duration-200 cursor-pointer"
+                >
+                  Ways to Help
+                </button>
               </nav>
 
               {/* Mobile placeholder — keeps header height consistent on mobile */}
