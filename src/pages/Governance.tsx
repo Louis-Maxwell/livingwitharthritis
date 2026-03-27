@@ -153,7 +153,7 @@ Regulated by the Charity Commission for England and Wales.
     <>
       <Helmet>
         <title>Governance & Constitution | Living With Arthritis UK Charity</title>
-        <meta name="description" content="Our charity governance structure, board of trustees, constitution, and policies. Registered Charity No. 1234567, regulated by the Charity Commission for England and Wales." />
+        <meta name="description" content="Our charity governance structure, board of trustees, constitution, and policies. Regulated by the Charity Commission for England and Wales." />
         <meta name="keywords" content="charity governance, trustees, constitution, charity commission, registered charity UK, arthritis charity governance" />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/governance" />
         <meta property="og:title" content="Governance & Constitution | Living With Arthritis UK" />
