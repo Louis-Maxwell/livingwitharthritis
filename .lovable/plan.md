@@ -1,47 +1,31 @@
 
 
-# Add Donation Confirmation Email
+## Plan: Remove Charity Registration Number References Site-Wide
 
-## Overview
+### Summary
+Remove all mentions of "Charity Registration Number" (and its variations) along with the placeholder number "1234567" from 6 files across the website.
 
-Send an automated "thank you" email to donors immediately after their payment is recorded by the Stripe webhook. This is a transactional (app) email — triggered by a specific donor action.
+### Files & Changes
 
-## Prerequisites
+1. **`src/components/Footer.tsx`** (line 158)
+   - Remove "Registered Charity No. 1234567 ·" from the bottom bar text, keeping only the address
 
-No email domain is configured yet. The first step is setting up a sender domain so emails come from your brand (e.g. `donations@notify.yourdomain.com`).
+2. **`src/pages/AboutUs.tsx`** (lines 119-122, 244-251)
+   - Remove the "Reg. Charity No. 1234567" badge
+   - Remove the "Registered Charity Details" section (heading + registration number block)
 
-## Plan
+3. **`src/pages/Governance.tsx`** (lines 83-86, 157, 188-190, 215-218)
+   - Remove "Registered Charity Number: 1234567" from the constitution text
+   - Remove it from the meta description
+   - Remove the "Reg. No. 1234567" badge
+   - Remove the "Charity Registration Number" definition list entry
 
-### Step 1 — Set up email domain
-You will be prompted to configure a sender domain. This tells email providers the emails are legitimately from you, improving deliverability.
+4. **`src/pages/Finances.tsx`** (lines 65-68)
+   - Remove "Charity Registration Number: 1234567" from the annual accounts text
 
-### Step 2 — Set up email infrastructure
-Create the backend queue, retry system, and supporting database tables that ensure emails are delivered reliably (with automatic retries if something goes wrong).
+5. **`src/pages/TrustCredibility.tsx`** (lines 90-92)
+   - Remove the "UK Registered Charity No. 1234567" badge/pill
 
-### Step 3 — Scaffold transactional email system
-Create the core email-sending backend function, suppression handling (bounces/complaints), and unsubscribe support.
-
-### Step 4 — Create donation confirmation template
-A branded React Email template with:
-- Donor's name and donation amount
-- Fund type (General, Zakat, etc.)
-- Gift Aid confirmation (if applicable, noting the 25% HMRC bonus)
-- Charity registration number for trust
-- Warm thank-you messaging matching the site's red/white brand
-
-### Step 5 — Wire into the Stripe webhook
-After the donation is successfully recorded in the database, the `process-donation` webhook will trigger the confirmation email using the donor's email, name, amount, fund type, and Gift Aid status from the Stripe session.
-
-### Step 6 — Create unsubscribe page
-A simple branded page at `/email-unsubscribe` for compliance — lets recipients opt out of future emails.
-
-### Step 7 — Deploy all backend functions
-
-## Technical Details
-
-- **Template file**: `supabase/functions/_shared/transactional-email-templates/donation-confirmation.tsx`
-- **Registry update**: Add `donation-confirmation` to the TEMPLATES map in `registry.ts`
-- **Webhook update**: `supabase/functions/process-donation/index.ts` — add `supabase.functions.invoke('send-transactional-email', ...)` call after successful donation insert, using `idempotencyKey: donation-confirm-${donationRecord.id}`
-- **Unsubscribe page**: New route component at `src/pages/EmailUnsubscribe.tsx`
-- **Brand colors**: Primary red (`hsl(0, 85%, 50%)`), white background, dark foreground text
+6. **`src/components/landing/FundraisingProgressSection.tsx`** (line 316)
+   - Remove the "Reg. #1234567" trust indicator span
 
