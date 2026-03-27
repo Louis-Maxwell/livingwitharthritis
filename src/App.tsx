@@ -55,6 +55,7 @@ const Unsubscribe = lazy(() => import("./pages/Unsubscribe"));
 const Governance = lazy(() => import("./pages/Governance"));
 const Finances = lazy(() => import("./pages/Finances"));
 const ImpactStories = lazy(() => import("./pages/ImpactStories"));
+const WaysToHelp = lazy(() => import("./pages/WaysToHelp"));
 // Loading fallback with skeleton-style animation
 const PageLoader = () => (
   <div className="min-h-screen flex flex-col items-center justify-center bg-background gap-4">

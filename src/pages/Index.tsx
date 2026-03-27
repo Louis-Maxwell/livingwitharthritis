@@ -248,6 +248,14 @@ export default function Index() {
             </ViewportSection>
 
             <ViewportSection minHeight="300px" rootMargin="300px">
+              <Suspense fallback={<SectionLoader />}><BeneficiarySpotlight /></Suspense>
+            </ViewportSection>
+
+            <ViewportSection minHeight="300px" rootMargin="300px">
+              <Suspense fallback={<SectionLoader />}><DonationImpactSection /></Suspense>
+            </ViewportSection>
+
+            <ViewportSection minHeight="300px" rootMargin="300px">
               <Suspense fallback={<SectionLoader />}><FAQSection /></Suspense>
             </ViewportSection>
 
