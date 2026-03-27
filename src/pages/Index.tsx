@@ -261,9 +261,7 @@ export default function Index() {
               <Suspense fallback={<SectionLoader />}><GetInTouchSection /></Suspense>
             </ViewportSection>
 
-            <ViewportSection minHeight="200px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}><FinalCTASection /></Suspense>
-            </ViewportSection>
+            {/* FinalCTASection removed — merged into NewsletterSection */}
           </div>
         </main>
 
