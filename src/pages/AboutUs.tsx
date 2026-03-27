@@ -116,10 +116,6 @@ const AboutUs = () => {
                   Back to Home
                 </Button>
               </Link>
-              <Badge className="bg-primary/10 text-primary border-0 text-xs font-bold px-3 py-1.5">
-                <Heart className="w-3 h-3 mr-1.5" />
-                Reg. Charity No. 1234567
-              </Badge>
               <Badge className="bg-secondary/10 text-secondary border-0 text-xs font-bold px-3 py-1.5">
                 <Sparkles className="w-3 h-3 mr-1.5" />
                 Est. 2020
