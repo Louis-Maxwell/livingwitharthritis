@@ -52,9 +52,8 @@ const BlogPreviewSection = lazy(() => import("@/components/landing/BlogPreviewSe
 const TestimonialsSection = lazy(() => import("@/components/landing/TestimonialsSection"));
 const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
 const FundraisingProgressSection = lazy(() => import("@/components/landing/FundraisingProgressSection"));
-const PatientImpactStories = lazy(() => import("@/components/landing/PatientImpactStories"));
 const GetInTouchSection = lazy(() => import("@/components/landing/GetInTouchSection"));
-const FinalCTASection = lazy(() => import("@/components/landing/FinalCTASection"));
+// Removed FinalCTASection (merged into NewsletterSection) and PatientImpactStories (merged with TestimonialsSection)
 const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSection"));
 const ImpactMetricsSection = lazy(() => import("@/components/landing/ImpactMetricsSection"));
 
