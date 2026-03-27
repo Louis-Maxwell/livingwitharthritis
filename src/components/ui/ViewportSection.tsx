@@ -20,6 +20,15 @@ const ViewportSection = memo(({ children, rootMargin = "200px", minHeight = "200
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    // Check immediately if element is already near viewport (handles short pages / fast scroll)
+    const rect = el.getBoundingClientRect();
+    const margin = parseInt(rootMargin, 10) || 200;
+    if (rect.top < window.innerHeight + margin) {
+      setVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
