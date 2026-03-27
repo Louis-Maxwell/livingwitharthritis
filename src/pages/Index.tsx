@@ -16,7 +16,7 @@ import ViewportSection from "@/components/ui/ViewportSection";
 const Footer = lazy(() => import("@/components/Footer"));
 const AppointmentModal = lazy(() => import("@/components/AppointmentModal").then(m => ({ default: m.AppointmentModal })));
 
-// Deferred overlays — loaded after paint
+// Deferred overlays — loaded after paint (reduced: removed DonationNotification & BackToTop)
 const DeferredOverlays = memo(() => {
   const [show, setShow] = useState(false);
   useEffect(() => {
@@ -29,14 +29,10 @@ const DeferredOverlays = memo(() => {
     };
   }, []);
   if (!show) return null;
-  const DonationNotification = lazy(() => import("@/components/DonationNotification"));
   const FeedbackPopup = lazy(() => import("@/components/FeedbackPopup"));
-  const BackToTop = lazy(() => import("@/components/ui/BackToTop"));
   return (
     <Suspense fallback={null}>
-      <DonationNotification />
       <FeedbackPopup />
-      <BackToTop />
     </Suspense>
   );
 });
