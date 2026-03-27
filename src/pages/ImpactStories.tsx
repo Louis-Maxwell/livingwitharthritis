@@ -125,6 +125,11 @@ const ImpactStories = () => {
         title={<>The People <span className="text-primary">We've Helped</span></>}
         subtitle="Every statistic represents a real person whose life has been improved. Here are their stories — and the evidence of our public benefit."
       />
+      <div className="container mx-auto px-6 md:px-10 max-w-5xl -mt-4 mb-6">
+        <p className="text-xs text-muted-foreground flex items-center gap-1.5">
+          <Activity className="w-3 h-3" /> Last updated: March 2026
+        </p>
+      </div>
 
       <main id="main-content">
         {/* Impact Numbers */}

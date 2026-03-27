@@ -148,6 +148,11 @@ James Whitfield — Treasurer
         title={<>Where Your <span className="text-primary">Money Goes</span></>}
         subtitle="We believe in full financial transparency. Every pound is accounted for and reported to the Charity Commission. Here's exactly how we use your donations."
       />
+      <div className="container mx-auto px-6 md:px-10 max-w-5xl -mt-4 mb-6">
+        <p className="text-xs text-muted-foreground flex items-center gap-1.5">
+          <FileText className="w-3 h-3" /> Last updated: March 2026
+        </p>
+      </div>
 
       <main id="main-content">
         {/* Key figures */}

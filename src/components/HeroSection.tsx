@@ -1,7 +1,7 @@
-import { ArrowRight, Sparkles, ClipboardList, Dumbbell, Utensils, MessageCircle, Heart, Shield, Award, Globe, ChevronDown, Users, Activity } from "lucide-react";
+import { ArrowRight, Sparkles, ClipboardList, Dumbbell, Utensils, MessageCircle, Heart, Shield, Award, Globe, ChevronDown, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { memo, useState, useEffect } from "react";
+import { memo } from "react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 
 import "./HeroSection.css";
