@@ -82,7 +82,6 @@ CONSTITUTION OF LIVING WITH ARTHRITIS
 ======================================
 A Charitable Incorporated Organisation (CIO)
 
-Registered Charity Number: 1234567
 Date of Registration: 15 March 2020
 
 1. NAME
