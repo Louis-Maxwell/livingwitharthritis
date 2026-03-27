@@ -145,6 +145,11 @@ export default function Index() {
         <DeferredOverlays />
 
         <main id="main-content" className="space-y-0" role="main">
+          {/* Campaign banner */}
+          <Suspense fallback={null}>
+            <CampaignBanner />
+          </Suspense>
+
           <HeroSection />
 
           <div className="w-full px-0 space-y-0">
