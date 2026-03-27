@@ -46,8 +46,7 @@ const QuoteSection = lazy(() => import("@/components/landing/QuoteSection"));
 
 // Below-fold sections — deferred with ViewportSection
 const HowItWorksSection = lazy(() => import("@/components/landing/HowItWorksSection"));
-const SocialProofSection = lazy(() => import("@/components/landing/SocialProofSection"));
-const ImpactBannerSection = lazy(() => import("@/components/landing/ImpactBannerSection"));
+// Removed SocialProofSection (redundant with hero stats) and ImpactBannerSection (redundant with ImpactMetricsSection)
 const DailyTipsSection = lazy(() => import("@/components/landing/DailyTipsSection"));
 const BlogPreviewSection = lazy(() => import("@/components/landing/BlogPreviewSection"));
 const TestimonialsSection = lazy(() => import("@/components/landing/TestimonialsSection"));
