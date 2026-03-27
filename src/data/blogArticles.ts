@@ -13,6 +13,10 @@ interface BlogArticle {
   keywords: string;
   date: string;
   content: string;
+  author?: string;
+  authorCredentials?: string;
+  reviewedBy?: string;
+  reviewerCredentials?: string;
 }
 
 const blogArticlesBase: Record<string, BlogArticle> = {

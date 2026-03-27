@@ -118,7 +118,7 @@ const AdminDashboard = () => {
   }, [isAdmin]);
 
   useEffect(() => {
-    if (!adminLoading && !isAdmin) navigate("/");
+    if (!adminLoading && !isAdmin) navigate("/auth");
   }, [isAdmin, adminLoading, navigate]);
 
   if (adminLoading || donationsLoading) {

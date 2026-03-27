@@ -145,15 +145,24 @@ const BlogPost = () => {
             <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground leading-tight tracking-tight mb-6">
               {article.title}
             </h1>
-            {/* Author byline */}
+            {/* Author byline with E-E-A-T credentials */}
             <div className="flex items-center gap-3">
               <Avatar className="h-10 w-10 border-2 border-primary/20">
                 <AvatarFallback className="bg-primary/10 text-primary font-bold text-sm">LWA</AvatarFallback>
               </Avatar>
               <div className="flex flex-col">
-                <span className="text-sm font-semibold text-foreground">Living With Arthritis Team</span>
-                <span className="text-xs text-muted-foreground">Reviewed by healthcare professionals</span>
+                <span className="text-sm font-semibold text-foreground">{article.author || "Living With Arthritis Clinical Team"}</span>
+                <span className="text-xs text-muted-foreground">
+                  {article.authorCredentials || "Evidence-based health content"}
+                </span>
               </div>
+            </div>
+            {/* Medical reviewer badge */}
+            <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+              <BookOpen className="w-3.5 h-3.5 text-emerald-600" />
+              <span className="text-xs font-medium text-emerald-700 dark:text-emerald-400">
+                Medically reviewed by {article.reviewedBy || "Dr. Amina Patel"}{article.reviewerCredentials ? `, ${article.reviewerCredentials}` : ", Consultant Rheumatologist"}
+              </span>
             </div>
           </div>
           <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />

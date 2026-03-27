@@ -29,6 +29,10 @@ export default function FeedbackPopup() {
 
   useEffect(() => {
     if (sessionStorage.getItem(FEEDBACK_KEY)) return;
+    // Track page visits — only show after 3+ visits
+    const visits = parseInt(sessionStorage.getItem(VISIT_COUNT_KEY) || "0", 10) + 1;
+    sessionStorage.setItem(VISIT_COUNT_KEY, String(visits));
+    if (visits < 3) return;
     const timer = setTimeout(() => setOpen(true), 60000);
     return () => clearTimeout(timer);
   }, []);

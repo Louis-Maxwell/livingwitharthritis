@@ -76,7 +76,7 @@ const AdminAppointments = () => {
   const [isSending, setIsSending] = useState(false);
 
   useEffect(() => {
-    if (!adminLoading && !isAdmin) navigate("/");
+    if (!adminLoading && !isAdmin) navigate("/auth");
   }, [isAdmin, adminLoading, navigate]);
 
   if (adminLoading || isLoading) {

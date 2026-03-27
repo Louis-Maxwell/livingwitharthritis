@@ -72,7 +72,7 @@ const HeroSection = memo(() => {
                 <Sparkles className="w-3 h-3" />
                 The UK's #1 arthritis platform
               </span>
-              <LiveActivity />
+              <TrustBadge />
             </div>
 
             <h1 className="hero-item text-[2rem] sm:text-5xl md:text-6xl lg:text-[4.75rem] font-extrabold text-foreground mb-4 sm:mb-5 leading-[1.08] sm:leading-[1.04] tracking-tight text-balance">
