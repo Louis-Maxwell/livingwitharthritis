@@ -64,7 +64,6 @@ const Finances = () => {
 LIVING WITH ARTHRITIS
 Annual Accounts Summary — Financial Year 2024/25
 
-Charity Registration Number: 1234567
 Registered in England and Wales
 
 STATEMENT OF FINANCIAL ACTIVITIES

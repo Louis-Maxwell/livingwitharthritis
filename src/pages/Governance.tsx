@@ -209,10 +209,6 @@ Regulated by the Charity Commission for England and Wales.
                       <dd className="text-muted-foreground">Living With Arthritis</dd>
                     </div>
                     <div>
-                      <dt className="font-semibold text-foreground">Charity Registration Number</dt>
-                      <dd className="text-muted-foreground">1234567</dd>
-                    </div>
-                    <div>
                       <dt className="font-semibold text-foreground">Structure</dt>
                       <dd className="text-muted-foreground">Charitable Incorporated Organisation (CIO)</dd>
                     </div>

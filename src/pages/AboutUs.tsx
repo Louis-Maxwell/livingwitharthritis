@@ -237,14 +237,12 @@ const AboutUs = () => {
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-8">
               <div className="rounded-2xl bg-muted/30 border border-border/20 p-6 md:p-8">
                 <h2 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
-                  <Shield className="w-5 h-5 text-primary" /> Registered Charity Details
+                  <Shield className="w-5 h-5 text-primary" /> Organisation Details
                 </h2>
                 <div className="grid sm:grid-cols-2 gap-4 text-sm text-muted-foreground">
                   <div>
                     <p className="font-semibold text-foreground mb-1">Charity Name</p>
                     <p>Living With Arthritis</p>
-                    <p className="font-semibold text-foreground mt-3 mb-1">Registration Number</p>
-                    <p>1234567</p>
                   </div>
                   <div>
                     <p className="font-semibold text-foreground mb-1">Registered Address</p>

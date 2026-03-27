@@ -155,7 +155,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-3">
             <div>
               <p className="text-muted-foreground text-xs">© {new Date().getFullYear()} Living with Arthritis™ — All rights reserved</p>
-              <p className="text-muted-foreground/70 text-[10px] mt-0.5">Registered Charity No. 1234567 · 27 Old Gloucester Street, London WC1N 3AX · Registered in England & Wales</p>
+              <p className="text-muted-foreground/70 text-[10px] mt-0.5">27 Old Gloucester Street, London WC1N 3AX · Registered in England & Wales</p>
             </div>
             <div className="flex items-center gap-4">
               <span className="text-muted-foreground text-xs">Rated 4.9/5 by 2,400+ patients</span>

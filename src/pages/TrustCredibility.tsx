@@ -88,7 +88,7 @@ const TrustCredibility = () => {
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <div className="text-center mb-12">
               <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-5 py-2.5 rounded-full text-sm font-bold mb-6">
-                <Award className="w-4 h-4" /> UK Registered Charity No. 1234567
+                <Award className="w-4 h-4" /> UK Registered Charity
               </div>
               <h2 className="text-3xl font-bold text-foreground mb-3">Our Impact at a Glance</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">Registered with the Charity Commission for England and Wales. Every donation is accounted for and reported.</p>
