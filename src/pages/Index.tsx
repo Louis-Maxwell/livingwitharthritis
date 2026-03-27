@@ -43,18 +43,20 @@ const QuickAccessSection = lazy(() => import("@/components/landing/QuickAccessSe
 const AboutSection = lazy(() => import("@/components/AboutSection"));
 const ServicesGrid = lazy(() => import("@/components/ServicesGrid"));
 const QuoteSection = lazy(() => import("@/components/landing/QuoteSection"));
+const CampaignBanner = lazy(() => import("@/components/CampaignBanner"));
 
 // Below-fold sections — deferred with ViewportSection
 const HowItWorksSection = lazy(() => import("@/components/landing/HowItWorksSection"));
-// Removed SocialProofSection (redundant with hero stats) and ImpactBannerSection (redundant with ImpactMetricsSection)
 const DailyTipsSection = lazy(() => import("@/components/landing/DailyTipsSection"));
 const BlogPreviewSection = lazy(() => import("@/components/landing/BlogPreviewSection"));
 const TestimonialsSection = lazy(() => import("@/components/landing/TestimonialsSection"));
 const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
 const FundraisingProgressSection = lazy(() => import("@/components/landing/FundraisingProgressSection"));
 const GetInTouchSection = lazy(() => import("@/components/landing/GetInTouchSection"));
-// Removed FinalCTASection (merged into NewsletterSection) and PatientImpactStories (merged with TestimonialsSection)
 const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSection"));
+const ImpactMetricsSection = lazy(() => import("@/components/landing/ImpactMetricsSection"));
+const DonationImpactSection = lazy(() => import("@/components/landing/DonationImpactSection"));
+const BeneficiarySpotlight = lazy(() => import("@/components/landing/BeneficiarySpotlight"));
 const ImpactMetricsSection = lazy(() => import("@/components/landing/ImpactMetricsSection"));
 
 // Tab sections — loaded on demand

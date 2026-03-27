@@ -70,7 +70,6 @@ export default function WaysToHelp() {
           <PageHero
             title="Ways to Help"
             subtitle="Every action — big or small — helps someone living with arthritis lead a fuller life."
-            icon={<HandHeart className="w-8 h-8 text-primary" />}
           />
 
           <section className="py-16 sm:py-20">
