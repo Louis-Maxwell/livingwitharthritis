@@ -184,9 +184,6 @@ Regulated by the Charity Commission for England and Wales.
             <Badge variant="outline" className="bg-primary/5 text-primary border-primary/20">
               <Shield className="w-3.5 h-3.5 mr-1.5" /> Charity Governance
             </Badge>
-            <Badge variant="outline" className="bg-emerald-500/5 text-emerald-700 border-emerald-500/20">
-              <Building2 className="w-3.5 h-3.5 mr-1.5" /> Reg. No. 1234567
-            </Badge>
           </div>
         }
         title={<>Our <span className="text-primary">Governance</span> & Constitution</>}
