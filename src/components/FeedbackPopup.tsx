@@ -7,6 +7,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { MessageSquareHeart } from "lucide-react";
 
 const FEEDBACK_KEY = "oa_feedback_dismissed";
+const VISIT_COUNT_KEY = "oa_visit_count";
 
 const categories = [
   { id: "navigation", label: "Ease of Navigation" },
