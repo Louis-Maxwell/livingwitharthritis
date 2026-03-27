@@ -171,17 +171,7 @@ export default function Index() {
               </Suspense>
             </ViewportSection>
 
-            <ViewportSection minHeight="120px" rootMargin="400px">
-              <Suspense fallback={null}>
-                <SocialProofSection />
-              </Suspense>
-            </ViewportSection>
-
-            <ViewportSection minHeight="200px" rootMargin="400px">
-              <Suspense fallback={<SectionLoader />}>
-                <ImpactBannerSection />
-              </Suspense>
-            </ViewportSection>
+            {/* Removed SocialProofSection and ImpactBannerSection — redundant */}
 
             {/* TABBED EXPLORE SECTION */}
             <ViewportSection minHeight="600px" rootMargin="400px">
