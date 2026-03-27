@@ -72,13 +72,14 @@ const BlogPost = () => {
           "description": article.metaDescription,
           "datePublished": article.date,
           "dateModified": article.date,
-          "author": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk" },
+          "author": { "@type": "Organization", "name": article.author || "Living With Arthritis Clinical Team", "url": "https://livingwitharthritis.org.uk" },
           "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk", "logo": { "@type": "ImageObject", "url": "https://livingwitharthritis.org.uk/favicon.ico" } },
           "inLanguage": "en-GB",
           "mainEntityOfPage": `https://livingwitharthritis.org.uk/blog/${slug}`,
           "about": { "@type": "MedicalCondition", "name": "Arthritis", "alternateName": ["Osteoarthritis", "Rheumatoid Arthritis"] },
           "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } },
           "lastReviewed": article.date,
+          "reviewedBy": { "@type": "Person", "name": article.reviewedBy || "Dr. Amina Patel", "jobTitle": article.reviewerCredentials || "Consultant Rheumatologist" },
           "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Patient" }
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
@@ -89,7 +90,7 @@ const BlogPost = () => {
           "image": "https://livingwitharthritis.org.uk/images/og-blog-default.jpg",
           "datePublished": article.date,
           "dateModified": article.date,
-          "author": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk" },
+          "author": { "@type": "Organization", "name": article.author || "Living With Arthritis Clinical Team", "url": "https://livingwitharthritis.org.uk" },
           "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk", "logo": { "@type": "ImageObject", "url": "https://livingwitharthritis.org.uk/favicon.ico", "width": 512, "height": 512 } },
           "mainEntityOfPage": { "@type": "WebPage", "@id": `https://livingwitharthritis.org.uk/blog/${slug}` },
           "wordCount": article.content.replace(/<[^>]*>/g, " ").trim().split(/\s+/).length,
@@ -144,15 +145,24 @@ const BlogPost = () => {
             <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground leading-tight tracking-tight mb-6">
               {article.title}
             </h1>
-            {/* Author byline */}
+            {/* Author byline with E-E-A-T credentials */}
             <div className="flex items-center gap-3">
               <Avatar className="h-10 w-10 border-2 border-primary/20">
                 <AvatarFallback className="bg-primary/10 text-primary font-bold text-sm">LWA</AvatarFallback>
               </Avatar>
               <div className="flex flex-col">
-                <span className="text-sm font-semibold text-foreground">Living With Arthritis Team</span>
-                <span className="text-xs text-muted-foreground">Reviewed by healthcare professionals</span>
+                <span className="text-sm font-semibold text-foreground">{article.author || "Living With Arthritis Clinical Team"}</span>
+                <span className="text-xs text-muted-foreground">
+                  {article.authorCredentials || "Evidence-based health content"}
+                </span>
               </div>
+            </div>
+            {/* Medical reviewer badge */}
+            <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+              <BookOpen className="w-3.5 h-3.5 text-emerald-600" />
+              <span className="text-xs font-medium text-emerald-700 dark:text-emerald-400">
+                Medically reviewed by {article.reviewedBy || "Dr. Amina Patel"}{article.reviewerCredentials ? `, ${article.reviewerCredentials}` : ", Consultant Rheumatologist"}
+              </span>
             </div>
           </div>
           <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />

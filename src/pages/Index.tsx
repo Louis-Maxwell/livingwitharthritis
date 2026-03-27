@@ -16,7 +16,7 @@ import ViewportSection from "@/components/ui/ViewportSection";
 const Footer = lazy(() => import("@/components/Footer"));
 const AppointmentModal = lazy(() => import("@/components/AppointmentModal").then(m => ({ default: m.AppointmentModal })));
 
-// Deferred overlays — loaded after paint
+// Deferred overlays — loaded after paint (reduced: removed DonationNotification & BackToTop)
 const DeferredOverlays = memo(() => {
   const [show, setShow] = useState(false);
   useEffect(() => {
@@ -29,14 +29,10 @@ const DeferredOverlays = memo(() => {
     };
   }, []);
   if (!show) return null;
-  const DonationNotification = lazy(() => import("@/components/DonationNotification"));
   const FeedbackPopup = lazy(() => import("@/components/FeedbackPopup"));
-  const BackToTop = lazy(() => import("@/components/ui/BackToTop"));
   return (
     <Suspense fallback={null}>
-      <DonationNotification />
       <FeedbackPopup />
-      <BackToTop />
     </Suspense>
   );
 });
@@ -50,16 +46,14 @@ const QuoteSection = lazy(() => import("@/components/landing/QuoteSection"));
 
 // Below-fold sections — deferred with ViewportSection
 const HowItWorksSection = lazy(() => import("@/components/landing/HowItWorksSection"));
-const SocialProofSection = lazy(() => import("@/components/landing/SocialProofSection"));
-const ImpactBannerSection = lazy(() => import("@/components/landing/ImpactBannerSection"));
+// Removed SocialProofSection (redundant with hero stats) and ImpactBannerSection (redundant with ImpactMetricsSection)
 const DailyTipsSection = lazy(() => import("@/components/landing/DailyTipsSection"));
 const BlogPreviewSection = lazy(() => import("@/components/landing/BlogPreviewSection"));
 const TestimonialsSection = lazy(() => import("@/components/landing/TestimonialsSection"));
 const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
 const FundraisingProgressSection = lazy(() => import("@/components/landing/FundraisingProgressSection"));
-const PatientImpactStories = lazy(() => import("@/components/landing/PatientImpactStories"));
 const GetInTouchSection = lazy(() => import("@/components/landing/GetInTouchSection"));
-const FinalCTASection = lazy(() => import("@/components/landing/FinalCTASection"));
+// Removed FinalCTASection (merged into NewsletterSection) and PatientImpactStories (merged with TestimonialsSection)
 const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSection"));
 const ImpactMetricsSection = lazy(() => import("@/components/landing/ImpactMetricsSection"));
 
@@ -177,17 +171,7 @@ export default function Index() {
               </Suspense>
             </ViewportSection>
 
-            <ViewportSection minHeight="120px" rootMargin="400px">
-              <Suspense fallback={null}>
-                <SocialProofSection />
-              </Suspense>
-            </ViewportSection>
-
-            <ViewportSection minHeight="200px" rootMargin="400px">
-              <Suspense fallback={<SectionLoader />}>
-                <ImpactBannerSection />
-              </Suspense>
-            </ViewportSection>
+            {/* Removed SocialProofSection and ImpactBannerSection — redundant */}
 
             {/* TABBED EXPLORE SECTION */}
             <ViewportSection minHeight="600px" rootMargin="400px">
@@ -266,10 +250,6 @@ export default function Index() {
             </ViewportSection>
 
             <ViewportSection minHeight="300px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}><PatientImpactStories /></Suspense>
-            </ViewportSection>
-
-            <ViewportSection minHeight="300px" rootMargin="300px">
               <Suspense fallback={<SectionLoader />}><ImpactMetricsSection /></Suspense>
             </ViewportSection>
 
@@ -281,9 +261,7 @@ export default function Index() {
               <Suspense fallback={<SectionLoader />}><GetInTouchSection /></Suspense>
             </ViewportSection>
 
-            <ViewportSection minHeight="200px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}><FinalCTASection /></Suspense>
-            </ViewportSection>
+            {/* FinalCTASection removed — merged into NewsletterSection */}
           </div>
         </main>
 

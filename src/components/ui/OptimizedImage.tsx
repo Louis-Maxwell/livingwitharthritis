@@ -10,6 +10,10 @@ interface OptimizedImageProps {
   priority?: boolean;
   /** Optional WebP source for <picture> element */
   webpSrc?: string;
+  /** Responsive image srcset */
+  srcSet?: string;
+  /** Responsive image sizes */
+  sizes?: string;
 }
 
 /** Derive a .webp path from a .jpg/.png path in /public */
@@ -28,6 +32,8 @@ const OptimizedImage = memo(({
   height,
   priority = false,
   webpSrc,
+  srcSet,
+  sizes,
 }: OptimizedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(priority);
@@ -75,6 +81,8 @@ const OptimizedImage = memo(({
             alt={alt}
             width={width}
             height={height}
+            srcSet={srcSet}
+            sizes={sizes}
             loading={priority ? "eager" : "lazy"}
             decoding="async"
             onLoad={() => setIsLoaded(true)}

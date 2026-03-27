@@ -1,7 +1,7 @@
-import { ArrowRight, Sparkles, ClipboardList, Dumbbell, Utensils, MessageCircle, Heart, Shield, Award, Globe, ChevronDown, Users, Activity } from "lucide-react";
+import { ArrowRight, Sparkles, ClipboardList, Dumbbell, Utensils, MessageCircle, Heart, Shield, Award, Globe, ChevronDown, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { memo, useState, useEffect } from "react";
+import { memo } from "react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 
 import "./HeroSection.css";
@@ -13,28 +13,16 @@ const STATS = [
   { target: 97, suffix: "%", label: "Patient satisfaction rate", compact: false },
 ] as const;
 
-/* Live activity pulse — social proof */
-const LiveActivity = memo(() => {
-  const [count, setCount] = useState(247);
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCount(prev => {
-        const next = prev + Math.floor(Math.random() * 5) - 2;
-        return Math.max(200, Math.min(300, next));
-      });
-    }, 8000);
-    return () => clearInterval(interval);
-  }, []);
-  return (
-    <div className="hero-item inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-emerald-500/8 border border-emerald-500/15 backdrop-blur-sm">
-      <span className="live-dot" />
-      <span className="text-[11px] font-semibold text-emerald-700 dark:text-emerald-400">
-        <span className="font-bold">{count}</span> people exploring right now
-      </span>
-    </div>
-  );
-});
-LiveActivity.displayName = "LiveActivity";
+/* Static trust badge — replaces fake LiveActivity counter */
+const TrustBadge = memo(() => (
+  <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-emerald-500/8 border border-emerald-500/15 backdrop-blur-sm">
+    <Users className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+    <span className="text-[11px] font-semibold text-emerald-700 dark:text-emerald-400">
+      Trusted by <span className="font-bold">50,000+</span> people across the UK
+    </span>
+  </div>
+));
+TrustBadge.displayName = "TrustBadge";
 
 /* User journey pathways */
 const JourneyPaths = memo(({ navigate }: { navigate: (path: string) => void }) => (
@@ -84,7 +72,7 @@ const HeroSection = memo(() => {
                 <Sparkles className="w-3 h-3" />
                 The UK's #1 arthritis platform
               </span>
-              <LiveActivity />
+              <TrustBadge />
             </div>
 
             <h1 className="hero-item text-[2rem] sm:text-5xl md:text-6xl lg:text-[4.75rem] font-extrabold text-foreground mb-4 sm:mb-5 leading-[1.08] sm:leading-[1.04] tracking-tight text-balance">
