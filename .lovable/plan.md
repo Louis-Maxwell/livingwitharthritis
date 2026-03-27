@@ -1,175 +1,80 @@
 
 
-## Plan: Address Critical Website Issues
+## Plan: Make the Website Feel Like a Public-Facing Charity
 
-This plan tackles the 16 identified issues across UX, content, performance, and security.
-
----
-
-### 1. Consolidate Landing Page Sections (reduce overwhelm)
-
-**Problem**: 15+ sections feel overwhelming.
-
-**Fix**: Merge related sections and remove redundant ones:
-- Remove `ImpactBannerSection` (redundant with `ImpactMetricsSection`)
-- Remove `SocialProofSection` (stats already in hero)
-- Merge `FinalCTASection` into `NewsletterSection`
-- Combine `PatientImpactStories` + `TestimonialsSection` into one section
-- Result: ~10 sections with clearer hierarchy
-
-**Files**: `src/pages/Index.tsx`
+### Summary
+Transform the site from an informational health platform into an emotionally engaging, donation-driven charity website through 7 focused changes.
 
 ---
 
-### 2. Replace Fake "People Exploring" Counter
+### 1. Add Persistent "Donate" Button to Header
+**File:** `src/components/Header.tsx`
+- Add a prominent red/coral "Donate" button to the right side of the navigation bar
+- Always visible on desktop; in mobile nav as a highlighted item
+- Links to the donation modal or `/zakat-appeal`
 
-**Problem**: Random 200-300 counter undermines trust.
+### 2. Redesign Hero for Emotional Impact
+**File:** `src/components/HeroSection.tsx`
+- Replace the feature-card grid with a mission-first layout:
+  - Large headline: "1 in 6 people in the UK live with arthritis. We're here for every one of them."
+  - Subtext: Brief mission statement
+  - Two CTAs: "Get Free Support" (primary) + "Donate Now" (secondary, outlined)
+  - Below: a small patient quote with name/location
+- Keep the TrustBadge and stats row but move feature cards into QuickAccessSection
 
-**Fix**: Remove `LiveActivity` component entirely from `HeroSection.tsx`. Replace with a static trust badge like "Trusted by 50,000+ people across the UK" (no fake live counter).
+### 3. Add Campaign Banner Component
+**New file:** `src/components/CampaignBanner.tsx`
+**Edit:** `src/pages/Index.tsx`
+- Dismissible banner below the header with a current campaign (e.g. "Arthritis Awareness Month — Help us reach 1,000 new supporters")
+- Links to a donation or sign-up page
+- Stores dismissal in sessionStorage
 
-**Files**: `src/components/HeroSection.tsx`
+### 4. Add "Your Impact" Donation Calculator
+**New file:** `src/components/landing/DonationImpactSection.tsx`
+**Edit:** `src/pages/Index.tsx`
+- Interactive section: slider or preset amounts (£10, £25, £50, £100)
+- Shows what each amount funds: "£25 = 3 guided physio sessions", "£50 = a month of community support"
+- CTA button to donate that amount
 
----
+### 5. Add Beneficiary Spotlight Section
+**New file:** `src/components/landing/BeneficiarySpotlight.tsx`
+**Edit:** `src/pages/Index.tsx`
+- Carousel of 3-4 representative patient stories with name, age, location, condition, and a short quote
+- Uses stock/illustration images (Unsplash) — not real patient photos
+- "Read their full story" links to Impact Stories page
 
-### 3. Reduce Intrusive Overlays
+### 6. Add "Ways to Help" Page
+**New file:** `src/pages/WaysToHelp.tsx`
+**Edit:** `src/App.tsx` (add route)
+- Cards for: Donate, Volunteer, Fundraise for Us, Corporate Partnerships, Leave a Legacy
+- Each with description and CTA
+- Link from header navigation
 
-**Problem**: DonationNotification, FeedbackPopup, BackToTop, CookieConsent, ChatBot all compete for attention.
-
-**Fix**:
-- Remove `DonationNotification` entirely (fake data, intrusive)
-- Delay `FeedbackPopup` to only show after 3+ page visits (track in sessionStorage)
-- Keep CookieConsent (legally required) and ChatBot but remove BackToTop (scroll-to-top is redundant with browser back-to-top)
-
-**Files**: `src/pages/Index.tsx`, `src/components/FeedbackPopup.tsx`
-
----
-
-### 4. Attach Forum Reply Trigger in Database
-
-**Problem**: The migration file created the trigger, but the DB config reports no triggers exist — need to verify and re-create if missing.
-
-**Fix**: Run a migration to ensure the `on_new_forum_reply` trigger is attached:
-```sql
-CREATE OR REPLACE TRIGGER on_new_forum_reply
-  AFTER INSERT ON public.forum_replies
-  FOR EACH ROW EXECUTE FUNCTION public.handle_new_forum_reply();
-```
-
-**Tool**: Database migration tool
-
----
-
-### 5. Email Queue Cron Job
-
-**Problem**: No cron job to process the email queue automatically.
-
-**Fix**: The `process-email-queue` cron job should already exist from `setup_email_infra`. Verify by querying `cron.job`. If missing, call `email_domain--setup_email_infra` to recreate it.
-
-**Action**: Verify cron job exists via read query; fix if missing.
-
----
-
-### 6. Add Author Attribution to Blog Articles
-
-**Problem**: No author/medical reviewer credentials (E-E-A-T gap for health content).
-
-**Fix**:
-- Add `author` and `reviewedBy` fields to the `BlogArticle` interface in `src/data/blogArticles.ts`
-- Add default author "Living With Arthritis Clinical Team" and reviewer "Dr. Amina Patel, Consultant Rheumatologist"
-- Display author name + credentials and "Medically reviewed by" badge in `BlogPost.tsx`
-- Add `author` to Article JSON-LD structured data
-
-**Files**: `src/data/blogArticles.ts`, `src/pages/BlogPost.tsx`
+### 7. Reframe Stats for Emotional Resonance
+**File:** `src/components/HeroSection.tsx`
+- Change "10,000,000+" → "1 in 6 people" 
+- Change "100+ types" → "Every type of arthritis"
+- Change "50,000+" → "50,000 lives changed"
+- Change "97%" → "97% say we helped"
 
 ---
 
-### 7. Add Publish/Update Dates to Content Pages
+### Technical Details
+- No database changes needed
+- No new dependencies
+- All new components use existing Tailwind design tokens and shadcn/ui primitives
+- Campaign banner uses `sessionStorage` for dismissal state
+- Donation impact calculator reuses existing Stripe donation modal
 
-**Problem**: Some pages lack visible dates.
-
-**Fix**: Add "Last updated" dates to Governance, Finances, Impact Stories, and condition pages using a small `LastUpdated` component.
-
-**Files**: `src/pages/Governance.tsx`, `src/pages/Finances.tsx`, `src/pages/ImpactStories.tsx`, condition pages
-
----
-
-### 8. Reduce AnimatePresence Weight
-
-**Problem**: Framer Motion on every route transition adds JS overhead.
-
-**Fix**: Replace `AnimatePresence` with a lightweight CSS-only transition. Remove `framer-motion` from route transitions entirely — keep it only for in-page animations. Use CSS `@starting-style` or a simple opacity transition wrapper.
-
-**Files**: `src/App.tsx`, `src/components/ui/PageTransition.tsx`
-
----
-
-### 9. Add Responsive Image srcset
-
-**Problem**: No responsive images for blog/content.
-
-**Fix**: Update `OptimizedImage` component to accept `srcset` and `sizes` props and pass them through. Add sensible defaults for blog images. This is incremental — full CDN integration is out of scope but the markup will be ready.
-
-**Files**: `src/components/ui/OptimizedImage.tsx`
-
----
-
-### 10. Tighten CSP Headers
-
-**Problem**: `unsafe-inline` and `unsafe-eval` in script-src.
-
-**Fix**: Remove `'unsafe-eval'` from script-src (not needed — Vite doesn't use eval in production). Keep `'unsafe-inline'` for now as Vite injects inline scripts for module preloading — add a TODO comment noting this should be replaced with nonce-based CSP when the hosting platform supports it.
-
-**Files**: `public/_headers`
-
----
-
-### 11. Add SRI for Stripe Scripts
-
-**Problem**: No Subresource Integrity on external Stripe script.
-
-**Fix**: Stripe.js explicitly does not support SRI (they update the script frequently). Add a comment in `_headers` documenting this. The CSP frame-src already restricts Stripe origins.
-
-**Action**: Add documentation comment only — no code change needed.
-
----
-
-### 12. Add Server-Side Admin Route Protection
-
-**Problem**: Admin routes are client-side protected only.
-
-**Fix**: The admin pages already check `useAdmin()` which queries `user_roles` with RLS. The actual data is protected by RLS policies (admin-only SELECT/UPDATE). Add an edge function middleware pattern: create a `verify-admin` utility used by existing admin edge functions. For the client, the current pattern is acceptable since all data access is RLS-protected.
-
-**Action**: Add a reusable admin check to edge functions that handle admin data. Add a redirect-to-auth guard in AdminDashboard if not authenticated.
-
-**Files**: `src/pages/AdminDashboard.tsx`, `src/pages/AdminAppointments.tsx`
-
----
-
-### 13. Remove sw.js Cache Header
-
-**Problem**: Cache header defined for `/sw.js` but no service worker file exists.
-
-**Fix**: Remove the `/sw.js` cache header block from `public/_headers`.
-
-**Files**: `public/_headers`
-
----
-
-### Summary of File Changes
-
-| File | Change |
+### Files Changed/Created
+| File | Action |
 |------|--------|
-| `src/pages/Index.tsx` | Remove 4-5 sections, simplify layout |
-| `src/components/HeroSection.tsx` | Remove fake LiveActivity counter |
-| `src/components/DonationNotification.tsx` | Delete file |
-| `src/components/FeedbackPopup.tsx` | Add visit-count gate |
-| `src/data/blogArticles.ts` | Add author/reviewer fields |
-| `src/pages/BlogPost.tsx` | Display author attribution + JSON-LD |
-| `src/App.tsx` | Replace AnimatePresence with CSS transition |
-| `src/components/ui/PageTransition.tsx` | CSS-only transition |
-| `src/components/ui/OptimizedImage.tsx` | Add srcset/sizes support |
-| `public/_headers` | Tighten CSP, remove sw.js block |
-| Governance/Finances/Impact pages | Add "Last updated" dates |
-| `src/pages/AdminDashboard.tsx` | Add auth redirect guard |
-| Database migration | Re-ensure forum reply trigger |
+| `src/components/Header.tsx` | Add Donate button |
+| `src/components/HeroSection.tsx` | Redesign for mission-first messaging + reframe stats |
+| `src/components/CampaignBanner.tsx` | New — dismissible campaign strip |
+| `src/components/landing/DonationImpactSection.tsx` | New — interactive impact calculator |
+| `src/components/landing/BeneficiarySpotlight.tsx` | New — patient story carousel |
+| `src/pages/WaysToHelp.tsx` | New — engagement pathways page |
+| `src/pages/Index.tsx` | Add campaign banner, impact section, beneficiary spotlight |
+| `src/App.tsx` | Add `/ways-to-help` route |
 
