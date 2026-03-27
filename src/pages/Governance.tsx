@@ -189,6 +189,11 @@ Regulated by the Charity Commission for England and Wales.
         title={<>Our <span className="text-primary">Governance</span> & Constitution</>}
         subtitle="Full transparency on how Living With Arthritis is governed, our board of trustees, and our founding constitution. Regulated by the Charity Commission for England and Wales."
       />
+      <div className="container mx-auto px-6 md:px-10 max-w-5xl -mt-4 mb-6">
+        <p className="text-xs text-muted-foreground flex items-center gap-1.5">
+          <Clock className="w-3 h-3" /> Last updated: March 2026
+        </p>
+      </div>
 
       <main id="main-content">
         {/* Registered Details */}
