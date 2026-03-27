@@ -72,13 +72,14 @@ const BlogPost = () => {
           "description": article.metaDescription,
           "datePublished": article.date,
           "dateModified": article.date,
-          "author": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk" },
+          "author": { "@type": "Organization", "name": article.author || "Living With Arthritis Clinical Team", "url": "https://livingwitharthritis.org.uk" },
           "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk", "logo": { "@type": "ImageObject", "url": "https://livingwitharthritis.org.uk/favicon.ico" } },
           "inLanguage": "en-GB",
           "mainEntityOfPage": `https://livingwitharthritis.org.uk/blog/${slug}`,
           "about": { "@type": "MedicalCondition", "name": "Arthritis", "alternateName": ["Osteoarthritis", "Rheumatoid Arthritis"] },
           "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } },
           "lastReviewed": article.date,
+          "reviewedBy": { "@type": "Person", "name": article.reviewedBy || "Dr. Amina Patel", "jobTitle": article.reviewerCredentials || "Consultant Rheumatologist" },
           "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Patient" }
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
@@ -89,7 +90,7 @@ const BlogPost = () => {
           "image": "https://livingwitharthritis.org.uk/images/og-blog-default.jpg",
           "datePublished": article.date,
           "dateModified": article.date,
-          "author": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk" },
+          "author": { "@type": "Organization", "name": article.author || "Living With Arthritis Clinical Team", "url": "https://livingwitharthritis.org.uk" },
           "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk", "logo": { "@type": "ImageObject", "url": "https://livingwitharthritis.org.uk/favicon.ico", "width": 512, "height": 512 } },
           "mainEntityOfPage": { "@type": "WebPage", "@id": `https://livingwitharthritis.org.uk/blog/${slug}` },
           "wordCount": article.content.replace(/<[^>]*>/g, " ").trim().split(/\s+/).length,
