@@ -57,7 +57,6 @@ const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSect
 const ImpactMetricsSection = lazy(() => import("@/components/landing/ImpactMetricsSection"));
 const DonationImpactSection = lazy(() => import("@/components/landing/DonationImpactSection"));
 const BeneficiarySpotlight = lazy(() => import("@/components/landing/BeneficiarySpotlight"));
-const ImpactMetricsSection = lazy(() => import("@/components/landing/ImpactMetricsSection"));
 
 // Tab sections — loaded on demand
 const NutritionArticleSection = lazy(() => import("@/components/NutritionArticleSection"));
