@@ -250,10 +250,6 @@ export default function Index() {
             </ViewportSection>
 
             <ViewportSection minHeight="300px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}><PatientImpactStories /></Suspense>
-            </ViewportSection>
-
-            <ViewportSection minHeight="300px" rootMargin="300px">
               <Suspense fallback={<SectionLoader />}><ImpactMetricsSection /></Suspense>
             </ViewportSection>
 
