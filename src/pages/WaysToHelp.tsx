@@ -1,9 +1,14 @@
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
-import { lazy, Suspense } from "react";
-import { Heart, Users, Trophy, Building2, ScrollText, ArrowRight, HandHeart } from "lucide-react";
+import { lazy, Suspense, useState } from "react";
+import { Heart, Users, Trophy, Building2, ScrollText, ArrowRight, HandHeart, Send, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useNavigate } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 import PageHero from "@/components/ui/PageHero";
 
 const Footer = lazy(() => import("@/components/Footer"));
@@ -22,9 +27,10 @@ const WAYS = [
     icon: Users,
     title: "Volunteer With Us",
     description: "Share your time and skills to support our community. From peer mentoring to event support, there are many ways to get involved and make an impact.",
-    cta: "Get Involved",
-    href: "/community",
+    cta: "Sign Up Below",
+    href: "#volunteer-form",
     color: "bg-emerald-500/10 text-emerald-600",
+    isAnchor: true,
   },
   {
     icon: Trophy,
@@ -52,8 +58,56 @@ const WAYS = [
   },
 ];
 
+const INTEREST_OPTIONS = [
+  "Peer Mentoring",
+  "Event Support",
+  "Community Outreach",
+  "Content & Blog Writing",
+  "Social Media",
+  "Fundraising",
+  "Administration",
+  "Other",
+];
+
 export default function WaysToHelp() {
   const navigate = useNavigate();
+  const [formData, setFormData] = useState({ name: "", email: "", area_of_interest: "", message: "" });
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!formData.name.trim() || !formData.email.trim() || !formData.area_of_interest) {
+      toast.error("Please fill in all required fields.");
+      return;
+    }
+
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(formData.email.trim())) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+
+    setSubmitting(true);
+    try {
+      const { error } = await supabase.from("volunteer_signups" as any).insert({
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        area_of_interest: formData.area_of_interest,
+        message: formData.message.trim() || null,
+      } as any);
+
+      if (error) throw error;
+
+      setSubmitted(true);
+      toast.success("Thank you for volunteering! We'll be in touch soon.");
+    } catch {
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <>
@@ -91,7 +145,13 @@ export default function WaysToHelp() {
                         <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">{way.title}</h3>
                         <p className="text-sm text-muted-foreground leading-relaxed mb-4">{way.description}</p>
                         <Button
-                          onClick={() => navigate(way.href)}
+                          onClick={() => {
+                            if ((way as any).isAnchor) {
+                              document.getElementById("volunteer-form")?.scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              navigate(way.href);
+                            }
+                          }}
                           variant={way.highlight ? "default" : "outline"}
                           className={`rounded-full text-sm font-semibold group ${
                             way.highlight ? "bg-[hsl(0,72%,51%)] hover:bg-[hsl(0,72%,45%)] text-white" : ""
@@ -105,6 +165,126 @@ export default function WaysToHelp() {
                   );
                 })}
               </div>
+            </div>
+          </section>
+
+          {/* Volunteer Sign-Up Form */}
+          <section id="volunteer-form" className="scroll-mt-24 py-16 sm:py-20 bg-muted/30 border-t border-border/20">
+            <div className="container mx-auto px-4 sm:px-6 max-w-2xl">
+              <div className="text-center mb-10">
+                <div className="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center mx-auto mb-4">
+                  <HandHeart className="w-7 h-7 text-emerald-600" />
+                </div>
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground tracking-tight">
+                  Volunteer Sign-Up
+                </h2>
+                <p className="text-muted-foreground mt-3 text-sm sm:text-base max-w-md mx-auto">
+                  Ready to make a difference? Tell us about yourself and how you'd like to help.
+                </p>
+              </div>
+
+              {submitted ? (
+                <div className="bg-card border border-emerald-200 dark:border-emerald-800 rounded-3xl p-8 sm:p-10 text-center">
+                  <div className="w-16 h-16 rounded-full bg-emerald-500/10 flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle2 className="w-8 h-8 text-emerald-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground mb-2">Thank you for signing up!</h3>
+                  <p className="text-sm text-muted-foreground">
+                    We've received your volunteer application. A member of our team will be in touch within 5 working days to discuss next steps.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="bg-card border border-border/30 rounded-3xl p-6 sm:p-8 shadow-lg space-y-5">
+                  <div>
+                    <label htmlFor="vol-name" className="block text-sm font-semibold text-foreground mb-1.5">
+                      Full Name <span className="text-destructive">*</span>
+                    </label>
+                    <Input
+                      id="vol-name"
+                      placeholder="e.g. Sarah Johnson"
+                      value={formData.name}
+                      onChange={(e) => setFormData((p) => ({ ...p, name: e.target.value }))}
+                      maxLength={100}
+                      required
+                      className="rounded-xl h-11"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="vol-email" className="block text-sm font-semibold text-foreground mb-1.5">
+                      Email Address <span className="text-destructive">*</span>
+                    </label>
+                    <Input
+                      id="vol-email"
+                      type="email"
+                      placeholder="sarah@example.co.uk"
+                      value={formData.email}
+                      onChange={(e) => setFormData((p) => ({ ...p, email: e.target.value }))}
+                      maxLength={255}
+                      required
+                      className="rounded-xl h-11"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="vol-interest" className="block text-sm font-semibold text-foreground mb-1.5">
+                      Area of Interest <span className="text-destructive">*</span>
+                    </label>
+                    <Select
+                      value={formData.area_of_interest}
+                      onValueChange={(v) => setFormData((p) => ({ ...p, area_of_interest: v }))}
+                    >
+                      <SelectTrigger id="vol-interest" className="rounded-xl h-11">
+                        <SelectValue placeholder="Select an area..." />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {INTEREST_OPTIONS.map((opt) => (
+                          <SelectItem key={opt} value={opt}>{opt}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="vol-message" className="block text-sm font-semibold text-foreground mb-1.5">
+                      Tell us about yourself <span className="text-muted-foreground font-normal">(optional)</span>
+                    </label>
+                    <Textarea
+                      id="vol-message"
+                      placeholder="Share any relevant experience, availability, or why you'd like to volunteer..."
+                      value={formData.message}
+                      onChange={(e) => setFormData((p) => ({ ...p, message: e.target.value }))}
+                      maxLength={2000}
+                      rows={4}
+                      className="rounded-xl resize-none"
+                    />
+                  </div>
+
+                  <Button
+                    type="submit"
+                    disabled={submitting}
+                    className="w-full h-12 rounded-full text-sm font-bold bg-emerald-600 hover:bg-emerald-700 text-white"
+                  >
+                    {submitting ? (
+                      <div className="flex items-center gap-2">
+                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        Submitting...
+                      </div>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4 mr-2" />
+                        Submit Volunteer Application
+                      </>
+                    )}
+                  </Button>
+
+                  <p className="text-[11px] text-muted-foreground text-center">
+                    By submitting, you agree to our{" "}
+                    <a href="/privacy" className="underline hover:text-foreground">Privacy Policy</a>.
+                    We'll only use your details to contact you about volunteering.
+                  </p>
+                </form>
+              )}
             </div>
           </section>
         </main>
