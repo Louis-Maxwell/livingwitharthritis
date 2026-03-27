@@ -32,6 +32,8 @@ const OptimizedImage = memo(({
   height,
   priority = false,
   webpSrc,
+  srcSet,
+  sizes,
 }: OptimizedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(priority);
