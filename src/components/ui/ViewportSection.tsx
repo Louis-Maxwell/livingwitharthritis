@@ -36,18 +36,22 @@ const ViewportSection = memo(({ children, rootMargin = "200px", minHeight = "200
     );
     observer.observe(el);
 
-    // Also re-check after a short delay to catch cascading layout changes
-    const timer = setTimeout(() => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight + 1000) {
-        setVisible(true);
-        observer.disconnect();
-      }
-    }, 500);
+    // Re-check periodically to catch cascading layout changes
+    // where earlier sections expand and push later ones into range
+    const checks = [500, 1500, 3000, 6000];
+    const timers = checks.map((delay) =>
+      setTimeout(() => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight + 2000) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      }, delay)
+    );
 
     return () => {
       observer.disconnect();
-      clearTimeout(timer);
+      timers.forEach(clearTimeout);
     };
   }, [rootMargin]);
 
