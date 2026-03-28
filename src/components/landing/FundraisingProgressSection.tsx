@@ -1,6 +1,6 @@
 import { memo, useState, useCallback, useEffect, useRef, lazy, Suspense } from "react";
-import { motion, useInView } from "framer-motion";
-import { Heart, Loader2, Shield, Lock, Users, CheckCircle, Building2, TrendingUp, Flame } from "lucide-react";
+import { useInView } from "framer-motion";
+import { Heart, Loader2, Shield, Lock, Users, CheckCircle, Building2, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
