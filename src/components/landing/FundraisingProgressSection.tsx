@@ -1,6 +1,5 @@
 import { memo, useState, useCallback, useEffect, useRef, lazy, Suspense } from "react";
-import { motion, useInView } from "framer-motion";
-import { Heart, Loader2, Shield, Lock, Users, CheckCircle, Building2, TrendingUp, Flame } from "lucide-react";
+import { Heart, Loader2, Shield, Lock, Users, CheckCircle, Building2, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
@@ -18,11 +17,18 @@ const MILESTONES = [
   { at: 40000, label: "£40K" },
 ];
 
-/** Thermometer bulb + tube SVG */
-const Thermometer = memo(({ percent, raised }: { percent: number; raised: number }) => {
+/** Thermometer bulb + tube — CSS-only animation */
+const Thermometer = memo(({ percent }: { percent: number }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.4 });
   const [animatedPercent, setAnimatedPercent] = useState(0);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    if (!ref.current) return;
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setInView(true); obs.disconnect(); } }, { threshold: 0.4 });
+    obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!inView) return;
@@ -39,47 +45,27 @@ const Thermometer = memo(({ percent, raised }: { percent: number; raised: number
 
   return (
     <div ref={ref} className="relative flex flex-col items-center" style={{ height: 280 }}>
-      {/* Tube */}
       <div className="relative w-8 flex-1 rounded-t-full overflow-hidden bg-muted/40 border border-border/30">
-        {/* Fill */}
-        <motion.div
-          className="absolute bottom-0 left-0 right-0 rounded-t-full"
+        <div
+          className="absolute bottom-0 left-0 right-0 rounded-t-full transition-all duration-[2000ms] ease-out"
           style={{
             height: `${animatedPercent}%`,
             background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.7))",
           }}
         />
-        {/* Milestone ticks */}
         {MILESTONES.map((m) => {
           const pos = (m.at / GOAL) * 100;
           return (
-            <div
-              key={m.at}
-              className="absolute left-full ml-2 flex items-center gap-1"
-              style={{ bottom: `${pos}%`, transform: "translateY(50%)" }}
-            >
+            <div key={m.at} className="absolute left-full ml-2 flex items-center gap-1" style={{ bottom: `${pos}%`, transform: "translateY(50%)" }}>
               <div className="w-2 h-px bg-border" />
               <span className="text-[9px] text-muted-foreground font-medium whitespace-nowrap">{m.label}</span>
             </div>
           );
         })}
-        {/* Glow line */}
-        <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 rounded-full opacity-60 blur-[2px]"
-          style={{
-            height: `${animatedPercent}%`,
-            background: "hsl(var(--primary))",
-          }}
-        />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 rounded-full opacity-60 blur-[2px]" style={{ height: `${animatedPercent}%`, background: "hsl(var(--primary))" }} />
       </div>
-      {/* Bulb */}
       <div className="relative w-16 h-16 rounded-full border-2 border-border/30 bg-muted/40 flex items-center justify-center -mt-1 z-10">
-        <motion.div
-          className="absolute inset-1 rounded-full"
-          style={{ background: "hsl(var(--primary))" }}
-          animate={inView ? { scale: [1, 1.08, 1] } : {}}
-          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-        />
+        <div className="absolute inset-1 rounded-full animate-pulse" style={{ background: "hsl(var(--primary))" }} />
         <Heart className="w-5 h-5 text-primary-foreground relative z-10" fill="currentColor" />
       </div>
     </div>
@@ -88,7 +74,6 @@ const Thermometer = memo(({ percent, raised }: { percent: number; raised: number
 Thermometer.displayName = "Thermometer";
 
 const FundraisingProgressSection = memo(() => {
-  const [isLoading, setIsLoading] = useState(false);
   const [totalRaised, setTotalRaised] = useState(0);
   const [donorCount, setDonorCount] = useState(0);
   const [selectedAmount, setSelectedAmount] = useState<number>(25);
@@ -154,18 +139,11 @@ const FundraisingProgressSection = memo(() => {
 
   return (
     <section id="involved" className="py-16 lg:py-24 bg-tint-rose section-divider relative overflow-hidden">
-      {/* Decorative orbs */}
       <div className="gradient-orb w-[600px] h-[600px] bg-primary top-[-200px] right-[-200px]" />
       <div className="gradient-orb w-[400px] h-[400px] bg-secondary bottom-[-100px] left-[-100px]" />
 
       <div className="container mx-auto px-6 md:px-10 max-w-5xl relative">
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center mb-10"
-        >
+        <div className="text-center mb-10">
           <span className="section-label text-primary mb-2 block">Fundraising</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-foreground mb-3 tracking-tight">
             Help us reach <span className="text-primary italic">our goal</span>
@@ -173,34 +151,22 @@ const FundraisingProgressSection = memo(() => {
           <p className="text-muted-foreground max-w-lg mx-auto leading-relaxed">
             Every pound brings us closer to free physiotherapy, cutting-edge research, and life-changing support for thousands.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid lg:grid-cols-[auto_1fr] gap-10 lg:gap-14 items-start">
           {/* Thermometer column */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            className="hidden lg:flex flex-col items-center gap-4"
-          >
-            <Thermometer percent={progressPercent} raised={totalRaised} />
+          <div className="hidden lg:flex flex-col items-center gap-4">
+            <Thermometer percent={progressPercent} />
             <div className="text-center">
               <div className="text-2xl font-display font-bold text-foreground">
                 <AnimatedCounter target={totalRaised} prefix="£" compact duration={2200} className="text-primary" />
               </div>
               <p className="text-xs text-muted-foreground">of {formattedGoal} goal</p>
             </div>
-          </motion.div>
+          </div>
 
           {/* Main card */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="premium-card p-8 lg:p-12"
-          >
+          <div className="premium-card p-8 lg:p-12">
             {/* Mobile progress bar */}
             <div className="lg:hidden mb-8">
               <div className="flex justify-between text-sm mb-2">
@@ -211,49 +177,29 @@ const FundraisingProgressSection = memo(() => {
                 <span className="text-muted-foreground">{formattedGoal} goal</span>
               </div>
               <div className="relative h-4 rounded-full bg-muted/50 overflow-hidden border border-border/20">
-                <motion.div
-                  className="absolute inset-y-0 left-0 rounded-full"
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${progressPercent}%` }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 2, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
-                  style={{ background: "linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary) / 0.75))" }}
+                <div
+                  className="absolute inset-y-0 left-0 rounded-full transition-all duration-[2000ms] ease-out"
+                  style={{
+                    width: `${progressPercent}%`,
+                    background: "linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary) / 0.75))",
+                  }}
                 />
-                {progressPercent > 5 && (
-                  <motion.div
-                    className="absolute right-2 top-1/2 -translate-y-1/2 text-[9px] font-bold text-primary-foreground"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 2 }}
-                  >
-                    {Math.round(progressPercent)}%
-                  </motion.div>
-                )}
               </div>
             </div>
 
-            {/* Stats row */}
-            <div className="grid grid-cols-3 gap-4 mb-8">
+            {/* Stats row — real data only */}
+            <div className="grid grid-cols-2 gap-4 mb-8">
               {[
                 { icon: Users, label: "Donors", value: donorCount, suffix: "" },
                 { icon: TrendingUp, label: "Progress", value: Math.round(progressPercent), suffix: "%" },
-                { icon: Flame, label: "Streak", value: 12, suffix: " days" },
-              ].map((stat, i) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 + i * 0.1 }}
-                  className="text-center p-3 rounded-xl bg-accent/40 border border-border/20"
-                >
+              ].map((stat) => (
+                <div key={stat.label} className="text-center p-3 rounded-xl bg-accent/40 border border-border/20">
                   <stat.icon className="w-4 h-4 mx-auto mb-1 text-primary/60" />
                   <div className="text-lg font-display font-bold text-foreground">
                     <AnimatedCounter target={stat.value} suffix={stat.suffix} duration={1800} />
                   </div>
                   <p className="text-[10px] text-muted-foreground uppercase tracking-wider">{stat.label}</p>
-                </motion.div>
+                </div>
               ))}
             </div>
 
@@ -298,13 +244,8 @@ const FundraisingProgressSection = memo(() => {
             <Button
               className="w-full rounded-full btn-gold h-14 text-base font-semibold mb-6 shadow-lg shadow-primary/15"
               onClick={handleDonate}
-              disabled={isLoading}
             >
-              {isLoading ? (
-                <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> Processing…</>
-              ) : (
-                <><Heart className="w-5 h-5 mr-2" /> Donate £{getDonationAmount() || "..."}</>
-              )}
+              <Heart className="w-5 h-5 mr-2" /> Donate £{getDonationAmount() || "..."}
             </Button>
 
             {/* Trust signals */}
@@ -333,7 +274,7 @@ const FundraisingProgressSection = memo(() => {
             >
               <Building2 className="w-3.5 h-3.5" /> Corporate & matched giving →
             </button>
-          </motion.div>
+          </div>
         </div>
       </div>
 

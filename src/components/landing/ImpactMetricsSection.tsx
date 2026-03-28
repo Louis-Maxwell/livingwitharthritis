@@ -1,5 +1,4 @@
 import { memo } from "react";
-import { motion } from "framer-motion";
 import { Download, Users, BookOpen, MessageCircle, Heart, TrendingUp, Globe, ShieldCheck } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
@@ -21,7 +20,7 @@ const ImpactMetricsSection = memo(() => (
     <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[160px] pointer-events-none" />
 
     <div className="container mx-auto px-6 md:px-10 max-w-7xl relative">
-      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-20">
+      <div className="text-center mb-20">
         <span className="section-label text-primary mb-5 block">Our Impact in Numbers</span>
         <h2 id="impact-heading" className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-foreground tracking-tight leading-[1.06]">
           Measurable impact, <span className="text-primary italic">transparent results</span>
@@ -32,41 +31,39 @@ const ImpactMetricsSection = memo(() => (
         <div className="luxury-divider mt-8">
           <div className="w-2 h-2 rounded-full bg-primary/30" />
         </div>
-      </motion.div>
+      </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        {metrics.map((m, i) => {
+        {metrics.map((m) => {
           const Icon = m.icon;
           return (
-            <motion.div key={m.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
-              <Card className="h-full border border-border/30 hover:border-primary/15 transition-all duration-400 hover:shadow-large hover:-translate-y-1 group rounded-2xl">
-                <CardContent className="p-6">
-                  <div className={`w-12 h-12 rounded-xl ${m.color} flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300`}>
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <p className="text-3xl font-display font-bold text-foreground tracking-tight mb-1">
-                    <AnimatedCounter
-                      target={m.target}
-                      suffix={m.suffix}
-                      compact={m.compact}
-                      display={"display" in m ? (m as any).display : undefined}
-                    />
-                  </p>
-                  <p className="text-sm font-semibold text-foreground">{m.label}</p>
-                  <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">{m.detail}</p>
-                </CardContent>
-              </Card>
-            </motion.div>
+            <Card key={m.label} className="h-full border border-border/30 hover:border-primary/15 transition-all duration-400 hover:shadow-large hover:-translate-y-1 group rounded-2xl">
+              <CardContent className="p-6">
+                <div className={`w-12 h-12 rounded-xl ${m.color} flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300`}>
+                  <Icon className="w-5 h-5" />
+                </div>
+                <p className="text-3xl font-display font-bold text-foreground tracking-tight mb-1">
+                  <AnimatedCounter
+                    target={m.target}
+                    suffix={m.suffix}
+                    compact={m.compact}
+                    display={"display" in m ? (m as any).display : undefined}
+                  />
+                </p>
+                <p className="text-sm font-semibold text-foreground">{m.label}</p>
+                <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">{m.detail}</p>
+              </CardContent>
+            </Card>
           );
         })}
       </div>
 
-      <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5 }} className="mt-14 text-center">
+      <div className="mt-14 text-center">
         <p className="text-xs text-muted-foreground/60 max-w-xl mx-auto leading-relaxed">
           All impact figures are self-reported and based on platform analytics as of March 2026.
-          Financial transparency data available in our annual report. Registered with the Charity Commission (pending).
+          Financial transparency data available in our annual report.
         </p>
-      </motion.div>
+      </div>
     </div>
   </section>
 ));
