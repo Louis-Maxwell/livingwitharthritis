@@ -249,25 +249,15 @@ export default function Index() {
 
             <Suspense fallback={<SectionLoader />}><BeneficiarySpotlight /></Suspense>
 
-            <ViewportSection minHeight="300px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}><DonationImpactSection /></Suspense>
-            </ViewportSection>
+            <Suspense fallback={<SectionLoader />}><DonationImpactSection /></Suspense>
 
-            <ViewportSection minHeight="300px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}><FAQSection /></Suspense>
-            </ViewportSection>
+            <Suspense fallback={<SectionLoader />}><FAQSection /></Suspense>
 
-            <ViewportSection minHeight="300px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}><FundraisingProgressSection /></Suspense>
-            </ViewportSection>
+            <Suspense fallback={<SectionLoader />}><FundraisingProgressSection /></Suspense>
 
-            <ViewportSection minHeight="300px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}><ImpactMetricsSection /></Suspense>
-            </ViewportSection>
+            <Suspense fallback={<SectionLoader />}><ImpactMetricsSection /></Suspense>
 
-            <ViewportSection minHeight="200px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}><NewsletterSection /></Suspense>
-            </ViewportSection>
+            <Suspense fallback={<SectionLoader />}><NewsletterSection /></Suspense>
 
             <ViewportSection minHeight="300px" rootMargin="300px">
               <Suspense fallback={<SectionLoader />}><GetInTouchSection /></Suspense>
