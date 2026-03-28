@@ -41,9 +41,9 @@ const Thermometer = memo(({ percent, raised }: { percent: number; raised: number
     <div ref={ref} className="relative flex flex-col items-center" style={{ height: 280 }}>
       {/* Tube */}
       <div className="relative w-8 flex-1 rounded-t-full overflow-hidden bg-muted/40 border border-border/30">
-        {/* Fill */}
-        <motion.div
-          className="absolute bottom-0 left-0 right-0 rounded-t-full"
+      {/* Fill */}
+        <div
+          className="absolute bottom-0 left-0 right-0 rounded-t-full transition-all duration-[2000ms] ease-out"
           style={{
             height: `${animatedPercent}%`,
             background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.7))",
