@@ -51,7 +51,7 @@ const ViewportSection = memo(({ children, rootMargin = "200px", minHeight = "200
 
     return () => {
       observer.disconnect();
-      clearTimeout(timer);
+      timers.forEach(clearTimeout);
     };
   }, [rootMargin]);
 
