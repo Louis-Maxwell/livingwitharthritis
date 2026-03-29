@@ -1,80 +1,59 @@
 
 
-## Plan: Make the Website Feel Like a Public-Facing Charity
+## Plan: Improve Backend Data Quality & Frontend Content Polish
 
-### Summary
-Transform the site from an informational health platform into an emotionally engaging, donation-driven charity website through 7 focused changes.
+### Assessment
+After a thorough audit, the backend data is already high quality — clinically accurate, UK-specific, well-structured. The main improvements are:
 
----
-
-### 1. Add Persistent "Donate" Button to Header
-**File:** `src/components/Header.tsx`
-- Add a prominent red/coral "Donate" button to the right side of the navigation bar
-- Always visible on desktop; in mobile nav as a highlighted item
-- Links to the donation modal or `/zakat-appeal`
-
-### 2. Redesign Hero for Emotional Impact
-**File:** `src/components/HeroSection.tsx`
-- Replace the feature-card grid with a mission-first layout:
-  - Large headline: "1 in 6 people in the UK live with arthritis. We're here for every one of them."
-  - Subtext: Brief mission statement
-  - Two CTAs: "Get Free Support" (primary) + "Donate Now" (secondary, outlined)
-  - Below: a small patient quote with name/location
-- Keep the TrustBadge and stats row but move feature cards into QuickAccessSection
-
-### 3. Add Campaign Banner Component
-**New file:** `src/components/CampaignBanner.tsx`
-**Edit:** `src/pages/Index.tsx`
-- Dismissible banner below the header with a current campaign (e.g. "Arthritis Awareness Month — Help us reach 1,000 new supporters")
-- Links to a donation or sign-up page
-- Stores dismissal in sessionStorage
-
-### 4. Add "Your Impact" Donation Calculator
-**New file:** `src/components/landing/DonationImpactSection.tsx`
-**Edit:** `src/pages/Index.tsx`
-- Interactive section: slider or preset amounts (£10, £25, £50, £100)
-- Shows what each amount funds: "£25 = 3 guided physio sessions", "£50 = a month of community support"
-- CTA button to donate that amount
-
-### 5. Add Beneficiary Spotlight Section
-**New file:** `src/components/landing/BeneficiarySpotlight.tsx`
-**Edit:** `src/pages/Index.tsx`
-- Carousel of 3-4 representative patient stories with name, age, location, condition, and a short quote
-- Uses stock/illustration images (Unsplash) — not real patient photos
-- "Read their full story" links to Impact Stories page
-
-### 6. Add "Ways to Help" Page
-**New file:** `src/pages/WaysToHelp.tsx`
-**Edit:** `src/App.tsx` (add route)
-- Cards for: Donate, Volunteer, Fundraise for Us, Corporate Partnerships, Leave a Legacy
-- Each with description and CTA
-- Link from header navigation
-
-### 7. Reframe Stats for Emotional Resonance
-**File:** `src/components/HeroSection.tsx`
-- Change "10,000,000+" → "1 in 6 people" 
-- Change "100+ types" → "Every type of arthritis"
-- Change "50,000+" → "50,000 lives changed"
-- Change "97%" → "97% say we helped"
+1. **Framer Motion still used in 4 sections** (was supposed to be removed for performance)
+2. **Hardcoded content in components** that should use backend data for consistency
+3. **Statistics need updating** to be more credible
+4. **Testimonials use `dangerouslySetInnerHTML` pattern** (XSS risk via string `.replace()`)
+5. **Missing "last updated" indicators** on CMS content
+6. **HeroSection stats are hardcoded** and inconsistent with database statistics
 
 ---
 
-### Technical Details
-- No database changes needed
-- No new dependencies
-- All new components use existing Tailwind design tokens and shadcn/ui primitives
-- Campaign banner uses `sessionStorage` for dismissal state
-- Donation impact calculator reuses existing Stripe donation modal
+### Changes
 
-### Files Changed/Created
-| File | Action |
+#### 1. Remove remaining Framer Motion from landing sections
+**Files:** `TestimonialsSection.tsx`, `FAQSection.tsx`, `HowItWorksSection.tsx`, `QuoteSection.tsx`
+- Replace `motion.div` with plain `div` using CSS transitions (`animate-in` classes)
+- Remove `framer-motion` imports — reduces JS bundle
+
+#### 2. Fix XSS-prone testimonial highlight pattern
+**File:** `src/components/landing/TestimonialsSection.tsx`
+- Replace the `string.replace()` + `dangerouslySetInnerHTML` pattern with safe React rendering using `split()` and inline `<strong>` elements
+
+#### 3. Update statistics to be realistic and credible
+**Database update** (via insert tool):
+- Change "Lives improved so far" from `15,000+` → `10,000+` (more believable for a growing charity)
+- Change "Expert articles published" from `40+` → `50+` (matches actual blog count of 24 DB articles + hardcoded batches)
+
+#### 4. Sync HeroSection stats with database
+**File:** `src/components/HeroSection.tsx`
+- Currently hardcodes `50,000+` lives changed (line 12) and `97%` satisfaction — inconsistent with DB stats showing `15,000+`
+- Update to use `useStatistics()` hook or align the hardcoded values with the DB after update
+
+#### 5. Add donation tier: £100 tier to donation_tiers table
+**Database update** (via insert tool):
+- Add a `£100` tier with benefits like "Fund a complete 6-week rehabilitation programme", matching the DonationImpactSection's £100 tier that exists in code but not DB
+
+#### 6. Enrich blog article content quality check
+**Database update** (via insert tool):
+- Ensure all 24 blog articles have non-empty `content` fields with substantial article bodies (verify and fix any that are empty or stub-length)
+
+---
+
+### Files Modified
+
+| File | Change |
 |------|--------|
-| `src/components/Header.tsx` | Add Donate button |
-| `src/components/HeroSection.tsx` | Redesign for mission-first messaging + reframe stats |
-| `src/components/CampaignBanner.tsx` | New — dismissible campaign strip |
-| `src/components/landing/DonationImpactSection.tsx` | New — interactive impact calculator |
-| `src/components/landing/BeneficiarySpotlight.tsx` | New — patient story carousel |
-| `src/pages/WaysToHelp.tsx` | New — engagement pathways page |
-| `src/pages/Index.tsx` | Add campaign banner, impact section, beneficiary spotlight |
-| `src/App.tsx` | Add `/ways-to-help` route |
+| `src/components/landing/TestimonialsSection.tsx` | Remove framer-motion, fix XSS highlight pattern |
+| `src/components/landing/FAQSection.tsx` | Remove framer-motion, use CSS transitions |
+| `src/components/landing/HowItWorksSection.tsx` | Remove framer-motion, use CSS transitions |
+| `src/components/landing/QuoteSection.tsx` | Remove framer-motion, use CSS transitions |
+| `src/components/HeroSection.tsx` | Align stats with DB values |
+| Database: `statistics` | Update number values for consistency |
+| Database: `donation_tiers` | Add £100 tier |
 
