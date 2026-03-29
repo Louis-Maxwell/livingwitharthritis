@@ -9,7 +9,7 @@ import "./HeroSection.css";
 const STATS = [
   { target: 1, suffix: " in 6", label: "People in the UK affected", compact: false },
   { target: 100, suffix: "+", label: "Every type of arthritis covered", compact: false },
-  { target: 50000, suffix: "+", label: "Lives changed so far", compact: true },
+  { target: 10000, suffix: "+", label: "Lives improved so far", compact: true },
   { target: 97, suffix: "%", label: "Say we helped them", compact: false },
 ] as const;
 
