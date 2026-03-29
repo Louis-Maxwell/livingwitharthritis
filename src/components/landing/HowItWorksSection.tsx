@@ -1,5 +1,4 @@
 import { memo } from "react";
-import { motion } from "framer-motion";
 import { Search, UserCheck, Dumbbell, Heart, ArrowRight } from "lucide-react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 
@@ -24,7 +23,7 @@ const HowItWorksSection = memo(() => (
     <div className="absolute bottom-20 left-10 w-32 h-32 rounded-full bg-emerald/10 blur-2xl pointer-events-none" />
 
     <div className="container mx-auto px-6 md:px-10 max-w-6xl relative">
-      <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-20">
+      <div className="text-center mb-20 animate-in fade-in slide-in-from-bottom-6 duration-700">
         <span className="section-label text-primary mb-5 block">How It Works</span>
         <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6 leading-[1.08] tracking-tight">
           Your path to better living in{" "}
@@ -35,13 +34,13 @@ const HowItWorksSection = memo(() => (
           Most patients report significant improvement within 8–12 weeks.
         </p>
         <div className="w-16 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mt-8" />
-      </motion.div>
+      </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
         {steps.map((step, i) => {
           const Icon = step.icon;
           return (
-            <motion.div key={i} initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.6 }} className="text-center relative group">
+            <div key={i} className="text-center relative group animate-in fade-in slide-in-from-bottom-4 duration-600" style={{ animationDelay: `${i * 100}ms` }}>
               <div className={`${step.color} w-[72px] h-[72px] rounded-2xl flex items-center justify-center mx-auto mb-7 relative group-hover:shadow-medium transition-all duration-500`}>
                 <Icon className="w-7 h-7" />
                 <span className={`absolute -top-2.5 -right-2.5 w-7 h-7 rounded-full bg-gradient-to-br ${stepGradients[i]} text-white text-[11px] font-bold flex items-center justify-center shadow-sm`}>{i + 1}</span>
@@ -62,7 +61,7 @@ const HowItWorksSection = memo(() => (
                   <ArrowRight className="w-4 h-4 text-primary/20" />
                 </div>
               )}
-            </motion.div>
+            </div>
           );
         })}
       </div>

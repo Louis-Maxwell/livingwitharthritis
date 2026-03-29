@@ -1,5 +1,4 @@
 import { memo } from "react";
-import { motion } from "framer-motion";
 import { Quote, Shield, Award, CheckCircle, Globe } from "lucide-react";
 
 const credentials = [
@@ -19,13 +18,7 @@ const QuoteSection = memo(() => (
     <div className="absolute bottom-[-250px] left-[-250px] w-[500px] h-[500px] rounded-full bg-gold/8 blur-[140px] pointer-events-none" />
 
     <div className="container mx-auto px-6 md:px-10 relative">
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-        className="max-w-3xl mx-auto text-center"
-      >
+      <div className="max-w-3xl mx-auto text-center animate-in fade-in slide-in-from-bottom-6 duration-700">
         <Quote className="w-14 h-14 text-primary-foreground/15 mx-auto mb-10 rotate-180" />
         <blockquote className="font-display text-2xl sm:text-3xl md:text-[2rem] lg:text-4xl font-bold text-primary-foreground leading-[1.35] mb-10 italic tracking-tight">
           We believe world-class arthritis care should not be a privilege. Movement is the most powerful medicine — and with the right exercise, 
@@ -44,21 +37,18 @@ const QuoteSection = memo(() => (
           {credentials.map((c, i) => {
             const Icon = c.icon;
             return (
-              <motion.div
+              <div
                 key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 + i * 0.1, duration: 0.4 }}
-                className="flex items-center gap-2.5 bg-primary-foreground/[0.06] backdrop-blur-sm rounded-full px-6 py-3 border border-primary-foreground/[0.06] hover:bg-primary-foreground/[0.1] transition-colors duration-300"
+                className="flex items-center gap-2.5 bg-primary-foreground/[0.06] backdrop-blur-sm rounded-full px-6 py-3 border border-primary-foreground/[0.06] hover:bg-primary-foreground/[0.1] transition-colors duration-300 animate-in fade-in zoom-in-95 duration-400"
+                style={{ animationDelay: `${300 + i * 100}ms` }}
               >
                 <Icon className="w-4 h-4 text-secondary" />
                 <span className="text-primary-foreground/60 text-xs font-bold tracking-wider">{c.label}</span>
-              </motion.div>
+              </div>
             );
           })}
         </div>
-      </motion.div>
+      </div>
     </div>
   </section>
 ));
