@@ -18,7 +18,7 @@ const TrustBadge = memo(() => (
   <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-emerald-500/8 border border-emerald-500/15 backdrop-blur-sm">
     <Users className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
     <span className="text-[11px] font-semibold text-emerald-700 dark:text-emerald-400">
-      Trusted by <span className="font-bold">50,000+</span> people across the UK
+      Trusted by <span className="font-bold">10,000+</span> people across the UK
     </span>
   </div>
 ));
