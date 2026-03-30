@@ -364,15 +364,14 @@ const Header = () => {
                   </div>
                 ))}
 
-                {/* Persistent Donate button — charity red */}
-                <Button
-                  size="sm"
+                {/* Persistent Donate button — charity red, matches Ways to Help pill style */}
+                <button
                   onClick={() => navigate("/zakat-appeal")}
-                  className="ml-3 h-9 px-6 rounded-full text-[12px] font-bold tracking-wider bg-[hsl(0,72%,51%)] hover:bg-[hsl(0,72%,45%)] text-white shadow-lg shadow-red-500/20 hover:shadow-red-500/30 transition-all duration-200 hover:scale-[1.03] active:scale-[0.97]"
+                  className="ml-3 group relative inline-flex items-center gap-1.5 px-5 py-2 text-[13px] font-bold rounded-full bg-destructive text-destructive-foreground border border-destructive/80 hover:bg-destructive/90 hover:shadow-md hover:shadow-destructive/25 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
                 >
-                  <Heart className="w-3.5 h-3.5 mr-1.5 fill-white/30" />
+                  <Heart className="w-3.5 h-3.5 fill-white/30 transition-transform duration-300 group-hover:scale-110" />
                   Donate Now
-                </Button>
+                </button>
 
                 {/* Ways to Help link */}
                 <button
