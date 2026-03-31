@@ -11,7 +11,7 @@ const credentials = [
 const QuoteSection = memo(() => (
   <section className="py-20 lg:py-28 bg-primary relative overflow-hidden">
     <div className="container mx-auto px-6 md:px-10 relative">
-      <div className="max-w-3xl mx-auto text-center animate-in fade-in slide-in-from-bottom-6 duration-700">
+      <div className="max-w-3xl mx-auto text-center">
         <Quote className="w-12 h-12 text-primary-foreground/15 mx-auto mb-8 rotate-180" />
         <blockquote className="font-display text-xl sm:text-2xl md:text-3xl lg:text-[2.25rem] font-bold text-primary-foreground leading-[1.4] mb-8 italic tracking-tight">
           We believe world-class arthritis care should not be a privilege. Movement is the most powerful medicine — and with the right exercise, 
