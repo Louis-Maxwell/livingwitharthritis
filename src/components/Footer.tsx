@@ -91,6 +91,7 @@ const Footer = () => {
           {[
             { title: "Get Help", links: footerLinks.getHelp },
             { title: "About Arthritis", links: footerLinks.aboutArthritis },
+            { title: "Guides", links: footerLinks.guides },
             { title: "Organisation", links: footerLinks.aboutUs },
           ].map((section) => (
             <div key={section.title} className="lg:col-span-2">
