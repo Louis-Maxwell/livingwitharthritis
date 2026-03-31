@@ -42,8 +42,6 @@ const TestimonialsSection = memo(() => (
         {testimonials.map((t, i) => (
           <div
             key={i}
-            className="animate-in fade-in slide-in-from-bottom-4 duration-500"
-            style={{ animationDelay: `${i * 80}ms` }}
           >
             <div className="h-full p-8 rounded-2xl border border-border/25 bg-card hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
               <div className="flex items-center justify-between mb-4">
