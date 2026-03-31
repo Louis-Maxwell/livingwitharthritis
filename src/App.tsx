@@ -56,6 +56,7 @@ const Governance = lazy(() => import("./pages/Governance"));
 const Finances = lazy(() => import("./pages/Finances"));
 const ImpactStories = lazy(() => import("./pages/ImpactStories"));
 const WaysToHelp = lazy(() => import("./pages/WaysToHelp"));
+const TermsConditions = lazy(() => import("./pages/TermsConditions"));
 // Loading fallback with skeleton-style animation
 const PageLoader = () => (
   <div className="min-h-screen flex flex-col items-center justify-center bg-background gap-4">
@@ -123,6 +124,7 @@ function AnimatedRoutes() {
         <Route path="/finances" element={<Finances />} />
         <Route path="/impact" element={<ImpactStories />} />
         <Route path="/ways-to-help" element={<WaysToHelp />} />
+        <Route path="/terms" element={<TermsConditions />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </PageTransition>
