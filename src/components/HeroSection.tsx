@@ -7,10 +7,10 @@ import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import "./HeroSection.css";
 
 const STATS = [
-  { target: 1, suffix: " in 6", label: "People in the UK affected", compact: false },
-  { target: 100, suffix: "+", label: "Every type of arthritis covered", compact: false },
-  { target: 10000, suffix: "+", label: "Lives improved so far", compact: true },
-  { target: 97, suffix: "%", label: "Say we helped them", compact: false },
+  { target: 1, suffix: " in 6", label: "UK adults affected (Versus Arthritis, 2024)", compact: false },
+  { target: 100, suffix: "+", label: "Types of arthritis (NHS, 2023)", compact: false },
+  { target: 10000, suffix: "+", label: "People supported to date*", compact: true },
+  { target: 97, suffix: "%", label: "Report improved wellbeing*", compact: false },
 ] as const;
 
 /* Static trust badge */
