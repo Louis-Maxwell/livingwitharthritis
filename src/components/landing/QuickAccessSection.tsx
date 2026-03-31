@@ -1,7 +1,15 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import {
   Dumbbell, Utensils, Users, MessageCircle, Stethoscope, ArrowRight
 } from "lucide-react";
+
+const GUIDES = [
+  { label: "📖 UK Arthritis Guide", href: "/guides/uk-arthritis" },
+  { label: "🏥 NHS Services", href: "/guides/nhs-services" },
+  { label: "🥗 Diet Guide", href: "/guides/diet" },
+  { label: "💪 Exercise Guide", href: "/guides/exercise" },
+  { label: "📋 Benefits & PIP", href: "/guides/benefits-pip" },
+];
 
 const HUBS = [
   {
@@ -102,6 +110,22 @@ export default function QuickAccessSection() {
               </button>
             );
           })}
+        </div>
+
+        {/* Pillar guide links */}
+        <div className="mt-10 text-center">
+          <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-3">In-depth Guides</p>
+          <div className="flex flex-wrap justify-center gap-2">
+            {GUIDES.map((g) => (
+              <Link
+                key={g.href}
+                to={g.href}
+                className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground border border-border/50 hover:border-border rounded-full px-4 py-1.5 transition-colors duration-200"
+              >
+                {g.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </section>
