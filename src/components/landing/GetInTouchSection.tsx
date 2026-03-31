@@ -6,7 +6,7 @@ const GetInTouchSection = memo(() => {
   return (
     <section aria-labelledby="get-in-touch-heading" className="section-spacer">
       <div className="container mx-auto px-6 md:px-10 max-w-6xl">
-        <div className="text-center mb-14 animate-in fade-in slide-in-from-bottom-6 duration-700">
+        <div className="text-center mb-14">
           <span className="section-label text-primary mb-4 block">We're Here For You</span>
           <h2
             id="get-in-touch-heading"
