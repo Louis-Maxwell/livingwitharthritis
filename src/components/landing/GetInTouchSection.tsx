@@ -6,7 +6,7 @@ const GetInTouchSection = memo(() => {
   return (
     <section aria-labelledby="get-in-touch-heading" className="section-spacer">
       <div className="container mx-auto px-6 md:px-10 max-w-6xl">
-        <div className="text-center mb-14 animate-in fade-in slide-in-from-bottom-6 duration-700">
+        <div className="text-center mb-14">
           <span className="section-label text-primary mb-4 block">We're Here For You</span>
           <h2
             id="get-in-touch-heading"
@@ -25,8 +25,7 @@ const GetInTouchSection = memo(() => {
             href="https://wa.me/447760512084"
             target="_blank"
             rel="noopener noreferrer"
-            className="group rounded-2xl border border-border/30 bg-card p-8 flex flex-col items-center text-center space-y-4 cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all duration-300 animate-in fade-in slide-in-from-bottom-4 duration-500"
-            style={{ animationDelay: "50ms" }}
+            className="group rounded-2xl border border-border/30 bg-card p-8 flex flex-col items-center text-center space-y-4 cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
           >
             <div className="h-14 w-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-105 transition-all duration-300">
               <MessageCircle className="h-6 w-6 text-primary group-hover:text-primary-foreground transition-colors" />
@@ -42,8 +41,7 @@ const GetInTouchSection = memo(() => {
 
           {/* Enquiry */}
           <div
-            className="group rounded-2xl border border-border/30 bg-card p-8 flex flex-col items-center text-center space-y-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 animate-in fade-in slide-in-from-bottom-4 duration-500"
-            style={{ animationDelay: "100ms" }}
+            className="group rounded-2xl border border-border/30 bg-card p-8 flex flex-col items-center text-center space-y-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
           >
             <div className="h-14 w-14 rounded-xl bg-secondary/10 flex items-center justify-center group-hover:bg-secondary group-hover:scale-105 transition-all duration-300">
               <Mail className="h-6 w-6 text-secondary group-hover:text-secondary-foreground transition-colors" />
@@ -64,8 +62,7 @@ const GetInTouchSection = memo(() => {
           {/* Phone */}
           <a
             href="tel:+447760512084"
-            className="group rounded-2xl border border-border/30 bg-card p-8 flex flex-col items-center text-center space-y-4 cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all duration-300 animate-in fade-in slide-in-from-bottom-4 duration-500"
-            style={{ animationDelay: "150ms" }}
+            className="group rounded-2xl border border-border/30 bg-card p-8 flex flex-col items-center text-center space-y-4 cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
           >
             <div className="h-14 w-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-105 transition-all duration-300">
               <Phone className="h-6 w-6 text-primary group-hover:text-primary-foreground transition-colors" />

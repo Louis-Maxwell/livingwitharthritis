@@ -25,7 +25,7 @@ const DonationImpactSection = () => {
 
   return (
     <section className="py-16 sm:py-20 bg-gradient-to-b from-background to-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 max-w-4xl animate-fade-in [animation-duration:0.6s]">
+      <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
         <div className="text-center mb-10">
           <span className="section-label text-primary mb-4 block text-xs font-bold tracking-wider uppercase">Your Impact</span>
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-foreground tracking-tight leading-tight">

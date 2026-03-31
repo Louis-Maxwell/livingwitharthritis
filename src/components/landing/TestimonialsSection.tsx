@@ -28,7 +28,7 @@ const HighlightedText = ({ text, highlight }: { text: string; highlight: string 
 const TestimonialsSection = memo(() => (
   <section className="section-spacer relative">
     <div className="container mx-auto px-6 md:px-10 max-w-6xl">
-      <div className="text-center mb-16 animate-in fade-in slide-in-from-bottom-6 duration-700">
+      <div className="text-center mb-16">
         <span className="section-label text-primary mb-5 block">Patient Outcomes</span>
         <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6 tracking-tight">
           Real voices, real <span className="text-primary italic">transformations</span>
@@ -42,8 +42,6 @@ const TestimonialsSection = memo(() => (
         {testimonials.map((t, i) => (
           <div
             key={i}
-            className="animate-in fade-in slide-in-from-bottom-4 duration-500"
-            style={{ animationDelay: `${i * 80}ms` }}
           >
             <div className="h-full p-8 rounded-2xl border border-border/25 bg-card hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
               <div className="flex items-center justify-between mb-4">
@@ -76,7 +74,7 @@ const TestimonialsSection = memo(() => (
         ))}
       </div>
 
-      <div className="mt-12 text-center animate-in fade-in duration-500" style={{ animationDelay: "300ms" }}>
+      <div className="mt-12 text-center">
         <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-card border border-border/30">
           <div className="flex gap-0.5">
             {[1,2,3,4,5].map(s => <Star key={s} className="w-3.5 h-3.5 fill-secondary text-secondary" />)}

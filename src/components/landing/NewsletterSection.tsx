@@ -41,7 +41,7 @@ const NewsletterSection = memo(() => {
   return (
     <section className="section-spacer relative">
       <div className="container mx-auto px-6 md:px-10 max-w-3xl">
-        <div className="text-center animate-in fade-in slide-in-from-bottom-6 duration-700">
+        <div className="text-center">
           <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
             <Mail className="w-6 h-6 text-primary" />
           </div>

@@ -18,7 +18,7 @@ const stepGradients = [
 const HowItWorksSection = memo(() => (
   <section className="section-spacer relative">
     <div className="container mx-auto px-6 md:px-10 max-w-6xl">
-      <div className="text-center mb-16 animate-in fade-in slide-in-from-bottom-6 duration-700">
+      <div className="text-center mb-16">
         <span className="section-label text-primary mb-5 block">How It Works</span>
         <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6 leading-[1.08] tracking-tight">
           Your path to better living in{" "}
@@ -36,8 +36,7 @@ const HowItWorksSection = memo(() => (
           return (
             <div
               key={i}
-              className="text-center relative group animate-in fade-in slide-in-from-bottom-4 duration-500"
-              style={{ animationDelay: `${i * 100}ms` }}
+              className="text-center relative group"
             >
               <div className={`${step.color} w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 relative group-hover:shadow-md transition-all duration-300`}>
                 <Icon className="w-7 h-7" />
