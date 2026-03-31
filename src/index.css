@@ -899,3 +899,8 @@
     transform: translateY(0);
   }
 }
+
+/* Section spacer — consistent luxury rhythm */
+.section-spacer {
+  @apply py-24 lg:py-32;
+}
