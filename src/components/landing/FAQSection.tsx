@@ -38,7 +38,7 @@ const FAQSection = memo(() => {
     </Helmet>
   <section className="py-14 lg:py-20 bg-tint-violet section-divider">
     <div className="container mx-auto px-6 md:px-10 max-w-3xl">
-      <div className="text-center mb-16 animate-in fade-in slide-in-from-bottom-6 duration-700">
+      <div className="text-center mb-16">
         <span className="section-label text-primary mb-4 block">Common Questions</span>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-foreground mb-6">
           Frequently <span className="text-primary italic">asked</span>
