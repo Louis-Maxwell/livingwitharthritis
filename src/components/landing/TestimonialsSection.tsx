@@ -28,7 +28,7 @@ const HighlightedText = ({ text, highlight }: { text: string; highlight: string 
 const TestimonialsSection = memo(() => (
   <section className="section-spacer relative">
     <div className="container mx-auto px-6 md:px-10 max-w-6xl">
-      <div className="text-center mb-16 animate-in fade-in slide-in-from-bottom-6 duration-700">
+      <div className="text-center mb-16">
         <span className="section-label text-primary mb-5 block">Patient Outcomes</span>
         <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6 tracking-tight">
           Real voices, real <span className="text-primary italic">transformations</span>
