@@ -242,7 +242,7 @@ const Header = () => {
               </Button>
               <Button
                 size="sm"
-                onClick={() => navigate("/zakat-appeal")}
+                onClick={() => navigate("/donate")}
                 className="h-9 px-4 rounded-full text-[11px] font-bold tracking-wider bg-[hsl(0,72%,51%)] hover:bg-[hsl(0,72%,45%)] text-white shadow-md shadow-red-500/20"
               >
                 <Heart className="w-3 h-3 mr-1.5 fill-white/30" />

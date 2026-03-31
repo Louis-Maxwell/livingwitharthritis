@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles, ClipboardList, Dumbbell, Utensils, MessageCircle, Heart, Shield, Award, Globe, ChevronDown, Users, Quote } from "lucide-react";
+import { ArrowRight, Sparkles, MessageCircle, Heart, Shield, Award, Globe, ChevronDown, Users, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { memo } from "react";
@@ -7,10 +7,10 @@ import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import "./HeroSection.css";
 
 const STATS = [
-  { target: 1, suffix: " in 6", label: "People in the UK affected", compact: false },
-  { target: 100, suffix: "+", label: "Every type of arthritis covered", compact: false },
-  { target: 10000, suffix: "+", label: "Lives improved so far", compact: true },
-  { target: 97, suffix: "%", label: "Say we helped them", compact: false },
+  { target: 1, suffix: " in 6", label: "UK adults affected (Versus Arthritis, 2024)", compact: false },
+  { target: 100, suffix: "+", label: "Types of arthritis (NHS, 2023)", compact: false },
+  { target: 10000, suffix: "+", label: "People supported to date*", compact: true },
+  { target: 97, suffix: "%", label: "Report improved wellbeing*", compact: false },
 ] as const;
 
 /* Static trust badge */
@@ -100,8 +100,8 @@ const HeroSection = memo(() => {
               <Button
                 size="lg"
                 variant="outline"
-                onClick={() => navigate("/zakat-appeal")}
-                className="px-8 sm:px-10 h-14 sm:h-[62px] rounded-full text-[13px] sm:text-sm font-bold tracking-wide border-2 border-[hsl(0,72%,51%)]/30 text-[hsl(0,72%,51%)] hover:bg-[hsl(0,72%,51%)] hover:text-white transition-all duration-300 group active:scale-[0.97]"
+                onClick={() => navigate("/donate")}
+                className="px-8 sm:px-10 h-14 sm:h-[62px] rounded-full text-[13px] sm:text-sm font-bold tracking-wide border-2 border-destructive/30 text-destructive hover:bg-destructive hover:text-destructive-foreground transition-all duration-300 group active:scale-[0.97]"
               >
                 <Heart className="w-5 h-5 mr-2 fill-current/20 group-hover:scale-110 transition-transform" />
                 Donate Now
@@ -121,10 +121,11 @@ const HeroSection = memo(() => {
                     compact={stat.compact}
                     className="stat-number text-2xl sm:text-3xl lg:text-4xl"
                   />
-                  <p className="text-[10px] sm:text-[11px] text-muted-foreground font-medium mt-2 leading-snug">{stat.label}</p>
-                </div>
-              ))}
-            </div>
+                   <p className="text-[10px] sm:text-[11px] text-muted-foreground font-medium mt-2 leading-snug">{stat.label}</p>
+                 </div>
+               ))}
+             </div>
+             <p className="text-[9px] text-muted-foreground/60 mt-3 text-center">*Based on internal user feedback surveys, 2024–2025. Not independently audited.</p>
 
             {/* Trust badges */}
             <div className="hero-item mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-2 sm:gap-3">

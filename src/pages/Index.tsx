@@ -45,18 +45,13 @@ const ServicesGrid = lazy(() => import("@/components/ServicesGrid"));
 const QuoteSection = lazy(() => import("@/components/landing/QuoteSection"));
 const CampaignBanner = lazy(() => import("@/components/CampaignBanner"));
 
-// Below-fold sections — deferred with ViewportSection
+// Below-fold sections — streamlined to 8 core sections
 const HowItWorksSection = lazy(() => import("@/components/landing/HowItWorksSection"));
-const DailyTipsSection = lazy(() => import("@/components/landing/DailyTipsSection"));
-const BlogPreviewSection = lazy(() => import("@/components/landing/BlogPreviewSection"));
 const TestimonialsSection = lazy(() => import("@/components/landing/TestimonialsSection"));
 const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
-const FundraisingProgressSection = lazy(() => import("@/components/landing/FundraisingProgressSection"));
 const GetInTouchSection = lazy(() => import("@/components/landing/GetInTouchSection"));
 const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSection"));
-const ImpactMetricsSection = lazy(() => import("@/components/landing/ImpactMetricsSection"));
 const DonationImpactSection = lazy(() => import("@/components/landing/DonationImpactSection"));
-const BeneficiarySpotlight = lazy(() => import("@/components/landing/BeneficiarySpotlight"));
 
 // Tab sections — loaded on demand
 const NutritionArticleSection = lazy(() => import("@/components/NutritionArticleSection"));
@@ -234,21 +229,9 @@ export default function Index() {
               </section>
             </ViewportSection>
 
-            {/* DEEP SECTIONS — generous rootMargin for smooth reveal */}
-            <ViewportSection minHeight="300px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}><DailyTipsSection /></Suspense>
-            </ViewportSection>
-
-            <ViewportSection minHeight="300px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}><BlogPreviewSection /></Suspense>
-            </ViewportSection>
-
+            {/* STREAMLINED SECTIONS — 8 focused sections total */}
             <ViewportSection minHeight="300px" rootMargin="300px">
               <Suspense fallback={<SectionLoader />}><TestimonialsSection /></Suspense>
-            </ViewportSection>
-
-            <ViewportSection minHeight="300px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}><BeneficiarySpotlight /></Suspense>
             </ViewportSection>
 
             <ViewportSection minHeight="300px" rootMargin="300px">
@@ -259,14 +242,6 @@ export default function Index() {
               <Suspense fallback={<SectionLoader />}><FAQSection /></Suspense>
             </ViewportSection>
 
-            <ViewportSection minHeight="400px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}><FundraisingProgressSection /></Suspense>
-            </ViewportSection>
-
-            <ViewportSection minHeight="300px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}><ImpactMetricsSection /></Suspense>
-            </ViewportSection>
-
             <ViewportSection minHeight="200px" rootMargin="300px">
               <Suspense fallback={<SectionLoader />}><NewsletterSection /></Suspense>
             </ViewportSection>
@@ -274,8 +249,6 @@ export default function Index() {
             <ViewportSection minHeight="300px" rootMargin="300px">
               <Suspense fallback={<SectionLoader />}><GetInTouchSection /></Suspense>
             </ViewportSection>
-
-            {/* FinalCTASection removed — merged into NewsletterSection */}
           </div>
         </main>
 
