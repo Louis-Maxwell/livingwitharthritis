@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import { lazy, Suspense, useState } from "react";
 import {
   Heart, Users, Trophy, Building2, ScrollText, ArrowRight,
-  HandHeart, Send, CheckCircle2, Quote, MapPin, Clock, Mail,
+  HandHeart, Send, CheckCircle2, Quote, MapPin, Clock,
   Megaphone, Gift, Handshake, Star
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
