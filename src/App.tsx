@@ -124,6 +124,7 @@ function AnimatedRoutes() {
         <Route path="/finances" element={<Finances />} />
         <Route path="/impact" element={<ImpactStories />} />
         <Route path="/ways-to-help" element={<WaysToHelp />} />
+        <Route path="/terms" element={<TermsConditions />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </PageTransition>
