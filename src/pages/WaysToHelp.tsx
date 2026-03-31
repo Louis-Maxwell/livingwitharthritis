@@ -1,7 +1,11 @@
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import { lazy, Suspense, useState } from "react";
-import { Heart, Users, Trophy, Building2, ScrollText, ArrowRight, HandHeart, Send, CheckCircle2, Sparkles } from "lucide-react";
+import {
+  Heart, Users, Trophy, Building2, ScrollText, ArrowRight,
+  HandHeart, Send, CheckCircle2, Quote, MapPin, Clock, Mail,
+  Megaphone, Gift, Handshake, Star
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -9,7 +13,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-import PageHero from "@/components/ui/PageHero";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
@@ -18,44 +21,66 @@ const WAYS = [
     icon: Heart,
     title: "Make a Donation",
     description: "Your gift directly funds physiotherapy sessions, exercise programmes and community support for people living with arthritis across the UK.",
+    impact: "£10 funds a virtual physio session",
     cta: "Donate Now",
-    href: "/zakat-appeal",
-    accent: "hsl(0,72%,51%)",
-    highlight: true,
+    href: "/donate",
+    gradient: "from-rose-500 to-pink-600",
+    bgLight: "bg-rose-50 dark:bg-rose-950/20",
+    iconColor: "text-rose-600 dark:text-rose-400",
+    featured: true,
   },
   {
     icon: Users,
     title: "Volunteer With Us",
-    description: "Share your time and skills — from peer mentoring to event support, there are many ways to get involved.",
+    description: "Share your time and skills — from peer mentoring to event support, there are many ways to get involved in your community.",
+    impact: "200+ volunteers across the UK",
     cta: "Sign Up Below",
     href: "#volunteer-form",
-    accent: "hsl(152,69%,38%)",
+    gradient: "from-emerald-500 to-teal-600",
+    bgLight: "bg-emerald-50 dark:bg-emerald-950/20",
+    iconColor: "text-emerald-600 dark:text-emerald-400",
     isAnchor: true,
   },
   {
     icon: Trophy,
     title: "Fundraise for Us",
-    description: "Run a marathon, host a bake sale, or organise a sponsored event. We'll provide everything you need.",
+    description: "Run a marathon, host a bake sale, or organise a sponsored event. We'll provide everything you need to get started.",
+    impact: "£50K+ raised by supporters in 2025",
     cta: "Start Fundraising",
     href: "/corporate-giving",
-    accent: "hsl(38,92%,50%)",
+    gradient: "from-amber-500 to-orange-600",
+    bgLight: "bg-amber-50 dark:bg-amber-950/20",
+    iconColor: "text-amber-600 dark:text-amber-400",
   },
   {
     icon: Building2,
     title: "Corporate Partnerships",
-    description: "Partner with us for sponsorship, employee engagement programmes and cause-related marketing.",
+    description: "Partner with us for sponsorship, employee engagement programmes, and cause-related marketing that makes a real difference.",
+    impact: "Join 15+ corporate partners",
     cta: "Partner With Us",
     href: "/corporate-giving",
-    accent: "hsl(199,89%,48%)",
+    gradient: "from-blue-500 to-indigo-600",
+    bgLight: "bg-blue-50 dark:bg-blue-950/20",
+    iconColor: "text-blue-600 dark:text-blue-400",
   },
   {
     icon: ScrollText,
     title: "Leave a Legacy",
-    description: "A gift in your will ensures future generations of people with arthritis receive the support they need.",
+    description: "A gift in your will ensures future generations of people with arthritis receive the support they need to live well.",
+    impact: "Legacies fund 30% of our work",
     cta: "Learn More",
     href: "/about",
-    accent: "hsl(262,83%,58%)",
+    gradient: "from-violet-500 to-purple-600",
+    bgLight: "bg-violet-50 dark:bg-violet-950/20",
+    iconColor: "text-violet-600 dark:text-violet-400",
   },
+];
+
+const IMPACT_STATS = [
+  { number: "10M+", label: "People with arthritis in the UK", icon: Users },
+  { number: "5,000+", label: "People supported through our services", icon: Heart },
+  { number: "200+", label: "Volunteers across the UK", icon: HandHeart },
+  { number: "£0", label: "Cost to access our services", icon: Gift },
 ];
 
 const INTEREST_OPTIONS = [
@@ -121,74 +146,254 @@ export default function WaysToHelp() {
         <Header />
 
         <main id="main-content">
-          <PageHero
-            title="Ways to Help"
-            subtitle="Every action — big or small — helps someone living with arthritis lead a fuller life."
-          />
 
-          {/* ── Engagement Cards ── */}
-          <section className="py-16 sm:py-20">
-            <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
-              {/* Intro line */}
-              <div className="text-center mb-12">
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 border border-primary/10 mb-4">
-                  <Sparkles className="w-3.5 h-3.5 text-primary" />
-                  <span className="text-xs font-bold text-primary tracking-wide uppercase">5 Ways to Make a Difference</span>
+          {/* ── Full-Width Hero ── */}
+          <section className="relative bg-gradient-to-br from-primary/95 via-primary to-primary/80 text-primary-foreground overflow-hidden">
+            {/* Decorative shapes */}
+            <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute -top-24 -right-24 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
+              <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/[0.02] rounded-full" />
+            </div>
+
+            <div className="relative container mx-auto px-4 sm:px-6 py-20 sm:py-28 lg:py-32 max-w-6xl">
+              <div className="max-w-3xl">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 mb-6">
+                  <Heart className="w-3.5 h-3.5" />
+                  <span className="text-xs font-semibold tracking-wide uppercase">Together We Can Make a Difference</span>
+                </div>
+
+                <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight leading-[1.1] mb-5">
+                  Every action helps someone live{" "}
+                  <span className="relative">
+                    <span className="relative z-10">a fuller life</span>
+                    <span className="absolute bottom-1 left-0 right-0 h-3 bg-white/15 -skew-x-2 rounded" />
+                  </span>
+                </h1>
+
+                <p className="text-base sm:text-lg lg:text-xl text-white/80 leading-relaxed max-w-2xl mb-8">
+                  More than 10 million people across the UK live with arthritis. Your support — whether a donation, your time, or spreading the word — directly transforms lives.
+                </p>
+
+                <div className="flex flex-wrap gap-3">
+                  <Button
+                    onClick={() => navigate("/donate")}
+                    size="lg"
+                    className="rounded-full bg-white text-primary hover:bg-white/90 font-bold shadow-lg shadow-black/10 h-12 px-8"
+                  >
+                    <Heart className="w-4 h-4 mr-2" />
+                    Donate Now
+                  </Button>
+                  <Button
+                    onClick={() => document.getElementById("volunteer-form")?.scrollIntoView({ behavior: "smooth" })}
+                    size="lg"
+                    variant="outline"
+                    className="rounded-full border-white/30 text-white hover:bg-white/10 font-bold h-12 px-8"
+                  >
+                    Volunteer With Us
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
                 </div>
               </div>
+            </div>
+          </section>
 
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                {WAYS.map((way, idx) => {
+          {/* ── Impact Stats Bar ── */}
+          <section className="relative -mt-8 z-10">
+            <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
+              <div className="bg-card border border-border/40 rounded-2xl shadow-xl shadow-black/5 p-6 sm:p-8">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                  {IMPACT_STATS.map((stat) => {
+                    const Icon = stat.icon;
+                    return (
+                      <div key={stat.label} className="text-center">
+                        <div className="w-10 h-10 rounded-xl bg-primary/5 flex items-center justify-center mx-auto mb-2">
+                          <Icon className="w-5 h-5 text-primary" />
+                        </div>
+                        <div className="text-2xl sm:text-3xl font-bold text-foreground tracking-tight">{stat.number}</div>
+                        <div className="text-xs sm:text-sm text-muted-foreground mt-0.5 leading-snug">{stat.label}</div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* ── Ways to Get Involved ── */}
+          <section className="py-16 sm:py-24">
+            <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+              {/* Section header */}
+              <div className="text-center mb-14">
+                <p className="text-xs font-bold text-primary tracking-widest uppercase mb-3">Support Our Mission</p>
+                <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground tracking-tight mb-3">
+                  Five Ways You Can Help
+                </h2>
+                <p className="text-muted-foreground max-w-xl mx-auto">
+                  Whether you give financially, share your time, or help spread the word — every contribution makes a real difference.
+                </p>
+              </div>
+
+              {/* Featured card (Donate) */}
+              {WAYS.filter(w => w.featured).map((way) => {
+                const Icon = way.icon;
+                return (
+                  <div
+                    key={way.title}
+                    className="mb-8 bg-gradient-to-br from-rose-50 to-pink-50 dark:from-rose-950/30 dark:to-pink-950/20 border border-rose-200/50 dark:border-rose-800/30 rounded-3xl overflow-hidden"
+                  >
+                    <div className="flex flex-col lg:flex-row">
+                      {/* Left: gradient accent */}
+                      <div className={`lg:w-1/3 bg-gradient-to-br ${way.gradient} p-8 sm:p-10 lg:p-12 flex flex-col justify-center text-white`}>
+                        <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center mb-5">
+                          <Icon className="w-8 h-8" />
+                        </div>
+                        <h3 className="text-2xl sm:text-3xl font-bold mb-2">{way.title}</h3>
+                        <p className="text-sm text-white/80 font-medium">{way.impact}</p>
+                      </div>
+
+                      {/* Right: content */}
+                      <div className="lg:w-2/3 p-8 sm:p-10 lg:p-12 flex flex-col justify-center">
+                        <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-4">
+                          {way.description}
+                        </p>
+                        <ul className="space-y-2 mb-6">
+                          {[
+                            "100% of donations go towards patient services",
+                            "Gift Aid increases your donation by 25%",
+                            "One-off or monthly giving options available",
+                          ].map((item) => (
+                            <li key={item} className="flex items-start gap-2 text-sm text-foreground">
+                              <CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                        <div>
+                          <Button
+                            onClick={() => navigate(way.href)}
+                            size="lg"
+                            className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold h-12 px-8 shadow-md"
+                          >
+                            {way.cta}
+                            <ArrowRight className="w-4 h-4 ml-2" />
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+
+              {/* Other ways grid */}
+              <div className="grid sm:grid-cols-2 gap-5">
+                {WAYS.filter(w => !w.featured).map((way) => {
                   const Icon = way.icon;
-                  const isFirst = idx === 0;
                   return (
                     <div
                       key={way.title}
-                      className={`group relative bg-card border rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
-                        isFirst
-                          ? "sm:col-span-2 lg:col-span-1 border-primary/20 ring-1 ring-primary/10"
-                          : "border-border/30"
-                      }`}
+                      className={`group relative ${way.bgLight} border border-border/30 rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-1`}
                     >
-                      {/* Top accent bar */}
-                      <div
-                        className="h-1 w-full"
-                        style={{ backgroundColor: way.accent }}
-                      />
-
-                      <div className="p-6">
-                        {/* Icon */}
-                        <div
-                          className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
-                          style={{ backgroundColor: `${way.accent}15`, color: way.accent }}
-                        >
-                          <Icon className="w-6 h-6" />
-                        </div>
-
-                        {/* Content */}
-                        <h3 className="text-base font-bold text-foreground mb-2 tracking-tight">{way.title}</h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed mb-5">{way.description}</p>
-
-                        {/* CTA */}
-                        <Button
-                          onClick={() => {
-                            if ((way as any).isAnchor) {
-                              document.getElementById("volunteer-form")?.scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              navigate(way.href);
-                            }
-                          }}
-                          size="sm"
-                          className={`rounded-full text-xs font-bold group/btn ${
-                            isFirst
-                              ? "bg-primary hover:bg-primary/90 text-primary-foreground shadow-md"
-                              : "bg-foreground/5 hover:bg-foreground/10 text-foreground border border-border/40"
-                          }`}
-                        >
-                          {way.cta}
-                          <ArrowRight className="w-3.5 h-3.5 ml-1.5 group-hover/btn:translate-x-0.5 transition-transform" />
-                        </Button>
+                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${way.gradient} flex items-center justify-center mb-4 shadow-sm`}>
+                        <Icon className="w-6 h-6 text-white" />
                       </div>
+
+                      <h3 className="text-lg font-bold text-foreground mb-2 tracking-tight">{way.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed mb-2">{way.description}</p>
+
+                      {/* Impact badge */}
+                      <p className={`text-xs font-semibold ${way.iconColor} mb-5 flex items-center gap-1.5`}>
+                        <Star className="w-3 h-3" />
+                        {way.impact}
+                      </p>
+
+                      <Button
+                        onClick={() => {
+                          if (way.isAnchor) {
+                            document.getElementById("volunteer-form")?.scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            navigate(way.href);
+                          }
+                        }}
+                        size="sm"
+                        className="rounded-full text-xs font-bold bg-foreground/5 hover:bg-foreground/10 text-foreground border border-border/40"
+                      >
+                        {way.cta}
+                        <ArrowRight className="w-3.5 h-3.5 ml-1.5 group-hover:translate-x-0.5 transition-transform" />
+                      </Button>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+
+          {/* ── Testimonial Banner ── */}
+          <section className="py-14 sm:py-20 bg-muted/30 border-y border-border/10">
+            <div className="container mx-auto px-4 sm:px-6 max-w-3xl text-center">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5">
+                <Quote className="w-5 h-5 text-primary" />
+              </div>
+              <blockquote className="text-lg sm:text-xl lg:text-2xl font-medium text-foreground leading-relaxed italic mb-5">
+                "Volunteering with Living With Arthritis has been one of the most rewarding experiences of my life. Knowing that my time directly helps someone manage their pain and stay active — that's priceless."
+              </blockquote>
+              <div className="flex items-center justify-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-sm font-bold text-emerald-700 dark:text-emerald-400">
+                  SC
+                </div>
+                <div className="text-left">
+                  <p className="text-sm font-semibold text-foreground">Sarah C.</p>
+                  <p className="text-xs text-muted-foreground">Volunteer Peer Mentor, Birmingham</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* ── How Your Help Makes a Difference ── */}
+          <section className="py-16 sm:py-24">
+            <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
+              <div className="text-center mb-12">
+                <p className="text-xs font-bold text-primary tracking-widest uppercase mb-3">Your Impact</p>
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground tracking-tight mb-3">
+                  How Your Support Changes Lives
+                </h2>
+                <p className="text-muted-foreground max-w-lg mx-auto">
+                  Every contribution — no matter the size — creates tangible, measurable change.
+                </p>
+              </div>
+
+              <div className="grid sm:grid-cols-3 gap-5">
+                {[
+                  {
+                    icon: Megaphone,
+                    title: "Spread Awareness",
+                    description: "Share our resources on social media, tell friends and family, or write to your MP about arthritis support.",
+                    color: "from-sky-500 to-cyan-600",
+                    bg: "bg-sky-50 dark:bg-sky-950/20",
+                  },
+                  {
+                    icon: Handshake,
+                    title: "Give Your Time",
+                    description: "Just 2 hours a week as a peer mentor can transform someone's arthritis journey from isolation to empowerment.",
+                    color: "from-emerald-500 to-teal-600",
+                    bg: "bg-emerald-50 dark:bg-emerald-950/20",
+                  },
+                  {
+                    icon: Gift,
+                    title: "Fund Services",
+                    description: "Your donations fund free virtual physiotherapy, diet plans, and community support groups across the UK.",
+                    color: "from-rose-500 to-pink-600",
+                    bg: "bg-rose-50 dark:bg-rose-950/20",
+                  },
+                ].map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={item.title} className={`${item.bg} rounded-2xl p-6 sm:p-8 border border-border/20 text-center`}>
+                      <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center mx-auto mb-4 shadow-sm`}>
+                        <Icon className="w-7 h-7 text-white" />
+                      </div>
+                      <h3 className="text-base font-bold text-foreground mb-2">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
                     </div>
                   );
                 })}
@@ -197,127 +402,186 @@ export default function WaysToHelp() {
           </section>
 
           {/* ── Volunteer Sign-Up Form ── */}
-          <section id="volunteer-form" className="scroll-mt-24 py-16 sm:py-20 bg-muted/30 border-t border-border/10">
-            <div className="container mx-auto px-4 sm:px-6 max-w-xl">
-              {/* Section header */}
-              <div className="text-center mb-8">
-                <div className="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mx-auto mb-3">
-                  <HandHeart className="w-6 h-6 text-emerald-600" />
-                </div>
-                <h2 className="font-display text-xl sm:text-2xl font-bold text-foreground tracking-tight">
-                  Volunteer Sign-Up
-                </h2>
-                <p className="text-muted-foreground mt-2 text-sm max-w-sm mx-auto">
-                  Tell us about yourself and how you'd like to help.
-                </p>
-              </div>
+          <section id="volunteer-form" className="scroll-mt-24 py-16 sm:py-24 bg-gradient-to-b from-emerald-50/50 to-background dark:from-emerald-950/10 border-t border-border/10">
+            <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
+              <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
 
-              {submitted ? (
-                <div className="bg-card border border-emerald-200 dark:border-emerald-800 rounded-2xl p-8 text-center">
-                  <div className="w-14 h-14 rounded-full bg-emerald-500/10 flex items-center justify-center mx-auto mb-3">
-                    <CheckCircle2 className="w-7 h-7 text-emerald-600" />
-                  </div>
-                  <h3 className="text-lg font-bold text-foreground mb-1.5">Thank you!</h3>
-                  <p className="text-sm text-muted-foreground">
-                    We've received your application. A member of our team will be in touch within 5 working days.
+                {/* Left: Why volunteer */}
+                <div>
+                  <p className="text-xs font-bold text-emerald-600 dark:text-emerald-400 tracking-widest uppercase mb-3">Join Our Team</p>
+                  <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground tracking-tight mb-4">
+                    Volunteer With Us
+                  </h2>
+                  <p className="text-muted-foreground leading-relaxed mb-8">
+                    Our volunteers are at the heart of everything we do. Whether you can spare a few hours a week or want to get involved in a bigger way, we'd love to hear from you.
                   </p>
+
+                  <div className="space-y-5">
+                    {[
+                      { icon: Clock, title: "Flexible Hours", desc: "Volunteer as little or as much as you like — even 1 hour helps." },
+                      { icon: MapPin, title: "Remote or Local", desc: "Support from home online or join community events near you." },
+                      { icon: Star, title: "Make Real Impact", desc: "See the direct difference your time makes in people's lives." },
+                      { icon: Users, title: "Join a Community", desc: "Connect with like-minded people who care about arthritis support." },
+                    ].map((benefit) => {
+                      const BIcon = benefit.icon;
+                      return (
+                        <div key={benefit.title} className="flex gap-3">
+                          <div className="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center shrink-0 mt-0.5">
+                            <BIcon className="w-4.5 h-4.5 text-emerald-600 dark:text-emerald-400" />
+                          </div>
+                          <div>
+                            <h4 className="text-sm font-bold text-foreground">{benefit.title}</h4>
+                            <p className="text-xs text-muted-foreground">{benefit.desc}</p>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="bg-card border border-border/30 rounded-2xl p-5 sm:p-7 shadow-sm space-y-4">
-                  {/* Name */}
-                  <div>
-                    <label htmlFor="vol-name" className="block text-xs font-semibold text-foreground mb-1">
-                      Full Name <span className="text-destructive">*</span>
-                    </label>
-                    <Input
-                      id="vol-name"
-                      placeholder="e.g. Sarah Johnson"
-                      value={formData.name}
-                      onChange={(e) => setFormData((p) => ({ ...p, name: e.target.value }))}
-                      maxLength={100}
-                      required
-                      className="rounded-lg h-10"
-                    />
-                  </div>
 
-                  {/* Email */}
-                  <div>
-                    <label htmlFor="vol-email" className="block text-xs font-semibold text-foreground mb-1">
-                      Email Address <span className="text-destructive">*</span>
-                    </label>
-                    <Input
-                      id="vol-email"
-                      type="email"
-                      placeholder="sarah@example.co.uk"
-                      value={formData.email}
-                      onChange={(e) => setFormData((p) => ({ ...p, email: e.target.value }))}
-                      maxLength={255}
-                      required
-                      className="rounded-lg h-10"
-                    />
-                  </div>
-
-                  {/* Area of Interest */}
-                  <div>
-                    <label htmlFor="vol-interest" className="block text-xs font-semibold text-foreground mb-1">
-                      Area of Interest <span className="text-destructive">*</span>
-                    </label>
-                    <Select
-                      value={formData.area_of_interest}
-                      onValueChange={(v) => setFormData((p) => ({ ...p, area_of_interest: v }))}
-                    >
-                      <SelectTrigger id="vol-interest" className="rounded-lg h-10">
-                        <SelectValue placeholder="Select an area..." />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {INTEREST_OPTIONS.map((opt) => (
-                          <SelectItem key={opt} value={opt}>{opt}</SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  {/* Message */}
-                  <div>
-                    <label htmlFor="vol-message" className="block text-xs font-semibold text-foreground mb-1">
-                      Tell us about yourself <span className="text-muted-foreground font-normal">(optional)</span>
-                    </label>
-                    <Textarea
-                      id="vol-message"
-                      placeholder="Share relevant experience, availability, or why you'd like to volunteer..."
-                      value={formData.message}
-                      onChange={(e) => setFormData((p) => ({ ...p, message: e.target.value }))}
-                      maxLength={2000}
-                      rows={3}
-                      className="rounded-lg resize-none"
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    disabled={submitting}
-                    className="w-full h-11 rounded-full text-sm font-bold bg-emerald-600 hover:bg-emerald-700 text-white"
-                  >
-                    {submitting ? (
-                      <div className="flex items-center gap-2">
-                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        Submitting...
+                {/* Right: Form */}
+                <div>
+                  {submitted ? (
+                    <div className="bg-card border border-emerald-200 dark:border-emerald-800 rounded-2xl p-8 sm:p-10 text-center shadow-sm">
+                      <div className="w-16 h-16 rounded-full bg-emerald-500/10 flex items-center justify-center mx-auto mb-4">
+                        <CheckCircle2 className="w-8 h-8 text-emerald-600" />
                       </div>
-                    ) : (
-                      <>
-                        <Send className="w-4 h-4 mr-2" />
-                        Submit Application
-                      </>
-                    )}
-                  </Button>
+                      <h3 className="text-xl font-bold text-foreground mb-2">Thank you!</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        We've received your application. A member of our team will be in touch within 5 working days.
+                      </p>
+                    </div>
+                  ) : (
+                    <form onSubmit={handleSubmit} className="bg-card border border-border/30 rounded-2xl p-6 sm:p-8 shadow-lg shadow-black/5 space-y-4">
+                      <h3 className="text-lg font-bold text-foreground mb-1">Sign Up to Volunteer</h3>
+                      <p className="text-xs text-muted-foreground mb-4">Fill in the form below and we'll get back to you.</p>
 
-                  <p className="text-[10px] text-muted-foreground text-center leading-relaxed">
-                    By submitting, you agree to our{" "}
-                    <a href="/privacy" className="underline hover:text-foreground">Privacy Policy</a>.
-                    We'll only use your details to contact you about volunteering.
-                  </p>
-                </form>
-              )}
+                      {/* Name */}
+                      <div>
+                        <label htmlFor="vol-name" className="block text-xs font-semibold text-foreground mb-1.5">
+                          Full Name <span className="text-destructive">*</span>
+                        </label>
+                        <Input
+                          id="vol-name"
+                          placeholder="e.g. Sarah Johnson"
+                          value={formData.name}
+                          onChange={(e) => setFormData((p) => ({ ...p, name: e.target.value }))}
+                          maxLength={100}
+                          required
+                          className="rounded-xl h-11"
+                        />
+                      </div>
+
+                      {/* Email */}
+                      <div>
+                        <label htmlFor="vol-email" className="block text-xs font-semibold text-foreground mb-1.5">
+                          Email Address <span className="text-destructive">*</span>
+                        </label>
+                        <Input
+                          id="vol-email"
+                          type="email"
+                          placeholder="sarah@example.co.uk"
+                          value={formData.email}
+                          onChange={(e) => setFormData((p) => ({ ...p, email: e.target.value }))}
+                          maxLength={255}
+                          required
+                          className="rounded-xl h-11"
+                        />
+                      </div>
+
+                      {/* Area of Interest */}
+                      <div>
+                        <label htmlFor="vol-interest" className="block text-xs font-semibold text-foreground mb-1.5">
+                          Area of Interest <span className="text-destructive">*</span>
+                        </label>
+                        <Select
+                          value={formData.area_of_interest}
+                          onValueChange={(v) => setFormData((p) => ({ ...p, area_of_interest: v }))}
+                        >
+                          <SelectTrigger id="vol-interest" className="rounded-xl h-11">
+                            <SelectValue placeholder="Select an area..." />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {INTEREST_OPTIONS.map((opt) => (
+                              <SelectItem key={opt} value={opt}>{opt}</SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+
+                      {/* Message */}
+                      <div>
+                        <label htmlFor="vol-message" className="block text-xs font-semibold text-foreground mb-1.5">
+                          Tell us about yourself <span className="text-muted-foreground font-normal">(optional)</span>
+                        </label>
+                        <Textarea
+                          id="vol-message"
+                          placeholder="Share relevant experience, availability, or why you'd like to volunteer..."
+                          value={formData.message}
+                          onChange={(e) => setFormData((p) => ({ ...p, message: e.target.value }))}
+                          maxLength={2000}
+                          rows={3}
+                          className="rounded-xl resize-none"
+                        />
+                      </div>
+
+                      <Button
+                        type="submit"
+                        disabled={submitting}
+                        className="w-full h-12 rounded-full text-sm font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-md"
+                      >
+                        {submitting ? (
+                          <div className="flex items-center gap-2">
+                            <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                            Submitting...
+                          </div>
+                        ) : (
+                          <>
+                            <Send className="w-4 h-4 mr-2" />
+                            Submit Application
+                          </>
+                        )}
+                      </Button>
+
+                      <p className="text-[10px] text-muted-foreground text-center leading-relaxed pt-1">
+                        By submitting, you agree to our{" "}
+                        <a href="/privacy" className="underline hover:text-foreground">Privacy Policy</a>.
+                        We'll only use your details to contact you about volunteering.
+                      </p>
+                    </form>
+                  )}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* ── Final CTA ── */}
+          <section className="py-16 sm:py-20 bg-gradient-to-br from-primary/95 to-primary text-primary-foreground">
+            <div className="container mx-auto px-4 sm:px-6 max-w-3xl text-center">
+              <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-4">
+                Ready to Make a Difference?
+              </h2>
+              <p className="text-base sm:text-lg text-white/75 leading-relaxed mb-8 max-w-xl mx-auto">
+                Join thousands of supporters across the UK who are helping people with arthritis live better, more active lives.
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Button
+                  onClick={() => navigate("/donate")}
+                  size="lg"
+                  className="rounded-full bg-white text-primary hover:bg-white/90 font-bold h-12 px-8 shadow-lg"
+                >
+                  <Heart className="w-4 h-4 mr-2" />
+                  Donate Now
+                </Button>
+                <Button
+                  onClick={() => navigate("/about")}
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full border-white/30 text-white hover:bg-white/10 font-bold h-12 px-8"
+                >
+                  Learn About Our Work
+                </Button>
+              </div>
             </div>
           </section>
         </main>
