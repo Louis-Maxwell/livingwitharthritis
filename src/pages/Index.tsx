@@ -122,59 +122,41 @@ export default function Index() {
             <QuickAccessSection />
           </Suspense>
 
-          <ViewportSection minHeight="300px" rootMargin="400px">
-            <Suspense fallback={<SectionLoader />}>
-              <HowItWorksSection />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={<SectionLoader />}>
+            <HowItWorksSection />
+          </Suspense>
 
-          <ViewportSection minHeight="300px" rootMargin="400px">
-            <Suspense fallback={<SectionLoader />}>
-              <ServicesGrid />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={<SectionLoader />}>
+            <ServicesGrid />
+          </Suspense>
 
-          <ViewportSection minHeight="200px" rootMargin="300px">
-            <Suspense fallback={null}>
-              <QuoteSection />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={null}>
+            <QuoteSection />
+          </Suspense>
 
-          <ViewportSection minHeight="300px" rootMargin="300px">
-            <Suspense fallback={<SectionLoader />}>
-              <AboutSection />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={<SectionLoader />}>
+            <AboutSection />
+          </Suspense>
 
-          <ViewportSection minHeight="300px" rootMargin="300px">
-            <Suspense fallback={<SectionLoader />}>
-              <TestimonialsSection />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={<SectionLoader />}>
+            <TestimonialsSection />
+          </Suspense>
 
-          <ViewportSection minHeight="300px" rootMargin="300px">
-            <Suspense fallback={<SectionLoader />}>
-              <DonationImpactSection />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={<SectionLoader />}>
+            <DonationImpactSection />
+          </Suspense>
 
-          <ViewportSection minHeight="300px" rootMargin="300px">
-            <Suspense fallback={<SectionLoader />}>
-              <FAQSection />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={<SectionLoader />}>
+            <FAQSection />
+          </Suspense>
 
-          <ViewportSection minHeight="200px" rootMargin="300px">
-            <Suspense fallback={<SectionLoader />}>
-              <NewsletterSection />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={<SectionLoader />}>
+            <NewsletterSection />
+          </Suspense>
 
-          <ViewportSection minHeight="300px" rootMargin="300px">
-            <Suspense fallback={<SectionLoader />}>
-              <GetInTouchSection />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={<SectionLoader />}>
+            <GetInTouchSection />
+          </Suspense>
         </main>
 
         <Suspense fallback={<div className="h-96 bg-foreground" />}>
