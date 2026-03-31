@@ -50,7 +50,7 @@ const FAQSection = memo(() => {
 
       <Accordion type="single" collapsible className="space-y-4">
         {faqs.map((faq, i) => (
-          <div key={i} className="animate-in fade-in slide-in-from-bottom-3 duration-500" style={{ animationDelay: `${i * 70}ms` }}>
+          <div key={i}>
             <AccordionItem value={`faq-${i}`} className="bg-card border border-border/15 rounded-2xl px-7 data-[state=open]:shadow-medium transition-all duration-500 data-[state=open]:border-primary/10">
               <AccordionTrigger className="text-left text-sm font-semibold hover:no-underline py-6">{faq.q}</AccordionTrigger>
               <AccordionContent className="text-muted-foreground text-sm leading-[1.8] pb-6">{faq.a}</AccordionContent>
