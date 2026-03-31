@@ -57,6 +57,9 @@ const Finances = lazy(() => import("./pages/Finances"));
 const ImpactStories = lazy(() => import("./pages/ImpactStories"));
 const WaysToHelp = lazy(() => import("./pages/WaysToHelp"));
 const TermsConditions = lazy(() => import("./pages/TermsConditions"));
+const Safeguarding = lazy(() => import("./pages/Safeguarding"));
+const Complaints = lazy(() => import("./pages/Complaints"));
+const Donate = lazy(() => import("./pages/Donate"));
 // Loading fallback with skeleton-style animation
 const PageLoader = () => (
   <div className="min-h-screen flex flex-col items-center justify-center bg-background gap-4">
