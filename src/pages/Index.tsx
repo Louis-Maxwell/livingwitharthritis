@@ -45,18 +45,13 @@ const ServicesGrid = lazy(() => import("@/components/ServicesGrid"));
 const QuoteSection = lazy(() => import("@/components/landing/QuoteSection"));
 const CampaignBanner = lazy(() => import("@/components/CampaignBanner"));
 
-// Below-fold sections — deferred with ViewportSection
+// Below-fold sections — streamlined to 8 core sections
 const HowItWorksSection = lazy(() => import("@/components/landing/HowItWorksSection"));
-const DailyTipsSection = lazy(() => import("@/components/landing/DailyTipsSection"));
-const BlogPreviewSection = lazy(() => import("@/components/landing/BlogPreviewSection"));
 const TestimonialsSection = lazy(() => import("@/components/landing/TestimonialsSection"));
 const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
-const FundraisingProgressSection = lazy(() => import("@/components/landing/FundraisingProgressSection"));
 const GetInTouchSection = lazy(() => import("@/components/landing/GetInTouchSection"));
 const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSection"));
-const ImpactMetricsSection = lazy(() => import("@/components/landing/ImpactMetricsSection"));
 const DonationImpactSection = lazy(() => import("@/components/landing/DonationImpactSection"));
-const BeneficiarySpotlight = lazy(() => import("@/components/landing/BeneficiarySpotlight"));
 
 // Tab sections — loaded on demand
 const NutritionArticleSection = lazy(() => import("@/components/NutritionArticleSection"));
