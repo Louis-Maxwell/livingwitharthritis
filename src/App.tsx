@@ -60,6 +60,11 @@ const TermsConditions = lazy(() => import("./pages/TermsConditions"));
 const Safeguarding = lazy(() => import("./pages/Safeguarding"));
 const Complaints = lazy(() => import("./pages/Complaints"));
 const Donate = lazy(() => import("./pages/Donate"));
+const UKArthritisGuide = lazy(() => import("./pages/pillar/UKArthritisGuide"));
+const NHSServicesGuide = lazy(() => import("./pages/pillar/NHSServicesGuide"));
+const DietGuide = lazy(() => import("./pages/pillar/DietGuide"));
+const ExerciseGuide = lazy(() => import("./pages/pillar/ExerciseGuide"));
+const BenefitsPIPGuide = lazy(() => import("./pages/pillar/BenefitsPIPGuide"));
 // Loading fallback with skeleton-style animation
 const PageLoader = () => (
   <div className="min-h-screen flex flex-col items-center justify-center bg-background gap-4">
@@ -131,6 +136,11 @@ function AnimatedRoutes() {
         <Route path="/safeguarding" element={<Safeguarding />} />
         <Route path="/complaints" element={<Complaints />} />
         <Route path="/donate" element={<Donate />} />
+        <Route path="/guides/uk-arthritis" element={<UKArthritisGuide />} />
+        <Route path="/guides/nhs-services" element={<NHSServicesGuide />} />
+        <Route path="/guides/diet" element={<DietGuide />} />
+        <Route path="/guides/exercise" element={<ExerciseGuide />} />
+        <Route path="/guides/benefits-pip" element={<BenefitsPIPGuide />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </PageTransition>
