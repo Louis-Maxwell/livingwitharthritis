@@ -100,8 +100,8 @@ const HeroSection = memo(() => {
               <Button
                 size="lg"
                 variant="outline"
-                onClick={() => navigate("/zakat-appeal")}
-                className="px-8 sm:px-10 h-14 sm:h-[62px] rounded-full text-[13px] sm:text-sm font-bold tracking-wide border-2 border-[hsl(0,72%,51%)]/30 text-[hsl(0,72%,51%)] hover:bg-[hsl(0,72%,51%)] hover:text-white transition-all duration-300 group active:scale-[0.97]"
+                onClick={() => navigate("/donate")}
+                className="px-8 sm:px-10 h-14 sm:h-[62px] rounded-full text-[13px] sm:text-sm font-bold tracking-wide border-2 border-destructive/30 text-destructive hover:bg-destructive hover:text-destructive-foreground transition-all duration-300 group active:scale-[0.97]"
               >
                 <Heart className="w-5 h-5 mr-2 fill-current/20 group-hover:scale-110 transition-transform" />
                 Donate Now
