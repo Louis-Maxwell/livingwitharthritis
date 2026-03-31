@@ -1,9 +1,5 @@
-import { lazy, Suspense, memo, useEffect, useState, useCallback } from "react";
+import { lazy, Suspense, memo, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
-import { Apple, Dumbbell, Stethoscope, Users, MapPin } from "lucide-react";
 import { toast } from "sonner";
 import { useSearchParams } from "react-router-dom";
 
@@ -14,9 +10,8 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import ViewportSection from "@/components/ui/ViewportSection";
 
 const Footer = lazy(() => import("@/components/Footer"));
-const AppointmentModal = lazy(() => import("@/components/AppointmentModal").then(m => ({ default: m.AppointmentModal })));
 
-// Deferred overlays — loaded after paint (reduced: removed DonationNotification & BackToTop)
+// Deferred overlays
 const DeferredOverlays = memo(() => {
   const [show, setShow] = useState(false);
   useEffect(() => {
@@ -38,29 +33,19 @@ const DeferredOverlays = memo(() => {
 });
 DeferredOverlays.displayName = "DeferredOverlays";
 
-// Above-fold sections — eagerly loaded
+// Above-fold
 const QuickAccessSection = lazy(() => import("@/components/landing/QuickAccessSection"));
-const AboutSection = lazy(() => import("@/components/AboutSection"));
+const HowItWorksSection = lazy(() => import("@/components/landing/HowItWorksSection"));
 const ServicesGrid = lazy(() => import("@/components/ServicesGrid"));
 const QuoteSection = lazy(() => import("@/components/landing/QuoteSection"));
-const CampaignBanner = lazy(() => import("@/components/CampaignBanner"));
 
-// Below-fold sections — streamlined to 8 core sections
-const HowItWorksSection = lazy(() => import("@/components/landing/HowItWorksSection"));
+// Below-fold
+const AboutSection = lazy(() => import("@/components/AboutSection"));
 const TestimonialsSection = lazy(() => import("@/components/landing/TestimonialsSection"));
-const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
-const GetInTouchSection = lazy(() => import("@/components/landing/GetInTouchSection"));
-const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSection"));
 const DonationImpactSection = lazy(() => import("@/components/landing/DonationImpactSection"));
-
-// Tab sections — loaded on demand
-const NutritionArticleSection = lazy(() => import("@/components/NutritionArticleSection"));
-const VirtualPhysioSection = lazy(() => import("@/components/VirtualPhysioSection"));
-const JointExerciseSection = lazy(() => import("@/components/JointExerciseSection"));
-const ConditionsSection = lazy(() => import("@/components/ConditionsSection"));
-const CommunitySection = lazy(() => import("@/components/landing/CommunitySection"));
-const UKResourcesSection = lazy(() => import("@/components/landing/UKResourcesSection"));
-const TransparencySection = lazy(() => import("@/components/landing/TransparencySection"));
+const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
+const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSection"));
+const GetInTouchSection = lazy(() => import("@/components/landing/GetInTouchSection"));
 
 const SectionLoader = memo(() => (
   <div className="py-8 flex items-center justify-center">
@@ -69,17 +54,8 @@ const SectionLoader = memo(() => (
 ));
 SectionLoader.displayName = "SectionLoader";
 
-const EXPLORE_TABS = [
-  { value: "nutrition", label: "Nutrition", icon: Apple },
-  { value: "exercises", label: "Exercises", icon: Dumbbell },
-  { value: "conditions", label: "Conditions", icon: Stethoscope },
-  { value: "community", label: "Community", icon: Users },
-  { value: "resources", label: "UK Resources", icon: MapPin },
-] as const;
-
 export default function Index() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [activeTab, setActiveTab] = useState<string>("nutrition");
 
   useEffect(() => {
     const donation = searchParams.get("donation");
@@ -139,124 +115,71 @@ export default function Index() {
         <Header />
         <DeferredOverlays />
 
-        <main id="main-content" className="space-y-0" role="main">
-          {/* Campaign banner */}
-          <Suspense fallback={null}>
-            <CampaignBanner />
-          </Suspense>
-
+        <main id="main-content" role="main">
           <HeroSection />
 
-          <div className="w-full px-0 space-y-0">
-            {/* ABOVE FOLD — eagerly rendered */}
+          <Suspense fallback={<SectionLoader />}>
+            <QuickAccessSection />
+          </Suspense>
+
+          <ViewportSection minHeight="300px" rootMargin="400px">
             <Suspense fallback={<SectionLoader />}>
-              <QuickAccessSection />
+              <HowItWorksSection />
             </Suspense>
+          </ViewportSection>
 
-            <Suspense fallback={null}>
-              <QuoteSection />
-            </Suspense>
-
-            <Suspense fallback={<SectionLoader />}>
-              <AboutSection />
-            </Suspense>
-
+          <ViewportSection minHeight="300px" rootMargin="400px">
             <Suspense fallback={<SectionLoader />}>
               <ServicesGrid />
             </Suspense>
+          </ViewportSection>
 
-            {/* BELOW FOLD — viewport-deferred for perf */}
-            <ViewportSection minHeight="300px" rootMargin="400px">
-              <Suspense fallback={<SectionLoader />}>
-                <HowItWorksSection />
-              </Suspense>
-            </ViewportSection>
+          <ViewportSection minHeight="200px" rootMargin="300px">
+            <Suspense fallback={null}>
+              <QuoteSection />
+            </Suspense>
+          </ViewportSection>
 
-            {/* Removed SocialProofSection and ImpactBannerSection — redundant */}
+          <ViewportSection minHeight="300px" rootMargin="300px">
+            <Suspense fallback={<SectionLoader />}>
+              <AboutSection />
+            </Suspense>
+          </ViewportSection>
 
-            {/* TABBED EXPLORE SECTION */}
-            <ViewportSection minHeight="600px" rootMargin="400px">
-              <section id="explore" className="scroll-mt-24 bg-tint-rose p-6 md:p-12 border-y border-border/20">
-                <div className="max-w-7xl mx-auto">
-                  <div className="text-center mb-10">
-                    <span className="section-label text-primary mb-4 block">Resources Library</span>
-                    <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight leading-[1.06]">
-                      Explore our{" "}
-                      <span className="text-gradient italic">expert resources</span>
-                    </h2>
-                    <p className="text-muted-foreground mt-4 max-w-lg mx-auto text-sm sm:text-base leading-relaxed">
-                      Discover nutrition guides, physiotherapy exercises, condition information, community support and UK resources — all clinically reviewed.
-                    </p>
-                  </div>
+          <ViewportSection minHeight="300px" rootMargin="300px">
+            <Suspense fallback={<SectionLoader />}>
+              <TestimonialsSection />
+            </Suspense>
+          </ViewportSection>
 
-                  <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-                    <TabsList className="w-full flex flex-wrap justify-center gap-1 bg-muted/50 p-1.5 rounded-2xl h-auto">
-                      {EXPLORE_TABS.map((tab) => {
-                        const Icon = tab.icon;
-                        return (
-                          <TabsTrigger
-                            key={tab.value}
-                            value={tab.value}
-                            className="flex items-center gap-2 px-4 py-2.5 text-xs sm:text-sm font-semibold rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md transition-all duration-200"
-                          >
-                            <Icon className="w-4 h-4" />
-                            <span className="hidden sm:inline">{tab.label}</span>
-                            <span className="sm:hidden">{tab.label.split(" ")[0]}</span>
-                          </TabsTrigger>
-                        );
-                      })}
-                    </TabsList>
+          <ViewportSection minHeight="300px" rootMargin="300px">
+            <Suspense fallback={<SectionLoader />}>
+              <DonationImpactSection />
+            </Suspense>
+          </ViewportSection>
 
-                    <div className="mt-8">
-                      <TabsContent value="nutrition" className="space-y-10 md:space-y-14 mt-0">
-                        <Suspense fallback={<SectionLoader />}><NutritionArticleSection /></Suspense>
-                      </TabsContent>
-                      <TabsContent value="exercises" className="space-y-10 md:space-y-14 mt-0">
-                        <Suspense fallback={<SectionLoader />}><VirtualPhysioSection /><JointExerciseSection /></Suspense>
-                      </TabsContent>
-                      <TabsContent value="conditions" className="space-y-10 md:space-y-14 mt-0">
-                        <Suspense fallback={<SectionLoader />}><ConditionsSection /></Suspense>
-                      </TabsContent>
-                      <TabsContent value="community" className="space-y-10 md:space-y-14 mt-0">
-                        <Suspense fallback={<SectionLoader />}><CommunitySection /><TransparencySection /></Suspense>
-                      </TabsContent>
-                      <TabsContent value="resources" className="space-y-10 md:space-y-14 mt-0">
-                        <Suspense fallback={<SectionLoader />}><UKResourcesSection /></Suspense>
-                      </TabsContent>
-                    </div>
-                  </Tabs>
-                </div>
-              </section>
-            </ViewportSection>
+          <ViewportSection minHeight="300px" rootMargin="300px">
+            <Suspense fallback={<SectionLoader />}>
+              <FAQSection />
+            </Suspense>
+          </ViewportSection>
 
-            {/* STREAMLINED SECTIONS — 8 focused sections total */}
-            <ViewportSection minHeight="300px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}><TestimonialsSection /></Suspense>
-            </ViewportSection>
+          <ViewportSection minHeight="200px" rootMargin="300px">
+            <Suspense fallback={<SectionLoader />}>
+              <NewsletterSection />
+            </Suspense>
+          </ViewportSection>
 
-            <ViewportSection minHeight="300px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}><DonationImpactSection /></Suspense>
-            </ViewportSection>
-
-            <ViewportSection minHeight="300px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}><FAQSection /></Suspense>
-            </ViewportSection>
-
-            <ViewportSection minHeight="200px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}><NewsletterSection /></Suspense>
-            </ViewportSection>
-
-            <ViewportSection minHeight="300px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}><GetInTouchSection /></Suspense>
-            </ViewportSection>
-          </div>
+          <ViewportSection minHeight="300px" rootMargin="300px">
+            <Suspense fallback={<SectionLoader />}>
+              <GetInTouchSection />
+            </Suspense>
+          </ViewportSection>
         </main>
 
         <Suspense fallback={<div className="h-96 bg-foreground" />}>
           <Footer />
         </Suspense>
-
-        {/* Removed duplicate fixed bottom CTA — MobileBottomNav handles mobile navigation */}
       </div>
     </ErrorBoundary>
   );

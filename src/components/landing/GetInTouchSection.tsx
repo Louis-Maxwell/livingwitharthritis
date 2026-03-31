@@ -1,19 +1,12 @@
 import { memo } from "react";
-import { motion } from "framer-motion";
 import { MessageCircle, Mail, Phone, ArrowRight } from "lucide-react";
 import { ContactFormModal } from "@/components/ContactFormModal";
 
 const GetInTouchSection = memo(() => {
   return (
-    <section aria-labelledby="get-in-touch-heading" className="py-14 lg:py-20 bg-tint-green section-divider">
+    <section aria-labelledby="get-in-touch-heading" className="section-spacer">
       <div className="container mx-auto px-6 md:px-10 max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center mb-14"
-        >
+        <div className="text-center mb-14 animate-in fade-in slide-in-from-bottom-6 duration-700">
           <span className="section-label text-primary mb-4 block">We're Here For You</span>
           <h2
             id="get-in-touch-heading"
@@ -24,20 +17,16 @@ const GetInTouchSection = memo(() => {
           <p className="text-base text-muted-foreground max-w-lg mx-auto">
             Whether you have a question, need support, or just want to chat — we'd love to hear from you.
           </p>
-          <div className="w-16 h-1 bg-primary mx-auto mt-6 rounded-full" />
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-3 gap-5">
           {/* WhatsApp */}
-          <motion.a
+          <a
             href="https://wa.me/447760512084"
             target="_blank"
             rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.05, duration: 0.5 }}
-            className="group relative rounded-2xl border border-border/30 bg-card p-8 flex flex-col items-center text-center space-y-4 cursor-pointer hover:shadow-large hover:border-primary/20 hover:-translate-y-1 transition-all duration-300"
+            className="group rounded-2xl border border-border/30 bg-card p-8 flex flex-col items-center text-center space-y-4 cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all duration-300 animate-in fade-in slide-in-from-bottom-4 duration-500"
+            style={{ animationDelay: "50ms" }}
           >
             <div className="h-14 w-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-105 transition-all duration-300">
               <MessageCircle className="h-6 w-6 text-primary group-hover:text-primary-foreground transition-colors" />
@@ -49,15 +38,12 @@ const GetInTouchSection = memo(() => {
             <span className="inline-flex items-center gap-1.5 text-sm font-bold text-primary group-hover:gap-2.5 transition-all duration-300">
               Chat now <ArrowRight className="h-4 w-4" />
             </span>
-          </motion.a>
+          </a>
 
           {/* Enquiry */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.5 }}
-            className="group relative rounded-2xl border border-border/30 bg-card p-8 flex flex-col items-center text-center space-y-4 hover:shadow-large hover:border-secondary/20 hover:-translate-y-1 transition-all duration-300"
+          <div
+            className="group rounded-2xl border border-border/30 bg-card p-8 flex flex-col items-center text-center space-y-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 animate-in fade-in slide-in-from-bottom-4 duration-500"
+            style={{ animationDelay: "100ms" }}
           >
             <div className="h-14 w-14 rounded-xl bg-secondary/10 flex items-center justify-center group-hover:bg-secondary group-hover:scale-105 transition-all duration-300">
               <Mail className="h-6 w-6 text-secondary group-hover:text-secondary-foreground transition-colors" />
@@ -73,16 +59,13 @@ const GetInTouchSection = memo(() => {
                 </button>
               }
             />
-          </motion.div>
+          </div>
 
           {/* Phone */}
-          <motion.a
+          <a
             href="tel:+447760512084"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.15, duration: 0.5 }}
-            className="group relative rounded-2xl border border-border/30 bg-card p-8 flex flex-col items-center text-center space-y-4 cursor-pointer hover:shadow-large hover:border-primary/20 hover:-translate-y-1 transition-all duration-300"
+            className="group rounded-2xl border border-border/30 bg-card p-8 flex flex-col items-center text-center space-y-4 cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all duration-300 animate-in fade-in slide-in-from-bottom-4 duration-500"
+            style={{ animationDelay: "150ms" }}
           >
             <div className="h-14 w-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-105 transition-all duration-300">
               <Phone className="h-6 w-6 text-primary group-hover:text-primary-foreground transition-colors" />
@@ -96,7 +79,7 @@ const GetInTouchSection = memo(() => {
             <span className="inline-flex items-center gap-1.5 text-sm font-bold text-primary group-hover:gap-2.5 transition-all duration-300">
               Call now <ArrowRight className="h-4 w-4" />
             </span>
-          </motion.a>
+          </a>
         </div>
       </div>
     </section>

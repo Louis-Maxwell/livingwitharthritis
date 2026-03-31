@@ -1,5 +1,4 @@
 import { memo, useState } from "react";
-import { motion } from "framer-motion";
 import { Mail, ArrowRight, CheckCircle, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -40,15 +39,11 @@ const NewsletterSection = memo(() => {
   };
 
   return (
-    <section className="py-14 lg:py-20 bg-tint-lavender section-divider relative overflow-hidden">
-      {/* Subtle decorative shapes */}
-      <div className="absolute top-10 right-10 w-40 h-40 rounded-full bg-primary/[0.04] blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 left-10 w-56 h-56 rounded-full bg-secondary/[0.03] blur-3xl pointer-events-none" />
-
-      <div className="container mx-auto px-6 md:px-10 max-w-3xl relative">
-        <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center">
-          <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-7">
-            <Mail className="w-7 h-7 text-primary" />
+    <section className="section-spacer relative">
+      <div className="container mx-auto px-6 md:px-10 max-w-3xl">
+        <div className="text-center animate-in fade-in slide-in-from-bottom-6 duration-700">
+          <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
+            <Mail className="w-6 h-6 text-primary" />
           </div>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground mb-5">
             Stay <span className="text-primary italic">informed</span>
@@ -58,14 +53,10 @@ const NewsletterSection = memo(() => {
           </p>
 
           {isSubscribed ? (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="flex items-center justify-center gap-3 p-6 rounded-2xl bg-card border border-primary/10"
-            >
+            <div className="flex items-center justify-center gap-3 p-6 rounded-2xl bg-card border border-primary/10 animate-in fade-in zoom-in-95 duration-300">
               <CheckCircle className="w-6 h-6 text-primary" />
               <span className="text-foreground font-semibold">You're subscribed! Check your inbox soon.</span>
-            </motion.div>
+            </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <Input
@@ -89,7 +80,6 @@ const NewsletterSection = memo(() => {
             </form>
           )}
 
-          {/* Trust signals */}
           <div className="flex flex-wrap items-center justify-center gap-4 mt-8 text-[11px] text-muted-foreground/60">
             <span className="flex items-center gap-1">
               <Sparkles className="w-3 h-3" /> Join 2,000+ subscribers
@@ -99,7 +89,7 @@ const NewsletterSection = memo(() => {
             <span>•</span>
             <span>Unsubscribe anytime</span>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
