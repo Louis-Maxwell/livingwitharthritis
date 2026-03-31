@@ -7,7 +7,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
-import ViewportSection from "@/components/ui/ViewportSection";
+// ViewportSection removed — all sections render eagerly with CSS animations
 
 const Footer = lazy(() => import("@/components/Footer"));
 
