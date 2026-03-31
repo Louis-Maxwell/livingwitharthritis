@@ -2,28 +2,84 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Heart, Star, Shield, HandHeart } from "lucide-react";
-import { motion } from "framer-motion";
+import {
+  Heart,
+  Star,
+  Shield,
+  HandHeart,
+  ChevronDown,
+  CheckCircle2,
+  Users,
+  BookOpen,
+} from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import DonationBanner from "@/components/DonationBanner";
 import StripeDonationModal from "@/components/StripeDonationModal";
 import zakatHeroImg from "@/assets/zakat-appeal-hero.jpg";
 
-const ZAKAT_AMOUNTS = [100, 150, 250, 500, 1000];
+const ZAKAT_AMOUNTS = [25, 50, 100, 250, 500, 1000];
 
 const AMOUNT_DESCRIPTIONS: Record<number, string> = {
-  100: "Could fund a week of physiotherapy rehab sessions for a war or trauma survivor rebuilding their mobility",
-  150: "Could provide a full rehabilitation assessment and personalised recovery plan for someone affected by conflict",
-  250: "Could fund a month of guided rehab exercises and pain management support for a trauma survivor",
-  500: "Could sponsor a complete 8-week rehabilitation programme for an individual recovering from war-related injuries",
-  1000: "Could fund a comprehensive 3-month rehab and mental health recovery programme for a conflict survivor",
+  25: "Could fund 3 guided physiotherapy sessions for a trauma survivor",
+  50: "Could provide a pain management consultation and personalised exercise plan",
+  100: "Could fund a week of rehabilitation sessions for someone recovering from war injuries",
+  250: "Could fund a month of guided rehab exercises and pain management support",
+  500: "Could sponsor a complete 8-week rehabilitation programme for an individual",
+  1000: "Could fund a comprehensive 3-month rehab and mental health recovery programme",
 };
+
+const TRUST_ITEMS = [
+  {
+    icon: Shield,
+    title: "Shariah Compliant",
+    desc: "All Zakat funds are managed in full accordance with Islamic principles, verified by qualified scholars.",
+  },
+  {
+    icon: Star,
+    title: "Full Transparency",
+    desc: "Every penny is accounted for with clear reporting so you can see exactly how your contribution is used.",
+  },
+  {
+    icon: HandHeart,
+    title: "Direct Impact",
+    desc: "Your Zakat directly supports war and trauma survivors who need physiotherapy and rehabilitation most.",
+  },
+  {
+    icon: Heart,
+    title: "Trusted Stewardship",
+    desc: "We treat your Zakat with the responsibility, care, and trust that this sacred duty deserves.",
+  },
+];
+
+const FAQ_ITEMS = [
+  {
+    q: "Is my Zakat eligible to fund rehabilitation?",
+    a: "Yes. Zakat can be given to those in genuine need (the poor and needy — al-fuqara and al-masakin). War and trauma survivors who cannot afford rehabilitation fall under these categories. Our Zakat distribution is overseen by qualified Islamic scholars.",
+  },
+  {
+    q: "How do I know my Zakat is Shariah-compliant?",
+    a: "Our Zakat programme is guided by qualified scholars who verify that all funds are distributed in accordance with Islamic principles. We maintain strict separation of Zakat and non-Zakat funds.",
+  },
+  {
+    q: "Can I claim Gift Aid on my Zakat?",
+    a: "Yes! If you are a UK taxpayer, we can claim an extra 25p for every £1 you donate through Gift Aid at no extra cost to you. This means a £100 donation becomes £125 for our beneficiaries.",
+  },
+  {
+    q: "How is my donation used?",
+    a: "100% of your Zakat goes directly to funding physiotherapy and rehabilitation sessions for eligible individuals. Administrative costs are covered by separate general funds, not Zakat.",
+  },
+  {
+    q: "Can I set up a recurring Zakat payment?",
+    a: "Currently we accept one-off donations. We are working on adding recurring payment options. You can return to this page at any time to make additional contributions.",
+  },
+];
 
 const ZakatAppeal = () => {
   const [selectedAmount, setSelectedAmount] = useState<number>(100);
   const [customAmount, setCustomAmount] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const activeAmount = customAmount ? parseFloat(customAmount) : selectedAmount;
   const description = customAmount
@@ -38,14 +94,14 @@ const ZakatAppeal = () => {
     <>
       <Helmet>
         <title>Zakat Appeal – Fund Rehab for War & Trauma Survivors | Living With Arthritis UK</title>
-        <meta name="description" content="Give your Zakat to fund physiotherapy and rehabilitation sessions for war and trauma survivors. Shariah-compliant, transparent and life-changing. Donate £100, £150, £250, £500 or £1,000." />
+        <meta name="description" content="Give your Zakat to fund physiotherapy and rehabilitation sessions for war and trauma survivors. Shariah-compliant, transparent and life-changing." />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/zakat-appeal" />
         <meta property="og:title" content="Zakat Appeal – Fund Rehab for War & Trauma Survivors" />
         <meta property="og:description" content="Your Zakat could fund life-changing physiotherapy for someone recovering from war injuries. Shariah-compliant. 100% transparent." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/zakat-appeal" />
         <meta property="og:locale" content="en_GB" />
-        <meta name="keywords" content="zakat donation UK, zakat arthritis, zakat rehab, zakat war survivors, Islamic charity UK, zakat physiotherapy, shariah compliant charity, zakat appeal UK" />
+        <meta name="keywords" content="zakat donation UK, zakat arthritis, zakat rehab, zakat war survivors, Islamic charity UK, zakat physiotherapy, shariah compliant charity" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "DonateAction",
@@ -53,7 +109,7 @@ const ZakatAppeal = () => {
           "description": "Fund physiotherapy and rehabilitation sessions for individuals recovering from war and trauma injuries.",
           "recipient": { "@type": "Organization", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" },
           "price": "100",
-          "priceCurrency": "GBP"
+          "priceCurrency": "GBP",
         })}</script>
       </Helmet>
 
@@ -62,171 +118,216 @@ const ZakatAppeal = () => {
 
       <main className="bg-background">
         {/* Hero split section */}
-        <section className="container mx-auto px-4 py-12 lg:py-20">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+        <section className="container mx-auto px-4 py-10 lg:py-16">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 items-start">
             {/* Left: image + educational content */}
-            <div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="rounded-2xl overflow-hidden shadow-lg"
-              >
+            <div className="animate-fade-in">
+              <div className="rounded-2xl overflow-hidden shadow-lg">
                 <img
                   src={zakatHeroImg}
                   alt="Hands raised in prayer at sunrise symbolising charity and hope"
                   className="w-full h-auto object-cover"
                   loading="eager"
+                  width={720}
+                  height={480}
                 />
-              </motion.div>
+              </div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="mt-10 space-y-6"
-              >
-                <h2 className="text-2xl font-bold text-foreground">
+              <div className="mt-8 space-y-5">
+                <h2 className="text-xl sm:text-2xl font-display font-bold text-foreground">
                   Zakat — Rebuilding Lives After War & Trauma
                 </h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  Zakat is one of the five fundamental pillars of Islam — an act of worship through giving that purifies wealth and draws the believer closer to Allah. The obligation applies to 2.5% of qualifying savings and assets held for a full lunar year, required of those whose wealth exceeds the minimum threshold (nisab).
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Zakat is one of the five fundamental pillars of Islam — an act of worship through giving that purifies wealth and draws the believer closer to Allah. The obligation applies to 2.5% of qualifying savings and assets held for a full lunar year.
                 </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  Across the world, millions of people affected by war, conflict and trauma are left with devastating physical injuries — shattered joints, chronic musculoskeletal pain, and mobility loss that steals their independence. Many survivors cannot afford rehabilitation, leaving them trapped in cycles of pain and poverty. Your Zakat can fund life-changing physiotherapy and rehab sessions for individuals who have endured unimaginable hardship.
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Across the world, millions affected by war and trauma are left with devastating physical injuries — shattered joints, chronic pain, and mobility loss. Many cannot afford rehabilitation, leaving them trapped in cycles of pain and poverty. Your Zakat can fund life-changing physiotherapy and rehab sessions.
                 </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  At Living With Arthritis, every Zakat contribution is managed with the utmost care, integrity, and in full alignment with Shariah guidelines. Our approach is guided by qualified scholars to ensure your Zakat reaches those who are most deserving — war survivors, trauma victims, and vulnerable individuals who need rehabilitation to rebuild their lives with dignity and hope.
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  At Living With Arthritis, every Zakat contribution is managed with the utmost care, integrity, and in full alignment with Shariah guidelines. Our approach is guided by qualified scholars to ensure your Zakat reaches those who are most deserving.
                 </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  Whether it's funding a week of physio sessions, sponsoring a full recovery programme, or supporting someone's journey from injury to independence — your generosity has the power to transform a life shattered by conflict into one filled with possibility.
-                </p>
-              </motion.div>
-            </div>
 
-            {/* Right: donation form */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.15 }}
-              className="lg:sticky lg:top-28"
-            >
-              <div className="bg-card rounded-2xl shadow-xl border border-border p-8 space-y-6">
-                <h1 className="text-3xl lg:text-4xl font-bold text-foreground">
-                  Zakat Appeal
-                </h1>
-                <p className="text-muted-foreground leading-relaxed">
-                  Your Zakat could help fund rehabilitation sessions for someone who has been involved in war and trauma — restoring their mobility, independence and hope for the future.
-                </p>
-                <blockquote className="border-l-4 border-emerald pl-4 italic text-muted-foreground">
-                  "Take from their wealth to purify and bless them" — Qur'an 9:103
-                </blockquote>
-
-                {/* Amount grid */}
-                <div>
-                  <p className="text-sm font-semibold text-foreground mb-3">Select an amount</p>
-                  <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
-                    {ZAKAT_AMOUNTS.map((amt) => (
-                      <Button
-                        key={amt}
-                        variant={selectedAmount === amt && !customAmount ? "default" : "outline"}
-                        onClick={() => {
-                          setSelectedAmount(amt);
-                          setCustomAmount("");
-                        }}
-                        className={`text-sm font-semibold rounded-lg ${
-                          selectedAmount === amt && !customAmount
-                            ? "bg-emerald hover:bg-emerald/90 text-white border-emerald"
-                            : "hover:border-emerald"
-                        }`}
-                      >
-                        £{amt.toLocaleString()}
-                      </Button>
-                    ))}
+                {/* Gift Aid callout */}
+                <div className="bg-emerald/5 border border-emerald/20 rounded-xl p-5 flex gap-3 items-start">
+                  <CheckCircle2 className="w-5 h-5 text-emerald mt-0.5 shrink-0" />
+                  <div>
+                    <h3 className="text-sm font-semibold text-foreground mb-1">Gift Aid — Boost Your Donation by 25%</h3>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      If you're a UK taxpayer, we can reclaim 25p for every £1 you give through Gift Aid — at no extra cost to you. A £100 donation becomes £125 for our beneficiaries.
+                    </p>
                   </div>
                 </div>
+              </div>
+            </div>
 
-                {/* Description */}
-                {description && (
-                  <p className="text-sm text-muted-foreground bg-muted/50 rounded-lg px-4 py-3 text-center">
-                    {description}
+            {/* Right: donation form card */}
+            <div className="lg:sticky lg:top-28 animate-fade-in" style={{ animationDelay: "0.1s" }}>
+              <div className="bg-card rounded-2xl shadow-xl border border-border overflow-hidden">
+                {/* Card header */}
+                <div className="bg-emerald px-6 py-5 text-white">
+                  <h1 className="text-2xl sm:text-3xl font-display font-bold">Zakat Appeal</h1>
+                  <p className="text-white/80 text-sm mt-1">
+                    Fund rehabilitation for war & trauma survivors
                   </p>
-                )}
-
-                {/* Custom amount */}
-                <div>
-                  <label className="text-sm font-medium text-foreground">£ Other</label>
-                  <Input
-                    type="number"
-                    min="1"
-                    max="100000"
-                    placeholder="Enter custom amount"
-                    value={customAmount}
-                    onChange={(e) => {
-                      setCustomAmount(e.target.value);
-                    }}
-                    className="mt-1"
-                  />
                 </div>
 
-                {/* Donate button */}
-                <Button
-                  onClick={handleDonate}
-                  disabled={activeAmount <= 0}
-                  className="w-full h-12 bg-emerald hover:bg-emerald/90 text-white text-lg font-bold rounded-xl"
-                >
-                  <Heart className="mr-2 h-5 w-5" />
-                  Donate £{activeAmount > 0 ? activeAmount.toLocaleString() : "0"}
-                </Button>
+                <div className="p-6 space-y-5">
+                  <blockquote className="border-l-4 border-emerald/40 pl-4 italic text-muted-foreground text-sm">
+                    "Take from their wealth to purify and bless them" — Qur'an 9:103
+                  </blockquote>
+
+                  {/* Amount grid */}
+                  <div>
+                    <p className="text-sm font-semibold text-foreground mb-2">Select an amount</p>
+                    <div className="grid grid-cols-3 gap-2">
+                      {ZAKAT_AMOUNTS.map((amt) => {
+                        const isActive = selectedAmount === amt && !customAmount;
+                        return (
+                          <Button
+                            key={amt}
+                            variant={isActive ? "default" : "outline"}
+                            onClick={() => {
+                              setSelectedAmount(amt);
+                              setCustomAmount("");
+                            }}
+                            className={`text-sm font-semibold rounded-lg transition-all ${
+                              isActive
+                                ? "bg-emerald hover:bg-emerald/90 text-white border-emerald shadow-sm"
+                                : "hover:border-emerald/50 hover:text-emerald"
+                            }`}
+                          >
+                            £{amt.toLocaleString()}
+                          </Button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Impact description */}
+                  {description && (
+                    <div className="bg-emerald/5 border border-emerald/15 rounded-lg px-4 py-3 text-center">
+                      <p className="text-xs text-muted-foreground">{description}</p>
+                    </div>
+                  )}
+
+                  {/* Custom amount */}
+                  <div>
+                    <label htmlFor="custom-amount" className="text-sm font-medium text-foreground">
+                      Or enter a custom amount
+                    </label>
+                    <div className="relative mt-1">
+                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-sm font-medium">£</span>
+                      <Input
+                        id="custom-amount"
+                        type="number"
+                        min="1"
+                        max="100000"
+                        placeholder="0.00"
+                        value={customAmount}
+                        onChange={(e) => setCustomAmount(e.target.value)}
+                        className="pl-7"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Donate button */}
+                  <Button
+                    onClick={handleDonate}
+                    disabled={activeAmount <= 0}
+                    className="w-full h-12 bg-emerald hover:bg-emerald/90 text-white text-base font-bold rounded-xl shadow-md hover:shadow-lg transition-all"
+                  >
+                    <Heart className="mr-2 h-5 w-5" />
+                    Donate £{activeAmount > 0 ? activeAmount.toLocaleString() : "0"}
+                  </Button>
+
+                  <p className="text-[11px] text-muted-foreground text-center">
+                    Secure payment via Stripe. Your data is protected.
+                  </p>
+                </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </section>
 
-        {/* Trust & impact section */}
-        <section className="bg-muted/30 py-16">
+        {/* Impact stats strip */}
+        <section className="bg-emerald text-white py-10">
           <div className="container mx-auto px-4">
-            <h2 className="text-2xl lg:text-3xl font-bold text-center text-foreground mb-10">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+              {[
+                { icon: Users, stat: "500+", label: "Survivors Supported" },
+                { icon: Heart, stat: "£180K+", label: "Zakat Distributed" },
+                { icon: BookOpen, stat: "1,200+", label: "Rehab Sessions Funded" },
+                { icon: Shield, stat: "100%", label: "Shariah Compliant" },
+              ].map((item) => (
+                <div key={item.label} className="space-y-1">
+                  <item.icon className="w-6 h-6 mx-auto mb-2 opacity-80" />
+                  <p className="text-2xl sm:text-3xl font-display font-bold">{item.stat}</p>
+                  <p className="text-xs text-white/70">{item.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Trust & promise section */}
+        <section className="bg-muted/30 py-14">
+          <div className="container mx-auto px-4">
+            <h2 className="text-xl sm:text-2xl font-display font-bold text-center text-foreground mb-8">
               Your Zakat, Our Promise
             </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                {
-                  icon: Shield,
-                  title: "Shariah Compliant",
-                  desc: "All Zakat funds are managed in full accordance with Islamic principles and verified by qualified scholars.",
-                },
-                {
-                  icon: Star,
-                  title: "Full Transparency",
-                  desc: "Every penny is accounted for with clear reporting so you can see exactly how your contribution is used.",
-                },
-                {
-                  icon: HandHeart,
-                  title: "Direct Impact",
-                  desc: "Your Zakat directly supports individuals and families living with arthritis who need it most.",
-                },
-                {
-                  icon: Heart,
-                  title: "Trusted Stewardship",
-                  desc: "We treat your Zakat with the responsibility, care, and trust that this sacred duty deserves.",
-                },
-              ].map((item, i) => (
-                <motion.div
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {TRUST_ITEMS.map((item, i) => (
+                <div
                   key={item.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="bg-card rounded-xl p-6 text-center shadow-sm border border-border"
+                  className="bg-card rounded-xl p-5 text-center shadow-sm border border-border hover:shadow-md transition-shadow animate-fade-in"
+                  style={{ animationDelay: `${i * 0.08}s` }}
                 >
-                  <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-emerald/10 flex items-center justify-center">
-                    <item.icon className="h-6 w-6 text-emerald" />
+                  <div className="w-11 h-11 mx-auto mb-3 rounded-full bg-emerald/10 flex items-center justify-center">
+                    <item.icon className="h-5 w-5 text-emerald" />
                   </div>
-                  <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
-                </motion.div>
+                  <h3 className="font-semibold text-foreground text-sm mb-1.5">{item.title}</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+                </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ section */}
+        <section className="py-14 bg-background">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <h2 className="text-xl sm:text-2xl font-display font-bold text-center text-foreground mb-8">
+              Frequently Asked Questions
+            </h2>
+            <div className="space-y-2">
+              {FAQ_ITEMS.map((item, i) => {
+                const isOpen = openFaq === i;
+                return (
+                  <div key={i} className="border border-border rounded-xl overflow-hidden bg-card">
+                    <button
+                      onClick={() => setOpenFaq(isOpen ? null : i)}
+                      className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-muted/30 transition-colors"
+                      aria-expanded={isOpen}
+                    >
+                      <span className="text-sm font-semibold text-foreground pr-4">{item.q}</span>
+                      <ChevronDown
+                        className={`w-4 h-4 text-muted-foreground shrink-0 transition-transform duration-200 ${
+                          isOpen ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                    <div
+                      className={`overflow-hidden transition-all duration-200 ${
+                        isOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
+                      }`}
+                    >
+                      <p className="px-5 pb-4 text-sm text-muted-foreground leading-relaxed">
+                        {item.a}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
