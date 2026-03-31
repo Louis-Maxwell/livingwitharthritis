@@ -17,6 +17,7 @@ import Footer from "@/components/Footer";
 import DonationBanner from "@/components/DonationBanner";
 import StripeDonationModal from "@/components/StripeDonationModal";
 import zakatHeroImg from "@/assets/zakat-appeal-hero.jpg";
+import ZakatCalculator from "@/components/ZakatCalculator";
 
 const ZAKAT_AMOUNTS = [25, 50, 100, 250, 500, 1000];
 
@@ -268,6 +269,9 @@ const ZakatAppeal = () => {
             </div>
           </div>
         </section>
+
+        {/* Zakat Calculator */}
+        <ZakatCalculator />
 
         {/* Trust & promise section */}
         <section className="bg-muted/30 py-14">
