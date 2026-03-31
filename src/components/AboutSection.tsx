@@ -14,7 +14,7 @@ const AboutSection = memo(() => {
       <div className="container mx-auto px-6 md:px-10 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-start">
           {/* Left — Mission */}
-          <div className="animate-in fade-in slide-in-from-bottom-6 duration-700">
+          <div>
             <span className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-bold px-3.5 py-1.5 rounded-full mb-4">
               About Our Mission
             </span>
