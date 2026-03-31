@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { Users, Globe, TrendingUp, BookOpen, LucideIcon } from "lucide-react";
+import { Users, Globe, TrendingUp, BookOpen } from "lucide-react";
 
 const milestones = [
   { icon: Users, value: "50,000+", label: "People supported", color: "text-primary bg-primary/8" },
