@@ -36,8 +36,7 @@ const HowItWorksSection = memo(() => (
           return (
             <div
               key={i}
-              className="text-center relative group animate-in fade-in slide-in-from-bottom-4 duration-500"
-              style={{ animationDelay: `${i * 100}ms` }}
+              className="text-center relative group"
             >
               <div className={`${step.color} w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 relative group-hover:shadow-md transition-all duration-300`}>
                 <Icon className="w-7 h-7" />

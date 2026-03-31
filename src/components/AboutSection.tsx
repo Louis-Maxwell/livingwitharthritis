@@ -35,7 +35,7 @@ const AboutSection = memo(() => {
           </div>
 
           {/* Right — 2x2 Milestone Grid */}
-          <div className="grid grid-cols-2 gap-4 animate-in fade-in slide-in-from-bottom-6 duration-700" style={{ animationDelay: "150ms" }}>
+          <div className="grid grid-cols-2 gap-4">
             {milestones.map((m) => {
               const Icon = m.icon;
               return (

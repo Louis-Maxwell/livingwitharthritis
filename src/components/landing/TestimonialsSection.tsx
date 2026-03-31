@@ -74,7 +74,7 @@ const TestimonialsSection = memo(() => (
         ))}
       </div>
 
-      <div className="mt-12 text-center animate-in fade-in duration-500" style={{ animationDelay: "300ms" }}>
+      <div className="mt-12 text-center">
         <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-card border border-border/30">
           <div className="flex gap-0.5">
             {[1,2,3,4,5].map(s => <Star key={s} className="w-3.5 h-3.5 fill-secondary text-secondary" />)}

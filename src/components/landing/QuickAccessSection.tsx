@@ -86,8 +86,7 @@ export default function QuickAccessSection() {
                 key={hub.id}
                 onClick={() => navigate(hub.href)}
                 aria-label={`Go to ${hub.title}`}
-                className="group text-left rounded-2xl border border-border/40 bg-card p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-border/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary animate-in fade-in slide-in-from-bottom-4 duration-500"
-                style={{ animationDelay: `${i * 80}ms` }}
+                className="group text-left rounded-2xl border border-border/40 bg-card p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-border/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${hub.iconBg}`}>

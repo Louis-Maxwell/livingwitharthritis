@@ -59,7 +59,7 @@ const FAQSection = memo(() => {
         ))}
       </Accordion>
 
-      <div className="mt-12 text-center space-y-4 animate-in fade-in duration-500" style={{ animationDelay: "400ms" }}>
+      <div className="mt-12 text-center space-y-4">
         <p className="text-sm text-muted-foreground">
           Still have questions? Our AI assistant can help.
         </p>

@@ -32,8 +32,7 @@ const QuoteSection = memo(() => (
             return (
               <div
                 key={i}
-                className="flex items-center gap-2 bg-primary-foreground/[0.06] rounded-full px-5 py-2.5 border border-primary-foreground/[0.06] animate-in fade-in zoom-in-95 duration-400"
-                style={{ animationDelay: `${300 + i * 100}ms` }}
+                className="flex items-center gap-2 bg-primary-foreground/[0.06] rounded-full px-5 py-2.5 border border-primary-foreground/[0.06]"
               >
                 <Icon className="w-3.5 h-3.5 text-secondary" />
                 <span className="text-primary-foreground/60 text-[11px] font-bold tracking-wider">{c.label}</span>
