@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles, ClipboardList, Dumbbell, Utensils, MessageCircle, Heart, Shield, Award, Globe, ChevronDown, Users, Quote } from "lucide-react";
+import { ArrowRight, Sparkles, MessageCircle, Heart, Shield, Award, Globe, ChevronDown, Users, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { memo } from "react";

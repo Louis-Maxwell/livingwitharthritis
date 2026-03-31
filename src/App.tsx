@@ -128,6 +128,9 @@ function AnimatedRoutes() {
         <Route path="/impact" element={<ImpactStories />} />
         <Route path="/ways-to-help" element={<WaysToHelp />} />
         <Route path="/terms" element={<TermsConditions />} />
+        <Route path="/safeguarding" element={<Safeguarding />} />
+        <Route path="/complaints" element={<Complaints />} />
+        <Route path="/donate" element={<Donate />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </PageTransition>

@@ -160,7 +160,7 @@ const Footer = () => {
               <p className="text-muted-foreground/70 text-[10px] mt-0.5">27 Old Gloucester Street, London WC1N 3AX · Registered in England & Wales</p>
             </div>
             <div className="flex items-center gap-4">
-              <span className="text-muted-foreground text-xs">Rated 4.9/5 by 2,400+ patients</span>
+              <span className="text-muted-foreground text-xs">Rated 4.9/5 by 2,400+ patients*</span>
               <button
                 onClick={scrollToTop}
                 className="social-icon w-9 h-9 rounded-lg bg-muted flex items-center justify-center text-muted-foreground hover:text-primary-foreground btn-press"
