@@ -11,10 +11,7 @@ const ServiceCard = ({ service, index }: { service: Service; index: number }) =>
   const IconComponent = iconMap[service.icon_name] || Users;
 
   return (
-    <div
-      className="animate-in fade-in slide-in-from-bottom-4 duration-500"
-      style={{ animationDelay: `${index * 70}ms` }}
-    >
+    <div>
       <Card className="group h-full border border-border/20 bg-card hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">
         <CardHeader className="pb-3 p-8">
           <div className="mb-7 w-16 h-16 rounded-2xl bg-primary/6 flex items-center justify-center group-hover:bg-primary group-hover:scale-105 transition-all duration-300">
