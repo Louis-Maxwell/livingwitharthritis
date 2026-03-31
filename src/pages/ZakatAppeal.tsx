@@ -270,6 +270,9 @@ const ZakatAppeal = () => {
           </div>
         </section>
 
+        {/* Zakat Calculator */}
+        <ZakatCalculator />
+
         {/* Trust & promise section */}
         <section className="bg-muted/30 py-14">
           <div className="container mx-auto px-4">
