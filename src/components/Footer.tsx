@@ -36,6 +36,8 @@ const Footer = () => {
       { label: "Cookies Policy", href: "/cookies" },
       { label: "Terms & Conditions", href: "/terms" },
       { label: "Accessibility", href: "/accessibility" },
+      { label: "Safeguarding Policy", href: "/safeguarding" },
+      { label: "Complaints Procedure", href: "/complaints" },
     ],
   };
 
