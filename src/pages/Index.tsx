@@ -229,21 +229,9 @@ export default function Index() {
               </section>
             </ViewportSection>
 
-            {/* DEEP SECTIONS — generous rootMargin for smooth reveal */}
-            <ViewportSection minHeight="300px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}><DailyTipsSection /></Suspense>
-            </ViewportSection>
-
-            <ViewportSection minHeight="300px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}><BlogPreviewSection /></Suspense>
-            </ViewportSection>
-
+            {/* STREAMLINED SECTIONS — 8 focused sections total */}
             <ViewportSection minHeight="300px" rootMargin="300px">
               <Suspense fallback={<SectionLoader />}><TestimonialsSection /></Suspense>
-            </ViewportSection>
-
-            <ViewportSection minHeight="300px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}><BeneficiarySpotlight /></Suspense>
             </ViewportSection>
 
             <ViewportSection minHeight="300px" rootMargin="300px">
@@ -254,14 +242,6 @@ export default function Index() {
               <Suspense fallback={<SectionLoader />}><FAQSection /></Suspense>
             </ViewportSection>
 
-            <ViewportSection minHeight="400px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}><FundraisingProgressSection /></Suspense>
-            </ViewportSection>
-
-            <ViewportSection minHeight="300px" rootMargin="300px">
-              <Suspense fallback={<SectionLoader />}><ImpactMetricsSection /></Suspense>
-            </ViewportSection>
-
             <ViewportSection minHeight="200px" rootMargin="300px">
               <Suspense fallback={<SectionLoader />}><NewsletterSection /></Suspense>
             </ViewportSection>
@@ -269,8 +249,6 @@ export default function Index() {
             <ViewportSection minHeight="300px" rootMargin="300px">
               <Suspense fallback={<SectionLoader />}><GetInTouchSection /></Suspense>
             </ViewportSection>
-
-            {/* FinalCTASection removed — merged into NewsletterSection */}
           </div>
         </main>
 
