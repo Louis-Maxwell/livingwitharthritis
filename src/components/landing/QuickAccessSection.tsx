@@ -61,7 +61,7 @@ export default function QuickAccessSection() {
     >
       <div className="container mx-auto px-5 md:px-10 max-w-6xl">
         {/* Header */}
-        <div className="text-center mb-14 animate-in fade-in slide-in-from-bottom-6 duration-700">
+        <div className="text-center mb-14">
           <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.15em] text-primary mb-3 px-3 py-1 rounded-full bg-primary/8 border border-primary/15">
             ✦ Quick Access
           </span>
