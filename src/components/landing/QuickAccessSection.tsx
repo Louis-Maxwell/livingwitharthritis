@@ -1,7 +1,15 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import {
   Dumbbell, Utensils, Users, MessageCircle, Stethoscope, ArrowRight
 } from "lucide-react";
+
+const GUIDES = [
+  { label: "📖 UK Arthritis Guide", href: "/guides/uk-arthritis" },
+  { label: "🏥 NHS Services", href: "/guides/nhs-services" },
+  { label: "🥗 Diet Guide", href: "/guides/diet" },
+  { label: "💪 Exercise Guide", href: "/guides/exercise" },
+  { label: "📋 Benefits & PIP", href: "/guides/benefits-pip" },
+];
 
 const HUBS = [
   {
