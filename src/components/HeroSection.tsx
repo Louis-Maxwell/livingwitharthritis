@@ -121,10 +121,11 @@ const HeroSection = memo(() => {
                     compact={stat.compact}
                     className="stat-number text-2xl sm:text-3xl lg:text-4xl"
                   />
-                  <p className="text-[10px] sm:text-[11px] text-muted-foreground font-medium mt-2 leading-snug">{stat.label}</p>
-                </div>
-              ))}
-            </div>
+                   <p className="text-[10px] sm:text-[11px] text-muted-foreground font-medium mt-2 leading-snug">{stat.label}</p>
+                 </div>
+               ))}
+             </div>
+             <p className="text-[9px] text-muted-foreground/60 mt-3 text-center">*Based on internal user feedback surveys, 2024–2025. Not independently audited.</p>
 
             {/* Trust badges */}
             <div className="hero-item mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
