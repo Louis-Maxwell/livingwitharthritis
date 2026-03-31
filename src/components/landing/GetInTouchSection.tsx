@@ -25,8 +25,7 @@ const GetInTouchSection = memo(() => {
             href="https://wa.me/447760512084"
             target="_blank"
             rel="noopener noreferrer"
-            className="group rounded-2xl border border-border/30 bg-card p-8 flex flex-col items-center text-center space-y-4 cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all duration-300 animate-in fade-in slide-in-from-bottom-4 duration-500"
-            style={{ animationDelay: "50ms" }}
+            className="group rounded-2xl border border-border/30 bg-card p-8 flex flex-col items-center text-center space-y-4 cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
           >
             <div className="h-14 w-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-105 transition-all duration-300">
               <MessageCircle className="h-6 w-6 text-primary group-hover:text-primary-foreground transition-colors" />
