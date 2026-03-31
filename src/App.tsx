@@ -136,6 +136,11 @@ function AnimatedRoutes() {
         <Route path="/safeguarding" element={<Safeguarding />} />
         <Route path="/complaints" element={<Complaints />} />
         <Route path="/donate" element={<Donate />} />
+        <Route path="/guides/uk-arthritis" element={<UKArthritisGuide />} />
+        <Route path="/guides/nhs-services" element={<NHSServicesGuide />} />
+        <Route path="/guides/diet" element={<DietGuide />} />
+        <Route path="/guides/exercise" element={<ExerciseGuide />} />
+        <Route path="/guides/benefits-pip" element={<BenefitsPIPGuide />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </PageTransition>
