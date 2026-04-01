@@ -24,29 +24,29 @@ const DonationImpactSection = () => {
   const Icon = currentImpact.icon;
 
   return (
-    <section className="py-16 sm:py-20 bg-gradient-to-b from-background to-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
-        <div className="text-center mb-10">
-          <span className="section-label text-primary mb-4 block text-xs font-bold tracking-wider uppercase">Your Impact</span>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-foreground tracking-tight leading-tight">
+    <section className="section-spacer">
+      <div className="container mx-auto px-6 sm:px-8 max-w-4xl">
+        <div className="text-center mb-14">
+          <span className="section-label text-primary/70 mb-5 block">Your Impact</span>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-[3.25rem] font-bold text-foreground tracking-tight leading-[1.08]">
             See what your donation <span className="text-gradient italic">can achieve</span>
           </h2>
-          <p className="text-muted-foreground mt-3 max-w-lg mx-auto text-sm sm:text-base">
+          <p className="text-muted-foreground mt-4 max-w-lg mx-auto text-base leading-relaxed">
             Every pound goes directly to supporting people living with arthritis across the UK.
           </p>
         </div>
 
-        <div className="bg-card border border-border/30 rounded-3xl p-6 sm:p-10 shadow-xl">
+        <div className="bg-card border border-border/20 rounded-3xl p-8 sm:p-12 shadow-xl">
           {/* Preset buttons */}
-          <div className="flex justify-center gap-2 sm:gap-3 mb-8">
+          <div className="flex justify-center gap-3 mb-10">
             {PRESETS.map((preset) => (
               <button
                 key={preset}
                 onClick={() => setAmount(preset)}
-                className={`px-4 sm:px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-200 ${
+                className={`px-6 py-3 rounded-full text-sm font-bold transition-all duration-300 ${
                   amount === preset
-                    ? "bg-[hsl(0,72%,51%)] text-white shadow-lg shadow-red-500/20"
-                    : "bg-muted hover:bg-muted/80 text-foreground"
+                    ? "bg-primary text-primary-foreground shadow-primary"
+                    : "bg-muted hover:bg-muted/70 text-foreground"
                 }`}
               >
                 £{preset}
@@ -55,7 +55,7 @@ const DonationImpactSection = () => {
           </div>
 
           {/* Slider */}
-          <div className="mb-8 px-2">
+          <div className="mb-10 px-2">
             <Slider
               value={[amount]}
               onValueChange={(v) => setAmount(v[0])}
@@ -64,35 +64,35 @@ const DonationImpactSection = () => {
               step={5}
               className="w-full"
             />
-            <div className="flex justify-between mt-2 text-[10px] text-muted-foreground">
+            <div className="flex justify-between mt-2.5 text-[10px] text-muted-foreground/50 tracking-wider">
               <span>£5</span>
               <span>£150</span>
             </div>
           </div>
 
           {/* Impact display */}
-          <div className="text-center bg-primary/5 rounded-2xl p-6 sm:p-8 border border-primary/10">
-            <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+          <div className="text-center bg-primary/[0.03] rounded-2xl p-8 sm:p-10 border border-primary/6">
+            <div className="w-16 h-16 rounded-2xl bg-primary/8 flex items-center justify-center mx-auto mb-5">
               <Icon className="w-7 h-7 text-primary" />
             </div>
-            <p className="text-3xl sm:text-4xl font-extrabold text-foreground mb-2">£{amount}</p>
+            <p className="text-4xl sm:text-5xl font-display font-bold text-foreground mb-3 tracking-tight">£{amount}</p>
             <p className="text-sm sm:text-base text-muted-foreground">
               could fund <span className="font-semibold text-foreground">{currentImpact.label}</span>
             </p>
           </div>
 
           {/* CTA */}
-          <div className="mt-8 text-center">
+          <div className="mt-10 text-center">
             <Button
               size="lg"
               onClick={() => navigate("/zakat-appeal")}
-              className="px-10 h-14 rounded-full text-sm font-bold bg-[hsl(0,72%,51%)] hover:bg-[hsl(0,72%,45%)] text-white shadow-lg shadow-red-500/20 hover:shadow-red-500/30 transition-all group"
+              className="px-12 h-[58px] rounded-full text-sm font-bold btn-primary-cta tracking-wider group"
             >
-              <Heart className="w-5 h-5 mr-2 fill-white/30" />
+              <Heart className="w-5 h-5 mr-2.5 fill-white/20" />
               Donate £{amount} Now
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 ml-2.5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <p className="text-[11px] text-muted-foreground mt-3">
+            <p className="text-[11px] text-muted-foreground/50 mt-4 tracking-wider">
               Secure payment via Stripe • Gift Aid eligible
             </p>
           </div>
