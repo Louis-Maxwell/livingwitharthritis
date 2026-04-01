@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-import { Heart, BookOpen, Rocket, Users, Target, TrendingUp, ArrowLeft, Shield, Sparkles, Globe, Zap } from "lucide-react";
+import { Heart, BookOpen, Rocket, Users, Target, TrendingUp, ArrowLeft, Shield, Sparkles, Globe, Zap, Award } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -10,6 +10,7 @@ import PageHero from "@/components/ui/PageHero";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import InternalLinks from "@/components/InternalLinks";
+import founderImage from "@/assets/founder-portrait.jpg";
 
 const sectionIcons: Record<string, React.ElementType> = {
   "Our Story": BookOpen,
@@ -52,6 +53,13 @@ const impactStats = [
   { value: "50+", label: "Exercise Guides", icon: Zap, color: "text-emerald-600" },
   { value: "100%", label: "Free Access", icon: Shield, color: "text-amber-600" },
   { value: "UK-Wide", label: "Coverage", icon: Globe, color: "text-blue-600" },
+];
+
+const teamMembers = [
+  { name: "Operations Director", role: "NHS First Contact Practitioner", credentials: "HCPC Registered · BSc Physiotherapy", bio: "Founded Living With Arthritis after seeing thousands of patients struggle to find reliable, free arthritis support outside clinical settings." },
+  { name: "Clinical Lead", role: "Senior Physiotherapist", credentials: "HCPC Registered · MSc Musculoskeletal", bio: "Oversees clinical content accuracy and develops our evidence-based exercise programmes." },
+  { name: "Nutrition Advisor", role: "Registered Dietitian", credentials: "HCPC Registered · BSc Nutrition", bio: "Designs our anti-inflammatory diet plans and Mediterranean meal guides for joint health." },
+  { name: "Digital Health Lead", role: "Health Technology Specialist", credentials: "MSc Health Informatics", bio: "Builds our AI assistant, symptom tools, and digital patient experience." },
 ];
 
 const AboutUs = () => {
@@ -104,12 +112,11 @@ const AboutUs = () => {
 
       <div className="min-h-screen bg-background">
         <Header />
-        {/* Hero with PageHero component */}
         <PageHero
           gradient="from-primary/8 via-background to-emerald-500/5"
           pattern="dots"
           badge={
-          <div className="flex items-center gap-3 flex-wrap">
+            <div className="flex items-center gap-3 flex-wrap">
               <Link to="/">
                 <Button variant="ghost" size="sm" className="rounded-full text-muted-foreground hover:text-foreground -ml-2">
                   <ArrowLeft className="w-4 h-4 mr-2" />
@@ -125,7 +132,6 @@ const AboutUs = () => {
           title={<>From a personal mission to a <span className="text-primary">national movement</span></>}
           subtitle="How Living with Arthritis grew from one family's experience into a platform supporting thousands across the United Kingdom."
         >
-          {/* Impact stats row */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {impactStats.map((stat) => (
               <div key={stat.label} className="bg-background/80 backdrop-blur-sm border border-border/30 rounded-xl p-4 text-center hover:shadow-md transition-shadow">
@@ -137,8 +143,98 @@ const AboutUs = () => {
           </div>
         </PageHero>
 
-        {/* Content Sections */}
+        {/* Founder Story Section */}
+        <section className="py-14 lg:py-20 bg-warm">
+          <div className="container mx-auto px-6 md:px-10 max-w-5xl">
+            <div className="grid md:grid-cols-[300px_1fr] gap-10 lg:gap-16 items-start">
+              <div className="text-center md:text-left">
+                <img
+                  src={founderImage}
+                  alt="Founder of Living With Arthritis"
+                  className="w-48 h-48 md:w-full md:h-auto rounded-2xl object-cover mx-auto shadow-lg border border-border/20"
+                  loading="lazy"
+                  width={300}
+                  height={375}
+                />
+                <div className="mt-4 space-y-1">
+                  <p className="text-sm font-bold text-foreground">Operations Director</p>
+                  <p className="text-xs text-muted-foreground">NHS First Contact Practitioner</p>
+                  <div className="flex flex-wrap justify-center md:justify-start gap-2 mt-3">
+                    <span className="text-[9px] font-bold tracking-[0.15em] uppercase text-primary/70 px-2.5 py-1 rounded-full bg-primary/5 border border-primary/10">HCPC Registered</span>
+                    <span className="text-[9px] font-bold tracking-[0.15em] uppercase text-primary/70 px-2.5 py-1 rounded-full bg-primary/5 border border-primary/10">BSc Physiotherapy</span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <span className="section-label text-primary/70 mb-4 block text-[10px] tracking-[0.3em] uppercase font-bold">Founder's Story</span>
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-6 leading-[1.15] tracking-tight">
+                  &ldquo;I started this because I saw patients leaving clinic with nowhere to turn&rdquo;
+                </h2>
+                <div className="space-y-4 text-sm text-muted-foreground leading-[1.85]">
+                  <p>
+                    Working as an NHS First Contact Practitioner, I met hundreds of patients every year who were newly diagnosed with osteoarthritis. They'd leave a 10-minute appointment with a leaflet and a lot of fear. Most had no idea where to find reliable, free support.
+                  </p>
+                  <p>
+                    After years of clinical experience across the UK and internationally — seeing how other health systems approached chronic condition management — I knew we could do better. I founded Living With Arthritis in 2020 with a simple belief: <strong className="text-foreground">no one should face arthritis alone</strong>.
+                  </p>
+                  <p>
+                    Today, our team of HCPC-registered physiotherapists, dietitians, and health technologists has built the UK's most comprehensive free arthritis platform. Every exercise guide, diet plan, and article is clinically reviewed. Every service is completely free.
+                  </p>
+                  <p>
+                    We're not the biggest charity — but we're building something that genuinely changes lives. That's what drives us every day.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Team Section */}
         <section className="py-14 lg:py-20">
+          <div className="container mx-auto px-6 md:px-10 max-w-5xl">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+              <Badge className="bg-primary/10 text-primary border-0 text-xs font-bold px-3 py-1.5 mb-4">
+                <Users className="w-3 h-3 mr-1.5" />
+                Our Team
+              </Badge>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground mb-3">
+                Led by <span className="text-primary">clinicians</span>, built with care
+              </h2>
+              <p className="text-sm text-muted-foreground max-w-lg mx-auto">
+                Our team includes HCPC-registered physiotherapists, NHS First Contact Practitioners, registered dietitians, and digital health specialists.
+              </p>
+            </motion.div>
+
+            <div className="grid sm:grid-cols-2 gap-5">
+              {teamMembers.map((member, i) => (
+                <motion.div
+                  key={member.name}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-30px" }}
+                  transition={{ delay: i * 0.08, duration: 0.5 }}
+                >
+                  <div className="p-6 rounded-2xl border border-border/20 bg-card hover:shadow-md transition-shadow">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="w-12 h-12 rounded-xl bg-primary/8 flex items-center justify-center">
+                        <Award className="w-5 h-5 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-bold text-foreground">{member.name}</p>
+                        <p className="text-xs text-primary font-medium">{member.role}</p>
+                      </div>
+                    </div>
+                    <p className="text-[10px] font-bold text-muted-foreground/60 tracking-[0.15em] uppercase mb-3">{member.credentials}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{member.bio}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Content Sections from DB */}
+        <section className="py-14 lg:py-20 bg-warm">
           <div className="container mx-auto px-6 md:px-10 max-w-4xl">
             {isLoading ? (
               <div className="space-y-6">
@@ -181,17 +277,9 @@ const AboutUs = () => {
 
         {/* Timeline */}
         <section className="py-14 lg:py-20 relative overflow-hidden">
-          {/* Background pattern */}
-          <div className="absolute inset-0 pattern-dots opacity-20 pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-b from-accent/30 to-background pointer-events-none" />
-
           <div className="container mx-auto px-6 md:px-10 max-w-4xl relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
               <Badge className="bg-primary/10 text-primary border-0 text-xs font-bold px-3 py-1.5 mb-4">
                 <Sparkles className="w-3 h-3 mr-1.5" />
                 Our Journey
@@ -203,7 +291,6 @@ const AboutUs = () => {
 
             <div className="relative">
               <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-primary/30 md:-translate-x-px" />
-
               {milestones.map((m, i) => {
                 const isLeft = i % 2 === 0;
                 return (
@@ -233,7 +320,6 @@ const AboutUs = () => {
         {/* Registered Details + CTA */}
         <section className="py-14 lg:py-20">
           <div className="container mx-auto px-6 md:px-10 max-w-4xl">
-            {/* Registered Address Card */}
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-8">
               <div className="rounded-2xl bg-muted/30 border border-border/20 p-6 md:p-8">
                 <h2 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
@@ -265,7 +351,6 @@ const AboutUs = () => {
               </div>
             </motion.div>
 
-            {/* CTA */}
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
               <div className="rounded-2xl bg-gradient-to-br from-primary/8 via-background to-secondary/8 border border-border/20 p-8 md:p-12 relative overflow-hidden text-center">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary to-primary" />
@@ -275,7 +360,7 @@ const AboutUs = () => {
                   Every donation, share, and volunteer hour brings us closer to a world where arthritis no longer limits anyone's potential.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                  <Link to="/#involved">
+                  <Link to="/donate">
                     <Button className="btn-primary-cta rounded-full px-8 h-11 text-sm font-bold">
                       <Heart className="w-4 h-4 mr-2" />
                       Donate Now

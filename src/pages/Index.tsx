@@ -7,7 +7,6 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
-// ViewportSection removed — all sections render eagerly with CSS animations
 
 const Footer = lazy(() => import("@/components/Footer"));
 
@@ -35,8 +34,10 @@ DeferredOverlays.displayName = "DeferredOverlays";
 
 // Above-fold
 const QuickAccessSection = lazy(() => import("@/components/landing/QuickAccessSection"));
+const ContentDepthSection = lazy(() => import("@/components/landing/ContentDepthSection"));
 const HowItWorksSection = lazy(() => import("@/components/landing/HowItWorksSection"));
 const ServicesGrid = lazy(() => import("@/components/ServicesGrid"));
+const PhotoBreakSection = lazy(() => import("@/components/landing/PhotoBreakSection"));
 const QuoteSection = lazy(() => import("@/components/landing/QuoteSection"));
 
 // Below-fold
@@ -46,6 +47,10 @@ const DonationImpactSection = lazy(() => import("@/components/landing/DonationIm
 const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
 const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSection"));
 const GetInTouchSection = lazy(() => import("@/components/landing/GetInTouchSection"));
+
+// Images for photo breaks
+import photoBreakCommunity from "@/assets/photo-break-community.jpg";
+import photoBreakActive from "@/assets/photo-break-active.jpg";
 
 const SectionLoader = memo(() => (
   <div className="py-8 flex items-center justify-center">
@@ -123,11 +128,24 @@ export default function Index() {
           </Suspense>
 
           <Suspense fallback={<SectionLoader />}>
+            <ContentDepthSection />
+          </Suspense>
+
+          <Suspense fallback={<SectionLoader />}>
             <HowItWorksSection />
           </Suspense>
 
           <Suspense fallback={<SectionLoader />}>
             <ServicesGrid />
+          </Suspense>
+
+          <Suspense fallback={null}>
+            <PhotoBreakSection
+              image={photoBreakCommunity}
+              alt="Hands holding each other in a supportive gesture"
+              quote="No one should face arthritis alone. Together, we're changing what's possible."
+              attribution="Living With Arthritis"
+            />
           </Suspense>
 
           <Suspense fallback={null}>
@@ -140,6 +158,15 @@ export default function Index() {
 
           <Suspense fallback={<SectionLoader />}>
             <TestimonialsSection />
+          </Suspense>
+
+          <Suspense fallback={null}>
+            <PhotoBreakSection
+              image={photoBreakActive}
+              alt="Senior couple walking together in a British countryside park"
+              quote="Movement is medicine. Every step forward is a victory worth celebrating."
+              attribution="Clinical Team"
+            />
           </Suspense>
 
           <Suspense fallback={<SectionLoader />}>
