@@ -94,12 +94,15 @@ export default function Index() {
           "name": "Living With Arthritis",
           "alternateName": "Living With Arthritis UK",
           "url": "https://livingwitharthritis.org.uk",
-          "description": "UK charity providing free virtual physiotherapy, nutrition guidance, joint exercises, AI health assistant and community support for people living with arthritis.",
+          "description": "UK charity providing free virtual physiotherapy, anti-inflammatory nutrition guidance, 50+ joint exercises, AI health assistant and community support for people living with arthritis. HCPC registered clinicians. No waiting lists.",
           "medicalSpecialty": "Rheumatology",
           "areaServed": { "@type": "Country", "name": "United Kingdom" },
-          "serviceType": ["Virtual Physiotherapy", "Nutrition Guidance", "Joint Exercise Programmes", "AI Health Assistant"],
+          "serviceType": ["Virtual Physiotherapy", "Anti-Inflammatory Nutrition Guidance", "Joint Exercise Programmes", "AI Health Assistant", "Peer Support Community"],
           "contactPoint": { "@type": "ContactPoint", "telephone": "+44-7760-512-084", "email": "info@livingwitharthritis.org.uk", "contactType": "customer support", "availableLanguage": "English", "areaServed": "GB" },
-          "inLanguage": "en-GB"
+          "inLanguage": "en-GB",
+          "foundingDate": "2020",
+          "knowsAbout": ["Osteoarthritis", "Rheumatoid Arthritis", "Psoriatic Arthritis", "Joint Pain Management", "Anti-Inflammatory Diet", "Physiotherapy"],
+          "sameAs": []
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
