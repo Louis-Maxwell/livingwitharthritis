@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"; // v18
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
