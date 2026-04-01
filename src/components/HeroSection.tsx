@@ -75,7 +75,7 @@ const HeroSection = memo(() => {
             </div>
 
             {/* Stats row — elegant with thin dividers */}
-            <div className="hero-item mt-14 flex flex-wrap items-center justify-center gap-0 max-w-2xl mx-auto">
+            <div className="mt-14 flex flex-wrap items-center justify-center gap-0 max-w-2xl mx-auto">
               {STATS.map((stat, i) => (
                 <div key={i} className="flex items-center">
                   <div className="px-5 sm:px-7 py-3 text-center">
