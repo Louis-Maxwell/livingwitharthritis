@@ -36,43 +36,38 @@ const FAQSection = memo(() => {
         }))
       })}</script>
     </Helmet>
-  <section className="py-14 lg:py-20 bg-tint-violet section-divider">
-    <div className="container mx-auto px-6 md:px-10 max-w-3xl">
-      <div className="text-center mb-16">
-        <span className="section-label text-primary mb-4 block">Common Questions</span>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-foreground mb-6">
+  <section className="section-spacer bg-warm section-divider">
+    <div className="container mx-auto px-6 md:px-12 max-w-3xl">
+      <div className="text-center mb-20">
+        <span className="section-label text-primary/70 mb-5 block">Common Questions</span>
+        <h2 className="text-3xl sm:text-4xl md:text-[3.25rem] font-display font-bold text-foreground mb-6 tracking-tight leading-[1.08]">
           Frequently <span className="text-primary italic">asked</span>
         </h2>
-        <div className="luxury-divider">
-          <div className="w-1.5 h-1.5 rounded-full bg-gold/40" />
-        </div>
       </div>
 
       <Accordion type="single" collapsible className="space-y-4">
         {faqs.map((faq, i) => (
-          <div key={i}>
-            <AccordionItem value={`faq-${i}`} className="bg-card border border-border/15 rounded-2xl px-7 data-[state=open]:shadow-medium transition-all duration-500 data-[state=open]:border-primary/10">
-              <AccordionTrigger className="text-left text-sm font-semibold hover:no-underline py-6">{faq.q}</AccordionTrigger>
-              <AccordionContent className="text-muted-foreground text-sm leading-[1.8] pb-6">{faq.a}</AccordionContent>
-            </AccordionItem>
-          </div>
+          <AccordionItem key={i} value={`faq-${i}`} className="bg-card border border-border/12 rounded-2xl px-8 data-[state=open]:shadow-medium transition-all duration-500 data-[state=open]:border-primary/8">
+            <AccordionTrigger className="text-left text-sm font-semibold hover:no-underline py-7 tracking-tight">{faq.q}</AccordionTrigger>
+            <AccordionContent className="text-muted-foreground text-sm leading-[1.85] pb-7">{faq.a}</AccordionContent>
+          </AccordionItem>
         ))}
       </Accordion>
 
-      <div className="mt-12 text-center space-y-4">
-        <p className="text-sm text-muted-foreground">
+      <div className="mt-16 text-center space-y-5">
+        <p className="text-sm text-muted-foreground/60 tracking-wide">
           Still have questions? Our AI assistant can help.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Button
             onClick={() => navigate("/chat")}
-            className="rounded-full h-11 px-6 btn-primary-cta text-xs font-bold tracking-wide"
+            className="rounded-full h-12 px-8 btn-primary-cta text-xs font-bold tracking-wider"
           >
             <MessageCircle className="w-3.5 h-3.5 mr-2" />
             Ask Our AI Assistant
           </Button>
           <Link to="/blog">
-            <Button variant="outline" className="rounded-full h-11 px-6 text-xs font-bold tracking-wide border-2 border-primary/20 text-primary hover:bg-primary/5">
+            <Button variant="outline" className="rounded-full h-12 px-8 text-xs font-bold tracking-wider border-2 border-primary/15 text-primary hover:bg-primary/3">
               Browse Articles <ArrowRight className="w-3.5 h-3.5 ml-2" />
             </Button>
           </Link>

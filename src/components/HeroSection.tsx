@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles, MessageCircle, Heart } from "lucide-react";
+import { ArrowRight, MessageCircle, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { memo } from "react";
@@ -18,82 +18,83 @@ const HeroSection = memo(() => {
 
   return (
     <section className="relative overflow-hidden bg-background">
-      {/* Single subtle gradient wash */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.02] via-transparent to-transparent pointer-events-none" />
+      {/* Subtle warm gradient wash */}
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.015] via-transparent to-transparent pointer-events-none" />
 
-      <div className="container mx-auto px-4 sm:px-6 md:px-10 relative">
-        <div className="flex items-center justify-center min-h-[calc(100vh-140px)] py-16 sm:py-24 lg:py-0 pb-24 lg:pb-0">
-          <div className="hero-stagger max-w-[800px] text-center">
+      <div className="container mx-auto px-6 sm:px-8 md:px-12 relative">
+        <div className="flex items-center justify-center min-h-[calc(100vh-140px)] py-20 sm:py-28 lg:py-0 pb-28 lg:pb-0">
+          <div className="hero-stagger max-w-[860px] text-center">
             
-            {/* Badge */}
-            <div className="hero-item flex justify-center mb-8">
-              <span className="px-5 py-2 rounded-full text-xs font-bold bg-primary/6 text-primary border border-primary/12 tracking-wider uppercase inline-flex items-center gap-2">
-                <Sparkles className="w-3 h-3" />
+            {/* Institutional badge */}
+            <div className="hero-item flex justify-center mb-10">
+              <span className="px-6 py-2.5 rounded-full text-[10px] font-bold bg-primary/5 text-primary border border-primary/8 tracking-[0.3em] uppercase inline-flex items-center gap-2.5">
                 UK Arthritis Charity
               </span>
             </div>
 
-            {/* Headline */}
-            <h1 className="hero-item text-[1.75rem] sm:text-4xl md:text-5xl lg:text-[3.75rem] font-extrabold text-foreground mb-5 leading-[1.08] tracking-tight text-balance">
-              1 in 6 people in the UK live with arthritis.{" "}
+            {/* Headline — cinematic, large, editorial */}
+            <h1 className="hero-item text-[1.85rem] sm:text-[2.75rem] md:text-[3.5rem] lg:text-[4.25rem] font-bold text-foreground mb-7 leading-[1.06] tracking-tight text-balance">
+              1 in 6 people in the UK{" "}
+              <br className="hidden sm:block" />
+              live with arthritis.{" "}
               <span className="font-display text-gradient relative inline-block hero-underline italic">
                 We're here for every one of them.
               </span>
             </h1>
 
-            {/* Subtext */}
-            <p className="hero-item text-sm sm:text-lg md:text-xl text-muted-foreground leading-[1.7] sm:leading-[1.85] mb-4 max-w-[620px] mx-auto">
-              Free physiotherapy, anti-inflammatory diet plans, evidence-based exercises and 24/7 support — helping people across the UK manage arthritis pain and live fuller lives.
+            {/* Subtext — refined, generous */}
+            <p className="hero-item text-[15px] sm:text-lg md:text-xl text-muted-foreground leading-[1.8] sm:leading-[1.9] mb-6 max-w-[640px] mx-auto">
+              Free physiotherapy, anti-inflammatory diet plans, evidence-based exercises and 24/7 support — helping people across the United Kingdom manage arthritis pain and live fuller lives.
             </p>
 
-            {/* Urgency */}
-            <p className="hero-item text-sm text-primary font-semibold mb-10 flex items-center justify-center gap-2">
-              <Heart className="w-4 h-4 fill-primary/30" />
+            {/* Urgency — subtle */}
+            <p className="hero-item text-sm text-primary/80 font-medium mb-12 flex items-center justify-center gap-2">
+              <Heart className="w-3.5 h-3.5 fill-primary/20" />
               Every donation helps us reach more people in need
             </p>
 
-            {/* Two CTAs */}
-            <div className="hero-item flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+            {/* Two CTAs — larger, more premium */}
+            <div className="hero-item flex flex-col sm:flex-row justify-center gap-4">
               <Button
                 size="lg"
                 onClick={() => navigate("/chat")}
-                className="btn-primary-cta px-8 sm:px-12 h-14 sm:h-[60px] rounded-full text-[13px] sm:text-sm font-bold tracking-wide group active:scale-[0.97] hover:shadow-lg hover:shadow-primary/20 transition-all duration-300"
+                className="btn-primary-cta px-10 sm:px-14 h-[56px] sm:h-[62px] rounded-full text-[13px] sm:text-sm font-bold tracking-wider group active:scale-[0.97]"
               >
-                <MessageCircle className="w-5 h-5 mr-2 sm:mr-2.5 group-hover:scale-110 transition-transform" />
+                <MessageCircle className="w-5 h-5 mr-2.5 group-hover:scale-110 transition-transform" />
                 Get Free Support
-                <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 hidden sm:block" />
+                <ArrowRight className="w-4 h-4 ml-2.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 hidden sm:block" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 onClick={() => navigate("/donate")}
-                className="px-8 sm:px-10 h-14 sm:h-[60px] rounded-full text-[13px] sm:text-sm font-bold tracking-wide border-2 border-destructive/30 text-destructive hover:bg-destructive hover:text-destructive-foreground transition-all duration-300 group active:scale-[0.97]"
+                className="px-10 h-[56px] sm:h-[62px] rounded-full text-[13px] sm:text-sm font-bold tracking-wider border-2 border-foreground/15 text-foreground hover:bg-foreground hover:text-background transition-all duration-500 group active:scale-[0.97]"
               >
-                <Heart className="w-5 h-5 mr-2 fill-current/20 group-hover:scale-110 transition-transform" />
+                <Heart className="w-5 h-5 mr-2.5 group-hover:scale-110 transition-transform" />
                 Donate Now
               </Button>
             </div>
 
-            {/* Stats row — elegant with thin dividers */}
-            <div className="mt-14 flex flex-wrap items-center justify-center gap-0 max-w-2xl mx-auto">
+            {/* Stats row — elegant, serif numbers */}
+            <div className="mt-20 flex flex-wrap items-center justify-center gap-0 max-w-2xl mx-auto">
               {STATS.map((stat, i) => (
                 <div key={i} className="flex items-center">
-                  <div className="px-5 sm:px-7 py-3 text-center">
+                  <div className="px-6 sm:px-8 py-4 text-center">
                     <AnimatedCounter
                       target={stat.target}
                       suffix={stat.suffix}
                       compact={stat.compact}
-                      className="stat-number text-2xl sm:text-3xl lg:text-[2.5rem]"
+                      className="stat-number text-2xl sm:text-3xl lg:text-[2.75rem]"
                     />
-                    <p className="text-[10px] sm:text-[11px] text-muted-foreground font-medium mt-1.5 leading-snug">{stat.label}</p>
+                    <p className="text-[10px] sm:text-[11px] text-muted-foreground/70 font-medium mt-2 leading-snug tracking-wide">{stat.label}</p>
                   </div>
                   {i < STATS.length - 1 && (
-                    <div className="w-px h-10 bg-border/40 hidden sm:block" />
+                    <div className="w-px h-12 bg-border/30 hidden sm:block" />
                   )}
                 </div>
               ))}
             </div>
-            <p className="text-[9px] text-muted-foreground/50 mt-3 text-center">
+            <p className="text-[9px] text-muted-foreground/40 mt-4 text-center tracking-wider">
               *Based on internal user feedback surveys, 2024–2025. Not independently audited.
             </p>
           </div>
