@@ -1,16 +1,14 @@
 import { memo } from "react";
-import { Star, Quote, Verified } from "lucide-react";
+import { Star, Quote, Verified, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import avatarMargaret from "@/assets/avatar-margaret.jpg";
+import avatarPriya from "@/assets/avatar-priya.jpg";
+import avatarJames from "@/assets/avatar-james.jpg";
 
 const testimonials = [
-  { name: "Margaret T.", location: "Bristol", condition: "Osteoarthritis", text: "The virtual physiotherapy sessions changed my life. I can now garden again without constant pain. After 3 months, my GP reduced my painkillers.", rating: 5, highlight: "reduced my painkillers", verified: true },
-  { name: "Priya S.", location: "London", condition: "Psoriatic Arthritis", text: "The anti-inflammatory diet plan reduced my flare-ups significantly within just 3 months. My CRP levels dropped from 28 to 8.", rating: 5, highlight: "CRP levels dropped", verified: true },
-  { name: "James W.", location: "Edinburgh", condition: "Knee OA", text: "I was sceptical at first, but the gentle exercise guides have made a real difference to my mobility. Walking distance up 40% in 8 weeks.", rating: 5, highlight: "40% in 8 weeks", verified: true },
-];
-
-const avatarColors = [
-  "bg-sky/8 text-sky",
-  "bg-violet/8 text-violet",
-  "bg-amber/8 text-amber",
+  { name: "Margaret T.", location: "Bristol", condition: "Osteoarthritis", text: "The virtual physiotherapy sessions changed my life. I can now garden again without constant pain. After 3 months, my GP reduced my painkillers.", rating: 5, highlight: "reduced my painkillers", verified: true, avatar: avatarMargaret, storySlug: "arthritis-and-gardening-uk" },
+  { name: "Priya S.", location: "London", condition: "Psoriatic Arthritis", text: "The anti-inflammatory diet plan reduced my flare-ups significantly within just 3 months. My CRP levels dropped from 28 to 8.", rating: 5, highlight: "CRP levels dropped", verified: true, avatar: avatarPriya, storySlug: "best-diet-for-joint-pain-uk" },
+  { name: "James W.", location: "Edinburgh", condition: "Knee OA", text: "I was sceptical at first, but the gentle exercise guides have made a real difference to my mobility. Walking distance up 40% in 8 weeks.", rating: 5, highlight: "40% in 8 weeks", verified: true, avatar: avatarJames, storySlug: "knee-arthritis-exercises-uk" },
 ];
 
 const HighlightedText = ({ text, highlight }: { text: string; highlight: string }) => {
@@ -40,7 +38,7 @@ const TestimonialsSection = memo(() => (
 
       <div className="grid md:grid-cols-3 gap-6">
         {testimonials.map((t, i) => (
-          <div key={i} className="h-full p-8 lg:p-10 rounded-2xl border border-border/15 bg-card hover:shadow-large hover:-translate-y-1 transition-all duration-500">
+          <div key={i} className="h-full p-8 lg:p-10 rounded-2xl border border-border/15 bg-card hover:shadow-large hover:-translate-y-1 transition-all duration-500 flex flex-col">
             <div className="flex items-center justify-between mb-5">
               <Quote className="w-8 h-8 text-primary/8 rotate-180" />
               {t.verified && (
@@ -54,13 +52,27 @@ const TestimonialsSection = memo(() => (
                 <Star key={si} className="w-3.5 h-3.5 fill-gold text-gold" />
               ))}
             </div>
-            <p className="text-sm text-muted-foreground leading-[1.85] mb-8">
+            <p className="text-sm text-muted-foreground leading-[1.85] mb-6 flex-1">
               <HighlightedText text={t.text} highlight={t.highlight} />
             </p>
+            
+            {/* Read full story link */}
+            <Link 
+              to={`/blog/${t.storySlug}`}
+              className="inline-flex items-center gap-1.5 text-[11px] font-bold text-primary tracking-[0.15em] uppercase mb-8 hover:gap-2.5 transition-all"
+            >
+              Read full story <ArrowRight className="w-3 h-3" />
+            </Link>
+
             <div className="flex items-center gap-3.5 pt-6 border-t border-border/10">
-              <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold ${avatarColors[i]}`}>
-                {t.name.charAt(0)}
-              </div>
+              <img 
+                src={t.avatar} 
+                alt={`${t.name} - ${t.condition} patient`}
+                className="w-12 h-12 rounded-full object-cover border-2 border-primary/10"
+                loading="lazy"
+                width={48}
+                height={48}
+              />
               <div>
                 <p className="text-sm font-bold text-foreground">{t.name}</p>
                 <p className="text-[11px] text-muted-foreground/60 tracking-wide">{t.location} · {t.condition}</p>

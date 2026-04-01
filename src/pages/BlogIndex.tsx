@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import InternalLinks from "@/components/InternalLinks";
 import PageHero from "@/components/ui/PageHero";
-import { ArrowRight, ChevronLeft, ChevronRight, Eye, BookOpen, Sparkles, Newspaper, Search, Clock, TrendingUp, Flame } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Eye, Sparkles, Newspaper, Search, Clock, Flame } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useBlogViewCounts } from "@/hooks/useBlogViews";
@@ -76,15 +76,6 @@ const categoryColors: Record<Category, string> = {
   Treatment: "bg-teal-500/10 text-teal-700 hover:bg-teal-500/20 border-teal-500/20",
 };
 
-const categoryAccent: Record<Category, string> = {
-  All: "border-l-primary",
-  Exercise: "border-l-violet-500",
-  Nutrition: "border-l-emerald-500",
-  Lifestyle: "border-l-sky-500",
-  Health: "border-l-rose-500",
-  Supplements: "border-l-amber-500",
-  Treatment: "border-l-teal-500",
-};
 
 interface BlogIndexProps {
   initialCategory?: string;
@@ -183,7 +174,7 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
             </div>
           }
           title={<>Arthritis Advice <span className="text-primary">&amp; Guidance</span></>}
-          subtitle="Evidence-based articles to help UK residents manage arthritis, reduce joint pain and live well."
+          subtitle={`${blogPosts.length} evidence-based articles and counting — helping UK residents manage arthritis, reduce joint pain and live well.`}
         />
 
         <main className="container mx-auto px-6 md:px-10 py-10 md:py-16">
@@ -236,26 +227,29 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
             if (trending.length === 0) return null;
             return (
               <div className="mb-10">
-                <h2 className="flex items-center gap-2 font-display text-lg font-bold text-foreground mb-4">
+                <h2 className="flex items-center gap-2 font-display text-xl font-bold text-foreground mb-5">
                   <Flame className="w-5 h-5 text-primary" /> Trending Now
                 </h2>
-                <div className="grid md:grid-cols-3 gap-4">
+                <div className="grid md:grid-cols-3 gap-5">
                   {trending.map((post, i) => (
                     <Link
                       key={post.slug}
                       to={`/blog/${post.slug}`}
-                      className="group flex items-start gap-4 rounded-xl border border-primary/10 bg-primary/[0.03] p-4 hover:bg-primary/[0.06] transition-all"
+                      className="group rounded-2xl border border-primary/15 bg-primary/[0.03] p-6 hover:bg-primary/[0.06] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
                     >
-                      <span className="text-2xl font-black text-primary/30">
-                        {i + 1}
-                      </span>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors leading-snug line-clamp-2">
-                          {post.title}
-                        </h3>
-                        <span className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
-                          <Eye className="w-3 h-3" /> {(viewCounts[post.slug] || 0).toLocaleString()} views
+                      <div className="flex items-start gap-4">
+                        <span className="text-3xl font-black text-primary/20 leading-none">
+                          {i + 1}
                         </span>
+                        <div className="flex-1 min-w-0">
+                          <h3 className="text-base font-bold text-foreground group-hover:text-primary transition-colors leading-snug line-clamp-2 mb-2">
+                            {post.title}
+                          </h3>
+                          <p className="text-xs text-muted-foreground line-clamp-2 mb-3 leading-relaxed">{post.excerpt}</p>
+                          <span className="text-xs text-muted-foreground flex items-center gap-1.5 font-medium">
+                            <Eye className="w-3.5 h-3.5" /> {(viewCounts[post.slug] || 0).toLocaleString()} views
+                          </span>
+                        </div>
                       </div>
                     </Link>
                   ))}
