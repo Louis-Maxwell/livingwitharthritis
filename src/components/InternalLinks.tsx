@@ -22,6 +22,13 @@ const SITE_PAGES: SitePage[] = [
   { path: "/arthritis-flare-ups", title: "Flare-Up Guide", description: "What to do during an arthritis flare-up: triggers, relief strategies and when to seek help.", icon: Activity, tags: ["flare", "pain", "management", "relief"] },
   { path: "/pain-journal", title: "Pain Journal", description: "Track your daily pain levels, triggers, sleep and mood to spot patterns and share with your GP.", icon: BookOpen, tags: ["tracking", "pain", "journal", "self-management"] },
   { path: "/about", title: "About Us", description: "Our mission, team and commitment to supporting people living with arthritis across the UK.", icon: Heart, tags: ["about", "charity", "mission"] },
+  { path: "/guides/uk-arthritis", title: "UK Arthritis Guide", description: "Comprehensive guide to living with arthritis in the United Kingdom — NHS pathways, treatments and support.", icon: BookOpen, tags: ["guide", "arthritis", "UK", "NHS"] },
+  { path: "/guides/nhs-services", title: "NHS Services Guide", description: "Navigate NHS arthritis services: GP referrals, rheumatology, physiotherapy and specialist pathways.", icon: Stethoscope, tags: ["guide", "NHS", "referral", "rheumatology"] },
+  { path: "/guides/diet", title: "Diet Guide", description: "Complete anti-inflammatory diet guide for arthritis: Mediterranean diet, meal plans and foods to avoid.", icon: Apple, tags: ["guide", "diet", "anti-inflammatory", "food"] },
+  { path: "/guides/exercise", title: "Exercise Guide", description: "Evidence-based exercise guide for arthritis: low-impact routines, swimming, yoga and strength training.", icon: Dumbbell, tags: ["guide", "exercise", "physio", "movement"] },
+  { path: "/guides/benefits-pip", title: "Benefits & PIP Guide", description: "UK benefits guide for arthritis: PIP eligibility, application process and disability support.", icon: Heart, tags: ["guide", "PIP", "benefits", "disability"] },
+  { path: "/donate", title: "Donate", description: "Support our mission to provide free arthritis support across the UK. Every donation helps.", icon: Heart, tags: ["donate", "charity", "support"] },
+  { path: "/chat", title: "AI Health Assistant", description: "Free AI-powered arthritis assistant — ask about symptoms, exercises, diet and NHS services.", icon: Activity, tags: ["chat", "AI", "support", "assistant"] },
 ];
 
 // Score relevance based on shared tags

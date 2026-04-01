@@ -44,7 +44,7 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const [resourceDrawerOpen, setResourceDrawerOpen] = useState(false);
-  const [bannerDismissed, setBannerDismissed] = useState(() => sessionStorage.getItem("banner-dismissed") === "true");
+  
   const navigate = useNavigate();
   const lastScrollY = useRef(0);
 
@@ -179,25 +179,10 @@ const Header = () => {
       <div
         className={`sticky top-0 z-50 transition-transform duration-300 ${isHidden ? "-translate-y-full" : "translate-y-0"}`}
       >
-        {/* Currently Building Banner */}
-        {!bannerDismissed && (
-          <div className="bg-primary text-primary-foreground text-center py-1.5 px-4 text-xs sm:text-sm font-semibold tracking-wide flex items-center justify-center gap-2 relative">
-            <span className="inline-block animate-pulse">🔄</span>
-            <span className="hidden sm:inline">This website is currently updating — thank you for your patience</span>
-            <span className="sm:hidden">Currently updating — thank you for your patience</span>
-            <span className="inline-block animate-pulse">🔄</span>
-            <button
-              onClick={() => {
-                setBannerDismissed(true);
-                sessionStorage.setItem("banner-dismissed", "true");
-              }}
-              className="absolute right-2 top-1/2 -translate-y-1/2 p-1 rounded-full hover:bg-primary-foreground/10 transition-colors"
-              aria-label="Dismiss banner"
-            >
-              <X className="h-3.5 w-3.5" />
-            </button>
-          </div>
-        )}
+        {/* Donation banner replaces construction banner */}
+        <Suspense fallback={null}>
+          <DonationBanner />
+        </Suspense>
 
         {/* Logo Bar */}
         <div

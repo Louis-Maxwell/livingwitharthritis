@@ -79,7 +79,7 @@ export default function Index() {
     >
       <Helmet>
         <title>Living With Arthritis UK – Free Physio, Diet Plans & Joint Pain Help</title>
-        <meta name="description" content="Free arthritis support for people across the UK. Virtual physiotherapy, anti-inflammatory Mediterranean diet plans, joint exercises, AI health assistant and community support for osteoarthritis, rheumatoid arthritis and psoriatic arthritis." />
+        <meta name="description" content="Living With Arthritis UK offers free physiotherapy, anti-inflammatory diet plans, evidence-based exercises and 24/7 AI support for people living with joint pain across the UK. No waiting lists, no referrals needed. HCPC registered clinicians. Start your free support today." />
         <meta property="og:title" content="Living With Arthritis UK – Free Physio, Diet & Joint Pain Help" />
         <meta property="og:description" content="Free NHS-complementary arthritis resources for UK residents: virtual physiotherapy, Mediterranean diet plans, gentle exercises, AI chatbot and expert guidance for osteoarthritis and RA." />
         <meta name="keywords" content="arthritis UK, NHS arthritis help, joint pain relief UK, osteoarthritis help UK, rheumatoid arthritis support UK, free physiotherapy UK, anti-inflammatory diet UK, arthritis exercises UK, living with arthritis, joint pain NHS, arthritis charity UK, first contact practitioner, psoriatic arthritis UK, knee pain UK, hip arthritis UK, arthritis supplements UK, PIP arthritis disability, NICE guidelines arthritis, Mediterranean diet arthritis UK, arthritis flare up UK, arthritis treatment UK, arthritis GP referral, rheumatology NHS referral, arthritis support group UK, swimming arthritis UK, yoga arthritis UK, turmeric arthritis UK, glucosamine collagen arthritis, arthritis pain management UK, gentle exercises arthritis UK, arthritis self help tools" />
@@ -94,12 +94,15 @@ export default function Index() {
           "name": "Living With Arthritis",
           "alternateName": "Living With Arthritis UK",
           "url": "https://livingwitharthritis.org.uk",
-          "description": "UK charity providing free virtual physiotherapy, nutrition guidance, joint exercises, AI health assistant and community support for people living with arthritis.",
+          "description": "UK charity providing free virtual physiotherapy, anti-inflammatory nutrition guidance, 50+ joint exercises, AI health assistant and community support for people living with arthritis. HCPC registered clinicians. No waiting lists.",
           "medicalSpecialty": "Rheumatology",
           "areaServed": { "@type": "Country", "name": "United Kingdom" },
-          "serviceType": ["Virtual Physiotherapy", "Nutrition Guidance", "Joint Exercise Programmes", "AI Health Assistant"],
+          "serviceType": ["Virtual Physiotherapy", "Anti-Inflammatory Nutrition Guidance", "Joint Exercise Programmes", "AI Health Assistant", "Peer Support Community"],
           "contactPoint": { "@type": "ContactPoint", "telephone": "+44-7760-512-084", "email": "info@livingwitharthritis.org.uk", "contactType": "customer support", "availableLanguage": "English", "areaServed": "GB" },
-          "inLanguage": "en-GB"
+          "inLanguage": "en-GB",
+          "foundingDate": "2020",
+          "knowsAbout": ["Osteoarthritis", "Rheumatoid Arthritis", "Psoriatic Arthritis", "Joint Pain Management", "Anti-Inflammatory Diet", "Physiotherapy"],
+          "sameAs": []
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
