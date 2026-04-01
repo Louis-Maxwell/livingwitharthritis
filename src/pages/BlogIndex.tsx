@@ -76,15 +76,6 @@ const categoryColors: Record<Category, string> = {
   Treatment: "bg-teal-500/10 text-teal-700 hover:bg-teal-500/20 border-teal-500/20",
 };
 
-const categoryAccent: Record<Category, string> = {
-  All: "border-l-primary",
-  Exercise: "border-l-violet-500",
-  Nutrition: "border-l-emerald-500",
-  Lifestyle: "border-l-sky-500",
-  Health: "border-l-rose-500",
-  Supplements: "border-l-amber-500",
-  Treatment: "border-l-teal-500",
-};
 
 interface BlogIndexProps {
   initialCategory?: string;
