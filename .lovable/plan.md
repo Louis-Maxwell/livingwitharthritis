@@ -1,19 +1,18 @@
 
 
-## Plan: Add Pillar Guide Links to Quick Access & Footer
+## Plan: Upgrade Chatbot Model
 
-**Goal**: Cross-link the 5 pillar guide pages (`/guides/uk-arthritis`, `/guides/nhs-services`, `/guides/diet`, `/guides/exercise`, `/guides/benefits-pip`) from the homepage and footer to improve internal link equity and discoverability.
+A single-line change in the chat edge function to switch from `google/gemini-2.5-flash-lite` to `google/gemini-3-flash-preview`.
 
-### Changes
+### Change
 
-1. **`src/components/landing/QuickAccessSection.tsx`**
-   - Add a "Guides" subsection below the existing hub grid — a compact row of 5 text links styled as pill/tag links (e.g., `📖 UK Arthritis Guide`, `🏥 NHS Services`, `🥗 Diet Guide`, `💪 Exercise Guide`, `📋 Benefits & PIP`)
-   - Uses `<Link>` for proper internal routing and SEO crawlability
-   - Subtle styling: small text, muted color, border pills — doesn't compete with the main cards
+**`supabase/functions/chat/index.ts`** (line 128)
+- Change `model: "google/gemini-2.5-flash-lite"` to `model: "google/gemini-3-flash-preview"`
 
-2. **`src/components/Footer.tsx`**
-   - Add a new "Guides" column to the footer links object with all 5 pillar pages
-   - Positioned between "About Arthritis" and "About Us" columns
+No other files need changes. The frontend streaming hook and chatbot widget remain the same. No API key needed — this model is available through the built-in Lovable AI gateway.
 
-### No database or routing changes needed — all 5 routes already exist in App.tsx.
+### Expected Improvement
+- Better reasoning and more nuanced arthritis health responses
+- Improved markdown formatting in answers
+- Slightly higher latency than flash-lite, but significantly better quality
 
