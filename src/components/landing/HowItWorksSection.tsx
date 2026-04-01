@@ -1,11 +1,12 @@
 import { memo } from "react";
-import { Search, UserCheck, Dumbbell, Heart } from "lucide-react";
+import { Search, UserCheck, Dumbbell, Heart, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const steps = [
-  { icon: Search, title: "Explore Resources", desc: "Browse our curated library of 40+ clinically reviewed exercises, nutrition plans, and expert articles.", num: "01" },
-  { icon: UserCheck, title: "Get Personalised Guidance", desc: "Use our AI assistant or book a free virtual consultation with a HCPC-registered physiotherapist.", num: "02" },
-  { icon: Dumbbell, title: "Follow Your Programme", desc: "Begin with tailored low-impact exercises and an anti-inflammatory Mediterranean diet plan.", num: "03" },
-  { icon: Heart, title: "Transform Your Life", desc: "Track your progress, connect with 50,000+ people in our community, and celebrate milestones.", num: "04" },
+  { icon: Search, title: "Explore Resources", desc: "Browse our curated library of 120+ clinically reviewed exercises, nutrition plans, and expert articles.", num: "01", link: "/blog", linkText: "Browse articles" },
+  { icon: UserCheck, title: "Get Personalised Guidance", desc: "Use our AI assistant or book a free virtual consultation with a HCPC-registered physiotherapist.", num: "02", link: "/chat", linkText: "Talk to AI assistant" },
+  { icon: Dumbbell, title: "Follow Your Programme", desc: "Begin with tailored low-impact exercises and an anti-inflammatory Mediterranean diet plan.", num: "03", link: "/exercises", linkText: "View exercises" },
+  { icon: Heart, title: "Transform Your Life", desc: "Track your progress, connect with 10,000+ people in our community, and celebrate milestones.", num: "04", link: "/community", linkText: "Join community" },
 ];
 
 const HowItWorksSection = memo(() => (
@@ -34,7 +35,13 @@ const HowItWorksSection = memo(() => (
                 <Icon className="w-6 h-6 text-primary" />
               </div>
               <h3 className="text-lg font-bold text-foreground mb-3 tracking-tight">{step.title}</h3>
-              <p className="text-sm text-muted-foreground leading-[1.75]">{step.desc}</p>
+              <p className="text-sm text-muted-foreground leading-[1.75] mb-4">{step.desc}</p>
+              <Link
+                to={step.link}
+                className="inline-flex items-center gap-1.5 text-[11px] font-bold text-primary tracking-[0.12em] uppercase hover:gap-2.5 transition-all"
+              >
+                {step.linkText} <ArrowRight className="w-3 h-3" />
+              </Link>
             </div>
           );
         })}
