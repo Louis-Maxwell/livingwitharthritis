@@ -183,7 +183,7 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
             </div>
           }
           title={<>Arthritis Advice <span className="text-primary">&amp; Guidance</span></>}
-          subtitle="Evidence-based articles to help UK residents manage arthritis, reduce joint pain and live well."
+          subtitle={`${blogPosts.length} evidence-based articles and counting — helping UK residents manage arthritis, reduce joint pain and live well.`}
         />
 
         <main className="container mx-auto px-6 md:px-10 py-10 md:py-16">
