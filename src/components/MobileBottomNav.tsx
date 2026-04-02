@@ -1,4 +1,4 @@
-import { Home, ClipboardList, MessageCircle, BookOpen, CalendarCheck } from "lucide-react";
+import { Home, MessageCircle, BookOpen } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const navItems = [

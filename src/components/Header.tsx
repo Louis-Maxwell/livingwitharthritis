@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
 import CartDrawer from "@/components/CartDrawer";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, ShoppingBag, HelpCircle, HandHeart, Users, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Scale, Baby, Sparkles, Globe, Calendar, Search, ClipboardList } from "lucide-react";
+import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, ShoppingBag, HandHeart, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Sparkles, Globe, Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import ResourceLibraryDrawer from "@/components/ResourceLibraryDrawer";
 import SiteSearch from "@/components/SiteSearch";
