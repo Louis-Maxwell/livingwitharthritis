@@ -18,7 +18,7 @@ const imageMap: Record<string, string> = {
   "/assets/physio-myth-4.jpg": physioMyth4,
 };
 
-const mythIcons = [Activity, Users, Brain, Heart];
+const mythIcons = [Activity, Users, Heart, Check];
 
 const sourceLabels = [
   "NHS, NICE & Cochrane Review",
