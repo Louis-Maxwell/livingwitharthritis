@@ -189,7 +189,7 @@ export default function Index() {
           </Suspense>
         </main>
 
-        <Suspense fallback={<div className="h-96 bg-foreground" />}>
+        <Suspense fallback={<div className="h-96 bg-muted" />}>
           <Footer />
         </Suspense>
       </div>
