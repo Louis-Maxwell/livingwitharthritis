@@ -12,7 +12,7 @@ const Footer = () => {
       { label: "Exercise Hub", href: "/exercises" },
       { label: "Diet & Nutrition Hub", href: "/diet" },
       { label: "Self Help Tool", href: "/self-help" },
-      { label: "Pain Journal", href: "/pain-journal" },
+      
     ],
     aboutArthritis: [
       { label: "Osteoarthritis", href: "/conditions/osteoarthritis" },

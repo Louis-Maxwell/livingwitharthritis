@@ -245,7 +245,7 @@ export default function ArthritisFlareUps() {
           </ul>
         </div>
         <p className="text-muted-foreground leading-relaxed mb-8">
-          Keeping a <Link to="/pain-journal" className="text-primary font-medium hover:underline">pain journal</Link> helps you spot patterns and identify your unique early warning signs. Our digital pain tracker makes this effortless.
+          Keeping a symptom diary helps you spot patterns and identify your unique early warning signs. Our <Link to="/self-help" className="text-primary font-medium hover:underline">Self Help Tool</Link> makes finding the right exercises effortless.
         </p>
 
         {/* ────── Section 4: Immediate Relief ────── */}
@@ -280,12 +280,12 @@ export default function ArthritisFlareUps() {
         <Card className="border-0 bg-gradient-to-r from-primary/5 to-secondary/5 mb-12">
           <CardContent className="p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-5">
             <div className="flex-1">
-              <h3 className="text-xl font-bold text-foreground mb-2">Track Your Flare-Up Patterns</h3>
-              <p className="text-sm text-muted-foreground">Our digital Pain Journal helps you log symptoms, identify triggers, and share reports with your GP or rheumatologist.</p>
+              <h3 className="text-xl font-bold text-foreground mb-2">Get Personalised Exercise Support</h3>
+              <p className="text-sm text-muted-foreground">Our AI Health Assistant can recommend exercises, diet tips, and coping strategies tailored to your arthritis type.</p>
             </div>
             <Button asChild size="lg" className="shrink-0">
-              <Link to="/pain-journal">
-                Start Tracking <ArrowRight className="w-4 h-4 ml-2" />
+              <Link to="/chat">
+                Ask AI Assistant <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
             </Button>
           </CardContent>
@@ -495,8 +495,8 @@ export default function ArthritisFlareUps() {
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <Button asChild size="lg">
-                <Link to="/pain-journal">
-                  Start Pain Journal <ChevronRight className="w-4 h-4 ml-1" />
+                <Link to="/self-help">
+                  Self Help Tool <ChevronRight className="w-4 h-4 ml-1" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">

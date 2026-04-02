@@ -426,7 +426,7 @@ const ExerciseHub = () => {
           </div>
         </section>
 
-        {/* ═══ Mid-page CTA: Pain Journal ═══ */}
+        {/* ═══ Mid-page CTA: AI Assistant ═══ */}
         <section className="py-12 lg:py-16 bg-gradient-to-r from-violet-500/5 via-violet-500/10 to-violet-500/5 border-y border-violet-500/10">
           <div className="container mx-auto px-6 md:px-10 max-w-4xl">
             <motion.div
@@ -439,11 +439,11 @@ const ExerciseHub = () => {
                 <BarChart3 className="w-8 h-8 text-violet-600" />
               </div>
               <div className="flex-1 text-center md:text-left">
-                <h2 className="text-xl font-bold text-foreground mb-1">Track how exercise affects your pain</h2>
-                <p className="text-muted-foreground text-sm">Use the Pain Journal to log symptoms before and after exercise — see patterns and share with your GP.</p>
+                <h2 className="text-xl font-bold text-foreground mb-1">Track how exercise affects your symptoms</h2>
+                <p className="text-muted-foreground text-sm">Use our Self Help Tool to explore joint-specific exercises and get personalised guidance from our AI assistant.</p>
               </div>
               <Button asChild size="lg" className="min-h-[48px] font-semibold bg-violet-600 hover:bg-violet-700 text-white shadow-md shrink-0">
-                <Link to="/pain-journal">Open Pain Journal <ArrowRight className="w-4 h-4 ml-2" /></Link>
+                <Link to="/self-help">Self Help Tool <ArrowRight className="w-4 h-4 ml-2" /></Link>
               </Button>
             </motion.div>
           </div>

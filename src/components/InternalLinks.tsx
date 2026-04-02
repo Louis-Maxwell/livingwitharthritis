@@ -20,7 +20,7 @@ const SITE_PAGES: SitePage[] = [
   { path: "/community", title: "Community Hub", description: "Connect with others living with arthritis through peer support forums and shared stories.", icon: Users, tags: ["community", "support", "forum", "stories"] },
   { path: "/blog", title: "Blog & Articles", description: "Expert articles on managing arthritis, from cold-weather tips to supplement reviews.", icon: BookOpen, tags: ["blog", "articles", "tips", "research"] },
   { path: "/arthritis-flare-ups", title: "Flare-Up Guide", description: "What to do during an arthritis flare-up: triggers, relief strategies and when to seek help.", icon: Activity, tags: ["flare", "pain", "management", "relief"] },
-  { path: "/pain-journal", title: "Pain Journal", description: "Track your daily pain levels, triggers, sleep and mood to spot patterns and share with your GP.", icon: BookOpen, tags: ["tracking", "pain", "journal", "self-management"] },
+  
   { path: "/about", title: "About Us", description: "Our mission, team and commitment to supporting people living with arthritis across the UK.", icon: Heart, tags: ["about", "charity", "mission"] },
   { path: "/guides/uk-arthritis", title: "UK Arthritis Guide", description: "Comprehensive guide to living with arthritis in the United Kingdom — NHS pathways, treatments and support.", icon: BookOpen, tags: ["guide", "arthritis", "UK", "NHS"] },
   { path: "/guides/nhs-services", title: "NHS Services Guide", description: "Navigate NHS arthritis services: GP referrals, rheumatology, physiotherapy and specialist pathways.", icon: Stethoscope, tags: ["guide", "NHS", "referral", "rheumatology"] },
