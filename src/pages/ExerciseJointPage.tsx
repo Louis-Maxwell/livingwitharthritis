@@ -121,7 +121,7 @@ const ExerciseJointPage = () => {
               <ul className="space-y-2">
                 {page.safetyTips.map((tip, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-foreground">
-                    <span className="text-amber-500 mt-0.5">⚠️</span> {tip}
+                    <span className="text-destructive mt-0.5">⚠️</span> {tip}
                   </li>
                 ))}
               </ul>
