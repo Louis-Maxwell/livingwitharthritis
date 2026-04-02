@@ -5,10 +5,10 @@ import { ArrowRight, Clock, TrendingUp, BookOpen, Sparkles } from "lucide-react"
 import { useNavigate, Link } from "react-router-dom";
 
 const posts = [
-  { slug: "arthritis-and-cold-weather-uk", title: "Why Joints Hurt More in Cold Weather", category: "Lifestyle", color: "bg-sky-500/10 text-sky-700 border-sky-500/20", accent: "from-sky-500/20 to-sky-500/5", readTime: "6 min", date: "Mar 2026", emoji: "❄️" },
-  { slug: "arthritis-and-mental-health", title: "Breaking the Pain-Mood Cycle", category: "Health", color: "bg-rose-500/10 text-rose-700 border-rose-500/20", accent: "from-rose-500/20 to-rose-500/5", readTime: "7 min", date: "Mar 2026", emoji: "🧠" },
-  { slug: "best-diet-for-joint-pain-uk", title: "Anti-Inflammatory Foods for Joint Pain", category: "Nutrition", color: "bg-emerald-500/10 text-emerald-700 border-emerald-500/20", accent: "from-emerald-500/20 to-emerald-500/5", readTime: "8 min", date: "Mar 2026", emoji: "🥗" },
-  { slug: "swimming-for-arthritis-uk", title: "Complete Guide to Aquatic Exercise", category: "Exercise", color: "bg-violet-500/10 text-violet-700 border-violet-500/20", accent: "from-violet-500/20 to-violet-500/5", readTime: "5 min", date: "Mar 2026", emoji: "🏊" },
+  { slug: "arthritis-and-cold-weather-uk", title: "Why Joints Hurt More in Cold Weather", category: "Lifestyle", color: "bg-primary/10 text-primary border-primary/20", accent: "from-primary/20 to-primary/5", readTime: "6 min", date: "Mar 2026", emoji: "❄️" },
+  { slug: "arthritis-and-mental-health", title: "Breaking the Pain-Mood Cycle", category: "Health", color: "bg-primary/10 text-primary border-primary/20", accent: "from-primary/15 to-primary/5", readTime: "7 min", date: "Mar 2026", emoji: "🧠" },
+  { slug: "best-diet-for-joint-pain-uk", title: "Anti-Inflammatory Foods for Joint Pain", category: "Nutrition", color: "bg-primary/10 text-primary border-primary/20", accent: "from-primary/20 to-primary/5", readTime: "8 min", date: "Mar 2026", emoji: "🥗" },
+  { slug: "swimming-for-arthritis-uk", title: "Complete Guide to Aquatic Exercise", category: "Exercise", color: "bg-primary/10 text-primary border-primary/20", accent: "from-primary/15 to-primary/5", readTime: "5 min", date: "Mar 2026", emoji: "🏊" },
 ];
 
 const BlogPreviewSection = memo(() => {
