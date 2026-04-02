@@ -119,7 +119,7 @@ function AnimatedRoutes() {
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/cookies" element={<CookiesPolicy />} />
         <Route path="/accessibility" element={<AccessibilityPage />} />
-        <Route path="/pain-journal" element={<PainJournal />} />
+        
         <Route path="/arthritis-flare-ups" element={<ArthritisFlareUps />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/product/:handle" element={<ProductDetail />} />
