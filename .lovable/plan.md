@@ -1,41 +1,90 @@
+## Plan: £100M Premium Overhaul — Phase 1
 
+Given the massive scope (all pages + backend), we'll tackle this in focused batches. Phase 1 delivers the highest-impact visual and structural upgrades.
 
-## Plan: Update Meta Descriptions for Key Pages
+---
 
-Replace the existing meta descriptions on 5 pages with the recommended optimised variants (all 145–158 characters for full SERP display).
+### Batch 1: Global Design System Polish
 
-### Changes
+**`src/index.css`** — Refine the design tokens:
+- Increase base spacing scale for more generous whitespace
+- Add premium shadow tokens (`--shadow-editorial`, `--shadow-card-hover`)
+- Add subtle gradient tokens for section backgrounds
+- Refine border-radius tokens (softer, more institutional)
 
-**1. `src/pages/Index.tsx`** (Homepage — Variant A)
-- Replace current meta description (too long at ~270 chars) with:
-  `"Free physiotherapy, anti-inflammatory diet plans, evidence-based exercises and 24/7 support for arthritis and joint pain in the UK. No referrals or waiting lists."`
-- Also update `og:description` to match
+**`tailwind.config.ts`** — Extend with:
+- Custom `max-w-editorial` (1200px) for tighter, more focused content widths
+- Premium box-shadow utilities
+- Refined letter-spacing scale for section labels
 
-**2. `src/pages/AboutUs.tsx`** (Variant A)
-- Replace current meta description with:
-  `"Discover the mission and story behind Living With Arthritis UK. From a personal NHS physiotherapist initiative in 2020 to a national movement delivering free evidence-based support for over 10,000 people."`
+**`src/components/ui/PageHero.tsx`** — Standardise all page heroes:
+- Consistent height, typography hierarchy, subtle gradient overlay
+- Breadcrumb integration
+- Clean red accent line under heading
 
-**3. `src/pages/ExerciseHub.tsx`**
-- Replace current meta description with:
-  `"Free arthritis exercises and physiotherapy routines for osteoarthritis, rheumatoid and joint pain. Downloadable guides, video support and progress trackers to improve mobility safely at home."`
+---
 
-**4. `src/pages/DietHub.tsx`**
-- Replace current meta description with:
-  `"Free anti-inflammatory diet plans and Mediterranean recipes for arthritis. Evidence-based meal plans, shopping lists and nutrition tips to help reduce joint inflammation and support pain management."`
+### Batch 2: Homepage Sections Refinement
 
-**5. `src/pages/Chat.tsx`** (Get Support)
-- Replace current meta description with:
-  `"Get free arthritis support today. Chat on WhatsApp, call 07760 512 084, use our AI assistant or request virtual physiotherapy. No waiting lists. HCPC-registered team ready to help."`
+**`src/components/HeroSection.tsx`** — Polish:
+- Ensure the split layout feels cinematic with proper image sizing
+- Refine stat cards with premium shadows and micro-borders
+- Ensure trust badges are crisp and aligned
 
-### Files Changed
+**`src/components/ServicesGrid.tsx`** — Upgrade cards:
+- Add hover lift with editorial shadow
+- Tighten card padding and typography
+- Add subtle red accent on hover
+
+**`src/components/landing/FAQSection.tsx`** — Clean up:
+- Premium accordion styling with smooth transitions
+- Section label with tracked uppercase
+
+**`src/components/landing/TestimonialsSection.tsx`** — Refine:
+- Larger quote marks, better typography
+- Subtle card backgrounds
+
+---
+
+### Batch 3: Key Hub Pages
+
+**`src/pages/ExerciseHub.tsx`** — Premium layout:
+- Better card grid with consistent imagery
+- Section dividers and editorial spacing
+
+**`src/pages/DietHub.tsx`** — Same treatment
+
+**`src/pages/Chat.tsx`** — Polish chat interface:
+- Cleaner message bubbles
+- Better empty state
+
+**`src/pages/SelfHelpTool.tsx`** — Upgrade tool UI:
+- Premium form styling
+- Better result cards
+
+---
+
+### Batch 4: Backend Data Quality
+
+- Seed richer content into `physio_myths` table (add 2-3 more myths)
+- Ensure `services` table has compelling, detailed descriptions
+- Verify all CMS content reads as professional and evidence-based
+
+---
+
+### Files Changed (Phase 1)
 
 | File | Change |
 |------|--------|
-| `src/pages/Index.tsx` | Update meta description + og:description |
-| `src/pages/AboutUs.tsx` | Update meta description |
-| `src/pages/ExerciseHub.tsx` | Update meta description |
-| `src/pages/DietHub.tsx` | Update meta description |
-| `src/pages/Chat.tsx` | Update meta description |
+| `src/index.css` | Add premium shadow/gradient tokens |
+| `tailwind.config.ts` | Add editorial utilities |
+| `src/components/ui/PageHero.tsx` | Standardise premium hero |
+| `src/components/HeroSection.tsx` | Polish hero layout |
+| `src/components/ServicesGrid.tsx` | Premium card styling |
+| `src/components/landing/FAQSection.tsx` | Clean accordion design |
+| `src/components/landing/TestimonialsSection.tsx` | Refine typography |
+| `src/pages/ExerciseHub.tsx` | Premium hub layout |
+| `src/pages/DietHub.tsx` | Premium hub layout |
+| `src/pages/SelfHelpTool.tsx` | Upgrade tool UI |
 
-No database or backend changes. After deployment, resubmit updated URLs in Google Search Console.
-
+No database schema changes. Potential data seeding for richer content.
