@@ -245,7 +245,7 @@ export default function ArthritisFlareUps() {
           </ul>
         </div>
         <p className="text-muted-foreground leading-relaxed mb-8">
-          Keeping a <Link to="/pain-journal" className="text-primary font-medium hover:underline">pain journal</Link> helps you spot patterns and identify your unique early warning signs. Our digital pain tracker makes this effortless.
+          Keeping a symptom diary helps you spot patterns and identify your unique early warning signs. Our <Link to="/self-help" className="text-primary font-medium hover:underline">Self Help Tool</Link> makes finding the right exercises effortless.
         </p>
 
         {/* ────── Section 4: Immediate Relief ────── */}
