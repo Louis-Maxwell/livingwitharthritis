@@ -1,82 +1,41 @@
 
 
-## Plan: Press/Media Kit, Partner With Us, Downloadable PDFs & Outreach Templates
+## Plan: Update Meta Descriptions for Key Pages
 
-Four deliverables to support the backlink building strategy.
+Replace the existing meta descriptions on 5 pages with the recommended optimised variants (all 145–158 characters for full SERP display).
 
----
+### Changes
 
-### 1. Press & Media Kit Page (`/press`)
+**1. `src/pages/Index.tsx`** (Homepage — Variant A)
+- Replace current meta description (too long at ~270 chars) with:
+  `"Free physiotherapy, anti-inflammatory diet plans, evidence-based exercises and 24/7 support for arthritis and joint pain in the UK. No referrals or waiting lists."`
+- Also update `og:description` to match
 
-**New file:** `src/pages/Press.tsx`
+**2. `src/pages/AboutUs.tsx`** (Variant A)
+- Replace current meta description with:
+  `"Discover the mission and story behind Living With Arthritis UK. From a personal NHS physiotherapist initiative in 2020 to a national movement delivering free evidence-based support for over 10,000 people."`
 
-A professional press/media page containing:
-- Hero section with "Press & Media Kit" heading and intro text
-- **Key Facts & Statistics** cards (10M+ UK adults with arthritis, free service, HCPC-registered team, NHS-aligned)
-- **About the Charity** summary with mission statement and founding story
-- **Expert Spokespeople** section with bios and headshot placeholders for media contact
-- **Brand Assets** section with downloadable logo guidelines (colour palette, usage rules)
-- **Press Releases / News** placeholder section for future updates
-- **Media Contact** card with press email (press@livingwitharthritis.org.uk)
-- SEO meta tags optimised for press coverage queries
+**3. `src/pages/ExerciseHub.tsx`**
+- Replace current meta description with:
+  `"Free arthritis exercises and physiotherapy routines for osteoarthritis, rheumatoid and joint pain. Downloadable guides, video support and progress trackers to improve mobility safely at home."`
 
-**Route:** Add lazy import and `/press` route in `App.tsx`
+**4. `src/pages/DietHub.tsx`**
+- Replace current meta description with:
+  `"Free anti-inflammatory diet plans and Mediterranean recipes for arthritis. Evidence-based meal plans, shopping lists and nutrition tips to help reduce joint inflammation and support pain management."`
 
----
-
-### 2. Partner With Us Page (`/partners`)
-
-**New file:** `src/pages/Partners.tsx`
-
-Distinct from the existing Corporate Giving page (which focuses on donations). This page targets health charities, NHS bodies, GPs, community groups:
-- Hero with "Partner With Us" heading
-- **Why Partner** section — mutual benefits for health orgs, charities, GP practices
-- **Partnership Types** cards: Resource sharing, co-branded guides, cross-referral, joint events, research collaboration
-- **Current Partners / Affiliations** placeholder grid
-- **Partnership Enquiry Form** — name, organisation, type of partnership (dropdown), message — submitted via existing `submit-contact` edge function with a "partnership" tag
-- SEO meta tags for partnership-related queries
-
-**Route:** Add lazy import and `/partners` route in `App.tsx`
-
----
-
-### 3. Downloadable PDF Assets
-
-**Update:** `src/lib/generatePdf.ts`
-
-Add 3 new link-worthy PDF generators using the existing jsPDF pattern:
-- **generateArthritisFactSheet()** — UK arthritis statistics infographic-style PDF (prevalence, economic impact, key facts)
-- **generateShoppingListPdf()** — Anti-inflammatory grocery shopping list (organised by food group, with notes)
-- **generateSelfAssessmentPdf()** — Simple joint pain self-assessment printable tracker
-
-**New file:** `src/components/DownloadableResources.tsx`
-
-A section/component (used on Press page and potentially other pages) with download buttons for all available PDFs, presented as attractive cards with icons and descriptions.
-
----
-
-### 4. Outreach Email Templates
-
-**Generated artifact:** A DOCX file saved to `/mnt/documents/` containing 4 ready-to-use, professionally formatted email templates:
-1. **Resource Page Outreach** — pitch to add livingwitharthritis.org.uk to health resource pages
-2. **Guest Post Pitch** — offer to write expert arthritis content for health blogs
-3. **Broken Link Replacement** — suggest replacing dead links with your free guides
-4. **Partnership Inquiry** — outreach to complementary health charities/orgs
-
-Each template includes subject line, body with merge fields (e.g., `[Site Name]`, `[Contact Name]`), and a brief usage note.
-
----
+**5. `src/pages/Chat.tsx`** (Get Support)
+- Replace current meta description with:
+  `"Get free arthritis support today. Chat on WhatsApp, call 07760 512 084, use our AI assistant or request virtual physiotherapy. No waiting lists. HCPC-registered team ready to help."`
 
 ### Files Changed
 
-| File | Action |
+| File | Change |
 |------|--------|
-| `src/pages/Press.tsx` | New — Press & Media Kit page |
-| `src/pages/Partners.tsx` | New — Partner With Us page |
-| `src/components/DownloadableResources.tsx` | New — PDF download cards component |
-| `src/lib/generatePdf.ts` | Add 3 new PDF generators |
-| `src/App.tsx` | Add `/press` and `/partners` routes |
-| `/mnt/documents/outreach-email-templates.docx` | Generated outreach templates document |
+| `src/pages/Index.tsx` | Update meta description + og:description |
+| `src/pages/AboutUs.tsx` | Update meta description |
+| `src/pages/ExerciseHub.tsx` | Update meta description |
+| `src/pages/DietHub.tsx` | Update meta description |
+| `src/pages/Chat.tsx` | Update meta description |
 
-No database changes required.
+No database or backend changes. After deployment, resubmit updated URLs in Google Search Console.
 
