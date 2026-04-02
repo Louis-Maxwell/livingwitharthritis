@@ -138,7 +138,7 @@ const ExerciseHub = () => {
     <>
       <Helmet>
         <title>Best Exercises for Arthritis UK | Knee, Hand & Shoulder Routines</title>
-        <meta name="description" content="NHS-aligned arthritis exercises for knees, hands, shoulders and chair-based routines. Evidence-based physiotherapy programmes for osteoarthritis and RA pain relief." />
+        <meta name="description" content="Free arthritis exercises and physiotherapy routines for osteoarthritis, rheumatoid and joint pain. Downloadable guides, video support and progress trackers to improve mobility safely at home." />
         <meta name="keywords" content="arthritis exercises UK, knee exercises arthritis, hand exercises arthritis, shoulder exercises arthritis, NHS physiotherapy, low impact exercises, osteoarthritis exercises, chair exercises arthritis" />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/exercises" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/exercises" />
