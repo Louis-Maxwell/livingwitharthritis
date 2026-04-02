@@ -402,13 +402,13 @@ export default function WaysToHelp() {
           </section>
 
           {/* ── Volunteer Sign-Up Form ── */}
-          <section id="volunteer-form" className="scroll-mt-24 py-16 sm:py-24 bg-gradient-to-b from-emerald-50/50 to-background dark:from-emerald-950/10 border-t border-border/10">
+          <section id="volunteer-form" className="scroll-mt-24 py-16 sm:py-24 bg-gradient-to-b from-primary/5 to-background border-t border-border/10">
             <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
               <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
 
                 {/* Left: Why volunteer */}
                 <div>
-                  <p className="text-xs font-bold text-emerald-600 dark:text-emerald-400 tracking-widest uppercase mb-3">Join Our Team</p>
+                  <p className="text-xs font-bold text-primary tracking-widest uppercase mb-3">Join Our Team</p>
                   <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground tracking-tight mb-4">
                     Volunteer With Us
                   </h2>
