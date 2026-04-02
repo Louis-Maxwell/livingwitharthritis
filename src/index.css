@@ -7,34 +7,34 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 0 0% 8%;
+    --foreground: 40 5% 11%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 8%;
+    --card-foreground: 40 5% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 8%;
+    --popover-foreground: 40 5% 11%;
 
-    /* Clean, confident red */
-    --primary: 0 78% 50%;
+    /* British Red Cross red */
+    --primary: 1 85% 54%;
     --primary-foreground: 0 0% 100%;
 
     /* Deeper red accent */
-    --secondary: 0 65% 40%;
+    --secondary: 0 75% 42%;
     --secondary-foreground: 0 0% 100%;
 
     --accent: 0 0% 97%;
-    --accent-foreground: 0 0% 8%;
+    --accent-foreground: 40 5% 11%;
 
     --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted-foreground: 0 0% 40%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 0 0% 91%;
     --input: 0 0% 91%;
-    --ring: 0 78% 50%;
+    --ring: 1 85% 54%;
 
     --gold: 42 78% 48%;
     --gold-foreground: 42 40% 10%;
@@ -72,8 +72,8 @@
     --shadow-large: 0 24px 60px -16px rgb(0 0 0 / 0.1), 0 8px 24px -8px rgb(0 0 0 / 0.04);
     --shadow-xl: 0 36px 72px -20px rgb(0 0 0 / 0.12), 0 16px 40px -12px rgb(0 0 0 / 0.05);
     --shadow-2xl: 0 56px 100px -30px rgb(0 0 0 / 0.14), 0 24px 56px -16px rgb(0 0 0 / 0.06);
-    --shadow-primary: 0 12px 36px -8px hsl(0 78% 50% / 0.2);
-    --shadow-glow: 0 0 56px -16px hsl(0 78% 50% / 0.08);
+    --shadow-primary: 0 12px 36px -8px hsl(1 85% 54% / 0.2);
+    --shadow-glow: 0 0 56px -16px hsl(1 85% 54% / 0.08);
     --shadow-gold: 0 12px 36px -8px hsl(42 78% 48% / 0.2);
     --shadow-glass: 0 8px 32px rgb(0 0 0 / 0.03), inset 0 1px 0 rgb(255 255 255 / 0.8);
 
@@ -81,12 +81,12 @@
 
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 0 0% 15%;
-    --sidebar-primary: 0 78% 50%;
+    --sidebar-primary: 1 85% 54%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 0 0% 97%;
-    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-accent-foreground: 40 5% 11%;
     --sidebar-border: 0 0% 92%;
-    --sidebar-ring: 0 78% 50%;
+    --sidebar-ring: 1 85% 54%;
   }
 
   .dark {
