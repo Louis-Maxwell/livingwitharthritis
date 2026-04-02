@@ -426,8 +426,8 @@ export default function WaysToHelp() {
                       const BIcon = benefit.icon;
                       return (
                         <div key={benefit.title} className="flex gap-3">
-                          <div className="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center shrink-0 mt-0.5">
-                            <BIcon className="w-4.5 h-4.5 text-emerald-600 dark:text-emerald-400" />
+                          <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                            <BIcon className="w-4.5 h-4.5 text-primary" />
                           </div>
                           <div>
                             <h4 className="text-sm font-bold text-foreground">{benefit.title}</h4>
