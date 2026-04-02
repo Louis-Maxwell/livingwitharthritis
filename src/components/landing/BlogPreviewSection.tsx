@@ -24,7 +24,7 @@ const BlogPreviewSection = memo(() => {
           className="flex flex-col sm:flex-row sm:items-end justify-between mb-14 gap-4"
         >
           <div>
-            <div className="inline-flex items-center gap-2 bg-violet-500/10 text-violet-700 text-xs font-bold px-3.5 py-1.5 rounded-full mb-4">
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-bold px-3.5 py-1.5 rounded-full mb-4">
               <BookOpen className="w-3.5 h-3.5" />
               40+ Articles
             </div>
