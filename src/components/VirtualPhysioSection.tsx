@@ -36,7 +36,7 @@ const keyStats = [
 
 const MythCard = memo(({ item, index }: { item: PhysioMyth; index: number }) => {
   const imageSrc = item.image_url ? (imageMap[item.image_url] || item.image_url) : null;
-  const IconComp = mythIcons[index % mythIcons.length];
+  
   const stat = keyStats[index % keyStats.length];
 
   return (
