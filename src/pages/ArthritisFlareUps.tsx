@@ -495,8 +495,8 @@ export default function ArthritisFlareUps() {
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <Button asChild size="lg">
-                <Link to="/pain-journal">
-                  Start Pain Journal <ChevronRight className="w-4 h-4 ml-1" />
+                <Link to="/self-help">
+                  Self Help Tool <ChevronRight className="w-4 h-4 ml-1" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
