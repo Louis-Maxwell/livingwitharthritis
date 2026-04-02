@@ -79,10 +79,9 @@ const Header = () => {
     },
     {
       label: "Track & Manage",
-      href: "/pain-journal",
-      action: () => navigate("/pain-journal"),
+      href: "/self-help",
+      action: () => navigate("/self-help"),
       subs: [
-        { label: "Symptom Journal", desc: "Track daily pain, mood & triggers", icon: ClipboardList, href: "/pain-journal", action: () => navigate("/pain-journal"), color: "text-amber-600 bg-amber-500/10" },
         { label: "AI Health Assistant", desc: "24/7 evidence-based chat support", icon: MessageCircle, href: "/chat", action: () => navigate("/chat"), color: "text-violet-600 bg-violet-500/10" },
         { label: "Self Help Tool", desc: "Interactive joint exercise diagram", icon: Activity, href: "/self-help", action: () => navigate("/self-help"), color: "text-sky-600 bg-sky-500/10" },
       ],
