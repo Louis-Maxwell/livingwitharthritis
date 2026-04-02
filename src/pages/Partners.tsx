@@ -13,7 +13,7 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { z } from "zod";
-import sanitizeInput from "@/lib/sanitize";
+import { sanitizeInput } from "@/lib/sanitize";
 
 const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
 

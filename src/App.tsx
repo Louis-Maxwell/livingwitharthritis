@@ -143,6 +143,8 @@ function AnimatedRoutes() {
         <Route path="/guides/diet" element={<DietGuide />} />
         <Route path="/guides/exercise" element={<ExerciseGuide />} />
         <Route path="/guides/benefits-pip" element={<BenefitsPIPGuide />} />
+        <Route path="/press" element={<Press />} />
+        <Route path="/partners" element={<Partners />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </PageTransition>

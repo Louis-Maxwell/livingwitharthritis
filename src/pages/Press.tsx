@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import { FileText, Mail, Users, Award, Heart, Shield, ExternalLink, Newspaper } from "lucide-react";
+import { Mail, Users, Award, Heart, Shield, Newspaper } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import DownloadableResources from "@/components/DownloadableResources";
