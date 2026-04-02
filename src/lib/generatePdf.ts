@@ -471,3 +471,154 @@ export function generateProgressTrackerPdf() {
   footer(doc);
   doc.save("Weekly_Exercise_Progress_Tracker_LWA.pdf");
 }
+
+/* ─── NEW: Arthritis Fact Sheet ─── */
+export function generateArthritisFactSheet() {
+  const doc = new jsPDF();
+  header(doc, "UK Arthritis Fact Sheet", "Key statistics and impact data — Living With Arthritis UK");
+
+  let y = 50;
+  y = paragraph(doc, y, "This fact sheet summarises the prevalence, economic impact and key statistics around arthritis in the United Kingdom. Ideal for journalists, researchers, healthcare professionals and resource pages.");
+
+  y = sectionTitle(doc, y, "Prevalence");
+  y = bulletList(doc, y, [
+    "Over 10 million people in the UK live with arthritis or a related musculoskeletal condition.",
+    "Osteoarthritis is the most common form, affecting approximately 8.75 million people.",
+    "Rheumatoid arthritis affects around 400,000 adults in the UK.",
+    "1 in 6 people in the UK have arthritis — it is the leading cause of pain and disability.",
+    "Arthritis affects people of all ages, including over 15,000 children (juvenile idiopathic arthritis).",
+  ]);
+
+  y = sectionTitle(doc, y, "Economic Impact");
+  y = bulletList(doc, y, [
+    "Musculoskeletal conditions cost the UK economy an estimated £20.7 billion per year in lost productivity.",
+    "Arthritis accounts for over 30 million lost working days annually.",
+    "The NHS spends approximately £10 billion per year treating musculoskeletal conditions.",
+    "Joint replacement surgery (hips and knees) costs the NHS over £1 billion annually.",
+  ]);
+
+  y = sectionTitle(doc, y, "Risk Factors");
+  y = bulletList(doc, y, [
+    "Age — most common in people over 50, but can affect any age group.",
+    "Gender — women are more likely to develop most forms of arthritis.",
+    "Obesity — excess weight increases the load on weight-bearing joints significantly.",
+    "Previous joint injury, repetitive occupational use and family history.",
+  ]);
+
+  y = sectionTitle(doc, y, "Management");
+  y = bulletList(doc, y, [
+    "There is no cure, but symptoms can be effectively managed through exercise, weight control and diet.",
+    "Low-impact exercise (walking, swimming, cycling) is one of the most effective treatments.",
+    "Anti-inflammatory diets (Mediterranean-style) have been shown to reduce pain and stiffness.",
+    "Early diagnosis and physiotherapy referral significantly improve long-term outcomes.",
+  ]);
+
+  y += 4;
+  y = paragraph(doc, y, "Sources: NHS, NICE, Versus Arthritis, World Health Organization, Public Health England. For educational use — not medical advice.", 8);
+
+  footer(doc);
+  doc.save("UK_Arthritis_Fact_Sheet_LWA.pdf");
+}
+
+/* ─── NEW: Anti-Inflammatory Shopping List ─── */
+export function generateShoppingListPdf() {
+  const doc = new jsPDF();
+  header(doc, "Anti-Inflammatory Shopping List", "Printable grocery checklist for joint-friendly eating");
+
+  let y = 50;
+  y = paragraph(doc, y, "Take this list to the supermarket! Organised by food group with notes on why each item helps manage inflammation and joint pain. Tick items off as you shop.");
+
+  const groups = [
+    { group: "Oily Fish (2+ portions/week)", items: ["Salmon — omega-3 rich", "Mackerel — high EPA/DHA", "Sardines — calcium + omega-3", "Trout — lean protein + omega-3"] },
+    { group: "Berries & Fruits", items: ["Blueberries — anthocyanins", "Strawberries — vitamin C", "Cherries — reduce uric acid", "Oranges — vitamin C", "Avocado — healthy fats", "Pomegranate — polyphenols"] },
+    { group: "Vegetables", items: ["Spinach — iron + folate", "Kale — vitamins A, C, K", "Broccoli — sulforaphane", "Red peppers — vitamin C", "Beetroot — betalains", "Sweet potato — beta-carotene", "Tomatoes — lycopene", "Garlic — allicin"] },
+    { group: "Nuts & Seeds", items: ["Walnuts — omega-3 ALA", "Almonds — vitamin E", "Ground flaxseed — lignans", "Chia seeds — fibre + omega-3", "Pumpkin seeds — magnesium"] },
+    { group: "Whole Grains & Pulses", items: ["Oats — beta-glucan fibre", "Brown rice — B vitamins", "Quinoa — complete protein", "Lentils — plant protein", "Chickpeas — fibre + iron"] },
+    { group: "Spices & Herbs", items: ["Turmeric — curcumin (anti-inflammatory)", "Ginger — gingerols", "Cinnamon — antioxidant", "Black pepper — enhances curcumin"] },
+    { group: "Healthy Fats", items: ["Extra virgin olive oil — oleocanthal", "Rapeseed oil — balanced omega ratio"] },
+    { group: "Drinks", items: ["Green tea — EGCG catechins", "Turmeric latte / golden milk", "Water with lemon — hydration"] },
+  ];
+
+  for (const g of groups) {
+    y = sectionTitle(doc, y, g.group);
+    doc.setFontSize(10);
+    for (const item of g.items) {
+      if (y > 270) { doc.addPage(); footer(doc); y = 20; }
+      doc.rect(18, y - 3, 3.5, 3.5);
+      doc.text(item, 25, y);
+      y += 6;
+    }
+    y += 3;
+  }
+
+  footer(doc);
+  doc.save("Anti_Inflammatory_Shopping_List_LWA.pdf");
+}
+
+/* ─── NEW: Joint Pain Self-Assessment ─── */
+export function generateSelfAssessmentPdf() {
+  const doc = new jsPDF();
+  header(doc, "Joint Pain Self-Assessment", "Printable tracker for GP & rheumatology appointments");
+
+  let y = 50;
+  y = paragraph(doc, y, "Complete this form before your GP or rheumatology appointment. It helps your healthcare team understand your symptoms quickly and provides a clear record for diagnosis and treatment planning.");
+
+  y = sectionTitle(doc, y, "Personal Details");
+  y = paragraph(doc, y, "Name: _______________________________________________  Date: _______________");
+  y = paragraph(doc, y, "GP/Consultant: ________________________________________");
+  y += 2;
+
+  y = sectionTitle(doc, y, "Current Symptoms (tick all that apply)");
+  const symptoms = ["Joint pain", "Morning stiffness (>30 mins)", "Swelling", "Warmth/redness", "Reduced grip strength", "Difficulty walking", "Fatigue", "Sleep disruption", "Clicking/grinding in joints"];
+  doc.setFontSize(10);
+  for (const s of symptoms) {
+    if (y > 270) { doc.addPage(); footer(doc); y = 20; }
+    doc.rect(18, y - 3, 3.5, 3.5);
+    doc.text(s, 25, y);
+    y += 6;
+  }
+  y += 4;
+
+  y = sectionTitle(doc, y, "Joint Pain Map");
+  y = paragraph(doc, y, "Rate pain 0–10 for each joint (0 = no pain, 10 = worst imaginable):");
+
+  const joints = [
+    ["Left Hand: ___", "Right Hand: ___"],
+    ["Left Wrist: ___", "Right Wrist: ___"],
+    ["Left Elbow: ___", "Right Elbow: ___"],
+    ["Left Shoulder: ___", "Right Shoulder: ___"],
+    ["Left Hip: ___", "Right Hip: ___"],
+    ["Left Knee: ___", "Right Knee: ___"],
+    ["Left Ankle: ___", "Right Ankle: ___"],
+    ["Neck: ___", "Lower Back: ___"],
+  ];
+
+  doc.setFontSize(10);
+  for (const [left, right] of joints) {
+    if (y > 270) { doc.addPage(); footer(doc); y = 20; }
+    doc.text(left, 18, y);
+    doc.text(right, 110, y);
+    y += 7;
+  }
+  y += 4;
+
+  y = sectionTitle(doc, y, "Daily Impact");
+  y = paragraph(doc, y, "How much does your pain affect daily activities? (circle one)");
+  y = paragraph(doc, y, "Not at all    |    Mildly    |    Moderately    |    Severely    |    Completely");
+  y += 2;
+
+  y = sectionTitle(doc, y, "Current Treatments");
+  y = paragraph(doc, y, "Medications: ________________________________________________________");
+  y = paragraph(doc, y, "Exercise: ___________________________________________________________");
+  y = paragraph(doc, y, "Other (e.g. diet, supplements): ______________________________________");
+
+  y += 4;
+  y = sectionTitle(doc, y, "Questions for Your Doctor");
+  for (let i = 1; i <= 3; i++) {
+    y = paragraph(doc, y, `${i}. ______________________________________________________________`);
+  }
+
+  footer(doc);
+  doc.save("Joint_Pain_Self_Assessment_LWA.pdf");
+}
+
