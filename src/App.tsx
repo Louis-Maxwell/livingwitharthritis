@@ -65,6 +65,8 @@ const NHSServicesGuide = lazy(() => import("./pages/pillar/NHSServicesGuide"));
 const DietGuide = lazy(() => import("./pages/pillar/DietGuide"));
 const ExerciseGuide = lazy(() => import("./pages/pillar/ExerciseGuide"));
 const BenefitsPIPGuide = lazy(() => import("./pages/pillar/BenefitsPIPGuide"));
+const Press = lazy(() => import("./pages/Press"));
+const Partners = lazy(() => import("./pages/Partners"));
 // Loading fallback with skeleton-style animation
 const PageLoader = () => (
   <div className="min-h-screen flex flex-col items-center justify-center bg-background gap-4">
