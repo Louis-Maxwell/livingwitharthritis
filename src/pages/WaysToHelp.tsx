@@ -264,7 +264,7 @@ export default function WaysToHelp() {
                             "One-off or monthly giving options available",
                           ].map((item) => (
                             <li key={item} className="flex items-start gap-2 text-sm text-foreground">
-                              <CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
+                              <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                               {item}
                             </li>
                           ))}
