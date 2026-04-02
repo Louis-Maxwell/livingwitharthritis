@@ -254,10 +254,6 @@ const Header = () => {
           )}
         </div>
 
-        {/* Donation Banner — inside sticky wrapper */}
-        <Suspense fallback={<div className="bg-primary h-[38px]" />}>
-          <DonationBanner />
-        </Suspense>
 
 
         {/* Nav Bar */}
