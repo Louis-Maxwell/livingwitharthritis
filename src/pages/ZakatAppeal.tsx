@@ -114,7 +114,6 @@ const ZakatAppeal = () => {
         })}</script>
       </Helmet>
 
-      <DonationBanner />
       <Header />
 
       <main className="bg-background">
