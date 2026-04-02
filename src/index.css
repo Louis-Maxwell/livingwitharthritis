@@ -6,87 +6,87 @@
 
 @layer base {
   :root {
-    --background: 40 20% 99%;
-    --foreground: 220 25% 8%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 25% 8%;
+    --card-foreground: 0 0% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 25% 8%;
+    --popover-foreground: 0 0% 8%;
 
-    /* Refined crimson — institutional, not garish */
-    --primary: 355 78% 46%;
+    /* Clean, confident red */
+    --primary: 0 78% 50%;
     --primary-foreground: 0 0% 100%;
 
-    /* Deep maroon accent */
-    --secondary: 350 65% 35%;
+    /* Deeper red accent */
+    --secondary: 0 65% 40%;
     --secondary-foreground: 0 0% 100%;
 
-    --accent: 40 15% 96%;
-    --accent-foreground: 220 25% 8%;
+    --accent: 0 0% 97%;
+    --accent-foreground: 0 0% 8%;
 
-    --muted: 40 10% 95%;
-    --muted-foreground: 220 8% 48%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 40 10% 90%;
-    --input: 40 10% 90%;
-    --ring: 355 78% 46%;
+    --border: 0 0% 91%;
+    --input: 0 0% 91%;
+    --ring: 0 78% 50%;
 
     --gold: 42 78% 48%;
     --gold-foreground: 42 40% 10%;
     --gold-muted: 42 35% 88%;
     --amber: 30 72% 48%;
 
-    --navy: 220 35% 14%;
+    --navy: 0 0% 10%;
     --navy-foreground: 0 0% 100%;
 
-    /* Warm ivory background for section variation */
-    --warm: 40 18% 97%;
+    /* Pure white section variation */
+    --warm: 0 0% 98%;
 
-    /* Subtle pastel tints — warm & refined */
-    --tint-blue: 214 30% 96%;
-    --tint-green: 155 25% 95%;
-    --tint-amber: 42 35% 95%;
-    --tint-rose: 350 25% 96%;
-    --tint-violet: 268 25% 96%;
-    --tint-cyan: 192 30% 95%;
-    --tint-peach: 22 35% 96%;
-    --tint-mint: 162 28% 95%;
-    --tint-lavender: 280 25% 96%;
-    --tint-coral: 12 30% 96%;
+    /* Subtle neutral tints */
+    --tint-blue: 0 0% 97%;
+    --tint-green: 0 0% 97%;
+    --tint-amber: 0 0% 97%;
+    --tint-rose: 0 5% 97%;
+    --tint-violet: 0 0% 97%;
+    --tint-cyan: 0 0% 97%;
+    --tint-peach: 0 0% 97%;
+    --tint-mint: 0 0% 97%;
+    --tint-lavender: 0 0% 97%;
+    --tint-coral: 0 0% 97%;
 
-    /* Sophisticated accent colors — deeper, more institutional */
+    /* Accent colors — muted for clean look */
     --emerald: 160 50% 34%;
     --sky: 205 65% 42%;
     --violet: 260 45% 45%;
     --coral: 12 55% 50%;
     --teal: 180 40% 32%;
 
-    /* Refined shadow system — subtle, premium */
-    --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.03), 0 1px 2px -1px rgb(0 0 0 / 0.02);
-    --shadow-medium: 0 8px 30px -8px rgb(0 0 0 / 0.06), 0 2px 8px -3px rgb(0 0 0 / 0.02);
-    --shadow-large: 0 24px 60px -16px rgb(0 0 0 / 0.08), 0 8px 24px -8px rgb(0 0 0 / 0.03);
-    --shadow-xl: 0 36px 72px -20px rgb(0 0 0 / 0.1), 0 16px 40px -12px rgb(0 0 0 / 0.04);
-    --shadow-2xl: 0 56px 100px -30px rgb(0 0 0 / 0.12), 0 24px 56px -16px rgb(0 0 0 / 0.05);
-    --shadow-primary: 0 12px 36px -8px hsl(355 78% 46% / 0.2);
-    --shadow-glow: 0 0 56px -16px hsl(355 78% 46% / 0.08);
+    /* Clean shadow system */
+    --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.03);
+    --shadow-medium: 0 8px 30px -8px rgb(0 0 0 / 0.08), 0 2px 8px -3px rgb(0 0 0 / 0.03);
+    --shadow-large: 0 24px 60px -16px rgb(0 0 0 / 0.1), 0 8px 24px -8px rgb(0 0 0 / 0.04);
+    --shadow-xl: 0 36px 72px -20px rgb(0 0 0 / 0.12), 0 16px 40px -12px rgb(0 0 0 / 0.05);
+    --shadow-2xl: 0 56px 100px -30px rgb(0 0 0 / 0.14), 0 24px 56px -16px rgb(0 0 0 / 0.06);
+    --shadow-primary: 0 12px 36px -8px hsl(0 78% 50% / 0.2);
+    --shadow-glow: 0 0 56px -16px hsl(0 78% 50% / 0.08);
     --shadow-gold: 0 12px 36px -8px hsl(42 78% 48% / 0.2);
-    --shadow-glass: 0 8px 32px rgb(0 0 0 / 0.02), inset 0 1px 0 rgb(255 255 255 / 0.8);
+    --shadow-glass: 0 8px 32px rgb(0 0 0 / 0.03), inset 0 1px 0 rgb(255 255 255 / 0.8);
 
     --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 99%;
-    --sidebar-foreground: 220 20% 20%;
-    --sidebar-primary: 355 78% 46%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 15%;
+    --sidebar-primary: 0 78% 50%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 40 14% 96%;
-    --sidebar-accent-foreground: 220 20% 10%;
-    --sidebar-border: 40 14% 92%;
-    --sidebar-ring: 355 78% 46%;
+    --sidebar-accent: 0 0% 97%;
+    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-border: 0 0% 92%;
+    --sidebar-ring: 0 78% 50%;
   }
 
   .dark {
