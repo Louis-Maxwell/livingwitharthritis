@@ -4,7 +4,7 @@ import physioMyth2 from "@/assets/physio-myth-2.jpg";
 import physioMyth3 from "@/assets/physio-myth-3.jpg";
 import physioMyth4 from "@/assets/physio-myth-4.jpg";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Check, X, Sparkles, ShieldCheck, BookOpen, ArrowRight, Activity, Users, Brain, Heart } from "lucide-react";
+import { Check, X, ShieldCheck, BookOpen, ArrowRight, Activity, Users, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import { usePhysioMyths, PhysioMyth } from "@/hooks/useCmsContent";
