@@ -82,12 +82,12 @@ const ExerciseJointPage = () => {
           {/* Benefits */}
           <section className="mb-10">
             <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-              <CheckCircle className="w-5 h-5 text-green-600" /> Benefits of {page.exercise} for {page.joint} Arthritis
+              <CheckCircle className="w-5 h-5 text-primary" /> Benefits of {page.exercise} for {page.joint} Arthritis
             </h2>
             <ul className="space-y-2">
               {page.benefits.map((b, i) => (
-                <li key={i} className="flex items-start gap-3 bg-green-50 dark:bg-green-950/20 rounded-xl p-4">
-                  <div className="w-2 h-2 rounded-full bg-green-500 mt-2 shrink-0" />
+                <li key={i} className="flex items-start gap-3 bg-primary/5 rounded-xl p-4">
+                  <div className="w-2 h-2 rounded-full bg-primary mt-2 shrink-0" />
                   <span className="text-foreground">{b}</span>
                 </li>
               ))}
@@ -115,13 +115,13 @@ const ExerciseJointPage = () => {
           {/* Safety Tips */}
           <section className="mb-10">
             <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-              <AlertTriangle className="w-5 h-5 text-amber-500" /> Safety Tips
+              <AlertTriangle className="w-5 h-5 text-destructive" /> Safety Tips
             </h2>
-            <div className="bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800 rounded-xl p-5">
+            <div className="bg-destructive/5 border border-destructive/20 rounded-xl p-5">
               <ul className="space-y-2">
                 {page.safetyTips.map((tip, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-foreground">
-                    <span className="text-amber-500 mt-0.5">⚠️</span> {tip}
+                    <span className="text-destructive mt-0.5">⚠️</span> {tip}
                   </li>
                 ))}
               </ul>
@@ -131,13 +131,13 @@ const ExerciseJointPage = () => {
           {/* When to Avoid */}
           <section className="mb-10">
             <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-              <ShieldAlert className="w-5 h-5 text-red-500" /> When to Avoid {page.exercise}
+              <ShieldAlert className="w-5 h-5 text-destructive" /> When to Avoid {page.exercise}
             </h2>
-            <div className="bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-800 rounded-xl p-5">
+            <div className="bg-destructive/5 border border-destructive/20 rounded-xl p-5">
               <ul className="space-y-2">
                 {page.whenToAvoid.map((item, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-foreground">
-                    <span className="text-red-500 mt-0.5">🛑</span> {item}
+                    <span className="text-destructive mt-0.5">🛑</span> {item}
                   </li>
                 ))}
               </ul>

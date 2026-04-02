@@ -24,9 +24,9 @@ const WAYS = [
     impact: "£10 funds a virtual physio session",
     cta: "Donate Now",
     href: "/donate",
-    gradient: "from-rose-500 to-pink-600",
-    bgLight: "bg-rose-50 dark:bg-rose-950/20",
-    iconColor: "text-rose-600 dark:text-rose-400",
+    gradient: "from-primary to-secondary",
+    bgLight: "bg-primary/5",
+    iconColor: "text-primary",
     featured: true,
   },
   {
@@ -36,9 +36,9 @@ const WAYS = [
     impact: "200+ volunteers across the UK",
     cta: "Sign Up Below",
     href: "#volunteer-form",
-    gradient: "from-emerald-500 to-teal-600",
-    bgLight: "bg-emerald-50 dark:bg-emerald-950/20",
-    iconColor: "text-emerald-600 dark:text-emerald-400",
+    gradient: "from-primary to-secondary",
+    bgLight: "bg-primary/5",
+    iconColor: "text-primary",
     isAnchor: true,
   },
   {
@@ -48,9 +48,9 @@ const WAYS = [
     impact: "£50K+ raised by supporters in 2025",
     cta: "Start Fundraising",
     href: "/corporate-giving",
-    gradient: "from-amber-500 to-orange-600",
-    bgLight: "bg-amber-50 dark:bg-amber-950/20",
-    iconColor: "text-amber-600 dark:text-amber-400",
+    gradient: "from-secondary to-primary",
+    bgLight: "bg-primary/5",
+    iconColor: "text-primary",
   },
   {
     icon: Building2,
@@ -59,9 +59,9 @@ const WAYS = [
     impact: "Join 15+ corporate partners",
     cta: "Partner With Us",
     href: "/corporate-giving",
-    gradient: "from-blue-500 to-indigo-600",
-    bgLight: "bg-blue-50 dark:bg-blue-950/20",
-    iconColor: "text-blue-600 dark:text-blue-400",
+    gradient: "from-primary to-secondary",
+    bgLight: "bg-primary/5",
+    iconColor: "text-primary",
   },
   {
     icon: ScrollText,
@@ -70,9 +70,9 @@ const WAYS = [
     impact: "Legacies fund 30% of our work",
     cta: "Learn More",
     href: "/about",
-    gradient: "from-violet-500 to-purple-600",
-    bgLight: "bg-violet-50 dark:bg-violet-950/20",
-    iconColor: "text-violet-600 dark:text-violet-400",
+    gradient: "from-secondary to-primary",
+    bgLight: "bg-primary/5",
+    iconColor: "text-primary",
   },
 ];
 
@@ -264,7 +264,7 @@ export default function WaysToHelp() {
                             "One-off or monthly giving options available",
                           ].map((item) => (
                             <li key={item} className="flex items-start gap-2 text-sm text-foreground">
-                              <CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
+                              <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                               {item}
                             </li>
                           ))}
@@ -338,7 +338,7 @@ export default function WaysToHelp() {
                 "Volunteering with Living With Arthritis has been one of the most rewarding experiences of my life. Knowing that my time directly helps someone manage their pain and stay active — that's priceless."
               </blockquote>
               <div className="flex items-center justify-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-sm font-bold text-emerald-700 dark:text-emerald-400">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-sm font-bold text-primary">
                   SC
                 </div>
                 <div className="text-left">
@@ -368,22 +368,22 @@ export default function WaysToHelp() {
                     icon: Megaphone,
                     title: "Spread Awareness",
                     description: "Share our resources on social media, tell friends and family, or write to your MP about arthritis support.",
-                    color: "from-sky-500 to-cyan-600",
-                    bg: "bg-sky-50 dark:bg-sky-950/20",
+                    color: "from-primary to-secondary",
+                    bg: "bg-primary/5",
                   },
                   {
                     icon: Handshake,
                     title: "Give Your Time",
                     description: "Just 2 hours a week as a peer mentor can transform someone's arthritis journey from isolation to empowerment.",
-                    color: "from-emerald-500 to-teal-600",
-                    bg: "bg-emerald-50 dark:bg-emerald-950/20",
+                    color: "from-secondary to-primary",
+                    bg: "bg-primary/5",
                   },
                   {
                     icon: Gift,
                     title: "Fund Services",
                     description: "Your donations fund free virtual physiotherapy, diet plans, and community support groups across the UK.",
-                    color: "from-rose-500 to-pink-600",
-                    bg: "bg-rose-50 dark:bg-rose-950/20",
+                    color: "from-primary to-secondary",
+                    bg: "bg-primary/5",
                   },
                 ].map((item) => {
                   const Icon = item.icon;
@@ -402,13 +402,13 @@ export default function WaysToHelp() {
           </section>
 
           {/* ── Volunteer Sign-Up Form ── */}
-          <section id="volunteer-form" className="scroll-mt-24 py-16 sm:py-24 bg-gradient-to-b from-emerald-50/50 to-background dark:from-emerald-950/10 border-t border-border/10">
+          <section id="volunteer-form" className="scroll-mt-24 py-16 sm:py-24 bg-gradient-to-b from-primary/5 to-background border-t border-border/10">
             <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
               <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
 
                 {/* Left: Why volunteer */}
                 <div>
-                  <p className="text-xs font-bold text-emerald-600 dark:text-emerald-400 tracking-widest uppercase mb-3">Join Our Team</p>
+                  <p className="text-xs font-bold text-primary tracking-widest uppercase mb-3">Join Our Team</p>
                   <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground tracking-tight mb-4">
                     Volunteer With Us
                   </h2>
@@ -426,8 +426,8 @@ export default function WaysToHelp() {
                       const BIcon = benefit.icon;
                       return (
                         <div key={benefit.title} className="flex gap-3">
-                          <div className="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center shrink-0 mt-0.5">
-                            <BIcon className="w-4.5 h-4.5 text-emerald-600 dark:text-emerald-400" />
+                          <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                            <BIcon className="w-4.5 h-4.5 text-primary" />
                           </div>
                           <div>
                             <h4 className="text-sm font-bold text-foreground">{benefit.title}</h4>
@@ -442,9 +442,9 @@ export default function WaysToHelp() {
                 {/* Right: Form */}
                 <div>
                   {submitted ? (
-                    <div className="bg-card border border-emerald-200 dark:border-emerald-800 rounded-2xl p-8 sm:p-10 text-center shadow-sm">
-                      <div className="w-16 h-16 rounded-full bg-emerald-500/10 flex items-center justify-center mx-auto mb-4">
-                        <CheckCircle2 className="w-8 h-8 text-emerald-600" />
+                    <div className="bg-card border border-primary/20 rounded-2xl p-8 sm:p-10 text-center shadow-sm">
+                      <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                        <CheckCircle2 className="w-8 h-8 text-primary" />
                       </div>
                       <h3 className="text-xl font-bold text-foreground mb-2">Thank you!</h3>
                       <p className="text-sm text-muted-foreground leading-relaxed">

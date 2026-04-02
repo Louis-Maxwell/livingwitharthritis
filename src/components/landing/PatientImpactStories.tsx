@@ -12,9 +12,9 @@ const stories = [
     before: "Struggled to walk to the shops. Pain kept me housebound most days and I felt completely isolated.",
     after: "After 8 weeks of guided exercises, I walk 2 miles daily and joined a local gardening club. I feel like myself again.",
     emoji: "🌻",
-    accent: "from-emerald-500/15 to-emerald-500/5",
-    borderColor: "border-emerald-500/20",
-    badgeColor: "bg-emerald-500/10 text-emerald-700",
+    accent: "from-primary/10 to-primary/5",
+    borderColor: "border-primary/20",
+    badgeColor: "bg-primary/10 text-primary",
   },
   {
     name: "David, 54",
@@ -23,9 +23,9 @@ const stories = [
     before: "Morning stiffness lasted 2+ hours. I nearly lost my job because I couldn't type or hold a pen.",
     after: "With hand exercises and dietary changes, stiffness is under 20 minutes. I'm back to full-time work with confidence.",
     emoji: "💪",
-    accent: "from-sky-500/15 to-sky-500/5",
-    borderColor: "border-sky-500/20",
-    badgeColor: "bg-sky-500/10 text-sky-700",
+    accent: "from-primary/8 to-primary/3",
+    borderColor: "border-primary/15",
+    badgeColor: "bg-primary/10 text-primary",
   },
   {
     name: "Amina, 42",
@@ -34,9 +34,9 @@ const stories = [
     before: "Constant fatigue and swollen joints. I couldn't play with my children or cook a family meal.",
     after: "The anti-inflammatory meal plans and swimming programme gave me my energy back. My children say 'Mum's fun again!'",
     emoji: "🏊",
-    accent: "from-violet-500/15 to-violet-500/5",
-    borderColor: "border-violet-500/20",
-    badgeColor: "bg-violet-500/10 text-violet-700",
+    accent: "from-primary/10 to-primary/5",
+    borderColor: "border-primary/20",
+    badgeColor: "bg-primary/10 text-primary",
   },
 ];
 
@@ -95,7 +95,7 @@ const PatientImpactStories = memo(() => {
 
               {/* After */}
               <div className="flex-1">
-                <span className="inline-block text-[10px] font-bold uppercase tracking-[0.15em] text-emerald-600 mb-1.5">After</span>
+                <span className="inline-block text-[10px] font-bold uppercase tracking-[0.15em] text-primary mb-1.5">After</span>
                 <p className="text-sm text-foreground leading-relaxed font-medium">"{story.after}"</p>
               </div>
 

@@ -23,36 +23,36 @@ const sectionIcons: Record<string, React.ElementType> = {
 
 const sectionColors: Record<string, string> = {
   "Our Story": "from-primary/10 to-primary/5 border-primary/20",
-  "The Scale of Arthritis": "from-amber-500/10 to-amber-500/5 border-amber-500/20",
-  "Our Mission": "from-emerald-500/10 to-emerald-500/5 border-emerald-500/20",
-  "Our Commitment": "from-rose-500/10 to-rose-500/5 border-rose-500/20",
-  "What We've Built": "from-blue-500/10 to-blue-500/5 border-blue-500/20",
-  "Looking Ahead": "from-violet-500/10 to-violet-500/5 border-violet-500/20",
+  "The Scale of Arthritis": "from-primary/8 to-primary/3 border-primary/15",
+  "Our Mission": "from-primary/10 to-primary/5 border-primary/20",
+  "Our Commitment": "from-primary/8 to-primary/3 border-primary/15",
+  "What We've Built": "from-primary/10 to-primary/5 border-primary/20",
+  "Looking Ahead": "from-primary/8 to-primary/3 border-primary/15",
 };
 
 const sectionIconColors: Record<string, string> = {
   "Our Story": "bg-primary/15 text-primary",
-  "The Scale of Arthritis": "bg-amber-500/15 text-amber-600",
-  "Our Mission": "bg-emerald-500/15 text-emerald-600",
-  "Our Commitment": "bg-rose-500/15 text-rose-600",
-  "What We've Built": "bg-blue-500/15 text-blue-600",
-  "Looking Ahead": "bg-violet-500/15 text-violet-600",
+  "The Scale of Arthritis": "bg-primary/10 text-primary",
+  "Our Mission": "bg-primary/15 text-primary",
+  "Our Commitment": "bg-primary/10 text-primary",
+  "What We've Built": "bg-primary/15 text-primary",
+  "Looking Ahead": "bg-primary/10 text-primary",
 };
 
 const milestones = [
   { year: "2020", title: "The Spark", description: "Founded by First Contact Practitioners working in the NHS to provide awareness and education about osteoarthritis to patients across the UK.", color: "bg-primary" },
   { year: "2021", title: "First 1,000 Users", description: "Our online resource library and community forum reached its first thousand active members.", color: "bg-secondary" },
-  { year: "2022", title: "Virtual Physio Launch", description: "Launched free virtual physiotherapy consultations, removing barriers to professional guidance.", color: "bg-emerald-500" },
-  { year: "2023", title: "AI Symptom Guide", description: "Introduced an AI-powered assistant to help users understand their symptoms and find resources.", color: "bg-amber-500" },
-  { year: "2024", title: "10,000+ Supported", description: "Surpassed 10,000 people supported with evidence-based tools, nutrition plans, and exercise guides.", color: "bg-blue-500" },
-  { year: "2025", title: "National Partnerships", description: "Began collaborating with NHS trusts and leading rheumatology bodies to expand our reach.", color: "bg-violet-500" },
+  { year: "2022", title: "Virtual Physio Launch", description: "Launched free virtual physiotherapy consultations, removing barriers to professional guidance.", color: "bg-primary" },
+  { year: "2023", title: "AI Symptom Guide", description: "Introduced an AI-powered assistant to help users understand their symptoms and find resources.", color: "bg-secondary" },
+  { year: "2024", title: "10,000+ Supported", description: "Surpassed 10,000 people supported with evidence-based tools, nutrition plans, and exercise guides.", color: "bg-primary" },
+  { year: "2025", title: "National Partnerships", description: "Began collaborating with NHS trusts and leading rheumatology bodies to expand our reach.", color: "bg-secondary" },
 ];
 
 const impactStats = [
   { value: "10,000+", label: "People Supported", icon: Users, color: "text-primary" },
-  { value: "50+", label: "Exercise Guides", icon: Zap, color: "text-emerald-600" },
-  { value: "100%", label: "Free Access", icon: Shield, color: "text-amber-600" },
-  { value: "UK-Wide", label: "Coverage", icon: Globe, color: "text-blue-600" },
+  { value: "50+", label: "Exercise Guides", icon: Zap, color: "text-primary" },
+  { value: "100%", label: "Free Access", icon: Shield, color: "text-primary" },
+  { value: "UK-Wide", label: "Coverage", icon: Globe, color: "text-primary" },
 ];
 
 const teamMembers = [

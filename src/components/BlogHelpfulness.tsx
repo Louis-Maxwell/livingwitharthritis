@@ -47,7 +47,7 @@ export default function BlogHelpfulness({ slug }: Props) {
           <div className="flex items-center justify-center gap-3">
             <button
               onClick={() => handleVote(true)}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border/40 bg-card text-sm font-medium text-muted-foreground hover:border-emerald-500/40 hover:text-emerald-600 hover:bg-emerald-500/[0.04] transition-all"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border/40 bg-card text-sm font-medium text-muted-foreground hover:border-primary/40 hover:text-primary hover:bg-primary/[0.04] transition-all"
             >
               <ThumbsUp className="w-4 h-4" /> Yes
             </button>

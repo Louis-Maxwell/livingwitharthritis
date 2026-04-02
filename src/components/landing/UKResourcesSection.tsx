@@ -61,7 +61,7 @@ const nhsResources = [
       { label: "ACAS – Reasonable Adjustments", url: "https://www.acas.org.uk/reasonable-adjustments" },
     ],
     badge: "Legal Rights",
-    badgeColor: "bg-amber-600 text-white",
+    badgeColor: "bg-primary text-white",
   },
 ];
 

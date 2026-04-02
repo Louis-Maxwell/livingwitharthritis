@@ -155,8 +155,8 @@ const TrustCredibility = () => {
         <section className="py-16 lg:py-20 bg-muted/20">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center">
-                <BookOpen className="w-5 h-5 text-emerald-600" />
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                <BookOpen className="w-5 h-5 text-primary" />
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-foreground">Evidence Sources</h2>
@@ -173,10 +173,10 @@ const TrustCredibility = () => {
                   transition={{ delay: i * 0.05 }}
                 >
                   <a href={s.url} target="_blank" rel="noopener noreferrer" className="block group">
-                    <Card className="border border-border/40 hover:border-emerald-500/30 transition-all h-full">
+                    <Card className="border border-border/40 hover:border-primary/30 transition-all h-full">
                       <CardContent className="p-5 flex items-start gap-3">
-                        <div className="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center shrink-0">
-                          <s.icon className="w-4 h-4 text-emerald-600" />
+                        <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                          <s.icon className="w-4 h-4 text-primary" />
                         </div>
                         <div className="flex-1 min-w-0">
                           <h3 className="font-semibold text-foreground text-sm group-hover:text-primary transition-colors flex items-center gap-1.5">
@@ -197,8 +197,8 @@ const TrustCredibility = () => {
         <section className="py-16 lg:py-20">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 rounded-xl bg-sky-500/10 flex items-center justify-center">
-                <Handshake className="w-5 h-5 text-sky-600" />
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                <Handshake className="w-5 h-5 text-primary" />
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-foreground">Partner Organisations</h2>
@@ -230,8 +230,8 @@ const TrustCredibility = () => {
         <section className="py-16 lg:py-20 bg-muted/20">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center">
-                <Scale className="w-5 h-5 text-violet-600" />
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                <Scale className="w-5 h-5 text-primary" />
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-foreground">Policies & Compliance</h2>
@@ -241,9 +241,9 @@ const TrustCredibility = () => {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {policies.map((p) => (
                 <Link key={p.label} to={p.href} className="block group">
-                  <Card className="border border-border/40 hover:border-violet-500/30 transition-colors">
+                  <Card className="border border-border/40 hover:border-primary/30 transition-colors">
                     <CardContent className="p-5 flex items-center gap-3">
-                      <FileCheck className="w-5 h-5 text-violet-600 shrink-0" />
+                      <FileCheck className="w-5 h-5 text-primary shrink-0" />
                       <span className="font-medium text-foreground text-sm group-hover:text-primary transition-colors">{p.label}</span>
                     </CardContent>
                   </Card>

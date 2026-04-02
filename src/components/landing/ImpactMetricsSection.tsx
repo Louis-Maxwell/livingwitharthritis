@@ -5,18 +5,18 @@ import AnimatedCounter from "@/components/ui/AnimatedCounter";
 
 const metrics = [
   { icon: Users, target: 50000, suffix: "+", compact: true, label: "People supported across the UK", detail: "England, Scotland, Wales & Northern Ireland", color: "text-primary bg-primary/8" },
-  { icon: Globe, target: 30000000, suffix: "+", compact: true, label: "Global arthritis community reach", detail: "Resources accessed in 42 countries", color: "text-sky-600 bg-sky-500/8" },
-  { icon: BookOpen, target: 40, suffix: "+", compact: false, label: "Clinically reviewed articles", detail: "Covering exercise, nutrition, supplements & lifestyle", color: "text-violet-600 bg-violet-500/8" },
-  { icon: MessageCircle, display: "24/7", target: 0, suffix: "", compact: false, label: "AI health assistant availability", detail: "Powered by clinical-grade models", color: "text-amber-600 bg-amber-500/8" },
-  { icon: TrendingUp, target: 78, suffix: "%", compact: false, label: "Report reduced pain with exercise", detail: "Based on structured programme adherence", color: "text-emerald-600 bg-emerald-500/8" },
-  { icon: Heart, display: "88p", target: 0, suffix: "", compact: false, label: "Of every £1 directly supports patients", detail: "Industry-leading efficiency ratio", color: "text-rose-600 bg-rose-500/8" },
-  { icon: Download, target: 12, suffix: "", compact: false, label: "Downloadable clinical resources", detail: "Exercise plans, trackers & diet guides", color: "text-cyan-600 bg-cyan-500/8" },
-  { icon: ShieldCheck, target: 100, suffix: "%", compact: false, label: "NICE guidelines compliant", detail: "All content clinically reviewed & evidence-based", color: "text-teal-600 bg-teal-500/8" },
+  { icon: Globe, target: 30000000, suffix: "+", compact: true, label: "Global arthritis community reach", detail: "Resources accessed in 42 countries", color: "text-primary bg-primary/8" },
+  { icon: BookOpen, target: 40, suffix: "+", compact: false, label: "Clinically reviewed articles", detail: "Covering exercise, nutrition, supplements & lifestyle", color: "text-primary bg-primary/8" },
+  { icon: MessageCircle, display: "24/7", target: 0, suffix: "", compact: false, label: "AI health assistant availability", detail: "Powered by clinical-grade models", color: "text-primary bg-primary/8" },
+  { icon: TrendingUp, target: 78, suffix: "%", compact: false, label: "Report reduced pain with exercise", detail: "Based on structured programme adherence", color: "text-primary bg-primary/8" },
+  { icon: Heart, display: "88p", target: 0, suffix: "", compact: false, label: "Of every £1 directly supports patients", detail: "Industry-leading efficiency ratio", color: "text-primary bg-primary/8" },
+  { icon: Download, target: 12, suffix: "", compact: false, label: "Downloadable clinical resources", detail: "Exercise plans, trackers & diet guides", color: "text-primary bg-primary/8" },
+  { icon: ShieldCheck, target: 100, suffix: "%", compact: false, label: "NICE guidelines compliant", detail: "All content clinically reviewed & evidence-based", color: "text-primary bg-primary/8" },
 ];
 
 const ImpactMetricsSection = memo(() => (
-  <section className="py-24 lg:py-32 bg-tint-mint relative overflow-hidden" aria-labelledby="impact-heading">
-    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald/5 rounded-full blur-[180px] pointer-events-none" />
+  <section className="py-24 lg:py-32 bg-muted/30 relative overflow-hidden" aria-labelledby="impact-heading">
+    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[180px] pointer-events-none" />
     <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[160px] pointer-events-none" />
 
     <div className="container mx-auto px-6 md:px-10 max-w-7xl relative">

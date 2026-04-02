@@ -5,16 +5,16 @@ import { ArrowRight, Clock, TrendingUp, BookOpen, Sparkles } from "lucide-react"
 import { useNavigate, Link } from "react-router-dom";
 
 const posts = [
-  { slug: "arthritis-and-cold-weather-uk", title: "Why Joints Hurt More in Cold Weather", category: "Lifestyle", color: "bg-sky-500/10 text-sky-700 border-sky-500/20", accent: "from-sky-500/20 to-sky-500/5", readTime: "6 min", date: "Mar 2026", emoji: "❄️" },
-  { slug: "arthritis-and-mental-health", title: "Breaking the Pain-Mood Cycle", category: "Health", color: "bg-rose-500/10 text-rose-700 border-rose-500/20", accent: "from-rose-500/20 to-rose-500/5", readTime: "7 min", date: "Mar 2026", emoji: "🧠" },
-  { slug: "best-diet-for-joint-pain-uk", title: "Anti-Inflammatory Foods for Joint Pain", category: "Nutrition", color: "bg-emerald-500/10 text-emerald-700 border-emerald-500/20", accent: "from-emerald-500/20 to-emerald-500/5", readTime: "8 min", date: "Mar 2026", emoji: "🥗" },
-  { slug: "swimming-for-arthritis-uk", title: "Complete Guide to Aquatic Exercise", category: "Exercise", color: "bg-violet-500/10 text-violet-700 border-violet-500/20", accent: "from-violet-500/20 to-violet-500/5", readTime: "5 min", date: "Mar 2026", emoji: "🏊" },
+  { slug: "arthritis-and-cold-weather-uk", title: "Why Joints Hurt More in Cold Weather", category: "Lifestyle", color: "bg-primary/10 text-primary border-primary/20", accent: "from-primary/20 to-primary/5", readTime: "6 min", date: "Mar 2026", emoji: "❄️" },
+  { slug: "arthritis-and-mental-health", title: "Breaking the Pain-Mood Cycle", category: "Health", color: "bg-primary/10 text-primary border-primary/20", accent: "from-primary/15 to-primary/5", readTime: "7 min", date: "Mar 2026", emoji: "🧠" },
+  { slug: "best-diet-for-joint-pain-uk", title: "Anti-Inflammatory Foods for Joint Pain", category: "Nutrition", color: "bg-primary/10 text-primary border-primary/20", accent: "from-primary/20 to-primary/5", readTime: "8 min", date: "Mar 2026", emoji: "🥗" },
+  { slug: "swimming-for-arthritis-uk", title: "Complete Guide to Aquatic Exercise", category: "Exercise", color: "bg-primary/10 text-primary border-primary/20", accent: "from-primary/15 to-primary/5", readTime: "5 min", date: "Mar 2026", emoji: "🏊" },
 ];
 
 const BlogPreviewSection = memo(() => {
   const navigate = useNavigate();
   return (
-    <section className="py-14 lg:py-20 bg-tint-cyan section-divider">
+    <section className="py-14 lg:py-20 bg-muted/30 section-divider">
       <div className="container mx-auto px-6 md:px-10 max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 28 }}
@@ -24,7 +24,7 @@ const BlogPreviewSection = memo(() => {
           className="flex flex-col sm:flex-row sm:items-end justify-between mb-14 gap-4"
         >
           <div>
-            <div className="inline-flex items-center gap-2 bg-violet-500/10 text-violet-700 text-xs font-bold px-3.5 py-1.5 rounded-full mb-4">
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-bold px-3.5 py-1.5 rounded-full mb-4">
               <BookOpen className="w-3.5 h-3.5" />
               40+ Articles
             </div>
@@ -65,7 +65,7 @@ const BlogPreviewSection = memo(() => {
                     <div className="flex items-center justify-between pt-3 border-t border-border/20">
                       <span className="text-[10px] text-muted-foreground/50 font-medium">{p.date}</span>
                       {i === 0 ? (
-                        <span className="flex items-center gap-1 text-[10px] font-bold text-amber-600">
+                        <span className="flex items-center gap-1 text-[10px] font-bold text-primary">
                           <TrendingUp className="w-3 h-3" /> Popular
                         </span>
                       ) : (
@@ -90,11 +90,11 @@ const BlogPreviewSection = memo(() => {
           className="mt-10 flex flex-wrap justify-center gap-2"
         >
           {[
-            { label: "🍎 Diet & Nutrition", color: "hover:border-emerald-500/30 hover:text-emerald-700" },
-            { label: "🦴 Joint Exercises", color: "hover:border-violet-500/30 hover:text-violet-700" },
-            { label: "🧠 Mental Health", color: "hover:border-rose-500/30 hover:text-rose-700" },
-            { label: "💊 Supplements", color: "hover:border-amber-500/30 hover:text-amber-700" },
-            { label: "❄️ Winter Tips", color: "hover:border-sky-500/30 hover:text-sky-700" },
+            { label: "🍎 Diet & Nutrition", color: "hover:border-primary/30 hover:text-primary" },
+            { label: "🦴 Joint Exercises", color: "hover:border-primary/30 hover:text-primary" },
+            { label: "🧠 Mental Health", color: "hover:border-primary/30 hover:text-primary" },
+            { label: "💊 Supplements", color: "hover:border-primary/30 hover:text-primary" },
+            { label: "❄️ Winter Tips", color: "hover:border-primary/30 hover:text-primary" },
           ].map((topic) => (
             <Link
               key={topic.label}
