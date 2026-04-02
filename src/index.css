@@ -7,27 +7,27 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 0 0% 8%;
+    --foreground: 40 5% 11%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 8%;
+    --card-foreground: 40 5% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 8%;
+    --popover-foreground: 40 5% 11%;
 
-    /* Clean, confident red */
-    --primary: 0 78% 50%;
+    /* British Red Cross red */
+    --primary: 1 85% 54%;
     --primary-foreground: 0 0% 100%;
 
     /* Deeper red accent */
-    --secondary: 0 65% 40%;
+    --secondary: 0 75% 42%;
     --secondary-foreground: 0 0% 100%;
 
     --accent: 0 0% 97%;
-    --accent-foreground: 0 0% 8%;
+    --accent-foreground: 40 5% 11%;
 
     --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted-foreground: 0 0% 40%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
