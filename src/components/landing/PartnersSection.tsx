@@ -2,12 +2,12 @@ import { memo } from "react";
 import { motion } from "framer-motion";
 
 const partners = [
-  { name: "NHS", label: "National Health Service", color: "text-blue-600 bg-blue-500/10 border-blue-500/20" },
-  { name: "NICE", label: "NICE Guidelines", color: "text-emerald-600 bg-emerald-500/10 border-emerald-500/20" },
-  { name: "ARUK", label: "Arthritis Research UK", color: "text-violet-600 bg-violet-500/10 border-violet-500/20" },
-  { name: "CSP", label: "Chartered Society of Physiotherapy", color: "text-amber-600 bg-amber-500/10 border-amber-500/20" },
-  { name: "RCOT", label: "Royal College of OT", color: "text-rose-600 bg-rose-500/10 border-rose-500/20" },
-  { name: "BDA", label: "British Dietetic Association", color: "text-cyan-600 bg-cyan-500/10 border-cyan-500/20" },
+  { name: "NHS", label: "National Health Service", color: "text-primary bg-primary/10 border-primary/20" },
+  { name: "NICE", label: "NICE Guidelines", color: "text-primary bg-primary/10 border-primary/20" },
+  { name: "ARUK", label: "Arthritis Research UK", color: "text-primary bg-primary/10 border-primary/20" },
+  { name: "CSP", label: "Chartered Society of Physiotherapy", color: "text-primary bg-primary/10 border-primary/20" },
+  { name: "RCOT", label: "Royal College of OT", color: "text-primary bg-primary/10 border-primary/20" },
+  { name: "BDA", label: "British Dietetic Association", color: "text-primary bg-primary/10 border-primary/20" },
 ];
 
 const PartnersSection = memo(() => (

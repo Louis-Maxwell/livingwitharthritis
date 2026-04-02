@@ -90,11 +90,11 @@ const BlogPreviewSection = memo(() => {
           className="mt-10 flex flex-wrap justify-center gap-2"
         >
           {[
-            { label: "🍎 Diet & Nutrition", color: "hover:border-emerald-500/30 hover:text-emerald-700" },
-            { label: "🦴 Joint Exercises", color: "hover:border-violet-500/30 hover:text-violet-700" },
-            { label: "🧠 Mental Health", color: "hover:border-rose-500/30 hover:text-rose-700" },
-            { label: "💊 Supplements", color: "hover:border-amber-500/30 hover:text-amber-700" },
-            { label: "❄️ Winter Tips", color: "hover:border-sky-500/30 hover:text-sky-700" },
+            { label: "🍎 Diet & Nutrition", color: "hover:border-primary/30 hover:text-primary" },
+            { label: "🦴 Joint Exercises", color: "hover:border-primary/30 hover:text-primary" },
+            { label: "🧠 Mental Health", color: "hover:border-primary/30 hover:text-primary" },
+            { label: "💊 Supplements", color: "hover:border-primary/30 hover:text-primary" },
+            { label: "❄️ Winter Tips", color: "hover:border-primary/30 hover:text-primary" },
           ].map((topic) => (
             <Link
               key={topic.label}

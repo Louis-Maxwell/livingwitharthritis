@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import { Shield, Award, CheckCircle, BadgeCheck, Stethoscope } from "lucide-react";
 
 const badges = [
-  { icon: Shield, label: "NHS-Aligned Care", color: "text-blue-600 bg-blue-500/10" },
-  { icon: Award, label: "HCPC Registered", color: "text-emerald-600 bg-emerald-500/10" },
-  { icon: CheckCircle, label: "CSP Accredited", color: "text-violet-600 bg-violet-500/10" },
-  { icon: BadgeCheck, label: "Evidence-Based", color: "text-amber-600 bg-amber-500/10" },
-  { icon: Stethoscope, label: "NICE Guidelines", color: "text-rose-600 bg-rose-500/10" },
+  { icon: Shield, label: "NHS-Aligned Care", color: "text-primary bg-primary/10" },
+  { icon: Award, label: "HCPC Registered", color: "text-primary bg-primary/10" },
+  { icon: CheckCircle, label: "CSP Accredited", color: "text-primary bg-primary/10" },
+  { icon: BadgeCheck, label: "Evidence-Based", color: "text-primary bg-primary/10" },
+  { icon: Stethoscope, label: "NICE Guidelines", color: "text-primary bg-primary/10" },
 ];
 
 const TrustBarSection = memo(() => (
