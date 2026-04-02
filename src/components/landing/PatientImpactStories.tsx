@@ -95,7 +95,7 @@ const PatientImpactStories = memo(() => {
 
               {/* After */}
               <div className="flex-1">
-                <span className="inline-block text-[10px] font-bold uppercase tracking-[0.15em] text-emerald-600 mb-1.5">After</span>
+                <span className="inline-block text-[10px] font-bold uppercase tracking-[0.15em] text-primary mb-1.5">After</span>
                 <p className="text-sm text-foreground leading-relaxed font-medium">"{story.after}"</p>
               </div>
 
