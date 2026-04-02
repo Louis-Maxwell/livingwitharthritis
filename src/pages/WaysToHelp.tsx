@@ -368,22 +368,22 @@ export default function WaysToHelp() {
                     icon: Megaphone,
                     title: "Spread Awareness",
                     description: "Share our resources on social media, tell friends and family, or write to your MP about arthritis support.",
-                    color: "from-sky-500 to-cyan-600",
-                    bg: "bg-sky-50 dark:bg-sky-950/20",
+                    color: "from-primary to-secondary",
+                    bg: "bg-primary/5",
                   },
                   {
                     icon: Handshake,
                     title: "Give Your Time",
                     description: "Just 2 hours a week as a peer mentor can transform someone's arthritis journey from isolation to empowerment.",
-                    color: "from-emerald-500 to-teal-600",
-                    bg: "bg-emerald-50 dark:bg-emerald-950/20",
+                    color: "from-secondary to-primary",
+                    bg: "bg-primary/5",
                   },
                   {
                     icon: Gift,
                     title: "Fund Services",
                     description: "Your donations fund free virtual physiotherapy, diet plans, and community support groups across the UK.",
-                    color: "from-rose-500 to-pink-600",
-                    bg: "bg-rose-50 dark:bg-rose-950/20",
+                    color: "from-primary to-secondary",
+                    bg: "bg-primary/5",
                   },
                 ].map((item) => {
                   const Icon = item.icon;
