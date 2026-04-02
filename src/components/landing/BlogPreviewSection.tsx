@@ -65,7 +65,7 @@ const BlogPreviewSection = memo(() => {
                     <div className="flex items-center justify-between pt-3 border-t border-border/20">
                       <span className="text-[10px] text-muted-foreground/50 font-medium">{p.date}</span>
                       {i === 0 ? (
-                        <span className="flex items-center gap-1 text-[10px] font-bold text-amber-600">
+                        <span className="flex items-center gap-1 text-[10px] font-bold text-primary">
                           <TrendingUp className="w-3 h-3" /> Popular
                         </span>
                       ) : (
