@@ -40,7 +40,7 @@ const CommunityHub = lazy(() => import("./pages/CommunityHub"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const CookiesPolicy = lazy(() => import("./pages/CookiesPolicy"));
 const AccessibilityPage = lazy(() => import("./pages/Accessibility"));
-const PainJournal = lazy(() => import("./pages/PainJournal"));
+
 const ArthritisFlareUps = lazy(() => import("./pages/ArthritisFlareUps"));
 const BlogCategory = lazy(() => import("./pages/BlogCategory"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -119,7 +119,7 @@ function AnimatedRoutes() {
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/cookies" element={<CookiesPolicy />} />
         <Route path="/accessibility" element={<AccessibilityPage />} />
-        <Route path="/pain-journal" element={<PainJournal />} />
+        
         <Route path="/arthritis-flare-ups" element={<ArthritisFlareUps />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/product/:handle" element={<ProductDetail />} />

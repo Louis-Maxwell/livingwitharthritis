@@ -1,9 +1,8 @@
-import { Home, ClipboardList, MessageCircle, BookOpen, CalendarCheck } from "lucide-react";
+import { Home, MessageCircle, BookOpen } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const navItems = [
   { label: "Home", icon: Home, href: "/" },
-  { label: "Journal", icon: ClipboardList, href: "/pain-journal" },
   { label: "Chat", icon: MessageCircle, href: "/chat" },
   { label: "Blog", icon: BookOpen, href: "/blog" },
 ];

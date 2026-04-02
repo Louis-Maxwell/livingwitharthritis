@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
 import CartDrawer from "@/components/CartDrawer";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, ShoppingBag, HelpCircle, HandHeart, Users, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Scale, Baby, Sparkles, Globe, Calendar, Search, ClipboardList } from "lucide-react";
+import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, ShoppingBag, HandHeart, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Sparkles, Globe, Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import ResourceLibraryDrawer from "@/components/ResourceLibraryDrawer";
 import SiteSearch from "@/components/SiteSearch";
@@ -79,10 +79,9 @@ const Header = () => {
     },
     {
       label: "Track & Manage",
-      href: "/pain-journal",
-      action: () => navigate("/pain-journal"),
+      href: "/self-help",
+      action: () => navigate("/self-help"),
       subs: [
-        { label: "Symptom Journal", desc: "Track daily pain, mood & triggers", icon: ClipboardList, href: "/pain-journal", action: () => navigate("/pain-journal"), color: "text-amber-600 bg-amber-500/10" },
         { label: "AI Health Assistant", desc: "24/7 evidence-based chat support", icon: MessageCircle, href: "/chat", action: () => navigate("/chat"), color: "text-violet-600 bg-violet-500/10" },
         { label: "Self Help Tool", desc: "Interactive joint exercise diagram", icon: Activity, href: "/self-help", action: () => navigate("/self-help"), color: "text-sky-600 bg-sky-500/10" },
       ],
@@ -154,7 +153,7 @@ const Header = () => {
 
   const mobileNavItems = [
     { label: "Newly Diagnosed", icon: Sparkles, desc: "Your essential first steps guide", href: "/about", action: () => navigate("/about") },
-    { label: "Track Symptoms", icon: ClipboardList, desc: "Pain journal & symptom diary", href: "/pain-journal", action: () => navigate("/pain-journal") },
+    { label: "Self Help Tool", icon: Activity, desc: "Interactive joint exercise diagram", href: "/self-help", action: () => navigate("/self-help") },
     { label: "Exercises & Diet", icon: Dumbbell, desc: "Physio exercises & nutrition plans", href: "/exercises", action: () => navigate("/exercises") },
     { label: "Conditions", icon: HeartPulse, desc: "OA, RA, Gout, PsA & more", href: "#conditions" },
     { label: "Blog & Research", icon: Newspaper, desc: "40+ evidence-based articles", href: "/blog", action: () => navigate("/blog") },
