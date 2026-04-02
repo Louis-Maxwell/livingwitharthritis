@@ -179,8 +179,8 @@ const Header = () => {
       <div
         className={`sticky top-0 z-50 transition-transform duration-300 ${isHidden ? "-translate-y-full" : "translate-y-0"}`}
       >
-        {/* Donation banner replaces construction banner */}
-        <Suspense fallback={null}>
+        {/* Donation Banner */}
+        <Suspense fallback={<div className="bg-primary h-[38px]" />}>
           <DonationBanner />
         </Suspense>
 
