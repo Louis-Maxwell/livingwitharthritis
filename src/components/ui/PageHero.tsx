@@ -5,6 +5,10 @@ interface PageHeroProps {
   badge?: ReactNode;
   title: ReactNode;
   subtitle?: string;
+  /** @deprecated Kept for backward compat — no longer used */
+  gradient?: string;
+  /** @deprecated Kept for backward compat — no longer used */
+  pattern?: string;
   children?: ReactNode;
 }
 
