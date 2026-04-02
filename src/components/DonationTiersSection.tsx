@@ -24,7 +24,7 @@ const DonationTiersSection = memo(() => {
   const tierStyles = [
     { bg: "bg-secondary", ring: "" },
     { bg: "bg-primary", ring: "ring-2 ring-primary/30 ring-offset-2 ring-offset-background" },
-    { bg: "bg-navy", ring: "" },
+    { bg: "bg-secondary", ring: "" },
   ];
 
   return (

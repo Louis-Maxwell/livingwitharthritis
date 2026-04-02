@@ -57,7 +57,7 @@ const DonationBanner = () => {
   const getDonationAmount = () => parseFloat(amount) || selectedQuickAmount || 100;
 
   return (
-    <div className="bg-black text-white">
+    <div className="bg-primary text-primary-foreground">
       {/* ── Mobile: slim collapsed bar ── */}
       <div className="lg:hidden">
         <button

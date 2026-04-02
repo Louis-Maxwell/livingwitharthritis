@@ -15,7 +15,7 @@ const PhotoBreakSection = memo(({ image, alt, quote, attribution }: PhotoBreakSe
       loading="lazy"
       className="absolute inset-0 w-full h-full object-cover"
     />
-    <div className="absolute inset-0 bg-navy/70" />
+    <div className="absolute inset-0 bg-primary/75" />
     <div className="relative z-10 flex items-center justify-center h-full px-8">
       <div className="text-center max-w-3xl">
         <p className="font-display text-xl sm:text-2xl md:text-3xl text-white/90 leading-[1.5] italic">
