@@ -442,9 +442,9 @@ export default function WaysToHelp() {
                 {/* Right: Form */}
                 <div>
                   {submitted ? (
-                    <div className="bg-card border border-emerald-200 dark:border-emerald-800 rounded-2xl p-8 sm:p-10 text-center shadow-sm">
-                      <div className="w-16 h-16 rounded-full bg-emerald-500/10 flex items-center justify-center mx-auto mb-4">
-                        <CheckCircle2 className="w-8 h-8 text-emerald-600" />
+                    <div className="bg-card border border-primary/20 rounded-2xl p-8 sm:p-10 text-center shadow-sm">
+                      <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                        <CheckCircle2 className="w-8 h-8 text-primary" />
                       </div>
                       <h3 className="text-xl font-bold text-foreground mb-2">Thank you!</h3>
                       <p className="text-sm text-muted-foreground leading-relaxed">

@@ -241,9 +241,9 @@ const TrustCredibility = () => {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {policies.map((p) => (
                 <Link key={p.label} to={p.href} className="block group">
-                  <Card className="border border-border/40 hover:border-violet-500/30 transition-colors">
+                  <Card className="border border-border/40 hover:border-primary/30 transition-colors">
                     <CardContent className="p-5 flex items-center gap-3">
-                      <FileCheck className="w-5 h-5 text-violet-600 shrink-0" />
+                      <FileCheck className="w-5 h-5 text-primary shrink-0" />
                       <span className="font-medium text-foreground text-sm group-hover:text-primary transition-colors">{p.label}</span>
                     </CardContent>
                   </Card>

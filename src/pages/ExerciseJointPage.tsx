@@ -82,12 +82,12 @@ const ExerciseJointPage = () => {
           {/* Benefits */}
           <section className="mb-10">
             <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-              <CheckCircle className="w-5 h-5 text-green-600" /> Benefits of {page.exercise} for {page.joint} Arthritis
+              <CheckCircle className="w-5 h-5 text-primary" /> Benefits of {page.exercise} for {page.joint} Arthritis
             </h2>
             <ul className="space-y-2">
               {page.benefits.map((b, i) => (
-                <li key={i} className="flex items-start gap-3 bg-green-50 dark:bg-green-950/20 rounded-xl p-4">
-                  <div className="w-2 h-2 rounded-full bg-green-500 mt-2 shrink-0" />
+                <li key={i} className="flex items-start gap-3 bg-primary/5 rounded-xl p-4">
+                  <div className="w-2 h-2 rounded-full bg-primary mt-2 shrink-0" />
                   <span className="text-foreground">{b}</span>
                 </li>
               ))}
