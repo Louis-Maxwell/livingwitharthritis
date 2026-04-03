@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Sparkles, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
-import RobotIcon from "@/components/icons/RobotIcon";
+import robotImg from "@/assets/robot-assistant.png";
 
 const Chat = () => {
   return (
@@ -70,7 +70,7 @@ const Chat = () => {
             
             <div className="text-center mb-2">
               <div className="inline-flex items-center gap-3 mb-4">
-                <RobotIcon size={64} />
+                <img src={robotImg} alt="AI Assistant" className="h-16 w-16 object-contain" />
               </div>
               <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 mb-4">
                 <Sparkles className="h-4 w-4 text-primary" />

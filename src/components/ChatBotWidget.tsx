@@ -1,7 +1,7 @@
 import { useState, lazy, Suspense } from "react";
 import { X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
-import RobotIcon from "@/components/icons/RobotIcon";
+import robotImg from "@/assets/robot-assistant.png";
 
 // Only load ChatBot (and its react-markdown dependency) when user opens the widget
 const ChatBot = lazy(() => import("@/components/ChatBot").then(m => ({ default: m.ChatBot })));
@@ -24,7 +24,7 @@ export default function ChatBotWidget() {
             </motion.span>
           ) : (
             <motion.span key="open" initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.8, opacity: 0 }} transition={{ duration: 0.15 }}>
-              <RobotIcon size={40} />
+              <img src={robotImg} alt="Chat assistant" className="h-12 w-12 object-contain" />
             </motion.span>
           )}
         </AnimatePresence>
