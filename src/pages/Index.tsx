@@ -49,8 +49,7 @@ const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSect
 const GetInTouchSection = lazy(() => import("@/components/landing/GetInTouchSection"));
 
 // Images for photo breaks
-import photoBreakCommunity from "@/assets/photo-break-community.jpg";
-import photoBreakActive from "@/assets/photo-break-active.jpg";
+import { photoBreakCommunity, photoBreakActive } from "@/data/images";
 
 const SectionLoader = memo(() => (
   <div className="py-8 flex items-center justify-center">

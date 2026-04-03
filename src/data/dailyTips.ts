@@ -1,11 +1,4 @@
-import tipDailyLiving from "@/assets/tip-daily-living.png";
-import tipHealthTips from "@/assets/tip-health-tips.png";
-import tipMorningStretches from "@/assets/tip-morning-stretches.png";
-import tipStayHydrated from "@/assets/tip-stay-hydrated.png";
-import tipAntiInflammatory from "@/assets/tip-anti-inflammatory.png";
-import tipWalk from "@/assets/tip-walk.png";
-import tipSleep from "@/assets/tip-sleep.png";
-import tipPaceYourself from "@/assets/tip-pace-yourself.png";
+import { tipDailyLiving, tipHealthTips, tipMorningStretches, tipStayHydrated, tipAntiInflammatory, tipWalk, tipSleep, tipPaceYourself } from "@/data/images";
 
 export interface DailyTip {
   slug: string;

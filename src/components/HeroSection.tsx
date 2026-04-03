@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { memo } from "react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
-import heroImage from "@/assets/hero-lifestyle.jpg";
+import { heroLifestyle as heroImage } from "@/data/images";
 
 import "./HeroSection.css";
 

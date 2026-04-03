@@ -6,10 +6,7 @@ import { useStreamingChat, Message } from "@/hooks/useStreamingChat";
 import { cn } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import { motion, AnimatePresence } from "framer-motion";
-import chatRheumatoid from "@/assets/chat-rheumatoid.jpg";
-import chatFoods from "@/assets/chat-foods.jpg";
-import chatExercise from "@/assets/chat-exercise.jpg";
-import chatDoctor from "@/assets/chat-doctor.jpg";
+import { chatRheumatoid, chatFoods, chatExercise, chatDoctor } from "@/data/images";
 
 const quickSuggestions = [
   { icon: Stethoscope, label: "What is rheumatoid arthritis?", image: chatRheumatoid },

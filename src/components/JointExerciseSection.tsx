@@ -104,7 +104,7 @@ const jointDatabase: Record<string, JointData> = {
     ],
   },
 };
-import bodyMannequin from "@/assets/body-mannequin.png";
+import { bodyMannequin } from "@/data/images";
 
 const BodyImage = memo(() => (
   <img

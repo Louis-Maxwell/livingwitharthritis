@@ -1,15 +1,4 @@
-import shoulderImg from "@/assets/blog-shoulder-exercises.jpg";
-import footImg from "@/assets/blog-foot-arthritis.jpg";
-import taiChiImg from "@/assets/blog-tai-chi-arthritis.jpg";
-import spicesImg from "@/assets/blog-spices-inflammation.jpg";
-import activeWinterImg from "@/assets/blog-staying-active-winter.jpg";
-import tensImg from "@/assets/blog-tens-machine.jpg";
-import backImg from "@/assets/blog-back-arthritis.jpg";
-import gutImg from "@/assets/blog-gut-health-arthritis.jpg";
-import hydroImg from "@/assets/blog-hydrotherapy.jpg";
-import mealPlanImg from "@/assets/blog-meal-planning.jpg";
-import mindfulImg from "@/assets/blog-mindfulness-pain.jpg";
-import travelImg from "@/assets/blog-travel-arthritis.jpg";
+import { blogShoulderExercises as shoulderImg, blogFootArthritis as footImg, blogTaiChi as taiChiImg, blogSpicesInflammation as spicesImg, blogStayingActiveWinter as activeWinterImg, blogTensMachine as tensImg, blogBackArthritis as backImg, blogGutHealth as gutImg, blogHydrotherapy as hydroImg, blogMealPlanning as mealPlanImg, blogMindfulness as mindfulImg, blogTravel as travelImg } from "@/data/images";
 
 interface BlogArticle {
   title: string;
