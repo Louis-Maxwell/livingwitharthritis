@@ -22,39 +22,38 @@ const HighlightedText = ({ text, highlight }: { text: string; highlight: string 
 };
 
 const TestimonialsSection = memo(() => (
-  <section className="section-spacer relative bg-warm">
-    <div className="container mx-auto px-6 md:px-12 max-w-6xl">
+  <section className="py-28 lg:py-36 relative bg-warm">
+    <div className="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl">
       <div className="text-center mb-20">
-        <span className="section-label text-primary/70 mb-5 block">Patient Outcomes</span>
-        <h2 className="font-display text-3xl sm:text-4xl md:text-[3.25rem] font-bold text-foreground mb-6 tracking-tight leading-[1.08]">
+        <span className="section-label text-primary/60 mb-5 block">Patient Outcomes</span>
+        <h2 className="font-display text-3xl sm:text-4xl md:text-[3.5rem] font-bold text-foreground mb-6 tracking-tight leading-[1.06]">
           Real voices, real <span className="text-primary italic">transformations</span>
         </h2>
-        <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+        <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
           Verified testimonials from patients whose lives have been measurably improved through our programmes.
         </p>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-3 gap-7">
         {testimonials.map((t, i) => (
-          <div key={i} className="h-full p-8 lg:p-10 rounded-2xl border border-border/15 bg-card hover:shadow-large hover:-translate-y-1 transition-all duration-500 flex flex-col">
-            <div className="flex items-center justify-between mb-5">
-              <Quote className="w-8 h-8 text-primary/8 rotate-180" />
+          <div key={i} className="h-full p-9 lg:p-10 rounded-2xl border border-border/10 bg-card hover:shadow-xl hover:-translate-y-1.5 transition-all duration-500 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <Quote className="w-9 h-9 text-primary/[0.06] rotate-180" />
               {t.verified && (
-                <span className="flex items-center gap-1.5 text-[10px] font-bold text-emerald tracking-wider uppercase">
+                <span className="flex items-center gap-1.5 text-[10px] font-bold text-emerald tracking-[0.15em] uppercase">
                   <Verified className="w-3 h-3" /> Verified
                 </span>
               )}
             </div>
-            <div className="flex gap-0.5 mb-6">
+            <div className="flex gap-0.5 mb-7">
               {Array.from({ length: t.rating }).map((_, si) => (
                 <Star key={si} className="w-3.5 h-3.5 fill-gold text-gold" />
               ))}
             </div>
-            <p className="text-sm text-muted-foreground leading-[1.85] mb-6 flex-1">
+            <p className="text-sm text-muted-foreground leading-[1.9] mb-7 flex-1">
               <HighlightedText text={t.text} highlight={t.highlight} />
             </p>
             
-            {/* Read full story link */}
             <Link 
               to={`/blog/${t.storySlug}`}
               className="inline-flex items-center gap-1.5 text-[11px] font-bold text-primary tracking-[0.15em] uppercase mb-8 hover:gap-2.5 transition-all"
@@ -62,31 +61,31 @@ const TestimonialsSection = memo(() => (
               Read full story <ArrowRight className="w-3 h-3" />
             </Link>
 
-            <div className="flex items-center gap-3.5 pt-6 border-t border-border/10">
+            <div className="flex items-center gap-4 pt-7 border-t border-border/8">
               <img 
                 src={t.avatar} 
                 alt={`${t.name} - ${t.condition} patient`}
-                className="w-12 h-12 rounded-full object-cover border-2 border-primary/10"
+                className="w-13 h-13 rounded-full object-cover border-2 border-primary/8"
                 loading="lazy"
-                width={48}
-                height={48}
+                width={52}
+                height={52}
               />
               <div>
                 <p className="text-sm font-bold text-foreground">{t.name}</p>
-                <p className="text-[11px] text-muted-foreground/60 tracking-wide">{t.location} · {t.condition}</p>
+                <p className="text-[11px] text-muted-foreground/50 tracking-wide">{t.location} · {t.condition}</p>
               </div>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="mt-16 text-center">
-        <div className="inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-card border border-border/20">
+      <div className="mt-20 text-center">
+        <div className="inline-flex items-center gap-4 px-8 py-4 rounded-full bg-card border border-border/15 shadow-soft">
           <div className="flex gap-0.5">
-            {[1,2,3,4,5].map(s => <Star key={s} className="w-3 h-3 fill-gold text-gold" />)}
+            {[1,2,3,4,5].map(s => <Star key={s} className="w-3.5 h-3.5 fill-gold text-gold" />)}
           </div>
-          <span className="text-sm font-bold text-foreground">4.9/5</span>
-          <span className="text-xs text-muted-foreground/60 tracking-wide">from 2,400+ reviews</span>
+          <span className="text-base font-bold text-foreground">4.9/5</span>
+          <span className="text-xs text-muted-foreground/50 tracking-wide">from 2,400+ reviews</span>
         </div>
       </div>
     </div>

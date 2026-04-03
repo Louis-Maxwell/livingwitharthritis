@@ -36,39 +36,39 @@ const FAQSection = memo(() => {
         }))
       })}</script>
     </Helmet>
-  <section className="section-spacer bg-warm section-divider">
-    <div className="container mx-auto px-6 md:px-12 max-w-3xl">
+  <section className="py-28 lg:py-36 bg-warm">
+    <div className="container mx-auto px-6 md:px-12 lg:px-16 max-w-3xl">
       <div className="text-center mb-20">
-        <span className="section-label text-primary/70 mb-5 block">Common Questions</span>
-        <h2 className="text-3xl sm:text-4xl md:text-[3.25rem] font-display font-bold text-foreground mb-6 tracking-tight leading-[1.08]">
+        <span className="section-label text-primary/60 mb-5 block">Common Questions</span>
+        <h2 className="text-3xl sm:text-4xl md:text-[3.5rem] font-display font-bold text-foreground mb-6 tracking-tight leading-[1.06]">
           Frequently <span className="text-primary italic">asked</span>
         </h2>
       </div>
 
       <Accordion type="single" collapsible className="space-y-4">
         {faqs.map((faq, i) => (
-          <AccordionItem key={i} value={`faq-${i}`} className="bg-card border border-border/12 rounded-2xl px-8 data-[state=open]:shadow-medium transition-all duration-500 data-[state=open]:border-primary/8">
-            <AccordionTrigger className="text-left text-sm font-semibold hover:no-underline py-7 tracking-tight">{faq.q}</AccordionTrigger>
-            <AccordionContent className="text-muted-foreground text-sm leading-[1.85] pb-7">{faq.a}</AccordionContent>
+          <AccordionItem key={i} value={`faq-${i}`} className="bg-card border border-border/8 rounded-2xl px-8 data-[state=open]:shadow-lg transition-all duration-500 data-[state=open]:border-primary/6">
+            <AccordionTrigger className="text-left text-[15px] font-semibold hover:no-underline py-7 tracking-tight">{faq.q}</AccordionTrigger>
+            <AccordionContent className="text-muted-foreground text-sm leading-[1.9] pb-7">{faq.a}</AccordionContent>
           </AccordionItem>
         ))}
       </Accordion>
 
-      <div className="mt-16 text-center space-y-5">
-        <p className="text-sm text-muted-foreground/60 tracking-wide">
+      <div className="mt-20 text-center space-y-5">
+        <p className="text-sm text-muted-foreground/50 tracking-wide">
           Still have questions? Our AI assistant can help.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Button
             onClick={() => navigate("/chat")}
-            className="rounded-full h-12 px-8 btn-primary-cta text-xs font-bold tracking-wider"
+            className="rounded-full h-[54px] px-10 btn-primary-cta text-sm font-bold tracking-wider"
           >
-            <MessageCircle className="w-3.5 h-3.5 mr-2" />
+            <MessageCircle className="w-4 h-4 mr-2" />
             Ask Our AI Assistant
           </Button>
           <Link to="/blog">
-            <Button variant="outline" className="rounded-full h-12 px-8 text-xs font-bold tracking-wider border-2 border-primary/15 text-primary hover:bg-primary/3">
-              Browse Articles <ArrowRight className="w-3.5 h-3.5 ml-2" />
+            <Button variant="outline" className="rounded-full h-[54px] px-10 text-sm font-bold tracking-wider border-2 border-primary/15 text-primary hover:bg-primary/[0.03]">
+              Browse Articles <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </Link>
         </div>

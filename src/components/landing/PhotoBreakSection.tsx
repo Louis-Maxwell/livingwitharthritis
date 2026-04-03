@@ -8,24 +8,26 @@ interface PhotoBreakSectionProps {
 }
 
 const PhotoBreakSection = memo(({ image, alt, quote, attribution }: PhotoBreakSectionProps) => (
-  <section className="relative h-[50vh] min-h-[360px] max-h-[500px] overflow-hidden">
+  <section className="relative h-[55vh] min-h-[400px] max-h-[560px] overflow-hidden">
     <img
       src={image}
       alt={alt}
       loading="lazy"
       className="absolute inset-0 w-full h-full object-cover"
     />
-    <div className="absolute inset-0 bg-primary/75" />
+    <div className="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/75 to-primary/80" />
     <div className="relative z-10 flex items-center justify-center h-full px-8">
       <div className="text-center max-w-3xl">
-        <p className="font-display text-xl sm:text-2xl md:text-3xl text-white/90 leading-[1.5] italic">
+        <div className="w-12 h-px bg-white/20 mx-auto mb-10" />
+        <p className="font-display text-xl sm:text-2xl md:text-[2rem] lg:text-[2.25rem] text-white/90 leading-[1.4] italic tracking-tight">
           &ldquo;{quote}&rdquo;
         </p>
         {attribution && (
-          <p className="text-white/50 text-sm mt-6 tracking-[0.2em] uppercase font-medium">
+          <p className="text-white/40 text-xs mt-8 tracking-[0.25em] uppercase font-bold">
             — {attribution}
           </p>
         )}
+        <div className="w-12 h-px bg-white/20 mx-auto mt-10" />
       </div>
     </div>
   </section>

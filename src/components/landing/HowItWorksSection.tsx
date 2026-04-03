@@ -10,32 +10,37 @@ const steps = [
 ];
 
 const HowItWorksSection = memo(() => (
-  <section className="section-spacer relative bg-warm">
-    <div className="container mx-auto px-6 md:px-12 max-w-6xl">
+  <section className="py-28 lg:py-36 relative">
+    <div className="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl">
       <div className="text-center mb-20">
-        <span className="section-label text-primary/70 mb-5 block">How It Works</span>
-        <h2 className="font-display text-3xl sm:text-4xl md:text-[3.25rem] font-bold text-foreground mb-6 leading-[1.08] tracking-tight">
+        <span className="section-label text-primary/60 mb-5 block">How It Works</span>
+        <h2 className="font-display text-3xl sm:text-4xl md:text-[3.5rem] font-bold text-foreground mb-6 leading-[1.06] tracking-tight">
           Your path to better living
         </h2>
-        <p className="text-muted-foreground max-w-lg mx-auto text-base leading-relaxed">
+        <p className="text-muted-foreground max-w-xl mx-auto text-base sm:text-lg leading-relaxed">
           A structured, evidence-based approach designed by our clinical team.
           Most patients report significant improvement within 8–12 weeks.
         </p>
       </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
         {steps.map((step, i) => {
           const Icon = step.icon;
           return (
             <div key={i} className="text-center relative group">
-              <span className="font-display text-[3.5rem] font-bold text-primary/[0.06] leading-none block mb-4">
+              {/* Large faded step number */}
+              <span className="font-display text-[4.5rem] font-bold text-primary/[0.04] leading-none block mb-3">
                 {step.num}
               </span>
-              <div className="w-14 h-14 rounded-2xl bg-primary/6 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/10 transition-colors duration-500">
-                <Icon className="w-6 h-6 text-primary" />
+              {/* Connector line between steps (desktop) */}
+              {i < steps.length - 1 && (
+                <div className="absolute top-16 right-0 translate-x-1/2 w-12 h-px bg-border/20 hidden lg:block" />
+              )}
+              <div className="w-16 h-16 rounded-2xl bg-primary/[0.04] flex items-center justify-center mx-auto mb-7 group-hover:bg-primary group-hover:scale-105 transition-all duration-500">
+                <Icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors duration-500" />
               </div>
               <h3 className="text-lg font-bold text-foreground mb-3 tracking-tight">{step.title}</h3>
-              <p className="text-sm text-muted-foreground leading-[1.75] mb-4">{step.desc}</p>
+              <p className="text-sm text-muted-foreground leading-[1.8] mb-5">{step.desc}</p>
               <Link
                 to={step.link}
                 className="inline-flex items-center gap-1.5 text-[11px] font-bold text-primary tracking-[0.12em] uppercase hover:gap-2.5 transition-all"
