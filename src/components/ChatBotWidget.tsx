@@ -24,7 +24,7 @@ export default function ChatBotWidget() {
             </motion.span>
           ) : (
             <motion.span key="open" initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.8, opacity: 0 }} transition={{ duration: 0.15 }}>
-              <RobotIcon size={40} />
+              <img src={robotImg} alt="Chat assistant" className="h-12 w-12 object-contain" />
             </motion.span>
           )}
         </AnimatePresence>
