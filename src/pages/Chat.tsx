@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Sparkles, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
-import robotImg from "@/assets/robot-assistant.png";
+import RobotIcon from "@/components/icons/RobotIcon";
 
 const Chat = () => {
   return (
