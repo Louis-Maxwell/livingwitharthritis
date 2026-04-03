@@ -1,90 +1,30 @@
-## Plan: £100M Premium Overhaul — Phase 1
 
-Given the massive scope (all pages + backend), we'll tackle this in focused batches. Phase 1 delivers the highest-impact visual and structural upgrades.
 
----
+## Plan: Replace AI Chatbot Icon with a Sleeker Robot SVG
 
-### Batch 1: Global Design System Polish
+Currently the floating chat button and the `/chat` page header use a generated PNG image (`src/assets/robot-assistant.png`). We'll replace it with a custom inline SVG robot icon that's crisp at any size, lightweight, and styled to match the red/white brand.
 
-**`src/index.css`** — Refine the design tokens:
-- Increase base spacing scale for more generous whitespace
-- Add premium shadow tokens (`--shadow-editorial`, `--shadow-card-hover`)
-- Add subtle gradient tokens for section backgrounds
-- Refine border-radius tokens (softer, more institutional)
+### Changes
 
-**`tailwind.config.ts`** — Extend with:
-- Custom `max-w-editorial` (1200px) for tighter, more focused content widths
-- Premium box-shadow utilities
-- Refined letter-spacing scale for section labels
+**1. `src/components/ChatBotWidget.tsx`**
+- Remove the `robotImg` PNG import
+- Replace the `<img>` with a custom inline SVG of a sleek, modern robot head (rounded helmet, antenna, glowing eyes) using `currentColor` and the site's primary red
 
-**`src/components/ui/PageHero.tsx`** — Standardise all page heroes:
-- Consistent height, typography hierarchy, subtle gradient overlay
-- Breadcrumb integration
-- Clean red accent line under heading
+**2. `src/pages/Chat.tsx`**
+- Remove the `robotImg` PNG import
+- Replace the `<img>` in the header with the same SVG robot icon (larger, 64px)
 
----
+**3. Create `src/components/icons/RobotIcon.tsx`**
+- Reusable SVG component with `size` and `className` props
+- Modern minimalist robot design: rounded head, two circular eyes, small antenna, subtle smile line — all vector, no raster dependency
 
-### Batch 2: Homepage Sections Refinement
+### Files Changed
 
-**`src/components/HeroSection.tsx`** — Polish:
-- Ensure the split layout feels cinematic with proper image sizing
-- Refine stat cards with premium shadows and micro-borders
-- Ensure trust badges are crisp and aligned
-
-**`src/components/ServicesGrid.tsx`** — Upgrade cards:
-- Add hover lift with editorial shadow
-- Tighten card padding and typography
-- Add subtle red accent on hover
-
-**`src/components/landing/FAQSection.tsx`** — Clean up:
-- Premium accordion styling with smooth transitions
-- Section label with tracked uppercase
-
-**`src/components/landing/TestimonialsSection.tsx`** — Refine:
-- Larger quote marks, better typography
-- Subtle card backgrounds
-
----
-
-### Batch 3: Key Hub Pages
-
-**`src/pages/ExerciseHub.tsx`** — Premium layout:
-- Better card grid with consistent imagery
-- Section dividers and editorial spacing
-
-**`src/pages/DietHub.tsx`** — Same treatment
-
-**`src/pages/Chat.tsx`** — Polish chat interface:
-- Cleaner message bubbles
-- Better empty state
-
-**`src/pages/SelfHelpTool.tsx`** — Upgrade tool UI:
-- Premium form styling
-- Better result cards
-
----
-
-### Batch 4: Backend Data Quality
-
-- Seed richer content into `physio_myths` table (add 2-3 more myths)
-- Ensure `services` table has compelling, detailed descriptions
-- Verify all CMS content reads as professional and evidence-based
-
----
-
-### Files Changed (Phase 1)
-
-| File | Change |
+| File | Action |
 |------|--------|
-| `src/index.css` | Add premium shadow/gradient tokens |
-| `tailwind.config.ts` | Add editorial utilities |
-| `src/components/ui/PageHero.tsx` | Standardise premium hero |
-| `src/components/HeroSection.tsx` | Polish hero layout |
-| `src/components/ServicesGrid.tsx` | Premium card styling |
-| `src/components/landing/FAQSection.tsx` | Clean accordion design |
-| `src/components/landing/TestimonialsSection.tsx` | Refine typography |
-| `src/pages/ExerciseHub.tsx` | Premium hub layout |
-| `src/pages/DietHub.tsx` | Premium hub layout |
-| `src/pages/SelfHelpTool.tsx` | Upgrade tool UI |
+| `src/components/icons/RobotIcon.tsx` | New — reusable SVG robot icon |
+| `src/components/ChatBotWidget.tsx` | Swap PNG for RobotIcon |
+| `src/pages/Chat.tsx` | Swap PNG for RobotIcon |
 
-No database schema changes. Potential data seeding for richer content.
+No backend changes.
+
