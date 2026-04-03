@@ -1,9 +1,10 @@
 import { Helmet } from "react-helmet-async";
 import { ChatBot } from "@/components/ChatBot";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Bot, Sparkles, Shield, MessageCircle } from "lucide-react";
+import { ArrowLeft, Sparkles, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
+import robotImg from "@/assets/robot-assistant.png";
 
 const Chat = () => {
   return (
