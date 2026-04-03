@@ -16,7 +16,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import DonationBanner from "@/components/DonationBanner";
 import StripeDonationModal from "@/components/StripeDonationModal";
-import zakatHeroImg from "@/assets/zakat-appeal-hero.jpg";
+import { zakatAppealHero as zakatHeroImg } from "@/data/images";
 import ZakatCalculator from "@/components/ZakatCalculator";
 
 const ZAKAT_AMOUNTS = [25, 50, 100, 250, 500, 1000];

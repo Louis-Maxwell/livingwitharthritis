@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { motion } from "framer-motion";
 import { Bell, BarChart3, Smartphone } from "lucide-react";
-import mobileAppMockup from "@/assets/mobile-app-mockup.jpg";
+import { mobileAppMockup } from "@/data/images";
 
 const features = [
   { icon: Bell, text: "Daily exercise reminders" },

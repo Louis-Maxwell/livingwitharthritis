@@ -1,9 +1,7 @@
 import { memo } from "react";
 import { Star, Quote, Verified, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import avatarMargaret from "@/assets/avatar-margaret.jpg";
-import avatarPriya from "@/assets/avatar-priya.jpg";
-import avatarJames from "@/assets/avatar-james.jpg";
+import { avatarMargaret, avatarPriya, avatarJames } from "@/data/images";
 
 const testimonials = [
   { name: "Margaret T.", location: "Bristol", condition: "Osteoarthritis", text: "The virtual physiotherapy sessions changed my life. I can now garden again without constant pain. After 3 months, my GP reduced my painkillers.", rating: 5, highlight: "reduced my painkillers", verified: true, avatar: avatarMargaret, storySlug: "arthritis-and-gardening-uk" },

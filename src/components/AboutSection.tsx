@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { Users, TrendingUp, BookOpen, Shield, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import founderImage from "@/assets/founder-portrait.jpg";
+import { founderPortrait as founderImage } from "@/data/images";
 
 const milestones = [
   { icon: Users, value: "10,000+", label: "People supported*" },

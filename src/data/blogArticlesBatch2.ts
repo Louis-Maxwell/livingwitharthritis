@@ -1,11 +1,4 @@
-import coldWeatherImg from "@/assets/blog-cold-weather-arthritis.jpg";
-import swimmingImg from "@/assets/blog-swimming-arthritis.jpg";
-import handExImg from "@/assets/blog-hand-exercises.jpg";
-import turmericImg from "@/assets/blog-turmeric-arthritis.jpg";
-import sleepImg from "@/assets/blog-sleep-arthritis.jpg";
-import yogaImg from "@/assets/blog-yoga-arthritis.jpg";
-import cyclingImg from "@/assets/blog-cycling-arthritis.jpg";
-import omega3Img from "@/assets/blog-omega3-foods.jpg";
+import { blogColdWeather as coldWeatherImg, blogSwimming as swimmingImg, blogHandExercises as handExImg, blogTurmeric as turmericImg, blogSleep as sleepImg, blogYoga as yogaImg, blogCycling as cyclingImg, blogOmega3 as omega3Img } from "@/data/images";
 
 interface BlogArticle {
   title: string;

@@ -1,8 +1,5 @@
 import { memo, useRef } from "react";
-import physioMyth1 from "@/assets/physio-myth-1.jpg";
-import physioMyth2 from "@/assets/physio-myth-2.jpg";
-import physioMyth3 from "@/assets/physio-myth-3.jpg";
-import physioMyth4 from "@/assets/physio-myth-4.jpg";
+import { physioMyth1, physioMyth2, physioMyth3, physioMyth4 } from "@/data/images";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Check, X, ShieldCheck, BookOpen, ArrowRight, Activity, Users, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";

@@ -1,7 +1,4 @@
-import workImg from "@/assets/blog-arthritis-work.jpg";
-import kneeImg from "@/assets/blog-knee-exercises.jpg";
-import gardenImg from "@/assets/blog-gardening-arthritis.jpg";
-import naturalImg from "@/assets/blog-natural-pain-relief.jpg";
+import { blogWork as workImg, blogKneeExercises as kneeImg, blogGardening as gardenImg, blogNaturalPainRelief as naturalImg } from "@/data/images";
 
 interface BlogArticle {
   title: string;

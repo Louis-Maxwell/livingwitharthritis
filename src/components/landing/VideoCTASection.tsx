@@ -2,7 +2,7 @@ import { memo, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Play, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import videoCtaImage from "@/assets/video-cta-exercise.jpg";
+import { videoCtaExercise as videoCtaImage } from "@/data/images";
 
 const YOUTUBE_VIDEO_ID = "hEu--9lGdLk";
 
