@@ -1,6 +1,7 @@
 import { useState, lazy, Suspense } from "react";
-import { Bot, X } from "lucide-react";
+import { X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import robotImg from "@/assets/robot-assistant.png";
 
 // Only load ChatBot (and its react-markdown dependency) when user opens the widget
 const ChatBot = lazy(() => import("@/components/ChatBot").then(m => ({ default: m.ChatBot })));
@@ -14,7 +15,7 @@ export default function ChatBotWidget() {
       <button
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? "Close chat" : "Open chat"}
-        className="fixed bottom-[88px] right-4 z-50 h-14 w-14 rounded-full bg-primary text-primary-foreground shadow-xl hover:shadow-2xl active:scale-95 hover:scale-105 transition-all duration-200 flex items-center justify-center lg:bottom-8 lg:right-8"
+        className="fixed bottom-[88px] right-4 z-50 h-16 w-16 rounded-full bg-white text-primary shadow-xl hover:shadow-2xl active:scale-95 hover:scale-105 transition-all duration-200 flex items-center justify-center lg:bottom-8 lg:right-8 border-2 border-primary/20 overflow-hidden"
       >
         <AnimatePresence mode="wait" initial={false}>
           {open ? (
@@ -23,7 +24,7 @@ export default function ChatBotWidget() {
             </motion.span>
           ) : (
             <motion.span key="open" initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.8, opacity: 0 }} transition={{ duration: 0.15 }}>
-              <Bot className="h-6 w-6" />
+              <img src={robotImg} alt="Chat assistant" className="h-12 w-12 object-contain" />
             </motion.span>
           )}
         </AnimatePresence>

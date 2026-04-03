@@ -1,9 +1,10 @@
 import { Helmet } from "react-helmet-async";
 import { ChatBot } from "@/components/ChatBot";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Bot, Sparkles, Shield, MessageCircle } from "lucide-react";
+import { ArrowLeft, Sparkles, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
+import robotImg from "@/assets/robot-assistant.png";
 
 const Chat = () => {
   return (
@@ -68,8 +69,11 @@ const Chat = () => {
             </div>
             
             <div className="text-center mb-2">
+              <div className="inline-flex items-center gap-3 mb-4">
+                <img src={robotImg} alt="AI Assistant" className="h-16 w-16 object-contain" />
+              </div>
               <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 mb-4">
-                <Bot className="h-4 w-4 text-primary" />
+                <Sparkles className="h-4 w-4 text-primary" />
                 <span className="text-sm font-semibold text-primary tracking-wide">AI-Powered</span>
               </div>
               <h1 className="text-3xl md:text-4xl font-extrabold text-foreground mb-3 tracking-tight">
