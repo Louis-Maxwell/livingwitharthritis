@@ -222,8 +222,8 @@ James Whitfield — Treasurer
               <Card className="border border-border/40">
                 <CardContent className="p-6 md:p-8">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center">
-                      <ArrowUpRight className="w-5 h-5 text-emerald-600" />
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <ArrowUpRight className="w-5 h-5 text-primary" />
                     </div>
                     <h2 className="text-lg font-bold text-foreground">Income Sources (2024/25)</h2>
                   </div>
@@ -260,8 +260,8 @@ James Whitfield — Treasurer
         <section className="py-14 lg:py-20 bg-muted/20">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center">
-                <TrendingUp className="w-5 h-5 text-blue-600" />
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                <TrendingUp className="w-5 h-5 text-primary" />
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-foreground">Financial Growth (5 Years)</h2>
@@ -308,7 +308,7 @@ James Whitfield — Treasurer
                 <motion.div key={e.item} initial={{ opacity: 0, x: -12 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}>
                   <Card className="border border-border/40">
                     <CardContent className="p-5 flex items-start gap-4">
-                      <CheckCircle className="w-5 h-5 text-emerald-600 mt-0.5 shrink-0" />
+                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                       <div className="flex-1 min-w-0">
                         <div className="flex flex-wrap justify-between items-baseline gap-2">
                           <h3 className="font-semibold text-foreground text-sm">{e.item}</h3>

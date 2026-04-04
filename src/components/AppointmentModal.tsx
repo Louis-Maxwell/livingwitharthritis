@@ -152,8 +152,8 @@ export function AppointmentModal({ trigger }: AppointmentModalProps) {
                 animate={{ opacity: 1, scale: 1 }}
                 className="flex flex-col items-center justify-center py-10 gap-4"
               >
-                <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center">
-                  <CheckCircle2 className="w-8 h-8 text-green-600" />
+                <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center">
+                  <CheckCircle2 className="w-8 h-8 text-primary" />
                 </div>
                 <p className="text-lg font-semibold text-foreground">Appointment Booked!</p>
                 <p className="text-sm text-muted-foreground text-center">We'll send a confirmation to {form.email}</p>

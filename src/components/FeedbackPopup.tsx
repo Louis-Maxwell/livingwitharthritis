@@ -125,8 +125,8 @@ export default function FeedbackPopup() {
                       n <= 6
                         ? selected ? "bg-destructive text-destructive-foreground border-destructive" : "border-destructive/30 text-destructive hover:border-destructive"
                         : n <= 8
-                        ? selected ? "bg-amber-500 text-white border-amber-500" : "border-amber-400/30 text-amber-600 hover:border-amber-500"
-                        : selected ? "bg-emerald-500 text-white border-emerald-500" : "border-emerald-400/30 text-emerald-600 hover:border-emerald-500";
+                        ? selected ? "bg-primary text-white border-primary" : "border-primary/30 text-primary hover:border-primary"
+                        : selected ? "bg-primary text-white border-primary" : "border-primary/30 text-primary hover:border-primary";
                     return (
                       <button
                         key={n}

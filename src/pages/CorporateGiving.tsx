@@ -25,8 +25,8 @@ const tiers = [
   {
     name: "Bronze Partner",
     amount: "£1,000 – £4,999",
-    color: "from-amber-700/10 to-amber-600/5 border-amber-600/20",
-    icon: "text-amber-700",
+    color: "from-primary/10 to-primary/5 border-primary/20",
+    icon: "text-primary",
     benefits: [
       "Logo on our website",
       "Social media recognition",
@@ -229,7 +229,7 @@ const CorporateGiving = () => {
                   <ul className="space-y-2 flex-1">
                     {tier.benefits.map((b) => (
                       <li key={b} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <CheckCircle className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
+                        <CheckCircle className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
                         {b}
                       </li>
                     ))}

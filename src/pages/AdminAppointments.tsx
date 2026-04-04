@@ -25,10 +25,10 @@ import type { Tables } from "@/integrations/supabase/types";
 type Appointment = Tables<"appointments">;
 
 const statusColors: Record<string, string> = {
-  pending: "bg-amber-500/10 text-amber-700 border-amber-200",
-  confirmed: "bg-emerald-500/10 text-emerald-700 border-emerald-200",
+  pending: "bg-primary/10 text-primary border-primary",
+  confirmed: "bg-primary/10 text-primary border-primary",
   cancelled: "bg-red-500/10 text-red-700 border-red-200",
-  completed: "bg-blue-500/10 text-blue-700 border-blue-200",
+  completed: "bg-primary/10 text-primary border-primary",
 };
 
 const typeLabels: Record<string, string> = {
@@ -173,7 +173,7 @@ const AdminAppointments = () => {
             </div>
           </div>
           <div className="ml-auto flex items-center gap-2">
-            <div className="flex items-center gap-1.5 text-xs text-emerald-600 bg-emerald-500/10 px-3 py-1.5 rounded-full font-medium">
+            <div className="flex items-center gap-1.5 text-xs text-primary bg-primary/10 px-3 py-1.5 rounded-full font-medium">
               <Activity className="w-3 h-3" />
               Live
             </div>
@@ -184,10 +184,10 @@ const AdminAppointments = () => {
       <div className="max-w-7xl mx-auto px-6 py-8 space-y-8">
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-          <GradientStatCard icon={Users} label="Total" value={appointments.length} gradient="bg-gradient-to-br from-blue-400 to-indigo-500" iconColor="text-white" />
-          <GradientStatCard icon={AlertTriangle} label="Pending" value={pendingCount} gradient="bg-gradient-to-br from-amber-400 to-orange-500" iconColor="text-white" />
-          <GradientStatCard icon={CheckCircle2} label="Confirmed" value={confirmedCount} gradient="bg-gradient-to-br from-emerald-400 to-teal-500" iconColor="text-white" />
-          <GradientStatCard icon={CalendarDays} label="Today" value={todayCount} gradient="bg-gradient-to-br from-violet-400 to-purple-500" iconColor="text-white" />
+          <GradientStatCard icon={Users} label="Total" value={appointments.length} gradient="bg-gradient-to-br from-primary to-primary" iconColor="text-white" />
+          <GradientStatCard icon={AlertTriangle} label="Pending" value={pendingCount} gradient="bg-gradient-to-br from-primary to-primary" iconColor="text-white" />
+          <GradientStatCard icon={CheckCircle2} label="Confirmed" value={confirmedCount} gradient="bg-gradient-to-br from-primary to-primary" iconColor="text-white" />
+          <GradientStatCard icon={CalendarDays} label="Today" value={todayCount} gradient="bg-gradient-to-br from-primary to-primary" iconColor="text-white" />
         </div>
 
         {/* Filters */}
@@ -289,14 +289,14 @@ const AdminAppointments = () => {
                             </Button>
                             {apt.status === "pending" && (
                               <>
-                                <Button size="sm" variant="outline" className="h-8 text-xs rounded-lg text-emerald-600 border-emerald-200 hover:bg-emerald-50"
+                                <Button size="sm" variant="outline" className="h-8 text-xs rounded-lg text-primary border-primary hover:bg-primary"
                                   onClick={() => handleStatusChange(apt.id, "confirmed")}>Confirm</Button>
                                 <Button size="sm" variant="outline" className="h-8 text-xs rounded-lg text-destructive border-destructive/30 hover:bg-destructive/10"
                                   onClick={() => handleStatusChange(apt.id, "cancelled")}>Cancel</Button>
                               </>
                             )}
                             {apt.status === "confirmed" && (
-                              <Button size="sm" variant="outline" className="h-8 text-xs rounded-lg text-blue-600 border-blue-200 hover:bg-blue-50"
+                              <Button size="sm" variant="outline" className="h-8 text-xs rounded-lg text-primary border-primary hover:bg-primary"
                                 onClick={() => handleStatusChange(apt.id, "completed")}>Complete</Button>
                             )}
                           </div>

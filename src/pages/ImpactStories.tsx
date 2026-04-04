@@ -193,7 +193,7 @@ const ImpactStories = () => {
                             "{cs.quote}"
                           </blockquote>
                           <div className="flex items-start gap-2 mb-3">
-                            <CheckCircle className="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" />
+                            <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                             <p className="text-sm font-semibold text-foreground">{cs.outcome}</p>
                           </div>
                           <div className="flex flex-wrap gap-1.5">
@@ -215,8 +215,8 @@ const ImpactStories = () => {
         <section className="py-14 lg:py-20 bg-muted/20">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center">
-                <Target className="w-5 h-5 text-emerald-600" />
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                <Target className="w-5 h-5 text-primary" />
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-foreground">Public Benefit Evidence</h2>
@@ -235,7 +235,7 @@ const ImpactStories = () => {
                       <ul className="space-y-2.5">
                         {section.points.map((point) => (
                           <li key={point} className="flex items-start gap-2.5 text-sm text-muted-foreground">
-                            <CheckCircle className="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" />
+                            <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                             <span>{point}</span>
                           </li>
                         ))}
@@ -252,8 +252,8 @@ const ImpactStories = () => {
         <section className="py-14 lg:py-20">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center">
-                <Star className="w-5 h-5 text-amber-600" />
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                <Star className="w-5 h-5 text-primary" />
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-foreground">User Satisfaction Survey (2024/25)</h2>

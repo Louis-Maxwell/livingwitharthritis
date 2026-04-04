@@ -114,10 +114,10 @@ const BlogPost = () => {
         <PageBreadcrumb segments={[{ label: "Blog", href: "/blog" }, { label: article.title }]} className="max-w-3xl" />
 
         {/* Decorative article header */}
-        <div className="relative bg-gradient-to-br from-primary/6 via-background to-violet-500/4 border-b border-border/20 overflow-hidden">
+        <div className="relative bg-gradient-to-br from-primary/6 via-background to-primary/4 border-b border-border/20 overflow-hidden">
           {/* Background decorations */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-violet-500/5 rounded-full translate-y-1/2 -translate-x-1/4 blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/5 rounded-full translate-y-1/2 -translate-x-1/4 blur-3xl pointer-events-none" />
           <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">
             <circle cx="15%" cy="30%" r="3" fill="hsl(var(--primary))" />
             <circle cx="80%" cy="20%" r="2" fill="hsl(var(--primary))" />
@@ -158,9 +158,9 @@ const BlogPost = () => {
               </div>
             </div>
             {/* Medical reviewer badge */}
-            <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
-              <BookOpen className="w-3.5 h-3.5 text-emerald-600" />
-              <span className="text-xs font-medium text-emerald-700 dark:text-emerald-400">
+            <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20">
+              <BookOpen className="w-3.5 h-3.5 text-primary" />
+              <span className="text-xs font-medium text-primary dark:text-primary">
                 Medically reviewed by {article.reviewedBy || "Dr. Amina Patel"}{article.reviewerCredentials ? `, ${article.reviewerCredentials}` : ", Consultant Rheumatologist"}
               </span>
             </div>

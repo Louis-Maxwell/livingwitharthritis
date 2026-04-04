@@ -301,7 +301,7 @@ export default function ArthritisFlareUps() {
           <Card className="border-0 shadow-sm bg-[hsl(var(--tint-green))]">
             <CardContent className="p-5">
               <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-emerald-600" /> Eat More
+                <CheckCircle2 className="w-5 h-5 text-primary" /> Eat More
               </h3>
               <ul className="space-y-1.5 text-sm text-muted-foreground">
                 <li>• Fatty fish (salmon, mackerel, sardines) — aim for 2 portions/week</li>

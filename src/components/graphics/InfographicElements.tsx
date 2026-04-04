@@ -20,10 +20,10 @@ export const StatCounter = ({
 }) => {
   const colorMap: Record<string, string> = {
     primary: "from-primary/10 to-primary/5 border-primary/20 text-primary",
-    emerald: "from-emerald-500/10 to-emerald-500/5 border-emerald-500/20 text-emerald-600",
-    sky: "from-sky-500/10 to-sky-500/5 border-sky-500/20 text-sky-600",
-    amber: "from-amber-500/10 to-amber-500/5 border-amber-500/20 text-amber-600",
-    violet: "from-violet-500/10 to-violet-500/5 border-violet-500/20 text-violet-600",
+    emerald: "from-primary/10 to-primary/5 border-primary/20 text-primary",
+    sky: "from-primary/10 to-primary/5 border-primary/20 text-primary",
+    amber: "from-primary/10 to-primary/5 border-primary/20 text-primary",
+    violet: "from-primary/10 to-primary/5 border-primary/20 text-primary",
     rose: "from-rose-500/10 to-rose-500/5 border-rose-500/20 text-rose-600",
   };
 
@@ -178,8 +178,8 @@ export const ComparisonCard = ({
     className="rounded-2xl border border-border/40 overflow-hidden"
   >
     <div className="grid grid-cols-[1fr_auto_1fr]">
-      <div className="bg-emerald-500/10 px-4 py-3 text-center">
-        <span className="text-sm font-bold text-emerald-700">✅ {leftTitle}</span>
+      <div className="bg-primary/10 px-4 py-3 text-center">
+        <span className="text-sm font-bold text-primary">✅ {leftTitle}</span>
       </div>
       <div className="bg-muted/50 px-3 py-3 flex items-center">
         <span className="text-xs font-bold text-muted-foreground">VS</span>

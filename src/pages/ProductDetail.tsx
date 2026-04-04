@@ -17,9 +17,9 @@ const StarRating = ({ rating, count }: { rating: number; count: number }) => (
           key={s}
           className={`w-5 h-5 ${
             s <= Math.floor(rating)
-              ? "fill-amber-400 text-amber-400"
+              ? "fill-primary text-primary"
               : s - 0.5 <= rating
-              ? "fill-amber-400/50 text-amber-400"
+              ? "fill-primary/50 text-primary"
               : "text-muted-foreground/30"
           }`}
         />
@@ -33,9 +33,9 @@ const StarRating = ({ rating, count }: { rating: number; count: number }) => (
 
 const badgeColors: Record<string, string> = {
   "Best Seller": "bg-primary text-primary-foreground",
-  "Top Rated": "bg-amber-500 text-white",
-  "Must Have": "bg-emerald-600 text-white",
-  "Popular": "bg-blue-600 text-white",
+  "Top Rated": "bg-primary text-white",
+  "Must Have": "bg-primary text-white",
+  "Popular": "bg-primary text-white",
 };
 
 const ProductDetail = () => {
@@ -117,9 +117,9 @@ const ProductDetail = () => {
               {/* Trust signals */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
                 {[
-                  { icon: <ShieldCheck className="w-5 h-5 text-emerald-600" />, label: "Amazon Verified" },
-                  { icon: <Truck className="w-5 h-5 text-blue-600" />, label: "Prime Eligible" },
-                  { icon: <RotateCcw className="w-5 h-5 text-amber-600" />, label: "Easy Returns" },
+                  { icon: <ShieldCheck className="w-5 h-5 text-primary" />, label: "Amazon Verified" },
+                  { icon: <Truck className="w-5 h-5 text-primary" />, label: "Prime Eligible" },
+                  { icon: <RotateCcw className="w-5 h-5 text-primary" />, label: "Easy Returns" },
                 ].map((item) => (
                   <div key={item.label} className="flex items-center gap-2 p-3 rounded-xl bg-muted/60 border border-border">
                     {item.icon}

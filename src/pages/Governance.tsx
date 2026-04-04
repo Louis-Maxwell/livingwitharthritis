@@ -232,8 +232,8 @@ Regulated by the Charity Commission for England and Wales.
               <Card className="border border-border/40">
                 <CardContent className="p-6 md:p-8">
                   <div className="flex items-center gap-3 mb-5">
-                    <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center">
-                      <MapPin className="w-5 h-5 text-emerald-600" />
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <MapPin className="w-5 h-5 text-primary" />
                     </div>
                     <h2 className="text-lg font-bold text-foreground">Registered Address</h2>
                   </div>
@@ -284,8 +284,8 @@ Regulated by the Charity Commission for England and Wales.
         <section className="py-14 lg:py-20 bg-muted/20">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center">
-                <Gavel className="w-5 h-5 text-amber-600" />
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                <Gavel className="w-5 h-5 text-primary" />
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-foreground">Charitable Objects</h2>
@@ -307,7 +307,7 @@ Regulated by the Charity Commission for England and Wales.
                 >
                   <Card className="border border-border/40">
                     <CardContent className="p-5 flex items-start gap-4">
-                      <CheckCircle className="w-5 h-5 text-emerald-600 mt-0.5 shrink-0" />
+                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                       <div>
                         <h3 className="font-semibold text-foreground text-sm mb-1">{obj.title}</h3>
                         <p className="text-sm text-muted-foreground leading-relaxed">{obj.desc}</p>
@@ -372,8 +372,8 @@ Regulated by the Charity Commission for England and Wales.
         <section className="py-14 lg:py-20 bg-muted/20">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center">
-                <Clock className="w-5 h-5 text-blue-600" />
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                <Clock className="w-5 h-5 text-primary" />
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-foreground">Quarterly Board Meetings</h2>
@@ -397,8 +397,8 @@ Regulated by the Charity Commission for England and Wales.
         <section className="py-14 lg:py-20">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center">
-                <Scale className="w-5 h-5 text-violet-600" />
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                <Scale className="w-5 h-5 text-primary" />
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-foreground">Governance Policies</h2>
@@ -417,7 +417,7 @@ Regulated by the Charity Commission for England and Wales.
                   <Card className="border border-border/40 h-full">
                     <CardContent className="p-5">
                       <h3 className="font-semibold text-foreground text-sm mb-1.5 flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-violet-600 shrink-0" /> {p.title}
+                        <CheckCircle className="w-4 h-4 text-primary shrink-0" /> {p.title}
                       </h3>
                       <p className="text-xs text-muted-foreground leading-relaxed">{p.desc}</p>
                     </CardContent>

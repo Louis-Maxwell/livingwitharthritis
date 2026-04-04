@@ -39,10 +39,10 @@ const sitemapSections: SitemapSection[] = [
   {
     title: "Main Pages",
     icon: Globe,
-    color: "from-blue-500/15 to-cyan-500/10",
-    iconBg: "bg-blue-500/10 text-blue-600",
-    borderColor: "border-blue-500/20 hover:border-blue-500/40",
-    accentColor: "text-blue-600",
+    color: "from-primary/15 to-cyan-500/10",
+    iconBg: "bg-primary/10 text-primary",
+    borderColor: "border-primary/20 hover:border-primary/40",
+    accentColor: "text-primary",
     links: [
       { label: "Home", href: "/", description: "Arthritis support, services and resources", icon: Globe },
       { label: "About Us", href: "/about", description: "Our mission, team and values", icon: ShieldCheck },
@@ -58,10 +58,10 @@ const sitemapSections: SitemapSection[] = [
   {
     title: "Condition Guides",
     icon: Stethoscope,
-    color: "from-emerald-500/15 to-teal-500/10",
-    iconBg: "bg-emerald-500/10 text-emerald-600",
-    borderColor: "border-emerald-500/20 hover:border-emerald-500/40",
-    accentColor: "text-emerald-600",
+    color: "from-primary/15 to-primary/10",
+    iconBg: "bg-primary/10 text-primary",
+    borderColor: "border-primary/20 hover:border-primary/40",
+    accentColor: "text-primary",
     links: [
       { label: "Osteoarthritis", href: "/conditions/osteoarthritis", description: "Symptoms, causes, exercises and diet for OA", featured: true },
       { label: "Rheumatoid Arthritis", href: "/conditions/rheumatoid-arthritis", description: "Autoimmune arthritis: diagnosis, treatment and living with RA" },
@@ -71,10 +71,10 @@ const sitemapSections: SitemapSection[] = [
   {
     title: "Diet & Nutrition",
     icon: Utensils,
-    color: "from-orange-500/15 to-amber-500/10",
-    iconBg: "bg-orange-500/10 text-orange-600",
+    color: "from-primary/15 to-primary/10",
+    iconBg: "bg-primary/10 text-primary",
     borderColor: "border-orange-500/20 hover:border-orange-500/40",
-    accentColor: "text-orange-600",
+    accentColor: "text-primary",
     links: [
       { label: "All Articles", href: "/blog", description: "Evidence-based UK arthritis advice", featured: true, icon: BookOpen },
       { label: "Best Diet for Joint Pain UK", href: "/blog/best-diet-for-joint-pain-uk", description: "Anti-inflammatory foods and Mediterranean diet", icon: Apple },
@@ -91,10 +91,10 @@ const sitemapSections: SitemapSection[] = [
   {
     title: "Exercise & Movement",
     icon: Dumbbell,
-    color: "from-violet-500/15 to-purple-500/10",
-    iconBg: "bg-violet-500/10 text-violet-600",
-    borderColor: "border-violet-500/20 hover:border-violet-500/40",
-    accentColor: "text-violet-600",
+    color: "from-primary/15 to-primary/10",
+    iconBg: "bg-primary/10 text-primary",
+    borderColor: "border-primary/20 hover:border-primary/40",
+    accentColor: "text-primary",
     links: [
       { label: "NHS Arthritis Exercises", href: "/blog/nhs-arthritis-exercises", description: "Low-impact exercises from UK physiotherapists", featured: true },
       { label: "Knee Exercises", href: "/blog/knee-arthritis-exercises-uk", description: "UK physiotherapy guide for knee arthritis", icon: Footprints },
@@ -112,10 +112,10 @@ const sitemapSections: SitemapSection[] = [
   {
     title: "Lifestyle & Wellbeing",
     icon: Brain,
-    color: "from-cyan-500/15 to-sky-500/10",
-    iconBg: "bg-cyan-500/10 text-cyan-600",
+    color: "from-cyan-500/15 to-primary/10",
+    iconBg: "bg-primary/10 text-primary",
     borderColor: "border-cyan-500/20 hover:border-cyan-500/40",
-    accentColor: "text-cyan-600",
+    accentColor: "text-primary",
     links: [
       { label: "Cold Weather & Joint Pain", href: "/blog/arthritis-and-cold-weather-uk", description: "Why joints hurt more in winter", icon: ThermometerSun },
       { label: "Arthritis & Sleep Problems", href: "/blog/arthritis-and-sleep-problems", description: "How to get better rest with joint pain", icon: Moon },
@@ -134,10 +134,10 @@ const sitemapSections: SitemapSection[] = [
   {
     title: "Daily Tips",
     icon: Sun,
-    color: "from-amber-500/15 to-yellow-500/10",
-    iconBg: "bg-amber-500/10 text-amber-600",
-    borderColor: "border-amber-500/20 hover:border-amber-500/40",
-    accentColor: "text-amber-600",
+    color: "from-primary/15 to-yellow-500/10",
+    iconBg: "bg-primary/10 text-primary",
+    borderColor: "border-primary/20 hover:border-primary/40",
+    accentColor: "text-primary",
     links: [
       { label: "Daily Living Overview", href: "/daily-tips/overview", description: "Holistic approach to managing joint stiffness", featured: true, icon: Sun },
       { label: "Morning Stretches", href: "/daily-tips/morning-stretches", description: "Gentle stretches for morning stiffness", icon: Sun },
@@ -218,10 +218,10 @@ const Sitemap = () => {
 
         {/* Hero */}
         <PageHero
-          gradient="from-sky-500/8 via-background to-primary/5"
+          gradient="from-primary/8 via-background to-primary/5"
           pattern="grid"
           badge={
-            <Badge className="bg-sky-500/10 text-sky-700 border-0 text-xs font-bold px-3 py-1.5">
+            <Badge className="bg-primary/10 text-primary border-0 text-xs font-bold px-3 py-1.5">
               <Map className="w-3 h-3 mr-1.5" />
               {totalPages} Pages · Complete Directory
             </Badge>
@@ -309,7 +309,7 @@ const Sitemap = () => {
                                 </Badge>
                               )}
                               {link.isNew && (
-                                <Badge variant="secondary" className="text-[9px] px-1.5 py-0 h-4 bg-emerald-500/10 text-emerald-600 border-0">
+                                <Badge variant="secondary" className="text-[9px] px-1.5 py-0 h-4 bg-primary/10 text-primary border-0">
                                   New
                                 </Badge>
                               )}

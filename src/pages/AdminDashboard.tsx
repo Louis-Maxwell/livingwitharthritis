@@ -149,11 +149,11 @@ const AdminDashboard = () => {
     return labels[fund] || fund;
   };
   const fundColors: Record<string, string> = {
-    research: "bg-blue-500/10 text-blue-700 border-blue-200",
-    support: "bg-emerald-500/10 text-emerald-700 border-emerald-200",
-    helpline: "bg-amber-500/10 text-amber-700 border-amber-200",
-    general: "bg-violet-500/10 text-violet-700 border-violet-200",
-    zakat: "bg-teal-500/10 text-teal-700 border-teal-200",
+    research: "bg-primary/10 text-primary border-primary",
+    support: "bg-primary/10 text-primary border-primary",
+    helpline: "bg-primary/10 text-primary border-primary",
+    general: "bg-primary/10 text-primary border-primary",
+    zakat: "bg-primary/10 text-primary border-primary",
   };
 
   const exportFeedbackCsv = () => {
@@ -199,7 +199,7 @@ const AdminDashboard = () => {
             </div>
           </div>
           <div className="ml-auto flex items-center gap-2">
-            <div className="flex items-center gap-1.5 text-xs text-emerald-600 bg-emerald-500/10 px-3 py-1.5 rounded-full font-medium">
+            <div className="flex items-center gap-1.5 text-xs text-primary bg-primary/10 px-3 py-1.5 rounded-full font-medium">
               <Activity className="w-3 h-3" />
               Live
             </div>
@@ -214,15 +214,15 @@ const AdminDashboard = () => {
               <CalendarDays className="w-4 h-4" />
               Bookings
             </TabsTrigger>
-            <TabsTrigger value="donations" className="gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold data-[state=active]:bg-gradient-to-r data-[state=active]:from-emerald-500 data-[state=active]:to-teal-500 data-[state=active]:text-white data-[state=active]:shadow-md transition-all">
+            <TabsTrigger value="donations" className="gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-primary data-[state=active]:text-white data-[state=active]:shadow-md transition-all">
               <Heart className="w-4 h-4" />
               Donations
             </TabsTrigger>
-            <TabsTrigger value="feedback" className="gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-indigo-500 data-[state=active]:text-white data-[state=active]:shadow-md transition-all">
+            <TabsTrigger value="feedback" className="gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-primary data-[state=active]:text-white data-[state=active]:shadow-md transition-all">
               <Star className="w-4 h-4" />
               Feedback
             </TabsTrigger>
-            <TabsTrigger value="comments" className="gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold data-[state=active]:bg-gradient-to-r data-[state=active]:from-violet-500 data-[state=active]:to-purple-500 data-[state=active]:text-white data-[state=active]:shadow-md transition-all">
+            <TabsTrigger value="comments" className="gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-primary data-[state=active]:text-white data-[state=active]:shadow-md transition-all">
               <MessageSquare className="w-4 h-4" />
               Comments
               {pendingComments > 0 && (
@@ -266,7 +266,7 @@ const AdminDashboard = () => {
                 label="Total Raised"
                 value={`£${stats.totalAmount.toLocaleString()}`}
                 subtitle="From all donations"
-                gradient="bg-gradient-to-br from-emerald-400 to-teal-500"
+                gradient="bg-gradient-to-br from-primary to-primary"
                 iconColor="text-white"
               />
               <GradientStatCard
@@ -274,7 +274,7 @@ const AdminDashboard = () => {
                 label="Total Donations"
                 value={stats.totalCount}
                 subtitle="Completed donations"
-                gradient="bg-gradient-to-br from-blue-400 to-indigo-500"
+                gradient="bg-gradient-to-br from-primary to-primary"
                 iconColor="text-white"
               />
               <GradientStatCard
@@ -282,7 +282,7 @@ const AdminDashboard = () => {
                 label="Average Amount"
                 value={`£${stats.averageAmount.toFixed(2)}`}
                 subtitle="Per donation"
-                gradient="bg-gradient-to-br from-amber-400 to-orange-500"
+                gradient="bg-gradient-to-br from-primary to-primary"
                 iconColor="text-white"
               />
               <GradientStatCard
@@ -290,7 +290,7 @@ const AdminDashboard = () => {
                 label="Fund Types"
                 value={Object.keys(stats.byFundType).length}
                 subtitle="Active categories"
-                gradient="bg-gradient-to-br from-violet-400 to-purple-500"
+                gradient="bg-gradient-to-br from-primary to-primary"
                 iconColor="text-white"
               />
             </div>
@@ -365,7 +365,7 @@ const AdminDashboard = () => {
                               {getCurrencySymbol(donation.currency)}{Number(donation.amount).toLocaleString()}
                             </TableCell>
                             <TableCell>
-                              <Badge className="bg-emerald-500/10 text-emerald-700 border-emerald-200 border" variant="outline">
+                              <Badge className="bg-primary/10 text-primary border-primary border" variant="outline">
                                 {donation.status}
                               </Badge>
                             </TableCell>
@@ -384,7 +384,7 @@ const AdminDashboard = () => {
             <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <h2 className="text-xl font-bold text-foreground flex items-center gap-2">
-                  <Star className="w-5 h-5 text-amber-500" />
+                  <Star className="w-5 h-5 text-primary" />
                   User Feedback
                 </h2>
                 <p className="text-sm text-muted-foreground">
@@ -433,7 +433,7 @@ const AdminDashboard = () => {
                 label="Total Responses"
                 value={filteredFeedback.length}
                 subtitle="User ratings received"
-                gradient="bg-gradient-to-br from-blue-400 to-indigo-500"
+                gradient="bg-gradient-to-br from-primary to-primary"
                 iconColor="text-white"
               />
               <GradientStatCard
@@ -441,7 +441,7 @@ const AdminDashboard = () => {
                 label="Avg Navigation"
                 value={`${avgNav} / 5`}
                 subtitle="Ease of use score"
-                gradient="bg-gradient-to-br from-amber-400 to-orange-500"
+                gradient="bg-gradient-to-br from-primary to-primary"
                 iconColor="text-white"
               />
               <GradientStatCard
@@ -449,7 +449,7 @@ const AdminDashboard = () => {
                 label="Avg Speed"
                 value={`${avgSpeed} / 5`}
                 subtitle="Performance score"
-                gradient="bg-gradient-to-br from-emerald-400 to-teal-500"
+                gradient="bg-gradient-to-br from-primary to-primary"
                 iconColor="text-white"
               />
             </div>
@@ -459,7 +459,7 @@ const AdminDashboard = () => {
               <Card className="border-border/30 shadow-sm">
                 <CardHeader className="pb-4">
                   <CardTitle className="flex items-center gap-2 text-lg">
-                    <BarChart3 className="w-5 h-5 text-blue-500" />
+                    <BarChart3 className="w-5 h-5 text-primary" />
                     Ratings Over Time
                   </CardTitle>
                 </CardHeader>
@@ -546,7 +546,7 @@ const AdminDashboard = () => {
           <TabsContent value="comments" className="space-y-6">
             <div>
               <h2 className="text-xl font-bold text-foreground flex items-center gap-2">
-                <MessageSquare className="w-5 h-5 text-violet-500" />
+                <MessageSquare className="w-5 h-5 text-primary" />
                 Blog Comment Moderation
               </h2>
               <p className="text-sm text-muted-foreground">{comments.length} total comments</p>
@@ -589,13 +589,13 @@ const AdminDashboard = () => {
                             <TableCell className="text-right">
                               <div className="flex justify-end gap-1">
                                 {c.status !== "approved" && (
-                                  <Button size="icon" variant="ghost" className="h-8 w-8 rounded-xl text-emerald-600 hover:bg-emerald-50 hover:text-emerald-700"
+                                  <Button size="icon" variant="ghost" className="h-8 w-8 rounded-xl text-primary hover:bg-primary hover:text-primary"
                                     onClick={async () => { await supabase.from("blog_comments").update({ status: "approved" }).eq("id", c.id); setComments((prev) => prev.map((x) => x.id === c.id ? { ...x, status: "approved" } : x)); }}>
                                     <Check className="w-4 h-4" />
                                   </Button>
                                 )}
                                 {c.status !== "rejected" && (
-                                  <Button size="icon" variant="ghost" className="h-8 w-8 rounded-xl text-amber-600 hover:bg-amber-50 hover:text-amber-700"
+                                  <Button size="icon" variant="ghost" className="h-8 w-8 rounded-xl text-primary hover:bg-primary hover:text-primary"
                                     onClick={async () => { await supabase.from("blog_comments").update({ status: "rejected" }).eq("id", c.id); setComments((prev) => prev.map((x) => x.id === c.id ? { ...x, status: "rejected" } : x)); }}>
                                     <X className="w-4 h-4" />
                                   </Button>
@@ -623,15 +623,15 @@ const AdminDashboard = () => {
 
 /* ── Helpers ── */
 const RatingPill = ({ value }: { value: number }) => {
-  const color = value >= 4 ? "bg-emerald-500/10 text-emerald-700" : value >= 3 ? "bg-amber-500/10 text-amber-700" : "bg-red-500/10 text-red-700";
+  const color = value >= 4 ? "bg-primary/10 text-primary" : value >= 3 ? "bg-primary/10 text-primary" : "bg-red-500/10 text-red-700";
   return <span className={`inline-flex items-center justify-center px-2.5 py-1 rounded-full text-xs font-bold ${color}`}>{value}/5</span>;
 };
 
 const CommentStatusBadge = ({ status }: { status: string }) => {
   const styles: Record<string, string> = {
-    approved: "bg-emerald-500/10 text-emerald-700 border-emerald-200",
+    approved: "bg-primary/10 text-primary border-primary",
     rejected: "bg-red-500/10 text-red-700 border-red-200",
-    pending: "bg-amber-500/10 text-amber-700 border-amber-200",
+    pending: "bg-primary/10 text-primary border-primary",
   };
   return <Badge variant="outline" className={cn("text-xs", styles[status])}>{status}</Badge>;
 };

@@ -47,9 +47,9 @@ const Chat = () => {
       </Helmet>
       <div className="min-h-screen bg-background">
         {/* Decorative header */}
-        <div className="relative bg-gradient-to-br from-primary/6 via-background to-emerald-500/4 border-b border-border/20 overflow-hidden">
+        <div className="relative bg-gradient-to-br from-primary/6 via-background to-primary/4 border-b border-border/20 overflow-hidden">
           <div className="absolute top-0 right-0 w-80 h-80 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-emerald-500/5 rounded-full translate-y-1/2 -translate-x-1/4 blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary/5 rounded-full translate-y-1/2 -translate-x-1/4 blur-3xl pointer-events-none" />
           <div className="absolute inset-0 pattern-dots opacity-20 pointer-events-none" />
 
           <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.05]" xmlns="http://www.w3.org/2000/svg">
@@ -83,11 +83,11 @@ const Chat = () => {
                 Ask questions and get instant AI-powered responses about arthritis management, exercises, diet and UK-specific support.
               </p>
               <div className="flex items-center gap-3 justify-center mt-4">
-                <Badge className="bg-emerald-500/10 text-emerald-700 border-0 text-xs">
+                <Badge className="bg-primary/10 text-primary border-0 text-xs">
                   <Shield className="w-3 h-3 mr-1" />
                   Evidence-Based
                 </Badge>
-                <Badge className="bg-blue-500/10 text-blue-700 border-0 text-xs">
+                <Badge className="bg-primary/10 text-primary border-0 text-xs">
                   <Sparkles className="w-3 h-3 mr-1" />
                   Free & Instant
                 </Badge>

@@ -24,7 +24,7 @@ const nhsResources = [
       { label: "Find NHS Services Near You", url: "https://www.nhs.uk/service-search" },
     ],
     badge: "NHS",
-    badgeColor: "bg-blue-600 text-white",
+    badgeColor: "bg-primary text-white",
   },
   {
     icon: PoundSterling,
@@ -37,7 +37,7 @@ const nhsResources = [
       { label: "Citizens Advice – Disability Benefits", url: "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/pip/" },
     ],
     badge: "Benefits",
-    badgeColor: "bg-emerald-600 text-white",
+    badgeColor: "bg-primary text-white",
   },
   {
     icon: Users,
@@ -49,7 +49,7 @@ const nhsResources = [
       { label: "NRAS – RA Support Groups", url: "https://nras.org.uk/get-support/" },
     ],
     badge: "Community",
-    badgeColor: "bg-violet-600 text-white",
+    badgeColor: "bg-primary text-white",
   },
   {
     icon: Shield,

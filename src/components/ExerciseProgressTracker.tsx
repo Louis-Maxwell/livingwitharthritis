@@ -12,9 +12,9 @@ const EXERCISE_GUIDES = [
     id: "knee",
     title: "Knee Exercise Routine",
     icon: "🦵",
-    color: "border-sky-500/30 bg-sky-500/5",
-    accentColor: "text-sky-700",
-    badgeColor: "bg-sky-500/10 text-sky-700",
+    color: "border-primary/30 bg-primary/5",
+    accentColor: "text-primary",
+    badgeColor: "bg-primary/10 text-primary",
     exercises: [
       "Straight leg raises – 3 × 10",
       "Wall sits – hold 15–30 sec",
@@ -26,9 +26,9 @@ const EXERCISE_GUIDES = [
     id: "hand",
     title: "Hand Exercise Guide",
     icon: "✋",
-    color: "border-emerald-500/30 bg-emerald-500/5",
-    accentColor: "text-emerald-700",
-    badgeColor: "bg-emerald-500/10 text-emerald-700",
+    color: "border-primary/30 bg-primary/5",
+    accentColor: "text-primary",
+    badgeColor: "bg-primary/10 text-primary",
     exercises: [
       "Finger bends – 10 reps each finger",
       "Thumb touches – 10 reps each hand",
@@ -40,9 +40,9 @@ const EXERCISE_GUIDES = [
     id: "shoulder",
     title: "Shoulder Exercises",
     icon: "💪",
-    color: "border-violet-500/30 bg-violet-500/5",
-    accentColor: "text-violet-700",
-    badgeColor: "bg-violet-500/10 text-violet-700",
+    color: "border-primary/30 bg-primary/5",
+    accentColor: "text-primary",
+    badgeColor: "bg-primary/10 text-primary",
     exercises: [
       "Pendulum swings – 30 sec each arm",
       "Wall crawls – reach higher daily",
@@ -54,9 +54,9 @@ const EXERCISE_GUIDES = [
     id: "chair",
     title: "Chair Exercise Guide",
     icon: "🪑",
-    color: "border-amber-500/30 bg-amber-500/5",
-    accentColor: "text-amber-700",
-    badgeColor: "bg-amber-500/10 text-amber-700",
+    color: "border-primary/30 bg-primary/5",
+    accentColor: "text-primary",
+    badgeColor: "bg-primary/10 text-primary",
     exercises: [
       "Seated marching – 2 minutes",
       "Ankle circles – 10 each direction",
@@ -187,7 +187,7 @@ export default function ExerciseProgressTracker() {
           <CardContent className="p-5">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
-                <Trophy className="w-4 h-4 text-amber-500" />
+                <Trophy className="w-4 h-4 text-primary" />
                 <span className="text-sm font-semibold text-foreground">Overall Weekly Progress</span>
               </div>
               <Badge variant="secondary" className="text-xs">
@@ -332,7 +332,7 @@ export default function ExerciseProgressTracker() {
                                           exDone === 7
                                             ? "text-primary"
                                             : exDone > 0
-                                            ? "text-amber-600"
+                                            ? "text-primary"
                                             : "text-muted-foreground/40"
                                         }`}
                                       >

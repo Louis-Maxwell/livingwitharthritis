@@ -95,7 +95,7 @@ const DonationBanner = () => {
               <button
                 onClick={() => handleRecurringToggle(true)}
                 className={`px-3 h-7 rounded-full text-[11px] font-bold tracking-wide transition-all ${
-                  recurring ? "bg-emerald-600 text-white" : "text-white/60 hover:text-white/80"
+                  recurring ? "bg-primary text-white" : "text-white/60 hover:text-white/80"
                 }`}
               >
                 Monthly
@@ -113,7 +113,7 @@ const DonationBanner = () => {
                   className={`${
                     selectedQuickAmount === value
                       ? recurring
-                        ? "bg-emerald-600 text-white hover:bg-emerald-700"
+                        ? "bg-primary text-white hover:bg-primary"
                         : "bg-primary text-primary-foreground hover:bg-primary/90"
                       : "bg-white/10 text-white/80 border-white/10 hover:bg-white/20 hover:text-white"
                   } font-semibold text-xs h-8 px-3 rounded-full transition-all duration-300`}
@@ -154,7 +154,7 @@ const DonationBanner = () => {
                 onClick={handleDonate}
                 disabled={!amount && !selectedQuickAmount}
                 className={`flex-1 h-9 text-[11px] font-bold tracking-widest rounded-full ${
-                  recurring ? "bg-emerald-600 hover:bg-emerald-700 text-white" : "btn-primary-cta"
+                  recurring ? "bg-primary hover:bg-primary text-white" : "btn-primary-cta"
                 }`}
               >
                 {recurring ? "SUBSCRIBE" : "DONATE NOW"}
@@ -162,7 +162,7 @@ const DonationBanner = () => {
               <Button
                 size="sm"
                 onClick={() => navigate("/zakat-appeal")}
-                className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 h-9 text-[11px] font-bold tracking-widest rounded-full"
+                className="bg-primary hover:bg-primary text-white px-4 h-9 text-[11px] font-bold tracking-widest rounded-full"
               >
                 ZAKAT
               </Button>
@@ -187,7 +187,7 @@ const DonationBanner = () => {
               <button
                 onClick={() => handleRecurringToggle(true)}
                 className={`px-3 h-7 rounded-full text-[11px] font-bold tracking-wide transition-all ${
-                  recurring ? "bg-emerald-600 text-white" : "text-white/60 hover:text-white/80"
+                  recurring ? "bg-primary text-white" : "text-white/60 hover:text-white/80"
                 }`}
               >
                 Monthly
@@ -230,7 +230,7 @@ const DonationBanner = () => {
                   className={`${
                     selectedQuickAmount === value
                       ? recurring
-                        ? "bg-emerald-600 text-white hover:bg-emerald-700"
+                        ? "bg-primary text-white hover:bg-primary"
                         : "bg-primary text-primary-foreground hover:bg-primary/90"
                       : "bg-white/10 text-white/80 border-white/10 hover:bg-white/20 hover:text-white"
                   } font-semibold text-xs h-8 px-3 rounded-full transition-all duration-300`}
@@ -258,7 +258,7 @@ const DonationBanner = () => {
               onClick={handleDonate}
               disabled={!amount && !selectedQuickAmount}
               className={`px-5 h-8 text-[11px] font-bold tracking-widest rounded-full ${
-                recurring ? "bg-emerald-600 hover:bg-emerald-700 text-white" : "btn-primary-cta"
+                recurring ? "bg-primary hover:bg-primary text-white" : "btn-primary-cta"
               }`}
             >
               {recurring ? "SUBSCRIBE" : "DONATE"}
@@ -267,7 +267,7 @@ const DonationBanner = () => {
             <Button
               size="sm"
               onClick={() => navigate("/zakat-appeal")}
-              className="bg-emerald-600 hover:bg-emerald-700 text-white px-5 h-8 text-[11px] font-bold tracking-widest rounded-full"
+              className="bg-primary hover:bg-primary text-white px-5 h-8 text-[11px] font-bold tracking-widest rounded-full"
             >
               ZAKAT APPEAL
             </Button>

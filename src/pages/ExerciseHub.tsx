@@ -36,9 +36,9 @@ const exerciseCategories = [
     subtitle: "UK Physiotherapy Guide",
     description: "Strengthen muscles around your knees to reduce pain and improve stability.",
     icon: Footprints,
-    color: "from-sky-500/15 to-blue-500/10",
-    iconColor: "text-sky-600 bg-sky-500/10",
-    borderColor: "border-sky-500/20 hover:border-sky-500/40",
+    color: "from-primary/15 to-primary/10",
+    iconColor: "text-primary bg-primary/10",
+    borderColor: "border-primary/20 hover:border-primary/40",
     href: "/blog/knee-arthritis-exercises-uk",
     exercises: [
       "Straight leg raises – 3 sets of 10",
@@ -54,9 +54,9 @@ const exerciseCategories = [
     subtitle: "Grip Strength & Dexterity",
     description: "Improve hand function and maintain grip strength with gentle exercises.",
     icon: Hand,
-    color: "from-emerald-500/15 to-teal-500/10",
-    iconColor: "text-emerald-600 bg-emerald-500/10",
-    borderColor: "border-emerald-500/20 hover:border-emerald-500/40",
+    color: "from-primary/15 to-primary/10",
+    iconColor: "text-primary bg-primary/10",
+    borderColor: "border-primary/20 hover:border-primary/40",
     href: "/blog/hand-exercises-for-arthritis",
     exercises: [
       "Finger bends – 10 reps each finger",
@@ -72,9 +72,9 @@ const exerciseCategories = [
     subtitle: "Flexibility & Pain Relief",
     description: "Restore range of motion and reduce shoulder stiffness with physio-approved stretches.",
     icon: Activity,
-    color: "from-violet-500/15 to-purple-500/10",
-    iconColor: "text-violet-600 bg-violet-500/10",
-    borderColor: "border-violet-500/20 hover:border-violet-500/40",
+    color: "from-primary/15 to-primary/10",
+    iconColor: "text-primary bg-primary/10",
+    borderColor: "border-primary/20 hover:border-primary/40",
     href: "/blog/shoulder-arthritis-exercises-uk",
     exercises: [
       "Pendulum swings – 30 seconds each arm",
@@ -90,9 +90,9 @@ const exerciseCategories = [
     subtitle: "Seated Routines for All Abilities",
     description: "Safe, effective seated exercises for limited mobility or during flare-ups.",
     icon: Dumbbell,
-    color: "from-amber-500/15 to-orange-500/10",
-    iconColor: "text-amber-600 bg-amber-500/10",
-    borderColor: "border-amber-500/20 hover:border-amber-500/40",
+    color: "from-primary/15 to-primary/10",
+    iconColor: "text-primary bg-primary/10",
+    borderColor: "border-primary/20 hover:border-primary/40",
     href: "/blog/nhs-arthritis-exercises",
     exercises: [
       "Seated marching – 2 minutes",
@@ -182,8 +182,8 @@ const ExerciseHub = () => {
         </div>
         <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mt-4">
           <span className="flex items-center gap-1.5"><Shield className="w-4 h-4 text-primary" /> NHS-Aligned</span>
-          <span className="flex items-center gap-1.5"><CheckCircle className="w-4 h-4 text-emerald-600" /> Physiotherapy Approved</span>
-          <span className="flex items-center gap-1.5"><Clock className="w-4 h-4 text-amber-600" /> 10–20 min routines</span>
+          <span className="flex items-center gap-1.5"><CheckCircle className="w-4 h-4 text-primary" /> Physiotherapy Approved</span>
+          <span className="flex items-center gap-1.5"><Clock className="w-4 h-4 text-primary" /> 10–20 min routines</span>
         </div>
       </PageHero>
 
@@ -254,7 +254,7 @@ const ExerciseHub = () => {
 
                     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-4 border-t border-border/30">
                       <p className="text-sm text-muted-foreground flex items-center gap-1.5">
-                        <Star className="w-4 h-4 text-amber-500" />
+                        <Star className="w-4 h-4 text-primary" />
                         <strong>Tip:</strong> {cat.tip}
                       </p>
                       <Button asChild className="shrink-0 min-h-[44px] font-semibold">
@@ -328,7 +328,7 @@ const ExerciseHub = () => {
 
                     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-4 border-t border-border/30">
                       <p className="text-sm text-muted-foreground flex items-center gap-1.5">
-                        <Star className="w-4 h-4 text-amber-500" />
+                        <Star className="w-4 h-4 text-primary" />
                         <strong>Tip:</strong> {cat.tip}
                       </p>
                       <Button asChild className="shrink-0 min-h-[44px] font-semibold">
@@ -347,7 +347,7 @@ const ExerciseHub = () => {
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <div className="grid md:grid-cols-2 gap-10 items-center">
               <div>
-                <p className="section-label text-emerald-600 mb-3">Research Findings</p>
+                <p className="section-label text-primary mb-3">Research Findings</p>
                 <h2 className="text-2xl font-bold text-foreground mb-2">Exercise Effectiveness by Type</h2>
                 <p className="text-sm text-muted-foreground mb-6">Patients reporting improvement after 12 weeks.</p>
                 <HorizontalBar
@@ -427,7 +427,7 @@ const ExerciseHub = () => {
         </section>
 
         {/* ═══ Mid-page CTA: AI Assistant ═══ */}
-        <section className="py-12 lg:py-16 bg-gradient-to-r from-violet-500/5 via-violet-500/10 to-violet-500/5 border-y border-violet-500/10">
+        <section className="py-12 lg:py-16 bg-gradient-to-r from-primary/5 via-violet-500/10 to-primary/5 border-y border-primary/10">
           <div className="container mx-auto px-6 md:px-10 max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -435,14 +435,14 @@ const ExerciseHub = () => {
               viewport={{ once: true }}
               className="flex flex-col md:flex-row items-center gap-6 md:gap-10"
             >
-              <div className="w-16 h-16 rounded-2xl bg-violet-500/10 flex items-center justify-center shrink-0">
-                <BarChart3 className="w-8 h-8 text-violet-600" />
+              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
+                <BarChart3 className="w-8 h-8 text-primary" />
               </div>
               <div className="flex-1 text-center md:text-left">
                 <h2 className="text-xl font-bold text-foreground mb-1">Track how exercise affects your symptoms</h2>
                 <p className="text-muted-foreground text-sm">Use our Self Help Tool to explore joint-specific exercises and get personalised guidance from our AI assistant.</p>
               </div>
-              <Button asChild size="lg" className="min-h-[48px] font-semibold bg-violet-600 hover:bg-violet-700 text-white shadow-md shrink-0">
+              <Button asChild size="lg" className="min-h-[48px] font-semibold bg-primary hover:bg-primary text-white shadow-md shrink-0">
                 <Link to="/self-help">Self Help Tool <ArrowRight className="w-4 h-4 ml-2" /></Link>
               </Button>
             </motion.div>

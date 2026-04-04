@@ -113,7 +113,7 @@ const AboutUs = () => {
       <div className="min-h-screen bg-background">
         <Header />
         <PageHero
-          gradient="from-primary/8 via-background to-emerald-500/5"
+          gradient="from-primary/8 via-background to-primary/5"
           pattern="dots"
           badge={
             <div className="flex items-center gap-3 flex-wrap">

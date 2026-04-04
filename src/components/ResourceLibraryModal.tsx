@@ -26,8 +26,8 @@ const resourceCategories = [
   {
     category: "NHS & Medical",
     icon: Stethoscope,
-    color: "bg-blue-500/10 text-blue-600",
-    badgeColor: "bg-blue-600 text-white",
+    color: "bg-primary/10 text-primary",
+    badgeColor: "bg-primary text-white",
     items: [
       { name: "NHS Arthritis Overview", url: "https://www.nhs.uk/conditions/arthritis/", type: "Guide", desc: "Comprehensive NHS guide covering symptoms, diagnosis and treatment" },
       { name: "Find NHS Services Near You", url: "https://www.nhs.uk/service-search", type: "Tool", desc: "Locate physiotherapy, rheumatology and pain clinics in your area" },
@@ -39,8 +39,8 @@ const resourceCategories = [
   {
     category: "Benefits & Legal Rights",
     icon: PoundSterling,
-    color: "bg-emerald-500/10 text-emerald-600",
-    badgeColor: "bg-emerald-600 text-white",
+    color: "bg-primary/10 text-primary",
+    badgeColor: "bg-primary text-white",
     items: [
       { name: "Personal Independence Payment (PIP)", url: "https://www.gov.uk/pip", type: "Gov.uk", desc: "Check eligibility and apply for disability living support" },
       { name: "Attendance Allowance", url: "https://www.gov.uk/attendance-allowance", type: "Gov.uk", desc: "Financial help for over-65s with care needs due to disability" },
@@ -53,8 +53,8 @@ const resourceCategories = [
   {
     category: "Charities & Support Groups",
     icon: Users,
-    color: "bg-violet-500/10 text-violet-600",
-    badgeColor: "bg-violet-600 text-white",
+    color: "bg-primary/10 text-primary",
+    badgeColor: "bg-primary text-white",
     items: [
       { name: "Versus Arthritis", url: "https://www.versusarthritis.org/", type: "Charity", desc: "UK's largest arthritis charity — research, support and campaigns" },
       { name: "Arthritis Action – Self-Management", url: "https://www.arthritisaction.org.uk/", type: "Charity", desc: "Practical self-management support and local group meetings" },
@@ -66,8 +66,8 @@ const resourceCategories = [
   {
     category: "Exercise & Movement",
     icon: Dumbbell,
-    color: "bg-orange-500/10 text-orange-600",
-    badgeColor: "bg-orange-600 text-white",
+    color: "bg-primary/10 text-primary",
+    badgeColor: "bg-primary text-white",
     items: [
       { name: "Low-Impact Exercises for OA", url: "#exercises", type: "Guide", desc: "Gentle joint-friendly exercises for osteoarthritis pain relief" },
       { name: "Swimming & Water Aerobics", url: "#exercises", type: "Exercise", desc: "Buoyancy-supported movement that's easy on joints" },
@@ -79,8 +79,8 @@ const resourceCategories = [
   {
     category: "Nutrition & Anti-Inflammatory Diet",
     icon: Apple,
-    color: "bg-green-500/10 text-green-600",
-    badgeColor: "bg-green-600 text-white",
+    color: "bg-primary/10 text-primary",
+    badgeColor: "bg-primary text-white",
     items: [
       { name: "Mediterranean Diet for Arthritis", url: "#nutrition", type: "Diet", desc: "The gold-standard anti-inflammatory eating pattern for joint health" },
       { name: "Anti-Inflammatory Foods Guide", url: "#nutrition", type: "Guide", desc: "Key foods that reduce inflammation: oily fish, berries, olive oil, nuts" },
@@ -104,8 +104,8 @@ const resourceCategories = [
   {
     category: "Treatments & Medication",
     icon: Pill,
-    color: "bg-cyan-500/10 text-cyan-600",
-    badgeColor: "bg-cyan-600 text-white",
+    color: "bg-primary/10 text-primary",
+    badgeColor: "bg-primary text-white",
     items: [
       { name: "Turmeric & Curcumin Evidence", url: "#treatments", type: "Research", desc: "Systematic review of curcumin's anti-inflammatory effects on joints" },
       { name: "Ginger for Joint Pain Relief", url: "#treatments", type: "Research", desc: "Clinical evidence on gingerols reducing OA pain and stiffness" },
