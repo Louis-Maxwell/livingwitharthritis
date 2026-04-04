@@ -143,8 +143,13 @@ serve(async (req) => {
 
     // Send admin notification email
     try {
-      await supabase.functions.invoke('send-transactional-email', {
-        body: {
+      const emailRes = await fetch(`${supabaseUrl}/functions/v1/send-transactional-email`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${supabaseServiceKey}`,
+        },
+        body: JSON.stringify({
           templateName: 'fundraising-admin-notification',
           recipientEmail: ADMIN_EMAIL,
           idempotencyKey: `fundraising-admin-${data.id}`,
@@ -156,9 +161,14 @@ serve(async (req) => {
             organizationName: inquiry!.organizationName || undefined,
             message: inquiry!.message || undefined,
           },
-        },
+        }),
       });
-      console.log("Admin notification email queued for fundraising:", data.id);
+      const emailBody = await emailRes.text();
+      if (!emailRes.ok) {
+        console.error("Admin notification email failed:", emailRes.status, emailBody);
+      } else {
+        console.log("Admin notification email queued for fundraising:", data.id);
+      }
     } catch (emailErr) {
       console.error("Admin notification email error:", emailErr);
     }

@@ -121,8 +121,13 @@ serve(async (req) => {
     // Send donation confirmation email if we have a donor email
     if (customerEmail) {
       try {
-        const { error: emailError } = await supabase.functions.invoke('send-transactional-email', {
-          body: {
+        const emailRes = await fetch(`${supabaseUrl}/functions/v1/send-transactional-email`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${supabaseServiceKey}`,
+          },
+          body: JSON.stringify({
             templateName: 'donation-confirmation',
             recipientEmail: customerEmail,
             idempotencyKey: `donation-confirm-${donationRecord.id}`,
@@ -133,10 +138,11 @@ serve(async (req) => {
               fundType,
               giftAid,
             },
-          },
+          }),
         });
-        if (emailError) {
-          console.error("[WEBHOOK] Failed to send confirmation email:", emailError);
+        const emailBody = await emailRes.text();
+        if (!emailRes.ok) {
+          console.error("[WEBHOOK] Failed to send confirmation email:", emailRes.status, emailBody);
         } else {
           console.log(`[WEBHOOK] Confirmation email queued for ${customerEmail}`);
         }
