@@ -1,7 +1,8 @@
 import { useState, lazy, Suspense } from "react";
 import { X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
-import robotImg from "@/assets/robot-assistant.png";
+import RobotIcon from "@/components/icons/RobotIcon";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 // Only load ChatBot (and its react-markdown dependency) when user opens the widget
 const ChatBot = lazy(() => import("@/components/ChatBot").then(m => ({ default: m.ChatBot })));
@@ -12,23 +13,34 @@ export default function ChatBotWidget() {
   return (
     <>
       {/* Floating button */}
-      <button
-        onClick={() => setOpen((v) => !v)}
-        aria-label={open ? "Close chat" : "Open chat"}
-        className="fixed bottom-[88px] right-4 z-50 h-16 w-16 rounded-full bg-white text-primary shadow-xl hover:shadow-2xl active:scale-95 hover:scale-105 transition-all duration-200 flex items-center justify-center lg:bottom-8 lg:right-8 border-2 border-primary/20 overflow-hidden"
-      >
-        <AnimatePresence mode="wait" initial={false}>
-          {open ? (
-            <motion.span key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
-              <X className="h-6 w-6" />
-            </motion.span>
-          ) : (
-            <motion.span key="open" initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.8, opacity: 0 }} transition={{ duration: 0.15 }}>
-              <img src={robotImg} alt="Chat assistant" className="h-12 w-12 object-contain" />
-            </motion.span>
-          )}
-        </AnimatePresence>
-      </button>
+      <TooltipProvider delayDuration={300}>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <button
+              onClick={() => setOpen((v) => !v)}
+              aria-label={open ? "Close chat" : "Open chat"}
+              className="fixed bottom-[88px] right-4 z-50 h-16 w-16 rounded-full bg-white text-primary shadow-xl hover:shadow-2xl active:scale-95 hover:scale-105 transition-all duration-200 flex items-center justify-center lg:bottom-8 lg:right-8 border-2 border-primary/20 overflow-hidden group"
+            >
+              {/* Pulse ring */}
+              {!open && <span className="absolute inset-0 rounded-full animate-ping bg-primary/10 pointer-events-none" style={{ animationDuration: '2.5s' }} />}
+              <AnimatePresence mode="wait" initial={false}>
+                {open ? (
+                  <motion.span key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
+                    <X className="h-6 w-6" />
+                  </motion.span>
+                ) : (
+                  <motion.span key="open" initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.8, opacity: 0 }} transition={{ duration: 0.15 }}>
+                    <RobotIcon size={44} />
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </button>
+          </TooltipTrigger>
+          <TooltipContent side="left" className="text-xs font-medium">
+            {open ? "Close chat" : "Chat with us"}
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
 
       {/* Chat panel – only loads ChatBot code when opened */}
       <AnimatePresence>
