@@ -13,7 +13,7 @@ import type { Tables } from "@/integrations/supabase/types";
 type Appointment = Tables<"appointments">;
 
 const statusColors: Record<string, string> = {
-  pending: "bg-amber-500/15 text-amber-700 border-amber-200",
+  pending: "bg-primary/15 text-primary border-primary",
   confirmed: "bg-secondary/15 text-secondary border-secondary/30",
   cancelled: "bg-destructive/15 text-destructive border-destructive/30",
   completed: "bg-primary/15 text-primary border-primary/30",
@@ -186,7 +186,7 @@ export default function BookingDiary() {
         </Card>
         <Card>
           <CardContent className="pt-5 pb-4 text-center">
-            <p className="text-2xl font-bold text-amber-600">{pendingCount}</p>
+            <p className="text-2xl font-bold text-primary">{pendingCount}</p>
             <p className="text-xs text-muted-foreground">Pending</p>
           </CardContent>
         </Card>
@@ -253,7 +253,7 @@ export default function BookingDiary() {
                     <span>{format(day, "d")}</span>
                     {hasAppts && (
                       <div className="flex gap-0.5">
-                        <span className={`w-1.5 h-1.5 rounded-full ${isSelected ? "bg-primary-foreground" : hasPending ? "bg-amber-500" : "bg-secondary"}`} />
+                        <span className={`w-1.5 h-1.5 rounded-full ${isSelected ? "bg-primary-foreground" : hasPending ? "bg-primary" : "bg-secondary"}`} />
                         {dayAppts.length > 1 && (
                           <span className={`text-[9px] ${isSelected ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
                             {dayAppts.length}

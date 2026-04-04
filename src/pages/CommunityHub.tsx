@@ -41,13 +41,13 @@ const communityFeatures = [
     icon: Calendar,
     title: "Live Webinars & Events",
     description: "Monthly virtual sessions with physiotherapists, dietitians and patient advocates on topics like flare management, exercise programmes and nutrition.",
-    color: "text-sky-600 bg-sky-500/10",
+    color: "text-primary bg-primary/10",
   },
   {
     icon: HandHeart,
     title: "Volunteer & Mentor",
     description: "Give back to the community as a peer mentor, event organiser or content contributor. Support others on their arthritis journey.",
-    color: "text-emerald-600 bg-emerald-500/10",
+    color: "text-primary bg-primary/10",
   },
 ];
 
@@ -269,7 +269,7 @@ const CommunityHub = () => {
                       </div>
                       <div className="flex gap-1 mb-3">
                         {[...Array(5)].map((_, j) => (
-                          <Star key={j} className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+                          <Star key={j} className="w-3.5 h-3.5 text-primary fill-primary" />
                         ))}
                       </div>
                       <p className="text-sm text-muted-foreground leading-relaxed italic">"{s.quote}"</p>
@@ -290,8 +290,8 @@ const CommunityHub = () => {
         <section id="community-features" className="py-12 lg:py-16 bg-tint-violet">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center">
-                <Globe className="w-5 h-5 text-violet-600" />
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                <Globe className="w-5 h-5 text-primary" />
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-foreground">More Community Features</h2>
@@ -329,8 +329,8 @@ const CommunityHub = () => {
         <section className="py-12 lg:py-16">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center">
-                <BookOpen className="w-5 h-5 text-amber-600" />
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                <BookOpen className="w-5 h-5 text-primary" />
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-foreground">Free Downloadable Resources</h2>
@@ -356,7 +356,7 @@ const CommunityHub = () => {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.06 }}
                 >
-                  <Card className="h-full border border-border/40 hover:border-amber-500/30 transition-all hover:shadow-md group">
+                  <Card className="h-full border border-border/40 hover:border-primary/30 transition-all hover:shadow-md group">
                     <CardContent className="p-5 flex flex-col h-full">
                       <span className="text-2xl mb-3 block" aria-hidden="true">{r.icon}</span>
                       <h3 className="font-semibold text-foreground text-sm mb-1">{r.title}</h3>
@@ -366,7 +366,7 @@ const CommunityHub = () => {
                         <Button
                           size="sm"
                           variant="outline"
-                          className="text-xs h-8 gap-1.5 border-amber-500/30 text-amber-700 hover:bg-amber-50 hover:text-amber-800 min-h-[44px]"
+                          className="text-xs h-8 gap-1.5 border-primary/30 text-primary hover:bg-primary hover:text-primary min-h-[44px]"
                           onClick={r.onDownload}
                           aria-label={`Download ${r.title} PDF`}
                         >

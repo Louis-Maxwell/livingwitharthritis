@@ -116,7 +116,7 @@ export function ChatBot() {
           <div>
             <h3 className="font-semibold text-sm text-white leading-tight">Arthritis AI</h3>
             <div className="flex items-center gap-1">
-              <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <div className="w-1.5 h-1.5 rounded-full bg-primary" />
               <span className="text-[10px] text-white/60">
                 {isLoading ? "Typing…" : "Online"}
               </span>

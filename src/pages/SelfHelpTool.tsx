@@ -93,7 +93,7 @@ export default function SelfHelpTool() {
           </div>
 
           <div className="mt-6 flex items-center gap-3">
-            <Badge className="bg-emerald-500/10 text-emerald-700 border-emerald-200 border text-xs">
+            <Badge className="bg-primary/10 text-primary border-primary border text-xs">
               HCPC Registered
             </Badge>
             <Badge className="bg-sky/10 text-sky border-sky/20 border text-xs">

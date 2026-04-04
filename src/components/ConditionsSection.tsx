@@ -29,9 +29,9 @@ const DiagnosisFlowChart = memo(() => (
       {[
         { step: "1", title: "Symptoms Appear", desc: "Joint pain, stiffness, swelling or fatigue", color: "bg-primary/10 text-primary border-primary/20" },
         { step: "2", title: "Visit Your GP", desc: "Physical examination, medical history review", color: "bg-secondary/10 text-secondary border-secondary/20" },
-        { step: "3", title: "Diagnostic Tests", desc: "Blood tests, X-rays, MRI scans, ultrasound", color: "bg-emerald-500/10 text-emerald-600 border-emerald-500/20" },
-        { step: "4", title: "Specialist Referral", desc: "Rheumatologist assessment and diagnosis", color: "bg-amber-500/10 text-amber-600 border-amber-500/20" },
-        { step: "5", title: "Treatment Plan", desc: "Personalised therapy: exercise, diet, medication", color: "bg-purple-500/10 text-purple-600 border-purple-500/20" },
+        { step: "3", title: "Diagnostic Tests", desc: "Blood tests, X-rays, MRI scans, ultrasound", color: "bg-primary/10 text-primary border-primary/20" },
+        { step: "4", title: "Specialist Referral", desc: "Rheumatologist assessment and diagnosis", color: "bg-primary/10 text-primary border-primary/20" },
+        { step: "5", title: "Treatment Plan", desc: "Personalised therapy: exercise, diet, medication", color: "bg-primary/10 text-primary border-purple-500/20" },
       ].map((item, i) => (
         <div key={item.step} className="flex items-start gap-4 mb-1 last:mb-0">
           {/* Connector line */}

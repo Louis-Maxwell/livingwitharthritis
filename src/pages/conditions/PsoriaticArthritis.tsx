@@ -114,13 +114,13 @@ const PsoriaticArthritis = () => (
       <PageBreadcrumb segments={[{ label: "Conditions", href: "/#conditions" }, { label: "Psoriatic Arthritis" }]} />
       <PageHero
         badge={
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/10 text-violet-600 text-xs font-bold tracking-wider uppercase border border-violet-500/20">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-wider uppercase border border-primary/20">
             <Fingerprint className="w-3.5 h-3.5" /> Joint & Skin Condition
           </span>
         }
         title={<>Psoriatic <span className="text-gradient">Arthritis</span></>}
         subtitle="Psoriatic arthritis (PsA) affects up to 30% of people with psoriasis in the UK — an estimated 150,000 people. It causes joint inflammation alongside skin symptoms and requires early treatment to prevent permanent joint damage."
-        gradient="from-violet-500/8 via-background to-rose-500/5"
+        gradient="from-primary/8 via-background to-rose-500/5"
         pattern="diagonal"
       >
         <Link to="/#conditions" className="text-primary text-sm font-medium inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
@@ -130,7 +130,7 @@ const PsoriaticArthritis = () => (
       {/* ─── PsA Key Stats ─── */}
       <section className="py-12 lg:py-16 bg-tint-violet">
         <div className="container mx-auto px-6 md:px-10 max-w-4xl">
-          <p className="section-label text-violet-600 mb-6">Psoriatic Arthritis at a Glance</p>
+          <p className="section-label text-primary mb-6">Psoriatic Arthritis at a Glance</p>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             <StatCounter value="150K" label="People with PsA in the UK" icon={<Users className="w-6 h-6" />} color="violet" />
             <StatCounter value="30" suffix="%" label="Of psoriasis patients develop PsA" icon={<Percent className="w-6 h-6" />} color="amber" />

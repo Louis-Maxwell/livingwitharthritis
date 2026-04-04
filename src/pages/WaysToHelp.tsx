@@ -528,7 +528,7 @@ export default function WaysToHelp() {
                       <Button
                         type="submit"
                         disabled={submitting}
-                        className="w-full h-12 rounded-full text-sm font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-md"
+                        className="w-full h-12 rounded-full text-sm font-bold bg-primary hover:bg-primary text-white shadow-md"
                       >
                         {submitting ? (
                           <div className="flex items-center gap-2">

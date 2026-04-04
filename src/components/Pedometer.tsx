@@ -145,8 +145,8 @@ const Pedometer = () => {
     <section className="py-12 lg:py-16">
       <div className="container mx-auto px-6 md:px-10 max-w-4xl">
         <div className="flex items-center gap-3 mb-8">
-          <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center">
-            <Footprints className="w-5 h-5 text-emerald-600" />
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <Footprints className="w-5 h-5 text-primary" />
           </div>
           <div>
             <h2 className="text-2xl font-bold text-foreground">Step Counter</h2>
@@ -156,7 +156,7 @@ const Pedometer = () => {
 
         <div className="grid md:grid-cols-2 gap-6">
           {/* Main counter */}
-          <Card className="border border-border/40 bg-gradient-to-br from-emerald-500/5 to-teal-500/5">
+          <Card className="border border-border/40 bg-gradient-to-br from-primary/5 to-primary/5">
             <CardContent className="p-6 flex flex-col items-center gap-6">
               <ProgressRing
                 percent={goalPercent}
@@ -171,7 +171,7 @@ const Pedometer = () => {
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  className="flex items-center gap-2 text-amber-600"
+                  className="flex items-center gap-2 text-primary"
                 >
                   <Trophy className="w-5 h-5" />
                   <span className="text-sm font-bold">Goal reached! 🎉</span>
@@ -180,25 +180,25 @@ const Pedometer = () => {
 
               <div className="grid grid-cols-3 gap-4 w-full">
                 <div className="text-center p-3 rounded-xl bg-background/60 border border-border/30">
-                  <Flame className="w-4 h-4 text-amber-500 mx-auto mb-1" />
+                  <Flame className="w-4 h-4 text-primary mx-auto mb-1" />
                   <p className="stat-number text-lg">{calories}</p>
                   <p className="text-[10px] text-muted-foreground">kcal</p>
                 </div>
                 <div className="text-center p-3 rounded-xl bg-background/60 border border-border/30">
-                  <TrendingUp className="w-4 h-4 text-sky-500 mx-auto mb-1" />
+                  <TrendingUp className="w-4 h-4 text-primary mx-auto mb-1" />
                   <p className="stat-number text-lg">{distance}</p>
                   <p className="text-[10px] text-muted-foreground">km</p>
                 </div>
                 <div className="text-center p-3 rounded-xl bg-background/60 border border-border/30">
-                  <Target className="w-4 h-4 text-violet-500 mx-auto mb-1" />
+                  <Target className="w-4 h-4 text-primary mx-auto mb-1" />
                   <p className="stat-number text-lg">{goalPercent}%</p>
                   <p className="text-[10px] text-muted-foreground">of goal</p>
                 </div>
               </div>
 
               {sensorAvailable === false ? (
-                <div className="text-center p-4 rounded-xl bg-amber-500/10 border border-amber-500/20">
-                  <p className="text-sm text-amber-700 font-medium">
+                <div className="text-center p-4 rounded-xl bg-primary/10 border border-primary/20">
+                  <p className="text-sm text-primary font-medium">
                     📱 Motion sensors not available on this device. Open this page on your mobile phone to use the step counter.
                   </p>
                 </div>
@@ -206,7 +206,7 @@ const Pedometer = () => {
                 <div className="flex gap-3 w-full">
                   <Button
                     onClick={isTracking ? stopTracking : startTracking}
-                    className={`flex-1 min-h-[44px] ${isTracking ? "bg-amber-600 hover:bg-amber-700" : "bg-emerald-600 hover:bg-emerald-700"} text-white`}
+                    className={`flex-1 min-h-[44px] ${isTracking ? "bg-primary hover:bg-primary" : "bg-primary hover:bg-primary"} text-white`}
                   >
                     {isTracking ? (
                       <><Pause className="w-4 h-4 mr-2" /> Pause</>
@@ -226,7 +226,7 @@ const Pedometer = () => {
               )}
 
               {isTracking && (
-                <Badge variant="outline" className="bg-emerald-500/10 text-emerald-700 border-emerald-500/20 animate-pulse">
+                <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20 animate-pulse">
                   ● Tracking active — keep your phone in your pocket
                 </Badge>
               )}
@@ -276,23 +276,23 @@ const Pedometer = () => {
                 <h3 className="font-bold text-foreground text-sm mb-3">🚶 Walking Tips for Arthritis</h3>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-start gap-2">
-                    <span className="text-emerald-600 mt-0.5">✓</span>
+                    <span className="text-primary mt-0.5">✓</span>
                     Aim for 6,000 steps daily — studies show this reduces knee OA disability
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-emerald-600 mt-0.5">✓</span>
+                    <span className="text-primary mt-0.5">✓</span>
                     Use supportive, cushioned footwear to absorb joint impact
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-emerald-600 mt-0.5">✓</span>
+                    <span className="text-primary mt-0.5">✓</span>
                     Walk on flat, even surfaces when possible
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-emerald-600 mt-0.5">✓</span>
+                    <span className="text-primary mt-0.5">✓</span>
                     Start with shorter walks and increase gradually over 4 weeks
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-emerald-600 mt-0.5">✓</span>
+                    <span className="text-primary mt-0.5">✓</span>
                     If joints ache afterwards, reduce distance and apply ice
                   </li>
                 </ul>

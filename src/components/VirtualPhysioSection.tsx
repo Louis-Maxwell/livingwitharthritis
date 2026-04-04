@@ -87,11 +87,11 @@ const MythCard = memo(({ item, index }: { item: PhysioMyth; index: number }) => 
 
           {/* Fact */}
           <div className="flex items-start gap-3">
-            <div className="flex-shrink-0 w-9 h-9 rounded-full bg-green-500/10 flex items-center justify-center mt-0.5">
-              <Check className="w-4.5 h-4.5 text-green-600" strokeWidth={2.5} />
+            <div className="flex-shrink-0 w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center mt-0.5">
+              <Check className="w-4.5 h-4.5 text-primary" strokeWidth={2.5} />
             </div>
             <div className="flex-1">
-              <span className="text-[10px] font-semibold text-green-600 uppercase tracking-[0.15em] mb-1 block">
+              <span className="text-[10px] font-semibold text-primary uppercase tracking-[0.15em] mb-1 block">
                 Evidence-Based Reality
               </span>
               <p className="text-muted-foreground text-sm leading-[1.8]">{item.fact}</p>
@@ -230,7 +230,7 @@ const VirtualPhysioSection = memo(() => {
 
           <div className="relative max-w-xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1.5 mb-6">
-              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               <span className="text-xs font-medium text-white/80">Appointments available this week</span>
             </div>
 

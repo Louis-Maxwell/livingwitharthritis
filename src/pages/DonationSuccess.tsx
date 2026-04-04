@@ -40,9 +40,9 @@ const DonationSuccess = () => {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                className="mx-auto w-20 h-20 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center"
+                className="mx-auto w-20 h-20 rounded-full bg-primary dark:bg-primary/30 flex items-center justify-center"
               >
-                <CheckCircle className="w-10 h-10 text-emerald-600" />
+                <CheckCircle className="w-10 h-10 text-primary" />
               </motion.div>
 
               <div className="space-y-2">
@@ -52,7 +52,7 @@ const DonationSuccess = () => {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-emerald-500/20 bg-emerald-50 dark:bg-emerald-900/10 p-5 space-y-3">
+              <div className="rounded-2xl border border-primary/20 bg-primary dark:bg-primary/10 p-5 space-y-3">
                 <div className="flex items-center justify-center gap-2">
                   <Heart className="w-5 h-5 text-primary" />
                   <p className="font-semibold text-foreground">Your impact matters</p>

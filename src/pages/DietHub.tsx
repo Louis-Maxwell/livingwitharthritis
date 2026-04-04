@@ -32,9 +32,9 @@ const dietSections = [
     subtitle: "Reduce Joint Inflammation Naturally",
     description: "Whole foods rich in omega-3s, antioxidants and fibre that lower inflammatory markers like CRP and IL-6.",
     icon: Leaf,
-    color: "from-emerald-500/15 to-teal-500/10",
-    iconColor: "text-emerald-600 bg-emerald-500/10",
-    borderColor: "border-emerald-500/20 hover:border-emerald-500/40",
+    color: "from-primary/15 to-primary/10",
+    iconColor: "text-primary bg-primary/10",
+    borderColor: "border-primary/20 hover:border-primary/40",
     href: "/blog/best-diet-for-joint-pain-uk",
     goodFoods: [
       "Oily fish (salmon, mackerel, sardines) – omega-3s",
@@ -70,9 +70,9 @@ const dietSections = [
     subtitle: "The Gold Standard for Arthritis",
     description: "The most studied eating pattern for arthritis — strong evidence for reduced pain, stiffness and inflammation.",
     icon: Fish,
-    color: "from-sky-500/15 to-blue-500/10",
-    iconColor: "text-sky-600 bg-sky-500/10",
-    borderColor: "border-sky-500/20 hover:border-sky-500/40",
+    color: "from-primary/15 to-primary/10",
+    iconColor: "text-primary bg-primary/10",
+    borderColor: "border-primary/20 hover:border-primary/40",
     href: "/blog/best-diet-for-joint-pain-uk",
     mealPlan: [
       { meal: "Breakfast", example: "Greek yoghurt with berries, walnuts and honey" },
@@ -149,8 +149,8 @@ const DietHub = () => {
         </div>
         <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mt-4">
           <span className="flex items-center gap-1.5"><Shield className="w-4 h-4 text-primary" /> Evidence-Based</span>
-          <span className="flex items-center gap-1.5"><CheckCircle className="w-4 h-4 text-emerald-600" /> UK Nutrition Guidance</span>
-          <span className="flex items-center gap-1.5"><Apple className="w-4 h-4 text-amber-600" /> Practical Meal Plans</span>
+          <span className="flex items-center gap-1.5"><CheckCircle className="w-4 h-4 text-primary" /> UK Nutrition Guidance</span>
+          <span className="flex items-center gap-1.5"><Apple className="w-4 h-4 text-primary" /> Practical Meal Plans</span>
         </div>
       </PageHero>
 
@@ -158,7 +158,7 @@ const DietHub = () => {
         {/* ─── Nutrition Stats Banner ─── */}
         <section className="py-12 lg:py-16 bg-tint-green">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
-            <p className="section-label text-emerald-600 mb-6">Why Diet Matters</p>
+            <p className="section-label text-primary mb-6">Why Diet Matters</p>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               <StatCounter value="50" suffix="%" label="Inflammation reduction with Mediterranean diet" icon={<TrendingDown className="w-6 h-6" />} color="emerald" />
               <StatCounter value="5" suffix="%" label="Weight loss target for symptom relief" icon={<Flame className="w-6 h-6" />} color="amber" />
@@ -233,7 +233,7 @@ const DietHub = () => {
                       <div className="grid sm:grid-cols-2 gap-3 mb-5">
                         {sec.goodFoods.map((food, j) => (
                           <div key={j} className="flex items-start gap-2.5 bg-background/60 backdrop-blur-sm rounded-lg p-3 border border-border/30">
-                            <CheckCircle className="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" />
+                            <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                             <span className="text-sm text-foreground">{food}</span>
                           </div>
                         ))}
@@ -253,7 +253,7 @@ const DietHub = () => {
         </section>
 
         {/* ═══ Mid-page CTA: AI Diet Advisor ═══ */}
-        <section className="py-12 lg:py-16 bg-gradient-to-r from-emerald-500/5 via-emerald-500/10 to-emerald-500/5 border-y border-emerald-500/10">
+        <section className="py-12 lg:py-16 bg-gradient-to-r from-primary/5 via-emerald-500/10 to-primary/5 border-y border-primary/10">
           <div className="container mx-auto px-6 md:px-10 max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -261,14 +261,14 @@ const DietHub = () => {
               viewport={{ once: true }}
               className="flex flex-col md:flex-row items-center gap-6 md:gap-10"
             >
-              <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 flex items-center justify-center shrink-0">
-                <MessageCircle className="w-8 h-8 text-emerald-600" />
+              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
+                <MessageCircle className="w-8 h-8 text-primary" />
               </div>
               <div className="flex-1 text-center md:text-left">
                 <h2 className="text-xl font-bold text-foreground mb-1">Want a diet plan for your arthritis type?</h2>
                 <p className="text-muted-foreground text-sm">Our AI assistant creates personalised meal suggestions based on your condition, allergies and preferences — free and instant.</p>
               </div>
-              <Button asChild size="lg" className="min-h-[48px] font-semibold bg-emerald-600 hover:bg-emerald-700 text-white shadow-md shrink-0">
+              <Button asChild size="lg" className="min-h-[48px] font-semibold bg-primary hover:bg-primary text-white shadow-md shrink-0">
                 <Link to="/chat">Get Diet Plan <ArrowRight className="w-4 h-4 ml-2" /></Link>
               </Button>
             </motion.div>
@@ -315,7 +315,7 @@ const DietHub = () => {
                     {"mealPlan" in sec && sec.mealPlan && (
                       <div className="space-y-3 mb-5">
                         <h3 className="text-sm font-semibold text-foreground flex items-center gap-1.5">
-                          <Star className="w-4 h-4 text-amber-500" /> Sample Daily Meal Plan
+                          <Star className="w-4 h-4 text-primary" /> Sample Daily Meal Plan
                         </h3>
                         <div className="grid sm:grid-cols-2 gap-3">
                           {sec.mealPlan.map((m, j) => (
@@ -345,7 +345,7 @@ const DietHub = () => {
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <div className="grid md:grid-cols-2 gap-10 items-center">
               <div>
-                <p className="section-label text-amber-600 mb-3">Key Nutrients</p>
+                <p className="section-label text-primary mb-3">Key Nutrients</p>
                 <h2 className="text-2xl font-bold text-foreground mb-2">Anti-Inflammatory Power Foods</h2>
                 <p className="text-sm text-muted-foreground mb-6">Contribution to reducing arthritis inflammation.</p>
                 <HorizontalBar
@@ -392,7 +392,7 @@ const DietHub = () => {
         </section>
 
         {/* ═══ Mid-page CTA: Download Resources ═══ */}
-        <section className="py-12 lg:py-16 bg-gradient-to-r from-sky-500/5 via-sky-500/10 to-sky-500/5 border-y border-sky-500/10">
+        <section className="py-12 lg:py-16 bg-gradient-to-r from-primary/5 via-sky-500/10 to-primary/5 border-y border-primary/10">
           <div className="container mx-auto px-6 md:px-10 max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -400,14 +400,14 @@ const DietHub = () => {
               viewport={{ once: true }}
               className="flex flex-col md:flex-row items-center gap-6 md:gap-10"
             >
-              <div className="w-16 h-16 rounded-2xl bg-sky-500/10 flex items-center justify-center shrink-0">
-                <Download className="w-8 h-8 text-sky-600" />
+              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
+                <Download className="w-8 h-8 text-primary" />
               </div>
               <div className="flex-1 text-center md:text-left">
                 <h2 className="text-xl font-bold text-foreground mb-1">Free 7-Day Meal Plan PDF</h2>
                 <p className="text-muted-foreground text-sm">Download our anti-inflammatory meal plan with shopping list — designed by nutrition experts for arthritis patients.</p>
               </div>
-              <Button asChild size="lg" className="min-h-[48px] font-semibold bg-sky-600 hover:bg-sky-700 text-white shadow-md shrink-0">
+              <Button asChild size="lg" className="min-h-[48px] font-semibold bg-primary hover:bg-primary text-white shadow-md shrink-0">
                 <Link to="/community">Download Free <ArrowRight className="w-4 h-4 ml-2" /></Link>
               </Button>
             </motion.div>

@@ -229,7 +229,7 @@ function ThreadView({
             </>
           ) : (
             <div className="flex items-center gap-3 text-sm text-muted-foreground bg-background rounded-lg p-4 border border-border/40">
-              <AlertCircle className="w-4 h-4 text-amber-500 shrink-0" />
+              <AlertCircle className="w-4 h-4 text-primary shrink-0" />
               <span>
                 <Link to="/auth" className="text-primary font-medium hover:underline">Sign in</Link> or{" "}
                 <Link to="/auth" className="text-primary font-medium hover:underline">create an account</Link> to post a reply.
@@ -336,7 +336,7 @@ function NewTopicForm({
         </div>
 
         <div className="flex items-center gap-2 text-xs text-muted-foreground bg-background rounded-lg px-3 py-2 border border-border/40">
-          <Shield className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+          <Shield className="w-3.5 h-3.5 text-primary shrink-0" />
           All posts are reviewed against our community guidelines. Please be respectful and supportive.
         </div>
 
@@ -355,7 +355,7 @@ function NewTopicForm({
 
         {!currentUserId && (
           <div className="flex items-center gap-2 text-sm text-muted-foreground bg-background rounded-lg p-3 border border-border/40">
-            <AlertCircle className="w-4 h-4 text-amber-500 shrink-0" />
+            <AlertCircle className="w-4 h-4 text-primary shrink-0" />
             <span>
               <Link to="/auth" className="text-primary font-medium hover:underline">Sign in</Link> to post.
             </span>
@@ -441,8 +441,8 @@ export default function PeerSupportForum() {
         {/* Section header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center">
-              <MessageCircle className="w-5 h-5 text-violet-600" />
+            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+              <MessageCircle className="w-5 h-5 text-primary" />
             </div>
             <div>
               <h2 className="text-2xl font-bold text-foreground">Peer Support Forum</h2>
@@ -506,7 +506,7 @@ export default function PeerSupportForum() {
 
         {/* Moderation notice */}
         <div className="flex items-start gap-2.5 text-xs text-muted-foreground bg-background border border-border/40 rounded-lg px-4 py-3 mb-6">
-          <Shield className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
+          <Shield className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
           <span>This forum is moderated. Posts are reviewed to ensure a safe, supportive environment for all members. Please be kind and respectful.</span>
         </div>
 

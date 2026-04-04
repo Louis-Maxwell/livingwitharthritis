@@ -68,12 +68,12 @@ const POSTS_PER_PAGE = 9;
 
 const categoryColors: Record<Category, string> = {
   All: "bg-primary/10 text-primary hover:bg-primary/20 border-primary/20",
-  Exercise: "bg-violet-500/10 text-violet-700 hover:bg-violet-500/20 border-violet-500/20",
-  Nutrition: "bg-emerald-500/10 text-emerald-700 hover:bg-emerald-500/20 border-emerald-500/20",
-  Lifestyle: "bg-sky-500/10 text-sky-700 hover:bg-sky-500/20 border-sky-500/20",
+  Exercise: "bg-primary/10 text-primary hover:bg-primary/20 border-primary/20",
+  Nutrition: "bg-primary/10 text-primary hover:bg-primary/20 border-primary/20",
+  Lifestyle: "bg-primary/10 text-primary hover:bg-primary/20 border-primary/20",
   Health: "bg-rose-500/10 text-rose-700 hover:bg-rose-500/20 border-rose-500/20",
-  Supplements: "bg-amber-500/10 text-amber-700 hover:bg-amber-500/20 border-amber-500/20",
-  Treatment: "bg-teal-500/10 text-teal-700 hover:bg-teal-500/20 border-teal-500/20",
+  Supplements: "bg-primary/10 text-primary hover:bg-primary/20 border-primary/20",
+  Treatment: "bg-primary/10 text-primary hover:bg-primary/20 border-primary/20",
 };
 
 
@@ -159,11 +159,11 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
 
         {/* Hero */}
         <PageHero
-          gradient="from-violet-500/8 via-background to-rose-500/5"
+          gradient="from-primary/8 via-background to-rose-500/5"
           pattern="dots"
           badge={
             <div className="flex items-center gap-3">
-              <Badge className="bg-violet-500/10 text-violet-700 border-0 text-xs font-bold px-3 py-1.5">
+              <Badge className="bg-primary/10 text-primary border-0 text-xs font-bold px-3 py-1.5">
                 <Newspaper className="w-3 h-3 mr-1.5" />
                 {blogPosts.length} Articles
               </Badge>
@@ -269,12 +269,12 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
               >
                 {/* Colorful category top strip */}
                 <div className={`h-1.5 ${
-                  post.category === "Exercise" ? "bg-gradient-to-r from-violet-500 to-violet-400" :
-                  post.category === "Nutrition" ? "bg-gradient-to-r from-emerald-500 to-emerald-400" :
-                  post.category === "Lifestyle" ? "bg-gradient-to-r from-sky-500 to-sky-400" :
+                  post.category === "Exercise" ? "bg-gradient-to-r from-primary to-primary" :
+                  post.category === "Nutrition" ? "bg-gradient-to-r from-primary to-primary" :
+                  post.category === "Lifestyle" ? "bg-gradient-to-r from-primary to-primary" :
                   post.category === "Health" ? "bg-gradient-to-r from-rose-500 to-rose-400" :
-                  post.category === "Supplements" ? "bg-gradient-to-r from-amber-500 to-amber-400" :
-                  "bg-gradient-to-r from-teal-500 to-teal-400"
+                  post.category === "Supplements" ? "bg-gradient-to-r from-primary to-primary" :
+                  "bg-gradient-to-r from-primary to-primary"
                 }`} />
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">

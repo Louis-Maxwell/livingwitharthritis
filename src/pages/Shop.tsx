@@ -35,9 +35,9 @@ const iconMap: Record<string, React.ReactNode> = {
 
 const badgeColors: Record<string, string> = {
   "Best Seller": "bg-primary text-primary-foreground",
-  "Top Rated": "bg-amber-500 text-white",
-  "Must Have": "bg-emerald-600 text-white",
-  "Popular": "bg-blue-600 text-white",
+  "Top Rated": "bg-primary text-white",
+  "Must Have": "bg-primary text-white",
+  "Popular": "bg-primary text-white",
 };
 
 const StarRating = ({ rating, count }: { rating: number; count: number }) => (
@@ -48,9 +48,9 @@ const StarRating = ({ rating, count }: { rating: number; count: number }) => (
           key={s}
           className={`w-3.5 h-3.5 ${
             s <= Math.floor(rating)
-              ? "fill-amber-400 text-amber-400"
+              ? "fill-primary text-primary"
               : s - 0.5 <= rating
-              ? "fill-amber-400/50 text-amber-400"
+              ? "fill-primary/50 text-primary"
               : "text-muted-foreground/30"
           }`}
         />

@@ -114,13 +114,13 @@ const RheumatoidArthritis = () => (
       <PageBreadcrumb segments={[{ label: "Conditions", href: "/#conditions" }, { label: "Rheumatoid Arthritis" }]} />
       <PageHero
         badge={
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-500/10 text-sky-600 text-xs font-bold tracking-wider uppercase border border-sky-500/20">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-wider uppercase border border-primary/20">
             <Shield className="w-3.5 h-3.5" /> Autoimmune Condition
           </span>
         }
         title={<>Rheumatoid <span className="text-gradient">Arthritis</span></>}
         subtitle="Rheumatoid arthritis (RA) affects around 400,000 people in the UK. Unlike osteoarthritis, RA is an autoimmune condition where the body's immune system attacks the joints. Early diagnosis and treatment are crucial for the best outcomes."
-        gradient="from-sky-500/8 via-background to-violet-500/5"
+        gradient="from-primary/8 via-background to-primary/5"
         pattern="grid"
       >
         <Link to="/#conditions" className="text-primary text-sm font-medium inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
@@ -130,7 +130,7 @@ const RheumatoidArthritis = () => (
       {/* ─── RA Key Stats ─── */}
       <section className="py-12 lg:py-16 bg-tint-blue">
         <div className="container mx-auto px-6 md:px-10 max-w-4xl">
-          <p className="section-label text-sky-600 mb-6">Rheumatoid Arthritis at a Glance</p>
+          <p className="section-label text-primary mb-6">Rheumatoid Arthritis at a Glance</p>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             <StatCounter value="400K" label="People with RA in the UK" icon={<Users className="w-6 h-6" />} color="sky" />
             <StatCounter value="3×" label="More common in women" icon={<Heart className="w-6 h-6" />} color="rose" />

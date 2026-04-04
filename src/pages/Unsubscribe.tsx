@@ -79,7 +79,7 @@ const Unsubscribe = () => {
 
         {status === "done" && (
           <>
-            <CheckCircle2 className="h-12 w-12 text-green-600 mx-auto" />
+            <CheckCircle2 className="h-12 w-12 text-primary mx-auto" />
             <h1 className="text-2xl font-bold text-foreground">Unsubscribed</h1>
             <p className="text-muted-foreground">
               You've been successfully unsubscribed. You won't receive any more emails from us.

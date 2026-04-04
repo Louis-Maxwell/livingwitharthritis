@@ -93,13 +93,13 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
           {/* Amount display */}
           <div className={`rounded-2xl p-6 text-center border ${
             recurring
-              ? "bg-emerald-500/[0.06] border-emerald-500/10"
+              ? "bg-primary/[0.06] border-primary/10"
               : "bg-primary/[0.06] border-primary/10"
           }`}>
             <p className="text-sm text-muted-foreground mb-1">
               {recurring ? "Monthly Amount" : "Donation Amount"}
             </p>
-            <p className={`text-4xl font-bold ${recurring ? "text-emerald-600" : "text-primary"}`}>
+            <p className={`text-4xl font-bold ${recurring ? "text-primary" : "text-primary"}`}>
               {sym}{amount.toFixed(2)}
               {recurring && <span className="text-lg font-medium text-muted-foreground">/month</span>}
             </p>
@@ -113,10 +113,10 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
 
           {/* Gift Aid Calculator */}
           {currency === "GBP" && (
-            <div className="rounded-2xl border border-emerald-500/20 bg-emerald-500/[0.04] overflow-hidden">
-              <div className="flex items-center gap-2.5 px-5 py-3 bg-emerald-500/[0.06] border-b border-emerald-500/10">
-                <Gift className="w-4 h-4 text-emerald-600 shrink-0" />
-                <p className="text-sm font-semibold text-emerald-700">Boost your donation with Gift Aid</p>
+            <div className="rounded-2xl border border-primary/20 bg-primary/[0.04] overflow-hidden">
+              <div className="flex items-center gap-2.5 px-5 py-3 bg-primary/[0.06] border-b border-primary/10">
+                <Gift className="w-4 h-4 text-primary shrink-0" />
+                <p className="text-sm font-semibold text-primary">Boost your donation with Gift Aid</p>
               </div>
 
               <div className="px-5 py-4 space-y-4">
@@ -125,12 +125,12 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
                     <p className="text-[10px] text-muted-foreground uppercase tracking-wider font-medium">You give</p>
                     <p className="text-lg font-bold text-foreground">{sym}{amount.toFixed(2)}{recurring ? "/mo" : ""}</p>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-emerald-500 shrink-0" />
+                  <ArrowRight className="w-4 h-4 text-primary shrink-0" />
                   <div className="text-center px-3 py-2 rounded-xl bg-card border border-border/40">
                     <p className="text-[10px] text-muted-foreground uppercase tracking-wider font-medium">HMRC adds</p>
-                    <p className="text-lg font-bold text-emerald-600">+{sym}{giftAidBonus.toFixed(2)}</p>
+                    <p className="text-lg font-bold text-primary">+{sym}{giftAidBonus.toFixed(2)}</p>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-emerald-500 shrink-0" />
+                  <ArrowRight className="w-4 h-4 text-primary shrink-0" />
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={giftAid ? "on" : "off"}
@@ -140,12 +140,12 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
                       transition={{ duration: 0.2 }}
                       className={`text-center px-3 py-2 rounded-xl border ${
                         giftAid
-                          ? "bg-emerald-500/10 border-emerald-500/30"
+                          ? "bg-primary/10 border-primary/30"
                           : "bg-card border-border/40"
                       }`}
                     >
                       <p className="text-[10px] text-muted-foreground uppercase tracking-wider font-medium">We receive</p>
-                      <p className={`text-lg font-bold ${giftAid ? "text-emerald-600" : "text-foreground"}`}>
+                      <p className={`text-lg font-bold ${giftAid ? "text-primary" : "text-foreground"}`}>
                         {sym}{giftAid ? totalWithGiftAid.toFixed(2) : amount.toFixed(2)}
                       </p>
                     </motion.div>
@@ -156,7 +156,7 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
                   <Checkbox
                     checked={giftAid}
                     onCheckedChange={(v) => setGiftAid(v === true)}
-                    className="mt-0.5 border-emerald-500/40 data-[state=checked]:bg-emerald-600 data-[state=checked]:border-emerald-600"
+                    className="mt-0.5 border-primary/40 data-[state=checked]:bg-primary data-[state=checked]:border-primary"
                   />
                   <span className="text-xs text-muted-foreground leading-relaxed">
                     I am a UK taxpayer and understand that if I pay less Income Tax and/or Capital Gains Tax than the amount of Gift Aid claimed on all my donations, it is my responsibility to pay any difference.
@@ -178,7 +178,7 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
             disabled={isLoading}
             className={`w-full h-12 rounded-full text-base font-semibold ${
               recurring
-                ? "bg-emerald-600 hover:bg-emerald-700 text-white"
+                ? "bg-primary hover:bg-primary text-white"
                 : "btn-primary-cta"
             }`}
           >

@@ -9,17 +9,17 @@ const DONATION_OPTIONS = [
   {
     amount: "£10",
     impact: "Provides a personalised exercise plan for one patient",
-    color: "bg-emerald-500/10 border-emerald-500/20 text-emerald-700 dark:text-emerald-400",
+    color: "bg-primary/10 border-primary/20 text-primary dark:text-primary",
   },
   {
     amount: "£25",
     impact: "Funds 3 guided virtual physiotherapy sessions",
-    color: "bg-sky-500/10 border-sky-500/20 text-sky-700 dark:text-sky-400",
+    color: "bg-primary/10 border-primary/20 text-primary dark:text-primary",
   },
   {
     amount: "£50",
     impact: "Supports our AI health assistant for a week",
-    color: "bg-violet-500/10 border-violet-500/20 text-violet-700 dark:text-violet-400",
+    color: "bg-primary/10 border-primary/20 text-primary dark:text-primary",
   },
   {
     amount: "£100",
@@ -43,7 +43,7 @@ const WAYS_TO_GIVE = [
     desc: "Give your Zakat to joint health research and support",
     action: "Give Zakat",
     href: "/zakat-appeal",
-    color: "text-amber-600 bg-amber-500/10",
+    color: "text-primary bg-primary/10",
   },
   {
     icon: HandHeart,
@@ -51,7 +51,7 @@ const WAYS_TO_GIVE = [
     desc: "Run, bake, cycle or create your own fundraising event",
     action: "Start Fundraising",
     href: "/ways-to-help",
-    color: "text-emerald-600 bg-emerald-500/10",
+    color: "text-primary bg-primary/10",
   },
   {
     icon: Building2,
@@ -59,7 +59,7 @@ const WAYS_TO_GIVE = [
     desc: "Partner with us through workplace giving or sponsorship",
     action: "Learn More",
     href: "/corporate-giving",
-    color: "text-sky-600 bg-sky-500/10",
+    color: "text-primary bg-primary/10",
   },
   {
     icon: Gift,
@@ -67,7 +67,7 @@ const WAYS_TO_GIVE = [
     desc: "UK taxpayers can boost their donation by 25% at no extra cost",
     action: "Learn More",
     href: "/zakat-appeal",
-    color: "text-violet-600 bg-violet-500/10",
+    color: "text-primary bg-primary/10",
   },
   {
     icon: Users,
@@ -168,8 +168,8 @@ export default function Donate() {
           <p className="text-muted-foreground leading-relaxed mb-6">
             If you're a UK taxpayer, Gift Aid allows us to claim an extra 25p for every £1 you donate — at no extra cost to you. Simply tick the Gift Aid box when you donate. For higher-rate taxpayers, you can also claim additional tax relief through your Self Assessment.
           </p>
-          <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-emerald-500/10 border border-emerald-500/20">
-            <span className="text-sm font-semibold text-emerald-700 dark:text-emerald-400">
+          <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-primary/10 border border-primary/20">
+            <span className="text-sm font-semibold text-primary dark:text-primary">
               🎁 A £100 donation becomes £125 with Gift Aid
             </span>
           </div>

@@ -113,8 +113,8 @@ const Osteoarthritis = () => (
       <PageBreadcrumb segments={[{ label: "Conditions", href: "/#conditions" }, { label: "Osteoarthritis" }]} />
 
       {/* Decorative hero header */}
-      <div className="relative bg-gradient-to-br from-emerald-500/8 via-background to-primary/5 border-b border-border/20 overflow-hidden">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/6 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl pointer-events-none" />
+      <div className="relative bg-gradient-to-br from-primary/8 via-background to-primary/5 border-b border-border/20 overflow-hidden">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-primary/6 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-56 h-56 bg-primary/5 rounded-full translate-y-1/2 -translate-x-1/4 blur-3xl pointer-events-none" />
         <div className="absolute inset-0 pattern-dots opacity-20 pointer-events-none" />
         <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.05]" xmlns="http://www.w3.org/2000/svg">
@@ -129,7 +129,7 @@ const Osteoarthritis = () => (
           </Link>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] text-emerald-600 mb-3 bg-emerald-500/10 px-3 py-1 rounded-full">
+            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 bg-primary/10 px-3 py-1 rounded-full">
               <Activity className="w-3 h-3" /> Condition Guide
             </span>
             <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-5 leading-tight tracking-tight">
@@ -146,7 +146,7 @@ const Osteoarthritis = () => (
       {/* ─── Key Stats ─── */}
       <section className="py-12 lg:py-16 bg-tint-green">
         <div className="container mx-auto px-6 md:px-10 max-w-4xl">
-          <p className="section-label text-emerald-600 mb-6">Osteoarthritis at a Glance</p>
+          <p className="section-label text-primary mb-6">Osteoarthritis at a Glance</p>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             <StatCounter value="8.75" suffix="M" label="People affected in the UK" icon={<Users className="w-6 h-6" />} color="emerald" />
             <StatCounter value="50" suffix="+" label="Most common age of onset" icon={<Timer className="w-6 h-6" />} color="sky" />
