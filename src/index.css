@@ -109,10 +109,10 @@
     --border: 0 0% 14%;
     --input: 0 0% 14%;
     --ring: 0 72% 55%;
-    --gold: 42 78% 54%;
-    --gold-foreground: 42 40% 95%;
-    --gold-muted: 42 30% 25%;
-    --amber: 30 72% 52%;
+    --gold: 1 60% 55%;
+    --gold-foreground: 0 0% 100%;
+    --gold-muted: 1 25% 25%;
+    --amber: 1 65% 52%;
     --navy: 0 0% 6%;
     --navy-foreground: 0 0% 100%;
     --warm: 0 0% 7%;
