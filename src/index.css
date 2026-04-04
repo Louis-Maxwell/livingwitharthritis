@@ -36,35 +36,35 @@
     --input: 0 0% 91%;
     --ring: 1 85% 54%;
 
-    --gold: 42 78% 48%;
-    --gold-foreground: 42 40% 10%;
-    --gold-muted: 42 35% 88%;
-    --amber: 30 72% 48%;
+    --gold: 1 70% 50%;
+    --gold-foreground: 0 0% 100%;
+    --gold-muted: 1 30% 92%;
+    --amber: 1 75% 48%;
 
-    --navy: 0 0% 10%;
+    --navy: 1 85% 20%;
     --navy-foreground: 0 0% 100%;
 
     /* Pure white section variation */
     --warm: 0 0% 98%;
 
-    /* Subtle neutral tints */
+    /* Subtle neutral tints — all near-white */
     --tint-blue: 0 0% 97%;
     --tint-green: 0 0% 97%;
-    --tint-amber: 0 0% 97%;
+    --tint-amber: 0 5% 97%;
     --tint-rose: 0 5% 97%;
     --tint-violet: 0 0% 97%;
     --tint-cyan: 0 0% 97%;
-    --tint-peach: 0 0% 97%;
+    --tint-peach: 0 3% 97%;
     --tint-mint: 0 0% 97%;
     --tint-lavender: 0 0% 97%;
-    --tint-coral: 0 0% 97%;
+    --tint-coral: 0 5% 97%;
 
-    /* Accent colors — muted for clean look */
-    --emerald: 160 50% 34%;
-    --sky: 205 65% 42%;
-    --violet: 260 45% 45%;
-    --coral: 12 55% 50%;
-    --teal: 180 40% 32%;
+    /* Accent colors — all mapped to red variants */
+    --emerald: 1 75% 44%;
+    --sky: 1 70% 50%;
+    --violet: 350 65% 48%;
+    --coral: 5 70% 52%;
+    --teal: 355 60% 42%;
 
     /* Clean shadow system */
     --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.03);
