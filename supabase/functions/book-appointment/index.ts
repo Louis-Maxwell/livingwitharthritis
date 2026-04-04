@@ -259,81 +259,38 @@ serve(async (req) => {
       );
     }
 
-    // Send emails (admin + patient confirmation)
-    const resendApiKey = Deno.env.get("RESEND_API_KEY");
-    if (resendApiKey) {
-      const safeName = escapeHtml(appointment!.name);
-      const safeEmail = escapeHtml(appointment!.email);
-      const safePhone = escapeHtml(appointment!.phone || "Not provided");
-      const safeNotes = escapeHtml(appointment!.notes || "None");
+    // Send admin notification email via transactional email system
+    try {
       const typeLabel = appointment!.appointmentType.charAt(0).toUpperCase() + appointment!.appointmentType.slice(1);
       const dateFormatted = new Date(appointment!.preferredDate + "T00:00:00").toLocaleDateString("en-GB", {
         weekday: "long", day: "numeric", month: "long", year: "numeric",
       });
 
-      // Admin notification
-      try {
-        await fetch("https://api.resend.com/emails", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Authorization: `Bearer ${resendApiKey}` },
-          body: JSON.stringify({
-            from: "Appointments <onboarding@resend.dev>",
-            to: ["info@livingwitharthritis.org.uk"],
-            subject: `New Booking: ${safeName} - ${typeLabel} on ${dateFormatted}`,
-            html: `
-              <h2>New Appointment Booking</h2>
-              <table style="border-collapse:collapse;width:100%;max-width:500px;">
-                <tr><td style="padding:8px;font-weight:bold;">Patient:</td><td style="padding:8px;">${safeName}</td></tr>
-                <tr><td style="padding:8px;font-weight:bold;">Email:</td><td style="padding:8px;">${safeEmail}</td></tr>
-                <tr><td style="padding:8px;font-weight:bold;">Phone:</td><td style="padding:8px;">${safePhone}</td></tr>
-                <tr><td style="padding:8px;font-weight:bold;">Type:</td><td style="padding:8px;">${typeLabel}</td></tr>
-                <tr><td style="padding:8px;font-weight:bold;">Date:</td><td style="padding:8px;">${dateFormatted}</td></tr>
-                <tr><td style="padding:8px;font-weight:bold;">Time:</td><td style="padding:8px;">${appointment!.preferredTime}</td></tr>
-                <tr><td style="padding:8px;font-weight:bold;">Notes:</td><td style="padding:8px;">${safeNotes}</td></tr>
-              </table>
-              <p style="margin-top:16px;color:#666;">Log in to the admin dashboard to manage this appointment.</p>
-            `,
-          }),
-        });
-      } catch (e) {
-        console.error("Admin email error:", e instanceof Error ? e.message : "Unknown");
+      const emailRes = await fetch(`${supabaseUrl}/functions/v1/send-transactional-email`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${supabaseServiceKey}`,
+        },
+        body: JSON.stringify({
+          templateName: 'contact-admin-notification',
+          recipientEmail: 'info@livingwitharthritis.org.uk',
+          idempotencyKey: `appointment-admin-${data.id}`,
+          templateData: {
+            name: appointment!.name,
+            email: appointment!.email,
+            phone: appointment!.phone || 'Not provided',
+            subject: `New Appointment Booking: ${typeLabel}`,
+            message: `Type: ${typeLabel}\nDate: ${dateFormatted}\nTime: ${appointment!.preferredTime}\nNotes: ${appointment!.notes || 'None'}`,
+          },
+        }),
+      });
+      const emailBody = await emailRes.text();
+      if (!emailRes.ok) {
+        console.error("Admin email error:", emailRes.status, emailBody);
       }
-
-      // Patient confirmation email
-      try {
-        await fetch("https://api.resend.com/emails", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Authorization: `Bearer ${resendApiKey}` },
-          body: JSON.stringify({
-            from: "Living with Arthritis <onboarding@resend.dev>",
-            to: [appointment!.email],
-            subject: `Appointment Booking Confirmation - ${dateFormatted}`,
-            html: `
-              <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;padding:20px;">
-                <div style="background:linear-gradient(135deg,#0ea5e9,#6366f1);padding:24px;border-radius:12px 12px 0 0;">
-                  <h1 style="color:white;margin:0;font-size:22px;">Appointment Confirmed</h1>
-                </div>
-                <div style="background:#f9fafb;padding:24px;border:1px solid #e5e7eb;border-top:none;border-radius:0 0 12px 12px;">
-                  <p style="color:#374151;font-size:16px;">Dear ${safeName},</p>
-                  <p style="color:#374151;font-size:14px;">Thank you for booking with Living with Arthritis. Your appointment has been received and is pending confirmation.</p>
-                  <div style="background:white;border:1px solid #e5e7eb;border-radius:8px;padding:16px;margin:16px 0;">
-                    <h3 style="margin:0 0 12px;color:#1f2937;font-size:16px;">Booking Details</h3>
-                    <p style="margin:4px 0;color:#374151;font-size:14px;"><strong>Type:</strong> ${typeLabel}</p>
-                    <p style="margin:4px 0;color:#374151;font-size:14px;"><strong>Date:</strong> ${dateFormatted}</p>
-                    <p style="margin:4px 0;color:#374151;font-size:14px;"><strong>Time:</strong> ${appointment!.preferredTime}</p>
-                    <p style="margin:4px 0;color:#374151;font-size:14px;"><strong>Reference:</strong> ${data.id.slice(0, 8).toUpperCase()}</p>
-                  </div>
-                  <p style="color:#6b7280;font-size:13px;">We will contact you shortly to confirm your appointment. If you need to make changes, please get in touch.</p>
-                  <hr style="border:none;border-top:1px solid #e5e7eb;margin:24px 0;" />
-                  <p style="color:#9ca3af;font-size:12px;margin:0;">Living with Arthritis Clinic · This is an automated message.</p>
-                </div>
-              </div>
-            `,
-          }),
-        });
-      } catch (e) {
-        console.error("Patient email error:", e instanceof Error ? e.message : "Unknown");
-      }
+    } catch (e) {
+      console.error("Admin email error:", e instanceof Error ? e.message : "Unknown");
     }
 
     return new Response(
