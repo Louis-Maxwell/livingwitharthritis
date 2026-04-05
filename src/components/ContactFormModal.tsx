@@ -78,7 +78,7 @@ export function ContactFormModal({ trigger }: ContactFormModalProps) {
                 exit={{ opacity: 0, scale: 0.9 }}
                 className="flex flex-col items-center justify-center py-10 gap-4"
               >
-                <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
                   <CheckCircle2 className="w-8 h-8 text-primary" />
                 </div>
                 <p className="text-lg font-semibold text-foreground">Message Sent!</p>

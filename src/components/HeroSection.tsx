@@ -80,13 +80,13 @@ const HeroSection = memo(() => {
               </div>
 
               {/* Trust badges */}
-              <div className="hero-item flex items-center justify-center lg:justify-start gap-6 mt-12">
+              <div className="hero-item flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 mt-8 sm:mt-12">
                 {trustBadges.map((badge) => {
                   const Icon = badge.icon;
                   return (
-                    <div key={badge.label} className="flex items-center gap-2 text-muted-foreground/50">
-                      <Icon className="w-3.5 h-3.5" />
-                      <span className="text-[10px] font-bold tracking-[0.18em] uppercase">{badge.label}</span>
+                    <div key={badge.label} className="flex items-center gap-1.5 sm:gap-2 text-muted-foreground/50">
+                      <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                      <span className="text-[9px] sm:text-[10px] font-bold tracking-[0.15em] sm:tracking-[0.18em] uppercase">{badge.label}</span>
                     </div>
                   );
                 })}
