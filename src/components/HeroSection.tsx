@@ -40,7 +40,7 @@ const HeroSection = memo(() => {
                 </span>
               </div>
 
-              <h1 className="hero-item text-[2rem] sm:text-[2.75rem] md:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem] font-display font-bold text-foreground mb-8 leading-[1.04] tracking-tight text-balance">
+              <h1 className="hero-item text-[1.75rem] sm:text-[2.75rem] md:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem] font-display font-bold text-foreground mb-6 sm:mb-8 leading-[1.08] tracking-tight text-balance">
                 1 in 6 people in the UK{" "}
                 <br className="hidden sm:block" />
                 live with arthritis.{" "}
