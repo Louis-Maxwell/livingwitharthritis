@@ -10,7 +10,7 @@ import BlogHelpfulness from "@/components/BlogHelpfulness";
 import RelatedArticles from "@/components/RelatedArticles";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
-import { Badge } from "@/components/ui/badge";
+
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import ScrollProgress from "@/components/ScrollProgress";
 import ContinueReadingBar from "@/components/ContinueReadingBar";
