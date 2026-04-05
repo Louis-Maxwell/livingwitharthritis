@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ArrowLeft, Eye, BookOpen, Calendar, Clock } from "lucide-react";
+import { Eye, BookOpen, ChevronRight } from "lucide-react";
 import { blogArticles } from "@/data/blogArticles";
 import { useBlogViews } from "@/hooks/useBlogViews";
 import BlogComments from "@/components/BlogComments";
@@ -10,9 +10,8 @@ import BlogHelpfulness from "@/components/BlogHelpfulness";
 import RelatedArticles from "@/components/RelatedArticles";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
-import { Badge } from "@/components/ui/badge";
+
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import ScrollProgress from "@/components/ScrollProgress";
 import ContinueReadingBar from "@/components/ContinueReadingBar";
 
@@ -39,6 +38,9 @@ const BlogPost = () => {
       </div>
     );
   }
+
+  const readingTime = getReadingTime(article.content);
+  const publishDate = new Date(article.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
 
   return (
     <>
@@ -111,82 +113,101 @@ const BlogPost = () => {
       <div className="min-h-screen bg-background">
         <ScrollProgress />
         <Header />
-        <PageBreadcrumb segments={[{ label: "Blog", href: "/blog" }, { label: article.title }]} className="max-w-3xl" />
 
-        {/* Decorative article header */}
-        <div className="relative bg-gradient-to-br from-primary/6 via-background to-primary/4 border-b border-border/20 overflow-hidden">
-          {/* Background decorations */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/5 rounded-full translate-y-1/2 -translate-x-1/4 blur-3xl pointer-events-none" />
-          <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="15%" cy="30%" r="3" fill="hsl(var(--primary))" />
-            <circle cx="80%" cy="20%" r="2" fill="hsl(var(--primary))" />
-            <circle cx="60%" cy="70%" r="2.5" fill="hsl(var(--secondary))" />
-          </svg>
+        {/* Clean editorial header */}
+        <header className="border-b border-border/20">
+          <div className="container mx-auto px-6 md:px-10 max-w-[720px]">
+            {/* Breadcrumb */}
+            <nav className="pt-6 pb-4 flex items-center gap-1.5 text-xs text-muted-foreground">
+              <Link to="/" className="hover:text-primary transition-colors">Home</Link>
+              <ChevronRight className="w-3 h-3" />
+              <Link to="/blog" className="hover:text-primary transition-colors">Blog</Link>
+              <ChevronRight className="w-3 h-3" />
+              <span className="text-foreground/60 truncate max-w-[200px]">{article.title}</span>
+            </nav>
 
-          <div className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl relative">
-            <Link to="/blog" className="text-primary text-sm font-medium inline-flex items-center gap-1.5 mb-6 hover:gap-2.5 transition-all">
-              <ArrowLeft className="w-3.5 h-3.5" /> All articles
-            </Link>
-            <div className="flex flex-wrap items-center gap-3 mb-5">
-              <Badge className="bg-primary/10 text-primary border-0 text-xs font-bold px-3 py-1.5">
-                <Calendar className="w-3 h-3 mr-1.5" />
-                {new Date(article.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
-              </Badge>
-              <Badge className="bg-muted text-muted-foreground border-0 text-xs px-3 py-1.5">
-                <Clock className="w-3 h-3 mr-1.5" /> {getReadingTime(article.content)} min read
-              </Badge>
-              {viewCount !== null && (
-                <Badge className="bg-muted text-muted-foreground border-0 text-xs px-3 py-1.5">
-                  <Eye className="w-3 h-3 mr-1.5" /> {viewCount.toLocaleString()} view{viewCount !== 1 ? "s" : ""}
-                </Badge>
-              )}
-            </div>
-            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground leading-tight tracking-tight mb-6">
-              {article.title}
-            </h1>
-            {/* Author byline with E-E-A-T credentials */}
-            <div className="flex items-center gap-3">
-              <Avatar className="h-10 w-10 border-2 border-primary/20">
-                <AvatarFallback className="bg-primary/10 text-primary font-bold text-sm">LWA</AvatarFallback>
-              </Avatar>
-              <div className="flex flex-col">
-                <span className="text-sm font-semibold text-foreground">{article.author || "Living With Arthritis Clinical Team"}</span>
-                <span className="text-xs text-muted-foreground">
-                  {article.authorCredentials || "Evidence-based health content"}
-                </span>
+            <div className="pb-10 md:pb-14">
+              {/* Meta line */}
+              <div className="flex items-center gap-2 text-xs text-muted-foreground mb-5">
+                <time dateTime={article.date} className="font-medium">{publishDate}</time>
+                <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
+                <span>{readingTime} min read</span>
+                {viewCount !== null && (
+                  <>
+                    <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
+                    <span className="flex items-center gap-1">
+                      <Eye className="w-3 h-3" />
+                      {viewCount.toLocaleString()}
+                    </span>
+                  </>
+                )}
+              </div>
+
+              {/* Title */}
+              <h1 className="font-display text-[1.75rem] md:text-[2.5rem] lg:text-[3rem] font-extrabold text-foreground leading-[1.15] tracking-tight mb-6">
+                {article.title}
+              </h1>
+
+          {/* Subtitle from meta description */}
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-[600px]">
+                {article.metaDescription}
+              </p>
+
+              {/* Author + reviewer row */}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+                <div className="flex items-center gap-3">
+                  <Avatar className="h-10 w-10 border-2 border-primary/15">
+                    <AvatarFallback className="bg-primary/8 text-primary font-bold text-xs">LWA</AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <p className="text-sm font-semibold text-foreground leading-tight">
+                      {article.author || "Living With Arthritis Clinical Team"}
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      {article.authorCredentials || "Evidence-based health content"}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="hidden sm:block w-px h-8 bg-border/40" />
+
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/5 border border-primary/10 w-fit">
+                  <BookOpen className="w-3.5 h-3.5 text-primary" />
+                  <span className="text-xs font-medium text-primary">
+                    Reviewed by {article.reviewedBy || "Dr. Amina Patel"}
+                  </span>
+                </div>
               </div>
             </div>
-            {/* Medical reviewer badge */}
-            <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20">
-              <BookOpen className="w-3.5 h-3.5 text-primary" />
-              <span className="text-xs font-medium text-primary dark:text-primary">
-                Medically reviewed by {article.reviewedBy || "Dr. Amina Patel"}{article.reviewerCredentials ? `, ${article.reviewerCredentials}` : ", Consultant Rheumatologist"}
-              </span>
-            </div>
           </div>
-          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-        </div>
+        </header>
 
-        <article className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
+        {/* Article body */}
+        <article className="container mx-auto px-6 md:px-10 py-10 md:py-14 max-w-[720px]">
           <TableOfContents html={article.content} />
+
           <div
-            className="blog-prose prose prose-lg max-w-none text-foreground/85 
+            className="blog-prose prose prose-lg max-w-none text-foreground/90
               prose-headings:font-display prose-headings:text-foreground prose-headings:font-bold prose-headings:scroll-mt-24
-              prose-h2:text-[1.65rem] prose-h2:mt-12 prose-h2:mb-5 prose-h2:pb-3 prose-h2:border-b prose-h2:border-border/20
-              prose-h3:text-xl prose-h3:mt-9 prose-h3:mb-3
-              prose-p:leading-[1.85] prose-p:mb-5 prose-p:text-foreground/80
-              prose-li:leading-[1.8] prose-li:text-foreground/80
+              prose-h2:text-[1.5rem] prose-h2:md:text-[1.75rem] prose-h2:mt-14 prose-h2:mb-4 prose-h2:pb-3 prose-h2:border-b prose-h2:border-border/15
+              prose-h3:text-lg prose-h3:md:text-xl prose-h3:mt-10 prose-h3:mb-3
+              prose-p:leading-[1.9] prose-p:mb-6 prose-p:text-foreground/80
+              prose-li:leading-[1.85] prose-li:text-foreground/80 prose-li:mb-1
               prose-strong:text-foreground prose-strong:font-semibold
-              prose-a:text-primary prose-a:font-medium prose-a:underline prose-a:underline-offset-2 prose-a:decoration-primary/30 hover:prose-a:decoration-primary
-              prose-blockquote:border-l-primary prose-blockquote:bg-primary/5 prose-blockquote:rounded-r-xl prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:not-italic prose-blockquote:text-foreground/90 prose-blockquote:font-medium
-              prose-img:rounded-xl prose-img:shadow-md
+              prose-a:text-primary prose-a:font-medium prose-a:underline prose-a:underline-offset-3 prose-a:decoration-primary/30 hover:prose-a:decoration-primary prose-a:transition-colors
+              prose-blockquote:border-l-[3px] prose-blockquote:border-l-primary prose-blockquote:bg-primary/[0.03] prose-blockquote:rounded-r-lg prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:not-italic prose-blockquote:text-foreground/85 prose-blockquote:font-medium prose-blockquote:my-8
+              prose-img:rounded-xl prose-img:shadow-sm prose-img:my-8
+              prose-ul:my-6 prose-ol:my-6
               first:prose-p:first-letter:text-5xl first:prose-p:first-letter:font-bold first:prose-p:first-letter:text-primary first:prose-p:first-letter:float-left first:prose-p:first-letter:mr-3 first:prose-p:first-letter:mt-1 first:prose-p:first-letter:leading-none"
             dangerouslySetInnerHTML={{ __html: addHeadingIds(article.content) }}
           />
 
-          {slug && <SocialShareButtons title={article.title} slug={slug} />}
-          {slug && <BlogHelpfulness slug={slug} />}
+          {/* Share + helpfulness section */}
+          <div className="mt-14 pt-8 border-t border-border/20">
+            {slug && <SocialShareButtons title={article.title} slug={slug} />}
+            {slug && <BlogHelpfulness slug={slug} />}
+          </div>
+
           {slug && <RelatedArticles currentSlug={slug} />}
           {slug && <BlogComments slug={slug} />}
         </article>
