@@ -65,26 +65,34 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-muted/40 border-t border-border pb-20 lg:pb-0" role="contentinfo" aria-label="Site footer">
+    <footer className="bg-muted/30 border-t border-border/20 pb-20 lg:pb-0" role="contentinfo" aria-label="Site footer">
       <div className="container mx-auto px-6 md:px-12 py-16 lg:py-20">
+        {/* Logo + tagline */}
+        <div className="mb-14">
+          <p className="text-lg font-bold text-foreground tracking-tight">Living With Arthritis</p>
+          <p className="text-sm text-muted-foreground mt-1.5 max-w-sm leading-relaxed">
+            Free physiotherapy, diet plans and evidence-based support for people living with arthritis across the UK.
+          </p>
+        </div>
+
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-8">
           {columns.map((col) => (
             <div key={col.title}>
-              <h4 className="text-muted-foreground/60 text-sm font-medium mb-5">{col.title}</h4>
-              <ul className="space-y-3">
+              <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/50 mb-5">{col.title}</h4>
+              <ul className="space-y-2.5">
                 {col.links.map((link) => (
                   <li key={link.label}>
                     {link.href.startsWith("#") ? (
                       <a
                         href={link.href}
-                        className="text-foreground hover:text-primary transition-colors duration-200 text-sm"
+                        className="text-foreground/70 hover:text-primary transition-colors duration-200 text-[13px]"
                       >
                         {link.label}
                       </a>
                     ) : (
                       <Link
                         to={link.href}
-                        className="text-foreground hover:text-primary transition-colors duration-200 text-sm"
+                        className="text-foreground/70 hover:text-primary transition-colors duration-200 text-[13px]"
                       >
                         {link.label}
                       </Link>
@@ -98,12 +106,12 @@ const Footer = () => {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-border">
-        <div className="container mx-auto px-6 md:px-12 py-6 flex flex-col md:flex-row justify-between items-center gap-3">
-          <p className="text-muted-foreground text-xs">
+      <div className="border-t border-border/15">
+        <div className="container mx-auto px-6 md:px-12 py-5 flex flex-col md:flex-row justify-between items-center gap-3">
+          <p className="text-muted-foreground/50 text-[11px] tracking-wide">
             © {new Date().getFullYear()} Living with Arthritis™ · 27 Old Gloucester Street, London WC1N 3AX · Registered in England & Wales
           </p>
-          <span className="text-muted-foreground/60 text-xs">
+          <span className="text-muted-foreground/30 text-[11px] tracking-wide">
             Designed & Built by MaxwellHealth
           </span>
         </div>

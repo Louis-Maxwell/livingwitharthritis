@@ -12,7 +12,7 @@ const milestones = [
 
 const AboutSection = memo(() => {
   return (
-    <section id="resources" className="py-28 lg:py-36 relative">
+    <section id="resources" className="py-24 lg:py-32 relative">
       <div className="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-28 items-start">
           {/* Left — Mission + Founder */}

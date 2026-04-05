@@ -39,7 +39,7 @@ const NewsletterSection = memo(() => {
   };
 
   return (
-    <section className="py-28 lg:py-36 relative">
+    <section className="py-24 lg:py-32 relative">
       <div className="container mx-auto px-6 md:px-12 lg:px-16 max-w-3xl">
         <div className="text-center">
           <div className="w-16 h-16 rounded-2xl bg-primary/[0.04] flex items-center justify-center mx-auto mb-10">

@@ -125,6 +125,8 @@ export default function Index() {
         <main id="main-content" role="main">
           <HeroSection />
 
+          <div className="gradient-divider" />
+
           <Suspense fallback={<SectionLoader />}>
             <QuickAccessSection />
           </Suspense>
@@ -132,6 +134,8 @@ export default function Index() {
           <Suspense fallback={<SectionLoader />}>
             <ContentDepthSection />
           </Suspense>
+
+          <div className="gradient-divider" />
 
           <Suspense fallback={<SectionLoader />}>
             <HowItWorksSection />
@@ -154,6 +158,8 @@ export default function Index() {
             <QuoteSection />
           </Suspense>
 
+          <div className="gradient-divider" />
+
           <Suspense fallback={<SectionLoader />}>
             <AboutSection />
           </Suspense>
@@ -175,6 +181,8 @@ export default function Index() {
             <DonationImpactSection />
           </Suspense>
 
+          <div className="gradient-divider" />
+
           <Suspense fallback={<SectionLoader />}>
             <FAQSection />
           </Suspense>
@@ -182,6 +190,8 @@ export default function Index() {
           <Suspense fallback={<SectionLoader />}>
             <NewsletterSection />
           </Suspense>
+
+          <div className="gradient-divider" />
 
           <Suspense fallback={<SectionLoader />}>
             <GetInTouchSection />
