@@ -28,9 +28,9 @@ const HeroSection = memo(() => {
       {/* Subtle top gradient wash */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.02] via-transparent to-transparent pointer-events-none" />
 
-      <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16 relative">
-        <div className="flex items-center min-h-[calc(100vh-100px)] py-20 sm:py-28 lg:py-0 pb-24 lg:pb-0">
-          <div className="grid lg:grid-cols-[1.15fr_1fr] gap-16 lg:gap-20 items-center w-full">
+      <div className="container mx-auto px-5 sm:px-8 md:px-12 lg:px-16 relative">
+        <div className="flex items-center min-h-[calc(100vh-100px)] py-16 sm:py-28 lg:py-0 pb-20 lg:pb-0">
+          <div className="grid lg:grid-cols-[1.15fr_1fr] gap-12 lg:gap-20 items-center w-full">
             {/* Left — Text */}
             <div className="hero-stagger text-center lg:text-left">
               <div className="hero-item flex justify-center lg:justify-start mb-8">
