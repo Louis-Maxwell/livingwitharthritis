@@ -49,7 +49,7 @@ const HeroSection = memo(() => {
                 </span>
               </h1>
 
-              <p className="hero-item text-[15px] sm:text-lg md:text-xl text-muted-foreground leading-[1.85] sm:leading-[1.9] mb-5 max-w-[620px] mx-auto lg:mx-0">
+              <p className="hero-item text-[14px] sm:text-lg md:text-xl text-muted-foreground leading-[1.75] sm:leading-[1.9] mb-4 sm:mb-5 max-w-[620px] mx-auto lg:mx-0">
                 Free physiotherapy, anti-inflammatory diet plans, evidence-based exercises and 24/7 support — helping people across the United Kingdom manage arthritis pain and live fuller lives.
               </p>
 
