@@ -1,5 +1,5 @@
 import { memo, useMemo, useState, useEffect } from "react";
-import { List } from "lucide-react";
+import { List, ChevronDown } from "lucide-react";
 
 interface TocItem {
   id: string;
@@ -50,21 +50,21 @@ const TableOfContents = memo(({ html }: TableOfContentsProps) => {
   return (
     <nav
       aria-label="Table of contents"
-      className="mb-10 rounded-2xl border border-border/30 bg-card/50 backdrop-blur-sm overflow-hidden"
+      className="mb-12 rounded-xl border border-border/20 bg-muted/30 overflow-hidden"
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-muted/30 transition-colors"
+        className="w-full flex items-center justify-between px-5 py-3.5 text-left hover:bg-muted/50 transition-colors"
       >
-        <span className="flex items-center gap-2 text-sm font-bold text-foreground">
-          <List className="w-4 h-4 text-primary" />
-          In this article
+        <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+          <List className="w-3.5 h-3.5 text-primary" />
+          Contents
         </span>
-        <span className="text-xs text-muted-foreground">{isOpen ? "Hide" : "Show"}</span>
+        <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
       </button>
       {isOpen && (
-        <ol className="px-5 pb-5 space-y-1">
-          {headings.map((h) => (
+        <ol className="px-5 pb-5 space-y-0.5">
+          {headings.map((h, i) => (
             <li key={h.id}>
               <a
                 href={`#${h.id}`}
@@ -72,8 +72,8 @@ const TableOfContents = memo(({ html }: TableOfContentsProps) => {
                   e.preventDefault();
                   document.getElementById(h.id)?.scrollIntoView({ behavior: "smooth", block: "start" });
                 }}
-                className={`block py-1.5 text-sm transition-colors hover:text-primary ${
-                  h.level === 3 ? "pl-4" : ""
+                className={`block py-1.5 text-[13px] leading-snug transition-colors hover:text-primary ${
+                  h.level === 3 ? "pl-4 border-l border-border/30" : ""
                 } ${activeId === h.id ? "text-primary font-semibold" : "text-muted-foreground"}`}
               >
                 {h.text}
