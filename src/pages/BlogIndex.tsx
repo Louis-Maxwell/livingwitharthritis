@@ -267,15 +267,8 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
                 to={`/blog/${post.slug}`}
                 className={`group rounded-2xl border border-border/30 bg-card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1`}
               >
-                {/* Colorful category top strip */}
-                <div className={`h-1.5 ${
-                  post.category === "Exercise" ? "bg-gradient-to-r from-primary to-primary" :
-                  post.category === "Nutrition" ? "bg-gradient-to-r from-primary to-primary" :
-                  post.category === "Lifestyle" ? "bg-gradient-to-r from-primary to-primary" :
-                  post.category === "Health" ? "bg-gradient-to-r from-rose-500 to-rose-400" :
-                  post.category === "Supplements" ? "bg-gradient-to-r from-primary to-primary" :
-                  "bg-gradient-to-r from-primary to-primary"
-                }`} />
+                {/* Category accent strip */}
+                <div className={`h-1 ${post.category === "Health" ? "bg-rose-500" : "bg-primary"}`} />
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
                     <time className="text-xs text-muted-foreground">{new Date(post.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</time>
