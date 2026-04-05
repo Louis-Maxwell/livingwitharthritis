@@ -58,7 +58,7 @@ export default function QuickAccessSection() {
   const navigate = useNavigate();
 
   return (
-    <section className="py-28 lg:py-36" aria-labelledby="quick-access-heading">
+    <section className="py-24 lg:py-32" aria-labelledby="quick-access-heading">
       <div className="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl">
         {/* Header */}
         <div className="text-center mb-20">

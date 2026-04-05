@@ -22,7 +22,7 @@ const HighlightedText = ({ text, highlight }: { text: string; highlight: string 
 };
 
 const TestimonialsSection = memo(() => (
-  <section className="py-28 lg:py-36 relative bg-warm">
+  <section className="py-24 lg:py-32 relative bg-warm">
     <div className="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl">
       <div className="text-center mb-20">
         <span className="section-label text-primary/60 mb-5 block">Patient Outcomes</span>
