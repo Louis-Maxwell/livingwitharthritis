@@ -148,12 +148,10 @@ const BlogPost = () => {
                 {article.title}
               </h1>
 
-              {/* Excerpt / subtitle */}
-              {article.excerpt && (
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-[600px]">
-                  {article.excerpt}
-                </p>
-              )}
+          {/* Subtitle from meta description */}
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-[600px]">
+                {article.metaDescription}
+              </p>
 
               {/* Author + reviewer row */}
               <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
