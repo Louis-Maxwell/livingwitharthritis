@@ -58,23 +58,23 @@ const HeroSection = memo(() => {
                 Every donation helps us reach more people in need
               </p>
 
-              <div className="hero-item flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+              <div className="hero-item flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4">
                 <Button
                   size="lg"
                   onClick={() => navigate("/chat")}
-                  className="btn-primary-cta px-10 sm:px-14 h-[58px] sm:h-[64px] rounded-full text-[13px] sm:text-sm font-bold tracking-wider group active:scale-[0.97]"
+                  className="btn-primary-cta px-8 sm:px-14 h-[52px] sm:h-[62px] rounded-full text-[13px] sm:text-sm font-bold tracking-wider group active:scale-[0.97]"
                 >
-                  <MessageCircle className="w-5 h-5 mr-2.5 group-hover:scale-110 transition-transform" />
+                  <MessageCircle className="w-4.5 h-4.5 mr-2 group-hover:scale-110 transition-transform" />
                   Get Free Support
-                  <ArrowRight className="w-4 h-4 ml-2.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 hidden sm:block" />
+                  <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 hidden sm:block" />
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
                   onClick={() => navigate("/donate")}
-                  className="px-10 h-[58px] sm:h-[64px] rounded-full text-[13px] sm:text-sm font-bold tracking-wider border-2 border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-500 group active:scale-[0.97]"
+                  className="px-8 sm:px-10 h-[52px] sm:h-[62px] rounded-full text-[13px] sm:text-sm font-bold tracking-wider border-2 border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-500 group active:scale-[0.97]"
                 >
-                  <Heart className="w-5 h-5 mr-2.5 group-hover:scale-110 group-hover:fill-white/20 transition-all" />
+                  <Heart className="w-4.5 h-4.5 mr-2 group-hover:scale-110 group-hover:fill-white/20 transition-all" />
                   Donate Now
                 </Button>
               </div>
