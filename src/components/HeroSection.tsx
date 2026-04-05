@@ -53,7 +53,7 @@ const HeroSection = memo(() => {
                 Free physiotherapy, anti-inflammatory diet plans, evidence-based exercises and 24/7 support — helping people across the United Kingdom manage arthritis pain and live fuller lives.
               </p>
 
-              <p className="hero-item text-sm text-primary/70 font-medium mb-10 flex items-center justify-center lg:justify-start gap-2">
+              <p className="hero-item text-xs sm:text-sm text-primary/70 font-medium mb-8 sm:mb-10 flex items-center justify-center lg:justify-start gap-2">
                 <Heart className="w-3.5 h-3.5 fill-primary/20" />
                 Every donation helps us reach more people in need
               </p>
