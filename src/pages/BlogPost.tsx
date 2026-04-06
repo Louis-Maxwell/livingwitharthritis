@@ -14,6 +14,7 @@ import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import ScrollProgress from "@/components/ScrollProgress";
 import ContinueReadingBar from "@/components/ContinueReadingBar";
+import HealthToolsCTA from "@/components/HealthToolsCTA";
 
 function getReadingTime(html: string) {
   const text = html.replace(/<[^>]*>/g, " ");
