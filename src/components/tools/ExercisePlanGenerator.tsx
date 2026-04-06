@@ -48,8 +48,9 @@ export default function ExercisePlanGenerator() {
     const exerciseTypes = goalExerciseMap[goal] || goalExerciseMap.pain;
     const sessionsPerWeek = fitness === "beginner" ? 4 : fitness === "intermediate" ? 5 : 6;
 
+    const selectedLabels = selectedJoints.map((j) => jointLabels[j]);
     const relevantPages = exerciseJointPages.filter(
-      (p) => selectedJoints.includes(p.joint) && exerciseTypes.includes(p.exercise)
+      (p) => selectedLabels.includes(p.joint) && exerciseTypes.includes(p.exercise)
     );
 
     const days: { day: string; isRest: boolean; exercises: { joint: string; exercise: string; instructions: { name: string; reps: string }[] }[] }[] = [];
