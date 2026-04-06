@@ -2,10 +2,8 @@ import { useState, useMemo } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label";
 import { Calendar, Download, Dumbbell, CheckCircle } from "lucide-react";
-import { exerciseJointPages, type ExerciseJointPage } from "@/data/exerciseJointMatrix";
+import { exerciseJointPages } from "@/data/exerciseJointMatrix";
 
 const allJoints = ["knee", "hip", "shoulder", "hand", "back", "ankle"] as const;
 const jointLabels: Record<string, string> = { knee: "Knee", hip: "Hip", shoulder: "Shoulder", hand: "Hand", back: "Back", ankle: "Ankle" };
