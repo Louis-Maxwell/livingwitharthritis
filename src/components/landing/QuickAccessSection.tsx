@@ -52,6 +52,14 @@ const HUBS = [
     description: "In-depth guides for osteoarthritis, rheumatoid & psoriatic arthritis with treatment options.",
     accent: "coral",
   },
+  {
+    id: "health-tools",
+    href: "/health-tools",
+    icon: Activity,
+    title: "Health Tools",
+    description: "Symptom quiz, inflammation calculator & personalised exercise plan generator — all free.",
+    accent: "teal",
+  },
 ];
 
 export default function QuickAccessSection() {
