@@ -62,7 +62,7 @@ export default function ExercisePlanGenerator() {
       }
 
       // Rotate joints and exercise types
-      const jointForDay = selectedJoints[d % selectedJoints.length];
+      const jointForDay = jointLabels[selectedJoints[d % selectedJoints.length]];
       const exerciseForDay = exerciseTypes[d % exerciseTypes.length];
 
       const page = relevantPages.find((p) => p.joint === jointForDay && p.exercise === exerciseForDay)
