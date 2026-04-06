@@ -1,6 +1,6 @@
 import { useNavigate, Link } from "react-router-dom";
 import {
-  Dumbbell, Utensils, Users, MessageCircle, Stethoscope, ArrowRight
+  Dumbbell, Utensils, Users, MessageCircle, Stethoscope, ArrowRight, Activity
 } from "lucide-react";
 
 const GUIDES = [
