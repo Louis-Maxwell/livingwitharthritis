@@ -273,7 +273,7 @@ export default function LivedExperiences() {
                       </h3>
                       <div className="flex flex-wrap gap-2">
                         {story.outcomes.map(o => (
-                          <Badge key={o} className="bg-green-50 text-green-700 border-green-200 dark:bg-green-900/20 dark:text-green-400">{o}</Badge>
+                          <Badge key={o} className="bg-primary/10 text-primary border-primary/20">{o}</Badge>
                         ))}
                       </div>
                     </CardContent>
