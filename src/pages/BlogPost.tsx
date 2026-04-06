@@ -203,6 +203,8 @@ const BlogPost = () => {
             dangerouslySetInnerHTML={{ __html: addHeadingIds(article.content) }}
           />
 
+          <HealthToolsCTA />
+
           {/* Share + helpfulness section */}
           <div className="mt-14 pt-8 border-t border-border/20">
             {slug && <SocialShareButtons title={article.title} slug={slug} />}
