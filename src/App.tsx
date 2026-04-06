@@ -152,6 +152,7 @@ function AnimatedRoutes() {
         <Route path="/stories" element={<LivedExperiences />} />
         <Route path="/expert-articles" element={<ExpertArticles />} />
         <Route path="/resources-directory" element={<ResourceDirectory />} />
+        <Route path="/health-tools" element={<HealthTools />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </PageTransition>
