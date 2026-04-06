@@ -10,6 +10,27 @@ interface SearchItem {
   icon: React.ElementType;
 }
 
+// Joint-exercise combinations for search
+const joints = ["knee", "hip", "shoulder", "hand", "back", "ankle"] as const;
+const exercises = ["swimming", "yoga", "cycling", "walking", "tai-chi", "pilates", "stretching", "strength-training"] as const;
+
+const exerciseLabels: Record<string, string> = {
+  swimming: "Swimming", yoga: "Yoga", cycling: "Cycling", walking: "Walking",
+  "tai-chi": "Tai Chi", pilates: "Pilates", stretching: "Stretching", "strength-training": "Strength Training"
+};
+const jointLabels: Record<string, string> = {
+  knee: "Knee", hip: "Hip", shoulder: "Shoulder", hand: "Hand", back: "Back", ankle: "Ankle"
+};
+
+const jointExerciseItems: SearchItem[] = joints.flatMap((joint) =>
+  exercises.map((exercise) => ({
+    label: `${exerciseLabels[exercise]} for ${jointLabels[joint]} Arthritis`,
+    href: `/exercises/${exercise}/${joint}`,
+    category: "Joint Exercises",
+    icon: Dumbbell,
+  }))
+);
+
 // Static searchable index
 const searchIndex: SearchItem[] = [
   // Main pages
@@ -27,6 +48,8 @@ const searchIndex: SearchItem[] = [
   { label: "Osteoarthritis", href: "/conditions/osteoarthritis", category: "Conditions", icon: Stethoscope },
   { label: "Rheumatoid Arthritis", href: "/conditions/rheumatoid-arthritis", category: "Conditions", icon: Stethoscope },
   { label: "Psoriatic Arthritis", href: "/conditions/psoriatic-arthritis", category: "Conditions", icon: Stethoscope },
+  // Joint exercises
+  ...jointExerciseItems,
   // Blog articles
   { label: "Best Diet for Joint Pain UK", href: "/blog/best-diet-for-joint-pain-uk", category: "Blog", icon: Utensils },
   { label: "Turmeric for Arthritis UK", href: "/blog/turmeric-for-arthritis-uk", category: "Blog", icon: Utensils },
@@ -129,7 +152,7 @@ export default function SiteSearch() {
           ref={inputRef}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search pages, articles, tips..."
+          placeholder="Search exercises, joints, articles..."
           className="border-0 bg-transparent p-0 h-auto text-sm focus-visible:ring-0 focus-visible:ring-offset-0"
         />
         <button onClick={() => { setOpen(false); setQuery(""); }} className="shrink-0" aria-label="Close search">
@@ -159,7 +182,7 @@ export default function SiteSearch() {
       {query.length >= 2 && results.length === 0 && (
         <div className="absolute top-full left-0 right-0 mt-1.5 bg-background border border-border/60 rounded-xl shadow-xl z-50 p-4 text-center">
           <p className="text-sm text-muted-foreground">No results for "{query}"</p>
-          <p className="text-xs text-muted-foreground mt-1">Try searching for a condition, exercise or topic</p>
+          <p className="text-xs text-muted-foreground mt-1">Try searching for a joint (knee, hip) or exercise (yoga, swimming)</p>
         </div>
       )}
     </div>
