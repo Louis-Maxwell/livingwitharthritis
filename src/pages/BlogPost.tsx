@@ -14,6 +14,7 @@ import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import ScrollProgress from "@/components/ScrollProgress";
 import ContinueReadingBar from "@/components/ContinueReadingBar";
+import HealthToolsCTA from "@/components/HealthToolsCTA";
 
 function getReadingTime(html: string) {
   const text = html.replace(/<[^>]*>/g, " ");
@@ -201,6 +202,8 @@ const BlogPost = () => {
               first:prose-p:first-letter:text-5xl first:prose-p:first-letter:font-bold first:prose-p:first-letter:text-primary first:prose-p:first-letter:float-left first:prose-p:first-letter:mr-3 first:prose-p:first-letter:mt-1 first:prose-p:first-letter:leading-none"
             dangerouslySetInnerHTML={{ __html: addHeadingIds(article.content) }}
           />
+
+          <HealthToolsCTA />
 
           {/* Share + helpfulness section */}
           <div className="mt-14 pt-8 border-t border-border/20">
