@@ -1,8 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { PageHero } from "@/components/ui/PageHero";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import PageHero from "@/components/ui/PageHero";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
