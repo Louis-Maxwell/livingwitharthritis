@@ -905,3 +905,130 @@
 .section-spacer {
   @apply py-28 lg:py-36;
 }
+
+/* ===== Print-friendly styles for blog articles ===== */
+@media print {
+  /* Hide non-content UI */
+  header,
+  footer,
+  nav,
+  .cookie-consent-wrapper,
+  .mobile-bottom-nav,
+  [data-chatbot-widget],
+  .chatbot-widget,
+  button[aria-label="Chat"],
+  .back-to-top,
+  .scroll-progress,
+  .route-progress-bar,
+  .social-share-buttons,
+  .continue-reading-bar,
+  .feedback-popup,
+  .accessibility-toolbar,
+  .donation-banner,
+  .campaign-banner,
+  .breadcrumb,
+  [class*="TableOfContents"],
+  [class*="SocialShare"],
+  [class*="BlogHelpfulness"],
+  [class*="RelatedArticles"],
+  [class*="BackToTop"] {
+    display: none !important;
+  }
+
+  /* Reset backgrounds and colors for clean printing */
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Ensure content fills the page */
+  main {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Clean article typography */
+  .prose {
+    max-width: 100% !important;
+    color: black !important;
+    font-size: 12pt !important;
+  }
+
+  .prose h1 {
+    font-size: 22pt !important;
+    margin-bottom: 8pt !important;
+    color: black !important;
+    page-break-after: avoid;
+  }
+
+  .prose h2 {
+    font-size: 16pt !important;
+    margin-top: 16pt !important;
+    margin-bottom: 6pt !important;
+    color: black !important;
+    page-break-after: avoid;
+  }
+
+  .prose h3 {
+    font-size: 13pt !important;
+    margin-top: 12pt !important;
+    color: black !important;
+    page-break-after: avoid;
+  }
+
+  .prose p {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .prose img {
+    max-width: 80% !important;
+    page-break-inside: avoid;
+  }
+
+  .prose blockquote {
+    border-left: 2pt solid #999 !important;
+    padding-left: 10pt !important;
+    color: #333 !important;
+    background: transparent !important;
+  }
+
+  .prose a {
+    color: black !important;
+    text-decoration: underline !important;
+  }
+
+  /* Show URL after links */
+  .prose a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #666;
+    word-break: break-all;
+  }
+
+  /* Remove decorative backgrounds and shadows */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Avoid breaking inside cards/sections */
+  section,
+  .bg-card,
+  [class*="rounded"] {
+    page-break-inside: avoid;
+    border: none !important;
+    background: transparent !important;
+  }
+
+  /* Medical disclaimer stays visible */
+  .prose + div[class*="text-xs"] {
+    border: 1pt solid #ccc !important;
+    padding: 8pt !important;
+    background: transparent !important;
+    page-break-inside: avoid;
+  }
+}
