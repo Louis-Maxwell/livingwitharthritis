@@ -72,11 +72,6 @@ export default function ResourceDirectory() {
   const [search, setSearch] = useState("");
 
   const categories = Object.keys(resources);
-  const allTags = useMemo(() => {
-    const tags = new Set<string>();
-    Object.values(resources).flat().forEach(r => r.tags.forEach(t => tags.add(t)));
-    return Array.from(tags).sort();
-  }, []);
 
   const filterResources = (items: Resource[]) =>
     items.filter(r =>

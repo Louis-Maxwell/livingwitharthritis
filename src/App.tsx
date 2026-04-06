@@ -148,6 +148,9 @@ function AnimatedRoutes() {
         <Route path="/guides/benefits-pip" element={<BenefitsPIPGuide />} />
         <Route path="/press" element={<Press />} />
         <Route path="/partners" element={<Partners />} />
+        <Route path="/stories" element={<LivedExperiences />} />
+        <Route path="/expert-articles" element={<ExpertArticles />} />
+        <Route path="/resources-directory" element={<ResourceDirectory />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </PageTransition>
