@@ -198,16 +198,10 @@ const Header = () => {
           }`}
         >
           <div className="container mx-auto px-6 md:px-10 py-2.5 flex items-center justify-between gap-4">
-            {/* Desktop left spacer for centering */}
-            <div className="hidden lg:flex items-center gap-1 min-w-[120px]">
-              <SiteSearch />
-              <ThemeToggle />
-            </div>
-
-            {/* Logo — centered */}
+            {/* Logo — left aligned */}
             <button
               onClick={() => navigate("/")}
-              className="flex items-center gap-3 group cursor-pointer select-none mx-auto lg:mx-0 lg:flex-1 lg:justify-center"
+              className="flex items-center gap-3 group cursor-pointer select-none shrink-0"
               aria-label="Living With Arthritis — Go to homepage"
             >
               <div className="relative w-10 h-10 md:w-12 md:h-12 shrink-0">
@@ -217,6 +211,12 @@ const Header = () => {
                 Living With Arthritis
               </span>
             </button>
+
+            {/* Desktop: search + theme on right of logo */}
+            <div className="hidden lg:flex items-center gap-2 flex-1 justify-end">
+              <SiteSearch />
+              <ThemeToggle />
+            </div>
 
             {/* Mobile: search icon + hamburger */}
             <div className="flex items-center gap-1.5 lg:hidden">
@@ -249,8 +249,6 @@ const Header = () => {
                 {mobileMenuOpen ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
               </Button>
             </div>
-            {/* Desktop right spacer to balance centering */}
-            <div className="hidden lg:block min-w-[120px]" />
           </div>
 
           {/* Mobile search bar — slides in below logo */}
