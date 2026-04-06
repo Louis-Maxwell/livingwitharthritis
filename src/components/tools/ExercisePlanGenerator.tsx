@@ -21,9 +21,9 @@ const goals = [
 ] as const;
 
 const goalExerciseMap: Record<string, string[]> = {
-  pain: ["stretching", "yoga", "tai-chi", "swimming"],
-  mobility: ["yoga", "swimming", "pilates", "stretching"],
-  strength: ["strength-training", "pilates", "cycling", "walking"],
+  pain: ["Stretching", "Yoga", "Tai Chi", "Swimming"],
+  mobility: ["Yoga", "Swimming", "Pilates", "Stretching"],
+  strength: ["Strength Training", "Pilates", "Cycling", "Walking"],
 };
 
 const dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
