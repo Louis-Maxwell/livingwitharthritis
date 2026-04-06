@@ -5,7 +5,7 @@ import PageHero from "@/components/ui/PageHero";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { BookOpen, GraduationCap, Clock, ArrowRight, Shield, Stethoscope, FlaskConical, Utensils, Activity, Brain } from "lucide-react";
+import { GraduationCap, Clock, ArrowRight, Shield, FlaskConical, Utensils, Activity, Brain } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
