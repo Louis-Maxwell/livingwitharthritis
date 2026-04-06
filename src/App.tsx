@@ -70,6 +70,7 @@ const Partners = lazy(() => import("./pages/Partners"));
 const LivedExperiences = lazy(() => import("./pages/LivedExperiences"));
 const ExpertArticles = lazy(() => import("./pages/ExpertArticles"));
 const ResourceDirectory = lazy(() => import("./pages/ResourceDirectory"));
+const HealthTools = lazy(() => import("./pages/HealthTools"));
 // Loading fallback with skeleton-style animation
 const PageLoader = () => (
   <div className="min-h-screen flex flex-col items-center justify-center bg-background gap-4">
