@@ -18,7 +18,7 @@ export default function PageHero({
   children,
 }: PageHeroProps) {
   return (
-    <section className="relative bg-background pt-10 pb-14 lg:pt-14 lg:pb-20 overflow-hidden border-b border-border/15">
+    <section className="relative bg-background pt-10 pb-10 lg:pt-14 lg:pb-14 overflow-hidden border-b border-border/15">
       {/* Minimal editorial gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.015] via-transparent to-transparent pointer-events-none" />
 

@@ -177,7 +177,7 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
           subtitle={`${blogPosts.length} evidence-based articles and counting — helping UK residents manage arthritis, reduce joint pain and live well.`}
         />
 
-        <main className="container mx-auto px-6 md:px-10 py-10 md:py-16">
+        <main className="container mx-auto px-6 md:px-10 py-6 md:py-8">
           {/* Search bar */}
           <div className="relative max-w-md mb-8">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/50" />
