@@ -243,6 +243,8 @@ const Header = () => {
                 {mobileMenuOpen ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
               </Button>
             </div>
+            {/* Desktop right spacer to balance centering */}
+            <div className="hidden lg:block min-w-[120px]" />
           </div>
 
           {/* Mobile search bar — slides in below logo */}
