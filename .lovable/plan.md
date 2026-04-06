@@ -1,40 +1,38 @@
 
+## Plan: Interactive Health Tools Hub
 
-## Plan: Upgrade Chatbot Icon to a Premium, Modern Design
+Build a dedicated **Health Tools** page (`/health-tools`) with three interactive, client-side tools — no backend required.
 
-The current robot PNG icon looks slightly cartoonish and doesn't match the site's premium £150M aesthetic. We'll replace it with a sleek, modern SVG icon that feels more like a Wellcome Trust / Gates Foundation-tier design element.
+### Tools
 
-### Approach
+**1. Arthritis Symptom Quiz**
+- 6–8 multiple-choice questions (joint pain location, duration, morning stiffness, family history, swelling patterns, age of onset)
+- Scoring algorithm suggests likely arthritis type (OA, RA, PsA, Gout) with confidence level
+- Personalised next-step recommendations and links to relevant condition pages
+- Clear medical disclaimer
 
-Keep the red robot identity (per user preference) but make it significantly more refined — think clean geometric shapes, subtle gradients, and a more sophisticated silhouette.
+**2. Inflammation Risk Calculator**
+- Sliders and toggles for: diet quality, exercise frequency, BMI range, stress level, sleep quality, smoking status
+- Real-time score (0–100) with colour-coded risk band (Low / Moderate / High)
+- Actionable tips tailored to the user's weakest areas
+- Links to diet hub, exercise hub, and blog articles
 
-### Changes
+**3. Personalised Exercise Plan Generator**
+- Select affected joints (multi-select: knee, hip, shoulder, hand, back, ankle)
+- Choose fitness level (beginner / intermediate / active)
+- Choose goal (pain relief / mobility / strength)
+- Generates a 7-day weekly plan pulling from the existing `exerciseJointMatrix` data
+- Option to download plan as PDF
 
-**1. `src/components/icons/RobotIcon.tsx`** — Redesign the SVG
-- Sleeker, more geometric robot head with softer proportions
-- Add a subtle red-to-darker-red gradient instead of flat fill for depth
-- Refined eye design with inner glow effect
-- Thinner antenna with a more elegant ball tip
-- Remove the chunky body/ears — keep it as a clean head-only icon
-- Add a subtle drop shadow via SVG filter for a floating effect
-
-**2. `src/components/ChatBotWidget.tsx`** — Use new RobotIcon SVG
-- Replace the `robot-assistant.png` import with the new `RobotIcon` component
-- Add a subtle pulse animation ring around the button to draw attention
-- Slightly larger icon (44px) for better visibility
-- Add a small "Chat" label tooltip on hover
-
-**3. `src/pages/Chat.tsx`** — Update Chat page header
-- Replace the PNG with the new `RobotIcon` at 64px
-- Keep the white background per user preference
-
-### Files Changed
+### Files
 
 | File | Action |
 |------|--------|
-| `src/components/icons/RobotIcon.tsx` | Redesign — premium geometric SVG with gradient |
-| `src/components/ChatBotWidget.tsx` | Swap PNG for RobotIcon, add pulse ring animation |
-| `src/pages/Chat.tsx` | Swap PNG for RobotIcon |
+| `src/pages/HealthTools.tsx` | Create — hub page with tabs for each tool |
+| `src/components/tools/SymptomQuiz.tsx` | Create — multi-step quiz component |
+| `src/components/tools/InflammationCalculator.tsx` | Create — calculator with sliders |
+| `src/components/tools/ExercisePlanGenerator.tsx` | Create — plan builder using joint matrix |
+| `src/App.tsx` | Add `/health-tools` route |
+| `src/components/Header.tsx` | Add "Health Tools" link under Track & Manage |
 
-No backend changes.
-
+All client-side only. No database changes needed.
