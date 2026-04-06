@@ -16,7 +16,7 @@ const stories = [
     location: "Leeds, West Yorkshire",
     condition: "Osteoarthritis",
     yearsLiving: 12,
-    image: "https://images.unsplash.com/photo-1581579438747-104c53d7fbc4?w=400&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
     pullQuote: "I went from barely climbing stairs to walking 5 miles on the Yorkshire Dales. The key was finding the right combination of gentle exercise and diet changes.",
     timeline: [
       { year: "2012", event: "First symptoms — stiffness in both knees every morning" },
