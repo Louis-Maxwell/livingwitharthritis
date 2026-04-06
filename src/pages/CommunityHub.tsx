@@ -49,6 +49,13 @@ const communityFeatures = [
     description: "Give back to the community as a peer mentor, event organiser or content contributor. Support others on their arthritis journey.",
     color: "text-primary bg-primary/10",
   },
+  {
+    icon: Sparkles,
+    title: "Health Tools",
+    description: "Take our symptom quiz, check your inflammation risk score, or generate a personalised exercise plan — all free and instant.",
+    color: "text-primary bg-primary/10",
+    href: "/health-tools",
+  },
 ];
 
 const newlyDiagnosedSteps = [

@@ -1,6 +1,6 @@
 import { useNavigate, Link } from "react-router-dom";
 import {
-  Dumbbell, Utensils, Users, MessageCircle, Stethoscope, ArrowRight
+  Dumbbell, Utensils, Users, MessageCircle, Stethoscope, ArrowRight, Activity
 } from "lucide-react";
 
 const GUIDES = [
@@ -51,6 +51,14 @@ const HUBS = [
     title: "Conditions",
     description: "In-depth guides for osteoarthritis, rheumatoid & psoriatic arthritis with treatment options.",
     accent: "coral",
+  },
+  {
+    id: "health-tools",
+    href: "/health-tools",
+    icon: Activity,
+    title: "Health Tools",
+    description: "Symptom quiz, inflammation calculator & personalised exercise plan generator — all free.",
+    accent: "teal",
   },
 ];
 
