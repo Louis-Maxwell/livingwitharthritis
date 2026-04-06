@@ -43,6 +43,7 @@ const searchIndex: SearchItem[] = [
   { label: "Trust & Credibility", href: "/trust", category: "Pages", icon: FileText },
   { label: "Community Hub", href: "/community", category: "Pages", icon: FileText },
   { label: "Blog", href: "/blog", category: "Pages", icon: FileText },
+  { label: "Health Tools", href: "/health-tools", category: "Pages", icon: Dumbbell },
   { label: "Zakat Appeal", href: "/zakat-appeal", category: "Pages", icon: FileText },
   // Conditions
   { label: "Osteoarthritis", href: "/conditions/osteoarthritis", category: "Conditions", icon: Stethoscope },
