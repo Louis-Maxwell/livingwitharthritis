@@ -3,13 +3,13 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { lazy, Suspense, useState, useCallback } from "react";
+import { lazy, Suspense } from "react";
 import { PageTransition } from "@/components/ui/PageTransition";
 import { RouteProgressBar } from "@/components/ui/RouteProgressBar";
 import { useCartSync } from "@/hooks/useCartSync";
 import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "next-themes";
-import SplashScreen from "@/components/SplashScreen";
+
 
 const ChatBotWidget = lazy(() => import("./components/ChatBotWidget"));
 const CookieConsent = lazy(() => import("./components/CookieConsent"));
@@ -170,19 +170,11 @@ function AppWithSync() {
 }
 
 const App = () => {
-  const [splashDone, setSplashDone] = useState(() => sessionStorage.getItem("splash-done") === "true");
-
-  const handleSplashComplete = useCallback(() => {
-    setSplashDone(true);
-    sessionStorage.setItem("splash-done", "true");
-  }, []);
-
   return (
     <HelmetProvider>
       <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
         <QueryClientProvider client={queryClient}>
           <TooltipProvider>
-            {!splashDone && <SplashScreen onComplete={handleSplashComplete} />}
             <Toaster />
             <Sonner />
             <BrowserRouter>
