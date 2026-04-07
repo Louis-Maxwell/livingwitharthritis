@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import ViewportSection from "@/components/ui/ViewportSection";
 
 // ─── Module-level lazy imports [F-1 FIXED] ───────────────────────────────────
 const FeedbackPopup    = lazy(() => import("@/components/FeedbackPopup"));
