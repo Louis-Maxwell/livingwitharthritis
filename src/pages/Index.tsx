@@ -1,4 +1,3 @@
-/**
 import { lazy, Suspense, memo, useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { toast } from "sonner";
