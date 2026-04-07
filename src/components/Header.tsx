@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
-import CartDrawer from "@/components/CartDrawer";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, ShoppingBag, HandHeart, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Sparkles, Globe, Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import ResourceLibraryDrawer from "@/components/ResourceLibraryDrawer";
-import SiteSearch from "@/components/SiteSearch";
 import ThemeToggle from "@/components/ThemeToggle";
+
+const CartDrawer = lazy(() => import("@/components/CartDrawer"));
+const ResourceLibraryDrawer = lazy(() => import("@/components/ResourceLibraryDrawer"));
+const SiteSearch = lazy(() => import("@/components/SiteSearch"));
 
 const DonationBanner = lazy(() => import("@/components/DonationBanner"));
 
