@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import ViewportSection from "@/components/ui/ViewportSection";
 
 // ─── Module-level lazy imports [F-1 FIXED] ───────────────────────────────────
 const FeedbackPopup    = lazy(() => import("@/components/FeedbackPopup"));
@@ -515,23 +516,29 @@ export default function Index() {
             <HowItWorksSection />
           </Suspense>
 
-          <Suspense fallback={<SectionLoader />}>
-            <ServicesGrid />
-          </Suspense>
+          <ViewportSection minHeight="400px">
+            <Suspense fallback={<SectionLoader />}>
+              <ServicesGrid />
+            </Suspense>
+          </ViewportSection>
 
           {/* Community photo break */}
-          <Suspense fallback={null}>
-            <PhotoBreakSection
-              image={photoBreakCommunity}
-              alt="Community members supporting each other while living with arthritis"
-              quote="No one should face arthritis alone. Together, we're changing what's possible."
-              attribution="Living With Arthritis UK"
-            />
-          </Suspense>
+          <ViewportSection minHeight="300px">
+            <Suspense fallback={null}>
+              <PhotoBreakSection
+                image={photoBreakCommunity}
+                alt="Community members supporting each other while living with arthritis"
+                quote="No one should face arthritis alone. Together, we're changing what's possible."
+                attribution="Living With Arthritis UK"
+              />
+            </Suspense>
+          </ViewportSection>
 
-          <Suspense fallback={null}>
-            <QuoteSection />
-          </Suspense>
+          <ViewportSection minHeight="200px">
+            <Suspense fallback={null}>
+              <QuoteSection />
+            </Suspense>
+          </ViewportSection>
 
           {/* Gradient divider — coral → amber */}
           <div
@@ -543,27 +550,35 @@ export default function Index() {
             }}
           />
 
-          <Suspense fallback={<SectionLoader />}>
-            <AboutSection />
-          </Suspense>
+          <ViewportSection minHeight="300px">
+            <Suspense fallback={<SectionLoader />}>
+              <AboutSection />
+            </Suspense>
+          </ViewportSection>
 
-          <Suspense fallback={<SectionLoader />}>
-            <TestimonialsSection />
-          </Suspense>
+          <ViewportSection minHeight="300px">
+            <Suspense fallback={<SectionLoader />}>
+              <TestimonialsSection />
+            </Suspense>
+          </ViewportSection>
 
           {/* Active lifestyle photo break */}
-          <Suspense fallback={null}>
-            <PhotoBreakSection
-              image={photoBreakActive}
-              alt="Senior couple enjoying an active lifestyle supported by arthritis care"
-              quote="Movement is medicine. Every step forward is a victory worth celebrating."
-              attribution="Clinical Team, Living With Arthritis UK"
-            />
-          </Suspense>
+          <ViewportSection minHeight="300px">
+            <Suspense fallback={null}>
+              <PhotoBreakSection
+                image={photoBreakActive}
+                alt="Senior couple enjoying an active lifestyle supported by arthritis care"
+                quote="Movement is medicine. Every step forward is a victory worth celebrating."
+                attribution="Clinical Team, Living With Arthritis UK"
+              />
+            </Suspense>
+          </ViewportSection>
 
-          <Suspense fallback={<SectionLoader />}>
-            <DonationImpactSection />
-          </Suspense>
+          <ViewportSection minHeight="300px">
+            <Suspense fallback={<SectionLoader />}>
+              <DonationImpactSection />
+            </Suspense>
+          </ViewportSection>
 
           {/* Gradient divider — full spectrum */}
           <div
@@ -575,13 +590,17 @@ export default function Index() {
             }}
           />
 
-          <Suspense fallback={<SectionLoader />}>
-            <FAQSection />
-          </Suspense>
+          <ViewportSection minHeight="300px">
+            <Suspense fallback={<SectionLoader />}>
+              <FAQSection />
+            </Suspense>
+          </ViewportSection>
 
-          <Suspense fallback={<SectionLoader />}>
-            <NewsletterSection />
-          </Suspense>
+          <ViewportSection minHeight="200px">
+            <Suspense fallback={<SectionLoader />}>
+              <NewsletterSection />
+            </Suspense>
+          </ViewportSection>
 
           {/* Gradient divider — teal → sky */}
           <div
@@ -592,14 +611,11 @@ export default function Index() {
             }}
           />
 
-          {/*
-           * FUTURE INTERACTIVE ELEMENTS (Recommended to reach 9/10):
-           * Symptom checker quiz, exercise progress tracker,
-           * infographics, or self-assessment tools here.
-           */}
-          <Suspense fallback={<SectionLoader />}>
-            <GetInTouchSection />
-          </Suspense>
+          <ViewportSection minHeight="300px">
+            <Suspense fallback={<SectionLoader />}>
+              <GetInTouchSection />
+            </Suspense>
+          </ViewportSection>
         </main>
 
         {/*
