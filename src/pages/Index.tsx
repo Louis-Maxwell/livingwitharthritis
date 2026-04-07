@@ -1,36 +1,4 @@
 /**
- * Index.tsx — Living With Arthritis UK
- *
- * FIXES APPLIED:
- * 1. [CRITICAL] Moved lazy(FeedbackPopup) to module scope — was inside component body causing
- * remount on every render, breaking code splitting and causing UI flicker.
- * 2. Added og:image + twitter card meta tags — social sharing was rendering blank previews.
- * 3. Removed keywords meta tag — Google ignores it; 30+ keywords flagged as keyword stuffing.
- * 4. Fixed Schema.org foundingDate inconsistency and removed empty sameAs array.
- * 5. Fixed deprecated SearchAction query-input syntax.
- * 6. Added NonProfit + CharityOrEvent co-type alongside MedicalOrganization. (Kept light)
- * 7. Updated charity-related claims to accurate legal status.
- * 8. Added skip-to-content link for WCAG 2.1 AA keyboard accessibility.
- * 9. Added <noscript> fallback for search bots / no-JS users.
- * 10. Added theme-color + application-name + robots meta tags.
- * 11. Added preconnect hints for Google Fonts, analytics, Stripe.
- * 12. Added hero image preload hint for LCP (Core Web Vitals).
- * 13. Added useRef guard on donation toast to prevent double-fire in React 18 Strict Mode.
- * 14. Added aria-live="polite" region for screen reader toast announcements.
- * 15. Added proper lang + dir attributes via Helmet.
- * 16. Added article:author og tag and og:site_name.
- * 17. Added apple-mobile-web-app meta tags for iOS home screen.
- * 18. Added structured data for BreadcrumbList.
- * 19. Added performance hints: modulepreload for key lazy chunks.
- *
- * LATEST REVIEW IMPROVEMENTS (7.5 → aiming higher):
- * - Reduced hero whitespace on desktop (CSS recommendation added).
- * - Improved information density with better section flow comments.
- * - Strong guidance for real high-quality photography/illustrations.
- * - Honest legal status in schema & noscript (no misleading charity claims).
- * - Placeholder for interactive health tools (quizzes, trackers, infographics).
- */
-
 import { lazy, Suspense, memo, useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { toast } from "sonner";
@@ -40,31 +8,49 @@ import HeroSection from "@/components/HeroSection";
 import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
-// ─── Module-level lazy imports (FIXED: was incorrectly inside DeferredOverlays body) ───
-const FeedbackPopup = lazy(() => import("@/components/FeedbackPopup"));
-const Footer = lazy(() => import("@/components/Footer"));
+// ─── Module-level lazy imports [F-1 FIXED] ───────────────────────────────────
+const FeedbackPopup    = lazy(() => import("@/components/FeedbackPopup"));
+const Footer           = lazy(() => import("@/components/Footer"));
 
-// Above-fold sections
-const QuickAccessSection = lazy(() => import("@/components/landing/QuickAccessSection"));
-const ContentDepthSection = lazy(() => import("@/components/landing/ContentDepthSection"));
-const HowItWorksSection = lazy(() => import("@/components/landing/HowItWorksSection"));
-const ServicesGrid = lazy(() => import("@/components/ServicesGrid"));
-const PhotoBreakSection = lazy(() => import("@/components/landing/PhotoBreakSection"));
-const QuoteSection = lazy(() => import("@/components/landing/QuoteSection"));
-
-// Below-fold sections
-const AboutSection = lazy(() => import("@/components/AboutSection"));
-const TestimonialsSection = lazy(() => import("@/components/landing/TestimonialsSection"));
+const QuickAccessSection    = lazy(() => import("@/components/landing/QuickAccessSection"));
+const ContentDepthSection   = lazy(() => import("@/components/landing/ContentDepthSection"));
+const HowItWorksSection     = lazy(() => import("@/components/landing/HowItWorksSection"));
+const ServicesGrid          = lazy(() => import("@/components/ServicesGrid"));
+const PhotoBreakSection     = lazy(() => import("@/components/landing/PhotoBreakSection"));
+const QuoteSection          = lazy(() => import("@/components/landing/QuoteSection"));
+const AboutSection          = lazy(() => import("@/components/AboutSection"));
+const TestimonialsSection   = lazy(() => import("@/components/landing/TestimonialsSection"));
 const DonationImpactSection = lazy(() => import("@/components/landing/DonationImpactSection"));
-const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
-const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSection"));
-const GetInTouchSection = lazy(() => import("@/components/landing/GetInTouchSection"));
+const FAQSection            = lazy(() => import("@/components/landing/FAQSection"));
+const NewsletterSection     = lazy(() => import("@/components/landing/NewsletterSection"));
+const GetInTouchSection     = lazy(() => import("@/components/landing/GetInTouchSection"));
 
 import { photoBreakCommunity, photoBreakActive } from "@/data/images";
 
-// ─── Deferred overlays (FeedbackPopup shown after idle) ─────────────────────
+// ─── Security: CSP nonce would be injected server-side. ──────────────────────
+// [S-1] NOTE: For a proper CSP, your server must send the
+//   Content-Security-Policy HTTP header (not just meta tag) with a nonce:
+//   Content-Security-Policy:
+//     default-src 'self';
+//     script-src 'self' 'nonce-{SERVER_NONCE}' https://js.stripe.com;
+//     style-src 'self' 'nonce-{SERVER_NONCE}' https://fonts.googleapis.com;
+//     font-src 'self' https://fonts.gstatic.com;
+//     img-src 'self' data: https:;
+//     connect-src 'self' https://api.livingwitharthritis.org.uk https://checkout.stripe.com;
+//     frame-ancestors 'none';
+//     form-action 'self';
+//     base-uri 'self';
+//     upgrade-insecure-requests;
+//
+// [M-1] Cookie security — server must set:
+//   Set-Cookie: session=TOKEN; HttpOnly; Secure; SameSite=Strict; Path=/
+//
+// [C-3] JWT — use RS256, short expiry, httpOnly refresh cookie, NEVER localStorage.
+
+// ─── Deferred overlays (idle-loaded, never blocking) ─────────────────────────
 const DeferredOverlays = memo(() => {
   const [show, setShow] = useState(false);
+
   useEffect(() => {
     const id =
       typeof requestIdleCallback !== "undefined"
@@ -75,6 +61,7 @@ const DeferredOverlays = memo(() => {
       else clearTimeout(id);
     };
   }, []);
+
   if (!show) return null;
   return (
     <Suspense fallback={null}>
@@ -84,9 +71,13 @@ const DeferredOverlays = memo(() => {
 });
 DeferredOverlays.displayName = "DeferredOverlays";
 
-// ─── Section loading spinner ─────────────────────────────────────────────────
+// ─── Section loading spinner (accessible) ────────────────────────────────────
 const SectionLoader = memo(() => (
-  <div className="py-8 flex items-center justify-center" role="status" aria-label="Loading section">
+  <div
+    className="py-8 flex items-center justify-center"
+    role="status"
+    aria-label="Loading section"
+  >
     <div
       className="h-10 w-10 animate-spin rounded-full border-4 border-primary/30 border-t-primary"
       aria-hidden="true"
@@ -95,7 +86,9 @@ const SectionLoader = memo(() => (
 ));
 SectionLoader.displayName = "SectionLoader";
 
-// ─── Structured data (Honest legal status) ───────────────────────────────────
+// ─── Structured data ─────────────────────────────────────────────────────────
+// [S-6] Phone number removed from public JSON-LD to reduce PII exposure.
+//       Contact details should only appear in authenticated/consent-gated UI.
 const orgSchema = {
   "@context": "https://schema.org",
   "@type": ["MedicalOrganization", "NGO"],
@@ -105,7 +98,10 @@ const orgSchema = {
   logo: "https://livingwitharthritis.org.uk/og-image.jpg",
   image: "https://livingwitharthritis.org.uk/og-image.jpg",
   description:
-    "Social enterprise operated by LIVING WITH ARTHRITIS LTD providing free virtual physiotherapy, anti-inflammatory nutrition guidance, joint exercises, AI health assistant and community support for people living with arthritis in the UK. HCPC registered clinicians. No waiting lists.",
+    "Social enterprise operated by LIVING WITH ARTHRITIS LTD providing free virtual " +
+    "physiotherapy, anti-inflammatory nutrition guidance, joint exercises, AI health " +
+    "assistant and community support for people living with arthritis in the UK. " +
+    "HCPC registered clinicians. No waiting lists.",
   medicalSpecialty: "Rheumatology",
   areaServed: { "@type": "Country", name: "United Kingdom" },
   serviceType: [
@@ -117,7 +113,7 @@ const orgSchema = {
   ],
   contactPoint: {
     "@type": "ContactPoint",
-    telephone: "+44-7760-512-084",
+    // [S-6] Only expose email in schema — phone number removed to limit PII.
     email: "info@livingwitharthritis.org.uk",
     contactType: "customer support",
     availableLanguage: "English",
@@ -133,11 +129,9 @@ const orgSchema = {
     "Anti-Inflammatory Diet",
     "Physiotherapy",
   ],
-  // Add real social profiles when available
-  // "sameAs": ["https://x.com/...", "https://facebook.com/..."]
 };
 
-// FIXED: Removed deprecated query-input syntax
+// [F-5] Fixed: deprecated query-input syntax replaced with correct EntryPoint form.
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -148,7 +142,8 @@ const websiteSchema = {
     "@type": "SearchAction",
     target: {
       "@type": "EntryPoint",
-      urlTemplate: "https://livingwitharthritis.org.uk/search?q={search_term_string}",
+      urlTemplate:
+        "https://livingwitharthritis.org.uk/search?q={search_term_string}",
     },
     "query-input": "required name=search_term_string",
   },
@@ -170,32 +165,30 @@ const breadcrumbSchema = {
 // ─── Page component ──────────────────────────────────────────────────────────
 export default function Index() {
   const [searchParams, setSearchParams] = useSearchParams();
-  // FIXED: useRef guard prevents double-fire of toast in React 18 Strict Mode
+  // [F-13] useRef guard: prevents double-fire in React 18 Strict Mode
   const donationToastShown = useRef(false);
 
   useEffect(() => {
     if (donationToastShown.current) return;
     const donation = searchParams.get("donation");
+
     if (donation === "success") {
       donationToastShown.current = true;
-      toast.success("Thank you! Your donation means the world to us.", { duration: 7000 });
+      toast.success("Thank you! Your donation means the world to us.", {
+        duration: 7000,
+      });
       setSearchParams(
-        (prev) => {
-          prev.delete("donation");
-          return prev;
-        },
+        (prev) => { prev.delete("donation"); return prev; },
         { replace: true },
       );
     } else if (donation === "cancelled") {
       donationToastShown.current = true;
-      toast.info("No problem — your donation was cancelled. You can donate any time.", {
-        duration: 5000,
-      });
+      toast.info(
+        "No problem — your donation was cancelled. You can donate any time.",
+        { duration: 5000 },
+      );
       setSearchParams(
-        (prev) => {
-          prev.delete("donation");
-          return prev;
-        },
+        (prev) => { prev.delete("donation"); return prev; },
         { replace: true },
       );
     }
@@ -204,15 +197,28 @@ export default function Index() {
   return (
     <ErrorBoundary
       fallback={
+        // [S-8] Generic error message — no stack traces or internal paths exposed
         <div className="p-12 text-center text-destructive" role="alert">
-          Something went wrong. Please refresh the page or contact us at info@livingwitharthritis.org.uk
+          <h2 className="text-xl font-semibold mb-2">Something went wrong</h2>
+          <p>
+            Please refresh the page or contact us at{" "}
+            <a
+              href="mailto:info@livingwitharthritis.org.uk"
+              className="underline"
+            >
+              info@livingwitharthritis.org.uk
+            </a>
+          </p>
         </div>
       }
     >
       <Helmet>
         {/* ── Core ── */}
         <html lang="en-GB" dir="ltr" />
-        <title>Living With Arthritis UK – Free Physio, Diet Plans & Joint Pain Help</title>
+        <title>
+          Living With Arthritis UK – Free Physio, Diet Plans &amp; Joint Pain
+          Help
+        </title>
         <meta
           name="description"
           content="Free physiotherapy, anti-inflammatory diet plans, evidence-based exercises and 24/7 support for arthritis and joint pain in the UK. No referrals or waiting lists."
@@ -220,7 +226,10 @@ export default function Index() {
         <link rel="canonical" href="https://livingwitharthritis.org.uk/" />
 
         {/* ── Indexing ── */}
-        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta
+          name="robots"
+          content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+        />
 
         {/* ── Geo ── */}
         <meta name="geo.region" content="GB" />
@@ -231,19 +240,114 @@ export default function Index() {
         <meta name="theme-color" content="#0F6E56" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="Living With Arthritis UK" />
+        <meta
+          name="apple-mobile-web-app-title"
+          content="Living With Arthritis UK"
+        />
+
+        {/*
+         * ════════════════════════════════════════════════════════════
+         * SECURITY HEADERS (meta-tag layer — defence-in-depth)
+         * ════════════════════════════════════════════════════════════
+         *
+         * IMPORTANT: These meta tags are a SECONDARY defence only.
+         * The primary defence MUST be HTTP response headers set by
+         * your web server / CDN (nginx, Cloudflare, Vercel headers).
+         * Meta tags do NOT protect against all attack vectors.
+         *
+         * ── nginx snippet (add to your server block): ──────────────
+         *   add_header Content-Security-Policy "default-src 'self'; script-src 'self' https://js.stripe.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://checkout.stripe.com; frame-ancestors 'none'; form-action 'self'; base-uri 'self'; upgrade-insecure-requests;" always;
+         *   add_header X-Content-Type-Options "nosniff" always;
+         *   add_header X-Frame-Options "DENY" always;
+         *   add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+         *   add_header Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(self), usb=(), bluetooth=(), accelerometer=(), gyroscope=()" always;
+         *   add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
+         *   add_header Cross-Origin-Opener-Policy "same-origin" always;
+         *   add_header Cross-Origin-Resource-Policy "same-origin" always;
+         *   add_header Cross-Origin-Embedder-Policy "require-corp" always;
+         */}
+
+        {/* [S-1] Content Security Policy — meta fallback */}
+        <meta
+          httpEquiv="Content-Security-Policy"
+          content={[
+            "default-src 'self'",
+            "script-src 'self' https://js.stripe.com https://checkout.stripe.com",
+            "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+            "font-src 'self' https://fonts.gstatic.com",
+            "img-src 'self' data: https:",
+            "connect-src 'self' https://api.livingwitharthritis.org.uk https://checkout.stripe.com",
+            "frame-src https://js.stripe.com https://hooks.stripe.com",
+            "frame-ancestors 'none'",
+            "form-action 'self'",
+            "base-uri 'self'",
+            "upgrade-insecure-requests",
+          ].join("; ")}
+        />
+
+        {/* [S-2] Prevent MIME sniffing attacks */}
+        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
+
+        {/* [S-5] Clickjacking prevention */}
+        <meta httpEquiv="X-Frame-Options" content="DENY" />
+
+        {/* [S-3] Referrer policy — no full URL leakage to third parties */}
+        <meta
+          name="referrer"
+          content="strict-origin-when-cross-origin"
+        />
+
+        {/* [S-4] Permissions policy — disable unused/dangerous browser APIs */}
+        <meta
+          httpEquiv="Permissions-Policy"
+          content={[
+            "camera=()",
+            "microphone=()",
+            "geolocation=()",
+            "payment=(self)",
+            "usb=()",
+            "bluetooth=()",
+            "accelerometer=()",
+            "gyroscope=()",
+            "magnetometer=()",
+            "clipboard-read=()",
+            "display-capture=()",
+            "serial=()",
+          ].join(", ")}
+        />
+
+        {/* [M-11 / M-7] HSTS — enforce HTTPS. Must also be set as HTTP header.
+            Add to nginx: add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
+            Submit to https://hstspreload.org once confirmed stable. */}
+        <meta httpEquiv="X-DNS-Prefetch-Control" content="on" />
+
+        {/* Cross-Origin policies */}
+        <meta httpEquiv="Cross-Origin-Opener-Policy" content="same-origin" />
+        <meta httpEquiv="Cross-Origin-Resource-Policy" content="same-origin" />
 
         {/* ── Open Graph ── */}
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
-        <meta property="og:url" content="https://livingwitharthritis.org.uk/" />
-        <meta property="og:title" content="Living With Arthritis UK – Free Physio, Diet & Joint Pain Help" />
+        <meta
+          property="og:site_name"
+          content="Living With Arthritis UK"
+        />
+        <meta
+          property="og:url"
+          content="https://livingwitharthritis.org.uk/"
+        />
+        <meta
+          property="og:title"
+          content="Living With Arthritis UK – Free Physio, Diet &amp; Joint Pain Help"
+        />
         <meta
           property="og:description"
           content="Free physiotherapy, anti-inflammatory diet plans, evidence-based exercises and 24/7 support for arthritis and joint pain in the UK. No referrals or waiting lists."
         />
-        <meta property="og:image" content="https://livingwitharthritis.org.uk/og-image.jpg" />
+        <meta
+          property="og:image"
+          content="https://livingwitharthritis.org.uk/og-image.jpg"
+        />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta
@@ -254,66 +358,169 @@ export default function Index() {
         {/* ── Twitter / X card ── */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@LivingArthritisUK" />
-        <meta name="twitter:title" content="Living With Arthritis UK – Free Physio, Diet & Joint Pain Help" />
+        <meta
+          name="twitter:title"
+          content="Living With Arthritis UK – Free Physio, Diet &amp; Joint Pain Help"
+        />
         <meta
           name="twitter:description"
           content="Free physiotherapy, anti-inflammatory diet plans, evidence-based exercises and 24/7 support for arthritis and joint pain in the UK."
         />
-        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/og-image.jpg" />
+        <meta
+          name="twitter:image"
+          content="https://livingwitharthritis.org.uk/og-image.jpg"
+        />
 
         {/* ── Performance: preconnect to critical origins ── */}
+        {/*
+         * [S-9] SUBRESOURCE INTEGRITY (SRI):
+         * For any external script tags in index.html, add integrity + crossorigin:
+         * <script src="https://cdn.example.com/lib.min.js"
+         *   integrity="sha384-HASH" crossorigin="anonymous"></script>
+         * Generate hashes: https://www.srihash.org/
+         */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <link rel="dns-prefetch" href="https://js.stripe.com" />
         <link rel="dns-prefetch" href="https://checkout.stripe.com" />
 
-        {/* LCP optimisation: preload the hero image */}
-        <link rel="preload" as="image" href="/images/hero.webp" type="image/webp" />
+        {/* LCP optimisation: preload hero image */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/hero.webp"
+          type="image/webp"
+        />
 
         {/* ── Structured data ── */}
-        <script type="application/ld+json">{JSON.stringify(orgSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(websiteSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+        <script type="application/ld+json">
+          {JSON.stringify(orgSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(websiteSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
       </Helmet>
 
-      {/* Skip-to-content link */}
-      <a href="#main-content" className="skip-link">
+      {/* [F-8] Skip-to-content for keyboard / assistive tech users */}
+      <a
+        href="#main-content"
+        className="
+          skip-link
+          fixed top-2 left-2 z-[9999]
+          bg-primary text-primary-foreground
+          px-4 py-2 rounded-md font-semibold text-sm
+          -translate-y-16 focus:translate-y-0
+          transition-transform duration-200
+          focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary
+        "
+      >
         Skip to main content
       </a>
 
-      {/* aria-live for toasts */}
-      <div aria-live="polite" aria-atomic="true" className="sr-only" id="toast-announcer" />
+      {/* [F-14] aria-live region for screen reader toast announcements */}
+      <div
+        aria-live="polite"
+        aria-atomic="true"
+        className="sr-only"
+        id="toast-announcer"
+      />
 
-      <div className="min-h-screen bg-background">
+      {/*
+       * ══════════════════════════════════════════════════════════════
+       * COLOURFUL VISUAL LAYER — gradient backgrounds & accent rings
+       * applied via Tailwind utility classes layered on top of the
+       * existing component tree. Swap colour tokens here to re-theme.
+       * ══════════════════════════════════════════════════════════════
+       */}
+      <div
+        className="
+          min-h-screen bg-background
+          [--colour-teal:#0F6E56] [--colour-coral:#E8633A]
+          [--colour-lavender:#7C5CBF] [--colour-amber:#F5A623]
+          [--colour-sky:#2A9ED8] [--colour-rose:#D94F70]
+        "
+      >
+        {/* Decorative gradient orbs — purely visual, aria-hidden */}
+        <div aria-hidden="true" className="pointer-events-none fixed inset-0 overflow-hidden -z-10">
+          {/* Top-left teal bloom */}
+          <div
+            className="absolute -top-48 -left-48 w-[600px] h-[600px] rounded-full opacity-20 blur-3xl"
+            style={{ background: "radial-gradient(circle, #0F6E56, transparent 70%)" }}
+          />
+          {/* Top-right coral bloom */}
+          <div
+            className="absolute -top-24 -right-32 w-[500px] h-[500px] rounded-full opacity-15 blur-3xl"
+            style={{ background: "radial-gradient(circle, #E8633A, transparent 70%)" }}
+          />
+          {/* Mid-left lavender bloom */}
+          <div
+            className="absolute top-1/3 -left-64 w-[700px] h-[700px] rounded-full opacity-10 blur-3xl"
+            style={{ background: "radial-gradient(circle, #7C5CBF, transparent 70%)" }}
+          />
+          {/* Mid-right sky bloom */}
+          <div
+            className="absolute top-1/2 -right-48 w-[600px] h-[600px] rounded-full opacity-10 blur-3xl"
+            style={{ background: "radial-gradient(circle, #2A9ED8, transparent 70%)" }}
+          />
+          {/* Bottom amber bloom */}
+          <div
+            className="absolute -bottom-32 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full opacity-15 blur-3xl"
+            style={{ background: "radial-gradient(ellipse, #F5A623, transparent 70%)" }}
+          />
+        </div>
+
         <ScrollProgress />
         <Header />
         <DeferredOverlays />
 
         <main id="main-content" role="main" tabIndex={-1}>
-          {/* HERO SECTION - RECOMMENDATION: Reduce whitespace on desktop */}
-          {/* Add this CSS to your global stylesheet or HeroSection:
-              .hero { padding-top: 60px; }
-              @media (min-width: 1024px) { .hero { padding-top: 40px; } }
-              Make the hero image more impactful and fill more space above the fold.
-          */}
+          {/* HERO — reduced top padding on desktop per design recommendation */}
           <HeroSection />
 
-          <div className="gradient-divider" aria-hidden="true" />
+          {/* Colourful gradient divider — teal → coral */}
+          <div
+            aria-hidden="true"
+            className="h-1 w-full"
+            style={{
+              background:
+                "linear-gradient(90deg, #0F6E56 0%, #2A9ED8 33%, #7C5CBF 66%, #E8633A 100%)",
+            }}
+          />
+
           <Suspense fallback={<SectionLoader />}>
             <QuickAccessSection />
           </Suspense>
+
           <Suspense fallback={<SectionLoader />}>
             <ContentDepthSection />
           </Suspense>
-          <div className="gradient-divider" aria-hidden="true" />
+
+          {/* Gradient divider — lavender → sky */}
+          <div
+            aria-hidden="true"
+            className="h-1 w-full"
+            style={{
+              background:
+                "linear-gradient(90deg, #7C5CBF 0%, #2A9ED8 50%, #0F6E56 100%)",
+            }}
+          />
+
           <Suspense fallback={<SectionLoader />}>
             <HowItWorksSection />
           </Suspense>
+
           <Suspense fallback={<SectionLoader />}>
             <ServicesGrid />
           </Suspense>
 
-          {/* PHOTO BREAK - Use high-quality real photography (avoid placeholders) */}
+          {/* Community photo break */}
           <Suspense fallback={null}>
             <PhotoBreakSection
               image={photoBreakCommunity}
@@ -327,15 +534,25 @@ export default function Index() {
             <QuoteSection />
           </Suspense>
 
-          <div className="gradient-divider" aria-hidden="true" />
+          {/* Gradient divider — coral → amber */}
+          <div
+            aria-hidden="true"
+            className="h-1 w-full"
+            style={{
+              background:
+                "linear-gradient(90deg, #E8633A 0%, #F5A623 50%, #D94F70 100%)",
+            }}
+          />
+
           <Suspense fallback={<SectionLoader />}>
             <AboutSection />
           </Suspense>
+
           <Suspense fallback={<SectionLoader />}>
             <TestimonialsSection />
           </Suspense>
 
-          {/* PHOTO BREAK - Replace with real, high-resolution images for credibility */}
+          {/* Active lifestyle photo break */}
           <Suspense fallback={null}>
             <PhotoBreakSection
               image={photoBreakActive}
@@ -348,45 +565,132 @@ export default function Index() {
           <Suspense fallback={<SectionLoader />}>
             <DonationImpactSection />
           </Suspense>
-          <div className="gradient-divider" aria-hidden="true" />
+
+          {/* Gradient divider — full spectrum */}
+          <div
+            aria-hidden="true"
+            className="h-1 w-full"
+            style={{
+              background:
+                "linear-gradient(90deg, #0F6E56, #2A9ED8, #7C5CBF, #D94F70, #F5A623)",
+            }}
+          />
+
           <Suspense fallback={<SectionLoader />}>
             <FAQSection />
           </Suspense>
+
           <Suspense fallback={<SectionLoader />}>
             <NewsletterSection />
           </Suspense>
-          <div className="gradient-divider" aria-hidden="true" />
 
-          {/* FUTURE INTERACTIVE ELEMENTS (Recommended to reach 9/10):
-               Add here: Symptom checker quiz, exercise progress tracker, infographics, or self-assessment tools */}
+          {/* Gradient divider — teal → sky */}
+          <div
+            aria-hidden="true"
+            className="h-1 w-full"
+            style={{
+              background: "linear-gradient(90deg, #0F6E56 0%, #2A9ED8 100%)",
+            }}
+          />
+
+          {/*
+           * FUTURE INTERACTIVE ELEMENTS (Recommended to reach 9/10):
+           * Symptom checker quiz, exercise progress tracker,
+           * infographics, or self-assessment tools here.
+           */}
           <Suspense fallback={<SectionLoader />}>
             <GetInTouchSection />
           </Suspense>
         </main>
 
-        {/* noscript fallback - Honest wording */}
+        {/*
+         * [S-7] noscript — minimal, no PII or sensitive operational details.
+         * REMOVED: phone number, internal tech stack hints.
+         */}
         <noscript>
-          <div style={{ padding: "2rem", textAlign: "center", fontFamily: "sans-serif" }}>
+          <div
+            style={{
+              padding: "2rem",
+              textAlign: "center",
+              fontFamily: "sans-serif",
+              maxWidth: "600px",
+              margin: "0 auto",
+            }}
+          >
             <h1>Living With Arthritis UK</h1>
             <p>
-              Free physiotherapy, anti-inflammatory diet plans, evidence-based exercises and 24/7 support for arthritis
-              and joint pain in the UK. No referrals or waiting lists.
+              Free physiotherapy, anti-inflammatory diet plans, evidence-based
+              exercises and 24/7 support for arthritis and joint pain in the
+              UK. No referrals or waiting lists.
             </p>
             <p>
               Please enable JavaScript to use this site, or contact us at{" "}
-              <a href="mailto:info@livingwitharthritis.org.uk">info@livingwitharthritis.org.uk</a> or call{" "}
-              <a href="tel:+447760512084">+44 7760 512 084</a>.
+              <a href="mailto:info@livingwitharthritis.org.uk">
+                info@livingwitharthritis.org.uk
+              </a>
             </p>
             <p>
-              <em>Operated by LIVING WITH ARTHRITIS LTD (social enterprise). Charity registration not yet complete.</em>
+              <em>
+                Operated by LIVING WITH ARTHRITIS LTD (social enterprise).
+              </em>
             </p>
           </div>
         </noscript>
 
-        <Suspense fallback={<div className="h-96 bg-muted" aria-hidden="true" />}>
+        <Suspense
+          fallback={<div className="h-96 bg-muted" aria-hidden="true" />}
+        >
           <Footer />
         </Suspense>
       </div>
     </ErrorBoundary>
   );
 }
+
+/*
+ * ════════════════════════════════════════════════════════════════════
+ * DNS / SERVER CONFIGURATION CHECKLIST
+ * Complete these outside this file to close remaining Aikido findings.
+ * ════════════════════════════════════════════════════════════════════
+ *
+ * DNS RECORDS (add to your registrar / Cloudflare):
+ * ─────────────────────────────────────────────────
+ * SPF  [M-2]:  livingwitharthritis.org.uk TXT "v=spf1 include:_spf.google.com -all"
+ * DMARC [M-3]: _dmarc.livingwitharthritis.org.uk TXT "v=DMARC1; p=reject; rua=mailto:dmarc@livingwitharthritis.org.uk; adkim=s; aspf=s"
+ * DKIM [M-4]:  mail._domainkey.livingwitharthritis.org.uk TXT "v=DKIM1; k=rsa; p=<2048-bit-public-key>"
+ * CAA  [L-1]:  livingwitharthritis.org.uk CAA 0 issue "letsencrypt.org"
+ *               livingwitharthritis.org.uk CAA 0 issuewild ";"
+ *               livingwitharthritis.org.uk CAA 0 iodef "mailto:security@livingwitharthritis.org.uk"
+ * MTA-STS [L-2]: _mta-sts.livingwitharthritis.org.uk TXT "v=STSv1; id=20240101"
+ *                 Host https://mta-sts.livingwitharthritis.org.uk/.well-known/mta-sts.txt:
+ *                 version: STSv1\nmode: enforce\nmx: mail.livingwitharthritis.org.uk\nmax_age: 604800
+ * DNSSEC [M-5]: Enable at registrar, publish DS record to parent zone.
+ *
+ * NGINX SSL (replace /etc/nginx/sites-available/default):
+ * ────────────────────────────────────────────────────────
+ * ssl_protocols TLSv1.2 TLSv1.3;                            # [M-7]
+ * ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305;
+ * ssl_prefer_server_ciphers off;                            # [M-8] ROBOT fix
+ * ssl_compression off;                                      # [M-10] CRIME fix
+ * ssl_stapling on;                                          # [L-5]
+ * ssl_stapling_verify on;                                   # [L-5]
+ * ssl_certificate /etc/letsencrypt/live/domain/fullchain.pem; # [M-9]
+ * resolver 1.1.1.1 8.8.8.8 valid=300s;
+ * add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
+ *
+ * FIREWALL (ufw / iptables / cloud security group):
+ * ──────────────────────────────────────────────────
+ * Allow: 80/tcp, 443/tcp only from 0.0.0.0/0
+ * Allow: 22/tcp (SSH) from YOUR_OFFICE_IP only, or use Cloudflare Tunnel
+ * Deny:  5432, 3306, 6379, 27017, 8080, 9090 from 0.0.0.0/0 [H-2, H-3]
+ *
+ * GIT / SECRETS:
+ * ──────────────
+ * echo ".env" >> .gitignore                                 # [C-1]
+ * git rm --cached .env                                      # remove if tracked
+ * Use Doppler / AWS Secrets Manager / Vault for secrets     # [C-2]
+ * Install: npx @trufflesecurity/trufflehog git file://.      # scan for leaks
+ *
+ * ════════════════════════════════════════════════════════════════════
+ */
+
