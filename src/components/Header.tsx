@@ -4,7 +4,7 @@ import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper
 import { useNavigate } from "react-router-dom";
 import ThemeToggle from "@/components/ThemeToggle";
 
-const CartDrawer = lazy(() => import("@/components/CartDrawer"));
+const _CartDrawer = lazy(() => import("@/components/CartDrawer"));
 const ResourceLibraryDrawer = lazy(() => import("@/components/ResourceLibraryDrawer"));
 const SiteSearch = lazy(() => import("@/components/SiteSearch"));
 
@@ -216,7 +216,7 @@ const Header = () => {
 
             {/* Desktop: search + theme on right of logo */}
             <div className="hidden lg:flex items-center gap-2 flex-1 justify-end">
-              <SiteSearch />
+              <Suspense fallback={null}><SiteSearch /></Suspense>
               <ThemeToggle />
             </div>
 
@@ -256,7 +256,7 @@ const Header = () => {
           {/* Mobile search bar — slides in below logo */}
           {mobileSearchOpen && (
             <div className="lg:hidden px-4 pb-3 border-t border-border/20 pt-3 bg-background/95 backdrop-blur-xl">
-              <SiteSearch />
+              <Suspense fallback={null}><SiteSearch /></Suspense>
             </div>
           )}
         </div>
@@ -455,7 +455,7 @@ const Header = () => {
         </>
       )}
 
-      <ResourceLibraryDrawer open={resourceDrawerOpen} onOpenChange={setResourceDrawerOpen} />
+      <Suspense fallback={null}><ResourceLibraryDrawer open={resourceDrawerOpen} onOpenChange={setResourceDrawerOpen} /></Suspense>
     </>
   );
 };
