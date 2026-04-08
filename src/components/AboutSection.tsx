@@ -1,7 +1,6 @@
 import { memo } from "react";
 import { Users, TrendingUp, BookOpen, Shield, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { founderPortrait as founderImage } from "@/data/images";
 
 const milestones = [
   { icon: Users, value: "10,000+", label: "People supported" },
@@ -15,7 +14,7 @@ const AboutSection = memo(() => {
     <section id="resources" className="py-24 lg:py-32 relative">
       <div className="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-28 items-start">
-          {/* Left — Mission + Founder */}
+          {/* Left — Mission */}
           <div>
             <span className="section-label text-primary/60 mb-5 block">About Our Mission</span>
             <h2 className="font-display text-3xl sm:text-4xl md:text-[3.5rem] font-bold mb-8 text-foreground leading-[1.06] tracking-tight">
@@ -29,32 +28,11 @@ const AboutSection = memo(() => {
               comprehensive arthritis support platform in the UK — accessible to everyone, for free.
             </p>
 
-            {/* Founder mini-card */}
-            <div className="flex items-start gap-6 p-7 rounded-2xl bg-card border border-border/10 mb-10 hover:shadow-medium transition-all duration-500">
-              <img
-                src={founderImage}
-                alt="Founder portrait"
-                className="w-18 h-18 rounded-xl object-cover border border-border/15"
-                loading="lazy"
-                width={72}
-                height={72}
-              />
-              <div>
-                <p className="text-base font-bold text-foreground mb-1.5">Meet Our Founder</p>
-                <p className="text-sm text-muted-foreground leading-[1.8] mb-4">
-                  An NHS First Contact Practitioner with international clinical experience who saw first-hand how patients struggled to find reliable, free arthritis support.
-                </p>
-                <Link
-                  to="/about"
-                  className="inline-flex items-center gap-1.5 text-[11px] font-bold text-primary tracking-[0.15em] uppercase hover:gap-2.5 transition-all"
-                >
-                  Read our story <ArrowRight className="w-3 h-3" />
-                </Link>
-              </div>
-            </div>
-
             {/* Transparency links */}
             <div className="flex flex-wrap gap-3">
+              <Link to="/about" className="feature-pill text-muted-foreground/60 hover:text-primary hover:border-primary/20">
+                Our Story
+              </Link>
               <Link to="/finances" className="feature-pill text-muted-foreground/60 hover:text-primary hover:border-primary/20">
                 Our Finances
               </Link>
