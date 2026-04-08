@@ -460,16 +460,19 @@ export default function Index() {
                   
         </div>
                 
-        <ScrollProgress />
-                
-        <Header />
-                
+        <Suspense fallback={null}>
+          <ScrollProgress />
+        </Suspense>
+                
+        <Suspense fallback={<div className="h-16" />}>
+          <Header />
+        </Suspense>
+                
         <DeferredOverlays />
-                
+                
         <main id="main-content" role="main" tabIndex={-1}>
-                    {/* HERO — reduced top padding on desktop per design recommendation */}
-                    
-          <HeroSection />
+          <Suspense fallback={<div className="min-h-[60vh]" />}>
+            <HeroSection />
                     {/* Colourful gradient divider — teal → coral */}
                     
           <div
