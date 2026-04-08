@@ -473,7 +473,8 @@ export default function Index() {
         <main id="main-content" role="main" tabIndex={-1}>
           <Suspense fallback={<div className="min-h-[60vh]" />}>
             <HeroSection />
-                    {/* Colourful gradient divider — teal → coral */}
+          </Suspense>
+                    {/* Colourful gradient divider — teal → coral */}
                     
           <div
             aria-hidden="true"
