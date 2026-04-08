@@ -179,6 +179,20 @@ export default function Index() {
       );
     }
   }, [searchParams, setSearchParams]);
+
+  // Inject JSON-LD structured data via DOM to avoid react-helmet-async crash
+  useEffect(() => {
+    const schemas = [orgSchema, websiteSchema, breadcrumbSchema];
+    const scripts = schemas.map((schema) => {
+      const el = document.createElement("script");
+      el.type = "application/ld+json";
+      el.textContent = JSON.stringify(schema);
+      document.head.appendChild(el);
+      return el;
+    });
+    return () => scripts.forEach((el) => el.remove());
+  }, []);
+
   return (
     <ErrorBoundary
       fallback={
@@ -372,20 +386,6 @@ export default function Index() {
         <link rel="preload" as="image" href="/images/hero.webp" type="image/webp" />
                 {/* ── Structured data ── */}
                 
-        <script type="application/ld+json">
-                    {JSON.stringify(orgSchema)}
-                  
-        </script>
-                
-        <script type="application/ld+json">
-                    {JSON.stringify(websiteSchema)}
-                  
-        </script>
-                
-        <script type="application/ld+json">
-                    {JSON.stringify(breadcrumbSchema)}
-                  
-        </script>
               
       </Helmet>
             {/* [F-8] Skip-to-content for keyboard / assistive tech users */}
