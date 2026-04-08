@@ -30,14 +30,6 @@ const evidenceSources = [
   { name: "Arthritis Research UK (legacy)", desc: "Foundational research informing UK arthritis care standards", url: "#", icon: Stethoscope },
 ];
 
-const partners = [
-  "Chartered Society of Physiotherapy",
-  "British Dietetic Association",
-  "National Rheumatoid Arthritis Society",
-  "Arthritis Action",
-  "Pain Concern UK",
-  "Age UK",
-];
 
 const policies = [
   { label: "Privacy Policy", href: "/privacy" },
@@ -193,38 +185,6 @@ const TrustCredibility = () => {
           </div>
         </section>
 
-        {/* Partners */}
-        <section className="py-16 lg:py-20">
-          <div className="container mx-auto px-6 md:px-10 max-w-5xl">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                <Handshake className="w-5 h-5 text-primary" />
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold text-foreground">Partner Organisations</h2>
-                <p className="text-sm text-muted-foreground">Aligned with leading UK health and arthritis organisations</p>
-              </div>
-            </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {partners.map((p, i) => (
-                <motion.div
-                  key={p}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.06 }}
-                >
-                  <Card className="border border-border/40">
-                    <CardContent className="p-5 flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-primary shrink-0" />
-                      <span className="font-medium text-foreground text-sm">{p}</span>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* Policies & compliance */}
         <section className="py-16 lg:py-20 bg-muted/20">
