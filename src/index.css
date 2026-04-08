@@ -15,56 +15,56 @@
     --popover: 0 0% 100%;
     --popover-foreground: 40 5% 11%;
 
-    /* British Red Cross red */
-    --primary: 1 85% 54%;
+    /* PayPal Deep Blue */
+    --primary: 221 100% 26%;
     --primary-foreground: 0 0% 100%;
 
-    /* Deeper red accent */
-    --secondary: 0 75% 42%;
+    /* PayPal Bright Blue */
+    --secondary: 197 100% 44%;
     --secondary-foreground: 0 0% 100%;
 
-    --accent: 0 0% 97%;
+    --accent: 210 20% 97%;
     --accent-foreground: 40 5% 11%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 40%;
+    --muted: 210 10% 96%;
+    --muted-foreground: 210 5% 40%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 91%;
-    --input: 0 0% 91%;
-    --ring: 1 85% 54%;
+    --border: 210 10% 91%;
+    --input: 210 10% 91%;
+    --ring: 221 100% 26%;
 
-    --gold: 1 70% 50%;
+    --gold: 197 100% 44%;
     --gold-foreground: 0 0% 100%;
-    --gold-muted: 1 30% 92%;
-    --amber: 1 75% 48%;
+    --gold-muted: 210 30% 92%;
+    --amber: 197 85% 40%;
 
-    --navy: 1 85% 20%;
+    --navy: 221 100% 20%;
     --navy-foreground: 0 0% 100%;
 
     /* Pure white section variation */
     --warm: 0 0% 98%;
 
-    /* Subtle neutral tints — all near-white */
-    --tint-blue: 0 0% 97%;
-    --tint-green: 0 0% 97%;
-    --tint-amber: 0 5% 97%;
-    --tint-rose: 0 5% 97%;
-    --tint-violet: 0 0% 97%;
-    --tint-cyan: 0 0% 97%;
-    --tint-peach: 0 3% 97%;
-    --tint-mint: 0 0% 97%;
-    --tint-lavender: 0 0% 97%;
-    --tint-coral: 0 5% 97%;
+    /* Subtle neutral tints — blue-tinted near-whites */
+    --tint-blue: 210 20% 97%;
+    --tint-green: 195 15% 97%;
+    --tint-amber: 200 10% 97%;
+    --tint-rose: 210 10% 97%;
+    --tint-violet: 220 15% 97%;
+    --tint-cyan: 195 15% 97%;
+    --tint-peach: 200 10% 97%;
+    --tint-mint: 195 10% 97%;
+    --tint-lavender: 220 15% 97%;
+    --tint-coral: 200 10% 97%;
 
-    /* Accent colors — all mapped to red variants */
-    --emerald: 1 75% 44%;
-    --sky: 1 70% 50%;
-    --violet: 350 65% 48%;
-    --coral: 5 70% 52%;
-    --teal: 355 60% 42%;
+    /* Accent colors — blue family */
+    --emerald: 197 80% 38%;
+    --sky: 197 100% 44%;
+    --violet: 230 60% 48%;
+    --coral: 197 70% 50%;
+    --teal: 210 60% 38%;
 
     /* Clean shadow system */
     --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.03);
@@ -72,21 +72,21 @@
     --shadow-large: 0 24px 60px -16px rgb(0 0 0 / 0.1), 0 8px 24px -8px rgb(0 0 0 / 0.04);
     --shadow-xl: 0 36px 72px -20px rgb(0 0 0 / 0.12), 0 16px 40px -12px rgb(0 0 0 / 0.05);
     --shadow-2xl: 0 56px 100px -30px rgb(0 0 0 / 0.14), 0 24px 56px -16px rgb(0 0 0 / 0.06);
-    --shadow-primary: 0 12px 36px -8px hsl(1 85% 54% / 0.2);
-    --shadow-glow: 0 0 56px -16px hsl(1 85% 54% / 0.08);
-    --shadow-gold: 0 12px 36px -8px hsl(42 78% 48% / 0.2);
+    --shadow-primary: 0 12px 36px -8px hsl(221 100% 26% / 0.2);
+    --shadow-glow: 0 0 56px -16px hsl(221 100% 26% / 0.08);
+    --shadow-gold: 0 12px 36px -8px hsl(197 100% 44% / 0.2);
     --shadow-glass: 0 8px 32px rgb(0 0 0 / 0.03), inset 0 1px 0 rgb(255 255 255 / 0.8);
 
     --radius: 0.75rem;
 
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 0 0% 15%;
-    --sidebar-primary: 1 85% 54%;
+    --sidebar-primary: 221 100% 26%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 97%;
+    --sidebar-accent: 210 20% 97%;
     --sidebar-accent-foreground: 40 5% 11%;
-    --sidebar-border: 0 0% 92%;
-    --sidebar-ring: 1 85% 54%;
+    --sidebar-border: 210 10% 92%;
+    --sidebar-ring: 221 100% 26%;
   }
 
   .dark {
