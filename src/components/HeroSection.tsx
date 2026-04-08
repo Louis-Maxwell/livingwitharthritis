@@ -113,7 +113,7 @@ const HeroSection = memo(() => {
               </div>
               {/* Top-right floating badge */}
               <div className="absolute -top-3 -right-3 bg-primary text-primary-foreground rounded-lg px-4 py-2.5 shadow-xl">
-                <p className="text-[10px] font-bold tracking-[0.2em] uppercase">100% Free</p>
+                <p className="text-[10px] font-bold tracking-[0.2em] uppercase">Completely Free</p>
               </div>
             </div>
           </div>
