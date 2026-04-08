@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import {
   Shield, Award, Users, BookOpen, Heart, ExternalLink,
   Stethoscope, GraduationCap, Scale, FileCheck, Globe,
-  CheckCircle, Building2, Handshake
+  Building2
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
