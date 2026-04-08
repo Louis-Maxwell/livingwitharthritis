@@ -270,13 +270,13 @@ export default function Index() {
             <HowItWorksSection />
           </Suspense>
 
-          <ViewportSection minHeight="500px">
+          <ViewportSection minHeight="720px">
             <Suspense fallback={<SectionLoader />}>
               <ServicesGrid />
             </Suspense>
           </ViewportSection>
 
-          <ViewportSection minHeight="400px">
+          <ViewportSection minHeight="480px">
             <Suspense fallback={null}>
               <PhotoBreakSection
                 image={photoBreakCommunity}
@@ -287,25 +287,25 @@ export default function Index() {
             </Suspense>
           </ViewportSection>
 
-          <ViewportSection minHeight="250px">
+          <ViewportSection minHeight="520px">
             <Suspense fallback={null}>
               <QuoteSection />
             </Suspense>
           </ViewportSection>
 
-          <ViewportSection minHeight="500px">
+          <ViewportSection minHeight="820px">
             <Suspense fallback={<SectionLoader />}>
               <AboutSection />
             </Suspense>
           </ViewportSection>
 
-          <ViewportSection minHeight="500px">
+          <ViewportSection minHeight="720px">
             <Suspense fallback={<SectionLoader />}>
               <TestimonialsSection />
             </Suspense>
           </ViewportSection>
 
-          <ViewportSection minHeight="400px">
+          <ViewportSection minHeight="480px">
             <Suspense fallback={null}>
               <PhotoBreakSection
                 image={photoBreakActive}
@@ -316,25 +316,25 @@ export default function Index() {
             </Suspense>
           </ViewportSection>
 
-          <ViewportSection minHeight="500px">
+          <ViewportSection minHeight="620px">
             <Suspense fallback={<SectionLoader />}>
               <DonationImpactSection />
             </Suspense>
           </ViewportSection>
 
-          <ViewportSection minHeight="500px">
+          <ViewportSection minHeight="840px">
             <Suspense fallback={<SectionLoader />}>
               <FAQSection />
             </Suspense>
           </ViewportSection>
 
-          <ViewportSection minHeight="300px">
+          <ViewportSection minHeight="420px">
             <Suspense fallback={<SectionLoader />}>
               <NewsletterSection />
             </Suspense>
           </ViewportSection>
 
-          <ViewportSection minHeight="400px">
+          <ViewportSection minHeight="620px">
             <Suspense fallback={<SectionLoader />}>
               <GetInTouchSection />
             </Suspense>
