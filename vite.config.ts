@@ -30,15 +30,13 @@ export default defineConfig(({ mode }) => ({
           vendor: ["react", "react-dom"],
           router: ["react-router-dom"],
           motion: ["framer-motion"],
+          icons: ["lucide-react"],
           query: ["@tanstack/react-query"],
           supabase: ["@supabase/supabase-js"],
           helmet: ["react-helmet-async"],
           forms: ["react-hook-form", "@hookform/resolvers", "zod"],
-          // Radix UI split: only dialog+tooltip in core, rest lazy
           "ui-core": ["@radix-ui/react-dialog", "@radix-ui/react-tooltip"],
           "ui-extra": ["@radix-ui/react-tabs", "@radix-ui/react-accordion"],
-          // NOTE: recharts and react-markdown are NOT in manualChunks
-          // so they only load with their lazy-loaded consumers
         },
       },
     },

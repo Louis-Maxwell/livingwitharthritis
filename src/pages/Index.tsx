@@ -2,9 +2,9 @@ import { lazy, Suspense, memo, useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { toast } from "sonner";
 import { useSearchParams } from "react-router-dom";
-import Header from "@/components/Header";
-import HeroSection from "@/components/HeroSection";
-import ScrollProgress from "@/components/ScrollProgress";
+const Header = lazy(() => import("@/components/Header"));
+const HeroSection = lazy(() => import("@/components/HeroSection"));
+const ScrollProgress = lazy(() => import("@/components/ScrollProgress"));
 import ErrorBoundary from "@/components/ErrorBoundary";
 import ViewportSection from "@/components/ui/ViewportSection";
 // ─── Module-level lazy imports [F-1 FIXED] ───────────────────────────────────
