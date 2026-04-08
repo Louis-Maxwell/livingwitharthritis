@@ -372,20 +372,6 @@ export default function Index() {
         <link rel="preload" as="image" href="/images/hero.webp" type="image/webp" />
                 {/* ── Structured data ── */}
                 
-        <script type="application/ld+json">
-                    {JSON.stringify(orgSchema)}
-                  
-        </script>
-                
-        <script type="application/ld+json">
-                    {JSON.stringify(websiteSchema)}
-                  
-        </script>
-                
-        <script type="application/ld+json">
-                    {JSON.stringify(breadcrumbSchema)}
-                  
-        </script>
               
       </Helmet>
             {/* [F-8] Skip-to-content for keyboard / assistive tech users */}
