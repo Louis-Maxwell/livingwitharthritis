@@ -10,8 +10,11 @@ const steps = [
 ];
 
 const HowItWorksSection = memo(() => (
-  <section className="py-24 lg:py-32 relative">
-    <div className="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl">
+  <section className="py-24 lg:py-32 relative overflow-hidden">
+    {/* Background accent */}
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-primary/[0.015] blur-[100px] pointer-events-none" />
+    
+    <div className="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl relative">
       <div className="text-center mb-20">
         <span className="section-label text-primary/60 mb-5 block">How It Works</span>
         <h2 className="font-display text-3xl sm:text-4xl md:text-[3.5rem] font-bold text-foreground mb-6 leading-[1.06] tracking-tight">
@@ -28,24 +31,26 @@ const HowItWorksSection = memo(() => (
           const Icon = step.icon;
           return (
             <div key={i} className="text-center relative group">
-              {/* Large faded step number */}
-              <span className="font-display text-[4.5rem] font-bold text-primary/[0.04] leading-none block mb-3">
+              {/* Large faded step number with hover effect */}
+              <span className="font-display text-[4.5rem] font-bold text-primary/[0.04] group-hover:text-primary/[0.08] leading-none block mb-3 transition-colors duration-500">
                 {step.num}
               </span>
-              {/* Connector line between steps (desktop) */}
+              {/* Connector line between steps (desktop) — animated */}
               {i < steps.length - 1 && (
-                <div className="absolute top-16 right-0 translate-x-1/2 w-12 h-px bg-border/20 hidden lg:block" />
+                <div className="absolute top-16 right-0 translate-x-1/2 w-12 h-px hidden lg:block overflow-hidden">
+                  <div className="w-full h-full bg-gradient-to-r from-primary/20 to-primary/5" />
+                </div>
               )}
-              <div className="w-16 h-16 rounded-2xl bg-primary/[0.04] flex items-center justify-center mx-auto mb-7 group-hover:bg-primary group-hover:scale-105 transition-all duration-500">
+              <div className="w-16 h-16 rounded-2xl bg-primary/[0.04] flex items-center justify-center mx-auto mb-7 group-hover:bg-primary group-hover:scale-110 group-hover:rotate-[-3deg] group-hover:shadow-lg group-hover:shadow-primary/20 transition-all duration-500">
                 <Icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors duration-500" />
               </div>
-              <h3 className="text-lg font-bold text-foreground mb-3 tracking-tight">{step.title}</h3>
+              <h3 className="text-lg font-bold text-foreground mb-3 tracking-tight group-hover:text-primary transition-colors duration-300">{step.title}</h3>
               <p className="text-sm text-muted-foreground leading-[1.8] mb-5">{step.desc}</p>
               <Link
                 to={step.link}
-                className="inline-flex items-center gap-1.5 text-[11px] font-bold text-primary tracking-[0.12em] uppercase hover:gap-2.5 transition-all"
+                className="inline-flex items-center gap-1.5 text-[11px] font-bold text-primary tracking-[0.12em] uppercase hover:gap-2.5 transition-all group/link"
               >
-                {step.linkText} <ArrowRight className="w-3 h-3" />
+                {step.linkText} <ArrowRight className="w-3 h-3 group-hover/link:translate-x-0.5 transition-transform" />
               </Link>
             </div>
           );

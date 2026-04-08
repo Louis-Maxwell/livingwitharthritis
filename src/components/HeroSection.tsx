@@ -1,4 +1,4 @@
-import { ArrowRight, MessageCircle, Heart, Shield, Award, CheckCircle } from "lucide-react";
+import { ArrowRight, MessageCircle, Heart, Shield, Award, CheckCircle, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { memo } from "react";
@@ -25,17 +25,19 @@ const HeroSection = memo(() => {
 
   return (
     <section className="relative overflow-hidden bg-background">
-      {/* Subtle top gradient wash */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.02] via-transparent to-transparent pointer-events-none" />
+      {/* Layered gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] via-transparent to-gold/[0.02] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-primary/[0.02] blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-gold/[0.03] blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-5 sm:px-8 md:px-12 lg:px-16 relative">
-        <div className="flex items-center py-12 sm:py-16 lg:py-14">
-          <div className="grid lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-14 items-center w-full">
+        <div className="flex items-center py-14 sm:py-18 lg:py-16">
+          <div className="grid lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-16 items-center w-full">
             {/* Left — Text */}
             <div className="hero-stagger text-center lg:text-left">
               <div className="hero-item flex justify-center lg:justify-start mb-6">
-                <span className="premium-badge">
-                  <Heart className="w-3 h-3 fill-primary/30" />
+                <span className="premium-badge group cursor-default">
+                  <Sparkles className="w-3 h-3 text-gold group-hover:animate-wiggle transition-all" />
                   UK Arthritis Charity
                 </span>
               </div>
@@ -54,7 +56,7 @@ const HeroSection = memo(() => {
               </p>
 
               <p className="hero-item text-xs sm:text-sm text-primary/70 font-medium mb-6 sm:mb-8 flex items-center justify-center lg:justify-start gap-2">
-                <Heart className="w-3.5 h-3.5 fill-primary/20" />
+                <Heart className="w-3.5 h-3.5 fill-primary/20 animate-pulse-soft" />
                 Every donation helps us reach more people in need
               </p>
 
@@ -62,8 +64,9 @@ const HeroSection = memo(() => {
                 <Button
                   size="lg"
                   onClick={() => navigate("/chat")}
-                  className="btn-primary-cta px-8 sm:px-12 h-[48px] sm:h-[56px] rounded-full text-[13px] sm:text-sm font-bold tracking-wider group active:scale-[0.97]"
+                  className="btn-primary-cta px-8 sm:px-12 h-[48px] sm:h-[56px] rounded-full text-[13px] sm:text-sm font-bold tracking-wider group active:scale-[0.97] relative overflow-hidden"
                 >
+                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                   <MessageCircle className="w-4.5 h-4.5 mr-2 group-hover:scale-110 transition-transform" />
                   Get Free Support
                   <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 hidden sm:block" />
@@ -79,12 +82,12 @@ const HeroSection = memo(() => {
                 </Button>
               </div>
 
-              {/* Trust badges */}
+              {/* Trust badges with hover effect */}
               <div className="hero-item flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 mt-6 sm:mt-8">
                 {trustBadges.map((badge) => {
                   const Icon = badge.icon;
                   return (
-                    <div key={badge.label} className="flex items-center gap-1.5 sm:gap-2 text-muted-foreground/50">
+                    <div key={badge.label} className="flex items-center gap-1.5 sm:gap-2 text-muted-foreground/50 hover:text-primary/70 transition-colors duration-300 cursor-default">
                       <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                       <span className="text-[9px] sm:text-[10px] font-bold tracking-[0.15em] sm:tracking-[0.18em] uppercase">{badge.label}</span>
                     </div>
@@ -93,39 +96,52 @@ const HeroSection = memo(() => {
               </div>
             </div>
 
-            {/* Right — Hero Image */}
+            {/* Right — Hero Image with enhanced depth */}
             <div className="hero-item hidden lg:block relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
+              {/* Decorative ring behind image */}
+              <div className="absolute -inset-4 rounded-3xl border border-primary/[0.06] pointer-events-none" />
+              <div className="absolute -inset-8 rounded-3xl border border-primary/[0.03] pointer-events-none" />
+              
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] group">
                 <img
                   src={heroImage}
                   alt="A woman doing gentle stretching exercises outdoors in a garden, representing active living with arthritis"
                   width={1280}
                   height={960}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
                   fetchPriority="high"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent" />
               </div>
-              {/* Floating stat card */}
-              <div className="absolute -bottom-6 -left-6 bg-card border border-border/15 rounded-xl p-5 shadow-2xl backdrop-blur-sm">
+              
+              {/* Floating stat card — glassmorphism */}
+              <div className="absolute -bottom-6 -left-6 bg-card/90 backdrop-blur-xl border border-border/20 rounded-xl p-5 shadow-2xl hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
                 <p className="stat-number text-2xl text-primary font-bold">10,000+</p>
                 <p className="text-[10px] text-muted-foreground/60 font-medium tracking-[0.15em] uppercase mt-1">Lives Improved</p>
+              </div>
+
+              {/* New: floating badge top-right */}
+              <div className="absolute -top-3 -right-3 bg-gold text-gold-foreground rounded-lg px-4 py-2.5 shadow-xl shadow-gold/20 hover:scale-105 transition-transform duration-300">
+                <p className="text-[10px] font-bold tracking-[0.2em] uppercase flex items-center gap-1.5">
+                  <Sparkles className="w-3 h-3" />
+                  NHS Aligned
+                </p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Stats row */}
+        {/* Stats row with enhanced dividers */}
         <div className="pb-12 lg:pb-16">
-          <div className="w-full max-w-3xl mx-auto">
+          <div className="w-full max-w-3xl mx-auto bg-card/50 backdrop-blur-sm rounded-2xl border border-border/10 p-2">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-0">
               {STATS.map((stat, i) => (
-                <div key={i} className="relative text-center py-5 px-4">
+                <div key={i} className="relative text-center py-5 px-4 group hover:bg-primary/[0.02] rounded-xl transition-colors duration-300">
                   <AnimatedCounter
                     target={stat.target}
                     suffix={stat.suffix}
                     compact={stat.compact}
-                    className="stat-number text-2xl sm:text-3xl lg:text-[2.25rem]"
+                    className="stat-number text-2xl sm:text-3xl lg:text-[2.25rem] group-hover:text-primary transition-colors duration-300"
                   />
                   <p className="text-[10px] sm:text-[11px] text-muted-foreground/60 font-medium mt-1.5 leading-snug tracking-[0.12em] uppercase">{stat.label}</p>
                   {i < STATS.length - 1 && (
