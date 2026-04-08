@@ -6,138 +6,138 @@
 
 @layer base {
   :root {
-    /* ─── £100M Institutional Palette ─── */
-    --background: 220 20% 99%;
-    --foreground: 222 47% 11%;
+    /* ─── £100M Emerald & Ivory Palette ─── */
+    --background: 48 100% 99%;
+    --foreground: 160 60% 8%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card: 48 60% 99%;
+    --card-foreground: 160 60% 8%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover: 48 60% 99%;
+    --popover-foreground: 160 60% 8%;
 
-    /* Institutional Navy — Barclays/NHS authority */
-    --primary: 222 47% 14%;
-    --primary-foreground: 210 40% 98%;
+    /* Deep Emerald — trust, healing, prestige */
+    --primary: 164 89% 15%;
+    --primary-foreground: 48 100% 97%;
 
-    /* Prestige Teal — clinical sophistication */
-    --secondary: 186 100% 28%;
+    /* Vibrant Green — life, growth, energy */
+    --secondary: 160 84% 39%;
     --secondary-foreground: 0 0% 100%;
 
-    --accent: 220 14% 96%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 48 40% 96%;
+    --accent-foreground: 160 60% 8%;
 
-    --muted: 220 14% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 48 20% 96%;
+    --muted-foreground: 160 10% 42%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 222 47% 14%;
+    --border: 48 15% 90%;
+    --input: 48 15% 90%;
+    --ring: 164 89% 15%;
 
-    /* Gold accent — wealth & institutional prestige */
-    --gold: 43 96% 56%;
-    --gold-foreground: 222 47% 11%;
-    --gold-muted: 43 30% 90%;
+    /* Gold accent — institutional wealth */
+    --gold: 43 87% 55%;
+    --gold-foreground: 160 60% 8%;
+    --gold-muted: 43 30% 91%;
     --amber: 38 92% 50%;
 
-    --navy: 222 47% 11%;
-    --navy-foreground: 210 40% 98%;
+    --navy: 164 89% 10%;
+    --navy-foreground: 48 100% 97%;
 
     /* Warm ivory section variation */
-    --warm: 40 33% 98%;
+    --warm: 48 60% 97%;
 
-    /* Subtle institutional tints */
-    --tint-blue: 220 20% 97%;
-    --tint-green: 168 20% 97%;
-    --tint-amber: 43 20% 97%;
+    /* Subtle botanical tints */
+    --tint-blue: 168 15% 97%;
+    --tint-green: 152 25% 96%;
+    --tint-amber: 43 25% 97%;
     --tint-rose: 350 15% 97%;
-    --tint-violet: 260 15% 97%;
-    --tint-cyan: 186 15% 97%;
-    --tint-peach: 25 15% 97%;
-    --tint-mint: 160 15% 97%;
-    --tint-lavender: 260 15% 97%;
+    --tint-violet: 260 12% 97%;
+    --tint-cyan: 175 18% 97%;
+    --tint-peach: 30 18% 97%;
+    --tint-mint: 155 20% 96%;
+    --tint-lavender: 260 12% 97%;
     --tint-coral: 15 15% 97%;
 
-    /* Accent palette — rich & distinguished */
+    /* Accent palette — nature-inspired richness */
     --emerald: 160 84% 30%;
-    --sky: 199 89% 48%;
-    --violet: 262 60% 50%;
+    --sky: 199 80% 46%;
+    --violet: 262 55% 50%;
     --coral: 12 76% 61%;
-    --teal: 186 100% 28%;
+    --teal: 175 80% 30%;
 
-    /* Premium shadow system */
-    --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.04);
-    --shadow-medium: 0 8px 30px -8px rgb(15 23 42 / 0.1), 0 2px 8px -3px rgb(15 23 42 / 0.04);
-    --shadow-large: 0 24px 60px -16px rgb(15 23 42 / 0.12), 0 8px 24px -8px rgb(15 23 42 / 0.05);
-    --shadow-xl: 0 36px 72px -20px rgb(15 23 42 / 0.14), 0 16px 40px -12px rgb(15 23 42 / 0.06);
-    --shadow-2xl: 0 56px 100px -30px rgb(15 23 42 / 0.16), 0 24px 56px -16px rgb(15 23 42 / 0.08);
-    --shadow-primary: 0 12px 36px -8px hsl(222 47% 14% / 0.25);
-    --shadow-glow: 0 0 56px -16px hsl(222 47% 14% / 0.1);
-    --shadow-gold: 0 12px 36px -8px hsl(43 96% 56% / 0.25);
-    --shadow-glass: 0 8px 32px rgb(15 23 42 / 0.04), inset 0 1px 0 rgb(255 255 255 / 0.8);
+    /* Premium shadow system — warm-tinted */
+    --shadow-soft: 0 1px 3px 0 rgb(6 78 59 / 0.04), 0 1px 2px -1px rgb(6 78 59 / 0.03);
+    --shadow-medium: 0 8px 30px -8px rgb(6 78 59 / 0.08), 0 2px 8px -3px rgb(6 78 59 / 0.03);
+    --shadow-large: 0 24px 60px -16px rgb(6 78 59 / 0.1), 0 8px 24px -8px rgb(6 78 59 / 0.04);
+    --shadow-xl: 0 36px 72px -20px rgb(6 78 59 / 0.12), 0 16px 40px -12px rgb(6 78 59 / 0.05);
+    --shadow-2xl: 0 56px 100px -30px rgb(6 78 59 / 0.14), 0 24px 56px -16px rgb(6 78 59 / 0.06);
+    --shadow-primary: 0 12px 36px -8px hsl(164 89% 15% / 0.2);
+    --shadow-glow: 0 0 56px -16px hsl(164 89% 15% / 0.08);
+    --shadow-gold: 0 12px 36px -8px hsl(43 87% 55% / 0.25);
+    --shadow-glass: 0 8px 32px rgb(6 78 59 / 0.03), inset 0 1px 0 rgb(255 255 255 / 0.85);
 
     --radius: 0.75rem;
 
-    --sidebar-background: 222 47% 11%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 43 96% 56%;
-    --sidebar-primary-foreground: 222 47% 11%;
-    --sidebar-accent: 222 47% 16%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 222 30% 18%;
-    --sidebar-ring: 43 96% 56%;
+    --sidebar-background: 164 89% 10%;
+    --sidebar-foreground: 48 100% 97%;
+    --sidebar-primary: 43 87% 55%;
+    --sidebar-primary-foreground: 160 60% 8%;
+    --sidebar-accent: 164 70% 16%;
+    --sidebar-accent-foreground: 48 100% 97%;
+    --sidebar-border: 164 50% 20%;
+    --sidebar-ring: 43 87% 55%;
   }
 
   .dark {
-    --background: 222 47% 4%;
-    --foreground: 210 40% 96%;
-    --card: 222 40% 7%;
-    --card-foreground: 210 40% 96%;
-    --popover: 222 40% 7%;
-    --popover-foreground: 210 40% 96%;
-    --primary: 210 40% 92%;
-    --primary-foreground: 222 47% 11%;
-    --secondary: 186 80% 40%;
+    --background: 160 40% 4%;
+    --foreground: 48 40% 95%;
+    --card: 160 35% 7%;
+    --card-foreground: 48 40% 95%;
+    --popover: 160 35% 7%;
+    --popover-foreground: 48 40% 95%;
+    --primary: 152 60% 70%;
+    --primary-foreground: 160 60% 8%;
+    --secondary: 160 70% 42%;
     --secondary-foreground: 0 0% 100%;
-    --accent: 222 30% 12%;
-    --accent-foreground: 210 40% 96%;
-    --muted: 222 30% 10%;
-    --muted-foreground: 215 16% 55%;
+    --accent: 160 25% 12%;
+    --accent-foreground: 48 40% 95%;
+    --muted: 160 20% 10%;
+    --muted-foreground: 152 10% 55%;
     --destructive: 0 68% 45%;
     --destructive-foreground: 0 0% 100%;
-    --border: 222 20% 14%;
-    --input: 222 20% 14%;
-    --ring: 43 90% 50%;
-    --gold: 43 90% 50%;
-    --gold-foreground: 222 47% 11%;
-    --gold-muted: 43 15% 20%;
-    --amber: 38 85% 48%;
-    --navy: 222 47% 8%;
-    --navy-foreground: 210 40% 96%;
-    --warm: 222 30% 6%;
-    --tint-blue: 222 20% 9%;
-    --tint-green: 168 15% 9%;
-    --tint-amber: 43 15% 9%;
+    --border: 160 15% 15%;
+    --input: 160 15% 15%;
+    --ring: 43 85% 50%;
+    --gold: 43 85% 50%;
+    --gold-foreground: 160 60% 8%;
+    --gold-muted: 43 15% 18%;
+    --amber: 38 80% 48%;
+    --navy: 160 40% 6%;
+    --navy-foreground: 48 40% 95%;
+    --warm: 160 25% 6%;
+    --tint-blue: 168 15% 9%;
+    --tint-green: 152 15% 9%;
+    --tint-amber: 43 12% 9%;
     --tint-rose: 350 10% 9%;
-    --tint-violet: 260 15% 9%;
-    --tint-cyan: 186 15% 9%;
-    --tint-peach: 25 10% 9%;
+    --tint-violet: 260 12% 9%;
+    --tint-cyan: 175 12% 9%;
+    --tint-peach: 30 10% 9%;
     --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.4);
     --shadow-medium: 0 4px 16px -2px rgb(0 0 0 / 0.5);
     --shadow-large: 0 12px 40px -8px rgb(0 0 0 / 0.6);
     --shadow-xl: 0 32px 72px -20px rgb(0 0 0 / 0.7);
     --shadow-glass: 0 8px 32px rgb(0 0 0 / 0.4), inset 0 1px 0 rgb(255 255 255 / 0.04);
-    --sidebar-background: 222 47% 6%;
-    --sidebar-foreground: 210 40% 96%;
-    --sidebar-primary: 43 90% 50%;
-    --sidebar-primary-foreground: 222 47% 11%;
-    --sidebar-accent: 222 30% 12%;
-    --sidebar-accent-foreground: 210 40% 96%;
-    --sidebar-border: 222 20% 14%;
-    --sidebar-ring: 43 90% 50%;
+    --sidebar-background: 160 35% 6%;
+    --sidebar-foreground: 48 40% 95%;
+    --sidebar-primary: 43 85% 50%;
+    --sidebar-primary-foreground: 160 60% 8%;
+    --sidebar-accent: 160 25% 12%;
+    --sidebar-accent-foreground: 48 40% 95%;
+    --sidebar-border: 160 15% 15%;
+    --sidebar-ring: 43 85% 50%;
   }
 }
 
