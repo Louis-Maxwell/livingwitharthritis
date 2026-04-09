@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { memo } from "react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
-import { heroLifestyle as heroImage } from "@/data/images";
+import { heroLifestyle as heroImage, heroLifestyleSrcSet } from "@/data/images";
 
 import "./HeroSection.css";
 
@@ -105,6 +105,8 @@ const HeroSection = memo(() => {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] group">
                 <img
                   src={heroImage}
+                  srcSet={heroLifestyleSrcSet}
+                  sizes="(min-width: 1024px) 50vw, 100vw"
                   alt="A woman doing gentle stretching exercises outdoors in a garden, representing active living with arthritis"
                   width={1280}
                   height={960}
