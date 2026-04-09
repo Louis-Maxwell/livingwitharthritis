@@ -2,7 +2,13 @@
 // All images served via Unsplash CDN with size parameters for performance
 
 // ── Hero & general ──────────────────────────────────────────
-export const heroLifestyle = "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&q=80"; // older couple walking outdoors
+export const heroLifestyle = "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80"; // older couple walking outdoors
+export const heroLifestyleSrcSet = [
+  "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=640&q=75 640w",
+  "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80 800w",
+  "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1080&q=80 1080w",
+  "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1400&q=80 1400w",
+].join(", ");
 export const photoBreakCommunity = "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80"; // group of people together
 export const photoBreakActive = "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=1200&q=80"; // person jogging outdoors
 export const videoCtaExercise = "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1200&q=80"; // physiotherapy session
