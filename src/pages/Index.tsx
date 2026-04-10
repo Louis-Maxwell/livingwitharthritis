@@ -15,6 +15,7 @@ const QuickAccessSection    = lazy(() => import("@/components/landing/QuickAcces
 const ContentDepthSection   = lazy(() => import("@/components/landing/ContentDepthSection"));
 const HowItWorksSection     = lazy(() => import("@/components/landing/HowItWorksSection"));
 const ServicesGrid          = lazy(() => import("@/components/ServicesGrid"));
+const GeometricCubeSection  = lazy(() => import("@/components/landing/GeometricCubeSection"));
 const PhotoBreakSection     = lazy(() => import("@/components/landing/PhotoBreakSection"));
 const QuoteSection          = lazy(() => import("@/components/landing/QuoteSection"));
 const AboutSection          = lazy(() => import("@/components/AboutSection"));
@@ -426,6 +427,10 @@ export default function Index() {
 
           <Suspense fallback={<SectionLoader />}>
             <ServicesGrid />
+          </Suspense>
+
+          <Suspense fallback={null}>
+            <GeometricCubeSection />
           </Suspense>
 
           <Suspense fallback={null}>
