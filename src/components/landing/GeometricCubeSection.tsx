@@ -1,15 +1,15 @@
 import { memo, useEffect, useRef, useCallback } from "react";
 
 /**
- * Scroll-reactive isometric cube cluster — rotates and transforms
- * as the user scrolls through the page. Inspired by Aevolve's
- * suspended geometric aesthetic.
+ * Scroll-reactive 3D Rubik's cube — full-width dark cinematic section.
+ * Rotates and floats as the user scrolls. Inspired by Aevolve's suspended cube.
  */
 const GeometricCubeSection = memo(() => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const scrollProgress = useRef(0);
   const animId = useRef(0);
+  const idleT = useRef(0);
 
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
@@ -30,121 +30,129 @@ const GeometricCubeSection = memo(() => {
     ctx.clearRect(0, 0, w, h);
 
     const t = scrollProgress.current;
+    const idle = idleT.current;
 
-    // Subtle radial glow
-    const grad = ctx.createRadialGradient(w / 2, h / 2, 0, w / 2, h / 2, w * 0.55);
-    grad.addColorStop(0, "rgba(228,0,43,0.03)");
-    grad.addColorStop(1, "rgba(0,0,0,0)");
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, w, h);
+    // ── 3D rotation matrix (Y then X axis) driven by scroll ──
+    const rotY = t * Math.PI * 1.2 + idle * 0.3;
+    const rotX = 0.55 + Math.sin(t * Math.PI) * 0.25;
 
-    const cos30 = Math.cos(Math.PI / 6);
-    const sin30 = Math.sin(Math.PI / 6);
-    const cubeSize = Math.min(w, h) * 0.065;
+    const cosY = Math.cos(rotY), sinY = Math.sin(rotY);
+    const cosX = Math.cos(rotX), sinX = Math.sin(rotX);
 
-    function project(x: number, y: number, z: number): [number, number] {
-      return [(x - z) * cos30, -(x + z) * sin30 - y];
+    function project3D(x: number, y: number, z: number): [number, number, number] {
+      // Rotate around Y
+      let x1 = x * cosY - z * sinY;
+      let z1 = x * sinY + z * cosY;
+      // Rotate around X
+      let y1 = y * cosX - z1 * sinX;
+      let z2 = y * sinX + z1 * cosX;
+      // Simple perspective
+      const perspective = 600;
+      const scale = perspective / (perspective + z2);
+      return [x1 * scale, y1 * scale, z2];
     }
 
-    function drawCube(cx: number, cy: number, s: number, alpha: number, highlight: number) {
-      if (!ctx) return;
-      const verts = [
-        project(0, 0, 0), project(s, 0, 0), project(s, 0, s), project(0, 0, s),
-        project(0, -s, 0), project(s, -s, 0), project(s, -s, s), project(0, -s, s),
-      ];
+    const cubeUnit = Math.min(w, h) * 0.055;
+    const gap = cubeUnit * 0.12;
+    const step = cubeUnit + gap;
 
-      const r = Math.round(20 + highlight * 40);
-      const g = Math.round(20 + highlight * 5);
-      const b = Math.round(20 + highlight * 8);
+    // 3x3x3 Rubik's cube grid
+    const cubes: { gx: number; gy: number; gz: number }[] = [];
+    for (let gx = 0; gx < 3; gx++)
+      for (let gy = 0; gy < 3; gy++)
+        for (let gz = 0; gz < 3; gz++)
+          cubes.push({ gx, gy, gz });
 
-      const faces = [
-        { indices: [4, 5, 6, 7], color: `rgba(${r},${g},${b},${alpha * 0.95})` },
-        { indices: [0, 1, 5, 4], color: `rgba(${r + 15},${g + 10},${b + 10},${alpha * 0.85})` },
-        { indices: [0, 3, 7, 4], color: `rgba(${r + 8},${g + 5},${b + 5},${alpha * 0.9})` },
-        { indices: [1, 2, 6, 5], color: `rgba(${r - 5},${g - 5},${b - 5},${alpha * 0.8})` },
-        { indices: [3, 2, 6, 7], color: `rgba(${r + 2},${g},${b},${alpha * 0.85})` },
-      ];
-
-      for (const face of faces) {
-        ctx.beginPath();
-        face.indices.forEach((i, idx) => {
-          const [px, py] = verts[i];
-          if (idx === 0) ctx.moveTo(cx + px, cy + py);
-          else ctx.lineTo(cx + px, cy + py);
-        });
-        ctx.closePath();
-        ctx.fillStyle = face.color;
-        ctx.fill();
-        ctx.strokeStyle = `rgba(200,200,200,${alpha * 0.25})`;
-        ctx.lineWidth = 0.6;
-        ctx.stroke();
-      }
-    }
-
-    // Cube grid layout
-    const cubes = [
-      { gx: 0, gy: 0, gz: 0 }, { gx: 1, gy: 0, gz: 0 }, { gx: 2, gy: 0, gz: 0 },
-      { gx: 0, gy: 0, gz: 1 }, { gx: 1, gy: 0, gz: 1 }, { gx: 2, gy: 0, gz: 1 },
-      { gx: 0, gy: 0, gz: 2 }, { gx: 1, gy: 0, gz: 2 }, { gx: 2, gy: 0, gz: 2 },
-      { gx: 0, gy: 1, gz: 0 }, { gx: 1, gy: 1, gz: 0 }, { gx: 2, gy: 1, gz: 0 },
-      { gx: 0, gy: 1, gz: 1 }, { gx: 1, gy: 1, gz: 1 }, { gx: 2, gy: 1, gz: 1 },
-      { gx: 0, gy: 2, gz: 0 }, { gx: 1, gy: 2, gz: 0 }, { gx: 0, gy: 2, gz: 1 },
-      { gx: 1, gy: 2, gz: 1 }, { gx: 2, gy: 2, gz: 0 },
-      { gx: 0, gy: 3, gz: 0 }, { gx: 1, gy: 3, gz: 0 },
+    // Face definitions for a unit cube (CCW winding for front faces)
+    const faceTemplates = [
+      { verts: [[0,0,0],[1,0,0],[1,0,1],[0,0,1]], shade: 0.45 }, // bottom
+      { verts: [[0,1,0],[0,1,1],[1,1,1],[1,1,0]], shade: 0.95 }, // top
+      { verts: [[0,0,0],[0,0,1],[0,1,1],[0,1,0]], shade: 0.7 },  // left
+      { verts: [[1,0,0],[1,1,0],[1,1,1],[1,0,1]], shade: 0.6 },  // right
+      { verts: [[0,0,0],[1,0,0],[1,1,0],[0,1,0]], shade: 0.55 }, // front
+      { verts: [[0,0,1],[0,1,1],[1,1,1],[1,0,1]], shade: 0.75 }, // back
     ];
 
-    // Scroll-driven rotation
-    const rotAngle = t * Math.PI * 0.8;
-    const floatY = Math.sin(t * Math.PI * 2) * 12;
-    const explodeFactor = Math.sin(t * Math.PI) * 0.15;
-
+    const floatY = Math.sin(t * Math.PI * 2 + idle) * 10;
     const centerX = w / 2;
     const centerY = h / 2 + floatY;
 
-    ctx.save();
-    ctx.translate(centerX, centerY);
-    ctx.rotate(rotAngle);
+    // Collect all faces with projected coords for sorting
+    type FaceData = {
+      projected: [number, number][];
+      avgZ: number;
+      shade: number;
+      highlight: number;
+    };
+    const allFaces: FaceData[] = [];
+
+    for (const cube of cubes) {
+      const ox = (cube.gx - 1) * step;
+      const oy = (cube.gy - 1) * step;
+      const oz = (cube.gz - 1) * step;
+
+      const phase = cube.gx * 1.3 + cube.gz * 0.9 + cube.gy * 1.7;
+      const highlight = Math.max(0, Math.sin(t * Math.PI * 4 + phase + idle * 2) * 0.3);
+
+      for (const face of faceTemplates) {
+        const projVerts: [number, number][] = [];
+        let zSum = 0;
+        for (const v of face.verts) {
+          const wx = ox + v[0] * cubeUnit;
+          const wy = oy + v[1] * cubeUnit;
+          const wz = oz + v[2] * cubeUnit;
+          const [px, py, pz] = project3D(wx, -wy, wz);
+          projVerts.push([centerX + px, centerY + py]);
+          zSum += pz;
+        }
+        allFaces.push({
+          projected: projVerts,
+          avgZ: zSum / 4,
+          shade: face.shade,
+          highlight,
+        });
+      }
+    }
+
+    // Painter's algorithm: draw far faces first
+    allFaces.sort((a, b) => a.avgZ - b.avgZ);
+
+    for (const face of allFaces) {
+      ctx.beginPath();
+      face.projected.forEach(([px, py], i) => {
+        if (i === 0) ctx.moveTo(px, py);
+        else ctx.lineTo(px, py);
+      });
+      ctx.closePath();
+
+      const base = Math.round(18 + face.shade * 30 + face.highlight * 35);
+      const r = Math.min(255, base + Math.round(face.highlight * 80));
+      const g = Math.round(base * 0.85);
+      const b = Math.round(base * 0.88);
+      ctx.fillStyle = `rgb(${r},${g},${b})`;
+      ctx.fill();
+
+      ctx.strokeStyle = `rgba(180,180,180,0.18)`;
+      ctx.lineWidth = 0.5;
+      ctx.stroke();
+    }
 
     // Suspension wire
     ctx.beginPath();
-    ctx.moveTo(0, -h / 2 - floatY - 80);
-    ctx.lineTo(0, -cubeSize * 4);
-    ctx.strokeStyle = "rgba(150,150,150,0.12)";
-    ctx.lineWidth = 0.5;
+    ctx.moveTo(centerX, 0);
+    ctx.lineTo(centerX, centerY - cubeUnit * 2.5);
+    ctx.strokeStyle = "rgba(150,150,150,0.1)";
+    ctx.lineWidth = 0.7;
     ctx.stroke();
 
-    // Sort for painter's algorithm
-    const sorted = [...cubes].sort((a, b) => (a.gx + a.gz - a.gy) - (b.gx + b.gz - b.gy));
-
-    for (const cube of sorted) {
-      const explode = explodeFactor * cubeSize;
-      const ox = (cube.gx - 1) * cubeSize * (1 + explodeFactor * 0.4) + (cube.gx - 1) * explode;
-      const oy = cube.gy * cubeSize * (1 + explodeFactor * 0.4) + cube.gy * explode;
-      const oz = (cube.gz - 1) * cubeSize * (1 + explodeFactor * 0.4) + (cube.gz - 1) * explode;
-
-      // Subtle per-cube micro-float
-      const phase = cube.gx * 0.7 + cube.gz * 1.1 + cube.gy * 0.9;
-      const microX = Math.sin(t * 6 + phase) * 1.5;
-      const microY = Math.cos(t * 8 + phase) * 1;
-
-      const [px, py] = project(ox + microX, -oy + microY, oz);
-      const dist = Math.sqrt(cube.gx ** 2 + cube.gz ** 2 + cube.gy ** 2);
-      const alpha = Math.max(0.55, 1 - dist * 0.06);
-      const highlight = Math.max(0, Math.sin(t * Math.PI * 3 + phase) * 0.5);
-
-      drawCube(px, py, cubeSize * 0.9, alpha, highlight);
-    }
-
-    ctx.restore();
-
-    // Ambient particles that drift with scroll
-    for (let i = 0; i < 8; i++) {
-      const px = w * 0.15 + Math.sin(t * 2 + i * 2.1) * w * 0.35;
-      const py = h * 0.2 + Math.cos(t * 2.5 + i * 1.7) * h * 0.3;
-      const r = 1.2 + Math.sin(t * 3 + i) * 0.5;
+    // Ambient particles
+    for (let i = 0; i < 10; i++) {
+      const px = w * 0.1 + Math.sin(t * 2.5 + idle * 0.5 + i * 2.1) * w * 0.4;
+      const py = h * 0.15 + Math.cos(t * 3 + idle * 0.7 + i * 1.7) * h * 0.35;
+      const r = 1 + Math.sin(idle + i) * 0.5;
       ctx.beginPath();
       ctx.arc(px, py, r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(228,0,43,${0.06 + Math.sin(t * 4 + i) * 0.03})`;
+      ctx.fillStyle = `rgba(228,0,43,${0.05 + Math.sin(idle * 2 + i) * 0.03})`;
       ctx.fill();
     }
   }, []);
@@ -154,34 +162,27 @@ const GeometricCubeSection = memo(() => {
     if (!section) return;
 
     let ticking = false;
-
     const onScroll = () => {
       if (ticking) return;
       ticking = true;
       requestAnimationFrame(() => {
         const rect = section.getBoundingClientRect();
         const vh = window.innerHeight;
-        // 0 when section enters bottom, 1 when it exits top
-        const raw = 1 - (rect.bottom / (vh + rect.height));
+        const raw = 1 - rect.bottom / (vh + rect.height);
         scrollProgress.current = Math.max(0, Math.min(1, raw));
-        draw();
         ticking = false;
       });
     };
 
-    // Also run idle animation loop for smoothness
-    let idleT = 0;
-    const idleLoop = () => {
-      idleT += 0.002;
-      // Blend scroll progress with subtle idle motion
-      scrollProgress.current = Math.max(0, Math.min(1, scrollProgress.current)) + Math.sin(idleT) * 0.001;
+    const loop = () => {
+      idleT.current += 0.008;
       draw();
-      animId.current = requestAnimationFrame(idleLoop);
+      animId.current = requestAnimationFrame(loop);
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", draw);
-    animId.current = requestAnimationFrame(idleLoop);
+    animId.current = requestAnimationFrame(loop);
     onScroll();
 
     return () => {
@@ -194,53 +195,57 @@ const GeometricCubeSection = memo(() => {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-background py-16 sm:py-24"
+      className="relative w-full overflow-hidden"
       aria-label="Geometric visual"
+      style={{ background: "linear-gradient(180deg, #0a0a0a 0%, #141414 50%, #0a0a0a 100%)" }}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Canvas graphic */}
-          <div className="relative aspect-square max-w-[520px] mx-auto lg:mx-0 w-full">
-            <canvas
-              ref={canvasRef}
-              className="w-full h-full"
-              aria-hidden="true"
-              style={{ imageRendering: "auto" }}
-            />
-            <div
-              className="absolute inset-0 -z-10 rounded-full blur-3xl opacity-[0.06]"
-              style={{ background: "radial-gradient(circle, hsl(var(--primary)) 0%, transparent 70%)" }}
-            />
-          </div>
+      <div className="relative grid lg:grid-cols-2 gap-0 items-center min-h-[70vh]">
+        {/* Canvas — full left half */}
+        <div className="relative w-full h-[50vh] lg:h-[70vh]">
+          <canvas
+            ref={canvasRef}
+            className="w-full h-full"
+            aria-hidden="true"
+          />
+          {/* Glow */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: "radial-gradient(circle at 50% 50%, rgba(228,0,43,0.06) 0%, transparent 60%)",
+            }}
+          />
+        </div>
 
-          {/* Text content */}
-          <div className="text-center lg:text-left space-y-6">
-            <span className="inline-block text-xs font-bold tracking-[0.3em] uppercase text-primary/70">
-              Built Different
-            </span>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground leading-[1.1]">
-              Structured Support,{" "}
-              <span className="text-primary">Piece by Piece</span>
-            </h2>
-            <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-lg mx-auto lg:mx-0">
-              Like interlocking building blocks, our services connect
-              physiotherapy, nutrition, exercise, and community into one
-              cohesive support system — designed to help you rebuild
-              strength and confidence.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center lg:justify-start pt-2">
-              {[
-                { label: "Physiotherapy", opacity: "" },
-                { label: "Nutrition", opacity: "/70" },
-                { label: "Exercise", opacity: "/50" },
-                { label: "Community", opacity: "/30" },
-              ].map((item) => (
-                <div key={item.label} className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <div className={`w-2 h-2 rounded-full bg-primary${item.opacity}`} />
-                  <span>{item.label}</span>
-                </div>
-              ))}
-            </div>
+        {/* Text content — right side */}
+        <div className="px-8 sm:px-12 lg:px-16 py-12 lg:py-0 space-y-6 text-center lg:text-left">
+          <span className="inline-block text-xs font-bold tracking-[0.35em] uppercase text-white/40">
+            Built Different
+          </span>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-[1.1]">
+            Structured Support,{" "}
+            <span style={{ color: "#E4002B" }}>Piece by Piece</span>
+          </h2>
+          <p className="text-white/50 text-base sm:text-lg leading-relaxed max-w-lg mx-auto lg:mx-0">
+            Like interlocking building blocks, our services connect
+            physiotherapy, nutrition, exercise, and community into one
+            cohesive support system — designed to help you rebuild
+            strength and confidence.
+          </p>
+          <div className="flex flex-wrap gap-5 justify-center lg:justify-start pt-2">
+            {[
+              { label: "Physiotherapy", alpha: 1 },
+              { label: "Nutrition", alpha: 0.7 },
+              { label: "Exercise", alpha: 0.5 },
+              { label: "Community", alpha: 0.35 },
+            ].map((item) => (
+              <div key={item.label} className="flex items-center gap-2 text-sm text-white/60">
+                <div
+                  className="w-2 h-2 rounded-full"
+                  style={{ backgroundColor: `rgba(228,0,43,${item.alpha})` }}
+                />
+                <span>{item.label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
