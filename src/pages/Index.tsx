@@ -645,7 +645,7 @@ export default function Index() {
     </ErrorBoundary>
   );
 }
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
