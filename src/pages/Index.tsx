@@ -27,24 +27,7 @@ const GetInTouchSection     = lazy(() => import("@/components/landing/GetInTouch
 import { photoBreakCommunity, photoBreakActive } from "@/data/images";
 
 // ─── Security: CSP nonce would be injected server-side. ──────────────────────
-// [S-1] NOTE: For a proper CSP, your server must send the
-//   Content-Security-Policy HTTP header (not just meta tag) with a nonce:
-//   Content-Security-Policy:
-//     default-src 'self';
-//     script-src 'self' 'nonce-{SERVER_NONCE}' https://js.stripe.com;
-//     style-src 'self' 'nonce-{SERVER_NONCE}' https://fonts.googleapis.com;
-//     font-src 'self' https://fonts.gstatic.com;
-//     img-src 'self' data: https:;
-//     connect-src 'self' https://api.livingwitharthritis.org.uk https://checkout.stripe.com;
-//     frame-ancestors 'none';
-//     form-action 'self';
-//     base-uri 'self';
-//     upgrade-insecure-requests;
-//
-// [M-1] Cookie security — server must set:
-//   Set-Cookie: session=TOKEN; HttpOnly; Secure; SameSite=Strict; Path=/
-//
-// [C-3] JWT — use RS256, short expiry, httpOnly refresh cookie, NEVER localStorage.
+const CSP_NONCE = "rAnd0m-n0nc3-v4lu3";
 
 // ─── Deferred overlays (idle-loaded, never blocking) ─────────────────────────
 const DeferredOverlays = memo(() => {
@@ -86,8 +69,6 @@ const SectionLoader = memo(() => (
 SectionLoader.displayName = "SectionLoader";
 
 // ─── Structured data ─────────────────────────────────────────────────────────
-// [S-6] Phone number removed from public JSON-LD to reduce PII exposure.
-//       Contact details should only appear in authenticated/consent-gated UI.
 const orgSchema = {
   "@context": "https://schema.org",
   "@type": ["MedicalOrganization", "NGO"],
@@ -112,7 +93,6 @@ const orgSchema = {
   ],
   contactPoint: {
     "@type": "ContactPoint",
-    // [S-6] Only expose email in schema — phone number removed to limit PII.
     email: "info@livingwitharthritis.org.uk",
     contactType: "customer support",
     availableLanguage: "English",
@@ -130,7 +110,6 @@ const orgSchema = {
   ],
 };
 
-// [F-5] Fixed: deprecated query-input syntax replaced with correct EntryPoint form.
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -164,7 +143,6 @@ const breadcrumbSchema = {
 // ─── Page component ──────────────────────────────────────────────────────────
 export default function Index() {
   const [searchParams, setSearchParams] = useSearchParams();
-  // [F-13] useRef guard: prevents double-fire in React 18 Strict Mode
   const donationToastShown = useRef(false);
 
   useEffect(() => {
@@ -196,7 +174,6 @@ export default function Index() {
   return (
     <ErrorBoundary
       fallback={
-        // [S-8] Generic error message — no stack traces or internal paths exposed
         <div className="p-12 text-center text-destructive" role="alert">
           <h2 className="text-xl font-semibold mb-2">Something went wrong</h2>
           <p>
@@ -212,7 +189,6 @@ export default function Index() {
       }
     >
       <Helmet>
-        {/* ── Core ── */}
         <html lang="en-GB" dir="ltr" />
         <title>
           Living With Arthritis UK – Free Physio, Diet Plans &amp; Joint Pain
@@ -224,17 +200,14 @@ export default function Index() {
         />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/" />
 
-        {/* ── Indexing ── */}
         <meta
           name="robots"
           content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
         />
 
-        {/* ── Geo ── */}
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
 
-        {/* ── Branding / PWA ── */}
         <meta name="application-name" content="Living With Arthritis UK" />
         <meta name="theme-color" content="#0F6E56" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -244,29 +217,6 @@ export default function Index() {
           content="Living With Arthritis UK"
         />
 
-        {/*
-         * ════════════════════════════════════════════════════════════
-         * SECURITY HEADERS (meta-tag layer — defence-in-depth)
-         * ════════════════════════════════════════════════════════════
-         *
-         * IMPORTANT: These meta tags are a SECONDARY defence only.
-         * The primary defence MUST be HTTP response headers set by
-         * your web server / CDN (nginx, Cloudflare, Vercel headers).
-         * Meta tags do NOT protect against all attack vectors.
-         *
-         * ── nginx snippet (add to your server block): ──────────────
-         *   add_header Content-Security-Policy "default-src 'self'; script-src 'self' https://js.stripe.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://checkout.stripe.com; frame-ancestors 'none'; form-action 'self'; base-uri 'self'; upgrade-insecure-requests;" always;
-         *   add_header X-Content-Type-Options "nosniff" always;
-         *   add_header X-Frame-Options "DENY" always;
-         *   add_header Referrer-Policy "strict-origin-when-cross-origin" always;
-         *   add_header Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(self), usb=(), bluetooth=(), accelerometer=(), gyroscope=()" always;
-         *   add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
-         *   add_header Cross-Origin-Opener-Policy "same-origin" always;
-         *   add_header Cross-Origin-Resource-Policy "same-origin" always;
-         *   add_header Cross-Origin-Embedder-Policy "require-corp" always;
-         */}
-
-        {/* [S-1] Content Security Policy — meta fallback */}
         <meta
           httpEquiv="Content-Security-Policy"
           content={[
@@ -284,19 +234,13 @@ export default function Index() {
           ].join("; ")}
         />
 
-        {/* [S-2] Prevent MIME sniffing attacks */}
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
-
-        {/* [S-5] Clickjacking prevention */}
         <meta httpEquiv="X-Frame-Options" content="DENY" />
-
-        {/* [S-3] Referrer policy — no full URL leakage to third parties */}
         <meta
           name="referrer"
           content="strict-origin-when-cross-origin"
         />
 
-        {/* [S-4] Permissions policy — disable unused/dangerous browser APIs */}
         <meta
           httpEquiv="Permissions-Policy"
           content={[
@@ -315,16 +259,10 @@ export default function Index() {
           ].join(", ")}
         />
 
-        {/* [M-11 / M-7] HSTS — enforce HTTPS. Must also be set as HTTP header.
-            Add to nginx: add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
-            Submit to https://hstspreload.org once confirmed stable. */}
         <meta httpEquiv="X-DNS-Prefetch-Control" content="on" />
-
-        {/* Cross-Origin policies */}
         <meta httpEquiv="Cross-Origin-Opener-Policy" content="same-origin" />
         <meta httpEquiv="Cross-Origin-Resource-Policy" content="same-origin" />
 
-        {/* ── Open Graph ── */}
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
         <meta
@@ -354,7 +292,6 @@ export default function Index() {
           content="Living With Arthritis UK — free physio, diet plans and joint pain support"
         />
 
-        {/* ── Twitter / X card ── */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@LivingArthritisUK" />
         <meta
@@ -370,14 +307,6 @@ export default function Index() {
           content="https://livingwitharthritis.org.uk/og-image.jpg"
         />
 
-        {/* ── Performance: preconnect to critical origins ── */}
-        {/*
-         * [S-9] SUBRESOURCE INTEGRITY (SRI):
-         * For any external script tags in index.html, add integrity + crossorigin:
-         * <script src="https://cdn.example.com/lib.min.js"
-         *   integrity="sha384-HASH" crossorigin="anonymous"></script>
-         * Generate hashes: https://www.srihash.org/
-         */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -387,7 +316,6 @@ export default function Index() {
         <link rel="dns-prefetch" href="https://js.stripe.com" />
         <link rel="dns-prefetch" href="https://checkout.stripe.com" />
 
-        {/* LCP optimisation: preload hero image */}
         <link
           rel="preload"
           as="image"
@@ -395,7 +323,6 @@ export default function Index() {
           type="image/webp"
         />
 
-        {/* ── Structured data ── */}
         <script type="application/ld+json">
           {JSON.stringify(orgSchema)}
         </script>
@@ -407,7 +334,6 @@ export default function Index() {
         </script>
       </Helmet>
 
-      {/* [F-8] Skip-to-content for keyboard / assistive tech users */}
       <a
         href="#main-content"
         className="
@@ -423,7 +349,6 @@ export default function Index() {
         Skip to main content
       </a>
 
-      {/* [F-14] aria-live region for screen reader toast announcements */}
       <div
         aria-live="polite"
         aria-atomic="true"
@@ -431,13 +356,6 @@ export default function Index() {
         id="toast-announcer"
       />
 
-      {/*
-       * ══════════════════════════════════════════════════════════════
-       * COLOURFUL VISUAL LAYER — gradient backgrounds & accent rings
-       * applied via Tailwind utility classes layered on top of the
-       * existing component tree. Swap colour tokens here to re-theme.
-       * ══════════════════════════════════════════════════════════════
-       */}
       <div
         className="
           min-h-screen bg-background
@@ -446,29 +364,23 @@ export default function Index() {
           [--colour-sky:#2A9ED8] [--colour-rose:#D94F70]
         "
       >
-        {/* Decorative gradient orbs — purely visual, aria-hidden */}
         <div aria-hidden="true" className="pointer-events-none fixed inset-0 overflow-hidden -z-10">
-          {/* Top-left teal bloom */}
           <div
             className="absolute -top-48 -left-48 w-[600px] h-[600px] rounded-full opacity-20 blur-3xl"
             style={{ background: "radial-gradient(circle, #0F6E56, transparent 70%)" }}
           />
-          {/* Top-right coral bloom */}
           <div
             className="absolute -top-24 -right-32 w-[500px] h-[500px] rounded-full opacity-15 blur-3xl"
             style={{ background: "radial-gradient(circle, #E8633A, transparent 70%)" }}
           />
-          {/* Mid-left lavender bloom */}
           <div
             className="absolute top-1/3 -left-64 w-[700px] h-[700px] rounded-full opacity-10 blur-3xl"
             style={{ background: "radial-gradient(circle, #7C5CBF, transparent 70%)" }}
           />
-          {/* Mid-right sky bloom */}
           <div
             className="absolute top-1/2 -right-48 w-[600px] h-[600px] rounded-full opacity-10 blur-3xl"
             style={{ background: "radial-gradient(circle, #2A9ED8, transparent 70%)" }}
           />
-          {/* Bottom amber bloom */}
           <div
             className="absolute -bottom-32 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full opacity-15 blur-3xl"
             style={{ background: "radial-gradient(ellipse, #F5A623, transparent 70%)" }}
@@ -480,10 +392,8 @@ export default function Index() {
         <DeferredOverlays />
 
         <main id="main-content" role="main" tabIndex={-1}>
-          {/* HERO — reduced top padding on desktop per design recommendation */}
           <HeroSection />
 
-          {/* Colourful gradient divider — teal → coral */}
           <div
             aria-hidden="true"
             className="h-1 w-full"
@@ -501,7 +411,6 @@ export default function Index() {
             <ContentDepthSection />
           </Suspense>
 
-          {/* Gradient divider — lavender → sky */}
           <div
             aria-hidden="true"
             className="h-1 w-full"
@@ -519,7 +428,6 @@ export default function Index() {
             <ServicesGrid />
           </Suspense>
 
-          {/* Community photo break */}
           <Suspense fallback={null}>
             <PhotoBreakSection
               image={photoBreakCommunity}
@@ -533,7 +441,6 @@ export default function Index() {
             <QuoteSection />
           </Suspense>
 
-          {/* Gradient divider — coral → amber */}
           <div
             aria-hidden="true"
             className="h-1 w-full"
@@ -551,7 +458,6 @@ export default function Index() {
             <TestimonialsSection />
           </Suspense>
 
-          {/* Active lifestyle photo break */}
           <Suspense fallback={null}>
             <PhotoBreakSection
               image={photoBreakActive}
@@ -565,7 +471,6 @@ export default function Index() {
             <DonationImpactSection />
           </Suspense>
 
-          {/* Gradient divider — full spectrum */}
           <div
             aria-hidden="true"
             className="h-1 w-full"
@@ -583,7 +488,6 @@ export default function Index() {
             <NewsletterSection />
           </Suspense>
 
-          {/* Gradient divider — teal → sky */}
           <div
             aria-hidden="true"
             className="h-1 w-full"
@@ -592,20 +496,11 @@ export default function Index() {
             }}
           />
 
-          {/*
-           * FUTURE INTERACTIVE ELEMENTS (Recommended to reach 9/10):
-           * Symptom checker quiz, exercise progress tracker,
-           * infographics, or self-assessment tools here.
-           */}
           <Suspense fallback={<SectionLoader />}>
             <GetInTouchSection />
           </Suspense>
         </main>
 
-        {/*
-         * [S-7] noscript — minimal, no PII or sensitive operational details.
-         * REMOVED: phone number, internal tech stack hints.
-         */}
         <noscript>
           <div
             style={{
@@ -645,201 +540,3 @@ export default function Index() {
     </ErrorBoundary>
   );
 }
-
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aevolve • Animated Cube</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            margin: 0;
-            font-family: 'Inter', system-ui, sans-serif;
-            background: #0a0a0a; /* Matches Aevolve.ai dark aesthetic */
-            color: #fff;
-            overflow: hidden;
-        }
-        
-        #aevolve-cube-container {
-            width: 100vw;
-            height: 100vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        /* Optional: faint overlay text like your brand */
-        .overlay-text {
-            position: absolute;
-            top: 40px;
-            left: 40px;
-            z-index: 10;
-            font-size: 1.8rem;
-            font-weight: 600;
-            letter-spacing: -2px;
-            color: rgba(255,255,255,0.9);
-            pointer-events: none;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.6);
-        }
-        
-        canvas {
-            display: block;
-        }
-        
-        /* Responsive for your website sections */
-        @media (max-width: 768px) {
-            #aevolve-cube-container {
-                height: 70vh;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- This is the exact element you can copy-paste into your Aevolve.ai website -->
-    <div id="aevolve-cube-container">
-        <!-- Brand overlay (optional – matches your site style) -->
-        <div class="overlay-text">AEVOLVE</div>
-        
-        <!-- Three.js will inject the canvas here -->
-    </div>
-
-    <!-- Three.js CDN (lightweight & reliable) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    
-    <script>
-        // ===============================================
-        // Aevolve Animated Rubik's Cube – exact match to your image
-        // Black blocks + white edges, suspended by string,
-        // same 3D perspective, floating + gentle rotation + bob
-        // Ready to drop into https://www.aevolve.ai/
-        // ===============================================
-        
-        const container = document.getElementById('aevolve-cube-container');
-        
-        // Scene setup
-        const scene = new THREE.Scene();
-        scene.fog = new THREE.Fog(0xaaaaaa, 15, 80);           // hazy mountain atmosphere from your image
-        scene.background = new THREE.Color(0xd8d8d8);          // soft overcast sky
-        
-        // Camera – tuned to match the exact angle & framing of your image
-        const camera = new THREE.PerspectiveCamera(52, container.clientWidth / container.clientHeight, 0.1, 1000);
-        camera.position.set(7, 6.5, 17);                       // slightly below + side view like the cave perspective
-        camera.lookAt(0, -1.5, 0);
-        
-        // Renderer
-        const renderer = new THREE.WebGLRenderer({
-            antialias: true,
-            alpha: true,                                       // transparent so you can overlay on your website background/image if you want
-        });
-        renderer.setSize(container.clientWidth, container.clientHeight);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        container.appendChild(renderer.domElement);
-        
-        // Lighting – soft & cinematic to match the image
-        const ambient = new THREE.AmbientLight(0xffffff, 0.65);
-        scene.add(ambient);
-        
-        const dirLight = new THREE.DirectionalLight(0xffffff, 1.1);
-        dirLight.position.set(12, 25, 18);
-        scene.add(dirLight);
-        
-        // Create the exact Rubik's cube structure (3×3×3 black blocks with white edges)
-        const rubiksGroup = new THREE.Group();
-        const pieceSize = 0.92;
-        const spacing = 1.0;
-        
-        const blackMaterial = new THREE.MeshPhongMaterial({
-            color: 0x111111,
-            shininess: 25,
-            specular: 0x222222,
-            flatShading: true
-        });
-        
-        const edgeMaterial = new THREE.LineBasicMaterial({
-            color: 0xeeeeee,
-            linewidth: 2
-        });
-        
-        for (let x = -1; x <= 1; x++) {
-            for (let y = -1; y <= 1; y++) {
-                for (let z = -1; z <= 1; z++) {
-                    // Black cube block
-                    const geo = new THREE.BoxGeometry(pieceSize, pieceSize, pieceSize);
-                    const block = new THREE.Mesh(geo, blackMaterial);
-                    block.position.set(x * spacing, y * spacing, z * spacing);
-                    rubiksGroup.add(block);
-                    
-                    // White edges (exact look from your image)
-                    const edgesGeo = new THREE.EdgesGeometry(geo);
-                    const edges = new THREE.LineSegments(edgesGeo, edgeMaterial);
-                    edges.position.set(x * spacing, y * spacing, z * spacing);
-                    rubiksGroup.add(edges);
-                }
-            }
-        }
-        
-        scene.add(rubiksGroup);
-        
-        // Position & initial rotation to perfectly match your image's cube orientation
-        rubiksGroup.position.set(0, -2.8, 0);
-        rubiksGroup.rotation.set(0.35, 0.75, 0.12);   // carefully tuned to the exact tilt in your photo
-        
-        // Suspension string (thin, realistic, updates live)
-        let stringLine;
-        const stringTop = new THREE.Vector3(0, 6.5, 0);
-        
-        function createString() {
-            const attachY = rubiksGroup.position.y + 1.62; // top center of the cube
-            const points = [stringTop, new THREE.Vector3(0, attachY, 0)];
-            const geo = new THREE.BufferGeometry().setFromPoints(points);
-            const mat = new THREE.LineBasicMaterial({ color: 0x222222, linewidth: 3 });
-            stringLine = new THREE.Line(geo, mat);
-            scene.add(stringLine);
-        }
-        createString();
-        
-        // Animation loop
-        let time = 0;
-        function animate() {
-            requestAnimationFrame(animate);
-            time += 0.016;
-            
-            // Slow, elegant rotation (Y-axis only so the string stays attached)
-            rubiksGroup.rotation.y += 0.0028;
-            
-            // Gentle floating / hanging bob motion
-            const bob = Math.sin(time * 1.2) * 0.035;
-            rubiksGroup.position.y = -2.8 + bob;
-            
-            // Update string in real time
-            if (stringLine) {
-                const positions = stringLine.geometry.attributes.position.array;
-                const newAttachY = rubiksGroup.position.y + 1.62;
-                positions[4] = newAttachY;           // update Y coordinate of bottom point
-                stringLine.geometry.attributes.position.needsUpdate = true;
-            }
-            
-            renderer.render(scene, camera);
-        }
-        animate();
-        
-        // Responsive resize (works perfectly on your website)
-        window.addEventListener('resize', () => {
-            camera.aspect = container.clientWidth / container.clientHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(container.clientWidth, container.clientHeight);
-        });
-        
-        console.log('%c✅ Aevolve animated cube ready – matches your image 100%', 'color:#00ffaa; font-family:monospace');
-    </script>
-</body>
-</html>
