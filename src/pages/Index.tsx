@@ -430,6 +430,10 @@ export default function Index() {
           </Suspense>
 
           <Suspense fallback={null}>
+            <GeometricCubeSection />
+          </Suspense>
+
+          <Suspense fallback={null}>
             <PhotoBreakSection
               image={photoBreakCommunity}
               alt="Community members supporting each other while living with arthritis"
