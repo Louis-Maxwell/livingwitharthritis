@@ -218,22 +218,8 @@ export default function Index() {
           content="Living With Arthritis UK"
         />
 
-        <meta
-          httpEquiv="Content-Security-Policy"
-          content={[
-            "default-src 'self'",
-            "script-src 'self' https://js.stripe.com https://checkout.stripe.com",
-            "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-            "font-src 'self' https://fonts.gstatic.com",
-            "img-src 'self' data: https:",
-            "connect-src 'self' https://api.livingwitharthritis.org.uk https://checkout.stripe.com",
-            "frame-src https://js.stripe.com https://hooks.stripe.com",
-            "frame-ancestors 'none'",
-            "form-action 'self'",
-            "base-uri 'self'",
-            "upgrade-insecure-requests",
-          ].join("; ")}
-        />
+        {/* CSP moved to server headers (public/_headers) to avoid blocking
+             lazy-loaded chunks & Supabase API calls in dev/preview */}
 
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
         <meta httpEquiv="X-Frame-Options" content="DENY" />
