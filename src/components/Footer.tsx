@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import AITrustSafetyModal from "@/components/AITrustSafetyModal";
 
 const Footer = () => {
   const columns = [
@@ -99,6 +100,11 @@ const Footer = () => {
                     )}
                   </li>
                 ))}
+                {col.title === "Legal" && (
+                  <li>
+                    <AITrustSafetyModal />
+                  </li>
+                )}
               </ul>
             </div>
           ))}
