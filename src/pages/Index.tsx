@@ -608,24 +608,24 @@ export default function Index() {
 
       {/* ═══════════ MAIN CONTENT ═══════════ */}
       <main id="main-content">
-        <Suspense fallback={<SectionSkeleton />}>
+        <Suspense fallback={<SectionLoader />}>
           <QuickAccessSection />
         </Suspense>
 
-        <Suspense fallback={<SectionSkeleton />}>
+        <Suspense fallback={<SectionLoader />}>
           <ContentDepthSection />
         </Suspense>
 
-        <Suspense fallback={<SectionSkeleton />}>
+        <Suspense fallback={<SectionLoader />}>
           <HowItWorksSection />
         </Suspense>
 
-        <Suspense fallback={<SectionSkeleton />}>
+        <Suspense fallback={<SectionLoader />}>
           <ServicesGrid />
         </Suspense>
 
         {/* ═══════════ 3D CUBE SECTION ═══════════ */}
-        <Suspense fallback={<SectionSkeleton />}>
+        <Suspense fallback={<SectionLoader />}>
           <GeometricCubeSection />
         </Suspense>
 
@@ -635,15 +635,15 @@ export default function Index() {
           <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
         </div>
 
-        <Suspense fallback={<SectionSkeleton />}>
+        <Suspense fallback={<SectionLoader />}>
           <QuoteSection />
         </Suspense>
 
-        <Suspense fallback={<SectionSkeleton />}>
+        <Suspense fallback={<SectionLoader />}>
           <AboutSection />
         </Suspense>
 
-        <Suspense fallback={<SectionSkeleton />}>
+        <Suspense fallback={<SectionLoader />}>
           <TestimonialsSection />
         </Suspense>
 
@@ -653,19 +653,19 @@ export default function Index() {
           <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
         </div>
 
-        <Suspense fallback={<SectionSkeleton />}>
+        <Suspense fallback={<SectionLoader />}>
           <DonationImpactSection />
         </Suspense>
 
-        <Suspense fallback={<SectionSkeleton />}>
+        <Suspense fallback={<SectionLoader />}>
           <FAQSection />
         </Suspense>
 
-        <Suspense fallback={<SectionSkeleton />}>
+        <Suspense fallback={<SectionLoader />}>
           <NewsletterSection />
         </Suspense>
 
-        <Suspense fallback={<SectionSkeleton />}>
+        <Suspense fallback={<SectionLoader />}>
           <GetInTouchSection />
         </Suspense>
       </main>
