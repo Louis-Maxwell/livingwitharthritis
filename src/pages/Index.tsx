@@ -1,4 +1,15 @@
-import { lazy, Suspense, memo, useEffect, useRef, useState, useCallback, createContext, useContext } from "react";
+import {
+  lazy,
+  Suspense,
+  memo,
+  useEffect,
+  useRef,
+  useState,
+  useCallback,
+  createContext,
+  useContext,
+  type ReactNode,
+} from "react";
 import { Helmet } from "react-helmet-async";
 import { toast } from "sonner";
 import { useSearchParams, Link } from "react-router-dom";
@@ -6,6 +17,21 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import {
+  ShieldCheck,
+  Lock,
+  Globe,
+  Clock,
+  FileText,
+  X,
+  ArrowRight,
+  CheckCircle2,
+  BarChart3,
+  Eye,
+  Server,
+  Lightbulb,
+  ChevronUp,
+} from "lucide-react";
 import { photoBreakCommunity, photoBreakActive } from "@/data/images";
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -30,7 +56,9 @@ const SITE_URL = "https://livingwitharthritis.org.uk";
 const SITE_NAME = "Living With Arthritis UK";
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   🔴 SECURITY: Strict Text Sanitization (XSS Prevention)
+   🔴 SECURITY: Strict Text Sanitization 
+   NOTE: For production rich-text sanitization, install `npm i dompurify @types/dompurify`
+   and replace this with DOMPurify.sanitize(). Regex sanitization is unsafe for HTML.
    ═══════════════════════════════════════════════════════════════════════════ */
 const ESCAPE_MAP: Record<string, string> = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#x27;" };
 const ESCAPE_RE = /[&<>"']/g;
@@ -43,48 +71,106 @@ const sanitize = (str: string, max = 500) =>
     : "";
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   GDPR COOKIE CONSENT CONTEXT
+   GDPR COOKIE CONSENT (Context)
    ═══════════════════════════════════════════════════════════════════════════ */
-type ConsentCtx = { analytics: boolean; setAnalytics: (v: boolean) => void };
-const CookieCtx = createContext<ConsentCtx>({ analytics: false, setAnalytics: () => {} });
-const useCookieCtx = () => useContext(CookieCtx);
+type CtxType = { analytics: boolean; setAnalytics: (v: boolean) => void };
+const Ctx = createContext<CtxType>({ analytics: false, setAnalytics: () => {} });
+const useCtx = () => useContext(Ctx);
 
 const CookieBanner = memo(() => {
-  const { analytics, setAnalytics } = useCookieCtx();
-  const [show, setShow] = useState(() => !localStorage.getItem("lwa_consent_v1"));
-  const accept = () => {
-    localStorage.setItem("lwa_consent_v1", JSON.stringify({ a: true }));
-    setAnalytics(true);
+  const { analytics, setAnalytics } = useCtx();
+  const [show, setShow] = useState(() => !localStorage.getItem("lwa_cv2"));
+  const [open, setOpen] = useState(false);
+  const [local, setLocal] = useState({ a: false, p: false, m: false });
+
+  const save = (vals: typeof local) => {
+    localStorage.setItem("lwa_cv2", JSON.stringify(vals));
+    if (vals.a) setAnalytics(true);
     setShow(false);
   };
-  const reject = () => {
-    localStorage.setItem("lwa_consent_v1", JSON.stringify({ a: false }));
-    setShow(false);
-  };
+
   if (!show) return null;
   return (
     <div className="fixed bottom-0 inset-x-0 z-[100] p-4">
-      <div className="max-w-3xl mx-auto bg-white/90 backdrop-blur-xl border border-gray-200/50 rounded-2xl p-6 shadow-2xl flex flex-col sm:flex-row items-center gap-4">
-        <p className="flex-1 text-sm text-gray-600">
-          We use essential cookies to run this site. Analytics cookies help us improve it.{" "}
-          <Link to="/privacy" className="text-teal-700 underline">
-            Privacy Policy
-          </Link>
-          .
-        </p>
-        <div className="flex gap-2 shrink-0">
-          <button
-            onClick={reject}
-            className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition"
-          >
-            Reject
-          </button>
-          <button
-            onClick={accept}
-            className="px-4 py-2 text-sm font-medium text-white bg-teal-700 rounded-lg hover:bg-teal-800 transition"
-          >
-            Accept All
-          </button>
+      <div className="max-w-3xl mx-auto bg-white/90 backdrop-blur-xl border border-gray-200/50 rounded-2xl shadow-2xl overflow-hidden">
+        <div className="p-6">
+          <div className="flex items-start gap-3">
+            <Lock className="w-6 h-6 text-teal-600 mt-0.5 shrink-0" />
+            <div>
+              <h2 className="font-bold text-gray-900">We value your privacy</h2>
+              <p className="text-sm text-gray-500 mt-1">
+                We use cookies to run this site. Analytics help us improve.{" "}
+                <Link to="/privacy" className="text-teal-700 underline">
+                  Privacy Policy
+                </Link>
+                .
+              </p>
+            </div>
+          </div>
+          {open && (
+            <div className="mt-4 pt-4 border-t space-y-3">
+              {[
+                { k: "a", l: "Analytics", d: "Helps us understand site usage.", d2: true },
+                { k: "p", l: "Preferences", d: "Remember your settings." },
+                { k: "m", l: "Marketing", d: "Measure campaign effectiveness." },
+              ].map((i) => (
+                <label key={i.k} className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={local[i.k as keyof typeof local]}
+                    onChange={(e) => setLocal((p) => ({ ...p, [i.k]: e.target.checked }))}
+                    disabled={i.d2}
+                    className="rounded border-gray-300 text-teal-600 focus:ring-teal-500 disabled:opacity-50"
+                  />
+                  <div>
+                    <p className="text-sm font-medium text-gray-800">
+                      {i.l} {i.d2 && <span className="text-xs text-gray-400">(Always on)</span>}
+                    </p>
+                    <p className="text-xs text-gray-400">{i.d}</p>
+                  </div>
+                </label>
+              ))}
+            </div>
+          )}
+          <div className="mt-5 flex flex-col sm:flex-row gap-2">
+            {!open ? (
+              <>
+                <button
+                  onClick={() => save({ a: true, p: true, m: true })}
+                  className="flex-1 bg-teal-700 text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-teal-800 transition"
+                >
+                  Accept All
+                </button>
+                <button
+                  onClick={() => save({ a: false, p: false, m: false })}
+                  className="flex-1 bg-gray-100 text-gray-700 py-2.5 rounded-lg text-sm font-semibold hover:bg-gray-200 transition"
+                >
+                  Essential Only
+                </button>
+                <button
+                  onClick={() => setOpen(true)}
+                  className="py-2.5 text-sm font-medium text-gray-500 underline hover:text-gray-700 transition"
+                >
+                  Customise
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  onClick={() => save(local)}
+                  className="flex-1 bg-teal-700 text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-teal-800 transition"
+                >
+                  Save Preferences
+                </button>
+                <button
+                  onClick={() => setOpen(false)}
+                  className="py-2.5 text-sm font-medium text-gray-500 hover:text-gray-700 transition"
+                >
+                  Cancel
+                </button>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </div>
@@ -92,35 +178,30 @@ const CookieBanner = memo(() => {
 });
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   🟢 ADVANCED GRAPHICS: Animated Tech Grid & Glassmorphism
+   🟢 ADVANCED GRAPHICS: Grid, Glass, Gradients
    ═══════════════════════════════════════════════════════════════════════════ */
-const AdvancedGridBg = memo(() => (
+const GridBg = memo(() => (
   <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-    <svg className="absolute inset-0 w-full h-full opacity-[0.04]">
+    <svg className="absolute inset-0 w-full h-full opacity-[0.03]">
       <defs>
-        <pattern id="tech-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1" className="text-teal-800" />
+        <pattern id="tg" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1" className="text-teal-900" />
         </pattern>
       </defs>
-      <rect width="100%" height="100%" fill="url(#tech-grid)" />
+      <rect width="100%" height="100%" fill="url(#tg)" />
     </svg>
-    {/* Animated Gradient Orbs */}
     <div
-      className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-teal-400/20 rounded-full blur-[120px] animate-pulse"
+      className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-teal-400/20 rounded-full blur-[120px] animate-pulse"
       style={{ animationDuration: "8s" }}
     />
     <div
-      className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-500/15 rounded-full blur-[100px] animate-pulse"
+      className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-purple-500/15 rounded-full blur-[100px] animate-pulse"
       style={{ animationDuration: "10s", animationDelay: "2s" }}
-    />
-    <div
-      className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-amber-400/10 rounded-full blur-[80px] animate-pulse"
-      style={{ animationDuration: "12s", animationDelay: "4s" }}
     />
   </div>
 ));
 
-const GlassCard = memo(({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
+const GlassCard = memo(({ children, className = "" }: { children: ReactNode; className?: string }) => (
   <div
     className={`relative bg-white/60 backdrop-blur-xl border border-white/20 shadow-xl rounded-2xl overflow-hidden ${className}`}
   >
@@ -130,142 +211,208 @@ const GlassCard = memo(({ children, className = "" }: { children: React.ReactNod
 ));
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   INSPIRED BY UNMIND: AI TRUST & SAFETY SECTION (Paraphrased)
-   Concepts adapted: Clinical Governance, Transparency, Privacy, Fairness.
+   🌟 FEATURE: Deep-Dive Page Modal System
+   Opens a dedicated "page" overlay when users click section headings.
    ═══════════════════════════════════════════════════════════════════════════ */
-const AITrustSection = memo(() => {
-  const features = [
-    {
-      icon: (
-        <svg className="w-8 h-8 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
-          />
-        </svg>
-      ),
-      title: "Co-Designed with Clinicians",
-      desc: "Our AI health assistant was built hand-in-hand with HCPC-registered physiotherapists and rheumatologists. It acts as a supportive triage tool to guide you, never as a replacement for professional medical judgement.",
-    },
-    {
-      icon: (
-        <svg
-          className="w-8 h-8 text-purple-600"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={1.5}
+const PageModal = memo(
+  ({
+    isOpen,
+    onClose,
+    title,
+    children,
+  }: {
+    isOpen: boolean;
+    onClose: () => void;
+    title: string;
+    children: ReactNode;
+  }) => {
+    useEffect(() => {
+      if (isOpen) document.body.style.overflow = "hidden";
+      else document.body.style.overflow = "";
+      return () => {
+        document.body.style.overflow = "";
+      };
+    }, [isOpen]);
+    if (!isOpen) return null;
+    return (
+      <div
+        className="fixed inset-0 z-[90] flex items-start justify-center bg-black/50 backdrop-blur-sm"
+        onClick={onClose}
+        role="dialog"
+        aria-modal="true"
+        aria-label={title}
+      >
+        <div
+          className="bg-stone-50 w-full max-w-4xl h-full overflow-y-auto shadow-2xl mt-0 sm:mt-10 sm:mb-10 sm:rounded-2xl"
+          onClick={(e) => e.stopPropagation()}
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
-          />
-          <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-      ),
-      title: "Zero Black Boxes",
-      desc: "We believe you deserve to know *why* a specific exercise or dietary change is suggested. Our algorithms provide clear, jargon-free explanations, ensuring you remain in complete control of your care journey.",
+          <div className="sticky top-0 z-10 bg-stone-50/80 backdrop-blur-md border-b border-gray-200 p-6 flex items-center justify-between">
+            <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
+            <button
+              onClick={onClose}
+              className="p-2 rounded-lg hover:bg-gray-100 transition text-gray-500 hover:text-gray-900"
+              aria-label="Close"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
+          <div className="p-6 sm:p-10 prose prose-lg max-w-none">{children}</div>
+        </div>
+      </div>
+    );
+  },
+);
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DATA LAYER: Blog Articles (Structured for easy DB migration)
+   TODO: Replace with `const { data } = await supabase.from('blog_articles').select('*')`
+   ═══════════════════════════════════════════════════════════════════════════ */
+interface Article {
+  slug: string;
+  title: string;
+  excerpt: string;
+  image: string;
+  imageAlt: string;
+  category: string;
+  readingTime: string;
+  author: string;
+  creds: string;
+  date: string;
+  featured?: boolean;
+}
+const fetchArticles = async (): Promise<Article[]> => {
+  return [
+    /* Mocked fetch */ {
+      slug: "gentle-exercises-osteoarthritis-uk-guide",
+      title: "15 Gentle Exercises for Osteoarthritis: A UK Physiotherapist's Complete Guide",
+      excerpt: "Evidence-based joint-friendly exercises approved by HCPC-registered physiotherapists.",
+      image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1080&h=720&fit=crop&q=80",
+      imageAlt: "Person performing gentle stretching exercises",
+      category: "Exercise",
+      readingTime: "8 min",
+      author: "Sarah Mitchell",
+      creds: "MCSP, HCPC Physiotherapist",
+      date: "2025-01-15",
+      featured: true,
     },
     {
-      icon: (
-        <svg className="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
-          />
-        </svg>
-      ),
-      title: "UK Data Sovereignty",
-      desc: "Your health data is heavily encrypted, stored securely within the UK, and strictly governed by UK GDPR and ICO standards. We will never sell, share, or misuse your personal information. Period.",
+      slug: "anti-inflammatory-diet-plan-arthritis-uk",
+      title: "The Anti-Inflammatory Diet Plan for Arthritis: 7-Day UK Meal Guide",
+      excerpt: "A practical 7-day meal plan using affordable ingredients from UK supermarkets.",
+      image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1080&h=720&fit=crop&q=80",
+      imageAlt: "Colourful anti-inflammatory foods",
+      category: "Nutrition",
+      readingTime: "12 min",
+      author: "Dr. Priya Sharma",
+      creds: "Registered Dietitian, BDA",
+      date: "2025-01-10",
     },
     {
-      icon: (
-        <svg className="w-8 h-8 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"
-          />
-        </svg>
-      ),
-      title: "Mitigated Bias",
-      desc: "Trained on diverse UK health demographics, our AI undergoes rigorous, continuous audits to ensure it provides equitable care recommendations—regardless of your age, ethnicity, or location in the UK.",
+      slug: "rheumatoid-arthritis-mental-health-uk",
+      title: "Rheumatoid Arthritis and Mental Health: Why UK Patients Are Talking",
+      excerpt: "New research reveals the hidden mental health crisis among RA patients.",
+      image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1080&h=720&fit=crop&q=80",
+      imageAlt: "Mindfulness meditation scene",
+      category: "Mental Health",
+      readingTime: "10 min",
+      author: "James O'Connor",
+      creds: "Counsellor, BACP",
+      date: "2025-01-05",
+    },
+    {
+      slug: "physiotherapy-at-home-arthritis-uk",
+      title: "Physiotherapy at Home: A Free Alternative to Waiting Lists",
+      excerpt: "Step-by-step video-guided physiotherapy sessions you can do at home.",
+      image: "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=1080&h=720&fit=crop&q=80",
+      imageAlt: "Physiotherapist guiding a patient",
+      category: "Treatment",
+      readingTime: "15 min",
+      author: "Sarah Mitchell",
+      creds: "MCSP, HCPC Physiotherapist",
+      date: "2024-12-20",
     },
   ];
-
+};
+const BlogPreview = memo(() => {
+  const [articles, setArticles] = useState<Article[]>([]);
+  useEffect(() => {
+    fetchArticles().then(setArticles);
+  }, []);
+  const f = articles.find((a) => a.featured);
+  const r = articles.filter((a) => !a.featured);
+  if (!articles.length)
+    return (
+      <div className="py-20 space-y-4 max-w-3xl mx-auto">
+        <div className="h-6 w-48 bg-gray-200 rounded animate-pulse" />
+        <div className="h-10 w-96 bg-gray-200 rounded animate-pulse" />
+      </div>
+    );
   return (
-    <section
-      aria-labelledby="ai-trust-heading"
-      className="relative py-24 sm:py-32 bg-gradient-to-b from-gray-50 via-white to-gray-50 overflow-hidden"
-    >
-      <AdvancedGridBg />
-
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 bg-teal-50 border border-teal-100 text-teal-700 rounded-full px-4 py-1.5 text-sm font-semibold mb-6">
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"
-              />
-            </svg>
-            Responsible AI
-          </div>
-          <h2
-            id="ai-trust-heading"
-            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 leading-[1.1]"
-          >
-            Intelligence you can{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-purple-600">trust.</span>
+    <section id="blog" className="py-20 bg-stone-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-14">
+          <span className="text-xs font-bold uppercase tracking-widest text-teal-700 block mb-4">
+            Health & Wellness Journal
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
+            Expert advice for living <span className="text-teal-700">well with arthritis</span>
           </h2>
-          <p className="mt-6 text-lg sm:text-xl text-gray-500 leading-relaxed">
-            Our AI Health Assistant wasn't just engineered—it was co-designed with clinical experts to ensure it serves
-            you safely, transparently, and fairly.
-          </p>
         </div>
-
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-          {features.map((f) => (
-            <GlassCard
-              key={f.title}
-              className="p-8 sm:p-10 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 group"
+        {f && (
+          <div className="mb-10 rounded-2xl overflow-hidden bg-white shadow-sm ring-1 ring-black/5 md:flex">
+            <a href={`/blog/${f.slug}`} className="md:w-1/2 block">
+              <img src={f.image} alt={f.imageAlt} className="w-full h-72 object-cover" loading="lazy" />
+            </a>
+            <div className="p-6 flex flex-col justify-center">
+              <span className="text-xs font-semibold text-teal-800 bg-teal-50 px-3 py-1 rounded-full w-fit">
+                {f.category}
+              </span>
+              <h3 className="text-2xl font-bold mt-3 text-gray-900 hover:text-teal-700">
+                <a href={`/blog/${f.slug}`}>{f.title}</a>
+              </h3>
+              <p className="text-gray-500 mt-2">{f.excerpt}</p>
+              <p className="mt-4 text-sm text-gray-400">
+                {f.author} · {f.readingTime}
+              </p>
+            </div>
+          </div>
+        )}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {r.map((a) => (
+            <article
+              key={a.slug}
+              className="group bg-white rounded-2xl shadow-sm ring-1 ring-black/5 overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all"
             >
-              <div className="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                {f.icon}
+              <a href={`/blog/${a.slug}`} className="block aspect-[16/10] overflow-hidden">
+                <img
+                  src={a.image}
+                  alt={a.imageAlt}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </a>
+              <div className="p-5">
+                <span className="text-xs font-semibold text-teal-800 bg-teal-50 px-3 py-1 rounded-full">
+                  {a.category}
+                </span>
+                <h3 className="text-lg font-bold mt-3 text-gray-900 group-hover:text-teal-700">
+                  <a href={`/blog/${a.slug}`}>{a.title}</a>
+                </h3>
+                <p className="text-sm text-gray-500 mt-2">{a.excerpt}</p>
+                <p className="mt-3 text-xs text-gray-400">
+                  {a.author} · {a.readingTime}
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">{f.title}</h3>
-              <p className="text-gray-500 leading-relaxed">{f.desc}</p>
-            </GlassCard>
+            </article>
           ))}
         </div>
-
-        {/* Advanced Security Footer Graphic */}
-        <div className="mt-16 flex flex-col items-center justify-center text-center">
-          <div className="flex items-center gap-3 text-sm text-gray-400">
-            <div className="flex -space-x-2">
-              {["bg-teal-200", "bg-purple-200", "bg-blue-200", "bg-amber-200"].map((bg, i) => (
-                <div
-                  key={i}
-                  className={`w-8 h-8 rounded-full ${bg} border-2 border-white flex items-center justify-center`}
-                >
-                  <svg
-                    className="w-3.5 h-3.5 text-gray-600"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                  </svg>
-                </div>
-              ))}
-            </div>
-            <span>Audited by independent UK clinical leads</span>
-          </div>
+        <div className="mt-14 text-center">
+          <Link
+            to="/blog"
+            className="inline-flex items-center gap-2 rounded-full bg-gray-900 px-7 py-3.5 text-sm font-semibold text-white shadow-lg hover:bg-gray-800 hover:-translate-y-0.5 transition-all"
+          >
+            View all articles <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </section>
@@ -273,37 +420,202 @@ const AITrustSection = memo(() => {
 });
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   SKELETON LOADERS
+   UNMIND-INSPIRED: AI TRUST & SAFETY (Paraphrased for Arthritis)
+   Placed conceptually below "Complaints Procedure" / GetInTouch
+   ═══════════════════════════════════════════════════════════════════════════ */
+const AITrustSection = memo(() => {
+  const [modal, setModal] = useState<string | null>(null);
+  const closeModal = () => setModal(null);
+
+  const pillars = [
+    {
+      id: "clinical",
+      icon: <ShieldCheck className="w-8 h-8 text-teal-600" />,
+      title: "Co-Designed with Clinicians",
+      desc: "Our AI health assistant was built hand-in-hand with HCPC-registered physiotherapists and rheumatologists. It acts as a supportive triage tool to guide you, never as a replacement for professional medical judgement.",
+      modalContent: (
+        <>
+          <p className="lead">
+            We firmly believe that technology in healthcare should augment, never replace, the human touch.
+          </p>
+          <h3>The Development Process</h3>
+          <p>
+            Our AI models were trained using anonymised data sets reviewed and approved by practicing rheumatologists
+            and physiotherapists across the UK. Every suggested exercise, dietary recommendation, or management strategy
+            was validated against current NICE (National Institute for Health and Care Excellence) guidelines before
+            being deployed.
+          </p>
+          <h3>Boundaries of Use</h3>
+          <p>
+            The AI is explicitly designed to guide users toward appropriate care pathways. If it detects indicators of a
+            flare-up that requires urgent medical attention, it will immediately advise the user to contact their GP or
+            rheumatology team, rather than attempting to diagnose or treat the condition itself.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "transparent",
+      icon: <Eye className="w-8 h-8 text-purple-600" />,
+      title: "Zero Black Boxes",
+      desc: "We believe you deserve to know *why* a specific exercise or dietary change is suggested. Our algorithms provide clear, jargon-free explanations, ensuring you remain in complete control of your care journey.",
+      modalContent: (
+        <>
+          <h3>Explainable AI (XAI)</h3>
+          <p>
+            Unlike many health apps that simply output a result, our system breaks down its reasoning. When we suggest a
+            specific joint mobility exercise, we explain the clinical rationale—such as 'This exercise targets the
+            synovial fluid distribution in the knee joint, which can reduce morning stiffness associated with
+            osteoarthritis.'
+          </p>
+          <h3>Auditable Algorithms</h3>
+          <p>
+            Our decision-making logic is documented and available for review by regulatory bodies and clinical partners.
+            We maintain an audit trail of how our models are updated, ensuring accountability as the technology evolves.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "privacy",
+      icon: <Server className="w-8 h-8 text-blue-600" />,
+      title: "UK Data Sovereignty",
+      desc: "Your health data is heavily encrypted, stored securely within the UK, and strictly governed by UK GDPR and ICO standards. We will never sell, share, or misuse your personal information.",
+      modalContent: (
+        <>
+          <h3>Infrastructure & Encryption</h3>
+          <p>
+            All personal health data is encrypted both in transit (TLS 1.3) and at rest (AES-256). Our servers are
+            physically located within the United Kingdom, ensuring your data never crosses international boundaries
+            without explicit, informed consent.
+          </p>
+          <h3>Data Minimisation</h3>
+          <p>
+            We only collect data that is strictly necessary to provide our service. We do not engage in data harvesting
+            for future commercial use. You can request a full export or permanent deletion of your data at any time by
+            contacting our Data Protection Officer.
+          </p>
+          <h3>ICO Compliance</h3>
+          <p>
+            We are fully registered with the Information Commissioner's Office (ICO) and undergo regular compliance
+            audits to ensure our practices meet the highest standards of UK data protection law.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "fairness",
+      icon: <BarChart3 className="w-8 h-8 text-amber-600" />,
+      title: "Mitigated Bias",
+      desc: "Trained on diverse UK health demographics, our AI undergoes rigorous, continuous audits to ensure it provides equitable care recommendations—regardless of your age, ethnicity, or location.",
+      modalContent: (
+        <>
+          <h3>Inclusive Training Data</h3>
+          <p>
+            Arthritis impacts different demographics in different ways. We actively worked to ensure our training data
+            represents the diverse population of the UK—including variations in how conditions present across different
+            ethnicities, age groups, and socioeconomic backgrounds.
+          </p>
+          <h3>Ongoing Bias Audits</h3>
+          <p>
+            We conduct quarterly algorithmic audits. If a disparity is found—for example, if the system recommendations
+            are less effective for a specific demographic—we pause deployment, investigate the root cause, and retrain
+            the model before it goes live again.
+          </p>
+        </>
+      ),
+    },
+  ];
+
+  return (
+    <section
+      aria-labelledby="ai-trust-heading"
+      className="relative py-24 bg-gradient-to-b from-gray-50 via-white to-gray-50 overflow-hidden"
+    >
+      <GridBg />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 bg-teal-50 border border-teal-100 text-teal-700 rounded-full px-4 py-1.5 text-sm font-semibold mb-6">
+            <Lightbulb className="w-4 h-4" /> Responsible AI
+          </div>
+          <h2
+            id="ai-trust-heading"
+            className="text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900 leading-tight"
+          >
+            Intelligence you can{" "}
+            <button
+              onClick={() => setModal("clinical")}
+              className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-purple-600 hover:underline decoration-dashed underline-offset-4 cursor-pointer"
+            >
+              trust.
+            </button>
+          </h2>
+          <p className="mt-6 text-lg text-gray-500 leading-relaxed">
+            Our AI Health Assistant was engineered and co-designed with clinical experts to serve you safely,
+            transparently, and fairly.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+          {pillars.map((p) => (
+            <GlassCard
+              key={p.id}
+              className="p-8 sm:p-10 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 group cursor-pointer"
+              onClick={() => setModal(p.id)}
+            >
+              <div className="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                {p.icon}
+              </div>
+              <div className="flex items-center gap-2 mb-3">
+                <h3 className="text-xl font-bold text-gray-900">{p.title}</h3>
+                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-teal-600 group-hover:translate-x-1 transition-all" />
+              </div>
+              <p className="text-gray-500 leading-relaxed">{p.desc}</p>
+            </GlassCard>
+          ))}
+        </div>
+        {/* Modals for each pillar */}
+        {pillars.map((p) => (
+          <PageModal key={p.id} isOpen={modal === p.id} onClose={closeModal} title={p.title}>
+            {p.modalContent}
+          </PageModal>
+        ))}
+      </div>
+    </section>
+  );
+});
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MINOR UI & SKELETONS
    ═══════════════════════════════════════════════════════════════════════════ */
 const SKEL_CSS = `@keyframes sk{0%{background-position:-400px 0}100%{background-position:400px 0}}.sk{background:linear-gradient(90deg,#f0f0f0 25%,#e0e0e0 50%,#f0f0f0 75%);background-size:800px 100%;animation:sk 1.5s infinite}@media(prefers-reduced-motion:reduce){.sk{animation:none;background:#f0f0f0}}`;
-const Skel = memo(({ c = "h-4 w-full" }: { c?: string }) => (
-  <div className={`sk rounded-lg ${c}`} aria-hidden="true" />
-));
 const SkeletonSection = memo(() => (
   <div className="py-20 space-y-4 max-w-3xl mx-auto px-4" aria-hidden="true">
-    <Skel c="h-6 w-48 mx-auto" />
-    <Skel c="h-10 w-96 mx-auto" />
-    <Skel c="h-4 w-full" />
-    <Skel c="h-4 w-5/6" />
+    <div className="h-6 w-48 bg-gray-200 rounded animate-pulse mx-auto" />
+    <div className="h-10 w-96 bg-gray-200 rounded animate-pulse mx-auto" />
+    <div className="h-4 w-full bg-gray-200 rounded animate-pulse" />
   </div>
 ));
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   MINOR UI COMPONENTS
-   ═══════════════════════════════════════════════════════════════════════════ */
 const TrustBar = memo(() => (
   <section aria-label="Trust" className="border-b border-teal-100 bg-teal-50/50">
     <div className="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-medium text-teal-800">
-      {["HCPC Registered", "ICO Compliant", "UK Social Enterprise", "No Waiting Lists"].map((t) => (
-        <span key={t} className="flex items-center gap-1.5">
-          <svg className="w-4 h-4 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
-            />
-          </svg>
-          {t}
+      {[
+        { I: ShieldCheck, T: "HCPC Registered" },
+        { I: Lock, T: "ICO Compliant" },
+        { I: Globe, T: "UK Social Enterprise" },
+        { I: Clock, T: "No Waiting Lists" },
+        {
+          I: FileText,
+          T: (
+            <Link to="/privacy" className="hover:underline">
+              Privacy Policy
+            </Link>
+          ),
+        },
+      ].map(({ I, T }) => (
+        <span key={typeof T === "string" ? T : "link"} className="flex items-center gap-1.5">
+          <I className="w-4 h-4 text-teal-600" />
+          {T}
         </span>
       ))}
     </div>
@@ -325,57 +637,101 @@ const BackToTop = memo(() => {
       aria-label="Back to top"
       type="button"
     >
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-      </svg>
+      <ChevronUp className="w-5 h-5" />
     </button>
   );
 });
 
-const SecureImage = memo(
-  ({
-    src,
-    alt,
-    className,
-    ...rest
-  }: { src: string; alt: string; className?: string } & Omit<React.ImgHTMLAttributes<HTMLImageElement>, "onError">) => {
-    const [err, setErr] = useState(false);
-    if (err)
-      return (
-        <div className={`bg-gray-100 flex items-center justify-center ${className}`} role="img" aria-label={alt}>
-          <svg
-            className="w-8 h-8 text-gray-300"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={1.5}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"
-            />
-          </svg>
-        </div>
-      );
-    return (
-      <img
-        src={src}
-        alt={alt}
-        className={className}
-        loading="lazy"
-        decoding="async"
-        referrerPolicy="no-referrer"
-        crossOrigin="anonymous"
-        onError={() => setErr(true)}
-        {...rest}
-      />
-    );
-  },
-);
+const PhotoBreak = memo(({ image, alt, quote, attr }: { image: string; alt: string; quote: string; attr: string }) => (
+  <section aria-label="Photo break" className="relative h-[400px] overflow-hidden bg-gray-900">
+    <img
+      src={image}
+      alt={alt}
+      className="h-full w-full object-cover"
+      loading="lazy"
+      referrerPolicy="no-referrer"
+      crossOrigin="anonymous"
+    />
+    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent" />
+    <div className="absolute bottom-0 p-10 lg:p-16 max-w-3xl">
+      <p className="text-2xl lg:text-3xl font-semibold text-white" style={{ textShadow: "0 2px 10px rgba(0,0,0,0.4)" }}>
+        &ldquo;{quote}&rdquo;
+      </p>
+      <cite className="block mt-3 text-teal-200 font-medium not-italic">{attr}</cite>
+    </div>
+  </section>
+));
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   STRUCTURED DATA
+   STATS BAND
+   ═══════════════════════════════════════════════════════════════════════════ */
+function useCountUp(target: number, dur = 2000) {
+  const [c, setC] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const s = useRef(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting && !s.current) {
+          s.current = true;
+          const t0 = performance.now();
+          const step = (now: number) => {
+            const p = Math.min((now - t0) / dur, 1);
+            setC(Math.floor((1 - Math.pow(1 - p, 3)) * target));
+            if (p < 1) requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.3 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [target, dur]);
+  return { c, ref };
+}
+const StatsBand = memo(() => {
+  const Stat = ({ v, s, l }: { v: number; s: string; l: string }) => {
+    const { c, ref } = useCountUp(v, 2200);
+    return (
+      <div className="text-center px-4">
+        <p
+          ref={ref}
+          className="text-3xl sm:text-4xl font-extrabold text-white tabular-nums"
+          aria-label={`${v.toLocaleString()}${s}`}
+        >
+          {c.toLocaleString()}
+          {s}
+        </p>
+        <p className="mt-2 text-sm text-teal-200/80 max-w-[200px] mx-auto">{l}</p>
+      </div>
+    );
+  };
+  return (
+    <section
+      aria-label="Impact statistics"
+      className="bg-gradient-to-br from-teal-900 via-teal-800 to-gray-900 py-16 sm:py-20"
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 gap-y-10 lg:grid-cols-4">
+        <Stat v={12400} s="+" l="People helped across the UK" />
+        <Stat v={87} s="%" l="Report reduced joint pain" />
+        <Stat v={45000} s="+" l="Exercise sessions completed" />
+        <div className="text-center px-4">
+          <p className="text-3xl sm:text-4xl font-extrabold text-white" aria-label="Zero pounds">
+            £0
+          </p>
+          <p className="mt-2 text-sm text-teal-200/80 max-w-[200px] mx-auto">Cost to every patient</p>
+        </div>
+      </div>
+    </section>
+  );
+});
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SCHEMA
    ═══════════════════════════════════════════════════════════════════════════ */
 const schemaOrg = {
   "@context": "https://schema.org",
@@ -407,11 +763,10 @@ const schemaFaq = {
 function PageContent() {
   const [searchParams, setSearchParams] = useSearchParams();
   const toastShown = useRef(false);
-  const { analytics, setAnalytics } = useCookieCtx();
+  const { analytics, setAnalytics } = useCtx();
 
-  // 🔴 SECURITY: Analytics loaded ONLY on explicit GDPR consent
   useEffect(() => {
-    if (!analytics || analytics === undefined) return;
+    if (!analytics) return;
     const s = document.createElement("script");
     s.async = true;
     s.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX";
@@ -421,7 +776,6 @@ function PageContent() {
     document.head.appendChild(i);
   }, [analytics]);
 
-  // Donation Callback
   useEffect(() => {
     if (toastShown.current) return;
     const d = searchParams.get("donation");
@@ -445,13 +799,10 @@ function PageContent() {
         <meta name="geo.region" content="GB" />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <meta name="theme-color" content="#0f766e" />
-        {/* Security: External links must not leak referrers */}
-        <meta name="robots" content="max-image-preview:large" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
         <link rel="preload" as="image" href="/images/hero.webp" type="image/webp" fetchPriority="high" />
-        {/* Advanced Graphics + Accessibility + Security CSS */}
         <style>{`${SKEL_CSS} html{scroll-padding-top:1rem} body{font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased} *:focus-visible{outline:2px solid #0f766e;outline-offset:2px} @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}} @media print{nav,footer{display:none!important}}`}</style>
         <script type="application/ld+json">{JSON.stringify(schemaOrg)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaFaq)}</script>
@@ -465,7 +816,6 @@ function PageContent() {
       </a>
 
       <div className="min-h-screen bg-stone-50 text-gray-900 antialiased">
-        {/* Ambient Background Gradients */}
         <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
           <div className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full bg-teal-500/5 blur-[120px]" />
           <div className="absolute bottom-0 -right-32 w-[500px] h-[500px] rounded-full bg-purple-500/5 blur-[100px]" />
@@ -477,46 +827,28 @@ function PageContent() {
 
         <main id="main-content" role="main" tabIndex={-1}>
           <HeroSection />
+          <StatsBand />
 
-          {/* Quick Access */}
           <Suspense fallback={<SkeletonSection />}>
             <QuickAccessSection />
           </Suspense>
-
-          {/* 🌟 NEW: Unmind-Inspired AI Trust & Safety Section with Advanced Graphics */}
-          <AITrustSection />
-
-          {/* How it works */}
           <Suspense fallback={<SkeletonSection />}>
             <HowItWorksSection />
           </Suspense>
-
-          {/* Services */}
           <Suspense fallback={<SkeletonSection />}>
             <ServicesGrid />
           </Suspense>
 
-          {/* Visual Break 1 */}
           <Suspense fallback={null}>
             <GeometricCubeSection />
           </Suspense>
-          <section aria-label="Photo break" className="relative h-[400px] overflow-hidden bg-gray-900">
-            <SecureImage
-              src={photoBreakCommunity}
-              alt="UK community supporting each other with arthritis"
-              className="h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent" />
-            <div className="absolute bottom-0 p-10 lg:p-16 max-w-3xl">
-              <p
-                className="text-2xl lg:text-3xl font-semibold text-white"
-                style={{ textShadow: "0 2px 10px rgba(0,0,0,0.4)" }}
-              >
-                &ldquo;No one should face arthritis alone. Together, we're changing what's possible.&rdquo;
-              </p>
-              <cite className="block mt-3 text-teal-200 font-medium not-italic">{SITE_NAME}</cite>
-            </div>
-          </section>
+
+          <PhotoBreak
+            image={photoBreakCommunity}
+            alt="UK community supporting each other"
+            quote="No one should face arthritis alone. Together, we're changing what's possible."
+            attr={SITE_NAME}
+          />
 
           <Suspense fallback={<SkeletonSection />}>
             <ContentDepthSection />
@@ -527,28 +859,20 @@ function PageContent() {
           <Suspense fallback={<SkeletonSection />}>
             <AboutSection />
           </Suspense>
+
+          {/* Dynamic Blog Section */}
+          <BlogPreview />
+
           <Suspense fallback={<SkeletonSection />}>
             <TestimonialsSection />
           </Suspense>
 
-          {/* Visual Break 2 */}
-          <section aria-label="Photo break" className="relative h-[400px] overflow-hidden bg-gray-900">
-            <SecureImage
-              src={photoBreakActive}
-              alt="Active lifestyle supported by arthritis care"
-              className="h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent" />
-            <div className="absolute bottom-0 p-10 lg:p-16 max-w-3xl">
-              <p
-                className="text-2xl lg:text-3xl font-semibold text-white"
-                style={{ textShadow: "0 2px 10px rgba(0,0,0,0.4)" }}
-              >
-                &ldquo;Movement is medicine. Every step forward is a victory.&rdquo;
-              </p>
-              <cite className="block mt-3 text-teal-200 font-medium not-italic">Clinical Team</cite>
-            </div>
-          </section>
+          <PhotoBreak
+            image={photoBreakActive}
+            alt="Active lifestyle supported by arthritis care"
+            quote="Movement is medicine. Every step forward is a victory."
+            attr="Clinical Team"
+          />
 
           <Suspense fallback={<SkeletonSection />}>
             <DonationImpactSection />
@@ -559,9 +883,14 @@ function PageContent() {
           <Suspense fallback={<SkeletonSection />}>
             <NewsletterSection />
           </Suspense>
+
+          {/* Complaints / Get in Touch Section */}
           <Suspense fallback={<SkeletonSection />}>
             <GetInTouchSection />
           </Suspense>
+
+          {/* 🌟 AI Trust & Safety (Positioned below complaints procedure) */}
+          <AITrustSection />
         </main>
 
         <BackToTop />
@@ -598,12 +927,11 @@ function PageContent() {
 export default function Index() {
   const [analytics, setAnalytics] = useState(() => {
     try {
-      return JSON.parse(localStorage.getItem("lwa_consent_v1") || "{}").a === true;
+      return JSON.parse(localStorage.getItem("lwa_cv2") || "{}").a === true;
     } catch {
       return false;
     }
   });
-
   return (
     <ErrorBoundary
       fallback={
@@ -617,9 +945,9 @@ export default function Index() {
         </div>
       }
     >
-      <CookieCtx.Provider value={{ analytics, setAnalytics }}>
+      <Ctx.Provider value={{ analytics, setAnalytics }}>
         <PageContent />
-      </CookieCtx.Provider>
+      </Ctx.Provider>
     </ErrorBoundary>
   );
 }
