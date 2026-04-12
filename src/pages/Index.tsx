@@ -221,34 +221,11 @@ export default function Index() {
         {/* CSP moved to server headers (public/_headers) to avoid blocking
              lazy-loaded chunks & Supabase API calls in dev/preview */}
 
-        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
-        <meta httpEquiv="X-Frame-Options" content="DENY" />
+        <meta httpEquiv="X-DNS-Prefetch-Control" content="on" />
         <meta
           name="referrer"
           content="strict-origin-when-cross-origin"
         />
-
-        <meta
-          httpEquiv="Permissions-Policy"
-          content={[
-            "camera=()",
-            "microphone=()",
-            "geolocation=()",
-            "payment=(self)",
-            "usb=()",
-            "bluetooth=()",
-            "accelerometer=()",
-            "gyroscope=()",
-            "magnetometer=()",
-            "clipboard-read=()",
-            "display-capture=()",
-            "serial=()",
-          ].join(", ")}
-        />
-
-        <meta httpEquiv="X-DNS-Prefetch-Control" content="on" />
-        <meta httpEquiv="Cross-Origin-Opener-Policy" content="same-origin" />
-        <meta httpEquiv="Cross-Origin-Resource-Policy" content="same-origin" />
 
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
