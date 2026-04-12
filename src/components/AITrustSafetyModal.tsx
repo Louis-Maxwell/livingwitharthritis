@@ -25,54 +25,13 @@ const ICON_MAP: Record<string, React.ReactNode> = {
 
 const resolveIcon = (name: string) => ICON_MAP[name] ?? <Shield className="w-5 h-5" />;
 
-/* ── Data hooks ── */
-function usePrinciples() {
-  return useQuery({
-    queryKey: ["ai-safety-principles"],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from("ai_safety_principles")
-        .select("*")
-        .eq("is_active", true)
-        .order("display_order");
-      if (error) throw error;
-      return data;
-    },
-    staleTime: 1000 * 60 * 30,
-  });
-}
-
-function useFaqs() {
-  return useQuery({
-    queryKey: ["ai-safety-faqs"],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from("ai_safety_faqs")
-        .select("*")
-        .eq("is_active", true)
-        .order("display_order");
-      if (error) throw error;
-      return data;
-    },
-    staleTime: 1000 * 60 * 30,
-  });
-}
-
-function useCertifications() {
-  return useQuery({
-    queryKey: ["ai-safety-certifications"],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from("ai_safety_certifications")
-        .select("*")
-        .eq("is_active", true)
-        .order("display_order");
-      if (error) throw error;
-      return data;
-    },
-    staleTime: 1000 * 60 * 30,
-  });
-}
+/* ── Error fallback ── */
+const ErrorMessage = ({ message }: { message: string }) => (
+  <div className="flex items-center gap-2 py-4 px-3 rounded-lg bg-destructive/10 border border-destructive/20 text-xs text-destructive">
+    <AlertTriangle className="w-4 h-4 shrink-0" />
+    <span>{message}</span>
+  </div>
+);
 
 /* ── Sub-components ── */
 const SectionHeading = ({ children }: { children: React.ReactNode }) => (
@@ -90,9 +49,51 @@ const LoadingSpinner = () => (
 /* ── Main modal ── */
 const AITrustSafetyModal = memo(() => {
   const [open, setOpen] = useState(false);
-  const principles = usePrinciples();
-  const faqs = useFaqs();
-  const certs = useCertifications();
+
+  const principles = useQuery({
+    queryKey: ["ai-safety-principles"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("ai_safety_principles")
+        .select("*")
+        .eq("is_active", true)
+        .order("display_order");
+      if (error) throw error;
+      return data;
+    },
+    staleTime: 1000 * 60 * 30,
+    enabled: open,
+  });
+
+  const faqs = useQuery({
+    queryKey: ["ai-safety-faqs"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("ai_safety_faqs")
+        .select("*")
+        .eq("is_active", true)
+        .order("display_order");
+      if (error) throw error;
+      return data;
+    },
+    staleTime: 1000 * 60 * 30,
+    enabled: open,
+  });
+
+  const certs = useQuery({
+    queryKey: ["ai-safety-certifications"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("ai_safety_certifications")
+        .select("*")
+        .eq("is_active", true)
+        .order("display_order");
+      if (error) throw error;
+      return data;
+    },
+    staleTime: 1000 * 60 * 30,
+    enabled: open,
+  });
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -138,9 +139,11 @@ const AITrustSafetyModal = memo(() => {
 
           {principles.isLoading ? (
             <LoadingSpinner />
+          ) : principles.isError ? (
+            <ErrorMessage message="Unable to load principles. Please try again later." />
           ) : (
             <div className="grid gap-3">
-              {principles.data?.map((p, i) => (
+              {principles.data?.map((p) => (
                 <div
                   key={p.id}
                   className="flex gap-3 p-4 rounded-xl bg-muted/40 border border-border/30 hover:border-primary/20 transition-colors"
@@ -175,6 +178,8 @@ const AITrustSafetyModal = memo(() => {
 
           {certs.isLoading ? (
             <LoadingSpinner />
+          ) : certs.isError ? (
+            <ErrorMessage message="Unable to load certifications. Please try again later." />
           ) : (
             <div className="grid sm:grid-cols-2 gap-2.5">
               {certs.data?.map((c) => (
@@ -206,6 +211,8 @@ const AITrustSafetyModal = memo(() => {
 
           {faqs.isLoading ? (
             <LoadingSpinner />
+          ) : faqs.isError ? (
+            <ErrorMessage message="Unable to load FAQs. Please try again later." />
           ) : (
             <Accordion type="single" collapsible className="w-full">
               {faqs.data?.map((faq) => (
@@ -221,14 +228,14 @@ const AITrustSafetyModal = memo(() => {
         </div>
 
         {/* ── Clinical disclaimer ── */}
-        <div className="mt-6 p-4 rounded-xl bg-amber-50 dark:bg-amber-950/20 border border-amber-200/50 dark:border-amber-800/30">
+        <div className="mt-6 p-4 rounded-xl bg-accent/40 border border-accent/60">
           <div className="flex gap-3">
-            <AlertTriangle className="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+            <AlertTriangle className="w-5 h-5 text-accent-foreground/70 shrink-0 mt-0.5" />
             <div className="space-y-2">
-              <p className="text-xs font-medium text-amber-800 dark:text-amber-300">
+              <p className="text-xs font-medium text-accent-foreground">
                 Important Clinical Disclaimer
               </p>
-              <p className="text-xs text-amber-700/80 dark:text-amber-400/70 leading-relaxed">
+              <p className="text-xs text-accent-foreground/70 leading-relaxed">
                 Our AI Assistant is designed to complement — never replace — professional medical advice.
                 It does not diagnose conditions, prescribe treatments, or access your medical records.
                 If you have concerns about your health, please consult your GP, rheumatologist, or
