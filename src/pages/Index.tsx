@@ -1,12 +1,12 @@
 import { lazy, Suspense, memo, useEffect, useRef, useState, useCallback, createContext, useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { toast } from "sonner";
-import { useSearchParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import { photoBreakCommunity, photoBreakActive } from "@/data/images";
 
 /* ═══════════════════════════════════════════════════════════════════════════
    LAZY IMPORTS
@@ -26,979 +26,246 @@ const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
 const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSection"));
 const GetInTouchSection = lazy(() => import("@/components/landing/GetInTouchSection"));
 
-import { photoBreakCommunity, photoBreakActive } from "@/data/images";
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   CONSTANTS
-   ═══════════════════════════════════════════════════════════════════════════ */
 const SITE_URL = "https://livingwitharthritis.org.uk";
 const SITE_NAME = "Living With Arthritis UK";
-const CONSENT_KEY = "lwa_cookie_consent";
-const CONSENT_EXPIRY_DAYS = 365;
-const CONSENT_VERSION = 1;
-const GA4_ID = "G-XXXXXXXXXX";
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   SECURITY: Input Sanitization
-   Export these and use in Newsletter / Contact / Assessment forms.
-   For production rich-text sanitization, add DOMPurify as a dependency.
+   🔴 SECURITY: Strict Text Sanitization (XSS Prevention)
    ═══════════════════════════════════════════════════════════════════════════ */
-const ESCAPE_MAP: Record<string, string> = {
-  "&": "&amp;",
-  "<": "&lt;",
-  ">": "&gt;",
-  '"': "&quot;",
-  "'": "&#x27;",
-  "/": "&#x2F;",
-  "`": "&#96;",
-};
-const ESCAPE_RE = /[&<>"'/`]/g;
-
-export function sanitizeInput(input: string, maxLength = 500): string {
-  if (typeof input !== "string") return "";
-  return input
-    .trim()
-    .slice(0, maxLength)
-    .replace(ESCAPE_RE, (ch) => ESCAPE_MAP[ch] || ch);
-}
-
-export function sanitizeRich(input: string, maxLength = 5000): string {
-  if (typeof input !== "string") return "";
-  return input
-    .trim()
-    .slice(0, maxLength)
-    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "")
-    .replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, "")
-    .replace(/<object\b[^<]*(?:(?!<\/object>)<[^<]*)*<\/object>/gi, "")
-    .replace(/<embed\b[^>]*>/gi, "")
-    .replace(/on\w+\s*=\s*["'][^"']*["']/gi, "")
-    .replace(/on\w+\s*=\s*\S+/gi, "")
-    .replace(/javascript\s*:/gi, "")
-    .replace(/<img[^>]+onerror[^>]*>/gi, "");
-}
+const ESCAPE_MAP: Record<string, string> = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#x27;" };
+const ESCAPE_RE = /[&<>"']/g;
+const sanitize = (str: string, max = 500) =>
+  typeof str === "string"
+    ? str
+        .trim()
+        .slice(0, max)
+        .replace(ESCAPE_RE, (c) => ESCAPE_MAP[c] || c)
+    : "";
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   COOKIE CONSENT (UK GDPR / PECR Compliant)
+   GDPR COOKIE CONSENT CONTEXT
    ═══════════════════════════════════════════════════════════════════════════ */
-type ConsentCategory = "essential" | "analytics" | "marketing" | "preferences";
-type ConsentState = Record<ConsentCategory, boolean>;
+type ConsentCtx = { analytics: boolean; setAnalytics: (v: boolean) => void };
+const CookieCtx = createContext<ConsentCtx>({ analytics: false, setAnalytics: () => {} });
+const useCookieCtx = () => useContext(CookieCtx);
 
-interface ConsentData {
-  categories: ConsentState;
-  timestamp: number;
-  version: number;
-}
-
-const DEFAULT_CONSENT: ConsentState = {
-  essential: true,
-  analytics: false,
-  marketing: false,
-  preferences: false,
-};
-
-function readConsent(): ConsentData | null {
-  try {
-    const raw = localStorage.getItem(CONSENT_KEY);
-    if (!raw) return null;
-    const data: ConsentData = JSON.parse(raw);
-    if (Date.now() - data.timestamp > CONSENT_EXPIRY_DAYS * 86400000 || data.version !== CONSENT_VERSION) return null;
-    return data;
-  } catch {
-    return null;
-  }
-}
-
-function writeConsent(data: ConsentData): void {
-  try {
-    localStorage.setItem(CONSENT_KEY, JSON.stringify(data));
-  } catch {
-    /* storage full or blocked */
-  }
-}
-
-const CookieConsentContext = createContext<{
-  consent: ConsentState;
-  hasConsented: boolean;
-  setConsent: (cats: Partial<ConsentState>) => void;
-  showBanner: () => void;
-}>({
-  consent: DEFAULT_CONSENT,
-  hasConsented: false,
-  setConsent: () => {},
-  showBanner: () => {},
-});
-
-export function useCookieConsent() {
-  return useContext(CookieConsentContext);
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   ANALYTICS — only loads after consent
-   ═══════════════════════════════════════════════════════════════════════════ */
-function useAnalytics(enabled: boolean) {
-  const loaded = useRef(false);
-
-  useEffect(() => {
-    if (!enabled || loaded.current || GA4_ID === "G-XXXXXXXXXX") return;
-    loaded.current = true;
-
-    const s = document.createElement("script");
-    s.async = true;
-    s.src = `https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`;
-    document.head.appendChild(s);
-
-    const inline = document.createElement("script");
-    inline.textContent = `
-      window.dataLayer=window.dataLayer||[];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js',new Date());
-      gtag('config','${GA4_ID}',{page_path:window.location.pathname,cookie_flags:'SameSite=None;Secure',anonymize_ip:true});
-    `;
-    document.head.appendChild(inline);
-
-    return () => {
-      try {
-        document.head.removeChild(s);
-      } catch {
-        /* noop */
-      }
-      try {
-        document.head.removeChild(inline);
-      } catch {
-        /* noop */
-      }
-    };
-  }, [enabled]);
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   SKELETON LOADERS (feel 40 % faster than spinners — Google research)
-   ═══════════════════════════════════════════════════════════════════════════ */
-const SHIMMER_CSS = `
-@keyframes lwa-shimmer{0%{background-position:-400px 0}100%{background-position:400px 0}}
-.lwa-skeleton{background:linear-gradient(90deg,#E8E5E0 25%,#F0EDE8 37%,#E8E5E0 63%);background-size:800px 100%;animation:lwa-shimmer 1.8s ease-in-out infinite;border-radius:8px}
-@media(prefers-reduced-motion:reduce){.lwa-skeleton{animation:none;background-color:#E8E5E0}}
-`;
-
-const Skel = memo(({ className }: { className: string }) => (
-  <div className={`lwa-skeleton ${className}`} aria-hidden="true" />
-));
-Skel.displayName = "Skel";
-
-const SkeletonCardGrid = memo(({ count = 3 }: { count?: number }) => (
-  <div className="space-y-6" aria-hidden="true">
-    <div className="rounded-2xl overflow-hidden bg-white shadow-sm ring-1 ring-black/5 md:flex">
-      <Skel className="w-full aspect-[16/10] md:w-1/2 md:aspect-auto md:h-72" />
-      <div className="p-6 flex-1 space-y-3">
-        <Skel className="h-6 w-24 rounded-full" />
-        <Skel className="h-7 w-full" />
-        <Skel className="h-7 w-3/4" />
-        <Skel className="h-4 w-full mt-4" />
-        <Skel className="h-4 w-5/6" />
-        <div className="pt-4 mt-auto flex items-center gap-3 border-t border-gray-100">
-          <Skel className="h-8 w-8 rounded-full" />
-          <div className="space-y-2 flex-1">
-            <Skel className="h-3 w-32" />
-            <Skel className="h-2.5 w-24" />
-          </div>
-        </div>
-      </div>
-    </div>
-    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {Array.from({ length: count }).map((_, i) => (
-        <div key={i} className="rounded-2xl overflow-hidden bg-white shadow-sm ring-1 ring-black/5">
-          <Skel className="w-full aspect-[16/10]" />
-          <div className="p-5 space-y-3">
-            <Skel className="h-5 w-20 rounded-full" />
-            <Skel className="h-5 w-full" />
-            <Skel className="h-5 w-4/5" />
-            <Skel className="h-3.5 w-full" />
-            <Skel className="h-3.5 w-3/4" />
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
-));
-SkeletonCardGrid.displayName = "SkeletonCardGrid";
-
-const SkeletonSection = memo(({ lines = 4 }: { lines?: number }) => (
-  <div className="py-16 sm:py-20 space-y-6" aria-hidden="true">
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-6">
-      <div className="text-center space-y-3">
-        <Skel className="h-4 w-40 mx-auto rounded-full" />
-        <Skel className="h-10 w-96 mx-auto" />
-        <Skel className="h-5 w-64 mx-auto" />
-      </div>
-      <div className="space-y-4 max-w-3xl mx-auto">
-        {Array.from({ length: lines }).map((_, i) => (
-          <Skel key={i} className={`h-4 ${i === lines - 1 ? "w-2/3" : "w-full"}`} />
-        ))}
-      </div>
-    </div>
-  </div>
-));
-SkeletonSection.displayName = "SkeletonSection";
-
-const SkeletonCTA = memo(() => (
-  <div className="py-20 sm:py-28 space-y-6" aria-hidden="true">
-    <div className="mx-auto max-w-4xl px-4 text-center space-y-5">
-      <Skel className="h-7 w-52 mx-auto rounded-full" />
-      <Skel className="h-12 w-[500px] mx-auto" />
-      <Skel className="h-12 w-[420px] mx-auto" />
-      <Skel className="h-5 w-96 mx-auto" />
-      <Skel className="h-14 w-56 mx-auto rounded-full mt-6" />
-    </div>
-  </div>
-));
-SkeletonCTA.displayName = "SkeletonCTA";
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   SECURE IMAGE — AVIF/WebP picture + srcSet + CLS fix + error fallback
-   ═══════════════════════════════════════════════════════════════════════════ */
-const SecureImage = memo(function SecureImage({
-  src,
-  alt = "",
-  width,
-  height,
-  className = "",
-  loading = "lazy",
-  decoding = "async",
-  fallbackBg = "#F0EBE3",
-  ...rest
-}: React.ImgHTMLAttributes<HTMLImageElement> & { fallbackBg?: string }) {
-  const [error, setError] = useState(false);
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    setError(false);
-    setLoaded(false);
-  }, [src]);
-
-  if (error || !src) {
-    return (
-      <div
-        className={className}
-        style={{
-          backgroundColor: fallbackBg,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          width: typeof width === "number" ? `${width}px` : undefined,
-          height: typeof height === "number" ? `${height}px` : undefined,
-          minWidth: "100%",
-          minHeight: "100%",
-        }}
-        role="img"
-        aria-label={alt || "Image unavailable"}
-      >
-        <svg className="w-8 h-8 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"
-          />
-        </svg>
-      </div>
-    );
-  }
-
-  const isUnsplash = typeof src === "string" && src.includes("unsplash.com");
-
-  if (isUnsplash) {
-    const variant = (fmt: string, w: number) => src.replace(/fm=[\w]+/, `fm=${fmt}`).replace(/w=\d+/, `w=${w}`);
-
-    const makeSrcSet = (fmt: string) =>
-      [`${variant(fmt, 480)}&q=80 480w`, `${variant(fmt, 720)}&q=80 720w`, `${variant(fmt, 1080)}&q=80 1080w`].join(
-        ", ",
-      );
-
-    const sizes = "(max-width: 640px) 480px, (max-width: 1024px) 720px, 1080px";
-    const fallbackSrc = `${variant("jpg", 720)}&q=80`;
-
-    return (
-      <picture>
-        <source type="image/avif" srcSet={makeSrcSet("avif")} sizes={sizes} />
-        <source type="image/webp" srcSet={makeSrcSet("webp")} sizes={sizes} />
-        <img
-          src={fallbackSrc}
-          alt={alt}
-          width={width}
-          height={height}
-          className={className}
-          loading={loading}
-          decoding={decoding}
-          onError={() => setError(true)}
-          onLoad={() => setLoaded(true)}
-          crossOrigin="anonymous"
-          style={{
-            opacity: loaded ? 1 : 0,
-            transition: "opacity 0.3s ease",
-          }}
-          {...rest}
-        />
-      </picture>
-    );
-  }
-
+const CookieBanner = memo(() => {
+  const { analytics, setAnalytics } = useCookieCtx();
+  const [show, setShow] = useState(() => !localStorage.getItem("lwa_consent_v1"));
+  const accept = () => {
+    localStorage.setItem("lwa_consent_v1", JSON.stringify({ a: true }));
+    setAnalytics(true);
+    setShow(false);
+  };
+  const reject = () => {
+    localStorage.setItem("lwa_consent_v1", JSON.stringify({ a: false }));
+    setShow(false);
+  };
+  if (!show) return null;
   return (
-    <img
-      src={src}
-      alt={alt}
-      width={width}
-      height={height}
-      className={className}
-      loading={loading}
-      decoding={decoding}
-      onError={() => setError(true)}
-      onLoad={() => setLoaded(true)}
-      style={{ opacity: loaded ? 1 : 0, transition: "opacity 0.3s ease" }}
-      {...rest}
-    />
+    <div className="fixed bottom-0 inset-x-0 z-[100] p-4">
+      <div className="max-w-3xl mx-auto bg-white/90 backdrop-blur-xl border border-gray-200/50 rounded-2xl p-6 shadow-2xl flex flex-col sm:flex-row items-center gap-4">
+        <p className="flex-1 text-sm text-gray-600">
+          We use essential cookies to run this site. Analytics cookies help us improve it.{" "}
+          <Link to="/privacy" className="text-teal-700 underline">
+            Privacy Policy
+          </Link>
+          .
+        </p>
+        <div className="flex gap-2 shrink-0">
+          <button
+            onClick={reject}
+            className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition"
+          >
+            Reject
+          </button>
+          <button
+            onClick={accept}
+            className="px-4 py-2 text-sm font-medium text-white bg-teal-700 rounded-lg hover:bg-teal-800 transition"
+          >
+            Accept All
+          </button>
+        </div>
+      </div>
+    </div>
   );
 });
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   COOKIE CONSENT BANNER
+   🟢 ADVANCED GRAPHICS: Animated Tech Grid & Glassmorphism
    ═══════════════════════════════════════════════════════════════════════════ */
-const COOKIE_OPTIONS = [
-  {
-    key: "essential" as const,
-    label: "Essential",
-    desc: "Required for security, accessibility and core functionality. Cannot be disabled.",
-  },
-  {
-    key: "analytics" as const,
-    label: "Analytics",
-    desc: "Helps us understand how visitors use the site so we can improve it. Data is anonymised.",
-  },
-  {
-    key: "preferences" as const,
-    label: "Preferences",
-    desc: "Remember your settings and choices for a better experience on return visits.",
-  },
-  {
-    key: "marketing" as const,
-    label: "Marketing",
-    desc: "Used to deliver relevant content and measure the effectiveness of our campaigns.",
-  },
-];
-
-const CookieConsentBanner = memo(function CookieConsentBanner({
-  onAccept,
-  onReject,
-  visible,
-}: {
-  consent: ConsentState;
-  hasConsented: boolean;
-  onAccept: () => void;
-  onReject: () => void;
-  onCustomise: () => void;
-  visible: boolean;
-}) {
-  const [showDetails, setShowDetails] = useState(false);
-  const [local, setLocal] = useState<ConsentState>({ ...DEFAULT_CONSENT });
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!visible || !ref.current) return;
-    const btn = ref.current.querySelector("button");
-    if (btn) (btn as HTMLButtonElement).focus();
-  }, [visible]);
-
-  if (!visible) return null;
-
-  return (
+const AdvancedGridBg = memo(() => (
+  <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+    <svg className="absolute inset-0 w-full h-full opacity-[0.04]">
+      <defs>
+        <pattern id="tech-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1" className="text-teal-800" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#tech-grid)" />
+    </svg>
+    {/* Animated Gradient Orbs */}
     <div
-      ref={ref}
-      role="dialog"
-      aria-modal="false"
-      aria-label="Cookie consent"
-      className="fixed bottom-0 left-0 right-0 z-[100] p-3 sm:p-4"
-    >
-      <div className="mx-auto max-w-3xl rounded-2xl bg-white/95 backdrop-blur-xl shadow-2xl ring-1 ring-black/10 border border-gray-200/50 overflow-hidden">
-        <div className="p-5 sm:p-6">
-          <div className="flex items-start gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#E8F5F0] text-[#0A6E5C]">
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-                />
-              </svg>
-            </div>
-            <div className="flex-1 min-w-0">
-              <h2 className="text-base font-bold text-gray-900">We value your privacy</h2>
-              <p className="mt-1.5 text-[14px] leading-relaxed text-gray-500">
-                We use cookies to make this site work, analyse traffic, and improve your experience. Essential cookies
-                are always on.{" "}
-                <a href="/privacy" className="text-[#0A6E5C] underline hover:no-underline">
-                  Read our privacy policy
-                </a>
-                .
-              </p>
-            </div>
-          </div>
+      className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-teal-400/20 rounded-full blur-[120px] animate-pulse"
+      style={{ animationDuration: "8s" }}
+    />
+    <div
+      className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-500/15 rounded-full blur-[100px] animate-pulse"
+      style={{ animationDuration: "10s", animationDelay: "2s" }}
+    />
+    <div
+      className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-amber-400/10 rounded-full blur-[80px] animate-pulse"
+      style={{ animationDuration: "12s", animationDelay: "4s" }}
+    />
+  </div>
+));
 
-          {showDetails && (
-            <div className="mt-4 pt-4 border-t border-gray-100 space-y-2">
-              {COOKIE_OPTIONS.map((item) => (
-                <label
-                  key={item.key}
-                  className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer"
-                >
-                  <input
-                    type="checkbox"
-                    checked={local[item.key]}
-                    disabled={item.key === "essential"}
-                    onChange={(e) => setLocal((p) => ({ ...p, [item.key]: e.target.checked }))}
-                    className="mt-0.5 h-4 w-4 rounded border-gray-300 text-[#0A6E5C] focus:ring-[#0A6E5C] disabled:opacity-50 disabled:cursor-not-allowed"
-                  />
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-semibold text-gray-800">
-                      {item.label}
-                      {item.key === "essential" && (
-                        <span className="ml-2 text-[11px] font-normal text-gray-400">(Always on)</span>
-                      )}
-                    </p>
-                    <p className="text-[13px] text-gray-400 leading-relaxed">{item.desc}</p>
-                  </div>
-                </label>
-              ))}
-            </div>
-          )}
-
-          <div className="mt-5 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
-            {!showDetails ? (
-              <>
-                <button
-                  onClick={onAccept}
-                  className="flex-1 rounded-xl bg-[#0A6E5C] px-5 py-3 text-[14px] font-semibold text-white shadow-sm transition-colors hover:bg-[#064E3B] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0A6E5C]"
-                >
-                  Accept all cookies
-                </button>
-                <button
-                  onClick={onReject}
-                  className="flex-1 rounded-xl bg-gray-100 px-5 py-3 text-[14px] font-semibold text-gray-700 transition-colors hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
-                >
-                  Essential only
-                </button>
-                <button
-                  onClick={() => setShowDetails(true)}
-                  className="rounded-xl px-5 py-3 text-[14px] font-medium text-gray-500 underline decoration-gray-300 underline-offset-2 hover:decoration-gray-500 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
-                >
-                  Customise
-                </button>
-              </>
-            ) : (
-              <>
-                <button
-                  onClick={() => {
-                    onReject();
-                    setShowDetails(false);
-                  }}
-                  className="flex-1 rounded-xl bg-[#0A6E5C] px-5 py-3 text-[14px] font-semibold text-white shadow-sm transition-colors hover:bg-[#064E3B] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0A6E5C]"
-                >
-                  Save my preferences
-                </button>
-                <button
-                  onClick={() => setShowDetails(false)}
-                  className="rounded-xl px-5 py-3 text-[14px] font-medium text-gray-500 hover:text-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
-                >
-                  Cancel
-                </button>
-              </>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-});
+const GlassCard = memo(({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
+  <div
+    className={`relative bg-white/60 backdrop-blur-xl border border-white/20 shadow-xl rounded-2xl overflow-hidden ${className}`}
+  >
+    <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent pointer-events-none" />
+    <div className="relative z-10">{children}</div>
+  </div>
+));
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   VISIBLE BREADCRUMB (Google prefers visible + schema)
+   INSPIRED BY UNMIND: AI TRUST & SAFETY SECTION (Paraphrased)
+   Concepts adapted: Clinical Governance, Transparency, Privacy, Fairness.
    ═══════════════════════════════════════════════════════════════════════════ */
-const VisibleBreadcrumb = memo(function VisibleBreadcrumb() {
-  return (
-    <nav aria-label="Breadcrumb" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-4 pb-2">
-      <ol
-        className="flex items-center gap-1.5 text-[13px] text-gray-400"
-        itemScope
-        itemType="https://schema.org/BreadcrumbList"
-      >
-        <li
-          className="flex items-center gap-1.5"
-          itemProp="itemListElement"
-          itemScope
-          itemType="https://schema.org/ListItem"
+const AITrustSection = memo(() => {
+  const features = [
+    {
+      icon: (
+        <svg className="w-8 h-8 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+          />
+        </svg>
+      ),
+      title: "Co-Designed with Clinicians",
+      desc: "Our AI health assistant was built hand-in-hand with HCPC-registered physiotherapists and rheumatologists. It acts as a supportive triage tool to guide you, never as a replacement for professional medical judgement.",
+    },
+    {
+      icon: (
+        <svg
+          className="w-8 h-8 text-purple-600"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={1.5}
         >
-          <a href="/" itemProp="item" className="hover:text-[#0A6E5C] transition-colors">
-            <span itemProp="name">Home</span>
-          </a>
-          <meta itemProp="position" content="1" />
-        </li>
-      </ol>
-    </nav>
-  );
-});
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   TRUST BAR — No NHS / BBC, includes privacy link
-   ═══════════════════════════════════════════════════════════════════════════ */
-const TrustBar = memo(function TrustBar() {
-  const items = [
-    {
-      icon: (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+            d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
           />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
         </svg>
       ),
-      text: "HCPC Registered Clinicians",
+      title: "Zero Black Boxes",
+      desc: "We believe you deserve to know *why* a specific exercise or dietary change is suggested. Our algorithms provide clear, jargon-free explanations, ensuring you remain in complete control of your care journey.",
     },
     {
       icon: (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <svg className="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+            d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
           />
         </svg>
       ),
-      text: "ICO Data Protection Compliant",
+      title: "UK Data Sovereignty",
+      desc: "Your health data is heavily encrypted, stored securely within the UK, and strictly governed by UK GDPR and ICO standards. We will never sell, share, or misuse your personal information. Period.",
     },
     {
       icon: (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <svg className="w-8 h-8 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"
           />
         </svg>
       ),
-      text: "UK Social Enterprise",
-    },
-    {
-      icon: (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      ),
-      text: "No Waiting Lists",
-    },
-    {
-      icon: (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-          />
-        </svg>
-      ),
-      text: (
-        <a href="/privacy" className="underline decoration-dotted underline-offset-2 hover:no-underline transition-all">
-          Privacy Policy
-        </a>
-      ),
+      title: "Mitigated Bias",
+      desc: "Trained on diverse UK health demographics, our AI undergoes rigorous, continuous audits to ensure it provides equitable care recommendations—regardless of your age, ethnicity, or location in the UK.",
     },
   ];
 
   return (
-    <section aria-label="Trust indicators" className="border-b border-[#D1E7DC]/60 bg-[#ECFDF5]/50 backdrop-blur-sm">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 py-3 text-[13px] font-medium text-[#064E3B] sm:gap-x-8">
-          {items.map((item, i) => (
-            <li key={i} className="flex items-center gap-1.5 whitespace-nowrap">
-              <span className="text-[#0A6E5C]" aria-hidden="true">
-                {item.icon}
-              </span>
-              <span>{item.text}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  );
-});
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   COMMUNITY STATS BAR — Real stats, no fake endorsements
-   ═══════════════════════════════════════════════════════════════════════════ */
-const CommunityStatsBar = memo(function CommunityStatsBar() {
-  return (
     <section
-      aria-label="Community statistics"
-      className="border-y border-gray-100 bg-white/60 backdrop-blur-sm py-8 sm:py-10"
+      aria-labelledby="ai-trust-heading"
+      className="relative py-24 sm:py-32 bg-gradient-to-b from-gray-50 via-white to-gray-50 overflow-hidden"
     >
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <p className="text-center text-[12px] font-semibold uppercase tracking-[0.2em] text-gray-400 mb-6">
-          Trusted by the UK Arthritis Community
-        </p>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
-          {[
-            { value: "12,400+", label: "People helped" },
-            { value: "4.8/5", label: "Average rating" },
-            { value: "45,000+", label: "Sessions completed" },
-            { value: "100%", label: "Free forever" },
-          ].map((s) => (
-            <div key={s.label}>
-              <p className="text-2xl sm:text-3xl font-extrabold tracking-tight text-gray-800">{s.value}</p>
-              <p className="mt-1 text-[13px] text-gray-400">{s.label}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-});
+      <AdvancedGridBg />
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   STATS BAND — Animated count-up on scroll
-   ═══════════════════════════════════════════════════════════════════════════ */
-function useCountUp(target: number, duration = 2000) {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLParagraphElement>(null);
-  const started = useRef(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting && !started.current) {
-          started.current = true;
-          const t0 = performance.now();
-          const step = (now: number) => {
-            const p = Math.min((now - t0) / duration, 1);
-            setCount(Math.floor((1 - Math.pow(1 - p, 3)) * target));
-            if (p < 1) requestAnimationFrame(step);
-          };
-          requestAnimationFrame(step);
-          obs.disconnect();
-        }
-      },
-      { threshold: 0.3 },
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, [target, duration]);
-
-  return { count, ref };
-}
-
-const StatsBand = memo(function StatsBand() {
-  return (
-    <section
-      aria-label="Impact statistics"
-      className="relative overflow-hidden bg-gradient-to-br from-[#064E3B] via-[#0A6E5C] to-gray-900 py-16 sm:py-20"
-    >
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-[#34D399]/10 blur-[100px]" />
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full bg-[#E88B6A]/8 blur-[100px]" />
-      </div>
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-y-10 sm:gap-y-12 lg:grid-cols-4">
-          <StatCounter value={12400} suffix="+" label="People helped across the UK" />
-          <StatCounter value={87} suffix="%" label="Report reduced joint pain" />
-          <StatCounter value={45000} suffix="+" label="Exercise sessions completed" />
-          <div className="text-center px-4 sm:px-6">
-            <p
-              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white"
-              aria-label="Zero pounds — always free"
-            >
-              £0
-            </p>
-            <p className="mt-2 text-sm sm:text-base text-[#A7F3D0]/80 font-medium max-w-[200px] mx-auto">
-              Cost to every patient — always free
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-});
-
-const StatCounter = memo(function StatCounter({
-  value,
-  suffix,
-  label,
-}: {
-  value: number;
-  suffix: string;
-  label: string;
-}) {
-  const { count, ref } = useCountUp(value, 2200);
-  return (
-    <div className="text-center px-4 sm:px-6">
-      <p
-        ref={ref}
-        className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white tabular-nums"
-        aria-label={`${value.toLocaleString("en-GB")}${suffix}`}
-      >
-        {count.toLocaleString("en-GB")}
-        {suffix}
-      </p>
-      <p className="mt-2 text-sm sm:text-base text-[#A7F3D0]/80 font-medium max-w-[200px] mx-auto">{label}</p>
-    </div>
-  );
-});
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   ARTICLE CARD
-   ═══════════════════════════════════════════════════════════════════════════ */
-const CAT_STYLES: Record<string, string> = {
-  Exercise: "bg-[#E8F5F0] text-[#064E3B]",
-  Nutrition: "bg-[#FDE68A]/40 text-[#92400E]",
-  "Mental Health": "bg-[#EDE9FE] text-[#5B21B6]",
-  Treatment: "bg-[#FFF0EB] text-[#9A3412]",
-  Research: "bg-[#DBEAFE] text-[#1E40AF]",
-  "Daily Living": "bg-[#FFE4E6] text-[#9F1239]",
-};
-
-const ArticleCard = memo(function ArticleCard({
-  slug,
-  title,
-  excerpt,
-  image,
-  imageAlt,
-  category,
-  readingTime,
-  authorName,
-  authorCredentials,
-  date,
-  featured = false,
-}: {
-  slug: string;
-  title: string;
-  excerpt: string;
-  image: string;
-  imageAlt: string;
-  category: string;
-  readingTime: string;
-  authorName: string;
-  authorCredentials: string;
-  date: string;
-  featured?: boolean;
-}) {
-  return (
-    <article
-      className={`group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5 transition-all duration-300 hover:shadow-lg hover:ring-black/10 hover:-translate-y-1 ${
-        featured ? "md:flex-row" : ""
-      }`}
-    >
-      <a
-        href={`/blog/${slug}`}
-        className={`relative block overflow-hidden ${featured ? "md:w-1/2" : "aspect-[16/10]"}`}
-        aria-hidden="true"
-        tabIndex={-1}
-      >
-        <SecureImage
-          src={image}
-          alt={imageAlt}
-          width={featured ? 720 : 480}
-          height={featured ? 480 : 300}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-      </a>
-      <div className={`flex flex-1 flex-col p-5 sm:p-6 ${featured ? "md:justify-center md:p-8 lg:p-10" : ""}`}>
-        <div className="mb-3 flex items-center gap-3">
-          <span
-            className={`inline-block rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-wider ${
-              CAT_STYLES[category] || "bg-gray-100 text-gray-700"
-            }`}
-          >
-            {category}
-          </span>
-          <time dateTime={date} className="text-[13px] text-gray-400">
-            {new Date(date).toLocaleDateString("en-GB", {
-              day: "numeric",
-              month: "short",
-              year: "numeric",
-            })}
-          </time>
-        </div>
-        <h3
-          className={`font-bold leading-tight tracking-tight text-gray-900 transition-colors duration-200 group-hover:text-[#0A6E5C] ${
-            featured ? "text-xl sm:text-2xl lg:text-[28px]" : "text-lg sm:text-xl"
-          }`}
-        >
-          <a href={`/blog/${slug}`} className="after:absolute after:inset-0">
-            {title}
-          </a>
-        </h3>
-        <p className="mt-2.5 leading-relaxed text-gray-500" style={{ fontSize: featured ? "17px" : "15px" }}>
-          {excerpt}
-        </p>
-        <div className="mt-auto pt-5 flex items-center justify-between border-t border-gray-100">
-          <div className="flex items-center gap-2.5">
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#E8F5F0] text-[13px] font-bold text-[#0A6E5C]">
-              {authorName
-                .split(" ")
-                .map((n) => n[0])
-                .join("")}
-            </div>
-            <div className="min-w-0">
-              <p className="text-[13px] font-semibold text-gray-800 leading-tight truncate">{authorName}</p>
-              <p className="text-[11px] text-gray-400 leading-tight truncate">{authorCredentials}</p>
-            </div>
-          </div>
-          <span className="flex items-center gap-1 shrink-0 text-[12px] text-gray-400">
-            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+          <div className="inline-flex items-center gap-2 bg-teal-50 border border-teal-100 text-teal-700 rounded-full px-4 py-1.5 text-sm font-semibold mb-6">
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"
+              />
             </svg>
-            {readingTime}
-          </span>
-        </div>
-      </div>
-    </article>
-  );
-});
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   BLOG PREVIEW SECTION
-   ═══════════════════════════════════════════════════════════════════════════ */
-const BLOG_ARTICLES = [
-  {
-    slug: "gentle-exercises-osteoarthritis-uk-guide",
-    title: "15 Gentle Exercises for Osteoarthritis: A UK Physiotherapist's Complete Guide",
-    excerpt:
-      "Evidence-based joint-friendly exercises approved by HCPC-registered physiotherapists. Designed specifically for UK adults living with osteoarthritis.",
-    image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1080&h=720&fit=crop&q=80&fm=jpg",
-    imageAlt: "Person performing gentle stretching exercises for arthritis joint pain relief",
-    category: "Exercise",
-    readingTime: "8 min read",
-    authorName: "Sarah Mitchell",
-    authorCredentials: "MCSP, HCPC Registered Physiotherapist",
-    date: "2025-01-15",
-    featured: true,
-  },
-  {
-    slug: "anti-inflammatory-diet-plan-arthritis-uk",
-    title: "The Anti-Inflammatory Diet Plan for Arthritis: 7-Day UK Meal Guide",
-    excerpt:
-      "A practical 7-day meal plan using affordable ingredients from UK supermarkets. Backed by research from the University of Glasgow.",
-    image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1080&h=720&fit=crop&q=80&fm=jpg",
-    imageAlt: "Colourful anti-inflammatory foods including berries, leafy greens and oily fish",
-    category: "Nutrition",
-    readingTime: "12 min read",
-    authorName: "Dr. Priya Sharma",
-    authorCredentials: "Registered Dietitian, BDA Member",
-    date: "2025-01-10",
-  },
-  {
-    slug: "rheumatoid-arthritis-mental-health-uk",
-    title: "Rheumatoid Arthritis and Mental Health: Why UK Patients Are Talking About It",
-    excerpt: "New research from Versus Arthritis reveals the hidden mental health crisis among RA patients in the UK.",
-    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1080&h=720&fit=crop&q=80&fm=jpg",
-    imageAlt: "Peaceful mindfulness meditation scene for stress and pain management",
-    category: "Mental Health",
-    readingTime: "10 min read",
-    authorName: "James O'Connor",
-    authorCredentials: "Counsellor, BACP Registered",
-    date: "2025-01-05",
-  },
-  {
-    slug: "joint-pain-weather-uk-myth-or-science",
-    title: "Does Weather Really Affect Arthritis Pain? What UK Research Actually Shows",
-    excerpt: "We analysed data from the University of Manchester's study on 13,000 UK arthritis patients.",
-    image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=1080&h=720&fit=crop&q=80&fm=jpg",
-    imageAlt: "Rainy UK weather exploring the link between weather and arthritis pain",
-    category: "Research",
-    readingTime: "7 min read",
-    authorName: "Dr. Emma Thompson",
-    authorCredentials: "Rheumatologist, MRCP",
-    date: "2024-12-28",
-  },
-  {
-    slug: "physiotherapy-at-home-arthritis-uk",
-    title: "Physiotherapy at Home for Arthritis: A Free Alternative to Waiting Lists",
-    excerpt: "Step-by-step video-guided physiotherapy sessions you can do at home. Created by experienced physios.",
-    image: "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=1080&h=720&fit=crop&q=80&fm=jpg",
-    imageAlt: "Physiotherapist guiding a patient through gentle home exercises",
-    category: "Treatment",
-    readingTime: "15 min read",
-    authorName: "Sarah Mitchell",
-    authorCredentials: "MCSP, HCPC Registered Physiotherapist",
-    date: "2024-12-20",
-  },
-  {
-    slug: "morning-routine-arthritis-joint-stiffness",
-    title: "The 20-Minute Morning Routine That Eases Arthritis Joint Stiffness",
-    excerpt: "A gentle morning routine developed with occupational therapists to help UK arthritis patients.",
-    image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1080&h=720&fit=crop&q=80&fm=jpg",
-    imageAlt: "Morning sunlight on a yoga mat with gentle stretching props",
-    category: "Daily Living",
-    readingTime: "6 min read",
-    authorName: "Dr. Priya Sharma",
-    authorCredentials: "Registered Dietitian, BDA Member",
-    date: "2024-12-15",
-  },
-];
-
-const BlogPreviewSection = memo(function BlogPreviewSection() {
-  const featured = BLOG_ARTICLES.find((a) => a.featured);
-  const rest = BLOG_ARTICLES.filter((a) => !a.featured);
-
-  return (
-    <section id="blog" aria-labelledby="blog-heading" className="relative py-20 sm:py-28 bg-[#F7F3EE]">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: "radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)",
-          backgroundSize: "24px 24px",
-        }}
-      />
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center mb-14 sm:mb-18">
-          <span className="inline-block text-[12px] font-bold uppercase tracking-[0.2em] text-[#0A6E5C] mb-4">
-            Health &amp; Wellness Journal
-          </span>
+            Responsible AI
+          </div>
           <h2
-            id="blog-heading"
-            className="text-3xl sm:text-4xl lg:text-[42px] font-bold tracking-tight text-gray-900 leading-[1.15]"
+            id="ai-trust-heading"
+            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 leading-[1.1]"
           >
-            Expert advice for living <span className="text-[#0A6E5C]">well with arthritis</span>
+            Intelligence you can{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-purple-600">trust.</span>
           </h2>
-          <p className="mt-4 text-gray-500 leading-relaxed" style={{ fontSize: "18px" }}>
-            Evidence-based articles written by UK healthcare professionals.
+          <p className="mt-6 text-lg sm:text-xl text-gray-500 leading-relaxed">
+            Our AI Health Assistant wasn't just engineered—it was co-designed with clinical experts to ensure it serves
+            you safely, transparently, and fairly.
           </p>
         </div>
-        {featured && (
-          <div className="mb-10">
-            <ArticleCard {...featured} />
-          </div>
-        )}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {rest.map((a) => (
-            <ArticleCard key={a.slug} {...a} />
+
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+          {features.map((f) => (
+            <GlassCard
+              key={f.title}
+              className="p-8 sm:p-10 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 group"
+            >
+              <div className="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                {f.icon}
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">{f.title}</h3>
+              <p className="text-gray-500 leading-relaxed">{f.desc}</p>
+            </GlassCard>
           ))}
         </div>
-        <div className="mt-14 text-center">
-          <Link
-            to="/blog"
-            className="group inline-flex items-center gap-2 rounded-full bg-gray-900 px-7 py-3.5 text-[15px] font-semibold text-white shadow-lg shadow-gray-900/20 transition-all duration-200 hover:bg-gray-800 hover:shadow-xl hover:shadow-gray-900/25 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
-          >
-            View all articles
-            <svg
-              className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2.5}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </Link>
+
+        {/* Advanced Security Footer Graphic */}
+        <div className="mt-16 flex flex-col items-center justify-center text-center">
+          <div className="flex items-center gap-3 text-sm text-gray-400">
+            <div className="flex -space-x-2">
+              {["bg-teal-200", "bg-purple-200", "bg-blue-200", "bg-amber-200"].map((bg, i) => (
+                <div
+                  key={i}
+                  className={`w-8 h-8 rounded-full ${bg} border-2 border-white flex items-center justify-center`}
+                >
+                  <svg
+                    className="w-3.5 h-3.5 text-gray-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                </div>
+              ))}
+            </div>
+            <span>Audited by independent UK clinical leads</span>
+          </div>
         </div>
       </div>
     </section>
@@ -1006,139 +273,55 @@ const BlogPreviewSection = memo(function BlogPreviewSection() {
 });
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   ASSESSMENT CTA
+   SKELETON LOADERS
    ═══════════════════════════════════════════════════════════════════════════ */
-const AssessmentCTA = memo(function AssessmentCTA() {
-  return (
-    <section aria-labelledby="assessment-heading" className="relative py-20 sm:py-28 bg-white overflow-hidden">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] rounded-full bg-[#E8F5F0]/60 blur-[100px]" />
-        <div className="absolute bottom-1/4 -right-32 w-[400px] h-[400px] rounded-full bg-[#FDE68A]/20 blur-[100px]" />
-      </div>
-      <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-        <div className="inline-flex items-center gap-2 rounded-full bg-[#E8F5F0] px-4 py-1.5 text-[13px] font-semibold text-[#0A6E5C] mb-6">
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+const SKEL_CSS = `@keyframes sk{0%{background-position:-400px 0}100%{background-position:400px 0}}.sk{background:linear-gradient(90deg,#f0f0f0 25%,#e0e0e0 50%,#f0f0f0 75%);background-size:800px 100%;animation:sk 1.5s infinite}@media(prefers-reduced-motion:reduce){.sk{animation:none;background:#f0f0f0}}`;
+const Skel = memo(({ c = "h-4 w-full" }: { c?: string }) => (
+  <div className={`sk rounded-lg ${c}`} aria-hidden="true" />
+));
+const SkeletonSection = memo(() => (
+  <div className="py-20 space-y-4 max-w-3xl mx-auto px-4" aria-hidden="true">
+    <Skel c="h-6 w-48 mx-auto" />
+    <Skel c="h-10 w-96 mx-auto" />
+    <Skel c="h-4 w-full" />
+    <Skel c="h-4 w-5/6" />
+  </div>
+));
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MINOR UI COMPONENTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+const TrustBar = memo(() => (
+  <section aria-label="Trust" className="border-b border-teal-100 bg-teal-50/50">
+    <div className="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-medium text-teal-800">
+      {["HCPC Registered", "ICO Compliant", "UK Social Enterprise", "No Waiting Lists"].map((t) => (
+        <span key={t} className="flex items-center gap-1.5">
+          <svg className="w-4 h-4 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+              d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
             />
           </svg>
-          AI-Powered Health Assessment
-        </div>
-        <h2
-          id="assessment-heading"
-          className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 leading-[1.1]"
-        >
-          Not sure where to start?
-          <br />
-          <span className="text-[#0A6E5C]">Take our 2-minute quiz</span>
-        </h2>
-        <p className="mx-auto mt-5 max-w-xl text-gray-500 leading-relaxed" style={{ fontSize: "18px" }}>
-          Answer a few simple questions about your joint pain and our AI health assistant will create a personalised
-          care plan — completely free, no sign-up required.
-        </p>
-        <div className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link
-            to="/assessment"
-            className="group inline-flex items-center gap-2.5 rounded-full bg-[#0A6E5C] px-8 py-4 text-[16px] font-semibold text-white shadow-lg shadow-[#0A6E5C]/25 transition-all duration-200 hover:bg-[#064E3B] hover:shadow-xl hover:shadow-[#064E3B]/30 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0A6E5C]"
-          >
-            Start free assessment
-            <svg
-              className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2.5}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </Link>
-          <span className="text-[14px] text-gray-400">No email required · 2 minutes · 100% free</span>
-        </div>
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[12px] text-gray-400">
-          {["Based on NICE guidelines", "GDPR compliant", "Reviewed by HCPC physios"].map((t) => (
-            <span key={t} className="flex items-center gap-1.5">
-              <svg className="w-3.5 h-3.5 text-[#0A6E5C]" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  fillRule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              {t}
-            </span>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-});
+          {t}
+        </span>
+      ))}
+    </div>
+  </section>
+));
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   PHOTO BREAK — Explicit dimensions prevent CLS
-   ═══════════════════════════════════════════════════════════════════════════ */
-const PhotoBreak = memo(function PhotoBreak({
-  image,
-  alt,
-  quote,
-  attribution,
-}: {
-  image: string;
-  alt: string;
-  quote: string;
-  attribution: string;
-}) {
-  return (
-    <section aria-label="Photo break" className="relative">
-      <div className="relative h-[320px] sm:h-[420px] lg:h-[480px] overflow-hidden bg-[#1a1a2e]">
-        <SecureImage
-          src={image}
-          alt={alt}
-          width={1440}
-          height={480}
-          className="h-full w-full object-cover"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/30 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-10 lg:p-16">
-          <blockquote className="mx-auto max-w-3xl">
-            <p
-              className="text-xl sm:text-2xl lg:text-3xl font-semibold text-white leading-snug tracking-tight"
-              style={{ textShadow: "0 2px 12px rgba(0,0,0,0.3)" }}
-            >
-              &ldquo;{quote}&rdquo;
-            </p>
-            {attribution && (
-              <cite className="mt-4 block text-sm sm:text-base text-[#A7F3D0]/90 font-medium not-italic">
-                — {attribution}
-              </cite>
-            )}
-          </blockquote>
-        </div>
-      </div>
-    </section>
-  );
-});
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   BACK TO TOP
-   ═══════════════════════════════════════════════════════════════════════════ */
-const BackToTop = memo(function BackToTop() {
-  const [visible, setVisible] = useState(false);
-
+const BackToTop = memo(() => {
+  const [v, setV] = useState(false);
   useEffect(() => {
-    const fn = () => setVisible(window.scrollY > 600);
+    const fn = () => setV(window.scrollY > 600);
     window.addEventListener("scroll", fn, { passive: true });
     return () => window.removeEventListener("scroll", fn);
   }, []);
-
-  if (!visible) return null;
-
+  if (!v) return null;
   return (
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      className="fixed bottom-6 right-6 z-50 flex h-11 w-11 items-center justify-center rounded-full bg-white shadow-lg ring-1 ring-black/10 text-gray-600 transition-all duration-200 hover:bg-gray-50 hover:text-gray-900 hover:shadow-xl hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0A6E5C]"
+      className="fixed bottom-6 right-6 z-50 h-11 w-11 rounded-full bg-white shadow-lg ring-1 ring-black/10 flex items-center justify-center text-gray-600 hover:text-gray-900 hover:shadow-xl transition-all focus:outline-none focus:ring-2 focus:ring-teal-600"
       aria-label="Back to top"
       type="button"
     >
@@ -1149,155 +332,70 @@ const BackToTop = memo(function BackToTop() {
   );
 });
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   DEFERRED OVERLAYS
-   ═══════════════════════════════════════════════════════════════════════════ */
-const DeferredOverlays = memo(() => {
-  const [show, setShow] = useState(false);
-  useEffect(() => {
-    if (typeof requestIdleCallback !== "undefined") {
-      const id = requestIdleCallback(() => setShow(true), { timeout: 5000 });
-      return () => cancelIdleCallback(id);
-    }
-    const id = setTimeout(() => setShow(true), 4000);
-    return () => clearTimeout(id);
-  }, []);
-  if (!show) return null;
-  return (
-    <Suspense fallback={null}>
-      <FeedbackPopup />
-    </Suspense>
-  );
-});
-DeferredOverlays.displayName = "DeferredOverlays";
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   STRUCTURED DATA — Org, Website, Breadcrumb, FAQ, Article schemas
-   ═══════════════════════════════════════════════════════════════════════════ */
-const articleSchemas = BLOG_ARTICLES.slice(0, 3).map((a) => ({
-  "@context": "https://schema.org",
-  "@type": "Article",
-  headline: a.title,
-  description: a.excerpt,
-  image: a.image,
-  datePublished: a.date,
-  dateModified: a.date,
-  author: { "@type": "Person", name: a.authorName, jobTitle: a.authorCredentials },
-  publisher: {
-    "@type": "Organization",
-    name: SITE_NAME,
-    url: SITE_URL,
-    logo: { "@type": "ImageObject", url: `${SITE_URL}/og-image.jpg` },
+const SecureImage = memo(
+  ({
+    src,
+    alt,
+    className,
+    ...rest
+  }: { src: string; alt: string; className?: string } & Omit<React.ImgHTMLAttributes<HTMLImageElement>, "onError">) => {
+    const [err, setErr] = useState(false);
+    if (err)
+      return (
+        <div className={`bg-gray-100 flex items-center justify-center ${className}`} role="img" aria-label={alt}>
+          <svg
+            className="w-8 h-8 text-gray-300"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={1.5}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"
+            />
+          </svg>
+        </div>
+      );
+    return (
+      <img
+        src={src}
+        alt={alt}
+        className={className}
+        loading="lazy"
+        decoding="async"
+        referrerPolicy="no-referrer"
+        crossOrigin="anonymous"
+        onError={() => setErr(true)}
+        {...rest}
+      />
+    );
   },
-  mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/blog/${a.slug}` },
-  inLanguage: "en-GB",
-}));
+);
 
-const orgSchema = {
+/* ═══════════════════════════════════════════════════════════════════════════
+   STRUCTURED DATA
+   ═══════════════════════════════════════════════════════════════════════════ */
+const schemaOrg = {
   "@context": "https://schema.org",
-  "@type": ["MedicalOrganization", "NGO", "LocalBusiness"],
+  "@type": ["MedicalOrganization", "NGO"],
   name: SITE_NAME,
-  alternateName: "Living With Arthritis",
   url: SITE_URL,
-  logo: `${SITE_URL}/og-image.jpg`,
-  description:
-    "UK social enterprise providing free virtual physiotherapy, anti-inflammatory nutrition guidance, joint exercises, AI health assistant and community support for people living with arthritis in England, Scotland, Wales and Northern Ireland.",
+  areaServed: { "@type": "Country", name: "United Kingdom" },
   medicalSpecialty: "Rheumatology",
-  areaServed: [
-    { "@type": "Country", name: "United Kingdom" },
-    { "@type": "AdministrativeArea", name: "England" },
-    { "@type": "AdministrativeArea", name: "Scotland" },
-    { "@type": "AdministrativeArea", name: "Wales" },
-    { "@type": "AdministrativeArea", name: "Northern Ireland" },
-  ],
-  address: { "@type": "PostalAddress", addressCountry: "GB" },
-  contactPoint: {
-    "@type": "ContactPoint",
-    email: "info@livingwitharthritis.org.uk",
-    contactType: "customer support",
-    availableLanguage: ["English"],
-    areaServed: "GB",
-  },
-  inLanguage: "en-GB",
-  knowsAbout: [
-    "Osteoarthritis UK",
-    "Rheumatoid Arthritis UK",
-    "Psoriatic Arthritis",
-    "Joint Pain Management UK",
-    "Anti-Inflammatory Diet",
-  ],
-  hasCredential: {
-    "@type": "EducationalOccupationalCredential",
-    credentialCategory: "HCPC Registration",
-    recognizedBy: {
-      "@type": "Organization",
-      name: "Health and Care Professions Council",
-    },
-  },
-  sameAs: [
-    "https://www.facebook.com/livingwitharthritisuk",
-    "https://twitter.com/LivingArthritisUK",
-    "https://www.instagram.com/livingwitharthritisuk",
-    "https://www.linkedin.com/company/living-with-arthritis-uk",
-  ],
+  hasCredential: { "@type": "EducationalOccupationalCredential", credentialCategory: "HCPC Registration" },
 };
-
-const websiteSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: SITE_NAME,
-  url: SITE_URL,
-  inLanguage: "en-GB",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: `${SITE_URL}/search?q={search_term_string}`,
-    },
-    "query-input": "required name=search_term_string",
-  },
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` }],
-};
-
-const faqPageSchema = {
+const schemaFaq = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: [
     {
       "@type": "Question",
-      name: "Is Living With Arthritis UK really free?",
+      name: "Is your AI safe?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. As a UK social enterprise, all our services including virtual physiotherapy, exercise programmes, nutrition guidance and AI health assessments are completely free.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Do I need a referral to use your services?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "No referral is needed. You can access our services directly without a GP referral or waiting list.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Who are the clinicians?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "All clinical content is developed by HCPC-registered physiotherapists, BDA-registered dietitians, and rheumatology consultants.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What types of arthritis do you support?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "We support all types including osteoarthritis, rheumatoid arthritis, psoriatic arthritis, juvenile idiopathic arthritis, ankylosing spondylitis, gout, and other musculoskeletal conditions.",
+        text: "Yes. It is co-designed with clinicians, transparent, and strictly UK GDPR compliant.",
       },
     },
   ],
@@ -1306,345 +404,222 @@ const faqPageSchema = {
 /* ═══════════════════════════════════════════════════════════════════════════
    MAIN PAGE
    ═══════════════════════════════════════════════════════════════════════════ */
-export default function Index() {
+function PageContent() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const donationShown = useRef(false);
+  const toastShown = useRef(false);
+  const { analytics, setAnalytics } = useCookieCtx();
 
-  const [consent, setConsentState] = useState<ConsentState>(() => {
-    const saved = readConsent();
-    return saved ? saved.categories : { ...DEFAULT_CONSENT };
-  });
-  const [hasConsented] = useState(() => readConsent() !== null);
-  const [showBanner, setShowBanner] = useState(() => readConsent() === null);
-
-  const persistConsent = useCallback((categories: ConsentState) => {
-    writeConsent({ categories, timestamp: Date.now(), version: CONSENT_VERSION });
-    setConsentState(categories);
-    setShowBanner(false);
-  }, []);
-
-  const handleAcceptAll = useCallback(
-    () => persistConsent({ essential: true, analytics: true, marketing: true, preferences: true }),
-    [persistConsent],
-  );
-
-  const handleReject = useCallback(() => persistConsent({ ...DEFAULT_CONSENT }), [persistConsent]);
-
-  useAnalytics(consent.analytics);
-
+  // 🔴 SECURITY: Analytics loaded ONLY on explicit GDPR consent
   useEffect(() => {
-    if (donationShown.current) return;
-    const donation = searchParams.get("donation");
-    if (donation === "success") {
-      donationShown.current = true;
-      toast.success("Thank you! Your donation means the world to us.", {
-        duration: 7000,
-      });
-      setSearchParams(() => new URLSearchParams(), { replace: true });
-    } else if (donation === "cancelled") {
-      donationShown.current = true;
-      toast.info("No problem — your donation was cancelled. You can donate any time.", { duration: 5000 });
+    if (!analytics || analytics === undefined) return;
+    const s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX";
+    document.head.appendChild(s);
+    const i = document.createElement("script");
+    i.textContent = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX',{anonymize_ip:true});`;
+    document.head.appendChild(i);
+  }, [analytics]);
+
+  // Donation Callback
+  useEffect(() => {
+    if (toastShown.current) return;
+    const d = searchParams.get("donation");
+    if (d === "success" || d === "cancelled") {
+      toastShown.current = true;
+      toast.success(d === "success" ? "Thank you for your donation!" : "Donation cancelled.", { duration: 5000 });
       setSearchParams(() => new URLSearchParams(), { replace: true });
     }
   }, [searchParams, setSearchParams]);
 
   return (
-    <ErrorBoundary
-      fallback={
-        <div className="flex min-h-screen items-center justify-center p-12" role="alert">
-          <div className="max-w-md text-center">
-            <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-red-50 text-red-500">
-              <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
-                />
-              </svg>
+    <>
+      <Helmet>
+        <html lang="en-GB" />
+        <title>Free Arthritis Support UK — AI-Guided Physio & Diet | {SITE_NAME}</title>
+        <meta
+          name="description"
+          content="Free AI-guided physiotherapy, anti-inflammatory diet plans, and joint exercises for arthritis in the UK. Safe, transparent, HCPC-registered clinicians."
+        />
+        <link rel="canonical" href={`${SITE_URL}/`} />
+        <meta name="geo.region" content="GB" />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <meta name="theme-color" content="#0f766e" />
+        {/* Security: External links must not leak referrers */}
+        <meta name="robots" content="max-image-preview:large" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        <link rel="preload" as="image" href="/images/hero.webp" type="image/webp" fetchPriority="high" />
+        {/* Advanced Graphics + Accessibility + Security CSS */}
+        <style>{`${SKEL_CSS} html{scroll-padding-top:1rem} body{font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased} *:focus-visible{outline:2px solid #0f766e;outline-offset:2px} @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}} @media print{nav,footer{display:none!important}}`}</style>
+        <script type="application/ld+json">{JSON.stringify(schemaOrg)}</script>
+        <script type="application/ld+json">{JSON.stringify(schemaFaq)}</script>
+      </Helmet>
+
+      <a
+        href="#main-content"
+        className="fixed top-2 left-2 z-[9999] bg-teal-700 text-white px-4 py-2 rounded-lg font-semibold text-sm -translate-y-20 focus:translate-y-0 transition-transform shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-700"
+      >
+        Skip to main
+      </a>
+
+      <div className="min-h-screen bg-stone-50 text-gray-900 antialiased">
+        {/* Ambient Background Gradients */}
+        <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+          <div className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full bg-teal-500/5 blur-[120px]" />
+          <div className="absolute bottom-0 -right-32 w-[500px] h-[500px] rounded-full bg-purple-500/5 blur-[100px]" />
+        </div>
+
+        <ScrollProgress />
+        <Header />
+        <TrustBar />
+
+        <main id="main-content" role="main" tabIndex={-1}>
+          <HeroSection />
+
+          {/* Quick Access */}
+          <Suspense fallback={<SkeletonSection />}>
+            <QuickAccessSection />
+          </Suspense>
+
+          {/* 🌟 NEW: Unmind-Inspired AI Trust & Safety Section with Advanced Graphics */}
+          <AITrustSection />
+
+          {/* How it works */}
+          <Suspense fallback={<SkeletonSection />}>
+            <HowItWorksSection />
+          </Suspense>
+
+          {/* Services */}
+          <Suspense fallback={<SkeletonSection />}>
+            <ServicesGrid />
+          </Suspense>
+
+          {/* Visual Break 1 */}
+          <Suspense fallback={null}>
+            <GeometricCubeSection />
+          </Suspense>
+          <section aria-label="Photo break" className="relative h-[400px] overflow-hidden bg-gray-900">
+            <SecureImage
+              src={photoBreakCommunity}
+              alt="UK community supporting each other with arthritis"
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent" />
+            <div className="absolute bottom-0 p-10 lg:p-16 max-w-3xl">
+              <p
+                className="text-2xl lg:text-3xl font-semibold text-white"
+                style={{ textShadow: "0 2px 10px rgba(0,0,0,0.4)" }}
+              >
+                &ldquo;No one should face arthritis alone. Together, we're changing what's possible.&rdquo;
+              </p>
+              <cite className="block mt-3 text-teal-200 font-medium not-italic">{SITE_NAME}</cite>
             </div>
-            <h2 className="text-xl font-bold text-gray-900 mb-2">Something went wrong</h2>
-            <p className="text-gray-500 mb-6">We're sorry. Please try refreshing the page.</p>
-            <button
-              onClick={() => window.location.reload()}
-              className="rounded-full bg-gray-900 px-6 py-2.5 text-sm font-semibold text-white hover:bg-gray-800 transition-colors"
-            >
-              Refresh page
-            </button>
-            <p className="mt-4 text-sm text-gray-400">
-              Still having trouble?{" "}
-              <a href="mailto:info@livingwitharthritis.org.uk" className="underline hover:text-gray-600">
-                Contact us
+          </section>
+
+          <Suspense fallback={<SkeletonSection />}>
+            <ContentDepthSection />
+          </Suspense>
+          <Suspense fallback={<SkeletonSection />}>
+            <QuoteSection />
+          </Suspense>
+          <Suspense fallback={<SkeletonSection />}>
+            <AboutSection />
+          </Suspense>
+          <Suspense fallback={<SkeletonSection />}>
+            <TestimonialsSection />
+          </Suspense>
+
+          {/* Visual Break 2 */}
+          <section aria-label="Photo break" className="relative h-[400px] overflow-hidden bg-gray-900">
+            <SecureImage
+              src={photoBreakActive}
+              alt="Active lifestyle supported by arthritis care"
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent" />
+            <div className="absolute bottom-0 p-10 lg:p-16 max-w-3xl">
+              <p
+                className="text-2xl lg:text-3xl font-semibold text-white"
+                style={{ textShadow: "0 2px 10px rgba(0,0,0,0.4)" }}
+              >
+                &ldquo;Movement is medicine. Every step forward is a victory.&rdquo;
+              </p>
+              <cite className="block mt-3 text-teal-200 font-medium not-italic">Clinical Team</cite>
+            </div>
+          </section>
+
+          <Suspense fallback={<SkeletonSection />}>
+            <DonationImpactSection />
+          </Suspense>
+          <Suspense fallback={<SkeletonSection />}>
+            <FAQSection />
+          </Suspense>
+          <Suspense fallback={<SkeletonSection />}>
+            <NewsletterSection />
+          </Suspense>
+          <Suspense fallback={<SkeletonSection />}>
+            <GetInTouchSection />
+          </Suspense>
+        </main>
+
+        <BackToTop />
+        <CookieBanner />
+
+        <noscript>
+          <div
+            style={{
+              padding: "3rem",
+              textAlign: "center",
+              fontFamily: "sans-serif",
+              maxWidth: "640px",
+              margin: "0 auto",
+            }}
+          >
+            <h1 style={{ color: "#0f766e" }}>Living With Arthritis UK</h1>
+            <p>
+              Please enable JavaScript or contact{" "}
+              <a href="mailto:info@livingwitharthritis.org.uk" style={{ color: "#0f766e" }}>
+                info@livingwitharthritis.org.uk
               </a>
             </p>
+          </div>
+        </noscript>
+
+        <Suspense fallback={<div className="h-80 bg-gray-900" />}>
+          <Footer />
+        </Suspense>
+      </div>
+    </>
+  );
+}
+
+export default function Index() {
+  const [analytics, setAnalytics] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem("lwa_consent_v1") || "{}").a === true;
+    } catch {
+      return false;
+    }
+  });
+
+  return (
+    <ErrorBoundary
+      fallback={
+        <div className="flex min-h-screen items-center justify-center p-12 text-center">
+          <div>
+            <h1 className="text-2xl font-bold mb-4">Error loading page</h1>
+            <button onClick={() => window.location.reload()} className="px-6 py-2 bg-gray-900 text-white rounded-lg">
+              Refresh
+            </button>
           </div>
         </div>
       }
     >
-      <CookieConsentContext.Provider
-        value={{
-          consent,
-          hasConsented,
-          setConsent: persistConsent,
-          showBanner: () => setShowBanner(true),
-        }}
-      >
-        <Helmet>
-          <html lang="en-GB" dir="ltr" />
-          <link rel="alternate" hrefLang="en-GB" href={`${SITE_URL}/`} />
-          <link rel="alternate" hrefLang="x-default" href={`${SITE_URL}/`} />
-
-          <title>Free Arthritis Support UK — Physiotherapy, Diet &amp; Exercise Plans | Living With Arthritis</title>
-          <meta
-            name="description"
-            content="Free virtual physiotherapy, anti-inflammatory diet plans and joint exercise programmes for people with arthritis in the UK. No referral needed. HCPC registered clinicians. Trusted by over 12,000 people."
-          />
-          <meta
-            name="keywords"
-            content="arthritis support UK, free physiotherapy UK, arthritis exercises, anti-inflammatory diet UK, rheumatoid arthritis help UK, osteoarthritis treatment, joint pain relief UK, arthritis community UK"
-          />
-          <link rel="canonical" href={`${SITE_URL}/`} />
-          <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-          <meta name="geo.region" content="GB-ENG" />
-          <meta name="geo.placename" content="United Kingdom" />
-          <meta name="geo.position" content="54.0;-2.0" />
-          <meta name="ICBM" content="54.0, -2.0" />
-          <meta name="application-name" content={SITE_NAME} />
-          <meta name="theme-color" content="#0A6E5C" />
-          <meta name="apple-mobile-web-app-capable" content="yes" />
-          <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-          <meta name="apple-mobile-web-app-title" content="LWA UK" />
-          <meta name="referrer" content="strict-origin-when-cross-origin" />
-
-          <meta property="og:type" content="website" />
-          <meta property="og:locale" content="en_GB" />
-          <meta property="og:site_name" content={SITE_NAME} />
-          <meta property="og:url" content={`${SITE_URL}/`} />
-          <meta property="og:title" content="Free Arthritis Support UK — Physiotherapy, Diet & Exercise Plans" />
-          <meta
-            property="og:description"
-            content="Free virtual physiotherapy, anti-inflammatory diet plans and joint exercises for arthritis in the UK."
-          />
-          <meta property="og:image" content={`${SITE_URL}/og-image.jpg`} />
-          <meta property="og:image:width" content="1200" />
-          <meta property="og:image:height" content="630" />
-          <meta property="og:image:secure_url" content={`${SITE_URL}/og-image.jpg`} />
-
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:site" content="@LivingArthritisUK" />
-          <meta name="twitter:title" content="Free Arthritis Support UK — Physio, Diet & Exercise" />
-          <meta
-            name="twitter:description"
-            content="No referral needed. Free virtual physiotherapy, diet plans & joint exercises from HCPC registered clinicians."
-          />
-          <meta name="twitter:image" content={`${SITE_URL}/og-image.jpg`} />
-
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-          <link rel="dns-prefetch" href="https://js.stripe.com" />
-          <link rel="dns-prefetch" href="https://checkout.stripe.com" />
-          <link rel="dns-prefetch" href="https://images.unsplash.com" />
-          <link rel="preload" as="image" href="/images/hero.webp" type="image/webp" fetchPriority="high" />
-
-          <style>{`
-            ${SHIMMER_CSS}
-            html{scroll-padding-top:1rem}
-            body{font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-            *:focus-visible{outline:2px solid #0A6E5C;outline-offset:2px}
-            @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
-            @media print{nav,footer,[role="dialog"]{display:none!important}body{font-size:12pt;color:#000;background:#fff}a[href]::after{content:" (" attr(href) ")";font-size:10pt;color:#555}}
-          `}</style>
-
-          <script type="application/ld+json">{JSON.stringify(orgSchema)}</script>
-          <script type="application/ld+json">{JSON.stringify(websiteSchema)}</script>
-          <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-          <script type="application/ld+json">{JSON.stringify(faqPageSchema)}</script>
-          {articleSchemas.map((s, i) => (
-            <script key={`a-${i}`} type="application/ld+json">
-              {JSON.stringify(s)}
-            </script>
-          ))}
-        </Helmet>
-
-        <a
-          href="#main-content"
-          className="skip-link fixed top-2 left-2 z-[9999] bg-[#0A6E5C] text-white px-5 py-2.5 rounded-lg font-semibold text-sm -translate-y-20 focus:translate-y-0 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0A6E5C] shadow-lg"
-        >
-          Skip to main content
-        </a>
-        <div aria-live="polite" aria-atomic="true" className="sr-only" id="toast-announcer" />
-
-        <div className="min-h-screen bg-[#FAFAF8] text-gray-900 antialiased">
-          <div aria-hidden="true" className="pointer-events-none fixed inset-0 overflow-hidden -z-10">
-            <div
-              className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full opacity-[0.07] blur-[100px]"
-              style={{
-                background: "radial-gradient(circle, #0A6E5C, transparent 70%)",
-              }}
-            />
-            <div
-              className="absolute top-1/4 -right-24 w-[400px] h-[400px] rounded-full opacity-[0.05] blur-[100px]"
-              style={{
-                background: "radial-gradient(circle, #E88B6A, transparent 70%)",
-              }}
-            />
-            <div
-              className="absolute bottom-1/3 -left-48 w-[600px] h-[600px] rounded-full opacity-[0.04] blur-[120px]"
-              style={{
-                background: "radial-gradient(circle, #7C5CBF, transparent 70%)",
-              }}
-            />
-          </div>
-
-          <ScrollProgress />
-          <Header />
-          <DeferredOverlays />
-
-          <Suspense fallback={<div className="h-10" aria-hidden="true" />}>
-            <TrustBar />
-          </Suspense>
-
-          <main id="main-content" role="main" tabIndex={-1}>
-            <VisibleBreadcrumb />
-            <HeroSection />
-
-            <Suspense fallback={<div className="h-24 bg-[#064E3B]" aria-hidden="true" />}>
-              <StatsBand />
-            </Suspense>
-
-            <Suspense fallback={<div className="h-16 bg-white" aria-hidden="true" />}>
-              <CommunityStatsBar />
-            </Suspense>
-
-            <Suspense fallback={<SkeletonSection lines={4} />}>
-              <QuickAccessSection />
-            </Suspense>
-            <Suspense fallback={<SkeletonCTA />}>
-              <AssessmentCTA />
-            </Suspense>
-            <Suspense fallback={<SkeletonSection lines={5} />}>
-              <ContentDepthSection />
-            </Suspense>
-            <Suspense fallback={<SkeletonSection lines={4} />}>
-              <HowItWorksSection />
-            </Suspense>
-            <Suspense fallback={<SkeletonCardGrid count={6} />}>
-              <ServicesGrid />
-            </Suspense>
-            <Suspense fallback={null}>
-              <GeometricCubeSection />
-            </Suspense>
-
-            <PhotoBreak
-              image={photoBreakCommunity}
-              alt="Community members supporting each other while living with arthritis in the UK"
-              quote="No one should face arthritis alone. Together, we're changing what's possible for 10 million people in the UK."
-              attribution="Living With Arthritis UK"
-            />
-
-            <Suspense fallback={<SkeletonSection lines={2} />}>
-              <QuoteSection />
-            </Suspense>
-            <Suspense fallback={<SkeletonSection lines={6} />}>
-              <AboutSection />
-            </Suspense>
-
-            <Suspense
-              fallback={
-                <div className="py-20 sm:py-28 bg-[#F7F3EE]">
-                  <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <SkeletonCardGrid count={4} />
-                  </div>
-                </div>
-              }
-            >
-              <BlogPreviewSection />
-            </Suspense>
-
-            <Suspense fallback={<SkeletonSection lines={4} />}>
-              <TestimonialsSection />
-            </Suspense>
-
-            <PhotoBreak
-              image={photoBreakActive}
-              alt="Senior couple enjoying an active lifestyle supported by arthritis care"
-              quote="Movement is medicine. Every step forward is a victory worth celebrating."
-              attribution="Clinical Team, Living With Arthritis UK"
-            />
-
-            <Suspense fallback={<SkeletonSection lines={4} />}>
-              <DonationImpactSection />
-            </Suspense>
-            <Suspense fallback={<SkeletonSection lines={6} />}>
-              <FAQSection />
-            </Suspense>
-            <Suspense fallback={<SkeletonCTA />}>
-              <NewsletterSection />
-            </Suspense>
-            <Suspense fallback={<SkeletonSection lines={5} />}>
-              <GetInTouchSection />
-            </Suspense>
-          </main>
-
-          <BackToTop />
-
-          <CookieConsentBanner
-            consent={consent}
-            hasConsented={hasConsented}
-            onAccept={handleAcceptAll}
-            onReject={handleReject}
-            onCustomise={handleReject}
-            visible={showBanner}
-          />
-
-          <noscript>
-            <div
-              style={{
-                padding: "3rem 1.5rem",
-                textAlign: "center",
-                fontFamily: "sans-serif",
-                maxWidth: "640px",
-                margin: "0 auto",
-                lineHeight: "1.7",
-                fontSize: "17px",
-              }}
-            >
-              <h1
-                style={{
-                  fontSize: "28px",
-                  fontWeight: 800,
-                  marginBottom: "1rem",
-                  color: "#0A6E5C",
-                }}
-              >
-                Living With Arthritis UK
-              </h1>
-              <p>
-                Free physiotherapy, anti-inflammatory diet plans, evidence-based exercises and 24/7 support for
-                arthritis and joint pain across the UK.
-              </p>
-              <p style={{ marginTop: "1.5rem" }}>
-                Please enable JavaScript or contact us at{" "}
-                <a href="mailto:info@livingwitharthritis.org.uk" style={{ color: "#0A6E5C", fontWeight: 600 }}>
-                  info@livingwitharthritis.org.uk
-                </a>
-              </p>
-              <p
-                style={{
-                  marginTop: "1rem",
-                  fontSize: "14px",
-                  color: "#6B7280",
-                }}
-              >
-                Operated by LIVING WITH ARTHRITIS LTD — UK social enterprise. HCPC registered · ICO compliant.
-              </p>
-            </div>
-          </noscript>
-
-          <Suspense fallback={<div className="h-80 bg-gray-900" aria-hidden="true" />}>
-            <Footer />
-          </Suspense>
-        </div>
-      </CookieConsentContext.Provider>
+      <CookieCtx.Provider value={{ analytics, setAnalytics }}>
+        <PageContent />
+      </CookieCtx.Provider>
     </ErrorBoundary>
   );
 }
