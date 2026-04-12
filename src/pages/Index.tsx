@@ -571,7 +571,112 @@ export default function Index() {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="LWA UK" />
-        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
-        <meta httpEquiv="X-Frame-Options" content="DENY" />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
-        <meta httpEquiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_GB" />
+        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:title" content="Free Arthritis Support UK — Physiotherapy, Diet & Exercise Plans" />
+        <meta property="og:description" content="Free virtual physiotherapy, anti-inflammatory diet plans and joint exercise programmes for people with arthritis in the UK." />
+        <meta property="og:url" content="https://livingwitharthritis.org.uk/" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Free Arthritis Support UK | Living With Arthritis" />
+        <meta name="twitter:description" content="Free virtual physiotherapy, anti-inflammatory diet plans and joint exercise programmes for people with arthritis in the UK." />
+
+        {/* JSON-LD */}
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "NGO",
+          name: "Living With Arthritis UK",
+          url: "https://livingwitharthritis.org.uk",
+          description: "Free arthritis support and virtual physiotherapy for people in the UK.",
+          areaServed: { "@type": "Country", name: "United Kingdom" },
+        })}</script>
+      </Helmet>
+
+      <ScrollProgress />
+      <Header />
+
+      {/* ═══════════ HERO ═══════════ */}
+      <HeroSection />
+
+      {/* ═══════════ TRUST BAR ═══════════ */}
+      <TrustBar />
+
+      {/* ═══════════ MAIN CONTENT ═══════════ */}
+      <main id="main-content">
+        <Suspense fallback={<SectionSkeleton />}>
+          <QuickAccessSection />
+        </Suspense>
+
+        <Suspense fallback={<SectionSkeleton />}>
+          <ContentDepthSection />
+        </Suspense>
+
+        <Suspense fallback={<SectionSkeleton />}>
+          <HowItWorksSection />
+        </Suspense>
+
+        <Suspense fallback={<SectionSkeleton />}>
+          <ServicesGrid />
+        </Suspense>
+
+        {/* ═══════════ 3D CUBE SECTION ═══════════ */}
+        <Suspense fallback={<SectionSkeleton />}>
+          <GeometricCubeSection />
+        </Suspense>
+
+        {/* Photo break */}
+        <div className="relative h-64 md:h-80 overflow-hidden">
+          <img src={photoBreakCommunity} alt="Arthritis community support group in the UK" loading="lazy" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+        </div>
+
+        <Suspense fallback={<SectionSkeleton />}>
+          <QuoteSection />
+        </Suspense>
+
+        <Suspense fallback={<SectionSkeleton />}>
+          <AboutSection />
+        </Suspense>
+
+        <Suspense fallback={<SectionSkeleton />}>
+          <TestimonialsSection />
+        </Suspense>
+
+        {/* Photo break */}
+        <div className="relative h-64 md:h-80 overflow-hidden">
+          <img src={photoBreakActive} alt="Active lifestyle with arthritis exercises" loading="lazy" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+        </div>
+
+        <Suspense fallback={<SectionSkeleton />}>
+          <DonationImpactSection />
+        </Suspense>
+
+        <Suspense fallback={<SectionSkeleton />}>
+          <FAQSection />
+        </Suspense>
+
+        <Suspense fallback={<SectionSkeleton />}>
+          <NewsletterSection />
+        </Suspense>
+
+        <Suspense fallback={<SectionSkeleton />}>
+          <GetInTouchSection />
+        </Suspense>
+      </main>
+
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
+
+      <Suspense fallback={null}>
+        <FeedbackPopup />
+      </Suspense>
+    </ErrorBoundary>
+  );
+}
