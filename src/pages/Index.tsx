@@ -201,8 +201,9 @@ const GridBg = memo(() => (
   </div>
 ));
 
-const GlassCard = memo(({ children, className = "" }: { children: ReactNode; className?: string }) => (
+const GlassCard = memo(({ children, className = "", onClick }: { children: ReactNode; className?: string; onClick?: () => void }) => (
   <div
+    onClick={onClick}
     className={`relative bg-white/60 backdrop-blur-xl border border-white/20 shadow-xl rounded-2xl overflow-hidden ${className}`}
   >
     <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent pointer-events-none" />
@@ -667,7 +668,7 @@ const PhotoBreak = memo(({ image, alt, quote, attr }: { image: string; alt: stri
    ═══════════════════════════════════════════════════════════════════════════ */
 function useCountUp(target: number, dur = 2000) {
   const [c, setC] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
+  const ref = useRef<HTMLParagraphElement>(null);
   const s = useRef(false);
   useEffect(() => {
     const el = ref.current;
