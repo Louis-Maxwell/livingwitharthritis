@@ -84,7 +84,7 @@ const TrustBar = memo(function TrustBar() {
    ═══════════════════════════════════════════════════════════════════════════════ */
 function useCountUp(target: number, duration: number = 2000) {
   const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
+  const ref = useRef<HTMLParagraphElement>(null);
   const hasStarted = useRef(false);
 
   useEffect(() => {
