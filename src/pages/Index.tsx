@@ -390,6 +390,10 @@ export default function Index() {
             }}
           />
 
+          <div style={{ padding: '80px 20px', background: 'red', color: 'white', fontSize: '32px', textAlign: 'center' }}>
+            DEBUG TEST VISIBLE
+          </div>
+
           <Suspense fallback={<SectionLoader />}>
             <QuickAccessSection />
           </Suspense>
