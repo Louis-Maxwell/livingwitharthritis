@@ -701,30 +701,30 @@ const StatsBand = memo(() => {
       <div className="text-center px-4">
         <p
           ref={ref}
-          className="text-3xl sm:text-4xl font-extrabold text-white tabular-nums"
+          className="text-3xl sm:text-4xl font-extrabold text-foreground tabular-nums"
           aria-label={`${v.toLocaleString()}${s}`}
         >
           {c.toLocaleString()}
           {s}
         </p>
-        <p className="mt-2 text-sm text-teal-200/80 max-w-[200px] mx-auto">{l}</p>
+        <p className="mt-2 text-sm text-muted-foreground max-w-[200px] mx-auto">{l}</p>
       </div>
     );
   };
   return (
     <section
       aria-label="Impact statistics"
-      className="bg-gradient-to-br from-teal-900 via-teal-800 to-gray-900 py-16 sm:py-20"
+      className="bg-accent/50 border-y border-border/20 py-16 sm:py-20"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 gap-y-10 lg:grid-cols-4">
         <Stat v={12400} s="+" l="People helped across the UK" />
         <Stat v={87} s="%" l="Report reduced joint pain" />
         <Stat v={45000} s="+" l="Exercise sessions completed" />
         <div className="text-center px-4">
-          <p className="text-3xl sm:text-4xl font-extrabold text-white" aria-label="Zero pounds">
+          <p className="text-3xl sm:text-4xl font-extrabold text-foreground" aria-label="Zero pounds">
             £0
           </p>
-          <p className="mt-2 text-sm text-teal-200/80 max-w-[200px] mx-auto">Cost to every patient</p>
+          <p className="mt-2 text-sm text-muted-foreground max-w-[200px] mx-auto">Cost to every patient</p>
         </div>
       </div>
     </section>
