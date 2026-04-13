@@ -15,6 +15,7 @@ const ChatBotWidget = lazy(() => import("./components/ChatBotWidget"));
 const CookieConsent = lazy(() => import("./components/CookieConsent"));
 const AccessibilityToolbar = lazy(() => import("./components/AccessibilityToolbar"));
 const MobileBottomNav = lazy(() => import("./components/MobileBottomNav"));
+const DonationNotification = lazy(() => import("./components/DonationNotification"));
 
 
 // Lazy load pages for code splitting
@@ -192,6 +193,9 @@ const App = () => {
               </Suspense>
               <Suspense fallback={null}>
                 <MobileBottomNav />
+              </Suspense>
+              <Suspense fallback={null}>
+                <DonationNotification />
               </Suspense>
             </BrowserRouter>
           </TooltipProvider>
