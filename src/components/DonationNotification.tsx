@@ -42,6 +42,26 @@ const fakeDonors: Donation[] = [
   { id: "f28", donor_name: "Ruby H.", amount: 100, currency: "GBP", created_at: "" },
   { id: "f29", donor_name: "Archie P.", amount: 35, currency: "GBP", created_at: "" },
   { id: "f30", donor_name: "Evie S.", amount: 50, currency: "GBP", created_at: "" },
+  { id: "f31", donor_name: "Fatima A.", amount: 120, currency: "GBP", created_at: "" },
+  { id: "f32", donor_name: "Benjamin L.", amount: 45, currency: "GBP", created_at: "" },
+  { id: "f33", donor_name: "Chloe W.", amount: 20, currency: "GBP", created_at: "" },
+  { id: "f34", donor_name: "Daniel F.", amount: 85, currency: "GBP", created_at: "" },
+  { id: "f35", donor_name: "Hannah M.", amount: 60, currency: "GBP", created_at: "" },
+  { id: "f36", donor_name: "Liam O.", amount: 110, currency: "GBP", created_at: "" },
+  { id: "f37", donor_name: "Zara K.", amount: 35, currency: "GBP", created_at: "" },
+  { id: "f38", donor_name: "Anonymous", amount: 250, currency: "GBP", created_at: "" },
+  { id: "f39", donor_name: "Raj P.", amount: 75, currency: "GBP", created_at: "" },
+  { id: "f40", donor_name: "Lucy D.", amount: 30, currency: "GBP", created_at: "" },
+  { id: "f41", donor_name: "Sam T.", amount: 45, currency: "GBP", created_at: "" },
+  { id: "f42", donor_name: "Aisha B.", amount: 200, currency: "GBP", created_at: "" },
+  { id: "f43", donor_name: "Peter G.", amount: 15, currency: "GBP", created_at: "" },
+  { id: "f44", donor_name: "Ella C.", amount: 55, currency: "GBP", created_at: "" },
+  { id: "f45", donor_name: "Oscar N.", amount: 40, currency: "GBP", created_at: "" },
+  { id: "f46", donor_name: "Daisy F.", amount: 70, currency: "GBP", created_at: "" },
+  { id: "f47", donor_name: "Edward J.", amount: 95, currency: "GBP", created_at: "" },
+  { id: "f48", donor_name: "Florence W.", amount: 50, currency: "GBP", created_at: "" },
+  { id: "f49", donor_name: "Arthur V.", amount: 125, currency: "GBP", created_at: "" },
+  { id: "f50", donor_name: "Lily A.", amount: 30, currency: "GBP", created_at: "" },
 ];
 
 // Assign random recent timestamps to fake donors
@@ -65,7 +85,7 @@ const DonationNotification = () => {
         .select("id, donor_name, amount, currency, created_at")
         .eq("status", "completed")
         .order("created_at", { ascending: false })
-        .limit(40);
+        .limit(50);
 
       if (data && data.length > 0) {
         setDonations(data);
@@ -112,11 +132,11 @@ const DonationNotification = () => {
     <AnimatePresence>
       {visible && (
         <motion.div
-          initial={{ y: 80, opacity: 0, scale: 0.9 }}
-          animate={{ y: 0, opacity: 1, scale: 1 }}
-          exit={{ y: 80, opacity: 0, scale: 0.9 }}
+          initial={{ x: -80, opacity: 0, scale: 0.9 }}
+          animate={{ x: 0, opacity: 1, scale: 1 }}
+          exit={{ x: -80, opacity: 0, scale: 0.9 }}
           transition={{ type: "spring", damping: 22, stiffness: 260 }}
-          className="fixed bottom-6 left-6 z-50 max-w-[320px]"
+          className="fixed bottom-4 left-4 z-50 max-w-[300px]"
         >
           <div className="relative bg-card/95 backdrop-blur-md border border-border/80 rounded-2xl shadow-xl overflow-hidden">
             {/* Accent top bar */}
