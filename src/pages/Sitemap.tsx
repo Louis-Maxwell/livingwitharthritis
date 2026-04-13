@@ -192,20 +192,20 @@ const Sitemap = () => {
             Sitemap
           </h1>
 
-          {/* Sections */}
-          <div className="space-y-12">
+          {/* Sections in two-column grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
             {sitemapSections.map((section) => (
-              <section key={section.title}>
+              <section key={section.title} className="break-inside-avoid">
                 {/* Section heading */}
                 <h2 className="font-display text-xl sm:text-2xl font-bold text-foreground mb-1">
                   {section.title}
                 </h2>
                 <div className="h-px bg-border mb-5" />
 
-                {/* Links in columns */}
-                <ul className="columns-1 sm:columns-2 lg:columns-3 gap-x-8">
+                {/* Links */}
+                <ul className="space-y-2">
                   {section.links.map((link) => (
-                    <li key={link.href} className="break-inside-avoid mb-2">
+                    <li key={link.href}>
                       {link.external ? (
                         <a
                           href={link.href}
