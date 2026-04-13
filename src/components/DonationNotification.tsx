@@ -132,35 +132,48 @@ const DonationNotification = () => {
     <AnimatePresence>
       {visible && (
         <motion.div
-          initial={{ x: -80, opacity: 0, scale: 0.9 }}
+          initial={{ x: -60, opacity: 0, scale: 0.92 }}
           animate={{ x: 0, opacity: 1, scale: 1 }}
-          exit={{ x: -80, opacity: 0, scale: 0.9 }}
-          transition={{ type: "spring", damping: 22, stiffness: 260 }}
-          className="fixed bottom-4 left-4 z-50 max-w-[300px]"
+          exit={{ x: -60, opacity: 0, scale: 0.92 }}
+          transition={{ type: "spring", damping: 24, stiffness: 300 }}
+          className="fixed bottom-5 left-5 z-50 max-w-[290px]"
         >
-          <div className="relative bg-white backdrop-blur-md border border-emerald-200 rounded-2xl shadow-xl overflow-hidden">
-            {/* Accent top bar */}
-            <div className={`h-1 w-full ${isLarge ? "bg-gradient-to-r from-emerald-500 via-green-400 to-emerald-500" : "bg-emerald-400"}`} />
+          <div className="relative bg-white rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.08)] overflow-hidden ring-1 ring-emerald-100">
+            {/* Shimmer accent bar */}
+            <div className="h-[3px] w-full bg-gradient-to-r from-emerald-400 via-green-300 to-emerald-500" />
 
-            <div className="p-4 flex items-start gap-3">
-              {/* Avatar circle */}
-              <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ${
-                isLarge 
-                  ? "bg-gradient-to-br from-emerald-500 to-green-600 shadow-md" 
-                  : "bg-emerald-50"
+            <div className="px-4 py-3.5 flex items-center gap-3">
+              {/* Verified badge avatar */}
+              <div className={`relative w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 ${
+                isLarge
+                  ? "bg-gradient-to-br from-emerald-500 to-green-600 shadow-lg shadow-emerald-200"
+                  : "bg-emerald-50 border border-emerald-100"
               }`}>
-                <Heart className={`w-4.5 h-4.5 ${isLarge ? "text-white" : "text-emerald-600"}`} fill={isLarge ? "currentColor" : "none"} />
+                <Heart
+                  className={`w-4 h-4 ${isLarge ? "text-white" : "text-emerald-500"}`}
+                  fill={isLarge ? "currentColor" : "none"}
+                  strokeWidth={2.2}
+                />
+                {isLarge && (
+                  <motion.span
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    className="absolute -top-0.5 -right-0.5 w-3 h-3 bg-amber-400 rounded-full border-2 border-white flex items-center justify-center"
+                  >
+                    <span className="text-[6px] text-white font-bold">★</span>
+                  </motion.span>
+                )}
               </div>
 
               <div className="flex-1 min-w-0">
-                <p className="text-[13px] text-emerald-900 leading-snug">
-                  <span className="font-semibold text-emerald-700">{name}</span>
-                  {" "}donated{" "}
-                  <span className={`font-bold ${isLarge ? "text-emerald-600" : "text-emerald-700"}`}>
+                <p className="text-[13px] leading-tight tracking-[-0.01em]">
+                  <span className="font-semibold text-emerald-800">{name}</span>
+                  <span className="text-gray-500"> donated </span>
+                  <span className={`font-bold tabular-nums ${isLarge ? "text-emerald-600" : "text-emerald-700"}`}>
                     {symbol}{donation.amount}
                   </span>
                 </p>
-                <p className="text-[11px] text-emerald-500 mt-1 flex items-center gap-1.5">
+                <p className="text-[10px] text-emerald-400 mt-0.5 font-medium tracking-wide uppercase flex items-center gap-1">
                   <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
                   {timeAgo}
                 </p>
@@ -168,7 +181,7 @@ const DonationNotification = () => {
 
               <button
                 onClick={handleDismiss}
-                className="text-emerald-300 hover:text-emerald-600 transition-colors flex-shrink-0 mt-0.5"
+                className="text-gray-300 hover:text-gray-500 transition-colors flex-shrink-0 p-0.5 rounded-full hover:bg-gray-50"
                 aria-label="Dismiss notifications"
               >
                 <X className="w-3.5 h-3.5" />
