@@ -138,19 +138,19 @@ const DonationNotification = () => {
           transition={{ type: "spring", damping: 24, stiffness: 300 }}
           className="fixed bottom-5 left-5 z-50 max-w-[290px]"
         >
-          <div className="relative bg-white rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.08)] overflow-hidden ring-1 ring-emerald-100">
-            {/* Shimmer accent bar */}
-            <div className="h-[3px] w-full bg-gradient-to-r from-emerald-400 via-green-300 to-emerald-500" />
+          <div className="relative bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.1)] overflow-hidden">
+            {/* Accent bar inspired by Arthritis Foundation green */}
+            <div className="h-[3px] w-full bg-[#00843D]" />
 
             <div className="px-4 py-3.5 flex items-center gap-3">
-              {/* Verified badge avatar */}
+              {/* Heart icon */}
               <div className={`relative w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 ${
                 isLarge
-                  ? "bg-gradient-to-br from-emerald-500 to-green-600 shadow-lg shadow-emerald-200"
-                  : "bg-emerald-50 border border-emerald-100"
+                  ? "bg-[#00843D] shadow-md"
+                  : "bg-[#e6f4ec]"
               }`}>
                 <Heart
-                  className={`w-4 h-4 ${isLarge ? "text-white" : "text-emerald-500"}`}
+                  className={`w-4 h-4 ${isLarge ? "text-white" : "text-[#00843D]"}`}
                   fill={isLarge ? "currentColor" : "none"}
                   strokeWidth={2.2}
                 />
@@ -167,14 +167,14 @@ const DonationNotification = () => {
 
               <div className="flex-1 min-w-0">
                 <p className="text-[13px] leading-tight tracking-[-0.01em]">
-                  <span className="font-semibold text-emerald-800">{name}</span>
-                  <span className="text-gray-500"> donated </span>
-                  <span className={`font-bold tabular-nums ${isLarge ? "text-emerald-600" : "text-emerald-700"}`}>
+                  <span className="font-semibold text-[#00843D]">{name}</span>
+                  <span className="text-[#2d6a4f]"> donated </span>
+                  <span className={`font-bold tabular-nums text-[#00843D]`}>
                     {symbol}{donation.amount}
                   </span>
                 </p>
-                <p className="text-[10px] text-emerald-400 mt-0.5 font-medium tracking-wide uppercase flex items-center gap-1">
-                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                <p className="text-[10px] text-[#52b788] mt-0.5 font-medium tracking-wide uppercase flex items-center gap-1">
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#40916c] animate-pulse" />
                   {timeAgo}
                 </p>
               </div>
