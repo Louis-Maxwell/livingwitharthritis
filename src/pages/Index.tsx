@@ -5,7 +5,7 @@ import {
   useEffect,
   useRef,
   useState,
-  useCallback,
+  
   createContext,
   useContext,
   type ReactNode,
@@ -25,7 +25,7 @@ import {
   FileText,
   X,
   ArrowRight,
-  CheckCircle2,
+  
   BarChart3,
   Eye,
   Server,
@@ -37,7 +37,7 @@ import { photoBreakCommunity, photoBreakActive } from "@/data/images";
 /* ═══════════════════════════════════════════════════════════════════════════
    LAZY IMPORTS
    ═══════════════════════════════════════════════════════════════════════════ */
-const FeedbackPopup = lazy(() => import("@/components/FeedbackPopup"));
+
 const Footer = lazy(() => import("@/components/Footer"));
 const QuickAccessSection = lazy(() => import("@/components/landing/QuickAccessSection"));
 const ContentDepthSection = lazy(() => import("@/components/landing/ContentDepthSection"));
@@ -55,20 +55,6 @@ const GetInTouchSection = lazy(() => import("@/components/landing/GetInTouchSect
 const SITE_URL = "https://livingwitharthritis.org.uk";
 const SITE_NAME = "Living With Arthritis UK";
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   🔴 SECURITY: Strict Text Sanitization 
-   NOTE: For production rich-text sanitization, install `npm i dompurify @types/dompurify`
-   and replace this with DOMPurify.sanitize(). Regex sanitization is unsafe for HTML.
-   ═══════════════════════════════════════════════════════════════════════════ */
-const ESCAPE_MAP: Record<string, string> = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#x27;" };
-const ESCAPE_RE = /[&<>"']/g;
-const sanitize = (str: string, max = 500) =>
-  typeof str === "string"
-    ? str
-        .trim()
-        .slice(0, max)
-        .replace(ESCAPE_RE, (c) => ESCAPE_MAP[c] || c)
-    : "";
 
 /* ═══════════════════════════════════════════════════════════════════════════
    GDPR COOKIE CONSENT (Context)
