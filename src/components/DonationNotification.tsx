@@ -138,37 +138,37 @@ const DonationNotification = () => {
           transition={{ type: "spring", damping: 22, stiffness: 260 }}
           className="fixed bottom-4 left-4 z-50 max-w-[300px]"
         >
-          <div className="relative bg-card/95 backdrop-blur-md border border-border/80 rounded-2xl shadow-xl overflow-hidden">
+          <div className="relative bg-white backdrop-blur-md border border-emerald-200 rounded-2xl shadow-xl overflow-hidden">
             {/* Accent top bar */}
-            <div className={`h-1 w-full ${isLarge ? "bg-gradient-to-r from-primary via-gold to-primary" : "bg-primary/60"}`} />
+            <div className={`h-1 w-full ${isLarge ? "bg-gradient-to-r from-emerald-500 via-green-400 to-emerald-500" : "bg-emerald-400"}`} />
 
             <div className="p-4 flex items-start gap-3">
               {/* Avatar circle */}
               <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ${
                 isLarge 
-                  ? "bg-gradient-to-br from-primary to-primary/70 shadow-md" 
-                  : "bg-primary/10"
+                  ? "bg-gradient-to-br from-emerald-500 to-green-600 shadow-md" 
+                  : "bg-emerald-50"
               }`}>
-                <Heart className={`w-4.5 h-4.5 ${isLarge ? "text-primary-foreground" : "text-primary"}`} fill={isLarge ? "currentColor" : "none"} />
+                <Heart className={`w-4.5 h-4.5 ${isLarge ? "text-white" : "text-emerald-600"}`} fill={isLarge ? "currentColor" : "none"} />
               </div>
 
               <div className="flex-1 min-w-0">
-                <p className="text-[13px] text-foreground leading-snug">
-                  <span className="font-semibold">{name}</span>
+                <p className="text-[13px] text-emerald-900 leading-snug">
+                  <span className="font-semibold text-emerald-700">{name}</span>
                   {" "}donated{" "}
-                  <span className={`font-bold ${isLarge ? "text-primary" : ""}`}>
+                  <span className={`font-bold ${isLarge ? "text-emerald-600" : "text-emerald-700"}`}>
                     {symbol}{donation.amount}
                   </span>
                 </p>
-                <p className="text-[11px] text-muted-foreground mt-1 flex items-center gap-1.5">
-                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
+                <p className="text-[11px] text-emerald-500 mt-1 flex items-center gap-1.5">
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
                   {timeAgo}
                 </p>
               </div>
 
               <button
                 onClick={handleDismiss}
-                className="text-muted-foreground/40 hover:text-muted-foreground transition-colors flex-shrink-0 mt-0.5"
+                className="text-emerald-300 hover:text-emerald-600 transition-colors flex-shrink-0 mt-0.5"
                 aria-label="Dismiss notifications"
               >
                 <X className="w-3.5 h-3.5" />
