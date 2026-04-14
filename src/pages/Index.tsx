@@ -4,6 +4,7 @@ import { toast } from "sonner";
 import { useSearchParams, Link } from "react-router-dom";
 import Header from "@/components/Header";
 import { supabase } from "@/integrations/supabase/client";
+import { useVisitorCount } from "@/hooks/useVisitorTracker";
 import HeroSection from "@/components/HeroSection";
 import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
