@@ -252,89 +252,57 @@ const PageModal = memo(
 );
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   DATA LAYER: Blog Articles (Structured for easy DB migration)
-   TODO: Replace with `const { data } = await supabase.from('blog_articles').select('*')`
+   DATA LAYER: Blog Articles (Live from database)
    ═══════════════════════════════════════════════════════════════════════════ */
-interface Article {
+interface DBArticle {
   slug: string;
   title: string;
   excerpt: string;
-  image: string;
-  imageAlt: string;
+  image_url: string | null;
   category: string;
-  readingTime: string;
-  author: string;
-  creds: string;
   date: string;
-  featured?: boolean;
+  content: string;
 }
-const fetchArticles = async (): Promise<Article[]> => {
-  return [
-    /* Mocked fetch */ {
-      slug: "gentle-exercises-osteoarthritis-uk-guide",
-      title: "15 Gentle Exercises for Osteoarthritis: A UK Physiotherapist's Complete Guide",
-      excerpt: "Evidence-based joint-friendly exercises approved by HCPC-registered physiotherapists.",
-      image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1080&h=720&fit=crop&q=80",
-      imageAlt: "Person performing gentle stretching exercises",
-      category: "Exercise",
-      readingTime: "8 min",
-      author: "Sarah Mitchell",
-      creds: "MCSP, HCPC Physiotherapist",
-      date: "2025-01-15",
-      featured: true,
-    },
-    {
-      slug: "anti-inflammatory-diet-plan-arthritis-uk",
-      title: "The Anti-Inflammatory Diet Plan for Arthritis: 7-Day UK Meal Guide",
-      excerpt: "A practical 7-day meal plan using affordable ingredients from UK supermarkets.",
-      image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1080&h=720&fit=crop&q=80",
-      imageAlt: "Colourful anti-inflammatory foods",
-      category: "Nutrition",
-      readingTime: "12 min",
-      author: "Dr. Priya Sharma",
-      creds: "Registered Dietitian, BDA",
-      date: "2025-01-10",
-    },
-    {
-      slug: "rheumatoid-arthritis-mental-health-uk",
-      title: "Rheumatoid Arthritis and Mental Health: Why UK Patients Are Talking",
-      excerpt: "New research reveals the hidden mental health crisis among RA patients.",
-      image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1080&h=720&fit=crop&q=80",
-      imageAlt: "Mindfulness meditation scene",
-      category: "Mental Health",
-      readingTime: "10 min",
-      author: "James O'Connor",
-      creds: "Counsellor, BACP",
-      date: "2025-01-05",
-    },
-    {
-      slug: "physiotherapy-at-home-arthritis-uk",
-      title: "Physiotherapy at Home: A Free Alternative to Waiting Lists",
-      excerpt: "Step-by-step video-guided physiotherapy sessions you can do at home.",
-      image: "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=1080&h=720&fit=crop&q=80",
-      imageAlt: "Physiotherapist guiding a patient",
-      category: "Treatment",
-      readingTime: "15 min",
-      author: "Sarah Mitchell",
-      creds: "MCSP, HCPC Physiotherapist",
-      date: "2024-12-20",
-    },
-  ];
-};
+
+function estimateReadingTime(content: string): string {
+  const words = content.split(/\s+/).length;
+  return `${Math.max(1, Math.ceil(words / 220))} min`;
+}
+
 const BlogPreview = memo(() => {
-  const [articles, setArticles] = useState<Article[]>([]);
+  const [articles, setArticles] = useState<DBArticle[]>([]);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    fetchArticles().then(setArticles);
+    const fetchArticles = async () => {
+      const { data, error } = await supabase
+        .from("blog_articles")
+        .select("slug, title, excerpt, image_url, category, date, content")
+        .eq("is_published", true)
+        .order("date", { ascending: false })
+        .limit(7);
+
+      if (!error && data && data.length > 0) {
+        setArticles(data);
+      }
+      setLoading(false);
+    };
+    fetchArticles();
   }, []);
-  const f = articles.find((a) => a.featured);
-  const r = articles.filter((a) => !a.featured);
-  if (!articles.length)
+
+  const featured = articles[0];
+  const rest = articles.slice(1, 4);
+
+  if (loading)
     return (
       <div className="py-20 space-y-4 max-w-3xl mx-auto">
-        <div className="h-6 w-48 bg-gray-200 rounded animate-pulse" />
-        <div className="h-10 w-96 bg-gray-200 rounded animate-pulse" />
+        <div className="h-6 w-48 bg-gray-200 rounded animate-pulse mx-auto" />
+        <div className="h-10 w-96 bg-gray-200 rounded animate-pulse mx-auto" />
       </div>
     );
+
+  if (!articles.length) return null;
+
   return (
     <section id="blog" className="py-20 bg-stone-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -346,49 +314,54 @@ const BlogPreview = memo(() => {
             Expert advice for living <span className="text-teal-700">well with arthritis</span>
           </h2>
         </div>
-        {f && (
+        {featured && (
           <div className="mb-10 rounded-2xl overflow-hidden bg-white shadow-sm ring-1 ring-black/5 md:flex">
-            <a href={`/blog/${f.slug}`} className="md:w-1/2 block">
-              <img src={f.image} alt={f.imageAlt} className="w-full h-72 object-cover" loading="lazy" />
-            </a>
+            <Link to={`/blog/${featured.slug}`} className="md:w-1/2 block">
+              <img
+                src={featured.image_url || "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1080&h=720&fit=crop&q=80"}
+                alt={featured.title}
+                className="w-full h-72 object-cover"
+                loading="lazy"
+              />
+            </Link>
             <div className="p-6 flex flex-col justify-center">
               <span className="text-xs font-semibold text-teal-800 bg-teal-50 px-3 py-1 rounded-full w-fit">
-                {f.category}
+                {featured.category}
               </span>
               <h3 className="text-2xl font-bold mt-3 text-gray-900 hover:text-teal-700">
-                <a href={`/blog/${f.slug}`}>{f.title}</a>
+                <Link to={`/blog/${featured.slug}`}>{featured.title}</Link>
               </h3>
-              <p className="text-gray-500 mt-2">{f.excerpt}</p>
+              <p className="text-gray-500 mt-2">{featured.excerpt}</p>
               <p className="mt-4 text-sm text-gray-400">
-                {f.author} · {f.readingTime}
+                {estimateReadingTime(featured.content)} read · {new Date(featured.date).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}
               </p>
             </div>
           </div>
         )}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {r.map((a) => (
+          {rest.map((a) => (
             <article
               key={a.slug}
               className="group bg-white rounded-2xl shadow-sm ring-1 ring-black/5 overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all"
             >
-              <a href={`/blog/${a.slug}`} className="block aspect-[16/10] overflow-hidden">
+              <Link to={`/blog/${a.slug}`} className="block aspect-[16/10] overflow-hidden">
                 <img
-                  src={a.image}
-                  alt={a.imageAlt}
+                  src={a.image_url || "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1080&h=720&fit=crop&q=80"}
+                  alt={a.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
-              </a>
+              </Link>
               <div className="p-5">
                 <span className="text-xs font-semibold text-teal-800 bg-teal-50 px-3 py-1 rounded-full">
                   {a.category}
                 </span>
                 <h3 className="text-lg font-bold mt-3 text-gray-900 group-hover:text-teal-700">
-                  <a href={`/blog/${a.slug}`}>{a.title}</a>
+                  <Link to={`/blog/${a.slug}`}>{a.title}</Link>
                 </h3>
                 <p className="text-sm text-gray-500 mt-2">{a.excerpt}</p>
                 <p className="mt-3 text-xs text-gray-400">
-                  {a.author} · {a.readingTime}
+                  {estimateReadingTime(a.content)} read · {new Date(a.date).toLocaleDateString("en-GB", { day: "numeric", month: "short" })}
                 </p>
               </div>
             </article>
