@@ -116,11 +116,6 @@ const HeroSection = memo(() => {
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent" />
               </div>
               
-              {/* Floating stat card — glassmorphism */}
-              <div className="absolute -bottom-6 -left-6 bg-card/90 backdrop-blur-xl border border-border/20 rounded-xl p-5 shadow-2xl hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
-                <p className="stat-number text-2xl text-primary font-bold">10,000+</p>
-                <p className="text-[10px] text-muted-foreground/60 font-medium tracking-[0.15em] uppercase mt-1">Lives Improved</p>
-              </div>
 
               {/* New: floating badge top-right */}
               <div className="absolute -top-3 -right-3 bg-gold text-gold-foreground rounded-lg px-4 py-2.5 shadow-xl shadow-gold/20 hover:scale-105 transition-transform duration-300">
