@@ -565,7 +565,7 @@ const LeadCaptureSection = memo(() => {
     setLoading(true);
     try {
       const { error } = await supabase
-        .from("newsletter_subscribers")
+        .from("newsletter_subscriptions")
         .insert({ email: email.trim(), source: "lead_capture_checklist" });
       if (!error) {
         setSubmitted(true);
