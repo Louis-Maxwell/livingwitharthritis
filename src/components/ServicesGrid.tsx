@@ -43,7 +43,7 @@ const ServicesGrid = () => {
           <span className="section-label text-primary/60 mb-5 block">Comprehensive Care Platform</span>
           <h2 className="font-display text-3xl sm:text-4xl md:text-[3.5rem] font-bold text-foreground mb-7 leading-[1.06] tracking-tight">
             World-class services,{" "}
-            <span className="text-gradient italic">zero cost</span>
+            <span className="text-gradient italic">for everyone</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
             Every service is clinically reviewed, NICE-compliant and designed by our multidisciplinary team. No waiting lists, no referrals, no cost.
