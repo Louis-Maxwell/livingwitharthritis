@@ -10,7 +10,7 @@ import PageHero from "@/components/ui/PageHero";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import InternalLinks from "@/components/InternalLinks";
-import { founderPortrait as founderImage } from "@/data/images";
+
 
 const sectionIcons: Record<string, React.ElementType> = {
   "Our Story": BookOpen,
