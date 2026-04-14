@@ -143,52 +143,6 @@ const AboutUs = () => {
           </div>
         </PageHero>
 
-        {/* Founder Story Section */}
-        <section className="py-14 lg:py-20 bg-warm">
-          <div className="container mx-auto px-6 md:px-10 max-w-5xl">
-            <div className="grid md:grid-cols-[300px_1fr] gap-10 lg:gap-16 items-start">
-              <div className="text-center md:text-left">
-                <img
-                  src={founderImage}
-                  alt="Founder of Living With Arthritis"
-                  className="w-48 h-48 md:w-full md:h-auto rounded-2xl object-cover mx-auto shadow-lg border border-border/20"
-                  loading="lazy"
-                  width={300}
-                  height={375}
-                />
-                <div className="mt-4 space-y-1">
-                  <p className="text-sm font-bold text-foreground">Operations Director</p>
-                  <p className="text-xs text-muted-foreground">NHS First Contact Practitioner</p>
-                  <div className="flex flex-wrap justify-center md:justify-start gap-2 mt-3">
-                    <span className="text-[9px] font-bold tracking-[0.15em] uppercase text-primary/70 px-2.5 py-1 rounded-full bg-primary/5 border border-primary/10">HCPC Registered</span>
-                    <span className="text-[9px] font-bold tracking-[0.15em] uppercase text-primary/70 px-2.5 py-1 rounded-full bg-primary/5 border border-primary/10">BSc Physiotherapy</span>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <span className="section-label text-primary/70 mb-4 block text-[10px] tracking-[0.3em] uppercase font-bold">Founder's Story</span>
-                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-6 leading-[1.15] tracking-tight">
-                  &ldquo;I started this because I saw patients leaving clinic with nowhere to turn&rdquo;
-                </h2>
-                <div className="space-y-4 text-sm text-muted-foreground leading-[1.85]">
-                  <p>
-                    Working as an NHS First Contact Practitioner, I met hundreds of patients every year who were newly diagnosed with osteoarthritis. They'd leave a 10-minute appointment with a leaflet and a lot of fear. Most had no idea where to find reliable, free support.
-                  </p>
-                  <p>
-                    After years of clinical experience across the UK and internationally — seeing how other health systems approached chronic condition management — I knew we could do better. I founded Living With Arthritis in 2020 with a simple belief: <strong className="text-foreground">no one should face arthritis alone</strong>.
-                  </p>
-                  <p>
-                    Today, our team of HCPC-registered physiotherapists, dietitians, and health technologists has built the UK's most comprehensive free arthritis platform. Every exercise guide, diet plan, and article is clinically reviewed. Every service is completely free.
-                  </p>
-                  <p>
-                    We're not the biggest charity — but we're building something that genuinely changes lives. That's what drives us every day.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Team Section */}
         <section className="py-14 lg:py-20">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
