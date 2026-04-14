@@ -4,6 +4,7 @@ import { toast } from "sonner";
 import { useSearchParams, Link } from "react-router-dom";
 import Header from "@/components/Header";
 import { supabase } from "@/integrations/supabase/client";
+import { useVisitorCount } from "@/hooks/useVisitorTracker";
 import HeroSection from "@/components/HeroSection";
 import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
@@ -921,6 +922,9 @@ function useCountUp(target: number, dur = 2000) {
 }
 
 const StatsBand = memo(() => {
+  const liveCount = useVisitorCount();
+  const peopleHelped = liveCount ?? 84000;
+
   const Stat = ({ v, s, l }: { v: number; s: string; l: string }) => {
     const { c, ref } = useCountUp(v, 2200);
     return (
@@ -940,7 +944,7 @@ const StatsBand = memo(() => {
   return (
     <section aria-label="Impact statistics" className="bg-accent/50 border-y border-border/20 py-16 sm:py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 gap-y-10 lg:grid-cols-4">
-        <Stat v={84000} s="+" l="People helped across the UK" />
+        <Stat v={peopleHelped} s="+" l="People helped across the UK" />
         <Stat v={87} s="%" l="Report reduced joint pain" />
         <Stat v={45000} s="+" l="Exercise sessions completed" />
         <div className="text-center px-4">
