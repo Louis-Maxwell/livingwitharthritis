@@ -80,7 +80,16 @@ const Footer = () => {
               <ul className="space-y-2.5">
                 {col.links.map((link) => (
                   <li key={link.label}>
-                    {link.href.startsWith("#") ? (
+                    {link.href.startsWith("http") ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-foreground/70 hover:text-primary transition-colors duration-200 text-[13px]"
+                      >
+                        {link.label}
+                      </a>
+                    ) : link.href.startsWith("#") ? (
                       <a
                         href={link.href}
                         className="text-foreground/70 hover:text-primary transition-colors duration-200 text-[13px]"
