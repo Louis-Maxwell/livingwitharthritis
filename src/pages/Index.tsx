@@ -14,6 +14,7 @@ import { Helmet } from "react-helmet-async";
 import { toast } from "sonner";
 import { useSearchParams, Link } from "react-router-dom";
 import Header from "@/components/Header";
+import { supabase } from "@/integrations/supabase/client";
 import HeroSection from "@/components/HeroSection";
 import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
