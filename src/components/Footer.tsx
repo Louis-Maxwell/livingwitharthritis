@@ -117,9 +117,14 @@ const Footer = () => {
           <p className="text-muted-foreground/50 text-[11px] tracking-wide">
             © {new Date().getFullYear()} Living with Arthritis™ · 27 Old Gloucester Street, London WC1N 3AX · Registered in England & Wales
           </p>
-          <span className="text-muted-foreground/30 text-[11px] tracking-wide">
-            Designed & Built by MaxwellHealth
-          </span>
+          <a
+            href="https://maxwellhealth.co.uk"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-foreground font-bold text-xs tracking-wide hover:text-primary transition-colors"
+          >
+            Designed & Built by Maxwell Health
+          </a>
         </div>
       </div>
     </footer>
