@@ -1,7 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Heart, X } from "lucide-react";
+import { X, ArrowRight } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 interface Donation {
   id: string;
@@ -64,7 +65,6 @@ const fakeDonors: Donation[] = [
   { id: "f50", donor_name: "Lily A.", amount: 30, currency: "GBP", created_at: "" },
 ];
 
-// Assign random recent timestamps to fake donors
 function prepareFakeDonations(): Donation[] {
   return fakeDonors.map((d, i) => ({
     ...d,
@@ -72,11 +72,21 @@ function prepareFakeDonations(): Donation[] {
   }));
 }
 
+const ENCOURAGING_MESSAGES = [
+  "Keep progress moving 💪",
+  "Together, we're Champions of Yes",
+  "Every gift moves us closer to a cure",
+  "Your support changes lives",
+  "Join the movement today",
+];
+
 const DonationNotification = () => {
   const [donations, setDonations] = useState<Donation[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visible, setVisible] = useState(false);
   const [dismissed, setDismissed] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchDonations = async () => {
@@ -96,25 +106,37 @@ const DonationNotification = () => {
     fetchDonations();
   }, []);
 
-  // Show first notification after 5s
   useEffect(() => {
     if (donations.length === 0 || dismissed) return;
     const timer = setTimeout(() => setVisible(true), 5000);
     return () => clearTimeout(timer);
   }, [donations, dismissed]);
 
+  // Progress bar countdown
+  useEffect(() => {
+    if (!visible || dismissed) return;
+    setProgress(0);
+    const duration = 8000;
+    const interval = 50;
+    let elapsed = 0;
+    const timer = setInterval(() => {
+      elapsed += interval;
+      setProgress(Math.min((elapsed / duration) * 100, 100));
+      if (elapsed >= duration) clearInterval(timer);
+    }, interval);
+    return () => clearInterval(timer);
+  }, [visible, currentIndex, dismissed]);
+
   // Cycle through donations
   useEffect(() => {
     if (!visible || donations.length <= 1 || dismissed) return;
-
     const interval = setInterval(() => {
       setVisible(false);
       setTimeout(() => {
         setCurrentIndex((prev) => (prev + 1) % donations.length);
         setVisible(true);
-      }, 500);
+      }, 600);
     }, 8000);
-
     return () => clearInterval(interval);
   }, [visible, donations.length, dismissed]);
 
@@ -127,63 +149,110 @@ const DonationNotification = () => {
   const timeAgo = getTimeAgo(donation.created_at);
   const symbol = donation.currency === "GBP" ? "£" : donation.currency === "USD" ? "$" : "€";
   const isLarge = donation.amount >= 100;
+  const encouragingMsg = ENCOURAGING_MESSAGES[currentIndex % ENCOURAGING_MESSAGES.length];
+
+  // Generate initials for avatar
+  const initials = name
+    .split(" ")
+    .map((n) => n[0])
+    .join("")
+    .toUpperCase()
+    .slice(0, 2);
 
   return (
     <AnimatePresence>
       {visible && (
         <motion.div
-          initial={{ x: -60, opacity: 0, scale: 0.92 }}
-          animate={{ x: 0, opacity: 1, scale: 1 }}
-          exit={{ x: -60, opacity: 0, scale: 0.92 }}
-          transition={{ type: "spring", damping: 24, stiffness: 300 }}
-          className="fixed bottom-5 left-5 z-50 max-w-[290px]"
+          initial={{ y: 20, opacity: 0, scale: 0.95 }}
+          animate={{ y: 0, opacity: 1, scale: 1 }}
+          exit={{ y: 20, opacity: 0, scale: 0.95 }}
+          transition={{ type: "spring", damping: 26, stiffness: 320 }}
+          className="fixed bottom-5 left-5 z-50 w-[320px]"
         >
-          <div className="relative bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] overflow-hidden">
+          <div className="relative bg-white rounded-2xl shadow-[0_8px_40px_rgba(0,0,0,0.12)] overflow-hidden border border-gray-100/60">
+            {/* Top progress bar — Arthritis Foundation magenta accent */}
+            <div className="h-[3px] bg-gray-100 w-full">
+              <motion.div
+                className="h-full bg-gradient-to-r from-[#E31B54] to-[#00843D]"
+                style={{ width: `${progress}%` }}
+                transition={{ duration: 0.05 }}
+              />
+            </div>
 
-            <div className="px-4 py-3.5 flex items-center gap-3">
-              {/* Heart icon */}
-              <div className={`relative w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 ${
-                isLarge
-                  ? "bg-[#00843D] shadow-md"
-                  : "bg-[#e6f4ec]"
-              }`}>
-                <Heart
-                  className={`w-4 h-4 ${isLarge ? "text-white" : "text-[#00843D]"}`}
-                  fill={isLarge ? "currentColor" : "none"}
-                  strokeWidth={2.2}
+            {/* Dismiss button */}
+            <button
+              onClick={handleDismiss}
+              className="absolute top-2.5 right-2.5 text-gray-300 hover:text-gray-500 transition-colors p-1 rounded-full hover:bg-gray-50 z-10"
+              aria-label="Dismiss notifications"
+            >
+              <X className="w-3.5 h-3.5" />
+            </button>
+
+            {/* Main content */}
+            <div className="px-4 pt-4 pb-3">
+              <div className="flex items-start gap-3">
+                {/* Avatar with initials */}
+                <div className={`relative w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-[13px] font-bold tracking-tight ${
+                  isLarge
+                    ? "bg-gradient-to-br from-[#00843D] to-[#006B32] text-white shadow-lg shadow-[#00843D]/20"
+                    : "bg-[#e6f4ec] text-[#00843D]"
+                }`}>
+                  {initials}
+                  {isLarge && (
+                    <motion.span
+                      initial={{ scale: 0, rotate: -45 }}
+                      animate={{ scale: 1, rotate: 0 }}
+                      className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-br from-amber-400 to-amber-500 rounded-full border-2 border-white flex items-center justify-center shadow-sm"
+                    >
+                      <span className="text-[7px] text-white">★</span>
+                    </motion.span>
+                  )}
+                </div>
+
+                <div className="flex-1 min-w-0 pr-5">
+                  <p className="text-[13px] leading-snug text-gray-800">
+                    <span className="font-semibold text-gray-900">{name}</span>
+                    <span className="text-gray-500"> donated </span>
+                    <span className="font-bold text-[#00843D]">
+                      {symbol}{donation.amount}
+                    </span>
+                  </p>
+                  <div className="flex items-center gap-1.5 mt-1">
+                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#00843D] animate-pulse" />
+                    <span className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+                      {timeAgo}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Footer CTA — inspired by Arthritis Foundation's "Donate Now" prominence */}
+            <div className="px-4 pb-3.5 pt-1">
+              <div className="flex items-center justify-between bg-gradient-to-r from-[#f0faf4] to-[#fef2f5] rounded-xl px-3.5 py-2.5">
+                <p className="text-[11px] text-gray-600 font-medium leading-tight max-w-[170px]">
+                  {encouragingMsg}
+                </p>
+                <button
+                  onClick={() => navigate("/donate")}
+                  className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-[#E31B54] hover:bg-[#c9174a] text-white text-[10px] font-bold uppercase tracking-wider transition-colors shadow-sm shadow-[#E31B54]/20 group flex-shrink-0"
+                >
+                  Donate
+                  <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                </button>
+              </div>
+            </div>
+
+            {/* Dot indicator */}
+            <div className="flex justify-center gap-1 pb-2.5">
+              {[0, 1, 2].map((i) => (
+                <span
+                  key={i}
+                  className={`w-1 h-1 rounded-full transition-colors ${
+                    currentIndex % 3 === i ? "bg-[#00843D]" : "bg-gray-200"
+                  }`}
                 />
-                {isLarge && (
-                  <motion.span
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    className="absolute -top-0.5 -right-0.5 w-3 h-3 bg-amber-400 rounded-full border-2 border-white flex items-center justify-center"
-                  >
-                    <span className="text-[6px] text-white font-bold">★</span>
-                  </motion.span>
-                )}
-              </div>
-
-              <div className="flex-1 min-w-0">
-                <p className="text-[13px] leading-tight tracking-[-0.01em]">
-                  <span className="font-semibold text-[#00843D]">{name}</span>
-                  <span className="text-[#2d6a4f]"> donated </span>
-                  <span className={`font-bold tabular-nums text-[#00843D]`}>
-                    {symbol}{donation.amount}
-                  </span>
-                </p>
-                <p className="text-[10px] text-[#52b788] mt-0.5 font-medium tracking-wide uppercase flex items-center gap-1">
-                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#40916c] animate-pulse" />
-                  {timeAgo}
-                </p>
-              </div>
-
-              <button
-                onClick={handleDismiss}
-                className="text-gray-300 hover:text-gray-500 transition-colors flex-shrink-0 p-0.5 rounded-full hover:bg-gray-50"
-                aria-label="Dismiss notifications"
-              >
-                <X className="w-3.5 h-3.5" />
-              </button>
+              ))}
             </div>
           </div>
         </motion.div>
