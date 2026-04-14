@@ -138,9 +138,7 @@ const DonationNotification = () => {
           transition={{ type: "spring", damping: 24, stiffness: 300 }}
           className="fixed bottom-5 left-5 z-50 max-w-[290px]"
         >
-          <div className="relative bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.1)] overflow-hidden">
-            {/* Accent bar inspired by Arthritis Foundation green */}
-            <div className="h-[3px] w-full bg-[#00843D]" />
+          <div className="relative bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] overflow-hidden">
 
             <div className="px-4 py-3.5 flex items-center gap-3">
               {/* Heart icon */}
