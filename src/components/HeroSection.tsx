@@ -1,11 +1,13 @@
 import { ArrowRight, MessageCircle, Heart, Shield, Award, CheckCircle, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { memo } from "react";
+import { memo, lazy, Suspense } from "react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import { heroLifestyle as heroImage, heroLifestyleSrcSet } from "@/data/images";
 
 import "./HeroSection.css";
+
+const Hero3DBackground = lazy(() => import("@/components/landing/Hero3DBackground"));
 
 const STATS = [
   { target: 1, suffix: " in 6", label: "UK adults affected", compact: false },
@@ -25,6 +27,10 @@ const HeroSection = memo(() => {
 
   return (
     <section className="relative overflow-hidden bg-background">
+      {/* 3D floating orbs background */}
+      <Suspense fallback={null}>
+        <Hero3DBackground />
+      </Suspense>
       {/* Layered gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] via-transparent to-gold/[0.02] pointer-events-none" />
       <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-primary/[0.02] blur-[120px] pointer-events-none" />

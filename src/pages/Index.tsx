@@ -44,6 +44,7 @@ const ContentDepthSection = lazy(() => import("@/components/landing/ContentDepth
 const HowItWorksSection = lazy(() => import("@/components/landing/HowItWorksSection"));
 const ServicesGrid = lazy(() => import("@/components/ServicesGrid"));
 const GeometricCubeSection = lazy(() => import("@/components/landing/GeometricCubeSection"));
+const ParticleNetworkSection = lazy(() => import("@/components/landing/ParticleNetworkSection"));
 const QuoteSection = lazy(() => import("@/components/landing/QuoteSection"));
 const AboutSection = lazy(() => import("@/components/AboutSection"));
 const TestimonialsSection = lazy(() => import("@/components/landing/TestimonialsSection"));
@@ -828,6 +829,9 @@ function PageContent() {
 
           <Suspense fallback={null}>
             <GeometricCubeSection />
+          </Suspense>
+          <Suspense fallback={null}>
+            <ParticleNetworkSection />
           </Suspense>
 
           <PhotoBreak
