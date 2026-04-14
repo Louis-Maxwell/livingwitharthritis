@@ -165,6 +165,34 @@ serve(async (req) => {
       console.error("Admin notification email error:", emailErr);
     }
 
+    // Send auto-reply confirmation to the visitor
+    try {
+      const confirmRes = await fetch(`${supabaseUrl}/functions/v1/send-transactional-email`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${supabaseServiceKey}`,
+        },
+        body: JSON.stringify({
+          templateName: 'contact-confirmation',
+          recipientEmail: contact!.email,
+          idempotencyKey: `contact-confirm-${data.id}`,
+          templateData: {
+            name: contact!.name,
+            subject: contact!.subject,
+          },
+        }),
+      });
+      const confirmBody = await confirmRes.text();
+      if (!confirmRes.ok) {
+        console.error("Visitor confirmation email failed:", confirmRes.status, confirmBody);
+      } else {
+        console.log("Visitor confirmation email queued for:", contact!.email);
+      }
+    } catch (confirmErr) {
+      console.error("Visitor confirmation email error:", confirmErr);
+    }
+
     return new Response(
       JSON.stringify({
         success: true,
