@@ -56,11 +56,8 @@ const Footer = () => {
     {
       title: "Connect",
       links: [
-        { label: "Facebook", href: "#" },
-        { label: "X / Twitter", href: "#" },
-        { label: "Instagram", href: "#" },
-        { label: "YouTube", href: "#" },
-        { label: "LinkedIn", href: "#" },
+        { label: "X / Twitter", href: "https://x.com/ArthritisOrg" },
+        { label: "LinkedIn", href: "https://www.linkedin.com/company/112596569/" },
       ],
     },
   ];
