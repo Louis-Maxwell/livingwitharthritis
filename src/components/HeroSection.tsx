@@ -41,12 +41,6 @@ const HeroSection = memo(() => {
           <div className="grid lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-16 items-center w-full">
             {/* Left — Text */}
             <div className="hero-stagger text-center lg:text-left">
-              <div className="hero-item flex justify-center lg:justify-start mb-6">
-                <span className="premium-badge group cursor-default">
-                  <Sparkles className="w-3 h-3 text-gold group-hover:animate-wiggle transition-all" />
-                  UK Arthritis Charity
-                </span>
-              </div>
 
               <h1 className="hero-item text-[1.75rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.5rem] xl:text-[4rem] font-display font-bold text-foreground mb-5 sm:mb-6 leading-[1.08] tracking-tight text-balance">
                 1 in 6 people in the UK{" "}
