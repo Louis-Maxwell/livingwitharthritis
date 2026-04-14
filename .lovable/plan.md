@@ -1,38 +1,18 @@
 
-## Plan: Interactive Health Tools Hub
 
-Build a dedicated **Health Tools** page (`/health-tools`) with three interactive, client-side tools — no backend required.
+## Plan: Add Social Media Links to Footer
 
-### Tools
+### What changes
+Update the **Connect** column in `src/components/Footer.tsx` to replace the placeholder `#` hrefs with real URLs:
 
-**1. Arthritis Symptom Quiz**
-- 6–8 multiple-choice questions (joint pain location, duration, morning stiffness, family history, swelling patterns, age of onset)
-- Scoring algorithm suggests likely arthritis type (OA, RA, PsA, Gout) with confidence level
-- Personalised next-step recommendations and links to relevant condition pages
-- Clear medical disclaimer
+- **X / Twitter** → `https://x.com/ArthritisOrg`
+- **LinkedIn** → `https://www.linkedin.com/company/112596569/`
+- **Facebook, Instagram, YouTube** → keep as `#` for now (no URLs provided), or remove them to keep the footer clean
 
-**2. Inflammation Risk Calculator**
-- Sliders and toggles for: diet quality, exercise frequency, BMI range, stress level, sleep quality, smoking status
-- Real-time score (0–100) with colour-coded risk band (Low / Moderate / High)
-- Actionable tips tailored to the user's weakest areas
-- Links to diet hub, exercise hub, and blog articles
+### Decision needed
+Should I remove Facebook, Instagram, and YouTube from the footer since you don't have those yet, or keep them as placeholders?
 
-**3. Personalised Exercise Plan Generator**
-- Select affected joints (multi-select: knee, hip, shoulder, hand, back, ankle)
-- Choose fitness level (beginner / intermediate / active)
-- Choose goal (pain relief / mobility / strength)
-- Generates a 7-day weekly plan pulling from the existing `exerciseJointMatrix` data
-- Option to download plan as PDF
+### Technical detail
+- Single file edit: `src/components/Footer.tsx`, lines in the `columns` array under the "Connect" section
+- LinkedIn URL will be trimmed to the public-facing company URL (without `/admin/dashboard/`)
 
-### Files
-
-| File | Action |
-|------|--------|
-| `src/pages/HealthTools.tsx` | Create — hub page with tabs for each tool |
-| `src/components/tools/SymptomQuiz.tsx` | Create — multi-step quiz component |
-| `src/components/tools/InflammationCalculator.tsx` | Create — calculator with sliders |
-| `src/components/tools/ExercisePlanGenerator.tsx` | Create — plan builder using joint matrix |
-| `src/App.tsx` | Add `/health-tools` route |
-| `src/components/Header.tsx` | Add "Health Tools" link under Track & Manage |
-
-All client-side only. No database changes needed.
