@@ -539,12 +539,17 @@ const ExpertContentSection = memo(() => {
           ))}
         </div>
 
-        <div className="mt-10 text-center">
+        <div className="mt-12 text-center">
           <Link
             to="/guides"
-            className="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-7 py-3.5 text-sm font-semibold text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
+            className="group relative inline-flex items-center gap-3 rounded-full bg-primary px-9 py-4 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
           >
-            Browse all expert guides <ArrowRight className="w-4 h-4" />
+            <span className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-primary rounded-full" />
+            <span className="relative flex items-center gap-3">
+              <BookOpen className="w-4.5 h-4.5" />
+              Explore Expert Guides
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
+            </span>
           </Link>
         </div>
       </div>
