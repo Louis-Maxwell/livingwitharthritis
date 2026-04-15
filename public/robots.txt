@@ -2,11 +2,13 @@ User-agent: Googlebot
 Allow: /
 Disallow: /admin
 Disallow: /auth
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
 Disallow: /admin
 Disallow: /auth
+Crawl-delay: 2
 
 User-agent: Twitterbot
 Allow: /
