@@ -214,6 +214,8 @@ export type Database = {
       }
       blog_articles: {
         Row: {
+          author: string | null
+          author_credentials: string | null
           category: string
           content: string
           created_at: string
@@ -223,11 +225,18 @@ export type Database = {
           id: string
           image_url: string | null
           is_published: boolean
+          keywords: string | null
+          meta_description: string | null
+          meta_title: string | null
+          reviewed_by: string | null
+          reviewer_credentials: string | null
           slug: string
           title: string
           updated_at: string
         }
         Insert: {
+          author?: string | null
+          author_credentials?: string | null
           category?: string
           content?: string
           created_at?: string
@@ -237,11 +246,18 @@ export type Database = {
           id?: string
           image_url?: string | null
           is_published?: boolean
+          keywords?: string | null
+          meta_description?: string | null
+          meta_title?: string | null
+          reviewed_by?: string | null
+          reviewer_credentials?: string | null
           slug: string
           title: string
           updated_at?: string
         }
         Update: {
+          author?: string | null
+          author_credentials?: string | null
           category?: string
           content?: string
           created_at?: string
@@ -251,6 +267,11 @@ export type Database = {
           id?: string
           image_url?: string | null
           is_published?: boolean
+          keywords?: string | null
+          meta_description?: string | null
+          meta_title?: string | null
+          reviewed_by?: string | null
+          reviewer_credentials?: string | null
           slug?: string
           title?: string
           updated_at?: string
