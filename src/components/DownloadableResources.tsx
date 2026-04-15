@@ -1,33 +1,37 @@
 import { FileText, ShoppingCart, ClipboardCheck } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { generateArthritisFactSheet, generateShoppingListPdf, generateSelfAssessmentPdf } from "@/lib/generatePdf";
 
 const resources = [
   {
     icon: FileText,
     title: "UK Arthritis Fact Sheet",
     desc: "Key statistics, prevalence data and economic impact of arthritis in the UK. Perfect for articles, presentations and resource pages.",
-    action: generateArthritisFactSheet,
+    fn: "generateArthritisFactSheet" as const,
     image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=250&fit=crop",
   },
   {
     icon: ShoppingCart,
     title: "Anti-Inflammatory Shopping List",
     desc: "Printable grocery checklist organised by food group — oily fish, berries, leafy greens, spices and more.",
-    action: generateShoppingListPdf,
+    fn: "generateShoppingListPdf" as const,
     image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=250&fit=crop",
   },
   {
     icon: ClipboardCheck,
     title: "Joint Pain Self-Assessment",
     desc: "A simple printable tracker to rate pain, stiffness and mobility across all major joints — great for GP appointments.",
-    action: generateSelfAssessmentPdf,
+    fn: "generateSelfAssessmentPdf" as const,
     image: "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=400&h=250&fit=crop",
   },
 ];
 
 export default function DownloadableResources() {
+  const handleDownload = async (fnName: string) => {
+    const mod = await import("@/lib/generatePdf");
+    (mod as Record<string, () => void>)[fnName]();
+  };
+
   return (
     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {resources.map((r) => (
@@ -50,7 +54,7 @@ export default function DownloadableResources() {
           <CardContent className="pt-4 pb-5 flex flex-col">
             <h3 className="font-semibold text-foreground mb-1">{r.title}</h3>
             <p className="text-sm text-muted-foreground mb-4 flex-1">{r.desc}</p>
-            <Button variant="outline" size="sm" onClick={r.action} className="gap-2 w-fit">
+            <Button variant="outline" size="sm" onClick={() => handleDownload(r.fn)} className="gap-2 w-fit">
               <FileText className="w-4 h-4" /> Download PDF
             </Button>
           </CardContent>
