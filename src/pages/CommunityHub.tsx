@@ -13,17 +13,6 @@ import {
   Users, MessageCircle, Calendar, Sparkles, ArrowRight,
   Heart, Star, Globe, BookOpen, HandHeart, Download
 } from "lucide-react";
-import {
-  generateKneeExercisePdf,
-  generateHandExercisePdf,
-  generateMealPlanPdf,
-  generatePainTrackerPdf,
-  generateChairExercisePdf,
-  generateFoodsListPdf,
-  generateShoulderExercisePdf,
-  generateHipExercisePdf,
-  generateProgressTrackerPdf,
-} from "@/lib/generatePdf";
 import PeerSupportForum from "@/components/PeerSupportForum";
 import {
   StatCounter,
