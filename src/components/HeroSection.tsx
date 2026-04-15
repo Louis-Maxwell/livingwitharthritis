@@ -57,7 +57,7 @@ const HeroSection = memo(() => {
 
               {/* Social proof nudge */}
               <p className="hero-item text-xs sm:text-sm text-foreground/80 font-semibold mb-2 flex items-center justify-center lg:justify-start gap-2">
-                <CheckCircle className="w-4 h-4 text-emerald-500" />
+                <CheckCircle className="w-4 h-4 text-primary" />
                 10,000+ people already getting free support
               </p>
 
