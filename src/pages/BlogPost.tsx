@@ -62,7 +62,8 @@ const BlogPost = () => {
     );
   }
 
-  const readingTime = getReadingTime(article.content);
+  const htmlContent = markdownToHtml(article.content);
+  const readingTime = getReadingTime(htmlContent);
   const publishDate = new Date(article.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
   const metaTitle = article.meta_title || article.title;
   const metaDesc = article.meta_description || article.excerpt;
