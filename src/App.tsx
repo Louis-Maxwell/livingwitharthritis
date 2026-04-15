@@ -184,17 +184,9 @@ const App = () => {
               </Suspense>
               <Suspense fallback={null}>
                 <ChatBotWidget />
-              </Suspense>
-              <Suspense fallback={null}>
                 <CookieConsent />
-              </Suspense>
-              <Suspense fallback={null}>
                 <AccessibilityToolbar />
-              </Suspense>
-              <Suspense fallback={null}>
                 <MobileBottomNav />
-              </Suspense>
-              <Suspense fallback={null}>
                 <DonationNotification />
               </Suspense>
             </BrowserRouter>
