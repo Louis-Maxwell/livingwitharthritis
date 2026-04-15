@@ -11,7 +11,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
-import ViewportSection from "@/components/ui/ViewportSection";
+
 import { photoBreakCommunity, photoBreakActive } from "@/data/images";
 
 /* ─── Critical path (above the fold only) ────────────────────────────── */
