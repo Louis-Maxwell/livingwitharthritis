@@ -51,8 +51,14 @@ const HeroSection = memo(() => {
                 </span>
               </h1>
 
-              <p className="hero-item text-[14px] sm:text-base md:text-lg text-muted-foreground leading-[1.75] sm:leading-[1.85] mb-4 max-w-[580px] mx-auto lg:mx-0">
+              <p className="hero-item text-[14px] sm:text-base md:text-lg text-muted-foreground leading-[1.75] sm:leading-[1.85] mb-3 max-w-[580px] mx-auto lg:mx-0">
                 Free physiotherapy, anti-inflammatory diet plans, evidence-based exercises and 24/7 support — helping people across the United Kingdom manage arthritis pain and live fuller lives.
+              </p>
+
+              {/* Social proof nudge */}
+              <p className="hero-item text-xs sm:text-sm text-foreground/80 font-semibold mb-2 flex items-center justify-center lg:justify-start gap-2">
+                <CheckCircle className="w-4 h-4 text-primary" />
+                10,000+ people already getting free support
               </p>
 
               <p className="hero-item text-xs sm:text-sm text-primary/70 font-medium mb-6 sm:mb-8 flex items-center justify-center lg:justify-start gap-2">

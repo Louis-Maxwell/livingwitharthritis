@@ -12,7 +12,7 @@ import HeroSection from "@/components/HeroSection";
 import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
-import { photoBreakCommunity, photoBreakActive } from "@/data/images";
+import { photoBreakCommunity } from "@/data/images";
 
 /* ─── Critical path (above the fold only) ────────────────────────────── */
 import TrustBar from "@/components/landing/TrustBar";
@@ -35,8 +35,6 @@ const QuickAccessSection = lazy(() => import("@/components/landing/QuickAccessSe
 const ContentDepthSection = lazy(() => import("@/components/landing/ContentDepthSection"));
 const HowItWorksSection = lazy(() => import("@/components/landing/HowItWorksSection"));
 const ServicesGrid = lazy(() => import("@/components/ServicesGrid"));
-const GeometricCubeSection = lazy(() => import("@/components/landing/GeometricCubeSection"));
-const ParticleNetworkSection = lazy(() => import("@/components/landing/ParticleNetworkSection"));
 const QuoteSection = lazy(() => import("@/components/landing/QuoteSection"));
 const AboutSection = lazy(() => import("@/components/AboutSection"));
 const TestimonialsSection = lazy(() => import("@/components/landing/TestimonialsSection"));
@@ -250,14 +248,6 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
             <ExpertContentSection />
           </Suspense>
 
-          <Suspense fallback={null}>
-            <GeometricCubeSection />
-          </Suspense>
-
-          <Suspense fallback={null}>
-            <ParticleNetworkSection />
-          </Suspense>
-
           <Suspense fallback={<SkeletonSection />}>
             <PhotoBreak
               image={photoBreakCommunity}
@@ -289,15 +279,6 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
 
           <Suspense fallback={<SkeletonSection />}>
             <TestimonialsSection />
-          </Suspense>
-
-          <Suspense fallback={<SkeletonSection />}>
-            <PhotoBreak
-              image={photoBreakActive}
-              alt="Person with arthritis enjoying an active walk outdoors"
-              quote="Movement is medicine. Every step forward is a victory worth celebrating."
-              attr="Living With Arthritis UK Clinical Team"
-            />
           </Suspense>
 
           <Suspense fallback={<SkeletonSection />}>
