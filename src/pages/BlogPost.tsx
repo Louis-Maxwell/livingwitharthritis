@@ -21,7 +21,9 @@ import { marked } from "marked";
 function markdownToHtml(md: string): string {
   // If content already looks like HTML, return as-is
   if (md.trim().startsWith("<")) return md;
-  return marked.parse(md, { async: false }) as string;
+  // Database may store literal \n instead of real newlines
+  const normalized = md.replace(/\\n/g, "\n");
+  return marked.parse(normalized, { async: false }) as string;
 }
 
 function getReadingTime(html: string) {
