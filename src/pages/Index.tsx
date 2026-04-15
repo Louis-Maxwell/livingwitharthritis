@@ -225,75 +225,148 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
 
         <main id="main-content" role="main" tabIndex={-1}>
           <HeroSection />
-          <StatsBand />
-          <ActionPathSection />
 
-          <Suspense fallback={<SkeletonSection />}>
-            <QuickAccessSection />
-          </Suspense>
-          <Suspense fallback={<SkeletonSection />}>
-            <HowItWorksSection />
-          </Suspense>
-          <Suspense fallback={<SkeletonSection />}>
-            <ServicesGrid />
-          </Suspense>
+          <ViewportSection rootMargin="400px" minHeight="120px">
+            <Suspense fallback={<SkeletonSection />}>
+              <StatsBand />
+            </Suspense>
+          </ViewportSection>
 
-          <ExpertContentSection />
+          <ViewportSection rootMargin="400px" minHeight="300px">
+            <Suspense fallback={<SkeletonSection />}>
+              <ActionPathSection />
+            </Suspense>
+          </ViewportSection>
 
-          <Suspense fallback={null}>
-            <GeometricCubeSection />
-          </Suspense>
-          <Suspense fallback={null}>
-            <ParticleNetworkSection />
-          </Suspense>
+          <ViewportSection rootMargin="300px" minHeight="300px">
+            <Suspense fallback={<SkeletonSection />}>
+              <QuickAccessSection />
+            </Suspense>
+          </ViewportSection>
 
-          <PhotoBreak
-            image={photoBreakCommunity}
-            alt="Members of the Living With Arthritis UK community supporting one another"
-            quote="No one should face arthritis alone. Together, we're changing what's possible."
-            attr={SITE_NAME}
-          />
+          <ViewportSection rootMargin="300px" minHeight="300px">
+            <Suspense fallback={<SkeletonSection />}>
+              <HowItWorksSection />
+            </Suspense>
+          </ViewportSection>
 
-          <WhyUsSection />
+          <ViewportSection rootMargin="300px" minHeight="300px">
+            <Suspense fallback={<SkeletonSection />}>
+              <ServicesGrid />
+            </Suspense>
+          </ViewportSection>
 
-          <Suspense fallback={<SkeletonSection />}>
-            <ContentDepthSection />
-          </Suspense>
-          <Suspense fallback={<SkeletonSection />}>
-            <QuoteSection />
-          </Suspense>
-          <Suspense fallback={<SkeletonSection />}>
-            <AboutSection />
-          </Suspense>
+          <ViewportSection rootMargin="300px" minHeight="300px">
+            <Suspense fallback={<SkeletonSection />}>
+              <ExpertContentSection />
+            </Suspense>
+          </ViewportSection>
 
-          <BlogPreview />
+          <ViewportSection rootMargin="200px" minHeight="400px">
+            <Suspense fallback={null}>
+              <GeometricCubeSection />
+            </Suspense>
+          </ViewportSection>
 
-          <Suspense fallback={<SkeletonSection />}>
-            <TestimonialsSection />
-          </Suspense>
+          <ViewportSection rootMargin="200px" minHeight="400px">
+            <Suspense fallback={null}>
+              <ParticleNetworkSection />
+            </Suspense>
+          </ViewportSection>
 
-          <PhotoBreak
-            image={photoBreakActive}
-            alt="Person with arthritis enjoying an active walk outdoors"
-            quote="Movement is medicine. Every step forward is a victory worth celebrating."
-            attr="Living With Arthritis UK Clinical Team"
-          />
+          <ViewportSection rootMargin="200px" minHeight="200px">
+            <Suspense fallback={<SkeletonSection />}>
+              <PhotoBreak
+                image={photoBreakCommunity}
+                alt="Members of the Living With Arthritis UK community supporting one another"
+                quote="No one should face arthritis alone. Together, we're changing what's possible."
+                attr={SITE_NAME}
+              />
+            </Suspense>
+          </ViewportSection>
 
-          <Suspense fallback={<SkeletonSection />}>
-            <DonationImpactSection />
-          </Suspense>
+          <ViewportSection rootMargin="200px" minHeight="300px">
+            <Suspense fallback={<SkeletonSection />}>
+              <WhyUsSection />
+            </Suspense>
+          </ViewportSection>
 
-          <LeadCaptureSection />
+          <ViewportSection rootMargin="200px" minHeight="300px">
+            <Suspense fallback={<SkeletonSection />}>
+              <ContentDepthSection />
+            </Suspense>
+          </ViewportSection>
 
-          <Suspense fallback={<SkeletonSection />}>
-            <FAQSection />
-          </Suspense>
-          <Suspense fallback={<SkeletonSection />}>
-            <NewsletterSection />
-          </Suspense>
+          <ViewportSection rootMargin="200px" minHeight="200px">
+            <Suspense fallback={<SkeletonSection />}>
+              <QuoteSection />
+            </Suspense>
+          </ViewportSection>
 
-          <ContactSection />
-          <AITrustSection />
+          <ViewportSection rootMargin="200px" minHeight="300px">
+            <Suspense fallback={<SkeletonSection />}>
+              <AboutSection />
+            </Suspense>
+          </ViewportSection>
+
+          <ViewportSection rootMargin="200px" minHeight="300px">
+            <Suspense fallback={<SkeletonSection />}>
+              <BlogPreview />
+            </Suspense>
+          </ViewportSection>
+
+          <ViewportSection rootMargin="200px" minHeight="300px">
+            <Suspense fallback={<SkeletonSection />}>
+              <TestimonialsSection />
+            </Suspense>
+          </ViewportSection>
+
+          <ViewportSection rootMargin="200px" minHeight="200px">
+            <Suspense fallback={<SkeletonSection />}>
+              <PhotoBreak
+                image={photoBreakActive}
+                alt="Person with arthritis enjoying an active walk outdoors"
+                quote="Movement is medicine. Every step forward is a victory worth celebrating."
+                attr="Living With Arthritis UK Clinical Team"
+              />
+            </Suspense>
+          </ViewportSection>
+
+          <ViewportSection rootMargin="200px" minHeight="300px">
+            <Suspense fallback={<SkeletonSection />}>
+              <DonationImpactSection />
+            </Suspense>
+          </ViewportSection>
+
+          <ViewportSection rootMargin="200px" minHeight="200px">
+            <Suspense fallback={<SkeletonSection />}>
+              <LeadCaptureSection />
+            </Suspense>
+          </ViewportSection>
+
+          <ViewportSection rootMargin="200px" minHeight="300px">
+            <Suspense fallback={<SkeletonSection />}>
+              <FAQSection />
+            </Suspense>
+          </ViewportSection>
+
+          <ViewportSection rootMargin="200px" minHeight="200px">
+            <Suspense fallback={<SkeletonSection />}>
+              <NewsletterSection />
+            </Suspense>
+          </ViewportSection>
+
+          <ViewportSection rootMargin="200px" minHeight="200px">
+            <Suspense fallback={<SkeletonSection />}>
+              <ContactSection />
+            </Suspense>
+          </ViewportSection>
+
+          <ViewportSection rootMargin="200px" minHeight="200px">
+            <Suspense fallback={<SkeletonSection />}>
+              <AITrustSection />
+            </Suspense>
+          </ViewportSection>
         </main>
 
         <BackToTopButton />
