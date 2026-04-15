@@ -12,7 +12,7 @@ import HeroSection from "@/components/HeroSection";
 import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
-import { photoBreakCommunity, photoBreakActive } from "@/data/images";
+import { photoBreakCommunity } from "@/data/images";
 
 /* ─── Critical path (above the fold only) ────────────────────────────── */
 import TrustBar from "@/components/landing/TrustBar";
