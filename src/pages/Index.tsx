@@ -185,10 +185,7 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
         <meta property="og:type" content="website" />
         <meta property="og:url" content={SITE_URL} />
         <meta name="twitter:card" content="summary_large_image" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://images.unsplash.com" />
-        <link rel="preload" as="image" href="/images/hero.webp" type="image/webp" fetchPriority="high" />
+        {/* preconnect/dns-prefetch already in index.html — no duplicates */}
         <style>{`
           html { scroll-padding-top: 1rem; }
           body { font-size: 17px; line-height: 1.7; -webkit-font-smoothing: antialiased; }

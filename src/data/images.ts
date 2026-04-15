@@ -12,7 +12,7 @@ export function unsplashSrcSet(
 ): string {
   const base = url.split("?")[0];
   return widths
-    .map((w) => `${base}?w=${w}&q=${quality}&auto=format ${w}w`)
+    .map((w) => `${base}?w=${w}&q=${quality}&fm=webp&auto=format ${w}w`)
     .join(", ");
 }
 
@@ -29,9 +29,9 @@ export const heroLifestyleSrcSet = [
   "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1080&q=80 1080w",
   "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1400&q=80 1400w",
 ].join(", ");
-export const photoBreakCommunity = "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80"; // group of people together
-export const photoBreakActive = "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=1200&q=80"; // person jogging outdoors
-export const videoCtaExercise = "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1200&q=80"; // physiotherapy session
+export const photoBreakCommunity = "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=75&fm=webp"; // group of people together
+export const photoBreakActive = "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=1200&q=75&fm=webp"; // person jogging outdoors
+export const videoCtaExercise = "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1200&q=75&fm=webp"; // physiotherapy session
 export const mobileAppMockup = "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80"; // phone mockup
 export const zakatAppealHero = "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1200&q=80"; // helping hands
 
