@@ -16,6 +16,13 @@ import ScrollProgress from "@/components/ScrollProgress";
 import ContinueReadingBar from "@/components/ContinueReadingBar";
 import HealthToolsCTA from "@/components/HealthToolsCTA";
 import { Skeleton } from "@/components/ui/skeleton";
+import { marked } from "marked";
+
+function markdownToHtml(md: string): string {
+  // If content already looks like HTML, return as-is
+  if (md.trim().startsWith("<")) return md;
+  return marked.parse(md, { async: false }) as string;
+}
 
 function getReadingTime(html: string) {
   const text = html.replace(/<[^>]*>/g, " ");
