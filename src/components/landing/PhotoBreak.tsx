@@ -1,4 +1,5 @@
 import { memo } from "react";
+import { unsplashSrcSet, fullWidthSizes } from "@/data/images";
 
 interface PhotoBreakProps {
   image: string;
@@ -11,9 +12,12 @@ const PhotoBreak = memo(({ image, alt, quote, attr }: PhotoBreakProps) => (
   <section aria-label="Inspirational photo" className="relative h-[400px] overflow-hidden bg-secondary">
     <img
       src={image}
+      srcSet={unsplashSrcSet(image, [640, 1080, 1400, 1920])}
+      sizes={fullWidthSizes}
       alt={alt}
       className="h-full w-full object-cover"
       loading="lazy"
+      decoding="async"
       referrerPolicy="no-referrer"
     />
     <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-secondary/20 to-transparent" aria-hidden="true" />

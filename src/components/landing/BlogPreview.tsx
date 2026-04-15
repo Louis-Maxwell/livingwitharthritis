@@ -21,6 +21,12 @@ function estimateReadingTime(content: string): string {
 
 const FALLBACK_IMG = "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1080&h=720&fit=crop&q=80";
 
+function imgSrcSet(url: string | null) {
+  if (!url || !url.includes("unsplash.com")) return undefined;
+  const base = url.split("?")[0];
+  return [400, 640, 800, 1080].map((w) => `${base}?w=${w}&q=80&auto=format ${w}w`).join(", ");
+}
+
 const BlogPreview = memo(() => {
   const [articles, setArticles] = useState<DBArticle[]>([]);
   const [loading, setLoading] = useState(true);
