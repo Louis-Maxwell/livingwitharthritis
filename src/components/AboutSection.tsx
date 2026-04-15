@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { Users, TrendingUp, BookOpen, Shield, ArrowRight } from "lucide-react";
+import { Users, TrendingUp, BookOpen, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const milestones = [

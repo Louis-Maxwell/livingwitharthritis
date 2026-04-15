@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import { exerciseJointPages } from "@/data/exerciseJointMatrix";
-import { Dumbbell, CheckCircle, AlertTriangle, ShieldAlert, ArrowRight, BookOpen } from "lucide-react";
+import { Dumbbell, CheckCircle, AlertTriangle, ShieldAlert, BookOpen } from "lucide-react";
 import { motion } from "framer-motion";
 
 const BASE = "https://livingwitharthritis.org.uk";

@@ -13,7 +13,7 @@ import {
   Utensils, Apple, Fish, Leaf, ArrowRight, CheckCircle,
   XCircle, Star, ChevronRight, Sparkles, Shield, Heart,
   AlertTriangle, TrendingDown, Droplets, Flame,
-  MessageCircle, Zap, Download, BookOpen
+  MessageCircle, Download
 } from "lucide-react";
 import {
   StatCounter,

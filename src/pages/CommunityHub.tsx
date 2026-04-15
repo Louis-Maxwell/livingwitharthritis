@@ -11,8 +11,7 @@ import InternalLinks from "@/components/InternalLinks";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import {
   Users, MessageCircle, Calendar, Sparkles, ArrowRight,
-  Heart, CheckCircle, Star, Globe, BookOpen, HandHeart, Download,
-  TrendingUp, Award, ThumbsUp
+  Heart, Star, Globe, BookOpen, HandHeart, Download
 } from "lucide-react";
 import {
   generateKneeExercisePdf,
@@ -28,11 +27,9 @@ import {
 import PeerSupportForum from "@/components/PeerSupportForum";
 import {
   StatCounter,
-  ProgressRing,
   HorizontalBar,
   WaveDivider,
   EmojiCard,
-  IconStatRow,
   DonutChart,
 } from "@/components/graphics/InfographicElements";
 

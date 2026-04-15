@@ -1,6 +1,6 @@
 import { memo, useRef, useState } from "react";
 import { toast } from "sonner";
-import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { Mail, Phone, MapPin, Send, CheckCircle2, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
 const CONTACT_EMAIL = "info@livingwitharthritis.org.uk";

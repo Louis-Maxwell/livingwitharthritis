@@ -14,7 +14,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import {
-  ArrowLeft, CalendarDays, Clock, Mail, Phone, Search, Send, Loader2, Shield, Users, AlertTriangle, Activity, CheckCircle2,
+  ArrowLeft, CalendarDays, Clock, Mail, Phone, Search, Send, Loader2, Users, AlertTriangle, Activity, CheckCircle2,
 } from "lucide-react";
 import { format, parseISO } from "date-fns";
 import { toast } from "sonner";

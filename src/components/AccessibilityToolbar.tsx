@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Eye, Type, Moon, Sun, RotateCcw, Accessibility } from "lucide-react";
+import { Type, Moon, Sun, RotateCcw, Accessibility } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const FONT_SIZES = ["default", "large", "x-large"] as const;

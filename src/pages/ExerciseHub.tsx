@@ -11,18 +11,15 @@ import {
   Dumbbell, Footprints, Hand, ArrowRight, Activity,
   Waves, Bike, Heart, Clock, CheckCircle, Star,
   ChevronRight, Sparkles, Shield, TrendingUp, Users, Timer, Target,
-  Zap, MessageCircle, BarChart3
+  Zap, MessageCircle, BarChart3,
 } from "lucide-react";
 import ExerciseProgressTracker from "@/components/ExerciseProgressTracker";
 import Pedometer from "@/components/Pedometer";
 import {
   StatCounter,
-  ProgressRing,
   HorizontalBar,
   WaveDivider,
-  IconStatRow,
   EmojiCard,
-  ComparisonCard,
   DonutChart,
   Timeline,
 } from "@/components/graphics/InfographicElements";
