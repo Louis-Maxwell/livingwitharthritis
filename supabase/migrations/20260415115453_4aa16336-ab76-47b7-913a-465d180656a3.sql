@@ -1,0 +1,1 @@
+CREATE INDEX IF NOT EXISTS idx_chat_conversations_user_id ON public.chat_conversations (user_id, id);
