@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, ShieldAlert, BookOpen, ArrowRight, Shield, Users, Clock, AlertCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import PageHero from "@/components/ui/PageHero";
-import { StatCounter, WaveDivider } from "@/components/graphics/InfographicElements";
+import { StatCounter, WaveDivider, ComparisonCard } from "@/components/graphics/InfographicElements";
 import InternalLinks from "@/components/InternalLinks";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 
