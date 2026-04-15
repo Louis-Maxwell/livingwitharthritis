@@ -12,7 +12,7 @@ export function unsplashSrcSet(
 ): string {
   const base = url.split("?")[0];
   return widths
-    .map((w) => `${base}?w=${w}&q=${quality}&auto=format ${w}w`)
+    .map((w) => `${base}?w=${w}&q=${quality}&fm=webp&auto=format ${w}w`)
     .join(", ");
 }
 
