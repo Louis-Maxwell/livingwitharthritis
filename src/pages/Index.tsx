@@ -11,7 +11,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
-import ViewportSection from "@/components/ui/ViewportSection";
+
 import { photoBreakCommunity, photoBreakActive } from "@/data/images";
 
 /* ─── Critical path (above the fold only) ────────────────────────────── */
@@ -226,147 +226,103 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
         <main id="main-content" role="main" tabIndex={-1}>
           <HeroSection />
 
-          <ViewportSection rootMargin="400px" minHeight="120px">
-            <Suspense fallback={<SkeletonSection />}>
-              <StatsBand />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={<SkeletonSection />}>
+            <StatsBand />
+          </Suspense>
 
-          <ViewportSection rootMargin="400px" minHeight="300px">
-            <Suspense fallback={<SkeletonSection />}>
-              <ActionPathSection />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={<SkeletonSection />}>
+            <ActionPathSection />
+          </Suspense>
 
-          <ViewportSection rootMargin="300px" minHeight="300px">
-            <Suspense fallback={<SkeletonSection />}>
-              <QuickAccessSection />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={<SkeletonSection />}>
+            <QuickAccessSection />
+          </Suspense>
 
-          <ViewportSection rootMargin="300px" minHeight="300px">
-            <Suspense fallback={<SkeletonSection />}>
-              <HowItWorksSection />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={<SkeletonSection />}>
+            <HowItWorksSection />
+          </Suspense>
 
-          <ViewportSection rootMargin="300px" minHeight="300px">
-            <Suspense fallback={<SkeletonSection />}>
-              <ServicesGrid />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={<SkeletonSection />}>
+            <ServicesGrid />
+          </Suspense>
 
-          <ViewportSection rootMargin="300px" minHeight="300px">
-            <Suspense fallback={<SkeletonSection />}>
-              <ExpertContentSection />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={<SkeletonSection />}>
+            <ExpertContentSection />
+          </Suspense>
 
-          <ViewportSection rootMargin="200px" minHeight="400px">
-            <Suspense fallback={null}>
-              <GeometricCubeSection />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={null}>
+            <GeometricCubeSection />
+          </Suspense>
 
-          <ViewportSection rootMargin="200px" minHeight="400px">
-            <Suspense fallback={null}>
-              <ParticleNetworkSection />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={null}>
+            <ParticleNetworkSection />
+          </Suspense>
 
-          <ViewportSection rootMargin="200px" minHeight="200px">
-            <Suspense fallback={<SkeletonSection />}>
-              <PhotoBreak
-                image={photoBreakCommunity}
-                alt="Members of the Living With Arthritis UK community supporting one another"
-                quote="No one should face arthritis alone. Together, we're changing what's possible."
-                attr={SITE_NAME}
-              />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={<SkeletonSection />}>
+            <PhotoBreak
+              image={photoBreakCommunity}
+              alt="Members of the Living With Arthritis UK community supporting one another"
+              quote="No one should face arthritis alone. Together, we're changing what's possible."
+              attr={SITE_NAME}
+            />
+          </Suspense>
 
-          <ViewportSection rootMargin="200px" minHeight="300px">
-            <Suspense fallback={<SkeletonSection />}>
-              <WhyUsSection />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={<SkeletonSection />}>
+            <WhyUsSection />
+          </Suspense>
 
-          <ViewportSection rootMargin="200px" minHeight="300px">
-            <Suspense fallback={<SkeletonSection />}>
-              <ContentDepthSection />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={<SkeletonSection />}>
+            <ContentDepthSection />
+          </Suspense>
 
-          <ViewportSection rootMargin="200px" minHeight="200px">
-            <Suspense fallback={<SkeletonSection />}>
-              <QuoteSection />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={<SkeletonSection />}>
+            <QuoteSection />
+          </Suspense>
 
-          <ViewportSection rootMargin="200px" minHeight="300px">
-            <Suspense fallback={<SkeletonSection />}>
-              <AboutSection />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={<SkeletonSection />}>
+            <AboutSection />
+          </Suspense>
 
-          <ViewportSection rootMargin="200px" minHeight="300px">
-            <Suspense fallback={<SkeletonSection />}>
-              <BlogPreview />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={<SkeletonSection />}>
+            <BlogPreview />
+          </Suspense>
 
-          <ViewportSection rootMargin="200px" minHeight="300px">
-            <Suspense fallback={<SkeletonSection />}>
-              <TestimonialsSection />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={<SkeletonSection />}>
+            <TestimonialsSection />
+          </Suspense>
 
-          <ViewportSection rootMargin="200px" minHeight="200px">
-            <Suspense fallback={<SkeletonSection />}>
-              <PhotoBreak
-                image={photoBreakActive}
-                alt="Person with arthritis enjoying an active walk outdoors"
-                quote="Movement is medicine. Every step forward is a victory worth celebrating."
-                attr="Living With Arthritis UK Clinical Team"
-              />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={<SkeletonSection />}>
+            <PhotoBreak
+              image={photoBreakActive}
+              alt="Person with arthritis enjoying an active walk outdoors"
+              quote="Movement is medicine. Every step forward is a victory worth celebrating."
+              attr="Living With Arthritis UK Clinical Team"
+            />
+          </Suspense>
 
-          <ViewportSection rootMargin="200px" minHeight="300px">
-            <Suspense fallback={<SkeletonSection />}>
-              <DonationImpactSection />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={<SkeletonSection />}>
+            <DonationImpactSection />
+          </Suspense>
 
-          <ViewportSection rootMargin="200px" minHeight="200px">
-            <Suspense fallback={<SkeletonSection />}>
-              <LeadCaptureSection />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={<SkeletonSection />}>
+            <LeadCaptureSection />
+          </Suspense>
 
-          <ViewportSection rootMargin="200px" minHeight="300px">
-            <Suspense fallback={<SkeletonSection />}>
-              <FAQSection />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={<SkeletonSection />}>
+            <FAQSection />
+          </Suspense>
 
-          <ViewportSection rootMargin="200px" minHeight="200px">
-            <Suspense fallback={<SkeletonSection />}>
-              <NewsletterSection />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={<SkeletonSection />}>
+            <NewsletterSection />
+          </Suspense>
 
-          <ViewportSection rootMargin="200px" minHeight="200px">
-            <Suspense fallback={<SkeletonSection />}>
-              <ContactSection />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={<SkeletonSection />}>
+            <ContactSection />
+          </Suspense>
 
-          <ViewportSection rootMargin="200px" minHeight="200px">
-            <Suspense fallback={<SkeletonSection />}>
-              <AITrustSection />
-            </Suspense>
-          </ViewportSection>
+          <Suspense fallback={<SkeletonSection />}>
+            <AITrustSection />
+          </Suspense>
         </main>
 
         <Suspense fallback={null}>
