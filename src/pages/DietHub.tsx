@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import InternalLinks from "@/components/InternalLinks";
+import CrossLinkBanner from "@/components/CrossLinkBanner";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import {
   Utensils, Apple, Fish, Leaf, ArrowRight, CheckCircle,
@@ -490,6 +491,9 @@ const DietHub = () => {
             </motion.div>
           </div>
         </section>
+        <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <CrossLinkBanner preset="diet" exclude="/diet" title="Related resources" />
+        </div>
       </main>
 
       <InternalLinks />

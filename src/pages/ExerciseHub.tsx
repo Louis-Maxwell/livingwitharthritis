@@ -24,6 +24,7 @@ import {
   Timeline,
 } from "@/components/graphics/InfographicElements";
 import InternalLinks from "@/components/InternalLinks";
+import CrossLinkBanner from "@/components/CrossLinkBanner";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 
 const exerciseCategories = [
@@ -498,6 +499,9 @@ const ExerciseHub = () => {
             </motion.div>
           </div>
         </section>
+        <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <CrossLinkBanner preset="exercise" exclude="/exercises" title="Related resources" />
+        </div>
       </main>
 
       <InternalLinks />
