@@ -293,7 +293,7 @@ const DonationBanner = () => {
           />
         </Suspense>
       )}
-    </div>
+    </aside>
   );
 };
 
