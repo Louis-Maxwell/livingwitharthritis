@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo, lazy, Suspense } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAdmin } from "@/hooks/useAdmin";
 import { useAdminDonations } from "@/hooks/useAdminDonations";
@@ -11,8 +11,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
-  ArrowLeft, DollarSign, Users, TrendingUp, PiggyBank, CalendarDays, ExternalLink,
-  MessageSquare, Download, CalendarIcon, FileText, Check, X, Trash2, Heart, BarChart3,
+  ArrowLeft, DollarSign, Users, TrendingUp, CalendarDays, ExternalLink,
+  MessageSquare, Download, CalendarIcon, Check, X, Trash2, Heart, BarChart3,
   Star, Zap, Globe, Shield, Activity,
 } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";

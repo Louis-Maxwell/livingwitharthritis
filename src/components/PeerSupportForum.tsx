@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  MessageCircle, Plus, ArrowLeft, Eye, ThumbsUp, Pin,
+  MessageCircle, Plus, ArrowLeft, Eye, Pin,
   Clock, User, Send, Shield, AlertCircle, Search, ChevronRight
 } from "lucide-react";
 import { toast } from "sonner";

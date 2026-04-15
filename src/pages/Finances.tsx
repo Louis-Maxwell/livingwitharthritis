@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, BarChart, Bar, XAxis, YAxis, CartesianGrid } from "recharts";
 import {
   Shield, FileText, Download, Heart, PoundSterling, TrendingUp,
-  Users, BookOpen, Building2, CheckCircle, ArrowUpRight
+  BookOpen, Building2, CheckCircle, ArrowUpRight
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
