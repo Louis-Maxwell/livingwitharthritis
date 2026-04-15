@@ -225,6 +225,7 @@ export default function LivedExperiences() {
                       alt={story.name}
                       className="w-24 h-24 rounded-2xl object-cover border-2 border-primary/20"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div className="flex-1">
                       <h2 className="text-2xl font-bold text-foreground">{story.name}, {story.age}</h2>

@@ -128,8 +128,11 @@ const ZakatAppeal = () => {
                   alt="Hands raised in prayer at sunrise symbolising charity and hope"
                   className="w-full h-auto object-cover"
                   loading="eager"
+                  decoding="async"
                   width={720}
                   height={480}
+                  srcSet={`${zakatHeroImg.split("?")[0]}?w=640&q=80&auto=format 640w, ${zakatHeroImg.split("?")[0]}?w=800&q=80&auto=format 800w, ${zakatHeroImg.split("?")[0]}?w=1200&q=80&auto=format 1200w`}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
 
