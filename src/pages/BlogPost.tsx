@@ -203,7 +203,7 @@ const BlogPost = () => {
         </header>
 
         <article className="container mx-auto px-6 md:px-10 py-10 md:py-14 max-w-[720px]">
-          <TableOfContents html={article.content} />
+          <TableOfContents html={htmlContent} />
 
           <div
             className="blog-prose prose prose-lg max-w-none text-foreground/90
@@ -218,7 +218,7 @@ const BlogPost = () => {
               prose-img:rounded-xl prose-img:shadow-sm prose-img:my-8
               prose-ul:my-6 prose-ol:my-6
               first:prose-p:first-letter:text-5xl first:prose-p:first-letter:font-bold first:prose-p:first-letter:text-primary first:prose-p:first-letter:float-left first:prose-p:first-letter:mr-3 first:prose-p:first-letter:mt-1 first:prose-p:first-letter:leading-none"
-            dangerouslySetInnerHTML={{ __html: addHeadingIds(article.content) }}
+            dangerouslySetInnerHTML={{ __html: addHeadingIds(htmlContent) }}
           />
 
           <HealthToolsCTA />
