@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Eye, BookOpen, ChevronRight } from "lucide-react";
-import { blogArticles } from "@/data/blogArticles";
+import { useBlogArticle } from "@/hooks/useBlogArticles";
 import { useBlogViews } from "@/hooks/useBlogViews";
 import BlogComments from "@/components/BlogComments";
 import BlogHelpfulness from "@/components/BlogHelpfulness";
@@ -15,6 +15,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import ScrollProgress from "@/components/ScrollProgress";
 import ContinueReadingBar from "@/components/ContinueReadingBar";
 import HealthToolsCTA from "@/components/HealthToolsCTA";
+import { Skeleton } from "@/components/ui/skeleton";
 
 function getReadingTime(html: string) {
   const text = html.replace(/<[^>]*>/g, " ");
@@ -24,8 +25,22 @@ function getReadingTime(html: string) {
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
-  const article = blogArticles[slug ?? ""];
+  const { data: article, isLoading } = useBlogArticle(slug);
   const viewCount = useBlogViews(slug);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Header />
+        <main className="container mx-auto px-6 md:px-10 py-24 max-w-[720px]">
+          <Skeleton className="h-8 w-3/4 mb-4" />
+          <Skeleton className="h-4 w-1/2 mb-8" />
+          <Skeleton className="h-64 w-full" />
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 
   if (!article) {
     return (
@@ -42,15 +57,21 @@ const BlogPost = () => {
 
   const readingTime = getReadingTime(article.content);
   const publishDate = new Date(article.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+  const metaTitle = article.meta_title || article.title;
+  const metaDesc = article.meta_description || article.excerpt;
+  const authorName = article.author || "Living With Arthritis Clinical Team";
+  const authorCreds = article.author_credentials || "Evidence-based health content";
+  const reviewerName = article.reviewed_by || "Dr. Amina Patel";
+  const reviewerCreds = article.reviewer_credentials || "Consultant Rheumatologist";
 
   return (
     <>
       <Helmet>
-        <title>{article.metaTitle}</title>
-        <meta name="description" content={article.metaDescription} />
-        <meta name="keywords" content={article.keywords} />
-        <meta property="og:title" content={article.metaTitle} />
-        <meta property="og:description" content={article.metaDescription} />
+        <title>{metaTitle}</title>
+        <meta name="description" content={metaDesc} />
+        {article.keywords && <meta name="keywords" content={article.keywords} />}
+        <meta property="og:title" content={metaTitle} />
+        <meta property="og:description" content={metaDesc} />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`https://livingwitharthritis.org.uk/blog/${slug}`} />
@@ -63,8 +84,8 @@ const BlogPost = () => {
         <meta property="article:section" content="Health" />
         <meta property="article:tag" content="arthritis" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={article.metaTitle} />
-        <meta name="twitter:description" content={article.metaDescription} />
+        <meta name="twitter:title" content={metaTitle} />
+        <meta name="twitter:description" content={metaDesc} />
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/og-blog-default.jpg" />
         <meta name="geo.region" content="GB" />
         <link rel="canonical" href={`https://livingwitharthritis.org.uk/blog/${slug}`} />
@@ -72,28 +93,28 @@ const BlogPost = () => {
           "@context": "https://schema.org",
           "@type": "MedicalWebPage",
           "headline": article.title,
-          "description": article.metaDescription,
+          "description": metaDesc,
           "datePublished": article.date,
           "dateModified": article.date,
-          "author": { "@type": "Organization", "name": article.author || "Living With Arthritis Clinical Team", "url": "https://livingwitharthritis.org.uk" },
+          "author": { "@type": "Organization", "name": authorName, "url": "https://livingwitharthritis.org.uk" },
           "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk", "logo": { "@type": "ImageObject", "url": "https://livingwitharthritis.org.uk/favicon.ico" } },
           "inLanguage": "en-GB",
           "mainEntityOfPage": `https://livingwitharthritis.org.uk/blog/${slug}`,
           "about": { "@type": "MedicalCondition", "name": "Arthritis", "alternateName": ["Osteoarthritis", "Rheumatoid Arthritis"] },
           "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } },
           "lastReviewed": article.date,
-          "reviewedBy": { "@type": "Person", "name": article.reviewedBy || "Dr. Amina Patel", "jobTitle": article.reviewerCredentials || "Consultant Rheumatologist" },
+          "reviewedBy": { "@type": "Person", "name": reviewerName, "jobTitle": reviewerCreds },
           "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Patient" }
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Article",
           "headline": article.title,
-          "description": article.metaDescription,
+          "description": metaDesc,
           "image": "https://livingwitharthritis.org.uk/images/og-blog-default.jpg",
           "datePublished": article.date,
           "dateModified": article.date,
-          "author": { "@type": "Organization", "name": article.author || "Living With Arthritis Clinical Team", "url": "https://livingwitharthritis.org.uk" },
+          "author": { "@type": "Organization", "name": authorName, "url": "https://livingwitharthritis.org.uk" },
           "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk", "logo": { "@type": "ImageObject", "url": "https://livingwitharthritis.org.uk/favicon.ico", "width": 512, "height": 512 } },
           "mainEntityOfPage": { "@type": "WebPage", "@id": `https://livingwitharthritis.org.uk/blog/${slug}` },
           "wordCount": article.content.replace(/<[^>]*>/g, " ").trim().split(/\s+/).length,
@@ -115,10 +136,8 @@ const BlogPost = () => {
         <ScrollProgress />
         <Header />
 
-        {/* Clean editorial header */}
         <header className="border-b border-border/20">
           <div className="container mx-auto px-6 md:px-10 max-w-[720px]">
-            {/* Breadcrumb */}
             <nav className="pt-6 pb-4 flex items-center gap-1.5 text-xs text-muted-foreground">
               <Link to="/" className="hover:text-primary transition-colors">Home</Link>
               <ChevronRight className="w-3 h-3" />
@@ -128,7 +147,6 @@ const BlogPost = () => {
             </nav>
 
             <div className="pb-10 md:pb-14">
-              {/* Meta line */}
               <div className="flex items-center gap-2 text-xs text-muted-foreground mb-5">
                 <time dateTime={article.date} className="font-medium">{publishDate}</time>
                 <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
@@ -144,29 +162,22 @@ const BlogPost = () => {
                 )}
               </div>
 
-              {/* Title */}
               <h1 className="font-display text-[1.75rem] md:text-[2.5rem] lg:text-[3rem] font-extrabold text-foreground leading-[1.15] tracking-tight mb-6">
                 {article.title}
               </h1>
 
-          {/* Subtitle from meta description */}
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-[600px]">
-                {article.metaDescription}
+                {metaDesc}
               </p>
 
-              {/* Author + reviewer row */}
               <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
                 <div className="flex items-center gap-3">
                   <Avatar className="h-10 w-10 border-2 border-primary/15">
                     <AvatarFallback className="bg-primary/8 text-primary font-bold text-xs">LWA</AvatarFallback>
                   </Avatar>
                   <div>
-                    <p className="text-sm font-semibold text-foreground leading-tight">
-                      {article.author || "Living With Arthritis Clinical Team"}
-                    </p>
-                    <p className="text-xs text-muted-foreground">
-                      {article.authorCredentials || "Evidence-based health content"}
-                    </p>
+                    <p className="text-sm font-semibold text-foreground leading-tight">{authorName}</p>
+                    <p className="text-xs text-muted-foreground">{authorCreds}</p>
                   </div>
                 </div>
 
@@ -175,7 +186,7 @@ const BlogPost = () => {
                 <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/5 border border-primary/10 w-fit">
                   <BookOpen className="w-3.5 h-3.5 text-primary" />
                   <span className="text-xs font-medium text-primary">
-                    Reviewed by {article.reviewedBy || "Dr. Amina Patel"}
+                    Reviewed by {reviewerName}
                   </span>
                 </div>
               </div>
@@ -183,7 +194,6 @@ const BlogPost = () => {
           </div>
         </header>
 
-        {/* Article body */}
         <article className="container mx-auto px-6 md:px-10 py-10 md:py-14 max-w-[720px]">
           <TableOfContents html={article.content} />
 
@@ -205,7 +215,6 @@ const BlogPost = () => {
 
           <HealthToolsCTA />
 
-          {/* Share + helpfulness section */}
           <div className="mt-14 pt-8 border-t border-border/20">
             {slug && <SocialShareButtons title={article.title} slug={slug} />}
             {slug && <BlogHelpfulness slug={slug} />}

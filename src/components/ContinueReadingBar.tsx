@@ -2,17 +2,10 @@ import { memo, useState, useEffect, useMemo, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowRight, BookOpen } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { blogArticles } from "@/data/blogArticles";
+import { useNextArticle } from "@/hooks/useBlogArticles";
 
 interface ContinueReadingBarProps {
   currentSlug: string;
-}
-
-function getNextArticle(currentSlug: string) {
-  const slugs = Object.keys(blogArticles);
-  const idx = slugs.indexOf(currentSlug);
-  const nextSlug = slugs[(idx + 1) % slugs.length];
-  return { slug: nextSlug, title: blogArticles[nextSlug]?.title ?? "Next Article" };
 }
 
 const SWIPE_THRESHOLD = 50;
@@ -22,7 +15,7 @@ const ContinueReadingBar = memo(({ currentSlug }: ContinueReadingBarProps) => {
   const [visible, setVisible] = useState(false);
   const [dismissed, setDismissed] = useState(false);
   const [swipeOffset, setSwipeOffset] = useState({ x: 0, y: 0 });
-  const next = useMemo(() => getNextArticle(currentSlug), [currentSlug]);
+  const { data: next } = useNextArticle(currentSlug);
   const navigate = useNavigate();
   const touchStart = useRef<{ x: number; y: number } | null>(null);
   const swipingRef = useRef(false);
@@ -54,16 +47,14 @@ const ContinueReadingBar = memo(({ currentSlug }: ContinueReadingBarProps) => {
     const dx = t.clientX - touchStart.current.x;
     const dy = t.clientY - touchStart.current.y;
     if (Math.abs(dy) > Math.abs(dx)) {
-      // Only allow upward swipe (negative dy)
       setSwipeOffset({ x: 0, y: Math.min(0, dy) });
     } else {
-      // Only allow rightward swipe (positive dx)
       setSwipeOffset({ x: Math.max(0, dx), y: 0 });
     }
   }, []);
 
   const onTouchEnd = useCallback(() => {
-    if (!swipingRef.current) return;
+    if (!swipingRef.current || !next) return;
     swipingRef.current = false;
     const { x, y } = swipeOffset;
     if (y < -SWIPE_THRESHOLD) {
@@ -73,13 +64,13 @@ const ContinueReadingBar = memo(({ currentSlug }: ContinueReadingBarProps) => {
     }
     setSwipeOffset({ x: 0, y: 0 });
     touchStart.current = null;
-  }, [swipeOffset, navigate, next.slug]);
+  }, [swipeOffset, navigate, next]);
 
-  const showBar = visible && !dismissed;
+  const showBar = visible && !dismissed && !!next;
 
   return (
     <AnimatePresence>
-      {showBar && (
+      {showBar && next && (
         <motion.div
           initial={{ y: 80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -87,7 +78,6 @@ const ContinueReadingBar = memo(({ currentSlug }: ContinueReadingBarProps) => {
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
           className="fixed bottom-0 left-0 right-0 z-40 md:bottom-4 md:left-1/2 md:-translate-x-1/2 md:max-w-2xl md:rounded-2xl"
         >
-          {/* Inner div handles swipe offset without conflicting with framer-motion */}
           <div
             onTouchStart={onTouchStart}
             onTouchMove={onTouchMove}
@@ -102,12 +92,10 @@ const ContinueReadingBar = memo(({ currentSlug }: ContinueReadingBarProps) => {
               transition: swipingRef.current ? 'none' : 'transform 0.2s, opacity 0.2s',
             }}
           >
-            {/* Swipe hint on mobile */}
             <div className="flex justify-center md:hidden pt-1.5 pb-0.5">
               <div className="w-8 h-1 rounded-full bg-muted-foreground/30" />
             </div>
 
-            {/* Progress track */}
             <div className="h-1 w-full bg-muted/40 md:rounded-t-2xl overflow-hidden">
               <div
                 className="h-full bg-primary transition-[width] duration-200 ease-out"
