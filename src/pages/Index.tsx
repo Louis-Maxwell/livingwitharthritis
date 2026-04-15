@@ -11,24 +11,25 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import ViewportSection from "@/components/ui/ViewportSection";
 import { photoBreakCommunity, photoBreakActive } from "@/data/images";
 
-/* ─── Extracted components (eagerly loaded — critical path) ──────────── */
+/* ─── Critical path (above the fold only) ────────────────────────────── */
 import TrustBar from "@/components/landing/TrustBar";
-import StatsBand from "@/components/landing/StatsBand";
-import ActionPathSection from "@/components/landing/ActionPathSection";
-import ExpertContentSection from "@/components/landing/ExpertContentSection";
-import WhyUsSection from "@/components/landing/WhyUsSection";
-import PhotoBreak from "@/components/landing/PhotoBreak";
-import BlogPreview from "@/components/landing/BlogPreview";
-import LeadCaptureSection from "@/components/landing/LeadCaptureSection";
-import ContactSection from "@/components/landing/ContactSection";
-import AITrustSection from "@/components/landing/AITrustSection";
-import BackToTopButton from "@/components/landing/BackToTopButton";
-import CookieBanner from "@/components/landing/CookieBanner";
 import SkeletonSection from "@/components/landing/SkeletonSection";
 
-/* ─── Lazy imports (below the fold) ─────────────────────────────────── */
+/* ─── Lazy imports (everything below the fold) ──────────────────────── */
+const StatsBand = lazy(() => import("@/components/landing/StatsBand"));
+const ActionPathSection = lazy(() => import("@/components/landing/ActionPathSection"));
+const ExpertContentSection = lazy(() => import("@/components/landing/ExpertContentSection"));
+const WhyUsSection = lazy(() => import("@/components/landing/WhyUsSection"));
+const PhotoBreak = lazy(() => import("@/components/landing/PhotoBreak"));
+const BlogPreview = lazy(() => import("@/components/landing/BlogPreview"));
+const LeadCaptureSection = lazy(() => import("@/components/landing/LeadCaptureSection"));
+const ContactSection = lazy(() => import("@/components/landing/ContactSection"));
+const AITrustSection = lazy(() => import("@/components/landing/AITrustSection"));
+const BackToTopButton = lazy(() => import("@/components/landing/BackToTopButton"));
+const CookieBanner = lazy(() => import("@/components/landing/CookieBanner"));
 const Footer = lazy(() => import("@/components/Footer"));
 const QuickAccessSection = lazy(() => import("@/components/landing/QuickAccessSection"));
 const ContentDepthSection = lazy(() => import("@/components/landing/ContentDepthSection"));
@@ -224,79 +225,156 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
 
         <main id="main-content" role="main" tabIndex={-1}>
           <HeroSection />
-          <StatsBand />
-          <ActionPathSection />
 
-          <Suspense fallback={<SkeletonSection />}>
-            <QuickAccessSection />
-          </Suspense>
-          <Suspense fallback={<SkeletonSection />}>
-            <HowItWorksSection />
-          </Suspense>
-          <Suspense fallback={<SkeletonSection />}>
-            <ServicesGrid />
-          </Suspense>
+          <ViewportSection rootMargin="400px" minHeight="120px">
+            <Suspense fallback={<SkeletonSection />}>
+              <StatsBand />
+            </Suspense>
+          </ViewportSection>
 
-          <ExpertContentSection />
+          <ViewportSection rootMargin="400px" minHeight="300px">
+            <Suspense fallback={<SkeletonSection />}>
+              <ActionPathSection />
+            </Suspense>
+          </ViewportSection>
 
-          <Suspense fallback={null}>
-            <GeometricCubeSection />
-          </Suspense>
-          <Suspense fallback={null}>
-            <ParticleNetworkSection />
-          </Suspense>
+          <ViewportSection rootMargin="300px" minHeight="300px">
+            <Suspense fallback={<SkeletonSection />}>
+              <QuickAccessSection />
+            </Suspense>
+          </ViewportSection>
 
-          <PhotoBreak
-            image={photoBreakCommunity}
-            alt="Members of the Living With Arthritis UK community supporting one another"
-            quote="No one should face arthritis alone. Together, we're changing what's possible."
-            attr={SITE_NAME}
-          />
+          <ViewportSection rootMargin="300px" minHeight="300px">
+            <Suspense fallback={<SkeletonSection />}>
+              <HowItWorksSection />
+            </Suspense>
+          </ViewportSection>
 
-          <WhyUsSection />
+          <ViewportSection rootMargin="300px" minHeight="300px">
+            <Suspense fallback={<SkeletonSection />}>
+              <ServicesGrid />
+            </Suspense>
+          </ViewportSection>
 
-          <Suspense fallback={<SkeletonSection />}>
-            <ContentDepthSection />
-          </Suspense>
-          <Suspense fallback={<SkeletonSection />}>
-            <QuoteSection />
-          </Suspense>
-          <Suspense fallback={<SkeletonSection />}>
-            <AboutSection />
-          </Suspense>
+          <ViewportSection rootMargin="300px" minHeight="300px">
+            <Suspense fallback={<SkeletonSection />}>
+              <ExpertContentSection />
+            </Suspense>
+          </ViewportSection>
 
-          <BlogPreview />
+          <ViewportSection rootMargin="200px" minHeight="400px">
+            <Suspense fallback={null}>
+              <GeometricCubeSection />
+            </Suspense>
+          </ViewportSection>
 
-          <Suspense fallback={<SkeletonSection />}>
-            <TestimonialsSection />
-          </Suspense>
+          <ViewportSection rootMargin="200px" minHeight="400px">
+            <Suspense fallback={null}>
+              <ParticleNetworkSection />
+            </Suspense>
+          </ViewportSection>
 
-          <PhotoBreak
-            image={photoBreakActive}
-            alt="Person with arthritis enjoying an active walk outdoors"
-            quote="Movement is medicine. Every step forward is a victory worth celebrating."
-            attr="Living With Arthritis UK Clinical Team"
-          />
+          <ViewportSection rootMargin="200px" minHeight="200px">
+            <Suspense fallback={<SkeletonSection />}>
+              <PhotoBreak
+                image={photoBreakCommunity}
+                alt="Members of the Living With Arthritis UK community supporting one another"
+                quote="No one should face arthritis alone. Together, we're changing what's possible."
+                attr={SITE_NAME}
+              />
+            </Suspense>
+          </ViewportSection>
 
-          <Suspense fallback={<SkeletonSection />}>
-            <DonationImpactSection />
-          </Suspense>
+          <ViewportSection rootMargin="200px" minHeight="300px">
+            <Suspense fallback={<SkeletonSection />}>
+              <WhyUsSection />
+            </Suspense>
+          </ViewportSection>
 
-          <LeadCaptureSection />
+          <ViewportSection rootMargin="200px" minHeight="300px">
+            <Suspense fallback={<SkeletonSection />}>
+              <ContentDepthSection />
+            </Suspense>
+          </ViewportSection>
 
-          <Suspense fallback={<SkeletonSection />}>
-            <FAQSection />
-          </Suspense>
-          <Suspense fallback={<SkeletonSection />}>
-            <NewsletterSection />
-          </Suspense>
+          <ViewportSection rootMargin="200px" minHeight="200px">
+            <Suspense fallback={<SkeletonSection />}>
+              <QuoteSection />
+            </Suspense>
+          </ViewportSection>
 
-          <ContactSection />
-          <AITrustSection />
+          <ViewportSection rootMargin="200px" minHeight="300px">
+            <Suspense fallback={<SkeletonSection />}>
+              <AboutSection />
+            </Suspense>
+          </ViewportSection>
+
+          <ViewportSection rootMargin="200px" minHeight="300px">
+            <Suspense fallback={<SkeletonSection />}>
+              <BlogPreview />
+            </Suspense>
+          </ViewportSection>
+
+          <ViewportSection rootMargin="200px" minHeight="300px">
+            <Suspense fallback={<SkeletonSection />}>
+              <TestimonialsSection />
+            </Suspense>
+          </ViewportSection>
+
+          <ViewportSection rootMargin="200px" minHeight="200px">
+            <Suspense fallback={<SkeletonSection />}>
+              <PhotoBreak
+                image={photoBreakActive}
+                alt="Person with arthritis enjoying an active walk outdoors"
+                quote="Movement is medicine. Every step forward is a victory worth celebrating."
+                attr="Living With Arthritis UK Clinical Team"
+              />
+            </Suspense>
+          </ViewportSection>
+
+          <ViewportSection rootMargin="200px" minHeight="300px">
+            <Suspense fallback={<SkeletonSection />}>
+              <DonationImpactSection />
+            </Suspense>
+          </ViewportSection>
+
+          <ViewportSection rootMargin="200px" minHeight="200px">
+            <Suspense fallback={<SkeletonSection />}>
+              <LeadCaptureSection />
+            </Suspense>
+          </ViewportSection>
+
+          <ViewportSection rootMargin="200px" minHeight="300px">
+            <Suspense fallback={<SkeletonSection />}>
+              <FAQSection />
+            </Suspense>
+          </ViewportSection>
+
+          <ViewportSection rootMargin="200px" minHeight="200px">
+            <Suspense fallback={<SkeletonSection />}>
+              <NewsletterSection />
+            </Suspense>
+          </ViewportSection>
+
+          <ViewportSection rootMargin="200px" minHeight="200px">
+            <Suspense fallback={<SkeletonSection />}>
+              <ContactSection />
+            </Suspense>
+          </ViewportSection>
+
+          <ViewportSection rootMargin="200px" minHeight="200px">
+            <Suspense fallback={<SkeletonSection />}>
+              <AITrustSection />
+            </Suspense>
+          </ViewportSection>
         </main>
 
-        <BackToTopButton />
-        <CookieBanner onAnalyticsChange={handleAnalyticsChange} />
+        <Suspense fallback={null}>
+          <BackToTopButton />
+        </Suspense>
+        <Suspense fallback={null}>
+          <CookieBanner onAnalyticsChange={handleAnalyticsChange} />
+        </Suspense>
 
         <noscript>
           <div style={{ padding: "3rem", textAlign: "center", fontFamily: "Georgia, serif", maxWidth: "640px", margin: "0 auto" }}>
