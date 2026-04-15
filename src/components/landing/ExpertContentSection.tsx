@@ -14,7 +14,7 @@ const topics = [
       "Contact your rheumatology team if the flare lasts more than 48 hours",
     ],
     cta: "Read the full flare-up guide",
-    href: "/guides/flare-ups",
+    href: "/arthritis-flare-ups",
     bg: "from-destructive/5 to-amber/5",
     tag_color: "bg-destructive/10 text-destructive",
   },
@@ -29,7 +29,7 @@ const topics = [
       "Evening: joint mobility exercises + sleep hygiene wind-down",
     ],
     cta: "View the full daily routine",
-    href: "/guides/daily-routine",
+    href: "/guides/exercise",
     bg: "from-primary/5 to-sky/5",
     tag_color: "bg-primary/10 text-primary",
   },
@@ -44,7 +44,7 @@ const topics = [
       "Chronic stress and anxiety amplifying inflammatory responses",
     ],
     cta: "Track your triggers now",
-    href: "/symptom-tracker",
+    href: "/self-help",
     bg: "from-violet/5 to-violet/10",
     tag_color: "bg-violet/10 text-violet",
   },
@@ -97,7 +97,7 @@ const ExpertContentSection = memo(() => (
 
       <div className="mt-12 text-center">
         <Link
-          to="/guides"
+          to="/expert-articles"
           className="inline-flex items-center gap-3 rounded-full bg-primary px-9 py-4 text-sm font-bold text-primary-foreground shadow-lg hover:bg-primary/90 hover:-translate-y-1 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
         >
           <BookOpen className="w-4 h-4" aria-hidden="true" />
