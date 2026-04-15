@@ -71,13 +71,13 @@ const ActionPathSection = memo(() => (
 
       <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
         <Link
-          to="/symptom-tracker"
+          to="/self-help"
           className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-lg hover:bg-primary/90 hover:-translate-y-0.5 transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
         >
           Start tracking your symptoms <ArrowRight className="w-5 h-5" aria-hidden="true" />
         </Link>
         <Link
-          to="/how-it-works"
+          to="/about"
           className="inline-flex items-center gap-2 text-muted-foreground font-medium hover:text-foreground transition-colors"
         >
           Learn how it works <ChevronRight className="w-4 h-4" aria-hidden="true" />
