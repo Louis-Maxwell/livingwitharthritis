@@ -369,8 +369,12 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
           </ViewportSection>
         </main>
 
-        <BackToTopButton />
-        <CookieBanner onAnalyticsChange={handleAnalyticsChange} />
+        <Suspense fallback={null}>
+          <BackToTopButton />
+        </Suspense>
+        <Suspense fallback={null}>
+          <CookieBanner onAnalyticsChange={handleAnalyticsChange} />
+        </Suspense>
 
         <noscript>
           <div style={{ padding: "3rem", textAlign: "center", fontFamily: "Georgia, serif", maxWidth: "640px", margin: "0 auto" }}>
