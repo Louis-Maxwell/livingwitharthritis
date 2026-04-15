@@ -16,6 +16,15 @@ import ScrollProgress from "@/components/ScrollProgress";
 import ContinueReadingBar from "@/components/ContinueReadingBar";
 import HealthToolsCTA from "@/components/HealthToolsCTA";
 import { Skeleton } from "@/components/ui/skeleton";
+import { marked } from "marked";
+
+function markdownToHtml(md: string): string {
+  // If content already looks like HTML, return as-is
+  if (md.trim().startsWith("<")) return md;
+  // Database may store literal \n instead of real newlines
+  const normalized = md.replace(/\\n/g, "\n");
+  return marked.parse(normalized, { async: false }) as string;
+}
 
 function getReadingTime(html: string) {
   const text = html.replace(/<[^>]*>/g, " ");
@@ -55,7 +64,8 @@ const BlogPost = () => {
     );
   }
 
-  const readingTime = getReadingTime(article.content);
+  const htmlContent = markdownToHtml(article.content);
+  const readingTime = getReadingTime(htmlContent);
   const publishDate = new Date(article.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
   const metaTitle = article.meta_title || article.title;
   const metaDesc = article.meta_description || article.excerpt;
@@ -117,7 +127,7 @@ const BlogPost = () => {
           "author": { "@type": "Organization", "name": authorName, "url": "https://livingwitharthritis.org.uk" },
           "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk", "logo": { "@type": "ImageObject", "url": "https://livingwitharthritis.org.uk/favicon.ico", "width": 512, "height": 512 } },
           "mainEntityOfPage": { "@type": "WebPage", "@id": `https://livingwitharthritis.org.uk/blog/${slug}` },
-          "wordCount": article.content.replace(/<[^>]*>/g, " ").trim().split(/\s+/).length,
+          "wordCount": htmlContent.replace(/<[^>]*>/g, " ").trim().split(/\s+/).length,
           "inLanguage": "en-GB",
           "isAccessibleForFree": true,
           "articleSection": "Health"
@@ -195,7 +205,7 @@ const BlogPost = () => {
         </header>
 
         <article className="container mx-auto px-6 md:px-10 py-10 md:py-14 max-w-[720px]">
-          <TableOfContents html={article.content} />
+          <TableOfContents html={htmlContent} />
 
           <div
             className="blog-prose prose prose-lg max-w-none text-foreground/90
@@ -210,7 +220,7 @@ const BlogPost = () => {
               prose-img:rounded-xl prose-img:shadow-sm prose-img:my-8
               prose-ul:my-6 prose-ol:my-6
               first:prose-p:first-letter:text-5xl first:prose-p:first-letter:font-bold first:prose-p:first-letter:text-primary first:prose-p:first-letter:float-left first:prose-p:first-letter:mr-3 first:prose-p:first-letter:mt-1 first:prose-p:first-letter:leading-none"
-            dangerouslySetInnerHTML={{ __html: addHeadingIds(article.content) }}
+            dangerouslySetInnerHTML={{ __html: addHeadingIds(htmlContent) }}
           />
 
           <HealthToolsCTA />
