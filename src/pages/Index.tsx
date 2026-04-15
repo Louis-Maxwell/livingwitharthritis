@@ -11,24 +11,25 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import ViewportSection from "@/components/ui/ViewportSection";
 import { photoBreakCommunity, photoBreakActive } from "@/data/images";
 
-/* ─── Extracted components (eagerly loaded — critical path) ──────────── */
+/* ─── Critical path (above the fold only) ────────────────────────────── */
 import TrustBar from "@/components/landing/TrustBar";
-import StatsBand from "@/components/landing/StatsBand";
-import ActionPathSection from "@/components/landing/ActionPathSection";
-import ExpertContentSection from "@/components/landing/ExpertContentSection";
-import WhyUsSection from "@/components/landing/WhyUsSection";
-import PhotoBreak from "@/components/landing/PhotoBreak";
-import BlogPreview from "@/components/landing/BlogPreview";
-import LeadCaptureSection from "@/components/landing/LeadCaptureSection";
-import ContactSection from "@/components/landing/ContactSection";
-import AITrustSection from "@/components/landing/AITrustSection";
-import BackToTopButton from "@/components/landing/BackToTopButton";
-import CookieBanner from "@/components/landing/CookieBanner";
 import SkeletonSection from "@/components/landing/SkeletonSection";
 
-/* ─── Lazy imports (below the fold) ─────────────────────────────────── */
+/* ─── Lazy imports (everything below the fold) ──────────────────────── */
+const StatsBand = lazy(() => import("@/components/landing/StatsBand"));
+const ActionPathSection = lazy(() => import("@/components/landing/ActionPathSection"));
+const ExpertContentSection = lazy(() => import("@/components/landing/ExpertContentSection"));
+const WhyUsSection = lazy(() => import("@/components/landing/WhyUsSection"));
+const PhotoBreak = lazy(() => import("@/components/landing/PhotoBreak"));
+const BlogPreview = lazy(() => import("@/components/landing/BlogPreview"));
+const LeadCaptureSection = lazy(() => import("@/components/landing/LeadCaptureSection"));
+const ContactSection = lazy(() => import("@/components/landing/ContactSection"));
+const AITrustSection = lazy(() => import("@/components/landing/AITrustSection"));
+const BackToTopButton = lazy(() => import("@/components/landing/BackToTopButton"));
+const CookieBanner = lazy(() => import("@/components/landing/CookieBanner"));
 const Footer = lazy(() => import("@/components/Footer"));
 const QuickAccessSection = lazy(() => import("@/components/landing/QuickAccessSection"));
 const ContentDepthSection = lazy(() => import("@/components/landing/ContentDepthSection"));
