@@ -860,7 +860,7 @@ const GetInTouchSection = memo(() => {
     setLoading(true);
     try {
       // 1. Persist to database
-      const { error: dbErr } = await supabase.from("contact_enquiries").insert({
+      const { error: dbErr } = await supabase.from("contact_inquiries").insert({
         name: form.name.trim(),
         email: form.email.trim().toLowerCase(),
         subject: form.subject,
