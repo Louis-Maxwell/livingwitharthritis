@@ -62,7 +62,7 @@ const BlogPreview = memo(() => {
         {featured && (
           <article className="mb-10 rounded-2xl overflow-hidden bg-card shadow-sm ring-1 ring-border md:flex">
             <Link to={`/blog/${featured.slug}`} className="md:w-1/2 block">
-              <img src={featured.image_url || FALLBACK_IMG} alt="" aria-hidden="true" className="w-full h-72 object-cover" loading="lazy" />
+              <img src={featured.image_url || FALLBACK_IMG} srcSet={imgSrcSet(featured.image_url)} sizes="(max-width: 768px) 100vw, 50vw" alt="" aria-hidden="true" className="w-full h-72 object-cover" loading="lazy" decoding="async" />
             </Link>
             <div className="p-6 flex flex-col justify-center">
               <span className="text-xs font-semibold text-primary bg-primary/5 px-3 py-1 rounded-full w-fit">{featured.category}</span>
@@ -84,7 +84,7 @@ const BlogPreview = memo(() => {
           {rest.map((a) => (
             <article key={a.slug} className="group bg-card rounded-2xl shadow-sm ring-1 ring-border overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all">
               <Link to={`/blog/${a.slug}`} className="block aspect-[16/10] overflow-hidden" tabIndex={-1} aria-hidden="true">
-                <img src={a.image_url || FALLBACK_IMG} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                <img src={a.image_url || FALLBACK_IMG} srcSet={imgSrcSet(a.image_url)} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
               </Link>
               <div className="p-5">
                 <span className="text-xs font-semibold text-primary bg-primary/5 px-3 py-1 rounded-full">{a.category}</span>
