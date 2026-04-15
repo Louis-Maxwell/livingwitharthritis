@@ -1,6 +1,26 @@
 // Centralised open-source image URLs (Unsplash — free to use)
 // All images served via Unsplash CDN with size parameters for performance
 
+/**
+ * Generate a responsive srcSet string for any Unsplash image URL.
+ * Strips existing w= and q= params and produces multiple widths.
+ */
+export function unsplashSrcSet(
+  url: string,
+  widths = [400, 640, 800, 1080, 1400],
+  quality = 80,
+): string {
+  const base = url.split("?")[0];
+  return widths
+    .map((w) => `${base}?w=${w}&q=${quality}&auto=format ${w}w`)
+    .join(", ");
+}
+
+/** Common sizes attribute for typical content images */
+export const defaultSizes = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw";
+export const heroSizes = "(min-width: 1024px) 50vw, 100vw";
+export const fullWidthSizes = "100vw";
+
 // ── Hero & general ──────────────────────────────────────────
 export const heroLifestyle = "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80"; // older couple walking outdoors
 export const heroLifestyleSrcSet = [
