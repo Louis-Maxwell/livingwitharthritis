@@ -2,18 +2,26 @@ import { memo, useEffect, useRef } from "react";
 
 /**
  * Subtle 3D floating orbs for the hero background.
- * Lightweight canvas overlay with soft glowing spheres that drift slowly.
+ * Pauses animation when off-screen to save CPU/GPU.
  */
 const Hero3DBackground = memo(() => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animId = useRef(0);
   const timeRef = useRef(0);
+  const visibleRef = useRef(true);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
+
+    // Pause when off-screen
+    const io = new IntersectionObserver(
+      ([entry]) => { visibleRef.current = entry.isIntersecting; },
+      { threshold: 0 }
+    );
+    io.observe(canvas);
 
     interface Orb {
       x: number; y: number; z: number;
@@ -23,11 +31,11 @@ const Hero3DBackground = memo(() => {
 
     const orbs: Orb[] = [];
     const colors = [
-      "228, 0, 43",    // crimson
-      "200, 160, 80",  // gold
-      "180, 40, 60",   // deep rose
-      "220, 180, 120", // warm amber
-      "160, 30, 50",   // dark crimson
+      "228, 0, 43",
+      "200, 160, 80",
+      "180, 40, 60",
+      "220, 180, 120",
+      "160, 30, 50",
     ];
 
     for (let i = 0; i < 8; i++) {
@@ -43,18 +51,21 @@ const Hero3DBackground = memo(() => {
       });
     }
 
+    let w = 0, h = 0;
+
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       const rect = canvas.getBoundingClientRect();
-      canvas.width = rect.width * dpr;
-      canvas.height = rect.height * dpr;
+      w = rect.width;
+      h = rect.height;
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
 
     const loop = () => {
-      const rect = canvas.getBoundingClientRect();
-      const w = rect.width;
-      const h = rect.height;
+      animId.current = requestAnimationFrame(loop);
+      if (!visibleRef.current) return; // skip drawing when off-screen
 
       ctx.clearRect(0, 0, w, h);
       timeRef.current += 0.008;
@@ -76,8 +87,6 @@ const Hero3DBackground = memo(() => {
         ctx.fillStyle = gradient;
         ctx.fill();
       }
-
-      animId.current = requestAnimationFrame(loop);
     };
 
     resize();
@@ -87,6 +96,7 @@ const Hero3DBackground = memo(() => {
     return () => {
       cancelAnimationFrame(animId.current);
       window.removeEventListener("resize", resize);
+      io.disconnect();
     };
   }, []);
 
