@@ -13,6 +13,8 @@ import {
   Clock, ShieldCheck, HeartPulse, Snowflake, Activity,
   Pill, Apple, BadgeCheck, ChevronRight
 } from "lucide-react";
+import CrossLinkBanner from "@/components/CrossLinkBanner";
+import InternalLinks from "@/components/InternalLinks";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 
 const defined = (v: string) => `hsl(var(${v}))`;
@@ -517,8 +519,10 @@ export default function ArthritisFlareUps() {
         <p className="text-xs text-muted-foreground mt-8 leading-relaxed">
           <strong>Medical disclaimer:</strong> This guide is for educational purposes only and does not replace professional medical advice. Content is aligned with publicly available NHS and NICE guidance as of March 2026. Always consult your GP, rheumatologist, or physiotherapist before making changes to your treatment plan. In an emergency, call 999.
         </p>
+        <CrossLinkBanner preset="flareup" exclude="/arthritis-flare-ups" title="More arthritis resources" />
       </article>
 
+      <InternalLinks />
       <Footer />
     </>
   );

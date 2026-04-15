@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import PageHero from "@/components/ui/PageHero";
 import { StatCounter, WaveDivider } from "@/components/graphics/InfographicElements";
 import InternalLinks from "@/components/InternalLinks";
+import CrossLinkBanner from "@/components/CrossLinkBanner";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 
 const BASE = "https://livingwitharthritis.org.uk";
@@ -294,6 +295,7 @@ const PsoriaticArthritis = () => (
               Read our articles
             </Link>
           </div>
+          <CrossLinkBanner preset="condition" exclude="/conditions/psoriatic-arthritis" title="Explore related resources" />
         </div>
       </main>
       <InternalLinks />

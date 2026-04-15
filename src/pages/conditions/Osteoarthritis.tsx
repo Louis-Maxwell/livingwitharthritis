@@ -6,6 +6,7 @@ import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, ThermometerSun, Book
 import { motion } from "framer-motion";
 import { StatCounter, HorizontalBar, WaveDivider, EmojiCard } from "@/components/graphics/InfographicElements";
 import InternalLinks from "@/components/InternalLinks";
+import CrossLinkBanner from "@/components/CrossLinkBanner";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 
 const BASE = "https://livingwitharthritis.org.uk";
@@ -337,6 +338,7 @@ const Osteoarthritis = () => (
               Read our articles
             </Link>
           </div>
+          <CrossLinkBanner preset="condition" exclude="/conditions/osteoarthritis" title="Explore related resources" />
         </div>
       </main>
       <InternalLinks />

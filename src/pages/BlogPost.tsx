@@ -15,6 +15,8 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import ScrollProgress from "@/components/ScrollProgress";
 import ContinueReadingBar from "@/components/ContinueReadingBar";
 import HealthToolsCTA from "@/components/HealthToolsCTA";
+import CrossLinkBanner from "@/components/CrossLinkBanner";
+import InternalLinks from "@/components/InternalLinks";
 import { Skeleton } from "@/components/ui/skeleton";
 import { marked } from "marked";
 
@@ -230,10 +232,13 @@ const BlogPost = () => {
             {slug && <BlogHelpfulness slug={slug} />}
           </div>
 
+          <CrossLinkBanner preset="blog" exclude={`/blog/${slug}`} title="Related resources" />
+
           {slug && <RelatedArticles currentSlug={slug} />}
           {slug && <BlogComments slug={slug} />}
         </article>
         {slug && <ContinueReadingBar currentSlug={slug} />}
+        <InternalLinks />
         <Footer />
       </div>
     </>
