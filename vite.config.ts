@@ -30,7 +30,6 @@ export default defineConfig(({ mode }) => ({
           vendor: ["react", "react-dom"],
           router: ["react-router-dom"],
           motion: ["framer-motion"],
-          icons: ["lucide-react"],
           query: ["@tanstack/react-query"],
           supabase: ["@supabase/supabase-js"],
           helmet: ["react-helmet-async"],
