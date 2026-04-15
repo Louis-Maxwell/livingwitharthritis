@@ -181,9 +181,10 @@ const DonationBanner = () => {
       <div className="hidden lg:block">
         <div className="container mx-auto px-4 py-2.5">
           <div className="flex flex-wrap items-center justify-center gap-2">
-            <div className="flex items-center bg-white/10 rounded-full p-0.5 h-8">
+            <div className="flex items-center bg-white/10 rounded-full p-0.5 h-8" role="group" aria-label="Donation frequency">
               <button
                 onClick={() => handleRecurringToggle(false)}
+                aria-pressed={!recurring}
                 className={`px-3 h-7 rounded-full text-[11px] font-bold tracking-wide transition-all ${
                   !recurring ? "bg-primary text-primary-foreground" : "text-white/60 hover:text-white/80"
                 }`}
@@ -192,6 +193,7 @@ const DonationBanner = () => {
               </button>
               <button
                 onClick={() => handleRecurringToggle(true)}
+                aria-pressed={recurring}
                 className={`px-3 h-7 rounded-full text-[11px] font-bold tracking-wide transition-all ${
                   recurring ? "bg-primary text-white" : "text-white/60 hover:text-white/80"
                 }`}
@@ -204,7 +206,7 @@ const DonationBanner = () => {
               <span className="text-sm mr-1.5">
                 {currency === "GBP" ? "🇬🇧" : currency === "USD" ? "🇺🇸" : "🇪🇺"}
               </span>
-              <Select value={currency} onValueChange={setCurrency}>
+              <Select value={currency} onValueChange={setCurrency} aria-label="Select currency">
                 <SelectTrigger className="w-14 border-0 p-0 h-auto bg-transparent text-white/90 font-medium text-xs focus:ring-0 focus:ring-offset-0">
                   <SelectValue />
                 </SelectTrigger>
@@ -216,7 +218,9 @@ const DonationBanner = () => {
               </Select>
             </div>
 
+            <label htmlFor="donation-amount-desktop" className="sr-only">Donation amount</label>
             <Input
+              id="donation-amount-desktop"
               placeholder="Amount"
               type="number"
               min="1"
@@ -226,13 +230,15 @@ const DonationBanner = () => {
               className="w-24 bg-white/10 border-0 text-white placeholder:text-white/40 font-medium text-xs h-8 rounded-full"
             />
 
-            <div className="flex gap-1.5">
+            <div className="flex gap-1.5" role="group" aria-label="Quick donation amounts">
               {quickAmounts.map((value) => (
                 <Button
                   key={value}
                   variant={selectedQuickAmount === value ? "default" : "outline"}
                   size="sm"
                   onClick={() => handleQuickAmount(value)}
+                  aria-pressed={selectedQuickAmount === value}
+                  aria-label={`Donate ${getCurrencySymbol()}${value}${recurring ? " per month" : ""}`}
                   className={`${
                     selectedQuickAmount === value
                       ? recurring
@@ -246,7 +252,7 @@ const DonationBanner = () => {
               ))}
             </div>
 
-            <Select value={fundType} onValueChange={setFundType}>
+            <Select value={fundType} onValueChange={setFundType} aria-label="Select fund type">
               <SelectTrigger className="w-40 bg-white/10 border-0 text-white/80 text-xs h-8 rounded-full focus:ring-0 focus:ring-offset-0">
                 <SelectValue />
               </SelectTrigger>
