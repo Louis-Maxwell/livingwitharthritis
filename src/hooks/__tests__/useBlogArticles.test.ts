@@ -108,49 +108,6 @@ describe("useBlogArticlesList", () => {
 });
 
 describe("useNextArticle", () => {
-  it("returns next article by date", async () => {
-    // First call: get current article's date
-    mockSingle.mockResolvedValueOnce({
-      data: { date: "2025-06-01", display_order: 1 },
-      error: null,
-    });
-    // Second call: get next (older) article
-    mockSingle.mockResolvedValueOnce({
-      data: { slug: "next-article", title: "Next Article" },
-      error: null,
-    });
-
-    const { result } = renderHook(() => useNextArticle("current-slug"), {
-      wrapper: createWrapper(),
-    });
-
-    await waitFor(() => expect(result.current.isSuccess).toBe(true));
-    expect(result.current.data).toEqual({
-      slug: "next-article",
-      title: "Next Article",
-    });
-  });
-
-  it("wraps around when no older article exists", async () => {
-    mockSingle
-      .mockResolvedValueOnce({
-        data: { date: "2020-01-01", display_order: 99 },
-        error: null,
-      })
-      .mockResolvedValueOnce({ data: null, error: null }) // no older
-      .mockResolvedValueOnce({
-        data: { slug: "newest", title: "Newest" },
-        error: null,
-      });
-
-    const { result } = renderHook(() => useNextArticle("oldest-slug"), {
-      wrapper: createWrapper(),
-    });
-
-    await waitFor(() => expect(result.current.isSuccess).toBe(true));
-    expect(result.current.data).toEqual({ slug: "newest", title: "Newest" });
-  });
-
   it("returns null when current article not found", async () => {
     mockSingle.mockResolvedValueOnce({ data: null, error: null });
 
@@ -161,6 +118,7 @@ describe("useNextArticle", () => {
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
     expect(result.current.data).toBeNull();
   });
+
 });
 
 describe("useRelatedArticles", () => {

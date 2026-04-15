@@ -105,7 +105,7 @@ describe("BlogPost Page", () => {
     });
 
     renderBlogPost("test-article");
-    expect(screen.getByText("Managing Arthritis Pain")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 1, name: "Managing Arthritis Pain" })).toBeInTheDocument();
     expect(screen.getByText("Dr. Sarah Johnson")).toBeInTheDocument();
     expect(screen.getByText("MSc Physiotherapy")).toBeInTheDocument();
     expect(screen.getByText(/Reviewed by Dr. Amina Patel/)).toBeInTheDocument();
