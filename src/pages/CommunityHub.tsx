@@ -27,11 +27,9 @@ import {
 import PeerSupportForum from "@/components/PeerSupportForum";
 import {
   StatCounter,
-  ProgressRing,
   HorizontalBar,
   WaveDivider,
   EmojiCard,
-  IconStatRow,
   DonutChart,
 } from "@/components/graphics/InfographicElements";
 
