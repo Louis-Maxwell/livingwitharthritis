@@ -1258,6 +1258,7 @@ export type Database = {
       }
       increment_blog_view: { Args: { p_slug: string }; Returns: number }
       increment_visitor_count: { Args: never; Returns: number }
+      is_admin: { Args: never; Returns: boolean }
       move_to_dlq: {
         Args: {
           dlq_name: string

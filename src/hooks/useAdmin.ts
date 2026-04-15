@@ -16,12 +16,7 @@ export function useAdmin() {
           return;
         }
 
-        const { data, error } = await supabase
-          .from("user_roles")
-          .select("role")
-          .eq("user_id", user.id)
-          .eq("role", "admin")
-          .maybeSingle();
+        const { data, error } = await supabase.rpc("is_admin");
 
         if (error) {
           console.error("Error checking admin status:", error);
