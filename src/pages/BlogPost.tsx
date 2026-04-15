@@ -125,7 +125,7 @@ const BlogPost = () => {
           "author": { "@type": "Organization", "name": authorName, "url": "https://livingwitharthritis.org.uk" },
           "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk", "logo": { "@type": "ImageObject", "url": "https://livingwitharthritis.org.uk/favicon.ico", "width": 512, "height": 512 } },
           "mainEntityOfPage": { "@type": "WebPage", "@id": `https://livingwitharthritis.org.uk/blog/${slug}` },
-          "wordCount": article.content.replace(/<[^>]*>/g, " ").trim().split(/\s+/).length,
+          "wordCount": htmlContent.replace(/<[^>]*>/g, " ").trim().split(/\s+/).length,
           "inLanguage": "en-GB",
           "isAccessibleForFree": true,
           "articleSection": "Health"
