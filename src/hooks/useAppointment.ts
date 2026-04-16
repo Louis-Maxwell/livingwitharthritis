@@ -13,8 +13,8 @@ interface AppointmentData {
   notes?: string;
 }
 
-const MAX_ATTEMPTS = 3;
-const WINDOW_MS = 60000; // 1 minute
+const MAX_ATTEMPTS = 10;
+const WINDOW_MS = 300000; // 5 minutes
 
 export function useAppointment() {
   const [isLoading, setIsLoading] = useState(false);
