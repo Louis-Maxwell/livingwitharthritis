@@ -54,12 +54,6 @@ const HeroSection = memo(() => {
                 Free physiotherapy, anti-inflammatory diet plans, evidence-based exercises and 24/7 support — helping people across the United Kingdom manage arthritis pain and live fuller lives.
               </p>
 
-              {/* Social proof nudge */}
-              <p className="hero-item text-xs sm:text-sm text-foreground/80 font-semibold mb-2 flex items-center justify-center lg:justify-start gap-2">
-                <CheckCircle className="w-4 h-4 text-primary" />
-                10,000+ people already getting free support
-              </p>
-
               <p className="hero-item text-xs sm:text-sm text-primary/70 font-medium mb-6 sm:mb-8 flex items-center justify-center lg:justify-start gap-2">
                 <Heart className="w-3.5 h-3.5 fill-primary/20 animate-pulse-soft" />
                 Every donation helps us reach more people in need
@@ -122,13 +116,6 @@ const HeroSection = memo(() => {
               </div>
               
 
-              {/* New: floating badge top-right */}
-              <div className="absolute -top-3 -right-3 bg-gold text-gold-foreground rounded-lg px-4 py-2.5 shadow-xl shadow-gold/20 hover:scale-105 transition-transform duration-300">
-                <p className="text-[10px] font-bold tracking-[0.2em] uppercase flex items-center gap-1.5">
-                  <Sparkles className="w-3 h-3" />
-                  NHS Aligned
-                </p>
-              </div>
             </div>
           </div>
         </div>

@@ -1,21 +1,8 @@
 import { memo } from "react";
-import { Link } from "react-router-dom";
-import { ShieldCheck, Lock, Globe, Clock, Star, FileText } from "lucide-react";
+import { Lock } from "lucide-react";
 
 const items = [
-  { I: ShieldCheck, T: "HCPC Registered Clinicians" },
   { I: Lock, T: "ICO Registered · UK GDPR" },
-  { I: Globe, T: "UK Social Enterprise" },
-  { I: Clock, T: "No Waiting Lists" },
-  { I: Star, T: "NICE Guideline Aligned" },
-  {
-    I: FileText,
-    T: (
-      <Link to="/privacy" className="hover:underline underline-offset-2">
-        Privacy Policy
-      </Link>
-    ),
-  },
 ];
 
 const TrustBar = memo(() => (
