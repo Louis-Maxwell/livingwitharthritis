@@ -104,17 +104,32 @@ export function useStreamingChat() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [userId, setUserId] = useState<string | null>(null);
+  const [conversations, setConversations] = useState<ConversationSummary[]>([]);
   const conversationIdRef = useRef<string | null>(null);
   const historyLoadedRef = useRef(false);
   const loadHistoryRef = useRef<((uid: string) => Promise<void>) | null>(null);
+  const refreshConversationsRef = useRef<((uid: string) => Promise<void>) | null>(null);
 
   // Track auth + prepare lazy history loader
   useEffect(() => {
     let active = true;
 
+    const refreshConversations = async (uid: string) => {
+      const { data } = await supabase
+        .from("chat_conversations")
+        .select("id, title, updated_at")
+        .eq("user_id", uid)
+        .order("updated_at", { ascending: false })
+        .limit(50);
+      if (active && data) setConversations(data);
+    };
+    refreshConversationsRef.current = refreshConversations;
+
     const loadHistory = async (uid: string) => {
       if (historyLoadedRef.current) return;
       historyLoadedRef.current = true;
+
+      await refreshConversations(uid);
 
       const { data: convo } = await supabase
         .from("chat_conversations")
@@ -160,7 +175,10 @@ export function useStreamingChat() {
       setUserId(uid);
       conversationIdRef.current = null;
       historyLoadedRef.current = false;
-      if (!uid) setMessages([]);
+      if (!uid) {
+        setMessages([]);
+        setConversations([]);
+      }
     });
 
     return () => {
