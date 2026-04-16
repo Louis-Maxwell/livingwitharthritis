@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Send, User, Trash2, Loader2, Stethoscope, Apple, Dumbbell, HelpCircle, Heart, ShieldCheck, MessageCircle } from "lucide-react";
+import { Send, User, Trash2, Loader2, Stethoscope, Apple, Dumbbell, HelpCircle, Heart, ShieldCheck, MessageCircle, Plus } from "lucide-react";
 import { useStreamingChat, Message } from "@/hooks/useStreamingChat";
 import { cn } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
@@ -73,7 +73,7 @@ const ChatMessage = ({ message }: { message: Message; isLatest: boolean }) => {
 
 export function ChatBot() {
   const [input, setInput] = useState("");
-  const { messages, isLoading, sendMessage, clearMessages } = useStreamingChat();
+  const { messages, isLoading, sendMessage, clearMessages, newChat } = useStreamingChat();
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -124,12 +124,24 @@ export function ChatBot() {
           </div>
         </div>
         {messages.length > 0 && (
-          <button
-            onClick={clearMessages}
-            className="text-white/40 hover:text-white p-1.5 rounded-lg hover:bg-white/10 transition-colors"
-          >
-            <Trash2 className="h-3.5 w-3.5" />
-          </button>
+          <div className="flex items-center gap-1">
+            <button
+              onClick={newChat}
+              title="New chat"
+              aria-label="Start a new chat"
+              className="text-white/60 hover:text-white p-1.5 rounded-lg hover:bg-white/10 transition-colors"
+            >
+              <Plus className="h-3.5 w-3.5" />
+            </button>
+            <button
+              onClick={clearMessages}
+              title="Clear messages"
+              aria-label="Clear messages"
+              className="text-white/40 hover:text-white p-1.5 rounded-lg hover:bg-white/10 transition-colors"
+            >
+              <Trash2 className="h-3.5 w-3.5" />
+            </button>
+          </div>
         )}
       </div>
 
