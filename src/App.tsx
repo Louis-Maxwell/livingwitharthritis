@@ -50,6 +50,7 @@ const Shop = lazy(() => import("./pages/Shop"));
 const ProductDetail = lazy(() => import("./pages/ProductDetail"));
 const ArthritisSupportIndex = lazy(() => import("./pages/ArthritisSupportIndex"));
 const CityArthritisPage = lazy(() => import("./pages/CityArthritisPage"));
+const CityConditionPage = lazy(() => import("./pages/CityConditionPage"));
 const ExerciseJointPage = lazy(() => import("./pages/ExerciseJointPage"));
 const CorporateGiving = lazy(() => import("./pages/CorporateGiving"));
 const DonationSuccess = lazy(() => import("./pages/DonationSuccess"));
@@ -131,6 +132,7 @@ function AnimatedRoutes() {
         <Route path="/product/:handle" element={<ProductDetail />} />
         <Route path="/arthritis-support" element={<ArthritisSupportIndex />} />
         <Route path="/arthritis-support/:city" element={<CityArthritisPage />} />
+        <Route path="/arthritis-support/:city/:condition" element={<CityConditionPage />} />
         <Route path="/exercises/:slug" element={<ExerciseJointPage />} />
         <Route path="/sitemap" element={<Sitemap />} />
         <Route path="/corporate-giving" element={<CorporateGiving />} />
