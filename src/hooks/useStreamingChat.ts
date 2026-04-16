@@ -259,6 +259,9 @@ export function useStreamingChat() {
               .from("chat_conversations")
               .update({ updated_at: new Date().toISOString() })
               .eq("id", convoId);
+            if (refreshConversationsRef.current) {
+              await refreshConversationsRef.current(userId);
+            }
           }
         },
       });
@@ -289,6 +292,57 @@ export function useStreamingChat() {
     historyLoadedRef.current = true;
   }, []);
 
-  return { messages, isLoading, sendMessage, clearMessages, newChat, isAuthenticated: !!userId };
+  const loadConversations = useCallback(async () => {
+    if (userId && refreshConversationsRef.current) {
+      await refreshConversationsRef.current(userId);
+    }
+  }, [userId]);
+
+  const selectConversation = useCallback(async (conversationId: string) => {
+    if (!userId) return;
+    conversationIdRef.current = conversationId;
+    historyLoadedRef.current = true;
+    const { data: msgs } = await supabase
+      .from("chat_messages")
+      .select("role, content, created_at")
+      .eq("conversation_id", conversationId)
+      .order("created_at", { ascending: false })
+      .limit(30);
+    if (msgs) {
+      setMessages(
+        msgs
+          .reverse()
+          .filter((m) => m.role === "user" || m.role === "assistant")
+          .map((m) => ({ role: m.role as "user" | "assistant", content: m.content }))
+      );
+    }
+  }, [userId]);
+
+  const deleteConversation = useCallback(async (conversationId: string) => {
+    if (!userId) return;
+    await supabase.from("chat_messages").delete().eq("conversation_id", conversationId);
+    await supabase.from("chat_conversations").delete().eq("id", conversationId);
+    if (conversationIdRef.current === conversationId) {
+      setMessages([]);
+      conversationIdRef.current = null;
+    }
+    if (refreshConversationsRef.current) {
+      await refreshConversationsRef.current(userId);
+    }
+  }, [userId]);
+
+  return {
+    messages,
+    isLoading,
+    sendMessage,
+    clearMessages,
+    newChat,
+    isAuthenticated: !!userId,
+    conversations,
+    loadConversations,
+    selectConversation,
+    deleteConversation,
+    activeConversationId: conversationIdRef.current,
+  };
 }
 
