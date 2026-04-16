@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Send, User, Trash2, Loader2, Stethoscope, Apple, Dumbbell, HelpCircle, Heart, ShieldCheck, MessageCircle, Plus } from "lucide-react";
+import { Send, User, Trash2, Loader2, Stethoscope, Apple, Dumbbell, HelpCircle, Heart, ShieldCheck, MessageCircle, Plus, History, X } from "lucide-react";
 import { useStreamingChat, Message } from "@/hooks/useStreamingChat";
 import { cn } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
