@@ -1,5 +1,6 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 export type Message = {
   role: "user" | "assistant";
@@ -72,7 +73,6 @@ async function streamChat({
     }
   }
 
-  // Final flush
   if (textBuffer.trim()) {
     for (let raw of textBuffer.split("\n")) {
       if (!raw) continue;
@@ -86,7 +86,7 @@ async function streamChat({
         const content = parsed.choices?.[0]?.delta?.content as string | undefined;
         if (content) onDelta(content);
       } catch {
-        /* ignore partial leftovers */
+        /* ignore */
       }
     }
   }
@@ -97,6 +97,81 @@ async function streamChat({
 export function useStreamingChat() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [userId, setUserId] = useState<string | null>(null);
+  const conversationIdRef = useRef<string | null>(null);
+
+  // Track auth + load latest conversation history for logged-in users
+  useEffect(() => {
+    let active = true;
+
+    const loadHistory = async (uid: string) => {
+      const { data: convo } = await supabase
+        .from("chat_conversations")
+        .select("id")
+        .eq("user_id", uid)
+        .order("updated_at", { ascending: false })
+        .limit(1)
+        .maybeSingle();
+
+      if (!active) return;
+
+      if (convo?.id) {
+        conversationIdRef.current = convo.id;
+        const { data: msgs } = await supabase
+          .from("chat_messages")
+          .select("role, content")
+          .eq("conversation_id", convo.id)
+          .order("created_at", { ascending: true });
+
+        if (active && msgs) {
+          setMessages(
+            msgs
+              .filter((m) => m.role === "user" || m.role === "assistant")
+              .map((m) => ({ role: m.role as "user" | "assistant", content: m.content }))
+          );
+        }
+      }
+    };
+
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (!active) return;
+      const uid = session?.user?.id ?? null;
+      setUserId(uid);
+      if (uid) loadHistory(uid);
+    });
+
+    const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
+      const uid = session?.user?.id ?? null;
+      setUserId(uid);
+      if (uid) {
+        loadHistory(uid);
+      } else {
+        conversationIdRef.current = null;
+        setMessages([]);
+      }
+    });
+
+    return () => {
+      active = false;
+      sub.subscription.unsubscribe();
+    };
+  }, []);
+
+  const ensureConversation = useCallback(async (uid: string, firstMessage: string): Promise<string | null> => {
+    if (conversationIdRef.current) return conversationIdRef.current;
+    const title = firstMessage.slice(0, 60);
+    const { data, error } = await supabase
+      .from("chat_conversations")
+      .insert({ user_id: uid, title })
+      .select("id")
+      .single();
+    if (error) {
+      console.error("Failed to create conversation:", error);
+      return null;
+    }
+    conversationIdRef.current = data.id;
+    return data.id;
+  }, []);
 
   const sendMessage = useCallback(async (input: string) => {
     if (!input.trim() || isLoading) return;
@@ -104,6 +179,19 @@ export function useStreamingChat() {
     const userMsg: Message = { role: "user", content: input.trim() };
     setMessages((prev) => [...prev, userMsg]);
     setIsLoading(true);
+
+    // Persist user message if logged in
+    let convoId: string | null = null;
+    if (userId) {
+      convoId = await ensureConversation(userId, userMsg.content);
+      if (convoId) {
+        await supabase.from("chat_messages").insert({
+          conversation_id: convoId,
+          role: "user",
+          content: userMsg.content,
+        });
+      }
+    }
 
     let assistantSoFar = "";
     const upsertAssistant = (nextChunk: string) => {
@@ -123,7 +211,21 @@ export function useStreamingChat() {
       await streamChat({
         messages: [...messages, userMsg],
         onDelta: (chunk) => upsertAssistant(chunk),
-        onDone: () => setIsLoading(false),
+        onDone: async () => {
+          setIsLoading(false);
+          // Persist assistant reply
+          if (userId && convoId && assistantSoFar.trim()) {
+            await supabase.from("chat_messages").insert({
+              conversation_id: convoId,
+              role: "assistant",
+              content: assistantSoFar,
+            });
+            await supabase
+              .from("chat_conversations")
+              .update({ updated_at: new Date().toISOString() })
+              .eq("id", convoId);
+          }
+        },
       });
     } catch (error) {
       console.error("Chat error:", error);
@@ -131,11 +233,13 @@ export function useStreamingChat() {
       toast.error(error instanceof Error ? error.message : "Failed to send message");
       setMessages((prev) => prev.slice(0, -1));
     }
-  }, [messages, isLoading]);
+  }, [messages, isLoading, userId, ensureConversation]);
 
-  const clearMessages = useCallback(() => {
+  const clearMessages = useCallback(async () => {
     setMessages([]);
+    // Start a fresh conversation next time
+    conversationIdRef.current = null;
   }, []);
 
-  return { messages, isLoading, sendMessage, clearMessages };
+  return { messages, isLoading, sendMessage, clearMessages, isAuthenticated: !!userId };
 }
