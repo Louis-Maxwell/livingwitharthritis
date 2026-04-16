@@ -99,12 +99,17 @@ export function useStreamingChat() {
   const [isLoading, setIsLoading] = useState(false);
   const [userId, setUserId] = useState<string | null>(null);
   const conversationIdRef = useRef<string | null>(null);
+  const historyLoadedRef = useRef(false);
+  const loadHistoryRef = useRef<((uid: string) => Promise<void>) | null>(null);
 
-  // Track auth + load latest conversation history for logged-in users
+  // Track auth + prepare lazy history loader
   useEffect(() => {
     let active = true;
 
     const loadHistory = async (uid: string) => {
+      if (historyLoadedRef.current) return;
+      historyLoadedRef.current = true;
+
       const { data: convo } = await supabase
         .from("chat_conversations")
         .select("id")
@@ -136,27 +141,21 @@ export function useStreamingChat() {
       }
     };
 
+    loadHistoryRef.current = loadHistory;
+
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (!active) return;
-      const uid = session?.user?.id ?? null;
-      setUserId(uid);
-      // History loaded lazily on first sendMessage to speed up initial mount
+      setUserId(session?.user?.id ?? null);
+      // History loaded lazily on first sendMessage to keep page-load fast
     });
 
     const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
       const uid = session?.user?.id ?? null;
       setUserId(uid);
-      if (!uid) {
-        conversationIdRef.current = null;
-        historyLoadedRef.current = false;
-        setMessages([]);
-      } else {
-        historyLoadedRef.current = false;
-      }
+      conversationIdRef.current = null;
+      historyLoadedRef.current = false;
+      if (!uid) setMessages([]);
     });
-
-    // Expose loader for sendMessage
-    (loadHistoryRef as { current: ((uid: string) => Promise<void>) | null }).current = loadHistory;
 
     return () => {
       active = false;
@@ -183,11 +182,15 @@ export function useStreamingChat() {
   const sendMessage = useCallback(async (input: string) => {
     if (!input.trim() || isLoading) return;
 
+    // Lazy-load history on first message for logged-in users
+    if (userId && !historyLoadedRef.current && loadHistoryRef.current) {
+      await loadHistoryRef.current(userId);
+    }
+
     const userMsg: Message = { role: "user", content: input.trim() };
     setMessages((prev) => [...prev, userMsg]);
     setIsLoading(true);
 
-    // Persist user message if logged in
     let convoId: string | null = null;
     if (userId) {
       convoId = await ensureConversation(userId, userMsg.content);
@@ -215,12 +218,13 @@ export function useStreamingChat() {
     };
 
     try {
+      // Trim context sent to AI: last 20 messages keeps responses fast & cheap
+      const recentContext = [...messages, userMsg].slice(-20);
       await streamChat({
-        messages: [...messages, userMsg],
+        messages: recentContext,
         onDelta: (chunk) => upsertAssistant(chunk),
         onDone: async () => {
           setIsLoading(false);
-          // Persist assistant reply
           if (userId && convoId && assistantSoFar.trim()) {
             await supabase.from("chat_messages").insert({
               conversation_id: convoId,
@@ -237,16 +241,30 @@ export function useStreamingChat() {
     } catch (error) {
       console.error("Chat error:", error);
       setIsLoading(false);
-      toast.error(error instanceof Error ? error.message : "Failed to send message");
+      const msg = error instanceof Error ? error.message : "Failed to send message";
+      if (msg.toLowerCase().includes("rate limit")) {
+        toast.error("Too many messages. Please wait a moment and try again.");
+      } else if (msg.toLowerCase().includes("payment")) {
+        toast.error("AI service temporarily unavailable. Please try again later.");
+      } else {
+        toast.error(msg);
+      }
       setMessages((prev) => prev.slice(0, -1));
     }
   }, [messages, isLoading, userId, ensureConversation]);
 
   const clearMessages = useCallback(async () => {
     setMessages([]);
-    // Start a fresh conversation next time
     conversationIdRef.current = null;
+    historyLoadedRef.current = true;
   }, []);
 
-  return { messages, isLoading, sendMessage, clearMessages, isAuthenticated: !!userId };
+  const newChat = useCallback(() => {
+    setMessages([]);
+    conversationIdRef.current = null;
+    historyLoadedRef.current = true;
+  }, []);
+
+  return { messages, isLoading, sendMessage, clearMessages, newChat, isAuthenticated: !!userId };
 }
+
