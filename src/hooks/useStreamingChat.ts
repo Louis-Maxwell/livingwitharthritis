@@ -117,15 +117,18 @@ export function useStreamingChat() {
 
       if (convo?.id) {
         conversationIdRef.current = convo.id;
+        // Load only the last 30 messages for speed
         const { data: msgs } = await supabase
           .from("chat_messages")
-          .select("role, content")
+          .select("role, content, created_at")
           .eq("conversation_id", convo.id)
-          .order("created_at", { ascending: true });
+          .order("created_at", { ascending: false })
+          .limit(30);
 
         if (active && msgs) {
           setMessages(
             msgs
+              .reverse()
               .filter((m) => m.role === "user" || m.role === "assistant")
               .map((m) => ({ role: m.role as "user" | "assistant", content: m.content }))
           );
@@ -137,19 +140,23 @@ export function useStreamingChat() {
       if (!active) return;
       const uid = session?.user?.id ?? null;
       setUserId(uid);
-      if (uid) loadHistory(uid);
+      // History loaded lazily on first sendMessage to speed up initial mount
     });
 
     const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
       const uid = session?.user?.id ?? null;
       setUserId(uid);
-      if (uid) {
-        loadHistory(uid);
-      } else {
+      if (!uid) {
         conversationIdRef.current = null;
+        historyLoadedRef.current = false;
         setMessages([]);
+      } else {
+        historyLoadedRef.current = false;
       }
     });
+
+    // Expose loader for sendMessage
+    (loadHistoryRef as { current: ((uid: string) => Promise<void>) | null }).current = loadHistory;
 
     return () => {
       active = false;
