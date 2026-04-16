@@ -7,6 +7,12 @@ export type Message = {
   content: string;
 };
 
+export type ConversationSummary = {
+  id: string;
+  title: string | null;
+  updated_at: string;
+};
+
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat`;
 
 async function streamChat({
@@ -98,17 +104,32 @@ export function useStreamingChat() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [userId, setUserId] = useState<string | null>(null);
+  const [conversations, setConversations] = useState<ConversationSummary[]>([]);
   const conversationIdRef = useRef<string | null>(null);
   const historyLoadedRef = useRef(false);
   const loadHistoryRef = useRef<((uid: string) => Promise<void>) | null>(null);
+  const refreshConversationsRef = useRef<((uid: string) => Promise<void>) | null>(null);
 
   // Track auth + prepare lazy history loader
   useEffect(() => {
     let active = true;
 
+    const refreshConversations = async (uid: string) => {
+      const { data } = await supabase
+        .from("chat_conversations")
+        .select("id, title, updated_at")
+        .eq("user_id", uid)
+        .order("updated_at", { ascending: false })
+        .limit(50);
+      if (active && data) setConversations(data);
+    };
+    refreshConversationsRef.current = refreshConversations;
+
     const loadHistory = async (uid: string) => {
       if (historyLoadedRef.current) return;
       historyLoadedRef.current = true;
+
+      await refreshConversations(uid);
 
       const { data: convo } = await supabase
         .from("chat_conversations")
@@ -154,7 +175,10 @@ export function useStreamingChat() {
       setUserId(uid);
       conversationIdRef.current = null;
       historyLoadedRef.current = false;
-      if (!uid) setMessages([]);
+      if (!uid) {
+        setMessages([]);
+        setConversations([]);
+      }
     });
 
     return () => {
@@ -235,6 +259,9 @@ export function useStreamingChat() {
               .from("chat_conversations")
               .update({ updated_at: new Date().toISOString() })
               .eq("id", convoId);
+            if (refreshConversationsRef.current) {
+              await refreshConversationsRef.current(userId);
+            }
           }
         },
       });
@@ -265,6 +292,57 @@ export function useStreamingChat() {
     historyLoadedRef.current = true;
   }, []);
 
-  return { messages, isLoading, sendMessage, clearMessages, newChat, isAuthenticated: !!userId };
+  const loadConversations = useCallback(async () => {
+    if (userId && refreshConversationsRef.current) {
+      await refreshConversationsRef.current(userId);
+    }
+  }, [userId]);
+
+  const selectConversation = useCallback(async (conversationId: string) => {
+    if (!userId) return;
+    conversationIdRef.current = conversationId;
+    historyLoadedRef.current = true;
+    const { data: msgs } = await supabase
+      .from("chat_messages")
+      .select("role, content, created_at")
+      .eq("conversation_id", conversationId)
+      .order("created_at", { ascending: false })
+      .limit(30);
+    if (msgs) {
+      setMessages(
+        msgs
+          .reverse()
+          .filter((m) => m.role === "user" || m.role === "assistant")
+          .map((m) => ({ role: m.role as "user" | "assistant", content: m.content }))
+      );
+    }
+  }, [userId]);
+
+  const deleteConversation = useCallback(async (conversationId: string) => {
+    if (!userId) return;
+    await supabase.from("chat_messages").delete().eq("conversation_id", conversationId);
+    await supabase.from("chat_conversations").delete().eq("id", conversationId);
+    if (conversationIdRef.current === conversationId) {
+      setMessages([]);
+      conversationIdRef.current = null;
+    }
+    if (refreshConversationsRef.current) {
+      await refreshConversationsRef.current(userId);
+    }
+  }, [userId]);
+
+  return {
+    messages,
+    isLoading,
+    sendMessage,
+    clearMessages,
+    newChat,
+    isAuthenticated: !!userId,
+    conversations,
+    loadConversations,
+    selectConversation,
+    deleteConversation,
+    activeConversationId: conversationIdRef.current,
+  };
 }
 
