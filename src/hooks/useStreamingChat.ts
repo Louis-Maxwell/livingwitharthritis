@@ -7,6 +7,12 @@ export type Message = {
   content: string;
 };
 
+export type ConversationSummary = {
+  id: string;
+  title: string | null;
+  updated_at: string;
+};
+
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat`;
 
 async function streamChat({
