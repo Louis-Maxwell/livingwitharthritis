@@ -17,7 +17,7 @@ const STATS = [
 ] as const;
 
 const trustBadges = [
-  { icon: Award, label: "NHS Trained" },
+  
   { icon: CheckCircle, label: "NICE Compliant" },
 ];
 
