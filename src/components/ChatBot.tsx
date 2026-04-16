@@ -73,7 +73,19 @@ const ChatMessage = ({ message }: { message: Message; isLatest: boolean }) => {
 
 export function ChatBot() {
   const [input, setInput] = useState("");
-  const { messages, isLoading, sendMessage, clearMessages, newChat } = useStreamingChat();
+  const [historyOpen, setHistoryOpen] = useState(false);
+  const {
+    messages,
+    isLoading,
+    sendMessage,
+    clearMessages,
+    newChat,
+    isAuthenticated,
+    conversations,
+    loadConversations,
+    selectConversation,
+    deleteConversation,
+  } = useStreamingChat();
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -105,11 +117,31 @@ export function ChatBot() {
     e.target.style.height = Math.min(e.target.scrollHeight, 120) + "px";
   };
 
+  const openHistory = async () => {
+    setHistoryOpen(true);
+    if (isAuthenticated) await loadConversations();
+  };
+
+  const handleSelectConversation = async (id: string) => {
+    await selectConversation(id);
+    setHistoryOpen(false);
+  };
+
   return (
-    <div className="flex flex-col h-full w-full overflow-hidden bg-background">
+    <div className="flex flex-col h-full w-full overflow-hidden bg-background relative">
       {/* ── Header ── clean, minimal */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-border/40 bg-primary">
         <div className="flex items-center gap-2.5">
+          {isAuthenticated && (
+            <button
+              onClick={openHistory}
+              title="Past conversations"
+              aria-label="Open past conversations"
+              className="text-white/70 hover:text-white p-1.5 -ml-1 rounded-lg hover:bg-white/10 transition-colors"
+            >
+              <History className="h-4 w-4" />
+            </button>
+          )}
           <div className="h-9 w-9 rounded-full bg-white/15 flex items-center justify-center">
             <Heart className="h-4.5 w-4.5 text-white" />
           </div>
@@ -123,16 +155,16 @@ export function ChatBot() {
             </div>
           </div>
         </div>
-        {messages.length > 0 && (
-          <div className="flex items-center gap-1">
-            <button
-              onClick={newChat}
-              title="New chat"
-              aria-label="Start a new chat"
-              className="text-white/60 hover:text-white p-1.5 rounded-lg hover:bg-white/10 transition-colors"
-            >
-              <Plus className="h-3.5 w-3.5" />
-            </button>
+        <div className="flex items-center gap-1">
+          <button
+            onClick={newChat}
+            title="New chat"
+            aria-label="Start a new chat"
+            className="text-white/60 hover:text-white p-1.5 rounded-lg hover:bg-white/10 transition-colors"
+          >
+            <Plus className="h-3.5 w-3.5" />
+          </button>
+          {messages.length > 0 && (
             <button
               onClick={clearMessages}
               title="Clear messages"
@@ -141,9 +173,83 @@ export function ChatBot() {
             >
               <Trash2 className="h-3.5 w-3.5" />
             </button>
-          </div>
-        )}
+          )}
+        </div>
       </div>
+
+      {/* ── History Sidebar ── slide-in overlay */}
+      <AnimatePresence>
+        {historyOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setHistoryOpen(false)}
+              className="absolute inset-0 z-20 bg-background/60 backdrop-blur-sm"
+            />
+            <motion.aside
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ type: "tween", duration: 0.2, ease: "easeOut" }}
+              className="absolute inset-y-0 left-0 z-30 w-[78%] max-w-[300px] bg-background border-r border-border/50 shadow-xl flex flex-col"
+            >
+              <div className="flex items-center justify-between px-3.5 py-3 border-b border-border/40">
+                <h4 className="text-sm font-semibold text-foreground">Past chats</h4>
+                <button
+                  onClick={() => setHistoryOpen(false)}
+                  aria-label="Close history"
+                  className="text-muted-foreground hover:text-foreground p-1 rounded-md hover:bg-muted transition-colors"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              </div>
+              <button
+                onClick={() => {
+                  newChat();
+                  setHistoryOpen(false);
+                }}
+                className="flex items-center gap-2 mx-3 mt-3 px-3 py-2 text-sm text-foreground border border-border/50 rounded-lg hover:bg-muted/40 transition-colors"
+              >
+                <Plus className="h-3.5 w-3.5" />
+                New chat
+              </button>
+              <ScrollArea className="flex-1 mt-2">
+                <div className="px-2 pb-3">
+                  {conversations.length === 0 ? (
+                    <p className="text-xs text-muted-foreground px-3 py-4 text-center">
+                      No past chats yet.
+                    </p>
+                  ) : (
+                    conversations.map((c) => (
+                      <div
+                        key={c.id}
+                        className="group flex items-center gap-1 rounded-lg hover:bg-muted/60 transition-colors"
+                      >
+                        <button
+                          onClick={() => handleSelectConversation(c.id)}
+                          className="flex-1 text-left px-3 py-2 text-sm text-foreground/90 truncate"
+                          title={c.title || "Untitled chat"}
+                        >
+                          {c.title || "Untitled chat"}
+                        </button>
+                        <button
+                          onClick={() => deleteConversation(c.id)}
+                          aria-label="Delete conversation"
+                          className="opacity-0 group-hover:opacity-100 text-muted-foreground hover:text-destructive p-1.5 mr-1 rounded-md transition-all"
+                        >
+                          <Trash2 className="h-3.5 w-3.5" />
+                        </button>
+                      </div>
+                    ))
+                  )}
+                </div>
+              </ScrollArea>
+            </motion.aside>
+          </>
+        )}
+      </AnimatePresence>
 
       {/* ── Messages ── */}
       <ScrollArea ref={scrollRef} className="flex-1 px-3.5 py-3">
