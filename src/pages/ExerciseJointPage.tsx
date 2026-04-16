@@ -40,6 +40,25 @@ const ExerciseJointPage = () => {
     ],
   };
 
+  // HowTo schema for Google step-by-step rich results
+  const howToLd = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: `How to do ${page.exercise} for ${page.joint} arthritis`,
+    description: page.metaDescription,
+    inLanguage: "en-GB",
+    totalTime: "PT15M",
+    supply: [{ "@type": "HowToSupply", name: "Comfortable clothing and supportive footwear" }],
+    tool: [{ "@type": "HowToTool", name: "Exercise mat (optional)" }],
+    step: page.instructions.map((instr, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: instr.name,
+      text: `${instr.description} Recommended: ${instr.reps}.`,
+      url: `${BASE}/exercises/${page.slug}#step-${i + 1}`,
+    })),
+  };
+
   // Related pages: same exercise different joint + same joint different exercise
   const sameExercise = exerciseJointPages.filter((p) => p.exercise === page.exercise && p.slug !== page.slug).slice(0, 3);
   const sameJoint = exerciseJointPages.filter((p) => p.joint === page.joint && p.slug !== page.slug).slice(0, 3);
@@ -57,6 +76,7 @@ const ExerciseJointPage = () => {
         <meta name="geo.region" content="GB" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(howToLd)}</script>
       </Helmet>
 
       <Header />
@@ -101,7 +121,7 @@ const ExerciseJointPage = () => {
             </h2>
             <div className="space-y-4">
               {page.instructions.map((instr, i) => (
-                <div key={i} className="bg-card border border-border rounded-xl p-5">
+                <div key={i} id={`step-${i + 1}`} className="bg-card border border-border rounded-xl p-5">
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="font-semibold text-foreground">{i + 1}. {instr.name}</h3>
                     <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full whitespace-nowrap">{instr.reps}</span>

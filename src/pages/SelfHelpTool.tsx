@@ -63,6 +63,20 @@ export default function SelfHelpTool() {
             { "@type": "ListItem", "position": 2, "name": "Self Help Tool", "item": "https://livingwitharthritis.org.uk/self-help" }
           ]
         })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          "name": "How to use the Self Help Tool to find arthritis exercises",
+          "description": "A 4-step guide to using our interactive joint diagram to discover personalised exercises for arthritis pain relief and mobility.",
+          "inLanguage": "en-GB",
+          "totalTime": "PT5M",
+          "step": [
+            { "@type": "HowToStep", "position": 1, "name": "Open the interactive joint diagram", "text": "Scroll to the body diagram below and identify the joint causing you pain or stiffness.", "url": "https://livingwitharthritis.org.uk/self-help#step-1" },
+            { "@type": "HowToStep", "position": 2, "name": "Select your affected joint", "text": "Click or tap on the joint (knee, hip, shoulder, hand, back, or ankle) to load tailored exercise recommendations.", "url": "https://livingwitharthritis.org.uk/self-help#step-2" },
+            { "@type": "HowToStep", "position": 3, "name": "Review the recommended exercises", "text": "Read through the physiotherapy-aligned exercises, including reps, duration, and safety notes for your joint.", "url": "https://livingwitharthritis.org.uk/self-help#step-3" },
+            { "@type": "HowToStep", "position": 4, "name": "Start gently and track progress", "text": "Begin with a low number of repetitions, stop if pain worsens, and consult your GP or physiotherapist if symptoms persist.", "url": "https://livingwitharthritis.org.uk/self-help#step-4" }
+          ]
+        })}</script>
       </Helmet>
 
       <div className="min-h-screen bg-background">
