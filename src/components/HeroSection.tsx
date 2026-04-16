@@ -17,7 +17,6 @@ const STATS = [
 ] as const;
 
 const trustBadges = [
-  { icon: Shield, label: "HCPC Registered" },
   { icon: Award, label: "NHS Trained" },
   { icon: CheckCircle, label: "NICE Compliant" },
 ];
