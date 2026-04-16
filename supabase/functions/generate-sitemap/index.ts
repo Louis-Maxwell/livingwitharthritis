@@ -139,8 +139,12 @@ Deno.serve(async (req) => {
 
     // UK City pages
     entries.push(urlEntry("/arthritis-support", TODAY, "weekly", "0.9", true));
+    const conditionSlugs = ["osteoarthritis", "rheumatoid-arthritis", "psoriatic-arthritis"];
     for (const slug of ukCitySlugs) {
       entries.push(urlEntry(`/arthritis-support/${slug}`, TODAY, "monthly", "0.8", true));
+      for (const cond of conditionSlugs) {
+        entries.push(urlEntry(`/arthritis-support/${slug}/${cond}`, TODAY, "monthly", "0.7", true));
+      }
     }
 
     // Exercise × Joint matrix pages

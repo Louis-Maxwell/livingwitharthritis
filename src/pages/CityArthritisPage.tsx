@@ -5,7 +5,8 @@ import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import { ukCities } from "@/data/ukCities";
-import { MapPin, Hospital, Phone, BookOpen, ArrowRight, Users, Dumbbell, Apple, Heart } from "lucide-react";
+import { arthritisConditions } from "@/data/arthritisConditions";
+import { MapPin, Hospital, Phone, BookOpen, ArrowRight, Users, Dumbbell, Apple, Heart, Stethoscope } from "lucide-react";
 import { motion } from "framer-motion";
 
 const BASE = "https://livingwitharthritis.org.uk";
@@ -153,7 +154,26 @@ const CityArthritisPage = () => {
             </ol>
           </section>
 
-          {/* Other Cities */}
+          {/* Condition-specific local pages */}
+          <section className="mb-8">
+            <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+              <Stethoscope className="w-5 h-5 text-primary" /> Arthritis Types in {cityData.name}
+            </h2>
+            <div className="grid sm:grid-cols-3 gap-3">
+              {arthritisConditions.map((c) => (
+                <Link
+                  key={c.slug}
+                  to={`/arthritis-support/${cityData.slug}/${c.slug}`}
+                  className="bg-card border border-border rounded-xl p-4 hover:border-primary/50 hover:shadow-sm transition-all"
+                >
+                  <p className="font-semibold text-foreground text-sm">{c.name}</p>
+                  <p className="text-xs text-muted-foreground mt-1">in {cityData.name}</p>
+                </Link>
+              ))}
+            </div>
+          </section>
+
+
           <section className="mb-8">
             <h2 className="text-xl font-semibold text-foreground mb-4">Arthritis Support in Other UK Cities</h2>
             <div className="flex flex-wrap gap-2">
