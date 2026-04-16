@@ -9,6 +9,7 @@ import { RouteProgressBar } from "@/components/ui/RouteProgressBar";
 import { useCartSync } from "@/hooks/useCartSync";
 import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "next-themes";
+import { DeferredMount } from "@/components/DeferredMount";
 
 
 const ChatBotWidget = lazy(() => import("./components/ChatBotWidget"));
@@ -182,13 +183,15 @@ const App = () => {
               <Suspense fallback={<PageLoader />}>
                 <AppWithSync />
               </Suspense>
-              <Suspense fallback={null}>
-                <ChatBotWidget />
-                <CookieConsent />
-                <AccessibilityToolbar />
-                <MobileBottomNav />
-                <DonationNotification />
-              </Suspense>
+              <DeferredMount timeout={2500}>
+                <Suspense fallback={null}>
+                  <ChatBotWidget />
+                  <CookieConsent />
+                  <AccessibilityToolbar />
+                  <MobileBottomNav />
+                  <DonationNotification />
+                </Suspense>
+              </DeferredMount>
             </BrowserRouter>
           </TooltipProvider>
         </QueryClientProvider>
