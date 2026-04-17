@@ -133,8 +133,9 @@ Amended on 1 January 2024.
 
 Registered address:
 Living With Arthritis
-27 Old Gloucester Street
-London WC1N 3AX
+Oswestry Health Centre
+Thomas Savin Road, Off Gobowen Road
+Oswestry SY11 1GA (SatNav: SY11 1HS)
 England
 
 Regulated by the Charity Commission for England and Wales.
@@ -171,7 +172,7 @@ Regulated by the Charity Commission for England and Wales.
             name: "Living With Arthritis",
             foundingDate: "2020",
             areaServed: { "@type": "Country", name: "United Kingdom" },
-            address: { "@type": "PostalAddress", streetAddress: "27 Old Gloucester Street", addressLocality: "London", postalCode: "WC1N 3AX", addressCountry: "GB" },
+            address: { "@type": "PostalAddress", streetAddress: "Oswestry Health Centre, Thomas Savin Road, Off Gobowen Road", addressLocality: "Oswestry", postalCode: "SY11 1GA", addressCountry: "GB" },
           }
         })}</script>
       </Helmet>
@@ -239,8 +240,9 @@ Regulated by the Charity Commission for England and Wales.
                   </div>
                   <address className="not-italic text-sm text-muted-foreground leading-relaxed mb-5">
                     Living With Arthritis<br />
-                    27 Old Gloucester Street<br />
-                    London WC1N 3AX<br />
+                    Oswestry Health Centre<br />
+                    Thomas Savin Road, Off Gobowen Road<br />
+                    Oswestry SY11 1GA (SatNav: SY11 1HS)<br />
                     England
                   </address>
                   <div className="space-y-2.5">

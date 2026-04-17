@@ -287,7 +287,7 @@ const AboutUs = () => {
                   <div>
                     <p className="font-semibold text-foreground mb-1">Registered Address</p>
                     <address className="not-italic">
-                      27 Old Gloucester Street<br />London WC1N 3AX<br />England
+                      Oswestry Health Centre<br />Thomas Savin Road, Off Gobowen Road<br />Oswestry SY11 1GA<br />(SatNav: SY11 1HS)<br />England
                     </address>
                   </div>
                 </div>
