@@ -172,7 +172,7 @@ Regulated by the Charity Commission for England and Wales.
             name: "Living With Arthritis",
             foundingDate: "2020",
             areaServed: { "@type": "Country", name: "United Kingdom" },
-            address: { "@type": "PostalAddress", streetAddress: "27 Old Gloucester Street", addressLocality: "London", postalCode: "WC1N 3AX", addressCountry: "GB" },
+            address: { "@type": "PostalAddress", streetAddress: "Oswestry Health Centre, Thomas Savin Road, Off Gobowen Road", addressLocality: "Oswestry", postalCode: "SY11 1GA", addressCountry: "GB" },
           }
         })}</script>
       </Helmet>
