@@ -41,6 +41,7 @@ const applyLanguage = (code: LangCode) => {
 };
 
 const LanguageSwitcher = () => {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<LangCode>("en");
   const [pending, setPending] = useState<LangCode>("en");
@@ -51,6 +52,7 @@ const LanguageSwitcher = () => {
     setSelected(stored);
     setPending(stored);
     applyLanguage(stored);
+    void i18n.changeLanguage(stored);
   }, []);
 
   useEffect(() => {
@@ -66,6 +68,7 @@ const LanguageSwitcher = () => {
     setSelected(pending);
     localStorage.setItem("lwa-lang", pending);
     applyLanguage(pending);
+    void i18n.changeLanguage(pending);
     setOpen(false);
   };
 
