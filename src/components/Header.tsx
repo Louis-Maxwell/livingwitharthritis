@@ -72,7 +72,7 @@ const Header = () => {
 
   const navLinks: NavLink[] = [
     {
-      label: "Newly Diagnosed",
+      label: t("nav.newlyDiagnosed"),
       href: "/about",
       action: () => navigate("/about"),
       subs: [
@@ -82,7 +82,7 @@ const Header = () => {
       ],
     },
     {
-      label: "Track & Manage",
+      label: t("nav.trackManage"),
       href: "/self-help",
       action: () => navigate("/self-help"),
       subs: [
@@ -92,7 +92,7 @@ const Header = () => {
       ],
     },
     {
-      label: "Treatments",
+      label: t("nav.treatments"),
       href: "/exercises",
       action: () => navigate("/exercises"),
       subs: [
@@ -101,7 +101,7 @@ const Header = () => {
       ],
     },
     {
-      label: "Conditions",
+      label: t("nav.conditions"),
       href: "#conditions",
       subs: [
         { label: "Osteoarthritis", desc: "The most common form of arthritis", icon: Bone, href: "/conditions/osteoarthritis", action: () => navigate("/conditions/osteoarthritis"), color: "text-primary bg-primary/10" },
@@ -111,7 +111,7 @@ const Header = () => {
       ],
     },
     {
-      label: "Blog & Stories",
+      label: t("nav.blogStories"),
       href: "/blog",
       action: () => navigate("/blog"),
       subs: [
@@ -122,7 +122,7 @@ const Header = () => {
       ],
     },
     {
-      label: "Support Us",
+      label: t("nav.supportUs"),
       href: "#involved",
       subs: [
         { label: "Donate", desc: "Power the progress for a cure", icon: Heart, href: "#involved", color: "text-primary bg-primary/10" },
@@ -131,8 +131,8 @@ const Header = () => {
         { label: "Trust & Credibility", desc: "Governance, advisors & evidence", icon: ShieldCheck, href: "/trust", action: () => navigate("/trust"), color: "text-primary bg-primary/10" },
       ],
     },
-    { label: "Resources", href: "#resources", action: () => setResourceDrawerOpen(true) },
-    { label: "Shop", href: "/shop", action: () => navigate("/shop") },
+    { label: t("nav.resources"), href: "#resources", action: () => setResourceDrawerOpen(true) },
+    { label: t("nav.shop"), href: "/shop", action: () => navigate("/shop") },
   ];
 
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -163,14 +163,14 @@ const Header = () => {
   };
 
   const mobileNavItems = [
-    { label: "Newly Diagnosed", icon: Sparkles, desc: "Your essential first steps guide", href: "/about", action: () => navigate("/about") },
+    { label: t("nav.newlyDiagnosed"), icon: Sparkles, desc: "Your essential first steps guide", href: "/about", action: () => navigate("/about") },
     { label: "Self Help Tool", icon: Activity, desc: "Interactive joint exercise diagram", href: "/self-help", action: () => navigate("/self-help") },
     { label: "Exercises & Diet", icon: Dumbbell, desc: "Physio exercises & nutrition plans", href: "/exercises", action: () => navigate("/exercises") },
-    { label: "Conditions", icon: HeartPulse, desc: "OA, RA, Gout, PsA & more", href: "#conditions" },
-    { label: "Blog & Research", icon: Newspaper, desc: "40+ evidence-based articles", href: "/blog", action: () => navigate("/blog") },
-    { label: "Support Us", icon: HandHeart, desc: "Donate, volunteer & fundraise", href: "#involved" },
-    { label: "Resources", icon: BookOpen, desc: "NHS pathways, benefits & guides", href: "#resources", action: () => setResourceDrawerOpen(true) },
-    { label: "Shop", icon: ShoppingBag, desc: "Recommended arthritis products", href: "/shop", action: () => navigate("/shop") },
+    { label: t("nav.conditions"), icon: HeartPulse, desc: "OA, RA, Gout, PsA & more", href: "#conditions" },
+    { label: t("nav.blogStories"), icon: Newspaper, desc: "40+ evidence-based articles", href: "/blog", action: () => navigate("/blog") },
+    { label: t("nav.supportUs"), icon: HandHeart, desc: "Donate, volunteer & fundraise", href: "#involved" },
+    { label: t("nav.resources"), icon: BookOpen, desc: "NHS pathways, benefits & guides", href: "#resources", action: () => setResourceDrawerOpen(true) },
+    { label: t("nav.shop"), icon: ShoppingBag, desc: "Recommended arthritis products", href: "/shop", action: () => navigate("/shop") },
   ];
 
   const isHidden = !visible && !mobileMenuOpen;
