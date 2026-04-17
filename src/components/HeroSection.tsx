@@ -2,6 +2,7 @@ import { ArrowRight, MessageCircle, Heart, Shield, Award, CheckCircle, Sparkles 
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { memo, lazy, Suspense } from "react";
+import { useTranslation } from "react-i18next";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import { heroLifestyle as heroImage, heroLifestyleSrcSet } from "@/data/images";
 
@@ -10,19 +11,19 @@ import "./HeroSection.css";
 const Hero3DBackground = lazy(() => import("@/components/landing/Hero3DBackground"));
 
 const STATS = [
-  { target: 1, suffix: " in 6", label: "UK adults affected", compact: false },
-  { target: 100, suffix: "+", label: "Types of arthritis", compact: false },
-  { target: 10000, suffix: "+", label: "People supported", compact: true },
-  { target: 97, suffix: "%", label: "Report improved wellbeing", compact: false },
+  { target: 1, suffix: " in 6", label: "ukAdults", compact: false },
+  { target: 100, suffix: "+", label: "types", compact: false },
+  { target: 10000, suffix: "+", label: "supported", compact: true },
+  { target: 97, suffix: "%", label: "wellbeing", compact: false },
 ] as const;
-
-const trustBadges = [
-  
-  { icon: CheckCircle, label: "NICE Compliant" },
-];
 
 const HeroSection = memo(() => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
+  const trustBadges = [
+    { icon: CheckCircle, label: t("hero.badgeNice") },
+  ];
 
   return (
     <section className="relative overflow-hidden bg-background">
