@@ -10,6 +10,34 @@ const LANGUAGES = [
 
 type LangCode = typeof LANGUAGES[number]["code"];
 
+const URDU_FONT_HREF =
+  "https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap";
+const URDU_FONT_ID = "lwa-urdu-font";
+const URDU_FONT_STACK =
+  "'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Nafees Nastaleeq', serif";
+
+const ensureUrduFont = () => {
+  if (document.getElementById(URDU_FONT_ID)) return;
+  const link = document.createElement("link");
+  link.id = URDU_FONT_ID;
+  link.rel = "stylesheet";
+  link.href = URDU_FONT_HREF;
+  document.head.appendChild(link);
+};
+
+const applyLanguage = (code: LangCode) => {
+  const html = document.documentElement;
+  const isUrdu = code === "ur";
+  html.setAttribute("lang", isUrdu ? "ur" : code === "sv" ? "sv" : "en-GB");
+  html.setAttribute("dir", isUrdu ? "rtl" : "ltr");
+  if (isUrdu) {
+    ensureUrduFont();
+    document.body.style.fontFamily = URDU_FONT_STACK;
+  } else {
+    document.body.style.fontFamily = "";
+  }
+};
+
 const LanguageSwitcher = () => {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<LangCode>("en");
@@ -20,6 +48,7 @@ const LanguageSwitcher = () => {
     const stored = (localStorage.getItem("lwa-lang") as LangCode | null) ?? "en";
     setSelected(stored);
     setPending(stored);
+    applyLanguage(stored);
   }, []);
 
   useEffect(() => {
@@ -34,6 +63,7 @@ const LanguageSwitcher = () => {
   const save = () => {
     setSelected(pending);
     localStorage.setItem("lwa-lang", pending);
+    applyLanguage(pending);
     setOpen(false);
   };
 
@@ -57,7 +87,9 @@ const LanguageSwitcher = () => {
         <div
           role="dialog"
           aria-label="Language"
-          className="absolute right-0 mt-2 w-64 rounded-2xl border border-border bg-background shadow-xl shadow-black/10 p-4 z-[100] animate-in fade-in-0 zoom-in-95 duration-150"
+          dir="ltr"
+          className="absolute end-0 mt-2 w-64 rounded-2xl border border-border bg-background shadow-xl shadow-black/10 p-4 z-[100] animate-in fade-in-0 zoom-in-95 duration-150"
+          style={{ right: 0 }}
         >
           <div className="flex items-center gap-2 mb-3">
             <div className="w-7 h-7 rounded-full bg-muted flex items-center justify-center">
@@ -79,6 +111,7 @@ const LanguageSwitcher = () => {
                         : "text-muted-foreground hover:bg-accent/60 hover:text-foreground"
                     }`}
                     dir={lang.code === "ur" ? "rtl" : "ltr"}
+                    style={lang.code === "ur" ? { fontFamily: URDU_FONT_STACK } : undefined}
                   >
                     <span>{lang.label}</span>
                     {isPending && <Check className="w-4 h-4" />}
