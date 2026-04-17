@@ -40,4 +40,10 @@ const en = {
 } as const;
 
 export default en;
-export type Translation = typeof en;
+export type Translation = {
+  [K in keyof typeof en]: typeof en[K] extends Record<string, unknown>
+    ? { [P in keyof typeof en[K]]: typeof en[K][P] extends Record<string, unknown>
+        ? { [Q in keyof typeof en[K][P]]: string }
+        : string }
+    : string;
+};
