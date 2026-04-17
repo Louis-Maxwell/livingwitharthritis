@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Users, MessageCircle, BookOpen, Stethoscope, Calendar, HeartHandshake, LucideIcon, ArrowRight } from "lucide-react";
 import { useServices, Service } from "@/hooks/useCmsContent";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useTranslation } from "react-i18next";
 
 const iconMap: Record<string, LucideIcon> = {
   Users, MessageCircle, BookOpen, Stethoscope, Calendar, HeartHandshake,
@@ -9,6 +10,7 @@ const iconMap: Record<string, LucideIcon> = {
 
 const ServiceCard = ({ service }: { service: Service }) => {
   const IconComponent = iconMap[service.icon_name] || Users;
+  const { t } = useTranslation();
 
   return (
     <Card className="group h-full border border-border/10 bg-card hover:shadow-xl hover:-translate-y-1.5 transition-all duration-500 cursor-pointer rounded-2xl">
@@ -25,7 +27,7 @@ const ServiceCard = ({ service }: { service: Service }) => {
           {service.description}
         </CardDescription>
         <div className="flex items-center text-[11px] font-bold text-primary opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1 tracking-[0.15em] uppercase">
-          Learn more
+          {t("services.learnMore")}
           <ArrowRight className="ms-2 w-3.5 h-3.5 rtl:rotate-180" />
         </div>
       </CardContent>
@@ -35,18 +37,19 @@ const ServiceCard = ({ service }: { service: Service }) => {
 
 const ServicesGrid = () => {
   const { data: services, isLoading } = useServices();
+  const { t } = useTranslation();
 
   return (
     <section id="services" className="py-24 lg:py-32 bg-warm relative">
       <div className="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl">
         <div className="text-center mb-20">
-          <span className="section-label text-primary/60 mb-5 block">Comprehensive Care Platform</span>
+          <span className="section-label text-primary/60 mb-5 block">{t("services.label")}</span>
           <h2 className="font-display text-3xl sm:text-4xl md:text-[3.5rem] font-bold text-foreground mb-7 leading-[1.06] tracking-tight">
-            World-class services,{" "}
-            <span className="text-gradient italic">for everyone</span>
+            {t("services.headingLead")}{" "}
+            <span className="text-gradient italic">{t("services.headingAccent")}</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
-            Every service is clinically reviewed, NICE-compliant and designed by our multidisciplinary team. No waiting lists, no referrals, no cost.
+            {t("services.description")}
           </p>
         </div>
 

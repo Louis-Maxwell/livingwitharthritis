@@ -39,6 +39,51 @@ const sv: Translation = {
     save: "Spara",
     change: "Byt språk",
   },
+  quickAccess: {
+    label: "Snabbåtkomst",
+    headingLead: "Allt du behöver,",
+    headingAccent: "direkt här",
+    description:
+      "Hoppa direkt till det avsnitt som hjälper dig mest — övningar, kost, gemenskapsstöd eller personlig AI-vägledning.",
+    explore: "Utforska",
+    guidesLabel: "Fördjupande guider",
+    hubs: {
+      exercises: { title: "Träningscenter", description: "NHS-anpassade rutiner för knän, händer, axlar och stol med utskriftsbar veckoplan." },
+      diet: { title: "Kostcenter", description: "Antiinflammatoriska medelhavsmenyer, recept och vägledning kring kosttillskott." },
+      community: { title: "Gemenskap", description: "Stödforum, patientberättelser, nedladdningsbara resurser och guide för nydiagnostiserade." },
+      chat: { title: "AI-assistent", description: "Fråga vad som helst om artrit — symtom, behandlingar, kost eller övningar. Direkt och personligt." },
+      conditions: { title: "Tillstånd", description: "Djupgående guider för artros, reumatoid och psoriasisartrit med behandlingsalternativ." },
+      healthTools: { title: "Hälsoverktyg", description: "Symtomquiz, inflammationskalkylator och personlig träningsplan — allt gratis." },
+    },
+    guides: {
+      ukArthritis: "📖 Brittisk artritguide",
+      nhs: "🏥 NHS-tjänster",
+      diet: "🥗 Kostguide",
+      exercise: "💪 Träningsguide",
+      benefits: "📋 Förmåner & PIP",
+    },
+    goTo: "Gå till",
+  },
+  howItWorks: {
+    label: "Så fungerar det",
+    heading: "Din väg till bättre liv",
+    description:
+      "En strukturerad, evidensbaserad metod utformad av vårt kliniska team. De flesta patienter rapporterar betydande förbättring inom 8–12 veckor.",
+    steps: {
+      explore: { title: "Utforska resurser", desc: "Bläddra i vårt utvalda bibliotek med 120+ kliniskt granskade övningar, kostplaner och expertartiklar.", linkText: "Bläddra bland artiklar" },
+      guidance: { title: "Få personlig vägledning", desc: "Använd vår AI-assistent eller boka ett gratis virtuellt möte med en HCPC-registrerad fysioterapeut.", linkText: "Prata med AI-assistenten" },
+      programme: { title: "Följ ditt program", desc: "Börja med skräddarsydda lågintensiva övningar och en antiinflammatorisk medelhavskost.", linkText: "Visa övningar" },
+      transform: { title: "Förändra ditt liv", desc: "Följ dina framsteg, anslut till 10 000+ personer i vår gemenskap och fira milstolpar.", linkText: "Gå med i gemenskapen" },
+    },
+  },
+  services: {
+    label: "Heltäckande vårdplattform",
+    headingLead: "Tjänster i världsklass,",
+    headingAccent: "för alla",
+    description:
+      "Varje tjänst är kliniskt granskad, NICE-kompatibel och utformad av vårt tvärvetenskapliga team. Inga väntelistor, inga remisser, ingen kostnad.",
+    learnMore: "Läs mer",
+  },
   footer: {
     tagline: "Kostnadsfri fysioterapi, kostplaner och evidensbaserat stöd för människor som lever med artrit i hela Storbritannien.",
     columns: {
