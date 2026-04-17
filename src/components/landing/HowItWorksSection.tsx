@@ -37,7 +37,7 @@ const HowItWorksSection = memo(() => (
               </span>
               {/* Connector line between steps (desktop) — animated */}
               {i < steps.length - 1 && (
-                <div className="absolute top-16 right-0 translate-x-1/2 w-12 h-px hidden lg:block overflow-hidden">
+                <div className="absolute top-16 end-0 translate-x-1/2 rtl:-translate-x-1/2 w-12 h-px hidden lg:block overflow-hidden">
                   <div className="w-full h-full bg-gradient-to-r from-primary/20 to-primary/5" />
                 </div>
               )}

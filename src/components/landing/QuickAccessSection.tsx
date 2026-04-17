@@ -95,10 +95,10 @@ export default function QuickAccessSection() {
                 key={hub.id}
                 onClick={() => navigate(hub.href)}
                 aria-label={`Go to ${hub.title}`}
-                className="premium-card group text-left p-9 lg:p-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary relative overflow-hidden"
+                className="premium-card group text-start p-9 lg:p-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary relative overflow-hidden"
               >
                 {/* Subtle corner number */}
-                <span className="absolute top-4 right-5 text-[4rem] font-display font-bold text-primary/[0.03] leading-none select-none pointer-events-none group-hover:text-primary/[0.06] transition-colors duration-500">
+                <span className="absolute top-4 end-5 text-[4rem] font-display font-bold text-primary/[0.03] leading-none select-none pointer-events-none group-hover:text-primary/[0.06] transition-colors duration-500">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 
