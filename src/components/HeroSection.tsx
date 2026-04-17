@@ -43,21 +43,21 @@ const HeroSection = memo(() => {
             <div className="hero-stagger text-center lg:text-left">
 
               <h1 className="hero-item text-[1.75rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.5rem] xl:text-[4rem] font-display font-bold text-foreground mb-5 sm:mb-6 leading-[1.08] tracking-tight text-balance">
-                1 in 6 people in the UK{" "}
+                {t("hero.headlineLead")}{" "}
                 <br className="hidden sm:block" />
-                live with arthritis.{" "}
+                {t("hero.headlineMid")}{" "}
                 <span className="text-gradient relative inline-block hero-underline italic">
-                  We're here for every one of them.
+                  {t("hero.headlineAccent")}
                 </span>
               </h1>
 
               <p className="hero-item text-[14px] sm:text-base md:text-lg text-muted-foreground leading-[1.75] sm:leading-[1.85] mb-3 max-w-[580px] mx-auto lg:mx-0">
-                Free physiotherapy, anti-inflammatory diet plans, evidence-based exercises and 24/7 support — helping people across the United Kingdom manage arthritis pain and live fuller lives.
+                {t("hero.description")}
               </p>
 
               <p className="hero-item text-xs sm:text-sm text-primary/70 font-medium mb-6 sm:mb-8 flex items-center justify-center lg:justify-start gap-2">
                 <Heart className="w-3.5 h-3.5 fill-primary/20 animate-pulse-soft" />
-                Every donation helps us reach more people in need
+                {t("hero.donationLine")}
               </p>
 
               <div className="hero-item flex flex-col sm:flex-row justify-center lg:justify-start gap-3">
