@@ -1,80 +1,74 @@
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import AITrustSafetyModal from "@/components/AITrustSafetyModal";
 
+const columns = [
+  {
+    title: "Get Help",
+    links: [
+      { label: "Virtual Physiotherapy", href: "/chat" },
+      { label: "Exercise Hub", href: "/exercises" },
+      { label: "Diet & Nutrition Hub", href: "/diet" },
+      { label: "Self Help Tool", href: "/self-help" },
+      { label: "Arthritis Flare-Ups", href: "/arthritis-flare-ups" },
+    ],
+  },
+  {
+    title: "About Arthritis",
+    links: [
+      { label: "Osteoarthritis", href: "/conditions/osteoarthritis" },
+      { label: "Rheumatoid Arthritis", href: "/conditions/rheumatoid-arthritis" },
+      { label: "Psoriatic Arthritis", href: "/conditions/psoriatic-arthritis" },
+      { label: "Blog & Research", href: "/blog" },
+      { label: "UK Arthritis Guide", href: "/guides/uk-arthritis" },
+      { label: "NHS Services Guide", href: "/guides/nhs-services" },
+      { label: "Diet & Nutrition Guide", href: "/guides/diet" },
+      { label: "Exercise Guide", href: "/guides/exercise" },
+      { label: "Benefits & PIP Guide", href: "/guides/benefits-pip" },
+    ],
+  },
+  {
+    title: "Organisation",
+    links: [
+      { label: "Our Mission", href: "/about" },
+      { label: "Trust & Credibility", href: "/trust" },
+      { label: "Governance", href: "/governance" },
+      { label: "Our Finances", href: "/finances" },
+      { label: "Our Impact", href: "/impact" },
+      { label: "Community Hub", href: "/community" },
+      { label: "Corporate Giving", href: "/corporate-giving" },
+      { label: "Press & Media", href: "/press" },
+      { label: "Partners", href: "/partners" },
+      { label: "Sitemap", href: "/sitemap" },
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Cookies Policy", href: "/cookies" },
+      { label: "Terms & Conditions", href: "/terms" },
+      { label: "Accessibility", href: "/accessibility" },
+      { label: "Safeguarding Policy", href: "/safeguarding" },
+      { label: "Complaints Procedure", href: "/complaints" },
+    ],
+  },
+  {
+    title: "Connect",
+    links: [
+      { label: "X / Twitter", href: "https://x.com/ArthritisOrg" },
+      { label: "LinkedIn", href: "https://www.linkedin.com/company/112596569/" },
+    ],
+  },
+];
+
 const Footer = () => {
-  const { t } = useTranslation();
-
-  const columns = [
-    {
-      title: t("footer.columns.getHelp"),
-      links: [
-        { label: t("footer.links.virtualPhysio"), href: "/chat" },
-        { label: t("footer.links.exerciseHub"), href: "/exercises" },
-        { label: t("footer.links.dietHub"), href: "/diet" },
-        { label: t("footer.links.selfHelp"), href: "/self-help" },
-        { label: t("footer.links.flareUps"), href: "/arthritis-flare-ups" },
-      ],
-    },
-    {
-      title: t("footer.columns.aboutArthritis"),
-      links: [
-        { label: t("footer.links.osteoarthritis"), href: "/conditions/osteoarthritis" },
-        { label: t("footer.links.rheumatoid"), href: "/conditions/rheumatoid-arthritis" },
-        { label: t("footer.links.psoriatic"), href: "/conditions/psoriatic-arthritis" },
-        { label: t("footer.links.blog"), href: "/blog" },
-        { label: t("footer.links.ukGuide"), href: "/guides/uk-arthritis" },
-        { label: t("footer.links.nhsGuide"), href: "/guides/nhs-services" },
-        { label: t("footer.links.dietGuide"), href: "/guides/diet" },
-        { label: t("footer.links.exerciseGuide"), href: "/guides/exercise" },
-        { label: t("footer.links.benefitsGuide"), href: "/guides/benefits-pip" },
-      ],
-    },
-    {
-      title: t("footer.columns.organisation"),
-      links: [
-        { label: t("footer.links.mission"), href: "/about" },
-        { label: t("footer.links.trust"), href: "/trust" },
-        { label: t("footer.links.governance"), href: "/governance" },
-        { label: t("footer.links.finances"), href: "/finances" },
-        { label: t("footer.links.impact"), href: "/impact" },
-        { label: t("footer.links.community"), href: "/community" },
-        { label: t("footer.links.corporate"), href: "/corporate-giving" },
-        { label: t("footer.links.press"), href: "/press" },
-        { label: t("footer.links.partners"), href: "/partners" },
-        { label: t("footer.links.sitemap"), href: "/sitemap" },
-      ],
-    },
-    {
-      title: t("footer.columns.legal"),
-      links: [
-        { label: t("footer.links.privacy"), href: "/privacy" },
-        { label: t("footer.links.cookies"), href: "/cookies" },
-        { label: t("footer.links.terms"), href: "/terms" },
-        { label: t("footer.links.accessibility"), href: "/accessibility" },
-        { label: t("footer.links.safeguarding"), href: "/safeguarding" },
-        { label: t("footer.links.complaints"), href: "/complaints" },
-      ],
-    },
-    {
-      title: t("footer.columns.connect"),
-      links: [
-        { label: "X / Twitter", href: "https://x.com/ArthritisOrg" },
-        { label: "LinkedIn", href: "https://www.linkedin.com/company/112596569/" },
-      ],
-    },
-  ];
-
-  const legalTitle = t("footer.columns.legal");
-
   return (
     <footer className="bg-muted/30 border-t border-border/20 pb-20 lg:pb-0" role="contentinfo" aria-label="Site footer">
       <div className="container mx-auto px-6 md:px-12 py-16 lg:py-20">
-        {/* Logo + tagline */}
         <div className="mb-14">
           <p className="text-lg font-bold text-foreground tracking-tight">Living With Arthritis</p>
           <p className="text-sm text-muted-foreground mt-1.5 max-w-sm leading-relaxed">
-            {t("footer.tagline")}
+            Free physiotherapy, diet plans and evidence-based support for people living with arthritis across the UK.
           </p>
         </div>
 
@@ -111,7 +105,7 @@ const Footer = () => {
                     )}
                   </li>
                 ))}
-                {col.title === legalTitle && (
+                {col.title === "Legal" && (
                   <li>
                     <AITrustSafetyModal />
                   </li>
@@ -122,11 +116,10 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom bar */}
       <div className="border-t border-border/15">
         <div className="container mx-auto px-6 md:px-12 py-5 flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-muted-foreground/50 text-[11px] tracking-wide">
-            © {new Date().getFullYear()} {t("footer.copyright")}
+            © {new Date().getFullYear()} Living with Arthritis™ · 27 Old Gloucester Street, London WC1N 3AX · Registered in England & Wales
           </p>
           <a
             href="https://maxwellhealth.co.uk"
@@ -134,7 +127,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="text-foreground font-bold text-xs tracking-wide hover:text-primary transition-colors"
           >
-            {t("footer.designedBy")}
+            Designed & Built by Maxwell Health
           </a>
         </div>
       </div>
