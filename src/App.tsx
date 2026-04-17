@@ -7,6 +7,7 @@ import { lazy, Suspense } from "react";
 import { PageTransition } from "@/components/ui/PageTransition";
 import { RouteProgressBar } from "@/components/ui/RouteProgressBar";
 import { useCartSync } from "@/hooks/useCartSync";
+import { useLangSync } from "@/hooks/useLangSync";
 import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "next-themes";
 import { DeferredMount } from "@/components/DeferredMount";
@@ -165,6 +166,7 @@ function AnimatedRoutes() {
 
 function AppWithSync() {
   useCartSync();
+  useLangSync();
   return (
     <>
       <RouteProgressBar />
