@@ -48,7 +48,7 @@ const FAQSection = memo(() => {
       <Accordion type="single" collapsible className="space-y-4">
         {faqs.map((faq, i) => (
           <AccordionItem key={i} value={`faq-${i}`} className="bg-card border border-border/8 rounded-2xl px-8 data-[state=open]:shadow-lg transition-all duration-500 data-[state=open]:border-primary/6">
-            <AccordionTrigger className="text-left text-[15px] font-semibold hover:no-underline py-7 tracking-tight">{faq.q}</AccordionTrigger>
+            <AccordionTrigger className="text-start text-[15px] font-semibold hover:no-underline py-7 tracking-tight">{faq.q}</AccordionTrigger>
             <AccordionContent className="text-muted-foreground text-sm leading-[1.9] pb-7">{faq.a}</AccordionContent>
           </AccordionItem>
         ))}
@@ -63,12 +63,12 @@ const FAQSection = memo(() => {
             onClick={() => navigate("/chat")}
             className="rounded-full h-[54px] px-10 btn-primary-cta text-sm font-bold tracking-wider"
           >
-            <MessageCircle className="w-4 h-4 mr-2" />
+            <MessageCircle className="w-4 h-4 me-2" />
             Ask Our AI Assistant
           </Button>
           <Link to="/blog">
             <Button variant="outline" className="rounded-full h-[54px] px-10 text-sm font-bold tracking-wider border-2 border-primary/15 text-primary hover:bg-primary/[0.03]">
-              Browse Articles <ArrowRight className="w-4 h-4 ml-2" />
+              Browse Articles <ArrowRight className="w-4 h-4 ms-2 rtl:rotate-180" />
             </Button>
           </Link>
         </div>
