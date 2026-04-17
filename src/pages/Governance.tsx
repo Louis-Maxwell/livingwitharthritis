@@ -240,8 +240,9 @@ Regulated by the Charity Commission for England and Wales.
                   </div>
                   <address className="not-italic text-sm text-muted-foreground leading-relaxed mb-5">
                     Living With Arthritis<br />
-                    27 Old Gloucester Street<br />
-                    London WC1N 3AX<br />
+                    Oswestry Health Centre<br />
+                    Thomas Savin Road, Off Gobowen Road<br />
+                    Oswestry SY11 1GA (SatNav: SY11 1HS)<br />
                     England
                   </address>
                   <div className="space-y-2.5">
