@@ -5,11 +5,14 @@ const columns = [
   {
     title: "Get Help",
     links: [
+      { label: "Our Services", href: "/services" },
       { label: "Virtual Physiotherapy", href: "/chat" },
       { label: "Exercise Hub", href: "/exercises" },
       { label: "Diet & Nutrition Hub", href: "/diet" },
       { label: "Self Help Tool", href: "/self-help" },
       { label: "Arthritis Flare-Ups", href: "/arthritis-flare-ups" },
+      { label: "Contact Us", href: "/contact" },
+      { label: "FAQ", href: "/faq" },
     ],
   },
   {
@@ -31,6 +34,7 @@ const columns = [
     links: [
       { label: "Our Mission", href: "/about" },
       { label: "Trust & Credibility", href: "/trust" },
+      { label: "AI Safety", href: "/ai-safety" },
       { label: "Governance", href: "/governance" },
       { label: "Our Finances", href: "/finances" },
       { label: "Our Impact", href: "/impact" },
