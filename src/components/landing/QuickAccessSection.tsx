@@ -95,10 +95,10 @@ export default function QuickAccessSection() {
                 key={hub.id}
                 onClick={() => navigate(hub.href)}
                 aria-label={`Go to ${hub.title}`}
-                className="premium-card group text-left p-9 lg:p-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary relative overflow-hidden"
+                className="premium-card group text-start p-9 lg:p-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary relative overflow-hidden"
               >
                 {/* Subtle corner number */}
-                <span className="absolute top-4 right-5 text-[4rem] font-display font-bold text-primary/[0.03] leading-none select-none pointer-events-none group-hover:text-primary/[0.06] transition-colors duration-500">
+                <span className="absolute top-4 end-5 text-[4rem] font-display font-bold text-primary/[0.03] leading-none select-none pointer-events-none group-hover:text-primary/[0.06] transition-colors duration-500">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 
@@ -113,7 +113,7 @@ export default function QuickAccessSection() {
                   <p className="text-sm text-muted-foreground leading-[1.8] mb-6">{hub.description}</p>
                   <div className="inline-flex items-center gap-1.5 text-[11px] font-bold text-primary tracking-[0.15em] uppercase opacity-60 group-hover:opacity-100 group-hover:gap-2.5 transition-all duration-300">
                     Explore
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5 transition-transform" />
                   </div>
                 </div>
               </button>

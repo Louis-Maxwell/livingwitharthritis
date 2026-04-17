@@ -24,9 +24,9 @@ const ServiceCard = ({ service }: { service: Service }) => {
         <CardDescription className="text-muted-foreground leading-[1.85] text-sm">
           {service.description}
         </CardDescription>
-        <div className="flex items-center text-[11px] font-bold text-primary opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:translate-x-1 tracking-[0.15em] uppercase">
+        <div className="flex items-center text-[11px] font-bold text-primary opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1 tracking-[0.15em] uppercase">
           Learn more
-          <ArrowRight className="ml-2 w-3.5 h-3.5" />
+          <ArrowRight className="ms-2 w-3.5 h-3.5 rtl:rotate-180" />
         </div>
       </CardContent>
     </Card>
