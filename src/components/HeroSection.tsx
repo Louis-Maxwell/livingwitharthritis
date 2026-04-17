@@ -68,7 +68,7 @@ const HeroSection = memo(() => {
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                   <MessageCircle className="w-4.5 h-4.5 mr-2 group-hover:scale-110 transition-transform" />
-                  Get Free Support
+                  {t("hero.ctaSupport")}
                   <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 hidden sm:block" />
                 </Button>
                 <Button
@@ -78,7 +78,7 @@ const HeroSection = memo(() => {
                   className="px-8 sm:px-10 h-[48px] sm:h-[56px] rounded-full text-[13px] sm:text-sm font-bold tracking-wider border-2 border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-500 group active:scale-[0.97]"
                 >
                   <Heart className="w-4.5 h-4.5 mr-2 group-hover:scale-110 group-hover:fill-white/20 transition-all" />
-                  Donate Now
+                  {t("hero.ctaDonate")}
                 </Button>
               </div>
 
@@ -133,7 +133,7 @@ const HeroSection = memo(() => {
                     compact={stat.compact}
                     className="stat-number text-2xl sm:text-3xl lg:text-[2.25rem] group-hover:text-primary transition-colors duration-300"
                   />
-                  <p className="text-[10px] sm:text-[11px] text-muted-foreground/60 font-medium mt-1.5 leading-snug tracking-[0.12em] uppercase">{stat.label}</p>
+                  <p className="text-[10px] sm:text-[11px] text-muted-foreground/60 font-medium mt-1.5 leading-snug tracking-[0.12em] uppercase">{t(`hero.stats.${stat.label}`)}</p>
                   {i < STATS.length - 1 && (
                     <div className="absolute right-0 top-1/2 -translate-y-1/2 w-px h-10 bg-border/20 hidden sm:block" />
                   )}
@@ -142,7 +142,7 @@ const HeroSection = memo(() => {
             </div>
           </div>
           <p className="text-[9px] text-muted-foreground/35 mt-4 text-center tracking-[0.15em] uppercase">
-            Based on internal user feedback surveys, 2024–2025
+            {t("hero.statsFootnote")}
           </p>
         </div>
       </div>
