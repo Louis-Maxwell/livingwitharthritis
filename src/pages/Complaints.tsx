@@ -55,7 +55,7 @@ export default function Complaints() {
                   </a>
                 </div>
                 <p className="text-muted-foreground text-sm">
-                  Or write to: Living With Arthritis UK, 27 Old Gloucester Street, London WC1N 3AX
+                  Or write to: Living With Arthritis UK, Oswestry Health Centre, Thomas Savin Road, Off Gobowen Road, Oswestry SY11 1GA
                 </p>
               </div>
             </section>
