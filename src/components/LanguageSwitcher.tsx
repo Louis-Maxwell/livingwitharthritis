@@ -82,7 +82,7 @@ const LanguageSwitcher = () => {
           setPending(selected);
           setOpen((v) => !v);
         }}
-        aria-label="Change language"
+        aria-label={t("language.change")}
         aria-expanded={open}
       >
         <Globe className="w-4 h-4" />
@@ -91,7 +91,7 @@ const LanguageSwitcher = () => {
       {open && (
         <div
           role="dialog"
-          aria-label="Language"
+          aria-label={t("language.title")}
           dir="ltr"
           className="absolute end-0 mt-2 w-64 rounded-2xl border border-border bg-background shadow-xl shadow-black/10 p-4 z-[100] animate-in fade-in-0 zoom-in-95 duration-150"
           style={{ right: 0 }}
@@ -100,7 +100,7 @@ const LanguageSwitcher = () => {
             <div className="w-7 h-7 rounded-full bg-muted flex items-center justify-center">
               <Globe className="w-4 h-4 text-foreground" />
             </div>
-            <span className="text-sm font-semibold text-foreground">Language</span>
+            <span className="text-sm font-semibold text-foreground">{t("language.title")}</span>
           </div>
 
           <ul className="space-y-1 mb-3">
@@ -132,7 +132,7 @@ const LanguageSwitcher = () => {
               onClick={save}
               className="rounded-full bg-foreground text-background hover:bg-foreground/90 px-5"
             >
-              Save
+              {t("language.save")}
             </Button>
           </div>
         </div>
