@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, ShoppingBag, HandHeart, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Sparkles, Globe, Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -41,6 +42,7 @@ type NavLink = {
 };
 
 const Header = () => {
+  const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -70,7 +72,7 @@ const Header = () => {
 
   const navLinks: NavLink[] = [
     {
-      label: "Newly Diagnosed",
+      label: t("nav.newlyDiagnosed"),
       href: "/about",
       action: () => navigate("/about"),
       subs: [
@@ -80,7 +82,7 @@ const Header = () => {
       ],
     },
     {
-      label: "Track & Manage",
+      label: t("nav.trackManage"),
       href: "/self-help",
       action: () => navigate("/self-help"),
       subs: [
@@ -90,7 +92,7 @@ const Header = () => {
       ],
     },
     {
-      label: "Treatments",
+      label: t("nav.treatments"),
       href: "/exercises",
       action: () => navigate("/exercises"),
       subs: [
@@ -99,7 +101,7 @@ const Header = () => {
       ],
     },
     {
-      label: "Conditions",
+      label: t("nav.conditions"),
       href: "#conditions",
       subs: [
         { label: "Osteoarthritis", desc: "The most common form of arthritis", icon: Bone, href: "/conditions/osteoarthritis", action: () => navigate("/conditions/osteoarthritis"), color: "text-primary bg-primary/10" },
@@ -109,7 +111,7 @@ const Header = () => {
       ],
     },
     {
-      label: "Blog & Stories",
+      label: t("nav.blogStories"),
       href: "/blog",
       action: () => navigate("/blog"),
       subs: [
@@ -120,7 +122,7 @@ const Header = () => {
       ],
     },
     {
-      label: "Support Us",
+      label: t("nav.supportUs"),
       href: "#involved",
       subs: [
         { label: "Donate", desc: "Power the progress for a cure", icon: Heart, href: "#involved", color: "text-primary bg-primary/10" },
@@ -129,8 +131,8 @@ const Header = () => {
         { label: "Trust & Credibility", desc: "Governance, advisors & evidence", icon: ShieldCheck, href: "/trust", action: () => navigate("/trust"), color: "text-primary bg-primary/10" },
       ],
     },
-    { label: "Resources", href: "#resources", action: () => setResourceDrawerOpen(true) },
-    { label: "Shop", href: "/shop", action: () => navigate("/shop") },
+    { label: t("nav.resources"), href: "#resources", action: () => setResourceDrawerOpen(true) },
+    { label: t("nav.shop"), href: "/shop", action: () => navigate("/shop") },
   ];
 
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -161,14 +163,14 @@ const Header = () => {
   };
 
   const mobileNavItems = [
-    { label: "Newly Diagnosed", icon: Sparkles, desc: "Your essential first steps guide", href: "/about", action: () => navigate("/about") },
+    { label: t("nav.newlyDiagnosed"), icon: Sparkles, desc: "Your essential first steps guide", href: "/about", action: () => navigate("/about") },
     { label: "Self Help Tool", icon: Activity, desc: "Interactive joint exercise diagram", href: "/self-help", action: () => navigate("/self-help") },
     { label: "Exercises & Diet", icon: Dumbbell, desc: "Physio exercises & nutrition plans", href: "/exercises", action: () => navigate("/exercises") },
-    { label: "Conditions", icon: HeartPulse, desc: "OA, RA, Gout, PsA & more", href: "#conditions" },
-    { label: "Blog & Research", icon: Newspaper, desc: "40+ evidence-based articles", href: "/blog", action: () => navigate("/blog") },
-    { label: "Support Us", icon: HandHeart, desc: "Donate, volunteer & fundraise", href: "#involved" },
-    { label: "Resources", icon: BookOpen, desc: "NHS pathways, benefits & guides", href: "#resources", action: () => setResourceDrawerOpen(true) },
-    { label: "Shop", icon: ShoppingBag, desc: "Recommended arthritis products", href: "/shop", action: () => navigate("/shop") },
+    { label: t("nav.conditions"), icon: HeartPulse, desc: "OA, RA, Gout, PsA & more", href: "#conditions" },
+    { label: t("nav.blogStories"), icon: Newspaper, desc: "40+ evidence-based articles", href: "/blog", action: () => navigate("/blog") },
+    { label: t("nav.supportUs"), icon: HandHeart, desc: "Donate, volunteer & fundraise", href: "#involved" },
+    { label: t("nav.resources"), icon: BookOpen, desc: "NHS pathways, benefits & guides", href: "#resources", action: () => setResourceDrawerOpen(true) },
+    { label: t("nav.shop"), icon: ShoppingBag, desc: "Recommended arthritis products", href: "/shop", action: () => navigate("/shop") },
   ];
 
   const isHidden = !visible && !mobileMenuOpen;
@@ -241,7 +243,7 @@ const Header = () => {
                 className="h-9 px-4 rounded-full text-[11px] font-bold tracking-wider bg-[hsl(0,72%,51%)] hover:bg-[hsl(0,72%,45%)] text-white shadow-md shadow-red-500/20"
               >
                 <Heart className="w-3 h-3 mr-1.5 fill-white/30" />
-                Donate
+                {t("nav.donateNow")}
               </Button>
               <Button
                 variant="ghost"
@@ -361,7 +363,7 @@ const Header = () => {
                   className="ml-3 group relative inline-flex items-center gap-1.5 px-5 py-2 text-[13px] font-bold rounded-full bg-destructive text-destructive-foreground border border-destructive/80 hover:bg-destructive/90 hover:shadow-md hover:shadow-destructive/25 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
                 >
                   <Heart className="w-3.5 h-3.5 fill-white/30 transition-transform duration-300 group-hover:scale-110" />
-                  Donate Now
+                  {t("nav.donateNow")}
                 </button>
 
                 {/* Ways to Help link */}
@@ -370,7 +372,7 @@ const Header = () => {
                   className="ml-1.5 group relative inline-flex items-center gap-1.5 px-4 py-2 text-[13px] font-bold rounded-full bg-gradient-to-r from-primary/10 to-accent/30 text-primary border border-primary/20 hover:from-primary hover:to-primary hover:text-primary-foreground hover:border-primary hover:shadow-md hover:shadow-primary/20 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:scale-110" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-                  Ways to Help
+                  {t("nav.waysToHelp")}
                 </button>
               </nav>
 
@@ -393,7 +395,7 @@ const Header = () => {
             <div className="flex items-center justify-between p-6 border-b border-border/20">
               <div className="flex items-center gap-2.5">
                 <LogoMark className="w-8 h-8" />
-                <span className="text-lg font-extrabold text-primary">Menu</span>
+                <span className="text-lg font-extrabold text-primary">{t("nav.menu")}</span>
               </div>
               <Button variant="ghost" size="icon" className="rounded-lg h-9 w-9" onClick={() => setMobileMenuOpen(false)} aria-label="Close menu">
                 <X size={18} />
@@ -440,7 +442,7 @@ const Header = () => {
                 }}
               >
                 <MessageCircle className="w-4 h-4 mr-2" />
-                Talk to AI Assistant
+                {t("nav.talkToAI")}
               </Button>
               <Button
                 variant="outline"
@@ -451,7 +453,7 @@ const Header = () => {
                 }}
               >
                 <Globe className="w-3.5 h-3.5 mr-2" />
-                Zakat Appeal
+                {t("nav.zakatAppeal")}
               </Button>
             </div>
           </div>
