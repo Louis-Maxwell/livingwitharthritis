@@ -74,6 +74,10 @@ const LivedExperiences = lazy(() => import("./pages/LivedExperiences"));
 const ExpertArticles = lazy(() => import("./pages/ExpertArticles"));
 const ResourceDirectory = lazy(() => import("./pages/ResourceDirectory"));
 const HealthTools = lazy(() => import("./pages/HealthTools"));
+const Services = lazy(() => import("./pages/Services"));
+const FAQ = lazy(() => import("./pages/FAQ"));
+const AISafety = lazy(() => import("./pages/AISafety"));
+const Contact = lazy(() => import("./pages/Contact"));
 // Loading fallback with skeleton-style animation
 const PageLoader = () => (
   <div className="min-h-screen flex flex-col items-center justify-center bg-background gap-4">
@@ -157,6 +161,10 @@ function AnimatedRoutes() {
         <Route path="/expert-articles" element={<ExpertArticles />} />
         <Route path="/resources-directory" element={<ResourceDirectory />} />
         <Route path="/health-tools" element={<HealthTools />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/ai-safety" element={<AISafety />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </PageTransition>
