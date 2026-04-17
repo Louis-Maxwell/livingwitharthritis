@@ -74,8 +74,8 @@ const NewsletterSection = memo(() => {
                 disabled={isSubmitting}
                 className="rounded-full h-[58px] px-10 btn-primary-cta text-sm font-bold tracking-wider"
               >
-                {isSubmitting ? Subscribing… : (
-                  <>Subscribe <ArrowRight className="w-4 h-4 ms-1.5 rtl:rotate-180" /></>
+                {isSubmitting ? "Subscribing…" : (
+                  <>Subscribe <ArrowRight className="w-4 h-4 ms-1.5" /></>
                 )}
               </Button>
             </form>
