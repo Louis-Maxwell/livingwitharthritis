@@ -204,35 +204,21 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
         <main id="main-content" role="main" tabIndex={-1}>
           <HeroSection />
 
-          <JumpNav />
-
-          <div id="find-help" className="scroll-mt-32">
-            <Suspense fallback={<SkeletonSection />}>
-              <QuickAccessSection />
-            </Suspense>
-          </div>
-
-          <div id="how-it-works" className="scroll-mt-32">
-            <Suspense fallback={<SkeletonSection />}>
-              <HowItWorksSection />
-            </Suspense>
-          </div>
-
-          <div id="services" className="scroll-mt-32">
-            <Suspense fallback={<SkeletonSection />}>
-              <ServicesGrid />
-            </Suspense>
-          </div>
-
           <Suspense fallback={<SkeletonSection />}>
-            <HomeTabs />
+            <QuickAccessSection />
           </Suspense>
 
-          <div id="contact" className="scroll-mt-32">
-            <Suspense fallback={<SkeletonSection />}>
-              <ContactSection />
-            </Suspense>
-          </div>
+          <Suspense fallback={<SkeletonSection />}>
+            <HowItWorksSection />
+          </Suspense>
+
+          <Suspense fallback={<SkeletonSection />}>
+            <TestimonialsSection />
+          </Suspense>
+
+          <Suspense fallback={<SkeletonSection />}>
+            <LeadCaptureSection />
+          </Suspense>
         </main>
 
         <Suspense fallback={null}>
