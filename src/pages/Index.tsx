@@ -12,35 +12,20 @@ import HeroSection from "@/components/HeroSection";
 import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
-import { photoBreakCommunity } from "@/data/images";
-
 /* ─── Critical path (above the fold only) ────────────────────────────── */
 import TrustBar from "@/components/landing/TrustBar";
 import SkeletonSection from "@/components/landing/SkeletonSection";
+import JumpNav from "@/components/landing/JumpNav";
 
-/* ─── Lazy imports (everything below the fold) ──────────────────────── */
-const StatsBand = lazy(() => import("@/components/landing/StatsBand"));
-const ActionPathSection = lazy(() => import("@/components/landing/ActionPathSection"));
-const ExpertContentSection = lazy(() => import("@/components/landing/ExpertContentSection"));
-const WhyUsSection = lazy(() => import("@/components/landing/WhyUsSection"));
-const PhotoBreak = lazy(() => import("@/components/landing/PhotoBreak"));
-const BlogPreview = lazy(() => import("@/components/landing/BlogPreview"));
-const LeadCaptureSection = lazy(() => import("@/components/landing/LeadCaptureSection"));
+/* ─── Lazy imports — only the 7 essentials remain on the homepage ────── */
+const QuickAccessSection = lazy(() => import("@/components/landing/QuickAccessSection"));
+const HowItWorksSection = lazy(() => import("@/components/landing/HowItWorksSection"));
+const ServicesGrid = lazy(() => import("@/components/ServicesGrid"));
+const HomeTabs = lazy(() => import("@/components/landing/HomeTabs"));
 const ContactSection = lazy(() => import("@/components/landing/ContactSection"));
-const AITrustSection = lazy(() => import("@/components/landing/AITrustSection"));
 const BackToTopButton = lazy(() => import("@/components/landing/BackToTopButton"));
 const CookieBanner = lazy(() => import("@/components/landing/CookieBanner"));
 const Footer = lazy(() => import("@/components/Footer"));
-const QuickAccessSection = lazy(() => import("@/components/landing/QuickAccessSection"));
-const ContentDepthSection = lazy(() => import("@/components/landing/ContentDepthSection"));
-const HowItWorksSection = lazy(() => import("@/components/landing/HowItWorksSection"));
-const ServicesGrid = lazy(() => import("@/components/ServicesGrid"));
-const QuoteSection = lazy(() => import("@/components/landing/QuoteSection"));
-const AboutSection = lazy(() => import("@/components/AboutSection"));
-const TestimonialsSection = lazy(() => import("@/components/landing/TestimonialsSection"));
-const DonationImpactSection = lazy(() => import("@/components/landing/DonationImpactSection"));
-const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
-const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSection"));
 
 /* ─── Constants ─────────────────────────────────────────────────────── */
 const SITE_URL = "https://livingwitharthritis.org.uk";
@@ -221,86 +206,35 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
         <main id="main-content" role="main" tabIndex={-1}>
           <HeroSection />
 
-          <Suspense fallback={<SkeletonSection />}>
-            <StatsBand />
-          </Suspense>
+          <JumpNav />
+
+          <div id="find-help" className="scroll-mt-32">
+            <Suspense fallback={<SkeletonSection />}>
+              <QuickAccessSection />
+            </Suspense>
+          </div>
+
+          <div id="how-it-works" className="scroll-mt-32">
+            <Suspense fallback={<SkeletonSection />}>
+              <HowItWorksSection />
+            </Suspense>
+          </div>
+
+          <div id="services" className="scroll-mt-32">
+            <Suspense fallback={<SkeletonSection />}>
+              <ServicesGrid />
+            </Suspense>
+          </div>
 
           <Suspense fallback={<SkeletonSection />}>
-            <ActionPathSection />
+            <HomeTabs />
           </Suspense>
 
-          <Suspense fallback={<SkeletonSection />}>
-            <QuickAccessSection />
-          </Suspense>
-
-          <Suspense fallback={<SkeletonSection />}>
-            <HowItWorksSection />
-          </Suspense>
-
-          <Suspense fallback={<SkeletonSection />}>
-            <ServicesGrid />
-          </Suspense>
-
-          <Suspense fallback={<SkeletonSection />}>
-            <ExpertContentSection />
-          </Suspense>
-
-          <Suspense fallback={<SkeletonSection />}>
-            <PhotoBreak
-              image={photoBreakCommunity}
-              alt="Members of the Living With Arthritis UK community supporting one another"
-              quote="No one should face arthritis alone. Together, we're changing what's possible."
-              attr={SITE_NAME}
-            />
-          </Suspense>
-
-          <Suspense fallback={<SkeletonSection />}>
-            <WhyUsSection />
-          </Suspense>
-
-          <Suspense fallback={<SkeletonSection />}>
-            <ContentDepthSection />
-          </Suspense>
-
-          <Suspense fallback={<SkeletonSection />}>
-            <QuoteSection />
-          </Suspense>
-
-          <Suspense fallback={<SkeletonSection />}>
-            <AboutSection />
-          </Suspense>
-
-          <Suspense fallback={<SkeletonSection />}>
-            <BlogPreview />
-          </Suspense>
-
-          <Suspense fallback={<SkeletonSection />}>
-            <TestimonialsSection />
-          </Suspense>
-
-          <Suspense fallback={<SkeletonSection />}>
-            <DonationImpactSection />
-          </Suspense>
-
-          <Suspense fallback={<SkeletonSection />}>
-            <LeadCaptureSection />
-          </Suspense>
-
-          <Suspense fallback={<SkeletonSection />}>
-            <FAQSection />
-          </Suspense>
-
-          <Suspense fallback={<SkeletonSection />}>
-            <NewsletterSection />
-          </Suspense>
-
-          <Suspense fallback={<SkeletonSection />}>
-            <ContactSection />
-          </Suspense>
-
-          <Suspense fallback={<SkeletonSection />}>
-            <AITrustSection />
-          </Suspense>
+          <div id="contact" className="scroll-mt-32">
+            <Suspense fallback={<SkeletonSection />}>
+              <ContactSection />
+            </Suspense>
+          </div>
         </main>
 
         <Suspense fallback={null}>
