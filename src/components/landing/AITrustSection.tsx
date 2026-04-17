@@ -104,7 +104,7 @@ const AITrustSection = memo(() => {
               </div>
               <div className="flex items-center gap-2 mb-3">
                 <h3 className="text-xl font-bold text-foreground">{p.title}</h3>
-                <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" aria-hidden="true" />
+                <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180 transition-all" aria-hidden="true" />
               </div>
               <p className="text-muted-foreground leading-relaxed">{p.desc}</p>
               <span className="sr-only">Click to read more about {p.title}</span>
