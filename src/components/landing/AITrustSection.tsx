@@ -3,6 +3,7 @@ import { ShieldCheck, Eye, Server, BarChart3, Lightbulb, ArrowRight } from "luci
 import GridBg from "./GridBg";
 import GlassCard from "./GlassCard";
 import PageModal from "./PageModal";
+import { Ltr } from "@/components/ui/Ltr";
 
 const CONTACT_EMAIL = "info@livingwitharthritis.org.uk";
 
@@ -81,14 +82,16 @@ const AITrustSection = memo(() => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 bg-primary/5 border border-primary/10 text-primary rounded-full px-4 py-1.5 text-sm font-semibold mb-6">
-            <Lightbulb className="w-4 h-4" aria-hidden="true" /> Responsible AI
+            <Lightbulb className="w-4 h-4" aria-hidden="true" /> <Ltr>Responsible AI</Ltr>
           </div>
           <h2 id="ai-trust-heading" className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground leading-tight">
-            Intelligence you can{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-violet">trust.</span>
+            <Ltr>
+              Intelligence you can{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-violet">trust.</span>
+            </Ltr>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            Our AI Health Assistant was engineered and co-designed with clinical experts to serve you safely, transparently, and fairly.
+            <Ltr>Our AI Health Assistant was engineered and co-designed with clinical experts to serve you safely, transparently, and fairly.</Ltr>
           </p>
         </div>
 
@@ -103,10 +106,10 @@ const AITrustSection = memo(() => {
                 {p.icon}
               </div>
               <div className="flex items-center gap-2 mb-3">
-                <h3 className="text-xl font-bold text-foreground">{p.title}</h3>
+                <h3 className="text-xl font-bold text-foreground"><Ltr>{p.title}</Ltr></h3>
                 <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180 transition-all" aria-hidden="true" />
               </div>
-              <p className="text-muted-foreground leading-relaxed">{p.desc}</p>
+              <p className="text-muted-foreground leading-relaxed"><Ltr>{p.desc}</Ltr></p>
               <span className="sr-only">Click to read more about {p.title}</span>
             </GlassCard>
           ))}
