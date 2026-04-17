@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, ShoppingBag, HandHeart, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Sparkles, Globe, Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -41,6 +42,7 @@ type NavLink = {
 };
 
 const Header = () => {
+  const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
