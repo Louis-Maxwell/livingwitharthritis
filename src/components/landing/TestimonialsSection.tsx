@@ -24,7 +24,7 @@ const HighlightedText = ({ text, highlight }: { text: string; highlight: string 
 const TestimonialsSection = memo(() => (
   <section className="py-24 lg:py-32 relative bg-warm overflow-hidden">
     {/* Decorative orb */}
-    <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-primary/[0.02] blur-[100px] pointer-events-none" />
+    <div className="absolute -top-40 -end-40 w-[500px] h-[500px] rounded-full bg-primary/[0.02] blur-[100px] pointer-events-none" />
     
     <div className="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl relative">
       <div className="text-center mb-20">
