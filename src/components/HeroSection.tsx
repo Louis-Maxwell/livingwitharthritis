@@ -67,9 +67,9 @@ const HeroSection = memo(() => {
                   className="btn-primary-cta px-8 sm:px-12 h-[48px] sm:h-[56px] rounded-full text-[13px] sm:text-sm font-bold tracking-wider group active:scale-[0.97] relative overflow-hidden"
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-                  <MessageCircle className="w-4.5 h-4.5 mr-2 group-hover:scale-110 transition-transform" />
+                  <MessageCircle className="w-4.5 h-4.5 me-2 group-hover:scale-110 transition-transform" />
                   {t("hero.ctaSupport")}
-                  <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 hidden sm:block" />
+                  <ArrowRight className="w-4 h-4 ms-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 hidden sm:block rtl:rotate-180 rtl:translate-x-2 rtl:group-hover:translate-x-0" />
                 </Button>
                 <Button
                   size="lg"
@@ -77,7 +77,7 @@ const HeroSection = memo(() => {
                   onClick={() => navigate("/donate")}
                   className="px-8 sm:px-10 h-[48px] sm:h-[56px] rounded-full text-[13px] sm:text-sm font-bold tracking-wider border-2 border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-500 group active:scale-[0.97]"
                 >
-                  <Heart className="w-4.5 h-4.5 mr-2 group-hover:scale-110 group-hover:fill-white/20 transition-all" />
+                  <Heart className="w-4.5 h-4.5 me-2 group-hover:scale-110 group-hover:fill-white/20 transition-all" />
                   {t("hero.ctaDonate")}
                 </Button>
               </div>
