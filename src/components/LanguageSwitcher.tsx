@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Globe, Check } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import i18n from "@/i18n";
 import { Button } from "@/components/ui/button";
 
 const LANGUAGES = [
