@@ -1,4 +1,4 @@
-import { useState, useMemo, useRef, useEffect } from "react";
+import { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import { Search, X, ArrowRight, FileText, Dumbbell, Utensils, Sun, Stethoscope } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
@@ -10,7 +10,11 @@ interface SearchItem {
   icon: React.ElementType;
 }
 
-// Joint-exercise combinations for search
+// Internal indexed item: pre-lowercased label for O(1)-per-compare matching.
+interface IndexedItem extends SearchItem {
+  l: string; // lowercase label, computed once
+}
+
 const joints = ["knee", "hip", "shoulder", "hand", "back", "ankle"] as const;
 const exercises = ["swimming", "yoga", "cycling", "walking", "tai-chi", "pilates", "stretching", "strength-training"] as const;
 
@@ -31,9 +35,7 @@ const jointExerciseItems: SearchItem[] = joints.flatMap((joint) =>
   }))
 );
 
-// Static searchable index
-const searchIndex: SearchItem[] = [
-  // Main pages
+const rawIndex: SearchItem[] = [
   { label: "Home", href: "/", category: "Pages", icon: FileText },
   { label: "About Us", href: "/about", category: "Pages", icon: FileText },
   { label: "Exercise Hub", href: "/exercises", category: "Pages", icon: Dumbbell },
@@ -45,13 +47,10 @@ const searchIndex: SearchItem[] = [
   { label: "Blog", href: "/blog", category: "Pages", icon: FileText },
   { label: "Health Tools", href: "/health-tools", category: "Pages", icon: Dumbbell },
   { label: "Zakat Appeal", href: "/zakat-appeal", category: "Pages", icon: FileText },
-  // Conditions
   { label: "Osteoarthritis", href: "/conditions/osteoarthritis", category: "Conditions", icon: Stethoscope },
   { label: "Rheumatoid Arthritis", href: "/conditions/rheumatoid-arthritis", category: "Conditions", icon: Stethoscope },
   { label: "Psoriatic Arthritis", href: "/conditions/psoriatic-arthritis", category: "Conditions", icon: Stethoscope },
-  // Joint exercises
   ...jointExerciseItems,
-  // Blog articles
   { label: "Best Diet for Joint Pain UK", href: "/blog/best-diet-for-joint-pain-uk", category: "Blog", icon: Utensils },
   { label: "Turmeric for Arthritis UK", href: "/blog/turmeric-for-arthritis-uk", category: "Blog", icon: Utensils },
   { label: "Omega-3 & Fish Oil", href: "/blog/arthritis-and-omega-3-fish-oil", category: "Blog", icon: Utensils },
@@ -72,7 +71,6 @@ const searchIndex: SearchItem[] = [
   { label: "Cycling for Arthritis UK", href: "/blog/arthritis-and-cycling-uk", category: "Blog", icon: Dumbbell },
   { label: "Tai Chi for Arthritis UK", href: "/blog/tai-chi-for-arthritis-uk", category: "Blog", icon: Dumbbell },
   { label: "Hydrotherapy Arthritis UK", href: "/blog/hydrotherapy-arthritis-uk", category: "Blog", icon: Dumbbell },
-  // Daily tips
   { label: "Morning Stretches", href: "/daily-tips/morning-stretches", category: "Tips", icon: Sun },
   { label: "Stay Hydrated", href: "/daily-tips/stay-hydrated", category: "Tips", icon: Sun },
   { label: "Anti-inflammatory Snacks", href: "/daily-tips/anti-inflammatory-snacks", category: "Tips", icon: Sun },
@@ -81,21 +79,62 @@ const searchIndex: SearchItem[] = [
   { label: "Pace Yourself", href: "/daily-tips/pace-yourself", category: "Tips", icon: Sun },
 ];
 
+// Module-level: built once for the app lifetime, shared across mounts.
+const SEARCH_INDEX: IndexedItem[] = rawIndex.map((it) => ({ ...it, l: it.label.toLowerCase() }));
+const MAX_RESULTS = 8;
+const MIN_QUERY = 2;
+const DEBOUNCE_MS = 120;
+
 export default function SiteSearch() {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
+  const [debounced, setDebounced] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
-  const results = useMemo(() => {
-    if (query.length < 2) return [];
-    const q = query.toLowerCase();
-    return searchIndex.filter((item) => item.label.toLowerCase().includes(q)).slice(0, 8);
+  // Debounce query → debounced. Avoids running the filter on every keystroke.
+  useEffect(() => {
+    if (query.length < MIN_QUERY) {
+      setDebounced("");
+      return;
+    }
+    const t = window.setTimeout(() => setDebounced(query), DEBOUNCE_MS);
+    return () => window.clearTimeout(t);
   }, [query]);
+
+  const results = useMemo(() => {
+    if (debounced.length < MIN_QUERY) return [];
+    const q = debounced.toLowerCase();
+    const out: IndexedItem[] = [];
+    // Manual loop with early exit at MAX_RESULTS — avoids allocating a full filtered array.
+    for (let i = 0; i < SEARCH_INDEX.length; i++) {
+      if (SEARCH_INDEX[i].l.includes(q)) {
+        out.push(SEARCH_INDEX[i]);
+        if (out.length >= MAX_RESULTS) break;
+      }
+    }
+    return out;
+  }, [debounced]);
 
   useEffect(() => {
     if (open) inputRef.current?.focus();
+  }, [open]);
+
+  // Combined outside-click + keyboard handler. Only attached while open
+  // (except the global Ctrl/Cmd+K opener), so idle cost is zero.
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        setOpen((prev) => !prev);
+      } else if (e.key === "Escape" && open) {
+        setOpen(false);
+        setQuery("");
+      }
+    };
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
   }, [open]);
 
   useEffect(() => {
@@ -110,26 +149,14 @@ export default function SiteSearch() {
     return () => document.removeEventListener("mousedown", handleClick);
   }, [open]);
 
-  useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault();
-        setOpen((prev) => !prev);
-      }
-      if (e.key === "Escape") {
-        setOpen(false);
-        setQuery("");
-      }
-    };
-    document.addEventListener("keydown", handleKey);
-    return () => document.removeEventListener("keydown", handleKey);
-  }, []);
-
-  const goTo = (href: string) => {
-    setOpen(false);
-    setQuery("");
-    navigate(href);
-  };
+  const goTo = useCallback(
+    (href: string) => {
+      setOpen(false);
+      setQuery("");
+      navigate(href);
+    },
+    [navigate]
+  );
 
   if (!open) {
     return (
@@ -163,26 +190,29 @@ export default function SiteSearch() {
 
       {results.length > 0 && (
         <div className="absolute top-full left-0 right-0 mt-1.5 bg-background border border-border/60 rounded-xl shadow-xl z-50 overflow-hidden max-h-[320px] overflow-y-auto">
-          {results.map((item) => (
-            <button
-              key={item.href}
-              onClick={() => goTo(item.href)}
-              className="w-full flex items-center gap-3 px-4 py-3 hover:bg-muted/50 transition-colors text-left border-b border-border/20 last:border-0"
-            >
-              <item.icon className="w-4 h-4 text-primary shrink-0" />
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium text-foreground truncate">{item.label}</p>
-                <p className="text-xs text-muted-foreground">{item.category}</p>
-              </div>
-              <ArrowRight className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
-            </button>
-          ))}
+          {results.map((item) => {
+            const Icon = item.icon;
+            return (
+              <button
+                key={item.href}
+                onClick={() => goTo(item.href)}
+                className="w-full flex items-center gap-3 px-4 py-3 hover:bg-muted/50 transition-colors text-left border-b border-border/20 last:border-0"
+              >
+                <Icon className="w-4 h-4 text-primary shrink-0" />
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-medium text-foreground truncate">{item.label}</p>
+                  <p className="text-xs text-muted-foreground">{item.category}</p>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
+              </button>
+            );
+          })}
         </div>
       )}
 
-      {query.length >= 2 && results.length === 0 && (
+      {debounced.length >= MIN_QUERY && results.length === 0 && (
         <div className="absolute top-full left-0 right-0 mt-1.5 bg-background border border-border/60 rounded-xl shadow-xl z-50 p-4 text-center">
-          <p className="text-sm text-muted-foreground">No results for "{query}"</p>
+          <p className="text-sm text-muted-foreground">No results for "{debounced}"</p>
           <p className="text-xs text-muted-foreground mt-1">Try searching for a joint (knee, hip) or exercise (yoga, swimming)</p>
         </div>
       )}
