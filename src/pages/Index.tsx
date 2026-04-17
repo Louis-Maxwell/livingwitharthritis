@@ -15,14 +15,12 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 /* ─── Critical path (above the fold only) ────────────────────────────── */
 import TrustBar from "@/components/landing/TrustBar";
 import SkeletonSection from "@/components/landing/SkeletonSection";
-import JumpNav from "@/components/landing/JumpNav";
 
-/* ─── Lazy imports — only the 7 essentials remain on the homepage ────── */
+/* ─── Lazy imports — the 5 essentials only ───────────────────────────── */
 const QuickAccessSection = lazy(() => import("@/components/landing/QuickAccessSection"));
 const HowItWorksSection = lazy(() => import("@/components/landing/HowItWorksSection"));
-const ServicesGrid = lazy(() => import("@/components/ServicesGrid"));
-const HomeTabs = lazy(() => import("@/components/landing/HomeTabs"));
-const ContactSection = lazy(() => import("@/components/landing/ContactSection"));
+const TestimonialsSection = lazy(() => import("@/components/landing/TestimonialsSection"));
+const LeadCaptureSection = lazy(() => import("@/components/landing/LeadCaptureSection"));
 const BackToTopButton = lazy(() => import("@/components/landing/BackToTopButton"));
 const CookieBanner = lazy(() => import("@/components/landing/CookieBanner"));
 const Footer = lazy(() => import("@/components/Footer"));
