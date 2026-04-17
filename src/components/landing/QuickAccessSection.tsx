@@ -113,7 +113,7 @@ export default function QuickAccessSection() {
                   <p className="text-sm text-muted-foreground leading-[1.8] mb-6">{hub.description}</p>
                   <div className="inline-flex items-center gap-1.5 text-[11px] font-bold text-primary tracking-[0.15em] uppercase opacity-60 group-hover:opacity-100 group-hover:gap-2.5 transition-all duration-300">
                     Explore
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5 transition-transform" />
                   </div>
                 </div>
               </button>
