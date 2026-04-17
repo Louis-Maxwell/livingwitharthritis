@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { Globe, Check } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import i18n from "@/i18n";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { applyLanguage } from "@/hooks/useLangSync";
+import i18n from "@/i18n";
 
 const LANGUAGES = [
   { code: "sv", label: "Svenska" },
@@ -12,48 +14,26 @@ const LANGUAGES = [
 
 type LangCode = typeof LANGUAGES[number]["code"];
 
-const URDU_FONT_HREF =
-  "https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap";
-const URDU_FONT_ID = "lwa-urdu-font";
 const URDU_FONT_STACK =
   "'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Nafees Nastaleeq', serif";
 
-const ensureUrduFont = () => {
-  if (document.getElementById(URDU_FONT_ID)) return;
-  const link = document.createElement("link");
-  link.id = URDU_FONT_ID;
-  link.rel = "stylesheet";
-  link.href = URDU_FONT_HREF;
-  document.head.appendChild(link);
-};
-
-const applyLanguage = (code: LangCode) => {
-  const html = document.documentElement;
-  const isUrdu = code === "ur";
-  html.setAttribute("lang", isUrdu ? "ur" : code === "sv" ? "sv" : "en-GB");
-  html.setAttribute("dir", isUrdu ? "rtl" : "ltr");
-  if (isUrdu) {
-    ensureUrduFont();
-    document.body.style.fontFamily = URDU_FONT_STACK;
-  } else {
-    document.body.style.fontFamily = "";
-  }
-};
-
 const LanguageSwitcher = () => {
   const { t } = useTranslation();
+  const location = useLocation();
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<LangCode>("en");
   const [pending, setPending] = useState<LangCode>("en");
   const ref = useRef<HTMLDivElement>(null);
 
+  // Keep local state in sync with the URL (?lang=) / stored choice
   useEffect(() => {
+    const urlLang = new URLSearchParams(location.search).get("lang");
     const stored = (localStorage.getItem("lwa-lang") as LangCode | null) ?? "en";
-    setSelected(stored);
-    setPending(stored);
-    applyLanguage(stored);
-    void i18n.changeLanguage(stored);
-  }, []);
+    const active = (LANGUAGES.some((l) => l.code === urlLang) ? urlLang : stored) as LangCode;
+    setSelected(active);
+    setPending(active);
+  }, [location.search]);
 
   useEffect(() => {
     if (!open) return;
@@ -69,6 +49,15 @@ const LanguageSwitcher = () => {
     localStorage.setItem("lwa-lang", pending);
     applyLanguage(pending);
     void i18n.changeLanguage(pending);
+
+    const params = new URLSearchParams(location.search);
+    if (pending === "en") params.delete("lang");
+    else params.set("lang", pending);
+    const search = params.toString();
+    navigate(
+      { pathname: location.pathname, search: search ? `?${search}` : "", hash: location.hash },
+      { replace: true },
+    );
     setOpen(false);
   };
 
