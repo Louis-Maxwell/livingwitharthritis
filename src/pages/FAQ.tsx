@@ -17,9 +17,9 @@ const FAQ = () => (
     <Header />
     <main id="main-content" role="main" tabIndex={-1}>
       <PageHero
-        eyebrow="FAQ"
+        badge="FAQ"
         title="Frequently asked questions"
-        description="Quick answers about how Living With Arthritis UK supports you."
+        subtitle="Quick answers about how Living With Arthritis UK supports you."
       />
       <Suspense fallback={<SkeletonSection />}>
         <FAQSection />

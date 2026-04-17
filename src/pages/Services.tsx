@@ -17,9 +17,9 @@ const Services = () => (
     <Header />
     <main id="main-content" role="main" tabIndex={-1}>
       <PageHero
-        eyebrow="What we offer"
+        badge="What we offer"
         title="Services for everyone living with arthritis"
-        description="Every service is free, evidence-based and designed with NHS-aligned clinicians."
+        subtitle="Every service is free, evidence-based and designed with NHS-aligned clinicians."
       />
       <Suspense fallback={<SkeletonSection />}>
         <ServicesGrid />

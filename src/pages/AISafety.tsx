@@ -17,9 +17,9 @@ const AISafety = () => (
     <Header />
     <main id="main-content" role="main" tabIndex={-1}>
       <PageHero
-        eyebrow="AI Safety"
+        badge="AI Safety"
         title="Clinician-led, evidence-checked AI"
-        description="Built with rheumatologists and physiotherapists. Validated against current NICE guidelines."
+        subtitle="Built with rheumatologists and physiotherapists. Validated against current NICE guidelines."
       />
       <Suspense fallback={<SkeletonSection />}>
         <AITrustSection />

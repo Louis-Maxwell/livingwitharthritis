@@ -17,9 +17,9 @@ const Contact = () => (
     <Header />
     <main id="main-content" role="main" tabIndex={-1}>
       <PageHero
-        eyebrow="Contact"
+        badge="Contact"
         title="We'd love to hear from you"
-        description="Email, phone or message us — we respond to every enquiry personally."
+        subtitle="Email, phone or message us — we respond to every enquiry personally."
       />
       <Suspense fallback={<SkeletonSection />}>
         <ContactSection />
