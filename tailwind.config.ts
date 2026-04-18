@@ -14,9 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Instrument Serif"', 'serif'],
-        serif: ['"Instrument Serif"', 'serif'],
-        sans: ['"Work Sans"', 'system-ui', 'sans-serif'],
+        display: ['"Playfair Display"', 'serif'],
+        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
