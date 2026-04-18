@@ -153,26 +153,53 @@
     text-rendering: optimizeLegibility;
   }
 
+  /* ─── Type scale: inspired by Berkshire Hathaway / LVMH / Bloomberg billionaires —
+     restrained body, generous leading, refined heading rhythm. ─── */
+  html {
+    font-size: 16px;
+  }
+
   body {
     @apply bg-background text-foreground;
     font-family: 'Work Sans', system-ui, sans-serif;
     font-feature-settings: "ss01";
+    font-size: 0.9375rem;       /* 15px — calm reading size */
+    line-height: 1.7;
+    font-weight: 400;
+    letter-spacing: 0.005em;
+  }
+
+  p {
     line-height: 1.75;
-    font-size: 16px;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Work Sans', system-ui, sans-serif;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    line-height: 1.06;
+    font-weight: 500;
+    letter-spacing: -0.018em;
+    line-height: 1.15;
   }
 
   /* Serif display headings — editorial calm */
   h1, h2 {
     font-family: 'Instrument Serif', 'Work Sans', serif;
     font-weight: 400;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.012em;
+    line-height: 1.08;
+  }
+
+  /* Restrained heading sizes — billionaire-site rhythm.
+     These act as defaults; per-component classes (text-5xl etc.) still win. */
+  h1 { font-size: clamp(2.25rem, 4.5vw, 4rem); }    /* 36 → 64px */
+  h2 { font-size: clamp(1.875rem, 3.2vw, 2.75rem); } /* 30 → 44px */
+  h3 { font-size: clamp(1.25rem, 1.6vw, 1.5rem); }   /* 20 → 24px */
+  h4 { font-size: 1.125rem; }                         /* 18px */
+  h5 { font-size: 1rem; }
+  h6 { font-size: 0.875rem; }
+
+  small, .text-fineprint {
+    font-size: 0.8125rem;       /* 13px */
+    letter-spacing: 0.01em;
   }
 
   ::selection {
