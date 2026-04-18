@@ -10,16 +10,16 @@ const Footer = lazy(() => import("@/components/Footer"));
 const FAQ = () => (
   <>
     <Helmet>
-      <title>Frequently Asked Questions | Living With Arthritis UK</title>
-      <meta name="description" content="Answers to common questions about arthritis support, our free services, AI safety, donations and how to get help from Living With Arthritis UK." />
+      <title>Arthritis FAQs UK: Symptoms, Treatment, Diet & Exercise Answers</title>
+      <meta name="description" content="Arthritis FAQs answered by UK clinicians — symptoms, flare-ups, treatment, diet, exercise, AI safety and how to access free Living With Arthritis support." />
       <link rel="canonical" href="https://livingwitharthritis.org.uk/faq" />
     </Helmet>
     <Header />
     <main id="main-content" role="main" tabIndex={-1}>
       <PageHero
         badge="FAQ"
-        title="Frequently asked questions"
-        subtitle="Quick answers about how Living With Arthritis UK supports you."
+        title="Arthritis Questions Answered by UK Clinicians"
+        subtitle="Quick, evidence-based answers about symptoms, treatment, diet, exercise and how Living With Arthritis UK supports you."
       />
       <Suspense fallback={<SkeletonSection />}>
         <FAQSection />
