@@ -10,16 +10,16 @@ const Footer = lazy(() => import("@/components/Footer"));
 const AISafety = () => (
   <>
     <Helmet>
-      <title>AI Safety & Trust | Living With Arthritis UK</title>
-      <meta name="description" content="How our AI health assistant is co-designed with HCPC-registered clinicians, validated against NICE guidelines, and safeguarded for people living with arthritis." />
+      <title>AI Safety in Arthritis Care UK: Clinician-Led, NICE-Aligned Assistant</title>
+      <meta name="description" content="How our arthritis AI assistant is co-designed with HCPC-registered clinicians, validated against NICE guidelines and safeguarded under UK GDPR for patient safety." />
       <link rel="canonical" href="https://livingwitharthritis.org.uk/ai-safety" />
     </Helmet>
     <Header />
     <main id="main-content" role="main" tabIndex={-1}>
       <PageHero
         badge="AI Safety"
-        title="Clinician-led, evidence-checked AI"
-        subtitle="Built with rheumatologists and physiotherapists. Validated against current NICE guidelines."
+        title="Safe, Clinician-Led AI for Arthritis Support"
+        subtitle="Built with UK rheumatologists and physiotherapists. Validated against current NICE guidelines and protected under UK GDPR."
       />
       <Suspense fallback={<SkeletonSection />}>
         <AITrustSection />

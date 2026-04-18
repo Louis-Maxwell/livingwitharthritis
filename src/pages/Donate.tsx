@@ -85,8 +85,9 @@ export default function Donate() {
   return (
     <>
       <Helmet>
-        <title>Donate | Living With Arthritis UK</title>
-        <meta name="description" content="Support Living With Arthritis UK with a donation. Every pound helps us provide free physiotherapy, diet plans and support to people across the UK living with arthritis." />
+        <title>Donate to Arthritis Support UK: Fund Free Physio, Diet & AI Help</title>
+        <meta name="description" content="Donate to Living With Arthritis UK and fund free virtual physiotherapy, anti-inflammatory diet plans and AI support for over 10,000 people with arthritis." />
+        <link rel="canonical" href="https://livingwitharthritis.org.uk/donate" />
       </Helmet>
       <Header />
       <main id="main-content" className="min-h-screen bg-background">

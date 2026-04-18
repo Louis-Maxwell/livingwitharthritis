@@ -10,16 +10,16 @@ const Footer = lazy(() => import("@/components/Footer"));
 const Services = () => (
   <>
     <Helmet>
-      <title>Our Services | Living With Arthritis UK</title>
-      <meta name="description" content="Free arthritis support services from Living With Arthritis UK — AI physiotherapy, exercise plans, anti-inflammatory diet guidance and 24/7 community support." />
+      <title>Arthritis Support Services UK: Free Physio, Exercise & Diet Help</title>
+      <meta name="description" content="Free arthritis support services in the UK — AI virtual physiotherapy, personalised exercise plans, anti-inflammatory diet guidance and 24/7 community help." />
       <link rel="canonical" href="https://livingwitharthritis.org.uk/services" />
     </Helmet>
     <Header />
     <main id="main-content" role="main" tabIndex={-1}>
       <PageHero
         badge="What we offer"
-        title="Services for everyone living with arthritis"
-        subtitle="Every service is free, evidence-based and designed with NHS-aligned clinicians."
+        title="Arthritis Support Services for Everyone in the UK"
+        subtitle="Free, evidence-based services designed with HCPC-registered clinicians and aligned to NHS and NICE guidance."
       />
       <Suspense fallback={<SkeletonSection />}>
         <ServicesGrid />

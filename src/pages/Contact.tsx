@@ -10,16 +10,16 @@ const Footer = lazy(() => import("@/components/Footer"));
 const Contact = () => (
   <>
     <Helmet>
-      <title>Contact Us | Living With Arthritis UK</title>
-      <meta name="description" content="Get in touch with Living With Arthritis UK — email, phone, WhatsApp or our enquiry form. We respond to every message personally." />
+      <title>Contact Living With Arthritis UK: Email, Phone & WhatsApp Support</title>
+      <meta name="description" content="Contact Living With Arthritis UK for free arthritis support — email, phone, WhatsApp or enquiry form. UK-based team, personal reply within 2 business days." />
       <link rel="canonical" href="https://livingwitharthritis.org.uk/contact" />
     </Helmet>
     <Header />
     <main id="main-content" role="main" tabIndex={-1}>
       <PageHero
         badge="Contact"
-        title="We'd love to hear from you"
-        subtitle="Email, phone or message us — we respond to every enquiry personally."
+        title="Contact Living With Arthritis UK"
+        subtitle="Email, phone or message our UK-based team — we reply to every enquiry personally within two business days."
       />
       <Suspense fallback={<SkeletonSection />}>
         <ContactSection />
