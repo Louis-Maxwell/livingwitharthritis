@@ -155,23 +155,24 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-    font-feature-settings: "cv11", "ss01";
+    font-family: 'Work Sans', system-ui, sans-serif;
+    font-feature-settings: "ss01";
     line-height: 1.75;
     font-size: 16px;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-    font-weight: 800;
-    letter-spacing: -0.035em;
+    font-family: 'Work Sans', system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
     line-height: 1.06;
   }
 
-  /* Serif display headings — editorial */
+  /* Serif display headings — editorial calm */
   h1, h2 {
-    font-family: 'Playfair Display', 'Plus Jakarta Sans', serif;
-    font-weight: 700;
+    font-family: 'Instrument Serif', 'Work Sans', serif;
+    font-weight: 400;
+    letter-spacing: -0.015em;
   }
 
   ::selection {
@@ -411,8 +412,8 @@
 
   /* ─── Number counter style ─── */
   .stat-number {
-    font-family: 'Playfair Display', serif;
-    @apply font-bold tracking-tight text-foreground;
+    font-family: 'Instrument Serif', serif;
+    @apply font-normal tracking-tight text-foreground;
   }
 
   /* ─── Luxury divider ─── */
