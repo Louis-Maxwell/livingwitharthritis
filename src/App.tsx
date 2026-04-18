@@ -190,7 +190,11 @@ const App = () => {
         <QueryClientProvider client={queryClient}>
           <TooltipProvider>
             <Toaster />
-            <Sonner />
+            <DeferredMount timeout={2000}>
+              <Suspense fallback={null}>
+                <Sonner />
+              </Suspense>
+            </DeferredMount>
             <BrowserRouter>
               <Suspense fallback={<PageLoader />}>
                 <AppWithSync />
