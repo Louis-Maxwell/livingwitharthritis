@@ -39,14 +39,13 @@ const sectionIconColors: Record<string, string> = {
   "Looking Ahead": "bg-primary/10 text-primary",
 };
 
-const milestones = [
-  { year: "2020", title: "The Spark", description: "Founded by First Contact Practitioners working in the NHS to provide awareness and education about osteoarthritis to patients across the UK.", color: "bg-primary" },
-  { year: "2021", title: "First 1,000 Users", description: "Our online resource library and community forum reached its first thousand active members.", color: "bg-secondary" },
-  { year: "2022", title: "Virtual Physio Launch", description: "Launched free virtual physiotherapy consultations, removing barriers to professional guidance.", color: "bg-primary" },
-  { year: "2023", title: "AI Symptom Guide", description: "Introduced an AI-powered assistant to help users understand their symptoms and find resources.", color: "bg-secondary" },
-  { year: "2024", title: "10,000+ Supported", description: "Surpassed 10,000 people supported with evidence-based tools, nutrition plans, and exercise guides.", color: "bg-primary" },
-  { year: "2025", title: "National Partnerships", description: "Began collaborating with NHS trusts and leading rheumatology bodies to expand our reach.", color: "bg-secondary" },
-];
+type JourneyChapter = {
+  id: string;
+  year: string;
+  title: string;
+  description: string;
+  display_order: number;
+};
 
 const impactStats = [
   { value: "10,000+", label: "People Supported", icon: Users, color: "text-primary" },
@@ -73,6 +72,19 @@ const AboutUs = () => {
         .order("display_order", { ascending: true });
       if (error) throw error;
       return data;
+    },
+  });
+
+  const { data: chapters = [] } = useQuery<JourneyChapter[]>({
+    queryKey: ["journey_chapters"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("journey_chapters")
+        .select("id, year, title, description, display_order")
+        .eq("is_active", true)
+        .order("display_order", { ascending: true });
+      if (error) throw error;
+      return data as JourneyChapter[];
     },
   });
 
@@ -230,38 +242,70 @@ const AboutUs = () => {
         </section>
 
         {/* Timeline */}
-        <section className="py-14 lg:py-20 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-accent/30 to-background pointer-events-none" />
-          <div className="container mx-auto px-6 md:px-10 max-w-4xl relative z-10">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-              <Badge className="bg-primary/10 text-primary border-0 text-xs font-bold px-3 py-1.5 mb-4">
+        <section className="py-16 lg:py-24 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-accent/30 via-background to-background pointer-events-none" />
+          <div className="absolute top-1/3 -left-32 w-96 h-96 rounded-full bg-primary/5 blur-3xl pointer-events-none" />
+          <div className="absolute bottom-1/4 -right-32 w-96 h-96 rounded-full bg-primary/5 blur-3xl pointer-events-none" />
+
+          <div className="container mx-auto px-6 md:px-10 max-w-5xl relative z-10">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
+              <Badge className="bg-primary/10 text-primary border-0 text-xs font-bold px-3 py-1.5 mb-5 tracking-widest uppercase">
                 <Sparkles className="w-3 h-3 mr-1.5" />
                 Our Journey
               </Badge>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground">
-                Key <span className="text-primary">milestones</span>
+              <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-tight leading-[1.05]">
+                Six years of<br className="hidden sm:block" />
+                <span className="text-primary italic"> measurable impact.</span>
               </h2>
+              <div className="w-16 h-[2px] bg-primary/30 mx-auto mt-8" />
+              <p className="mt-8 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                From a clinician-led idea to a national movement — every chapter built on evidence, accessibility, and trust.
+              </p>
             </motion.div>
 
             <div className="relative">
-              <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-primary/30 md:-translate-x-px" />
-              {milestones.map((m, i) => {
+              {/* Crimson connector line */}
+              <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/40 to-transparent md:-translate-x-px" />
+
+              {chapters.map((c, i) => {
                 const isLeft = i % 2 === 0;
+                const isLatest = i === chapters.length - 1;
                 return (
                   <motion.div
-                    key={m.year}
-                    initial={{ opacity: 0, x: isLeft ? -20 : 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-30px" }}
-                    transition={{ delay: i * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                    className={`relative flex items-start mb-8 last:mb-0 md:items-center ${isLeft ? "md:flex-row" : "md:flex-row-reverse"}`}
+                    key={c.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ delay: i * 0.06, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                    className={`relative flex items-start mb-12 last:mb-0 md:items-center ${isLeft ? "md:flex-row" : "md:flex-row-reverse"}`}
                   >
-                    <div className={`absolute left-6 md:left-1/2 w-3.5 h-3.5 rounded-full ${m.color} border-4 border-background z-10 -translate-x-1.5 md:-translate-x-1.5 top-5 md:top-auto shadow-sm`} />
-                    <div className={`ml-16 md:ml-0 md:w-[calc(50%-2rem)] ${isLeft ? "md:pr-8 md:text-right" : "md:pl-8"}`}>
-                      <div className="bg-card border border-border/20 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
-                        <span className={`text-xs font-extrabold tracking-widest uppercase ${m.color.replace('bg-', 'text-')}`}>{m.year}</span>
-                        <h3 className="text-base font-bold text-foreground mt-1 mb-1.5">{m.title}</h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">{m.description}</p>
+                    {/* Year badge on the line */}
+                    <div className="absolute left-8 md:left-1/2 -translate-x-1/2 z-20 top-0 md:top-1/2 md:-translate-y-1/2">
+                      <div className={`relative ${isLatest ? "animate-pulse" : ""}`}>
+                        <div className="absolute inset-0 rounded-full bg-primary/30 blur-md" />
+                        <div className="relative w-14 h-14 md:w-16 md:h-16 rounded-full bg-background border-2 border-primary flex items-center justify-center shadow-large">
+                          <span className="text-[11px] md:text-xs font-extrabold text-primary tracking-tight">{c.year}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Card */}
+                    <div className={`ml-24 md:ml-0 md:w-[calc(50%-3rem)] ${isLeft ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
+                      <div className="group relative bg-card border border-border/30 rounded-2xl p-6 md:p-8 shadow-md hover:shadow-large hover:-translate-y-1 transition-all duration-500">
+                        {isLatest && (
+                          <span className="absolute -top-3 right-6 md:right-auto md:left-6 inline-flex items-center gap-1 bg-primary text-primary-foreground text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full shadow-sm">
+                            <Sparkles className="w-2.5 h-2.5" /> The Year Ahead
+                          </span>
+                        )}
+                        <span className="block text-[10px] font-extrabold text-primary/70 tracking-[0.25em] uppercase mb-2">
+                          Chapter {String(i + 1).padStart(2, "0")} · {c.year}
+                        </span>
+                        <h3 className="font-display text-xl md:text-2xl font-bold text-foreground mb-3 leading-tight">
+                          {c.title}
+                        </h3>
+                        <p className="text-sm md:text-[15px] text-muted-foreground leading-[1.75]">
+                          {c.description}
+                        </p>
                       </div>
                     </div>
                   </motion.div>

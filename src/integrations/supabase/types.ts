@@ -921,6 +921,39 @@ export type Database = {
         }
         Relationships: []
       }
+      journey_chapters: {
+        Row: {
+          created_at: string
+          description: string
+          display_order: number
+          id: string
+          is_active: boolean
+          title: string
+          updated_at: string
+          year: string
+        }
+        Insert: {
+          created_at?: string
+          description: string
+          display_order?: number
+          id?: string
+          is_active?: boolean
+          title: string
+          updated_at?: string
+          year: string
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          display_order?: number
+          id?: string
+          is_active?: boolean
+          title?: string
+          updated_at?: string
+          year?: string
+        }
+        Relationships: []
+      }
       newsletter_subscriptions: {
         Row: {
           email: string
