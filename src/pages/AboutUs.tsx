@@ -39,14 +39,13 @@ const sectionIconColors: Record<string, string> = {
   "Looking Ahead": "bg-primary/10 text-primary",
 };
 
-const milestones = [
-  { year: "2020", title: "The Spark", description: "Founded by First Contact Practitioners working in the NHS to provide awareness and education about osteoarthritis to patients across the UK.", color: "bg-primary" },
-  { year: "2021", title: "First 1,000 Users", description: "Our online resource library and community forum reached its first thousand active members.", color: "bg-secondary" },
-  { year: "2022", title: "Virtual Physio Launch", description: "Launched free virtual physiotherapy consultations, removing barriers to professional guidance.", color: "bg-primary" },
-  { year: "2023", title: "AI Symptom Guide", description: "Introduced an AI-powered assistant to help users understand their symptoms and find resources.", color: "bg-secondary" },
-  { year: "2024", title: "10,000+ Supported", description: "Surpassed 10,000 people supported with evidence-based tools, nutrition plans, and exercise guides.", color: "bg-primary" },
-  { year: "2025", title: "National Partnerships", description: "Began collaborating with NHS trusts and leading rheumatology bodies to expand our reach.", color: "bg-secondary" },
-];
+type JourneyChapter = {
+  id: string;
+  year: string;
+  title: string;
+  description: string;
+  display_order: number;
+};
 
 const impactStats = [
   { value: "10,000+", label: "People Supported", icon: Users, color: "text-primary" },
