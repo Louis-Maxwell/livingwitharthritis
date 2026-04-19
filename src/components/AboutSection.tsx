@@ -3,7 +3,7 @@ import { Users, TrendingUp, BookOpen, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const milestones = [
-  { icon: Users, value: "10,000+", label: "People supported" },
+  { icon: Users, value: "90,000+", label: "People visited" },
   { icon: TrendingUp, value: "97%", label: "Satisfaction rate" },
   { icon: BookOpen, value: "120+", label: "Expert articles" },
   { icon: Shield, value: "100%", label: "Free access" },
