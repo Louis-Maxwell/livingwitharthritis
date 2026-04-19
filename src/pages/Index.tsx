@@ -20,7 +20,7 @@ import SkeletonSection from "@/components/landing/SkeletonSection";
 const QuickAccessSection = lazy(() => import("@/components/landing/QuickAccessSection"));
 const HowItWorksSection = lazy(() => import("@/components/landing/HowItWorksSection"));
 const TestimonialsSection = lazy(() => import("@/components/landing/TestimonialsSection"));
-const LeadCaptureSection = lazy(() => import("@/components/landing/LeadCaptureSection"));
+
 const BackToTopButton = lazy(() => import("@/components/landing/BackToTopButton"));
 const CookieBanner = lazy(() => import("@/components/landing/CookieBanner"));
 const Footer = lazy(() => import("@/components/Footer"));
