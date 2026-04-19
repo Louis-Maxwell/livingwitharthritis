@@ -75,6 +75,19 @@ const AboutUs = () => {
     },
   });
 
+  const { data: chapters = [] } = useQuery<JourneyChapter[]>({
+    queryKey: ["journey_chapters"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("journey_chapters")
+        .select("id, year, title, description, display_order")
+        .eq("is_active", true)
+        .order("display_order", { ascending: true });
+      if (error) throw error;
+      return data as JourneyChapter[];
+    },
+  });
+
   return (
     <>
       <Helmet>
