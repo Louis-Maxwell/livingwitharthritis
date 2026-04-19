@@ -215,16 +215,19 @@ export function useStreamingChat() {
     setMessages((prev) => [...prev, userMsg]);
     setIsLoading(true);
 
-    let convoId: string | null = null;
+    // Fire DB writes in the background — don't block the AI request on them
+    let convoIdPromise: Promise<string | null> = Promise.resolve(null);
     if (userId) {
-      convoId = await ensureConversation(userId, userMsg.content);
-      if (convoId) {
-        await supabase.from("chat_messages").insert({
-          conversation_id: convoId,
-          role: "user",
-          content: userMsg.content,
-        });
-      }
+      convoIdPromise = ensureConversation(userId, userMsg.content).then((cid) => {
+        if (cid) {
+          supabase.from("chat_messages").insert({
+            conversation_id: cid,
+            role: "user",
+            content: userMsg.content,
+          }).then(() => {});
+        }
+        return cid;
+      });
     }
 
     let assistantSoFar = "";
@@ -242,25 +245,29 @@ export function useStreamingChat() {
     };
 
     try {
-      // Trim context sent to AI: last 20 messages keeps responses fast & cheap
-      const recentContext = [...messages, userMsg].slice(-20);
+      // Trim context sent to AI: last 10 messages keeps responses snappy
+      const recentContext = [...messages, userMsg].slice(-10);
       await streamChat({
         messages: recentContext,
         onDelta: (chunk) => upsertAssistant(chunk),
         onDone: async () => {
           setIsLoading(false);
-          if (userId && convoId && assistantSoFar.trim()) {
-            await supabase.from("chat_messages").insert({
-              conversation_id: convoId,
-              role: "assistant",
-              content: assistantSoFar,
-            });
-            await supabase
-              .from("chat_conversations")
-              .update({ updated_at: new Date().toISOString() })
-              .eq("id", convoId);
-            if (refreshConversationsRef.current) {
-              await refreshConversationsRef.current(userId);
+          if (userId && assistantSoFar.trim()) {
+            const convoId = await convoIdPromise;
+            if (convoId) {
+              // Fire-and-forget; don't block UI
+              supabase.from("chat_messages").insert({
+                conversation_id: convoId,
+                role: "assistant",
+                content: assistantSoFar,
+              }).then(() => {});
+              supabase
+                .from("chat_conversations")
+                .update({ updated_at: new Date().toISOString() })
+                .eq("id", convoId)
+                .then(() => {
+                  refreshConversationsRef.current?.(userId);
+                });
             }
           }
         },
