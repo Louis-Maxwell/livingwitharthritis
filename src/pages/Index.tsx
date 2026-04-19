@@ -215,10 +215,6 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
           <Suspense fallback={<SkeletonSection />}>
             <TestimonialsSection />
           </Suspense>
-
-          <Suspense fallback={<SkeletonSection />}>
-            <LeadCaptureSection />
-          </Suspense>
         </main>
 
         <Suspense fallback={null}>
