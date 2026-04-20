@@ -80,6 +80,9 @@ const Services = lazy(() => import("./pages/Services"));
 const FAQ = lazy(() => import("./pages/FAQ"));
 const AISafety = lazy(() => import("./pages/AISafety"));
 const Contact = lazy(() => import("./pages/Contact"));
+const RegionHub = lazy(() => import("./pages/regions/RegionHub"));
+const NHSWaitingListHelp = lazy(() => import("./pages/NHSWaitingListHelp"));
+const NHSWaitingTimeCalculator = lazy(() => import("./pages/tools/NHSWaitingTimeCalculator"));
 // Loading fallback with skeleton-style animation
 const PageLoader = () => (
   <div className="min-h-screen flex flex-col items-center justify-center bg-background gap-4">
@@ -167,6 +170,9 @@ function AnimatedRoutes() {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/ai-safety" element={<AISafety />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/regions/:region" element={<RegionHub />} />
+        <Route path="/nhs-arthritis-waiting-list-help" element={<NHSWaitingListHelp />} />
+        <Route path="/tools/nhs-waiting-time" element={<NHSWaitingTimeCalculator />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </PageTransition>

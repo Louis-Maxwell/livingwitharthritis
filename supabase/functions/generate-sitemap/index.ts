@@ -23,6 +23,12 @@ const staticPages: { loc: string; priority: string; changefreq: string; lastmod?
   { loc: "/zakat-appeal", priority: "0.7", changefreq: "monthly" },
   { loc: "/pain-journal", priority: "0.7", changefreq: "monthly", hreflang: true },
   { loc: "/arthritis-flare-ups", priority: "0.9", changefreq: "monthly", hreflang: true },
+  { loc: "/nhs-arthritis-waiting-list-help", priority: "0.95", changefreq: "weekly", hreflang: true },
+  { loc: "/tools/nhs-waiting-time", priority: "0.95", changefreq: "weekly", hreflang: true },
+  { loc: "/regions/north-west", priority: "0.85", changefreq: "weekly", hreflang: true },
+  { loc: "/regions/midlands", priority: "0.85", changefreq: "weekly", hreflang: true },
+  { loc: "/regions/scotland", priority: "0.85", changefreq: "weekly", hreflang: true },
+  { loc: "/regions/wales", priority: "0.85", changefreq: "weekly", hreflang: true },
   { loc: "/privacy", priority: "0.4", changefreq: "yearly" },
   { loc: "/cookies", priority: "0.4", changefreq: "yearly" },
   { loc: "/accessibility", priority: "0.5", changefreq: "monthly" },
@@ -141,9 +147,9 @@ Deno.serve(async (req) => {
     entries.push(urlEntry("/arthritis-support", TODAY, "weekly", "0.9", true));
     const conditionSlugs = ["osteoarthritis", "rheumatoid-arthritis", "psoriatic-arthritis"];
     for (const slug of ukCitySlugs) {
-      entries.push(urlEntry(`/arthritis-support/${slug}`, TODAY, "monthly", "0.8", true));
+      entries.push(urlEntry(`/arthritis-support/${slug}`, TODAY, "weekly", "0.85", true));
       for (const cond of conditionSlugs) {
-        entries.push(urlEntry(`/arthritis-support/${slug}/${cond}`, TODAY, "monthly", "0.7", true));
+        entries.push(urlEntry(`/arthritis-support/${slug}/${cond}`, TODAY, "monthly", "0.75", true));
       }
     }
 
