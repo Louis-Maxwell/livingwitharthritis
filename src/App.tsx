@@ -199,12 +199,16 @@ const App = () => {
               <Suspense fallback={<PageLoader />}>
                 <AppWithSync />
               </Suspense>
-              <DeferredMount timeout={2500}>
+              <DeferredMount timeout={1200}>
+                <Suspense fallback={null}>
+                  <CookieConsent />
+                  <MobileBottomNav />
+                  <AccessibilityToolbar />
+                </Suspense>
+              </DeferredMount>
+              <DeferredMount timeout={4000}>
                 <Suspense fallback={null}>
                   <ChatBotWidget />
-                  <CookieConsent />
-                  <AccessibilityToolbar />
-                  <MobileBottomNav />
                   <DonationNotification />
                 </Suspense>
               </DeferredMount>
