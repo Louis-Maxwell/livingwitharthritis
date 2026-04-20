@@ -41,6 +41,16 @@ const CityArthritisPage = () => {
     ],
   };
 
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      { "@type": "Question", name: `Where can I get NHS arthritis treatment in ${cityData.name}?`, acceptedAnswer: { "@type": "Answer", text: `${cityData.name} patients are typically referred to ${cityData.nhsTrust} for rheumatology. Ask your GP for a referral.` } },
+      { "@type": "Question", name: `How long is the rheumatology waiting list in ${cityData.name}?`, acceptedAnswer: { "@type": "Answer", text: `Waiting times in ${cityData.region} typically range from 14 to 22 weeks in 2026. Use our free NHS Waiting Time Calculator for a regional estimate.` } },
+      { "@type": "Question", name: `Are there free arthritis support groups in ${cityData.name}?`, acceptedAnswer: { "@type": "Answer", text: `Yes — local resources include ${cityData.localResources.slice(0, 2).join(" and ")}. Living With Arthritis also offers a free online community.` } },
+    ],
+  };
+
   return (
     <>
       <Helmet>
@@ -53,8 +63,10 @@ const CityArthritisPage = () => {
         <meta property="og:type" content="article" />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content={cityData.name} />
+        <meta name="keywords" content={`arthritis ${cityData.name}, NHS rheumatology ${cityData.name}, arthritis support ${cityData.name}, ${cityData.nhsTrust} rheumatology, arthritis help ${cityData.region}`} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
       </Helmet>
 
       <Header />
