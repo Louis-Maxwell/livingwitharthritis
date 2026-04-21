@@ -104,8 +104,8 @@ const HeroSection = memo(() => {
                 <img
                   src={heroImage}
                   alt="A diverse group of adults walking together outdoors, smiling — staying active with arthritis in a UK community walking group"
-                  width={1920}
-                  height={1280}
+                  width={4898}
+                  height={3265}
                   className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
                   fetchPriority="high"
                 />
