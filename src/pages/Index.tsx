@@ -14,6 +14,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 
 /* ─── Critical path (above the fold only) ────────────────────────────── */
 import TrustBar from "@/components/landing/TrustBar";
+import TriageSection from "@/components/landing/TriageSection";
 import SkeletonSection from "@/components/landing/SkeletonSection";
 
 /* ─── Lazy imports — the 5 essentials only ───────────────────────────── */
@@ -203,6 +204,7 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
 
         <main id="main-content" role="main" tabIndex={-1}>
           <HeroSection />
+          <TriageSection />
 
           <Suspense fallback={<SkeletonSection />}>
             <QuickAccessSection />
