@@ -35,12 +35,12 @@ const HeroSection = memo(() => {
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-gold/[0.03] blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-5 sm:px-8 md:px-12 lg:px-16 relative">
-        <div className="flex items-center py-14 sm:py-18 lg:py-16">
-          <div className="grid lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-16 items-center w-full">
+        <div className="flex items-center py-20 sm:py-24 lg:py-28">
+          <div className="grid lg:grid-cols-[1.05fr_1fr] gap-12 lg:gap-20 items-center w-full">
             {/* Left — Text */}
             <div className="hero-stagger text-center lg:text-left">
 
-              <h1 className="hero-item text-[1.75rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.5rem] xl:text-[4rem] font-display font-bold text-foreground mb-5 sm:mb-6 leading-[1.08] tracking-tight text-balance">
+              <h1 className="hero-item text-[2rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[3.75rem] xl:text-[4.25rem] font-display font-bold text-foreground mb-6 sm:mb-8 leading-[1.05] tracking-[-0.02em] text-balance">
                 1 in 6 people in the UK{" "}
                 <br className="hidden sm:block" />
                 live with arthritis.{" "}
@@ -49,11 +49,11 @@ const HeroSection = memo(() => {
                 </span>
               </h1>
 
-              <p className="hero-item text-[14px] sm:text-base md:text-lg text-muted-foreground leading-[1.75] sm:leading-[1.85] mb-3 max-w-[580px] mx-auto lg:mx-0">
+              <p className="hero-item text-[15px] sm:text-base md:text-lg text-muted-foreground leading-[1.7] mb-5 max-w-[560px] mx-auto lg:mx-0">
                 Free physiotherapy, anti-inflammatory diet plans, evidence-based exercises and 24/7 support — helping people across the United Kingdom manage arthritis pain and live fuller lives.
               </p>
 
-              <p className="hero-item text-xs sm:text-sm text-primary/70 font-medium mb-6 sm:mb-8 flex items-center justify-center lg:justify-start gap-2">
+              <p className="hero-item text-xs sm:text-[13px] text-primary/70 font-medium mb-8 sm:mb-10 flex items-center justify-center lg:justify-start gap-2">
                 <Heart className="w-3.5 h-3.5 fill-primary/20 animate-pulse-soft" />
                 Every donation helps us reach more people in need
               </p>
@@ -118,18 +118,18 @@ const HeroSection = memo(() => {
         </div>
 
         {/* Stats row with enhanced dividers */}
-        <div className="pb-12 lg:pb-16">
-          <div className="w-full max-w-3xl mx-auto bg-card/50 backdrop-blur-sm rounded-2xl border border-border/10 p-2">
+        <div className="pb-16 lg:pb-20">
+          <div className="w-full max-w-4xl mx-auto bg-card/40 backdrop-blur-sm rounded-2xl border border-border/10 p-3">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-0">
               {STATS.map((stat, i) => (
-                <div key={i} className="relative text-center py-5 px-4 group hover:bg-primary/[0.02] rounded-xl transition-colors duration-300">
+                <div key={i} className="relative text-center py-6 px-4 group hover:bg-primary/[0.02] rounded-xl transition-colors duration-300">
                   <AnimatedCounter
                     target={stat.target}
                     suffix={stat.suffix}
                     compact={stat.compact}
-                    className="stat-number text-2xl sm:text-3xl lg:text-[2.25rem] group-hover:text-primary transition-colors duration-300"
+                    className="stat-number text-[1.75rem] sm:text-3xl lg:text-[2.5rem] tracking-[-0.02em] group-hover:text-primary transition-colors duration-300"
                   />
-                  <p className="text-[10px] sm:text-[11px] text-muted-foreground/60 font-medium mt-1.5 leading-snug tracking-[0.12em] uppercase">{stat.label}</p>
+                  <p className="text-[10px] sm:text-[11px] text-muted-foreground/60 font-medium mt-2 leading-snug tracking-[0.14em] uppercase">{stat.label}</p>
                   {i < STATS.length - 1 && (
                     <div className="absolute right-0 top-1/2 -translate-y-1/2 w-px h-10 bg-border/20 hidden sm:block" />
                   )}
@@ -137,7 +137,7 @@ const HeroSection = memo(() => {
               ))}
             </div>
           </div>
-          <p className="text-[9px] text-muted-foreground/35 mt-4 text-center tracking-[0.15em] uppercase">
+          <p className="text-[9px] text-muted-foreground/35 mt-5 text-center tracking-[0.18em] uppercase">
             Based on internal user feedback surveys, 2024–2025
           </p>
         </div>
