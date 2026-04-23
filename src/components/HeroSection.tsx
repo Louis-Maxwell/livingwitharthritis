@@ -118,18 +118,18 @@ const HeroSection = memo(() => {
         </div>
 
         {/* Stats row with enhanced dividers */}
-        <div className="pb-12 lg:pb-16">
-          <div className="w-full max-w-3xl mx-auto bg-card/50 backdrop-blur-sm rounded-2xl border border-border/10 p-2">
+        <div className="pb-16 lg:pb-20">
+          <div className="w-full max-w-4xl mx-auto bg-card/40 backdrop-blur-sm rounded-2xl border border-border/10 p-3">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-0">
               {STATS.map((stat, i) => (
-                <div key={i} className="relative text-center py-5 px-4 group hover:bg-primary/[0.02] rounded-xl transition-colors duration-300">
+                <div key={i} className="relative text-center py-6 px-4 group hover:bg-primary/[0.02] rounded-xl transition-colors duration-300">
                   <AnimatedCounter
                     target={stat.target}
                     suffix={stat.suffix}
                     compact={stat.compact}
-                    className="stat-number text-2xl sm:text-3xl lg:text-[2.25rem] group-hover:text-primary transition-colors duration-300"
+                    className="stat-number text-[1.75rem] sm:text-3xl lg:text-[2.5rem] tracking-[-0.02em] group-hover:text-primary transition-colors duration-300"
                   />
-                  <p className="text-[10px] sm:text-[11px] text-muted-foreground/60 font-medium mt-1.5 leading-snug tracking-[0.12em] uppercase">{stat.label}</p>
+                  <p className="text-[10px] sm:text-[11px] text-muted-foreground/60 font-medium mt-2 leading-snug tracking-[0.14em] uppercase">{stat.label}</p>
                   {i < STATS.length - 1 && (
                     <div className="absolute right-0 top-1/2 -translate-y-1/2 w-px h-10 bg-border/20 hidden sm:block" />
                   )}
@@ -137,7 +137,7 @@ const HeroSection = memo(() => {
               ))}
             </div>
           </div>
-          <p className="text-[9px] text-muted-foreground/35 mt-4 text-center tracking-[0.15em] uppercase">
+          <p className="text-[9px] text-muted-foreground/35 mt-5 text-center tracking-[0.18em] uppercase">
             Based on internal user feedback surveys, 2024–2025
           </p>
         </div>
