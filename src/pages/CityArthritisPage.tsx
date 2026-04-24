@@ -4,9 +4,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import SocialShareButtons from "@/components/SocialShareButtons";
+import ReadNextCards from "@/components/ReadNextCards";
 import { ukCities } from "@/data/ukCities";
 import { arthritisConditions } from "@/data/arthritisConditions";
-import { MapPin, Hospital, Phone, BookOpen, ArrowRight, Users, Dumbbell, Apple, Heart, Stethoscope } from "lucide-react";
+import { MapPin, Hospital, Phone, BookOpen, ArrowRight, Users, Dumbbell, Apple, Heart, Stethoscope, Timer } from "lucide-react";
 import { motion } from "framer-motion";
 
 const BASE = "https://livingwitharthritis.org.uk";
@@ -203,6 +204,43 @@ const CityArthritisPage = () => {
                 ))}
             </div>
           </section>
+
+          <ReadNextCards
+            heading={`Recommended for ${cityData.name} readers`}
+            subheading="Most-read next steps from people in your area."
+            items={[
+              {
+                to: "/tools/nhs-waiting-time-calculator",
+                eyebrow: "Free tool",
+                title: `${cityData.region} NHS waiting time`,
+                description: `Estimate current rheumatology waiting times for ${cityData.name} and plan ahead.`,
+                readTime: "2 min",
+                icon: Timer,
+                tint: "bg-tint-amber",
+                accent: "text-amber-600",
+              },
+              {
+                to: "/conditions/osteoarthritis",
+                eyebrow: "Condition guide",
+                title: "Osteoarthritis: full UK guide",
+                description: "The most common form of arthritis — symptoms, exercises and treatment options.",
+                readTime: "8 min read",
+                icon: BookOpen,
+                tint: "bg-tint-emerald",
+                accent: "text-emerald-600",
+              },
+              {
+                to: "/exercises",
+                eyebrow: "Self-help",
+                title: "Joint-friendly exercise plans",
+                description: `Low-impact routines suitable for people in ${cityData.name} waiting for treatment.`,
+                readTime: "5 min",
+                icon: Dumbbell,
+                tint: "bg-tint-sky",
+                accent: "text-sky-600",
+              },
+            ]}
+          />
 
           <SocialShareButtons title={`Arthritis Support in ${cityData.name}`} slug={`arthritis-support/${cityData.slug}`} />
         </motion.div>
