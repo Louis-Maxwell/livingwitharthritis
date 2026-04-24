@@ -49,7 +49,11 @@ const ExitIntentModal = () => {
     armedRef.current = false;
     markShown();
     setOpen(true);
-  }, []);
+    trackEvent("exit_intent_open", {
+      path: location.pathname,
+      viewport: typeof window !== "undefined" && window.innerWidth < 768 ? "mobile" : "desktop",
+    });
+  }, [location.pathname]);
 
   useEffect(() => {
     if (isExcluded) return;
