@@ -1,6 +1,7 @@
 import { FileText, ShoppingCart, ClipboardCheck } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { trackEvent } from "@/lib/analytics";
 
 const resources = [
   {
@@ -27,9 +28,18 @@ const resources = [
 ];
 
 export default function DownloadableResources() {
-  const handleDownload = async (fnName: string) => {
-    const mod = await import("@/lib/generatePdf");
-    (mod as Record<string, () => void>)[fnName]();
+  const handleDownload = async (fnName: string, title: string) => {
+    trackEvent("guide_download_click", { resource: fnName, title, location: "downloadable_resources" });
+    try {
+      const mod = await import("@/lib/generatePdf");
+      (mod as Record<string, () => void>)[fnName]();
+      trackEvent("guide_download_success", { resource: fnName, title });
+    } catch (err) {
+      trackEvent("guide_download_failure", {
+        resource: fnName,
+        message: err instanceof Error ? err.message : "unknown",
+      });
+    }
   };
 
   return (
@@ -54,7 +64,7 @@ export default function DownloadableResources() {
           <CardContent className="pt-4 pb-5 flex flex-col">
             <h3 className="font-semibold text-foreground mb-1">{r.title}</h3>
             <p className="text-sm text-muted-foreground mb-4 flex-1">{r.desc}</p>
-            <Button variant="outline" size="sm" onClick={() => handleDownload(r.fn)} className="gap-2 w-fit">
+            <Button variant="outline" size="sm" onClick={() => handleDownload(r.fn, r.title)} className="gap-2 w-fit">
               <FileText className="w-4 h-4" /> Download PDF
             </Button>
           </CardContent>
