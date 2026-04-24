@@ -64,7 +64,7 @@ export default function DownloadableResources() {
           <CardContent className="pt-4 pb-5 flex flex-col">
             <h3 className="font-semibold text-foreground mb-1">{r.title}</h3>
             <p className="text-sm text-muted-foreground mb-4 flex-1">{r.desc}</p>
-            <Button variant="outline" size="sm" onClick={() => handleDownload(r.fn)} className="gap-2 w-fit">
+            <Button variant="outline" size="sm" onClick={() => handleDownload(r.fn, r.title)} className="gap-2 w-fit">
               <FileText className="w-4 h-4" /> Download PDF
             </Button>
           </CardContent>
