@@ -2,12 +2,13 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, ShieldAlert, BookOpen, ArrowRight, Shield, Users, Clock, AlertCircle } from "lucide-react";
+import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, ShieldAlert, BookOpen, ArrowRight, Shield, Users, Clock, AlertCircle, Timer } from "lucide-react";
 import { motion } from "framer-motion";
 import PageHero from "@/components/ui/PageHero";
 import { StatCounter, WaveDivider, ComparisonCard } from "@/components/graphics/InfographicElements";
 import InternalLinks from "@/components/InternalLinks";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
+import ReadNextCards from "@/components/ReadNextCards";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 
 const BASE = "https://livingwitharthritis.org.uk";
@@ -300,6 +301,42 @@ const RheumatoidArthritis = () => (
               Read our articles
             </Link>
           </div>
+          <ReadNextCards
+            heading="Read next on rheumatoid arthritis"
+            subheading="The most useful next steps if you found this guide helpful."
+            items={[
+              {
+                to: "/exercises",
+                eyebrow: "Self-help",
+                title: "Safe exercises for RA",
+                description: "Gentle movement that protects joints during flares and builds strength between them.",
+                readTime: "5 min",
+                icon: Dumbbell,
+                tint: "bg-tint-emerald",
+                accent: "text-emerald-600",
+              },
+              {
+                to: "/diet",
+                eyebrow: "Nutrition",
+                title: "Anti-inflammatory diet for RA",
+                description: "Mediterranean and omega-3 rich foods that may reduce inflammation and stiffness.",
+                readTime: "6 min",
+                icon: Apple,
+                tint: "bg-tint-amber",
+                accent: "text-amber-600",
+              },
+              {
+                to: "/tools/nhs-waiting-time-calculator",
+                eyebrow: "Free tool",
+                title: "NHS rheumatology waiting time",
+                description: "Early RA referral matters — estimate your local 2026 wait and act fast.",
+                readTime: "2 min",
+                icon: Timer,
+                tint: "bg-tint-sky",
+                accent: "text-sky-600",
+              },
+            ]}
+          />
           <CrossLinkBanner preset="condition" exclude="/conditions/rheumatoid-arthritis" title="Explore related resources" />
         </div>
       </main>

@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import SocialShareButtons from "@/components/SocialShareButtons";
+import ReadNextCards from "@/components/ReadNextCards";
 import { ukCities } from "@/data/ukCities";
 import { arthritisConditions } from "@/data/arthritisConditions";
 import {
@@ -15,6 +16,10 @@ import {
   AlertCircle,
   ListChecks,
   HeartPulse,
+  BookOpen,
+  Dumbbell,
+  Apple,
+  Timer,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -307,6 +312,43 @@ const CityConditionPage = () => {
                 ))}
             </div>
           </section>
+
+          <ReadNextCards
+            heading={`Recommended for ${cityData.name} readers`}
+            subheading="Keep building your plan with these next steps."
+            items={[
+              {
+                to: conditionData.conditionPagePath,
+                eyebrow: "Full guide",
+                title: `${conditionData.name}: Complete UK Guide`,
+                description: `Symptoms, diagnosis, NHS treatment pathways and self-management for ${conditionData.shortName}.`,
+                readTime: "8 min read",
+                icon: BookOpen,
+                tint: "bg-tint-emerald",
+                accent: "text-emerald-600",
+              },
+              {
+                to: "/tools/nhs-waiting-time-calculator",
+                eyebrow: "Free tool",
+                title: `Estimate ${cityData.region} NHS waiting time`,
+                description: `See realistic 2026 rheumatology waiting estimates for ${cityData.name} and surrounding areas.`,
+                readTime: "2 min",
+                icon: Timer,
+                tint: "bg-tint-amber",
+                accent: "text-amber-600",
+              },
+              {
+                to: "/exercises",
+                eyebrow: "Self-help",
+                title: "Joint-friendly exercise plans",
+                description: `Low-impact routines you can start while waiting for your ${cityData.name} appointment.`,
+                readTime: "5 min",
+                icon: Dumbbell,
+                tint: "bg-tint-sky",
+                accent: "text-sky-600",
+              },
+            ]}
+          />
 
           <SocialShareButtons
             title={`${conditionData.name} Support in ${cityData.name}`}

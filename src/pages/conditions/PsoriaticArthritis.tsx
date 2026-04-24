@@ -2,12 +2,13 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, Fingerprint, BookOpen, ArrowRight, Users, Percent, Eye } from "lucide-react";
+import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, Fingerprint, BookOpen, ArrowRight, Users, Percent, Eye, Timer } from "lucide-react";
 import { motion } from "framer-motion";
 import PageHero from "@/components/ui/PageHero";
 import { StatCounter, WaveDivider } from "@/components/graphics/InfographicElements";
 import InternalLinks from "@/components/InternalLinks";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
+import ReadNextCards from "@/components/ReadNextCards";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 
 const BASE = "https://livingwitharthritis.org.uk";
@@ -295,6 +296,42 @@ const PsoriaticArthritis = () => (
               Read our articles
             </Link>
           </div>
+          <ReadNextCards
+            heading="Read next on psoriatic arthritis"
+            subheading="The most useful next steps if you found this guide helpful."
+            items={[
+              {
+                to: "/exercises",
+                eyebrow: "Self-help",
+                title: "Joint-friendly exercises for PsA",
+                description: "Routines that protect inflamed joints and support skin and tendon health.",
+                readTime: "5 min",
+                icon: Dumbbell,
+                tint: "bg-tint-emerald",
+                accent: "text-emerald-600",
+              },
+              {
+                to: "/diet",
+                eyebrow: "Nutrition",
+                title: "Anti-inflammatory diet for PsA",
+                description: "Foods that may calm both joint and skin inflammation in psoriatic disease.",
+                readTime: "6 min",
+                icon: Apple,
+                tint: "bg-tint-amber",
+                accent: "text-amber-600",
+              },
+              {
+                to: "/tools/nhs-waiting-time-calculator",
+                eyebrow: "Free tool",
+                title: "NHS rheumatology waiting time",
+                description: "PsA needs early specialist input — estimate your local 2026 wait now.",
+                readTime: "2 min",
+                icon: Timer,
+                tint: "bg-tint-sky",
+                accent: "text-sky-600",
+              },
+            ]}
+          />
           <CrossLinkBanner preset="condition" exclude="/conditions/psoriatic-arthritis" title="Explore related resources" />
         </div>
       </main>
