@@ -7,6 +7,7 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Gift, CheckCircle2, BookOpen, Apple, Dumbbell, Loader2 } from "lucide-react";
 import { z } from "zod";
+import { trackEvent } from "@/lib/analytics";
 
 const STORAGE_KEY = "lwa-exit-intent-v1";
 const DISMISS_DAYS = 30;
