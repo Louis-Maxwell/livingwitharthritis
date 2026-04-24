@@ -99,6 +99,7 @@ const ExitIntentModal = () => {
         description: parsed.error.issues[0]?.message ?? "Please check your email address.",
         variant: "destructive",
       });
+      trackEvent("exit_intent_submit_failure", { reason: "invalid_email", path: location.pathname });
       return;
     }
 
@@ -115,12 +116,19 @@ const ExitIntentModal = () => {
         title: "Check your inbox",
         description: "Your free Arthritis Starter Guide is on its way.",
       });
+      trackEvent("exit_intent_submit_success", { source: "exit_intent", path: location.pathname });
+      trackEvent("generate_lead", { method: "exit_intent" });
     } catch (err) {
       console.error("[ExitIntent] subscribe error", err);
       toast({
         title: "Something went wrong",
         description: "Please try again in a moment.",
         variant: "destructive",
+      });
+      trackEvent("exit_intent_submit_failure", {
+        reason: "supabase_error",
+        message: err instanceof Error ? err.message : "unknown",
+        path: location.pathname,
       });
     } finally {
       setSubmitting(false);
