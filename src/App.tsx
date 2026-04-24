@@ -18,6 +18,7 @@ const ChatBotWidget = lazy(() => import("./components/ChatBotWidget"));
 const CookieConsent = lazy(() => import("./components/CookieConsent"));
 const AccessibilityToolbar = lazy(() => import("./components/AccessibilityToolbar"));
 const MobileBottomNav = lazy(() => import("./components/MobileBottomNav"));
+const MobileNextStepBar = lazy(() => import("./components/MobileNextStepBar"));
 const DonationNotification = lazy(() => import("./components/DonationNotification"));
 const ExitIntentModal = lazy(() => import("./components/ExitIntentModal"));
 
