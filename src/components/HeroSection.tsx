@@ -1,12 +1,13 @@
 import { ArrowRight, MessageCircle, Heart, Shield, Award, CheckCircle, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { memo, lazy, Suspense } from "react";
+import { memo, lazy, Suspense, useEffect, useState } from "react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import heroImage from "@/assets/hero-walking-group.jpg";
 
 import "./HeroSection.css";
 
+// 3D canvas is desktop-only — heavy on mobile GPU and never visible there anyway
 const Hero3DBackground = lazy(() => import("@/components/landing/Hero3DBackground"));
 
 const STATS = [
@@ -18,6 +19,32 @@ const STATS = [
 
 const HeroSection = memo(() => {
   const navigate = useNavigate();
+  // Desktop-only flag controls heavy hero layers (3D canvas + giant blur orbs)
+  // and conditionally preloads the hero image (mobile never renders it).
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.matchMedia) return;
+    const mq = window.matchMedia("(min-width: 1024px) and (prefers-reduced-motion: no-preference)");
+    const update = () => setIsDesktop(mq.matches);
+    update();
+    mq.addEventListener?.("change", update);
+    return () => mq.removeEventListener?.("change", update);
+  }, []);
+
+  // Preload the hero JPG only when we know it will render (saves ~200-400KB on mobile)
+  useEffect(() => {
+    if (!isDesktop) return;
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "image";
+    link.href = heroImage;
+    link.fetchPriority = "high";
+    document.head.appendChild(link);
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, [isDesktop]);
 
   const trustBadges = [
     { icon: CheckCircle, label: "NICE Compliant" },
@@ -25,14 +52,17 @@ const HeroSection = memo(() => {
 
   return (
     <section className="relative overflow-hidden bg-mesh">
-      {/* 3D floating orbs background */}
-      <Suspense fallback={null}>
-        <Hero3DBackground />
-      </Suspense>
-      {/* Layered gradient background */}
+      {/* 3D floating orbs background — desktop only (skipped on mobile + reduced-motion) */}
+      {isDesktop && (
+        <Suspense fallback={null}>
+          <Hero3DBackground />
+        </Suspense>
+      )}
+      {/* Layered gradient background — lightweight, kept on all devices */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] via-transparent to-gold/[0.02] pointer-events-none" />
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-primary/[0.02] blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-gold/[0.03] blur-[100px] pointer-events-none" />
+      {/* Heavy 120px blur orbs — desktop only; mobile GPUs choke on these */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-primary/[0.02] blur-[120px] pointer-events-none hidden lg:block" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-gold/[0.03] blur-[100px] pointer-events-none hidden lg:block" />
 
       <div className="container mx-auto px-5 sm:px-8 md:px-12 lg:px-16 relative">
         <div className="flex items-center py-20 sm:py-24 lg:py-28">
@@ -107,7 +137,8 @@ const HeroSection = memo(() => {
                   width={4898}
                   height={3265}
                   className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
-                  fetchPriority="high"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent" />
               </div>
