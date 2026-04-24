@@ -38,6 +38,40 @@
     </script>
     <meta name="referrer" content="strict-origin-when-cross-origin" />
 
+    <!-- Bot exclusion: prevent known spiders/scrapers from firing analytics pageviews.
+         Allowed: Googlebot, Bingbot, DuckDuckBot, Applebot, Twitterbot, LinkedInBot, facebookexternalhit (we want indexing/social previews).
+         Blocked: Sogou, Baidu, Yisou, 360, HaoSou, Bytespider, PetalBot, AhrefsBot, SemrushBot, MJ12, DotBot, generic *bot*/spider/crawler, HeadlessChrome, PhantomJS. -->
+    <script>
+      (function(){
+        try {
+          var ua = (navigator.userAgent || '').toLowerCase();
+          var allow = /(googlebot|bingbot|duckduckbot|applebot|twitterbot|linkedinbot|facebookexternalhit|slackbot|whatsapp|telegrambot)/i;
+          var block = /(sogou|baidu|yisou|360spider|haosou|bytespider|petalbot|ahrefsbot|semrushbot|mj12bot|dotbot|blexbot|dataforseo|seekport|serpstat|zoominfo|diffbot|gptbot|ccbot|claude|anthropic|perplexity|imagesift|omgili|headlesschrome|phantomjs|puppeteer|selenium|crawler|spider|\bbot\b)/i;
+          var isBot = !allow.test(navigator.userAgent || '') && block.test(ua);
+          if (isBot) {
+            // Stub out gtag + analytics beacons so no pageview is recorded
+            window.dataLayer = []; window.gtag = function(){};
+            window.__BOT_DETECTED__ = true;
+            // Block fetch/XHR to analytics endpoints
+            var origFetch = window.fetch;
+            window.fetch = function(u){
+              try { var s = String(u||''); if (/google-analytics\.com|analytics\.google\.com|googletagmanager\.com|lovable\.app\/api\/analytics|stats|beacon/i.test(s)) return Promise.resolve(new Response('', { status: 204 })); } catch(e){}
+              return origFetch.apply(this, arguments);
+            };
+            var OrigXHR = window.XMLHttpRequest;
+            window.XMLHttpRequest = function(){
+              var x = new OrigXHR();
+              var origOpen = x.open;
+              x.open = function(m, u){ try { if (/google-analytics|analytics\.google|googletagmanager|stats|beacon/i.test(String(u||''))) { this.send = function(){}; } } catch(e){} return origOpen.apply(this, arguments); };
+              return x;
+            };
+            // Hint to crawlers not to index this stub render
+            var m = document.createElement('meta'); m.name = 'robots'; m.content = 'noindex, nofollow'; document.head.appendChild(m);
+          }
+        } catch(e) {}
+      })();
+    </script>
+
     <title>Living With Arthritis UK | Free NHS-Aligned Arthritis Help, Physio &amp; Diet</title>
     <meta name="description" content="UK arthritis charity. Free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory diet plans, NHS waiting list help and an AI assistant for osteoarthritis, rheumatoid &amp; psoriatic arthritis across England, Scotland, Wales &amp; NI.">
     <meta name="author" content="Living With Arthritis UK" />
