@@ -1,0 +1,26 @@
+// Lightweight GA4 event helper. Safe no-op if gtag isn't loaded
+// (e.g. before consent or in tests).
+type GtagFn = (command: "event" | "config" | "set" | "js", ...args: unknown[]) => void;
+
+declare global {
+  interface Window {
+    gtag?: GtagFn;
+    dataLayer?: unknown[];
+  }
+}
+
+export const trackEvent = (
+  name: string,
+  params: Record<string, unknown> = {},
+): void => {
+  try {
+    if (typeof window === "undefined") return;
+    if (typeof window.gtag === "function") {
+      window.gtag("event", name, params);
+    } else if (Array.isArray(window.dataLayer)) {
+      window.dataLayer.push({ event: name, ...params });
+    }
+  } catch {
+    /* analytics must never break UX */
+  }
+};
