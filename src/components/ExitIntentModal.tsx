@@ -39,11 +39,21 @@ const ExitIntentModal = () => {
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [variantId] = useState<ExitIntentVariantId>(() => getOrAssignVariant());
+  const variant = EXIT_INTENT_VARIANTS[variantId];
   const armedRef = useRef(false);
+  const exposureTrackedRef = useRef(false);
   const { toast } = useToast();
   const location = useLocation();
 
   const isExcluded = EXCLUDED_PATHS.some((p) => location.pathname.startsWith(p));
+
+  // Track variant exposure once per session so we can compute conversion-rate denominators per arm.
+  useEffect(() => {
+    if (isExcluded || exposureTrackedRef.current) return;
+    exposureTrackedRef.current = true;
+    trackEvent("exit_intent_variant_exposed", { variant: variantId });
+  }, [isExcluded, variantId]);
 
   const trigger = useCallback(() => {
     if (!armedRef.current) return;
