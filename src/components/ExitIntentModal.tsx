@@ -5,10 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { Gift, CheckCircle2, Loader2 } from "lucide-react";
+import { Gift, Loader2 } from "lucide-react";
 import { z } from "zod";
 import { trackEvent } from "@/lib/analytics";
 import { EXIT_INTENT_VARIANTS, getOrAssignVariant, type ExitIntentVariantId } from "@/lib/exitIntentVariants";
+import ExitIntentSuccess from "./ExitIntentSuccess";
 
 const STORAGE_KEY = "lwa-exit-intent-v1";
 const DISMISS_DAYS = 30;
@@ -245,18 +246,11 @@ const ExitIntentModal = () => {
               </p>
             </>
           ) : (
-            <div className="text-center py-6">
-              <div className="mx-auto w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-4">
-                <CheckCircle2 className="w-7 h-7" />
-              </div>
-              <h3 className="font-display text-xl font-bold text-foreground mb-2">{variant.successTitle}</h3>
-              <p className="text-sm text-muted-foreground mb-5">
-                {variant.successBody}
-              </p>
-              <Button variant="outline" onClick={() => setOpen(false)} className="w-full">
-                Continue browsing
-              </Button>
-            </div>
+            <ExitIntentSuccess
+              variant={variant}
+              variantId={variantId}
+              onClose={() => setOpen(false)}
+            />
           )}
         </div>
       </DialogContent>
