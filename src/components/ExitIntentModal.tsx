@@ -11,7 +11,7 @@ import { trackEvent } from "@/lib/analytics";
 
 const STORAGE_KEY = "lwa-exit-intent-v1";
 const DISMISS_DAYS = 30;
-const EXCLUDED_PATHS = ["/auth", "/admin", "/donation-result", "/unsubscribe", "/checkout"];
+const EXCLUDED_PATHS = ["/auth", "/admin", "/donation-result", "/unsubscribe", "/checkout", "/arthritis-starter-guide"];
 
 const emailSchema = z.string().trim().email({ message: "Please enter a valid email" }).max(255);
 
