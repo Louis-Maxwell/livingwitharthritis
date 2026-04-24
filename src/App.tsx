@@ -176,6 +176,7 @@ function AnimatedRoutes() {
         <Route path="/regions/:region" element={<RegionHub />} />
         <Route path="/nhs-arthritis-waiting-list-help" element={<NHSWaitingListHelp />} />
         <Route path="/tools/nhs-waiting-time" element={<NHSWaitingTimeCalculator />} />
+        <Route path="/arthritis-starter-guide" element={<ArthritisStarterGuide />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </PageTransition>
