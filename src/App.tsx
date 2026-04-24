@@ -19,6 +19,7 @@ const CookieConsent = lazy(() => import("./components/CookieConsent"));
 const AccessibilityToolbar = lazy(() => import("./components/AccessibilityToolbar"));
 const MobileBottomNav = lazy(() => import("./components/MobileBottomNav"));
 const DonationNotification = lazy(() => import("./components/DonationNotification"));
+const ExitIntentModal = lazy(() => import("./components/ExitIntentModal"));
 
 
 // Lazy load pages for code splitting
