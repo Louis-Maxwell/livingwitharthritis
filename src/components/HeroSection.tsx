@@ -137,7 +137,8 @@ const HeroSection = memo(() => {
                   width={4898}
                   height={3265}
                   className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
-                  fetchPriority="high"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent" />
               </div>
