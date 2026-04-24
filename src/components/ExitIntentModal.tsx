@@ -5,9 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { Gift, CheckCircle2, BookOpen, Apple, Dumbbell, Loader2 } from "lucide-react";
+import { Gift, CheckCircle2, Loader2 } from "lucide-react";
 import { z } from "zod";
 import { trackEvent } from "@/lib/analytics";
+import { EXIT_INTENT_VARIANTS, getOrAssignVariant, type ExitIntentVariantId } from "@/lib/exitIntentVariants";
 
 const STORAGE_KEY = "lwa-exit-intent-v1";
 const DISMISS_DAYS = 30;
