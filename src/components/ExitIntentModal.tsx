@@ -5,9 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { Gift, CheckCircle2, BookOpen, Apple, Dumbbell, Loader2 } from "lucide-react";
+import { Gift, CheckCircle2, Loader2 } from "lucide-react";
 import { z } from "zod";
 import { trackEvent } from "@/lib/analytics";
+import { EXIT_INTENT_VARIANTS, getOrAssignVariant, type ExitIntentVariantId } from "@/lib/exitIntentVariants";
 
 const STORAGE_KEY = "lwa-exit-intent-v1";
 const DISMISS_DAYS = 30;
@@ -38,11 +39,21 @@ const ExitIntentModal = () => {
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [variantId] = useState<ExitIntentVariantId>(() => getOrAssignVariant());
+  const variant = EXIT_INTENT_VARIANTS[variantId];
   const armedRef = useRef(false);
+  const exposureTrackedRef = useRef(false);
   const { toast } = useToast();
   const location = useLocation();
 
   const isExcluded = EXCLUDED_PATHS.some((p) => location.pathname.startsWith(p));
+
+  // Track variant exposure once per session so we can compute conversion-rate denominators per arm.
+  useEffect(() => {
+    if (isExcluded || exposureTrackedRef.current) return;
+    exposureTrackedRef.current = true;
+    trackEvent("exit_intent_variant_exposed", { variant: variantId });
+  }, [isExcluded, variantId]);
 
   const trigger = useCallback(() => {
     if (!armedRef.current) return;
@@ -52,8 +63,9 @@ const ExitIntentModal = () => {
     trackEvent("exit_intent_open", {
       path: location.pathname,
       viewport: typeof window !== "undefined" && window.innerWidth < 768 ? "mobile" : "desktop",
+      variant: variantId,
     });
-  }, [location.pathname]);
+  }, [location.pathname, variantId]);
 
   useEffect(() => {
     if (isExcluded) return;
@@ -75,7 +87,6 @@ const ExitIntentModal = () => {
     const handleScroll = () => {
       const y = window.scrollY;
       if (y > maxY) maxY = y;
-      // Trigger when user has scrolled >600px and then quickly scrolls up >250px
       if (maxY > 600 && lastY - y > 250) trigger();
       lastY = y;
     };
@@ -99,7 +110,11 @@ const ExitIntentModal = () => {
         description: parsed.error.issues[0]?.message ?? "Please check your email address.",
         variant: "destructive",
       });
-      trackEvent("exit_intent_submit_failure", { reason: "invalid_email", path: location.pathname });
+      trackEvent("exit_intent_submit_failure", {
+        reason: "invalid_email",
+        path: location.pathname,
+        variant: variantId,
+      });
       return;
     }
 
@@ -107,17 +122,21 @@ const ExitIntentModal = () => {
     try {
       const { error } = await supabase
         .from("newsletter_subscriptions")
-        .upsert({ email: parsed.data, source: "exit_intent", is_active: true }, { onConflict: "email" });
+        .upsert({ email: parsed.data, source: variant.source, is_active: true }, { onConflict: "email" });
 
       if (error) throw error;
 
       setSuccess(true);
       toast({
         title: "Check your inbox",
-        description: "Your free Arthritis Starter Guide is on its way.",
+        description: variant.successBody,
       });
-      trackEvent("exit_intent_submit_success", { source: "exit_intent", path: location.pathname });
-      trackEvent("generate_lead", { method: "exit_intent" });
+      trackEvent("exit_intent_submit_success", {
+        source: variant.source,
+        path: location.pathname,
+        variant: variantId,
+      });
+      trackEvent("generate_lead", { method: "exit_intent", variant: variantId });
     } catch (err) {
       console.error("[ExitIntent] subscribe error", err);
       toast({
@@ -129,6 +148,7 @@ const ExitIntentModal = () => {
         reason: "supabase_error",
         message: err instanceof Error ? err.message : "unknown",
         path: location.pathname,
+        variant: variantId,
       });
     } finally {
       setSubmitting(false);
@@ -137,24 +157,23 @@ const ExitIntentModal = () => {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="max-w-lg p-0 overflow-hidden border-2 border-primary/20">
-        {/* Top accent band */}
+      <DialogContent className="max-w-lg p-0 overflow-hidden border-2 border-primary/20" data-variant={variantId}>
         <div className="relative bg-gradient-to-br from-primary via-primary to-primary/90 px-6 pt-7 pb-6 text-primary-foreground">
-          <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full bg-white/10 blur-2xl" aria-hidden />
-          <div className="absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-white/5 blur-2xl" aria-hidden />
+          <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full bg-primary-foreground/10 blur-2xl" aria-hidden />
+          <div className="absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-primary-foreground/5 blur-2xl" aria-hidden />
           <div className="relative flex items-center gap-3 mb-3">
-            <div className="w-11 h-11 rounded-xl bg-white/15 backdrop-blur flex items-center justify-center">
+            <div className="w-11 h-11 rounded-xl bg-primary-foreground/15 backdrop-blur flex items-center justify-center">
               <Gift className="w-5 h-5" />
             </div>
             <p className="text-[11px] font-bold uppercase tracking-[0.2em] opacity-90">
-              Wait — before you go
+              {variant.eyebrow}
             </p>
           </div>
           <h2 className="relative font-display text-2xl md:text-[26px] font-bold leading-tight">
-            Get your free Arthritis Starter Guide
+            {variant.headline}
           </h2>
           <p className="relative text-sm opacity-95 mt-2 leading-relaxed">
-            A 14-page UK guide with NHS-aligned advice, anti-inflammatory meal ideas, and gentle exercise plans.
+            {variant.subheadline}
           </p>
         </div>
 
@@ -162,11 +181,7 @@ const ExitIntentModal = () => {
           {!success ? (
             <>
               <ul className="space-y-2.5 mb-5">
-                {[
-                  { icon: BookOpen, text: "Plain-English NHS pathway explained" },
-                  { icon: Apple, text: "Mediterranean meal ideas for joint pain" },
-                  { icon: Dumbbell, text: "5-minute daily mobility routines" },
-                ].map(({ icon: Icon, text }) => (
+                {variant.bullets.map(({ icon: Icon, text }) => (
                   <li key={text} className="flex items-start gap-3 text-sm text-foreground">
                     <span className="mt-0.5 inline-flex w-6 h-6 rounded-lg bg-primary/10 text-primary items-center justify-center shrink-0">
                       <Icon className="w-3.5 h-3.5" />
@@ -195,7 +210,7 @@ const ExitIntentModal = () => {
                       <Loader2 className="w-4 h-4 animate-spin" /> Sending…
                     </>
                   ) : (
-                    "Send my free guide"
+                    variant.ctaLabel
                   )}
                 </Button>
               </form>
@@ -206,12 +221,12 @@ const ExitIntentModal = () => {
             </>
           ) : (
             <div className="text-center py-6">
-              <div className="mx-auto w-14 h-14 rounded-2xl bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 flex items-center justify-center mb-4">
+              <div className="mx-auto w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-4">
                 <CheckCircle2 className="w-7 h-7" />
               </div>
-              <h3 className="font-display text-xl font-bold text-foreground mb-2">You're on the list</h3>
+              <h3 className="font-display text-xl font-bold text-foreground mb-2">{variant.successTitle}</h3>
               <p className="text-sm text-muted-foreground mb-5">
-                Your free Arthritis Starter Guide is on its way. Check your inbox in the next few minutes.
+                {variant.successBody}
               </p>
               <Button variant="outline" onClick={() => setOpen(false)} className="w-full">
                 Continue browsing
