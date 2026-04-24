@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { PageHero } from "@/components/ui/PageHero";
+import PageHero from "@/components/ui/PageHero";
 import { Badge } from "@/components/ui/badge";
 import { openverseImages, type OpenverseTheme } from "@/data/openverseImages";
 
@@ -38,9 +38,9 @@ const Gallery = () => {
       <Header />
       <main>
         <PageHero
-          eyebrow="Image library"
+          badge={<span className="text-xs uppercase tracking-[0.2em] text-primary font-bold">Image library</span>}
           title="50 Creative Commons photographs"
-          description="An open visual library covering arthritis, joint health, low-impact exercise, anti-inflammatory food and the community we serve. All images are licensed under Creative Commons or in the public domain — full attribution is provided for each."
+          subtitle="An open visual library covering arthritis, joint health, low-impact exercise, anti-inflammatory food and the community we serve. All images are licensed under Creative Commons or in the public domain — full attribution is provided for each."
         />
 
         <section className="container mx-auto px-6 md:px-12 py-10">

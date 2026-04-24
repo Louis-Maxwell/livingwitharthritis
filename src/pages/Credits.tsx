@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { PageHero } from "@/components/ui/PageHero";
+import PageHero from "@/components/ui/PageHero";
 import { openverseImages, type OpenverseTheme } from "@/data/openverseImages";
 
 const THEME_LABELS: Record<OpenverseTheme, string> = {
@@ -35,9 +35,9 @@ const Credits = () => {
       <Header />
       <main>
         <PageHero
-          eyebrow="Attribution"
+          badge={<span className="text-xs uppercase tracking-[0.2em] text-primary font-bold">Attribution</span>}
           title="Image credits"
-          description="We use 50 openly licensed images across this website. Below is the full attribution required by the Creative Commons licences — creator, license, and link to the original source."
+          subtitle="We use 50 openly licensed images across this website. Below is the full attribution required by the Creative Commons licences — creator, license, and link to the original source."
         />
 
         <section className="container mx-auto px-6 md:px-12 py-12 max-w-5xl">
