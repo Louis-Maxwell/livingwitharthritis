@@ -211,6 +211,7 @@ const App = () => {
                 <Suspense fallback={null}>
                   <CookieConsent />
                   <MobileBottomNav />
+                  <MobileNextStepBar />
                   <AccessibilityToolbar />
                 </Suspense>
               </DeferredMount>
