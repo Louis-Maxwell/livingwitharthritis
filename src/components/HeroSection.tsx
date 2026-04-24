@@ -24,7 +24,7 @@ const HeroSection = memo(() => {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-background">
+    <section className="relative overflow-hidden bg-mesh">
       {/* 3D floating orbs background */}
       <Suspense fallback={null}>
         <Hero3DBackground />
