@@ -49,24 +49,37 @@
     /* Pure white section variation */
     --warm: 30 40% 98%;
 
-    /* Vivid pastel section tints — colorful but airy */
-    --tint-blue: 210 90% 95%;
-    --tint-green: 150 70% 93%;
-    --tint-amber: 42 95% 92%;
-    --tint-rose: 350 90% 95%;
-    --tint-violet: 262 80% 95%;
-    --tint-cyan: 188 85% 92%;
-    --tint-peach: 22 95% 93%;
-    --tint-mint: 165 75% 92%;
-    --tint-lavender: 280 75% 95%;
-    --tint-coral: 10 95% 94%;
+    /* Vivid pastel section tints — richer, Stripe/Linear-inspired */
+    --tint-blue: 212 100% 92%;
+    --tint-green: 150 78% 88%;
+    --tint-amber: 42 100% 88%;
+    --tint-rose: 350 100% 92%;
+    --tint-violet: 262 90% 92%;
+    --tint-cyan: 188 95% 88%;
+    --tint-peach: 22 100% 90%;
+    --tint-mint: 165 85% 88%;
+    --tint-lavender: 280 90% 92%;
+    --tint-coral: 10 100% 90%;
 
-    /* Accent palette — saturated and vibrant */
-    --emerald: 158 78% 38%;
-    --sky: 205 90% 52%;
-    --violet: 268 78% 58%;
-    --coral: 8 90% 62%;
-    --teal: 178 78% 38%;
+    /* Accent palette — saturated and vibrant (Vercel/Linear vibe) */
+    --emerald: 158 84% 40%;
+    --sky: 205 95% 54%;
+    --violet: 268 88% 62%;
+    --coral: 8 95% 64%;
+    --teal: 178 84% 40%;
+    --magenta: 322 90% 58%;
+    --indigo: 240 85% 62%;
+    --lime: 88 78% 50%;
+
+    /* Premium multicolor mesh gradients (Stripe/Linear inspired) */
+    --gradient-mesh: radial-gradient(at 18% 22%, hsl(350 100% 70% / 0.18) 0px, transparent 45%),
+                     radial-gradient(at 82% 18%, hsl(268 88% 70% / 0.16) 0px, transparent 45%),
+                     radial-gradient(at 25% 82%, hsl(205 95% 65% / 0.16) 0px, transparent 45%),
+                     radial-gradient(at 78% 78%, hsl(42 100% 65% / 0.18) 0px, transparent 45%);
+    --gradient-aurora: linear-gradient(135deg, hsl(350 100% 60%), hsl(322 90% 58%) 35%, hsl(268 88% 62%) 70%, hsl(205 95% 54%));
+    --gradient-sunset: linear-gradient(135deg, hsl(8 95% 64%), hsl(22 100% 58%) 50%, hsl(42 100% 55%));
+    --gradient-ocean: linear-gradient(135deg, hsl(205 95% 54%), hsl(188 95% 48%) 50%, hsl(158 84% 45%));
+    --gradient-cosmic: linear-gradient(135deg, hsl(268 88% 62%), hsl(240 85% 62%) 50%, hsl(205 95% 54%));
 
     /* Premium shadow system — neutral-warm */
     --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.03);
