@@ -85,6 +85,7 @@ const Contact = lazy(() => import("./pages/Contact"));
 const RegionHub = lazy(() => import("./pages/regions/RegionHub"));
 const NHSWaitingListHelp = lazy(() => import("./pages/NHSWaitingListHelp"));
 const NHSWaitingTimeCalculator = lazy(() => import("./pages/tools/NHSWaitingTimeCalculator"));
+const ArthritisStarterGuide = lazy(() => import("./pages/ArthritisStarterGuide"));
 // Loading fallback with skeleton-style animation
 const PageLoader = () => (
   <div className="min-h-screen flex flex-col items-center justify-center bg-background gap-4">
@@ -175,6 +176,7 @@ function AnimatedRoutes() {
         <Route path="/regions/:region" element={<RegionHub />} />
         <Route path="/nhs-arthritis-waiting-list-help" element={<NHSWaitingListHelp />} />
         <Route path="/tools/nhs-waiting-time" element={<NHSWaitingTimeCalculator />} />
+        <Route path="/arthritis-starter-guide" element={<ArthritisStarterGuide />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </PageTransition>
