@@ -1,12 +1,13 @@
 import { ArrowRight, MessageCircle, Heart, Shield, Award, CheckCircle, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { memo, lazy, Suspense } from "react";
+import { memo, lazy, Suspense, useEffect, useState } from "react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import heroImage from "@/assets/hero-walking-group.jpg";
 
 import "./HeroSection.css";
 
+// 3D canvas is desktop-only — heavy on mobile GPU and never visible there anyway
 const Hero3DBackground = lazy(() => import("@/components/landing/Hero3DBackground"));
 
 const STATS = [
