@@ -54,6 +54,8 @@ const columns = [
       { label: "Accessibility", href: "/accessibility" },
       { label: "Safeguarding Policy", href: "/safeguarding" },
       { label: "Complaints Procedure", href: "/complaints" },
+      { label: "Image Gallery", href: "/gallery" },
+      { label: "Image Credits", href: "/credits" },
     ],
   },
   {
