@@ -525,6 +525,52 @@
     box-shadow: 0 16px 40px -8px hsl(var(--violet) / 0.4);
   }
 
+  /* ─── Multicolor mesh & aurora backgrounds (Stripe/Linear/Vercel inspired) ─── */
+  .bg-mesh {
+    background-color: hsl(var(--background));
+    background-image: var(--gradient-mesh);
+  }
+  .bg-aurora { background: var(--gradient-aurora); }
+  .bg-sunset { background: var(--gradient-sunset); }
+  .bg-ocean  { background: var(--gradient-ocean); }
+  .bg-cosmic { background: var(--gradient-cosmic); }
+
+  .text-gradient-aurora {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-aurora);
+  }
+  .text-gradient-ocean {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-ocean);
+  }
+  .text-gradient-cosmic {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-cosmic);
+  }
+
+  /* Animated rainbow border (used sparingly on hero CTAs) */
+  .border-rainbow {
+    position: relative;
+    background: hsl(var(--card));
+    background-clip: padding-box;
+    border: 1.5px solid transparent;
+  }
+  .border-rainbow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    margin: -1.5px;
+    border-radius: inherit;
+    background: var(--gradient-aurora);
+    background-size: 200% 200%;
+    animation: rainbowShift 8s ease infinite;
+  }
+  @keyframes rainbowShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
   /* ─── Decorative section pattern overlay ─── */
   .pattern-dots {
     background-image: radial-gradient(circle, hsl(var(--primary) / 0.03) 1px, transparent 1px);
