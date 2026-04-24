@@ -71,24 +71,49 @@ const ExitIntentModal = () => {
     if (isExcluded) return;
     if (wasRecentlyShown()) return;
 
-    // Arm after 8s on page so we don't catch instant-bouncers (likely bots)
+    // Arm after 12s on page so we skip instant-bouncers and accidental swipes.
+    // (Analytics: pages-per-visit ~1.17 and ~90% bounce → most "exits" are not real intent.)
     const armTimer = window.setTimeout(() => {
       armedRef.current = true;
-    }, 8000);
+    }, 12000);
 
-    // Desktop: mouse leaves through the top of the viewport
+    // Desktop: mouse leaves through the top of the viewport with clear upward velocity.
+    // Filters out users who park the cursor near the top to read or use browser chrome.
     const handleMouseOut = (e: MouseEvent) => {
-      if (e.clientY <= 0 && (!e.relatedTarget)) trigger();
+      if (e.clientY > 0) return;
+      if (e.relatedTarget) return;
+      if (e.movementY > -8) return; // require a real upward flick, not a slow drift
+      trigger();
     };
 
-    // Mobile: detect rapid scroll-up after meaningful scroll-down (back-button intent proxy)
+    // Mobile: detect a *fast* scroll-up after meaningful scroll-down.
+    // Tightened to filter out address-bar reveal, pull-to-refresh, and elastic bounces.
     let lastY = window.scrollY;
+    let lastT = performance.now();
     let maxY = window.scrollY;
+    let cooldownUntil = 0;
     const handleScroll = () => {
+      const now = performance.now();
       const y = window.scrollY;
       if (y > maxY) maxY = y;
-      if (maxY > 600 && lastY - y > 250) trigger();
+
+      if (now < cooldownUntil) {
+        lastY = y;
+        lastT = now;
+        return;
+      }
+
+      const dy = lastY - y; // positive = scrolled up
+      const dt = now - lastT;
+
+      // Require: scrolled past 900px, then a sharp upward burst (>400px in <400ms).
+      if (maxY > 900 && dy > 400 && dt < 400) {
+        cooldownUntil = now + 1500; // ignore further bursts for 1.5s
+        trigger();
+      }
+
       lastY = y;
+      lastT = now;
     };
 
     document.addEventListener("mouseout", handleMouseOut);
