@@ -217,6 +217,7 @@ const App = () => {
                 <Suspense fallback={null}>
                   <ChatBotWidget />
                   <DonationNotification />
+                  <ExitIntentModal />
                 </Suspense>
               </DeferredMount>
             </BrowserRouter>
