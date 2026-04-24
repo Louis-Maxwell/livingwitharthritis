@@ -28,9 +28,18 @@ const resources = [
 ];
 
 export default function DownloadableResources() {
-  const handleDownload = async (fnName: string) => {
-    const mod = await import("@/lib/generatePdf");
-    (mod as Record<string, () => void>)[fnName]();
+  const handleDownload = async (fnName: string, title: string) => {
+    trackEvent("guide_download_click", { resource: fnName, title, location: "downloadable_resources" });
+    try {
+      const mod = await import("@/lib/generatePdf");
+      (mod as Record<string, () => void>)[fnName]();
+      trackEvent("guide_download_success", { resource: fnName, title });
+    } catch (err) {
+      trackEvent("guide_download_failure", {
+        resource: fnName,
+        message: err instanceof Error ? err.message : "unknown",
+      });
+    }
   };
 
   return (
