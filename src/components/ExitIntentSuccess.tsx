@@ -1,10 +1,33 @@
-import { CheckCircle2, Download, Mail, BookOpen, Stethoscope, ArrowRight, FileText, Lock } from "lucide-react";
+import { CheckCircle2, Download, Mail, BookOpen, Stethoscope, ArrowRight, FileText, Lock, Inbox } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
 import type { ExitIntentVariant, ExitIntentVariantId } from "@/lib/exitIntentVariants";
 
 const PDF_URL = "/downloads/arthritis-starter-guide-preview.pdf";
+const SENDER_EMAIL = "hello@livingwitharthritis.org.uk";
+const CONFIRM_SUBJECT = "Confirm my Arthritis Starter Guide signup";
+
+/** Map well-known email providers to a deep-link that opens the inbox/search. */
+const getInboxLink = (email: string): { url: string; provider: string } => {
+  const domain = email.split("@")[1]?.toLowerCase() ?? "";
+  const search = encodeURIComponent(`from:${SENDER_EMAIL}`);
+  if (/^(gmail\.com|googlemail\.com)$/.test(domain))
+    return { url: `https://mail.google.com/mail/u/0/#search/${search}`, provider: "gmail" };
+  if (/^(outlook\.|hotmail\.|live\.|msn\.)/.test(domain) || domain === "outlook.com")
+    return { url: "https://outlook.live.com/mail/0/inbox", provider: "outlook" };
+  if (/^(yahoo\.|ymail\.|rocketmail\.)/.test(domain))
+    return { url: "https://mail.yahoo.com/d/folders/1", provider: "yahoo" };
+  if (/^(icloud\.com|me\.com|mac\.com)$/.test(domain))
+    return { url: "https://www.icloud.com/mail", provider: "icloud" };
+  if (/^(proton\.me|protonmail\.com|pm\.me)$/.test(domain))
+    return { url: "https://mail.proton.me/u/0/inbox", provider: "proton" };
+  // Fallback: open the OS default mail client
+  return {
+    url: `mailto:${SENDER_EMAIL}?subject=${encodeURIComponent(CONFIRM_SUBJECT)}`,
+    provider: "mailto",
+  };
+};
 
 interface Props {
   variant: ExitIntentVariant;
@@ -28,6 +51,16 @@ const ExitIntentSuccess = ({ variant, variantId, confirmedEmail, onClose }: Prop
 
   const handleNextStep = (step: string, href: string) => {
     trackEvent("exit_intent_next_step_click", { step, href, variant: variantId });
+  };
+
+  const inbox = isConfirmed ? getInboxLink(confirmedEmail!) : null;
+  const handleOpenInbox = () => {
+    if (!inbox) return;
+    trackEvent("exit_intent_open_inbox_click", {
+      variant: variantId,
+      provider: inbox.provider,
+      email_domain: confirmedEmail?.split("@")[1]?.toLowerCase() ?? "unknown",
+    });
   };
 
   return (
@@ -96,6 +129,21 @@ const ExitIntentSuccess = ({ variant, variantId, confirmedEmail, onClose }: Prop
             </div>
           </div>
         </div>
+      )}
+
+      {/* Open inbox CTA — primary action to confirm signup */}
+      {inbox && (
+        <Button asChild size="lg" className="w-full h-12 text-base font-semibold mb-4">
+          <a
+            href={inbox.url}
+            target={inbox.provider === "mailto" ? "_self" : "_blank"}
+            rel="noopener noreferrer"
+            onClick={handleOpenInbox}
+          >
+            <Inbox className="w-4 h-4" />
+            Open my inbox to confirm
+          </a>
+        </Button>
       )}
 
       {/* Next steps */}
