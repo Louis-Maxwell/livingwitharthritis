@@ -1,4 +1,4 @@
-import { CheckCircle2, Download, Mail, BookOpen, Stethoscope, ArrowRight, FileText } from "lucide-react";
+import { CheckCircle2, Download, Mail, BookOpen, Stethoscope, ArrowRight, FileText, Lock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
@@ -9,11 +9,20 @@ const PDF_URL = "/downloads/arthritis-starter-guide-preview.pdf";
 interface Props {
   variant: ExitIntentVariant;
   variantId: ExitIntentVariantId;
+  /** Email captured at submit time. Required to unlock the PDF preview. */
+  confirmedEmail?: string;
   onClose: () => void;
 }
 
-const ExitIntentSuccess = ({ variant, variantId, onClose }: Props) => {
-  const handleDownload = () => {
+const ExitIntentSuccess = ({ variant, variantId, confirmedEmail, onClose }: Props) => {
+  const isConfirmed = Boolean(confirmedEmail && confirmedEmail.includes("@"));
+
+  const handleDownload = (e: React.MouseEvent) => {
+    if (!isConfirmed) {
+      e.preventDefault();
+      trackEvent("exit_intent_pdf_preview_blocked", { variant: variantId, reason: "no_email" });
+      return;
+    }
     trackEvent("exit_intent_pdf_preview_download", { variant: variantId });
   };
 
