@@ -35,19 +35,7 @@ const HeroSection = memo(() => {
     return () => mq.removeEventListener?.("change", update);
   }, []);
 
-  // Preload the hero JPG only when we know it will render (saves ~200-400KB on mobile)
-  useEffect(() => {
-    if (!isDesktop) return;
-    const link = document.createElement("link");
-    link.rel = "preload";
-    link.as = "image";
-    link.href = heroImage;
-    link.fetchPriority = "high";
-    document.head.appendChild(link);
-    return () => {
-      document.head.removeChild(link);
-    };
-  }, [isDesktop]);
+  // Hero image is now LCP-optimized via <picture> + eager + fetchpriority — no JS preload needed.
 
   const trustBadges = [
     { icon: CheckCircle, label: "NICE Compliant" },
