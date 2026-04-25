@@ -3,7 +3,10 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { memo, lazy, Suspense, useEffect, useState } from "react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
-import heroImage from "@/assets/hero-walking-group.jpg";
+import heroImageWebp1600 from "@/assets/hero-walking-group-1600.webp";
+import heroImageWebp1200 from "@/assets/hero-walking-group-1200.webp";
+import heroImageWebp800 from "@/assets/hero-walking-group-800.webp";
+import heroImageJpg1600 from "@/assets/hero-walking-group-1600.jpg";
 
 import "./HeroSection.css";
 
