@@ -35,7 +35,8 @@ for dir in "$FUNCTIONS_DIR"/*/; do
   fi
   echo ""
   echo "▶ deno check $name"
-  if ! deno check --allow-import "$entry"; then
+  # Run from the functions directory so the shared deno.json (nodeModulesDir: auto) applies.
+  if ! ( cd "$FUNCTIONS_DIR" && deno check --allow-import "$name/index.ts" ); then
     failed+=("$name")
   fi
   checked=$((checked + 1))
