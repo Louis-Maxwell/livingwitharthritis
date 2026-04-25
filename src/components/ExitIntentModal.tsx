@@ -249,6 +249,7 @@ const ExitIntentModal = () => {
             <ExitIntentSuccess
               variant={variant}
               variantId={variantId}
+              confirmedEmail={email}
               onClose={() => setOpen(false)}
             />
           )}
