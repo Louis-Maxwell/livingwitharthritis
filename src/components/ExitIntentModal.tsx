@@ -40,6 +40,8 @@ const ExitIntentModal = () => {
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [fieldError, setFieldError] = useState<string | null>(null);
   const [variantId] = useState<ExitIntentVariantId>(() => getOrAssignVariant());
   const variant = EXIT_INTENT_VARIANTS[variantId];
   const armedRef = useRef(false);
