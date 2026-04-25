@@ -1,5 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { createClient } from "npm:@supabase/supabase-js@2";
+import { getAnonClient, getServiceClient } from "../_shared/supabase-client.ts";
 
 const ALLOWED_ORIGINS = [
   "https://id-preview--0b2fd6ca-4e21-4ac7-99fa-d741e996f45e.lovable.app",
@@ -36,11 +36,7 @@ serve(async (req) => {
       });
     }
 
-    const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
-    const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY")!;
-    const supabase = createClient(supabaseUrl, supabaseAnonKey, {
-      global: { headers: { Authorization: authHeader } },
-    });
+    const supabase = getAnonClient(authHeader, "send-patient-email");
 
     const token = authHeader.replace("Bearer ", "");
     const { data: claimsData, error: claimsError } = await supabase.auth.getClaims(token);
@@ -54,7 +50,7 @@ serve(async (req) => {
     const userId = claimsData.claims.sub;
 
     // Check admin role
-    const serviceClient = createClient(supabaseUrl, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!);
+    const serviceClient = getServiceClient("send-patient-email");
     const { data: roleData } = await serviceClient
       .from("user_roles")
       .select("role")

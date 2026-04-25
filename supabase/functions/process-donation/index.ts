@@ -1,6 +1,6 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import Stripe from "https://esm.sh/stripe@18.5.0";
-import { createClient } from "npm:@supabase/supabase-js@2";
+import { getServiceClient, isSupabaseConfigError } from "../_shared/supabase-client.ts";
 
 // Stripe webhooks come from Stripe's servers, not browsers — CORS isn't needed
 // but we keep minimal headers for consistency
@@ -82,9 +82,7 @@ serve(async (req) => {
     const address = session.customer_details?.address;
 
     // Insert into Supabase using service role
-    const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
-    const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    const supabase = getServiceClient("process-donation");
 
     const { data: donationRecord, error: insertError } = await supabase
       .from("donations")

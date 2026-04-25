@@ -1,5 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { createClient } from "npm:@supabase/supabase-js@2";
+import { getAnonClient, getServiceClient } from "../_shared/supabase-client.ts";
 
 const ALLOWED_ORIGINS = [
   "https://id-preview--0b2fd6ca-4e21-4ac7-99fa-d741e996f45e.lovable.app",
@@ -36,11 +36,9 @@ serve(async (req) => {
       });
     }
 
-    const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
-    const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY")!;
     const token = authHeader.replace("Bearer ", "");
 
-    const authClient = createClient(supabaseUrl, supabaseAnonKey);
+    const authClient = getAnonClient(null, "notify-patient-status");
     const { data: { user }, error: authError } = await authClient.auth.getUser(token);
     if (authError || !user) {
       return new Response(JSON.stringify({ error: "Unauthorized" }), {
@@ -50,7 +48,7 @@ serve(async (req) => {
     }
 
     // Check admin role
-    const serviceClient = createClient(supabaseUrl, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!);
+    const serviceClient = getServiceClient("notify-patient-status");
     const { data: roleData } = await serviceClient
       .from("user_roles")
       .select("role")

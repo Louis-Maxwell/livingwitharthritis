@@ -1,4 +1,4 @@
-import { createClient } from 'npm:@supabase/supabase-js@2'
+import { getServiceClient, isSupabaseConfigError } from '../_shared/supabase-client.ts'
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -21,13 +21,6 @@ Deno.serve(async (req) => {
 
   if (req.method !== 'GET' && req.method !== 'POST') {
     return jsonResponse({ error: 'Method not allowed' }, 405)
-  }
-
-  const supabaseUrl = Deno.env.get('SUPABASE_URL')
-  const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')
-
-  if (!supabaseUrl || !supabaseServiceKey) {
-    return jsonResponse({ error: 'Server configuration error' }, 500)
   }
 
   // Extract token from query params (GET) or body (POST)
@@ -67,7 +60,13 @@ Deno.serve(async (req) => {
     return jsonResponse({ error: 'Token is required' }, 400)
   }
 
-  const supabase = createClient(supabaseUrl, supabaseServiceKey)
+  let supabase
+  try {
+    supabase = getServiceClient('handle-email-unsubscribe')
+  } catch (e) {
+    if (isSupabaseConfigError(e)) return jsonResponse({ error: e.message }, 500)
+    throw e
+  }
 
   // Look up the token
   const { data: tokenRecord, error: lookupError } = await supabase
