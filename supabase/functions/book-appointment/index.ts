@@ -263,6 +263,8 @@ serve(async (req) => {
         weekday: "long", day: "numeric", month: "long", year: "numeric",
       });
 
+      const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
+      const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
       const emailRes = await fetch(`${supabaseUrl}/functions/v1/send-transactional-email`, {
         method: "POST",
         headers: {

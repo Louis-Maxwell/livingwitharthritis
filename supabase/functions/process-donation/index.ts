@@ -121,6 +121,8 @@ serve(async (req) => {
     // Send donation confirmation email if we have a donor email
     if (customerEmail) {
       try {
+        const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
+        const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
         const emailRes = await fetch(`${supabaseUrl}/functions/v1/send-transactional-email`, {
           method: "POST",
           headers: {
