@@ -1,5 +1,5 @@
 import { sendLovableEmail } from 'npm:@lovable.dev/email-js'
-import { createClient } from 'npm:@supabase/supabase-js@2'
+import { getServiceClient, isSupabaseConfigError } from '../_shared/supabase-client.ts'
 
 const MAX_RETRIES = 5
 const DEFAULT_BATCH_SIZE = 10
@@ -80,13 +80,10 @@ async function moveToDlq(
 
 Deno.serve(async (req) => {
   const apiKey = Deno.env.get('LOVABLE_API_KEY')
-  const supabaseUrl = Deno.env.get('SUPABASE_URL')
-  const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')
-
-  if (!apiKey || !supabaseUrl || !supabaseServiceKey) {
-    console.error('Missing required environment variables')
+  if (!apiKey) {
+    console.error('[process-email-queue] Missing LOVABLE_API_KEY')
     return new Response(
-      JSON.stringify({ error: 'Server configuration error' }),
+      JSON.stringify({ error: 'Server configuration error: missing LOVABLE_API_KEY' }),
       { status: 500, headers: { 'Content-Type': 'application/json' } }
     )
   }
@@ -111,7 +108,18 @@ Deno.serve(async (req) => {
     )
   }
 
-  const supabase = createClient(supabaseUrl, supabaseServiceKey)
+  let supabase
+  try {
+    supabase = getServiceClient('process-email-queue')
+  } catch (e) {
+    if (isSupabaseConfigError(e)) {
+      return new Response(JSON.stringify({ error: e.message }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' },
+      })
+    }
+    throw e
+  }
 
   // 1. Check rate-limit cooldown and read queue config
   const { data: state } = await supabase

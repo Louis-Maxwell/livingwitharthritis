@@ -1,5 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { createClient } from "npm:@supabase/supabase-js@2";
+import { getAnonClient, getServiceClient } from "../_shared/supabase-client.ts";
 import { createRateLimiter, getClientIp, rateLimitResponse } from "../_shared/rate-limiter.ts";
 
 // 10 booking attempts per IP per 30 minutes
@@ -138,9 +138,7 @@ serve(async (req) => {
       return rateLimitResponse(corsHeaders);
     }
 
-    const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
-    const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    const supabase = getServiceClient("book-appointment");
 
     // Handle GET for available slots
     if (req.method === "GET") {
@@ -209,8 +207,7 @@ serve(async (req) => {
       );
     }
     const token = authHeader.replace("Bearer ", "");
-    const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY")!;
-    const authClient = createClient(supabaseUrl, supabaseAnonKey);
+    const authClient = getAnonClient(null, "book-appointment");
     const { data: { user }, error: authError } = await authClient.auth.getUser(token);
     if (authError || !user) {
       return new Response(
@@ -266,6 +263,8 @@ serve(async (req) => {
         weekday: "long", day: "numeric", month: "long", year: "numeric",
       });
 
+      const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
+      const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
       const emailRes = await fetch(`${supabaseUrl}/functions/v1/send-transactional-email`, {
         method: "POST",
         headers: {

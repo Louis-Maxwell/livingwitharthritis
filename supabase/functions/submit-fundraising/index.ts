@@ -1,5 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { createClient } from "npm:@supabase/supabase-js@2";
+import { getServiceClient } from "../_shared/supabase-client.ts";
 import { createRateLimiter, getClientIp, rateLimitResponse } from "../_shared/rate-limiter.ts";
 
 const ADMIN_EMAIL = "info@livingwitharthritis.org.uk";
@@ -104,9 +104,7 @@ serve(async (req) => {
       return rateLimitResponse(corsHeaders);
     }
 
-    const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
-    const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    const supabase = getServiceClient("submit-fundraising");
 
     let requestBody: unknown;
     try {
@@ -153,6 +151,8 @@ serve(async (req) => {
 
     // Send admin notification email
     try {
+      const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
+      const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
       const emailRes = await fetch(`${supabaseUrl}/functions/v1/send-transactional-email`, {
         method: "POST",
         headers: {

@@ -1,4 +1,4 @@
-import { createClient } from 'npm:@supabase/supabase-js@2'
+import { getServiceClient, isSupabaseConfigError } from '../_shared/supabase-client.ts'
 import { WebhookError, verifyWebhookRequest } from 'npm:@lovable.dev/webhooks-js'
 
 // Suppression event payload sent by the Go API when Mailgun reports
@@ -37,12 +37,9 @@ Deno.serve(async (req) => {
   }
 
   const apiKey = Deno.env.get('LOVABLE_API_KEY')
-  const supabaseUrl = Deno.env.get('SUPABASE_URL')
-  const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')
-
-  if (!apiKey || !supabaseUrl || !supabaseServiceKey) {
-    console.error('Missing required environment variables')
-    return jsonResponse({ error: 'Server configuration error' }, 500)
+  if (!apiKey) {
+    console.error('[handle-email-suppression] Missing LOVABLE_API_KEY')
+    return jsonResponse({ error: 'Server configuration error: missing LOVABLE_API_KEY' }, 500)
   }
 
   // Verify HMAC signature using the Lovable API Key (same as auth-email-hook)
@@ -79,7 +76,13 @@ Deno.serve(async (req) => {
     return jsonResponse({ error: 'Internal error' }, 500)
   }
 
-  const supabase = createClient(supabaseUrl, supabaseServiceKey)
+  let supabase
+  try {
+    supabase = getServiceClient('handle-email-suppression')
+  } catch (e) {
+    if (isSupabaseConfigError(e)) return jsonResponse({ error: e.message }, 500)
+    throw e
+  }
   const normalizedEmail = payload.email.toLowerCase()
 
   // 1. Upsert to suppressed_emails (idempotent — safe for retries)
