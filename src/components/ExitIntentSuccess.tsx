@@ -46,32 +46,57 @@ const ExitIntentSuccess = ({ variant, variantId, confirmedEmail, onClose }: Prop
         </div>
       </div>
 
-      {/* PDF preview download — primary next action */}
-      <a
-        href={PDF_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={handleDownload}
-        className="group block rounded-xl border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-transparent p-4 mb-4 hover:border-primary/60 hover:shadow-md transition-all"
-      >
-        <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-xl bg-primary text-primary-foreground flex items-center justify-center shrink-0">
-            <FileText className="w-6 h-6" />
+      {/* PDF preview download — gated behind email confirmation */}
+      {isConfirmed ? (
+        <a
+          href={PDF_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={handleDownload}
+          className="group block rounded-xl border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-transparent p-4 mb-4 hover:border-primary/60 hover:shadow-md transition-all"
+        >
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 rounded-xl bg-primary text-primary-foreground flex items-center justify-center shrink-0">
+              <FileText className="w-6 h-6" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-primary mb-0.5">
+                Unlocked · 4 pages · PDF
+              </p>
+              <p className="font-semibold text-foreground text-sm leading-tight">
+                Arthritis Starter Guide — preview
+              </p>
+              <p className="text-xs text-muted-foreground mt-0.5 truncate">
+                Sent to <span className="font-medium text-foreground">{confirmedEmail}</span>. Read it now too.
+              </p>
+            </div>
+            <Download className="w-5 h-5 text-primary shrink-0 group-hover:translate-y-0.5 transition-transform" />
           </div>
-          <div className="flex-1 min-w-0">
-            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-primary mb-0.5">
-              Free preview · 4 pages · PDF
-            </p>
-            <p className="font-semibold text-foreground text-sm leading-tight">
-              Arthritis Starter Guide — preview
-            </p>
-            <p className="text-xs text-muted-foreground mt-0.5">
-              Read it now while the full guide arrives in your inbox.
-            </p>
+        </a>
+      ) : (
+        <div
+          role="status"
+          aria-live="polite"
+          className="rounded-xl border-2 border-dashed border-border bg-muted/40 p-4 mb-4"
+        >
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 rounded-xl bg-muted text-muted-foreground flex items-center justify-center shrink-0">
+              <Lock className="w-5 h-5" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground mb-0.5">
+                Locked · enter your email to unlock
+              </p>
+              <p className="font-semibold text-foreground text-sm leading-tight">
+                Arthritis Starter Guide — preview
+              </p>
+              <p className="text-xs text-muted-foreground mt-0.5">
+                Submit your email above and the 4-page PDF preview will unlock instantly.
+              </p>
+            </div>
           </div>
-          <Download className="w-5 h-5 text-primary shrink-0 group-hover:translate-y-0.5 transition-transform" />
         </div>
-      </a>
+      )}
 
       {/* Next steps */}
       <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground mb-2">
