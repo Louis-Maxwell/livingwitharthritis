@@ -131,13 +131,13 @@ const ExitIntentModal = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMsg(null);
+    setFieldError(null);
+
     const parsed = emailSchema.safeParse(email);
     if (!parsed.success) {
-      toast({
-        title: "Invalid email",
-        description: parsed.error.issues[0]?.message ?? "Please check your email address.",
-        variant: "destructive",
-      });
+      const msg = parsed.error.issues[0]?.message ?? "Please check your email address.";
+      setFieldError(msg);
       trackEvent("exit_intent_submit_failure", {
         reason: "invalid_email",
         path: location.pathname,
@@ -167,13 +167,17 @@ const ExitIntentModal = () => {
       trackEvent("generate_lead", { method: "exit_intent", variant: variantId });
     } catch (err) {
       console.error("[ExitIntent] subscribe error", err);
-      toast({
-        title: "Something went wrong",
-        description: "Please try again in a moment.",
-        variant: "destructive",
-      });
+      const isNetwork =
+        typeof navigator !== "undefined" && !navigator.onLine
+          ? true
+          : err instanceof TypeError && /fetch|network/i.test(err.message);
+      setErrorMsg(
+        isNetwork
+          ? "Looks like you're offline. Check your connection and try again."
+          : "We couldn't save your email. Please try again in a moment."
+      );
       trackEvent("exit_intent_submit_failure", {
-        reason: "supabase_error",
+        reason: isNetwork ? "network" : "supabase_error",
         message: err instanceof Error ? err.message : "unknown",
         path: location.pathname,
         variant: variantId,
