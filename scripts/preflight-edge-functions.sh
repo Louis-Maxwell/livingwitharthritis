@@ -24,8 +24,8 @@ checked=0
 
 for dir in "$FUNCTIONS_DIR"/*/; do
   name="$(basename "$dir")"
-  # Skip shared (no entrypoint) and any underscore-prefixed helper dirs.
-  if [[ "$name" == _* ]]; then
+  # Skip shared (no entrypoint), helper dirs, and the local node_modules cache.
+  if [[ "$name" == _* || "$name" == "node_modules" ]]; then
     continue
   fi
   entry="${dir}index.ts"
@@ -35,7 +35,8 @@ for dir in "$FUNCTIONS_DIR"/*/; do
   fi
   echo ""
   echo "▶ deno check $name"
-  if ! deno check --allow-import "$entry"; then
+  # Run from the functions directory so the shared deno.json (nodeModulesDir: auto) applies.
+  if ! ( cd "$FUNCTIONS_DIR" && deno check --allow-import "$name/index.ts" ); then
     failed+=("$name")
   fi
   checked=$((checked + 1))
