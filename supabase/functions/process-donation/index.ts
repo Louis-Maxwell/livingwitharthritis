@@ -1,6 +1,6 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import Stripe from "https://esm.sh/stripe@18.5.0";
-import { createClient } from "npm:@supabase/supabase-js@2.57.2";
+import { createClient } from "npm:@supabase/supabase-js@2";
 
 // Stripe webhooks come from Stripe's servers, not browsers — CORS isn't needed
 // but we keep minimal headers for consistency
