@@ -3,7 +3,10 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { memo, lazy, Suspense, useEffect, useState } from "react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
-import heroImage from "@/assets/hero-walking-group.jpg";
+import heroImageWebp1600 from "@/assets/hero-walking-group-1600.webp";
+import heroImageWebp1200 from "@/assets/hero-walking-group-1200.webp";
+import heroImageWebp800 from "@/assets/hero-walking-group-800.webp";
+import heroImageJpg1600 from "@/assets/hero-walking-group-1600.jpg";
 
 import "./HeroSection.css";
 
@@ -32,19 +35,7 @@ const HeroSection = memo(() => {
     return () => mq.removeEventListener?.("change", update);
   }, []);
 
-  // Preload the hero JPG only when we know it will render (saves ~200-400KB on mobile)
-  useEffect(() => {
-    if (!isDesktop) return;
-    const link = document.createElement("link");
-    link.rel = "preload";
-    link.as = "image";
-    link.href = heroImage;
-    link.fetchPriority = "high";
-    document.head.appendChild(link);
-    return () => {
-      document.head.removeChild(link);
-    };
-  }, [isDesktop]);
+  // Hero image is now LCP-optimized via <picture> + eager + fetchpriority — no JS preload needed.
 
   const trustBadges = [
     { icon: CheckCircle, label: "NICE Compliant" },
@@ -131,15 +122,23 @@ const HeroSection = memo(() => {
               <div className="absolute -inset-8 rounded-3xl border border-primary/[0.03] pointer-events-none" />
               
               <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] group">
-                <img
-                  src={heroImage}
-                  alt="A diverse group of adults walking together outdoors, smiling — staying active with arthritis in a UK community walking group"
-                  width={4898}
-                  height={3265}
-                  className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
-                  loading="lazy"
-                  decoding="async"
-                />
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcSet={`${heroImageWebp800} 800w, ${heroImageWebp1200} 1200w, ${heroImageWebp1600} 1600w`}
+                    sizes="(min-width: 1280px) 620px, (min-width: 1024px) 50vw, 100vw"
+                  />
+                  <img
+                    src={heroImageJpg1600}
+                    alt="A diverse group of adults walking together outdoors, smiling — staying active with arthritis in a UK community walking group"
+                    width={1600}
+                    height={1067}
+                    className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
+                    loading="eager"
+                    decoding="async"
+                    fetchPriority="high"
+                  />
+                </picture>
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent" />
               </div>
               
