@@ -223,24 +223,73 @@ const ExitIntentModal = () => {
                 ))}
               </ul>
 
-              <form onSubmit={handleSubmit} className="space-y-3">
-                <Input
-                  type="email"
-                  inputMode="email"
-                  autoComplete="email"
-                  placeholder="you@example.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  maxLength={255}
-                  className="h-12 text-base"
-                  aria-label="Email address"
-                />
-                <Button type="submit" size="lg" className="w-full h-12 text-base font-semibold" disabled={submitting}>
+              <form onSubmit={handleSubmit} className="space-y-3" aria-busy={submitting}>
+                <div>
+                  <Input
+                    type="email"
+                    inputMode="email"
+                    autoComplete="email"
+                    placeholder="you@example.com"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      if (fieldError) setFieldError(null);
+                      if (errorMsg) setErrorMsg(null);
+                    }}
+                    required
+                    maxLength={255}
+                    disabled={submitting}
+                    aria-invalid={Boolean(fieldError) || undefined}
+                    aria-describedby={fieldError ? "exit-intent-email-error" : undefined}
+                    className={`h-12 text-base ${fieldError ? "border-destructive focus-visible:ring-destructive" : ""}`}
+                    aria-label="Email address"
+                  />
+                  {fieldError && (
+                    <p
+                      id="exit-intent-email-error"
+                      role="alert"
+                      className="mt-1.5 text-xs text-destructive flex items-center gap-1.5"
+                    >
+                      <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                      {fieldError}
+                    </p>
+                  )}
+                </div>
+
+                {errorMsg && (
+                  <div
+                    role="alert"
+                    aria-live="assertive"
+                    className="flex items-start gap-2.5 rounded-lg border border-destructive/40 bg-destructive/5 p-3 text-sm text-destructive"
+                  >
+                    <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
+                    <div className="flex-1">
+                      <p className="font-medium leading-snug">{errorMsg}</p>
+                      <button
+                        type="submit"
+                        disabled={submitting}
+                        className="mt-1.5 inline-flex items-center gap-1 text-xs font-semibold underline underline-offset-2 hover:no-underline disabled:opacity-50"
+                      >
+                        <RotateCw className={`w-3 h-3 ${submitting ? "animate-spin" : ""}`} />
+                        Try again
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full h-12 text-base font-semibold"
+                  disabled={submitting}
+                  aria-live="polite"
+                >
                   {submitting ? (
                     <>
                       <Loader2 className="w-4 h-4 animate-spin" /> Sending…
                     </>
+                  ) : errorMsg ? (
+                    "Retry"
                   ) : (
                     variant.ctaLabel
                   )}
