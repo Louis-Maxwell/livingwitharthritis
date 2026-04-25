@@ -5,8 +5,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, XCircle, Heart, ArrowLeft, Home } from "lucide-react";
-import { motion } from "framer-motion";
-
 
 const DonationSuccess = () => {
   const [searchParams] = useSearchParams();
@@ -15,7 +13,6 @@ const DonationSuccess = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      // Simple confetti-like celebration
       document.title = "Thank You! | Living With Arthritis";
     }
   }, [isSuccess]);
@@ -28,22 +25,12 @@ const DonationSuccess = () => {
       </Helmet>
       <Header />
       <main className="min-h-[70vh] flex items-center justify-center px-4 py-20">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="max-w-md w-full text-center space-y-6"
-        >
+        <div className="max-w-md w-full text-center space-y-6 animate-fade-in">
           {isSuccess ? (
             <>
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                className="mx-auto w-20 h-20 rounded-full bg-primary dark:bg-primary/30 flex items-center justify-center"
-              >
+              <div className="mx-auto w-20 h-20 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center animate-scale-in">
                 <CheckCircle className="w-10 h-10 text-primary" />
-              </motion.div>
+              </div>
 
               <div className="space-y-2">
                 <h1 className="text-3xl font-bold text-foreground">Thank You!</h1>
@@ -52,13 +39,13 @@ const DonationSuccess = () => {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-primary/20 bg-primary dark:bg-primary/10 p-5 space-y-3">
+              <div className="rounded-2xl border border-primary/20 bg-primary/5 dark:bg-primary/10 p-5 space-y-3">
                 <div className="flex items-center justify-center gap-2">
                   <Heart className="w-5 h-5 text-primary" />
                   <p className="font-semibold text-foreground">Your impact matters</p>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  88p of every £1 goes directly to patient care and research. You'll receive a confirmation email from Stripe with your receipt.
+                  88p of every £1 goes directly to patient care and research. A confirmation email with your receipt is on its way.
                 </p>
               </div>
 
@@ -70,22 +57,15 @@ const DonationSuccess = () => {
                   </Link>
                 </Button>
                 <Button asChild className="rounded-full btn-primary-cta">
-                  <Link to="/blog">
-                    Explore Our Resources
-                  </Link>
+                  <Link to="/blog">Explore Our Resources</Link>
                 </Button>
               </div>
             </>
           ) : (
             <>
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                className="mx-auto w-20 h-20 rounded-full bg-muted flex items-center justify-center"
-              >
+              <div className="mx-auto w-20 h-20 rounded-full bg-muted flex items-center justify-center animate-scale-in">
                 <XCircle className="w-10 h-10 text-muted-foreground" />
-              </motion.div>
+              </div>
 
               <div className="space-y-2">
                 <h1 className="text-3xl font-bold text-foreground">Donation Cancelled</h1>
@@ -102,14 +82,12 @@ const DonationSuccess = () => {
                   </Link>
                 </Button>
                 <Button asChild className="rounded-full btn-primary-cta">
-                  <Link to="/#donate">
-                    Try Again
-                  </Link>
+                  <Link to="/#donate">Try Again</Link>
                 </Button>
               </div>
             </>
           )}
-        </motion.div>
+        </div>
       </main>
       <Footer />
     </>
