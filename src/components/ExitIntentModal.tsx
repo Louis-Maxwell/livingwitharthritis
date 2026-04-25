@@ -95,7 +95,9 @@ const ExitIntentModal = () => {
     let lastT = performance.now();
     let maxY = window.scrollY;
     let cooldownUntil = 0;
-    const handleScroll = () => {
+    let scrollScheduled = false;
+    const processScroll = () => {
+      scrollScheduled = false;
       const now = performance.now();
       const y = window.scrollY;
       if (y > maxY) maxY = y;
@@ -117,6 +119,11 @@ const ExitIntentModal = () => {
 
       lastY = y;
       lastT = now;
+    };
+    const handleScroll = () => {
+      if (scrollScheduled) return;
+      scrollScheduled = true;
+      requestAnimationFrame(processScroll);
     };
 
     document.addEventListener("mouseout", handleMouseOut);
