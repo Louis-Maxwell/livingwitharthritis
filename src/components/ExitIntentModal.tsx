@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { Gift, Loader2 } from "lucide-react";
+import { Gift, Loader2, AlertCircle, RotateCw } from "lucide-react";
 import { z } from "zod";
 import { trackEvent } from "@/lib/analytics";
 import { EXIT_INTENT_VARIANTS, getOrAssignVariant, type ExitIntentVariantId } from "@/lib/exitIntentVariants";
