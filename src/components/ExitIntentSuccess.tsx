@@ -53,6 +53,16 @@ const ExitIntentSuccess = ({ variant, variantId, confirmedEmail, onClose }: Prop
     trackEvent("exit_intent_next_step_click", { step, href, variant: variantId });
   };
 
+  const inbox = isConfirmed ? getInboxLink(confirmedEmail!) : null;
+  const handleOpenInbox = () => {
+    if (!inbox) return;
+    trackEvent("exit_intent_open_inbox_click", {
+      variant: variantId,
+      provider: inbox.provider,
+      email_domain: confirmedEmail?.split("@")[1]?.toLowerCase() ?? "unknown",
+    });
+  };
+
   return (
     <div className="py-2">
       <div className="flex items-start gap-3 mb-4">
