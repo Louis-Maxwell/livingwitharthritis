@@ -45,7 +45,7 @@ const DonationSuccess = () => {
                   <p className="font-semibold text-foreground">Your impact matters</p>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  88p of every £1 goes directly to patient care and research. A confirmation email with your receipt is on its way.
+                  88p of every £1 goes directly to patient care and research. If you provided an email at checkout, a receipt from Stripe will arrive shortly.
                 </p>
               </div>
 
