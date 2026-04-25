@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { Gift, Loader2 } from "lucide-react";
+import { Gift, Loader2, AlertCircle, RotateCw } from "lucide-react";
 import { z } from "zod";
 import { trackEvent } from "@/lib/analytics";
 import { EXIT_INTENT_VARIANTS, getOrAssignVariant, type ExitIntentVariantId } from "@/lib/exitIntentVariants";
@@ -40,6 +40,8 @@ const ExitIntentModal = () => {
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [fieldError, setFieldError] = useState<string | null>(null);
   const [variantId] = useState<ExitIntentVariantId>(() => getOrAssignVariant());
   const variant = EXIT_INTENT_VARIANTS[variantId];
   const armedRef = useRef(false);
@@ -129,13 +131,13 @@ const ExitIntentModal = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMsg(null);
+    setFieldError(null);
+
     const parsed = emailSchema.safeParse(email);
     if (!parsed.success) {
-      toast({
-        title: "Invalid email",
-        description: parsed.error.issues[0]?.message ?? "Please check your email address.",
-        variant: "destructive",
-      });
+      const msg = parsed.error.issues[0]?.message ?? "Please check your email address.";
+      setFieldError(msg);
       trackEvent("exit_intent_submit_failure", {
         reason: "invalid_email",
         path: location.pathname,
@@ -165,13 +167,17 @@ const ExitIntentModal = () => {
       trackEvent("generate_lead", { method: "exit_intent", variant: variantId });
     } catch (err) {
       console.error("[ExitIntent] subscribe error", err);
-      toast({
-        title: "Something went wrong",
-        description: "Please try again in a moment.",
-        variant: "destructive",
-      });
+      const isNetwork =
+        typeof navigator !== "undefined" && !navigator.onLine
+          ? true
+          : err instanceof TypeError && /fetch|network/i.test(err.message);
+      setErrorMsg(
+        isNetwork
+          ? "Looks like you're offline. Check your connection and try again."
+          : "We couldn't save your email. Please try again in a moment."
+      );
       trackEvent("exit_intent_submit_failure", {
-        reason: "supabase_error",
+        reason: isNetwork ? "network" : "supabase_error",
         message: err instanceof Error ? err.message : "unknown",
         path: location.pathname,
         variant: variantId,
@@ -217,24 +223,73 @@ const ExitIntentModal = () => {
                 ))}
               </ul>
 
-              <form onSubmit={handleSubmit} className="space-y-3">
-                <Input
-                  type="email"
-                  inputMode="email"
-                  autoComplete="email"
-                  placeholder="you@example.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  maxLength={255}
-                  className="h-12 text-base"
-                  aria-label="Email address"
-                />
-                <Button type="submit" size="lg" className="w-full h-12 text-base font-semibold" disabled={submitting}>
+              <form onSubmit={handleSubmit} className="space-y-3" aria-busy={submitting}>
+                <div>
+                  <Input
+                    type="email"
+                    inputMode="email"
+                    autoComplete="email"
+                    placeholder="you@example.com"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      if (fieldError) setFieldError(null);
+                      if (errorMsg) setErrorMsg(null);
+                    }}
+                    required
+                    maxLength={255}
+                    disabled={submitting}
+                    aria-invalid={Boolean(fieldError) || undefined}
+                    aria-describedby={fieldError ? "exit-intent-email-error" : undefined}
+                    className={`h-12 text-base ${fieldError ? "border-destructive focus-visible:ring-destructive" : ""}`}
+                    aria-label="Email address"
+                  />
+                  {fieldError && (
+                    <p
+                      id="exit-intent-email-error"
+                      role="alert"
+                      className="mt-1.5 text-xs text-destructive flex items-center gap-1.5"
+                    >
+                      <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                      {fieldError}
+                    </p>
+                  )}
+                </div>
+
+                {errorMsg && (
+                  <div
+                    role="alert"
+                    aria-live="assertive"
+                    className="flex items-start gap-2.5 rounded-lg border border-destructive/40 bg-destructive/5 p-3 text-sm text-destructive"
+                  >
+                    <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
+                    <div className="flex-1">
+                      <p className="font-medium leading-snug">{errorMsg}</p>
+                      <button
+                        type="submit"
+                        disabled={submitting}
+                        className="mt-1.5 inline-flex items-center gap-1 text-xs font-semibold underline underline-offset-2 hover:no-underline disabled:opacity-50"
+                      >
+                        <RotateCw className={`w-3 h-3 ${submitting ? "animate-spin" : ""}`} />
+                        Try again
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full h-12 text-base font-semibold"
+                  disabled={submitting}
+                  aria-live="polite"
+                >
                   {submitting ? (
                     <>
                       <Loader2 className="w-4 h-4 animate-spin" /> Sending…
                     </>
+                  ) : errorMsg ? (
+                    "Retry"
                   ) : (
                     variant.ctaLabel
                   )}
