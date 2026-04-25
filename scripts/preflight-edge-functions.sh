@@ -24,8 +24,8 @@ checked=0
 
 for dir in "$FUNCTIONS_DIR"/*/; do
   name="$(basename "$dir")"
-  # Skip shared (no entrypoint) and any underscore-prefixed helper dirs.
-  if [[ "$name" == _* ]]; then
+  # Skip shared (no entrypoint), helper dirs, and the local node_modules cache.
+  if [[ "$name" == _* || "$name" == "node_modules" ]]; then
     continue
   fi
   entry="${dir}index.ts"
