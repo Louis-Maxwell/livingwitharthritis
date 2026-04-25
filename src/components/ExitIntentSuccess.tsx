@@ -131,6 +131,21 @@ const ExitIntentSuccess = ({ variant, variantId, confirmedEmail, onClose }: Prop
         </div>
       )}
 
+      {/* Open inbox CTA — primary action to confirm signup */}
+      {inbox && (
+        <Button asChild size="lg" className="w-full h-12 text-base font-semibold mb-4">
+          <a
+            href={inbox.url}
+            target={inbox.provider === "mailto" ? "_self" : "_blank"}
+            rel="noopener noreferrer"
+            onClick={handleOpenInbox}
+          >
+            <Inbox className="w-4 h-4" />
+            Open my inbox to confirm
+          </a>
+        </Button>
+      )}
+
       {/* Next steps */}
       <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground mb-2">
         While you wait — three good next steps
