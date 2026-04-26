@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-04-26T10:46:03.214Z",
+  "denoVersion": "2.6.10",
+  "results": [
+    {
+      "fnName": "process-donation",
+      "ok": false,
+      "status": 200,
+      "requestError": null,
+      "stderrTail": "[WEBHOOK] Email invocation error: TypeError: error sending request for url (http://127.0.0.1:54321/functions/v1/send-transactional-email): client error (Connect): tcp connect error: Connection refused (os error 111)\n    at async mainFetch (ext:deno_fetch/26_fetch.js:192:12)\n    at async fetch (ext:deno_fetch/26_fetch.js:475:11)\n    at async Server.<anonymous> (file:///dev-server/supabase/functions/process-donation/index.ts:126:26)\n    at async Server.#respond (https://deno.land/std@0.190.0/http/server.ts:299:18)\n"
+    },
+    {
+      "fnName": "process-email-queue",
+      "ok": true,
+      "status": 401,
+      "requestError": null,
+      "stderrTail": "Listening on http://0.0.0.0:8000/ (http://localhost:8000/)\n"
+    }
+  ]
+}
