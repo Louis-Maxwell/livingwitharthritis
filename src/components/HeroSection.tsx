@@ -35,7 +35,32 @@ const HeroSection = memo(() => {
     return () => mq.removeEventListener?.("change", update);
   }, []);
 
-  // Hero image is now LCP-optimized via <picture> + eager + fetchpriority — no JS preload needed.
+  // Desktop-only LCP preload. Uses the same imported asset bindings as the <picture>
+  // below, so Vite's content hash is always in sync — discovery can never drift from render.
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    if (!window.matchMedia?.("(min-width: 1024px)").matches) return;
+
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "image";
+    link.type = "image/webp";
+    link.setAttribute(
+      "imagesrcset",
+      `${heroImageWebp800} 800w, ${heroImageWebp1200} 1200w, ${heroImageWebp1600} 1600w`,
+    );
+    link.setAttribute(
+      "imagesizes",
+      "(min-width: 1280px) 620px, (min-width: 1024px) 50vw, 100vw",
+    );
+    link.setAttribute("fetchpriority", "high");
+    link.dataset.lcpPreload = "hero";
+    document.head.appendChild(link);
+
+    return () => {
+      link.remove();
+    };
+  }, []);
 
   const trustBadges = [
     { icon: CheckCircle, label: "NICE Compliant" },
