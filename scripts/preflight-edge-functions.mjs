@@ -155,6 +155,14 @@ function buildReport(results, ts, denoVersion, requiredVersion) {
 }
 
 function main() {
+  const requiredVersion = readRequiredDenoVersion();
+  if (skipVersionCheck) {
+    console.log("⚠️  --skip-version-check passed; not enforcing Deno version.");
+  } else {
+    enforceDenoVersion();
+  }
+  const installedVersion = getInstalledDenoVersion();
+
   const fns = listFunctions();
   if (fns.length === 0) {
     console.error(argFn ? `Function "${argFn}" not found.` : "No functions to check.");
@@ -176,12 +184,13 @@ function main() {
   const reportPath = join(REPORT_DIR, `preflight-${ts}.log`);
   const jsonPath = join(REPORT_DIR, `preflight-${ts}.json`);
 
-  writeFileSync(reportPath, buildReport(results, ts), "utf8");
+  writeFileSync(reportPath, buildReport(results, ts, installedVersion, requiredVersion), "utf8");
   writeFileSync(
     jsonPath,
     JSON.stringify(
       {
         generatedAt: new Date().toISOString(),
+        deno: { installed: installedVersion, required: requiredVersion },
         total: results.length,
         passed: results.filter((r) => r.ok).length,
         failed: results.filter((r) => !r.ok).length,
