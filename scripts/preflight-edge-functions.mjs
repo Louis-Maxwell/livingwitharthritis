@@ -63,6 +63,40 @@ function enforceDenoVersion() {
 }
 
 
+// Recognized alternate entrypoint filenames (checked in addition to index.ts).
+// index.ts always comes first to preserve existing behavior/ordering.
+const ENTRYPOINT_CANDIDATES = ["index.ts", "main.ts", "mod.ts", "handler.ts", "server.ts"];
+
+function readConfigEntrypoint(name) {
+  // Best-effort parse of supabase/config.toml for a per-function `entrypoint = "..."`.
+  const cfg = join(ROOT, "supabase", "config.toml");
+  if (!existsSync(cfg)) return null;
+  const txt = readFileSync(cfg, "utf8");
+  const re = new RegExp(
+    `\\[functions\\.${name.replace(/[.*+?^${}()|[\\]\\\\]/g, "\\\\$&")}\\]([\\s\\S]*?)(?=\\n\\[|$)`,
+  );
+  const block = txt.match(re);
+  if (!block) return null;
+  const ep = block[1].match(/^\s*entrypoint\s*=\s*"([^"]+)"/m);
+  if (!ep) return null;
+  // Resolve relative to project root (Supabase convention).
+  return resolve(ROOT, ep[1]);
+}
+
+function discoverEntrypoints(name) {
+  const dir = join(FUNCTIONS_DIR, name);
+  const found = [];
+  for (const candidate of ENTRYPOINT_CANDIDATES) {
+    const full = join(dir, candidate);
+    if (existsSync(full)) found.push({ label: candidate, path: full });
+  }
+  const cfgEntry = readConfigEntrypoint(name);
+  if (cfgEntry && existsSync(cfgEntry) && !found.some((f) => f.path === cfgEntry)) {
+    found.push({ label: `config.toml:${cfgEntry.replace(ROOT + "/", "")}`, path: cfgEntry });
+  }
+  return found;
+}
+
 function listFunctions() {
   if (!existsSync(FUNCTIONS_DIR)) {
     console.error(`No functions directory at ${FUNCTIONS_DIR}`);
@@ -73,15 +107,15 @@ function listFunctions() {
       if (name.startsWith("_") || name.startsWith(".")) return false;
       const full = join(FUNCTIONS_DIR, name);
       if (!statSync(full).isDirectory()) return false;
-      return existsSync(join(full, "index.ts"));
+      // Include any function with at least one recognized entrypoint.
+      return discoverEntrypoints(name).length > 0;
     })
     .filter((name) => !argFn || name === argFn);
 }
 
-function checkFunction(name) {
-  const entry = join(FUNCTIONS_DIR, name, "index.ts");
+function checkEntrypoint(entryPath) {
   const started = Date.now();
-  const result = spawnSync("deno", ["check", entry], {
+  const result = spawnSync("deno", ["check", entryPath], {
     encoding: "utf8",
     cwd: ROOT,
   });
@@ -89,7 +123,6 @@ function checkFunction(name) {
 
   if (result.error) {
     return {
-      name,
       ok: false,
       durationMs,
       stdout: "",
@@ -97,15 +130,21 @@ function checkFunction(name) {
       exitCode: -1,
     };
   }
-
   return {
-    name,
     ok: result.status === 0,
     durationMs,
     stdout: result.stdout?.trim() ?? "",
     stderr: result.stderr?.trim() ?? "",
     exitCode: result.status ?? -1,
   };
+}
+
+function checkFunction(name) {
+  const entrypoints = discoverEntrypoints(name);
+  const checks = entrypoints.map((ep) => ({ entrypoint: ep.label, path: ep.path, ...checkEntrypoint(ep.path) }));
+  const ok = checks.every((c) => c.ok);
+  const durationMs = checks.reduce((sum, c) => sum + c.durationMs, 0);
+  return { name, ok, durationMs, checks };
 }
 
 function timestamp() {
