@@ -19,7 +19,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { createServer } from "node:net";
+import { createServer, connect as netConnect } from "node:net";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
@@ -99,7 +99,7 @@ async function waitForReady(port, timeoutMs = 8000) {
     try {
       // Any TCP connection success means the server is listening.
       await new Promise((res, rej) => {
-        const sock = require("node:net").connect(port, "127.0.0.1", () => {
+        const sock = netConnect(port, "127.0.0.1", () => {
           sock.end();
           res();
         });
