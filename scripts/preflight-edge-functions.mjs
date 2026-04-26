@@ -168,7 +168,15 @@ function buildReport(results, ts, denoVersion, requiredVersion) {
   lines.push("-".repeat(72));
   for (const r of results) {
     const status = r.ok ? "PASS" : "FAIL";
-    lines.push(`[${status}] ${r.name}  (${r.durationMs}ms, exit=${r.exitCode})`);
+    const eps = r.checks.map((c) => c.entrypoint).join(", ");
+    lines.push(`[${status}] ${r.name}  (${r.durationMs}ms, entrypoints: ${eps})`);
+    // Show per-entrypoint detail when more than just index.ts is present.
+    if (r.checks.length > 1) {
+      for (const c of r.checks) {
+        const s = c.ok ? "pass" : "fail";
+        lines.push(`         └─ ${c.entrypoint}: ${s} (${c.durationMs}ms, exit=${c.exitCode})`);
+      }
+    }
   }
   lines.push("");
 
@@ -176,17 +184,20 @@ function buildReport(results, ts, denoVersion, requiredVersion) {
     lines.push("FAILURES (details)");
     lines.push("-".repeat(72));
     for (const r of failed) {
-      lines.push(`### ${r.name}`);
-      lines.push(`exit code: ${r.exitCode}`);
-      if (r.stdout) {
-        lines.push("--- stdout ---");
-        lines.push(r.stdout);
+      for (const c of r.checks.filter((c) => !c.ok)) {
+        lines.push(`### ${r.name} :: ${c.entrypoint}`);
+        lines.push(`path: ${c.path}`);
+        lines.push(`exit code: ${c.exitCode}`);
+        if (c.stdout) {
+          lines.push("--- stdout ---");
+          lines.push(c.stdout);
+        }
+        if (c.stderr) {
+          lines.push("--- stderr ---");
+          lines.push(c.stderr);
+        }
+        lines.push("");
       }
-      if (r.stderr) {
-        lines.push("--- stderr ---");
-        lines.push(r.stderr);
-      }
-      lines.push("");
     }
   }
 
@@ -212,11 +223,13 @@ function main() {
 
   const results = [];
   for (const name of fns) {
-    process.stdout.write(`  ${name} ... `);
     const r = checkFunction(name);
+    const eps = r.checks.map((c) => c.entrypoint).join(", ");
+    process.stdout.write(`  ${name} [${eps}] ... `);
     results.push(r);
     console.log(r.ok ? `ok (${r.durationMs}ms)` : `FAIL (${r.durationMs}ms)`);
   }
+
 
   const ts = timestamp();
   mkdirSync(REPORT_DIR, { recursive: true });

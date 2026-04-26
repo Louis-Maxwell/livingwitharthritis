@@ -1,0 +1,252 @@
+{
+  "generatedAt": "2026-04-26T10:39:26.323Z",
+  "deno": {
+    "installed": "2.6.10",
+    "required": "2.6.10"
+  },
+  "total": 15,
+  "passed": 10,
+  "failed": 5,
+  "results": [
+    {
+      "name": "auth-email-hook",
+      "ok": false,
+      "durationMs": 53,
+      "checks": [
+        {
+          "entrypoint": "index.ts",
+          "path": "/dev-server/supabase/functions/auth-email-hook/index.ts",
+          "ok": false,
+          "durationMs": 53,
+          "stdout": "",
+          "stderr": "\u001b[0m\u001b[1m\u001b[31merror\u001b[0m: Could not find a matching package for 'npm:@lovable.dev/webhooks-js' in the node_modules directory. Ensure you have all your JSR and npm dependencies listed in your deno.json or package.json, then run `deno install`. Alternatively, turn on auto-install by specifying `\"nodeModulesDir\": \"auto\"` in your deno.json file.\n    at \u001b[0m\u001b[36mfile:///dev-server/supabase/functions/auth-email-hook/index.ts\u001b[0m:\u001b[0m\u001b[33m4\u001b[0m:\u001b[0m\u001b[33m52\u001b[0m\n\nStack backtrace:\n   0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from\n   1: <core::result::Result<T,F> as core::ops::try_trait::FromResidual<core::result::Result<core::convert::Infallible,E>>>::from_residual\n   2: deno::graph_container::MainModuleGraphContainer::check_specifiers::{{closure}}\n   3: deno::spawn_subcommand::{{closure}}\n   4: tokio::runtime::task::raw::poll\n   5: deno::main\n   6: std::sys::backtrace::__rust_begin_short_backtrace\n   7: main\n   8: __libc_start_call_main\n   9: __libc_start_main@@GLIBC_2.34\n  10: _start",
+          "exitCode": 1
+        }
+      ]
+    },
+    {
+      "name": "book-appointment",
+      "ok": true,
+      "durationMs": 1192,
+      "checks": [
+        {
+          "entrypoint": "index.ts",
+          "path": "/dev-server/supabase/functions/book-appointment/index.ts",
+          "ok": true,
+          "durationMs": 1192,
+          "stdout": "",
+          "stderr": "\u001b[0m\u001b[32mCheck\u001b[0m supabase/functions/book-appointment/index.ts",
+          "exitCode": 0
+        }
+      ]
+    },
+    {
+      "name": "chat",
+      "ok": true,
+      "durationMs": 1176,
+      "checks": [
+        {
+          "entrypoint": "index.ts",
+          "path": "/dev-server/supabase/functions/chat/index.ts",
+          "ok": true,
+          "durationMs": 1176,
+          "stdout": "",
+          "stderr": "\u001b[0m\u001b[32mCheck\u001b[0m supabase/functions/chat/index.ts",
+          "exitCode": 0
+        }
+      ]
+    },
+    {
+      "name": "create-donation-checkout",
+      "ok": true,
+      "durationMs": 1847,
+      "checks": [
+        {
+          "entrypoint": "index.ts",
+          "path": "/dev-server/supabase/functions/create-donation-checkout/index.ts",
+          "ok": true,
+          "durationMs": 1847,
+          "stdout": "",
+          "stderr": "\u001b[0m\u001b[32mCheck\u001b[0m supabase/functions/create-donation-checkout/index.ts",
+          "exitCode": 0
+        }
+      ]
+    },
+    {
+      "name": "generate-sitemap",
+      "ok": true,
+      "durationMs": 1277,
+      "checks": [
+        {
+          "entrypoint": "index.ts",
+          "path": "/dev-server/supabase/functions/generate-sitemap/index.ts",
+          "ok": true,
+          "durationMs": 1277,
+          "stdout": "",
+          "stderr": "\u001b[0m\u001b[32mCheck\u001b[0m supabase/functions/generate-sitemap/index.ts",
+          "exitCode": 0
+        }
+      ]
+    },
+    {
+      "name": "handle-email-suppression",
+      "ok": false,
+      "durationMs": 63,
+      "checks": [
+        {
+          "entrypoint": "index.ts",
+          "path": "/dev-server/supabase/functions/handle-email-suppression/index.ts",
+          "ok": false,
+          "durationMs": 63,
+          "stdout": "",
+          "stderr": "\u001b[0m\u001b[1m\u001b[31merror\u001b[0m: Could not find a matching package for 'npm:@lovable.dev/webhooks-js' in the node_modules directory. Ensure you have all your JSR and npm dependencies listed in your deno.json or package.json, then run `deno install`. Alternatively, turn on auto-install by specifying `\"nodeModulesDir\": \"auto\"` in your deno.json file.\n    at \u001b[0m\u001b[36mfile:///dev-server/supabase/functions/handle-email-suppression/index.ts\u001b[0m:\u001b[0m\u001b[33m2\u001b[0m:\u001b[0m\u001b[33m52\u001b[0m\n\nStack backtrace:\n   0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from\n   1: <core::result::Result<T,F> as core::ops::try_trait::FromResidual<core::result::Result<core::convert::Infallible,E>>>::from_residual\n   2: deno::graph_container::MainModuleGraphContainer::check_specifiers::{{closure}}\n   3: deno::spawn_subcommand::{{closure}}\n   4: tokio::runtime::task::raw::poll\n   5: deno::main\n   6: std::sys::backtrace::__rust_begin_short_backtrace\n   7: main\n   8: __libc_start_call_main\n   9: __libc_start_main@@GLIBC_2.34\n  10: _start",
+          "exitCode": 1
+        }
+      ]
+    },
+    {
+      "name": "handle-email-unsubscribe",
+      "ok": true,
+      "durationMs": 1205,
+      "checks": [
+        {
+          "entrypoint": "index.ts",
+          "path": "/dev-server/supabase/functions/handle-email-unsubscribe/index.ts",
+          "ok": true,
+          "durationMs": 1205,
+          "stdout": "",
+          "stderr": "\u001b[0m\u001b[32mCheck\u001b[0m supabase/functions/handle-email-unsubscribe/index.ts",
+          "exitCode": 0
+        }
+      ]
+    },
+    {
+      "name": "notify-patient-status",
+      "ok": true,
+      "durationMs": 1295,
+      "checks": [
+        {
+          "entrypoint": "index.ts",
+          "path": "/dev-server/supabase/functions/notify-patient-status/index.ts",
+          "ok": true,
+          "durationMs": 1295,
+          "stdout": "",
+          "stderr": "\u001b[0m\u001b[32mCheck\u001b[0m supabase/functions/notify-patient-status/index.ts",
+          "exitCode": 0
+        }
+      ]
+    },
+    {
+      "name": "preview-transactional-email",
+      "ok": false,
+      "durationMs": 49,
+      "checks": [
+        {
+          "entrypoint": "index.ts",
+          "path": "/dev-server/supabase/functions/preview-transactional-email/index.ts",
+          "ok": false,
+          "durationMs": 49,
+          "stdout": "",
+          "stderr": "\u001b[0m\u001b[1m\u001b[31merror\u001b[0m: Could not find a matching package for 'npm:@react-email/components@0.0.22' in the node_modules directory. Ensure you have all your JSR and npm dependencies listed in your deno.json or package.json, then run `deno install`. Alternatively, turn on auto-install by specifying `\"nodeModulesDir\": \"auto\"` in your deno.json file.\n    at \u001b[0m\u001b[36mfile:///dev-server/supabase/functions/preview-transactional-email/index.ts\u001b[0m:\u001b[0m\u001b[33m2\u001b[0m:\u001b[0m\u001b[33m29\u001b[0m\n\nStack backtrace:\n   0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from\n   1: <core::result::Result<T,F> as core::ops::try_trait::FromResidual<core::result::Result<core::convert::Infallible,E>>>::from_residual\n   2: deno::graph_container::MainModuleGraphContainer::check_specifiers::{{closure}}\n   3: deno::spawn_subcommand::{{closure}}\n   4: tokio::runtime::task::raw::poll\n   5: deno::main\n   6: std::sys::backtrace::__rust_begin_short_backtrace\n   7: main\n   8: __libc_start_call_main\n   9: __libc_start_main@@GLIBC_2.34\n  10: _start",
+          "exitCode": 1
+        }
+      ]
+    },
+    {
+      "name": "process-donation",
+      "ok": true,
+      "durationMs": 1819,
+      "checks": [
+        {
+          "entrypoint": "index.ts",
+          "path": "/dev-server/supabase/functions/process-donation/index.ts",
+          "ok": true,
+          "durationMs": 1819,
+          "stdout": "",
+          "stderr": "\u001b[0m\u001b[32mCheck\u001b[0m supabase/functions/process-donation/index.ts",
+          "exitCode": 0
+        }
+      ]
+    },
+    {
+      "name": "process-email-queue",
+      "ok": false,
+      "durationMs": 55,
+      "checks": [
+        {
+          "entrypoint": "index.ts",
+          "path": "/dev-server/supabase/functions/process-email-queue/index.ts",
+          "ok": false,
+          "durationMs": 55,
+          "stdout": "",
+          "stderr": "\u001b[0m\u001b[1m\u001b[31merror\u001b[0m: Could not find a matching package for 'npm:@lovable.dev/email-js' in the node_modules directory. Ensure you have all your JSR and npm dependencies listed in your deno.json or package.json, then run `deno install`. Alternatively, turn on auto-install by specifying `\"nodeModulesDir\": \"auto\"` in your deno.json file.\n    at \u001b[0m\u001b[36mfile:///dev-server/supabase/functions/process-email-queue/index.ts\u001b[0m:\u001b[0m\u001b[33m1\u001b[0m:\u001b[0m\u001b[33m34\u001b[0m\n\nStack backtrace:\n   0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from\n   1: <core::result::Result<T,F> as core::ops::try_trait::FromResidual<core::result::Result<core::convert::Infallible,E>>>::from_residual\n   2: deno::graph_container::MainModuleGraphContainer::check_specifiers::{{closure}}\n   3: deno::spawn_subcommand::{{closure}}\n   4: tokio::runtime::task::raw::poll\n   5: deno::main\n   6: std::sys::backtrace::__rust_begin_short_backtrace\n   7: main\n   8: __libc_start_call_main\n   9: __libc_start_main@@GLIBC_2.34\n  10: _start",
+          "exitCode": 1
+        }
+      ]
+    },
+    {
+      "name": "send-patient-email",
+      "ok": true,
+      "durationMs": 1263,
+      "checks": [
+        {
+          "entrypoint": "index.ts",
+          "path": "/dev-server/supabase/functions/send-patient-email/index.ts",
+          "ok": true,
+          "durationMs": 1263,
+          "stdout": "",
+          "stderr": "\u001b[0m\u001b[32mCheck\u001b[0m supabase/functions/send-patient-email/index.ts",
+          "exitCode": 0
+        }
+      ]
+    },
+    {
+      "name": "send-transactional-email",
+      "ok": false,
+      "durationMs": 62,
+      "checks": [
+        {
+          "entrypoint": "index.ts",
+          "path": "/dev-server/supabase/functions/send-transactional-email/index.ts",
+          "ok": false,
+          "durationMs": 62,
+          "stdout": "",
+          "stderr": "\u001b[0m\u001b[1m\u001b[31merror\u001b[0m: Could not find a matching package for 'npm:@react-email/components@0.0.22' in the node_modules directory. Ensure you have all your JSR and npm dependencies listed in your deno.json or package.json, then run `deno install`. Alternatively, turn on auto-install by specifying `\"nodeModulesDir\": \"auto\"` in your deno.json file.\n    at \u001b[0m\u001b[36mfile:///dev-server/supabase/functions/send-transactional-email/index.ts\u001b[0m:\u001b[0m\u001b[33m2\u001b[0m:\u001b[0m\u001b[33m29\u001b[0m\n\nStack backtrace:\n   0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from\n   1: <core::result::Result<T,F> as core::ops::try_trait::FromResidual<core::result::Result<core::convert::Infallible,E>>>::from_residual\n   2: deno::graph_container::MainModuleGraphContainer::check_specifiers::{{closure}}\n   3: deno::spawn_subcommand::{{closure}}\n   4: tokio::runtime::task::raw::poll\n   5: deno::main\n   6: std::sys::backtrace::__rust_begin_short_backtrace\n   7: main\n   8: __libc_start_call_main\n   9: __libc_start_main@@GLIBC_2.34\n  10: _start",
+          "exitCode": 1
+        }
+      ]
+    },
+    {
+      "name": "submit-contact",
+      "ok": true,
+      "durationMs": 1116,
+      "checks": [
+        {
+          "entrypoint": "index.ts",
+          "path": "/dev-server/supabase/functions/submit-contact/index.ts",
+          "ok": true,
+          "durationMs": 1116,
+          "stdout": "",
+          "stderr": "\u001b[0m\u001b[32mCheck\u001b[0m supabase/functions/submit-contact/index.ts",
+          "exitCode": 0
+        }
+      ]
+    },
+    {
+      "name": "submit-fundraising",
+      "ok": true,
+      "durationMs": 1246,
+      "checks": [
+        {
+          "entrypoint": "index.ts",
+          "path": "/dev-server/supabase/functions/submit-fundraising/index.ts",
+          "ok": true,
+          "durationMs": 1246,
+          "stdout": "",
+          "stderr": "\u001b[0m\u001b[32mCheck\u001b[0m supabase/functions/submit-fundraising/index.ts",
+          "exitCode": 0
+        }
+      ]
+    }
+  ]
+}
