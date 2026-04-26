@@ -113,13 +113,14 @@ function timestamp() {
   return new Date().toISOString().replace(/:/g, "-").replace(/\..+$/, "");
 }
 
-function buildReport(results, ts) {
+function buildReport(results, ts, denoVersion, requiredVersion) {
   const failed = results.filter((r) => !r.ok);
   const passed = results.filter((r) => r.ok);
 
   const lines = [];
   lines.push(`Edge Function Preflight Report`);
   lines.push(`Generated: ${new Date().toISOString()}`);
+  lines.push(`Deno: ${denoVersion ?? "unknown"} (required: ${requiredVersion ?? "unpinned"})`);
   lines.push(`Total: ${results.length}  Passed: ${passed.length}  Failed: ${failed.length}`);
   lines.push("=".repeat(72));
   lines.push("");
