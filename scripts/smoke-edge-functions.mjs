@@ -70,16 +70,6 @@ const SAMPLES = {
 // Both edge functions bind to 8000 by default (std `serve` and `Deno.serve`),
 // so we run them sequentially on the same port rather than trying to inject one.
 const FN_PORT = 8000;
-  return await new Promise((res, rej) => {
-    const srv = createServer();
-    srv.unref();
-    srv.on("error", rej);
-    srv.listen(0, "127.0.0.1", () => {
-      const port = srv.address().port;
-      srv.close(() => res(port));
-    });
-  });
-}
 
 async function readDenoVersion() {
   const p = resolve(ROOT, ".deno-version");
