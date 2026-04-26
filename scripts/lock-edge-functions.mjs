@@ -103,14 +103,14 @@ function lockFunction(name, mode) {
     const tmpLock = join(tmp, "deno.lock");
     const r = spawnSync(
       "deno",
-      ["cache", `--lock=${tmpLock}`, "--lock-write", "--reload", entry],
+      ["cache", `--lock=${tmpLock}`, "--reload", entry],
       { encoding: "utf8", cwd: ROOT },
     );
     if (r.status !== 0) {
       rmSync(tmp, { recursive: true, force: true });
       return { name, ok: false, reason: "cache failed", stderr: r.stderr?.trim() ?? "" };
     }
-    const fresh = readFileSync(tmpLock, "utf8");
+    const fresh = existsSync(tmpLock) ? readFileSync(tmpLock, "utf8") : "";
     rmSync(tmp, { recursive: true, force: true });
 
     if (!existsSync(lockPath)) {
@@ -126,7 +126,7 @@ function lockFunction(name, mode) {
   // write mode
   const r = spawnSync(
     "deno",
-    ["cache", `--lock=${lockPath}`, "--lock-write", "--reload", entry],
+    ["cache", `--lock=${lockPath}`, "--reload", entry],
     { encoding: "utf8", cwd: ROOT, stdio: ["ignore", "pipe", "pipe"] },
   );
   if (r.status !== 0) {
