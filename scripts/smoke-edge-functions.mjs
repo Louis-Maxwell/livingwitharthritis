@@ -116,8 +116,8 @@ async function smokeOne(fnName) {
     return { fnName, ok: false, error: `No smoke sample defined for ${fnName}` };
   }
 
-  const port = await getFreePort();
-  const env = { ...ENV_BASE, PORT: String(port), DENO_NO_PROMPT: "1" };
+  const port = FN_PORT;
+  const env = { ...ENV_BASE, DENO_NO_PROMPT: "1" };
 
   const child = spawnDeno(
     [
