@@ -335,7 +335,7 @@ function main() {
         }
       }
     }
-
+  }
 
   const ts = timestamp();
   mkdirSync(REPORT_DIR, { recursive: true });
