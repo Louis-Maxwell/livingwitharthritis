@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-04-26T10:45:20.318Z",
+  "denoVersion": "2.6.10",
+  "results": [
+    {
+      "fnName": "process-donation",
+      "ok": false,
+      "status": null,
+      "requestError": null,
+      "stderrTail": ""
+    },
+    {
+      "fnName": "process-email-queue",
+      "ok": false,
+      "status": null,
+      "requestError": null,
+      "stderrTail": "Listening on http://0.0.0.0:8000/ (http://localhost:8000/)\n"
+    }
+  ]
+}
