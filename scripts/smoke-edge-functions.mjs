@@ -61,9 +61,14 @@ const SAMPLES = {
   },
   "process-email-queue": {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      // Minimal JWT with role=service_role so the function's auth check passes.
+      // header.payload.signature — payload = {"role":"service_role"} (base64url).
+      Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoic2VydmljZV9yb2xlIn0.smoke",
+    },
     body: JSON.stringify({}),
-    expectStatus: (s) => s >= 200 && s < 500, // empty queue => 200; 401 also acceptable if jwt-checked
+    expectStatus: (s) => s === 200,
   },
 };
 
