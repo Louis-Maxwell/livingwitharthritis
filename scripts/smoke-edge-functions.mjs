@@ -67,7 +67,9 @@ const SAMPLES = {
   },
 };
 
-async function getFreePort() {
+// Both edge functions bind to 8000 by default (std `serve` and `Deno.serve`),
+// so we run them sequentially on the same port rather than trying to inject one.
+const FN_PORT = 8000;
   return await new Promise((res, rej) => {
     const srv = createServer();
     srv.unref();
