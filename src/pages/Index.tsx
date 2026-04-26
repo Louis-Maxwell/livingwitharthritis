@@ -165,7 +165,10 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <meta name="theme-color" content="#0f766e" />
         <meta property="og:title" content={`Free Arthritis Support UK | ${SITE_NAME}`} />
-        <meta property="og:description" content="Free AI-guided arthritis support — physiotherapy, diet plans, symptom tracking. No waiting lists. HCPC-registered clinicians." />
+        <meta
+          property="og:description"
+          content="Free AI-guided arthritis support — physiotherapy, diet plans, symptom tracking. No waiting lists. HCPC-registered clinicians."
+        />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={SITE_URL} />
         <meta name="twitter:card" content="summary_large_image" />
@@ -227,11 +230,21 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
         </Suspense>
 
         <noscript>
-          <div style={{ padding: "3rem", textAlign: "center", fontFamily: "Georgia, serif", maxWidth: "640px", margin: "0 auto" }}>
+          <div
+            style={{
+              padding: "3rem",
+              textAlign: "center",
+              fontFamily: "Georgia, serif",
+              maxWidth: "640px",
+              margin: "0 auto",
+            }}
+          >
             <h1 style={{ color: "hsl(350 100% 45%)" }}>Living With Arthritis UK</h1>
             <p>
               This site works best with JavaScript enabled. Please enable it, or contact us directly at{" "}
-              <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: "hsl(350 100% 45%)" }}>{CONTACT_EMAIL}</a>
+              <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: "hsl(350 100% 45%)" }}>
+                {CONTACT_EMAIL}
+              </a>
             </p>
           </div>
         </noscript>
@@ -254,7 +267,9 @@ export default function Index() {
             <h1 className="text-2xl font-bold mb-2">Something went wrong</h1>
             <p className="text-muted-foreground mb-6">
               Please refresh the page. If the problem persists, email{" "}
-              <a href={`mailto:${CONTACT_EMAIL}`} className="text-primary underline">{CONTACT_EMAIL}</a>
+              <a href={`mailto:${CONTACT_EMAIL}`} className="text-primary underline">
+                {CONTACT_EMAIL}
+              </a>
             </p>
             <button
               onClick={() => window.location.reload()}
@@ -270,3 +285,4 @@ export default function Index() {
     </ErrorBoundary>
   );
 }
+<meta property="og:image" content="https://livingwitharthritis.org.uk/og-image.jpg" />;
