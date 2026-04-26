@@ -139,9 +139,95 @@ function checkEntrypoint(entryPath) {
   };
 }
 
+// Functions where we surface extra import-resolution diagnostics inline
+// (in addition to the always-on report-file detail).
+const VERBOSE_FUNCTIONS = new Set(["process-donation", "process-email-queue"]);
+
+/**
+ * Parse `deno check` stderr to extract missing npm specifiers and the file/line
+ * that triggered the failure. Handles the common error shapes emitted by Deno 1.x/2.x:
+ *
+ *   error: Relative import path "foo" not prefixed with / or ./ or ../
+ *   error: Module not found "npm:stripe@14.21.0".
+ *   error: Cannot resolve module "npm:@supabase/supabase-js@2.45.0" from "file:///.../index.ts".
+ *   error: npm package 'stripe' does not exist.
+ *     at file:///path/to/index.ts:3:8
+ */
+function parseDenoCheckErrors(stderr) {
+  if (!stderr) return [];
+  const findings = [];
+  const lines = stderr.split(/\r?\n/);
+
+  // Regexes for the various forms of "missing module" Deno emits.
+  const npmSpecRe = /(npm:(?:@[^/\s"'@]+\/)?[^@\s"'<>]+(?:@[^\s"'<>]+)?)/;
+  const moduleNotFoundRe = /(?:Module not found|Cannot (?:resolve|load) module|Relative import path|Import .+? could not be resolved|Could not (?:find|resolve)) ["']?([^"'\s]+)["']?/i;
+  const npmPkgRe = /npm package ['"]([^'"]+)['"] does not exist/i;
+  const fromFileRe = /from ["']?(file:\/\/[^\s"']+|\.\.?\/[^\s"']+)["']?/i;
+  const atLocRe = /at\s+(file:\/\/[^\s:]+):(\d+):(\d+)/;
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (!/^error:/i.test(line) && !/Cannot find module/i.test(line)) continue;
+
+    const finding = { rawLine: line.trim() };
+
+    const npmMatch = line.match(npmSpecRe);
+    if (npmMatch) {
+      finding.specifier = npmMatch[1];
+      const atIdx = npmMatch[1].lastIndexOf("@");
+      const hasVersion = atIdx > 4; // skip leading "npm:@" scope
+      finding.package = hasVersion ? npmMatch[1].slice(4, atIdx) : npmMatch[1].slice(4);
+      finding.version = hasVersion ? npmMatch[1].slice(atIdx + 1) : "(unpinned)";
+    } else {
+      const pkg = line.match(npmPkgRe);
+      if (pkg) {
+        finding.package = pkg[1];
+        finding.version = "(unresolved)";
+        finding.specifier = `npm:${pkg[1]}`;
+      } else {
+        const mod = line.match(moduleNotFoundRe);
+        if (mod) finding.specifier = mod[1];
+      }
+    }
+
+    const fromMatch = line.match(fromFileRe);
+    if (fromMatch) finding.importedFrom = fromMatch[1];
+
+    // Look ahead a couple lines for an "at file://...:line:col" location.
+    for (let j = i; j < Math.min(i + 4, lines.length); j++) {
+      const loc = lines[j].match(atLocRe);
+      if (loc) {
+        finding.location = `${loc[1]}:${loc[2]}:${loc[3]}`;
+        break;
+      }
+    }
+
+    if (finding.specifier || finding.package) findings.push(finding);
+  }
+
+  return findings;
+}
+
+function formatFindings(findings, indent = "    ") {
+  return findings
+    .map((f) => {
+      const parts = [];
+      if (f.package) parts.push(`package=${f.package} version=${f.version}`);
+      if (f.specifier && !f.package) parts.push(`specifier=${f.specifier}`);
+      if (f.importedFrom) parts.push(`imported from ${f.importedFrom}`);
+      if (f.location) parts.push(`at ${f.location}`);
+      return `${indent}• ${parts.join(" | ") || f.rawLine}`;
+    })
+    .join("\n");
+}
+
 function checkFunction(name) {
   const entrypoints = discoverEntrypoints(name);
-  const checks = entrypoints.map((ep) => ({ entrypoint: ep.label, path: ep.path, ...checkEntrypoint(ep.path) }));
+  const checks = entrypoints.map((ep) => {
+    const r = checkEntrypoint(ep.path);
+    const findings = r.ok ? [] : parseDenoCheckErrors(r.stderr);
+    return { entrypoint: ep.label, path: ep.path, findings, ...r };
+  });
   const ok = checks.every((c) => c.ok);
   const durationMs = checks.reduce((sum, c) => sum + c.durationMs, 0);
   return { name, ok, durationMs, checks };
