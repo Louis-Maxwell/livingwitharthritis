@@ -318,7 +318,23 @@ function main() {
     process.stdout.write(`  ${name} [${eps}] ... `);
     results.push(r);
     console.log(r.ok ? `ok (${r.durationMs}ms)` : `FAIL (${r.durationMs}ms)`);
-  }
+
+    // Inline diagnostics for the high-signal functions so devs don't need to
+    // open the report file to see what's missing.
+    if (!r.ok && VERBOSE_FUNCTIONS.has(name)) {
+      for (const c of r.checks.filter((c) => !c.ok)) {
+        console.log(`    ↳ ${c.entrypoint} (exit=${c.exitCode}):`);
+        if (c.findings && c.findings.length > 0) {
+          console.log(formatFindings(c.findings, "      "));
+        } else {
+          // No structured finding parsed — show first error line from stderr.
+          const firstErr = (c.stderr || "")
+            .split(/\r?\n/)
+            .find((l) => /^error:/i.test(l));
+          if (firstErr) console.log(`      • ${firstErr.trim()}`);
+        }
+      }
+    }
 
 
   const ts = timestamp();
