@@ -274,6 +274,10 @@ function buildReport(results, ts, denoVersion, requiredVersion) {
         lines.push(`### ${r.name} :: ${c.entrypoint}`);
         lines.push(`path: ${c.path}`);
         lines.push(`exit code: ${c.exitCode}`);
+        if (c.findings && c.findings.length > 0) {
+          lines.push("--- missing imports / unresolved specifiers ---");
+          lines.push(formatFindings(c.findings, "  "));
+        }
         if (c.stdout) {
           lines.push("--- stdout ---");
           lines.push(c.stdout);
