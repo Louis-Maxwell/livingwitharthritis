@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-04-26T10:37:59.498Z",
+  "total": 1,
+  "passed": 1,
+  "failed": 0,
+  "results": [
+    {
+      "name": "chat",
+      "ok": true,
+      "durationMs": 1514,
+      "stdout": "",
+      "stderr": "\u001b[0m\u001b[32mCheck\u001b[0m supabase/functions/chat/index.ts",
+      "exitCode": 0
+    }
+  ]
+}

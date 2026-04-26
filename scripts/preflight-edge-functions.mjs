@@ -12,14 +12,56 @@
  *   node scripts/preflight-edge-functions.mjs --function=chat
  */
 import { spawnSync } from "node:child_process";
-import { mkdirSync, readdirSync, statSync, writeFileSync, existsSync } from "node:fs";
+import { mkdirSync, readdirSync, readFileSync, statSync, writeFileSync, existsSync } from "node:fs";
 import { join, resolve } from "node:path";
 
 const ROOT = resolve(process.cwd());
 const FUNCTIONS_DIR = join(ROOT, "supabase", "functions");
 const REPORT_DIR = join(ROOT, ".preflight-reports");
+const DENO_VERSION_FILE = join(ROOT, ".deno-version");
 
 const argFn = process.argv.find((a) => a.startsWith("--function="))?.split("=")[1];
+const skipVersionCheck = process.argv.includes("--skip-version-check");
+
+function readRequiredDenoVersion() {
+  if (!existsSync(DENO_VERSION_FILE)) return null;
+  return readFileSync(DENO_VERSION_FILE, "utf8").trim();
+}
+
+function getInstalledDenoVersion() {
+  const result = spawnSync("deno", ["--version"], { encoding: "utf8" });
+  if (result.error || result.status !== 0) return null;
+  // First line: "deno X.Y.Z (...)"
+  const match = result.stdout.match(/^deno\s+(\d+\.\d+\.\d+)/);
+  return match ? match[1] : null;
+}
+
+function enforceDenoVersion() {
+  const required = readRequiredDenoVersion();
+  if (!required) {
+    console.error("⚠️  No .deno-version file found — skipping version enforcement.");
+    return;
+  }
+  const installed = getInstalledDenoVersion();
+  if (!installed) {
+    console.error(
+      `❌ Deno is not installed or not in PATH. Required version: ${required}.\n` +
+        `   Install from https://deno.land or run with --skip-version-check to bypass.`,
+    );
+    process.exit(1);
+  }
+  if (installed !== required) {
+    console.error(
+      `❌ Deno version mismatch.\n` +
+        `   Required: ${required} (from .deno-version)\n` +
+        `   Installed: ${installed}\n` +
+        `   Install the pinned version, or pass --skip-version-check to bypass (not recommended for CI).`,
+    );
+    process.exit(1);
+  }
+  console.log(`Deno version OK: ${installed} (matches .deno-version)`);
+}
+
 
 function listFunctions() {
   if (!existsSync(FUNCTIONS_DIR)) {
@@ -71,13 +113,14 @@ function timestamp() {
   return new Date().toISOString().replace(/:/g, "-").replace(/\..+$/, "");
 }
 
-function buildReport(results, ts) {
+function buildReport(results, ts, denoVersion, requiredVersion) {
   const failed = results.filter((r) => !r.ok);
   const passed = results.filter((r) => r.ok);
 
   const lines = [];
   lines.push(`Edge Function Preflight Report`);
   lines.push(`Generated: ${new Date().toISOString()}`);
+  lines.push(`Deno: ${denoVersion ?? "unknown"} (required: ${requiredVersion ?? "unpinned"})`);
   lines.push(`Total: ${results.length}  Passed: ${passed.length}  Failed: ${failed.length}`);
   lines.push("=".repeat(72));
   lines.push("");
@@ -112,6 +155,14 @@ function buildReport(results, ts) {
 }
 
 function main() {
+  const requiredVersion = readRequiredDenoVersion();
+  if (skipVersionCheck) {
+    console.log("⚠️  --skip-version-check passed; not enforcing Deno version.");
+  } else {
+    enforceDenoVersion();
+  }
+  const installedVersion = getInstalledDenoVersion();
+
   const fns = listFunctions();
   if (fns.length === 0) {
     console.error(argFn ? `Function "${argFn}" not found.` : "No functions to check.");
@@ -133,12 +184,13 @@ function main() {
   const reportPath = join(REPORT_DIR, `preflight-${ts}.log`);
   const jsonPath = join(REPORT_DIR, `preflight-${ts}.json`);
 
-  writeFileSync(reportPath, buildReport(results, ts), "utf8");
+  writeFileSync(reportPath, buildReport(results, ts, installedVersion, requiredVersion), "utf8");
   writeFileSync(
     jsonPath,
     JSON.stringify(
       {
         generatedAt: new Date().toISOString(),
+        deno: { installed: installedVersion, required: requiredVersion },
         total: results.length,
         passed: results.filter((r) => r.ok).length,
         failed: results.filter((r) => !r.ok).length,
