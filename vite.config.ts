@@ -31,11 +31,13 @@ export default defineConfig(({ mode }) => ({
     rollupOptions: {
       output: {
         manualChunks: {
+          // Only pre-bundle libs that the homepage entry actually needs synchronously.
+          // framer-motion and @supabase/supabase-js are intentionally excluded so Rollup
+          // can route-split them with whatever lazy chunk first imports them — keeps
+          // ~60 KB of unused JS off the LCP critical path.
           vendor: ["react", "react-dom"],
           router: ["react-router-dom"],
-          motion: ["framer-motion"],
           query: ["@tanstack/react-query"],
-          supabase: ["@supabase/supabase-js"],
           helmet: ["react-helmet-async"],
           forms: ["react-hook-form", "@hookform/resolvers", "zod"],
           "ui-core": ["@radix-ui/react-dialog", "@radix-ui/react-tooltip"],
