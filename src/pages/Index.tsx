@@ -285,16 +285,3 @@ export default function Index() {
     </ErrorBoundary>
   );
 }
-<meta property="og:image" content="https://livingwitharthritis.org.uk/og-image.jpg" />;
-// Consider adding a cleanup return function:
-useEffect(() => {
-  if (!analytics) return;
-  // ... script creation ...
-
-  return () => {
-    // If consent is revoked, clean up the scripts
-    document.head.removeChild(s);
-    document.head.removeChild(i);
-    // Optionally clear window.dataLayer
-  };
-}, [analytics]);
