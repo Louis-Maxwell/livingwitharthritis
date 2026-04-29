@@ -172,6 +172,53 @@ Deno.serve(async (req) => {
       upsert: true,
     });
 
+  // Maintain a rolling history.json (last 60 runs) for trend charts.
+  // Storage list API is locked down, so we keep our own index.
+  type HistoryEntry = {
+    runStamp: string;
+    completedAt: string;
+    runs: Array<{
+      target: string;
+      strategy: string;
+      ok: boolean;
+      performanceScore?: number | null;
+      lcpMs?: number | null;
+    }>;
+  };
+  let history: HistoryEntry[] = [];
+  try {
+    const { data: existing } = await supabase.storage
+      .from("lighthouse-reports")
+      .download("history.json");
+    if (existing) {
+      const text = await existing.text();
+      const parsed = JSON.parse(text);
+      if (Array.isArray(parsed)) history = parsed as HistoryEntry[];
+    }
+  } catch (_) {
+    // first run — no history yet
+  }
+
+  history.push({
+    runStamp,
+    completedAt: summary.completedAt,
+    runs: results.map((r) => ({
+      target: r.target,
+      strategy: r.strategy,
+      ok: r.ok,
+      performanceScore: r.performanceScore ?? null,
+      lcpMs: r.lcpMs ?? null,
+    })),
+  });
+  if (history.length > 60) history = history.slice(-60);
+
+  await supabase.storage
+    .from("lighthouse-reports")
+    .upload("history.json", JSON.stringify(history), {
+      contentType: "application/json",
+      upsert: true,
+    });
+
   return new Response(JSON.stringify(summary, null, 2), {
     status: 200,
     headers: { ...corsHeaders, "Content-Type": "application/json" },
