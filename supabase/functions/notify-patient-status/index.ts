@@ -1,86 +1,54 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { getAnonClient, getServiceClient } from "../_shared/supabase-client.ts";
+import { errJson, okJson, parseJsonBody, preflight, newRequestId } from "../_shared/http.ts";
+import { z, parseWithSchema } from "../_shared/validation.ts";
 
-const ALLOWED_ORIGINS = [
-  "https://id-preview--0b2fd6ca-4e21-4ac7-99fa-d741e996f45e.lovable.app",
-  "https://livingwitharthritis.org.uk",
-  "https://www.livingwitharthritis.org.uk",
-  "http://localhost:8080",
-  "http://localhost:5173",
-  "http://localhost:3000",
-];
-
-function getCorsHeaders(req: Request): Record<string, string> {
-  const origin = req.headers.get("Origin") || "";
-  const allowedOrigin = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
-  return {
-    "Access-Control-Allow-Origin": allowedOrigin,
-    "Access-Control-Allow-Headers":
-      "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
-  };
-}
+const StatusSchema = z.object({
+  appointmentId: z.string().uuid("Appointment ID must be a valid UUID"),
+  newStatus: z.enum(["confirmed", "cancelled", "completed"], {
+    errorMap: () => ({ message: "Invalid status" }),
+  }),
+});
 
 serve(async (req) => {
-  const corsHeaders = getCorsHeaders(req);
-  if (req.method === "OPTIONS") {
-    return new Response(null, { headers: corsHeaders });
-  }
+  if (req.method === "OPTIONS") return preflight(req);
+
+  const requestId = newRequestId();
 
   try {
-    // Verify admin auth
     const authHeader = req.headers.get("Authorization");
     if (!authHeader?.startsWith("Bearer ")) {
-      return new Response(JSON.stringify({ error: "Unauthorized" }), {
-        status: 401,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
+      return errJson(req, { code: "unauthorized", message: "Authentication required.", requestId });
     }
 
     const token = authHeader.replace("Bearer ", "");
-
     const authClient = getAnonClient(null, "notify-patient-status");
-    const { data: { user }, error: authError } = await authClient.auth.getUser(token);
-    if (authError || !user) {
-      return new Response(JSON.stringify({ error: "Unauthorized" }), {
-        status: 401,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
+    const { data: claimsData, error: claimsError } = await authClient.auth.getClaims(token);
+    if (claimsError || !claimsData?.claims?.sub) {
+      return errJson(req, { code: "unauthorized", message: "Invalid session. Please log in again.", requestId });
     }
+    const userId = claimsData.claims.sub as string;
 
-    // Check admin role
     const serviceClient = getServiceClient("notify-patient-status");
     const { data: roleData } = await serviceClient
       .from("user_roles")
       .select("role")
-      .eq("user_id", user.id)
+      .eq("user_id", userId)
       .eq("role", "admin")
       .maybeSingle();
 
     if (!roleData) {
-      return new Response(JSON.stringify({ error: "Admin access required" }), {
-        status: 403,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
+      return errJson(req, { code: "forbidden", message: "Admin access required.", requestId });
     }
 
-    const body = await req.json();
-    const { appointmentId, newStatus } = body;
+    const parsed = await parseJsonBody(req, requestId);
+    if (!parsed.ok) return parsed.response;
 
-    if (!appointmentId || typeof appointmentId !== "string") {
-      return new Response(JSON.stringify({ error: "Appointment ID required" }), {
-        status: 400,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
-    }
+    const validated = parseWithSchema(StatusSchema, parsed.data, req, requestId);
+    if (!validated.ok) return validated.response;
 
-    if (!["confirmed", "cancelled", "completed"].includes(newStatus)) {
-      return new Response(JSON.stringify({ error: "Invalid status" }), {
-        status: 400,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
-    }
+    const { appointmentId, newStatus } = validated.data;
 
-    // Fetch appointment details
     const { data: apt, error: fetchError } = await serviceClient
       .from("appointments")
       .select("*")
@@ -88,26 +56,20 @@ serve(async (req) => {
       .single();
 
     if (fetchError || !apt) {
-      return new Response(JSON.stringify({ error: "Appointment not found" }), {
-        status: 404,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
+      return errJson(req, { code: "not_found", message: "Appointment not found.", requestId });
     }
 
-    // Update status
     const { error: updateError } = await serviceClient
       .from("appointments")
       .update({ status: newStatus })
       .eq("id", appointmentId);
 
     if (updateError) {
-      return new Response(JSON.stringify({ error: "Failed to update appointment" }), {
-        status: 500,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
+      console.error(`[${requestId}] Update error:`, updateError);
+      return errJson(req, { code: "server_error", message: "Failed to update appointment.", requestId });
     }
 
-    // Send notification email to patient
+    // Notify patient (best-effort)
     const resendApiKey = Deno.env.get("RESEND_API_KEY");
     if (resendApiKey && apt.email) {
       const dateFormatted = new Date(apt.preferred_date + "T00:00:00").toLocaleDateString("en-GB", {
@@ -169,19 +131,17 @@ serve(async (req) => {
           }),
         });
       } catch (e) {
-        console.error("Notification email error:", e instanceof Error ? e.message : "Unknown");
+        console.error(`[${requestId}] Notification email error:`, e instanceof Error ? e.message : "Unknown");
       }
     }
 
-    return new Response(
-      JSON.stringify({ success: true, message: `Appointment ${newStatus}. Patient has been notified.` }),
-      { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+    return okJson(
+      { success: true, message: `Appointment ${newStatus}. Patient has been notified.` },
+      req,
+      { requestId },
     );
   } catch (error) {
-    console.error("Status update error:", error instanceof Error ? error.message : "Unknown");
-    return new Response(
-      JSON.stringify({ error: "An unexpected error occurred" }),
-      { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-    );
+    console.error(`[${requestId}] Status update unhandled error:`, error instanceof Error ? error.message : "Unknown");
+    return errJson(req, { code: "server_error", message: "An unexpected error occurred.", requestId });
   }
 });
