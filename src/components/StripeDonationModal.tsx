@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { unwrapResponse, friendlyErrorMessage } from "@/lib/apiResponse";
 import { Loader2, Heart, CreditCard, ShieldCheck, Gift, ArrowRight, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
