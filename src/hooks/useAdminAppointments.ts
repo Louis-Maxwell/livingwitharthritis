@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import type { Tables } from "@/integrations/supabase/types";
 import { toast } from "sonner";
+import { unwrapResponse, friendlyErrorMessage } from "@/lib/apiResponse";
 
 type Appointment = Tables<"appointments">;
 

@@ -53,11 +53,13 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
       });
 
       if (fnError) throw new Error(fnError.message);
-      if (data?.error) throw new Error(data.error);
-      if (!data?.url) throw new Error("No checkout URL returned");
+
+      const { data: payload, error: apiError } = unwrapResponse<{ url?: string }>(data);
+      if (apiError) throw new Error(friendlyErrorMessage(apiError));
+      if (!payload?.url) throw new Error("No checkout URL returned");
 
       onClose();
-      window.location.href = data.url;
+      window.location.href = payload.url;
     } catch (err) {
       const msg = err instanceof Error ? err.message : "Failed to create checkout";
       setError(msg);
