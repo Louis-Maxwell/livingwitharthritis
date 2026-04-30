@@ -116,9 +116,14 @@ const DietHub = () => {
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:site_name" content="Living With Arthritis UK" />
-        <meta name="twitter:card" content="summary" />
+        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/nutrition-mediterranean.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Mediterranean anti-inflammatory diet for arthritis" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Diet for Arthritis Pain UK – Complete Guide" />
         <meta name="twitter:description" content="Evidence-based arthritis diet guide: anti-inflammatory foods, Mediterranean diet and meal plans for joint pain relief." />
+        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/nutrition-mediterranean.jpg" />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
