@@ -38,13 +38,13 @@ export function useAdminAppointments() {
       throw new Error(invokeError.message || "Failed to update status");
     }
 
-    if (data?.error) {
-      throw new Error(data.error);
+    const { data: payload, error: apiError } = unwrapResponse<{ message?: string }>(data);
+    if (apiError) {
+      throw new Error(friendlyErrorMessage(apiError));
     }
 
-    // Show success with notification info
-    if (data?.message) {
-      toast.success(data.message);
+    if (payload?.message) {
+      toast.success(payload.message);
     }
 
     await fetchAppointments();
