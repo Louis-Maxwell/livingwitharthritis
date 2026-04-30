@@ -34,11 +34,19 @@ async function streamChat({
   });
 
   if (!resp.ok) {
-    const errorData = await resp.json().catch(() => ({ error: "Request failed" }));
+    const errorData = await resp.json().catch(() => null);
     if (resp.status === 429) {
       throw new Error("Rate limit exceeded. Please try again later.");
     }
-    throw new Error(errorData.error || "Failed to get response");
+    // New envelope: { ok:false, error:{ code, message } } | legacy { error: "..." }
+    const err = errorData?.error;
+    const message =
+      typeof err === "object" && err?.message
+        ? err.message
+        : typeof err === "string"
+          ? err
+          : "Failed to get response";
+    throw new Error(message);
   }
 
   if (!resp.body) throw new Error("No response body");

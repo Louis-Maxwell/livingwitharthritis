@@ -1,35 +1,11 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { getAnonClient, getServiceClient } from "../_shared/supabase-client.ts";
-import { createRateLimiter, getClientIp, rateLimitResponse } from "../_shared/rate-limiter.ts";
+import { createRateLimiter, getClientIp } from "../_shared/rate-limiter.ts";
+import { errJson, okJson, parseJsonBody, preflight, newRequestId, getCorsHeaders } from "../_shared/http.ts";
+import { z, parseWithSchema, emailSchema, phoneSchema, shortText, isoDate } from "../_shared/validation.ts";
 
 // 10 booking attempts per IP per 30 minutes
 const limiter = createRateLimiter({ windowMs: 1_800_000, maxRequests: 10 });
-
-/** Escape HTML special chars to prevent XSS in email bodies */
-function escapeHtml(str: string): string {
-  return str
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-}
-
-function getCorsHeaders(req: Request): Record<string, string> {
-  const origin = req.headers.get("Origin") || "";
-  const isAllowed =
-    origin.endsWith(".lovable.app") ||
-    origin.endsWith(".lovableproject.com") ||
-    origin === "https://livingwitharthritis.org.uk" ||
-    origin === "https://www.livingwitharthritis.org.uk" ||
-    origin.startsWith("http://localhost:");
-
-  return {
-    "Access-Control-Allow-Origin": isAllowed ? origin : "https://livingwitharthritis.lovable.app",
-    "Access-Control-Allow-Headers":
-      "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
-  };
-}
 
 const VALID_APPOINTMENT_TYPES = [
   "consultation",
@@ -37,131 +13,88 @@ const VALID_APPOINTMENT_TYPES = [
   "follow-up",
   "assessment",
   "treatment",
-];
+] as const;
 
-// Available time slots (30-min intervals, 9am-5pm)
 const AVAILABLE_SLOTS = [
   "09:00", "09:30", "10:00", "10:30", "11:00", "11:30",
   "12:00", "12:30", "13:00", "13:30", "14:00", "14:30",
   "15:00", "15:30", "16:00", "16:30",
 ];
 
-interface AppointmentRequest {
-  name: string;
-  email: string;
-  phone?: string;
-  appointmentType: string;
-  preferredDate: string;
-  preferredTime: string;
-  notes?: string;
-}
-
-function validateAppointment(data: unknown): { valid: boolean; error?: string; appointment?: AppointmentRequest } {
-  if (!data || typeof data !== "object") {
-    return { valid: false, error: "Invalid request body" };
-  }
-
-  const { name, email, phone, appointmentType, preferredDate, preferredTime, notes } = data as Record<string, unknown>;
-
-  if (typeof name !== "string" || name.trim().length === 0 || name.length > 100) {
-    return { valid: false, error: "Name is required and must be less than 100 characters" };
-  }
-
-  if (typeof email !== "string") {
-    return { valid: false, error: "Email is required" };
-  }
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email) || email.length > 255) {
-    return { valid: false, error: "Invalid email address" };
-  }
-
-  if (phone !== undefined && typeof phone === "string" && phone.length > 20) {
-    return { valid: false, error: "Phone number is too long" };
-  }
-
-  if (typeof appointmentType !== "string" || !VALID_APPOINTMENT_TYPES.includes(appointmentType)) {
-    return { valid: false, error: "Invalid appointment type" };
-  }
-
-  if (typeof preferredDate !== "string") {
-    return { valid: false, error: "Preferred date is required" };
-  }
-  const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
-  if (!dateRegex.test(preferredDate)) {
-    return { valid: false, error: "Invalid date format (use YYYY-MM-DD)" };
-  }
-  const selectedDate = new Date(preferredDate);
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  if (selectedDate < today) {
-    return { valid: false, error: "Cannot book appointments in the past" };
-  }
-
-  // Check day of week (no weekends)
-  const dayOfWeek = selectedDate.getUTCDay();
-  if (dayOfWeek === 0 || dayOfWeek === 6) {
-    return { valid: false, error: "Appointments are only available Monday to Friday" };
-  }
-
-  if (typeof preferredTime !== "string" || !AVAILABLE_SLOTS.includes(preferredTime)) {
-    return { valid: false, error: "Invalid time slot. Please select an available time." };
-  }
-
-  if (notes !== undefined && typeof notes === "string" && notes.length > 1000) {
-    return { valid: false, error: "Notes must be less than 1000 characters" };
-  }
-
-  return {
-    valid: true,
-    appointment: {
-      name: name.trim(),
-      email: email.trim().toLowerCase(),
-      phone: phone ? (phone as string).trim() : undefined,
-      appointmentType,
-      preferredDate,
-      preferredTime,
-      notes: notes ? (notes as string).trim() : undefined,
-    },
-  };
-}
+const AppointmentSchema = z
+  .object({
+    name: shortText(100),
+    email: emailSchema,
+    phone: phoneSchema.optional(),
+    appointmentType: z.enum(VALID_APPOINTMENT_TYPES, {
+      errorMap: () => ({ message: "Invalid appointment type" }),
+    }),
+    preferredDate: isoDate,
+    preferredTime: z.string().refine((v) => AVAILABLE_SLOTS.includes(v), {
+      message: "Invalid time slot. Please select an available time.",
+    }),
+    notes: z.string().trim().max(1000, "Notes must be 1000 characters or fewer").optional(),
+  })
+  .superRefine((val, ctx) => {
+    const selectedDate = new Date(val.preferredDate + "T00:00:00Z");
+    const today = new Date();
+    today.setUTCHours(0, 0, 0, 0);
+    if (selectedDate < today) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["preferredDate"],
+        message: "Cannot book appointments in the past",
+      });
+    }
+    const dow = selectedDate.getUTCDay();
+    if (dow === 0 || dow === 6) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["preferredDate"],
+        message: "Appointments are only available Monday to Friday",
+      });
+    }
+  });
 
 serve(async (req) => {
-  const corsHeaders = getCorsHeaders(req);
-  if (req.method === "OPTIONS") {
-    return new Response(null, { headers: corsHeaders });
-  }
+  if (req.method === "OPTIONS") return preflight(req);
+
+  const requestId = newRequestId();
 
   try {
-    // Rate limiting
-    const ip = getClientIp(req);
-    if (!limiter.check(ip)) {
-      return rateLimitResponse(corsHeaders);
+    if (!limiter.check(getClientIp(req))) {
+      return errJson(req, {
+        code: "rate_limited",
+        message: "Too many booking attempts. Please try again later.",
+        requestId,
+        headers: { "Retry-After": "60" },
+      });
     }
 
     const supabase = getServiceClient("book-appointment");
 
-    // Handle GET for available slots
+    // GET: list available slots for a date
     if (req.method === "GET") {
       const url = new URL(req.url);
       const date = url.searchParams.get("date");
       if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
-        return new Response(
-          JSON.stringify({ error: "Valid date parameter required (YYYY-MM-DD)" }),
-          { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-        );
+        return errJson(req, {
+          code: "bad_request",
+          message: "Valid date parameter required (YYYY-MM-DD).",
+          requestId,
+        });
       }
 
-      // Check if weekend
-      const checkDate = new Date(date);
+      const checkDate = new Date(date + "T00:00:00Z");
       const dow = checkDate.getUTCDay();
       if (dow === 0 || dow === 6) {
-        return new Response(
-          JSON.stringify({ availableSlots: [], message: "No appointments on weekends" }),
-          { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        return okJson(
+          { availableSlots: [], message: "No appointments on weekends" },
+          req,
+          { requestId },
         );
       }
 
-      // Fetch booked slots for this date (exclude cancelled)
       const { data: booked } = await supabase
         .from("appointments")
         .select("preferred_time")
@@ -171,98 +104,90 @@ serve(async (req) => {
       const bookedTimes = new Set((booked || []).map((a: { preferred_time: string }) => a.preferred_time));
       const availableSlots = AVAILABLE_SLOTS.filter((s) => !bookedTimes.has(s));
 
-      return new Response(
-        JSON.stringify({ availableSlots, totalSlots: AVAILABLE_SLOTS.length, bookedCount: bookedTimes.size }),
-        { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      return okJson(
+        { availableSlots, totalSlots: AVAILABLE_SLOTS.length, bookedCount: bookedTimes.size },
+        req,
+        { requestId },
       );
     }
 
     // POST: book appointment
-    let requestBody: unknown;
-    try {
-      requestBody = await req.json();
-    } catch {
-      return new Response(
-        JSON.stringify({ error: "Invalid JSON in request body" }),
-        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
-    }
+    const parsed = await parseJsonBody(req, requestId);
+    if (!parsed.ok) return parsed.response;
 
-    const validation = validateAppointment(requestBody);
-    if (!validation.valid) {
-      return new Response(
-        JSON.stringify({ error: validation.error }),
-        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
-    }
+    const validated = parseWithSchema(AppointmentSchema, parsed.data, req, requestId);
+    if (!validated.ok) return validated.response;
 
-    const { appointment } = validation;
+    const appointment = validated.data;
 
-    // Require authentication
+    // Authenticate user via JWT claims (lighter than auth.getUser network call)
     const authHeader = req.headers.get("Authorization");
     if (!authHeader?.startsWith("Bearer ")) {
-      return new Response(
-        JSON.stringify({ error: "Authentication required. Please log in to book an appointment." }),
-        { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
+      return errJson(req, {
+        code: "unauthorized",
+        message: "Authentication required. Please log in to book an appointment.",
+        requestId,
+      });
     }
     const token = authHeader.replace("Bearer ", "");
     const authClient = getAnonClient(null, "book-appointment");
-    const { data: { user }, error: authError } = await authClient.auth.getUser(token);
-    if (authError || !user) {
-      return new Response(
-        JSON.stringify({ error: "Invalid session. Please log in again." }),
-        { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
+    const { data: claimsData, error: claimsError } = await authClient.auth.getClaims(token);
+    if (claimsError || !claimsData?.claims?.sub) {
+      return errJson(req, {
+        code: "unauthorized",
+        message: "Invalid session. Please log in again.",
+        requestId,
+      });
     }
-    const userId = user.id;
+    const userId = claimsData.claims.sub as string;
 
-    // ---- DOUBLE-BOOKING PREVENTION ----
+    // Double-booking prevention
     const { data: existing } = await supabase
       .from("appointments")
       .select("id")
-      .eq("preferred_date", appointment!.preferredDate)
-      .eq("preferred_time", appointment!.preferredTime)
+      .eq("preferred_date", appointment.preferredDate)
+      .eq("preferred_time", appointment.preferredTime)
       .neq("status", "cancelled")
       .limit(1);
 
     if (existing && existing.length > 0) {
-      return new Response(
-        JSON.stringify({ error: "This time slot is already booked. Please choose a different time." }),
-        { status: 409, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
+      return errJson(req, {
+        code: "conflict",
+        message: "This time slot is already booked. Please choose a different time.",
+        requestId,
+      });
     }
 
     const { data, error: insertError } = await supabase
       .from("appointments")
       .insert({
         user_id: userId,
-        name: appointment!.name,
-        email: appointment!.email,
-        phone: appointment!.phone || null,
-        appointment_type: appointment!.appointmentType,
-        preferred_date: appointment!.preferredDate,
-        preferred_time: appointment!.preferredTime,
-        notes: appointment!.notes || null,
+        name: appointment.name,
+        email: appointment.email,
+        phone: appointment.phone || null,
+        appointment_type: appointment.appointmentType,
+        preferred_date: appointment.preferredDate,
+        preferred_time: appointment.preferredTime,
+        notes: appointment.notes || null,
       })
       .select()
       .single();
 
     if (insertError) {
-      console.error("Appointment insert error:", insertError.message);
-      return new Response(
-        JSON.stringify({ error: "Failed to book appointment. Please try again." }),
-        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
+      console.error(`[${requestId}] Appointment insert error:`, insertError.message);
+      return errJson(req, {
+        code: "server_error",
+        message: "Failed to book appointment. Please try again.",
+        requestId,
+      });
     }
 
-    // Send admin notification email via transactional email system
+    // Admin notification
     try {
-      const typeLabel = appointment!.appointmentType.charAt(0).toUpperCase() + appointment!.appointmentType.slice(1);
-      const dateFormatted = new Date(appointment!.preferredDate + "T00:00:00").toLocaleDateString("en-GB", {
+      const typeLabel = appointment.appointmentType.charAt(0).toUpperCase() + appointment.appointmentType.slice(1);
+      const dateFormatted = new Date(appointment.preferredDate + "T00:00:00").toLocaleDateString("en-GB", {
         weekday: "long", day: "numeric", month: "long", year: "numeric",
       });
-
       const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
       const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
       const emailRes = await fetch(`${supabaseUrl}/functions/v1/send-transactional-email`, {
@@ -272,39 +197,42 @@ serve(async (req) => {
           "Authorization": `Bearer ${supabaseServiceKey}`,
         },
         body: JSON.stringify({
-          templateName: 'contact-admin-notification',
-          recipientEmail: 'info@livingwitharthritis.org.uk',
+          templateName: "contact-admin-notification",
+          recipientEmail: "info@livingwitharthritis.org.uk",
           idempotencyKey: `appointment-admin-${data.id}`,
           templateData: {
-            name: appointment!.name,
-            email: appointment!.email,
-            phone: appointment!.phone || 'Not provided',
+            name: appointment.name,
+            email: appointment.email,
+            phone: appointment.phone || "Not provided",
             subject: `New Appointment Booking: ${typeLabel}`,
-            message: `Type: ${typeLabel}\nDate: ${dateFormatted}\nTime: ${appointment!.preferredTime}\nNotes: ${appointment!.notes || 'None'}`,
+            message: `Type: ${typeLabel}\nDate: ${dateFormatted}\nTime: ${appointment.preferredTime}\nNotes: ${appointment.notes || "None"}`,
           },
         }),
       });
       const emailBody = await emailRes.text();
-      if (!emailRes.ok) {
-        console.error("Admin email error:", emailRes.status, emailBody);
-      }
+      if (!emailRes.ok) console.error(`[${requestId}] Admin email error:`, emailRes.status, emailBody);
     } catch (e) {
-      console.error("Admin email error:", e instanceof Error ? e.message : "Unknown");
+      console.error(`[${requestId}] Admin email error:`, e instanceof Error ? e.message : "Unknown");
     }
 
-    return new Response(
-      JSON.stringify({
+    return okJson(
+      {
         success: true,
         appointmentId: data.id,
         message: "Your appointment has been booked successfully! A confirmation email has been sent to you.",
-      }),
-      { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      },
+      req,
+      { requestId },
     );
   } catch (error) {
-    console.error("Appointment error:", error instanceof Error ? error.message : "Unknown");
-    return new Response(
-      JSON.stringify({ error: "An unexpected error occurred. Please try again." }),
-      { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-    );
+    console.error(`[${requestId}] Appointment unhandled error:`, error instanceof Error ? error.message : "Unknown");
+    return errJson(req, {
+      code: "server_error",
+      message: "An unexpected error occurred. Please try again.",
+      requestId,
+    });
   }
 });
+
+// Suppress unused-import warning when corsHeaders not directly referenced.
+void getCorsHeaders;

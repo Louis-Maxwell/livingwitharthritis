@@ -1,41 +1,18 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import Stripe from "https://esm.sh/stripe@18.5.0";
+import { createRateLimiter, getClientIp } from "../_shared/rate-limiter.ts";
+import { errJson, okJson, parseJsonBody, preflight, newRequestId } from "../_shared/http.ts";
+import { z, parseWithSchema, emailSchema } from "../_shared/validation.ts";
 
-// Restricted CORS – only trusted origins
-function getCorsHeaders(req: Request): Record<string, string> {
-  const origin = req.headers.get("Origin") || "";
-  const isAllowed =
-    origin.endsWith(".lovable.app") ||
-    origin.endsWith(".lovableproject.com") ||
-    origin === "https://livingwitharthritis.org.uk" ||
-    origin === "https://www.livingwitharthritis.org.uk" ||
-    origin.startsWith("http://localhost:");
+// 20 checkout sessions per IP per 10 minutes (allow donors to retry / change amount)
+const limiter = createRateLimiter({ windowMs: 600_000, maxRequests: 20 });
 
-  return {
-    "Access-Control-Allow-Origin": isAllowed ? origin : "https://livingwitharthritis.lovable.app",
-    "Access-Control-Allow-Headers":
-      "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
-  };
-}
-
-// Input validation
-const VALID_CURRENCIES = ["GBP", "USD", "EUR"];
-const VALID_FUND_TYPES = ["research", "support", "helpline", "general", "zakat"];
+const VALID_CURRENCIES = ["GBP", "USD", "EUR"] as const;
+const VALID_FUND_TYPES = ["research", "support", "helpline", "general", "zakat"] as const;
 const MAX_AMOUNT = 100000;
 const MIN_AMOUNT = 1;
 
-interface DonationRequest {
-  amount: number;
-  currency: string;
-  fundType: string;
-  donorName?: string;
-  donorEmail?: string;
-  giftAid?: boolean;
-  recurring?: boolean;
-}
-
-/** Escape HTML special chars to prevent XSS in Stripe metadata / emails */
-function escapeHtml(str: string): string {
+function escapeMetadata(str: string): string {
   return str
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
@@ -44,152 +21,105 @@ function escapeHtml(str: string): string {
     .replace(/'/g, "&#039;");
 }
 
-function validateDonation(data: unknown): { valid: boolean; error?: string; donation?: DonationRequest } {
-  if (!data || typeof data !== "object") {
-    return { valid: false, error: "Invalid request body" };
-  }
+const DonationSchema = z.object({
+  amount: z
+    .number({ invalid_type_error: "Amount must be a number" })
+    .finite("Amount must be a finite number")
+    .min(MIN_AMOUNT, `Amount must be at least ${MIN_AMOUNT}`)
+    .max(MAX_AMOUNT, `Amount must be ${MAX_AMOUNT} or less`),
+  currency: z.enum(VALID_CURRENCIES, { errorMap: () => ({ message: "Allowed: GBP, USD, EUR" }) })
+    .or(z.string().transform((s) => s.toUpperCase()).pipe(z.enum(VALID_CURRENCIES))),
+  fundType: z.enum(VALID_FUND_TYPES, { errorMap: () => ({ message: "Invalid fund type" }) }),
+  donorName: z.string().trim().max(100, "Donor name must be 100 characters or fewer").optional(),
+  donorEmail: emailSchema.optional(),
+  giftAid: z.boolean().optional(),
+  recurring: z.boolean().optional(),
+});
 
-  const { amount, currency, fundType, donorName, donorEmail, giftAid, recurring } = data as Record<string, unknown>;
-
-  if (typeof amount !== "number" || isNaN(amount) || !isFinite(amount)) {
-    return { valid: false, error: "Amount must be a valid number" };
-  }
-
-  if (amount < MIN_AMOUNT || amount > MAX_AMOUNT) {
-    return { valid: false, error: `Amount must be between ${MIN_AMOUNT} and ${MAX_AMOUNT}` };
-  }
-
-  if (typeof currency !== "string" || !VALID_CURRENCIES.includes(currency.toUpperCase())) {
-    return { valid: false, error: "Invalid currency. Allowed: GBP, USD, EUR" };
-  }
-
-  if (typeof fundType !== "string" || !VALID_FUND_TYPES.includes(fundType)) {
-    return { valid: false, error: "Invalid fund type" };
-  }
-
-  if (donorName !== undefined && (typeof donorName !== "string" || donorName.length > 100)) {
-    return { valid: false, error: "Invalid donor name" };
-  }
-
-  if (donorEmail !== undefined && typeof donorEmail === "string") {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(donorEmail) || donorEmail.length > 255) {
-      return { valid: false, error: "Invalid email address" };
-    }
-  }
-
-  return {
-    valid: true,
-    donation: {
-      amount,
-      currency: (currency as string).toUpperCase(),
-      fundType: fundType as string,
-      donorName: donorName ? escapeHtml((donorName as string).trim()) : undefined,
-      donorEmail: donorEmail ? (donorEmail as string).trim().toLowerCase() : undefined,
-      giftAid: giftAid === true,
-      recurring: recurring === true,
-    },
-  };
-}
-
-// Allowed redirect origins for success/cancel URLs
-const ALLOWED_REDIRECT_ORIGINS = [
+const ALLOWED_REDIRECT_ORIGINS = new Set([
   "https://livingwitharthritis.lovable.app",
   "https://livingwitharthritis.org.uk",
   "https://www.livingwitharthritis.org.uk",
-];
+]);
 
 serve(async (req) => {
-  const corsHeaders = getCorsHeaders(req);
+  if (req.method === "OPTIONS") return preflight(req);
 
-  if (req.method === "OPTIONS") {
-    return new Response(null, { headers: corsHeaders });
-  }
+  const requestId = newRequestId();
 
   try {
+    if (!limiter.check(getClientIp(req))) {
+      return errJson(req, {
+        code: "rate_limited",
+        message: "Too many checkout attempts. Please wait a moment.",
+        requestId,
+        headers: { "Retry-After": "30" },
+      });
+    }
+
     const stripeKey = Deno.env.get("STRIPE_SECRET_KEY");
-    if (!stripeKey) throw new Error("STRIPE_SECRET_KEY is not set");
-
-    let requestBody: unknown;
-    try {
-      requestBody = await req.json();
-    } catch {
-      return new Response(
-        JSON.stringify({ error: "Invalid JSON in request body" }),
-        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
+    if (!stripeKey) {
+      console.error(`[${requestId}] STRIPE_SECRET_KEY not set`);
+      return errJson(req, {
+        code: "service_unavailable",
+        message: "Payments are not configured.",
+        requestId,
+      });
     }
 
-    const validation = validateDonation(requestBody);
-    if (!validation.valid) {
-      return new Response(
-        JSON.stringify({ error: validation.error }),
-        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
-    }
+    const parsed = await parseJsonBody(req, requestId);
+    if (!parsed.ok) return parsed.response;
 
-    const { donation } = validation;
+    const validated = parseWithSchema(DonationSchema, parsed.data, req, requestId);
+    if (!validated.ok) return validated.response;
 
-    // Validate redirect origin – never trust raw Origin header for redirect URLs
+    const donation = validated.data;
+
     const rawOrigin = req.headers.get("origin") || "";
-    const redirectOrigin = ALLOWED_REDIRECT_ORIGINS.includes(rawOrigin)
+    const redirectOrigin = ALLOWED_REDIRECT_ORIGINS.has(rawOrigin)
       ? rawOrigin
-      : ALLOWED_REDIRECT_ORIGINS[0];
+      : "https://livingwitharthritis.lovable.app";
 
-    const amountInSmallestUnit = Math.round(donation!.amount * 100);
+    const amountInSmallestUnit = Math.round(donation.amount * 100);
     const stripe = new Stripe(stripeKey, { apiVersion: "2025-08-27.basil" });
 
-    const isRecurring = donation!.recurring === true;
+    const isRecurring = donation.recurring === true;
     const productName = isRecurring
-      ? `Monthly Donation - ${donation!.fundType}`
-      : `Donation - ${donation!.fundType}`;
+      ? `Monthly Donation - ${donation.fundType}`
+      : `Donation - ${donation.fundType}`;
     const productDescription = isRecurring
-      ? `Monthly recurring donation to ${donation!.fundType}`
-      : `Thank you for your generous donation to ${donation!.fundType}`;
+      ? `Monthly recurring donation to ${donation.fundType}`
+      : `Thank you for your generous donation to ${donation.fundType}`;
 
     const priceData: Stripe.Checkout.SessionCreateParams.LineItem.PriceData = {
-      currency: donation!.currency.toLowerCase(),
-      product_data: {
-        name: productName,
-        description: productDescription,
-      },
+      currency: donation.currency.toLowerCase(),
+      product_data: { name: productName, description: productDescription },
       unit_amount: amountInSmallestUnit,
     };
-
-    // Add recurring interval for subscription mode
-    if (isRecurring) {
-      priceData.recurring = { interval: "month" };
-    }
+    if (isRecurring) priceData.recurring = { interval: "month" };
 
     const session = await stripe.checkout.sessions.create({
-      customer_email: donation!.donorEmail || undefined,
-      line_items: [
-        {
-          price_data: priceData,
-          quantity: 1,
-        },
-      ],
+      customer_email: donation.donorEmail || undefined,
+      line_items: [{ price_data: priceData, quantity: 1 }],
       mode: isRecurring ? "subscription" : "payment",
       success_url: `${redirectOrigin}/donation-result?donation=success`,
       cancel_url: `${redirectOrigin}/donation-result?donation=cancelled`,
       metadata: {
-        fundType: donation!.fundType,
-        donorName: donation!.donorName || "Anonymous",
-        giftAid: donation!.giftAid ? "yes" : "no",
+        fundType: donation.fundType,
+        donorName: donation.donorName ? escapeMetadata(donation.donorName.trim()) : "Anonymous",
+        giftAid: donation.giftAid ? "yes" : "no",
         recurring: isRecurring ? "monthly" : "one-time",
       },
     });
 
-    return new Response(JSON.stringify({ url: session.url }), {
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-      status: 200,
-    });
+    return okJson({ url: session.url }, req, { requestId });
   } catch (error) {
     const message = error instanceof Error ? error.message : "Unknown error";
-    console.error("Donation checkout error:", message);
-    return new Response(JSON.stringify({ error: "An error occurred processing your donation." }), {
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-      status: 500,
+    console.error(`[${requestId}] Donation checkout error:`, message);
+    return errJson(req, {
+      code: "server_error",
+      message: "An error occurred processing your donation.",
+      requestId,
     });
   }
 });

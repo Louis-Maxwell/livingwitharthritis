@@ -52,15 +52,22 @@ export function AppointmentModal({ trigger }: AppointmentModalProps) {
       );
 
       if (!res.ok) {
-        const err = await res.json();
-        setSlotsError(err.message || "Failed to load available times");
+        const err = await res.json().catch(() => null);
+        const msg =
+          (typeof err?.error === "object" && err?.error?.message) ||
+          (typeof err?.error === "string" && err.error) ||
+          err?.message ||
+          "Failed to load available times";
+        setSlotsError(msg);
         return;
       }
 
       const result = await res.json();
-      setAvailableSlots(result.availableSlots || []);
-      if (result.availableSlots?.length === 0) {
-        setSlotsError(result.message || "No available slots for this date");
+      // Support both new envelope { ok:true, data:{availableSlots} } and legacy flat shape
+      const payload = result?.ok === true ? result.data : result;
+      setAvailableSlots(payload?.availableSlots || []);
+      if (payload?.availableSlots?.length === 0) {
+        setSlotsError(payload?.message || "No available slots for this date");
       }
     } catch {
       setSlotsError("Failed to check availability");
