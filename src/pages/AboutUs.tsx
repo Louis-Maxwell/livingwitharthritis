@@ -91,6 +91,7 @@ const AboutUs = () => {
   return (
     <>
       <Helmet>
+        <html lang="en-GB" />
         <title>About Us — Living With Arthritis UK | Our Mission & Story</title>
         <meta name="description" content="Discover the mission and story behind Living With Arthritis UK. From a personal NHS physiotherapist initiative in 2020 to a national movement delivering free evidence-based support for over 10,000 people." />
         <meta name="keywords" content="living with arthritis charity, arthritis UK charity, arthritis support organisation, about living with arthritis, first contact practitioners, NHS arthritis support" />
@@ -100,9 +101,14 @@ const AboutUs = () => {
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:site_name" content="Living With Arthritis UK" />
-        <meta name="twitter:card" content="summary" />
+        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="The Living With Arthritis UK community and clinicians" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="About Us — Living With Arthritis UK" />
         <meta name="twitter:description" content="UK charity supporting people living with arthritis through free physio, nutrition and community." />
+        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
         <meta name="geo.region" content="GB" />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/about" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/about" />
@@ -119,6 +125,14 @@ const AboutUs = () => {
             "url": "https://livingwitharthritis.org.uk",
             "areaServed": { "@type": "Country", "name": "United Kingdom" },
           }
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
+            { "@type": "ListItem", "position": 2, "name": "About", "item": "https://livingwitharthritis.org.uk/about" },
+          ],
         })}</script>
       </Helmet>
 
