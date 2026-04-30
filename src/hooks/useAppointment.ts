@@ -2,6 +2,7 @@ import { useState, useRef, useCallback } from "react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { sanitizeInput, sanitizeEmail, sanitizePhone } from "@/lib/sanitize";
+import { unwrapResponse, friendlyErrorMessage } from "@/lib/apiResponse";
 
 interface AppointmentData {
   name: string;
@@ -21,7 +22,6 @@ export function useAppointment() {
   const attemptsRef = useRef<number[]>([]);
 
   const bookAppointment = useCallback(async (data: AppointmentData) => {
-    // Rate limiting
     const now = Date.now();
     attemptsRef.current = attemptsRef.current.filter((t) => now - t < WINDOW_MS);
     if (attemptsRef.current.length >= MAX_ATTEMPTS) {
@@ -30,7 +30,6 @@ export function useAppointment() {
     }
     attemptsRef.current.push(now);
 
-    // Sanitize inputs
     const sanitizedEmail = sanitizeEmail(data.email);
     if (!sanitizedEmail) {
       toast.error("Please enter a valid email address.");
@@ -51,16 +50,21 @@ export function useAppointment() {
         body: sanitizedData,
       });
 
-      if (error) {
-        throw new Error(error.message || "Failed to book appointment");
+      if (error) throw new Error(error.message || "Failed to book appointment");
+
+      const { data: payload, error: apiError } = unwrapResponse<{
+        appointmentId?: string;
+        message?: string;
+      }>(result);
+
+      if (apiError) {
+        const msg = friendlyErrorMessage(apiError);
+        toast.error(msg);
+        return { success: false, error: msg };
       }
 
-      if (result?.error) {
-        throw new Error(result.error);
-      }
-
-      toast.success(result?.message || "Appointment booked successfully!");
-      return { success: true, appointmentId: result?.appointmentId };
+      toast.success(payload?.message || "Appointment booked successfully!");
+      return { success: true, appointmentId: payload?.appointmentId };
     } catch (error) {
       const message = error instanceof Error ? error.message : "Failed to book appointment";
       toast.error(message);

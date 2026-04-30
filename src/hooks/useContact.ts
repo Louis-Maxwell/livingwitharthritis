@@ -2,6 +2,7 @@ import { useState, useRef, useCallback } from "react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { sanitizeInput, sanitizeEmail, sanitizePhone } from "@/lib/sanitize";
+import { unwrapResponse, friendlyErrorMessage } from "@/lib/apiResponse";
 
 interface ContactData {
   name: string;
@@ -47,15 +48,16 @@ export function useContact() {
         body: sanitizedData,
       });
 
-      if (error) {
-        throw new Error(error.message || "Failed to submit contact form");
+      if (error) throw new Error(error.message || "Failed to submit contact form");
+
+      const { data: payload, error: apiError } = unwrapResponse<{ message?: string; contactId?: string }>(result);
+      if (apiError) {
+        const msg = friendlyErrorMessage(apiError);
+        toast.error(msg);
+        return { success: false, error: msg };
       }
 
-      if (result?.error) {
-        throw new Error(result.error);
-      }
-
-      toast.success(result?.message || "Thank you for contacting us!");
+      toast.success(payload?.message || "Thank you for contacting us!");
       return { success: true };
     } catch (error) {
       const message = error instanceof Error ? error.message : "Failed to submit contact form";
