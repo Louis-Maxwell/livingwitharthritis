@@ -30,10 +30,11 @@ const TestimonialsSection = memo(() => (
       <div className="text-center mb-20">
         <span className="section-label text-primary/60 mb-5 block">Patient Outcomes</span>
         <h2 className="font-display text-3xl sm:text-4xl md:text-[3.5rem] font-bold text-foreground mb-6 tracking-tight leading-[1.06]">
-          Real voices, real <span className="text-primary italic">transformations</span>
+          What changes after 12 weeks.{" "}
+          <span className="text-primary italic">In their own words.</span>
         </h2>
         <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          Verified testimonials from patients whose lives have been measurably improved through our programmes.
+          Real outcomes from people using our free programmes. Names and locations verified. Stories published with consent.
         </p>
       </div>
 
