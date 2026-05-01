@@ -215,6 +215,140 @@ function parseDenoCheckErrors(stderr) {
   return findings;
 }
 
+/**
+ * Strip "npm:" prefix and version suffix from a specifier to get the bare package name.
+ * Handles scoped packages: "npm:@supabase/supabase-js@2.45.0" -> "@supabase/supabase-js".
+ */
+function bareName(specifier) {
+  if (!specifier) return null;
+  let s = specifier.startsWith("npm:") ? specifier.slice(4) : specifier;
+  // Strip version: scoped pkgs keep first "@", drop the second
+  if (s.startsWith("@")) {
+    const slash = s.indexOf("/");
+    if (slash !== -1) {
+      const rest = s.slice(slash + 1);
+      const at = rest.indexOf("@");
+      return at === -1 ? s : s.slice(0, slash + 1 + at);
+    }
+  } else {
+    const at = s.indexOf("@");
+    if (at !== -1) s = s.slice(0, at);
+  }
+  return s;
+}
+
+/**
+ * Look up a package in the root package.json (deps + devDeps + peer + optional).
+ * Returns { section, version } or null.
+ */
+let _pkgJsonCache = undefined;
+function loadPackageJson() {
+  if (_pkgJsonCache !== undefined) return _pkgJsonCache;
+  const p = join(ROOT, "package.json");
+  if (!existsSync(p)) return (_pkgJsonCache = null);
+  try {
+    _pkgJsonCache = JSON.parse(readFileSync(p, "utf8"));
+  } catch {
+    _pkgJsonCache = null;
+  }
+  return _pkgJsonCache;
+}
+
+function lookupInPackageJson(pkg) {
+  const json = loadPackageJson();
+  if (!json || !pkg) return null;
+  const sections = ["dependencies", "devDependencies", "peerDependencies", "optionalDependencies"];
+  for (const sec of sections) {
+    if (json[sec] && Object.prototype.hasOwnProperty.call(json[sec], pkg)) {
+      return { section: sec, version: json[sec][pkg] };
+    }
+  }
+  return null;
+}
+
+/**
+ * Grep a function's directory for import sites that reference the package.
+ * Matches `from "npm:pkg..."`, `from "pkg"`, and dynamic `import("npm:pkg...")`.
+ * Returns array of { file, line, snippet } (capped to 5 hits per package).
+ */
+function findImportSites(functionDir, pkg, specifier) {
+  if (!pkg && !specifier) return [];
+  const hits = [];
+  const needles = new Set();
+  if (pkg) {
+    needles.add(`"${pkg}"`);
+    needles.add(`'${pkg}'`);
+    needles.add(`"npm:${pkg}`);
+    needles.add(`'npm:${pkg}`);
+    needles.add(`"${pkg}/`);
+    needles.add(`'${pkg}/`);
+  }
+  if (specifier && specifier !== `npm:${pkg}`) {
+    needles.add(`"${specifier}"`);
+    needles.add(`'${specifier}'`);
+  }
+
+  function walk(dir) {
+    if (hits.length >= 5) return;
+    let entries;
+    try {
+      entries = readdirSync(dir, { withFileTypes: true });
+    } catch {
+      return;
+    }
+    for (const e of entries) {
+      if (hits.length >= 5) return;
+      if (e.name.startsWith(".") || e.name === "node_modules") continue;
+      const full = join(dir, e.name);
+      if (e.isDirectory()) {
+        walk(full);
+      } else if (/\.(ts|tsx|mjs|js|jsx)$/.test(e.name)) {
+        let txt;
+        try {
+          txt = readFileSync(full, "utf8");
+        } catch {
+          continue;
+        }
+        const lines = txt.split(/\r?\n/);
+        for (let i = 0; i < lines.length; i++) {
+          const ln = lines[i];
+          for (const n of needles) {
+            if (ln.includes(n)) {
+              hits.push({
+                file: full.replace(ROOT + "/", ""),
+                line: i + 1,
+                snippet: ln.trim().slice(0, 160),
+              });
+              break;
+            }
+          }
+          if (hits.length >= 5) return;
+        }
+      }
+    }
+  }
+  walk(functionDir);
+  return hits;
+}
+
+/**
+ * For each finding on a failing entrypoint, attach `packageJson` lookup and
+ * `importSites` cross-references so the report can show *where* a missing
+ * npm specifier was referenced.
+ */
+function enrichFindings(findings, entrypointPath) {
+  const dir = entrypointPath.split("/").slice(0, -1).join("/");
+  return findings.map((f) => {
+    const pkg = f.package || bareName(f.specifier);
+    return {
+      ...f,
+      package: pkg ?? f.package,
+      packageJson: lookupInPackageJson(pkg),
+      importSites: findImportSites(dir, pkg, f.specifier),
+    };
+  });
+}
+
 function formatFindings(findings, indent = "    ") {
   return findings
     .map((f) => {
