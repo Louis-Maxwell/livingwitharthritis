@@ -101,28 +101,6 @@ const schemaFaq = {
   ],
 };
 
-const schemaWebsite = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: SITE_NAME,
-  url: SITE_URL,
-  inLanguage: "en-GB",
-  publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
-  potentialAction: {
-    "@type": "SearchAction",
-    target: { "@type": "EntryPoint", urlTemplate: `${SITE_URL}/search?q={search_term_string}` },
-    "query-input": "required name=search_term_string",
-  },
-};
-
-const schemaBreadcrumb = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
-  ],
-};
-
 /* ─── Page content ──────────────────────────────────────────────────── */
 function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) => void }) {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -186,7 +164,6 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
         <meta name="geo.region" content="GB" />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <meta name="theme-color" content="#0f766e" />
-        <link rel="alternate" hrefLang="en-GB" href={`${SITE_URL}/`} />
         <meta property="og:title" content={`Free Arthritis Support UK | ${SITE_NAME}`} />
         <meta
           property="og:description"
@@ -194,16 +171,7 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={SITE_URL} />
-        <meta property="og:locale" content="en_GB" />
-        <meta property="og:site_name" content={SITE_NAME} />
-        <meta property="og:image" content={`${SITE_URL}/images/hero-community.jpg`} />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="People supported by Living With Arthritis UK" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`Free Arthritis Support UK | ${SITE_NAME}`} />
-        <meta name="twitter:description" content="Free AI-guided arthritis support — physiotherapy, diet plans, symptom tracking. No waiting lists." />
-        <meta name="twitter:image" content={`${SITE_URL}/images/hero-community.jpg`} />
         {/* preconnect/dns-prefetch already in index.html — no duplicates */}
         <style>{`
           html { scroll-padding-top: 1rem; }
@@ -215,8 +183,6 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
           @media print { nav, footer, .cookie-banner { display: none !important; } }
         `}</style>
         <script type="application/ld+json">{JSON.stringify(schemaOrg)}</script>
-        <script type="application/ld+json">{JSON.stringify(schemaWebsite)}</script>
-        <script type="application/ld+json">{JSON.stringify(schemaBreadcrumb)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaFaq)}</script>
       </Helmet>
 
