@@ -422,6 +422,48 @@ function buildReport(results, ts, denoVersion, requiredVersion) {
   }
   lines.push("");
 
+  // Per-entrypoint pass/fail diff. Shows each entrypoint as +PASS / -FAIL,
+  // and for each FAIL, the missing npm specifier(s) with a cross-reference
+  // to package.json and the import sites that referenced them.
+  lines.push("PER-ENTRYPOINT PASS/FAIL DIFF");
+  lines.push("-".repeat(72));
+  lines.push("(+ = pass, - = fail; missing specifiers shown with package.json + import-site refs)");
+  lines.push("");
+  for (const r of results) {
+    lines.push(`${r.ok ? "+" : "-"} ${r.name}`);
+    for (const c of r.checks) {
+      const sign = c.ok ? "+" : "-";
+      lines.push(`  ${sign} ${c.entrypoint}  (${c.durationMs}ms, exit=${c.exitCode})`);
+      if (!c.ok) {
+        if (c.findings && c.findings.length > 0) {
+          for (const f of c.findings) {
+            const spec = f.specifier || (f.package ? `npm:${f.package}` : "(unknown)");
+            lines.push(`      - missing: ${spec}`);
+            if (f.packageJson) {
+              lines.push(`          package.json: ${f.packageJson.section} → "${f.packageJson.version}"`);
+            } else if (f.package) {
+              lines.push(`          package.json: NOT LISTED`);
+            }
+            if (f.importSites && f.importSites.length > 0) {
+              lines.push(`          referenced in:`);
+              for (const s of f.importSites) {
+                lines.push(`            • ${s.file}:${s.line}  ${s.snippet}`);
+              }
+            } else if (f.package) {
+              lines.push(`          referenced in: (none found in function dir)`);
+            }
+          }
+        } else {
+          const firstErr = (c.stderr || "")
+            .split(/\r?\n/)
+            .find((l) => /^error:/i.test(l));
+          lines.push(`      - ${firstErr ? firstErr.trim() : "(no parsed specifier; see raw stderr below)"}`);
+        }
+      }
+    }
+  }
+  lines.push("");
+
   if (failed.length > 0) {
     lines.push("FAILURES (details)");
     lines.push("-".repeat(72));
