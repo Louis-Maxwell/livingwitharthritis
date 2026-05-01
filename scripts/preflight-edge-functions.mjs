@@ -13,7 +13,8 @@
  */
 import { spawnSync } from "node:child_process";
 import { mkdirSync, readdirSync, readFileSync, statSync, writeFileSync, existsSync } from "node:fs";
-import { join, resolve } from "node:path";
+import { delimiter, join, resolve } from "node:path";
+import { homedir, platform } from "node:os";
 
 const ROOT = resolve(process.cwd());
 const FUNCTIONS_DIR = join(ROOT, "supabase", "functions");
