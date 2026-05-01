@@ -4,26 +4,27 @@ import { Helmet } from "react-helmet-async";
 import { Heart, ArrowRight, Globe, HandHeart, Users, Building2, Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import MedicallyReviewed from "@/components/ui/MedicallyReviewed";
 
 const DONATION_OPTIONS = [
   {
     amount: "£10",
-    impact: "Provides a personalised exercise plan for one patient",
+    impact: "Sends one personalised exercise plan to a newly diagnosed patient",
     color: "bg-primary/10 border-primary/20 text-primary dark:text-primary",
   },
   {
     amount: "£25",
-    impact: "Funds 3 guided virtual physiotherapy sessions",
+    impact: "Funds three guided virtual physiotherapy sessions for someone on an NHS waiting list",
     color: "bg-primary/10 border-primary/20 text-primary dark:text-primary",
   },
   {
     amount: "£50",
-    impact: "Supports our AI health assistant for a week",
+    impact: "Keeps our clinician-reviewed AI assistant answering questions for a full week",
     color: "bg-primary/10 border-primary/20 text-primary dark:text-primary",
   },
   {
     amount: "£100",
-    impact: "Keeps our platform free for 500 users for one month",
+    impact: "Keeps the entire platform free for 500 people for one month",
     color: "bg-primary/10 border-primary/20 text-primary",
   },
 ];
@@ -31,49 +32,49 @@ const DONATION_OPTIONS = [
 const WAYS_TO_GIVE = [
   {
     icon: Heart,
-    title: "One-Off Donation",
-    desc: "Make a single gift to support our work",
-    action: "Donate Now",
+    title: "Single donation",
+    desc: "A one-off gift. Any amount. Goes straight into clinician hours, content review and platform costs.",
+    action: "Donate now",
     href: "/zakat-appeal",
     color: "text-rose-600 bg-rose-500/10",
   },
   {
     icon: Globe,
-    title: "Zakat Appeal",
-    desc: "Give your Zakat to joint health research and support",
+    title: "Zakat appeal",
+    desc: "Eligible to give Zakat? Direct it to joint-health support and rehabilitation for those in need.",
     action: "Give Zakat",
     href: "/zakat-appeal",
     color: "text-primary bg-primary/10",
   },
   {
     icon: HandHeart,
-    title: "Fundraise for Us",
-    desc: "Run, bake, cycle or create your own fundraising event",
-    action: "Start Fundraising",
+    title: "Fundraise for us",
+    desc: "Run, bake, cycle, swim, sit-stand-30-times. Any challenge — we'll set you up with a page and resources.",
+    action: "Start fundraising",
     href: "/ways-to-help",
     color: "text-primary bg-primary/10",
   },
   {
     icon: Building2,
-    title: "Corporate Giving",
-    desc: "Partner with us through workplace giving or sponsorship",
-    action: "Learn More",
+    title: "Workplace giving",
+    desc: "Match employee donations, sponsor a programme, or pick us as your charity of the year.",
+    action: "Talk to us",
     href: "/corporate-giving",
     color: "text-primary bg-primary/10",
   },
   {
     icon: Gift,
     title: "Gift Aid",
-    desc: "UK taxpayers can boost their donation by 25% at no extra cost",
-    action: "Learn More",
+    desc: "If you pay UK income tax, every £1 you give becomes £1.25 — at no cost to you. Just tick the box.",
+    action: "How it works",
     href: "/zakat-appeal",
     color: "text-primary bg-primary/10",
   },
   {
     icon: Users,
     title: "Volunteer",
-    desc: "Give your time and skills to help people with arthritis",
-    action: "Get Involved",
+    desc: "Clinical reviewer, peer moderator, content writer, translator. Two hours a month genuinely helps.",
+    action: "Get involved",
     href: "/ways-to-help",
     color: "text-primary bg-primary/10",
   },
