@@ -275,14 +275,17 @@ function checkEntrypoint(entryPath) {
 
   if (result.error) {
     const probed = COMMON_DENO_PATHS.join("\n  - ");
+    const stderrRaw =
+      `Failed to spawn deno: ${result.error.message}.\n` +
+      `Tried PATH refresh and probed common locations:\n  - ${probed}\n` +
+      `Install Deno (https://deno.land) or set DENO_INSTALL_ROOT.`;
     return {
       ok: false,
       durationMs,
       stdout: "",
-      stderr:
-        `Failed to spawn deno: ${result.error.message}.\n` +
-        `Tried PATH refresh and probed common locations:\n  - ${probed}\n` +
-        `Install Deno (https://deno.land) or set DENO_INSTALL_ROOT.`,
+      stderr: stderrRaw,
+      stdoutRaw: "",
+      stderrRaw,
       exitCode: -1,
       spawnCommand,
       cwd,
@@ -291,11 +294,15 @@ function checkEntrypoint(entryPath) {
       retryNotes,
     };
   }
+  const stdoutRaw = result.stdout ?? "";
+  const stderrRaw = result.stderr ?? "";
   return {
     ok: result.status === 0,
     durationMs,
-    stdout: result.stdout?.trim() ?? "",
-    stderr: result.stderr?.trim() ?? "",
+    stdout: stdoutRaw.trim(),
+    stderr: stderrRaw.trim(),
+    stdoutRaw,
+    stderrRaw,
     exitCode: result.status ?? -1,
     spawnCommand,
     cwd,
