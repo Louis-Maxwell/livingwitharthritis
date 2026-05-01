@@ -16,6 +16,8 @@ import { mkdirSync, readdirSync, readFileSync, statSync, writeFileSync, existsSy
 import { delimiter, join, resolve } from "node:path";
 import { homedir, platform } from "node:os";
 
+const REPORT_SCHEMA_VERSION = 1;
+
 const ROOT = resolve(process.cwd());
 const FUNCTIONS_DIR = join(ROOT, "supabase", "functions");
 const REPORT_DIR = join(ROOT, ".preflight-reports");
@@ -275,14 +277,17 @@ function checkEntrypoint(entryPath) {
 
   if (result.error) {
     const probed = COMMON_DENO_PATHS.join("\n  - ");
+    const stderrRaw =
+      `Failed to spawn deno: ${result.error.message}.\n` +
+      `Tried PATH refresh and probed common locations:\n  - ${probed}\n` +
+      `Install Deno (https://deno.land) or set DENO_INSTALL_ROOT.`;
     return {
       ok: false,
       durationMs,
       stdout: "",
-      stderr:
-        `Failed to spawn deno: ${result.error.message}.\n` +
-        `Tried PATH refresh and probed common locations:\n  - ${probed}\n` +
-        `Install Deno (https://deno.land) or set DENO_INSTALL_ROOT.`,
+      stderr: stderrRaw,
+      stdoutRaw: "",
+      stderrRaw,
       exitCode: -1,
       spawnCommand,
       cwd,
@@ -291,11 +296,15 @@ function checkEntrypoint(entryPath) {
       retryNotes,
     };
   }
+  const stdoutRaw = result.stdout ?? "";
+  const stderrRaw = result.stderr ?? "";
   return {
     ok: result.status === 0,
     durationMs,
-    stdout: result.stdout?.trim() ?? "",
-    stderr: result.stderr?.trim() ?? "",
+    stdout: stdoutRaw.trim(),
+    stderr: stderrRaw.trim(),
+    stdoutRaw,
+    stderrRaw,
     exitCode: result.status ?? -1,
     spawnCommand,
     cwd,
@@ -478,6 +487,95 @@ function buildReport(results, ts, denoVersion, requiredVersion) {
   return lines.join("\n");
 }
 
+// ---------------------------------------------------------------------------
+// JSON schema validation for the report payload.
+// Tiny, dependency-free validator covering the subset of Draft 2020-12 we use:
+// type, required, properties, additionalProperties, items, minItems, minLength,
+// minimum, enum, and $ref to "#/$defs/<name>". Validation runs before we write
+// the JSON report so missing fields (e.g. stderrRaw) fail the run immediately.
+// ---------------------------------------------------------------------------
+const SCHEMA_PATH = join(ROOT, "scripts", "preflight-report.schema.json");
+
+function loadReportSchema() {
+  if (!existsSync(SCHEMA_PATH)) {
+    throw new Error(`Preflight schema missing at ${SCHEMA_PATH}`);
+  }
+  return JSON.parse(readFileSync(SCHEMA_PATH, "utf8"));
+}
+
+function typeOf(v) {
+  if (v === null) return "null";
+  if (Array.isArray(v)) return "array";
+  if (Number.isInteger(v)) return "integer";
+  return typeof v; // string, number, boolean, object
+}
+
+function resolveRef(root, ref) {
+  // Only support local "#/$defs/<name>" refs.
+  const m = /^#\/\$defs\/([^/]+)$/.exec(ref);
+  if (!m) throw new Error(`Unsupported $ref: ${ref}`);
+  const def = root.$defs?.[m[1]];
+  if (!def) throw new Error(`Missing $defs entry: ${m[1]}`);
+  return def;
+}
+
+function validateNode(value, schema, path, root, errors) {
+  if (schema.$ref) {
+    return validateNode(value, resolveRef(root, schema.$ref), path, root, errors);
+  }
+  if (schema.type) {
+    const allowed = Array.isArray(schema.type) ? schema.type : [schema.type];
+    const t = typeOf(value);
+    // integer satisfies "number"; null only matches if listed explicitly.
+    const ok = allowed.some((a) => a === t || (a === "number" && t === "integer"));
+    if (!ok) {
+      errors.push(`${path || "<root>"}: expected type ${allowed.join("|")}, got ${t}`);
+      return; // can't keep validating with a wrong shape
+    }
+  }
+  if (schema.enum && !schema.enum.includes(value)) {
+    errors.push(`${path}: value ${JSON.stringify(value)} not in enum ${JSON.stringify(schema.enum)}`);
+  }
+  if (typeof value === "string" && typeof schema.minLength === "number" && value.length < schema.minLength) {
+    errors.push(`${path}: string shorter than minLength=${schema.minLength}`);
+  }
+  if (typeof value === "number" && typeof schema.minimum === "number" && value < schema.minimum) {
+    errors.push(`${path}: value ${value} < minimum ${schema.minimum}`);
+  }
+  if (Array.isArray(value)) {
+    if (typeof schema.minItems === "number" && value.length < schema.minItems) {
+      errors.push(`${path}: array shorter than minItems=${schema.minItems}`);
+    }
+    if (schema.items) {
+      value.forEach((v, i) => validateNode(v, schema.items, `${path}[${i}]`, root, errors));
+    }
+  }
+  if (value && typeof value === "object" && !Array.isArray(value)) {
+    if (Array.isArray(schema.required)) {
+      for (const key of schema.required) {
+        if (!(key in value)) errors.push(`${path || "<root>"}: missing required field "${key}"`);
+      }
+    }
+    const props = schema.properties || {};
+    for (const [k, v] of Object.entries(value)) {
+      if (props[k]) {
+        validateNode(v, props[k], `${path}.${k}`, root, errors);
+      } else if (schema.additionalProperties === false) {
+        errors.push(`${path || "<root>"}: unexpected property "${k}"`);
+      } else if (schema.additionalProperties && typeof schema.additionalProperties === "object") {
+        validateNode(v, schema.additionalProperties, `${path}.${k}`, root, errors);
+      }
+    }
+  }
+}
+
+function validateReport(payload) {
+  const schema = loadReportSchema();
+  const errors = [];
+  validateNode(payload, schema, "", schema, errors);
+  return errors;
+}
+
 function main() {
   const requiredVersion = readRequiredDenoVersion();
   if (skipVersionCheck) {
@@ -527,22 +625,28 @@ function main() {
   const jsonPath = join(REPORT_DIR, `preflight-${ts}.json`);
 
   writeFileSync(reportPath, buildReport(results, ts, installedVersion, requiredVersion), "utf8");
-  writeFileSync(
-    jsonPath,
-    JSON.stringify(
-      {
-        generatedAt: new Date().toISOString(),
-        deno: { installed: installedVersion, required: requiredVersion },
-        total: results.length,
-        passed: results.filter((r) => r.ok).length,
-        failed: results.filter((r) => !r.ok).length,
-        results,
-      },
-      null,
-      2,
-    ),
-    "utf8",
-  );
+  const jsonPayload = {
+    schemaVersion: REPORT_SCHEMA_VERSION,
+    generatedAt: new Date().toISOString(),
+    deno: { installed: installedVersion ?? null, required: requiredVersion ?? null },
+    total: results.length,
+    passed: results.filter((r) => r.ok).length,
+    failed: results.filter((r) => !r.ok).length,
+    results,
+  };
+
+  const schemaErrors = validateReport(jsonPayload);
+  if (schemaErrors.length > 0) {
+    console.error("\n❌ Preflight report failed JSON schema validation:");
+    for (const e of schemaErrors) console.error(`   - ${e}`);
+    console.error(`   Schema: ${SCHEMA_PATH}`);
+    // Still write the (invalid) JSON so engineers can inspect it offline.
+    writeFileSync(jsonPath, JSON.stringify(jsonPayload, null, 2), "utf8");
+    console.error(`   Wrote invalid payload to: ${jsonPath}`);
+    process.exit(2);
+  }
+
+  writeFileSync(jsonPath, JSON.stringify(jsonPayload, null, 2), "utf8");
 
   const failed = results.filter((r) => !r.ok);
   console.log("");

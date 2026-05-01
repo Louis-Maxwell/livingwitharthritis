@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://livingwitharthritis.org.uk/schemas/preflight-report.schema.json",
+  "title": "Edge Function Preflight Report",
+  "description": "Structured output written to .preflight-reports/preflight-*.json by scripts/preflight-edge-functions.mjs. This schema is enforced at write time so missing fields (e.g. stderrRaw) fail fast in CI.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "generatedAt",
+    "deno",
+    "total",
+    "passed",
+    "failed",
+    "results"
+  ],
+  "properties": {
+    "schemaVersion": { "type": "integer", "minimum": 1 },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "deno": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["installed", "required"],
+      "properties": {
+        "installed": { "type": ["string", "null"] },
+        "required": { "type": ["string", "null"] }
+      }
+    },
+    "total": { "type": "integer", "minimum": 0 },
+    "passed": { "type": "integer", "minimum": 0 },
+    "failed": { "type": "integer", "minimum": 0 },
+    "results": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/functionResult" }
+    }
+  },
+  "$defs": {
+    "functionResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "ok", "durationMs", "checks"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "ok": { "type": "boolean" },
+        "durationMs": { "type": "integer", "minimum": 0 },
+        "checks": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/check" }
+        }
+      }
+    },
+    "check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entrypoint",
+        "path",
+        "ok",
+        "durationMs",
+        "exitCode",
+        "stdout",
+        "stderr",
+        "stdoutRaw",
+        "stderrRaw",
+        "findings",
+        "spawnCommand",
+        "cwd",
+        "env",
+        "spawnAttempts"
+      ],
+      "properties": {
+        "entrypoint": { "type": "string", "minLength": 1 },
+        "path": { "type": "string", "minLength": 1 },
+        "ok": { "type": "boolean" },
+        "durationMs": { "type": "integer", "minimum": 0 },
+        "exitCode": { "type": "integer" },
+        "stdout": { "type": "string" },
+        "stderr": { "type": "string" },
+        "stdoutRaw": { "type": "string" },
+        "stderrRaw": { "type": "string" },
+        "findings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/finding" }
+        },
+        "spawnCommand": { "type": "string", "minLength": 1 },
+        "cwd": { "type": "string", "minLength": 1 },
+        "env": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "spawnAttempts": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["bin", "code", "status"],
+            "properties": {
+              "bin": { "type": "string", "minLength": 1 },
+              "code": { "type": ["string", "null"] },
+              "status": { "type": ["integer", "null"] }
+            }
+          }
+        },
+        "retryNotes": { "type": ["string", "null"] }
+      }
+    },
+    "finding": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["rawLine"],
+      "properties": {
+        "rawLine": { "type": "string" },
+        "package": { "type": "string" },
+        "version": { "type": "string" },
+        "specifier": { "type": "string" },
+        "importedFrom": { "type": "string" },
+        "location": { "type": "string" }
+      }
+    }
+  }
+}
