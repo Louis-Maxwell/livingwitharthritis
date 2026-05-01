@@ -122,26 +122,19 @@ function checkEntrypoint(entryPath) {
   const durationMs = Date.now() - started;
 
   if (result.error) {
-    const msg = `Failed to spawn deno: ${result.error.message}. Is Deno installed and in PATH?`;
     return {
       ok: false,
       durationMs,
       stdout: "",
-      stderr: msg,
-      stderrRaw: msg,
-      stdoutRaw: "",
+      stderr: `Failed to spawn deno: ${result.error.message}. Is Deno installed and in PATH?`,
       exitCode: -1,
     };
   }
-  const stdoutRaw = result.stdout ?? "";
-  const stderrRaw = result.stderr ?? "";
   return {
     ok: result.status === 0,
     durationMs,
-    stdout: stdoutRaw.trim(),
-    stderr: stderrRaw.trim(),
-    stdoutRaw,
-    stderrRaw,
+    stdout: result.stdout?.trim() ?? "",
+    stderr: result.stderr?.trim() ?? "",
     exitCode: result.status ?? -1,
   };
 }
@@ -215,140 +208,6 @@ function parseDenoCheckErrors(stderr) {
   return findings;
 }
 
-/**
- * Strip "npm:" prefix and version suffix from a specifier to get the bare package name.
- * Handles scoped packages: "npm:@supabase/supabase-js@2.45.0" -> "@supabase/supabase-js".
- */
-function bareName(specifier) {
-  if (!specifier) return null;
-  let s = specifier.startsWith("npm:") ? specifier.slice(4) : specifier;
-  // Strip version: scoped pkgs keep first "@", drop the second
-  if (s.startsWith("@")) {
-    const slash = s.indexOf("/");
-    if (slash !== -1) {
-      const rest = s.slice(slash + 1);
-      const at = rest.indexOf("@");
-      return at === -1 ? s : s.slice(0, slash + 1 + at);
-    }
-  } else {
-    const at = s.indexOf("@");
-    if (at !== -1) s = s.slice(0, at);
-  }
-  return s;
-}
-
-/**
- * Look up a package in the root package.json (deps + devDeps + peer + optional).
- * Returns { section, version } or null.
- */
-let _pkgJsonCache = undefined;
-function loadPackageJson() {
-  if (_pkgJsonCache !== undefined) return _pkgJsonCache;
-  const p = join(ROOT, "package.json");
-  if (!existsSync(p)) return (_pkgJsonCache = null);
-  try {
-    _pkgJsonCache = JSON.parse(readFileSync(p, "utf8"));
-  } catch {
-    _pkgJsonCache = null;
-  }
-  return _pkgJsonCache;
-}
-
-function lookupInPackageJson(pkg) {
-  const json = loadPackageJson();
-  if (!json || !pkg) return null;
-  const sections = ["dependencies", "devDependencies", "peerDependencies", "optionalDependencies"];
-  for (const sec of sections) {
-    if (json[sec] && Object.prototype.hasOwnProperty.call(json[sec], pkg)) {
-      return { section: sec, version: json[sec][pkg] };
-    }
-  }
-  return null;
-}
-
-/**
- * Grep a function's directory for import sites that reference the package.
- * Matches `from "npm:pkg..."`, `from "pkg"`, and dynamic `import("npm:pkg...")`.
- * Returns array of { file, line, snippet } (capped to 5 hits per package).
- */
-function findImportSites(functionDir, pkg, specifier) {
-  if (!pkg && !specifier) return [];
-  const hits = [];
-  const needles = new Set();
-  if (pkg) {
-    needles.add(`"${pkg}"`);
-    needles.add(`'${pkg}'`);
-    needles.add(`"npm:${pkg}`);
-    needles.add(`'npm:${pkg}`);
-    needles.add(`"${pkg}/`);
-    needles.add(`'${pkg}/`);
-  }
-  if (specifier && specifier !== `npm:${pkg}`) {
-    needles.add(`"${specifier}"`);
-    needles.add(`'${specifier}'`);
-  }
-
-  function walk(dir) {
-    if (hits.length >= 5) return;
-    let entries;
-    try {
-      entries = readdirSync(dir, { withFileTypes: true });
-    } catch {
-      return;
-    }
-    for (const e of entries) {
-      if (hits.length >= 5) return;
-      if (e.name.startsWith(".") || e.name === "node_modules") continue;
-      const full = join(dir, e.name);
-      if (e.isDirectory()) {
-        walk(full);
-      } else if (/\.(ts|tsx|mjs|js|jsx)$/.test(e.name)) {
-        let txt;
-        try {
-          txt = readFileSync(full, "utf8");
-        } catch {
-          continue;
-        }
-        const lines = txt.split(/\r?\n/);
-        for (let i = 0; i < lines.length; i++) {
-          const ln = lines[i];
-          for (const n of needles) {
-            if (ln.includes(n)) {
-              hits.push({
-                file: full.replace(ROOT + "/", ""),
-                line: i + 1,
-                snippet: ln.trim().slice(0, 160),
-              });
-              break;
-            }
-          }
-          if (hits.length >= 5) return;
-        }
-      }
-    }
-  }
-  walk(functionDir);
-  return hits;
-}
-
-/**
- * For each finding on a failing entrypoint, attach `packageJson` lookup and
- * `importSites` cross-references so the report can show *where* a missing
- * npm specifier was referenced.
- */
-function enrichFindings(findings, entrypointPath) {
-  const dir = entrypointPath.split("/").slice(0, -1).join("/");
-  return findings.map((f) => {
-    const pkg = f.package || bareName(f.specifier);
-    return {
-      ...f,
-      package: pkg ?? f.package,
-      packageJson: lookupInPackageJson(pkg),
-      importSites: findImportSites(dir, pkg, f.specifier),
-    };
-  });
-}
-
 function formatFindings(findings, indent = "    ") {
   return findings
     .map((f) => {
@@ -357,22 +216,7 @@ function formatFindings(findings, indent = "    ") {
       if (f.specifier && !f.package) parts.push(`specifier=${f.specifier}`);
       if (f.importedFrom) parts.push(`imported from ${f.importedFrom}`);
       if (f.location) parts.push(`at ${f.location}`);
-      const head = `${indent}• ${parts.join(" | ") || f.rawLine}`;
-      const sub = [];
-      if (f.packageJson) {
-        sub.push(`${indent}    ↳ package.json: ${f.packageJson.section} → "${f.packageJson.version}"`);
-      } else if (f.package) {
-        sub.push(`${indent}    ↳ package.json: NOT LISTED (add to dependencies, or pin via npm:${f.package}@<version>)`);
-      }
-      if (f.importSites && f.importSites.length > 0) {
-        sub.push(`${indent}    ↳ referenced in:`);
-        for (const s of f.importSites) {
-          sub.push(`${indent}        - ${s.file}:${s.line}  ${s.snippet}`);
-        }
-      } else if (f.package) {
-        sub.push(`${indent}    ↳ no import sites found inside the function directory (check shared modules / imports map)`);
-      }
-      return [head, ...sub].join("\n");
+      return `${indent}• ${parts.join(" | ") || f.rawLine}`;
     })
     .join("\n");
 }
@@ -381,7 +225,7 @@ function checkFunction(name) {
   const entrypoints = discoverEntrypoints(name);
   const checks = entrypoints.map((ep) => {
     const r = checkEntrypoint(ep.path);
-    const findings = r.ok ? [] : enrichFindings(parseDenoCheckErrors(r.stderr), ep.path);
+    const findings = r.ok ? [] : parseDenoCheckErrors(r.stderr);
     return { entrypoint: ep.label, path: ep.path, findings, ...r };
   });
   const ok = checks.every((c) => c.ok);
@@ -422,48 +266,6 @@ function buildReport(results, ts, denoVersion, requiredVersion) {
   }
   lines.push("");
 
-  // Per-entrypoint pass/fail diff. Shows each entrypoint as +PASS / -FAIL,
-  // and for each FAIL, the missing npm specifier(s) with a cross-reference
-  // to package.json and the import sites that referenced them.
-  lines.push("PER-ENTRYPOINT PASS/FAIL DIFF");
-  lines.push("-".repeat(72));
-  lines.push("(+ = pass, - = fail; missing specifiers shown with package.json + import-site refs)");
-  lines.push("");
-  for (const r of results) {
-    lines.push(`${r.ok ? "+" : "-"} ${r.name}`);
-    for (const c of r.checks) {
-      const sign = c.ok ? "+" : "-";
-      lines.push(`  ${sign} ${c.entrypoint}  (${c.durationMs}ms, exit=${c.exitCode})`);
-      if (!c.ok) {
-        if (c.findings && c.findings.length > 0) {
-          for (const f of c.findings) {
-            const spec = f.specifier || (f.package ? `npm:${f.package}` : "(unknown)");
-            lines.push(`      - missing: ${spec}`);
-            if (f.packageJson) {
-              lines.push(`          package.json: ${f.packageJson.section} → "${f.packageJson.version}"`);
-            } else if (f.package) {
-              lines.push(`          package.json: NOT LISTED`);
-            }
-            if (f.importSites && f.importSites.length > 0) {
-              lines.push(`          referenced in:`);
-              for (const s of f.importSites) {
-                lines.push(`            • ${s.file}:${s.line}  ${s.snippet}`);
-              }
-            } else if (f.package) {
-              lines.push(`          referenced in: (none found in function dir)`);
-            }
-          }
-        } else {
-          const firstErr = (c.stderr || "")
-            .split(/\r?\n/)
-            .find((l) => /^error:/i.test(l));
-          lines.push(`      - ${firstErr ? firstErr.trim() : "(no parsed specifier; see raw stderr below)"}`);
-        }
-      }
-    }
-  }
-  lines.push("");
-
   if (failed.length > 0) {
     lines.push("FAILURES (details)");
     lines.push("-".repeat(72));
@@ -481,15 +283,8 @@ function buildReport(results, ts, denoVersion, requiredVersion) {
           lines.push(c.stdout);
         }
         if (c.stderr) {
-          lines.push("--- stderr (trimmed) ---");
+          lines.push("--- stderr ---");
           lines.push(c.stderr);
-        }
-        const raw = c.stderrRaw ?? c.stderr ?? "";
-        if (raw) {
-          lines.push("--- stderr (raw, exact bytes that triggered the failure) ---");
-          lines.push("<<<RAW_STDERR_BEGIN>>>");
-          lines.push(raw);
-          lines.push("<<<RAW_STDERR_END>>>");
         }
         lines.push("");
       }
