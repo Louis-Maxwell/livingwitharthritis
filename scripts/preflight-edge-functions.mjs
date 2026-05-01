@@ -30,11 +30,9 @@ function readRequiredDenoVersion() {
 }
 
 function getInstalledDenoVersion() {
-  const result = spawnSync("deno", ["--version"], { encoding: "utf8" });
-  if (result.error || result.status !== 0) return null;
-  // First line: "deno X.Y.Z (...)"
-  const match = result.stdout.match(/^deno\s+(\d+\.\d+\.\d+)/);
-  return match ? match[1] : null;
+  // Uses the same resolver as `deno check` so version probing benefits from
+  // the PATH refresh + filesystem probe fallback.
+  return getInstalledDenoVersionResolved().version;
 }
 
 function enforceDenoVersion() {
