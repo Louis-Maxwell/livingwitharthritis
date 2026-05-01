@@ -16,6 +16,8 @@ import { mkdirSync, readdirSync, readFileSync, statSync, writeFileSync, existsSy
 import { delimiter, join, resolve } from "node:path";
 import { homedir, platform } from "node:os";
 
+const REPORT_SCHEMA_VERSION = 1;
+
 const ROOT = resolve(process.cwd());
 const FUNCTIONS_DIR = join(ROOT, "supabase", "functions");
 const REPORT_DIR = join(ROOT, ".preflight-reports");
