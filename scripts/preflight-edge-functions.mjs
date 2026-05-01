@@ -357,7 +357,22 @@ function formatFindings(findings, indent = "    ") {
       if (f.specifier && !f.package) parts.push(`specifier=${f.specifier}`);
       if (f.importedFrom) parts.push(`imported from ${f.importedFrom}`);
       if (f.location) parts.push(`at ${f.location}`);
-      return `${indent}• ${parts.join(" | ") || f.rawLine}`;
+      const head = `${indent}• ${parts.join(" | ") || f.rawLine}`;
+      const sub = [];
+      if (f.packageJson) {
+        sub.push(`${indent}    ↳ package.json: ${f.packageJson.section} → "${f.packageJson.version}"`);
+      } else if (f.package) {
+        sub.push(`${indent}    ↳ package.json: NOT LISTED (add to dependencies, or pin via npm:${f.package}@<version>)`);
+      }
+      if (f.importSites && f.importSites.length > 0) {
+        sub.push(`${indent}    ↳ referenced in:`);
+        for (const s of f.importSites) {
+          sub.push(`${indent}        - ${s.file}:${s.line}  ${s.snippet}`);
+        }
+      } else if (f.package) {
+        sub.push(`${indent}    ↳ no import sites found inside the function directory (check shared modules / imports map)`);
+      }
+      return [head, ...sub].join("\n");
     })
     .join("\n");
 }
@@ -366,7 +381,7 @@ function checkFunction(name) {
   const entrypoints = discoverEntrypoints(name);
   const checks = entrypoints.map((ep) => {
     const r = checkEntrypoint(ep.path);
-    const findings = r.ok ? [] : parseDenoCheckErrors(r.stderr);
+    const findings = r.ok ? [] : enrichFindings(parseDenoCheckErrors(r.stderr), ep.path);
     return { entrypoint: ep.label, path: ep.path, findings, ...r };
   });
   const ok = checks.every((c) => c.ok);
