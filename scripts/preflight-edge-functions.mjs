@@ -443,6 +443,13 @@ function buildReport(results, ts, denoVersion, requiredVersion) {
         lines.push("--- reproduction ---");
         lines.push(`cwd: ${c.cwd ?? "(unknown)"}`);
         lines.push(`command: ${c.spawnCommand ?? "(unknown)"}`);
+        if (c.retryNotes) lines.push(`retry: ${c.retryNotes}`);
+        if (c.spawnAttempts && c.spawnAttempts.length > 1) {
+          lines.push("spawn attempts:");
+          for (const a of c.spawnAttempts) {
+            lines.push(`  - bin=${a.bin} status=${a.status ?? "n/a"} code=${a.code ?? "ok"}`);
+          }
+        }
         if (c.env && Object.keys(c.env).length > 0) {
           lines.push("env:");
           for (const [k, v] of Object.entries(c.env)) {
