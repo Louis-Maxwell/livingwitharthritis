@@ -158,28 +158,139 @@ function formatSpawnCommand(cmd, args) {
   return [cmd, ...args].map(quote).join(" ");
 }
 
+// ---------------------------------------------------------------------------
+// Deno binary resolution + automatic spawn-failure retry.
+//
+// In CI and on contributor machines `deno` may not be on PATH even though it's
+// installed (common on macOS via `~/.deno/bin`, Homebrew on Apple Silicon, or
+// the `denoland/setup-deno` action which writes to a runner-specific dir).
+// When `spawnSync('deno', ...)` fails with ENOENT, we:
+//   1) refresh PATH from the shell's login profile (best-effort), and
+//   2) probe a list of well-known install locations,
+// then retry the spawn against the first working absolute path. Successful
+// resolutions are cached so we only pay the discovery cost once per run.
+// ---------------------------------------------------------------------------
+
+const COMMON_DENO_PATHS = (() => {
+  const home = homedir();
+  const isWin = platform() === "win32";
+  const exe = isWin ? "deno.exe" : "deno";
+  const candidates = [
+    process.env.DENO_INSTALL_ROOT && join(process.env.DENO_INSTALL_ROOT, "bin", exe),
+    process.env.DENO_INSTALL && join(process.env.DENO_INSTALL, "bin", exe),
+    join(home, ".deno", "bin", exe),
+    join(home, ".local", "bin", exe),
+    join(home, "bin", exe),
+    "/opt/homebrew/bin/deno", // Apple Silicon Homebrew
+    "/usr/local/bin/deno", // Intel Homebrew / generic
+    "/usr/bin/deno",
+    "/snap/bin/deno",
+    isWin && process.env.USERPROFILE && join(process.env.USERPROFILE, ".deno", "bin", "deno.exe"),
+    isWin && "C:/Program Files/deno/deno.exe",
+  ];
+  return candidates.filter(Boolean);
+})();
+
+function refreshPathFromShell() {
+  // Best-effort: ask an interactive login shell for its PATH. Skipped on
+  // Windows (no portable equivalent) and silently ignored on failure.
+  if (platform() === "win32") return null;
+  const shell = process.env.SHELL || "/bin/bash";
+  const r = spawnSync(shell, ["-l", "-c", "echo $PATH"], { encoding: "utf8", timeout: 3000 });
+  if (r.error || r.status !== 0) return null;
+  const fresh = (r.stdout || "").trim();
+  return fresh || null;
+}
+
+let resolvedDenoBin = null; // cached absolute path or "deno"
+let denoResolutionLog = []; // diagnostics surfaced into reports on failure
+
+function findDenoBinary() {
+  if (resolvedDenoBin) return resolvedDenoBin;
+
+  // Probe common install locations.
+  for (const p of COMMON_DENO_PATHS) {
+    if (existsSync(p)) {
+      resolvedDenoBin = p;
+      denoResolutionLog.push(`resolved deno via filesystem probe: ${p}`);
+      return resolvedDenoBin;
+    }
+  }
+
+  // Last resort: refresh PATH from a login shell and look again via spawn.
+  const freshPath = refreshPathFromShell();
+  if (freshPath && freshPath !== process.env.PATH) {
+    process.env.PATH = freshPath;
+    denoResolutionLog.push("refreshed PATH from login shell");
+    const r = spawnSync("deno", ["--version"], { encoding: "utf8" });
+    if (!r.error && r.status === 0) {
+      resolvedDenoBin = "deno";
+      return resolvedDenoBin;
+    }
+  }
+
+  return null; // unresolved — caller will surface a clear error
+}
+
+function isSpawnFailure(result) {
+  return Boolean(result.error) && (result.error.code === "ENOENT" || result.error.code === "EACCES");
+}
+
+function spawnDeno(args, opts = {}) {
+  // First attempt with whatever's on PATH.
+  let attempts = [];
+  let bin = "deno";
+  let r = spawnSync(bin, args, { encoding: "utf8", ...opts });
+  attempts.push({ bin, code: r.error?.code ?? null, status: r.status });
+
+  if (isSpawnFailure(r)) {
+    const resolved = findDenoBinary();
+    if (resolved) {
+      bin = resolved;
+      r = spawnSync(bin, args, { encoding: "utf8", ...opts });
+      attempts.push({ bin, code: r.error?.code ?? null, status: r.status });
+    }
+  }
+
+  return { result: r, bin, attempts };
+}
+
+function getInstalledDenoVersionResolved() {
+  const { result, bin } = spawnDeno(["--version"]);
+  if (result.error || result.status !== 0) return { version: null, bin };
+  const match = result.stdout.match(/^deno\s+(\d+\.\d+\.\d+)/);
+  return { version: match ? match[1] : null, bin };
+}
+
 function checkEntrypoint(entryPath) {
   const denoArgs = ["check", entryPath];
-  const spawnCommand = formatSpawnCommand("deno", denoArgs);
   const cwd = ROOT;
   const env = captureRelevantEnv();
   const started = Date.now();
-  const result = spawnSync("deno", denoArgs, {
-    encoding: "utf8",
-    cwd,
-  });
+  const { result, bin, attempts } = spawnDeno(denoArgs, { cwd });
   const durationMs = Date.now() - started;
+  const spawnCommand = formatSpawnCommand(bin, denoArgs);
+  const retryNotes =
+    attempts.length > 1
+      ? `retried after spawn failure (initial code=${attempts[0].code}); resolved binary=${bin}`
+      : null;
 
   if (result.error) {
+    const probed = COMMON_DENO_PATHS.join("\n  - ");
     return {
       ok: false,
       durationMs,
       stdout: "",
-      stderr: `Failed to spawn deno: ${result.error.message}. Is Deno installed and in PATH?`,
+      stderr:
+        `Failed to spawn deno: ${result.error.message}.\n` +
+        `Tried PATH refresh and probed common locations:\n  - ${probed}\n` +
+        `Install Deno (https://deno.land) or set DENO_INSTALL_ROOT.`,
       exitCode: -1,
       spawnCommand,
       cwd,
       env,
+      spawnAttempts: attempts,
+      retryNotes,
     };
   }
   return {
@@ -191,6 +302,8 @@ function checkEntrypoint(entryPath) {
     spawnCommand,
     cwd,
     env,
+    spawnAttempts: attempts,
+    retryNotes,
   };
 }
 
