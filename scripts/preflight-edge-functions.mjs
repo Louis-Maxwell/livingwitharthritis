@@ -328,6 +328,17 @@ function buildReport(results, ts, denoVersion, requiredVersion) {
         lines.push(`### ${r.name} :: ${c.entrypoint}`);
         lines.push(`path: ${c.path}`);
         lines.push(`exit code: ${c.exitCode}`);
+        lines.push("--- reproduction ---");
+        lines.push(`cwd: ${c.cwd ?? "(unknown)"}`);
+        lines.push(`command: ${c.spawnCommand ?? "(unknown)"}`);
+        if (c.env && Object.keys(c.env).length > 0) {
+          lines.push("env:");
+          for (const [k, v] of Object.entries(c.env)) {
+            lines.push(`  ${k}=${v}`);
+          }
+        } else {
+          lines.push("env: (none of the tracked keys were set)");
+        }
         if (c.findings && c.findings.length > 0) {
           lines.push("--- missing imports / unresolved specifiers ---");
           lines.push(formatFindings(c.findings, "  "));
