@@ -122,19 +122,26 @@ function checkEntrypoint(entryPath) {
   const durationMs = Date.now() - started;
 
   if (result.error) {
+    const msg = `Failed to spawn deno: ${result.error.message}. Is Deno installed and in PATH?`;
     return {
       ok: false,
       durationMs,
       stdout: "",
-      stderr: `Failed to spawn deno: ${result.error.message}. Is Deno installed and in PATH?`,
+      stderr: msg,
+      stderrRaw: msg,
+      stdoutRaw: "",
       exitCode: -1,
     };
   }
+  const stdoutRaw = result.stdout ?? "";
+  const stderrRaw = result.stderr ?? "";
   return {
     ok: result.status === 0,
     durationMs,
-    stdout: result.stdout?.trim() ?? "",
-    stderr: result.stderr?.trim() ?? "",
+    stdout: stdoutRaw.trim(),
+    stderr: stderrRaw.trim(),
+    stdoutRaw,
+    stderrRaw,
     exitCode: result.status ?? -1,
   };
 }
