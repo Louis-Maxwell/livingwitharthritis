@@ -625,22 +625,28 @@ function main() {
   const jsonPath = join(REPORT_DIR, `preflight-${ts}.json`);
 
   writeFileSync(reportPath, buildReport(results, ts, installedVersion, requiredVersion), "utf8");
-  writeFileSync(
-    jsonPath,
-    JSON.stringify(
-      {
-        generatedAt: new Date().toISOString(),
-        deno: { installed: installedVersion, required: requiredVersion },
-        total: results.length,
-        passed: results.filter((r) => r.ok).length,
-        failed: results.filter((r) => !r.ok).length,
-        results,
-      },
-      null,
-      2,
-    ),
-    "utf8",
-  );
+  const jsonPayload = {
+    schemaVersion: REPORT_SCHEMA_VERSION,
+    generatedAt: new Date().toISOString(),
+    deno: { installed: installedVersion ?? null, required: requiredVersion ?? null },
+    total: results.length,
+    passed: results.filter((r) => r.ok).length,
+    failed: results.filter((r) => !r.ok).length,
+    results,
+  };
+
+  const schemaErrors = validateReport(jsonPayload);
+  if (schemaErrors.length > 0) {
+    console.error("\n❌ Preflight report failed JSON schema validation:");
+    for (const e of schemaErrors) console.error(`   - ${e}`);
+    console.error(`   Schema: ${SCHEMA_PATH}`);
+    // Still write the (invalid) JSON so engineers can inspect it offline.
+    writeFileSync(jsonPath, JSON.stringify(jsonPayload, null, 2), "utf8");
+    console.error(`   Wrote invalid payload to: ${jsonPath}`);
+    process.exit(2);
+  }
+
+  writeFileSync(jsonPath, JSON.stringify(jsonPayload, null, 2), "utf8");
 
   const failed = results.filter((r) => !r.ok);
   console.log("");
