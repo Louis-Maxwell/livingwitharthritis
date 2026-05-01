@@ -8,26 +8,26 @@ import { Activity, Dumbbell, Apple, Hospital, ArrowRight } from "lucide-react";
 const TRIAGE_OPTIONS = [
   {
     icon: Activity,
-    label: "Pain & flare-ups",
-    description: "What to do in the next 24 hours",
+    label: "Pain relief",
+    description: "Manage flare-ups & daily pain",
     to: "/arthritis-flare-ups",
   },
   {
     icon: Dumbbell,
-    label: "Joint-safe exercise",
-    description: "Routines for knees, hands & hips",
+    label: "Exercises",
+    description: "Joint-safe movement plans",
     to: "/exercises",
   },
   {
     icon: Apple,
-    label: "Diet that works",
-    description: "Mediterranean, anti-inflammatory",
+    label: "Diet & nutrition",
+    description: "Anti-inflammatory eating",
     to: "/diet",
   },
   {
     icon: Hospital,
-    label: "While you wait for the NHS",
-    description: "Stay strong before your appointment",
+    label: "NHS help",
+    description: "Waiting list support & guides",
     to: "/nhs-waiting-list-help",
   },
 ] as const;
@@ -41,13 +41,13 @@ export default function TriageSection() {
       <div className="container mx-auto px-4">
         <div className="mx-auto mb-8 max-w-2xl text-center">
           <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.2em] text-primary">
-            Skip the search · Go straight to help
+            Get to the right place — fast
           </p>
           <h2
             id="triage-heading"
             className="font-display text-2xl font-bold text-foreground md:text-3xl"
           >
-            What do you need today?
+            What brings you here today?
           </h2>
         </div>
 

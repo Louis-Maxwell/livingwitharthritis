@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { memo, lazy, Suspense, useEffect, useState } from "react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
-import MedicallyReviewed from "@/components/ui/MedicallyReviewed";
 import heroImageWebp1600 from "@/assets/hero-walking-group-1600.webp";
 import heroImageWebp1200 from "@/assets/hero-walking-group-1200.webp";
 import heroImageWebp800 from "@/assets/hero-walking-group-800.webp";
@@ -88,21 +87,21 @@ const HeroSection = memo(() => {
             <div className="hero-stagger text-center lg:text-left">
 
               <h1 className="hero-item text-[2rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[3.75rem] xl:text-[4.25rem] font-display font-bold text-foreground mb-6 sm:mb-8 leading-[1.05] tracking-[-0.02em] text-balance">
-                Arthritis support that actually{" "}
+                1 in 6 people in the UK{" "}
                 <br className="hidden sm:block" />
-                fits your week.{" "}
+                live with arthritis.{" "}
                 <span className="text-gradient relative inline-block hero-underline italic">
-                  Built with NHS clinicians.
+                  We're here for every one of them.
                 </span>
               </h1>
 
               <p className="hero-item text-[15px] sm:text-base md:text-lg text-muted-foreground leading-[1.7] mb-5 max-w-[560px] mx-auto lg:mx-0">
-                Free virtual physiotherapy, anti-inflammatory meal plans and joint-safe exercise routines — designed by HCPC-registered physiotherapists and aligned to current NICE guidance. No waiting list. No upsell.
+                Free physiotherapy, anti-inflammatory diet plans, evidence-based exercises and 24/7 support — helping people across the United Kingdom manage arthritis pain and live fuller lives.
               </p>
 
               <p className="hero-item text-xs sm:text-[13px] text-primary/70 font-medium mb-8 sm:mb-10 flex items-center justify-center lg:justify-start gap-2">
                 <Heart className="w-3.5 h-3.5 fill-primary/20 animate-pulse-soft" />
-                Trusted by 10,000+ people across the UK · 4.9/5 from 2,400+ reviews
+                Every donation helps us reach more people in need
               </p>
 
               <div className="hero-item flex flex-col sm:flex-row justify-center lg:justify-start gap-3">
@@ -113,7 +112,7 @@ const HeroSection = memo(() => {
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                   <MessageCircle className="w-4.5 h-4.5 mr-2 group-hover:scale-110 transition-transform" />
-                  Start Free in 30 Seconds
+                  Get Free Support
                   <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 hidden sm:block" />
                 </Button>
                 <Button
@@ -193,11 +192,8 @@ const HeroSection = memo(() => {
               ))}
             </div>
           </div>
-          <div className="mt-6 flex justify-center">
-            <MedicallyReviewed variant="compact" />
-          </div>
-          <p className="text-[9px] text-muted-foreground/35 mt-3 text-center tracking-[0.18em] uppercase">
-            Stats based on internal user feedback surveys, 2024–2025
+          <p className="text-[9px] text-muted-foreground/35 mt-5 text-center tracking-[0.18em] uppercase">
+            Based on internal user feedback surveys, 2024–2025
           </p>
         </div>
       </div>

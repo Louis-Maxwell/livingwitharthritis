@@ -4,27 +4,26 @@ import { Helmet } from "react-helmet-async";
 import { Heart, ArrowRight, Globe, HandHeart, Users, Building2, Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import MedicallyReviewed from "@/components/ui/MedicallyReviewed";
 
 const DONATION_OPTIONS = [
   {
     amount: "£10",
-    impact: "Sends one personalised exercise plan to a newly diagnosed patient",
+    impact: "Provides a personalised exercise plan for one patient",
     color: "bg-primary/10 border-primary/20 text-primary dark:text-primary",
   },
   {
     amount: "£25",
-    impact: "Funds three guided virtual physiotherapy sessions for someone on an NHS waiting list",
+    impact: "Funds 3 guided virtual physiotherapy sessions",
     color: "bg-primary/10 border-primary/20 text-primary dark:text-primary",
   },
   {
     amount: "£50",
-    impact: "Keeps our clinician-reviewed AI assistant answering questions for a full week",
+    impact: "Supports our AI health assistant for a week",
     color: "bg-primary/10 border-primary/20 text-primary dark:text-primary",
   },
   {
     amount: "£100",
-    impact: "Keeps the entire platform free for 500 people for one month",
+    impact: "Keeps our platform free for 500 users for one month",
     color: "bg-primary/10 border-primary/20 text-primary",
   },
 ];
@@ -32,49 +31,49 @@ const DONATION_OPTIONS = [
 const WAYS_TO_GIVE = [
   {
     icon: Heart,
-    title: "Single donation",
-    desc: "A one-off gift. Any amount. Goes straight into clinician hours, content review and platform costs.",
-    action: "Donate now",
+    title: "One-Off Donation",
+    desc: "Make a single gift to support our work",
+    action: "Donate Now",
     href: "/zakat-appeal",
     color: "text-rose-600 bg-rose-500/10",
   },
   {
     icon: Globe,
-    title: "Zakat appeal",
-    desc: "Eligible to give Zakat? Direct it to joint-health support and rehabilitation for those in need.",
+    title: "Zakat Appeal",
+    desc: "Give your Zakat to joint health research and support",
     action: "Give Zakat",
     href: "/zakat-appeal",
     color: "text-primary bg-primary/10",
   },
   {
     icon: HandHeart,
-    title: "Fundraise for us",
-    desc: "Run, bake, cycle, swim, sit-stand-30-times. Any challenge — we'll set you up with a page and resources.",
-    action: "Start fundraising",
+    title: "Fundraise for Us",
+    desc: "Run, bake, cycle or create your own fundraising event",
+    action: "Start Fundraising",
     href: "/ways-to-help",
     color: "text-primary bg-primary/10",
   },
   {
     icon: Building2,
-    title: "Workplace giving",
-    desc: "Match employee donations, sponsor a programme, or pick us as your charity of the year.",
-    action: "Talk to us",
+    title: "Corporate Giving",
+    desc: "Partner with us through workplace giving or sponsorship",
+    action: "Learn More",
     href: "/corporate-giving",
     color: "text-primary bg-primary/10",
   },
   {
     icon: Gift,
     title: "Gift Aid",
-    desc: "If you pay UK income tax, every £1 you give becomes £1.25 — at no cost to you. Just tick the box.",
-    action: "How it works",
+    desc: "UK taxpayers can boost their donation by 25% at no extra cost",
+    action: "Learn More",
     href: "/zakat-appeal",
     color: "text-primary bg-primary/10",
   },
   {
     icon: Users,
     title: "Volunteer",
-    desc: "Clinical reviewer, peer moderator, content writer, translator. Two hours a month genuinely helps.",
-    action: "Get involved",
+    desc: "Give your time and skills to help people with arthritis",
+    action: "Get Involved",
     href: "/ways-to-help",
     color: "text-primary bg-primary/10",
   },
@@ -171,18 +170,15 @@ export default function Donate() {
           <div className="container mx-auto px-6 md:px-10 py-16 md:py-24 max-w-4xl text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
               <Heart className="w-4 h-4 text-primary fill-primary/20" />
-              <span className="text-xs font-bold text-primary tracking-wider uppercase">100% goes to programmes & platform</span>
+              <span className="text-xs font-bold text-primary tracking-wider uppercase">Every Donation Matters</span>
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-tight mb-5">
-              Keep arthritis support{" "}
-              <span className="text-gradient italic">free for everyone in the UK</span>
+              Help us keep arthritis support{" "}
+              <span className="text-gradient italic">free for everyone</span>
             </h1>
-            <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-6">
-              We charge nothing — not for the AI, not for the physiotherapy plans, not for the community. That only works because people like you fund the clinician hours, content review and infrastructure that make it real.
+            <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-8">
+              Your generosity funds free virtual physiotherapy, evidence-based diet plans, AI health support and community programmes for over 10,000 people across the UK living with arthritis.
             </p>
-            <div className="flex justify-center mb-8">
-              <MedicallyReviewed variant="compact" />
-            </div>
             <Button
               size="lg"
               onClick={() => navigate("/zakat-appeal")}
@@ -192,18 +188,13 @@ export default function Donate() {
               Donate Now
               <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
             </Button>
-            <p className="text-xs text-muted-foreground/70 mt-4">
-              Secure checkout via Stripe · Cancel a recurring gift any time
-            </p>
           </div>
         </section>
 
         {/* Impact Cards */}
         <section className="container mx-auto px-6 md:px-10 py-16 max-w-5xl">
-          <h2 className="text-2xl font-bold text-foreground text-center mb-3">Where your money actually goes</h2>
-          <p className="text-muted-foreground text-center mb-10 max-w-lg mx-auto">
-            We publish our average programme costs every year. Here's what each gift covers — directly.
-          </p>
+          <h2 className="text-2xl font-bold text-foreground text-center mb-3">Your Impact</h2>
+          <p className="text-muted-foreground text-center mb-10 max-w-lg mx-auto">See exactly how your donation helps people living with arthritis across the UK.</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {DONATION_OPTIONS.map((opt) => (
               <div key={opt.amount} className={`rounded-2xl border p-6 text-center ${opt.color}`}>
@@ -212,18 +203,14 @@ export default function Donate() {
               </div>
             ))}
           </div>
-          <p className="text-[10px] text-muted-foreground/60 text-center mt-4">
-            Impact figures based on average programme delivery costs, financial year 2024–2025. Full breakdown in our annual finances report.
-          </p>
+          <p className="text-[10px] text-muted-foreground/60 text-center mt-4">Impact estimates based on average programme costs, 2024–2025.</p>
         </section>
 
         {/* Ways to Give */}
         <section className="bg-muted/30 border-y border-border/20">
           <div className="container mx-auto px-6 md:px-10 py-16 max-w-5xl">
-            <h2 className="text-2xl font-bold text-foreground text-center mb-3">Six ways to help</h2>
-            <p className="text-muted-foreground text-center mb-10 max-w-lg mx-auto">
-              A one-off gift, a monthly standing order, your Zakat, your time at lunch — every route counts. Pick what suits you.
-            </p>
+            <h2 className="text-2xl font-bold text-foreground text-center mb-3">Ways to Give</h2>
+            <p className="text-muted-foreground text-center mb-10 max-w-lg mx-auto">Whether it's a one-off gift, regular giving, or your time — every contribution makes a difference.</p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {WAYS_TO_GIVE.map((way) => {
                 const Icon = way.icon;
@@ -252,18 +239,15 @@ export default function Donate() {
 
         {/* Tax-Efficient Giving */}
         <section className="container mx-auto px-6 md:px-10 py-16 max-w-3xl text-center">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Make every £1 worth £1.25</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-4">Tax-Efficient Giving</h2>
           <p className="text-muted-foreground leading-relaxed mb-6">
-            If you pay UK income tax, Gift Aid lets us reclaim an extra 25p on every pound you give — at no cost to you. Just tick the Gift Aid box at checkout. Higher-rate taxpayers can also claim the difference back through Self Assessment.
+            If you're a UK taxpayer, Gift Aid allows us to claim an extra 25p for every £1 you donate — at no extra cost to you. Simply tick the Gift Aid box when you donate. For higher-rate taxpayers, you can also claim additional tax relief through your Self Assessment.
           </p>
           <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-primary/10 border border-primary/20">
             <span className="text-sm font-semibold text-primary dark:text-primary">
-              🎁 £100 from you · £125 to our patients
+              🎁 A £100 donation becomes £125 with Gift Aid
             </span>
           </div>
-          <p className="text-xs text-muted-foreground/70 mt-6">
-            Living With Arthritis UK is committed to transparency. See our latest annual finances and governance reports for a full breakdown.
-          </p>
         </section>
       </main>
       <Footer />

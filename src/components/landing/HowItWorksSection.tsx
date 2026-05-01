@@ -3,10 +3,10 @@ import { Search, UserCheck, Dumbbell, Heart, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const STEPS = [
-  { key: "explore", icon: Search, num: "01", link: "/blog", title: "Find what fits you", desc: "Browse 120+ clinically reviewed exercises, recipes and guides — filtered by joint, condition and severity.", linkText: "Browse the library" },
-  { key: "guidance", icon: UserCheck, num: "02", link: "/chat", title: "Get a clinician-reviewed plan", desc: "Talk to our AI assistant or book a free virtual consultation with a HCPC-registered physiotherapist. No referral needed.", linkText: "Talk to the AI" },
-  { key: "programme", icon: Dumbbell, num: "03", link: "/exercises", title: "Start small. Stay consistent.", desc: "Begin with 5-minute joint-safe routines and a Mediterranean meal plan. Track flare-ups and what triggers them.", linkText: "View the routines" },
-  { key: "transform", icon: Heart, num: "04", link: "/community", title: "Feel the difference", desc: "Most people report measurably less pain and stiffness within 8–12 weeks. Share progress with 10,000+ others doing the same.", linkText: "Join the community" },
+  { key: "explore", icon: Search, num: "01", link: "/blog", title: "Explore Resources", desc: "Browse our curated library of 120+ clinically reviewed exercises, nutrition plans, and expert articles.", linkText: "Browse articles" },
+  { key: "guidance", icon: UserCheck, num: "02", link: "/chat", title: "Get Personalised Guidance", desc: "Use our AI assistant or book a free virtual consultation with a HCPC-registered physiotherapist.", linkText: "Talk to AI assistant" },
+  { key: "programme", icon: Dumbbell, num: "03", link: "/exercises", title: "Follow Your Programme", desc: "Begin with tailored low-impact exercises and an anti-inflammatory Mediterranean diet plan.", linkText: "View exercises" },
+  { key: "transform", icon: Heart, num: "04", link: "/community", title: "Transform Your Life", desc: "Track your progress, connect with 10,000+ people in our community, and celebrate milestones.", linkText: "Join community" },
 ] as const;
 
 const HowItWorksSection = memo(() => {
@@ -18,10 +18,10 @@ const HowItWorksSection = memo(() => {
         <div className="text-center mb-20">
           <span className="section-label text-primary/60 mb-5 block">How It Works</span>
           <h2 className="font-display text-3xl sm:text-4xl md:text-[3.5rem] font-bold text-foreground mb-6 leading-[1.06] tracking-tight">
-            Four steps. No waiting list.
+            Your path to better living
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto text-base sm:text-lg leading-relaxed">
-            A structured, evidence-based path designed by our clinical team. Free at every step — and yours to keep, even if you never speak to us again.
+            A structured, evidence-based approach designed by our clinical team. Most patients report significant improvement within 8–12 weeks.
           </p>
         </div>
 

@@ -173,14 +173,14 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
     <>
       <Helmet>
         <html lang="en-GB" />
-        <title>Free Arthritis Support UK — NHS-Aligned Physio, Diet & AI Help | {SITE_NAME}</title>
+        <title>Free Arthritis Support UK — AI Physio, Symptom Tracker & Expert Guides | {SITE_NAME}</title>
         <meta
           name="description"
-          content="Free virtual physiotherapy, anti-inflammatory meal plans and joint-safe exercises for arthritis in the UK. Built with HCPC-registered clinicians. NICE-aligned. No waiting list."
+          content="Free AI-guided physiotherapy, symptom tracking, anti-inflammatory diet plans and flare-up management for people with arthritis in the UK. No waiting lists. HCPC-registered clinicians, NICE-aligned."
         />
         <meta
           name="keywords"
-          content="arthritis support UK, free arthritis physiotherapy, rheumatoid arthritis help, osteoarthritis exercises, arthritis symptom tracker, anti-inflammatory diet arthritis, arthritis flare-up management, NHS arthritis waiting list"
+          content="arthritis management UK, rheumatoid arthritis help, osteoarthritis exercises, arthritis symptom tracker, free arthritis support, anti-inflammatory diet arthritis, arthritis flare-up management, living with arthritis"
         />
         <link rel="canonical" href={`${SITE_URL}/`} />
         <meta name="geo.region" content="GB" />

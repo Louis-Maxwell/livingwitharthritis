@@ -12,12 +12,12 @@ const GUIDES = [
 ] as const;
 
 const HUBS = [
-  { id: "exercises", href: "/exercises", icon: Dumbbell, title: "Exercise Hub", description: "120+ NHS-aligned routines for knees, hands, hips and shoulders. Five-minute sets you can do from a chair, with a printable weekly tracker." },
-  { id: "diet", href: "/diet", icon: Utensils, title: "Diet Hub", description: "Mediterranean meal plans built around the foods most strongly linked to lower CRP and joint pain — plus shopping lists and supplement guidance." },
-  { id: "community", href: "/community", icon: Users, title: "Community", description: "10,000+ people sharing what actually works. Moderated peer forum, lived-experience stories and a starter guide for the newly diagnosed." },
-  { id: "chat", href: "/chat", icon: MessageCircle, title: "AI Assistant", description: "Ask anything — symptoms, medications, what to do during a flare. Trained on UK clinical guidance and reviewed by HCPC clinicians. Replies in seconds." },
-  { id: "conditions", href: "/conditions/osteoarthritis", icon: Stethoscope, title: "Conditions A–Z", description: "Plain-English guides for osteoarthritis, rheumatoid and psoriatic arthritis — what it is, what helps, and what to ask your rheumatology team." },
-  { id: "health-tools", href: "/health-tools", icon: Activity, title: "Health Tools", description: "Three free tools: symptom quiz, inflammation risk score, and a personalised exercise plan generator. No signup. No data stored." },
+  { id: "exercises", href: "/exercises", icon: Dumbbell, title: "Exercise Hub", description: "NHS-aligned knee, hand, shoulder & chair routines with a printable weekly tracker." },
+  { id: "diet", href: "/diet", icon: Utensils, title: "Diet Hub", description: "Mediterranean anti-inflammatory meal plans, recipe ideas & supplement guidance." },
+  { id: "community", href: "/community", icon: Users, title: "Community", description: "Peer support forum, patient stories, downloadable resources & newly diagnosed guide." },
+  { id: "chat", href: "/chat", icon: MessageCircle, title: "AI Assistant", description: "Ask anything about arthritis — symptoms, treatments, diet or exercises. Instant & personalised." },
+  { id: "conditions", href: "/conditions/osteoarthritis", icon: Stethoscope, title: "Conditions", description: "In-depth guides for osteoarthritis, rheumatoid & psoriatic arthritis with treatment options." },
+  { id: "health-tools", href: "/health-tools", icon: Activity, title: "Health Tools", description: "Symptom quiz, inflammation calculator & personalised exercise plan generator — all free." },
 ] as const;
 
 export default function QuickAccessSection() {
@@ -34,11 +34,11 @@ export default function QuickAccessSection() {
             id="quick-access-heading"
             className="font-display text-3xl sm:text-4xl lg:text-[3.5rem] font-bold text-foreground tracking-tight leading-[1.06] mb-6"
           >
-            Six tools.{" "}
-            <span className="text-primary italic">One stronger week.</span>
+            Everything you need,{" "}
+            <span className="text-primary italic">right here</span>
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-            Pick where it hurts most — exercise, diet, community or one-to-one AI guidance — and start with something you can actually do today.
+            Jump straight to the section that helps you most — exercises, nutrition, community support or personalised AI guidance.
           </p>
         </div>
 
