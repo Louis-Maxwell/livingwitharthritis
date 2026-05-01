@@ -113,11 +113,59 @@ function listFunctions() {
     .filter((name) => !argFn || name === argFn);
 }
 
+// Env vars relevant to `deno check` behaviour. Captured for failure reports so
+// engineers can reproduce the exact invocation. Anything secret-looking is
+// redacted in `captureRelevantEnv` below.
+const RELEVANT_ENV_KEYS = [
+  "PATH",
+  "HOME",
+  "PWD",
+  "SHELL",
+  "DENO_DIR",
+  "DENO_INSTALL",
+  "DENO_INSTALL_ROOT",
+  "DENO_NO_UPDATE_CHECK",
+  "DENO_NO_PACKAGE_JSON",
+  "DENO_FUTURE",
+  "DENO_TLS_CA_STORE",
+  "DENO_CERT",
+  "DENO_AUTH_TOKENS", // value redacted
+  "NPM_CONFIG_REGISTRY",
+  "NODE_EXTRA_CA_CERTS",
+  "HTTP_PROXY",
+  "HTTPS_PROXY",
+  "NO_PROXY",
+  "CI",
+  "GITHUB_ACTIONS",
+  "RUNNER_OS",
+];
+
+const SECRET_ENV_KEYS = new Set(["DENO_AUTH_TOKENS"]);
+
+function captureRelevantEnv() {
+  const out = {};
+  for (const key of RELEVANT_ENV_KEYS) {
+    const val = process.env[key];
+    if (val === undefined) continue;
+    out[key] = SECRET_ENV_KEYS.has(key) ? "***redacted***" : val;
+  }
+  return out;
+}
+
+function formatSpawnCommand(cmd, args) {
+  const quote = (s) => (/[\s"'$`\\]/.test(s) ? `'${s.replace(/'/g, "'\\''")}'` : s);
+  return [cmd, ...args].map(quote).join(" ");
+}
+
 function checkEntrypoint(entryPath) {
+  const denoArgs = ["check", entryPath];
+  const spawnCommand = formatSpawnCommand("deno", denoArgs);
+  const cwd = ROOT;
+  const env = captureRelevantEnv();
   const started = Date.now();
-  const result = spawnSync("deno", ["check", entryPath], {
+  const result = spawnSync("deno", denoArgs, {
     encoding: "utf8",
-    cwd: ROOT,
+    cwd,
   });
   const durationMs = Date.now() - started;
 
@@ -128,6 +176,9 @@ function checkEntrypoint(entryPath) {
       stdout: "",
       stderr: `Failed to spawn deno: ${result.error.message}. Is Deno installed and in PATH?`,
       exitCode: -1,
+      spawnCommand,
+      cwd,
+      env,
     };
   }
   return {
@@ -136,6 +187,9 @@ function checkEntrypoint(entryPath) {
     stdout: result.stdout?.trim() ?? "",
     stderr: result.stderr?.trim() ?? "",
     exitCode: result.status ?? -1,
+    spawnCommand,
+    cwd,
+    env,
   };
 }
 
@@ -274,6 +328,17 @@ function buildReport(results, ts, denoVersion, requiredVersion) {
         lines.push(`### ${r.name} :: ${c.entrypoint}`);
         lines.push(`path: ${c.path}`);
         lines.push(`exit code: ${c.exitCode}`);
+        lines.push("--- reproduction ---");
+        lines.push(`cwd: ${c.cwd ?? "(unknown)"}`);
+        lines.push(`command: ${c.spawnCommand ?? "(unknown)"}`);
+        if (c.env && Object.keys(c.env).length > 0) {
+          lines.push("env:");
+          for (const [k, v] of Object.entries(c.env)) {
+            lines.push(`  ${k}=${v}`);
+          }
+        } else {
+          lines.push("env: (none of the tracked keys were set)");
+        }
         if (c.findings && c.findings.length > 0) {
           lines.push("--- missing imports / unresolved specifiers ---");
           lines.push(formatFindings(c.findings, "  "));
