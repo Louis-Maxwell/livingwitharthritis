@@ -290,8 +290,15 @@ function buildReport(results, ts, denoVersion, requiredVersion) {
           lines.push(c.stdout);
         }
         if (c.stderr) {
-          lines.push("--- stderr ---");
+          lines.push("--- stderr (trimmed) ---");
           lines.push(c.stderr);
+        }
+        const raw = c.stderrRaw ?? c.stderr ?? "";
+        if (raw) {
+          lines.push("--- stderr (raw, exact bytes that triggered the failure) ---");
+          lines.push("<<<RAW_STDERR_BEGIN>>>");
+          lines.push(raw);
+          lines.push("<<<RAW_STDERR_END>>>");
         }
         lines.push("");
       }
