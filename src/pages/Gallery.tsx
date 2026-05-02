@@ -1,8 +1,9 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/ui/PageHero";
+import SeoHead from "@/components/SeoHead";
 import { Badge } from "@/components/ui/badge";
 import { openverseImages, type OpenverseTheme } from "@/data/openverseImages";
 
@@ -16,17 +17,6 @@ const FILTERS: { value: "all" | OpenverseTheme; label: string }[] = [
 
 const Gallery = () => {
   const [filter, setFilter] = useState<(typeof FILTERS)[number]["value"]>("all");
-
-  useEffect(() => {
-    document.title = "Image Gallery — 50 Creative Commons photos | Living With Arthritis";
-    const desc = document.querySelector('meta[name="description"]');
-    if (desc) {
-      desc.setAttribute(
-        "content",
-        "A curated gallery of 50 Creative Commons images covering arthritis, joint health, exercise, nutrition and community — sourced from Wikimedia Commons.",
-      );
-    }
-  }, []);
 
   const visible = useMemo(
     () => (filter === "all" ? openverseImages : openverseImages.filter((i) => i.theme === filter)),
