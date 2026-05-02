@@ -462,17 +462,17 @@ ExercisePanel.displayName = "ExercisePanel";
 /* ── Main Section ── */
 
 const JointExerciseSection = memo(() => {
-  const [activeJoint, setActiveJoint] = useState<string | null>(null);
+  const [activeSelectionId, setActiveSelectionId] = useState<string | null>(null);
   const [highlight, setHighlight] = useState(false);
   const panelWrapRef = useRef<HTMLDivElement>(null);
 
-  const handleJointClick = useCallback((jointId: string) => {
-    setActiveJoint((prev) => (prev === jointId ? null : jointId));
+  const handleJointClick = useCallback((selectionId: string) => {
+    setActiveSelectionId((prev) => (prev === selectionId ? null : selectionId));
   }, []);
 
   // Scroll to & highlight the panel whenever a joint is selected
   useEffect(() => {
-    if (!activeJoint || !panelWrapRef.current) return;
+    if (!activeSelectionId || !panelWrapRef.current) return;
     const isMobile = window.matchMedia("(max-width: 1023px)").matches;
     panelWrapRef.current.scrollIntoView({
       behavior: "smooth",
@@ -481,9 +481,10 @@ const JointExerciseSection = memo(() => {
     setHighlight(true);
     const t = window.setTimeout(() => setHighlight(false), 1600);
     return () => window.clearTimeout(t);
-  }, [activeJoint]);
+  }, [activeSelectionId]);
 
-  const activeData = activeJoint ? jointDatabase[activeJoint] : null;
+  const { jointId: activeJointId, side: activeSide } = parseSelectionId(activeSelectionId);
+  const activeData = activeJointId ? jointDatabase[activeJointId] : null;
 
   return (
     <section id="joint-exercises" className="py-14 lg:py-20 relative overflow-hidden bg-background">
