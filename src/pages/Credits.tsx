@@ -1,8 +1,8 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/ui/PageHero";
+import SeoHead from "@/components/SeoHead";
 import { openverseImages, type OpenverseTheme } from "@/data/openverseImages";
 
 const THEME_LABELS: Record<OpenverseTheme, string> = {
@@ -13,16 +13,6 @@ const THEME_LABELS: Record<OpenverseTheme, string> = {
 };
 
 const Credits = () => {
-  useEffect(() => {
-    document.title = "Image Credits & Attribution | Living With Arthritis";
-    const desc = document.querySelector('meta[name="description"]');
-    if (desc) {
-      desc.setAttribute(
-        "content",
-        "Full attribution for the 50 Creative Commons images used across Living With Arthritis. Each entry credits the original creator, license and source.",
-      );
-    }
-  }, []);
 
   const grouped = (Object.keys(THEME_LABELS) as OpenverseTheme[]).map((theme) => ({
     theme,
@@ -32,6 +22,11 @@ const Credits = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SeoHead
+        title="Image Credits & Attribution"
+        description="Full attribution for the 50 Creative Commons images used across Living With Arthritis. Each entry credits the original creator, license and source."
+        path="/credits"
+      />
       <Header />
       <main>
         <PageHero

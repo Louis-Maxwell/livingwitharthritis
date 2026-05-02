@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import SeoHead from "@/components/SeoHead";
 import {
   LineChart,
   Line,
@@ -125,6 +126,7 @@ export default function AdminPsiDashboard() {
 
   return (
     <main className="min-h-screen bg-background py-12 px-4">
+      <SeoHead title="Admin: PageSpeed Dashboard" description="Internal PageSpeed Insights performance dashboard." path="/admin/psi" noindex />
       <div className="mx-auto max-w-7xl">
         <header className="mb-10">
           <h1 className="font-serif text-4xl font-bold tracking-tight text-foreground">

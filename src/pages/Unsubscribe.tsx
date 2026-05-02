@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { MailX, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import SeoHead from "@/components/SeoHead";
 
 type Status = "loading" | "valid" | "already" | "invalid" | "confirming" | "done" | "error";
 
@@ -49,6 +50,12 @@ const Unsubscribe = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background px-4">
+      <SeoHead
+        title="Unsubscribe from Emails"
+        description="Manage your email preferences for Living With Arthritis UK communications."
+        path="/unsubscribe"
+        noindex
+      />
       <div className="max-w-md w-full text-center space-y-6 p-8 rounded-2xl border bg-card shadow-sm">
         {status === "loading" && (
           <>

@@ -175,7 +175,11 @@ Regulated by the Charity Commission for England and Wales.
             address: { "@type": "PostalAddress", streetAddress: "Oswestry Health Centre, Thomas Savin Road, Off Gobowen Road", addressLocality: "Oswestry", postalCode: "SY11 1GA", addressCountry: "GB" },
           }
         })}</script>
-      </Helmet>
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Governance & Constitution | Living With Arthritis UK Charity" />
+      <meta name="twitter:description" content="Our charity governance structure, board of trustees, constitution, and policies. Regulated by the Charity Commission for England and Wales." />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+    </Helmet>
 
       <Header />
 

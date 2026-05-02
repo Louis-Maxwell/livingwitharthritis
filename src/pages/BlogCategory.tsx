@@ -1,7 +1,35 @@
 import { useParams, Navigate } from "react-router-dom";
 import BlogIndex from "./BlogIndex";
+import SeoHead from "@/components/SeoHead";
 
 const validCategories = ["exercise", "nutrition", "lifestyle", "health", "supplements", "treatment"];
+
+const CATEGORY_META: Record<string, { title: string; description: string }> = {
+  exercise: {
+    title: "Arthritis Exercise Articles & Guides",
+    description: "Evidence-based articles on safe exercise for arthritis — strength, mobility, low-impact cardio and joint-protective movement, written for UK patients.",
+  },
+  nutrition: {
+    title: "Anti-Inflammatory Nutrition for Arthritis",
+    description: "Mediterranean diet, anti-inflammatory recipes and food guidance for people living with arthritis in the UK. Written by clinicians.",
+  },
+  lifestyle: {
+    title: "Lifestyle Tips for Living With Arthritis",
+    description: "Practical lifestyle advice for arthritis — sleep, stress, work, daily routines and relationships. UK-focused guidance from our team.",
+  },
+  health: {
+    title: "Arthritis Health & Wellbeing Articles",
+    description: "Trusted UK arthritis health articles — symptoms, flare-ups, mental health, NHS pathways and clinical updates from HCPC-registered authors.",
+  },
+  supplements: {
+    title: "Supplements for Arthritis: Evidence & Reviews",
+    description: "Independent reviews of arthritis supplements — turmeric, omega-3, glucosamine, collagen and more. Evidence-graded by UK clinicians.",
+  },
+  treatment: {
+    title: "Arthritis Treatment Articles & Updates",
+    description: "Latest arthritis treatment articles — medications, NHS care pathways, physiotherapy, surgery and emerging research, explained for UK patients.",
+  },
+};
 
 const BlogCategory = () => {
   const { category } = useParams<{ category: string }>();
@@ -10,7 +38,21 @@ const BlogCategory = () => {
     return <Navigate to="/blog" replace />;
   }
 
-  return <BlogIndex initialCategory={category} />;
+  const key = category.toLowerCase();
+  const meta = CATEGORY_META[key];
+
+  return (
+    <>
+      {meta && (
+        <SeoHead
+          title={meta.title}
+          description={meta.description}
+          path={`/blog/category/${key}`}
+        />
+      )}
+      <BlogIndex initialCategory={category} />
+    </>
+  );
 };
 
 export default BlogCategory;

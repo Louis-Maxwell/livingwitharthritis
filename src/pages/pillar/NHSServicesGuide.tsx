@@ -137,7 +137,20 @@ export default function NHSServicesGuide() {
         <link rel="canonical" href="https://livingwitharthritis.org.uk/guides/nhs-services" />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
-      </Helmet>
+      <meta property="og:title" content="NHS Arthritis Services UK – GP, Rheumatology, Physio &amp; Joint Replacement Guide" />
+      <meta property="og:description" content="Complete guide to NHS arthritis services: GP referrals, first contact physiotherapists, rheumatology clinics, pain management, joint replacement surgery and mental health support across the UK." />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://livingwitharthritis.org.uk/guides/nhs-services" />
+      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:locale" content="en_GB" />
+      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="NHS Arthritis Services UK – GP, Rheumatology, Physio &amp; Joint Replacement Guide" />
+      <meta name="twitter:description" content="Complete guide to NHS arthritis services: GP referrals, first contact physiotherapists, rheumatology clinics, pain management, joint replacement surgery and mental health support across the UK." />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+    </Helmet>
       <Header />
       <main className="min-h-screen bg-background">
         <PageHero

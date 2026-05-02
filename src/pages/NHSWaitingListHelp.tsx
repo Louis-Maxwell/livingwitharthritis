@@ -77,7 +77,11 @@ const NHSWaitingListHelp = () => {
         <meta property="og:description" content="Free, evidence-based help for UK arthritis patients waiting for NHS rheumatology." />
         <meta property="og:url" content={`${BASE}/nhs-arthritis-waiting-list-help`} />
         <meta name="geo.region" content="GB" />
-      </Helmet>
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="NHS Arthritis Waiting List Help — Free UK Patient Support | Living With Arthritis" />
+      <meta name="twitter:description" content="Stuck on the NHS rheumatology waiting list? Get free, evidence-based arthritis help, exercises, diet plans and a waiting time calculator for UK patients." />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+    </Helmet>
 
       <Header />
 

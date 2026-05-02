@@ -181,7 +181,20 @@ const Sitemap = () => {
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/sitemap" />
-      </Helmet>
+      <meta property="og:title" content="Sitemap – Living With Arthritis UK" />
+      <meta property="og:description" content="Browse all pages on Living With Arthritis UK. Find arthritis advice, exercises, diet tips and support resources." />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://livingwitharthritis.org.uk/sitemap" />
+      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:locale" content="en_GB" />
+      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Sitemap – Living With Arthritis UK" />
+      <meta name="twitter:description" content="Browse all pages on Living With Arthritis UK. Find arthritis advice, exercises, diet tips and support resources." />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+    </Helmet>
 
       <div className="min-h-screen bg-background">
         <Header />

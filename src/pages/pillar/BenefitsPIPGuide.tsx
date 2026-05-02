@@ -184,7 +184,20 @@ export default function BenefitsPIPGuide() {
         <link rel="canonical" href="https://livingwitharthritis.org.uk/guides/benefits-pip" />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
-      </Helmet>
+      <meta property="og:title" content="Arthritis Benefits &amp; PIP Guide UK – Personal Independence Payment, Blue Badge &amp; More" />
+      <meta property="og:description" content="Complete guide to UK benefits for arthritis: PIP (Personal Independence Payment), Attendance Allowance, Blue Badge, Motability, workplace rights, Disabled Facilities Grant and where to get free help." />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://livingwitharthritis.org.uk/guides/benefits-pip" />
+      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:locale" content="en_GB" />
+      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Arthritis Benefits &amp; PIP Guide UK – Personal Independence Payment, Blue Badge &amp; More" />
+      <meta name="twitter:description" content="Complete guide to UK benefits for arthritis: PIP (Personal Independence Payment), Attendance Allowance, Blue Badge, Motability, workplace rights, Disabled Facilities Grant and where to get free help." />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+    </Helmet>
       <Header />
       <main className="min-h-screen bg-background">
         <PageHero

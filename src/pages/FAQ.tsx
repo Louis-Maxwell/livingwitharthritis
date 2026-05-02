@@ -13,6 +13,19 @@ const FAQ = () => (
       <title>Arthritis FAQs UK: Symptoms, Treatment, Diet & Exercise Answers</title>
       <meta name="description" content="Arthritis FAQs answered by UK clinicians — symptoms, flare-ups, treatment, diet, exercise, AI safety and how to access free Living With Arthritis support." />
       <link rel="canonical" href="https://livingwitharthritis.org.uk/faq" />
+      <meta property="og:title" content="Arthritis FAQs UK: Symptoms, Treatment, Diet & Exercise Answers" />
+      <meta property="og:description" content="Arthritis FAQs answered by UK clinicians — symptoms, flare-ups, treatment, diet, exercise, AI safety and how to access free Living With Arthritis support." />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://livingwitharthritis.org.uk/faq" />
+      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:locale" content="en_GB" />
+      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Arthritis FAQs UK: Symptoms, Treatment, Diet & Exercise Answers" />
+      <meta name="twitter:description" content="Arthritis FAQs answered by UK clinicians — symptoms, flare-ups, treatment, diet, exercise, AI safety and how to access free Living With Arthritis support." />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
     </Helmet>
     <Header />
     <main id="main-content" role="main" tabIndex={-1}>

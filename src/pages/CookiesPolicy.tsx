@@ -28,6 +28,10 @@ const CookiesPolicy = () => (
         "inLanguage": "en-GB",
         "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" }
       })}</script>
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Cookies Policy – How We Use Cookies | Living With Arthritis UK" />
+      <meta name="twitter:description" content="Cookies Policy for Living With Arthritis UK. Learn about essential, functional, analytics and payment cookies we use, why we use them, and how to manage your preferences under UK GDPR." />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
     </Helmet>
     <div className="min-h-screen bg-background">
       <Header />

@@ -122,6 +122,15 @@ const CityConditionPage = () => {
           name="keywords"
           content={`${conditionData.name} ${cityData.name}, ${conditionData.shortName} ${cityData.name}, rheumatology ${cityData.name}, NHS arthritis ${cityData.name}, ${cityData.nhsTrust}`}
         />
+        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:locale" content="en_GB" />
+        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={metaDescription} />
+        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
         <script type="application/ld+json">{JSON.stringify(medicalConditionLd)}</script>
         <script type="application/ld+json">{JSON.stringify(webPageLd)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
