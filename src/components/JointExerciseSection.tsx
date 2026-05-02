@@ -322,12 +322,25 @@ const Humanoid = memo(({ activeSelectionId, onJointClick }: {
       <g>
         {HUMANOID_JOINTS.map((p) => {
           const isPaired = PAIRED.has(p.id);
-          const leftActive = activeSelectionId === buildSelectionId(p.id, isPaired ? "left" : null);
-          const rightActive = isPaired && activeSelectionId === buildSelectionId(p.id, "right");
+          const leftId = buildSelectionId(p.id, isPaired ? "left" : null);
+          const rightId = buildSelectionId(p.id, "right");
+          const leftActive = activeSelectionId === leftId;
+          const rightActive = isPaired && activeSelectionId === rightId;
+          const leftFocused = focused === leftId;
+          const rightFocused = isPaired && focused === rightId;
+          const focusRing = (cx: number, cy: number) =>
+            p.shape === "circle" ? (
+              <circle cx={cx} cy={cy} r={p.r! + 5} fill="none" stroke="hsl(48 100% 60%)" strokeWidth="2" strokeDasharray="3 2" pointerEvents="none" />
+            ) : p.shape === "ellipse" ? (
+              <ellipse cx={cx} cy={cy} rx={(p.rx ?? 0) + 4} ry={(p.ry ?? 0) + 4} fill="none" stroke="hsl(48 100% 60%)" strokeWidth="2" strokeDasharray="3 2" pointerEvents="none" />
+            ) : null;
           return (
             <g key={p.id}>
               {renderJointShape(p, isPaired ? "left" : null)}
               {isPaired && renderJointShape(p, "right")}
+              {/* Focus ring */}
+              {leftFocused && p.cx != null && focusRing(p.cx, p.cy!)}
+              {rightFocused && p.cx != null && focusRing(mirroredX(p.cx), p.cy!)}
               {/* Pulse ring for active side(s) */}
               {leftActive && p.shape === "circle" && (
                 <circle cx={p.cx} cy={p.cy} r={p.r! + 4} fill="none" stroke="hsl(180 70% 50% / 0.6)" strokeWidth="1.5" pointerEvents="none">
