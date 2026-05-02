@@ -147,15 +147,31 @@ const HUMANOID_JOINTS: JointPart[] = [
 /** Mirror coords for the right side of the body where applicable */
 const mirroredX = (x: number) => 200 - x;
 
-const Humanoid = memo(({ activeJoint, onJointClick }: {
-  activeJoint: string | null;
-  onJointClick: (id: string) => void;
+/** Joints that have left/right pairs */
+const PAIRED = new Set(["shoulder", "elbow", "wrist", "knee", "ankle"]);
+
+/** Build the side-aware selection id used by both the SVG and the panel */
+const buildSelectionId = (jointId: string, side: "left" | "right" | null) =>
+  side && PAIRED.has(jointId) ? `${jointId}-${side}` : jointId;
+
+/** Parse a selectionId back into its joint id + side */
+const parseSelectionId = (id: string | null): { jointId: string | null; side: "left" | "right" | null } => {
+  if (!id) return { jointId: null, side: null };
+  if (id.endsWith("-left")) return { jointId: id.slice(0, -5), side: "left" };
+  if (id.endsWith("-right")) return { jointId: id.slice(0, -6), side: "right" };
+  return { jointId: id, side: null };
+};
+
+const Humanoid = memo(({ activeSelectionId, onJointClick }: {
+  activeSelectionId: string | null;
+  onJointClick: (selectionId: string) => void;
 }) => {
   const [hovered, setHovered] = useState<string | null>(null);
 
-  const renderJointShape = (p: JointPart, mirror = false) => {
-    const isActive = activeJoint === p.id;
-    const isHover = hovered === p.id;
+  const renderJointShape = (p: JointPart, side: "left" | "right" | null) => {
+    const selectionId = buildSelectionId(p.id, side);
+    const isActive = activeSelectionId === selectionId;
+    const isHover = hovered === selectionId;
     const fill = isActive
       ? "url(#jointActiveGrad)"
       : isHover
@@ -163,6 +179,7 @@ const Humanoid = memo(({ activeJoint, onJointClick }: {
         : "hsl(180 60% 50% / 0.55)";
     const stroke = isActive ? "hsl(0 0% 100%)" : "hsl(180 70% 35% / 0.6)";
     const strokeWidth = isActive ? 2 : 1.2;
+    const sideLabel = side ? `${side === "left" ? "Left" : "Right"} ${p.label}` : p.label;
 
     const commonProps = {
       fill,
@@ -177,20 +194,21 @@ const Humanoid = memo(({ activeJoint, onJointClick }: {
             : "none",
         transition: "all 0.25s ease",
       } as React.CSSProperties,
-      onClick: () => onJointClick(p.id),
-      onMouseEnter: () => setHovered(p.id),
+      onClick: () => onJointClick(selectionId),
+      onMouseEnter: () => setHovered(selectionId),
       onMouseLeave: () => setHovered(null),
       role: "button",
       tabIndex: 0,
-      "aria-label": `Exercise plan for ${p.label}`,
+      "aria-label": `Exercise plan for ${sideLabel}`,
       onKeyDown: (e: React.KeyboardEvent) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
-          onJointClick(p.id);
+          onJointClick(selectionId);
         }
       },
     };
 
+    const mirror = side === "right";
     if (p.shape === "circle") {
       return <circle cx={mirror ? mirroredX(p.cx!) : p.cx} cy={p.cy} r={p.r} {...commonProps} />;
     }
@@ -293,37 +311,42 @@ const Humanoid = memo(({ activeJoint, onJointClick }: {
 
       {/* === CLICKABLE JOINTS === */}
       <g>
-        {HUMANOID_JOINTS.map((p) => (
-          <g key={p.id}>
-            {renderJointShape(p, false)}
-            {paired.has(p.id) && renderJointShape(p, true)}
-            {/* Pulse for active */}
-            {activeJoint === p.id && p.shape === "circle" && (
-              <>
-                <circle cx={p.cx} cy={p.cy} r={p.r! + 4} fill="none" stroke="hsl(180 70% 50% / 0.6)" strokeWidth="1.5">
+        {HUMANOID_JOINTS.map((p) => {
+          const isPaired = PAIRED.has(p.id);
+          const leftActive = activeSelectionId === buildSelectionId(p.id, isPaired ? "left" : null);
+          const rightActive = isPaired && activeSelectionId === buildSelectionId(p.id, "right");
+          return (
+            <g key={p.id}>
+              {renderJointShape(p, isPaired ? "left" : null)}
+              {isPaired && renderJointShape(p, "right")}
+              {/* Pulse ring for active side(s) */}
+              {leftActive && p.shape === "circle" && (
+                <circle cx={p.cx} cy={p.cy} r={p.r! + 4} fill="none" stroke="hsl(180 70% 50% / 0.6)" strokeWidth="1.5" pointerEvents="none">
                   <animate attributeName="r" from={p.r} to={p.r! + 10} dur="1.5s" repeatCount="indefinite" />
                   <animate attributeName="opacity" from="0.8" to="0" dur="1.5s" repeatCount="indefinite" />
                 </circle>
-                {paired.has(p.id) && (
-                  <circle cx={mirroredX(p.cx!)} cy={p.cy} r={p.r! + 4} fill="none" stroke="hsl(180 70% 50% / 0.6)" strokeWidth="1.5">
-                    <animate attributeName="r" from={p.r} to={p.r! + 10} dur="1.5s" repeatCount="indefinite" />
-                    <animate attributeName="opacity" from="0.8" to="0" dur="1.5s" repeatCount="indefinite" />
-                  </circle>
-                )}
-              </>
-            )}
-          </g>
-        ))}
+              )}
+              {rightActive && p.shape === "circle" && (
+                <circle cx={mirroredX(p.cx!)} cy={p.cy} r={p.r! + 4} fill="none" stroke="hsl(180 70% 50% / 0.6)" strokeWidth="1.5" pointerEvents="none">
+                  <animate attributeName="r" from={p.r} to={p.r! + 10} dur="1.5s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" from="0.8" to="0" dur="1.5s" repeatCount="indefinite" />
+                </circle>
+              )}
+            </g>
+          );
+        })}
       </g>
 
       {/* === LABELS WITH CONNECTOR LINES === */}
       <g pointerEvents="none">
         {HUMANOID_JOINTS.map((p) => {
-          const isActive = activeJoint === p.id;
+          const { jointId: activeJointId } = parseSelectionId(activeSelectionId);
+          const isActive = activeJointId === p.id;
+          const isHover = hovered?.startsWith(p.id) ?? false;
           const startX = p.shape === "circle" ? p.cx! : p.shape === "ellipse" ? p.cx! : 100;
           const startY = p.shape === "circle" ? p.cy! : p.shape === "ellipse" ? p.cy! : p.labelY;
           return (
-            <g key={`label-${p.id}`} opacity={isActive || hovered === p.id ? 1 : 0.7}>
+            <g key={`label-${p.id}`} opacity={isActive || isHover ? 1 : 0.7}>
               <line
                 x1={startX}
                 y1={startY}
@@ -357,7 +380,7 @@ Humanoid.displayName = "Humanoid";
 
 /* ── Exercise Panel ── */
 
-const ExercisePanel = memo(({ joint, onClose }: { joint: JointData; onClose: () => void }) => (
+const ExercisePanel = memo(({ joint, side, onClose }: { joint: JointData; side: "left" | "right" | null; onClose: () => void }) => (
   <motion.div
     initial={{ opacity: 0, x: 30 }}
     animate={{ opacity: 1, x: 0 }}
@@ -381,7 +404,14 @@ const ExercisePanel = memo(({ joint, onClose }: { joint: JointData; onClose: () 
           <Activity className="w-5 h-5" />
         </div>
         <div className="text-white">
-          <h3 className="text-xl font-display font-bold">{joint.label}</h3>
+          <h3 className="text-xl font-display font-bold">
+            {joint.label}
+            {side && PAIRED.has(joint.id) && (
+              <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold uppercase tracking-wide bg-white/25 text-white">
+                {side === "left" ? "Left side" : "Right side"}
+              </span>
+            )}
+          </h3>
           <p className="text-white/80 text-xs">Home Exercise Plan</p>
         </div>
       </div>
@@ -432,17 +462,17 @@ ExercisePanel.displayName = "ExercisePanel";
 /* ── Main Section ── */
 
 const JointExerciseSection = memo(() => {
-  const [activeJoint, setActiveJoint] = useState<string | null>(null);
+  const [activeSelectionId, setActiveSelectionId] = useState<string | null>(null);
   const [highlight, setHighlight] = useState(false);
   const panelWrapRef = useRef<HTMLDivElement>(null);
 
-  const handleJointClick = useCallback((jointId: string) => {
-    setActiveJoint((prev) => (prev === jointId ? null : jointId));
+  const handleJointClick = useCallback((selectionId: string) => {
+    setActiveSelectionId((prev) => (prev === selectionId ? null : selectionId));
   }, []);
 
   // Scroll to & highlight the panel whenever a joint is selected
   useEffect(() => {
-    if (!activeJoint || !panelWrapRef.current) return;
+    if (!activeSelectionId || !panelWrapRef.current) return;
     const isMobile = window.matchMedia("(max-width: 1023px)").matches;
     panelWrapRef.current.scrollIntoView({
       behavior: "smooth",
@@ -451,9 +481,10 @@ const JointExerciseSection = memo(() => {
     setHighlight(true);
     const t = window.setTimeout(() => setHighlight(false), 1600);
     return () => window.clearTimeout(t);
-  }, [activeJoint]);
+  }, [activeSelectionId]);
 
-  const activeData = activeJoint ? jointDatabase[activeJoint] : null;
+  const { jointId: activeJointId, side: activeSide } = parseSelectionId(activeSelectionId);
+  const activeData = activeJointId ? jointDatabase[activeJointId] : null;
 
   return (
     <section id="joint-exercises" className="py-14 lg:py-20 relative overflow-hidden bg-background">
@@ -490,7 +521,7 @@ const JointExerciseSection = memo(() => {
                   background: "radial-gradient(ellipse at center 30%, hsl(200 80% 90% / 0.6), transparent 70%)",
                 }}
               />
-              <Humanoid activeJoint={activeJoint} onJointClick={handleJointClick} />
+              <Humanoid activeSelectionId={activeSelectionId} onJointClick={handleJointClick} />
             </div>
           </motion.div>
 
@@ -504,9 +535,10 @@ const JointExerciseSection = memo(() => {
             <AnimatePresence mode="wait">
               {activeData ? (
                 <ExercisePanel
-                  key={activeData.id}
+                  key={activeSelectionId ?? activeData.id}
                   joint={activeData}
-                  onClose={() => setActiveJoint(null)}
+                  side={activeSide}
+                  onClose={() => setActiveSelectionId(null)}
                 />
               ) : (
                 <motion.div
