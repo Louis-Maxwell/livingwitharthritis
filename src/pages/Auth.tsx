@@ -4,6 +4,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import SeoHead from '@/components/SeoHead';
 
 export default function AuthPage() {
   const navigate = useNavigate();
@@ -38,6 +39,12 @@ export default function AuthPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-muted/30 p-4">
+      <SeoHead
+        title="Sign In or Create Account"
+        description="Sign in to Living With Arthritis UK to access your free arthritis support tools, AI physiotherapy assistant and personalised resources."
+        path="/auth"
+        noindex
+      />
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
