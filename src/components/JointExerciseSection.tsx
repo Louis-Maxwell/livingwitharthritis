@@ -340,11 +340,13 @@ const Humanoid = memo(({ activeSelectionId, onJointClick }: {
       {/* === LABELS WITH CONNECTOR LINES === */}
       <g pointerEvents="none">
         {HUMANOID_JOINTS.map((p) => {
-          const isActive = activeJoint === p.id;
+          const { jointId: activeJointId } = parseSelectionId(activeSelectionId);
+          const isActive = activeJointId === p.id;
+          const isHover = hovered?.startsWith(p.id) ?? false;
           const startX = p.shape === "circle" ? p.cx! : p.shape === "ellipse" ? p.cx! : 100;
           const startY = p.shape === "circle" ? p.cy! : p.shape === "ellipse" ? p.cy! : p.labelY;
           return (
-            <g key={`label-${p.id}`} opacity={isActive || hovered === p.id ? 1 : 0.7}>
+            <g key={`label-${p.id}`} opacity={isActive || isHover ? 1 : 0.7}>
               <line
                 x1={startX}
                 y1={startY}
