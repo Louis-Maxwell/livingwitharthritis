@@ -535,9 +535,10 @@ const JointExerciseSection = memo(() => {
             <AnimatePresence mode="wait">
               {activeData ? (
                 <ExercisePanel
-                  key={activeData.id}
+                  key={activeSelectionId ?? activeData.id}
                   joint={activeData}
-                  onClose={() => setActiveJoint(null)}
+                  side={activeSide}
+                  onClose={() => setActiveSelectionId(null)}
                 />
               ) : (
                 <motion.div
