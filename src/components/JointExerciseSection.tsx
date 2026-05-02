@@ -311,27 +311,30 @@ const Humanoid = memo(({ activeSelectionId, onJointClick }: {
 
       {/* === CLICKABLE JOINTS === */}
       <g>
-        {HUMANOID_JOINTS.map((p) => (
-          <g key={p.id}>
-            {renderJointShape(p, false)}
-            {paired.has(p.id) && renderJointShape(p, true)}
-            {/* Pulse for active */}
-            {activeJoint === p.id && p.shape === "circle" && (
-              <>
-                <circle cx={p.cx} cy={p.cy} r={p.r! + 4} fill="none" stroke="hsl(180 70% 50% / 0.6)" strokeWidth="1.5">
+        {HUMANOID_JOINTS.map((p) => {
+          const isPaired = PAIRED.has(p.id);
+          const leftActive = activeSelectionId === buildSelectionId(p.id, isPaired ? "left" : null);
+          const rightActive = isPaired && activeSelectionId === buildSelectionId(p.id, "right");
+          return (
+            <g key={p.id}>
+              {renderJointShape(p, isPaired ? "left" : null)}
+              {isPaired && renderJointShape(p, "right")}
+              {/* Pulse ring for active side(s) */}
+              {leftActive && p.shape === "circle" && (
+                <circle cx={p.cx} cy={p.cy} r={p.r! + 4} fill="none" stroke="hsl(180 70% 50% / 0.6)" strokeWidth="1.5" pointerEvents="none">
                   <animate attributeName="r" from={p.r} to={p.r! + 10} dur="1.5s" repeatCount="indefinite" />
                   <animate attributeName="opacity" from="0.8" to="0" dur="1.5s" repeatCount="indefinite" />
                 </circle>
-                {paired.has(p.id) && (
-                  <circle cx={mirroredX(p.cx!)} cy={p.cy} r={p.r! + 4} fill="none" stroke="hsl(180 70% 50% / 0.6)" strokeWidth="1.5">
-                    <animate attributeName="r" from={p.r} to={p.r! + 10} dur="1.5s" repeatCount="indefinite" />
-                    <animate attributeName="opacity" from="0.8" to="0" dur="1.5s" repeatCount="indefinite" />
-                  </circle>
-                )}
-              </>
-            )}
-          </g>
-        ))}
+              )}
+              {rightActive && p.shape === "circle" && (
+                <circle cx={mirroredX(p.cx!)} cy={p.cy} r={p.r! + 4} fill="none" stroke="hsl(180 70% 50% / 0.6)" strokeWidth="1.5" pointerEvents="none">
+                  <animate attributeName="r" from={p.r} to={p.r! + 10} dur="1.5s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" from="0.8" to="0" dur="1.5s" repeatCount="indefinite" />
+                </circle>
+              )}
+            </g>
+          );
+        })}
       </g>
 
       {/* === LABELS WITH CONNECTOR LINES === */}
