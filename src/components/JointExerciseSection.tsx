@@ -167,18 +167,20 @@ const Humanoid = memo(({ activeSelectionId, onJointClick }: {
   onJointClick: (selectionId: string) => void;
 }) => {
   const [hovered, setHovered] = useState<string | null>(null);
+  const [focused, setFocused] = useState<string | null>(null);
 
   const renderJointShape = (p: JointPart, side: "left" | "right" | null) => {
     const selectionId = buildSelectionId(p.id, side);
     const isActive = activeSelectionId === selectionId;
     const isHover = hovered === selectionId;
+    const isFocused = focused === selectionId;
     const fill = isActive
       ? "url(#jointActiveGrad)"
-      : isHover
+      : isHover || isFocused
         ? "hsl(180 70% 50% / 0.85)"
         : "hsl(180 60% 50% / 0.55)";
-    const stroke = isActive ? "hsl(0 0% 100%)" : "hsl(180 70% 35% / 0.6)";
-    const strokeWidth = isActive ? 2 : 1.2;
+    const stroke = isActive || isFocused ? "hsl(0 0% 100%)" : "hsl(180 70% 35% / 0.6)";
+    const strokeWidth = isActive || isFocused ? 2 : 1.2;
     const sideLabel = side ? `${side === "left" ? "Left" : "Right"} ${p.label}` : p.label;
 
     const commonProps = {
