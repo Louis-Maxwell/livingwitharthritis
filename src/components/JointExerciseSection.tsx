@@ -495,7 +495,12 @@ const JointExerciseSection = memo(() => {
           </motion.div>
 
           {/* Exercise panel */}
-          <div className="min-h-[300px]">
+          <div
+            ref={panelWrapRef}
+            className={`min-h-[300px] scroll-mt-24 rounded-2xl transition-all duration-700 ${
+              highlight ? "ring-4 ring-[hsl(180_70%_50%_/_0.55)] ring-offset-2 ring-offset-background shadow-[0_0_40px_-5px_hsl(180_70%_50%_/_0.5)]" : "ring-0"
+            }`}
+          >
             <AnimatePresence mode="wait">
               {activeData ? (
                 <ExercisePanel
