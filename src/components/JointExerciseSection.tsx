@@ -404,7 +404,14 @@ const ExercisePanel = memo(({ joint, side, onClose }: { joint: JointData; side: 
           <Activity className="w-5 h-5" />
         </div>
         <div className="text-white">
-          <h3 className="text-xl font-display font-bold">{joint.label}</h3>
+          <h3 className="text-xl font-display font-bold">
+            {joint.label}
+            {side && PAIRED.has(joint.id) && (
+              <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold uppercase tracking-wide bg-white/25 text-white">
+                {side === "left" ? "Left side" : "Right side"}
+              </span>
+            )}
+          </h3>
           <p className="text-white/80 text-xs">Home Exercise Plan</p>
         </div>
       </div>
