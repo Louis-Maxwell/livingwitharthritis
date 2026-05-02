@@ -475,15 +475,7 @@ const JointExerciseSection = memo(() => {
                   background: "radial-gradient(ellipse at center 30%, hsl(200 80% 90% / 0.6), transparent 70%)",
                 }}
               />
-              <BodyImage />
-              {jointMarkers.map((marker, idx) => (
-                <JointDot
-                  key={`${marker.id}-${idx}`}
-                  marker={marker}
-                  isActive={activeJoint === marker.id}
-                  onClick={() => handleJointClick(marker.id)}
-                />
-              ))}
+              <Humanoid activeJoint={activeJoint} onJointClick={handleJointClick} />
             </div>
           </motion.div>
 
