@@ -21,7 +21,7 @@ const MovementMomentSection = memo(() => (
         </p>
       </div>
 
-      <figure className="flex justify-center">
+      <figure className="flex flex-col items-center">
         {/* Original size — no width/height attributes overriding intrinsic dimensions */}
         <img
           src={forestBalance}
@@ -30,6 +30,18 @@ const MovementMomentSection = memo(() => (
           loading="lazy"
           decoding="async"
         />
+        <figcaption className="mt-4 text-sm text-muted-foreground text-center">
+          &ldquo;Yoga&rdquo; by Elena Penkova is licensed under{" "}
+          <a
+            href="https://creativecommons.org/licenses/by-nc/2.0/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-primary"
+          >
+            CC BY-NC 2.0
+          </a>
+          .
+        </figcaption>
       </figure>
     </div>
   </section>
