@@ -74,6 +74,15 @@ const ExerciseJointPage = () => {
         <meta property="og:url" content={`${BASE}/exercises/${page.slug}`} />
         <meta property="og:type" content="article" />
         <meta name="geo.region" content="GB" />
+        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:locale" content="en_GB" />
+        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={page.title} />
+        <meta name="twitter:description" content={page.metaDescription} />
+        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
         <script type="application/ld+json">{JSON.stringify(howToLd)}</script>

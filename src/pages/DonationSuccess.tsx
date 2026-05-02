@@ -21,7 +21,9 @@ const DonationSuccess = () => {
     <>
       <Helmet>
         <title>{isSuccess ? "Thank You for Your Donation" : "Donation Cancelled"} | Living With Arthritis</title>
-        <meta name="robots" content="noindex" />
+        <meta name="description" content={isSuccess ? "Thank you for supporting Living With Arthritis UK. Your donation funds free physiotherapy, exercise plans and AI support for people with arthritis." : "Your donation was cancelled — no charge was made. You can try again any time at Living With Arthritis UK."} />
+        <meta name="robots" content="noindex,nofollow" />
+        <link rel="canonical" href="https://livingwitharthritis.org.uk/donation-success" />
       </Helmet>
       <Header />
       <main className="min-h-[70vh] flex items-center justify-center px-4 py-20">
