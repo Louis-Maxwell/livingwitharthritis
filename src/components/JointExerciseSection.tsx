@@ -191,17 +191,24 @@ const Humanoid = memo(({ activeSelectionId, onJointClick }: {
         cursor: "pointer",
         filter: isActive
           ? "drop-shadow(0 0 8px hsl(180 70% 50% / 0.7))"
-          : isHover
-            ? "drop-shadow(0 0 4px hsl(180 70% 50% / 0.5))"
-            : "none",
+          : isFocused
+            ? "drop-shadow(0 0 6px hsl(180 90% 60% / 0.95))"
+            : isHover
+              ? "drop-shadow(0 0 4px hsl(180 70% 50% / 0.5))"
+              : "none",
         transition: "all 0.25s ease",
+        outline: "none",
       } as React.CSSProperties,
       onClick: () => onJointClick(selectionId),
       onMouseEnter: () => setHovered(selectionId),
       onMouseLeave: () => setHovered(null),
+      onFocus: () => setFocused(selectionId),
+      onBlur: () => setFocused((cur) => (cur === selectionId ? null : cur)),
       role: "button",
       tabIndex: 0,
       "aria-label": `Exercise plan for ${sideLabel}`,
+      "aria-pressed": isActive,
+      className: "focus:outline-none focus-visible:outline-none",
       onKeyDown: (e: React.KeyboardEvent) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
