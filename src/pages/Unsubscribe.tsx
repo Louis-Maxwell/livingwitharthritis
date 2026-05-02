@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { MailX, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import SeoHead from "@/components/SeoHead";
 
 type Status = "loading" | "valid" | "already" | "invalid" | "confirming" | "done" | "error";
 
