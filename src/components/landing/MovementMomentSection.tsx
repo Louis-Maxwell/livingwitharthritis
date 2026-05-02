@@ -10,10 +10,10 @@ import yogaMonumentGroup from "@/assets/yoga-monument-group.jpg";
 const MovementMomentSection = memo(() => (
   <section
     aria-label="A moment of gentle movement"
-    className="bg-secondary/30 py-16 lg:py-24 border-y border-border/15"
+    className="bg-secondary/30 py-12 sm:py-16 lg:py-24 border-y border-border/15"
   >
-    <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
-      <div className="text-center mb-10">
+    <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-[1200px]">
+      <div className="text-center mb-8 sm:mb-10">
         <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-3">
           Movement, on your own terms
         </h2>
@@ -22,16 +22,16 @@ const MovementMomentSection = memo(() => (
         </p>
       </div>
 
-      <figure className="flex flex-col items-center">
-        {/* Original size — no width/height attributes overriding intrinsic dimensions */}
+      <figure className="flex flex-col items-center mx-auto">
+        {/* Original size on desktop, responsive scale on mobile */}
         <img
           src={forestBalance}
           alt="A person practising a gentle standing balance pose on a wooden bench in an autumn woodland"
-          className="max-w-full h-auto rounded-lg shadow-lg"
+          className="max-w-full h-auto rounded-md sm:rounded-lg shadow-md sm:shadow-lg"
           loading="lazy"
           decoding="async"
         />
-        <figcaption className="mt-4 text-sm text-muted-foreground text-center">
+        <figcaption className="mt-3 sm:mt-4 px-2 text-xs sm:text-sm text-muted-foreground text-center">
           &ldquo;Yoga&rdquo; by Elena Penkova is licensed under{" "}
           <a
             href="https://creativecommons.org/licenses/by-nc/2.0/"
@@ -45,16 +45,16 @@ const MovementMomentSection = memo(() => (
         </figcaption>
       </figure>
 
-      <figure className="flex flex-col items-center mt-12">
-        {/* Original size — no width/height attributes overriding intrinsic dimensions */}
+      <figure className="flex flex-col items-center mx-auto mt-10 sm:mt-12">
+        {/* Original size on desktop, responsive scale on mobile */}
         <img
           src={yogaMonumentGroup}
           alt="A large outdoor group practising tree pose on yoga mats in front of the Washington Monument"
-          className="max-w-full h-auto rounded-lg shadow-lg"
+          className="max-w-full h-auto rounded-md sm:rounded-lg shadow-md sm:shadow-lg"
           loading="lazy"
           decoding="async"
         />
-        <figcaption className="mt-4 text-sm text-muted-foreground text-center">
+        <figcaption className="mt-3 sm:mt-4 px-2 text-xs sm:text-sm text-muted-foreground text-center">
           &ldquo;2nd Annual Yoga with lululemon Athletica&rdquo; by daveynin is licensed under{" "}
           <a
             href="https://creativecommons.org/licenses/by/2.0/"
