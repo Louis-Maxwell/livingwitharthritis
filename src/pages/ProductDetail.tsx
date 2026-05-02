@@ -79,11 +79,11 @@ const ProductDetail = () => {
       <Helmet>
         <title>{product.title} | Recommended Products — Living With Arthritis</title>
         <meta name="description" content={product.description.slice(0, 160)} />
-        <link rel="canonical" href={`https://livingwitharthritis.org.uk/products/${product.slug}`} />
+        <link rel="canonical" href={`https://livingwitharthritis.org.uk/products/${product.id}`} />
         <meta property="og:title" content={`${product.title} — Recommended Product`} />
         <meta property="og:description" content={product.description.slice(0, 200)} />
         <meta property="og:type" content="product" />
-        <meta property="og:url" content={`https://livingwitharthritis.org.uk/products/${product.slug}`} />
+        <meta property="og:url" content={`https://livingwitharthritis.org.uk/products/${product.id}`} />
         <meta property="og:site_name" content="Living With Arthritis UK" />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:image" content={product.image || "https://livingwitharthritis.org.uk/images/hero-community.jpg"} />
