@@ -127,7 +127,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "arthritis",
-    localPath: "/openverse/arthritis-12-osteoarthritis.png",
+    localPath: "/openverse/arthritis-12-osteoarthritis.jpg",
     title: "Osteoarthritis",
     creator: "BruceBlaus",
     license: "CC BY-SA 4.0",
@@ -157,7 +157,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "community",
-    localPath: "/openverse/community-02-wolf-creek-nfh-2022-13th-annual-catch-a-smile-seni.png",
+    localPath: "/openverse/community-02-wolf-creek-nfh-2022-13th-annual-catch-a-smile-seni.jpg",
     title: "Wolf Creek NFH 2022 13th Annual Catch a Smile Senior Fishing Derby couple with rainbow trout 27 Sept",
     creator: "Marsha Hart/USFWS",
     license: "Public domain",
