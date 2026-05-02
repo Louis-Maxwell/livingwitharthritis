@@ -433,10 +433,25 @@ ExercisePanel.displayName = "ExercisePanel";
 
 const JointExerciseSection = memo(() => {
   const [activeJoint, setActiveJoint] = useState<string | null>(null);
+  const [highlight, setHighlight] = useState(false);
+  const panelWrapRef = useRef<HTMLDivElement>(null);
 
   const handleJointClick = useCallback((jointId: string) => {
     setActiveJoint((prev) => (prev === jointId ? null : jointId));
   }, []);
+
+  // Scroll to & highlight the panel whenever a joint is selected
+  useEffect(() => {
+    if (!activeJoint || !panelWrapRef.current) return;
+    const isMobile = window.matchMedia("(max-width: 1023px)").matches;
+    panelWrapRef.current.scrollIntoView({
+      behavior: "smooth",
+      block: isMobile ? "start" : "center",
+    });
+    setHighlight(true);
+    const t = window.setTimeout(() => setHighlight(false), 1600);
+    return () => window.clearTimeout(t);
+  }, [activeJoint]);
 
   const activeData = activeJoint ? jointDatabase[activeJoint] : null;
 
