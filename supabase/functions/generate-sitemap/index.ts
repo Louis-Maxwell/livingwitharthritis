@@ -21,7 +21,6 @@ const staticPages: { loc: string; priority: string; changefreq: string; lastmod?
   { loc: "/community", priority: "0.8", changefreq: "weekly", hreflang: true },
   { loc: "/blog", priority: "0.9", changefreq: "weekly", hreflang: true },
   { loc: "/zakat-appeal", priority: "0.7", changefreq: "monthly" },
-  { loc: "/pain-journal", priority: "0.7", changefreq: "monthly", hreflang: true },
   { loc: "/arthritis-flare-ups", priority: "0.9", changefreq: "monthly", hreflang: true },
   { loc: "/nhs-arthritis-waiting-list-help", priority: "0.95", changefreq: "weekly", hreflang: true },
   { loc: "/tools/nhs-waiting-time", priority: "0.95", changefreq: "weekly", hreflang: true },
