@@ -521,7 +521,7 @@ const JointExerciseSection = memo(() => {
                   background: "radial-gradient(ellipse at center 30%, hsl(200 80% 90% / 0.6), transparent 70%)",
                 }}
               />
-              <Humanoid activeJoint={activeJoint} onJointClick={handleJointClick} />
+              <Humanoid activeSelectionId={activeSelectionId} onJointClick={handleJointClick} />
             </div>
           </motion.div>
 
