@@ -1,6 +1,7 @@
 import { useEffect, useState, lazy, Suspense } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAdmin } from "@/hooks/useAdmin";
+import SeoHead from "@/components/SeoHead";
 import { useAdminDonations } from "@/hooks/useAdminDonations";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -183,6 +184,7 @@ const AdminDashboard = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/[0.03]">
+      <SeoHead title="Admin Dashboard" description="Internal admin dashboard." path="/admin" noindex />
       {/* Top bar */}
       <div className="border-b border-border/40 bg-background/80 backdrop-blur-xl sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center gap-4">

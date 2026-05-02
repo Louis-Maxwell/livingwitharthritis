@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAdmin } from "@/hooks/useAdmin";
+import SeoHead from "@/components/SeoHead";
 import { useAdminAppointments } from "@/hooks/useAdminAppointments";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -157,6 +158,7 @@ const AdminAppointments = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/[0.03]">
+      <SeoHead title="Admin: Appointments" description="Internal admin view for managing appointments." path="/admin/appointments" noindex />
       {/* Top bar */}
       <div className="border-b border-border/40 bg-background/80 backdrop-blur-xl sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center gap-4">
