@@ -1,5 +1,6 @@
 import { memo } from "react";
 import forestBalance from "@/assets/forest-balance-pose.jpg";
+import yogaMonumentGroup from "@/assets/yoga-monument-group.jpg";
 
 /**
  * MovementMomentSection
@@ -39,6 +40,29 @@ const MovementMomentSection = memo(() => (
             className="underline hover:text-primary"
           >
             CC BY-NC 2.0
+          </a>
+          .
+        </figcaption>
+      </figure>
+
+      <figure className="flex flex-col items-center mt-12">
+        {/* Original size — no width/height attributes overriding intrinsic dimensions */}
+        <img
+          src={yogaMonumentGroup}
+          alt="A large outdoor group practising tree pose on yoga mats in front of the Washington Monument"
+          className="max-w-full h-auto rounded-lg shadow-lg"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption className="mt-4 text-sm text-muted-foreground text-center">
+          &ldquo;2nd Annual Yoga with lululemon Athletica&rdquo; by daveynin is licensed under{" "}
+          <a
+            href="https://creativecommons.org/licenses/by/2.0/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-primary"
+          >
+            CC BY 2.0
           </a>
           .
         </figcaption>
