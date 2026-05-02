@@ -53,7 +53,12 @@ export default function SeoHead({
       )}
       <link rel="canonical" href={canonical} />
       <link rel="alternate" hrefLang="en-GB" href={canonical} />
+      <link rel="alternate" hrefLang="x-default" href={canonical} />
       <meta name="geo.region" content="GB" />
+      <meta name="theme-color" content="#e6002b" media="(prefers-color-scheme: light)" />
+      <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+      <meta name="format-detection" content="telephone=no" />
+      <meta name="referrer" content="strict-origin-when-cross-origin" />
 
       {/* Open Graph */}
       <meta property="og:title" content={fullTitle} />
