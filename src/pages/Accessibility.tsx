@@ -56,7 +56,11 @@ const Accessibility_Page = () => {
           "inLanguage": "en-GB",
           "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" }
         })}</script>
-      </Helmet>
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Accessibility Statement – WCAG 2.1 AA | Living With Arthritis UK" />
+      <meta name="twitter:description" content="Accessibility statement for Living With Arthritis UK. We are committed to WCAG 2.1 AA compliance, ensuring our arthritis support resources are usable by everyone including people with disabilities." />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+    </Helmet>
       <div className="min-h-screen bg-background">
         <Header />
         <PageHero

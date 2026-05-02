@@ -13,6 +13,19 @@ const Contact = () => (
       <title>Contact Living With Arthritis UK: Email, Phone & WhatsApp Support</title>
       <meta name="description" content="Contact Living With Arthritis UK for free arthritis support — email, phone, WhatsApp or enquiry form. UK-based team, personal reply within 2 business days." />
       <link rel="canonical" href="https://livingwitharthritis.org.uk/contact" />
+      <meta property="og:title" content="Contact Living With Arthritis UK: Email, Phone & WhatsApp Support" />
+      <meta property="og:description" content="Contact Living With Arthritis UK for free arthritis support — email, phone, WhatsApp or enquiry form. UK-based team, personal reply within 2 business days." />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://livingwitharthritis.org.uk/contact" />
+      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:locale" content="en_GB" />
+      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Contact Living With Arthritis UK: Email, Phone & WhatsApp Support" />
+      <meta name="twitter:description" content="Contact Living With Arthritis UK for free arthritis support — email, phone, WhatsApp or enquiry form. UK-based team, personal reply within 2 business days." />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
     </Helmet>
     <Header />
     <main id="main-content" role="main" tabIndex={-1}>

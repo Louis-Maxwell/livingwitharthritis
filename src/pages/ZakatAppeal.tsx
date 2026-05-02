@@ -112,7 +112,11 @@ const ZakatAppeal = () => {
           "price": "100",
           "priceCurrency": "GBP",
         })}</script>
-      </Helmet>
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Zakat Appeal – Fund Rehab for War & Trauma Survivors | Living With Arthritis UK" />
+      <meta name="twitter:description" content="Give your Zakat to fund physiotherapy and rehabilitation sessions for war and trauma survivors. Shariah-compliant, transparent and life-changing." />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+    </Helmet>
 
       <Header />
 

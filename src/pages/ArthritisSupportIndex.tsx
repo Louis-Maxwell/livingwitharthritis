@@ -30,7 +30,11 @@ const ArthritisSupportIndex = () => {
         <meta property="og:description" content="Find NHS rheumatology services and arthritis support groups in your UK city." />
         <meta property="og:url" content={`${BASE}/arthritis-support`} />
         <meta name="geo.region" content="GB" />
-      </Helmet>
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Arthritis Support Across the UK — Find Local NHS Services | Living With Arthritis" />
+      <meta name="twitter:description" content="Find arthritis support, NHS rheumatology services, and local help in 50 UK cities. Comprehensive directory of NHS trusts, local resources, and community groups." />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+    </Helmet>
 
       <Header />
       <PageBreadcrumb segments={[{ label: "Arthritis Support" }]} />

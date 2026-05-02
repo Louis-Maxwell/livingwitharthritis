@@ -39,7 +39,11 @@ export default function HealthTools() {
           "inLanguage": "en-GB",
           "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } }
         })}</script>
-      </Helmet>
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Interactive Health Tools | Living With Arthritis UK" />
+      <meta name="twitter:description" content="Free interactive arthritis health tools: symptom quiz, inflammation risk calculator, and personalised exercise plan generator. Evidence-based tools for UK patients." />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+    </Helmet>
 
       <div className="min-h-screen bg-background">
         <Header />

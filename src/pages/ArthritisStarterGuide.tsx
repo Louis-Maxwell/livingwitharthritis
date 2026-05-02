@@ -194,7 +194,11 @@ export default function ArthritisStarterGuide() {
           content="NHS-aligned advice, Mediterranean meal ideas, and 5-minute mobility routines. Sent free to your inbox."
         />
         <meta property="og:type" content="website" />
-      </Helmet>
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Free Arthritis Starter Guide (UK PDF) | Living With Arthritis" />
+      <meta name="twitter:description" content="A free 14-page UK Arthritis Starter Guide with NHS-aligned advice, anti-inflammatory meal ideas, and gentle joint mobility routines. Download instantly." />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+    </Helmet>
 
       <Header />
 

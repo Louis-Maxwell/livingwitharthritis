@@ -36,7 +36,20 @@ export default function Press() {
         <title>Press & Media Kit | Living With Arthritis UK</title>
         <meta name="description" content="Press resources, key facts, expert spokespeople and brand assets for Living With Arthritis UK — a free physiotherapy and arthritis support charity." />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/press" />
-      </Helmet>
+      <meta property="og:title" content="Press & Media Kit | Living With Arthritis UK" />
+      <meta property="og:description" content="Press resources, key facts, expert spokespeople and brand assets for Living With Arthritis UK — a free physiotherapy and arthritis support charity." />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://livingwitharthritis.org.uk/press" />
+      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:locale" content="en_GB" />
+      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Press & Media Kit | Living With Arthritis UK" />
+      <meta name="twitter:description" content="Press resources, key facts, expert spokespeople and brand assets for Living With Arthritis UK — a free physiotherapy and arthritis support charity." />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+    </Helmet>
       <Header />
       <main className="min-h-screen bg-background">
         {/* Hero */}

@@ -13,6 +13,19 @@ const Services = () => (
       <title>Arthritis Support Services UK: Free Physio, Exercise & Diet Help</title>
       <meta name="description" content="Free arthritis support services in the UK — AI virtual physiotherapy, personalised exercise plans, anti-inflammatory diet guidance and 24/7 community help." />
       <link rel="canonical" href="https://livingwitharthritis.org.uk/services" />
+      <meta property="og:title" content="Arthritis Support Services UK: Free Physio, Exercise & Diet Help" />
+      <meta property="og:description" content="Free arthritis support services in the UK — AI virtual physiotherapy, personalised exercise plans, anti-inflammatory diet guidance and 24/7 community help." />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://livingwitharthritis.org.uk/services" />
+      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:locale" content="en_GB" />
+      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Arthritis Support Services UK: Free Physio, Exercise & Diet Help" />
+      <meta name="twitter:description" content="Free arthritis support services in the UK — AI virtual physiotherapy, personalised exercise plans, anti-inflammatory diet guidance and 24/7 community help." />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
     </Helmet>
     <Header />
     <main id="main-content" role="main" tabIndex={-1}>

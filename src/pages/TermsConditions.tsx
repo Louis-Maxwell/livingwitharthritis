@@ -28,6 +28,10 @@ const TermsConditions = () => (
         "inLanguage": "en-GB",
         "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" }
       })}</script>
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Terms & Conditions | Living With Arthritis UK" />
+      <meta name="twitter:description" content="Terms and Conditions for using the Living With Arthritis UK website. Covers use of the site, intellectual property, donations, refunds, and liability." />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
     </Helmet>
     <div className="min-h-screen bg-background">
       <Header />

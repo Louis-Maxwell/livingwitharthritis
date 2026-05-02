@@ -112,7 +112,20 @@ const ImpactStories = () => {
         <link rel="canonical" href="https://livingwitharthritis.org.uk/impact" />
         <meta property="og:locale" content="en_GB" />
         <meta name="geo.region" content="GB" />
-      </Helmet>
+      <meta property="og:title" content="Our Impact & Patient Stories | Living With Arthritis UK Charity" />
+      <meta property="og:description" content="Real stories from people we've helped. See how Living With Arthritis has supported over 10,000 people across the UK with free physiotherapy, nutrition guidance, and community support." />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://livingwitharthritis.org.uk/impact" />
+      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:locale" content="en_GB" />
+      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Our Impact & Patient Stories | Living With Arthritis UK Charity" />
+      <meta name="twitter:description" content="Real stories from people we've helped. See how Living With Arthritis has supported over 10,000 people across the UK with free physiotherapy, nutrition guidance, and community support." />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+    </Helmet>
 
       <Header />
 

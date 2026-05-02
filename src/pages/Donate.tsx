@@ -88,7 +88,20 @@ export default function Donate() {
         <title>Donate to Arthritis Support UK: Fund Free Physio, Diet & AI Help</title>
         <meta name="description" content="Donate to Living With Arthritis UK and fund free virtual physiotherapy, anti-inflammatory diet plans and AI support for over 10,000 people with arthritis." />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/donate" />
-      </Helmet>
+      <meta property="og:title" content="Donate to Arthritis Support UK: Fund Free Physio, Diet & AI Help" />
+      <meta property="og:description" content="Donate to Living With Arthritis UK and fund free virtual physiotherapy, anti-inflammatory diet plans and AI support for over 10,000 people with arthritis." />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://livingwitharthritis.org.uk/donate" />
+      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:locale" content="en_GB" />
+      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Donate to Arthritis Support UK: Fund Free Physio, Diet & AI Help" />
+      <meta name="twitter:description" content="Donate to Living With Arthritis UK and fund free virtual physiotherapy, anti-inflammatory diet plans and AI support for over 10,000 people with arthritis." />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+    </Helmet>
       <Header />
       <main id="main-content" className="min-h-screen bg-background">
         {/* Hero */}

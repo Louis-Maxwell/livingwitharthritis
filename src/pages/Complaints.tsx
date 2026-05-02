@@ -9,7 +9,21 @@ export default function Complaints() {
       <Helmet>
         <title>Complaints Procedure | Living With Arthritis UK</title>
         <meta name="description" content="Our complaints procedure explains how to raise a concern about Living With Arthritis UK and how we will respond." />
-      </Helmet>
+      <link rel="canonical" href="https://livingwitharthritis.org.uk/complaints" />
+      <meta property="og:title" content="Complaints Procedure | Living With Arthritis UK" />
+      <meta property="og:description" content="Our complaints procedure explains how to raise a concern about Living With Arthritis UK and how we will respond." />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://livingwitharthritis.org.uk/complaints" />
+      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:locale" content="en_GB" />
+      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Complaints Procedure | Living With Arthritis UK" />
+      <meta name="twitter:description" content="Our complaints procedure explains how to raise a concern about Living With Arthritis UK and how we will respond." />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+    </Helmet>
       <Header />
       <main id="main-content" className="min-h-screen bg-background">
         <div className="container mx-auto px-6 md:px-10 py-16 max-w-3xl">

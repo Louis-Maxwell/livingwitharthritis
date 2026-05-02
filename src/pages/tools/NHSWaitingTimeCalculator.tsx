@@ -92,7 +92,11 @@ const NHSWaitingTimeCalculator = () => {
         <meta property="og:description" content="Free UK tool — estimate your NHS rheumatology wait in seconds." />
         <meta property="og:url" content={`${BASE}/tools/nhs-waiting-time`} />
         <meta name="geo.region" content="GB" />
-      </Helmet>
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="NHS Arthritis Waiting Time Calculator — Free UK Tool | Living With Arthritis" />
+      <meta name="twitter:description" content="Free NHS rheumatology waiting time calculator for UK patients. Estimate your wait by region, urgency and condition — get a personalised action plan." />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+    </Helmet>
 
       <Header />
 

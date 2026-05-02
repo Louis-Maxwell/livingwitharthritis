@@ -28,6 +28,10 @@ const PrivacyPolicy = () => (
         "inLanguage": "en-GB",
         "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" }
       })}</script>
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Privacy Policy – UK GDPR Data Protection | Living With Arthritis UK" />
+      <meta name="twitter:description" content="Privacy Policy for Living With Arthritis UK. Learn how we collect, use, store and protect your personal data in full compliance with UK GDPR and the Data Protection Act 2018." />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
     </Helmet>
     <div className="min-h-screen bg-background">
       <Header />
