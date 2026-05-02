@@ -380,7 +380,7 @@ Humanoid.displayName = "Humanoid";
 
 /* ── Exercise Panel ── */
 
-const ExercisePanel = memo(({ joint, onClose }: { joint: JointData; onClose: () => void }) => (
+const ExercisePanel = memo(({ joint, side, onClose }: { joint: JointData; side: "left" | "right" | null; onClose: () => void }) => (
   <motion.div
     initial={{ opacity: 0, x: 30 }}
     animate={{ opacity: 1, x: 0 }}
