@@ -167,18 +167,20 @@ const Humanoid = memo(({ activeSelectionId, onJointClick }: {
   onJointClick: (selectionId: string) => void;
 }) => {
   const [hovered, setHovered] = useState<string | null>(null);
+  const [focused, setFocused] = useState<string | null>(null);
 
   const renderJointShape = (p: JointPart, side: "left" | "right" | null) => {
     const selectionId = buildSelectionId(p.id, side);
     const isActive = activeSelectionId === selectionId;
     const isHover = hovered === selectionId;
+    const isFocused = focused === selectionId;
     const fill = isActive
       ? "url(#jointActiveGrad)"
-      : isHover
+      : isHover || isFocused
         ? "hsl(180 70% 50% / 0.85)"
         : "hsl(180 60% 50% / 0.55)";
-    const stroke = isActive ? "hsl(0 0% 100%)" : "hsl(180 70% 35% / 0.6)";
-    const strokeWidth = isActive ? 2 : 1.2;
+    const stroke = isActive || isFocused ? "hsl(0 0% 100%)" : "hsl(180 70% 35% / 0.6)";
+    const strokeWidth = isActive || isFocused ? 2 : 1.2;
     const sideLabel = side ? `${side === "left" ? "Left" : "Right"} ${p.label}` : p.label;
 
     const commonProps = {
@@ -189,17 +191,24 @@ const Humanoid = memo(({ activeSelectionId, onJointClick }: {
         cursor: "pointer",
         filter: isActive
           ? "drop-shadow(0 0 8px hsl(180 70% 50% / 0.7))"
-          : isHover
-            ? "drop-shadow(0 0 4px hsl(180 70% 50% / 0.5))"
-            : "none",
+          : isFocused
+            ? "drop-shadow(0 0 6px hsl(180 90% 60% / 0.95))"
+            : isHover
+              ? "drop-shadow(0 0 4px hsl(180 70% 50% / 0.5))"
+              : "none",
         transition: "all 0.25s ease",
+        outline: "none",
       } as React.CSSProperties,
       onClick: () => onJointClick(selectionId),
       onMouseEnter: () => setHovered(selectionId),
       onMouseLeave: () => setHovered(null),
+      onFocus: () => setFocused(selectionId),
+      onBlur: () => setFocused((cur) => (cur === selectionId ? null : cur)),
       role: "button",
       tabIndex: 0,
       "aria-label": `Exercise plan for ${sideLabel}`,
+      "aria-pressed": isActive,
+      className: "focus:outline-none focus-visible:outline-none",
       onKeyDown: (e: React.KeyboardEvent) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
@@ -313,12 +322,25 @@ const Humanoid = memo(({ activeSelectionId, onJointClick }: {
       <g>
         {HUMANOID_JOINTS.map((p) => {
           const isPaired = PAIRED.has(p.id);
-          const leftActive = activeSelectionId === buildSelectionId(p.id, isPaired ? "left" : null);
-          const rightActive = isPaired && activeSelectionId === buildSelectionId(p.id, "right");
+          const leftId = buildSelectionId(p.id, isPaired ? "left" : null);
+          const rightId = buildSelectionId(p.id, "right");
+          const leftActive = activeSelectionId === leftId;
+          const rightActive = isPaired && activeSelectionId === rightId;
+          const leftFocused = focused === leftId;
+          const rightFocused = isPaired && focused === rightId;
+          const focusRing = (cx: number, cy: number) =>
+            p.shape === "circle" ? (
+              <circle cx={cx} cy={cy} r={p.r! + 5} fill="none" stroke="hsl(48 100% 60%)" strokeWidth="2" strokeDasharray="3 2" pointerEvents="none" />
+            ) : p.shape === "ellipse" ? (
+              <ellipse cx={cx} cy={cy} rx={(p.rx ?? 0) + 4} ry={(p.ry ?? 0) + 4} fill="none" stroke="hsl(48 100% 60%)" strokeWidth="2" strokeDasharray="3 2" pointerEvents="none" />
+            ) : null;
           return (
             <g key={p.id}>
               {renderJointShape(p, isPaired ? "left" : null)}
               {isPaired && renderJointShape(p, "right")}
+              {/* Focus ring */}
+              {leftFocused && p.cx != null && focusRing(p.cx, p.cy!)}
+              {rightFocused && p.cx != null && focusRing(mirroredX(p.cx), p.cy!)}
               {/* Pulse ring for active side(s) */}
               {leftActive && p.shape === "circle" && (
                 <circle cx={p.cx} cy={p.cy} r={p.r! + 4} fill="none" stroke="hsl(180 70% 50% / 0.6)" strokeWidth="1.5" pointerEvents="none">
