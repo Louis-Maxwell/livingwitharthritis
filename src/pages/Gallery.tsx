@@ -25,6 +25,11 @@ const Gallery = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SeoHead
+        title="Image Gallery — 50 Creative Commons Photos"
+        description="A curated gallery of 50 Creative Commons images covering arthritis, joint health, exercise, nutrition and community — sourced from Wikimedia Commons."
+        path="/gallery"
+      />
       <Header />
       <main>
         <PageHero
