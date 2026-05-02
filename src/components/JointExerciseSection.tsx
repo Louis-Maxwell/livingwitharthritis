@@ -147,15 +147,31 @@ const HUMANOID_JOINTS: JointPart[] = [
 /** Mirror coords for the right side of the body where applicable */
 const mirroredX = (x: number) => 200 - x;
 
-const Humanoid = memo(({ activeJoint, onJointClick }: {
-  activeJoint: string | null;
-  onJointClick: (id: string) => void;
+/** Joints that have left/right pairs */
+const PAIRED = new Set(["shoulder", "elbow", "wrist", "knee", "ankle"]);
+
+/** Build the side-aware selection id used by both the SVG and the panel */
+const buildSelectionId = (jointId: string, side: "left" | "right" | null) =>
+  side && PAIRED.has(jointId) ? `${jointId}-${side}` : jointId;
+
+/** Parse a selectionId back into its joint id + side */
+const parseSelectionId = (id: string | null): { jointId: string | null; side: "left" | "right" | null } => {
+  if (!id) return { jointId: null, side: null };
+  if (id.endsWith("-left")) return { jointId: id.slice(0, -5), side: "left" };
+  if (id.endsWith("-right")) return { jointId: id.slice(0, -6), side: "right" };
+  return { jointId: id, side: null };
+};
+
+const Humanoid = memo(({ activeSelectionId, onJointClick }: {
+  activeSelectionId: string | null;
+  onJointClick: (selectionId: string) => void;
 }) => {
   const [hovered, setHovered] = useState<string | null>(null);
 
-  const renderJointShape = (p: JointPart, mirror = false) => {
-    const isActive = activeJoint === p.id;
-    const isHover = hovered === p.id;
+  const renderJointShape = (p: JointPart, side: "left" | "right" | null) => {
+    const selectionId = buildSelectionId(p.id, side);
+    const isActive = activeSelectionId === selectionId;
+    const isHover = hovered === selectionId;
     const fill = isActive
       ? "url(#jointActiveGrad)"
       : isHover
@@ -163,6 +179,7 @@ const Humanoid = memo(({ activeJoint, onJointClick }: {
         : "hsl(180 60% 50% / 0.55)";
     const stroke = isActive ? "hsl(0 0% 100%)" : "hsl(180 70% 35% / 0.6)";
     const strokeWidth = isActive ? 2 : 1.2;
+    const sideLabel = side ? `${side === "left" ? "Left" : "Right"} ${p.label}` : p.label;
 
     const commonProps = {
       fill,
@@ -177,20 +194,21 @@ const Humanoid = memo(({ activeJoint, onJointClick }: {
             : "none",
         transition: "all 0.25s ease",
       } as React.CSSProperties,
-      onClick: () => onJointClick(p.id),
-      onMouseEnter: () => setHovered(p.id),
+      onClick: () => onJointClick(selectionId),
+      onMouseEnter: () => setHovered(selectionId),
       onMouseLeave: () => setHovered(null),
       role: "button",
       tabIndex: 0,
-      "aria-label": `Exercise plan for ${p.label}`,
+      "aria-label": `Exercise plan for ${sideLabel}`,
       onKeyDown: (e: React.KeyboardEvent) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
-          onJointClick(p.id);
+          onJointClick(selectionId);
         }
       },
     };
 
+    const mirror = side === "right";
     if (p.shape === "circle") {
       return <circle cx={mirror ? mirroredX(p.cx!) : p.cx} cy={p.cy} r={p.r} {...commonProps} />;
     }
