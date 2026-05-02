@@ -14,6 +14,10 @@ const SENDER_DOMAIN = "notify.livingwitharthritis.org.uk"
 // When display_from_root is enabled, this can be the root domain for cleaner branding,
 // even though actual sending uses the subdomain above.
 const FROM_DOMAIN = "livingwitharthritis.org.uk"
+// REPLY_TO is the inbox patients land in when they hit "Reply" on any email.
+// Sends still come from noreply@FROM_DOMAIN (required by the verified sender domain),
+// but replies are routed to the monitored info@ inbox.
+const REPLY_TO = "info@livingwitharthritis.org.uk"
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -311,6 +315,7 @@ Deno.serve(async (req) => {
       message_id: messageId,
       to: effectiveRecipient,
       from: `${SITE_NAME} <noreply@${FROM_DOMAIN}>`,
+      reply_to: REPLY_TO,
       sender_domain: SENDER_DOMAIN,
       subject: resolvedSubject,
       html,
