@@ -1,4 +1,4 @@
-import { memo, useState, useCallback } from "react";
+import { memo, useState, useCallback, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Dumbbell, Clock, RotateCcw, Activity } from "lucide-react";
 
@@ -433,10 +433,25 @@ ExercisePanel.displayName = "ExercisePanel";
 
 const JointExerciseSection = memo(() => {
   const [activeJoint, setActiveJoint] = useState<string | null>(null);
+  const [highlight, setHighlight] = useState(false);
+  const panelWrapRef = useRef<HTMLDivElement>(null);
 
   const handleJointClick = useCallback((jointId: string) => {
     setActiveJoint((prev) => (prev === jointId ? null : jointId));
   }, []);
+
+  // Scroll to & highlight the panel whenever a joint is selected
+  useEffect(() => {
+    if (!activeJoint || !panelWrapRef.current) return;
+    const isMobile = window.matchMedia("(max-width: 1023px)").matches;
+    panelWrapRef.current.scrollIntoView({
+      behavior: "smooth",
+      block: isMobile ? "start" : "center",
+    });
+    setHighlight(true);
+    const t = window.setTimeout(() => setHighlight(false), 1600);
+    return () => window.clearTimeout(t);
+  }, [activeJoint]);
 
   const activeData = activeJoint ? jointDatabase[activeJoint] : null;
 
@@ -480,7 +495,12 @@ const JointExerciseSection = memo(() => {
           </motion.div>
 
           {/* Exercise panel */}
-          <div className="min-h-[300px]">
+          <div
+            ref={panelWrapRef}
+            className={`min-h-[300px] scroll-mt-24 rounded-2xl transition-all duration-700 ${
+              highlight ? "ring-4 ring-[hsl(180_70%_50%_/_0.55)] ring-offset-2 ring-offset-background shadow-[0_0_40px_-5px_hsl(180_70%_50%_/_0.5)]" : "ring-0"
+            }`}
+          >
             <AnimatePresence mode="wait">
               {activeData ? (
                 <ExercisePanel
