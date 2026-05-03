@@ -1,0 +1,3 @@
+file '/dev-server/.video-stitch-tmp/work/exercise-wrist-s1-norm.mp4'
+file '/dev-server/.video-stitch-tmp/work/exercise-wrist-s2-norm.mp4'
+file '/dev-server/.video-stitch-tmp/work/exercise-wrist-s3-norm.mp4'

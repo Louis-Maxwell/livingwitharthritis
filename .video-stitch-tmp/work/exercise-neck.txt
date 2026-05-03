@@ -1,0 +1,3 @@
+file '/dev-server/.video-stitch-tmp/work/exercise-neck-s1-norm.mp4'
+file '/dev-server/.video-stitch-tmp/work/exercise-neck-s2-norm.mp4'
+file '/dev-server/.video-stitch-tmp/work/exercise-neck-s3-norm.mp4'
