@@ -91,6 +91,7 @@ const WaitingTimeCalculator = lazy(() => import("./pages/tools/WaitingTimeCalcul
 const ArthritisStarterGuide = lazy(() => import("./pages/ArthritisStarterGuide"));
 const Gallery = lazy(() => import("./pages/Gallery"));
 const Credits = lazy(() => import("./pages/Credits"));
+const TaiChiForBalance = lazy(() => import("./pages/exercises/TaiChiForBalance"));
 // Loading fallback with skeleton-style animation
 const PageLoader = () => (
   <div className="min-h-screen flex flex-col items-center justify-center bg-background gap-4">
@@ -137,6 +138,7 @@ function AnimatedRoutes() {
         <Route path="/conditions/psoriatic-arthritis" element={<PsoriaticArthritis />} />
         <Route path="/self-help" element={<SelfHelpTool />} />
         <Route path="/exercises" element={<ExerciseHub />} />
+        <Route path="/exercises/tai-chi-for-balance" element={<TaiChiForBalance />} />
         <Route path="/diet" element={<DietHub />} />
         <Route path="/zakat-appeal" element={<ZakatAppeal />} />
         <Route path="/trust" element={<TrustCredibility />} />
