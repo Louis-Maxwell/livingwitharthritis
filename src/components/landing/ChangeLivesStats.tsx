@@ -26,6 +26,7 @@ const STATS = [
 
 const ChangeLivesStats = memo(() => (
   <section
+    id="uk-arthritis-stats"
     aria-labelledby="change-lives-heading"
     className="bg-background py-20 sm:py-24 border-y border-border/30"
   >
@@ -44,10 +45,10 @@ const ChangeLivesStats = memo(() => (
         </h2>
         <Link
           to="/ways-to-help"
-          className="inline-flex items-center gap-2 mt-7 px-6 py-3 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-colors group shadow-md shadow-primary/15"
+          className="inline-flex items-center gap-2 mt-7 px-6 py-3 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-colors group shadow-md shadow-primary/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
         >
           Help Conquer Arthritis
-          <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+          <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
         </Link>
       </div>
 
