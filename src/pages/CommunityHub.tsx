@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import InternalLinks from "@/components/InternalLinks";
+import ContextualLinks from "@/components/ContextualLinks";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import {
   Users, MessageCircle, Calendar, Sparkles, ArrowRight,
@@ -393,6 +394,44 @@ const CommunityHub = () => {
             </div>
           </div>
         </section>
+
+        <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pb-12">
+          <ContextualLinks
+            heading="Keep exploring our community resources"
+            intro="Connect, learn and act — useful starting points for people newly diagnosed, long-term patients, family members and supporters."
+            groups={[
+              {
+                title: "Living well with arthritis",
+                links: [
+                  { label: "Arthritis and mental health", to: "/blog/category/lifestyle" },
+                  { label: "Working with arthritis", to: "/blog/category/lifestyle" },
+                  { label: "How to support someone with chronic pain", to: "/community" },
+                  { label: "Arthritis in cold weather — practical tips", to: "/blog/category/lifestyle" },
+                ],
+              },
+              {
+                title: "Condition guides",
+                links: [
+                  { label: "Osteoarthritis", to: "/conditions/osteoarthritis" },
+                  { label: "Rheumatoid arthritis", to: "/conditions/rheumatoid-arthritis" },
+                  { label: "Juvenile arthritis — for parents", to: "/conditions/juvenile-arthritis" },
+                  { label: "Fibromyalgia peer support", to: "/conditions/fibromyalgia" },
+                  { label: "Lupus support", to: "/conditions/lupus" },
+                ],
+              },
+              {
+                title: "Take action",
+                links: [
+                  { label: "Donate to arthritis charity", to: "/donate" },
+                  { label: "Volunteer for our charity", to: "/ways-to-help" },
+                  { label: "Fundraising ideas", to: "/ways-to-help" },
+                  { label: "Help while waiting for rheumatology", to: "/arthritis-waiting-list-help" },
+                  { label: "Browse the Advice Hub", to: "/blog-hub" },
+                ],
+              },
+            ]}
+          />
+        </div>
       </main>
 
       <InternalLinks />

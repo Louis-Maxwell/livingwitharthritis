@@ -24,6 +24,7 @@ import {
   Timeline,
 } from "@/components/graphics/InfographicElements";
 import InternalLinks from "@/components/InternalLinks";
+import ContextualLinks from "@/components/ContextualLinks";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { EXERCISE_ANIMATIONS, type ExerciseAnimationKey } from "@/components/exercises/ExerciseAnimations";
@@ -524,6 +525,40 @@ const ExerciseHub = () => {
         </section>
         <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <CrossLinkBanner preset="exercise" exclude="/exercises" title="Related resources" />
+          <ContextualLinks
+            heading="Build a complete arthritis-friendly routine"
+            intro="The best results come from pairing safe movement with diet, flare-up planning and condition-specific care."
+            groups={[
+              {
+                title: "Joint-by-joint exercise",
+                links: [
+                  { label: "Knee arthritis exercises", to: "/exercises" },
+                  { label: "Hand and wrist arthritis exercises", to: "/exercises" },
+                  { label: "Hip arthritis stretches", to: "/exercises" },
+                  { label: "Tai Chi for balance", to: "/exercises/tai-chi-for-balance" },
+                  { label: "Exercises to avoid with arthritis", to: "/guides/exercise" },
+                ],
+              },
+              {
+                title: "Conditions that benefit from movement",
+                links: [
+                  { label: "Osteoarthritis — exercise plan", to: "/conditions/osteoarthritis" },
+                  { label: "Rheumatoid arthritis — staying active", to: "/conditions/rheumatoid-arthritis" },
+                  { label: "Ankylosing spondylitis — daily stretches", to: "/conditions/ankylosing-spondylitis" },
+                  { label: "Fibromyalgia — pacing and gentle exercise", to: "/conditions/fibromyalgia" },
+                ],
+              },
+              {
+                title: "Support your training",
+                links: [
+                  { label: "Anti-inflammatory diet", to: "/diet" },
+                  { label: "Managing flare-ups during exercise", to: "/arthritis-flare-ups" },
+                  { label: "Self-help joint tool", to: "/self-help" },
+                  { label: "Physiotherapy for arthritis — pillar guide", to: "/guides/exercise" },
+                ],
+              },
+            ]}
+          />
         </div>
       </main>
 
