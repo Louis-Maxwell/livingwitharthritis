@@ -9,6 +9,7 @@ const Sonner = lazy(() => import("@/components/ui/sonner").then(m => ({ default:
 import { PageTransition } from "@/components/ui/PageTransition";
 import { RouteProgressBar } from "@/components/ui/RouteProgressBar";
 import { useCartSync } from "@/hooks/useCartSync";
+import { useLinkPrefetch } from "@/hooks/useLinkPrefetch";
 import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "next-themes";
 import { DeferredMount } from "@/components/DeferredMount";
@@ -21,6 +22,7 @@ const MobileBottomNav = lazy(() => import("./components/MobileBottomNav"));
 const MobileNextStepBar = lazy(() => import("./components/MobileNextStepBar"));
 const DonationNotification = lazy(() => import("./components/DonationNotification"));
 const ExitIntentModal = lazy(() => import("./components/ExitIntentModal"));
+const EngagementTracker = lazy(() => import("./components/EngagementTracker"));
 
 
 // Lazy load pages for code splitting
@@ -191,9 +193,13 @@ function AnimatedRoutes() {
 
 function AppWithSync() {
   useCartSync();
+  useLinkPrefetch();
   return (
     <>
       <RouteProgressBar />
+      <Suspense fallback={null}>
+        <EngagementTracker />
+      </Suspense>
       <AnimatedRoutes />
     </>
   );
