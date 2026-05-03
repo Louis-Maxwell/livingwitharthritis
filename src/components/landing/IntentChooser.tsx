@@ -23,7 +23,7 @@ const CHOICES = [
     chip: "bg-primary text-primary-foreground",
   },
   {
-    id: "nhs-wait",
+    id: "the health service-wait",
     label: "Stuck on the health service wait list",
     sub: "Help while you wait",
     icon: Clock4,

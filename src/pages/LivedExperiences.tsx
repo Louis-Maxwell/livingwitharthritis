@@ -28,7 +28,7 @@ const stories = [
     ],
     fullStory: `When I was first diagnosed at 55, I felt like my active life was over. I'd always loved walking in the Dales with my husband, and suddenly I couldn't manage a flight of stairs without wincing.
 
-My GP was sympathetic but the the health service waiting times for physiotherapy were months long. I tried various supplements — glucosamine, turmeric capsules — but nothing seemed to make a real difference on its own.
+My GP was sympathetic but the health service waiting times for physiotherapy were months long. I tried various supplements — glucosamine, turmeric capsules — but nothing seemed to make a real difference on its own.
 
 The turning point came when I found Living With Arthritis online in 2019. The virtual physiotherapy sessions meant I could get expert guidance from home, fitting around my schedule. My physiotherapist, an HCPC-registered clinician, designed a programme specifically for my knee OA.
 

@@ -114,7 +114,7 @@ const CityArthritisPage = () => {
               Ask your GP for a referral if you're experiencing persistent joint pain, stiffness, or swelling.
             </p>
             <a
-              href={cityData.nhsUrl}
+              href={cityData.trustUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-primary hover:underline text-sm font-medium"

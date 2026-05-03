@@ -67,7 +67,7 @@ const sitemapSections: SitemapSection[] = [
   {
     title: "Exercise & Movement Articles",
     links: [
-      { label: "Arthritis Exercises", href: "/blog/nhs-arthritis-exercises" },
+      { label: "Arthritis Exercises", href: "/blog/arthritis-exercises" },
       { label: "Knee Exercises", href: "/blog/knee-arthritis-exercises-uk" },
       { label: "Hand Exercises", href: "/blog/hand-exercises-for-arthritis" },
       { label: "Shoulder Exercises", href: "/blog/shoulder-arthritis-exercises-uk" },

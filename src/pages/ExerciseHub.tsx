@@ -91,7 +91,7 @@ const exerciseCategories = [
     color: "from-primary/15 to-primary/10",
     iconColor: "text-primary bg-primary/10",
     borderColor: "border-primary/20 hover:border-primary/40",
-    href: "/blog/nhs-arthritis-exercises",
+    href: "/blog/arthritis-exercises",
     exercises: [
       "Seated marching – 2 minutes",
       "Ankle circles – 10 each direction",

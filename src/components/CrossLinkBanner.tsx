@@ -70,7 +70,7 @@ const LINK_LIBRARY: Record<string, CrossLink> = {
     label: "Complete Exercise Guide",
     description: "Evidence-based routines, swimming, yoga and strength training",
   },
-  "guide-nhs": {
+  "guide-the health service": {
     to: "/guides/health-services",
     icon: Stethoscope,
     label: "Health Services Guide",
@@ -90,7 +90,7 @@ const PRESETS: Record<string, string[]> = {
   "exercise": ["diet", "osteoarthritis", "guide-exercise", "chat"],
   "diet": ["exercises", "osteoarthritis", "guide-diet", "chat"],
   "blog": ["exercises", "diet", "osteoarthritis", "chat"],
-  "flareup": ["exercises", "diet", "guide-nhs", "chat"],
+  "flareup": ["exercises", "diet", "guide-the health service", "chat"],
   "guide": ["exercises", "diet", "blog", "chat"],
 };
 

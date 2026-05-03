@@ -46,7 +46,7 @@ const PREVIEW_PAGES = [
   {
     page: "04",
     icon: HeartPulse,
-    title: "The the health service Pathway, Demystified",
+    title: "The health service Pathway, Demystified",
     body:
       "From your GP appointment to rheumatology referral, biologics and joint injections — exactly what to expect and the questions to ask at each step.",
   },
@@ -99,7 +99,7 @@ const FAQS = [
   },
   {
     q: "Is the advice tailored to the UK?",
-    a: "Yes — every section references the the health service, UK rheumatology pathways, and benefits like PIP. It's specifically written for people accessing care in England, Scotland, Wales, and Northern Ireland.",
+    a: "Yes — every section references the health service, UK rheumatology pathways, and benefits like PIP. It's specifically written for people accessing care in England, Scotland, Wales, and Northern Ireland.",
   },
   {
     q: "Can I share it with family or my GP?",

@@ -22,7 +22,7 @@ const trustees = [
 ];
 
 const evidenceSources = [
-  { name: "England's health service", desc: "Exercise and diet guidance aligned with the health service clinical pathways", url: "https://www.nhs.uk/conditions/arthritis/", icon: Building2 },
+  { name: "England's health service", desc: "Exercise and diet guidance aligned with the health service clinical pathways", url: "https://www.gov.uk/health", icon: Building2 },
   { name: "NICE Guidelines", desc: "Treatment recommendations based on NICE clinical guidelines (CG177, NG226)", url: "https://www.nice.org.uk/guidance/ng226", icon: FileCheck },
   { name: "British Medical Journal", desc: "Peer-reviewed evidence on Mediterranean diet and arthritis outcomes", url: "https://www.bmj.com/", icon: BookOpen },
   { name: "Cochrane Library", desc: "Systematic reviews on physiotherapy and exercise interventions", url: "https://www.cochranelibrary.com/", icon: GraduationCap },

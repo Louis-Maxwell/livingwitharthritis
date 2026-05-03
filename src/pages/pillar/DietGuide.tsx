@@ -80,7 +80,7 @@ const CONTENT = `
 <p>Emerging research suggests hydrolysed collagen peptides (10 g/day) may modestly reduce joint pain and stiffness in OA. A 2019 meta-analysis in <em>International Orthopaedics</em> found statistically significant improvements in pain and function, though effect sizes were small. Collagen is generally well-tolerated.</p>
 
 <h3>Vitamin D</h3>
-<p>Vitamin D deficiency is extremely common in the UK (affecting up to <strong>1 in 5 adults</strong>) and is associated with worse arthritis outcomes. The the health service recommends all UK adults take a <strong>10 mcg (400 IU) vitamin D supplement daily</strong> during autumn and winter. People with inflammatory arthritis may benefit from higher doses (discuss with your doctor).</p>
+<p>Vitamin D deficiency is extremely common in the UK (affecting up to <strong>1 in 5 adults</strong>) and is associated with worse arthritis outcomes. The health service recommends all UK adults take a <strong>10 mcg (400 IU) vitamin D supplement daily</strong> during autumn and winter. People with inflammatory arthritis may benefit from higher doses (discuss with your doctor).</p>
 
 <h3>Fish Oil (Omega-3 Supplements)</h3>
 <p>If you don't consume enough oily fish, a high-quality fish oil supplement providing <strong>1–3 g of combined EPA/DHA daily</strong> is the most well-evidenced supplement for arthritis. Look for purified, sustainably sourced products with high EPA content. Algae-based alternatives are equally effective for vegetarians and vegans.</p>

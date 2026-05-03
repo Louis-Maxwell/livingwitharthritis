@@ -21,7 +21,7 @@ const CONTENT = `
 <h3 id="osteoarthritis">Osteoarthritis (OA)</h3>
 <p>Osteoarthritis is the most common form, affecting over <strong>8.75 million people</strong> in the UK. It is a degenerative "wear and tear" condition where the cartilage cushioning joints gradually breaks down. As cartilage thins, bones begin to rub together, causing pain, swelling, stiffness and reduced range of motion. The joints most commonly affected are the <strong>knees, hips, hands, spine and feet</strong>.</p>
 <p>Risk factors include age (most common after 45), female sex, obesity, previous joint injury, repetitive occupational stress, genetics and certain metabolic conditions. Symptoms typically develop slowly: morning stiffness lasting less than 30 minutes, pain that worsens with activity, a grating or crackling sensation (crepitus), swelling around the joint, and gradual loss of flexibility.</p>
-<p>There is no cure for OA, but symptoms can be effectively managed through weight loss, regular low-impact exercise, physiotherapy, pain medication and — in severe cases — joint replacement surgery. The the health service provides OA management through GPs, first-contact physiotherapists, and specialist rheumatology clinics.</p>
+<p>There is no cure for OA, but symptoms can be effectively managed through weight loss, regular low-impact exercise, physiotherapy, pain medication and — in severe cases — joint replacement surgery. The health service provides OA management through GPs, first-contact physiotherapists, and specialist rheumatology clinics.</p>
 
 <h3 id="rheumatoid-arthritis">Rheumatoid Arthritis (RA)</h3>
 <p>Rheumatoid arthritis is an autoimmune condition affecting approximately <strong>400,000 people</strong> in the UK. Unlike OA, RA occurs when the immune system mistakenly attacks the synovial membrane lining the joints, causing chronic inflammation that can damage cartilage and bone. RA typically affects joints symmetrically — both wrists, both knees — and can also affect organs including the lungs, heart and eyes.</p>
@@ -44,7 +44,7 @@ const CONTENT = `
 <li><strong>Fatigue</strong> — especially common in inflammatory types like RA</li>
 <li><strong>Crepitus</strong> — grinding, clicking or popping sensations</li>
 </ul>
-<p>Diagnosis typically involves a GP assessment, blood tests (including CRP, ESR, rheumatoid factor and anti-CCP antibodies for inflammatory arthritis), X-rays and sometimes MRI or ultrasound scans. Your GP may refer you to a <strong>rheumatologist</strong> for specialist diagnosis and management. Under the the health service First Contact Practitioner scheme, you can now see a physiotherapist directly without a GP referral at many practices.</p>
+<p>Diagnosis typically involves a GP assessment, blood tests (including CRP, ESR, rheumatoid factor and anti-CCP antibodies for inflammatory arthritis), X-rays and sometimes MRI or ultrasound scans. Your GP may refer you to a <strong>rheumatologist</strong> for specialist diagnosis and management. Under the health service First Contact Practitioner scheme, you can now see a physiotherapist directly without a GP referral at many practices.</p>
 
 <h2 id="treatment-options">Treatment Options in the UK</h2>
 <p>Treatment varies depending on the type and severity of arthritis:</p>
@@ -67,7 +67,7 @@ const CONTENT = `
 </ul>
 <h3>Surgical Options</h3>
 <ul>
-<li><strong>Joint replacement</strong> — knee and hip replacements are among the most successful operations performed by the the health service, with over 160,000 procedures annually</li>
+<li><strong>Joint replacement</strong> — knee and hip replacements are among the most successful operations performed by the health service, with over 160,000 procedures annually</li>
 <li><strong>Arthroscopy</strong> — keyhole surgery for diagnosis and minor repairs</li>
 <li><strong>Joint fusion (arthrodesis)</strong> — for severely damaged smaller joints</li>
 </ul>
@@ -86,7 +86,7 @@ const CONTENT = `
 
 <h2 id="mental-health-and-arthritis">Mental Health and Arthritis</h2>
 <p>Living with chronic pain takes a significant toll on mental health. Research shows that people with arthritis are <strong>2–3 times more likely</strong> to experience depression and anxiety compared to the general population (Arthritis Research UK). The relationship is bidirectional: pain worsens mood, and low mood amplifies pain perception.</p>
-<p>The the health service provides mental health support through:</p>
+<p>The health service provides mental health support through:</p>
 <ul>
 <li><strong>IAPT (Improving Access to Psychological Therapies)</strong> — free talking therapies including CBT, available via GP referral or self-referral</li>
 <li><strong>the health service pain management programmes</strong> — multidisciplinary programmes combining physiotherapy, psychology and occupational therapy</li>
@@ -107,20 +107,20 @@ const CONTENT = `
 <li><strong>New biologics and small molecules</strong> — targeting specific inflammatory pathways with fewer side effects</li>
 <li><strong>Microbiome research</strong> — understanding how gut bacteria influence autoimmune arthritis</li>
 </ul>
-<p>The UK's leading research funders include <strong>Versus Arthritis</strong> (investing over £9 million annually), the <strong>National Institute for Health and Care Research (NIHR)</strong>, and <strong>Medical Research Council (MRC)</strong>. Clinical trials are available through the the health service and the NIHR Clinical Research Network.</p>
+<p>The UK's leading research funders include <strong>Versus Arthritis</strong> (investing over £9 million annually), the <strong>National Institute for Health and Care Research (NIHR)</strong>, and <strong>Medical Research Council (MRC)</strong>. Clinical trials are available through the health service and the NIHR Clinical Research Network.</p>
 
 <h2 id="key-uk-resources">Key UK Resources</h2>
 <ul>
 <li><strong>Versus Arthritis</strong> — <a href="https://www.versusarthritis.org" target="_blank" rel="noopener noreferrer">versusarthritis.org</a> — helpline: 0800 5200 520</li>
 <li><strong>NRAS</strong> — <a href="https://nras.org.uk" target="_blank" rel="noopener noreferrer">nras.org.uk</a> — helpline: 0800 298 7650</li>
-<li><strong>the health service</strong> — <a href="https://www.nhs.uk/conditions/arthritis/" target="_blank" rel="noopener noreferrer">nhs.uk/conditions/arthritis</a></li>
+<li><strong>the health service</strong> — <a href="https://www.gov.uk/health" target="_blank" rel="noopener noreferrer">gov.uk/health</a></li>
 <li><strong>Arthritis Action</strong> — <a href="https://www.arthritisaction.org.uk" target="_blank" rel="noopener noreferrer">arthritisaction.org.uk</a></li>
 <li><strong>Citizens Advice</strong> — benefits and PIP support</li>
 <li><strong>Living With Arthritis</strong> — free virtual physiotherapy, diet plans and community support</li>
 </ul>
 
 <h2 id="sources-disclaimer">Sources &amp; Disclaimer</h2>
-<p>This guide draws on publicly available data from the the health service, NICE clinical guidelines (NG100, NG226, CG79), Versus Arthritis, NRAS, and peer-reviewed research published in <em>The Lancet</em>, <em>Annals of the Rheumatic Diseases</em> and <em>BMJ</em>. Statistics cited are the most recent available as of 2024. This information is for educational purposes only and is not a substitute for professional medical advice. Always consult your GP or rheumatologist for personalised guidance.</p>
+<p>This guide draws on publicly available data from the health service, NICE clinical guidelines (NG100, NG226, CG79), Versus Arthritis, NRAS, and peer-reviewed research published in <em>The Lancet</em>, <em>Annals of the Rheumatic Diseases</em> and <em>BMJ</em>. Statistics cited are the most recent available as of 2024. This information is for educational purposes only and is not a substitute for professional medical advice. Always consult your GP or rheumatologist for personalised guidance.</p>
 `;
 
 export default function UKArthritisGuide() {

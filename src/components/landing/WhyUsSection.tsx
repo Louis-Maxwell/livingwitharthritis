@@ -40,7 +40,7 @@ const WhyUsSection = memo(() => (
       <div className="text-center max-w-2xl mx-auto mb-14">
         <span className="section-label text-primary/60 block mb-4">Why Choose Us</span>
         <h2 id="why-us-heading" className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
-          Different from the the health service. Different from other charities.{" "}
+          Different from the health service. Different from other charities.{" "}
           <span className="text-primary">Built just for you.</span>
         </h2>
         <p className="mt-4 text-muted-foreground">

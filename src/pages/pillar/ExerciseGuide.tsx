@@ -27,7 +27,7 @@ const CONTENT = `
 <p>A balanced arthritis exercise programme should include <strong>three types</strong> of activity:</p>
 
 <h3 id="aerobic-exercise">1. Aerobic (Cardiovascular) Exercise</h3>
-<p>Low-impact aerobic exercise improves cardiovascular fitness, helps manage weight, reduces inflammation and boosts mood. The the health service recommends at least <strong>150 minutes of moderate-intensity activity per week</strong> (or 75 minutes of vigorous activity). For people with arthritis, suitable options include:</p>
+<p>Low-impact aerobic exercise improves cardiovascular fitness, helps manage weight, reduces inflammation and boosts mood. The health service recommends at least <strong>150 minutes of moderate-intensity activity per week</strong> (or 75 minutes of vigorous activity). For people with arthritis, suitable options include:</p>
 <ul>
 <li><strong>Walking</strong> — the most accessible exercise; start with 10–15 minutes and gradually increase. Nordic walking (with poles) reduces knee load by up to 30%</li>
 <li><strong>Swimming and water aerobics</strong> — buoyancy reduces joint load by up to 90%, making it ideal for painful joints. Many the health service and local authority pools offer arthritis-specific sessions</li>
@@ -101,7 +101,7 @@ const CONTENT = `
 <li><strong>Resistance</strong> — water provides natural resistance for strengthening without weights</li>
 <li><strong>Pain relief</strong> — hydrostatic pressure reduces swelling</li>
 </ul>
-<p>The the health service provides hydrotherapy at some hospitals (referral via GP or physiotherapist). Many local authority pools and leisure centres also offer warm-water sessions. Organisations like <strong>Swim England</strong> and <strong>Versus Arthritis</strong> maintain directories of arthritis-friendly swimming sessions.</p>
+<p>The health service provides hydrotherapy at some hospitals (referral via GP or physiotherapist). Many local authority pools and leisure centres also offer warm-water sessions. Organisations like <strong>Swim England</strong> and <strong>Versus Arthritis</strong> maintain directories of arthritis-friendly swimming sessions.</p>
 
 <h2 id="exercise-during-flares">Exercising During Flare-Ups</h2>
 <p>A common question is whether to exercise during a flare-up. The answer is: <strong>yes, but modify</strong>. During active flares:</p>
@@ -155,7 +155,7 @@ const CONTENT = `
 <ul>
 <li><strong>Living With Arthritis</strong> — <a href="/exercises">free exercise programmes</a> for every major joint</li>
 <li><strong>Versus Arthritis</strong> — exercise guides and video library at <a href="https://www.versusarthritis.org/about-arthritis/exercising-with-arthritis/" target="_blank" rel="noopener noreferrer">versusarthritis.org</a></li>
-<li><strong>the health service Fitness Studio</strong> — free exercise videos at <a href="https://www.nhs.uk/conditions/nhs-fitness-studio/" target="_blank" rel="noopener noreferrer">nhs.uk</a></li>
+<li><strong>the health service Fitness Studio</strong> — free exercise videos at <a href="https://www.gov.uk/health" target="_blank" rel="noopener noreferrer">gov.uk/health</a></li>
 <li><strong>Chartered Society of Physiotherapy</strong> — find a physiotherapist at <a href="https://www.csp.org.uk" target="_blank" rel="noopener noreferrer">csp.org.uk</a></li>
 <li><strong>We Are Undefeatable</strong> — campaign supporting people with long-term conditions to be active</li>
 </ul>

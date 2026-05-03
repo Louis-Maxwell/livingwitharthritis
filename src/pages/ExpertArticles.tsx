@@ -31,7 +31,7 @@ const articles = [
       "In the UK, biologics are typically prescribed when two conventional DMARDs have failed — following NICE guidelines (TA375)",
       "TNF inhibitors (adalimumab, etanercept) remain the most commonly prescribed first-line biologics",
       "Response rates: approximately 60-70% of patients achieve significant improvement within 3-6 months",
-      "Biosimilars have made biologics more cost-effective for the the health service, with no clinically meaningful differences from originator drugs",
+      "Biosimilars have made biologics more cost-effective for the health service, with no clinically meaningful differences from originator drugs",
     ],
     content: `Biologic therapies represent one of the most significant advances in rheumatology in the past two decades. For patients with moderate-to-severe rheumatoid arthritis who haven't responded adequately to conventional disease-modifying anti-rheumatic drugs (DMARDs) like methotrexate, biologics offer a targeted approach to controlling inflammation.
 
