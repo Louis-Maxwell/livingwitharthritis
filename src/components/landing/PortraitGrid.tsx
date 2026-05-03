@@ -160,12 +160,21 @@ const PortraitGrid = memo(() => {
           </div>
         </div>
 
-        {/* Editorial footnote */}
-        <p className="mt-10 text-xs text-muted-foreground max-w-3xl leading-relaxed">
-          Stories are anonymised composites built from helpline themes, community
-          posts and patient feedback. No identifying details are used. Imagery is
-          editorial and does not depict the individuals described.
-        </p>
+        {/* View all stories — terminal-block prevention */}
+        <div className="mt-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-t border-border/30 pt-8">
+          <p className="text-xs text-muted-foreground max-w-2xl leading-relaxed">
+            Stories are anonymised composites built from helpline themes, community
+            posts and patient feedback. No identifying details are used. Imagery is
+            editorial and does not depict the individuals described.
+          </p>
+          <Link
+            to="/stories"
+            className="inline-flex items-center gap-2 rounded-full border border-primary/40 px-5 py-2.5 text-sm font-semibold text-primary hover:bg-primary hover:text-primary-foreground transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 self-start sm:self-auto shrink-0"
+          >
+            View all UK stories
+            <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+          </Link>
+        </div>
       </div>
     </section>
   );
