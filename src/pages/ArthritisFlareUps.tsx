@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
 import InternalLinks from "@/components/InternalLinks";
+import ContextualLinks from "@/components/ContextualLinks";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 
 const defined = (v: string) => `hsl(var(${v}))`;
@@ -520,6 +521,40 @@ export default function ArthritisFlareUps() {
           <strong>Medical disclaimer:</strong> This guide is for educational purposes only and does not replace professional medical advice. Content is aligned with publicly available the health service and NICE guidance as of March 2026. Always consult your GP, rheumatologist, or physiotherapist before making changes to your treatment plan. In an emergency, call 999.
         </p>
         <CrossLinkBanner preset="flareup" exclude="/arthritis-flare-ups" title="More arthritis resources" />
+        <ContextualLinks
+          heading="Reduce flare-ups, long term"
+          intro="Flare-ups respond best to a combined plan: anti-inflammatory food, gentle daily movement, mental health support and the right condition-specific treatment."
+          groups={[
+            {
+              title: "Calm inflammation through food",
+              links: [
+                { label: "Anti-inflammatory diet for arthritis", to: "/diet" },
+                { label: "Foods to avoid during a flare-up", to: "/blog/category/nutrition" },
+                { label: "Turmeric, omega-3 and collagen — what works", to: "/blog/category/supplements" },
+                { label: "Mediterranean diet pillar guide", to: "/guides/diet" },
+              ],
+            },
+            {
+              title: "Move without making it worse",
+              links: [
+                { label: "Arthritis-friendly exercises", to: "/exercises" },
+                { label: "Exercises to avoid with arthritis", to: "/guides/exercise" },
+                { label: "Tai Chi for balance & stiffness", to: "/exercises/tai-chi-for-balance" },
+                { label: "Self-help joint tool", to: "/self-help" },
+              ],
+            },
+            {
+              title: "Conditions linked to flares",
+              links: [
+                { label: "Rheumatoid arthritis flares", to: "/conditions/rheumatoid-arthritis" },
+                { label: "Osteoarthritis pain management", to: "/conditions/osteoarthritis" },
+                { label: "Gout attacks — what to do", to: "/conditions/gout" },
+                { label: "Lupus flare triggers", to: "/conditions/lupus" },
+                { label: "Fibromyalgia pacing strategies", to: "/conditions/fibromyalgia" },
+              ],
+            },
+          ]}
+        />
       </article>
 
       <InternalLinks />

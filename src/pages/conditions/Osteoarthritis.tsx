@@ -6,6 +6,7 @@ import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, ThermometerSun, Book
 import { motion } from "framer-motion";
 import { StatCounter, HorizontalBar, WaveDivider, EmojiCard } from "@/components/graphics/InfographicElements";
 import InternalLinks from "@/components/InternalLinks";
+import ContextualLinks from "@/components/ContextualLinks";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
 import ReadNextCards from "@/components/ReadNextCards";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
@@ -313,20 +314,52 @@ const Osteoarthritis = () => (
           </div>
         </section>
 
-        {/* Other Conditions */}
-        <section className="mb-12">
-          <h3 className="font-display text-lg font-semibold text-foreground mb-4">Explore Other Conditions</h3>
-          <div className="grid sm:grid-cols-2 gap-3">
-            <Link to="/conditions/rheumatoid-arthritis" className="group rounded-xl border border-border/40 px-5 py-4 hover:bg-accent transition-colors">
-              <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">Rheumatoid Arthritis →</span>
-              <span className="block text-xs text-muted-foreground mt-0.5">Autoimmune joint inflammation: symptoms, DMARDs & biologics</span>
-            </Link>
-            <Link to="/conditions/psoriatic-arthritis" className="group rounded-xl border border-border/40 px-5 py-4 hover:bg-accent transition-colors">
-              <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">Psoriatic Arthritis →</span>
-              <span className="block text-xs text-muted-foreground mt-0.5">Joint and skin condition: symptoms, treatment & support</span>
-            </Link>
-          </div>
-        </section>
+        {/* Contextual SEO links */}
+        <ContextualLinks
+          heading="Pair osteoarthritis care with the right resources"
+          intro="Use these guides alongside your treatment — diet, exercise, flare-up planning and other arthritis types worth knowing about."
+          groups={[
+            {
+              title: "Diet & supplements",
+              links: [
+                { label: "Best diet for osteoarthritis", to: "/diet" },
+                { label: "Mediterranean diet pillar guide", to: "/guides/diet" },
+                { label: "Foods to avoid with arthritis", to: "/blog/category/nutrition" },
+                { label: "Glucosamine, collagen, turmeric — what works", to: "/blog/category/supplements" },
+              ],
+            },
+            {
+              title: "Exercise & movement",
+              links: [
+                { label: "Knee arthritis exercises", to: "/exercises" },
+                { label: "Hip arthritis exercises", to: "/exercises" },
+                { label: "Hand arthritis exercises", to: "/exercises" },
+                { label: "Tai Chi for balance", to: "/exercises/tai-chi-for-balance" },
+                { label: "Exercises to avoid with arthritis", to: "/guides/exercise" },
+              ],
+            },
+            {
+              title: "Flare-ups & support",
+              links: [
+                { label: "Managing arthritis flare-ups", to: "/arthritis-flare-ups" },
+                { label: "Help while waiting for rheumatology", to: "/arthritis-waiting-list-help" },
+                { label: "Community & peer support", to: "/community" },
+                { label: "Browse the Advice Hub", to: "/blog-hub" },
+              ],
+            },
+            {
+              title: "Other conditions",
+              links: [
+                { label: "Rheumatoid arthritis", to: "/conditions/rheumatoid-arthritis" },
+                { label: "Psoriatic arthritis", to: "/conditions/psoriatic-arthritis" },
+                { label: "Gout", to: "/conditions/gout" },
+                { label: "Ankylosing spondylitis", to: "/conditions/ankylosing-spondylitis" },
+                { label: "Fibromyalgia", to: "/conditions/fibromyalgia" },
+                { label: "Lupus (SLE)", to: "/conditions/lupus" },
+              ],
+            },
+          ]}
+        />
 
         <div className="p-8 rounded-2xl bg-accent border border-border/30">
           <h2 className="font-display text-xl font-bold text-foreground mb-3">Need more support?</h2>

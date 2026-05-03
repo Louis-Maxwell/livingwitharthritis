@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import InternalLinks from "@/components/InternalLinks";
+import ContextualLinks from "@/components/ContextualLinks";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import {
@@ -493,6 +494,39 @@ const DietHub = () => {
         </section>
         <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <CrossLinkBanner preset="diet" exclude="/diet" title="Related resources" />
+          <ContextualLinks
+            heading="Explore related arthritis topics"
+            intro="Diet works best alongside the right movement plan and condition-specific care. Continue your reading below."
+            groups={[
+              {
+                title: "Anti-inflammatory eating",
+                links: [
+                  { label: "Mediterranean diet for arthritis — full guide", to: "/guides/diet" },
+                  { label: "How to reduce joint inflammation", to: "/arthritis-flare-ups" },
+                  { label: "Foods to avoid with arthritis", to: "/blog/category/nutrition" },
+                  { label: "Turmeric, omega-3 and collagen — what works", to: "/blog/category/supplements" },
+                ],
+              },
+              {
+                title: "Condition-specific diets",
+                links: [
+                  { label: "Osteoarthritis diet", to: "/conditions/osteoarthritis" },
+                  { label: "Rheumatoid arthritis diet", to: "/conditions/rheumatoid-arthritis" },
+                  { label: "Gout — low-purine eating", to: "/conditions/gout" },
+                  { label: "Lupus diet & sun-safety nutrition", to: "/conditions/lupus" },
+                ],
+              },
+              {
+                title: "Pair diet with action",
+                links: [
+                  { label: "Arthritis-friendly exercises", to: "/exercises" },
+                  { label: "Managing arthritis flare-ups", to: "/arthritis-flare-ups" },
+                  { label: "Self-help joint tool", to: "/self-help" },
+                  { label: "All Nutrition articles", to: "/blog/category/nutrition" },
+                ],
+              },
+            ]}
+          />
         </div>
       </main>
 
