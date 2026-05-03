@@ -46,14 +46,14 @@ export interface FaceStory {
 export const FACE_STORIES: FaceStory[] = [
   {
     id: "margaret-leeds",
-    title: "“Walking the dog used to hurt. Now it's the best part of my day.”",
-    eyebrow: "Lived experience · Osteoarthritis",
+    title: "“Walking the dog used to hurt. Now it’s the best part of my day.”",
+    eyebrow: "Lived experience · Knee osteoarthritis",
     quote:
-      "Three months of guided knee exercises, and I'm back on the canal path every morning. Small, steady progress — that was the secret.",
-    attribution: "Composite story — woman, 68",
-    region: "Leeds, Yorkshire",
+      "After twelve weeks of guided knee strengthening — five minutes, twice a day — I’m back on the canal path before breakfast. The pain didn’t vanish; it just stopped running my mornings.",
+    attribution: "Composite story — woman, 68, retired teacher",
+    region: "Leeds, West Yorkshire",
     ageBand: "65–74",
-    condition: "Knee osteoarthritis",
+    condition: "Bilateral knee osteoarthritis",
     image: portraitOlderWomanSmiling,
     alt: "Older woman in soft natural light, gentle smile, candid documentary portrait",
     cta: { label: "Read lived experiences", href: "/lived-experiences" },
@@ -61,14 +61,14 @@ export const FACE_STORIES: FaceStory[] = [
   },
   {
     id: "david-glasgow",
-    title: "“The waiting list felt endless. The helpline didn't.”",
-    eyebrow: "Helpline · rheumatology waiting list",
+    title: "“The waiting list felt endless. The helpline didn’t.”",
+    eyebrow: "Helpline · Rheumatology waiting list",
     quote:
-      "While I waited 14 months for a hip clinic, the team helped me stay mobile, manage flare-ups and prepare for surgery — for free.",
-    attribution: "Composite story — man, 71",
+      "Fourteen months on a hip clinic list is a long time to feel forgotten. The team kept me moving, helped me prepare for surgery, and answered the phone on a Sunday — none of it cost a penny.",
+    attribution: "Composite story — man, 71, former bus driver",
     region: "Glasgow, Scotland",
     ageBand: "65–74",
-    condition: "Hip osteoarthritis",
+    condition: "Severe hip osteoarthritis",
     image: portraitOlderManThoughtful,
     alt: "Older man at home, thoughtful expression, soft window light, candid portrait",
     cta: { label: "How the helpline supports you", href: "/services" },
@@ -76,11 +76,11 @@ export const FACE_STORIES: FaceStory[] = [
   },
   {
     id: "amara-london",
-    title: "“My grandkids ask why nan can't kneel. Now I have answers — and exercises.”",
+    title: "“My grandkids asked why nan can’t kneel. Now I have answers — and exercises.”",
     eyebrow: "Community · Multi-generational",
     quote:
-      "Joining the UK community gave me a language for the pain, and a routine my whole family understands and supports.",
-    attribution: "Composite story — woman, 62",
+      "Joining the community gave me a vocabulary for the pain and a routine my whole family understands. My six-year-old grandson now leads my morning stretches. He’s a fierce coach.",
+    attribution: "Composite story — woman, 62, NHS receptionist",
     region: "South London",
     ageBand: "55–64",
     condition: "Polyarticular osteoarthritis",
@@ -94,11 +94,11 @@ export const FACE_STORIES: FaceStory[] = [
     title: "“Two friends, one diagnosis, a thousand small wins.”",
     eyebrow: "Peer support · Movement",
     quote:
-      "We swapped scrolling for walking. Twenty minutes outdoors, four times a week — both our pain scores dropped within eight weeks.",
-    attribution: "Composite story — women, 50s",
+      "We swapped scrolling for walking. Twenty minutes outdoors, four mornings a week, rain or Welsh drizzle. Eight weeks in, both our pain scores had dropped — and we’d gained a habit we actually enjoy.",
+    attribution: "Composite story — women, 50s, neighbours",
     region: "Cardiff, Wales",
     ageBand: "50–59",
-    condition: "Early osteoarthritis",
+    condition: "Early-stage knee osteoarthritis",
     image: portraitHeroWomenOutdoors,
     alt: "Two women walking outdoors in warm afternoon light, candid documentary style",
     cta: { label: "Find an exercise plan", href: "/exercise-hub" },
@@ -106,10 +106,11 @@ export const FACE_STORIES: FaceStory[] = [
   },
 ];
 
-/** Aggregate trust strip surfaced under the headline */
+/** Aggregate trust strip surfaced under the headline. UK-specific, sourced from
+ * Versus Arthritis State of Musculoskeletal Health 2023 and ONS public datasets. */
 export const FACES_TRUST_FACTS: { label: string; value: string }[] = [
-  { value: "10M", label: "people in the UK live with arthritis" },
-  { value: "100%", label: "of resources free to access" },
-  { value: "0", label: "waiting list for our online tools" },
-  { value: "UK", label: "physio & nutrition reviewed" },
+  { value: "10M+", label: "people in the UK live with arthritis" },
+  { value: "8.5M", label: "adults affected by osteoarthritis" },
+  { value: "1 in 6", label: "GP appointments are arthritis-related" },
+  { value: "100%", label: "of our online resources free to access" },
 ];
