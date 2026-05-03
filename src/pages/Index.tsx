@@ -26,6 +26,7 @@ const ChangeLivesStats = lazy(() => import("@/components/landing/ChangeLivesStat
 const PortraitGrid = lazy(() => import("@/components/landing/PortraitGrid"));
 const InspiredHeroBand = lazy(() => import("@/components/landing/InspiredHeroBand"));
 const IntentChooser = lazy(() => import("@/components/landing/IntentChooser"));
+const ColourMosaic = lazy(() => import("@/components/landing/ColourMosaic"));
 
 const BackToTopButton = lazy(() => import("@/components/landing/BackToTopButton"));
 const CookieBanner = lazy(() => import("@/components/landing/CookieBanner"));
@@ -258,6 +259,10 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
 
           <Suspense fallback={<SkeletonSection />}>
             <ChangeLivesStats />
+          </Suspense>
+
+          <Suspense fallback={<SkeletonSection />}>
+            <ColourMosaic />
           </Suspense>
 
           <Suspense fallback={<SkeletonSection />}>

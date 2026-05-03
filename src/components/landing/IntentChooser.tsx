@@ -20,6 +20,7 @@ const CHOICES = [
     sub: "Self-help in 2 minutes",
     icon: Activity,
     to: "/self-help",
+    chip: "bg-primary text-primary-foreground",
   },
   {
     id: "nhs-wait",
@@ -27,6 +28,7 @@ const CHOICES = [
     sub: "Help while you wait",
     icon: Clock4,
     to: "/nhs-arthritis-waiting-list-help",
+    chip: "bg-[hsl(var(--sky))] text-white",
   },
   {
     id: "support",
@@ -34,6 +36,7 @@ const CHOICES = [
     sub: "Free physio & community",
     icon: HeartHandshake,
     to: "/services",
+    chip: "bg-[hsl(var(--gold))] text-[hsl(var(--gold-foreground))]",
   },
 ] as const;
 
@@ -50,7 +53,7 @@ const IntentChooser = memo(() => {
           What do you need today?
         </p>
         <ul className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
-          {CHOICES.map(({ id, label, sub, icon: Icon, to }) => (
+          {CHOICES.map(({ id, label, sub, icon: Icon, to, chip }) => (
             <li key={id}>
               <button
                 type="button"
@@ -58,10 +61,10 @@ const IntentChooser = memo(() => {
                   trackEvent("intent_chooser_click", { intent: id, to });
                   navigate(to);
                 }}
-                className="group w-full min-h-[56px] flex items-center gap-3 px-4 py-3 rounded-xl border border-border bg-card hover:border-primary/60 hover:bg-primary/[0.03] transition-colors text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                className="group w-full min-h-[56px] flex items-center gap-3 px-4 py-3 rounded-xl border border-border bg-card hover:border-foreground/20 hover:shadow-medium hover:-translate-y-0.5 transition-all text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                 aria-label={`${label} — ${sub}`}
               >
-                <span className="inline-flex w-9 h-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                <span className={`inline-flex w-10 h-10 shrink-0 items-center justify-center rounded-full ${chip} shadow-sm transition-transform duration-300 group-hover:scale-110`}>
                   <Icon className="w-4 h-4" aria-hidden="true" />
                 </span>
                 <span className="flex-1 min-w-0">
