@@ -441,6 +441,17 @@ const ExercisePanel = memo(({ joint, side, onClose }: { joint: JointData; side: 
       <p className="text-white/70 text-sm mt-2 leading-relaxed">💡 {joint.tip}</p>
     </div>
 
+    {/* Cinematic humanoid demo of the joint movement */}
+    {EXERCISE_ANIMATIONS[joint.id as ExerciseAnimationKey] && (
+      <div className="px-4 pt-4">
+        {(() => {
+          const Anim = EXERCISE_ANIMATIONS[joint.id as ExerciseAnimationKey];
+          return <Anim />;
+        })()}
+        <p className="text-[11px] text-muted-foreground text-center mt-1.5 italic">Animated demonstration · loops continuously</p>
+      </div>
+    )}
+
     <div className="p-4 space-y-3 max-h-[400px] overflow-y-auto">
       {joint.exercises.map((ex, i) => (
         <motion.div
