@@ -104,7 +104,11 @@ const Header = () => {
         { label: "Osteoarthritis", desc: "The most common form of arthritis", icon: Bone, href: "/conditions/osteoarthritis", action: () => navigate("/conditions/osteoarthritis"), color: "text-primary bg-primary/10" },
         { label: "Rheumatoid Arthritis", desc: "Autoimmune joint inflammation", icon: HeartPulse, href: "/conditions/rheumatoid-arthritis", action: () => navigate("/conditions/rheumatoid-arthritis"), color: "text-rose-600 bg-rose-500/10" },
         { label: "Psoriatic Arthritis", desc: "Joint pain with skin psoriasis", icon: ShieldCheck, href: "/conditions/psoriatic-arthritis", action: () => navigate("/conditions/psoriatic-arthritis"), color: "text-primary bg-primary/10" },
-        { label: "Gout & Other Types", desc: "Crystal, fibromyalgia & more", icon: Stethoscope, href: "#conditions", color: "text-primary bg-primary/10" },
+        { label: "Gout", desc: "Crystal arthritis — sudden, severe joint pain", icon: Stethoscope, href: "/conditions/gout", action: () => navigate("/conditions/gout"), color: "text-primary bg-primary/10" },
+        { label: "Ankylosing Spondylitis", desc: "Inflammatory back and spine arthritis", icon: Stethoscope, href: "/conditions/ankylosing-spondylitis", action: () => navigate("/conditions/ankylosing-spondylitis"), color: "text-primary bg-primary/10" },
+        { label: "Juvenile Arthritis", desc: "Arthritis in children and young people", icon: Stethoscope, href: "/conditions/juvenile-arthritis", action: () => navigate("/conditions/juvenile-arthritis"), color: "text-rose-600 bg-rose-500/10" },
+        { label: "Fibromyalgia", desc: "Widespread pain, fatigue and fibro fog", icon: Stethoscope, href: "/conditions/fibromyalgia", action: () => navigate("/conditions/fibromyalgia"), color: "text-primary bg-primary/10" },
+        { label: "Lupus (SLE)", desc: "Autoimmune disease affecting joints, skin & organs", icon: Stethoscope, href: "/conditions/lupus", action: () => navigate("/conditions/lupus"), color: "text-primary bg-primary/10" },
       ],
     },
     {
