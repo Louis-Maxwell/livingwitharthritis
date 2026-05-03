@@ -327,13 +327,24 @@ const ExerciseHub = () => {
 
                     <p className="text-muted-foreground leading-relaxed mb-5 max-w-2xl">{cat.description}</p>
 
-                    <div className="grid sm:grid-cols-2 gap-3 mb-5">
-                      {cat.exercises.map((ex, j) => (
-                        <div key={j} className="flex items-start gap-2.5 bg-background/60 backdrop-blur-sm rounded-lg p-3 border border-border/30">
-                          <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                          <span className="text-sm text-foreground">{ex}</span>
-                        </div>
-                      ))}
+                    <div className="grid lg:grid-cols-[1fr_320px] gap-6 mb-5">
+                      <div className="grid sm:grid-cols-2 gap-3">
+                        {cat.exercises.map((ex, j) => (
+                          <div key={j} className="flex items-start gap-2.5 bg-background/60 backdrop-blur-sm rounded-lg p-3 border border-border/30">
+                            <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                            <span className="text-sm text-foreground">{ex}</span>
+                          </div>
+                        ))}
+                      </div>
+                      {EXERCISE_ANIMATIONS[cat.id as ExerciseAnimationKey] && (() => {
+                        const Anim = EXERCISE_ANIMATIONS[cat.id as ExerciseAnimationKey];
+                        return (
+                          <div>
+                            <Anim />
+                            <p className="text-[11px] text-muted-foreground text-center mt-1.5 italic">Animated demonstration</p>
+                          </div>
+                        );
+                      })()}
                     </div>
 
                     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-4 border-t border-border/30">
