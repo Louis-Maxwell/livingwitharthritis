@@ -21,6 +21,7 @@ const MobileBottomNav = lazy(() => import("./components/MobileBottomNav"));
 const MobileNextStepBar = lazy(() => import("./components/MobileNextStepBar"));
 const DonationNotification = lazy(() => import("./components/DonationNotification"));
 const ExitIntentModal = lazy(() => import("./components/ExitIntentModal"));
+const EngagementTracker = lazy(() => import("./components/EngagementTracker"));
 
 
 // Lazy load pages for code splitting
@@ -194,6 +195,9 @@ function AppWithSync() {
   return (
     <>
       <RouteProgressBar />
+      <Suspense fallback={null}>
+        <EngagementTracker />
+      </Suspense>
       <AnimatedRoutes />
     </>
   );
