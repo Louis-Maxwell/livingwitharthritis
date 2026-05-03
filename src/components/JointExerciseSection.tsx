@@ -1,6 +1,7 @@
 import { memo, useState, useCallback, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Dumbbell, Clock, RotateCcw, Activity } from "lucide-react";
+import { EXERCISE_ANIMATIONS, type ExerciseAnimationKey } from "@/components/exercises/ExerciseAnimations";
 
 interface Exercise {
   name: string;
