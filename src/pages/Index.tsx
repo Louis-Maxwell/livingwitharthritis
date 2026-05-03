@@ -22,6 +22,9 @@ const QuickAccessSection = lazy(() => import("@/components/landing/QuickAccessSe
 const HowItWorksSection = lazy(() => import("@/components/landing/HowItWorksSection"));
 const TestimonialsSection = lazy(() => import("@/components/landing/TestimonialsSection"));
 const MovementMomentSection = lazy(() => import("@/components/landing/MovementMomentSection"));
+const ChangeLivesStats = lazy(() => import("@/components/landing/ChangeLivesStats"));
+const PortraitGrid = lazy(() => import("@/components/landing/PortraitGrid"));
+const InspiredHeroBand = lazy(() => import("@/components/landing/InspiredHeroBand"));
 
 const BackToTopButton = lazy(() => import("@/components/landing/BackToTopButton"));
 const CookieBanner = lazy(() => import("@/components/landing/CookieBanner"));
@@ -250,11 +253,23 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
           </Suspense>
 
           <Suspense fallback={<SkeletonSection />}>
+            <ChangeLivesStats />
+          </Suspense>
+
+          <Suspense fallback={<SkeletonSection />}>
             <HowItWorksSection />
           </Suspense>
 
           <Suspense fallback={<SkeletonSection />}>
+            <PortraitGrid />
+          </Suspense>
+
+          <Suspense fallback={<SkeletonSection />}>
             <TestimonialsSection />
+          </Suspense>
+
+          <Suspense fallback={<SkeletonSection />}>
+            <InspiredHeroBand />
           </Suspense>
 
           <Suspense fallback={<SkeletonSection />}>

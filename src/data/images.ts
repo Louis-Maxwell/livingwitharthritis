@@ -104,3 +104,12 @@ export const tipPaceYourself = "https://images.unsplash.com/photo-1506126613408-
 
 // ── Body / Exercise diagram ─────────────────────────────────
 export const bodyMannequin = "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600&q=80"; // anatomy/body
+
+// ── Inspired landing portraits (warm, documentary, diverse) ─
+// Wide, cinematic portrait — used in InspiredHeroBand
+export const portraitHeroWomenOutdoors = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1600&q=80"; // two women outdoors, warm light
+// Square portraits — used in PortraitGrid
+export const portraitOlderWomanSmiling = "https://images.unsplash.com/photo-1581579438747-104c53e7a6e3?w=900&q=80"; // older woman, soft smile
+export const portraitOlderManThoughtful = "https://images.unsplash.com/photo-1559963110-71b394e7494d?w=900&q=80"; // older man, candid
+export const portraitMultigenFamily = "https://images.unsplash.com/photo-1542810634-71277d95dcbb?w=900&q=80"; // multi-generational hands
+
