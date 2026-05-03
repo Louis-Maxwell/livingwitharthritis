@@ -26,6 +26,7 @@ import {
 import InternalLinks from "@/components/InternalLinks";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
+import { EXERCISE_ANIMATIONS, type ExerciseAnimationKey } from "@/components/exercises/ExerciseAnimations";
 
 const exerciseCategories = [
   {
