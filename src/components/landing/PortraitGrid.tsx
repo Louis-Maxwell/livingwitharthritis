@@ -38,6 +38,7 @@ const CARDS = [
 
 const PortraitGrid = memo(() => (
   <section
+    id="faces-of-arthritis"
     aria-labelledby="portrait-grid-heading"
     className="py-20 sm:py-24 bg-background"
   >

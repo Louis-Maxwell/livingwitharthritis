@@ -21,6 +21,7 @@ const InspiredHeroBand = memo(() => {
 
   return (
     <section
+      id="donate-inline"
       aria-labelledby="inspired-hero-heading"
       className="relative overflow-hidden bg-foreground text-background"
     >
@@ -73,28 +74,30 @@ const InspiredHeroBand = memo(() => {
               className="grid grid-cols-2 gap-2 p-1 bg-muted rounded-xl mb-5"
             >
               <button
+                type="button"
                 role="tab"
                 aria-selected={!recurring}
                 onClick={() => setRecurring(false)}
-                className={`flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-semibold transition-colors ${
+                className={`flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
                   !recurring
                     ? "bg-background text-foreground shadow-sm border border-border/50"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                <Heart className="w-4 h-4" /> One-time
+                <Heart className="w-4 h-4" aria-hidden="true" /> One-time
               </button>
               <button
+                type="button"
                 role="tab"
                 aria-selected={recurring}
                 onClick={() => setRecurring(true)}
-                className={`flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-semibold transition-colors ${
+                className={`flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
                   recurring
                     ? "bg-background text-foreground shadow-sm border border-border/50"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                <RefreshCw className="w-4 h-4" /> Monthly
+                <RefreshCw className="w-4 h-4" aria-hidden="true" /> Monthly
               </button>
             </div>
 
@@ -115,7 +118,7 @@ const InspiredHeroBand = memo(() => {
                       setCustom("");
                     }}
                     aria-pressed={active}
-                    className={`py-3 rounded-lg text-sm font-bold border transition-all ${
+                    className={`py-3 rounded-lg text-sm font-bold border transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
                       active
                         ? "border-primary bg-primary/5 text-primary"
                         : "border-border text-foreground hover:border-primary/60"
@@ -151,7 +154,8 @@ const InspiredHeroBand = memo(() => {
               type="button"
               onClick={handleDonate}
               disabled={finalAmount < 1}
-              className="w-full py-3.5 rounded-lg bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-primary/20"
+              aria-label={`Donate £${finalAmount} ${recurring ? "monthly" : "one-time"} to Living With Arthritis UK`}
+              className="w-full py-3.5 rounded-lg bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-primary/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
             >
               Donate £{finalAmount} {recurring ? "monthly" : "now"}
             </button>
