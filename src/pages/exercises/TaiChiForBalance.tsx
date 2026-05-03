@@ -10,6 +10,9 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { blogTaiChi } from "@/data/images";
+import { TAI_CHI_ANIMATIONS } from "@/components/exercises/TaiChiAnimations";
+
+type AnimKey = keyof typeof TAI_CHI_ANIMATIONS;
 
 const heroImage = "/openverse/wellness-02-tai-chi-young-and-old.jpg";
 
@@ -20,36 +23,41 @@ const benefits = [
   { icon: Sparkles, title: "Improves balance confidence", text: "Weight-shifting drills retrain proprioception. Most people report feeling steadier within 6–8 weeks of twice-weekly practice." },
 ];
 
-const moves = [
+const moves: { name: string; duration: string; how: string; why: string; anim: AnimKey }[] = [
   {
     name: "Standing rooted (Wuji stance)",
     duration: "2 min",
     how: "Stand with feet hip-width apart, knees soft (never locked). Imagine a thread lifting the crown of your head. Let arms hang. Breathe slowly through the nose for 8 cycles.",
     why: "Builds the postural alignment every other movement depends on.",
+    anim: "rooted-stance",
   },
   {
     name: "Weight shift (Empty & Full)",
     duration: "3 min",
     how: "From rooted stance, slowly transfer 90% of your weight to the right leg, then to the left. Keep knees tracking over toes. Repeat 10 times each side.",
     why: "Trains single-leg balance — the foundation of fall prevention.",
+    anim: "weight-shift",
   },
   {
     name: "Cloud hands (modified)",
     duration: "3 min",
     how: "With weight on the right leg, sweep the left hand across your body at chest height as if wiping a window. Shift weight as the hand crosses. Alternate sides for 8 reps.",
     why: "Coordinates upper and lower body, gentle on knees and shoulders.",
+    anim: "cloud-hands",
   },
   {
     name: "Brush knee (seated option)",
     duration: "3 min",
     how: "If standing is uncomfortable, sit forward on a sturdy chair. Push one palm forward at chest height while the other 'brushes' across the thigh. Alternate arms slowly.",
     why: "Keeps the practice accessible during flares without losing the flowing rhythm.",
+    anim: "brush-knee",
   },
   {
     name: "Closing posture",
     duration: "2 min",
     how: "Return to rooted stance. Lower hands slowly to your sides, palms turned down as if pressing the air. Take 6 long exhales.",
     why: "Settles the nervous system — research links this 'down-regulation' to reduced pain perception.",
+    anim: "closing-posture",
   },
 ];
 
@@ -150,27 +158,34 @@ export default function TaiChiForBalance() {
           <div className="max-w-2xl mb-10">
             <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-0">15 minutes · 5 movements</Badge>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">The beginner routine</h2>
-            <p className="text-muted-foreground leading-relaxed">Move through these in order. Each posture has a seated alternative if standing is uncomfortable. Breathe slowly through the nose throughout.</p>
+            <p className="text-muted-foreground leading-relaxed">Move through these in order. Each posture has an animated demonstration on the right — follow the figure at your own pace. Breathe slowly through the nose throughout.</p>
           </div>
 
           <ol className="space-y-5">
-            {moves.map((m, i) => (
-              <li key={m.name}>
-                <Card className="p-6 md:p-8 border border-border/40">
-                  <div className="flex flex-col md:flex-row md:items-start gap-6">
-                    <div className="flex md:flex-col items-center md:items-start gap-3 md:gap-2 md:w-32 shrink-0">
-                      <div className="h-12 w-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-display text-lg font-bold">{i + 1}</div>
-                      <div className="flex items-center gap-1.5 text-sm text-muted-foreground"><Clock className="h-4 w-4" />{m.duration}</div>
+            {moves.map((m, i) => {
+              const Anim = TAI_CHI_ANIMATIONS[m.anim];
+              return (
+                <li key={m.name}>
+                  <Card className="p-6 md:p-8 border border-border/40">
+                    <div className="grid md:grid-cols-[auto_1fr_280px] gap-6 md:gap-8 items-start">
+                      <div className="flex md:flex-col items-center md:items-start gap-3 md:gap-2 md:w-20 shrink-0">
+                        <div className="h-12 w-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-display text-lg font-bold">{i + 1}</div>
+                        <div className="flex items-center gap-1.5 text-sm text-muted-foreground"><Clock className="h-4 w-4" />{m.duration}</div>
+                      </div>
+                      <div className="min-w-0">
+                        <h3 className="font-display text-xl md:text-2xl font-semibold mb-3">{m.name}</h3>
+                        <p className="text-foreground/90 leading-relaxed mb-3"><span className="font-medium text-foreground">How:</span> {m.how}</p>
+                        <p className="text-sm text-muted-foreground leading-relaxed"><span className="font-medium text-foreground">Why it helps:</span> {m.why}</p>
+                      </div>
+                      <div className="md:sticky md:top-4">
+                        <Anim />
+                        <p className="text-xs text-muted-foreground text-center mt-2 italic">Loops continuously · follow at your own pace</p>
+                      </div>
                     </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl md:text-2xl font-semibold mb-3">{m.name}</h3>
-                      <p className="text-foreground/90 leading-relaxed mb-3"><span className="font-medium text-foreground">How:</span> {m.how}</p>
-                      <p className="text-sm text-muted-foreground leading-relaxed"><span className="font-medium text-foreground">Why it helps:</span> {m.why}</p>
-                    </div>
-                  </div>
-                </Card>
-              </li>
-            ))}
+                  </Card>
+                </li>
+              );
+            })}
           </ol>
 
           <Card className="mt-8 p-6 border-l-4 border-l-primary bg-primary/5">
