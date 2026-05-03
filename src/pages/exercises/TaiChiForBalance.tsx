@@ -99,7 +99,7 @@ export default function TaiChiForBalance() {
       />
       <Header />
 
-      <PageBreadcrumb items={[{ label: "Exercises", href: "/exercises" }, { label: "Tai Chi for Balance" }]} />
+      <PageBreadcrumb segments={[{ label: "Exercises", href: "/exercises" }, { label: "Tai Chi for Balance" }]} />
 
       <PageHero
         badge={<Badge variant="secondary" className="bg-primary/10 text-primary border-0">Evidence-based · NICE-recommended</Badge>}
