@@ -80,7 +80,7 @@ export const FACE_STORIES: FaceStory[] = [
     eyebrow: "Community · Multi-generational",
     quote:
       "Joining the community gave me a vocabulary for the pain and a routine my whole family understands. My six-year-old grandson now leads my morning stretches. He’s a fierce coach.",
-    attribution: "Composite story — woman, 62, NHS receptionist",
+    attribution: "Composite story — woman, 62, surgery receptionist",
     region: "South London",
     ageBand: "55–64",
     condition: "Polyarticular osteoarthritis",
