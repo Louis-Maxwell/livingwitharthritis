@@ -18,7 +18,7 @@ const imageMap: Record<string, string> = {
 
 
 const sourceLabels = [
-  "NHS, NICE & Cochrane Review",
+  "the health service, NICE & Cochrane Review",
   "Versus Arthritis UK Data",
   "Journal of the American Board of Family Medicine",
   "NICE Clinical Guidelines",
@@ -163,7 +163,7 @@ const VirtualPhysioSection = memo(() => {
             <span className="w-1 h-1 rounded-full bg-border" />
             <span className="flex items-center gap-1.5">
               <ShieldCheck className="w-3.5 h-3.5 text-primary/50" />
-              NHS-Aligned
+              the health service-Aligned
             </span>
             <span className="w-1 h-1 rounded-full bg-border" />
             <span className="flex items-center gap-1.5">

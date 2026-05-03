@@ -326,9 +326,9 @@ const RheumatoidArthritis = () => (
                 accent: "text-amber-600",
               },
               {
-                to: "/tools/nhs-waiting-time-calculator",
+                to: "/tools/waiting-time-calculator",
                 eyebrow: "Free tool",
-                title: "NHS rheumatology waiting time",
+                title: "rheumatology waiting time",
                 description: "Early RA referral matters — estimate your local 2026 wait and act fast.",
                 readTime: "2 min",
                 icon: Timer,

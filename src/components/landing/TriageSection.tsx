@@ -32,9 +32,9 @@ const TRIAGE_OPTIONS = [
   },
   {
     icon: Hospital,
-    label: "NHS help",
+    label: "healthcare help",
     description: "Waiting list support & guides",
-    to: "/nhs-waiting-list-help",
+    to: "/waiting-list-help",
     chip: "bg-[hsl(var(--coral))] text-white",
     ring: "hover:border-[hsl(var(--coral))]/60",
   },

@@ -21,7 +21,7 @@ const CONTENT = `
 <h3 id="osteoarthritis">Osteoarthritis (OA)</h3>
 <p>Osteoarthritis is the most common form, affecting over <strong>8.75 million people</strong> in the UK. It is a degenerative "wear and tear" condition where the cartilage cushioning joints gradually breaks down. As cartilage thins, bones begin to rub together, causing pain, swelling, stiffness and reduced range of motion. The joints most commonly affected are the <strong>knees, hips, hands, spine and feet</strong>.</p>
 <p>Risk factors include age (most common after 45), female sex, obesity, previous joint injury, repetitive occupational stress, genetics and certain metabolic conditions. Symptoms typically develop slowly: morning stiffness lasting less than 30 minutes, pain that worsens with activity, a grating or crackling sensation (crepitus), swelling around the joint, and gradual loss of flexibility.</p>
-<p>There is no cure for OA, but symptoms can be effectively managed through weight loss, regular low-impact exercise, physiotherapy, pain medication and — in severe cases — joint replacement surgery. The NHS provides OA management through GPs, first-contact physiotherapists, and specialist rheumatology clinics.</p>
+<p>There is no cure for OA, but symptoms can be effectively managed through weight loss, regular low-impact exercise, physiotherapy, pain medication and — in severe cases — joint replacement surgery. The health service provides OA management through GPs, first-contact physiotherapists, and specialist rheumatology clinics.</p>
 
 <h3 id="rheumatoid-arthritis">Rheumatoid Arthritis (RA)</h3>
 <p>Rheumatoid arthritis is an autoimmune condition affecting approximately <strong>400,000 people</strong> in the UK. Unlike OA, RA occurs when the immune system mistakenly attacks the synovial membrane lining the joints, causing chronic inflammation that can damage cartilage and bone. RA typically affects joints symmetrically — both wrists, both knees — and can also affect organs including the lungs, heart and eyes.</p>
@@ -44,7 +44,7 @@ const CONTENT = `
 <li><strong>Fatigue</strong> — especially common in inflammatory types like RA</li>
 <li><strong>Crepitus</strong> — grinding, clicking or popping sensations</li>
 </ul>
-<p>Diagnosis typically involves a GP assessment, blood tests (including CRP, ESR, rheumatoid factor and anti-CCP antibodies for inflammatory arthritis), X-rays and sometimes MRI or ultrasound scans. Your GP may refer you to a <strong>rheumatologist</strong> for specialist diagnosis and management. Under the NHS First Contact Practitioner scheme, you can now see a physiotherapist directly without a GP referral at many practices.</p>
+<p>Diagnosis typically involves a GP assessment, blood tests (including CRP, ESR, rheumatoid factor and anti-CCP antibodies for inflammatory arthritis), X-rays and sometimes MRI or ultrasound scans. Your GP may refer you to a <strong>rheumatologist</strong> for specialist diagnosis and management. Under the health service First Contact Practitioner scheme, you can now see a physiotherapist directly without a GP referral at many practices.</p>
 
 <h2 id="treatment-options">Treatment Options in the UK</h2>
 <p>Treatment varies depending on the type and severity of arthritis:</p>
@@ -67,7 +67,7 @@ const CONTENT = `
 </ul>
 <h3>Surgical Options</h3>
 <ul>
-<li><strong>Joint replacement</strong> — knee and hip replacements are among the most successful operations performed by the NHS, with over 160,000 procedures annually</li>
+<li><strong>Joint replacement</strong> — knee and hip replacements are among the most successful operations performed by the health service, with over 160,000 procedures annually</li>
 <li><strong>Arthroscopy</strong> — keyhole surgery for diagnosis and minor repairs</li>
 <li><strong>Joint fusion (arthrodesis)</strong> — for severely damaged smaller joints</li>
 </ul>
@@ -75,7 +75,7 @@ const CONTENT = `
 <h2 id="living-well-with-arthritis">Living Well With Arthritis</h2>
 <p>Managing arthritis is about more than medication. A holistic approach that combines physical activity, nutrition, mental health support and community connection delivers the best outcomes. Key strategies include:</p>
 <ul>
-<li><strong>Stay active</strong> — aim for 150 minutes of moderate activity per week (NHS recommendation)</li>
+<li><strong>Stay active</strong> — aim for 150 minutes of moderate activity per week (the health service recommendation)</li>
 <li><strong>Eat well</strong> — follow a Mediterranean-style diet rich in omega-3 fatty acids, fruits, vegetables and wholegrains</li>
 <li><strong>Manage stress</strong> — mindfulness, meditation and cognitive behavioural therapy (CBT) have all shown benefits</li>
 <li><strong>Prioritise sleep</strong> — poor sleep worsens pain perception; aim for 7–9 hours</li>
@@ -86,10 +86,10 @@ const CONTENT = `
 
 <h2 id="mental-health-and-arthritis">Mental Health and Arthritis</h2>
 <p>Living with chronic pain takes a significant toll on mental health. Research shows that people with arthritis are <strong>2–3 times more likely</strong> to experience depression and anxiety compared to the general population (Arthritis Research UK). The relationship is bidirectional: pain worsens mood, and low mood amplifies pain perception.</p>
-<p>The NHS provides mental health support through:</p>
+<p>The health service provides mental health support through:</p>
 <ul>
 <li><strong>IAPT (Improving Access to Psychological Therapies)</strong> — free talking therapies including CBT, available via GP referral or self-referral</li>
-<li><strong>NHS pain management programmes</strong> — multidisciplinary programmes combining physiotherapy, psychology and occupational therapy</li>
+<li><strong>the health service pain management programmes</strong> — multidisciplinary programmes combining physiotherapy, psychology and occupational therapy</li>
 <li><strong>Versus Arthritis helpline</strong> — 0800 5200 520 (free, open weekdays)</li>
 <li><strong>Mind</strong> — 0300 123 3393 for general mental health support</li>
 </ul>
@@ -107,20 +107,20 @@ const CONTENT = `
 <li><strong>New biologics and small molecules</strong> — targeting specific inflammatory pathways with fewer side effects</li>
 <li><strong>Microbiome research</strong> — understanding how gut bacteria influence autoimmune arthritis</li>
 </ul>
-<p>The UK's leading research funders include <strong>Versus Arthritis</strong> (investing over £9 million annually), the <strong>National Institute for Health and Care Research (NIHR)</strong>, and <strong>Medical Research Council (MRC)</strong>. Clinical trials are available through the NHS and the NIHR Clinical Research Network.</p>
+<p>The UK's leading research funders include <strong>Versus Arthritis</strong> (investing over £9 million annually), the <strong>National Institute for Health and Care Research (NIHR)</strong>, and <strong>Medical Research Council (MRC)</strong>. Clinical trials are available through the health service and the NIHR Clinical Research Network.</p>
 
 <h2 id="key-uk-resources">Key UK Resources</h2>
 <ul>
 <li><strong>Versus Arthritis</strong> — <a href="https://www.versusarthritis.org" target="_blank" rel="noopener noreferrer">versusarthritis.org</a> — helpline: 0800 5200 520</li>
 <li><strong>NRAS</strong> — <a href="https://nras.org.uk" target="_blank" rel="noopener noreferrer">nras.org.uk</a> — helpline: 0800 298 7650</li>
-<li><strong>NHS</strong> — <a href="https://www.nhs.uk/conditions/arthritis/" target="_blank" rel="noopener noreferrer">nhs.uk/conditions/arthritis</a></li>
+<li><strong>the health service</strong> — <a href="https://www.gov.uk/health" target="_blank" rel="noopener noreferrer">gov.uk/health</a></li>
 <li><strong>Arthritis Action</strong> — <a href="https://www.arthritisaction.org.uk" target="_blank" rel="noopener noreferrer">arthritisaction.org.uk</a></li>
 <li><strong>Citizens Advice</strong> — benefits and PIP support</li>
 <li><strong>Living With Arthritis</strong> — free virtual physiotherapy, diet plans and community support</li>
 </ul>
 
 <h2 id="sources-disclaimer">Sources &amp; Disclaimer</h2>
-<p>This guide draws on publicly available data from the NHS, NICE clinical guidelines (NG100, NG226, CG79), Versus Arthritis, NRAS, and peer-reviewed research published in <em>The Lancet</em>, <em>Annals of the Rheumatic Diseases</em> and <em>BMJ</em>. Statistics cited are the most recent available as of 2024. This information is for educational purposes only and is not a substitute for professional medical advice. Always consult your GP or rheumatologist for personalised guidance.</p>
+<p>This guide draws on publicly available data from the health service, NICE clinical guidelines (NG100, NG226, CG79), Versus Arthritis, NRAS, and peer-reviewed research published in <em>The Lancet</em>, <em>Annals of the Rheumatic Diseases</em> and <em>BMJ</em>. Statistics cited are the most recent available as of 2024. This information is for educational purposes only and is not a substitute for professional medical advice. Always consult your GP or rheumatologist for personalised guidance.</p>
 `;
 
 export default function UKArthritisGuide() {
@@ -130,7 +130,7 @@ export default function UKArthritisGuide() {
     <>
       <Helmet>
         <title>Complete UK Arthritis Guide 2025 – Types, Symptoms, Treatment &amp; Support</title>
-        <meta name="description" content="The definitive UK guide to arthritis: types (OA, RA, PsA), symptoms, NHS treatment options, self-management strategies, and support resources. Covers 100+ types affecting 10 million people." />
+        <meta name="description" content="The definitive UK guide to arthritis: types (OA, RA, PsA), symptoms, standard treatment options, self-management strategies, and support resources. Covers 100+ types affecting 10 million people." />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/guides/uk-arthritis" />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
@@ -138,14 +138,14 @@ export default function UKArthritisGuide() {
           "@context": "https://schema.org",
           "@type": "MedicalWebPage",
           "name": "Complete UK Arthritis Guide 2025",
-          "description": "Comprehensive guide to arthritis in the UK covering types, symptoms, NHS treatment and support.",
+          "description": "Comprehensive guide to arthritis in the UK covering types, symptoms, standard treatment and support.",
           "url": "https://livingwitharthritis.org.uk/guides/uk-arthritis",
           "inLanguage": "en-GB",
           "medicalAudience": { "@type": "PatientAudience" },
           "lastReviewed": "2025-01-15"
         })}</script>
       <meta property="og:title" content="Complete UK Arthritis Guide 2025 – Types, Symptoms, Treatment &amp; Support" />
-      <meta property="og:description" content="The definitive UK guide to arthritis: types (OA, RA, PsA), symptoms, NHS treatment options, self-management strategies, and support resources. Covers 100+ types affecting 10 million people." />
+      <meta property="og:description" content="The definitive UK guide to arthritis: types (OA, RA, PsA), symptoms, standard treatment options, self-management strategies, and support resources. Covers 100+ types affecting 10 million people." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/guides/uk-arthritis" />
       <meta property="og:site_name" content="Living With Arthritis UK" />
@@ -155,7 +155,7 @@ export default function UKArthritisGuide() {
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Complete UK Arthritis Guide 2025 – Types, Symptoms, Treatment &amp; Support" />
-      <meta name="twitter:description" content="The definitive UK guide to arthritis: types (OA, RA, PsA), symptoms, NHS treatment options, self-management strategies, and support resources. Covers 100+ types affecting 10 million people." />
+      <meta name="twitter:description" content="The definitive UK guide to arthritis: types (OA, RA, PsA), symptoms, standard treatment options, self-management strategies, and support resources. Covers 100+ types affecting 10 million people." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
     </Helmet>
       <Header />
@@ -174,9 +174,9 @@ export default function UKArthritisGuide() {
           <div className="mt-16 pt-8 border-t border-border/30">
             <h3 className="font-display font-bold text-lg mb-4">Continue Reading</h3>
             <div className="grid sm:grid-cols-2 gap-4">
-              <Link to="/guides/nhs-services" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
+              <Link to="/guides/health-services" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
                 <p className="text-xs text-primary font-bold mb-1">Next Guide →</p>
-                <p className="font-bold text-foreground">NHS Arthritis Services</p>
+                <p className="font-bold text-foreground">Arthritis Services</p>
               </Link>
               <Link to="/guides/exercise" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
                 <p className="text-xs text-primary font-bold mb-1">Related →</p>

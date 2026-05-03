@@ -37,7 +37,7 @@ const CONDITIONS = [
   "Other / unsure",
 ];
 
-const NHSWaitingTimeCalculator = () => {
+const WaitingTimeCalculator = () => {
   const [region, setRegion] = useState("London");
   const [urgency, setUrgency] = useState("Persistent joint pain (routine)");
   const [condition, setCondition] = useState("Osteoarthritis");
@@ -48,15 +48,15 @@ const NHSWaitingTimeCalculator = () => {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       mainEntity: [
-        { "@type": "Question", name: "How accurate is this NHS waiting time calculator?", acceptedAnswer: { "@type": "Answer", text: "Estimates use 2026 NHS England, Scotland, Wales and Northern Ireland published averages. Actual waits vary by trust." } },
+        { "@type": "Question", name: "How accurate is this rheumatology waiting time calculator?", acceptedAnswer: { "@type": "Answer", text: "Estimates use 2026 England's health service, Scotland, Wales and Northern Ireland published averages. Actual waits vary by trust." } },
         { "@type": "Question", name: "Is this calculator free?", acceptedAnswer: { "@type": "Answer", text: "Yes — completely free for all UK patients, with no signup required." } },
       ],
     };
     const toolLd = {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      name: "NHS Arthritis Waiting Time Calculator",
-      url: `${BASE}/tools/nhs-waiting-time`,
+      name: "Arthritis Waiting Time Calculator",
+      url: `${BASE}/tools/waiting-time`,
       applicationCategory: "HealthApplication",
       operatingSystem: "Any",
       offers: { "@type": "Offer", price: "0", priceCurrency: "GBP" },
@@ -84,23 +84,23 @@ const NHSWaitingTimeCalculator = () => {
   return (
     <>
       <Helmet>
-        <title>NHS Arthritis Waiting Time Calculator — Free UK Tool | Living With Arthritis</title>
-        <meta name="description" content="Free NHS rheumatology waiting time calculator for UK patients. Estimate your wait by region, urgency and condition — get a personalised action plan." />
-        <meta name="keywords" content="NHS waiting time calculator, rheumatology waiting list UK, NHS arthritis referral wait, rheumatology wait by region" />
-        <link rel="canonical" href={`${BASE}/tools/nhs-waiting-time`} />
-        <meta property="og:title" content="NHS Arthritis Waiting Time Calculator" />
-        <meta property="og:description" content="Free UK tool — estimate your NHS rheumatology wait in seconds." />
-        <meta property="og:url" content={`${BASE}/tools/nhs-waiting-time`} />
+        <title>Arthritis Waiting Time Calculator — Free UK Tool | Living With Arthritis</title>
+        <meta name="description" content="Free rheumatology waiting time calculator for UK patients. Estimate your wait by region, urgency and condition — get a personalised action plan." />
+        <meta name="keywords" content="rheumatology waiting time calculator, rheumatology waiting list UK, arthritis referral wait, rheumatology wait by region" />
+        <link rel="canonical" href={`${BASE}/tools/waiting-time`} />
+        <meta property="og:title" content="Arthritis Waiting Time Calculator" />
+        <meta property="og:description" content="Free UK tool — estimate your rheumatology wait in seconds." />
+        <meta property="og:url" content={`${BASE}/tools/waiting-time`} />
         <meta name="geo.region" content="GB" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="NHS Arthritis Waiting Time Calculator — Free UK Tool | Living With Arthritis" />
-      <meta name="twitter:description" content="Free NHS rheumatology waiting time calculator for UK patients. Estimate your wait by region, urgency and condition — get a personalised action plan." />
+      <meta name="twitter:title" content="Arthritis Waiting Time Calculator — Free UK Tool | Living With Arthritis" />
+      <meta name="twitter:description" content="Free rheumatology waiting time calculator for UK patients. Estimate your wait by region, urgency and condition — get a personalised action plan." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
     </Helmet>
 
       <Header />
 
-      <PageBreadcrumb segments={[{ label: "Tools" }, { label: "NHS Waiting Time Calculator" }]} />
+      <PageBreadcrumb segments={[{ label: "Tools" }, { label: "Rheumatology Waiting Time Calculator" }]} />
 
       <main className="container mx-auto px-6 md:px-10 py-12 max-w-3xl">
         <div className="flex items-center gap-2 text-primary mb-3">
@@ -108,10 +108,10 @@ const NHSWaitingTimeCalculator = () => {
           <span className="text-sm font-medium uppercase tracking-wide">Free UK Tool</span>
         </div>
         <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
-          NHS Arthritis Waiting Time Calculator
+          Arthritis Waiting Time Calculator
         </h1>
         <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
-          Estimate your NHS rheumatology wait based on your region, urgency and condition. Get a free, personalised plan for what to do while you wait — built for UK patients.
+          Estimate your rheumatology wait based on your region, urgency and condition. Get a free, personalised plan for what to do while you wait — built for UK patients.
         </p>
 
         <div className="bg-card border border-border rounded-2xl p-6 md:p-8 mb-8 shadow-sm">
@@ -165,7 +165,7 @@ const NHSWaitingTimeCalculator = () => {
               <h2 className="text-2xl font-semibold">Estimated wait: ~{result} weeks</h2>
             </div>
             <p className="text-muted-foreground mb-5">
-              Based on 2026 NHS averages for {region}. Your actual wait depends on your specific NHS trust and clinical urgency.
+              Based on 2026 the health service averages for {region}. Your actual wait depends on your specific local health trust and clinical urgency.
             </p>
 
             <div className="space-y-3 mb-5">
@@ -178,21 +178,21 @@ const NHSWaitingTimeCalculator = () => {
               </ul>
             </div>
 
-            <SocialShareButtons title={`My NHS arthritis wait: ~${result} weeks`} slug="tools/nhs-waiting-time" />
+            <SocialShareButtons title={`My arthritis wait: ~${result} weeks`} slug="tools/waiting-time" />
           </div>
         )}
 
         <div className="bg-muted/40 border border-border rounded-xl p-5 flex items-start gap-3">
           <AlertCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
           <p className="text-sm text-muted-foreground">
-            <strong className="text-foreground">Disclaimer:</strong> Estimates use 2026 published NHS averages. Always consult your GP for clinical advice. This tool does not replace medical care.
+            <strong className="text-foreground">Disclaimer:</strong> Estimates use 2026 published the health service averages. Always consult your GP for clinical advice. This tool does not replace medical care.
           </p>
         </div>
 
         <div className="mt-10 p-6 bg-card border border-border rounded-2xl">
           <h2 className="text-xl font-semibold mb-3">Need more help?</h2>
-          <Link to="/nhs-arthritis-waiting-list-help" className="text-primary hover:underline inline-flex items-center gap-1.5">
-            Read our full NHS waiting list survival guide <ArrowRight className="w-4 h-4" />
+          <Link to="/arthritis-waiting-list-help" className="text-primary hover:underline inline-flex items-center gap-1.5">
+            Read our full rheumatology waiting list survival guide <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </main>
@@ -202,4 +202,4 @@ const NHSWaitingTimeCalculator = () => {
   );
 };
 
-export default NHSWaitingTimeCalculator;
+export default WaitingTimeCalculator;

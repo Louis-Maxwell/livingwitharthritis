@@ -22,7 +22,7 @@ const REGIONS: Record<string, Region> = {
   "north-west": {
     slug: "north-west",
     name: "North West England",
-    intro: "Find arthritis support, NHS rheumatology services, and patient communities across Manchester, Liverpool, Preston, Blackpool, Warrington and Wigan. The North West is home to leading rheumatology centres including the Kellgren Centre and the Royal Liverpool Hospital.",
+    intro: "Find arthritis support, rheumatology services, and patient communities across Manchester, Liverpool, Preston, Blackpool, Warrington and Wigan. The North West is home to leading rheumatology centres including the Kellgren Centre and the Royal Liverpool Hospital.",
     citySlugs: ["manchester", "liverpool", "preston", "blackpool", "warrington", "wigan"],
     highlights: [
       "Kellgren Centre for Rheumatology — Manchester",
@@ -30,7 +30,7 @@ const REGIONS: Record<string, Region> = {
       "Aintree University Hospital MSK service",
       "Lancashire Teaching Hospitals rheumatology referrals",
     ],
-    keywords: "arthritis support north west england, NHS rheumatology manchester liverpool, north west arthritis services",
+    keywords: "arthritis support north west england, rheumatology manchester liverpool, north west arthritis services",
   },
   "midlands": {
     slug: "midlands",
@@ -43,12 +43,12 @@ const REGIONS: Record<string, Region> = {
       "Queen's Medical Centre Nottingham",
       "Black Country MSK Service — Wolverhampton",
     ],
-    keywords: "arthritis midlands, NHS rheumatology birmingham nottingham, midlands arthritis support",
+    keywords: "arthritis midlands, rheumatology birmingham nottingham, midlands arthritis support",
   },
   "scotland": {
     slug: "scotland",
     name: "Scotland",
-    intro: "Access arthritis care across Glasgow, Edinburgh, Aberdeen and Dundee through NHS Scotland. Scottish patients benefit from Versus Arthritis Scotland support networks and university-led research at Glasgow and Edinburgh.",
+    intro: "Access arthritis care across Glasgow, Edinburgh, Aberdeen and Dundee through Scotland's health service. Scottish patients benefit from Versus Arthritis Scotland support networks and university-led research at Glasgow and Edinburgh.",
     citySlugs: ["glasgow", "edinburgh", "aberdeen", "dundee"],
     highlights: [
       "Gartnavel General Hospital Rheumatology — Glasgow",
@@ -56,12 +56,12 @@ const REGIONS: Record<string, Region> = {
       "Aberdeen Royal Infirmary Rheumatology",
       "Versus Arthritis Scotland support",
     ],
-    keywords: "arthritis scotland, NHS scotland rheumatology, scottish arthritis support",
+    keywords: "arthritis scotland, the health service scotland rheumatology, scottish arthritis support",
   },
   "wales": {
     slug: "wales",
     name: "Wales",
-    intro: "Find arthritis support across Cardiff, Swansea and Welsh health boards. NHS Wales provides specialist rheumatology with Arthritis Cymru offering Welsh-language patient support.",
+    intro: "Find arthritis support across Cardiff, Swansea and Welsh health boards. Wales's health service provides specialist rheumatology with Arthritis Cymru offering Welsh-language patient support.",
     citySlugs: ["cardiff", "swansea"],
     highlights: [
       "University Hospital of Wales — Cardiff",
@@ -69,7 +69,7 @@ const REGIONS: Record<string, Region> = {
       "Arthritis Cymru — Welsh patient support",
       "Cardiff & Vale University Health Board",
     ],
-    keywords: "arthritis wales cymru, NHS wales rheumatology, welsh arthritis support",
+    keywords: "arthritis wales cymru, the health service wales rheumatology, welsh arthritis support",
   },
 };
 
@@ -123,7 +123,7 @@ const RegionHub = () => {
   return (
     <>
       <Helmet>
-        <title>{`Arthritis Support in ${r.name} — NHS Rheumatology & Local Help | Living With Arthritis`}</title>
+        <title>{`Arthritis Support in ${r.name} — Rheumatology & Local Help | Living With Arthritis`}</title>
         <meta name="description" content={`${r.intro.slice(0, 155)}`} />
         <meta name="keywords" content={r.keywords} />
         <link rel="canonical" href={`${BASE}/regions/${r.slug}`} />
@@ -161,7 +161,7 @@ const RegionHub = () => {
         <section className="bg-card border border-border rounded-2xl p-6 mb-10">
           <div className="flex items-center gap-3 mb-4">
             <Hospital className="w-5 h-5 text-primary" />
-            <h2 className="text-xl font-semibold">Major NHS Rheumatology Centres</h2>
+            <h2 className="text-xl font-semibold">Major Rheumatology Centres</h2>
           </div>
           <ul className="grid sm:grid-cols-2 gap-3">
             {r.highlights.map((h) => (
@@ -185,7 +185,7 @@ const RegionHub = () => {
                 className="bg-card border border-border rounded-xl p-5 hover:border-primary/50 hover:shadow-sm transition-all group"
               >
                 <p className="font-semibold text-foreground group-hover:text-primary">{c.name}</p>
-                <p className="text-xs text-muted-foreground mt-1">{c.nhsTrust}</p>
+                <p className="text-xs text-muted-foreground mt-1">{c.localTrust}</p>
                 <ArrowRight className="w-4 h-4 text-primary mt-3 opacity-0 group-hover:opacity-100 transition" />
               </Link>
             ))}
@@ -196,12 +196,12 @@ const RegionHub = () => {
           <div className="flex items-start gap-4">
             <Calculator className="w-6 h-6 text-primary shrink-0 mt-1" />
             <div>
-              <h2 className="text-xl font-semibold mb-2">Worried about NHS waiting times in {r.name}?</h2>
+              <h2 className="text-xl font-semibold mb-2">Worried about the health service waiting times in {r.name}?</h2>
               <p className="text-muted-foreground mb-4">
-                Use our free NHS Arthritis Waiting Time Calculator to estimate your referral wait and discover what to do while you wait.
+                Use our free Arthritis Waiting Time Calculator to estimate your referral wait and discover what to do while you wait.
               </p>
               <Link
-                to="/tools/nhs-waiting-time"
+                to="/tools/waiting-time"
                 className="inline-flex items-center gap-1.5 text-primary font-medium hover:underline"
               >
                 Open the calculator <ArrowRight className="w-4 h-4" />

@@ -23,7 +23,7 @@ const contentItems = [
     icon: FileText,
     count: "5",
     label: "Pillar Guides",
-    description: "Comprehensive UK-focused guides on NHS services, diet, exercise, benefits & PIP, and living with arthritis.",
+    description: "Comprehensive UK-focused guides on health services, diet, exercise, benefits & PIP, and living with arthritis.",
     link: "/guides/uk-arthritis",
     linkText: "Read Guides",
   },

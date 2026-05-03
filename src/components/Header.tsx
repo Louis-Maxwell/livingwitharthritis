@@ -115,7 +115,7 @@ const Header = () => {
         { label: "Blog Articles", desc: "100+ evidence-based health articles", icon: Newspaper, href: "/blog", action: () => navigate("/blog"), color: "text-primary bg-primary/10" },
         { label: "Expert Articles", desc: "Clinician-written specialist guides", icon: Stethoscope, href: "/expert-articles", action: () => navigate("/expert-articles"), color: "text-primary bg-primary/10" },
         { label: "Lived Experiences", desc: "Real stories from real patients", icon: Heart, href: "/stories", action: () => navigate("/stories"), color: "text-primary bg-primary/10" },
-        { label: "Resource Directory", desc: "UK NHS, charities & benefits", icon: Globe, href: "/resources-directory", action: () => navigate("/resources-directory"), color: "text-primary bg-primary/10" },
+        { label: "Resource Directory", desc: "UK the health service, charities & benefits", icon: Globe, href: "/resources-directory", action: () => navigate("/resources-directory"), color: "text-primary bg-primary/10" },
       ],
     },
     {
@@ -166,7 +166,7 @@ const Header = () => {
     { label: "Conditions", icon: HeartPulse, desc: "OA, RA, Gout, PsA & more", href: "#conditions" },
     { label: "Blog & Stories", icon: Newspaper, desc: "40+ evidence-based articles", href: "/blog", action: () => navigate("/blog") },
     { label: "Support Us", icon: HandHeart, desc: "Donate, volunteer & fundraise", href: "#involved" },
-    { label: "Resources", icon: BookOpen, desc: "NHS pathways, benefits & guides", href: "#resources", action: () => setResourceDrawerOpen(true) },
+    { label: "Resources", icon: BookOpen, desc: "care pathways, benefits & guides", href: "#resources", action: () => setResourceDrawerOpen(true) },
     { label: "Shop", icon: ShoppingBag, desc: "Recommended arthritis products", href: "/shop", action: () => navigate("/shop") },
   ];
 

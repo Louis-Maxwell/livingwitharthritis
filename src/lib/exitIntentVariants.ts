@@ -25,9 +25,9 @@ export const EXIT_INTENT_VARIANTS: Record<ExitIntentVariantId, ExitIntentVariant
     eyebrow: "Wait — before you go",
     headline: "Get your free Arthritis Starter Guide",
     subheadline:
-      "A 14-page UK guide with NHS-aligned advice, anti-inflammatory meal ideas, and gentle exercise plans.",
+      "A 14-page UK guide with clinically aligned advice, anti-inflammatory meal ideas, and gentle exercise plans.",
     bullets: [
-      { icon: BookOpen, text: "Plain-English NHS pathway explained" },
+      { icon: BookOpen, text: "Plain-English care pathway explained" },
       { icon: Apple, text: "Mediterranean meal ideas for joint pain" },
       { icon: Dumbbell, text: "5-minute daily mobility routines" },
     ],
@@ -41,7 +41,7 @@ export const EXIT_INTENT_VARIANTS: Record<ExitIntentVariantId, ExitIntentVariant
     eyebrow: "One last thing",
     headline: "7 days to less joint pain — free by email",
     subheadline:
-      "A short daily email with one practical, NHS-aligned action you can do in under 10 minutes. No fluff, unsubscribe anytime.",
+      "A short daily email with one practical, clinically aligned action you can do in under 10 minutes. No fluff, unsubscribe anytime.",
     bullets: [
       { icon: Mail, text: "One short email per day for 7 days" },
       { icon: CalendarCheck, text: "Each lesson takes under 10 minutes" },

@@ -10,28 +10,28 @@ const BASE = "https://livingwitharthritis.org.uk";
 
 const FAQS = [
   {
-    q: "How long is the NHS rheumatology waiting list in 2026?",
-    a: "Typical NHS rheumatology waits in 2026 range from 14 to 22 weeks for first appointment in England, with regional variation. Scotland and Wales report similar averages. Use our free calculator for a personalised estimate.",
+    q: "How long is the rheumatology waiting list in 2026?",
+    a: "Typical rheumatology waits in 2026 range from 14 to 22 weeks for first appointment in England, with regional variation. Scotland and Wales report similar averages. Use our free calculator for a personalised estimate.",
   },
   {
-    q: "What can I do while I wait for my NHS arthritis appointment?",
+    q: "What can I do while I wait for my arthritis appointment?",
     a: "Begin gentle low-impact exercise (swimming, walking, cycling), adopt an anti-inflammatory Mediterranean diet, manage your weight, and use our free self-help tools. Keep a pain journal to bring to your first appointment.",
   },
   {
-    q: "Can I get faster access through the NHS?",
-    a: "Ask your GP if you qualify for urgent referral (suspected inflammatory arthritis is treated as urgent). Patient Choice lets you select any NHS hospital in England — sometimes shorter waits exist nearby.",
+    q: "Can I get faster access through the health service?",
+    a: "Ask your GP if you qualify for urgent referral (suspected inflammatory arthritis is treated as urgent). Patient Choice lets you select any the health service hospital in England — sometimes shorter waits exist nearby.",
   },
   {
     q: "Should I consider going private?",
-    a: "Private rheumatology consultations cost £200–£350 in the UK. They're worth considering for diagnosis only — you can usually return to NHS care for treatment. Many hospitals operate hybrid pathways.",
+    a: "Private rheumatology consultations cost £200–£350 in the UK. They're worth considering for diagnosis only — you can usually return to public healthcare for treatment. Many hospitals operate hybrid pathways.",
   },
   {
     q: "What support does Living With Arthritis offer for waiting patients?",
-    a: "Free symptom guidance, NHS-aligned exercise plans, an AI chatbot for questions 24/7, downloadable joint-care PDFs, and a community forum — all completely free for UK patients.",
+    a: "Free symptom guidance, clinically aligned exercise plans, an AI chatbot for questions 24/7, downloadable joint-care PDFs, and a community forum — all completely free for UK patients.",
   },
 ];
 
-const NHSWaitingListHelp = () => {
+const WaitingListHelp = () => {
   useEffect(() => {
     const faqLd = {
       "@context": "https://schema.org",
@@ -45,9 +45,9 @@ const NHSWaitingListHelp = () => {
     const articleLd = {
       "@context": "https://schema.org",
       "@type": "MedicalWebPage",
-      name: "NHS Arthritis Waiting List Help — Free UK Patient Support",
-      description: "Stuck on the NHS rheumatology waiting list? Free, evidence-based help for UK arthritis patients while you wait.",
-      url: `${BASE}/nhs-arthritis-waiting-list-help`,
+      name: "Arthritis Waiting List Help — Free UK Patient Support",
+      description: "Stuck on the rheumatology waiting list? Free, evidence-based help for UK arthritis patients while you wait.",
+      url: `${BASE}/arthritis-waiting-list-help`,
       inLanguage: "en-GB",
       audience: { "@type": "MedicalAudience", audienceType: "Patient", geographicArea: { "@type": "Country", "name": "United Kingdom" } },
     };
@@ -69,46 +69,46 @@ const NHSWaitingListHelp = () => {
   return (
     <>
       <Helmet>
-        <title>NHS Arthritis Waiting List Help — Free UK Patient Support | Living With Arthritis</title>
-        <meta name="description" content="Stuck on the NHS rheumatology waiting list? Get free, evidence-based arthritis help, exercises, diet plans and a waiting time calculator for UK patients." />
-        <meta name="keywords" content="NHS arthritis waiting list, rheumatology waiting time UK, NHS rheumatology referral, arthritis help while waiting NHS" />
-        <link rel="canonical" href={`${BASE}/nhs-arthritis-waiting-list-help`} />
-        <meta property="og:title" content="NHS Arthritis Waiting List Help — UK Patient Support" />
-        <meta property="og:description" content="Free, evidence-based help for UK arthritis patients waiting for NHS rheumatology." />
-        <meta property="og:url" content={`${BASE}/nhs-arthritis-waiting-list-help`} />
+        <title>Arthritis Waiting List Help — Free UK Patient Support | Living With Arthritis</title>
+        <meta name="description" content="Stuck on the rheumatology waiting list? Get free, evidence-based arthritis help, exercises, diet plans and a waiting time calculator for UK patients." />
+        <meta name="keywords" content="arthritis waiting list, rheumatology waiting time UK, rheumatology referral, arthritis help while waiting the health service" />
+        <link rel="canonical" href={`${BASE}/arthritis-waiting-list-help`} />
+        <meta property="og:title" content="Arthritis Waiting List Help — UK Patient Support" />
+        <meta property="og:description" content="Free, evidence-based help for UK arthritis patients waiting for rheumatology." />
+        <meta property="og:url" content={`${BASE}/arthritis-waiting-list-help`} />
         <meta name="geo.region" content="GB" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="NHS Arthritis Waiting List Help — Free UK Patient Support | Living With Arthritis" />
-      <meta name="twitter:description" content="Stuck on the NHS rheumatology waiting list? Get free, evidence-based arthritis help, exercises, diet plans and a waiting time calculator for UK patients." />
+      <meta name="twitter:title" content="Arthritis Waiting List Help — Free UK Patient Support | Living With Arthritis" />
+      <meta name="twitter:description" content="Stuck on the rheumatology waiting list? Get free, evidence-based arthritis help, exercises, diet plans and a waiting time calculator for UK patients." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
     </Helmet>
 
       <Header />
 
-      <PageBreadcrumb segments={[{ label: "NHS Waiting List Help" }]} />
+      <PageBreadcrumb segments={[{ label: "Waiting List Help" }]} />
 
       <main className="container mx-auto px-6 md:px-10 py-12 max-w-4xl">
         <div className="flex items-center gap-2 text-primary mb-3">
           <Hospital className="w-5 h-5" />
-          <span className="text-sm font-medium uppercase tracking-wide">UK NHS Patient Guide</span>
+          <span className="text-sm font-medium uppercase tracking-wide">UK the health service Patient Guide</span>
         </div>
         <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-5">
-          NHS Arthritis Waiting List Help
+          Arthritis Waiting List Help
         </h1>
         <p className="text-lg text-muted-foreground leading-relaxed mb-10">
-          Waiting for an NHS rheumatology appointment? You don't need to wait in pain. We provide free, clinically aligned guidance, exercises, and tools — built specifically for UK patients on the rheumatology waiting list.
+          Waiting for an rheumatology appointment? You don't need to wait in pain. We provide free, clinically aligned guidance, exercises, and tools — built specifically for UK patients on the rheumatology waiting list.
         </p>
 
         <section className="bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20 rounded-2xl p-6 mb-10">
           <div className="flex items-start gap-4">
             <Calculator className="w-7 h-7 text-primary shrink-0 mt-1" />
             <div>
-              <h2 className="text-2xl font-semibold mb-2">Free NHS Waiting Time Calculator</h2>
+              <h2 className="text-2xl font-semibold mb-2">Free Rheumatology Waiting Time Calculator</h2>
               <p className="text-muted-foreground mb-4">
                 Estimate your wait based on your region, urgency and condition. Get a personalised action plan in 30 seconds.
               </p>
               <Link
-                to="/tools/nhs-waiting-time"
+                to="/tools/waiting-time"
                 className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-full font-medium hover:bg-primary/90 transition"
               >
                 Calculate my waiting time <ArrowRight className="w-4 h-4" />
@@ -142,7 +142,7 @@ const NHSWaitingListHelp = () => {
 
         <section className="mb-10 grid sm:grid-cols-2 gap-4">
           {[
-            { to: "/exercises", icon: BookOpen, title: "Free exercise plans", desc: "NHS-aligned routines for every joint" },
+            { to: "/exercises", icon: BookOpen, title: "Free exercise plans", desc: "clinically aligned routines for every joint" },
             { to: "/diet", icon: BookOpen, title: "Anti-inflammatory diet", desc: "Mediterranean meal guidance" },
             { to: "/self-help", icon: BookOpen, title: "Self-help toolkit", desc: "Pain journal, symptom quiz" },
             { to: "/chat", icon: Phone, title: "Ask the AI chatbot", desc: "Evidence-based answers, 24/7" },
@@ -176,4 +176,4 @@ const NHSWaitingListHelp = () => {
   );
 };
 
-export default NHSWaitingListHelp;
+export default WaitingListHelp;

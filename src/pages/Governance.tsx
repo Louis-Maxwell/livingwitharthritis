@@ -17,8 +17,8 @@ const trustees = [
   {
     name: "Dr Amina Patel",
     role: "Chair of Trustees",
-    credentials: "MBBS, FRCP — Consultant Rheumatologist, NHS",
-    bio: "Dr Patel has over 20 years' experience in rheumatology across NHS trusts. She co-founded Living With Arthritis to bridge the gap between clinical care and patient education. She chairs our quarterly board meetings and oversees clinical governance.",
+    credentials: "MBBS, FRCP — Consultant Rheumatologist, the health service",
+    bio: "Dr Patel has over 20 years' experience in rheumatology across the health service trusts. She co-founded Living With Arthritis to bridge the gap between clinical care and patient education. She chairs our quarterly board meetings and oversees clinical governance.",
     appointed: "2020",
   },
   {
@@ -32,7 +32,7 @@ const trustees = [
     name: "Dr Priya Sharma",
     role: "Trustee – Research & Education",
     credentials: "PhD Physiotherapy — University of Birmingham",
-    bio: "Dr Sharma leads our evidence review process, ensuring all exercise programmes and physiotherapy content meets NHS clinical standards. She has published 15+ peer-reviewed papers on musculoskeletal rehabilitation.",
+    bio: "Dr Sharma leads our evidence review process, ensuring all exercise programmes and physiotherapy content meets the health service clinical standards. She has published 15+ peer-reviewed papers on musculoskeletal rehabilitation.",
     appointed: "2021",
   },
   {

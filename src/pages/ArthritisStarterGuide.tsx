@@ -46,7 +46,7 @@ const PREVIEW_PAGES = [
   {
     page: "04",
     icon: HeartPulse,
-    title: "The NHS Pathway, Demystified",
+    title: "The health service Pathway, Demystified",
     body:
       "From your GP appointment to rheumatology referral, biologics and joint injections — exactly what to expect and the questions to ask at each step.",
   },
@@ -87,7 +87,7 @@ const FAQS = [
   },
   {
     q: "Who wrote it?",
-    a: "The guide was compiled with input from physiotherapists and reviewed against NHS and NICE guidance. Every recommendation is referenced to a public-health source — we don't sell supplements or treatments.",
+    a: "The guide was compiled with input from physiotherapists and reviewed against the health service and NICE guidance. Every recommendation is referenced to a public-health source — we don't sell supplements or treatments.",
   },
   {
     q: "What format will I receive?",
@@ -99,7 +99,7 @@ const FAQS = [
   },
   {
     q: "Is the advice tailored to the UK?",
-    a: "Yes — every section references the NHS, UK rheumatology pathways, and benefits like PIP. It's specifically written for people accessing care in England, Scotland, Wales, and Northern Ireland.",
+    a: "Yes — every section references the health service, UK rheumatology pathways, and benefits like PIP. It's specifically written for people accessing care in England, Scotland, Wales, and Northern Ireland.",
   },
   {
     q: "Can I share it with family or my GP?",
@@ -185,18 +185,18 @@ export default function ArthritisStarterGuide() {
         <title>Free Arthritis Starter Guide (UK PDF) | Living With Arthritis</title>
         <meta
           name="description"
-          content="A free 14-page UK Arthritis Starter Guide with NHS-aligned advice, anti-inflammatory meal ideas, and gentle joint mobility routines. Download instantly."
+          content="A free 14-page UK Arthritis Starter Guide with clinically aligned advice, anti-inflammatory meal ideas, and gentle joint mobility routines. Download instantly."
         />
         <link rel="canonical" href="https://www.livingwitharthritis.org.uk/arthritis-starter-guide" />
         <meta property="og:title" content="Free UK Arthritis Starter Guide — 14-page PDF" />
         <meta
           property="og:description"
-          content="NHS-aligned advice, Mediterranean meal ideas, and 5-minute mobility routines. Sent free to your inbox."
+          content="clinically aligned advice, Mediterranean meal ideas, and 5-minute mobility routines. Sent free to your inbox."
         />
         <meta property="og:type" content="website" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Free Arthritis Starter Guide (UK PDF) | Living With Arthritis" />
-      <meta name="twitter:description" content="A free 14-page UK Arthritis Starter Guide with NHS-aligned advice, anti-inflammatory meal ideas, and gentle joint mobility routines. Download instantly." />
+      <meta name="twitter:description" content="A free 14-page UK Arthritis Starter Guide with clinically aligned advice, anti-inflammatory meal ideas, and gentle joint mobility routines. Download instantly." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
     </Helmet>
 
@@ -214,7 +214,7 @@ export default function ArthritisStarterGuide() {
               The UK Arthritis <span className="italic text-primary">Starter Guide</span>
             </>
           }
-          subtitle="Everything we wish someone had handed us on day one — NHS-aligned advice, Mediterranean meal ideas, gentle daily mobility, and the benefits you may be entitled to. Written in human language."
+          subtitle="Everything we wish someone had handed us on day one — clinically aligned advice, Mediterranean meal ideas, gentle daily mobility, and the benefits you may be entitled to. Written in human language."
         >
           {/* Hero signup card */}
           <div className="max-w-xl">
@@ -266,7 +266,7 @@ export default function ArthritisStarterGuide() {
         <section className="border-b border-border/15 bg-muted/20">
           <div className="container mx-auto px-6 md:px-12 max-w-[1200px] py-6 flex flex-wrap gap-x-8 gap-y-3 items-center justify-center text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
             <span className="flex items-center gap-2">
-              <ShieldCheck className="w-3.5 h-3.5 text-primary" /> NHS-aligned
+              <ShieldCheck className="w-3.5 h-3.5 text-primary" /> clinically aligned
             </span>
             <span className="opacity-30">·</span>
             <span>NICE-referenced</span>
@@ -333,7 +333,7 @@ export default function ArthritisStarterGuide() {
                   "Three 5-minute daily mobility routines (PDF + photos)",
                   "Printable pain & mood tracker",
                   "PIP and benefits checklist for the UK",
-                  "Plain-English NHS pathway map",
+                  "Plain-English care pathway map",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-foreground/90">
                     <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />

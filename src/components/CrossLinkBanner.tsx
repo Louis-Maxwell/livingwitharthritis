@@ -14,7 +14,7 @@ const LINK_LIBRARY: Record<string, CrossLink> = {
     to: "/exercises",
     icon: Dumbbell,
     label: "Exercise Hub",
-    description: "NHS-aligned routines for knees, hands, shoulders and more",
+    description: "clinically aligned routines for knees, hands, shoulders and more",
   },
   diet: {
     to: "/diet",
@@ -70,10 +70,10 @@ const LINK_LIBRARY: Record<string, CrossLink> = {
     label: "Complete Exercise Guide",
     description: "Evidence-based routines, swimming, yoga and strength training",
   },
-  "guide-nhs": {
-    to: "/guides/nhs-services",
+  "guide-the health service": {
+    to: "/guides/health-services",
     icon: Stethoscope,
-    label: "NHS Services Guide",
+    label: "Health Services Guide",
     description: "GP referrals, rheumatology and physiotherapy pathways",
   },
   "guide-benefits": {
@@ -90,7 +90,7 @@ const PRESETS: Record<string, string[]> = {
   "exercise": ["diet", "osteoarthritis", "guide-exercise", "chat"],
   "diet": ["exercises", "osteoarthritis", "guide-diet", "chat"],
   "blog": ["exercises", "diet", "osteoarthritis", "chat"],
-  "flareup": ["exercises", "diet", "guide-nhs", "chat"],
+  "flareup": ["exercises", "diet", "guide-the health service", "chat"],
   "guide": ["exercises", "diet", "blog", "chat"],
 };
 

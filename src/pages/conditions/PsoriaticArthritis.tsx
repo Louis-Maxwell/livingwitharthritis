@@ -321,9 +321,9 @@ const PsoriaticArthritis = () => (
                 accent: "text-amber-600",
               },
               {
-                to: "/tools/nhs-waiting-time-calculator",
+                to: "/tools/waiting-time-calculator",
                 eyebrow: "Free tool",
-                title: "NHS rheumatology waiting time",
+                title: "rheumatology waiting time",
                 description: "PsA needs early specialist input — estimate your local 2026 wait now.",
                 readTime: "2 min",
                 icon: Timer,

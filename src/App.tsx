@@ -71,7 +71,7 @@ const Safeguarding = lazy(() => import("./pages/Safeguarding"));
 const Complaints = lazy(() => import("./pages/Complaints"));
 const Donate = lazy(() => import("./pages/Donate"));
 const UKArthritisGuide = lazy(() => import("./pages/pillar/UKArthritisGuide"));
-const NHSServicesGuide = lazy(() => import("./pages/pillar/NHSServicesGuide"));
+const HealthServicesGuide = lazy(() => import("./pages/pillar/HealthServicesGuide"));
 const DietGuide = lazy(() => import("./pages/pillar/DietGuide"));
 const ExerciseGuide = lazy(() => import("./pages/pillar/ExerciseGuide"));
 const BenefitsPIPGuide = lazy(() => import("./pages/pillar/BenefitsPIPGuide"));
@@ -86,8 +86,8 @@ const FAQ = lazy(() => import("./pages/FAQ"));
 const AISafety = lazy(() => import("./pages/AISafety"));
 const Contact = lazy(() => import("./pages/Contact"));
 const RegionHub = lazy(() => import("./pages/regions/RegionHub"));
-const NHSWaitingListHelp = lazy(() => import("./pages/NHSWaitingListHelp"));
-const NHSWaitingTimeCalculator = lazy(() => import("./pages/tools/NHSWaitingTimeCalculator"));
+const WaitingListHelp = lazy(() => import("./pages/WaitingListHelp"));
+const WaitingTimeCalculator = lazy(() => import("./pages/tools/WaitingTimeCalculator"));
 const ArthritisStarterGuide = lazy(() => import("./pages/ArthritisStarterGuide"));
 const Gallery = lazy(() => import("./pages/Gallery"));
 const Credits = lazy(() => import("./pages/Credits"));
@@ -165,7 +165,7 @@ function AnimatedRoutes() {
         <Route path="/complaints" element={<Complaints />} />
         <Route path="/donate" element={<Donate />} />
         <Route path="/guides/uk-arthritis" element={<UKArthritisGuide />} />
-        <Route path="/guides/nhs-services" element={<NHSServicesGuide />} />
+        <Route path="/guides/health-services" element={<HealthServicesGuide />} />
         <Route path="/guides/diet" element={<DietGuide />} />
         <Route path="/guides/exercise" element={<ExerciseGuide />} />
         <Route path="/guides/benefits-pip" element={<BenefitsPIPGuide />} />
@@ -180,8 +180,8 @@ function AnimatedRoutes() {
         <Route path="/ai-safety" element={<AISafety />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/regions/:region" element={<RegionHub />} />
-        <Route path="/nhs-arthritis-waiting-list-help" element={<NHSWaitingListHelp />} />
-        <Route path="/tools/nhs-waiting-time" element={<NHSWaitingTimeCalculator />} />
+        <Route path="/arthritis-waiting-list-help" element={<WaitingListHelp />} />
+        <Route path="/tools/waiting-time" element={<WaitingTimeCalculator />} />
         <Route path="/arthritis-starter-guide" element={<ArthritisStarterGuide />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/credits" element={<Credits />} />

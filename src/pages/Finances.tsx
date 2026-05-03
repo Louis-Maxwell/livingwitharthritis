@@ -391,7 +391,7 @@ James Whitfield — Treasurer
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground mb-1">Public Benefit Statement</h3>
-                      <p>The trustees confirm that they have had regard to the Charity Commission's guidance on public benefit when planning the charity's activities. Our services are freely available to anyone in the UK affected by arthritis, with no membership fees or registration barriers. We specifically target underserved communities and those with limited access to NHS rheumatology services.</p>
+                      <p>The trustees confirm that they have had regard to the Charity Commission's guidance on public benefit when planning the charity's activities. Our services are freely available to anyone in the UK affected by arthritis, with no membership fees or registration barriers. We specifically target underserved communities and those with limited access to rheumatology services.</p>
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground mb-1">Reserves Policy</h3>
@@ -399,7 +399,7 @@ James Whitfield — Treasurer
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground mb-1">Plans for Future Periods</h3>
-                      <p>In 2025/26 we plan to expand our virtual physiotherapy service, develop condition-specific support pathways, establish two NHS trust partnerships, and launch a mobile app to improve accessibility for users managing arthritis on a daily basis.</p>
+                      <p>In 2025/26 we plan to expand our virtual physiotherapy service, develop condition-specific support pathways, establish two local health trust partnerships, and launch a mobile app to improve accessibility for users managing arthritis on a daily basis.</p>
                     </div>
                   </div>
                 </CardContent>

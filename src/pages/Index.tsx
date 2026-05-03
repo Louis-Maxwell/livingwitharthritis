@@ -69,7 +69,7 @@ const schemaFaq = {
       name: "Is your AI health assistant safe?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Our AI is co-designed with HCPC-registered clinicians, fully transparent in its reasoning, and strictly compliant with UK GDPR. It guides you to appropriate NHS care — it never replaces your doctor.",
+        text: "Yes. Our AI is co-designed with HCPC-registered clinicians, fully transparent in its reasoning, and strictly compliant with UK GDPR. It guides you to appropriate public healthcare — it never replaces your doctor.",
       },
     },
     {
@@ -177,14 +177,14 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
     <>
       <Helmet>
         <html lang="en-GB" />
-        <title>Free Arthritis Support UK — NHS-Aligned Physio, Diet & AI Help | {SITE_NAME}</title>
+        <title>Free Arthritis Support UK — the health service-Aligned Physio, Diet & AI Help | {SITE_NAME}</title>
         <meta
           name="description"
           content="Free virtual physiotherapy, anti-inflammatory meal plans and joint-safe exercises for arthritis in the UK. Built with HCPC-registered clinicians. NICE-aligned. No waiting list."
         />
         <meta
           name="keywords"
-          content="arthritis support UK, free arthritis physiotherapy, rheumatoid arthritis help, osteoarthritis exercises, arthritis symptom tracker, anti-inflammatory diet arthritis, arthritis flare-up management, NHS arthritis waiting list"
+          content="arthritis support UK, free arthritis physiotherapy, rheumatoid arthritis help, osteoarthritis exercises, arthritis symptom tracker, anti-inflammatory diet arthritis, arthritis flare-up management, arthritis waiting list"
         />
         <link rel="canonical" href={`${SITE_URL}/`} />
         <meta name="geo.region" content="GB" />

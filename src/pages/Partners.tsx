@@ -35,7 +35,7 @@ const partnershipTypes = [
 
 const benefits = [
   "Reach 10M+ UK adults living with arthritis",
-  "Align with a trusted, NHS-compliant charity",
+  "Align with a trusted, the health service-compliant charity",
   "Free, evidence-based content your patients can use",
   "Enhance your E-E-A-T credentials with quality backlinks",
   "Joint marketing and awareness campaigns",
@@ -75,10 +75,10 @@ export default function Partners() {
     <>
       <Helmet>
         <title>Partner With Us | Living With Arthritis UK</title>
-        <meta name="description" content="Partner with Living With Arthritis UK — NHS bodies, GP practices, health charities and community groups. Resource sharing, co-branded guides, joint events and research collaboration." />
+        <meta name="description" content="Partner with Living With Arthritis UK — the health service bodies, GP practices, health charities and community groups. Resource sharing, co-branded guides, joint events and research collaboration." />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/partners" />
       <meta property="og:title" content="Partner With Us | Living With Arthritis UK" />
-      <meta property="og:description" content="Partner with Living With Arthritis UK — NHS bodies, GP practices, health charities and community groups. Resource sharing, co-branded guides, joint events and research collaboration." />
+      <meta property="og:description" content="Partner with Living With Arthritis UK — the health service bodies, GP practices, health charities and community groups. Resource sharing, co-branded guides, joint events and research collaboration." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/partners" />
       <meta property="og:site_name" content="Living With Arthritis UK" />
@@ -88,7 +88,7 @@ export default function Partners() {
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Partner With Us | Living With Arthritis UK" />
-      <meta name="twitter:description" content="Partner with Living With Arthritis UK — NHS bodies, GP practices, health charities and community groups. Resource sharing, co-branded guides, joint events and research collaboration." />
+      <meta name="twitter:description" content="Partner with Living With Arthritis UK — the health service bodies, GP practices, health charities and community groups. Resource sharing, co-branded guides, joint events and research collaboration." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
     </Helmet>
       <Header />
@@ -102,7 +102,7 @@ export default function Partners() {
               </span>
               <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">Partner With Us</h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                We partner with NHS bodies, GP practices, health charities and community organisations to extend free arthritis support to more people across the UK.
+                We partner with the health service bodies, GP practices, health charities and community organisations to extend free arthritis support to more people across the UK.
               </p>
             </motion.div>
           </div>
@@ -157,7 +157,7 @@ export default function Partners() {
               </div>
               <div>
                 <Label htmlFor="p-org">Organisation</Label>
-                <Input id="p-org" value={form.organisation} onChange={(e) => setForm({ ...form, organisation: e.target.value })} placeholder="e.g. NHS Trust, charity name" />
+                <Input id="p-org" value={form.organisation} onChange={(e) => setForm({ ...form, organisation: e.target.value })} placeholder="e.g. Local Health Trust, charity name" />
               </div>
               <div>
                 <Label>Partnership Type *</Label>

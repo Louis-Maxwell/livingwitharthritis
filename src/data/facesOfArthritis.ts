@@ -62,7 +62,7 @@ export const FACE_STORIES: FaceStory[] = [
   {
     id: "david-glasgow",
     title: "“The waiting list felt endless. The helpline didn't.”",
-    eyebrow: "Helpline · NHS waiting list",
+    eyebrow: "Helpline · rheumatology waiting list",
     quote:
       "While I waited 14 months for a hip clinic, the team helped me stay mobile, manage flare-ups and prepare for surgery — for free.",
     attribution: "Composite story — man, 71",

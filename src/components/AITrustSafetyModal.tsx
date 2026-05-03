@@ -239,7 +239,7 @@ const AITrustSafetyModal = memo(() => {
                 Our AI Assistant is designed to complement — never replace — professional medical advice.
                 It does not diagnose conditions, prescribe treatments, or access your medical records.
                 If you have concerns about your health, please consult your GP, rheumatologist, or
-                call NHS 111 for urgent guidance.
+                call the health service 111 for urgent guidance.
               </p>
             </div>
           </div>
