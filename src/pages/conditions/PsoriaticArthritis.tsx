@@ -89,7 +89,7 @@ const PsoriaticArthritis = () => (
     <Helmet>
       <title>Psoriatic Arthritis – Symptoms, Causes & Treatment | Living With Arthritis</title>
       <meta name="description" content="UK guide to psoriatic arthritis: understanding the link between psoriasis and joint inflammation, recognising symptoms like dactylitis, treatment options and lifestyle management." />
-      <meta name="keywords" content="psoriatic arthritis, psoriatic arthritis symptoms, psoriatic arthritis treatment, PsA, psoriasis arthritis, dactylitis, enthesitis, psoriatic arthritis UK, biologic therapy, psoriatic arthritis diet" />
+      <meta name="keywords" content="psoriatic arthritis, psoriatic arthritis symptoms, psoriatic arthritis treatment, PsA, psoriasis arthritis, dactylitis, enthesitis, ankylosing spondylitis, biologic therapy, psoriatic arthritis diet, anti-inflammatory diet, autoimmune arthritis, joint inflammation, chronic pain management, what causes arthritis, arthritis medication" />
       <meta property="og:title" content="Psoriatic Arthritis – Symptoms, Causes & Treatment" />
       <meta property="og:description" content="Complete UK guide to psoriatic arthritis: symptoms, modern treatments, exercises and self-management." />
       <meta property="og:url" content={`${BASE}/conditions/psoriatic-arthritis`} />
