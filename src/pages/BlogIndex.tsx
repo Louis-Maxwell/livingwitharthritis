@@ -297,6 +297,23 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
             </nav>
           )}
 
+          {/* Topic Hub callout */}
+          <div className="mt-16 rounded-2xl border border-primary/20 bg-primary/[0.04] p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-5">
+            <div className="flex-1">
+              <h2 className="font-display text-lg md:text-xl font-bold text-foreground mb-1">
+                Looking for answers by topic?
+              </h2>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Visit the Advice Hub for guidance grouped by diet, exercises, flare-ups and treatment — including the questions readers ask Google most.
+              </p>
+            </div>
+            <Button asChild className="rounded-full self-start md:self-auto">
+              <Link to="/blog-hub">
+                Open Advice Hub <ArrowRight className="w-4 h-4 ml-1" />
+              </Link>
+            </Button>
+          </div>
+
           {/* Browse by Category */}
           <nav aria-label="Browse by category" className="mt-16 pt-10 border-t border-border/30">
             <h2 className="font-display text-xl font-bold text-foreground mb-2">Browse by Category</h2>
