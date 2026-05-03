@@ -74,11 +74,29 @@ const ExitIntentModal = () => {
     if (isExcluded) return;
     if (wasRecentlyShown()) return;
 
-    // Arm after 12s on page so we skip instant-bouncers and accidental swipes.
-    // (Analytics: pages-per-visit ~1.17 and ~90% bounce → most "exits" are not real intent.)
+    // Arm only after a real engagement signal:
+    //   - 30s on page  AND
+    //   - scrolled at least 30% of document height
+    // This filters bots and accidental swipers (current bounce ~91%).
+    const scrollThreshold = () =>
+      Math.max(400, (document.documentElement.scrollHeight - window.innerHeight) * 0.3);
+    let dwellElapsed = false;
+    let scrollReached = false;
+    const tryArm = () => {
+      if (dwellElapsed && scrollReached) armedRef.current = true;
+    };
     const armTimer = window.setTimeout(() => {
-      armedRef.current = true;
-    }, 12000);
+      dwellElapsed = true;
+      tryArm();
+    }, 30000);
+    const armScroll = () => {
+      if (scrollReached) return;
+      if (window.scrollY >= scrollThreshold()) {
+        scrollReached = true;
+        tryArm();
+      }
+    };
+    window.addEventListener("scroll", armScroll, { passive: true });
 
     // Desktop: mouse leaves through the top of the viewport with clear upward velocity.
     // Filters out users who park the cursor near the top to read or use browser chrome.
