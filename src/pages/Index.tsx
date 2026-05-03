@@ -25,6 +25,7 @@ const MovementMomentSection = lazy(() => import("@/components/landing/MovementMo
 const ChangeLivesStats = lazy(() => import("@/components/landing/ChangeLivesStats"));
 const PortraitGrid = lazy(() => import("@/components/landing/PortraitGrid"));
 const InspiredHeroBand = lazy(() => import("@/components/landing/InspiredHeroBand"));
+const IntentChooser = lazy(() => import("@/components/landing/IntentChooser"));
 
 const BackToTopButton = lazy(() => import("@/components/landing/BackToTopButton"));
 const CookieBanner = lazy(() => import("@/components/landing/CookieBanner"));
@@ -246,6 +247,9 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
 
         <main id="main-content" role="main" tabIndex={-1}>
           <HeroSection />
+          <Suspense fallback={null}>
+            <IntentChooser />
+          </Suspense>
           <TriageSection />
 
           <Suspense fallback={<SkeletonSection />}>
