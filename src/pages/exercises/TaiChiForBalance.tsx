@@ -10,6 +10,9 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { blogTaiChi } from "@/data/images";
+import { TAI_CHI_ANIMATIONS } from "@/components/exercises/TaiChiAnimations";
+
+type AnimKey = keyof typeof TAI_CHI_ANIMATIONS;
 
 const heroImage = "/openverse/wellness-02-tai-chi-young-and-old.jpg";
 
@@ -20,36 +23,41 @@ const benefits = [
   { icon: Sparkles, title: "Improves balance confidence", text: "Weight-shifting drills retrain proprioception. Most people report feeling steadier within 6–8 weeks of twice-weekly practice." },
 ];
 
-const moves = [
+const moves: { name: string; duration: string; how: string; why: string; anim: AnimKey }[] = [
   {
     name: "Standing rooted (Wuji stance)",
     duration: "2 min",
     how: "Stand with feet hip-width apart, knees soft (never locked). Imagine a thread lifting the crown of your head. Let arms hang. Breathe slowly through the nose for 8 cycles.",
     why: "Builds the postural alignment every other movement depends on.",
+    anim: "rooted-stance",
   },
   {
     name: "Weight shift (Empty & Full)",
     duration: "3 min",
     how: "From rooted stance, slowly transfer 90% of your weight to the right leg, then to the left. Keep knees tracking over toes. Repeat 10 times each side.",
     why: "Trains single-leg balance — the foundation of fall prevention.",
+    anim: "weight-shift",
   },
   {
     name: "Cloud hands (modified)",
     duration: "3 min",
     how: "With weight on the right leg, sweep the left hand across your body at chest height as if wiping a window. Shift weight as the hand crosses. Alternate sides for 8 reps.",
     why: "Coordinates upper and lower body, gentle on knees and shoulders.",
+    anim: "cloud-hands",
   },
   {
     name: "Brush knee (seated option)",
     duration: "3 min",
     how: "If standing is uncomfortable, sit forward on a sturdy chair. Push one palm forward at chest height while the other 'brushes' across the thigh. Alternate arms slowly.",
     why: "Keeps the practice accessible during flares without losing the flowing rhythm.",
+    anim: "brush-knee",
   },
   {
     name: "Closing posture",
     duration: "2 min",
     how: "Return to rooted stance. Lower hands slowly to your sides, palms turned down as if pressing the air. Take 6 long exhales.",
     why: "Settles the nervous system — research links this 'down-regulation' to reduced pain perception.",
+    anim: "closing-posture",
   },
 ];
 
