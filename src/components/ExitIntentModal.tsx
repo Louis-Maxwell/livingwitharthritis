@@ -149,6 +149,7 @@ const ExitIntentModal = () => {
 
     return () => {
       window.clearTimeout(armTimer);
+      window.removeEventListener("scroll", armScroll);
       document.removeEventListener("mouseout", handleMouseOut);
       window.removeEventListener("scroll", handleScroll);
     };
