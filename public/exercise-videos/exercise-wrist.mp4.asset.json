@@ -2,8 +2,8 @@
   "version": 1,
   "asset_id": "f7d9067f-b26d-498c-a9ff-e196483c72b2",
   "project_id": "0b2fd6ca-4e21-4ac7-99fa-d741e996f45e",
-  "url": "/__l5e/assets-v1/f7d9067f-b26d-498c-a9ff-e196483c72b2/exercise-wrist.mp4",
+  "url": "https://nfijkdoifihbgomcnbnb.supabase.co/storage/v1/object/public/exercise-videos/exercise-wrist.mp4",
   "original_filename": "exercise-wrist.mp4",
-  "size": 3089691,
+  "size": 1368184,
   "created_at": "2026-05-03T21:30:38Z"
 }

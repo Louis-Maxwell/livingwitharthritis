@@ -2,8 +2,8 @@
   "version": 1,
   "asset_id": "db66c5f4-75ee-4a3a-b625-07459b13a1fa",
   "project_id": "0b2fd6ca-4e21-4ac7-99fa-d741e996f45e",
-  "url": "/__l5e/assets-v1/db66c5f4-75ee-4a3a-b625-07459b13a1fa/exercise-knee.mp4",
+  "url": "https://nfijkdoifihbgomcnbnb.supabase.co/storage/v1/object/public/exercise-videos/exercise-knee.mp4",
   "original_filename": "exercise-knee.mp4",
-  "size": 3434210,
+  "size": 1048975,
   "created_at": "2026-05-03T21:30:47Z"
 }
