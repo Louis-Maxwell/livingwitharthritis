@@ -23,16 +23,16 @@ const ArthritisSupportIndex = () => {
   return (
     <>
       <Helmet>
-        <title>Arthritis Support Across the UK — Find Local NHS Services | Living With Arthritis</title>
-        <meta name="description" content="Find arthritis support, NHS rheumatology services, and local help in 50 UK cities. Comprehensive directory of NHS trusts, local resources, and community groups." />
+        <title>Arthritis Support Across the UK — Find Local Health Services | Living With Arthritis</title>
+        <meta name="description" content="Find arthritis support, rheumatology services, and local help in 50 UK cities. Comprehensive directory of the health service trusts, local resources, and community groups." />
         <link rel="canonical" href={`${BASE}/arthritis-support`} />
         <meta property="og:title" content="Arthritis Support Across the UK" />
-        <meta property="og:description" content="Find NHS rheumatology services and arthritis support groups in your UK city." />
+        <meta property="og:description" content="Find rheumatology services and arthritis support groups in your UK city." />
         <meta property="og:url" content={`${BASE}/arthritis-support`} />
         <meta name="geo.region" content="GB" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Arthritis Support Across the UK — Find Local NHS Services | Living With Arthritis" />
-      <meta name="twitter:description" content="Find arthritis support, NHS rheumatology services, and local help in 50 UK cities. Comprehensive directory of NHS trusts, local resources, and community groups." />
+      <meta name="twitter:title" content="Arthritis Support Across the UK — Find Local Health Services | Living With Arthritis" />
+      <meta name="twitter:description" content="Find arthritis support, rheumatology services, and local help in 50 UK cities. Comprehensive directory of the health service trusts, local resources, and community groups." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
     </Helmet>
 
@@ -45,7 +45,7 @@ const ArthritisSupportIndex = () => {
             Arthritis Support Across the UK
           </h1>
           <p className="text-lg text-muted-foreground mb-8">
-            Find NHS rheumatology services, local support groups, and arthritis resources in your city.
+            Find rheumatology services, local support groups, and arthritis resources in your city.
             Select your city below to see tailored information.
           </p>
 
@@ -75,7 +75,7 @@ const ArthritisSupportIndex = () => {
                     <h2 className="font-semibold text-foreground group-hover:text-primary transition-colors">{city.name}</h2>
                   </div>
                   <p className="text-xs text-muted-foreground mb-1">{city.region}</p>
-                  <p className="text-sm text-muted-foreground line-clamp-2">{city.nhsTrust}</p>
+                  <p className="text-sm text-muted-foreground line-clamp-2">{city.localTrust}</p>
                 </Link>
               ))}
               {filtered.length === 0 && (
@@ -98,7 +98,7 @@ const ArthritisSupportIndex = () => {
                         <MapPin className="w-4 h-4 text-primary shrink-0" />
                         <div>
                           <span className="font-medium text-foreground group-hover:text-primary transition-colors">{city.name}</span>
-                          <p className="text-xs text-muted-foreground">{city.nhsTrust}</p>
+                          <p className="text-xs text-muted-foreground">{city.localTrust}</p>
                         </div>
                       </Link>
                     ))}

@@ -12,9 +12,9 @@ const Chat = () => {
       <Helmet>
         <title>Virtual Arthritis Assistant – Free AI Chat | Living With Arthritis UK</title>
         <meta name="description" content="Get free arthritis support today. Chat on WhatsApp, call 07760 512 084, use our AI assistant or request virtual physiotherapy. No waiting lists. HCPC-registered team ready to help." />
-        <meta name="keywords" content="arthritis chat UK, virtual physiotherapy, AI arthritis help, joint pain advice UK, NHS arthritis support, arthritis questions" />
+        <meta name="keywords" content="arthritis chat UK, virtual physiotherapy, AI arthritis help, joint pain advice UK, arthritis support, arthritis questions" />
         <meta property="og:title" content="Virtual Arthritis Assistant – Free AI Chat | Living With Arthritis UK" />
-        <meta property="og:description" content="Get free, instant arthritis advice from our AI virtual assistant. Ask about joint pain, exercises, diet, NHS treatments and more." />
+        <meta property="og:description" content="Get free, instant arthritis advice from our AI virtual assistant. Ask about joint pain, exercises, diet, standard treatments and more." />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/chat" />
@@ -30,7 +30,7 @@ const Chat = () => {
           "@context": "https://schema.org",
           "@type": "WebPage",
           "name": "Virtual Arthritis Assistant",
-          "description": "Free AI-powered chat assistant for arthritis advice, exercises, diet and NHS treatment guidance.",
+          "description": "Free AI-powered chat assistant for arthritis advice, exercises, diet and standard treatment guidance.",
           "url": "https://livingwitharthritis.org.uk/chat",
           "inLanguage": "en-GB",
           "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" },

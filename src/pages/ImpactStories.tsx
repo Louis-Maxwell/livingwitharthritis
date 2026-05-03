@@ -46,8 +46,8 @@ const caseStudies = [
     age: 72,
     location: "Leeds",
     condition: "Hip Osteoarthritis",
-    quote: "I was on the NHS waiting list for a physiotherapy referral for months. The virtual physio service meant I could start exercises immediately. The chair exercises were perfect for my level and gave me confidence to move more.",
-    outcome: "Started rehabilitation 4 months earlier than NHS appointment",
+    quote: "I was on the rheumatology waiting list for a physiotherapy referral for months. The virtual physio service meant I could start exercises immediately. The chair exercises were perfect for my level and gave me confidence to move more.",
+    outcome: "Started rehabilitation 4 months earlier than the health service appointment",
     services: ["Virtual Physiotherapy", "Chair Exercises", "Hip Exercise Programme"],
   },
   {
@@ -77,7 +77,7 @@ const publicBenefitEvidence = [
       "Anyone in the UK affected by osteoarthritis, rheumatoid arthritis, or psoriatic arthritis",
       "Family members and carers seeking information and support",
       "Healthcare professionals looking for patient education resources",
-      "People on NHS waiting lists who need immediate support",
+      "People on the health service waiting lists who need immediate support",
     ],
   },
   {

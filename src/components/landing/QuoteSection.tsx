@@ -2,7 +2,7 @@ import { memo } from "react";
 import { Shield, Award, CheckCircle, Globe } from "lucide-react";
 
 const credentials = [
-  { icon: Shield, label: "NHS-Aligned Care" },
+  { icon: Shield, label: "the health service-Aligned Care" },
   { icon: Award, label: "HCPC Registered" },
   { icon: CheckCircle, label: "CSP Accredited" },
   { icon: Globe, label: "Serving All UK Nations" },

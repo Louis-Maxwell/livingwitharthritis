@@ -57,7 +57,7 @@ const rawIndex: SearchItem[] = [
   { label: "Knee Arthritis Exercises UK", href: "/blog/knee-arthritis-exercises-uk", category: "Blog", icon: Dumbbell },
   { label: "Hand Exercises for Arthritis", href: "/blog/hand-exercises-for-arthritis", category: "Blog", icon: Dumbbell },
   { label: "Shoulder Arthritis Exercises UK", href: "/blog/shoulder-arthritis-exercises-uk", category: "Blog", icon: Dumbbell },
-  { label: "NHS Arthritis Exercises", href: "/blog/nhs-arthritis-exercises", category: "Blog", icon: Dumbbell },
+  { label: "Arthritis Exercises", href: "/blog/nhs-arthritis-exercises", category: "Blog", icon: Dumbbell },
   { label: "Swimming for Arthritis UK", href: "/blog/swimming-for-arthritis-uk", category: "Blog", icon: Dumbbell },
   { label: "Yoga for Arthritis Beginners", href: "/blog/yoga-for-arthritis-beginners", category: "Blog", icon: Dumbbell },
   { label: "Arthritis & Sleep Problems", href: "/blog/arthritis-and-sleep-problems", category: "Blog", icon: FileText },

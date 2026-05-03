@@ -27,7 +27,7 @@ function getStepConfig(pathname: string): StepConfig | null {
     const [, city, condition] = cityCondition;
     return {
       eyebrow: `${titleCase(condition)} in ${titleCase(city)}`,
-      primary: { label: "Check NHS wait time", href: "/tools/nhs-waiting-time", Icon: Stethoscope },
+      primary: { label: "Check the health service wait time", href: "/tools/waiting-time", Icon: Stethoscope },
       secondary: { label: "Symptom quiz", href: "/self-help", Icon: ClipboardCheck },
     };
   }
@@ -37,7 +37,7 @@ function getStepConfig(pathname: string): StepConfig | null {
   if (cityOnly) {
     return {
       eyebrow: `Help in ${titleCase(cityOnly[1])}`,
-      primary: { label: "Find local NHS help", href: "/nhs-arthritis-waiting-list-help", Icon: Stethoscope },
+      primary: { label: "Find local healthcare help", href: "/arthritis-waiting-list-help", Icon: Stethoscope },
       secondary: { label: "Take symptom quiz", href: "/self-help", Icon: ClipboardCheck },
     };
   }
@@ -64,7 +64,7 @@ function getStepConfig(pathname: string): StepConfig | null {
   if (pathname === "/diet" || pathname === "/guides/diet") {
     return {
       eyebrow: "Reduce inflammation",
-      primary: { label: "Find local NHS help", href: "/nhs-arthritis-waiting-list-help", Icon: Stethoscope },
+      primary: { label: "Find local healthcare help", href: "/arthritis-waiting-list-help", Icon: Stethoscope },
       secondary: { label: "Symptom quiz", href: "/self-help", Icon: ClipboardCheck },
     };
   }
@@ -74,7 +74,7 @@ function getStepConfig(pathname: string): StepConfig | null {
     return {
       eyebrow: "From this article",
       primary: { label: "Try the symptom quiz", href: "/self-help", Icon: ClipboardCheck },
-      secondary: { label: "Local NHS help", href: "/nhs-arthritis-waiting-list-help", Icon: Stethoscope },
+      secondary: { label: "Local healthcare help", href: "/arthritis-waiting-list-help", Icon: Stethoscope },
     };
   }
 
@@ -86,8 +86,8 @@ function getStepConfig(pathname: string): StepConfig | null {
     };
   }
 
-  // NHS pages
-  if (pathname === "/nhs-arthritis-waiting-list-help" || pathname === "/tools/nhs-waiting-time") {
+  // the health service pages
+  if (pathname === "/arthritis-waiting-list-help" || pathname === "/tools/waiting-time") {
     return {
       eyebrow: "While you wait",
       primary: { label: "Try the symptom quiz", href: "/self-help", Icon: ClipboardCheck },
@@ -100,7 +100,7 @@ function getStepConfig(pathname: string): StepConfig | null {
     return {
       eyebrow: "Keep going",
       primary: { label: "Joint exercises", href: "/exercises", Icon: Dumbbell },
-      secondary: { label: "Local NHS help", href: "/nhs-arthritis-waiting-list-help", Icon: Stethoscope },
+      secondary: { label: "Local healthcare help", href: "/arthritis-waiting-list-help", Icon: Stethoscope },
     };
   }
 
@@ -118,7 +118,7 @@ function getStepConfig(pathname: string): StepConfig | null {
     return {
       eyebrow: "Take action",
       primary: { label: "Symptom quiz", href: "/self-help", Icon: ClipboardCheck },
-      secondary: { label: "Local NHS help", href: "/nhs-arthritis-waiting-list-help", Icon: Stethoscope },
+      secondary: { label: "Local healthcare help", href: "/arthritis-waiting-list-help", Icon: Stethoscope },
     };
   }
 
@@ -135,7 +135,7 @@ function getStepConfig(pathname: string): StepConfig | null {
   return {
     eyebrow: "Take the next step",
     primary: { label: "Symptom quiz", href: "/self-help", Icon: ClipboardCheck },
-    secondary: { label: "Local NHS help", href: "/nhs-arthritis-waiting-list-help", Icon: Stethoscope },
+    secondary: { label: "Local healthcare help", href: "/arthritis-waiting-list-help", Icon: Stethoscope },
   };
 }
 

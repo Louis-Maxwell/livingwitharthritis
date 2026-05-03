@@ -46,7 +46,7 @@ const sitemapSections: SitemapSection[] = [
       { label: "UK Arthritis Guide", href: "/guides/uk-arthritis" },
       { label: "Exercise Guide", href: "/guides/exercise" },
       { label: "Diet Guide", href: "/guides/diet" },
-      { label: "NHS Services Guide", href: "/guides/nhs-services" },
+      { label: "Health Services Guide", href: "/guides/health-services" },
       { label: "Benefits & PIP Guide", href: "/guides/benefits-pip" },
     ],
   },
@@ -67,7 +67,7 @@ const sitemapSections: SitemapSection[] = [
   {
     title: "Exercise & Movement Articles",
     links: [
-      { label: "NHS Arthritis Exercises", href: "/blog/nhs-arthritis-exercises" },
+      { label: "Arthritis Exercises", href: "/blog/nhs-arthritis-exercises" },
       { label: "Knee Exercises", href: "/blog/knee-arthritis-exercises-uk" },
       { label: "Hand Exercises", href: "/blog/hand-exercises-for-arthritis" },
       { label: "Shoulder Exercises", href: "/blog/shoulder-arthritis-exercises-uk" },

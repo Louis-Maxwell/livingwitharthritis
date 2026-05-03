@@ -493,8 +493,8 @@ export function generateArthritisFactSheet() {
   y = bulletList(doc, y, [
     "Musculoskeletal conditions cost the UK economy an estimated £20.7 billion per year in lost productivity.",
     "Arthritis accounts for over 30 million lost working days annually.",
-    "The NHS spends approximately £10 billion per year treating musculoskeletal conditions.",
-    "Joint replacement surgery (hips and knees) costs the NHS over £1 billion annually.",
+    "The the health service spends approximately £10 billion per year treating musculoskeletal conditions.",
+    "Joint replacement surgery (hips and knees) costs the the health service over £1 billion annually.",
   ]);
 
   y = sectionTitle(doc, y, "Risk Factors");
@@ -514,7 +514,7 @@ export function generateArthritisFactSheet() {
   ]);
 
   y += 4;
-  y = paragraph(doc, y, "Sources: NHS, NICE, Versus Arthritis, World Health Organization, Public Health England. For educational use — not medical advice.", 8);
+  y = paragraph(doc, y, "Sources: the health service, NICE, Versus Arthritis, World Health Organization, Public Health England. For educational use — not medical advice.", 8);
 
   footer(doc);
   doc.save("UK_Arthritis_Fact_Sheet_LWA.pdf");

@@ -32,7 +32,7 @@ const Services = () => (
       <PageHero
         badge="What we offer"
         title="Arthritis Support Services for Everyone in the UK"
-        subtitle="Free, evidence-based services designed with HCPC-registered clinicians and aligned to NHS and NICE guidance."
+        subtitle="Free, evidence-based services designed with HCPC-registered clinicians and aligned to the health service and NICE guidance."
       />
       <Suspense fallback={<SkeletonSection />}>
         <ServicesGrid />

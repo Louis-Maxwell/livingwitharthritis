@@ -26,12 +26,12 @@ import { Input } from "@/components/ui/input";
 
 const resourceCategories = [
   {
-    category: "NHS & Medical",
+    category: "the health service & Medical",
     icon: Stethoscope,
     color: "icon-circle-sky",
     items: [
-      { name: "NHS Arthritis Overview", url: "https://www.nhs.uk/conditions/arthritis/", type: "Guide", desc: "Comprehensive NHS guide covering symptoms, diagnosis and treatment" },
-      { name: "Find NHS Services Near You", url: "https://www.nhs.uk/service-search", type: "Tool", desc: "Locate physiotherapy, rheumatology and pain clinics in your area" },
+      { name: "Arthritis Overview", url: "https://www.nhs.uk/conditions/arthritis/", type: "Guide", desc: "Comprehensive the health service guide covering symptoms, diagnosis and treatment" },
+      { name: "Find Health Services Near You", url: "https://www.nhs.uk/service-search", type: "Tool", desc: "Locate physiotherapy, rheumatology and pain clinics in your area" },
       { name: "NICE Osteoarthritis Guidelines", url: "https://www.nice.org.uk/guidance/cg177", type: "Guideline", desc: "Evidence-based clinical recommendations for managing OA" },
       { name: "NICE Rheumatoid Arthritis", url: "https://www.nice.org.uk/guidance/ng100", type: "Guideline", desc: "Best-practice pathways for RA diagnosis and treatment" },
     ],
@@ -109,7 +109,7 @@ interface ResourceLibraryDrawerProps {
 }
 
 const ResourceLibraryDrawer = memo(({ open, onOpenChange }: ResourceLibraryDrawerProps) => {
-  const [expandedCats, setExpandedCats] = useState<Set<string>>(new Set(["NHS & Medical"]));
+  const [expandedCats, setExpandedCats] = useState<Set<string>>(new Set(["the health service & Medical"]));
   const [searchQuery, setSearchQuery] = useState("");
 
   const toggleCat = (cat: string) => {
@@ -141,7 +141,7 @@ const ResourceLibraryDrawer = memo(({ open, onOpenChange }: ResourceLibraryDrawe
             Resource Library
           </SheetTitle>
           <p className="text-sm text-muted-foreground mt-1">
-            UK arthritis resources — NHS, benefits, exercises, nutrition & more.
+            UK arthritis resources — the health service, benefits, exercises, nutrition & more.
           </p>
           {/* Search */}
           <div className="relative mt-3">
@@ -229,7 +229,7 @@ const ResourceLibraryDrawer = memo(({ open, onOpenChange }: ResourceLibraryDrawe
         <div className="px-6 py-4 border-t border-border/30 flex flex-wrap items-center justify-center gap-4 text-[11px] text-muted-foreground">
           <span className="inline-flex items-center gap-1.5">
             <Heart className="h-3 w-3 text-primary" />
-            NHS-Complementary
+            the health service-Complementary
           </span>
           <span className="text-border">|</span>
           <span className="inline-flex items-center gap-1.5">

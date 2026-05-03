@@ -114,7 +114,7 @@ const ExerciseHub = () => {
     "@context": "https://schema.org",
     "@type": "MedicalWebPage",
     name: "Best Exercises for Arthritis UK – Complete Guide",
-    description: "Evidence-based arthritis exercises for knees, hands, shoulders and more. NHS-aligned physiotherapy routines for osteoarthritis and rheumatoid arthritis.",
+    description: "Evidence-based arthritis exercises for knees, hands, shoulders and more. clinically aligned physiotherapy routines for osteoarthritis and rheumatoid arthritis.",
     url: "https://livingwitharthritis.org.uk/exercises",
     mainEntity: {
       "@type": "MedicalCondition",
@@ -137,7 +137,7 @@ const ExerciseHub = () => {
       <Helmet>
         <title>Best Exercises for Arthritis UK | Knee, Hand & Shoulder Routines</title>
         <meta name="description" content="Free arthritis exercises and physiotherapy routines for osteoarthritis, rheumatoid and joint pain. Downloadable guides, video support and progress trackers to improve mobility safely at home." />
-        <meta name="keywords" content="arthritis exercises UK, knee exercises arthritis, hand exercises arthritis, shoulder exercises arthritis, NHS physiotherapy, low impact exercises, osteoarthritis exercises, chair exercises arthritis" />
+        <meta name="keywords" content="arthritis exercises UK, knee exercises arthritis, hand exercises arthritis, shoulder exercises arthritis, the health service physiotherapy, low impact exercises, osteoarthritis exercises, chair exercises arthritis" />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/exercises" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/exercises" />
         <meta property="og:title" content="Best Exercises for Arthritis UK – Complete Guide" />
@@ -148,7 +148,7 @@ const ExerciseHub = () => {
         <meta property="og:site_name" content="Living With Arthritis UK" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Best Exercises for Arthritis UK – Complete Guide" />
-        <meta name="twitter:description" content="NHS-aligned arthritis exercises for knees, hands, shoulders and chair-based routines." />
+        <meta name="twitter:description" content="clinically aligned arthritis exercises for knees, hands, shoulders and chair-based routines." />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
@@ -168,7 +168,7 @@ const ExerciseHub = () => {
       <PageHero
         badge={<Badge variant="outline" className="bg-primary/5 text-primary border-primary/20"><Dumbbell className="w-3.5 h-3.5 mr-1.5" /> Exercise Hub</Badge>}
         title={<>Best Exercises for <span className="text-primary">Arthritis</span> UK</>}
-        subtitle="NHS-aligned physiotherapy routines you can do at home — for knees, hands, shoulders and whole-body relief."
+        subtitle="clinically aligned physiotherapy routines you can do at home — for knees, hands, shoulders and whole-body relief."
       >
         <div className="flex flex-wrap gap-3 mt-2">
           <Button asChild size="lg" className="min-h-[48px] text-base font-semibold shadow-lg hover:shadow-xl transition-shadow">
@@ -179,7 +179,7 @@ const ExerciseHub = () => {
           </Button>
         </div>
         <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mt-4">
-          <span className="flex items-center gap-1.5"><Shield className="w-4 h-4 text-primary" /> NHS-Aligned</span>
+          <span className="flex items-center gap-1.5"><Shield className="w-4 h-4 text-primary" /> the health service-Aligned</span>
           <span className="flex items-center gap-1.5"><CheckCircle className="w-4 h-4 text-primary" /> Physiotherapy Approved</span>
           <span className="flex items-center gap-1.5"><Clock className="w-4 h-4 text-primary" /> 10–20 min routines</span>
         </div>

@@ -33,8 +33,8 @@ const CityConditionPage = () => {
   if (!cityData || !conditionData) return <Navigate to="/404" replace />;
 
   const url = `${BASE}/arthritis-support/${cityData.slug}/${conditionData.slug}`;
-  const title = `${conditionData.name} Support in ${cityData.name} — NHS Rheumatology & Local Help`;
-  const description = `${conditionData.name} (${conditionData.shortName}) support in ${cityData.name}: NHS rheumatology referrals via ${cityData.nhsTrust}, local resources, symptoms, and management. ${conditionData.ukPrevalence}`.slice(
+  const title = `${conditionData.name} Support in ${cityData.name} — Rheumatology & Local Help`;
+  const description = `${conditionData.name} (${conditionData.shortName}) support in ${cityData.name}: rheumatology referrals via ${cityData.localTrust}, local resources, symptoms, and management. ${conditionData.ukPrevalence}`.slice(
     0,
     300,
   );
@@ -82,10 +82,10 @@ const CityConditionPage = () => {
     mainEntity: [
       {
         "@type": "Question",
-        name: `How do I get an NHS referral for ${conditionData.name} in ${cityData.name}?`,
+        name: `How do I get an GP referral for ${conditionData.name} in ${cityData.name}?`,
         acceptedAnswer: {
           "@type": "Answer",
-          text: `Visit your GP and describe your symptoms. Ask specifically for a referral to rheumatology. In ${cityData.name}, referrals are typically made to ${cityData.nhsTrust}.`,
+          text: `Visit your GP and describe your symptoms. Ask specifically for a referral to rheumatology. In ${cityData.name}, referrals are typically made to ${cityData.localTrust}.`,
         },
       },
       {
@@ -120,7 +120,7 @@ const CityConditionPage = () => {
         <meta name="geo.placename" content={cityData.name} />
         <meta
           name="keywords"
-          content={`${conditionData.name} ${cityData.name}, ${conditionData.shortName} ${cityData.name}, rheumatology ${cityData.name}, NHS arthritis ${cityData.name}, ${cityData.nhsTrust}`}
+          content={`${conditionData.name} ${cityData.name}, ${conditionData.shortName} ${cityData.name}, rheumatology ${cityData.name}, arthritis ${cityData.name}, ${cityData.localTrust}`}
         />
         <meta property="og:site_name" content="Living With Arthritis UK" />
         <meta property="og:locale" content="en_GB" />
@@ -164,19 +164,19 @@ const CityConditionPage = () => {
             <p className="text-sm text-muted-foreground">{conditionData.ukPrevalence}</p>
           </div>
 
-          {/* NHS Referral */}
+          {/* GP Referral */}
           <section className="bg-card border border-border rounded-2xl p-6 mb-8">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                 <Hospital className="w-5 h-5 text-primary" />
               </div>
               <h2 className="text-xl font-semibold text-foreground">
-                NHS Rheumatology for {conditionData.shortName} in {cityData.name}
+                Rheumatology for {conditionData.shortName} in {cityData.name}
               </h2>
             </div>
             <p className="text-muted-foreground mb-3">
-              In {cityData.name}, NHS rheumatology referrals for {conditionData.name.toLowerCase()} are typically made to{" "}
-              <strong>{cityData.nhsTrust}</strong>. Your GP is your starting point — early referral matters,
+              In {cityData.name}, rheumatology referrals for {conditionData.name.toLowerCase()} are typically made to{" "}
+              <strong>{cityData.localTrust}</strong>. Your GP is your starting point — early referral matters,
               especially for inflammatory arthritis.
             </p>
             <a
@@ -185,7 +185,7 @@ const CityConditionPage = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-primary hover:underline text-sm font-medium"
             >
-              Visit {cityData.nhsTrust} <ArrowRight className="w-4 h-4" />
+              Visit {cityData.localTrust} <ArrowRight className="w-4 h-4" />
             </a>
           </section>
 
@@ -253,13 +253,13 @@ const CityConditionPage = () => {
           {/* How to get referral */}
           <section className="bg-card border border-border rounded-2xl p-6 mb-8">
             <h2 className="text-xl font-semibold text-foreground mb-3 flex items-center gap-2">
-              <Phone className="w-5 h-5 text-primary" /> Getting an NHS Referral in {cityData.name}
+              <Phone className="w-5 h-5 text-primary" /> Getting an GP Referral in {cityData.name}
             </h2>
             <ol className="list-decimal list-inside space-y-2 text-muted-foreground">
               <li>Book a GP appointment and describe your symptoms in detail</li>
               <li>Ask specifically for a referral to rheumatology for suspected {conditionData.name.toLowerCase()}</li>
               <li>
-                You may be referred to <strong>{cityData.nhsTrust}</strong>
+                You may be referred to <strong>{cityData.localTrust}</strong>
               </li>
               <li>Ask about current waiting times and any urgent referral pathways</li>
               <li>
@@ -296,7 +296,7 @@ const CityConditionPage = () => {
                 className="bg-card border border-border rounded-xl p-4 hover:border-primary/50 hover:shadow-sm transition-all"
               >
                 <p className="font-semibold text-foreground">All Arthritis Support in {cityData.name}</p>
-                <p className="text-xs text-muted-foreground mt-1">NHS services, local resources & community</p>
+                <p className="text-xs text-muted-foreground mt-1">health services, local resources & community</p>
               </Link>
             </div>
           </section>
@@ -330,16 +330,16 @@ const CityConditionPage = () => {
                 to: conditionData.conditionPagePath,
                 eyebrow: "Full guide",
                 title: `${conditionData.name}: Complete UK Guide`,
-                description: `Symptoms, diagnosis, NHS treatment pathways and self-management for ${conditionData.shortName}.`,
+                description: `Symptoms, diagnosis, standard treatment pathways and self-management for ${conditionData.shortName}.`,
                 readTime: "8 min read",
                 icon: BookOpen,
                 tint: "bg-tint-emerald",
                 accent: "text-emerald-600",
               },
               {
-                to: "/tools/nhs-waiting-time-calculator",
+                to: "/tools/waiting-time-calculator",
                 eyebrow: "Free tool",
-                title: `Estimate ${cityData.region} NHS waiting time`,
+                title: `Estimate ${cityData.region} rheumatology waiting time`,
                 description: `See realistic 2026 rheumatology waiting estimates for ${cityData.name} and surrounding areas.`,
                 readTime: "2 min",
                 icon: Timer,

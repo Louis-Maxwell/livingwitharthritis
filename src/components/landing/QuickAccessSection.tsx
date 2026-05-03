@@ -5,14 +5,14 @@ import {
 
 const GUIDES = [
   { label: "📖 UK Arthritis Guide", href: "/guides/uk-arthritis" },
-  { label: "🏥 NHS Services", href: "/guides/nhs-services" },
+  { label: "🏥 Health Services", href: "/guides/health-services" },
   { label: "🥗 Diet Guide", href: "/guides/diet" },
   { label: "💪 Exercise Guide", href: "/guides/exercise" },
   { label: "📋 Benefits & PIP", href: "/guides/benefits-pip" },
 ] as const;
 
 const HUBS = [
-  { id: "exercises", href: "/exercises", icon: Dumbbell, title: "Exercise Hub", description: "NHS-aligned knee, hand, shoulder & chair routines with a printable weekly tracker." },
+  { id: "exercises", href: "/exercises", icon: Dumbbell, title: "Exercise Hub", description: "clinically aligned knee, hand, shoulder & chair routines with a printable weekly tracker." },
   { id: "diet", href: "/diet", icon: Utensils, title: "Diet Hub", description: "Mediterranean anti-inflammatory meal plans, recipe ideas & supplement guidance." },
   { id: "community", href: "/community", icon: Users, title: "Community", description: "Peer support forum, patient stories, downloadable resources & newly diagnosed guide." },
   { id: "chat", href: "/chat", icon: MessageCircle, title: "AI Assistant", description: "Ask anything about arthritis — symptoms, treatments, diet or exercises. Instant & personalised." },

@@ -46,8 +46,8 @@ const CityArthritisPage = () => {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: [
-      { "@type": "Question", name: `Where can I get NHS arthritis treatment in ${cityData.name}?`, acceptedAnswer: { "@type": "Answer", text: `${cityData.name} patients are typically referred to ${cityData.nhsTrust} for rheumatology. Ask your GP for a referral.` } },
-      { "@type": "Question", name: `How long is the rheumatology waiting list in ${cityData.name}?`, acceptedAnswer: { "@type": "Answer", text: `Waiting times in ${cityData.region} typically range from 14 to 22 weeks in 2026. Use our free NHS Waiting Time Calculator for a regional estimate.` } },
+      { "@type": "Question", name: `Where can I get arthritis treatment in ${cityData.name}?`, acceptedAnswer: { "@type": "Answer", text: `${cityData.name} patients are typically referred to ${cityData.localTrust} for rheumatology. Ask your GP for a referral.` } },
+      { "@type": "Question", name: `How long is the rheumatology waiting list in ${cityData.name}?`, acceptedAnswer: { "@type": "Answer", text: `Waiting times in ${cityData.region} typically range from 14 to 22 weeks in 2026. Use our free Rheumatology Waiting Time Calculator for a regional estimate.` } },
       { "@type": "Question", name: `Are there free arthritis support groups in ${cityData.name}?`, acceptedAnswer: { "@type": "Answer", text: `Yes — local resources include ${cityData.localResources.slice(0, 2).join(" and ")}. Living With Arthritis also offers a free online community.` } },
     ],
   };
@@ -55,7 +55,7 @@ const CityArthritisPage = () => {
   return (
     <>
       <Helmet>
-        <title>{`Arthritis Support in ${cityData.name} — NHS Services & Local Help | Living With Arthritis`}</title>
+        <title>{`Arthritis Support in ${cityData.name} — Health Services & Local Help | Living With Arthritis`}</title>
         <meta name="description" content={cityData.description} />
         <link rel="canonical" href={`${BASE}/arthritis-support/${cityData.slug}`} />
         <meta property="og:title" content={`Arthritis Support in ${cityData.name}`} />
@@ -64,7 +64,7 @@ const CityArthritisPage = () => {
         <meta property="og:type" content="article" />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content={cityData.name} />
-        <meta name="keywords" content={`arthritis ${cityData.name}, NHS rheumatology ${cityData.name}, arthritis support ${cityData.name}, ${cityData.nhsTrust} rheumatology, arthritis help ${cityData.region}`} />
+        <meta name="keywords" content={`arthritis ${cityData.name}, rheumatology ${cityData.name}, arthritis support ${cityData.name}, ${cityData.localTrust} rheumatology, arthritis help ${cityData.region}`} />
         <meta property="og:site_name" content="Living With Arthritis UK" />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
@@ -101,16 +101,16 @@ const CityArthritisPage = () => {
             <p className="text-sm text-muted-foreground mt-2">Population: approx. {cityData.population}</p>
           </div>
 
-          {/* NHS Trust */}
+          {/* Local Health Trust */}
           <section className="bg-card border border-border rounded-2xl p-6 mb-8">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                 <Hospital className="w-5 h-5 text-primary" />
               </div>
-              <h2 className="text-xl font-semibold text-foreground">NHS Rheumatology Services</h2>
+              <h2 className="text-xl font-semibold text-foreground">Rheumatology Services</h2>
             </div>
             <p className="text-muted-foreground mb-3">
-              Your local NHS trust for rheumatology referrals in {cityData.name} is <strong>{cityData.nhsTrust}</strong>.
+              Your local local health trust for rheumatology referrals in {cityData.name} is <strong>{cityData.localTrust}</strong>.
               Ask your GP for a referral if you're experiencing persistent joint pain, stiffness, or swelling.
             </p>
             <a
@@ -119,7 +119,7 @@ const CityArthritisPage = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-primary hover:underline text-sm font-medium"
             >
-              Visit {cityData.nhsTrust} website <ArrowRight className="w-4 h-4" />
+              Visit {cityData.localTrust} website <ArrowRight className="w-4 h-4" />
             </a>
           </section>
 
@@ -165,12 +165,12 @@ const CityArthritisPage = () => {
           {/* How to Get Help */}
           <section className="bg-primary/5 border border-primary/20 rounded-2xl p-6 mb-8">
             <h2 className="text-xl font-semibold text-foreground mb-3 flex items-center gap-2">
-              <Phone className="w-5 h-5 text-primary" /> How to Get an NHS Referral in {cityData.name}
+              <Phone className="w-5 h-5 text-primary" /> How to Get an GP Referral in {cityData.name}
             </h2>
             <ol className="list-decimal list-inside space-y-2 text-muted-foreground">
               <li>Visit your GP and describe your symptoms (pain, stiffness, swelling)</li>
               <li>Ask specifically for a referral to rheumatology</li>
-              <li>You may be referred to <strong>{cityData.nhsTrust}</strong></li>
+              <li>You may be referred to <strong>{cityData.localTrust}</strong></li>
               <li>Waiting times vary — ask your GP about the current wait</li>
               <li>While waiting, try our <Link to="/self-help" className="text-primary hover:underline">self-help tools</Link></li>
             </ol>
@@ -219,9 +219,9 @@ const CityArthritisPage = () => {
             subheading="Most-read next steps from people in your area."
             items={[
               {
-                to: "/tools/nhs-waiting-time-calculator",
+                to: "/tools/waiting-time-calculator",
                 eyebrow: "Free tool",
-                title: `${cityData.region} NHS waiting time`,
+                title: `${cityData.region} rheumatology waiting time`,
                 description: `Estimate current rheumatology waiting times for ${cityData.name} and plan ahead.`,
                 readTime: "2 min",
                 icon: Timer,

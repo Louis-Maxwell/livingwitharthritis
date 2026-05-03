@@ -14,7 +14,7 @@ const LINK_LIBRARY: Record<string, CrossLink> = {
     to: "/exercises",
     icon: Dumbbell,
     label: "Exercise Hub",
-    description: "NHS-aligned routines for knees, hands, shoulders and more",
+    description: "clinically aligned routines for knees, hands, shoulders and more",
   },
   diet: {
     to: "/diet",
@@ -71,9 +71,9 @@ const LINK_LIBRARY: Record<string, CrossLink> = {
     description: "Evidence-based routines, swimming, yoga and strength training",
   },
   "guide-nhs": {
-    to: "/guides/nhs-services",
+    to: "/guides/health-services",
     icon: Stethoscope,
-    label: "NHS Services Guide",
+    label: "Health Services Guide",
     description: "GP referrals, rheumatology and physiotherapy pathways",
   },
   "guide-benefits": {

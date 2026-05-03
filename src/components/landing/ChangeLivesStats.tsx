@@ -67,7 +67,7 @@ const ChangeLivesStats = memo(() => (
     </div>
 
     <p className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 text-xs text-muted-foreground">
-      Figures based on UK public health data from Versus Arthritis and NHS / NICE
+      Figures based on UK public health data from Versus Arthritis and the health service / NICE
       sources. Updated annually.
     </p>
   </section>

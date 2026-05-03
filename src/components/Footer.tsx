@@ -24,7 +24,7 @@ const columns = [
       { label: "Psoriatic Arthritis", href: "/conditions/psoriatic-arthritis" },
       { label: "Blog & Research", href: "/blog" },
       { label: "UK Arthritis Guide", href: "/guides/uk-arthritis" },
-      { label: "NHS Services Guide", href: "/guides/nhs-services" },
+      { label: "Health Services Guide", href: "/guides/health-services" },
       { label: "Diet & Nutrition Guide", href: "/guides/diet" },
       { label: "Exercise Guide", href: "/guides/exercise" },
       { label: "Benefits & PIP Guide", href: "/guides/benefits-pip" },

@@ -136,7 +136,7 @@ const CONTENT = `
 <h3 id="council-tax-reduction">Council Tax Reduction</h3>
 <p>If you receive PIP or Attendance Allowance, you may be eligible for a <strong>Council Tax reduction</strong> or exemption. Some councils also offer a <strong>disability reduction scheme</strong> if your property has been adapted (e.g., an extra bathroom). Contact your local council to check eligibility.</p>
 
-<h3 id="nhs-exemptions">NHS Prescription Exemptions</h3>
+<h3 id="nhs-exemptions">the health service Prescription Exemptions</h3>
 <p>In England, if you meet certain criteria you may be exempt from prescription charges:</p>
 <ul>
 <li>If you receive certain benefits (income-based ESA, Universal Credit below threshold)</li>
@@ -211,9 +211,9 @@ export default function BenefitsPIPGuide() {
           <div className="mt-16 pt-8 border-t border-border/30">
             <h3 className="font-display font-bold text-lg mb-4">Continue Reading</h3>
             <div className="grid sm:grid-cols-2 gap-4">
-              <Link to="/guides/nhs-services" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
+              <Link to="/guides/health-services" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
                 <p className="text-xs text-primary font-bold mb-1">← Previous Guide</p>
-                <p className="font-bold text-foreground">NHS Arthritis Services</p>
+                <p className="font-bold text-foreground">Arthritis Services</p>
               </Link>
               <Link to="/guides/uk-arthritis" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
                 <p className="text-xs text-primary font-bold mb-1">Start from →</p>

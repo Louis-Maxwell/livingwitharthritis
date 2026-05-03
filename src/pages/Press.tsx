@@ -12,7 +12,7 @@ const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, tra
 const keyFacts = [
   { icon: Users, stat: "10M+", label: "UK adults live with arthritis" },
   { icon: Heart, stat: "100%", label: "Free services — no cost to patients" },
-  { icon: Shield, stat: "NHS", label: "Aligned with NHS clinical guidelines" },
+  { icon: Shield, stat: "the health service", label: "Aligned with the health service clinical guidelines" },
   { icon: Award, stat: "HCPC", label: "Registered physiotherapy team" },
 ];
 
@@ -20,7 +20,7 @@ const spokespeople = [
   {
     name: "Operations Director",
     role: "Founder & Operations Director",
-    bio: "Qualified physiotherapist with extensive experience in musculoskeletal health. Founded Living With Arthritis UK to bridge the gap between NHS waiting lists and accessible patient support.",
+    bio: "Qualified physiotherapist with extensive experience in musculoskeletal health. Founded Living With Arthritis UK to bridge the gap between the health service waiting lists and accessible patient support.",
   },
   {
     name: "Clinical Lead",
@@ -93,7 +93,7 @@ export default function Press() {
               Living With Arthritis UK is a registered health charity dedicated to making expert physiotherapy, evidence-based diet plans and self-management tools freely accessible to the 10 million+ people living with arthritis across the United Kingdom.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Our services are delivered by HCPC-registered physiotherapists and aligned with current NHS and NICE clinical guidelines. We believe no one should face arthritis alone, and no one should have to wait months on an NHS list for basic support.
+              Our services are delivered by HCPC-registered physiotherapists and aligned with current the health service and NICE clinical guidelines. We believe no one should face arthritis alone, and no one should have to wait months on an the health service list for basic support.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               From printable exercise routines and anti-inflammatory meal plans to an AI-powered symptom chatbot and peer support community, we provide a comprehensive digital platform — entirely free of charge — to help people manage joint pain, improve mobility and live well.

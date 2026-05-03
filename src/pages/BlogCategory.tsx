@@ -19,7 +19,7 @@ const CATEGORY_META: Record<string, { title: string; description: string }> = {
   },
   health: {
     title: "Arthritis Health & Wellbeing Articles",
-    description: "Trusted UK arthritis health articles — symptoms, flare-ups, mental health, NHS pathways and clinical updates from HCPC-registered authors.",
+    description: "Trusted UK arthritis health articles — symptoms, flare-ups, mental health, care pathways and clinical updates from HCPC-registered authors.",
   },
   supplements: {
     title: "Supplements for Arthritis: Evidence & Reviews",
@@ -27,7 +27,7 @@ const CATEGORY_META: Record<string, { title: string; description: string }> = {
   },
   treatment: {
     title: "Arthritis Treatment Articles & Updates",
-    description: "Latest arthritis treatment articles — medications, NHS care pathways, physiotherapy, surgery and emerging research, explained for UK patients.",
+    description: "Latest arthritis treatment articles — medications, public healthcare pathways, physiotherapy, surgery and emerging research, explained for UK patients.",
   },
 };
 

@@ -21,14 +21,14 @@ const stories = [
     timeline: [
       { year: "2012", event: "First symptoms — stiffness in both knees every morning" },
       { year: "2014", event: "GP diagnosis of moderate osteoarthritis; prescribed NSAIDs" },
-      { year: "2016", event: "Referred to NHS physiotherapist — 6-week waiting list" },
+      { year: "2016", event: "Referred to the health service physiotherapist — 6-week waiting list" },
       { year: "2019", event: "Discovered Living With Arthritis; began virtual physio sessions" },
       { year: "2021", event: "Adopted Mediterranean diet; lost 2 stone over 8 months" },
       { year: "2023", event: "CRP levels reduced by 30%; walks 5 miles regularly" },
     ],
     fullStory: `When I was first diagnosed at 55, I felt like my active life was over. I'd always loved walking in the Dales with my husband, and suddenly I couldn't manage a flight of stairs without wincing.
 
-My GP was sympathetic but the NHS waiting times for physiotherapy were months long. I tried various supplements — glucosamine, turmeric capsules — but nothing seemed to make a real difference on its own.
+My GP was sympathetic but the the health service waiting times for physiotherapy were months long. I tried various supplements — glucosamine, turmeric capsules — but nothing seemed to make a real difference on its own.
 
 The turning point came when I found Living With Arthritis online in 2019. The virtual physiotherapy sessions meant I could get expert guidance from home, fitting around my schedule. My physiotherapist, an HCPC-registered clinician, designed a programme specifically for my knee OA.
 

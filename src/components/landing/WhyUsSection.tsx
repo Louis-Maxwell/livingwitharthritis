@@ -24,8 +24,8 @@ const points = [
   },
   {
     icon: <Globe className="w-5 h-5 text-sky" />,
-    title: "UK-first, NHS-aligned",
-    desc: "All our recommendations follow current NICE guidelines and complement — never replace — NHS care pathways.",
+    title: "UK-first, clinically aligned",
+    desc: "All our recommendations follow current NICE guidelines and complement — never replace — public healthcare pathways.",
   },
   {
     icon: <Award className="w-5 h-5 text-emerald" />,
@@ -40,7 +40,7 @@ const WhyUsSection = memo(() => (
       <div className="text-center max-w-2xl mx-auto mb-14">
         <span className="section-label text-primary/60 block mb-4">Why Choose Us</span>
         <h2 id="why-us-heading" className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
-          Different from the NHS. Different from other charities.{" "}
+          Different from the the health service. Different from other charities.{" "}
           <span className="text-primary">Built just for you.</span>
         </h2>
         <p className="mt-4 text-muted-foreground">
@@ -70,7 +70,7 @@ const WhyUsSection = memo(() => (
         <div className="flex-1">
           <h3 className="text-xl font-bold mb-2">Aligned with the arthritis community</h3>
           <p className="text-primary-foreground/80 text-sm leading-relaxed">
-            Our content is aligned with Versus Arthritis, NRAS (National Rheumatoid Arthritis Society), and NHS
+            Our content is aligned with Versus Arthritis, NRAS (National Rheumatoid Arthritis Society), and the health service
             guidance — so you always get information you can trust.
           </p>
         </div>
