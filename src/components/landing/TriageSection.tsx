@@ -11,24 +11,32 @@ const TRIAGE_OPTIONS = [
     label: "Pain relief",
     description: "Manage flare-ups & daily pain",
     to: "/arthritis-flare-ups",
+    chip: "bg-primary text-primary-foreground",
+    ring: "hover:border-primary/60",
   },
   {
     icon: Dumbbell,
     label: "Exercises",
     description: "Joint-safe movement plans",
     to: "/exercises",
+    chip: "bg-[hsl(var(--sky))] text-white",
+    ring: "hover:border-[hsl(var(--sky))]/60",
   },
   {
     icon: Apple,
     label: "Diet & nutrition",
     description: "Anti-inflammatory eating",
     to: "/diet",
+    chip: "bg-[hsl(var(--gold))] text-[hsl(var(--gold-foreground))]",
+    ring: "hover:border-[hsl(var(--gold))]/60",
   },
   {
     icon: Hospital,
     label: "NHS help",
     description: "Waiting list support & guides",
     to: "/nhs-waiting-list-help",
+    chip: "bg-[hsl(var(--coral))] text-white",
+    ring: "hover:border-[hsl(var(--coral))]/60",
   },
 ] as const;
 
@@ -52,13 +60,13 @@ export default function TriageSection() {
         </div>
 
         <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5">
-          {TRIAGE_OPTIONS.map(({ icon: Icon, label, description, to }) => (
+          {TRIAGE_OPTIONS.map(({ icon: Icon, label, description, to, chip, ring }) => (
             <Link
               key={to}
               to={to}
-              className="group relative flex flex-col items-start rounded-2xl border border-border/60 bg-card p-5 text-left shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-medium"
+              className={`group relative flex flex-col items-start rounded-2xl border border-border/60 bg-card p-5 text-left shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-large ${ring}`}
             >
-              <div className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+              <div className={`mb-3 inline-flex h-12 w-12 items-center justify-center rounded-full ${chip} shadow-sm transition-transform duration-300 group-hover:scale-110`}>
                 <Icon className="h-5 w-5" aria-hidden="true" />
               </div>
               <h3 className="font-display text-base font-semibold text-foreground md:text-lg">
