@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import AITrustSafetyModal from "@/components/AITrustSafetyModal";
+import FooterMostRead from "@/components/FooterMostRead";
 
 const columns = [
   {
@@ -70,6 +71,7 @@ const columns = [
 const Footer = () => {
   return (
     <footer className="bg-muted/30 border-t border-border/20 pb-20 lg:pb-0" role="contentinfo" aria-label="Site footer">
+      <FooterMostRead />
       <div className="container mx-auto px-6 md:px-12 py-16 lg:py-20">
         <div className="mb-14">
           <p className="text-lg font-bold text-foreground tracking-tight">Living With Arthritis</p>
