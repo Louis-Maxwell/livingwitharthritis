@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import PageHero from "@/components/ui/PageHero";
 import { StatCounter, WaveDivider } from "@/components/graphics/InfographicElements";
 import InternalLinks from "@/components/InternalLinks";
+import ContextualLinks from "@/components/ContextualLinks";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
 import ReadNextCards from "@/components/ReadNextCards";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
@@ -270,20 +271,50 @@ const PsoriaticArthritis = () => (
           </div>
         </section>
 
-        {/* Other Conditions */}
-        <section className="mb-12">
-          <h3 className="font-display text-lg font-semibold text-foreground mb-4">Explore Other Conditions</h3>
-          <div className="grid sm:grid-cols-2 gap-3">
-            <Link to="/conditions/osteoarthritis" className="group rounded-xl border border-border/40 px-5 py-4 hover:bg-accent transition-colors">
-              <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">Osteoarthritis →</span>
-              <span className="block text-xs text-muted-foreground mt-0.5">Degenerative joint disease: symptoms, exercises & diet</span>
-            </Link>
-            <Link to="/conditions/rheumatoid-arthritis" className="group rounded-xl border border-border/40 px-5 py-4 hover:bg-accent transition-colors">
-              <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">Rheumatoid Arthritis →</span>
-              <span className="block text-xs text-muted-foreground mt-0.5">Autoimmune joint inflammation: symptoms, DMARDs & biologics</span>
-            </Link>
-          </div>
-        </section>
+        <ContextualLinks
+          heading="Pair psoriatic arthritis care with the right resources"
+          intro="Use these guides alongside your treatment plan — diet, exercise, flare support and other conditions in the same family."
+          groups={[
+            {
+              title: "Diet & supplements",
+              links: [
+                { label: "Best diet for psoriatic arthritis", to: "/diet" },
+                { label: "Mediterranean diet pillar guide", to: "/guides/diet" },
+                { label: "Foods to avoid with arthritis", to: "/blog/category/nutrition" },
+                { label: "Turmeric, omega-3 and collagen — what works", to: "/blog/category/supplements" },
+              ],
+            },
+            {
+              title: "Exercise & movement",
+              links: [
+                { label: "Arthritis-friendly exercises", to: "/exercises" },
+                { label: "Spine & posture work", to: "/exercises" },
+                { label: "Tai Chi for balance & stiffness", to: "/exercises/tai-chi-for-balance" },
+                { label: "Exercises to avoid with arthritis", to: "/guides/exercise" },
+              ],
+            },
+            {
+              title: "Flare-ups & support",
+              links: [
+                { label: "Managing arthritis flare-ups", to: "/arthritis-flare-ups" },
+                { label: "Help while waiting for rheumatology", to: "/arthritis-waiting-list-help" },
+                { label: "Community & peer support", to: "/community" },
+                { label: "Browse the Advice Hub", to: "/blog-hub" },
+              ],
+            },
+            {
+              title: "Other conditions",
+              links: [
+                { label: "Osteoarthritis", to: "/conditions/osteoarthritis" },
+                { label: "Rheumatoid arthritis", to: "/conditions/rheumatoid-arthritis" },
+                { label: "Ankylosing spondylitis", to: "/conditions/ankylosing-spondylitis" },
+                { label: "Gout", to: "/conditions/gout" },
+                { label: "Lupus (SLE)", to: "/conditions/lupus" },
+                { label: "Fibromyalgia", to: "/conditions/fibromyalgia" },
+              ],
+            },
+          ]}
+        />
 
         <div className="p-8 rounded-2xl bg-accent border border-border/30">
           <h2 className="font-display text-xl font-bold text-foreground mb-3">Managing psoriatic arthritis</h2>
