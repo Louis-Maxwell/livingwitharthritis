@@ -9,6 +9,7 @@ const Sonner = lazy(() => import("@/components/ui/sonner").then(m => ({ default:
 import { PageTransition } from "@/components/ui/PageTransition";
 import { RouteProgressBar } from "@/components/ui/RouteProgressBar";
 import { useCartSync } from "@/hooks/useCartSync";
+import { useLinkPrefetch } from "@/hooks/useLinkPrefetch";
 import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "next-themes";
 import { DeferredMount } from "@/components/DeferredMount";
@@ -192,6 +193,7 @@ function AnimatedRoutes() {
 
 function AppWithSync() {
   useCartSync();
+  useLinkPrefetch();
   return (
     <>
       <RouteProgressBar />
