@@ -1,3 +1,0 @@
-file '/dev-server/.video-stitch-tmp/work/exercise-knee-s1-norm.mp4'
-file '/dev-server/.video-stitch-tmp/work/exercise-knee-s2-norm.mp4'
-file '/dev-server/.video-stitch-tmp/work/exercise-knee-s3-norm.mp4'
