@@ -184,7 +184,7 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
         />
         <meta
           name="keywords"
-          content="arthritis support UK, free arthritis physiotherapy, rheumatoid arthritis help, osteoarthritis exercises, arthritis symptom tracker, anti-inflammatory diet arthritis, arthritis flare-up management, arthritis waiting list"
+          content="arthritis, arthritis charity, arthritis support, arthritis foundation, arthritis organisation, joint pain charity, arthritis help, arthritis resources, arthritis awareness, musculoskeletal conditions, osteoarthritis, rheumatoid arthritis, juvenile arthritis, psoriatic arthritis, gout, ankylosing spondylitis, fibromyalgia, lupus, knee arthritis, hip arthritis, hand arthritis, joint pain relief, arthritis symptoms, arthritis treatment, chronic pain management, arthritis medication, natural remedies for arthritis, arthritis diet, anti-inflammatory diet, arthritis exercises, physiotherapy for arthritis, living with arthritis, arthritis friendly exercises, arthritis and mental health, working with arthritis, arthritis self-care, mobility aids for arthritis, arthritis in cold weather, donate to arthritis charity, arthritis research, arthritis support groups near me, arthritis helpline, arthritis advocacy, financial help for arthritis patients, what causes arthritis, is arthritis curable, how to reduce joint inflammation, best pain relief for arthritis, difference between osteoarthritis and rheumatoid arthritis, exercises to avoid with arthritis"
         />
         <link rel="canonical" href={`${SITE_URL}/`} />
         <meta name="geo.region" content="GB" />

@@ -87,7 +87,7 @@ const CommunityHub = () => {
       <Helmet>
         <title>Arthritis Community & Support UK | Living With Arthritis</title>
         <meta name="description" content="Join our arthritis community: patient stories, peer support, live webinars, and a step-by-step guide for the newly diagnosed. You're not alone." />
-        <meta name="keywords" content="arthritis support group UK, arthritis community, peer support arthritis, arthritis webinars, newly diagnosed arthritis, arthritis stories UK" />
+        <meta name="keywords" content="arthritis support groups near me, arthritis community, peer support arthritis, arthritis webinars, newly diagnosed arthritis, arthritis stories, arthritis helpline, arthritis advocacy, living with arthritis, arthritis and mental health, how to support someone with chronic pain, arthritis events, volunteer for charity" />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/community" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/community" />
         <meta property="og:title" content="Arthritis Community & Support UK" />

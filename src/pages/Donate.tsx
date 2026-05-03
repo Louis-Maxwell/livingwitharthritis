@@ -87,6 +87,7 @@ export default function Donate() {
       <Helmet>
         <title>Donate to Arthritis Support UK: Fund Free Physio, Diet & AI Help</title>
         <meta name="description" content="Donate to Living With Arthritis UK and fund free virtual physiotherapy, anti-inflammatory diet plans and AI support for over 10,000 people with arthritis." />
+        <meta name="keywords" content="donate to arthritis charity, arthritis charity, arthritis foundation, arthritis research, arthritis helpline, fundraising ideas for health charity, arthritis events, arthritis advocacy, financial help for arthritis patients, joint pain charity, arthritis support, arthritis awareness, volunteer for charity" />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/donate" />
       <meta property="og:title" content="Donate to Arthritis Support UK: Fund Free Physio, Diet & AI Help" />
       <meta property="og:description" content="Donate to Living With Arthritis UK and fund free virtual physiotherapy, anti-inflammatory diet plans and AI support for over 10,000 people with arthritis." />
