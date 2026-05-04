@@ -1,10 +1,10 @@
 import ExerciseVideo from "./ExerciseVideo";
 
-import RootedStanceAsset from "../../../public/exercise-videos/tai-chi-rooted-stance.mp4.asset.json";
-import WeightShiftAsset from "../../../public/exercise-videos/tai-chi-weight-shift.mp4.asset.json";
-import CloudHandsAsset from "../../../public/exercise-videos/tai-chi-cloud-hands.mp4.asset.json";
-import BrushKneeAsset from "../../../public/exercise-videos/tai-chi-brush-knee.mp4.asset.json";
-import ClosingPostureAsset from "../../../public/exercise-videos/tai-chi-closing-posture.mp4.asset.json";
+import RootedStanceAsset from "@/assets/tai-chi-rooted-stance.mp4.asset.json";
+import WeightShiftAsset from "@/assets/tai-chi-weight-shift.mp4.asset.json";
+import CloudHandsAsset from "@/assets/tai-chi-cloud-hands.mp4.asset.json";
+import BrushKneeAsset from "@/assets/tai-chi-brush-knee.mp4.asset.json";
+import ClosingPostureAsset from "@/assets/tai-chi-closing-posture.mp4.asset.json";
 
 interface AnimationProps {
   className?: string;
