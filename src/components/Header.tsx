@@ -461,9 +461,15 @@ const Header = () => {
             <nav className="flex-1 overflow-y-auto px-5 py-6 space-y-1" aria-label="Mobile navigation">
               {mobileNavItems.map((item, index) => {
                 const Icon = item.icon;
+                const active = item.href.startsWith("#")
+                  ? activeHash === item.href && pathname === "/"
+                  : item.href === "/"
+                    ? pathname === "/"
+                    : pathname === item.href || pathname.startsWith(`${item.href}/`);
                 return (
                   <button
                     key={item.label}
+                    aria-current={active ? "page" : undefined}
                     onClick={() => {
                       setMobileMenuOpen(false);
                       if (item.action) {
@@ -474,10 +480,17 @@ const Header = () => {
                         navigate(item.href);
                       }
                     }}
-                    className="flex items-center gap-3 w-full text-left px-4 py-4 text-[15px] font-semibold text-muted-foreground hover:text-foreground hover:bg-accent active:bg-accent/80 rounded-xl transition-all cursor-pointer group min-h-[56px]"
+                    className={`relative flex items-center gap-3 w-full text-left px-4 py-4 text-[15px] font-semibold rounded-xl transition-all cursor-pointer group min-h-[56px] ${
+                      active
+                        ? "text-primary bg-primary/5 ring-1 ring-primary/15"
+                        : "text-muted-foreground hover:text-foreground hover:bg-accent active:bg-accent/80"
+                    }`}
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
-                    <div className="w-10 h-10 rounded-lg bg-primary/8 flex items-center justify-center shrink-0 group-hover:bg-primary/15 transition-colors">
+                    {active && (
+                      <span aria-hidden="true" className="absolute left-0 top-3 bottom-3 w-[3px] rounded-r bg-primary" />
+                    )}
+                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-colors ${active ? "bg-primary/15" : "bg-primary/8 group-hover:bg-primary/15"}`}>
                       <Icon className="w-[18px] h-[18px] text-primary" />
                     </div>
                     <div className="flex-1 min-w-0">
