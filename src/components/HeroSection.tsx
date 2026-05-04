@@ -82,29 +82,10 @@ const HeroSection = memo(() => {
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-gold/[0.03] blur-[100px] pointer-events-none hidden lg:block" />
 
       <div className="container mx-auto px-5 sm:px-8 md:px-12 lg:px-16 relative">
-        {/* ── Magazine masthead ─────────────────────────────────────── */}
-        <div className="hero-item flex items-center justify-between gap-4 pt-10 sm:pt-14 lg:pt-16 pb-6 border-b border-foreground/10">
-          <div className="flex items-center gap-3 text-[10px] sm:text-[11px] font-bold tracking-[0.28em] uppercase text-foreground/70">
-            <span className="w-8 h-px bg-primary" aria-hidden="true" />
-            The Arthritis Edition
-          </div>
-          <div className="hidden sm:flex items-center gap-4 text-[10px] font-semibold tracking-[0.2em] uppercase text-muted-foreground/70">
-            <span>Vol. I</span>
-            <span className="w-px h-3 bg-border/60" aria-hidden="true" />
-            <span>{issueDate}</span>
-            <span className="w-px h-3 bg-border/60" aria-hidden="true" />
-            <span className="text-primary">United Kingdom</span>
-          </div>
-        </div>
-
         <div className="py-12 sm:py-16 lg:py-20">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* ── Left — Editorial copy (7 cols) ───────────────────── */}
             <div className="hero-stagger lg:col-span-7 text-center lg:text-left">
-              <p className="hero-item text-[10px] sm:text-[11px] font-bold tracking-[0.32em] uppercase text-primary mb-6 sm:mb-8 flex items-center justify-center lg:justify-start gap-3">
-                <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
-                A national health movement
-              </p>
 
               <h1 className="hero-item font-display text-[2.5rem] sm:text-[3.25rem] md:text-[3.75rem] lg:text-[4.25rem] xl:text-[4.75rem] font-bold text-foreground mb-6 sm:mb-8 leading-[1.02] tracking-[-0.03em] text-balance pr-2">
                 One in six.
