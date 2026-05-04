@@ -31,6 +31,7 @@ const MissionStatementBand = lazy(() => import("@/components/landing/MissionStat
 const EditorialIndex = lazy(() => import("@/components/landing/EditorialIndex"));
 const ImpactLedger = lazy(() => import("@/components/landing/ImpactLedger"));
 const FeaturedStoryBand = lazy(() => import("@/components/landing/FeaturedStoryBand"));
+const AggregatedSocialProof = lazy(() => import("@/components/landing/AggregatedSocialProof"));
 
 const BackToTopButton = lazy(() => import("@/components/landing/BackToTopButton"));
 const CookieBanner = lazy(() => import("@/components/landing/CookieBanner"));
@@ -247,6 +248,10 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
         <main id="main-content" role="main" tabIndex={-1}>
           {/* Tight editorial flow — 8 sections, no repetition */}
           <HeroSection />
+
+          <Suspense fallback={null}>
+            <AggregatedSocialProof />
+          </Suspense>
 
           <Suspense fallback={<SkeletonSection />}>
             <MissionStatementBand />
