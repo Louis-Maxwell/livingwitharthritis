@@ -285,6 +285,10 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
           </Suspense>
 
           <Suspense fallback={<SkeletonSection />}>
+            <ImpactLedger />
+          </Suspense>
+
+          <Suspense fallback={<SkeletonSection />}>
             <InspiredHeroBand />
           </Suspense>
 
