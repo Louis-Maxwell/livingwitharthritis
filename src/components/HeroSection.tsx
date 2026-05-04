@@ -101,7 +101,7 @@ const HeroSection = memo(() => {
             {/* ── Left — Editorial copy (7 cols) ───────────────────── */}
             <div className="hero-stagger lg:col-span-7 text-center lg:text-left">
 
-              <h1 className="hero-item font-display text-[2.5rem] sm:text-[3.25rem] md:text-[3.75rem] lg:text-[4.25rem] xl:text-[4.75rem] font-bold text-foreground mb-6 sm:mb-8 leading-[1.02] tracking-[-0.03em] text-balance pr-2">
+              <h1 ref={headlineRef} className="hero-item font-display text-[2.5rem] sm:text-[3.25rem] md:text-[3.75rem] lg:text-[4.25rem] xl:text-[4.75rem] font-bold text-foreground mb-6 sm:mb-8 leading-[1.02] tracking-[-0.03em] text-balance pr-2">
                 One in six.
                 <br className="hidden sm:block" />
                 <span className="italic font-normal text-primary">Every</span> one of them,
