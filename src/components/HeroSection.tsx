@@ -1,8 +1,13 @@
 import { ArrowRight, MessageCircle, Heart, Shield, Award, CheckCircle, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { memo, lazy, Suspense, useEffect, useState } from "react";
+import { memo, lazy, Suspense, useEffect, useRef, useState } from "react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
+import {
+  observeHeadlineClipping,
+  reportHeroImageFailure,
+  reportHeroRender,
+} from "@/lib/heroLayoutMonitor";
 import heroImageWebp1600 from "@/assets/hero-walking-group-1600.webp";
 import heroImageWebp1200 from "@/assets/hero-walking-group-1200.webp";
 import heroImageWebp800 from "@/assets/hero-walking-group-800.webp";
