@@ -324,7 +324,10 @@ const Header = () => {
 
               {/* Desktop nav */}
               <nav className="hidden lg:flex items-center gap-0.5 mx-auto" aria-label="Main navigation">
-                {navLinks.map((link) => (
+                {navLinks.map((link) => {
+                  const active = isLinkActive(link);
+                  const open = activeDropdown === link.label;
+                  return (
                   <div key={link.label} className="relative" data-nav-dropdown>
                     <button
                       onClick={(e) => {
@@ -346,16 +349,26 @@ const Header = () => {
                           setActiveDropdown(null);
                         }
                       }}
-                      aria-expanded={link.subs ? activeDropdown === link.label : undefined}
+                      aria-expanded={link.subs ? open : undefined}
                       aria-haspopup={link.subs ? "true" : undefined}
-                      className={`px-3.5 py-1.5 text-[13px] font-semibold rounded-lg transition-all duration-200 cursor-pointer flex items-center gap-1 ${
-                        activeDropdown === link.label
+                      aria-current={active ? "page" : undefined}
+                      className={`relative px-3.5 py-1.5 text-[13px] font-semibold rounded-lg transition-all duration-200 cursor-pointer flex items-center gap-1 ${
+                        open
                           ? "text-primary bg-primary/5"
-                          : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                          : active
+                            ? "text-primary"
+                            : "text-muted-foreground hover:text-foreground hover:bg-accent"
                       }`}
                     >
                       {link.label}
-                      {link.subs && <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === link.label ? "rotate-180" : ""}`} aria-hidden="true" />}
+                      {link.subs && <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${open ? "rotate-180" : ""}`} aria-hidden="true" />}
+                      {/* Magazine-style active indicator */}
+                      <span
+                        aria-hidden="true"
+                        className={`pointer-events-none absolute left-3.5 right-3.5 -bottom-[7px] h-[2px] bg-primary rounded-full origin-center transition-transform duration-300 ease-out ${
+                          active ? "scale-x-100" : "scale-x-0"
+                        }`}
+                      />
                     </button>
 
                     {/* Rich sub-menu dropdown */}
