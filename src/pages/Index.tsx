@@ -249,6 +249,10 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
           {/* Tight editorial flow — 8 sections, no repetition */}
           <HeroSection />
 
+          <Suspense fallback={null}>
+            <AggregatedSocialProof />
+          </Suspense>
+
           <Suspense fallback={<SkeletonSection />}>
             <MissionStatementBand />
           </Suspense>
