@@ -242,7 +242,7 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
       <div className="min-h-screen bg-background text-foreground antialiased">
         <ScrollProgress />
         <Header />
-        <TrustBar />
+        {/* TrustBar removed from above-the-fold to declutter; trust signals now live in hero badges + footer */}
 
         <main id="main-content" role="main" tabIndex={-1}>
           {/* Tight editorial flow — 8 sections, no repetition */}
