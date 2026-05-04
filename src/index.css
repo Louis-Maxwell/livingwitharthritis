@@ -6,18 +6,18 @@
 
 @layer base {
   :root {
-    /* ─── KFC-Inspired Luxe: Crimson & Clean White ─── */
-    --background: 0 0% 100%;
+    /* ─── FT Weekend Editorial: Cream Paper, Restrained Crimson ─── */
+    --background: 39 33% 96%;          /* warm cream paper */
     --foreground: 0 0% 8%;
 
-    --card: 0 0% 100%;
+    --card: 0 0% 100%;                 /* white cards float on cream */
     --card-foreground: 0 0% 8%;
 
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 8%;
 
-    /* KFC Signature Crimson — bold, confident, authoritative */
-    --primary: 350 100% 45%;
+    /* Restrained editorial crimson — slightly desaturated, slightly darker */
+    --primary: 350 72% 42%;
     --primary-foreground: 0 0% 100%;
 
     /* Rich Charcoal — sophistication & depth */
