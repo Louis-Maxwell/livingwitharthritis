@@ -247,7 +247,8 @@ const App = () => {
               <DeferredMount timeout={4000}>
                 <Suspense fallback={null}>
                   <ChatBotWidget />
-                  <DonationNotification />
+                  {/* DonationNotification removed — individual donor toasts read as e-commerce social-proof
+                      (Booking.com style) rather than charity. Aggregate impact stats live in ImpactLedger. */}
                   <ExitIntentModal />
                 </Suspense>
               </DeferredMount>
