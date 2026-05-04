@@ -30,6 +30,15 @@ const HeroSection = memo(() => {
   // Desktop-only flag controls heavy hero layers (3D canvas + giant blur orbs)
   // and conditionally preloads the hero image (mobile never renders it).
   const [isDesktop, setIsDesktop] = useState(false);
+  const headlineRef = useRef<HTMLHeadingElement | null>(null);
+
+  // Monitoring: log hero render + watch the headline for clipping/odd viewports.
+  useEffect(() => {
+    reportHeroRender();
+    if (!headlineRef.current) return;
+    const cleanup = observeHeadlineClipping(headlineRef.current);
+    return cleanup;
+  }, []);
 
   useEffect(() => {
     if (typeof window === "undefined" || !window.matchMedia) return;
