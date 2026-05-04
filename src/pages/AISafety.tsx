@@ -5,6 +5,7 @@ import SkeletonSection from "@/components/landing/SkeletonSection";
 import PageHero from "@/components/ui/PageHero";
 
 const AITrustSection = lazy(() => import("@/components/landing/AITrustSection"));
+const AISafetyExtras = lazy(() => import("@/components/landing/AISafetyExtras"));
 const Footer = lazy(() => import("@/components/Footer"));
 
 const AISafety = () => (
@@ -36,6 +37,9 @@ const AISafety = () => (
       />
       <Suspense fallback={<SkeletonSection />}>
         <AITrustSection />
+      </Suspense>
+      <Suspense fallback={<SkeletonSection />}>
+        <AISafetyExtras />
       </Suspense>
     </main>
     <Suspense fallback={<div className="h-80 bg-secondary" aria-hidden="true" />}>
