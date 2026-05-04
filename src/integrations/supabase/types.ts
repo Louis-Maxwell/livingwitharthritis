@@ -670,6 +670,66 @@ export type Database = {
         }
         Relationships: []
       }
+      featured_stories: {
+        Row: {
+          age: string | null
+          body: string | null
+          created_at: string
+          diagnosis: string | null
+          headline: string
+          id: string
+          kicker: string
+          location: string
+          name: string
+          portrait_alt: string
+          portrait_url: string
+          published: boolean
+          published_at: string
+          slug: string
+          sort_order: number
+          updated_at: string
+          with_us_since: string | null
+        }
+        Insert: {
+          age?: string | null
+          body?: string | null
+          created_at?: string
+          diagnosis?: string | null
+          headline: string
+          id?: string
+          kicker?: string
+          location: string
+          name: string
+          portrait_alt: string
+          portrait_url: string
+          published?: boolean
+          published_at?: string
+          slug: string
+          sort_order?: number
+          updated_at?: string
+          with_us_since?: string | null
+        }
+        Update: {
+          age?: string | null
+          body?: string | null
+          created_at?: string
+          diagnosis?: string | null
+          headline?: string
+          id?: string
+          kicker?: string
+          location?: string
+          name?: string
+          portrait_alt?: string
+          portrait_url?: string
+          published?: boolean
+          published_at?: string
+          slug?: string
+          sort_order?: number
+          updated_at?: string
+          with_us_since?: string | null
+        }
+        Relationships: []
+      }
       feedback_responses: {
         Row: {
           comment: string | null
