@@ -410,7 +410,8 @@ const Header = () => {
                       </div>
                     )}
                   </div>
-                ))}
+                  );
+                })}
 
                 {/* Persistent Donate button — charity red, matches Ways to Help pill style */}
                 <button
