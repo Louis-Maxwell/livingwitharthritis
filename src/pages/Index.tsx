@@ -240,18 +240,13 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
       </a>
 
       <div className="min-h-screen bg-background text-foreground antialiased">
-        {/* Ambient background blobs */}
-        <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-          <div className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px]" />
-          <div className="absolute bottom-0 -right-32 w-[500px] h-[500px] rounded-full bg-violet/5 blur-[100px]" />
-        </div>
-
         <ScrollProgress />
         <Header />
         <TrustBar />
 
         <main id="main-content" role="main" tabIndex={-1}>
           <HeroSection />
+
           <Suspense fallback={null}>
             <IntentChooser />
           </Suspense>
@@ -264,14 +259,6 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
 
           <Suspense fallback={<SkeletonSection />}>
             <QuickAccessSection />
-          </Suspense>
-
-          <Suspense fallback={<SkeletonSection />}>
-            <ChangeLivesStats />
-          </Suspense>
-
-          <Suspense fallback={<SkeletonSection />}>
-            <ColourMosaic />
           </Suspense>
 
           <Suspense fallback={<SkeletonSection />}>
@@ -291,11 +278,11 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
           </Suspense>
 
           <Suspense fallback={<SkeletonSection />}>
-            <TestimonialsSection />
+            <ImpactLedger />
           </Suspense>
 
           <Suspense fallback={<SkeletonSection />}>
-            <ImpactLedger />
+            <ColourMosaic />
           </Suspense>
 
           <Suspense fallback={<SkeletonSection />}>
