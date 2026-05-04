@@ -66,6 +66,11 @@ const HeroSection = memo(() => {
     { icon: CheckCircle, label: "NICE Compliant" },
   ];
 
+  const issueDate = new Date().toLocaleDateString("en-GB", {
+    month: "long",
+    year: "numeric",
+  });
+
   return (
     <section className="relative overflow-hidden bg-mesh">
       {/* 3D floating orbs background — desktop only (skipped on mobile + reduced-motion) */}
@@ -81,27 +86,45 @@ const HeroSection = memo(() => {
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-gold/[0.03] blur-[100px] pointer-events-none hidden lg:block" />
 
       <div className="container mx-auto px-5 sm:px-8 md:px-12 lg:px-16 relative">
-        <div className="flex items-center py-20 sm:py-24 lg:py-28">
-          <div className="grid lg:grid-cols-[1.05fr_1fr] gap-12 lg:gap-20 items-center w-full">
-            {/* Left — Text */}
-            <div className="hero-stagger text-center lg:text-left">
+        {/* ── Magazine masthead ─────────────────────────────────────── */}
+        <div className="hero-item flex items-center justify-between gap-4 pt-10 sm:pt-14 lg:pt-16 pb-6 border-b border-foreground/10">
+          <div className="flex items-center gap-3 text-[10px] sm:text-[11px] font-bold tracking-[0.28em] uppercase text-foreground/70">
+            <span className="w-8 h-px bg-primary" aria-hidden="true" />
+            The Arthritis Edition
+          </div>
+          <div className="hidden sm:flex items-center gap-4 text-[10px] font-semibold tracking-[0.2em] uppercase text-muted-foreground/70">
+            <span>Vol. I</span>
+            <span className="w-px h-3 bg-border/60" aria-hidden="true" />
+            <span>{issueDate}</span>
+            <span className="w-px h-3 bg-border/60" aria-hidden="true" />
+            <span className="text-primary">United Kingdom</span>
+          </div>
+        </div>
 
-              <h1 className="hero-item text-[2rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[3.75rem] xl:text-[4.25rem] font-display font-bold text-foreground mb-6 sm:mb-8 leading-[1.05] tracking-[-0.02em] text-balance">
-                1 in 6 people in the UK{" "}
-                <br className="hidden sm:block" />
-                live with arthritis.{" "}
-                <span className="text-gradient relative inline-block hero-underline italic">
-                  We're here for every one of them.
-                </span>
-              </h1>
-
-              <p className="hero-item text-[15px] sm:text-base md:text-lg text-muted-foreground leading-[1.7] mb-5 max-w-[560px] mx-auto lg:mx-0">
-                Free physiotherapy, anti-inflammatory diet plans, evidence-based exercises and 24/7 support — helping people across the United Kingdom manage arthritis pain and live fuller lives.
+        <div className="py-12 sm:py-16 lg:py-20">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* ── Left — Editorial copy (7 cols) ───────────────────── */}
+            <div className="hero-stagger lg:col-span-7 text-center lg:text-left">
+              <p className="hero-item text-[10px] sm:text-[11px] font-bold tracking-[0.32em] uppercase text-primary mb-6 sm:mb-8 flex items-center justify-center lg:justify-start gap-3">
+                <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
+                A national health movement
               </p>
 
-              <p className="hero-item text-xs sm:text-[13px] text-primary/70 font-medium mb-8 sm:mb-10 flex items-center justify-center lg:justify-start gap-2">
-                <Heart className="w-3.5 h-3.5 fill-primary/20 animate-pulse-soft" />
-                Every donation helps us reach more people in need
+              <h1 className="hero-item font-display text-[2.5rem] sm:text-[3.5rem] md:text-[4.25rem] lg:text-[5rem] xl:text-[5.75rem] font-bold text-foreground mb-6 sm:mb-8 leading-[0.98] tracking-[-0.035em] text-balance">
+                One in six.
+                <br className="hidden sm:block" />
+                <span className="text-gradient italic font-normal">Every one of them,</span>
+                <br className="hidden sm:block" />
+                seen.
+              </h1>
+
+              <p className="hero-item text-[15px] sm:text-lg md:text-xl text-muted-foreground leading-[1.65] mb-6 max-w-[620px] mx-auto lg:mx-0 font-light">
+                Free physiotherapy, anti-inflammatory nutrition, and clinician-built tools — for the ten million adults across the United Kingdom living with arthritis today.
+              </p>
+
+              <p className="hero-item text-xs sm:text-[13px] text-primary/80 font-medium mb-8 sm:mb-10 flex items-center justify-center lg:justify-start gap-2">
+                <Heart className="w-3.5 h-3.5 fill-primary/20 animate-pulse-soft" aria-hidden="true" />
+                Funded entirely by donations. Always free to use.
               </p>
 
               <div className="hero-item flex flex-col sm:flex-row justify-center lg:justify-start gap-3">
@@ -112,7 +135,7 @@ const HeroSection = memo(() => {
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                   <MessageCircle className="w-4.5 h-4.5 mr-2 group-hover:scale-110 transition-transform" />
-                  Get Free Support
+                  Start Free Support
                   <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 hidden sm:block" />
                 </Button>
                 <Button
@@ -126,74 +149,107 @@ const HeroSection = memo(() => {
                 </Button>
               </div>
 
-              {/* Trust badges with hover effect */}
-              <div className="hero-item flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 mt-6 sm:mt-8">
-                {trustBadges.map((badge) => {
+              {/* Trust badges */}
+              <div className="hero-item flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 mt-8 pt-6 border-t border-border/30">
+                <span className="text-[9px] sm:text-[10px] font-bold tracking-[0.22em] uppercase text-muted-foreground/50">
+                  Aligned with
+                </span>
+                {[
+                  { icon: Shield, label: "NICE Guidance" },
+                  { icon: CheckCircle, label: "HCPC Registered" },
+                  { icon: Award, label: "CSP Accredited" },
+                ].map((badge) => {
                   const Icon = badge.icon;
                   return (
-                    <div key={badge.label} className="flex items-center gap-1.5 sm:gap-2 text-muted-foreground/50 hover:text-primary/70 transition-colors duration-300 cursor-default">
-                      <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-                      <span className="text-[9px] sm:text-[10px] font-bold tracking-[0.15em] sm:tracking-[0.18em] uppercase">{badge.label}</span>
+                    <div
+                      key={badge.label}
+                      className="flex items-center gap-1.5 text-muted-foreground/60 hover:text-primary/80 transition-colors duration-300 cursor-default"
+                    >
+                      <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5" aria-hidden="true" />
+                      <span className="text-[9px] sm:text-[10px] font-bold tracking-[0.18em] uppercase">
+                        {badge.label}
+                      </span>
                     </div>
                   );
                 })}
               </div>
             </div>
 
-            {/* Right — Hero Image with enhanced depth */}
-            <div className="hero-item hidden lg:block relative">
-              {/* Decorative ring behind image */}
-              <div className="absolute -inset-4 rounded-3xl border border-primary/[0.06] pointer-events-none" />
-              <div className="absolute -inset-8 rounded-3xl border border-primary/[0.03] pointer-events-none" />
-              
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] group">
+            {/* ── Right — Featured cover image (5 cols) ───────────── */}
+            <div className="hero-item lg:col-span-5 hidden lg:block relative">
+              {/* Editorial corner brackets */}
+              <div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-primary/40 pointer-events-none" aria-hidden="true" />
+              <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-primary/40 pointer-events-none" aria-hidden="true" />
+
+              <figure className="relative rounded-sm overflow-hidden shadow-[0_30px_80px_-20px_hsl(var(--primary)/0.25)] aspect-[4/5] group">
                 <picture>
                   <source
                     type="image/webp"
                     srcSet={`${heroImageWebp800} 800w, ${heroImageWebp1200} 1200w, ${heroImageWebp1600} 1600w`}
-                    sizes="(min-width: 1280px) 620px, (min-width: 1024px) 50vw, 100vw"
+                    sizes="(min-width: 1280px) 520px, (min-width: 1024px) 42vw, 100vw"
                   />
                   <img
                     src={heroImageJpg1600}
                     alt="A diverse group of adults walking together outdoors, smiling — staying active with arthritis in a UK community walking group"
                     width={1600}
                     height={1067}
-                    className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
+                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-[1200ms] ease-out"
                     loading="eager"
                     decoding="async"
                     fetchPriority="high"
                   />
                 </picture>
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent" />
-              </div>
-              
+                {/* Dark overlay for caption legibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/10 to-transparent" />
 
+                {/* Editorial caption block */}
+                <figcaption className="absolute inset-x-0 bottom-0 p-6 lg:p-8 text-background">
+                  <p className="text-[9px] font-bold tracking-[0.32em] uppercase text-background/70 mb-2">
+                    Cover Story · No. 01
+                  </p>
+                  <p className="font-display text-2xl lg:text-[1.75rem] leading-[1.15] tracking-tight">
+                    "Movement isn't optional — it's the medicine."
+                  </p>
+                  <p className="text-[10px] font-semibold tracking-[0.2em] uppercase mt-3 text-background/60">
+                    A community in motion · Manchester, 2026
+                  </p>
+                </figcaption>
+              </figure>
             </div>
           </div>
         </div>
 
-        {/* Stats row with enhanced dividers */}
+        {/* ── Editorial stats strip ────────────────────────────────── */}
         <div className="pb-16 lg:pb-20">
-          <div className="w-full max-w-4xl mx-auto bg-card/40 backdrop-blur-sm rounded-2xl border border-border/10 p-3">
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-0">
+          <div className="border-t border-b border-foreground/10">
+            <div className="grid grid-cols-2 sm:grid-cols-4">
               {STATS.map((stat, i) => (
-                <div key={i} className="relative text-center py-6 px-4 group hover:bg-primary/[0.02] rounded-xl transition-colors duration-300">
+                <div
+                  key={i}
+                  className={`relative text-center sm:text-left py-7 sm:py-9 px-5 sm:px-7 group hover:bg-primary/[0.02] transition-colors duration-300 ${
+                    i < STATS.length - 1 ? "sm:border-r border-foreground/10" : ""
+                  } ${i < 2 ? "border-b sm:border-b-0 border-foreground/10" : ""} ${
+                    i % 2 === 0 ? "border-r sm:border-r" : ""
+                  }`}
+                >
+                  <p className="text-[9px] font-bold tracking-[0.28em] uppercase text-primary/70 mb-2">
+                    Fig. 0{i + 1}
+                  </p>
                   <AnimatedCounter
                     target={stat.target}
                     suffix={stat.suffix}
                     compact={stat.compact}
-                    className="stat-number text-[1.75rem] sm:text-3xl lg:text-[2.5rem] tracking-[-0.02em] group-hover:text-primary transition-colors duration-300"
+                    className="stat-number font-display text-[2rem] sm:text-[2.5rem] lg:text-[3rem] tracking-[-0.03em] leading-none group-hover:text-primary transition-colors duration-300"
                   />
-                  <p className="text-[10px] sm:text-[11px] text-muted-foreground/60 font-medium mt-2 leading-snug tracking-[0.14em] uppercase">{stat.label}</p>
-                  {i < STATS.length - 1 && (
-                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-px h-10 bg-border/20 hidden sm:block" />
-                  )}
+                  <p className="text-[10px] sm:text-[11px] text-muted-foreground/70 font-medium mt-3 leading-snug tracking-[0.14em] uppercase">
+                    {stat.label}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
-          <p className="text-[9px] text-muted-foreground/35 mt-5 text-center tracking-[0.18em] uppercase">
-            Based on internal user feedback surveys, 2024–2025
+          <p className="text-[9px] text-muted-foreground/40 mt-5 text-center tracking-[0.22em] uppercase">
+            Sources · Versus Arthritis · Internal user surveys 2024–2025
           </p>
         </div>
       </div>
