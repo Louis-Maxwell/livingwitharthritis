@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, ShoppingBag, HandHeart, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Sparkles, Globe, Search } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import ThemeToggle from "@/components/ThemeToggle";
 
 const _CartDrawer = lazy(() => import("@/components/CartDrawer"));
@@ -47,7 +47,50 @@ const Header = () => {
   const [resourceDrawerOpen, setResourceDrawerOpen] = useState(false);
   
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const [activeHash, setActiveHash] = useState<string>("");
   const lastScrollY = useRef(0);
+
+  /* Track which in-page #section is currently in view (for hash links). */
+  useEffect(() => {
+    if (pathname !== "/") {
+      setActiveHash("");
+      return;
+    }
+    const ids = ["conditions", "involved", "resources"];
+    const elements = ids
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => Boolean(el));
+    if (!elements.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setActiveHash(`#${visible.target.id}`);
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] }
+    );
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [pathname]);
+
+  /* Determine if a top-level nav link is active (route OR hash match,
+     including any of its sub-items routes). */
+  const isLinkActive = useCallback(
+    (link: NavLink): boolean => {
+      const matchHref = (href: string) => {
+        if (!href) return false;
+        if (href.startsWith("#")) return activeHash === href;
+        if (href === "/") return pathname === "/";
+        return pathname === href || pathname.startsWith(`${href}/`);
+      };
+      if (matchHref(link.href)) return true;
+      return Boolean(link.subs?.some((s) => matchHref(s.href)));
+    },
+    [pathname, activeHash]
+  );
 
   const handleScroll = useCallback(() => {
     const currentY = window.scrollY;
@@ -281,7 +324,10 @@ const Header = () => {
 
               {/* Desktop nav */}
               <nav className="hidden lg:flex items-center gap-0.5 mx-auto" aria-label="Main navigation">
-                {navLinks.map((link) => (
+                {navLinks.map((link) => {
+                  const active = isLinkActive(link);
+                  const open = activeDropdown === link.label;
+                  return (
                   <div key={link.label} className="relative" data-nav-dropdown>
                     <button
                       onClick={(e) => {
@@ -303,16 +349,26 @@ const Header = () => {
                           setActiveDropdown(null);
                         }
                       }}
-                      aria-expanded={link.subs ? activeDropdown === link.label : undefined}
+                      aria-expanded={link.subs ? open : undefined}
                       aria-haspopup={link.subs ? "true" : undefined}
-                      className={`px-3.5 py-1.5 text-[13px] font-semibold rounded-lg transition-all duration-200 cursor-pointer flex items-center gap-1 ${
-                        activeDropdown === link.label
+                      aria-current={active ? "page" : undefined}
+                      className={`relative px-3.5 py-1.5 text-[13px] font-semibold rounded-lg transition-all duration-200 cursor-pointer flex items-center gap-1 ${
+                        open
                           ? "text-primary bg-primary/5"
-                          : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                          : active
+                            ? "text-primary"
+                            : "text-muted-foreground hover:text-foreground hover:bg-accent"
                       }`}
                     >
                       {link.label}
-                      {link.subs && <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === link.label ? "rotate-180" : ""}`} aria-hidden="true" />}
+                      {link.subs && <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${open ? "rotate-180" : ""}`} aria-hidden="true" />}
+                      {/* Magazine-style active indicator */}
+                      <span
+                        aria-hidden="true"
+                        className={`pointer-events-none absolute left-3.5 right-3.5 -bottom-[7px] h-[2px] bg-primary rounded-full origin-center transition-transform duration-300 ease-out ${
+                          active ? "scale-x-100" : "scale-x-0"
+                        }`}
+                      />
                     </button>
 
                     {/* Rich sub-menu dropdown */}
@@ -354,7 +410,8 @@ const Header = () => {
                       </div>
                     )}
                   </div>
-                ))}
+                  );
+                })}
 
                 {/* Persistent Donate button — charity red, matches Ways to Help pill style */}
                 <button
@@ -404,9 +461,15 @@ const Header = () => {
             <nav className="flex-1 overflow-y-auto px-5 py-6 space-y-1" aria-label="Mobile navigation">
               {mobileNavItems.map((item, index) => {
                 const Icon = item.icon;
+                const active = item.href.startsWith("#")
+                  ? activeHash === item.href && pathname === "/"
+                  : item.href === "/"
+                    ? pathname === "/"
+                    : pathname === item.href || pathname.startsWith(`${item.href}/`);
                 return (
                   <button
                     key={item.label}
+                    aria-current={active ? "page" : undefined}
                     onClick={() => {
                       setMobileMenuOpen(false);
                       if (item.action) {
@@ -417,10 +480,17 @@ const Header = () => {
                         navigate(item.href);
                       }
                     }}
-                    className="flex items-center gap-3 w-full text-left px-4 py-4 text-[15px] font-semibold text-muted-foreground hover:text-foreground hover:bg-accent active:bg-accent/80 rounded-xl transition-all cursor-pointer group min-h-[56px]"
+                    className={`relative flex items-center gap-3 w-full text-left px-4 py-4 text-[15px] font-semibold rounded-xl transition-all cursor-pointer group min-h-[56px] ${
+                      active
+                        ? "text-primary bg-primary/5 ring-1 ring-primary/15"
+                        : "text-muted-foreground hover:text-foreground hover:bg-accent active:bg-accent/80"
+                    }`}
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
-                    <div className="w-10 h-10 rounded-lg bg-primary/8 flex items-center justify-center shrink-0 group-hover:bg-primary/15 transition-colors">
+                    {active && (
+                      <span aria-hidden="true" className="absolute left-0 top-3 bottom-3 w-[3px] rounded-r bg-primary" />
+                    )}
+                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-colors ${active ? "bg-primary/15" : "bg-primary/8 group-hover:bg-primary/15"}`}>
                       <Icon className="w-[18px] h-[18px] text-primary" />
                     </div>
                     <div className="flex-1 min-w-0">
