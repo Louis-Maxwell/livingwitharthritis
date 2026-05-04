@@ -1,5 +1,5 @@
 import { memo, useState } from "react";
-import { ShieldCheck, Eye, Server, BarChart3, Lightbulb, ArrowRight } from "lucide-react";
+import { ShieldCheck, Eye, Server, BarChart3, Lightbulb, ArrowRight, HeartPulse, RefreshCw } from "lucide-react";
 import GridBg from "./GridBg";
 import GlassCard from "./GlassCard";
 import PageModal from "./PageModal";
@@ -8,6 +8,21 @@ import PageModal from "./PageModal";
 const CONTACT_EMAIL = "info@livingwitharthritis.org.uk";
 
 const pillars = [
+  {
+    id: "human",
+    icon: <HeartPulse className="w-8 h-8 text-primary" />,
+    title: "Human-Centric by Design",
+    desc: "Our assistant is built to understand the realities of living with arthritis — pain that fluctuates, mornings that are harder than evenings, lives that don't fit a textbook. People come first; the algorithm follows.",
+    modalContent: (
+      <>
+        <p className="lead">Technology in healthcare should empower people — never reduce them to data points.</p>
+        <h3>Designed Around Lived Experience</h3>
+        <p>Every interaction is shaped by feedback from people living with osteoarthritis, rheumatoid arthritis, gout, fibromyalgia and other forms of joint disease. We test with the people we serve, not just for them.</p>
+        <h3>Inclusive and Accessible</h3>
+        <p>The assistant follows WCAG 2.2 AA accessibility standards, supports screen readers, scalable text and reduced motion, and is written in plain English at a Year 9 reading level.</p>
+      </>
+    ),
+  },
   {
     id: "clinical",
     icon: <ShieldCheck className="w-8 h-8 text-primary" />,
