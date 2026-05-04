@@ -28,6 +28,7 @@ const InspiredHeroBand = lazy(() => import("@/components/landing/InspiredHeroBan
 const IntentChooser = lazy(() => import("@/components/landing/IntentChooser"));
 const ColourMosaic = lazy(() => import("@/components/landing/ColourMosaic"));
 const MissionStatementBand = lazy(() => import("@/components/landing/MissionStatementBand"));
+const ImpactLedger = lazy(() => import("@/components/landing/ImpactLedger"));
 
 const BackToTopButton = lazy(() => import("@/components/landing/BackToTopButton"));
 const CookieBanner = lazy(() => import("@/components/landing/CookieBanner"));
