@@ -166,12 +166,8 @@ function AnimatedRoutes() {
         <Route path="/arthritis-support/:city" element={<CityArthritisPage />} />
         <Route path="/arthritis-support/:city/:condition" element={<CityConditionPage />} />
         <Route path="/exercises/:slug" element={<ExerciseJointPage />} />
+        <Route path="/sitemap" element={<Sitemap />} />
         <Route path="/site-index" element={<Sitemap />} />
-        {/* Legacy /sitemap path: redirect crawlers/users to the XML sitemap */}
-        <Route
-          path="/sitemap"
-          element={<Navigate to="/sitemap.xml" replace />}
-        />
         <Route path="/corporate-giving" element={<CorporateGiving />} />
         <Route path="/donation-result" element={<DonationSuccess />} />
         <Route path="/unsubscribe" element={<Unsubscribe />} />
