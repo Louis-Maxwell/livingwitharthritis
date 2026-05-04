@@ -62,10 +62,6 @@ const HeroSection = memo(() => {
     };
   }, []);
 
-  const trustBadges = [
-    { icon: CheckCircle, label: "NICE Compliant" },
-  ];
-
   const issueDate = new Date().toLocaleDateString("en-GB", {
     month: "long",
     year: "numeric",
