@@ -5,6 +5,7 @@ import SkeletonSection from "@/components/landing/SkeletonSection";
 import PageHero from "@/components/ui/PageHero";
 
 const AITrustSection = lazy(() => import("@/components/landing/AITrustSection"));
+const AISafetyExtras = lazy(() => import("@/components/landing/AISafetyExtras"));
 const Footer = lazy(() => import("@/components/Footer"));
 
 const AISafety = () => (
