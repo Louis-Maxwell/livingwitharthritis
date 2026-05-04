@@ -6,8 +6,8 @@
 
 @layer base {
   :root {
-    /* ─── FT Weekend Editorial: Cream Paper, Restrained Crimson ─── */
-    --background: 39 33% 96%;          /* warm cream paper */
+    /* ─── FT Weekend Editorial: White Paper, Restrained Crimson ─── */
+    --background: 0 0% 100%;
     --foreground: 0 0% 8%;
 
     --card: 0 0% 100%;                 /* white cards float on cream */
