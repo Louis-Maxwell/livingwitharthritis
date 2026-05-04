@@ -82,6 +82,20 @@ const pillars = [
       </>
     ),
   },
+  {
+    id: "learning",
+    icon: <RefreshCw className="w-8 h-8 text-primary" />,
+    title: "Always Learning, Carefully",
+    desc: "We improve through user feedback, anonymised usage signals and regular clinical review — with rigorous testing before any update reaches you. Improvement never comes at the cost of safety.",
+    modalContent: (
+      <>
+        <h3>A Feedback-Informed Loop</h3>
+        <p>Every model update is gated by a structured review: clinical sign-off, regression tests against known-risk prompts, and a staged rollout with monitoring before reaching all users.</p>
+        <h3>Honest About Limits</h3>
+        <p>The assistant is not a diagnostic tool. If you describe symptoms that suggest urgent attention — sudden severe joint swelling, fever with joint pain, loss of function — it will tell you to contact NHS 111, your GP, or A&E rather than answer the question itself.</p>
+      </>
+    ),
+  },
 ];
 
 const AITrustSection = memo(() => {
