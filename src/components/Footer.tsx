@@ -43,7 +43,7 @@ const columns = [
       { label: "Corporate Giving", href: "/corporate-giving" },
       { label: "Press & Media", href: "/press" },
       { label: "Partners", href: "/partners" },
-      { label: "Sitemap", href: "/sitemap" },
+      { label: "Site Index", href: "/site-index" },
     ],
   },
   {
