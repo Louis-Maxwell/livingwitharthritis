@@ -245,11 +245,8 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
         <TrustBar />
 
         <main id="main-content" role="main" tabIndex={-1}>
+          {/* Tight editorial flow — 8 sections, no repetition */}
           <HeroSection />
-
-          <Suspense fallback={null}>
-            <IntentChooser />
-          </Suspense>
 
           <Suspense fallback={<SkeletonSection />}>
             <MissionStatementBand />
@@ -258,19 +255,7 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
           <TriageSection />
 
           <Suspense fallback={<SkeletonSection />}>
-            <QuickAccessSection />
-          </Suspense>
-
-          <Suspense fallback={<SkeletonSection />}>
-            <HowItWorksSection />
-          </Suspense>
-
-          <Suspense fallback={<SkeletonSection />}>
             <EditorialIndex />
-          </Suspense>
-
-          <Suspense fallback={<SkeletonSection />}>
-            <PortraitGrid />
           </Suspense>
 
           <Suspense fallback={<SkeletonSection />}>
@@ -278,19 +263,15 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
           </Suspense>
 
           <Suspense fallback={<SkeletonSection />}>
+            <PortraitGrid />
+          </Suspense>
+
+          <Suspense fallback={<SkeletonSection />}>
             <ImpactLedger />
           </Suspense>
 
           <Suspense fallback={<SkeletonSection />}>
-            <ColourMosaic />
-          </Suspense>
-
-          <Suspense fallback={<SkeletonSection />}>
-            <InspiredHeroBand />
-          </Suspense>
-
-          <Suspense fallback={<SkeletonSection />}>
-            <MovementMomentSection />
+            <HowItWorksSection />
           </Suspense>
         </main>
 
