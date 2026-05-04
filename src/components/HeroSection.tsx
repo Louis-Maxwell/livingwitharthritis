@@ -1,8 +1,13 @@
 import { ArrowRight, MessageCircle, Heart, Shield, Award, CheckCircle, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { memo, lazy, Suspense, useEffect, useState } from "react";
+import { memo, lazy, Suspense, useEffect, useRef, useState } from "react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
+import {
+  observeHeadlineClipping,
+  reportHeroImageFailure,
+  reportHeroRender,
+} from "@/lib/heroLayoutMonitor";
 import heroImageWebp1600 from "@/assets/hero-walking-group-1600.webp";
 import heroImageWebp1200 from "@/assets/hero-walking-group-1200.webp";
 import heroImageWebp800 from "@/assets/hero-walking-group-800.webp";
@@ -25,6 +30,15 @@ const HeroSection = memo(() => {
   // Desktop-only flag controls heavy hero layers (3D canvas + giant blur orbs)
   // and conditionally preloads the hero image (mobile never renders it).
   const [isDesktop, setIsDesktop] = useState(false);
+  const headlineRef = useRef<HTMLHeadingElement | null>(null);
+
+  // Monitoring: log hero render + watch the headline for clipping/odd viewports.
+  useEffect(() => {
+    reportHeroRender();
+    if (!headlineRef.current) return;
+    const cleanup = observeHeadlineClipping(headlineRef.current);
+    return cleanup;
+  }, []);
 
   useEffect(() => {
     if (typeof window === "undefined" || !window.matchMedia) return;
@@ -87,7 +101,7 @@ const HeroSection = memo(() => {
             {/* ── Left — Editorial copy (7 cols) ───────────────────── */}
             <div className="hero-stagger lg:col-span-7 text-center lg:text-left">
 
-              <h1 className="hero-item font-display text-[2.5rem] sm:text-[3.25rem] md:text-[3.75rem] lg:text-[4.25rem] xl:text-[4.75rem] font-bold text-foreground mb-6 sm:mb-8 leading-[1.02] tracking-[-0.03em] text-balance pr-2">
+              <h1 ref={headlineRef} className="hero-item font-display text-[2.5rem] sm:text-[3.25rem] md:text-[3.75rem] lg:text-[4.25rem] xl:text-[4.75rem] font-bold text-foreground mb-6 sm:mb-8 leading-[1.02] tracking-[-0.03em] text-balance pr-2">
                 One in six.
                 <br className="hidden sm:block" />
                 <span className="italic font-normal text-primary">Every</span> one of them,
@@ -174,6 +188,7 @@ const HeroSection = memo(() => {
                     loading="eager"
                     decoding="async"
                     fetchPriority="high"
+                    onError={() => reportHeroImageFailure(heroImageJpg1600)}
                   />
                 </picture>
                 {/* Dark overlay for caption legibility */}
