@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, ShoppingBag, HandHeart, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Sparkles, Globe, Search } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import ThemeToggle from "@/components/ThemeToggle";
 
 const _CartDrawer = lazy(() => import("@/components/CartDrawer"));
@@ -47,7 +47,50 @@ const Header = () => {
   const [resourceDrawerOpen, setResourceDrawerOpen] = useState(false);
   
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const [activeHash, setActiveHash] = useState<string>("");
   const lastScrollY = useRef(0);
+
+  /* Track which in-page #section is currently in view (for hash links). */
+  useEffect(() => {
+    if (pathname !== "/") {
+      setActiveHash("");
+      return;
+    }
+    const ids = ["conditions", "involved", "resources"];
+    const elements = ids
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => Boolean(el));
+    if (!elements.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setActiveHash(`#${visible.target.id}`);
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] }
+    );
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [pathname]);
+
+  /* Determine if a top-level nav link is active (route OR hash match,
+     including any of its sub-items routes). */
+  const isLinkActive = useCallback(
+    (link: NavLink): boolean => {
+      const matchHref = (href: string) => {
+        if (!href) return false;
+        if (href.startsWith("#")) return activeHash === href;
+        if (href === "/") return pathname === "/";
+        return pathname === href || pathname.startsWith(`${href}/`);
+      };
+      if (matchHref(link.href)) return true;
+      return Boolean(link.subs?.some((s) => matchHref(s.href)));
+    },
+    [pathname, activeHash]
+  );
 
   const handleScroll = useCallback(() => {
     const currentY = window.scrollY;
