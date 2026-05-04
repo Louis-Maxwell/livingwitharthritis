@@ -173,14 +173,16 @@ const Sitemap = () => {
   return (
     <>
       <Helmet>
-        <title>Sitemap – Living With Arthritis UK</title>
+        <title>Site Index – Living With Arthritis UK</title>
         <meta
           name="description"
           content="Browse all pages on Living With Arthritis UK. Find arthritis advice, exercises, diet tips and support resources."
         />
+        {/* Prevent confusion with /sitemap.xml — this is a human-readable index */}
+        <meta name="robots" content="noindex, follow" />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/sitemap" />
+        <link rel="canonical" href="https://livingwitharthritis.org.uk/site-index" />
       <meta property="og:title" content="Sitemap – Living With Arthritis UK" />
       <meta property="og:description" content="Browse all pages on Living With Arthritis UK. Find arthritis advice, exercises, diet tips and support resources." />
       <meta property="og:type" content="website" />
