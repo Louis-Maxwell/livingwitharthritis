@@ -38,6 +38,9 @@ const AISafety = () => (
       <Suspense fallback={<SkeletonSection />}>
         <AITrustSection />
       </Suspense>
+      <Suspense fallback={<SkeletonSection />}>
+        <AISafetyExtras />
+      </Suspense>
     </main>
     <Suspense fallback={<div className="h-80 bg-secondary" aria-hidden="true" />}>
       <Footer />
