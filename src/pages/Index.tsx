@@ -28,6 +28,7 @@ const InspiredHeroBand = lazy(() => import("@/components/landing/InspiredHeroBan
 const IntentChooser = lazy(() => import("@/components/landing/IntentChooser"));
 const ColourMosaic = lazy(() => import("@/components/landing/ColourMosaic"));
 const MissionStatementBand = lazy(() => import("@/components/landing/MissionStatementBand"));
+const EditorialIndex = lazy(() => import("@/components/landing/EditorialIndex"));
 const ImpactLedger = lazy(() => import("@/components/landing/ImpactLedger"));
 const FeaturedStoryBand = lazy(() => import("@/components/landing/FeaturedStoryBand"));
 
@@ -275,6 +276,10 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
 
           <Suspense fallback={<SkeletonSection />}>
             <HowItWorksSection />
+          </Suspense>
+
+          <Suspense fallback={<SkeletonSection />}>
+            <EditorialIndex />
           </Suspense>
 
           <Suspense fallback={<SkeletonSection />}>
