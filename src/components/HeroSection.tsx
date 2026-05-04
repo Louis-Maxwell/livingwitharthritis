@@ -96,12 +96,12 @@ const HeroSection = memo(() => {
               </h1>
 
               <p className="hero-item text-[15px] sm:text-lg md:text-xl text-muted-foreground leading-[1.65] mb-6 max-w-[620px] mx-auto lg:mx-0 font-light">
-                Free physiotherapy, anti-inflammatory nutrition, and clinician-built tools — for the ten million adults across the United Kingdom living with arthritis today.
+                Physiotherapy, anti-inflammatory nutrition, and clinician-built tools — for everyone living with arthritis in the United Kingdom.
               </p>
 
               <p className="hero-item text-xs sm:text-[13px] text-primary/80 font-medium mb-8 sm:mb-10 flex items-center justify-center lg:justify-start gap-2">
                 <Heart className="w-3.5 h-3.5 fill-primary/20 animate-pulse-soft" aria-hidden="true" />
-                Funded entirely by donations. Always free to use.
+                Funded entirely by donations. For everyone, always.
               </p>
 
               <div className="hero-item flex flex-col sm:flex-row justify-center lg:justify-start gap-3">
