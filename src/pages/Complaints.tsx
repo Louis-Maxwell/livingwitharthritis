@@ -61,8 +61,8 @@ export default function Complaints() {
               <div className="bg-muted/30 border border-border/30 rounded-xl p-5 space-y-3">
                 <p className="text-muted-foreground text-sm">You can contact us by:</p>
                 <div className="space-y-2 text-sm">
-                  <a href="mailto:complaints@livingwitharthritis.org.uk" className="flex items-center gap-2 text-primary hover:underline">
-                    <Mail className="w-4 h-4" /> complaints@livingwitharthritis.org.uk
+                  <a href="mailto:info@livingwitharthritis.org.uk" className="flex items-center gap-2 text-primary hover:underline">
+                    <Mail className="w-4 h-4" /> info@livingwitharthritis.org.uk
                   </a>
                   <a href="tel:07760512084" className="flex items-center gap-2 text-primary hover:underline">
                     <Phone className="w-4 h-4" /> 07760 512 084
