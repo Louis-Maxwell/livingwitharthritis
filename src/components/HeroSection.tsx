@@ -188,6 +188,7 @@ const HeroSection = memo(() => {
                     loading="eager"
                     decoding="async"
                     fetchPriority="high"
+                    onError={() => reportHeroImageFailure(heroImageJpg1600)}
                   />
                 </picture>
                 {/* Dark overlay for caption legibility */}
