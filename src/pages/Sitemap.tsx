@@ -173,7 +173,7 @@ const Sitemap = () => {
   return (
     <>
       <Helmet>
-        <title>Site Index – Living With Arthritis UK</title>
+        <title>Sitemap – Living With Arthritis UK</title>
         <meta
           name="description"
           content="Browse all pages on Living With Arthritis UK. Find arthritis advice, exercises, diet tips and support resources."
