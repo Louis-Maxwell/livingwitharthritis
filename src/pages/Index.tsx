@@ -13,7 +13,7 @@ import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
 /* ─── Critical path (above the fold only) ────────────────────────────── */
-import TrustBar from "@/components/landing/TrustBar";
+// TrustBar removed from hero — moved to footer/governance for cleaner top-of-page
 import TriageSection from "@/components/landing/TriageSection";
 import SkeletonSection from "@/components/landing/SkeletonSection";
 
