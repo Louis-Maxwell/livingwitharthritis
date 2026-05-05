@@ -6,6 +6,7 @@ import { Mail, Users, Award, Heart, Shield, Newspaper } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import DownloadableResources from "@/components/DownloadableResources";
+import { CONTACT_EMAILS } from "@/config/contact";
 
 const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
 
@@ -119,7 +120,7 @@ export default function Press() {
               ))}
             </div>
             <p className="text-center text-sm text-muted-foreground mt-8">
-              To arrange an interview or expert quote, contact <strong>press@livingwitharthritis.org.uk</strong>
+              To arrange an interview or expert quote, contact <strong>{CONTACT_EMAILS.press}</strong>
             </p>
           </div>
         </section>
@@ -175,9 +176,9 @@ export default function Press() {
             <Mail className="w-10 h-10 text-primary mx-auto mb-4" />
             <h2 className="text-2xl font-bold text-foreground mb-2">Media Contact</h2>
             <p className="text-muted-foreground mb-4">For press enquiries, interview requests and media partnerships:</p>
-            <a href="mailto:press@livingwitharthritis.org.uk">
+            <a href={`mailto:${CONTACT_EMAILS.press}`}>
               <Button size="lg" className="gap-2">
-                <Mail className="w-4 h-4" /> press@livingwitharthritis.org.uk
+                <Mail className="w-4 h-4" /> {CONTACT_EMAILS.press}
               </Button>
             </a>
           </div>

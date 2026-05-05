@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import PageHero from "@/components/ui/PageHero";
 import { FileText } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { CONTACT_EMAILS } from "@/config/contact";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
@@ -112,7 +113,7 @@ const CookiesPolicy = () => (
             <h2 className="text-xl font-bold text-foreground mt-8 mb-3">7. Contact Us</h2>
             <p>If you have questions about our use of cookies, please contact us:</p>
             <p className="mt-2">
-              Email: <a href="mailto:info@livingwitharthritis.org.uk" className="text-primary hover:underline">info@livingwitharthritis.org.uk</a><br />
+              Email: <a href={`mailto:${CONTACT_EMAILS.info}`} className="text-primary hover:underline">{CONTACT_EMAILS.info}</a><br />
               Phone: 07760 512 084
             </p>
             <p className="mt-3">For more information about your data rights, see our <a href="/privacy" className="text-primary hover:underline">Privacy Policy</a>.</p>

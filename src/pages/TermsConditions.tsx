@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import PageHero from "@/components/ui/PageHero";
 import { FileText } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { CONTACT_EMAILS } from "@/config/contact";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
@@ -113,7 +114,7 @@ const TermsConditions = () => (
               authorised to use the payment method provided.
             </p>
             <ul className="list-disc pl-6 text-muted-foreground space-y-2">
-              <li>Donations are generally non-refundable. If you believe a donation was made in error, please contact us within 30 days at <a href="mailto:info@livingwitharthritis.org.uk" className="text-primary underline">info@livingwitharthritis.org.uk</a>.</li>
+              <li>Donations are generally non-refundable. If you believe a donation was made in error, please contact us within 30 days at <a href={`mailto:${CONTACT_EMAILS.info}`} className="text-primary underline">{CONTACT_EMAILS.info}</a>.</li>
               <li>Gift Aid declarations are subject to HMRC rules. You must be a UK taxpayer for Gift Aid to apply.</li>
               <li>We are committed to transparent use of funds. See our <a href="/governance" className="text-primary underline">Governance</a> and <a href="/finances" className="text-primary underline">Finances</a> pages for details.</li>
             </ul>
@@ -180,7 +181,7 @@ const TermsConditions = () => (
             </p>
             <div className="bg-muted/30 rounded-xl p-6 mt-4">
               <p className="text-foreground font-semibold">Living With Arthritis UK</p>
-              <p className="text-muted-foreground">Email: <a href="mailto:info@livingwitharthritis.org.uk" className="text-primary underline">info@livingwitharthritis.org.uk</a></p>
+              <p className="text-muted-foreground">Email: <a href={`mailto:${CONTACT_EMAILS.info}`} className="text-primary underline">{CONTACT_EMAILS.info}</a></p>
               <p className="text-muted-foreground">Website: <a href="https://livingwitharthritis.org.uk" className="text-primary underline">livingwitharthritis.org.uk</a></p>
             </div>
           </section>

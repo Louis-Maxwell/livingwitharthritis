@@ -5,6 +5,7 @@ import PageHero from "@/components/ui/PageHero";
 import { Accessibility, Eye, Ear, Keyboard, Monitor, Globe, MessageSquare, CheckCircle2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { supabase } from "@/integrations/supabase/client";
+import { CONTACT_EMAILS } from "@/config/contact";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
@@ -140,7 +141,7 @@ const Accessibility_Page = () => {
               <h2 className="text-xl font-bold text-foreground mt-8 mb-3">Feedback & Contact</h2>
               <p>We welcome your feedback on the accessibility of this website. If you encounter any barriers or have suggestions for improvement, please contact us:</p>
               <p className="mt-2">
-                Email: <a href="mailto:info@livingwitharthritis.org.uk" className="text-primary hover:underline">info@livingwitharthritis.org.uk</a><br />
+                Email: <a href={`mailto:${CONTACT_EMAILS.info}`} className="text-primary hover:underline">{CONTACT_EMAILS.info}</a><br />
                 Phone: 07760 512 084
               </p>
               <p className="mt-3">We aim to respond to accessibility feedback within 5 working days.</p>

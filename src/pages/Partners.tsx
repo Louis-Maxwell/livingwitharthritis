@@ -14,6 +14,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { z } from "zod";
 import { sanitizeInput } from "@/lib/sanitize";
+import { CONTACT_EMAILS } from "@/config/contact";
 
 const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
 
@@ -65,7 +66,7 @@ export default function Partners() {
       toast.success("Enquiry submitted! We'll be in touch within 48 hours.");
       setForm({ name: "", email: "", organisation: "", type: "", message: "" });
     } catch {
-      toast.error("Something went wrong. Please try again or email info@livingwitharthritis.org.uk");
+      toast.error(`Something went wrong. Please try again or email ${CONTACT_EMAILS.info}`);
     } finally {
       setSubmitting(false);
     }

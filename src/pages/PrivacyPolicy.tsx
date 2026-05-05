@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import PageHero from "@/components/ui/PageHero";
 import { Shield } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { CONTACT_EMAILS } from "@/config/contact";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
@@ -115,7 +116,7 @@ const PrivacyPolicy = () => (
               <li>Data portability — receive your data in a structured, machine-readable format.</li>
               <li>Withdraw consent at any time where processing is based on consent.</li>
             </ul>
-            <p className="mt-3">To exercise any of these rights, please contact us at <a href="mailto:info@livingwitharthritis.org.uk" className="text-primary hover:underline">info@livingwitharthritis.org.uk</a>.</p>
+            <p className="mt-3">To exercise any of these rights, please contact us at <a href={`mailto:${CONTACT_EMAILS.info}`} className="text-primary hover:underline">{CONTACT_EMAILS.info}</a>.</p>
           </section>
 
           <section>
@@ -138,7 +139,7 @@ const PrivacyPolicy = () => (
             <p>If you have any questions about this Privacy Policy or our data practices, please contact:</p>
             <p className="mt-2">
               <strong>Living With Arthritis UK</strong><br />
-              Email: <a href="mailto:info@livingwitharthritis.org.uk" className="text-primary hover:underline">info@livingwitharthritis.org.uk</a><br />
+              Email: <a href={`mailto:${CONTACT_EMAILS.info}`} className="text-primary hover:underline">{CONTACT_EMAILS.info}</a><br />
               Phone: 07760 512 084
             </p>
             <p className="mt-3">You also have the right to lodge a complaint with the Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">ico.org.uk</a>.</p>
