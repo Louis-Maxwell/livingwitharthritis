@@ -1,9 +1,10 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
-import { Heart, ArrowRight, Globe, HandHeart, Users, Building2, Gift } from "lucide-react";
+import { Heart, ArrowRight, Globe, HandHeart, Users, Building2, Gift, Landmark, Receipt, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import DonationQuickBar from "@/components/DonationQuickBar";
 
 const DONATION_OPTIONS = [
   {
@@ -105,6 +106,11 @@ export default function Donate() {
     </Helmet>
       <Header />
       <main id="main-content" className="min-h-screen bg-background">
+        {/* Quick donation bar */}
+        <DonationQuickBar
+          headline="Zakat Appeal: Rebuild Lives After Trauma —"
+          ctaHref="/zakat-appeal"
+        />
         {/* Hero */}
         <section className="bg-gradient-to-br from-primary/5 via-background to-rose-500/5 border-b border-border/20">
           <div className="container mx-auto px-6 md:px-10 py-16 md:py-24 max-w-4xl text-center">
@@ -178,15 +184,77 @@ export default function Donate() {
         </section>
 
         {/* Tax-Efficient Giving */}
-        <section className="container mx-auto px-6 md:px-10 py-16 max-w-3xl text-center">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Tax-Efficient Giving</h2>
-          <p className="text-muted-foreground leading-relaxed mb-6">
-            If you're a UK taxpayer, Gift Aid allows us to claim an extra 25p for every £1 you donate — at no extra cost to you. Simply tick the Gift Aid box when you donate. For higher-rate taxpayers, you can also claim additional tax relief through your Self Assessment.
-          </p>
-          <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-primary/10 border border-primary/20">
-            <span className="text-sm font-semibold text-primary dark:text-primary">
-              🎁 A £100 donation becomes £125 with Gift Aid
-            </span>
+        <section className="container mx-auto px-6 md:px-10 py-16 max-w-5xl">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl font-bold text-foreground mb-3">Tax-Efficient Giving</h2>
+            <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+              Make your donation go further. UK taxpayers have several ways to give that increase your impact at no extra cost.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
+            <div className="bg-card rounded-2xl border border-border/30 p-6">
+              <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
+                <Gift className="w-5 h-5" />
+              </div>
+              <h3 className="font-semibold text-foreground mb-2">Gift Aid (+25%)</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Tick one box and we reclaim 25p for every £1 you donate from HMRC — at no cost to you. A £100 gift becomes £125.
+              </p>
+            </div>
+            <div className="bg-card rounded-2xl border border-border/30 p-6">
+              <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
+                <Receipt className="w-5 h-5" />
+              </div>
+              <h3 className="font-semibold text-foreground mb-2">Higher-Rate Relief</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                40% and 45% taxpayers can claim back the difference through Self Assessment — up to £31.25 back on a £100 gift.
+              </p>
+            </div>
+            <div className="bg-card rounded-2xl border border-border/30 p-6">
+              <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
+                <Briefcase className="w-5 h-5" />
+              </div>
+              <h3 className="font-semibold text-foreground mb-2">Payroll Giving</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Donate directly from your salary before tax — your employer's scheme makes giving simple and even more tax-efficient.
+              </p>
+            </div>
+            <div className="bg-card rounded-2xl border border-border/30 p-6">
+              <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
+                <Landmark className="w-5 h-5" />
+              </div>
+              <h3 className="font-semibold text-foreground mb-2">Legacy Gifts</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Gifts in your Will are exempt from Inheritance Tax and can reduce the rate on the rest of your estate from 40% to 36%.
+              </p>
+            </div>
+            <div className="bg-card rounded-2xl border border-border/30 p-6">
+              <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
+                <Globe className="w-5 h-5" />
+              </div>
+              <h3 className="font-semibold text-foreground mb-2">Shares & Securities</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Donating qualifying shares gives you both Income Tax relief on the value and exemption from Capital Gains Tax.
+              </p>
+            </div>
+            <div className="bg-card rounded-2xl border border-border/30 p-6">
+              <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
+                <Heart className="w-5 h-5" />
+              </div>
+              <h3 className="font-semibold text-foreground mb-2">Zakat</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Fulfil your Zakat through our Shariah-compliant appeal, funding rehabilitation for those most in need.
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <div className="inline-flex flex-wrap items-center justify-center gap-2 px-5 py-3 rounded-full bg-primary/10 border border-primary/20">
+              <span className="text-sm font-semibold text-primary">
+                🎁 A £100 donation becomes £125 with Gift Aid
+              </span>
+            </div>
           </div>
         </section>
       </main>
