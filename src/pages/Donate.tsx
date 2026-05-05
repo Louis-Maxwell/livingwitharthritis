@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { Heart, ArrowRight, Globe, HandHeart, Users, Building2, Gift, Landmark, Receipt, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import DonationQuickBar from "@/components/DonationQuickBar";
+
 
 const DONATION_OPTIONS = [
   {
