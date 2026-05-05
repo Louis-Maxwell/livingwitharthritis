@@ -7,6 +7,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 const _CartDrawer = lazy(() => import("@/components/CartDrawer"));
 const ResourceLibraryDrawer = lazy(() => import("@/components/ResourceLibraryDrawer"));
 const SiteSearch = lazy(() => import("@/components/SiteSearch"));
+const DonationQuickBar = lazy(() => import("@/components/DonationQuickBar"));
 
 /* Dynamic SVG logo mark */
 const LogoMark = ({ className = "" }: { className?: string }) => (
