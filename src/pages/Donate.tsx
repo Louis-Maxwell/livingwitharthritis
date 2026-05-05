@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { Heart, ArrowRight, Globe, HandHeart, Users, Building2, Gift, Landmark, Receipt, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import DonationQuickBar from "@/components/DonationQuickBar";
+
 
 const DONATION_OPTIONS = [
   {
@@ -106,8 +106,6 @@ export default function Donate() {
     </Helmet>
       <Header />
       <main id="main-content" className="min-h-screen bg-background">
-        {/* Quick donation bar */}
-        <DonationQuickBar />
         {/* Hero */}
         <section className="bg-gradient-to-br from-primary/5 via-background to-rose-500/5 border-b border-border/20">
           <div className="container mx-auto px-6 md:px-10 py-16 md:py-24 max-w-4xl text-center">

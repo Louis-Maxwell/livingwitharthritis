@@ -7,6 +7,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 const _CartDrawer = lazy(() => import("@/components/CartDrawer"));
 const ResourceLibraryDrawer = lazy(() => import("@/components/ResourceLibraryDrawer"));
 const SiteSearch = lazy(() => import("@/components/SiteSearch"));
+const DonationQuickBar = lazy(() => import("@/components/DonationQuickBar"));
 
 /* Dynamic SVG logo mark */
 const LogoMark = ({ className = "" }: { className?: string }) => (
@@ -231,6 +232,11 @@ const Header = () => {
       <div
         className={`sticky top-0 z-50 transition-transform duration-300 ${isHidden ? "-translate-y-full" : "translate-y-0"}`}
       >
+
+        {/* Donation Quick Bar — top of sticky header */}
+        <Suspense fallback={<div className="bg-primary h-[52px]" />}>
+          <DonationQuickBar />
+        </Suspense>
 
         {/* Logo Bar */}
         <div
