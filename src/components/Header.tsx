@@ -233,6 +233,11 @@ const Header = () => {
         className={`sticky top-0 z-50 transition-transform duration-300 ${isHidden ? "-translate-y-full" : "translate-y-0"}`}
       >
 
+        {/* Donation Quick Bar — top of sticky header */}
+        <Suspense fallback={<div className="bg-primary h-[52px]" />}>
+          <DonationQuickBar />
+        </Suspense>
+
         {/* Logo Bar */}
         <div
           className={`transition-all duration-300 ${
