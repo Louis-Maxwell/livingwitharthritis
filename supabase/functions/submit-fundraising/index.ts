@@ -3,8 +3,9 @@ import { getServiceClient } from "../_shared/supabase-client.ts";
 import { createRateLimiter, getClientIp } from "../_shared/rate-limiter.ts";
 import { errJson, okJson, parseJsonBody, preflight, newRequestId } from "../_shared/http.ts";
 import { z, parseWithSchema, emailSchema, phoneSchema, shortText, longText } from "../_shared/validation.ts";
+import { CONTACT_EMAILS } from "../_shared/contact.ts";
 
-const ADMIN_EMAIL = "info@livingwitharthritis.org.uk";
+const ADMIN_EMAIL = CONTACT_EMAILS.info;
 
 // 5 fundraising submissions per IP per 15 minutes
 const limiter = createRateLimiter({ windowMs: 900_000, maxRequests: 5 });

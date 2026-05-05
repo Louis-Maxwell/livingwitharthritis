@@ -3,6 +3,7 @@ import {
   Body, Container, Head, Heading, Html, Preview, Text, Section, Hr, Button,
 } from 'npm:@react-email/components@0.0.22'
 import type { TemplateEntry } from './registry.ts'
+import { CONTACT_EMAILS, CONTACT_PHONE } from '../contact.ts'
 
 const SITE_NAME = "Living With Arthritis"
 const SITE_URL = "https://livingwitharthritis.lovable.app"
@@ -49,9 +50,9 @@ const ContactConfirmationEmail = ({
             If your matter is urgent, you can also reach us directly:
           </Text>
           <Text style={contactInfo}>
-            📞 <strong>Phone:</strong> 07760 512 084{'\n'}
-            💬 <strong>WhatsApp:</strong> 07760 512 084{'\n'}
-            ✉️ <strong>Email:</strong> info@livingwitharthritis.org.uk
+            📞 <strong>Phone:</strong> {CONTACT_PHONE}{'\n'}
+            💬 <strong>WhatsApp:</strong> {CONTACT_PHONE}{'\n'}
+            ✉️ <strong>Email:</strong> {CONTACT_EMAILS.info}
           </Text>
 
           <Hr style={divider} />
