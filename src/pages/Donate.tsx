@@ -107,10 +107,7 @@ export default function Donate() {
       <Header />
       <main id="main-content" className="min-h-screen bg-background">
         {/* Quick donation bar */}
-        <DonationQuickBar
-          headline="Zakat Appeal: Rebuild Lives After Trauma —"
-          ctaHref="/zakat-appeal"
-        />
+        <DonationQuickBar />
         {/* Hero */}
         <section className="bg-gradient-to-br from-primary/5 via-background to-rose-500/5 border-b border-border/20">
           <div className="container mx-auto px-6 md:px-10 py-16 md:py-24 max-w-4xl text-center">
