@@ -14,7 +14,6 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import DonationBanner from "@/components/DonationBanner";
 import StripeDonationModal from "@/components/StripeDonationModal";
 import { zakatAppealHero as zakatHeroImg } from "@/data/images";
 import ZakatCalculator from "@/components/ZakatCalculator";

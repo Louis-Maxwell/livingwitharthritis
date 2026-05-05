@@ -8,8 +8,6 @@ const _CartDrawer = lazy(() => import("@/components/CartDrawer"));
 const ResourceLibraryDrawer = lazy(() => import("@/components/ResourceLibraryDrawer"));
 const SiteSearch = lazy(() => import("@/components/SiteSearch"));
 
-const DonationBanner = lazy(() => import("@/components/DonationBanner"));
-
 /* Dynamic SVG logo mark */
 const LogoMark = ({ className = "" }: { className?: string }) => (
   <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
@@ -233,10 +231,6 @@ const Header = () => {
       <div
         className={`sticky top-0 z-50 transition-transform duration-300 ${isHidden ? "-translate-y-full" : "translate-y-0"}`}
       >
-        {/* Donation Banner */}
-        <Suspense fallback={<div className="bg-primary h-[38px]" />}>
-          <DonationBanner />
-        </Suspense>
 
         {/* Logo Bar */}
         <div
