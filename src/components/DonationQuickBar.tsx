@@ -9,29 +9,23 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import StripeDonationModal from "@/components/StripeDonationModal";
+import { Link } from "react-router-dom";
 
-const PRESETS = [50, 150, 200, 500];
+const PRESETS = [25, 50, 100, 250];
 
 const FUND_OPTIONS = [
-  { value: "general", label: "Most Needed Now" },
   { value: "research", label: "Arthritis Research" },
+  { value: "general", label: "Most Needed Now" },
   { value: "support", label: "Patient Support" },
   { value: "helpline", label: "Helpline" },
   { value: "zakat", label: "Zakat Appeal" },
 ];
 
-interface DonationQuickBarProps {
-  headline?: string;
-  ctaHref?: string;
-}
-
-const DonationQuickBar = ({
-  headline = "Help fund free arthritis support today —",
-  ctaHref,
-}: DonationQuickBarProps) => {
+const DonationQuickBar = () => {
+  const [frequency, setFrequency] = useState<"one-time" | "monthly">("one-time");
   const [amount, setAmount] = useState<string>("");
-  const [selectedPreset, setSelectedPreset] = useState<number | null>(200);
-  const [fund, setFund] = useState("general");
+  const [selectedPreset, setSelectedPreset] = useState<number | null>(50);
+  const [fund, setFund] = useState("research");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const activeAmount = amount ? parseFloat(amount) : selectedPreset ?? 0;
@@ -41,41 +35,46 @@ const DonationQuickBar = ({
     setAmount("");
   };
 
-  const handleQuickDonate = () => {
+  const handleDonate = () => {
     if (activeAmount > 0) setIsModalOpen(true);
   };
 
   return (
     <>
-      {/* Pink announcement strip */}
       <div className="bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 py-2.5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center">
-          <p className="text-sm sm:text-base font-bold italic">
-            {headline}
-          </p>
-          {ctaHref && (
-            <a
-              href={ctaHref}
-              className="text-sm sm:text-base font-bold italic underline underline-offset-4 hover:opacity-90"
-            >
-              Learn More
-            </a>
-          )}
-        </div>
-      </div>
-
-      {/* Donation bar */}
-      <div className="bg-[hsl(195_85%_55%)]">
-        <div className="container mx-auto px-3 sm:px-6 py-3">
-          <div className="flex flex-wrap lg:flex-nowrap items-center gap-2 sm:gap-3 justify-center">
-            {/* Currency display */}
-            <div className="flex items-center gap-2 bg-white rounded-md px-3 h-11 shrink-0">
-              <span className="text-base" aria-hidden>🇬🇧</span>
-              <span className="text-sm font-bold text-foreground">GBP</span>
+        <div className="container mx-auto px-3 sm:px-4 py-2">
+          <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
+            {/* Frequency pill toggle */}
+            <div className="flex items-center bg-white/15 rounded-full p-0.5 h-9">
+              {(["one-time", "monthly"] as const).map((f) => (
+                <button
+                  key={f}
+                  onClick={() => setFrequency(f)}
+                  aria-pressed={frequency === f}
+                  className={`h-8 px-4 rounded-full text-xs font-bold transition-colors ${
+                    frequency === f
+                      ? "bg-white text-primary"
+                      : "text-primary-foreground/90 hover:text-primary-foreground"
+                  }`}
+                >
+                  {f === "one-time" ? "One-time" : "Monthly"}
+                </button>
+              ))}
             </div>
 
-            {/* Custom amount input */}
-            <div className="bg-white rounded-md h-11 px-3 flex items-center min-w-[140px] sm:min-w-[180px] flex-1 sm:flex-initial">
+            {/* Currency */}
+            <div className="flex items-center bg-white/15 rounded-full h-9 pl-3 pr-1 gap-2">
+              <span className="text-xs font-bold tracking-wide">GB</span>
+              <div className="flex items-center bg-white/20 rounded-full h-7 px-2.5 gap-1">
+                <span className="text-xs font-bold">GBP</span>
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden>
+                  <path d="M3 4.5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" fill="none" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Amount input */}
+            <div className="bg-white/15 rounded-full h-9 px-4 flex items-center w-[110px]">
               <Input
                 type="number"
                 min="1"
@@ -86,39 +85,34 @@ const DonationQuickBar = ({
                   setSelectedPreset(null);
                 }}
                 aria-label="Donation amount in GBP"
-                className="border-0 h-9 px-0 text-sm font-medium focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none placeholder:text-muted-foreground/60"
+                className="border-0 h-8 px-0 bg-transparent text-sm font-semibold text-primary-foreground focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none placeholder:text-primary-foreground/70"
               />
             </div>
 
-            {/* Preset amounts */}
-            <div className="flex gap-2 flex-wrap justify-center">
-              {PRESETS.map((preset) => {
-                const isActive = selectedPreset === preset && !amount;
-                return (
-                  <button
-                    key={preset}
-                    onClick={() => handlePreset(preset)}
-                    aria-pressed={isActive}
-                    className={`h-11 px-3 sm:px-4 rounded-md text-sm font-bold transition-colors min-w-[72px] ${
-                      isActive
-                        ? "bg-primary text-primary-foreground shadow-md"
-                        : "bg-white text-foreground hover:bg-white/90"
-                    }`}
-                  >
-                    £{preset}{" "}
-                    <span className="text-[10px] font-semibold opacity-70 align-middle">
-                      GBP
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
+            {/* Preset pills */}
+            {PRESETS.map((preset) => {
+              const isActive = selectedPreset === preset && !amount;
+              return (
+                <button
+                  key={preset}
+                  onClick={() => handlePreset(preset)}
+                  aria-pressed={isActive}
+                  className={`h-9 px-4 rounded-full text-sm font-bold transition-colors ${
+                    isActive
+                      ? "bg-white text-primary"
+                      : "bg-white/15 text-primary-foreground hover:bg-white/25"
+                  }`}
+                >
+                  £{preset}
+                </button>
+              );
+            })}
 
             {/* Fund select */}
             <Select value={fund} onValueChange={setFund}>
               <SelectTrigger
                 aria-label="Choose appeal"
-                className="h-11 bg-white text-foreground border-0 rounded-md text-sm font-medium min-w-[170px] focus:ring-0 focus:ring-offset-0"
+                className="h-9 bg-white/15 text-primary-foreground border-0 rounded-full text-xs font-semibold w-[160px] px-4 focus:ring-0 focus:ring-offset-0 [&>svg]:opacity-80"
               >
                 <SelectValue />
               </SelectTrigger>
@@ -131,28 +125,22 @@ const DonationQuickBar = ({
               </SelectContent>
             </Select>
 
-            {/* Payment logos */}
-            <div
-              className="hidden md:flex items-center gap-1.5 bg-white/95 rounded-md px-3 h-11 text-[10px] font-bold text-foreground/70 tracking-wider"
-              aria-label="Accepted payment methods"
-            >
-              <span>VISA</span>
-              <span>·</span>
-              <span>MC</span>
-              <span>·</span>
-              <span>AMEX</span>
-              <span>·</span>
-              <span>APPLE PAY</span>
-            </div>
-
-            {/* Quick donate */}
+            {/* DONATE */}
             <Button
-              onClick={handleQuickDonate}
+              onClick={handleDonate}
               disabled={activeAmount <= 0}
-              className="h-11 bg-primary hover:bg-primary/90 text-primary-foreground font-extrabold tracking-wider rounded-md px-5 sm:px-7 text-sm shadow-md"
+              className="h-9 bg-transparent hover:bg-white/10 text-primary-foreground font-extrabold tracking-[0.15em] rounded-full px-5 text-sm shadow-none border-0"
             >
-              QUICK DONATE
+              DONATE
             </Button>
+
+            {/* Zakat Appeal */}
+            <Link
+              to="/zakat-appeal"
+              className="h-9 inline-flex items-center px-4 rounded-full text-sm font-extrabold tracking-[0.15em] text-primary-foreground hover:bg-white/10 transition-colors"
+            >
+              ZAKAT APPEAL
+            </Link>
           </div>
         </div>
       </div>
