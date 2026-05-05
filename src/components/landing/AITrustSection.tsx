@@ -3,9 +3,10 @@ import { ShieldCheck, Eye, Server, BarChart3, Lightbulb, ArrowRight, HeartPulse,
 import GridBg from "./GridBg";
 import GlassCard from "./GlassCard";
 import PageModal from "./PageModal";
+import { CONTACT_EMAILS } from "@/config/contact";
 
 
-const CONTACT_EMAIL = "info@livingwitharthritis.org.uk";
+const CONTACT_EMAIL = CONTACT_EMAILS.info;
 
 const pillars = [
   {

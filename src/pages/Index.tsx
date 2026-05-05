@@ -40,7 +40,8 @@ const Footer = lazy(() => import("@/components/Footer"));
 /* ─── Constants ─────────────────────────────────────────────────────── */
 const SITE_URL = "https://livingwitharthritis.org.uk";
 const SITE_NAME = "Living With Arthritis UK";
-const CONTACT_EMAIL = "info@livingwitharthritis.org.uk";
+import { CONTACT_EMAILS } from "@/config/contact";
+const CONTACT_EMAIL = CONTACT_EMAILS.info;
 
 /* ─── Schema markup ─────────────────────────────────────────────────── */
 const schemaOrg = {
