@@ -12,6 +12,7 @@ import {
   Scale, BookOpen, CheckCircle, Building2, Gavel, Heart, Clock
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { CONTACT_EMAILS } from "@/config/contact";
 
 const trustees = [
   {
@@ -250,8 +251,8 @@ Regulated by the Charity Commission for England and Wales.
                     England
                   </address>
                   <div className="space-y-2.5">
-                    <a href="mailto:info@livingwitharthritis.org.uk" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-                      <Mail className="w-4 h-4" /> info@livingwitharthritis.org.uk
+                    <a href={`mailto:${CONTACT_EMAILS.info}`} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                      <Mail className="w-4 h-4" /> {CONTACT_EMAILS.info}
                     </a>
                     <a href="tel:07760512084" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
                       <Phone className="w-4 h-4" /> 07760 512 084

@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
 import { Shield, AlertTriangle, Phone, Mail } from "lucide-react";
+import { CONTACT_EMAILS } from "@/config/contact";
 
 export default function Safeguarding() {
   return (
@@ -87,8 +88,8 @@ export default function Safeguarding() {
                   For non-emergency safeguarding concerns about our services, please contact:
                 </p>
                 <div className="space-y-2 text-sm">
-                  <a href="mailto:safeguarding@livingwitharthritis.org.uk" className="flex items-center gap-2 text-primary hover:underline">
-                    <Mail className="w-4 h-4" /> safeguarding@livingwitharthritis.org.uk
+                  <a href={`mailto:${CONTACT_EMAILS.safeguarding}`} className="flex items-center gap-2 text-primary hover:underline">
+                    <Mail className="w-4 h-4" /> {CONTACT_EMAILS.safeguarding}
                   </a>
                   <a href="tel:07760512084" className="flex items-center gap-2 text-primary hover:underline">
                     <Phone className="w-4 h-4" /> 07760 512 084

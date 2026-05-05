@@ -2,8 +2,9 @@ import { memo, useRef, useState } from "react";
 import { toast } from "sonner";
 import { Mail, Phone, MapPin, Send, CheckCircle2, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { CONTACT_EMAILS } from "@/config/contact";
 
-const CONTACT_EMAIL = "info@livingwitharthritis.org.uk";
+const CONTACT_EMAIL = CONTACT_EMAILS.info;
 
 type ContactForm = { name: string; email: string; subject: string; message: string };
 type FieldErr = Partial<ContactForm>;

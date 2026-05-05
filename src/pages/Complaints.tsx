@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
 import { MessageSquareWarning, Clock, Mail, Phone } from "lucide-react";
+import { CONTACT_EMAILS } from "@/config/contact";
 
 export default function Complaints() {
   return (
@@ -61,8 +62,8 @@ export default function Complaints() {
               <div className="bg-muted/30 border border-border/30 rounded-xl p-5 space-y-3">
                 <p className="text-muted-foreground text-sm">You can contact us by:</p>
                 <div className="space-y-2 text-sm">
-                  <a href="mailto:info@livingwitharthritis.org.uk" className="flex items-center gap-2 text-primary hover:underline">
-                    <Mail className="w-4 h-4" /> info@livingwitharthritis.org.uk
+                  <a href={`mailto:${CONTACT_EMAILS.info}`} className="flex items-center gap-2 text-primary hover:underline">
+                    <Mail className="w-4 h-4" /> {CONTACT_EMAILS.info}
                   </a>
                   <a href="tel:07760512084" className="flex items-center gap-2 text-primary hover:underline">
                     <Phone className="w-4 h-4" /> 07760 512 084

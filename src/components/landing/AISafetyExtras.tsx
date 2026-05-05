@@ -6,8 +6,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { CONTACT_EMAILS } from "@/config/contact";
 
-const CONTACT_EMAIL = "info@livingwitharthritis.org.uk";
+const CONTACT_EMAIL = CONTACT_EMAILS.info;
 
 const standards = [
   { icon: Lock, label: "UK GDPR Compliant", note: "Data protected to ICO standards" },

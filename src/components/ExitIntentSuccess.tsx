@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
 import type { ExitIntentVariant, ExitIntentVariantId } from "@/lib/exitIntentVariants";
+import { CONTACT_EMAILS } from "@/config/contact";
 
 const PDF_URL = "/downloads/arthritis-starter-guide-preview.pdf";
-const SENDER_EMAIL = "hello@livingwitharthritis.org.uk";
+const SENDER_EMAIL = CONTACT_EMAILS.hello;
 const CONFIRM_SUBJECT = "Confirm my Arthritis Starter Guide signup";
 
 /** Map well-known email providers to a deep-link that opens the inbox/search. */
