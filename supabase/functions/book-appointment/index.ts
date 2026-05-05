@@ -3,6 +3,7 @@ import { getAnonClient, getServiceClient } from "../_shared/supabase-client.ts";
 import { createRateLimiter, getClientIp } from "../_shared/rate-limiter.ts";
 import { errJson, okJson, parseJsonBody, preflight, newRequestId, getCorsHeaders } from "../_shared/http.ts";
 import { z, parseWithSchema, emailSchema, phoneSchema, shortText, isoDate } from "../_shared/validation.ts";
+import { CONTACT_EMAILS } from "../_shared/contact.ts";
 
 // 10 booking attempts per IP per 30 minutes
 const limiter = createRateLimiter({ windowMs: 1_800_000, maxRequests: 10 });
@@ -198,7 +199,7 @@ serve(async (req) => {
         },
         body: JSON.stringify({
           templateName: "contact-admin-notification",
-          recipientEmail: "info@livingwitharthritis.org.uk",
+          recipientEmail: CONTACT_EMAILS.info,
           idempotencyKey: `appointment-admin-${data.id}`,
           templateData: {
             name: appointment.name,
