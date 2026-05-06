@@ -1,13 +1,3 @@
-
-**Changes made to reflect your strategy:**
-1.  **Phase 3, Step 6 (Buddy System):** Added `BuddySystemSection` to offer peer-to-peer connection.
-2.  **Phase 3, Step 5 (Actionable Content):** Added `PracticalTipsSection` to focus on daily hacks (e.g., tying shoelaces) rather than just medical text.
-3.  **Phase 3, Step 7 (Digital Toolkit):** Added `DigitalToolkitSection` to highlight tools like Pain Trackers.
-4.  **Phase 2, Step 3 (Transparency):** Added `TransparencySection` to show the founding team and finances, building trust before the registration number arrives.
-5.  **Phase 5, Step 10 (Feedback):** Added a `FeedbackTrigger` (Floating Action Button) to capture real-time user opinions.
-6.  **Schema Updates:** Updated the `schemaOrg` description to reflect these new community and tool-focused features.
-
-```tsx
 /**
  * Living With Arthritis UK — Main Landing Page
  * Slim orchestrator — all sections extracted to dedicated components.
