@@ -186,12 +186,12 @@ const HeroSection = memo(() => {
             </div>
 
             {/* ── Right — Featured cover image (5 cols) ───────────── */}
-            <div className="hero-item lg:col-span-5 hidden lg:block relative">
+            <div className="hero-item lg:col-span-6 hidden lg:block relative">
               {/* Editorial corner brackets */}
               <div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-primary/40 pointer-events-none" aria-hidden="true" />
               <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-primary/40 pointer-events-none" aria-hidden="true" />
 
-              <figure className="relative rounded-sm overflow-hidden shadow-[0_30px_80px_-20px_hsl(var(--primary)/0.25)] aspect-[4/5] group">
+              <figure className="relative rounded-sm overflow-hidden shadow-[0_30px_80px_-20px_hsl(var(--primary)/0.25)] aspect-[3/4] group">
                 <picture>
                   <source
                     type="image/webp"
