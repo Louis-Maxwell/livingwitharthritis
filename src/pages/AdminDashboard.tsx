@@ -242,12 +242,20 @@ const AdminDashboard = () => {
                 <h2 className="text-xl font-bold text-foreground">Booking Diary</h2>
                 <p className="text-sm text-muted-foreground">View and manage patient appointments</p>
               </div>
-              <Link to="/admin/appointments">
-                <Button className="gap-2 rounded-xl bg-gradient-to-r from-primary to-primary/80 hover:opacity-90 shadow-md">
-                  <ExternalLink className="w-4 h-4" />
-                  Full Manager
-                </Button>
-              </Link>
+              <div className="flex gap-2">
+                <Link to="/admin/emails">
+                  <Button variant="outline" className="gap-2 rounded-xl">
+                    <MessageSquare className="w-4 h-4" />
+                    Email Monitoring
+                  </Button>
+                </Link>
+                <Link to="/admin/appointments">
+                  <Button className="gap-2 rounded-xl bg-gradient-to-r from-primary to-primary/80 hover:opacity-90 shadow-md">
+                    <ExternalLink className="w-4 h-4" />
+                    Full Manager
+                  </Button>
+                </Link>
+              </div>
             </div>
             <Suspense fallback={<div className="animate-pulse h-[400px] bg-muted/30 rounded-2xl border border-border/30" />}>
               <BookingDiary />

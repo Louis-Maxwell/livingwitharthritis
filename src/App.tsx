@@ -32,6 +32,7 @@ const Auth = lazy(() => import("./pages/Auth"));
 const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
 const AdminAppointments = lazy(() => import("./pages/AdminAppointments"));
 const AdminPsiDashboard = lazy(() => import("./pages/AdminPsiDashboard"));
+const AdminEmails = lazy(() => import("./pages/AdminEmails"));
 const BlogIndex = lazy(() => import("./pages/BlogIndex"));
 const BlogHub = lazy(() => import("./pages/BlogHub"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
@@ -134,6 +135,7 @@ function AnimatedRoutes() {
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/admin/appointments" element={<AdminAppointments />} />
         <Route path="/admin/psi" element={<AdminPsiDashboard />} />
+        <Route path="/admin/emails" element={<AdminEmails />} />
         <Route path="/blog" element={<BlogIndex />} />
         <Route path="/blog-hub" element={<BlogHub />} />
         <Route path="/blog/category/:category" element={<BlogCategory />} />

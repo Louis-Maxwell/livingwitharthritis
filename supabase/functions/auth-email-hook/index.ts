@@ -37,7 +37,7 @@ const EMAIL_TEMPLATES: Record<string, React.ComponentType<any>> = {
 
 // Configuration
 const SITE_NAME = "livingwitharthritis"
-const SENDER_DOMAIN = "notify.livingwitharthritis.org.uk"
+const SENDER_DOMAIN = "notify.www.livingwitharthritis.org.uk"
 const ROOT_DOMAIN = "livingwitharthritis.org.uk"
 const FROM_DOMAIN = "livingwitharthritis.org.uk" // Domain shown in From address (may be root or sender subdomain)
 const REPLY_TO = "info@livingwitharthritis.org.uk" // Replies route to monitored info@ inbox
