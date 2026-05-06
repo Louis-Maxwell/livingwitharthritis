@@ -43,16 +43,6 @@ const BackToTopButton = lazy(() => import("@/components/landing/BackToTopButton"
 const CookieBanner = lazy(() => import("@/components/landing/CookieBanner"));
 const Footer = lazy(() => import("@/components/Footer"));
 
-// Phase 3, Step 6: Peer Support
-const BuddySystemSection = lazy(() => import("@/components/landing/BuddySystemSection"));
-// Phase 3, Step 5: Actionable Content (Daily Hacks)
-const PracticalTipsSection = lazy(() => import("@/components/landing/PracticalTipsSection"));
-// Phase 3, Step 7: Digital Tools (Pain Tracker, etc.)
-const DigitalToolkitSection = lazy(() => import("@/components/landing/DigitalToolkitSection"));
-// Phase 2, Step 3: Trust & Transparency
-const TransparencySection = lazy(() => import("@/components/landing/TransparencySection"));
-// Phase 5, Step 10: Feedback Loop
-const FeedbackTrigger = lazy(() => import("@/components/landing/FeedbackTrigger"));
 
 /* ─── Constants ─────────────────────────────────────────────────────── */
 const SITE_URL = "https://livingwitharthritis.org.uk";
@@ -261,29 +251,14 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
             <AggregatedSocialProof />
           </Suspense>
 
-          {/* STRATEGY: Phase 3, Step 6 - Buddy System (Human Connection) */}
-          <Suspense fallback={<SkeletonSection />}>
-            <BuddySystemSection />
-          </Suspense>
-
           <Suspense fallback={<SkeletonSection />}>
             <MissionStatementBand />
-          </Suspense>
-
-          {/* STRATEGY: Phase 3, Step 5 - Actionable Content (Daily Hacks) */}
-          <Suspense fallback={<SkeletonSection />}>
-            <PracticalTipsSection />
           </Suspense>
 
           <TriageSection />
 
           <Suspense fallback={<SkeletonSection />}>
             <EditorialIndex />
-          </Suspense>
-
-          {/* STRATEGY: Phase 3, Step 7 - Digital Toolkit (Tools) */}
-          <Suspense fallback={<SkeletonSection />}>
-            <DigitalToolkitSection />
           </Suspense>
 
           <Suspense fallback={<SkeletonSection />}>
@@ -298,11 +273,6 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
             <ImpactLedger />
           </Suspense>
 
-          {/* STRATEGY: Phase 2, Step 3 - Transparency (Trust/Legitimacy) */}
-          <Suspense fallback={<SkeletonSection />}>
-            <TransparencySection />
-          </Suspense>
-
           <Suspense fallback={<SkeletonSection />}>
             <HowItWorksSection />
           </Suspense>
@@ -312,11 +282,6 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
           <BackToTopButton />
         </Suspense>
         
-        {/* STRATEGY: Phase 5, Step 10 - Feedback Loop (Always accessible) */}
-        <Suspense fallback={null}>
-            <FeedbackTrigger />
-        </Suspense>
-
         <Suspense fallback={null}>
           <CookieBanner onAnalyticsChange={handleAnalyticsChange} />
         </Suspense>
