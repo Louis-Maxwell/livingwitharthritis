@@ -118,7 +118,7 @@ const HeroSection = memo(() => {
         <div className="py-12 sm:py-16 lg:py-20">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* ── Left — Editorial copy (7 cols) ───────────────────── */}
-            <div className="hero-stagger lg:col-span-7 text-center lg:text-left">
+            <div className="hero-stagger lg:col-span-6 text-center lg:text-left">
 
               <h1 ref={headlineRef} className="hero-item font-display text-[2.5rem] sm:text-[3.25rem] md:text-[3.75rem] lg:text-[4.25rem] xl:text-[4.75rem] font-bold text-foreground mb-6 sm:mb-8 leading-[1.02] tracking-[-0.03em] text-balance pr-2">
                 One in six.
@@ -186,12 +186,12 @@ const HeroSection = memo(() => {
             </div>
 
             {/* ── Right — Featured cover image (5 cols) ───────────── */}
-            <div className="hero-item lg:col-span-5 hidden lg:block relative">
+            <div className="hero-item lg:col-span-6 hidden lg:block relative">
               {/* Editorial corner brackets */}
               <div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-primary/40 pointer-events-none" aria-hidden="true" />
               <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-primary/40 pointer-events-none" aria-hidden="true" />
 
-              <figure className="relative rounded-sm overflow-hidden shadow-[0_30px_80px_-20px_hsl(var(--primary)/0.25)] aspect-[4/5] group">
+              <figure className="relative rounded-sm overflow-hidden shadow-[0_30px_80px_-20px_hsl(var(--primary)/0.25)] aspect-[3/4] group">
                 <picture>
                   <source
                     type="image/webp"
