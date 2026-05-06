@@ -118,7 +118,7 @@ const HeroSection = memo(() => {
         <div className="py-12 sm:py-16 lg:py-20">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* ── Left — Editorial copy (7 cols) ───────────────────── */}
-            <div className="hero-stagger lg:col-span-7 text-center lg:text-left">
+            <div className="hero-stagger lg:col-span-6 text-center lg:text-left">
 
               <h1 ref={headlineRef} className="hero-item font-display text-[2.5rem] sm:text-[3.25rem] md:text-[3.75rem] lg:text-[4.25rem] xl:text-[4.75rem] font-bold text-foreground mb-6 sm:mb-8 leading-[1.02] tracking-[-0.03em] text-balance pr-2">
                 One in six.
