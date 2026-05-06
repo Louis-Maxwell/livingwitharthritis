@@ -83,6 +83,25 @@ const HeroSection = memo(() => {
 
   return (
     <section className="relative overflow-hidden bg-mesh">
+      {/* Hero cover image as full-section background */}
+      <picture aria-hidden="true">
+        <source
+          type="image/webp"
+          srcSet={`${heroImageWebp800} 800w, ${heroImageWebp1200} 1200w, ${heroImageWebp1600} 1600w`}
+          sizes="100vw"
+        />
+        <img
+          src={heroImageJpg1600}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none z-0"
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
+          onError={() => reportHeroImageFailure(heroImageJpg1600)}
+        />
+      </picture>
+      {/* Readability overlay over background image */}
+      <div className="absolute inset-0 bg-background/80 backdrop-blur-[2px] pointer-events-none z-0" />
       {/* 3D floating orbs background — desktop only (skipped on mobile + reduced-motion) */}
       {isDesktop && (
         <Suspense fallback={null}>
