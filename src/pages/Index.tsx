@@ -1,14 +1,3 @@
-Here is the updated code. I have integrated the strategic improvements directly into the component structure.
-
-**Changes made to reflect your strategy:**
-1.  **Phase 3, Step 6 (Buddy System):** Added `BuddySystemSection` to offer peer-to-peer connection.
-2.  **Phase 3, Step 5 (Actionable Content):** Added `PracticalTipsSection` to focus on daily hacks (e.g., tying shoelaces) rather than just medical text.
-3.  **Phase 3, Step 7 (Digital Toolkit):** Added `DigitalToolkitSection` to highlight tools like Pain Trackers.
-4.  **Phase 2, Step 3 (Transparency):** Added `TransparencySection` to show the founding team and finances, building trust before the registration number arrives.
-5.  **Phase 5, Step 10 (Feedback):** Added a `FeedbackTrigger` (Floating Action Button) to capture real-time user opinions.
-6.  **Schema Updates:** Updated the `schemaOrg` description to reflect these new community and tool-focused features.
-
-```tsx
 /**
  * Living With Arthritis UK — Main Landing Page
  * Slim orchestrator — all sections extracted to dedicated components.
@@ -54,16 +43,6 @@ const BackToTopButton = lazy(() => import("@/components/landing/BackToTopButton"
 const CookieBanner = lazy(() => import("@/components/landing/CookieBanner"));
 const Footer = lazy(() => import("@/components/Footer"));
 
-// Phase 3, Step 6: Peer Support
-const BuddySystemSection = lazy(() => import("@/components/landing/BuddySystemSection"));
-// Phase 3, Step 5: Actionable Content (Daily Hacks)
-const PracticalTipsSection = lazy(() => import("@/components/landing/PracticalTipsSection"));
-// Phase 3, Step 7: Digital Tools (Pain Tracker, etc.)
-const DigitalToolkitSection = lazy(() => import("@/components/landing/DigitalToolkitSection"));
-// Phase 2, Step 3: Trust & Transparency
-const TransparencySection = lazy(() => import("@/components/landing/TransparencySection"));
-// Phase 5, Step 10: Feedback Loop
-const FeedbackTrigger = lazy(() => import("@/components/landing/FeedbackTrigger"));
 
 /* ─── Constants ─────────────────────────────────────────────────────── */
 const SITE_URL = "https://livingwitharthritis.org.uk";
@@ -272,29 +251,14 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
             <AggregatedSocialProof />
           </Suspense>
 
-          {/* STRATEGY: Phase 3, Step 6 - Buddy System (Human Connection) */}
-          <Suspense fallback={<SkeletonSection />}>
-            <BuddySystemSection />
-          </Suspense>
-
           <Suspense fallback={<SkeletonSection />}>
             <MissionStatementBand />
-          </Suspense>
-
-          {/* STRATEGY: Phase 3, Step 5 - Actionable Content (Daily Hacks) */}
-          <Suspense fallback={<SkeletonSection />}>
-            <PracticalTipsSection />
           </Suspense>
 
           <TriageSection />
 
           <Suspense fallback={<SkeletonSection />}>
             <EditorialIndex />
-          </Suspense>
-
-          {/* STRATEGY: Phase 3, Step 7 - Digital Toolkit (Tools) */}
-          <Suspense fallback={<SkeletonSection />}>
-            <DigitalToolkitSection />
           </Suspense>
 
           <Suspense fallback={<SkeletonSection />}>
@@ -309,11 +273,6 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
             <ImpactLedger />
           </Suspense>
 
-          {/* STRATEGY: Phase 2, Step 3 - Transparency (Trust/Legitimacy) */}
-          <Suspense fallback={<SkeletonSection />}>
-            <TransparencySection />
-          </Suspense>
-
           <Suspense fallback={<SkeletonSection />}>
             <HowItWorksSection />
           </Suspense>
@@ -323,11 +282,6 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
           <BackToTopButton />
         </Suspense>
         
-        {/* STRATEGY: Phase 5, Step 10 - Feedback Loop (Always accessible) */}
-        <Suspense fallback={null}>
-            <FeedbackTrigger />
-        </Suspense>
-
         <Suspense fallback={null}>
           <CookieBanner onAnalyticsChange={handleAnalyticsChange} />
         </Suspense>
@@ -388,4 +342,3 @@ export default function Index() {
     </ErrorBoundary>
   );
 }
-```
