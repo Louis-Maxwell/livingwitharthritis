@@ -34,7 +34,7 @@ const IntentChooser = lazy(() => import("@/components/landing/IntentChooser"));
 const ColourMosaic = lazy(() => import("@/components/landing/ColourMosaic"));
 const MissionStatementBand = lazy(() => import("@/components/landing/MissionStatementBand"));
 const EditorialIndex = lazy(() => import("@/components/landing/EditorialIndex"));
-const ImpactLedger = lazy(() => import("@/components/landing/ImpactLedger"));
+
 const FeaturedStoryBand = lazy(() => import("@/components/landing/FeaturedStoryBand"));
 const AggregatedSocialProof = lazy(() => import("@/components/landing/AggregatedSocialProof"));
 
