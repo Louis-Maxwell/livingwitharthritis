@@ -670,6 +670,99 @@ export type Database = {
         }
         Relationships: []
       }
+      face_stories: {
+        Row: {
+          age_band: string
+          alt_text: string
+          attribution: string
+          condition: string
+          created_at: string
+          cta_href: string
+          cta_label: string
+          display_order: number
+          eyebrow: string
+          fund_type: string | null
+          id: string
+          image_url: string
+          is_active: boolean
+          is_feature: boolean
+          quote: string
+          region: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          age_band: string
+          alt_text: string
+          attribution: string
+          condition: string
+          created_at?: string
+          cta_href: string
+          cta_label: string
+          display_order?: number
+          eyebrow: string
+          fund_type?: string | null
+          id: string
+          image_url: string
+          is_active?: boolean
+          is_feature?: boolean
+          quote: string
+          region: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          age_band?: string
+          alt_text?: string
+          attribution?: string
+          condition?: string
+          created_at?: string
+          cta_href?: string
+          cta_label?: string
+          display_order?: number
+          eyebrow?: string
+          fund_type?: string | null
+          id?: string
+          image_url?: string
+          is_active?: boolean
+          is_feature?: boolean
+          quote?: string
+          region?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      faces_trust_facts: {
+        Row: {
+          created_at: string
+          display_order: number
+          id: string
+          is_active: boolean
+          label: string
+          updated_at: string
+          value: string
+        }
+        Insert: {
+          created_at?: string
+          display_order?: number
+          id?: string
+          is_active?: boolean
+          label: string
+          updated_at?: string
+          value: string
+        }
+        Update: {
+          created_at?: string
+          display_order?: number
+          id?: string
+          is_active?: boolean
+          label?: string
+          updated_at?: string
+          value?: string
+        }
+        Relationships: []
+      }
       featured_stories: {
         Row: {
           age: string | null
