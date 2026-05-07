@@ -268,11 +268,6 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
           <Suspense fallback={<SkeletonSection />}>
             <PortraitGrid />
           </Suspense>
-
-          <Suspense fallback={<SkeletonSection />}>
-            <ImpactLedger />
-          </Suspense>
-
           <Suspense fallback={<SkeletonSection />}>
             <HowItWorksSection />
           </Suspense>

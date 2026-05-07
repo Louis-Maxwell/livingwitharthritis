@@ -250,7 +250,7 @@ const App = () => {
                 <Suspense fallback={null}>
                   <ChatBotWidget />
                   {/* DonationNotification removed — individual donor toasts read as e-commerce social-proof
-                      (Booking.com style) rather than charity. Aggregate impact stats live in ImpactLedger. */}
+                      (Booking.com style) rather than charity. */}
                   <ExitIntentModal />
                 </Suspense>
               </DeferredMount>
