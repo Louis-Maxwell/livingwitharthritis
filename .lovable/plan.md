@@ -1,70 +1,42 @@
-## Email Integrity Improvement Plan
+## What's happening
 
-Investigation surfaced three concrete problems and a missing visibility layer. Here is the fix.
+The screen you're seeing ("Setting up www.livingwitharthritis.org.uk. This may take a few minutes.") is rendered by Lovable's hosting edge, not by your app's code. It appears when a custom domain entry exists in your project but hasn't finished DNS verification + SSL provisioning.
 
-### 1. Critical: Sender domain mismatch (root cause of all failures)
+Diagnostic results just now:
+- `https://livingwitharthritis.org.uk` → HTTP 200 (live and serving your site correctly).
+- `https://www.livingwitharthritis.org.uk` → HTTP 421 "Misdirected Request" + the setup page.
 
-The verified Lovable email subdomain is:
-```
-notify.www.livingwitharthritis.org.uk
-```
+So the **root** domain is healthy. Only the **www** subdomain is stuck in setup. This is a hosting/DNS configuration matter — there is nothing to change in the codebase.
 
-But the code is configured for:
-```
-notify.livingwitharthritis.org.uk   ← does NOT exist / not verified
-```
+## Why this happens
 
-Every send for the last several weeks went to the dead-letter queue with `Emails disabled for this project`. Two files need updating:
+In Lovable, the root domain (`livingwitharthritis.org.uk`) and the `www` subdomain (`www.livingwitharthritis.org.uk`) must be added as **two separate domain entries** in Project Settings → Domains. Adding only the root does not automatically cover `www`. The `www` entry needs:
 
-- `supabase/functions/send-transactional-email/index.ts` — `SENDER_DOMAIN`
-- `supabase/functions/auth-email-hook/index.ts` — `SENDER_DOMAIN`
+1. Its own DNS record at your registrar (an `A` record for `www` pointing to `185.158.133.1`, or a CNAME if you use Cloudflare proxy mode).
+2. Successful verification + SSL issuance by Lovable.
 
-`FROM_DOMAIN` (the visible From address, `noreply@livingwitharthritis.org.uk`) stays as-is — that is cosmetic only.
+Until step 2 completes, visitors hitting `www.…` see the "Setting up…" placeholder.
 
-Then re-enable Lovable Emails for the project (the "Emails disabled" error indicates the project-level toggle is off) and redeploy both edge functions.
+## Fix (manual steps — only you can do these, I cannot)
 
-### 2. Template design refresh — Aevolve / "Living with Arthritis" branding
+1. Open **Project Settings → Domains** in Lovable.
+2. Find the `www.livingwitharthritis.org.uk` entry.
+   - If it shows **Action required** → click **Complete Setup** and follow the prompts.
+   - If it shows **Verifying** or **Setting up** → wait (DNS can take up to 72 hours, but usually minutes).
+   - If it shows **Offline** or **Failed** → check that an `A` record for `www` exists at your DNS provider pointing to `185.158.133.1` with no conflicting records, then click **Retry / Verify Domain**.
+   - If there is **no `www` entry at all** → click **Connect Domain**, type `www.livingwitharthritis.org.uk`, and follow the DNS instructions Lovable shows.
+3. Once `www` shows **Active**, set the root (`livingwitharthritis.org.uk`) as **Primary** so `www` automatically redirects to it (or vice-versa, your choice).
+4. Verify by visiting `https://www.livingwitharthritis.org.uk` — it should redirect to the primary and load the site.
 
-All 6 auth templates and 4 transactional templates currently use the scaffold defaults (black buttons, Arial). Refresh them to match the site:
+## Optional follow-up I can help with
 
-- Crimson primary (`hsl(355 78% 42%)`) buttons with white text
-- Playfair Display headings (web-safe fallback: Georgia, serif)
-- Inter / system-ui body
-- Logo / wordmark at top of each email
-- White body background (required), generous padding, footer with charity registration line
+- After `www` is Active, I can update internal links / canonical URLs / sitemap / `robots.txt` to consistently use whichever variant you pick as primary (recommend the root: `https://livingwitharthritis.org.uk`).
+- I can add a small sanity check to the SEO meta to enforce the canonical host.
 
-Templates to restyle:
-- Auth: `signup`, `magic-link`, `recovery`, `invite`, `email-change`, `reauthentication`
-- Transactional: `contact-confirmation`, `contact-admin-notification`, `donation-confirmation`, `fundraising-admin-notification`
+Tell me once `www` shows Active and I'll do the canonical cleanup.
 
-### 3. Reliability hardening
+## Out of scope
 
-- Add a small DLQ requeue helper (manual SQL flow documented inline) — the 10 stuck DLQ messages from the misconfigured period can stay archived; new sends will flow correctly.
-- Add input-validation logging to the two submit functions (`submit-contact`, `submit-fundraising`) so failures surface in the dashboard instead of silently dropping.
-- Confirm the `process-email-queue` cron job still exists and is firing.
-
-### 4. New: Admin email monitoring dashboard
-
-Add `/admin/emails` (admin-role gated via existing `is_admin()` RPC) with:
-
-- Time-range filter (24h / 7d / 30d / custom)
-- Template filter (multi-select from distinct `template_name` values)
-- Status filter (Sent / Failed / Suppressed / All) with colour-coded badges
-- Summary stat cards: total unique emails, sent, failed, suppressed (deduped by `message_id`)
-- Paginated log table: Template · Recipient · Status · Timestamp · Error (50/page, sorted desc)
-- All queries use `DISTINCT ON (message_id) … ORDER BY message_id, created_at DESC` to dedupe pending→sent rows.
-
-Link the dashboard from the existing admin nav.
-
-### Technical Details
-
-- No DB schema changes required — `email_send_log`, `suppressed_emails`, and `email_unsubscribe_tokens` already exist from earlier setup.
-- No new edge functions; only edits to existing ones.
-- Redeploy required for: `send-transactional-email`, `auth-email-hook`, plus all 10 template files (templates are bundled into the functions at deploy time).
-- Dashboard fetches via the Supabase client with RLS — will add a select policy on `email_send_log` restricted to `is_admin()`.
-
-### Out of Scope
-
-- Switching providers (Resend/SendGrid) — Lovable Emails stays.
-- Marketing / newsletter sends — not supported, would require a separate tool.
-- Changing the `notify` subdomain — requires a fresh DNS setup; current verified one will be used.
+- Editing any application code (no fix exists there for this issue).
+- Changing the root domain configuration — it's already healthy.
+- Removing/altering the `notify.www.livingwitharthritis.org.uk` email subdomain — unrelated to this screen.
