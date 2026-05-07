@@ -99,6 +99,7 @@ const ArthritisStarterGuide = lazy(() => import("./pages/ArthritisStarterGuide")
 const Gallery = lazy(() => import("./pages/Gallery"));
 const Credits = lazy(() => import("./pages/Credits"));
 const TaiChiForBalance = lazy(() => import("./pages/exercises/TaiChiForBalance"));
+const Pedometer = lazy(() => import("./pages/Pedometer"));
 // Loading fallback with skeleton-style animation
 const PageLoader = () => (
   <div className="min-h-screen flex flex-col items-center justify-center bg-background gap-4">
@@ -199,6 +200,7 @@ function AnimatedRoutes() {
         <Route path="/regions/:region" element={<RegionHub />} />
         <Route path="/arthritis-waiting-list-help" element={<WaitingListHelp />} />
         <Route path="/tools/waiting-time" element={<WaitingTimeCalculator />} />
+        <Route path="/pedometer" element={<Pedometer />} />
         <Route path="/arthritis-starter-guide" element={<ArthritisStarterGuide />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/credits" element={<Credits />} />
