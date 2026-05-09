@@ -302,9 +302,9 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
           </div>
         </noscript>
 
-        <Suspense fallback={<div className="h-80 bg-secondary" aria-hidden="true" />}>
+        <LazySection name="Footer" fallback={<div className="h-80 bg-secondary" aria-hidden="true" />}>
           <Footer />
-        </Suspense>
+        </LazySection>
       </div>
     </>
   );
