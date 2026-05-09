@@ -21,6 +21,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 /* ─── Critical path (above the fold only) ────────────────────────────── */
 import TriageSection from "@/components/landing/TriageSection";
 import SkeletonSection from "@/components/landing/SkeletonSection";
+import LazySection from "@/components/landing/LazySection";
 
 /* ─── Lazy imports ───────────────────────────────────────────────────── */
 const QuickAccessSection = lazy(() => import("@/components/landing/QuickAccessSection"));
@@ -247,39 +248,39 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
         <main id="main-content" role="main" tabIndex={-1}>
           <HeroSection />
 
-          <Suspense fallback={null}>
+          <LazySection name="AggregatedSocialProof" fallback={null}>
             <AggregatedSocialProof />
-          </Suspense>
+          </LazySection>
 
-          <Suspense fallback={<SkeletonSection />}>
+          <LazySection name="MissionStatementBand">
             <MissionStatementBand />
-          </Suspense>
+          </LazySection>
 
           <TriageSection />
 
-          <Suspense fallback={<SkeletonSection />}>
+          <LazySection name="EditorialIndex">
             <EditorialIndex />
-          </Suspense>
+          </LazySection>
 
-          <Suspense fallback={<SkeletonSection />}>
+          <LazySection name="FeaturedStoryBand">
             <FeaturedStoryBand />
-          </Suspense>
+          </LazySection>
 
-          <Suspense fallback={<SkeletonSection />}>
+          <LazySection name="PortraitGrid">
             <PortraitGrid />
-          </Suspense>
-          <Suspense fallback={<SkeletonSection />}>
+          </LazySection>
+          <LazySection name="HowItWorksSection">
             <HowItWorksSection />
-          </Suspense>
+          </LazySection>
         </main>
 
-        <Suspense fallback={null}>
+        <LazySection name="BackToTopButton" fallback={null}>
           <BackToTopButton />
-        </Suspense>
-        
-        <Suspense fallback={null}>
+        </LazySection>
+
+        <LazySection name="CookieBanner" fallback={null}>
           <CookieBanner onAnalyticsChange={handleAnalyticsChange} />
-        </Suspense>
+        </LazySection>
 
         <noscript>
           <div
@@ -301,9 +302,9 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
           </div>
         </noscript>
 
-        <Suspense fallback={<div className="h-80 bg-secondary" aria-hidden="true" />}>
+        <LazySection name="Footer" fallback={<div className="h-80 bg-secondary" aria-hidden="true" />}>
           <Footer />
-        </Suspense>
+        </LazySection>
       </div>
     </>
   );
