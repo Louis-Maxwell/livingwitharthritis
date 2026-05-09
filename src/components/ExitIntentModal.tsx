@@ -78,8 +78,16 @@ const ExitIntentModal = () => {
     //   - 30s on page  AND
     //   - scrolled at least 30% of document height
     // This filters bots and accidental swipers (current bounce ~91%).
-    const scrollThreshold = () =>
-      Math.max(400, (document.documentElement.scrollHeight - window.innerHeight) * 0.3);
+    // Cache the threshold rather than reading scrollHeight on every scroll
+    // event (reading layout properties in scroll handlers triggers forced
+    // reflows — flagged by Lighthouse).
+    let cachedThreshold = 400;
+    const recalcThreshold = () => {
+      cachedThreshold = Math.max(
+        400,
+        (document.documentElement.scrollHeight - window.innerHeight) * 0.3
+      );
+    };
     let dwellElapsed = false;
     let scrollReached = false;
     const tryArm = () => {
@@ -89,12 +97,23 @@ const ExitIntentModal = () => {
       dwellElapsed = true;
       tryArm();
     }, 30000);
+    // Defer first read to idle so it doesn't compete with initial paint.
+    const idle = (window as unknown as { requestIdleCallback?: (cb: () => void) => number })
+      .requestIdleCallback;
+    if (typeof idle === "function") idle(recalcThreshold);
+    else window.setTimeout(recalcThreshold, 1500);
+    window.addEventListener("resize", recalcThreshold, { passive: true });
+    let armScrollScheduled = false;
     const armScroll = () => {
-      if (scrollReached) return;
-      if (window.scrollY >= scrollThreshold()) {
-        scrollReached = true;
-        tryArm();
-      }
+      if (scrollReached || armScrollScheduled) return;
+      armScrollScheduled = true;
+      requestAnimationFrame(() => {
+        armScrollScheduled = false;
+        if (window.scrollY >= cachedThreshold) {
+          scrollReached = true;
+          tryArm();
+        }
+      });
     };
     window.addEventListener("scroll", armScroll, { passive: true });
 
