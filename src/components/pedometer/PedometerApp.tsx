@@ -116,6 +116,8 @@ function usePedometer({ goal, unitSystem }: { goal: number; unitSystem: UnitSyst
   const [sensorMessage, setSensorMessage] = useState<string | null>(null);
   const motionHandlerRef = useRef<((e: DeviceMotionEvent) => void) | null>(null);
   const peakStateRef = useRef({ lastMag: 0, goingUp: false, lastPeakAt: 0 });
+  const sessionRef = useRef<{ startedAt: number; startSteps: number } | null>(null);
+  const goalFiredDateRef = useRef<string | null>(null);
   const todayKey = dateKey();
 
   const todayTotal = (history[todayKey] || 0) + liveSteps;
