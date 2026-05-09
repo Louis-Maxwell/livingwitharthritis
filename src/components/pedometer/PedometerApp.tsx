@@ -283,6 +283,36 @@ function usePedometer({ goal, unitSystem }: { goal: number; unitSystem: UnitSyst
     [history, todayTotal],
   );
 
+  const lastGoalDate = useMemo(() => {
+    if (todayTotal >= goal) return todayKey;
+    const keys = Object.keys(history)
+      .filter(k => k !== todayKey && (history[k] || 0) >= goal)
+      .sort();
+    return keys.length ? keys[keys.length - 1] : null;
+  }, [history, todayTotal, goal, todayKey]);
+
+  const bestStreak = useMemo(() => {
+    const met = new Set<string>(
+      Object.keys(history).filter(k => (history[k] || 0) >= goal),
+    );
+    if (todayTotal >= goal) met.add(todayKey);
+    if (met.size === 0) return 0;
+    const sorted = Array.from(met).sort();
+    let best = 1;
+    let run = 1;
+    for (let i = 1; i < sorted.length; i++) {
+      const prev = new Date(sorted[i - 1]);
+      prev.setDate(prev.getDate() + 1);
+      if (dateKey(prev) === sorted[i]) {
+        run++;
+        if (run > best) best = run;
+      } else {
+        run = 1;
+      }
+    }
+    return best;
+  }, [history, todayTotal, goal, todayKey]);
+
   // Fire goal_reached once per calendar day when threshold is crossed.
   useEffect(() => {
     if (todayTotal >= goal && goalFiredDateRef.current !== todayKey) {
@@ -294,7 +324,8 @@ function usePedometer({ goal, unitSystem }: { goal: number; unitSystem: UnitSyst
   return {
     todayTotal, liveSteps, isTracking, startTracking, stopTracking, lastUpdate,
     distanceKm, distanceMi, calories, activeMin, pct,
-    weekData, monthData, streak, allTimeSteps, bestDay, history,
+    weekData, monthData, streak, bestStreak, lastGoalDate,
+    allTimeSteps, bestDay, history,
     goal, unitSystem,
     sensorStatus, sensorMessage,
   };
@@ -722,6 +753,97 @@ function SettingsPanel({ goal, setGoal, unit, setUnit, onClose, returnFocusRef }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// STREAK WIDGET
+// ─────────────────────────────────────────────────────────────────────────────
+
+const ukDateFmt = new Intl.DateTimeFormat('en-GB', {
+  day: '2-digit', month: 'short', year: 'numeric',
+});
+
+function formatLastGoal(lastGoalDate: string | null): { label: string; full: string | null } {
+  if (!lastGoalDate) return { label: 'Not yet — start today', full: null };
+  const today = new Date();
+  const todayK = dateKey(today);
+  if (lastGoalDate === todayK) return { label: 'Today', full: ukDateFmt.format(today) };
+  const last = new Date(lastGoalDate);
+  const full = ukDateFmt.format(last);
+  const msPerDay = 86_400_000;
+  const todayMid = new Date(today.getFullYear(), today.getMonth(), today.getDate()).getTime();
+  const lastMid = new Date(last.getFullYear(), last.getMonth(), last.getDate()).getTime();
+  const diff = Math.round((todayMid - lastMid) / msPerDay);
+  if (diff === 1) return { label: 'Yesterday', full };
+  if (diff > 1 && diff < 7) return { label: `${diff} days ago`, full };
+  return { label: full, full };
+}
+
+function StreakWidget({
+  streak, bestStreak, lastGoalDate, goalMetToday,
+}: {
+  streak: number;
+  bestStreak: number;
+  lastGoalDate: string | null;
+  goalMetToday: boolean;
+}) {
+  const last = formatLastGoal(lastGoalDate);
+  const motivator = streak >= 30
+    ? 'Iron legs — keep the momentum'
+    : streak >= 7
+      ? 'A full week of wins'
+      : streak > 0
+        ? goalMetToday ? 'Another day in the bag' : 'Hit today’s goal to extend it'
+        : 'Reach today’s goal to start a streak';
+
+  const ariaLabel = streak > 0
+    ? `Current goal streak: ${streak} ${streak === 1 ? 'day' : 'days'}. Best streak ${bestStreak}. Last goal reached ${last.full ?? 'not yet'}.`
+    : `No active streak. Best streak ${bestStreak}. ${lastGoalDate ? `Last goal reached ${last.full}.` : 'No goal reached yet.'}`;
+
+  return (
+    <section
+      aria-label={ariaLabel}
+      className="rounded-2xl border border-primary/20 bg-card px-5 py-4 flex items-center justify-between gap-4"
+    >
+      <div className="flex items-center gap-3 min-w-0">
+        <span
+          aria-hidden="true"
+          className="text-2xl leading-none select-none"
+        >
+          {streak > 0 ? '🔥' : '✦'}
+        </span>
+        <div className="min-w-0">
+          <div className="text-[11px] tracking-[0.18em] uppercase text-muted-foreground font-medium">
+            Goal streak
+          </div>
+          <div className="flex items-baseline gap-1.5">
+            <span className="font-bold text-3xl text-primary tabular-nums">{streak}</span>
+            <span className="text-sm text-muted-foreground">
+              {streak === 1 ? 'day' : 'days'}
+            </span>
+          </div>
+          <div className="text-xs text-muted-foreground mt-0.5 truncate">{motivator}</div>
+        </div>
+      </div>
+      <dl className="text-right text-xs space-y-1.5 shrink-0">
+        <div>
+          <dt className="text-muted-foreground tracking-wider uppercase text-[10px]">Best</dt>
+          <dd className="font-semibold text-foreground tabular-nums">
+            {bestStreak} {bestStreak === 1 ? 'day' : 'days'}
+          </dd>
+        </div>
+        <div>
+          <dt className="text-muted-foreground tracking-wider uppercase text-[10px]">Last goal</dt>
+          <dd
+            className="font-semibold text-foreground"
+            title={last.full ?? undefined}
+          >
+            {last.label}
+          </dd>
+        </div>
+      </dl>
+    </section>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // TABS — Today
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -729,7 +851,7 @@ function TodayTab({ ped }: { ped: PedoState }) {
   const {
     todayTotal, isTracking, startTracking, stopTracking,
     pct, distanceKm, distanceMi, calories, activeMin,
-    streak, goal, unitSystem, lastUpdate,
+    streak, bestStreak, lastGoalDate, goal, unitSystem, lastUpdate,
     sensorStatus, sensorMessage,
   } = ped;
   const reduced = usePrefersReducedMotion();
@@ -806,6 +928,13 @@ function TodayTab({ ped }: { ped: PedoState }) {
           </div>
         )}
       </div>
+
+      <StreakWidget
+        streak={streak}
+        bestStreak={bestStreak}
+        lastGoalDate={lastGoalDate}
+        goalMetToday={pct >= 1}
+      />
 
       <div className="grid grid-cols-2 gap-3">
         <MetricCard icon="📍" label="Distance" value={dist.val} unit={dist.unit} accent="primary" delay={0} />
