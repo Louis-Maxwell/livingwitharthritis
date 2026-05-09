@@ -161,6 +161,10 @@ const DietHub = () => {
       <main id="main-content">
         {/* ─── Nutrition Stats Banner ─── */}
         <section className="py-12 lg:py-16 bg-tint-green">
+          <div className="container mx-auto px-6 md:px-10 max-w-5xl mb-6 flex flex-wrap items-center justify-center gap-2">
+            <AiDisclosureBadge variant="full" />
+            <ClinicalReviewBadge />
+          </div>
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <p className="section-label text-primary mb-6">Why Diet Matters</p>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
