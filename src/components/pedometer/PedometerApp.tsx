@@ -843,6 +843,62 @@ function StreakWidget({
   );
 }
 
+function GoalProgressBar({
+  todayTotal, goal, pct, streak, goalMetToday, reduced,
+}: {
+  todayTotal: number;
+  goal: number;
+  pct: number;
+  streak: number;
+  goalMetToday: boolean;
+  reduced: boolean;
+}) {
+  const percent = Math.round(pct * 100);
+  const remaining = Math.max(0, goal - todayTotal);
+  const message = goalMetToday
+    ? `Goal reached — streak extended to ${streak} ${streak === 1 ? 'day' : 'days'}`
+    : streak > 0
+      ? `${fmtFull(remaining)} steps to keep your ${streak}-day streak alive`
+      : `${fmtFull(remaining)} steps to start a new streak today`;
+
+  return (
+    <section
+      aria-label={`Today's goal progress: ${percent} percent. ${message}`}
+      className="rounded-2xl border border-primary/20 bg-card px-5 py-4"
+    >
+      <div className="flex items-baseline justify-between gap-3 mb-2">
+        <span className="text-[11px] tracking-[0.18em] uppercase text-muted-foreground font-medium">
+          Today’s goal progress
+        </span>
+        <span
+          className={cn(
+            'text-sm font-semibold tabular-nums',
+            goalMetToday ? 'text-primary' : 'text-foreground',
+          )}
+        >
+          {percent}%
+        </span>
+      </div>
+      <div
+        role="progressbar"
+        aria-valuenow={percent}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        className="h-2 w-full rounded-full bg-muted overflow-hidden"
+      >
+        <div
+          className={cn(
+            'h-full rounded-full bg-primary',
+            !reduced && 'transition-all duration-500 ease-out',
+          )}
+          style={{ width: `${Math.min(100, Math.max(0, percent))}%` }}
+        />
+      </div>
+      <div className="text-xs text-muted-foreground mt-2">{message}</div>
+    </section>
+  );
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 // TABS — Today
 // ─────────────────────────────────────────────────────────────────────────────
@@ -934,6 +990,15 @@ function TodayTab({ ped }: { ped: PedoState }) {
         bestStreak={bestStreak}
         lastGoalDate={lastGoalDate}
         goalMetToday={pct >= 1}
+      />
+
+      <GoalProgressBar
+        todayTotal={todayTotal}
+        goal={goal}
+        pct={pct}
+        streak={streak}
+        goalMetToday={pct >= 1}
+        reduced={reduced}
       />
 
       <div className="grid grid-cols-2 gap-3">

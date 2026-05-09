@@ -1,39 +1,30 @@
-## Goal Streak Widget
+## Goal Progress Bar (under Streak Widget)
 
-Add a dedicated streak widget to the Today tab on the Pedometer page that highlights:
-- Current daily-goal streak (consecutive days the goal was met)
-- Last date the goal was reached (formatted in en-GB, with relative label like "Today" / "Yesterday" / "3 days ago")
-- A best/longest streak achieved
-- Subtle motivational copy that adapts to streak length
-
-The widget sits between the Start/Stop button area and the existing 2×2 metric grid, so it is the first thing users see after the step ring. It replaces no existing content — the existing small "Streak" tile in the metric grid stays for parity.
+Add a slim progress indicator directly beneath the `StreakWidget` in `TodayTab` showing how close the user is to today's goal — and what that means for their streak.
 
 ### What to build
 
-1. **Derive new values inside `usePedometer`** (`src/components/pedometer/PedometerApp.tsx`):
-   - `lastGoalDate: string | null` — most recent `dateKey` in `history` (or today via `todayTotal`) where steps ≥ goal.
-   - `bestStreak: number` — longest consecutive run of goal-met days across the stored history.
-   - Expose both alongside the existing `streak` from the hook return.
+1. **New `GoalProgressBar` component** in `src/components/pedometer/PedometerApp.tsx` (colocated with `StreakWidget`):
+   - Props: `todayTotal`, `goal`, `pct`, `streak`, `goalMetToday`.
+   - A `rounded-2xl border bg-card` card matching `StreakWidget` styling.
+   - Top row: "Today's goal progress" label + `{Math.round(pct * 100)}%` value (right-aligned, `text-primary` when `goalMetToday`).
+   - Middle: a 100%-width track (`h-2 rounded-full bg-muted`) with a `bg-primary` fill at `width: pct * 100%`, `transition-all duration-500`. Reduced-motion aware (no transition when `prefers-reduced-motion`).
+   - Bottom row (small `text-muted-foreground`): contextual streak message:
+     - If `goalMetToday` → "Goal reached — streak extended to {streak} day{plural}"
+     - Else if `streak > 0` → "{stepsRemaining} steps to keep your {streak}-day streak alive"
+     - Else → "{stepsRemaining} steps to start a new streak today"
+   - `role="progressbar"` with `aria-valuenow`, `aria-valuemin={0}`, `aria-valuemax={100}`, and an `aria-label` summarising progress.
 
-2. **New presentational component `StreakWidget`** in the same file (keeps file colocated like `StepRing`, `BarChart`, `MetricCard`):
-   - Props: `streak`, `bestStreak`, `lastGoalDate`, `goalMetToday`.
-   - Layout: rounded card matching existing `MetricCard` styling (`rounded-2xl border bg-card`), crimson/gold accent consistent with current palette (no new tokens).
-   - Left: large streak number with "day streak" label and a flame/spark glyph (text emoji `✦` or `🔥`, matching existing icon style).
-   - Right: stacked small rows for "Best streak" and "Last goal reached" (shows "Today", "Yesterday", `dd MMM yyyy`, or "Not yet — start today" when null).
-   - Reduced-motion aware; uses `aria-label` summarising the streak status for screen readers.
-
-3. **Render `StreakWidget`** inside `TodayTab` immediately above the existing `grid grid-cols-2 gap-3` metric grid.
+2. **Render in `TodayTab`** immediately after `<StreakWidget … />` (line ~932) and before the existing 2×2 metric grid. Pass `todayTotal`, `goal`, `pct`, `streak`, `goalMetToday={pct >= 1}` from the existing destructured `ped` values.
 
 ### Technical notes
 
-- Date formatting via `Intl.DateTimeFormat('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })` — no new deps.
-- "Today/Yesterday/N days ago" computed from `dateKey` diff against today's key.
-- `bestStreak` computed with a single sorted pass over `Object.keys(history)` plus today's status; memoised with `useMemo`.
-- Pure UI/derivation change — no analytics, storage, or business-logic changes. Existing `pedometer_goal_reached` event already fires on the streak trigger.
-- Strict design-token usage (`text-primary`, `text-muted-foreground`, `bg-card`, `border-border`); no hard-coded colours.
+- All values already exist on the hook return — no new derivations or storage changes.
+- Strict design tokens only (`bg-card`, `bg-muted`, `bg-primary`, `text-primary`, `text-muted-foreground`, `border-border`). No hard-coded colours.
+- Pure presentation — no analytics, no state, no business logic changes. The existing `pedometer_goal_reached` event continues to fire from the existing `useEffect`.
 
 ### Out of scope
 
+- No changes to `Pedometer.tsx`, settings, achievements, charts, or storage schema.
 - No new GA events.
-- No changes to `Pedometer.tsx`, settings, achievements, or charts.
-- No persistence schema changes — derived from existing `history` localStorage.
+- No changes to `StreakWidget` itself.
