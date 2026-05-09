@@ -21,6 +21,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 /* ─── Critical path (above the fold only) ────────────────────────────── */
 import TriageSection from "@/components/landing/TriageSection";
 import SkeletonSection from "@/components/landing/SkeletonSection";
+import LazySection from "@/components/landing/LazySection";
 
 /* ─── Lazy imports ───────────────────────────────────────────────────── */
 const QuickAccessSection = lazy(() => import("@/components/landing/QuickAccessSection"));
