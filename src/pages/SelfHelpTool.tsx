@@ -119,6 +119,10 @@ export default function SelfHelpTool() {
         </PageHero>
 
         <main id="main-content" className="container mx-auto px-5 md:px-8 py-10 space-y-10 md:space-y-14">
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <AiDisclosureBadge variant="full" />
+            <ClinicalReviewBadge />
+          </div>
           <Suspense fallback={<SectionLoader />}>
             <VirtualPhysioSection />
           </Suspense>
