@@ -81,6 +81,38 @@ serve(async (req) => {
     const validated = parseWithSchema(ChatRequest, parsed.data, req, requestId);
     if (!validated.ok) return validated.response;
 
+    const messages = validated.data.messages;
+    const lastUser = [...messages].reverse().find((m) => m.role === "user");
+    const lastUserText = lastUser?.content ?? "";
+
+    /* ── Pre-flight safety checks ───────────────────────────────────── */
+    if (containsBlockedContent(lastUserText)) {
+      console.warn(`[${requestId}] Blocked content; redacted="${redactPII(lastUserText)}"`);
+      return new Response(buildRefusalStream("blocked"), {
+        headers: {
+          ...corsHeaders,
+          "Content-Type": "text/event-stream",
+          "X-Request-Id": requestId,
+          "X-AI-Disclosure": "ai-generated",
+          "X-AI-Safety": "blocked",
+        },
+      });
+    }
+
+    const flags = detectRedFlags(lastUserText);
+    if (flags.matched) {
+      console.warn(`[${requestId}] Red flag (${flags.category}); redacted="${redactPII(lastUserText)}"`);
+      return new Response(buildRefusalStream("red_flag", flags.category), {
+        headers: {
+          ...corsHeaders,
+          "Content-Type": "text/event-stream",
+          "X-Request-Id": requestId,
+          "X-AI-Disclosure": "ai-generated",
+          "X-AI-Safety": `red_flag:${flags.category}`,
+        },
+      });
+    }
+
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) {
       console.error(`[${requestId}] LOVABLE_API_KEY not configured`);
@@ -100,7 +132,7 @@ serve(async (req) => {
       body: JSON.stringify({
         model: "google/gemini-3-flash-preview",
         max_tokens: 800,
-        messages: [{ role: "system", content: SYSTEM_PROMPT }, ...validated.data.messages],
+        messages: [{ role: "system", content: SYSTEM_PROMPT }, ...messages],
         stream: true,
       }),
     });
@@ -136,6 +168,7 @@ serve(async (req) => {
         ...corsHeaders,
         "Content-Type": "text/event-stream",
         "X-Request-Id": requestId,
+        "X-AI-Disclosure": "ai-generated",
       },
     });
   } catch (error) {
