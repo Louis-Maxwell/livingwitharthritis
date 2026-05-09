@@ -1,19 +1,17 @@
 /**
  * Pedometer++ — Step Tracking Tool
- * Self-contained interactive pedometer with simulated step sensor,
- * weekly/monthly history, achievements and goal settings.
+ * Self-contained interactive pedometer that uses the browser's
+ * DeviceMotion API (accelerometer) for real on-device step counting,
+ * with weekly/monthly history, achievements and goal settings.
  *
- * Accessibility:
- *  - WAI-ARIA tablist for view + history toggle (arrow-key roving tabindex)
- *  - Settings dialog with focus trap, Escape close, and focus restoration
- *  - SVG charts exposed as role="img" with descriptive aria-label
- *  - Decorative emoji marked aria-hidden
- *  - Honors prefers-reduced-motion
- *  - Themed via design tokens (primary / gold / card / muted) so light, dark,
- *    and high-contrast modes all meet WCAG AA contrast.
+ * Step detection: peak-finding on |accelerationIncludingGravity| with a
+ * refractory period — works on any phone whose browser exposes
+ * `devicemotion` events. iOS 13+ requires an explicit user-gesture
+ * permission via `DeviceMotionEvent.requestPermission()` (handled here).
  *
- * 📱 TODO: Replace simulated sensor in usePedometer with real
- * DeviceMotionEvent / Web Pedometer API integration when wrapping in Capacitor.
+ * Accessibility: WAI-ARIA tablists, focus-trapped settings dialog,
+ * SVG charts as role="img", reduced-motion honoured, themed via design
+ * tokens for WCAG AA contrast in light/dark/high-contrast.
  */
 
 import {
