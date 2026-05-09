@@ -1,30 +1,35 @@
-## Goal Progress Bar (under Streak Widget)
+## Goal
+Ensure the landing page never goes blank when a lazy-loaded section fails to load or is slow. Every lazy section will get a skeleton fallback while loading and an inline error state if loading fails.
 
-Add a slim progress indicator directly beneath the `StreakWidget` in `TodayTab` showing how close the user is to today's goal — and what that means for their streak.
+## Approach
 
-### What to build
+### 1. Create a reusable `LazySection` wrapper
+New file: `src/components/landing/LazySection.tsx`
 
-1. **New `GoalProgressBar` component** in `src/components/pedometer/PedometerApp.tsx` (colocated with `StreakWidget`):
-   - Props: `todayTotal`, `goal`, `pct`, `streak`, `goalMetToday`.
-   - A `rounded-2xl border bg-card` card matching `StreakWidget` styling.
-   - Top row: "Today's goal progress" label + `{Math.round(pct * 100)}%` value (right-aligned, `text-primary` when `goalMetToday`).
-   - Middle: a 100%-width track (`h-2 rounded-full bg-muted`) with a `bg-primary` fill at `width: pct * 100%`, `transition-all duration-500`. Reduced-motion aware (no transition when `prefers-reduced-motion`).
-   - Bottom row (small `text-muted-foreground`): contextual streak message:
-     - If `goalMetToday` → "Goal reached — streak extended to {streak} day{plural}"
-     - Else if `streak > 0` → "{stepsRemaining} steps to keep your {streak}-day streak alive"
-     - Else → "{stepsRemaining} steps to start a new streak today"
-   - `role="progressbar"` with `aria-valuenow`, `aria-valuemin={0}`, `aria-valuemax={100}`, and an `aria-label` summarising progress.
+- Wraps children in a per-section `ErrorBoundary` plus `Suspense`.
+- Props: `fallback?` (defaults to `<SkeletonSection />`), `name` (for error message + retry telemetry), `children`.
+- Error fallback: a compact, on-brand panel ("This section couldn't load — Retry") with a button that resets the boundary (forces re-render / re-import).
+- Allows passing `fallback={null}` for non-visual sections (e.g. `BackToTopButton`, `CookieBanner`).
 
-2. **Render in `TodayTab`** immediately after `<StreakWidget … />` (line ~932) and before the existing 2×2 metric grid. Pass `todayTotal`, `goal`, `pct`, `streak`, `goalMetToday={pct >= 1}` from the existing destructured `ped` values.
+### 2. Extend `ErrorBoundary` (if needed)
+Confirm `src/components/ErrorBoundary.tsx` supports a `resetKeys` or exposes a `reset()` method. If not, the new LazySection will manage its own boundary internally with a small inline class component so retry actually re-mounts the lazy import.
 
-### Technical notes
+### 3. Update `src/pages/Index.tsx`
+Replace each `<Suspense fallback={...}>...</Suspense>` block around lazy sections with `<LazySection>...</LazySection>`:
+- `AggregatedSocialProof`, `MissionStatementBand`, `EditorialIndex`, `FeaturedStoryBand`, `PortraitGrid`, `HowItWorksSection`, `Footer`
+- Keep `fallback={null}` for `BackToTopButton` and `CookieBanner` (no visible skeleton needed).
+- Footer keeps its existing tall placeholder fallback.
 
-- All values already exist on the hook return — no new derivations or storage changes.
-- Strict design tokens only (`bg-card`, `bg-muted`, `bg-primary`, `text-primary`, `text-muted-foreground`, `border-border`). No hard-coded colours.
-- Pure presentation — no analytics, no state, no business logic changes. The existing `pedometer_goal_reached` event continues to fire from the existing `useEffect`.
+### 4. Verify
+- Build passes.
+- Preview loads without blank screen.
+- Temporarily throw inside one lazy section to confirm inline error UI renders without crashing the whole page (revert after verification).
 
-### Out of scope
+## Files touched
+- New: `src/components/landing/LazySection.tsx`
+- Edit: `src/pages/Index.tsx`
+- Possibly edit: `src/components/ErrorBoundary.tsx` (only if it lacks reset support)
 
-- No changes to `Pedometer.tsx`, settings, achievements, charts, or storage schema.
-- No new GA events.
-- No changes to `StreakWidget` itself.
+## Out of scope
+- Refactoring the lazy imports themselves.
+- Changing section content or styling beyond the new error panel.
