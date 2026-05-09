@@ -24,7 +24,7 @@ const BLOCKED: RegExp[] = [
   /\b(how (much|many).*(paracetamol|ibuprofen|opioid|tramadol|codeine|oxycodone|morphine).*(overdose|kill|die))\b/i,
   /\b(ignore.*(previous|above).*(instruction|prompt|system))\b/i,
   /\b(jailbreak|DAN mode|developer mode)\b/i,
-  /\b(prescribe|prescription).*(child|infant|baby|toddler).*(dose|dosage|mg))\b/i,
+  /\b(prescribe|prescription).*(child|infant|baby|toddler).*(dose|dosage|mg)\b/i,
 ];
 
 /* ─── Public API ───────────────────────────────────────────────────────── */
