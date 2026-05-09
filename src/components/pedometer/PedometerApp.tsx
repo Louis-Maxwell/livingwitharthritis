@@ -278,6 +278,7 @@ function usePedometer({ goal, unitSystem }: { goal: number; unitSystem: UnitSyst
     distanceKm, distanceMi, calories, activeMin, pct,
     weekData, monthData, streak, allTimeSteps, bestDay, history,
     goal, unitSystem,
+    sensorStatus, sensorMessage,
   };
 }
 
