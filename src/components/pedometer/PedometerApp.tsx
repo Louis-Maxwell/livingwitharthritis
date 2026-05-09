@@ -706,6 +706,7 @@ function TodayTab({ ped }: { ped: PedoState }) {
     todayTotal, isTracking, startTracking, stopTracking,
     pct, distanceKm, distanceMi, calories, activeMin,
     streak, goal, unitSystem, lastUpdate,
+    sensorStatus, sensorMessage,
   } = ped;
   const reduced = usePrefersReducedMotion();
 
