@@ -25,6 +25,7 @@ import {
   type ReactNode,
 } from 'react';
 import { cn } from '@/lib/utils';
+import { trackEvent } from '@/lib/analytics';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // CONSTANTS
@@ -115,6 +116,8 @@ function usePedometer({ goal, unitSystem }: { goal: number; unitSystem: UnitSyst
   const [sensorMessage, setSensorMessage] = useState<string | null>(null);
   const motionHandlerRef = useRef<((e: DeviceMotionEvent) => void) | null>(null);
   const peakStateRef = useRef({ lastMag: 0, goingUp: false, lastPeakAt: 0 });
+  const sessionRef = useRef<{ startedAt: number; startSteps: number } | null>(null);
+  const goalFiredDateRef = useRef<string | null>(null);
   const todayKey = dateKey();
 
   const todayTotal = (history[todayKey] || 0) + liveSteps;
@@ -191,7 +194,9 @@ function usePedometer({ goal, unitSystem }: { goal: number; unitSystem: UnitSyst
     attachMotion();
     setSensorStatus('active');
     setTracking(true);
-  }, [isTracking, attachMotion]);
+    sessionRef.current = { startedAt: Date.now(), startSteps: todayTotal };
+    trackEvent('pedometer_start', { goal, sensor_status: 'active' });
+  }, [isTracking, attachMotion, goal, todayTotal]);
 
   const stopTracking = useCallback(() => {
     setTracking(false);
@@ -201,8 +206,15 @@ function usePedometer({ goal, unitSystem }: { goal: number; unitSystem: UnitSyst
       ...prev,
       [todayKey]: (prev[todayKey] || 0) + liveSteps,
     }));
+    const session = sessionRef.current;
+    trackEvent('pedometer_stop', {
+      goal,
+      session_steps: liveSteps,
+      duration_s: session ? Math.round((Date.now() - session.startedAt) / 1000) : 0,
+    });
+    sessionRef.current = null;
     setLive(0);
-  }, [liveSteps, todayKey, setHistory, detachMotion, sensorStatus]);
+  }, [liveSteps, todayKey, setHistory, detachMotion, sensorStatus, goal]);
 
   useEffect(() => () => {
     detachMotion();
@@ -270,6 +282,14 @@ function usePedometer({ goal, unitSystem }: { goal: number; unitSystem: UnitSyst
     () => Math.max(...Object.values(history), todayTotal),
     [history, todayTotal],
   );
+
+  // Fire goal_reached once per calendar day when threshold is crossed.
+  useEffect(() => {
+    if (todayTotal >= goal && goalFiredDateRef.current !== todayKey) {
+      goalFiredDateRef.current = todayKey;
+      trackEvent('pedometer_goal_reached', { goal, steps: todayTotal, streak });
+    }
+  }, [todayTotal, goal, todayKey, streak]);
 
   return {
     todayTotal, liveSteps, isTracking, startTracking, stopTracking, lastUpdate,
@@ -682,7 +702,13 @@ function SettingsPanel({ goal, setGoal, unit, setUnit, onClose, returnFocusRef }
         </fieldset>
 
         <button
-          onClick={() => { setGoal(localGoal); onClose(); }}
+          onClick={() => {
+            if (localGoal !== goal) {
+              trackEvent('pedometer_goal_changed', { goal: localGoal, previous_goal: goal });
+            }
+            setGoal(localGoal);
+            onClose();
+          }}
           className={cn(
             'w-full py-4 rounded-2xl bg-primary text-primary-foreground text-base font-bold shadow-lg hover:bg-primary/90 transition-colors',
             focusRing,
