@@ -7,9 +7,11 @@ import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { Badge } from "@/components/ui/badge";
 import { Footprints } from "lucide-react";
 import PedometerApp from "@/components/pedometer/PedometerApp";
+import { trackEvent } from "@/lib/analytics";
 
 export default function Pedometer() {
   useEffect(() => {
+    trackEvent("pedometer_view", { path: "/pedometer" });
     const script = document.createElement("script");
     script.type = "application/ld+json";
     script.text = JSON.stringify({
