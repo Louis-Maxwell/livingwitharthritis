@@ -80,6 +80,10 @@ const ChatMessage = ({ message }: { message: Message; isLatest: boolean }) => {
 export function ChatBot() {
   const [input, setInput] = useState("");
   const [historyOpen, setHistoryOpen] = useState(false);
+  const [emergency, setEmergency] = useState<{ open: boolean; category: string | null }>({
+    open: false,
+    category: null,
+  });
   const {
     messages,
     isLoading,
@@ -101,10 +105,19 @@ export function ChatBot() {
     }
   }, [messages]);
 
+  const safelySend = (text: string) => {
+    const flag = detectClientRedFlag(text);
+    if (flag.matched) {
+      setEmergency({ open: true, category: flag.category });
+      return;
+    }
+    sendMessage(text);
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (input.trim() && !isLoading) {
-      sendMessage(input);
+      safelySend(input);
       setInput("");
       if (inputRef.current) inputRef.current.style.height = "auto";
     }
