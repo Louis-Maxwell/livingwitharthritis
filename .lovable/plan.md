@@ -1,49 +1,78 @@
-## Add Pedometer++ to the website
+## Goal
+Bring the Pedometer page up to WCAG 2.1 AA: full keyboard navigation, complete ARIA labelling, and contrast that respects the site's light/dark/high-contrast tokens. Behaviour stays identical.
 
-Integrate the uploaded `PedometerApp.jsx` as a new interactive health tool, themed and integrated with the site's existing design system, navigation, and SEO patterns.
+## Scope
+Frontend-only changes to:
+- `src/components/pedometer/PedometerApp.tsx` (main work)
+- `src/pages/Pedometer.tsx` (small landmark / skip-link tweaks)
 
-### Where it lives
+No backend, no data, no business-logic changes.
 
-- New route: `/pedometer` (standalone page, like `/health-tools` and `/tools/waiting-time-calculator`)
-- Linked from:
-  - `HealthTools.tsx` (add a 4th tool card / cross-link)
-  - `ExerciseHub.tsx` (CTA card — fits the `/exercises` context the user is currently on)
-  - Sitemap (`public/sitemap.xml`) and `Sitemap.tsx`
+---
 
-### Files to create
+## 1. Keyboard navigation
 
-1. `src/pages/Pedometer.tsx` — page shell using `Header`, `Footer`, `PageHero`, `PageBreadcrumb`, Helmet SEO + JSON-LD (matching `HealthTools.tsx` pattern).
-2. `src/components/pedometer/PedometerApp.tsx` — converted from the uploaded JSX:
-   - Convert to TypeScript (`.tsx`), add types for state, history, achievements.
-   - Replace all hardcoded Tailwind colours (e.g. `bg-white`, `text-black`, `bg-indigo-500`) with semantic tokens (`bg-card`, `text-foreground`, `bg-primary`, `text-primary-foreground`, `border-border`, `bg-muted`, etc.) per the design system rule.
-   - Replace inline SVG ring colours with `hsl(var(--primary))` / `hsl(var(--accent))`.
-   - Use `Card`, `Button`, `Tabs`, `Badge`, `Progress`, `Dialog` from `@/components/ui` where the original used raw divs/buttons.
-   - Use `lucide-react` icons (Footprints, Flame, MapPin, Target, Trophy, Settings) instead of emojis.
-3. `src/components/pedometer/` sub-components if the file is large: `StepRing.tsx`, `WeeklyChart.tsx`, `MetricCard.tsx`, `AchievementBadge.tsx`, `SettingsPanel.tsx`, plus `usePedometer.ts` and `useStorage.ts` hooks in `src/hooks/`.
+- **Tabs (`Today / History / Awards`)** — convert the row of `<button>`s into a proper WAI-ARIA tablist:
+  - Container: `role="tablist"`, `aria-label="Pedometer views"`.
+  - Each tab: `role="tab"`, `aria-selected`, `aria-controls="panel-<id>"`, `id="tab-<id>"`, `tabIndex={selected ? 0 : -1}`.
+  - Arrow-Left / Arrow-Right / Home / End move focus and activate the tab (roving tabindex).
+  - Each panel: `role="tabpanel"`, `aria-labelledby`, `tabIndex={0}` so it is reachable.
+- **History sub-toggle (`Week / Month`)** — same tablist pattern, scoped.
+- **Settings dialog**:
+  - Trap focus inside while open; restore focus to the gear button on close.
+  - `Escape` closes it.
+  - First focusable element (close button) receives focus on open.
+  - Backdrop click still closes, but is no longer the only path.
+- **Step-goal preset chips & unit toggle**: already buttons; add `aria-pressed` for the selected state so keyboard/SR users get feedback.
+- **Range slider**: keep native `<input type="range">` (already keyboard-accessible) and add `aria-valuetext` like "10,000 steps".
+- **Start / Stop tracking button**: add `aria-pressed={isTracking}` and update `aria-label` dynamically.
+- All interactive elements get visible focus rings using the existing `focus-visible:ring-2 ring-ring ring-offset-2` tokens (currently inline-styled buttons have no focus outline).
 
-### Files to edit
+## 2. ARIA & semantics
 
-- `src/App.tsx` — add lazy route for `/pedometer`.
-- `src/pages/HealthTools.tsx` — add a link / card pointing to `/pedometer` (kept outside Tabs since this is a richer standalone tool).
-- `src/pages/ExerciseHub.tsx` — add a CTA card linking to the pedometer.
-- `public/sitemap.xml` + `src/pages/Sitemap.tsx` — add the new URL.
+- Replace the outermost `<div>` with `<section aria-label="Step tracker">`.
+- StepRing SVG: wrap in a group with `role="img"` and `aria-label="{steps} steps today, {pct}% of {goal} goal"`. Hide decorative `<text>` from AT via `aria-hidden`.
+- BarChart: add `role="img"` + `aria-label` summary ("Weekly steps: Mon 7,200; Tue 9,000; ..."). Tooltip becomes `role="tooltip"` with `aria-describedby` wiring on focus, and bars become focusable (`tabIndex=0`) so keyboard users can read each day's value.
+- MetricCard: wrap value+label in a single accessible name (`aria-label="Distance: 4.2 kilometres"`); hide emoji icons with `aria-hidden`.
+- Achievement grid: `role="list"` + `role="listitem"`; each badge `aria-label="{title}: {desc}. {Unlocked|Locked}"`.
+- Achievement summary progress: replace the custom div bar with `role="progressbar"` + `aria-valuemin/max/now/valuetext`.
+- Decorative emoji throughout (`🔥`, `📍`, `🏆`, etc.) get `aria-hidden="true"` so SR users don't hear "fire emoji".
+- Settings dialog: add `aria-labelledby` pointing to the heading, ensure it's portalled / on top of `<main>` with `aria-hidden` applied to background content while open.
+- `Pedometer.tsx`: ensure `<main id="main-content">` is the only `<main>`, and that the global skip-link target works (it already does; just verify).
 
-### Behaviour
+## 3. Color contrast & theming
 
-- Pure frontend, no backend changes. Step data persists to `localStorage` via the existing `useStorage` hook in the upload.
-- Keep the simulated sensor (the `📱 TODO` real-device markers stay as comments for future native integration).
-- Goal, units (km/mi), and stride length configurable via a Settings dialog.
-- Mobile-first responsive layout; bottom nav (`MobileBottomNav`) untouched.
+The component currently hard-codes a dark palette (`#0d0f1e`, `#ffffff60`, `#FF6B35`) inline. This:
+- ignores the site's light theme,
+- breaks the high-contrast toggle in `AccessibilityToolbar`,
+- produces sub-AA contrast for muted text (`#ffffff60` on `#1e2340` ≈ 3.4:1).
 
-### SEO
+Fix:
+- Migrate inline styles to Tailwind classes using semantic tokens (`bg-card`, `bg-muted`, `text-foreground`, `text-muted-foreground`, `border-border`, `ring-ring`).
+- Keep the brand orange→pink ring/CTA, but expose them as new tokens so they respond to high-contrast:
+  - Add to `src/index.css`: `--pedo-accent`, `--pedo-accent-2`, `--pedo-gold` (HSL) for default and `.high-contrast` overrides (saturated, AA-compliant against both backgrounds).
+  - Add Tailwind aliases in `tailwind.config.ts` (`pedo-accent`, `pedo-accent-2`, `pedo-gold`).
+- Replace `#ffffff60` / `#ffffff70` muted greys with `text-muted-foreground` (which is already AA in both themes).
+- Replace dim borders (`#ffffff0a`, `#ffffff15`) with `border-border` / `border-border/50`.
+- Audit the result with the high-contrast class on `<html>`; ensure all text reaches ≥ 4.5:1 (≥ 3:1 for large/UI elements).
+- StepRing & BarChart SVGs: read accent colors from CSS custom properties via `currentColor` / `var(--pedo-accent)` rather than hard-coded hex, so they recolor in high-contrast mode.
 
-- Title: `Free Step Counter & Pedometer | Living With Arthritis UK` (<60 chars)
-- Meta description focused on low-impact walking for joint health (<160 chars)
-- JSON-LD `MedicalWebPage` + `SoftwareApplication` schema
-- Canonical: `https://livingwitharthritis.org.uk/pedometer`
+## 4. Reduced motion
 
-### Out of scope
+Wrap the ring fill animation, bar grow-in, and card fade-in in a `prefers-reduced-motion: reduce` check — instantly snap to final state instead of animating. Honors OS-level setting and the existing project preference.
 
-- No real device pedometer / Capacitor / native sensor wiring (left as TODO comments).
-- No backend persistence (no Supabase tables) — local only, matches a step counter's expected behaviour.
-- No changes to existing health tools' logic.
+## 5. Verification
+
+- Keyboard walkthrough: Tab through page, switch tabs with arrow keys, open/close settings with keyboard only, change goal via slider + Enter.
+- Screen-reader sanity check via VoiceOver/NVDA labels (read out the description, no "button button" duplication, no "fire emoji").
+- Run automated check with `axe-core` via the browser tool on `/pedometer`.
+- Visual QA in light, dark, and high-contrast themes (toggle via the existing AccessibilityToolbar).
+- `bun run build` / typecheck clean.
+
+---
+
+## Out of scope
+- Real device pedometer / Web Sensor API.
+- Storing prefs server-side.
+- Restyling other pages.
+- Changing the simulated step generator.
