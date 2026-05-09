@@ -248,39 +248,39 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
         <main id="main-content" role="main" tabIndex={-1}>
           <HeroSection />
 
-          <Suspense fallback={null}>
+          <LazySection name="AggregatedSocialProof" fallback={null}>
             <AggregatedSocialProof />
-          </Suspense>
+          </LazySection>
 
-          <Suspense fallback={<SkeletonSection />}>
+          <LazySection name="MissionStatementBand">
             <MissionStatementBand />
-          </Suspense>
+          </LazySection>
 
           <TriageSection />
 
-          <Suspense fallback={<SkeletonSection />}>
+          <LazySection name="EditorialIndex">
             <EditorialIndex />
-          </Suspense>
+          </LazySection>
 
-          <Suspense fallback={<SkeletonSection />}>
+          <LazySection name="FeaturedStoryBand">
             <FeaturedStoryBand />
-          </Suspense>
+          </LazySection>
 
-          <Suspense fallback={<SkeletonSection />}>
+          <LazySection name="PortraitGrid">
             <PortraitGrid />
-          </Suspense>
-          <Suspense fallback={<SkeletonSection />}>
+          </LazySection>
+          <LazySection name="HowItWorksSection">
             <HowItWorksSection />
-          </Suspense>
+          </LazySection>
         </main>
 
-        <Suspense fallback={null}>
+        <LazySection name="BackToTopButton" fallback={null}>
           <BackToTopButton />
-        </Suspense>
-        
-        <Suspense fallback={null}>
+        </LazySection>
+
+        <LazySection name="CookieBanner" fallback={null}>
           <CookieBanner onAnalyticsChange={handleAnalyticsChange} />
-        </Suspense>
+        </LazySection>
 
         <noscript>
           <div
