@@ -99,39 +99,116 @@ function useStorage<T>(key: string, initial: T | (() => T)): [T, (v: T | ((prev:
   return [val, set];
 }
 
+// Step-detection tuning for the DeviceMotion peak algorithm.
+// Walking acceleration peaks usually sit ~1.5–4 m/s² above gravity (9.81),
+// so anything past ~11.2 m/s² is a candidate step. The 280 ms refractory
+// period prevents double-counting fast hand wobbles as steps.
+const STEP_PEAK_THRESHOLD = 11.2;
+const STEP_MIN_INTERVAL_MS = 280;
+
+type SensorStatus = 'idle' | 'requesting' | 'active' | 'unsupported' | 'denied' | 'error';
+
 function usePedometer({ goal, unitSystem }: { goal: number; unitSystem: UnitSystem }) {
   const [history, setHistory] = useStorage<StepHistory>('pedo_history', seedHistory);
   const [liveSteps, setLive] = useState(0);
   const [isTracking, setTracking] = useState(false);
   const [lastUpdate, setLastUpdate] = useState(Date.now());
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const [sensorStatus, setSensorStatus] = useState<SensorStatus>('idle');
+  const [sensorMessage, setSensorMessage] = useState<string | null>(null);
+  const motionHandlerRef = useRef<((e: DeviceMotionEvent) => void) | null>(null);
+  const peakStateRef = useRef({ lastMag: 0, goingUp: false, lastPeakAt: 0 });
   const todayKey = dateKey();
 
   const todayTotal = (history[todayKey] || 0) + liveSteps;
 
-  const startTracking = useCallback(() => {
+  const detachMotion = useCallback(() => {
+    if (motionHandlerRef.current && typeof window !== 'undefined') {
+      window.removeEventListener('devicemotion', motionHandlerRef.current);
+    }
+    motionHandlerRef.current = null;
+  }, []);
+
+  const attachMotion = useCallback(() => {
+    peakStateRef.current = { lastMag: 0, goingUp: false, lastPeakAt: 0 };
+    const handler = (e: DeviceMotionEvent) => {
+      const a = e.accelerationIncludingGravity;
+      if (!a || a.x == null || a.y == null || a.z == null) return;
+      const mag = Math.sqrt(a.x * a.x + a.y * a.y + a.z * a.z);
+      const now = Date.now();
+      const state = peakStateRef.current;
+      if (mag > state.lastMag) {
+        state.goingUp = true;
+      } else if (
+        state.goingUp &&
+        state.lastMag >= STEP_PEAK_THRESHOLD &&
+        now - state.lastPeakAt > STEP_MIN_INTERVAL_MS
+      ) {
+        state.lastPeakAt = now;
+        state.goingUp = false;
+        setLive(s => s + 1);
+        setLastUpdate(now);
+      } else {
+        state.goingUp = false;
+      }
+      state.lastMag = mag;
+    };
+    motionHandlerRef.current = handler;
+    window.addEventListener('devicemotion', handler);
+  }, []);
+
+  const startTracking = useCallback(async () => {
     if (isTracking) return;
+    setSensorMessage(null);
+
+    if (typeof window === 'undefined' || !('DeviceMotionEvent' in window)) {
+      setSensorStatus('unsupported');
+      setSensorMessage(
+        'Motion sensors are not available on this device. Open this page on your phone to count real steps.',
+      );
+      return;
+    }
+
+    // iOS 13+ requires an explicit user-gesture permission request.
+    const DME = window.DeviceMotionEvent as typeof DeviceMotionEvent & {
+      requestPermission?: () => Promise<'granted' | 'denied'>;
+    };
+    if (typeof DME.requestPermission === 'function') {
+      setSensorStatus('requesting');
+      try {
+        const res = await DME.requestPermission();
+        if (res !== 'granted') {
+          setSensorStatus('denied');
+          setSensorMessage(
+            'Motion access was denied. Enable Motion & Orientation in Safari settings to track steps.',
+          );
+          return;
+        }
+      } catch {
+        setSensorStatus('error');
+        setSensorMessage('Could not request motion permission. Try again from a tap on the button.');
+        return;
+      }
+    }
+
+    attachMotion();
+    setSensorStatus('active');
     setTracking(true);
-    intervalRef.current = setInterval(() => {
-      const newSteps = Math.floor(Math.random() * 3) + 1;
-      setLive(s => s + newSteps);
-      setLastUpdate(Date.now());
-    }, 800);
-  }, [isTracking]);
+  }, [isTracking, attachMotion]);
 
   const stopTracking = useCallback(() => {
     setTracking(false);
-    if (intervalRef.current) clearInterval(intervalRef.current);
+    detachMotion();
+    if (sensorStatus === 'active') setSensorStatus('idle');
     setHistory(prev => ({
       ...prev,
       [todayKey]: (prev[todayKey] || 0) + liveSteps,
     }));
     setLive(0);
-  }, [liveSteps, todayKey, setHistory]);
+  }, [liveSteps, todayKey, setHistory, detachMotion, sensorStatus]);
 
   useEffect(() => () => {
-    if (intervalRef.current) clearInterval(intervalRef.current);
-  }, []);
+    detachMotion();
+  }, [detachMotion]);
 
   const distanceM = todayTotal * STEP_LENGTH_M;
   const distanceKm = distanceM / 1000;
