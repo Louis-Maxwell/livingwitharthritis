@@ -765,7 +765,20 @@ function TodayTab({ ped }: { ped: PedoState }) {
         </button>
         {isTracking && (
           <div className="mt-2.5 text-xs text-primary font-medium" role="status">
-            Tracking active — keep moving
+            Tracking your real movement — keep your phone on you and walk
+          </div>
+        )}
+        {sensorStatus === 'requesting' && (
+          <div className="mt-2.5 text-xs text-muted-foreground" role="status">
+            Waiting for motion permission…
+          </div>
+        )}
+        {sensorMessage && !isTracking && (
+          <div
+            role="alert"
+            className="mt-3 max-w-sm text-xs text-center rounded-lg border border-border bg-muted/50 px-3 py-2 text-muted-foreground"
+          >
+            {sensorMessage}
           </div>
         )}
       </div>
