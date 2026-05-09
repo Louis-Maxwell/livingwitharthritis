@@ -283,11 +283,6 @@ function usePedometer({ goal, unitSystem }: { goal: number; unitSystem: UnitSyst
     [history, todayTotal],
   );
 
-  const bestDay = useMemo(
-    () => Math.max(...Object.values(history), todayTotal),
-    [history, todayTotal],
-  );
-
   // Fire goal_reached once per calendar day when threshold is crossed.
   useEffect(() => {
     if (todayTotal >= goal && goalFiredDateRef.current !== todayKey) {
