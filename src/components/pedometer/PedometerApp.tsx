@@ -929,6 +929,13 @@ function TodayTab({ ped }: { ped: PedoState }) {
         )}
       </div>
 
+      <StreakWidget
+        streak={streak}
+        bestStreak={bestStreak}
+        lastGoalDate={lastGoalDate}
+        goalMetToday={pct >= 1}
+      />
+
       <div className="grid grid-cols-2 gap-3">
         <MetricCard icon="📍" label="Distance" value={dist.val} unit={dist.unit} accent="primary" delay={0} />
         <MetricCard icon="🔥" label="Calories" value={fmtFull(calories)} unit="kcal" accent="primary" delay={80} />
