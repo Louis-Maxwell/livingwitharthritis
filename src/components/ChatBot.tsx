@@ -7,6 +7,9 @@ import { cn } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import { motion, AnimatePresence } from "framer-motion";
 import { chatRheumatoid, chatFoods, chatExercise, chatDoctor } from "@/data/images";
+import AiDisclosureBadge from "@/components/ai/AiDisclosureBadge";
+import AiConsentModal from "@/components/ai/AiConsentModal";
+import EmergencyRedirectDialog, { detectClientRedFlag } from "@/components/ai/EmergencyRedirectDialog";
 
 const quickSuggestions = [
   { icon: Stethoscope, label: "What is rheumatoid arthritis?", image: chatRheumatoid },
@@ -62,8 +65,11 @@ const ChatMessage = ({ message }: { message: Message; isLatest: boolean }) => {
         {isUser ? (
           <p>{message.content}</p>
         ) : (
-          <div className="prose prose-sm dark:prose-invert max-w-none prose-p:my-1.5 prose-p:text-sm prose-p:leading-relaxed prose-ul:my-1.5 prose-li:my-0.5 prose-li:text-sm prose-headings:my-2 prose-headings:text-base prose-headings:font-semibold prose-headings:text-foreground prose-strong:text-foreground">
-            <ReactMarkdown>{message.content}</ReactMarkdown>
+          <div>
+            <div className="prose prose-sm dark:prose-invert max-w-none prose-p:my-1.5 prose-p:text-sm prose-p:leading-relaxed prose-ul:my-1.5 prose-li:my-0.5 prose-li:text-sm prose-headings:my-2 prose-headings:text-base prose-headings:font-semibold prose-headings:text-foreground prose-strong:text-foreground">
+              <ReactMarkdown>{message.content}</ReactMarkdown>
+            </div>
+            <AiDisclosureBadge className="mt-2" />
           </div>
         )}
       </div>
@@ -74,6 +80,10 @@ const ChatMessage = ({ message }: { message: Message; isLatest: boolean }) => {
 export function ChatBot() {
   const [input, setInput] = useState("");
   const [historyOpen, setHistoryOpen] = useState(false);
+  const [emergency, setEmergency] = useState<{ open: boolean; category: string | null }>({
+    open: false,
+    category: null,
+  });
   const {
     messages,
     isLoading,
@@ -95,10 +105,19 @@ export function ChatBot() {
     }
   }, [messages]);
 
+  const safelySend = (text: string) => {
+    const flag = detectClientRedFlag(text);
+    if (flag.matched) {
+      setEmergency({ open: true, category: flag.category });
+      return;
+    }
+    sendMessage(text);
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (input.trim() && !isLoading) {
-      sendMessage(input);
+      safelySend(input);
       setInput("");
       if (inputRef.current) inputRef.current.style.height = "auto";
     }
@@ -129,6 +148,12 @@ export function ChatBot() {
 
   return (
     <div className="flex flex-col h-full w-full overflow-hidden bg-background relative">
+      <AiConsentModal />
+      <EmergencyRedirectDialog
+        open={emergency.open}
+        category={emergency.category}
+        onClose={() => setEmergency({ open: false, category: null })}
+      />
       {/* ── Header ── clean, minimal */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-border/40 bg-primary">
         <div className="flex items-center gap-2.5">
@@ -282,7 +307,7 @@ export function ChatBot() {
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: i * 0.06 }}
-                      onClick={() => sendMessage(s.label)}
+                      onClick={() => safelySend(s.label)}
                       className="flex flex-col text-left rounded-xl border border-border/40 hover:border-primary/30 hover:shadow-md active:scale-[0.98] transition-all group overflow-hidden"
                     >
                       <div className="relative w-full h-20 overflow-hidden">

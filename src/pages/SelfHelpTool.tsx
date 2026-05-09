@@ -7,6 +7,8 @@ import PageHero from "@/components/ui/PageHero";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { Badge } from "@/components/ui/badge";
 import { Bot, Target, Zap, Shield, Heart } from "lucide-react";
+import AiDisclosureBadge from "@/components/ai/AiDisclosureBadge";
+import ClinicalReviewBadge from "@/components/ai/ClinicalReviewBadge";
 
 const VirtualPhysioSection = lazy(() => import("@/components/VirtualPhysioSection"));
 const JointExerciseSection = lazy(() => import("@/components/JointExerciseSection"));
@@ -117,6 +119,10 @@ export default function SelfHelpTool() {
         </PageHero>
 
         <main id="main-content" className="container mx-auto px-5 md:px-8 py-10 space-y-10 md:space-y-14">
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <AiDisclosureBadge variant="full" />
+            <ClinicalReviewBadge />
+          </div>
           <Suspense fallback={<SectionLoader />}>
             <VirtualPhysioSection />
           </Suspense>
