@@ -702,7 +702,13 @@ function SettingsPanel({ goal, setGoal, unit, setUnit, onClose, returnFocusRef }
         </fieldset>
 
         <button
-          onClick={() => { setGoal(localGoal); onClose(); }}
+          onClick={() => {
+            if (localGoal !== goal) {
+              trackEvent('pedometer_goal_changed', { goal: localGoal, previous_goal: goal });
+            }
+            setGoal(localGoal);
+            onClose();
+          }}
           className={cn(
             'w-full py-4 rounded-2xl bg-primary text-primary-foreground text-base font-bold shadow-lg hover:bg-primary/90 transition-colors',
             focusRing,
