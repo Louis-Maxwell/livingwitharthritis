@@ -283,6 +283,19 @@ function usePedometer({ goal, unitSystem }: { goal: number; unitSystem: UnitSyst
     [history, todayTotal],
   );
 
+  const bestDay = useMemo(
+    () => Math.max(...Object.values(history), todayTotal),
+    [history, todayTotal],
+  );
+
+  // Fire goal_reached once per calendar day when threshold is crossed.
+  useEffect(() => {
+    if (todayTotal >= goal && goalFiredDateRef.current !== todayKey) {
+      goalFiredDateRef.current = todayKey;
+      trackEvent('pedometer_goal_reached', { goal, steps: todayTotal, streak });
+    }
+  }, [todayTotal, goal, todayKey, streak]);
+
   return {
     todayTotal, liveSteps, isTracking, startTracking, stopTracking, lastUpdate,
     distanceKm, distanceMi, calories, activeMin, pct,
