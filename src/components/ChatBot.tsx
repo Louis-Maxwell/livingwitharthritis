@@ -301,7 +301,7 @@ export function ChatBot() {
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: i * 0.06 }}
-                      onClick={() => sendMessage(s.label)}
+                      onClick={() => safelySend(s.label)}
                       className="flex flex-col text-left rounded-xl border border-border/40 hover:border-primary/30 hover:shadow-md active:scale-[0.98] transition-all group overflow-hidden"
                     >
                       <div className="relative w-full h-20 overflow-hidden">
