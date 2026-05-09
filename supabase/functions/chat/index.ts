@@ -2,12 +2,19 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createRateLimiter, getClientIp } from "../_shared/rate-limiter.ts";
 import { errJson, parseJsonBody, preflight, newRequestId, getCorsHeaders } from "../_shared/http.ts";
 import { z, parseWithSchema } from "../_shared/validation.ts";
+import {
+  detectRedFlags,
+  containsBlockedContent,
+  redactPII,
+  buildRefusalStream,
+  EMERGENCY_FOOTER,
+} from "../_shared/ai-safety.ts";
 
 // 30 chat requests per IP per 5 minutes
 const limiter = createRateLimiter({ windowMs: 300_000, maxRequests: 30 });
 
-const MAX_MESSAGES = 50;
-const MAX_MESSAGE_LENGTH = 10000;
+const MAX_MESSAGES = 30;
+const MAX_MESSAGE_LENGTH = 4000;
 
 const ChatMessage = z.object({
   role: z.enum(["user", "assistant"], { errorMap: () => ({ message: "Role must be 'user' or 'assistant'" }) }),
