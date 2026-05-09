@@ -65,8 +65,11 @@ const ChatMessage = ({ message }: { message: Message; isLatest: boolean }) => {
         {isUser ? (
           <p>{message.content}</p>
         ) : (
-          <div className="prose prose-sm dark:prose-invert max-w-none prose-p:my-1.5 prose-p:text-sm prose-p:leading-relaxed prose-ul:my-1.5 prose-li:my-0.5 prose-li:text-sm prose-headings:my-2 prose-headings:text-base prose-headings:font-semibold prose-headings:text-foreground prose-strong:text-foreground">
-            <ReactMarkdown>{message.content}</ReactMarkdown>
+          <div>
+            <div className="prose prose-sm dark:prose-invert max-w-none prose-p:my-1.5 prose-p:text-sm prose-p:leading-relaxed prose-ul:my-1.5 prose-li:my-0.5 prose-li:text-sm prose-headings:my-2 prose-headings:text-base prose-headings:font-semibold prose-headings:text-foreground prose-strong:text-foreground">
+              <ReactMarkdown>{message.content}</ReactMarkdown>
+            </div>
+            <AiDisclosureBadge className="mt-2" />
           </div>
         )}
       </div>
