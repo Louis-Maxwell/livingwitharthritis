@@ -148,6 +148,12 @@ export function ChatBot() {
 
   return (
     <div className="flex flex-col h-full w-full overflow-hidden bg-background relative">
+      <AiConsentModal />
+      <EmergencyRedirectDialog
+        open={emergency.open}
+        category={emergency.category}
+        onClose={() => setEmergency({ open: false, category: null })}
+      />
       {/* ── Header ── clean, minimal */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-border/40 bg-primary">
         <div className="flex items-center gap-2.5">
