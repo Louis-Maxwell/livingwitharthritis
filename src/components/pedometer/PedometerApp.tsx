@@ -283,6 +283,36 @@ function usePedometer({ goal, unitSystem }: { goal: number; unitSystem: UnitSyst
     [history, todayTotal],
   );
 
+  const lastGoalDate = useMemo(() => {
+    if (todayTotal >= goal) return todayKey;
+    const keys = Object.keys(history)
+      .filter(k => k !== todayKey && (history[k] || 0) >= goal)
+      .sort();
+    return keys.length ? keys[keys.length - 1] : null;
+  }, [history, todayTotal, goal, todayKey]);
+
+  const bestStreak = useMemo(() => {
+    const met = new Set<string>(
+      Object.keys(history).filter(k => (history[k] || 0) >= goal),
+    );
+    if (todayTotal >= goal) met.add(todayKey);
+    if (met.size === 0) return 0;
+    const sorted = Array.from(met).sort();
+    let best = 1;
+    let run = 1;
+    for (let i = 1; i < sorted.length; i++) {
+      const prev = new Date(sorted[i - 1]);
+      prev.setDate(prev.getDate() + 1);
+      if (dateKey(prev) === sorted[i]) {
+        run++;
+        if (run > best) best = run;
+      } else {
+        run = 1;
+      }
+    }
+    return best;
+  }, [history, todayTotal, goal, todayKey]);
+
   // Fire goal_reached once per calendar day when threshold is crossed.
   useEffect(() => {
     if (todayTotal >= goal && goalFiredDateRef.current !== todayKey) {
