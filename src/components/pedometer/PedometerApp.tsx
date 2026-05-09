@@ -3,6 +3,15 @@
  * Self-contained interactive pedometer with simulated step sensor,
  * weekly/monthly history, achievements and goal settings.
  *
+ * Accessibility:
+ *  - WAI-ARIA tablist for view + history toggle (arrow-key roving tabindex)
+ *  - Settings dialog with focus trap, Escape close, and focus restoration
+ *  - SVG charts exposed as role="img" with descriptive aria-label
+ *  - Decorative emoji marked aria-hidden
+ *  - Honors prefers-reduced-motion
+ *  - Themed via design tokens (primary / gold / card / muted) so light, dark,
+ *    and high-contrast modes all meet WCAG AA contrast.
+ *
  * 📱 TODO: Replace simulated sensor in usePedometer with real
  * DeviceMotionEvent / Web Pedometer API integration when wrapping in Capacitor.
  */
@@ -13,9 +22,11 @@ import {
   useRef,
   useCallback,
   useMemo,
-  type CSSProperties,
+  useId,
+  type KeyboardEvent,
   type ReactNode,
 } from 'react';
+import { cn } from '@/lib/utils';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // CONSTANTS
@@ -25,6 +36,7 @@ const STEP_LENGTH_M = 0.762;
 const CALORIES_PER_STEP = 0.04;
 const DEFAULT_GOAL = 10000;
 const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const DAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const MONTHS = [
   'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
   'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
@@ -50,6 +62,19 @@ function seedHistory(): StepHistory {
   }
   history[dateKey(today)] = Math.floor(4200 + Math.random() * 2000);
   return history;
+}
+
+function usePrefersReducedMotion(): boolean {
+  const [reduced, setReduced] = useState(false);
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return;
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setReduced(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setReduced(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+  return reduced;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -123,6 +148,7 @@ function usePedometer({ goal, unitSystem }: { goal: number; unitSystem: UnitSyst
       const k = dateKey(d);
       out.push({
         label: DAYS[d.getDay()],
+        fullLabel: DAY_NAMES[d.getDay()],
         steps: k === todayKey ? todayTotal : (history[k] || 0),
         isToday: i === 0,
       });
@@ -141,7 +167,7 @@ function usePedometer({ goal, unitSystem }: { goal: number; unitSystem: UnitSyst
         days.push(k === todayKey ? todayTotal : (history[k] || 0));
       }
       const avg = Math.round(days.reduce((a, b) => a + b, 0) / days.length);
-      weeks.push({ label: `W${4 - w}`, steps: avg, isToday: w === 0 });
+      weeks.push({ label: `W${4 - w}`, fullLabel: `Week ${4 - w}`, steps: avg, isToday: w === 0 });
     }
     return weeks;
   }, [history, todayTotal, todayKey]);
@@ -186,18 +212,24 @@ type PedoState = ReturnType<typeof usePedometer>;
 
 const fmt = (n: number) => (n >= 1000 ? `${(n / 1000).toFixed(1)}k` : String(Math.round(n)));
 const fmtFull = (n: number) => Math.round(n).toLocaleString();
+const focusRing = 'focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // STEP RING
 // ─────────────────────────────────────────────────────────────────────────────
 
 function StepRing({ pct, steps, goal, size = 260 }: { pct: number; steps: number; goal: number; size?: number }) {
+  const reduced = usePrefersReducedMotion();
   const R = size / 2 - 18;
   const C = 2 * Math.PI * R;
   const animRef = useRef<number | null>(null);
-  const [animPct, setAnimPct] = useState(0);
+  const [animPct, setAnimPct] = useState(reduced ? pct : 0);
 
   useEffect(() => {
+    if (reduced) {
+      setAnimPct(pct);
+      return;
+    }
     let start: number | null = null;
     const duration = 1200;
     const target = pct;
@@ -210,46 +242,49 @@ function StepRing({ pct, steps, goal, size = 260 }: { pct: number; steps: number
     };
     animRef.current = requestAnimationFrame(animate);
     return () => { if (animRef.current) cancelAnimationFrame(animRef.current); };
-  }, [pct]);
+  }, [pct, reduced]);
 
   const animDash = C * Math.min(animPct, 1);
-  const color1 = pct >= 1 ? '#FFD700' : '#FF6B35';
-  const color2 = pct >= 1 ? '#FF8C00' : '#FF3366';
+  const accentVar = pct >= 1 ? 'hsl(var(--gold))' : 'hsl(var(--primary))';
+  const trackVar = pct >= 1 ? 'hsl(var(--gold) / 0.15)' : 'hsl(var(--primary) / 0.12)';
+  const description = pct >= 1
+    ? `${fmtFull(steps)} steps today. Daily goal of ${fmtFull(goal)} steps reached.`
+    : `${fmtFull(steps)} steps today, ${Math.round(pct * 100)} percent of ${fmtFull(goal)} step goal.`;
 
   return (
-    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} style={{ overflow: 'visible' }}>
-      <defs>
-        <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor={color1} />
-          <stop offset="100%" stopColor={color2} />
-        </linearGradient>
-        <filter id="glow">
-          <feGaussianBlur stdDeviation="4" result="blur" />
-          <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-        </filter>
-      </defs>
+    <svg
+      width={size}
+      height={size}
+      viewBox={`0 0 ${size} ${size}`}
+      style={{ overflow: 'visible' }}
+      role="img"
+      aria-label={description}
+    >
+      <title>Daily step progress</title>
       <circle cx={size / 2} cy={size / 2} r={R + 10} fill="none"
-        stroke={pct >= 1 ? '#FFD70020' : '#FF6B3520'} strokeWidth={20} />
+        stroke={trackVar} strokeWidth={20} aria-hidden="true" />
       <circle cx={size / 2} cy={size / 2} r={R} fill="none"
-        stroke="#ffffff0d" strokeWidth={14}
-        transform={`rotate(-90 ${size / 2} ${size / 2})`} />
+        stroke="hsl(var(--muted))" strokeWidth={14}
+        transform={`rotate(-90 ${size / 2} ${size / 2})`} aria-hidden="true" />
       <circle cx={size / 2} cy={size / 2} r={R} fill="none"
-        stroke="url(#ringGrad)" strokeWidth={14} strokeLinecap="round"
+        stroke={accentVar} strokeWidth={14} strokeLinecap="round"
         strokeDasharray={`${animDash} ${C}`}
         transform={`rotate(-90 ${size / 2} ${size / 2})`}
-        filter="url(#glow)" />
+        aria-hidden="true" />
       <text x={size / 2} y={size / 2 - 10} textAnchor="middle"
         fontWeight={700}
-        fontSize={pct >= 1 ? 38 : steps > 9999 ? 36 : 42} fill="#ffffff">
+        fontSize={pct >= 1 ? 38 : steps > 9999 ? 36 : 42}
+        fill="hsl(var(--foreground))" aria-hidden="true">
         {fmtFull(steps)}
       </text>
       <text x={size / 2} y={size / 2 + 16} textAnchor="middle"
-        fontWeight={400} fontSize={12} fill="#ffffff80" letterSpacing="2">
+        fontWeight={500} fontSize={12} fill="hsl(var(--muted-foreground))" letterSpacing="2"
+        aria-hidden="true">
         STEPS TODAY
       </text>
       <text x={size / 2} y={size / 2 + 36} textAnchor="middle"
-        fontWeight={500} fontSize={12} fill="#FF6B35">
-        {pct >= 1 ? 'GOAL CRUSHED!' : `${Math.round(pct * 100)}% of ${fmtFull(goal)}`}
+        fontWeight={600} fontSize={12} fill={accentVar} aria-hidden="true">
+        {pct >= 1 ? 'GOAL REACHED' : `${Math.round(pct * 100)}% of ${fmtFull(goal)}`}
       </text>
     </svg>
   );
@@ -259,73 +294,68 @@ function StepRing({ pct, steps, goal, size = 260 }: { pct: number; steps: number
 // BAR CHART
 // ─────────────────────────────────────────────────────────────────────────────
 
-function BarChart({ data, goal, height = 140 }: {
-  data: { label: string; steps: number; isToday?: boolean }[];
+function BarChart({ data, goal, height = 140, ariaLabel }: {
+  data: { label: string; fullLabel?: string; steps: number; isToday?: boolean }[];
   goal: number;
   height?: number;
+  ariaLabel: string;
 }) {
+  const reduced = usePrefersReducedMotion();
   const max = Math.max(...data.map(d => d.steps), goal * 0.5);
-  const [hovered, setHovered] = useState<number | null>(null);
-  const [animated, setAnimated] = useState(false);
+  const [animated, setAnimated] = useState(reduced);
 
   useEffect(() => {
+    if (reduced) { setAnimated(true); return; }
     const t = setTimeout(() => setAnimated(true), 100);
     return () => clearTimeout(t);
-  }, []);
+  }, [reduced]);
 
   return (
-    <div style={{ position: 'relative' }}>
-      <div style={{
-        position: 'absolute', left: 0, right: 0,
-        top: `${((max - goal) / max) * height}px`,
-        borderTop: '1px dashed #FF6B3550', zIndex: 1,
-      }}>
-        <span style={{
-          position: 'absolute', right: 0, top: -18,
-          fontSize: 10, color: '#FF6B35', letterSpacing: 1,
-        }}>GOAL {fmt(goal)}</span>
+    <div className="relative" role="group" aria-label={ariaLabel}>
+      <div
+        className="absolute left-0 right-0 border-t border-dashed border-primary/50 z-10"
+        style={{ top: `${((max - goal) / max) * height}px` }}
+        aria-hidden="true"
+      >
+        <span className="absolute right-0 -top-4 text-[10px] tracking-wider text-primary font-semibold">
+          GOAL {fmt(goal)}
+        </span>
       </div>
 
-      <div style={{
-        display: 'flex', alignItems: 'flex-end', gap: 5,
-        height, position: 'relative', zIndex: 2,
-      }}>
+      <div className="flex items-end gap-1.5 relative z-20" style={{ height }}>
         {data.map((d, i) => {
           const barH = animated ? Math.round((d.steps / max) * height) : 0;
           const metGoal = d.steps >= goal;
+          const stepText = `${(d.fullLabel || d.label)}: ${fmtFull(d.steps)} steps${metGoal ? ', goal met' : ''}${d.isToday ? ', today' : ''}`;
           return (
-            <div key={i}
-              style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}
-              onMouseEnter={() => setHovered(i)}
-              onMouseLeave={() => setHovered(null)}>
-              {hovered === i && (
-                <div style={{
-                  position: 'absolute', bottom: height + 32,
-                  background: '#1a1a2e', border: '1px solid #ffffff15',
-                  borderRadius: 8, padding: '6px 10px', fontSize: 12,
-                  color: '#fff', whiteSpace: 'nowrap', zIndex: 10,
-                  boxShadow: '0 4px 20px #00000060',
-                }}>
-                  <div style={{ fontWeight: 700 }}>{fmtFull(d.steps)} steps</div>
-                  <div style={{ color: '#ffffff60', fontSize: 11, marginTop: 2 }}>{d.label}</div>
-                </div>
-              )}
-              <div style={{
-                width: '100%', borderRadius: 5,
-                background: metGoal
-                  ? 'linear-gradient(180deg, #FFD700, #FF8C00)'
-                  : d.isToday
-                    ? 'linear-gradient(180deg, #FF6B35, #FF3366)'
-                    : 'linear-gradient(180deg, #ffffff20, #ffffff10)',
-                height: barH,
-                transition: `height 0.6s cubic-bezier(0.34,1.56,0.64,1) ${i * 40}ms`,
-                cursor: 'pointer',
-                boxShadow: d.isToday ? '0 0 10px #FF3366aa' : 'none',
-              }} />
-              <span style={{
-                fontSize: 10, color: d.isToday ? '#FF6B35' : '#ffffff60',
-                fontWeight: d.isToday ? 700 : 400,
-              }}>{d.label}</span>
+            <div
+              key={i}
+              className="flex-1 flex flex-col items-center gap-1.5"
+            >
+              <button
+                type="button"
+                aria-label={stepText}
+                title={stepText}
+                className={cn(
+                  'w-full rounded-md cursor-default',
+                  focusRing,
+                  metGoal
+                    ? 'bg-gradient-to-b from-gold to-primary'
+                    : d.isToday
+                      ? 'bg-gradient-to-b from-primary to-primary/70'
+                      : 'bg-muted-foreground/20 hover:bg-muted-foreground/30',
+                )}
+                style={{
+                  height: barH,
+                  transition: reduced
+                    ? undefined
+                    : `height 0.6s cubic-bezier(0.34,1.56,0.64,1) ${i * 40}ms`,
+                }}
+              />
+              <span className={cn(
+                'text-[10px]',
+                d.isToday ? 'text-primary font-bold' : 'text-muted-foreground font-normal',
+              )}>{d.label}</span>
             </div>
           );
         })}
@@ -338,41 +368,39 @@ function BarChart({ data, goal, height = 140 }: {
 // METRIC CARD
 // ─────────────────────────────────────────────────────────────────────────────
 
-function MetricCard({ icon, label, value, unit, sub, accent = '#FF6B35', delay = 0 }: {
+function MetricCard({ icon, label, value, unit, sub, accent = 'primary', delay = 0 }: {
   icon: ReactNode; label: string; value: ReactNode; unit?: string;
-  sub?: string; accent?: string; delay?: number;
+  sub?: string; accent?: 'primary' | 'gold'; delay?: number;
 }) {
-  const [visible, setVisible] = useState(false);
+  const reduced = usePrefersReducedMotion();
+  const [visible, setVisible] = useState(reduced);
   useEffect(() => {
+    if (reduced) { setVisible(true); return; }
     const t = setTimeout(() => setVisible(true), delay);
     return () => clearTimeout(t);
-  }, [delay]);
+  }, [delay, reduced]);
 
-  const style: CSSProperties = {
-    background: 'linear-gradient(135deg, #1e2340, #141728)',
-    border: '1px solid #ffffff0a',
-    borderRadius: 20, padding: '18px 16px',
-    display: 'flex', flexDirection: 'column', gap: 4,
-    opacity: visible ? 1 : 0,
-    transform: visible ? 'translateY(0)' : 'translateY(16px)',
-    transition: 'opacity 0.4s, transform 0.4s',
-    position: 'relative', overflow: 'hidden',
-  };
+  const accentClass = accent === 'gold' ? 'text-gold' : 'text-primary';
+  const accessibleValue = typeof value === 'string' || typeof value === 'number'
+    ? `${label}: ${value}${unit ? ' ' + unit : ''}${sub ? '. ' + sub : ''}`
+    : undefined;
 
   return (
-    <div style={style}>
-      <div style={{
-        position: 'absolute', top: -20, right: -20, width: 80, height: 80,
-        borderRadius: '50%', background: accent, opacity: 0.08,
-        filter: 'blur(20px)',
-      }} />
-      <div style={{ fontSize: 22, marginBottom: 2, color: accent }}>{icon}</div>
-      <div style={{ fontWeight: 700, fontSize: 26, color: '#fff', lineHeight: 1 }}>
+    <div
+      className={cn(
+        'relative overflow-hidden rounded-2xl border border-border bg-card px-4 py-4 flex flex-col gap-1',
+        !reduced && 'transition-[opacity,transform] duration-300',
+        visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4',
+      )}
+      aria-label={accessibleValue}
+    >
+      <div className={cn('text-[22px] mb-0.5', accentClass)} aria-hidden="true">{icon}</div>
+      <div className="font-bold text-2xl text-foreground leading-none">
         {value}
-        {unit && <span style={{ fontSize: 14, fontWeight: 400, color: '#ffffff80', marginLeft: 3 }}>{unit}</span>}
+        {unit && <span className="text-sm font-normal text-muted-foreground ml-0.5">{unit}</span>}
       </div>
-      <div style={{ fontSize: 11, color: '#ffffff70', letterSpacing: 1, textTransform: 'uppercase' }}>{label}</div>
-      {sub && <div style={{ fontSize: 11, color: accent, marginTop: 2 }}>{sub}</div>}
+      <div className="text-[11px] text-muted-foreground tracking-wider uppercase">{label}</div>
+      {sub && <div className={cn('text-[11px] mt-0.5 font-medium', accentClass)}>{sub}</div>}
     </div>
   );
 }
@@ -401,119 +429,198 @@ const ACHIEVEMENTS: Achievement[] = [
 ];
 
 function AchievementBadge({ ach, unlocked, delay = 0 }: { ach: Achievement; unlocked: boolean; delay?: number }) {
-  const [vis, setVis] = useState(false);
+  const reduced = usePrefersReducedMotion();
+  const [vis, setVis] = useState(reduced);
   useEffect(() => {
+    if (reduced) { setVis(true); return; }
     const t = setTimeout(() => setVis(true), delay);
     return () => clearTimeout(t);
-  }, [delay]);
+  }, [delay, reduced]);
 
   return (
-    <div style={{
-      background: unlocked ? 'linear-gradient(135deg,#1e2340,#2a1f3d)' : 'linear-gradient(135deg,#111420,#0e1120)',
-      border: `1px solid ${unlocked ? '#FF6B3530' : '#ffffff08'}`,
-      borderRadius: 16, padding: '14px 12px',
-      display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, textAlign: 'center',
-      opacity: vis ? 1 : 0, transform: vis ? 'scale(1)' : 'scale(0.9)',
-      transition: 'opacity 0.3s, transform 0.3s',
-      filter: unlocked ? 'none' : 'grayscale(1)',
-    }}>
-      <div style={{ fontSize: 28, opacity: unlocked ? 1 : 0.3 }}>{ach.icon}</div>
-      <div style={{ fontWeight: 700, fontSize: 12, color: unlocked ? '#fff' : '#ffffff60' }}>{ach.title}</div>
-      <div style={{ fontSize: 10, color: '#ffffff60', lineHeight: 1.3 }}>{ach.desc}</div>
+    <div
+      role="listitem"
+      aria-label={`${ach.title}: ${ach.desc}. ${unlocked ? 'Unlocked' : 'Locked'}.`}
+      className={cn(
+        'rounded-2xl border px-3 py-3.5 flex flex-col items-center gap-1.5 text-center',
+        unlocked
+          ? 'bg-card border-primary/30'
+          : 'bg-muted border-border opacity-70',
+        !reduced && 'transition-[opacity,transform] duration-300',
+        vis ? 'opacity-100 scale-100' : 'opacity-0 scale-95',
+      )}
+    >
+      <div className={cn('text-[28px]', !unlocked && 'grayscale opacity-40')} aria-hidden="true">{ach.icon}</div>
+      <div className={cn('font-bold text-xs', unlocked ? 'text-foreground' : 'text-muted-foreground')}>
+        {ach.title}
+      </div>
+      <div className="text-[10px] text-muted-foreground leading-tight">{ach.desc}</div>
       {unlocked && (
-        <div style={{
-          fontSize: 9, background: '#FF6B3520', color: '#FF6B35',
-          borderRadius: 4, padding: '2px 6px', fontWeight: 700, letterSpacing: 1,
-        }}>UNLOCKED</div>
+        <div className="text-[9px] bg-primary/15 text-primary rounded px-1.5 py-0.5 font-bold tracking-wider">
+          UNLOCKED
+        </div>
       )}
     </div>
   );
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// SETTINGS
+// SETTINGS DIALOG (with focus trap, Escape to close)
 // ─────────────────────────────────────────────────────────────────────────────
 
-function SettingsPanel({ goal, setGoal, unit, setUnit, onClose }: {
+function SettingsPanel({ goal, setGoal, unit, setUnit, onClose, returnFocusRef }: {
   goal: number; setGoal: (g: number) => void;
   unit: UnitSystem; setUnit: (u: UnitSystem) => void;
   onClose: () => void;
+  returnFocusRef: React.RefObject<HTMLButtonElement>;
 }) {
   const [localGoal, setLocalGoal] = useState(goal);
   const presets = [5000, 7500, 10000, 12500, 15000];
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeBtnRef = useRef<HTMLButtonElement>(null);
+  const headingId = useId();
+
+  // Focus first element on open; restore focus on unmount
+  useEffect(() => {
+    closeBtnRef.current?.focus();
+    return () => {
+      returnFocusRef.current?.focus();
+    };
+  }, [returnFocusRef]);
+
+  // Escape + focus trap
+  const handleKey = useCallback((e: globalThis.KeyboardEvent) => {
+    if (e.key === 'Escape') { e.preventDefault(); onClose(); return; }
+    if (e.key !== 'Tab') return;
+    const root = dialogRef.current;
+    if (!root) return;
+    const focusable = root.querySelectorAll<HTMLElement>(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+    );
+    if (focusable.length === 0) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault(); last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault(); first.focus();
+    }
+  }, [onClose]);
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKey);
+    return () => document.removeEventListener('keydown', handleKey);
+  }, [handleKey]);
 
   return (
-    <div role="dialog" aria-modal="true" aria-label="Pedometer settings"
-      style={{
-        position: 'fixed', inset: 0, background: '#00000080',
-        backdropFilter: 'blur(12px)', zIndex: 100,
-        display: 'flex', alignItems: 'flex-end', justifyContent: 'center',
-      }}
+    <div
+      className="fixed inset-0 z-[100] flex items-end justify-center bg-foreground/50 backdrop-blur-md"
       onClick={onClose}
     >
-      <div onClick={e => e.stopPropagation()} style={{
-        background: 'linear-gradient(180deg, #1a1f3a, #111420)',
-        border: '1px solid #ffffff15', borderRadius: '24px 24px 0 0',
-        padding: '28px 24px 40px', width: '100%', maxWidth: 480,
-      }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 28 }}>
-          <h2 style={{ fontWeight: 700, fontSize: 22, color: '#fff', margin: 0 }}>Settings</h2>
-          <button onClick={onClose} aria-label="Close settings" style={{
-            background: '#ffffff15', border: 'none', color: '#fff',
-            width: 32, height: 32, borderRadius: '50%', fontSize: 16, cursor: 'pointer',
-          }}>×</button>
+      <div
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={headingId}
+        onClick={e => e.stopPropagation()}
+        className="w-full max-w-md bg-card border border-border rounded-t-3xl px-6 pt-7 pb-10 shadow-2xl"
+      >
+        <div className="flex justify-between items-center mb-7">
+          <h2 id={headingId} className="font-bold text-xl text-foreground m-0">Settings</h2>
+          <button
+            ref={closeBtnRef}
+            onClick={onClose}
+            aria-label="Close settings"
+            className={cn('bg-muted hover:bg-muted/80 text-foreground w-9 h-9 rounded-full text-base font-medium flex items-center justify-center', focusRing)}
+          >
+            ✕
+          </button>
         </div>
 
-        <div style={{ marginBottom: 28 }}>
-          <div style={{ fontSize: 12, color: '#ffffff70', letterSpacing: 1, textTransform: 'uppercase', marginBottom: 12 }}>
+        <fieldset className="mb-7 border-0 p-0">
+          <legend className="text-xs text-muted-foreground tracking-wider uppercase mb-3 font-medium">
             Daily Step Goal
+          </legend>
+          <div className="flex gap-2 flex-wrap mb-4">
+            {presets.map(p => {
+              const selected = localGoal === p;
+              return (
+                <button
+                  key={p}
+                  onClick={() => setLocalGoal(p)}
+                  aria-pressed={selected}
+                  className={cn(
+                    'px-4 py-2 rounded-xl text-sm font-semibold border transition-colors',
+                    focusRing,
+                    selected
+                      ? 'bg-primary text-primary-foreground border-primary'
+                      : 'bg-muted text-foreground border-border hover:bg-muted/70',
+                  )}
+                >
+                  {p.toLocaleString()}
+                </button>
+              );
+            })}
           </div>
-          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 16 }}>
-            {presets.map(p => (
-              <button key={p} onClick={() => setLocalGoal(p)} style={{
-                padding: '8px 16px', borderRadius: 12,
-                background: localGoal === p ? 'linear-gradient(135deg,#FF6B35,#FF3366)' : '#ffffff10',
-                border: 'none', color: '#fff', fontSize: 14, fontWeight: 600, cursor: 'pointer',
-              }}>{p.toLocaleString()}</button>
-            ))}
-          </div>
-          <input type="range" min={1000} max={30000} step={500} value={localGoal}
-            onChange={e => setLocalGoal(Number(e.target.value))}
-            aria-label="Custom step goal"
-            style={{ width: '100%', accentColor: '#FF6B35' }} />
-          <div style={{ textAlign: 'center', color: '#FF6B35', fontWeight: 700, fontSize: 20, marginTop: 8 }}>
+          <label className="block">
+            <span className="sr-only">Custom step goal</span>
+            <input
+              type="range" min={1000} max={30000} step={500} value={localGoal}
+              onChange={e => setLocalGoal(Number(e.target.value))}
+              aria-label="Custom step goal"
+              aria-valuetext={`${localGoal.toLocaleString()} steps`}
+              className={cn('w-full accent-primary', focusRing)}
+            />
+          </label>
+          <div className="text-center text-primary font-bold text-xl mt-2" aria-live="polite">
             {localGoal.toLocaleString()} steps
           </div>
-        </div>
+        </fieldset>
 
-        <div style={{ marginBottom: 28 }}>
-          <div style={{ fontSize: 12, color: '#ffffff70', letterSpacing: 1, textTransform: 'uppercase', marginBottom: 12 }}>
+        <fieldset className="mb-7 border-0 p-0">
+          <legend className="text-xs text-muted-foreground tracking-wider uppercase mb-3 font-medium">
             Distance Unit
+          </legend>
+          <div className="flex gap-2" role="radiogroup" aria-label="Distance unit">
+            {(['km', 'mi'] as UnitSystem[]).map(u => {
+              const selected = unit === u;
+              return (
+                <button
+                  key={u}
+                  onClick={() => setUnit(u)}
+                  role="radio"
+                  aria-checked={selected}
+                  className={cn(
+                    'flex-1 py-3 rounded-xl text-base font-semibold border transition-colors',
+                    focusRing,
+                    selected
+                      ? 'bg-primary text-primary-foreground border-primary'
+                      : 'bg-muted text-foreground border-border hover:bg-muted/70',
+                  )}
+                >
+                  {u === 'km' ? 'Kilometres' : 'Miles'}
+                </button>
+              );
+            })}
           </div>
-          <div style={{ display: 'flex', gap: 8 }}>
-            {(['km', 'mi'] as UnitSystem[]).map(u => (
-              <button key={u} onClick={() => setUnit(u)} style={{
-                flex: 1, padding: '12px', borderRadius: 12,
-                background: unit === u ? 'linear-gradient(135deg,#FF6B35,#FF3366)' : '#ffffff10',
-                border: 'none', color: '#fff', fontSize: 15, fontWeight: 600, cursor: 'pointer',
-              }}>{u === 'km' ? 'Kilometres' : 'Miles'}</button>
-            ))}
-          </div>
-        </div>
+        </fieldset>
 
-        <button onClick={() => { setGoal(localGoal); onClose(); }} style={{
-          width: '100%', padding: '16px', borderRadius: 16,
-          background: 'linear-gradient(135deg, #FF6B35, #FF3366)',
-          border: 'none', color: '#fff', fontSize: 16, fontWeight: 700, cursor: 'pointer',
-          boxShadow: '0 4px 20px #FF3366aa',
-        }}>Save Settings</button>
+        <button
+          onClick={() => { setGoal(localGoal); onClose(); }}
+          className={cn(
+            'w-full py-4 rounded-2xl bg-primary text-primary-foreground text-base font-bold shadow-lg hover:bg-primary/90 transition-colors',
+            focusRing,
+          )}
+        >
+          Save Settings
+        </button>
       </div>
     </div>
   );
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// TABS
+// TABS — Today
 // ─────────────────────────────────────────────────────────────────────────────
 
 function TodayTab({ ped }: { ped: PedoState }) {
@@ -522,83 +629,89 @@ function TodayTab({ ped }: { ped: PedoState }) {
     pct, distanceKm, distanceMi, calories, activeMin,
     streak, goal, unitSystem, lastUpdate,
   } = ped;
+  const reduced = usePrefersReducedMotion();
 
   const dist = unitSystem === 'km'
-    ? { val: distanceKm.toFixed(2), unit: 'km' }
-    : { val: distanceMi.toFixed(2), unit: 'mi' };
+    ? { val: distanceKm.toFixed(2), unit: 'km', long: 'kilometres' }
+    : { val: distanceMi.toFixed(2), unit: 'mi', long: 'miles' };
 
   const [pulse, setPulse] = useState(false);
   useEffect(() => {
-    if (!isTracking) return;
+    if (!isTracking || reduced) return;
     setPulse(true);
     const t = setTimeout(() => setPulse(false), 300);
     return () => clearTimeout(t);
-  }, [lastUpdate, isTracking]);
+  }, [lastUpdate, isTracking, reduced]);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: 8 }}>
-        <div style={{
-          transform: pulse ? 'scale(1.02)' : 'scale(1)',
-          transition: 'transform 0.2s cubic-bezier(0.34,1.56,0.64,1)',
-        }}>
+    <div className="flex flex-col gap-5">
+      <div className="flex flex-col items-center pt-2">
+        <div
+          className={cn(!reduced && 'transition-transform duration-200')}
+          style={{ transform: pulse ? 'scale(1.02)' : 'scale(1)' }}
+        >
           <StepRing pct={pct} steps={todayTotal} goal={goal} />
         </div>
-        <button onClick={isTracking ? stopTracking : startTracking} style={{
-          marginTop: 20,
-          background: isTracking
-            ? 'linear-gradient(135deg, #1a1a2e, #2d1b2e)'
-            : 'linear-gradient(135deg, #FF6B35, #FF3366)',
-          border: isTracking ? '2px solid #FF336640' : 'none',
-          color: '#fff', borderRadius: 30,
-          padding: '14px 36px', fontSize: 15, fontWeight: 700,
-          cursor: 'pointer', letterSpacing: 0.5,
-          boxShadow: isTracking ? 'none' : '0 6px 24px #FF336680',
-          transition: 'all 0.3s',
-          display: 'flex', alignItems: 'center', gap: 8,
-        }}>
+        <div className="sr-only" aria-live="polite" aria-atomic="true">
+          {fmtFull(todayTotal)} steps, {Math.round(pct * 100)} percent of goal
+        </div>
+        <button
+          onClick={isTracking ? stopTracking : startTracking}
+          aria-pressed={isTracking}
+          aria-label={isTracking ? 'Stop step tracking' : 'Start step tracking'}
+          className={cn(
+            'mt-5 px-9 py-3.5 rounded-full text-[15px] font-bold tracking-wide flex items-center gap-2 transition-colors',
+            focusRing,
+            isTracking
+              ? 'bg-card border-2 border-primary/40 text-foreground hover:bg-muted'
+              : 'bg-primary text-primary-foreground shadow-lg hover:bg-primary/90',
+          )}
+        >
           {isTracking ? (
-            <><span style={{
-              width: 10, height: 10, background: '#FF3366', borderRadius: 2,
-              display: 'inline-block', animation: 'pedoPulse 1s infinite',
-            }} /> Stop Tracking</>
+            <>
+              <span
+                aria-hidden="true"
+                className={cn(
+                  'inline-block w-2.5 h-2.5 bg-primary rounded-sm',
+                  !reduced && 'animate-pulse',
+                )}
+              />
+              Stop Tracking
+            </>
           ) : (
-            <>▶ Start Walking</>
+            <>
+              <span aria-hidden="true">▶</span> Start Walking
+            </>
           )}
         </button>
         {isTracking && (
-          <div style={{ marginTop: 10, fontSize: 12, color: '#FF6B35' }}>
-            Tracking active — keep moving!
+          <div className="mt-2.5 text-xs text-primary font-medium" role="status">
+            Tracking active — keep moving
           </div>
         )}
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-        <MetricCard icon="📍" label="Distance" value={dist.val} unit={dist.unit} accent="#FF6B35" delay={0} />
-        <MetricCard icon="🔥" label="Calories" value={fmtFull(calories)} unit="kcal" accent="#FF3366" delay={80} />
-        <MetricCard icon="⏱" label="Active Time" value={activeMin} unit="min" accent="#9B59FF" delay={160} />
-        <MetricCard icon="✦" label="Streak" value={streak} unit="days" accent="#FFD700"
-          sub={streak >= 7 ? 'Week warrior!' : streak > 0 ? 'Keep it up!' : 'Start today!'} delay={240} />
+      <div className="grid grid-cols-2 gap-3">
+        <MetricCard icon="📍" label="Distance" value={dist.val} unit={dist.unit} accent="primary" delay={0} />
+        <MetricCard icon="🔥" label="Calories" value={fmtFull(calories)} unit="kcal" accent="primary" delay={80} />
+        <MetricCard icon="⏱" label="Active Time" value={activeMin} unit="min" accent="gold" delay={160} />
+        <MetricCard icon="✦" label="Streak" value={streak} unit="days" accent="gold"
+          sub={streak >= 7 ? 'Week warrior' : streak > 0 ? 'Keep it up' : 'Start today'} delay={240} />
       </div>
 
       {pct < 1 && (
-        <div style={{
-          background: 'linear-gradient(135deg, #1e2340, #141728)',
-          border: '1px solid #FF6B3520',
-          borderRadius: 16, padding: '16px 20px',
-          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-        }}>
+        <div className="rounded-2xl border border-primary/20 bg-card px-5 py-4 flex justify-between items-center">
           <div>
-            <div style={{ fontSize: 12, color: '#ffffff70', letterSpacing: 1, textTransform: 'uppercase' }}>Steps remaining</div>
-            <div style={{ fontWeight: 700, fontSize: 28, color: '#FF6B35' }}>
+            <div className="text-xs text-muted-foreground tracking-wider uppercase">Steps remaining</div>
+            <div className="font-bold text-3xl text-primary">
               {fmtFull(Math.max(0, goal - todayTotal))}
             </div>
           </div>
-          <div style={{ textAlign: 'right' }}>
-            <div style={{ fontSize: 12, color: '#ffffff60' }}>
+          <div className="text-right">
+            <div className="text-xs text-muted-foreground">
               ≈ {((goal - todayTotal) * STEP_LENGTH_M / 1000).toFixed(1)} km left
             </div>
-            <div style={{ fontSize: 12, color: '#ffffff60', marginTop: 4 }}>
+            <div className="text-xs text-muted-foreground mt-1">
               ≈ {Math.round((goal - todayTotal) / 100)} min walk
             </div>
           </div>
@@ -608,87 +721,127 @@ function TodayTab({ ped }: { ped: PedoState }) {
   );
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// TABS — History  (with nested Week / Month tablist)
+// ─────────────────────────────────────────────────────────────────────────────
+
 function HistoryTab({ ped }: { ped: PedoState }) {
   const { weekData, monthData, goal, allTimeSteps, bestDay } = ped;
   const [view, setView] = useState<'week' | 'month'>('week');
+  const subTablistId = useId();
 
   const chartData = view === 'week' ? weekData : monthData;
   const weekAvg = Math.round(weekData.reduce((a, b) => a + b.steps, 0) / 7);
   const weekTotal = weekData.reduce((a, b) => a + b.steps, 0);
   const goalDays = weekData.filter(d => d.steps >= goal).length;
 
+  const subTabs = [
+    { id: 'week' as const, label: 'Week' },
+    { id: 'month' as const, label: 'Month' },
+  ];
+
+  const handleSubKey = (e: KeyboardEvent<HTMLButtonElement>, idx: number) => {
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+      e.preventDefault();
+      const next = e.key === 'ArrowRight' ? (idx + 1) % subTabs.length : (idx - 1 + subTabs.length) % subTabs.length;
+      setView(subTabs[next].id);
+      const root = e.currentTarget.parentElement;
+      const buttons = root?.querySelectorAll<HTMLButtonElement>('[role="tab"]');
+      buttons?.[next]?.focus();
+    }
+  };
+
+  const chartLabel = view === 'week'
+    ? `Steps per day this week. ${weekData.map(d => `${d.fullLabel}: ${fmtFull(d.steps)}`).join('. ')}.`
+    : `Average daily steps for last 4 weeks. ${monthData.map(d => `${d.fullLabel}: ${fmtFull(d.steps)} average`).join('. ')}.`;
+
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-      <div style={{ display: 'flex', background: '#ffffff0a', borderRadius: 12, padding: 4, gap: 4 }}>
-        {(['week', 'month'] as const).map(v => (
-          <button key={v} onClick={() => setView(v)} style={{
-            flex: 1, padding: '10px', borderRadius: 10,
-            background: view === v ? 'linear-gradient(135deg,#FF6B35,#FF3366)' : 'transparent',
-            border: 'none', color: view === v ? '#fff' : '#ffffff70',
-            fontSize: 14, fontWeight: 600, cursor: 'pointer', transition: 'all 0.2s',
-          }}>{v.charAt(0).toUpperCase() + v.slice(1)}</button>
-        ))}
+    <div className="flex flex-col gap-5">
+      <div
+        role="tablist"
+        aria-label="History range"
+        id={subTablistId}
+        className="flex bg-muted rounded-xl p-1 gap-1"
+      >
+        {subTabs.map((t, i) => {
+          const selected = view === t.id;
+          return (
+            <button
+              key={t.id}
+              role="tab"
+              aria-selected={selected}
+              tabIndex={selected ? 0 : -1}
+              onClick={() => setView(t.id)}
+              onKeyDown={e => handleSubKey(e, i)}
+              className={cn(
+                'flex-1 py-2.5 rounded-lg text-sm font-semibold transition-colors',
+                focusRing,
+                selected
+                  ? 'bg-primary text-primary-foreground'
+                  : 'text-muted-foreground hover:text-foreground',
+              )}
+            >
+              {t.label}
+            </button>
+          );
+        })}
       </div>
 
-      <div style={{
-        background: 'linear-gradient(135deg, #1e2340, #141728)',
-        border: '1px solid #ffffff0a', borderRadius: 20, padding: '20px 16px',
-      }}>
-        <div style={{ fontWeight: 700, fontSize: 18, color: '#fff', marginBottom: 4 }}>
+      <div className="rounded-2xl border border-border bg-card px-4 py-5">
+        <div className="font-bold text-lg text-foreground mb-1">
           {view === 'week' ? 'This Week' : 'Last 4 Weeks'}
         </div>
-        <div style={{ fontSize: 12, color: '#ffffff60', marginBottom: 20 }}>
-          {view === 'week' ? `${goalDays}/7 days hit goal` : 'Weekly averages'}
+        <div className="text-xs text-muted-foreground mb-5">
+          {view === 'week' ? `${goalDays} of 7 days hit goal` : 'Weekly averages'}
         </div>
-        <BarChart data={chartData} goal={goal} />
+        <BarChart data={chartData} goal={goal} ariaLabel={chartLabel} />
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12 }}>
+      <div className="grid grid-cols-3 gap-3">
         {[
-          { label: 'Week Total', value: fmt(weekTotal) },
-          { label: 'Daily Avg', value: fmt(weekAvg) },
-          { label: 'Goal Days', value: `${goalDays}/7` },
+          { label: 'Week Total', value: fmt(weekTotal), full: `${fmtFull(weekTotal)} steps this week` },
+          { label: 'Daily Avg', value: fmt(weekAvg), full: `${fmtFull(weekAvg)} step daily average` },
+          { label: 'Goal Days', value: `${goalDays}/7`, full: `${goalDays} of 7 days hit goal` },
         ].map((s, i) => (
-          <div key={i} style={{
-            background: 'linear-gradient(135deg, #1e2340, #141728)',
-            border: '1px solid #ffffff0a', borderRadius: 16,
-            padding: '14px 12px', textAlign: 'center',
-          }}>
-            <div style={{ fontWeight: 700, fontSize: 20, color: '#fff' }}>{s.value}</div>
-            <div style={{ fontSize: 10, color: '#ffffff60', marginTop: 2, textTransform: 'uppercase', letterSpacing: 1 }}>
-              {s.label}
-            </div>
+          <div
+            key={i}
+            className="rounded-2xl border border-border bg-card px-3 py-3.5 text-center"
+            aria-label={s.full}
+          >
+            <div className="font-bold text-xl text-foreground">{s.value}</div>
+            <div className="text-[10px] text-muted-foreground mt-0.5 uppercase tracking-wider">{s.label}</div>
           </div>
         ))}
       </div>
 
-      <div style={{
-        background: 'linear-gradient(135deg, #1a1040, #0e0a2e)',
-        border: '1px solid #9B59FF20', borderRadius: 20, padding: '20px',
-      }}>
-        <div style={{ fontSize: 12, color: '#9B59FF', letterSpacing: 1, textTransform: 'uppercase', marginBottom: 8 }}>
+      <div className="rounded-2xl border border-gold/20 bg-card px-5 py-5">
+        <div className="text-xs text-gold tracking-wider uppercase mb-2 font-semibold">
           All-Time Records
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
-          <div>
-            <div style={{ fontWeight: 700, fontSize: 28, color: '#fff' }}>
+        <div className="grid grid-cols-2 gap-4">
+          <div aria-label={`Total steps: ${fmtFull(allTimeSteps)}, approximately ${(allTimeSteps * STEP_LENGTH_M / 1000).toFixed(0)} kilometres walked`}>
+            <div className="font-bold text-3xl text-foreground">
               {(allTimeSteps / 1000).toFixed(1)}k
             </div>
-            <div style={{ fontSize: 11, color: '#ffffff60', textTransform: 'uppercase', letterSpacing: 1 }}>Total Steps</div>
-            <div style={{ fontSize: 12, color: '#9B59FF', marginTop: 2 }}>
+            <div className="text-[11px] text-muted-foreground uppercase tracking-wider">Total Steps</div>
+            <div className="text-xs text-gold mt-0.5 font-medium">
               ≈ {(allTimeSteps * STEP_LENGTH_M / 1000).toFixed(0)} km walked
             </div>
           </div>
-          <div>
-            <div style={{ fontWeight: 700, fontSize: 28, color: '#fff' }}>{fmtFull(bestDay)}</div>
-            <div style={{ fontSize: 11, color: '#ffffff60', textTransform: 'uppercase', letterSpacing: 1 }}>Best Day</div>
-            <div style={{ fontSize: 12, color: '#9B59FF', marginTop: 2 }}>Personal record</div>
+          <div aria-label={`Best day: ${fmtFull(bestDay)} steps. Personal record.`}>
+            <div className="font-bold text-3xl text-foreground">{fmtFull(bestDay)}</div>
+            <div className="text-[11px] text-muted-foreground uppercase tracking-wider">Best Day</div>
+            <div className="text-xs text-gold mt-0.5 font-medium">Personal record</div>
           </div>
         </div>
       </div>
     </div>
   );
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// TABS — Achievements
+// ─────────────────────────────────────────────────────────────────────────────
 
 function AchievementsTab({ ped }: { ped: PedoState }) {
   const { allTimeSteps, bestDay, goal, streak } = ped;
@@ -697,51 +850,53 @@ function AchievementsTab({ ped }: { ped: PedoState }) {
     return acc;
   }, {});
   const count = Object.values(unlocked).filter(Boolean).length;
+  const reduced = usePrefersReducedMotion();
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-      <div style={{
-        background: 'linear-gradient(135deg, #1e2340, #141728)',
-        border: '1px solid #FFD70020', borderRadius: 20, padding: '20px',
-        textAlign: 'center',
-      }}>
-        <div style={{ fontSize: 48, marginBottom: 8 }}>🏆</div>
-        <div style={{ fontWeight: 700, fontSize: 32, color: '#FFD700' }}>
-          {count} / {ACHIEVEMENTS.length}
+    <div className="flex flex-col gap-5">
+      <div className="rounded-2xl border border-gold/20 bg-card px-5 py-5 text-center">
+        <div className="text-5xl mb-2" aria-hidden="true">🏆</div>
+        <div className="font-bold text-3xl text-gold">
+          {count} <span className="text-muted-foreground font-medium">/ {ACHIEVEMENTS.length}</span>
         </div>
-        <div style={{ fontSize: 13, color: '#ffffff70', marginTop: 4 }}>Achievements Unlocked</div>
-        <div style={{ height: 8, background: '#ffffff10', borderRadius: 4, marginTop: 16, overflow: 'hidden' }}>
-          <div style={{
-            height: '100%', borderRadius: 4,
-            transition: 'width 1s cubic-bezier(0.34,1.56,0.64,1)',
-            background: 'linear-gradient(90deg, #FFD700, #FF8C00)',
-            width: `${(count / ACHIEVEMENTS.length) * 100}%`,
-          }} />
+        <div className="text-[13px] text-muted-foreground mt-1">Achievements Unlocked</div>
+        <div
+          role="progressbar"
+          aria-valuemin={0}
+          aria-valuemax={ACHIEVEMENTS.length}
+          aria-valuenow={count}
+          aria-valuetext={`${count} of ${ACHIEVEMENTS.length} achievements unlocked`}
+          className="h-2 bg-muted rounded mt-4 overflow-hidden"
+        >
+          <div
+            aria-hidden="true"
+            className={cn('h-full rounded bg-gold', !reduced && 'transition-[width] duration-1000')}
+            style={{ width: `${(count / ACHIEVEMENTS.length) * 100}%` }}
+          />
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+      <div role="list" aria-label="All achievements" className="grid grid-cols-2 gap-3">
         {ACHIEVEMENTS.map((a, i) => (
           <AchievementBadge key={a.id} ach={a} unlocked={unlocked[a.id]} delay={i * 60} />
         ))}
       </div>
 
-      <div style={{
-        background: 'linear-gradient(135deg, #0f1a2e, #0a1020)',
-        border: '1px solid #ffffff08', borderRadius: 16, padding: '16px 20px',
-      }}>
-        <div style={{ fontSize: 12, color: '#ffffff60', letterSpacing: 1, textTransform: 'uppercase', marginBottom: 10 }}>
+      <div className="rounded-2xl border border-border bg-card px-5 py-4">
+        <div className="text-xs text-muted-foreground tracking-wider uppercase mb-2.5 font-medium">
           Next to unlock
         </div>
-        {ACHIEVEMENTS.filter(a => !unlocked[a.id]).slice(0, 3).map(a => (
-          <div key={a.id} style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 10 }}>
-            <span style={{ fontSize: 20, opacity: 0.4 }}>{a.icon}</span>
-            <div>
-              <div style={{ fontSize: 13, color: '#ffffff80', fontWeight: 600 }}>{a.title}</div>
-              <div style={{ fontSize: 11, color: '#ffffff60' }}>{a.desc}</div>
-            </div>
-          </div>
-        ))}
+        <ul className="space-y-2.5 list-none p-0 m-0">
+          {ACHIEVEMENTS.filter(a => !unlocked[a.id]).slice(0, 3).map(a => (
+            <li key={a.id} className="flex items-center gap-3">
+              <span className="text-xl opacity-50" aria-hidden="true">{a.icon}</span>
+              <div>
+                <div className="text-[13px] text-foreground font-semibold">{a.title}</div>
+                <div className="text-[11px] text-muted-foreground">{a.desc}</div>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
@@ -763,61 +918,102 @@ export default function PedometerApp() {
   const [goal, setGoal] = useStorage<number>('pedo_goal', DEFAULT_GOAL);
   const [unit, setUnit] = useStorage<UnitSystem>('pedo_unit', 'km');
   const [showSettings, setShowSettings] = useState(false);
+  const settingsBtnRef = useRef<HTMLButtonElement>(null);
 
   const ped = usePedometer({ goal, unitSystem: unit });
 
   const today = new Date();
   const dateStr = `${DAYS[today.getDay()]}, ${today.getDate()} ${MONTHS[today.getMonth()]}`;
+  const fullDateStr = today.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+
+  // Roving tabindex for main tablist
+  const handleTabKey = (e: KeyboardEvent<HTMLButtonElement>, idx: number) => {
+    let next: number | null = null;
+    if (e.key === 'ArrowRight') next = (idx + 1) % TABS.length;
+    else if (e.key === 'ArrowLeft') next = (idx - 1 + TABS.length) % TABS.length;
+    else if (e.key === 'Home') next = 0;
+    else if (e.key === 'End') next = TABS.length - 1;
+    if (next === null) return;
+    e.preventDefault();
+    setTab(TABS[next].id);
+    const root = e.currentTarget.parentElement;
+    const buttons = root?.querySelectorAll<HTMLButtonElement>('[role="tab"]');
+    buttons?.[next]?.focus();
+  };
 
   return (
-    <div style={{
-      background: 'linear-gradient(160deg, #0d0f1e 0%, #0a0c18 60%, #070810 100%)',
-      color: '#fff',
-      maxWidth: 460,
-      margin: '0 auto',
-      borderRadius: 28,
-      padding: '24px 20px 32px',
-      boxShadow: '0 20px 60px hsl(var(--foreground) / 0.15)',
-      position: 'relative',
-    }}>
-      <style>{`
-        @keyframes pedoPulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
-      `}</style>
-
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
+    <section
+      aria-label="Step tracker"
+      className="relative max-w-[460px] mx-auto rounded-3xl border border-border bg-card text-foreground px-5 pt-6 pb-8 shadow-xl"
+    >
+      <header className="flex justify-between items-center mb-5">
         <div>
-          <div style={{ fontSize: 11, color: '#ffffff80', letterSpacing: 2, textTransform: 'uppercase' }}>
+          <div className="text-[11px] text-muted-foreground tracking-[0.18em] uppercase font-semibold">
             Pedometer
           </div>
-          <div style={{ fontWeight: 700, fontSize: 18, marginTop: 2 }}>{dateStr}</div>
+          <div className="font-bold text-lg mt-0.5" aria-label={fullDateStr}>{dateStr}</div>
         </div>
         <button
+          ref={settingsBtnRef}
           onClick={() => setShowSettings(true)}
-          aria-label="Open settings"
-          style={{
-            background: '#ffffff10', border: '1px solid #ffffff15',
-            color: '#fff', width: 40, height: 40, borderRadius: 12,
-            cursor: 'pointer', fontSize: 18,
-          }}
-        >⚙</button>
+          aria-label="Open pedometer settings"
+          aria-haspopup="dialog"
+          aria-expanded={showSettings}
+          className={cn(
+            'bg-muted hover:bg-muted/70 border border-border text-foreground w-10 h-10 rounded-xl text-lg flex items-center justify-center transition-colors',
+            focusRing,
+          )}
+        >
+          <span aria-hidden="true">⚙</span>
+        </button>
+      </header>
+
+      <div
+        role="tablist"
+        aria-label="Pedometer views"
+        className="flex bg-muted rounded-xl p-1 gap-1 mb-5"
+      >
+        {TABS.map((t, i) => {
+          const selected = tab === t.id;
+          return (
+            <button
+              key={t.id}
+              role="tab"
+              id={`pedo-tab-${t.id}`}
+              aria-selected={selected}
+              aria-controls={`pedo-panel-${t.id}`}
+              tabIndex={selected ? 0 : -1}
+              onClick={() => setTab(t.id)}
+              onKeyDown={e => handleTabKey(e, i)}
+              className={cn(
+                'flex-1 py-2.5 rounded-lg text-sm font-semibold transition-colors',
+                focusRing,
+                selected
+                  ? 'bg-primary text-primary-foreground shadow-sm'
+                  : 'text-muted-foreground hover:text-foreground',
+              )}
+            >
+              {t.label}
+            </button>
+          );
+        })}
       </div>
 
-      <div style={{
-        display: 'flex', background: '#ffffff0a', borderRadius: 14, padding: 4, gap: 4, marginBottom: 20,
-      }}>
-        {TABS.map(t => (
-          <button key={t.id} onClick={() => setTab(t.id)} style={{
-            flex: 1, padding: '10px 8px', borderRadius: 10,
-            background: tab === t.id ? 'linear-gradient(135deg,#FF6B35,#FF3366)' : 'transparent',
-            border: 'none', color: tab === t.id ? '#fff' : '#ffffff70',
-            fontSize: 13, fontWeight: 700, cursor: 'pointer', transition: 'all 0.2s',
-          }}>{t.label}</button>
-        ))}
-      </div>
-
-      {tab === 'today' && <TodayTab ped={ped} />}
-      {tab === 'history' && <HistoryTab ped={ped} />}
-      {tab === 'achievements' && <AchievementsTab ped={ped} />}
+      {TABS.map(t => (
+        <div
+          key={t.id}
+          role="tabpanel"
+          id={`pedo-panel-${t.id}`}
+          aria-labelledby={`pedo-tab-${t.id}`}
+          tabIndex={0}
+          hidden={tab !== t.id}
+          className={cn('focus:outline-none', focusRing)}
+        >
+          {t.id === 'today' && tab === 'today' && <TodayTab ped={ped} />}
+          {t.id === 'history' && tab === 'history' && <HistoryTab ped={ped} />}
+          {t.id === 'achievements' && tab === 'achievements' && <AchievementsTab ped={ped} />}
+        </div>
+      ))}
 
       {showSettings && (
         <SettingsPanel
@@ -826,8 +1022,9 @@ export default function PedometerApp() {
           unit={unit}
           setUnit={setUnit}
           onClose={() => setShowSettings(false)}
+          returnFocusRef={settingsBtnRef}
         />
       )}
-    </div>
+    </section>
   );
 }
