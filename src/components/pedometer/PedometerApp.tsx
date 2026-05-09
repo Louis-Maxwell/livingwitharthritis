@@ -194,7 +194,9 @@ function usePedometer({ goal, unitSystem }: { goal: number; unitSystem: UnitSyst
     attachMotion();
     setSensorStatus('active');
     setTracking(true);
-  }, [isTracking, attachMotion]);
+    sessionRef.current = { startedAt: Date.now(), startSteps: todayTotal };
+    trackEvent('pedometer_start', { goal, sensor_status: 'active' });
+  }, [isTracking, attachMotion, goal, todayTotal]);
 
   const stopTracking = useCallback(() => {
     setTracking(false);
@@ -204,8 +206,15 @@ function usePedometer({ goal, unitSystem }: { goal: number; unitSystem: UnitSyst
       ...prev,
       [todayKey]: (prev[todayKey] || 0) + liveSteps,
     }));
+    const session = sessionRef.current;
+    trackEvent('pedometer_stop', {
+      goal,
+      session_steps: liveSteps,
+      duration_s: session ? Math.round((Date.now() - session.startedAt) / 1000) : 0,
+    });
+    sessionRef.current = null;
     setLive(0);
-  }, [liveSteps, todayKey, setHistory, detachMotion, sensorStatus]);
+  }, [liveSteps, todayKey, setHistory, detachMotion, sensorStatus, goal]);
 
   useEffect(() => () => {
     detachMotion();
