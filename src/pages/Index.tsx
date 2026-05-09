@@ -337,4 +337,3 @@ export default function Index() {
     </ErrorBoundary>
   );
 }
-const DigitalToolkitSection = lazy(() => import("@/components/landing/DigitalToolkitSection"));
