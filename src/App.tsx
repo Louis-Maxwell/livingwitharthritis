@@ -208,6 +208,10 @@ function AnimatedRoutes() {
         <Route path="/arthritis-starter-guide" element={<ArthritisStarterGuide />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/credits" element={<Credits />} />
+        <Route path="/self-assessment" element={<SelfAssessment />} />
+        <Route path="/buddy" element={<Buddy />} />
+        <Route path="/buddy/match" element={<BuddyMatch />} />
+        <Route path="/newsletter/confirm" element={<NewsletterConfirm />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </PageTransition>
