@@ -2,7 +2,7 @@ import { useParams, Navigate } from "react-router-dom";
 import BlogIndex from "./BlogIndex";
 import SeoHead from "@/components/SeoHead";
 
-const validCategories = ["exercise", "nutrition", "lifestyle", "health", "supplements", "treatment"];
+const validCategories = ["exercise", "nutrition", "lifestyle", "health", "mental-health", "supplements", "treatment"];
 
 const CATEGORY_META: Record<string, { title: string; description: string }> = {
   exercise: {
