@@ -21,7 +21,7 @@ export interface DBBlogArticle {
 }
 
 const FIELDS = "slug, title, excerpt, content, date, category, image_url, meta_title, meta_description, keywords, author, author_credentials, reviewed_by, reviewer_credentials, is_published, display_order";
-const LIST_FIELDS = "slug, title, excerpt, date, category, image_url";
+const LIST_FIELDS = "slug, title, excerpt, date, category, image_url, display_order";
 
 /** Single article by slug */
 export function useBlogArticle(slug: string | undefined) {
@@ -42,7 +42,7 @@ export function useBlogArticle(slug: string | undefined) {
   });
 }
 
-/** All published articles (list fields only) */
+/** All published articles (list fields only), ordered by display_order then date */
 export function useBlogArticlesList() {
   return useQuery({
     queryKey: ["blog_articles_list"],
@@ -51,9 +51,28 @@ export function useBlogArticlesList() {
         .from("blog_articles")
         .select(LIST_FIELDS)
         .eq("is_published", true)
+        .order("display_order", { ascending: false })
         .order("date", { ascending: false });
       if (error) throw error;
-      return (data ?? []) as Pick<DBBlogArticle, "slug" | "title" | "excerpt" | "date" | "category" | "image_url">[];
+      return (data ?? []) as Pick<DBBlogArticle, "slug" | "title" | "excerpt" | "date" | "category" | "image_url" | "display_order">[];
+    },
+  });
+}
+
+/** Top 3 editor's-pick articles for the featured strip */
+export function useFeaturedArticles(limit = 3) {
+  return useQuery({
+    queryKey: ["blog_articles_featured", limit],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("blog_articles")
+        .select(LIST_FIELDS)
+        .eq("is_published", true)
+        .order("display_order", { ascending: false })
+        .order("date", { ascending: false })
+        .limit(limit);
+      if (error) throw error;
+      return (data ?? []) as Pick<DBBlogArticle, "slug" | "title" | "excerpt" | "date" | "category" | "image_url" | "display_order">[];
     },
   });
 }

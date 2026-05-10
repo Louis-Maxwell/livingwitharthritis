@@ -2,7 +2,7 @@ import { useParams, Navigate } from "react-router-dom";
 import BlogIndex from "./BlogIndex";
 import SeoHead from "@/components/SeoHead";
 
-const validCategories = ["exercise", "nutrition", "lifestyle", "health", "supplements", "treatment"];
+const validCategories = ["exercise", "nutrition", "lifestyle", "health", "mental-health", "supplements", "treatment"];
 
 const CATEGORY_META: Record<string, { title: string; description: string }> = {
   exercise: {
@@ -28,6 +28,10 @@ const CATEGORY_META: Record<string, { title: string; description: string }> = {
   treatment: {
     title: "Arthritis Treatment Articles & Updates",
     description: "Latest arthritis treatment articles — medications, public healthcare pathways, physiotherapy, surgery and emerging research, explained for UK patients.",
+  },
+  "mental-health": {
+    title: "Mental Health & Arthritis: UK Guides",
+    description: "Living with arthritis affects mental wellbeing. Read evidence-based UK guides on mood, anxiety, sleep and coping with chronic pain.",
   },
 };
 
