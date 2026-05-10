@@ -140,6 +140,52 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
         />
 
         <main className="container mx-auto px-6 md:px-10 py-6 md:py-8">
+          {/* Featured / Editor's picks */}
+          {activeCategory === "All" && !searchQuery && currentPage === 1 && featuredPosts.length > 0 && (
+            <section aria-labelledby="featured-heading" className="mb-12">
+              <div className="flex items-baseline justify-between mb-5">
+                <h2 id="featured-heading" className="flex items-center gap-2 font-display text-xl font-bold text-foreground">
+                  <Sparkles className="w-5 h-5 text-primary" /> Editor's Picks
+                </h2>
+                <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Featured</span>
+              </div>
+              <div className="grid md:grid-cols-3 gap-6">
+                {featuredPosts.map((post) => (
+                  <Link
+                    key={post.slug}
+                    to={`/blog/${post.slug}`}
+                    className="group rounded-2xl overflow-hidden border border-border/30 bg-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                  >
+                    {post.image_url && (
+                      <div className="aspect-[16/9] overflow-hidden bg-muted/20">
+                        <img
+                          src={post.image_url}
+                          alt={post.title}
+                          loading="lazy"
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      </div>
+                    )}
+                    <div className="p-5">
+                      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
+                        {post.category}
+                      </span>
+                      <h3 className="font-display text-lg font-semibold text-foreground mt-2 mb-2 group-hover:text-primary transition-colors leading-snug line-clamp-2">
+                        {post.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed mb-3">
+                        {post.excerpt}
+                      </p>
+                      <span className="text-primary text-sm font-medium inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+                        Read article <ArrowRight className="w-3.5 h-3.5" />
+                      </span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
+
           <div className="relative max-w-md mb-8">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/50" />
             <input
