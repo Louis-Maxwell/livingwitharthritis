@@ -77,8 +77,14 @@ function extractFaqs(html: string, articleTitle: string): { question: string; an
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
-  const { data: article, isLoading } = useBlogArticle(slug);
-  const viewCount = useBlogViews(slug);
+  const redirectTo = slug ? BLOG_SLUG_REDIRECTS[slug] : undefined;
+  const { data: article, isLoading } = useBlogArticle(redirectTo ? undefined : slug);
+  const viewCount = useBlogViews(redirectTo ? undefined : slug);
+
+  if (redirectTo) {
+    return <Navigate to={`/blog/${redirectTo}`} replace />;
+  }
+
 
   if (isLoading) {
     return (
