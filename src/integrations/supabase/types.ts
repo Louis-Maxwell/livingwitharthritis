@@ -353,6 +353,93 @@ export type Database = {
         }
         Relationships: []
       }
+      buddy_matches: {
+        Row: {
+          compatibility_breakdown: Json
+          compatibility_score: number
+          created_at: string
+          feedback: Json
+          id: string
+          last_check_in: string | null
+          mentee_id: string
+          mentor_id: string
+          message_count: number
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          compatibility_breakdown?: Json
+          compatibility_score: number
+          created_at?: string
+          feedback?: Json
+          id?: string
+          last_check_in?: string | null
+          mentee_id: string
+          mentor_id: string
+          message_count?: number
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          compatibility_breakdown?: Json
+          compatibility_score?: number
+          created_at?: string
+          feedback?: Json
+          id?: string
+          last_check_in?: string | null
+          mentee_id?: string
+          mentor_id?: string
+          message_count?: number
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      buddy_profiles: {
+        Row: {
+          age_band: string
+          arthritis_type: string
+          available: boolean
+          bio: string | null
+          created_at: string
+          id: string
+          location_region: string
+          max_mentees: number
+          mobility_level: string
+          role: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          age_band: string
+          arthritis_type: string
+          available?: boolean
+          bio?: string | null
+          created_at?: string
+          id?: string
+          location_region: string
+          max_mentees?: number
+          mobility_level: string
+          role: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          age_band?: string
+          arthritis_type?: string
+          available?: boolean
+          bio?: string | null
+          created_at?: string
+          id?: string
+          location_region?: string
+          max_mentees?: number
+          mobility_level?: string
+          role?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       chat_conversations: {
         Row: {
           created_at: string
@@ -1109,25 +1196,40 @@ export type Database = {
       }
       newsletter_subscriptions: {
         Row: {
+          categories: string[]
+          confirmation_token: string | null
+          confirmed_at: string | null
           email: string
+          frequency: string
           id: string
           is_active: boolean
           source: string
           subscribed_at: string
+          unsubscribe_token: string | null
         }
         Insert: {
+          categories?: string[]
+          confirmation_token?: string | null
+          confirmed_at?: string | null
           email: string
+          frequency?: string
           id?: string
           is_active?: boolean
           source?: string
           subscribed_at?: string
+          unsubscribe_token?: string | null
         }
         Update: {
+          categories?: string[]
+          confirmation_token?: string | null
+          confirmed_at?: string | null
           email?: string
+          frequency?: string
           id?: string
           is_active?: boolean
           source?: string
           subscribed_at?: string
+          unsubscribe_token?: string | null
         }
         Relationships: []
       }
@@ -1253,32 +1355,44 @@ export type Database = {
       }
       profiles: {
         Row: {
+          arthritis_type: string | null
           avatar_initial: string | null
           bio: string | null
           condition: string | null
           created_at: string
           display_name: string
           id: string
+          location_region: string | null
+          mobility_level: string | null
+          pain_level: number | null
           updated_at: string
           user_id: string
         }
         Insert: {
+          arthritis_type?: string | null
           avatar_initial?: string | null
           bio?: string | null
           condition?: string | null
           created_at?: string
           display_name?: string
           id?: string
+          location_region?: string | null
+          mobility_level?: string | null
+          pain_level?: number | null
           updated_at?: string
           user_id: string
         }
         Update: {
+          arthritis_type?: string | null
           avatar_initial?: string | null
           bio?: string | null
           condition?: string | null
           created_at?: string
           display_name?: string
           id?: string
+          location_region?: string | null
+          mobility_level?: string | null
+          pain_level?: number | null
           updated_at?: string
           user_id?: string
         }
@@ -1392,6 +1506,54 @@ export type Database = {
           id?: string
           metadata?: Json | null
           reason?: string
+        }
+        Relationships: []
+      }
+      triage_assessments: {
+        Row: {
+          affected_areas: string[]
+          arthritis_type: string
+          created_at: string
+          goals: string[]
+          id: string
+          limitations: string[]
+          mobility_level: string
+          pain_level: number
+          recommendations: Json
+          triage_score: number
+          updated_at: string
+          user_id: string
+          valid_until: string
+        }
+        Insert: {
+          affected_areas?: string[]
+          arthritis_type: string
+          created_at?: string
+          goals?: string[]
+          id?: string
+          limitations?: string[]
+          mobility_level: string
+          pain_level: number
+          recommendations?: Json
+          triage_score: number
+          updated_at?: string
+          user_id: string
+          valid_until?: string
+        }
+        Update: {
+          affected_areas?: string[]
+          arthritis_type?: string
+          created_at?: string
+          goals?: string[]
+          id?: string
+          limitations?: string[]
+          mobility_level?: string
+          pain_level?: number
+          recommendations?: Json
+          triage_score?: number
+          updated_at?: string
+          user_id?: string
+          valid_until?: string
         }
         Relationships: []
       }
