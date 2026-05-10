@@ -21,7 +21,7 @@ export interface DBBlogArticle {
 }
 
 const FIELDS = "slug, title, excerpt, content, date, category, image_url, meta_title, meta_description, keywords, author, author_credentials, reviewed_by, reviewer_credentials, is_published, display_order";
-const LIST_FIELDS = "slug, title, excerpt, date, category, image_url";
+const LIST_FIELDS = "slug, title, excerpt, date, category, image_url, display_order";
 
 /** Single article by slug */
 export function useBlogArticle(slug: string | undefined) {
