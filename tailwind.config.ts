@@ -17,76 +17,102 @@ export default {
         display: ['"Playfair Display"', 'serif'],
         sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
       },
-      colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-        gold: {
-          DEFAULT: "hsl(var(--gold))",
-          foreground: "hsl(var(--gold-foreground))",
-          muted: "hsl(var(--gold-muted))",
-        },
-        amber: "hsl(var(--amber))",
-        emerald: "hsl(var(--emerald))",
-        sky: "hsl(var(--sky))",
-        violet: "hsl(var(--violet))",
-        coral: "hsl(var(--coral))",
-        teal: "hsl(var(--teal))",
-        navy: {
-          DEFAULT: "hsl(var(--navy))",
-          foreground: "hsl(var(--navy-foreground))",
-        },
-        "tint-blue": "hsl(var(--tint-blue))",
-        "tint-green": "hsl(var(--tint-green))",
-        "tint-amber": "hsl(var(--tint-amber))",
-        "tint-rose": "hsl(var(--tint-rose))",
-        "tint-violet": "hsl(var(--tint-violet))",
-        "tint-cyan": "hsl(var(--tint-cyan))",
-        "tint-peach": "hsl(var(--tint-peach))",
-        "tint-mint": "hsl(var(--tint-mint))",
-        "tint-lavender": "hsl(var(--tint-lavender))",
-        "tint-coral": "hsl(var(--tint-coral))",
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
-        },
-      },
+      colors: (() => {
+        // Strict 2-colour palette: red + black on white.
+        // Any hard-coded Tailwind named-colour shade (e.g. bg-blue-500,
+        // text-green-600) is remapped here so it cannot escape the system.
+        const RED = "hsl(350 85% 42%)";
+        const BLACK = "hsl(0 0% 0%)";
+        const WHITE = "hsl(0 0% 100%)";
+        const shadeMap = (base: "red" | "black" | "white") => {
+          const v = base === "red" ? RED : base === "black" ? BLACK : WHITE;
+          return {
+            50: base === "red" ? "hsl(350 60% 97%)" : base === "black" ? "hsl(0 0% 96%)" : WHITE,
+            100: base === "red" ? "hsl(350 60% 94%)" : base === "black" ? "hsl(0 0% 92%)" : WHITE,
+            200: base === "red" ? "hsl(350 65% 88%)" : base === "black" ? "hsl(0 0% 85%)" : WHITE,
+            300: base === "red" ? "hsl(350 70% 78%)" : base === "black" ? "hsl(0 0% 70%)" : WHITE,
+            400: base === "red" ? "hsl(350 75% 60%)" : base === "black" ? "hsl(0 0% 45%)" : WHITE,
+            500: v,
+            600: base === "red" ? "hsl(350 90% 38%)" : BLACK,
+            700: base === "red" ? "hsl(350 90% 32%)" : BLACK,
+            800: base === "red" ? "hsl(350 90% 26%)" : BLACK,
+            900: base === "red" ? "hsl(350 90% 20%)" : BLACK,
+            950: BLACK,
+            DEFAULT: v,
+          };
+        };
+        const red = shadeMap("red");
+        const black = shadeMap("black");
+        // Anything originally "warm/accent" → red. Anything originally
+        // "cool/neutral status" → black. White stays white.
+        const warmRed = red;
+        const coolBlack = black;
+        return {
+          border: "hsl(var(--border))",
+          input: "hsl(var(--input))",
+          ring: "hsl(var(--ring))",
+          background: "hsl(var(--background))",
+          foreground: "hsl(var(--foreground))",
+          primary: { DEFAULT: "hsl(var(--primary))", foreground: "hsl(var(--primary-foreground))" },
+          secondary: { DEFAULT: "hsl(var(--secondary))", foreground: "hsl(var(--secondary-foreground))" },
+          destructive: { DEFAULT: "hsl(var(--destructive))", foreground: "hsl(var(--destructive-foreground))" },
+          muted: { DEFAULT: "hsl(var(--muted))", foreground: "hsl(var(--muted-foreground))" },
+          accent: { DEFAULT: "hsl(var(--accent))", foreground: "hsl(var(--accent-foreground))" },
+          popover: { DEFAULT: "hsl(var(--popover))", foreground: "hsl(var(--popover-foreground))" },
+          card: { DEFAULT: "hsl(var(--card))", foreground: "hsl(var(--card-foreground))" },
+          gold: { DEFAULT: "hsl(var(--gold))", foreground: "hsl(var(--gold-foreground))", muted: "hsl(var(--gold-muted))" },
+          amber: warmRed,
+          emerald: coolBlack,
+          sky: coolBlack,
+          violet: warmRed,
+          coral: warmRed,
+          teal: coolBlack,
+          navy: { DEFAULT: "hsl(var(--navy))", foreground: "hsl(var(--navy-foreground))" },
+          "tint-blue": "hsl(var(--tint-blue))",
+          "tint-green": "hsl(var(--tint-green))",
+          "tint-amber": "hsl(var(--tint-amber))",
+          "tint-rose": "hsl(var(--tint-rose))",
+          "tint-violet": "hsl(var(--tint-violet))",
+          "tint-cyan": "hsl(var(--tint-cyan))",
+          "tint-peach": "hsl(var(--tint-peach))",
+          "tint-mint": "hsl(var(--tint-mint))",
+          "tint-lavender": "hsl(var(--tint-lavender))",
+          "tint-coral": "hsl(var(--tint-coral))",
+          sidebar: {
+            DEFAULT: "hsl(var(--sidebar-background))",
+            foreground: "hsl(var(--sidebar-foreground))",
+            primary: "hsl(var(--sidebar-primary))",
+            "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
+            accent: "hsl(var(--sidebar-accent))",
+            "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
+            border: "hsl(var(--sidebar-border))",
+            ring: "hsl(var(--sidebar-ring))",
+          },
+          // Override Tailwind's default named palettes so any leftover
+          // bg-blue-500 / text-green-600 etc. resolves to red, black or white.
+          red: warmRed,
+          rose: warmRed,
+          pink: warmRed,
+          orange: warmRed,
+          yellow: warmRed,
+          fuchsia: warmRed,
+          blue: coolBlack,
+          green: coolBlack,
+          lime: coolBlack,
+          indigo: coolBlack,
+          purple: coolBlack,
+          cyan: coolBlack,
+          slate: coolBlack,
+          zinc: coolBlack,
+          neutral: coolBlack,
+          stone: coolBlack,
+          gray: coolBlack,
+          white: WHITE,
+          black: BLACK,
+          transparent: "transparent",
+          current: "currentColor",
+        };
+      })(),
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
