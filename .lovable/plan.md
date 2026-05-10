@@ -1,67 +1,54 @@
-## Gap analysis vs the uploaded spec
+## Goal
+Enforce a strict 2-colour palette across the entire site: **red** (accent/primary) and **black** (text/structure) on a **white** background. Remove all other hues (greens, blues, ambers, purples, greys-with-tint, gradients to other colours).
 
-I diffed the spec against what's already live on the Lovable Cloud backend.
+## Approach
 
-| Spec feature | Status here | Action |
-|---|---|---|
-| JWT auth (register/login/refresh) | ✅ Built (Supabase Auth + `Auth.tsx`) | Skip |
-| Articles + 5 seeded posts | ✅ Built (`blog_articles` table, hub, post pages) | Skip |
-| Donations (Stripe + Gift Aid) | ✅ Built (`donations` + `create-donation-checkout` edge fn) | Skip |
-| Contact / fundraising inquiries | ✅ Built | Skip |
-| Security headers, rate limiting, validation | ✅ Built (`_shared/rate-limiter.ts`, RLS) | Skip |
-| **Triage / Arthritis assessment** | ❌ Missing | **Add** |
-| **Buddy mentor/mentee matching** | ❌ Missing | **Add** |
-| **Newsletter double opt-in + frequency/category prefs** | ⚠️ Basic (single-step subscribe only) | **Upgrade** |
-| Extended user profile fields (arthritis type, pain, mobility, location) | ⚠️ `profiles` has only display_name/bio/condition | **Extend** |
+The site is fully token-driven via `src/index.css` and `tailwind.config.ts`. Locking the palette at the token layer cascades to every component without touching individual files.
 
-Everything Mongo/Express/Docker/SendGrid in the spec is a stack mismatch and gets ignored — the equivalents already exist on Supabase + Resend.
+### 1. Rewrite design tokens (`src/index.css`)
+Reduce the HSL token set to three values only:
+- `--background: 0 0% 100%` (white)
+- `--foreground: 0 0% 0%` (black)
+- `--primary: 0 85% 45%` (crimson red — keep current Aevolve red)
 
-## What I'll build
+Map every other semantic token to one of those three (or a pure neutral derived from black with opacity):
+- `--secondary`, `--muted`, `--accent`, `--card`, `--popover` → white bg / black fg
+- `--border`, `--input` → black at low opacity (e.g. `0 0% 0% / 0.12`)
+- `--destructive` → red
+- `--ring` → red
+- Sidebar tokens → same mapping
+- Dark mode block: invert (black bg, white fg, same red) — or remove dark mode if not used
 
-### 1. Triage / Self-Assessment
-- New table `triage_assessments` (user_id, arthritis_type, pain_level 0-10, affected_areas[], limitations[], goals[], triage_score, recommendations jsonb, valid_until, timestamps) with RLS (users CRUD their own; admins read all).
-- New edge function `submit-triage` — validates input with Zod, computes `triageScore` (weighted: pain 40%, areas count 20%, limitations 30%, mobility 10%), generates personalised recommendations (physio frequency, focus areas, exercise links, resource links to existing pages like `/exercise-hub`, `/diet`, `/conditions/...`), inserts row, returns score + recommendations.
-- New page `/self-assessment` — multi-step React Hook Form (arthritis type → pain slider → affected joints checklist → daily limitations → goals), submits to edge fn, shows results card with CTAs into existing pillar pages. History list at `/self-assessment/history`.
+### 2. Strip multi-colour gradients
+Search for and neutralise:
+- `--gradient-*` custom properties → red→black or solid red
+- Tailwind classes like `from-emerald-*`, `to-blue-*`, `bg-amber-*`, `text-green-*`, `via-purple-*` used directly in components
+- Hard-coded hex/rgb values in component files
 
-### 2. Buddy Matching
-- New tables:
-  - `buddy_profiles` (user_id, role 'mentor'|'mentee', arthritis_type, location_region, mobility_level, age_band, bio, available bool, max_mentees int).
-  - `buddy_matches` (mentor_id, mentee_id, status 'pending'|'active'|'completed'|'cancelled', compatibility_score, compatibility_breakdown jsonb, message_count, last_check_in, feedback jsonb, timestamps).
-  - RLS: users see/edit their own profile + matches they're part of; admins manage all.
-- New edge function `request-buddy-match` — pulls candidate mentors from `buddy_profiles` where available, scores each (arthritis type 40 + region 25 + mobility similarity 20 + age proximity 15), picks top match, creates pending `buddy_matches` row, queues a notification email to the mentor via existing transactional email pipeline.
-- New pages `/buddy` (sign-up form for mentor or mentee) and `/buddy/match` (current match status + check-in / feedback). Admin view in existing `AdminDashboard`.
+### 3. Audit hard-coded colour classes
+Run `rg` for non-token colour usage:
+- `(bg|text|border|from|to|via)-(red|blue|green|amber|emerald|purple|pink|orange|yellow|indigo|teal|cyan|rose|lime|sky|violet|fuchsia)-[0-9]`
+- Hex literals `#[0-9a-f]{3,8}` in `src/**/*.{tsx,ts,css}`
+- Replace with semantic tokens (`text-primary`, `text-foreground`, `bg-background`, `border-border`)
 
-### 3. Newsletter upgrade (double opt-in + preferences)
-- Extend `newsletter_subscriptions`: add `confirmed_at` (timestamptz null), `confirmation_token` (text unique), `frequency` ('weekly'|'biweekly'|'monthly', default 'monthly'), `categories` (text[] default '{}'), `unsubscribe_token` (text unique).
-- New edge function `confirm-newsletter` — accepts token, sets `confirmed_at`.
-- Update existing subscribe flow (footer + dedicated form): insert as unconfirmed, queue confirmation email via `send-transactional-email` with link to `/newsletter/confirm?token=...`.
-- New page `/newsletter/confirm` and update `/Unsubscribe` to use `unsubscribe_token`.
-- Add a "Manage preferences" page for confirmed subscribers (frequency + categories: research, exercise, nutrition, mental-health, treatments).
+### 4. Charts, badges, status indicators
+Components like triage results, buddy compatibility, admin dashboards may use green=good / amber=warn / red=bad. Convert to:
+- Black for neutral/good
+- Red for emphasis/bad
+- Use weight, opacity, or icons to convey state instead of hue
 
-### 4. Profile extension
-- Migrate `profiles` to add `arthritis_type` (text), `pain_level` (smallint 0-10), `mobility_level` ('high'|'moderate'|'low'), `location_region` (text). Pre-populate from triage on first submit. Add a `/profile` edit page (logged-in only) so users can update without re-doing triage.
+### 5. Images
+Photos remain full-colour (out of scope — covering UI chrome only). Confirm with you if you also want duotone treatment on hero imagery.
 
-## Technical notes
+### 6. Verify
+- Visual sweep of: Home, Articles, Donate, Self-Assessment, Buddy, Admin, Footer
+- Check dark-mode toggle (if active) still readable
+- Confirm no Tailwind `*-500` colour classes remain outside the red family
 
-- All new edge functions: Deno, CORS via `corsHeaders`, JWT validated in code (verify_jwt left at default), Zod input validation, structured error responses, rate-limited via existing `_shared/rate-limiter.ts`.
-- Triage scoring lives in `supabase/functions/submit-triage/scoring.ts` (pure function, unit-testable).
-- Buddy compatibility lives in `supabase/functions/request-buddy-match/compatibility.ts`.
-- All new routes registered in `App.tsx` and added to `public/sitemap.xml`.
-- New pages follow existing design tokens (Crimson/White Aevolve palette, Playfair Display headings, py-24/32 rhythm, no Framer Motion routing transitions).
-- New admin sub-pages added to `AdminDashboard` for triage history and buddy match oversight.
-- The 4 spec markdown files (`IMPLEMENTATION_SUMMARY`, `BACKEND_README`, `API_INTEGRATION_GUIDE`, `DEPLOYMENT_GUIDE`) will be saved to `docs/spec/` for reference, with a top README noting which parts were ported and which were skipped (and why).
+## Out of scope
+- Photographic content (kept as-is)
+- Logo artwork
+- Third-party embeds (Stripe, GA)
 
-## Out of scope (intentionally skipped)
-
-- Mongo/Express/Docker/Kubernetes/SendGrid — replaced by Supabase + Resend equivalents already in production.
-- Article seeding from spec — current `blog_articles` already has richer, UK-specific content.
-- Stripe webhook scaffolding — already implemented.
-
-## Suggested order of work
-
-1. Migration: triage + buddy + newsletter columns + profile extension (single migration, with RLS).
-2. Edge functions: `submit-triage`, `request-buddy-match`, `confirm-newsletter`, plus update `submit-newsletter` flow.
-3. Frontend pages: `/self-assessment`, `/buddy`, `/buddy/match`, `/newsletter/confirm`, `/newsletter/preferences`, `/profile`.
-4. Admin: triage + buddy panels in `AdminDashboard`.
-5. Docs drop in `docs/spec/`.
-6. Sitemap + nav links updated.
+## Question before I build
+Do you want **status colours** (success/warning/error in forms, toasts, admin tables) to also collapse to red+black? Strict reading = yes; usability reading = keep a green tick for "saved". I'll default to **strict red+black** unless you say otherwise.
