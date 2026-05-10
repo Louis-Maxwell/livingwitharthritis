@@ -9,12 +9,12 @@ import { ArrowRight, ChevronLeft, ChevronRight, Eye, Sparkles, Newspaper, Search
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useBlogViewCounts } from "@/hooks/useBlogViews";
-import { useBlogArticlesList } from "@/hooks/useBlogArticles";
+import { useBlogArticlesList, useFeaturedArticles } from "@/hooks/useBlogArticles";
 import { Skeleton } from "@/components/ui/skeleton";
 
-type Category = "All" | "Exercise" | "Nutrition" | "Lifestyle" | "Health" | "Supplements" | "Treatment";
+type Category = "All" | "Exercise" | "Nutrition" | "Lifestyle" | "Health" | "Mental Health" | "Supplements" | "Treatment";
 
-const categories: Category[] = ["All", "Exercise", "Nutrition", "Lifestyle", "Health", "Supplements", "Treatment"];
+const categories: Category[] = ["All", "Exercise", "Nutrition", "Lifestyle", "Health", "Mental Health", "Supplements", "Treatment"];
 const POSTS_PER_PAGE = 9;
 
 const categoryColors: Record<Category, string> = {
@@ -22,10 +22,19 @@ const categoryColors: Record<Category, string> = {
   Exercise: "bg-primary/10 text-primary hover:bg-primary/20 border-primary/20",
   Nutrition: "bg-primary/10 text-primary hover:bg-primary/20 border-primary/20",
   Lifestyle: "bg-primary/10 text-primary hover:bg-primary/20 border-primary/20",
-  Health: "bg-rose-500/10 text-rose-700 hover:bg-rose-500/20 border-rose-500/20",
+  Health: "bg-primary/10 text-primary hover:bg-primary/20 border-primary/20",
+  "Mental Health": "bg-primary/10 text-primary hover:bg-primary/20 border-primary/20",
   Supplements: "bg-primary/10 text-primary hover:bg-primary/20 border-primary/20",
   Treatment: "bg-primary/10 text-primary hover:bg-primary/20 border-primary/20",
 };
+
+/** Convert a URL slug like "mental-health" or "exercise" to a Category. */
+function slugToCategory(slug?: string): Category {
+  if (!slug) return "All";
+  const normalized = slug.toLowerCase().replace(/-/g, " ");
+  const match = categories.find((c) => c.toLowerCase() === normalized);
+  return match ?? "All";
+}
 
 interface BlogIndexProps {
   initialCategory?: string;
