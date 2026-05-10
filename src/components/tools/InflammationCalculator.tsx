@@ -100,7 +100,7 @@ export default function InflammationCalculator() {
             <circle cx="60" cy="60" r="52" fill="none" stroke="hsl(var(--muted))" strokeWidth="8" />
             <circle
               cx="60" cy="60" r="52" fill="none"
-              stroke={score <= 30 ? "#10b981" : score <= 60 ? "#f59e0b" : "#ef4444"}
+              stroke={score <= 30 ? "#000000" : "hsl(var(--primary))"}
               strokeWidth="8" strokeLinecap="round"
               strokeDasharray={`${(score / 100) * 327} 327`}
               className="transition-all duration-700"
