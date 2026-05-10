@@ -8,6 +8,7 @@ import PageHero from "@/components/ui/PageHero";
 import { StatCounter, WaveDivider, ComparisonCard } from "@/components/graphics/InfographicElements";
 import InternalLinks from "@/components/InternalLinks";
 import ContextualLinks from "@/components/ContextualLinks";
+import ConditionBlogStrip from "@/components/ConditionBlogStrip";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
 import ReadNextCards from "@/components/ReadNextCards";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
@@ -248,33 +249,11 @@ const RheumatoidArthritis = () => (
           <p><strong>Important:</strong> If you are on methotrexate, discuss alcohol intake and folic acid supplementation with your rheumatologist.</p>
         </Section>
 
-        {/* Related Articles */}
-        <section className="mt-16 mb-12">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-              <BookOpen className="w-5 h-5 text-primary" />
-            </div>
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">Related Articles</h2>
-          </div>
-          <div className="grid gap-3">
-            {[
-              { href: "/blog/rheumatoid-arthritis-diet-uk", title: "Best Diet for Rheumatoid Arthritis UK", desc: "Evidence-based anti-inflammatory nutrition guide for RA" },
-              { href: "/blog/arthritis-and-omega-3-fish-oil", title: "Omega-3 & Fish Oil for Arthritis", desc: "How omega-3 fatty acids reduce RA inflammation" },
-              { href: "/blog/arthritis-fatigue-management", title: "Managing Arthritis Fatigue", desc: "Why RA makes you exhausted and strategies to cope" },
-              { href: "/blog/yoga-for-arthritis-beginners", title: "Yoga for Arthritis Beginners", desc: "Gentle modified yoga for joint flexibility and well-being" },
-              { href: "/blog/arthritis-and-pregnancy-uk", title: "Arthritis & Pregnancy UK", desc: "Managing RA before, during and after pregnancy" },
-              { href: "/blog/arthritis-flare-up-management", title: "Managing Arthritis Flare-Ups", desc: "Strategies for coping when symptoms worsen" },
-            ].map((a) => (
-              <Link key={a.href} to={a.href} className="group flex items-center justify-between gap-4 rounded-xl border border-border/40 px-5 py-4 hover:bg-accent transition-colors">
-                <div>
-                  <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">{a.title}</span>
-                  <span className="block text-xs text-muted-foreground mt-0.5">{a.desc}</span>
-                </div>
-                <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary shrink-0 transition-colors" />
-              </Link>
-            ))}
-          </div>
-        </section>
+        {/* Live Blog & Stories — Advice & Guidance */}
+        <ConditionBlogStrip
+          conditionName="Rheumatoid Arthritis"
+          matchCategories={["Treatment", "Health", "Lifestyle"]}
+        />
 
         <ContextualLinks
           heading="Pair rheumatoid arthritis care with the right resources"
