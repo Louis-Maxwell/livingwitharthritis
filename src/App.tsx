@@ -100,6 +100,10 @@ const Gallery = lazy(() => import("./pages/Gallery"));
 const Credits = lazy(() => import("./pages/Credits"));
 const TaiChiForBalance = lazy(() => import("./pages/exercises/TaiChiForBalance"));
 const Pedometer = lazy(() => import("./pages/Pedometer"));
+const SelfAssessment = lazy(() => import("./pages/SelfAssessment"));
+const Buddy = lazy(() => import("./pages/Buddy"));
+const BuddyMatch = lazy(() => import("./pages/BuddyMatch"));
+const NewsletterConfirm = lazy(() => import("./pages/NewsletterConfirm"));
 // Loading fallback with skeleton-style animation
 const PageLoader = () => (
   <div className="min-h-screen flex flex-col items-center justify-center bg-background gap-4">
