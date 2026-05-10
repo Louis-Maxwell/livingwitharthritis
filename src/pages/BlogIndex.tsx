@@ -382,7 +382,7 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
                 return (
                   <Link
                     key={cat}
-                    to={`/blog/category/${cat.toLowerCase()}`}
+                    to={`/blog/category/${cat.toLowerCase().replace(/\s+/g, "-")}`}
                     className={`group flex items-center gap-4 rounded-xl border p-4 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 ${
                       isActive
                         ? `${categoryColors[cat]} border-current bg-opacity-20`
@@ -401,6 +401,7 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
                         {cat === "Nutrition" && "Anti-inflammatory diet, meal plans & recipes"}
                         {cat === "Lifestyle" && "Work, travel, gardening & daily living"}
                         {cat === "Health" && "Symptoms, diagnosis & condition guides"}
+                        {cat === "Mental Health" && "Mood, anxiety & coping with chronic pain"}
                         {cat === "Supplements" && "Turmeric, omega-3, glucosamine & collagen"}
                         {cat === "Treatment" && "Medication, TENS, hydrotherapy & relief"}
                       </p>
