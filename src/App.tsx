@@ -100,6 +100,10 @@ const Gallery = lazy(() => import("./pages/Gallery"));
 const Credits = lazy(() => import("./pages/Credits"));
 const TaiChiForBalance = lazy(() => import("./pages/exercises/TaiChiForBalance"));
 const Pedometer = lazy(() => import("./pages/Pedometer"));
+const SelfAssessment = lazy(() => import("./pages/SelfAssessment"));
+const Buddy = lazy(() => import("./pages/Buddy"));
+const BuddyMatch = lazy(() => import("./pages/BuddyMatch"));
+const NewsletterConfirm = lazy(() => import("./pages/NewsletterConfirm"));
 // Loading fallback with skeleton-style animation
 const PageLoader = () => (
   <div className="min-h-screen flex flex-col items-center justify-center bg-background gap-4">
@@ -204,6 +208,10 @@ function AnimatedRoutes() {
         <Route path="/arthritis-starter-guide" element={<ArthritisStarterGuide />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/credits" element={<Credits />} />
+        <Route path="/self-assessment" element={<SelfAssessment />} />
+        <Route path="/buddy" element={<Buddy />} />
+        <Route path="/buddy/match" element={<BuddyMatch />} />
+        <Route path="/newsletter/confirm" element={<NewsletterConfirm />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </PageTransition>
