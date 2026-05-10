@@ -65,6 +65,8 @@ export interface ConditionPageData {
   faqs: ConditionFAQ[];
   /** Related internal links */
   related: RelatedLink[];
+  /** Optional blog categories used to surface the latest matched articles */
+  blogCategories?: string[];
 }
 
 const Section = ({
