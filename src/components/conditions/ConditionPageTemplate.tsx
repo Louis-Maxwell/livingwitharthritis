@@ -272,6 +272,12 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
             </div>
           </section>
 
+          {/* Live Blog & Stories — Advice & Guidance for this condition */}
+          <ConditionBlogStrip
+            conditionName={data.name}
+            matchCategories={data.blogCategories}
+          />
+
           {/* Contextual SEO links — keyword-rich, page-aware */}
           <ContextualLinks
             heading={`Pair ${data.name} care with the right resources`}
