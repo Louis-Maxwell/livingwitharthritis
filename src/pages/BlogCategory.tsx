@@ -29,6 +29,10 @@ const CATEGORY_META: Record<string, { title: string; description: string }> = {
     title: "Arthritis Treatment Articles & Updates",
     description: "Latest arthritis treatment articles — medications, public healthcare pathways, physiotherapy, surgery and emerging research, explained for UK patients.",
   },
+  "mental-health": {
+    title: "Mental Health & Arthritis: UK Guides",
+    description: "Living with arthritis affects mental wellbeing. Read evidence-based UK guides on mood, anxiety, sleep and coping with chronic pain.",
+  },
 };
 
 const BlogCategory = () => {
