@@ -1,6 +1,7 @@
 import ConditionPageTemplate, { type ConditionPageData } from "@/components/conditions/ConditionPageTemplate";
 
 const data: ConditionPageData = {
+  blogCategories: ["Health", "Lifestyle"],
   slug: "juvenile-arthritis",
   name: "Juvenile Arthritis",
   tagline:

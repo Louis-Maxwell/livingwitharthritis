@@ -8,6 +8,7 @@ import PageHero from "@/components/ui/PageHero";
 import { StatCounter, WaveDivider } from "@/components/graphics/InfographicElements";
 import InternalLinks from "@/components/InternalLinks";
 import ContextualLinks from "@/components/ContextualLinks";
+import ConditionBlogStrip from "@/components/ConditionBlogStrip";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
 import ReadNextCards from "@/components/ReadNextCards";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
@@ -243,33 +244,11 @@ const PsoriaticArthritis = () => (
           <p>Some individuals report food triggers for skin flares (gluten, nightshades, dairy). Keeping a food diary may help identify personal triggers, though evidence for elimination diets is limited.</p>
         </Section>
 
-        {/* Related Articles */}
-        <section className="mt-16 mb-12">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-              <BookOpen className="w-5 h-5 text-primary" />
-            </div>
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">Related Articles</h2>
-          </div>
-          <div className="grid gap-3">
-            {[
-              { href: "/blog/best-diet-for-joint-pain-uk", title: "Best Diet for Joint Pain UK", desc: "Anti-inflammatory Mediterranean diet guidance" },
-              { href: "/blog/arthritis-and-omega-3-fish-oil", title: "Omega-3 & Fish Oil for Arthritis", desc: "How omega-3s reduce joint and skin inflammation" },
-              { href: "/blog/arthritis-fatigue-management", title: "Managing Arthritis Fatigue", desc: "Coping strategies for PsA exhaustion" },
-              { href: "/blog/arthritis-pain-relief-natural", title: "Natural Pain Relief for Arthritis", desc: "Evidence-based home remedies that work" },
-              { href: "/blog/swimming-for-arthritis-uk", title: "Swimming for Arthritis UK", desc: "Low-impact exercise ideal for PsA joints" },
-              { href: "/blog/arthritis-diet-myths-debunked", title: "Arthritis Diet Myths Debunked", desc: "Separating fact from fiction about food and arthritis" },
-            ].map((a) => (
-              <Link key={a.href} to={a.href} className="group flex items-center justify-between gap-4 rounded-xl border border-border/40 px-5 py-4 hover:bg-accent transition-colors">
-                <div>
-                  <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">{a.title}</span>
-                  <span className="block text-xs text-muted-foreground mt-0.5">{a.desc}</span>
-                </div>
-                <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary shrink-0 transition-colors" />
-              </Link>
-            ))}
-          </div>
-        </section>
+        {/* Live Blog & Stories — Advice & Guidance */}
+        <ConditionBlogStrip
+          conditionName="Psoriatic Arthritis"
+          matchCategories={["Treatment", "Lifestyle"]}
+        />
 
         <ContextualLinks
           heading="Pair psoriatic arthritis care with the right resources"

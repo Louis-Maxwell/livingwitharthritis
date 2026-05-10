@@ -77,6 +77,27 @@ export function useFeaturedArticles(limit = 3) {
   });
 }
 
+/** Recent articles filtered by one or more categories — used on Condition pages */
+export function useConditionArticles(categories: string[] = [], limit = 4) {
+  return useQuery({
+    queryKey: ["blog_articles_by_categories", categories, limit],
+    queryFn: async () => {
+      let q = supabase
+        .from("blog_articles")
+        .select(LIST_FIELDS)
+        .eq("is_published", true);
+      if (categories.length > 0) {
+        q = q.in("category", categories);
+      }
+      const { data, error } = await q
+        .order("date", { ascending: false })
+        .limit(limit);
+      if (error) throw error;
+      return (data ?? []) as Pick<DBBlogArticle, "slug" | "title" | "excerpt" | "date" | "category" | "image_url" | "display_order">[];
+    },
+  });
+}
+
 /** Next article for continue-reading bar */
 export function useNextArticle(currentSlug: string) {
   return useQuery({

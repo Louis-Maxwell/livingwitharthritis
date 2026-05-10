@@ -1,6 +1,7 @@
 import ConditionPageTemplate, { type ConditionPageData } from "@/components/conditions/ConditionPageTemplate";
 
 const data: ConditionPageData = {
+  blogCategories: ["Exercise", "Treatment"],
   slug: "ankylosing-spondylitis",
   name: "Ankylosing Spondylitis",
   tagline:
