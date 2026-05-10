@@ -41,27 +41,29 @@ interface BlogIndexProps {
 }
 
 const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
-  const [activeCategory, setActiveCategory] = useState<Category>(
-    initialCategory
-      ? (initialCategory.charAt(0).toUpperCase() + initialCategory.slice(1).toLowerCase()) as Category
-      : "All"
-  );
+  const [activeCategory, setActiveCategory] = useState<Category>(slugToCategory(initialCategory));
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
 
   const { data: blogPosts = [], isLoading } = useBlogArticlesList();
+  const { data: featuredPosts = [] } = useFeaturedArticles(3);
+  const featuredSlugs = useMemo(() => new Set(featuredPosts.map((p) => p.slug)), [featuredPosts]);
 
   const allSlugs = useMemo(() => blogPosts.map((p) => p.slug), [blogPosts]);
   const viewCounts = useBlogViewCounts(allSlugs);
 
   const filtered = useMemo(() => {
-    let posts = activeCategory === "All" ? blogPosts : blogPosts.filter((p) => p.category === activeCategory);
+    // Exclude featured rows from the grid only when no filter is active.
+    const base = activeCategory === "All" && !searchQuery.trim()
+      ? blogPosts.filter((p) => !featuredSlugs.has(p.slug))
+      : blogPosts;
+    let posts = activeCategory === "All" ? base : base.filter((p) => p.category === activeCategory);
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
       posts = posts.filter((p) => p.title.toLowerCase().includes(q) || p.excerpt.toLowerCase().includes(q));
     }
     return posts;
-  }, [activeCategory, searchQuery, blogPosts]);
+  }, [activeCategory, searchQuery, blogPosts, featuredSlugs]);
 
   const totalPages = Math.ceil(filtered.length / POSTS_PER_PAGE);
   const paginated = filtered.slice((currentPage - 1) * POSTS_PER_PAGE, currentPage * POSTS_PER_PAGE);
