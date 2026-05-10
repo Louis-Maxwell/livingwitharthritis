@@ -231,7 +231,7 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
           content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;"
         />
 
-        <meta name="theme-color" content="#0f766e" />
+        <meta name="theme-color" content="#c4112f" />
 
         {/* Open Graph */}
         <meta property="og:title" content={`Free Arthritis Support UK | ${SITE_NAME}`} />
