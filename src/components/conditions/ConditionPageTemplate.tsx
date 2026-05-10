@@ -18,6 +18,7 @@ import Footer from "@/components/Footer";
 import InternalLinks from "@/components/InternalLinks";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
 import ContextualLinks from "@/components/ContextualLinks";
+import ConditionBlogStrip from "@/components/ConditionBlogStrip";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 
 const BASE = "https://livingwitharthritis.org.uk";
