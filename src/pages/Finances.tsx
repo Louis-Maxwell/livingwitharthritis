@@ -309,14 +309,14 @@ James Whitfield — Treasurer
                       <XAxis dataKey="year" tick={{ fontSize: 12 }} />
                       <YAxis tick={{ fontSize: 12 }} tickFormatter={(v) => `£${(v / 1000).toFixed(0)}K`} />
                       <Tooltip formatter={(v: number) => `£${v.toLocaleString()}`} />
-                      <Bar dataKey="income" name="Income" fill="hsl(142, 60%, 40%)" radius={[4, 4, 0, 0]} />
-                      <Bar dataKey="expenditure" name="Expenditure" fill="hsl(0, 72%, 46%)" radius={[4, 4, 0, 0]} />
+                      <Bar dataKey="income" name="Income" fill="hsl(0, 0%, 0%)" radius={[4, 4, 0, 0]} />
+                      <Bar dataKey="expenditure" name="Expenditure" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
                     </BarChart>
                   </ResponsiveContainer>
                 </div>
                 <div className="flex items-center gap-6 mt-4 justify-center text-sm">
-                  <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-sm" style={{ backgroundColor: "hsl(142, 60%, 40%)" }} /><span className="text-muted-foreground">Income</span></div>
-                  <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-sm" style={{ backgroundColor: "hsl(0, 72%, 46%)" }} /><span className="text-muted-foreground">Expenditure</span></div>
+                  <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-sm" style={{ backgroundColor: "hsl(0, 0%, 0%)" }} /><span className="text-muted-foreground">Income</span></div>
+                  <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-sm" style={{ backgroundColor: "hsl(var(--primary))" }} /><span className="text-muted-foreground">Expenditure</span></div>
                 </div>
               </CardContent>
             </Card>
