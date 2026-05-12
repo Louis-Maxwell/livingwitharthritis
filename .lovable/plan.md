@@ -1,65 +1,20 @@
 ## Goal
+Replace existing donation amount presets with **£50, £150, £200, £500** across the site.
 
-Connect the Blog & Stories content to each Condition page (Osteoarthritis, Rheumatoid, Psoriatic, Gout, Ankylosing Spondylitis, Juvenile, Fibromyalgia, Lupus) so visitors reading about a condition see live, curated articles drawn from the blog database — not the current hardcoded link lists.
+## Changes
 
-## What changes
+1. **`src/pages/Donate.tsx`** — `DONATION_OPTIONS` array
+   - £10 → £50: "Funds a personalised exercise plan and virtual physio session"
+   - £25 → £150: "Supports our AI health assistant for a month"
+   - £50 → £200: "Keeps the platform free for 1,000 users for a month"
+   - £100 → £500: "Powers a full quarter of patient guidance content"
+   - (Impact copy above is a suggested rewrite — happy to adjust wording.)
 
-### 1. New shared component: `ConditionBlogStrip`
-Path: `src/components/ConditionBlogStrip.tsx`
-
-A self-contained section that renders:
-- Section header: "Advice & Guidance" with eyebrow "Blog & Stories"
-- **Row 1** — 3 Editor's Picks (uses existing `useFeaturedArticles(3)` hook)
-- **Row 2** — 4 most recent published articles, optionally filtered to the condition's primary categories (e.g. OA → Exercise + Nutrition + Treatment) so cards stay topical
-- "View all advice & guidance" CTA → `/blog`
-- Skeleton loaders while fetching, graceful empty state
-- Crimson/white institutional styling per design memory (no Framer Motion routing, semantic tokens only)
-
-Props:
-```ts
-interface ConditionBlogStripProps {
-  conditionLabel: string;            // e.g. "osteoarthritis"
-  matchCategories?: string[];        // optional category filter for the recent row
-}
-```
-
-### 2. New hook: `useConditionArticles`
-Add to `src/hooks/useBlogArticles.ts`:
-- Accepts `categories: string[]` and `limit` (default 4)
-- Selects `LIST_FIELDS`, `is_published = true`, `category in (…)`, ordered by `date desc`
-- Falls back to latest published if no categories provided
-
-### 3. Wire into all 8 Condition pages
-Replace each existing hardcoded "Related Articles" list block with `<ConditionBlogStrip … />`, passing per-condition category mapping:
-
-| Page | matchCategories |
-|---|---|
-| Osteoarthritis | Exercise, Nutrition, Treatment |
-| Rheumatoid Arthritis | Treatment, Health, Lifestyle |
-| Psoriatic Arthritis | Treatment, Lifestyle |
-| Gout | Nutrition, Lifestyle |
-| Ankylosing Spondylitis | Exercise, Treatment |
-| Juvenile Arthritis | Health, Lifestyle |
-| Fibromyalgia | Mental Health, Lifestyle |
-| Lupus | Health, Treatment |
-
-The existing `ContextualLinks` block below stays — it serves a different SEO purpose.
-
-### 4. Keep `BlogIndex` (`/blog`) as the canonical destination
-The CTA on every condition page links to `/blog`, reinforcing it as the central Advice & Guidance hub.
+2. **`src/components/DonationQuickBar.tsx`** — `PRESETS` constant
+   - `[25, 50, 100, 250]` → `[50, 150, 200, 500]`
 
 ## Out of scope
-- No DB schema changes (uses existing `blog_articles` table + RLS).
-- No homepage changes.
-- No changes to `RelatedArticles` (article-to-article component).
-- No new routes.
+- `DonationNotification.tsx` ticker (shows fictitious past donations of varied amounts — leaving as-is for realism).
+- Gift Aid example copy ("£100 becomes £125") — leave unless you'd like it updated to a £200 example.
 
-## Files touched
-- **new** `src/components/ConditionBlogStrip.tsx`
-- **edit** `src/hooks/useBlogArticles.ts` (add `useConditionArticles`)
-- **edit** all 8 files in `src/pages/conditions/`
-
-## Verification
-- Load `/conditions/osteoarthritis` → see featured + recent OA-relevant articles
-- Each card links to `/blog/<slug>` and renders correctly
-- No regressions in `BlogIndex` or `BlogPost`
+Confirm and I'll implement.
