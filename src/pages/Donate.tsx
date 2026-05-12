@@ -147,7 +147,7 @@ export default function Donate() {
             </p>
             <Button
               size="lg"
-              onClick={() => navigate("/zakat-appeal")}
+              onClick={scrollToGive}
               className="btn-primary-cta px-10 h-14 rounded-full text-sm font-bold tracking-wide group"
             >
               <Heart className="w-5 h-5 mr-2 fill-current/20 group-hover:scale-110 transition-transform" />
@@ -157,8 +157,120 @@ export default function Donate() {
           </div>
         </section>
 
+        {/* Donation Widget */}
+        <section id="give" className="container mx-auto px-6 md:px-10 py-16 max-w-3xl scroll-mt-24">
+          <h2 className="text-2xl font-bold text-foreground text-center mb-3">Make a Donation</h2>
+          <p className="text-muted-foreground text-center mb-8 max-w-lg mx-auto">
+            Choose a one-time gift or set up monthly giving. Every contribution funds free arthritis support.
+          </p>
+
+          <div className="bg-card rounded-2xl border border-border/40 p-6 sm:p-8 shadow-sm">
+            {/* Frequency toggle */}
+            <div
+              role="radiogroup"
+              aria-label="Donation frequency"
+              className="grid grid-cols-2 gap-1 p-1 bg-muted/50 rounded-full mb-6"
+            >
+              {(["one-time", "monthly"] as const).map((f) => {
+                const active = frequency === f;
+                const Icon = f === "monthly" ? RefreshCw : Heart;
+                return (
+                  <button
+                    key={f}
+                    role="radio"
+                    aria-checked={active}
+                    onClick={() => setFrequency(f)}
+                    className={`inline-flex items-center justify-center gap-2 h-11 rounded-full text-sm font-semibold transition-all ${
+                      active
+                        ? "bg-background text-foreground shadow-sm"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    <Icon className="w-4 h-4" />
+                    {f === "one-time" ? "One-time" : "Monthly"}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Amount picker */}
+            <label className="block text-xs font-bold text-muted-foreground tracking-wider uppercase mb-3">
+              Amount {isMonthly && <span className="text-primary">(per month)</span>}
+            </label>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
+              {PRESET_AMOUNTS.map((amt) => {
+                const active = customAmount === "" && selectedAmount === amt;
+                return (
+                  <button
+                    key={amt}
+                    aria-pressed={active}
+                    onClick={() => {
+                      setSelectedAmount(amt);
+                      setCustomAmount("");
+                    }}
+                    className={`h-12 rounded-xl border-2 text-base font-bold transition-all ${
+                      active
+                        ? "border-primary bg-primary/10 text-primary"
+                        : "border-border bg-background text-foreground hover:border-primary/40"
+                    }`}
+                  >
+                    £{amt}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Custom amount */}
+            <div className="relative mb-4">
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground font-semibold">£</span>
+              <Input
+                type="number"
+                inputMode="decimal"
+                min={MIN_AMOUNT}
+                max={MAX_AMOUNT}
+                placeholder="Other amount"
+                value={customAmount}
+                onChange={(e) => setCustomAmount(e.target.value)}
+                className="pl-9 h-12 rounded-xl"
+                aria-label="Custom donation amount in pounds"
+              />
+            </div>
+
+            {customAmount !== "" && !isCustomValid && (
+              <p className="text-xs text-destructive mb-3" role="alert">
+                Please enter an amount between £{MIN_AMOUNT} and £{MAX_AMOUNT.toLocaleString()}.
+              </p>
+            )}
+
+            {isMonthly && canDonate && (
+              <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4 px-1">
+                <Calendar className="w-4 h-4 text-primary" />
+                <span>
+                  £{activeAmount.toLocaleString()} / month ·{" "}
+                  <strong className="text-foreground">£{(activeAmount * 12).toLocaleString()}</strong> over a year
+                </span>
+              </div>
+            )}
+
+            <Button
+              size="lg"
+              disabled={!canDonate}
+              onClick={() => setIsModalOpen(true)}
+              className="btn-primary-cta w-full h-14 rounded-full text-sm font-bold tracking-wide group"
+            >
+              <Heart className="w-5 h-5 mr-2 fill-current/20" />
+              {isMonthly ? `Give £${activeAmount || 0} / month` : `Donate £${activeAmount || 0}`}
+              <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-0.5" />
+            </Button>
+
+            <p className="text-[11px] text-muted-foreground/70 text-center mt-4">
+              Secured by Stripe · 256-bit encryption{isMonthly ? " · Cancel anytime" : ""}
+            </p>
+          </div>
+        </section>
+
         {/* Impact Cards */}
-        <section className="container mx-auto px-6 md:px-10 py-16 max-w-5xl">
+        <section className="container mx-auto px-6 md:px-10 pb-16 max-w-5xl">
           <h2 className="text-2xl font-bold text-foreground text-center mb-3">Your Impact</h2>
           <p className="text-muted-foreground text-center mb-10 max-w-lg mx-auto">See exactly how your donation helps people living with arthritis across the UK.</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
