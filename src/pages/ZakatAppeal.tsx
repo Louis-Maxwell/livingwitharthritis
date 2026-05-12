@@ -71,7 +71,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Can I set up a recurring Zakat payment?",
-    a: "Currently we accept one-off donations. We are working on adding recurring payment options. You can return to this page at any time to make additional contributions.",
+    a: "Zakat is given as a one-off annual obligation, so we keep this page single-payment only. If you'd like to support our wider work every month, you can set up monthly giving on our main donate page.",
   },
 ];
 
