@@ -89,6 +89,24 @@ const WAYS_TO_GIVE = [
 
 export default function Donate() {
   const navigate = useNavigate();
+  const [frequency, setFrequency] = useState<"one-time" | "monthly">("one-time");
+  const [selectedAmount, setSelectedAmount] = useState<number>(50);
+  const [customAmount, setCustomAmount] = useState<string>("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const customNum = Number(customAmount);
+  const isCustomValid =
+    customAmount !== "" &&
+    Number.isFinite(customNum) &&
+    customNum >= MIN_AMOUNT &&
+    customNum <= MAX_AMOUNT;
+  const activeAmount = customAmount !== "" ? (isCustomValid ? customNum : 0) : selectedAmount;
+  const canDonate = activeAmount >= MIN_AMOUNT && activeAmount <= MAX_AMOUNT;
+  const isMonthly = frequency === "monthly";
+
+  const scrollToGive = () => {
+    document.getElementById("give")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
     <>
