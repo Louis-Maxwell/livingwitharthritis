@@ -11,7 +11,7 @@ import {
 import StripeDonationModal from "@/components/StripeDonationModal";
 import { Link } from "react-router-dom";
 
-const PRESETS = [25, 50, 100, 250];
+const PRESETS = [50, 150, 200, 500];
 
 const FUND_OPTIONS = [
   { value: "research", label: "Arthritis Research" },

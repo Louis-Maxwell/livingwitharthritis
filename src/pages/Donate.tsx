@@ -8,23 +8,23 @@ import { useNavigate } from "react-router-dom";
 
 const DONATION_OPTIONS = [
   {
-    amount: "£10",
-    impact: "Provides a personalised exercise plan for one patient",
-    color: "bg-primary/10 border-primary/20 text-primary dark:text-primary",
-  },
-  {
-    amount: "£25",
-    impact: "Funds 3 guided virtual physiotherapy sessions",
-    color: "bg-primary/10 border-primary/20 text-primary dark:text-primary",
-  },
-  {
     amount: "£50",
-    impact: "Supports our AI health assistant for a week",
+    impact: "Funds a personalised exercise plan and a virtual physio session",
     color: "bg-primary/10 border-primary/20 text-primary dark:text-primary",
   },
   {
-    amount: "£100",
-    impact: "Keeps our platform free for 500 users for one month",
+    amount: "£150",
+    impact: "Supports our AI health assistant for a full month",
+    color: "bg-primary/10 border-primary/20 text-primary dark:text-primary",
+  },
+  {
+    amount: "£200",
+    impact: "Keeps the platform free for 1,000 users for a month",
+    color: "bg-primary/10 border-primary/20 text-primary dark:text-primary",
+  },
+  {
+    amount: "£500",
+    impact: "Powers a full quarter of patient guidance content",
     color: "bg-primary/10 border-primary/20 text-primary",
   },
 ];
