@@ -391,6 +391,14 @@ export default function Donate() {
         </section>
       </main>
       <Footer />
+      <StripeDonationModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        amount={activeAmount}
+        currency="GBP"
+        fundType="general"
+        recurring={isMonthly}
+      />
     </>
   );
 }
