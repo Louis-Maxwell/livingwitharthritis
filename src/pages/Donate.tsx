@@ -1,9 +1,16 @@
+import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
-import { Heart, ArrowRight, Globe, HandHeart, Users, Building2, Gift, Landmark, Receipt, Briefcase } from "lucide-react";
+import { Heart, ArrowRight, Globe, HandHeart, Users, Building2, Gift, Landmark, Receipt, Briefcase, RefreshCw, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
+import StripeDonationModal from "@/components/StripeDonationModal";
+
+const PRESET_AMOUNTS = [50, 150, 200, 500];
+const MIN_AMOUNT = 1;
+const MAX_AMOUNT = 100000;
 
 
 const DONATION_OPTIONS = [
