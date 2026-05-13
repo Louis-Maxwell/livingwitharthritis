@@ -250,6 +250,14 @@ const articleJsonLd = {
   description:
     "A free, evidence-based 7-day Mediterranean eating plan for UK adults with arthritis. Shopping list, recipes and the foods to eat freely, weekly and rarely.",
   inLanguage: "en-GB",
+  image: "https://livingwitharthritis.org.uk/images/hero-community.jpg",
+  datePublished: "2024-09-01",
+  dateModified: "2025-01-15",
+  author: {
+    "@type": "Organization",
+    name: "Living With Arthritis UK Clinical Team",
+    url: SITE,
+  },
   about: {
     "@type": "Diet",
     name: "Mediterranean diet",
