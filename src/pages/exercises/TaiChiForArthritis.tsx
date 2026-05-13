@@ -234,6 +234,77 @@ export default function TaiChiForArthritis() {
         </div>
       </section>
 
+      {/* Movement video library */}
+      <section id="library" className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
+        <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
+          <div className="max-w-2xl mb-10">
+            <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-0"><Library className="h-3 w-3 mr-1 inline" />Video library</Badge>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">Tai chi movement library</h2>
+            <p className="text-muted-foreground leading-relaxed">Five core movements every NICE-aligned tai chi programme builds on. Watch the slow demo, then try it in our Balance or Seated routine.</p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {movementLibrary.map((m) => {
+              const Anim = TAI_CHI_ANIMATIONS[m.key];
+              return (
+                <Card key={m.key} className="overflow-hidden border border-border/40 flex flex-col">
+                  <div className="aspect-video bg-muted/40 overflow-hidden">
+                    <Anim className="w-full h-full object-cover" />
+                  </div>
+                  <div className="p-5 flex flex-col gap-3 flex-1">
+                    <div className="flex items-start gap-2">
+                      <PlayCircle className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                      <h3 className="font-display text-lg font-semibold leading-snug">{m.name}</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{m.brief}</p>
+                    <p className="text-xs uppercase tracking-wider text-primary/80 font-semibold mt-auto">{m.bestFor}</p>
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button asChild><Link to="/exercises/tai-chi-for-balance">See moves in the 15-min routine</Link></Button>
+            <Button asChild variant="outline"><Link to="/exercises/seated-tai-chi-for-arthritis">Seated adaptations</Link></Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Tai Chi guides */}
+      <section className="py-16 lg:py-24 bg-background">
+        <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
+          <div className="max-w-2xl mb-10">
+            <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-0">Related guides</Badge>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">Pick the routine that fits today</h2>
+            <p className="text-muted-foreground leading-relaxed">Two doors into the same practice — choose by how your joints feel right now.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <Link to="/exercises/tai-chi-for-balance" className="group">
+              <Card className="p-7 h-full border border-border/40 group-hover:border-primary/40 group-hover:shadow-lg transition-all">
+                <Badge variant="secondary" className="mb-3 bg-primary/10 text-primary border-0">Standing · 15 min</Badge>
+                <h3 className="font-display text-2xl font-semibold mb-3">Tai Chi for Balance</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">Best for anyone who can stand safely with light support. The 15-minute routine focused on fall prevention and knee/hip pain reduction.</p>
+                <span className="inline-flex items-center text-primary font-semibold text-sm">Start the routine <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" /></span>
+              </Card>
+            </Link>
+            <Link to="/exercises/seated-tai-chi-for-arthritis" className="group">
+              <Card className="p-7 h-full border border-border/40 group-hover:border-primary/40 group-hover:shadow-lg transition-all">
+                <Badge variant="secondary" className="mb-3 bg-primary/10 text-primary border-0">Seated · 13 min</Badge>
+                <h3 className="font-display text-2xl font-semibold mb-3">Seated Tai Chi</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">Best for severe OA, post-surgery weeks, fall risk, or low-energy days. Same flowing principles from a sturdy chair.</p>
+                <span className="inline-flex items-center text-primary font-semibold text-sm">Try seated routine <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" /></span>
+              </Card>
+            </Link>
+          </div>
+
+          <div className="mt-6 text-sm text-muted-foreground">
+            Looking for a specific joint? <a href="#joints" className="text-primary hover:underline">Jump to the joint guides above</a> or browse all <Link to="/exercises" className="text-primary hover:underline">arthritis exercises</Link>.
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
