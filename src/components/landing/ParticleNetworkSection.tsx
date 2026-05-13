@@ -246,14 +246,14 @@ const ParticleNetworkSection = memo(() => {
       <div className="relative grid lg:grid-cols-2 gap-0 items-center min-h-[65vh]">
         {/* Text content — left side */}
         <div className="px-8 sm:px-12 lg:px-16 py-14 lg:py-0 space-y-6 text-center lg:text-left order-2 lg:order-1">
-          <span className="inline-block text-xs font-bold tracking-[0.35em] uppercase text-white/30">
+          <span className="inline-block text-xs font-bold tracking-[0.35em] uppercase text-white/70">
             Connected Care
           </span>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-[1.1]">
             Every point of care,{" "}
             <span style={{ color: "#E4002B" }}>interconnected</span>
           </h2>
-          <p className="text-white/45 text-base sm:text-lg leading-relaxed max-w-lg mx-auto lg:mx-0">
+          <p className="text-white/80 text-base sm:text-lg leading-relaxed max-w-lg mx-auto lg:mx-0">
             Our network links physiotherapists, dietitians, exercise specialists,
             and community volunteers into a living support system — so no aspect
             of your wellbeing is ever overlooked.
@@ -267,7 +267,7 @@ const ParticleNetworkSection = memo(() => {
             ].map((s) => (
               <div key={s.label} className="text-center lg:text-left">
                 <p className="text-2xl font-extrabold text-white/90 tabular-nums">{s.val}</p>
-                <p className="text-[11px] text-white/30 uppercase tracking-widest mt-0.5">{s.label}</p>
+                <p className="text-[11px] text-white/70 uppercase tracking-widest mt-0.5">{s.label}</p>
               </div>
             ))}
           </div>
