@@ -78,6 +78,24 @@ const faqJsonLd = {
   })),
 };
 
+const SITE = "https://livingwitharthritis.org.uk";
+const itemListJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Tai Chi for Arthritis — Topic Hub",
+  itemListOrder: "https://schema.org/ItemListOrderAscending",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Tai Chi for Balance", url: `${SITE}/exercises/tai-chi-for-balance` },
+    { "@type": "ListItem", position: 2, name: "Seated Tai Chi for Arthritis", url: `${SITE}/exercises/seated-tai-chi-for-arthritis` },
+    ...jointLinks.map((j, i) => ({
+      "@type": "ListItem",
+      position: 3 + i,
+      name: `Tai Chi for ${j.joint} Arthritis`,
+      url: `${SITE}/exercises/${j.slug}`,
+    })),
+  ],
+};
+
 export default function TaiChiForArthritis() {
   useEffect(() => {
     const a = document.createElement("script");
@@ -86,11 +104,16 @@ export default function TaiChiForArthritis() {
     const b = document.createElement("script");
     b.type = "application/ld+json";
     b.text = JSON.stringify(faqJsonLd);
+    const c = document.createElement("script");
+    c.type = "application/ld+json";
+    c.text = JSON.stringify(itemListJsonLd);
     document.head.appendChild(a);
     document.head.appendChild(b);
+    document.head.appendChild(c);
     return () => {
       document.head.removeChild(a);
       document.head.removeChild(b);
+      document.head.removeChild(c);
     };
   }, []);
 
