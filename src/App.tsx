@@ -47,6 +47,9 @@ const AnkylosingSpondylitis = lazy(() => import("./pages/conditions/AnkylosingSp
 const JuvenileArthritis = lazy(() => import("./pages/conditions/JuvenileArthritis"));
 const Fibromyalgia = lazy(() => import("./pages/conditions/Fibromyalgia"));
 const Lupus = lazy(() => import("./pages/conditions/Lupus"));
+const KneeArthritis = lazy(() => import("./pages/conditions/KneeArthritis"));
+const HandArthritis = lazy(() => import("./pages/conditions/HandArthritis"));
+const ShoulderArthritis = lazy(() => import("./pages/conditions/ShoulderArthritis"));
 const SelfHelpTool = lazy(() => import("./pages/SelfHelpTool"));
 const ZakatAppeal = lazy(() => import("./pages/ZakatAppeal"));
 const ExerciseHub = lazy(() => import("./pages/ExerciseHub"));
