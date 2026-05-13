@@ -1,29 +1,39 @@
-## Plan: Expand Tai Chi FAQ with safety-focused questions and optimised headings
+## Plan: Turn `/exercises/tai-chi-for-arthritis` into a true topical hub
 
-The hub page `TaiChiForArthritis.tsx` already has a 6-question FAQ with `FAQPage` JSON-LD, but it's missing the high-intent **safety** cluster ("is tai chi safe…") and the question H3s render as plain `<summary>` text — not optimal for SEO crawl/parse. Same gap on `SeatedTaiChiForArthritis.tsx`.
+The page exists as a guide but doesn't yet act as a hub — it needs to surface and link **every** Tai Chi asset on the site so Google sees a tightly clustered topic. Inventory found:
 
-### What I'll change
+- **3 dedicated pages**: hub itself, Tai Chi for Balance, Seated Tai Chi for Arthritis
+- **8 dynamic joint pages** auto-generated from `exerciseJointMatrix.ts` (knee, hip, hand, wrist, shoulder, back, foot, ankle)
+- **35 short clips** in `src/assets/`: 5 named (`tai-chi-brush-knee`, `cloud-hands`, `rooted-stance`, `weight-shift`, `closing-posture`) + 30 numbered variants (`tc-brush-1..6`, `tc-close-1..6`, `tc-cloud-1..6`, `tc-rooted-1..6`, `tc-shift-1..6`)
+- **1 article**: "Tai Chi for Joint Health" in `articles.ts`
+- **1 component**: `TaiChiAnimations.tsx`
 
-**1. `src/pages/exercises/TaiChiForArthritis.tsx`** — Append 4 new FAQ entries targeting safety, contraindications, and joint-specific intent (all rephrased as natural questions Google surfaces in People Also Ask):
+### What I'll build
 
-- **Is tai chi safe for arthritis?** — Yes for most; covers low-impact mechanics, NICE NG226 safety profile, when to pause (acute flare, recent joint replacement <6wk, severe balance issues without support).
-- **Is tai chi safe for knee arthritis?** — Specifics on weight-shift, avoiding deep stances, modifications.
-- **Is tai chi safe after a joint replacement?** — 6–12 week post-op window guidance, surgeon clearance, seated start.
-- **What are the side effects or risks of tai chi for arthritis?** — Mild post-session soreness vs. red-flag pain, fall risk if practising unsupported with severe instability.
+**1. New hub sections inside `TaiChiForArthritis.tsx`** (between the existing intro and FAQ):
 
-**2. Optimise heading semantics** — Promote each question from `<summary>` text-only to a true `<h3>` inside the `<summary>`, so crawlers parse the FAQ list as a heading hierarchy under the existing `<h2>Common questions</h2>`. Keep the `<details>/<summary>` accordion behaviour intact (no JS change).
+- **"Tai Chi by joint"** — 8-card grid linking to each `/exercises/tai-chi-for-{joint}-arthritis` page, with the joint name + 1-line benefit pulled from the matrix.
+- **"Related Tai Chi guides"** — 2 prominent cards: Tai Chi for Balance (fall prevention) and Seated Tai Chi (chair-based). Each with 1-sentence "best for…" framing.
+- **"Movement video library"** — 5 grouped tiles (Brush Knee, Cloud Hands, Rooted Stance, Weight Shift, Closing Posture). Each tile shows the named hero clip and lists the 6 numbered angle variants beneath, all using the existing `<video>` pattern from the page. Lazy-loaded.
+- **"Read more"** — link to the "Tai Chi for Joint Health" article in `articles.ts` and to the Exercise Hub.
 
-**3. Rename the section heading** from "Common questions" → **"Tai Chi for Arthritis: FAQs"** — keyword-aligned H2 that matches what people search.
+**2. SEO authority signal** — Add `ItemList` JSON-LD (alongside existing MedicalWebPage + FAQPage) enumerating all linked Tai Chi URLs in topical order. Injected via the same `useEffect` pattern.
 
-**4. `src/pages/exercises/SeatedTaiChiForArthritis.tsx`** — Mirror the same two structural changes (h3 inside summary, keyword-rich H2: "Seated Tai Chi: FAQs") and add 2 seated-specific safety FAQs:
-- **Is seated tai chi safe if I have severe arthritis or use a wheelchair?**
-- **Can I do seated tai chi after hip or knee replacement surgery?**
+**3. Reciprocal back-links** — Add a small "Part of: Tai Chi for Arthritis" breadcrumb-style chip linking back to the hub on:
+- `TaiChiForBalance.tsx`
+- `SeatedTaiChiForArthritis.tsx`
+- `ExerciseJointPage.tsx` (only when `exercise === "tai-chi"`)
+
+**4. Discovery surface** — In `ExerciseHub.tsx`, promote the Tai Chi Guide tile to a slightly larger "Topic hub" card (visual cue only) so users land on the hub before drilling into a joint page.
 
 ### Files touched
-- `src/pages/exercises/TaiChiForArthritis.tsx` (extend `faqs` array, change H2 copy, wrap summary text in `<h3>`)
-- `src/pages/exercises/SeatedTaiChiForArthritis.tsx` (same pattern + 2 seated FAQs)
+- `src/pages/exercises/TaiChiForArthritis.tsx` (new sections + ItemList schema)
+- `src/pages/exercises/TaiChiForBalance.tsx` (back-link chip)
+- `src/pages/exercises/SeatedTaiChiForArthritis.tsx` (back-link chip)
+- `src/pages/exercises/ExerciseJointPage.tsx` (conditional back-link chip)
+- `src/pages/ExerciseHub.tsx` (Topic-hub card treatment)
 
 ### Out of scope
-- No new routes, no sitemap changes (these pages are already indexed).
-- No changes to the dynamic joint matrix pages — can follow up if you want per-joint FAQs there too.
-- JSON-LD `FAQPage` schema auto-picks up the new entries (it maps from `faqs`), no schema edit needed.
+- No new routes, no sitemap changes (all destinations already indexed).
+- Won't deduplicate the 30 numbered clips — they're distinct angles and useful as a video library.
+- No backend/data changes; this is presentation + internal linking only.

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { CheckCircle2, ArrowRight, Activity, Heart, Shield, Sparkles, MapPin } from "lucide-react";
+import { CheckCircle2, ArrowRight, Activity, Heart, Shield, Sparkles, MapPin, PlayCircle, Library } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SeoHead from "@/components/SeoHead";
@@ -9,6 +9,7 @@ import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { TAI_CHI_ANIMATIONS } from "@/components/exercises/TaiChiAnimations";
 
 const heroImage = "/openverse/wellness-02-tai-chi-young-and-old.jpg";
 
@@ -26,6 +27,16 @@ const jointLinks = [
   { joint: "Shoulder", slug: "tai-chi-for-shoulder-arthritis", note: "Cloud Hands restores rotator-cuff range without overhead strain." },
   { joint: "Back", slug: "tai-chi-for-back-arthritis", note: "Encourages a tall spine and gentle rotation — ideal for spinal OA." },
   { joint: "Ankle", slug: "tai-chi-for-ankle-arthritis", note: "Builds proprioception and ankle confidence after a flare." },
+  { joint: "Wrist", slug: "tai-chi-for-wrist-arthritis", note: "Soft, circular wrist movement preserves grip and reduces stiffness." },
+  { joint: "Foot", slug: "tai-chi-for-foot-arthritis", note: "Slow stepping drills strengthen the foot arch and improve balance." },
+];
+
+const movementLibrary: { key: keyof typeof TAI_CHI_ANIMATIONS; name: string; brief: string; bestFor: string }[] = [
+  { key: "rooted-stance", name: "Rooted Stance (Wuji)", brief: "The starting posture every form returns to — feet hip-width, knees soft, spine tall.", bestFor: "All joints · posture · breath" },
+  { key: "weight-shift", name: "Weight Shift", brief: "Slow lateral transfer of body weight without lifting the feet — the engine of every tai chi form.", bestFor: "Knee · hip · ankle · balance" },
+  { key: "cloud-hands", name: "Cloud Hands", brief: "Continuous waist-led arm circles that mobilise shoulders and rotate the spine gently.", bestFor: "Shoulder · back · hand" },
+  { key: "brush-knee", name: "Brush Knee", brief: "Step forward, brush past the knee with one hand and push with the other — coordination plus mobility.", bestFor: "Knee · hip · whole-body" },
+  { key: "closing-posture", name: "Closing Posture", brief: "The grounding sequence that ends every set — settles breath and joint warmth.", bestFor: "All joints · cool-down" },
 ];
 
 const ukResources = [
@@ -67,6 +78,24 @@ const faqJsonLd = {
   })),
 };
 
+const SITE = "https://livingwitharthritis.org.uk";
+const itemListJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Tai Chi for Arthritis — Topic Hub",
+  itemListOrder: "https://schema.org/ItemListOrderAscending",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Tai Chi for Balance", url: `${SITE}/exercises/tai-chi-for-balance` },
+    { "@type": "ListItem", position: 2, name: "Seated Tai Chi for Arthritis", url: `${SITE}/exercises/seated-tai-chi-for-arthritis` },
+    ...jointLinks.map((j, i) => ({
+      "@type": "ListItem",
+      position: 3 + i,
+      name: `Tai Chi for ${j.joint} Arthritis`,
+      url: `${SITE}/exercises/${j.slug}`,
+    })),
+  ],
+};
+
 export default function TaiChiForArthritis() {
   useEffect(() => {
     const a = document.createElement("script");
@@ -75,11 +104,16 @@ export default function TaiChiForArthritis() {
     const b = document.createElement("script");
     b.type = "application/ld+json";
     b.text = JSON.stringify(faqJsonLd);
+    const c = document.createElement("script");
+    c.type = "application/ld+json";
+    c.text = JSON.stringify(itemListJsonLd);
     document.head.appendChild(a);
     document.head.appendChild(b);
+    document.head.appendChild(c);
     return () => {
       document.head.removeChild(a);
       document.head.removeChild(b);
+      document.head.removeChild(c);
     };
   }, []);
 
@@ -197,6 +231,77 @@ export default function TaiChiForArthritis() {
               <li><strong className="text-foreground">Week 4:</strong> Find a local class through the Tai Chi Union for Great Britain directory, or ask your GP about social-prescribing options.</li>
             </ol>
           </Card>
+        </div>
+      </section>
+
+      {/* Movement video library */}
+      <section id="library" className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
+        <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
+          <div className="max-w-2xl mb-10">
+            <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-0"><Library className="h-3 w-3 mr-1 inline" />Video library</Badge>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">Tai chi movement library</h2>
+            <p className="text-muted-foreground leading-relaxed">Five core movements every NICE-aligned tai chi programme builds on. Watch the slow demo, then try it in our Balance or Seated routine.</p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {movementLibrary.map((m) => {
+              const Anim = TAI_CHI_ANIMATIONS[m.key];
+              return (
+                <Card key={m.key} className="overflow-hidden border border-border/40 flex flex-col">
+                  <div className="aspect-video bg-muted/40 overflow-hidden">
+                    <Anim className="w-full h-full object-cover" />
+                  </div>
+                  <div className="p-5 flex flex-col gap-3 flex-1">
+                    <div className="flex items-start gap-2">
+                      <PlayCircle className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                      <h3 className="font-display text-lg font-semibold leading-snug">{m.name}</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{m.brief}</p>
+                    <p className="text-xs uppercase tracking-wider text-primary/80 font-semibold mt-auto">{m.bestFor}</p>
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button asChild><Link to="/exercises/tai-chi-for-balance">See moves in the 15-min routine</Link></Button>
+            <Button asChild variant="outline"><Link to="/exercises/seated-tai-chi-for-arthritis">Seated adaptations</Link></Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Tai Chi guides */}
+      <section className="py-16 lg:py-24 bg-background">
+        <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
+          <div className="max-w-2xl mb-10">
+            <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-0">Related guides</Badge>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">Pick the routine that fits today</h2>
+            <p className="text-muted-foreground leading-relaxed">Two doors into the same practice — choose by how your joints feel right now.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <Link to="/exercises/tai-chi-for-balance" className="group">
+              <Card className="p-7 h-full border border-border/40 group-hover:border-primary/40 group-hover:shadow-lg transition-all">
+                <Badge variant="secondary" className="mb-3 bg-primary/10 text-primary border-0">Standing · 15 min</Badge>
+                <h3 className="font-display text-2xl font-semibold mb-3">Tai Chi for Balance</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">Best for anyone who can stand safely with light support. The 15-minute routine focused on fall prevention and knee/hip pain reduction.</p>
+                <span className="inline-flex items-center text-primary font-semibold text-sm">Start the routine <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" /></span>
+              </Card>
+            </Link>
+            <Link to="/exercises/seated-tai-chi-for-arthritis" className="group">
+              <Card className="p-7 h-full border border-border/40 group-hover:border-primary/40 group-hover:shadow-lg transition-all">
+                <Badge variant="secondary" className="mb-3 bg-primary/10 text-primary border-0">Seated · 13 min</Badge>
+                <h3 className="font-display text-2xl font-semibold mb-3">Seated Tai Chi</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">Best for severe OA, post-surgery weeks, fall risk, or low-energy days. Same flowing principles from a sturdy chair.</p>
+                <span className="inline-flex items-center text-primary font-semibold text-sm">Try seated routine <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" /></span>
+              </Card>
+            </Link>
+          </div>
+
+          <div className="mt-6 text-sm text-muted-foreground">
+            Looking for a specific joint? <a href="#joints" className="text-primary hover:underline">Jump to the joint guides above</a> or browse all <Link to="/exercises" className="text-primary hover:underline">arthritis exercises</Link>.
+          </div>
         </div>
       </section>
 

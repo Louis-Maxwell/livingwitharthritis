@@ -91,6 +91,9 @@ const ExerciseJointPage = () => {
       <Header />
       <PageBreadcrumb segments={[
         { label: "Exercises", href: "/exercises" },
+        ...(page.exercise.toLowerCase().includes("tai chi")
+          ? [{ label: "Tai Chi for Arthritis", href: "/exercises/tai-chi-for-arthritis" }]
+          : []),
         { label: `${page.exercise} for ${page.joint}` },
       ]} />
 
