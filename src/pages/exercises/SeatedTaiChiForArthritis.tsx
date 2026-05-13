@@ -210,12 +210,12 @@ export default function SeatedTaiChiForArthritis() {
       {/* FAQ */}
       <section className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
-          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-8">Common questions</h2>
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-8">Seated Tai Chi: FAQs</h2>
           <div className="space-y-4">
             {faqs.map((f) => (
               <details key={f.q} className="group bg-background rounded-lg border border-border/40 p-5">
-                <summary className="cursor-pointer font-display text-lg font-semibold flex items-center justify-between gap-4">
-                  {f.q}
+                <summary className="cursor-pointer flex items-center justify-between gap-4">
+                  <h3 className="font-display text-lg font-semibold m-0">{f.q}</h3>
                   <ArrowRight className="h-4 w-4 shrink-0 group-open:rotate-90 transition-transform" />
                 </summary>
                 <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
