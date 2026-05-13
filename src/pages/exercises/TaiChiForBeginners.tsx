@@ -223,6 +223,10 @@ export default function TaiChiForBeginners() {
                   ) : (
                     thumb
                   )}
+                  <p className="px-5 py-2.5 text-xs italic leading-snug text-foreground/80 bg-muted/40 border-y border-border/40 flex items-start gap-2">
+                    <Sparkles className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" aria-hidden="true" />
+                    <span>{d.cue}</span>
+                  </p>
                   <div className="p-5 flex flex-col gap-3 flex-1">
                     <div className="flex items-center justify-between">
                       <Badge variant="secondary" className="bg-primary/10 text-primary border-0">Day {d.day}</Badge>
