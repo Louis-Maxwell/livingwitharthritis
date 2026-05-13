@@ -1,24 +1,42 @@
-## Status: already in place — no changes needed
+## Goal
+Run Lighthouse against the published build at `https://livingwitharthritis.org.uk` and surface remaining Performance and Accessibility issues, with file-level pointers to fix them.
 
-`public/robots.txt` already exists, ships in production, and is correctly configured. Verification:
+## Approach
 
-- **Live at** `https://livingwitharthritis.org.uk/robots.txt` (HTTP 200).
-- **Sitemap referenced**: `Sitemap: https://livingwitharthritis.org.uk/sitemap.xml` (last line; also live at HTTP 200).
-- **Main pages crawlable**: default `User-agent: *` block is `Allow: /` with only `/admin` and `/auth` disallowed. Same allowlist applied to `Googlebot`, `Bingbot`, `DuckDuckBot`, `Applebot`, `Twitterbot`, `facebookexternalhit`, `LinkedInBot`.
-- **Aggressive AI scrapers blocked**: `GPTBot`, `ChatGPT-User`, `CCBot`, `anthropic-ai`, `Claude-Web`, `Google-Extended`, `PerplexityBot`, `Bytespider`, `Omgilibot`, `Diffbot`, `FacebookBot`, `ImagesiftBot`.
-- **SEO/scraper bots blocked**: `AhrefsBot`, `SemrushBot`, `MJ12bot`, `DotBot`, `BLEXBot`, `PetalBot`, `DataForSeoBot`, `SeekportBot`, `serpstatbot`, `ZoominfoBot`.
-- **Analytics-distorting regional bots blocked**: `Baiduspider`, `Sogou`, `YisouSpider`, `360Spider`, `HaoSouSpider`.
+### 1. Run Lighthouse headlessly via `nix run nixpkgs#lighthouse`
+- Target URL: `https://livingwitharthritis.org.uk/` (homepage, mobile preset — Google's default for ranking).
+- Categories: `performance,accessibility` (skip SEO/best-practices for this pass — separate review surface already handles them).
+- Output: JSON + HTML reports written to `/mnt/documents/lighthouse-home-mobile.{json,html}`.
+- Use `--chrome-flags="--headless=new --no-sandbox"` for the sandbox.
 
-## Recommended action
+### 2. Run a second pass on a representative deep page
+`/conditions/osteoarthritis` — heaviest content page with images + JSON-LD. Same flags, written to `/mnt/documents/lighthouse-osteo-mobile.{json,html}`.
 
-None. The file already meets every requirement in the request:
-1. Exists at `public/robots.txt`.
-2. Allows main pages for all major search engines.
-3. References the sitemap URL.
+### 3. Parse JSON reports
+Extract from each report:
+- Category scores (perf / a11y, 0–100).
+- Core Web Vitals: LCP, CLS, INP/TBT, FCP, TTI, Speed Index.
+- Every audit with `score < 1` in either category, with: id, title, displayValue, and the first 3 affected DOM nodes/URLs (when present).
 
-If you'd like, I can:
-- **(A)** Loosen the AI-scraper blocks (e.g. allow `Google-Extended` so Gemini/AI Overviews can summarise the site) — currently fully blocked.
-- **(B)** Tighten further — add `Disallow: /api`, `/donation-success`, `/newsletter-confirm`, etc.
-- **(C)** Add a second `Sitemap:` line if you plan to split sitemaps (e.g. blog vs. core).
+### 4. Map each failing audit to project files
+For each finding, search the codebase to give an actionable fix location (e.g. unsized image → which `<img>`; render-blocking CSS → which import; contrast → which token in `index.css`).
 
-Otherwise this task is complete with zero file changes.
+### 5. Deliverable
+A single Markdown summary at `/mnt/documents/lighthouse-summary.md` with:
+- Score table (home / osteoarthritis × perf / a11y).
+- Core Web Vitals table.
+- Performance findings sorted by `wastedMs` desc, each with file pointer + suggested fix.
+- Accessibility findings grouped by audit, each with file pointer.
+- Both raw HTML reports linked as artifacts.
+
+Plus an inline summary in chat with the headline scores and the top 5 issues per category.
+
+## Notes / risks
+- Lighthouse needs Chromium; will fall back to `npx lighthouse` with bundled puppeteer if `nix` install is slow.
+- Mobile preset uses simulated 4G throttling — numbers will be lower than DevTools desktop runs; that's the metric Google ranks against.
+- Score variance run-to-run is ~±5 points; one pass is enough to identify *issues* even if the number wobbles.
+
+## Out of scope
+- Fixing the issues — this task is diagnostic only. Fixes happen in a follow-up.
+- SEO and Best-Practices categories.
+- Multi-run averaging.
