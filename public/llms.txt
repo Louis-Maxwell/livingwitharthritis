@@ -1,0 +1,46 @@
+# Living With Arthritis UK
+
+> UK arthritis charity offering free virtual physiotherapy, NICE-aligned exercise programmes, anti-inflammatory diet guidance, an AI assistant and waiting-list support for people living with osteoarthritis, rheumatoid arthritis, psoriatic arthritis and related conditions across England, Scotland, Wales and Northern Ireland.
+
+## Pages
+
+- [Home](/): Free arthritis support — physio, diet, AI assistant, community.
+- [About](/about): Mission, team and story of Living With Arthritis UK.
+- [Services](/services): Overview of free arthritis support services.
+- [Exercises](/exercises): Joint-by-joint exercise hub for arthritis.
+- [Diet](/diet): Mediterranean and anti-inflammatory eating guidance.
+- [Self-Help Tool](/self-help): Personalised arthritis self-management.
+- [Health Tools](/health-tools): Calculators and trackers for joint health.
+- [Chat](/chat): AI arthritis assistant.
+- [FAQ](/faq): Clinician-answered arthritis questions.
+- [Expert Articles](/expert-articles): Clinician-written long-form guides.
+- [Impact Stories](/impact): Patient stories and charitable impact.
+- [Blog](/blog): Latest arthritis news and education.
+
+## Conditions
+
+- [Osteoarthritis](/conditions/osteoarthritis)
+- [Rheumatoid Arthritis](/conditions/rheumatoid-arthritis)
+- [Psoriatic Arthritis](/conditions/psoriatic-arthritis)
+- [Gout](/conditions/gout)
+- [Ankylosing Spondylitis](/conditions/ankylosing-spondylitis)
+- [Juvenile Arthritis](/conditions/juvenile-arthritis)
+- [Fibromyalgia](/conditions/fibromyalgia)
+- [Lupus](/conditions/lupus)
+
+## Guides
+
+- [UK Arthritis Guide](/guides/uk-arthritis)
+- [Exercise Guide](/guides/exercise)
+- [Diet Guide](/guides/diet)
+- [Health Services Guide](/guides/health-services)
+- [Benefits & PIP Guide](/guides/benefits-pip)
+- [Waiting List Help](/arthritis-waiting-list-help)
+
+## Support the Charity
+
+- [Donate](/donate): One-off and monthly giving.
+- [Ways to Help](/ways-to-help): Volunteering and fundraising.
+- [Corporate Giving](/corporate-giving): Partnerships for businesses.
+- [Governance](/governance): Trustees and policies.
+- [Contact](/contact): Email, phone and WhatsApp support.

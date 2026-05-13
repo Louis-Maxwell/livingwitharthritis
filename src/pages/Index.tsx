@@ -213,7 +213,7 @@ function PageContent({ onAnalyticsChange }: { onAnalyticsChange: (v: boolean) =>
     <>
       <Helmet>
         <html lang="en-GB" />
-        <title>Free Arthritis Support UK — AI Physio & Community | {SITE_NAME}</title>
+        <title>Free Arthritis Support UK: AI Physio &amp; Community</title>
         <meta
           name="description"
           content="Free virtual physiotherapy, peer-to-peer buddy system, and AI-guided pain tracking. Built with HCPC-registered clinicians. No waiting lists."
