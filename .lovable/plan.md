@@ -1,47 +1,51 @@
-## Current state
+## Audit
 
-`index.html` already ships sitewide JSON-LD blocks for:
+All key pages already emit `og:title` and `og:description`. The gap is `og:image` (and the matching `twitter:image`). 28 pages with their own `<Helmet>` block ship without an image, plus the shared `ConditionPageTemplate` (8 condition pages) is missing it.
 
-- **Organization** — `MedicalOrganization`/`NGO`/`Organization` block (line ~133) with name, URL, logo, address, contact point and area-served.
-- **WebSite** — block at line ~308 with `name`, `url`, `inLanguage`, `description`. Comment says "WebSite with SearchAction" but the `potentialAction` is missing.
-- **BreadcrumbList** — a static homepage trail (line ~204) **plus** per-route dynamic breadcrumbs injected by `src/components/ui/PageBreadcrumb.tsx` via `useEffect` (used on every interior page).
-
-So the three schemas already exist site-wide. Two small gaps to close so the request is genuinely complete:
+Default sitewide image: `https://livingwitharthritis.org.uk/images/hero-community.jpg` (already used by `SeoHead.tsx` and present in `public/images/`). Recommended dimensions are 1200×630.
 
 ## Changes
 
-1. **Enhance the WebSite block in `index.html`** — add `potentialAction` `SearchAction` pointing at the on-site search/blog index (`/blog?q={search_term_string}` or, if preferred, `/sitemap`), plus `publisher` reference back to the Organization via `@id`. Add `@id` to the Organization block so WebSite can reference it cleanly.
+### 1. ConditionPageTemplate — fix 8 pages in one edit
+`src/components/conditions/ConditionPageTemplate.tsx`, after line 170 (`og:site_name`), add:
 
-   ```json
-   {
-     "@context": "https://schema.org",
-     "@type": "WebSite",
-     "@id": "https://livingwitharthritis.org.uk/#website",
-     "url": "https://livingwitharthritis.org.uk/",
-     "name": "Living With Arthritis UK",
-     "inLanguage": "en-GB",
-     "publisher": { "@id": "https://livingwitharthritis.org.uk/#organization" },
-     "potentialAction": {
-       "@type": "SearchAction",
-       "target": {
-         "@type": "EntryPoint",
-         "urlTemplate": "https://livingwitharthritis.org.uk/blog?q={search_term_string}"
-       },
-       "query-input": "required name=search_term_string"
-     }
-   }
-   ```
+```tsx
+<meta property="og:image" content={data.ogImage ?? `${SITE_URL}/images/condition-${data.slug}.jpg`} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={data.metaTitle} />
+<meta name="twitter:image" content={data.ogImage ?? `${SITE_URL}/images/condition-${data.slug}.jpg`} />
+```
 
-2. **Audit the static homepage BreadcrumbList** in `index.html` (lines ~204–215). It currently lists Home → Conditions → Exercises → Diet, which isn't a real trail. Replace with a homepage-only single-item list (`Home`) so it doesn't confuse Google. Per-route trails continue to come from `PageBreadcrumb`.
+Add an optional `ogImage?: string` to `ConditionPageData`. For conditions without a dedicated image (`lupus`, `juvenile-arthritis`), fall back to `hero-community.jpg` via a small `getConditionImage()` helper that checks against the known list.
 
-3. **No changes** to `Organization` itself — it's already complete and conformant. Just add the `@id` anchor so WebSite can reference it.
+### 2. Page-level Helmet blocks — add og:image + twitter:image to each
+Insert two lines into each `<Helmet>` (use `hero-community.jpg` as the default unless a more specific image fits the topic):
+
+```tsx
+<meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+<meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+```
+
+Files (28):
+- `Index`-tier: `ExerciseHub`, `DietHub`, `AboutUs`, `BlogHub`, `BlogIndex`, `CommunityHub`, `HealthTools`, `Governance`, `CorporateGiving`, `ArthritisSupportIndex`, `ArthritisStarterGuide`, `ArthritisFlareUps`, `WaitingListHelp`, `SelfHelpTool`, `SelfAssessment`, `Pedometer`, `Buddy`, `BuddyMatch`, `Chat`, `ZakatAppeal`, `tools/WaitingTimeCalculator`
+- Utility/legal: `Accessibility`, `AISafety`, `CookiesPolicy`, `PrivacyPolicy`, `TermsConditions`, `NewsletterConfirm`, `DonationSuccess`
+
+Topic-specific overrides where the asset already exists:
+- `DietHub` → `/images/nutrition-berries.jpg`
+- `ExerciseHub` → keep `hero-community.jpg` (no joint-agnostic exercise image)
+- Condition pages handled via the template above.
+
+### 3. Twitter card upgrade
+For pages still using `twitter:card = summary`, switch to `summary_large_image` — required for the image preview to render at full width. Affected: `ExerciseHub`, `DietHub`, `AboutUs`, `BlogIndex`, plus the template (already correct).
 
 ## Out of scope
 
-- Per-page Article/Product/FAQ schemas (already injected by individual route components — the project memory notes JSON-LD is added via `useEffect` to avoid Helmet crashes; that pattern stays).
-- Changes to `PageBreadcrumb.tsx`.
+- Per-route canonical/og:url cleanup (already correct on these pages).
+- Refactoring all hand-rolled Helmet blocks into `SeoHead` — bigger refactor for another pass.
+- Generating new branded OG images — using existing assets only.
 
 ## Verify after
 
-- View source on `/` and confirm the three JSON-LD blocks render.
-- Paste the homepage HTML into Google's Rich Results Test to confirm Organization, WebSite and BreadcrumbList are detected without warnings.
+- Spot-check 3 pages with Facebook Sharing Debugger / Twitter Card Validator.
+- `rg "<Helmet"` then `rg -L "og:image"` should return zero pages with Helmet but no image.
