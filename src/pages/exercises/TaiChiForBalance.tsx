@@ -205,7 +205,10 @@ export default function TaiChiForBalance() {
                             </span>
                           </button>
                         </ExerciseVideoModal>
-                        <p className="text-xs text-muted-foreground text-center mt-2 italic">Tap to watch full size · loops while you follow along</p>
+                        <p className="mt-2 text-xs italic leading-snug text-foreground/80 bg-muted/40 border border-border/40 rounded-lg px-3 py-2 flex items-start gap-2" title="Tap the video to watch full size · loops while you follow along">
+                          <Sparkles className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" aria-hidden="true" />
+                          <span>{m.cue}</span>
+                        </p>
                       </div>
                     </div>
                   </Card>
