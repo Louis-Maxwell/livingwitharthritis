@@ -77,7 +77,7 @@ const dietSections = [
     color: "from-primary/15 to-primary/10",
     iconColor: "text-primary bg-primary/10",
     borderColor: "border-primary/20 hover:border-primary/40",
-    href: "/blog/best-diet-for-joint-pain-uk",
+    href: "/diet/mediterranean-diet-for-arthritis",
     mealPlan: [
       { meal: "Breakfast", example: "Greek yoghurt with berries, walnuts and honey" },
       { meal: "Lunch", example: "Grilled mackerel salad with olive oil and wholegrain bread" },
@@ -507,6 +507,7 @@ const DietHub = () => {
               {
                 title: "Anti-inflammatory eating",
                 links: [
+                  { label: "Mediterranean diet for arthritis — 7-day UK plan", to: "/diet/mediterranean-diet-for-arthritis" },
                   { label: "Mediterranean diet for arthritis — full guide", to: "/guides/diet" },
                   { label: "How to reduce joint inflammation", to: "/arthritis-flare-ups" },
                   { label: "Foods to avoid with arthritis", to: "/blog/category/nutrition" },

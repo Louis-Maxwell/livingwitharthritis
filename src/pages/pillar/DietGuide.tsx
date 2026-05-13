@@ -14,6 +14,7 @@ const CONTENT = `
 
 <h2 id="mediterranean-diet">The Mediterranean Diet: The Gold Standard</h2>
 <p>The Mediterranean diet is the most extensively studied dietary pattern for arthritis and chronic inflammation. It consistently outperforms other diets in clinical trials for reducing inflammatory markers, joint pain and cardiovascular risk — which is elevated in people with inflammatory arthritis.</p>
+<p><strong>Want a plan to follow this week?</strong> See the focused <a href="/diet/mediterranean-diet-for-arthritis">7-day Mediterranean eating plan for arthritis</a> — UK shopping list, recipes and what to eat freely, weekly and rarely.</p>
 <h3>Core Principles</h3>
 <ul>
 <li><strong>Abundant vegetables and fruits</strong> — aim for 7+ portions daily, focusing on colourful varieties rich in antioxidants (berries, leafy greens, tomatoes, peppers, beetroot)</li>
