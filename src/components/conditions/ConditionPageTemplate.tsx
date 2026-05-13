@@ -109,6 +109,7 @@ const Section = ({
 
 export default function ConditionPageTemplate({ data }: { data: ConditionPageData }) {
   const url = `${BASE}/conditions/${data.slug}`;
+  const ogImage = resolveOgImage(data.slug, data.ogImage);
 
   useEffect(() => {
     const medicalLd = {
