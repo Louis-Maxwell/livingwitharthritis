@@ -163,6 +163,9 @@ function AnimatedRoutes() {
         <Route path="/conditions/juvenile-arthritis" element={<JuvenileArthritis />} />
         <Route path="/conditions/fibromyalgia" element={<Fibromyalgia />} />
         <Route path="/conditions/lupus" element={<Lupus />} />
+        <Route path="/conditions/knee-arthritis" element={<KneeArthritis />} />
+        <Route path="/conditions/hand-arthritis" element={<HandArthritis />} />
+        <Route path="/conditions/shoulder-arthritis" element={<ShoulderArthritis />} />
         <Route path="/self-help" element={<SelfHelpTool />} />
         <Route path="/exercises" element={<ExerciseHub />} />
         <Route path="/exercises/tai-chi-for-balance" element={<TaiChiForBalance />} />
