@@ -307,10 +307,20 @@
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
+      "@id": "https://livingwitharthritis.org.uk/#website",
       "name": "Living With Arthritis UK",
-      "url": "https://livingwitharthritis.org.uk",
+      "url": "https://livingwitharthritis.org.uk/",
       "inLanguage": "en-GB",
-      "description": "Expert arthritis support, virtual physiotherapy, anti-inflammatory nutrition and community resources for UK residents."
+      "description": "Expert arthritis support, virtual physiotherapy, anti-inflammatory nutrition and community resources for UK residents.",
+      "publisher": { "@id": "https://livingwitharthritis.org.uk/#organization" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://livingwitharthritis.org.uk/blog?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
     }
     </script>
   
