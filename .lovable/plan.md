@@ -1,73 +1,78 @@
 ## Goal
 
-Give every tai chi day/movement card a consistent, in-page video modal so users can watch the clip full-size with playback controls — without leaving the page or scrolling away.
+Ship a long-tail myth-busting article: **"Do Knuckle or Toe Cracking Cause Arthritis?"** — UK-targeted, evidence-led, follows the existing `MediterraneanDietForArthritis.tsx` pattern.
 
-## Why a modal (not inline upgrade)
+## Route + URL
 
-Today, `ExerciseVideo` autoplays muted and looped inline. That's perfect as a thumbnail but limits the user to a small, sound-off, controls-free preview. A modal gives:
-- larger viewport
-- play/pause/seek controls
-- per-clip title + caption
-- keyboard + ESC to close (shadcn `Dialog` handles a11y)
-- consistent UX across all tai chi pages
+`/myths/does-cracking-knuckles-cause-arthritis`
 
-## New component
+- New top-level `myths/` namespace — sets up the pattern for future myth pages (nightshades, weather, cracking joints, exercise wears joints out, etc.).
+- Slug uses the highest-volume question phrasing UK users actually search.
 
-`src/components/exercises/ExerciseVideoModal.tsx` — a single source of truth.
+## File
 
-- Wraps shadcn `Dialog` (`@/components/ui/dialog`).
-- Trigger: any child (so cards control their own thumbnail UI).
-- Content: a `max-w-3xl` dialog with:
-  - Title + optional one-line description
-  - `<video controls playsInline preload="metadata">` (no autoplay until open, then autoplay+unmuted on open)
-  - The same "AI-generated demonstration — illustrative only, not medical guidance" caption from `ExerciseVideo`
-- Auto-pauses when dialog closes.
-- Accepts `src`, `title`, `description?`, `poster?`, plus a render prop / children for the trigger.
+**Create:** `src/pages/myths/DoesCrackingKnucklesCauseArthritis.tsx`
 
-## Updated thumbnail behaviour
+Mirrors the structure of `MediterraneanDietForArthritis.tsx`:
+- `SeoHead` with title (≤60), meta description (≤160), canonical
+- `useEffect`-injected JSON-LD: `MedicalWebPage` + `FAQPage` + `BreadcrumbList`
+- `PageBreadcrumb` (Home › Myths › this page)
+- `PageHero` with hero image
+- `MedicallyReviewed` reviewer chip
+- Sections (H2 outline below)
+- Internal links to existing pages: Osteoarthritis, Hand exercises section of Exercise Hub, Self-Help Tool, Flare-ups page
 
-Add an optional `onClick` overlay layer to the existing `ExerciseVideo` (or keep `ExerciseVideo` untouched and stack a button overlay in cards). Preferred: extend `ExerciseVideo` with an optional `onPlayClick` prop that renders a centred Play button with a soft scrim on hover. When set, the inline video stays as the silent loop and the button opens the modal.
+## Content outline (H2s)
 
-This avoids touching the SVG/loading paths and keeps `ExerciseVideo` backward-compatible.
+1. **The short answer** — TL;DR card, plain English: no, cracking your knuckles or toes does not cause arthritis. The "pop" is gas bubbles in synovial fluid, not damage.
+2. **What's actually happening when a joint cracks** — synovial fluid + tribonucleation; the 2015 real-time MRI study (Kawchuk et al., *PLOS ONE*).
+3. **Knuckle cracking and arthritis: what the evidence says** — Castellanos & Axelrod 1990 (300 people, no link); Deweber 2011 (215 people, no link); 2017 Harvard cohort. Plain-English summary table.
+4. **Toe cracking specifically** — less studied than knuckles; same mechanism; no evidence of arthritis link; flag when toe cracking *plus* pain/stiffness can hint at hallux rigidus or bunion-related joint changes (different cause, not from the cracking).
+5. **What can it cause?** — possible (mild) link to reduced grip strength + soft-tissue swelling in chronic crackers (Castellanos); not arthritis.
+6. **When cracking is a red flag** — pain, swelling, locking, loss of motion, morning stiffness >30 min → see a GP. Link to Osteoarthritis and Flare-ups pages.
+7. **What actually causes arthritis** — quick myth-vs-reality block: age, genetics, prior injury, repetitive occupational load, obesity, autoimmune drivers. Link to `/conditions/osteoarthritis`.
+8. **What to do instead if you crack out of habit** — fidget alternatives, hand mobility routine, stress decompression. Link to Exercise Hub hand section + Self-Help Tool.
+9. **FAQ** (FAQPage schema): "Does cracking knuckles give you big knuckles?", "Why do my joints crack more as I get older?", "Is it bad to crack your back or neck?", "Can children safely crack their knuckles?", "Does cracking toes cause bunions?"
+10. **Sources** — linked citations to the studies above (external `<a target="_blank">` per project rules).
 
-## Pages to wire up
+## SEO targeting
 
-1. **`src/pages/exercises/TaiChiForBeginners.tsx`** — wrap each Day card's video in `ExerciseVideoModal` with `title="Day {n}: {title}"` and `description={d.what}`.
-2. **`src/pages/exercises/TaiChiForArthritis.tsx`** — same treatment for the movement-library cards (line ~251), titled with `m.name` + `m.brief`.
-3. **`src/pages/exercises/TaiChiForBalance.tsx`** — same for the routine cards (line ~171).
-4. **`src/pages/exercises/SeatedTaiChiForArthritis.tsx`** — only if it currently uses `TAI_CHI_ANIMATIONS` (will verify on first read in build mode and skip if not).
+- **Primary keyword:** "does cracking your knuckles cause arthritis" (and variants)
+- **Title (≤60):** `Does Cracking Knuckles Cause Arthritis? UK Evidence Guide`
+- **Meta description (≤160):** plain-English answer + reviewer credibility cue
+- **Canonical:** absolute `https://www.livingwitharthritis.org.uk/myths/...`
+- **JSON-LD:** `MedicalWebPage` (about: knuckle cracking myth), `FAQPage`, `BreadcrumbList`
 
-No changes to `TAI_CHI_ANIMATIONS` itself — we read `*.mp4.asset.json` URLs directly inside the modal, exposed via a small helper like `TAI_CHI_VIDEOS` (key → `{ src, label }`) to avoid each page re-importing the asset JSONs.
+Volume validation step (run during build, not now): quick `semrush--keyword_compare` on `"does cracking your knuckles cause arthritis"`, `"is cracking your knuckles bad"`, `"does cracking toes cause arthritis"` — confirms slug + H1 wording. If "is cracking your knuckles bad" is materially larger, fold it into H1 + first paragraph rather than changing the slug.
 
-## New helper (small)
+## Wiring
 
-`src/components/exercises/TaiChiAnimations.tsx` — add a sibling export:
+**Edit:**
+- `src/App.tsx` — register route `/myths/does-cracking-knuckles-cause-arthritis`
+- `public/sitemap.xml` — add `<url>` entry, `priority=0.7`, `changefreq=monthly`, today's `lastmod`
+- `src/pages/Index.tsx` *(optional, low priority)* — surface in any "Myths & facts" or related-content area if one exists; otherwise skip
+- Add an internal link to the new page from `src/pages/conditions/Osteoarthritis.tsx` in a "Common myths" callout (if file structure permits — verify on first read in build mode)
 
-```ts
-export const TAI_CHI_VIDEOS: Record<AnimKey, { src: string; label: string }> = {
-  'rooted-stance':  { src: RootedStanceAsset.url,  label: 'Rooted Stance' },
-  // ...
-};
-```
+## Editorial voice
 
-So pages can do `<ExerciseVideoModal {...TAI_CHI_VIDEOS[d.anim]} title={...} />`.
+- Direct UK plain English (per project memory)
+- "MedicallyReviewed" component at top
+- Use bold/italic emphasis for studies and key numbers
+- No alarm; the goal is reassurance + next steps
+- Strict neutrality: cite peer-reviewed sources only, no opinion-based blogs
 
 ## Out of scope
 
-- No new videos, no transcripts, no captions track, no playback analytics.
-- No global "video library" page.
-- No autoplay-with-sound on page load (browsers block it anyway).
-- No design-token changes; reuse existing dialog and button styles.
+- No new `/myths` index/hub page yet (we'll add when there are 3+ myth articles)
+- No new images generated — reuse an existing hand/joint Unsplash photo from the centralised list
+- No blog post; this is a long-tail SEO landing page, not a `/blog/...` entry
 
 ## Files
 
 **Create**
-- `src/components/exercises/ExerciseVideoModal.tsx`
+- `src/pages/myths/DoesCrackingKnucklesCauseArthritis.tsx`
 
 **Edit**
-- `src/components/exercises/ExerciseVideo.tsx` — add optional `onPlayClick` + Play overlay
-- `src/components/exercises/TaiChiAnimations.tsx` — export `TAI_CHI_VIDEOS` map
-- `src/pages/exercises/TaiChiForBeginners.tsx`
-- `src/pages/exercises/TaiChiForArthritis.tsx`
-- `src/pages/exercises/TaiChiForBalance.tsx`
-- `src/pages/exercises/SeatedTaiChiForArthritis.tsx` *(only if it uses the animations)*
+- `src/App.tsx`
+- `public/sitemap.xml`
+- `src/pages/conditions/Osteoarthritis.tsx` *(small "Common myths" link, if file allows)*
