@@ -160,6 +160,8 @@ function AnimatedRoutes() {
         <Route path="/self-help" element={<SelfHelpTool />} />
         <Route path="/exercises" element={<ExerciseHub />} />
         <Route path="/exercises/tai-chi-for-balance" element={<TaiChiForBalance />} />
+        <Route path="/exercises/tai-chi-for-arthritis" element={<TaiChiForArthritis />} />
+        <Route path="/exercises/seated-tai-chi-for-arthritis" element={<SeatedTaiChiForArthritis />} />
         <Route path="/diet" element={<DietHub />} />
         <Route path="/zakat-appeal" element={<ZakatAppeal />} />
         <Route path="/trust" element={<TrustCredibility />} />
