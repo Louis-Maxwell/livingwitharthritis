@@ -85,11 +85,12 @@ const itemListJsonLd = {
   name: "Tai Chi for Arthritis — Topic Hub",
   itemListOrder: "https://schema.org/ItemListOrderAscending",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Tai Chi for Balance", url: `${SITE}/exercises/tai-chi-for-balance` },
-    { "@type": "ListItem", position: 2, name: "Seated Tai Chi for Arthritis", url: `${SITE}/exercises/seated-tai-chi-for-arthritis` },
+    { "@type": "ListItem", position: 1, name: "Tai Chi for Beginners (7-Day Plan)", url: `${SITE}/exercises/tai-chi-for-beginners` },
+    { "@type": "ListItem", position: 2, name: "Tai Chi for Balance", url: `${SITE}/exercises/tai-chi-for-balance` },
+    { "@type": "ListItem", position: 3, name: "Seated Tai Chi for Arthritis", url: `${SITE}/exercises/seated-tai-chi-for-arthritis` },
     ...jointLinks.map((j, i) => ({
       "@type": "ListItem",
-      position: 3 + i,
+      position: 4 + i,
       name: `Tai Chi for ${j.joint} Arthritis`,
       url: `${SITE}/exercises/${j.slug}`,
     })),
@@ -136,7 +137,8 @@ export default function TaiChiForArthritis() {
         subtitle="The UK's evidence-based guide to tai chi for arthritis. Recommended by NICE, used in NHS pain services, and matched to NHS physiotherapy in BMJ trials for knee and hip OA."
       >
         <div className="flex flex-wrap gap-3">
-          <Button asChild size="lg"><a href="#joints">Find your joint <ArrowRight className="ml-2 h-4 w-4" /></a></Button>
+          <Button asChild size="lg"><Link to="/exercises/tai-chi-for-beginners">New to tai chi? Start the 7-day plan <ArrowRight className="ml-2 h-4 w-4" /></Link></Button>
+          <Button asChild variant="outline" size="lg"><a href="#joints">Find your joint</a></Button>
           <Button asChild variant="outline" size="lg"><Link to="/exercises/seated-tai-chi-for-arthritis">Try seated tai chi</Link></Button>
         </div>
       </PageHero>
@@ -197,6 +199,7 @@ export default function TaiChiForArthritis() {
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3">
+            <Button asChild><Link to="/exercises/tai-chi-for-beginners">7-day beginner plan</Link></Button>
             <Button asChild variant="outline"><Link to="/exercises/seated-tai-chi-for-arthritis">Seated tai chi (chair-based)</Link></Button>
             <Button asChild variant="outline"><Link to="/exercises/tai-chi-for-balance">Tai chi for balance & falls</Link></Button>
           </div>

@@ -120,6 +120,7 @@ export default function TaiChiForBalance() {
       >
         <div className="flex flex-wrap gap-3">
           <Button asChild size="lg"><a href="#routine">Start the routine <ArrowRight className="ml-2 h-4 w-4" /></a></Button>
+          <Button asChild variant="outline" size="lg"><Link to="/exercises/tai-chi-for-beginners">Brand new? 7-day beginner plan</Link></Button>
           <Button asChild variant="outline" size="lg"><Link to="/exercises">Browse all exercises</Link></Button>
         </div>
       </PageHero>
