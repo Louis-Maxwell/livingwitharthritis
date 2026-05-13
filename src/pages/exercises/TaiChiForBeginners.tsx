@@ -29,14 +29,14 @@ const equipment = [
   "Optional: a sturdy chair within reach for balance support",
 ];
 
-const days: { day: number; title: string; mins: string; what: string; anim?: keyof typeof TAI_CHI_ANIMATIONS }[] = [
-  { day: 1, title: "Stand and breathe (Wuji)", mins: "5 min", what: "Learn the starting posture every form returns to. Feet hip-width, knees soft, crown lifted, 8 slow nasal breaths.", anim: "rooted-stance" },
-  { day: 2, title: "Add the weight shift", mins: "7 min", what: "Slowly transfer your body weight side-to-side without lifting the feet. The engine of every tai chi movement.", anim: "weight-shift" },
-  { day: 3, title: "Cloud Hands", mins: "8 min", what: "Continuous waist-led arm circles. Mobilises shoulders and gently rotates the spine.", anim: "cloud-hands" },
-  { day: 4, title: "Brush Knee", mins: "10 min", what: "Step forward, brush past the knee with one hand, push gently with the other. Coordination plus mobility.", anim: "brush-knee" },
-  { day: 5, title: "Closing Posture", mins: "8 min", what: "The grounding sequence that ends every set — settles breath and joint warmth.", anim: "closing-posture" },
-  { day: 6, title: "Rest or repeat your favourite", mins: "5–10 min", what: "Active rest is part of the practice. Repeat the day you enjoyed most, or simply do Day 1 + Day 2 again." },
-  { day: 7, title: "String it together", mins: "12 min", what: "Wuji → weight shift → Cloud Hands → Brush Knee → Closing. Slow, continuous, no pauses. Your first mini-form." },
+const days: { day: number; title: string; mins: string; what: string; cue: string; anim?: keyof typeof TAI_CHI_ANIMATIONS }[] = [
+  { day: 1, title: "Stand and breathe (Wuji)", mins: "5 min", cue: "Crown lifts, knees soft, breathe through the nose.", what: "Learn the starting posture every form returns to. Feet hip-width, knees soft, crown lifted, 8 slow nasal breaths.", anim: "rooted-stance" },
+  { day: 2, title: "Add the weight shift", mins: "7 min", cue: "Weight shifts side-to-side. Feet stay flat.", what: "Slowly transfer your body weight side-to-side without lifting the feet. The engine of every tai chi movement.", anim: "weight-shift" },
+  { day: 3, title: "Cloud Hands", mins: "8 min", cue: "Waist leads. Hands float; shoulders stay heavy.", what: "Continuous waist-led arm circles. Mobilises shoulders and gently rotates the spine.", anim: "cloud-hands" },
+  { day: 4, title: "Brush Knee", mins: "10 min", cue: "Step, brush past the knee, push gently forward.", what: "Step forward, brush past the knee with one hand, push gently with the other. Coordination plus mobility.", anim: "brush-knee" },
+  { day: 5, title: "Closing Posture", mins: "8 min", cue: "Hands drift down, weight settles, breath slows.", what: "The grounding sequence that ends every set — settles breath and joint warmth.", anim: "closing-posture" },
+  { day: 6, title: "Rest or repeat your favourite", mins: "5–10 min", cue: "Active rest. Repeat the day you enjoyed most.", what: "Active rest is part of the practice. Repeat the day you enjoyed most, or simply do Day 1 + Day 2 again." },
+  { day: 7, title: "String it together", mins: "12 min", cue: "String all five together. Slow and continuous.", what: "Wuji → weight shift → Cloud Hands → Brush Knee → Closing. Slow, continuous, no pauses. Your first mini-form." },
 ];
 
 const mistakes = [
