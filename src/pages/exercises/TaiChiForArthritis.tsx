@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { CheckCircle2, ArrowRight, Activity, Heart, Shield, Sparkles, MapPin } from "lucide-react";
+import { CheckCircle2, ArrowRight, Activity, Heart, Shield, Sparkles, MapPin, PlayCircle, Library } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SeoHead from "@/components/SeoHead";
@@ -9,6 +9,7 @@ import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { TAI_CHI_ANIMATIONS } from "@/components/exercises/TaiChiAnimations";
 
 const heroImage = "/openverse/wellness-02-tai-chi-young-and-old.jpg";
 
