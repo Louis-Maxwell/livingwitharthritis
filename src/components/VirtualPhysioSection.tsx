@@ -238,7 +238,7 @@ const VirtualPhysioSection = memo(() => {
               Virtual physiotherapy isn't the future —{" "}
               <span className="italic font-normal opacity-90">it's the now.</span>
             </h3>
-            <p className="text-white/50 mb-10 text-base sm:text-lg leading-relaxed">
+            <p className="text-white/85 mb-10 text-base sm:text-lg leading-relaxed">
               HCPC-registered physiotherapists. No waiting lists. No referral needed.
               Flexible sessions from the comfort of your home.
             </p>
