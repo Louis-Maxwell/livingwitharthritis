@@ -25,12 +25,13 @@ const benefits = [
   { icon: Sparkles, title: "Improves balance confidence", text: "Weight-shifting drills retrain proprioception. Most people report feeling steadier within 6–8 weeks of twice-weekly practice." },
 ];
 
-const moves: { name: string; duration: string; how: string; why: string; anim: AnimKey }[] = [
+const moves: { name: string; duration: string; how: string; why: string; cue: string; anim: AnimKey }[] = [
   {
     name: "Standing rooted (Wuji stance)",
     duration: "2 min",
     how: "Stand with feet hip-width apart, knees soft (never locked). Imagine a thread lifting the crown of your head. Let arms hang. Breathe slowly through the nose for 8 cycles.",
     why: "Builds the postural alignment every other movement depends on.",
+    cue: "Crown lifts, knees soft, breath slow through the nose.",
     anim: "rooted-stance",
   },
   {
@@ -38,6 +39,7 @@ const moves: { name: string; duration: string; how: string; why: string; anim: A
     duration: "3 min",
     how: "From rooted stance, slowly transfer 90% of your weight to the right leg, then to the left. Keep knees tracking over toes. Repeat 10 times each side.",
     why: "Trains single-leg balance — the foundation of fall prevention.",
+    cue: "90% onto one leg, then the other. Knees over toes.",
     anim: "weight-shift",
   },
   {
@@ -45,6 +47,7 @@ const moves: { name: string; duration: string; how: string; why: string; anim: A
     duration: "3 min",
     how: "With weight on the right leg, sweep the left hand across your body at chest height as if wiping a window. Shift weight as the hand crosses. Alternate sides for 8 reps.",
     why: "Coordinates upper and lower body, gentle on knees and shoulders.",
+    cue: "Hand wipes the window; weight shifts as it crosses.",
     anim: "cloud-hands",
   },
   {
@@ -52,6 +55,7 @@ const moves: { name: string; duration: string; how: string; why: string; anim: A
     duration: "3 min",
     how: "If standing is uncomfortable, sit forward on a sturdy chair. Push one palm forward at chest height while the other 'brushes' across the thigh. Alternate arms slowly.",
     why: "Keeps the practice accessible during flares without losing the flowing rhythm.",
+    cue: "One palm pushes forward; the other brushes the thigh.",
     anim: "brush-knee",
   },
   {
@@ -59,6 +63,7 @@ const moves: { name: string; duration: string; how: string; why: string; anim: A
     duration: "2 min",
     how: "Return to rooted stance. Lower hands slowly to your sides, palms turned down as if pressing the air. Take 6 long exhales.",
     why: "Settles the nervous system — research links this 'down-regulation' to reduced pain perception.",
+    cue: "Press the air down with the palms. Six long exhales.",
     anim: "closing-posture",
   },
 ];
@@ -200,7 +205,10 @@ export default function TaiChiForBalance() {
                             </span>
                           </button>
                         </ExerciseVideoModal>
-                        <p className="text-xs text-muted-foreground text-center mt-2 italic">Tap to watch full size · loops while you follow along</p>
+                        <p className="mt-2 text-xs italic leading-snug text-foreground/80 bg-muted/40 border border-border/40 rounded-lg px-3 py-2 flex items-start gap-2" title="Tap the video to watch full size · loops while you follow along">
+                          <Sparkles className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" aria-hidden="true" />
+                          <span>{m.cue}</span>
+                        </p>
                       </div>
                     </div>
                   </Card>

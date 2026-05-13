@@ -33,12 +33,12 @@ const jointLinks = [
   { joint: "Foot", slug: "tai-chi-for-foot-arthritis", note: "Slow stepping drills strengthen the foot arch and improve balance." },
 ];
 
-const movementLibrary: { key: keyof typeof TAI_CHI_ANIMATIONS; name: string; brief: string; bestFor: string }[] = [
-  { key: "rooted-stance", name: "Rooted Stance (Wuji)", brief: "The starting posture every form returns to — feet hip-width, knees soft, spine tall.", bestFor: "All joints · posture · breath" },
-  { key: "weight-shift", name: "Weight Shift", brief: "Slow lateral transfer of body weight without lifting the feet — the engine of every tai chi form.", bestFor: "Knee · hip · ankle · balance" },
-  { key: "cloud-hands", name: "Cloud Hands", brief: "Continuous waist-led arm circles that mobilise shoulders and rotate the spine gently.", bestFor: "Shoulder · back · hand" },
-  { key: "brush-knee", name: "Brush Knee", brief: "Step forward, brush past the knee with one hand and push with the other — coordination plus mobility.", bestFor: "Knee · hip · whole-body" },
-  { key: "closing-posture", name: "Closing Posture", brief: "The grounding sequence that ends every set — settles breath and joint warmth.", bestFor: "All joints · cool-down" },
+const movementLibrary: { key: keyof typeof TAI_CHI_ANIMATIONS; name: string; brief: string; cue: string; bestFor: string }[] = [
+  { key: "rooted-stance", name: "Rooted Stance (Wuji)", brief: "The starting posture every form returns to — feet hip-width, knees soft, spine tall.", cue: "Soft knees over toes. Crown lifts gently.", bestFor: "All joints · posture · breath" },
+  { key: "weight-shift", name: "Weight Shift", brief: "Slow lateral transfer of body weight without lifting the feet — the engine of every tai chi form.", cue: "Side-to-side, feet flat. The engine of every move.", bestFor: "Knee · hip · ankle · balance" },
+  { key: "cloud-hands", name: "Cloud Hands", brief: "Continuous waist-led arm circles that mobilise shoulders and rotate the spine gently.", cue: "Waist turns; arms follow, never force.", bestFor: "Shoulder · back · hand" },
+  { key: "brush-knee", name: "Brush Knee", brief: "Step forward, brush past the knee with one hand and push with the other — coordination plus mobility.", cue: "Brush past the knee, push the other hand forward.", bestFor: "Knee · hip · whole-body" },
+  { key: "closing-posture", name: "Closing Posture", brief: "The grounding sequence that ends every set — settles breath and joint warmth.", cue: "Lower the hands, settle the weight, exhale.", bestFor: "All joints · cool-down" },
 ];
 
 const ukResources = [
@@ -270,6 +270,10 @@ export default function TaiChiForArthritis() {
                       </span>
                     </button>
                   </ExerciseVideoModal>
+                  <p className="px-5 py-2.5 text-xs italic leading-snug text-foreground/80 bg-muted/40 border-b border-border/40 flex items-start gap-2">
+                    <Sparkles className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" aria-hidden="true" />
+                    <span>{m.cue}</span>
+                  </p>
                   <div className="p-5 flex flex-col gap-3 flex-1">
                     <div className="flex items-start gap-2">
                       <PlayCircle className="h-5 w-5 text-primary shrink-0 mt-0.5" />
