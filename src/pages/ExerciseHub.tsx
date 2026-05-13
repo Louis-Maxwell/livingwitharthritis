@@ -109,6 +109,7 @@ const additionalActivities = [
   { title: "Yoga for Arthritis", icon: Activity, href: "/blog/yoga-for-arthritis-beginners", desc: "Gentle poses for flexibility and strength" },
   { title: "Cycling for Arthritis", icon: Bike, href: "/blog/arthritis-and-cycling-uk", desc: "Joint-friendly cardio for knee and hip health" },
   { title: "Tai Chi for Arthritis (UK Guide)", icon: Heart, href: "/exercises/tai-chi-for-arthritis", desc: "NICE-recommended — by joint, plus seated options" },
+  { title: "Tai Chi for Beginners", icon: Heart, href: "/exercises/tai-chi-for-beginners", desc: "Free 7-day at-home plan — ~10 min/day, no equipment" },
   { title: "Tai Chi for Balance", icon: Heart, href: "/exercises/tai-chi-for-balance", desc: "Gentle movement for balance and pain reduction" },
   { title: "Seated Tai Chi", icon: Heart, href: "/exercises/seated-tai-chi-for-arthritis", desc: "Chair-based routine for severe OA or post-surgery" },
 ];
