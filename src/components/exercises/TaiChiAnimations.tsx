@@ -28,3 +28,13 @@ export const TAI_CHI_ANIMATIONS = {
   "brush-knee": BrushKnee,
   "closing-posture": ClosingPosture,
 } as const;
+
+export type TaiChiAnimKey = keyof typeof TAI_CHI_ANIMATIONS;
+
+export const TAI_CHI_VIDEOS: Record<TaiChiAnimKey, { src: string; label: string }> = {
+  "rooted-stance": { src: RootedStanceAsset.url, label: "Rooted Stance" },
+  "weight-shift": { src: WeightShiftAsset.url, label: "Weight Shift" },
+  "cloud-hands": { src: CloudHandsAsset.url, label: "Cloud Hands" },
+  "brush-knee": { src: BrushKneeAsset.url, label: "Brush Knee" },
+  "closing-posture": { src: ClosingPostureAsset.url, label: "Closing Posture" },
+};

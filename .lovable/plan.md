@@ -1,47 +1,73 @@
 ## Goal
 
-Capture the uncontested UK long-tail keyword **"mediterranean diet for arthritis"** (40/mo, KDI 0) and surrounding terms ("mediterranean diet recipes", "anti inflammatory mediterranean meal plan UK"). Establish a focused entry-point that funnels readers into the existing Diet Hub and Diet Guide pillar — improving topical authority for the cluster.
+Give every tai chi day/movement card a consistent, in-page video modal so users can watch the clip full-size with playback controls — without leaving the page or scrolling away.
 
-## New page
+## Why a modal (not inline upgrade)
 
-`src/pages/diet/MediterraneanDietForArthritis.tsx` at route `/diet/mediterranean-diet-for-arthritis`.
+Today, `ExerciseVideo` autoplays muted and looped inline. That's perfect as a thumbnail but limits the user to a small, sound-off, controls-free preview. A modal gives:
+- larger viewport
+- play/pause/seek controls
+- per-clip title + caption
+- keyboard + ESC to close (shadcn `Dialog` handles a11y)
+- consistent UX across all tai chi pages
 
-Sections, in order:
+## New component
 
-1. **Hero** — H1 "Mediterranean Diet for Arthritis: A UK Eating Plan", `MedicallyReviewed` badge, one-line promise, primary CTA → 7-day plan anchor, secondary CTA → Diet Hub.
-2. **Why it works** — 3-card grid: inflammation evidence (CRP −20%, pain −15–25% from existing DietGuide stats), heart-health bonus, sustainability.
-3. **The plate at a glance** — visual breakdown (vegetables 50%, whole grains 25%, lean protein/fish 25%, EVOO drizzle, herbs/spices). Bullet "eat freely / eat weekly / eat rarely" lists.
-4. **UK shopping list** — categorised (produce, store-cupboard, fish counter, herbs) with British supermarket-friendly swaps (rapeseed-blend, tinned sardines, frozen berries).
-5. **7-day eating plan** — day cards (breakfast / lunch / dinner / snack). Reuses the meal-plan content already in `DietGuide.tsx` but reformatted as scannable cards.
-6. **5 anti-inflammatory recipes** — short cards (baked salmon + veg, chickpea & spinach stew, overnight oats with berries, Mediterranean tray bake, anti-inflammatory smoothie). Each links to the relevant section/anchor in `/guides/diet`.
-7. **Common mistakes** — 5 bullets (too much cheese, low-quality oil, skipping fish, ultra-processed "Mediterranean" ready meals, ignoring portions).
-8. **Internal links block** — cards to: Diet Hub `/diet`, full Diet Guide `/guides/diet#mediterranean-diet`, Foods to Avoid section, Anti-Inflammatory Smoothie recipe anchor, RA diet `/conditions/rheumatoid-arthritis`, Osteoarthritis diet `/conditions/osteoarthritis`.
-9. **FAQ** — 6 Q&As: cost on a UK budget, vegetarian variation, alcohol, dairy, supplements, how long until I feel better.
-10. **Closing CTA** — newsletter / Self-Help Tool.
+`src/components/exercises/ExerciseVideoModal.tsx` — a single source of truth.
 
-## Wire-up
+- Wraps shadcn `Dialog` (`@/components/ui/dialog`).
+- Trigger: any child (so cards control their own thumbnail UI).
+- Content: a `max-w-3xl` dialog with:
+  - Title + optional one-line description
+  - `<video controls playsInline preload="metadata">` (no autoplay until open, then autoplay+unmuted on open)
+  - The same "AI-generated demonstration — illustrative only, not medical guidance" caption from `ExerciseVideo`
+- Auto-pauses when dialog closes.
+- Accepts `src`, `title`, `description?`, `poster?`, plus a render prop / children for the trigger.
 
-- **`src/App.tsx`** — add lazy import + `<Route path="/diet/mediterranean-diet-for-arthritis" …>` before catch-all.
-- **`public/sitemap.xml`** — entry, priority `0.8`, weekly.
-- **`src/pages/DietHub.tsx`** — promote the new page in the "Mediterranean Diet" section card (line ~72) and add it to the Resources list (line ~510) ahead of the existing pillar link.
-- **`src/pages/pillar/DietGuide.tsx`** — add a "See the focused 7-day plan →" link near the `#mediterranean-diet` heading for reciprocal linking.
+## Updated thumbnail behaviour
 
-## SEO / technical details
+Add an optional `onClick` overlay layer to the existing `ExerciseVideo` (or keep `ExerciseVideo` untouched and stack a button overlay in cards). Preferred: extend `ExerciseVideo` with an optional `onPlayClick` prop that renders a centred Play button with a soft scrim on hover. When set, the inline video stays as the silent loop and the button opens the modal.
 
-- `<title>` ≤60 chars: "Mediterranean Diet for Arthritis: 7-Day UK Plan".
-- `<meta description>` ≤160 chars covering "mediterranean diet for arthritis", "anti-inflammatory eating plan", "UK".
-- Canonical `https://livingwitharthritis.org.uk/diet/mediterranean-diet-for-arthritis`.
-- JSON-LD injected via `useEffect` (per project memory): `Article` + `FAQPage` + `HowTo` (the 7-day plan) + `BreadcrumbList`.
-- Hero image: reuse a Mediterranean food image already in the centralized Unsplash CDN map; no new uploads.
-- en-GB spelling, plain-English voice, `MedicallyReviewed` component, no NHS references.
+This avoids touching the SVG/loading paths and keeps `ExerciseVideo` backward-compatible.
+
+## Pages to wire up
+
+1. **`src/pages/exercises/TaiChiForBeginners.tsx`** — wrap each Day card's video in `ExerciseVideoModal` with `title="Day {n}: {title}"` and `description={d.what}`.
+2. **`src/pages/exercises/TaiChiForArthritis.tsx`** — same treatment for the movement-library cards (line ~251), titled with `m.name` + `m.brief`.
+3. **`src/pages/exercises/TaiChiForBalance.tsx`** — same for the routine cards (line ~171).
+4. **`src/pages/exercises/SeatedTaiChiForArthritis.tsx`** — only if it currently uses `TAI_CHI_ANIMATIONS` (will verify on first read in build mode and skip if not).
+
+No changes to `TAI_CHI_ANIMATIONS` itself — we read `*.mp4.asset.json` URLs directly inside the modal, exposed via a small helper like `TAI_CHI_VIDEOS` (key → `{ src, label }`) to avoid each page re-importing the asset JSONs.
+
+## New helper (small)
+
+`src/components/exercises/TaiChiAnimations.tsx` — add a sibling export:
+
+```ts
+export const TAI_CHI_VIDEOS: Record<AnimKey, { src: string; label: string }> = {
+  'rooted-stance':  { src: RootedStanceAsset.url,  label: 'Rooted Stance' },
+  // ...
+};
+```
+
+So pages can do `<ExerciseVideoModal {...TAI_CHI_VIDEOS[d.anim]} title={...} />`.
 
 ## Out of scope
 
-- No new recipe detail pages (recipes link to existing `/guides/diet` anchors).
-- No backend, no meal-plan generator, no Supabase changes.
-- No image generation.
+- No new videos, no transcripts, no captions track, no playback analytics.
+- No global "video library" page.
+- No autoplay-with-sound on page load (browsers block it anyway).
+- No design-token changes; reuse existing dialog and button styles.
 
 ## Files
 
-- **Create:** `src/pages/diet/MediterraneanDietForArthritis.tsx`
-- **Edit:** `src/App.tsx`, `public/sitemap.xml`, `src/pages/DietHub.tsx`, `src/pages/pillar/DietGuide.tsx`
+**Create**
+- `src/components/exercises/ExerciseVideoModal.tsx`
+
+**Edit**
+- `src/components/exercises/ExerciseVideo.tsx` — add optional `onPlayClick` + Play overlay
+- `src/components/exercises/TaiChiAnimations.tsx` — export `TAI_CHI_VIDEOS` map
+- `src/pages/exercises/TaiChiForBeginners.tsx`
+- `src/pages/exercises/TaiChiForArthritis.tsx`
+- `src/pages/exercises/TaiChiForBalance.tsx`
+- `src/pages/exercises/SeatedTaiChiForArthritis.tsx` *(only if it uses the animations)*
