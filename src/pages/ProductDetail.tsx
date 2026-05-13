@@ -100,11 +100,17 @@ const ProductDetail = () => {
           description: product.description,
           image: product.image,
           category: categoryLabel,
+          sku: product.sku ?? product.id,
+          mpn: product.sku ?? product.id,
+          brand: {
+            "@type": "Brand",
+            name: product.brand ?? "Recommended by Living With Arthritis",
+          },
           aggregateRating: product.rating ? {
             "@type": "AggregateRating",
             ratingValue: product.rating,
             bestRating: 5,
-            ratingCount: (product as any).reviewCount ?? 100,
+            ratingCount: product.reviewCount,
           } : undefined,
           offers: {
             "@type": "Offer",
@@ -112,6 +118,7 @@ const ProductDetail = () => {
             priceCurrency: "GBP",
             availability: "https://schema.org/InStock",
             url: `https://livingwitharthritis.org.uk/product/${product.id}`,
+            priceValidUntil: new Date(new Date().getFullYear() + 1, 11, 31).toISOString().split("T")[0],
           },
         })}</script>
       </Helmet>
