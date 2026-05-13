@@ -59,6 +59,9 @@ const safety = [
 ];
 
 const faqs = [
+  { q: "Is seated tai chi safe for arthritis?", a: "Yes — seated tai chi is one of the safest forms of exercise for arthritis. Practising from a sturdy chair removes fall risk, takes weight off painful knees and hips, and keeps movement within a comfortable range. It's suitable during mild flares (stop only if movement increases pain), and is often the first exercise UK physiotherapists recommend for severe OA or post-surgical recovery." },
+  { q: "Is seated tai chi safe if I have severe arthritis or use a wheelchair?", a: "Yes. Seated tai chi was designed precisely for people whose joints can't tolerate standing practice. Lock wheelchair brakes, sit as upright as your back allows, and follow upper-body movements only if leg movement is uncomfortable. Skip any posture that provokes sharp pain — the practice still works with a smaller range of motion." },
+  { q: "Can I do seated tai chi after hip or knee replacement surgery?", a: "Most UK orthopaedic surgeons clear patients for gentle seated movement within 2–4 weeks of surgery, but always confirm with your own surgical team first. Seated tai chi is an excellent bridge between bed rest and standing rehab — it maintains upper-body strength, improves circulation, and rebuilds confidence in movement without stressing the new joint." },
   { q: "Is seated tai chi as effective as standing tai chi?", a: "For balance and lower-limb strength, standing practice has more evidence. But for stiffness, mood, breathing and upper-body mobility, seated tai chi delivers most of the same benefits — and it's far better than no practice at all. Many people alternate seated and standing days based on how their joints feel." },
   { q: "Can I do seated tai chi if I use a wheelchair?", a: "Yes. Lock the wheels, sit as upright as your back allows, and follow the upper-body movements (Cloud Hands, Brush Knee, Closing Posture). Skip the seated weight-shift if it's uncomfortable." },
   { q: "How often should I practise?", a: "Start with 15 minutes, 3 times a week. Daily 10-minute sessions also work well. Consistency matters more than length — aim to make it a habit before lengthening sessions." },
@@ -207,12 +210,12 @@ export default function SeatedTaiChiForArthritis() {
       {/* FAQ */}
       <section className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
-          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-8">Common questions</h2>
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-8">Seated Tai Chi: FAQs</h2>
           <div className="space-y-4">
             {faqs.map((f) => (
               <details key={f.q} className="group bg-background rounded-lg border border-border/40 p-5">
-                <summary className="cursor-pointer font-display text-lg font-semibold flex items-center justify-between gap-4">
-                  {f.q}
+                <summary className="cursor-pointer flex items-center justify-between gap-4">
+                  <h3 className="font-display text-lg font-semibold m-0">{f.q}</h3>
                   <ArrowRight className="h-4 w-4 shrink-0 group-open:rotate-90 transition-transform" />
                 </summary>
                 <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{f.a}</p>

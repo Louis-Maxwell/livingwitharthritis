@@ -36,7 +36,11 @@ const ukResources = [
 ];
 
 const faqs = [
-  { q: "Is tai chi good for arthritis?", a: "Yes. UK NICE guidelines (NG226) recommend tai chi as a therapeutic exercise option for osteoarthritis. Multiple meta-analyses (BMJ 2019, Arthritis & Rheumatology 2018) show clinically meaningful pain and function improvements for knee and hip OA, comparable to standard NHS physiotherapy." },
+  { q: "Is tai chi good for arthritis?", a: "Yes. UK NICE guidelines (NG226) recommend tai chi as a therapeutic exercise option for osteoarthritis. Multiple meta-analyses (BMJ 2019, Arthritis & Rheumatology 2018) show clinically meaningful pain and function improvements for knee and hip OA, comparable to standard physiotherapy." },
+  { q: "Is tai chi safe for arthritis?", a: "For most people, yes. Tai chi is low-impact, slow, and weight-shifting rather than jarring — which is why NICE NG226 lists it as a safe therapeutic exercise for osteoarthritis. Pause practice during an acute flare, in the first 6 weeks after joint replacement surgery, or if you have severe balance issues without a chair or wall to support you. Otherwise, side effects are typically limited to mild post-session soreness that settles within 24 hours." },
+  { q: "Is tai chi safe for knee arthritis?", a: "Yes, with sensible adaptations. Keep stances shallow (knees never travelling past your toes), shift weight slowly, and avoid deep squatting postures. The Sun and Yang short-form styles taught in most UK classes are well tolerated by knee OA patients. If you feel sharp pain (not the usual stiffness easing), reduce range of motion or switch to seated practice that day." },
+  { q: "Is tai chi safe after a joint replacement?", a: "Generally yes, but timing matters. Most UK orthopaedic surgeons clear patients for low-impact movement at 6–12 weeks post-op. Start with seated tai chi, progress to standing with chair support, and only resume full standing forms once your surgeon confirms it's safe. Always tell your instructor about your replacement so they can offer modifications." },
+  { q: "What are the side effects or risks of tai chi for arthritis?", a: "Tai chi has one of the cleanest safety profiles of any exercise studied for arthritis. The main risks are: mild muscle soreness in the first 1–2 weeks (normal — reduces with practice), and falls if you practise standing forms unsupported with severe balance impairment. Stop and seek advice if you experience sharp joint pain, swelling that lasts more than 48 hours, or dizziness during practice." },
   { q: "Is tai chi good for rheumatoid arthritis?", a: "Tai chi appears safe in rheumatoid arthritis and may improve mood, sleep and lower-limb function, though evidence for joint inflammation itself is weaker than for osteoarthritis. A 2019 Cochrane review found no harms and small-to-moderate benefit for quality of life. Avoid practice during acute flares — return when joints are calm." },
   { q: "Is yoga or tai chi better for arthritis?", a: "Both help, but tai chi has stronger UK guideline backing for osteoarthritis (NICE NG226) and a clearer fall-prevention evidence base. Yoga can offer more flexibility gains. The best choice is whichever you'll do consistently — try both and notice how your joints feel the next morning." },
   { q: "Can I get tai chi on the NHS?", a: "Some NHS social-prescribing schemes and community pain services refer patients to tai chi classes — ask your GP or rheumatology team. Most people start through community centres, leisure trusts, or the Tai Chi Union for Great Britain instructor directory. Many councils offer subsidised over-60s classes." },
@@ -199,12 +203,12 @@ export default function TaiChiForArthritis() {
       {/* FAQ */}
       <section className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
-          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-8">Common questions</h2>
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-8">Tai Chi for Arthritis: FAQs</h2>
           <div className="space-y-4">
             {faqs.map((f) => (
               <details key={f.q} className="group bg-background rounded-lg border border-border/40 p-5">
-                <summary className="cursor-pointer font-display text-lg font-semibold flex items-center justify-between gap-4">
-                  {f.q}
+                <summary className="cursor-pointer flex items-center justify-between gap-4">
+                  <h3 className="font-display text-lg font-semibold m-0">{f.q}</h3>
                   <ArrowRight className="h-4 w-4 shrink-0 group-open:rotate-90 transition-transform" />
                 </summary>
                 <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
