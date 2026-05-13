@@ -199,6 +199,7 @@ export default function TaiChiForArthritis() {
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3">
+            <Button asChild><Link to="/exercises/tai-chi-for-beginners">7-day beginner plan</Link></Button>
             <Button asChild variant="outline"><Link to="/exercises/seated-tai-chi-for-arthritis">Seated tai chi (chair-based)</Link></Button>
             <Button asChild variant="outline"><Link to="/exercises/tai-chi-for-balance">Tai chi for balance & falls</Link></Button>
           </div>
