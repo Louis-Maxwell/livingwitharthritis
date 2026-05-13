@@ -90,7 +90,7 @@ const itemListJsonLd = {
     { "@type": "ListItem", position: 3, name: "Seated Tai Chi for Arthritis", url: `${SITE}/exercises/seated-tai-chi-for-arthritis` },
     ...jointLinks.map((j, i) => ({
       "@type": "ListItem",
-      position: 3 + i,
+      position: 4 + i,
       name: `Tai Chi for ${j.joint} Arthritis`,
       url: `${SITE}/exercises/${j.slug}`,
     })),
