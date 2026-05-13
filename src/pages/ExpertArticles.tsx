@@ -211,7 +211,33 @@ export default function ExpertArticles() {
   return (
     <>
       <Helmet>
-        <title>Expert Articles – Clinician-Written Arthritis Guides | Living With Arthritis UK</title>
+        <title>Expert Arthritis Articles by UK Clinicians</title>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "Expert Arthritis Articles",
+          "url": "https://livingwitharthritis.org.uk/expert-articles",
+          "inLanguage": "en-GB",
+          "description": "Clinician-written, evidence-based arthritis articles by HCPC physiotherapists, consultant rheumatologists, registered dietitians and clinical psychologists.",
+          "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" },
+          "hasPart": articles ? undefined : undefined
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "itemListElement": articles.map((a, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "item": {
+              "@type": "Article",
+              "headline": a.title,
+              "author": { "@type": "Person", "name": a.author },
+              "datePublished": a.date,
+              "description": a.summary,
+              "publisher": { "@type": "Organization", "name": "Living With Arthritis UK" }
+            }
+          }))
+        })}</script>
         <meta name="description" content="Evidence-based arthritis articles written by HCPC physiotherapists, consultant rheumatologists, registered dietitians, and clinical psychologists. Expert UK health content." />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/expert-articles" />
       <meta property="og:title" content="Expert Articles – Clinician-Written Arthritis Guides | Living With Arthritis UK" />

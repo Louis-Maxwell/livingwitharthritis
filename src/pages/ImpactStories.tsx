@@ -107,7 +107,31 @@ const ImpactStories = () => {
   return (
     <>
       <Helmet>
-        <title>Our Impact & Patient Stories | Living With Arthritis UK Charity</title>
+        <title>Patient Stories & Impact | Living With Arthritis UK</title>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "Impact & Patient Stories",
+          "url": "https://livingwitharthritis.org.uk/impact",
+          "inLanguage": "en-GB",
+          "description": "Real stories from people supported by Living With Arthritis UK — over 10,000 people helped with free physiotherapy, nutrition guidance and community.",
+          "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" }
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "itemListElement": caseStudies.map((c, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "item": {
+              "@type": "Review",
+              "name": `${c.condition} — ${c.location}`,
+              "reviewBody": c.quote,
+              "author": { "@type": "Person", "name": c.name },
+              "itemReviewed": { "@type": "Organization", "name": "Living With Arthritis UK" }
+            }
+          }))
+        })}</script>
         <meta name="description" content="Real stories from people we've helped. See how Living With Arthritis has supported over 10,000 people across the UK with free physiotherapy, nutrition guidance, and community support." />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/impact" />
         <meta property="og:locale" content="en_GB" />
