@@ -33,6 +33,10 @@ const PrivacyPolicy = () => (
       <meta name="twitter:title" content="Privacy Policy – UK GDPR Data Protection | Living With Arthritis UK" />
       <meta name="twitter:description" content="Privacy Policy for Living With Arthritis UK. Learn how we collect, use, store and protect your personal data in full compliance with UK GDPR and the Data Protection Act 2018." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
     </Helmet>
     <div className="min-h-screen bg-background">
       <Header />

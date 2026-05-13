@@ -43,6 +43,10 @@ export default function HealthTools() {
       <meta name="twitter:title" content="Interactive Health Tools | Living With Arthritis UK" />
       <meta name="twitter:description" content="Free interactive arthritis health tools: symptom quiz, inflammation risk calculator, and personalised exercise plan generator. Evidence-based tools for UK patients." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
     </Helmet>
 
       <div className="min-h-screen bg-background">

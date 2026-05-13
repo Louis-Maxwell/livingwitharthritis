@@ -115,6 +115,10 @@ const ZakatAppeal = () => {
       <meta name="twitter:title" content="Zakat Appeal – Fund Rehab for War & Trauma Survivors | Living With Arthritis UK" />
       <meta name="twitter:description" content="Give your Zakat to fund physiotherapy and rehabilitation sessions for war and trauma survivors. Shariah-compliant, transparent and life-changing." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
     </Helmet>
 
       <Header />
