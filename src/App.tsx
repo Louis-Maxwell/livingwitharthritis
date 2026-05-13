@@ -47,6 +47,9 @@ const AnkylosingSpondylitis = lazy(() => import("./pages/conditions/AnkylosingSp
 const JuvenileArthritis = lazy(() => import("./pages/conditions/JuvenileArthritis"));
 const Fibromyalgia = lazy(() => import("./pages/conditions/Fibromyalgia"));
 const Lupus = lazy(() => import("./pages/conditions/Lupus"));
+const KneeArthritis = lazy(() => import("./pages/conditions/KneeArthritis"));
+const HandArthritis = lazy(() => import("./pages/conditions/HandArthritis"));
+const ShoulderArthritis = lazy(() => import("./pages/conditions/ShoulderArthritis"));
 const SelfHelpTool = lazy(() => import("./pages/SelfHelpTool"));
 const ZakatAppeal = lazy(() => import("./pages/ZakatAppeal"));
 const ExerciseHub = lazy(() => import("./pages/ExerciseHub"));
@@ -160,6 +163,9 @@ function AnimatedRoutes() {
         <Route path="/conditions/juvenile-arthritis" element={<JuvenileArthritis />} />
         <Route path="/conditions/fibromyalgia" element={<Fibromyalgia />} />
         <Route path="/conditions/lupus" element={<Lupus />} />
+        <Route path="/conditions/knee-arthritis" element={<KneeArthritis />} />
+        <Route path="/conditions/hand-arthritis" element={<HandArthritis />} />
+        <Route path="/conditions/shoulder-arthritis" element={<ShoulderArthritis />} />
         <Route path="/self-help" element={<SelfHelpTool />} />
         <Route path="/exercises" element={<ExerciseHub />} />
         <Route path="/exercises/tai-chi-for-balance" element={<TaiChiForBalance />} />
