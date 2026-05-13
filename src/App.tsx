@@ -99,6 +99,8 @@ const ArthritisStarterGuide = lazy(() => import("./pages/ArthritisStarterGuide")
 const Gallery = lazy(() => import("./pages/Gallery"));
 const Credits = lazy(() => import("./pages/Credits"));
 const TaiChiForBalance = lazy(() => import("./pages/exercises/TaiChiForBalance"));
+const TaiChiForArthritis = lazy(() => import("./pages/exercises/TaiChiForArthritis"));
+const SeatedTaiChiForArthritis = lazy(() => import("./pages/exercises/SeatedTaiChiForArthritis"));
 const Pedometer = lazy(() => import("./pages/Pedometer"));
 const SelfAssessment = lazy(() => import("./pages/SelfAssessment"));
 const Buddy = lazy(() => import("./pages/Buddy"));
@@ -158,6 +160,8 @@ function AnimatedRoutes() {
         <Route path="/self-help" element={<SelfHelpTool />} />
         <Route path="/exercises" element={<ExerciseHub />} />
         <Route path="/exercises/tai-chi-for-balance" element={<TaiChiForBalance />} />
+        <Route path="/exercises/tai-chi-for-arthritis" element={<TaiChiForArthritis />} />
+        <Route path="/exercises/seated-tai-chi-for-arthritis" element={<SeatedTaiChiForArthritis />} />
         <Route path="/diet" element={<DietHub />} />
         <Route path="/zakat-appeal" element={<ZakatAppeal />} />
         <Route path="/trust" element={<TrustCredibility />} />
