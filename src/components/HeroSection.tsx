@@ -93,6 +93,8 @@ const HeroSection = memo(() => {
         <img
           src={heroImageJpg1600}
           alt=""
+          width={1600}
+          height={900}
           className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none z-0"
           loading="eager"
           decoding="async"
