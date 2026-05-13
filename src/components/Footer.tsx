@@ -127,7 +127,7 @@ const Footer = () => {
 
       <div className="border-t border-border/15">
         <div className="container mx-auto px-6 md:px-12 py-5 flex flex-col md:flex-row justify-between items-center gap-3">
-          <p className="text-muted-foreground/50 text-[11px] tracking-wide">
+          <p className="text-muted-foreground text-[11px] tracking-wide">
             © {new Date().getFullYear()} Living with Arthritis™ · Oswestry Health Centre, Thomas Savin Road, Off Gobowen Road, Oswestry SY11 1GA · Registered in England & Wales
           </p>
           <a
