@@ -27,6 +27,16 @@ const jointLinks = [
   { joint: "Shoulder", slug: "tai-chi-for-shoulder-arthritis", note: "Cloud Hands restores rotator-cuff range without overhead strain." },
   { joint: "Back", slug: "tai-chi-for-back-arthritis", note: "Encourages a tall spine and gentle rotation — ideal for spinal OA." },
   { joint: "Ankle", slug: "tai-chi-for-ankle-arthritis", note: "Builds proprioception and ankle confidence after a flare." },
+  { joint: "Wrist", slug: "tai-chi-for-wrist-arthritis", note: "Soft, circular wrist movement preserves grip and reduces stiffness." },
+  { joint: "Foot", slug: "tai-chi-for-foot-arthritis", note: "Slow stepping drills strengthen the foot arch and improve balance." },
+];
+
+const movementLibrary: { key: keyof typeof TAI_CHI_ANIMATIONS; name: string; brief: string; bestFor: string }[] = [
+  { key: "rooted-stance", name: "Rooted Stance (Wuji)", brief: "The starting posture every form returns to — feet hip-width, knees soft, spine tall.", bestFor: "All joints · posture · breath" },
+  { key: "weight-shift", name: "Weight Shift", brief: "Slow lateral transfer of body weight without lifting the feet — the engine of every tai chi form.", bestFor: "Knee · hip · ankle · balance" },
+  { key: "cloud-hands", name: "Cloud Hands", brief: "Continuous waist-led arm circles that mobilise shoulders and rotate the spine gently.", bestFor: "Shoulder · back · hand" },
+  { key: "brush-knee", name: "Brush Knee", brief: "Step forward, brush past the knee with one hand and push with the other — coordination plus mobility.", bestFor: "Knee · hip · whole-body" },
+  { key: "closing-posture", name: "Closing Posture", brief: "The grounding sequence that ends every set — settles breath and joint warmth.", bestFor: "All joints · cool-down" },
 ];
 
 const ukResources = [
