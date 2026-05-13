@@ -130,6 +130,7 @@ export default function SeatedTaiChiForArthritis() {
       >
         <div className="flex flex-wrap gap-3">
           <Button asChild size="lg"><a href="#routine">Start the routine <ArrowRight className="ml-2 h-4 w-4" /></a></Button>
+          <Button asChild variant="outline" size="lg"><Link to="/exercises/tai-chi-for-beginners">New to tai chi? 7-day plan</Link></Button>
           <Button asChild variant="outline" size="lg"><Link to="/exercises/tai-chi-for-arthritis">Back to tai chi guide</Link></Button>
         </div>
       </PageHero>
