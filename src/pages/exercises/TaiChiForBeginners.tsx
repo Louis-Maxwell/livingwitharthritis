@@ -9,7 +9,9 @@ import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { TAI_CHI_ANIMATIONS } from "@/components/exercises/TaiChiAnimations";
+import { TAI_CHI_ANIMATIONS, TAI_CHI_VIDEOS } from "@/components/exercises/TaiChiAnimations";
+import ExerciseVideoModal from "@/components/exercises/ExerciseVideoModal";
+import { Play } from "lucide-react";
 
 const heroImage = "/openverse/wellness-02-tai-chi-young-and-old.jpg";
 
@@ -191,16 +193,35 @@ export default function TaiChiForBeginners() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {days.map((d) => {
               const Anim = d.anim ? TAI_CHI_ANIMATIONS[d.anim] : null;
+              const video = d.anim ? TAI_CHI_VIDEOS[d.anim] : null;
+              const thumb = Anim ? (
+                <div className="aspect-video bg-muted/40 overflow-hidden">
+                  <Anim className="w-full h-full object-cover" />
+                </div>
+              ) : (
+                <div className="aspect-video bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
+                  <Sparkles className="h-12 w-12 text-primary/60" />
+                </div>
+              );
               return (
                 <Card key={d.day} className="overflow-hidden border border-border/40 flex flex-col">
-                  {Anim ? (
-                    <div className="aspect-video bg-muted/40 overflow-hidden">
-                      <Anim className="w-full h-full object-cover" />
-                    </div>
+                  {Anim && video ? (
+                    <ExerciseVideoModal src={video.src} title={`Day ${d.day}: ${d.title}`} description={d.what}>
+                      <button
+                        type="button"
+                        aria-label={`Play Day ${d.day}: ${d.title}`}
+                        className="group relative block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                      >
+                        {thumb}
+                        <span className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/40 group-focus-visible:bg-black/40 transition-colors">
+                          <span className="h-14 w-14 rounded-full bg-background/90 backdrop-blur-sm flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity">
+                            <Play className="h-6 w-6 text-primary fill-primary ml-0.5" />
+                          </span>
+                        </span>
+                      </button>
+                    </ExerciseVideoModal>
                   ) : (
-                    <div className="aspect-video bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
-                      <Sparkles className="h-12 w-12 text-primary/60" />
-                    </div>
+                    thumb
                   )}
                   <div className="p-5 flex flex-col gap-3 flex-1">
                     <div className="flex items-center justify-between">
