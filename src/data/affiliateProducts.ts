@@ -9,6 +9,8 @@ export interface AffiliateProduct {
   reviewCount: number;
   amazonUrl: string;
   badge?: string;
+  brand?: string;
+  sku?: string;
 }
 
 // Replace YOUR-TAG with your actual Amazon Associates affiliate tag
