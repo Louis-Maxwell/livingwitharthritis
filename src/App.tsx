@@ -163,6 +163,7 @@ function AnimatedRoutes() {
         <Route path="/exercises/tai-chi-for-balance" element={<TaiChiForBalance />} />
         <Route path="/exercises/tai-chi-for-arthritis" element={<TaiChiForArthritis />} />
         <Route path="/exercises/seated-tai-chi-for-arthritis" element={<SeatedTaiChiForArthritis />} />
+        <Route path="/exercises/tai-chi-for-beginners" element={<TaiChiForBeginners />} />
         <Route path="/diet" element={<DietHub />} />
         <Route path="/zakat-appeal" element={<ZakatAppeal />} />
         <Route path="/trust" element={<TrustCredibility />} />
