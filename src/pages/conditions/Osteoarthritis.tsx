@@ -329,6 +329,9 @@ const Osteoarthritis = () => (
             {
               title: "Other conditions",
               links: [
+                { label: "Knee arthritis", to: "/conditions/knee-arthritis" },
+                { label: "Hand arthritis", to: "/conditions/hand-arthritis" },
+                { label: "Shoulder arthritis", to: "/conditions/shoulder-arthritis" },
                 { label: "Rheumatoid arthritis", to: "/conditions/rheumatoid-arthritis" },
                 { label: "Psoriatic arthritis", to: "/conditions/psoriatic-arthritis" },
                 { label: "Gout", to: "/conditions/gout" },
