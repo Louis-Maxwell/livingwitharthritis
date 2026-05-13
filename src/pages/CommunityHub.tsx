@@ -97,7 +97,11 @@ const CommunityHub = () => {
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:site_name" content="Living With Arthritis UK" />
-        <meta name="twitter:card" content="summary" />
+        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Arthritis Community & Support UK" />
         <meta name="twitter:description" content="Join our arthritis community: patient stories, peer support and guided resources for the newly diagnosed." />
         <meta name="geo.region" content="GB" />

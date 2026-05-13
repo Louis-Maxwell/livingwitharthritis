@@ -38,6 +38,10 @@ const BuddyMatch = () => {
       <Helmet>
         <title>Your Buddy Matches | Living With Arthritis UK</title>
         <link rel="canonical" href="https://livingwitharthritis.org.uk/buddy/match" />
+        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
       </Helmet>
       <Header />
       <main id="main-content">

@@ -79,6 +79,10 @@ const SelfAssessment = () => {
         <title>Arthritis Self-Assessment | Living With Arthritis UK</title>
         <meta name="description" content="Take our free arthritis self-assessment to get personalised exercise, diet and care recommendations based on your symptoms and goals." />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/self-assessment" />
+        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
       </Helmet>
       <Header />
       <main id="main-content" role="main" tabIndex={-1}>

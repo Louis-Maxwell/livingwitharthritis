@@ -67,6 +67,22 @@ export interface ConditionPageData {
   related: RelatedLink[];
   /** Optional blog categories used to surface the latest matched articles */
   blogCategories?: string[];
+  /** Optional override for og:image (absolute or root-relative path) */
+  ogImage?: string;
+}
+
+const CONDITION_IMAGES: Record<string, string> = {
+  osteoarthritis: "/images/condition-osteoarthritis.jpg",
+  "rheumatoid-arthritis": "/images/condition-rheumatoid.jpg",
+  "psoriatic-arthritis": "/images/condition-psoriatic.jpg",
+  "ankylosing-spondylitis": "/images/condition-ankylosing.jpg",
+  fibromyalgia: "/images/condition-fibromyalgia.jpg",
+  gout: "/images/condition-gout.jpg",
+};
+
+function resolveOgImage(slug: string, override?: string): string {
+  const path = override ?? CONDITION_IMAGES[slug] ?? "/images/hero-community.jpg";
+  return path.startsWith("http") ? path : `${BASE}${path}`;
 }
 
 const Section = ({
@@ -93,6 +109,7 @@ const Section = ({
 
 export default function ConditionPageTemplate({ data }: { data: ConditionPageData }) {
   const url = `${BASE}/conditions/${data.slug}`;
+  const ogImage = resolveOgImage(data.slug, data.ogImage);
 
   useEffect(() => {
     const medicalLd = {
@@ -168,7 +185,12 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
         <meta property="og:url" content={url} />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={data.metaTitle} />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={ogImage} />
         <meta name="twitter:title" content={data.metaTitle} />
         <meta name="twitter:description" content={data.metaDescription} />
       </Helmet>

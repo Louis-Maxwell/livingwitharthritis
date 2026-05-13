@@ -33,6 +33,10 @@ const TermsConditions = () => (
       <meta name="twitter:title" content="Terms & Conditions | Living With Arthritis UK" />
       <meta name="twitter:description" content="Terms and Conditions for using the Living With Arthritis UK website. Covers use of the site, intellectual property, donations, refunds, and liability." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
     </Helmet>
     <div className="min-h-screen bg-background">
       <Header />

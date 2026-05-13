@@ -19,7 +19,11 @@ const Chat = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/chat" />
         <meta property="og:site_name" content="Living With Arthritis UK" />
-        <meta name="twitter:card" content="summary" />
+        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Virtual Arthritis Assistant – Free AI Chat" />
         <meta name="twitter:description" content="Get free, instant arthritis advice from our AI virtual assistant." />
         <meta name="geo.region" content="GB" />

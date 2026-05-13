@@ -198,6 +198,10 @@ export default function ArthritisStarterGuide() {
       <meta name="twitter:title" content="Free Arthritis Starter Guide (UK PDF) | Living With Arthritis" />
       <meta name="twitter:description" content="A free 14-page UK Arthritis Starter Guide with clinically aligned advice, anti-inflammatory meal ideas, and gentle joint mobility routines. Download instantly." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
     </Helmet>
 
       <Header />

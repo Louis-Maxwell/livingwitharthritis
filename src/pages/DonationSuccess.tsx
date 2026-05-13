@@ -24,6 +24,10 @@ const DonationSuccess = () => {
         <meta name="description" content={isSuccess ? "Thank you for supporting Living With Arthritis UK. Your donation funds free physiotherapy, exercise plans and AI support for people with arthritis." : "Your donation was cancelled — no charge was made. You can try again any time at Living With Arthritis UK."} />
         <meta name="robots" content="noindex,nofollow" />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/donation-success" />
+        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
       </Helmet>
       <Header />
       <main className="min-h-[70vh] flex items-center justify-center px-4 py-20">
