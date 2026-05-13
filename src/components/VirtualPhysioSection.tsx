@@ -252,7 +252,7 @@ const VirtualPhysioSection = memo(() => {
                   </Button>
                 }
               />
-              <p className="text-white/30 text-xs">Free · No obligation · Takes 2 minutes</p>
+              <p className="text-white/75 text-xs">Free · No obligation · Takes 2 minutes</p>
             </div>
           </div>
         </motion.div>
