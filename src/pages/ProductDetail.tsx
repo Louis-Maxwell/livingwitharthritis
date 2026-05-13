@@ -93,6 +93,27 @@ const ProductDetail = () => {
         <meta name="twitter:title" content={`${product.title} — Recommended Product`} />
         <meta name="twitter:description" content={product.description.slice(0, 200)} />
         <meta name="twitter:image" content={product.image || "https://livingwitharthritis.org.uk/images/hero-community.jpg"} />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          name: product.title,
+          description: product.description,
+          image: product.image,
+          category: categoryLabel,
+          aggregateRating: product.rating ? {
+            "@type": "AggregateRating",
+            ratingValue: product.rating,
+            bestRating: 5,
+            ratingCount: (product as any).reviewCount ?? 100,
+          } : undefined,
+          offers: {
+            "@type": "Offer",
+            price: product.price?.replace(/[^\d.]/g, ""),
+            priceCurrency: "GBP",
+            availability: "https://schema.org/InStock",
+            url: `https://livingwitharthritis.org.uk/product/${product.id}`,
+          },
+        })}</script>
       </Helmet>
       <Header />
       <main className="min-h-screen bg-background">
