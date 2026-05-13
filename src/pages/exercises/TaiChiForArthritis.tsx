@@ -137,7 +137,8 @@ export default function TaiChiForArthritis() {
         subtitle="The UK's evidence-based guide to tai chi for arthritis. Recommended by NICE, used in NHS pain services, and matched to NHS physiotherapy in BMJ trials for knee and hip OA."
       >
         <div className="flex flex-wrap gap-3">
-          <Button asChild size="lg"><a href="#joints">Find your joint <ArrowRight className="ml-2 h-4 w-4" /></a></Button>
+          <Button asChild size="lg"><Link to="/exercises/tai-chi-for-beginners">New to tai chi? Start the 7-day plan <ArrowRight className="ml-2 h-4 w-4" /></Link></Button>
+          <Button asChild variant="outline" size="lg"><a href="#joints">Find your joint</a></Button>
           <Button asChild variant="outline" size="lg"><Link to="/exercises/seated-tai-chi-for-arthritis">Try seated tai chi</Link></Button>
         </div>
       </PageHero>
