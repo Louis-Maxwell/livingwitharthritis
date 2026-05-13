@@ -85,8 +85,9 @@ const itemListJsonLd = {
   name: "Tai Chi for Arthritis — Topic Hub",
   itemListOrder: "https://schema.org/ItemListOrderAscending",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Tai Chi for Balance", url: `${SITE}/exercises/tai-chi-for-balance` },
-    { "@type": "ListItem", position: 2, name: "Seated Tai Chi for Arthritis", url: `${SITE}/exercises/seated-tai-chi-for-arthritis` },
+    { "@type": "ListItem", position: 1, name: "Tai Chi for Beginners (7-Day Plan)", url: `${SITE}/exercises/tai-chi-for-beginners` },
+    { "@type": "ListItem", position: 2, name: "Tai Chi for Balance", url: `${SITE}/exercises/tai-chi-for-balance` },
+    { "@type": "ListItem", position: 3, name: "Seated Tai Chi for Arthritis", url: `${SITE}/exercises/seated-tai-chi-for-arthritis` },
     ...jointLinks.map((j, i) => ({
       "@type": "ListItem",
       position: 3 + i,
