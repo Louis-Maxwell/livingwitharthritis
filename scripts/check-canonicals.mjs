@@ -21,8 +21,12 @@ function walk(dir) {
   for (const name of readdirSync(dir)) {
     const p = join(dir, name);
     const s = statSync(p);
-    if (s.isDirectory()) out.push(...walk(p));
-    else if (name.endsWith('.tsx')) out.push(p);
+    if (s.isDirectory()) {
+      if (name === '__tests__' || name === '__mocks__') continue;
+      out.push(...walk(p));
+    } else if (name.endsWith('.tsx') && !name.endsWith('.test.tsx')) {
+      out.push(p);
+    }
   }
   return out;
 }
