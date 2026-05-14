@@ -10,6 +10,45 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type",
 };
 
+// Authorize: only admin users (or service_role callers like the cron job) may
+// trigger this function. Without this, anyone with the anon key could exhaust
+// the PageSpeed API quota and fill the lighthouse-reports bucket.
+async function authorize(
+  req: Request,
+  supabaseUrl: string,
+  serviceKey: string,
+): Promise<{ ok: true } | { ok: false; status: number; error: string }> {
+  const authHeader = req.headers.get("Authorization");
+  if (!authHeader?.startsWith("Bearer ")) {
+    return { ok: false, status: 401, error: "Authentication required" };
+  }
+  const token = authHeader.slice(7);
+  // Decode JWT payload to check role (avoids extra round-trip for service_role).
+  try {
+    const parts = token.split(".");
+    if (parts.length === 3) {
+      const payload = JSON.parse(
+        atob(parts[1].replace(/-/g, "+").replace(/_/g, "/")),
+      );
+      if (payload.role === "service_role") return { ok: true };
+      const userId = payload.sub;
+      if (typeof userId === "string" && userId.length > 0) {
+        const adminClient = createClient(supabaseUrl, serviceKey);
+        const { data: roleRow } = await adminClient
+          .from("user_roles")
+          .select("role")
+          .eq("user_id", userId)
+          .eq("role", "admin")
+          .maybeSingle();
+        if (roleRow) return { ok: true };
+      }
+    }
+  } catch {
+    // fall through to forbidden
+  }
+  return { ok: false, status: 403, error: "Admin access required" };
+}
+
 const TARGETS: Array<{ name: string; url: string }> = [
   { name: "published", url: "https://livingwitharthritis.lovable.app" },
   { name: "production", url: "https://www.livingwitharthritis.org.uk" },
@@ -130,6 +169,14 @@ Deno.serve(async (req) => {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       },
     );
+  }
+
+  const auth = await authorize(req, supabaseUrl, serviceKey);
+  if (!auth.ok) {
+    return new Response(JSON.stringify({ error: auth.error }), {
+      status: auth.status,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
   }
 
   const supabase = createClient(supabaseUrl, serviceKey);
