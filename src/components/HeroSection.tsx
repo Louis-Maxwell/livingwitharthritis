@@ -8,10 +8,13 @@ import {
   reportHeroImageFailure,
   reportHeroRender,
 } from "@/lib/heroLayoutMonitor";
-import heroImageWebp1600 from "@/assets/hero-walking-group-1600.webp";
-import heroImageWebp1200 from "@/assets/hero-walking-group-1200.webp";
-import heroImageWebp800 from "@/assets/hero-walking-group-800.webp";
-import heroImageJpg1600 from "@/assets/hero-walking-group-1600.jpg";
+// Hero images served from /public/images/ so the static preload in index.html
+// references the same stable URLs (Vite-hashed bundled assets can't be preloaded
+// from static HTML). See index.html <link rel="preload" as="image"> block.
+const HERO_WEBP_800 = "/images/hero-walking-group-800.webp";
+const HERO_WEBP_1200 = "/images/hero-walking-group-1200.webp";
+const HERO_WEBP_1600 = "/images/hero-walking-group-1600.webp";
+const HERO_JPG_1600 = "/images/hero-walking-group-1600.jpg";
 
 import "./HeroSection.css";
 
@@ -49,32 +52,8 @@ const HeroSection = memo(() => {
     return () => mq.removeEventListener?.("change", update);
   }, []);
 
-  // Desktop-only LCP preload. Uses the same imported asset bindings as the <picture>
-  // below, so Vite's content hash is always in sync — discovery can never drift from render.
-  useEffect(() => {
-    if (typeof document === "undefined") return;
-    if (!window.matchMedia?.("(min-width: 1024px)").matches) return;
-
-    const link = document.createElement("link");
-    link.rel = "preload";
-    link.as = "image";
-    link.type = "image/webp";
-    link.setAttribute(
-      "imagesrcset",
-      `${heroImageWebp800} 800w, ${heroImageWebp1200} 1200w, ${heroImageWebp1600} 1600w`,
-    );
-    link.setAttribute(
-      "imagesizes",
-      "(min-width: 1280px) 620px, (min-width: 1024px) 50vw, 100vw",
-    );
-    link.setAttribute("fetchpriority", "high");
-    link.dataset.lcpPreload = "hero";
-    document.head.appendChild(link);
-
-    return () => {
-      link.remove();
-    };
-  }, []);
+  // LCP preload now lives in index.html as a static <link rel="preload"> so
+  // the browser discovers it during HTML parse — much earlier than useEffect.
 
   const issueDate = new Date().toLocaleDateString("en-GB", {
     month: "long",
@@ -83,23 +62,25 @@ const HeroSection = memo(() => {
 
   return (
     <section className="relative overflow-hidden bg-mesh">
-      {/* Hero cover image as full-section background */}
-      <picture aria-hidden="true">
+      {/* Hero cover image as full-section background — mobile/tablet only.
+          Desktop renders the right-column figure (line ~196) instead, so we
+          don't decode the same image twice. */}
+      <picture aria-hidden="true" className="lg:hidden">
         <source
           type="image/webp"
-          srcSet={`${heroImageWebp800} 800w, ${heroImageWebp1200} 1200w, ${heroImageWebp1600} 1600w`}
+          srcSet={`${HERO_WEBP_800} 800w, ${HERO_WEBP_1200} 1200w, ${HERO_WEBP_1600} 1600w`}
           sizes="100vw"
         />
         <img
-          src={heroImageJpg1600}
+          src={HERO_JPG_1600}
           alt=""
           width={1600}
           height={900}
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none z-0"
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none z-0 lg:hidden"
           loading="eager"
           decoding="async"
           fetchPriority="high"
-          onError={() => reportHeroImageFailure(heroImageJpg1600)}
+          onError={() => reportHeroImageFailure(HERO_JPG_1600)}
         />
       </picture>
       {/* Readability overlay over background image */}
@@ -197,11 +178,11 @@ const HeroSection = memo(() => {
                 <picture>
                   <source
                     type="image/webp"
-                    srcSet={`${heroImageWebp800} 800w, ${heroImageWebp1200} 1200w, ${heroImageWebp1600} 1600w`}
+                    srcSet={`${HERO_WEBP_800} 800w, ${HERO_WEBP_1200} 1200w, ${HERO_WEBP_1600} 1600w`}
                     sizes="(min-width: 1280px) 520px, (min-width: 1024px) 42vw, 100vw"
                   />
                   <img
-                    src={heroImageJpg1600}
+                    src={HERO_JPG_1600}
                     alt="A diverse group of adults walking together outdoors, smiling — staying active with arthritis in a UK community walking group"
                     width={1600}
                     height={1067}
@@ -209,7 +190,7 @@ const HeroSection = memo(() => {
                     loading="eager"
                     decoding="async"
                     fetchPriority="high"
-                    onError={() => reportHeroImageFailure(heroImageJpg1600)}
+                    onError={() => reportHeroImageFailure(HERO_JPG_1600)}
                   />
                 </picture>
                 {/* Dark overlay for caption legibility */}

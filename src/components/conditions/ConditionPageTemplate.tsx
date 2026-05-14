@@ -1,4 +1,4 @@
-import { useEffect, type ReactNode, type ElementType } from "react";
+import { lazy, Suspense, useEffect, type ReactNode, type ElementType } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import {
@@ -15,11 +15,13 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import InternalLinks from "@/components/InternalLinks";
-import CrossLinkBanner from "@/components/CrossLinkBanner";
-import ContextualLinks from "@/components/ContextualLinks";
-import ConditionBlogStrip from "@/components/ConditionBlogStrip";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
+
+// Below-the-fold — lazy to reduce initial route chunk + speed up LCP
+const InternalLinks = lazy(() => import("@/components/InternalLinks"));
+const CrossLinkBanner = lazy(() => import("@/components/CrossLinkBanner"));
+const ContextualLinks = lazy(() => import("@/components/ContextualLinks"));
+const ConditionBlogStrip = lazy(() => import("@/components/ConditionBlogStrip"));
 
 const BASE = "https://livingwitharthritis.org.uk";
 
@@ -295,58 +297,62 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
           </section>
 
           {/* Live Blog & Stories — Advice & Guidance for this condition */}
-          <ConditionBlogStrip
-            conditionName={data.name}
-            matchCategories={data.blogCategories}
-          />
+          <Suspense fallback={null}>
+            <ConditionBlogStrip
+              conditionName={data.name}
+              matchCategories={data.blogCategories}
+            />
+          </Suspense>
 
           {/* Contextual SEO links — keyword-rich, page-aware */}
-          <ContextualLinks
-            heading={`Pair ${data.name} care with the right resources`}
-            intro="Use these guides alongside your treatment plan — diet, movement, flare management and other conditions worth knowing about."
-            groups={[
-              {
-                title: "Anti-inflammatory diet",
-                links: [
-                  { label: `Best diet for ${data.name.toLowerCase()}`, to: "/diet" },
-                  { label: "Mediterranean diet pillar guide", to: "/guides/diet" },
-                  { label: "Foods to avoid with arthritis", to: "/blog/category/nutrition" },
-                  { label: "Turmeric, omega-3 and collagen — what works", to: "/blog/category/supplements" },
-                ],
-              },
-              {
-                title: "Exercise & physiotherapy",
-                links: [
-                  { label: `Arthritis-friendly exercises`, to: "/exercises" },
-                  { label: "Exercises to avoid with arthritis", to: "/guides/exercise" },
-                  { label: "Tai Chi for balance & stiffness", to: "/exercises/tai-chi-for-balance" },
-                  { label: "Self-help joint tool", to: "/self-help" },
-                ],
-              },
-              {
-                title: "Flare-ups & support",
-                links: [
-                  { label: "Managing arthritis flare-ups", to: "/arthritis-flare-ups" },
-                  { label: "Help while waiting for rheumatology", to: "/arthritis-waiting-list-help" },
-                  { label: "Community & peer support", to: "/community" },
-                  { label: "Browse the Advice Hub", to: "/blog-hub" },
-                ],
-              },
-              {
-                title: "Other conditions",
-                links: [
-                  { label: "Osteoarthritis", to: "/conditions/osteoarthritis" },
-                  { label: "Rheumatoid arthritis", to: "/conditions/rheumatoid-arthritis" },
-                  { label: "Psoriatic arthritis", to: "/conditions/psoriatic-arthritis" },
-                  { label: "Gout", to: "/conditions/gout" },
-                  { label: "Ankylosing spondylitis", to: "/conditions/ankylosing-spondylitis" },
-                  { label: "Juvenile arthritis", to: "/conditions/juvenile-arthritis" },
-                  { label: "Fibromyalgia", to: "/conditions/fibromyalgia" },
-                  { label: "Lupus (SLE)", to: "/conditions/lupus" },
-                ].filter((l) => l.to !== `/conditions/${data.slug}`),
-              },
-            ]}
-          />
+          <Suspense fallback={null}>
+            <ContextualLinks
+              heading={`Pair ${data.name} care with the right resources`}
+              intro="Use these guides alongside your treatment plan — diet, movement, flare management and other conditions worth knowing about."
+              groups={[
+                {
+                  title: "Anti-inflammatory diet",
+                  links: [
+                    { label: `Best diet for ${data.name.toLowerCase()}`, to: "/diet" },
+                    { label: "Mediterranean diet pillar guide", to: "/guides/diet" },
+                    { label: "Foods to avoid with arthritis", to: "/blog/category/nutrition" },
+                    { label: "Turmeric, omega-3 and collagen — what works", to: "/blog/category/supplements" },
+                  ],
+                },
+                {
+                  title: "Exercise & physiotherapy",
+                  links: [
+                    { label: `Arthritis-friendly exercises`, to: "/exercises" },
+                    { label: "Exercises to avoid with arthritis", to: "/guides/exercise" },
+                    { label: "Tai Chi for balance & stiffness", to: "/exercises/tai-chi-for-balance" },
+                    { label: "Self-help joint tool", to: "/self-help" },
+                  ],
+                },
+                {
+                  title: "Flare-ups & support",
+                  links: [
+                    { label: "Managing arthritis flare-ups", to: "/arthritis-flare-ups" },
+                    { label: "Help while waiting for rheumatology", to: "/arthritis-waiting-list-help" },
+                    { label: "Community & peer support", to: "/community" },
+                    { label: "Browse the Advice Hub", to: "/blog-hub" },
+                  ],
+                },
+                {
+                  title: "Other conditions",
+                  links: [
+                    { label: "Osteoarthritis", to: "/conditions/osteoarthritis" },
+                    { label: "Rheumatoid arthritis", to: "/conditions/rheumatoid-arthritis" },
+                    { label: "Psoriatic arthritis", to: "/conditions/psoriatic-arthritis" },
+                    { label: "Gout", to: "/conditions/gout" },
+                    { label: "Ankylosing spondylitis", to: "/conditions/ankylosing-spondylitis" },
+                    { label: "Juvenile arthritis", to: "/conditions/juvenile-arthritis" },
+                    { label: "Fibromyalgia", to: "/conditions/fibromyalgia" },
+                    { label: "Lupus (SLE)", to: "/conditions/lupus" },
+                  ].filter((l) => l.to !== `/conditions/${data.slug}`),
+                },
+              ]}
+            />
+          </Suspense>
 
           {/* Curated related-link cards (per-page) */}
           <section className="mb-12">
@@ -396,14 +402,18 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
                 Open Advice Hub
               </Link>
             </div>
-            <CrossLinkBanner
-              preset="condition"
-              exclude={`/conditions/${data.slug}`}
-              title="Explore related resources"
-            />
+            <Suspense fallback={null}>
+              <CrossLinkBanner
+                preset="condition"
+                exclude={`/conditions/${data.slug}`}
+                title="Explore related resources"
+              />
+            </Suspense>
           </div>
         </main>
-        <InternalLinks />
+        <Suspense fallback={null}>
+          <InternalLinks />
+        </Suspense>
         <Footer />
       </div>
     </>
