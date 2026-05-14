@@ -19,16 +19,12 @@ const DonationSuccess = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{isSuccess ? "Thank You for Your Donation" : "Donation Cancelled"} | Living With Arthritis</title>
-        <meta name="description" content={isSuccess ? "Thank you for supporting Living With Arthritis UK. Your donation funds free physiotherapy, exercise plans and AI support for people with arthritis." : "Your donation was cancelled — no charge was made. You can try again any time at Living With Arthritis UK."} />
-        <meta name="robots" content="noindex,nofollow" />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/donation-success" />
-        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
-      </Helmet>
+      <SeoHead
+        title={isSuccess ? "Thank You for Your Donation" : "Donation Cancelled"}
+        description={isSuccess ? "Thank you for supporting Living With Arthritis UK. Your donation funds free physiotherapy, exercise plans and AI support for people with arthritis." : "Your donation was cancelled — no charge was made. You can try again any time at Living With Arthritis UK."}
+        path="/donation-result"
+        noindex
+      />
       <Header />
       <main className="min-h-[70vh] flex items-center justify-center px-4 py-20">
         <div className="max-w-md w-full text-center space-y-6 animate-fade-in">
