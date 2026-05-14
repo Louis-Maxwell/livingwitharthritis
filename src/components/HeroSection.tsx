@@ -8,10 +8,13 @@ import {
   reportHeroImageFailure,
   reportHeroRender,
 } from "@/lib/heroLayoutMonitor";
-import heroImageWebp1600 from "@/assets/hero-walking-group-1600.webp";
-import heroImageWebp1200 from "@/assets/hero-walking-group-1200.webp";
-import heroImageWebp800 from "@/assets/hero-walking-group-800.webp";
-import heroImageJpg1600 from "@/assets/hero-walking-group-1600.jpg";
+// Hero images served from /public/images/ so the static preload in index.html
+// references the same stable URLs (Vite-hashed bundled assets can't be preloaded
+// from static HTML). See index.html <link rel="preload" as="image"> block.
+const HERO_WEBP_800 = "/images/hero-walking-group-800.webp";
+const HERO_WEBP_1200 = "/images/hero-walking-group-1200.webp";
+const HERO_WEBP_1600 = "/images/hero-walking-group-1600.webp";
+const HERO_JPG_1600 = "/images/hero-walking-group-1600.jpg";
 
 import "./HeroSection.css";
 
