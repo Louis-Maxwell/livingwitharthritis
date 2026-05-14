@@ -178,11 +178,11 @@ const HeroSection = memo(() => {
                 <picture>
                   <source
                     type="image/webp"
-                    srcSet={`${heroImageWebp800} 800w, ${heroImageWebp1200} 1200w, ${heroImageWebp1600} 1600w`}
+                    srcSet={`${HERO_WEBP_800} 800w, ${HERO_WEBP_1200} 1200w, ${HERO_WEBP_1600} 1600w`}
                     sizes="(min-width: 1280px) 520px, (min-width: 1024px) 42vw, 100vw"
                   />
                   <img
-                    src={heroImageJpg1600}
+                    src={HERO_JPG_1600}
                     alt="A diverse group of adults walking together outdoors, smiling — staying active with arthritis in a UK community walking group"
                     width={1600}
                     height={1067}
@@ -190,7 +190,7 @@ const HeroSection = memo(() => {
                     loading="eager"
                     decoding="async"
                     fetchPriority="high"
-                    onError={() => reportHeroImageFailure(heroImageJpg1600)}
+                    onError={() => reportHeroImageFailure(HERO_JPG_1600)}
                   />
                 </picture>
                 {/* Dark overlay for caption legibility */}
