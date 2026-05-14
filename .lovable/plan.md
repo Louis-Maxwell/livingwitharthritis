@@ -1,53 +1,48 @@
-## Audit result
+## Root cause
 
-`SeoHead` already emits a full OG + Twitter set (title, description, type, url, site_name, locale, image + dimensions + alt; twitter:card, title, description, image) on every route that uses it. Coverage gaps:
+`src/components/ui/PageBreadcrumb.tsx` (lines 83–101) wraps each separator + item pair in `<span className="contents">` to satisfy React's `key` requirement inside a `.map()`:
 
-### 1. Five routes use raw `<Helmet>` with no OG/Twitter tags
-| Route | File | Visible to share crawlers? |
-|---|---|---|
-| `/buddy` | `src/pages/Buddy.tsx` | ✅ should preview |
-| `/buddy/match` | `src/pages/BuddyMatch.tsx` | ✅ should preview |
-| `/self-assessment` | `src/pages/SelfAssessment.tsx` | ✅ should preview |
-| `/donation-result` | `src/pages/DonationSuccess.tsx` | ❌ post-action, noindex |
-| `/newsletter/confirm` | `src/pages/NewsletterConfirm.tsx` | ❌ post-action, noindex |
-
-When these pages are shared on Facebook/LinkedIn/X/iMessage/Slack today, the crawler reads only `index.html` (Helmet hydrates client-side, social crawlers don't run JS) and falls back to the homepage OG title/description/image — wrong preview for every one of these pages.
-
-### 2. Stale `og:image` / `twitter:image` in `index.html`
-Lines 123 and 130 point to a Lovable preview screenshot on the R2 dev bucket:
-```
-https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/.../id-preview-...lovable.app-...png
-```
-That URL is unstable (dev preview, can disappear) and doesn't match `SeoHead`'s default of `https://livingwitharthritis.org.uk/images/hero-community.jpg`. Static-only crawlers see the dev URL; JS crawlers see the org.uk one — inconsistent and fragile.
-
-### 3. Static fallback missing `og:image:width` / `og:image:height`
-SeoHead emits both (1200×630). The static block in `index.html` doesn't, which makes some crawlers (LinkedIn especially) refuse to render large card previews on first scrape.
-
-## Plan
-
-### Fix 1 — Convert the 5 raw-Helmet pages to `SeoHead`
-Replace the inline `<Helmet>` in each with `<SeoHead title="…" description="…" path="…" [noindex] />`. Use existing copy from each page's current `<title>` and `<meta name="description">`. Add `noindex` on `/donation-result` and `/newsletter/confirm`.
-
-### Fix 2 — Repoint static `og:image` / `twitter:image`
-Change both URLs in `index.html` to the canonical hero image already used by `SeoHead`:
-```
-https://livingwitharthritis.org.uk/images/hero-community.jpg
+```tsx
+{segments.map((segment, i) => (
+  <span key={i} className="contents">
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>...</BreadcrumbItem>
+  </span>
+))}
 ```
 
-### Fix 3 — Add `og:image:width` / `og:image:height` to `index.html`
-Add `1200` / `630` next to the static `og:image` tag so social crawlers know the dimensions without fetching the file.
+shadcn's `BreadcrumbList` renders `<ol>` and `BreadcrumbItem` renders `<li>`. The `<span>` becomes the real DOM parent of those `<li>`s, so the actual tree is `<ol> > <span> > <li>`. Lighthouse / axe-core enforce two rules that fail on this:
 
-### Verify
-- Re-run `node scripts/check-canonicals.mjs` (already added) to confirm no regression — all 5 converted pages still have canonicals via SeoHead.
-- Add a tiny `scripts/check-social-meta.mjs` mirroring the canonical script: every page must reach SeoHead/ConditionPageTemplate or contain `og:title` literally. Fails on regression.
-- Manually paste `/buddy`, `/self-assessment`, `/buddy/match` into LinkedIn Post Inspector and Twitter card validator after deploy (out of scope for this turn — flagged for user).
+- **`listitem`** — every `<li>` must be a direct child of `<ul>` / `<ol>` / `<menu>`.
+- **`list`** — every `<ul>` / `<ol>` may only contain `<li>` (and a few permitted elements) as direct children.
+
+`display: contents` flattens box generation for layout but does not change the DOM tree the accessibility tree and axe traverse, so the rule still fires. This affects every page that renders `PageBreadcrumb` — the osteoarthritis page is just where the user noticed it.
+
+## Fix
+
+Replace the `<span className="contents">` with a keyed `React.Fragment`. Fragments don't emit a DOM node, so `<li>` becomes a direct child of `<ol>` again. Tailwind's `contents` class is no longer needed because there's no wrapper to flatten.
+
+```tsx
+{segments.map((segment, i) => (
+  <Fragment key={i}>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>...</BreadcrumbItem>
+  </Fragment>
+))}
+```
+
+Add `Fragment` to the existing `react` import.
+
+## Verify
+
+1. Read the rendered HTML in the preview at `/conditions/osteoarthritis` and confirm the `<ol>` contains only `<li>` and `<li role="presentation">` (separator) direct children — no `<span>` between them.
+2. Run a Lighthouse accessibility pass on `/conditions/osteoarthritis` from the preview and confirm the `list` and `listitem` audits pass. Report any other a11y findings the run surfaces.
 
 ## Out of scope
-- No new social-share image generation (the existing hero JPG is reused).
-- No SSR / pre-rendering — JS-executing crawlers (Googlebot, Twitter) get per-route OG; non-JS crawlers (LinkedIn, Slack, iMessage) get the homepage fallback. That's a known limit of the stack and a separate workstream.
-- No changes to the in-body OG title/description on lines 336–339 of `index.html` (those work as the static fallback).
+
+- No visual changes — the breadcrumb already renders inline; removing the `<span>` doesn't affect layout because `BreadcrumbList` is already `flex`.
+- No changes to the JSON-LD injection or the BreadcrumbSeparator component.
 
 ## Files touched
-- **Edit:** `src/pages/Buddy.tsx`, `src/pages/BuddyMatch.tsx`, `src/pages/SelfAssessment.tsx`, `src/pages/DonationSuccess.tsx`, `src/pages/NewsletterConfirm.tsx`
-- **Edit:** `index.html` (image URLs + width/height tags)
-- **New:** `scripts/check-social-meta.mjs`
+
+- **Edit:** `src/components/ui/PageBreadcrumb.tsx` (≈4 lines)
