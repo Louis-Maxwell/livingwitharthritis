@@ -96,10 +96,10 @@
     <meta name="content-language" content="en-GB" />
     <meta http-equiv="content-language" content="en-GB" />
 
-    <link rel="canonical" href="https://livingwitharthritis.org.uk/" />
-    <link rel="alternate" hreflang="en-GB" href="https://livingwitharthritis.org.uk/" />
-    <link rel="alternate" hreflang="en" href="https://livingwitharthritis.org.uk/" />
-    <link rel="alternate" hreflang="x-default" href="https://livingwitharthritis.org.uk/" />
+    <!-- Canonical and hreflang are emitted per-route via SeoHead (react-helmet-async).
+         Do not add <link rel="canonical"> or <link rel="alternate"> here — these tags
+         do not dedupe by `rel`, so a static copy ships alongside every Helmet copy
+         and produces conflicting canonicals on every page. -->
 
     <!-- hero is text-only; no image preload needed -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
