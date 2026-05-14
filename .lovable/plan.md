@@ -1,71 +1,39 @@
-## Goal
-Replace the hand-edited `public/sitemap.xml` with a generator script that auto-discovers static routes from `src/App.tsx` and dynamic routes from their data sources, runs on every `dev`/`build`, and stays in sync without manual edits.
+## Audit result
+The site already has near-complete canonical coverage:
+- `src/components/SeoHead.tsx` emits `<link rel="canonical">` + `hreflang` for every static page (~66 files).
+- `src/components/conditions/ConditionPageTemplate.tsx` covers the 5 condition pages that don't import `SeoHead` directly (Gout, Lupus, Fibromyalgia, Ankylosing Spondylitis, Juvenile Arthritis).
+- All dynamic routes (`BlogPost`, `BlogCategory`, `ProductDetail`, `DailyTipDetail`, `CityArthritisPage`, `CityConditionPage`, `ExerciseJointPage`, `RegionHub`) already render Helmet + canonical with the per-route URL.
 
-## Why a migration is justified
-The current `public/sitemap.xml` is hand-edited with 58 URLs. The site has multiple **dynamic** route families that a hand-edited file can't track:
-- `/blog/:slug` — Supabase `blog_articles` (~dozens of rows, growing).
-- `/blog/category/:category` — derived from articles.
-- `/product/:handle` — `src/data/affiliateProducts.ts`.
-- `/arthritis-support/:city` and `/arthritis-support/:city/:condition` — `src/data/ukCities.ts` × `src/data/arthritisConditions.ts`.
-- `/exercises/:slug` (joint-specific) — `src/data/exerciseJointMatrix.ts`.
-- `/daily-tips/:slug` — `src/data/dailyTips.ts`.
-- `/regions/:region` — derived from `ukCities.ts`.
+So the missing-canonical problem is essentially **already fixed**. There is **one real bug** that's actively *hurting* SEO right now and is the genuine "duplicate-content" risk:
 
-Confirming the migration in this plan satisfies the "confirm before replacing a hand-edited sitemap" rule. Approving the plan = approving the migration.
+## The bug
+`index.html` line 99 ships:
+```html
+<link rel="canonical" href="https://livingwitharthritis.org.uk/" />
+```
+This static tag survives on every page after Helmet hydrates (per the head-meta knowledge file: `<link>` tags do NOT dedupe by `rel`). Every route currently emits **two** canonicals — its correct one from Helmet **plus** the homepage one from `index.html`. Google ignores both when there's a conflict, which is worse than no canonical.
 
 ## Plan
 
-### 1. Create `scripts/generate-sitemap.ts`
-A single TypeScript script with three sections:
+### 1. Remove the static canonical from `index.html`
+Delete the single `<link rel="canonical" href="https://livingwitharthritis.org.uk/" />` line. The homepage's own canonical comes from `src/pages/Index.tsx` via `SeoHead path="/"`.
 
-**Static routes** — parsed from `src/App.tsx` with a regex over `<Route path="…" />`. Filters:
-- Drop anything containing `:` (handled by the dynamic section).
-- Drop `*`, `/admin`, `/admin/*`, `/auth`, `/donation-result`, `/unsubscribe`, `/sitemap`, `/site-index` (admin/transactional/duplicates).
-- Drop `/lovable*`.
+### 2. Audit script — `scripts/check-canonicals.mjs` (new)
+A short Node script that:
+- Walks `src/pages/**/*.tsx` (and recurses into route files referenced by `App.tsx`).
+- Flags any page component that doesn't import `SeoHead`, `ConditionPageTemplate`, or contain a literal `rel="canonical"`.
+- Exits non-zero on failures so it can be run pre-commit later.
 
-**Dynamic routes** — typed loaders, one per family:
-- **Blog posts**: query `blog_articles` via the public Supabase client (anon key) — same source as `useBlogArticles`, fetched with no `published` filter mentioned in the hook so we mirror it. One `<url>` per slug → `/blog/<slug>`. Use `updated_at` (or `date`) as `<lastmod>`.
-- **Blog categories**: `Array.from(new Set(articles.map(a => a.category)))` → `/blog/category/<slug>`.
-- **Daily tips**: import `src/data/dailyTips.ts`, map slugs → `/daily-tips/<slug>`.
-- **Products**: import `src/data/affiliateProducts.ts`, map ids → `/product/<id>`.
-- **Cities**: import `src/data/ukCities.ts`, map slugs → `/arthritis-support/<city>`. For each city × each condition slug from `src/data/arthritisConditions.ts` → `/arthritis-support/<city>/<condition>`.
-- **Joint-specific exercises**: import `src/data/exerciseJointMatrix.ts`, map joint slugs → `/exercises/<slug>`.
-- **Regions**: derived unique regions from `ukCities.ts` → `/regions/<region-slug>`.
+Run it once during implementation; expected output: 0 missing.
 
-Per-route metadata defaults:
-- Homepage `priority=1.0 changefreq=weekly`.
-- Blog posts `priority=0.7 changefreq=monthly`, `lastmod` from row.
-- Other content pages `priority=0.6 changefreq=monthly`.
-- Tools/guides `priority=0.7 changefreq=monthly`.
-
-Output: writes to `public/sitemap.xml` and logs `sitemap.xml written (N entries)`.
-
-### 2. Wire it into the build
-Add to `package.json`:
-```jsonc
-"predev":   "bunx tsx scripts/generate-sitemap.ts || true",
-"prebuild": "bunx tsx scripts/generate-sitemap.ts"
-```
-- `predev` uses `|| true` so a transient Supabase fetch failure doesn't block local development.
-- `prebuild` fails hard so a broken sitemap can't ship.
-
-Skip Supabase fetch when `VITE_SUPABASE_URL` is missing (just log a warning and emit static + file-based dynamic routes only).
-
-### 3. Generate once now, commit the first output
-Run the script once during the implementation step so the new `public/sitemap.xml` matches reality immediately, with all blog posts and city pages included. Verify entry count goes from 58 → ~150-300 depending on city × condition fan-out.
-
-### 4. Post-checks
-- `xmllint --noout public/sitemap.xml` to confirm valid XML.
-- Diff old vs new entry list — flag any URL present in the old hand-edited file but missing from the generated one (paste in chat for review).
-- Re-run the existing `scripts/validate-jsonld.mjs` to confirm new sitemap entries still resolve.
-
-## Files touched
-- **New**: `scripts/generate-sitemap.ts`
-- **Edit**: `package.json` (add `predev`, `prebuild`).
-- **Regenerated**: `public/sitemap.xml`.
+### 3. Verify in the live preview
+Hit `/`, `/conditions/gout`, `/blog/<any-slug>`, `/arthritis-support/london/osteoarthritis` and confirm exactly **one** `<link rel="canonical">` per page, pointing to that page's URL on `livingwitharthritis.org.uk`.
 
 ## Out of scope
-- Sitemap-index splitting (only needed >50,000 URLs).
-- `<image:image>` extensions.
-- Changing route definitions or data sources.
-- Re-submitting the sitemap to Google Search Console (already submitted; Google re-fetches automatically).
+- No new SeoHead instrumentation — every route already has it.
+- No changes to OG/Twitter tags, JSON-LD, or sitemap.
+- No SSR / pre-rendering work (social crawlers still see the empty Helmet head — that's a separate, larger workstream).
+
+## Files touched
+- **Edit:** `index.html` (remove 1 line).
+- **New:** `scripts/check-canonicals.mjs`.
