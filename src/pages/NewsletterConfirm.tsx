@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Helmet } from "react-helmet-async";
+import SeoHead from "@/components/SeoHead";
 import { useSearchParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import Header from "@/components/Header";
@@ -28,14 +28,12 @@ const NewsletterConfirm = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Confirm Newsletter | Living With Arthritis UK</title>
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/newsletter/confirm" />
-        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
-      </Helmet>
+      <SeoHead
+        title="Confirm Newsletter"
+        description="Confirm your subscription to the Living With Arthritis UK newsletter for free arthritis exercise, diet and care updates."
+        path="/newsletter/confirm"
+        noindex
+      />
       <Header />
       <main id="main-content">
         <PageHero badge="Newsletter" title="Confirm your subscription" subtitle="One quick step to start receiving updates." />

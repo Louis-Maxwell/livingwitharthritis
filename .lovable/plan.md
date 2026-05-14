@@ -1,39 +1,53 @@
 ## Audit result
-The site already has near-complete canonical coverage:
-- `src/components/SeoHead.tsx` emits `<link rel="canonical">` + `hreflang` for every static page (~66 files).
-- `src/components/conditions/ConditionPageTemplate.tsx` covers the 5 condition pages that don't import `SeoHead` directly (Gout, Lupus, Fibromyalgia, Ankylosing Spondylitis, Juvenile Arthritis).
-- All dynamic routes (`BlogPost`, `BlogCategory`, `ProductDetail`, `DailyTipDetail`, `CityArthritisPage`, `CityConditionPage`, `ExerciseJointPage`, `RegionHub`) already render Helmet + canonical with the per-route URL.
 
-So the missing-canonical problem is essentially **already fixed**. There is **one real bug** that's actively *hurting* SEO right now and is the genuine "duplicate-content" risk:
+`SeoHead` already emits a full OG + Twitter set (title, description, type, url, site_name, locale, image + dimensions + alt; twitter:card, title, description, image) on every route that uses it. Coverage gaps:
 
-## The bug
-`index.html` line 99 ships:
-```html
-<link rel="canonical" href="https://livingwitharthritis.org.uk/" />
+### 1. Five routes use raw `<Helmet>` with no OG/Twitter tags
+| Route | File | Visible to share crawlers? |
+|---|---|---|
+| `/buddy` | `src/pages/Buddy.tsx` | ✅ should preview |
+| `/buddy/match` | `src/pages/BuddyMatch.tsx` | ✅ should preview |
+| `/self-assessment` | `src/pages/SelfAssessment.tsx` | ✅ should preview |
+| `/donation-result` | `src/pages/DonationSuccess.tsx` | ❌ post-action, noindex |
+| `/newsletter/confirm` | `src/pages/NewsletterConfirm.tsx` | ❌ post-action, noindex |
+
+When these pages are shared on Facebook/LinkedIn/X/iMessage/Slack today, the crawler reads only `index.html` (Helmet hydrates client-side, social crawlers don't run JS) and falls back to the homepage OG title/description/image — wrong preview for every one of these pages.
+
+### 2. Stale `og:image` / `twitter:image` in `index.html`
+Lines 123 and 130 point to a Lovable preview screenshot on the R2 dev bucket:
 ```
-This static tag survives on every page after Helmet hydrates (per the head-meta knowledge file: `<link>` tags do NOT dedupe by `rel`). Every route currently emits **two** canonicals — its correct one from Helmet **plus** the homepage one from `index.html`. Google ignores both when there's a conflict, which is worse than no canonical.
+https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/.../id-preview-...lovable.app-...png
+```
+That URL is unstable (dev preview, can disappear) and doesn't match `SeoHead`'s default of `https://livingwitharthritis.org.uk/images/hero-community.jpg`. Static-only crawlers see the dev URL; JS crawlers see the org.uk one — inconsistent and fragile.
+
+### 3. Static fallback missing `og:image:width` / `og:image:height`
+SeoHead emits both (1200×630). The static block in `index.html` doesn't, which makes some crawlers (LinkedIn especially) refuse to render large card previews on first scrape.
 
 ## Plan
 
-### 1. Remove the static canonical from `index.html`
-Delete the single `<link rel="canonical" href="https://livingwitharthritis.org.uk/" />` line. The homepage's own canonical comes from `src/pages/Index.tsx` via `SeoHead path="/"`.
+### Fix 1 — Convert the 5 raw-Helmet pages to `SeoHead`
+Replace the inline `<Helmet>` in each with `<SeoHead title="…" description="…" path="…" [noindex] />`. Use existing copy from each page's current `<title>` and `<meta name="description">`. Add `noindex` on `/donation-result` and `/newsletter/confirm`.
 
-### 2. Audit script — `scripts/check-canonicals.mjs` (new)
-A short Node script that:
-- Walks `src/pages/**/*.tsx` (and recurses into route files referenced by `App.tsx`).
-- Flags any page component that doesn't import `SeoHead`, `ConditionPageTemplate`, or contain a literal `rel="canonical"`.
-- Exits non-zero on failures so it can be run pre-commit later.
+### Fix 2 — Repoint static `og:image` / `twitter:image`
+Change both URLs in `index.html` to the canonical hero image already used by `SeoHead`:
+```
+https://livingwitharthritis.org.uk/images/hero-community.jpg
+```
 
-Run it once during implementation; expected output: 0 missing.
+### Fix 3 — Add `og:image:width` / `og:image:height` to `index.html`
+Add `1200` / `630` next to the static `og:image` tag so social crawlers know the dimensions without fetching the file.
 
-### 3. Verify in the live preview
-Hit `/`, `/conditions/gout`, `/blog/<any-slug>`, `/arthritis-support/london/osteoarthritis` and confirm exactly **one** `<link rel="canonical">` per page, pointing to that page's URL on `livingwitharthritis.org.uk`.
+### Verify
+- Re-run `node scripts/check-canonicals.mjs` (already added) to confirm no regression — all 5 converted pages still have canonicals via SeoHead.
+- Add a tiny `scripts/check-social-meta.mjs` mirroring the canonical script: every page must reach SeoHead/ConditionPageTemplate or contain `og:title` literally. Fails on regression.
+- Manually paste `/buddy`, `/self-assessment`, `/buddy/match` into LinkedIn Post Inspector and Twitter card validator after deploy (out of scope for this turn — flagged for user).
 
 ## Out of scope
-- No new SeoHead instrumentation — every route already has it.
-- No changes to OG/Twitter tags, JSON-LD, or sitemap.
-- No SSR / pre-rendering work (social crawlers still see the empty Helmet head — that's a separate, larger workstream).
+- No new social-share image generation (the existing hero JPG is reused).
+- No SSR / pre-rendering — JS-executing crawlers (Googlebot, Twitter) get per-route OG; non-JS crawlers (LinkedIn, Slack, iMessage) get the homepage fallback. That's a known limit of the stack and a separate workstream.
+- No changes to the in-body OG title/description on lines 336–339 of `index.html` (those work as the static fallback).
 
 ## Files touched
-- **Edit:** `index.html` (remove 1 line).
-- **New:** `scripts/check-canonicals.mjs`.
+- **Edit:** `src/pages/Buddy.tsx`, `src/pages/BuddyMatch.tsx`, `src/pages/SelfAssessment.tsx`, `src/pages/DonationSuccess.tsx`, `src/pages/NewsletterConfirm.tsx`
+- **Edit:** `index.html` (image URLs + width/height tags)
+- **New:** `scripts/check-social-meta.mjs`

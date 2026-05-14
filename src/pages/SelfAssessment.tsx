@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
+import SeoHead from "@/components/SeoHead";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import Header from "@/components/Header";
@@ -75,15 +75,11 @@ const SelfAssessment = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Arthritis Self-Assessment | Living With Arthritis UK</title>
-        <meta name="description" content="Take our free arthritis self-assessment to get personalised exercise, diet and care recommendations based on your symptoms and goals." />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/self-assessment" />
-        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
-      </Helmet>
+      <SeoHead
+        title="Arthritis Self-Assessment"
+        description="Take our free arthritis self-assessment to get personalised exercise, diet and care recommendations based on your symptoms and goals."
+        path="/self-assessment"
+      />
       <Header />
       <main id="main-content" role="main" tabIndex={-1}>
         <PageHero
