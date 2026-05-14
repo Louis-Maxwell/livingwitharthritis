@@ -81,7 +81,7 @@ const PageBreadcrumb = ({ segments, className = "" }: PageBreadcrumbProps) => {
             </BreadcrumbLink>
           </BreadcrumbItem>
           {segments.map((segment, i) => (
-            <span key={i} className="contents">
+            <Fragment key={i}>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
                 {segment.href ? (
@@ -97,7 +97,7 @@ const PageBreadcrumb = ({ segments, className = "" }: PageBreadcrumbProps) => {
                   <BreadcrumbPage>{segment.label}</BreadcrumbPage>
                 )}
               </BreadcrumbItem>
-            </span>
+            </Fragment>
           ))}
         </BreadcrumbList>
       </Breadcrumb>
