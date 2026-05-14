@@ -402,14 +402,18 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
                 Open Advice Hub
               </Link>
             </div>
-            <CrossLinkBanner
-              preset="condition"
-              exclude={`/conditions/${data.slug}`}
-              title="Explore related resources"
-            />
+            <Suspense fallback={null}>
+              <CrossLinkBanner
+                preset="condition"
+                exclude={`/conditions/${data.slug}`}
+                title="Explore related resources"
+              />
+            </Suspense>
           </div>
         </main>
-        <InternalLinks />
+        <Suspense fallback={null}>
+          <InternalLinks />
+        </Suspense>
         <Footer />
       </div>
     </>
