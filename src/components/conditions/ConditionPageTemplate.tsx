@@ -1,4 +1,4 @@
-import { useEffect, type ReactNode, type ElementType } from "react";
+import { lazy, Suspense, useEffect, type ReactNode, type ElementType } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import {
@@ -15,11 +15,13 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import InternalLinks from "@/components/InternalLinks";
-import CrossLinkBanner from "@/components/CrossLinkBanner";
-import ContextualLinks from "@/components/ContextualLinks";
-import ConditionBlogStrip from "@/components/ConditionBlogStrip";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
+
+// Below-the-fold — lazy to reduce initial route chunk + speed up LCP
+const InternalLinks = lazy(() => import("@/components/InternalLinks"));
+const CrossLinkBanner = lazy(() => import("@/components/CrossLinkBanner"));
+const ContextualLinks = lazy(() => import("@/components/ContextualLinks"));
+const ConditionBlogStrip = lazy(() => import("@/components/ConditionBlogStrip"));
 
 const BASE = "https://livingwitharthritis.org.uk";
 
