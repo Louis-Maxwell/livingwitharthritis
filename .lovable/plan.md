@@ -1,63 +1,38 @@
-## Findings
+## Add a /debug/schema page for JSON-LD inspection
 
-**Important caveat:** `browser--performance_profile` measures the **Vite dev preview**, not the production bundle. Dev shows 55 individual unbundled scripts (~720 KB) and ~5.9 s FCP because each module is fetched separately. Production bundles + minifies these, so real LCP is much lower. The fixes below target genuine optimisations that improve **production** LCP — I'll re-run the dev profile only to sanity-check that nothing regressed.
+### Goal
+Create a `/debug/schema` route that displays the exact `application/ld+json` blocks currently rendered in the page `<head>`, so the team can verify which schema types (MedicalWebPage, FAQPage, BreadcrumbList, etc.) are present on any given route and spot leaks or duplicates.
 
-### Critical-rendering-path issues
+### How it works
+The page renders the target route in a same-origin `<iframe>` (controlled via `?page=` query param, default `/`), waits for load, then scans the iframe’s `document.head` for every `<script type="application/ld+json">` block. It parses each block, shows a summary badge with the `@type`, and renders the full JSON in an expandable, pretty-printed code panel.
 
-1. **Hero LCP preload runs in `useEffect`, not from HTML.**
-   `src/components/HeroSection.tsx` lines 54–77 build the `<link rel="preload" imagesrcset>` inside `useEffect`. That fires *after* React hydrates, so the preload arrives *after* the browser has already started fetching the `<img>` itself — no LCP benefit. The static `index.html` head should own this preload so it's discovered during the initial HTML parse.
+### Files to create
+- `src/pages/DebugSchema.tsx` — the debug inspector UI
 
-2. **Mobile gets no hero preload at all.**
-   The same `useEffect` short-circuits when `(min-width: 1024px)` doesn't match. Mobile is the Lighthouse Mobile target, and on mobile the hero `<img>` background *is* the LCP element.
+### Files to edit
+- `src/App.tsx` — add `<Route path="/debug/schema" element={<DebugSchema />} />`
 
-3. **Hero image is decoded twice on desktop.**
-   `HeroSection.tsx` renders the same image as a full-bleed `<picture>` background (lines 87–104) AND as a right-column figure (lines 196–214). Both have `loading="eager"` and `fetchPriority="high"`. On desktop both decode and paint, doubling the LCP work and competing for paint budget. The background should be hidden on `lg+` where the figure is the visible LCP element.
+### Page design
+- Uses existing `Header` and `Footer` for consistency.
+- Top section: route selector (preset buttons for common routes + a custom URL input).
+- Middle section: iframe preview of the selected route (bordered, labeled).
+- Bottom section: list of detected schema blocks.
+  - Each block card shows:
+    - `@type` as a coloured badge (e.g. MedicalWebPage, FAQPage, BreadcrumbList, Article, CollectionPage)
+    - Key identifying field extracted (e.g. `name`, `headline`)
+    - A collapsible `<pre>` with syntax-highlighted JSON
+  - If no blocks are found, shows an empty-state message.
+- Page has `noindex` robots meta to keep it out of search results.
 
-4. **Osteoarthritis page eagerly imports 4 below-fold sections.**
-   `src/components/conditions/ConditionPageTemplate.tsx` lines 18–22 statically import:
-   - `InternalLinks`
-   - `CrossLinkBanner`
-   - `ContextualLinks`
-   - `ConditionBlogStrip` (this one fetches blog data on mount)
+### Technical details
+- Reads `?page=` from `URLSearchParams`; falls back to `/`.
+- iframe `src` is built from `window.location.origin + pagePath`.
+- JSON extraction runs on iframe `load` event via `iframe.contentWindow.document.head.querySelectorAll('script[type="application/ld+json"]')`.
+- Parsed JSON is stored in local component state and displayed with `JSON.stringify(data, null, 2)`.
+- iframe is sandboxed with `allow-same-origin` only (no scripts needed in iframe for schema extraction, but same-origin access is required).
+- Route is added to the router without lazy loading (the component is tiny and we want it available immediately for debugging).
 
-   None render above the fold on `/conditions/osteoarthritis`. They inflate the route's initial chunk and delay hydration of the H1 + intro paragraph that *is* the LCP element.
-
-## Fix plan
-
-### 1. Move hero preload into `index.html`
-Add a `<link rel="preload" as="image">` to `index.html`'s `<head>` for both desktop and mobile hero variants, using `media` queries so the browser picks one. Reference the **built** asset paths via Vite's `import.meta.glob`-style hashing — but since `index.html` is static, the simplest correct approach is to point at the WebP that ships in `src/assets` via Vite's `?url` import isn't possible from HTML. Two options:
-
-- **Option A (chosen):** copy the three WebP variants from `src/assets/hero-walking-group-*.webp` into `public/images/` (where they get served as-is with stable filenames) and reference those in `index.html`. Update the `<picture>` in `HeroSection.tsx` to reference the same `public/` paths so preload + render stay aligned.
-- Option B: keep using bundled assets and inline a `<script>` in `<head>` that synchronously creates the link before React loads. Rejected — dynamic preload can't beat static markup discovery and fights against the spec.
-
-Then **remove** the `useEffect` preload block in `HeroSection.tsx` (lines 54–77).
-
-### 2. Stop decoding the hero image twice on desktop
-In `HeroSection.tsx`, change the full-bleed background `<picture>` wrapper to `lg:hidden`. Mobile + tablet keep the background image (their LCP). Desktop keeps the right-column figure (its LCP). Each viewport decodes one image, not two.
-
-### 3. Lazy-load below-fold sections in `ConditionPageTemplate.tsx`
-Convert the four eager imports to `React.lazy`:
-```tsx
-const InternalLinks = lazy(() => import("@/components/InternalLinks"));
-const CrossLinkBanner = lazy(() => import("@/components/CrossLinkBanner"));
-const ContextualLinks = lazy(() => import("@/components/ContextualLinks"));
-const ConditionBlogStrip = lazy(() => import("@/components/ConditionBlogStrip"));
-```
-Wrap each render site in `<Suspense fallback={null}>` (no skeleton needed — they're below the fold and the user won't see the swap).
-
-### 4. Verify
-- Re-run `browser--performance_profile` on `/` and `/conditions/osteoarthritis` and compare FCP / DOM-Interactive vs. the baseline above. Even in dev mode, fewer eager imports and a static preload should show measurable improvement.
-- Inspect the rendered `<head>` in the preview and confirm the hero `<link rel="preload">` is present *before* `<script type="module">`.
-- Open DevTools network panel mentally / via `browser--list_network_requests` to confirm the hero WebP starts loading in the first wave alongside JS, not after `App.tsx` parses.
-
-## Out of scope
-- Production-build measurement requires a deployed Lighthouse run (the user said they'll re-run Lighthouse mobile themselves after publish).
-- No icon-library refactor — `lucide-react` is tree-shaken in production; the dev figure (157 KB) is misleading.
-- No changes to `framer-motion` usage — already gated to desktop in `Hero3DBackground`.
-- No Sonner / ChatBot / CookieConsent changes — already lazy in `App.tsx`.
-
-## Files touched
-- **Edit:** `index.html` (add 3 preload `<link>` tags)
-- **Edit:** `src/components/HeroSection.tsx` (drop useEffect preload, mark background `<picture>` `lg:hidden`, point `<img>` `src`/`srcSet` at `/images/...`)
-- **Edit:** `src/components/conditions/ConditionPageTemplate.tsx` (lazy + Suspense for 4 below-fold sections)
-- **New:** `public/images/hero-walking-group-{800,1200,1600}.webp` (copy from `src/assets/`)
+### Out of scope
+- No backend or database changes.
+- No modifications to existing schema injection logic — this page is read-only.
+- No automated validation rules beyond basic @type detection.
