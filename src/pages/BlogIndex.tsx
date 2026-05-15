@@ -82,10 +82,10 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
     <>
       <Helmet>
         <title>Arthritis Blog UK – Joint Pain, Diet & Exercise Advice</title>
-        <meta name="description" content="Expert UK arthritis articles covering anti-inflammatory diet, the health service exercises, supplements, swimming, yoga, mental health and osteoarthritis management. Free guidance for people living with arthritis." />
+        <meta name="description" content="Expert UK arthritis articles on anti-inflammatory diet, exercise, supplements and osteoarthritis. Free guidance for living well with joint pain." />
         <meta name="keywords" content="arthritis blog UK, joint pain advice, arthritis, anti-inflammatory diet UK, osteoarthritis exercises, arthritis help UK, joint pain diet, rheumatoid arthritis UK, swimming arthritis, yoga arthritis, turmeric arthritis, arthritis flare up" />
         <meta property="og:title" content="Arthritis Blog UK – Joint Pain, Diet & Exercise Advice" />
-        <meta property="og:description" content="Expert UK arthritis articles covering anti-inflammatory diet, the health service exercises, supplements and osteoarthritis management." />
+        <meta property="og:description" content="Expert UK arthritis articles on diet, exercise, supplements and osteoarthritis. Free guidance for living well with joint pain." />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/blog" />
@@ -96,7 +96,7 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Arthritis Blog UK – Joint Pain, Diet & Exercise Advice" />
-        <meta name="twitter:description" content="Expert UK arthritis articles covering anti-inflammatory diet, the health service exercises, supplements and osteoarthritis management." />
+        <meta name="twitter:description" content="Expert UK arthritis articles on diet, exercise, supplements and osteoarthritis. Free guidance for living well with joint pain." />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/blog" />
@@ -105,7 +105,7 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           "name": "Arthritis Blog UK",
-          "description": "Expert UK arthritis articles covering anti-inflammatory diet, the health service exercises, supplements and osteoarthritis management.",
+          "description": "Expert UK arthritis articles on diet, exercise, supplements and osteoarthritis. Free guidance for living well with joint pain.",
           "url": "https://livingwitharthritis.org.uk/blog",
           "inLanguage": "en-GB",
           "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" },

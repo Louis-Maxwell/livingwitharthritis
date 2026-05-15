@@ -110,7 +110,7 @@ export default function TaiChiForBeginners() {
   return (
     <div className="min-h-screen bg-background">
       <SeoHead
-        title="Tai Chi for Beginners (UK): Your First 7 Days"
+        title="Tai Chi for Beginners (UK)"
         description="A free 7-day UK guide to learning tai chi at home. Gentle on arthritic joints, no equipment, ~10 minutes a day. Start Day 1 today."
         path="/exercises/tai-chi-for-beginners"
         type="article"

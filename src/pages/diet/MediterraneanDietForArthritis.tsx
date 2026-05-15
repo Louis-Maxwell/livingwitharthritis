@@ -328,7 +328,7 @@ export default function MediterraneanDietForArthritis() {
   return (
     <div className="min-h-screen bg-background">
       <SeoHead
-        title="Mediterranean Diet for Arthritis: 7-Day UK Plan"
+        title="Mediterranean Diet for Arthritis"
         description="A free 7-day Mediterranean eating plan for UK adults with arthritis. Shopping list, anti-inflammatory recipes and what to eat freely, weekly and rarely."
         path="/diet/mediterranean-diet-for-arthritis"
         type="article"
