@@ -123,7 +123,7 @@ export default function TaiChiForArthritis() {
   return (
     <div className="min-h-screen bg-background">
       <SeoHead
-        title="Tai Chi for Arthritis: UK Guide (NICE-Recommended)"
+        title="Tai Chi for Arthritis (UK Guide)"
         description="UK guide to tai chi for arthritis. NICE-recommended, evidence-based routines for knee, hip, hand and back pain — plus free NHS and Versus Arthritis resources."
         path="/exercises/tai-chi-for-arthritis"
         type="article"

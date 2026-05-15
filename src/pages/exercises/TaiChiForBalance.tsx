@@ -106,7 +106,7 @@ export default function TaiChiForBalance() {
   return (
     <div className="min-h-screen bg-background">
       <SeoHead
-        title="Tai Chi for Balance: 15-Minute Arthritis Routine"
+        title="Tai Chi for Balance (Arthritis)"
         description="An evidence-based tai chi routine for arthritis. Reduce pain, improve balance and lower fall risk in 15 minutes a day. NICE-recommended, beginner-friendly."
         path="/exercises/tai-chi-for-balance"
         type="article"
