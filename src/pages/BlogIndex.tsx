@@ -191,13 +191,13 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
           )}
 
           <div className="relative max-w-md mb-8">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/50" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <input
               type="search"
               placeholder="Search articles..."
               value={searchQuery}
               onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }}
-              className="w-full pl-11 pr-4 py-3 rounded-xl border border-border/40 bg-card text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/30 transition-all focus-glow"
+              className="w-full pl-11 pr-4 py-3 rounded-xl border border-border/40 bg-card text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/30 transition-all focus-glow"
             />
           </div>
 

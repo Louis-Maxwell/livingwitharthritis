@@ -64,7 +64,7 @@ const DonationImpactSection = () => {
               step={5}
               className="w-full"
             />
-            <div className="flex justify-between mt-3 text-[10px] text-muted-foreground/40 tracking-[0.15em] uppercase">
+            <div className="flex justify-between mt-3 text-[10px] text-muted-foreground tracking-[0.15em] uppercase">
               <span>£5</span>
               <span>£150</span>
             </div>
@@ -92,7 +92,7 @@ const DonationImpactSection = () => {
               Donate £{amount} Now
               <ArrowRight className="w-4 h-4 ml-2.5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <p className="text-[10px] text-muted-foreground/40 mt-5 tracking-[0.15em] uppercase">
+            <p className="text-[10px] text-muted-foreground mt-5 tracking-[0.15em] uppercase">
               Secure payment via Stripe · Gift Aid eligible
             </p>
           </div>

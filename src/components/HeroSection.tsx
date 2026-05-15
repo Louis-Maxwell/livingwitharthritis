@@ -144,7 +144,7 @@ const HeroSection = memo(() => {
 
               {/* Trust badges */}
               <div className="hero-item flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 mt-8 pt-6 border-t border-border/30">
-                <span className="text-[9px] sm:text-[10px] font-bold tracking-[0.22em] uppercase text-muted-foreground/50">
+                <span className="text-[9px] sm:text-[10px] font-bold tracking-[0.22em] uppercase text-muted-foreground">
                   Aligned with
                 </span>
                 {[
@@ -242,7 +242,7 @@ const HeroSection = memo(() => {
               ))}
             </div>
           </div>
-          <p className="text-[9px] text-muted-foreground/40 mt-5 text-center tracking-[0.22em] uppercase">
+          <p className="text-[9px] text-muted-foreground mt-5 text-center tracking-[0.22em] uppercase">
             Sources · Versus Arthritis · Internal user surveys 2024–2025
           </p>
         </div>
