@@ -55,7 +55,7 @@ const FAQSection = memo(() => {
       </Accordion>
 
       <div className="mt-20 text-center space-y-5">
-        <p className="text-sm text-muted-foreground/50 tracking-wide">
+        <p className="text-sm text-muted-foreground tracking-wide">
           Still have questions? Our AI assistant can help.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">

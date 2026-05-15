@@ -79,7 +79,7 @@ const TestimonialsSection = memo(() => (
                 />
                 <div>
                   <p className="text-sm font-bold text-foreground">{t.name}</p>
-                  <p className="text-[11px] text-muted-foreground/50 tracking-wide">{t.location} · {t.condition}</p>
+                  <p className="text-[11px] text-muted-foreground tracking-wide">{t.location} · {t.condition}</p>
                 </div>
               </div>
             </div>
@@ -93,7 +93,7 @@ const TestimonialsSection = memo(() => (
             {[1,2,3,4,5].map(s => <Star key={s} className="w-3.5 h-3.5 fill-gold text-gold" />)}
           </div>
           <span className="text-base font-bold text-foreground">4.9/5</span>
-          <span className="text-xs text-muted-foreground/50 tracking-wide">from 2,400+ reviews</span>
+          <span className="text-xs text-muted-foreground tracking-wide">from 2,400+ reviews</span>
         </div>
       </div>
     </div>

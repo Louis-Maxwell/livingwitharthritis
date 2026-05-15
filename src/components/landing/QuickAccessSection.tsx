@@ -75,7 +75,7 @@ export default function QuickAccessSection() {
         </div>
 
         <div className="mt-16 text-center">
-          <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-muted-foreground/50 mb-5">In-depth Guides</p>
+          <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-muted-foreground mb-5">In-depth Guides</p>
           <div className="flex flex-wrap justify-center gap-3">
             {GUIDES.map((g) => (
               <Link

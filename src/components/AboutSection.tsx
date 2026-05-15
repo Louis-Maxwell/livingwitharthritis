@@ -56,7 +56,7 @@ const AboutSection = memo(() => {
                       <Icon className="w-6 h-6 text-primary/80" />
                     </div>
                     <p className="text-4xl font-display font-bold text-foreground tracking-tight">{m.value}</p>
-                    <p className="text-[10px] text-muted-foreground/50 font-bold mt-3 tracking-[0.2em] uppercase">{m.label}</p>
+                    <p className="text-[10px] text-muted-foreground font-bold mt-3 tracking-[0.2em] uppercase">{m.label}</p>
                   </div>
                 );
               })}

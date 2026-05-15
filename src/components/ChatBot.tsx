@@ -371,7 +371,7 @@ export function ChatBot() {
             placeholder="Type a message…"
             disabled={isLoading}
             rows={1}
-            className="flex-1 bg-transparent text-[15px] resize-none outline-none placeholder:text-muted-foreground/40 max-h-[100px] py-1.5 leading-relaxed"
+            className="flex-1 bg-transparent text-[15px] resize-none outline-none placeholder:text-muted-foreground max-h-[100px] py-1.5 leading-relaxed"
           />
           <Button
             type="submit"

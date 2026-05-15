@@ -65,7 +65,7 @@ const NewsletterSection = memo(() => {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="rounded-full h-[58px] px-8 bg-card text-foreground border-border/20 text-sm focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-muted-foreground/40"
+                className="rounded-full h-[58px] px-8 bg-card text-foreground border-border/20 text-sm focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-muted-foreground"
                 required
                 disabled={isSubmitting}
               />
