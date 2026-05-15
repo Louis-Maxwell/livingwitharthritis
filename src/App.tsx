@@ -112,6 +112,7 @@ const SelfAssessment = lazy(() => import("./pages/SelfAssessment"));
 const Buddy = lazy(() => import("./pages/Buddy"));
 const BuddyMatch = lazy(() => import("./pages/BuddyMatch"));
 const NewsletterConfirm = lazy(() => import("./pages/NewsletterConfirm"));
+const DebugSchema = lazy(() => import("./pages/DebugSchema"));
 // Loading fallback with skeleton-style animation
 const PageLoader = () => (
   <div className="min-h-screen flex flex-col items-center justify-center bg-background gap-4">
@@ -228,6 +229,7 @@ function AnimatedRoutes() {
         <Route path="/buddy" element={<Buddy />} />
         <Route path="/buddy/match" element={<BuddyMatch />} />
         <Route path="/newsletter/confirm" element={<NewsletterConfirm />} />
+        <Route path="/debug/schema" element={<DebugSchema />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </PageTransition>
