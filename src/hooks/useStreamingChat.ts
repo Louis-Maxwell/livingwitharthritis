@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { getFallbackAnswer } from "@/lib/arthritisChatFallback";
 
 export type Message = {
   role: "user" | "assistant";
@@ -339,8 +340,24 @@ export function useStreamingChat() {
       });
     } catch (error) {
       console.error("Chat error:", error);
-      setIsLoading(false);
       const msg = error instanceof Error ? error.message : "Failed to send message";
+
+      // If the live backend is unreachable (network/proxy/fetch error or
+      // returned no content), serve a curated arthritis answer so the
+      // visitor still gets useful guidance instead of an empty failure.
+      const isNetworkLike =
+        /failed to fetch|networkerror|load failed|fetch/i.test(msg) ||
+        !assistantSoFar.trim();
+
+      if (isNetworkLike && !msg.toLowerCase().includes("rate limit")) {
+        const fallback = getFallbackAnswer(userMsg.content);
+        upsertAssistant(fallback);
+        toast("Live AI unavailable — showing guidance from our arthritis knowledge base.");
+        setIsLoading(false);
+        return;
+      }
+
+      setIsLoading(false);
       if (msg.toLowerCase().includes("rate limit")) {
         toast.error("Too many messages. Please wait a moment and try again.");
       } else if (msg.toLowerCase().includes("payment")) {
@@ -348,7 +365,7 @@ export function useStreamingChat() {
       } else {
         toast.error(msg);
       }
-      setMessages((prev) => prev.slice(0, -1));
+      // Keep the user's message visible so they can retry without retyping.
     }
   }, [messages, isLoading, userId, ensureConversation]);
 
