@@ -2,6 +2,13 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
+import Prerender from "@prerenderer/rollup-plugin";
+import { PRERENDER_ROUTES } from "./scripts/prerender-routes.mjs";
+
+// Prerender is opt-in via PRERENDER=1 to avoid running headless Chromium
+// in environments where it isn't available (e.g. Lovable's auto-build).
+// Run locally with: PRERENDER=1 npm run build
+const ENABLE_PRERENDER = process.env.PRERENDER === "1";
 
 export default defineConfig(({ mode }) => ({
   server: {
