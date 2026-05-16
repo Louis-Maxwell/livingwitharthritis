@@ -239,6 +239,30 @@ function AnimatedRoutes() {
 function AppWithSync() {
   useCartSync();
   useLinkPrefetch();
+  const location = useLocation();
+
+  // Signal the prerender renderer (@prerenderer/renderer-puppeteer) that the
+  // route's React tree — including JSON-LD injected via useEffect — has
+  // settled and document.head is ready to be snapshotted into static HTML.
+  useEffect(() => {
+    const fire = () => {
+      document.dispatchEvent(new Event("prerender-ready"));
+    };
+    const ric = (window as unknown as {
+      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+    }).requestIdleCallback;
+    const id = ric
+      ? ric(fire, { timeout: 1200 })
+      : (window.setTimeout(fire, 600) as unknown as number);
+    return () => {
+      const cic = (window as unknown as {
+        cancelIdleCallback?: (id: number) => void;
+      }).cancelIdleCallback;
+      if (cic) cic(id);
+      else window.clearTimeout(id);
+    };
+  }, [location.pathname]);
+
   return (
     <>
       <RouteProgressBar />
