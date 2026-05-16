@@ -1,73 +1,46 @@
-## Prerender JSON-LD into static HTML
+# Fix "Arthritis AI – Failed to fetch"
 
-### Goal
-Bake every static route's JSON-LD (and `<title>` / meta) into the HTML files served by the CDN, so Google's Rich Results Test, LinkedIn/Slack/Facebook crawlers, and any HTTP-only extractor can read the schema without executing JavaScript. SPA behaviour is unchanged for end users — React still hydrates on top.
+## What's actually happening
 
-### Approach: `vite-plugin-prerender-spa` style build-time prerender via `vite-plugin-ssr-pages` is heavy. Use the lighter, well-supported route — **`vite-plugin-prerender`** (Puppeteer-based) wired into the existing Vite build.
+The chat backend (`supabase/functions/chat/index.ts`) is already a working, well-structured edge function:
+- Uses Lovable AI Gateway with `google/gemini-3-flash-preview`
+- Streams responses via SSE
+- Has rate limiting, input validation, red-flag/PII safety, and a strong system prompt
+- `LOVABLE_API_KEY` is configured
 
-It works like this:
-1. `vite build` produces the normal SPA bundle in `dist/`.
-2. The plugin spins up a headless Chromium against `dist/`, navigates each configured route, waits for `useEffect`-injected JSON-LD to land, and writes `dist/<route>/index.html` with the fully rendered `<head>` and `<body>` snapshot.
-3. The CDN serves those static HTML files; React mounts on top and the user sees a normal SPA.
+The recent network log shows **every** Supabase request from the preview fails with `Failed to fetch` — not just `/chat`, but also basic REST reads (`face_stories`, `donations`, `blog_views`, etc.). That's the **Lovable preview iframe fetch-proxy issue**, not a backend bug. The edge function never even receives the request (logs are empty).
 
-### Files to change
+This typically works fine on the published URL (`livingwitharthritis.lovable.app` / `livingwitharthritis.org.uk`).
 
-1. **`package.json`**
-   - Add devDependency: `vite-plugin-prerender` (or fork: `@prerenderer/rollup-plugin` — newer, maintained, same author).
-   - New scripts:
-     - `"build": "vite build"` (unchanged)
-     - `"build:prerender": "vite build --mode production"` — same command, prerender runs as a Rollup plugin during the build
-     - `"preview:prerender": "vite preview"` — sanity check the static output
+## Plan
 
-2. **`vite.config.ts`**
-   - Import `Prerender` from `@prerenderer/rollup-plugin` and `PuppeteerRenderer`.
-   - Read the route list from `scripts/generate-sitemap.ts` (which already enumerates routes for the sitemap) so prerender + sitemap stay in sync — single source of truth, no drift.
-   - Configure:
-     ```ts
-     Prerender({
-       routes: ROUTES, // imported from a new shared module
-       renderer: new PuppeteerRenderer({
-         renderAfterDocumentEvent: "prerender-ready",
-         maxConcurrentRoutes: 4,
-         headless: "new",
-       }),
-       postProcess(ctx) {
-         // strip dev-only nodes, ensure JSON-LD scripts retained verbatim
-         return ctx;
-       },
-     })
-     ```
-   - Only enabled for production builds via the existing `mode === "development"` check pattern.
+### 1. Verify on the published URL first
+Open the chat on `https://www.livingwitharthritis.org.uk/chat` and send a message. If it streams a reply → the backend is fine and only the preview environment is affected (expected). If it also fails → continue with step 2.
 
-3. **`src/main.tsx`**
-   - After the React tree mounts and the first idle frame, dispatch `document.dispatchEvent(new Event("prerender-ready"))`. This is what tells the headless renderer the JSON-LD `useEffect`s have run.
-   - Use `requestIdleCallback` (with `setTimeout` fallback) inside a `useEffect` in `App.tsx` to fire the event after the initial paint of the matched route — guarantees `MedicalWebPage` / `FAQPage` / `BreadcrumbList` injectors have appended their scripts.
+### 2. Make the client more resilient (only if needed)
+Two small client-side changes in `src/hooks/useStreamingChat.ts`:
 
-4. **`scripts/extract-routes.ts`** (new — small helper)
-   - Exports the same hardcoded route list `generate-sitemap.ts` already uses.
-   - Refactor `generate-sitemap.ts` to import from this helper instead of duplicating the list.
-   - Excludes dynamic routes that need data (`/blog/:slug`, `/admin/*`, `/donation-result`, `/auth`, `/unsubscribe`). Dynamic content routes are listed explicitly with their known slugs (blog posts already enumerated in the sitemap script).
+- **Better error surfacing**: when `fetch` throws (TypeError: Failed to fetch), show a friendly toast explaining it's a network/preview issue and suggest trying the published site, instead of a bare "Failed to fetch".
+- **Add `?stream=0` JSON fallback**: if the SSE stream throws mid-read, retry once with a non-streaming JSON request. Some proxies mangle SSE but pass JSON.
 
-5. **`index.html`** — no change.
+### 3. Add a non-streaming branch to the edge function (only if needed)
+In `supabase/functions/chat/index.ts`, when the request has `?stream=0` (or `Accept: application/json`):
+- Call the gateway with `stream: false`
+- Return `{ ok: true, data: { content } }` as plain JSON
+- Reuse all existing safety/rate-limit/validation logic
 
-### Why not alternatives
-- **SSR (Vite SSR / Remix / Next.js migration)** — out of scope; the project is a Vite SPA, hosting on Lovable/CDN, full SSR would require a Node origin server. Prerender gives ~95% of the SEO benefit with zero infra change.
-- **`react-snap`** — unmaintained, breaks on modern React 18 hydration.
-- **Manual HTML generation per route** — fragile; would duplicate the JSON-LD building logic that lives in `useEffect` blocks today.
+This gives the chat a robust fallback for any environment where SSE is blocked, without changing the default streaming UX.
 
-### Verification steps (post-build)
-1. `npm run build` → confirm `dist/index.html`, `dist/about/index.html`, `dist/conditions/osteoarthritis/index.html`, etc. exist.
-2. `cat dist/conditions/osteoarthritis/index.html | grep -c application/ld+json` → expect ≥ 3 (sitewide WebSite + Organization + page-specific blocks).
-3. `cat dist/index.html | grep -c "What is the best diet for osteoarthritis"` → expect 1 (homepage FAQ).
-4. `cat dist/about/index.html | grep -c "What is the best diet for osteoarthritis"` → expect 0 (homepage FAQ does not leak).
-5. Manual: paste live URL into Google's Rich Results Test after publish — schemas should now appear without "JavaScript rendered" warnings.
+### 4. No model/prompt changes
+The current model (`google/gemini-3-flash-preview`) and system prompt are appropriate and align with the project's medical-safety memory. No edits to either.
 
-### Risks / trade-offs
-- **Build time** rises by ~30–90 s depending on route count (~70 routes). Acceptable for a charity site that publishes a few times a day.
-- **Lovable hosting** must serve `/about/index.html` for `/about` requests. Lovable's static hosting already does this for SPA fallback; the prerendered files will be picked up automatically because the file path matches.
-- **Dynamic blog posts** — only those listed in `generate-sitemap.ts` get prerendered. New posts not in that list still work as SPA routes (no prerender), so the homepage FAQ won't leak there because subpages own their own JSON-LD anyway.
+## Files touched (if step 2/3 are needed)
+- `src/hooks/useStreamingChat.ts` — friendlier error + JSON fallback retry
+- `supabase/functions/chat/index.ts` — optional non-streaming JSON branch
 
-### Out of scope
-- No copy/content changes.
-- No JSON-LD logic changes — schemas are emitted by exactly the same React `useEffect` code today; we're just snapshotting the output at build time.
-- No CI changes.
+## Out of scope
+- Database / RLS changes
+- New secrets (LOVABLE_API_KEY already present)
+- UI redesign of the chat page
+
+**Recommended next step:** test the chat on the published URL. If it works there, no code changes are needed — the preview "Failed to fetch" is a known Lovable platform quirk. If it also fails on production, approve this plan and I'll implement steps 2 + 3.
