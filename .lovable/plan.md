@@ -1,46 +1,40 @@
-# Fix "Arthritis AI – Failed to fetch"
+## Plan: make Arthritis AI reliably answer visitors
 
-## What's actually happening
+### What I found
+- The deployed chat backend is working: a direct backend test returned a streamed Arthritis AI answer successfully.
+- The failures shown in the preview are happening before the request reaches the backend: the Lovable preview fetch proxy is blocking all backend fetches, including regular database reads and both streaming/non-streaming chat calls.
+- The current chat already has a JSON fallback, but it still depends on browser fetch to the hosted backend, so it cannot recover when the preview proxy blocks every backend request.
 
-The chat backend (`supabase/functions/chat/index.ts`) is already a working, well-structured edge function:
-- Uses Lovable AI Gateway with `google/gemini-3-flash-preview`
-- Streams responses via SSE
-- Has rate limiting, input validation, red-flag/PII safety, and a strong system prompt
-- `LOVABLE_API_KEY` is configured
+### Fix approach
+1. **Keep the real AI backend as the primary path**
+   - Leave the existing hosted chat function as the production implementation.
+   - Keep streaming responses for normal visitors on the published site.
+   - Keep the existing non-streaming `?stream=0` fallback for environments that block SSE only.
 
-The recent network log shows **every** Supabase request from the preview fails with `Failed to fetch` — not just `/chat`, but also basic REST reads (`face_stories`, `donations`, `blog_views`, etc.). That's the **Lovable preview iframe fetch-proxy issue**, not a backend bug. The edge function never even receives the request (logs are empty).
+2. **Add a visitor-visible fallback answer path**
+   - Add a small built-in fallback responder in the frontend for common arthritis questions when both backend fetch attempts fail.
+   - Cover the visible quick prompts and common typed topics: anti-inflammatory foods, osteoarthritis exercises, rheumatoid arthritis basics, when to see a doctor, supplements, flare-ups, pain relief, diet, and general arthritis guidance.
+   - Render the fallback as a normal assistant message so visitors can still see useful answers instead of a failed toast.
+   - Make the fallback clearly general guidance and safe, not a diagnosis.
 
-This typically works fine on the published URL (`livingwitharthritis.lovable.app` / `livingwitharthritis.org.uk`).
+3. **Improve the failure UX**
+   - Stop removing the visitor’s message after a backend/network failure.
+   - Show the fallback assistant answer in the chat window.
+   - Use a softer toast such as “Live AI is temporarily unavailable, showing guidance from our arthritis knowledge base.”
 
-## Plan
+4. **Keep safety protections**
+   - Preserve existing emergency/red-flag detection before sending.
+   - Ensure fallback answers include urgent-care signposting where appropriate.
+   - Do not add diagnosis, prescription dosing, or unsafe medical claims.
 
-### 1. Verify on the published URL first
-Open the chat on `https://www.livingwitharthritis.org.uk/chat` and send a message. If it streams a reply → the backend is fine and only the preview environment is affected (expected). If it also fails → continue with step 2.
+5. **Validate**
+   - Confirm the backend still responds through the direct edge-function test.
+   - Confirm the frontend code path can produce a visible assistant answer even when fetch throws `Failed to fetch`.
 
-### 2. Make the client more resilient (only if needed)
-Two small client-side changes in `src/hooks/useStreamingChat.ts`:
-
-- **Better error surfacing**: when `fetch` throws (TypeError: Failed to fetch), show a friendly toast explaining it's a network/preview issue and suggest trying the published site, instead of a bare "Failed to fetch".
-- **Add `?stream=0` JSON fallback**: if the SSE stream throws mid-read, retry once with a non-streaming JSON request. Some proxies mangle SSE but pass JSON.
-
-### 3. Add a non-streaming branch to the edge function (only if needed)
-In `supabase/functions/chat/index.ts`, when the request has `?stream=0` (or `Accept: application/json`):
-- Call the gateway with `stream: false`
-- Return `{ ok: true, data: { content } }` as plain JSON
-- Reuse all existing safety/rate-limit/validation logic
-
-This gives the chat a robust fallback for any environment where SSE is blocked, without changing the default streaming UX.
-
-### 4. No model/prompt changes
-The current model (`google/gemini-3-flash-preview`) and system prompt are appropriate and align with the project's medical-safety memory. No edits to either.
-
-## Files touched (if step 2/3 are needed)
-- `src/hooks/useStreamingChat.ts` — friendlier error + JSON fallback retry
-- `supabase/functions/chat/index.ts` — optional non-streaming JSON branch
-
-## Out of scope
-- Database / RLS changes
-- New secrets (LOVABLE_API_KEY already present)
-- UI redesign of the chat page
-
-**Recommended next step:** test the chat on the published URL. If it works there, no code changes are needed — the preview "Failed to fetch" is a known Lovable platform quirk. If it also fails on production, approve this plan and I'll implement steps 2 + 3.
+### Technical notes
+- Likely files to edit:
+  - `src/hooks/useStreamingChat.ts`
+  - optionally a new helper such as `src/lib/arthritisChatFallback.ts`
+- No database migration is needed.
+- No new secrets are needed.
+- No change to the Lovable Cloud configuration is needed.
