@@ -342,30 +342,37 @@ export function useStreamingChat() {
       console.error("Chat error:", error);
       const msg = error instanceof Error ? error.message : "Failed to send message";
 
-      // If the live backend is unreachable (network/proxy/fetch error or
-      // returned no content), serve a curated arthritis answer so the
-      // visitor still gets useful guidance instead of an empty failure.
-      const isNetworkLike =
-        /failed to fetch|networkerror|load failed|fetch/i.test(msg) ||
-        !assistantSoFar.trim();
-
-      if (isNetworkLike && !msg.toLowerCase().includes("rate limit")) {
-        const fallback = getFallbackAnswer(userMsg.content);
-        upsertAssistant(fallback);
-        toast("Live AI unavailable — showing guidance from our arthritis knowledge base.");
+      if (msg.toLowerCase().includes("rate limit")) {
         setIsLoading(false);
+        toast.error("Too many messages. Please wait a moment and try again.");
         return;
       }
 
+      // For any other failure (network/proxy/empty response/service error),
+      // serve a curated arthritis answer so the visitor still gets useful
+      // guidance instead of an empty failure or alarming "AI unavailable" toast.
+      const fallback = getFallbackAnswer(userMsg.content);
+      upsertAssistant(fallback);
       setIsLoading(false);
-      if (msg.toLowerCase().includes("rate limit")) {
-        toast.error("Too many messages. Please wait a moment and try again.");
-      } else if (msg.toLowerCase().includes("payment")) {
-        toast.error("AI service temporarily unavailable. Please try again later.");
-      } else {
-        toast.error(msg);
+
+      // Persist the fallback for signed-in users so chat history stays consistent.
+      if (userId) {
+        const convoId = await convoIdPromise;
+        if (convoId) {
+          supabase.from("chat_messages").insert({
+            conversation_id: convoId,
+            role: "assistant",
+            content: fallback,
+          }).then(() => {});
+          supabase
+            .from("chat_conversations")
+            .update({ updated_at: new Date().toISOString() })
+            .eq("id", convoId)
+            .then(() => {
+              refreshConversationsRef.current?.(userId);
+            });
+        }
       }
-      // Keep the user's message visible so they can retry without retyping.
     }
   }, [messages, isLoading, userId, ensureConversation]);
 
