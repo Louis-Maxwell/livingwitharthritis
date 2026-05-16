@@ -123,6 +123,11 @@ serve(async (req) => {
       });
     }
 
+    const url = new URL(req.url);
+    const wantsStream =
+      url.searchParams.get("stream") !== "0" &&
+      !(req.headers.get("accept") ?? "").includes("application/json");
+
     const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -133,7 +138,7 @@ serve(async (req) => {
         model: "google/gemini-3-flash-preview",
         max_tokens: 800,
         messages: [{ role: "system", content: SYSTEM_PROMPT }, ...messages],
-        stream: true,
+        stream: wantsStream,
       }),
     });
 
@@ -161,6 +166,22 @@ serve(async (req) => {
         message: "AI gateway error. Please try again.",
         requestId,
       });
+    }
+
+    if (!wantsStream) {
+      const data = await response.json();
+      const content = data?.choices?.[0]?.message?.content ?? "";
+      return new Response(
+        JSON.stringify({ ok: true, data: { content }, requestId }),
+        {
+          headers: {
+            ...corsHeaders,
+            "Content-Type": "application/json",
+            "X-Request-Id": requestId,
+            "X-AI-Disclosure": "ai-generated",
+          },
+        },
+      );
     }
 
     return new Response(response.body, {
