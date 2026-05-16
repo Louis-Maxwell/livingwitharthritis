@@ -6,7 +6,7 @@
 // and signpost professional care.
 
 export const FALLBACK_DISCLAIMER =
-  "\n\n---\n\n_Live AI is temporarily unavailable, so this is a general answer from our arthritis knowledge base. This is not medical advice — please discuss with your GP, pharmacist or rheumatology team before changing medication or starting a new programme._";
+  "\n\n---\n\n_General guidance from the Living With Arthritis knowledge library. This is educational information, not medical advice — please speak with your GP, pharmacist or rheumatology team before changing medication or starting a new programme._";
 
 type Entry = { keywords: RegExp; answer: string };
 
@@ -210,6 +210,128 @@ For UK-specific recipes and meal plans, see our free Diet Hub.`,
 - Tell the instructor about your condition.
 
 Our free Exercise Hub has seated tai chi and beginner tai chi videos designed for arthritis.`,
+  },
+  {
+    keywords: /\bvitamin\s*d\b|\bvit\s*d\b/i,
+    answer: `**Vitamin D and arthritis**
+
+Vitamin D supports **bone strength, muscle function and immune balance** — all relevant to arthritis. Low levels are linked to more joint pain, worse osteoarthritis symptoms and a higher risk of falls.
+
+**Why it matters in the UK:**
+- From **October to March** the sun is too weak to make vitamin D in the skin.
+- The NHS recommends **10 micrograms (400 IU) a day** for most adults during autumn and winter.
+- People with darker skin, those who cover up, housebound adults and older people may need it **year-round**.
+
+**Possible benefits for arthritis:**
+- Helps prevent **osteoporosis** and reduces fracture risk (important if you take steroids).
+- May modestly **reduce muscle pain** and weakness when deficiency is corrected.
+- Some evidence of lower flare frequency in rheumatoid arthritis when levels are normalised.
+
+**Practical tips:**
+- A daily **10–25 µg (400–1000 IU)** supplement is safe for most adults.
+- Ask your GP for a blood test if you have ongoing fatigue, bone pain or frequent flares.
+- Pair with **calcium-rich foods** (dairy, fortified plant milks, leafy greens) and weight-bearing exercise.
+
+Avoid high-dose vitamin D without medical advice — too much can raise blood calcium.`,
+  },
+  {
+    keywords: /\b(osteoarthritis|\boa\b)\b/i,
+    answer: `**Osteoarthritis (OA) — the essentials**
+
+OA is the most common form of arthritis. The smooth cartilage that cushions the ends of bones gradually wears down, so the joint becomes stiff, achy and sometimes swollen. It most often affects **knees, hips, hands and the spine**.
+
+**Typical signs:**
+- Pain that is **worse with activity** and eased by rest
+- **Short** morning stiffness (under 30 minutes)
+- A grating or clicking sensation (crepitus)
+- Reduced range of movement; sometimes mild swelling
+
+**What helps most (NICE NG226):**
+- **Movement** — low-impact exercise is the single most effective treatment.
+- **Weight management** — losing 5–10% of body weight can significantly reduce knee and hip pain.
+- **Strength work** for the muscles around the affected joint.
+- **Topical NSAID gels** before oral painkillers for knee and hand OA.
+- **Heat, supportive footwear** and walking aids when useful.
+
+**When to ask for more help:**
+- Pain stops you sleeping or doing daily tasks
+- Joint suddenly becomes hot, red and very swollen
+- You're considering injections or surgery — ask for a rheumatology or orthopaedic referral
+
+OA is manageable. Most people stay active for decades with the right routine.`,
+  },
+  {
+    keywords: /\b(knee|hip)\b.*\b(pain|arthritis|ache|stiff)/i,
+    answer: `**Knee and hip pain — practical guidance**
+
+Knee and hip pain are usually due to **osteoarthritis**, soft-tissue strain or, less commonly, inflammatory arthritis.
+
+**Self-care that helps most people:**
+- **Keep moving** — gentle walking, cycling or swimming most days.
+- **Strengthen the supporting muscles** — quadriceps, glutes and core. Try sit-to-stands, glute bridges and straight-leg raises.
+- **Lose excess weight** if relevant — each kilogram lost removes ~4 kg of load from the knee.
+- **Topical NSAID gel** (e.g. ibuprofen, diclofenac) rubbed in 3–4× a day.
+- **Heat** for stiffness, **ice** for swelling (20 minutes, with a cloth barrier).
+- Supportive footwear; avoid worn-out shoes.
+
+**See your GP if:**
+- Pain lasts more than 2 weeks or stops you sleeping
+- The joint is swollen, hot or unstable
+- You can't bear weight after a fall
+- Symptoms get worse despite self-care
+
+A physiotherapist can design a tailored programme — ask your GP for a referral or self-refer where available.`,
+  },
+  {
+    keywords: /\b(inflammation|inflamed|swelling|swollen)\b/i,
+    answer: `**Reducing inflammation in arthritis**
+
+Chronic low-grade inflammation drives both joint damage and fatigue. The most effective changes are everyday habits, not single foods or supplements.
+
+**Strongest evidence:**
+- **Mediterranean-style eating** — vegetables, fruit, olive oil, oily fish, pulses, whole grains.
+- **Regular movement** — even 20–30 minutes of walking most days lowers inflammatory markers.
+- **Healthy weight** — fat tissue produces inflammatory chemicals; modest weight loss helps.
+- **Good sleep** (7–9 hours) and stress management — both directly affect immune activity.
+- **Stop smoking** — smoking worsens RA and reduces medication effectiveness.
+
+**Helpful additions:**
+- Oily fish twice a week, or 2 g/day omega-3 (EPA+DHA).
+- Turmeric with black pepper, ginger, garlic in cooking.
+- Limit ultra-processed foods, sugary drinks and excess alcohol.
+
+**Signs of inflammation to flag to your GP:**
+- Joint that is warm, red and very swollen
+- Morning stiffness lasting more than an hour
+- Fever, weight loss or unexplained fatigue with joint symptoms`,
+  },
+  {
+    keywords: /\b(cause|causes|why.*(get|have)).*(arthritis)|what is arthritis|symptoms of arthritis/i,
+    answer: `**Arthritis — causes and common symptoms**
+
+"Arthritis" is an umbrella term for over 100 conditions that affect the joints. The two most common are **osteoarthritis** (wear-related) and **rheumatoid arthritis** (autoimmune).
+
+**Common symptoms across types:**
+- Joint pain, stiffness or aching
+- Swelling, warmth or tenderness
+- Reduced range of movement
+- Fatigue, especially in inflammatory types
+
+**Risk factors:**
+- **Age** — risk rises after 45
+- **Family history** — especially for RA, psoriatic arthritis and OA of the hands
+- **Previous joint injury** — old injuries raise OA risk in that joint
+- **Body weight** — extra load on knees, hips and spine
+- **Sex** — women are more likely to develop most types
+- **Smoking** — worsens RA and slows recovery
+- **Occupation** — repetitive heavy work can accelerate OA
+
+**When to see your GP:**
+- Joint symptoms lasting more than 2 weeks
+- Morning stiffness over 30 minutes
+- Swelling, warmth or systemic symptoms (fever, weight loss, rash)
+
+Early diagnosis matters most for inflammatory arthritis — treatment in the first weeks can prevent long-term joint damage.`,
   },
 ];
 
