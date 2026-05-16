@@ -15,6 +15,41 @@ export type ConversationSummary = {
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat`;
 
+async function fetchJsonFallback({
+  messages,
+  onDelta,
+  onDone,
+}: {
+  messages: Message[];
+  onDelta: (deltaText: string) => void;
+  onDone: () => void;
+}) {
+  const resp = await fetch(`${CHAT_URL}?stream=0`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
+    },
+    body: JSON.stringify({ messages }),
+  });
+  if (!resp.ok) {
+    const errorData = await resp.json().catch(() => null);
+    const err = errorData?.error;
+    const message =
+      typeof err === "object" && err?.message
+        ? err.message
+        : typeof err === "string"
+          ? err
+          : "Failed to get response";
+    throw new Error(message);
+  }
+  const data = await resp.json();
+  const content: string = data?.data?.content ?? "";
+  if (content) onDelta(content);
+  onDone();
+}
+
 async function streamChat({
   messages,
   onDelta,
@@ -24,21 +59,26 @@ async function streamChat({
   onDelta: (deltaText: string) => void;
   onDone: () => void;
 }) {
-  const resp = await fetch(CHAT_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
-    },
-    body: JSON.stringify({ messages }),
-  });
+  let resp: Response;
+  try {
+    resp = await fetch(CHAT_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
+      },
+      body: JSON.stringify({ messages }),
+    });
+  } catch (e) {
+    // Network/proxy blocked the streaming request — try JSON fallback.
+    return fetchJsonFallback({ messages, onDelta, onDone });
+  }
 
   if (!resp.ok) {
     const errorData = await resp.json().catch(() => null);
     if (resp.status === 429) {
       throw new Error("Rate limit exceeded. Please try again later.");
     }
-    // New envelope: { ok:false, error:{ code, message } } | legacy { error: "..." }
     const err = errorData?.error;
     const message =
       typeof err === "object" && err?.message
@@ -49,42 +89,55 @@ async function streamChat({
     throw new Error(message);
   }
 
-  if (!resp.body) throw new Error("No response body");
+  if (!resp.body) {
+    return fetchJsonFallback({ messages, onDelta, onDone });
+  }
 
   const reader = resp.body.getReader();
   const decoder = new TextDecoder();
   let textBuffer = "";
   let streamDone = false;
+  let receivedAny = false;
 
-  while (!streamDone) {
-    const { done, value } = await reader.read();
-    if (done) break;
-    textBuffer += decoder.decode(value, { stream: true });
+  try {
+    while (!streamDone) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      textBuffer += decoder.decode(value, { stream: true });
 
-    let newlineIndex: number;
-    while ((newlineIndex = textBuffer.indexOf("\n")) !== -1) {
-      let line = textBuffer.slice(0, newlineIndex);
-      textBuffer = textBuffer.slice(newlineIndex + 1);
+      let newlineIndex: number;
+      while ((newlineIndex = textBuffer.indexOf("\n")) !== -1) {
+        let line = textBuffer.slice(0, newlineIndex);
+        textBuffer = textBuffer.slice(newlineIndex + 1);
 
-      if (line.endsWith("\r")) line = line.slice(0, -1);
-      if (line.startsWith(":") || line.trim() === "") continue;
-      if (!line.startsWith("data: ")) continue;
+        if (line.endsWith("\r")) line = line.slice(0, -1);
+        if (line.startsWith(":") || line.trim() === "") continue;
+        if (!line.startsWith("data: ")) continue;
 
-      const jsonStr = line.slice(6).trim();
-      if (jsonStr === "[DONE]") {
-        streamDone = true;
-        break;
-      }
+        const jsonStr = line.slice(6).trim();
+        if (jsonStr === "[DONE]") {
+          streamDone = true;
+          break;
+        }
 
-      try {
-        const parsed = JSON.parse(jsonStr);
-        const content = parsed.choices?.[0]?.delta?.content as string | undefined;
-        if (content) onDelta(content);
-      } catch {
-        textBuffer = line + "\n" + textBuffer;
-        break;
+        try {
+          const parsed = JSON.parse(jsonStr);
+          const content = parsed.choices?.[0]?.delta?.content as string | undefined;
+          if (content) {
+            receivedAny = true;
+            onDelta(content);
+          }
+        } catch {
+          textBuffer = line + "\n" + textBuffer;
+          break;
+        }
       }
     }
+  } catch (e) {
+    if (!receivedAny) {
+      return fetchJsonFallback({ messages, onDelta, onDone });
+    }
+    throw e;
   }
 
   if (textBuffer.trim()) {
@@ -103,6 +156,10 @@ async function streamChat({
         /* ignore */
       }
     }
+  }
+
+  if (!receivedAny) {
+    return fetchJsonFallback({ messages, onDelta, onDone });
   }
 
   onDone();
