@@ -168,6 +168,22 @@ serve(async (req) => {
       });
     }
 
+    if (!wantsStream) {
+      const data = await response.json();
+      const content = data?.choices?.[0]?.message?.content ?? "";
+      return new Response(
+        JSON.stringify({ ok: true, data: { content }, requestId }),
+        {
+          headers: {
+            ...corsHeaders,
+            "Content-Type": "application/json",
+            "X-Request-Id": requestId,
+            "X-AI-Disclosure": "ai-generated",
+          },
+        },
+      );
+    }
+
     return new Response(response.body, {
       headers: {
         ...corsHeaders,
