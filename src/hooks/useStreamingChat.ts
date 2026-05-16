@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { getFallbackAnswer } from "@/lib/arthritisChatFallback";
 
 export type Message = {
   role: "user" | "assistant";
