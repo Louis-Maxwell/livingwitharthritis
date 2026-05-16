@@ -2,6 +2,14 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
+import Prerender from "@prerenderer/rollup-plugin";
+// @ts-expect-error - plain .mjs route list, no type declarations needed
+import { PRERENDER_ROUTES } from "./scripts/prerender-routes.mjs";
+
+// Prerender is opt-in via PRERENDER=1 to avoid running headless Chromium
+// in environments where it isn't available (e.g. Lovable's auto-build).
+// Run locally with: PRERENDER=1 npm run build
+const ENABLE_PRERENDER = process.env.PRERENDER === "1";
 
 export default defineConfig(({ mode }) => ({
   server: {
@@ -11,6 +19,19 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     mode === "development" && componentTagger(),
+    ENABLE_PRERENDER &&
+      mode === "production" &&
+      Prerender({
+        routes: PRERENDER_ROUTES,
+        renderer: "@prerenderer/renderer-puppeteer",
+        rendererOptions: {
+          renderAfterDocumentEvent: "prerender-ready",
+          maxConcurrentRoutes: 4,
+          headless: "new",
+          // Give useEffect-injected JSON-LD a moment after route mount
+          renderAfterTime: 1500,
+        },
+      }),
   ].filter(Boolean),
   resolve: {
     alias: {
