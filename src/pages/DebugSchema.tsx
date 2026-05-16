@@ -181,13 +181,53 @@ export default function DebugSchema() {
         </Card>
 
         {/* Results */}
-        <div className="mb-4 flex items-center justify-between">
+        <div className="mb-4 flex items-center justify-between gap-2 flex-wrap">
           <h2 className="font-display text-xl font-semibold">
             Detected blocks ({blocks.length})
           </h2>
-          <Button size="sm" variant="outline" onClick={scanIframe}>
-            Re-scan
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button
+              size="sm"
+              variant="outline"
+              disabled={blocks.length === 0}
+              onClick={() => {
+                const payload = {
+                  route: pagePath,
+                  scannedAt: new Date().toISOString(),
+                  count: blocks.length,
+                  blocks: blocks.map((b) => ({
+                    index: b.index,
+                    type: getTypeLabel(b.data),
+                    name: getNameField(b.data),
+                    parseError: b.parseError ?? null,
+                    data: b.parseError ? null : b.data,
+                    raw: b.parseError ? b.raw : undefined,
+                  })),
+                };
+                const json = JSON.stringify(payload, null, 2);
+                const blob = new Blob([json], { type: "application/json" });
+                const url = URL.createObjectURL(blob);
+                const slug =
+                  pagePath === "/"
+                    ? "home"
+                    : pagePath.replace(/^\/+|\/+$/g, "").replace(/[^a-z0-9]+/gi, "-");
+                const stamp = new Date().toISOString().replace(/[:.]/g, "-");
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = `jsonld-${slug}-${stamp}.json`;
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                URL.revokeObjectURL(url);
+              }}
+            >
+              <Download className="h-4 w-4 mr-1.5" />
+              Export JSON
+            </Button>
+            <Button size="sm" variant="outline" onClick={scanIframe}>
+              Re-scan
+            </Button>
+          </div>
         </div>
 
         {error && (
