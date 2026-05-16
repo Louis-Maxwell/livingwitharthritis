@@ -19,6 +19,19 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     mode === "development" && componentTagger(),
+    ENABLE_PRERENDER &&
+      mode === "production" &&
+      Prerender({
+        routes: PRERENDER_ROUTES,
+        renderer: "@prerenderer/renderer-puppeteer",
+        rendererOptions: {
+          renderAfterDocumentEvent: "prerender-ready",
+          maxConcurrentRoutes: 4,
+          headless: "new",
+          // Give useEffect-injected JSON-LD a moment after route mount
+          renderAfterTime: 1500,
+        },
+      }),
   ].filter(Boolean),
   resolve: {
     alias: {
