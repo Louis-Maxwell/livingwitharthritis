@@ -6,7 +6,7 @@
 // and signpost professional care.
 
 export const FALLBACK_DISCLAIMER =
-  "\n\n---\n\n_Live AI is temporarily unavailable, so this is a general answer from our arthritis knowledge base. This is not medical advice — please discuss with your GP, pharmacist or rheumatology team before changing medication or starting a new programme._";
+  "\n\n---\n\n_General guidance from the Living With Arthritis knowledge library. This is educational information, not medical advice — please speak with your GP, pharmacist or rheumatology team before changing medication or starting a new programme._";
 
 type Entry = { keywords: RegExp; answer: string };
 
