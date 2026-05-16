@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { ChevronDown, ChevronRight, RefreshCw, AlertCircle } from "lucide-react";
+import { ChevronDown, ChevronRight, RefreshCw, AlertCircle, Download } from "lucide-react";
 
 interface SchemaBlock {
   index: number;
