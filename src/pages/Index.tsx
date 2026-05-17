@@ -1411,7 +1411,7 @@ function ArticleContent({
 
         <script type="application/ld+json">{JSON.stringify(getArticleSchema(articleId, article))}</script>
 
-        {article.faqs && <script type="application/ld+json">{JSON.stringify(getFAQSchema(article.faqs))}</script>}
+        {"faqs" in article && article.faqs && <script type="application/ld+json">{JSON.stringify(getFAQSchema(article.faqs))}</script>}
       </Helmet>
 
       <meta itemProp="headline" content={article.title} />
@@ -1422,7 +1422,7 @@ function ArticleContent({
       <div className="prose prose-lg dark:prose-invert max-w-none mb-12">{article.content}</div>
 
       {/* FAQs */}
-      {article.faqs && article.faqs.length > 0 && (
+      {"faqs" in article && article.faqs && article.faqs.length > 0 && (
         <section className="my-16 p-8 bg-secondary/50 rounded-lg" itemScope itemType="https://schema.org/FAQPage">
           <h2 className="text-3xl font-bold mb-8">Frequently Asked Questions</h2>
           <div className="space-y-4">
@@ -1473,18 +1473,18 @@ function ArticleContent({
 
 /* ─── PAGE CONTENT COMPONENT ───────────────────────────────────────── */
 function PageContent() {
-  const { getParam } = useSearchParams();
+  const [searchParams] = useSearchParams();
   const [articleId, setArticleId] = useState<string | null>(null);
   const [showArticle, setShowArticle] = useState(false);
 
   // Check for article param
   useEffect(() => {
-    const article = getParam("article");
+    const article = searchParams.get("article");
     if (article && ARTICLE_DATABASE[article as keyof typeof ARTICLE_DATABASE]) {
       setArticleId(article);
       setShowArticle(true);
     }
-  }, [getParam]);
+  }, [searchParams]);
 
   if (showArticle && articleId) {
     const article = ARTICLE_DATABASE[articleId as keyof typeof ARTICLE_DATABASE];
@@ -1551,7 +1551,7 @@ function PageContent() {
                 <h2 className="text-lg font-bold mb-2">{article.title}</h2>
                 <p className="text-sm text-muted-foreground">{article.description}</p>
                 <p className="text-xs text-primary/60 mt-4">
-                  {article.keywords.length} keywords • {article.faqs?.length || 0} FAQs
+                  {article.keywords.length} keywords • {("faqs" in article ? article.faqs?.length : 0) || 0} FAQs
                 </p>
               </div>
             ))}
