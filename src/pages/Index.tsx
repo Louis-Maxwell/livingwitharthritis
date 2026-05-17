@@ -1422,7 +1422,7 @@ function ArticleContent({
       <div className="prose prose-lg dark:prose-invert max-w-none mb-12">{article.content}</div>
 
       {/* FAQs */}
-      {article.faqs && article.faqs.length > 0 && (
+      {"faqs" in article && article.faqs && article.faqs.length > 0 && (
         <section className="my-16 p-8 bg-secondary/50 rounded-lg" itemScope itemType="https://schema.org/FAQPage">
           <h2 className="text-3xl font-bold mb-8">Frequently Asked Questions</h2>
           <div className="space-y-4">
