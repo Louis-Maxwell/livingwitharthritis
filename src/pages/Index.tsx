@@ -1551,7 +1551,7 @@ function PageContent() {
                 <h2 className="text-lg font-bold mb-2">{article.title}</h2>
                 <p className="text-sm text-muted-foreground">{article.description}</p>
                 <p className="text-xs text-primary/60 mt-4">
-                  {article.keywords.length} keywords • {article.faqs?.length || 0} FAQs
+                  {article.keywords.length} keywords • {("faqs" in article ? article.faqs?.length : 0) || 0} FAQs
                 </p>
               </div>
             ))}
