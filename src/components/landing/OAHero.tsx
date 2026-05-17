@@ -2,8 +2,8 @@ import { memo } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowRight, Heart, Shield, GitBranch } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { unsplashSrcSet } from "@/data/images";
 import "@/components/HeroSection.css";
+import heroPortrait from "@/assets/hero-oa-portrait.jpg";
 
 const TRUST = [
   "HCPC Registered Clinicians",
@@ -12,8 +12,7 @@ const TRUST = [
   "Open Source · Free Forever",
 ] as const;
 
-const HERO_PORTRAIT =
-  "https://images.unsplash.com/photo-1581579438747-104c53e7c711?w=1000&q=80";
+const HERO_PORTRAIT = heroPortrait;
 
 const OAHero = memo(() => {
   const navigate = useNavigate();
