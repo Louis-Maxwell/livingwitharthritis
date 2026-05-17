@@ -51,7 +51,7 @@ const OAPlanPillarsSection = memo(() => {
       aria-labelledby="oa-plan"
       className="relative py-24 lg:py-32 bg-background"
     >
-      <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl bg-slate-50">
         <div className="max-w-3xl mb-16">
           <p className="section-label text-primary/60 mb-5">The Open-Source Plan</p>
           <h2

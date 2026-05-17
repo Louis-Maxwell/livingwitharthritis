@@ -28,7 +28,7 @@ const OAHero = memo(() => {
         aria-hidden="true"
       />
 
-      <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl relative">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl bg-slate-50 relative">
         {/* Eyebrow */}
         <div className="flex items-center gap-3 mb-10">
           <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/[0.06] border border-primary/15">
