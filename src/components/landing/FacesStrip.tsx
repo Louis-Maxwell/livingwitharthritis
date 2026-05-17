@@ -65,15 +65,15 @@ const FacesStrip = memo(() => {
               <div className="relative aspect-[4/5] overflow-hidden bg-secondary">
                 <img
                   src={f.image}
-                  srcSet={unsplashSrcSet(f.image, [400, 640, 800])}
-                  sizes={defaultSizes}
+                  srcSet={f.image.startsWith("http") ? unsplashSrcSet(f.image, [400, 640, 800]) : undefined}
+                  sizes={f.image.startsWith("http") ? defaultSizes : undefined}
                   alt={f.alt}
                   loading="lazy"
                   decoding="async"
                   width={800}
                   height={1000}
                   className="h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-105"
-                  referrerPolicy="no-referrer"
+                  referrerPolicy={f.image.startsWith("http") ? "no-referrer" : undefined}
                 />
                 <div
                   className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/10 to-transparent"
