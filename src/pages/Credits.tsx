@@ -85,7 +85,7 @@ const Credits = () => {
                     key={img.localPath}
                     className="flex gap-4 items-start py-3 border-b border-border/30 last:border-b-0"
                   >
-                    <span className="flex-shrink-0 text-xs font-mono text-muted-foreground/50 pt-1 w-6 text-right">
+                    <span className="flex-shrink-0 text-xs font-mono text-muted-foreground pt-1 w-6 text-right">
                       {idx + 1}.
                     </span>
                     <img
