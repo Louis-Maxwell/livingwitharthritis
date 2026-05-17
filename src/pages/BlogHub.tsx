@@ -204,10 +204,10 @@ const BlogHub = () => {
   return (
     <>
       <Helmet>
-        <title>Arthritis Advice Hub: Diet, Exercises, Flare-Ups & Treatment | Living With Arthritis UK</title>
+        <title>Arthritis Advice Hub | Living With Arthritis UK</title>
         <meta
           name="description"
-          content="Browse expert UK arthritis guidance by topic — anti-inflammatory diet, joint-friendly exercises, flare-up management and treatment options. Free, evidence-based, written for patients."
+          content="UK arthritis guidance by topic — anti-inflammatory diet, joint-friendly exercises, flare-up management and treatments. Free and evidence-based."
         />
         <meta
           name="keywords"

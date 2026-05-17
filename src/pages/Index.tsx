@@ -76,7 +76,7 @@ function HomePage() {
         </title>
         <meta
           name="description"
-          content="We're open-sourcing the management plan for osteoarthritis. Clinically reviewed diet, movement and pain-relief guidance — published in plain English, free for everyone in the UK."
+          content="Open-source osteoarthritis plan: clinically reviewed diet, movement and pain-relief guidance in plain English. Free for everyone in the UK."
         />
         <link rel="canonical" href={SITE_URL + "/"} />
         <meta property="og:type" content="website" />
