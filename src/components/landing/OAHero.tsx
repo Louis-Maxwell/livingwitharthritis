@@ -44,10 +44,10 @@ const OAHero = memo(() => {
           <div className="lg:col-span-8">
             <h1
               id="oa-hero"
-              className="font-display text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] font-bold tracking-[-0.03em] leading-[0.96] text-foreground text-balance"
+              className="font-display text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] font-bold tracking-[-0.03em] leading-[0.96] text-white text-balance"
             >
               We&apos;re open-sourcing the{" "}
-              <span className="text-gradient italic">management plan</span> for osteoarthritis.
+              <span className="italic text-white/90">management plan</span> for osteoarthritis.
             </h1>
 
             <p className="mt-8 lg:mt-10 text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-2xl">
