@@ -1,38 +1,69 @@
-# Plan: Osteoarthritis Open-Source Nonprofit Landing Page
-
 ## Goal
-Rebuild the homepage (`src/pages/Index.tsx`) into a focused, editorial fundraising landing page for an open-source osteoarthritis management mission. Keep the existing Crimson/White institutional aesthetic, Playfair Display headings, and current routing/components — only the landing composition and copy change.
 
-## New landing page structure (top to bottom)
+Turn the uploaded `health-topics.html` (65 plain-English topics covering conditions, medications, supplements, and treatments) into a first-class, searchable Library inside the site — so visitors can find any topic from the homepage search and read it on its own SEO-friendly page.
 
-1. **Hero** — Mission statement: "Open-sourcing the management plan for osteoarthritis." Subhead about helping every person living with OA. Dual CTA: Donate · Read the Plan. Trust micro-row (HCPC / CSP / NICE-aligned).
-2. **The Problem band** — 3 stat cards: "1 in 6 UK adults", "8.75M living with OA", "£10bn yearly cost". Sourced framing, no fabricated numbers.
-3. **Our Open-Source Plan** — 4 pillars (Diet · Movement · Inflammation · Mind) each linking to existing pages (DietHub, ExerciseHub, conditions/Osteoarthritis, SelfHelpTool).
-4. **Editorial quote band** — Mission line in serif, full-bleed crimson.
-5. **What £X funds** — Reuse `DonationImpactSection`.
-6. **The Evidence Library** — Featured articles grid (pull from `blog_articles`, filter osteoarthritis tag/category, fallback to curated list).
-7. **Mediterranean diet + Exercise teaser** — Two-column editorial cards linking to existing hubs.
-8. **Faces of the mission** — Reuse `FacesOfArthritis` carousel.
-9. **Open-source ethos band** — "Everything we publish is free. Forever." with GitHub-style commit-strip visual (CSS only).
-10. **Final CTA** — Donation strip + newsletter signup (reuse existing component).
-11. **Footer** — Unchanged.
+## What I'll build
 
-## Content rewrites
-- Hero H1, subhead, mission band, pillar copy, evidence intro, ethos band — all written in the site's plain-English editorial voice (per memory).
-- Use "for everyone" not "zero cost" (per memory).
-- Strict neutrality: no sponsors, no fabricated stats, no founder narratives.
-- UK English throughout.
+### 1. Data layer — `src/data/healthTopics.ts`
+A parsed, typed dataset generated from the uploaded HTML. One entry per topic:
 
-## Technical notes
-- Only edit `src/pages/Index.tsx` and, if needed, add 1–2 small section components under `src/components/landing/` (e.g. `OAPillarsSection.tsx`, `OpenSourceEthosBand.tsx`).
-- Reuse existing components: `DonationImpactSection`, `MissionStatementBand`, `FacesOfArthritis`, header/footer, newsletter, donation banner.
-- Keep CSS-only page transitions (no Framer Motion routing).
-- JSON-LD: update homepage `Organization` + add `NGO` schema via `useEffect` (existing pattern).
-- Meta title/description updated for "osteoarthritis management plan" keywords.
-- No DB changes, no new routes, no backend changes.
+```ts
+type HealthTopic = {
+  slug: string;            // e.g. "naproxen"
+  title: string;           // "Naproxen"
+  subtitle: string;        // "A common anti-inflammatory painkiller"
+  category: "Condition" | "Medication" | "Supplement" | "Treatment" | "Symptom" | "Support";
+  keywords: string[];      // for search (title, synonyms, body terms)
+  sections: { heading: string; body: string; bullets?: string[] }[];
+  disclaimer: string;
+};
+```
+
+I'll run a one-off Node script against `/tmp/h.html` to parse all 65 `<div class="topic">` blocks into this structure, dedupe near-duplicates (e.g. "aspirin" vs "aspirin2", "carpal-tunnel" vs "carpal-tunnel2") and write the `.ts` file. Categories will be auto-assigned via a slug → category map.
+
+### 2. Library hub page — `/library` (`src/pages/Library.tsx`)
+- Hero + intro
+- Search box (filters by title, keywords, body text — instant client-side)
+- Category filter chips (Conditions / Medications / Supplements / Treatments / Symptoms / Support)
+- A–Z grid of topic cards, each linking to its detail page
+- Uses existing Crimson/White institutional styling (Playfair Display headings, semantic tokens — no hard-coded colors)
+
+### 3. Topic detail page — `/library/:slug` (`src/pages/LibraryTopic.tsx`)
+- Renders the topic's sections, bullets, and disclaimer
+- Breadcrumb back to Library
+- SEO: `<title>{topic} | Living With Arthritis UK</title>`, meta description from subtitle, JSON-LD `MedicalWebPage` injected via `useEffect`
+- "Related topics" rail (same category)
+- 404 fallback if slug not found
+
+### 4. Site-wide discoverability
+- Add both routes to `src/App.tsx`
+- Add "Library" link to the main `Header` nav
+- Add the 65 entries to `public/sitemap.xml` (via the existing `scripts/generate-sitemap.ts`) and to `public/llms.txt`
+- If the existing homepage has a search/lookup component, wire it to also match library entries; otherwise the dedicated `/library` search covers it
+
+### 5. Cross-linking (light touch, no business logic changes)
+Where a topic duplicates an existing condition page (osteoarthritis, RA, PsA, gout, AS, fibromyalgia, lupus), the library entry will link out to the canonical condition page instead of duplicating — keeps SEO clean and avoids cannibalisation.
 
 ## Out of scope
-- Brand rename, color/typography changes, new pages, edge functions, payments wiring (already live).
+- No backend tables / Supabase changes — this is static content, fastest and cheapest as a TS data file.
+- No rewording of medical copy — content imported verbatim from the upload.
+- No changes to existing condition pages or donation flow.
 
-## Open question
-Should I keep the broader "arthritis" framing the site currently uses (rheumatoid, psoriatic, etc. still referenced in nav) and present osteoarthritis as the **flagship open-source plan**, or fully narrow the homepage to osteoarthritis-only? I'll default to **flagship framing** (homepage centred on OA, other conditions still accessible via nav/blog) unless you say otherwise.
+## Technical notes
+- Parsing happens once locally (script in `/tmp`), output committed as plain TS — no runtime HTML parsing.
+- All colors via semantic tokens (`bg-background`, `text-foreground`, `text-primary`, etc.) per project memory.
+- External links use `<a target="_blank">` per project rule.
+- No Framer Motion AnimatePresence on the route.
+
+## Files
+
+Created:
+- `src/data/healthTopics.ts`
+- `src/pages/Library.tsx`
+- `src/pages/LibraryTopic.tsx`
+
+Edited:
+- `src/App.tsx` (2 routes)
+- `src/components/Header.tsx` (nav link)
+- `public/llms.txt` (Library section)
+- `scripts/generate-sitemap.ts` (include library slugs)
