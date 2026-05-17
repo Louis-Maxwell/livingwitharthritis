@@ -108,8 +108,8 @@ const DietHub = () => {
   return (
     <>
       <Helmet>
-        <title>Best Diet for Arthritis Pain UK | Anti-Inflammatory Foods Guide</title>
-        <meta name="description" content="Free anti-inflammatory diet plans and Mediterranean recipes for arthritis. Evidence-based meal plans, shopping lists and nutrition tips to help reduce joint inflammation and support pain management." />
+        <title>Best Arthritis Diet UK | Anti-Inflammatory Foods</title>
+        <meta name="description" content="Free anti-inflammatory diet plans and Mediterranean recipes for arthritis. Evidence-based meal plans and nutrition tips to ease joint pain." />
         <meta name="keywords" content="arthritis diet, anti-inflammatory diet, Mediterranean diet arthritis, foods for joint pain, omega 3 arthritis, turmeric arthritis, natural remedies for arthritis, arthritis meal plan, foods to avoid arthritis, how to reduce joint inflammation, joint swelling causes, arthritis nutrition, anti-inflammatory foods, gout diet, rheumatoid arthritis diet, osteoarthritis diet" />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/diet" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/diet" />
