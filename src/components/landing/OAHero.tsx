@@ -103,7 +103,6 @@ const OAHero = memo(() => {
             <div className="hero-portrait relative rounded-2xl overflow-hidden border border-border/60 shadow-2xl">
               <img
                 src={HERO_PORTRAIT}
-                srcSet={unsplashSrcSet(HERO_PORTRAIT, [640, 800, 1000, 1400])}
                 sizes="(min-width: 1024px) 42vw, 100vw"
                 alt="An older couple stretching together at home, smiling — living well with osteoarthritis."
                 width={1000}
@@ -112,7 +111,6 @@ const OAHero = memo(() => {
                 decoding="async"
                 loading="eager"
                 className="w-full h-auto aspect-[4/5] object-cover"
-                referrerPolicy="no-referrer"
               />
 
               {/* Bottom gradient + floating numbers card */}
