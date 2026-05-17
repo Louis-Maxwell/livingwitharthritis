@@ -18,6 +18,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 
 import OAHero from "@/components/landing/OAHero";
 import OAProblemBand from "@/components/landing/OAProblemBand";
+import FacesStrip from "@/components/landing/FacesStrip";
 import OAPlanPillarsSection from "@/components/landing/OAPlanPillarsSection";
 import MissionStatementBand from "@/components/landing/MissionStatementBand";
 import DonationImpactSection from "@/components/landing/DonationImpactSection";
@@ -98,6 +99,7 @@ function HomePage() {
         <main id="main-content" role="main" tabIndex={-1}>
           <OAHero />
           <OAProblemBand />
+          <FacesStrip />
           <OAPlanPillarsSection />
           <MissionStatementBand />
 
