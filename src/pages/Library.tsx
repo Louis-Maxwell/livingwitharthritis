@@ -7,7 +7,7 @@ import PageHero from "@/components/ui/PageHero";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Search, BookOpen, ArrowRight } from "lucide-react";
+import { Search, ArrowRight } from "lucide-react";
 import {
   healthTopics,
   healthTopicCategories,
@@ -65,10 +65,13 @@ const Library = () => {
 
       <main className="min-h-screen bg-background text-foreground">
         <PageHero
-          eyebrow="Knowledge Base"
+          badge={
+            <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 rounded-full">
+              Knowledge Base
+            </span>
+          }
           title="Health Library"
           subtitle="Plain-English explanations of conditions, medications, supplements and treatments. Search a term — find what you need."
-          icon={BookOpen}
         />
 
         <section className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-6xl py-12">
