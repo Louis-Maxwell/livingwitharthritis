@@ -1411,7 +1411,7 @@ function ArticleContent({
 
         <script type="application/ld+json">{JSON.stringify(getArticleSchema(articleId, article))}</script>
 
-        {article.faqs && <script type="application/ld+json">{JSON.stringify(getFAQSchema(article.faqs))}</script>}
+        {"faqs" in article && article.faqs && <script type="application/ld+json">{JSON.stringify(getFAQSchema(article.faqs))}</script>}
       </Helmet>
 
       <meta itemProp="headline" content={article.title} />
