@@ -29,7 +29,7 @@ const OAProblemBand = memo(() => {
       aria-labelledby="problem"
       className="py-24 lg:py-32 bg-secondary/40 border-y border-border/40"
     >
-      <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl bg-slate-50">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl bg-[#ff0000]">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 mb-16">
           <div className="max-w-2xl">
             <p className="section-label text-primary/60 mb-5">The Problem</p>
