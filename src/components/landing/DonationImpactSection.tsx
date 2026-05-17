@@ -86,7 +86,7 @@ const DonationImpactSection = () => {
             <Button
               size="lg"
               onClick={() => navigate("/zakat-appeal")}
-              className="px-14 h-[62px] rounded-full text-sm font-bold btn-primary-cta tracking-wider group"
+              className="px-14 h-[62px] rounded-full text-sm font-bold btn-primary-cta tracking-wider group bg-[#ff0505]"
             >
               <Heart className="w-5 h-5 mr-2.5 fill-white/20" />
               Donate £{amount} Now
