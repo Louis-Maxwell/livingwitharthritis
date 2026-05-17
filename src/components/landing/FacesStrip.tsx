@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { unsplashSrcSet, defaultSizes } from "@/data/images";
 import { useRevealOnScroll } from "@/hooks/useRevealOnScroll";
+import joanPeterImg from "@/assets/faces-joan-peter.jpg";
 
 interface Face {
   image: string;
