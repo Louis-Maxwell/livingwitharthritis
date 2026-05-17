@@ -24,7 +24,7 @@ const FACES: Face[] = [
     caption: "Switched to a Mediterranean plate — olive oil, oily fish, plenty of greens.",
   },
   {
-    image: "https://images.unsplash.com/photo-1581579438747-104c53e7c711?w=800&q=80",
+    image: joanPeterImg,
     alt: "Elderly couple stretching together in a bright living room",
     name: "Joan & Peter, 70",
     caption: "Ten minutes of stretching together — the only routine they've ever kept.",
