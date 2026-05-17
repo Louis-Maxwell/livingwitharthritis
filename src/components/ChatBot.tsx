@@ -387,8 +387,8 @@ export function ChatBot() {
           </Button>
         </div>
         <div className="flex items-center justify-center gap-1 mt-1.5">
-          <ShieldCheck className="h-2.5 w-2.5 text-muted-foreground/25" />
-          <p className="text-[9px] text-muted-foreground/30">
+          <ShieldCheck className="h-2.5 w-2.5 text-muted-foreground" />
+          <p className="text-[10px] text-muted-foreground">
             Always consult your healthcare provider
           </p>
         </div>
