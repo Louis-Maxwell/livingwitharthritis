@@ -19,7 +19,7 @@ const OpenSourceEthosBand = memo(() => {
   return (
     <section
       aria-labelledby="open-source"
-      className="py-24 lg:py-32 bg-foreground text-background relative overflow-hidden"
+      className="py-24 lg:py-32 bg-foreground text-background relative overflow-hidden bg-[#f90606]"
     >
       <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl bg-[#ff0000]">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
