@@ -1,69 +1,25 @@
-## Goal
+## What's actually wrong
 
-Turn the uploaded `health-topics.html` (65 plain-English topics covering conditions, medications, supplements, and treatments) into a first-class, searchable Library inside the site — so visitors can find any topic from the homepage search and read it on its own SEO-friendly page.
+Your real XML sitemap is fine. I fetched it live and it returns:
 
-## What I'll build
-
-### 1. Data layer — `src/data/healthTopics.ts`
-A parsed, typed dataset generated from the uploaded HTML. One entry per topic:
-
-```ts
-type HealthTopic = {
-  slug: string;            // e.g. "naproxen"
-  title: string;           // "Naproxen"
-  subtitle: string;        // "A common anti-inflammatory painkiller"
-  category: "Condition" | "Medication" | "Supplement" | "Treatment" | "Symptom" | "Support";
-  keywords: string[];      // for search (title, synonyms, body terms)
-  sections: { heading: string; body: string; bullets?: string[] }[];
-  disclaimer: string;
-};
+```
+GET https://livingwitharthritis.org.uk/sitemap.xml
+content-type: text/xml; charset=utf-8
+<?xml version="1.0" encoding="UTF-8"?> <urlset …>
 ```
 
-I'll run a one-off Node script against `/tmp/h.html` to parse all 65 `<div class="topic">` blocks into this structure, dedupe near-duplicates (e.g. "aspirin" vs "aspirin2", "carpal-tunnel" vs "carpal-tunnel2") and write the `.ts` file. Categories will be auto-assigned via a slug → category map.
+The Google Search Console error comes from a second URL: `/sitemap` (no `.xml`). That route is a React page (`src/pages/Sitemap.tsx`, registered at line 197 of `src/App.tsx`) that renders a human-readable list of pages as HTML. If `/sitemap` was ever submitted to GSC — or Google discovered it on its own — that's the "appears to be an HTML page" warning.
 
-### 2. Library hub page — `/library` (`src/pages/Library.tsx`)
-- Hero + intro
-- Search box (filters by title, keywords, body text — instant client-side)
-- Category filter chips (Conditions / Medications / Supplements / Treatments / Symptoms / Support)
-- A–Z grid of topic cards, each linking to its detail page
-- Uses existing Crimson/White institutional styling (Playfair Display headings, semantic tokens — no hard-coded colors)
+## Fix
 
-### 3. Topic detail page — `/library/:slug` (`src/pages/LibraryTopic.tsx`)
-- Renders the topic's sections, bullets, and disclaimer
-- Breadcrumb back to Library
-- SEO: `<title>{topic} | Living With Arthritis UK</title>`, meta description from subtitle, JSON-LD `MedicalWebPage` injected via `useEffect`
-- "Related topics" rail (same category)
-- 404 fallback if slug not found
+1. **Rename the human-readable page** from `/sitemap` to `/site-index` in `src/App.tsx` so no crawler can mistake it for the XML sitemap.
+2. **Add a `noindex, nofollow` meta** to `src/pages/Sitemap.tsx` (via Helmet) so even if Google has the old URL cached, it stops indexing it.
+3. **Keep `/sitemap.xml`** exactly as it is — that's the supported format and it's already served correctly.
+4. **In Google Search Console** (you, not me — I can't reach GSC): remove the bad submission and re-submit `https://livingwitharthritis.org.uk/sitemap.xml`.
 
-### 4. Site-wide discoverability
-- Add both routes to `src/App.tsx`
-- Add "Library" link to the main `Header` nav
-- Add the 65 entries to `public/sitemap.xml` (via the existing `scripts/generate-sitemap.ts`) and to `public/llms.txt`
-- If the existing homepage has a search/lookup component, wire it to also match library entries; otherwise the dedicated `/library` search covers it
+No changes needed to `public/sitemap.xml`, `public/robots.txt`, or the generator script — those are already correct.
 
-### 5. Cross-linking (light touch, no business logic changes)
-Where a topic duplicates an existing condition page (osteoarthritis, RA, PsA, gout, AS, fibromyalgia, lupus), the library entry will link out to the canonical condition page instead of duplicating — keeps SEO clean and avoids cannibalisation.
+## Files touched
 
-## Out of scope
-- No backend tables / Supabase changes — this is static content, fastest and cheapest as a TS data file.
-- No rewording of medical copy — content imported verbatim from the upload.
-- No changes to existing condition pages or donation flow.
-
-## Technical notes
-- Parsing happens once locally (script in `/tmp`), output committed as plain TS — no runtime HTML parsing.
-- All colors via semantic tokens (`bg-background`, `text-foreground`, `text-primary`, etc.) per project memory.
-- External links use `<a target="_blank">` per project rule.
-- No Framer Motion AnimatePresence on the route.
-
-## Files
-
-Created:
-- `src/data/healthTopics.ts`
-- `src/pages/Library.tsx`
-- `src/pages/LibraryTopic.tsx`
-
-Edited:
-- `src/App.tsx` (2 routes)
-- `src/components/Header.tsx` (nav link)
-- `public/llms.txt` (Library section)
-- `scripts/generate-sitemap.ts` (include library slugs)
+- `src/App.tsx` — change `path="/sitemap"` to `path="/site-index"`
+- `src/pages/Sitemap.tsx` — add `<meta name="robots" content="noindex, nofollow">` inside its Helmet block
