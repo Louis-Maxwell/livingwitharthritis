@@ -129,7 +129,7 @@ function HomePage() {
           <BackToTopButton />
         </Suspense>
         <Suspense fallback={null}>
-          <CookieBanner />
+          <CookieBanner onAnalyticsChange={() => {}} />
         </Suspense>
       </div>
     </>
