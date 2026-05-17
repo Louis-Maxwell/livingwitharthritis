@@ -2,8 +2,8 @@ import { memo } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowRight, Heart, Shield, GitBranch } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { unsplashSrcSet } from "@/data/images";
 import "@/components/HeroSection.css";
+import heroPortrait from "@/assets/hero-oa-portrait.jpg";
 
 const TRUST = [
   "HCPC Registered Clinicians",
@@ -12,8 +12,7 @@ const TRUST = [
   "Open Source · Free Forever",
 ] as const;
 
-const HERO_PORTRAIT =
-  "https://images.unsplash.com/photo-1581579438747-104c53e7c711?w=1000&q=80";
+const HERO_PORTRAIT = heroPortrait;
 
 const OAHero = memo(() => {
   const navigate = useNavigate();
@@ -104,7 +103,6 @@ const OAHero = memo(() => {
             <div className="hero-portrait relative rounded-2xl overflow-hidden border border-border/60 shadow-2xl">
               <img
                 src={HERO_PORTRAIT}
-                srcSet={unsplashSrcSet(HERO_PORTRAIT, [640, 800, 1000, 1400])}
                 sizes="(min-width: 1024px) 42vw, 100vw"
                 alt="An older couple stretching together at home, smiling — living well with osteoarthritis."
                 width={1000}
@@ -113,7 +111,6 @@ const OAHero = memo(() => {
                 decoding="async"
                 loading="eager"
                 className="w-full h-auto aspect-[4/5] object-cover"
-                referrerPolicy="no-referrer"
               />
 
               {/* Bottom gradient + floating numbers card */}
