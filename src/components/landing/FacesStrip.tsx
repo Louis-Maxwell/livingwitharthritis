@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { unsplashSrcSet, defaultSizes } from "@/data/images";
 import { useRevealOnScroll } from "@/hooks/useRevealOnScroll";
+import joanPeterImg from "@/assets/faces-joan-peter.jpg";
 
 interface Face {
   image: string;
@@ -23,7 +24,7 @@ const FACES: Face[] = [
     caption: "Switched to a Mediterranean plate — olive oil, oily fish, plenty of greens.",
   },
   {
-    image: "https://images.unsplash.com/photo-1581579438747-104c53e7c711?w=800&q=80",
+    image: joanPeterImg,
     alt: "Elderly couple stretching together in a bright living room",
     name: "Joan & Peter, 70",
     caption: "Ten minutes of stretching together — the only routine they've ever kept.",
@@ -64,15 +65,15 @@ const FacesStrip = memo(() => {
               <div className="relative aspect-[4/5] overflow-hidden bg-secondary">
                 <img
                   src={f.image}
-                  srcSet={unsplashSrcSet(f.image, [400, 640, 800])}
-                  sizes={defaultSizes}
+                  srcSet={f.image.startsWith("http") ? unsplashSrcSet(f.image, [400, 640, 800]) : undefined}
+                  sizes={f.image.startsWith("http") ? defaultSizes : undefined}
                   alt={f.alt}
                   loading="lazy"
                   decoding="async"
                   width={800}
                   height={1000}
                   className="h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-105"
-                  referrerPolicy="no-referrer"
+                  referrerPolicy={f.image.startsWith("http") ? "no-referrer" : undefined}
                 />
                 <div
                   className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/10 to-transparent"
