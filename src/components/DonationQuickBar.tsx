@@ -43,7 +43,7 @@ const DonationQuickBar = () => {
     <>
       <div className="text-primary-foreground" style={{ backgroundColor: '#E60023' }}>
         <div className="container mx-auto px-3 sm:px-4 py-2">
-          <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
+          <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 bg-[#ff0000]">
             {/* Frequency pill toggle */}
             <div className="flex items-center bg-white/15 rounded-full p-0.5 h-9">
               {(["one-time", "monthly"] as const).map((f) => (
