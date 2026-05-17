@@ -38,3 +38,78 @@
 @keyframes underlineReveal {
   to { transform: scaleX(1); }
 }
+
+/* Hero portrait fade-scale */
+.hero-portrait {
+  opacity: 0;
+  transform: scale(1.04);
+  animation: heroPortraitIn 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
+}
+
+@keyframes heroPortraitIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Soft crimson glow pulse behind portrait */
+.hero-glow {
+  animation: heroGlow 6s ease-in-out infinite;
+}
+
+@keyframes heroGlow {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50%      { opacity: 0.6;  transform: scale(1.08); }
+}
+
+/* Ken Burns slow zoom for photo bands */
+.ken-burns {
+  animation: kenBurns 16s ease-in-out infinite alternate;
+  transform-origin: center center;
+}
+
+@keyframes kenBurns {
+  from { transform: scale(1); }
+  to   { transform: scale(1.07); }
+}
+
+/* Reveal on scroll — fades up children of .reveal-stagger when .is-visible */
+.reveal-stagger .reveal-item {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-stagger.is-visible .reveal-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-stagger.is-visible .reveal-item:nth-child(2) { transition-delay: 120ms; }
+.reveal-stagger.is-visible .reveal-item:nth-child(3) { transition-delay: 240ms; }
+.reveal-stagger.is-visible .reveal-item:nth-child(4) { transition-delay: 360ms; }
+
+/* Magnetic hover lift with crimson glow */
+.hover-lift-crimson {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.hover-lift-crimson:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px -20px hsl(var(--primary) / 0.35);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-stagger .hero-item,
+  .hero-portrait,
+  .hero-glow,
+  .ken-burns,
+  .reveal-stagger .reveal-item,
+  .hover-lift-crimson {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
