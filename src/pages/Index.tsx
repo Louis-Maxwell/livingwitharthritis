@@ -1473,18 +1473,18 @@ function ArticleContent({
 
 /* ─── PAGE CONTENT COMPONENT ───────────────────────────────────────── */
 function PageContent() {
-  const { getParam } = useSearchParams();
+  const [searchParams] = useSearchParams();
   const [articleId, setArticleId] = useState<string | null>(null);
   const [showArticle, setShowArticle] = useState(false);
 
   // Check for article param
   useEffect(() => {
-    const article = getParam("article");
+    const article = searchParams.get("article");
     if (article && ARTICLE_DATABASE[article as keyof typeof ARTICLE_DATABASE]) {
       setArticleId(article);
       setShowArticle(true);
     }
-  }, [getParam]);
+  }, [searchParams]);
 
   if (showArticle && articleId) {
     const article = ARTICLE_DATABASE[articleId as keyof typeof ARTICLE_DATABASE];
