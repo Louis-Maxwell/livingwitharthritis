@@ -6,20 +6,20 @@ const STATS = [
   {
     icon: Activity,
     big: "8.75M",
-    label: "UK adults living with osteoarthritis",
-    note: "Most common form of arthritis",
+    label: "people across the UK live with osteoarthritis",
+    note: "If you wake up with stiff, sore joints — you are in good company.",
   },
   {
     icon: AlertCircle,
     big: "1 in 6",
-    label: "UK adults affected by joint pain",
-    note: "Rising with an ageing population",
+    label: "UK adults carry joint pain every day",
+    note: "Many never speak about it. We think that should change.",
   },
   {
     icon: Heart,
     big: "£10bn+",
-    label: "Estimated annual cost to the UK economy",
-    note: "Lost workdays · clinical care · disability",
+    label: "the cost to families, workplaces and the NHS each year",
+    note: "Behind every number is a person trying to keep moving.",
   },
 ] as const;
 
@@ -29,23 +29,23 @@ const OAProblemBand = memo(() => {
       aria-labelledby="problem"
       className="py-24 lg:py-32 bg-secondary/40 border-y border-border/40"
     >
-      <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl bg-[#ff0000]">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 mb-16">
           <div className="max-w-2xl">
-            <p className="section-label text-primary/60 mb-5">The Problem</p>
+            <p className="section-label text-primary/60 mb-5">You are not alone</p>
             <h2
               id="problem"
               className="font-display text-3xl sm:text-4xl md:text-[3.25rem] font-bold tracking-tight leading-[1.06] text-foreground"
             >
-              Osteoarthritis is the quiet pandemic
-              <span className="text-muted-foreground/70"> nobody&apos;s open-sourced.</span>
+              Millions of us wake up with sore, stubborn joints.
+              <span className="text-muted-foreground/70"> Together, we can take the next gentle step.</span>
             </h2>
           </div>
           <Link
             to="/conditions/osteoarthritis"
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2.5 transition-all whitespace-nowrap"
           >
-            Read the full OA brief
+            Read our gentle guide to arthritis
             <ArrowUpRight className="w-4 h-4" />
           </Link>
         </div>

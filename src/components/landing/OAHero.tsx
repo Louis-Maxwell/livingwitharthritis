@@ -48,7 +48,7 @@ const OAHero = memo(() => {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
               </span>
               <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.24em] uppercase text-primary">
-                Open-Source Osteoarthritis Plan · v2026.1
+                You are not alone · A gentle plan for living well
               </span>
             </span>
           </div>
@@ -58,36 +58,41 @@ const OAHero = memo(() => {
             id="oa-hero"
             className="hero-item font-display text-[2.75rem] sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-[-0.03em] leading-[0.98] text-foreground text-balance"
           >
-            We&apos;re open-sourcing the{" "}
-            <span className="italic text-primary">management plan</span> for
-            osteoarthritis.
+            Sore joints, stiff mornings,{" "}
+            <span className="italic text-primary">brighter days</span> ahead.
           </h1>
+
+          <p className="hero-item mt-6 text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed">
+            Arthritis can feel lonely. It doesn&apos;t have to be. We&apos;re a small
+            charity sharing kind, clinically-reviewed help — written in plain English,
+            free for everyone living with arthritis in the UK.
+          </p>
 
           {/* CTAs */}
           <div className="hero-item mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
             <Button
               size="lg"
-              onClick={() => navigate("/donate")}
+              onClick={() => navigate("/conditions/osteoarthritis")}
               className="h-[58px] px-9 rounded-full text-sm font-bold tracking-wider btn-primary-cta group"
             >
               <Heart className="w-4 h-4 mr-2 fill-white/20" aria-hidden="true" />
-              Fund the Mission
+              Start your gentle plan
               <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button
               size="lg"
               variant="outline"
-              onClick={() => navigate("/conditions/osteoarthritis")}
+              onClick={() => navigate("/donate")}
               className="h-[58px] px-9 rounded-full text-sm font-bold tracking-wider border-foreground/20 bg-background/80 backdrop-blur-sm hover:bg-background"
             >
-              Read the Open Plan
+              Help us keep it free
             </Button>
           </div>
 
           {/* Trust row */}
           <div className="hero-item mt-12 border-t border-border/50 pt-6">
             <p className="text-[10px] font-bold tracking-[0.24em] uppercase text-muted-foreground mb-3">
-              Standards &amp; Validation
+              Reviewed against trusted UK standards
             </p>
             <div className="flex items-center gap-8">
               {["HCPC", "CSP", "NICE"].map((mark) => (
@@ -111,23 +116,23 @@ const OAHero = memo(() => {
               8.75M
             </p>
             <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-[0.18em] mt-2">
-              UK adults with OA
+              neighbours in the UK with arthritis
             </p>
           </div>
           <div className="p-6 border-t border-border/40">
             <p className="font-display text-3xl font-bold text-foreground tracking-tight leading-none">
-              £0
+              Free
             </p>
             <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-[0.18em] mt-2">
-              Cost for everyone
+              for everyone, always
             </p>
           </div>
           <div className="p-6 border-t border-border/40">
             <p className="font-display text-3xl font-bold text-foreground tracking-tight leading-none">
-              100%
+              Kind
             </p>
             <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-[0.18em] mt-2">
-              Open access
+              plain English, no jargon
             </p>
           </div>
         </div>

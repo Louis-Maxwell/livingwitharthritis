@@ -7,10 +7,10 @@
 import { memo } from "react";
 
 const PILLARS = [
-  { kicker: "Pillar 01", label: "Clinically led" },
-  { kicker: "Pillar 02", label: "Always free" },
-  { kicker: "Pillar 03", label: "UK-wide" },
-  { kicker: "Pillar 04", label: "Donor funded" },
+  { kicker: "Pillar 01", label: "Clinically reviewed" },
+  { kicker: "Pillar 02", label: "Free, for everyone" },
+  { kicker: "Pillar 03", label: "Made in the UK" },
+  { kicker: "Pillar 04", label: "Kept alive by kind donors" },
 ] as const;
 
 const MissionStatementBand = memo(() => {
@@ -23,7 +23,7 @@ const MissionStatementBand = memo(() => {
         {/* Kicker */}
         <p className="flex items-center gap-3 text-[10px] sm:text-[11px] font-bold tracking-[0.32em] uppercase text-primary mb-8">
           <span className="w-8 h-px bg-primary" aria-hidden="true" />
-          Our Mission
+          Why we&apos;re here
         </p>
 
         {/* The single, plain-English sentence — the centrepiece */}
@@ -31,9 +31,9 @@ const MissionStatementBand = memo(() => {
           id="mission-statement"
           className="font-display text-[1.875rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.75rem] leading-[1.08] tracking-[-0.025em] text-foreground max-w-[1080px] text-balance"
         >
-          Arthritis steals movement from one in six adults.
+          Arthritis can quietly take your movement, your sleep, your spark.
           <span className="block text-muted-foreground/70 mt-2 sm:mt-3">
-            We&apos;re giving it back &mdash; freely, clinically, and to anyone who needs it.
+            We&apos;re here to help you get a little of it back &mdash; kindly, clearly, and free for everyone who needs it.
           </span>
         </h2>
 

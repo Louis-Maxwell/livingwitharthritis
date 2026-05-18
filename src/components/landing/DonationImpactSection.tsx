@@ -5,10 +5,10 @@ import { Slider } from "@/components/ui/slider";
 import { useNavigate } from "react-router-dom";
 
 const IMPACT_DATA = [
-  { amount: 10, label: "a week of online exercise classes", icon: Dumbbell },
-  { amount: 25, label: "3 guided physiotherapy sessions", icon: Stethoscope },
-  { amount: 50, label: "a month of community support for one person", icon: Users },
-  { amount: 100, label: "a full arthritis self-management programme", icon: BookOpen },
+  { amount: 10, label: "a week of gentle online exercise classes for someone in pain", icon: Dumbbell },
+  { amount: 25, label: "three guided physiotherapy sessions for a neighbour who can&apos;t afford private care", icon: Stethoscope },
+  { amount: 50, label: "a month of warm, peer-led community support", icon: Users },
+  { amount: 100, label: "a full self-help programme for one family living with arthritis", icon: BookOpen },
 ];
 
 const PRESETS = [10, 25, 50, 100];
@@ -27,12 +27,12 @@ const DonationImpactSection = () => {
     <section className="py-24 lg:py-32">
       <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-4xl">
         <div className="text-center mb-16">
-          <span className="section-label text-primary/60 mb-5 block">Your Impact</span>
+          <span className="section-label text-primary/60 mb-5 block">A small gift, a real difference</span>
           <h2 className="font-display text-3xl sm:text-4xl md:text-[3.5rem] font-bold text-foreground tracking-tight leading-[1.06]">
-            See what your donation <span className="text-gradient italic">can achieve</span>
+            Your kindness keeps this <span className="text-primary italic">free for everyone</span>
           </h2>
           <p className="text-muted-foreground mt-5 max-w-lg mx-auto text-base sm:text-lg leading-relaxed">
-            Every pound goes directly to supporting people living with arthritis across the UK.
+            Every pound you give goes straight to helping a neighbour in the UK live a little better with arthritis. Thank you.
           </p>
         </div>
 
@@ -77,7 +77,7 @@ const DonationImpactSection = () => {
             </div>
             <p className="text-5xl sm:text-6xl font-display font-bold text-foreground mb-4 tracking-tight">£{amount}</p>
             <p className="text-base sm:text-lg text-muted-foreground">
-              could fund <span className="font-semibold text-foreground">{currentImpact.label}</span>
+              from you could give someone <span className="font-semibold text-foreground">{currentImpact.label}</span>
             </p>
           </div>
 
@@ -85,15 +85,15 @@ const DonationImpactSection = () => {
           <div className="mt-12 text-center">
             <Button
               size="lg"
-              onClick={() => navigate("/zakat-appeal")}
-              className="px-14 h-[62px] rounded-full text-sm font-bold btn-primary-cta tracking-wider group bg-[#ff0505]"
+              onClick={() => navigate("/donate")}
+              className="px-14 h-[62px] rounded-full text-sm font-bold btn-primary-cta tracking-wider group"
             >
               <Heart className="w-5 h-5 mr-2.5 fill-white/20" />
-              Donate £{amount} Now
+              Give £{amount} with kindness
               <ArrowRight className="w-4 h-4 ml-2.5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <p className="text-[10px] text-muted-foreground mt-5 tracking-[0.15em] uppercase">
-              Secure payment via Stripe · Gift Aid eligible
+              Secure payment · Gift Aid adds 25p to every £1
             </p>
           </div>
         </div>

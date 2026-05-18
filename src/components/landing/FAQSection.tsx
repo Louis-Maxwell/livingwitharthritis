@@ -6,16 +6,15 @@ import { Button } from "@/components/ui/button";
 import { useNavigate, Link } from "react-router-dom";
 
 const faqs = [
-  { q: "Is this service free?", a: "Yes, all our resources including virtual physiotherapy consultations, nutrition guides, and exercise plans are completely free for UK residents." },
-  { q: "Do I need a GP referral?", a: "No referral is needed. You can access our resources directly, though we always encourage working alongside your GP or specialist." },
-  { q: "What types of arthritis do you cover?", a: "We provide resources for over 100 types of arthritis, with a focus on osteoarthritis and rheumatoid arthritis — the most common forms affecting UK adults." },
-  { q: "How does the virtual physiotherapy work?", a: "Book a free consultation through our platform. You'll connect with a registered physiotherapist via video call who'll create a personalised exercise plan." },
-  { q: "Can diet really help with arthritis?", a: "Research shows an anti-inflammatory diet, particularly the Mediterranean diet, can reduce pain, stiffness, and inflammation associated with arthritis." },
-  { q: "Is the AI assistant a replacement for medical advice?", a: "No. Our AI assistant provides general information and guidance based on published research. Always consult your healthcare professional for personalised medical advice." },
-  { q: "What are the early signs of osteoarthritis?", a: "Early signs include joint pain during or after movement, morning stiffness lasting under 30 minutes, tenderness, loss of flexibility, and a grating sensation. Knees, hips and hands are most commonly affected in the UK." },
-  { q: "Can I claim PIP for arthritis in the UK?", a: "If arthritis has a substantial, long-term effect on your daily activities, you may be eligible for Personal Independence Payment (PIP). Contact Citizens Advice or the DWP for guidance on applying." },
-  { q: "What age does arthritis usually start?", a: "Osteoarthritis is most common after age 50, but rheumatoid arthritis often begins between 30 and 50. Younger people can develop arthritis after injuries or due to autoimmune conditions." },
-  { q: "Does turmeric help with joint pain?", a: "Research suggests curcumin (the active compound in turmeric) has anti-inflammatory properties. A systematic review supports around 1,000 mg/day of curcumin extract for arthritis symptom relief. Use with piperine for better absorption." },
+  { q: "Is everything really free?", a: "Yes — every guide, exercise video, and bit of help we share is free for you, always. Kind donors and volunteers keep it that way." },
+  { q: "Do I need a GP referral to use this?", a: "Not at all. You can start whenever you feel ready. We&apos;d always gently encourage you to keep your GP or specialist in the loop too." },
+  { q: "What types of arthritis can you help with?", a: "We cover osteoarthritis, rheumatoid arthritis, and more than a hundred other forms — focusing on the everyday questions people in the UK ask us most." },
+  { q: "Can diet really make a difference?", a: "It can. Many people find that gentle, anti-inflammatory eating — the Mediterranean way — helps ease stiffness and pain over time. Small changes, kept up, add up." },
+  { q: "Is your AI assistant the same as seeing a doctor?", a: "No, and we&apos;d never pretend it is. It can answer general questions based on trusted research, but please keep speaking to your GP or specialist for anything personal." },
+  { q: "What are the first signs of osteoarthritis?", a: "Usually a dull ache during or after moving, stiffness in the morning that eases within half an hour, swelling, or a feeling of grating. Knees, hips and hands are most often the first to complain." },
+  { q: "Can I claim PIP for arthritis in the UK?", a: "If arthritis is making daily life a real struggle, you may qualify for Personal Independence Payment (PIP). Citizens Advice or the DWP can walk you through the application kindly and free." },
+  { q: "At what age does arthritis usually start?", a: "Osteoarthritis often shows up after 50, but rheumatoid arthritis can begin much younger — often between 30 and 50. Younger people can be affected too, especially after a joint injury." },
+  { q: "Does turmeric actually help with joint pain?", a: "There&apos;s good evidence that curcumin (the active part of turmeric) can ease pain for many people. Around 1,000 mg a day, taken with a little black pepper for absorption, is a common starting point. Always check with your GP if you take other medicines." },
 ];
 
 const FAQSection = memo(() => {
@@ -39,9 +38,9 @@ const FAQSection = memo(() => {
   <section className="py-24 lg:py-32 bg-warm">
     <div className="container mx-auto px-6 md:px-12 lg:px-16 max-w-3xl">
       <div className="text-center mb-20">
-        <span className="section-label text-primary/60 mb-5 block">Common Questions</span>
+        <span className="section-label text-primary/60 mb-5 block">Things people often ask us</span>
         <h2 className="text-3xl sm:text-4xl md:text-[3.5rem] font-display font-bold text-foreground mb-6 tracking-tight leading-[1.06]">
-          Frequently <span className="text-primary italic">asked</span>
+          Questions you may be <span className="text-primary italic">wondering about</span>
         </h2>
       </div>
 
@@ -56,7 +55,7 @@ const FAQSection = memo(() => {
 
       <div className="mt-20 text-center space-y-5">
         <p className="text-sm text-muted-foreground tracking-wide">
-          Still have questions? Our AI assistant can help.
+          Still wondering about something? Our AI helper is here whenever you need a kind, quick answer.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Button
@@ -64,11 +63,11 @@ const FAQSection = memo(() => {
             className="rounded-full h-[54px] px-10 btn-primary-cta text-sm font-bold tracking-wider"
           >
             <MessageCircle className="w-4 h-4 me-2" />
-            Ask Our AI Assistant
+            Ask our AI helper
           </Button>
           <Link to="/blog">
             <Button variant="outline" className="rounded-full h-[54px] px-10 text-sm font-bold tracking-wider border-2 border-primary/15 text-primary hover:bg-primary/[0.03]">
-              Browse Articles <ArrowRight className="w-4 h-4 ms-2 rtl:rotate-180" />
+              Read our gentle guides <ArrowRight className="w-4 h-4 ms-2 rtl:rotate-180" />
             </Button>
           </Link>
         </div>

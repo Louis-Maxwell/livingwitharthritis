@@ -6,40 +6,40 @@ const PILLARS = [
   {
     n: "01",
     icon: Salad,
-    title: "Eat",
-    sub: "Anti-inflammatory plate",
+    title: "Eat well",
+    sub: "Food that quietly soothes",
     body:
-      "A Mediterranean pattern — oily fish, leafy greens, olive oil, legumes, berries — lowers systemic inflammation and eases OA pain.",
+      "Small, kind changes on your plate — oily fish, leafy greens, olive oil, beans, berries — can ease inflammation and help your joints feel a little lighter.",
     href: "/diet/mediterranean-diet-for-arthritis",
-    cta: "Read the diet plan",
+    cta: "See our gentle diet guide",
   },
   {
     n: "02",
     icon: Activity,
-    title: "Move",
-    sub: "Low-impact, every day",
+    title: "Move gently",
+    sub: "At your own pace",
     body:
-      "Walking, cycling, swimming, tai chi and targeted strength work protect cartilage, build the muscles that support joints, and reduce pain.",
+      "Short walks, a swim, seated tai chi, or a few minutes of stretching. Movement is medicine — and it doesn&apos;t have to hurt to help.",
     href: "/exercise-hub",
-    cta: "See the movement library",
+    cta: "Try a gentle exercise",
   },
   {
     n: "03",
     icon: Flame,
-    title: "Calm",
-    sub: "Lower the inflammation",
+    title: "Ease the pain",
+    sub: "Calmer days, kinder nights",
     body:
-      "Weight management, sleep, stress reduction, omega-3s, turmeric and ginger — the evidence-based stack for chronic joint inflammation.",
+      "Practical, evidence-based ways to settle a flare — warmth, rest, sleep, weight relief, and natural helpers like omega-3, turmeric and ginger.",
     href: "/conditions/osteoarthritis",
-    cta: "Open the OA hub",
+    cta: "Read pain-relief tips",
   },
   {
     n: "04",
     icon: Brain,
-    title: "Cope",
+    title: "Be kind to yourself",
     sub: "Mind, mood, momentum",
     body:
-      "Living with chronic pain is a daily practice. Our self-help tool gives you a structured plan you can run at your own pace.",
+      "Living with arthritis is hard work. Our free self-help tool walks beside you, one small step at a time — no pressure, no judgement.",
     href: "/self-help-tool",
     cta: "Open the self-help tool",
   },
@@ -51,19 +51,19 @@ const OAPlanPillarsSection = memo(() => {
       aria-labelledby="oa-plan"
       className="relative py-24 lg:py-32 bg-background"
     >
-      <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl bg-[#ff0000]">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl">
         <div className="max-w-3xl mb-16">
-          <p className="section-label text-primary/60 mb-5">The Open-Source Plan</p>
+          <p className="section-label text-primary/60 mb-5">A gentle plan, made with you in mind</p>
           <h2
             id="oa-plan"
             className="font-display text-3xl sm:text-4xl md:text-[3.25rem] font-bold tracking-tight leading-[1.06] text-foreground"
           >
-            Four pillars. <span className="text-gradient italic">One plan.</span>{" "}
-            Freely available to every person living with osteoarthritis.
+            Four small steps. <span className="text-primary italic">One kind plan.</span>{" "}
+            Free for everyone living with arthritis.
           </h2>
           <p className="mt-5 text-muted-foreground text-base sm:text-lg leading-relaxed max-w-2xl">
-            Built from peer-reviewed research and clinical guidance — published openly,
-            updated continuously, owned by no one.
+            Built from trusted research and clinical guidance — written in plain English,
+            updated as we learn more, and shared freely with you.
           </p>
         </div>
 
