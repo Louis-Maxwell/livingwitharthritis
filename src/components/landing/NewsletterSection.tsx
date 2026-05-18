@@ -47,10 +47,10 @@ const NewsletterSection = memo(() => {
             <Mail className="w-7 h-7 text-primary/80" />
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-[3.5rem] font-display font-bold text-foreground mb-6 tracking-tight leading-[1.06]">
-            Stay <span className="text-primary italic">informed</span>
+            A kind letter, <span className="text-primary italic">once a week</span>
           </h2>
           <p className="text-muted-foreground mb-14 max-w-md mx-auto leading-relaxed text-base sm:text-lg">
-            Get weekly tips on managing arthritis, new research updates, and community stories — straight to your inbox.
+            Gentle tips for living with arthritis, real stories from our community, and small things that help — sent straight to your inbox, never more than once a week.
           </p>
 
           {isSubscribed ? (
