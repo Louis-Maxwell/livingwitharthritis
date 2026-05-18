@@ -56,7 +56,7 @@ const OAProblemBand = memo(() => {
               key={big}
               className="bg-card border border-border/50 rounded-2xl p-8 lg:p-10 hover:border-primary/30 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
             >
-              <Icon className="w-5 h-5 text-primary/70 mb-8" aria-hidden="true" />
+              
               <p className="font-display text-5xl sm:text-6xl font-bold tracking-tight text-foreground leading-none mb-4">
                 {big}
               </p>
