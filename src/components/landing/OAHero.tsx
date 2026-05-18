@@ -17,6 +17,8 @@ const OAHero = memo(() => {
       <img
         src={heroPortrait}
         alt="An older couple stretching together at home, smiling — living well with osteoarthritis."
+        width={1600}
+        height={1000}
         fetchPriority="high"
         decoding="async"
         loading="eager"
