@@ -24,11 +24,19 @@ paths = [
 ]
 
 # Regex allowlist for safe-to-commit publishable keys.
+# These patterns are also recognised by GitHub Push Protection as
+# non-secret, so the two layers agree and don't produce conflicting
+# verdicts on the same line.
+#
 # Supabase anon / publishable JWTs are PUBLIC by design and gated by RLS.
+# Stripe `pk_*` keys are publishable by design.
+# Google Analytics measurement IDs are public by design.
 regexes = [
   '''eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9\.[A-Za-z0-9_\-]+\.[A-Za-z0-9_\-]+''',
   '''pk_(live|test)_[A-Za-z0-9]+''',
+  '''G-[A-Z0-9]{8,}''',
 ]
 
 # Specific commits or stop-words can be added here if false positives appear:
 # stopwords = ["example", "dummy"]
+

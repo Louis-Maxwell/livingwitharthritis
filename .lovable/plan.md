@@ -1,29 +1,38 @@
-Set up a pre-push lint gate that runs `supabase db lint` before code reaches the remote.
+GitHub Push Protection is a **GitHub-side setting**, not something configured in the codebase. It must be enabled through GitHub's UI or API on the repository itself.
 
-### What will be created
+### What needs to happen
 
-**1. lefthook.yml (local pre-push hook)**
-- Adds lefthook configuration with a `pre-push` command that runs `supabase db lint`
-- When the user clones the repo locally (after GitHub connect), running `bunx lefthook install` registers the hook in their local `.git/hooks`
-- Fails the push if the linter reports migration or policy issues
+**1. Connect the project to GitHub (if not done yet)**
+- Plus menu → GitHub → Connect project
 
-**2. .github/workflows/supabase-db-lint.yml (CI gate)**
-- Runs on every PR and push to `main`
-- Installs the Supabase CLI via `supabase/setup-cli`
-- Links to the project using `SUPABASE_ACCESS_TOKEN` (stored as a GitHub secret)
-- Runs `supabase db lint` and fails the check on any finding
-- Uploads the lint report as an artifact for review
+**2. Enable Secret Scanning + Push Protection in GitHub**
 
-### Why both?
+For **public repos**: both are free and on by default — verify they're enabled.
 
-| Layer | When it runs | Best for |
-|-------|-------------|----------|
-| lefthook | Local `git push` from cloned repo | Fast feedback for developers working locally |
-| GitHub Actions | Every PR / push | Catches issues from Lovable edits or web-based commits where local hooks aren't active |
+For **private repos**: requires GitHub Advanced Security (paid for orgs) OR GitHub Free for personal accounts (free as of 2024).
 
-### Setup needed after implementation
+Steps in GitHub:
+1. Go to the repo → **Settings → Code security**
+2. Under **Secret scanning**, click **Enable**
+3. Under **Push protection**, click **Enable**
+4. Optionally enable **Push protection for users** at the org level so it applies to all repos
 
-1. Connect the project to GitHub (Plus menu → GitHub → Connect) so the workflow is active
-2. Add a `SUPABASE_ACCESS_TOKEN` secret in the GitHub repo settings for the Actions workflow to authenticate with the project
+Once enabled, any `git push` containing a recognised secret pattern (AWS keys, Stripe keys, Supabase service-role keys, OpenAI tokens, etc.) is **blocked at the GitHub server** before the commit is accepted — no local hook needed.
 
-No database changes are required. No frontend changes are required.
+### What I'll add to the repo to complement it
+
+To make push protection more effective and document the policy, I'll add:
+
+**`.github/SECURITY.md`** — security policy referenced by GitHub's UI, explaining how to report leaked credentials and what the project's secret-handling rules are.
+
+**Update `.gitleaks.toml`** — already exists from the previous step. I'll align its allowlist with the GitHub push-protection patterns so the local Gitleaks workflow and GitHub push protection agree on what is/isn't a secret (no false-positive conflicts on Supabase publishable keys, Stripe `pk_*` keys, etc.).
+
+### What this plan does NOT do
+
+- It does **not** flip the GitHub setting itself — only a repo admin clicking in GitHub can do that. I'll give you a direct link in chat after the files are added.
+- It does **not** replace the Gitleaks workflow — push protection runs server-side on accepted patterns; Gitleaks runs in CI on the full diff and catches custom patterns. Both are complementary.
+
+### Files to create / edit
+
+- `.github/SECURITY.md` (new)
+- `.gitleaks.toml` (small alignment edit)
