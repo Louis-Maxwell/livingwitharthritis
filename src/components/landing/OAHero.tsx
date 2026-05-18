@@ -108,35 +108,6 @@ const OAHero = memo(() => {
         </div>
       </div>
 
-      {/* Floating stats card (desktop only) */}
-      <aside className="hidden xl:block absolute right-10 top-1/2 -translate-y-1/2 z-10">
-        <div className="bg-background/90 backdrop-blur-xl rounded-3xl shadow-2xl border border-border/60 w-56 p-2">
-          <div className="rounded-2xl bg-background p-6">
-            <p className="font-display text-4xl font-bold text-primary tracking-tight leading-none">
-              8.75M
-            </p>
-            <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-[0.18em] mt-2">
-              neighbours in the UK with arthritis
-            </p>
-          </div>
-          <div className="p-6 border-t border-border/40">
-            <p className="font-display text-3xl font-bold text-foreground tracking-tight leading-none">
-              Free
-            </p>
-            <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-[0.18em] mt-2">
-              for everyone, always
-            </p>
-          </div>
-          <div className="p-6 border-t border-border/40">
-            <p className="font-display text-3xl font-bold text-foreground tracking-tight leading-none">
-              Kind
-            </p>
-            <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-[0.18em] mt-2">
-              plain English, no jargon
-            </p>
-          </div>
-        </div>
-      </aside>
     </section>
   );
 });
