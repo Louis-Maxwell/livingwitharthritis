@@ -1,60 +1,53 @@
 ## Goal
 
-Replace the current split hero with a **full-bleed cinematic hero** where the elderly couple portrait fills the entire viewport (~85vh, ~80% of the landing screen on load), with copy overlaid via a white-to-transparent gradient. Keep the rest of the landing page sections unchanged in structure — only the hero changes.
+Two coordinated changes to the homepage:
 
-## Scope
+1. **Empathetic copy rewrite** across the landing sections — warmer, more human, written for people living with arthritis (not corporate/institutional).
+2. **Strict red + white palette** — remove the remaining black-dominant sections and stray hex colors so the only colors on the page are red, white, and minimal black for body text.
 
-- **Only `src/components/landing/OAHero.tsx`** is rewritten.
-- All other landing sections (FacesStrip, mission, conditions, etc.) untouched.
-- Brand tone locked: crimson `#DC143C`, Playfair Display headline (italic accent on "management"), Inter body, HCPC/CSP/NICE trust row, 8.75M / £0 / 100% stat trio, eyebrow "Open-Source Osteoarthritis Plan · v2026.1".
-- Image asset locked: existing `src/assets/hero-oa-portrait.jpg` (already imported).
+---
 
-## New hero structure
+## 1. Copy rewrite (empathetic voice)
 
-```text
-┌────────────────────────────────────────────────────┐
-│  [ Full-bleed portrait — object-cover, 85vh ]      │
-│  ╲ white→transparent gradient (left→right)         │
-│                                                    │
-│   ● Open-Source Osteoarthritis Plan · v2026.1      │
-│                                                    │
-│   We're open-sourcing the                          │
-│   *management plan* for osteoarthritis.            │
-│                                                    │
-│   [ Fund the Mission ]  [ Read the Open Plan → ]   │
-│                                                    │
-│   ── Standards & Validation ──────                 │
-│   HCPC   CSP   NICE                                │
-│                                                    │
-│                            ┌──────────────┐        │
-│                            │ 8.75M  OA UK │        │
-│                            │ £0  for all  │        │
-│                            │ 100% open    │        │
-│                            └──────────────┘        │
-└────────────────────────────────────────────────────┘
-```
+Rewrite the wording in these landing components only (no logic, no layout changes):
 
-## Implementation notes (technical)
+- `OAHero.tsx` — softer headline, eyebrow, subhead, CTAs. Less "institutional", more "we know what you're going through".
+- `OAProblemBand.tsx` — reframe stats as lived experience ("8.75 million people in the UK wake up with stiff, painful joints"), not just data.
+- `OAPlanPillarsSection.tsx` — describe each pillar (diet, movement, pain relief, mindset) in plain, kind language.
+- `MissionStatementBand.tsx` — speak directly to the reader ("You are not alone…").
+- `DonationImpactSection.tsx` — frame donations as helping a neighbour, not funding an institution.
+- `OpenSourceEthosBand.tsx` — explain "free, open, for everyone" warmly.
+- `FAQSection.tsx` — keep questions, soften answers.
+- `NewsletterSection.tsx` — gentle invitation, not a hard sell.
 
-1. **Container**: `<section>` with `relative h-[85vh] min-h-[640px] w-full overflow-hidden`.
-2. **Image layer**: `<img src={heroPortrait}>` absolute-positioned `inset-0 w-full h-full object-cover` with `object-position: center 30%` so couple's faces stay framed. `loading="eager"`, `fetchPriority="high"`.
-3. **Gradient scrim**: absolute overlay `bg-gradient-to-r from-background via-background/70 to-transparent` (uses semantic token, not hardcoded white) so headline stays legible on left half.
-4. **Content layer**: `relative z-10` container with `max-w-7xl mx-auto px-6 lg:px-16`, content aligned bottom-left on mobile, vertical-center on lg.
-5. **Eyebrow**: keep existing pill with crimson dot + pulse animation.
-6. **Headline**: `font-display` (Playfair) at `text-5xl lg:text-7xl xl:text-8xl`, italic crimson "management plan".
-7. **CTAs**: unchanged routing — `/donate` and `/conditions/osteoarthritis`. Keep existing `btn-primary-cta` class for crimson button; outline button uses semantic tokens.
-8. **Trust row**: thin top border, "Standards & Validation" eyebrow, HCPC/CSP/NICE text marks.
-9. **Floating stats card**: absolute `right-8 top-1/2 -translate-y-1/2`, `hidden xl:block`, white/90 backdrop-blur, three stacked cells. Below xl, stats render inline under trust row.
-10. **Semantic tokens only** — no raw `bg-white`/`text-white`. Use `bg-background`, `text-foreground`, `text-primary` (crimson is already mapped to `--primary` in index.css). Inline hex `#DC143C` from prototype gets translated to `text-primary` / `bg-primary`.
-11. **Accessibility**: keep `aria-labelledby="oa-hero"`, descriptive alt text, 44px+ tap targets on CTAs.
-12. **Responsive**: mobile stacks content at bottom over gradient; tablet keeps single-column overlay; desktop reveals floating stats card.
+Voice guardrails:
+- UK English, plain language, second person ("you", "your joints").
+- Acknowledge pain, fatigue, frustration honestly.
+- No fabricated stats — keep existing 8.75M / 1-in-6 / £10bn figures.
+- Keep "for everyone" phrasing (per memory) — never "zero cost".
+- Keep medical neutrality and the open-source plan framing.
+
+## 2. Palette cleanup (red + white only)
+
+The design tokens already enforce red/black/white via `tailwind.config.ts` and `index.css`, but several landing components have **hardcoded hex colors** and **black-dominant backgrounds** that break the red+white feel. Fix:
+
+- `DonationImpactSection.tsx` — remove `bg-[#ff0505]` (use `bg-primary`).
+- `OpenSourceEthosBand.tsx` — remove `bg-foreground text-background` (black band) and `bg-[#f90606]` / `bg-[#ff0000]`. Convert to white background with red accents, or solid `bg-primary` with white text.
+- `OAPlanPillarsSection.tsx` — remove `bg-[#ff0000]` on inner container; keep white card surfaces with red accents.
+- `OAProblemBand.tsx` — remove `bg-[#ff0000]` on inner container.
+- `GeometricCubeSection.tsx` and `ParticleNetworkSection.tsx` — these are not currently mounted on the homepage (Index.tsx doesn't import them), so **leave them** unless the user later adds them back.
+
+Replace all inline hex with semantic tokens (`bg-primary`, `text-primary`, `bg-background`, `text-foreground`, `border-primary/20`). No raw `bg-white` / `text-black` — use `bg-background` / `text-foreground`.
+
+Result: page reads as white surfaces with red as the only accent. Black survives only as body text (per the existing `--foreground: 0 0% 0%` token), which is needed for readability.
 
 ## Out of scope
 
-- No changes to FacesStrip, navbar, footer, or any section below the hero.
-- No new image generation — reuse `src/assets/hero-oa-portrait.jpg`.
-- No route, data, or business-logic changes.
+- Header, Footer, FacesStrip, QuoteSection, BlogPreview — copy untouched unless they contain non-red hex.
+- No route changes, no new sections, no image regeneration.
+- No design-token edits — the system already enforces red/black/white.
+- Dark mode untouched.
 
 ## Verification
 
-After build: load `/`, screenshot the viewport, confirm portrait fills ~85% of fold, headline legible over gradient, CTAs clickable, stats card visible on desktop.
+After edits: load `/`, scroll the page, confirm (a) every coloured band is red or white, (b) no purple/blue/green/gold remains, (c) copy reads warmly and addresses the reader directly.
