@@ -83,8 +83,8 @@ export default function ResourceDirectory() {
   return (
     <>
       <Helmet>
-        <title>UK Arthritis Resource Directory – the health service, Charities, Benefits | Living With Arthritis</title>
-        <meta name="description" content="Comprehensive directory of UK arthritis resources: health services, charities, benefits, equipment, and research. Curated by healthcare professionals for patients and carers." />
+        <title>UK Arthritis Resource Directory | Living With Arthritis</title>
+        <meta name="description" content="A curated UK directory of arthritis help: NHS services, charities, benefits, equipment and research — all in one place, free to use." />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/resources-directory" />
       <meta property="og:title" content="UK Arthritis Resource Directory – the health service, Charities, Benefits | Living With Arthritis" />
       <meta property="og:description" content="Comprehensive directory of UK arthritis resources: health services, charities, benefits, equipment, and research. Curated by healthcare professionals for patients and carers." />
