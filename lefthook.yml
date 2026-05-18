@@ -1,0 +1,22 @@
+# Lefthook configuration — local git hooks
+#
+# Setup (one-time, after cloning the repo locally):
+#   bun add -d lefthook
+#   bunx lefthook install
+#
+# This registers the hooks below in .git/hooks. From then on, every
+# `git push` will run `supabase db lint` and abort the push if the
+# linter reports any migration or RLS policy issues.
+#
+# Requires the Supabase CLI to be installed locally:
+#   https://supabase.com/docs/guides/cli
+
+pre-push:
+  parallel: true
+  commands:
+    supabase-db-lint:
+      run: supabase db lint --level warning
+      fail_text: |
+        ✖ supabase db lint reported issues.
+        Fix the migration/policy warnings above before pushing,
+        or run `git push --no-verify` to bypass (not recommended).
