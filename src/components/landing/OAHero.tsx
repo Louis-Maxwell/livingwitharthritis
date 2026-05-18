@@ -75,23 +75,6 @@ const OAHero = memo(() => {
               Help us keep it free
             </Button>
           </div>
-
-          {/* Trust row */}
-          <div className="hero-item mt-12 border-t border-border/50 pt-6">
-            <p className="text-[10px] font-bold tracking-[0.24em] uppercase text-muted-foreground mb-3">
-              Reviewed against trusted UK standards
-            </p>
-            <div className="flex items-center gap-8">
-              {["HCPC", "CSP", "NICE"].map((mark) => (
-                <span
-                  key={mark}
-                  className="text-xs font-black tracking-tight text-foreground/80"
-                >
-                  {mark}
-                </span>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
 
