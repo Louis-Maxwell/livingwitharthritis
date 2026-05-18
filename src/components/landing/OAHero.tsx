@@ -40,19 +40,6 @@ const OAHero = memo(() => {
       {/* Content layer */}
       <div className="relative z-10 h-full container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl flex items-end lg:items-center pb-12 lg:pb-0 pt-24">
         <div className="max-w-2xl hero-stagger">
-          {/* Eyebrow */}
-          <div className="hero-item mb-8">
-            <span className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-background/90 backdrop-blur-sm border border-primary/20 shadow-sm">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
-              </span>
-              <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.24em] uppercase text-primary">
-                You are not alone · A gentle plan for living well
-              </span>
-            </span>
-          </div>
-
           {/* Headline */}
           <h1
             id="oa-hero"
