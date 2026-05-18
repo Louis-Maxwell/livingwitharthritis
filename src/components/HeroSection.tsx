@@ -156,7 +156,7 @@ const HeroSection = memo(() => {
                   return (
                     <div
                       key={badge.label}
-                      className="flex items-center gap-1.5 text-muted-foreground/60 hover:text-primary/80 transition-colors duration-300 cursor-default"
+                      className="flex items-center gap-1.5 text-muted-foreground hover:text-primary/80 transition-colors duration-300 cursor-default"
                     >
                       <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5" aria-hidden="true" />
                       <span className="text-[9px] sm:text-[10px] font-bold tracking-[0.18em] uppercase">

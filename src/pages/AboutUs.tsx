@@ -194,7 +194,7 @@ const AboutUs = () => {
                         <p className="text-xs text-primary font-medium">{member.role}</p>
                       </div>
                     </div>
-                    <p className="text-[10px] font-bold text-muted-foreground/60 tracking-[0.15em] uppercase mb-3">{member.credentials}</p>
+                    <p className="text-[10px] font-bold text-muted-foreground tracking-[0.15em] uppercase mb-3">{member.credentials}</p>
                     <p className="text-sm text-muted-foreground leading-relaxed">{member.bio}</p>
                   </div>
                 </motion.div>

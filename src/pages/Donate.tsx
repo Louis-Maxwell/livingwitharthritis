@@ -281,7 +281,7 @@ export default function Donate() {
               </div>
             ))}
           </div>
-          <p className="text-[10px] text-muted-foreground/60 text-center mt-4">Impact estimates based on average programme costs, 2024–2025.</p>
+          <p className="text-[10px] text-muted-foreground text-center mt-4">Impact estimates based on average programme costs, 2024–2025.</p>
         </section>
 
         {/* Ways to Give */}

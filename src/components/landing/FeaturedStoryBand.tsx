@@ -83,7 +83,7 @@ const FeaturedStoryBand = memo(() => {
             <span className="w-8 h-px bg-primary" aria-hidden="true" />
             One story, this week
           </p>
-          <p className="hidden sm:block text-[10px] font-semibold tracking-[0.24em] uppercase text-muted-foreground/60">
+          <p className="hidden sm:block text-[10px] font-semibold tracking-[0.24em] uppercase text-muted-foreground">
             Issue No. 04
           </p>
         </div>

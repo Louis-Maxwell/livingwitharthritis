@@ -76,7 +76,7 @@ const Credits = () => {
           {grouped.map((group) => (
             <section key={group.theme} className="mb-12">
               <h2 className="text-xl font-bold text-foreground mb-1">{group.label}</h2>
-              <p className="text-xs uppercase tracking-widest text-muted-foreground/60 mb-5">
+              <p className="text-xs uppercase tracking-widest text-muted-foreground mb-5">
                 {group.items.length} images
               </p>
               <ol className="space-y-4">
