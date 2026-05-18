@@ -41,9 +41,6 @@ const FacesStrip = memo(() => {
     >
       <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl">
         <div className="max-w-3xl mb-14">
-          <p className="text-[10px] font-bold tracking-[0.28em] uppercase text-primary mb-4">
-            Real People · Real Routines
-          </p>
           <h2
             id="faces-strip-heading"
             className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-[-0.02em] leading-[1.05] text-foreground"
