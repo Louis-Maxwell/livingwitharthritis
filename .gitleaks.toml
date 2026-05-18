@@ -1,0 +1,34 @@
+# Gitleaks configuration for Living with Arthritis
+# Extends the default rule set and adds project-specific allowlists.
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Global allowlist for known-safe values and generated files"
+
+# Files / paths that are auto-generated or contain only public keys
+paths = [
+  '''(^|/)bun\.lockb$''',
+  '''(^|/)package-lock\.json$''',
+  '''(^|/)yarn\.lock$''',
+  '''(^|/)pnpm-lock\.yaml$''',
+  '''(^|/)dist/''',
+  '''(^|/)build/''',
+  '''(^|/)node_modules/''',
+  '''(^|/)\.lovable/''',
+  '''(^|/)src/integrations/supabase/client\.ts$''',
+  '''(^|/)src/integrations/supabase/types\.ts$''',
+  '''(^|/)\.env$''',
+  '''(^|/)\.env\.local$''',
+]
+
+# Regex allowlist for safe-to-commit publishable keys.
+# Supabase anon / publishable JWTs are PUBLIC by design and gated by RLS.
+regexes = [
+  '''eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9\.[A-Za-z0-9_\-]+\.[A-Za-z0-9_\-]+''',
+  '''pk_(live|test)_[A-Za-z0-9]+''',
+]
+
+# Specific commits or stop-words can be added here if false positives appear:
+# stopwords = ["example", "dummy"]
