@@ -112,26 +112,10 @@
     <link rel="dns-prefetch" href="https://zrvcejlncpndjfyuvcrd.supabase.co" />
     <link rel="dns-prefetch" href="https://images.unsplash.com" />
 
-    <!-- LCP hero image preload (mobile + desktop variants, picked via media query) -->
-    <link
-      rel="preload"
-      as="image"
-      type="image/webp"
-      href="/images/hero-walking-group-800.webp"
-      imagesrcset="/images/hero-walking-group-800.webp 800w"
-      fetchpriority="high"
-      media="(max-width: 1023px)"
-    />
-    <link
-      rel="preload"
-      as="image"
-      type="image/webp"
-      href="/images/hero-walking-group-1200.webp"
-      imagesrcset="/images/hero-walking-group-800.webp 800w, /images/hero-walking-group-1200.webp 1200w, /images/hero-walking-group-1600.webp 1600w"
-      imagesizes="(min-width: 1280px) 520px, 42vw"
-      fetchpriority="high"
-      media="(min-width: 1024px)"
-    />
+    <!-- LCP hero image is bundled via Vite (hashed filename); the <img> tag in
+         OAHero uses fetchpriority="high" + loading="eager" to prioritise it.
+         No static preload link here — the previous hero-walking-group preload
+         pointed at a stale asset that wasn't actually on the page. -->
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
