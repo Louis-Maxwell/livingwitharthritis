@@ -360,7 +360,7 @@ const CommunityHub = () => {
                       <h3 className="font-semibold text-foreground text-sm mb-1">{r.title}</h3>
                       <p className="text-xs text-muted-foreground mb-3 flex-1">{r.desc}</p>
                       <div className="flex items-center justify-between mt-auto">
-                        <span className="text-xs text-muted-foreground/60">{r.pages} · PDF</span>
+                        <span className="text-xs text-muted-foreground">{r.pages} · PDF</span>
                         <Button
                           size="sm"
                           variant="outline"

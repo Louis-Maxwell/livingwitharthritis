@@ -306,7 +306,7 @@ export default function ArthritisStarterGuide() {
                     <span className="inline-flex w-11 h-11 rounded-xl bg-primary/[0.07] text-primary items-center justify-center">
                       <p.icon className="w-5 h-5" />
                     </span>
-                    <span className="text-[10px] font-mono font-bold tracking-wider text-muted-foreground/60">
+                    <span className="text-[10px] font-mono font-bold tracking-wider text-muted-foreground">
                       PAGE {p.page}
                     </span>
                   </div>

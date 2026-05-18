@@ -101,7 +101,7 @@ const MythCard = memo(({ item, index }: { item: PhysioMyth; index: number }) => 
           {/* Source citation */}
           <div className="flex items-center gap-2 pt-2 border-t border-border/20">
             <ShieldCheck className="w-3.5 h-3.5 text-primary/60 flex-shrink-0" />
-            <p className="text-[11px] text-muted-foreground/60 italic">
+            <p className="text-[11px] text-muted-foreground italic">
               Source: {sourceLabels[index % sourceLabels.length]}
             </p>
           </div>
@@ -155,7 +155,7 @@ const VirtualPhysioSection = memo(() => {
           </p>
 
           {/* Trust badges */}
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground/60">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground">
             <span className="flex items-center gap-1.5">
               <ShieldCheck className="w-3.5 h-3.5 text-primary/50" />
               HCPC Registered

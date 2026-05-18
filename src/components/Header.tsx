@@ -401,7 +401,7 @@ const Header = () => {
                                 </div>
                                 <div className="flex-1 min-w-0">
                                   <span className="block text-[13px] font-semibold text-foreground group-hover/item:text-primary transition-colors">{sub.label}</span>
-                                  <span className="block text-[11px] text-muted-foreground/60 leading-snug">{sub.desc}</span>
+                                  <span className="block text-[11px] text-muted-foreground leading-snug">{sub.desc}</span>
                                 </div>
                                 <ArrowRight className="w-3.5 h-3.5 text-muted-foreground/20 group-hover/item:text-primary/50 opacity-0 group-hover/item:opacity-100 transition-all duration-150 group-hover/item:translate-x-0.5 rtl:rotate-180 rtl:group-hover/item:-translate-x-0.5" />
                               </button>

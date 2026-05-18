@@ -145,7 +145,7 @@ const ResourceLibraryDrawer = memo(({ open, onOpenChange }: ResourceLibraryDrawe
           </p>
           {/* Search */}
           <div className="relative mt-3">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/50" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <Input
               placeholder="Search resources..."
               value={searchQuery}
@@ -173,7 +173,7 @@ const ResourceLibraryDrawer = memo(({ open, onOpenChange }: ResourceLibraryDrawe
                     <span className="text-sm font-semibold text-foreground">{cat.category}</span>
                     <span className="text-[10px] text-muted-foreground ml-2">({cat.items.length})</span>
                   </div>
-                  <ChevronDown className={`w-4 h-4 text-muted-foreground/50 transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`} />
+                  <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`} />
                 </button>
 
                 {/* Expanded items */}

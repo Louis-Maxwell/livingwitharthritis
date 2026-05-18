@@ -89,7 +89,7 @@ const EditorialIndex = memo(() => {
               </span>
             </h2>
           </div>
-          <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-muted-foreground/60">
+          <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-muted-foreground">
             Curated · Volume I
           </p>
         </div>

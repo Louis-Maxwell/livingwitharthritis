@@ -30,13 +30,13 @@ const AboutSection = memo(() => {
 
             {/* Transparency links */}
             <div className="flex flex-wrap gap-3">
-              <Link to="/about" className="feature-pill text-muted-foreground/60 hover:text-primary hover:border-primary/20">
+              <Link to="/about" className="feature-pill text-muted-foreground hover:text-primary hover:border-primary/20">
                 Our Story
               </Link>
-              <Link to="/finances" className="feature-pill text-muted-foreground/60 hover:text-primary hover:border-primary/20">
+              <Link to="/finances" className="feature-pill text-muted-foreground hover:text-primary hover:border-primary/20">
                 Our Finances
               </Link>
-              <Link to="/governance" className="feature-pill text-muted-foreground/60 hover:text-primary hover:border-primary/20">
+              <Link to="/governance" className="feature-pill text-muted-foreground hover:text-primary hover:border-primary/20">
                 Governance
               </Link>
             </div>

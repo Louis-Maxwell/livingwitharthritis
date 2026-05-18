@@ -68,7 +68,7 @@ export default function BlogHelpfulness({ slug }: Props) {
               {vote ? "Glad this helped! 💚" : "Thanks for the feedback — we'll improve this."}
             </p>
             {total > 0 && (
-              <p className="text-xs text-muted-foreground/60">
+              <p className="text-xs text-muted-foreground">
                 {counts.up} of {total} reader{total !== 1 ? "s" : ""} found this helpful
               </p>
             )}
