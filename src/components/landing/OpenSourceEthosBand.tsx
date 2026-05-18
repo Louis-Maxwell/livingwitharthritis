@@ -6,12 +6,12 @@ const COMMITS = [
   { hash: "last week", msg: "New seated tai chi videos for sore knees — gentle enough for any day", when: "last week" },
   { hash: "2 weeks ago", msg: "Rewrote our pain-relief guide so it reads like a friend, not a leaflet", when: "2 weeks ago" },
   { hash: "3 weeks ago", msg: "Expanded our help for living with painful hands", when: "3 weeks ago" },
-  { hash: "1 month ago", msg: "Refreshed our notes on turmeric and ginger — what helps, what doesn&apos;t", when: "1 month ago" },
+  { hash: "1 month ago", msg: "Refreshed our notes on turmeric and ginger — what helps, what doesn't", when: "1 month ago" },
 ] as const;
 
 const STATS = [
   { icon: FileText, label: "Caring articles, all free to read", value: "180+" },
-  { icon: Users, label: "People we&apos;ve helped so far", value: "10,000+" },
+  { icon: Users, label: "People we've helped so far", value: "10,000+" },
   { icon: GitCommit, label: "Updates made this quarter, with love", value: "47" },
 ] as const;
 
@@ -62,7 +62,7 @@ const OpenSourceEthosBand = memo(() => {
               <div className="flex items-center justify-between mb-6 pb-4 border-b border-primary-foreground/15">
                 <span className="flex items-center gap-2 text-xs font-medium text-primary-foreground/80">
                   <Github className="w-4 h-4" aria-hidden="true" />
-                  What we&apos;ve been working on
+                  What we've been working on
                 </span>
                 <span className="text-[10px] tracking-[0.2em] uppercase text-primary-foreground/60">
                   Live updates

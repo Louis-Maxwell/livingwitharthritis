@@ -19,7 +19,7 @@ const PILLARS = [
     title: "Move gently",
     sub: "At your own pace",
     body:
-      "Short walks, a swim, seated tai chi, or a few minutes of stretching. Movement is medicine — and it doesn&apos;t have to hurt to help.",
+      "Short walks, a swim, seated tai chi, or a few minutes of stretching. Movement is medicine — and it doesn't have to hurt to help.",
     href: "/exercise-hub",
     cta: "Try a gentle exercise",
   },

@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const IMPACT_DATA = [
   { amount: 10, label: "a week of gentle online exercise classes for someone in pain", icon: Dumbbell },
-  { amount: 25, label: "three guided physiotherapy sessions for a neighbour who can&apos;t afford private care", icon: Stethoscope },
+  { amount: 25, label: "three guided physiotherapy sessions for a neighbour who can't afford private care", icon: Stethoscope },
   { amount: 50, label: "a month of warm, peer-led community support", icon: Users },
   { amount: 100, label: "a full self-help programme for one family living with arthritis", icon: BookOpen },
 ];
