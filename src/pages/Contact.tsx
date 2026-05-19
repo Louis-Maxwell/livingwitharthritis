@@ -26,7 +26,44 @@ const Contact = () => (
       <meta name="twitter:title" content="Contact Living With Arthritis UK: Email, Phone & WhatsApp Support" />
       <meta name="twitter:description" content="Contact Living With Arthritis UK for free arthritis support — email, phone, WhatsApp or enquiry form. UK-based team, personal reply within 2 business days." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "Contact Living With Arthritis UK",
+        "url": "https://livingwitharthritis.org.uk/contact",
+        "inLanguage": "en-GB",
+        "isPartOf": { "@id": "https://livingwitharthritis.org.uk/#website" },
+        "about": {
+          "@type": "Organization",
+          "@id": "https://livingwitharthritis.org.uk/#organization",
+          "name": "Living With Arthritis UK",
+          "email": "info@livingwitharthritis.org.uk",
+          "telephone": "+44-7760-512-084",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "27 Old Gloucester Street",
+            "addressLocality": "London",
+            "postalCode": "WC1N 3AX",
+            "addressCountry": "GB"
+          },
+          "contactPoint": [{
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": "info@livingwitharthritis.org.uk",
+            "telephone": "+44-7760-512-084",
+            "availableLanguage": ["English", "en-GB"],
+            "areaServed": "GB",
+            "hoursAvailable": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+              "opens": "09:00",
+              "closes": "17:00"
+            }
+          }]
+        }
+      })}</script>
     </Helmet>
+
     <Header />
     <main id="main-content" role="main" tabIndex={-1}>
       <PageHero

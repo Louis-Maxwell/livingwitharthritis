@@ -23,7 +23,7 @@ const ArthritisSupportIndex = () => {
   return (
     <>
       <Helmet>
-        <title>Arthritis Support Across the UK — Find Local Health Services | Living With Arthritis</title>
+        <title>UK Arthritis Support Directory | Living With Arthritis</title>
         <meta name="description" content="Find arthritis support, rheumatology services, and local help in 50 UK cities. Comprehensive directory of the health service trusts, local resources, and community groups." />
         <link rel="canonical" href={`${BASE}/arthritis-support`} />
         <meta property="og:title" content="Arthritis Support Across the UK" />
