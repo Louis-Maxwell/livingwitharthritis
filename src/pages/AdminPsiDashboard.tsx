@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAdmin } from "@/hooks/useAdmin";
 import SeoHead from "@/components/SeoHead";
 import {
   LineChart,
@@ -61,10 +63,18 @@ function fmtMs(ms: number | null | undefined) {
 }
 
 export default function AdminPsiDashboard() {
+  const navigate = useNavigate();
+  const { isAdmin, isLoading: adminLoading } = useAdmin();
   const [latest, setLatest] = useState<Summary | null>(null);
   const [history, setHistory] = useState<HistoryEntry[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!adminLoading && !isAdmin) navigate("/auth");
+  }, [isAdmin, adminLoading, navigate]);
+
+  if (adminLoading || !isAdmin) return null;
 
   useEffect(() => {
     document.title = "PSI Performance Dashboard";

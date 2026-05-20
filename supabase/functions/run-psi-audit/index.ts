@@ -23,29 +23,31 @@ async function authorize(
     return { ok: false, status: 401, error: "Authentication required" };
   }
   const token = authHeader.slice(7);
-  // Decode JWT payload to check role (avoids extra round-trip for service_role).
-  try {
-    const parts = token.split(".");
-    if (parts.length === 3) {
-      const payload = JSON.parse(
-        atob(parts[1].replace(/-/g, "+").replace(/_/g, "/")),
-      );
-      if (payload.role === "service_role") return { ok: true };
-      const userId = payload.sub;
-      if (typeof userId === "string" && userId.length > 0) {
-        const adminClient = createClient(supabaseUrl, serviceKey);
-        const { data: roleRow } = await adminClient
-          .from("user_roles")
-          .select("role")
-          .eq("user_id", userId)
-          .eq("role", "admin")
-          .maybeSingle();
-        if (roleRow) return { ok: true };
-      }
-    }
-  } catch {
-    // fall through to forbidden
+
+  // Allow the service role key directly (used by scheduled cron). Compare to
+  // the configured key value rather than trusting an unsigned JWT payload.
+  if (token === serviceKey) return { ok: true };
+
+  // Otherwise, verify the JWT signature via Supabase and check the admin role.
+  const anonKey = Deno.env.get("SUPABASE_ANON_KEY") ?? "";
+  const authClient = createClient(supabaseUrl, anonKey, {
+    global: { headers: { Authorization: authHeader } },
+  });
+  const { data: claimsData, error: claimsError } = await authClient.auth.getClaims(token);
+  if (claimsError || !claimsData?.claims?.sub) {
+    return { ok: false, status: 401, error: "Invalid session" };
   }
+  const userId = claimsData.claims.sub as string;
+
+  const adminClient = createClient(supabaseUrl, serviceKey);
+  const { data: roleRow } = await adminClient
+    .from("user_roles")
+    .select("role")
+    .eq("user_id", userId)
+    .eq("role", "admin")
+    .maybeSingle();
+  if (roleRow) return { ok: true };
+
   return { ok: false, status: 403, error: "Admin access required" };
 }
 
