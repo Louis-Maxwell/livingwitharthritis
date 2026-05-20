@@ -99,6 +99,18 @@ serve(async (req) => {
 
       const msg = statusMessages[newStatus];
       const typeLabel = apt.appointment_type.charAt(0).toUpperCase() + apt.appointment_type.slice(1);
+      const esc = (s: string) =>
+        String(s ?? "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      const safeName = esc(apt.name);
+      const safeType = esc(typeLabel);
+      const safeDate = esc(dateFormatted);
+      const safeTime = esc(apt.preferred_time);
+      const safeStatus = esc(newStatus.charAt(0).toUpperCase() + newStatus.slice(1));
 
       try {
         await fetch("https://api.resend.com/emails", {
