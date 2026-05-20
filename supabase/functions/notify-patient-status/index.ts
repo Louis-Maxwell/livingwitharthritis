@@ -126,14 +126,14 @@ serve(async (req) => {
                   <h1 style="color:white;margin:0;font-size:22px;">${msg.heading}</h1>
                 </div>
                 <div style="background:#f9fafb;padding:24px;border:1px solid #e5e7eb;border-top:none;border-radius:0 0 12px 12px;">
-                  <p style="color:#374151;font-size:16px;">Dear ${apt.name},</p>
+                  <p style="color:#374151;font-size:16px;">Dear ${safeName},</p>
                   <p style="color:#374151;font-size:14px;">${msg.body}</p>
                   <div style="background:white;border:1px solid #e5e7eb;border-radius:8px;padding:16px;margin:16px 0;">
                     <h3 style="margin:0 0 12px;color:#1f2937;font-size:16px;">Appointment Details</h3>
-                    <p style="margin:4px 0;color:#374151;font-size:14px;"><strong>Type:</strong> ${typeLabel}</p>
-                    <p style="margin:4px 0;color:#374151;font-size:14px;"><strong>Date:</strong> ${dateFormatted}</p>
-                    <p style="margin:4px 0;color:#374151;font-size:14px;"><strong>Time:</strong> ${apt.preferred_time}</p>
-                    <p style="margin:4px 0;color:#374151;font-size:14px;"><strong>Status:</strong> <span style="color:${msg.color};font-weight:bold;">${newStatus.charAt(0).toUpperCase() + newStatus.slice(1)}</span></p>
+                    <p style="margin:4px 0;color:#374151;font-size:14px;"><strong>Type:</strong> ${safeType}</p>
+                    <p style="margin:4px 0;color:#374151;font-size:14px;"><strong>Date:</strong> ${safeDate}</p>
+                    <p style="margin:4px 0;color:#374151;font-size:14px;"><strong>Time:</strong> ${safeTime}</p>
+                    <p style="margin:4px 0;color:#374151;font-size:14px;"><strong>Status:</strong> <span style="color:${msg.color};font-weight:bold;">${safeStatus}</span></p>
                   </div>
                   <hr style="border:none;border-top:1px solid #e5e7eb;margin:24px 0;" />
                   <p style="color:#9ca3af;font-size:12px;margin:0;">Living with Arthritis Clinic · This is an automated message.</p>
