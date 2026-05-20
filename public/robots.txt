@@ -2,19 +2,31 @@
 User-agent: Googlebot
 Allow: /
 Disallow: /admin
+Disallow: /admin/appointments
+Disallow: /admin/psi
+Disallow: /admin/emails
 Disallow: /auth
+Disallow: /chat
 Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
 Disallow: /admin
+Disallow: /admin/appointments
+Disallow: /admin/psi
+Disallow: /admin/emails
 Disallow: /auth
+Disallow: /chat
 Crawl-delay: 2
 
 User-agent: DuckDuckBot
 Allow: /
 Disallow: /admin
+Disallow: /admin/appointments
+Disallow: /admin/psi
+Disallow: /admin/emails
 Disallow: /auth
+Disallow: /chat
 
 User-agent: Twitterbot
 Allow: /
@@ -122,6 +134,10 @@ Disallow: /
 User-agent: *
 Allow: /
 Disallow: /admin
+Disallow: /admin/appointments
+Disallow: /admin/psi
+Disallow: /admin/emails
 Disallow: /auth
+Disallow: /chat
 
 Sitemap: https://livingwitharthritis.org.uk/sitemap.xml
