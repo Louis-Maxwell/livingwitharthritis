@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAdmin } from "@/hooks/useAdmin";
 import SeoHead from "@/components/SeoHead";
 import {
   LineChart,
