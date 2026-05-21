@@ -1,9 +1,9 @@
 import { memo } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowRight, Heart, Sparkles } from "lucide-react";
+import { ArrowRight, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import "@/components/HeroSection.css";
-import heroGroup from "@/assets/hero-oa-group.jpg";
+import heroPortrait from "@/assets/hero-oa-portrait.jpg";
 
 const OAHero = memo(() => {
   const navigate = useNavigate();
@@ -13,23 +13,23 @@ const OAHero = memo(() => {
       aria-labelledby="oa-hero"
       className="relative w-full overflow-hidden bg-background h-[85vh] min-h-[640px] border-b border-border/40"
     >
-      {/* Full-bleed group portrait */}
+      {/* Full-bleed portrait */}
       <img
-        src={heroGroup}
-        alt="A diverse group of older adults — Black, South Asian, East Asian and White — smiling and supporting each other in a sunlit community hall."
+        src={heroPortrait}
+        alt="An older couple stretching together at home, smiling — living well with osteoarthritis."
         width={1600}
         height={1000}
         fetchPriority="high"
         decoding="async"
         loading="eager"
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ objectPosition: "center 35%" }}
+        style={{ objectPosition: "center 30%" }}
       />
 
-      {/* Gradient scrim for legibility (left → softer right so faces stay visible) */}
+      {/* Gradient scrim for legibility (left → transparent right) */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-r from-background via-background/80 lg:via-background/55 to-background/10 lg:to-transparent"
+        className="absolute inset-0 bg-gradient-to-r from-background via-background/85 lg:via-background/70 to-background/10 lg:to-transparent"
       />
       {/* Subtle bottom fade on mobile */}
       <div
@@ -40,14 +40,6 @@ const OAHero = memo(() => {
       {/* Content layer */}
       <div className="relative z-10 h-full container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl flex items-end lg:items-center pb-12 lg:pb-0 pt-24">
         <div className="max-w-2xl hero-stagger">
-          {/* Charity chip */}
-          <div className="hero-item inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-sm mb-5">
-            <Sparkles className="w-3.5 h-3.5 text-primary" aria-hidden="true" />
-            <span className="text-xs font-semibold tracking-wider uppercase text-primary">
-              UK arthritis charity · Free for everyone
-            </span>
-          </div>
-
           {/* Headline */}
           <h1
             id="oa-hero"
@@ -59,8 +51,8 @@ const OAHero = memo(() => {
 
           <p className="hero-item mt-6 text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed">
             Arthritis can feel lonely. It doesn&apos;t have to be. We&apos;re a small
-            UK charity sharing kind, clinically-reviewed help — written in plain
-            English, free for everyone living with arthritis.
+            charity sharing kind, clinically-reviewed help — written in plain English,
+            free for everyone living with arthritis in the UK.
           </p>
 
           {/* CTAs */}
@@ -85,6 +77,7 @@ const OAHero = memo(() => {
           </div>
         </div>
       </div>
+
     </section>
   );
 });

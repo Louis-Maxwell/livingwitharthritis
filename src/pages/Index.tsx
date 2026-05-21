@@ -18,7 +18,6 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 
 import OAHero from "@/components/landing/OAHero";
 import OAProblemBand from "@/components/landing/OAProblemBand";
-import CharityTrustStrip from "@/components/landing/CharityTrustStrip";
 import FacesStrip from "@/components/landing/FacesStrip";
 import OAPlanPillarsSection from "@/components/landing/OAPlanPillarsSection";
 import MissionStatementBand from "@/components/landing/MissionStatementBand";
@@ -53,7 +52,7 @@ function HomePage() {
       name: "Living With Arthritis UK",
       url: SITE_URL,
       description:
-        "UK arthritis charity sharing clinically-reviewed, plain-English help on diet, movement and pain relief — free for everyone living with arthritis.",
+        "An open-source osteoarthritis management plan — clinically reviewed, freely published, and made for everyone living with OA in the UK.",
       areaServed: { "@type": "Country", name: "United Kingdom" },
       knowsAbout: [
         "Osteoarthritis",
@@ -74,22 +73,22 @@ function HomePage() {
     <>
       <Helmet>
         <title>
-          UK Arthritis Charity · Plain-English Help · Living With Arthritis
+          Open-Source Osteoarthritis Plan · Living With Arthritis UK
         </title>
         <meta
           name="description"
-          content="UK arthritis charity sharing clinically-reviewed, plain-English help on diet, movement and pain relief — free for everyone living with arthritis."
+          content="Open-source osteoarthritis plan: clinically reviewed diet, movement and pain-relief guidance in plain English. Free for everyone in the UK."
         />
         <link rel="canonical" href={SITE_URL + "/"} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={SITE_URL + "/"} />
         <meta
           property="og:title"
-          content="UK Arthritis Charity · Plain-English Help · Living With Arthritis"
+          content="Open-Source Osteoarthritis Plan · Living With Arthritis UK"
         />
         <meta
           property="og:description"
-          content="A UK arthritis charity unlocking clinically-reviewed help on diet, movement and pain relief — in plain English, free for everyone."
+          content="The evidence to manage osteoarthritis well already exists. We're unlocking it — in plain English, free for everyone."
         />
       </Helmet>
 
@@ -99,7 +98,6 @@ function HomePage() {
 
         <main id="main-content" role="main" tabIndex={-1}>
           <OAHero />
-          <CharityTrustStrip />
           <OAProblemBand />
           <FacesStrip />
           <OAPlanPillarsSection />
