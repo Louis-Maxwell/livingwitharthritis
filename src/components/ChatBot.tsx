@@ -194,7 +194,7 @@ export function ChatBot() {
               onClick={clearMessages}
               title="Clear messages"
               aria-label="Clear messages"
-              className="text-white/40 hover:text-white p-1.5 rounded-lg hover:bg-white/10 transition-colors"
+              className="text-white/80 hover:text-white p-1.5 rounded-lg hover:bg-white/10 transition-colors"
             >
               <Trash2 className="h-3.5 w-3.5" />
             </button>
