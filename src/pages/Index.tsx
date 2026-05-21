@@ -99,6 +99,7 @@ function HomePage() {
 
         <main id="main-content" role="main" tabIndex={-1}>
           <OAHero />
+          <CharityTrustStrip />
           <OAProblemBand />
           <FacesStrip />
           <OAPlanPillarsSection />
