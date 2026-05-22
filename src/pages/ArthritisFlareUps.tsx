@@ -559,7 +559,31 @@ export default function ArthritisFlareUps() {
             },
           ]}
         />
+
+        <section aria-labelledby="evidence-pain-management" className="mt-16 border-t border-border pt-12">
+          <h2 id="evidence-pain-management" className="font-serif text-3xl md:text-4xl text-foreground mb-6">
+            Evidence-based management of arthritis and chronic musculoskeletal pain
+          </h2>
+          <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
+            <p>
+              Chronic pain is one of the most common reasons people in the UK seek medical help, and arthritis and fibromyalgia are two of the leading drivers. Search behaviour reflects this — huge volumes of people look up knee arthritis, fibromyalgia and back pain relief every month. Managing these conditions well requires a combined approach: appropriate medical input, physiotherapy and steady lifestyle change, rather than reliance on any single intervention.
+            </p>
+            <p>
+              Osteoarthritis is a degenerative joint disease driven by gradual cartilage loss. When it affects weight-bearing joints such as the knee or hip, simple things — walking, climbing stairs, standing up from a chair — can become painful. First-line management is conservative: weight management to reduce load on the joints, and progressive strengthening of the surrounding muscles so they can act as shock absorbers. When conservative care is not enough, additional options include Transcutaneous Electrical Nerve Stimulation (TENS), a non-invasive method that uses low-voltage currents to interrupt pain signals and stimulate endorphin release. TENS is not a cure, but it is a useful adjunct for many people who want to reduce reliance on stronger painkillers.
+            </p>
+            <p>
+              Fibromyalgia is a different problem. It is characterised by widespread musculoskeletal pain alongside fatigue, disrupted sleep and brain-fog. Rather than a structural joint disease, fibromyalgia is increasingly understood as a disorder of pain processing in the central nervous system: sensory signals are amplified, so ordinary stimuli register as painful. Management focuses on calming that overactive signalling — graded aerobic exercise, sleep hygiene, pacing, cognitive approaches, and sometimes medications such as duloxetine or pregabalin under specialist guidance.
+            </p>
+            <p>
+              Back pain follows similar principles. Acute back pain usually settles with gentle movement and time; chronic back pain responds best to a structured plan that strengthens the deep core muscles and corrects long-standing posture habits. Injections, short courses of steroids or nerve blocks can give meaningful temporary relief, but they rarely fix the underlying cause. The most durable results come from consistent stretching, strengthening and gradual return to normal activity guided by a physiotherapist.
+            </p>
+            <p className="text-sm italic">
+              This is general information, not medical advice. Speak to a GP, rheumatologist or physiotherapist before starting any new treatment or stopping existing medication.
+            </p>
+          </div>
+        </section>
       </article>
+
 
       <InternalLinks />
       <Footer />

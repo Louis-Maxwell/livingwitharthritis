@@ -566,8 +566,32 @@ const ExerciseHub = () => {
               },
             ]}
           />
+
+          <section aria-labelledby="chair-exercise-seniors" className="mt-16 border-t border-border pt-12">
+            <h2 id="chair-exercise-seniors" className="font-serif text-3xl md:text-4xl text-foreground mb-6">
+              Chair-based movement for older adults
+            </h2>
+            <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
+              <p>
+                As the UK population ages, maintaining mobility and independence becomes a paramount concern for older adults and the people supporting them. Exercise is often called the closest thing we have to a “magic pill” for healthy ageing — but for many people living with arthritis, traditional high-impact workouts are not realistic because of joint degeneration, balance issues or chronic pain. This is where low-impact movement, and chair exercises in particular, become genuinely useful. Short, accessible routines — often as little as ten minutes a day — meet people where they are and remove the intimidation of a long gym session.
+              </p>
+              <p>
+                Chair exercises address several of the physiological changes that come with ageing. First, they reduce the risk of falls and injury by giving people a stable base while they work. By staying seated, you can focus on the muscular action without the cognitive load of worrying about balance. Second, they are good for the heart. You do not need to run a marathon to elevate your heart rate. Arm circles, seated marching, torso twists and gentle boxing motions, performed in sequence, raise circulation, help manage blood pressure and support long-term cardiovascular health.
+              </p>
+              <p>
+                The benefits extend well beyond the physical. Regular activity releases endorphins, the body’s natural mood lifters, which can help offset the isolation, anxiety or low mood that sometimes accompany later life. Light resistance work using small hand weights or resistance bands during a chair workout pushes back against sarcopenia — the age-related loss of muscle mass. Preserved muscle strength is what allows older adults to keep doing the Activities of Daily Living (ADLs) that protect autonomy: cooking, washing, dressing, getting on and off the toilet, and managing stairs.
+              </p>
+              <p>
+                For people living specifically with arthritis, gentle movement keeps the joints lubricated and the surrounding tissues flexible, which reduces the morning stiffness that often triggers further inactivity and pain. The key is consistency rather than intensity. A short daily routine is far more useful than a punishing weekly session that leaves you sore for days. Build the habit first, then add reps, light resistance or a few extra minutes as you adapt. Proper form matters more than effort — slow, controlled movement is what protects joints and tendons.
+              </p>
+              <p className="text-sm italic">
+                This is general information, not medical advice. Speak to a GP, physiotherapist or rheumatologist before starting any new exercise programme, especially if you have heart, balance or joint conditions.
+              </p>
+            </div>
+          </section>
         </div>
       </main>
+
 
       <InternalLinks />
       <Footer />

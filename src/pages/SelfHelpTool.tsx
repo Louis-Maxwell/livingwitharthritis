@@ -134,7 +134,34 @@ export default function SelfHelpTool() {
           <Suspense fallback={<SectionLoader />}>
             <JointExerciseSection />
           </Suspense>
+
+          <section aria-labelledby="meds-and-supplements" className="border-t border-border pt-12">
+            <h2 id="meds-and-supplements" className="font-serif text-3xl md:text-4xl text-foreground mb-6">
+              Medications and supplements for joint health
+            </h2>
+            <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
+              <p>
+                When exercise, weight management and physiotherapy are not enough on their own, people and their clinicians often turn to medication or supplements to help control joint pain and inflammation. The decision is never trivial — it always involves weighing benefit against risk. UK search behaviour shows steady interest in specific drugs such as allopurinol and corticosteroids, alongside growing curiosity about natural options like turmeric. Understanding what each does, and what it cannot do, helps people make safer, more informed choices alongside their GP or rheumatology team.
+              </p>
+              <p>
+                Allopurinol is widely used to treat chronic gout, a type of inflammatory arthritis caused by excess uric acid in the blood. The high search volume around “allopurinol side effects” suggests many patients are either monitoring their own treatment or hesitating to start. Allopurinol is effective at lowering uric acid levels and preventing painful flares, but it requires careful education. Common side effects include rash and gastrointestinal upset; rare but serious hypersensitivity reactions are also possible. People taking it should know the warning signs and attend the blood tests their GP requests to monitor kidney and liver function.
+              </p>
+              <p>
+                Corticosteroids are another commonly searched group. They are powerful anti-inflammatory drugs that can give rapid relief in conditions such as rheumatoid arthritis, severe osteoarthritis flares and acute back pain. The trade-off is real: long-term systemic steroid use is associated with osteoporosis, weight gain, raised blood sugar and increased infection risk. For that reason, they are typically used either as short courses or as targeted injections into the affected joint, which keeps systemic exposure low.
+              </p>
+              <p>
+                Alongside these pharmaceutical options, interest in natural alternatives continues to grow — turmeric in particular. The active compound curcumin has been studied for its anti-inflammatory effects, and many people prefer it as a long-term option compared with continuous NSAID or steroid use. Evidence supports a modest benefit for joint pain and inflammation, but “natural” does not automatically mean safe. Turmeric can interact with blood thinners and may cause gastrointestinal upset in high doses. Curcumin also has poor natural bioavailability — it is usually combined with piperine (from black pepper) for meaningful absorption.
+              </p>
+              <p>
+                Most people do best with a combined approach rather than a single magic bullet: appropriate prescribed medication where it is genuinely needed, supplements used carefully alongside conventional care, and consistent attention to exercise, sleep and diet underneath it all.
+              </p>
+              <p className="text-sm italic">
+                This is general information, not medical advice. Speak to a GP, rheumatologist or pharmacist before starting, stopping or combining any medication or supplement.
+              </p>
+            </div>
+          </section>
         </main>
+
 
         <Footer />
       </div>
