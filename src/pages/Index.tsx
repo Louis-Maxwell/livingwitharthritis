@@ -103,6 +103,11 @@ function HomePage() {
           <OAProblemBand />
           <FacesStrip />
           <OAPlanPillarsSection />
+
+          <Suspense fallback={<SectionFallback />}>
+            <InspiredHeroBand />
+          </Suspense>
+
           <MissionStatementBand />
 
           <Suspense fallback={<SectionFallback />}>
