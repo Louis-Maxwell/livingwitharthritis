@@ -140,6 +140,9 @@ function HomePage() {
         <Suspense fallback={null}>
           <CookieBanner onAnalyticsChange={() => {}} />
         </Suspense>
+        <Suspense fallback={null}>
+          <StickyDonateBar />
+        </Suspense>
       </div>
     </>
   );
