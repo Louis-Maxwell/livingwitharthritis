@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { useSearchParams, useNavigate } from "react-router-dom";
-import { useAdmin } from "@/hooks/useAdmin";
+import { useSearchParams } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -39,8 +38,6 @@ function getNameField(data: any): string | null {
 }
 
 export default function DebugSchema() {
-  const navigate = useNavigate();
-  const { isAdmin, isLoading: adminLoading } = useAdmin();
   const [searchParams, setSearchParams] = useSearchParams();
   const initialPath = searchParams.get("page") || "/";
   const [pagePath, setPagePath] = useState(initialPath);
@@ -50,12 +47,6 @@ export default function DebugSchema() {
   const [error, setError] = useState<string | null>(null);
   const [expanded, setExpanded] = useState<Record<number, boolean>>({});
   const iframeRef = useRef<HTMLIFrameElement>(null);
-
-  useEffect(() => {
-    if (!adminLoading && !isAdmin) navigate("/auth");
-  }, [isAdmin, adminLoading, navigate]);
-
-  if (adminLoading || !isAdmin) return null;
 
   const iframeSrc = `${pagePath}${pagePath.includes("?") ? "&" : "?"}__debug_schema=1`;
 
