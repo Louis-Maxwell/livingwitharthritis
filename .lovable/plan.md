@@ -1,23 +1,32 @@
-## Plan: Rebuild sitemap and robots rules
+## Plan: Add 3 SEO content sections to existing pages
 
-### Current state
-- `public/sitemap.xml` has been regenerated via `scripts/generate-sitemap.ts` (502 entries, all static and dynamic routes covered, intentionally excluded routes properly omitted).
-- `public/robots.txt` covers admin/auth/chat routes but is missing several utility/internal routes.
+Append each subheading (lightly edited for UK voice, neutrality, and brand tone) to the most topically relevant existing page as a new SEO content section. Text-only, no images.
 
-### Changes needed
+### Mapping
 
-1. **Update `public/robots.txt`** — Add `Disallow` entries for utility/internal pages that should not be crawled:
-   - `/donation-result` (post-transaction page)
-   - `/unsubscribe` (email utility)
-   - `/newsletter/confirm` (confirmation utility)
-   - `/debug/schema` (internal debug tool)
-   - `/site-index` (internal navigation page)
-   
-   These should be added to every `User-agent:` block that already has `Disallow` rules (Googlebot, Bingbot, DuckDuckBot, and the default `*` block).
+1. **Subheading 1 — Senior Mobility / Chair Exercises** → `src/pages/ExerciseHub.tsx`
+   - New section: *"Chair-based movement for older adults"*
+   - ~500 words on low-impact chair exercise, fall prevention, cardiovascular benefits, sarcopenia, ADLs.
 
-2. **Mark SEO finding fixed** — The failing `http:sitemap` finding flags `/chat`, `/auth`, `/admin`, `/admin/appointments`, `/admin/psi` as "missing" from the sitemap. These routes are intentionally excluded (they are internal/admin/auth pages, also disallowed in robots.txt). After regenerating the sitemap and verifying the exclude list is correct, this finding should be marked as fixed.
+2. **Subheading 2 — Arthritis, Fibromyalgia & Chronic Pain Management** → `src/pages/ArthritisFlareUps.tsx`
+   - New section: *"Evidence-based management of arthritis and chronic musculoskeletal pain"*
+   - ~500 words covering osteoarthritis, TENS, fibromyalgia central sensitisation, back pain rehab.
 
-### Verification
-- Run sitemap generator: already done, 502 entries written.
-- Confirm no static public routes are missing from sitemap: verified, none missing.
-- Confirm robots.txt disallows all non-public routes: will be verified after edit.
+3. **Subheading 3 — Medications & Natural Supplements** → `src/pages/SelfHelpTool.tsx`
+   - New section: *"Medications and supplements for joint health"*
+   - ~500 words covering allopurinol, corticosteroids, turmeric/curcumin, bioavailability, holistic combination.
+
+### Implementation rules
+
+- Plain HTML/JSX section component inline in each page, semantic markup (`<section>`, `<h2>`, `<h3>`, `<p>`), Tailwind tokens only (`bg-background`, `text-foreground`, `text-muted-foreground`, `border-border`).
+- Editorial tone consistent with project memory: UK English, neutral, no "NHS" mentions, no political content, no promotional badges. Fix the "one do not need" grammar slip from source.
+- Add a brief disclaimer line at end of each section: *"This is general information, not medical advice. Speak to a GP, rheumatologist or pharmacist before changing medication or starting new exercise."*
+- Use existing typography rhythm (Playfair Display headings via prose classes already present on these pages).
+- No new routes, no schema/JSON-LD changes, no sitemap regeneration needed (pages already indexed).
+- Skip images entirely per user choice.
+
+### Files to read first (to match section styling)
+
+- `src/pages/ExerciseHub.tsx`
+- `src/pages/ArthritisFlareUps.tsx`
+- `src/pages/SelfHelpTool.tsx`
