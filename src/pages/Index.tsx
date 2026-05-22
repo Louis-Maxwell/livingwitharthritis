@@ -24,6 +24,7 @@ import MissionStatementBand from "@/components/landing/MissionStatementBand";
 import DonationImpactSection from "@/components/landing/DonationImpactSection";
 import OpenSourceEthosBand from "@/components/landing/OpenSourceEthosBand";
 
+const InspiredHeroBand = lazy(() => import("@/components/landing/InspiredHeroBand"));
 const QuoteSection = lazy(() => import("@/components/landing/QuoteSection"));
 const BlogPreview = lazy(() => import("@/components/landing/BlogPreview"));
 const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
@@ -31,6 +32,7 @@ const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSect
 const Footer = lazy(() => import("@/components/Footer"));
 const BackToTopButton = lazy(() => import("@/components/landing/BackToTopButton"));
 const CookieBanner = lazy(() => import("@/components/landing/CookieBanner"));
+const StickyDonateBar = lazy(() => import("@/components/landing/StickyDonateBar"));
 
 const SITE_URL = "https://livingwitharthritis.org.uk";
 
@@ -101,6 +103,11 @@ function HomePage() {
           <OAProblemBand />
           <FacesStrip />
           <OAPlanPillarsSection />
+
+          <Suspense fallback={<SectionFallback />}>
+            <InspiredHeroBand />
+          </Suspense>
+
           <MissionStatementBand />
 
           <Suspense fallback={<SectionFallback />}>
@@ -132,6 +139,9 @@ function HomePage() {
         </Suspense>
         <Suspense fallback={null}>
           <CookieBanner onAnalyticsChange={() => {}} />
+        </Suspense>
+        <Suspense fallback={null}>
+          <StickyDonateBar />
         </Suspense>
       </div>
     </>
