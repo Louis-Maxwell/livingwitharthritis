@@ -67,12 +67,12 @@ const OAHero = memo(() => {
               <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button
+              asChild
               size="lg"
               variant="outline"
-              onClick={() => navigate("/donate")}
               className="h-[58px] px-9 rounded-full text-sm font-bold tracking-wider border-foreground/20 bg-background/80 backdrop-blur-sm hover:bg-background"
             >
-              Help us keep it free
+              <a href="#donate-inline">Donate — keep it free</a>
             </Button>
           </div>
         </div>
