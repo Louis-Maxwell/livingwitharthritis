@@ -17,6 +17,7 @@ import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
 import OAHero from "@/components/landing/OAHero";
+import HeroStatsStrip from "@/components/landing/HeroStatsStrip";
 import OAProblemBand from "@/components/landing/OAProblemBand";
 import FacesStrip from "@/components/landing/FacesStrip";
 import OAPlanPillarsSection from "@/components/landing/OAPlanPillarsSection";
@@ -24,6 +25,16 @@ import MissionStatementBand from "@/components/landing/MissionStatementBand";
 import DonationImpactSection from "@/components/landing/DonationImpactSection";
 import OpenSourceEthosBand from "@/components/landing/OpenSourceEthosBand";
 import SEOTeaserSection from "@/components/landing/SEOTeaserSection";
+
+const AboutArthritisCards = lazy(
+  () => import("@/components/landing/AboutArthritisCards"),
+);
+const ResourcesForYouSection = lazy(
+  () => import("@/components/landing/ResourcesForYouSection"),
+);
+const ConditionPillBand = lazy(
+  () => import("@/components/landing/ConditionPillBand"),
+);
 
 const InspiredHeroBand = lazy(() => import("@/components/landing/InspiredHeroBand"));
 const QuoteSection = lazy(() => import("@/components/landing/QuoteSection"));
@@ -101,9 +112,23 @@ function HomePage() {
 
         <main id="main-content" role="main" tabIndex={-1}>
           <OAHero />
+          <HeroStatsStrip />
           <OAProblemBand />
+
+          <Suspense fallback={<SectionFallback />}>
+            <AboutArthritisCards />
+          </Suspense>
+
           <FacesStrip />
           <OAPlanPillarsSection />
+
+          <Suspense fallback={<SectionFallback />}>
+            <ResourcesForYouSection />
+          </Suspense>
+
+          <Suspense fallback={<SectionFallback />}>
+            <ConditionPillBand />
+          </Suspense>
 
           <Suspense fallback={<SectionFallback />}>
             <InspiredHeroBand />
