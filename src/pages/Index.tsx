@@ -23,6 +23,7 @@ import OAPlanPillarsSection from "@/components/landing/OAPlanPillarsSection";
 import MissionStatementBand from "@/components/landing/MissionStatementBand";
 import DonationImpactSection from "@/components/landing/DonationImpactSection";
 import OpenSourceEthosBand from "@/components/landing/OpenSourceEthosBand";
+import SEOTeaserSection from "@/components/landing/SEOTeaserSection";
 
 const InspiredHeroBand = lazy(() => import("@/components/landing/InspiredHeroBand"));
 const QuoteSection = lazy(() => import("@/components/landing/QuoteSection"));
@@ -117,6 +118,10 @@ function HomePage() {
           <DonationImpactSection />
 
           <OpenSourceEthosBand />
+
+          <SEOTeaserSection />
+
+
 
           <Suspense fallback={<SectionFallback />}>
             <BlogPreview />
