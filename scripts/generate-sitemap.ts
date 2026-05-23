@@ -27,6 +27,8 @@ const today = new Date().toISOString().slice(0, 10);
 const read = (p: string) => readFileSync(resolve(p), "utf8");
 
 // ---------- 1. STATIC ROUTES (parsed from App.tsx) ----------
+// Keep in sync with Disallow rules in public/robots.txt — search engines
+// flag URLs that appear in sitemap.xml but are blocked by robots.txt.
 const STATIC_EXCLUDE = new Set([
   "*",
   "/auth",
@@ -34,8 +36,10 @@ const STATIC_EXCLUDE = new Set([
   "/admin/appointments",
   "/admin/psi",
   "/admin/emails",
+  "/chat",
   "/donation-result",
   "/unsubscribe",
+  "/newsletter/confirm",
   "/sitemap",
   "/site-index",
 ]);
@@ -49,6 +53,7 @@ function parseStaticRoutes(): string[] {
     const p = m[1];
     if (p.includes(":")) continue;
     if (p.startsWith("/admin")) continue;
+    if (p.startsWith("/debug")) continue;
     if (STATIC_EXCLUDE.has(p)) continue;
     paths.add(p);
   }
