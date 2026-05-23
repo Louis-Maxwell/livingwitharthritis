@@ -209,6 +209,44 @@
     }
     </script>
 
+    <!-- JSON-LD: LocalBusiness / MedicalBusiness for local SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["LocalBusiness", "MedicalBusiness"],
+      "@id": "https://livingwitharthritis.org.uk/#localbusiness",
+      "name": "Living With Arthritis UK",
+      "image": "https://livingwitharthritis.org.uk/favicon.png",
+      "url": "https://livingwitharthritis.org.uk",
+      "telephone": "+44-7760-512-084",
+      "email": "info@livingwitharthritis.org.uk",
+      "priceRange": "Free",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "27 Old Gloucester Street",
+        "addressLocality": "London",
+        "addressRegion": "England",
+        "postalCode": "WC1N 3AX",
+        "addressCountry": "GB"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 51.5210,
+        "longitude": -0.1205
+      },
+      "areaServed": { "@type": "Country", "name": "United Kingdom" },
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "09:00",
+        "closes": "17:00"
+      }],
+      "sameAs": []
+    }
+    </script>
+
+
+
 
   <!-- Per-route og:title, og:description, og:url and twitter equivalents are
        emitted via react-helmet-async (SeoHead) on every page. Do not duplicate
@@ -234,6 +272,7 @@
 
         <h2>About Living With Arthritis UK</h2>
         <p>We are an independent UK charity governed under Charity Commission standards. Our mission is to make high-quality arthritis self-management accessible to every adult in the United Kingdom, regardless of income, postcode or background. We work with chartered physiotherapists, dietitians and lived-experience contributors to keep our guidance accurate and up to date.</p>
+        <h3>Who we help</h3>
         <ul>
           <li><a href="/about-us">About the charity</a></li>
           <li><a href="/governance">Governance and trustees</a></li>
@@ -244,6 +283,7 @@
 
         <h2>Conditions we cover</h2>
         <p>Arthritis is not a single illness. We publish in-depth, clinically reviewed guides for the most common inflammatory and degenerative joint conditions seen in UK adults, with sections on symptoms, diagnosis, treatment, exercise and diet.</p>
+        <h3>Common arthritis conditions</h3>
         <ul>
           <li><a href="/conditions/osteoarthritis">Osteoarthritis</a></li>
           <li><a href="/conditions/rheumatoid-arthritis">Rheumatoid arthritis</a></li>
@@ -253,6 +293,9 @@
           <li><a href="/conditions/lupus">Lupus</a></li>
           <li><a href="/conditions/ankylosing-spondylitis">Ankylosing spondylitis</a></li>
           <li><a href="/conditions/juvenile-arthritis">Juvenile arthritis</a></li>
+        </ul>
+        <h3>Arthritis by joint</h3>
+        <ul>
           <li><a href="/conditions/knee-arthritis">Knee arthritis</a></li>
           <li><a href="/conditions/hand-arthritis">Hand arthritis</a></li>
           <li><a href="/conditions/shoulder-arthritis">Shoulder arthritis</a></li>
@@ -260,6 +303,7 @@
 
         <h2>Free exercise programmes</h2>
         <p>Regular low-impact movement is one of the most effective non-drug treatments for arthritis. Strong evidence supports walking, swimming, cycling and tai chi for reducing pain and stiffness, and improving balance and mood. Our Exercise Hub bundles short video sessions, joint-specific routines and a printable plan generator.</p>
+        <h3>Tai chi and gentle movement</h3>
         <p>Programmes are split by joint — knee, hip, shoulder, hand, back and ankle — and by modality including seated tai chi, gentle yoga, resistance bands and aquatic exercise. Each routine is designed to be completed at home in 10 to 20 minutes, with clear progression for beginners through to confident movers.</p>
         <ul>
           <li><a href="/exercise-hub">Exercise Hub</a></li>
@@ -272,6 +316,7 @@
 
         <h2>Anti-inflammatory diet and Mediterranean eating</h2>
         <p>What you eat affects systemic inflammation, weight and joint pain. The Mediterranean pattern — abundant vegetables, oily fish, extra-virgin olive oil, legumes, nuts and whole grains — has the strongest evidence base for arthritis symptom relief. Our Diet Hub turns the research into practical UK supermarket-friendly meals, with shopping lists and seven-day plans.</p>
+        <h3>Supplements and nutrition guidance</h3>
         <p>You will also find guidance on omega-3, turmeric and ginger, sensible weight management for knee and hip osteoarthritis, and honest reviews of supplements such as glucosamine and collagen.</p>
         <ul>
           <li><a href="/diet-hub">Diet Hub</a></li>
@@ -282,6 +327,7 @@
 
         <h2>Local arthritis support across the UK</h2>
         <p>Arthritis care varies by region. We map free local services and community groups across England, Scotland, Wales and Northern Ireland, with city-level pages for the largest 50 UK population centres and condition-specific landing pages for osteoarthritis, rheumatoid arthritis and psoriatic arthritis in each city.</p>
+        <h3>Regions and pillar guides</h3>
         <ul>
           <li><a href="/arthritis-support">Find local arthritis support</a></li>
           <li><a href="/regions/england">England</a></li>
@@ -295,6 +341,7 @@
 
         <h2>Community, blog and daily tips</h2>
         <p>Living with a long-term condition is easier with company. Our community hub publishes lived-experience stories, a peer-support buddy match service, and a daily tip library covering sleep, pacing, flare-ups and mental health.</p>
+        <h3>Community resources</h3>
         <ul>
           <li><a href="/community">Community hub</a></li>
           <li><a href="/blog">Blog and expert articles</a></li>
@@ -306,6 +353,7 @@
 
         <h2>Ways to help and donate</h2>
         <p>Every page on this site is free to use, and we keep it that way through donations from people who have been helped by our resources. One-off and monthly gifts fund new exercise videos, dietitian-reviewed recipes and accessibility work. UK taxpayers can add 25% at no extra cost through Gift Aid.</p>
+        <h3>Support our charity</h3>
         <ul>
           <li><a href="/donate">Donate</a></li>
           <li><a href="/ways-to-help">Ways to help</a></li>
@@ -315,12 +363,14 @@
 
         <h2>Contact and accessibility</h2>
         <p>Email <a href="mailto:info@livingwitharthritis.org.uk">info@livingwitharthritis.org.uk</a> or use our contact form. Our website is built to WCAG 2.2 AA standards with a text-scaling toolbar, native dark mode and 44px touch targets throughout.</p>
+        <h3>Help and policies</h3>
         <ul>
           <li><a href="/contact">Contact us</a></li>
           <li><a href="/accessibility">Accessibility</a></li>
           <li><a href="/complaints">Complaints</a></li>
           <li><a href="/safeguarding">Safeguarding</a></li>
         </ul>
+
 
         <nav aria-label="Footer">
           <a href="/sitemap">Sitemap</a> ·

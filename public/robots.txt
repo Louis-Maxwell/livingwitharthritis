@@ -1,49 +1,41 @@
-Sitemap: https://livingwitharthritis.org.uk/sitemap.xml
+# Living With Arthritis UK — robots.txt
+# Reference: https://www.robotstxt.org/robotstxt.html
 
-# Allow major search engines
 User-agent: Googlebot
 Allow: /
-Disallow: /admin
-Disallow: /admin/appointments
-Disallow: /admin/psi
-Disallow: /admin/emails
+Disallow: /admin/
 Disallow: /auth
 Disallow: /chat
 Disallow: /donation-result
 Disallow: /unsubscribe
 Disallow: /newsletter/confirm
-Disallow: /debug/schema
+Disallow: /debug/
 Disallow: /site-index
-Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
-Disallow: /admin
-Disallow: /admin/appointments
-Disallow: /admin/psi
-Disallow: /admin/emails
+Disallow: /admin/
 Disallow: /auth
 Disallow: /chat
 Disallow: /donation-result
 Disallow: /unsubscribe
 Disallow: /newsletter/confirm
-Disallow: /debug/schema
+Disallow: /debug/
 Disallow: /site-index
-Crawl-delay: 2
 
 User-agent: DuckDuckBot
 Allow: /
-Disallow: /admin
-Disallow: /admin/appointments
-Disallow: /admin/psi
-Disallow: /admin/emails
+Disallow: /admin/
 Disallow: /auth
 Disallow: /chat
 Disallow: /donation-result
 Disallow: /unsubscribe
 Disallow: /newsletter/confirm
-Disallow: /debug/schema
+Disallow: /debug/
 Disallow: /site-index
+
+User-agent: Applebot
+Allow: /
 
 User-agent: Twitterbot
 Allow: /
@@ -54,15 +46,16 @@ Allow: /
 User-agent: LinkedInBot
 Allow: /
 
-User-agent: Applebot
+User-agent: Slackbot
 Allow: /
 
-# AI search bots — allowed so the charity appears in ChatGPT,
-# Perplexity, Claude, Gemini and Google AI Overviews answers
 User-agent: GPTBot
 Allow: /
 
 User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: CCBot
@@ -74,6 +67,9 @@ Allow: /
 User-agent: Claude-Web
 Allow: /
 
+User-agent: ClaudeBot
+Allow: /
+
 User-agent: Google-Extended
 Allow: /
 
@@ -83,7 +79,6 @@ Allow: /
 User-agent: FacebookBot
 Allow: /
 
-# Owner-run SEO audits (Semrush / Backlinko / Ahrefs)
 User-agent: SemrushBot
 Allow: /
 
@@ -99,7 +94,6 @@ Allow: /
 User-agent: AhrefsSiteAudit
 Allow: /
 
-# Block known SEO/scraping bots that hammer sites
 User-agent: Bytespider
 Disallow: /
 
@@ -107,9 +101,6 @@ User-agent: ImagesiftBot
 Disallow: /
 
 User-agent: Omgilibot
-Disallow: /
-
-User-agent: Omgili
 Disallow: /
 
 User-agent: Diffbot
@@ -139,7 +130,6 @@ Disallow: /
 User-agent: ZoominfoBot
 Disallow: /
 
-# Block aggressive Chinese / SEA scrapers distorting analytics
 User-agent: Sogou
 Disallow: /
 
@@ -155,17 +145,15 @@ Disallow: /
 User-agent: HaoSouSpider
 Disallow: /
 
-# Default — allow with restrictions
 User-agent: *
 Allow: /
-Disallow: /admin
-Disallow: /admin/appointments
-Disallow: /admin/psi
-Disallow: /admin/emails
+Disallow: /admin/
 Disallow: /auth
 Disallow: /chat
 Disallow: /donation-result
 Disallow: /unsubscribe
 Disallow: /newsletter/confirm
-Disallow: /debug/schema
+Disallow: /debug/
 Disallow: /site-index
+
+Sitemap: https://livingwitharthritis.org.uk/sitemap.xml
