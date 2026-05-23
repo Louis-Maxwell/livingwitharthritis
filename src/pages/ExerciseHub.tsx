@@ -114,6 +114,27 @@ const additionalActivities = [
   { title: "Seated Tai Chi", icon: Heart, href: "/exercises/seated-tai-chi-for-arthritis", desc: "Chair-based routine for severe OA or post-surgery" },
 ];
 
+// Internal-link matrix surfacing every exercise×joint guide — keeps these pages
+// reachable in one click from the Exercise Hub (no orphans in sitemap.xml).
+const EXERCISE_MATRIX_TYPES: { slug: string; label: string }[] = [
+  { slug: "swimming", label: "Swimming" },
+  { slug: "yoga", label: "Yoga" },
+  { slug: "cycling", label: "Cycling" },
+  { slug: "walking", label: "Walking" },
+  { slug: "tai-chi", label: "Tai Chi" },
+  { slug: "pilates", label: "Pilates" },
+  { slug: "stretching", label: "Stretching" },
+  { slug: "strength-training", label: "Strength Training" },
+];
+const EXERCISE_MATRIX_JOINTS: { slug: string; label: string }[] = [
+  { slug: "knee", label: "Knee" },
+  { slug: "hip", label: "Hip" },
+  { slug: "shoulder", label: "Shoulder" },
+  { slug: "hand", label: "Hand" },
+  { slug: "back", label: "Back" },
+  { slug: "ankle", label: "Ankle" },
+];
+
 const ExerciseHub = () => {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -454,6 +475,39 @@ const ExerciseHub = () => {
             </div>
           </div>
         </section>
+
+        {/* Exercises by joint — internal-link matrix (de-orphans 48 sitemap URLs) */}
+        <section className="py-12 lg:py-16">
+          <div className="container mx-auto px-6 md:px-10 max-w-5xl">
+            <h2 className="text-3xl font-bold text-foreground mb-3">Exercises by Joint</h2>
+            <p className="text-muted-foreground mb-10 max-w-2xl">
+              Pick the exercise type, then the joint you want to focus on. Each guide covers benefits,
+              step-by-step instructions, and safety tips.
+            </p>
+
+            <div className="space-y-8">
+              {EXERCISE_MATRIX_TYPES.map((type) => (
+                <div key={type.slug}>
+                  <h3 className="font-display text-lg font-semibold text-foreground mb-3">
+                    {type.label}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {EXERCISE_MATRIX_JOINTS.map((joint) => (
+                      <Link
+                        key={`${type.slug}-${joint.slug}`}
+                        to={`/exercises/${type.slug}-for-${joint.slug}-arthritis`}
+                        className="text-sm px-3 py-1.5 rounded-md border border-border/60 text-foreground hover:border-primary/40 hover:text-primary transition-colors"
+                      >
+                        {type.label} for {joint.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
 
         {/* ═══ Mid-page CTA: AI Assistant ═══ */}
         <section className="py-12 lg:py-16 bg-gradient-to-r from-primary/5 via-violet-500/10 to-primary/5 border-y border-primary/10">

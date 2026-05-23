@@ -1,46 +1,40 @@
-## Goal
+## Fix orphaned sitemap pages
 
-Resolve the Semrush "less than 200 words" thin-content warning across every public route by ensuring each indexable page renders at least ~250 words of meaningful, on-topic body copy (comfortably clearing the 200 threshold).
+Several routes listed in `public/sitemap.xml` are not linked from anywhere in the rendered site, so Semrush flags them as orphans. The fix is to add internal links from the most relevant hub pages (and the HTML `/sitemap` page) so every URL in the XML sitemap is reachable in at most 2 clicks.
 
-## Approach
+### Orphan groups identified
 
-1. **Build a word-count audit script** (`scripts/audit-word-count.ts`)
-   - Parse every route under `src/pages/**` plus their composing components.
-   - Strip JSX tags, imports, props, className strings, and code-only literals; keep visible text nodes and string children.
-   - Print a table: `route | word count | status (PASS ≥250 / WARN 200–249 / FAIL <200)`.
-   - Exclude admin pages and `/auth` callbacks (already `noindex`).
+| Group | URLs | Currently linked from |
+|---|---|---|
+| Exercise × Joint matrix (`/exercises/{type}-for-{joint}-arthritis`) | 48 | Only from each other / `ExercisePlanGenerator` tool |
+| City × Condition (`/arthritis-support/{city}/{condition}`) | 150 | Only from each city page (deep — 3 clicks) |
+| Daily Tips (`/daily-tips/{slug}`) | 9 | Only from `DailyTipDetail` (self-referencing) |
+| Pillar guides (`/guides/*`) | 5 | Already in HTML sitemap, but no hub links |
+| Region hubs (`/regions/*`) | 4 | Only nav (verify) |
 
-2. **Run the audit** and produce the failing list. Expected likely offenders based on the codebase:
-   - `Auth.tsx` (mostly a form)
-   - `NotFound.tsx`
-   - `Chat.tsx` (interactive shell, little static text)
-   - Short utility pages: `Accessibility.tsx`, `CorporateGiving.tsx`, smaller condition stubs, `JustGiving`, `Zakat`, etc.
-   - Landing sub-pages with mostly imagery.
+### Changes
 
-3. **Fix each failing page** by adding genuinely useful copy that fits the page intent — never filler. Patterns:
-   - **Auth**: Add a left-rail "Why create an account" block (3 bullets + paragraph on privacy, saved progress, free access). Keep above the fold clean.
-   - **NotFound**: Add a short paragraph + helpful links to top resources (Exercise Hub, Diet Hub, Self-Help Tool, Contact).
-   - **Chat**: Add an SEO-only intro section above the chat (visible, not hidden) describing what the AI assistant does, sources, medical-safety disclaimer, and example questions.
-   - **Short condition / topic pages**: Add an "Overview", "Common questions", or "How we can help" block consistent with the editorial voice (plain English, MedicallyReviewed component where clinical).
-   - **Utility pages** (Accessibility, CorporateGiving, etc.): Expand with concrete UK-specific detail (WCAG 2.2 AA commitments; corporate matched-giving/Gift Aid mechanics).
+1. **`src/pages/ExerciseHub.tsx`** — Add a new "Exercises by joint" section that links to all 48 matrix pages, grouped by joint (Knee, Hip, Shoulder, Hand, Back, Ankle). Source the list from `src/data/exerciseJointMatrix.ts`. Compact link grid, institutional styling.
 
-4. **Re-run the audit** until every indexable route reports ≥250 words.
+2. **`src/pages/CommunityHub.tsx`** (or `SelfHelpTool.tsx` if more topical) — Add a "Daily tips" section linking to all 9 daily tip slugs with short descriptions from `src/data/dailyTips.ts`.
 
-## Constraints
+3. **`src/pages/ArthritisSupportIndex.tsx`** — Under each city card (or in an expandable section), surface the 3 condition sub-pages so the 150 city×condition URLs are 2 clicks from `/arthritis-support`, not 3.
 
-- Keep the institutional Crimson/White aesthetic; new copy goes into existing section patterns (no new visual paradigms).
-- Strict neutrality, no NHS references, no placeholder registration numbers.
-- Use "for everyone" instead of "zero cost".
-- No new dependencies; script uses Node + regex (no headless browser).
-- Don't touch admin or auth-callback routes (already `noindex`).
+4. **`src/pages/Sitemap.tsx`** — Expand the HTML sitemap to include:
+   - All 48 exercise×joint matrix pages (collapsible "All exercises by joint" section)
+   - All 9 daily tips
+   - All 4 region hubs
+   - All 5 pillar guides (verify already present)
+   This guarantees every XML sitemap URL has at least one static internal link.
 
-## Out of scope
+5. **`src/pages/DailyTipDetail.tsx`** — Already links siblings; no change needed (covered once #2 lands).
 
-- The two open Lighthouse findings (slow load, contrast) — separate fixes.
-- Rewriting already-rich pages for SEO keyword density.
+### Out of scope
 
-## Deliverable
+- The two open Lighthouse findings (slow LCP, low-contrast text) — keep as separate work unless you want them bundled.
+- Removing URLs from sitemap.xml (the user wants the pages to stay indexable, just better linked).
 
-- `scripts/audit-word-count.ts` committed.
-- Each previously-failing page updated with on-topic copy clearing 250 words.
-- Final audit table pasted in the response, all routes PASS.
+### Verification
+
+- Run `scripts/audit-word-count.ts` style sweep mentally: every sitemap entry must appear as a `to=`/`href=` in at least one non-self page.
+- After deploy, request Semrush rescan.
