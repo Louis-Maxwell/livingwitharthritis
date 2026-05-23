@@ -1,46 +1,45 @@
-# Enforce a single rel=canonical on every route
+## Context
 
-## Current state
+The audit screenshot flags 5 issues:
+1. **XML Sitemap** — "not found"
+2. **Robots.txt** — "missing"
+3. **Canonical** — "missing"
+4. **PageSpeed Mobile** — 63/100
+5. **PageSpeed Desktop** — 86/100
 
-- 83 of 88 pages already render `<SeoHead path=...>` (which emits `<link rel="canonical">` via Helmet). The 5 remaining condition pages (Lupus, Gout, Fibromyalgia, AnkylosingSpondylitis, JuvenileArthritis) go through `ConditionPageTemplate`, which itself renders `SeoHead`. So all routes do have a canonical today.
-- **Risk 1 — duplicates:** `index.html` ships a static `<link rel="canonical" id="static-canonical" href=".../">` with an inline script that strips it on non-`/` routes. If the script runs late (or Helmet adds its own canonical before the strip), the homepage briefly has two canonical tags. Helmet's link dedupe is unreliable for `rel="canonical"` (it dedupes by `href`, not `rel`).
-- **Risk 2 — drift:** any new page added without `SeoHead` ships with no canonical at all and no compile-time check.
+Reality check against the codebase:
 
-## Fix
+- `public/sitemap.xml` exists (450 URLs, auto-generated via `scripts/generate-sitemap.ts` on predev/prebuild)
+- `public/robots.txt` exists with a `Sitemap:` directive
+- Every page renders `<link rel="canonical">` via `SeoHead` + the new `CanonicalEnforcer` guarantees exactly one canonical per route
 
-### 1. Add a global `CanonicalEnforcer` component
+So issues 1–3 are **false negatives** from the external scanner. The most likely cause: the scanner fetched the site without executing JS (canonical) and/or hit a stale cache or the wrong host (sitemap/robots).
 
-New file `src/components/CanonicalEnforcer.tsx`. Mounted once inside `<BrowserRouter>` in `src/App.tsx`. On every `location.pathname` change (via `useLocation`) it runs a `useEffect` that:
+## Plan
 
-- Removes the static `#static-canonical` from `index.html` once and for all (it's no longer needed — this enforcer handles every route).
-- Queries `document.head` for all `link[rel="canonical"]`. If zero, inserts one with `href = https://livingwitharthritis.org.uk${pathname}`. If two or more exist, keeps the **last** one (the Helmet/SeoHead one, which is route-specific) and removes the others. This guarantees exactly one canonical at all times.
-- Tags its own inserted node with `data-managed="global"` so it can be cleaned up when Helmet later inserts a page-specific one.
+### 1. Confirm the three "missing" files are actually live
+Use `curl` against the production domain to verify:
+- `https://livingwitharthritis.org.uk/sitemap.xml` returns 200 + valid XML
+- `https://livingwitharthritis.org.uk/robots.txt` returns 200 + contains `Sitemap:` line
+- `https://livingwitharthritis.org.uk/` HTML source contains `<link rel="canonical">` (server-rendered, not JS-injected)
 
-Result: every route — even a new page someone forgets to add `SeoHead` to — always has exactly one canonical pointing at the current URL.
+If sitemap/robots return 404 → the last publish didn't include them → republish is the fix.
 
-### 2. Remove the static homepage canonical + inline strip script from `index.html`
+### 2. Add a server-rendered canonical to `index.html`
+Currently the homepage canonical is JS-injected (Helmet/CanonicalEnforcer). Non-JS scanners (and many SEO audit tools) won't see it. Re-add a **static** `<link rel="canonical" href="https://livingwitharthritis.org.uk/">` to `index.html` for the homepage only. The existing `CanonicalEnforcer` already de-duplicates, so per-route Helmet canonicals on other pages still win — no duplicate-canonical risk.
 
-The enforcer makes both obsolete and removes the only known duplicate-canonical risk. Leave the rest of `index.html` (title, description, og:*, JSON-LD) untouched.
+This directly fixes the "Missing canonical" finding for any non-JS crawler.
 
-### 3. Verification
+### 3. PageSpeed — defer
+Mobile 63 / Desktop 86 needs a separate performance pass (image weight, render-blocking JS, font loading, third-party scripts). Not in scope unless you confirm — these usually take a focused session.
 
-After implementation, run in the preview console on `/`, `/about`, `/blog`, and a deep route like `/conditions/lupus`:
-```js
-document.querySelectorAll('link[rel=canonical]').length
-// expect 1 on every route
-document.querySelector('link[rel=canonical]').href
-// expect the full https URL matching the current path
-```
+## Files to touch
 
-## Out of scope
+- `index.html` — add one static `<link rel="canonical" href="https://livingwitharthritis.org.uk/">` line in `<head>`
+- No other code changes — sitemap + robots are already correct
 
-- No changes to existing `SeoHead` API or any page component.
-- No new dependencies.
-- No per-page canonical overrides (e.g. paginated lists pointing to page 1) — flag for a separate task if needed.
-- No server-side rendering; the enforcer runs client-side. Googlebot executes JS and will see the correct canonical; social crawlers (Facebook, LinkedIn) only see the og:url already in `index.html` — that's an SSR limitation we already accept.
+## After implementation
 
-## Files touched
+Re-run the external audit. If sitemap/robots still show missing, the fix is **Publish** (top-right) — the scanner is reading a stale deployment, not a code bug.
 
-- `src/components/CanonicalEnforcer.tsx` (new, ~40 lines)
-- `src/App.tsx` (import + mount)
-- `index.html` (delete static canonical + inline script)
+Confirm: should I also kick off the PageSpeed optimisation pass, or leave that for a separate request?
