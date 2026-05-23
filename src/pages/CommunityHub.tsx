@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import InternalLinks from "@/components/InternalLinks";
 import ContextualLinks from "@/components/ContextualLinks";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
+import { dailyTips } from "@/data/dailyTips";
 import {
   Users, MessageCircle, Calendar, Sparkles, ArrowRight,
   Heart, Star, Globe, BookOpen, HandHeart, Download
