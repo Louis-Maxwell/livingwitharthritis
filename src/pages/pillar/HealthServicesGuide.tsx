@@ -54,7 +54,7 @@ const CONTENT = `
 <li><strong>Manual therapy</strong> — hands-on treatment for joint mobilisation</li>
 <li><strong>Education and self-management</strong> — teaching you to manage symptoms independently</li>
 </ul>
-<p>Access is via GP or FCP referral, or in some areas through <strong>self-referral</strong>. The health service website (<a href="https://www.gov.uk/health" target="_blank" rel="noopener noreferrer">gov.uk/health</a>) lists self-referral physiotherapy services near you. Waiting times for the health service physiotherapy typically range from <strong>4–12 weeks</strong>.</p>
+<p>Access is via GP or FCP referral, or in some areas through <strong>self-referral</strong>. The health service website (<a href="https://www.gov.uk/browse/health-and-social-care" target="_blank" rel="noopener noreferrer">gov.uk/health</a>) lists self-referral physiotherapy services near you. Waiting times for the health service physiotherapy typically range from <strong>4–12 weeks</strong>.</p>
 
 <h2 id="pain-management">the health service Pain Management Programmes</h2>
 <p>For people with chronic arthritis pain that hasn't responded adequately to standard treatments, the health service offers multidisciplinary <strong>pain management programmes (PMPs)</strong>. These are typically run by a team including a pain consultant, psychologist, physiotherapist and occupational therapist.</p>
@@ -96,7 +96,7 @@ const CONTENT = `
 <h2 id="mental-health-support">Mental Health Support Through the health service</h2>
 <p>The health service recognises the profound impact of chronic pain on mental health. Services available include:</p>
 <ul>
-<li><strong>IAPT (Improving Access to Psychological Therapies)</strong> — free CBT and counselling, self-referral available at <a href="https://www.gov.uk/health" target="_blank" rel="noopener noreferrer">gov.uk/health</a></li>
+<li><strong>IAPT (Improving Access to Psychological Therapies)</strong> — free CBT and counselling, self-referral available at <a href="https://www.gov.uk/browse/health-and-social-care" target="_blank" rel="noopener noreferrer">gov.uk/health</a></li>
 <li><strong>the health service pain psychology</strong> — specialist psychologists within pain management teams</li>
 <li><strong>Social prescribing</strong> — link workers who connect you with community activities, support groups and local services</li>
 <li><strong>Crisis support</strong> — the health service 111 (option 2 for mental health crisis) or Samaritans 116 123</li>

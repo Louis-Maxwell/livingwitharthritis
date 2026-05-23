@@ -155,7 +155,7 @@ const CONTENT = `
 <ul>
 <li><strong>Living With Arthritis</strong> — <a href="/exercises">free exercise programmes</a> for every major joint</li>
 <li><strong>Versus Arthritis</strong> — exercise guides and video library at <a href="https://www.versusarthritis.org/about-arthritis/exercising-with-arthritis/" target="_blank" rel="noopener noreferrer">versusarthritis.org</a></li>
-<li><strong>the health service Fitness Studio</strong> — free exercise videos at <a href="https://www.gov.uk/health" target="_blank" rel="noopener noreferrer">gov.uk/health</a></li>
+<li><strong>the health service Fitness Studio</strong> — free exercise videos at <a href="https://www.gov.uk/browse/health-and-social-care" target="_blank" rel="noopener noreferrer">gov.uk/health</a></li>
 <li><strong>Chartered Society of Physiotherapy</strong> — find a physiotherapist at <a href="https://www.csp.org.uk" target="_blank" rel="noopener noreferrer">csp.org.uk</a></li>
 <li><strong>We Are Undefeatable</strong> — campaign supporting people with long-term conditions to be active</li>
 </ul>
