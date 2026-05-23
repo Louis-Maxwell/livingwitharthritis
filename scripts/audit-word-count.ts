@@ -163,13 +163,19 @@ function gatherText(entry: string, seen = new Set<string>()): string {
   const raw = readFileSync(entry, "utf8");
   const stripped = stripCode(raw);
   let text = extractText(stripped);
-  // Follow project-local imports
+  // Follow project-local imports (static + dynamic)
   const importRe = /import\s+(?:[^\"']+?\s+from\s+)?["']([^\"']+)["']/g;
   let m;
   while ((m = importRe.exec(raw))) {
     const resolved = resolveImport(m[1], entry);
     if (!resolved) continue;
-    // Skip huge data dirs to keep deterministic — still allow components/layout/landing/sections
+    if (/\/(node_modules|integrations\/supabase)\//.test(resolved)) continue;
+    text += " " + gatherText(resolved, seen);
+  }
+  const dynImportRe = /import\(\s*["']([^"']+)["']\s*\)/g;
+  while ((m = dynImportRe.exec(raw))) {
+    const resolved = resolveImport(m[1], entry);
+    if (!resolved) continue;
     if (/\/(node_modules|integrations\/supabase)\//.test(resolved)) continue;
     text += " " + gatherText(resolved, seen);
   }
