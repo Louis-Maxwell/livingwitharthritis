@@ -96,21 +96,11 @@
     <meta name="content-language" content="en-GB" />
     <meta http-equiv="content-language" content="en-GB" />
 
-    <!-- Static homepage canonical for non-JS crawlers (Semrush, Ahrefs, social previews).
-         SeoHead (react-helmet-async) emits per-route canonicals after hydration; a tiny
-         inline script below removes this static tag on non-home routes so we never ship
-         two conflicting <link rel="canonical"> tags. -->
-    <link rel="canonical" id="static-canonical" href="https://livingwitharthritis.org.uk/" />
-    <script>
-      // Remove static canonical on non-home routes before React hydrates so SeoHead
-      // owns the per-route canonical. Home keeps the static one (Helmet dedupes via id).
-      (function () {
-        if (window.location.pathname !== "/") {
-          var el = document.getElementById("static-canonical");
-          if (el && el.parentNode) el.parentNode.removeChild(el);
-        }
-      })();
-    </script>
+    <!-- Per-route canonicals are owned by SeoHead (react-helmet-async) with a
+         global CanonicalEnforcer guaranteeing exactly one <link rel="canonical">
+         on every route. No static canonical is shipped here. -->
+
+
 
     <!-- hero is text-only; no image preload needed -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
