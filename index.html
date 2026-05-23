@@ -110,6 +110,7 @@
     <!-- Preconnect to API backend for faster first data fetch -->
     <link rel="preconnect" href="https://zrvcejlncpndjfyuvcrd.supabase.co" crossorigin />
     <link rel="dns-prefetch" href="https://zrvcejlncpndjfyuvcrd.supabase.co" />
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
     <link rel="dns-prefetch" href="https://images.unsplash.com" />
 
     <!-- LCP hero image is bundled via Vite (hashed filename); the <img> tag in
@@ -117,24 +118,26 @@
          No static preload link here — the previous hero-walking-group preload
          pointed at a stale asset that wasn't actually on the page. -->
 
-    <!-- Open Graph -->
+    <!-- Open Graph (static fallback for non-JS crawlers: Backlinko, Facebook, Slack, LinkedIn).
+         Per-route SeoHead (react-helmet-async) overrides title/description/url for JS-aware crawlers. -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:locale:alternate" content="en_GB" />
     <meta property="og:site_name" content="Living With Arthritis UK" />
-
-    <!-- og:url is set per-route via SeoHead so every shared page previews to its own URL. -->
-
-    <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg">
+    <meta property="og:title" content="Arthritis Help UK: Free Physio, Diet &amp; AI Support" />
+    <meta property="og:description" content="UK arthritis charity offering free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory diet plans and an AI assistant for joint pain." />
+    <meta property="og:url" content="https://livingwitharthritis.org.uk/" />
+    <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Living With Arthritis UK – free physiotherapy and arthritis support across the United Kingdom" />
 
-    <!-- Twitter -->
+    <!-- Twitter / X Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    
-    
-    <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg">
+    <meta name="twitter:title" content="Arthritis Help UK: Free Physio, Diet &amp; AI Support" />
+    <meta name="twitter:description" content="UK arthritis charity offering free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory diet plans and an AI assistant for joint pain." />
+    <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+
 
     <!-- JSON-LD Structured Data: Organisation -->
     <script type="application/ld+json">
