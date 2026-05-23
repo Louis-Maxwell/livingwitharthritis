@@ -269,6 +269,7 @@ function AppWithSync() {
 
   return (
     <>
+      <CanonicalEnforcer />
       <RouteProgressBar />
       <Suspense fallback={null}>
         <EngagementTracker />
