@@ -53,6 +53,7 @@ function parseStaticRoutes(): string[] {
     const p = m[1];
     if (p.includes(":")) continue;
     if (p.startsWith("/admin")) continue;
+    if (p.startsWith("/debug")) continue;
     if (STATIC_EXCLUDE.has(p)) continue;
     paths.add(p);
   }
