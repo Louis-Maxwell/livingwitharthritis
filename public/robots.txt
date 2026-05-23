@@ -56,27 +56,28 @@ Allow: /
 User-agent: Applebot
 Allow: /
 
-# Block aggressive AI scrapers / data harvesters
+# AI search bots — allowed so the charity appears in ChatGPT,
+# Perplexity, Claude, Gemini and Google AI Overviews answers
 User-agent: GPTBot
-Disallow: /
+Allow: /
 
 User-agent: ChatGPT-User
-Disallow: /
+Allow: /
 
 User-agent: CCBot
-Disallow: /
+Allow: /
 
 User-agent: anthropic-ai
-Disallow: /
+Allow: /
 
 User-agent: Claude-Web
-Disallow: /
+Allow: /
 
 User-agent: Google-Extended
-Disallow: /
+Allow: /
 
 User-agent: PerplexityBot
-Disallow: /
+Allow: /
 
 User-agent: Bytespider
 Disallow: /
@@ -91,7 +92,7 @@ User-agent: Omgili
 Disallow: /
 
 User-agent: FacebookBot
-Disallow: /
+Allow: /
 
 User-agent: Diffbot
 Disallow: /
