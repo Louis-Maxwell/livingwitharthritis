@@ -72,7 +72,7 @@
       })();
     </script>
 
-    <title>Arthritis Help UK: Free Physio, Diet &amp; AI Support</title>
+    <title>Arthritis Help UK | Free Physio, Diet &amp; AI Joint Support</title>
     <meta name="description" content="UK arthritis charity offering free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory diet plans and an AI assistant for joint pain.">
     <meta name="author" content="Living With Arthritis UK" />
     <meta name="publisher" content="Living With Arthritis UK" />
@@ -96,10 +96,21 @@
     <meta name="content-language" content="en-GB" />
     <meta http-equiv="content-language" content="en-GB" />
 
-    <!-- Canonical and hreflang are emitted per-route via SeoHead (react-helmet-async).
-         Do not add <link rel="canonical"> or <link rel="alternate"> here — these tags
-         do not dedupe by `rel`, so a static copy ships alongside every Helmet copy
-         and produces conflicting canonicals on every page. -->
+    <!-- Static homepage canonical for non-JS crawlers (Semrush, Ahrefs, social previews).
+         SeoHead (react-helmet-async) emits per-route canonicals after hydration; a tiny
+         inline script below removes this static tag on non-home routes so we never ship
+         two conflicting <link rel="canonical"> tags. -->
+    <link rel="canonical" id="static-canonical" href="https://livingwitharthritis.org.uk/" />
+    <script>
+      // Remove static canonical on non-home routes before React hydrates so SeoHead
+      // owns the per-route canonical. Home keeps the static one (Helmet dedupes via id).
+      (function () {
+        if (window.location.pathname !== "/") {
+          var el = document.getElementById("static-canonical");
+          if (el && el.parentNode) el.parentNode.removeChild(el);
+        }
+      })();
+    </script>
 
     <!-- hero is text-only; no image preload needed -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
