@@ -38,7 +38,6 @@ const STATIC_EXCLUDE = new Set([
   "/unsubscribe",
   "/sitemap",
   "/site-index",
-  "/chat",
 ]);
 
 function parseStaticRoutes(): string[] {
