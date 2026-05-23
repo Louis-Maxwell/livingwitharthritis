@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import InternalLinks from "@/components/InternalLinks";
 import ContextualLinks from "@/components/ContextualLinks";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
+import { dailyTips } from "@/data/dailyTips";
 import {
   Users, MessageCircle, Calendar, Sparkles, ArrowRight,
   Heart, Star, Globe, BookOpen, HandHeart, Download
@@ -436,6 +437,23 @@ const CommunityHub = () => {
             ]}
           />
         </div>
+
+        <section aria-labelledby="daily-tips-heading" className="container mx-auto px-6 md:px-10 max-w-6xl py-12 border-t border-border">
+          <h2 id="daily-tips-heading" className="text-2xl md:text-3xl font-bold text-foreground mb-3">Daily tips for joint health</h2>
+          <p className="text-muted-foreground mb-6 max-w-2xl">Small, everyday habits that ease stiffness, support mobility, and help you live well with arthritis.</p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {dailyTips.map((tip) => (
+              <Link
+                key={tip.slug}
+                to={`/daily-tips/${tip.slug}`}
+                className="block bg-card border border-border rounded-xl p-5 hover:border-primary/50 hover:shadow-md transition-all group"
+              >
+                <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors mb-1">{tip.title}</h3>
+                <p className="text-sm text-muted-foreground line-clamp-3">{tip.desc}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
       </main>
 
       <InternalLinks />
