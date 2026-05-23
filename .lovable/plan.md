@@ -1,37 +1,46 @@
-## Objective
-Fix all four currently failing SEO findings and ensure every page has exactly one concise, relevant `<h1>` heading.
+## Goal
 
-## Current Failing Findings
-1. **Page titles & descriptions too long** — /accessibility, /arthritis-starter-guide, /contact, /services titles >60 chars; /ai-safety, /accessibility, /corporate-giving, /expert-articles descriptions >160 chars.
-2. **Sitemap needs attention** — Missing entries for /chat, /auth, /admin/*, /admin/appointments, /admin/psi.
-3. **Page loads slowly** — Hero element (image or H1) takes too long to appear; needs explicit dimensions, `fetchpriority="high"`, and `font-display: swap`.
-4. **Accessibility barriers** — Some text lacks sufficient contrast against its background.
+Resolve the Semrush "less than 200 words" thin-content warning across every public route by ensuring each indexable page renders at least ~250 words of meaningful, on-topic body copy (comfortably clearing the 200 threshold).
 
-## Plan
+## Approach
 
-### Phase 1: H1 Audit & Fix
-Audit every public route for `<h1>` presence and quality:
-- Add missing `<h1>` to pages that lack one (e.g., `Auth.tsx` — "Sign In to Your Account"; verify `BlogCategory.tsx` delegates h1 to `BlogIndex`).
-- Ensure `ConditionPageTemplate` and `PageHero` consistently render a single `<h1>` per page.
-- Review pages with custom h1s for conciseness and keyword relevance.
+1. **Build a word-count audit script** (`scripts/audit-word-count.ts`)
+   - Parse every route under `src/pages/**` plus their composing components.
+   - Strip JSX tags, imports, props, className strings, and code-only literals; keep visible text nodes and string children.
+   - Print a table: `route | word count | status (PASS ≥250 / WARN 200–249 / FAIL <200)`.
+   - Exclude admin pages and `/auth` callbacks (already `noindex`).
 
-### Phase 2: Title & Description Length
-Edit each affected page to bring titles under 60 characters and descriptions between 50–160 characters, preserving meaning and UK focus.
+2. **Run the audit** and produce the failing list. Expected likely offenders based on the codebase:
+   - `Auth.tsx` (mostly a form)
+   - `NotFound.tsx`
+   - `Chat.tsx` (interactive shell, little static text)
+   - Short utility pages: `Accessibility.tsx`, `CorporateGiving.tsx`, smaller condition stubs, `JustGiving`, `Zakat`, etc.
+   - Landing sub-pages with mostly imagery.
 
-### Phase 3: Sitemap Update
-Update `scripts/generate-sitemap.ts` (or static `public/sitemap.xml`) to include missing routes. For `/admin/*` routes, decide whether to exclude (add `noindex`) or include based on intent. For dynamic routes (`/blog/:slug`, `/conditions/:slug`), verify they are already generated from data sources.
+3. **Fix each failing page** by adding genuinely useful copy that fits the page intent — never filler. Patterns:
+   - **Auth**: Add a left-rail "Why create an account" block (3 bullets + paragraph on privacy, saved progress, free access). Keep above the fold clean.
+   - **NotFound**: Add a short paragraph + helpful links to top resources (Exercise Hub, Diet Hub, Self-Help Tool, Contact).
+   - **Chat**: Add an SEO-only intro section above the chat (visible, not hidden) describing what the AI assistant does, sources, medical-safety disclaimer, and example questions.
+   - **Short condition / topic pages**: Add an "Overview", "Common questions", or "How we can help" block consistent with the editorial voice (plain English, MedicallyReviewed component where clinical).
+   - **Utility pages** (Accessibility, CorporateGiving, etc.): Expand with concrete UK-specific detail (WCAG 2.2 AA commitments; corporate matched-giving/Gift Aid mechanics).
 
-### Phase 4: Performance Fix
-- Confirm hero image in `OAHero.tsx` has explicit `width`/`height`, `loading="eager"`, and `fetchpriority="high"`.
-- Add `font-display: swap` to `@font-face` declarations in `index.css` or the Google Fonts loader.
+4. **Re-run the audit** until every indexable route reports ≥250 words.
 
-### Phase 5: Contrast Fix
-- Identify low-contrast arbitrary colors (e.g., `text-gray-300/400`, `text-muted-foreground/50`) and replace with design-system tokens (`text-foreground`, `text-muted-foreground`) that meet WCAG AA.
+## Constraints
 
-### Phase 6: Verification
-After all edits, run a local build check (`bun run build`) to confirm no TypeScript or build errors. Then mark SEO findings as fixed via `seo_chat--update_findings`.
+- Keep the institutional Crimson/White aesthetic; new copy goes into existing section patterns (no new visual paradigms).
+- Strict neutrality, no NHS references, no placeholder registration numbers.
+- Use "for everyone" instead of "zero cost".
+- No new dependencies; script uses Node + regex (no headless browser).
+- Don't touch admin or auth-callback routes (already `noindex`).
 
-## Out of Scope
-- No new dependencies.
-- No redesign of page layouts.
-- No changes to business logic or backend.
+## Out of scope
+
+- The two open Lighthouse findings (slow load, contrast) — separate fixes.
+- Rewriting already-rich pages for SEO keyword density.
+
+## Deliverable
+
+- `scripts/audit-word-count.ts` committed.
+- Each previously-failing page updated with on-topic copy clearing 250 words.
+- Final audit table pasted in the response, all routes PASS.
