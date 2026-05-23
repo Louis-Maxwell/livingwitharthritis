@@ -1,40 +1,38 @@
-# Fix Backlinko SEO findings
+## Findings from the image
 
-Backlinko (and similar non-JS crawlers) only read raw `index.html` + `robots.txt`. They never execute React/Helmet, so anything we emit per-route via `SeoHead` is invisible to them. Most findings come from that gap, plus a few robots.txt syntax quirks.
+1. **Title** — 49 chars, Semrush wants 50–60.
+2. **Canonical** — missing in static HTML (Helmet adds it client-side, but Semrush's crawler doesn't execute JS).
+3. **Robots.txt** — flagged missing.
+4. **XML sitemap** — flagged missing.
+5. **PageSpeed Mobile** — Lighthouse `FAILED_DOCUMENT_REQUEST` / `ERR_TIMED_OUT`.
+6. **PageSpeed Desktop** — 82/100, LCP 1.4s, TBT 160ms, Speed Index 4.4s.
 
-## 1. Open Graph missing: title, description
-Add **static** `og:title` and `og:description` in `index.html` (alongside the existing `og:type`, `og:image`, `og:site_name`). Helmet's per-route values will still override these for JS-aware crawlers (Google, LinkedIn), but Backlinko/Facebook fallback will now see them. Remove the misleading comment that says "do not duplicate them statically".
+## Fixes
 
-## 2. Twitter/X Card missing: title, description
-Same fix — add static `twitter:title` and `twitter:description` next to the existing `twitter:card` + `twitter:image`.
+### 1. Lengthen `<title>` (index.html line 75)
+Change from 49 → ~58 chars, keeping primary keywords:
+```html
+<title>Arthritis Help UK | Free Physio, Diet & AI Joint Support</title>
+```
 
-## 3. Robots.txt invalid syntax
-Three small issues Backlinko's parser dislikes:
-- `User-agent: Sogou web spider` — UA token with a space. Remove that line (the `Sogou` line above already covers it).
-- Stray double blank lines after the DuckDuckBot and default blocks. Collapse to single blank line separators.
-- Move the `Sitemap: https://livingwitharthritis.org.uk/sitemap.xml` directive to the **top** of the file (before any `User-agent` block) so simple parsers find it.
+### 2. Add static canonical fallback (index.html, in `<head>`)
+The current comment forbids it for Helmet reasons, but Semrush/Backlinko-class crawlers need a non-JS canonical. Add a root-only canonical tag (Helmet's per-route canonical still wins for JS-aware crawlers via meta-dedup, and we'll keep canonical as the only `<link rel="canonical">` shipped statically):
+```html
+<link rel="canonical" href="https://livingwitharthritis.org.uk/" />
+```
+Update the surrounding comment to explain it's a homepage fallback and Helmet replaces it per-route.
 
-## 4. XML Sitemap not found
-Caused by (3) — Backlinko couldn't parse robots.txt so never saw the `Sitemap:` line. Fixing (3) resolves this. `public/sitemap.xml` already exists and returns 200; no change needed there.
+### 3. Robots.txt & sitemap — already present, verify delivery
+`public/robots.txt` and `public/sitemap.xml` both exist and `robots.txt` ends with `Sitemap: https://livingwitharthritis.org.uk/sitemap.xml`. Semrush flagged them because the scan ran against a URL where the latest deploy isn't live yet (or against the preview subdomain). No code change needed — after the next publish, request a Semrush rescan against `https://livingwitharthritis.org.uk`.
 
-## 5. H1–H6 structure
-Static `<h1>`/`<h2>` already exist inside `#root`, but some auditors skip elements they think will be JS-replaced. Move the static SEO fallback `<main>` to live **outside** `#root` (as a sibling, hidden with `hidden` attribute once JS hydrates via a tiny inline script). This guarantees Backlinko sees a top-level `<h1>` not nested in the React mount point.
+### 4. PageSpeed Mobile timeout
+`FAILED_DOCUMENT_REQUEST` is a Lighthouse fetch timeout, not a site bug — usually a cold-start on the Lovable preview or a flaky PSI run. Re-run against the custom domain after publish; if it persists we'd need to investigate TTFB separately (out of scope here).
 
-## 6. PageSpeed Mobile 60 / Desktop 87
-Lower-impact tweaks we can ship now:
-- Add `loading="lazy"` + explicit `width`/`height` to any non-LCP `<img>` still missing them on the landing page (cuts CLS).
-- Add `<link rel="preconnect">` for `images.unsplash.com` (already dns-prefetched — upgrade to preconnect for the hero CDN).
-- Defer the Stripe.js and any other non-critical third-party `<script>` tags.
-- Confirm GA loader stays behind the existing idle/interaction gate (already done).
-A full Lighthouse rebuild (route-splitting, image format swap to AVIF) is a separate larger task — flag but don't undertake in this pass.
+### 5. Desktop perf (82, Speed Index 4.4s)
+Not flagged as a hard fail; would need a dedicated perf pass (image-format conversion via `vite-imagetools`, preload LCP image, defer non-critical JS). Recommend handling in a separate task — call it out but don't bundle into this fix.
 
-## Files to edit
-- `index.html` — add static og:title/og:description + twitter:title/twitter:description; move SEO fallback outside `#root`; preconnect tweak.
-- `public/robots.txt` — move `Sitemap:` to top, drop `Sogou web spider` line, tidy blank lines.
+## Files changed
+- `index.html` — title + static canonical (2 small edits)
 
-## Verification
-- `curl -s https://livingwitharthritis.org.uk/index.html | grep -E "og:title|og:description|twitter:title|twitter:description"` returns matches.
-- `curl -s https://livingwitharthritis.org.uk/robots.txt | head -3` shows `Sitemap:` first.
-- Re-run Backlinko on `livingwitharthritis.org.uk`; the 5 hard-fail rows above should flip to pass; PageSpeed numbers should nudge up but won't hit 90+ without the larger perf pass.
-
-No business-logic, routing or backend changes.
+## After implementation
+Republish, then trigger a Semrush rescan against `https://livingwitharthritis.org.uk`.
