@@ -96,9 +96,10 @@
     <meta name="content-language" content="en-GB" />
     <meta http-equiv="content-language" content="en-GB" />
 
-    <!-- Per-route canonicals are owned by SeoHead (react-helmet-async) with a
-         global CanonicalEnforcer guaranteeing exactly one <link rel="canonical">
-         on every route. No static canonical is shipped here. -->
+    <!-- Static homepage canonical for non-JS crawlers/auditors. Per-route SeoHead
+         (react-helmet-async) sets per-page canonicals, and CanonicalEnforcer
+         removes duplicates on route change so only the route-specific one remains. -->
+    <link rel="canonical" href="https://livingwitharthritis.org.uk/" id="static-canonical" />
 
 
 
