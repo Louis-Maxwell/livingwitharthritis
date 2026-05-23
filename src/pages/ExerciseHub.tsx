@@ -114,6 +114,27 @@ const additionalActivities = [
   { title: "Seated Tai Chi", icon: Heart, href: "/exercises/seated-tai-chi-for-arthritis", desc: "Chair-based routine for severe OA or post-surgery" },
 ];
 
+// Internal-link matrix surfacing every exercise×joint guide — keeps these pages
+// reachable in one click from the Exercise Hub (no orphans in sitemap.xml).
+const EXERCISE_MATRIX_TYPES: { slug: string; label: string }[] = [
+  { slug: "swimming", label: "Swimming" },
+  { slug: "yoga", label: "Yoga" },
+  { slug: "cycling", label: "Cycling" },
+  { slug: "walking", label: "Walking" },
+  { slug: "tai-chi", label: "Tai Chi" },
+  { slug: "pilates", label: "Pilates" },
+  { slug: "stretching", label: "Stretching" },
+  { slug: "strength-training", label: "Strength Training" },
+];
+const EXERCISE_MATRIX_JOINTS: { slug: string; label: string }[] = [
+  { slug: "knee", label: "Knee" },
+  { slug: "hip", label: "Hip" },
+  { slug: "shoulder", label: "Shoulder" },
+  { slug: "hand", label: "Hand" },
+  { slug: "back", label: "Back" },
+  { slug: "ankle", label: "Ankle" },
+];
+
 const ExerciseHub = () => {
   const jsonLd = {
     "@context": "https://schema.org",
