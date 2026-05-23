@@ -96,12 +96,25 @@ Disallow: /
 User-agent: Diffbot
 Disallow: /
 
-# Block known SEO/scraping bots that hammer sites
-User-agent: AhrefsBot
-Disallow: /
-
+# Owner-run SEO audits (Semrush / Backlinko / Ahrefs) — allowed so the
+# charity can crawl its own site to monitor SEO health.
 User-agent: SemrushBot
-Disallow: /
+Allow: /
+
+User-agent: SemrushBot-SA
+Allow: /
+
+User-agent: SemrushBot-BA
+Allow: /
+
+User-agent: AhrefsBot
+Allow: /
+
+User-agent: AhrefsSiteAudit
+Allow: /
+
+# Block known SEO/scraping bots that hammer sites
+
 
 User-agent: MJ12bot
 Disallow: /
