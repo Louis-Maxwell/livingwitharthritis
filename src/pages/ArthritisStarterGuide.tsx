@@ -182,7 +182,7 @@ export default function ArthritisStarterGuide() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Helmet>
-        <title>Free Arthritis Starter Guide (UK PDF) | Living With Arthritis</title>
+        <title>Free Arthritis Starter Guide (UK PDF)</title>
         <meta
           name="description"
           content="A free 14-page UK Arthritis Starter Guide with clinically aligned advice, anti-inflammatory meal ideas, and gentle joint mobility routines. Download instantly."
