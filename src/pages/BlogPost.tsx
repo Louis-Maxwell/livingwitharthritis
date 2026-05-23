@@ -20,13 +20,17 @@ import CrossLinkBanner from "@/components/CrossLinkBanner";
 import InternalLinks from "@/components/InternalLinks";
 import { Skeleton } from "@/components/ui/skeleton";
 import { marked } from "marked";
+import DOMPurify from "dompurify";
 
 function markdownToHtml(md: string): string {
-  // If content already looks like HTML, return as-is
-  if (md.trim().startsWith("<")) return md;
+  // If content already looks like HTML, sanitize and return
+  if (md.trim().startsWith("<")) {
+    return DOMPurify.sanitize(md, { USE_PROFILES: { html: true } });
+  }
   // Database may store literal \n instead of real newlines
   const normalized = md.replace(/\\n/g, "\n");
-  return marked.parse(normalized, { async: false }) as string;
+  const rawHtml = marked.parse(normalized, { async: false }) as string;
+  return DOMPurify.sanitize(rawHtml, { USE_PROFILES: { html: true } });
 }
 
 function getReadingTime(html: string) {
