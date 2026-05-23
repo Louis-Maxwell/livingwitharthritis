@@ -1,79 +1,40 @@
-## Goal
+# Fix Backlinko SEO findings
 
-Clear the five Semrush audit findings from the uploaded screenshots without changing UI behaviour or page structure.
+Backlinko (and similar non-JS crawlers) only read raw `index.html` + `robots.txt`. They never execute React/Helmet, so anything we emit per-route via `SeoHead` is invisible to them. Most findings come from that gap, plus a few robots.txt syntax quirks.
 
----
+## 1. Open Graph missing: title, description
+Add **static** `og:title` and `og:description` in `index.html` (alongside the existing `og:type`, `og:image`, `og:site_name`). Helmet's per-route values will still override these for JS-aware crawlers (Google, LinkedIn), but Backlinko/Facebook fallback will now see them. Remove the misleading comment that says "do not duplicate them statically".
 
-## 1. Broken external links → `https://www.gov.uk/health` (404)
+## 2. Twitter/X Card missing: title, description
+Same fix — add static `twitter:title` and `twitter:description` next to the existing `twitter:card` + `twitter:image`.
 
-Semrush flagged 4+ pages linking to `https://www.gov.uk/health`, which returns 404. That URL doesn't exist on gov.uk. Replace every occurrence with the real, stable equivalent:
+## 3. Robots.txt invalid syntax
+Three small issues Backlinko's parser dislikes:
+- `User-agent: Sogou web spider` — UA token with a space. Remove that line (the `Sogou` line above already covers it).
+- Stray double blank lines after the DuckDuckBot and default blocks. Collapse to single blank line separators.
+- Move the `Sitemap: https://livingwitharthritis.org.uk/sitemap.xml` directive to the **top** of the file (before any `User-agent` block) so simple parsers find it.
 
-- **Replacement:** `https://www.gov.uk/browse/health-and-social-care` (valid, permanent gov.uk hub)
+## 4. XML Sitemap not found
+Caused by (3) — Backlinko couldn't parse robots.txt so never saw the `Sitemap:` line. Fixing (3) resolves this. `public/sitemap.xml` already exists and returns 200; no change needed there.
 
-Files to update (17 occurrences total):
-- `src/data/ukCities.ts` — every `trustUrl: "https://www.gov.uk/health"` (~15 cities)
-- `src/pages/pillar/UKArthritisGuide.tsx`
-- `src/pages/pillar/HealthServicesGuide.tsx` (2 places)
-- `src/pages/pillar/ExerciseGuide.tsx`
-- `src/pages/TrustCredibility.tsx`
-- `src/pages/ResourceDirectory.tsx`
-- `src/components/ResourceLibraryDrawer.tsx` (2 places)
+## 5. H1–H6 structure
+Static `<h1>`/`<h2>` already exist inside `#root`, but some auditors skip elements they think will be JS-replaced. Move the static SEO fallback `<main>` to live **outside** `#root` (as a sibling, hidden with `hidden` attribute once JS hydrates via a tiny inline script). This guarantees Backlinko sees a top-level `<h1>` not nested in the React mount point.
 
-Anchor text shown to users (`gov.uk/health`) stays the same — only the `href` changes.
+## 6. PageSpeed Mobile 60 / Desktop 87
+Lower-impact tweaks we can ship now:
+- Add `loading="lazy"` + explicit `width`/`height` to any non-LCP `<img>` still missing them on the landing page (cuts CLS).
+- Add `<link rel="preconnect">` for `images.unsplash.com` (already dns-prefetched — upgrade to preconnect for the hero CDN).
+- Defer the Stripe.js and any other non-critical third-party `<script>` tags.
+- Confirm GA loader stays behind the existing idle/interaction gate (already done).
+A full Lighthouse rebuild (route-splitting, image format swap to AVIF) is a separate larger task — flag but don't undertake in this pass.
 
----
-
-## 2. AI search bots blocked in robots.txt
-
-Semrush's "AI search visibility" check flags the `Disallow: /` rules for GPTBot, ChatGPT-User, PerplexityBot, anthropic-ai, Claude-Web, Google-Extended, CCBot. Blocking these stops the charity from appearing in ChatGPT/Perplexity/Google AI Overviews answers — bad for a discoverable health charity.
-
-**Change in `public/robots.txt`:** flip `Disallow: /` → `Allow: /` for:
-- GPTBot, ChatGPT-User, CCBot, anthropic-ai, Claude-Web, Google-Extended, PerplexityBot, FacebookBot
-
-Keep blocking abusive scrapers that don't drive AI answers: Bytespider, ImagesiftBot, Omgilibot/Omgili, Diffbot, MJ12bot, DotBot, BLEXBot, PetalBot, DataForSeoBot, plus the Chinese/SEA crawlers already listed.
-
----
-
-## 3. Low readability — `/guides/uk-arthritis` (UKArthritisGuide.tsx)
-
-Semrush flags long sentences and complex vocabulary. Pass through `src/pages/pillar/UKArthritisGuide.tsx` and:
-
-- Split sentences > 25 words into two.
-- Replace heavy words: *utilise → use, commence → start, approximately → about, individuals → people, demonstrate → show, additional → more, prior to → before, in order to → to*.
-- Add 2–3 extra `<h3>` sub-headings to break up the longest sections.
-- Convert any prose run of "A, B and C" enumerations into `<ul>` bullets where natural.
-
-Goal: short, plain-English sentences and more white space — no content removed, just rewritten and chunked.
-
----
-
-## 4. Duplicate meta descriptions
-
-Audit script `scripts/check-social-meta.mjs` already enforces presence, but not uniqueness. Quick survey didn't find obvious single-line duplicates, so Semrush is likely flagging a small pair. Approach:
-
-- Add a small one-shot script run during the fix to list any descriptions appearing on >1 page (across `SeoHead description=...` plus `ConditionPageTemplate` props).
-- For each duplicate pair found, rewrite the secondary page's description so it's unique and 140–160 chars, matching its actual content.
-
-If the survey finds zero duplicates, mark the finding fixed with that explanation (Semrush's snapshot may have been stale before the recent SEO work).
-
----
-
-## 5. Low text-to-HTML ratio
-
-The previously-added static `#root` fallback (~900 words in `index.html`) already helps the homepage. Semrush evaluates this per URL, so thin React pages can still trip it. Targeted boost:
-
-- Identify the 3–5 thinnest pages from `src/pages/*` (likely short hubs like `Credits.tsx`, `Gallery.tsx`, `Unsubscribe.tsx` are noindex'd and don't count — focus on indexable ones).
-- Where a real indexable page is thin, add 1–2 paragraphs of genuinely useful intro/FAQ copy at the bottom (not keyword stuffing).
-- No JS/CSS bloat removed — purely content additions.
-
----
+## Files to edit
+- `index.html` — add static og:title/og:description + twitter:title/twitter:description; move SEO fallback outside `#root`; preconnect tweak.
+- `public/robots.txt` — move `Sitemap:` to top, drop `Sogou web spider` line, tidy blank lines.
 
 ## Verification
+- `curl -s https://livingwitharthritis.org.uk/index.html | grep -E "og:title|og:description|twitter:title|twitter:description"` returns matches.
+- `curl -s https://livingwitharthritis.org.uk/robots.txt | head -3` shows `Sitemap:` first.
+- Re-run Backlinko on `livingwitharthritis.org.uk`; the 5 hard-fail rows above should flip to pass; PageSpeed numbers should nudge up but won't hit 90+ without the larger perf pass.
 
-- `grep -rn "gov.uk/health\"" src public` → returns nothing.
-- `curl -A "GPTBot" https://livingwitharthritis.org.uk/robots.txt` → shows `Allow: /` under `GPTBot`.
-- Visual read-through of `/guides/uk-arthritis` confirms shorter sentences and more sub-headings.
-- Duplicate-description script returns empty.
-- Mark all five Semrush findings fixed via `seo_chat--update_findings` after edits land; Semrush re-crawl will reconfirm.
-
-No DB, no auth, no UI behaviour change. Frontend-only content + `robots.txt` edits.
+No business-logic, routing or backend changes.
