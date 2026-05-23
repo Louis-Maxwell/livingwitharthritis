@@ -209,6 +209,44 @@
     }
     </script>
 
+    <!-- JSON-LD: LocalBusiness / MedicalBusiness for local SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["LocalBusiness", "MedicalBusiness"],
+      "@id": "https://livingwitharthritis.org.uk/#localbusiness",
+      "name": "Living With Arthritis UK",
+      "image": "https://livingwitharthritis.org.uk/favicon.png",
+      "url": "https://livingwitharthritis.org.uk",
+      "telephone": "+44-7760-512-084",
+      "email": "info@livingwitharthritis.org.uk",
+      "priceRange": "Free",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "27 Old Gloucester Street",
+        "addressLocality": "London",
+        "addressRegion": "England",
+        "postalCode": "WC1N 3AX",
+        "addressCountry": "GB"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 51.5210,
+        "longitude": -0.1205
+      },
+      "areaServed": { "@type": "Country", "name": "United Kingdom" },
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "09:00",
+        "closes": "17:00"
+      }],
+      "sameAs": []
+    }
+    </script>
+
+
+
 
   <!-- Per-route og:title, og:description, og:url and twitter equivalents are
        emitted via react-helmet-async (SeoHead) on every page. Do not duplicate
