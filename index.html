@@ -46,7 +46,7 @@
         try {
           var ua = (navigator.userAgent || '').toLowerCase();
           var allow = /(googlebot|bingbot|duckduckbot|applebot|twitterbot|linkedinbot|facebookexternalhit|slackbot|whatsapp|telegrambot)/i;
-          var block = /(sogou|baidu|yisou|360spider|haosou|bytespider|petalbot|ahrefsbot|semrushbot|mj12bot|dotbot|blexbot|dataforseo|seekport|serpstat|zoominfo|diffbot|gptbot|ccbot|claude|anthropic|perplexity|imagesift|omgili|headlesschrome|phantomjs|puppeteer|selenium|crawler|spider|\bbot\b)/i;
+          var block = /(sogou|baidu|yisou|360spider|haosou|bytespider|petalbot|mj12bot|dotbot|blexbot|dataforseo|seekport|serpstat|zoominfo|diffbot|gptbot|ccbot|claude|anthropic|perplexity|imagesift|omgili|headlesschrome|phantomjs|puppeteer|selenium|crawler|spider|\bbot\b)/i;
           var isBot = !allow.test(navigator.userAgent || '') && block.test(ua);
           if (isBot) {
             // Stub out gtag + analytics beacons so no pageview is recorded
