@@ -94,17 +94,23 @@ const ArthritisSupportIndex = () => {
                   {ukCities
                     .filter((c) => c.region === region)
                     .map((city) => (
-                      <Link
-                        key={city.slug}
-                        to={`/arthritis-support/${city.slug}`}
-                        className="flex items-center gap-2 p-3 rounded-lg hover:bg-primary/5 transition-colors group"
-                      >
-                        <MapPin className="w-4 h-4 text-primary shrink-0" />
-                        <div>
-                          <span className="font-medium text-foreground group-hover:text-primary transition-colors">{city.name}</span>
-                          <p className="text-xs text-muted-foreground">{city.localTrust}</p>
+                      <div key={city.slug} className="p-3 rounded-lg hover:bg-primary/5 transition-colors">
+                        <Link
+                          to={`/arthritis-support/${city.slug}`}
+                          className="flex items-center gap-2 group"
+                        >
+                          <MapPin className="w-4 h-4 text-primary shrink-0" />
+                          <div>
+                            <span className="font-medium text-foreground group-hover:text-primary transition-colors">{city.name}</span>
+                            <p className="text-xs text-muted-foreground">{city.localTrust}</p>
+                          </div>
+                        </Link>
+                        <div className="flex flex-wrap gap-x-3 gap-y-1 mt-2 ml-6 text-xs">
+                          <Link to={`/arthritis-support/${city.slug}/osteoarthritis`} className="text-muted-foreground hover:text-primary">Osteoarthritis</Link>
+                          <Link to={`/arthritis-support/${city.slug}/rheumatoid-arthritis`} className="text-muted-foreground hover:text-primary">Rheumatoid</Link>
+                          <Link to={`/arthritis-support/${city.slug}/psoriatic-arthritis`} className="text-muted-foreground hover:text-primary">Psoriatic</Link>
                         </div>
-                      </Link>
+                      </div>
                     ))}
                 </div>
               </div>
