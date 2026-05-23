@@ -13,6 +13,7 @@ import { useLinkPrefetch } from "@/hooks/useLinkPrefetch";
 import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "next-themes";
 import { DeferredMount } from "@/components/DeferredMount";
+import CanonicalEnforcer from "@/components/CanonicalEnforcer";
 
 
 const ChatBotWidget = lazy(() => import("./components/ChatBotWidget"));
@@ -268,6 +269,7 @@ function AppWithSync() {
 
   return (
     <>
+      <CanonicalEnforcer />
       <RouteProgressBar />
       <Suspense fallback={null}>
         <EngagementTracker />
