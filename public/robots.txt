@@ -1,3 +1,5 @@
+Sitemap: https://livingwitharthritis.org.uk/sitemap.xml
+
 # Allow major search engines
 User-agent: Googlebot
 Allow: /
@@ -43,7 +45,6 @@ Disallow: /newsletter/confirm
 Disallow: /debug/schema
 Disallow: /site-index
 
-
 User-agent: Twitterbot
 Allow: /
 
@@ -79,26 +80,10 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-User-agent: Bytespider
-Disallow: /
-
-User-agent: ImagesiftBot
-Disallow: /
-
-User-agent: Omgilibot
-Disallow: /
-
-User-agent: Omgili
-Disallow: /
-
 User-agent: FacebookBot
 Allow: /
 
-User-agent: Diffbot
-Disallow: /
-
-# Owner-run SEO audits (Semrush / Backlinko / Ahrefs) — allowed so the
-# charity can crawl its own site to monitor SEO health.
+# Owner-run SEO audits (Semrush / Backlinko / Ahrefs)
 User-agent: SemrushBot
 Allow: /
 
@@ -115,7 +100,20 @@ User-agent: AhrefsSiteAudit
 Allow: /
 
 # Block known SEO/scraping bots that hammer sites
+User-agent: Bytespider
+Disallow: /
 
+User-agent: ImagesiftBot
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+User-agent: Omgili
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /
 
 User-agent: MJ12bot
 Disallow: /
@@ -141,11 +139,8 @@ Disallow: /
 User-agent: ZoominfoBot
 Disallow: /
 
-# Block aggressive Chinese / SEA scrapers distorting analytics (no UK search benefit)
+# Block aggressive Chinese / SEA scrapers distorting analytics
 User-agent: Sogou
-Disallow: /
-
-User-agent: Sogou web spider
 Disallow: /
 
 User-agent: Baiduspider
@@ -174,6 +169,3 @@ Disallow: /unsubscribe
 Disallow: /newsletter/confirm
 Disallow: /debug/schema
 Disallow: /site-index
-
-
-Sitemap: https://livingwitharthritis.org.uk/sitemap.xml
