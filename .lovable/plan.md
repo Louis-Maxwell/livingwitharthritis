@@ -1,38 +1,42 @@
-## Findings from the image
+# Fix observable SEO issues
 
-1. **Title** — 49 chars, Semrush wants 50–60.
-2. **Canonical** — missing in static HTML (Helmet adds it client-side, but Semrush's crawler doesn't execute JS).
-3. **Robots.txt** — flagged missing.
-4. **XML sitemap** — flagged missing.
-5. **PageSpeed Mobile** — Lighthouse `FAILED_DOCUMENT_REQUEST` / `ERR_TIMED_OUT`.
-6. **PageSpeed Desktop** — 82/100, LCP 1.4s, TBT 160ms, Speed Index 4.4s.
+The XML sitemap already exists (`public/sitemap.xml`, 453 URLs, auto-regenerated on `predev`/`prebuild` via `scripts/generate-sitemap.ts`) and is referenced from `robots.txt`. No new sitemap mechanism needed. Below are the concrete, verifiable issues to fix now.
 
-## Fixes
+## 1. Sitemap ↔ robots.txt mismatches (real bug)
 
-### 1. Lengthen `<title>` (index.html line 75)
-Change from 49 → ~58 chars, keeping primary keywords:
-```html
-<title>Arthritis Help UK | Free Physio, Diet & AI Joint Support</title>
-```
+The sitemap currently lists 3 URLs that `robots.txt` explicitly disallows. Search engines flag this as a contradiction:
 
-### 2. Add static canonical fallback (index.html, in `<head>`)
-The current comment forbids it for Helmet reasons, but Semrush/Backlinko-class crawlers need a non-JS canonical. Add a root-only canonical tag (Helmet's per-route canonical still wins for JS-aware crawlers via meta-dedup, and we'll keep canonical as the only `<link rel="canonical">` shipped statically):
-```html
-<link rel="canonical" href="https://livingwitharthritis.org.uk/" />
-```
-Update the surrounding comment to explain it's a homepage fallback and Helmet replaces it per-route.
+- `/chat` — disallowed in robots, but in sitemap (line 10)
+- `/newsletter/confirm` — disallowed, but in sitemap (line 412)
+- `/debug/schema` — disallowed via `/debug/`, but in sitemap (line 418)
 
-### 3. Robots.txt & sitemap — already present, verify delivery
-`public/robots.txt` and `public/sitemap.xml` both exist and `robots.txt` ends with `Sitemap: https://livingwitharthritis.org.uk/sitemap.xml`. Semrush flagged them because the scan ran against a URL where the latest deploy isn't live yet (or against the preview subdomain). No code change needed — after the next publish, request a Semrush rescan against `https://livingwitharthritis.org.uk`.
+**Fix:** Extend `STATIC_EXCLUDE` in `scripts/generate-sitemap.ts` to mirror every path in robots.txt' s `Disallow` list (`/chat`, `/newsletter/confirm`, `/debug/*`, plus the existing `/auth`, `/admin`, `/donation-result`, `/unsubscribe`, `/site-index`). Re-run the generator so `public/sitemap.xml` is rewritten without those entries.
 
-### 4. PageSpeed Mobile timeout
-`FAILED_DOCUMENT_REQUEST` is a Lighthouse fetch timeout, not a site bug — usually a cold-start on the Lovable preview or a flaky PSI run. Re-run against the custom domain after publish; if it persists we'd need to investigate TTFB separately (out of scope here).
+## 2. Verify the last-round head fixes are actually in `index.html`
 
-### 5. Desktop perf (82, Speed Index 4.4s)
-Not flagged as a hard fail; would need a dedicated perf pass (image-format conversion via `vite-imagetools`, preload LCP image, defer non-critical JS). Recommend handling in a separate task — call it out but don't bundle into this fix.
+Read `index.html` and confirm the previously-applied changes are still present:
 
-## Files changed
-- `index.html` — title + static canonical (2 small edits)
+- `<title>` is `Arthritis Help UK | Free Physio, Diet & AI Joint Support` (58 chars)
+- Static homepage `<link rel="canonical" id="static-canonical" href="https://livingwitharthritis.org.uk/">` is present with the inline script that strips it on non-`/` routes
+- A single `<meta name="description">` under 160 chars
+- `og:url`, `og:title`, `og:description`, `og:type` present
+- Sitewide Organization JSON-LD present and valid
 
-## After implementation
-Republish, then trigger a Semrush rescan against `https://livingwitharthritis.org.uk`.
+If any of these have drifted, restore them. No new tags added beyond what was already agreed.
+
+## 3. Verify robots.txt + sitemap are self-consistent after step 1
+
+After regenerating the sitemap, grep it for any path that still appears in a robots `Disallow` line — should return zero matches.
+
+## Out of scope (explicitly not changing)
+
+- No new per-route Helmet work, no new schema types, no design changes.
+- No PageSpeed/perf work (Mobile `FAILED_DOCUMENT_REQUEST` is a Lighthouse fetch flake that clears on rescan; desktop 82/100 is a separate dedicated pass).
+- Not creating a new sitemap file — the existing generator stays.
+- Not touching content, copy, or components.
+
+## Technical notes
+
+- Files edited: `scripts/generate-sitemap.ts` (extend exclude set), `public/sitemap.xml` (regenerated output).
+- Verification: after edits, `grep -E "/chat|/newsletter/confirm|/debug" public/sitemap.xml` should be empty, and `grep -c "<url>" public/sitemap.xml` should drop by exactly 3.
+- After publish, request a rescan in Semrush/Backlinko against `https://livingwitharthritis.org.uk` to clear the stale audit findings.
