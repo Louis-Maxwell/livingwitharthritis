@@ -126,7 +126,7 @@ const CorporateGiving = () => {
     <>
       <Helmet>
         <title>Corporate Giving & Partnerships UK | Living With Arthritis</title>
-        <meta name="description" content="Partner with Living With Arthritis UK to support 10 million people with arthritis. Corporate sponsorship tiers, matched giving, employee wellness programmes and CSR partnerships across the United Kingdom." />
+        <meta name="description" content="Partner with Living With Arthritis UK to support 10 million UK patients. Corporate sponsorship, matched giving, employee wellness and CSR partnerships." />
         <meta name="keywords" content="corporate giving arthritis UK, arthritis charity partnership, CSR arthritis UK, corporate sponsorship charity, employee wellness arthritis, matched giving UK, arthritis fundraising corporate, charity partnership UK" />
         <meta property="og:title" content="Corporate Giving & Partnerships UK | Living With Arthritis" />
         <meta property="og:description" content="Partner with us to support 10 million UK arthritis patients. Corporate sponsorship, matched giving and employee wellness." />

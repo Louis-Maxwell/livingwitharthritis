@@ -17,7 +17,7 @@ const AISafety = () => (
       <title>AI Safety &amp; Trust | Living With Arthritis UK</title>
       <meta
         name="description"
-        content="How our arthritis AI assistant works, what it can and can't do, what data we send, and how to get urgent help. Co-designed with HCPC-registered clinicians and aligned with NICE guidelines."
+        content="How our arthritis AI works, what it can and can't do, the data we send, and how to get urgent help. Built with HCPC clinicians and aligned to NICE."
       />
       <link rel="canonical" href="https://livingwitharthritis.org.uk/ai-safety" />
       <meta property="og:title" content="AI Safety & Trust | Living With Arthritis UK" />

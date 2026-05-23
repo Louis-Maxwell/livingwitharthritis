@@ -10,11 +10,11 @@ const Footer = lazy(() => import("@/components/Footer"));
 const Contact = () => (
   <>
     <Helmet>
-      <title>Contact Living With Arthritis UK: Email, Phone & WhatsApp Support</title>
-      <meta name="description" content="Contact Living With Arthritis UK for free arthritis support — email, phone, WhatsApp or enquiry form. UK-based team, personal reply within 2 business days." />
+      <title>Contact Us | Living With Arthritis UK</title>
+      <meta name="description" content="Contact Living With Arthritis UK — email, phone or WhatsApp our UK-based team for free arthritis support. Personal reply within 2 business days." />
       <link rel="canonical" href="https://livingwitharthritis.org.uk/contact" />
-      <meta property="og:title" content="Contact Living With Arthritis UK: Email, Phone & WhatsApp Support" />
-      <meta property="og:description" content="Contact Living With Arthritis UK for free arthritis support — email, phone, WhatsApp or enquiry form. UK-based team, personal reply within 2 business days." />
+      <meta property="og:title" content="Contact Us | Living With Arthritis UK" />
+      <meta property="og:description" content="Contact Living With Arthritis UK — email, phone or WhatsApp our UK-based team for free arthritis support. Personal reply within 2 business days." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/contact" />
       <meta property="og:site_name" content="Living With Arthritis UK" />
@@ -23,8 +23,8 @@ const Contact = () => (
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Contact Living With Arthritis UK: Email, Phone & WhatsApp Support" />
-      <meta name="twitter:description" content="Contact Living With Arthritis UK for free arthritis support — email, phone, WhatsApp or enquiry form. UK-based team, personal reply within 2 business days." />
+      <meta name="twitter:title" content="Contact Us | Living With Arthritis UK" />
+      <meta name="twitter:description" content="Contact Living With Arthritis UK — email, phone or WhatsApp our UK-based team for free arthritis support. Personal reply within 2 business days." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",

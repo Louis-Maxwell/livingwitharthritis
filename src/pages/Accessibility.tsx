@@ -39,8 +39,8 @@ const Accessibility_Page = () => {
   return (
     <>
       <Helmet>
-        <title>Accessibility Statement – WCAG 2.1 AA | Living With Arthritis UK</title>
-        <meta name="description" content="Accessibility statement for Living With Arthritis UK. We are committed to WCAG 2.1 AA compliance, ensuring our arthritis support resources are usable by everyone including people with disabilities." />
+        <title>Accessibility Statement | Living With Arthritis UK</title>
+        <meta name="description" content="Our WCAG 2.1 AA accessibility statement — making arthritis support usable for everyone, including people with visual, hearing, motor and cognitive needs." />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/accessibility" />
         <meta property="og:title" content="Accessibility Statement | Living With Arthritis UK" />
         <meta property="og:description" content="Our commitment to web accessibility — WCAG 2.1 AA standards, screen reader support, keyboard navigation and more." />
