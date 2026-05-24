@@ -18,12 +18,13 @@ export default {
         sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
       },
       colors: (() => {
-        // Strict 2-colour palette: red + black on white.
-        // Any hard-coded Tailwind named-colour shade (e.g. bg-blue-500,
-        // text-green-600) is remapped here so it cannot escape the system.
+        // Strict 2-colour palette: RED + WHITE only.
+        // Every hard-coded Tailwind named-colour shade (e.g. bg-blue-500,
+        // text-gray-700, bg-black) is remapped here so it cannot escape.
         const RED = "hsl(350 85% 42%)";
-        const BLACK = "hsl(0 0% 0%)";
+        const BLACK = RED;   // no black anywhere
         const WHITE = "hsl(0 0% 100%)";
+
         const shadeMap = (base: "red" | "black" | "white") => {
           const v = base === "red" ? RED : base === "black" ? BLACK : WHITE;
           return {
