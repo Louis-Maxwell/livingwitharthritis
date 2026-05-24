@@ -1,47 +1,30 @@
-# Plan: Typography Scale + White Surfaces + Borderless Cards
+# Plan: Force black on all headings + subheadings (site-wide)
 
-Three coordinated token-level changes, applied globally so every page and component picks them up automatically.
+Headings (h1–h6) are already locked to black via `src/index.css`. This plan extends the rule so every form of subheading — across landing pages, content pages, and admin — also reads as pure black.
 
-## 1. Typography scale (arthritis.org-inspired)
+## Change
 
-Match the reference screenshot's editorial rhythm. Add base font sizes globally in `src/index.css`:
+Single edit in `src/index.css`, base layer. Expand the black-text selector to cover all common subheading patterns used in this codebase and shadcn primitives:
 
-- **Body / paragraphs:** 16px, line-height 1.65
-- **Small / captions:** 13px
-- **H1 (hero):** clamp(40px, 5vw, 64px), weight 700, line-height 1.05
-- **H2 (section):** clamp(28px, 3vw, 40px), weight 700
-- **H3 (card/group):** 22px, weight 700
-- **H4:** 18px, weight 700
-- **H5:** 15px, weight 600
-- **H6 / eyebrow:** 11px uppercase, tracking 0.25em
-- **Lead paragraph:** 18px, line-height 1.55
+- `h1, h2, h3, h4, h5, h6` (already)
+- `[data-eyebrow], .section-label, .eyebrow, .subheading, .subhead` (already)
+- **Add:**
+  - `[role="heading"]`
+  - `.lead` (lead paragraph under a heading)
+  - `[class*="DialogTitle"], [class*="CardTitle"], [class*="SheetTitle"], [class*="AlertTitle"], [class*="DrawerTitle"]` (shadcn primitives)
+  - `.card-title, .dialog-title, .alert-title, .sheet-title, .drawer-title, .popover-title`
+  - `dt` (definition list terms used as mini-headings)
+  - `legend` (fieldset legends in admin forms)
+  - `label[data-heading], .form-section-title`
 
-Applied via `h1–h6`, `p`, `.lead`, `.eyebrow` rules in the global layer so no per-component edits needed.
+All forced with `color: #000 !important;` so no component-level Tailwind class (`text-primary`, `text-foreground`, `text-white`) can override.
 
-## 2. White background everywhere (frontend + admin)
+## Out of scope
 
-Already enforced in `:root` and `.dark`. Add a belt-and-braces safety net:
+- Body text, links, icons, buttons stay red.
+- No component edits.
+- No layout/typography size changes.
 
-- `html, body, #root { background: #fff !important; }`
-- Force `--background`, `--card`, `--popover`, `--muted`, `--accent`, `--secondary`, `--sidebar-background` all to `0 0% 100%` (already are — re-verify)
-- Neutralise any leftover `bg-gradient-*`, `bg-primary`, `bg-secondary` section utilities that could paint a coloured band: override `.bg-primary, .bg-secondary, .bg-accent, .bg-muted, .bg-gradient-medical { background: #fff !important; }` only at the *section/page* level via `section, main, article, aside, header, footer { background-color: #fff !important; }`. Buttons keep their red via `.btn-*` rules unaffected.
+## Files
 
-## 3. Remove red borders from boxes
-
-Strip the red border ring globally:
-
-- Change `--border` from red to `0 0% 100% / 0` (transparent / white)
-- Remove the global `* { @apply border-border }` red effect by re-aliasing border to transparent
-- Override `.card, .premium-card, .glass-card, .feature-pill, .trust-badge, [class*="border"]` to `border-color: transparent !important` at the base layer
-- Keep button outlines intact (red fills, white text — no border needed)
-
-## Out of Scope
-
-- No layout, copy, or component-structure changes
-- No backend logic changes (admin gets the same CSS, that's all)
-- No image swaps
-
-## Files touched
-
-- `src/index.css` (single file — all changes are token + global rules)
-- `mem://style/visual-identity` updated with the new type scale and "no borders" rule
+- `src/index.css` (single base-layer rule expansion)

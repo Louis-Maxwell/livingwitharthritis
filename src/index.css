@@ -193,12 +193,31 @@
   h6 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.25em; font-weight: 700; }
 
   [data-eyebrow],
+  [role="heading"],
   .section-label,
   .eyebrow,
   .subheading,
-  .subhead {
+  .subhead,
+  .lead,
+  .card-title,
+  .dialog-title,
+  .alert-title,
+  .sheet-title,
+  .drawer-title,
+  .popover-title,
+  .form-section-title,
+  label[data-heading],
+  dt,
+  legend,
+  [class*="DialogTitle"],
+  [class*="CardTitle"],
+  [class*="SheetTitle"],
+  [class*="AlertTitle"],
+  [class*="DrawerTitle"],
+  [class*="PopoverTitle"] {
     color: #000 !important;
   }
+
 
   /* Force white backgrounds on page-level containers */
   section, main, article, aside, header, footer, nav {
