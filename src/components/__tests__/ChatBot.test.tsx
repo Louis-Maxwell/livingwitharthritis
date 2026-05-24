@@ -41,7 +41,7 @@ describe("ChatBot", () => {
 
   it("renders the header with title", () => {
     render(<ChatBot />);
-    expect(screen.getByText("Arthritis Support")).toBeInTheDocument();
+    expect(screen.getByText("Help & Support")).toBeInTheDocument();
   });
 
   it("shows welcome message when no messages", () => {
