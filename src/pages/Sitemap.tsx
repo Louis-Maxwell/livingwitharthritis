@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import { useMemo } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ukCities } from "@/data/ukCities";
@@ -10,13 +11,6 @@ interface SitemapLink {
   external?: boolean;
 }
 
-interface SitemapSection {
-  title: string;
-  links: SitemapLink[];
-}
-
-// Mirrors the URL groups in supabase/functions/generate-sitemap/index.ts
-// so every XML sitemap entry has at least one internal link (de-orphan).
 const EXERCISE_TYPES = [
   ["swimming", "Swimming"],
   ["yoga", "Yoga"],
@@ -49,7 +43,7 @@ const exerciseMatrixLinks: SitemapLink[] = EXERCISE_TYPES.flatMap(([exSlug, exLa
 );
 
 const cityLinks: SitemapLink[] = ukCities.map((c) => ({
-  label: c.name,
+  label: `Arthritis Support in ${c.name}`,
   href: `/arthritis-support/${c.slug}`,
 }));
 
@@ -60,214 +54,270 @@ const cityConditionLinks: SitemapLink[] = ukCities.flatMap((c) =>
   })),
 );
 
-const sitemapSections: SitemapSection[] = [
-  {
-    title: "Main Pages",
-    links: [
-      { label: "Home", href: "/" },
-      { label: "About Us", href: "/about" },
-      { label: "Exercise Hub", href: "/exercises" },
-      { label: "Diet & Nutrition Hub", href: "/diet" },
-      { label: "Trust & Credibility", href: "/trust" },
-      { label: "Community Hub", href: "/community" },
-      { label: "Virtual Assistant", href: "/chat" },
-      { label: "Self Help Tool", href: "/self-help" },
-      { label: "Health Tools", href: "/health-tools" },
-      { label: "Blog", href: "/blog" },
-      { label: "Sign In / Register", href: "/auth" },
-    ],
-  },
-  {
-    title: "Condition Guides",
-    links: [
-      { label: "Osteoarthritis", href: "/conditions/osteoarthritis" },
-      { label: "Rheumatoid Arthritis", href: "/conditions/rheumatoid-arthritis" },
-      { label: "Psoriatic Arthritis", href: "/conditions/psoriatic-arthritis" },
-      { label: "Arthritis Flare-Ups", href: "/arthritis-flare-ups" },
-    ],
-  },
-  {
-    title: "In-Depth Guides",
-    links: [
-      { label: "UK Arthritis Guide", href: "/guides/uk-arthritis" },
-      { label: "Exercise Guide", href: "/guides/exercise" },
-      { label: "Diet Guide", href: "/guides/diet" },
-      { label: "Health Services Guide", href: "/guides/health-services" },
-      { label: "Benefits & PIP Guide", href: "/guides/benefits-pip" },
-    ],
-  },
-  {
-    title: "Regional Hubs",
-    links: [
-      { label: "North West", href: "/regions/north-west" },
-      { label: "Midlands", href: "/regions/midlands" },
-      { label: "Scotland", href: "/regions/scotland" },
-      { label: "Wales", href: "/regions/wales" },
-    ],
-  },
-  {
-    title: "Waiting List & Tools",
-    links: [
-      { label: "Arthritis Waiting List Help", href: "/arthritis-waiting-list-help" },
-      { label: "Waiting Time Calculator", href: "/tools/waiting-time" },
-      { label: "Arthritis Starter Guide", href: "/arthritis-starter-guide" },
-    ],
-  },
-  {
-    title: "Diet & Nutrition Articles",
-    links: [
-      { label: "Best Diet for Joint Pain UK", href: "/blog/best-diet-for-joint-pain-uk" },
-      { label: "Turmeric for Arthritis", href: "/blog/turmeric-for-arthritis-uk" },
-      { label: "Omega-3 & Fish Oil", href: "/blog/arthritis-and-omega-3-fish-oil" },
-      { label: "Anti-Inflammatory Herbs & Spices", href: "/blog/anti-inflammatory-herbs-spices-arthritis" },
-      { label: "Gut Health & Arthritis", href: "/blog/gut-health-arthritis-connection" },
-      { label: "Meal Planning for Arthritis", href: "/blog/meal-planning-arthritis-uk" },
-      { label: "Arthritis & Weight Loss UK", href: "/blog/arthritis-and-weight-loss-uk" },
-      { label: "Arthritis Supplements UK", href: "/blog/arthritis-supplements-uk" },
-      { label: "Arthritis Medication UK", href: "/blog/arthritis-medication-uk" },
-    ],
-  },
-  {
-    title: "Exercise & Movement Articles",
-    links: [
-      { label: "Arthritis Exercises", href: "/blog/arthritis-exercises" },
-      { label: "Knee Exercises", href: "/blog/knee-arthritis-exercises-uk" },
-      { label: "Hand Exercises", href: "/blog/hand-exercises-for-arthritis" },
-      { label: "Shoulder Exercises", href: "/blog/shoulder-arthritis-exercises-uk" },
-      { label: "Foot & Ankle Arthritis", href: "/blog/foot-and-ankle-arthritis-uk" },
-      { label: "Swimming for Arthritis", href: "/blog/swimming-for-arthritis-uk" },
-      { label: "Yoga for Arthritis", href: "/blog/yoga-for-arthritis-beginners" },
-      { label: "Cycling for Arthritis", href: "/blog/arthritis-and-cycling-uk" },
-      { label: "Tai Chi for Arthritis", href: "/blog/tai-chi-for-arthritis-uk" },
-      { label: "Hydrotherapy", href: "/blog/hydrotherapy-arthritis-uk" },
-      { label: "Staying Active in Winter", href: "/blog/staying-active-arthritis-winter-uk" },
-    ],
-  },
-  {
-    title: "Exercises by Joint",
-    links: exerciseMatrixLinks,
-  },
-  {
-    title: "Lifestyle & Wellbeing",
-    links: [
-      { label: "Cold Weather & Joint Pain", href: "/blog/arthritis-and-cold-weather-uk" },
-      { label: "Arthritis & Sleep Problems", href: "/blog/arthritis-and-sleep-problems" },
-      { label: "Arthritis & Mental Health", href: "/blog/arthritis-and-mental-health" },
-      { label: "Arthritis at Work UK", href: "/blog/arthritis-and-work-uk" },
-      { label: "Arthritis Flare-Up Guide", href: "/blog/arthritis-flare-up-what-to-do" },
-      { label: "Osteoarthritis Symptoms UK", href: "/blog/osteoarthritis-symptoms-uk" },
-      { label: "Natural Pain Relief", href: "/blog/natural-pain-relief-arthritis-uk" },
-      { label: "Gardening with Arthritis", href: "/blog/gardening-with-arthritis-uk" },
-      { label: "TENS Machines", href: "/blog/tens-machines-arthritis-uk" },
-      { label: "Spinal Arthritis & Back Pain", href: "/blog/spinal-arthritis-back-pain-uk" },
-      { label: "Mindfulness for Pain", href: "/blog/mindfulness-for-chronic-pain-uk" },
-      { label: "Travelling with Arthritis", href: "/blog/travelling-with-arthritis-uk" },
-    ],
-  },
-  {
-    title: "Daily Tips",
-    links: [
-      { label: "Daily Living Overview", href: "/daily-tips/overview" },
-      { label: "Daily Living for Joint Health", href: "/daily-tips/daily-living" },
-      { label: "Health Tips", href: "/daily-tips/health-tips" },
-      { label: "Morning Stretches", href: "/daily-tips/morning-stretches" },
-      { label: "Stay Hydrated", href: "/daily-tips/stay-hydrated" },
-      { label: "Anti-Inflammatory Snacks", href: "/daily-tips/anti-inflammatory-snacks" },
-      { label: "Walk 20 Minutes", href: "/daily-tips/walk-20-minutes" },
-      { label: "Prioritise Sleep", href: "/daily-tips/prioritise-sleep" },
-      { label: "Pace Yourself", href: "/daily-tips/pace-yourself" },
-    ],
-  },
-  {
-    title: "UK Arthritis Support by City",
-    links: [{ label: "All Cities", href: "/arthritis-support" }, ...cityLinks],
-  },
-  {
-    title: "City × Condition Pages",
-    links: cityConditionLinks,
-  },
-  {
-    title: "Support & Donate",
-    links: [
-      { label: "Donate", href: "/#fundraising" },
-      { label: "Zakat Appeal", href: "/zakat-appeal" },
-      { label: "Ways to Help", href: "/ways-to-help" },
-      { label: "Corporate Giving", href: "/corporate-giving" },
-    ],
-  },
-  {
-    title: "About & Governance",
-    links: [
-      { label: "About Us", href: "/about" },
-      { label: "Governance", href: "/governance" },
-      { label: "Finances", href: "/finances" },
-      { label: "Partners", href: "/partners" },
-      { label: "Press", href: "/press" },
-      { label: "Safeguarding", href: "/safeguarding" },
-      { label: "Impact Stories", href: "/impact-stories" },
-    ],
-  },
-  {
-    title: "Legal & Policies",
-    links: [
-      { label: "Privacy Policy", href: "/privacy" },
-      { label: "Cookies Policy", href: "/cookies" },
-      { label: "Terms & Conditions", href: "/terms" },
-      { label: "Accessibility", href: "/accessibility" },
-      { label: "Complaints", href: "/complaints" },
-      { label: "XML Sitemap", href: "/sitemap.xml", external: true },
-    ],
-  },
+// Curated set of every public, indexable page. Auth/admin/utility routes
+// (/auth, /admin/*, /chat, /donation-result, /unsubscribe, /newsletter/confirm,
+// /debug/*) are intentionally omitted from this user-facing index.
+const ALL_LINKS: SitemapLink[] = [
+  // Main pages
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
+  { label: "Accessibility", href: "/accessibility" },
+  { label: "AI Safety", href: "/ai-safety" },
+  { label: "Blog", href: "/blog" },
+  { label: "Blog Hub", href: "/blog-hub" },
+  { label: "Community Hub", href: "/community" },
+  { label: "Complaints", href: "/complaints" },
+  { label: "Contact", href: "/contact" },
+  { label: "Cookies Policy", href: "/cookies" },
+  { label: "Corporate Giving", href: "/corporate-giving" },
+  { label: "Credits", href: "/credits" },
+  { label: "Diet & Nutrition Hub", href: "/diet" },
+  { label: "Donate", href: "/donate" },
+  { label: "Exercise Hub", href: "/exercises" },
+  { label: "Expert Articles", href: "/expert-articles" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Finances", href: "/finances" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Governance", href: "/governance" },
+  { label: "Health Tools", href: "/health-tools" },
+  { label: "Impact Stories", href: "/impact-stories" },
+  { label: "Library", href: "/library" },
+  { label: "Lived Experiences", href: "/lived-experiences" },
+  { label: "Partners", href: "/partners" },
+  { label: "Pedometer", href: "/pedometer" },
+  { label: "Press", href: "/press" },
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Resource Directory", href: "/resource-directory" },
+  { label: "Safeguarding", href: "/safeguarding" },
+  { label: "Self-Assessment", href: "/self-assessment" },
+  { label: "Self-Help Tool", href: "/self-help" },
+  { label: "Services", href: "/services" },
+  { label: "Shop", href: "/shop" },
+  { label: "Terms & Conditions", href: "/terms" },
+  { label: "Trust & Credibility", href: "/trust" },
+  { label: "Ways to Help", href: "/ways-to-help" },
+  { label: "Zakat Appeal", href: "/zakat-appeal" },
+
+  // Conditions
+  { label: "Ankylosing Spondylitis", href: "/conditions/ankylosing-spondylitis" },
+  { label: "Arthritis Flare-Ups", href: "/arthritis-flare-ups" },
+  { label: "Fibromyalgia", href: "/conditions/fibromyalgia" },
+  { label: "Gout", href: "/conditions/gout" },
+  { label: "Hand Arthritis", href: "/conditions/hand-arthritis" },
+  { label: "Juvenile Arthritis", href: "/conditions/juvenile-arthritis" },
+  { label: "Knee Arthritis", href: "/conditions/knee-arthritis" },
+  { label: "Lupus", href: "/conditions/lupus" },
+  { label: "Osteoarthritis", href: "/conditions/osteoarthritis" },
+  { label: "Psoriatic Arthritis", href: "/conditions/psoriatic-arthritis" },
+  { label: "Rheumatoid Arthritis", href: "/conditions/rheumatoid-arthritis" },
+  { label: "Shoulder Arthritis", href: "/conditions/shoulder-arthritis" },
+
+  // Pillar guides
+  { label: "UK Arthritis Guide", href: "/guides/uk-arthritis" },
+  { label: "Exercise Guide", href: "/guides/exercise" },
+  { label: "Diet Guide", href: "/guides/diet" },
+  { label: "Health Services Guide", href: "/guides/health-services" },
+  { label: "Benefits & PIP Guide", href: "/guides/benefits-pip" },
+
+  // Tai chi pillar pages
+  { label: "Tai Chi for Arthritis", href: "/exercises/tai-chi-for-arthritis" },
+  { label: "Tai Chi for Balance", href: "/exercises/tai-chi-for-balance" },
+  { label: "Tai Chi for Beginners", href: "/exercises/tai-chi-for-beginners" },
+  { label: "Seated Tai Chi for Arthritis", href: "/exercises/seated-tai-chi-for-arthritis" },
+
+  // Diet pillar
+  { label: "Mediterranean Diet for Arthritis", href: "/diet/mediterranean-diet-for-arthritis" },
+
+  // Myths
+  { label: "Does Cracking Knuckles Cause Arthritis?", href: "/myths/does-cracking-knuckles-cause-arthritis" },
+
+  // Waiting list & tools
+  { label: "Arthritis Waiting List Help", href: "/arthritis-waiting-list-help" },
+  { label: "Waiting Time Calculator", href: "/tools/waiting-time" },
+  { label: "Arthritis Starter Guide", href: "/arthritis-starter-guide" },
+
+  // Buddy
+  { label: "Buddy Programme", href: "/buddy" },
+  { label: "Buddy Match", href: "/buddy-match" },
+
+  // Regional hubs
+  { label: "North West Region", href: "/regions/north-west" },
+  { label: "Midlands Region", href: "/regions/midlands" },
+  { label: "Scotland Region", href: "/regions/scotland" },
+  { label: "Wales Region", href: "/regions/wales" },
+  { label: "UK Arthritis Support – All Cities", href: "/arthritis-support" },
+
+  // Blog – Diet & nutrition articles
+  { label: "Best Diet for Joint Pain UK", href: "/blog/best-diet-for-joint-pain-uk" },
+  { label: "Turmeric for Arthritis", href: "/blog/turmeric-for-arthritis-uk" },
+  { label: "Omega-3 & Fish Oil for Arthritis", href: "/blog/arthritis-and-omega-3-fish-oil" },
+  { label: "Anti-Inflammatory Herbs & Spices", href: "/blog/anti-inflammatory-herbs-spices-arthritis" },
+  { label: "Gut Health & Arthritis", href: "/blog/gut-health-arthritis-connection" },
+  { label: "Meal Planning for Arthritis", href: "/blog/meal-planning-arthritis-uk" },
+  { label: "Arthritis & Weight Loss UK", href: "/blog/arthritis-and-weight-loss-uk" },
+  { label: "Arthritis Supplements UK", href: "/blog/arthritis-supplements-uk" },
+  { label: "Arthritis Medication UK", href: "/blog/arthritis-medication-uk" },
+
+  // Blog – Exercise articles
+  { label: "Arthritis Exercises", href: "/blog/arthritis-exercises" },
+  { label: "Knee Arthritis Exercises", href: "/blog/knee-arthritis-exercises-uk" },
+  { label: "Hand Exercises for Arthritis", href: "/blog/hand-exercises-for-arthritis" },
+  { label: "Shoulder Arthritis Exercises", href: "/blog/shoulder-arthritis-exercises-uk" },
+  { label: "Foot & Ankle Arthritis", href: "/blog/foot-and-ankle-arthritis-uk" },
+  { label: "Swimming for Arthritis", href: "/blog/swimming-for-arthritis-uk" },
+  { label: "Yoga for Arthritis Beginners", href: "/blog/yoga-for-arthritis-beginners" },
+  { label: "Cycling for Arthritis", href: "/blog/arthritis-and-cycling-uk" },
+  { label: "Tai Chi for Arthritis (Article)", href: "/blog/tai-chi-for-arthritis-uk" },
+  { label: "Hydrotherapy for Arthritis", href: "/blog/hydrotherapy-arthritis-uk" },
+  { label: "Staying Active in Winter", href: "/blog/staying-active-arthritis-winter-uk" },
+
+  // Blog – Lifestyle & wellbeing
+  { label: "Cold Weather & Joint Pain", href: "/blog/arthritis-and-cold-weather-uk" },
+  { label: "Arthritis & Sleep Problems", href: "/blog/arthritis-and-sleep-problems" },
+  { label: "Arthritis & Mental Health", href: "/blog/arthritis-and-mental-health" },
+  { label: "Arthritis at Work UK", href: "/blog/arthritis-and-work-uk" },
+  { label: "Arthritis Flare-Up Guide", href: "/blog/arthritis-flare-up-what-to-do" },
+  { label: "Osteoarthritis Symptoms UK", href: "/blog/osteoarthritis-symptoms-uk" },
+  { label: "Natural Pain Relief for Arthritis", href: "/blog/natural-pain-relief-arthritis-uk" },
+  { label: "Gardening with Arthritis", href: "/blog/gardening-with-arthritis-uk" },
+  { label: "TENS Machines for Arthritis", href: "/blog/tens-machines-arthritis-uk" },
+  { label: "Spinal Arthritis & Back Pain", href: "/blog/spinal-arthritis-back-pain-uk" },
+  { label: "Mindfulness for Chronic Pain", href: "/blog/mindfulness-for-chronic-pain-uk" },
+  { label: "Travelling with Arthritis", href: "/blog/travelling-with-arthritis-uk" },
+
+  // Daily tips
+  { label: "Daily Living Overview", href: "/daily-tips/overview" },
+  { label: "Daily Living for Joint Health", href: "/daily-tips/daily-living" },
+  { label: "Health Tips", href: "/daily-tips/health-tips" },
+  { label: "Morning Stretches", href: "/daily-tips/morning-stretches" },
+  { label: "Stay Hydrated", href: "/daily-tips/stay-hydrated" },
+  { label: "Anti-Inflammatory Snacks", href: "/daily-tips/anti-inflammatory-snacks" },
+  { label: "Walk 20 Minutes a Day", href: "/daily-tips/walk-20-minutes" },
+  { label: "Prioritise Sleep", href: "/daily-tips/prioritise-sleep" },
+  { label: "Pace Yourself", href: "/daily-tips/pace-yourself" },
+
+  // Generated matrices
+  ...exerciseMatrixLinks,
+  ...cityLinks,
+  ...cityConditionLinks,
+
+  // XML sitemap (external)
+  { label: "XML Sitemap (machine-readable)", href: "/sitemap.xml", external: true },
 ];
 
+const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
+function bucketFor(label: string): string {
+  const ch = label.trim().charAt(0).toUpperCase();
+  return /[A-Z]/.test(ch) ? ch : "#";
+}
+
 const Sitemap = () => {
+  const { groups, presentLetters } = useMemo(() => {
+    const seen = new Set<string>();
+    const unique = ALL_LINKS.filter((l) => {
+      if (seen.has(l.href)) return false;
+      seen.add(l.href);
+      return true;
+    });
+
+    const sorted = [...unique].sort((a, b) =>
+      a.label.localeCompare(b.label, "en-GB", { sensitivity: "base" }),
+    );
+
+    const grouped: Record<string, SitemapLink[]> = {};
+    for (const link of sorted) {
+      const key = bucketFor(link.label);
+      (grouped[key] ||= []).push(link);
+    }
+    const present = new Set(Object.keys(grouped));
+    return { groups: grouped, presentLetters: present };
+  }, []);
+
   return (
     <>
       <Helmet>
-        <title>Site Index – Living With Arthritis UK</title>
-        {/* Single robots directive: noindex but follow so this page passes link equity
-            to every URL in the XML sitemap (de-orphans matrix/city/tip pages). */}
+        <title>Site Index (A–Z) | Living With Arthritis UK</title>
         <meta name="robots" content="noindex, follow" />
         <meta
           name="description"
-          content="Browse every page on Living With Arthritis UK: condition guides, exercises by joint, city support, daily tips and more."
+          content="A–Z index of every page on Living With Arthritis UK — condition guides, exercises, daily tips, regional support and more, listed alphabetically."
         />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/sitemap" />
-        <meta property="og:title" content="Sitemap – Living With Arthritis UK" />
-        <meta property="og:description" content="Browse every page on Living With Arthritis UK." />
+        <meta property="og:title" content="Site Index (A–Z) | Living With Arthritis UK" />
+        <meta property="og:description" content="Every page on Living With Arthritis UK, listed alphabetically." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/sitemap" />
         <meta property="og:site_name" content="Living With Arthritis UK" />
         <meta property="og:locale" content="en_GB" />
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="Sitemap – Living With Arthritis UK" />
-        <meta name="twitter:description" content="Browse every page on Living With Arthritis UK." />
       </Helmet>
 
       <div className="min-h-screen bg-background">
         <Header />
 
         <main className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl pt-12 pb-20 md:pt-20 md:pb-28">
+          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
+            Site Index
+          </p>
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-foreground mb-6 uppercase">
-            Sitemap
+            A–Z Index
           </h1>
-          <p className="text-muted-foreground max-w-2xl mb-16">
-            A complete index of every page on Living With Arthritis UK — including all
-            exercise routines by joint, every UK city support page, and the daily tips library.
+          <p className="text-muted-foreground max-w-2xl mb-10">
+            Every page on Living With Arthritis UK, listed alphabetically. Use the
+            letters below to jump to a section, or browse the full list.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
-            {sitemapSections.map((section) => (
-              <section key={section.title} className="break-inside-avoid">
-                <h2 className="font-display text-xl sm:text-2xl font-bold text-foreground mb-1">
-                  {section.title}
-                </h2>
-                <div className="h-px bg-border mb-5" />
+          {/* Alpha jump nav */}
+          <nav
+            aria-label="Jump to letter"
+            className="sticky top-0 z-20 -mx-4 sm:mx-0 mb-12 bg-background/95 backdrop-blur border-y border-border py-3"
+          >
+            <ul className="flex flex-wrap gap-1.5 sm:gap-2 px-4 sm:px-0">
+              {LETTERS.map((letter) => {
+                const isPresent = presentLetters.has(letter);
+                return (
+                  <li key={letter}>
+                    {isPresent ? (
+                      <a
+                        href={`#letter-${letter}`}
+                        className="inline-flex items-center justify-center w-9 h-9 text-sm font-semibold rounded border border-border text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
+                      >
+                        {letter}
+                      </a>
+                    ) : (
+                      <span
+                        aria-disabled="true"
+                        className="inline-flex items-center justify-center w-9 h-9 text-sm font-semibold rounded border border-border/40 text-muted-foreground/40 cursor-not-allowed"
+                      >
+                        {letter}
+                      </span>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
 
-                <ul className="space-y-2 columns-1 sm:columns-2 md:columns-1 lg:columns-2 gap-x-6">
-                  {section.links.map((link) => (
+          <div className="space-y-14">
+            {LETTERS.filter((l) => groups[l]?.length).map((letter) => (
+              <section
+                key={letter}
+                id={`letter-${letter}`}
+                className="scroll-mt-24"
+              >
+                <div className="flex items-baseline gap-4 mb-5">
+                  <h2 className="font-display text-5xl sm:text-6xl font-black text-primary leading-none">
+                    {letter}
+                  </h2>
+                  <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                    {groups[letter].length} {groups[letter].length === 1 ? "page" : "pages"}
+                  </span>
+                </div>
+                <div className="h-px bg-border mb-6" />
+                <ul className="columns-1 sm:columns-2 lg:columns-3 gap-x-8 space-y-2.5">
+                  {groups[letter].map((link) => (
                     <li key={link.href} className="break-inside-avoid">
                       {link.external ? (
                         <a
@@ -291,6 +341,32 @@ const Sitemap = () => {
                 </ul>
               </section>
             ))}
+
+            {groups["#"]?.length ? (
+              <section id="letter-#" className="scroll-mt-24">
+                <div className="flex items-baseline gap-4 mb-5">
+                  <h2 className="font-display text-5xl sm:text-6xl font-black text-primary leading-none">
+                    #
+                  </h2>
+                  <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                    Other
+                  </span>
+                </div>
+                <div className="h-px bg-border mb-6" />
+                <ul className="columns-1 sm:columns-2 lg:columns-3 gap-x-8 space-y-2.5">
+                  {groups["#"].map((link) => (
+                    <li key={link.href} className="break-inside-avoid">
+                      <Link
+                        to={link.href}
+                        className="text-sm text-foreground underline decoration-border hover:decoration-primary hover:text-primary transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ) : null}
           </div>
         </main>
 
