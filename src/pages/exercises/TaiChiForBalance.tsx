@@ -16,7 +16,7 @@ import { Play } from "lucide-react";
 
 type AnimKey = keyof typeof TAI_CHI_ANIMATIONS;
 
-const heroImage = "/openverse/wellness-02-tai-chi-young-and-old.jpg";
+const heroImage = "/openverse/wellness-02-tai-chi-young-and-old.webp";
 
 const benefits = [
   { icon: Shield, title: "Reduces fall risk", text: "A 2017 Cochrane review found tai chi cuts the rate of falls in older adults by approximately 20% — one of the strongest non-medical fall-prevention interventions." },

@@ -13,7 +13,7 @@ import { TAI_CHI_ANIMATIONS, TAI_CHI_VIDEOS } from "@/components/exercises/TaiCh
 import ExerciseVideoModal from "@/components/exercises/ExerciseVideoModal";
 import { Play } from "lucide-react";
 
-const heroImage = "/openverse/wellness-02-tai-chi-young-and-old.jpg";
+const heroImage = "/openverse/wellness-02-tai-chi-young-and-old.webp";
 
 const primer = [
   { title: "What it is", text: "A 700-year-old Chinese movement practice. Slow, continuous, weight-shifted — closer to a moving meditation than a martial art." },

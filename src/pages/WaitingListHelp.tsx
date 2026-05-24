@@ -80,11 +80,11 @@ const WaitingListHelp = () => {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Arthritis Waiting List Help — Free UK Patient Support | Living With Arthritis" />
       <meta name="twitter:description" content="Stuck on the rheumatology waiting list? Get free, evidence-based arthritis help, exercises, diet plans and a waiting time calculator for UK patients." />
-      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
-        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
+        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
     </Helmet>
 
       <Header />

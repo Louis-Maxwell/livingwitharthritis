@@ -74,16 +74,16 @@ export interface ConditionPageData {
 }
 
 const CONDITION_IMAGES: Record<string, string> = {
-  osteoarthritis: "/images/condition-osteoarthritis.jpg",
-  "rheumatoid-arthritis": "/images/condition-rheumatoid.jpg",
-  "psoriatic-arthritis": "/images/condition-psoriatic.jpg",
-  "ankylosing-spondylitis": "/images/condition-ankylosing.jpg",
-  fibromyalgia: "/images/condition-fibromyalgia.jpg",
-  gout: "/images/condition-gout.jpg",
+  osteoarthritis: "/images/condition-osteoarthritis.webp",
+  "rheumatoid-arthritis": "/images/condition-rheumatoid.webp",
+  "psoriatic-arthritis": "/images/condition-psoriatic.webp",
+  "ankylosing-spondylitis": "/images/condition-ankylosing.webp",
+  fibromyalgia: "/images/condition-fibromyalgia.webp",
+  gout: "/images/condition-gout.webp",
 };
 
 function resolveOgImage(slug: string, override?: string): string {
-  const path = override ?? CONDITION_IMAGES[slug] ?? "/images/hero-community.jpg";
+  const path = override ?? CONDITION_IMAGES[slug] ?? "/images/hero-community.webp";
   return path.startsWith("http") ? path : `${BASE}${path}`;
 }
 

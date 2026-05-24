@@ -4,12 +4,12 @@ import { openverseImages } from "@/data/openverseImages";
 
 // Curated 6 images — one or two from each theme — for landing-page decorative strip
 const PICKS = [
-  "/openverse/wellness-02-tai-chi-young-and-old.jpg",
-  "/openverse/nutrition-03-colorful-assortment-of-fresh-fruits-arranged-in-a-.jpg",
-  "/openverse/community-08-physical-therapy-teaching-lab-at-cu-anschutz-octob.jpg",
-  "/openverse/wellness-04-a-woman-supporting-herself-with-a-walking-frame.jpg",
-  "/openverse/nutrition-11-bowl-of-fresh-fruit-unsplash.jpg",
-  "/openverse/community-12-physical-therapy-session-aboard-the-uss-george-was.jpg",
+  "/openverse/wellness-02-tai-chi-young-and-old.webp",
+  "/openverse/nutrition-03-colorful-assortment-of-fresh-fruits-arranged-in-a-.webp",
+  "/openverse/community-08-physical-therapy-teaching-lab-at-cu-anschutz-octob.webp",
+  "/openverse/wellness-04-a-woman-supporting-herself-with-a-walking-frame.webp",
+  "/openverse/nutrition-11-bowl-of-fresh-fruit-unsplash.webp",
+  "/openverse/community-12-physical-therapy-session-aboard-the-uss-george-was.webp",
 ];
 
 const lookup = new Map(openverseImages.map((i) => [i.localPath, i]));

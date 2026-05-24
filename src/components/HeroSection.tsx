@@ -14,7 +14,7 @@ import {
 const HERO_WEBP_800 = "/images/hero-walking-group-800.webp";
 const HERO_WEBP_1200 = "/images/hero-walking-group-1200.webp";
 const HERO_WEBP_1600 = "/images/hero-walking-group-1600.webp";
-const HERO_JPG_1600 = "/images/hero-walking-group-1600.jpg";
+const HERO_JPG_1600 = "/images/hero-walking-group-1600.webp";
 
 import "./HeroSection.css";
 

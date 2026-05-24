@@ -13,7 +13,7 @@ import { TAI_CHI_ANIMATIONS, TAI_CHI_VIDEOS } from "@/components/exercises/TaiCh
 import ExerciseVideoModal from "@/components/exercises/ExerciseVideoModal";
 import { Play } from "lucide-react";
 
-const heroImage = "/openverse/wellness-02-tai-chi-young-and-old.jpg";
+const heroImage = "/openverse/wellness-02-tai-chi-young-and-old.webp";
 
 const benefits = [
   { icon: Shield, title: "NICE-recommended", text: "UK NICE guidelines (NG226) explicitly recommend tai chi as a therapeutic exercise option for osteoarthritis — one of only a handful of named non-drug interventions." },

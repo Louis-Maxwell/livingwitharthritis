@@ -17,13 +17,13 @@ export default function Complaints() {
       <meta property="og:url" content="https://livingwitharthritis.org.uk/complaints" />
       <meta property="og:site_name" content="Living With Arthritis UK" />
       <meta property="og:locale" content="en_GB" />
-      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Complaints Procedure | Living With Arthritis UK" />
       <meta name="twitter:description" content="Our complaints procedure explains how to raise a concern about Living With Arthritis UK and how we will respond." />
-      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
     </Helmet>
       <Header />
       <main id="main-content" className="min-h-screen bg-background">

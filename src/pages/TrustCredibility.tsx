@@ -70,13 +70,13 @@ const TrustCredibility = () => {
       <meta property="og:url" content="https://livingwitharthritis.org.uk/trust" />
       <meta property="og:site_name" content="Living With Arthritis UK" />
       <meta property="og:locale" content="en_GB" />
-      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Trust & Credibility | Living With Arthritis UK Charity" />
       <meta name="twitter:description" content="Our charity registration, medical advisors, evidence sources, partner organisations and governance. Trusted by the UK arthritis community." />
-      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
     </Helmet>
 
       <Header />

@@ -139,7 +139,7 @@ const BlogPost = () => {
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`https://livingwitharthritis.org.uk/blog/${slug}`} />
         <meta property="og:site_name" content="Living With Arthritis UK" />
-        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/og-blog-default.jpg" />
+        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/og-blog-default.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content={article.title} />
@@ -149,7 +149,7 @@ const BlogPost = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={metaTitle} />
         <meta name="twitter:description" content={metaDesc} />
-        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/og-blog-default.jpg" />
+        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/og-blog-default.webp" />
         <meta name="geo.region" content="GB" />
         <link rel="canonical" href={`https://livingwitharthritis.org.uk/blog/${slug}`} />
         <script type="application/ld+json">{JSON.stringify({
@@ -174,7 +174,7 @@ const BlogPost = () => {
           "@type": "Article",
           "headline": article.title,
           "description": metaDesc,
-          "image": "https://livingwitharthritis.org.uk/images/og-blog-default.jpg",
+          "image": "https://livingwitharthritis.org.uk/images/og-blog-default.webp",
           "datePublished": article.date,
           "dateModified": article.date,
           "author": { "@type": "Organization", "name": authorName, "url": "https://livingwitharthritis.org.uk" },

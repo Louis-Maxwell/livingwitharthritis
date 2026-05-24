@@ -96,14 +96,14 @@ const ShoulderArthritis = () => (
       <meta property="og:type" content="article" />
       <meta property="og:locale" content="en_GB" />
       <meta property="og:site_name" content="Living With Arthritis UK" />
-      <meta property="og:image" content={`${BASE}/images/og-osteoarthritis.jpg`} />
+      <meta property="og:image" content={`${BASE}/images/og-osteoarthritis.webp`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:image:alt" content="Shoulder arthritis – symptoms, exercises and treatment guide" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Shoulder Arthritis – Symptoms, Exercises & Treatment" />
       <meta name="twitter:description" content="UK guide to shoulder arthritis: exercises, injections and surgery." />
-      <meta name="twitter:image" content={`${BASE}/images/og-osteoarthritis.jpg`} />
+      <meta name="twitter:image" content={`${BASE}/images/og-osteoarthritis.webp`} />
       <meta name="geo.region" content="GB" />
       <link rel="canonical" href={URL} />
       <link rel="alternate" hrefLang="en-GB" href={URL} />

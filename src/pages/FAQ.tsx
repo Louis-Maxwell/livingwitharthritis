@@ -20,13 +20,13 @@ const FAQ = () => (
       <meta property="og:url" content="https://livingwitharthritis.org.uk/faq" />
       <meta property="og:site_name" content="Living With Arthritis UK" />
       <meta property="og:locale" content="en_GB" />
-      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Arthritis FAQs UK – Symptoms, Treatment & Diet" />
       <meta name="twitter:description" content="Arthritis FAQs answered by UK clinicians — symptoms, treatment, diet, exercise and how to access free Living With Arthritis support." />
-      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
     </Helmet>
     <Header />
     <main id="main-content" role="main" tabIndex={-1}>
