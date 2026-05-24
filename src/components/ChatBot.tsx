@@ -7,8 +7,6 @@ import { cn } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import { motion, AnimatePresence } from "framer-motion";
 import { chatRheumatoid, chatFoods, chatExercise, chatDoctor } from "@/data/images";
-import AiDisclosureBadge from "@/components/ai/AiDisclosureBadge";
-import AiConsentModal from "@/components/ai/AiConsentModal";
 import EmergencyRedirectDialog, { detectClientRedFlag } from "@/components/ai/EmergencyRedirectDialog";
 
 const quickSuggestions = [
