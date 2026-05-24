@@ -8,7 +8,7 @@
   :root {
     /* ─── Strict 2-colour system: RED + WHITE only ─── */
     --background: 0 0% 100%;
-    --foreground: 350 85% 42%;
+    --foreground: 0 0% 0%;
 
     --card: 0 0% 100%;
     --card-foreground: 350 85% 42%;
