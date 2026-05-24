@@ -181,7 +181,7 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
             disabled={isLoading}
             className={`w-full h-12 rounded-full text-base font-semibold ${
               recurring
-                ? "bg-primary hover:bg-primary text-white"
+                ? "bg-primary hover:bg-primary text-primary-foreground"
                 : "btn-primary-cta"
             }`}
           >

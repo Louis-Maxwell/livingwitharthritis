@@ -87,7 +87,7 @@ const TILES: Tile[] = [
   {
     kind: "colour",
     bg: "bg-[hsl(var(--sky))]",
-    fg: "text-white",
+    fg: "text-primary-foreground",
     icon: Activity,
     eyebrow: "In a flare?",
     title: "Self-help in 2 minutes",
@@ -104,7 +104,7 @@ const TILES: Tile[] = [
   {
     kind: "colour",
     bg: "bg-[hsl(var(--coral))]",
-    fg: "text-white",
+    fg: "text-primary-foreground",
     icon: Sparkles,
     eyebrow: "Ask anything",
     title: "help chat, clinician-checked",
@@ -180,9 +180,9 @@ const ColourMosaic = memo(() => {
                   <>
                     <div
                       aria-hidden="true"
-                      className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent"
+                      className="absolute inset-0 bg-gradient-to-t from-primary/65 via-primary/10 to-transparent"
                     />
-                    <figcaption className="absolute bottom-0 left-0 right-0 p-4 lg:p-5 text-white font-display text-base lg:text-lg font-semibold leading-snug">
+                    <figcaption className="absolute bottom-0 left-0 right-0 p-4 lg:p-5 text-primary-foreground font-display text-base lg:text-lg font-semibold leading-snug">
                       {tile.caption}
                     </figcaption>
                   </>
@@ -195,7 +195,7 @@ const ColourMosaic = memo(() => {
                 className={`${tile.span} ${tile.bg} ${tile.fg} relative overflow-hidden rounded-2xl p-5 lg:p-6 flex flex-col justify-between shadow-medium hover:shadow-large hover:-translate-y-0.5 transition-all duration-300 group focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-foreground`}
               >
                 <div className="flex items-start justify-between gap-2">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-background/20 backdrop-blur-sm">
                     <tile.icon className="h-5 w-5" aria-hidden="true" />
                   </span>
                   <ArrowUpRight

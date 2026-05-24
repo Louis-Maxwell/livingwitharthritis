@@ -45,7 +45,7 @@ const CLUSTERS: HubCluster[] = [
     intro:
       "Mediterranean eating, foods that calm inflammation and supplements with real evidence — written for UK readers.",
     Icon: Apple,
-    accent: "from-primary/15 to-rose-500/10",
+    accent: "from-primary/15 to-primary/10",
     primary: { label: "Visit the Diet Hub", to: "/diet" },
     questions: [
       { label: "How to reduce joint inflammation through food", to: "/diet" },
@@ -86,7 +86,7 @@ const CLUSTERS: HubCluster[] = [
     intro:
       "What to do when pain spikes, how to spot triggers, and lifestyle changes that help you keep working, sleeping and moving.",
     Icon: Flame,
-    accent: "from-rose-500/15 to-primary/5",
+    accent: "from-primary/15 to-primary/5",
     primary: { label: "Read the flare-up guide", to: "/arthritis-flare-ups" },
     questions: [
       { label: "What to do during an arthritis flare-up", to: "/arthritis-flare-ups" },
@@ -107,7 +107,7 @@ const CLUSTERS: HubCluster[] = [
     intro:
       "Evidence-graded explanations of medication, public healthcare pathways and natural options — including what is and isn't proven.",
     Icon: Pill,
-    accent: "from-primary/12 to-rose-500/8",
+    accent: "from-primary/12 to-primary/8",
     primary: { label: "Browse Treatment articles", to: "/blog/category/treatment" },
     questions: [
       { label: "Best pain relief for arthritis", to: "/blog/category/treatment" },
@@ -231,7 +231,7 @@ const BlogHub = () => {
       <Header />
       <main id="main-content" role="main" tabIndex={-1}>
         <PageHero
-          gradient="from-primary/8 via-background to-rose-500/5"
+          gradient="from-primary/8 via-background to-primary/5"
           pattern="dots"
           badge={
             <div className="flex items-center gap-3">

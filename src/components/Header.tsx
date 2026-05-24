@@ -144,11 +144,11 @@ const Header = () => {
       href: "#conditions",
       subs: [
         { label: "Osteoarthritis", desc: "The most common form of arthritis", icon: Bone, href: "/conditions/osteoarthritis", action: () => navigate("/conditions/osteoarthritis"), color: "text-primary bg-primary/10" },
-        { label: "Rheumatoid Arthritis", desc: "Autoimmune joint inflammation", icon: HeartPulse, href: "/conditions/rheumatoid-arthritis", action: () => navigate("/conditions/rheumatoid-arthritis"), color: "text-rose-600 bg-rose-500/10" },
+        { label: "Rheumatoid Arthritis", desc: "Autoimmune joint inflammation", icon: HeartPulse, href: "/conditions/rheumatoid-arthritis", action: () => navigate("/conditions/rheumatoid-arthritis"), color: "text-primary bg-primary/10" },
         { label: "Psoriatic Arthritis", desc: "Joint pain with skin psoriasis", icon: ShieldCheck, href: "/conditions/psoriatic-arthritis", action: () => navigate("/conditions/psoriatic-arthritis"), color: "text-primary bg-primary/10" },
         { label: "Gout", desc: "Crystal arthritis — sudden, severe joint pain", icon: Stethoscope, href: "/conditions/gout", action: () => navigate("/conditions/gout"), color: "text-primary bg-primary/10" },
         { label: "Ankylosing Spondylitis", desc: "Inflammatory back and spine arthritis", icon: Stethoscope, href: "/conditions/ankylosing-spondylitis", action: () => navigate("/conditions/ankylosing-spondylitis"), color: "text-primary bg-primary/10" },
-        { label: "Juvenile Arthritis", desc: "Arthritis in children and young people", icon: Stethoscope, href: "/conditions/juvenile-arthritis", action: () => navigate("/conditions/juvenile-arthritis"), color: "text-rose-600 bg-rose-500/10" },
+        { label: "Juvenile Arthritis", desc: "Arthritis in children and young people", icon: Stethoscope, href: "/conditions/juvenile-arthritis", action: () => navigate("/conditions/juvenile-arthritis"), color: "text-primary bg-primary/10" },
         { label: "Fibromyalgia", desc: "Widespread pain, fatigue and fibro fog", icon: Stethoscope, href: "/conditions/fibromyalgia", action: () => navigate("/conditions/fibromyalgia"), color: "text-primary bg-primary/10" },
         { label: "Lupus (SLE)", desc: "Autoimmune disease affecting joints, skin & organs", icon: Stethoscope, href: "/conditions/lupus", action: () => navigate("/conditions/lupus"), color: "text-primary bg-primary/10" },
       ],
@@ -283,9 +283,9 @@ const Header = () => {
               <Button
                 size="sm"
                 onClick={() => navigate("/donate")}
-                className="h-9 px-4 rounded-full text-[11px] font-bold tracking-wider bg-[hsl(0,72%,51%)] hover:bg-[hsl(0,72%,45%)] text-white shadow-md shadow-red-500/20"
+                className="h-9 px-4 rounded-full text-[11px] font-bold tracking-wider bg-[hsl(0,72%,51%)] hover:bg-[hsl(0,72%,45%)] text-primary-foreground shadow-md shadow-primary/20"
               >
-                <Heart className="w-3 h-3 mr-1.5 fill-white/30" />
+                <Heart className="w-3 h-3 mr-1.5 fill-background/30" />
                 Donate Now
               </Button>
               <Button
@@ -375,7 +375,7 @@ const Header = () => {
                     {/* Rich sub-menu dropdown */}
                     {link.subs && activeDropdown === link.label && (
                       <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-[90]" role="menu" aria-label={`${link.label} submenu`}>
-                        <div className="relative bg-background border border-border/30 rounded-xl shadow-2xl shadow-black/8 p-1.5 min-w-[340px] animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-200">
+                        <div className="relative bg-background border border-border/30 rounded-xl shadow-2xl shadow-primary/8 p-1.5 min-w-[340px] animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-200">
                           {/* Top notch */}
                           <div className="absolute -top-[6px] left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 bg-background border-l border-t border-border/30" />
                           {link.subs.map((sub, idx) => {
@@ -419,7 +419,7 @@ const Header = () => {
                   onClick={() => navigate("/zakat-appeal")}
                   className="ms-3 group relative inline-flex items-center gap-1.5 px-5 py-2 text-[13px] font-bold rounded-full bg-destructive text-destructive-foreground border border-destructive/80 hover:bg-destructive/90 hover:shadow-md hover:shadow-destructive/25 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
                 >
-                  <Heart className="w-3.5 h-3.5 fill-white/30 transition-transform duration-300 group-hover:scale-110" />
+                  <Heart className="w-3.5 h-3.5 fill-background/30 transition-transform duration-300 group-hover:scale-110" />
                   Donate Now
                 </button>
 

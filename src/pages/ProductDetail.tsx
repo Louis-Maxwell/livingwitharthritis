@@ -33,9 +33,9 @@ const StarRating = ({ rating, count }: { rating: number; count: number }) => (
 
 const badgeColors: Record<string, string> = {
   "Best Seller": "bg-primary text-primary-foreground",
-  "Top Rated": "bg-primary text-white",
-  "Must Have": "bg-primary text-white",
-  "Popular": "bg-primary text-white",
+  "Top Rated": "bg-primary text-primary-foreground",
+  "Must Have": "bg-primary text-primary-foreground",
+  "Popular": "bg-primary text-primary-foreground",
 };
 
 const ProductDetail = () => {

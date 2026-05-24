@@ -124,7 +124,7 @@ const PsoriaticArthritis = () => (
         }
         title={<>Psoriatic <span className="text-gradient">Arthritis</span></>}
         subtitle="Psoriatic arthritis (PsA) affects up to 30% of people with psoriasis in the UK — an estimated 150,000 people. It causes joint inflammation alongside skin symptoms and requires early treatment to prevent permanent joint damage."
-        gradient="from-primary/8 via-background to-rose-500/5"
+        gradient="from-primary/8 via-background to-primary/5"
         pattern="diagonal"
       >
         <Link to="/#conditions" className="text-primary text-sm font-medium inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
@@ -318,7 +318,7 @@ const PsoriaticArthritis = () => (
                 readTime: "5 min",
                 icon: Dumbbell,
                 tint: "bg-tint-emerald",
-                accent: "text-emerald-600",
+                accent: "text-primary",
               },
               {
                 to: "/diet",
@@ -328,7 +328,7 @@ const PsoriaticArthritis = () => (
                 readTime: "6 min",
                 icon: Apple,
                 tint: "bg-tint-amber",
-                accent: "text-amber-600",
+                accent: "text-primary",
               },
               {
                 to: "/tools/waiting-time-calculator",
@@ -338,7 +338,7 @@ const PsoriaticArthritis = () => (
                 readTime: "2 min",
                 icon: Timer,
                 tint: "bg-tint-sky",
-                accent: "text-sky-600",
+                accent: "text-primary",
               },
             ]}
           />

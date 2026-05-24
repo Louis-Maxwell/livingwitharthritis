@@ -334,7 +334,7 @@ const CityConditionPage = () => {
                 readTime: "8 min read",
                 icon: BookOpen,
                 tint: "bg-tint-emerald",
-                accent: "text-emerald-600",
+                accent: "text-primary",
               },
               {
                 to: "/tools/waiting-time-calculator",
@@ -344,7 +344,7 @@ const CityConditionPage = () => {
                 readTime: "2 min",
                 icon: Timer,
                 tint: "bg-tint-amber",
-                accent: "text-amber-600",
+                accent: "text-primary",
               },
               {
                 to: "/exercises",
@@ -354,7 +354,7 @@ const CityConditionPage = () => {
                 readTime: "5 min",
                 icon: Dumbbell,
                 tint: "bg-tint-sky",
-                accent: "text-sky-600",
+                accent: "text-primary",
               },
             ]}
           />

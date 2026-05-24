@@ -55,7 +55,7 @@ const MythCard = memo(({ item, index }: { item: PhysioMyth; index: number }) => 
             />
             <div className="absolute inset-0 bg-gradient-to-t from-card via-card/10 to-transparent" />
             <div className="absolute top-4 left-4 flex items-center gap-2">
-              <span className="text-[10px] font-bold text-white bg-primary px-3 py-1.5 rounded-full uppercase tracking-[0.15em] shadow-md">
+              <span className="text-[10px] font-bold text-primary-foreground bg-primary px-3 py-1.5 rounded-full uppercase tracking-[0.15em] shadow-md">
                 Myth #{index + 1}
               </span>
             </div>
@@ -220,25 +220,25 @@ const VirtualPhysioSection = memo(() => {
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="bg-primary rounded-2xl p-12 lg:p-20 text-center text-white relative overflow-hidden"
+          className="bg-primary rounded-2xl p-12 lg:p-20 text-center text-primary-foreground relative overflow-hidden"
         >
-          <motion.div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" style={{ y: ctaBgY }} />
+          <motion.div className="absolute inset-0 bg-gradient-to-br from-background/5 to-transparent" style={{ y: ctaBgY }} />
           <div className="absolute inset-0 opacity-[0.03]" style={{
             backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
             backgroundSize: '40px 40px'
           }} />
 
           <div className="relative max-w-xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1.5 mb-6">
+            <div className="inline-flex items-center gap-2 bg-background/10 rounded-full px-4 py-1.5 mb-6">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-xs font-medium text-white/80">Appointments available this week</span>
+              <span className="text-xs font-medium text-primary-foreground/80">Appointments available this week</span>
             </div>
 
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold mb-4 leading-tight">
               Virtual physiotherapy isn't the future —{" "}
               <span className="italic font-normal opacity-90">it's the now.</span>
             </h3>
-            <p className="text-white/85 mb-10 text-base sm:text-lg leading-relaxed">
+            <p className="text-primary-foreground/85 mb-10 text-base sm:text-lg leading-relaxed">
               HCPC-registered physiotherapists. No waiting lists. No referral needed.
               Flexible sessions from the comfort of your home.
             </p>
@@ -246,13 +246,13 @@ const VirtualPhysioSection = memo(() => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <AppointmentModal
                 trigger={
-                  <Button size="lg" className="bg-white text-primary hover:bg-white/90 px-8 h-13 rounded-full text-sm font-semibold tracking-wide shadow-lg">
+                  <Button size="lg" className="bg-background text-primary hover:bg-background/90 px-8 h-13 rounded-full text-sm font-semibold tracking-wide shadow-lg">
                     Book a Free Consultation
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 }
               />
-              <p className="text-white/75 text-xs">Free · No obligation · Takes 2 minutes</p>
+              <p className="text-primary-foreground/75 text-xs">Free · No obligation · Takes 2 minutes</p>
             </div>
           </div>
         </motion.div>

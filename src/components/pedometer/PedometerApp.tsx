@@ -467,7 +467,7 @@ function BarChart({ data, goal, height = 140, ariaLabel }: {
                   'w-full rounded-md cursor-default',
                   focusRing,
                   metGoal
-                    ? 'bg-gradient-to-b from-gold to-primary'
+                    ? 'bg-gradient-to-b from-primary to-primary'
                     : d.isToday
                       ? 'bg-gradient-to-b from-primary to-primary/70'
                       : 'bg-muted-foreground/20 hover:bg-muted-foreground/30',
@@ -507,7 +507,7 @@ function MetricCard({ icon, label, value, unit, sub, accent = 'primary', delay =
     return () => clearTimeout(t);
   }, [delay, reduced]);
 
-  const accentClass = accent === 'gold' ? 'text-gold' : 'text-primary';
+  const accentClass = accent === 'gold' ? 'text-primary' : 'text-primary';
   const accessibleValue = typeof value === 'string' || typeof value === 'number'
     ? `${label}: ${value}${unit ? ' ' + unit : ''}${sub ? '. ' + sub : ''}`
     : undefined;
@@ -1124,8 +1124,8 @@ function HistoryTab({ ped }: { ped: PedoState }) {
         ))}
       </div>
 
-      <div className="rounded-2xl border border-gold/20 bg-card px-5 py-5">
-        <div className="text-xs text-gold tracking-wider uppercase mb-2 font-semibold">
+      <div className="rounded-2xl border border-primary/20 bg-card px-5 py-5">
+        <div className="text-xs text-primary tracking-wider uppercase mb-2 font-semibold">
           All-Time Records
         </div>
         <div className="grid grid-cols-2 gap-4">
@@ -1134,14 +1134,14 @@ function HistoryTab({ ped }: { ped: PedoState }) {
               {(allTimeSteps / 1000).toFixed(1)}k
             </div>
             <div className="text-[11px] text-muted-foreground uppercase tracking-wider">Total Steps</div>
-            <div className="text-xs text-gold mt-0.5 font-medium">
+            <div className="text-xs text-primary mt-0.5 font-medium">
               ≈ {(allTimeSteps * STEP_LENGTH_M / 1000).toFixed(0)} km walked
             </div>
           </div>
           <div aria-label={`Best day: ${fmtFull(bestDay)} steps. Personal record.`}>
             <div className="font-bold text-3xl text-foreground">{fmtFull(bestDay)}</div>
             <div className="text-[11px] text-muted-foreground uppercase tracking-wider">Best Day</div>
-            <div className="text-xs text-gold mt-0.5 font-medium">Personal record</div>
+            <div className="text-xs text-primary mt-0.5 font-medium">Personal record</div>
           </div>
         </div>
       </div>
@@ -1164,9 +1164,9 @@ function AchievementsTab({ ped }: { ped: PedoState }) {
 
   return (
     <div className="flex flex-col gap-5">
-      <div className="rounded-2xl border border-gold/20 bg-card px-5 py-5 text-center">
+      <div className="rounded-2xl border border-primary/20 bg-card px-5 py-5 text-center">
         <div className="text-5xl mb-2" aria-hidden="true">🏆</div>
-        <div className="font-bold text-3xl text-gold">
+        <div className="font-bold text-3xl text-primary">
           {count} <span className="text-muted-foreground font-medium">/ {ACHIEVEMENTS.length}</span>
         </div>
         <div className="text-[13px] text-muted-foreground mt-1">Achievements Unlocked</div>
@@ -1180,7 +1180,7 @@ function AchievementsTab({ ped }: { ped: PedoState }) {
         >
           <div
             aria-hidden="true"
-            className={cn('h-full rounded bg-gold', !reduced && 'transition-[width] duration-1000')}
+            className={cn('h-full rounded bg-primary', !reduced && 'transition-[width] duration-1000')}
             style={{ width: `${(count / ACHIEVEMENTS.length) * 100}%` }}
           />
         </div>

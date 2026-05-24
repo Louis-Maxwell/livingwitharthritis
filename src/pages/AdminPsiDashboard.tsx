@@ -50,9 +50,9 @@ const STRATEGIES = ["mobile", "desktop"] as const;
 function scoreColor(score: number | null | undefined) {
   if (score == null) return "bg-muted text-muted-foreground";
   const n = Math.round(score * 100);
-  if (n >= 90) return "bg-green-600 text-white";
-  if (n >= 50) return "bg-amber-500 text-white";
-  return "bg-red-600 text-white";
+  if (n >= 90) return "bg-primary text-primary-foreground";
+  if (n >= 50) return "bg-primary text-primary-foreground";
+  return "bg-primary text-primary-foreground";
 }
 
 function fmtMs(ms: number | null | undefined) {

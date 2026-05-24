@@ -102,7 +102,7 @@ const DonationNotification = () => {
           transition={{ type: "spring", damping: 25, stiffness: 300 }}
           className="fixed bottom-4 left-4 z-50 max-w-[300px]"
         >
-          <div className="bg-white rounded-2xl px-4 py-3 shadow-[0_4px_24px_rgba(0,0,0,0.12)] relative">
+          <div className="bg-background rounded-2xl px-4 py-3 shadow-[0_4px_24px_rgba(0,0,0,0.12)] relative">
             {/* Dismiss */}
             <button
               onClick={handleDismiss}
@@ -114,14 +114,14 @@ const DonationNotification = () => {
 
             {/* Line 1: Name donated £amount emoji */}
             <p className="text-[14px] leading-snug pr-5">
-              <span className="font-semibold text-gray-900">{name}</span>
-              <span className="text-gray-600"> donated </span>
+              <span className="font-semibold text-primary">{name}</span>
+              <span className="text-primary"> donated </span>
               <span className="font-bold text-primary">{symbol}{donation.amount}</span>
               <span className="ml-1">{emoji}</span>
             </p>
 
             {/* Line 2: Location */}
-            <p className="text-[12px] text-gray-500 mt-0.5 flex items-center gap-1">
+            <p className="text-[12px] text-primary mt-0.5 flex items-center gap-1">
               <span>📍</span>
               <span>{location}</span>
             </p>

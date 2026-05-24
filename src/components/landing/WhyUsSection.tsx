@@ -3,12 +3,12 @@ import { Zap, Heart, BookOpen, Users, Globe, Award } from "lucide-react";
 
 const points = [
   {
-    icon: <Zap className="w-5 h-5 text-amber" />,
+    icon: <Zap className="w-5 h-5 text-primary" />,
     title: "No app download needed",
     desc: "Access everything instantly in your browser — on any device, without creating an account first.",
   },
   {
-    icon: <Heart className="w-5 h-5 text-coral" />,
+    icon: <Heart className="w-5 h-5 text-primary" />,
     title: "Emotional & practical support",
     desc: "We go beyond symptom checklists. We address the grief, anxiety, and identity changes that come with chronic illness.",
   },
@@ -18,17 +18,17 @@ const points = [
     desc: "Every exercise programme, diet guide, and management strategy is reviewed by HCPC-registered physiotherapists and rheumatologists.",
   },
   {
-    icon: <Users className="w-5 h-5 text-violet" />,
+    icon: <Users className="w-5 h-5 text-primary" />,
     title: "Built by people with arthritis",
     desc: "Our team includes people who live with arthritis every day. We understand what you're going through because we've been there.",
   },
   {
-    icon: <Globe className="w-5 h-5 text-sky" />,
+    icon: <Globe className="w-5 h-5 text-primary" />,
     title: "UK-first, clinically aligned",
     desc: "All our recommendations follow current NICE guidelines and complement — never replace — public healthcare pathways.",
   },
   {
-    icon: <Award className="w-5 h-5 text-emerald" />,
+    icon: <Award className="w-5 h-5 text-primary" />,
     title: "Always free, no adverts",
     desc: "We're a UK social enterprise. No paywalls, no ads, no data selling. Genuine support, funded by donations.",
   },

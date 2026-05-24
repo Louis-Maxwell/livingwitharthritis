@@ -20,7 +20,7 @@ const DonationBanner = () => {
         <div className="flex items-center justify-center gap-3 py-2">
           <button
             onClick={() => navigate("/donate")}
-            className="group inline-flex items-center gap-1.5 bg-white text-primary px-4 sm:px-5 h-7 rounded-full text-[11px] sm:text-[12px] font-bold tracking-widest uppercase hover:bg-white/90 transition-all duration-200"
+            className="group inline-flex items-center gap-1.5 bg-background text-primary px-4 sm:px-5 h-7 rounded-full text-[11px] sm:text-[12px] font-bold tracking-widest uppercase hover:bg-background/90 transition-all duration-200"
           >
             Donate
             <ArrowRight className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden="true" />

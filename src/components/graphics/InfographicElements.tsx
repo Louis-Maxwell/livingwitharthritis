@@ -24,7 +24,7 @@ export const StatCounter = ({
     sky: "from-primary/10 to-primary/5 border-primary/20 text-primary",
     amber: "from-primary/10 to-primary/5 border-primary/20 text-primary",
     violet: "from-primary/10 to-primary/5 border-primary/20 text-primary",
-    rose: "from-rose-500/10 to-rose-500/5 border-rose-500/20 text-rose-600",
+    rose: "from-primary/10 to-primary/5 border-primary/20 text-primary",
   };
 
   return (
@@ -184,8 +184,8 @@ export const ComparisonCard = ({
       <div className="bg-muted/50 px-3 py-3 flex items-center">
         <span className="text-xs font-bold text-muted-foreground">VS</span>
       </div>
-      <div className="bg-rose-500/10 px-4 py-3 text-center">
-        <span className="text-sm font-bold text-rose-700">❌ {rightTitle}</span>
+      <div className="bg-primary/10 px-4 py-3 text-center">
+        <span className="text-sm font-bold text-primary">❌ {rightTitle}</span>
       </div>
     </div>
     {rows.map((row, i) => (

@@ -323,7 +323,7 @@ const RheumatoidArthritis = () => (
                 readTime: "5 min",
                 icon: Dumbbell,
                 tint: "bg-tint-emerald",
-                accent: "text-emerald-600",
+                accent: "text-primary",
               },
               {
                 to: "/diet",
@@ -333,7 +333,7 @@ const RheumatoidArthritis = () => (
                 readTime: "6 min",
                 icon: Apple,
                 tint: "bg-tint-amber",
-                accent: "text-amber-600",
+                accent: "text-primary",
               },
               {
                 to: "/tools/waiting-time-calculator",
@@ -343,7 +343,7 @@ const RheumatoidArthritis = () => (
                 readTime: "2 min",
                 icon: Timer,
                 tint: "bg-tint-sky",
-                accent: "text-sky-600",
+                accent: "text-primary",
               },
             ]}
           />

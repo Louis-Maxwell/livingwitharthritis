@@ -28,7 +28,7 @@ type Appointment = Tables<"appointments">;
 const statusColors: Record<string, string> = {
   pending: "bg-primary/10 text-primary border-primary",
   confirmed: "bg-primary/10 text-primary border-primary",
-  cancelled: "bg-red-500/10 text-red-700 border-red-200",
+  cancelled: "bg-primary/10 text-primary border-primary",
   completed: "bg-primary/10 text-primary border-primary",
 };
 
@@ -85,7 +85,7 @@ const AdminAppointments = () => {
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-primary/[0.03]">
         <div className="flex flex-col items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg">
-            <div className="animate-spin rounded-full h-6 w-6 border-2 border-white border-t-transparent" />
+            <div className="animate-spin rounded-full h-6 w-6 border-2 border-background border-t-transparent" />
           </div>
           <p className="text-sm text-muted-foreground font-medium animate-pulse">Loading appointments...</p>
         </div>
@@ -186,10 +186,10 @@ const AdminAppointments = () => {
       <div className="max-w-7xl mx-auto px-6 py-8 space-y-8">
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-          <GradientStatCard icon={Users} label="Total" value={appointments.length} gradient="bg-gradient-to-br from-primary to-primary" iconColor="text-white" />
-          <GradientStatCard icon={AlertTriangle} label="Pending" value={pendingCount} gradient="bg-gradient-to-br from-primary to-primary" iconColor="text-white" />
-          <GradientStatCard icon={CheckCircle2} label="Confirmed" value={confirmedCount} gradient="bg-gradient-to-br from-primary to-primary" iconColor="text-white" />
-          <GradientStatCard icon={CalendarDays} label="Today" value={todayCount} gradient="bg-gradient-to-br from-primary to-primary" iconColor="text-white" />
+          <GradientStatCard icon={Users} label="Total" value={appointments.length} gradient="bg-gradient-to-br from-primary to-primary" iconColor="text-primary-foreground" />
+          <GradientStatCard icon={AlertTriangle} label="Pending" value={pendingCount} gradient="bg-gradient-to-br from-primary to-primary" iconColor="text-primary-foreground" />
+          <GradientStatCard icon={CheckCircle2} label="Confirmed" value={confirmedCount} gradient="bg-gradient-to-br from-primary to-primary" iconColor="text-primary-foreground" />
+          <GradientStatCard icon={CalendarDays} label="Today" value={todayCount} gradient="bg-gradient-to-br from-primary to-primary" iconColor="text-primary-foreground" />
         </div>
 
         {/* Filters */}

@@ -18,35 +18,36 @@ export default {
         sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
       },
       colors: (() => {
-        // Strict 2-colour palette: red + black on white.
-        // Any hard-coded Tailwind named-colour shade (e.g. bg-blue-500,
-        // text-green-600) is remapped here so it cannot escape the system.
+        // Strict 2-colour palette: RED + WHITE only.
+        // Every hard-coded Tailwind named-colour shade (e.g. bg-blue-500,
+        // text-gray-700, bg-black) is remapped here so it cannot escape.
         const RED = "hsl(350 85% 42%)";
-        const BLACK = "hsl(0 0% 0%)";
+        const BLACK = RED;   // no black anywhere
         const WHITE = "hsl(0 0% 100%)";
+
         const shadeMap = (base: "red" | "black" | "white") => {
           const v = base === "red" ? RED : base === "black" ? BLACK : WHITE;
           return {
-            50: base === "red" ? "hsl(350 60% 97%)" : base === "black" ? "hsl(0 0% 96%)" : WHITE,
-            100: base === "red" ? "hsl(350 60% 94%)" : base === "black" ? "hsl(0 0% 92%)" : WHITE,
-            200: base === "red" ? "hsl(350 65% 88%)" : base === "black" ? "hsl(0 0% 85%)" : WHITE,
-            300: base === "red" ? "hsl(350 70% 78%)" : base === "black" ? "hsl(0 0% 70%)" : WHITE,
-            400: base === "red" ? "hsl(350 75% 60%)" : base === "black" ? "hsl(0 0% 45%)" : WHITE,
+            50:  base === "red" ? "hsl(350 60% 97%)" : WHITE,
+            100: base === "red" ? "hsl(350 60% 94%)" : WHITE,
+            200: base === "red" ? "hsl(350 65% 88%)" : WHITE,
+            300: base === "red" ? "hsl(350 70% 78%)" : WHITE,
+            400: base === "red" ? "hsl(350 75% 60%)" : WHITE,
             500: v,
-            600: base === "red" ? "hsl(350 90% 38%)" : BLACK,
-            700: base === "red" ? "hsl(350 90% 32%)" : BLACK,
-            800: base === "red" ? "hsl(350 90% 26%)" : BLACK,
-            900: base === "red" ? "hsl(350 90% 20%)" : BLACK,
-            950: BLACK,
+            600: base === "red" ? "hsl(350 90% 38%)" : RED,
+            700: base === "red" ? "hsl(350 90% 32%)" : RED,
+            800: base === "red" ? "hsl(350 90% 26%)" : RED,
+            900: base === "red" ? "hsl(350 90% 20%)" : RED,
+            950: RED,
             DEFAULT: v,
           };
+
         };
         const red = shadeMap("red");
-        const black = shadeMap("black");
-        // Anything originally "warm/accent" → red. Anything originally
-        // "cool/neutral status" → black. White stays white.
+        const black = shadeMap("red");      // black aliased to red
         const warmRed = red;
-        const coolBlack = black;
+        const coolBlack = red;              // all "neutral" tones → red
+
         return {
           border: "hsl(var(--border))",
           input: "hsl(var(--input))",

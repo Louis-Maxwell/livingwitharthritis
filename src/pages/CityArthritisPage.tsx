@@ -226,7 +226,7 @@ const CityArthritisPage = () => {
                 readTime: "2 min",
                 icon: Timer,
                 tint: "bg-tint-amber",
-                accent: "text-amber-600",
+                accent: "text-primary",
               },
               {
                 to: "/conditions/osteoarthritis",
@@ -236,7 +236,7 @@ const CityArthritisPage = () => {
                 readTime: "8 min read",
                 icon: BookOpen,
                 tint: "bg-tint-emerald",
-                accent: "text-emerald-600",
+                accent: "text-primary",
               },
               {
                 to: "/exercises",
@@ -246,7 +246,7 @@ const CityArthritisPage = () => {
                 readTime: "5 min",
                 icon: Dumbbell,
                 tint: "bg-tint-sky",
-                accent: "text-sky-600",
+                accent: "text-primary",
               },
             ]}
           />

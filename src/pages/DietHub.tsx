@@ -55,9 +55,9 @@ const dietSections = [
     subtitle: "What May Worsen Arthritis Symptoms",
     description: "Pro-inflammatory foods that can trigger joint pain. Reducing these complements an anti-inflammatory diet.",
     icon: AlertTriangle,
-    color: "from-rose-500/15 to-red-500/10",
-    iconColor: "text-rose-600 bg-rose-500/10",
-    borderColor: "border-rose-500/20 hover:border-rose-500/40",
+    color: "from-primary/15 to-primary/10",
+    iconColor: "text-primary bg-primary/10",
+    borderColor: "border-primary/20 hover:border-primary/40",
     href: "/blog/best-diet-for-joint-pain-uk",
     badFoods: [
       "Processed meats (bacon, sausages) – saturated fats",
@@ -264,7 +264,7 @@ const DietHub = () => {
         </section>
 
         {/* ═══ Mid-page CTA: Diet Advisor ═══ */}
-        <section className="py-12 lg:py-16 bg-gradient-to-r from-primary/5 via-emerald-500/10 to-primary/5 border-y border-primary/10">
+        <section className="py-12 lg:py-16 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 border-y border-primary/10">
           <div className="container mx-auto px-6 md:px-10 max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -279,7 +279,7 @@ const DietHub = () => {
                 <h2 className="text-xl font-bold text-foreground mb-1">Want a diet plan for your arthritis type?</h2>
                 <p className="text-muted-foreground text-sm">Our help chat creates personalised meal suggestions based on your condition, allergies and preferences — free and instant.</p>
               </div>
-              <Button asChild size="lg" className="min-h-[48px] font-semibold bg-primary hover:bg-primary text-white shadow-md shrink-0">
+              <Button asChild size="lg" className="min-h-[48px] font-semibold bg-primary hover:bg-primary text-primary-foreground shadow-md shrink-0">
                 <Link to="/chat">Get Diet Plan <ArrowRight className="w-4 h-4 ml-2" /></Link>
               </Button>
             </motion.div>
@@ -316,7 +316,7 @@ const DietHub = () => {
                       <div className="grid sm:grid-cols-2 gap-3 mb-5">
                         {sec.badFoods.map((food, j) => (
                           <div key={j} className="flex items-start gap-2.5 bg-background/60 backdrop-blur-sm rounded-lg p-3 border border-border/30">
-                            <XCircle className="w-4 h-4 text-rose-500 mt-0.5 shrink-0" />
+                            <XCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                             <span className="text-sm text-foreground">{food}</span>
                           </div>
                         ))}
@@ -403,7 +403,7 @@ const DietHub = () => {
         </section>
 
         {/* ═══ Mid-page CTA: Download Resources ═══ */}
-        <section className="py-12 lg:py-16 bg-gradient-to-r from-primary/5 via-sky-500/10 to-primary/5 border-y border-primary/10">
+        <section className="py-12 lg:py-16 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 border-y border-primary/10">
           <div className="container mx-auto px-6 md:px-10 max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -418,7 +418,7 @@ const DietHub = () => {
                 <h2 className="text-xl font-bold text-foreground mb-1">Free 7-Day Meal Plan PDF</h2>
                 <p className="text-muted-foreground text-sm">Download our anti-inflammatory meal plan with shopping list — designed by nutrition experts for arthritis patients.</p>
               </div>
-              <Button asChild size="lg" className="min-h-[48px] font-semibold bg-primary hover:bg-primary text-white shadow-md shrink-0">
+              <Button asChild size="lg" className="min-h-[48px] font-semibold bg-primary hover:bg-primary text-primary-foreground shadow-md shrink-0">
                 <Link to="/community">Download Free <ArrowRight className="w-4 h-4 ml-2" /></Link>
               </Button>
             </motion.div>

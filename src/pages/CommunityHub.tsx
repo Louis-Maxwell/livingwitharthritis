@@ -238,8 +238,8 @@ const CommunityHub = () => {
         <section className="py-12 lg:py-16 bg-tint-peach">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 rounded-xl bg-rose-500/10 flex items-center justify-center">
-                <Heart className="w-5 h-5 text-rose-600" />
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                <Heart className="w-5 h-5 text-primary" />
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-foreground">Living With Arthritis Stories</h2>

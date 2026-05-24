@@ -204,7 +204,7 @@ const AboutUs = () => {
         </section>
 
         {/* Content Sections from DB */}
-        <section className="py-14 lg:py-20 bg-warm">
+        <section className="py-14 lg:py-20 bg-background">
           <div className="container mx-auto px-6 md:px-10 max-w-4xl">
             {isLoading ? (
               <div className="space-y-6">

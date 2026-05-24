@@ -165,14 +165,14 @@ export default function WaysToHelp() {
           <section className="relative bg-gradient-to-br from-primary/95 via-primary to-primary/80 text-primary-foreground overflow-hidden">
             {/* Decorative shapes */}
             <div className="absolute inset-0 overflow-hidden">
-              <div className="absolute -top-24 -right-24 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
-              <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/[0.02] rounded-full" />
+              <div className="absolute -top-24 -right-24 w-96 h-96 bg-background/5 rounded-full blur-3xl" />
+              <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-background/5 rounded-full blur-3xl" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-background/[0.02] rounded-full" />
             </div>
 
             <div className="relative container mx-auto px-4 sm:px-6 py-20 sm:py-28 lg:py-32 max-w-6xl">
               <div className="max-w-3xl">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 mb-6">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-background/10 backdrop-blur-sm border border-background/10 mb-6">
                   <Heart className="w-3.5 h-3.5" />
                   <span className="text-xs font-semibold tracking-wide uppercase">Together We Can Make a Difference</span>
                 </div>
@@ -181,11 +181,11 @@ export default function WaysToHelp() {
                   Every action helps someone live{" "}
                   <span className="relative">
                     <span className="relative z-10">a fuller life</span>
-                    <span className="absolute bottom-1 left-0 right-0 h-3 bg-white/15 -skew-x-2 rounded" />
+                    <span className="absolute bottom-1 left-0 right-0 h-3 bg-background/15 -skew-x-2 rounded" />
                   </span>
                 </h1>
 
-                <p className="text-base sm:text-lg lg:text-xl text-white/80 leading-relaxed max-w-2xl mb-8">
+                <p className="text-base sm:text-lg lg:text-xl text-primary-foreground/80 leading-relaxed max-w-2xl mb-8">
                   More than 10 million people across the UK live with arthritis. Your support — whether a donation, your time, or spreading the word — directly transforms lives.
                 </p>
 
@@ -193,7 +193,7 @@ export default function WaysToHelp() {
                   <Button
                     onClick={() => navigate("/donate")}
                     size="lg"
-                    className="rounded-full bg-white text-primary hover:bg-white/90 font-bold shadow-lg shadow-black/10 h-12 px-8"
+                    className="rounded-full bg-background text-primary hover:bg-background/90 font-bold shadow-lg shadow-primary/10 h-12 px-8"
                   >
                     <Heart className="w-4 h-4 mr-2" />
                     Donate Now
@@ -202,7 +202,7 @@ export default function WaysToHelp() {
                     onClick={() => document.getElementById("volunteer-form")?.scrollIntoView({ behavior: "smooth" })}
                     size="lg"
                     variant="outline"
-                    className="rounded-full border-white/30 text-white hover:bg-white/10 font-bold h-12 px-8"
+                    className="rounded-full border-background/30 text-primary-foreground hover:bg-background/10 font-bold h-12 px-8"
                   >
                     Volunteer With Us
                     <ArrowRight className="w-4 h-4 ml-2" />
@@ -215,7 +215,7 @@ export default function WaysToHelp() {
           {/* ── Impact Stats Bar ── */}
           <section className="relative -mt-8 z-10">
             <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
-              <div className="bg-card border border-border/40 rounded-2xl shadow-xl shadow-black/5 p-6 sm:p-8">
+              <div className="bg-card border border-border/40 rounded-2xl shadow-xl shadow-primary/5 p-6 sm:p-8">
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                   {IMPACT_STATS.map((stat) => {
                     const Icon = stat.icon;
@@ -254,16 +254,16 @@ export default function WaysToHelp() {
                 return (
                   <div
                     key={way.title}
-                    className="mb-8 bg-gradient-to-br from-rose-50 to-pink-50 dark:from-rose-950/30 dark:to-pink-950/20 border border-rose-200/50 dark:border-rose-800/30 rounded-3xl overflow-hidden"
+                    className="mb-8 bg-gradient-to-br from-primary to-primary dark:from-primary/30 dark:to-primary/20 border border-primary/50 dark:border-primary/30 rounded-3xl overflow-hidden"
                   >
                     <div className="flex flex-col lg:flex-row">
                       {/* Left: gradient accent */}
-                      <div className={`lg:w-1/3 bg-gradient-to-br ${way.gradient} p-8 sm:p-10 lg:p-12 flex flex-col justify-center text-white`}>
-                        <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center mb-5">
+                      <div className={`lg:w-1/3 bg-gradient-to-br ${way.gradient} p-8 sm:p-10 lg:p-12 flex flex-col justify-center text-primary-foreground`}>
+                        <div className="w-16 h-16 rounded-2xl bg-background/20 backdrop-blur-sm flex items-center justify-center mb-5">
                           <Icon className="w-8 h-8" />
                         </div>
                         <h3 className="text-2xl sm:text-3xl font-bold mb-2">{way.title}</h3>
-                        <p className="text-sm text-white/80 font-medium">{way.impact}</p>
+                        <p className="text-sm text-primary-foreground/80 font-medium">{way.impact}</p>
                       </div>
 
                       {/* Right: content */}
@@ -309,7 +309,7 @@ export default function WaysToHelp() {
                       className={`group relative ${way.bgLight} border border-border/30 rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-1`}
                     >
                       <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${way.gradient} flex items-center justify-center mb-4 shadow-sm`}>
-                        <Icon className="w-6 h-6 text-white" />
+                        <Icon className="w-6 h-6 text-primary-foreground" />
                       </div>
 
                       <h3 className="text-lg font-bold text-foreground mb-2 tracking-tight">{way.title}</h3>
@@ -404,7 +404,7 @@ export default function WaysToHelp() {
                   return (
                     <div key={item.title} className={`${item.bg} rounded-2xl p-6 sm:p-8 border border-border/20 text-center`}>
                       <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center mx-auto mb-4 shadow-sm`}>
-                        <Icon className="w-7 h-7 text-white" />
+                        <Icon className="w-7 h-7 text-primary-foreground" />
                       </div>
                       <h3 className="text-base font-bold text-foreground mb-2">{item.title}</h3>
                       <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
@@ -466,7 +466,7 @@ export default function WaysToHelp() {
                       </p>
                     </div>
                   ) : (
-                    <form onSubmit={handleSubmit} className="bg-card border border-border/30 rounded-2xl p-6 sm:p-8 shadow-lg shadow-black/5 space-y-4">
+                    <form onSubmit={handleSubmit} className="bg-card border border-border/30 rounded-2xl p-6 sm:p-8 shadow-lg shadow-primary/5 space-y-4">
                       <h3 className="text-lg font-bold text-foreground mb-1">Sign Up to Volunteer</h3>
                       <p className="text-xs text-muted-foreground mb-4">Fill in the form below and we'll get back to you.</p>
 
@@ -542,11 +542,11 @@ export default function WaysToHelp() {
                       <Button
                         type="submit"
                         disabled={submitting}
-                        className="w-full h-12 rounded-full text-sm font-bold bg-primary hover:bg-primary text-white shadow-md"
+                        className="w-full h-12 rounded-full text-sm font-bold bg-primary hover:bg-primary text-primary-foreground shadow-md"
                       >
                         {submitting ? (
                           <div className="flex items-center gap-2">
-                            <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                            <div className="w-4 h-4 border-2 border-background/30 border-t-white rounded-full animate-spin" />
                             Submitting...
                           </div>
                         ) : (
@@ -575,14 +575,14 @@ export default function WaysToHelp() {
               <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-4">
                 Ready to Make a Difference?
               </h2>
-              <p className="text-base sm:text-lg text-white/75 leading-relaxed mb-8 max-w-xl mx-auto">
+              <p className="text-base sm:text-lg text-primary-foreground/75 leading-relaxed mb-8 max-w-xl mx-auto">
                 Join thousands of supporters across the UK who are helping people with arthritis live better, more active lives.
               </p>
               <div className="flex flex-wrap justify-center gap-3">
                 <Button
                   onClick={() => navigate("/donate")}
                   size="lg"
-                  className="rounded-full bg-white text-primary hover:bg-white/90 font-bold h-12 px-8 shadow-lg"
+                  className="rounded-full bg-background text-primary hover:bg-background/90 font-bold h-12 px-8 shadow-lg"
                 >
                   <Heart className="w-4 h-4 mr-2" />
                   Donate Now
@@ -591,7 +591,7 @@ export default function WaysToHelp() {
                   onClick={() => navigate("/about")}
                   size="lg"
                   variant="outline"
-                  className="rounded-full border-white/30 text-white hover:bg-white/10 font-bold h-12 px-8"
+                  className="rounded-full border-background/30 text-primary-foreground hover:bg-background/10 font-bold h-12 px-8"
                 >
                   Learn About Our Work
                 </Button>

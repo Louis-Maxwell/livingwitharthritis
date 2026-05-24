@@ -28,7 +28,7 @@ const CHOICES = [
     sub: "Help while you wait",
     icon: Clock4,
     to: "/arthritis-waiting-list-help",
-    chip: "bg-[hsl(var(--sky))] text-white",
+    chip: "bg-[hsl(var(--sky))] text-primary-foreground",
   },
   {
     id: "support",

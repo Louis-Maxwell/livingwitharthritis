@@ -35,7 +35,7 @@ const FAQSection = memo(() => {
         }))
       })}</script>
     </Helmet>
-  <section className="py-24 lg:py-32 bg-warm">
+  <section className="py-24 lg:py-32 bg-background">
     <div className="container mx-auto px-6 md:px-12 lg:px-16 max-w-3xl">
       <div className="text-center mb-20">
         <span className="section-label text-primary/60 mb-5 block">Things people often ask us</span>

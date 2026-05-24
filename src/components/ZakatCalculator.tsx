@@ -55,8 +55,8 @@ const ZakatCalculator = () => {
     <section className="py-14 bg-background" id="zakat-calculator">
       <div className="container mx-auto px-4 max-w-2xl">
         <div className="text-center mb-8">
-          <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-emerald/10 flex items-center justify-center">
-            <Calculator className="w-6 h-6 text-emerald" />
+          <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-primary/10 flex items-center justify-center">
+            <Calculator className="w-6 h-6 text-primary" />
           </div>
           <h2 className="text-xl sm:text-2xl font-display font-bold text-foreground">
             Zakat Calculator
@@ -115,7 +115,7 @@ const ZakatCalculator = () => {
 
             <Button
               onClick={() => setCalculated(true)}
-              className="w-full bg-emerald hover:bg-emerald/90 text-white font-semibold rounded-xl h-11 mt-2"
+              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl h-11 mt-2"
             >
               <Calculator className="mr-2 h-4 w-4" />
               Calculate My Zakat
@@ -143,14 +143,14 @@ const ZakatCalculator = () => {
               </div>
 
               {meetsNisab ? (
-                <div className="bg-emerald/10 border border-emerald/20 rounded-xl p-4 mt-2 text-center">
+                <div className="bg-primary/10 border border-primary/20 rounded-xl p-4 mt-2 text-center">
                   <p className="text-xs text-muted-foreground mb-1">Your Zakat Due (2.5%)</p>
-                  <p className="text-3xl font-display font-bold text-emerald">
+                  <p className="text-3xl font-display font-bold text-primary">
                     £{zakatDue.toLocaleString("en-GB", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </p>
                   <a
                     href="#donation-form"
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-emerald mt-3 hover:underline"
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-primary mt-3 hover:underline"
                     onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                   >
                     Donate your Zakat now <ArrowRight className="w-3 h-3" />
