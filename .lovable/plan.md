@@ -1,59 +1,61 @@
-## Goal
+# Plan: Arthritis Foundation-Inspired Re-Skin
 
-Make the entire site — public pages and admin — render in only two colours:
+Apply a strict three-colour system across the entire site (frontend + admin), inspired by arthritis.org structure and treatment of green → mapped to red.
 
-- **White** (`#FFFFFF`) — all surfaces (backgrounds, cards, popovers, inputs)
-- **Brand red** (`hsl(350 85% 42%)`) — all ink (text, icons, borders, accents, charts)
+## Colour System (locked)
 
-No black, no grey, no gold/navy/violet/emerald/etc. Body text becomes red-on-white; primary CTAs become white-on-red. This is the user's explicit choice (pure interpretation, accepting reduced contrast on long-form content).
+- **Background:** pure white (`#FFFFFF`) everywhere — no off-whites, no grey panels, no dark sections.
+- **Headings & subheadings (h1–h6, eyebrow labels):** black (`#000000`).
+- **Body text, links, accents, buttons, icons, dividers, badges:** red (Arthritis Foundation–style crimson, `#E4002B`).
+- **Hover/active red:** slightly darker (`#B8001F`).
+- **No greens, no purples, no greys for surfaces, no dark mode panels.**
 
-## Approach — token-first
+This **overrides** the prior "red text on white, white text on red — no black at all" rule. The new invariant is **white bg / black headings / red everything else**. Memory will be updated.
 
-The codebase already routes almost everything through semantic tokens in `src/index.css` + `tailwind.config.ts`. The cleanest senior-engineer move is to **rewrite the tokens once**, then sweep the small number of components that hardcode raw colours. This is ~1 file of real design work plus mechanical cleanup.
+## Inspiration Mapping (arthritis.org → this site)
 
-## Step 1 — Rewrite `src/index.css` tokens
+| arthritis.org element | Our treatment |
+|---|---|
+| Green primary CTA | Red CTA (`#E4002B`) with white text |
+| Green section dividers / icon accents | Red |
+| Green stat numbers / highlights | Red |
+| White card backgrounds on light grey page | White cards on white page, separated by red 1px borders or red rule lines |
+| Black serif/sans headings | Keep current Playfair Display, recolour to black |
+| Hero photo bands | Keep imagery, overlay white panel with black headline + red CTA |
 
-Collapse every token to one of two HSL values: `0 0% 100%` (white) or `350 85% 42%` (red). Affects `:root` and `.dark` (dark mode also becomes red/white — inverted: red surface, white ink).
+## Scope
 
-- `--background`, `--card`, `--popover`, `--accent`, `--muted`, `--secondary`, `--input`, `--sidebar-*` surfaces → white
-- `--foreground`, `--card-foreground`, `--popover-foreground`, `--muted-foreground`, `--accent-foreground`, `--secondary-foreground`, `--border`, `--ring` → red
-- `--primary` stays red; `--primary-foreground` stays white
-- Legacy aliases (`--gold`, `--navy`, `--emerald`, `--sky`, `--violet`, `--coral`, `--teal`, `--magenta`, `--indigo`, `--lime`, `--amber`, all `--tint-*`, `--warm`) → all red or white as appropriate
-- All `--gradient-*` → solid red or red→white linear
-- All `--shadow-*` → red-tinted (`hsl(350 85% 42% / α)`) instead of black rgb
-- `--destructive` stays red
+### 1. Design tokens (`src/index.css`, `tailwind.config.ts`)
+- Rewrite `--background` → white in both light and dark blocks (kill dark mode entirely or alias dark → light).
+- `--foreground` → black for headings via component utilities; body text → red.
+- `--primary` → red `#E4002B` (HSL).
+- `--card`, `--popover`, `--muted`, `--secondary`, `--accent` → all white surfaces with red borders.
+- `--border` → red at low opacity.
+- Remove gradient tokens that introduce other colours.
 
-## Step 2 — Sweep hardcoded colours
+### 2. Global component sweep
+Force the palette in every place currently using greens, greys, gradients, or dark surfaces:
+- Header, Footer, Hero, all landing sections (`src/components/landing/*`)
+- All page templates (`src/pages/**`) including conditions, diet, exercise, blog, donate, admin
+- UI primitives (`button`, `card`, `badge`, `alert`, `dialog`, `sheet`, `toast`, `tabs`, `input`, `table`) — variants normalised to white-bg / black-heading / red-accent
+- Admin dashboards — same palette (no dark admin theme)
+- Chat/Support widget, modals, banners
 
-Replace raw Tailwind colour utilities that bypass the token system. Targets (from grep):
+### 3. Headings
+Add a global rule: `h1, h2, h3, h4, h5, h6, [data-eyebrow] { color: #000; }`. All other text inherits red.
 
-- `bg-black`, `text-black`, `border-black`, `bg-white`, `text-white` used in non-themed contexts → standardise to `bg-background`/`text-foreground`/`bg-primary`/`text-primary-foreground`
-- `bg-navy*`, `text-navy*`, `bg-emerald*`, `bg-sky*`, `bg-violet*`, `bg-coral*`, `bg-teal*`, `bg-magenta*`, `bg-indigo*`, `bg-lime*`, `bg-gold*`, `bg-amber*` (and their `text-`/`border-`/`from-`/`to-`/`via-` variants) → `bg-primary` / `text-primary` / `border-primary`
-- Tailwind palette literals (`text-gray-*`, `bg-slate-*`, `text-zinc-*`, `bg-red-500`, etc.) found in admin/tool pages → semantic tokens
-- Inline `style={{ color: '#…' }}` / `backgroundColor` → semantic tokens
+### 4. Imagery
+Keep existing photos. Where overlays previously used dark gradients, switch to white-to-transparent gradients so text panels stay white.
 
-Files in scope (from initial scan): `src/components/HeroSection.tsx`, `src/components/ReadNextCards.tsx`, all `src/components/landing/*Section.tsx`, `src/components/tools/SymptomQuiz.tsx`, `src/components/tools/InflammationCalculator.tsx`, `src/components/pedometer/PedometerApp.tsx`, `src/components/ZakatCalculator.tsx`, `src/components/exercises/ExerciseVideoModal.tsx`, all `src/pages/conditions/*`, `src/pages/exercises/*`, `src/pages/diet/*`, `src/pages/myths/*`, `src/pages/SelfHelpTool.tsx`, `src/pages/ZakatAppeal.tsx`, `src/pages/ArthritisStarterGuide.tsx`, `src/pages/CityArthritisPage.tsx`, `src/pages/CityConditionPage.tsx`, `src/pages/AdminEmails.tsx`, `src/pages/AdminPsiDashboard.tsx`, plus shadcn primitives that hardcode `bg-black/80` overlays (`dialog.tsx`, `alert-dialog.tsx`, `drawer.tsx`) — change overlays to `bg-primary/40`.
+### 5. Memory update
+Replace the strict no-black rule with the new white/black-headings/red rule in `mem://style/visual-identity` and update `mem://index.md` Core line.
 
-## Step 3 — Visual / image polish
+## Out of Scope
+- No backend logic, RLS, or data model changes.
+- No new pages, no copy rewrites, no new features.
+- No layout restructuring beyond colour/surface adjustments.
 
-- `src/components/landing/GridBg.tsx` blur orbs use `bg-primary/20` and `bg-violet/10` → both become `bg-primary/20` (violet token already aliased to red in step 1, but make it explicit).
-- Hero/landing photos and Openverse images stay as-is (photographic content is exempt from a "2-colour palette" rule — the chrome around them is what carries the brand).
-- Chart fills in admin pages (`AdminPsiDashboard`) → single red series on white.
-
-## Step 4 — Memory + verification
-
-- Update `mem://style/visual-identity` to record: strict 2-colour red + white, no black ink, dark-mode is inverted red/white.
-- Verify by visiting `/`, `/about`, `/diet`, `/exercises`, `/donate`, `/admin/dashboard`, `/admin/psi-dashboard` in the preview and confirming no non-red, non-white chrome remains.
-- Run the build to catch any token references broken by the sweep.
-
-## Technical notes
-
-- All colour values stay in HSL inside `index.css` per project convention.
-- No component API changes; this is purely a styling pass.
-- Accessibility: red-on-white at `hsl(350 85% 42%)` gives ~5.1:1 contrast vs white — passes WCAG AA for normal text. White-on-red passes the same. The user has accepted the trade-off vs keeping a dark ink colour.
-- Dark mode (`prefers-color-scheme: dark`) becomes red surface + white ink — still 2 colours, no third tone introduced.
-
-## Out of scope
-
-- No copy changes, no layout changes, no component refactors beyond the colour sweep.
-- Photographic images, logos in `/public`, and embedded video posters are not recoloured.
+## Technical Notes
+- All colours defined as HSL in `index.css`; Tailwind classes use semantic tokens only.
+- Dark mode class kept as alias to light to avoid breaking `ThemeProvider` consumers.
+- Estimated touched files: ~70 (tokens + components + pages already on the red list, plus admin pages and remaining greens).
