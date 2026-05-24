@@ -249,9 +249,31 @@
   [class*="text-accent-foreground"],
   [class*="text-destructive-foreground"],
   [class*="text-sidebar-foreground"],
+  [class*="text-foreground"],
+  [class*="text-gray-"],
+  [class*="text-slate-"],
+  [class*="text-zinc-"],
+  [class*="text-neutral-"],
+  [class*="text-stone-"],
   [style*="color:"] {
     color: #000 !important;
   }
+
+  /* Gradient/transparent text would otherwise be invisible on white */
+  .text-transparent,
+  [class*="text-transparent"],
+  [class*="bg-clip-text"] {
+    color: #000 !important;
+    -webkit-text-fill-color: #000 !important;
+    background-image: none !important;
+    background-clip: initial !important;
+    -webkit-background-clip: initial !important;
+  }
+
+  /* Placeholders and prose visible */
+  ::placeholder { color: #555 !important; opacity: 1 !important; }
+  .prose, .prose * { color: #000 !important; }
+
 
   /* Keep CTA buttons readable: white text on red fills (must come AFTER overrides) */
   .btn-primary-cta, .btn-secondary-cta, .btn-premium, .btn-gold,
