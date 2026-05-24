@@ -101,7 +101,7 @@ const DonationNotification = () => {
           transition={{ type: "spring", damping: 25, stiffness: 300 }}
           className="fixed bottom-4 left-4 z-50 max-w-[300px]"
         >
-          <div className="bg-background rounded-2xl px-4 py-3 shadow-[0_4px_24px_rgba(0,0,0,0.12)] relative">
+          <div className="bg-background rounded-2xl px-4 py-3 shadow-[0_4px_24px_rgba(0,0,0,0.12)] relative text-black">
             {/* Dismiss */}
             <button
               onClick={handleDismiss}
