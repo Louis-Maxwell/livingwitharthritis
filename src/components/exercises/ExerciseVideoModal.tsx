@@ -66,7 +66,7 @@ export const ExerciseVideoModal = ({
             poster={poster}
             controls
             playsInline
-            preload="metadata"
+            preload="none"
             className="w-full h-auto max-h-[70vh] object-contain bg-black"
           />
         </div>
