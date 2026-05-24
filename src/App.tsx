@@ -220,7 +220,7 @@ function AnimatedRoutes() {
         <Route path="/health-tools" element={<HealthTools />} />
         <Route path="/services" element={<Services />} />
         <Route path="/faq" element={<FAQ />} />
-        <Route path="/ai-safety" element={<AISafety />} />
+        
         <Route path="/contact" element={<Contact />} />
         <Route path="/regions/:region" element={<RegionHub />} />
         <Route path="/arthritis-waiting-list-help" element={<WaitingListHelp />} />
