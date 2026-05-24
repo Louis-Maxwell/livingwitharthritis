@@ -1,61 +1,47 @@
-# Plan: Arthritis Foundation-Inspired Re-Skin
+# Plan: Typography Scale + White Surfaces + Borderless Cards
 
-Apply a strict three-colour system across the entire site (frontend + admin), inspired by arthritis.org structure and treatment of green → mapped to red.
+Three coordinated token-level changes, applied globally so every page and component picks them up automatically.
 
-## Colour System (locked)
+## 1. Typography scale (arthritis.org-inspired)
 
-- **Background:** pure white (`#FFFFFF`) everywhere — no off-whites, no grey panels, no dark sections.
-- **Headings & subheadings (h1–h6, eyebrow labels):** black (`#000000`).
-- **Body text, links, accents, buttons, icons, dividers, badges:** red (Arthritis Foundation–style crimson, `#E4002B`).
-- **Hover/active red:** slightly darker (`#B8001F`).
-- **No greens, no purples, no greys for surfaces, no dark mode panels.**
+Match the reference screenshot's editorial rhythm. Add base font sizes globally in `src/index.css`:
 
-This **overrides** the prior "red text on white, white text on red — no black at all" rule. The new invariant is **white bg / black headings / red everything else**. Memory will be updated.
+- **Body / paragraphs:** 16px, line-height 1.65
+- **Small / captions:** 13px
+- **H1 (hero):** clamp(40px, 5vw, 64px), weight 700, line-height 1.05
+- **H2 (section):** clamp(28px, 3vw, 40px), weight 700
+- **H3 (card/group):** 22px, weight 700
+- **H4:** 18px, weight 700
+- **H5:** 15px, weight 600
+- **H6 / eyebrow:** 11px uppercase, tracking 0.25em
+- **Lead paragraph:** 18px, line-height 1.55
 
-## Inspiration Mapping (arthritis.org → this site)
+Applied via `h1–h6`, `p`, `.lead`, `.eyebrow` rules in the global layer so no per-component edits needed.
 
-| arthritis.org element | Our treatment |
-|---|---|
-| Green primary CTA | Red CTA (`#E4002B`) with white text |
-| Green section dividers / icon accents | Red |
-| Green stat numbers / highlights | Red |
-| White card backgrounds on light grey page | White cards on white page, separated by red 1px borders or red rule lines |
-| Black serif/sans headings | Keep current Playfair Display, recolour to black |
-| Hero photo bands | Keep imagery, overlay white panel with black headline + red CTA |
+## 2. White background everywhere (frontend + admin)
 
-## Scope
+Already enforced in `:root` and `.dark`. Add a belt-and-braces safety net:
 
-### 1. Design tokens (`src/index.css`, `tailwind.config.ts`)
-- Rewrite `--background` → white in both light and dark blocks (kill dark mode entirely or alias dark → light).
-- `--foreground` → black for headings via component utilities; body text → red.
-- `--primary` → red `#E4002B` (HSL).
-- `--card`, `--popover`, `--muted`, `--secondary`, `--accent` → all white surfaces with red borders.
-- `--border` → red at low opacity.
-- Remove gradient tokens that introduce other colours.
+- `html, body, #root { background: #fff !important; }`
+- Force `--background`, `--card`, `--popover`, `--muted`, `--accent`, `--secondary`, `--sidebar-background` all to `0 0% 100%` (already are — re-verify)
+- Neutralise any leftover `bg-gradient-*`, `bg-primary`, `bg-secondary` section utilities that could paint a coloured band: override `.bg-primary, .bg-secondary, .bg-accent, .bg-muted, .bg-gradient-medical { background: #fff !important; }` only at the *section/page* level via `section, main, article, aside, header, footer { background-color: #fff !important; }`. Buttons keep their red via `.btn-*` rules unaffected.
 
-### 2. Global component sweep
-Force the palette in every place currently using greens, greys, gradients, or dark surfaces:
-- Header, Footer, Hero, all landing sections (`src/components/landing/*`)
-- All page templates (`src/pages/**`) including conditions, diet, exercise, blog, donate, admin
-- UI primitives (`button`, `card`, `badge`, `alert`, `dialog`, `sheet`, `toast`, `tabs`, `input`, `table`) — variants normalised to white-bg / black-heading / red-accent
-- Admin dashboards — same palette (no dark admin theme)
-- Chat/Support widget, modals, banners
+## 3. Remove red borders from boxes
 
-### 3. Headings
-Add a global rule: `h1, h2, h3, h4, h5, h6, [data-eyebrow] { color: #000; }`. All other text inherits red.
+Strip the red border ring globally:
 
-### 4. Imagery
-Keep existing photos. Where overlays previously used dark gradients, switch to white-to-transparent gradients so text panels stay white.
-
-### 5. Memory update
-Replace the strict no-black rule with the new white/black-headings/red rule in `mem://style/visual-identity` and update `mem://index.md` Core line.
+- Change `--border` from red to `0 0% 100% / 0` (transparent / white)
+- Remove the global `* { @apply border-border }` red effect by re-aliasing border to transparent
+- Override `.card, .premium-card, .glass-card, .feature-pill, .trust-badge, [class*="border"]` to `border-color: transparent !important` at the base layer
+- Keep button outlines intact (red fills, white text — no border needed)
 
 ## Out of Scope
-- No backend logic, RLS, or data model changes.
-- No new pages, no copy rewrites, no new features.
-- No layout restructuring beyond colour/surface adjustments.
 
-## Technical Notes
-- All colours defined as HSL in `index.css`; Tailwind classes use semantic tokens only.
-- Dark mode class kept as alias to light to avoid breaking `ThemeProvider` consumers.
-- Estimated touched files: ~70 (tokens + components + pages already on the red list, plus admin pages and remaining greens).
+- No layout, copy, or component-structure changes
+- No backend logic changes (admin gets the same CSS, that's all)
+- No image swaps
+
+## Files touched
+
+- `src/index.css` (single file — all changes are token + global rules)
+- `mem://style/visual-identity` updated with the new type scale and "no borders" rule
