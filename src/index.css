@@ -161,30 +161,37 @@
     text-rendering: optimizeLegibility;
   }
 
+  html, body, #root {
+    background: #fff !important;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
     font-feature-settings: "cv11", "ss01";
-    line-height: 1.75;
+    line-height: 1.65;
     font-size: 16px;
   }
 
+  p { font-size: 16px; line-height: 1.65; }
+  small, .text-small { font-size: 13px; line-height: 1.5; }
+  .lead { font-size: 18px; line-height: 1.55; }
+
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-    font-weight: 800;
-    letter-spacing: -0.035em;
-    line-height: 1.06;
-    color: #000 !important;
-  }
-
-  /* Serif display headings — editorial */
-  h1, h2 {
-    font-family: 'Playfair Display', 'Plus Jakarta Sans', serif;
     font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
     color: #000 !important;
   }
 
-  /* Subheadings / eyebrows / lead paragraphs locked to black */
+  h1 { font-size: clamp(40px, 5vw, 64px); line-height: 1.05; font-family: 'Playfair Display', 'Plus Jakarta Sans', serif; }
+  h2 { font-size: clamp(28px, 3vw, 40px); line-height: 1.1;  font-family: 'Playfair Display', 'Plus Jakarta Sans', serif; }
+  h3 { font-size: 22px; }
+  h4 { font-size: 18px; }
+  h5 { font-size: 15px; font-weight: 600; }
+  h6 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.25em; font-weight: 700; }
+
   [data-eyebrow],
   .section-label,
   .eyebrow,
@@ -192,6 +199,20 @@
   .subhead {
     color: #000 !important;
   }
+
+  /* Force white backgrounds on page-level containers */
+  section, main, article, aside, header, footer, nav {
+    background-color: #fff !important;
+  }
+
+  /* Strip red borders from all boxes site-wide */
+  *, *::before, *::after {
+    border-color: transparent !important;
+  }
+  hr {
+    border-color: hsl(var(--primary) / 0.15) !important;
+  }
+
 
   ::selection {
     background: hsl(var(--primary) / 0.12);
