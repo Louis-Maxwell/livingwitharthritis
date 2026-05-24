@@ -11,10 +11,10 @@
     --foreground: 0 0% 0%;
 
     --card: 0 0% 100%;
-    --card-foreground: 350 85% 42%;
+    --card-foreground: 0 0% 0%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 350 85% 42%;
+    --popover-foreground: 0 0% 0%;
 
     --primary: 350 85% 42%;
     --primary-foreground: 0 0% 100%;
@@ -23,10 +23,10 @@
     --secondary-foreground: 0 0% 100%;
 
     --accent: 0 0% 100%;
-    --accent-foreground: 350 85% 42%;
+    --accent-foreground: 0 0% 0%;
 
     --muted: 0 0% 100%;
-    --muted-foreground: 350 85% 42%;
+    --muted-foreground: 0 0% 0%;
 
     --destructive: 350 85% 42%;
     --destructive-foreground: 0 0% 100%;
@@ -88,11 +88,11 @@
     --radius: 0.75rem;
 
     --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 350 85% 42%;
+    --sidebar-foreground: 0 0% 0%;
     --sidebar-primary: 350 85% 42%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 0 0% 100%;
-    --sidebar-accent-foreground: 350 85% 42%;
+    --sidebar-accent-foreground: 0 0% 0%;
     --sidebar-border: 350 85% 42%;
     --sidebar-ring: 350 85% 42%;
   }
@@ -102,17 +102,17 @@
     --background: 0 0% 100%;
     --foreground: 350 85% 42%;
     --card: 0 0% 100%;
-    --card-foreground: 350 85% 42%;
+    --card-foreground: 0 0% 0%;
     --popover: 0 0% 100%;
-    --popover-foreground: 350 85% 42%;
+    --popover-foreground: 0 0% 0%;
     --primary: 350 85% 42%;
     --primary-foreground: 0 0% 100%;
     --secondary: 350 85% 42%;
     --secondary-foreground: 0 0% 100%;
     --accent: 0 0% 100%;
-    --accent-foreground: 350 85% 42%;
+    --accent-foreground: 0 0% 0%;
     --muted: 0 0% 100%;
-    --muted-foreground: 350 85% 42%;
+    --muted-foreground: 0 0% 0%;
     --destructive: 350 85% 42%;
     --destructive-foreground: 0 0% 100%;
     --border: 350 85% 42%;
@@ -138,11 +138,11 @@
     --coral: 350 85% 42%;
     --teal: 350 85% 42%;
     --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 350 85% 42%;
+    --sidebar-foreground: 0 0% 0%;
     --sidebar-primary: 350 85% 42%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 0 0% 100%;
-    --sidebar-accent-foreground: 350 85% 42%;
+    --sidebar-accent-foreground: 0 0% 0%;
     --sidebar-border: 350 85% 42%;
     --sidebar-ring: 0 0% 100%;
   }
@@ -239,7 +239,21 @@
     color: #000 !important;
   }
 
-  /* Keep CTA buttons readable: white text on red fills */
+  /* Override Tailwind text-colour utilities that would render white/invisible */
+  [class*="text-white"],
+  [class*="text-primary-foreground"],
+  [class*="text-secondary-foreground"],
+  [class*="text-muted-foreground"],
+  [class*="text-card-foreground"],
+  [class*="text-popover-foreground"],
+  [class*="text-accent-foreground"],
+  [class*="text-destructive-foreground"],
+  [class*="text-sidebar-foreground"],
+  [style*="color:"] {
+    color: #000 !important;
+  }
+
+  /* Keep CTA buttons readable: white text on red fills (must come AFTER overrides) */
   .btn-primary-cta, .btn-secondary-cta, .btn-premium, .btn-gold,
   [class*="bg-primary"]:not(.bg-primary-foreground),
   [class*="bg-secondary"]:not(.bg-secondary-foreground),

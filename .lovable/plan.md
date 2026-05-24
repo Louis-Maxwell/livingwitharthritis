@@ -1,26 +1,40 @@
-# Plan: All text in black
+# Fix missing words & force all text black sitewide
 
-Override the current red body-text rule. Everything readable on the site (headings, paragraphs, links, lists, labels, tables, form text, admin) becomes pure black `#000`. Red stays only for **non-text** elements: button fills, icons, borders/divider strokes, hover states.
+## Problem
+Some pages show "missing" words. Cause: many components use Tailwind classes that resolve to **white text** (e.g. `text-white`, `text-primary-foreground`, `text-card-foreground`, `text-muted-foreground`) on top of the now-white background — so the words render but are invisible.
 
-## Change
+The previous black-text rule only targeted generic tags (`p`, `span`, `div`…). It does not override Tailwind utilities like `text-white` because those have higher specificity via the class selector and matching `!important` in some places.
 
-Single edit in `src/index.css`:
+## Fix (single file: `src/index.css`)
 
-1. Flip `--foreground` token from red → `0 0% 0%` (black). This recolours body, cards, popovers, muted-foreground, sidebar text, etc., everywhere.
-2. Add a belt-and-braces base rule: `body, p, span, li, a, td, th, label, input, textarea, select, button, blockquote, figcaption, cite, em, strong { color: #000 !important; }`.
-3. Keep CTA buttons readable: `.btn-primary-cta, .btn-secondary-cta, [class*="bg-primary"], [class*="bg-secondary"] { color: #fff !important; }` so white text stays on red fills.
-4. Links underlined in black; hover state stays red.
+1. **Flip remaining red foreground tokens to black** so any Tailwind utility built on them resolves to black:
+   - `--card-foreground`, `--popover-foreground`, `--muted-foreground`, `--accent-foreground`, `--sidebar-foreground`, `--sidebar-accent-foreground` → `0 0% 0%`
+   - Same for the `.dark` block.
+
+2. **Add an aggressive override** that forces every text-colour utility to black, regardless of which element it sits on:
+   ```css
+   [class*="text-white"],
+   [class*="text-primary-foreground"],
+   [class*="text-secondary-foreground"],
+   [class*="text-muted-foreground"],
+   [class*="text-card-foreground"],
+   [class*="text-popover-foreground"],
+   [class*="text-accent-foreground"],
+   [class*="text-destructive-foreground"],
+   [class*="text-sidebar-foreground"],
+   [style*="color:"] {
+     color: #000 !important;
+   }
+   ```
+
+3. **Preserve legibility on red fills only** — keep the existing rule that forces white text inside `bg-primary / bg-secondary / bg-destructive` containers and on `.btn-primary-cta / .btn-secondary-cta / .btn-premium / .btn-gold`. This rule comes *after* the override so red buttons still show white labels.
+
+4. **Inline styles**: nothing in the codebase needs changing — the `[style*="color:"]` selector + `!important` neutralises any inline white text.
 
 ## Out of scope
+- No layout, spacing, font-size, or component changes.
+- Backgrounds stay white, borders stay stripped, icons/buttons stay red.
+- No edits to any `.tsx` file.
 
-- No layout, font-size, or component changes.
-- Backgrounds remain white, borders remain transparent, icons/buttons remain red.
-
-## Memory
-
-Update `mem://style/visual-identity` + Core index line: text is **black**, red is reserved for buttons, icons, and accents (not text).
-
-## Files
-
-- `src/index.css`
-- `mem://index.md`, `mem://style/visual-identity`
+## Memory update
+- `mem://style/visual-identity`: note that ALL text (including utilities like `text-white`, `text-*-foreground`) renders black except inside red button fills.
