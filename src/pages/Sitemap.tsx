@@ -62,7 +62,6 @@ const ALL_LINKS: SitemapLink[] = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Accessibility", href: "/accessibility" },
-  { label: "AI Safety", href: "/ai-safety" },
   { label: "Blog", href: "/blog" },
   { label: "Blog Hub", href: "/blog-hub" },
   { label: "Community Hub", href: "/community" },
