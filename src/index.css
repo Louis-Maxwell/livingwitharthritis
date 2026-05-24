@@ -382,7 +382,7 @@
 
   /* ─── Labels ─── */
   .section-label {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     @apply uppercase tracking-[0.3em] text-[10px] font-bold;
     letter-spacing: 0.3em;
   }
@@ -392,7 +392,7 @@
   }
 
   .charity-reg {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     @apply text-xs tracking-wider opacity-50;
   }
 
@@ -468,7 +468,7 @@
 
   /* ─── Number counter style ─── */
   .stat-number {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Montserrat', serif;
     @apply font-bold tracking-tight text-foreground;
   }
 
@@ -926,12 +926,12 @@
   }
 
   .editorial-caption {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     @apply uppercase tracking-[0.3em] text-[10px] font-bold;
   }
 
   .font-editorial {
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-family: 'Open Sans', system-ui, sans-serif;
   }
 
   .mask-fade-bottom {
