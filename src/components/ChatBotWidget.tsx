@@ -17,7 +17,7 @@ export default function ChatBotWidget() {
           <TooltipTrigger asChild>
             <button
               onClick={() => setOpen((v) => !v)}
-              aria-label={open ? "Close chat" : "Open chat"}
+              aria-label={open ? "Close help" : "Open help"}
               className="fixed bottom-[88px] right-4 z-50 h-16 w-16 rounded-full bg-white text-primary shadow-xl hover:shadow-2xl active:scale-95 hover:scale-105 transition-all duration-200 flex items-center justify-center lg:bottom-8 lg:right-8 border-2 border-primary/20 overflow-hidden group"
             >
               {/* Pulse ring */}
@@ -29,14 +29,14 @@ export default function ChatBotWidget() {
                   </motion.span>
                 ) : (
                   <motion.span key="open" initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.8, opacity: 0 }} transition={{ duration: 0.15 }}>
-                    <RobotIcon size={44} />
+                    <MessageCircle className="h-7 w-7" />
                   </motion.span>
                 )}
               </AnimatePresence>
             </button>
           </TooltipTrigger>
           <TooltipContent side="left" className="text-xs font-medium">
-            {open ? "Close chat" : "Chat with us"}
+            {open ? "Close help" : "Help"}
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
