@@ -93,8 +93,6 @@ serve(async (req) => {
           ...corsHeaders,
           "Content-Type": "text/event-stream",
           "X-Request-Id": requestId,
-          "X-AI-Disclosure": "ai-generated",
-          "X-AI-Safety": "blocked",
         },
       });
     }
@@ -107,8 +105,6 @@ serve(async (req) => {
           ...corsHeaders,
           "Content-Type": "text/event-stream",
           "X-Request-Id": requestId,
-          "X-AI-Disclosure": "ai-generated",
-          "X-AI-Safety": `red_flag:${flags.category}`,
         },
       });
     }
@@ -178,7 +174,6 @@ serve(async (req) => {
             ...corsHeaders,
             "Content-Type": "application/json",
             "X-Request-Id": requestId,
-            "X-AI-Disclosure": "ai-generated",
           },
         },
       );
@@ -189,7 +184,6 @@ serve(async (req) => {
         ...corsHeaders,
         "Content-Type": "text/event-stream",
         "X-Request-Id": requestId,
-        "X-AI-Disclosure": "ai-generated",
       },
     });
   } catch (error) {
