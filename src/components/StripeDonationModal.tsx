@@ -76,7 +76,7 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
         {/* Header */}
         <div className="bg-gradient-to-br from-primary/12 via-primary/6 to-accent px-6 pt-8 pb-6 border-b border-border/30">
           <DialogHeader>
-            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-semibold px-3 py-1.5 rounded-full w-fit mb-3">
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-foreground text-xs font-semibold px-3 py-1.5 rounded-full w-fit mb-3">
               {recurring ? <RefreshCw className="w-3.5 h-3.5" /> : <Heart className="w-3.5 h-3.5" />}
               {recurring ? "Monthly Giving" : "Thank You"}
             </div>
@@ -103,7 +103,7 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
             <p className="text-sm text-foreground mb-1">
               {recurring ? "Monthly Amount" : "Donation Amount"}
             </p>
-            <p className={`text-4xl font-bold ${recurring ? "text-primary" : "text-primary"}`}>
+            <p className={`text-4xl font-bold ${recurring ? "text-foreground" : "text-foreground"}`}>
               {sym}{amount.toFixed(2)}
               {recurring && <span className="text-lg font-medium text-foreground">/month</span>}
             </p>
