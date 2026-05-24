@@ -111,11 +111,6 @@ const Footer = () => {
                     )}
                   </li>
                 ))}
-                {col.title === "Legal" && (
-                  <li>
-                    <AITrustSafetyModal />
-                  </li>
-                )}
               </ul>
             </div>
           ))}
