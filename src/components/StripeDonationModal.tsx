@@ -121,7 +121,7 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
             <div className="rounded-2xl border border-primary/20 bg-primary/[0.04] overflow-hidden">
               <div className="flex items-center gap-2.5 px-5 py-3 bg-primary/[0.06] border-b border-primary/10">
                 <Gift className="w-4 h-4 text-primary shrink-0" />
-                <p className="text-sm font-semibold text-primary">Boost your donation with Gift Aid</p>
+                <p className="text-sm font-semibold text-foreground">Boost your donation with Gift Aid</p>
               </div>
 
               <div className="px-5 py-4 space-y-4">
@@ -133,7 +133,7 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
                   <ArrowRight className="w-4 h-4 text-primary shrink-0" />
                   <div className="text-center px-3 py-2 rounded-xl bg-card border border-border/40">
                     <p className="text-[10px] text-foreground uppercase tracking-wider font-medium">HMRC adds</p>
-                    <p className="text-lg font-bold text-primary">+{sym}{giftAidBonus.toFixed(2)}</p>
+                    <p className="text-lg font-bold text-foreground">+{sym}{giftAidBonus.toFixed(2)}</p>
                   </div>
 
                   <ArrowRight className="w-4 h-4 text-primary shrink-0" />
@@ -151,7 +151,7 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
                       }`}
                     >
                       <p className="text-[10px] text-foreground uppercase tracking-wider font-medium">We receive</p>
-                      <p className={`text-lg font-bold ${giftAid ? "text-primary" : "text-foreground"}`}>
+                      <p className="text-lg font-bold text-foreground">
                         {sym}{giftAid ? totalWithGiftAid.toFixed(2) : amount.toFixed(2)}
                       </p>
 
