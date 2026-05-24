@@ -35,7 +35,7 @@ type Tile =
 const TILES: Tile[] = [
   {
     kind: "photo",
-    src: "/openverse/wellness-02-tai-chi-young-and-old.jpg",
+    src: "/openverse/wellness-02-tai-chi-young-and-old.webp",
     alt: "Older and younger person practising tai chi together outdoors",
     caption: "Movement that meets you where you are",
     span: "col-span-2 row-span-2",
@@ -52,13 +52,13 @@ const TILES: Tile[] = [
   },
   {
     kind: "photo",
-    src: "/openverse/nutrition-03-colorful-assortment-of-fresh-fruits-arranged-in-a-.jpg",
+    src: "/openverse/nutrition-03-colorful-assortment-of-fresh-fruits-arranged-in-a-.webp",
     alt: "Colourful arrangement of fresh fruit",
     span: "col-span-1 row-span-1",
   },
   {
     kind: "photo",
-    src: "/openverse/community-08-physical-therapy-teaching-lab-at-cu-anschutz-octob.jpg",
+    src: "/openverse/community-08-physical-therapy-teaching-lab-at-cu-anschutz-octob.webp",
     alt: "Physiotherapist guiding a patient through gentle exercises",
     span: "col-span-1 row-span-1",
   },
@@ -74,13 +74,13 @@ const TILES: Tile[] = [
   },
   {
     kind: "photo",
-    src: "/openverse/wellness-04-a-woman-supporting-herself-with-a-walking-frame.jpg",
+    src: "/openverse/wellness-04-a-woman-supporting-herself-with-a-walking-frame.webp",
     alt: "A woman walking confidently with the support of a frame",
     span: "col-span-1 row-span-2",
   },
   {
     kind: "photo",
-    src: "/openverse/nutrition-11-bowl-of-fresh-fruit-unsplash.jpg",
+    src: "/openverse/nutrition-11-bowl-of-fresh-fruit-unsplash.webp",
     alt: "A bright bowl of fresh seasonal fruit",
     span: "col-span-1 row-span-1",
   },
@@ -96,7 +96,7 @@ const TILES: Tile[] = [
   },
   {
     kind: "photo",
-    src: "/openverse/community-12-physical-therapy-session-aboard-the-uss-george-was.jpg",
+    src: "/openverse/community-12-physical-therapy-session-aboard-the-uss-george-was.webp",
     alt: "Group physiotherapy session in a community setting",
     caption: "Real people, real progress",
     span: "col-span-2 row-span-1",
@@ -113,7 +113,7 @@ const TILES: Tile[] = [
   },
   {
     kind: "photo",
-    src: "/openverse/wellness-01-upward-facing-dog-pose.jpg",
+    src: "/openverse/wellness-01-upward-facing-dog-pose.webp",
     alt: "Person in a gentle upward-facing yoga pose",
     span: "col-span-1 row-span-1",
   },

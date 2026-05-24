@@ -17,7 +17,7 @@ export interface OpenverseImage {
 export const openverseImages: OpenverseImage[] = [
   {
     theme: "arthritis",
-    localPath: "/openverse/arthritis-01-arthritic-hands-in-pain.jpg",
+    localPath: "/openverse/arthritis-01-arthritic-hands-in-pain.webp",
     title: "Arthritic hands in pain",
     creator: "Ian Furst",
     license: "CC BY-SA 4.0",
@@ -27,7 +27,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "arthritis",
-    localPath: "/openverse/arthritis-02-arthritis-on-the-right-hand.jpg",
+    localPath: "/openverse/arthritis-02-arthritis-on-the-right-hand.webp",
     title: "Arthritis on the Right Hand",
     creator: "CDC/ Dr. Sellers, Grady Hospital",
     license: "CC0",
@@ -37,7 +37,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "arthritis",
-    localPath: "/openverse/arthritis-03-khaleda-zia-hand-development-due-to-arthritis.jpg",
+    localPath: "/openverse/arthritis-03-khaleda-zia-hand-development-due-to-arthritis.webp",
     title: "Khaleda Zia hand development due to arthritis",
     creator: "Various authors, collage by Zeeshan Y Tariq",
     license: "CC0",
@@ -47,7 +47,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "arthritis",
-    localPath: "/openverse/arthritis-04-posttraumatic-arthritis-of-the-wrist.jpg",
+    localPath: "/openverse/arthritis-04-posttraumatic-arthritis-of-the-wrist.webp",
     title: "Posttraumatic arthritis of the wrist",
     creator: "Curtishand",
     license: "Public domain",
@@ -57,7 +57,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "arthritis",
-    localPath: "/openverse/arthritis-05-rheumatoid-arthritis.jpg",
+    localPath: "/openverse/arthritis-05-rheumatoid-arthritis.webp",
     title: "Rheumatoid Arthritis",
     creator: "James Heilman, MD",
     license: "CC BY-SA 3.0",
@@ -67,7 +67,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "arthritis",
-    localPath: "/openverse/arthritis-06-osteoarthritis-left-knee.jpg",
+    localPath: "/openverse/arthritis-06-osteoarthritis-left-knee.webp",
     title: "Osteoarthritis left knee",
     creator: "James Heilman, MD",
     license: "CC BY-SA 3.0",
@@ -77,7 +77,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "arthritis",
-    localPath: "/openverse/arthritis-07-patellofemoral-osteoarthritis-severe-2.jpg",
+    localPath: "/openverse/arthritis-07-patellofemoral-osteoarthritis-severe-2.webp",
     title: "Patellofemoral osteoarthritis severe 2",
     creator: "Jmarchn",
     license: "CC BY 4.0",
@@ -87,7 +87,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "arthritis",
-    localPath: "/openverse/arthritis-08-rheumatoid-arthritis-hand.jpg",
+    localPath: "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
     title: "Rheumatoid Arthritis Hand",
     creator: "Amm0nium",
     license: "CC BY-SA 4.0",
@@ -97,7 +97,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "arthritis",
-    localPath: "/openverse/arthritis-09-rheumatoid-arthritis-with-carpal-ankylosis-2017.jpg",
+    localPath: "/openverse/arthritis-09-rheumatoid-arthritis-with-carpal-ankylosis-2017.webp",
     title: "Rheumatoid arthritis with carpal ankylosis 2017",
     creator: "Mikael Häggström",
     license: "CC0",
@@ -107,7 +107,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "arthritis",
-    localPath: "/openverse/arthritis-10-varus-knee-osteoarthritis-xray.jpg",
+    localPath: "/openverse/arthritis-10-varus-knee-osteoarthritis-xray.webp",
     title: "Varus Knee Osteoarthritis Xray",
     creator: "NP2025",
     license: "CC BY-SA 4.0",
@@ -117,7 +117,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "arthritis",
-    localPath: "/openverse/arthritis-11-osteoarthritis.jpg",
+    localPath: "/openverse/arthritis-11-osteoarthritis.webp",
     title: "Osteoarthritis",
     creator: "BruceBlaus",
     license: "CC BY-SA 4.0",
@@ -127,7 +127,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "arthritis",
-    localPath: "/openverse/arthritis-12-osteoarthritis.jpg",
+    localPath: "/openverse/arthritis-12-osteoarthritis.webp",
     title: "Osteoarthritis",
     creator: "BruceBlaus",
     license: "CC BY-SA 4.0",
@@ -137,7 +137,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "arthritis",
-    localPath: "/openverse/arthritis-13-osteoarthritis-on-x-ray.jpg",
+    localPath: "/openverse/arthritis-13-osteoarthritis-on-x-ray.webp",
     title: "Osteoarthritis on X-ray",
     creator: "James Heilman, MD",
     license: "CC BY-SA 4.0",
@@ -147,7 +147,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "community",
-    localPath: "/openverse/community-01-an-elderly-tibetan-women-holding-a-prayer-wheel-on.jpg",
+    localPath: "/openverse/community-01-an-elderly-tibetan-women-holding-a-prayer-wheel-on.webp",
     title: "An elderly Tibetan women holding a prayer wheel on Lhasa, Barkhor",
     creator: "Luca Galuzzi (Lucag)",
     license: "CC BY-SA 2.5",
@@ -157,7 +157,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "community",
-    localPath: "/openverse/community-02-wolf-creek-nfh-2022-13th-annual-catch-a-smile-seni.jpg",
+    localPath: "/openverse/community-02-wolf-creek-nfh-2022-13th-annual-catch-a-smile-seni.webp",
     title: "Wolf Creek NFH 2022 13th Annual Catch a Smile Senior Fishing Derby couple with rainbow trout 27 Sept",
     creator: "Marsha Hart/USFWS",
     license: "Public domain",
@@ -167,7 +167,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "community",
-    localPath: "/openverse/community-03-a-senior-indian-couple-on-a-scooty.jpg",
+    localPath: "/openverse/community-03-a-senior-indian-couple-on-a-scooty.webp",
     title: "A Senior Indian couple on a scooty",
     creator: "Ashuagni",
     license: "CC0",
@@ -177,7 +177,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "community",
-    localPath: "/openverse/community-04-renewing-bonds-family-reconnects-at-4th-asog-marri.jpg",
+    localPath: "/openverse/community-04-renewing-bonds-family-reconnects-at-4th-asog-marri.webp",
     title: "Renewing Bonds- Family reconnects at 4th ASOG Marriage Retreat (8296119)",
     creator: "U.S. Air Force photo by Airman 1st Class Jared Lovett",
     license: "Public domain",
@@ -187,7 +187,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "community",
-    localPath: "/openverse/community-05-pride-be-2018-2018-05-19-16-47-31-ilce-6500-dsc081.jpg",
+    localPath: "/openverse/community-05-pride-be-2018-2018-05-19-16-47-31-ilce-6500-dsc081.webp",
     title: "Pride.be 2018 2018-05-19 16-47-31 ILCE-6500 DSC08147-COLLAGE (28391545078)",
     creator: "Miguel Discart Photos Vrac 2",
     license: "CC BY-SA 2.0",
@@ -197,7 +197,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "community",
-    localPath: "/openverse/community-06-pride-be-2018-2018-05-19-15-19-41-ilce-6500-dsc082.jpg",
+    localPath: "/openverse/community-06-pride-be-2018-2018-05-19-15-19-41-ilce-6500-dsc082.webp",
     title: "Pride.be 2018 2018-05-19 15-19-41 ILCE-6500 DSC08296-COLLAGE (41363084935)",
     creator: "Miguel Discart Photos Vrac 2",
     license: "CC BY-SA 2.0",
@@ -207,7 +207,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "community",
-    localPath: "/openverse/community-07-2018-05-19-15-31-50-ilce-6500-dsc08438-dxo.jpg",
+    localPath: "/openverse/community-07-2018-05-19-15-31-50-ilce-6500-dsc08438-dxo.webp",
     title: "2018-05-19 15-31-50 ILCE-6500 DSC08438 DxO",
     creator: "Miguel Discart",
     license: "CC BY-SA 2.0",
@@ -217,7 +217,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "community",
-    localPath: "/openverse/community-08-physical-therapy-teaching-lab-at-cu-anschutz-octob.jpg",
+    localPath: "/openverse/community-08-physical-therapy-teaching-lab-at-cu-anschutz-octob.webp",
     title: "Physical Therapy Teaching Lab at CU Anschutz (October 2025)",
     creator: "Mikepascoe",
     license: "CC0",
@@ -227,7 +227,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "community",
-    localPath: "/openverse/community-09-us-navy-100306-n-5319a-020-occupational-therapist-.jpg",
+    localPath: "/openverse/community-09-us-navy-100306-n-5319a-020-occupational-therapist-.webp",
     title: "US Navy 100306-N-5319A-020 Occupational Therapist Judy Anderson exercises muscles in ten-year-old Jo",
     creator: "U.S. Navy photo by Mass Communication Specialist 1st Class Brien Aho",
     license: "Public domain",
@@ -237,7 +237,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "community",
-    localPath: "/openverse/community-10-us-navy-100306-n-5319a-035-ten-year-old-joseph-cam.jpg",
+    localPath: "/openverse/community-10-us-navy-100306-n-5319a-035-ten-year-old-joseph-cam.webp",
     title: "US Navy 100306-N-5319A-035 Ten-year-old Joseph Camano performs stretching exercises before a routine",
     creator: "U.S. Navy photo by Mass Communication Specialist 1st Class Brien Aho",
     license: "Public domain",
@@ -247,7 +247,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "community",
-    localPath: "/openverse/community-11-us-navy-100306-n-5319a-069-ten-year-old-joseph-cam.jpg",
+    localPath: "/openverse/community-11-us-navy-100306-n-5319a-069-ten-year-old-joseph-cam.webp",
     title: "US Navy 100306-N-5319A-069 Ten-year-old Joseph Camano, left, exercises on a swing during a routine p",
     creator: "U.S. Navy photo by Mass Communication Specialist 1st Class Brien Aho",
     license: "Public domain",
@@ -257,7 +257,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "community",
-    localPath: "/openverse/community-12-physical-therapy-session-aboard-the-uss-george-was.jpg",
+    localPath: "/openverse/community-12-physical-therapy-session-aboard-the-uss-george-was.webp",
     title: "Physical Therapy Session Aboard the USS George Washington DVIDS387343",
     creator: "Photo by: Petty Officer 2nd Class William Pittman",
     license: "Public domain",
@@ -267,7 +267,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "nutrition",
-    localPath: "/openverse/nutrition-01-oliven-v1.jpg",
+    localPath: "/openverse/nutrition-01-oliven-v1.webp",
     title: "Oliven V1",
     creator: "Poyraz 72",
     license: "CC BY-SA 4.0",
@@ -277,7 +277,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "nutrition",
-    localPath: "/openverse/nutrition-02-healthy-meal-planning-with-fresh-fruits-and-vegeta.jpg",
+    localPath: "/openverse/nutrition-02-healthy-meal-planning-with-fresh-fruits-and-vegeta.webp",
     title: "Healthy meal planning with fresh fruits and vegetables in a bright kitchen setting",
     creator: "Shixart1985",
     license: "CC BY 2.0",
@@ -287,7 +287,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "nutrition",
-    localPath: "/openverse/nutrition-03-colorful-assortment-of-fresh-fruits-arranged-in-a-.jpg",
+    localPath: "/openverse/nutrition-03-colorful-assortment-of-fresh-fruits-arranged-in-a-.webp",
     title: "Colorful assortment of fresh fruits arranged in a bowl with natural light highlighting their vibrant",
     creator: "Shixart1985",
     license: "CC BY 2.0",
@@ -297,7 +297,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "nutrition",
-    localPath: "/openverse/nutrition-04-healthy-meal-prep-with-fresh-salad-fruits-and-plan.jpg",
+    localPath: "/openverse/nutrition-04-healthy-meal-prep-with-fresh-salad-fruits-and-plan.webp",
     title: "Healthy meal prep with fresh salad, fruits, and planning tools displayed on a table",
     creator: "Shixart1985",
     license: "CC BY 2.0",
@@ -307,7 +307,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "nutrition",
-    localPath: "/openverse/nutrition-05-freshly-sliced-fruits-on-wooden-board-alongside-a-.jpg",
+    localPath: "/openverse/nutrition-05-freshly-sliced-fruits-on-wooden-board-alongside-a-.webp",
     title: "Freshly sliced fruits on wooden board alongside a vibrant salad bowl in a bright indoor kitchen sett",
     creator: "Shixart1985",
     license: "CC BY 2.0",
@@ -317,7 +317,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "nutrition",
-    localPath: "/openverse/nutrition-06-fruit-salad-or-fruit-bowl.jpg",
+    localPath: "/openverse/nutrition-06-fruit-salad-or-fruit-bowl.webp",
     title: "Fruit Salad Or Fruit Bowl",
     creator: "Manjeshwari poet mysore",
     license: "CC BY-SA 4.0",
@@ -327,7 +327,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "nutrition",
-    localPath: "/openverse/nutrition-07-woman-writing-notes-while-enjoying-a-fresh-fruit-p.jpg",
+    localPath: "/openverse/nutrition-07-woman-writing-notes-while-enjoying-a-fresh-fruit-p.webp",
     title: "Woman writing notes while enjoying a fresh fruit platter and juice",
     creator: "Shixart1985",
     license: "CC BY 2.0",
@@ -337,7 +337,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "nutrition",
-    localPath: "/openverse/nutrition-08-gesundes-leben-004-2024-03-22.jpg",
+    localPath: "/openverse/nutrition-08-gesundes-leben-004-2024-03-22.webp",
     title: "Gesundes Leben 004 2024 03 22",
     creator: "Friedrich Haag",
     license: "CC BY-SA 4.0",
@@ -347,7 +347,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "nutrition",
-    localPath: "/openverse/nutrition-09-dfc-3934-a-colorful-medley-of-freshly-chopped-frui.jpg",
+    localPath: "/openverse/nutrition-09-dfc-3934-a-colorful-medley-of-freshly-chopped-frui.webp",
     title: "DFC 3934 A colorful medley of freshly chopped fruits - pineapple grapes apple rings papaya and apric",
     creator: "PattayaPatrol",
     license: "CC BY-SA 4.0",
@@ -357,7 +357,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "nutrition",
-    localPath: "/openverse/nutrition-10-mysore-special-fruit-salad-with-ice-cream.jpg",
+    localPath: "/openverse/nutrition-10-mysore-special-fruit-salad-with-ice-cream.webp",
     title: "Mysore Special Fruit Salad With Ice Cream",
     creator: "Manjeshwari poet mysore",
     license: "CC BY-SA 4.0",
@@ -367,7 +367,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "nutrition",
-    localPath: "/openverse/nutrition-11-bowl-of-fresh-fruit-unsplash.jpg",
+    localPath: "/openverse/nutrition-11-bowl-of-fresh-fruit-unsplash.webp",
     title: "Bowl of Fresh Fruit (Unsplash)",
     creator: "Iwona Łach ywka",
     license: "CC0",
@@ -377,7 +377,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "nutrition",
-    localPath: "/openverse/nutrition-12-the-small-acai-bowl-in-a-cup.jpg",
+    localPath: "/openverse/nutrition-12-the-small-acai-bowl-in-a-cup.webp",
     title: "The small acai bowl..in a cup",
     creator: "Janine from Mililani, Hawaii, United States",
     license: "CC BY 2.0",
@@ -387,7 +387,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "wellness",
-    localPath: "/openverse/wellness-01-upward-facing-dog-pose.jpg",
+    localPath: "/openverse/wellness-01-upward-facing-dog-pose.webp",
     title: "Upward-facing dog pose",
     creator: "Pax Ahimsa Gethen",
     license: "CC BY-SA 3.0",
@@ -397,7 +397,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "wellness",
-    localPath: "/openverse/wellness-02-tai-chi-young-and-old.jpg",
+    localPath: "/openverse/wellness-02-tai-chi-young-and-old.webp",
     title: "Tai Chi Young and Old",
     creator: "Peter Harrison from Auckland, New Zealand",
     license: "CC BY 2.0",
@@ -407,7 +407,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "wellness",
-    localPath: "/openverse/wellness-03-pilates-wunda-chair.jpg",
+    localPath: "/openverse/wellness-03-pilates-wunda-chair.webp",
     title: "Pilates Wunda Chair",
     creator: "Mrs. Ruti Shafir",
     license: "CC0",
@@ -417,7 +417,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "wellness",
-    localPath: "/openverse/wellness-04-a-woman-supporting-herself-with-a-walking-frame.jpg",
+    localPath: "/openverse/wellness-04-a-woman-supporting-herself-with-a-walking-frame.webp",
     title: "A woman supporting herself with a walking frame",
     creator: "rawpixel.com",
     license: "CC0",
@@ -427,7 +427,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "wellness",
-    localPath: "/openverse/wellness-05-pilates-reformer.jpg",
+    localPath: "/openverse/wellness-05-pilates-reformer.webp",
     title: "Pilates reformer",
     creator: "Maddi Bazzocco",
     license: "CC0",
@@ -437,7 +437,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "wellness",
-    localPath: "/openverse/wellness-06-pilates-9956369565.jpg",
+    localPath: "/openverse/wellness-06-pilates-9956369565.webp",
     title: "Pilates (9956369565)",
     creator: "Red CreaDeporte",
     license: "CC BY 2.0",
@@ -447,7 +447,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "wellness",
-    localPath: "/openverse/wellness-07-cane-walker-cane-hybrid-walker.jpg",
+    localPath: "/openverse/wellness-07-cane-walker-cane-hybrid-walker.webp",
     title: "Cane, Walker Cane Hybrid, Walker",
     creator: "KDPetersen",
     license: "CC BY-SA 3.0",
@@ -457,7 +457,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "wellness",
-    localPath: "/openverse/wellness-08-pilates-reformer2.jpg",
+    localPath: "/openverse/wellness-08-pilates-reformer2.webp",
     title: "Pilates reformer2",
     creator: "Aeveraal",
     license: "CC BY 4.0",
@@ -467,7 +467,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "wellness",
-    localPath: "/openverse/wellness-09-pilates-9956559243.jpg",
+    localPath: "/openverse/wellness-09-pilates-9956559243.webp",
     title: "Pilates (9956559243)",
     creator: "Red CreaDeporte",
     license: "CC BY 2.0",
@@ -477,7 +477,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "wellness",
-    localPath: "/openverse/wellness-10-walker-frame.jpg",
+    localPath: "/openverse/wellness-10-walker-frame.webp",
     title: "Walker. frame",
     creator: "The original uploader was High Plains Drifter at English Wikipedia.",
     license: "Public domain",
@@ -487,7 +487,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "wellness",
-    localPath: "/openverse/wellness-11-pilates-9956372676.jpg",
+    localPath: "/openverse/wellness-11-pilates-9956372676.webp",
     title: "Pilates (9956372676)",
     creator: "Red CreaDeporte",
     license: "CC BY 2.0",
@@ -497,7 +497,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "wellness",
-    localPath: "/openverse/wellness-12-pilates-at-a-gym.jpg",
+    localPath: "/openverse/wellness-12-pilates-at-a-gym.webp",
     title: "Pilates at a Gym",
     creator: "www.localfitness.com.au",
     license: "CC BY-SA 3.0",
@@ -507,7 +507,7 @@ export const openverseImages: OpenverseImage[] = [
   },
   {
     theme: "wellness",
-    localPath: "/openverse/wellness-13-pilates-9956534863.jpg",
+    localPath: "/openverse/wellness-13-pilates-9956534863.webp",
     title: "Pilates (9956534863)",
     creator: "Red CreaDeporte",
     license: "CC BY 2.0",

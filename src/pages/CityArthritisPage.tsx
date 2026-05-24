@@ -67,13 +67,13 @@ const CityArthritisPage = () => {
         <meta name="keywords" content={`arthritis ${cityData.name}, rheumatology ${cityData.name}, arthritis support ${cityData.name}, ${cityData.localTrust} rheumatology, arthritis help ${cityData.region}`} />
         <meta property="og:site_name" content="Living With Arthritis UK" />
         <meta property="og:locale" content="en_GB" />
-        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`Arthritis Support in ${cityData.name}`} />
         <meta name="twitter:description" content={cityData.description} />
-        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
         <script type="application/ld+json">{JSON.stringify(faqLd)}</script>

@@ -27,6 +27,14 @@
 /images/*
   Cache-Control: public, max-age=604800, stale-while-revalidate=86400
 
+# Cache openverse imagery for 30 days (filenames are stable)
+/openverse/*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+# Cache exercise videos for 30 days
+/exercise-videos/*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
 # Cache favicon for 1 day
 /favicon.ico
   Cache-Control: public, max-age=86400

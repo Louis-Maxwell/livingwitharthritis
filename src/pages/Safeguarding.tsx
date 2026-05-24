@@ -17,13 +17,13 @@ export default function Safeguarding() {
       <meta property="og:url" content="https://livingwitharthritis.org.uk/safeguarding" />
       <meta property="og:site_name" content="Living With Arthritis UK" />
       <meta property="og:locale" content="en_GB" />
-      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Safeguarding Policy | Living With Arthritis UK" />
       <meta name="twitter:description" content="Our safeguarding policy outlines how Living With Arthritis UK protects vulnerable adults and ensures the safety of everyone who engages with our services." />
-      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
     </Helmet>
       <Header />
       <main id="main-content" className="min-h-screen bg-background">

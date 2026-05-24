@@ -40,7 +40,7 @@ export default defineConfig(({ mode }) => ({
     dedupe: ["react", "react-dom"],
   },
   optimizeDeps: {
-    include: ["react", "react-dom", "react-i18next", "i18next"],
+    include: ["react", "react-dom"],
   },
   build: {
     target: "es2020",

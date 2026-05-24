@@ -246,13 +246,13 @@ export default function ExpertArticles() {
       <meta property="og:url" content="https://livingwitharthritis.org.uk/expert-articles" />
       <meta property="og:site_name" content="Living With Arthritis UK" />
       <meta property="og:locale" content="en_GB" />
-      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Expert Articles – Clinician-Written Arthritis Guides | Living With Arthritis UK" />
       <meta name="twitter:description" content="Evidence-based arthritis articles written by HCPC physiotherapists, consultant rheumatologists, registered dietitians, and clinical psychologists. Expert UK health content." />
-      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
     </Helmet>
       <div className="min-h-screen bg-background">
         <Header />

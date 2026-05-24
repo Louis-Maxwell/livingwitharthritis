@@ -92,13 +92,13 @@ export default function ResourceDirectory() {
       <meta property="og:url" content="https://livingwitharthritis.org.uk/resources-directory" />
       <meta property="og:site_name" content="Living With Arthritis UK" />
       <meta property="og:locale" content="en_GB" />
-      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="UK Arthritis Resource Directory – the health service, Charities, Benefits | Living With Arthritis" />
       <meta name="twitter:description" content="Comprehensive directory of UK arthritis resources: health services, charities, benefits, equipment, and research. Curated by healthcare professionals for patients and carers." />
-      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
     </Helmet>
       <div className="min-h-screen bg-background">
         <Header />

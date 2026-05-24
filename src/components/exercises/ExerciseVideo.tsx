@@ -61,7 +61,7 @@ export const ExerciseVideo = ({ src, poster, label, className, hideDisclaimer }:
           loop
           muted
           playsInline
-          preload="metadata"
+          preload="none"
           className="w-full h-full object-cover"
         />
       ) : (

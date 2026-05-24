@@ -32,11 +32,11 @@ const CookiesPolicy = () => (
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Cookies Policy – How We Use Cookies | Living With Arthritis UK" />
       <meta name="twitter:description" content="Cookies Policy for Living With Arthritis UK. Learn about essential, functional, analytics and payment cookies we use, why we use them, and how to manage your preferences under UK GDPR." />
-      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
-        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
+        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
     </Helmet>
     <div className="min-h-screen bg-background">
       <Header />

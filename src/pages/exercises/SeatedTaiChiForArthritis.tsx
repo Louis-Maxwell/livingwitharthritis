@@ -10,7 +10,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
-const heroImage = "/openverse/wellness-02-tai-chi-young-and-old.jpg";
+const heroImage = "/openverse/wellness-02-tai-chi-young-and-old.webp";
 
 const whoFor = [
   { icon: Accessibility, title: "Severe knee or hip OA", text: "Standing for long is painful or unsafe — but you still want the proven benefits of tai chi for stiffness and mood." },
