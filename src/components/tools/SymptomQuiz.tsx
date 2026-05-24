@@ -83,9 +83,9 @@ const questions: Question[] = [
 
 const conditionInfo: Record<string, { name: string; color: string; desc: string; link: string }> = {
   oa: { name: "Osteoarthritis", color: "bg-primary/10 text-primary", desc: "The most common type — caused by wear and tear of joint cartilage over time.", link: "/conditions/osteoarthritis" },
-  ra: { name: "Rheumatoid Arthritis", color: "bg-rose-500/10 text-rose-600", desc: "An autoimmune condition where the immune system attacks joint lining.", link: "/conditions/rheumatoid-arthritis" },
-  psa: { name: "Psoriatic Arthritis", color: "bg-amber-500/10 text-amber-700", desc: "Joint inflammation linked with the skin condition psoriasis.", link: "/conditions/psoriatic-arthritis" },
-  gout: { name: "Gout", color: "bg-violet-500/10 text-violet-700", desc: "Caused by uric acid crystal buildup, often affecting the big toe.", link: "/about" },
+  ra: { name: "Rheumatoid Arthritis", color: "bg-primary/10 text-primary", desc: "An autoimmune condition where the immune system attacks joint lining.", link: "/conditions/rheumatoid-arthritis" },
+  psa: { name: "Psoriatic Arthritis", color: "bg-primary/10 text-primary", desc: "Joint inflammation linked with the skin condition psoriasis.", link: "/conditions/psoriatic-arthritis" },
+  gout: { name: "Gout", color: "bg-primary/10 text-primary", desc: "Caused by uric acid crystal buildup, often affecting the big toe.", link: "/about" },
 };
 
 export default function SymptomQuiz() {
@@ -126,9 +126,9 @@ export default function SymptomQuiz() {
     const top = results[0];
     return (
       <div className="space-y-6">
-        <div className="flex items-start gap-3 p-4 rounded-xl bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/30">
-          <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
-          <p className="text-sm text-amber-800 dark:text-amber-200">
+        <div className="flex items-start gap-3 p-4 rounded-xl bg-primary dark:bg-primary/20 border border-primary dark:border-primary/30">
+          <AlertTriangle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+          <p className="text-sm text-primary dark:text-primary">
             <strong>Important:</strong> This quiz is for educational purposes only and does not replace a medical diagnosis. Please consult your GP or rheumatologist for proper assessment.
           </p>
         </div>

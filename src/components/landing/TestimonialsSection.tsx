@@ -15,14 +15,14 @@ const HighlightedText = ({ text, highlight }: { text: string; highlight: string 
   return (
     <>
       &ldquo;{text.slice(0, idx)}
-      <strong className="text-foreground font-semibold bg-gold/10 px-1 rounded">{highlight}</strong>
+      <strong className="text-foreground font-semibold bg-primary/10 px-1 rounded">{highlight}</strong>
       {text.slice(idx + highlight.length)}&rdquo;
     </>
   );
 };
 
 const TestimonialsSection = memo(() => (
-  <section className="py-24 lg:py-32 relative bg-warm overflow-hidden">
+  <section className="py-24 lg:py-32 relative bg-background overflow-hidden">
     {/* Decorative orb */}
     <div className="absolute -top-40 -end-40 w-[500px] h-[500px] rounded-full bg-primary/[0.02] blur-[100px] pointer-events-none" />
     
@@ -41,20 +41,20 @@ const TestimonialsSection = memo(() => (
         {testimonials.map((t, i) => (
           <div key={i} className="h-full p-9 lg:p-10 rounded-2xl border border-border/10 bg-card hover:shadow-xl hover:-translate-y-2 transition-all duration-500 flex flex-col group relative overflow-hidden">
             {/* Hover gradient */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.01] to-gold/[0.01] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.01] to-primary/[0.01] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
             
             <div className="relative">
               <div className="flex items-center justify-between mb-6">
                 <Quote className="w-9 h-9 text-primary/[0.08] rotate-180 group-hover:text-primary/[0.15] transition-colors duration-500" />
                 {t.verified && (
-                  <span className="flex items-center gap-1.5 text-[10px] font-bold text-emerald tracking-[0.15em] uppercase bg-emerald/5 px-3 py-1 rounded-full">
+                  <span className="flex items-center gap-1.5 text-[10px] font-bold text-primary tracking-[0.15em] uppercase bg-primary/5 px-3 py-1 rounded-full">
                     <Verified className="w-3 h-3" /> Verified
                   </span>
                 )}
               </div>
               <div className="flex gap-0.5 mb-7">
                 {Array.from({ length: t.rating }).map((_, si) => (
-                  <Star key={si} className="w-3.5 h-3.5 fill-gold text-gold" />
+                  <Star key={si} className="w-3.5 h-3.5 fill-primary text-primary" />
                 ))}
               </div>
               <p className="text-sm text-muted-foreground leading-[1.9] mb-7 flex-1">
@@ -90,7 +90,7 @@ const TestimonialsSection = memo(() => (
       <div className="mt-20 text-center">
         <div className="inline-flex items-center gap-4 px-8 py-4 rounded-full bg-card border border-border/15 shadow-soft hover:shadow-medium hover:-translate-y-0.5 transition-all duration-300 cursor-default">
           <div className="flex gap-0.5">
-            {[1,2,3,4,5].map(s => <Star key={s} className="w-3.5 h-3.5 fill-gold text-gold" />)}
+            {[1,2,3,4,5].map(s => <Star key={s} className="w-3.5 h-3.5 fill-primary text-primary" />)}
           </div>
           <span className="text-base font-bold text-foreground">4.9/5</span>
           <span className="text-xs text-muted-foreground tracking-wide">from 2,400+ reviews</span>

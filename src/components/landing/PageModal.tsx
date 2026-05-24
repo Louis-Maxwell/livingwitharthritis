@@ -32,7 +32,7 @@ const PageModal = memo(({ isOpen, onClose, title, children }: PageModalProps) =>
 
   return (
     <div
-      className="fixed inset-0 z-[90] flex items-start justify-center bg-black/50 backdrop-blur-sm"
+      className="fixed inset-0 z-[90] flex items-start justify-center bg-primary/50 backdrop-blur-sm"
       onClick={onClose}
       role="dialog"
       aria-modal="true"

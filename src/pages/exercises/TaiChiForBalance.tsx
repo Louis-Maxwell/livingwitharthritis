@@ -198,7 +198,7 @@ export default function TaiChiForBalance() {
                             className="group relative block w-full rounded-2xl overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                           >
                             <Anim />
-                            <span className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/40 group-focus-visible:bg-black/40 transition-colors">
+                            <span className="absolute inset-0 flex items-center justify-center bg-primary/0 group-hover:bg-primary/40 group-focus-visible:bg-primary/40 transition-colors">
                               <span className="h-14 w-14 rounded-full bg-background/90 backdrop-blur-sm flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity">
                                 <Play className="h-6 w-6 text-primary fill-primary ml-0.5" />
                               </span>

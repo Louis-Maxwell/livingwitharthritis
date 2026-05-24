@@ -54,10 +54,10 @@ export default function DownloadableResources() {
               loading="lazy"
               decoding="async"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
             <div className="absolute bottom-3 left-3">
               <div className="w-9 h-9 rounded-lg bg-primary/90 flex items-center justify-center">
-                <r.icon className="w-4.5 h-4.5 text-white" />
+                <r.icon className="w-4.5 h-4.5 text-primary-foreground" />
               </div>
             </div>
           </div>

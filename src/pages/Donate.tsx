@@ -43,7 +43,7 @@ const WAYS_TO_GIVE = [
     desc: "Make a single gift to support our work",
     action: "Donate Now",
     href: "/zakat-appeal",
-    color: "text-rose-600 bg-rose-500/10",
+    color: "text-primary bg-primary/10",
   },
   {
     icon: Globe,
@@ -132,7 +132,7 @@ export default function Donate() {
       <Header />
       <main id="main-content" className="min-h-screen bg-background">
         {/* Hero */}
-        <section className="bg-gradient-to-br from-primary/5 via-background to-rose-500/5 border-b border-border/20">
+        <section className="bg-gradient-to-br from-primary/5 via-background to-primary/5 border-b border-border/20">
           <div className="container mx-auto px-6 md:px-10 py-16 md:py-24 max-w-4xl text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
               <Heart className="w-4 h-4 text-primary fill-primary/20" />

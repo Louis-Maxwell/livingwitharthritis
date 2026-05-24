@@ -216,15 +216,15 @@ const AdminDashboard = () => {
               <CalendarDays className="w-4 h-4" />
               Bookings
             </TabsTrigger>
-            <TabsTrigger value="donations" className="gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-primary data-[state=active]:text-white data-[state=active]:shadow-md transition-all">
+            <TabsTrigger value="donations" className="gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md transition-all">
               <Heart className="w-4 h-4" />
               Donations
             </TabsTrigger>
-            <TabsTrigger value="feedback" className="gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-primary data-[state=active]:text-white data-[state=active]:shadow-md transition-all">
+            <TabsTrigger value="feedback" className="gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md transition-all">
               <Star className="w-4 h-4" />
               Feedback
             </TabsTrigger>
-            <TabsTrigger value="comments" className="gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-primary data-[state=active]:text-white data-[state=active]:shadow-md transition-all">
+            <TabsTrigger value="comments" className="gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md transition-all">
               <MessageSquare className="w-4 h-4" />
               Comments
               {pendingComments > 0 && (
@@ -277,7 +277,7 @@ const AdminDashboard = () => {
                 value={`£${stats.totalAmount.toLocaleString()}`}
                 subtitle="From all donations"
                 gradient="bg-gradient-to-br from-primary to-primary"
-                iconColor="text-white"
+                iconColor="text-primary-foreground"
               />
               <GradientStatCard
                 icon={Users}
@@ -285,7 +285,7 @@ const AdminDashboard = () => {
                 value={stats.totalCount}
                 subtitle="Completed donations"
                 gradient="bg-gradient-to-br from-primary to-primary"
-                iconColor="text-white"
+                iconColor="text-primary-foreground"
               />
               <GradientStatCard
                 icon={TrendingUp}
@@ -293,7 +293,7 @@ const AdminDashboard = () => {
                 value={`£${stats.averageAmount.toFixed(2)}`}
                 subtitle="Per donation"
                 gradient="bg-gradient-to-br from-primary to-primary"
-                iconColor="text-white"
+                iconColor="text-primary-foreground"
               />
               <GradientStatCard
                 icon={Globe}
@@ -301,7 +301,7 @@ const AdminDashboard = () => {
                 value={Object.keys(stats.byFundType).length}
                 subtitle="Active categories"
                 gradient="bg-gradient-to-br from-primary to-primary"
-                iconColor="text-white"
+                iconColor="text-primary-foreground"
               />
             </div>
 
@@ -444,7 +444,7 @@ const AdminDashboard = () => {
                 value={filteredFeedback.length}
                 subtitle="User ratings received"
                 gradient="bg-gradient-to-br from-primary to-primary"
-                iconColor="text-white"
+                iconColor="text-primary-foreground"
               />
               <GradientStatCard
                 icon={Zap}
@@ -452,7 +452,7 @@ const AdminDashboard = () => {
                 value={`${avgNav} / 5`}
                 subtitle="Ease of use score"
                 gradient="bg-gradient-to-br from-primary to-primary"
-                iconColor="text-white"
+                iconColor="text-primary-foreground"
               />
               <GradientStatCard
                 icon={Activity}
@@ -460,7 +460,7 @@ const AdminDashboard = () => {
                 value={`${avgSpeed} / 5`}
                 subtitle="Performance score"
                 gradient="bg-gradient-to-br from-primary to-primary"
-                iconColor="text-white"
+                iconColor="text-primary-foreground"
               />
             </div>
 
@@ -633,14 +633,14 @@ const AdminDashboard = () => {
 
 /* ── Helpers ── */
 const RatingPill = ({ value }: { value: number }) => {
-  const color = value >= 4 ? "bg-primary/10 text-primary" : value >= 3 ? "bg-primary/10 text-primary" : "bg-red-500/10 text-red-700";
+  const color = value >= 4 ? "bg-primary/10 text-primary" : value >= 3 ? "bg-primary/10 text-primary" : "bg-primary/10 text-primary";
   return <span className={`inline-flex items-center justify-center px-2.5 py-1 rounded-full text-xs font-bold ${color}`}>{value}/5</span>;
 };
 
 const CommentStatusBadge = ({ status }: { status: string }) => {
   const styles: Record<string, string> = {
     approved: "bg-primary/10 text-primary border-primary",
-    rejected: "bg-red-500/10 text-red-700 border-red-200",
+    rejected: "bg-primary/10 text-primary border-primary",
     pending: "bg-primary/10 text-primary border-primary",
   };
   return <Badge variant="outline" className={cn("text-xs", styles[status])}>{status}</Badge>;

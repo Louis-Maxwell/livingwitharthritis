@@ -37,8 +37,8 @@ const tiers = [
   {
     name: "Silver Partner",
     amount: "£5,000 – £14,999",
-    color: "from-slate-400/10 to-slate-300/5 border-slate-400/20",
-    icon: "text-slate-500",
+    color: "from-primary/10 to-primary/5 border-primary/20",
+    icon: "text-primary",
     benefits: [
       "Everything in Bronze",
       "Featured case study",
@@ -50,8 +50,8 @@ const tiers = [
   {
     name: "Gold Partner",
     amount: "£15,000 – £49,999",
-    color: "from-yellow-500/10 to-yellow-400/5 border-yellow-500/20",
-    icon: "text-yellow-600",
+    color: "from-primary/10 to-primary/5 border-primary/20",
+    icon: "text-primary",
     benefits: [
       "Everything in Silver",
       "Named programme sponsorship",

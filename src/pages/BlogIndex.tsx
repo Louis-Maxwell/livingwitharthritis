@@ -125,7 +125,7 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
         <Header />
 
         <PageHero
-          gradient="from-primary/8 via-background to-rose-500/5"
+          gradient="from-primary/8 via-background to-primary/5"
           pattern="dots"
           badge={
             <div className="flex items-center gap-3">

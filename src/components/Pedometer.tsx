@@ -206,7 +206,7 @@ const Pedometer = () => {
                 <div className="flex gap-3 w-full">
                   <Button
                     onClick={isTracking ? stopTracking : startTracking}
-                    className={`flex-1 min-h-[44px] ${isTracking ? "bg-primary hover:bg-primary" : "bg-primary hover:bg-primary"} text-white`}
+                    className={`flex-1 min-h-[44px] ${isTracking ? "bg-primary hover:bg-primary" : "bg-primary hover:bg-primary"} text-primary-foreground`}
                   >
                     {isTracking ? (
                       <><Pause className="w-4 h-4 mr-2" /> Pause</>

@@ -31,9 +31,9 @@ const factors: Factor[] = [
 ];
 
 function getRiskBand(score: number) {
-  if (score <= 30) return { label: "Low Risk", color: "text-emerald-600 bg-emerald-50 dark:bg-emerald-950/30 border-emerald-200", icon: TrendingDown, barColor: "bg-emerald-500" };
-  if (score <= 60) return { label: "Moderate Risk", color: "text-amber-600 bg-amber-50 dark:bg-amber-950/30 border-amber-200", icon: Minus, barColor: "bg-amber-500" };
-  return { label: "High Risk", color: "text-rose-600 bg-rose-50 dark:bg-rose-950/30 border-rose-200", icon: TrendingUp, barColor: "bg-rose-500" };
+  if (score <= 30) return { label: "Low Risk", color: "text-primary bg-primary dark:bg-primary/30 border-primary", icon: TrendingDown, barColor: "bg-primary" };
+  if (score <= 60) return { label: "Moderate Risk", color: "text-primary bg-primary dark:bg-primary/30 border-primary", icon: Minus, barColor: "bg-primary" };
+  return { label: "High Risk", color: "text-primary bg-primary dark:bg-primary/30 border-primary", icon: TrendingUp, barColor: "bg-primary" };
 }
 
 export default function InflammationCalculator() {

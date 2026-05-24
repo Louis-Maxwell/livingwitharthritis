@@ -358,7 +358,7 @@ export default function DoesCrackingKnucklesCauseArthritis() {
           </div>
           <div className="grid md:grid-cols-2 gap-5">
             <Card className="p-6 border border-border/40 bg-background">
-              <h3 className="font-display text-xl font-semibold mb-4 text-amber-600">
+              <h3 className="font-display text-xl font-semibold mb-4 text-primary">
                 What it can (mildly) cause
               </h3>
               <ul className="space-y-2.5">
@@ -367,14 +367,14 @@ export default function DoesCrackingKnucklesCauseArthritis() {
                     key={item}
                     className="flex items-start gap-2 text-sm leading-relaxed"
                   >
-                    <AlertCircle className="h-4 w-4 text-amber-600 shrink-0 mt-0.5" />
+                    <AlertCircle className="h-4 w-4 text-primary shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </Card>
             <Card className="p-6 border border-border/40 bg-background">
-              <h3 className="font-display text-xl font-semibold mb-4 text-emerald-600">
+              <h3 className="font-display text-xl font-semibold mb-4 text-primary">
                 What it does not cause
               </h3>
               <ul className="space-y-2.5">
@@ -383,7 +383,7 @@ export default function DoesCrackingKnucklesCauseArthritis() {
                     key={item}
                     className="flex items-start gap-2 text-sm leading-relaxed"
                   >
-                    <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -396,9 +396,9 @@ export default function DoesCrackingKnucklesCauseArthritis() {
       {/* Red flags */}
       <section className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
-          <Card className="p-8 border-l-4 border-l-rose-500 bg-rose-500/5">
+          <Card className="p-8 border-l-4 border-l-rose-500 bg-primary/5">
             <div className="flex items-start gap-3">
-              <AlertCircle className="h-6 w-6 text-rose-600 shrink-0 mt-1" />
+              <AlertCircle className="h-6 w-6 text-primary shrink-0 mt-1" />
               <div>
                 <h2 className="font-display text-2xl font-bold mb-3">
                   When cracking is a red flag
@@ -414,7 +414,7 @@ export default function DoesCrackingKnucklesCauseArthritis() {
                       key={item}
                       className="flex items-start gap-2 text-sm leading-relaxed"
                     >
-                      <AlertCircle className="h-4 w-4 text-rose-600 shrink-0 mt-0.5" />
+                      <AlertCircle className="h-4 w-4 text-primary shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </li>
                   ))}

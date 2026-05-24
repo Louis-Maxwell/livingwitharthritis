@@ -416,29 +416,29 @@ const ExercisePanel = memo(({ joint, side, onClose }: { joint: JointData; side: 
     <div className="p-5 relative" style={{ background: "linear-gradient(135deg, hsl(180 70% 40%), hsl(200 75% 45%))" }}>
       <button
         onClick={onClose}
-        className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center transition-colors text-white/90 hover:text-white"
+        className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center transition-colors text-primary-foreground/90 hover:text-primary-foreground"
         style={{ background: "hsl(0 0% 100% / 0.2)" }}
         aria-label="Close exercise panel"
       >
         <X className="w-4 h-4" />
       </button>
       <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white" style={{ background: "hsl(0 0% 100% / 0.2)" }}>
+        <div className="w-10 h-10 rounded-xl flex items-center justify-center text-primary-foreground" style={{ background: "hsl(0 0% 100% / 0.2)" }}>
           <Activity className="w-5 h-5" />
         </div>
-        <div className="text-white">
+        <div className="text-primary-foreground">
           <h3 className="text-xl font-display font-bold">
             {joint.label}
             {side && PAIRED.has(joint.id) && (
-              <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold uppercase tracking-wide bg-white/25 text-white">
+              <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold uppercase tracking-wide bg-background/25 text-primary-foreground">
                 {side === "left" ? "Left side" : "Right side"}
               </span>
             )}
           </h3>
-          <p className="text-white/80 text-xs">Home Exercise Plan</p>
+          <p className="text-primary-foreground/80 text-xs">Home Exercise Plan</p>
         </div>
       </div>
-      <p className="text-white/70 text-sm mt-2 leading-relaxed">💡 {joint.tip}</p>
+      <p className="text-primary-foreground/70 text-sm mt-2 leading-relaxed">💡 {joint.tip}</p>
     </div>
 
     {/* Cinematic humanoid demo of the joint movement */}
@@ -463,7 +463,7 @@ const ExercisePanel = memo(({ joint, side, onClose }: { joint: JointData; side: 
         >
           <div className="flex items-center gap-2 mb-2">
             <span
-              className="w-6 h-6 rounded-full text-white text-xs font-bold flex items-center justify-center flex-shrink-0"
+              className="w-6 h-6 rounded-full text-primary-foreground text-xs font-bold flex items-center justify-center flex-shrink-0"
               style={{ background: "linear-gradient(135deg, hsl(180 70% 45%), hsl(200 75% 50%))" }}
             >
               {i + 1}

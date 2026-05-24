@@ -59,7 +59,7 @@ export const ExerciseVideoModal = ({
           ) : null}
         </DialogHeader>
 
-        <div className="relative bg-black">
+        <div className="relative bg-primary">
           <video
             ref={videoRef}
             src={src}
@@ -67,7 +67,7 @@ export const ExerciseVideoModal = ({
             controls
             playsInline
             preload="none"
-            className="w-full h-auto max-h-[70vh] object-contain bg-black"
+            className="w-full h-auto max-h-[70vh] object-contain bg-primary"
           />
         </div>
 

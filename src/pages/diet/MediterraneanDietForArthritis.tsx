@@ -422,9 +422,9 @@ export default function MediterraneanDietForArthritis() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: "Eat freely", items: eatFreely, tone: "text-emerald-600" },
-              { title: "Eat weekly", items: eatWeekly, tone: "text-amber-600" },
-              { title: "Eat rarely", items: eatRarely, tone: "text-rose-600" },
+              { title: "Eat freely", items: eatFreely, tone: "text-primary" },
+              { title: "Eat weekly", items: eatWeekly, tone: "text-primary" },
+              { title: "Eat rarely", items: eatRarely, tone: "text-primary" },
             ].map((col) => (
               <Card key={col.title} className="p-6 border border-border/40 bg-background">
                 <h3 className={`font-display text-xl font-semibold mb-4 ${col.tone}`}>

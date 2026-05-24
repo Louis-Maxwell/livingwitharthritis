@@ -510,7 +510,7 @@ const ExerciseHub = () => {
 
 
         {/* ═══ Mid-page CTA: Help Chat ═══ */}
-        <section className="py-12 lg:py-16 bg-gradient-to-r from-primary/5 via-violet-500/10 to-primary/5 border-y border-primary/10">
+        <section className="py-12 lg:py-16 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 border-y border-primary/10">
           <div className="container mx-auto px-6 md:px-10 max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -525,7 +525,7 @@ const ExerciseHub = () => {
                 <h2 className="text-xl font-bold text-foreground mb-1">Track how exercise affects your symptoms</h2>
                 <p className="text-muted-foreground text-sm">Use our Self Help Tool to explore joint-specific exercises and get personalised guidance from our help chat.</p>
               </div>
-              <Button asChild size="lg" className="min-h-[48px] font-semibold bg-primary hover:bg-primary text-white shadow-md shrink-0">
+              <Button asChild size="lg" className="min-h-[48px] font-semibold bg-primary hover:bg-primary text-primary-foreground shadow-md shrink-0">
                 <Link to="/self-help">Self Help Tool <ArrowRight className="w-4 h-4 ml-2" /></Link>
               </Button>
             </motion.div>

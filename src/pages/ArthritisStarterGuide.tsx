@@ -365,7 +365,7 @@ export default function ArthritisStarterGuide() {
 
                 {success ? (
                   <div className="text-center py-4">
-                    <div className="mx-auto w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 flex items-center justify-center mb-3">
+                    <div className="mx-auto w-12 h-12 rounded-2xl bg-primary dark:bg-primary/30 text-primary flex items-center justify-center mb-3">
                       <CheckCircle2 className="w-6 h-6" />
                     </div>
                     <p className="font-semibold text-foreground mb-1">Check your inbox</p>

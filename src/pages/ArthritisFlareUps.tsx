@@ -323,7 +323,7 @@ export default function ArthritisFlareUps() {
           <Card className="border-0 shadow-sm bg-[hsl(var(--tint-rose))]">
             <CardContent className="p-5">
               <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
-                <AlertTriangle className="w-5 h-5 text-red-500" /> Eat Less
+                <AlertTriangle className="w-5 h-5 text-primary" /> Eat Less
               </h3>
               <ul className="space-y-1.5 text-sm text-muted-foreground">
                 <li>• Processed and red meats</li>

@@ -92,10 +92,10 @@ const HeroSection = memo(() => {
         </Suspense>
       )}
       {/* Layered gradient background — lightweight, kept on all devices */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] via-transparent to-gold/[0.02] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] via-transparent to-primary/[0.02] pointer-events-none" />
       {/* Heavy 120px blur orbs — desktop only; mobile GPUs choke on these */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-primary/[0.02] blur-[120px] pointer-events-none hidden lg:block" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-gold/[0.03] blur-[100px] pointer-events-none hidden lg:block" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-primary/[0.03] blur-[100px] pointer-events-none hidden lg:block" />
 
       <div className="container mx-auto px-5 sm:px-8 md:px-12 lg:px-16 relative">
         <div className="py-12 sm:py-16 lg:py-20">
@@ -126,7 +126,7 @@ const HeroSection = memo(() => {
                   onClick={() => navigate("/chat")}
                   className="btn-primary-cta px-8 sm:px-12 h-[48px] sm:h-[56px] rounded-full text-[13px] sm:text-sm font-bold tracking-wider group active:scale-[0.97] relative overflow-hidden"
                 >
-                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-background/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                   <MessageCircle className="w-4.5 h-4.5 mr-2 group-hover:scale-110 transition-transform" />
                   Start Free Support
                   <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 hidden sm:block" />
@@ -137,7 +137,7 @@ const HeroSection = memo(() => {
                   onClick={() => navigate("/donate")}
                   className="px-8 sm:px-10 h-[48px] sm:h-[56px] rounded-full text-[13px] sm:text-sm font-bold tracking-wider border-2 border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-500 group active:scale-[0.97]"
                 >
-                  <Heart className="w-4.5 h-4.5 mr-2 group-hover:scale-110 group-hover:fill-white/20 transition-all" />
+                  <Heart className="w-4.5 h-4.5 mr-2 group-hover:scale-110 group-hover:fill-background/20 transition-all" />
                   Donate Now
                 </Button>
               </div>

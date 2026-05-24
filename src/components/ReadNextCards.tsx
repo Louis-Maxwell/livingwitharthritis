@@ -12,7 +12,7 @@ export interface ReadNextItem {
   icon: LucideIcon;
   /** Tailwind tint class, e.g. "bg-tint-emerald" */
   tint?: string;
-  /** Tailwind text accent for the icon, e.g. "text-emerald-600" */
+  /** Tailwind text accent for the icon, e.g. "text-primary" */
   accent?: string;
 }
 

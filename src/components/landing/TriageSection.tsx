@@ -19,7 +19,7 @@ const TRIAGE_OPTIONS = [
     label: "Exercises",
     description: "Joint-safe movement plans",
     to: "/exercises",
-    chip: "bg-[hsl(var(--sky))] text-white",
+    chip: "bg-[hsl(var(--sky))] text-primary-foreground",
     ring: "hover:border-[hsl(var(--sky))]/60",
   },
   {
@@ -35,7 +35,7 @@ const TRIAGE_OPTIONS = [
     label: "healthcare help",
     description: "Waiting list support & guides",
     to: "/waiting-list-help",
-    chip: "bg-[hsl(var(--coral))] text-white",
+    chip: "bg-[hsl(var(--coral))] text-primary-foreground",
     ring: "hover:border-[hsl(var(--coral))]/60",
   },
 ] as const;

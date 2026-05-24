@@ -158,19 +158,19 @@ export function ChatBot() {
               onClick={openHistory}
               title="Past conversations"
               aria-label="Open past conversations"
-              className="text-white/70 hover:text-white p-1.5 -ml-1 rounded-lg hover:bg-white/10 transition-colors"
+              className="text-primary-foreground/70 hover:text-primary-foreground p-1.5 -ml-1 rounded-lg hover:bg-background/10 transition-colors"
             >
               <History className="h-4 w-4" />
             </button>
           )}
-          <div className="h-9 w-9 rounded-full bg-white/15 flex items-center justify-center">
-            <Heart className="h-4.5 w-4.5 text-white" />
+          <div className="h-9 w-9 rounded-full bg-background/15 flex items-center justify-center">
+            <Heart className="h-4.5 w-4.5 text-primary-foreground" />
           </div>
           <div>
-            <h3 className="font-semibold text-sm text-white leading-tight">Help & Support</h3>
+            <h3 className="font-semibold text-sm text-primary-foreground leading-tight">Help & Support</h3>
             <div className="flex items-center gap-1">
               <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-              <span className="text-[10px] text-white/60">
+              <span className="text-[10px] text-primary-foreground/60">
                 {isLoading ? "Typing…" : "Online"}
               </span>
             </div>
@@ -181,7 +181,7 @@ export function ChatBot() {
             onClick={newChat}
             title="New chat"
             aria-label="Start a new chat"
-            className="text-white/60 hover:text-white p-1.5 rounded-lg hover:bg-white/10 transition-colors"
+            className="text-primary-foreground/60 hover:text-primary-foreground p-1.5 rounded-lg hover:bg-background/10 transition-colors"
           >
             <Plus className="h-3.5 w-3.5" />
           </button>
@@ -190,7 +190,7 @@ export function ChatBot() {
               onClick={clearMessages}
               title="Clear messages"
               aria-label="Clear messages"
-              className="text-white/40 hover:text-white p-1.5 rounded-lg hover:bg-white/10 transition-colors"
+              className="text-primary-foreground/40 hover:text-primary-foreground p-1.5 rounded-lg hover:bg-background/10 transition-colors"
             >
               <Trash2 className="h-3.5 w-3.5" />
             </button>

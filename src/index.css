@@ -307,7 +307,7 @@
   }
 
   .glass-card-strong {
-    @apply bg-card/60 backdrop-blur-2xl border border-white/15;
+    @apply bg-card/60 backdrop-blur-2xl border border-background/15;
     box-shadow: var(--shadow-glass), 0 0 0 1px rgb(255 255 255 / 0.06);
   }
 
@@ -344,7 +344,7 @@
   }
 
   .trust-badge {
-    @apply flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full border border-border text-sm shadow-soft;
+    @apply flex items-center gap-2 px-4 py-2 bg-background/90 backdrop-blur-sm rounded-full border border-border text-sm shadow-soft;
   }
 
   .charity-reg {
@@ -847,7 +847,7 @@
   }
   .pulse-dot::after {
     content: '';
-    @apply absolute top-0 right-0 w-2 h-2 bg-emerald rounded-full;
+    @apply absolute top-0 right-0 w-2 h-2 bg-primary rounded-full;
     animation: pulseDot 2s ease-in-out infinite;
   }
   @keyframes pulseDot {

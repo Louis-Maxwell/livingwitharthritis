@@ -36,13 +36,13 @@ const RANGES = {
 type RangeKey = keyof typeof RANGES;
 
 const statusBadge: Record<string, string> = {
-  sent: "bg-emerald-100 text-emerald-800 border-emerald-200",
-  pending: "bg-amber-100 text-amber-800 border-amber-200",
-  dlq: "bg-red-100 text-red-800 border-red-200",
-  failed: "bg-red-100 text-red-800 border-red-200",
-  bounced: "bg-orange-100 text-orange-800 border-orange-200",
-  complained: "bg-orange-100 text-orange-800 border-orange-200",
-  suppressed: "bg-yellow-100 text-yellow-800 border-yellow-200",
+  sent: "bg-primary text-primary border-primary",
+  pending: "bg-primary text-primary border-primary",
+  dlq: "bg-primary text-primary border-primary",
+  failed: "bg-primary text-primary border-primary",
+  bounced: "bg-primary text-primary border-primary",
+  complained: "bg-primary text-primary border-primary",
+  suppressed: "bg-primary text-primary border-primary",
 };
 
 const PAGE_SIZE = 50;
@@ -144,9 +144,9 @@ const AdminEmails = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
           <StatCard icon={Mail} label="Total" value={stats.total} tone="text-foreground" />
-          <StatCard icon={CheckCircle2} label="Sent" value={stats.sent} tone="text-emerald-600" />
-          <StatCard icon={AlertTriangle} label="Failed" value={stats.failed} tone="text-red-600" />
-          <StatCard icon={Ban} label="Suppressed" value={stats.suppressed} tone="text-yellow-600" />
+          <StatCard icon={CheckCircle2} label="Sent" value={stats.sent} tone="text-primary" />
+          <StatCard icon={AlertTriangle} label="Failed" value={stats.failed} tone="text-primary" />
+          <StatCard icon={Ban} label="Suppressed" value={stats.suppressed} tone="text-primary" />
         </div>
 
         <Card className="mb-6">
@@ -221,7 +221,7 @@ const AdminEmails = () => {
                     <TableCell className="text-xs text-muted-foreground whitespace-nowrap">
                       {formatDistanceToNow(new Date(r.created_at), { addSuffix: true })}
                     </TableCell>
-                    <TableCell className="text-xs text-red-700 max-w-[280px] truncate" title={r.error_message ?? ""}>
+                    <TableCell className="text-xs text-primary max-w-[280px] truncate" title={r.error_message ?? ""}>
                       {r.error_message ?? ""}
                     </TableCell>
                   </TableRow>
