@@ -91,7 +91,7 @@ const Row = ({
       </p>
       <Link
         to={row.href}
-        className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-primary text-primary font-semibold text-sm hover:bg-primary hover:text-primary-foreground transition-colors"
+        className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-base shadow-sm hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 transition-colors"
       >
         {row.cta}
         <ArrowRight className="w-4 h-4" aria-hidden="true" />
