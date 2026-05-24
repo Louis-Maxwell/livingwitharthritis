@@ -27,7 +27,7 @@ const FAQS = [
   },
   {
     q: "What support does Living With Arthritis offer for waiting patients?",
-    a: "Free symptom guidance, clinically aligned exercise plans, an AI chatbot for questions 24/7, downloadable joint-care PDFs, and a community forum — all completely free for UK patients.",
+    a: "Free symptom guidance, clinically aligned exercise plans, an help chat for questions 24/7, downloadable joint-care PDFs, and a community forum — all completely free for UK patients.",
   },
 ];
 
@@ -149,7 +149,7 @@ const WaitingListHelp = () => {
             { to: "/exercises", icon: BookOpen, title: "Free exercise plans", desc: "clinically aligned routines for every joint" },
             { to: "/diet", icon: BookOpen, title: "Anti-inflammatory diet", desc: "Mediterranean meal guidance" },
             { to: "/self-help", icon: BookOpen, title: "Self-help toolkit", desc: "Pain journal, symptom quiz" },
-            { to: "/chat", icon: Phone, title: "Ask the AI chatbot", desc: "Evidence-based answers, 24/7" },
+            { to: "/chat", icon: Phone, title: "Ask the help chat", desc: "Evidence-based answers, 24/7" },
           ].map((x) => (
             <Link key={x.to} to={x.to} className="bg-card border border-border rounded-xl p-5 hover:border-primary/50 transition group">
               <x.icon className="w-5 h-5 text-primary mb-2" />

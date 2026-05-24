@@ -74,7 +74,7 @@ const PrivacyPolicy = () => (
             <h2 className="text-xl font-bold text-foreground mt-8 mb-3">3. How We Use Your Information</h2>
             <p>We use your personal data to:</p>
             <ul className="list-disc pl-6 space-y-2 mt-3">
-              <li>Provide our services, including virtual physiotherapy guidance, self-help tools and AI-powered assistance.</li>
+              <li>Provide our services, including virtual physiotherapy guidance, self-help tools and online assistance.</li>
               <li>Process appointment bookings and respond to enquiries.</li>
               <li>Process and acknowledge donations, including Gift Aid claims where applicable.</li>
               <li>Send newsletters and updates you have opted in to receive.</li>

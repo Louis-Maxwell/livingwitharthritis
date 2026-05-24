@@ -38,7 +38,7 @@ const yearlyFinancials = [
 ];
 
 const keyExpenditures = [
-  { item: "Virtual Physiotherapy Platform", amount: "£38,000", desc: "AI-powered physiotherapy support available 24/7 to arthritis patients across the UK" },
+  { item: "Virtual Physiotherapy Platform", amount: "£38,000", desc: "virtual physiotherapy support available 24/7 to arthritis patients across the UK" },
   { item: "Exercise & Nutrition Content", amount: "£22,000", desc: "50+ evidence-based exercise guides and anti-inflammatory diet resources, reviewed by clinical professionals" },
   { item: "Community Support Programmes", amount: "£18,500", desc: "Peer mentoring, forum moderation, and community events for people living with arthritis" },
   { item: "Research Partnerships", amount: "£15,000", desc: "Collaboration with university research teams on arthritis management outcomes" },
@@ -387,7 +387,7 @@ James Whitfield — Treasurer
                   <div className="space-y-4 text-sm text-muted-foreground leading-relaxed">
                     <div>
                       <h3 className="font-semibold text-foreground mb-1">Activities & Achievements</h3>
-                      <p>During 2024/25, Living With Arthritis provided free virtual physiotherapy consultations to over 3,200 patients, published 15 new evidence-based guides on exercise and nutrition for arthritis, and grew our community forum to 4,500 active members. We launched our AI-powered symptom checker, which has been used over 18,000 times.</p>
+                      <p>During 2024/25, Living With Arthritis provided free virtual physiotherapy consultations to over 3,200 patients, published 15 new evidence-based guides on exercise and nutrition for arthritis, and grew our community forum to 4,500 active members. We launched our personalised symptom checker, which has been used over 18,000 times.</p>
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground mb-1">Public Benefit Statement</h3>

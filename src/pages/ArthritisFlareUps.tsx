@@ -288,11 +288,11 @@ export default function ArthritisFlareUps() {
           <CardContent className="p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-5">
             <div className="flex-1">
               <h3 className="text-xl font-bold text-foreground mb-2">Get Personalised Exercise Support</h3>
-              <p className="text-sm text-muted-foreground">Our AI Health Assistant can recommend exercises, diet tips, and coping strategies tailored to your arthritis type.</p>
+              <p className="text-sm text-muted-foreground">Our Help Chat can recommend exercises, diet tips, and coping strategies tailored to your arthritis type.</p>
             </div>
             <Button asChild size="lg" className="shrink-0">
               <Link to="/chat">
-                Ask AI Assistant <ArrowRight className="w-4 h-4 ml-2" />
+                Start a chat <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
             </Button>
           </CardContent>
@@ -498,7 +498,7 @@ export default function ArthritisFlareUps() {
           <CardContent className="p-8 sm:p-10 text-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3">Take Control of Your Arthritis</h2>
             <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-              Use our free tools to track symptoms, access personalised exercise programmes, and get AI-powered guidance — all designed for UK arthritis patients.
+              Use our free tools to track symptoms, access personalised exercise programmes, and get evidence-based guidance — all designed for UK arthritis patients.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <Button asChild size="lg">
@@ -513,7 +513,7 @@ export default function ArthritisFlareUps() {
               </Button>
               <Button asChild variant="outline" size="lg">
                 <Link to="/chat">
-                  AI Assistant <ChevronRight className="w-4 h-4 ml-1" />
+                  Help Chat <ChevronRight className="w-4 h-4 ml-1" />
                 </Link>
               </Button>
             </div>

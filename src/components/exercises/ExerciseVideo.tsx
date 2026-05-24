@@ -73,7 +73,7 @@ export const ExerciseVideo = ({ src, poster, label, className, hideDisclaimer }:
       {!hideDisclaimer && (
         <div className="absolute bottom-2 left-2 right-2 flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-background/85 backdrop-blur-sm border border-border/40 text-[10px] leading-tight text-muted-foreground">
           <Sparkles className="w-3 h-3 text-primary shrink-0" aria-hidden />
-          <span><strong className="text-foreground">AI-generated demonstration</strong> — illustrative only, not medical guidance.</span>
+          <span><strong className="text-foreground">Illustrative demonstration</strong> — illustrative only, not medical guidance.</span>
         </div>
       )}
     </div>

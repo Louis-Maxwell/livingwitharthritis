@@ -97,7 +97,7 @@ export default function Press() {
               Our services are delivered by HCPC-registered physiotherapists and aligned with current the health service and NICE clinical guidelines. We believe no one should face arthritis alone, and no one should have to wait months on an the health service list for basic support.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              From printable exercise routines and anti-inflammatory meal plans to an AI-powered symptom chatbot and peer support community, we provide a comprehensive digital platform — entirely free of charge — to help people manage joint pain, improve mobility and live well.
+              From printable exercise routines and anti-inflammatory meal plans to an free symptom chat and peer support community, we provide a comprehensive digital platform — entirely free of charge — to help people manage joint pain, improve mobility and live well.
             </p>
           </div>
         </section>

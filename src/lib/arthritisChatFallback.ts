@@ -1,4 +1,4 @@
-// Offline/network-failure fallback responses for the Arthritis AI chat.
+// Offline/network-failure fallback responses for the Arthritis Support chat.
 // Used when the live AI backend is unreachable (e.g. blocked by preview proxy,
 // flaky network) so visitors always see useful, safe general guidance.
 //

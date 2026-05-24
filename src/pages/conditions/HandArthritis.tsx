@@ -297,10 +297,10 @@ const HandArthritis = () => (
 
         <div className="p-8 rounded-2xl bg-accent border border-border/30">
           <h2 className="font-display text-xl font-bold text-foreground mb-3">Need more support?</h2>
-          <p className="text-muted-foreground mb-5">Chat with our AI assistant or browse the Advice Hub.</p>
+          <p className="text-muted-foreground mb-5">Start a chat or browse the Advice Hub.</p>
           <div className="flex flex-wrap gap-3">
             <Link to="/chat" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity">
-              Chat with our AI assistant
+              Start a chat
             </Link>
             <Link to="/blog" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary/10 text-secondary text-sm font-semibold hover:bg-secondary/20 transition-colors">
               Read our articles

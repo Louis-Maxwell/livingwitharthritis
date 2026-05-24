@@ -204,7 +204,7 @@ const DailyTipDetail = () => {
                   Need personalised guidance?
                 </h3>
                 <p className="text-sm text-muted-foreground mb-6 max-w-md mx-auto">
-                  Our AI assistant can help you create a tailored daily routine based on your specific needs and condition.
+                  Our help chat can help you create a tailored daily routine based on your specific needs and condition.
                 </p>
                 <Link to="/chat">
                   <Button className="rounded-full px-8">

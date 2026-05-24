@@ -178,7 +178,7 @@ const WaitingTimeCalculator = () => {
                 <li>Start gentle exercise today — <Link to="/exercises" className="text-primary hover:underline">free plans here</Link></li>
                 <li>Adopt an anti-inflammatory diet — <Link to="/diet" className="text-primary hover:underline">Mediterranean guide</Link></li>
                 <li>Track symptoms in a pain journal — <Link to="/self-help" className="text-primary hover:underline">self-help toolkit</Link></li>
-                <li>Ask our AI 24/7 — <Link to="/chat" className="text-primary hover:underline">free chatbot</Link></li>
+                <li>Ask our team 24/7 — <Link to="/chat" className="text-primary hover:underline">free chatbot</Link></li>
               </ul>
             </div>
 

@@ -28,7 +28,7 @@ const SITE_PAGES: SitePage[] = [
   { path: "/guides/exercise", title: "Exercise Guide", description: "Evidence-based exercise guide for arthritis: low-impact routines, swimming, yoga and strength training.", icon: Dumbbell, tags: ["guide", "exercise", "physio", "movement"] },
   { path: "/guides/benefits-pip", title: "Benefits & PIP Guide", description: "UK benefits guide for arthritis: PIP eligibility, application process and disability support.", icon: Heart, tags: ["guide", "PIP", "benefits", "disability"] },
   { path: "/donate", title: "Donate", description: "Support our mission to provide free arthritis support across the UK. Every donation helps.", icon: Heart, tags: ["donate", "charity", "support"] },
-  { path: "/chat", title: "AI Health Assistant", description: "Free AI-powered arthritis assistant — ask about symptoms, exercises, diet and health services.", icon: Activity, tags: ["chat", "AI", "support", "assistant"] },
+  { path: "/chat", title: "Help Chat", description: "Free personalised arthritis assistant — ask about symptoms, exercises, diet and health services.", icon: Activity, tags: ["chat", "AI", "support", "assistant"] },
 ];
 
 // Score relevance based on shared tags

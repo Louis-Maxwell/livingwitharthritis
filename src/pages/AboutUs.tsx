@@ -58,7 +58,7 @@ const teamMembers = [
   { name: "Operations Director", role: "the health service First Contact Practitioner", credentials: "HCPC Registered · BSc Physiotherapy", bio: "Founded Living With Arthritis after seeing thousands of patients struggle to find reliable, free arthritis support outside clinical settings." },
   { name: "Clinical Lead", role: "Senior Physiotherapist", credentials: "HCPC Registered · MSc Musculoskeletal", bio: "Oversees clinical content accuracy and develops our evidence-based exercise programmes." },
   { name: "Nutrition Advisor", role: "Registered Dietitian", credentials: "HCPC Registered · BSc Nutrition", bio: "Designs our anti-inflammatory diet plans and Mediterranean meal guides for joint health." },
-  { name: "Digital Health Lead", role: "Health Technology Specialist", credentials: "MSc Health Informatics", bio: "Builds our AI assistant, symptom tools, and digital patient experience." },
+  { name: "Digital Health Lead", role: "Health Technology Specialist", credentials: "MSc Health Informatics", bio: "Builds our help chat, symptom tools, and digital patient experience." },
 ];
 
 const AboutUs = () => {

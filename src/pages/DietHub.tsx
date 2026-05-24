@@ -277,7 +277,7 @@ const DietHub = () => {
               </div>
               <div className="flex-1 text-center md:text-left">
                 <h2 className="text-xl font-bold text-foreground mb-1">Want a diet plan for your arthritis type?</h2>
-                <p className="text-muted-foreground text-sm">Our AI assistant creates personalised meal suggestions based on your condition, allergies and preferences — free and instant.</p>
+                <p className="text-muted-foreground text-sm">Our help chat creates personalised meal suggestions based on your condition, allergies and preferences — free and instant.</p>
               </div>
               <Button asChild size="lg" className="min-h-[48px] font-semibold bg-primary hover:bg-primary text-white shadow-md shrink-0">
                 <Link to="/chat">Get Diet Plan <ArrowRight className="w-4 h-4 ml-2" /></Link>
@@ -492,7 +492,7 @@ const DietHub = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Button asChild size="lg" className="min-h-[52px] text-base font-semibold shadow-lg hover:shadow-xl transition-shadow">
-                  <Link to="/chat">Talk to Our AI Assistant <ArrowRight className="w-4 h-4 ml-2" /></Link>
+                  <Link to="/chat">Start a Chat <ArrowRight className="w-4 h-4 ml-2" /></Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="min-h-[52px] text-base">
                   <Link to="/exercises">Exercise Hub</Link>

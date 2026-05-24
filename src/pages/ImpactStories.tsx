@@ -65,7 +65,7 @@ const impactNumbers = [
   { value: "10,000+", label: "People supported since 2020", icon: Users },
   { value: "3,200", label: "Virtual physio consultations (2024/25)", icon: Activity },
   { value: "4,500", label: "Active community forum members", icon: MessageCircle },
-  { value: "18,000+", label: "AI symptom checker uses", icon: Target },
+  { value: "18,000+", label: "symptom checker uses", icon: Target },
   { value: "50+", label: "Evidence-based exercise guides", icon: BookOpen },
   { value: "92%", label: "Users who would recommend us", icon: Star },
 ];
@@ -87,7 +87,7 @@ const publicBenefitEvidence = [
       "Virtual physiotherapy consultations removing geographic and mobility barriers",
       "Evidence-based nutrition guidance including anti-inflammatory diet plans",
       "Peer support community reducing isolation and improving mental wellbeing",
-      "AI-powered symptom guidance helping users understand their condition",
+      "guided symptom assessment helping users understand their condition",
       "Pain journal for tracking symptoms and sharing with their GP or rheumatologist",
     ],
   },

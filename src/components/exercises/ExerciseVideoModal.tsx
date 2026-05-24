@@ -74,7 +74,7 @@ export const ExerciseVideoModal = ({
         <div className="flex items-center gap-2 px-6 py-3 border-t border-border/40 bg-muted/30 text-xs text-muted-foreground">
           <Sparkles className="w-3.5 h-3.5 text-primary shrink-0" aria-hidden />
           <span>
-            <strong className="text-foreground">AI-generated demonstration</strong>{' '}
+            <strong className="text-foreground">Illustrative demonstration</strong>{' '}
             — illustrative only, not medical guidance.
           </span>
         </div>

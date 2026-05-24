@@ -21,7 +21,7 @@ const SectionLoader = () => (
 
 const features = [
   { icon: Target, label: "Joint-Specific", desc: "Click any joint for targeted exercises" },
-  { icon: Zap, label: "AI-Powered", desc: "Smart recommendations based on your needs" },
+  { icon: Zap, label: "Personalised", desc: "Smart recommendations based on your needs" },
   { icon: Shield, label: "the health service Aligned", desc: "Evidence-based physiotherapy protocols" },
   { icon: Heart, label: "Free Forever", desc: "No cost, no sign-up required" },
 ];
@@ -92,7 +92,7 @@ export default function SelfHelpTool() {
         <PageHero
           badge={
             <Badge variant="outline" className="bg-primary/5 text-primary border-primary/20">
-              <Bot className="w-3.5 h-3.5 mr-1.5" /> AI-Powered Self Help
+              <Bot className="w-3.5 h-3.5 mr-1.5" /> Personalised Self Help
             </Badge>
           }
           title={<>Your Virtual <span className="text-primary">Physio Assistant</span></>}

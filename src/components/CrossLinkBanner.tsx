@@ -49,7 +49,7 @@ const LINK_LIBRARY: Record<string, CrossLink> = {
   chat: {
     to: "/chat",
     icon: MessageCircle,
-    label: "AI Health Assistant",
+    label: "Help Chat",
     description: "Ask about symptoms, exercises, diet — free and instant",
   },
   flareups: {
