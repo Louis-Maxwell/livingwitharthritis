@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import AITrustSafetyModal from "@/components/AITrustSafetyModal";
 import FooterMostRead from "@/components/FooterMostRead";
 
 const columns = [
