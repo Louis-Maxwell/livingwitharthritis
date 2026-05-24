@@ -167,7 +167,7 @@ export function ChatBot() {
             <Heart className="h-4.5 w-4.5 text-white" />
           </div>
           <div>
-            <h3 className="font-semibold text-sm text-white leading-tight">Arthritis AI</h3>
+            <h3 className="font-semibold text-sm text-white leading-tight">Help & Support</h3>
             <div className="flex items-center gap-1">
               <div className="w-1.5 h-1.5 rounded-full bg-primary" />
               <span className="text-[10px] text-white/60">
