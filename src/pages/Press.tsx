@@ -120,7 +120,7 @@ export default function Press() {
               ))}
             </div>
             <p className="text-center text-sm text-muted-foreground mt-8">
-              To arrange an interview or expert quote, contact <strong>{CONTACT_EMAILS.press}</strong>
+              To arrange an interview or expert quote, contact <strong>{CONTACT_EMAILS.info}</strong>
             </p>
           </div>
         </section>
