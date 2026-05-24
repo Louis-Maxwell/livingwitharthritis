@@ -145,7 +145,6 @@ export function ChatBot() {
 
   return (
     <div className="flex flex-col h-full w-full overflow-hidden bg-background relative">
-      <AiConsentModal />
       <EmergencyRedirectDialog
         open={emergency.open}
         category={emergency.category}
