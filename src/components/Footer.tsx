@@ -34,7 +34,6 @@ const columns = [
     links: [
       { label: "Our Mission", href: "/about" },
       { label: "Trust & Credibility", href: "/trust" },
-      { label: "AI Safety", href: "/ai-safety" },
       { label: "Governance", href: "/governance" },
       { label: "Our Finances", href: "/finances" },
       { label: "Our Impact", href: "/impact" },
