@@ -120,7 +120,7 @@ export default function Press() {
               ))}
             </div>
             <p className="text-center text-sm text-muted-foreground mt-8">
-              To arrange an interview or expert quote, contact <strong>{CONTACT_EMAILS.press}</strong>
+              To arrange an interview or expert quote, contact <strong>{CONTACT_EMAILS.info}</strong>
             </p>
           </div>
         </section>
@@ -176,9 +176,9 @@ export default function Press() {
             <Mail className="w-10 h-10 text-primary mx-auto mb-4" />
             <h2 className="text-2xl font-bold text-foreground mb-2">Media Contact</h2>
             <p className="text-muted-foreground mb-4">For press enquiries, interview requests and media partnerships:</p>
-            <a href={`mailto:${CONTACT_EMAILS.press}`}>
+            <a href={`mailto:${CONTACT_EMAILS.info}`}>
               <Button size="lg" className="gap-2">
-                <Mail className="w-4 h-4" /> {CONTACT_EMAILS.press}
+                <Mail className="w-4 h-4" /> {CONTACT_EMAILS.info}
               </Button>
             </a>
           </div>
