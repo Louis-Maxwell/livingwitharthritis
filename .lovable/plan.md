@@ -1,12 +1,18 @@
-## Remove emojis from donation popup
+## Plan: make all wording visible in black and remove AI branding
 
-### Target file
-`src/components/DonationNotification.tsx`
+### 1. Strengthen global text visibility
+- Update `src/index.css` so every normal text-bearing element and Tailwind text colour utility resolves to black.
+- Include missing cases such as SVG/icon text, placeholder text, disabled text, gradient/transparent text utilities, prose content, and inline colour styles.
+- Keep the existing exception for red CTA/button backgrounds so button labels remain readable.
 
-### Changes
-1. **Delete the emoji array** — remove `const emojis = ["🥳", "❤️", "🙏", "💚", "🌟", "✨", "💪", "🎉"];` and its import/usage.
-2. **Remove emoji after donation amount** — delete `<span className="ml-1">{emoji}</span>` on line 120.
-3. **Remove location pin emoji** — replace `<span>📍</span>` with a Lucide `MapPin` icon (or remove entirely if the icon isn't desired).
+### 2. Remove user-facing AI touch
+- Search frontend files for user-facing AI wording such as `AI`, `AI-powered`, `AI assistant`, `AI-generated`, `artificial intelligence`, `robot`, and related labels.
+- Remove or reword any visible AI references to neutral health/support language.
+- Replace AI-style decorative icons such as sparkles/robot-style marks where they appear in visible UI.
 
-### Out of scope
-No layout, spacing, or colour changes. No other files touched.
+### 3. Verify pages are visible
+- Re-check the homepage preview after the CSS update.
+- Run a final search for remaining visible AI-branded copy.
+
+### Scope
+- No content sections, page layout, routes, backend logic, or donation logic will be changed.

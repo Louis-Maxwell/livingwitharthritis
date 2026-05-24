@@ -73,7 +73,7 @@ export default function Safeguarding() {
             <section>
               <h2 className="text-xl font-semibold text-foreground">5. Online Safety</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Our community forums and help chat are moderated. All user-generated content is reviewed for harmful material. Our chatbot provides evidence-based health information only and explicitly directs users to the health service 111 or emergency services for urgent concerns. We do not provide medical diagnoses.
+                Our community forums and help chat are moderated. All user-generated content is reviewed for harmful material. Our help chat provides evidence-based health information only and explicitly directs users to the health service 111 or emergency services for urgent concerns. We do not provide medical diagnoses.
               </p>
             </section>
 
