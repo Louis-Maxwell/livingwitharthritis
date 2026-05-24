@@ -205,7 +205,7 @@ const ExerciseHub = () => {
             <Link to="/self-help"><Zap className="w-4 h-4 mr-2" /> Interactive Joint Diagram</Link>
           </Button>
           <Button asChild variant="outline" size="lg" className="min-h-[48px] text-base">
-            <Link to="/chat"><MessageCircle className="w-4 h-4 mr-2" /> Ask AI for Exercises</Link>
+            <Link to="/chat"><MessageCircle className="w-4 h-4 mr-2" /> Ask for Exercises</Link>
           </Button>
         </div>
         <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mt-4">

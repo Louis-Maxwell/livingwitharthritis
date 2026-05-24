@@ -131,7 +131,7 @@ const WaitingListHelp = () => {
               { t: "Adopt an anti-inflammatory diet", d: "Mediterranean-style eating supports joint health and weight management." },
               { t: "Track your symptoms", d: "Use a pain journal to give your rheumatologist clear, useful information." },
               { t: "Join the community", d: "Connect with thousands of UK patients sharing tips and encouragement." },
-              { t: "Use our AI chat 24/7", d: "Ask questions, get evidence-based answers any time of day." },
+              { t: "Use our help chat 24/7", d: "Ask questions, get evidence-based answers any time of day." },
             ].map((x) => (
               <li key={x.t} className="flex items-start gap-3 bg-card border border-border rounded-xl p-4">
                 <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />

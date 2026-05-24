@@ -21,7 +21,7 @@ const DONATION_OPTIONS = [
   },
   {
     amount: "£150",
-    impact: "Supports our AI health assistant for a full month",
+    impact: "Supports our help chat for a full month",
     color: "bg-primary/10 border-primary/20 text-primary dark:text-primary",
   },
   {
@@ -112,11 +112,11 @@ export default function Donate() {
     <>
       <Helmet>
         <title>Donate to Living With Arthritis UK</title>
-        <meta name="description" content="Donate to Living With Arthritis UK and fund free virtual physiotherapy, anti-inflammatory diet plans and AI support for over 10,000 people with arthritis." />
+        <meta name="description" content="Donate to Living With Arthritis UK and fund free virtual physiotherapy, anti-inflammatory diet plans and online support for over 10,000 people with arthritis." />
         <meta name="keywords" content="donate to arthritis charity, arthritis charity, arthritis foundation, arthritis research, arthritis helpline, fundraising ideas for health charity, arthritis events, arthritis advocacy, financial help for arthritis patients, joint pain charity, arthritis support, arthritis awareness, volunteer for charity" />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/donate" />
-      <meta property="og:title" content="Donate to Arthritis Support UK: Fund Free Physio, Diet & AI Help" />
-      <meta property="og:description" content="Donate to Living With Arthritis UK and fund free virtual physiotherapy, anti-inflammatory diet plans and AI support for over 10,000 people with arthritis." />
+      <meta property="og:title" content="Donate to Arthritis Support UK: Fund Free Physio, Diet & Help" />
+      <meta property="og:description" content="Donate to Living With Arthritis UK and fund free virtual physiotherapy, anti-inflammatory diet plans and online support for over 10,000 people with arthritis." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/donate" />
       <meta property="og:site_name" content="Living With Arthritis UK" />
@@ -125,8 +125,8 @@ export default function Donate() {
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Donate to Arthritis Support UK: Fund Free Physio, Diet & AI Help" />
-      <meta name="twitter:description" content="Donate to Living With Arthritis UK and fund free virtual physiotherapy, anti-inflammatory diet plans and AI support for over 10,000 people with arthritis." />
+      <meta name="twitter:title" content="Donate to Arthritis Support UK: Fund Free Physio, Diet & Help" />
+      <meta name="twitter:description" content="Donate to Living With Arthritis UK and fund free virtual physiotherapy, anti-inflammatory diet plans and online support for over 10,000 people with arthritis." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
     </Helmet>
       <Header />
@@ -143,7 +143,7 @@ export default function Donate() {
               <span className="text-gradient italic">free for everyone</span>
             </h1>
             <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-8">
-              Your generosity funds free virtual physiotherapy, evidence-based diet plans, AI health support and community programmes for over 10,000 people across the UK living with arthritis.
+              Your generosity funds free virtual physiotherapy, evidence-based diet plans, online health support and community programmes for over 10,000 people across the UK living with arthritis.
             </p>
             <Button
               size="lg"

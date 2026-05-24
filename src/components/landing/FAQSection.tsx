@@ -63,7 +63,7 @@ const FAQSection = memo(() => {
             className="rounded-full h-[54px] px-10 btn-primary-cta text-sm font-bold tracking-wider"
           >
             <MessageCircle className="w-4 h-4 me-2" />
-            Ask our AI helper
+            Ask our help chat helper
           </Button>
           <Link to="/blog">
             <Button variant="outline" className="rounded-full h-[54px] px-10 text-sm font-bold tracking-wider border-2 border-primary/15 text-primary hover:bg-primary/[0.03]">

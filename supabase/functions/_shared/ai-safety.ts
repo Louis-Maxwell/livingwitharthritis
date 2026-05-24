@@ -90,7 +90,7 @@ export function buildRefusalStream(reason: "blocked" | "red_flag", category?: st
   } else {
     parts.push(
       `**This sounds urgent.**${category === "self_harm" ? " You're not alone — help is available right now." : ""}\n\n`,
-      "Please don't wait for an AI answer for symptoms like these — get help straight away.",
+      "Please don't wait for an online answer for symptoms like these — get help straight away.",
       EMERGENCY_FOOTER,
     );
   }

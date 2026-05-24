@@ -11,7 +11,7 @@
 - [Diet](/diet): Mediterranean and anti-inflammatory eating guidance.
 - [Self-Help Tool](/self-help): Personalised arthritis self-management.
 - [Health Tools](/health-tools): Calculators and trackers for joint health.
-- [Chat](/chat): AI arthritis assistant.
+- [Chat](/chat): arthritis help chat.
 - [FAQ](/faq): Clinician-answered arthritis questions.
 - [Expert Articles](/expert-articles): Clinician-written long-form guides.
 - [Impact Stories](/impact): Patient stories and charitable impact.

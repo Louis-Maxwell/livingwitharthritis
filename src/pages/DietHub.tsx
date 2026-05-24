@@ -149,7 +149,7 @@ const DietHub = () => {
       >
         <div className="flex flex-wrap gap-3 mt-2">
           <Button asChild size="lg" className="min-h-[48px] text-base font-semibold shadow-lg hover:shadow-xl transition-shadow">
-            <Link to="/chat"><MessageCircle className="w-4 h-4 mr-2" /> Get Diet Advice from AI</Link>
+            <Link to="/chat"><MessageCircle className="w-4 h-4 mr-2" /> Get Diet Advice</Link>
           </Button>
           <Button asChild variant="outline" size="lg" className="min-h-[48px] text-base">
             <Link to="/community"><Download className="w-4 h-4 mr-2" /> Free Meal Plan PDF</Link>
@@ -263,7 +263,7 @@ const DietHub = () => {
           </div>
         </section>
 
-        {/* ═══ Mid-page CTA: AI Diet Advisor ═══ */}
+        {/* ═══ Mid-page CTA: Diet Advisor ═══ */}
         <section className="py-12 lg:py-16 bg-gradient-to-r from-primary/5 via-emerald-500/10 to-primary/5 border-y border-primary/10">
           <div className="container mx-auto px-6 md:px-10 max-w-4xl">
             <motion.div
