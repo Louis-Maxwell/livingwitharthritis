@@ -11,7 +11,7 @@ import InternalLinks from "@/components/InternalLinks";
 import ContextualLinks from "@/components/ContextualLinks";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
-import AiDisclosureBadge from "@/components/ai/AiDisclosureBadge";
+
 import ClinicalReviewBadge from "@/components/ai/ClinicalReviewBadge";
 import {
   Utensils, Apple, Fish, Leaf, ArrowRight, CheckCircle,
@@ -149,7 +149,7 @@ const DietHub = () => {
       >
         <div className="flex flex-wrap gap-3 mt-2">
           <Button asChild size="lg" className="min-h-[48px] text-base font-semibold shadow-lg hover:shadow-xl transition-shadow">
-            <Link to="/chat"><MessageCircle className="w-4 h-4 mr-2" /> Get Diet Advice from AI</Link>
+            <Link to="/chat"><MessageCircle className="w-4 h-4 mr-2" /> Get Diet Advice</Link>
           </Button>
           <Button asChild variant="outline" size="lg" className="min-h-[48px] text-base">
             <Link to="/community"><Download className="w-4 h-4 mr-2" /> Free Meal Plan PDF</Link>
@@ -166,7 +166,6 @@ const DietHub = () => {
         {/* ─── Nutrition Stats Banner ─── */}
         <section className="py-12 lg:py-16 bg-tint-green">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl mb-6 flex flex-wrap items-center justify-center gap-2">
-            <AiDisclosureBadge variant="full" />
             <ClinicalReviewBadge />
           </div>
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
@@ -264,7 +263,7 @@ const DietHub = () => {
           </div>
         </section>
 
-        {/* ═══ Mid-page CTA: AI Diet Advisor ═══ */}
+        {/* ═══ Mid-page CTA: Diet Advisor ═══ */}
         <section className="py-12 lg:py-16 bg-gradient-to-r from-primary/5 via-emerald-500/10 to-primary/5 border-y border-primary/10">
           <div className="container mx-auto px-6 md:px-10 max-w-4xl">
             <motion.div
@@ -278,7 +277,7 @@ const DietHub = () => {
               </div>
               <div className="flex-1 text-center md:text-left">
                 <h2 className="text-xl font-bold text-foreground mb-1">Want a diet plan for your arthritis type?</h2>
-                <p className="text-muted-foreground text-sm">Our AI assistant creates personalised meal suggestions based on your condition, allergies and preferences — free and instant.</p>
+                <p className="text-muted-foreground text-sm">Our help chat creates personalised meal suggestions based on your condition, allergies and preferences — free and instant.</p>
               </div>
               <Button asChild size="lg" className="min-h-[48px] font-semibold bg-primary hover:bg-primary text-white shadow-md shrink-0">
                 <Link to="/chat">Get Diet Plan <ArrowRight className="w-4 h-4 ml-2" /></Link>
@@ -493,7 +492,7 @@ const DietHub = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Button asChild size="lg" className="min-h-[52px] text-base font-semibold shadow-lg hover:shadow-xl transition-shadow">
-                  <Link to="/chat">Talk to Our AI Assistant <ArrowRight className="w-4 h-4 ml-2" /></Link>
+                  <Link to="/chat">Start a Chat <ArrowRight className="w-4 h-4 ml-2" /></Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="min-h-[52px] text-base">
                   <Link to="/exercises">Exercise Hub</Link>

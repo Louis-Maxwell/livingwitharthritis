@@ -15,7 +15,7 @@ const HUBS = [
   { id: "exercises", href: "/exercises", icon: Dumbbell, title: "Exercise Hub", description: "clinically aligned knee, hand, shoulder & chair routines with a printable weekly tracker." },
   { id: "diet", href: "/diet", icon: Utensils, title: "Diet Hub", description: "Mediterranean anti-inflammatory meal plans, recipe ideas & supplement guidance." },
   { id: "community", href: "/community", icon: Users, title: "Community", description: "Peer support forum, patient stories, downloadable resources & newly diagnosed guide." },
-  { id: "chat", href: "/chat", icon: MessageCircle, title: "AI Assistant", description: "Ask anything about arthritis — symptoms, treatments, diet or exercises. Instant & personalised." },
+  { id: "chat", href: "/chat", icon: MessageCircle, title: "Help Chat", description: "Ask anything about arthritis — symptoms, treatments, diet or exercises. Instant & personalised." },
   { id: "conditions", href: "/conditions/osteoarthritis", icon: Stethoscope, title: "Conditions", description: "In-depth guides for osteoarthritis, rheumatoid & psoriatic arthritis with treatment options." },
   { id: "health-tools", href: "/health-tools", icon: Activity, title: "Health Tools", description: "Symptom quiz, inflammation calculator & personalised exercise plan generator — all free." },
 ] as const;
@@ -38,7 +38,7 @@ export default function QuickAccessSection() {
             <span className="text-primary italic">right here</span>
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-            Jump straight to the section that helps you most — exercises, nutrition, community support or personalised AI guidance.
+            Jump straight to the section that helps you most — exercises, nutrition, community support or personalised guidance.
           </p>
         </div>
 

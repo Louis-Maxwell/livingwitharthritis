@@ -185,9 +185,9 @@ export default function ResourceDirectory() {
           <section className="bg-primary/5 py-12">
             <div className="container mx-auto px-4 text-center max-w-2xl space-y-4">
               <h2 className="text-2xl font-bold text-foreground">Can't Find What You Need?</h2>
-              <p className="text-muted-foreground">Our AI assistant can help you find specific resources, or browse our local support pages for your area.</p>
+              <p className="text-muted-foreground">Our help chat can help you find specific resources, or browse our local support pages for your area.</p>
               <div className="flex flex-wrap justify-center gap-3">
-                <Button asChild><Link to="/chat">Ask Our AI Assistant</Link></Button>
+                <Button asChild><Link to="/chat">Start a Chat</Link></Button>
                 <Button variant="outline" asChild><Link to="/arthritis-support">Find Local Support</Link></Button>
               </div>
             </div>

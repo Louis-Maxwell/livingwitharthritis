@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import AITrustSafetyModal from "@/components/AITrustSafetyModal";
 import FooterMostRead from "@/components/FooterMostRead";
 
 const columns = [
@@ -35,7 +34,6 @@ const columns = [
     links: [
       { label: "Our Mission", href: "/about" },
       { label: "Trust & Credibility", href: "/trust" },
-      { label: "AI Safety", href: "/ai-safety" },
       { label: "Governance", href: "/governance" },
       { label: "Our Finances", href: "/finances" },
       { label: "Our Impact", href: "/impact" },
@@ -53,7 +51,6 @@ const columns = [
       { label: "Cookies Policy", href: "/cookies" },
       { label: "Terms & Conditions", href: "/terms" },
       { label: "Accessibility", href: "/accessibility" },
-      { label: "AI Safety", href: "/ai-safety" },
       { label: "Safeguarding Policy", href: "/safeguarding" },
       { label: "Complaints Procedure", href: "/complaints" },
       { label: "Image Gallery", href: "/gallery" },
@@ -114,11 +111,6 @@ const Footer = () => {
                     )}
                   </li>
                 ))}
-                {col.title === "Legal" && (
-                  <li>
-                    <AITrustSafetyModal />
-                  </li>
-                )}
               </ul>
             </div>
           ))}

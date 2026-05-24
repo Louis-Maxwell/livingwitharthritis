@@ -7,7 +7,7 @@ import PageHero from "@/components/ui/PageHero";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { Badge } from "@/components/ui/badge";
 import { Bot, Target, Zap, Shield, Heart } from "lucide-react";
-import AiDisclosureBadge from "@/components/ai/AiDisclosureBadge";
+
 import ClinicalReviewBadge from "@/components/ai/ClinicalReviewBadge";
 
 const VirtualPhysioSection = lazy(() => import("@/components/VirtualPhysioSection"));
@@ -21,7 +21,7 @@ const SectionLoader = () => (
 
 const features = [
   { icon: Target, label: "Joint-Specific", desc: "Click any joint for targeted exercises" },
-  { icon: Zap, label: "AI-Powered", desc: "Smart recommendations based on your needs" },
+  { icon: Zap, label: "Personalised", desc: "Smart recommendations based on your needs" },
   { icon: Shield, label: "the health service Aligned", desc: "Evidence-based physiotherapy protocols" },
   { icon: Heart, label: "Free Forever", desc: "No cost, no sign-up required" },
 ];
@@ -92,7 +92,7 @@ export default function SelfHelpTool() {
         <PageHero
           badge={
             <Badge variant="outline" className="bg-primary/5 text-primary border-primary/20">
-              <Bot className="w-3.5 h-3.5 mr-1.5" /> AI-Powered Self Help
+              <Bot className="w-3.5 h-3.5 mr-1.5" /> Personalised Self Help
             </Badge>
           }
           title={<>Your Virtual <span className="text-primary">Physio Assistant</span></>}
@@ -124,7 +124,6 @@ export default function SelfHelpTool() {
 
         <main id="main-content" className="container mx-auto px-5 md:px-8 py-10 space-y-10 md:space-y-14">
           <div className="flex flex-wrap items-center justify-center gap-2">
-            <AiDisclosureBadge variant="full" />
             <ClinicalReviewBadge />
           </div>
           <Suspense fallback={<SectionLoader />}>

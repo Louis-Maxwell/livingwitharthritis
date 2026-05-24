@@ -10,7 +10,7 @@ const faqs = [
   { q: "Do I need a GP referral to use this?", a: "Not at all. You can start whenever you feel ready. We'd always gently encourage you to keep your GP or specialist in the loop too." },
   { q: "What types of arthritis can you help with?", a: "We cover osteoarthritis, rheumatoid arthritis, and more than a hundred other forms — focusing on the everyday questions people in the UK ask us most." },
   { q: "Can diet really make a difference?", a: "It can. Many people find that gentle, anti-inflammatory eating — the Mediterranean way — helps ease stiffness and pain over time. Small changes, kept up, add up." },
-  { q: "Is your AI assistant the same as seeing a doctor?", a: "No, and we'd never pretend it is. It can answer general questions based on trusted research, but please keep speaking to your GP or specialist for anything personal." },
+  { q: "Is your help chat the same as seeing a doctor?", a: "No, and we'd never pretend it is. It can answer general questions based on trusted research, but please keep speaking to your GP or specialist for anything personal." },
   { q: "What are the first signs of osteoarthritis?", a: "Usually a dull ache during or after moving, stiffness in the morning that eases within half an hour, swelling, or a feeling of grating. Knees, hips and hands are most often the first to complain." },
   { q: "Can I claim PIP for arthritis in the UK?", a: "If arthritis is making daily life a real struggle, you may qualify for Personal Independence Payment (PIP). Citizens Advice or the DWP can walk you through the application kindly and free." },
   { q: "At what age does arthritis usually start?", a: "Osteoarthritis often shows up after 50, but rheumatoid arthritis can begin much younger — often between 30 and 50. Younger people can be affected too, especially after a joint injury." },
@@ -55,7 +55,7 @@ const FAQSection = memo(() => {
 
       <div className="mt-20 text-center space-y-5">
         <p className="text-sm text-muted-foreground tracking-wide">
-          Still wondering about something? Our AI helper is here whenever you need a kind, quick answer.
+          Still wondering about something? Our help chat is here whenever you need a kind, quick answer.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Button
@@ -63,7 +63,7 @@ const FAQSection = memo(() => {
             className="rounded-full h-[54px] px-10 btn-primary-cta text-sm font-bold tracking-wider"
           >
             <MessageCircle className="w-4 h-4 me-2" />
-            Ask our AI helper
+            Ask our help chat helper
           </Button>
           <Link to="/blog">
             <Button variant="outline" className="rounded-full h-[54px] px-10 text-sm font-bold tracking-wider border-2 border-primary/15 text-primary hover:bg-primary/[0.03]">

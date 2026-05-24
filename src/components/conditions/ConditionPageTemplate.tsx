@@ -385,7 +385,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
               Need more support?
             </h2>
             <p className="text-muted-foreground mb-5">
-              Chat with our AI assistant, browse the Advice Hub or book a virtual physiotherapy
+              Start a chat, browse the Advice Hub or book a virtual physiotherapy
               consultation — all free.
             </p>
             <div className="flex flex-wrap gap-3">
@@ -393,7 +393,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
                 to="/chat"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity"
               >
-                Chat with our AI assistant
+                Start a chat
               </Link>
               <Link
                 to="/blog-hub"

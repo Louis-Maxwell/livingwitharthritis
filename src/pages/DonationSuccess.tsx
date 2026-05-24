@@ -21,7 +21,7 @@ const DonationSuccess = () => {
     <>
       <SeoHead
         title={isSuccess ? "Thank You for Your Donation" : "Donation Cancelled"}
-        description={isSuccess ? "Thank you for supporting Living With Arthritis UK. Your donation funds free physiotherapy, exercise plans and AI support for people with arthritis." : "Your donation was cancelled — no charge was made. You can try again any time at Living With Arthritis UK."}
+        description={isSuccess ? "Thank you for supporting Living With Arthritis UK. Your donation funds free physiotherapy, exercise plans and online support for people with arthritis." : "Your donation was cancelled — no charge was made. You can try again any time at Living With Arthritis UK."}
         path="/donation-result"
         noindex
       />

@@ -43,7 +43,7 @@ const impactMetrics = [
   { value: "88p", label: "of every £1 goes directly to patient support" },
   { value: "10M+", label: "people in the UK affected by arthritis" },
   { value: "40+", label: "evidence-based articles and guides" },
-  { value: "24/7", label: "AI health assistant availability" },
+  { value: "24/7", label: "help chat availability" },
 ];
 
 const TrustCredibility = () => {

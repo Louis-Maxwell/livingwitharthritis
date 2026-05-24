@@ -260,7 +260,7 @@ const ParticleNetworkSection = memo(() => {
           </p>
           <div className="grid grid-cols-2 gap-4 pt-4 max-w-sm mx-auto lg:mx-0">
             {[
-              { val: "24/7", label: "AI Support" },
+              { val: "24/7", label: "Always-on Support" },
               { val: "50+", label: "Specialists" },
               { val: "120+", label: "Resources" },
               { val: "0", label: "Cost to you" },

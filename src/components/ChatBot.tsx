@@ -7,8 +7,6 @@ import { cn } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import { motion, AnimatePresence } from "framer-motion";
 import { chatRheumatoid, chatFoods, chatExercise, chatDoctor } from "@/data/images";
-import AiDisclosureBadge from "@/components/ai/AiDisclosureBadge";
-import AiConsentModal from "@/components/ai/AiConsentModal";
 import EmergencyRedirectDialog, { detectClientRedFlag } from "@/components/ai/EmergencyRedirectDialog";
 
 const quickSuggestions = [
@@ -69,7 +67,6 @@ const ChatMessage = ({ message }: { message: Message; isLatest: boolean }) => {
             <div className="prose prose-sm dark:prose-invert max-w-none prose-p:my-1.5 prose-p:text-sm prose-p:leading-relaxed prose-ul:my-1.5 prose-li:my-0.5 prose-li:text-sm prose-headings:my-2 prose-headings:text-base prose-headings:font-semibold prose-headings:text-foreground prose-strong:text-foreground">
               <ReactMarkdown>{message.content}</ReactMarkdown>
             </div>
-            <AiDisclosureBadge className="mt-2" />
           </div>
         )}
       </div>
@@ -148,7 +145,6 @@ export function ChatBot() {
 
   return (
     <div className="flex flex-col h-full w-full overflow-hidden bg-background relative">
-      <AiConsentModal />
       <EmergencyRedirectDialog
         open={emergency.open}
         category={emergency.category}
@@ -171,7 +167,7 @@ export function ChatBot() {
             <Heart className="h-4.5 w-4.5 text-white" />
           </div>
           <div>
-            <h3 className="font-semibold text-sm text-white leading-tight">Arthritis AI</h3>
+            <h3 className="font-semibold text-sm text-white leading-tight">Help & Support</h3>
             <div className="flex items-center gap-1">
               <div className="w-1.5 h-1.5 rounded-full bg-primary" />
               <span className="text-[10px] text-white/60">

@@ -125,7 +125,7 @@ const Header = () => {
       href: "/self-help",
       action: () => navigate("/self-help"),
       subs: [
-        { label: "AI Health Assistant", desc: "24/7 evidence-based chat support", icon: MessageCircle, href: "/chat", action: () => navigate("/chat"), color: "text-primary bg-primary/10" },
+        { label: "Help Chat", desc: "24/7 evidence-based chat support", icon: MessageCircle, href: "/chat", action: () => navigate("/chat"), color: "text-primary bg-primary/10" },
         { label: "Self Help Tool", desc: "Interactive joint exercise diagram", icon: Activity, href: "/self-help", action: () => navigate("/self-help"), color: "text-primary bg-primary/10" },
         { label: "Health Tools", desc: "Quiz, calculator & exercise planner", icon: HeartPulse, href: "/health-tools", action: () => navigate("/health-tools"), color: "text-primary bg-primary/10" },
       ],
@@ -511,7 +511,7 @@ const Header = () => {
                 }}
               >
                 <MessageCircle className="w-4 h-4 mr-2" />
-                Talk to AI Assistant
+                Start a chat
               </Button>
               <Button
                 variant="outline"

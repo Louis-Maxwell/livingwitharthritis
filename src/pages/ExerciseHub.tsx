@@ -205,7 +205,7 @@ const ExerciseHub = () => {
             <Link to="/self-help"><Zap className="w-4 h-4 mr-2" /> Interactive Joint Diagram</Link>
           </Button>
           <Button asChild variant="outline" size="lg" className="min-h-[48px] text-base">
-            <Link to="/chat"><MessageCircle className="w-4 h-4 mr-2" /> Ask AI for Exercises</Link>
+            <Link to="/chat"><MessageCircle className="w-4 h-4 mr-2" /> Ask for Exercises</Link>
           </Button>
         </div>
         <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mt-4">
@@ -307,7 +307,7 @@ const ExerciseHub = () => {
           </div>
         </section>
 
-        {/* ═══ Mid-page CTA: AI Assistant ═══ */}
+        {/* ═══ Mid-page CTA: Help Chat ═══ */}
         <section className="py-12 lg:py-16 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 border-y border-primary/10">
           <div className="container mx-auto px-6 md:px-10 max-w-4xl">
             <motion.div
@@ -321,7 +321,7 @@ const ExerciseHub = () => {
               </div>
               <div className="flex-1 text-center md:text-left">
                 <h2 className="text-xl font-bold text-foreground mb-1">Not sure which exercises suit you?</h2>
-                <p className="text-muted-foreground text-sm">Our AI assistant recommends exercises based on your specific joints, pain level and mobility — free and instant.</p>
+                <p className="text-muted-foreground text-sm">Our help chat recommends exercises based on your specific joints, pain level and mobility — free and instant.</p>
               </div>
               <Button asChild size="lg" className="min-h-[48px] font-semibold shadow-md shrink-0">
                 <Link to="/chat">Get Personalised Plan <ArrowRight className="w-4 h-4 ml-2" /></Link>
@@ -509,7 +509,7 @@ const ExerciseHub = () => {
         </section>
 
 
-        {/* ═══ Mid-page CTA: AI Assistant ═══ */}
+        {/* ═══ Mid-page CTA: Help Chat ═══ */}
         <section className="py-12 lg:py-16 bg-gradient-to-r from-primary/5 via-violet-500/10 to-primary/5 border-y border-primary/10">
           <div className="container mx-auto px-6 md:px-10 max-w-4xl">
             <motion.div
@@ -523,7 +523,7 @@ const ExerciseHub = () => {
               </div>
               <div className="flex-1 text-center md:text-left">
                 <h2 className="text-xl font-bold text-foreground mb-1">Track how exercise affects your symptoms</h2>
-                <p className="text-muted-foreground text-sm">Use our Self Help Tool to explore joint-specific exercises and get personalised guidance from our AI assistant.</p>
+                <p className="text-muted-foreground text-sm">Use our Self Help Tool to explore joint-specific exercises and get personalised guidance from our help chat.</p>
               </div>
               <Button asChild size="lg" className="min-h-[48px] font-semibold bg-primary hover:bg-primary text-white shadow-md shrink-0">
                 <Link to="/self-help">Self Help Tool <ArrowRight className="w-4 h-4 ml-2" /></Link>
@@ -575,7 +575,7 @@ const ExerciseHub = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Button asChild size="lg" className="min-h-[52px] text-base font-semibold shadow-lg hover:shadow-xl transition-shadow">
-                  <Link to="/chat">Talk to Our AI Assistant <ArrowRight className="w-4 h-4 ml-2" /></Link>
+                  <Link to="/chat">Start a Chat <ArrowRight className="w-4 h-4 ml-2" /></Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="min-h-[52px] text-base">
                   <Link to="/self-help">Interactive Joint Diagram</Link>

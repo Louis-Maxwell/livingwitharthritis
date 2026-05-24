@@ -4,7 +4,7 @@
  */
 
 export const MEDICAL_DISCLAIMER =
-  "This is general information from an AI assistant — not medical advice, diagnosis, or treatment. Always speak to your GP, pharmacist, or rheumatology team before changing medication or starting a new programme.";
+  "This is general information from a help chat — not medical advice, diagnosis, or treatment. Always speak to your GP, pharmacist, or rheumatology team before changing medication or starting a new programme.";
 
 export const EMERGENCY_FOOTER =
   "\n\n---\n\n**If this is a medical emergency, call 999.** For urgent NHS advice, call **111**. Mental-health crisis: **Samaritans 116 123** (free, 24/7).";
@@ -90,7 +90,7 @@ export function buildRefusalStream(reason: "blocked" | "red_flag", category?: st
   } else {
     parts.push(
       `**This sounds urgent.**${category === "self_harm" ? " You're not alone — help is available right now." : ""}\n\n`,
-      "Please don't wait for an AI answer for symptoms like these — get help straight away.",
+      "Please don't wait for an online answer for symptoms like these — get help straight away.",
       EMERGENCY_FOOTER,
     );
   }

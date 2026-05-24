@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const STEPS = [
   { key: "explore", icon: Search, num: "01", link: "/blog", title: "Explore Resources", desc: "Browse our curated library of 120+ clinically reviewed exercises, nutrition plans, and expert articles.", linkText: "Browse articles" },
-  { key: "guidance", icon: UserCheck, num: "02", link: "/chat", title: "Get Personalised Guidance", desc: "Use our AI assistant or book a free virtual consultation with a HCPC-registered physiotherapist.", linkText: "Talk to AI assistant" },
+  { key: "guidance", icon: UserCheck, num: "02", link: "/chat", title: "Get Personalised Guidance", desc: "Use our help chat or book a free virtual consultation with a HCPC-registered physiotherapist.", linkText: "Start a chat" },
   { key: "programme", icon: Dumbbell, num: "03", link: "/exercises", title: "Follow Your Programme", desc: "Begin with tailored low-impact exercises and an anti-inflammatory Mediterranean diet plan.", linkText: "View exercises" },
   { key: "transform", icon: Heart, num: "04", link: "/community", title: "Transform Your Life", desc: "Track your progress, connect with 10,000+ people in our community, and celebrate milestones.", linkText: "Join community" },
 ] as const;

@@ -50,7 +50,7 @@ const newlyDiagnosedSteps = [
   { step: "1", title: "Learn About Your Condition", desc: "Start with our condition guides for osteoarthritis, RA or PsA.", href: "#conditions" },
   { step: "2", title: "Try Gentle Exercises", desc: "Visit the Exercise Hub for knee, hand and chair-based routines.", href: "/exercises" },
   { step: "3", title: "Improve Your Diet", desc: "Our Diet Hub covers anti-inflammatory foods and meal plans.", href: "/diet" },
-  { step: "4", title: "Talk to Our AI Assistant", desc: "Get personalised, evidence-based guidance 24/7.", href: "/chat" },
+  { step: "4", title: "Start a Chat", desc: "Get personalised, evidence-based guidance 24/7.", href: "/chat" },
   { step: "5", title: "Connect with Community", desc: "You're not alone — join our peer support forum and resources.", href: "#community-features" },
 ];
 
@@ -134,7 +134,7 @@ const CommunityHub = () => {
             <p className="section-label text-primary mb-6">Our Community Impact</p>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               <StatCounter value="10M+" label="People with arthritis in the UK" icon={<Users className="w-6 h-6" />} color="primary" />
-              <StatCounter value="24/7" label="AI assistant availability" icon={<MessageCircle className="w-6 h-6" />} color="sky" />
+              <StatCounter value="24/7" label="help chat availability" icon={<MessageCircle className="w-6 h-6" />} color="sky" />
               <StatCounter value="50+" label="Free guides & resources" icon={<BookOpen className="w-6 h-6" />} color="emerald" />
               <StatCounter value="9" label="Downloadable PDF guides" icon={<Download className="w-6 h-6" />} color="amber" />
             </div>
@@ -226,7 +226,7 @@ const CommunityHub = () => {
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
               <EmojiCard emoji="🏋️" title="Exercise Hub" description="Joint-specific routines and programmes" />
               <EmojiCard emoji="🥗" title="Diet Hub" description="Anti-inflammatory eating guides" />
-              <EmojiCard emoji="🤖" title="AI Assistant" description="24/7 personalised health guidance" />
+              <EmojiCard emoji="💬" title="Help Chat" description="24/7 personalised health guidance" />
               <EmojiCard emoji="📖" title="Blog Articles" description="In-depth condition & lifestyle guides" />
               <EmojiCard emoji="📋" title="Self-Help Tool" description="Interactive joint pain diagram" />
               <EmojiCard emoji="💊" title="Supplements" description="Evidence review of common supplements" />
@@ -394,7 +394,7 @@ const CommunityHub = () => {
                 <Link to="/zakat-appeal">Donate Now <ArrowRight className="w-4 h-4 ml-2" /></Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="min-h-[44px]">
-                <Link to="/chat">Talk to Our AI Assistant</Link>
+                <Link to="/chat">Start a Chat</Link>
               </Button>
             </div>
           </div>

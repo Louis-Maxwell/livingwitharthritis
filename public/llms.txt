@@ -1,17 +1,17 @@
 # Living With Arthritis UK
 
-> UK arthritis charity offering free virtual physiotherapy, NICE-aligned exercise programmes, anti-inflammatory diet guidance, an AI assistant and waiting-list support for people living with osteoarthritis, rheumatoid arthritis, psoriatic arthritis and related conditions across England, Scotland, Wales and Northern Ireland.
+> UK arthritis charity offering free virtual physiotherapy, NICE-aligned exercise programmes, anti-inflammatory diet guidance, a help chat and waiting-list support for people living with osteoarthritis, rheumatoid arthritis, psoriatic arthritis and related conditions across England, Scotland, Wales and Northern Ireland.
 
 ## Pages
 
-- [Home](/): Free arthritis support — physio, diet, AI assistant, community.
+- [Home](/): Free arthritis support — physio, diet, help chat, community.
 - [About](/about): Mission, team and story of Living With Arthritis UK.
 - [Services](/services): Overview of free arthritis support services.
 - [Exercises](/exercises): Joint-by-joint exercise hub for arthritis.
 - [Diet](/diet): Mediterranean and anti-inflammatory eating guidance.
 - [Self-Help Tool](/self-help): Personalised arthritis self-management.
 - [Health Tools](/health-tools): Calculators and trackers for joint health.
-- [Chat](/chat): AI arthritis assistant.
+- [Chat](/chat): arthritis help chat.
 - [FAQ](/faq): Clinician-answered arthritis questions.
 - [Expert Articles](/expert-articles): Clinician-written long-form guides.
 - [Impact Stories](/impact): Patient stories and charitable impact.

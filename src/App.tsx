@@ -98,7 +98,7 @@ const ResourceDirectory = lazy(() => import("./pages/ResourceDirectory"));
 const HealthTools = lazy(() => import("./pages/HealthTools"));
 const Services = lazy(() => import("./pages/Services"));
 const FAQ = lazy(() => import("./pages/FAQ"));
-const AISafety = lazy(() => import("./pages/AISafety"));
+
 const Contact = lazy(() => import("./pages/Contact"));
 const RegionHub = lazy(() => import("./pages/regions/RegionHub"));
 const WaitingListHelp = lazy(() => import("./pages/WaitingListHelp"));
@@ -220,7 +220,7 @@ function AnimatedRoutes() {
         <Route path="/health-tools" element={<HealthTools />} />
         <Route path="/services" element={<Services />} />
         <Route path="/faq" element={<FAQ />} />
-        <Route path="/ai-safety" element={<AISafety />} />
+        
         <Route path="/contact" element={<Contact />} />
         <Route path="/regions/:region" element={<RegionHub />} />
         <Route path="/arthritis-waiting-list-help" element={<WaitingListHelp />} />

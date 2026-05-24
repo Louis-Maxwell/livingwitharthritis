@@ -107,7 +107,7 @@ const TILES: Tile[] = [
     fg: "text-white",
     icon: Sparkles,
     eyebrow: "Ask anything",
-    title: "AI assistant, clinician-checked",
+    title: "help chat, clinician-checked",
     to: "/chat",
     span: "col-span-1 row-span-1",
   },

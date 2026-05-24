@@ -9,7 +9,7 @@ interface ClinicalReviewBadgeProps {
 
 /**
  * Compact "reviewed by HCPC clinician" trust mark.
- * Use near AI-generated or clinical content.
+ * Use near  or clinical content.
  */
 export default function ClinicalReviewBadge({
   reviewer = "HCPC-registered physiotherapist",
