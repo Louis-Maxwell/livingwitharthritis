@@ -6,7 +6,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import PageHero from "@/components/ui/PageHero";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { Badge } from "@/components/ui/badge";
-import { Bot, Target, Zap, Shield, Heart } from "lucide-react";
+import { HeartPulse, Target, Zap, Shield, Heart } from "lucide-react";
 
 import ClinicalReviewBadge from "@/components/ai/ClinicalReviewBadge";
 
@@ -92,7 +92,7 @@ export default function SelfHelpTool() {
         <PageHero
           badge={
             <Badge variant="outline" className="bg-primary/5 text-primary border-primary/20">
-              <Bot className="w-3.5 h-3.5 mr-1.5" /> Personalised Self Help
+              <HeartPulse className="w-3.5 h-3.5 mr-1.5" /> Personalised Self Help
             </Badge>
           }
           title={<>Your Virtual <span className="text-primary">Physio Assistant</span></>}
