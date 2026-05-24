@@ -98,7 +98,7 @@ const ResourceDirectory = lazy(() => import("./pages/ResourceDirectory"));
 const HealthTools = lazy(() => import("./pages/HealthTools"));
 const Services = lazy(() => import("./pages/Services"));
 const FAQ = lazy(() => import("./pages/FAQ"));
-const AISafety = lazy(() => import("./pages/AISafety"));
+
 const Contact = lazy(() => import("./pages/Contact"));
 const RegionHub = lazy(() => import("./pages/regions/RegionHub"));
 const WaitingListHelp = lazy(() => import("./pages/WaitingListHelp"));
