@@ -174,12 +174,23 @@
     font-weight: 800;
     letter-spacing: -0.035em;
     line-height: 1.06;
+    color: #000 !important;
   }
 
   /* Serif display headings — editorial */
   h1, h2 {
     font-family: 'Playfair Display', 'Plus Jakarta Sans', serif;
     font-weight: 700;
+    color: #000 !important;
+  }
+
+  /* Subheadings / eyebrows / lead paragraphs locked to black */
+  [data-eyebrow],
+  .section-label,
+  .eyebrow,
+  .subheading,
+  .subhead {
+    color: #000 !important;
   }
 
   ::selection {
