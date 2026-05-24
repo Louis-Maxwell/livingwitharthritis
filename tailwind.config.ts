@@ -44,11 +44,10 @@ export default {
 
         };
         const red = shadeMap("red");
-        const black = shadeMap("black");
-        // Anything originally "warm/accent" → red. Anything originally
-        // "cool/neutral status" → black. White stays white.
+        const black = shadeMap("red");      // black aliased to red
         const warmRed = red;
-        const coolBlack = black;
+        const coolBlack = red;              // all "neutral" tones → red
+
         return {
           border: "hsl(var(--border))",
           input: "hsl(var(--input))",
