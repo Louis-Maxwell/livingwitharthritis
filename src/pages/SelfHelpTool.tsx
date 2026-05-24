@@ -7,7 +7,7 @@ import PageHero from "@/components/ui/PageHero";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { Badge } from "@/components/ui/badge";
 import { Bot, Target, Zap, Shield, Heart } from "lucide-react";
-import AiDisclosureBadge from "@/components/ai/AiDisclosureBadge";
+
 import ClinicalReviewBadge from "@/components/ai/ClinicalReviewBadge";
 
 const VirtualPhysioSection = lazy(() => import("@/components/VirtualPhysioSection"));
