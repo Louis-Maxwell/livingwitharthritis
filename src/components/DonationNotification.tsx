@@ -35,7 +35,7 @@ const fakeDonors: Donation[] = [
   { id: "f20", donor_name: "James T.", donor_location: "London, United Kingdom", amount: 50, currency: "GBP", created_at: "" },
 ];
 
-const emojis = ["🥳", "❤️", "🙏", "💚", "🌟", "✨", "💪", "🎉"];
+
 
 function prepareFakeDonations(): Donation[] {
   return fakeDonors.map((d, i) => ({
@@ -90,7 +90,6 @@ const DonationNotification = () => {
   const name = donation.donor_name || "Anonymous";
   const location = donation.donor_location || "United Kingdom";
   const symbol = donation.currency === "GBP" ? "£" : donation.currency === "USD" ? "$" : "€";
-  const emoji = emojis[currentIndex % emojis.length];
 
   return (
     <AnimatePresence>
@@ -112,18 +111,16 @@ const DonationNotification = () => {
               <X className="w-3.5 h-3.5" />
             </button>
 
-            {/* Line 1: Name donated £amount emoji */}
+            {/* Line 1: Name donated £amount */}
             <p className="text-[14px] leading-snug pr-5">
               <span className="font-semibold text-primary">{name}</span>
               <span className="text-primary"> donated </span>
               <span className="font-bold text-primary">{symbol}{donation.amount}</span>
-              <span className="ml-1">{emoji}</span>
             </p>
 
             {/* Line 2: Location */}
-            <p className="text-[12px] text-primary mt-0.5 flex items-center gap-1">
-              <span>📍</span>
-              <span>{location}</span>
+            <p className="text-[12px] text-primary mt-0.5">
+              {location}
             </p>
           </div>
         </motion.div>
