@@ -83,11 +83,12 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
             <DialogTitle className="text-xl font-bold text-foreground">
               {recurring ? "Set Up Monthly Donation" : "Complete Your Donation"}
             </DialogTitle>
-            <DialogDescription className="text-sm text-muted-foreground">
+            <DialogDescription className="text-sm text-foreground">
               {recurring
                 ? `Support ${getFundLabel()} every month`
                 : `Thank you for supporting ${getFundLabel()}`}
             </DialogDescription>
+
           </DialogHeader>
         </div>
 
@@ -99,19 +100,20 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
               ? "bg-primary/[0.06] border-primary/10"
               : "bg-primary/[0.06] border-primary/10"
           }`}>
-            <p className="text-sm text-muted-foreground mb-1">
+            <p className="text-sm text-foreground mb-1">
               {recurring ? "Monthly Amount" : "Donation Amount"}
             </p>
             <p className={`text-4xl font-bold ${recurring ? "text-primary" : "text-primary"}`}>
               {sym}{amount.toFixed(2)}
-              {recurring && <span className="text-lg font-medium text-muted-foreground">/month</span>}
+              {recurring && <span className="text-lg font-medium text-foreground">/month</span>}
             </p>
-            <p className="text-sm text-muted-foreground mt-2">{getFundLabel()}</p>
+            <p className="text-sm text-foreground mt-2">{getFundLabel()}</p>
             {recurring && (
-              <p className="text-xs text-muted-foreground mt-1">
+              <p className="text-xs text-foreground mt-1">
                 That's {sym}{(amount * 12).toFixed(2)} per year — cancel anytime
               </p>
             )}
+
           </div>
 
           {/* Gift Aid Calculator */}
@@ -125,14 +127,15 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
               <div className="px-5 py-4 space-y-4">
                 <div className="flex items-center justify-center gap-2 flex-wrap">
                   <div className="text-center px-3 py-2 rounded-xl bg-card border border-border/40">
-                    <p className="text-[10px] text-muted-foreground uppercase tracking-wider font-medium">You give</p>
+                    <p className="text-[10px] text-foreground uppercase tracking-wider font-medium">You give</p>
                     <p className="text-lg font-bold text-foreground">{sym}{amount.toFixed(2)}{recurring ? "/mo" : ""}</p>
                   </div>
                   <ArrowRight className="w-4 h-4 text-primary shrink-0" />
                   <div className="text-center px-3 py-2 rounded-xl bg-card border border-border/40">
-                    <p className="text-[10px] text-muted-foreground uppercase tracking-wider font-medium">HMRC adds</p>
+                    <p className="text-[10px] text-foreground uppercase tracking-wider font-medium">HMRC adds</p>
                     <p className="text-lg font-bold text-primary">+{sym}{giftAidBonus.toFixed(2)}</p>
                   </div>
+
                   <ArrowRight className="w-4 h-4 text-primary shrink-0" />
                   <AnimatePresence mode="wait">
                     <motion.div
@@ -147,10 +150,11 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
                           : "bg-card border-border/40"
                       }`}
                     >
-                      <p className="text-[10px] text-muted-foreground uppercase tracking-wider font-medium">We receive</p>
+                      <p className="text-[10px] text-foreground uppercase tracking-wider font-medium">We receive</p>
                       <p className={`text-lg font-bold ${giftAid ? "text-primary" : "text-foreground"}`}>
                         {sym}{giftAid ? totalWithGiftAid.toFixed(2) : amount.toFixed(2)}
                       </p>
+
                     </motion.div>
                   </AnimatePresence>
                 </div>
@@ -161,9 +165,10 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
                     onCheckedChange={(v) => setGiftAid(v === true)}
                     className="mt-0.5 border-primary/40 data-[state=checked]:bg-primary data-[state=checked]:border-primary"
                   />
-                  <span className="text-xs text-muted-foreground leading-relaxed">
+                  <span className="text-xs text-foreground leading-relaxed">
                     I am a UK taxpayer and understand that if I pay less Income Tax and/or Capital Gains Tax than the amount of Gift Aid claimed on all my donations, it is my responsibility to pay any difference.
                   </span>
+
                 </label>
               </div>
             </div>
@@ -172,7 +177,7 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
           {error && (
             <div className="text-center">
               <p className="text-destructive font-medium text-sm">{error}</p>
-              <p className="text-xs text-muted-foreground mt-1">Please try again</p>
+              <p className="text-xs text-foreground mt-1">Please try again</p>
             </div>
           )}
 
@@ -194,10 +199,11 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
             )}
           </Button>
 
-          <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
+          <div className="flex items-center justify-center gap-2 text-xs text-foreground">
             <ShieldCheck className="w-3.5 h-3.5 text-primary/50" />
             <span>Secured by Stripe · 256-bit encryption{recurring ? " · Cancel anytime" : ""}</span>
           </div>
+
         </div>
       </DialogContent>
     </Dialog>
