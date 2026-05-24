@@ -51,7 +51,6 @@ const columns = [
       { label: "Cookies Policy", href: "/cookies" },
       { label: "Terms & Conditions", href: "/terms" },
       { label: "Accessibility", href: "/accessibility" },
-      { label: "AI Safety", href: "/ai-safety" },
       { label: "Safeguarding Policy", href: "/safeguarding" },
       { label: "Complaints Procedure", href: "/complaints" },
       { label: "Image Gallery", href: "/gallery" },
