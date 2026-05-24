@@ -11,7 +11,7 @@ import InternalLinks from "@/components/InternalLinks";
 import ContextualLinks from "@/components/ContextualLinks";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
-import AiDisclosureBadge from "@/components/ai/AiDisclosureBadge";
+
 import ClinicalReviewBadge from "@/components/ai/ClinicalReviewBadge";
 import {
   Utensils, Apple, Fish, Leaf, ArrowRight, CheckCircle,
