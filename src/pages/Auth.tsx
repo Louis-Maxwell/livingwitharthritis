@@ -41,7 +41,7 @@ export default function AuthPage() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-muted/30 p-4 py-16">
       <SeoHead
         title="Sign In or Create Account"
-        description="Sign in to Living With Arthritis UK to access your free arthritis support tools, AI physiotherapy assistant and personalised resources."
+        description="Sign in to Living With Arthritis UK to access your free arthritis support tools, virtual physiotherapy and personalised resources."
         path="/auth"
         noindex
       />

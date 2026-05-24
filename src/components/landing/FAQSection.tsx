@@ -55,7 +55,7 @@ const FAQSection = memo(() => {
 
       <div className="mt-20 text-center space-y-5">
         <p className="text-sm text-muted-foreground tracking-wide">
-          Still wondering about something? Our AI helper is here whenever you need a kind, quick answer.
+          Still wondering about something? Our help chat is here whenever you need a kind, quick answer.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Button

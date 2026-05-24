@@ -38,7 +38,7 @@ export default function QuickAccessSection() {
             <span className="text-primary italic">right here</span>
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-            Jump straight to the section that helps you most — exercises, nutrition, community support or personalised AI guidance.
+            Jump straight to the section that helps you most — exercises, nutrition, community support or personalised guidance.
           </p>
         </div>
 

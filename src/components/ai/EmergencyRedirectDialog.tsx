@@ -23,7 +23,7 @@ const COPY: Record<string, string> = {
   septic_joint: "A hot, swollen joint with fever needs urgent assessment — please contact NHS 111 or your GP today.",
   anaphylaxis: "These symptoms may indicate a severe allergic reaction. Call 999 immediately.",
   severe_bleed: "Please get urgent medical help.",
-  default: "Some of what you described needs a real person, not an AI. Please use one of the contacts below.",
+  default: "Some of what you described needs a real person, not online information. Please use one of the contacts below.",
 };
 
 export default function EmergencyRedirectDialog({
