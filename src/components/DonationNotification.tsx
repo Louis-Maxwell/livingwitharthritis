@@ -112,14 +112,14 @@ const DonationNotification = () => {
             </button>
 
             {/* Line 1: Name donated £amount */}
-            <p className="text-[14px] leading-snug pr-5">
-              <span className="font-semibold text-primary">{name}</span>
-              <span className="text-primary"> donated </span>
-              <span className="font-bold text-primary">{symbol}{donation.amount}</span>
+            <p className="text-[14px] leading-snug pr-5 text-black">
+              <span className="font-semibold">{name}</span>
+              <span> donated </span>
+              <span className="font-bold">{symbol}{donation.amount}</span>
             </p>
 
             {/* Line 2: Location */}
-            <p className="text-[12px] text-primary mt-0.5">
+            <p className="text-[12px] text-black mt-0.5">
               {location}
             </p>
           </div>
