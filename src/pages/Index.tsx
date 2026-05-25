@@ -1,225 +1,187 @@
-import { useState } from "react";
-import { X } from "lucide-react";
+/**
+ * Living With Arthritis UK — Homepage
+ *
+ * Focused fundraising landing page for the open-source osteoarthritis
+ * management plan. Composed from existing landing primitives + three
+ * OA-specific sections (Hero, Problem Band, Plan Pillars, Ethos Band).
+ *
+ * Strict editorial voice. UK English. No fabricated stats beyond
+ * publicly cited figures (8.75M, 1 in 6, £10bn).
+ */
 
-interface DonationModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  onSubmit?: (amount: number, frequency: "one-time" | "monthly") => void;
-}
+import { lazy, Suspense, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
-type DonationAmount = 10 | 25 | 50 | 100;
+import Header from "@/components/Header";
+import ScrollProgress from "@/components/ScrollProgress";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
-export default function DonationModal({ isOpen, onClose, onSubmit }: DonationModalProps) {
-  const [selectedAmount, setSelectedAmount] = useState<DonationAmount | null>(null);
-  const [customAmount, setCustomAmount] = useState<string>("");
-  const [frequency, setFrequency] = useState<"one-time" | "monthly">("one-time");
-  const [isProcessing, setIsProcessing] = useState(false);
+import OAHero from "@/components/landing/OAHero";
+import HeroStatsStrip from "@/components/landing/HeroStatsStrip";
+import OAProblemBand from "@/components/landing/OAProblemBand";
+import FacesStrip from "@/components/landing/FacesStrip";
+import OAPlanPillarsSection from "@/components/landing/OAPlanPillarsSection";
+import MissionStatementBand from "@/components/landing/MissionStatementBand";
+import DonationImpactSection from "@/components/landing/DonationImpactSection";
+import OpenSourceEthosBand from "@/components/landing/OpenSourceEthosBand";
+import SEOTeaserSection from "@/components/landing/SEOTeaserSection";
 
-  const presetAmounts: DonationAmount[] = [10, 25, 50, 100];
+const AboutArthritisCards = lazy(
+  () => import("@/components/landing/AboutArthritisCards"),
+);
+const ResourcesForYouSection = lazy(
+  () => import("@/components/landing/ResourcesForYouSection"),
+);
+const ConditionPillBand = lazy(
+  () => import("@/components/landing/ConditionPillBand"),
+);
 
-  const handlePresetClick = (amount: DonationAmount) => {
-    setSelectedAmount(amount);
-    setCustomAmount(""); // Clear custom amount when preset is selected
-  };
+const InspiredHeroBand = lazy(() => import("@/components/landing/InspiredHeroBand"));
+const QuoteSection = lazy(() => import("@/components/landing/QuoteSection"));
+const BlogPreview = lazy(() => import("@/components/landing/BlogPreview"));
+const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
+const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSection"));
+const Footer = lazy(() => import("@/components/Footer"));
+const BackToTopButton = lazy(() => import("@/components/landing/BackToTopButton"));
+const CookieBanner = lazy(() => import("@/components/landing/CookieBanner"));
+const StickyDonateBar = lazy(() => import("@/components/landing/StickyDonateBar"));
 
-  const handleCustomAmountChange = (value: string) => {
-    setCustomAmount(value);
-    setSelectedAmount(null); // Clear preset selection when custom amount is entered
-  };
+const SITE_URL = "https://livingwitharthritis.org.uk";
 
-  const getFinalAmount = (): number => {
-    if (customAmount) {
-      const parsed = parseFloat(customAmount);
-      return isNaN(parsed) ? 0 : parsed;
-    }
-    return selectedAmount || 0;
-  };
+const SectionFallback = () => <div className="h-32" aria-hidden="true" />;
 
-  const handleContinue = async () => {
-    const amount = getFinalAmount();
+function HomePage() {
+  // JSON-LD injected manually (per project memory) to avoid Helmet crashes.
+  useEffect(() => {
+    const id = "ld-home-ngo";
+    const existing = document.getElementById(id);
+    if (existing) existing.remove();
 
-    if (amount < 1) {
-      alert("Please select or enter a donation amount of at least £1");
-      return;
-    }
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = id;
+    script.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "NGO",
+      name: "Living With Arthritis UK",
+      url: SITE_URL,
+      description:
+        "An open-source osteoarthritis management plan — clinically reviewed, freely published, and made for everyone living with OA in the UK.",
+      areaServed: { "@type": "Country", name: "United Kingdom" },
+      knowsAbout: [
+        "Osteoarthritis",
+        "Anti-inflammatory diet",
+        "Physiotherapy",
+        "Chronic pain management",
+      ],
+    });
+    document.head.appendChild(script);
 
-    setIsProcessing(true);
-
-    try {
-      // In production, integrate with Stripe here
-      await new Promise((resolve) => setTimeout(resolve, 500)); // Simulate API call
-
-      if (onSubmit) {
-        onSubmit(amount, frequency);
-      }
-
-      onClose();
-    } catch (error) {
-      console.error("Payment processing error:", error);
-      alert("There was an error processing your donation. Please try again.");
-    } finally {
-      setIsProcessing(false);
-    }
-  };
-
-  if (!isOpen) return null;
+    return () => {
+      const el = document.getElementById(id);
+      if (el) el.remove();
+    };
+  }, []);
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="donation-modal-title"
-      onClick={onClose}
-    >
-      <div
-        className="relative w-full max-w-md bg-white dark:bg-slate-900 rounded-lg shadow-xl"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Close button */}
-        <button
-          onClick={onClose}
-          className="absolute right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-          aria-label="Close donation modal"
-          disabled={isProcessing}
-        >
-          <X className="h-5 w-5 text-slate-900 dark:text-slate-100" />
-        </button>
+    <>
+      <Helmet>
+        <title>
+          Open-Source Osteoarthritis Plan · Living With Arthritis UK
+        </title>
+        <meta
+          name="description"
+          content="Open-source osteoarthritis plan: clinically reviewed diet, movement and pain-relief guidance in plain English. Free for everyone in the UK."
+        />
+        <link rel="canonical" href={SITE_URL + "/"} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={SITE_URL + "/"} />
+        <meta
+          property="og:title"
+          content="Open-Source Osteoarthritis Plan · Living With Arthritis UK"
+        />
+        <meta
+          property="og:description"
+          content="The evidence to manage osteoarthritis well already exists. We're unlocking it — in plain English, free for everyone."
+        />
+      </Helmet>
 
-        <div className="p-6">
-          {/* Header */}
-          <div className="mb-6">
-            <h2 id="donation-modal-title" className="text-2xl font-bold text-slate-900 dark:text-slate-100">
-              Support Our Mission
-            </h2>
-            <p className="mt-2 text-base text-slate-700 dark:text-slate-300">
-              Help us provide free, evidence-based OA care to everyone across the UK.
-            </p>
-          </div>
+      <div className="min-h-screen bg-background text-foreground">
+        <Header />
+        <ScrollProgress />
 
-          {/* Preset amounts */}
-          <div className="mb-6">
-            <label className="mb-3 block text-sm font-medium text-slate-900 dark:text-slate-100">Select amount</label>
-            <div className="grid grid-cols-2 gap-3">
-              {presetAmounts.map((amount) => (
-                <button
-                  key={amount}
-                  type="button"
-                  onClick={() => handlePresetClick(amount)}
-                  disabled={isProcessing}
-                  className={`
-                    h-16 rounded-lg border-2 text-lg font-semibold transition-all
-                    focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2
-                    disabled:opacity-50 disabled:cursor-not-allowed
-                    ${
-                      selectedAmount === amount
-                        ? "border-primary bg-primary text-white"
-                        : "border-slate-300 bg-white text-slate-900 hover:border-primary hover:bg-primary hover:text-white dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100 dark:hover:border-primary dark:hover:bg-primary"
-                    }
-                  `}
-                  aria-pressed={selectedAmount === amount}
-                >
-                  £{amount}
-                </button>
-              ))}
-            </div>
-          </div>
+        <main id="main-content" role="main" tabIndex={-1}>
+          <OAHero />
+          <HeroStatsStrip />
+          <OAProblemBand />
 
-          {/* Custom amount */}
-          <div className="mb-6">
-            <label
-              htmlFor="custom-amount"
-              className="mb-2 block text-sm font-medium text-slate-900 dark:text-slate-100"
-            >
-              Or enter custom amount
-            </label>
-            <div className="relative">
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-900 dark:text-slate-100 font-medium">
-                £
-              </span>
-              <input
-                id="custom-amount"
-                type="number"
-                min="1"
-                step="0.01"
-                value={customAmount}
-                onChange={(e) => handleCustomAmountChange(e.target.value)}
-                placeholder="50"
-                disabled={isProcessing}
-                className="w-full h-12 pl-8 pr-4 rounded-lg border-2 border-slate-300 bg-white text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-500"
-              />
-            </div>
-          </div>
+          <Suspense fallback={<SectionFallback />}>
+            <AboutArthritisCards />
+          </Suspense>
 
-          {/* Frequency */}
-          <div className="mb-6">
-            <label className="mb-3 block text-sm font-medium text-slate-900 dark:text-slate-100">
-              Donation frequency
-            </label>
-            <div className="grid grid-cols-2 gap-3">
-              {(["one-time", "monthly"] as const).map((freq) => (
-                <button
-                  key={freq}
-                  type="button"
-                  onClick={() => setFrequency(freq)}
-                  disabled={isProcessing}
-                  className={`
-                    h-12 rounded-lg border-2 text-base font-medium transition-all
-                    focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2
-                    disabled:opacity-50 disabled:cursor-not-allowed
-                    ${
-                      frequency === freq
-                        ? "border-primary bg-primary text-white"
-                        : "border-slate-300 bg-white text-slate-900 hover:border-primary hover:bg-primary hover:text-white dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100 dark:hover:border-primary dark:hover:bg-primary"
-                    }
-                  `}
-                  aria-pressed={frequency === freq}
-                >
-                  {freq === "one-time" ? "One-time" : "Monthly"}
-                </button>
-              ))}
-            </div>
-          </div>
+          <FacesStrip />
+          <OAPlanPillarsSection />
 
-          {/* Impact message */}
-          {getFinalAmount() > 0 && (
-            <div className="mb-6 rounded-lg border-2 border-blue-200 bg-blue-50 p-4 dark:border-blue-800 dark:bg-blue-900/20">
-              <p className="text-sm font-medium text-slate-900 dark:text-slate-100">
-                💙 Your {frequency === "monthly" ? "monthly " : ""}donation of £{getFinalAmount().toFixed(2)} helps us
-                reach {Math.round(getFinalAmount() * 20)} more people with free OA resources
-              </p>
-            </div>
-          )}
+          <Suspense fallback={<SectionFallback />}>
+            <ResourcesForYouSection />
+          </Suspense>
 
-          {/* Actions */}
-          <div className="flex gap-3">
-            <button
-              type="button"
-              onClick={onClose}
-              disabled={isProcessing}
-              className="flex-1 h-12 rounded-lg border-2 border-slate-300 bg-white text-base font-medium text-slate-900 transition-colors hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
-            >
-              Cancel
-            </button>
-            <button
-              type="button"
-              onClick={handleContinue}
-              disabled={isProcessing || getFinalAmount() < 1}
-              className="flex-1 h-12 rounded-lg bg-primary text-base font-bold text-white transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {isProcessing ? "Processing..." : "Continue to Payment"}
-            </button>
-          </div>
+          <Suspense fallback={<SectionFallback />}>
+            <ConditionPillBand />
+          </Suspense>
 
-          {/* Trust signals */}
-          <div className="mt-6 border-t border-slate-200 pt-6 dark:border-slate-700">
-            <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-700 dark:text-slate-300">
-              <span className="flex items-center gap-1">🔒 Secure payment via Stripe</span>
-              <span className="flex items-center gap-1">🧡 UK Registered Charity</span>
-            </div>
-          </div>
-        </div>
+          <Suspense fallback={<SectionFallback />}>
+            <InspiredHeroBand />
+          </Suspense>
+
+          <MissionStatementBand />
+
+          <Suspense fallback={<SectionFallback />}>
+            <QuoteSection />
+          </Suspense>
+
+          <DonationImpactSection />
+
+          <OpenSourceEthosBand />
+
+          <SEOTeaserSection />
+
+
+
+          <Suspense fallback={<SectionFallback />}>
+            <BlogPreview />
+          </Suspense>
+
+          <Suspense fallback={<SectionFallback />}>
+            <FAQSection />
+          </Suspense>
+
+          <Suspense fallback={<SectionFallback />}>
+            <NewsletterSection />
+          </Suspense>
+        </main>
+
+        <Suspense fallback={null}>
+          <Footer />
+        </Suspense>
+        <Suspense fallback={null}>
+          <BackToTopButton />
+        </Suspense>
+        <Suspense fallback={null}>
+          <CookieBanner onAnalyticsChange={() => {}} />
+        </Suspense>
+        <Suspense fallback={null}>
+          <StickyDonateBar />
+        </Suspense>
       </div>
-    </div>
+    </>
+  );
+}
+
+export default function Index() {
+  return (
+    <ErrorBoundary fallback={<div>Error loading content</div>}>
+      <HomePage />
+    </ErrorBoundary>
   );
 }
