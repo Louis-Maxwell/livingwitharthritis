@@ -96,6 +96,15 @@ serve(async (req) => {
       });
     }
 
+    // Escape helper to prevent HTML injection
+    const esc = (s: string) =>
+      String(s ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+
     // Send email via Resend
     const emailResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -113,8 +122,8 @@ serve(async (req) => {
               <h1 style="color: white; margin: 0; font-size: 22px;">Living with Arthritis</h1>
             </div>
             <div style="background: #f9fafb; padding: 24px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 12px 12px;">
-              <p style="color: #374151; font-size: 16px;">Dear ${patientName || "Patient"},</p>
-              <div style="color: #374151; font-size: 14px; line-height: 1.6; white-space: pre-wrap;">${message.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</div>
+              <p style="color: #374151; font-size: 16px;">Dear ${esc(patientName || "Patient")},</p>
+              <div style="color: #374151; font-size: 14px; line-height: 1.6; white-space: pre-wrap;">${esc(message)}</div>
               <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 24px 0;" />
               <p style="color: #9ca3af; font-size: 12px; margin: 0;">This email was sent from Living with Arthritis clinic. Please do not reply directly to this email.</p>
             </div>
