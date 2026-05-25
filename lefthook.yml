@@ -20,3 +20,9 @@ pre-push:
         ✖ supabase db lint reported issues.
         Fix the migration/policy warnings above before pushing,
         or run `git push --no-verify` to bypass (not recommended).
+    sitemap-validate:
+      run: node scripts/validate-sitemap.mjs
+      fail_text: |
+        ✖ public/sitemap.xml is invalid or missing.
+        Run `bun scripts/generate-sitemap.ts` to regenerate it.
+
