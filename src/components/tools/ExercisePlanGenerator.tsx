@@ -225,7 +225,7 @@ export default function ExercisePlanGenerator() {
 
       <div className="space-y-3">
         {plan.map((day) => (
-          <Card key={day.day} className={`border-border/30 ${day.isRest ? "opacity-60" : ""}`}>
+          <Card key={day.day} className={`border-border/30 ${day.isRest ? "bg-muted/30" : ""}`}>
             <CardContent className="py-4">
               <div className="flex items-center gap-3">
                 <Badge variant="outline" className="text-xs font-bold w-24 justify-center">{day.day}</Badge>

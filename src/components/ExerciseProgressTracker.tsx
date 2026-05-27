@@ -320,7 +320,7 @@ export default function ExerciseProgressTracker() {
                                             {checked ? (
                                               <CheckCircle className="w-5 h-5 text-primary" />
                                             ) : (
-                                              <Circle className="w-5 h-5 text-muted-foreground/40 print:text-muted-foreground" />
+                                              <Circle className="w-5 h-5 text-muted-foreground print:text-muted-foreground" />
                                             )}
                                           </button>
                                         </td>
@@ -333,7 +333,7 @@ export default function ExerciseProgressTracker() {
                                             ? "text-primary"
                                             : exDone > 0
                                             ? "text-primary"
-                                            : "text-muted-foreground/40"
+                                            : "text-muted-foreground"
                                         }`}
                                       >
                                         {exDone}/7

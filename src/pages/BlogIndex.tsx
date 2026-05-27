@@ -81,7 +81,7 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
   return (
     <>
       <Helmet>
-        <title>Arthritis Blog UK – Joint Pain, Diet & Exercise Advice</title>
+        <title>Arthritis Blog UK | Diet & Exercise Advice</title>
         <meta name="description" content="Expert UK arthritis articles on anti-inflammatory diet, exercise, supplements and osteoarthritis. Free guidance for living well with joint pain." />
         <meta name="keywords" content="arthritis blog UK, joint pain advice, arthritis, anti-inflammatory diet UK, osteoarthritis exercises, arthritis help UK, joint pain diet, rheumatoid arthritis UK, swimming arthritis, yoga arthritis, turmeric arthritis, arthritis flare up" />
         <meta property="og:title" content="Arthritis Blog UK – Joint Pain, Diet & Exercise Advice" />
@@ -158,6 +158,7 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
                   <Link
                     key={post.slug}
                     to={`/blog/${post.slug}`}
+                    aria-label={`Read featured article: ${post.title}`}
                     className="group rounded-2xl overflow-hidden border border-border/30 bg-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                   >
                     {post.image_url && (
@@ -181,7 +182,7 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
                         {post.excerpt}
                       </p>
                       <span className="text-primary text-sm font-medium inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
-                        Read article <ArrowRight className="w-3.5 h-3.5" />
+                        Read featured article<span className="sr-only">: {post.title}</span> <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
                       </span>
                     </div>
                   </Link>
@@ -214,7 +215,7 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
               >
                 {cat}
                 {cat !== "All" && (
-                  <span className="ml-1.5 opacity-60">
+                  <span className="ml-1.5">
                     ({blogPosts.filter((p) => p.category === cat).length})
                   </span>
                 )}
@@ -259,7 +260,7 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
                       className="group rounded-2xl border border-primary/15 bg-primary/[0.03] p-6 hover:bg-primary/[0.06] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
                     >
                       <div className="flex items-start gap-4">
-                        <span className="text-3xl font-black text-primary/20 leading-none">
+                        <span className="text-3xl font-black text-primary leading-none" aria-hidden="true">
                           {i + 1}
                         </span>
                         <div className="flex-1 min-w-0">
