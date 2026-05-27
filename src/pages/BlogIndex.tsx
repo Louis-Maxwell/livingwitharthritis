@@ -286,6 +286,7 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
                 <Link
                   key={post.slug}
                   to={`/blog/${post.slug}`}
+                  aria-label={`Read full article: ${post.title}`}
                   className="group rounded-2xl border border-border/30 bg-card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                 >
                   <div className="h-1 bg-primary" />
@@ -302,7 +303,7 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
                     <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">{post.excerpt}</p>
                     <div className="flex items-center justify-between pt-3 border-t border-border/15">
                       <span className="text-primary text-sm font-medium inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
-                        Read more <ArrowRight className="w-3.5 h-3.5" />
+                        Read full article<span className="sr-only">: {post.title}</span> <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
                       </span>
                       <div className="flex items-center gap-3 text-[11px] text-muted-foreground">
                         <span className="flex items-center gap-1">
