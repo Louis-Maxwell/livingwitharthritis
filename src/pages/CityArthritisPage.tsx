@@ -42,6 +42,17 @@ const CityArthritisPage = () => {
     ],
   };
 
+  const localBusinessLd = {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    name: `Arthritis Support in ${cityData.name}`,
+    description: cityData.description,
+    url: `${BASE}/arthritis-support/${cityData.slug}`,
+    areaServed: { "@type": "City", name: `${cityData.name}, United Kingdom` },
+    medicalSpecialty: "Rheumatology",
+    serviceType: "Arthritis support and rheumatology guidance",
+  };
+
   const faqLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -75,6 +86,7 @@ const CityArthritisPage = () => {
         <meta name="twitter:description" content={cityData.description} />
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(localBusinessLd)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
         <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
       </Helmet>
