@@ -215,7 +215,7 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
               >
                 {cat}
                 {cat !== "All" && (
-                  <span className="ml-1.5 opacity-60">
+                  <span className="ml-1.5">
                     ({blogPosts.filter((p) => p.category === cat).length})
                   </span>
                 )}
@@ -260,7 +260,7 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
                       className="group rounded-2xl border border-primary/15 bg-primary/[0.03] p-6 hover:bg-primary/[0.06] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
                     >
                       <div className="flex items-start gap-4">
-                        <span className="text-3xl font-black text-primary/20 leading-none">
+                        <span className="text-3xl font-black text-primary leading-none" aria-hidden="true">
                           {i + 1}
                         </span>
                         <div className="flex-1 min-w-0">

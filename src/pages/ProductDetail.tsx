@@ -20,7 +20,7 @@ const StarRating = ({ rating, count }: { rating: number; count: number }) => (
               ? "fill-primary text-primary"
               : s - 0.5 <= rating
               ? "fill-primary/50 text-primary"
-              : "text-muted-foreground/30"
+              : "text-muted-foreground"
           }`}
         />
       ))}
