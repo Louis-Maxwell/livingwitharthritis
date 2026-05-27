@@ -1,39 +1,40 @@
 ## Goal
 
-The GEO Checker shows `llms.txt`, `robots.txt`, and `sitemap.xml` exist, but `.well-known/ai.txt` is **Not Found**. Add it so all four AI-crawler discovery files pass.
+Add the 5 uploaded UK-focused arthritis guides as published blog posts on livingwitharthritis.org.uk so they improve content depth and SEO.
+
+## Source files
+
+1. `01_foods_to_avoid_with_arthritis.pdf`
+2. `02_food_supplements_for_joint_pain.pdf`
+3. `03_best_foods_to_eat_for_arthritis.pdf`
+4. `04_gout_medication_uk.pdf`
+5. `05_best_supplement_for_knee_joint.pdf`
+
+Each PDF is a ~1,400-word AEO-ready article with a focus keyword, intro, H2 sections, AI snippet block, and conclusion — ready to publish as-is.
 
 ## Plan
 
-1. Create `public/.well-known/ai.txt` — served at `https://livingwitharthritis.org.uk/.well-known/ai.txt`.
+1. **Parse all 5 PDFs** with `document--parse_document` to extract the full markdown body, focus keyword, and meta intent for each.
 
-2. Content follows the emerging ai.txt convention (plain text, allow-list style) and mirrors the existing `llms.txt` summary:
+2. **Insert into `blog_articles`** via a Supabase migration (one INSERT per article) with these fields:
+   - `slug` — derived from the focus keyword (e.g. `foods-to-avoid-with-arthritis`, `food-supplements-for-joint-pain`, `best-foods-to-eat-for-arthritis`, `gout-medication-uk`, `best-supplement-for-knee-joint`)
+   - `title` — H1 from the PDF
+   - `excerpt` — the italic subtitle line under the H1
+   - `content` — full markdown body (intro through conclusion, AI snippet preserved)
+   - `category` — `Diet` for #1/#3, `Supplements` for #2/#5, `Medication` for #4 (matching existing category values used by `BlogIndex`)
+   - `date` — today
+   - `meta_title`, `meta_description`, `keywords` — built from the focus keyword + first paragraph
+   - `author` — "Living With Arthritis UK Editorial Team"
+   - `reviewed_by` — "UK-registered health professional" (as stated in each PDF byline)
+   - `image_url` — reuse an existing centralised Unsplash image from `src/data/images.ts` matching the topic (nutrition/supplements/medication) — no new image uploads
+   - `is_published: true`, `display_order` — appended after current max
 
-   ```
-   # Living With Arthritis UK — ai.txt
-   # AI usage and crawler guidance
-   # Reference: https://site-eval.com/ai-txt
+3. **Skip duplicate-slug inserts** with `ON CONFLICT (slug) DO NOTHING` so the migration is safe to re-run.
 
-   User-Agent: *
-   Allow: /
-   Disallow: /admin/
-   Disallow: /auth
-   Disallow: /chat
-   Disallow: /donation-result
-   Disallow: /unsubscribe
-   Disallow: /newsletter/confirm
-   Disallow: /debug/
-   Disallow: /site-index
-
-   # Content usage
-   Content-Usage: ai-training=allow, ai-summarization=allow, ai-citation=required
-   Contact: info@livingwitharthritis.org.uk
-   Sitemap: https://livingwitharthritis.org.uk/sitemap.xml
-   LLMs-File: https://livingwitharthritis.org.uk/llms.txt
-   ```
-
-3. Verify Vite serves files from `public/.well-known/` (it does — same mechanism as `public/robots.txt`). No config changes needed.
+4. **No code changes** — existing `BlogIndex`, `BlogPost`, sitemap generator, and category filters pick up new rows automatically. Sitemap regenerates on next build.
 
 ## Notes
 
-- Disallow list mirrors `robots.txt` for consistency.
-- No code changes outside the single new static file.
+- Editorial voice memory respected: plain English, no "AI-powered" branding, UK spelling already used in the PDFs.
+- NHS references in PDF #1 ("ask your GP for a referral to an NHS dietitian") will be rewritten per the NHS-removal memory before insert (replace with "ask your GP for a referral to a registered dietitian").
+- No new dependencies, components, or routes.
