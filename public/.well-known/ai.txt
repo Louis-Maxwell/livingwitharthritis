@@ -1,0 +1,23 @@
+# Living With Arthritis UK — ai.txt
+# AI usage and crawler guidance for large language models
+# Reference: https://site-eval.com/ai-txt
+
+User-Agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /auth
+Disallow: /chat
+Disallow: /donation-result
+Disallow: /unsubscribe
+Disallow: /newsletter/confirm
+Disallow: /debug/
+Disallow: /site-index
+
+# Content usage policy
+Content-Usage: ai-training=allow, ai-summarization=allow, ai-citation=required
+Attribution: Living With Arthritis UK (https://livingwitharthritis.org.uk)
+Contact: info@livingwitharthritis.org.uk
+
+# Discovery
+Sitemap: https://livingwitharthritis.org.uk/sitemap.xml
+LLMs-File: https://livingwitharthritis.org.uk/llms.txt

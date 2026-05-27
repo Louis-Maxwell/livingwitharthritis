@@ -1,16 +1,39 @@
 ## Goal
-Ensure every piece of text in the donation popup (StripeDonationModal) renders as solid black (`#0F0F0F`) so nothing appears grey or faint against the light modal background.
 
-## Current State
-The modal currently mixes `text-foreground` (near-black) and `text-muted-foreground` (dark grey, ~18% lightness). On the soft tinted backgrounds inside the modal, the muted grey can read as low-contrast.
+The GEO Checker shows `llms.txt`, `robots.txt`, and `sitemap.xml` exist, but `.well-known/ai.txt` is **Not Found**. Add it so all four AI-crawler discovery files pass.
 
-## Changes
-In `src/components/StripeDonationModal.tsx`, override every instance of `text-muted-foreground` with `text-foreground` (or explicit black) so:
-- Dialog description
-- "Donation Amount" / "Monthly Amount" label
-- "You give / HMRC adds / We receive" labels
-- Gift Aid legal copy
-- Security footer text
-all render as pure black.
+## Plan
 
-No other components or design tokens will be touched.
+1. Create `public/.well-known/ai.txt` — served at `https://livingwitharthritis.org.uk/.well-known/ai.txt`.
+
+2. Content follows the emerging ai.txt convention (plain text, allow-list style) and mirrors the existing `llms.txt` summary:
+
+   ```
+   # Living With Arthritis UK — ai.txt
+   # AI usage and crawler guidance
+   # Reference: https://site-eval.com/ai-txt
+
+   User-Agent: *
+   Allow: /
+   Disallow: /admin/
+   Disallow: /auth
+   Disallow: /chat
+   Disallow: /donation-result
+   Disallow: /unsubscribe
+   Disallow: /newsletter/confirm
+   Disallow: /debug/
+   Disallow: /site-index
+
+   # Content usage
+   Content-Usage: ai-training=allow, ai-summarization=allow, ai-citation=required
+   Contact: info@livingwitharthritis.org.uk
+   Sitemap: https://livingwitharthritis.org.uk/sitemap.xml
+   LLMs-File: https://livingwitharthritis.org.uk/llms.txt
+   ```
+
+3. Verify Vite serves files from `public/.well-known/` (it does — same mechanism as `public/robots.txt`). No config changes needed.
+
+## Notes
+
+- Disallow list mirrors `robots.txt` for consistency.
+- No code changes outside the single new static file.
