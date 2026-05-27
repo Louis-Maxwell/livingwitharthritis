@@ -23,26 +23,25 @@ async function authorize(
     return { ok: false, status: 401, error: "Authentication required" };
   }
   const token = authHeader.slice(7);
-  // Decode JWT payload to check role (avoids extra round-trip for service_role).
+
+  // Shortcut: exact match against the service-role key (used by the cron job).
+  // This is a constant-string compare, not a forgeable JWT claim decode.
+  if (token === serviceKey) return { ok: true };
+
+  // Otherwise: verify the JWT signature via Supabase before trusting any claim.
   try {
-    const parts = token.split(".");
-    if (parts.length === 3) {
-      const payload = JSON.parse(
-        atob(parts[1].replace(/-/g, "+").replace(/_/g, "/")),
-      );
-      if (payload.role === "service_role") return { ok: true };
-      const userId = payload.sub;
-      if (typeof userId === "string" && userId.length > 0) {
-        const adminClient = createClient(supabaseUrl, serviceKey);
-        const { data: roleRow } = await adminClient
-          .from("user_roles")
-          .select("role")
-          .eq("user_id", userId)
-          .eq("role", "admin")
-          .maybeSingle();
-        if (roleRow) return { ok: true };
-      }
+    const adminClient = createClient(supabaseUrl, serviceKey);
+    const { data: userData, error: userErr } = await adminClient.auth.getUser(token);
+    if (userErr || !userData?.user?.id) {
+      return { ok: false, status: 401, error: "Invalid token" };
     }
+    const { data: roleRow } = await adminClient
+      .from("user_roles")
+      .select("role")
+      .eq("user_id", userData.user.id)
+      .eq("role", "admin")
+      .maybeSingle();
+    if (roleRow) return { ok: true };
   } catch {
     // fall through to forbidden
   }
