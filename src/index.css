@@ -34,7 +34,7 @@
 
     --border: 20 8% 90%;                /* #E7E2E0 subtle warm grey */
     --input: 20 8% 88%;
-    --ring: 2 86% 54%;
+    --ring: 350 85% 42%;
 
     /* Legacy aliases — collapsed to charity palette */
     --gold: 350 85% 42%;
@@ -95,7 +95,7 @@
     --sidebar-accent: 24 14% 96%;
     --sidebar-accent-foreground: 0 0% 6%;
     --sidebar-border: 20 8% 90%;
-    --sidebar-ring: 2 86% 54%;
+    --sidebar-ring: 350 85% 42%;
   }
 
   /* Dark mode aliased to light — site is always white bg / near-black ink / red accent */
@@ -106,7 +106,7 @@
     --card-foreground: 0 0% 6%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 6%;
-    --primary: 2 86% 54%;
+    --primary: 350 85% 42%;
     --primary-foreground: 0 0% 100%;
     --secondary: 0 0% 96%;
     --secondary-foreground: 0 0% 6%;
@@ -114,7 +114,7 @@
     --accent-foreground: 0 0% 6%;
     --muted: 24 14% 96%;
     --muted-foreground: 0 0% 18%;
-    --destructive: 2 86% 54%;
+    --destructive: 350 85% 42%;
     --destructive-foreground: 0 0% 100%;
     --border: 20 8% 90%;
     --input: 20 8% 88%;
@@ -123,12 +123,12 @@
     --navy-foreground: 0 0% 100%;
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 0 0% 6%;
-    --sidebar-primary: 2 86% 54%;
+    --sidebar-primary: 350 85% 42%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 24 14% 96%;
     --sidebar-accent-foreground: 0 0% 6%;
     --sidebar-border: 20 8% 90%;
-    --sidebar-ring: 2 86% 54%;
+    --sidebar-ring: 350 85% 42%;
   }
 }
 
