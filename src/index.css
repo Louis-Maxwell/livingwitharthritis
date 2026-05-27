@@ -6,8 +6,8 @@
 
 @layer base {
   :root {
-    /* ─── British Red Cross inspired palette ─── */
-    /* Pure white background, near-black text, BRC red accent */
+    /* ─── Institutional charity palette ─── */
+    /* Pure white background, near-black text, deep crimson accent */
     --background: 0 0% 100%;            /* #FFFFFF */
     --foreground: 0 0% 6%;              /* #0F0F0F near-black */
 
@@ -17,7 +17,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 6%;
 
-    --primary: 2 86% 54%;               /* #EE2A24 British Red Cross red */
+    --primary: 350 85% 42%;             /* #C01034 deep crimson */
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 96%;              /* warm-tinted off-white surface */
@@ -29,7 +29,7 @@
     --muted: 24 14% 96%;                /* #F7F5F4 warm grey band */
     --muted-foreground: 0 0% 18%;       /* stays near-black for legibility */
 
-    --destructive: 2 86% 54%;
+    --destructive: 350 85% 42%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 20 8% 90%;                /* #E7E2E0 subtle warm grey */
@@ -37,10 +37,10 @@
     --ring: 2 86% 54%;
 
     /* Legacy aliases — collapsed to charity palette */
-    --gold: 2 86% 54%;
+    --gold: 350 85% 42%;
     --gold-foreground: 0 0% 100%;
     --gold-muted: 4 84% 96%;
-    --amber: 2 86% 54%;
+    --amber: 350 85% 42%;
 
     --navy: 0 0% 8%;                    /* near-black for contrast band */
     --navy-foreground: 0 0% 100%;
@@ -58,22 +58,22 @@
     --tint-lavender: 24 14% 96%;
     --tint-coral: 4 84% 96%;
 
-    --emerald: 2 86% 54%;
-    --sky: 2 86% 54%;
-    --violet: 2 86% 54%;
-    --coral: 2 86% 54%;
-    --teal: 2 86% 54%;
-    --magenta: 2 86% 54%;
-    --indigo: 2 86% 54%;
-    --lime: 2 86% 54%;
+    --emerald: 350 85% 42%;
+    --sky: 350 85% 42%;
+    --violet: 350 85% 42%;
+    --coral: 350 85% 42%;
+    --teal: 350 85% 42%;
+    --magenta: 350 85% 42%;
+    --indigo: 350 85% 42%;
+    --lime: 350 85% 42%;
 
     /* Gradients — red on white only */
-    --gradient-mesh: radial-gradient(at 18% 22%, hsl(2 86% 54% / 0.05) 0px, transparent 50%),
-                     radial-gradient(at 82% 78%, hsl(2 86% 54% / 0.04) 0px, transparent 50%);
-    --gradient-aurora: linear-gradient(135deg, hsl(2 86% 54%), hsl(2 86% 38%));
-    --gradient-sunset: linear-gradient(135deg, hsl(2 86% 54%), hsl(2 86% 32%));
-    --gradient-ocean: linear-gradient(135deg, hsl(2 86% 60%), hsl(2 86% 42%));
-    --gradient-cosmic: linear-gradient(135deg, hsl(2 86% 54%), hsl(2 86% 38%));
+    --gradient-mesh: radial-gradient(at 18% 22%, hsl(350 85% 42% / 0.05) 0px, transparent 50%),
+                     radial-gradient(at 82% 78%, hsl(350 85% 42% / 0.04) 0px, transparent 50%);
+    --gradient-aurora: linear-gradient(135deg, hsl(350 85% 42%), hsl(350 85% 32%));
+    --gradient-sunset: linear-gradient(135deg, hsl(350 85% 42%), hsl(350 85% 28%));
+    --gradient-ocean: linear-gradient(135deg, hsl(350 85% 48%), hsl(350 85% 34%));
+    --gradient-cosmic: linear-gradient(135deg, hsl(350 85% 42%), hsl(350 85% 32%));
 
     /* Shadows — soft warm grey, no garish red glow */
     --shadow-soft: 0 1px 3px 0 hsl(0 0% 0% / 0.06), 0 1px 2px -1px hsl(0 0% 0% / 0.04);
@@ -81,16 +81,16 @@
     --shadow-large: 0 24px 60px -16px hsl(0 0% 0% / 0.12), 0 8px 24px -8px hsl(0 0% 0% / 0.06);
     --shadow-xl: 0 36px 72px -20px hsl(0 0% 0% / 0.14), 0 16px 40px -12px hsl(0 0% 0% / 0.08);
     --shadow-2xl: 0 56px 100px -30px hsl(0 0% 0% / 0.16), 0 24px 56px -16px hsl(0 0% 0% / 0.1);
-    --shadow-primary: 0 12px 36px -8px hsl(2 86% 54% / 0.28);
-    --shadow-glow: 0 0 56px -16px hsl(2 86% 54% / 0.2);
-    --shadow-gold: 0 12px 36px -8px hsl(2 86% 54% / 0.25);
+    --shadow-primary: 0 12px 36px -8px hsl(350 85% 42% / 0.28);
+    --shadow-glow: 0 0 56px -16px hsl(350 85% 42% / 0.2);
+    --shadow-gold: 0 12px 36px -8px hsl(350 85% 42% / 0.25);
     --shadow-glass: 0 8px 32px hsl(0 0% 0% / 0.06), inset 0 1px 0 rgb(255 255 255 / 0.9);
 
     --radius: 0.75rem;
 
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 0 0% 6%;
-    --sidebar-primary: 2 86% 54%;
+    --sidebar-primary: 350 85% 42%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 24 14% 96%;
     --sidebar-accent-foreground: 0 0% 6%;
@@ -118,7 +118,7 @@
     --destructive-foreground: 0 0% 100%;
     --border: 20 8% 90%;
     --input: 20 8% 88%;
-    --ring: 2 86% 54%;
+    --ring: 350 85% 42%;
     --navy: 0 0% 8%;
     --navy-foreground: 0 0% 100%;
     --sidebar-background: 0 0% 100%;
