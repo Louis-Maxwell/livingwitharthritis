@@ -1,40 +1,64 @@
-## Goal
+## Plan: Match the reference site's AI visibility, SEO & rankings
 
-Add the 5 uploaded UK-focused arthritis guides as published blog posts on livingwitharthritis.org.uk so they improve content depth and SEO.
+### What the screenshot shows (the target to match)
 
-## Source files
+The dashboard is for **`arthritis-uk.org`** (Authority Score 55, ~155K organic traffic/month, 54.7K organic keywords, 8.6K referring domains, AI Visibility 43 with 631 LLM mentions across ChatGPT / Google AI Overviews / AI Mode / Gemini, and 470 cited pages). That is a different domain to our project (`livingwitharthritis.org.uk`). Quick note — I'll treat it as the reference benchmark, not as our own data, and I won't copy any of its copy or brand assets.
 
-1. `01_foods_to_avoid_with_arthritis.pdf`
-2. `02_food_supplements_for_joint_pain.pdf`
-3. `03_best_foods_to_eat_for_arthritis.pdf`
-4. `04_gout_medication_uk.pdf`
-5. `05_best_supplement_for_knee_joint.pdf`
+Realistic framing before we start: matching an AS-55 domain with 8.6K referring domains is a 6–18 month off-page effort, not a code change. What I **can** ship in code is the on-page, schema, AEO and AI-visibility layer that lets each new backlink and citation actually rank. That's where this plan focuses.
 
-Each PDF is a ~1,400-word AEO-ready article with a focus keyword, intro, H2 sections, AI snippet block, and conclusion — ready to publish as-is.
+### Step 1 — Spawn one `capable` background subagent (read-only)
 
-## Plan
+Role: senior SEO + AEO engineer. Brief:
 
-1. **Parse all 5 PDFs** with `document--parse_document` to extract the full markdown body, focus keyword, and meta intent for each.
+1. Pull `semrush--domain_analysis`, `top_pages`, `competitive_analysis`, `backlink_analysis` on `arthritis-uk.org` and `versusarthritis.org` in the `uk` database.
+2. Pull the same set for `livingwitharthritis.org.uk` so we have a true gap list.
+3. For the top 30 traffic-driving competitor URLs, fetch the live HTML and extract: title pattern, H1 pattern, intro-paragraph length, FAQ block presence, JSON-LD types used (`MedicalCondition`, `MedicalWebPage`, `FAQPage`, `HowTo`, `BreadcrumbList`, `Speakable`), TOC, "key takeaways" boxes, internal-link density.
+4. Inspect `arthritis-uk.org/llms.txt`, `/.well-known/ai.txt`, `/sitemap.xml` to see what they expose to LLM crawlers vs us.
+5. Return one structured report: keyword-gap table (top 30), schema-gap table per route type, AEO-pattern checklist, AI-visibility checklist, prioritised code-fix list mapped to files in our repo.
 
-2. **Insert into `blog_articles`** via a Supabase migration (one INSERT per article) with these fields:
-   - `slug` — derived from the focus keyword (e.g. `foods-to-avoid-with-arthritis`, `food-supplements-for-joint-pain`, `best-foods-to-eat-for-arthritis`, `gout-medication-uk`, `best-supplement-for-knee-joint`)
-   - `title` — H1 from the PDF
-   - `excerpt` — the italic subtitle line under the H1
-   - `content` — full markdown body (intro through conclusion, AI snippet preserved)
-   - `category` — `Diet` for #1/#3, `Supplements` for #2/#5, `Medication` for #4 (matching existing category values used by `BlogIndex`)
-   - `date` — today
-   - `meta_title`, `meta_description`, `keywords` — built from the focus keyword + first paragraph
-   - `author` — "Living With Arthritis UK Editorial Team"
-   - `reviewed_by` — "UK-registered health professional" (as stated in each PDF byline)
-   - `image_url` — reuse an existing centralised Unsplash image from `src/data/images.ts` matching the topic (nutrition/supplements/medication) — no new image uploads
-   - `is_published: true`, `display_order` — appended after current max
+### Step 2 — Apply the fixes (one build pass)
 
-3. **Skip duplicate-slug inserts** with `ON CONFLICT (slug) DO NOTHING` so the migration is safe to re-run.
+**AEO / AI-visibility (this is where the screenshot's "631 mentions / 470 cited pages" gap is won):**
+- Expand `public/llms.txt` from minimal to a full structured manifest (purpose, grouped URLs by topic, last-updated dates, citation policy) — LLM crawlers cite sites with rich llms.txt far more often.
+- Add a 40–60-word "answer paragraph" directly under the H1 on every condition, diet, exercise, tool and pillar page — the verbatim format AI Overviews / ChatGPT / Perplexity lift.
+- Add `FAQPage` JSON-LD to all 11 condition pages, 4 Tai-Chi pages, Mediterranean diet, myths page, and the 5 pillar guides.
+- Add `MedicalCondition` schema (`signOrSymptom`, `cause`, `riskFactor`, `possibleTreatment`) to every condition page.
+- Add `SpeakableSpecification` to article-style pages so voice/AI assistants quote our summary boxes.
+- Add a "Key takeaways" 3–5 bullet box at the top of every long-form article.
+- Verify prerendered HTML (via `scripts/prerender-routes.mjs`) covers every new/changed public route so LLM crawlers see the content without executing JS.
 
-4. **No code changes** — existing `BlogIndex`, `BlogPost`, sitemap generator, and category filters pick up new rows automatically. Sitemap regenerates on next build.
+**SEO (on-page):**
+- Implement the top 20 keyword-gap fixes the subagent surfaces (H1 / title / meta / intro rewrite on the targeted page).
+- Add `BreadcrumbList` JSON-LD sitewide where it's currently inconsistent.
+- Add hub-and-spoke internal-link blocks ("Related conditions", "Related exercises") on condition pages — matches the link-equity pattern Arthritis Foundation and Versus Arthritis use.
+- Tighten any remaining over-length titles.
 
-## Notes
+**GEO (UK local):**
+- Audit our `CityArthritisPage`, `CityConditionPage`, `RegionHub` against the UK city/region terms competitors rank for; flag missing cities for content extension.
+- Strengthen `MedicalBusiness` + `Place` schema with `areaServed`, `availableService`, `geo` coordinates.
 
-- Editorial voice memory respected: plain English, no "AI-powered" branding, UK spelling already used in the PDFs.
-- NHS references in PDF #1 ("ask your GP for a referral to an NHS dietitian") will be rewritten per the NHS-removal memory before insert (replace with "ask your GP for a referral to a registered dietitian").
-- No new dependencies, components, or routes.
+**Performance (AI crawlers reward fast pages):**
+- `<link rel="preload">` for the hero LCP image.
+- Verify `font-display: swap` on all custom fonts.
+- Lazy-import any heavy non-critical route components the subagent flags.
+
+**Verification:**
+- Run `seo_chat--update_findings` on every failing SEO finding the fixes resolve.
+- Suggest you click Rescan in the SEO tab.
+
+### What I will NOT do
+
+- Copy any text, image, JSON-LD content, or branding from `arthritis-uk.org` / `versusarthritis.org`. Research is for structure, schema and keyword strategy only; copy will be original and grounded in the project knowledge base.
+- Buy or fabricate backlinks. The 8.6K-referring-domains gap is a real-world outreach/PR job, not a code change.
+- Add `/admin`, `/auth`, `/chat` to sitemap (still blocked by robots.txt — that decision stands).
+- Run a literal 24/7 watcher. The existing GitHub Actions already block broken commits; the daily sitemap rebuild cron is the practical equivalent and is already in plan.
+
+### What needs your call before I spawn
+
+The subagent will use ~15–20 Semrush calls. Confirm one:
+
+1. **Go ahead — spawn the subagent now and apply all fixes in one build pass.** (Fastest. You'll see one big PR-equivalent.)
+2. **Research only this turn — return the gap report, you review, then approve which fixes ship.** (Safer if you want to scope.)
+3. **Skip research, just ship the deterministic AEO + schema + llms.txt + speakable fixes now.** (No Semrush spend; smaller uplift but immediate.)
+
+Approve to proceed.
