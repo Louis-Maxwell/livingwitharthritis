@@ -79,6 +79,7 @@ export default function AdminSeoHealth() {
       <SeoHead
         title="SEO Health · Admin"
         description="Daily SEO, AEO and GEO refresh history."
+        path="/admin/seo-health"
         noindex
       />
       <main className="container mx-auto px-4 py-10 max-w-5xl">
