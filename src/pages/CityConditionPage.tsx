@@ -61,7 +61,12 @@ const CityConditionPage = () => {
     audience: {
       "@type": "MedicalAudience",
       audienceType: "Patient",
-      geographicArea: { "@type": "AdministrativeArea", name: `${cityData.name}, United Kingdom` },
+      geographicArea: {
+        "@type": "City",
+        name: cityData.name,
+        containedInPlace: { "@type": "Country", name: "United Kingdom" },
+        geo: { "@type": "GeoCoordinates", latitude: cityData.lat, longitude: cityData.lng },
+      },
     },
   };
 
@@ -82,7 +87,12 @@ const CityConditionPage = () => {
     name: `${conditionData.name} Support in ${cityData.name}`,
     description: metaDescription,
     url,
-    areaServed: { "@type": "City", name: `${cityData.name}, United Kingdom` },
+    areaServed: {
+      "@type": "City",
+      name: cityData.name,
+      containedInPlace: { "@type": "Country", name: "United Kingdom" },
+      geo: { "@type": "GeoCoordinates", latitude: cityData.lat, longitude: cityData.lng },
+    },
     medicalSpecialty: "Rheumatology",
     serviceType: `${conditionData.name} support and rheumatology guidance`,
   };
@@ -129,6 +139,8 @@ const CityConditionPage = () => {
         <meta property="og:type" content="article" />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content={cityData.name} />
+        <meta name="geo.position" content={`${cityData.lat};${cityData.lng}`} />
+        <meta name="ICBM" content={`${cityData.lat}, ${cityData.lng}`} />
         <meta
           name="keywords"
           content={`${conditionData.name} ${cityData.name}, ${conditionData.shortName} ${cityData.name}, rheumatology ${cityData.name}, arthritis ${cityData.name}, ${cityData.localTrust}`}
