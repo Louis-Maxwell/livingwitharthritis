@@ -4,8 +4,18 @@ import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
+import PageSchema from "@/components/seo/PageSchema";
 
 const Footer = lazy(() => import("@/components/Footer"));
+
+const HEALTH_SERVICES_FAQS = [
+  { question: "How do I get a rheumatology referral in the UK?", answer: "Book a GP appointment and describe your joint symptoms, including pattern, duration and morning stiffness. The GP can refer you to rheumatology. Suspected inflammatory arthritis (e.g. swollen small joints with morning stiffness over 30 minutes) should trigger an urgent referral to be seen within 3 weeks." },
+  { question: "What is a First Contact Physiotherapist?", answer: "First Contact Physiotherapists (FCPs) are senior physios working in GP practices. You can book directly without seeing a GP first. They assess musculoskeletal problems including arthritis, request scans, recommend exercises and refer on to specialists if needed." },
+  { question: "How long does a hip or knee replacement waiting list take in the UK?", answer: "After being added to a surgical waiting list, the national target is 18 weeks from referral to treatment, but typical waits range from 6 to 18+ months depending on region. Use our waiting-time calculator for a regional estimate." },
+  { question: "Is physiotherapy free for arthritis in the UK?", answer: "Yes — physiotherapy is free on the public health service when referred by a GP, First Contact Physio or hospital clinician. Many areas also offer self-referral. Waits vary; private physiotherapy typically costs £40–£70 per session if you want faster access." },
+  { question: "Can I get a joint injection for arthritis on the public health service?", answer: "Yes. Steroid (cortisone) injections for inflamed joints, and sometimes hyaluronic-acid injections for knees, are available via GP, physio or rheumatology referral. They can provide weeks to months of pain relief but are usually limited to a few per year per joint." },
+  { question: "What support is available for mental health alongside arthritis?", answer: "Chronic pain and arthritis are linked to higher rates of depression and anxiety. The public health service offers Talking Therapies (self-referral in England), pain-management programmes that include psychological support, and dedicated chronic-pain services. Mention low mood to your GP — it's recognised as part of arthritis care." },
+];
 
 const CONTENT = `
 <h2 id="overview">Overview of Arthritis Services</h2>
@@ -151,6 +161,20 @@ export default function HealthServicesGuide() {
       <meta name="twitter:description" content="Complete guide to arthritis services: GP referrals, first contact physiotherapists, rheumatology clinics, pain management, joint replacement surgery and mental health support across the UK." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
     </Helmet>
+      <PageSchema
+        url="/guides/health-services"
+        name="Arthritis Services Guide (UK)"
+        description="How to access free arthritis care: GP, First Contact Physio, rheumatology, joint replacement and mental-health support across the UK."
+        medical={{ condition: "Arthritis" }}
+        speakableSelector=".speakable-intro"
+        breadcrumbs={[
+          { name: "Home", item: "/" },
+          { name: "Guides", item: "/blog-hub" },
+          { name: "Arthritis Services" },
+        ]}
+        faqs={HEALTH_SERVICES_FAQS}
+        idPrefix="health-services-guide"
+      />
       <Header />
       <main className="min-h-screen bg-background">
         <PageHero
@@ -159,6 +183,12 @@ export default function HealthServicesGuide() {
           badge="Pillar Guide"
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
+          <p className="speakable-intro text-lg md:text-xl text-foreground/85 leading-relaxed mb-8">
+            Arthritis care in the UK is free at the point of use. Most journeys start with a
+            GP, who may refer you to a First Contact Physiotherapist, a rheumatology clinic or
+            an orthopaedic team. This guide explains how each service works, typical waiting
+            times, and what to do while you wait for an appointment.
+          </p>
           <TableOfContents html={html} />
           <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" dangerouslySetInnerHTML={{ __html: html }} />
           <div className="mt-16 pt-8 border-t border-border/30">

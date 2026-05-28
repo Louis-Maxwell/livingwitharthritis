@@ -4,8 +4,18 @@ import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
+import PageSchema from "@/components/seo/PageSchema";
 
 const Footer = lazy(() => import("@/components/Footer"));
+
+const DIET_GUIDE_FAQS = [
+  { question: "What is the best diet for arthritis in the UK?", answer: "The Mediterranean diet has the strongest evidence base for arthritis. It is rich in vegetables, fruits, wholegrains, olive oil, oily fish, nuts and pulses, and limits red meat, sugar and processed food. UK trials show it can reduce inflammatory markers like CRP by up to 20%." },
+  { question: "What foods make arthritis worse?", answer: "Ultra-processed foods, sugary drinks, refined carbohydrates, processed meats, excessive red meat and high-omega-6 vegetable oils are linked to higher inflammation. For gout specifically, alcohol (especially beer) and high-purine foods like organ meats and shellfish can trigger flares." },
+  { question: "Does turmeric really help arthritis?", answer: "Yes — clinical trials show 1,000 mg/day of standardised curcumin extract (taken with black pepper or as a phytosome formulation for absorption) can reduce knee osteoarthritis pain similarly to ibuprofen, with fewer side effects. Cooking turmeric is healthy but the active dose needs a concentrated supplement." },
+  { question: "How much oily fish should I eat with arthritis?", answer: "At least 2 portions per week, with one being oily (salmon, mackerel, sardines, trout). If you don't eat fish, a daily algae-based or fish-oil supplement providing 2–4 g of combined EPA and DHA is the closest equivalent." },
+  { question: "Can losing weight reduce arthritis pain?", answer: "Yes — for knee osteoarthritis, losing 5–10% of body weight produces clinically meaningful pain and function gains. Every 1 kg lost reduces knee load by about 4 kg with each step. Combined with exercise, weight loss is the most effective non-drug treatment for knee OA." },
+  { question: "Are supplements like glucosamine and collagen worth taking?", answer: "Evidence is mixed. Glucosamine sulphate (1,500 mg/day) has modest evidence for knee OA pain over 6+ months. Hydrolysed collagen peptides (10 g/day) show emerging benefit for joint comfort. Neither is a substitute for an anti-inflammatory diet, exercise and weight management." },
+];
 
 const CONTENT = `
 <h2 id="diet-and-arthritis">Why Diet Matters for Arthritis</h2>
@@ -183,6 +193,20 @@ export default function DietGuide() {
       <meta name="twitter:description" content="Evidence-based guide to the best diet for arthritis: Mediterranean diet, anti-inflammatory foods, omega-3s, turmeric, supplements, sample meal plans and weight management tips for UK patients." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
     </Helmet>
+      <PageSchema
+        url="/guides/diet"
+        name="Anti-Inflammatory Diet for Arthritis (UK)"
+        description="Evidence-based guide to the best diet for arthritis: Mediterranean eating, anti-inflammatory foods, omega-3s, turmeric and supplements."
+        medical={{ condition: "Arthritis" }}
+        speakableSelector=".speakable-intro"
+        breadcrumbs={[
+          { name: "Home", item: "/" },
+          { name: "Guides", item: "/blog-hub" },
+          { name: "Diet Guide" },
+        ]}
+        faqs={DIET_GUIDE_FAQS}
+        idPrefix="diet-guide"
+      />
       <Header />
       <main className="min-h-screen bg-background">
         <PageHero
@@ -191,6 +215,13 @@ export default function DietGuide() {
           badge="Pillar Guide"
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
+          <p className="speakable-intro text-lg md:text-xl text-foreground/85 leading-relaxed mb-8">
+            The best diet for arthritis is the Mediterranean diet — rich in vegetables, fruit,
+            wholegrains, olive oil, oily fish, nuts and pulses. UK trials show it can reduce
+            inflammatory markers by up to 20% and ease joint pain. For osteoarthritis, losing
+            5–10% of body weight on this pattern often delivers the largest pain relief of any
+            non-drug treatment.
+          </p>
           <TableOfContents html={html} />
           <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" dangerouslySetInnerHTML={{ __html: html }} />
           <div className="mt-16 pt-8 border-t border-border/30">
