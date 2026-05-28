@@ -25,7 +25,7 @@ const ServiceCard = ({ service }: { service: Service }) => {
           {service.description}
         </CardDescription>
         <div className="flex items-center text-[11px] font-bold text-primary opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:translate-x-1 tracking-[0.15em] uppercase">
-          Learn more
+          Explore {service.title}
           <ArrowRight className="ml-2 w-3.5 h-3.5" />
         </div>
       </CardContent>

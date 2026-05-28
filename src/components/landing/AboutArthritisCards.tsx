@@ -90,7 +90,7 @@ const AboutArthritisCards = () => {
                   {card.body}
                 </p>
                 <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary group-hover:gap-2.5 transition-all">
-                  Learn more
+                  Read {card.title}
                   <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
                 </span>
               </div>
