@@ -53,6 +53,8 @@ const Lupus = lazy(() => import("./pages/conditions/Lupus"));
 const KneeArthritis = lazy(() => import("./pages/conditions/KneeArthritis"));
 const HandArthritis = lazy(() => import("./pages/conditions/HandArthritis"));
 const ShoulderArthritis = lazy(() => import("./pages/conditions/ShoulderArthritis"));
+const PolymyalgiaRheumatica = lazy(() => import("./pages/conditions/PolymyalgiaRheumatica"));
+const ReactiveArthritis = lazy(() => import("./pages/conditions/ReactiveArthritis"));
 const SelfHelpTool = lazy(() => import("./pages/SelfHelpTool"));
 const ZakatAppeal = lazy(() => import("./pages/ZakatAppeal"));
 const ExerciseHub = lazy(() => import("./pages/ExerciseHub"));
@@ -172,6 +174,8 @@ function AnimatedRoutes() {
         <Route path="/conditions/knee-arthritis" element={<KneeArthritis />} />
         <Route path="/conditions/hand-arthritis" element={<HandArthritis />} />
         <Route path="/conditions/shoulder-arthritis" element={<ShoulderArthritis />} />
+        <Route path="/conditions/polymyalgia-rheumatica" element={<PolymyalgiaRheumatica />} />
+        <Route path="/conditions/reactive-arthritis" element={<ReactiveArthritis />} />
         <Route path="/self-help" element={<SelfHelpTool />} />
         <Route path="/exercises" element={<ExerciseHub />} />
         <Route path="/exercises/tai-chi-for-balance" element={<TaiChiForBalance />} />

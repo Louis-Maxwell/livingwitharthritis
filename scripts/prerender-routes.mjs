@@ -28,6 +28,8 @@ export const PRERENDER_ROUTES = [
   "/conditions/knee-arthritis",
   "/conditions/hand-arthritis",
   "/conditions/shoulder-arthritis",
+  "/conditions/polymyalgia-rheumatica",
+  "/conditions/reactive-arthritis",
   "/self-help",
   "/health-tools",
   "/ways-to-help",
