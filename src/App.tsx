@@ -156,6 +156,7 @@ function AnimatedRoutes() {
         <Route path="/admin/appointments" element={<AdminAppointments />} />
         <Route path="/admin/psi" element={<AdminPsiDashboard />} />
         <Route path="/admin/emails" element={<AdminEmails />} />
+        <Route path="/admin/seo-health" element={<AdminSeoHealth />} />
         <Route path="/blog" element={<BlogIndex />} />
         <Route path="/library" element={<Library />} />
         <Route path="/library/:slug" element={<LibraryTopic />} />
