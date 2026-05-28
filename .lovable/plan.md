@@ -1,64 +1,39 @@
-# Wave 2 — AEO, Schema & LLM-readiness for remaining priority routes
+## Add Polymyalgia Rheumatica & Reactive Arthritis condition pages
 
-Extend the AEO/AI-visibility pattern already applied to `BenefitsPIPGuide`, `ArthritisFlareUps`, and `ExerciseHub` to the rest of the high-intent pages. Same proven pattern: 40–60 word "answer paragraph" under H1, `FAQPage` JSON-LD, breadcrumbs, condition/medical schema, speakable spec, plus an LCP preload on the homepage.
+Mirror the existing `/conditions/*` pattern (e.g. `Fibromyalgia.tsx`, `Gout.tsx`) so the two new pages are indistinguishable in structure, styling and SEO depth from current pages.
 
-## Scope (pages to upgrade)
+### New files
+- `src/pages/conditions/PolymyalgiaRheumatica.tsx`
+- `src/pages/conditions/ReactiveArthritis.tsx`
 
-**Pillar guides** (high keyword value, missing FAQ/breadcrumb schema):
-- `src/pages/pillar/UKArthritisGuide.tsx`
-- `src/pages/pillar/DietGuide.tsx`
-- `src/pages/pillar/ExerciseGuide.tsx`
-- `src/pages/pillar/HealthServicesGuide.tsx`
+### Routing & discoverability
+- Register lazy imports + routes in `src/App.tsx`:
+  - `/conditions/polymyalgia-rheumatica`
+  - `/conditions/reactive-arthritis`
+- Add both routes to `scripts/prerender-routes.mjs` so crawler-readable HTML ships.
+- Add both URLs to `public/sitemap.xml`.
+- Append concise condition summaries (UK prevalence, key facts, citation policy) to `public/llms.txt`.
+- Link from the conditions index/landing list (wherever existing 11 conditions are listed) so users and crawlers can reach them.
 
-**Condition pages** (11 — add `MedicalCondition` + `FAQPage` + breadcrumbs + speakable intro):
-- Osteoarthritis, RheumatoidArthritis, PsoriaticArthritis, Gout, AnkylosingSpondylitis, JuvenileArthritis, Fibromyalgia, Lupus, KneeArthritis, HandArthritis, ShoulderArthritis
+### Per-page content (AEO-ready)
+Each page includes:
+1. Unique `<title>` ≤60 chars and single H1 (e.g. "Polymyalgia Rheumatica: UK Guide, Symptoms & Treatment").
+2. `.speakable-intro` 40–60 word plain-English answer paragraph directly under H1.
+3. "Key takeaways" `<ul>` (3–5 bullets) covering who it affects, hallmark symptoms, UK treatment pathway.
+4. Sections: Overview, Symptoms, Causes & risk factors, Diagnosis (UK/GP pathway), Treatment, Living with it / self-management, When to see a GP, FAQs.
+5. UK-specific stats only (NICE / NHS-style figures, no NHS branding per project memory).
+6. Internal links to Exercise Hub, Diet Guide, Flare-ups, Self-Help Tool, Waiting List Help.
 
-**Diet / Exercise / Myths long-form:**
-- `src/pages/diet/MediterraneanDietForArthritis.tsx` — `Article` + `FAQPage` + `HowTo` (sample day) + speakable
-- `src/pages/exercises/TaiChiForArthritis.tsx`, `TaiChiForBalance.tsx`, `TaiChiForBeginners.tsx`, `SeatedTaiChiForArthritis.tsx` — `HowTo` + `FAQPage` + breadcrumbs
-- `src/pages/myths/DoesCrackingKnucklesCauseArthritis.tsx` — `ClaimReview` + `FAQPage`
+### JSON-LD schema (via existing `PageSchema` helper in `src/components/seo/PageSchema.tsx`)
+- `BreadcrumbList` (Home › Conditions › [Name])
+- `MedicalCondition` (name, alternateName, signOrSymptom, riskFactor, possibleTreatment)
+- `MedicalWebPage` + `SpeakableSpecification` targeting `.speakable-intro`
+- `FAQPage` with 6–8 high-intent UK questions per condition (e.g. "What is polymyalgia rheumatica?", "How long does PMR last?", "Can reactive arthritis come back?", "Is reactive arthritis curable?")
+- `Article` with author = Living with Arthritis, publisher logo
 
-**Tool / support hubs:**
-- `src/pages/tools/WaitingTimeCalculator.tsx` — `HowTo` + `FAQPage`
-- `src/pages/WaitingListHelp.tsx` — `FAQPage` + breadcrumbs
-- `src/pages/SelfHelpTool.tsx` — `FAQPage` + breadcrumbs
+### Verification
+- Run `node scripts/validate-jsonld.mjs` and `node scripts/check-canonicals.mjs`.
+- Spot-check both routes render, title <60 chars, single H1, speakable block present.
 
-## Per-page pattern (deterministic, no new components)
-
-1. Add a `.speakable-intro` 40–60-word answer paragraph directly under H1, in plain English, answering the page's primary query.
-2. Add a "Key takeaways" `<ul>` (3–5 bullets) above the first deep section on long-form pages.
-3. Inject JSON-LD via the project's existing `useEffect` pattern (per memory — never via Helmet) with a unique `id` per schema so cleanup works:
-   - `BreadcrumbList` on every page
-   - `FAQPage` built from the 5–8 most-searched questions for that topic
-   - `MedicalCondition` on each condition page (name, alternateName, signOrSymptom, riskFactor, possibleTreatment, epidemiology — UK figures only)
-   - `MedicalWebPage` + `SpeakableSpecification` (cssSelector `.speakable-intro`) on guides/conditions/diet
-   - `HowTo` on Tai Chi pages and waiting-time calculator
-   - `Article` + `speakable` on Mediterranean diet and myths page
-4. Tighten any `<title>` over 60 chars discovered during the edit.
-
-## Homepage LCP preload
-
-In `index.html`, add `<link rel="preload" as="image" href="<OAHero image URL>" fetchpriority="high" imagesrcset="…">` for the hero image used in `OAHero`. Confirm `font-display: swap` is already set (it is — leave fonts alone unless verification fails). No `Index.tsx` logic changes.
-
-## Prerender list
-
-`scripts/prerender-routes.mjs` already covers all the above routes, so no additions needed — just confirm during the edit pass.
-
-## Out of scope (explicitly NOT in this wave)
-
-- No copy from competitors; FAQ questions sourced from existing on-page content + UK search-intent patterns
-- No `/admin`, `/auth`, `/chat` sitemap changes
-- No new React components, no design changes, no Framer Motion, no Helmet refactors
-- No backend / Supabase / edge-function changes
-- No new images generated (preload uses existing hero asset)
-
-## Technical notes
-
-- All JSON-LD injected via `useEffect` with `document.createElement("script")`, unique `id`, and a cleanup `return` — matches the established pattern in `Index.tsx` and `BenefitsPIPGuide.tsx`.
-- UK English throughout; "for everyone" phrasing; no "NHS" references; no "AI" branding in user-facing copy.
-- Colour tokens untouched (white bg, black text, red accents preserved).
-- Verification: after edits, run `node scripts/validate-jsonld.mjs` against the changed routes and `node scripts/check-canonicals.mjs` to confirm no duplicate canonicals.
-
-## Delivery
-
-One build pass, ~22 file edits + 1 `index.html` preload edit. No new dependencies.
+### Out of scope
+No new components, no Framer Motion, no backend, no design-system changes, no edits to other condition pages.
