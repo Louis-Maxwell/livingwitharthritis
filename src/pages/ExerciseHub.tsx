@@ -190,6 +190,26 @@ const ExerciseHub = () => {
             { "@type": "ListItem", "position": 2, "name": "Exercises", "item": "https://livingwitharthritis.org.uk/exercises" }
           ]
         })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          "name": "How to start exercising with arthritis",
+          "description": "A safe, joint-friendly exercise routine for people with osteoarthritis or rheumatoid arthritis, aligned with NICE guidelines.",
+          "totalTime": "PT30M",
+          "step": [
+            { "@type": "HowToStep", "position": 1, "name": "Warm up gently", "text": "Spend 5 minutes doing slow walking on the spot or gentle shoulder rolls to increase blood flow to joints before exercise." },
+            { "@type": "HowToStep", "position": 2, "name": "Low-impact aerobic movement", "text": "Walk, cycle, or swim for 10–20 minutes at a comfortable pace. These activities reduce joint stress while improving cardiovascular health." },
+            { "@type": "HowToStep", "position": 3, "name": "Strengthening exercises", "text": "Perform 2 sets of 10 straight-leg raises or seated knee extensions to build muscle support around the knee and hip joints." },
+            { "@type": "HowToStep", "position": 4, "name": "Flexibility and balance", "text": "Hold each gentle stretch for 20–30 seconds. Tai chi or yoga for 5–10 minutes improves balance and reduces fall risk." },
+            { "@type": "HowToStep", "position": 5, "name": "Cool down", "text": "Finish with 3–5 minutes of slow walking and deep breathing. Apply ice to any joints that feel warm post-exercise." }
+          ]
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "url": "https://livingwitharthritis.org.uk/exercises",
+          "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable-intro"] }
+        })}</script>
       </Helmet>
 
       <Header />
