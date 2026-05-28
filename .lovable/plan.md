@@ -1,66 +1,156 @@
-## Daily SEO / AEO / GEO Refresh Pipeline
+# Growth Plan — 40–50M Visits/Year & 40% Bounce Rate
 
-Goal: keep search engines (SEO), answer engines (AEO — ChatGPT, Perplexity, Google AI Overviews) and geo/local crawlers (GEO) seeing fresh, valid, well-structured signals from `livingwitharthritis.org.uk` every day — without manual intervention.
+## Reality Check (current baseline)
+- Last 90 days: **1,381 visitors / 1,986 pageviews**, bounce **~79%**, ~1.44 pages/visit.
+- Target: **~110,000–140,000 visits/day** (≈ **30,000× current**) and bounce **40%**.
+- Honest expectation: 40–50M/yr in 12 months is in the realm of the BBC Health / NHS / Healthline UK. Realistic stretch for a UK arthritis charity in year one is **2–5M/yr**. Plan below is built to *credibly chase* the 40–50M ceiling while compounding monthly; we'll re-forecast each quarter.
 
-### 1. Scheduled trigger (pg_cron + edge function)
+---
 
-Create one cron job that fires every day at 03:00 UTC and invokes a new edge function `daily-seo-refresh`. Implemented via `pg_cron` + `pg_net` (per project conventions), with the anon key stored in the cron SQL — not in a migration.
+## Strategy Pillars
 
-### 2. What `daily-seo-refresh` does
+1. **Programmatic SEO at scale** (the only realistic path to 8-figure traffic)
+2. **AEO/GEO** so AI assistants cite us (ChatGPT, Gemini, Perplexity, Google AI Overviews)
+3. **Engagement redesign** — kill the 79% bounce
+4. **Distribution** — social, email, partnerships, PR
+5. **Performance & Core Web Vitals** — Google ranking + bounce
 
-The function runs four jobs in sequence and writes a single JSON report row to a new `seo_refresh_runs` table (date, status, counts, errors). Failures email `info@livingwitharthritis.org.uk` via the existing transactional email pipeline.
+---
 
-**a. Sitemap regeneration**
-- Re-runs the logic in `scripts/generate-sitemap.ts` server-side: enumerates static routes + all `arthritisConditions` × `ukCities` + blog posts (DB) + daily tips.
-- Writes the result to a `public.sitemap_cache` row and exposes it at `/sitemap.xml` through an edge route, so updates do not require a redeploy.
-- Sets each `<lastmod>` to the row's true `updated_at` (blog posts, tips) or today's date for static index pages only when their underlying data changed.
+## Phase 1 — Engagement Fix (Weeks 1–4) → bounce target 60%
 
-**b. llms.txt + ai.txt refresh**
-- Rebuilds `public/llms.txt` from the current sitemap so AEO crawlers (Perplexity, ChatGPT, Claude) always see the live URL set, top conditions, top cities, top blog posts.
-- Re-emits `public/.well-known/ai.txt` with today's date in a `# Updated:` header — a small but real freshness signal for AI crawlers.
+Bounce is the highest-leverage lever; we can't scale traffic onto a leaky page.
 
-**c. JSON-LD + GEO validation sweep**
-- Calls the existing `scripts/validate-jsonld.mjs` logic (ported into the function as a fetch-based check, no Puppeteer) against a rotating sample of 25 routes per day — covering every route over a ~2-week cycle.
-- Verifies required fields per `@type`, and for city pages confirms `GeoCoordinates.latitude` / `longitude` are present and inside UK bounds.
-- Failures are written into `seo_refresh_runs.errors` and the offending route is queued for re-prerender.
+- **Above-the-fold rewrite of `/`**: single clear question ("What hurts?") with 3 large tappable entry tiles (Knee, Hip, Hand) → routes to condition pages. Remove all decorative bands above the fold.
+- **Sticky "related reading" rail** on every article (3 next reads + 1 self-help tool).
+- **Auto-scroll-tracked Table of Contents** on long articles → measurable dwell.
+- **Exit-intent**: "Get the free 7-day anti-inflammatory meal plan" email capture (already brand-aligned).
+- **Mobile fixes**: 644 of 1,346 visits are mobile; audit tap targets, font sizing, CLS.
+- **Remove dead-ends**: every leaf page must link to ≥3 internal destinations (already partly done via `InternalLinks.tsx`).
+- **Search bar in header** — surfaced site search drops bounce materially on content sites.
 
-**d. PSI / Lighthouse ping**
-- Reuses the existing `run-psi-audit` edge function for 5 priority URLs per day (home, /diet, /exercises, top blog, top city) so Core Web Vitals trend data accumulates daily instead of on-demand.
+KPI gate: bounce ≤60%, pages/visit ≥2.2 before opening the traffic taps.
 
-### 3. Daily content freshness signals (lightweight)
+---
 
-- A new `daily_tip_of_day` materialised view picks one tip per day deterministically from `dailyTips.ts` and is surfaced on `/` and `/daily-tip`, giving the homepage a true daily `dateModified`.
-- The homepage `WebPage` JSON-LD `dateModified` is set from that view, not from build time.
+## Phase 2 — Programmatic SEO Expansion (Weeks 3–16) → 50k–500k visits/mo
 
-### 4. Reporting surface
+We already have city × condition pages. Expand the matrix:
 
-- New admin route `/admin/seo-health` (gated by existing `useAdmin` hook) shows the last 14 `seo_refresh_runs`: pass/fail counts, broken schema routes, sitemap size, PSI scores, AEO crawler hits (parsed from existing analytics where `source` ∈ ChatGPT / Perplexity / Google-Extended).
-- One-click "Re-run now" button calls the same edge function ad hoc.
+- **Conditions** (12): osteoarthritis, RA, psoriatic, gout, fibromyalgia, ankylosing spondylitis, lupus, juvenile, reactive, septic, OA-knee, OA-hip…
+- **Cities** (200 UK towns already in `ukCities.ts`) → **2,400 condition×city pages**.
+- **Symptom pages** (40): "morning stiffness", "knee clicking", "swollen finger joints"… × condition = **480 pages**.
+- **Treatment pages**: "TENS for [condition]", "[supplement] for [condition]", "[exercise] for [joint]" → ~600 pages.
+- **"Near me" pages**: "physiotherapist near me [city]" (info only, not directory) → 200.
+- **NICE-aligned medication explainers** (~80 drugs).
 
-### 5. AEO-specific additions
+Total programmatic surface: **~3,800 unique pages**, each genuinely useful (symptoms, evidence summary, exercises, when to see a GP, local NHS trust link).
 
-- Add `X-Robots-Tag: all` and a small `# AI-Training: allow` echo in HTTP headers via `public/_headers` so Cloudflare-style CDNs forward the AEO signal we already declare in `ai.txt`.
-- Inject a per-page `speakable` schema block on condition + city pages (boost for voice / answer engines).
+Quality guardrails (otherwise Google penalises):
+- 600+ words of unique content per page (templated structure, unique data).
+- One unique medically-reviewed paragraph per page.
+- Schema: `MedicalCondition`, `MedicalWebPage`, `FAQPage`, `BreadcrumbList`.
+- All generated by an admin tool that pulls from `blog_articles` + condition database; no public AI-author branding (per memory).
 
-### 6. Out of scope
+---
 
-- No redesign, no new public pages beyond `/daily-tip` and `/admin/seo-health`.
-- No change to existing route components beyond reading `dateModified` from the new view.
-- No new third-party SEO service — uses Lovable Cloud + pg_cron + existing scripts only.
+## Phase 3 — AEO / GEO (Weeks 4–20) → cited by AI assistants
 
-### Technical summary
+- **One-sentence answer block** at top of every article (the "AI snippet").
+- **FAQPage schema** on every condition/symptom page (10 Q&As each).
+- **HowTo schema** on every exercise.
+- **`speakable` schema** for voice assistants.
+- **`/llms.txt` and `/ai.txt`** kept fresh by the daily refresh job already built.
+- **Structured data feed**: publish `/api/conditions.json` + `/api/exercises.json` for AI crawlers.
+- Submit to **Perplexity Pages**, **Common Crawl**, **Brave Search index**, **You.com**.
+- Get listed on **NHS A–Z external links**, **Wikipedia citations** (arthritis articles), **patient.info** referencing.
 
-- New table: `public.seo_refresh_runs` (id, ran_at, ok, sitemap_count, schema_errors jsonb, psi_scores jsonb) + GRANTs + RLS (admin-only select).
-- New table/view: `public.daily_tip_of_day`.
-- New edge function: `supabase/functions/daily-seo-refresh/index.ts`.
-- New edge route: `supabase/functions/serve-sitemap/index.ts` (returns cached XML).
-- New cron job: `daily-seo-refresh @ 03:00 UTC`.
-- New page: `src/pages/AdminSeoHealth.tsx`.
-- Edited: `public/_headers`, `src/pages/Index.tsx` (read dateModified from view).
+---
 
-### Verification
+## Phase 4 — Distribution (Weeks 6–52)
 
-- Manual first run of `daily-seo-refresh` writes a green row and the admin page renders it.
-- `curl /sitemap.xml` returns freshly-dated XML matching DB state.
-- `validate-jsonld` portion exits clean on the sampled routes.
-- Cron job visible via `select * from cron.job`.
+Programmatic SEO alone won't hit 40M. Layered distribution:
+
+- **YouTube**: 2 exercise videos/week (gentle, named after long-tail keywords). Each video = 1 blog post + 1 short. Target: 100k subs / 1M views/mo by month 12.
+- **TikTok / Instagram Reels**: daily 30s tip from `dailyTips.ts`. Goal: 250k followers.
+- **Email list**: target 100k subscribers via lead magnets (meal plan, exercise PDF, symptom tracker).
+- **PR**: monthly data study ("UK cities with worst arthritis wait times" — FOI requests to NHS trusts → guaranteed local-paper pickup → backlinks).
+- **Partnerships**: Versus Arthritis, NRAS, Arthritis Action — guest content swap (respecting the political-neutrality memory; no sponsorship list).
+- **Reddit**: helpful answers in r/arthritis, r/ChronicPain (10/week, no spam).
+- **Backlinks**: outreach to 500 health bloggers + UK physio clinics.
+
+---
+
+## Phase 5 — Performance (Weeks 2–8, ongoing)
+
+- LCP < 1.8s, INP < 200ms, CLS < 0.05 on every template (currently flagged in SEO findings).
+- Pre-render all programmatic pages (already partially via prerender script).
+- Cache `/sitemap.xml` via the edge function already built; ship daily.
+- Image CDN with AVIF + responsive `srcset` (already centralised — extend).
+- Defer non-critical JS; route-level code splitting audit.
+
+---
+
+## Forecast (visits/mo, realistic)
+
+```text
+Month  SEO    Social  Email  Direct  Total
+ 1      2k     0.5k    0     1k       3.5k
+ 3     30k    10k     2k     3k       45k
+ 6    250k    60k    15k     8k      333k
+ 9    900k   180k    50k    20k      1.15M
+12  2,800k   500k   150k    50k      3.5M/mo  ≈ 25–30M/yr
+```
+
+Hitting **40–50M/yr** requires one of: a viral content moment, an NHS partnership citation, or Google AI Overview inclusion across major arthritis queries. We plan for it, but we don't promise it.
+
+---
+
+## What gets built in code (this project)
+
+1. **Engagement layer**
+   - Redesigned `/` hero with 3 entry tiles
+   - `RelatedReadingRail.tsx` component on every article
+   - `StickyToc.tsx` with scroll-progress + dwell tracking
+   - `ExitIntentModal.tsx` (meal-plan capture, posts to `email_subscribers` table)
+   - Header site-search (client-side index over articles, conditions, exercises)
+
+2. **Programmatic SEO**
+   - `SymptomPage.tsx` route (`/symptoms/:slug`)
+   - `TreatmentPage.tsx` route (`/treatments/:slug`)
+   - `MedicationPage.tsx` route (`/medications/:slug`)
+   - Extend `generateSitemap.ts` to include the new matrices
+   - Admin generator at `/admin/content-factory` to draft + publish in batches with medical-review checkbox
+   - New tables: `symptoms`, `treatments`, `medications`, `email_subscribers`
+
+3. **AEO/GEO**
+   - `<AnswerBlock>` component injected at top of every long-form page
+   - `FaqSchema`, `HowToSchema`, `SpeakableSchema` helpers
+   - `/api/conditions.json` and `/api/exercises.json` edge functions
+
+4. **Performance**
+   - LCP image audit + AVIF pipeline
+   - Lazy-load below-the-fold sections
+   - Move Helmet JSON-LD injection to build-time for prerendered routes
+
+5. **Measurement**
+   - Extend `AdminSeoHealth.tsx` with bounce-rate-by-template chart from GA4
+   - Weekly auto-report email to admin
+
+---
+
+## Out of scope
+- No paid ads (charity budget assumption).
+- No native mobile app.
+- No new brand redesign — respects existing white/black/red identity memory.
+- No "AI-powered" user-facing copy (per existing constraint memory).
+
+---
+
+## Milestones
+- **Week 4**: bounce ≤60%, pages/visit ≥2.2
+- **Week 12**: 2,400 city×condition pages live, 50k visits/mo
+- **Week 26**: 333k visits/mo, bounce ≤45%
+- **Week 52**: 3M+ visits/mo, bounce ≤40%, on trajectory toward 40–50M/yr in year 2
+
+Re-forecast quarterly against real analytics.
