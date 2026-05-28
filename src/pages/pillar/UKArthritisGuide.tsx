@@ -4,8 +4,18 @@ import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
+import PageSchema from "@/components/seo/PageSchema";
 
 const Footer = lazy(() => import("@/components/Footer"));
+
+const UK_ARTHRITIS_FAQS = [
+  { question: "How many people in the UK have arthritis?", answer: "Around 10 million people in the UK live with arthritis — roughly 1 in 6 adults. Osteoarthritis is by far the most common type, affecting more than 8.75 million people, followed by rheumatoid arthritis (around 400,000) and psoriatic arthritis (around 146,000)." },
+  { question: "What is the most common type of arthritis in the UK?", answer: "Osteoarthritis is the most common type, accounting for the large majority of cases. It is sometimes called 'wear and tear' arthritis and most often affects the knees, hips, hands and spine." },
+  { question: "Is arthritis a disability in the UK?", answer: "Arthritis is recognised as a disability under the Equality Act 2010 when it has a substantial, long-term effect on day-to-day activities. Many people with arthritis qualify for reasonable workplace adjustments and may be eligible for Personal Independence Payment (PIP)." },
+  { question: "Can arthritis be cured?", answer: "There is no cure for most forms of arthritis, but symptoms can be managed effectively with a combination of exercise, weight management, anti-inflammatory diet, physiotherapy and — for inflammatory types — disease-modifying medications that can put the condition into remission." },
+  { question: "What is the best treatment for arthritis in the UK?", answer: "NICE guidelines (NG226) recommend a core package of exercise, weight management and patient education first, with medications, physiotherapy and joint replacement surgery added as needed. For inflammatory arthritis, early DMARD treatment from a rheumatology team is critical." },
+  { question: "How long do I have to wait to see a rheumatologist on the public health service?", answer: "Waiting times vary widely. The national target is 18 weeks from referral to first appointment, but actual waits range from around 8 weeks in some areas to over 30 weeks in others. Urgent inflammatory arthritis referrals are typically seen within 3 weeks." },
+];
 
 const CONTENT = `
 <h2 id="what-is-arthritis">What Is Arthritis?</h2>
@@ -217,6 +227,20 @@ export default function UKArthritisGuide() {
       <meta name="twitter:description" content="The definitive UK guide to arthritis: types (OA, RA, PsA), symptoms, standard treatment options, self-management strategies, and support resources. Covers 100+ types affecting 10 million people." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
     </Helmet>
+      <PageSchema
+        url="/guides/uk-arthritis"
+        name="The Complete UK Arthritis Guide"
+        description="Everything you need to know about arthritis in the UK — types, symptoms, treatments, services and support."
+        medical={{ condition: "Arthritis" }}
+        speakableSelector=".speakable-intro"
+        breadcrumbs={[
+          { name: "Home", item: "/" },
+          { name: "Guides", item: "/blog-hub" },
+          { name: "UK Arthritis Guide" },
+        ]}
+        faqs={UK_ARTHRITIS_FAQS}
+        idPrefix="uk-arthritis-guide"
+      />
       <Header />
       <main className="min-h-screen bg-background">
         <PageHero
@@ -225,6 +249,13 @@ export default function UKArthritisGuide() {
           badge="Pillar Guide"
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
+          <p className="speakable-intro text-lg md:text-xl text-foreground/85 leading-relaxed mb-8">
+            Arthritis is an umbrella term for more than 100 conditions that cause joint pain,
+            swelling and stiffness. In the UK, around 10 million people live with arthritis —
+            roughly 1 in 6 adults. The most common type is osteoarthritis, followed by
+            rheumatoid arthritis and gout. This guide covers the main types, how they are
+            diagnosed and treated, and the UK services and benefits available to you.
+          </p>
           <TableOfContents html={html} />
           <article
             className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary"
