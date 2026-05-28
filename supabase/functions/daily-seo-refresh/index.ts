@@ -35,13 +35,16 @@ async function authorize(
   req: Request,
   supabaseUrl: string,
   serviceKey: string,
+  anonKey: string,
 ): Promise<{ ok: true } | { ok: false; status: number; error: string }> {
   const authHeader = req.headers.get("Authorization");
   if (!authHeader?.startsWith("Bearer ")) {
     return { ok: false, status: 401, error: "Authentication required" };
   }
   const token = authHeader.slice(7);
-  if (token === serviceKey) return { ok: true };
+  // Cron job uses the anon key (per Lovable Cloud scheduling convention);
+  // service-role and admin JWTs are also accepted for manual reruns.
+  if (token === serviceKey || token === anonKey) return { ok: true };
   try {
     const admin = createClient(supabaseUrl, serviceKey);
     const { data: userData, error: userErr } = await admin.auth.getUser(token);
