@@ -4,8 +4,18 @@ import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
+import PageSchema from "@/components/seo/PageSchema";
 
 const Footer = lazy(() => import("@/components/Footer"));
+
+const EXERCISE_GUIDE_FAQS = [
+  { question: "What is the best exercise for arthritis?", answer: "Low-impact aerobic activity (walking, swimming, cycling), strength training and a flexibility practice such as tai chi or yoga. UK NICE guidelines (NG226) put exercise ahead of medication for osteoarthritis. The single best exercise is the one you'll actually do 3–5 times per week." },
+  { question: "Should I exercise if my joints hurt?", answer: "Yes — moderate joint pain (up to about 4/10) during arthritis exercise is normal and safe, provided the pain settles within 24 hours. Stop and reduce intensity if pain stays high overnight, joints swell, or you experience sharp catching pain." },
+  { question: "How much exercise should someone with arthritis do per week?", answer: "Aim for 150 minutes of moderate aerobic activity per week (e.g. five 30-minute walks), plus 2 sessions of muscle-strengthening work, in line with UK Chief Medical Officer guidelines. Break it into 10-minute blocks if needed — short, frequent sessions count." },
+  { question: "Is walking good for arthritis?", answer: "Yes. Walking is one of the most strongly evidenced exercises for knee and hip osteoarthritis. Start with 10–15 minutes on flat ground and build up. Supportive footwear and walking poles can reduce knee load by up to 25%." },
+  { question: "Is swimming better than the gym for arthritis?", answer: "Swimming and water-based exercise remove weight-bearing stress, making them excellent during flares or for severe joint disease. Gym-based strength training, however, is essential for protecting joints long-term — most people benefit from a combination." },
+  { question: "Can I do strength training with rheumatoid arthritis?", answer: "Yes — and you should. Progressive resistance training is safe and beneficial in stable RA, helping counter the muscle loss that comes with inflammation and steroid use. Avoid heavy loads during an acute flare and resume gradually once it settles." },
+];
 
 const CONTENT = `
 <h2 id="why-exercise-matters">Why Exercise Is the Best Medicine for Arthritis</h2>
@@ -189,6 +199,20 @@ export default function ExerciseGuide() {
       <meta name="twitter:description" content="Evidence-based exercise guide for arthritis: low-impact aerobic, strength training, flexibility, water-based and chair exercises. Progressive programmes for knee, hip, hand and shoulder joints." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
     </Helmet>
+      <PageSchema
+        url="/guides/exercise"
+        name="Best Exercises for Arthritis (UK)"
+        description="Evidence-based exercise guide for arthritis: low-impact aerobic, strength, flexibility, water-based and chair exercises for every major joint."
+        medical={{ condition: "Arthritis" }}
+        speakableSelector=".speakable-intro"
+        breadcrumbs={[
+          { name: "Home", item: "/" },
+          { name: "Guides", item: "/blog-hub" },
+          { name: "Exercise Guide" },
+        ]}
+        faqs={EXERCISE_GUIDE_FAQS}
+        idPrefix="exercise-guide"
+      />
       <Header />
       <main className="min-h-screen bg-background">
         <PageHero
@@ -197,6 +221,13 @@ export default function ExerciseGuide() {
           badge="Pillar Guide"
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
+          <p className="speakable-intro text-lg md:text-xl text-foreground/85 leading-relaxed mb-8">
+            Exercise is the single most effective non-drug treatment for arthritis. UK NICE
+            guidelines (NG226) put it ahead of medication for osteoarthritis. Aim for 150
+            minutes of low-impact aerobic activity per week (walking, swimming, cycling),
+            plus two sessions of strength work and a flexibility practice such as tai chi.
+            Start short, build gradually, and pick activities you enjoy.
+          </p>
           <TableOfContents html={html} />
           <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" dangerouslySetInnerHTML={{ __html: html }} />
           <div className="mt-16 pt-8 border-t border-border/30">
