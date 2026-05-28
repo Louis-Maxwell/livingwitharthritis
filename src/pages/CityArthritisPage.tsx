@@ -28,7 +28,12 @@ const CityArthritisPage = () => {
     audience: {
       "@type": "MedicalAudience",
       audienceType: "Patient",
-      geographicArea: { "@type": "AdministrativeArea", name: `${cityData.name}, United Kingdom` },
+      geographicArea: {
+        "@type": "City",
+        name: cityData.name,
+        containedInPlace: { "@type": "Country", name: "United Kingdom" },
+        geo: { "@type": "GeoCoordinates", latitude: cityData.lat, longitude: cityData.lng },
+      },
     },
   };
 
@@ -48,7 +53,12 @@ const CityArthritisPage = () => {
     name: `Arthritis Support in ${cityData.name}`,
     description: cityData.description,
     url: `${BASE}/arthritis-support/${cityData.slug}`,
-    areaServed: { "@type": "City", name: `${cityData.name}, United Kingdom` },
+    areaServed: {
+      "@type": "City",
+      name: cityData.name,
+      containedInPlace: { "@type": "Country", name: "United Kingdom" },
+      geo: { "@type": "GeoCoordinates", latitude: cityData.lat, longitude: cityData.lng },
+    },
     medicalSpecialty: "Rheumatology",
     serviceType: "Arthritis support and rheumatology guidance",
   };
@@ -75,6 +85,8 @@ const CityArthritisPage = () => {
         <meta property="og:type" content="article" />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content={cityData.name} />
+        <meta name="geo.position" content={`${cityData.lat};${cityData.lng}`} />
+        <meta name="ICBM" content={`${cityData.lat}, ${cityData.lng}`} />
         <meta name="keywords" content={`arthritis ${cityData.name}, rheumatology ${cityData.name}, arthritis support ${cityData.name}, ${cityData.localTrust} rheumatology, arthritis help ${cityData.region}`} />
         <meta property="og:site_name" content="Living With Arthritis UK" />
         <meta property="og:locale" content="en_GB" />

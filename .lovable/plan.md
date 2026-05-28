@@ -1,39 +1,36 @@
-## Add Polymyalgia Rheumatica & Reactive Arthritis condition pages
+## Add accurate lat/lng to all UK cities + surface in city-page schema
 
-Mirror the existing `/conditions/*` pattern (e.g. `Fibromyalgia.tsx`, `Gout.tsx`) so the two new pages are indistinguishable in structure, styling and SEO depth from current pages.
+The `ukCities` dataset (~50 cities in `src/data/ukCities.ts`) has no coordinates today. The user wants correct lat/lng across the dataset and the city pages still rendering / valid after the change.
 
-### New files
-- `src/pages/conditions/PolymyalgiaRheumatica.tsx`
-- `src/pages/conditions/ReactiveArthritis.tsx`
+### 1. Extend the data model
+- Add `lat: number;` and `lng: number;` (required) to the `UKCity` interface.
+- Populate every existing city with WGS84 city-centre coordinates rounded to 4 decimals (≈11 m precision), e.g. London 51.5074 / −0.1278, Manchester 53.4808 / −2.2426, Edinburgh 55.9533 / −3.1883, Belfast 54.5973 / −5.9301, Cardiff 51.4816 / −3.1791, etc. Source: Ordnance Survey OS Open Names / ONS centroids — cross-checked against Wikipedia infobox values.
+- Reformat the array one city per line in clean multi-line objects so the file stays diff-readable (current single-line rows are hard to review).
 
-### Routing & discoverability
-- Register lazy imports + routes in `src/App.tsx`:
-  - `/conditions/polymyalgia-rheumatica`
-  - `/conditions/reactive-arthritis`
-- Add both routes to `scripts/prerender-routes.mjs` so crawler-readable HTML ships.
-- Add both URLs to `public/sitemap.xml`.
-- Append concise condition summaries (UK prevalence, key facts, citation policy) to `public/llms.txt`.
-- Link from the conditions index/landing list (wherever existing 11 conditions are listed) so users and crawlers can reach them.
+### 2. Use the coordinates in JSON-LD (AEO / GEO)
+In both `src/pages/CityArthritisPage.tsx` and `src/pages/CityConditionPage.tsx`, upgrade the existing schema block where `geographicArea` is set:
 
-### Per-page content (AEO-ready)
-Each page includes:
-1. Unique `<title>` ≤60 chars and single H1 (e.g. "Polymyalgia Rheumatica: UK Guide, Symptoms & Treatment").
-2. `.speakable-intro` 40–60 word plain-English answer paragraph directly under H1.
-3. "Key takeaways" `<ul>` (3–5 bullets) covering who it affects, hallmark symptoms, UK treatment pathway.
-4. Sections: Overview, Symptoms, Causes & risk factors, Diagnosis (UK/GP pathway), Treatment, Living with it / self-management, When to see a GP, FAQs.
-5. UK-specific stats only (NICE / NHS-style figures, no NHS branding per project memory).
-6. Internal links to Exercise Hub, Diet Guide, Flare-ups, Self-Help Tool, Waiting List Help.
+```jsonc
+geographicArea: {
+  "@type": "City",
+  name: cityData.name,
+  containedInPlace: { "@type": "Country", name: "United Kingdom" },
+  geo: { "@type": "GeoCoordinates", latitude: cityData.lat, longitude: cityData.lng }
+}
+```
 
-### JSON-LD schema (via existing `PageSchema` helper in `src/components/seo/PageSchema.tsx`)
-- `BreadcrumbList` (Home › Conditions › [Name])
-- `MedicalCondition` (name, alternateName, signOrSymptom, riskFactor, possibleTreatment)
-- `MedicalWebPage` + `SpeakableSpecification` targeting `.speakable-intro`
-- `FAQPage` with 6–8 high-intent UK questions per condition (e.g. "What is polymyalgia rheumatica?", "How long does PMR last?", "Can reactive arthritis come back?", "Is reactive arthritis curable?")
-- `Article` with author = Living with Arthritis, publisher logo
+Keep the existing `<meta name="geo.placename">` / `geo.region` tags; add `<meta name="geo.position" content="{lat};{lng}">` and `<meta name="ICBM" content="{lat}, {lng}">` for legacy AEO/GEO crawlers.
 
-### Verification
-- Run `node scripts/validate-jsonld.mjs` and `node scripts/check-canonicals.mjs`.
-- Spot-check both routes render, title <60 chars, single H1, speakable block present.
+### 3. Keep prerender + sitemap valid
+- `scripts/prerender-routes.mjs` and `public/sitemap.xml` already list city routes through patterns — no schema change needed. Re-run prerender to confirm output.
+- Run `node scripts/validate-jsonld.mjs` (already exists per prior work) on the prerendered city pages to confirm the new `GeoCoordinates` block parses.
+- Spot-check 3 representative cities (London, Edinburgh, Belfast) in the browser preview: title still <60 chars, single H1, schema valid in Rich Results syntax.
 
 ### Out of scope
-No new components, no Framer Motion, no backend, no design-system changes, no edits to other condition pages.
+- No new cities, no copy changes, no design changes, no new components, no backend.
+- No edits to other pages or to the prerender route list.
+
+### Verification checklist
+- TypeScript compiles (interface required, every row populated → catches omissions).
+- `validate-jsonld.mjs` exits 0 for `/arthritis-help/london`, `/arthritis-help/edinburgh`, `/conditions/[c]/[city]` samples.
+- Prerendered HTML for a sample city contains `"latitude":51.5074` (London) and the `geo.position` meta tag.
