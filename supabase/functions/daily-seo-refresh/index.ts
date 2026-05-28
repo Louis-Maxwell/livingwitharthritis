@@ -200,13 +200,13 @@ async function runPsi(
     } else {
       results.push({ path: "_error", score: null });
       console.warn("PSI invocation failed:", res.status, txt);
-  const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
-  const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
-  const anonKey = Deno.env.get("SUPABASE_ANON_KEY")!;
-  const auth = await authorize(req, supabaseUrl, serviceKey, anonKey);
-  if (!auth.ok) {
-    return new Response(JSON.stringify({ error: auth.error }), {
-      status: auth.status,
+    }
+  } catch (e) {
+    console.warn("PSI invocation threw:", e);
+  }
+  return results;
+}
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
@@ -214,7 +214,8 @@ Deno.serve(async (req) => {
 
   const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
   const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
-  const auth = await authorize(req, supabaseUrl, serviceKey);
+  const anonKey = Deno.env.get("SUPABASE_ANON_KEY")!;
+  const auth = await authorize(req, supabaseUrl, serviceKey, anonKey);
   if (!auth.ok) {
     return new Response(JSON.stringify({ error: auth.error }), {
       status: auth.status,
