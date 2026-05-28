@@ -197,6 +197,37 @@ export default function BenefitsPIPGuide() {
       <meta name="twitter:title" content="Arthritis Benefits &amp; PIP Guide UK – Personal Independence Payment, Blue Badge &amp; More" />
       <meta name="twitter:description" content="Complete guide to UK benefits for arthritis: PIP (Personal Independence Payment), Attendance Allowance, Blue Badge, Motability, workplace rights, Disabled Facilities Grant and where to get free help." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "MedicalWebPage",
+        "name": "Arthritis Benefits & PIP Guide UK",
+        "description": "Complete guide to PIP, Universal Credit, Attendance Allowance and other financial support for people living with arthritis in the UK.",
+        "url": "https://livingwitharthritis.org.uk/guides/benefits-pip",
+        "inLanguage": "en-GB",
+        "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } },
+        "about": { "@type": "MedicalCondition", "name": "Arthritis" },
+        "publisher": { "@type": "Organization", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" },
+        "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable-intro"] }
+      })}</script>
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
+          { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://livingwitharthritis.org.uk/guides/uk-arthritis" },
+          { "@type": "ListItem", "position": 3, "name": "Benefits & PIP Guide", "item": "https://livingwitharthritis.org.uk/guides/benefits-pip" }
+        ]
+      })}</script>
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Can I get PIP for arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. PIP is assessed on how your condition affects you, not on your diagnosis. Many people with osteoarthritis, rheumatoid arthritis, psoriatic arthritis and other forms qualify. You must have been affected for at least 3 months and expect it to continue for at least 9 months." } },
+          { "@type": "Question", "name": "How much PIP can I get for arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "At the enhanced rate for both components, PIP provides up to £184.30 per week (£9,584 per year) in 2024/25. The daily living component alone ranges from £72.65 to £108.55 per week." } },
+          { "@type": "Question", "name": "What is the difference between PIP and Attendance Allowance for arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "PIP is for people of working age (16 to State Pension age). Attendance Allowance is for people over State Pension age. Both are non-means-tested and can be claimed whether you work or not." } },
+          { "@type": "Question", "name": "What if my PIP claim is refused?", "acceptedAnswer": { "@type": "Answer", "text": "Request a Mandatory Reconsideration within one month. If that fails, appeal to the Social Security and Child Support Tribunal — around 70% of PIP appeals succeed at tribunal (Ministry of Justice, 2024)." } }
+        ]
+      })}</script>
     </Helmet>
       <Header />
       <main className="min-h-screen bg-background">

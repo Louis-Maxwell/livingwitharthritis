@@ -157,6 +157,26 @@ export default function ArthritisFlareUps() {
             { "@type": "ListItem", "position": 2, "name": "Arthritis Flare-Ups", "item": "https://livingwitharthritis.org.uk/arthritis-flare-ups" }
           ]
         })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          "name": "How to manage an arthritis flare-up",
+          "description": "Five evidence-based steps to reduce pain and inflammation during an arthritis flare-up.",
+          "totalTime": "PT20M",
+          "step": [
+            { "@type": "HowToStep", "position": 1, "name": "Apply ice or heat", "text": "Apply an ice pack wrapped in a towel for 15–20 minutes to swollen joints. Use a warm compress for stiffness without swelling." },
+            { "@type": "HowToStep", "position": 2, "name": "Rest the joint", "text": "Reduce load on the affected joint but avoid complete immobility — perform gentle range-of-motion movements every few hours." },
+            { "@type": "HowToStep", "position": 3, "name": "Take over-the-counter pain relief", "text": "Apply topical ibuprofen gel directly to the joint as a first-line option. Oral paracetamol or ibuprofen may also help — follow dosage guidance." },
+            { "@type": "HowToStep", "position": 4, "name": "Elevate and support", "text": "Elevate swollen joints above heart level where possible. Use compression garments or splints recommended by your physiotherapist." },
+            { "@type": "HowToStep", "position": 5, "name": "Pace your activities", "text": "Break tasks into smaller chunks with rest periods. Use assistive devices to reduce joint stress and avoid the boom-and-bust cycle." }
+          ]
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "url": "https://livingwitharthritis.org.uk/arthritis-flare-ups",
+          "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable-intro"] }
+        })}</script>
       </Helmet>
 
       <Header />
