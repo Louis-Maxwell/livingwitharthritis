@@ -95,7 +95,7 @@ const InternalLinks = memo(() => {
                     {page.description}
                   </p>
                   <span className="text-primary text-xs font-medium inline-flex items-center gap-1 group-hover:gap-1.5 transition-all mt-auto">
-                    Learn more <ArrowRight className="w-3 h-3" />
+                    Read {page.title} <ArrowRight className="w-3 h-3" />
                   </span>
                 </Link>
               </motion.div>
