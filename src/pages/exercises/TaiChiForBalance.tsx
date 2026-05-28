@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import SeoHead from "@/components/SeoHead";
 import PageHero from "@/components/ui/PageHero";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
+import PageSchema from "@/components/seo/PageSchema";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -111,6 +112,22 @@ export default function TaiChiForBalance() {
         path="/exercises/tai-chi-for-balance"
         type="article"
         keywords="tai chi arthritis, tai chi for balance, fall prevention exercise, knee osteoarthritis exercise, gentle exercise older adults UK"
+      />
+      <PageSchema
+        url="/exercises/tai-chi-for-balance"
+        breadcrumbs={[
+          { name: "Home", item: "/" },
+          { name: "Exercises", item: "/exercises" },
+          { name: "Tai Chi for Arthritis", item: "/exercises/tai-chi-for-arthritis" },
+          { name: "Tai Chi for Balance" },
+        ]}
+        faqs={faqs.map((f) => ({ question: f.q, answer: f.a }))}
+        howTo={{
+          name: "15-minute Tai Chi for Balance Routine",
+          totalTime: "PT15M",
+          steps: moves.map((m) => ({ name: m.name, text: m.how })),
+        }}
+        idPrefix="tai-chi-balance"
       />
       <Header />
 
