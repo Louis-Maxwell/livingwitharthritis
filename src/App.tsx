@@ -34,6 +34,7 @@ const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
 const AdminAppointments = lazy(() => import("./pages/AdminAppointments"));
 const AdminPsiDashboard = lazy(() => import("./pages/AdminPsiDashboard"));
 const AdminEmails = lazy(() => import("./pages/AdminEmails"));
+const AdminSeoHealth = lazy(() => import("./pages/AdminSeoHealth"));
 const BlogIndex = lazy(() => import("./pages/BlogIndex"));
 const Library = lazy(() => import("./pages/Library"));
 const LibraryTopic = lazy(() => import("./pages/LibraryTopic"));
