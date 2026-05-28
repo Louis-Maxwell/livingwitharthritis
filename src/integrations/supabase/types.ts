@@ -1398,6 +1398,51 @@ export type Database = {
         }
         Relationships: []
       }
+      seo_refresh_runs: {
+        Row: {
+          ai_txt_updated: boolean
+          created_at: string
+          duration_ms: number
+          error_message: string | null
+          id: string
+          llms_txt_updated: boolean
+          ok: boolean
+          psi_scores: Json
+          ran_at: string
+          routes_checked: number
+          schema_errors: Json
+          sitemap_count: number
+        }
+        Insert: {
+          ai_txt_updated?: boolean
+          created_at?: string
+          duration_ms?: number
+          error_message?: string | null
+          id?: string
+          llms_txt_updated?: boolean
+          ok?: boolean
+          psi_scores?: Json
+          ran_at?: string
+          routes_checked?: number
+          schema_errors?: Json
+          sitemap_count?: number
+        }
+        Update: {
+          ai_txt_updated?: boolean
+          created_at?: string
+          duration_ms?: number
+          error_message?: string | null
+          id?: string
+          llms_txt_updated?: boolean
+          ok?: boolean
+          psi_scores?: Json
+          ran_at?: string
+          routes_checked?: number
+          schema_errors?: Json
+          sitemap_count?: number
+        }
+        Relationships: []
+      }
       services: {
         Row: {
           created_at: string
@@ -1449,6 +1494,27 @@ export type Database = {
           id?: number
           total_count?: number
           updated_at?: string
+        }
+        Relationships: []
+      }
+      sitemap_cache: {
+        Row: {
+          id: number
+          updated_at: string
+          url_count: number
+          xml: string
+        }
+        Insert: {
+          id?: number
+          updated_at?: string
+          url_count?: number
+          xml: string
+        }
+        Update: {
+          id?: number
+          updated_at?: string
+          url_count?: number
+          xml?: string
         }
         Relationships: []
       }
