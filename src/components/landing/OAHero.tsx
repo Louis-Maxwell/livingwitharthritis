@@ -49,11 +49,6 @@ const OAHero = memo(() => {
             <span className="italic text-primary">brighter days</span> ahead.
           </h1>
 
-          <p className="hero-item mt-6 text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed">
-            Arthritis can feel lonely. It doesn&apos;t have to be. We&apos;re a small
-            charity sharing kind, clinically-reviewed help — written in plain English,
-            free for everyone living with arthritis in the UK.
-          </p>
 
           {/* CTAs */}
           <div className="hero-item mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
