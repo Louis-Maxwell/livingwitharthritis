@@ -1,156 +1,35 @@
-# Growth Plan — 40–50M Visits/Year & 40% Bounce Rate
+## Goal
 
-## Reality Check (current baseline)
-- Last 90 days: **1,381 visitors / 1,986 pageviews**, bounce **~79%**, ~1.44 pages/visit.
-- Target: **~110,000–140,000 visits/day** (≈ **30,000× current**) and bounce **40%**.
-- Honest expectation: 40–50M/yr in 12 months is in the realm of the BBC Health / NHS / Healthline UK. Realistic stretch for a UK arthritis charity in year one is **2–5M/yr**. Plan below is built to *credibly chase* the 40–50M ceiling while compounding monthly; we'll re-forecast each quarter.
+Add the static social-preview tags you pasted into `index.html` so non-JS social crawlers (Facebook, LinkedIn, Slack, WhatsApp) get a proper homepage preview instead of falling back to the page title alone.
 
----
+## Changes to `index.html`
 
-## Strategy Pillars
+In the existing OG block (currently lines 123–139), add the four properties that were intentionally omitted earlier:
 
-1. **Programmatic SEO at scale** (the only realistic path to 8-figure traffic)
-2. **AEO/GEO** so AI assistants cite us (ChatGPT, Gemini, Perplexity, Google AI Overviews)
-3. **Engagement redesign** — kill the 79% bounce
-4. **Distribution** — social, email, partnerships, PR
-5. **Performance & Core Web Vitals** — Google ranking + bounce
+- `<meta property="og:title" content="Free Osteoarthritis Management Plan | Living With Arthritis UK" />`
+- `<meta property="og:description" content="Get free, clinically-reviewed OA management resources from a UK registered charity. Evidence-based care for 8.75M people living with osteoarthritis." />`
+- `<meta property="og:url" content="https://livingwitharthritis.org.uk/" />`
+- `<meta name="twitter:title" content="Free Osteoarthritis Management Plan | Living With Arthritis UK" />`
+- `<meta name="twitter:description" content="Get free, clinically-reviewed OA management resources from a UK registered charity. Evidence-based care for 8.75M people living with osteoarthritis." />`
 
----
+Keep the existing `og:type`, `og:locale`, `og:site_name`, `og:image` (already at `/images/hero-community.jpg`, 1200×630), `twitter:card`, and `twitter:image`.
 
-## Phase 1 — Engagement Fix (Weeks 1–4) → bounce target 60%
+Update the explanatory comment above the block to reflect that the homepage OG title/description/url are now static fallbacks, and per-route `SeoHead` (react-helmet-async) overrides them for JS-executing crawlers (Googlebot, Twitterbot).
 
-Bounce is the highest-leverage lever; we can't scale traffic onto a leaky page.
+## Important tradeoff to confirm
 
-- **Above-the-fold rewrite of `/`**: single clear question ("What hurts?") with 3 large tappable entry tiles (Knee, Hip, Hand) → routes to condition pages. Remove all decorative bands above the fold.
-- **Sticky "related reading" rail** on every article (3 next reads + 1 self-help tool).
-- **Auto-scroll-tracked Table of Contents** on long articles → measurable dwell.
-- **Exit-intent**: "Get the free 7-day anti-inflammatory meal plan" email capture (already brand-aligned).
-- **Mobile fixes**: 644 of 1,346 visits are mobile; audit tap targets, font sizing, CLS.
-- **Remove dead-ends**: every leaf page must link to ≥3 internal destinations (already partly done via `InternalLinks.tsx`).
-- **Search bar in header** — surfaced site search drops bounce materially on content sites.
+The earlier code comment removed these tags on purpose. The reason: non-JS social crawlers don't run React, so whatever sits statically in `index.html` becomes the preview for **every** shared URL on those platforms — including `/blog/...`, `/conditions/...`, etc. Every shared subpage will preview with the homepage title and description on Facebook/LinkedIn/Slack/WhatsApp.
 
-KPI gate: bounce ≤60%, pages/visit ≥2.2 before opening the traffic taps.
+Googlebot, Twitter/X, and any JS-executing crawler will still get the correct per-page preview because `SeoHead` overrides these on route mount.
 
----
+If you want subpage-accurate previews on Facebook/LinkedIn, the only fix is SSR/prerender — not a static head edit.
 
-## Phase 2 — Programmatic SEO Expansion (Weeks 3–16) → 50k–500k visits/mo
+## Image path
 
-We already have city × condition pages. Expand the matrix:
-
-- **Conditions** (12): osteoarthritis, RA, psoriatic, gout, fibromyalgia, ankylosing spondylitis, lupus, juvenile, reactive, septic, OA-knee, OA-hip…
-- **Cities** (200 UK towns already in `ukCities.ts`) → **2,400 condition×city pages**.
-- **Symptom pages** (40): "morning stiffness", "knee clicking", "swollen finger joints"… × condition = **480 pages**.
-- **Treatment pages**: "TENS for [condition]", "[supplement] for [condition]", "[exercise] for [joint]" → ~600 pages.
-- **"Near me" pages**: "physiotherapist near me [city]" (info only, not directory) → 200.
-- **NICE-aligned medication explainers** (~80 drugs).
-
-Total programmatic surface: **~3,800 unique pages**, each genuinely useful (symptoms, evidence summary, exercises, when to see a GP, local NHS trust link).
-
-Quality guardrails (otherwise Google penalises):
-- 600+ words of unique content per page (templated structure, unique data).
-- One unique medically-reviewed paragraph per page.
-- Schema: `MedicalCondition`, `MedicalWebPage`, `FAQPage`, `BreadcrumbList`.
-- All generated by an admin tool that pulls from `blog_articles` + condition database; no public AI-author branding (per memory).
-
----
-
-## Phase 3 — AEO / GEO (Weeks 4–20) → cited by AI assistants
-
-- **One-sentence answer block** at top of every article (the "AI snippet").
-- **FAQPage schema** on every condition/symptom page (10 Q&As each).
-- **HowTo schema** on every exercise.
-- **`speakable` schema** for voice assistants.
-- **`/llms.txt` and `/ai.txt`** kept fresh by the daily refresh job already built.
-- **Structured data feed**: publish `/api/conditions.json` + `/api/exercises.json` for AI crawlers.
-- Submit to **Perplexity Pages**, **Common Crawl**, **Brave Search index**, **You.com**.
-- Get listed on **NHS A–Z external links**, **Wikipedia citations** (arthritis articles), **patient.info** referencing.
-
----
-
-## Phase 4 — Distribution (Weeks 6–52)
-
-Programmatic SEO alone won't hit 40M. Layered distribution:
-
-- **YouTube**: 2 exercise videos/week (gentle, named after long-tail keywords). Each video = 1 blog post + 1 short. Target: 100k subs / 1M views/mo by month 12.
-- **TikTok / Instagram Reels**: daily 30s tip from `dailyTips.ts`. Goal: 250k followers.
-- **Email list**: target 100k subscribers via lead magnets (meal plan, exercise PDF, symptom tracker).
-- **PR**: monthly data study ("UK cities with worst arthritis wait times" — FOI requests to NHS trusts → guaranteed local-paper pickup → backlinks).
-- **Partnerships**: Versus Arthritis, NRAS, Arthritis Action — guest content swap (respecting the political-neutrality memory; no sponsorship list).
-- **Reddit**: helpful answers in r/arthritis, r/ChronicPain (10/week, no spam).
-- **Backlinks**: outreach to 500 health bloggers + UK physio clinics.
-
----
-
-## Phase 5 — Performance (Weeks 2–8, ongoing)
-
-- LCP < 1.8s, INP < 200ms, CLS < 0.05 on every template (currently flagged in SEO findings).
-- Pre-render all programmatic pages (already partially via prerender script).
-- Cache `/sitemap.xml` via the edge function already built; ship daily.
-- Image CDN with AVIF + responsive `srcset` (already centralised — extend).
-- Defer non-critical JS; route-level code splitting audit.
-
----
-
-## Forecast (visits/mo, realistic)
-
-```text
-Month  SEO    Social  Email  Direct  Total
- 1      2k     0.5k    0     1k       3.5k
- 3     30k    10k     2k     3k       45k
- 6    250k    60k    15k     8k      333k
- 9    900k   180k    50k    20k      1.15M
-12  2,800k   500k   150k    50k      3.5M/mo  ≈ 25–30M/yr
-```
-
-Hitting **40–50M/yr** requires one of: a viral content moment, an NHS partnership citation, or Google AI Overview inclusion across major arthritis queries. We plan for it, but we don't promise it.
-
----
-
-## What gets built in code (this project)
-
-1. **Engagement layer**
-   - Redesigned `/` hero with 3 entry tiles
-   - `RelatedReadingRail.tsx` component on every article
-   - `StickyToc.tsx` with scroll-progress + dwell tracking
-   - `ExitIntentModal.tsx` (meal-plan capture, posts to `email_subscribers` table)
-   - Header site-search (client-side index over articles, conditions, exercises)
-
-2. **Programmatic SEO**
-   - `SymptomPage.tsx` route (`/symptoms/:slug`)
-   - `TreatmentPage.tsx` route (`/treatments/:slug`)
-   - `MedicationPage.tsx` route (`/medications/:slug`)
-   - Extend `generateSitemap.ts` to include the new matrices
-   - Admin generator at `/admin/content-factory` to draft + publish in batches with medical-review checkbox
-   - New tables: `symptoms`, `treatments`, `medications`, `email_subscribers`
-
-3. **AEO/GEO**
-   - `<AnswerBlock>` component injected at top of every long-form page
-   - `FaqSchema`, `HowToSchema`, `SpeakableSchema` helpers
-   - `/api/conditions.json` and `/api/exercises.json` edge functions
-
-4. **Performance**
-   - LCP image audit + AVIF pipeline
-   - Lazy-load below-the-fold sections
-   - Move Helmet JSON-LD injection to build-time for prerendered routes
-
-5. **Measurement**
-   - Extend `AdminSeoHealth.tsx` with bounce-rate-by-template chart from GA4
-   - Weekly auto-report email to admin
-
----
+Your snippet referenced `/og-image-1200x630.jpg`, which doesn't exist in the project. I'll keep the existing `/images/hero-community.jpg` (already 1200×630). If you'd like me to generate a dedicated OG image at that path instead, say the word.
 
 ## Out of scope
-- No paid ads (charity budget assumption).
-- No native mobile app.
-- No new brand redesign — respects existing white/black/red identity memory.
-- No "AI-powered" user-facing copy (per existing constraint memory).
 
----
-
-## Milestones
-- **Week 4**: bounce ≤60%, pages/visit ≥2.2
-- **Week 12**: 2,400 city×condition pages live, 50k visits/mo
-- **Week 26**: 333k visits/mo, bounce ≤45%
-- **Week 52**: 3M+ visits/mo, bounce ≤40%, on trajectory toward 40–50M/yr in year 2
-
-Re-forecast quarterly against real analytics.
+- No changes to per-route `SeoHead` components.
+- No SSR/prerender work.
+- No other meta tags touched.
