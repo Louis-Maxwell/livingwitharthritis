@@ -89,7 +89,7 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
 const RheumatoidArthritis = () => (
   <>
     <Helmet>
-      <title>Rheumatoid Arthritis – Symptoms, Causes & Treatment | Living With Arthritis</title>
+      <title>Rheumatoid Arthritis: Symptoms & Treatment | LWA UK</title>
       <meta name="description" content="Comprehensive UK guide to rheumatoid arthritis: autoimmune joint inflammation symptoms, early diagnosis, DMARD and biologic treatments, exercises and dietary advice." />
       <meta name="keywords" content="rheumatoid arthritis, rheumatoid arthritis symptoms, rheumatoid arthritis treatment, RA, autoimmune arthritis, DMARDs, biologic therapy, juvenile arthritis, lupus, joint inflammation, rheumatoid arthritis diet, anti-inflammatory diet, chronic pain management, arthritis medication, working with arthritis, arthritis and mental health, difference between osteoarthritis and rheumatoid arthritis, what causes arthritis, is arthritis curable" />
       <meta property="og:title" content="Rheumatoid Arthritis – Symptoms, Causes & Treatment" />

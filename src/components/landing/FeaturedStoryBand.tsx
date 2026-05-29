@@ -163,7 +163,7 @@ const FeaturedStoryBand = memo(() => {
 
             {/* Optional editorial body */}
             {story.body && (
-              <p className="text-[14px] sm:text-[15px] text-muted-foreground/80 leading-relaxed mb-10 max-w-[60ch]">
+              <p className="text-[14px] sm:text-[15px] text-muted-foreground leading-relaxed mb-10 max-w-[60ch]">
                 {story.body}
               </p>
             )}

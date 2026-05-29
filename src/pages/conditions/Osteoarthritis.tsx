@@ -88,7 +88,7 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
 const Osteoarthritis = () => (
   <>
     <Helmet>
-      <title>Osteoarthritis – Symptoms, Causes & Management | Living With Arthritis</title>
+      <title>Osteoarthritis: Symptoms & Treatment | Living With Arthritis</title>
       <meta name="description" content="Everything you need to know about osteoarthritis: symptoms like joint pain and stiffness, causes, risk factors, best exercises, diet tips, and treatment options for UK patients." />
       <meta name="keywords" content="osteoarthritis, osteoarthritis symptoms, osteoarthritis treatment, osteoarthritis exercises, osteoarthritis diet, OA, degenerative joint disease, knee arthritis, hip arthritis, hand arthritis, joint pain relief, what causes arthritis, is arthritis curable, difference between osteoarthritis and rheumatoid arthritis, anti-inflammatory diet, arthritis medication, mobility aids for arthritis, musculoskeletal conditions" />
       <meta property="og:title" content="Osteoarthritis – Symptoms, Causes & Management" />

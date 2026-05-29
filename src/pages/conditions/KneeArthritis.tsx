@@ -88,7 +88,7 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
 const KneeArthritis = () => (
   <>
     <Helmet>
-      <title>Knee Arthritis – Symptoms, Exercises & Treatment | Living With Arthritis</title>
+      <title>Knee Arthritis: Symptoms & Exercises | Living With Arthritis</title>
       <meta name="description" content="Knee arthritis guide for UK patients: symptoms, causes, the best evidence-based exercises, weight management, treatment options and when to consider knee replacement." />
       <meta name="keywords" content="knee arthritis, knee osteoarthritis, knee OA, knee pain, arthritic knee, knee arthritis exercises, knee arthritis treatment, knee replacement, quadriceps exercises, NICE knee osteoarthritis" />
       <meta property="og:title" content="Knee Arthritis – Symptoms, Exercises & Treatment" />
