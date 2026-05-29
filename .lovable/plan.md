@@ -1,5 +1,9 @@
-Remove the intro paragraph (lines 51-55) from `src/components/landing/OAHero.tsx`:
+Remove the third trust ribbon item "NICE-aligned guidance" from the hero section.
 
-> "Arthritis can feel lonely. It doesn't have to be. We're a small charity sharing kind, clinically-reviewed help — written in plain English, free for everyone living with arthritis in the UK."
-
-No other changes — headline, CTAs, and trust ribbon remain. Spacing on the CTA block (`mt-10`) already provides correct rhythm under the headline.
+```
+src/components/landing/OAHero.tsx
+  ├─ Lines 87-90: delete the <li> element containing
+  │   "NICE-aligned guidance" and its child <span> dot.
+  │   Remaining two items (HCPC-registered physiotherapists,
+  │   CSP members) stay untouched.
+```
