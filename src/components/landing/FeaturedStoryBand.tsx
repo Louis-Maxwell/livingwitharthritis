@@ -139,7 +139,7 @@ const FeaturedStoryBand = memo(() => {
                 <p className="font-display text-base sm:text-lg text-foreground tracking-tight">
                   {story.name}
                 </p>
-                <p className="text-[11px] font-semibold tracking-[0.18em] uppercase text-muted-foreground/70 mt-0.5">
+                <p className="text-[11px] font-semibold tracking-[0.18em] uppercase text-muted-foreground mt-0.5">
                   {story.location}
                 </p>
               </div>

@@ -235,7 +235,7 @@ const HeroSection = memo(() => {
                     compact={stat.compact}
                     className="stat-number font-display text-[2rem] sm:text-[2.5rem] lg:text-[3rem] tracking-[-0.03em] leading-none group-hover:text-primary transition-colors duration-300"
                   />
-                  <p className="text-[10px] sm:text-[11px] text-muted-foreground/70 font-medium mt-3 leading-snug tracking-[0.14em] uppercase">
+                  <p className="text-[10px] sm:text-[11px] text-muted-foreground font-medium mt-3 leading-snug tracking-[0.14em] uppercase">
                     {stat.label}
                   </p>
                 </div>

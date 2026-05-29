@@ -263,7 +263,7 @@ export default function Donate() {
               <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-0.5" />
             </Button>
 
-            <p className="text-[11px] text-muted-foreground/70 text-center mt-4">
+            <p className="text-[11px] text-muted-foreground text-center mt-4">
               Secured by Stripe · 256-bit encryption{isMonthly ? " · Cancel anytime" : ""}
             </p>
           </div>

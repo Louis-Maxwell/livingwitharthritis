@@ -495,7 +495,7 @@ const Header = () => {
                     </div>
                     <div className="flex-1 min-w-0">
                       <span className="block truncate">{item.label}</span>
-                      <span className="text-[11px] font-normal text-muted-foreground/70 truncate block">{item.desc}</span>
+                      <span className="text-[11px] font-normal text-muted-foreground truncate block">{item.desc}</span>
                     </div>
                   </button>
                 );
