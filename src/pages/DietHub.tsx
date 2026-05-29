@@ -463,7 +463,7 @@ const DietHub = () => {
                         <h3 className="font-semibold text-foreground mb-1.5 group-hover:text-primary transition-colors">{topic.title}</h3>
                         <p className="text-sm text-muted-foreground">{topic.desc}</p>
                         <span className="inline-flex items-center gap-1 text-xs text-primary font-medium mt-3">
-                          Read more <ChevronRight className="w-3 h-3" />
+                          Read more about {topic.title}<span className="sr-only"> guide</span> <ChevronRight className="w-3 h-3" aria-hidden="true" />
                         </span>
                       </CardContent>
                     </Card>
