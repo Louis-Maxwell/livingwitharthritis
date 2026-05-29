@@ -164,7 +164,7 @@ export default function InflammationCalculator() {
                     <p className="text-xs text-muted-foreground mt-0.5">{area.tip}</p>
                     {area.link && (
                       <button onClick={() => navigate(area.link!)} className="text-xs text-primary font-medium mt-1 flex items-center gap-1 hover:underline">
-                        Learn more <ArrowRight className="w-3 h-3" />
+                        Learn more about {area.label.toLowerCase()} <ArrowRight className="w-3 h-3" aria-hidden="true" />
                       </button>
                     )}
                   </div>
