@@ -120,11 +120,15 @@
          No static preload link here — the previous hero-walking-group preload
          pointed at a stale asset that wasn't actually on the page. -->
 
-    <!-- Open Graph: only non-page-specific properties live statically.
-         Per-route SeoHead (react-helmet-async) emits og:title, og:description, og:url
-         (and Twitter equivalents) for each page. Keeping those static here would
-         duplicate the properties and force every shared subpage URL to preview as
-         the homepage on social crawlers. -->
+    <!-- Open Graph: static homepage fallbacks for non-JS social crawlers
+         (Facebook, LinkedIn, Slack, WhatsApp). Per-route SeoHead
+         (react-helmet-async) overrides og:title/og:description/og:url for
+         JS-executing crawlers (Googlebot, Twitterbot). Subpages shared on
+         non-JS social platforms will preview with the homepage copy below
+         until SSR/prerender is added. -->
+    <meta property="og:title" content="Free Osteoarthritis Management Plan | Living With Arthritis UK" />
+    <meta property="og:description" content="Get free, clinically-reviewed OA management resources from a UK registered charity. Evidence-based care for 8.75M people living with osteoarthritis." />
+    <meta property="og:url" content="https://livingwitharthritis.org.uk/" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:locale:alternate" content="en_GB" />
@@ -134,9 +138,12 @@
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Living With Arthritis UK – free physiotherapy and arthritis support across the United Kingdom" />
 
-    <!-- Twitter / X Card (page-specific title/description set per-route via SeoHead) -->
+    <!-- Twitter / X Card (per-route SeoHead overrides title/description for JS crawlers) -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Free Osteoarthritis Management Plan | Living With Arthritis UK" />
+    <meta name="twitter:description" content="Get free, clinically-reviewed OA management resources from a UK registered charity. Evidence-based care for 8.75M people living with osteoarthritis." />
     <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
+
 
 
     <!-- JSON-LD Structured Data: Organisation -->
