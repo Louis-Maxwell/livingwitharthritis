@@ -269,7 +269,7 @@ const BlogHub = () => {
                   </div>
                 </div>
 
-                <h3 className="text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground/80 mb-3 flex items-center gap-1.5">
+                <h3 className="text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground mb-3 flex items-center gap-1.5">
                   <HelpCircle className="w-3.5 h-3.5" /> People often ask
                 </h3>
                 <ul className="space-y-2 mb-6">

@@ -32,7 +32,7 @@ const MissionStatementBand = memo(() => {
           className="font-display text-[1.875rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.75rem] leading-[1.08] tracking-[-0.025em] text-foreground max-w-[1080px] text-balance"
         >
           Arthritis can quietly take your movement, your sleep, your spark.
-          <span className="block text-muted-foreground/70 mt-2 sm:mt-3">
+          <span className="block text-muted-foreground mt-2 sm:mt-3">
             We&apos;re here to help you get a little of it back &mdash; kindly, clearly, and free for everyone who needs it.
           </span>
         </h2>

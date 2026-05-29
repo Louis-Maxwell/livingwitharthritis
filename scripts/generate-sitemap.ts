@@ -29,6 +29,10 @@ const read = (p: string) => readFileSync(resolve(p), "utf8");
 // ---------- 1. STATIC ROUTES (parsed from App.tsx) ----------
 // Keep in sync with Disallow rules in public/robots.txt — search engines
 // flag URLs that appear in sitemap.xml but are blocked by robots.txt.
+// Intentionally excluded (private / utility — also noindex via SeoHead):
+//   /auth, /admin*, /donation-result, /unsubscribe, /newsletter/confirm,
+//   /sitemap, /site-index, /debug/*
+// /chat (Help & Support) IS public and IS included in the sitemap.
 const STATIC_EXCLUDE = new Set([
   "*",
   "/auth",
@@ -36,12 +40,13 @@ const STATIC_EXCLUDE = new Set([
   "/admin/appointments",
   "/admin/psi",
   "/admin/emails",
-  "/chat",
+  "/admin/seo-health",
   "/donation-result",
   "/unsubscribe",
   "/newsletter/confirm",
   "/sitemap",
   "/site-index",
+  "/buddy/match",
 ]);
 
 function parseStaticRoutes(): string[] {

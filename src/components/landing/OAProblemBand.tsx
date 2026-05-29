@@ -38,7 +38,7 @@ const OAProblemBand = memo(() => {
               className="font-display text-3xl sm:text-4xl md:text-[3.25rem] font-bold tracking-tight leading-[1.06] text-foreground"
             >
               Millions of us wake up with sore, stubborn joints.
-              <span className="text-muted-foreground/70"> Together, we can take the next gentle step.</span>
+              <span className="text-muted-foreground"> Together, we can take the next gentle step.</span>
             </h2>
           </div>
           <Link

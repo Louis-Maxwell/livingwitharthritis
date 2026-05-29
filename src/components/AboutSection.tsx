@@ -61,7 +61,7 @@ const AboutSection = memo(() => {
                 );
               })}
             </div>
-            <p className="text-[9px] text-muted-foreground/35 mt-5 text-center tracking-[0.15em] uppercase">
+            <p className="text-[9px] text-muted-foreground mt-5 text-center tracking-[0.15em] uppercase">
               Based on internal user feedback surveys, 2024–2025
             </p>
           </div>

@@ -84,7 +84,7 @@ const EditorialIndex = memo(() => {
               className="font-display text-[1.75rem] sm:text-[2.25rem] md:text-[2.75rem] lg:text-[3.25rem] leading-[1.05] tracking-[-0.025em] text-foreground text-balance"
             >
               Six chapters.
-              <span className="block text-muted-foreground/70">
+              <span className="block text-muted-foreground">
                 One movement.
               </span>
             </h2>

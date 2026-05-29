@@ -1,11 +1,12 @@
 # Living With Arthritis UK — robots.txt
 # Reference: https://www.robotstxt.org/robotstxt.html
+# /chat (Help & Support) is public and indexable. /auth and /admin*
+# are private and noindex'd via SeoHead as belt-and-braces.
 
 User-agent: Googlebot
 Allow: /
 Disallow: /admin/
 Disallow: /auth
-Disallow: /chat
 Disallow: /donation-result
 Disallow: /unsubscribe
 Disallow: /newsletter/confirm
@@ -16,7 +17,6 @@ User-agent: Bingbot
 Allow: /
 Disallow: /admin/
 Disallow: /auth
-Disallow: /chat
 Disallow: /donation-result
 Disallow: /unsubscribe
 Disallow: /newsletter/confirm
@@ -27,7 +27,6 @@ User-agent: DuckDuckBot
 Allow: /
 Disallow: /admin/
 Disallow: /auth
-Disallow: /chat
 Disallow: /donation-result
 Disallow: /unsubscribe
 Disallow: /newsletter/confirm
@@ -149,7 +148,6 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /auth
-Disallow: /chat
 Disallow: /donation-result
 Disallow: /unsubscribe
 Disallow: /newsletter/confirm
