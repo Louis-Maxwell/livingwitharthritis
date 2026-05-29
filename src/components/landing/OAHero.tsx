@@ -84,10 +84,6 @@ const OAHero = memo(() => {
               <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-primary" />
               CSP members
             </li>
-            <li className="flex items-center gap-2">
-              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-primary" />
-              NICE-aligned guidance
-            </li>
           </ul>
         </div>
       </div>
