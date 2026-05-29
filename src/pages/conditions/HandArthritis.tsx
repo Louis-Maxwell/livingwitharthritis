@@ -88,7 +88,7 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
 const HandArthritis = () => (
   <>
     <Helmet>
-      <title>Hand Arthritis – Symptoms, Exercises & Treatment | Living With Arthritis</title>
+      <title>Hand Arthritis: Symptoms & Exercises | Living With Arthritis</title>
       <meta name="description" content="UK guide to hand and finger arthritis: thumb base (CMC) pain, Heberden's nodes, the best hand exercises, splints, topical treatments and when to consider surgery." />
       <meta name="keywords" content="hand arthritis, finger arthritis, thumb arthritis, thumb base arthritis, CMC arthritis, Heberden's nodes, Bouchard's nodes, hand osteoarthritis, hand exercises arthritis, hand splint" />
       <meta property="og:title" content="Hand Arthritis – Symptoms, Exercises & Treatment" />

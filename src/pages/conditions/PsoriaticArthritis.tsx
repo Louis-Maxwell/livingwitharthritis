@@ -89,7 +89,7 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
 const PsoriaticArthritis = () => (
   <>
     <Helmet>
-      <title>Psoriatic Arthritis – Symptoms, Causes & Treatment | Living With Arthritis</title>
+      <title>Psoriatic Arthritis: Symptoms & Treatment | LWA UK</title>
       <meta name="description" content="UK guide to psoriatic arthritis: understanding the link between psoriasis and joint inflammation, recognising symptoms like dactylitis, treatment options and lifestyle management." />
       <meta name="keywords" content="psoriatic arthritis, psoriatic arthritis symptoms, psoriatic arthritis treatment, PsA, psoriasis arthritis, dactylitis, enthesitis, ankylosing spondylitis, biologic therapy, psoriatic arthritis diet, anti-inflammatory diet, autoimmune arthritis, joint inflammation, chronic pain management, what causes arthritis, arthritis medication" />
       <meta property="og:title" content="Psoriatic Arthritis – Symptoms, Causes & Treatment" />
