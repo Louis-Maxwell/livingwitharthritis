@@ -57,7 +57,7 @@ const ActionPathSection = memo(() => (
                 <div className="w-14 h-14 rounded-2xl bg-card shadow-sm flex items-center justify-center">
                   {s.icon}
                 </div>
-                <span className="absolute -top-2 -end-2 text-xs font-black text-muted-foreground/40" aria-hidden="true">
+                <span className="absolute -top-2 -end-2 text-xs font-black text-muted-foreground" aria-hidden="true">
                   {s.num}
                 </span>
               </div>

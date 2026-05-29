@@ -112,7 +112,7 @@ const EditorialIndex = memo(() => {
                   {c.title}
                 </h3>
 
-                <p className="text-[13.5px] text-muted-foreground/80 leading-relaxed mb-6 flex-1">
+                <p className="text-[13.5px] text-muted-foreground leading-relaxed mb-6 flex-1">
                   {c.desc}
                 </p>
 

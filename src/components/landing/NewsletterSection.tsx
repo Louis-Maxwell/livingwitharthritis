@@ -81,7 +81,7 @@ const NewsletterSection = memo(() => {
             </form>
           )}
 
-          <div className="flex flex-wrap items-center justify-center gap-4 mt-12 text-[10px] text-muted-foreground/35 tracking-[0.15em] uppercase">
+          <div className="flex flex-wrap items-center justify-center gap-4 mt-12 text-[10px] text-muted-foreground tracking-[0.15em] uppercase">
             <span className="flex items-center gap-1.5">
               <Sparkles className="w-3 h-3" /> Join 2,000+ subscribers
             </span>
