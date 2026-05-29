@@ -120,24 +120,22 @@
          No static preload link here — the previous hero-walking-group preload
          pointed at a stale asset that wasn't actually on the page. -->
 
-    <!-- Open Graph (static fallback for non-JS crawlers: Backlinko, Facebook, Slack, LinkedIn).
-         Per-route SeoHead (react-helmet-async) overrides title/description/url for JS-aware crawlers. -->
+    <!-- Open Graph: only non-page-specific properties live statically.
+         Per-route SeoHead (react-helmet-async) emits og:title, og:description, og:url
+         (and Twitter equivalents) for each page. Keeping those static here would
+         duplicate the properties and force every shared subpage URL to preview as
+         the homepage on social crawlers. -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:locale:alternate" content="en_GB" />
     <meta property="og:site_name" content="Living With Arthritis UK" />
-    <meta property="og:title" content="Arthritis Help UK: Free Physio, Diet & Support" />
-    <meta property="og:description" content="UK arthritis charity offering free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory diet plans and a help chat for joint pain." />
-    <meta property="og:url" content="https://livingwitharthritis.org.uk/" />
     <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Living With Arthritis UK – free physiotherapy and arthritis support across the United Kingdom" />
 
-    <!-- Twitter / X Card -->
+    <!-- Twitter / X Card (page-specific title/description set per-route via SeoHead) -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Arthritis Help UK: Free Physio, Diet & Support" />
-    <meta name="twitter:description" content="UK arthritis charity offering free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory diet plans and a help chat for joint pain." />
     <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.jpg" />
 
 
