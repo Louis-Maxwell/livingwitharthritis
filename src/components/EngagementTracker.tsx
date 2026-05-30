@@ -119,7 +119,7 @@ const EngagementTracker = () => {
         for (const t of [25, 50, 75, 100]) {
           if (pct >= t && !marks.has(t)) {
             marks.add(t);
-            trackEvent("scroll_depth", { depth: t, path: location.pathname });
+            trackEvent("scroll_depth", { depth: t, page_path: path, is_landing_page: landing });
           }
         }
       });
