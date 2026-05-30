@@ -1575,6 +1575,51 @@ export type Database = {
         }
         Relationships: []
       }
+      syndication_drafts: {
+        Row: {
+          facebook_post: string | null
+          generated_at: string
+          generated_by: string | null
+          id: string
+          linkedin_article: string | null
+          medium_markdown: string | null
+          pinterest_description: string | null
+          posted_channels: Json
+          reddit_post: string | null
+          slug: string
+          title: string
+          twitter_thread: string | null
+        }
+        Insert: {
+          facebook_post?: string | null
+          generated_at?: string
+          generated_by?: string | null
+          id?: string
+          linkedin_article?: string | null
+          medium_markdown?: string | null
+          pinterest_description?: string | null
+          posted_channels?: Json
+          reddit_post?: string | null
+          slug: string
+          title: string
+          twitter_thread?: string | null
+        }
+        Update: {
+          facebook_post?: string | null
+          generated_at?: string
+          generated_by?: string | null
+          id?: string
+          linkedin_article?: string | null
+          medium_markdown?: string | null
+          pinterest_description?: string | null
+          posted_channels?: Json
+          reddit_post?: string | null
+          slug?: string
+          title?: string
+          twitter_thread?: string | null
+        }
+        Relationships: []
+      }
       triage_assessments: {
         Row: {
           affected_areas: string[]
