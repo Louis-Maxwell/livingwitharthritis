@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import NextReadStrip from "@/components/NextReadStrip";
 import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, ThermometerSun, BookOpen, ArrowRight, Users, TrendingUp, Timer, Scale } from "lucide-react";
 import { motion } from "framer-motion";
 import { StatCounter, HorizontalBar, WaveDivider, EmojiCard } from "@/components/graphics/InfographicElements";
@@ -358,6 +359,7 @@ const Osteoarthritis = () => (
         </div>
       </main>
       <InternalLinks />
+      <NextReadStrip currentPath="/conditions/osteoarthritis" />
       <Footer />
     </div>
   </>
