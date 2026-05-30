@@ -1,19 +1,24 @@
 import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
-import { trackEvent } from "@/lib/analytics";
+import { trackEvent, isLandingPage } from "@/lib/analytics";
 
 /**
  * EngagementTracker
  *
  * Emits GA4 signals so we can compute a *real* bounce rate
- * (bounce = session with NO engagement signal).
+ * (bounce = session with NO engagement signal) and so bounce rate
+ * is measurable PER PAGE in GA4.
  *
- *  - engagement_30s   → fired once per pageview after 30s active time
- *  - scroll_depth     → fired at 25 / 50 / 75 / 100 %
- *  - first_click      → fired on the first internal interaction
+ *  - page_view          → fired on every SPA route change (initial load
+ *                         uses index.html's bot-aware loader instead)
+ *  - landing_page_view  → fired only on the 6 canonical landing pages
+ *  - engaged_session    → fired at 10s active time (GA4 standard threshold)
+ *  - engagement_30s     → fired at 30s active time (our richer signal)
+ *  - scroll_depth       → fired at 25 / 50 / 75 / 100 %
+ *  - first_click        → fired on the first internal interaction
  *
  * Notes:
- *  - Pauses the 30s timer when the tab is hidden (GA4-style "active" time).
+ *  - Pauses timers when the tab is hidden (GA4-style "active" time).
  *  - Resets on route change (SPA navigation = new pageview).
  *  - Tiny, idle-callback friendly, never throws.
  */
@@ -22,20 +27,47 @@ const EngagementTracker = () => {
   const stateRef = useRef({
     activeMs: 0,
     lastTick: performance.now(),
-    engagedFired: false,
+    engaged10Fired: false,
+    engaged30Fired: false,
     clickedFired: false,
     scrollMarks: new Set<number>(),
+    initialPageView: true,
   });
 
   useEffect(() => {
+    const isInitial = stateRef.current.initialPageView;
     // Reset on every SPA navigation
     stateRef.current = {
       activeMs: 0,
       lastTick: performance.now(),
-      engagedFired: false,
+      engaged10Fired: false,
+      engaged30Fired: false,
       clickedFired: false,
       scrollMarks: new Set<number>(),
+      initialPageView: false,
     };
+
+    const path = location.pathname;
+    const landing = isLandingPage(path);
+
+    // Fire SPA page_view on every navigation EXCEPT the very first load
+    // (index.html's gtag config sends that one already to keep early
+    // pageviews from being lost while React boots).
+    if (!isInitial) {
+      trackEvent("page_view", {
+        page_path: path,
+        page_location: window.location.href,
+        page_title: document.title,
+        is_landing_page: landing,
+      });
+    }
+
+    if (landing) {
+      trackEvent("landing_page_view", {
+        page_path: path,
+        page_title: document.title,
+      });
+    }
 
     let rafScheduled = false;
     const TICK_MS = 1000;
@@ -48,14 +80,25 @@ const EngagementTracker = () => {
       }
       s.lastTick = now;
 
-      if (!s.engagedFired && s.activeMs >= 30_000) {
-        s.engagedFired = true;
+      if (!s.engaged10Fired && s.activeMs >= 10_000) {
+        s.engaged10Fired = true;
+        trackEvent("engaged_session", {
+          page_path: path,
+          is_landing_page: landing,
+          engagement_time_msec: Math.round(s.activeMs),
+        });
+      }
+
+      if (!s.engaged30Fired && s.activeMs >= 30_000) {
+        s.engaged30Fired = true;
         trackEvent("engagement_30s", {
-          path: location.pathname,
+          page_path: path,
+          is_landing_page: landing,
           ms: Math.round(s.activeMs),
         });
       }
     };
+
 
     const interval = window.setInterval(tick, TICK_MS);
 
