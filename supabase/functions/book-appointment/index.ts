@@ -132,15 +132,15 @@ serve(async (req) => {
     }
     const token = authHeader.replace("Bearer ", "");
     const authClient = getAnonClient(null, "book-appointment");
-    const { data: claimsData, error: claimsError } = await authClient.auth.getClaims(token);
-    if (claimsError || !claimsData?.claims?.sub) {
+    const { data: userData, error: userError } = await authClient.auth.getUser(token);
+    if (userError || !userData?.user?.id) {
       return errJson(req, {
         code: "unauthorized",
         message: "Invalid session. Please log in again.",
         requestId,
       });
     }
-    const userId = claimsData.claims.sub as string;
+    const userId = userData.user.id;
 
     // Double-booking prevention
     const { data: existing } = await supabase
