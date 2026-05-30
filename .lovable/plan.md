@@ -1,50 +1,30 @@
-# Plan: Per-page bounce-rate measurement in GA4
+## What you're seeing
 
-Goal: in GA4, see bounce rate **broken out by page** for the six landing pages (`/`, `/about`, `/diet`, `/exercises`, `/arthritis-flare-ups`, `/guides/exercise`) — currently EngagementTracker fires events but they aren't easily groupable, and `page_view` isn't being sent on SPA route changes (only on initial load via `send_page_view: true`), so GA4 sees a single pageview per session and overstates bounce.
+The "thing that pops up for 1–2 seconds" is the **PageLoader** in `src/App.tsx` (lines 122–132) — a centred spinner with "Loading…" text. It's shown via React `Suspense` while the lazy-loaded home page chunk downloads. On a slow network it can flash for up to 2 seconds before the real homepage replaces it.
 
-## What's already in place
-- `EngagementTracker` fires `engagement_30s`, `scroll_depth`, `first_click` with `path` as a param.
-- Initial `gtag('config', 'G-X8GTW05JJS', { send_page_view: true })` runs once on load.
-- `trackEvent()` helper in `src/lib/analytics.ts`.
+## Plan
 
-## What's broken / missing
-1. **No SPA pageview**: react-router navigations don't re-fire `page_view`, so GA4 reports 1 pageview per session even when the user reads 3 pages. Inflates bounce by ~40pp.
-2. **`path` is a custom event param, not a registered dimension**, so you can't pivot bounce rate by URL in GA4 Explore without registering it.
-3. **No landing-page tag**: the six target pages aren't flagged, so you can't filter to "is_landing_page = true".
-4. **No engaged-session signal at the GA4 standard threshold (10 s)** — GA4's built-in bounce metric needs either a `user_engagement` event or `engagement_time_msec`.
+### 1. Remove the splash/spinner flash
+- In `src/App.tsx`, change the outer `<Suspense fallback={<PageLoader />}>` (line 301) to `<Suspense fallback={null}>`. This eliminates the visible loader entirely — the previous page (or blank background) stays visible until the new one is ready, which feels instant and removes the flash.
+- Delete the now-unused `PageLoader` component.
 
-## Changes
+### 2. Make the homepage load faster (eager, not lazy)
+- The home route `/` is the most-visited page (113 of 317 pageviews this week). Keeping it `lazy()` forces a second network round-trip on first visit. Convert `Index` to a static `import` so it ships in the main bundle and renders on first paint — no Suspense wait at all for `/`.
+- Keep every other page lazy (they're rarely the entry point).
 
-### 1. `src/components/EngagementTracker.tsx`
-- On every route change, fire `page_view` with `page_path`, `page_location`, `page_title`, and a custom `is_landing_page` boolean (true for the six target paths).
-- Add a `landing_page_view` event (only on the six target pages) for clean GA4 segmentation.
-- Add an early `engaged_session` event at **10 seconds** of active time (matches GA4's built-in engagement threshold) in addition to the existing `engagement_30s`.
-- Include `engagement_time_msec` param on `engaged_session` so GA4's built-in bounce metric drops correctly.
-- Send `page_path` as a param on every event (already done) plus `landing_page` constant.
+### 3. Trim first-paint JS
+- Remove `RouteProgressBar` from the always-mounted tree (or defer it inside `DeferredMount`). It pulls in `framer-motion` on first paint just to animate a 450 ms top bar — disproportionate cost. Replace with a tiny CSS-only bar, or drop it entirely.
+- Move `EngagementTracker` into the existing `DeferredMount timeout={1200}` block so analytics setup doesn't compete with the LCP.
 
-### 2. `index.html`
-- Change the initial `gtag('config', …)` to `{ send_page_view: false }` so the SPA `page_view` from EngagementTracker is the single source of truth (prevents the first pageview being counted twice).
-- Register `page_path` and `is_landing_page` as **event-scoped custom definitions** via a one-time `gtag('config', …, { custom_map: …})` — gives the pivot dimension in GA4 reports without a manual dashboard step.
+### 4. Prefetch likely next pages on idle
+- After the home page mounts, use `requestIdleCallback` to warm the chunks for `/about`, `/diet`, `/exercises`, `/arthritis-flare-ups` (the top destinations in your analytics). The existing `useLinkPrefetch` hook already does hover-based prefetch; we extend it with an idle pre-warm for the four hottest routes so the second click feels instant.
 
-### 3. `src/lib/analytics.ts`
-- Export a `LANDING_PAGES` constant (`['/', '/about', '/diet', '/exercises', '/arthritis-flare-ups', '/guides/exercise']`) used by EngagementTracker for the `is_landing_page` flag. Single source of truth so future additions are one-line.
-- Add an `isLandingPage(path)` helper.
-
-### 4. Verification
-- Add a dev-only `console.debug('[ga4]', name, params)` mirror inside `trackEvent` when `import.meta.env.DEV` so we can see events fire in the preview console while testing each of the six routes.
-- After deploying, open GA4 → Realtime → events: navigate each of the six landing pages, confirm one `page_view` + one `landing_page_view` per visit, then `engaged_session` at 10 s.
-
-## What you'll see in GA4 (1–2 days after deploy)
-
-- **Reports → Engagement → Pages and screens**: bounce rate column populated per URL.
-- **Explore → free-form**, dimension `page_path`, metric `Bounce rate`: per-page bounce for any path, including the six landing pages.
-- **Explore** with filter `is_landing_page = true`: bounce rate for the six landing pages only.
+### 5. Verify
+- Open the preview, hard-reload `/`, and confirm no spinner appears between the blank page and the real homepage.
+- Check the Network tab: the main JS request should now contain the Index page code (no separate `Index-[hash].js` chunk for the homepage).
 
 ## Files touched
-```
-src/lib/analytics.ts            (add LANDING_PAGES + isLandingPage + DEV debug)
-src/components/EngagementTracker.tsx  (page_view on route change, landing_page_view, engaged_session @10s)
-index.html                      (send_page_view: false + custom_map)
-```
+- `src/App.tsx` — remove `PageLoader`, switch fallback to `null`, make `Index` a static import, move `EngagementTracker` into the deferred block, drop or replace `RouteProgressBar`.
+- `src/hooks/useLinkPrefetch.ts` — add an idle pre-warm for the four hottest routes.
 
-No DB changes, no new deps. Won't change any visible UI.
+No backend, schema, or content changes. Pure frontend perf + UX.
