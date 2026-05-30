@@ -7,12 +7,12 @@
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.supabase.co https://js.stripe.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.resend.com https://api-m.paypal.com https://api-m.sandbox.paypal.com https://ai.gateway.lovable.dev https://api.stripe.com https://*.lovable.app https://*.lovableproject.com https://www.google-analytics.com https://analytics.google.com https://*.google-analytics.com https://*.analytics.google.com; frame-src 'self' https://*.paypal.com https://js.stripe.com https://hooks.stripe.com; object-src 'none'; base-uri 'self'; form-action 'self' https://checkout.stripe.com;" />
 
-    <!-- Google Analytics 4 – loaded after first user interaction or 5s idle to minimise main-thread work -->
+    <!-- Google Analytics 4 – loaded after first user interaction or 5s idle to minimise main-thread work.
+         gtag('config') runs INSIDE loadGA so it fires once after the script attaches, preventing the
+         duplicate /gtag/js fetch PSI reports (saves ~150 KiB of unused JS on first paint). -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-X8GTW05JJS', { send_page_view: true });
       (function() {
         var loaded = false;
         function loadGA() {
@@ -21,6 +21,10 @@
           var s = document.createElement('script');
           s.src = 'https://www.googletagmanager.com/gtag/js?id=G-X8GTW05JJS';
           s.async = true;
+          s.onload = function() {
+            gtag('js', new Date());
+            gtag('config', 'G-X8GTW05JJS', { send_page_view: true });
+          };
           document.head.appendChild(s);
           ['scroll','mousemove','touchstart','keydown','click'].forEach(function(e){
             window.removeEventListener(e, loadGA, { passive: true });

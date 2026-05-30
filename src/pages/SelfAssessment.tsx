@@ -164,7 +164,7 @@ const SelfAssessment = () => {
               <Card>
                 <CardContent className="p-6 space-y-4">
                   <Label>Average pain level today (0 = none, 10 = worst)</Label>
-                  <Slider value={[painLevel]} min={0} max={10} step={1} onValueChange={(v) => setPainLevel(v[0])} />
+                  <Slider value={[painLevel]} min={0} max={10} step={1} onValueChange={(v) => setPainLevel(v[0])} aria-label="Current pain level from 0 to 10" aria-valuetext={`${painLevel} out of 10`} />
                   <p className="text-sm text-muted-foreground">{painLevel} / 10</p>
                 </CardContent>
               </Card>
