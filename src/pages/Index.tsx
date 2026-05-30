@@ -1,7 +1,7 @@
 /**
  * Living With Arthritis UK — Homepage
  *
- * Focused fundraising landing page for the open-source osteoarthritis
+ * Focused fundraising landing page for the osteoarthritis
  * management plan. Composed from existing landing primitives + three
  * OA-specific sections (Hero, Problem Band, Plan Pillars, Ethos Band).
  *
