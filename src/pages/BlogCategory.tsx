@@ -45,6 +45,9 @@ const BlogCategory = () => {
   const key = category.toLowerCase();
   const meta = CATEGORY_META[key];
 
+  const categoryLabel = meta?.title?.split(":")[0]?.split("Articles")[0]?.trim() || key;
+  const url = `https://livingwitharthritis.org.uk/blog/category/${key}`;
+
   return (
     <>
       {meta && (
@@ -53,6 +56,27 @@ const BlogCategory = () => {
           description={meta.description}
           path={`/blog/category/${key}`}
         />
+      )}
+      {meta && (
+        <Helmet>
+          <script type="application/ld+json">{JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
+              { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://livingwitharthritis.org.uk/blog" },
+              { "@type": "ListItem", "position": 3, "name": categoryLabel, "item": url }
+            ]
+          })}</script>
+          <script type="application/ld+json">{JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": meta.title,
+            "description": meta.description,
+            "url": url,
+            "inLanguage": "en-GB"
+          })}</script>
+        </Helmet>
       )}
       <BlogIndex initialCategory={category} />
     </>

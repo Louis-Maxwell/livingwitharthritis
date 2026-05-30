@@ -59,6 +59,22 @@ const Library = () => {
           rel="canonical"
           href="https://livingwitharthritis.org.uk/library"
         />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "Health Library",
+          "url": "https://livingwitharthritis.org.uk/library",
+          "inLanguage": "en-GB",
+          "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" }
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
+            { "@type": "ListItem", "position": 2, "name": "Health Library", "item": "https://livingwitharthritis.org.uk/library" }
+          ]
+        })}</script>
       </Helmet>
 
       <Header />
