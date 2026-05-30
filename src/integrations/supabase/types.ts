@@ -571,6 +571,42 @@ export type Database = {
         }
         Relationships: []
       }
+      content_refresh_queue: {
+        Row: {
+          ai_rewritten_intro: string | null
+          id: string
+          notes: string | null
+          original_intro: string | null
+          queued_at: string
+          reviewed_at: string | null
+          reviewed_by: string | null
+          slug: string
+          status: string
+        }
+        Insert: {
+          ai_rewritten_intro?: string | null
+          id?: string
+          notes?: string | null
+          original_intro?: string | null
+          queued_at?: string
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          slug: string
+          status?: string
+        }
+        Update: {
+          ai_rewritten_intro?: string | null
+          id?: string
+          notes?: string | null
+          original_intro?: string | null
+          queued_at?: string
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          slug?: string
+          status?: string
+        }
+        Relationships: []
+      }
       donation_tiers: {
         Row: {
           amount: string
@@ -1398,6 +1434,41 @@ export type Database = {
         }
         Relationships: []
       }
+      rank_history: {
+        Row: {
+          captured_at: string
+          id: string
+          keyword_id: string
+          position: number | null
+          ranking_url: string | null
+          search_volume: number | null
+        }
+        Insert: {
+          captured_at?: string
+          id?: string
+          keyword_id: string
+          position?: number | null
+          ranking_url?: string | null
+          search_volume?: number | null
+        }
+        Update: {
+          captured_at?: string
+          id?: string
+          keyword_id?: string
+          position?: number | null
+          ranking_url?: string | null
+          search_volume?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "rank_history_keyword_id_fkey"
+            columns: ["keyword_id"]
+            isOneToOne: false
+            referencedRelation: "tracked_keywords"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       seo_refresh_runs: {
         Row: {
           ai_txt_updated: boolean
@@ -1617,6 +1688,36 @@ export type Database = {
           slug?: string
           title?: string
           twitter_thread?: string | null
+        }
+        Relationships: []
+      }
+      tracked_keywords: {
+        Row: {
+          created_at: string
+          id: string
+          is_active: boolean
+          keyword: string
+          market: string
+          target_url: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          keyword: string
+          market?: string
+          target_url: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          keyword?: string
+          market?: string
+          target_url?: string
+          updated_at?: string
         }
         Relationships: []
       }
