@@ -359,6 +359,7 @@ const Osteoarthritis = () => (
         </div>
       </main>
       <InternalLinks />
+      <NextReadStrip currentPath="/conditions/osteoarthritis" />
       <Footer />
     </div>
   </>
