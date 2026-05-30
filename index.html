@@ -23,7 +23,16 @@
           s.async = true;
           s.onload = function() {
             gtag('js', new Date());
-            gtag('config', 'G-X8GTW05JJS', { send_page_view: true });
+            gtag('config', 'G-X8GTW05JJS', {
+              send_page_view: true,
+              // Register custom params as event-scoped dimensions so
+              // bounce rate can be pivoted by page_path / is_landing_page
+              // in GA4 Explore without manual dashboard setup.
+              custom_map: {
+                dimension1: 'page_path',
+                dimension2: 'is_landing_page'
+              }
+            });
           };
           document.head.appendChild(s);
           ['scroll','mousemove','touchstart','keydown','click'].forEach(function(e){
