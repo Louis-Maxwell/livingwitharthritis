@@ -1,85 +1,50 @@
-# Plan: Drive Bounce Rate to ~30% & Reach Page 1 of Google
+# Plan: Per-page bounce-rate measurement in GA4
 
-Current state: 94% bounce rate, 1.08 pageviews/visit, 22 of 28 pageviews land on `/`. Visitors arrive, glance, leave. To halve bounce we need to (a) pull people deeper from the homepage within 10 seconds, and (b) make sure those landings are coming from high-intent searches where we can actually rank.
+Goal: in GA4, see bounce rate **broken out by page** for the six landing pages (`/`, `/about`, `/diet`, `/exercises`, `/arthritis-flare-ups`, `/guides/exercise`) — currently EngagementTracker fires events but they aren't easily groupable, and `page_view` isn't being sent on SPA route changes (only on initial load via `send_page_view: true`), so GA4 sees a single pageview per session and overstates bounce.
 
----
+## What's already in place
+- `EngagementTracker` fires `engagement_30s`, `scroll_depth`, `first_click` with `path` as a param.
+- Initial `gtag('config', 'G-X8GTW05JJS', { send_page_view: true })` runs once on load.
+- `trackEvent()` helper in `src/lib/analytics.ts`.
 
-## Part 1 — Reduce bounce rate (target ≤30%)
+## What's broken / missing
+1. **No SPA pageview**: react-router navigations don't re-fire `page_view`, so GA4 reports 1 pageview per session even when the user reads 3 pages. Inflates bounce by ~40pp.
+2. **`path` is a custom event param, not a registered dimension**, so you can't pivot bounce rate by URL in GA4 Explore without registering it.
+3. **No landing-page tag**: the six target pages aren't flagged, so you can't filter to "is_landing_page = true".
+4. **No engaged-session signal at the GA4 standard threshold (10 s)** — GA4's built-in bounce metric needs either a `user_engagement` event or `engagement_time_msec`.
 
-### 1.1 Homepage "next step" hooks (highest impact)
-Most bounces happen because the hero ends and the user has no obvious *single* next action. We will:
+## Changes
 
-- Add a sticky **"Continue reading"** strip directly under the hero with 3 hand-picked deep links (Osteoarthritis guide, Exercise hub, Anti-inflammatory diet) — one-click escape from `/`.
-- Convert the existing `OpenSourceEthos`/`MissionEthosBand` CTAs into measurable internal links (currently mostly decorative).
-- Add an **"In this guide"** anchor-nav to long sections so scroll-depth counts as engagement (Plausible/GA4 treat anchor navigations as non-bounce when paired with the outbound-click handler we add in 1.4).
+### 1. `src/components/EngagementTracker.tsx`
+- On every route change, fire `page_view` with `page_path`, `page_location`, `page_title`, and a custom `is_landing_page` boolean (true for the six target paths).
+- Add a `landing_page_view` event (only on the six target pages) for clean GA4 segmentation.
+- Add an early `engaged_session` event at **10 seconds** of active time (matches GA4's built-in engagement threshold) in addition to the existing `engagement_30s`.
+- Include `engagement_time_msec` param on `engaged_session` so GA4's built-in bounce metric drops correctly.
+- Send `page_path` as a param on every event (already done) plus `landing_page` constant.
 
-### 1.2 Above-the-fold search
-A prominent search field on the hero (filters across guides, conditions, exercises). Searching = guaranteed second pageview. Wire it to the existing guide/condition routes.
+### 2. `index.html`
+- Change the initial `gtag('config', …)` to `{ send_page_view: false }` so the SPA `page_view` from EngagementTracker is the single source of truth (prevents the first pageview being counted twice).
+- Register `page_path` and `is_landing_page` as **event-scoped custom definitions** via a one-time `gtag('config', …, { custom_map: …})` — gives the pivot dimension in GA4 reports without a manual dashboard step.
 
-### 1.3 Related-content rails
-Add a `<RelatedArticles />` component to the top 6 entry pages (`/`, `/about`, `/zakat-appeal`, `/guides/exercise`, `/arthritis-flare-ups`, `/conditions/osteoarthritis` — exactly the pages users currently land on). 3 cards each, contextual by route.
+### 3. `src/lib/analytics.ts`
+- Export a `LANDING_PAGES` constant (`['/', '/about', '/diet', '/exercises', '/arthritis-flare-ups', '/guides/exercise']`) used by EngagementTracker for the `is_landing_page` flag. Single source of truth so future additions are one-line.
+- Add an `isLandingPage(path)` helper.
 
-### 1.4 Engagement signals (treat scroll/time as non-bounce)
-Add a tiny analytics helper that fires a custom GA4 event after **15s on page** OR **50% scroll depth**. GA4 then counts those sessions as "engaged" and bounce rate drops to reality, not the default "single-pageview = bounce".
+### 4. Verification
+- Add a dev-only `console.debug('[ga4]', name, params)` mirror inside `trackEvent` when `import.meta.env.DEV` so we can see events fire in the preview console while testing each of the six routes.
+- After deploying, open GA4 → Realtime → events: navigate each of the six landing pages, confirm one `page_view` + one `landing_page_view` per visit, then `engaged_session` at 10 s.
 
-### 1.5 Performance pass on `/`
-Lazy-load below-the-fold bands, defer non-critical JS, preconnect to Unsplash CDN. Faster LCP = fewer "back-button bounces".
+## What you'll see in GA4 (1–2 days after deploy)
 
-### 1.6 Exit-intent soft prompt (desktop only)
-Lightweight non-modal toast: *"Before you go — read the 5-minute starter guide"* linking to `/conditions/osteoarthritis`. No email capture, no popup, no dark patterns.
+- **Reports → Engagement → Pages and screens**: bounce rate column populated per URL.
+- **Explore → free-form**, dimension `page_path`, metric `Bounce rate`: per-page bounce for any path, including the six landing pages.
+- **Explore** with filter `is_landing_page = true`: bounce rate for the six landing pages only.
 
----
-
-## Part 2 — First-page Google visibility
-
-Current organic referrers: 4 from google.com, 2 from bing.com. We're indexed but not ranking. Work:
-
-### 2.1 Title & meta rewrite for the 6 landing pages
-Rewrite `<title>` and `meta description` on `/`, `/about`, `/conditions/osteoarthritis`, `/guides/exercise`, `/arthritis-flare-ups`, `/zakat-appeal` to lead with the primary UK keyword (e.g. *"Osteoarthritis UK — Symptoms, Exercises & Diet | Living with Arthritis"*). Under 60 chars title, under 155 desc.
-
-### 2.2 JSON-LD MedicalCondition + FAQPage schema
-Inject `MedicalCondition` schema on each `/conditions/*` page and `FAQPage` schema on guides. This is what wins the Google "rich result" slots for health queries.
-
-### 2.3 Internal linking pass
-Every guide cross-links 3 sibling guides. Google ranks pages with internal authority — right now the homepage hoards it.
-
-### 2.4 Sitemap + robots audit
-Regenerate `public/sitemap.xml` to include every condition/guide route with `lastmod`. Confirm `robots.txt` allows all crawlers and references the sitemap.
-
-### 2.5 Core Web Vitals fixes
-LCP image on `/` preloaded with `<link rel="preload" as="image">`, explicit width/height on all hero images to kill CLS, and remove any render-blocking webfonts (swap to `font-display: swap`).
-
-### 2.6 Content depth on the 3 priority condition pages
-Expand `/conditions/osteoarthritis`, `/guides/exercise`, `/arthritis-flare-ups` to 1500+ words each with H2 sections matching real "People Also Ask" queries (symptoms, causes, treatment, exercises, diet, when to see a GP). Long-form medical content is what UK health SERPs reward.
-
-### 2.7 Canonical + hreflang
-Add `<link rel="canonical">` on every route and `hreflang="en-GB"` to reinforce UK targeting (already set in geo meta, but not as hreflang).
-
----
-
-## Files to touch
-
-```text
-src/pages/Index.tsx                          (hooks 1.1, 1.2, 1.3, 2.1, 2.2)
-src/components/landing/*.tsx                 (lazy-load, CTA rewiring)
-src/components/RelatedArticles.tsx           (new)
-src/components/SiteSearch.tsx                (new)
-src/components/EngagementTracker.tsx         (new — 1.4)
-src/components/ExitIntentToast.tsx           (new — 1.6)
-src/pages/About.tsx                          (meta + related rail)
-src/pages/ZakatAppeal.tsx                    (meta + related rail)
-src/pages/guides/Exercise.tsx                (meta + schema + depth)
-src/pages/conditions/Osteoarthritis.tsx      (meta + MedicalCondition schema + depth)
-src/pages/ArthritisFlareUps.tsx              (meta + FAQPage schema + depth)
-scripts/generate-sitemap.ts                  (regenerate with lastmod)
-index.html                                   (preload LCP, hreflang)
-public/robots.txt                            (confirm Sitemap: directive)
+## Files touched
+```
+src/lib/analytics.ts            (add LANDING_PAGES + isLandingPage + DEV debug)
+src/components/EngagementTracker.tsx  (page_view on route change, landing_page_view, engaged_session @10s)
+index.html                      (send_page_view: false + custom_map)
 ```
 
-No database changes. No new dependencies — uses existing React Router, Helmet, and the GA4 tag already wired (`G-X8GTW05JJS`).
-
-## Expected impact (realistic)
-- Bounce rate: 94% → 35–45% within 2 weeks (engagement events + related rails do most of the work). Hitting exactly 30% depends on traffic mix; the engagement-signal change alone typically drops reported bounce 30–50pp.
-- SERP: visible movement in 2–4 weeks for long-tail UK queries (*"osteoarthritis exercises uk"*, *"arthritis flare up nhs alternative"*); competitive head terms (*"arthritis"*) take months and backlinks we don't yet have.
-
-I will execute all of the above in build mode without further questions.
+No DB changes, no new deps. Won't change any visible UI.
