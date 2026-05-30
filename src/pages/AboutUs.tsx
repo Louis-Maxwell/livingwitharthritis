@@ -388,6 +388,7 @@ const AboutUs = () => {
           </div>
         </section>
         <InternalLinks />
+        <NextReadStrip currentPath="/about" />
         <Footer />
       </div>
     </>
