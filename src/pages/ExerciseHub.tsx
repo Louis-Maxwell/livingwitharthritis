@@ -669,6 +669,7 @@ const ExerciseHub = () => {
 
 
       <InternalLinks />
+      <NextReadStrip currentPath="/guides/exercise" />
       <Footer />
     </>
   );
