@@ -1,4 +1,5 @@
 import { useParams, Navigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import BlogIndex from "./BlogIndex";
 import SeoHead from "@/components/SeoHead";
 
