@@ -607,6 +607,7 @@ export default function ArthritisFlareUps() {
 
 
       <InternalLinks />
+      <NextReadStrip currentPath="/arthritis-flare-ups" />
       <Footer />
     </>
   );
