@@ -63,6 +63,8 @@ const DonationImpactSection = () => {
               max={150}
               step={5}
               className="w-full"
+              aria-label="Monthly donation amount in pounds"
+              aria-valuetext={`£${amount} per month`}
             />
             <div className="flex justify-between mt-3 text-[10px] text-muted-foreground tracking-[0.15em] uppercase">
               <span>£5</span>

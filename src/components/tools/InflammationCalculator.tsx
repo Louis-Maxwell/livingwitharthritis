@@ -134,6 +134,8 @@ export default function InflammationCalculator() {
                 onValueChange={([v]) => updateValue(f.id, v)}
                 min={0} max={100} step={5}
                 className="w-full"
+                aria-label={`${f.label} (0 to 100 percent)`}
+                aria-valuetext={`${values[f.id]} percent`}
               />
             ) : (
               <div className="flex items-center gap-3">
