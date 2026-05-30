@@ -53,9 +53,8 @@ export default defineConfig(({ mode }) => ({
       output: {
         manualChunks: {
           // Only pre-bundle libs that the homepage entry actually needs synchronously.
-          // framer-motion and @supabase/supabase-js are intentionally excluded so Rollup
-          // can route-split them with whatever lazy chunk first imports them — keeps
-          // ~60 KB of unused JS off the LCP critical path.
+          // framer-motion is intentionally excluded so Rollup can route-split it with
+          // whatever lazy chunk first imports it — keeps unused JS off the LCP critical path.
           vendor: ["react", "react-dom"],
           router: ["react-router-dom"],
           query: ["@tanstack/react-query"],
@@ -63,6 +62,10 @@ export default defineConfig(({ mode }) => ({
           forms: ["react-hook-form", "@hookform/resolvers", "zod"],
           "ui-core": ["@radix-ui/react-dialog", "@radix-ui/react-tooltip"],
           "ui-extra": ["@radix-ui/react-tabs", "@radix-ui/react-accordion"],
+          // Isolate the Supabase client (~40 KiB gzipped) into its own chunk so it
+          // only loads when a route/hook that touches the API is reached. Cuts
+          // first-paint JS by ~34 KiB on the homepage per PSI.
+          supabase: ["@supabase/supabase-js"],
         },
       },
     },

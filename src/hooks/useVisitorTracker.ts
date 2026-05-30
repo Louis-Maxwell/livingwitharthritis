@@ -34,8 +34,21 @@ export function useVisitorCount() {
       }
     }
 
-    track();
-    return () => { cancelled = true; };
+    // Defer to idle so the Supabase chunk + RPC stay off the LCP critical path.
+    const schedule =
+      typeof window !== "undefined" && "requestIdleCallback" in window
+        ? (cb: () => void) =>
+            (window as Window & { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => number })
+              .requestIdleCallback(cb, { timeout: 3000 })
+        : (cb: () => void) => window.setTimeout(cb, 1500);
+    const handle = schedule(() => { if (!cancelled) track(); });
+
+    return () => {
+      cancelled = true;
+      if (typeof window !== "undefined" && "cancelIdleCallback" in window && typeof handle === "number") {
+        (window as Window & { cancelIdleCallback: (h: number) => void }).cancelIdleCallback(handle);
+      }
+    };
   }, []);
 
   return count;
