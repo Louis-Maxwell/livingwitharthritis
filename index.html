@@ -286,14 +286,17 @@
 
 </head>
 
-  <body>
+  <body style="background:#ffffff;">
     <div id="root">
       <!--
         Static SEO fallback. React's createRoot().render() replaces these
         children on hydration, so real users never see this. Non-JS
         crawlers (Backlinko, Semrush, social previews, basic Lighthouse
         passes) read it to confirm headings, word count and internal links.
+        Wrapped in an offscreen, aria-hidden container so it remains
+        parseable by crawlers but never flashes for sighted users.
       -->
+      <div id="seo-fallback" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;">
       <main>
         <h1>Living With Arthritis UK — Free Support, Exercises and Diet Guidance</h1>
         <p>Living With Arthritis is a UK charity helping the 10 million people in Britain living with arthritis and joint pain. We provide free, evidence-based information on exercise, diet, pain management and local support — written in plain English and reviewed by qualified clinicians. Everything on this site is free for everyone, with no paywalls and no sign-up required.</p>
