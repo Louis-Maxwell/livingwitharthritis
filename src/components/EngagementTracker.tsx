@@ -132,7 +132,8 @@ const EngagementTracker = () => {
       if (!target) return;
       s.clickedFired = true;
       trackEvent("first_click", {
-        path: location.pathname,
+        page_path: path,
+        is_landing_page: landing,
         tag: target.tagName.toLowerCase(),
       });
     };
