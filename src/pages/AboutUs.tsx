@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import PageHero from "@/components/ui/PageHero";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import NextReadStrip from "@/components/NextReadStrip";
 import InternalLinks from "@/components/InternalLinks";
 
 
