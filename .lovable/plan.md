@@ -1,60 +1,59 @@
-## PageSpeed Insights remediation plan
+## Problem
 
-Working through the five PSI findings on the published site (mobile audit of `/`).
+The Ahrefs export (`livingwitharthritis_30-may-2026_multiple-meta_...csv`) flags **all 395 indexable pages** with `No. of meta descriptions = 2`. Every URL has two `<meta name="description">` tags in the rendered HTML.
 
-### 1. ARIA input fields without accessible names (a11y, blocking)
-**Finding**: `<span role="slider" aria-valuemin="5" aria-valuemax="150">` has no accessible name.
-**Source**: `src/components/landing/DonationImpactSection.tsx` — `<Slider>` (Radix) wrapped in a custom label that isn't associated.
-**Fix**: pass `aria-label="Monthly donation amount in pounds"` (and `aria-valuetext={`£${amount}`}`) to the `Slider`. Audit the other two sliders for the same gap:
-- `src/pages/SelfAssessment.tsx` (pain level slider) → `aria-label="Current pain level (0–10)"`
-- `src/components/tools/InflammationCalculator.tsx` → descriptive `aria-label`
+## Root cause
 
-### 2. Render-blocking requests (~50 ms)
-**Findings**: `/assets/index-*.css` (24.8 KiB), an extra `/assets/Index-*.css` (1.6 KiB), and the Google Fonts stylesheet.
+`index.html` ships a sitewide static `<meta name="description">` (line 80). Every route also renders `<SeoHead>` which uses `react-helmet-async` to inject its own `<meta name="description">`. `react-helmet-async` only deduplicates tags it manages itself — it does not remove pre-existing static tags from `index.html`. Result: both tags ship in the DOM, Ahrefs/Google see two descriptions per page.
 
-**Fixes**:
-- **Google Fonts already uses `preload` + onload swap** — keep, no change needed.
-- **Eliminate the duplicate `Index-*.css` chunk.** That's CSS emitted from `src/pages/Index.tsx`'s lazy chunk being preloaded synchronously. Inspect `src/App.tsx` route imports — if `Index` is statically imported, leave it; the duplicate is from a stray module-level `import "./...css"` inside a non-lazy module. Trace and inline/remove.
-- **Trim critical CSS**: confirm `index.css` doesn't `@import` extra stylesheets at top-level and that no page imports a `.css` sibling that should be a Tailwind utility. Net target: single CSS request.
+The same duplication pattern almost certainly applies to other tags `SeoHead` re-emits that also live in `index.html`:
+- `og:title`, `og:description`, `og:url`, `og:type`, `og:image`
+- `twitter:title`, `twitter:description`, `twitter:image`, `twitter:card`
+- `theme-color`, `referrer`, `geo.region`
 
-### 3. Forced reflow (~150 ms)
-**Findings**: `vendor` chunk (React DOM), plus `ui-extra` and `ui-core` (Radix Tabs/Accordion/Dialog/Tooltip), plus `[unattributed]` 56 ms.
-**Root cause**: the `[unattributed]` reflow is almost always our own code measuring layout during mount. Suspects:
-- `src/lib/heroLayoutMonitor.ts` — reads `getBoundingClientRect()` in a `ResizeObserver`/scroll handler. Wrap reads in `requestAnimationFrame` and batch DOM writes after reads.
-- `src/hooks/useRevealOnScroll.ts` — if it queries `offsetTop`/`getBoundingClientRect` on scroll, switch to `IntersectionObserver` (likely already is — verify and remove any fallback measurements).
-- `useVisitorTracker`, `useLinkPrefetch` — confirm no synchronous layout reads on mount.
+(The Ahrefs report only audits `description`, but fixing one without the others leaves the same issue for crawlers checking OG/Twitter.)
 
-**Fix**: audit these three files; convert any direct `getBoundingClientRect`/`offsetWidth` reads into rAF-batched reads, or replace with `IntersectionObserver`. The Radix-driven reflow is unavoidable (it sizes overlays), but eliminating our own 56 ms unattributed read removes the worst offender.
+## Fix
 
-### 4. Reduce unused JavaScript (~239 KiB)
-**Findings**:
-- Google Tag Manager loaded twice (`gtag/js?id=…` requested twice → 307 KiB, est. saving 169 KiB).
-- App bundle: `index-*.js` (74.8 KiB, est. 34.9 KiB unused) and `client-*.js` (42.8 KiB, est. 34.4 KiB unused) — that's the Supabase client shipping on first paint.
+Edit **`index.html`** only. Remove the per-page tags from the static head so `SeoHead` (Helmet) is the sole source on every route. Keep tags that are truly sitewide and static (charset, viewport, CSP, robots, author, keywords, geo.*, theme-color, JSON-LD, GA loader, font preloads).
 
-**Fixes**:
-- **De-duplicate GA**: `index.html` injects gtag once; the second request is GTM auto-loading a measurement script. Confirm by reading the live HTML. The duplicate comes from the inline `gtag('config', ...)` running **before** the script is appended on interaction — when GA finally loads, it re-fetches because the config was queued under a different state. Move `gtag('config', ...)` into the `loadGA()` callback so it runs once, after the script attaches. Expected saving: ~150 KiB.
-- **Lazy-load `@supabase/supabase-js`**: currently `src/integrations/supabase/client.ts` is imported at module scope by hooks that run on the homepage (e.g. `useVisitorTracker`, `useCmsContent`). Add to `vite.config.ts` `manualChunks`: pull `@supabase/supabase-js` and `@supabase/postgrest-js` into a dedicated `supabase` chunk so it's only fetched when a route actually needs it. Defer `useVisitorTracker` and any homepage telemetry to `requestIdleCallback` so the chunk loads off the critical path.
+Tags to **remove** from `index.html`:
+1. `<meta name="description" ...>` (line 80) — primary fix for the Ahrefs report.
+2. `<meta property="og:title">`, `<meta property="og:description">`, `<meta property="og:url">`, `<meta property="og:type">`, `<meta property="og:locale">`, `<meta property="og:image">` and related (`og:image:width/height/alt`).
+3. `<meta name="twitter:card">`, `<meta name="twitter:title">`, `<meta name="twitter:description">`, `<meta name="twitter:image">`.
+4. `<link rel="canonical">` if present — Helmet emits per-route canonicals; two canonicals is an SEO error.
+5. Duplicate `<meta name="referrer">` (lines 43 & one inside SeoHead) — keep in Helmet, drop from index.html.
+6. Duplicate `<meta name="theme-color">` (line 91 & SeoHead light/dark variants) — keep Helmet's pair, drop the single static one.
 
-### 5. Network dependency tree depth
-**Finding**: critical path latency 5,287 ms — many sequential chunks chained off the entry.
-**Fix**: same as #4 — reducing the homepage's transitively-imported chunks (Supabase, helmet, forms) cuts the chain. Verify by re-auditing after #4 ships. Add `<link rel="modulepreload">` only for the chunks the homepage truly needs (vendor, router, helmet) — currently Vite emits them automatically; no manual hints required.
+Tags to **keep** in `index.html` (truly sitewide):
+- charset, viewport, CSP, X-Frame-Options, X-Content-Type-Options
+- `author`, `publisher`, `robots`, `googlebot`, `bingbot`, `keywords`
+- `geo.*`, `ICBM`, `content-language`, `rating`, `distribution`, `coverage`, `target`, `HandheldFriendly`
+- JSON-LD Organization schema
+- GA loader, font preloads
+- Title fallback ("Living With Arthritis…") — Helmet overrides per route
 
-### Files I'll touch
-- `index.html` — move `gtag('config')` inside `loadGA()`.
-- `vite.config.ts` — add `supabase` manual chunk.
-- `src/components/landing/DonationImpactSection.tsx` — add `aria-label`/`aria-valuetext`.
-- `src/pages/SelfAssessment.tsx` — add `aria-label`.
-- `src/components/tools/InflammationCalculator.tsx` — add `aria-label`.
-- `src/lib/heroLayoutMonitor.ts` — rAF-batch layout reads.
-- `src/hooks/useRevealOnScroll.ts`, `src/hooks/useVisitorTracker.ts` — verify and defer.
+## Trade-off (called out honestly)
 
-### Verification
-After the build, re-run PSI on `https://www.livingwitharthritis.org.uk/`. Expected:
-- A11y row resolved (slider has accessible name).
-- Unused JS drops by ~150 KiB (single GA request) + ~30–60 KiB (Supabase off critical path).
-- Forced reflow `[unattributed]` row removed.
-- Render-blocking CSS reduced to a single file.
+Social-preview crawlers (LinkedIn, Slack, Facebook) don't execute JS — they only ever see `index.html`. After this change they'll show:
+- No description preview
+- No og:image preview
+- The static `<title>` fallback
 
-### Out of scope
-- True SSR / static prerendering for non-JS social previews (separate, larger effort).
-- Image CDN switch — current Unsplash CDN already serves WebP.
+Googlebot/Bingbot/Ahrefs/Twitter all execute JS and will continue to see the per-page Helmet values. This is the standard Vite-SPA trade-off documented in our head-meta guide; true SSR is the only way to fix social previews and is out of scope here.
+
+If you want to preserve social previews, the alternative is to keep one set of static OG tags in `index.html` as a fallback and accept the duplicate-OG warning (but the **description** duplicate must go — that's the actual Ahrefs finding).
+
+## Files I'll touch
+
+- `index.html` — remove the tags listed above. No code changes elsewhere; `SeoHead` already emits everything we need per route.
+
+## Verification
+
+1. Build, open a couple of routes (`/`, `/about`, `/conditions/osteoarthritis`), view source → only the static `index.html` head; then check `document.head` in DevTools → exactly one `<meta name="description">` per page (the Helmet one).
+2. Re-run the Ahrefs crawl (or our scanner). `No. of meta descriptions` should be `1` across the board.
+
+## Out of scope
+
+- SSR / prerendering for non-JS social previews.
+- Rewriting `SeoHead` — it's already correct; the bug is purely the static duplicates in `index.html`.
