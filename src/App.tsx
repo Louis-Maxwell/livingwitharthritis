@@ -7,7 +7,6 @@ import { lazy, Suspense, useEffect } from "react";
 // Defer Sonner toaster — it triggers layout reads on mount that cause forced reflow
 const Sonner = lazy(() => import("@/components/ui/sonner").then(m => ({ default: m.Toaster })));
 import { PageTransition } from "@/components/ui/PageTransition";
-import { RouteProgressBar } from "@/components/ui/RouteProgressBar";
 import { useCartSync } from "@/hooks/useCartSync";
 import { useLinkPrefetch } from "@/hooks/useLinkPrefetch";
 import { HelmetProvider } from "react-helmet-async";
@@ -15,6 +14,9 @@ import { ThemeProvider } from "next-themes";
 import { DeferredMount } from "@/components/DeferredMount";
 import CanonicalEnforcer from "@/components/CanonicalEnforcer";
 
+// Home is eager — it's the top entry point (~36% of pageviews) so
+// shipping it in the main bundle removes a Suspense round-trip on first paint.
+import Index from "./pages/Index";
 
 const ChatBotWidget = lazy(() => import("./components/ChatBotWidget"));
 const CookieConsent = lazy(() => import("./components/CookieConsent"));
@@ -27,7 +29,6 @@ const EngagementTracker = lazy(() => import("./components/EngagementTracker"));
 
 
 // Lazy load pages for code splitting
-const Index = lazy(() => import("./pages/Index"));
 const Chat = lazy(() => import("./pages/Chat"));
 const Auth = lazy(() => import("./pages/Auth"));
 const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
@@ -119,17 +120,10 @@ const Buddy = lazy(() => import("./pages/Buddy"));
 const BuddyMatch = lazy(() => import("./pages/BuddyMatch"));
 const NewsletterConfirm = lazy(() => import("./pages/NewsletterConfirm"));
 const DebugSchema = lazy(() => import("./pages/DebugSchema"));
-// Loading fallback with skeleton-style animation
-const PageLoader = () => (
-  <div className="min-h-screen flex flex-col items-center justify-center bg-background gap-4">
-    <div className="relative">
-      <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-7 w-7 border-3 border-primary border-t-transparent" />
-      </div>
-    </div>
-    <p className="text-sm text-muted-foreground animate-pulse">Loading...</p>
-  </div>
-);
+// No visible loader — Suspense falls back to null so the previous page
+// (or blank background) stays visible until the next chunk is ready,
+// avoiding the spinner flash on first paint.
+
 
 // Optimized QueryClient with caching
 const queryClient = new QueryClient({
@@ -276,10 +270,6 @@ function AppWithSync() {
   return (
     <>
       <CanonicalEnforcer />
-      <RouteProgressBar />
-      <Suspense fallback={null}>
-        <EngagementTracker />
-      </Suspense>
       <AnimatedRoutes />
     </>
   );
@@ -298,11 +288,12 @@ const App = () => {
               </Suspense>
             </DeferredMount>
             <BrowserRouter>
-              <Suspense fallback={<PageLoader />}>
+              <Suspense fallback={null}>
                 <AppWithSync />
               </Suspense>
               <DeferredMount timeout={1200}>
                 <Suspense fallback={null}>
+                  <EngagementTracker />
                   <CookieConsent />
                   <MobileBottomNav />
                   <MobileNextStepBar />

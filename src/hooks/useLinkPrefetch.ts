@@ -53,9 +53,24 @@ export function useLinkPrefetch() {
 
     document.addEventListener("mouseover", handler, { passive: true });
     document.addEventListener("focusin", handler);
+
+    // Idle pre-warm of top destinations (from analytics) so the second
+    // click feels instant. Skips the current page.
+    const TOP_ROUTES = ["/about", "/diet", "/exercises", "/arthritis-flare-ups"];
+    const warm = () => {
+      TOP_ROUTES.forEach((p) => {
+        if (p !== window.location.pathname) prefetch(p);
+      });
+    };
+    const ric = (window as unknown as { requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number }).requestIdleCallback;
+    const warmId = ric ? ric(warm, { timeout: 3000 }) : window.setTimeout(warm, 2500);
+
     return () => {
       document.removeEventListener("mouseover", handler);
       document.removeEventListener("focusin", handler);
+      const cic = (window as unknown as { cancelIdleCallback?: (id: number) => void }).cancelIdleCallback;
+      if (cic && ric) cic(warmId as number);
+      else window.clearTimeout(warmId as number);
     };
   }, []);
 }
