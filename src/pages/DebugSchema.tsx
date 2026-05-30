@@ -105,6 +105,7 @@ export default function DebugSchema() {
       <Helmet>
         <title>Schema Debug Inspector</title>
         <meta name="robots" content="noindex,nofollow" />
+        <link rel="canonical" href="https://livingwitharthritis.org.uk/debug/schema" />
       </Helmet>
       <Header />
 

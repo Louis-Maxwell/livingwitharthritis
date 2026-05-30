@@ -179,7 +179,7 @@ const InspiredHeroBand = memo(() => {
             </p>
             <p className="mt-1 text-[11px] text-muted-foreground text-center leading-relaxed">
               By continuing you agree to our{" "}
-              <a href="/privacy-policy" className="underline hover:text-primary">privacy policy</a>.
+              <a href="/privacy" className="underline hover:text-primary">privacy policy</a>.
               Gift Aid is optional and only applied if you confirm you're a UK taxpayer.
             </p>
           </div>

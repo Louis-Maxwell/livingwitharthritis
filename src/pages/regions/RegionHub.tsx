@@ -116,7 +116,7 @@ const RegionHub = () => {
     };
   }, [r]);
 
-  if (!r) return <Navigate to="/404" replace />;
+  if (!r) return <Navigate to="/" replace />;
 
   const cities = r.citySlugs.map((s) => ukCities.find((c) => c.slug === s)).filter(Boolean) as typeof ukCities;
 
