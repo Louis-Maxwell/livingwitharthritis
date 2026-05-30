@@ -347,6 +347,7 @@ const ZakatAppeal = () => {
         </section>
       </main>
 
+      <NextReadStrip currentPath="/zakat-appeal" />
       <Footer />
 
       <StripeDonationModal
