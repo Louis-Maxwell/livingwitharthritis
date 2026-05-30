@@ -232,6 +232,9 @@ function HomePage() {
         </main>
 
         <Suspense fallback={null}>
+          <NextReadStrip currentPath="/" />
+        </Suspense>
+        <Suspense fallback={null}>
           <Footer />
         </Suspense>
         <Suspense fallback={null}>
