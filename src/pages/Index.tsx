@@ -42,6 +42,7 @@ const BlogPreview = lazy(() => import("@/components/landing/BlogPreview"));
 const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
 const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSection"));
 const Footer = lazy(() => import("@/components/Footer"));
+const NextReadStrip = lazy(() => import("@/components/NextReadStrip"));
 const BackToTopButton = lazy(() => import("@/components/landing/BackToTopButton"));
 const CookieBanner = lazy(() => import("@/components/landing/CookieBanner"));
 const StickyDonateBar = lazy(() => import("@/components/landing/StickyDonateBar"));
