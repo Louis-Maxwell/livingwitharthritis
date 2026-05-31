@@ -68,7 +68,7 @@ const WAYS = [
     title: "Leave a Legacy",
     description: "A gift in your will ensures future generations of people with arthritis receive the support they need to live well.",
     impact: "Legacies fund 30% of our work",
-    cta: "Learn More",
+    cta: "Learn about leaving a legacy",
     href: "/about",
     gradient: "from-secondary to-primary",
     bgLight: "bg-primary/5",
