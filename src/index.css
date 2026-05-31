@@ -1184,3 +1184,131 @@
     page-break-inside: avoid;
   }
 }
+
+/* ───────────────────────── Motion primitives ───────────────────────── */
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal-up { transform: translate3d(0, 24px, 0); filter: blur(2px); }
+.reveal-left { transform: translate3d(-24px, 0, 0); filter: blur(2px); }
+.reveal-right { transform: translate3d(24px, 0, 0); filter: blur(2px); }
+.reveal-fade { filter: blur(2px); }
+.reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  filter: blur(0);
+}
+
+/* Text split reveal */
+.text-split-word {
+  opacity: 0;
+  transform: translate3d(0, 0.4em, 0);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.text-split.is-visible .text-split-word {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* CountUp soft fade-in for the container */
+.count-up {
+  display: inline-block;
+}
+
+/* Duotone hover treatment for editorial imagery */
+.duotone {
+  background: hsl(0 0% 6%);
+  isolation: isolate;
+}
+.duotone-img {
+  filter: grayscale(100%) contrast(1.05);
+  opacity: 0.92;
+  transition:
+    filter 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: filter, opacity, transform;
+}
+.duotone-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, hsl(350 85% 42% / 0.0), hsl(350 85% 42% / 0.0));
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  transition: background 0.7s ease-out;
+}
+.duotone.group:hover .duotone-img,
+.duotone:focus-within .duotone-img {
+  filter: grayscale(0%) contrast(1);
+  opacity: 1;
+  transform: scale(1.03);
+}
+.duotone.group:hover .duotone-overlay {
+  background: linear-gradient(135deg, hsl(350 85% 42% / 0.15), hsl(350 85% 42% / 0.0));
+}
+
+/* SVG illustration stroke draw-in */
+.illustration-draw .draw-path {
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
+  animation: drawPath 1.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
+}
+.illustration-draw .accent {
+  stroke-dasharray: 180;
+  stroke-dashoffset: 180;
+  animation: drawPath 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards;
+}
+@keyframes drawPath {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Branded shimmer (replaces grey skeletons) */
+.shimmer-brand {
+  background: linear-gradient(
+    90deg,
+    hsl(0 0% 96%) 0%,
+    hsl(0 0% 100%) 50%,
+    hsl(0 0% 96%) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmerSlide 1.6s ease-in-out infinite;
+}
+@keyframes shimmerSlide {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Reduced motion override — kill all of the above */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-up,
+  .reveal-left,
+  .reveal-right,
+  .reveal-fade,
+  .text-split-word,
+  .duotone-img,
+  .duotone-overlay {
+    transition: none !important;
+    transform: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+  }
+  .illustration-draw .draw-path,
+  .illustration-draw .accent {
+    stroke-dashoffset: 0 !important;
+    animation: none !important;
+  }
+  .shimmer-brand {
+    animation: none !important;
+  }
+}
