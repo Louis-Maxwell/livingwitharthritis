@@ -86,9 +86,10 @@
     </script>
 
     <title>Arthritis Help UK | Free Physio, Diet &amp; Joint Support</title>
-    <!-- Per-route <meta name="description"> is emitted via SeoHead (react-helmet-async).
-         A static description here would duplicate it on every page (Ahrefs flagged
-         this as "multiple meta descriptions" across all 395 indexable URLs). -->
+    <!-- Homepage fallback description for non-JS crawlers. Per-route SeoHead
+         (react-helmet-async) dedupes by `name` and overrides this for every
+         other route, so no duplicate descriptions ship across the site. -->
+    <meta name="description" content="Living With Arthritis UK provides free, evidence-based physiotherapy, anti-inflammatory diet guides, and gentle exercises for people living with arthritis across the United Kingdom." />
     <meta name="author" content="Living With Arthritis UK" />
     <meta name="publisher" content="Living With Arthritis UK" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -144,8 +145,8 @@
          JS-executing crawlers (Googlebot, Twitterbot). Subpages shared on
          non-JS social platforms will preview with the homepage copy below
          until SSR/prerender is added. -->
-    
-    
+    <meta property="og:title" content="Arthritis Help UK — Free Physio, Diet &amp; Joint Support" />
+    <meta property="og:description" content="Free, evidence-based physiotherapy, anti-inflammatory diet guides and gentle exercises for people living with arthritis across the United Kingdom." />
     <meta property="og:url" content="https://livingwitharthritis.org.uk/" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_GB" />
