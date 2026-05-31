@@ -170,7 +170,7 @@ const CityArthritisPage = () => {
                 { icon: Dumbbell, title: "Stay Active", desc: "Regular low-impact exercise like walking, swimming, and cycling helps maintain joint mobility.", link: "/exercises", linkText: "Exercise guides" },
                 { icon: Apple, title: "Eat Well", desc: "An anti-inflammatory Mediterranean diet can reduce pain and stiffness.", link: "/diet", linkText: "Diet hub" },
                 { icon: Heart, title: "Get Support", desc: "Connect with others living with arthritis in your area and online.", link: "/community", linkText: "Community" },
-                { icon: BookOpen, title: "Learn More", desc: "Understand your condition better with our evidence-based guides.", link: "/blog", linkText: "Blog articles" },
+                { icon: BookOpen, title: "Learn About Arthritis", desc: "Understand your condition better with our evidence-based guides.", link: "/blog", linkText: "Read our arthritis guides" },
               ].map(({ icon: Icon, title, desc, link, linkText }) => (
                 <div key={title} className="bg-card border border-border rounded-xl p-5">
                   <div className="flex items-center gap-2 mb-2">
