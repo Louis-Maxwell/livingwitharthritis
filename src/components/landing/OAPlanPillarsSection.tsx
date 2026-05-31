@@ -1,6 +1,9 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
 import { Salad, Activity, Flame, Brain, ArrowUpRight } from "lucide-react";
+import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
+import { Plate, Movement, HeartIll, Compass } from "@/components/illustrations";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 const PILLARS = [
   {
