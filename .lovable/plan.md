@@ -1,88 +1,113 @@
-## Phase 2–4: Programmatic SEO + Rank Tracking + Auto-Freshness
+## Engagement Layer: Motion, Graphics & Micro-Interactions
 
-Building on Phase 1 (Distribute + IndexNow), this plan ships the remaining three phases of the Traffic Growth Plan.
-
----
-
-### Phase 2 — Programmatic City × Condition Pages
-
-Generate a large set of unique, indexable long-tail pages combining UK cities × arthritis conditions. These target high-intent local searches ("rheumatoid arthritis support in Manchester") with low competition.
-
-**Scope**
-- Source data: `src/data/ukCities.ts` (top ~25 UK cities) × `src/data/arthritisConditions.ts` (3 conditions) = ~75 pages, plus 25 city-only pages = **~100 programmatic pages**
-- Route: `/support/:city/:condition` and `/support/:city`
-- Each page includes: H1, local intro, condition overview, UK prevalence stat, NHS pathway summary, FAQs (5 per page), CTA to self-help tool + contact, internal links to 3 related city pages and pillar guides
-- Full JSON-LD: `MedicalWebPage` + `FAQPage` + `BreadcrumbList` + `Place` (city)
-- Unique meta title/description per page (template-driven, not duplicate)
-
-**Files**
-- `src/pages/programmatic/CityConditionSupportPage.tsx` (new — replaces/extends existing `CityConditionPage.tsx` if needed)
-- `src/lib/programmaticContent.ts` (new — generates unique copy blocks per city/condition combo)
-- `src/App.tsx` — add routes
-- `scripts/generate-sitemap.ts` — loop cities × conditions and append entries
-- `src/components/seo/InternalLinkBlock.tsx` (new — auto-renders 3–5 contextual links per page)
+Goal: Increase time on site across all major pages by adding a coherent layer of custom SVG illustrations, Lottie hero animations, AI-generated editorial imagery, and tasteful scroll/hover motion — all within the existing white/black/red identity (no palette change).
 
 ---
 
-### Phase 3 — Rank Tracking + SEO Health (Semrush)
+### Design guardrails (locked)
 
-Pulls weekly rank data into the DB, surfaces "almost ranking" pages (positions 11–20) for priority refresh, and shows trends in admin.
-
-**Scope**
-- New DB tables: `rank_history` (keyword, position, url, captured_at), `tracked_keywords` (keyword, target_url, market)
-- Edge function `seo-rank-sync/` — calls Semrush via existing connector pattern, upserts into `rank_history`
-- Weekly cron (pg_cron + pg_net) triggering the sync
-- Admin page `/admin/rank-tracker` — table of tracked keywords with current position, 7-day delta, target URL, sparkline; filter to "11–20 opportunities"
-- Seed `tracked_keywords` with ~30 priority keywords drawn from existing pillar pages
-
-**Note**: Requires the Semrush connector to be linked. The plan includes triggering the connect modal as the first build step.
+- Background stays white. Body/heading text stays black. Red (HSL 350 85% 42%) only for accents/CTAs.
+- Depth comes from: subtle gradients (white→off-white), grain texture, layered SVGs, motion — never new hues.
+- Motion respects `prefers-reduced-motion`. Core Web Vitals stay green (lazy-load Lottie, defer below-the-fold).
+- No Framer Motion `AnimatePresence` for routing (CSS transitions already in place).
 
 ---
 
-### Phase 4 — Daily Content Freshness Loop
+### Phase A — Asset library (foundation)
 
-Keeps `lastmod` fresh, auto-pings IndexNow on changes, and queues 1 article/day for AI-assisted intro refresh (with admin review — never blind publish).
+**Custom SVG illustration set** (`src/components/illustrations/`)
+- 10 hand-crafted line illustrations in black + red accent: `JointKnee`, `JointHand`, `JointHip`, `JointSpine`, `Movement`, `Plate` (diet), `Heart` (community), `Shield` (safeguarding), `Compass` (self-help), `Spark` (donations).
+- Each accepts `className` + animated stroke draw-in (CSS `stroke-dasharray`).
 
-**Scope**
-- New DB table: `content_refresh_queue` (slug, status: pending/approved/rejected, original_intro, ai_rewritten_intro, queued_at, reviewed_at)
-- Edge function `daily-content-freshness/` — picks 1 stale article (oldest `updated_at`), calls Lovable AI (`google/gemini-2.5-flash`) to rewrite intro only, stores in queue
-- Daily cron at 06:00 UTC
-- Admin page `/admin/content-refresh` — side-by-side diff (original vs AI draft), Approve/Reject buttons; on approve, updates article + bumps sitemap `lastmod` + pings IndexNow
-- Auto-bump `lastmod` in sitemap.xml for any article updated in last 24h (regenerated daily via existing `generate-sitemap.ts`)
+**Lottie animations** (`src/assets/lottie/`)
+- `hero-pulse.json` — slow breathing line-art joint (homepage hero accent).
+- `scroll-cue.json` — minimal scroll indicator.
+- `success-tick.json` — form confirmations (Contact, Donate, Buddy).
+- `loading-pulse.json` — replaces spinners.
+- Loaded via `lottie-react` with lazy import + IntersectionObserver gate.
+
+**AI-generated editorial imagery** (`src/assets/editorial/`)
+- 6 monochrome-leaning photographic hero/section images via `imagegen` (premium): hands kneading dough, walking shoes on pavement, water glass, sunrise stretch, family hands, garden bench. Treated with red duotone overlay on hover.
+
+**Reusable motion primitives** (`src/components/motion/`)
+- `RevealOnScroll` (already partial via `useRevealOnScroll`) — formalize with stagger variants.
+- `MagneticButton` — subtle cursor-follow on CTAs.
+- `TextSplitReveal` — word-by-word reveal for editorial headlines.
+- `CountUp` — animates stat numbers when in view (for "12,000 people supported" etc.).
+- `ParallaxImage` — gentle 8px Y-parallax on hero photos.
+- `DuotoneImage` — wraps editorial imagery with red-tint hover.
+
+---
+
+### Phase B — Page-by-page integration
+
+| Page | Additions |
+|---|---|
+| **Index** (landing) | Lottie joint-pulse beside H1; TextSplitReveal on hero headline; CountUp on impact stats; SVG section dividers; magnetic primary CTA; DuotoneImage in "Stories" band |
+| **About / Governance / Trust** | Editorial photo with parallax; RevealOnScroll on values grid; animated stroke-draw on credential badges |
+| **Exercise Hub + joint pages** | JointKnee/Hand/etc SVG with red accent path animating on mount; hover lift on exercise cards with red underline sweep |
+| **Diet Hub / Mediterranean** | `Plate` SVG illustration; staggered reveal on food cards; subtle ingredient float animation |
+| **Donate / WaysToHelp / Zakat** | Spark SVG; CountUp on £ raised; success-tick Lottie on form submit; magnetic Donate CTA |
+| **Contact / Buddy / Self-Help** | Compass/Heart SVG headers; success-tick on submit; gentle field-focus glow (red) |
+| **Blog / Library / City pages** | RevealOnScroll on article cards; DuotoneImage on featured images; reading-progress bar (red, top of viewport) |
+| **Conditions pages** | JointSpine/etc illustrations as page headers; animated path-draw on first view |
+
+---
+
+### Phase C — Global polish
+
+- **Reading progress bar** — 2px red bar at top of viewport on long-form pages.
+- **Section dividers** — 6 reusable SVG dividers (waves, peaks, dots) in black with red accent dot.
+- **Cursor accent** — optional subtle red dot trail on desktop hover (respects reduced-motion, disabled on touch).
+- **Page enter animation** — formalize existing CSS fade/rise into a single `.page-enter` class.
+- **Skeleton shimmer** — replace generic skeletons with branded shimmer (white→off-white).
 
 ---
 
 ### Technical summary
 
 ```text
-NEW EDGE FUNCTIONS
-  supabase/functions/seo-rank-sync/index.ts
-  supabase/functions/daily-content-freshness/index.ts
+NEW
+  src/components/illustrations/         10 SVG components
+  src/components/motion/                RevealOnScroll, MagneticButton,
+                                        TextSplitReveal, CountUp,
+                                        ParallaxImage, DuotoneImage
+  src/components/ui/ReadingProgress.tsx
+  src/components/ui/SectionDivider.tsx
+  src/assets/lottie/                    4 Lottie JSON files
+  src/assets/editorial/                 6 imagegen photos (premium)
+  src/hooks/useLottieLazy.ts            IntersectionObserver-gated loader
 
-NEW PAGES
-  src/pages/programmatic/CityConditionSupportPage.tsx
-  src/pages/AdminRankTracker.tsx
-  src/pages/AdminContentRefresh.tsx
+DEPS
+  + lottie-react (~30kb gz, lazy-loaded only on pages that use it)
 
-NEW LIB / COMPONENTS
-  src/lib/programmaticContent.ts
-  src/components/seo/InternalLinkBlock.tsx
-
-DB MIGRATIONS
-  - rank_history, tracked_keywords (Phase 3)
-  - content_refresh_queue (Phase 4)
-  - Two pg_cron jobs (weekly Semrush sync, daily freshness) via insert tool
-
-UPDATED FILES
-  src/App.tsx (4 new routes)
-  scripts/generate-sitemap.ts (~100 new entries)
+EDITED
+  src/pages/Index.tsx                   hero Lottie + TextSplit + CountUp
+  src/pages/ExerciseHub.tsx + joint pages
+  src/pages/DietHub.tsx
+  src/pages/Donate.tsx, WaysToHelp.tsx, ZakatAppeal.tsx
+  src/pages/AboutUs.tsx, Governance.tsx, TrustCredibility.tsx
+  src/pages/Contact.tsx, Buddy.tsx, SelfHelpTool.tsx
+  src/pages/BlogPost.tsx, BlogHub.tsx, Library.tsx
+  src/pages/conditions/*                joint illustrations
+  src/pages/CityArthritisPage.tsx       reveal + duotone
+  src/index.css                         motion utilities, shimmer, progress bar
+  tailwind.config.ts                    stroke-draw keyframes
 ```
 
-**Order of build:** Phase 2 first (immediate SEO surface area), then Phase 4 (daily loop, no external dependency), then Phase 3 last (requires Semrush connector).
+**Performance budget**: Lottie + lottie-react bundle code-split per route; editorial images served as AVIF with `loading="lazy"` and `decoding="async"`; total added JS budget ≤ 45kb gz on any single page.
+
+**Accessibility**: All motion gated by `prefers-reduced-motion: reduce`; all illustrations get `aria-hidden="true"` or descriptive `<title>` where decorative vs informative; focus rings preserved.
 
 ---
 
-### Two confirmations needed before I build
+### Build order
 
-1. **Semrush connector** — Phase 3 needs it. OK to trigger the connect modal when we get there?
-2. **AI-rewritten intros** — Phase 4 sends to a review queue (never auto-publishes). Confirm that's acceptable, or do you want me to skip the AI-rewrite piece and only do `lastmod` bumps?
+1. Phase A foundation (illustration components, motion primitives, lottie loader, imagegen assets)
+2. Phase B Index page integration — validate the look, then roll out
+3. Phase B remaining pages in clusters: Exercise → Diet → Donate cluster → About cluster → Blog/Library → Conditions/City
+4. Phase C global polish (progress bar, dividers, cursor)
+
+### One confirmation
+
+OK to add `lottie-react` as a dependency, or do you want me to ship pure CSS/SVG animations only (no Lottie)?
