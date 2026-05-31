@@ -9,6 +9,7 @@ const PILLARS = [
   {
     n: "01",
     icon: Salad,
+    Illustration: Plate,
     title: "Eat well",
     sub: "Food that quietly soothes",
     body:
@@ -19,6 +20,7 @@ const PILLARS = [
   {
     n: "02",
     icon: Activity,
+    Illustration: Movement,
     title: "Move gently",
     sub: "At your own pace",
     body:
@@ -29,6 +31,7 @@ const PILLARS = [
   {
     n: "03",
     icon: Flame,
+    Illustration: HeartIll,
     title: "Ease the pain",
     sub: "Calmer days, kinder nights",
     body:
@@ -39,6 +42,7 @@ const PILLARS = [
   {
     n: "04",
     icon: Brain,
+    Illustration: Compass,
     title: "Be kind to yourself",
     sub: "Mind, mood, momentum",
     body:
