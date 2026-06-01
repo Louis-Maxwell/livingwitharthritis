@@ -366,7 +366,7 @@ Regulated by the Charity Commission for England and Wales.
                           </div>
                           <p className="text-xs text-muted-foreground mt-0.5 mb-2">{t.credentials}</p>
                           <p className="text-sm text-muted-foreground leading-relaxed">{t.bio}</p>
-                          <p className="text-xs text-muted-foreground/70 mt-2">
+                          <p className="text-xs text-muted-foreground mt-2">
                             <Clock className="w-3 h-3 inline mr-1" />Appointed {t.appointed}
                           </p>
                         </div>
