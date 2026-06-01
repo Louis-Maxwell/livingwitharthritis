@@ -118,6 +118,7 @@ const TaiChiForBalance = lazy(() => import("./pages/exercises/TaiChiForBalance")
 const TaiChiForArthritis = lazy(() => import("./pages/exercises/TaiChiForArthritis"));
 const SeatedTaiChiForArthritis = lazy(() => import("./pages/exercises/SeatedTaiChiForArthritis"));
 const TaiChiForBeginners = lazy(() => import("./pages/exercises/TaiChiForBeginners"));
+const ExerciseConditionPage = lazy(() => import("./pages/ExerciseConditionPage"));
 const Pedometer = lazy(() => import("./pages/Pedometer"));
 const SelfAssessment = lazy(() => import("./pages/SelfAssessment"));
 const Buddy = lazy(() => import("./pages/Buddy"));
