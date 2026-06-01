@@ -13,6 +13,7 @@ import {
   BookOpen, Building2, CheckCircle, ArrowUpRight
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import HowWeAreFundedSection from "@/components/landing/HowWeAreFundedSection";
 
 const fundAllocation = [
   { name: "Patient Support & Services", value: 45, color: "hsl(0, 72%, 46%)" },
@@ -186,6 +187,8 @@ James Whitfield — Treasurer
             </Card>
           </div>
         </section>
+
+        <HowWeAreFundedSection />
 
         {/* Key figures */}
         <section className="py-14 lg:py-20 bg-muted/20">
