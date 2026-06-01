@@ -23,7 +23,8 @@ import FacesStrip from "@/components/landing/FacesStrip";
 import OAPlanPillarsSection from "@/components/landing/OAPlanPillarsSection";
 import MissionStatementBand from "@/components/landing/MissionStatementBand";
 import DonationImpactSection from "@/components/landing/DonationImpactSection";
-import OpenSourceEthosBand from "@/components/landing/OpenSourceEthosBand";
+import MissionEthosBand from "@/components/landing/MissionEthosBand";
+import HowWeAreFundedSection from "@/components/landing/HowWeAreFundedSection";
 import SEOTeaserSection from "@/components/landing/SEOTeaserSection";
 
 const AboutArthritisCards = lazy(
@@ -212,7 +213,9 @@ function HomePage() {
 
           <DonationImpactSection />
 
-          <OpenSourceEthosBand />
+          <MissionEthosBand />
+
+          <HowWeAreFundedSection />
 
           <SEOTeaserSection />
 
