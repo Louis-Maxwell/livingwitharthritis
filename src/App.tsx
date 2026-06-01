@@ -182,6 +182,7 @@ function AnimatedRoutes() {
         <Route path="/conditions/shoulder-arthritis" element={<ShoulderArthritis />} />
         <Route path="/conditions/polymyalgia-rheumatica" element={<PolymyalgiaRheumatica />} />
         <Route path="/conditions/reactive-arthritis" element={<ReactiveArthritis />} />
+        <Route path="/conditions/:condition/:subpage" element={<ConditionSubpagePage />} />
         <Route path="/self-help" element={<SelfHelpTool />} />
         <Route path="/exercises" element={<ExerciseHub />} />
         <Route path="/exercises/tai-chi-for-balance" element={<TaiChiForBalance />} />
