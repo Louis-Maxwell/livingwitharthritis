@@ -212,6 +212,54 @@ export type Database = {
         }
         Relationships: []
       }
+      backlink_submissions: {
+        Row: {
+          category: string
+          created_at: string
+          id: string
+          link_type: string | null
+          live_at: string | null
+          notes: string | null
+          status: string
+          submission_url: string | null
+          submitted_at: string | null
+          target_name: string
+          target_url: string
+          tier: number
+          updated_at: string
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          id?: string
+          link_type?: string | null
+          live_at?: string | null
+          notes?: string | null
+          status?: string
+          submission_url?: string | null
+          submitted_at?: string | null
+          target_name: string
+          target_url: string
+          tier: number
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          id?: string
+          link_type?: string | null
+          live_at?: string | null
+          notes?: string | null
+          status?: string
+          submission_url?: string | null
+          submitted_at?: string | null
+          target_name?: string
+          target_url?: string
+          tier?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
       blog_articles: {
         Row: {
           author: string | null
