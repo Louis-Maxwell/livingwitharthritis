@@ -27,7 +27,7 @@ const isJoint = (v: string | undefined): v is JointSlug =>
   !!v && (jointSlugs as readonly string[]).includes(v);
 
 /**
- * Programmatic SEO page: /exercises/:joint/for-:condition
+ * Programmatic SEO page: /exercises/:joint/for/:condition
  * Generates 6 joints × 13 conditions = 78 unique pages.
  */
 const ExerciseConditionPage = () => {
@@ -38,7 +38,7 @@ const ExerciseConditionPage = () => {
   if (!cond) return <Navigate to="/404" replace />;
 
   const jointName = jointLabel[joint];
-  const path = `/exercises/${joint}/for-${cond.slug}`;
+  const path = `/exercises/${joint}/for/${cond.slug}`;
   const title = `${jointName} Exercises for ${cond.name}`;
   const description = `Safe, physiotherapist-aligned ${jointName.toLowerCase()} exercises for ${cond.name.toLowerCase()}. Step-by-step instructions, benefits and modifications.`;
 
@@ -243,7 +243,7 @@ const ExerciseConditionPage = () => {
             {otherJointsForCondition.map((j) => (
               <Link
                 key={j.joint}
-                to={`/exercises/${j.joint}/for-${cond.slug}`}
+                to={`/exercises/${j.joint}/for/${cond.slug}`}
                 className="text-sm px-3 py-1.5 bg-muted rounded-full hover:bg-primary/10 hover:text-primary transition-colors"
               >
                 {j.label} exercises for {cond.shortName}
@@ -261,7 +261,7 @@ const ExerciseConditionPage = () => {
             {sameJointOtherConditions.map((c) => (
               <Link
                 key={c.slug}
-                to={`/exercises/${joint}/for-${c.slug}`}
+                to={`/exercises/${joint}/for/${c.slug}`}
                 className="text-sm px-3 py-1.5 bg-muted rounded-full hover:bg-primary/10 hover:text-primary transition-colors"
               >
                 {jointName} for {c.name}
@@ -270,7 +270,7 @@ const ExerciseConditionPage = () => {
           </div>
         </section>
 
-        <SocialShareButtons title={title} slug={`exercises/${joint}/for-${cond.slug}`} />
+        <SocialShareButtons title={title} slug={`exercises/${joint}/for/${cond.slug}`} />
 
         <div className="mt-8 text-xs text-muted-foreground bg-muted/40 rounded-xl p-4">
           <strong>Medical disclaimer:</strong> This information is educational and does

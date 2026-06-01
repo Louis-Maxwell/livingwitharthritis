@@ -226,7 +226,7 @@ async function main() {
   ];
   for (const j of ECR_JOINTS)
     for (const c of ECR_CONDITIONS)
-      entries.push({ path: `/exercises/${j}/for-${c}`, priority: "0.7", changefreq: "monthly" });
+      entries.push({ path: `/exercises/${j}/for/${c}`, priority: "0.7", changefreq: "monthly" });
 
   const posts = await blogPosts();
   const cats = new Set<string>();
