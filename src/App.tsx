@@ -203,6 +203,7 @@ function AnimatedRoutes() {
         <Route path="/arthritis-support" element={<ArthritisSupportIndex />} />
         <Route path="/arthritis-support/:city" element={<CityArthritisPage />} />
         <Route path="/arthritis-support/:city/:condition" element={<CityConditionPage />} />
+        <Route path="/exercises/:joint/for-:condition" element={<ExerciseConditionPage />} />
         <Route path="/exercises/:slug" element={<ExerciseJointPage />} />
         <Route path="/site-index" element={<Sitemap />} />
         <Route path="/corporate-giving" element={<CorporateGiving />} />
