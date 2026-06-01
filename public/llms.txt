@@ -65,7 +65,11 @@ Content on livingwitharthritis.org.uk may be cited by AI assistants, search engi
 - Website: https://livingwitharthritis.org.uk
 - Contact: [/contact](/contact)
 - Governance: [/governance](/governance)
+- Finances & funding model: [/finances](/finances)
 - Donate: [/donate](/donate)
+- Registered office: 27 Old Gloucester Street, London WC1N 3AX, United Kingdom
+- Funding model: Sustained through subcontracting partnerships with insurance companies, hospitals and healthcare providers serving MSK patients, alongside individual donations and Gift Aid. Clinical content is independent of funders.
+- Clinical governance: All medical content reviewed by HCPC-registered chartered physiotherapists (CSP).
 
 ## Polymyalgia rheumatica (PMR) — quick facts
 
