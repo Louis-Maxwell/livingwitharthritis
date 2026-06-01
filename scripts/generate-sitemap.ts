@@ -215,6 +215,19 @@ async function main() {
 
   for (const s of exerciseJointSlugs()) entries.push({ path: `/exercises/${s}` });
 
+  // Programmatic SEO: joint × condition exercise pages.
+  // Mirrors src/data/exerciseConditionRecommendations.ts (6 joints × 13 conditions = 78).
+  const ECR_JOINTS = ["knee", "hip", "shoulder", "hand", "back", "ankle"];
+  const ECR_CONDITIONS = [
+    "osteoarthritis", "rheumatoid-arthritis", "psoriatic-arthritis", "gout",
+    "ankylosing-spondylitis", "juvenile-arthritis", "fibromyalgia", "lupus",
+    "knee-arthritis", "hand-arthritis", "shoulder-arthritis",
+    "polymyalgia-rheumatica", "reactive-arthritis",
+  ];
+  for (const j of ECR_JOINTS)
+    for (const c of ECR_CONDITIONS)
+      entries.push({ path: `/exercises/${j}/for-${c}`, priority: "0.7", changefreq: "monthly" });
+
   const posts = await blogPosts();
   const cats = new Set<string>();
   for (const p of posts) {
