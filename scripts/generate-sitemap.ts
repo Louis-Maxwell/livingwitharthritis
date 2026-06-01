@@ -235,6 +235,20 @@ async function main() {
     for (const s of SUBPAGES)
       entries.push({ path: `/conditions/${c}/${s}`, priority: "0.8", changefreq: "monthly" });
 
+  // Programmatic SEO: UK city × service pages.
+  // Mirrors src/data/city-services.ts (26 cities × 4 services = 104).
+  const CS_CITIES = [
+    "london", "birmingham", "manchester", "leeds", "glasgow",
+    "liverpool", "edinburgh", "bristol", "sheffield", "newcastle",
+    "cardiff", "nottingham", "leicester", "coventry", "belfast",
+    "brighton", "plymouth", "stoke-on-trent", "wolverhampton", "southampton",
+    "derby", "swansea", "aberdeen", "oxford", "cambridge", "exeter",
+  ];
+  const CS_SERVICES = ["physiotherapy", "support-groups", "diet-support", "waiting-list-help"];
+  for (const city of CS_CITIES)
+    for (const svc of CS_SERVICES)
+      entries.push({ path: `/uk/${city}/${svc}`, priority: "0.6", changefreq: "monthly" });
+
   const posts = await blogPosts();
   const cats = new Set<string>();
   for (const p of posts) {

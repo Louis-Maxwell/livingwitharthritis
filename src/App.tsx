@@ -120,6 +120,7 @@ const SeatedTaiChiForArthritis = lazy(() => import("./pages/exercises/SeatedTaiC
 const TaiChiForBeginners = lazy(() => import("./pages/exercises/TaiChiForBeginners"));
 const ExerciseConditionPage = lazy(() => import("./pages/ExerciseConditionPage"));
 const ConditionSubpagePage = lazy(() => import("./pages/ConditionSubpagePage"));
+const CityServicePage = lazy(() => import("./pages/CityServicePage"));
 const Pedometer = lazy(() => import("./pages/Pedometer"));
 const SelfAssessment = lazy(() => import("./pages/SelfAssessment"));
 const Buddy = lazy(() => import("./pages/Buddy"));
@@ -206,6 +207,7 @@ function AnimatedRoutes() {
         <Route path="/arthritis-support/:city" element={<CityArthritisPage />} />
         <Route path="/arthritis-support/:city/:condition" element={<CityConditionPage />} />
         <Route path="/exercises/:joint/for/:condition" element={<ExerciseConditionPage />} />
+        <Route path="/uk/:city/:service" element={<CityServicePage />} />
         <Route path="/exercises/:slug" element={<ExerciseJointPage />} />
         <Route path="/site-index" element={<Sitemap />} />
         <Route path="/corporate-giving" element={<CorporateGiving />} />
