@@ -1,0 +1,306 @@
+import { useParams, Navigate, Link } from "react-router-dom";
+import { useEffect } from "react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import SeoHead from "@/components/SeoHead";
+import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
+import SocialShareButtons from "@/components/SocialShareButtons";
+import {
+  conditionSubpages,
+  subpageSlugs,
+  subpageLabel,
+  type SubpageSlug,
+} from "@/data/conditionSubpages";
+import { conditionBySlug } from "@/data/exerciseConditionRecommendations";
+import {
+  Activity,
+  Stethoscope,
+  Dumbbell,
+  Apple,
+  CheckCircle,
+  AlertTriangle,
+  ArrowRight,
+} from "lucide-react";
+
+const BASE = "https://livingwitharthritis.org.uk";
+
+const isSubpage = (v: string | undefined): v is SubpageSlug =>
+  !!v && (subpageSlugs as readonly string[]).includes(v);
+
+const subpageIcon: Record<SubpageSlug, typeof Activity> = {
+  symptoms: Stethoscope,
+  treatment: Activity,
+  exercises: Dumbbell,
+  diet: Apple,
+};
+
+/**
+ * Programmatic SEO page: /conditions/:condition/:subpage
+ * 13 conditions × 4 sub-pages = 52 unique pages.
+ */
+const ConditionSubpagePage = () => {
+  const { condition, subpage } = useParams<{ condition: string; subpage: string }>();
+
+  if (!isSubpage(subpage)) return <Navigate to="/404" replace />;
+  const cond = condition ? conditionBySlug.get(condition) : undefined;
+  const content = condition ? conditionSubpages[condition] : undefined;
+  if (!cond || !content) return <Navigate to="/404" replace />;
+
+  const sub = content[subpage];
+  const path = `/conditions/${cond.slug}/${subpage}`;
+  const subLabel = subpageLabel[subpage];
+  const title = `${cond.name} ${subLabel}`;
+  const description =
+    subpage === "symptoms"
+      ? `Common symptoms of ${cond.name.toLowerCase()} and when to see your GP. UK clinical guidance, plain English.`
+      : subpage === "treatment"
+        ? `Evidence-based treatment options for ${cond.name.toLowerCase()} — medication, therapy, and self-management.`
+        : subpage === "exercises"
+          ? `Safe, effective exercises for ${cond.name.toLowerCase()} based on UK physiotherapy guidance.`
+          : `Diet and nutrition for ${cond.name.toLowerCase()} — what to eat and what to limit.`;
+
+  const Icon = subpageIcon[subpage];
+
+  useEffect(() => {
+    const url = `${BASE}${path}`;
+    const medicalLd = {
+      "@context": "https://schema.org",
+      "@type": "MedicalWebPage",
+      name: title,
+      description,
+      url,
+      inLanguage: "en-GB",
+      about: {
+        "@type": "MedicalCondition",
+        name: cond.name,
+        url: cond.hasConditionPage ? `${BASE}/conditions/${cond.slug}` : undefined,
+      },
+      audience: {
+        "@type": "MedicalAudience",
+        audienceType: "Patient",
+        geographicArea: { "@type": "Country", name: "United Kingdom" },
+      },
+      dateModified: new Date().toISOString().slice(0, 10),
+    };
+    const breadcrumbLd = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: `${BASE}/` },
+        { "@type": "ListItem", position: 2, name: "Conditions", item: `${BASE}/conditions/${cond.slug}` },
+        { "@type": "ListItem", position: 3, name: cond.name, item: `${BASE}/conditions/${cond.slug}` },
+        { "@type": "ListItem", position: 4, name: subLabel, item: url },
+      ],
+    };
+    const nodes: HTMLScriptElement[] = [];
+    for (const data of [medicalLd, breadcrumbLd]) {
+      const s = document.createElement("script");
+      s.type = "application/ld+json";
+      s.text = JSON.stringify(data);
+      document.head.appendChild(s);
+      nodes.push(s);
+    }
+    return () => nodes.forEach((n) => n.remove());
+  }, [path, title, description, cond, subLabel]);
+
+  // Sibling sub-pages for this condition.
+  const siblingSubpages = subpageSlugs.filter((s) => s !== subpage);
+
+  return (
+    <>
+      <SeoHead
+        title={title}
+        description={description}
+        path={path}
+        keywords={`${cond.name.toLowerCase()} ${subpage}, ${cond.name.toLowerCase()}, arthritis ${subpage}`}
+      />
+      <Header />
+      <PageBreadcrumb
+        segments={[
+          { label: cond.name, href: cond.hasConditionPage ? `/conditions/${cond.slug}` : undefined },
+          { label: subLabel },
+        ]}
+      />
+
+      <main className="container mx-auto px-6 md:px-10 py-10 max-w-4xl">
+        {/* Hero */}
+        <header className="mb-10">
+          <div className="flex items-center gap-2 text-primary mb-3">
+            <Icon className="w-5 h-5" />
+            <span className="text-sm font-medium">
+              {cond.name} • {subLabel}
+            </span>
+          </div>
+          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            {sub.headline}
+          </h1>
+          <p className="text-lg text-muted-foreground leading-relaxed">{sub.intro}</p>
+        </header>
+
+        {/* Subpage-specific content */}
+        {subpage === "symptoms" && (
+          <>
+            <section className="mb-10">
+              <h2 className="text-xl font-semibold text-foreground mb-4">
+                Common symptoms of {cond.name.toLowerCase()}
+              </h2>
+              <ul className="space-y-2">
+                {(sub as typeof content.symptoms).commonSymptoms.map((s, i) => (
+                  <li key={i} className="flex items-start gap-3 bg-primary/5 rounded-xl p-4">
+                    <CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                    <span className="text-foreground">{s}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+            <section className="mb-10 bg-destructive/5 border border-destructive/20 rounded-xl p-5 flex gap-3">
+              <AlertTriangle className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
+              <div>
+                <h2 className="font-semibold text-foreground mb-1">When to see your GP</h2>
+                <p className="text-sm text-foreground">{(sub as typeof content.symptoms).whenToSeeGP}</p>
+              </div>
+            </section>
+          </>
+        )}
+
+        {subpage === "treatment" && (
+          <section className="mb-10">
+            <h2 className="text-xl font-semibold text-foreground mb-4">Treatment approaches</h2>
+            <div className="space-y-3">
+              {(sub as typeof content.treatment).approaches.map((a, i) => (
+                <article key={i} className="bg-card border border-border rounded-xl p-5">
+                  <h3 className="font-semibold text-foreground mb-1">
+                    {i + 1}. {a.name}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">{a.description}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {subpage === "exercises" && (
+          <section className="mb-10">
+            <h2 className="text-xl font-semibold text-foreground mb-4">
+              Why exercise helps {cond.name.toLowerCase()}
+            </h2>
+            <ul className="space-y-2 mb-6">
+              {(sub as typeof content.exercises).keyBenefits.map((b, i) => (
+                <li key={i} className="flex items-start gap-3 bg-primary/5 rounded-xl p-4">
+                  <CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                  <span className="text-foreground">{b}</span>
+                </li>
+              ))}
+            </ul>
+            <Link
+              to={`/exercises/knee/for/${cond.slug}`}
+              className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
+            >
+              See joint-by-joint exercise guides for {cond.shortName} <ArrowRight className="w-4 h-4" />
+            </Link>
+          </section>
+        )}
+
+        {subpage === "diet" && (
+          <>
+            <section className="mb-8">
+              <h2 className="text-xl font-semibold text-foreground mb-4">Foods to favour</h2>
+              <ul className="space-y-2">
+                {(sub as typeof content.diet).foodsToFavor.map((f, i) => (
+                  <li key={i} className="flex items-start gap-3 bg-primary/5 rounded-xl p-4">
+                    <CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                    <span className="text-foreground">{f}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+            <section className="mb-10">
+              <h2 className="text-xl font-semibold text-foreground mb-4">Foods to limit</h2>
+              <ul className="space-y-2">
+                {(sub as typeof content.diet).foodsToLimit.map((f, i) => (
+                  <li key={i} className="flex items-start gap-3 bg-destructive/5 rounded-xl p-4">
+                    <AlertTriangle className="w-5 h-5 text-destructive mt-0.5 shrink-0" />
+                    <span className="text-foreground">{f}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          </>
+        )}
+
+        {/* Sibling sub-pages — same condition */}
+        <section className="mb-10">
+          <h2 className="text-xl font-semibold text-foreground mb-4">
+            More on {cond.name.toLowerCase()}
+          </h2>
+          <div className="grid sm:grid-cols-2 gap-3">
+            {siblingSubpages.map((s) => {
+              const SibIcon = subpageIcon[s];
+              return (
+                <Link
+                  key={s}
+                  to={`/conditions/${cond.slug}/${s}`}
+                  className="flex items-center justify-between p-4 bg-card border border-border rounded-xl hover:border-primary transition-colors"
+                >
+                  <span className="flex items-center gap-3 text-foreground font-medium">
+                    <SibIcon className="w-4 h-4 text-primary" />
+                    {cond.name} {subpageLabel[s].toLowerCase()}
+                  </span>
+                  <ArrowRight className="w-4 h-4 text-primary" />
+                </Link>
+              );
+            })}
+            {cond.hasConditionPage && (
+              <Link
+                to={`/conditions/${cond.slug}`}
+                className="flex items-center justify-between p-4 bg-card border border-border rounded-xl hover:border-primary transition-colors sm:col-span-2"
+              >
+                <span className="text-foreground font-medium">
+                  Full {cond.name} guide
+                </span>
+                <ArrowRight className="w-4 h-4 text-primary" />
+              </Link>
+            )}
+          </div>
+        </section>
+
+        {/* Pillar CTAs */}
+        <section className="mb-10 grid sm:grid-cols-2 gap-3">
+          <Link
+            to="/exercises"
+            className="flex items-center justify-between p-4 bg-card border border-border rounded-xl hover:border-primary transition-colors"
+          >
+            <span className="text-foreground font-medium">All arthritis exercises</span>
+            <ArrowRight className="w-4 h-4 text-primary" />
+          </Link>
+          <Link
+            to="/diet"
+            className="flex items-center justify-between p-4 bg-card border border-border rounded-xl hover:border-primary transition-colors"
+          >
+            <span className="text-foreground font-medium">Anti-inflammatory diet guide</span>
+            <ArrowRight className="w-4 h-4 text-primary" />
+          </Link>
+          <Link
+            to="/chat"
+            className="flex items-center justify-between p-4 bg-card border border-border rounded-xl hover:border-primary transition-colors sm:col-span-2"
+          >
+            <span className="text-foreground font-medium">Ask our help &amp; support team</span>
+            <ArrowRight className="w-4 h-4 text-primary" />
+          </Link>
+        </section>
+
+        <SocialShareButtons title={title} slug={`conditions/${cond.slug}/${subpage}`} />
+
+        <div className="mt-8 text-xs text-muted-foreground bg-muted/40 rounded-xl p-4">
+          <strong>Medical disclaimer:</strong> This information is educational and does
+          not replace professional medical advice. Always consult your GP or specialist
+          for personalised guidance.
+        </div>
+      </main>
+
+      <Footer />
+    </>
+  );
+};
+
+export default ConditionSubpagePage;

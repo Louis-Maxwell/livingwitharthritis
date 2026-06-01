@@ -228,6 +228,13 @@ async function main() {
     for (const c of ECR_CONDITIONS)
       entries.push({ path: `/exercises/${j}/for/${c}`, priority: "0.7", changefreq: "monthly" });
 
+  // Programmatic SEO: condition sub-pages.
+  // Mirrors src/data/conditionSubpages.ts (13 conditions × 4 sub-pages = 52).
+  const SUBPAGES = ["symptoms", "treatment", "exercises", "diet"];
+  for (const c of ECR_CONDITIONS)
+    for (const s of SUBPAGES)
+      entries.push({ path: `/conditions/${c}/${s}`, priority: "0.8", changefreq: "monthly" });
+
   const posts = await blogPosts();
   const cats = new Set<string>();
   for (const p of posts) {
