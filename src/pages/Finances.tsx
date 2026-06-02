@@ -15,19 +15,28 @@ import {
 import { Link } from "react-router-dom";
 import HowWeAreFundedSection from "@/components/landing/HowWeAreFundedSection";
 
+// Shared chart palette. DONOR_RED matches --primary / donation bar.
+const DONOR_RED = "hsl(350, 85%, 42%)";
+const TEAL = "hsl(187, 72%, 38%)";
+const INDIGO = "hsl(231, 55%, 42%)";
+const AMBER = "hsl(38, 92%, 52%)";
+const EMERALD = "hsl(158, 64%, 38%)";
+const PLUM = "hsl(280, 45%, 42%)";
+const SLATE = "hsl(215, 25%, 32%)";
+
 const fundAllocation = [
-  { name: "Patient Support & Services", value: 45, color: "hsl(0, 72%, 46%)" },
-  { name: "Research & Education", value: 25, color: "hsl(210, 40%, 14%)" },
-  { name: "Community Programmes", value: 18, color: "hsl(42, 92%, 56%)" },
-  { name: "Operations & Admin", value: 12, color: "hsl(210, 12%, 75%)" },
+  { name: "Patient Support & Services", value: 45, color: TEAL },
+  { name: "Research & Education", value: 25, color: INDIGO },
+  { name: "Community Programmes", value: 18, color: AMBER },
+  { name: "Operations & Admin", value: 12, color: SLATE },
 ];
 
 const incomeSources = [
-  { name: "Individual Donations", value: 52, color: "hsl(0, 72%, 46%)" },
-  { name: "Corporate Giving", value: 20, color: "hsl(210, 40%, 30%)" },
-  { name: "Grants & Trusts", value: 18, color: "hsl(42, 92%, 56%)" },
-  { name: "Gift Aid Reclaims", value: 7, color: "hsl(142, 60%, 40%)" },
-  { name: "Other Income", value: 3, color: "hsl(210, 12%, 75%)" },
+  { name: "Individual Donations", value: 52, color: DONOR_RED },
+  { name: "Corporate Giving", value: 20, color: INDIGO },
+  { name: "Grants & Trusts", value: 18, color: AMBER },
+  { name: "Gift Aid Reclaims", value: 7, color: EMERALD },
+  { name: "Other Income", value: 3, color: PLUM },
 ];
 
 const yearlyFinancials = [
