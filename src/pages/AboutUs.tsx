@@ -92,7 +92,7 @@ const AboutUs = () => {
   return (
     <>
       <Helmet>
-        <title>About Living With Arthritis UK | Mission</title>
+        <title>About Our Mission | Living With Arthritis UK</title>
         <meta name="description" content="The mission and story behind Living With Arthritis UK — a national charity delivering free, evidence-based arthritis support to over 10,000 people." />
         <meta name="keywords" content="arthritis charity, arthritis foundation, arthritis organisation, arthritis support, joint pain charity, arthritis awareness, arthritis advocacy, arthritis research, arthritis helpline, arthritis UK charity, living with arthritis, musculoskeletal conditions, volunteer for charity, donate to arthritis charity" />
         <meta property="og:title" content="About Us — Living With Arthritis UK" />
