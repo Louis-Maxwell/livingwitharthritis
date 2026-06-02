@@ -499,8 +499,8 @@ const AdminDashboard = () => {
                         <YAxis domain={[0, 5]} ticks={[1, 2, 3, 4, 5]} className="text-xs fill-muted-foreground" />
                         <Tooltip contentStyle={{ backgroundColor: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: "12px", boxShadow: "0 8px 24px -4px rgba(0,0,0,0.1)" }} />
                         <Legend />
-                        <Bar dataKey="Navigation" fill="hsl(var(--primary))" radius={[6, 6, 0, 0]} />
-                        <Bar dataKey="Speed" fill="#000000" radius={[6, 6, 0, 0]} />
+                        <Bar dataKey="Navigation" fill="hsl(187, 72%, 38%)" radius={[6, 6, 0, 0]} />
+                        <Bar dataKey="Speed" fill="hsl(38, 92%, 52%)" radius={[6, 6, 0, 0]} />
                       </BarChart>
                     </ResponsiveContainer>
                   </div>

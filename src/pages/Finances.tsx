@@ -15,19 +15,28 @@ import {
 import { Link } from "react-router-dom";
 import HowWeAreFundedSection from "@/components/landing/HowWeAreFundedSection";
 
+// Shared chart palette. DONOR_RED matches --primary / donation bar.
+const DONOR_RED = "hsl(350, 85%, 42%)";
+const TEAL = "hsl(187, 72%, 38%)";
+const INDIGO = "hsl(231, 55%, 42%)";
+const AMBER = "hsl(38, 92%, 52%)";
+const EMERALD = "hsl(158, 64%, 38%)";
+const PLUM = "hsl(280, 45%, 42%)";
+const SLATE = "hsl(215, 25%, 32%)";
+
 const fundAllocation = [
-  { name: "Patient Support & Services", value: 45, color: "hsl(0, 72%, 46%)" },
-  { name: "Research & Education", value: 25, color: "hsl(210, 40%, 14%)" },
-  { name: "Community Programmes", value: 18, color: "hsl(42, 92%, 56%)" },
-  { name: "Operations & Admin", value: 12, color: "hsl(210, 12%, 75%)" },
+  { name: "Patient Support & Services", value: 45, color: TEAL },
+  { name: "Research & Education", value: 25, color: INDIGO },
+  { name: "Community Programmes", value: 18, color: AMBER },
+  { name: "Operations & Admin", value: 12, color: SLATE },
 ];
 
 const incomeSources = [
-  { name: "Individual Donations", value: 52, color: "hsl(0, 72%, 46%)" },
-  { name: "Corporate Giving", value: 20, color: "hsl(210, 40%, 30%)" },
-  { name: "Grants & Trusts", value: 18, color: "hsl(42, 92%, 56%)" },
-  { name: "Gift Aid Reclaims", value: 7, color: "hsl(142, 60%, 40%)" },
-  { name: "Other Income", value: 3, color: "hsl(210, 12%, 75%)" },
+  { name: "Individual Donations", value: 52, color: DONOR_RED },
+  { name: "Corporate Giving", value: 20, color: INDIGO },
+  { name: "Grants & Trusts", value: 18, color: AMBER },
+  { name: "Gift Aid Reclaims", value: 7, color: EMERALD },
+  { name: "Other Income", value: 3, color: PLUM },
 ];
 
 const yearlyFinancials = [
@@ -312,14 +321,14 @@ James Whitfield — Treasurer
                       <XAxis dataKey="year" tick={{ fontSize: 12 }} />
                       <YAxis tick={{ fontSize: 12 }} tickFormatter={(v) => `£${(v / 1000).toFixed(0)}K`} />
                       <Tooltip formatter={(v: number) => `£${v.toLocaleString()}`} />
-                      <Bar dataKey="income" name="Income" fill="hsl(0, 0%, 0%)" radius={[4, 4, 0, 0]} />
-                      <Bar dataKey="expenditure" name="Expenditure" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
+                      <Bar dataKey="income" name="Income" fill={DONOR_RED} radius={[4, 4, 0, 0]} />
+                      <Bar dataKey="expenditure" name="Expenditure" fill={SLATE} radius={[4, 4, 0, 0]} />
                     </BarChart>
                   </ResponsiveContainer>
                 </div>
                 <div className="flex items-center gap-6 mt-4 justify-center text-sm">
-                  <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-sm" style={{ backgroundColor: "hsl(0, 0%, 0%)" }} /><span className="text-muted-foreground">Income</span></div>
-                  <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-sm" style={{ backgroundColor: "hsl(var(--primary))" }} /><span className="text-muted-foreground">Expenditure</span></div>
+                  <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-sm" style={{ backgroundColor: DONOR_RED }} /><span className="text-muted-foreground">Income</span></div>
+                  <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-sm" style={{ backgroundColor: SLATE }} /><span className="text-muted-foreground">Expenditure</span></div>
                 </div>
               </CardContent>
             </Card>

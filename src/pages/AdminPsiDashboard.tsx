@@ -118,10 +118,10 @@ export default function AdminPsiDashboard() {
   }, [history]);
 
   const lineColors: Record<string, string> = {
-    "published-mobile": "hsl(var(--primary))",
-    "published-desktop": "hsl(217 91% 60%)",
-    "production-mobile": "hsl(0 72% 51%)",
-    "production-desktop": "hsl(142 71% 45%)",
+    "published-mobile": "hsl(187, 72%, 38%)",
+    "published-desktop": "hsl(231, 55%, 42%)",
+    "production-mobile": "hsl(38, 92%, 52%)",
+    "production-desktop": "hsl(158, 64%, 38%)",
   };
 
   return (
