@@ -21,6 +21,7 @@ import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 const InternalLinks = lazy(() => import("@/components/InternalLinks"));
 const CrossLinkBanner = lazy(() => import("@/components/CrossLinkBanner"));
 const ContextualLinks = lazy(() => import("@/components/ContextualLinks"));
+const ConditionSubpageLinks = lazy(() => import("@/components/ConditionSubpageLinks"));
 const ConditionBlogStrip = lazy(() => import("@/components/ConditionBlogStrip"));
 
 const BASE = "https://livingwitharthritis.org.uk";
