@@ -10,6 +10,7 @@ import InternalLinks from "@/components/InternalLinks";
 import ContextualLinks from "@/components/ContextualLinks";
 import ConditionBlogStrip from "@/components/ConditionBlogStrip";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
+import ConditionSubpageLinks from "@/components/ConditionSubpageLinks";
 import ReadNextCards from "@/components/ReadNextCards";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 
@@ -249,6 +250,8 @@ const PsoriaticArthritis = () => (
           conditionName="Psoriatic Arthritis"
           matchCategories={["Treatment", "Lifestyle"]}
         />
+
+        <ConditionSubpageLinks conditionSlug="psoriatic-arthritis" conditionName="Psoriatic Arthritis" />
 
         <ContextualLinks
           heading="Pair psoriatic arthritis care with the right resources"

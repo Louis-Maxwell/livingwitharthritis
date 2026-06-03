@@ -21,6 +21,7 @@ import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 const InternalLinks = lazy(() => import("@/components/InternalLinks"));
 const CrossLinkBanner = lazy(() => import("@/components/CrossLinkBanner"));
 const ContextualLinks = lazy(() => import("@/components/ContextualLinks"));
+const ConditionSubpageLinks = lazy(() => import("@/components/ConditionSubpageLinks"));
 const ConditionBlogStrip = lazy(() => import("@/components/ConditionBlogStrip"));
 
 const BASE = "https://livingwitharthritis.org.uk";
@@ -302,6 +303,10 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
               conditionName={data.name}
               matchCategories={data.blogCategories}
             />
+          </Suspense>
+
+          <Suspense fallback={null}>
+            <ConditionSubpageLinks conditionSlug={data.slug} conditionName={data.name} />
           </Suspense>
 
           {/* Contextual SEO links — keyword-rich, page-aware */}

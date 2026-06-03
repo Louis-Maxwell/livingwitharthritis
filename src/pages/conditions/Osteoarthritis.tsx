@@ -11,6 +11,7 @@ import ContextualLinks from "@/components/ContextualLinks";
 import ConditionBlogStrip from "@/components/ConditionBlogStrip";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
 import ReadNextCards from "@/components/ReadNextCards";
+import ConditionSubpageLinks from "@/components/ConditionSubpageLinks";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 
 const BASE = "https://livingwitharthritis.org.uk";
@@ -293,6 +294,9 @@ const Osteoarthritis = () => (
           conditionName="Osteoarthritis"
           matchCategories={["Exercise", "Nutrition", "Treatment"]}
         />
+
+        {/* Contextual SEO links */}
+        <ConditionSubpageLinks conditionSlug="osteoarthritis" conditionName="Osteoarthritis" />
 
         {/* Contextual SEO links */}
         <ContextualLinks

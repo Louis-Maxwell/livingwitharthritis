@@ -10,6 +10,7 @@ import InternalLinks from "@/components/InternalLinks";
 import ContextualLinks from "@/components/ContextualLinks";
 import ConditionBlogStrip from "@/components/ConditionBlogStrip";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
+import ConditionSubpageLinks from "@/components/ConditionSubpageLinks";
 import ReadNextCards from "@/components/ReadNextCards";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 
@@ -254,6 +255,8 @@ const RheumatoidArthritis = () => (
           conditionName="Rheumatoid Arthritis"
           matchCategories={["Treatment", "Health", "Lifestyle"]}
         />
+
+        <ConditionSubpageLinks conditionSlug="rheumatoid-arthritis" conditionName="Rheumatoid Arthritis" />
 
         <ContextualLinks
           heading="Pair rheumatoid arthritis care with the right resources"
