@@ -255,6 +255,8 @@ const ShoulderArthritis = () => (
           matchCategories={["Exercise", "Treatment"]}
         />
 
+        <ConditionSubpageLinks conditionSlug="shoulder-arthritis" conditionName="Shoulder Arthritis" />
+
         <ContextualLinks
           heading="Pair shoulder care with the right resources"
           intro="Use these guides alongside your treatment — exercises, diet and related conditions."
