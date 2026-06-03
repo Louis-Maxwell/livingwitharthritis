@@ -86,7 +86,11 @@
     --shadow-gold: 0 12px 36px -8px hsl(350 85% 42% / 0.25);
     --shadow-glass: 0 8px 32px hsl(0 0% 0% / 0.06), inset 0 1px 0 rgb(255 255 255 / 0.9);
 
-    --radius: 0.75rem;
+    --radius: 0.625rem;
+
+    /* Section spacing tokens (for future page passes) */
+    --space-section: clamp(4rem, 8vw, 8rem);
+    --space-section-tight: clamp(3rem, 6vw, 6rem);
 
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 0 0% 6%;

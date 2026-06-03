@@ -1,61 +1,48 @@
-# Make charts colourful, restrict red to two donation-bar matches
+## Batch 1: Global CSS polish (on-system)
 
-## Context
-Charts live in three pages:
-- `src/pages/Finances.tsx` — 2 pie charts + 1 income/expenditure bar chart (public page)
-- `src/pages/AdminDashboard.tsx` — PSI bar chart (admin only)
-- `src/pages/AdminPsiDashboard.tsx` — 2 line charts (admin only)
+Surgical edits to `src/index.css` only. No new colours, no gradients on hero, no textures, no card shadow lifts beyond what's already permitted. White bg / black text / red accent stays.
 
-The donation bar (`DonationBanner.tsx`, `StickyDonateBar.tsx`, `DonationImpactSection.tsx`) uses `bg-primary` = `hsl(350 85% 42%)` — our crimson red. Today several chart slices/bars also use red or near-red, plus muted greys and black, which looks flat.
+### What changes
 
-## Goal
-- Brighten every chart with a coordinated multi-hue palette (teal, indigo, amber, emerald, plum, slate).
-- Allow the primary red **exactly twice across the whole app's charts**, on the most "donation-relevant" series so the link to the Donate CTA reads visually.
+**1. Typography rhythm**
+- Body `line-height` 1.65 → 1.7; `p` matches.
+- H1 scale: `clamp(40px, 5vw, 64px)` → `clamp(44px, 5.5vw, 72px)`, letter-spacing −0.02em → −0.025em.
+- H2 letter-spacing −0.02em → −0.022em.
+- H3 22px → 24px for cleaner hierarchy gap.
+- `.lead` line-height 1.55 → 1.6.
 
-## Where the two reds go
-1. **Finances → Income vs Expenditure bar chart**: the **Income** bar becomes primary red (it represents money coming in from donors — same colour as the Donate button).
-2. **Finances → Income Sources pie chart**: the **Individual Donations** slice stays primary red (largest donor-driven slice; ties directly to the donation bar).
+**2. Spacing tokens (additive)**
+- Add `--space-section: clamp(4rem, 8vw, 8rem)` and `--space-section-tight: clamp(3rem, 6vw, 6rem)` for use in future page passes (no component edits this batch).
 
-Every other slice, bar, and line gets a non-red colour from the new palette. The Fund Allocation pie loses its current red slice entirely.
+**3. Buttons — keep red, tighten interactions**
+- `.btn-primary-cta:hover`: drop `scale(1.01)`, keep `translateY(-2px)`; shorten transition 0.5s → 0.25s for snappier feel.
+- `.btn-ghost-premium:hover`: same transition shortening; border tint stays red at 0.25.
+- Add global `button:focus-visible` + `a:focus-visible` outline: `2px solid hsl(var(--primary))`, `offset: 3px`, no glow.
 
-## New shared palette (added as constants in `Finances.tsx`)
-```
-DONOR_RED   hsl(350 85% 42%)   ← matches --primary / donation bar
-TEAL        hsl(187 72% 38%)
-INDIGO      hsl(231 55% 42%)
-AMBER       hsl(38  92% 52%)
-EMERALD     hsl(158 64% 38%)
-PLUM        hsl(280 45% 42%)
-SLATE       hsl(215 25% 32%)
-```
+**4. Links**
+- Global `a` (in prose contexts only — scoped via `:where(p, li) a:not(.btn-primary-cta):not(.btn-ghost-premium)`) gets the existing `.story-link` underline-grow animation by default. Keeps black text, red on hover (already set).
 
-## Changes by file
+**5. Cards — on-system flat refinement**
+- `.premium-card:hover`: remove the `translateY(-6px)` lift → keep `translateY(-2px)` + border tint to red 0.12. Aligns with "borders stripped / flat institutional" rule (subtle, not floaty).
+- `.card-hover:hover`: `translateY(-4px)` → `translateY(-2px)`, `shadow-xl` → `shadow-medium`.
+- Tighten `--radius` 0.75rem → 0.625rem for a more institutional corner.
 
-### `src/pages/Finances.tsx`
-- Replace `fundAllocation` colours: Patient Support → TEAL, Research → INDIGO, Community → AMBER, Operations → SLATE. (No red here.)
-- Replace `incomeSources` colours: Individual Donations → **DONOR_RED**, Corporate → INDIGO, Grants → AMBER, Gift Aid → EMERALD, Other → PLUM.
-- Income vs Expenditure bar chart:
-  - `income` bar fill → **DONOR_RED** (was black)
-  - `expenditure` bar fill → SLATE (was primary red)
-  - Update the two legend swatches below to match.
+**6. Selection + focus consistency**
+- Already red-tinted; no change needed.
 
-### `src/pages/AdminDashboard.tsx` (PSI bar chart, line ~500)
-- `Navigation` bar → TEAL (was `hsl(var(--primary))` red)
-- `Speed` bar → AMBER (was black)
+### What is NOT changing
+- No new CSS variables for accent colours (no teal, no gold beyond legacy aliases that already point to red).
+- No gradient backgrounds added.
+- No textures/patterns.
+- Zero changes to `tailwind.config.ts`.
+- Zero changes to any component file.
+- No memory updates needed — every change respects existing Core rules.
 
-### `src/pages/AdminPsiDashboard.tsx` (`lineColors` map, lines 121-124)
-- `published-mobile`  → TEAL
-- `published-desktop` → INDIGO
-- `production-mobile` → AMBER  (was red `hsl(0 72% 51%)`)
-- `production-desktop`→ EMERALD
+### Files touched
+- `src/index.css` (one file, ~10 small edits)
 
-After these edits the only red anywhere in any chart is the two Finances series called out above, and both visually match the donation bar.
+### Verification
+- Reload `/` and `/blog` in preview; confirm hover/focus feel snappier and headings have stronger hierarchy.
+- No runtime errors expected (CSS-only).
 
-## Out of scope
-- No changes to chart structure, data, tooltips, or layout.
-- No changes to design tokens in `index.css` / `tailwind.config.ts` — palette is local chart constants so the rest of the site (text stays black, buttons/icons stay red) is unaffected.
-- No changes to the donation bar itself.
-
-## Verification
-- Visually check `/finances` (pies + bar chart) — exactly two red elements, both donor-related.
-- Open `/admin` PSI card and `/admin/psi` lines — zero red.
+Ready to switch to build mode and apply.
