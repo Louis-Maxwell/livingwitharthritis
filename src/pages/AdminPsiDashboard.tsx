@@ -12,9 +12,9 @@ import {
 } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { supabase } from "@/integrations/supabase/client";
 
-const BUCKET_BASE =
-  `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/lighthouse-reports`;
+const BUCKET = "lighthouse-reports";
 
 type RunRow = {
   target: string;
