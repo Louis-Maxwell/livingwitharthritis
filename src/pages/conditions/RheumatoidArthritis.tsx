@@ -256,6 +256,8 @@ const RheumatoidArthritis = () => (
           matchCategories={["Treatment", "Health", "Lifestyle"]}
         />
 
+        <ConditionSubpageLinks conditionSlug="rheumatoid-arthritis" conditionName="Rheumatoid Arthritis" />
+
         <ContextualLinks
           heading="Pair rheumatoid arthritis care with the right resources"
           intro="Combine your medication plan with diet, exercise, flare-up support and the wider arthritis community."
