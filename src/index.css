@@ -341,7 +341,7 @@
     background: transparent;
     color: hsl(var(--foreground));
     border: 1.5px solid hsl(var(--border));
-    transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .btn-ghost-premium:hover {
