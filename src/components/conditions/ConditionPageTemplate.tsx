@@ -305,6 +305,10 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
             />
           </Suspense>
 
+          <Suspense fallback={null}>
+            <ConditionSubpageLinks conditionSlug={data.slug} conditionName={data.name} />
+          </Suspense>
+
           {/* Contextual SEO links — keyword-rich, page-aware */}
           <Suspense fallback={null}>
             <ContextualLinks
