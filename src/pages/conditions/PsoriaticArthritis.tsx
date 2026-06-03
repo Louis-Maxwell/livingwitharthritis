@@ -251,6 +251,8 @@ const PsoriaticArthritis = () => (
           matchCategories={["Treatment", "Lifestyle"]}
         />
 
+        <ConditionSubpageLinks conditionSlug="psoriatic-arthritis" conditionName="Psoriatic Arthritis" />
+
         <ContextualLinks
           heading="Pair psoriatic arthritis care with the right resources"
           intro="Use these guides alongside your treatment plan — diet, exercise, flare support and other conditions in the same family."
