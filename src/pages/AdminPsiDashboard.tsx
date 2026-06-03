@@ -12,9 +12,9 @@ import {
 } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { supabase } from "@/integrations/supabase/client";
 
-const BUCKET_BASE =
-  `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/lighthouse-reports`;
+const BUCKET = "lighthouse-reports";
 
 type RunRow = {
   target: string;
@@ -71,15 +71,14 @@ export default function AdminPsiDashboard() {
     let cancelled = false;
     (async () => {
       try {
-        const cacheBuster = `?t=${Date.now()}`;
         const [latestRes, historyRes] = await Promise.all([
-          fetch(`${BUCKET_BASE}/latest.json${cacheBuster}`),
-          fetch(`${BUCKET_BASE}/history.json${cacheBuster}`),
+          supabase.storage.from(BUCKET).download("latest.json"),
+          supabase.storage.from(BUCKET).download("history.json"),
         ]);
         if (cancelled) return;
-        if (latestRes.ok) setLatest(await latestRes.json());
-        if (historyRes.ok) setHistory(await historyRes.json());
-        if (!latestRes.ok && !historyRes.ok) {
+        if (latestRes.data) setLatest(JSON.parse(await latestRes.data.text()));
+        if (historyRes.data) setHistory(JSON.parse(await historyRes.data.text()));
+        if (latestRes.error && historyRes.error) {
           setError(
             "No PSI data yet. The scheduled audit runs daily at 03:00 UTC, or trigger run-psi-audit manually.",
           );
