@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { ukCities } from "@/data/ukCities";
+import { services, serviceShortLabel, cityServiceCities } from "@/data/city-services";
 import { MapPin, Search } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
