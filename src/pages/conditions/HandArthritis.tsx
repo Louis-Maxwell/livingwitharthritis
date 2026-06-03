@@ -255,6 +255,8 @@ const HandArthritis = () => (
           matchCategories={["Exercise", "Treatment"]}
         />
 
+        <ConditionSubpageLinks conditionSlug="hand-arthritis" conditionName="Hand Arthritis" />
+
         <ContextualLinks
           heading="Pair hand care with the right resources"
           intro="Use these guides alongside your treatment — exercises, diet and related conditions."
