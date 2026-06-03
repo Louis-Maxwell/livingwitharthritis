@@ -253,6 +253,8 @@ const KneeArthritis = () => (
           matchCategories={["Exercise", "Treatment", "Nutrition"]}
         />
 
+        <ConditionSubpageLinks conditionSlug="knee-arthritis" conditionName="Knee Arthritis" />
+
         <ContextualLinks
           heading="Pair knee care with the right resources"
           intro="Use these guides alongside your treatment — exercises, diet and the wider osteoarthritis picture."
