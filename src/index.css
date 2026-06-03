@@ -152,28 +152,51 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
-    line-height: 1.65;
+    line-height: 1.7;
     font-size: 16px;
   }
 
-  p { font-size: 16px; line-height: 1.65; color: hsl(var(--foreground)); }
+  p { font-size: 16px; line-height: 1.7; color: hsl(var(--foreground)); }
   small, .text-small { font-size: 13px; line-height: 1.5; }
-  .lead { font-size: 18px; line-height: 1.55; color: hsl(var(--foreground)); }
+  .lead { font-size: 18px; line-height: 1.6; color: hsl(var(--foreground)); }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', system-ui, sans-serif;
     font-weight: 800;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.022em;
     line-height: 1.15;
     color: hsl(var(--foreground));
   }
 
-  h1 { font-size: clamp(40px, 5vw, 64px); line-height: 1.05; font-weight: 800; }
-  h2 { font-size: clamp(28px, 3vw, 40px); line-height: 1.1; font-weight: 800; }
-  h3 { font-size: 22px; font-weight: 700; }
+  h1 { font-size: clamp(44px, 5.5vw, 72px); line-height: 1.04; font-weight: 800; letter-spacing: -0.025em; }
+  h2 { font-size: clamp(28px, 3vw, 40px); line-height: 1.1; font-weight: 800; letter-spacing: -0.022em; }
+  h3 { font-size: 24px; font-weight: 700; }
   h4 { font-size: 18px; font-weight: 700; }
   h5 { font-size: 15px; font-weight: 700; }
   h6 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.25em; font-weight: 700; }
+
+  /* Focus-visible — institutional red ring, no glow */
+  a:focus-visible,
+  button:focus-visible,
+  [role="button"]:focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Prose link underline-grow (scoped to body copy; skips CTA buttons) */
+  :where(p, li) a:not([class*="btn-"]):not(.no-underline) {
+    position: relative;
+    display: inline;
+    background-image: linear-gradient(hsl(var(--primary)), hsl(var(--primary)));
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 0.25s ease-out, color 0.2s ease-out;
+  }
+  :where(p, li) a:not([class*="btn-"]):not(.no-underline):hover {
+    background-size: 100% 1px;
+  }
 
   /* Safety net: gradient/transparent text must never disappear */
   .text-transparent:not([style*="background"]),
