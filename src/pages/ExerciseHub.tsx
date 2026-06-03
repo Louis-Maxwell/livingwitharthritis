@@ -665,6 +665,34 @@ const ExerciseHub = () => {
               </p>
             </div>
           </section>
+
+          {/* Exercise × Condition matrix — internal link discovery for /exercises/:joint/for/:condition */}
+          <section className="mt-16 border-t border-border pt-12" aria-labelledby="ex-cond-matrix">
+            <h2 id="ex-cond-matrix" className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
+              Find exercises for your condition
+            </h2>
+            <p className="text-muted-foreground mb-6">
+              Targeted, low-impact routines organised by joint and arthritis type.
+            </p>
+            <div className="space-y-6">
+              {exerciseConditions.map((c) => (
+                <div key={c.slug}>
+                  <h3 className="font-semibold text-foreground mb-2">{c.name}</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {jointSlugs.map((j) => (
+                      <Link
+                        key={`${c.slug}-${j}`}
+                        to={`/exercises/${j}/for/${c.slug}`}
+                        className="text-sm px-3 py-1.5 rounded-full bg-card border border-border hover:border-primary hover:bg-accent transition-colors text-foreground"
+                      >
+                        {jointLabel[j]} exercises for {c.shortName}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
         </div>
       </main>
 
