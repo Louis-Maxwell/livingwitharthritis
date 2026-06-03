@@ -296,6 +296,9 @@ const Osteoarthritis = () => (
         />
 
         {/* Contextual SEO links */}
+        <ConditionSubpageLinks conditionSlug="osteoarthritis" conditionName="Osteoarthritis" />
+
+        {/* Contextual SEO links */}
         <ContextualLinks
           heading="Pair osteoarthritis care with the right resources"
           intro="Use these guides alongside your treatment — diet, exercise, flare-up planning and other arthritis types worth knowing about."
