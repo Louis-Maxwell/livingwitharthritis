@@ -117,6 +117,34 @@ const ArthritisSupportIndex = () => {
               </div>
             ))
           )}
+
+          {/* Local services directory — internal link discovery for /uk/:city/:service */}
+          <section className="mt-16 border-t border-border pt-12" aria-labelledby="local-services">
+            <h2 id="local-services" className="text-2xl font-bold text-foreground mb-2">
+              Local arthritis services by city
+            </h2>
+            <p className="text-muted-foreground mb-6">
+              Physiotherapy, support groups, diet support and waiting-list help in {cityServiceCities.length} UK cities.
+            </p>
+            <div className="space-y-6">
+              {cityServiceCities.map((city) => (
+                <div key={city.slug}>
+                  <h3 className="font-semibold text-foreground mb-2">{city.name}</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {services.map((s) => (
+                      <Link
+                        key={`${city.slug}-${s}`}
+                        to={`/uk/${city.slug}/${s}`}
+                        className="text-sm px-3 py-1.5 rounded-full bg-card border border-border hover:border-primary hover:bg-accent transition-colors text-foreground"
+                      >
+                        {serviceShortLabel[s]} in {city.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
         </motion.div>
       </main>
 
