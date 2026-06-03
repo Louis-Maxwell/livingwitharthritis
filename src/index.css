@@ -398,8 +398,8 @@
   }
 
   .premium-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-xl), 0 0 0 1px hsl(var(--primary) / 0.08);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium), 0 0 0 1px hsl(var(--primary) / 0.08);
     border-color: hsl(var(--primary) / 0.12);
   }
 
