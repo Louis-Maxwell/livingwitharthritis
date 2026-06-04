@@ -12,6 +12,7 @@ import {
   type SubpageSlug,
 } from "@/data/conditionSubpages";
 import { conditionBySlug } from "@/data/exerciseConditionRecommendations";
+import { buildSubpageFaqs } from "@/data/conditionSubpageFaqs";
 import {
   Activity,
   Stethoscope,
@@ -20,6 +21,7 @@ import {
   CheckCircle,
   AlertTriangle,
   ArrowRight,
+  HelpCircle,
 } from "lucide-react";
 
 const BASE = "https://livingwitharthritis.org.uk";
