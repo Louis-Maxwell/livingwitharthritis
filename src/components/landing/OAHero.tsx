@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { ArrowRight, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import "@/components/HeroSection.css";
-import heroPortrait from "@/assets/hero-oa-portrait.jpg";
 
 const OAHero = memo(() => {
   const navigate = useNavigate();
@@ -13,18 +12,22 @@ const OAHero = memo(() => {
       aria-labelledby="oa-hero"
       className="relative w-full overflow-hidden bg-background h-[85vh] min-h-[640px] border-b border-border/40"
     >
-      {/* Full-bleed portrait */}
-      <img
-        src={heroPortrait}
-        alt="An older couple stretching together at home, smiling — living well with osteoarthritis."
-        width={1600}
-        height={1000}
-        fetchPriority="high"
-        decoding="async"
-        loading="eager"
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ objectPosition: "center 30%" }}
-      />
+      {/* Full-bleed portrait — AVIF/WebP/JPG with preload in index.html */}
+      <picture>
+        <source srcSet="/hero/oa.avif" type="image/avif" />
+        <source srcSet="/hero/oa.webp" type="image/webp" />
+        <img
+          src="/hero/oa.jpg"
+          alt="An older couple stretching together at home, smiling — living well with osteoarthritis."
+          width={1600}
+          height={1067}
+          fetchPriority="high"
+          decoding="async"
+          loading="eager"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: "center 30%" }}
+        />
+      </picture>
 
       {/* Gradient scrim for legibility (left → transparent right) */}
       <div

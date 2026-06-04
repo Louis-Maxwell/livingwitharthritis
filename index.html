@@ -122,7 +122,8 @@
 
 
 
-    <!-- hero is text-only; no image preload needed -->
+    <!-- LCP hero preload: AVIF first, browser falls back via <picture> if unsupported -->
+    <link rel="preload" as="image" href="/hero/oa.avif" type="image/avif" fetchpriority="high" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Montserrat (headings) + Open Sans (body) -->

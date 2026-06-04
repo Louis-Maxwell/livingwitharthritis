@@ -15,6 +15,7 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import DeferredMount from "@/components/DeferredMount";
 
 import OAHero from "@/components/landing/OAHero";
 import HeroStatsStrip from "@/components/landing/HeroStatsStrip";
@@ -211,13 +212,12 @@ function HomePage() {
             <QuoteSection />
           </Suspense>
 
-          <DonationImpactSection />
-
-          <MissionEthosBand />
-
-          <HowWeAreFundedSection />
-
-          <SEOTeaserSection />
+          <DeferredMount>
+            <DonationImpactSection />
+            <MissionEthosBand />
+            <HowWeAreFundedSection />
+            <SEOTeaserSection />
+          </DeferredMount>
 
 
 
