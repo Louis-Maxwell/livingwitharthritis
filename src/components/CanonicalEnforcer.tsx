@@ -32,6 +32,7 @@ export default function CanonicalEnforcer() {
       );
 
       if (links.length === 0) {
+        // No page-level canonical yet — insert fallback pointing at the current path.
         const link = document.createElement("link");
         link.setAttribute("rel", "canonical");
         link.setAttribute("href", expected);
@@ -40,13 +41,15 @@ export default function CanonicalEnforcer() {
         return;
       }
 
-      // Prefer the last canonical (Helmet appends per-route ones last).
+      // Deduplicate: keep the Helmet-emitted canonical (last one) and remove any
+      // stale fallback or legacy tags. Never mutate the href of a Helmet canonical —
+      // doing so on every route change is what triggers third-party crawlers to
+      // log "Canonical URL changed" warnings.
       const keep = links[links.length - 1];
       links.slice(0, -1).forEach((l) => l.parentNode?.removeChild(l));
 
-      // If only our fallback exists, make sure its href matches the current path.
+      // Only update the href if THIS tag is our own fallback and the path drifted.
       if (
-        links.length === 1 &&
         keep.getAttribute("data-managed") === "global-canonical" &&
         keep.getAttribute("href") !== expected
       ) {
