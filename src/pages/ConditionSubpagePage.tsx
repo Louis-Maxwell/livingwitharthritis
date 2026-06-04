@@ -130,7 +130,7 @@ const ConditionSubpagePage = () => {
         title={title}
         description={description}
         path={path}
-        keywords={`${cond.name.toLowerCase()} ${subpage}, ${cond.name.toLowerCase()}, arthritis ${subpage}`}
+        keywords={`${lcName} ${subpage}, ${lcName} symptoms, ${lcName} treatment uk, best exercises for ${lcName}, diet for ${lcName}, ${lcName} nhs, arthritis ${subpage}`}
       />
       <Header />
       <PageBreadcrumb
