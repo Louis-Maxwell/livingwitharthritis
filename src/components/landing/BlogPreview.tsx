@@ -54,7 +54,7 @@ const BlogPreview = memo(() => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <span className="section-label text-primary/60 block mb-4">Health & Wellness Journal</span>
-          <h2 id="blog-heading" className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
+          <h2 id="blog-heading" className="section-heading-rule centered inline-block text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
             Expert advice for living <span className="text-primary">well with arthritis</span>
           </h2>
         </div>
