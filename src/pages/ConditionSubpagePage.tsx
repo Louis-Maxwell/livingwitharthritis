@@ -246,6 +246,30 @@ const ConditionSubpagePage = () => {
           </>
         )}
 
+        {/* People also ask — long-tail question keywords + FAQPage schema */}
+        <section className="mb-10">
+          <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+            <HelpCircle className="w-5 h-5 text-primary" />
+            People also ask about {lcName} {subpage === "diet" ? "and diet" : subpage}
+          </h2>
+          <div className="space-y-3">
+            {faqs.map((f, i) => (
+              <details
+                key={i}
+                className="bg-card border border-border rounded-xl p-5 group"
+              >
+                <summary className="font-semibold text-foreground cursor-pointer list-none flex items-start justify-between gap-3">
+                  <span>{f.question}</span>
+                  <ArrowRight className="w-4 h-4 text-primary shrink-0 mt-1 transition-transform group-open:rotate-90" />
+                </summary>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                  {f.answer}
+                </p>
+              </details>
+            ))}
+          </div>
+        </section>
+
         {/* Sibling sub-pages — same condition */}
         <section className="mb-10">
           <h2 className="text-xl font-semibold text-foreground mb-4">
