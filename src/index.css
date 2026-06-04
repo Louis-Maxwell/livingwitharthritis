@@ -1339,3 +1339,79 @@
     animation: none !important;
   }
 }
+
+/* ============================================================
+ * Batch 2 — page-level polish utilities (on-system: white/black/red)
+ * ============================================================ */
+
+/* Red top accent stripe for cards (4px) */
+.card-accent-top {
+  position: relative;
+}
+.card-accent-top::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: hsl(var(--primary));
+  border-radius: 2px 2px 0 0;
+}
+
+/* Section heading with short red rule underneath */
+.section-heading-rule {
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+.section-heading-rule::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 3rem;
+  height: 3px;
+  background: hsl(var(--primary));
+  border-radius: 2px;
+}
+.section-heading-rule.centered {
+  padding-bottom: 1rem;
+}
+.section-heading-rule.centered::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Section header with red left border (4px) — for in-page H2s */
+.section-header-left {
+  border-left: 4px solid hsl(var(--primary));
+  padding-left: 1rem;
+}
+
+/* Callout / disclaimer block: red left border + soft tinted background */
+.callout-warning {
+  border-left: 4px solid hsl(var(--primary));
+  background: hsl(var(--primary) / 0.04);
+  padding: 1rem 1.25rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+.callout-warning strong { color: hsl(var(--primary)); }
+
+/* Difficulty pills — green/amber/red on white, semantic only */
+.difficulty-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  background: hsl(0 0% 100%);
+}
+.difficulty-pill.easy { color: hsl(150 60% 32%); }
+.difficulty-pill.moderate { color: hsl(35 85% 38%); }
+.difficulty-pill.hard { color: hsl(var(--primary)); }
+
+/* Touch target safety — applied opt-in via class for mobile-critical buttons */
+.touch-44 { min-height: 44px; min-width: 44px; }
