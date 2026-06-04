@@ -619,6 +619,54 @@ export type Database = {
         }
         Relationships: []
       }
+      content_embeddings: {
+        Row: {
+          checksum: string
+          chunk_index: number
+          content: string
+          created_at: string
+          embedding: string | null
+          id: string
+          metadata: Json
+          snippet: string
+          source_slug: string
+          source_type: string
+          title: string
+          updated_at: string
+          url: string
+        }
+        Insert: {
+          checksum: string
+          chunk_index?: number
+          content: string
+          created_at?: string
+          embedding?: string | null
+          id?: string
+          metadata?: Json
+          snippet: string
+          source_slug: string
+          source_type: string
+          title: string
+          updated_at?: string
+          url: string
+        }
+        Update: {
+          checksum?: string
+          chunk_index?: number
+          content?: string
+          created_at?: string
+          embedding?: string | null
+          id?: string
+          metadata?: Json
+          snippet?: string
+          source_slug?: string
+          source_type?: string
+          title?: string
+          updated_at?: string
+          url?: string
+        }
+        Relationships: []
+      }
       content_refresh_queue: {
         Row: {
           ai_rewritten_intro: string | null
@@ -1896,6 +1944,22 @@ export type Database = {
       increment_blog_view: { Args: { p_slug: string }; Returns: number }
       increment_visitor_count: { Args: never; Returns: number }
       is_admin: { Args: never; Returns: boolean }
+      match_content: {
+        Args: {
+          filter_source_type?: string
+          match_count?: number
+          query_embedding: string
+        }
+        Returns: {
+          id: string
+          similarity: number
+          snippet: string
+          source_slug: string
+          source_type: string
+          title: string
+          url: string
+        }[]
+      }
       move_to_dlq: {
         Args: {
           dlq_name: string
