@@ -159,7 +159,7 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
                     key={post.slug}
                     to={`/blog/${post.slug}`}
                     aria-label={`Read featured article: ${post.title}`}
-                    className="group rounded-2xl overflow-hidden border border-border/30 bg-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                    className="card-accent-top group rounded-2xl overflow-hidden border border-border/30 bg-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                   >
                     {post.image_url && (
                       <div className="aspect-[16/9] overflow-hidden bg-muted/20">
