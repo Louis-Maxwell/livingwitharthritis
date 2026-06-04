@@ -305,11 +305,11 @@ const Sitemap = () => {
         />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/sitemap" />
+        <link rel="canonical" href="https://livingwitharthritis.org.uk/site-index" />
         <meta property="og:title" content="Site Index (A–Z) | Living With Arthritis UK" />
         <meta property="og:description" content="Every page on Living With Arthritis UK, listed alphabetically." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://livingwitharthritis.org.uk/sitemap" />
+        <meta property="og:url" content="https://livingwitharthritis.org.uk/site-index" />
         <meta property="og:site_name" content="Living With Arthritis UK" />
         <meta property="og:locale" content="en_GB" />
       </Helmet>
