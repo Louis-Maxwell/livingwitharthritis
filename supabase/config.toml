@@ -5,6 +5,10 @@ project_id = "nfijkdoifihbgomcnbnb"
     verify_jwt = false
   [functions.book-appointment]
     verify_jwt = false
+  [functions.symptom-ranker]
+    verify_jwt = false
+  [functions.index-content]
+    verify_jwt = true
   [functions.generate-sitemap]
     verify_jwt = false
   [functions.handle-email-suppression]
