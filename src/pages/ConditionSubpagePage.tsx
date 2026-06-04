@@ -12,6 +12,7 @@ import {
   type SubpageSlug,
 } from "@/data/conditionSubpages";
 import { conditionBySlug } from "@/data/exerciseConditionRecommendations";
+import { buildSubpageFaqs } from "@/data/conditionSubpageFaqs";
 import {
   Activity,
   Stethoscope,
@@ -20,6 +21,7 @@ import {
   CheckCircle,
   AlertTriangle,
   ArrowRight,
+  HelpCircle,
 } from "lucide-react";
 
 const BASE = "https://livingwitharthritis.org.uk";
@@ -49,15 +51,22 @@ const ConditionSubpagePage = () => {
   const sub = content[subpage];
   const path = `/conditions/${cond.slug}/${subpage}`;
   const subLabel = subpageLabel[subpage];
-  const title = `${cond.name} ${subLabel}`;
-  const description =
-    subpage === "symptoms"
-      ? `Common symptoms of ${cond.name.toLowerCase()} and when to see your GP. UK clinical guidance, plain English.`
-      : subpage === "treatment"
-        ? `Evidence-based treatment options for ${cond.name.toLowerCase()} — medication, therapy, and self-management.`
-        : subpage === "exercises"
-          ? `Safe, effective exercises for ${cond.name.toLowerCase()} based on UK physiotherapy guidance.`
-          : `Diet and nutrition for ${cond.name.toLowerCase()} — what to eat and what to limit.`;
+  const lcName = cond.name.toLowerCase();
+  const titleMap: Record<typeof subpage, string> = {
+    symptoms: `${cond.name} Symptoms: Early Signs, Causes & UK Diagnosis Guide`,
+    treatment: `${cond.name} Treatment in the UK: NHS Options, Medication & Self-Care`,
+    exercises: `Best Exercises for ${cond.name}: Safe UK Physio-Aligned Routines`,
+    diet: `Best Diet for ${cond.name}: Anti-Inflammatory Foods to Eat & Avoid (UK)`,
+  };
+  const descMap: Record<typeof subpage, string> = {
+    symptoms: `Recognise the early signs of ${lcName}, common flare-up symptoms, and when to see your GP. Plain-English UK guidance aligned with NHS and NICE.`,
+    treatment: `Evidence-based ${lcName} treatment in the UK — NHS pathways, medication options, pain relief and self-management strategies that actually work.`,
+    exercises: `Safe, effective ${lcName} exercises aligned with UK physiotherapy guidance. Movements to try, exercises to avoid, and how to build a weekly routine.`,
+    diet: `What to eat — and what to limit — with ${lcName}. UK-aligned anti-inflammatory diet guidance, food triggers, and the supplements with the best evidence.`,
+  };
+  const title = titleMap[subpage];
+  const description = descMap[subpage];
+  const faqs = buildSubpageFaqs(cond.name, cond.shortName, subpage);
 
   const Icon = subpageIcon[subpage];
 
@@ -92,8 +101,17 @@ const ConditionSubpagePage = () => {
         { "@type": "ListItem", position: 4, name: subLabel, item: url },
       ],
     };
+    const faqLd = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.question,
+        acceptedAnswer: { "@type": "Answer", text: f.answer },
+      })),
+    };
     const nodes: HTMLScriptElement[] = [];
-    for (const data of [medicalLd, breadcrumbLd]) {
+    for (const data of [medicalLd, breadcrumbLd, faqLd]) {
       const s = document.createElement("script");
       s.type = "application/ld+json";
       s.text = JSON.stringify(data);
@@ -101,7 +119,7 @@ const ConditionSubpagePage = () => {
       nodes.push(s);
     }
     return () => nodes.forEach((n) => n.remove());
-  }, [path, title, description, cond, subLabel]);
+  }, [path, title, description, cond, subLabel, faqs]);
 
   // Sibling sub-pages for this condition.
   const siblingSubpages = subpageSlugs.filter((s) => s !== subpage);
@@ -112,7 +130,7 @@ const ConditionSubpagePage = () => {
         title={title}
         description={description}
         path={path}
-        keywords={`${cond.name.toLowerCase()} ${subpage}, ${cond.name.toLowerCase()}, arthritis ${subpage}`}
+        keywords={`${lcName} ${subpage}, ${lcName} symptoms, ${lcName} treatment uk, best exercises for ${lcName}, diet for ${lcName}, ${lcName} nhs, arthritis ${subpage}`}
       />
       <Header />
       <PageBreadcrumb
@@ -227,6 +245,30 @@ const ConditionSubpagePage = () => {
             </section>
           </>
         )}
+
+        {/* People also ask — long-tail question keywords + FAQPage schema */}
+        <section className="mb-10">
+          <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+            <HelpCircle className="w-5 h-5 text-primary" />
+            People also ask about {lcName} {subpage === "diet" ? "and diet" : subpage}
+          </h2>
+          <div className="space-y-3">
+            {faqs.map((f, i) => (
+              <details
+                key={i}
+                className="bg-card border border-border rounded-xl p-5 group"
+              >
+                <summary className="font-semibold text-foreground cursor-pointer list-none flex items-start justify-between gap-3">
+                  <span>{f.question}</span>
+                  <ArrowRight className="w-4 h-4 text-primary shrink-0 mt-1 transition-transform group-open:rotate-90" />
+                </summary>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                  {f.answer}
+                </p>
+              </details>
+            ))}
+          </div>
+        </section>
 
         {/* Sibling sub-pages — same condition */}
         <section className="mb-10">
