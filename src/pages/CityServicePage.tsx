@@ -147,7 +147,7 @@ const CityServicePage = () => {
 
         {/* Local resources */}
         <section className="mb-10">
-          <h2 className="text-xl font-semibold text-foreground mb-4">
+          <h2 className="section-header-left text-xl font-semibold text-foreground mb-4">
             {sLabel} options in {city.name}
           </h2>
           <div className="space-y-3">
@@ -168,7 +168,7 @@ const CityServicePage = () => {
 
         {/* Tips */}
         <section className="mb-10">
-          <h2 className="text-xl font-semibold text-foreground mb-4">
+          <h2 className="section-header-left text-xl font-semibold text-foreground mb-4">
             Tips for {serviceShortLabel[service].toLowerCase()} in {city.name}
           </h2>
           <ul className="space-y-2">
@@ -197,7 +197,7 @@ const CityServicePage = () => {
 
         {/* Sibling services in same city */}
         <section className="mb-10">
-          <h2 className="text-xl font-semibold text-foreground mb-4">
+          <h2 className="section-header-left text-xl font-semibold text-foreground mb-4">
             Other arthritis support in {city.name}
           </h2>
           <div className="grid sm:grid-cols-2 gap-3">

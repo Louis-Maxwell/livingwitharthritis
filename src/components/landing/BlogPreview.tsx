@@ -54,7 +54,7 @@ const BlogPreview = memo(() => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <span className="section-label text-primary/60 block mb-4">Health & Wellness Journal</span>
-          <h2 id="blog-heading" className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
+          <h2 id="blog-heading" className="section-heading-rule centered inline-block text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
             Expert advice for living <span className="text-primary">well with arthritis</span>
           </h2>
         </div>
@@ -82,7 +82,7 @@ const BlogPreview = memo(() => {
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {rest.map((a) => (
-            <article key={a.slug} className="group bg-card rounded-2xl shadow-sm ring-1 ring-border overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all">
+            <article key={a.slug} className="card-accent-top group bg-card rounded-2xl shadow-sm ring-1 ring-border overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all">
               <Link to={`/blog/${a.slug}`} className="block aspect-[16/10] overflow-hidden" tabIndex={-1} aria-hidden="true">
                 <img src={a.image_url || FALLBACK_IMG} srcSet={imgSrcSet(a.image_url)} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
               </Link>
