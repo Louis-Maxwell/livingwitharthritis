@@ -66,6 +66,14 @@ export default defineConfig(({ mode }) => ({
           // only loads when a route/hook that touches the API is reached. Cuts
           // first-paint JS by ~34 KiB on the homepage per PSI.
           supabase: ["@supabase/supabase-js"],
+          // Deduplicate lucide icons across all routes (~15 KB saved per route
+          // that imports icons, significant on the 78 exercise/condition pages).
+          "lucide-icons": ["lucide-react"],
+          // Bundle animation + chart libs into single shared chunks so every
+          // lazy route that needs them shares one cached file instead of
+          // duplicating the code inside each route chunk.
+          "framer-motion": ["framer-motion"],
+          "recharts": ["recharts"],
         },
       },
     },
