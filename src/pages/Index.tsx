@@ -214,11 +214,11 @@ function HomePage() {
 
           <DonationImpactSection />
 
-          <MissionEthosBand />
-
-          <HowWeAreFundedSection />
-
-          <SEOTeaserSection />
+          <DeferredMount>
+            <MissionEthosBand />
+            <HowWeAreFundedSection />
+            <SEOTeaserSection />
+          </DeferredMount>
 
 
 
