@@ -255,6 +255,9 @@ const ALL_LINKS: SitemapLink[] = [
 
   // Generated matrices
   ...exerciseMatrixLinks,
+  ...conditionSubpageLinks,
+  ...exerciseConditionLinks,
+  ...cityServiceLinks,
   ...cityLinks,
   ...cityConditionLinks,
 
