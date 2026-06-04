@@ -35,10 +35,68 @@ const CONDITION_SLUGS = [
   ["psoriatic-arthritis", "Psoriatic Arthritis"],
 ] as const;
 
+// Programmatic /conditions/:condition/:subpage URLs — previously only linked
+// from their parent condition page, so they appeared as orphans in audits.
+const CONDITION_SUBPAGE_SLUGS = [
+  ["rheumatoid-arthritis", "Rheumatoid Arthritis"],
+  ["psoriatic-arthritis", "Psoriatic Arthritis"],
+  ["ankylosing-spondylitis", "Ankylosing Spondylitis"],
+  ["juvenile-arthritis", "Juvenile Arthritis"],
+  ["knee-arthritis", "Knee Arthritis"],
+  ["hand-arthritis", "Hand Arthritis"],
+  ["shoulder-arthritis", "Shoulder Arthritis"],
+  ["polymyalgia-rheumatica", "Polymyalgia Rheumatica"],
+  ["reactive-arthritis", "Reactive Arthritis"],
+] as const;
+const SUBPAGE_KINDS = [
+  ["symptoms", "Symptoms"],
+  ["treatment", "Treatment"],
+  ["exercises", "Exercises"],
+  ["diet", "Diet"],
+] as const;
+
 const exerciseMatrixLinks: SitemapLink[] = EXERCISE_TYPES.flatMap(([exSlug, exLabel]) =>
   JOINT_TYPES.map(([jSlug, jLabel]) => ({
     label: `${exLabel} for ${jLabel} Arthritis`,
     href: `/exercises/${exSlug}-for-${jSlug}-arthritis`,
+  })),
+);
+
+const conditionSubpageLinks: SitemapLink[] = CONDITION_SUBPAGE_SLUGS.flatMap(
+  ([condSlug, condLabel]) =>
+    SUBPAGE_KINDS.map(([subSlug, subLabel]) => ({
+      label: `${condLabel} – ${subLabel}`,
+      href: `/conditions/${condSlug}/${subSlug}`,
+    })),
+);
+
+// Exercise × condition matrix — /exercises/:joint/for/:condition
+const EXERCISE_JOINTS = ["knee", "hip", "shoulder", "hand", "back", "ankle"] as const;
+const exerciseConditionLinks: SitemapLink[] = EXERCISE_JOINTS.flatMap((j) =>
+  CONDITION_SLUGS.map(([condSlug, condLabel]) => ({
+    label: `${condLabel} – ${j.charAt(0).toUpperCase() + j.slice(1)} Exercises`,
+    href: `/exercises/${j}/for/${condSlug}`,
+  })),
+);
+
+// City × service matrix — /uk/:city/:service
+const CITY_SERVICE_CITIES = [
+  "london", "birmingham", "manchester", "leeds", "glasgow", "liverpool",
+  "edinburgh", "bristol", "sheffield", "newcastle", "cardiff", "nottingham",
+  "leicester", "coventry", "belfast", "brighton", "plymouth", "stoke-on-trent",
+  "wolverhampton", "southampton", "derby", "swansea", "aberdeen", "oxford",
+  "cambridge", "exeter",
+] as const;
+const CITY_SERVICES = [
+  ["physiotherapy", "Physiotherapy"],
+  ["support-groups", "Support Groups"],
+  ["diet-support", "Diet Support"],
+  ["waiting-list-help", "Waiting-List Help"],
+] as const;
+const cityServiceLinks: SitemapLink[] = CITY_SERVICE_CITIES.flatMap((c) =>
+  CITY_SERVICES.map(([sSlug, sLabel]) => ({
+    label: `${c.charAt(0).toUpperCase() + c.slice(1).replace(/-/g, " ")} – ${sLabel}`,
+    href: `/uk/${c}/${sSlug}`,
   })),
 );
 
@@ -197,6 +255,9 @@ const ALL_LINKS: SitemapLink[] = [
 
   // Generated matrices
   ...exerciseMatrixLinks,
+  ...conditionSubpageLinks,
+  ...exerciseConditionLinks,
+  ...cityServiceLinks,
   ...cityLinks,
   ...cityConditionLinks,
 
@@ -244,11 +305,11 @@ const Sitemap = () => {
         />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/sitemap" />
+        <link rel="canonical" href="https://livingwitharthritis.org.uk/site-index" />
         <meta property="og:title" content="Site Index (A–Z) | Living With Arthritis UK" />
         <meta property="og:description" content="Every page on Living With Arthritis UK, listed alphabetically." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://livingwitharthritis.org.uk/sitemap" />
+        <meta property="og:url" content="https://livingwitharthritis.org.uk/site-index" />
         <meta property="og:site_name" content="Living With Arthritis UK" />
         <meta property="og:locale" content="en_GB" />
       </Helmet>
