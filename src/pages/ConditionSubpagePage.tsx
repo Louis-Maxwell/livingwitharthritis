@@ -51,15 +51,22 @@ const ConditionSubpagePage = () => {
   const sub = content[subpage];
   const path = `/conditions/${cond.slug}/${subpage}`;
   const subLabel = subpageLabel[subpage];
-  const title = `${cond.name} ${subLabel}`;
-  const description =
-    subpage === "symptoms"
-      ? `Common symptoms of ${cond.name.toLowerCase()} and when to see your GP. UK clinical guidance, plain English.`
-      : subpage === "treatment"
-        ? `Evidence-based treatment options for ${cond.name.toLowerCase()} — medication, therapy, and self-management.`
-        : subpage === "exercises"
-          ? `Safe, effective exercises for ${cond.name.toLowerCase()} based on UK physiotherapy guidance.`
-          : `Diet and nutrition for ${cond.name.toLowerCase()} — what to eat and what to limit.`;
+  const lcName = cond.name.toLowerCase();
+  const titleMap: Record<typeof subpage, string> = {
+    symptoms: `${cond.name} Symptoms: Early Signs, Causes & UK Diagnosis Guide`,
+    treatment: `${cond.name} Treatment in the UK: NHS Options, Medication & Self-Care`,
+    exercises: `Best Exercises for ${cond.name}: Safe UK Physio-Aligned Routines`,
+    diet: `Best Diet for ${cond.name}: Anti-Inflammatory Foods to Eat & Avoid (UK)`,
+  };
+  const descMap: Record<typeof subpage, string> = {
+    symptoms: `Recognise the early signs of ${lcName}, common flare-up symptoms, and when to see your GP. Plain-English UK guidance aligned with NHS and NICE.`,
+    treatment: `Evidence-based ${lcName} treatment in the UK — NHS pathways, medication options, pain relief and self-management strategies that actually work.`,
+    exercises: `Safe, effective ${lcName} exercises aligned with UK physiotherapy guidance. Movements to try, exercises to avoid, and how to build a weekly routine.`,
+    diet: `What to eat — and what to limit — with ${lcName}. UK-aligned anti-inflammatory diet guidance, food triggers, and the supplements with the best evidence.`,
+  };
+  const title = titleMap[subpage];
+  const description = descMap[subpage];
+  const faqs = buildSubpageFaqs(cond.name, cond.shortName, subpage);
 
   const Icon = subpageIcon[subpage];
 
