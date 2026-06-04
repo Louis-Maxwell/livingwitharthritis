@@ -212,9 +212,8 @@ function HomePage() {
             <QuoteSection />
           </Suspense>
 
-          <DonationImpactSection />
-
           <DeferredMount>
+            <DonationImpactSection />
             <MissionEthosBand />
             <HowWeAreFundedSection />
             <SEOTeaserSection />
