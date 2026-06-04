@@ -101,8 +101,17 @@ const ConditionSubpagePage = () => {
         { "@type": "ListItem", position: 4, name: subLabel, item: url },
       ],
     };
+    const faqLd = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.question,
+        acceptedAnswer: { "@type": "Answer", text: f.answer },
+      })),
+    };
     const nodes: HTMLScriptElement[] = [];
-    for (const data of [medicalLd, breadcrumbLd]) {
+    for (const data of [medicalLd, breadcrumbLd, faqLd]) {
       const s = document.createElement("script");
       s.type = "application/ld+json";
       s.text = JSON.stringify(data);
@@ -110,7 +119,7 @@ const ConditionSubpagePage = () => {
       nodes.push(s);
     }
     return () => nodes.forEach((n) => n.remove());
-  }, [path, title, description, cond, subLabel]);
+  }, [path, title, description, cond, subLabel, faqs]);
 
   // Sibling sub-pages for this condition.
   const siblingSubpages = subpageSlugs.filter((s) => s !== subpage);
