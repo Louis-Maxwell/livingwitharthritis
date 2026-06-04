@@ -62,6 +62,7 @@ const ShoulderArthritis = lazy(() => import("./pages/conditions/ShoulderArthriti
 const PolymyalgiaRheumatica = lazy(() => import("./pages/conditions/PolymyalgiaRheumatica"));
 const ReactiveArthritis = lazy(() => import("./pages/conditions/ReactiveArthritis"));
 const SelfHelpTool = lazy(() => import("./pages/SelfHelpTool"));
+const SymptomChecker = lazy(() => import("./pages/SymptomChecker"));
 const ZakatAppeal = lazy(() => import("./pages/ZakatAppeal"));
 const ExerciseHub = lazy(() => import("./pages/ExerciseHub"));
 const DietHub = lazy(() => import("./pages/DietHub"));
@@ -185,6 +186,7 @@ function AnimatedRoutes() {
         <Route path="/conditions/reactive-arthritis" element={<ReactiveArthritis />} />
         <Route path="/conditions/:condition/:subpage" element={<ConditionSubpagePage />} />
         <Route path="/self-help" element={<SelfHelpTool />} />
+        <Route path="/symptom-checker" element={<SymptomChecker />} />
         <Route path="/exercises" element={<ExerciseHub />} />
         <Route path="/exercises/tai-chi-for-balance" element={<TaiChiForBalance />} />
         <Route path="/exercises/tai-chi-for-arthritis" element={<TaiChiForArthritis />} />
