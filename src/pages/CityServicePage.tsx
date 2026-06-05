@@ -46,9 +46,9 @@ const CityServicePage = () => {
   const path = `/uk/${city.slug}/${service}`;
   const url = `${BASE}${path}`;
   const sLabel = serviceLabel[service];
-  const title = `${sLabel} for Arthritis in ${city.name}`;
+  const title = `${sLabel} for Arthritis in ${city.name} (${city.region}) — Local UK Guide`;
   const description =
-    `${sLabel} options in ${city.name}: local resources, practical tips, and how to get started while you wait for specialist care.`;
+    `Find ${sLabel.toLowerCase()} for arthritis in ${city.name}: local services, waiting-time tips and practical next steps near you.`;
   const Icon = serviceIcon[service];
 
   useEffect(() => {
@@ -96,8 +96,46 @@ const CityServicePage = () => {
         { "@type": "ListItem", position: 4, name: sLabel, item: url },
       ],
     };
+    const faqLd = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: `Where can I find ${sLabel.toLowerCase()} for arthritis in ${city.name}?`,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: `${city.name} residents can access ${sLabel.toLowerCase()} for arthritis through their GP, local public-healthcare services and a growing range of community providers. Most local options accept self-referral; start with your GP for a structured care pathway.`,
+          },
+        },
+        {
+          "@type": "Question",
+          name: `How long is the wait for ${sLabel.toLowerCase()} in ${city.name}?`,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: `Waiting times for ${sLabel.toLowerCase()} in ${city.name} vary by provider and pathway. Public-healthcare routes typically take 4–18 weeks; private and community options are usually faster. Use the tips on this page to make progress while you wait.`,
+          },
+        },
+        {
+          "@type": "Question",
+          name: `Is ${sLabel.toLowerCase()} for arthritis free in ${city.name}?`,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: `Many ${sLabel.toLowerCase()} pathways for arthritis in ${city.name} are available at no cost through public healthcare. Private and specialist routes are paid but often have shorter waits.`,
+          },
+        },
+        {
+          "@type": "Question",
+          name: `What should I do while waiting for ${sLabel.toLowerCase()} in ${city.name}?`,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: `Start the evidence-based self-management steps that physiotherapists recommend: low-impact movement, an anti-inflammatory diet, and pacing your daily activities. Our exercises and diet guides cover the same routines used in formal programmes.`,
+          },
+        },
+      ],
+    };
     const nodes: HTMLScriptElement[] = [];
-    for (const data of [medicalLd, placeLd, breadcrumbLd]) {
+    for (const data of [medicalLd, placeLd, breadcrumbLd, faqLd]) {
       const s = document.createElement("script");
       s.type = "application/ld+json";
       s.text = JSON.stringify(data);
@@ -259,6 +297,26 @@ const CityServicePage = () => {
             <span className="text-foreground font-medium">Help &amp; support team</span>
             <ArrowRight className="w-4 h-4 text-primary" />
           </Link>
+        </section>
+
+        {/* People Also Ask */}
+        <section className="mb-10">
+          <h2 className="section-header-left text-xl font-semibold text-foreground mb-4">
+            {sLabel} in {city.name} — People Also Ask
+          </h2>
+          <div className="space-y-3">
+            {[
+              { q: `Where can I find ${sLabel.toLowerCase()} for arthritis in ${city.name}?`, a: `${city.name} residents can access ${sLabel.toLowerCase()} for arthritis through their GP, local public-healthcare services and a growing range of community providers. Most local options accept self-referral; start with your GP for a structured care pathway.` },
+              { q: `How long is the wait for ${sLabel.toLowerCase()} in ${city.name}?`, a: `Waiting times for ${sLabel.toLowerCase()} in ${city.name} vary by provider and pathway. Public-healthcare routes typically take 4–18 weeks; private and community options are usually faster. Use the tips on this page to make progress while you wait.` },
+              { q: `Is ${sLabel.toLowerCase()} for arthritis free in ${city.name}?`, a: `Many ${sLabel.toLowerCase()} pathways for arthritis in ${city.name} are available at no cost through public healthcare. Private and specialist routes are paid but often have shorter waits.` },
+              { q: `What should I do while waiting for ${sLabel.toLowerCase()} in ${city.name}?`, a: `Start the evidence-based self-management steps that physiotherapists recommend: low-impact movement, an anti-inflammatory diet, and pacing your daily activities. Our exercises and diet guides cover the same routines used in formal programmes.` },
+            ].map((f, i) => (
+              <details key={i} className="bg-card border border-border rounded-xl p-4">
+                <summary className="font-medium text-foreground cursor-pointer">{f.q}</summary>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
+              </details>
+            ))}
+          </div>
         </section>
 
         <SocialShareButtons title={title} slug={`uk/${city.slug}/${service}`} />

@@ -84,8 +84,35 @@ const ExerciseConditionPage = () => {
         { "@type": "ListItem", position: 4, name: cond.name, item: url },
       ],
     };
+    const faqs = [
+      {
+        q: `What are the best ${jointName.toLowerCase()} exercises for ${cond.name.toLowerCase()}?`,
+        a: `The best ${jointName.toLowerCase()} exercises for ${cond.name.toLowerCase()} are low-impact, physiotherapist-aligned movements that build strength and mobility without provoking inflammation — typically a combination of gentle range-of-motion, isometric holds and graded strengthening, performed 3–4 times per week.`,
+      },
+      {
+        q: `How long until ${jointName.toLowerCase()} exercises reduce ${cond.shortName} pain?`,
+        a: `Most people notice reduced stiffness within 2–3 weeks of consistent practice. Meaningful pain reduction usually appears at 6–8 weeks, with the full benefit of a structured programme seen at 12 weeks.`,
+      },
+      {
+        q: `Can exercise cure ${cond.name.toLowerCase()} in the ${jointName.toLowerCase()}?`,
+        a: `No — exercise cannot reverse the underlying disease process, but it is the most effective non-surgical management for ${cond.name.toLowerCase()} and can significantly reduce pain, improve function and delay the need for stronger medical interventions.`,
+      },
+      {
+        q: `Should I modify these ${jointName.toLowerCase()} exercises during a flare?`,
+        a: `Yes. During an active flare, reduce intensity to pain-free range-of-motion only. ${cond.modifications}`,
+      },
+    ];
+    const faqLd = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    };
     const nodes: HTMLScriptElement[] = [];
-    for (const data of [medicalLd, breadcrumbLd]) {
+    for (const data of [medicalLd, breadcrumbLd, faqLd]) {
       const s = document.createElement("script");
       s.type = "application/ld+json";
       s.text = JSON.stringify(data);
@@ -94,6 +121,27 @@ const ExerciseConditionPage = () => {
     }
     return () => nodes.forEach((n) => n.remove());
   }, [path, title, description, cond, jointName]);
+
+  // FAQs rendered on-page (same content as JSON-LD).
+  const faqs = [
+    {
+      q: `What are the best ${jointName.toLowerCase()} exercises for ${cond.name.toLowerCase()}?`,
+      a: `The best ${jointName.toLowerCase()} exercises for ${cond.name.toLowerCase()} are low-impact, physiotherapist-aligned movements that build strength and mobility without provoking inflammation — typically a combination of gentle range-of-motion, isometric holds and graded strengthening, performed 3–4 times per week.`,
+    },
+    {
+      q: `How long until ${jointName.toLowerCase()} exercises reduce ${cond.shortName} pain?`,
+      a: `Most people notice reduced stiffness within 2–3 weeks of consistent practice. Meaningful pain reduction usually appears at 6–8 weeks, with the full benefit of a structured programme seen at 12 weeks.`,
+    },
+    {
+      q: `Can exercise cure ${cond.name.toLowerCase()} in the ${jointName.toLowerCase()}?`,
+      a: `No — exercise cannot reverse the underlying disease process, but it is the most effective non-surgical management for ${cond.name.toLowerCase()} and can significantly reduce pain, improve function and delay the need for stronger medical interventions.`,
+    },
+    {
+      q: `Should I modify these ${jointName.toLowerCase()} exercises during a flare?`,
+      a: `Yes. During an active flare, reduce intensity to pain-free range-of-motion only. ${cond.modifications}`,
+    },
+  ];
+
 
   // Sibling links
   const otherJointsForCondition = jointSlugs
@@ -270,7 +318,23 @@ const ExerciseConditionPage = () => {
           </div>
         </section>
 
+        {/* People Also Ask — FAQ */}
+        <section className="mb-10">
+          <h2 className="section-header-left text-xl font-semibold text-foreground mb-4">
+            {jointName} exercises for {cond.shortName} — People Also Ask
+          </h2>
+          <div className="space-y-3">
+            {faqs.map((f, i) => (
+              <details key={i} className="bg-card border border-border rounded-xl p-4">
+                <summary className="font-medium text-foreground cursor-pointer">{f.q}</summary>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
         <SocialShareButtons title={title} slug={`exercises/${joint}/for/${cond.slug}`} />
+
 
         <div className="mt-8 text-xs text-muted-foreground bg-muted/40 rounded-xl p-4">
           <strong>Medical disclaimer:</strong> This information is educational and does
