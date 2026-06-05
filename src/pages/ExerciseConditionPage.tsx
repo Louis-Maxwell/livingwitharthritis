@@ -84,8 +84,35 @@ const ExerciseConditionPage = () => {
         { "@type": "ListItem", position: 4, name: cond.name, item: url },
       ],
     };
+    const faqs = [
+      {
+        q: `What are the best ${jointName.toLowerCase()} exercises for ${cond.name.toLowerCase()}?`,
+        a: `The best ${jointName.toLowerCase()} exercises for ${cond.name.toLowerCase()} are low-impact, physiotherapist-aligned movements that build strength and mobility without provoking inflammation — typically a combination of gentle range-of-motion, isometric holds and graded strengthening, performed 3–4 times per week.`,
+      },
+      {
+        q: `How long until ${jointName.toLowerCase()} exercises reduce ${cond.shortName} pain?`,
+        a: `Most people notice reduced stiffness within 2–3 weeks of consistent practice. Meaningful pain reduction usually appears at 6–8 weeks, with the full benefit of a structured programme seen at 12 weeks.`,
+      },
+      {
+        q: `Can exercise cure ${cond.name.toLowerCase()} in the ${jointName.toLowerCase()}?`,
+        a: `No — exercise cannot reverse the underlying disease process, but it is the most effective non-surgical management for ${cond.name.toLowerCase()} and can significantly reduce pain, improve function and delay the need for stronger medical interventions.`,
+      },
+      {
+        q: `Should I modify these ${jointName.toLowerCase()} exercises during a flare?`,
+        a: `Yes. During an active flare, reduce intensity to pain-free range-of-motion only. ${cond.modifications}`,
+      },
+    ];
+    const faqLd = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    };
     const nodes: HTMLScriptElement[] = [];
-    for (const data of [medicalLd, breadcrumbLd]) {
+    for (const data of [medicalLd, breadcrumbLd, faqLd]) {
       const s = document.createElement("script");
       s.type = "application/ld+json";
       s.text = JSON.stringify(data);
@@ -94,6 +121,27 @@ const ExerciseConditionPage = () => {
     }
     return () => nodes.forEach((n) => n.remove());
   }, [path, title, description, cond, jointName]);
+
+  // FAQs rendered on-page (same content as JSON-LD).
+  const faqs = [
+    {
+      q: `What are the best ${jointName.toLowerCase()} exercises for ${cond.name.toLowerCase()}?`,
+      a: `The best ${jointName.toLowerCase()} exercises for ${cond.name.toLowerCase()} are low-impact, physiotherapist-aligned movements that build strength and mobility without provoking inflammation — typically a combination of gentle range-of-motion, isometric holds and graded strengthening, performed 3–4 times per week.`,
+    },
+    {
+      q: `How long until ${jointName.toLowerCase()} exercises reduce ${cond.shortName} pain?`,
+      a: `Most people notice reduced stiffness within 2–3 weeks of consistent practice. Meaningful pain reduction usually appears at 6–8 weeks, with the full benefit of a structured programme seen at 12 weeks.`,
+    },
+    {
+      q: `Can exercise cure ${cond.name.toLowerCase()} in the ${jointName.toLowerCase()}?`,
+      a: `No — exercise cannot reverse the underlying disease process, but it is the most effective non-surgical management for ${cond.name.toLowerCase()} and can significantly reduce pain, improve function and delay the need for stronger medical interventions.`,
+    },
+    {
+      q: `Should I modify these ${jointName.toLowerCase()} exercises during a flare?`,
+      a: `Yes. During an active flare, reduce intensity to pain-free range-of-motion only. ${cond.modifications}`,
+    },
+  ];
+
 
   // Sibling links
   const otherJointsForCondition = jointSlugs
