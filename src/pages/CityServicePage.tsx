@@ -46,9 +46,9 @@ const CityServicePage = () => {
   const path = `/uk/${city.slug}/${service}`;
   const url = `${BASE}${path}`;
   const sLabel = serviceLabel[service];
-  const title = `${sLabel} for Arthritis in ${city.name}`;
+  const title = `${sLabel} for Arthritis in ${city.name} (${city.region}) — Local UK Guide`;
   const description =
-    `${sLabel} options in ${city.name}: local resources, practical tips, and how to get started while you wait for specialist care.`;
+    `Find ${sLabel.toLowerCase()} for arthritis in ${city.name}: local services, waiting-time tips and practical next steps near you.`;
   const Icon = serviceIcon[service];
 
   useEffect(() => {
