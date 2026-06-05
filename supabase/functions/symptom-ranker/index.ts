@@ -3,8 +3,19 @@
 // Returns top 3 ranked conditions with confidence + reasoning.
 
 import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
+import { createRateLimiter, getClientIp, rateLimitResponse } from "../_shared/rate-limiter.ts";
 
 const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY")!;
+
+const ALLOWED: Record<string, string[]> = {
+  location: ["knees", "hands", "back", "feet", "multiple"],
+  duration: ["weeks", "months", "years"],
+  timing: ["morning", "evening", "after-activity", "constant"],
+  swelling: ["yes", "no", "sometimes"],
+  coldSensitivity: ["yes", "no"],
+};
+
+const limiter = createRateLimiter({ windowMs: 60_000, maxRequests: 10 });
 
 interface Answers {
   location: string;       // "knees" | "hands" | "back" | "feet" | "multiple"
@@ -50,11 +61,22 @@ const CONDITIONS = [
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
   try {
+    const ip = getClientIp(req);
+    if (!limiter.check(ip)) return rateLimitResponse(corsHeaders);
+
     const { answers } = (await req.json()) as { answers: Answers };
-    if (!answers) {
+    if (!answers || typeof answers !== "object") {
       return new Response(JSON.stringify({ error: "answers required" }), {
         status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
+    }
+    for (const [key, allowed] of Object.entries(ALLOWED)) {
+      const val = (answers as Record<string, unknown>)[key];
+      if (typeof val !== "string" || !allowed.includes(val)) {
+        return new Response(JSON.stringify({ error: `Invalid value for ${key}` }), {
+          status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" },
+        });
+      }
     }
 
     const prompt = `You are an arthritis triage assistant. Based on the user's answers, rank the THREE most likely matching conditions from the list. Return JSON only.
