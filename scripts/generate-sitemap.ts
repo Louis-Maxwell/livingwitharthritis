@@ -52,6 +52,8 @@ const STATIC_EXCLUDE = new Set([
   "/buddy/match",
 ]);
 
+const EXCLUDE_PREFIXES = ["/admin", "/debug", "/auth", "/dashboard", "/checkout", "/callback"];
+
 function parseStaticRoutes(): string[] {
   const src = read("src/App.tsx");
   const re = /<Route\s+path="([^"]+)"/g;
@@ -60,8 +62,7 @@ function parseStaticRoutes(): string[] {
   while ((m = re.exec(src)) !== null) {
     const p = m[1];
     if (p.includes(":")) continue;
-    if (p.startsWith("/admin")) continue;
-    if (p.startsWith("/debug")) continue;
+    if (EXCLUDE_PREFIXES.some((pre) => p === pre || p.startsWith(pre + "/"))) continue;
     if (STATIC_EXCLUDE.has(p)) continue;
     paths.add(p);
   }

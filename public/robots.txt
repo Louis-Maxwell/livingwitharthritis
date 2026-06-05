@@ -11,6 +11,9 @@ Disallow: /donation-result
 Disallow: /unsubscribe
 Disallow: /newsletter/confirm
 Disallow: /debug/
+Disallow: /dashboard
+Disallow: /checkout
+Disallow: /callback
 
 User-agent: Bingbot
 Allow: /
@@ -20,6 +23,9 @@ Disallow: /donation-result
 Disallow: /unsubscribe
 Disallow: /newsletter/confirm
 Disallow: /debug/
+Disallow: /dashboard
+Disallow: /checkout
+Disallow: /callback
 
 User-agent: DuckDuckBot
 Allow: /
@@ -29,6 +35,9 @@ Disallow: /donation-result
 Disallow: /unsubscribe
 Disallow: /newsletter/confirm
 Disallow: /debug/
+Disallow: /dashboard
+Disallow: /checkout
+Disallow: /callback
 
 User-agent: Applebot
 Allow: /
@@ -149,5 +158,8 @@ Disallow: /donation-result
 Disallow: /unsubscribe
 Disallow: /newsletter/confirm
 Disallow: /debug/
+Disallow: /dashboard
+Disallow: /checkout
+Disallow: /callback
 
 Sitemap: https://livingwitharthritis.org.uk/sitemap.xml
