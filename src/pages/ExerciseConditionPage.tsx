@@ -318,7 +318,23 @@ const ExerciseConditionPage = () => {
           </div>
         </section>
 
+        {/* People Also Ask — FAQ */}
+        <section className="mb-10">
+          <h2 className="section-header-left text-xl font-semibold text-foreground mb-4">
+            {jointName} exercises for {cond.shortName} — People Also Ask
+          </h2>
+          <div className="space-y-3">
+            {faqs.map((f, i) => (
+              <details key={i} className="bg-card border border-border rounded-xl p-4">
+                <summary className="font-medium text-foreground cursor-pointer">{f.q}</summary>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
         <SocialShareButtons title={title} slug={`exercises/${joint}/for/${cond.slug}`} />
+
 
         <div className="mt-8 text-xs text-muted-foreground bg-muted/40 rounded-xl p-4">
           <strong>Medical disclaimer:</strong> This information is educational and does
