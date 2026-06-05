@@ -41,9 +41,45 @@ async function embedBatch(inputs: string[]): Promise<number[][]> {
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
   try {
+    // Require admin JWT or service-role key to prevent RAG poisoning / AI credit drain
+    const authHeader = req.headers.get("Authorization") ?? "";
+    const token = authHeader.replace(/^Bearer\s+/i, "").trim();
+    if (!token) {
+      return new Response(JSON.stringify({ error: "Unauthorized" }), {
+        status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+    if (token !== SERVICE_ROLE) {
+      const anonKey = Deno.env.get("SUPABASE_ANON_KEY") ?? "";
+      const authClient = createClient(SUPABASE_URL, anonKey, {
+        global: { headers: { Authorization: `Bearer ${token}` } },
+      });
+      const { data: userData, error: userErr } = await authClient.auth.getUser();
+      if (userErr || !userData?.user) {
+        return new Response(JSON.stringify({ error: "Unauthorized" }), {
+          status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" },
+        });
+      }
+      const adminClient = createClient(SUPABASE_URL, SERVICE_ROLE);
+      const { data: isAdmin } = await adminClient.rpc("has_role", {
+        _user_id: userData.user.id,
+        _role: "admin",
+      });
+      if (!isAdmin) {
+        return new Response(JSON.stringify({ error: "Forbidden" }), {
+          status: 403, headers: { ...corsHeaders, "Content-Type": "application/json" },
+        });
+      }
+    }
+
     const { items } = (await req.json()) as { items: IndexItem[] };
     if (!Array.isArray(items) || items.length === 0) {
       return new Response(JSON.stringify({ error: "items required" }), {
+        status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+    if (items.length > 100) {
+      return new Response(JSON.stringify({ error: "Max 100 items per call" }), {
         status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
