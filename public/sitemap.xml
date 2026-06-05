@@ -3685,12 +3685,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/hand-arthritis-exercises-uk</loc>
-    <lastmod>2026-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/assistive-devices-arthritis-uk</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -3741,6 +3735,24 @@
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-and-pets-uk</loc>
     <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/blog/exercise-for-hip-arthritis</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/blog/hand-arthritis-exercises-uk</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/blog/back-arthritis-exercises-uk</loc>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -3848,12 +3860,6 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/cycling-with-arthritis</loc>
-    <lastmod>2026-03-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/exercise-for-hip-arthritis</loc>
     <lastmod>2026-03-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -4003,12 +4009,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/knee-arthritis-exercises-uk</loc>
-    <lastmod>2026-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-pain-relief-natural</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -4017,6 +4017,12 @@
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/glucosamine-vs-collagen-arthritis</loc>
     <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/blog/knee-arthritis-exercises-uk</loc>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -4033,12 +4039,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/shoulder-arthritis-exercises-uk</loc>
-    <lastmod>2026-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/foot-and-ankle-arthritis-uk</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -4047,6 +4047,12 @@
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/anti-inflammatory-herbs-spices-arthritis</loc>
     <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/blog/shoulder-arthritis-exercises-uk</loc>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
