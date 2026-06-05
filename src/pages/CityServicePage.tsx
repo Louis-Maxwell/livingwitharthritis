@@ -96,8 +96,46 @@ const CityServicePage = () => {
         { "@type": "ListItem", position: 4, name: sLabel, item: url },
       ],
     };
+    const faqLd = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: `Where can I find ${sLabel.toLowerCase()} for arthritis in ${city.name}?`,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: `${city.name} residents can access ${sLabel.toLowerCase()} for arthritis through their GP, local public-healthcare services and a growing range of community providers. Most local options accept self-referral; start with your GP for a structured care pathway.`,
+          },
+        },
+        {
+          "@type": "Question",
+          name: `How long is the wait for ${sLabel.toLowerCase()} in ${city.name}?`,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: `Waiting times for ${sLabel.toLowerCase()} in ${city.name} vary by provider and pathway. Public-healthcare routes typically take 4–18 weeks; private and community options are usually faster. Use the tips on this page to make progress while you wait.`,
+          },
+        },
+        {
+          "@type": "Question",
+          name: `Is ${sLabel.toLowerCase()} for arthritis free in ${city.name}?`,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: `Many ${sLabel.toLowerCase()} pathways for arthritis in ${city.name} are available at no cost through public healthcare. Private and specialist routes are paid but often have shorter waits.`,
+          },
+        },
+        {
+          "@type": "Question",
+          name: `What should I do while waiting for ${sLabel.toLowerCase()} in ${city.name}?`,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: `Start the evidence-based self-management steps that physiotherapists recommend: low-impact movement, an anti-inflammatory diet, and pacing your daily activities. Our exercises and diet guides cover the same routines used in formal programmes.`,
+          },
+        },
+      ],
+    };
     const nodes: HTMLScriptElement[] = [];
-    for (const data of [medicalLd, placeLd, breadcrumbLd]) {
+    for (const data of [medicalLd, placeLd, breadcrumbLd, faqLd]) {
       const s = document.createElement("script");
       s.type = "application/ld+json";
       s.text = JSON.stringify(data);
