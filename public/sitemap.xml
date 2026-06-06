@@ -3703,12 +3703,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/mindfulness-meditation-chronic-pain</loc>
-    <lastmod>2026-06-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/hip-replacement-arthritis-uk</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -4291,6 +4285,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://livingwitharthritis.org.uk/blog/mindfulness-meditation-chronic-pain</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-and-pregnancy-uk</loc>
     <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
@@ -4615,12 +4615,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/arthritis-and-cycling-uk</loc>
-    <lastmod>2026-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-and-omega-3-fish-oil</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -4635,6 +4629,12 @@
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-and-weight-loss-uk</loc>
     <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/blog/arthritis-and-cycling-uk</loc>
+    <lastmod>2026-04-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
