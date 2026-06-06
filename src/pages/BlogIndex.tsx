@@ -81,7 +81,7 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
   return (
     <>
       <Helmet>
-        <title>Arthritis Blog UK | Diet & Exercise Advice</title>
+        <title>Arthritis Blog UK | Diet, Exercise & Pain Management Guides</title>
         <meta name="description" content="Expert UK arthritis articles on anti-inflammatory diet, exercise, supplements and osteoarthritis. Free guidance for living well with joint pain." />
         <meta name="keywords" content="arthritis blog UK, joint pain advice, arthritis, anti-inflammatory diet UK, osteoarthritis exercises, arthritis help UK, joint pain diet, rheumatoid arthritis UK, swimming arthritis, yoga arthritis, turmeric arthritis, arthritis flare up" />
         <meta property="og:title" content="Arthritis Blog UK – Joint Pain, Diet & Exercise Advice" />
