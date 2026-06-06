@@ -155,7 +155,8 @@ Snacks fuel health.`,
   {
     slug: "walk-20-minutes",
     icon: "Footprints",
-    title: "20-Minute Daily Walk for Arthritis: Simple Pain Relief Routine",
+    title: "Walk 20 Minutes",
+    metaTitle: "20-Minute Daily Walk for Arthritis: Simple Pain Relief Routine",
     desc: "Scientific-backed 20-minute walking routine to manage arthritis pain. Easy progressions, timing tips, and what to expect. Start today.",
     image: tipWalk,
     detail: `A daily 20-minute walk is one of the most accessible and effective exercises for joint health, mood, and cardiovascular fitness.
