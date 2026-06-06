@@ -150,7 +150,7 @@ Return strictly this JSON shape, no prose:
     });
   } catch (e) {
     console.error("symptom-ranker error:", e);
-    return new Response(JSON.stringify({ error: e instanceof Error ? e.message : "unknown" }), {
+    return new Response(JSON.stringify({ error: "An unexpected error occurred." }), {
       status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   }
