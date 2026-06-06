@@ -56,8 +56,8 @@ Deno.serve(async (req) => {
     }
   }
 
-  if (!token) {
-    return jsonResponse({ error: 'Token is required' }, 400)
+  if (!token || typeof token !== 'string' || token.length > 200 || !/^[A-Za-z0-9_-]+$/.test(token)) {
+    return jsonResponse({ error: 'Invalid token' }, 400)
   }
 
   let supabase
