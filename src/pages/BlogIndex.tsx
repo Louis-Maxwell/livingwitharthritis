@@ -139,7 +139,7 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
               </Badge>
             </div>
           }
-          title={<>Arthritis Advice <span className="text-primary">&amp; Guidance</span></>}
+          title={<>Arthritis Advice: <span className="text-primary">Evidence-Based Health Guides</span></>}
           subtitle={`${blogPosts.length} evidence-based articles and counting — helping UK residents manage arthritis, reduce joint pain and live well.`}
         />
 
