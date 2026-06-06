@@ -190,7 +190,7 @@ serve(async (req) => {
     console.error(`[${requestId}] Chat unhandled error:`, error);
     return errJson(req, {
       code: "server_error",
-      message: error instanceof Error ? error.message : "Unknown error",
+      message: "An unexpected error occurred.",
       requestId,
     });
   }
