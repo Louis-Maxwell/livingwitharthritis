@@ -78,6 +78,7 @@ const DailyTipDetail = () => {
   }
 
   const title = isOverview ? dailyLivingIntro.title : tip!.title;
+  const metaTitle = isOverview ? dailyLivingIntro.title : (tip!.metaTitle || tip!.title);
   const description = isOverview ? dailyLivingIntro.subtitle : tip!.desc;
   const content = isOverview
     ? `${dailyLivingIntro.content}\n\n---\n\n## Tips for Every Day\n\n${dailyLivingIntro.tipsOverview}`
