@@ -4,6 +4,7 @@ export interface DailyTip {
   slug: string;
   icon: string; // lucide icon name
   title: string;
+  metaTitle?: string; // CTR-optimized <title> tag (falls back to title)
   desc: string;
   image: string;
   detail: string;
