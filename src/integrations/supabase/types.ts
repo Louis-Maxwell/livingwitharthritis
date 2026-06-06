@@ -14,6 +14,21 @@ export type Database = {
   }
   public: {
     Tables: {
+      _blog_expansions_tmp: {
+        Row: {
+          expansion: string
+          id: string
+        }
+        Insert: {
+          expansion: string
+          id: string
+        }
+        Update: {
+          expansion?: string
+          id?: string
+        }
+        Relationships: []
+      }
       about_us_sections: {
         Row: {
           content: string
