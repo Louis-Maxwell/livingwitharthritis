@@ -4,6 +4,7 @@ export interface DailyTip {
   slug: string;
   icon: string; // lucide icon name
   title: string;
+  metaTitle?: string; // CTR-optimized <title> tag (falls back to title)
   desc: string;
   image: string;
   detail: string;
@@ -155,7 +156,8 @@ Snacks fuel health.`,
     slug: "walk-20-minutes",
     icon: "Footprints",
     title: "Walk 20 Minutes",
-    desc: "A daily walk improves joint mobility, mood, and cardiovascular health.",
+    metaTitle: "20-Minute Daily Walk for Arthritis: Simple Pain Relief Routine",
+    desc: "Scientific-backed 20-minute walking routine to manage arthritis pain. Easy progressions, timing tips, and what to expect. Start today.",
     image: tipWalk,
     detail: `A daily 20-minute walk is one of the most accessible and effective exercises for joint health, mood, and cardiovascular fitness.
 

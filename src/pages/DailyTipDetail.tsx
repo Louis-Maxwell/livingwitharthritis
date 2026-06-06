@@ -78,6 +78,7 @@ const DailyTipDetail = () => {
   }
 
   const title = isOverview ? dailyLivingIntro.title : tip!.title;
+  const metaTitle = isOverview ? dailyLivingIntro.title : (tip!.metaTitle || tip!.title);
   const description = isOverview ? dailyLivingIntro.subtitle : tip!.desc;
   const content = isOverview
     ? `${dailyLivingIntro.content}\n\n---\n\n## Tips for Every Day\n\n${dailyLivingIntro.tipsOverview}`
@@ -94,10 +95,10 @@ const DailyTipDetail = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Helmet>
-        <title>{title} — Daily Living Tips | Living With Arthritis</title>
+        <title>{metaTitle} — Daily Living Tips | Living With Arthritis</title>
         <meta name="description" content={description} />
         <link rel="canonical" href={`https://livingwitharthritis.org.uk/daily-tips/${slug || "overview"}`} />
-        <meta property="og:title" content={`${title} — Daily Living Tips`} />
+        <meta property="og:title" content={`${metaTitle} — Daily Living Tips`} />
         <meta property="og:description" content={description} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`https://livingwitharthritis.org.uk/daily-tips/${slug || "overview"}`} />
@@ -107,7 +108,7 @@ const DailyTipDetail = () => {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${title} — Daily Living Tips`} />
+        <meta name="twitter:title" content={`${metaTitle} — Daily Living Tips`} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={image || "https://livingwitharthritis.org.uk/images/hero-community.webp"} />
       </Helmet>
