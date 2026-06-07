@@ -1,49 +1,45 @@
-## Root cause (confirmed)
+# Fix: Visitors see no articles on livingwitharthritis.org.uk/blog
 
-Visitors on `https://livingwitharthritis.org.uk/blog` see no articles because the **published site is talking to the wrong backend**.
+## Root cause (confirmed, not a code bug)
 
-Network trace from the live site:
-```
-GET https://zrvcejlncpndjfyuvcrd.supabase.co/rest/v1/blog_articles?... → 200 (empty)
-```
+The live site at `https://livingwitharthritis.org.uk` is talking to an **old, empty backend**.
 
-But the project's current Lovable Cloud backend — where all 203 published blog articles actually live — is:
-```
-https://nfijkdoifihbgomcnbnb.supabase.co
-```
+- Live bundle calls: `https://zrvcejlncpndjfyuvcrd.supabase.co` → returns `[]`
+- Current backend (where all 203 published articles actually live): `https://nfijkdoifihbgomcnbnb.supabase.co`
+- Project `.env` already points at the correct backend
+- `BlogIndex.tsx`, the data hooks, and the RLS policy ("Anyone can view published blog articles") are all correct
+- A database check confirms 203 published / 204 total articles exist and are readable with the project's anon key
 
-Verification:
-- DB query against current backend: **203 published / 204 total** blog_articles.
-- Direct REST call against current backend with the project anon key returns articles correctly.
-- The live HTML/JS bundle was built against the previous backend URL and key (`zrvcejlncpndjfyuvcrd`), so React Query receives empty arrays and the page renders "0 articles".
-- Code (`BlogIndex.tsx`, `useBlogArticlesList`, RLS policy "Anyone can view published blog articles") is all correct — no code bug.
+So the code, data, and permissions are all fine. The **published JavaScript bundle is stale** — it was built before the backend switch and has the old Supabase URL/key baked in. Until we rebuild and republish, every visitor's browser will keep asking the wrong server and seeing zero articles.
 
-This is a stale-build problem, not a code, RLS, or data problem.
+## The fix
 
-## Fix
+**Republish the site.** That is the entire fix. Republishing rebuilds the production bundle against the current `.env`, so the new bundle will hit `nfijkdoifihbgomcnbnb` and the 203 articles will render immediately for every visitor.
 
-Single action: **republish the site** so the production bundle is rebuilt with the current `.env` (`VITE_SUPABASE_URL=https://nfijkdoifihbgomcnbnb.supabase.co` and the matching publishable key already present in the project).
-
-No code, schema, or data changes are needed. After republish, the live `/blog` page will hit the correct backend and the 203 articles will render immediately.
+No code changes. No database changes. No content changes. No RLS changes.
 
 ## Steps
 
-1. Verify `.env` in the project still points to `nfijkdoifihbgomcnbnb` (it does — confirmed in context).
-2. Trigger a republish via the Publish dialog → Update.
-3. Hard-refresh `https://livingwitharthritis.org.uk/blog` and confirm:
-   - Network tab shows requests to `nfijkdoifihbgomcnbnb.supabase.co` (not `zrvcejlncpndjfyuvcrd`).
-   - Article cards render, count badge shows "203 Articles".
-4. Spot-check `/blog/foods-to-avoid-with-arthritis` to confirm individual posts load.
+1. Switch to build mode and click **Publish → Update** (I will trigger this via the publish tool).
+2. Wait ~1 minute for the deploy to roll out.
+3. Hard-refresh `https://livingwitharthritis.org.uk/blog` (Ctrl/Cmd+Shift+R) to bypass any cached old bundle.
+4. Verify:
+   - Article cards render and the count badge shows "203 Articles".
+   - Browser Network tab shows requests going to `nfijkdoifihbgomcnbnb.supabase.co` (not `zrvcejlncpndjfyuvcrd`).
+   - Open one post (e.g. `/blog/foods-to-avoid-with-arthritis`) to confirm individual articles load.
 
-## If republish alone doesn't update the bundle
+## Fallback (only if step 4 still shows the old URL)
 
-Fallback path (only if step 3 still shows the old URL):
-- Make any trivial edit to `src/pages/BlogIndex.tsx` (e.g. a comment) to force a fresh build, then republish again.
-- If the bundle still embeds `zrvcejlncpndjfyuvcrd`, reconnect Lovable Cloud (Connectors → Lovable Cloud) to force `.env` regeneration, then republish.
+If for some reason the new bundle still embeds the old Supabase URL after republish:
 
-## What this plan does NOT change
+- Make a trivial edit to `src/pages/BlogIndex.tsx` (e.g. add a comment) to force Vite to produce a fresh chunk hash, then republish again.
+- If that still fails, reconnect Lovable Cloud (Connectors → Lovable Cloud) to regenerate `.env`, then republish.
 
-- No SQL migrations
-- No RLS policy changes
-- No edits to `BlogIndex.tsx`, the data hooks, or the Supabase client
-- No content changes to any blog post
+## What this plan deliberately does NOT do
+
+- Does **not** add 700 articles, 5 pillar pages, or any of the 5,000-keyword expansion work. That is a separate, much larger workstream and is unrelated to why visitors currently see nothing. Adding more content to an unpublished/stale bundle would not appear to visitors either — fixing the publish pipeline must come first.
+- Does **not** touch RLS, schema, edge functions, or the Supabase client file.
+
+## Approve to proceed
+
+Approve this plan and I will switch to build mode and trigger the republish immediately.
