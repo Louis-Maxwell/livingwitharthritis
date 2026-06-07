@@ -1,45 +1,39 @@
-# Fix: Visitors see no articles on livingwitharthritis.org.uk/blog
+## Diagnosis
 
-## Root cause (confirmed, not a code bug)
+The issue is not the React blog page now.
 
-The live site at `https://livingwitharthritis.org.uk` is talking to an **old, empty backend**.
+- Preview/Test database: **204 total articles, 203 published**
+- Live/production database: **0 total articles, 0 published**
+- Preview `/blog` correctly shows **203 Articles**
+- Published site `/blog` correctly connects to the current backend, but Live has no article rows, so it shows **0 Articles**
 
-- Live bundle calls: `https://zrvcejlncpndjfyuvcrd.supabase.co` → returns `[]`
-- Current backend (where all 203 published articles actually live): `https://nfijkdoifihbgomcnbnb.supabase.co`
-- Project `.env` already points at the correct backend
-- `BlogIndex.tsx`, the data hooks, and the RLS policy ("Anyone can view published blog articles") are all correct
-- A database check confirms 203 published / 204 total articles exist and are readable with the project's anon key
+Publishing updates code, schema, functions, and secrets. It does **not** copy database content from Test to Live. That is why the republish did not fix it.
 
-So the code, data, and permissions are all fine. The **published JavaScript bundle is stale** — it was built before the backend switch and has the old Supabase URL/key baked in. Until we rebuild and republish, every visitor's browser will keep asking the wrong server and seeing zero articles.
+## Complete fix plan
 
-## The fix
+1. **Export the 204 blog article rows from Test**
+   - Include all article fields used by the website: slug, title, excerpt, content, date, category, image, SEO fields, author/reviewer fields, published status, display order, timestamps if present.
 
-**Republish the site.** That is the entire fix. Republishing rebuilds the production bundle against the current `.env`, so the new bundle will hit `nfijkdoifihbgomcnbnb` and the 203 articles will render immediately for every visitor.
+2. **Import the same rows into Live**
+   - Use an upsert by article slug so the operation is safe to repeat.
+   - Preserve published/unpublished status exactly.
+   - Do not touch patient data, donations, appointments, users, or any unrelated tables.
 
-No code changes. No database changes. No content changes. No RLS changes.
+3. **Verify Live article visibility**
+   - Query Live after import and confirm: **204 total / 203 published**.
+   - Confirm the public anonymous read policy still allows published articles.
 
-## Steps
+4. **Verify the public website**
+   - Check `https://livingwitharthritis.org.uk/blog` shows **203 Articles**.
+   - Confirm category counts are populated.
+   - Confirm an individual article opens.
 
-1. Switch to build mode and click **Publish → Update** (I will trigger this via the publish tool).
-2. Wait ~1 minute for the deploy to roll out.
-3. Hard-refresh `https://livingwitharthritis.org.uk/blog` (Ctrl/Cmd+Shift+R) to bypass any cached old bundle.
-4. Verify:
-   - Article cards render and the count badge shows "203 Articles".
-   - Browser Network tab shows requests going to `nfijkdoifihbgomcnbnb.supabase.co` (not `zrvcejlncpndjfyuvcrd`).
-   - Open one post (e.g. `/blog/foods-to-avoid-with-arthritis`) to confirm individual articles load.
+5. **Prevent this exact confusion going forward**
+   - Add a short internal note to the project plan explaining that article content must exist separately in Live; publishing alone does not sync article rows.
 
-## Fallback (only if step 4 still shows the old URL)
+## Technical notes
 
-If for some reason the new bundle still embeds the old Supabase URL after republish:
-
-- Make a trivial edit to `src/pages/BlogIndex.tsx` (e.g. add a comment) to force Vite to produce a fresh chunk hash, then republish again.
-- If that still fails, reconnect Lovable Cloud (Connectors → Lovable Cloud) to regenerate `.env`, then republish.
-
-## What this plan deliberately does NOT do
-
-- Does **not** add 700 articles, 5 pillar pages, or any of the 5,000-keyword expansion work. That is a separate, much larger workstream and is unrelated to why visitors currently see nothing. Adding more content to an unpublished/stale bundle would not appear to visitors either — fixing the publish pipeline must come first.
-- Does **not** touch RLS, schema, edge functions, or the Supabase client file.
-
-## Approve to proceed
-
-Approve this plan and I will switch to build mode and trigger the republish immediately.
+- No frontend redesign is needed.
+- No RLS policy change appears necessary; Live already has the public published-article read policy.
+- The likely change is a controlled data copy from Test to Live for `public.blog_articles` only.
+- If direct Live writes are restricted by the environment tools, I will generate an exact SQL import file for you to run in Lovable Cloud with the **Live** environment selected.
