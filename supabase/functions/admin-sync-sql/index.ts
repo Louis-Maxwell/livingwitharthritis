@@ -1,19 +1,19 @@
 // One-shot admin endpoint to execute upsert SQL against the database.
-// Protected by service-role key. To be removed after sync.
+// Deleted immediately after sync. Protected by short-lived shared token.
 import { Client } from "https://deno.land/x/postgres@v0.17.0/mod.ts";
+
+const TOKEN = "sync-7f4a9e1c-blog-2026-06-08";
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response("ok", {
       headers: {
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+        "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-sync-token",
       },
     });
   }
-  const auth = req.headers.get("authorization") ?? "";
-  const expected = `Bearer ${Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")}`;
-  if (auth !== expected) {
+  if (req.headers.get("x-sync-token") !== TOKEN) {
     return new Response("Unauthorized", { status: 401 });
   }
   const sql = await req.text();
