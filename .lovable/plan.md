@@ -1,39 +1,37 @@
-## Diagnosis
+# Fix Live Backend — Plan
 
-The issue is not the React blog page now.
+## Diagnosis (confirmed earlier)
 
-- Preview/Test database: **204 total articles, 203 published**
-- Live/production database: **0 total articles, 0 published**
-- Preview `/blog` correctly shows **203 Articles**
-- Published site `/blog` correctly connects to the current backend, but Live has no article rows, so it shows **0 Articles**
+The Live backend itself is **healthy and connected**. The single broken thing is that the `blog_articles` table in Live has **0 rows**, while Test has 204 rows (203 published). That's why `/blog`, category pages, and related-article strips look empty on the live site. Everything else — auth, RLS, edge functions, env vars, schema — is working on Live.
 
-Publishing updates code, schema, functions, and secrets. It does **not** copy database content from Test to Live. That is why the republish did not fix it.
+A migration that upserts all 203 articles into Live is already staged at:
+`supabase/migrations/20260607185217_sync_blog_articles_to_live.sql`
 
-## Complete fix plan
+It uses `INSERT ... ON CONFLICT (slug) DO UPDATE`, so it is safe and repeatable. It applies to Live the next time the project is published.
 
-1. **Export the 204 blog article rows from Test**
-   - Include all article fields used by the website: slug, title, excerpt, content, date, category, image, SEO fields, author/reviewer fields, published status, display order, timestamps if present.
+## Plan
 
-2. **Import the same rows into Live**
-   - Use an upsert by article slug so the operation is safe to repeat.
-   - Preserve published/unpublished status exactly.
-   - Do not touch patient data, donations, appointments, users, or any unrelated tables.
+1. **Verify Live backend status** (`supabase--cloud_status` on production) before doing anything destructive, so we know the DB is `ACTIVE_HEALTHY`.
+2. **Confirm Live is empty** with a read-only count on production `blog_articles` (sanity check that nothing has changed since the last audit).
+3. **Publish the project.** This is the only mechanism that runs the staged migration against Live. The user clicks Publish; the migration then upserts 203 articles into `public.blog_articles` on Live.
+4. **Verify the sync** by re-querying Live: expect `204 total / 203 published`, matching Test.
+5. **Spot-check the live site**: `https://livingwitharthritis.org.uk/blog` should show 203 articles, category pages should populate, and an individual article slug should open.
+6. **Regenerate the sitemap** by invoking the `generate-sitemap` edge function on Live so the 203 article URLs are discoverable (otherwise it auto-refreshes within ~6 hours).
+7. **Report results** — Live article count before/after, sitemap URL count, any failures.
 
-3. **Verify Live article visibility**
-   - Query Live after import and confirm: **204 total / 203 published**.
-   - Confirm the public anonymous read policy still allows published articles.
+## What I will NOT touch
 
-4. **Verify the public website**
-   - Check `https://livingwitharthritis.org.uk/blog` shows **203 Articles**.
-   - Confirm category counts are populated.
-   - Confirm an individual article opens.
-
-5. **Prevent this exact confusion going forward**
-   - Add a short internal note to the project plan explaining that article content must exist separately in Live; publishing alone does not sync article rows.
+- No schema changes, no RLS changes, no GRANT changes — Live's structure is already correct.
+- No edits to `src/integrations/supabase/*`, `.env`, or `supabase/config.toml`.
+- No changes to any other table (donations, appointments, users, profiles, etc.).
+- No second migration — the staged file is the canonical one.
 
 ## Technical notes
 
-- No frontend redesign is needed.
-- No RLS policy change appears necessary; Live already has the public published-article read policy.
-- The likely change is a controlled data copy from Test to Live for `public.blog_articles` only.
-- If direct Live writes are restricted by the environment tools, I will generate an exact SQL import file for you to run in Lovable Cloud with the **Live** environment selected.
+- The staged migration file is 1.26 MB / ~11,840 lines. It cannot be re-sent through the migration approval tool (payload too large); it ships to Live via the normal Publish flow that scans `supabase/migrations/`.
+- If Publish reports the migration failed on Live, fallback is **Option B**: open Lovable Cloud → Run SQL → switch to **Live** → paste `/mnt/documents/blog_articles_sync_to_live_v2.sql` → run. Same SQL, same result, no repo involvement.
+- No frontend code change is required. The `useBlogArticles` hooks already query the right table with the right filters; they're returning 0 simply because Live has 0 rows.
+
+## Action required from you
+
+Approve this plan, then click **Publish** when prompted. I'll handle verification and the sitemap refresh after the publish completes.
