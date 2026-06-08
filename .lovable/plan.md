@@ -1,37 +1,67 @@
-# Fix Live Backend — Plan
+## Goal
+Populate the Live backend with the same high-quality content already curated in Test, so every data-driven page on the live site (homepage, /blog, conditions, faces, donations, nutrition, exercises, governance, AI-safety, etc.) renders properly. Upsert only — no destructive operations.
 
-## Diagnosis (confirmed earlier)
+## What's broken in Live right now
 
-The Live backend itself is **healthy and connected**. The single broken thing is that the `blog_articles` table in Live has **0 rows**, while Test has 204 rows (203 published). That's why `/blog`, category pages, and related-article strips look empty on the live site. Everything else — auth, RLS, edge functions, env vars, schema — is working on Live.
+Live vs Test row counts (queried just now):
 
-A migration that upserts all 203 articles into Live is already staged at:
-`supabase/migrations/20260607185217_sync_blog_articles_to_live.sql`
+| Table | Live | Test |
+|---|---|---|
+| blog_articles | **0** | 204 |
+| services | **0** | 6 |
+| conditions | **0** | 6 |
+| arthritis_types | **0** | 6 |
+| statistics | **0** | 4 |
+| physio_myths | **0** | 10 |
+| donation_tiers | **0** | 4 |
+| fundraising_options | **0** | 5 |
+| nutrition_sections | 4 | 8 |
+| face_stories | **0** | 4 |
+| faces_trust_facts | **0** | 4 |
+| featured_stories | **0** | 9 |
+| about_us_sections | 4 | 7 |
+| joint_exercises | **0** | 30 |
+| journey_chapters | **0** | 7 |
+| ai_safety_principles | **0** | 10 |
+| ai_safety_faqs | **0** | 12 |
+| ai_safety_certifications | **0** | 12 |
+| healthy_living_resources | 21 | 21 ✅ |
 
-It uses `INSERT ... ON CONFLICT (slug) DO UPDATE`, so it is safe and repeatable. It applies to Live the next time the project is published.
+Schema is correct on Live; only data is missing.
 
 ## Plan
 
-1. **Verify Live backend status** (`supabase--cloud_status` on production) before doing anything destructive, so we know the DB is `ACTIVE_HEALTHY`.
-2. **Confirm Live is empty** with a read-only count on production `blog_articles` (sanity check that nothing has changed since the last audit).
-3. **Publish the project.** This is the only mechanism that runs the staged migration against Live. The user clicks Publish; the migration then upserts 203 articles into `public.blog_articles` on Live.
-4. **Verify the sync** by re-querying Live: expect `204 total / 203 published`, matching Test.
-5. **Spot-check the live site**: `https://livingwitharthritis.org.uk/blog` should show 203 articles, category pages should populate, and an individual article slug should open.
-6. **Regenerate the sitemap** by invoking the `generate-sitemap` edge function on Live so the 203 article URLs are discoverable (otherwise it auto-refreshes within ~6 hours).
-7. **Report results** — Live article count before/after, sitemap URL count, any failures.
+1. **Verify Live status** (`supabase--cloud_status`) is `ACTIVE_HEALTHY` before touching anything.
+2. **Dump Test → SQL** for every empty/short table above. For each table I read all rows from Test, then build a single `INSERT … ON CONFLICT (id) DO UPDATE SET …` statement per row. Output goes to `/mnt/documents/live_backend_sync.sql`.
+3. **Reuse the existing blog SQL** (`/mnt/documents/blog_articles_sync_to_live_v2.sql`, 203 articles, already upsert-safe on `slug`) — concatenated as section 1 of the bundle.
+4. **Bundle order** (safe, idempotent, no FKs between these tables so order is cosmetic):
+   1. blog_articles (existing v2 file)
+   2. services, conditions, arthritis_types, statistics, physio_myths
+   3. donation_tiers, fundraising_options
+   4. nutrition_sections, about_us_sections, healthy_living_resources (upsert merges the 4/21 already there — no duplicates)
+   5. face_stories, faces_trust_facts, featured_stories, journey_chapters
+   6. joint_exercises
+   7. ai_safety_principles, ai_safety_faqs, ai_safety_certifications
+5. **Hand to you**: a single file `/mnt/documents/live_backend_sync.sql` you paste into Lovable Cloud → Run SQL with the **Live** toggle on. Runs in one transaction.
+6. **Verify** with the same count query against Live — every table should match Test.
+7. **Refresh sitemap** by invoking the `generate-sitemap` edge function on Live so the 203 article URLs become discoverable.
+8. **Spot-check** /blog, /conditions, /faces-of-arthritis, /diet, /donate, /governance on the live domain.
 
-## What I will NOT touch
+## Safety guarantees
 
-- No schema changes, no RLS changes, no GRANT changes — Live's structure is already correct.
+- `INSERT … ON CONFLICT (id) DO UPDATE` everywhere — never `DELETE`, `TRUNCATE`, or `DROP`.
+- No schema changes. No RLS or GRANT changes (Live structure is already correct).
 - No edits to `src/integrations/supabase/*`, `.env`, or `supabase/config.toml`.
-- No changes to any other table (donations, appointments, users, profiles, etc.).
-- No second migration — the staged file is the canonical one.
+- No frontend code changes — the existing `useCmsContent`/`useBlogArticles` hooks already query the right tables; they return empty because Live has no rows.
+- One transaction: if any row fails, nothing commits.
+- Re-runnable: pasting the SQL twice produces the same end state.
 
 ## Technical notes
 
-- The staged migration file is 1.26 MB / ~11,840 lines. It cannot be re-sent through the migration approval tool (payload too large); it ships to Live via the normal Publish flow that scans `supabase/migrations/`.
-- If Publish reports the migration failed on Live, fallback is **Option B**: open Lovable Cloud → Run SQL → switch to **Live** → paste `/mnt/documents/blog_articles_sync_to_live_v2.sql` → run. Same SQL, same result, no repo involvement.
-- No frontend code change is required. The `useBlogArticles` hooks already query the right table with the right filters; they're returning 0 simply because Live has 0 rows.
+- I'll use `supabase--read_query` against Test to dump rows, then generate the SQL with a small node/duckdb script in `/tmp`. JSONB and array columns are serialized with proper escaping.
+- Total payload is ~1.4 MB (mostly blog HTML). Cloud SQL editor handles it; if it complains, I'll split into two files (blog + everything else).
+- After your paste, I run a single verification SELECT and confirm parity.
 
 ## Action required from you
 
-Approve this plan, then click **Publish** when prompted. I'll handle verification and the sitemap refresh after the publish completes.
+Approve this plan. I'll generate the bundle and hand you the file + one-line instruction for the Cloud SQL editor. You paste, run, tell me it's done, and I verify.
