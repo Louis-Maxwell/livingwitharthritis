@@ -18,9 +18,10 @@ export interface DBBlogArticle {
   reviewer_credentials: string | null;
   is_published: boolean;
   display_order: number;
+  updated_at?: string | null;
 }
 
-const FIELDS = "slug, title, excerpt, content, date, category, image_url, meta_title, meta_description, keywords, author, author_credentials, reviewed_by, reviewer_credentials, is_published, display_order";
+const FIELDS = "slug, title, excerpt, content, date, category, image_url, meta_title, meta_description, keywords, author, author_credentials, reviewed_by, reviewer_credentials, is_published, display_order, updated_at";
 const LIST_FIELDS = "slug, title, excerpt, date, category, image_url, display_order";
 
 /** Single article by slug */

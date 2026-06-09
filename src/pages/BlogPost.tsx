@@ -21,6 +21,7 @@ import InternalLinks from "@/components/InternalLinks";
 import { Skeleton } from "@/components/ui/skeleton";
 import { marked } from "marked";
 import DOMPurify from "dompurify";
+import ArticleCitations, { DEFAULT_CITATIONS } from "@/components/blog/ArticleCitations";
 
 function markdownToHtml(md: string): string {
   // If content already looks like HTML, sanitize and return
@@ -120,12 +121,18 @@ const BlogPost = () => {
   const htmlContent = markdownToHtml(article.content);
   const readingTime = getReadingTime(htmlContent);
   const publishDate = new Date(article.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+  const updatedAtRaw = (article as { updated_at?: string | null }).updated_at ?? null;
+  const updatedDate = updatedAtRaw
+    ? new Date(updatedAtRaw).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })
+    : null;
+  const showUpdated = !!updatedAtRaw && new Date(updatedAtRaw).toDateString() !== new Date(article.date).toDateString();
   const metaTitle = article.meta_title || article.title;
   const metaDesc = article.meta_description || article.excerpt;
-  const authorName = article.author || "Living With Arthritis Clinical Team";
+  const authorName = article.author || "Living With Arthritis Clinical Review Board";
   const authorCreds = article.author_credentials || "Evidence-based health content";
   const reviewerName = article.reviewed_by || "Dr. Amina Patel";
   const reviewerCreds = article.reviewer_credentials || "Consultant Rheumatologist";
+  const dateModifiedIso = updatedAtRaw || article.date;
 
   return (
     <>
@@ -144,8 +151,10 @@ const BlogPost = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content={article.title} />
         <meta property="article:published_time" content={article.date} />
+        <meta property="article:modified_time" content={dateModifiedIso} />
         <meta property="article:section" content="Health" />
         <meta property="article:tag" content="arthritis" />
+
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={metaTitle} />
         <meta name="twitter:description" content={metaDesc} />
@@ -158,16 +167,27 @@ const BlogPost = () => {
           "headline": article.title,
           "description": metaDesc,
           "datePublished": article.date,
-          "dateModified": article.date,
-          "author": { "@type": "Organization", "name": authorName, "url": "https://livingwitharthritis.org.uk" },
+          "dateModified": dateModifiedIso,
+          "author": {
+            "@type": "Organization",
+            "name": authorName,
+            "url": "https://livingwitharthritis.org.uk",
+            "memberOf": { "@type": "MedicalOrganization", "name": "Living With Arthritis Clinical Review Board" }
+          },
           "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk", "logo": { "@type": "ImageObject", "url": "https://livingwitharthritis.org.uk/favicon.ico" } },
           "inLanguage": "en-GB",
           "mainEntityOfPage": `https://livingwitharthritis.org.uk/blog/${slug}`,
           "about": { "@type": "MedicalCondition", "name": "Arthritis", "alternateName": ["Osteoarthritis", "Rheumatoid Arthritis"] },
           "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } },
-          "lastReviewed": article.date,
+          "lastReviewed": dateModifiedIso,
           "reviewedBy": { "@type": "Person", "name": reviewerName, "jobTitle": reviewerCreds },
-          "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Patient" }
+          "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Patient" },
+          "citation": DEFAULT_CITATIONS.map((c) => ({
+            "@type": "CreativeWork",
+            "name": c.label,
+            "url": c.url,
+            ...(c.publisher ? { "publisher": { "@type": "Organization", "name": c.publisher } } : {})
+          }))
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
@@ -176,15 +196,27 @@ const BlogPost = () => {
           "description": metaDesc,
           "image": "https://livingwitharthritis.org.uk/images/og-blog-default.webp",
           "datePublished": article.date,
-          "dateModified": article.date,
-          "author": { "@type": "Organization", "name": authorName, "url": "https://livingwitharthritis.org.uk" },
+          "dateModified": dateModifiedIso,
+          "author": {
+            "@type": "Organization",
+            "name": authorName,
+            "url": "https://livingwitharthritis.org.uk",
+            "memberOf": { "@type": "MedicalOrganization", "name": "Living With Arthritis Clinical Review Board" }
+          },
           "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk", "logo": { "@type": "ImageObject", "url": "https://livingwitharthritis.org.uk/favicon.ico", "width": 512, "height": 512 } },
           "mainEntityOfPage": { "@type": "WebPage", "@id": `https://livingwitharthritis.org.uk/blog/${slug}` },
           "wordCount": htmlContent.replace(/<[^>]*>/g, " ").trim().split(/\s+/).length,
           "inLanguage": "en-GB",
           "isAccessibleForFree": true,
-          "articleSection": "Health"
+          "articleSection": "Health",
+          "citation": DEFAULT_CITATIONS.map((c) => ({
+            "@type": "CreativeWork",
+            "name": c.label,
+            "url": c.url,
+            ...(c.publisher ? { "publisher": { "@type": "Organization", "name": c.publisher } } : {})
+          }))
         })}</script>
+
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
@@ -207,6 +239,8 @@ const BlogPost = () => {
       <div className="min-h-screen bg-background">
         <ScrollProgress />
         <Header />
+        <article itemScope itemType="https://schema.org/MedicalWebPage">
+
 
         <header className="border-b border-border/20">
           <div className="container mx-auto px-6 md:px-10 max-w-[720px]">
@@ -219,8 +253,29 @@ const BlogPost = () => {
             </nav>
 
             <div className="pb-10 md:pb-14">
-              <div className="flex items-center gap-2 text-xs text-muted-foreground mb-5">
-                <time dateTime={article.date} className="font-medium">{publishDate}</time>
+              <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground mb-5">
+                <span>
+                  Published{" "}
+                  <time dateTime={article.date} itemProp="datePublished" className="font-medium text-foreground/80">
+                    {publishDate}
+                  </time>
+                </span>
+                {showUpdated && updatedDate && (
+                  <>
+                    <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
+                    <span>
+                      Updated{" "}
+                      <time dateTime={updatedAtRaw!} itemProp="dateModified" className="font-medium text-foreground/80">
+                        {updatedDate}
+                      </time>
+                    </span>
+                  </>
+                )}
+                {!showUpdated && updatedAtRaw && (
+                  <time dateTime={updatedAtRaw} itemProp="dateModified" className="sr-only">
+                    {updatedDate}
+                  </time>
+                )}
                 <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
                 <span>{readingTime} min read</span>
                 {viewCount !== null && (
@@ -233,6 +288,7 @@ const BlogPost = () => {
                   </>
                 )}
               </div>
+
 
               <h1 className="font-display text-[1.75rem] md:text-[2.5rem] lg:text-[3rem] font-extrabold text-foreground leading-[1.15] tracking-tight mb-6">
                 {article.title}
@@ -266,10 +322,12 @@ const BlogPost = () => {
           </div>
         </header>
 
-        <article className="container mx-auto px-6 md:px-10 py-10 md:py-14 max-w-[720px]">
+        <main className="container mx-auto px-6 md:px-10 py-10 md:py-14 max-w-[720px]">
           <TableOfContents html={htmlContent} />
 
-          <div
+          <section
+            aria-label="Article body"
+            itemProp="articleBody"
             className="blog-prose prose prose-lg max-w-none text-foreground/90
               prose-headings:font-display prose-headings:text-foreground prose-headings:font-bold prose-headings:scroll-mt-24
               prose-h2:text-[1.5rem] prose-h2:md:text-[1.75rem] prose-h2:mt-14 prose-h2:mb-4 prose-h2:pb-3 prose-h2:border-b prose-h2:border-border/15
@@ -285,22 +343,26 @@ const BlogPost = () => {
             dangerouslySetInnerHTML={{ __html: addHeadingIds(htmlContent) }}
           />
 
+          <ArticleCitations />
+
           <HealthToolsCTA />
 
-          <div className="mt-14 pt-8 border-t border-border/20">
+          <footer className="mt-14 pt-8 border-t border-border/20">
             {slug && <SocialShareButtons title={article.title} slug={slug} />}
             {slug && <BlogHelpfulness slug={slug} />}
-          </div>
 
-          <CrossLinkBanner preset="blog" exclude={`/blog/${slug}`} title="Related resources" />
+            <CrossLinkBanner preset="blog" exclude={`/blog/${slug}`} title="Related resources" />
 
-          {slug && <RelatedArticles currentSlug={slug} />}
-          {slug && <BlogComments slug={slug} />}
+            {slug && <RelatedArticles currentSlug={slug} />}
+            {slug && <BlogComments slug={slug} />}
+          </footer>
+        </main>
         </article>
         {slug && <ContinueReadingBar currentSlug={slug} />}
         <InternalLinks />
         <Footer />
       </div>
+
     </>
   );
 };
