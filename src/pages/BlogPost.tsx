@@ -151,8 +151,11 @@ const BlogPost = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content={article.title} />
         <meta property="article:published_time" content={article.date} />
+        <meta property="article:published_time" content={article.date} />
+        <meta property="article:modified_time" content={dateModifiedIso} />
         <meta property="article:section" content="Health" />
         <meta property="article:tag" content="arthritis" />
+
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={metaTitle} />
         <meta name="twitter:description" content={metaDesc} />
