@@ -21,6 +21,7 @@ import InternalLinks from "@/components/InternalLinks";
 import { Skeleton } from "@/components/ui/skeleton";
 import { marked } from "marked";
 import DOMPurify from "dompurify";
+import ArticleCitations, { DEFAULT_CITATIONS } from "@/components/blog/ArticleCitations";
 
 function markdownToHtml(md: string): string {
   // If content already looks like HTML, sanitize and return
