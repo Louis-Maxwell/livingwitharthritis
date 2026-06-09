@@ -239,6 +239,8 @@ const BlogPost = () => {
       <div className="min-h-screen bg-background">
         <ScrollProgress />
         <Header />
+        <article itemScope itemType="https://schema.org/MedicalWebPage">
+
 
         <header className="border-b border-border/20">
           <div className="container mx-auto px-6 md:px-10 max-w-[720px]">
