@@ -253,8 +253,29 @@ const BlogPost = () => {
             </nav>
 
             <div className="pb-10 md:pb-14">
-              <div className="flex items-center gap-2 text-xs text-muted-foreground mb-5">
-                <time dateTime={article.date} className="font-medium">{publishDate}</time>
+              <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground mb-5">
+                <span>
+                  Published{" "}
+                  <time dateTime={article.date} itemProp="datePublished" className="font-medium text-foreground/80">
+                    {publishDate}
+                  </time>
+                </span>
+                {showUpdated && updatedDate && (
+                  <>
+                    <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
+                    <span>
+                      Updated{" "}
+                      <time dateTime={updatedAtRaw!} itemProp="dateModified" className="font-medium text-foreground/80">
+                        {updatedDate}
+                      </time>
+                    </span>
+                  </>
+                )}
+                {!showUpdated && updatedAtRaw && (
+                  <time dateTime={updatedAtRaw} itemProp="dateModified" className="sr-only">
+                    {updatedDate}
+                  </time>
+                )}
                 <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
                 <span>{readingTime} min read</span>
                 {viewCount !== null && (
@@ -267,6 +288,7 @@ const BlogPost = () => {
                   </>
                 )}
               </div>
+
 
               <h1 className="font-display text-[1.75rem] md:text-[2.5rem] lg:text-[3rem] font-extrabold text-foreground leading-[1.15] tracking-tight mb-6">
                 {article.title}
