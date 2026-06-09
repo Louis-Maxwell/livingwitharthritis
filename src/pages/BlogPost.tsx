@@ -121,12 +121,18 @@ const BlogPost = () => {
   const htmlContent = markdownToHtml(article.content);
   const readingTime = getReadingTime(htmlContent);
   const publishDate = new Date(article.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+  const updatedAtRaw = (article as { updated_at?: string | null }).updated_at ?? null;
+  const updatedDate = updatedAtRaw
+    ? new Date(updatedAtRaw).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })
+    : null;
+  const showUpdated = !!updatedAtRaw && new Date(updatedAtRaw).toDateString() !== new Date(article.date).toDateString();
   const metaTitle = article.meta_title || article.title;
   const metaDesc = article.meta_description || article.excerpt;
-  const authorName = article.author || "Living With Arthritis Clinical Team";
+  const authorName = article.author || "Living With Arthritis Clinical Review Board";
   const authorCreds = article.author_credentials || "Evidence-based health content";
   const reviewerName = article.reviewed_by || "Dr. Amina Patel";
   const reviewerCreds = article.reviewer_credentials || "Consultant Rheumatologist";
+  const dateModifiedIso = updatedAtRaw || article.date;
 
   return (
     <>
