@@ -322,10 +322,12 @@ const BlogPost = () => {
           </div>
         </header>
 
-        <article className="container mx-auto px-6 md:px-10 py-10 md:py-14 max-w-[720px]">
+        <main className="container mx-auto px-6 md:px-10 py-10 md:py-14 max-w-[720px]">
           <TableOfContents html={htmlContent} />
 
-          <div
+          <section
+            aria-label="Article body"
+            itemProp="articleBody"
             className="blog-prose prose prose-lg max-w-none text-foreground/90
               prose-headings:font-display prose-headings:text-foreground prose-headings:font-bold prose-headings:scroll-mt-24
               prose-h2:text-[1.5rem] prose-h2:md:text-[1.75rem] prose-h2:mt-14 prose-h2:mb-4 prose-h2:pb-3 prose-h2:border-b prose-h2:border-border/15
@@ -341,22 +343,26 @@ const BlogPost = () => {
             dangerouslySetInnerHTML={{ __html: addHeadingIds(htmlContent) }}
           />
 
+          <ArticleCitations />
+
           <HealthToolsCTA />
 
-          <div className="mt-14 pt-8 border-t border-border/20">
+          <footer className="mt-14 pt-8 border-t border-border/20">
             {slug && <SocialShareButtons title={article.title} slug={slug} />}
             {slug && <BlogHelpfulness slug={slug} />}
-          </div>
 
-          <CrossLinkBanner preset="blog" exclude={`/blog/${slug}`} title="Related resources" />
+            <CrossLinkBanner preset="blog" exclude={`/blog/${slug}`} title="Related resources" />
 
-          {slug && <RelatedArticles currentSlug={slug} />}
-          {slug && <BlogComments slug={slug} />}
+            {slug && <RelatedArticles currentSlug={slug} />}
+            {slug && <BlogComments slug={slug} />}
+          </footer>
+        </main>
         </article>
         {slug && <ContinueReadingBar currentSlug={slug} />}
         <InternalLinks />
         <Footer />
       </div>
+
     </>
   );
 };
