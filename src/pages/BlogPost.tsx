@@ -165,16 +165,27 @@ const BlogPost = () => {
           "headline": article.title,
           "description": metaDesc,
           "datePublished": article.date,
-          "dateModified": article.date,
-          "author": { "@type": "Organization", "name": authorName, "url": "https://livingwitharthritis.org.uk" },
+          "dateModified": dateModifiedIso,
+          "author": {
+            "@type": "Organization",
+            "name": authorName,
+            "url": "https://livingwitharthritis.org.uk",
+            "memberOf": { "@type": "MedicalOrganization", "name": "Living With Arthritis Clinical Review Board" }
+          },
           "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk", "logo": { "@type": "ImageObject", "url": "https://livingwitharthritis.org.uk/favicon.ico" } },
           "inLanguage": "en-GB",
           "mainEntityOfPage": `https://livingwitharthritis.org.uk/blog/${slug}`,
           "about": { "@type": "MedicalCondition", "name": "Arthritis", "alternateName": ["Osteoarthritis", "Rheumatoid Arthritis"] },
           "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } },
-          "lastReviewed": article.date,
+          "lastReviewed": dateModifiedIso,
           "reviewedBy": { "@type": "Person", "name": reviewerName, "jobTitle": reviewerCreds },
-          "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Patient" }
+          "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Patient" },
+          "citation": DEFAULT_CITATIONS.map((c) => ({
+            "@type": "CreativeWork",
+            "name": c.label,
+            "url": c.url,
+            ...(c.publisher ? { "publisher": { "@type": "Organization", "name": c.publisher } } : {})
+          }))
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
@@ -183,15 +194,27 @@ const BlogPost = () => {
           "description": metaDesc,
           "image": "https://livingwitharthritis.org.uk/images/og-blog-default.webp",
           "datePublished": article.date,
-          "dateModified": article.date,
-          "author": { "@type": "Organization", "name": authorName, "url": "https://livingwitharthritis.org.uk" },
+          "dateModified": dateModifiedIso,
+          "author": {
+            "@type": "Organization",
+            "name": authorName,
+            "url": "https://livingwitharthritis.org.uk",
+            "memberOf": { "@type": "MedicalOrganization", "name": "Living With Arthritis Clinical Review Board" }
+          },
           "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk", "logo": { "@type": "ImageObject", "url": "https://livingwitharthritis.org.uk/favicon.ico", "width": 512, "height": 512 } },
           "mainEntityOfPage": { "@type": "WebPage", "@id": `https://livingwitharthritis.org.uk/blog/${slug}` },
           "wordCount": htmlContent.replace(/<[^>]*>/g, " ").trim().split(/\s+/).length,
           "inLanguage": "en-GB",
           "isAccessibleForFree": true,
-          "articleSection": "Health"
+          "articleSection": "Health",
+          "citation": DEFAULT_CITATIONS.map((c) => ({
+            "@type": "CreativeWork",
+            "name": c.label,
+            "url": c.url,
+            ...(c.publisher ? { "publisher": { "@type": "Organization", "name": c.publisher } } : {})
+          }))
         })}</script>
+
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
