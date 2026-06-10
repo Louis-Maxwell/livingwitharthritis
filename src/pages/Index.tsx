@@ -158,9 +158,7 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>
-          Open-Source Osteoarthritis Plan · Living With Arthritis UK
-        </title>
+        <title>Living With Arthritis UK | Evidence-Based Health Guides</title>
         <meta
           name="description"
           content="Open-source osteoarthritis plan: clinically reviewed diet, movement and pain-relief guidance in plain English. Free for everyone in the UK."
@@ -170,7 +168,7 @@ function HomePage() {
         <meta property="og:url" content={SITE_URL + "/"} />
         <meta
           property="og:title"
-          content="Open-Source Osteoarthritis Plan · Living With Arthritis UK"
+          content="Living With Arthritis UK | Evidence-Based Health Guides"
         />
         <meta
           property="og:description"
