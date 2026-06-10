@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import SeoHead from "@/components/SeoHead";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import SocialShareButtons from "@/components/SocialShareButtons";
+import NextReadStrip from "@/components/NextReadStrip";
 import {
   conditionSubpages,
   subpageSlugs,
@@ -340,6 +341,7 @@ const ConditionSubpagePage = () => {
         </div>
       </main>
 
+      <NextReadStrip currentPath={path} heading="Keep reading arthritis insights" />
       <Footer />
     </>
   );

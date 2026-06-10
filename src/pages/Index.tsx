@@ -17,26 +17,23 @@ import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import DeferredMount from "@/components/DeferredMount";
 
+// OAHero stays eager — required for LCP.
 import OAHero from "@/components/landing/OAHero";
-import HeroStatsStrip from "@/components/landing/HeroStatsStrip";
-import OAProblemBand from "@/components/landing/OAProblemBand";
-import FacesStrip from "@/components/landing/FacesStrip";
-import OAPlanPillarsSection from "@/components/landing/OAPlanPillarsSection";
-import MissionStatementBand from "@/components/landing/MissionStatementBand";
-import DonationImpactSection from "@/components/landing/DonationImpactSection";
-import MissionEthosBand from "@/components/landing/MissionEthosBand";
-import HowWeAreFundedSection from "@/components/landing/HowWeAreFundedSection";
-import SEOTeaserSection from "@/components/landing/SEOTeaserSection";
 
-const AboutArthritisCards = lazy(
-  () => import("@/components/landing/AboutArthritisCards"),
-);
-const ResourcesForYouSection = lazy(
-  () => import("@/components/landing/ResourcesForYouSection"),
-);
-const ConditionPillBand = lazy(
-  () => import("@/components/landing/ConditionPillBand"),
-);
+// Q1: Lazy-load every sub-section to reduce first-paint JS cost.
+const HeroStatsStrip = lazy(() => import("@/components/landing/HeroStatsStrip"));
+const OAProblemBand = lazy(() => import("@/components/landing/OAProblemBand"));
+const FacesStrip = lazy(() => import("@/components/landing/FacesStrip"));
+const OAPlanPillarsSection = lazy(() => import("@/components/landing/OAPlanPillarsSection"));
+const MissionStatementBand = lazy(() => import("@/components/landing/MissionStatementBand"));
+const DonationImpactSection = lazy(() => import("@/components/landing/DonationImpactSection"));
+const MissionEthosBand = lazy(() => import("@/components/landing/MissionEthosBand"));
+const HowWeAreFundedSection = lazy(() => import("@/components/landing/HowWeAreFundedSection"));
+const SEOTeaserSection = lazy(() => import("@/components/landing/SEOTeaserSection"));
+
+const AboutArthritisCards = lazy(() => import("@/components/landing/AboutArthritisCards"));
+const ResourcesForYouSection = lazy(() => import("@/components/landing/ResourcesForYouSection"));
+const ConditionPillBand = lazy(() => import("@/components/landing/ConditionPillBand"));
 
 const InspiredHeroBand = lazy(() => import("@/components/landing/InspiredHeroBand"));
 const QuoteSection = lazy(() => import("@/components/landing/QuoteSection"));
@@ -182,15 +179,26 @@ function HomePage() {
 
         <main id="main-content" role="main" tabIndex={-1}>
           <OAHero />
-          <HeroStatsStrip />
-          <OAProblemBand />
+
+          <Suspense fallback={<SectionFallback />}>
+            <HeroStatsStrip />
+          </Suspense>
+
+          <Suspense fallback={<SectionFallback />}>
+            <OAProblemBand />
+          </Suspense>
 
           <Suspense fallback={<SectionFallback />}>
             <AboutArthritisCards />
           </Suspense>
 
-          <FacesStrip />
-          <OAPlanPillarsSection />
+          <Suspense fallback={<SectionFallback />}>
+            <FacesStrip />
+          </Suspense>
+
+          <Suspense fallback={<SectionFallback />}>
+            <OAPlanPillarsSection />
+          </Suspense>
 
           <Suspense fallback={<SectionFallback />}>
             <ResourcesForYouSection />
@@ -204,17 +212,21 @@ function HomePage() {
             <InspiredHeroBand />
           </Suspense>
 
-          <MissionStatementBand />
+          <Suspense fallback={<SectionFallback />}>
+            <MissionStatementBand />
+          </Suspense>
 
           <Suspense fallback={<SectionFallback />}>
             <QuoteSection />
           </Suspense>
 
           <DeferredMount>
-            <DonationImpactSection />
-            <MissionEthosBand />
-            <HowWeAreFundedSection />
-            <SEOTeaserSection />
+            <Suspense fallback={<SectionFallback />}>
+              <DonationImpactSection />
+              <MissionEthosBand />
+              <HowWeAreFundedSection />
+              <SEOTeaserSection />
+            </Suspense>
           </DeferredMount>
 
 
