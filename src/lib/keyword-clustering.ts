@@ -41,8 +41,8 @@ export function suggestInternalLinks(primaryKeyword: string, limit = 5): Article
   const match = findCluster(primaryKeyword);
   if (!match) return [];
   const all = [
-    ...(contentMap.pillars as ArticleKeywordMap[]),
-    ...((contentMap as { clusters_sample?: ArticleKeywordMap[] }).clusters_sample ?? []),
+    ...((contentMap as unknown as { pillars: ArticleKeywordMap[] }).pillars),
+    ...((contentMap as unknown as { clusters_sample?: ArticleKeywordMap[] }).clusters_sample ?? []),
   ];
   return all
     .filter((a) => a.cluster === match.cluster.cluster)

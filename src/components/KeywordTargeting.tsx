@@ -15,7 +15,8 @@ interface KeywordTargetingProps {
 const KeywordTargeting = ({ articleSlug, primaryKeyword }: KeywordTargetingProps) => {
   const { contentMap, suggestInternalLinks } = useKeywordData();
 
-  const all = [...contentMap.pillars, ...((contentMap as unknown as { clusters_sample?: typeof contentMap.pillars }).clusters_sample ?? [])];
+  const cm = contentMap as unknown as { pillars: Array<{ slug: string; title: string; type: string; word_count_target: [number, number]; cluster: string; primary_keyword: string; secondary_keywords: string[]; }>; clusters_sample?: Array<{ slug: string; title: string; type: string; word_count_target: [number, number]; cluster: string; primary_keyword: string; secondary_keywords: string[]; }>; };
+  const all = [...cm.pillars, ...(cm.clusters_sample ?? [])];
   const article = all.find((a) => a.slug === articleSlug);
   const primary = primaryKeyword ?? article?.primary_keyword ?? "";
   const suggestions = primary ? suggestInternalLinks(primary, 5) : [];
