@@ -3515,6 +3515,69 @@ export const healthTopics: HealthTopic[] = [
       }
     ],
     "disclaimer": "Medical Disclaimer: Knee supports complement, not replace, treatment. Get a diagnosis first to ensure you choose the right type."
+  },
+  {
+    "slug": "collagen-vs-glucosamine",
+    "title": "Collagen vs Glucosamine for Arthritis",
+    "subtitle": "Comparing the evidence, mechanisms and safety of two of the most asked-about joint supplements",
+    "category": "Supplement",
+    "keywords": [
+      "collagen vs glucosamine for arthritis",
+      "collagen or glucosamine for joints",
+      "best supplement for osteoarthritis",
+      "glucosamine sulfate",
+      "hydrolysed collagen",
+      "joint supplement comparison"
+    ],
+    "sections": [
+      {
+        "heading": "Why People Compare These Two",
+        "body": "Collagen and glucosamine are the two supplements people in the UK most often ask their GP and pharmacist about for joint pain. Both are sold widely on the high street, both claim to support cartilage, and both are commonly used by people living with osteoarthritis. They work in different ways, the evidence behind each is different, and choosing between them often comes down to what your symptoms are, what you've already tried, and what your clinician advises.",
+        "bullets": []
+      },
+      {
+        "heading": "How Each One Works",
+        "body": "Glucosamine is a natural sugar produced by the body and a building block of cartilage. As a supplement it is usually sold as glucosamine sulfate or glucosamine hydrochloride. The theory is that supplementing it gives the body more raw material to maintain and repair cartilage.\n\nCollagen is the most abundant structural protein in the body and a major component of cartilage, tendons and ligaments. Most joint-focused supplements use hydrolysed collagen (collagen peptides) or undenatured type II collagen. Hydrolysed collagen is thought to provide amino acids that support cartilage turnover, while undenatured type II collagen is thought to modulate the immune response that drives joint inflammation.",
+        "bullets": []
+      },
+      {
+        "heading": "What the Evidence Says",
+        "body": "Neither supplement reliably slows the progression of osteoarthritis. Both have a reasonable safety record. The clinical evidence is mixed for both, but here is the honest summary:",
+        "bullets": [
+          "Glucosamine has the longer track record. Some trials — particularly of glucosamine sulfate at 1,500 mg daily — show modest reductions in knee pain and stiffness. Other large trials show no benefit over placebo. NICE does not currently recommend it for routine NHS prescribing.",
+          "Combined glucosamine + chondroitin has shown small benefits in some moderate-to-severe knee osteoarthritis trials, though results are inconsistent.",
+          "Hydrolysed collagen (typically 10 g daily) and undenatured type II collagen (40 mg daily) have shown symptom improvements in several smaller trials, including reductions in pain scores and improved function — but the overall evidence base is thinner and shorter-term than for glucosamine.",
+          "Direct head-to-head comparisons of collagen vs glucosamine are limited. The few that exist suggest similar, modest effect sizes rather than one being clearly superior."
+        ]
+      },
+      {
+        "heading": "Safety and Who Should Be Careful",
+        "body": "Both are generally well tolerated. Common side effects are mild and usually involve digestion — nausea, indigestion or loose stools. Important cautions:",
+        "bullets": [
+          "Glucosamine is often made from shellfish, so people with a shellfish allergy should choose a vegetarian/vegan source or avoid it.",
+          "Glucosamine may interact with warfarin and other blood thinners — speak to your GP or pharmacist first.",
+          "People with diabetes should monitor blood sugar when starting glucosamine, as some studies have flagged small effects on glucose control.",
+          "Collagen supplements are usually derived from bovine, porcine, marine or chicken sources. Check the label if you avoid certain animal products or have allergies.",
+          "Neither supplement is recommended in pregnancy or breastfeeding without medical advice."
+        ]
+      },
+      {
+        "heading": "Which Should You Try First?",
+        "body": "There is no universally best choice. A reasonable, pragmatic approach used by many UK clinicians is:",
+        "bullets": [
+          "If your main problem is knee osteoarthritis with stiffness and you want the option with the longest evidence base, glucosamine sulfate 1,500 mg daily is a sensible 8–12 week trial.",
+          "If you have already tried glucosamine without benefit, or you have a shellfish allergy or take blood thinners, hydrolysed collagen 10 g daily or undenatured type II collagen 40 mg daily is a reasonable alternative to trial for 8–12 weeks.",
+          "Stop after the trial period if you notice no meaningful difference in pain, stiffness or daily function.",
+          "Neither replaces the core arthritis basics: weight management if needed, regular low-impact exercise, strength training around the affected joint, and pain relief agreed with your GP."
+        ]
+      },
+      {
+        "heading": "Bottom Line",
+        "body": "Collagen and glucosamine sit in the same evidence tier — modest, inconsistent benefits for some people, no proven disease-modifying effect, and a good safety profile for most adults. Neither is a substitute for exercise, weight management or clinician-led treatment. Trial one for 8–12 weeks, judge by how you feel, and stop if it isn't helping.",
+        "bullets": []
+      }
+    ],
+    "disclaimer": "Medical Disclaimer: Supplements are not a substitute for medical care. Talk to your GP or pharmacist before starting glucosamine or collagen, especially if you take prescription medicines, are pregnant or breastfeeding, or have an allergy to shellfish or animal products."
   }
 ];
 
