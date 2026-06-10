@@ -1,0 +1,195 @@
+{
+  "total_keywords": 5000,
+  "last_updated": "2026-06-10",
+  "notes": "Representative seed taxonomy. Cluster keyword arrays show the head terms; long-tail variations are generated programmatically by src/lib/keyword-clustering.ts (modifiers: 'best', 'how to', 'symptoms', 'treatment', 'uk', 'nhs alternative', 'exercises for', 'diet for', '2026').",
+  "categories": [
+    {
+      "id": "musculoskeletal",
+      "name": "Musculoskeletal Health",
+      "keywords": 1200,
+      "clusters": [
+        {
+          "cluster": "Anatomy & Skeletal System",
+          "pillar_article": "Complete Musculoskeletal Anatomy Guide",
+          "target_articles": 15,
+          "keywords": [
+            "skeletal system", "axial skeleton", "appendicular skeleton",
+            "cervical vertebrae", "thoracic vertebrae", "lumbar vertebrae",
+            "sacrum", "coccyx", "synovial joint", "cartilage anatomy",
+            "ligaments vs tendons", "fascia anatomy", "bone marrow function",
+            "vertebral disc anatomy", "joint capsule"
+          ]
+        },
+        {
+          "cluster": "Joint Conditions & Disorders",
+          "pillar_article": "Joint Conditions: Prevention & Treatment",
+          "target_articles": 12,
+          "keywords": [
+            "sprain", "strain", "dislocation", "tendinopathy", "bursitis",
+            "osteoporosis", "frozen shoulder", "tennis elbow", "carpal tunnel",
+            "plantar fasciitis", "meniscus tear", "rotator cuff injury"
+          ]
+        },
+        {
+          "cluster": "Back & Spine Health",
+          "pillar_article": "Back & Spine Health Pillar",
+          "target_articles": 10,
+          "keywords": [
+            "lower back pain uk", "sciatica relief", "herniated disc",
+            "spinal stenosis", "kyphosis", "scoliosis adults", "posture correction",
+            "core strength back pain", "spondylolisthesis", "facet joint syndrome"
+          ]
+        },
+        {
+          "cluster": "Muscle Health & Recovery",
+          "pillar_article": "Muscle Recovery & Strength Guide",
+          "target_articles": 8,
+          "keywords": [
+            "sarcopenia", "muscle atrophy", "DOMS recovery", "protein and muscle",
+            "resistance training over 50", "muscle imbalance", "fibromyalgia muscle pain",
+            "myofascial release"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "preventative",
+      "name": "Preventative Health",
+      "keywords": 1000,
+      "clusters": [
+        {
+          "cluster": "Anti-Inflammatory Nutrition",
+          "pillar_article": "Anti-Inflammatory Diet Pillar",
+          "target_articles": 12,
+          "keywords": [
+            "anti-inflammatory diet uk", "mediterranean diet arthritis",
+            "omega 3 joint health", "turmeric curcumin", "ginger inflammation",
+            "polyphenols", "leaky gut and joints", "sugar and inflammation",
+            "processed food joint pain", "best foods for joint pain",
+            "anti inflammatory smoothie", "beetroot inflammation"
+          ]
+        },
+        {
+          "cluster": "Weight Management",
+          "pillar_article": "Weight Management for Joint Health",
+          "target_articles": 8,
+          "keywords": [
+            "weight loss and arthritis", "bmi joint health",
+            "obesity osteoarthritis", "intermittent fasting joints",
+            "calorie deficit over 50", "metabolism after menopause",
+            "visceral fat inflammation", "portion control uk"
+          ]
+        },
+        {
+          "cluster": "Sleep, Stress & Lifestyle",
+          "pillar_article": "Sleep & Stress for Joint Health",
+          "target_articles": 8,
+          "keywords": [
+            "sleep and joint pain", "cortisol inflammation",
+            "mindfulness arthritis", "breathwork chronic pain",
+            "yoga nidra joint pain", "vagus nerve inflammation",
+            "screen time posture", "circadian rhythm health"
+          ]
+        },
+        {
+          "cluster": "Supplements & Micronutrients",
+          "pillar_article": "Supplements for Joint Health (Evidence Review)",
+          "target_articles": 10,
+          "keywords": [
+            "glucosamine chondroitin", "collagen peptides joints",
+            "vitamin d joint pain uk", "magnesium for muscles",
+            "msm supplement", "boswellia arthritis", "fish oil epa dha",
+            "vitamin k2 bone health", "calcium uk women", "zinc immune joints"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arthritis",
+      "name": "Arthritis Health",
+      "keywords": 1200,
+      "clusters": [
+        {
+          "cluster": "Osteoarthritis",
+          "pillar_article": "Osteoarthritis Complete Guide",
+          "target_articles": 15,
+          "keywords": [
+            "osteoarthritis symptoms", "knee osteoarthritis exercises",
+            "hip osteoarthritis treatment", "hand osteoarthritis",
+            "osteoarthritis diet uk", "osteoarthritis nhs waiting list",
+            "early signs osteoarthritis", "osteoarthritis vs rheumatoid",
+            "osteoarthritis flare up", "osteoarthritis grading kellgren"
+          ]
+        },
+        {
+          "cluster": "Rheumatoid Arthritis",
+          "pillar_article": "Rheumatoid Arthritis Pillar Guide",
+          "target_articles": 12,
+          "keywords": [
+            "rheumatoid arthritis symptoms uk", "early ra signs",
+            "ra flare management", "biologic dmards", "methotrexate side effects",
+            "ra diet uk", "ra fatigue", "ra remission", "seronegative ra",
+            "ra and pregnancy"
+          ]
+        },
+        {
+          "cluster": "Other Arthritis Types",
+          "pillar_article": "Less Common Arthritis Types Guide",
+          "target_articles": 10,
+          "keywords": [
+            "psoriatic arthritis", "ankylosing spondylitis", "gout uk",
+            "reactive arthritis", "juvenile idiopathic arthritis",
+            "lupus arthritis", "septic arthritis", "polymyalgia rheumatica"
+          ]
+        },
+        {
+          "cluster": "Living With Arthritis",
+          "pillar_article": "Daily Living With Arthritis",
+          "target_articles": 10,
+          "keywords": [
+            "arthritis aids and adaptations", "best mattress arthritis uk",
+            "arthritis gloves", "driving with arthritis", "work and arthritis",
+            "arthritis disability benefits uk pip", "blue badge arthritis",
+            "arthritis cooking aids", "arthritis dressing aids", "arthritis travel tips"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "frailty",
+      "name": "Frailty Management",
+      "keywords": 300,
+      "clusters": [
+        {
+          "cluster": "Falls Prevention",
+          "pillar_article": "Falls Prevention for Older Adults",
+          "target_articles": 6,
+          "keywords": [
+            "falls prevention exercises", "balance training older adults",
+            "home hazards checklist uk", "vitamin d falls",
+            "fear of falling", "tai chi falls prevention"
+          ]
+        },
+        {
+          "cluster": "Sarcopenia & Strength",
+          "pillar_article": "Sarcopenia Reversal Guide",
+          "target_articles": 5,
+          "keywords": [
+            "sarcopenia diagnosis", "protein for older adults",
+            "resistance training over 70", "leucine and muscle",
+            "grip strength health marker"
+          ]
+        },
+        {
+          "cluster": "Frailty Care Pathways",
+          "pillar_article": "Frailty: Assessment & Care",
+          "target_articles": 4,
+          "keywords": [
+            "clinical frailty scale", "comprehensive geriatric assessment",
+            "frailty nhs", "carer support uk frailty"
+          ]
+        }
+      ]
+    }
+  ]
+}
