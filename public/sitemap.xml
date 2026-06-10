@@ -313,6 +313,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://livingwitharthritis.org.uk/guides/knee-replacement-surgery</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://livingwitharthritis.org.uk/press</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
@@ -4898,12 +4904,6 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/sleep</loc>
-    <lastmod>2026-06-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/library/collagen-vs-glucosamine</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

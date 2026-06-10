@@ -99,6 +99,7 @@ const HealthServicesGuide = lazy(() => import("./pages/pillar/HealthServicesGuid
 const DietGuide = lazy(() => import("./pages/pillar/DietGuide"));
 const ExerciseGuide = lazy(() => import("./pages/pillar/ExerciseGuide"));
 const BenefitsPIPGuide = lazy(() => import("./pages/pillar/BenefitsPIPGuide"));
+const KneeReplacementSurgeryGuide = lazy(() => import("./pages/pillar/KneeReplacementSurgeryGuide"));
 const Press = lazy(() => import("./pages/Press"));
 const Partners = lazy(() => import("./pages/Partners"));
 const LivedExperiences = lazy(() => import("./pages/LivedExperiences"));
@@ -228,6 +229,7 @@ function AnimatedRoutes() {
         <Route path="/guides/diet" element={<DietGuide />} />
         <Route path="/guides/exercise" element={<ExerciseGuide />} />
         <Route path="/guides/benefits-pip" element={<BenefitsPIPGuide />} />
+        <Route path="/guides/knee-replacement-surgery" element={<KneeReplacementSurgeryGuide />} />
         <Route path="/press" element={<Press />} />
         <Route path="/partners" element={<Partners />} />
         <Route path="/stories" element={<LivedExperiences />} />
