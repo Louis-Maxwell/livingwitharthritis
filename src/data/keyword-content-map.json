@@ -1,0 +1,97 @@
+{
+  "generated_at": "2026-06-10",
+  "summary": {
+    "pillar_articles": 40,
+    "cluster_articles": 260,
+    "total_articles": 300,
+    "keywords_covered": 5000
+  },
+  "pillars": [
+    {
+      "slug": "complete-musculoskeletal-anatomy-guide",
+      "title": "Complete Musculoskeletal Anatomy Guide",
+      "type": "pillar",
+      "word_count_target": [1200, 1500],
+      "category_id": "musculoskeletal",
+      "cluster": "Anatomy & Skeletal System",
+      "primary_keyword": "musculoskeletal anatomy",
+      "secondary_keywords": ["skeletal system", "axial skeleton", "synovial joint", "cartilage anatomy", "ligaments vs tendons"],
+      "internal_links": ["joint-conditions-prevention-treatment", "back-spine-health-pillar", "muscle-recovery-strength-guide"]
+    },
+    {
+      "slug": "osteoarthritis-complete-guide",
+      "title": "Osteoarthritis Complete Guide",
+      "type": "pillar",
+      "word_count_target": [1200, 1500],
+      "category_id": "arthritis",
+      "cluster": "Osteoarthritis",
+      "primary_keyword": "osteoarthritis",
+      "secondary_keywords": ["osteoarthritis symptoms", "knee osteoarthritis exercises", "osteoarthritis diet uk", "osteoarthritis flare up"],
+      "internal_links": ["mediterranean-diet-arthritis", "knee-osteoarthritis-exercises", "weight-management-joint-health"]
+    },
+    {
+      "slug": "rheumatoid-arthritis-pillar-guide",
+      "title": "Rheumatoid Arthritis Pillar Guide",
+      "type": "pillar",
+      "word_count_target": [1200, 1500],
+      "category_id": "arthritis",
+      "cluster": "Rheumatoid Arthritis",
+      "primary_keyword": "rheumatoid arthritis uk",
+      "secondary_keywords": ["early ra signs", "ra flare management", "biologic dmards", "ra fatigue"],
+      "internal_links": ["anti-inflammatory-diet-pillar", "supplements-for-joint-health", "sleep-stress-joint-health"]
+    },
+    {
+      "slug": "anti-inflammatory-diet-pillar",
+      "title": "Anti-Inflammatory Diet Pillar",
+      "type": "pillar",
+      "word_count_target": [1200, 1500],
+      "category_id": "preventative",
+      "cluster": "Anti-Inflammatory Nutrition",
+      "primary_keyword": "anti-inflammatory diet uk",
+      "secondary_keywords": ["mediterranean diet arthritis", "omega 3 joint health", "turmeric curcumin", "best foods for joint pain"],
+      "internal_links": ["osteoarthritis-complete-guide", "supplements-for-joint-health", "weight-management-joint-health"]
+    },
+    {
+      "slug": "falls-prevention-older-adults",
+      "title": "Falls Prevention for Older Adults",
+      "type": "pillar",
+      "word_count_target": [1000, 1300],
+      "category_id": "frailty",
+      "cluster": "Falls Prevention",
+      "primary_keyword": "falls prevention uk",
+      "secondary_keywords": ["balance training older adults", "tai chi falls prevention", "fear of falling"],
+      "internal_links": ["sarcopenia-reversal-guide", "frailty-assessment-care"]
+    }
+  ],
+  "clusters_sample": [
+    {
+      "slug": "knee-osteoarthritis-exercises",
+      "title": "Knee Osteoarthritis Exercises (UK Guide)",
+      "type": "cluster",
+      "word_count_target": [400, 600],
+      "category_id": "arthritis",
+      "cluster": "Osteoarthritis",
+      "primary_keyword": "knee osteoarthritis exercises",
+      "secondary_keywords": ["quad strengthening knee oa", "wall sits arthritis", "step ups knee oa"],
+      "internal_links": ["osteoarthritis-complete-guide"]
+    },
+    {
+      "slug": "mediterranean-diet-arthritis",
+      "title": "Mediterranean Diet for Arthritis",
+      "type": "cluster",
+      "word_count_target": [400, 600],
+      "category_id": "preventative",
+      "cluster": "Anti-Inflammatory Nutrition",
+      "primary_keyword": "mediterranean diet arthritis",
+      "secondary_keywords": ["olive oil joints", "oily fish uk", "polyphenols arthritis"],
+      "internal_links": ["anti-inflammatory-diet-pillar", "osteoarthritis-complete-guide"]
+    }
+  ],
+  "internal_linking_rules": [
+    "Every cluster article links UP to its pillar (mandatory).",
+    "Every pillar links DOWN to 5-10 of its cluster articles in a 'Read next' module.",
+    "Cross-category links allowed when topic overlaps (e.g. arthritis diet ↔ anti-inflammatory nutrition).",
+    "Maximum 3 outbound internal links per 500 words to keep link equity focused.",
+    "Anchor text must vary - never repeat exact-match anchor more than 2x per article."
+  ]
+}
