@@ -12,7 +12,7 @@ const KNEE_REPLACEMENT_FAQS = [
   { question: "When should I consider knee replacement surgery?", answer: "Knee replacement is usually considered when severe osteoarthritis or rheumatoid arthritis causes daily pain that disturbs sleep, limits walking under 30 minutes, and has not responded to at least 3–6 months of non-surgical treatment (weight loss, physiotherapy, painkillers, steroid injections). NICE guidance (NG226) recommends referral when symptoms substantially affect quality of life." },
   { question: "How long does a knee replacement last?", answer: "Modern total knee replacements last around 20–25 years in 80–90% of patients, according to the UK National Joint Registry. Longevity depends on age at surgery, weight, activity level and implant type. Younger, more active patients may need revision surgery later in life." },
   { question: "How long is recovery from knee replacement surgery ?", answer: "Most patients are discharged within 1–3 days. You can usually walk with crutches within 24 hours, drive at 6 weeks, and return to desk work at 6–8 weeks. Full recovery — including swelling reduction and maximum strength — typically takes 6–12 months. Daily physiotherapy exercises are essential during this period." },
-  { question: "What is the UK waiting list for a knee replacement?", answer: "As of 2024, the median public-system wait for a knee replacement in England is around 18–22 weeks from referral, though some trusts exceed 40 weeks. You have the legal right under the NHS Constitution in England to be treated within 18 weeks of referral and can request alternative providers if waits exceed this." },
+  { question: "What is the UK waiting list for a knee replacement?", answer: "As of 2024, the median public-system wait for a knee replacement in England is around 18–22 weeks from referral, though some trusts exceed 40 weeks. You have the legal right under the UK NHS Constitution to be treated within 18 weeks of referral and can request alternative providers if waits exceed this." },
   { question: "What are the risks of knee replacement surgery?", answer: "Serious complications are uncommon. Around 1 in 100 patients develop a deep infection, 1 in 100 a blood clot (DVT or pulmonary embolism), and 1 in 200 nerve damage. About 15–20% of patients have residual pain or stiffness. Mortality within 90 days is under 0.5%. Risks rise with age, obesity, smoking and uncontrolled diabetes." },
   { question: "Can I avoid knee replacement surgery?", answer: "Many patients delay or avoid surgery by combining weight loss (every 1 kg lost reduces knee load by 4 kg per step), quadriceps strengthening, low-impact exercise (swimming, cycling), an anti-inflammatory Mediterranean diet, and a stepped pain plan (paracetamol, topical NSAIDs, injections). However, end-stage arthritis with bone-on-bone changes rarely responds long-term to conservative care." },
 ];
@@ -70,7 +70,7 @@ const CONTENT = `
 </ul>
 
 <h2 id="in-hospital">What Happens in Hospital</h2>
-<p>Most NHS trusts now follow an <strong>enhanced recovery after surgery (ERAS)</strong> pathway. A typical timeline:</p>
+<p>Most UK hospital trusts now follow an <strong>enhanced recovery after surgery (ERAS)</strong> pathway. A typical timeline:</p>
 <h3>Day of Surgery</h3>
 <p>You arrive fasted (usually from midnight, or as instructed). Anaesthetic is most often <strong>spinal with sedation</strong>, which is associated with less blood loss and quicker recovery than general anaesthesia. Surgery takes 60–90 minutes. You are encouraged to <strong>stand and walk within a few hours</strong> with a physiotherapist.</p>
 <h3>Days 1–2</h3>
@@ -134,22 +134,22 @@ const CONTENT = `
 </ul>
 <p>Risk is higher in patients who smoke, have a BMI above 40, or have poorly controlled diabetes, heart or kidney disease. Your surgical team will discuss your individual risk before consent.</p>
 
-<h2 id="nhs-vs-private">NHS, Waiting Lists and Private Options</h2>
-<p>Knee replacement is a routine NHS operation. Under the NHS Constitution in England you have the right to be treated within <strong>18 weeks of referral</strong>. If your local trust cannot meet this, you can ask to be transferred to another NHS or NHS-funded independent provider — this is sometimes called the <strong>"right to choose"</strong>.</p>
-<p>Private knee replacement in the UK typically costs <strong>£12,000–£16,000</strong> all-inclusive. Patients often choose private care to shorten waits or to select a specific consultant. Outcomes are similar to NHS care when the same surgeon and implant are used. See our guide on <a href="/arthritis-waiting-list-help">managing the UK waiting list</a> for practical steps while you wait.</p>
+<h2 id="public-vs-private">Public Waiting Lists and Private Options</h2>
+<p>Knee replacement is a routine UK operation. Under the UK NHS Constitution you have the right to be treated within <strong>18 weeks of referral</strong>. If your local trust cannot meet this, you can ask to be transferred to another public or publicly funded independent provider — this is sometimes called the <strong>"right to choose"</strong>.</p>
+<p>Private knee replacement in the UK typically costs <strong>£12,000–£16,000</strong> all-inclusive. Patients often choose private care to shorten waits or to select a specific consultant. Outcomes are similar to public care when the same surgeon and implant are used. See our guide on <a href="/arthritis-waiting-list-help">managing the UK waiting list</a> for practical steps while you wait.</p>
 
 <h2 id="alternatives">Alternatives and Delaying Surgery</h2>
 <p>Many patients can delay or avoid surgery with a structured non-surgical plan. NICE recommends offering <strong>all</strong> patients with knee osteoarthritis a combined approach before considering surgery:</p>
 <ul>
 <li><strong>Weight management</strong> — losing 5–10% of body weight reduces knee pain as much as some surgical interventions</li>
-<li><strong>Structured exercise</strong> — supervised physiotherapy for 6–12 weeks; ESCAPE-pain is an NHS programme proven to reduce pain by 30–50%</li>
+<li><strong>Structured exercise</strong> — supervised physiotherapy for 6–12 weeks; ESCAPE-pain is a UK programme proven to reduce pain by 30–50%</li>
 <li><strong>Topical NSAID gels</strong> (ibuprofen or diclofenac) — first-line analgesia under NICE NG226</li>
 <li><strong>Oral analgesia</strong> — paracetamol, short courses of oral NSAIDs with gastric protection</li>
 <li><strong>Intra-articular steroid injections</strong> — short-term pain relief lasting 4–12 weeks</li>
 <li><strong>Walking aids</strong> — a stick used in the opposite hand can reduce knee load by 25%</li>
 <li><strong>An <a href="/diet/mediterranean-diet-for-arthritis">anti-inflammatory Mediterranean diet</a></strong> to reduce systemic inflammation and aid weight loss</li>
 </ul>
-<p>Newer treatments — PRP (platelet-rich plasma), hyaluronic acid injections and stem-cell therapy — have <strong>limited or inconsistent evidence</strong> and are not routinely funded by the NHS.</p>
+<p>Newer treatments — PRP (platelet-rich plasma), hyaluronic acid injections and stem-cell therapy — have <strong>limited or inconsistent evidence</strong> and are not routinely funded by the UK health service.</p>
 
 <h2 id="emotional-side">The Emotional Side of Surgery</h2>
 <p>Major surgery can be daunting. Anxiety, low mood and sleep disturbance are common before and after the operation. Patients often describe a "<strong>third-week dip</strong>" when the initial momentum fades and progress feels slow. This is normal. Recovery is rarely linear. Things that help:</p>
@@ -170,12 +170,12 @@ export default function KneeReplacementSurgeryGuide() {
   return (
     <>
       <Helmet>
-        <title>Knee Replacement Surgery UK – Patient Guide, Recovery &amp; NHS Waits</title>
+        <title>Knee Replacement Surgery UK – Patient Guide, Recovery &amp; Public Waits</title>
         <meta name="description" content="Evidence-based UK patient guide to knee replacement surgery: when to consider it, prehab, what happens in hospital, recovery timeline, exercises, risks and UK waiting list options." />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/guides/knee-replacement-surgery" />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
-        <meta property="og:title" content="Knee Replacement Surgery UK – Patient Guide, Recovery &amp; NHS Waits" />
+        <meta property="og:title" content="Knee Replacement Surgery UK – Patient Guide, Recovery &amp; Public Waits" />
         <meta property="og:description" content="Comprehensive UK patient guide to knee replacement surgery: decision-making, prehab, hospital stay, week-by-week recovery, exercises, risks and how to manage UK waiting lists." />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/guides/knee-replacement-surgery" />
         <meta property="og:site_name" content="Living With Arthritis UK" />
@@ -183,7 +183,7 @@ export default function KneeReplacementSurgeryGuide() {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Knee Replacement Surgery UK – Patient Guide, Recovery &amp; NHS Waits" />
+        <meta name="twitter:title" content="Knee Replacement Surgery UK – Patient Guide, Recovery &amp; Public Waits" />
         <meta name="twitter:description" content="Evidence-based UK patient guide to knee replacement surgery: when to consider it, prehab, recovery timeline, exercises, risks and UK waiting list options." />
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
       </Helmet>
@@ -226,7 +226,7 @@ export default function KneeReplacementSurgeryGuide() {
               </Link>
               <Link to="/arthritis-waiting-list-help" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
                 <p className="text-xs text-primary font-bold mb-1">Practical →</p>
-                <p className="font-bold text-foreground">Managing the NHS Waiting List</p>
+                <p className="font-bold text-foreground">Managing the Waiting List</p>
               </Link>
             </div>
           </div>
