@@ -99,6 +99,7 @@ const HealthServicesGuide = lazy(() => import("./pages/pillar/HealthServicesGuid
 const DietGuide = lazy(() => import("./pages/pillar/DietGuide"));
 const ExerciseGuide = lazy(() => import("./pages/pillar/ExerciseGuide"));
 const BenefitsPIPGuide = lazy(() => import("./pages/pillar/BenefitsPIPGuide"));
+const KneeReplacementSurgeryGuide = lazy(() => import("./pages/pillar/KneeReplacementSurgeryGuide"));
 const Press = lazy(() => import("./pages/Press"));
 const Partners = lazy(() => import("./pages/Partners"));
 const LivedExperiences = lazy(() => import("./pages/LivedExperiences"));
