@@ -1,0 +1,1 @@
+DROP POLICY IF EXISTS "Anyone signed in can view available mentor profiles" ON public.buddy_profiles;
