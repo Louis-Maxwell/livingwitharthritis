@@ -46,7 +46,7 @@ const PREVIEW_PAGES = [
   {
     page: "04",
     icon: HeartPulse,
-    title: "The health service Pathway, Demystified",
+    title: "The Care Pathway, Demystified",
     body:
       "From your GP appointment to rheumatology referral, biologics and joint injections — exactly what to expect and the questions to ask at each step.",
   },
@@ -87,7 +87,7 @@ const FAQS = [
   },
   {
     q: "Who wrote it?",
-    a: "The guide was compiled with input from physiotherapists and reviewed against the health service and NICE guidance. Every recommendation is referenced to a public-health source — we don't sell supplements or treatments.",
+    a: "The guide was compiled with input from physiotherapists and reviewed against national clinical and NICE guidance. Every recommendation is referenced to a public-health source — we don't sell supplements or treatments.",
   },
   {
     q: "What format will I receive?",

@@ -19,7 +19,7 @@ const trustees = [
     name: "Dr Amina Patel",
     role: "Chair of Trustees",
     credentials: "MBBS, FRCP — Consultant Rheumatologist, the health service",
-    bio: "Dr Patel has over 20 years' experience in rheumatology across the health service trusts. She co-founded Living With Arthritis to bridge the gap between clinical care and patient education. She chairs our quarterly board meetings and oversees clinical governance.",
+    bio: "Dr Patel has over 20 years' experience in rheumatology across local health trusts. She co-founded Living With Arthritis to bridge the gap between clinical care and patient education. She chairs our quarterly board meetings and oversees clinical governance.",
     appointed: "2020",
   },
   {

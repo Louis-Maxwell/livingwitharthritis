@@ -514,7 +514,7 @@ export function generateArthritisFactSheet() {
   ]);
 
   y += 4;
-  y = paragraph(doc, y, "Sources: the health service, NICE, Versus Arthritis, World Health Organization, Public Health England. For educational use — not medical advice.", 8);
+  y = paragraph(doc, y, "Sources: NICE, Versus Arthritis, World Health Organization, Public Health England. For educational use — not medical advice.", 8);
 
   footer(doc);
   doc.save("UK_Arthritis_Fact_Sheet_LWA.pdf");

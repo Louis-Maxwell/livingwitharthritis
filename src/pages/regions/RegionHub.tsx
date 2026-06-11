@@ -56,7 +56,7 @@ const REGIONS: Record<string, Region> = {
       "Aberdeen Royal Infirmary Rheumatology",
       "Versus Arthritis Scotland support",
     ],
-    keywords: "arthritis scotland, the health service scotland rheumatology, scottish arthritis support",
+    keywords: "arthritis scotland, health services scotland rheumatology, scottish arthritis support",
   },
   "wales": {
     slug: "wales",
@@ -196,7 +196,7 @@ const RegionHub = () => {
           <div className="flex items-start gap-4">
             <Calculator className="w-6 h-6 text-primary shrink-0 mt-1" />
             <div>
-              <h2 className="text-xl font-semibold mb-2">Worried about the health service waiting times in {r.name}?</h2>
+              <h2 className="text-xl font-semibold mb-2">Worried about health service waiting times in {r.name}?</h2>
               <p className="text-muted-foreground mb-4">
                 Use our free Arthritis Waiting Time Calculator to estimate your referral wait and discover what to do while you wait.
               </p>

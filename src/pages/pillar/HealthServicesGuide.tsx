@@ -50,21 +50,21 @@ const CONTENT = `
 <ul>
 <li>Ask your GP to mark the referral as <strong>urgent</strong> if inflammatory arthritis is suspected</li>
 <li>Request a <strong>choose and book</strong> appointment — you may find shorter waits at a hospital further away</li>
-<li>Some the health service trusts offer <strong>triage services</strong> where a rheumatology nurse reviews referrals and fast-tracks urgent cases</li>
+<li>Some local health trusts offer <strong>triage services</strong> where a rheumatology nurse reviews referrals and fast-tracks urgent cases</li>
 <li>Check if your area has an <strong>Early Inflammatory Arthritis (EIA) clinic</strong> — these are dedicated rapid-access services</li>
 </ul>
 
 <h2 id="physiotherapy">the health service Physiotherapy for Arthritis</h2>
-<p>Physiotherapy is a cornerstone of arthritis management and is available free through the public health service. NICE guidelines recommend exercise therapy as a <strong>first-line treatment</strong> for osteoarthritis, ahead of medication. the health service physiotherapy services include:</p>
+<p>Physiotherapy is a cornerstone of arthritis management and is available free through the public health service. NICE guidelines recommend exercise therapy as a <strong>first-line treatment</strong> for osteoarthritis, ahead of medication. public health physiotherapy services include:</p>
 <ul>
 <li><strong>Individual assessment</strong> — a physiotherapist evaluates your mobility, strength, pain and function</li>
 <li><strong>Tailored exercise programmes</strong> — specific to your joints and condition</li>
-<li><strong>Group exercise classes</strong> — many the health service trusts run arthritis-specific group sessions</li>
+<li><strong>Group exercise classes</strong> — many local health trusts run arthritis-specific group sessions</li>
 <li><strong>Hydrotherapy</strong> — warm-water exercise sessions available at some hospitals</li>
 <li><strong>Manual therapy</strong> — hands-on treatment for joint mobilisation</li>
 <li><strong>Education and self-management</strong> — teaching you to manage symptoms independently</li>
 </ul>
-<p>Access is via GP or FCP referral, or in some areas through <strong>self-referral</strong>. The health service website (<a href="https://www.gov.uk/browse/health-and-social-care" target="_blank" rel="noopener noreferrer">gov.uk/health</a>) lists self-referral physiotherapy services near you. Waiting times for the health service physiotherapy typically range from <strong>4–12 weeks</strong>.</p>
+<p>Access is via GP or FCP referral, or in some areas through <strong>self-referral</strong>. The health service website (<a href="https://www.gov.uk/browse/health-and-social-care" target="_blank" rel="noopener noreferrer">gov.uk/health</a>) lists self-referral physiotherapy services near you. Waiting times for public health physiotherapy typically range from <strong>4–12 weeks</strong>.</p>
 
 <h2 id="pain-management">the health service Pain Management Programmes</h2>
 <p>For people with chronic arthritis pain that hasn't responded adequately to standard treatments, the health service offers multidisciplinary <strong>pain management programmes (PMPs)</strong>. These are typically run by a team including a pain consultant, psychologist, physiotherapist and occupational therapist.</p>
@@ -109,7 +109,7 @@ const CONTENT = `
 <li><strong>IAPT (Improving Access to Psychological Therapies)</strong> — free CBT and counselling, self-referral available at <a href="https://www.gov.uk/browse/health-and-social-care" target="_blank" rel="noopener noreferrer">gov.uk/health</a></li>
 <li><strong>the health service pain psychology</strong> — specialist psychologists within pain management teams</li>
 <li><strong>Social prescribing</strong> — link workers who connect you with community activities, support groups and local services</li>
-<li><strong>Crisis support</strong> — the health service 111 (option 2 for mental health crisis) or Samaritans 116 123</li>
+<li><strong>Crisis support</strong> — 111 helpline (option 2 for mental health crisis) or Samaritans 116 123</li>
 </ul>
 
 <h2 id="devolved-nations">Differences Across the UK Nations</h2>
@@ -129,7 +129,7 @@ const CONTENT = `
 <li><strong>Request a care plan</strong> — if you have a long-term condition, you're entitled to an annual review and personalised care plan</li>
 <li><strong>Know your rights</strong> — the health service Constitution gives you the right to treatment within 18 weeks of referral</li>
 <li><strong>Consider Patient Advice and Liaison Service (PALS)</strong> — if you're unhappy with your care</li>
-<li><strong>Join a support group</strong> — many the health service trusts partner with Versus Arthritis to run hospital-based support groups</li>
+<li><strong>Join a support group</strong> — many local health trusts partner with Versus Arthritis to run hospital-based support groups</li>
 </ul>
 
 <h2 id="sources-the health service">Sources &amp; Disclaimer</h2>

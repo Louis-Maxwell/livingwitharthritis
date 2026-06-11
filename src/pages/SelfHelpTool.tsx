@@ -22,7 +22,7 @@ const SectionLoader = () => (
 const features = [
   { icon: Target, label: "Joint-Specific", desc: "Click any joint for targeted exercises" },
   { icon: Zap, label: "Personalised", desc: "Smart recommendations based on your needs" },
-  { icon: Shield, label: "the health service Aligned", desc: "Evidence-based physiotherapy protocols" },
+  { icon: Shield, label: "Clinically Aligned", desc: "Evidence-based physiotherapy protocols" },
   { icon: Heart, label: "Free Forever", desc: "No cost, no sign-up required" },
 ];
 
