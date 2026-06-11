@@ -98,6 +98,7 @@ const UKArthritisGuide = lazy(() => import("./pages/pillar/UKArthritisGuide"));
 const HealthServicesGuide = lazy(() => import("./pages/pillar/HealthServicesGuide"));
 const DietGuide = lazy(() => import("./pages/pillar/DietGuide"));
 const ExerciseGuide = lazy(() => import("./pages/pillar/ExerciseGuide"));
+const SteroidsGuide = lazy(() => import("./pages/pillar/SteroidsGuide"));
 const BenefitsPIPGuide = lazy(() => import("./pages/pillar/BenefitsPIPGuide"));
 const KneeReplacementSurgeryGuide = lazy(() => import("./pages/pillar/KneeReplacementSurgeryGuide"));
 const Press = lazy(() => import("./pages/Press"));
@@ -230,6 +231,7 @@ function AnimatedRoutes() {
         <Route path="/guides/exercise" element={<ExerciseGuide />} />
         <Route path="/guides/benefits-pip" element={<BenefitsPIPGuide />} />
         <Route path="/guides/knee-replacement-surgery" element={<KneeReplacementSurgeryGuide />} />
+        <Route path="/guides/steroids-for-arthritis" element={<SteroidsGuide />} />
         <Route path="/press" element={<Press />} />
         <Route path="/partners" element={<Partners />} />
         <Route path="/stories" element={<LivedExperiences />} />
