@@ -23,8 +23,8 @@ const CHOICES = [
     chip: "bg-primary text-primary-foreground",
   },
   {
-    id: "the health service-wait",
-    label: "Stuck on the health service wait list",
+    id: "health-wait",
+    label: "Stuck on health service wait list",
     sub: "Help while you wait",
     icon: Clock4,
     to: "/arthritis-waiting-list-help",

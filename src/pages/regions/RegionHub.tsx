@@ -69,7 +69,7 @@ const REGIONS: Record<string, Region> = {
       "Arthritis Cymru — Welsh patient support",
       "Cardiff & Vale University Health Board",
     ],
-    keywords: "arthritis wales cymru, the health service wales rheumatology, welsh arthritis support",
+    keywords: "arthritis wales cymru, Health and Care Wales rheumatology, welsh arthritis support",
   },
 };
 

@@ -27,7 +27,7 @@ function getStepConfig(pathname: string): StepConfig | null {
     const [, city, condition] = cityCondition;
     return {
       eyebrow: `${titleCase(condition)} in ${titleCase(city)}`,
-      primary: { label: "Check the health service wait time", href: "/tools/waiting-time", Icon: Stethoscope },
+      primary: { label: "Check health service wait time", href: "/tools/waiting-time", Icon: Stethoscope },
       secondary: { label: "Symptom quiz", href: "/self-help", Icon: ClipboardCheck },
     };
   }
@@ -86,7 +86,7 @@ function getStepConfig(pathname: string): StepConfig | null {
     };
   }
 
-  // the health service pages
+  // the public health service pages
   if (pathname === "/arthritis-waiting-list-help" || pathname === "/tools/waiting-time") {
     return {
       eyebrow: "While you wait",

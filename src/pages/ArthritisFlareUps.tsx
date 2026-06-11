@@ -279,7 +279,7 @@ export default function ArthritisFlareUps() {
         {/* ────── Section 4: Immediate Relief ────── */}
         <SectionHeading id="immediate" icon={HeartPulse}>Immediate Relief During a Flare-Up</SectionHeading>
         <p className="text-muted-foreground leading-relaxed mb-4">
-          When a flare hits, your priority is to <strong>reduce inflammation, manage pain, and protect the affected joint</strong>. Here's a practical action plan aligned with the health service guidance:
+          When a flare hits, your priority is to <strong>reduce inflammation, manage pain, and protect the affected joint</strong>. Here's a practical action plan aligned with national clinical guidance:
         </p>
 
         <div className="space-y-4 mb-8">
@@ -398,7 +398,7 @@ export default function ArthritisFlareUps() {
           <strong>The golden rule:</strong> if exercise increases your pain significantly for more than 2 hours afterwards, you've done too much. Scale back and try again more gently. Between flares, build up with our structured programmes on the <Link to="/exercises" className="text-primary font-medium hover:underline">Exercise Hub</Link>.
         </p>
         <p className="text-muted-foreground leading-relaxed mb-8">
-          Hydrotherapy (exercising in warm water) is particularly effective during flares — the buoyancy reduces joint load by up to 90% while the warmth soothes stiffness. Ask your GP or physiotherapist about the health service hydrotherapy referrals.
+          Hydrotherapy (exercising in warm water) is particularly effective during flares — the buoyancy reduces joint load by up to 90% while the warmth soothes stiffness. Ask your GP or physiotherapist about public hydrotherapy referrals.
         </p>
 
         {/* ────── Section 7: Mental Health ────── */}
@@ -407,13 +407,13 @@ export default function ArthritisFlareUps() {
           The psychological impact of flare-ups is often underestimated. Living with unpredictable pain affects mood, relationships, work, and self-esteem. Research shows that <strong>people with arthritis are 2–3 times more likely to experience anxiety or depression</strong> than the general population.
         </p>
         <ul className="space-y-2 mb-4">
-          <Tip><strong>Mindfulness-Based Stress Reduction (MBSR):</strong> Clinical trials show 8-week MBSR programmes reduce pain perception and improve coping in arthritis patients. Free resources are available through the health service Apps Library.</Tip>
+          <Tip><strong>Mindfulness-Based Stress Reduction (MBSR):</strong> Clinical trials show 8-week MBSR programmes reduce pain perception and improve coping in arthritis patients. Free resources are available through the official UK health apps library.</Tip>
           <Tip><strong>Cognitive Behavioural Therapy (CBT):</strong> NICE recommends CBT for chronic pain. It helps reframe catastrophic thinking patterns that amplify the pain experience. Ask your GP for an GP referral.</Tip>
           <Tip><strong>Peer Support:</strong> Connecting with others who understand is powerful. Join our <Link to="/community" className="text-primary font-medium hover:underline">Community Hub</Link> for moderated discussions and shared experiences.</Tip>
           <Tip><strong>Pacing & Acceptance:</strong> Learning to pace activities and accept limitations on bad days (without guilt) is a clinically recognised strategy that reduces the boom-bust cycle.</Tip>
         </ul>
         <p className="text-muted-foreground leading-relaxed mb-8">
-          If you're struggling emotionally during a flare, the health service mental health helpline is available 24/7 on <strong>111 (option 2)</strong>, and the Samaritans can be reached on <strong>116 123</strong>.
+          If you're struggling emotionally during a flare, the NHS-style mental health helpline is available 24/7 on <strong>111 (option 2)</strong>, and the Samaritans can be reached on <strong>116 123</strong>.
         </p>
 
         {/* ────── Section 8: Medications & Supplements ────── */}

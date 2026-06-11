@@ -99,7 +99,7 @@ const FAQS = [
   },
   {
     q: "Is the advice tailored to the UK?",
-    a: "Yes — every section references the health service, UK rheumatology pathways, and benefits like PIP. It's specifically written for people accessing care in England, Scotland, Wales, and Northern Ireland.",
+    a: "Yes — every section references UK rheumatology pathways, and benefits like PIP. It's specifically written for people accessing care in England, Scotland, Wales, and Northern Ireland.",
   },
   {
     q: "Can I share it with family or my GP?",

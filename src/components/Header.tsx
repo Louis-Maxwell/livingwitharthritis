@@ -163,7 +163,7 @@ const Header = () => {
         { label: "Health Library", desc: "65+ plain-English topics: conditions, meds & more", icon: BookOpen, href: "/library", action: () => navigate("/library"), color: "text-primary bg-primary/10" },
         { label: "Expert Articles", desc: "Clinician-written specialist guides", icon: Stethoscope, href: "/expert-articles", action: () => navigate("/expert-articles"), color: "text-primary bg-primary/10" },
         { label: "Lived Experiences", desc: "Real stories from real patients", icon: Heart, href: "/stories", action: () => navigate("/stories"), color: "text-primary bg-primary/10" },
-        { label: "Resource Directory", desc: "UK the health service, charities & benefits", icon: Globe, href: "/resources-directory", action: () => navigate("/resources-directory"), color: "text-primary bg-primary/10" },
+        { label: "Resource Directory", desc: "UK public health, charities & benefits", icon: Globe, href: "/resources-directory", action: () => navigate("/resources-directory"), color: "text-primary bg-primary/10" },
       ],
     },
     {

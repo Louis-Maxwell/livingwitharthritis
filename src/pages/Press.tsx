@@ -13,7 +13,7 @@ const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, tra
 const keyFacts = [
   { icon: Users, stat: "10M+", label: "UK adults live with arthritis" },
   { icon: Heart, stat: "100%", label: "Free services — no cost to patients" },
-  { icon: Shield, stat: "the health service", label: "Aligned with national clinical guidelines" },
+  { icon: Shield, stat: "Public Health", label: "Aligned with national clinical guidelines" },
   { icon: Award, stat: "HCPC", label: "Registered physiotherapy team" },
 ];
 

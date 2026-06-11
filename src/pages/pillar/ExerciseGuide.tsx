@@ -40,7 +40,7 @@ const CONTENT = `
 <p>Low-impact aerobic exercise improves cardiovascular fitness, helps manage weight, reduces inflammation and boosts mood. The health service recommends at least <strong>150 minutes of moderate-intensity activity per week</strong> (or 75 minutes of vigorous activity). For people with arthritis, suitable options include:</p>
 <ul>
 <li><strong>Walking</strong> — the most accessible exercise; start with 10–15 minutes and gradually increase. Nordic walking (with poles) reduces knee load by up to 30%</li>
-<li><strong>Swimming and water aerobics</strong> — buoyancy reduces joint load by up to 90%, making it ideal for painful joints. Many the health service and local authority pools offer arthritis-specific sessions</li>
+<li><strong>Swimming and water aerobics</strong> — buoyancy reduces joint load by up to 90%, making it ideal for painful joints. Many the public health service and local authority pools offer arthritis-specific sessions</li>
 <li><strong>Cycling</strong> — stationary or outdoor; very low joint impact. Excellent for knee OA</li>
 <li><strong>Elliptical trainer</strong> — smooth, controlled movement without impact</li>
 <li><strong>Rowing</strong> — full-body workout with minimal joint jarring</li>
@@ -171,7 +171,7 @@ const CONTENT = `
 </ul>
 
 <h2 id="sources-exercise">Sources &amp; Disclaimer</h2>
-<p>This guide is based on NICE guidelines (NG226), Cochrane systematic reviews of exercise interventions for OA and RA, the health service physical activity guidelines, Sport England Active Lives survey data, and guidance from the Chartered Society of Physiotherapy and British Society for Rheumatology. Statistics cited are from the most recent publications available as of 2024. This information is for educational purposes only. Consult a physiotherapist or GP before starting a new exercise programme, particularly if you have severe or unstable joint disease.</p>
+<p>This guide is based on NICE guidelines (NG226), Cochrane systematic reviews of exercise interventions for OA and RA, the public health service physical activity guidelines, Sport England Active Lives survey data, and guidance from the Chartered Society of Physiotherapy and British Society for Rheumatology. Statistics cited are from the most recent publications available as of 2024. This information is for educational purposes only. Consult a physiotherapist or GP before starting a new exercise programme, particularly if you have severe or unstable joint disease.</p>
 `;
 
 export default function ExerciseGuide() {
