@@ -413,7 +413,7 @@ export default function ArthritisFlareUps() {
           <Tip><strong>Pacing & Acceptance:</strong> Learning to pace activities and accept limitations on bad days (without guilt) is a clinically recognised strategy that reduces the boom-bust cycle.</Tip>
         </ul>
         <p className="text-muted-foreground leading-relaxed mb-8">
-          If you're struggling emotionally during a flare, the NHS-style mental health helpline is available 24/7 on <strong>111 (option 2)</strong>, and the Samaritans can be reached on <strong>116 123</strong>.
+          If you're struggling emotionally during a flare, the national mental health helpline is available 24/7 on <strong>111 (option 2)</strong>, and the Samaritans can be reached on <strong>116 123</strong>.
         </p>
 
         {/* ────── Section 8: Medications & Supplements ────── */}

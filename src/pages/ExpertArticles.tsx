@@ -203,7 +203,7 @@ Acceptance and Commitment Therapy (ACT) takes a different approach, focusing not
 
 **When to Seek Professional Help**
 
-Consider speaking to your GP about psychological support if you experience persistent low mood for more than two weeks, loss of interest in activities, significant sleep disturbance, feelings of hopelessness, or thoughts of self-harm. Talking therapy is available through the NHS-style talking therapy services (self-referral) and many rheumatology departments now have integrated psychological support.`
+Consider speaking to your GP about psychological support if you experience persistent low mood for more than two weeks, loss of interest in activities, significant sleep disturbance, feelings of hopelessness, or thoughts of self-harm. Talking therapy is available through public talking therapy services (self-referral) and many rheumatology departments now have integrated psychological support.`
   },
 ];
 
