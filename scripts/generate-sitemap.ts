@@ -52,6 +52,16 @@ const STATIC_EXCLUDE = new Set([
   "/buddy/match",
 ]);
 
+// Prefix-based exclusions for entire route trees that must never appear in
+// the sitemap. These are protected, admin-only, or internal redirect/utility
+// routes — indexing them would surface auth walls or empty pages to Google
+// and trigger Lovable's "sitemap needs attention" warning.
+//   /admin*    — admin dashboards (role-gated)
+//   /debug*    — internal debug tools
+//   /auth      — login/signup flow
+//   /dashboard — authenticated user area
+//   /checkout  — Stripe redirect target
+//   /callback  — OAuth callback handlers
 const EXCLUDE_PREFIXES = ["/admin", "/debug", "/auth", "/dashboard", "/checkout", "/callback"];
 
 function parseStaticRoutes(): string[] {
