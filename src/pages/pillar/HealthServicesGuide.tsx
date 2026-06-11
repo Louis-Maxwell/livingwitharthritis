@@ -20,7 +20,7 @@ const HEALTH_SERVICES_FAQS = [
 const CONTENT = `
 <h2 id="overview">Overview of Arthritis Services</h2>
 <p>The National Health Service provides a comprehensive framework of arthritis care across England, Scotland, Wales and Northern Ireland. From initial GP consultations through to specialist rheumatology clinics, joint replacement surgery and community rehabilitation, the public health service offers a multi-layered system of support. Understanding how to navigate this system effectively can dramatically improve your experience and outcomes.</p>
-<p>In England alone, musculoskeletal (MSK) conditions account for approximately <strong>30% of all GP consultations</strong> (the health service Digital, 2023). The health service spends an estimated <strong>£10.2 billion annually</strong> on musculoskeletal care, making it one of the largest areas of healthcare expenditure. Despite this, waiting times for rheumatology appointments have increased significantly since 2020, with some areas reporting waits of <strong>6–12 months</strong> for a first specialist appointment.</p>
+<p>In England alone, musculoskeletal (MSK) conditions account for approximately <strong>30% of all GP consultations</strong> (public health data, 2023). The health service spends an estimated <strong>£10.2 billion annually</strong> on musculoskeletal care, making it one of the largest areas of healthcare expenditure. Despite this, waiting times for rheumatology appointments have increased significantly since 2020, with some areas reporting waits of <strong>6–12 months</strong> for a first specialist appointment.</p>
 
 <h2 id="gp-and-first-contact">Your GP and First Contact Physiotherapists</h2>
 <p>Your journey through the arthritis care pathway typically begins with your <strong>General Practitioner (GP)</strong>. GPs are trained to assess joint pain, order initial blood tests and imaging, prescribe first-line medications, and refer to specialists when necessary.</p>
@@ -45,7 +45,7 @@ const CONTENT = `
 <li>Discussion of treatment options, typically starting with methotrexate for RA</li>
 <li>Goal-setting using a treat-to-target approach (aiming for low disease activity or remission)</li>
 </ul>
-<p>The <strong>the health service standard for rheumatology</strong> is an 18-week referral-to-treatment (RTT) target. However, actual waiting times vary considerably by region. As of 2024, the average wait for a rheumatology first appointment in England is approximately <strong>14 weeks</strong>, but some Integrated Care Boards (ICBs) report waits exceeding 26 weeks.</p>
+<p>The <strong>national standard for rheumatology</strong> is an 18-week referral-to-treatment (RTT) target. However, actual waiting times vary considerably by region. As of 2024, the average wait for a rheumatology first appointment in England is approximately <strong>14 weeks</strong>, but some Integrated Care Boards (ICBs) report waits exceeding 26 weeks.</p>
 <p><strong>Tips for faster access:</strong></p>
 <ul>
 <li>Ask your GP to mark the referral as <strong>urgent</strong> if inflammatory arthritis is suspected</li>
@@ -54,7 +54,7 @@ const CONTENT = `
 <li>Check if your area has an <strong>Early Inflammatory Arthritis (EIA) clinic</strong> — these are dedicated rapid-access services</li>
 </ul>
 
-<h2 id="physiotherapy">the health service Physiotherapy for Arthritis</h2>
+<h2 id="physiotherapy">Public Health Physiotherapy for Arthritis</h2>
 <p>Physiotherapy is a cornerstone of arthritis management and is available free through the public health service. NICE guidelines recommend exercise therapy as a <strong>first-line treatment</strong> for osteoarthritis, ahead of medication. public health physiotherapy services include:</p>
 <ul>
 <li><strong>Individual assessment</strong> — a physiotherapist evaluates your mobility, strength, pain and function</li>
@@ -66,7 +66,7 @@ const CONTENT = `
 </ul>
 <p>Access is via GP or FCP referral, or in some areas through <strong>self-referral</strong>. The health service website (<a href="https://www.gov.uk/browse/health-and-social-care" target="_blank" rel="noopener noreferrer">gov.uk/health</a>) lists self-referral physiotherapy services near you. Waiting times for public health physiotherapy typically range from <strong>4–12 weeks</strong>.</p>
 
-<h2 id="pain-management">the health service Pain Management Programmes</h2>
+<h2 id="pain-management">Public Pain Management Programmes</h2>
 <p>For people with chronic arthritis pain that hasn't responded adequately to standard treatments, the public health service offers multidisciplinary <strong>pain management programmes (PMPs)</strong>. These are typically run by a team including a pain consultant, psychologist, physiotherapist and occupational therapist.</p>
 <p>PMPs focus on:</p>
 <ul>
@@ -92,7 +92,7 @@ const CONTENT = `
 </ul>
 <p>The <strong>National Joint Registry (NJR)</strong> tracks every joint replacement performed in England, Wales, Northern Ireland and the Isle of Man, ensuring quality and safety monitoring.</p>
 
-<h2 id="medications-the health service">Medications Available through the public health service</h2>
+<h2 id="medications-public-health">Medications Available through the public health service</h2>
 <p>The health service provides all medically necessary arthritis medications at standard prescription cost (currently <strong>£9.90 per item</strong> in England as of 2024; free in Scotland, Wales and Northern Ireland). Key medications include:</p>
 <ul>
 <li><strong>Paracetamol and NSAIDs</strong> — first-line pain relief</li>
@@ -103,11 +103,11 @@ const CONTENT = `
 </ul>
 <p>If you take regular prescribed medication, a <strong>Prescription Prepayment Certificate (PPC)</strong> can save significant money. A 12-month PPC costs <strong>£111.60</strong> (2024) and covers unlimited prescriptions — worthwhile if you have more than 11 items per year.</p>
 
-<h2 id="mental-health-support">Mental Health Support Through the health service</h2>
+<h2 id="mental-health-support">Mental Health Support Through the Public Health System</h2>
 <p>The health service recognises the profound impact of chronic pain on mental health. Services available include:</p>
 <ul>
 <li><strong>IAPT (Improving Access to Psychological Therapies)</strong> — free CBT and counselling, self-referral available at <a href="https://www.gov.uk/browse/health-and-social-care" target="_blank" rel="noopener noreferrer">gov.uk/health</a></li>
-<li><strong>the health service pain psychology</strong> — specialist psychologists within pain management teams</li>
+<li><strong>Public health pain psychology</strong> — specialist psychologists within pain management teams</li>
 <li><strong>Social prescribing</strong> — link workers who connect you with community activities, support groups and local services</li>
 <li><strong>Crisis support</strong> — 111 helpline (option 2 for mental health crisis) or Samaritans 116 123</li>
 </ul>
@@ -132,7 +132,7 @@ const CONTENT = `
 <li><strong>Join a support group</strong> — many local health trusts partner with Versus Arthritis to run hospital-based support groups</li>
 </ul>
 
-<h2 id="sources-the health service">Sources &amp; Disclaimer</h2>
+<h2 id="sources-public-health">Sources &amp; Disclaimer</h2>
 <p>Information sourced from the public health service Digital, NICE guidelines (NG100, NG226, CG177, CG79), the National Joint Registry Annual Report 2024, England's health service workforce data, and Versus Arthritis. This guide is for educational purposes and does not constitute medical advice. Always consult your healthcare team for personalised guidance.</p>
 `;
 

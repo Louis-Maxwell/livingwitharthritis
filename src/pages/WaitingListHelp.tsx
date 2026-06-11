@@ -18,7 +18,7 @@ const FAQS = [
     a: "Begin gentle low-impact exercise (swimming, walking, cycling), adopt an anti-inflammatory Mediterranean diet, manage your weight, and use our free self-help tools. Keep a pain journal to bring to your first appointment.",
   },
   {
-    q: "Can I get faster access through the health service?",
+    q: "Can I get faster access through the public health service?",
     a: "Ask your GP if you qualify for urgent referral (suspected inflammatory arthritis is treated as urgent). Patient Choice lets you select any public hospital in England — sometimes shorter waits exist nearby.",
   },
   {

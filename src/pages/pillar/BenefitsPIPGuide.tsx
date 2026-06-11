@@ -136,7 +136,7 @@ const CONTENT = `
 <h3 id="council-tax-reduction">Council Tax Reduction</h3>
 <p>If you receive PIP or Attendance Allowance, you may be eligible for a <strong>Council Tax reduction</strong> or exemption. Some councils also offer a <strong>disability reduction scheme</strong> if your property has been adapted (e.g., an extra bathroom). Contact your local council to check eligibility.</p>
 
-<h3 id="exemptions">the health service Prescription Exemptions</h3>
+<h3 id="exemptions">Prescription Charge Exemptions</h3>
 <p>In England, if you meet certain criteria you may be exempt from prescription charges:</p>
 <ul>
 <li>If you receive certain benefits (income-based ESA, Universal Credit below threshold)</li>
