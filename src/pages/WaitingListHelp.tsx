@@ -18,8 +18,8 @@ const FAQS = [
     a: "Begin gentle low-impact exercise (swimming, walking, cycling), adopt an anti-inflammatory Mediterranean diet, manage your weight, and use our free self-help tools. Keep a pain journal to bring to your first appointment.",
   },
   {
-    q: "Can I get faster access through the health service?",
-    a: "Ask your GP if you qualify for urgent referral (suspected inflammatory arthritis is treated as urgent). Patient Choice lets you select any the health service hospital in England — sometimes shorter waits exist nearby.",
+    q: "Can I get faster access through the public health service?",
+    a: "Ask your GP if you qualify for urgent referral (suspected inflammatory arthritis is treated as urgent). Patient Choice lets you select any public hospital in England — sometimes shorter waits exist nearby.",
   },
   {
     q: "Should I consider going private?",
@@ -71,7 +71,7 @@ const WaitingListHelp = () => {
       <Helmet>
         <title>Arthritis Waiting List Help — Free UK Patient Support | Living With Arthritis</title>
         <meta name="description" content="Stuck on the rheumatology waiting list? Get free, evidence-based arthritis help, exercises, diet plans and a waiting time calculator for UK patients." />
-        <meta name="keywords" content="arthritis waiting list, rheumatology waiting time UK, rheumatology referral, arthritis help while waiting the health service" />
+        <meta name="keywords" content="arthritis waiting list, rheumatology waiting time UK, rheumatology referral, arthritis help while waiting on referral" />
         <link rel="canonical" href={`${BASE}/arthritis-waiting-list-help`} />
         <meta property="og:title" content="Arthritis Waiting List Help — UK Patient Support" />
         <meta property="og:description" content="Free, evidence-based help for UK arthritis patients waiting for rheumatology." />
@@ -94,7 +94,7 @@ const WaitingListHelp = () => {
       <main className="container mx-auto px-6 md:px-10 py-12 max-w-4xl">
         <div className="flex items-center gap-2 text-primary mb-3">
           <Hospital className="w-5 h-5" />
-          <span className="text-sm font-medium uppercase tracking-wide">UK the health service Patient Guide</span>
+          <span className="text-sm font-medium uppercase tracking-wide">UK public health Patient Guide</span>
         </div>
         <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-5">
           Arthritis Waiting List Help

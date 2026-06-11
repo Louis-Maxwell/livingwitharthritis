@@ -56,7 +56,7 @@ const impactStats = [
 ];
 
 const teamMembers = [
-  { name: "Operations Director", role: "the health service First Contact Practitioner", credentials: "HCPC Registered · BSc Physiotherapy", bio: "Founded Living With Arthritis after seeing thousands of patients struggle to find reliable, free arthritis support outside clinical settings." },
+  { name: "Operations Director", role: "First Contact Practitioner", credentials: "HCPC Registered · BSc Physiotherapy", bio: "Founded Living With Arthritis after seeing thousands of patients struggle to find reliable, free arthritis support outside clinical settings." },
   { name: "Clinical Lead", role: "Senior Physiotherapist", credentials: "HCPC Registered · MSc Musculoskeletal", bio: "Oversees clinical content accuracy and develops our evidence-based exercise programmes." },
   { name: "Nutrition Advisor", role: "Registered Dietitian", credentials: "HCPC Registered · BSc Nutrition", bio: "Designs our anti-inflammatory diet plans and Mediterranean meal guides for joint health." },
   { name: "Digital Health Lead", role: "Health Technology Specialist", credentials: "MSc Health Informatics", bio: "Builds our help chat, symptom tools, and digital patient experience." },
@@ -96,7 +96,7 @@ const AboutUs = () => {
         <meta name="description" content="The mission and story behind Living With Arthritis UK — a national charity delivering free, evidence-based arthritis support to over 10,000 people." />
         <meta name="keywords" content="arthritis charity, arthritis foundation, arthritis organisation, arthritis support, joint pain charity, arthritis awareness, arthritis advocacy, arthritis research, arthritis helpline, arthritis UK charity, living with arthritis, musculoskeletal conditions, volunteer for charity, donate to arthritis charity" />
         <meta property="og:title" content="About Us — Living With Arthritis UK" />
-        <meta property="og:description" content="Founded by the health service First Contact Practitioners to provide osteoarthritis awareness and education. Free virtual physiotherapy, nutrition guidance and community support UK-wide." />
+        <meta property="og:description" content="Founded by First Contact Practitioners to provide osteoarthritis awareness and education. Free virtual physiotherapy, nutrition guidance and community support UK-wide." />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/about" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
@@ -180,7 +180,7 @@ const AboutUs = () => {
                 Led by <span className="text-primary">clinicians</span>, built with care
               </h2>
               <p className="text-sm text-muted-foreground max-w-lg mx-auto">
-                Our team includes HCPC-registered physiotherapists, the health service First Contact Practitioners, registered dietitians, and digital health specialists.
+                Our team includes HCPC-registered physiotherapists, First Contact Practitioners, registered dietitians, and digital health specialists.
               </p>
             </motion.div>
 

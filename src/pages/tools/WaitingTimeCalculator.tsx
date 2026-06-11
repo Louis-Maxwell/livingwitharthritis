@@ -169,7 +169,7 @@ const WaitingTimeCalculator = () => {
               <h2 className="text-2xl font-semibold">Estimated wait: ~{result} weeks</h2>
             </div>
             <p className="text-muted-foreground mb-5">
-              Based on 2026 the health service averages for {region}. Your actual wait depends on your specific local health trust and clinical urgency.
+              Based on 2026 national health averages for {region}. Your actual wait depends on your specific local health trust and clinical urgency.
             </p>
 
             <div className="space-y-3 mb-5">
@@ -189,7 +189,7 @@ const WaitingTimeCalculator = () => {
         <div className="bg-muted/40 border border-border rounded-xl p-5 flex items-start gap-3">
           <AlertCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
           <p className="text-sm text-muted-foreground">
-            <strong className="text-foreground">Disclaimer:</strong> Estimates use 2026 published the health service averages. Always consult your GP for clinical advice. This tool does not replace medical care.
+            <strong className="text-foreground">Disclaimer:</strong> Estimates use 2026 published national health averages. Always consult your GP for clinical advice. This tool does not replace medical care.
           </p>
         </div>
 

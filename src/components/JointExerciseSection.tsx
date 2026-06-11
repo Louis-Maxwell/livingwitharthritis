@@ -233,11 +233,14 @@ const Humanoid = memo(({ activeSelectionId, onJointClick }: {
 
   return (
     <svg
-      viewBox="0 0 200 360"
+      viewBox="-60 -8 320 376"
       className="w-full h-auto select-none"
+      style={{ overflow: "visible" }}
+      preserveAspectRatio="xMidYMid meet"
       role="img"
       aria-label="Interactive human body — click a joint to see its exercise plan"
     >
+
       <defs>
         <linearGradient id="bodyGrad" x1="0" x2="0" y1="0" y2="1">
           <stop offset="0%" stopColor="hsl(220 30% 96%)" />

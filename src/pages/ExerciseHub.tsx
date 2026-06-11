@@ -231,7 +231,7 @@ const ExerciseHub = () => {
           </Button>
         </div>
         <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mt-4">
-          <span className="flex items-center gap-1.5"><Shield className="w-4 h-4 text-primary" /> the health service-Aligned</span>
+          <span className="flex items-center gap-1.5"><Shield className="w-4 h-4 text-primary" /> Clinically Aligned</span>
           <span className="flex items-center gap-1.5"><CheckCircle className="w-4 h-4 text-primary" /> Physiotherapy Approved</span>
           <span className="flex items-center gap-1.5"><Clock className="w-4 h-4 text-primary" /> 10–20 min routines</span>
         </div>

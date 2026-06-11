@@ -494,7 +494,7 @@ export function generateArthritisFactSheet() {
     "Musculoskeletal conditions cost the UK economy an estimated £20.7 billion per year in lost productivity.",
     "Arthritis accounts for over 30 million lost working days annually.",
     "The health service spends approximately £10 billion per year treating musculoskeletal conditions.",
-    "Joint replacement surgery (hips and knees) costs the health service over £1 billion annually.",
+    "Joint replacement surgery (hips and knees) costs the public health service over £1 billion annually.",
   ]);
 
   y = sectionTitle(doc, y, "Risk Factors");
@@ -514,7 +514,7 @@ export function generateArthritisFactSheet() {
   ]);
 
   y += 4;
-  y = paragraph(doc, y, "Sources: the health service, NICE, Versus Arthritis, World Health Organization, Public Health England. For educational use — not medical advice.", 8);
+  y = paragraph(doc, y, "Sources: NICE, Versus Arthritis, World Health Organization, Public Health England. For educational use — not medical advice.", 8);
 
   footer(doc);
   doc.save("UK_Arthritis_Fact_Sheet_LWA.pdf");

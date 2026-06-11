@@ -13,7 +13,7 @@ import {
 import { Link } from "react-router-dom";
 
 const trustees = [
-  { name: "Dr Amina Patel", role: "Chair of Trustees", credentials: "MBBS, FRCP — Consultant Rheumatologist, the health service" },
+  { name: "Dr Amina Patel", role: "Chair of Trustees", credentials: "MBBS, FRCP — Consultant Rheumatologist, Public Health" },
   { name: "James Whitfield", role: "Treasurer", credentials: "FCA — Chartered Accountant, 20+ years charity finance" },
   { name: "Dr Priya Sharma", role: "Medical Advisor", credentials: "PhD Physiotherapy — University of Birmingham" },
   { name: "Sarah Okonkwo", role: "Patient Advocate", credentials: "Living with RA since 2015, peer mentor" },
@@ -22,7 +22,7 @@ const trustees = [
 ];
 
 const evidenceSources = [
-  { name: "England's health service", desc: "Exercise and diet guidance aligned with the health service clinical pathways", url: "https://www.gov.uk/browse/health-and-social-care", icon: Building2 },
+  { name: "England's health service", desc: "Exercise and diet guidance aligned with national clinical pathways", url: "https://www.gov.uk/browse/health-and-social-care", icon: Building2 },
   { name: "NICE Guidelines", desc: "Treatment recommendations based on NICE clinical guidelines (CG177, NG226)", url: "https://www.nice.org.uk/guidance/ng226", icon: FileCheck },
   { name: "British Medical Journal", desc: "Peer-reviewed evidence on Mediterranean diet and arthritis outcomes", url: "https://www.bmj.com/", icon: BookOpen },
   { name: "Cochrane Library", desc: "Systematic reviews on physiotherapy and exercise interventions", url: "https://www.cochranelibrary.com/", icon: GraduationCap },

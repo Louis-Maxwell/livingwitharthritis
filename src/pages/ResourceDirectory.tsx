@@ -23,9 +23,9 @@ type Resource = {
 
 const resources: Record<string, Resource[]> = {
   "Health Services": [
-    { name: "Rheumatology Referral", description: "Ask your GP for an urgent referral if you have persistent joint swelling, morning stiffness lasting over 30 minutes, or rapid onset of multiple joint pain. Target: 18-week pathway.", region: "Nationwide", url: "https://www.gov.uk/browse/health-and-social-care", tags: ["Referral", "the health service"], featured: true },
+    { name: "Rheumatology Referral", description: "Ask your GP for an urgent referral if you have persistent joint swelling, morning stiffness lasting over 30 minutes, or rapid onset of multiple joint pain. Target: 18-week pathway.", region: "Nationwide", url: "https://www.gov.uk/browse/health-and-social-care", tags: ["Referral", "Public Health"], featured: true },
     { name: "First Contact Practitioners (FCPs)", description: "HCPC-registered physiotherapists based in GP surgeries who can assess, diagnose, and manage musculoskeletal conditions without needing a GP referral first.", region: "England", url: "https://www.csp.org.uk/professional-clinical/first-contact-physiotherapy", tags: ["Physio", "GP"], featured: true },
-    { name: "the health service Physiotherapy Self-Referral", description: "In most areas of England, you can self-refer to the health service physiotherapy without seeing your GP first. Check your local local health trust website for details.", region: "England", tags: ["Physio", "Self-referral"] },
+    { name: "Physiotherapy Self-Referral", description: "In most areas of England, you can self-refer to public health physiotherapy without seeing your GP first. Check your local local health trust website for details.", region: "England", tags: ["Physio", "Self-referral"] },
     { name: "Scottish Musculoskeletal Pathway", description: "Scotland's integrated musculoskeletal service provides direct access to physiotherapy, podiatry, and occupational therapy.", region: "Scotland", url: "https://www.nhsinform.scot/illnesses-and-conditions/muscle-bone-and-joints/", tags: ["Scotland", "MSK"] },
     { name: "Wales Musculoskeletal Services", description: "Wales's health service provides physiotherapy services through local health boards. Self-referral is available in most areas.", region: "Wales", tags: ["Wales", "Physio"] },
     { name: "Northern Ireland Rheumatology", description: "Rheumatology services are provided through HSC Trusts. The Belfast Trust has one of the largest rheumatology departments in the UK.", region: "Northern Ireland", tags: ["NI", "Rheumatology"] },
@@ -47,7 +47,7 @@ const resources: Record<string, Resource[]> = {
     { name: "Turn2us Benefits Calculator", description: "Free, independent tool to check which benefits you may be entitled to based on your circumstances.", region: "Nationwide", url: "https://benefits-calculator.turn2us.org.uk", tags: ["Calculator", "Free"] },
   ],
   "Equipment & Aids": [
-    { name: "the health service Equipment Services", description: "Your local authority or local health trust can provide mobility aids, daily living equipment, and home adaptations through an occupational therapy assessment.", region: "Nationwide", tags: ["the health service", "OT"], featured: true },
+    { name: "Local Equipment Services", description: "Your local authority or local health trust can provide mobility aids, daily living equipment, and home adaptations through an occupational therapy assessment.", region: "Nationwide", tags: ["Public Health", "OT"], featured: true },
     { name: "Disabled Living Foundation (DLF)", description: "Charity providing impartial advice on daily living equipment. Their website has product reviews, fact sheets, and a helpline.", region: "Nationwide", url: "https://www.dlf.org.uk", phone: "0300 999 0004", tags: ["Equipment", "Advice"] },
     { name: "Motability Scheme", description: "Lease a new car, powered wheelchair, or scooter using your mobility allowance from PIP or War Pensioners' Mobility Supplement.", region: "Nationwide", url: "https://www.motability.co.uk", tags: ["Mobility", "Vehicle"] },
     { name: "Disabled Facilities Grant", description: "Local authority grant for home adaptations (up to £30,000 in England) including stairlifts, bathroom modifications, and wider doorways.", region: "England", url: "https://www.gov.uk/disabled-facilities-grants", tags: ["Home", "Grant"] },
@@ -86,7 +86,7 @@ export default function ResourceDirectory() {
         <title>UK Arthritis Resource Directory | Living With Arthritis</title>
         <meta name="description" content="A curated UK directory of arthritis help: NHS services, charities, benefits, equipment and research — all in one place, free to use." />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/resources-directory" />
-      <meta property="og:title" content="UK Arthritis Resource Directory – the health service, Charities, Benefits | Living With Arthritis" />
+      <meta property="og:title" content="UK Arthritis Resource Directory – Public Health, Charities, Benefits | Living With Arthritis" />
       <meta property="og:description" content="Comprehensive directory of UK arthritis resources: health services, charities, benefits, equipment, and research. Curated by healthcare professionals for patients and carers." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/resources-directory" />
@@ -96,7 +96,7 @@ export default function ResourceDirectory() {
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="UK Arthritis Resource Directory – the health service, Charities, Benefits | Living With Arthritis" />
+      <meta name="twitter:title" content="UK Arthritis Resource Directory – Public Health, Charities, Benefits | Living With Arthritis" />
       <meta name="twitter:description" content="Comprehensive directory of UK arthritis resources: health services, charities, benefits, equipment, and research. Curated by healthcare professionals for patients and carers." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
     </Helmet>

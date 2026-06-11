@@ -25,13 +25,13 @@ const articles = [
     readTime: "12 min read",
     category: "Treatment",
     icon: FlaskConical,
-    summary: "Biologics have transformed rheumatoid arthritis treatment. This evidence-based guide explains how they work, who they're suitable for, and what to expect from treatment in the UK the health service system.",
+    summary: "Biologics have transformed rheumatoid arthritis treatment. This evidence-based guide explains how they work, who they're suitable for, and what to expect from treatment in the UK public health system.",
     keyPoints: [
       "Biologics target specific parts of the immune system, unlike traditional DMARDs which suppress broadly",
       "In the UK, biologics are typically prescribed when two conventional DMARDs have failed — following NICE guidelines (TA375)",
       "TNF inhibitors (adalimumab, etanercept) remain the most commonly prescribed first-line biologics",
       "Response rates: approximately 60-70% of patients achieve significant improvement within 3-6 months",
-      "Biosimilars have made biologics more cost-effective for the health service, with no clinically meaningful differences from originator drugs",
+      "Biosimilars have made biologics more cost-effective for the public health service, with no clinically meaningful differences from originator drugs",
     ],
     content: `Biologic therapies represent one of the most significant advances in rheumatology in the past two decades. For patients with moderate-to-severe rheumatoid arthritis who haven't responded adequately to conventional disease-modifying anti-rheumatic drugs (DMARDs) like methotrexate, biologics offer a targeted approach to controlling inflammation.
 
@@ -203,7 +203,7 @@ Acceptance and Commitment Therapy (ACT) takes a different approach, focusing not
 
 **When to Seek Professional Help**
 
-Consider speaking to your GP about psychological support if you experience persistent low mood for more than two weeks, loss of interest in activities, significant sleep disturbance, feelings of hopelessness, or thoughts of self-harm. Talking therapy is available through the health service IAPT services (self-referral) and many rheumatology departments now have integrated psychological support.`
+Consider speaking to your GP about psychological support if you experience persistent low mood for more than two weeks, loss of interest in activities, significant sleep disturbance, feelings of hopelessness, or thoughts of self-harm. Talking therapy is available through public talking therapy services (self-referral) and many rheumatology departments now have integrated psychological support.`
   },
 ];
 

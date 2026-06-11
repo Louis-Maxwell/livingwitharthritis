@@ -23,7 +23,7 @@ const AboutSection = memo(() => {
             </h2>
             <div className="w-20 h-[2px] bg-primary/15 mb-9" />
             <p className="text-muted-foreground leading-[1.9] text-base sm:text-lg mb-10">
-              Founded by the health service First Contact Practitioners, we're on a mission to ensure no one faces arthritis alone. Our multidisciplinary 
+              Founded by First Contact Practitioners, we're on a mission to ensure no one faces arthritis alone. Our multidisciplinary 
               team of HCPC-registered physiotherapists, nutritionists, and health technologists is building the most 
               comprehensive arthritis support platform in the UK — accessible to everyone, for free.
             </p>

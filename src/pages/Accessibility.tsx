@@ -14,7 +14,7 @@ const STATIC_FEATURES = [
   { icon: Keyboard, title: "Full Keyboard Navigation", desc: "Every feature — menus, modals, forms, tabs and help chat — is fully operable using keyboard alone. Visible focus indicators appear on all interactive elements with a minimum 2px outline." },
   { icon: Ear, title: "Screen Reader Compatible", desc: "Semantic HTML5 landmarks, ARIA labels, roles and live regions ensure complete compatibility with JAWS, NVDA, VoiceOver and TalkBack screen readers." },
   { icon: Monitor, title: "Responsive & Adaptive", desc: "The site adapts from 320px mobile to ultra-wide desktop. Touch targets are a minimum 44×44px. Text reflows correctly up to 400% zoom without horizontal scrolling." },
-  { icon: Globe, title: "Language & Localisation", desc: "Content is written in plain English (en-GB) at an average reading age of 12–14 years, following the health service content design principles for health literacy." },
+  { icon: Globe, title: "Language & Localisation", desc: "Content is written in plain English (en-GB) at an average reading age of 12–14 years, following UK health content design principles for health literacy." },
   { icon: MessageSquare, title: "Alternative Formats", desc: "All images include descriptive alt text. Our help chat provides text-based assistance as an alternative to visual navigation. PDF resources are tagged for accessibility." },
 ];
 

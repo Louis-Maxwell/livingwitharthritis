@@ -26,11 +26,11 @@ import { Input } from "@/components/ui/input";
 
 const resourceCategories = [
   {
-    category: "the health service & Medical",
+    category: "Public Health & Medical",
     icon: Stethoscope,
     color: "icon-circle-sky",
     items: [
-      { name: "Arthritis Overview", url: "https://www.gov.uk/browse/health-and-social-care", type: "Guide", desc: "Comprehensive the health service guide covering symptoms, diagnosis and treatment" },
+      { name: "Arthritis Overview", url: "https://www.gov.uk/browse/health-and-social-care", type: "Guide", desc: "Comprehensive public health guide covering symptoms, diagnosis and treatment" },
       { name: "Find Health Services Near You", url: "https://www.gov.uk/browse/health-and-social-care", type: "Tool", desc: "Locate physiotherapy, rheumatology and pain clinics in your area" },
       { name: "NICE Osteoarthritis Guidelines", url: "https://www.nice.org.uk/guidance/cg177", type: "Guideline", desc: "Evidence-based clinical recommendations for managing OA" },
       { name: "NICE Rheumatoid Arthritis", url: "https://www.nice.org.uk/guidance/ng100", type: "Guideline", desc: "Best-practice pathways for RA diagnosis and treatment" },
@@ -109,7 +109,7 @@ interface ResourceLibraryDrawerProps {
 }
 
 const ResourceLibraryDrawer = memo(({ open, onOpenChange }: ResourceLibraryDrawerProps) => {
-  const [expandedCats, setExpandedCats] = useState<Set<string>>(new Set(["the health service & Medical"]));
+  const [expandedCats, setExpandedCats] = useState<Set<string>>(new Set(["Public Health & Medical"]));
   const [searchQuery, setSearchQuery] = useState("");
 
   const toggleCat = (cat: string) => {
@@ -141,7 +141,7 @@ const ResourceLibraryDrawer = memo(({ open, onOpenChange }: ResourceLibraryDrawe
             Resource Library
           </SheetTitle>
           <p className="text-sm text-muted-foreground mt-1">
-            UK arthritis resources — the health service, benefits, exercises, nutrition & more.
+            UK arthritis resources — the public health service, benefits, exercises, nutrition & more.
           </p>
           {/* Search */}
           <div className="relative mt-3">
@@ -229,7 +229,7 @@ const ResourceLibraryDrawer = memo(({ open, onOpenChange }: ResourceLibraryDrawe
         <div className="px-6 py-4 border-t border-border/30 flex flex-wrap items-center justify-center gap-4 text-[11px] text-muted-foreground">
           <span className="inline-flex items-center gap-1.5">
             <Heart className="h-3 w-3 text-primary" />
-            the health service-Complementary
+            Healthcare-Complementary
           </span>
           <span className="text-border">|</span>
           <span className="inline-flex items-center gap-1.5">
