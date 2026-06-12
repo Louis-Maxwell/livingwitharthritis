@@ -49,6 +49,7 @@ export const PRERENDER_ROUTES = [
   "/guides/diet",
   "/guides/health-services",
   "/guides/benefits-pip",
+  "/guides/arthritis-pain-relief",
   "/arthritis-waiting-list-help",
   "/tools/waiting-time",
   "/arthritis-support",
