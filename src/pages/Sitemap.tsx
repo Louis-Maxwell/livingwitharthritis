@@ -160,6 +160,7 @@ const ALL_LINKS: SitemapLink[] = [
   { label: "Arthritis Flare-Ups", href: "/arthritis-flare-ups" },
   { label: "Fibromyalgia", href: "/conditions/fibromyalgia" },
   { label: "Gout", href: "/conditions/gout" },
+  { label: "Elbow Pain &amp; Arthritis", href: "/conditions/elbow-arthritis" },
   { label: "Hand Arthritis", href: "/conditions/hand-arthritis" },
   { label: "Juvenile Arthritis", href: "/conditions/juvenile-arthritis" },
   { label: "Knee Arthritis", href: "/conditions/knee-arthritis" },
