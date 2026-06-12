@@ -3,6 +3,7 @@ import { BLOG_SLUG_REDIRECTS } from "@/data/blogRedirects";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import { Eye, BookOpen, ChevronRight } from "lucide-react";
 import { useBlogArticle } from "@/hooks/useBlogArticles";
 import { useBlogViews } from "@/hooks/useBlogViews";

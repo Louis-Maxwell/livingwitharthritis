@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SeoHead from "@/components/SeoHead";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
+import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import NextReadStrip from "@/components/NextReadStrip";
 import {
