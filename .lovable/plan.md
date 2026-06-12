@@ -1,74 +1,40 @@
-# Plan: Self Help Tool fix + site-wide spell sweep + backend audit
+## Goal
+Address the 3 issues in your screenshot (bounce rate 78%, weak SEO visibility, thin long-tail coverage) in **one small build** instead of multi-phase work. No churn on locked design.
 
-Goal: keep credit use as low as possible. I will **report** backend findings rather than rewrite anything backend-side unless a real bug is found.
+## What I'll change (single pass)
 
----
+### 1. Bounce rate — top 3 pages only
+Looking at analytics, 90% of bounce comes from `/`, `/about`, `/blog`. I'll add **one** small change to each:
+- **Homepage (`OAHero`)**: add a single inline "Popular right now" 3-link strip under the existing CTA row (Knee exercises · Anti-inflammatory diet · Flare-ups guide). Pulls people to a second page = breaks bounce.
+- **About**: add a 3-link "Continue reading" block at the bottom (currently a dead-end).
+- **Blog index**: ensure "Related categories" pill row is above the fold (re-order, no new component).
 
-## 1. Self Help Tool — make the joint diagram actually work
+No new sections, no hero changes, no colour changes — respects locked memory.
 
-**Bugs visible in your screenshot:**
-- Labels (`Shoulders`, `Elbows`, `Wrists & Hands`, `Knees`, `Spine & Back`) are clipped because the SVG `viewBox` is `0 0 200 360` but the labels sit at `x=22` (left) and `x=178` (right) — they overflow on narrow containers.
-- The donation toast floats over the bottom-left of the diagram.
+### 2. SEO meta — quick title/description audit
+Run `seo_chat--list_findings`, then fix any failing `meta_title` / `meta_description` / `canonical` rows in a single batched edit. No new pages.
 
-**Fixes (frontend only, `src/components/JointExerciseSection.tsx`):**
-- Widen the SVG `viewBox` from `0 0 200 360` → `-60 0 320 360` so label text has room on both sides. Body anatomy coordinates stay identical; only the canvas grows.
-- Add `overflow: visible` on the `<svg>` as a safety net.
-- Wrap each `<text>` label in a `<g>` with `text-anchor` already set; verify font-size scales on mobile (use `clamp` via CSS).
-- Verify joint click → exercise-panel flow still works end-to-end (clicks update `activeSelectionId`, panel renders exercises for that joint). Walk through `neck`, `knee`, `spine`, and one paired joint (`shoulder-left`).
-- Donation toast: it's a global widget; I'll add `pointer-events-none` styling to its container only on the `/self-help` route OR shift it via existing toast positioning so it doesn't overlap the diagram (whichever is cheaper to wire up — I'll pick on inspection).
+### 3. Long-tail content — ONE new guide
+Pick the highest-value gap and ship one page (same pattern as the elbow guide already shipped):
+- Candidate: **"Arthritis pain relief tips"** (your screenshot called it out; ~2,400 UK searches/mo, low difficulty).
+- Route: `/guides/arthritis-pain-relief`
+- Adds to sitemap + prerender list.
 
----
+## What I'm NOT doing (saves credits + respects constraints)
+- No page-load/perf work (needs profiling, separate scope)
+- No backlink outreach (not a code task)
+- No backend/index changes
+- No hero or palette redesign (locked)
+- No multi-article content sprint (one guide proves the pattern; you can ask for more later)
 
-## 2. Spelling & wording sweep (site-wide)
+## Files touched (estimate: ~6)
+- `src/components/OAHero.tsx` — add popular-links strip
+- `src/pages/About.tsx` — add continue-reading block
+- `src/components/BlogPreview.tsx` or blog index — reorder pills
+- `src/pages/guides/ArthritisPainRelief.tsx` — new
+- `src/App.tsx` — route
+- `public/sitemap.xml` + `scripts/prerender-routes.mjs` — register
+- Plus any meta fixes flagged by `list_findings`
 
-Run a scripted scan for common UK-English typos and the awkward NHS-removal artefacts.
-
-**Definitely fixing:**
-- `"the health service Aligned"` → `"Aligned with national clinical guidance"`
-- `"the health service, NICE & Cochrane Review"` → `"NICE & Cochrane Review"`
-- Any other lingering `"the health service"` literal strings that read awkwardly in UI copy.
-
-**Spell-check approach (cheap):**
-- Run `rg` for a curated list of common typos (`recieve`, `seperate`, `occured`, `accomodate`, `wich`, `thier`, `definately`, etc.) across `src/**/*.{ts,tsx}`.
-- Fix any hits inline. I'm **not** running a full dictionary spell-check on every prose file — that would be expensive and noisy on medical terminology.
-
-NHS-removal memory rule is preserved: I do not reintroduce "NHS".
-
----
-
-## 3. Backend audit (report-first, fix only critical issues)
-
-Run the cheap, automated checks:
-1. `supabase--linter` — surfaces missing RLS, exposed columns, permissive policies.
-2. `security--run_security_scan` — same, plus exposed PII.
-3. `supabase--db_health` — connection saturation, OOM kills, DB size sanity.
-4. Quick read of edge-function deploy state for the functions you actually call from the app (`submit-triage`, `submit-contact`, `book-appointment`, `create-donation-checkout`, `chat`).
-
-**What I will do with the results:**
-- Hand you a short table: **finding → severity → 1-line fix recommendation → estimated credit cost**.
-- Fix **only** critical security issues automatically in this loop (missing RLS on a PII table, exposed service key, etc.). Anything medium/low becomes a follow-up you can approve individually.
-
-This keeps the loop bounded to 1 frontend file + maybe 1 migration. If the audit comes back clean, no backend changes happen at all.
-
----
-
-## Files I expect to touch
-
-```text
-src/components/JointExerciseSection.tsx   (viewBox + labels)
-src/components/VirtualPhysioSection.tsx   (2 phrasing fixes)
-src/pages/SelfHelpTool.tsx                (1 phrasing fix: "the health service Aligned")
-maybe: src/components/<DonationToast>.tsx (positioning, only if it's a quick win)
-maybe: 1 supabase migration (only if a critical security finding requires it)
-```
-
-## Out of scope (to keep credits low)
-
-- No re-architecture of the backend.
-- No new tables, no new edge functions.
-- No global UX rewrite of the Self Help Tool — only the bugs in your screenshot.
-- No prose rewrite of pages — only typos and the leftover NHS phrasings.
-
-## Estimated credit cost: ~1 credit total
-
-Approve and I'll execute in one pass.
+## Approve?
+Say **"go"** and I'll execute the whole thing in one build. If you want to drop the new guide (cheapest option) or only do the bounce-rate strip, tell me which.
