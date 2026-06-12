@@ -59,6 +59,7 @@ const Lupus = lazy(() => import("./pages/conditions/Lupus"));
 const KneeArthritis = lazy(() => import("./pages/conditions/KneeArthritis"));
 const HandArthritis = lazy(() => import("./pages/conditions/HandArthritis"));
 const ShoulderArthritis = lazy(() => import("./pages/conditions/ShoulderArthritis"));
+const ElbowArthritis = lazy(() => import("./pages/conditions/ElbowArthritis"));
 const PolymyalgiaRheumatica = lazy(() => import("./pages/conditions/PolymyalgiaRheumatica"));
 const ReactiveArthritis = lazy(() => import("./pages/conditions/ReactiveArthritis"));
 const SelfHelpTool = lazy(() => import("./pages/SelfHelpTool"));
@@ -184,6 +185,8 @@ function AnimatedRoutes() {
         <Route path="/conditions/knee-arthritis" element={<KneeArthritis />} />
         <Route path="/conditions/hand-arthritis" element={<HandArthritis />} />
         <Route path="/conditions/shoulder-arthritis" element={<ShoulderArthritis />} />
+        <Route path="/conditions/elbow-arthritis" element={<ElbowArthritis />} />
+        <Route path="/conditions/elbow-pain" element={<ElbowArthritis />} />
         <Route path="/conditions/polymyalgia-rheumatica" element={<PolymyalgiaRheumatica />} />
         <Route path="/conditions/reactive-arthritis" element={<ReactiveArthritis />} />
         <Route path="/conditions/:condition/:subpage" element={<ConditionSubpagePage />} />
