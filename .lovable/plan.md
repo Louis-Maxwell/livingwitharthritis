@@ -1,40 +1,40 @@
 ## Goal
-Address the 3 issues in your screenshot (bounce rate 78%, weak SEO visibility, thin long-tail coverage) in **one small build** instead of multi-phase work. No churn on locked design.
+Address the three screenshot items (institutional authority, research-led, "leading arthritis charity") in the cheapest possible way: **copy + reorder only, no new sections, no new images, no design system changes.**
 
-## What I'll change (single pass)
+## Scope — 2 files, ~15 min of edits
 
-### 1. Bounce rate — top 3 pages only
-Looking at analytics, 90% of bounce comes from `/`, `/about`, `/blog`. I'll add **one** small change to each:
-- **Homepage (`OAHero`)**: add a single inline "Popular right now" 3-link strip under the existing CTA row (Knee exercises · Anti-inflammatory diet · Flare-ups guide). Pulls people to a second page = breaks bounce.
-- **About**: add a 3-link "Continue reading" block at the bottom (currently a dead-end).
-- **Blog index**: ensure "Related categories" pill row is above the fold (re-order, no new component).
+### 1. `src/components/landing/OAHero.tsx` — copy swap
+- **Headline** change: replace "Sore joints, stiff mornings, brighter days ahead." with a research/authority-led line, e.g.:
+  > "The UK's clinically-reviewed guide to living well with arthritis."
+  (italic accent on "clinically-reviewed")
+- **Trust ribbon**: keep HCPC + CSP bullets, add a third — "Aligned with NICE guidance" — so the credibility row reads as institutional, not personal.
+- No layout, image, button, or popular-links change.
 
-No new sections, no hero changes, no colour changes — respects locked memory.
+### 2. `src/pages/Index.tsx` — section reorder (no new code)
+Move research/impact-led bands above the personal/stories bands so the page leads with authority:
 
-### 2. SEO meta — quick title/description audit
-Run `seo_chat--list_findings`, then fix any failing `meta_title` / `meta_description` / `canonical` rows in a single batched edit. No new pages.
+Current order (relevant slice):
+```
+OAHero → HeroStatsStrip → OAProblemBand → AboutArthritisCards → FacesStrip → OAPlanPillarsSection → ...
+```
+New order:
+```
+OAHero → HeroStatsStrip → OAProblemBand → OAPlanPillarsSection → AboutArthritisCards → FacesStrip → ...
+```
+Effect: stats + problem framing + clinical plan pillars all appear before the human "Faces" strip. Pure JSX reorder, no component edits.
 
-### 3. Long-tail content — ONE new guide
-Pick the highest-value gap and ship one page (same pattern as the elbow guide already shipped):
-- Candidate: **"Arthritis pain relief tips"** (your screenshot called it out; ~2,400 UK searches/mo, low difficulty).
-- Route: `/guides/arthritis-pain-relief`
-- Adds to sitemap + prerender list.
+## Explicitly NOT doing (to keep credits low)
+- No hero redesign (locked per memory).
+- No new "Research" or "Authority" section/component.
+- No new imagery, palette, or typography work.
+- No "leading arthritis charity" claim in copy — that would violate the neutrality/no-fabricated-claims memory. Authority is conveyed through clinical alignment (HCPC/CSP/NICE) and reorder, not a self-awarded superlative.
+- No backend, no SEO findings sweep, no new routes.
 
-## What I'm NOT doing (saves credits + respects constraints)
-- No page-load/perf work (needs profiling, separate scope)
-- No backlink outreach (not a code task)
-- No backend/index changes
-- No hero or palette redesign (locked)
-- No multi-article content sprint (one guide proves the pattern; you can ask for more later)
+## Files touched
+- `src/components/landing/OAHero.tsx`
+- `src/pages/Index.tsx`
 
-## Files touched (estimate: ~6)
-- `src/components/OAHero.tsx` — add popular-links strip
-- `src/pages/About.tsx` — add continue-reading block
-- `src/components/BlogPreview.tsx` or blog index — reorder pills
-- `src/pages/guides/ArthritisPainRelief.tsx` — new
-- `src/App.tsx` — route
-- `public/sitemap.xml` + `scripts/prerender-routes.mjs` — register
-- Plus any meta fixes flagged by `list_findings`
+## Verification
+Visual check of homepage after edits — confirm new headline renders, NICE bullet shows, plan pillars appear before Faces strip.
 
-## Approve?
-Say **"go"** and I'll execute the whole thing in one build. If you want to drop the new guide (cheapest option) or only do the bounce-rate strip, tell me which.
+Approve and I'll implement in one pass.
