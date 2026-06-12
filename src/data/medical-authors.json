@@ -1,0 +1,21 @@
+{
+  "maxwell": {
+    "name": "Maxwell",
+    "title": "First Contact Practitioner",
+    "credential": "HCPC PH128483",
+    "organization": "CSP Member",
+    "specialties": [
+      "Arthritis Management",
+      "Joint Pain Relief",
+      "Exercise Prescription",
+      "Patient Education"
+    ],
+    "bio": "First Contact Practitioner with HCPC registration (PH128483) and CSP membership. Specialises in arthritis management, joint pain relief, and evidence-based exercise prescription. Over 20 years of clinical experience helping patients manage arthritis and improve quality of life.",
+    "credentials": [
+      "HCPC Registered First Contact Practitioner (PH128483)",
+      "CSP Member (Chartered Society of Physiotherapy)",
+      "Evidence-based practice training",
+      "Patient education specialist"
+    ]
+  }
+}
