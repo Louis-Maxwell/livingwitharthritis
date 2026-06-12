@@ -189,15 +189,15 @@ function HomePage() {
           </Suspense>
 
           <Suspense fallback={<SectionFallback />}>
+            <OAPlanPillarsSection />
+          </Suspense>
+
+          <Suspense fallback={<SectionFallback />}>
             <AboutArthritisCards />
           </Suspense>
 
           <Suspense fallback={<SectionFallback />}>
             <FacesStrip />
-          </Suspense>
-
-          <Suspense fallback={<SectionFallback />}>
-            <OAPlanPillarsSection />
           </Suspense>
 
           <Suspense fallback={<SectionFallback />}>
