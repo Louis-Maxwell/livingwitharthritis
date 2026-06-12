@@ -88,6 +88,25 @@ const OAHero = memo(() => {
               CSP members
             </li>
           </ul>
+
+          {/* Popular right now — internal links to reduce bounce */}
+          <nav
+            aria-label="Popular guides"
+            className="hero-item mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm"
+          >
+            <span className="text-foreground/60 font-medium">Popular:</span>
+            <a href="/conditions/knee-arthritis" className="text-foreground font-semibold underline decoration-primary/40 underline-offset-4 hover:decoration-primary transition-colors">
+              Knee exercises
+            </a>
+            <span aria-hidden="true" className="text-foreground/30">·</span>
+            <a href="/diet" className="text-foreground font-semibold underline decoration-primary/40 underline-offset-4 hover:decoration-primary transition-colors">
+              Anti-inflammatory diet
+            </a>
+            <span aria-hidden="true" className="text-foreground/30">·</span>
+            <a href="/guides/arthritis-pain-relief" className="text-foreground font-semibold underline decoration-primary/40 underline-offset-4 hover:decoration-primary transition-colors">
+              Pain-relief tips
+            </a>
+          </nav>
         </div>
       </div>
 
