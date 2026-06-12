@@ -132,6 +132,7 @@ const Buddy = lazy(() => import("./pages/Buddy"));
 const BuddyMatch = lazy(() => import("./pages/BuddyMatch"));
 const NewsletterConfirm = lazy(() => import("./pages/NewsletterConfirm"));
 const DebugSchema = lazy(() => import("./pages/DebugSchema"));
+const EditorialStandards = lazy(() => import("./pages/EditorialStandards"));
 // No visible loader — Suspense falls back to null so the previous page
 // (or blank background) stays visible until the next chunk is ready,
 // avoiding the spinner flash on first paint.
@@ -175,6 +176,7 @@ function AnimatedRoutes() {
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/daily-tips/:slug" element={<DailyTipDetail />} />
         <Route path="/about" element={<AboutUs />} />
+        <Route path="/editorial-standards" element={<EditorialStandards />} />
         <Route path="/conditions/osteoarthritis" element={<Osteoarthritis />} />
         <Route path="/conditions/rheumatoid-arthritis" element={<RheumatoidArthritis />} />
         <Route path="/conditions/psoriatic-arthritis" element={<PsoriaticArthritis />} />

@@ -16,6 +16,7 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
+import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 
 // Below-the-fold — lazy to reduce initial route chunk + speed up LCP
 const InternalLinks = lazy(() => import("@/components/InternalLinks"));
@@ -228,6 +229,8 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
         </div>
 
         <main className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
+          <MedicalReviewBadge />
+
           <Section icon={Activity} title={`What is ${data.name}?`}>
             {data.whatIs}
           </Section>

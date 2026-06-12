@@ -156,6 +156,8 @@ const ConditionSubpagePage = () => {
           <p className="text-lg text-muted-foreground leading-relaxed">{sub.intro}</p>
         </header>
 
+        <MedicalReviewBadge />
+
         {/* Subpage-specific content */}
         {subpage === "symptoms" && (
           <>
