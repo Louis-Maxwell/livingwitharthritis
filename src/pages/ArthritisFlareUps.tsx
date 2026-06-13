@@ -18,6 +18,7 @@ import CrossLinkBanner from "@/components/CrossLinkBanner";
 import InternalLinks from "@/components/InternalLinks";
 import ContextualLinks from "@/components/ContextualLinks";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
+import AnswerBox from "@/components/seo/AnswerBox";
 
 const defined = (v: string) => `hsl(var(${v}))`;
 
@@ -211,6 +212,21 @@ export default function ArthritisFlareUps() {
           ))}
         </nav>
       </PageHero>
+
+      <section className="container mx-auto px-6 md:px-10 max-w-3xl pt-8">
+        <AnswerBox
+          question="How do you stop an arthritis flare-up fast?"
+          reviewed="2026-06-13"
+        >
+          <p>
+            Rest the joint for 24–48 hours, apply an ice pack for 15–20 minutes every few hours
+            for hot, swollen joints (or heat for stiffness), take a short course of an NSAID
+            like ibuprofen with food, and keep gently moving within a comfortable range. UK
+            guidance recommends contacting your GP or rheumatology team if a flare lasts more
+            than a week, you have a new fever, or symptoms keep worsening despite self-care.
+          </p>
+        </AnswerBox>
+      </section>
 
       {/* ─── Main content ─── */}
       <article className="container mx-auto px-6 md:px-10 max-w-4xl py-12 lg:py-16">

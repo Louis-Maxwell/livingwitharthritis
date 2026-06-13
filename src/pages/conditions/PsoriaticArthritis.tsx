@@ -13,6 +13,7 @@ import CrossLinkBanner from "@/components/CrossLinkBanner";
 import ConditionSubpageLinks from "@/components/ConditionSubpageLinks";
 import ReadNextCards from "@/components/ReadNextCards";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
+import AnswerBox from "@/components/seo/AnswerBox";
 
 const BASE = "https://livingwitharthritis.org.uk";
 
@@ -132,6 +133,20 @@ const PsoriaticArthritis = () => (
           <ArrowLeft className="w-3.5 h-3.5" /> Back to conditions
         </Link>
       </PageHero>
+      <section className="container mx-auto px-6 md:px-10 max-w-3xl pt-10">
+        <AnswerBox
+          question="What is the best treatment for psoriatic arthritis?"
+          reviewed="2026-06-13"
+        >
+          <p>
+            UK guidelines start <strong>methotrexate or sulfasalazine</strong> early to prevent
+            joint damage, often with a steroid injection for hot joints. If joints or skin keep
+            flaring, a <strong>biologic</strong> (anti-TNF, IL-17 or IL-23 inhibitor) is added
+            through rheumatology. Combine medication with low-impact exercise, weight loss and
+            an anti-inflammatory diet for the best long-term results.
+          </p>
+        </AnswerBox>
+      </section>
       {/* ─── PsA Key Stats ─── */}
       <section className="py-12 lg:py-16 bg-tint-violet">
         <div className="container mx-auto px-6 md:px-10 max-w-4xl">

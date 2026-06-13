@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
+import AnswerBox from "@/components/seo/AnswerBox";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
@@ -215,13 +216,18 @@ export default function DietGuide() {
           badge="Pillar Guide"
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
-          <p className="speakable-intro text-lg md:text-xl text-foreground/85 leading-relaxed mb-8">
-            The best diet for arthritis is the Mediterranean diet — rich in vegetables, fruit,
-            wholegrains, olive oil, oily fish, nuts and pulses. UK trials show it can reduce
-            inflammatory markers by up to 20% and ease joint pain. For osteoarthritis, losing
-            5–10% of body weight on this pattern often delivers the largest pain relief of any
-            non-drug treatment.
-          </p>
+          <AnswerBox
+            question="What is the best diet for arthritis joint pain?"
+            reviewed="2026-06-13"
+          >
+            <p>
+              The best diet for arthritis is the <strong>Mediterranean diet</strong> — rich in
+              vegetables, fruit, wholegrains, olive oil, oily fish, nuts and pulses. UK trials
+              show it can reduce inflammatory markers by up to 20% and ease joint pain. For
+              osteoarthritis, losing 5–10% of body weight on this pattern often delivers the
+              largest pain relief of any non-drug treatment.
+            </p>
+          </AnswerBox>
           <TableOfContents html={html} />
           <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" dangerouslySetInnerHTML={{ __html: html }} />
           <div className="mt-16 pt-8 border-t border-border/30">
