@@ -13,6 +13,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "next-themes";
 import { DeferredMount } from "@/components/DeferredMount";
 import CanonicalEnforcer from "@/components/CanonicalEnforcer";
+import RootOrganizationSchema from "@/components/seo/RootOrganizationSchema";
 
 // Home is eager — it's the top entry point (~36% of pageviews) so
 // shipping it in the main bundle removes a Suspense round-trip on first paint.
@@ -297,6 +298,7 @@ function AppWithSync() {
   return (
     <>
       <CanonicalEnforcer />
+      <RootOrganizationSchema />
       <AnimatedRoutes />
     </>
   );

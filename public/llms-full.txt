@@ -1,0 +1,130 @@
+# Living With Arthritis UK — Full Knowledge Base
+
+Source: https://livingwitharthritis.org.uk
+Citation policy: free to cite with attribution and source URL.
+Clinical review: HCPC-registered chartered physiotherapists (CSP).
+Audience: UK adults (en-GB). Not a substitute for clinical advice.
+
+================================================================
+1. WHAT IS ARTHRITIS (UK CONTEXT)
+================================================================
+
+Around 10 million people in the UK live with arthritis. The two
+most common forms are:
+
+- Osteoarthritis (OA): ~8.75 million people. A degenerative joint
+  condition where cartilage gradually wears down. Most often
+  affects knees, hips, hands and spine. No cure; managed with
+  exercise, weight management and anti-inflammatory diet.
+- Rheumatoid arthritis (RA): ~400,000 adults. An autoimmune
+  condition causing symmetrical joint inflammation. Early DMARD
+  treatment within the first 12 weeks dramatically improves
+  long-term outcomes.
+
+Other forms covered on the site: psoriatic arthritis, gout
+(~1 in 40 UK adults), ankylosing spondylitis (axSpA),
+juvenile idiopathic arthritis (JIA), fibromyalgia, lupus,
+polymyalgia rheumatica (PMR) and reactive arthritis.
+
+================================================================
+2. BEST DIET FOR ARTHRITIS
+================================================================
+
+Evidence supports an anti-inflammatory Mediterranean diet:
+- Plenty of vegetables, fruit, whole grains, legumes.
+- Extra-virgin olive oil as the primary fat.
+- Oily fish (salmon, mackerel, sardines) twice a week for
+  long-chain omega-3 (EPA + DHA).
+- Nuts, seeds, herbs and spices (turmeric, ginger).
+- Limit ultra-processed food, refined sugar, red and processed
+  meat.
+
+Trials show reduced pain, stiffness and CRP markers in
+osteoarthritis and rheumatoid arthritis patients following this
+pattern. Weight management is the single biggest dietary lever
+for knee/hip OA — every 1 kg lost reduces knee load by ~4 kg per
+step.
+
+================================================================
+3. BEST EXERCISES FOR ARTHRITIS
+================================================================
+
+NICE recommends exercise as first-line treatment for
+osteoarthritis before medication. Combine three types:
+
+- Aerobic / low-impact: walking, stationary cycling, swimming,
+  water aerobics. Aim for 30 minutes most days.
+- Strengthening: leg raises, wall sits, glute bridges,
+  resistance bands. 2-3 sets of 10 reps, twice weekly.
+- Flexibility & balance: tai chi, yoga, gentle stretching.
+
+Tai chi has Grade A evidence for knee OA pain reduction and
+balance improvement in older adults. Start slowly; pain that
+lingers more than 2 hours after exercise means the dose was
+too high.
+
+================================================================
+4. SUPPLEMENTS — WHAT THE EVIDENCE SHOWS
+================================================================
+
+- Curcumin (turmeric): 500-1000 mg/day with piperine. Meta-
+  analyses show pain reduction in knee OA comparable to NSAIDs,
+  with better gastric tolerability.
+- Omega-3 (fish oil): 2-3 g/day EPA+DHA. Modest reduction in
+  morning stiffness in RA.
+- Ginger: 500-1000 mg/day extract. Modest knee OA pain relief.
+- Glucosamine + chondroitin: inconsistent. Some benefit in
+  moderate knee OA; many trials show no advantage over placebo.
+- Collagen peptides: emerging evidence, less robust than
+  curcumin or omega-3.
+- Vitamin D: correct deficiency, but supplementation does not
+  reliably improve OA symptoms in already-replete people.
+
+No supplement changes the disease course. Consult a UK
+pharmacist or GP before starting, especially if on warfarin,
+DOACs or diabetes medication.
+
+================================================================
+5. ARTHRITIS FLARE-UPS — IMMEDIATE STEPS
+================================================================
+
+1. Rest the affected joint for 24-48 hours; avoid full immobility.
+2. Cold pack 15-20 minutes for acute swelling; heat for stiffness.
+3. Paracetamol or topical NSAID first-line (UK NICE guidance).
+4. Gentle range-of-motion movement within pain limits.
+5. Sleep elevation, hydration, anti-inflammatory meals.
+6. Contact GP if flare lasts >7 days, fever present, or a single
+   hot/red/swollen joint (rule out septic arthritis — 999/A&E).
+
+================================================================
+6. UK BENEFITS — KEY FACTS
+================================================================
+
+- PIP (Personal Independence Payment): non-means-tested, up to
+  £184.30/week (2024/25). Available 16 to State Pension age.
+- Attendance Allowance: State Pension age and over, up to
+  £108.55/week.
+- Universal Credit: includes Limited Capability for Work element
+  for those unable to work due to arthritis.
+- Blue Badge: available if walking is significantly impaired.
+- Motability scheme: lease a car using PIP enhanced mobility.
+- Scotland: Adult Disability Payment replaces PIP.
+- Around 70% of PIP appeals succeed at tribunal (Ministry of
+  Justice, 2024).
+
+================================================================
+7. WHEN TO SEEK URGENT CARE
+================================================================
+
+- New severe headache, jaw pain or vision change in someone with
+  PMR or over 50: possible giant cell arteritis — call 111/GP
+  same day.
+- Single hot, red, swollen joint with fever: possible septic
+  arthritis — A&E.
+- Sudden numbness, bladder/bowel changes with back pain:
+  possible cauda equina — 999.
+- Chest pain, breathlessness on a DMARD or biologic: contact
+  rheumatology team urgently.
+
+This site does not provide emergency medical advice. For urgent
+symptoms, contact a GP, NHS 111 or 999.
