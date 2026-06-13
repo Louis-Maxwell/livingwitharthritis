@@ -13,6 +13,7 @@ import CrossLinkBanner from "@/components/CrossLinkBanner";
 import ReadNextCards from "@/components/ReadNextCards";
 import ConditionSubpageLinks from "@/components/ConditionSubpageLinks";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
+import AnswerBox from "@/components/seo/AnswerBox";
 
 const BASE = "https://livingwitharthritis.org.uk";
 
@@ -148,6 +149,22 @@ const Osteoarthritis = () => (
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
       </div>
+
+      <section className="container mx-auto px-6 md:px-10 max-w-3xl pt-10">
+        <AnswerBox
+          question="What is the best treatment for osteoarthritis?"
+          reviewed="2026-06-13"
+        >
+          <p>
+            UK NICE guidance puts <strong>exercise and weight management first</strong> for
+            osteoarthritis — they reduce pain by up to 40% and improve function more than any
+            painkiller. Add <strong>topical NSAIDs</strong> (ibuprofen gel) for hand or knee
+            pain, short courses of oral NSAIDs for flares, and consider physiotherapy or a
+            joint injection. Surgery (knee or hip replacement) is reserved for severe,
+            unresponsive cases.
+          </p>
+        </AnswerBox>
+      </section>
 
       {/* ─── Key Stats ─── */}
       <section className="py-12 lg:py-16 bg-tint-green">

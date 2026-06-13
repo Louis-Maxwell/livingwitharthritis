@@ -11,6 +11,7 @@ import ConditionBlogStrip from "@/components/ConditionBlogStrip";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
 import ConditionSubpageLinks from "@/components/ConditionSubpageLinks";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
+import AnswerBox from "@/components/seo/AnswerBox";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const URL = `${BASE}/conditions/knee-arthritis`;
@@ -137,6 +138,22 @@ const KneeArthritis = () => (
           </motion.div>
         </div>
       </div>
+
+      <section className="container mx-auto px-6 md:px-10 max-w-3xl pt-10">
+        <AnswerBox
+          question="What is the best treatment for knee arthritis?"
+          reviewed="2026-06-13"
+        >
+          <p>
+            UK NICE guidance ranks <strong>quadriceps strengthening</strong> and
+            <strong> weight loss</strong> as the most effective treatments for knee osteoarthritis,
+            cutting pain by around 50%. Add topical NSAID gel for daily pain, oral NSAIDs for
+            flares, and a steroid injection if needed. Knee replacement is highly successful
+            but reserved for severe pain that limits daily life after non-surgical options have
+            been tried.
+          </p>
+        </AnswerBox>
+      </section>
 
       <section className="py-12 lg:py-16 bg-tint-green">
         <div className="container mx-auto px-6 md:px-10 max-w-4xl">

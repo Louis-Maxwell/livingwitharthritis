@@ -13,6 +13,7 @@ import CrossLinkBanner from "@/components/CrossLinkBanner";
 import ConditionSubpageLinks from "@/components/ConditionSubpageLinks";
 import ReadNextCards from "@/components/ReadNextCards";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
+import AnswerBox from "@/components/seo/AnswerBox";
 
 const BASE = "https://livingwitharthritis.org.uk";
 
@@ -132,6 +133,21 @@ const RheumatoidArthritis = () => (
           <ArrowLeft className="w-3.5 h-3.5" /> Back to conditions
         </Link>
       </PageHero>
+      <section className="container mx-auto px-6 md:px-10 max-w-3xl pt-10">
+        <AnswerBox
+          question="What is the best treatment for rheumatoid arthritis?"
+          reviewed="2026-06-13"
+        >
+          <p>
+            UK rheumatology guidelines recommend starting a <strong>DMARD</strong> — usually
+            <strong> methotrexate</strong> — within 12 weeks of diagnosis to slow joint damage,
+            often combined with a short steroid course to settle inflammation. If response is
+            poor, a <strong>biologic or JAK inhibitor</strong> is added. Early aggressive
+            treatment, regular blood monitoring and physiotherapy give the best long-term joint
+            function.
+          </p>
+        </AnswerBox>
+      </section>
       {/* ─── RA Key Stats ─── */}
       <section className="py-12 lg:py-16 bg-tint-blue">
         <div className="container mx-auto px-6 md:px-10 max-w-4xl">

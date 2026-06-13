@@ -11,6 +11,7 @@ import ConditionBlogStrip from "@/components/ConditionBlogStrip";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
 import ConditionSubpageLinks from "@/components/ConditionSubpageLinks";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
+import AnswerBox from "@/components/seo/AnswerBox";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const URL = `${BASE}/conditions/hand-arthritis`;
@@ -137,6 +138,21 @@ const HandArthritis = () => (
           </motion.div>
         </div>
       </div>
+
+      <section className="container mx-auto px-6 md:px-10 max-w-3xl pt-10">
+        <AnswerBox
+          question="What helps arthritis in the hands?"
+          reviewed="2026-06-13"
+        >
+          <p>
+            UK hand-therapy guidance combines <strong>daily finger and thumb exercises</strong>
+            (5 minutes, twice a day), a <strong>thumb-base splint</strong> for CMC arthritis
+            (cuts pain by around 35%), <strong>topical NSAID gel</strong>, and warm-water soaks
+            for morning stiffness. Steroid injections help short-term; surgery is reserved for
+            severe thumb-base or finger arthritis that fails conservative care.
+          </p>
+        </AnswerBox>
+      </section>
 
       <section className="py-12 lg:py-16 bg-tint-green">
         <div className="container mx-auto px-6 md:px-10 max-w-4xl">

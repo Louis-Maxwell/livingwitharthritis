@@ -12,6 +12,19 @@ const data: ConditionPageData = {
   keywords:
     "polymyalgia rheumatica, PMR, polymyalgia symptoms, polymyalgia treatment, steroid for PMR, prednisolone, shoulder stiffness over 50, hip stiffness morning, giant cell arteritis, inflammatory arthritis UK, polymyalgia diet, polymyalgia exercise",
   alternateNames: ["PMR", "Polymyalgia"],
+  aeoAnswer: {
+    question: "What is the best treatment for polymyalgia rheumatica?",
+    answer: (
+      <p>
+        UK guidelines recommend low-dose prednisolone (typically 15 mg daily), which usually
+        relieves shoulder and hip stiffness within 2–3 days. The dose is then tapered slowly
+        over 1–3 years under GP or rheumatology supervision, with calcium, vitamin D and
+        bone-protection medicine to offset steroid side-effects. Methotrexate is added if PMR
+        keeps relapsing.
+      </p>
+    ),
+    reviewed: "2026-06-13",
+  },
   whatIs: (
     <>
       <p>

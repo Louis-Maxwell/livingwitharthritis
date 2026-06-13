@@ -13,6 +13,7 @@ import CrossLinkBanner from "@/components/CrossLinkBanner";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 
 import ClinicalReviewBadge from "@/components/ai/ClinicalReviewBadge";
+import AnswerBox from "@/components/seo/AnswerBox";
 import {
   Utensils, Apple, Fish, Leaf, ArrowRight, CheckCircle,
   XCircle, Star, ChevronRight, Sparkles, Shield, Heart,
@@ -163,6 +164,20 @@ const DietHub = () => {
       </PageHero>
 
       <main id="main-content">
+        <section className="container mx-auto px-6 md:px-10 max-w-3xl pt-8">
+          <AnswerBox
+            question="What is the best diet for arthritis?"
+            reviewed="2026-06-13"
+          >
+            <p>
+              The strongest evidence is for a <strong>Mediterranean-style, anti-inflammatory diet</strong>:
+              plenty of vegetables, fruit, wholegrains, pulses, olive oil, nuts and oily fish
+              (salmon or mackerel) twice a week. UK trials show this can cut inflammatory
+              markers by up to 20% and ease joint pain. Losing 5–10% of body weight on this
+              pattern often delivers the largest pain relief of any non-drug treatment.
+            </p>
+          </AnswerBox>
+        </section>
         {/* ─── Nutrition Stats Banner ─── */}
         <section className="py-12 lg:py-16 bg-tint-green">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl mb-6 flex flex-wrap items-center justify-center gap-2">

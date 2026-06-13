@@ -29,6 +29,7 @@ import ContextualLinks from "@/components/ContextualLinks";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { EXERCISE_ANIMATIONS, type ExerciseAnimationKey } from "@/components/exercises/ExerciseAnimations";
+import AnswerBox from "@/components/seo/AnswerBox";
 import { jointSlugs, jointLabel, conditions as exerciseConditions } from "@/data/exerciseConditionRecommendations";
 
 const exerciseCategories = [
@@ -238,6 +239,21 @@ const ExerciseHub = () => {
       </PageHero>
 
       <main id="main-content">
+        <section className="container mx-auto px-6 md:px-10 max-w-3xl pt-8">
+          <AnswerBox
+            question="What are the best exercises for arthritis?"
+            reviewed="2026-06-13"
+          >
+            <p>
+              UK physiotherapy guidance recommends a mix of <strong>low-impact aerobic
+              activity</strong> (walking, cycling, swimming — 30 minutes most days),
+              <strong> strength training</strong> for the muscles around painful joints
+              (2–3 sessions a week) and <strong>flexibility work</strong> like yoga or tai chi.
+              This combination reduces pain by up to 40% and is the NICE first-line treatment
+              for osteoarthritis — more effective than painkillers.
+            </p>
+          </AnswerBox>
+        </section>
         {/* ─── Key Stats Infographic ─── */}
         <section className="py-12 lg:py-16 bg-tint-blue">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">

@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { HeartPulse, Target, Zap, Shield, Heart } from "lucide-react";
 
 import ClinicalReviewBadge from "@/components/ai/ClinicalReviewBadge";
+import AnswerBox from "@/components/seo/AnswerBox";
 
 const VirtualPhysioSection = lazy(() => import("@/components/VirtualPhysioSection"));
 const JointExerciseSection = lazy(() => import("@/components/JointExerciseSection"));
@@ -123,6 +124,20 @@ export default function SelfHelpTool() {
         </PageHero>
 
         <main id="main-content" className="container mx-auto px-5 md:px-8 py-10 space-y-10 md:space-y-14">
+          <div className="max-w-3xl mx-auto">
+            <AnswerBox
+              question="How can I self-manage arthritis pain at home?"
+              reviewed="2026-06-13"
+            >
+              <p>
+                Self-management combines four things UK physiotherapists know move the needle:
+                gentle daily exercise tailored to the painful joint, pacing activity to avoid
+                boom-and-bust days, weight management to reduce joint load, and short courses
+                of NSAIDs or paracetamol for flares. Use this interactive joint diagram to get
+                personalised exercises, then track progress over weeks — not days.
+              </p>
+            </AnswerBox>
+          </div>
           <div className="flex flex-wrap items-center justify-center gap-2">
             <ClinicalReviewBadge />
           </div>
