@@ -182,6 +182,13 @@ const AboutUs = () => {
               <p className="text-sm text-muted-foreground max-w-lg mx-auto">
                 Our team includes HCPC-registered physiotherapists, First Contact Practitioners, registered dietitians, and digital health specialists.
               </p>
+              <p className="text-sm text-muted-foreground max-w-lg mx-auto mt-2">
+                All our content is reviewed by HCPC-registered clinicians.{" "}
+                <Link to="/editorial-standards" className="text-primary underline hover:no-underline font-medium">
+                  Read our full editorial standards
+                </Link>
+                .
+              </p>
             </motion.div>
 
             <div className="grid sm:grid-cols-2 gap-5">
