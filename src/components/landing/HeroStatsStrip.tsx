@@ -31,7 +31,7 @@ const STATS: Stat[] = [
     prefix: "£",
     suffix: "bn",
     aria: "£10 billion",
-    label: "annual cost of musculoskeletal conditions to the NHS.",
+    label: "annual UK economic cost of musculoskeletal conditions.",
   },
 ];
 

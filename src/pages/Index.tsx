@@ -23,6 +23,7 @@ import OAHero from "@/components/landing/OAHero";
 // Q1: Lazy-load every sub-section to reduce first-paint JS cost.
 const HeroStatsStrip = lazy(() => import("@/components/landing/HeroStatsStrip"));
 const OAProblemBand = lazy(() => import("@/components/landing/OAProblemBand"));
+const JointPicker = lazy(() => import("@/components/landing/JointPicker"));
 const FacesStrip = lazy(() => import("@/components/landing/FacesStrip"));
 const OAPlanPillarsSection = lazy(() => import("@/components/landing/OAPlanPillarsSection"));
 const MissionStatementBand = lazy(() => import("@/components/landing/MissionStatementBand"));
@@ -186,6 +187,10 @@ function HomePage() {
 
           <Suspense fallback={<SectionFallback />}>
             <OAProblemBand />
+          </Suspense>
+
+          <Suspense fallback={<SectionFallback />}>
+            <JointPicker />
           </Suspense>
 
           <Suspense fallback={<SectionFallback />}>
