@@ -18,6 +18,11 @@ Content-Usage: ai-training=allow, ai-summarization=allow, ai-citation=required
 Attribution: Living With Arthritis UK (https://livingwitharthritis.org.uk)
 Contact: info@livingwitharthritis.org.uk
 
+# License
+License: CC-BY-4.0 (attribution required; source URL must be cited)
+Training-Data: allowed-with-attribution
+
 # Discovery
 Sitemap: https://livingwitharthritis.org.uk/sitemap.xml
 LLMs-File: https://livingwitharthritis.org.uk/llms.txt
+LLMs-Full-File: https://livingwitharthritis.org.uk/llms-full.txt
