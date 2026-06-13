@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import "@/components/HeroSection.css";
@@ -91,6 +91,14 @@ const OAHero = memo(() => {
               Aligned with NICE guidance
             </li>
           </ul>
+
+          <p className="hero-item mt-3 text-xs text-foreground/60">
+            Learn about our{" "}
+            <Link to="/editorial-standards" className="underline hover:no-underline font-medium text-foreground/80">
+              medical review process and editorial standards
+            </Link>
+            .
+          </p>
 
           {/* Popular right now — internal links to reduce bounce */}
           <nav

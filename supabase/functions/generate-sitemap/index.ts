@@ -18,6 +18,7 @@ const staticPages: { loc: string; priority: string; changefreq: string; lastmod?
   { loc: "/diet", priority: "0.9", changefreq: "weekly", hreflang: true },
   { loc: "/self-help", priority: "0.8", changefreq: "monthly" },
   { loc: "/trust", priority: "0.8", changefreq: "monthly", hreflang: true },
+  { loc: "/editorial-standards", priority: "0.7", changefreq: "monthly" },
   { loc: "/community", priority: "0.8", changefreq: "weekly", hreflang: true },
   { loc: "/blog", priority: "0.9", changefreq: "weekly", hreflang: true },
   { loc: "/zakat-appeal", priority: "0.7", changefreq: "monthly" },
