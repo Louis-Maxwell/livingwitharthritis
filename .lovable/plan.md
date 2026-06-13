@@ -1,40 +1,35 @@
 ## Goal
-Address the three screenshot items (institutional authority, research-led, "leading arthritis charity") in the cheapest possible way: **copy + reorder only, no new sections, no new images, no design system changes.**
+Minimal-credit landing page polish: one new interactive section + confirm animated stat counters already in place. No backend work, no content rewrites.
 
-## Scope — 2 files, ~15 min of edits
+## What I noticed
+- `HeroStatsStrip.tsx` already uses `<CountUp>` + `<RevealOnScroll>` → counters animate up from zero on scroll. **No code needed.** (But footnote: stat #3 says "NHS" — flagged by neutrality memory. I'll change copy to "annual UK economic cost of musculoskeletal conditions" in the same pass.)
+- No existing clickable body-map / joint-picker on the homepage.
 
-### 1. `src/components/landing/OAHero.tsx` — copy swap
-- **Headline** change: replace "Sore joints, stiff mornings, brighter days ahead." with a research/authority-led line, e.g.:
-  > "The UK's clinically-reviewed guide to living well with arthritis."
-  (italic accent on "clinically-reviewed")
-- **Trust ribbon**: keep HCPC + CSP bullets, add a third — "Aligned with NICE guidance" — so the credibility row reads as institutional, not personal.
-- No layout, image, button, or popular-links change.
+## Scope — 2 files
 
-### 2. `src/pages/Index.tsx` — section reorder (no new code)
-Move research/impact-led bands above the personal/stories bands so the page leads with authority:
+### 1. NEW `src/components/landing/JointPicker.tsx`
+A single interactive band: **"Where does it hurt?"**
+- Horizontal row of 6 clickable joint tiles: Knee, Hip, Hand, Shoulder, Neck, Spine.
+- Each tile = Lucide icon + label, hover-lift with crimson glow (uses existing `.hover-lift-crimson` from `HeroSection.css`).
+- Click → `navigate()` to the matching `/conditions/<slug>` page.
+- Keyboard accessible (`<button>` elements, focus ring).
+- No new images, no SVG body diagram (keeps credits low). Pure icon grid.
+- ~80 lines, design-token colours only.
 
-Current order (relevant slice):
-```
-OAHero → HeroStatsStrip → OAProblemBand → AboutArthritisCards → FacesStrip → OAPlanPillarsSection → ...
-```
-New order:
-```
-OAHero → HeroStatsStrip → OAProblemBand → OAPlanPillarsSection → AboutArthritisCards → FacesStrip → ...
-```
-Effect: stats + problem framing + clinical plan pillars all appear before the human "Faces" strip. Pure JSX reorder, no component edits.
+### 2. `src/pages/Index.tsx` — wire it in
+Lazy-load `JointPicker` and mount it **once**, directly after `OAProblemBand`, before `OAPlanPillarsSection`. One import + one `<Suspense>` block.
 
-## Explicitly NOT doing (to keep credits low)
-- No hero redesign (locked per memory).
-- No new "Research" or "Authority" section/component.
-- No new imagery, palette, or typography work.
-- No "leading arthritis charity" claim in copy — that would violate the neutrality/no-fabricated-claims memory. Authority is conveyed through clinical alignment (HCPC/CSP/NICE) and reorder, not a self-awarded superlative.
-- No backend, no SEO findings sweep, no new routes.
+### 3. `src/components/landing/HeroStatsStrip.tsx` — 1-line copy fix
+Change the third stat label from "annual cost of musculoskeletal conditions to the NHS." to "annual UK economic cost of musculoskeletal conditions." (Neutrality memory: no NHS references.)
 
-## Files touched
-- `src/components/landing/OAHero.tsx`
-- `src/pages/Index.tsx`
+## Explicitly NOT doing
+- No backend/edge-function/data-file changes ("less credits").
+- No new images or hero rework.
+- No copy rewrite of other sections.
+- No SVG anatomy diagram (heavier; icon grid achieves the same intent cheaper).
+- No global content audit.
 
 ## Verification
-Visual check of homepage after edits — confirm new headline renders, NICE bullet shows, plan pillars appear before Faces strip.
+Visual check homepage: stat counters animate on scroll-in; joint picker renders between Problem Band and Plan Pillars; clicking each tile navigates to the correct `/conditions/*` route.
 
 Approve and I'll implement in one pass.
