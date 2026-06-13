@@ -17,6 +17,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
+import AnswerBox from "@/components/seo/AnswerBox";
 
 // Below-the-fold — lazy to reduce initial route chunk + speed up LCP
 const InternalLinks = lazy(() => import("@/components/InternalLinks"));
@@ -73,6 +74,8 @@ export interface ConditionPageData {
   blogCategories?: string[];
   /** Optional override for og:image (absolute or root-relative path) */
   ogImage?: string;
+  /** Optional AEO answer box: shown under H1, lifted by AI engines. */
+  aeoAnswer?: { question: string; answer: ReactNode; reviewed?: string };
 }
 
 const CONDITION_IMAGES: Record<string, string> = {
@@ -230,6 +233,12 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
 
         <main className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
           <MedicalReviewBadge />
+
+          {data.aeoAnswer && (
+            <AnswerBox question={data.aeoAnswer.question} reviewed={data.aeoAnswer.reviewed}>
+              {data.aeoAnswer.answer}
+            </AnswerBox>
+          )}
 
           <Section icon={Activity} title={`What is ${data.name}?`}>
             {data.whatIs}

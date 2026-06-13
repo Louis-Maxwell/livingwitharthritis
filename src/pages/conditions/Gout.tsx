@@ -12,6 +12,18 @@ const data: ConditionPageData = {
   keywords:
     "gout, gout symptoms, gout treatment, gout diet, low purine diet, allopurinol, uric acid, gout flare up, foods to avoid gout, gout in big toe, gout UK, crystal arthritis, joint pain charity, arthritis support",
   alternateNames: ["Crystal arthritis", "Urate arthropathy"],
+  aeoAnswer: {
+    question: "What is the fastest way to stop a gout attack?",
+    answer: (
+      <p>
+        Start an NSAID (ibuprofen or naproxen) or colchicine within the first 12–24 hours,
+        rest the joint, ice it for 20-minute spells and drink 2 litres of water. Most UK GPs
+        also start long-term urate-lowering therapy (allopurinol) after the first attack to
+        stop future flare-ups. Avoid beer, red meat and sugary drinks while you recover.
+      </p>
+    ),
+    reviewed: "2026-06-13",
+  },
   whatIs: (
     <>
       <p>
