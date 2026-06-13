@@ -1,35 +1,31 @@
 ## Goal
-Minimal-credit landing page polish: one new interactive section + confirm animated stat counters already in place. No backend work, no content rewrites.
+Make the `/self-help` mannequin look realistic, with minimum credit spend. Skip the vague "improvise whole frontend/backend" — that contradicts your repeated minimal-credits constraint and there's no concrete issue to fix.
 
-## What I noticed
-- `HeroStatsStrip.tsx` already uses `<CountUp>` + `<RevealOnScroll>` → counters animate up from zero on scroll. **No code needed.** (But footnote: stat #3 says "NHS" — flagged by neutrality memory. I'll change copy to "annual UK economic cost of musculoskeletal conditions" in the same pass.)
-- No existing clickable body-map / joint-picker on the homepage.
+## Scope — 2 files, 1 generated image
 
-## Scope — 2 files
+### 1. Generate ONE realistic anatomical figure
+`src/assets/anatomy-figure.png` — premium-quality, front-facing, neutral grey anatomical reference figure (subtle muscle definition, medical-illustration style, plain white background, no text, no labels). 3:4 aspect.
 
-### 1. NEW `src/components/landing/JointPicker.tsx`
-A single interactive band: **"Where does it hurt?"**
-- Horizontal row of 6 clickable joint tiles: Knee, Hip, Hand, Shoulder, Neck, Spine.
-- Each tile = Lucide icon + label, hover-lift with crimson glow (uses existing `.hover-lift-crimson` from `HeroSection.css`).
-- Click → `navigate()` to the matching `/conditions/<slug>` page.
-- Keyboard accessible (`<button>` elements, focus ring).
-- No new images, no SVG body diagram (keeps credits low). Pure icon grid.
-- ~80 lines, design-token colours only.
+This is the only image generated. No video, no extra angles.
 
-### 2. `src/pages/Index.tsx` — wire it in
-Lazy-load `JointPicker` and mount it **once**, directly after `OAProblemBand`, before `OAPlanPillarsSection`. One import + one `<Suspense>` block.
+### 2. Rewrite mannequin visuals in `src/components/JointExerciseSection.tsx`
+- Replace the hand-drawn SVG body shapes (head ellipse, torso rect, limb paths, etc.) with the generated PNG as a background `<img>` inside a `relative` container.
+- Keep the entire existing `<svg>` overlay coordinate system, but strip the body-shape `<ellipse>`/`<rect>`/`<path>` primitives — keep ONLY the clickable joint circles + their pulse/active states + side-paired logic.
+- The joint markers (circles with crimson glow on hover/active) sit on top of the realistic figure, aligned over each anatomical joint.
+- All existing data, state, selection, keyboard handlers, and exercise panel logic untouched.
+- Re-tune the ~14 joint coordinates so circles land correctly on the new image (neck, shoulders L/R, elbows L/R, wrists L/R, spine, hips L/R, knees L/R, ankles L/R).
 
-### 3. `src/components/landing/HeroStatsStrip.tsx` — 1-line copy fix
-Change the third stat label from "annual cost of musculoskeletal conditions to the NHS." to "annual UK economic cost of musculoskeletal conditions." (Neutrality memory: no NHS references.)
-
-## Explicitly NOT doing
-- No backend/edge-function/data-file changes ("less credits").
-- No new images or hero rework.
-- No copy rewrite of other sections.
-- No SVG anatomy diagram (heavier; icon grid achieves the same intent cheaper).
-- No global content audit.
+### 3. Out of scope (skipped to save credits)
+- No backend/edge-function work — none requested specifically, no concrete bug.
+- No data-model changes.
+- No other page edits.
+- No second image (back view, female figure, etc.) unless you ask later.
 
 ## Verification
-Visual check homepage: stat counters animate on scroll-in; joint picker renders between Problem Band and Plan Pillars; clicking each tile navigates to the correct `/conditions/*` route.
+Visit `/self-help` after build. Confirm:
+- Realistic anatomical figure renders crisply.
+- All 14 joint markers visible, aligned over correct anatomy.
+- Hover/click states still glow crimson; selecting a joint still loads its exercise plan in the right-hand panel.
+- Mobile layout still works (figure scales inside its container).
 
-Approve and I'll implement in one pass.
+Approve to proceed.

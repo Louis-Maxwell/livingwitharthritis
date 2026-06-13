@@ -2,6 +2,7 @@ import { memo, useState, useCallback, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Dumbbell, Clock, RotateCcw, Activity } from "lucide-react";
 import { EXERCISE_ANIMATIONS, type ExerciseAnimationKey } from "@/components/exercises/ExerciseAnimations";
+import anatomyFigure from "@/assets/anatomy-figure.jpg";
 
 interface Exercise {
   name: string;
@@ -105,57 +106,34 @@ const jointDatabase: Record<string, JointData> = {
     ],
   },
 };
-/* ── Anatomical humanoid SVG with clickable joint regions ── */
+/* ── Realistic anatomy figure with clickable joint hotspots ── */
 
-interface JointPart {
+interface JointHotspot {
   id: string;
   label: string;
-  /** SVG path or shape props for the clickable joint region */
-  shape: "circle" | "ellipse" | "path";
-  /** circle/ellipse coords */
-  cx?: number;
-  cy?: number;
-  r?: number;
-  rx?: number;
-  ry?: number;
-  /** path d attribute */
-  d?: string;
-  /** position for the floating label */
-  labelX: number;
-  labelY: number;
-  labelAnchor?: "start" | "middle" | "end";
+  /** Percent positions on the figure image (0–100) */
+  top: number;
+  left?: number;       // single-side joints (neck, spine, hips midpoint)
+  leftSide?: number;   // left-of-figure x for paired joints
+  rightSide?: number;  // right-of-figure x for paired joints
 }
 
-const HUMANOID_JOINTS: JointPart[] = [
-  // Head / neck
-  { id: "neck", label: "Neck", shape: "ellipse", cx: 100, cy: 56, rx: 12, ry: 7, labelX: 142, labelY: 56, labelAnchor: "start" },
-  // Shoulders
-  { id: "shoulder", label: "Shoulders", shape: "circle", cx: 70, cy: 80, r: 10, labelX: 22, labelY: 80, labelAnchor: "end" },
-  // Elbows
-  { id: "elbow", label: "Elbows", shape: "circle", cx: 52, cy: 130, r: 8, labelX: 22, labelY: 130, labelAnchor: "end" },
-  // Wrists & Hands
-  { id: "wrist", label: "Wrists & Hands", shape: "circle", cx: 40, cy: 180, r: 8, labelX: 22, labelY: 180, labelAnchor: "end" },
-  // Spine (torso)
-  { id: "spine", label: "Spine & Back", shape: "path", d: "M 92 95 L 108 95 L 110 165 L 90 165 Z", labelX: 178, labelY: 130, labelAnchor: "start" },
-  // Hips
-  { id: "hip", label: "Hips", shape: "ellipse", cx: 100, cy: 175, rx: 22, ry: 10, labelX: 178, labelY: 175, labelAnchor: "start" },
-  // Knees
-  { id: "knee", label: "Knees", shape: "circle", cx: 88, cy: 250, r: 9, labelX: 22, labelY: 250, labelAnchor: "end" },
-  // Ankles & Feet
-  { id: "ankle", label: "Ankles & Feet", shape: "circle", cx: 86, cy: 325, r: 8, labelX: 22, labelY: 325, labelAnchor: "end" },
+const HOTSPOTS: JointHotspot[] = [
+  { id: "neck",     label: "Neck",          top: 17,  left: 50 },
+  { id: "shoulder", label: "Shoulders",     top: 24,  leftSide: 36, rightSide: 64 },
+  { id: "elbow",    label: "Elbows",        top: 36,  leftSide: 28, rightSide: 72 },
+  { id: "wrist",    label: "Wrists & Hands",top: 48,  leftSide: 23, rightSide: 77 },
+  { id: "spine",    label: "Spine & Back",  top: 38,  left: 50 },
+  { id: "hip",      label: "Hips",          top: 58,  left: 50 },
+  { id: "knee",     label: "Knees",         top: 74,  leftSide: 44, rightSide: 56 },
+  { id: "ankle",    label: "Ankles & Feet", top: 90,  leftSide: 43, rightSide: 57 },
 ];
 
-/** Mirror coords for the right side of the body where applicable */
-const mirroredX = (x: number) => 200 - x;
-
-/** Joints that have left/right pairs */
 const PAIRED = new Set(["shoulder", "elbow", "wrist", "knee", "ankle"]);
 
-/** Build the side-aware selection id used by both the SVG and the panel */
 const buildSelectionId = (jointId: string, side: "left" | "right" | null) =>
   side && PAIRED.has(jointId) ? `${jointId}-${side}` : jointId;
 
-/** Parse a selectionId back into its joint id + side */
 const parseSelectionId = (id: string | null): { jointId: string | null; side: "left" | "right" | null } => {
   if (!id) return { jointId: null, side: null };
   if (id.endsWith("-left")) return { jointId: id.slice(0, -5), side: "left" };
@@ -163,244 +141,111 @@ const parseSelectionId = (id: string | null): { jointId: string | null; side: "l
   return { jointId: id, side: null };
 };
 
+const JointMarker = ({
+  selectionId,
+  label,
+  top,
+  left,
+  active,
+  onClick,
+}: {
+  selectionId: string;
+  label: string;
+  top: number;
+  left: number;
+  active: boolean;
+  onClick: (id: string) => void;
+}) => (
+  <button
+    type="button"
+    onClick={() => onClick(selectionId)}
+    aria-label={`Exercise plan for ${label}`}
+    aria-pressed={active}
+    className="absolute -translate-x-1/2 -translate-y-1/2 group focus:outline-none focus-visible:outline-none"
+    style={{ top: `${top}%`, left: `${left}%` }}
+  >
+    {/* Pulsing outer ring when active */}
+    {active && (
+      <span
+        aria-hidden="true"
+        className="absolute inset-0 m-auto w-7 h-7 rounded-full bg-primary/30 animate-ping"
+      />
+    )}
+    {/* Marker dot */}
+    <span
+      aria-hidden="true"
+      className={`relative block w-5 h-5 rounded-full ring-2 ring-background transition-all duration-200 ${
+        active
+          ? "bg-primary scale-125 shadow-[0_0_18px_hsl(var(--primary)/0.85)]"
+          : "bg-primary/70 group-hover:bg-primary group-hover:scale-110 group-hover:shadow-[0_0_14px_hsl(var(--primary)/0.6)] group-focus-visible:ring-primary"
+      }`}
+    />
+  </button>
+);
+
 const Humanoid = memo(({ activeSelectionId, onJointClick }: {
   activeSelectionId: string | null;
   onJointClick: (selectionId: string) => void;
 }) => {
-  const [hovered, setHovered] = useState<string | null>(null);
-  const [focused, setFocused] = useState<string | null>(null);
-
-  const renderJointShape = (p: JointPart, side: "left" | "right" | null) => {
-    const selectionId = buildSelectionId(p.id, side);
-    const isActive = activeSelectionId === selectionId;
-    const isHover = hovered === selectionId;
-    const isFocused = focused === selectionId;
-    const fill = isActive
-      ? "url(#jointActiveGrad)"
-      : isHover || isFocused
-        ? "hsl(180 70% 50% / 0.85)"
-        : "hsl(180 60% 50% / 0.55)";
-    const stroke = isActive || isFocused ? "hsl(0 0% 100%)" : "hsl(180 70% 35% / 0.6)";
-    const strokeWidth = isActive || isFocused ? 2 : 1.2;
-    const sideLabel = side ? `${side === "left" ? "Left" : "Right"} ${p.label}` : p.label;
-
-    const commonProps = {
-      fill,
-      stroke,
-      strokeWidth,
-      style: {
-        cursor: "pointer",
-        filter: isActive
-          ? "drop-shadow(0 0 8px hsl(180 70% 50% / 0.7))"
-          : isFocused
-            ? "drop-shadow(0 0 6px hsl(180 90% 60% / 0.95))"
-            : isHover
-              ? "drop-shadow(0 0 4px hsl(180 70% 50% / 0.5))"
-              : "none",
-        transition: "all 0.25s ease",
-        outline: "none",
-      } as React.CSSProperties,
-      onClick: () => onJointClick(selectionId),
-      onMouseEnter: () => setHovered(selectionId),
-      onMouseLeave: () => setHovered(null),
-      onFocus: () => setFocused(selectionId),
-      onBlur: () => setFocused((cur) => (cur === selectionId ? null : cur)),
-      role: "button",
-      tabIndex: 0,
-      "aria-label": `Exercise plan for ${sideLabel}`,
-      "aria-pressed": isActive,
-      className: "focus:outline-none focus-visible:outline-none",
-      onKeyDown: (e: React.KeyboardEvent) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          onJointClick(selectionId);
-        }
-      },
-    };
-
-    const mirror = side === "right";
-    if (p.shape === "circle") {
-      return <circle cx={mirror ? mirroredX(p.cx!) : p.cx} cy={p.cy} r={p.r} {...commonProps} />;
-    }
-    if (p.shape === "ellipse") {
-      return <ellipse cx={mirror ? mirroredX(p.cx!) : p.cx} cy={p.cy} rx={p.rx} ry={p.ry} {...commonProps} />;
-    }
-    return <path d={p.d} {...commonProps} />;
-  };
-
-  // Joints that have left/right pairs
-  const paired = new Set(["shoulder", "elbow", "wrist", "knee", "ankle"]);
-
   return (
-    <svg
-      viewBox="-60 -8 320 376"
-      className="w-full h-auto select-none"
-      style={{ overflow: "visible" }}
-      preserveAspectRatio="xMidYMid meet"
-      role="img"
-      aria-label="Interactive human body — click a joint to see its exercise plan"
-    >
+    <div className="relative w-full max-w-[460px] mx-auto aspect-square">
+      <img
+        src={anatomyFigure}
+        alt="Anatomical reference figure — select a joint to view its exercise plan"
+        width={1024}
+        height={1024}
+        loading="lazy"
+        decoding="async"
+        draggable={false}
+        className="absolute inset-0 w-full h-full object-contain select-none"
+      />
 
-      <defs>
-        <linearGradient id="bodyGrad" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%" stopColor="hsl(220 30% 96%)" />
-          <stop offset="100%" stopColor="hsl(220 25% 88%)" />
-        </linearGradient>
-        <linearGradient id="bodyGradDark" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%" stopColor="hsl(220 15% 22%)" />
-          <stop offset="100%" stopColor="hsl(220 15% 16%)" />
-        </linearGradient>
-        <linearGradient id="jointActiveGrad" x1="0" x2="1" y1="0" y2="1">
-          <stop offset="0%" stopColor="hsl(180 75% 50%)" />
-          <stop offset="100%" stopColor="hsl(200 80% 55%)" />
-        </linearGradient>
-        <radialGradient id="bodyShade" cx="50%" cy="40%" r="60%">
-          <stop offset="0%" stopColor="hsl(0 0% 100% / 0.4)" />
-          <stop offset="100%" stopColor="hsl(0 0% 100% / 0)" />
-        </radialGradient>
-      </defs>
-
-      {/* === HUMANOID BODY === */}
-      <g className="text-foreground">
-        {/* Head */}
-        <ellipse cx="100" cy="30" rx="18" ry="22" fill="url(#bodyGrad)" stroke="hsl(220 15% 75%)" strokeWidth="1" className="dark:fill-[url(#bodyGradDark)] dark:stroke-[hsl(220_10%_35%)]" />
-        {/* Neck stem */}
-        <rect x="93" y="48" width="14" height="12" rx="3" fill="url(#bodyGrad)" stroke="hsl(220 15% 75%)" strokeWidth="1" className="dark:fill-[url(#bodyGradDark)] dark:stroke-[hsl(220_10%_35%)]" />
-        {/* Torso */}
-        <path
-          d="M 70 70 Q 70 65 78 63 L 122 63 Q 130 65 130 70 L 132 165 Q 132 175 125 178 L 75 178 Q 68 175 68 165 Z"
-          fill="url(#bodyGrad)"
-          stroke="hsl(220 15% 75%)"
-          strokeWidth="1.2"
-          className="dark:fill-[url(#bodyGradDark)] dark:stroke-[hsl(220_10%_35%)]"
-        />
-        {/* Pelvis */}
-        <path
-          d="M 75 175 L 125 175 Q 130 195 122 205 L 110 205 L 105 195 L 95 195 L 90 205 L 78 205 Q 70 195 75 175 Z"
-          fill="url(#bodyGrad)"
-          stroke="hsl(220 15% 75%)"
-          strokeWidth="1.2"
-          className="dark:fill-[url(#bodyGradDark)] dark:stroke-[hsl(220_10%_35%)]"
-        />
-        {/* Left arm (upper) */}
-        <path d="M 65 78 Q 56 80 54 90 L 48 128" stroke="hsl(220 15% 75%)" strokeWidth="14" strokeLinecap="round" fill="none" className="dark:stroke-[hsl(220_15%_30%)]" />
-        <path d="M 65 78 Q 56 80 54 90 L 48 128" stroke="url(#bodyGrad)" strokeWidth="11" strokeLinecap="round" fill="none" className="dark:stroke-[url(#bodyGradDark)]" />
-        {/* Left forearm */}
-        <path d="M 50 132 L 42 178" stroke="hsl(220 15% 75%)" strokeWidth="12" strokeLinecap="round" fill="none" className="dark:stroke-[hsl(220_15%_30%)]" />
-        <path d="M 50 132 L 42 178" stroke="url(#bodyGrad)" strokeWidth="9" strokeLinecap="round" fill="none" className="dark:stroke-[url(#bodyGradDark)]" />
-        {/* Left hand */}
-        <ellipse cx="40" cy="190" rx="7" ry="11" fill="url(#bodyGrad)" stroke="hsl(220 15% 75%)" strokeWidth="1" className="dark:fill-[url(#bodyGradDark)] dark:stroke-[hsl(220_10%_35%)]" />
-
-        {/* Right arm (upper) */}
-        <path d="M 135 78 Q 144 80 146 90 L 152 128" stroke="hsl(220 15% 75%)" strokeWidth="14" strokeLinecap="round" fill="none" className="dark:stroke-[hsl(220_15%_30%)]" />
-        <path d="M 135 78 Q 144 80 146 90 L 152 128" stroke="url(#bodyGrad)" strokeWidth="11" strokeLinecap="round" fill="none" className="dark:stroke-[url(#bodyGradDark)]" />
-        {/* Right forearm */}
-        <path d="M 150 132 L 158 178" stroke="hsl(220 15% 75%)" strokeWidth="12" strokeLinecap="round" fill="none" className="dark:stroke-[hsl(220_15%_30%)]" />
-        <path d="M 150 132 L 158 178" stroke="url(#bodyGrad)" strokeWidth="9" strokeLinecap="round" fill="none" className="dark:stroke-[url(#bodyGradDark)]" />
-        {/* Right hand */}
-        <ellipse cx="160" cy="190" rx="7" ry="11" fill="url(#bodyGrad)" stroke="hsl(220 15% 75%)" strokeWidth="1" className="dark:fill-[url(#bodyGradDark)] dark:stroke-[hsl(220_10%_35%)]" />
-
-        {/* Left thigh */}
-        <path d="M 88 200 L 84 250" stroke="hsl(220 15% 75%)" strokeWidth="20" strokeLinecap="round" fill="none" className="dark:stroke-[hsl(220_15%_30%)]" />
-        <path d="M 88 200 L 84 250" stroke="url(#bodyGrad)" strokeWidth="17" strokeLinecap="round" fill="none" className="dark:stroke-[url(#bodyGradDark)]" />
-        {/* Left shin */}
-        <path d="M 86 254 L 84 320" stroke="hsl(220 15% 75%)" strokeWidth="16" strokeLinecap="round" fill="none" className="dark:stroke-[hsl(220_15%_30%)]" />
-        <path d="M 86 254 L 84 320" stroke="url(#bodyGrad)" strokeWidth="13" strokeLinecap="round" fill="none" className="dark:stroke-[url(#bodyGradDark)]" />
-        {/* Left foot */}
-        <ellipse cx="78" cy="338" rx="14" ry="7" fill="url(#bodyGrad)" stroke="hsl(220 15% 75%)" strokeWidth="1" className="dark:fill-[url(#bodyGradDark)] dark:stroke-[hsl(220_10%_35%)]" />
-
-        {/* Right thigh */}
-        <path d="M 112 200 L 116 250" stroke="hsl(220 15% 75%)" strokeWidth="20" strokeLinecap="round" fill="none" className="dark:stroke-[hsl(220_15%_30%)]" />
-        <path d="M 112 200 L 116 250" stroke="url(#bodyGrad)" strokeWidth="17" strokeLinecap="round" fill="none" className="dark:stroke-[url(#bodyGradDark)]" />
-        {/* Right shin */}
-        <path d="M 114 254 L 116 320" stroke="hsl(220 15% 75%)" strokeWidth="16" strokeLinecap="round" fill="none" className="dark:stroke-[hsl(220_15%_30%)]" />
-        <path d="M 114 254 L 116 320" stroke="url(#bodyGrad)" strokeWidth="13" strokeLinecap="round" fill="none" className="dark:stroke-[url(#bodyGradDark)]" />
-        {/* Right foot */}
-        <ellipse cx="122" cy="338" rx="14" ry="7" fill="url(#bodyGrad)" stroke="hsl(220 15% 75%)" strokeWidth="1" className="dark:fill-[url(#bodyGradDark)] dark:stroke-[hsl(220_10%_35%)]" />
-
-        {/* Subtle highlight overlay */}
-        <ellipse cx="100" cy="120" rx="60" ry="120" fill="url(#bodyShade)" pointerEvents="none" />
-      </g>
-
-      {/* === CLICKABLE JOINTS === */}
-      <g>
-        {HUMANOID_JOINTS.map((p) => {
-          const isPaired = PAIRED.has(p.id);
-          const leftId = buildSelectionId(p.id, isPaired ? "left" : null);
-          const rightId = buildSelectionId(p.id, "right");
-          const leftActive = activeSelectionId === leftId;
-          const rightActive = isPaired && activeSelectionId === rightId;
-          const leftFocused = focused === leftId;
-          const rightFocused = isPaired && focused === rightId;
-          const focusRing = (cx: number, cy: number) =>
-            p.shape === "circle" ? (
-              <circle cx={cx} cy={cy} r={p.r! + 5} fill="none" stroke="hsl(48 100% 60%)" strokeWidth="2" strokeDasharray="3 2" pointerEvents="none" />
-            ) : p.shape === "ellipse" ? (
-              <ellipse cx={cx} cy={cy} rx={(p.rx ?? 0) + 4} ry={(p.ry ?? 0) + 4} fill="none" stroke="hsl(48 100% 60%)" strokeWidth="2" strokeDasharray="3 2" pointerEvents="none" />
-            ) : null;
+      {/* Hotspot overlay */}
+      <div className="absolute inset-0">
+        {HOTSPOTS.map((h) => {
+          const isPaired = PAIRED.has(h.id);
+          if (isPaired && h.leftSide != null && h.rightSide != null) {
+            const leftId = buildSelectionId(h.id, "left");
+            const rightId = buildSelectionId(h.id, "right");
+            return (
+              <div key={h.id}>
+                <JointMarker
+                  selectionId={leftId}
+                  label={`Left ${h.label}`}
+                  top={h.top}
+                  left={h.leftSide}
+                  active={activeSelectionId === leftId}
+                  onClick={onJointClick}
+                />
+                <JointMarker
+                  selectionId={rightId}
+                  label={`Right ${h.label}`}
+                  top={h.top}
+                  left={h.rightSide}
+                  active={activeSelectionId === rightId}
+                  onClick={onJointClick}
+                />
+              </div>
+            );
+          }
           return (
-            <g key={p.id}>
-              {renderJointShape(p, isPaired ? "left" : null)}
-              {isPaired && renderJointShape(p, "right")}
-              {/* Focus ring */}
-              {leftFocused && p.cx != null && focusRing(p.cx, p.cy!)}
-              {rightFocused && p.cx != null && focusRing(mirroredX(p.cx), p.cy!)}
-              {/* Pulse ring for active side(s) */}
-              {leftActive && p.shape === "circle" && (
-                <circle cx={p.cx} cy={p.cy} r={p.r! + 4} fill="none" stroke="hsl(180 70% 50% / 0.6)" strokeWidth="1.5" pointerEvents="none">
-                  <animate attributeName="r" from={p.r} to={p.r! + 10} dur="1.5s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" from="0.8" to="0" dur="1.5s" repeatCount="indefinite" />
-                </circle>
-              )}
-              {rightActive && p.shape === "circle" && (
-                <circle cx={mirroredX(p.cx!)} cy={p.cy} r={p.r! + 4} fill="none" stroke="hsl(180 70% 50% / 0.6)" strokeWidth="1.5" pointerEvents="none">
-                  <animate attributeName="r" from={p.r} to={p.r! + 10} dur="1.5s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" from="0.8" to="0" dur="1.5s" repeatCount="indefinite" />
-                </circle>
-              )}
-            </g>
+            <JointMarker
+              key={h.id}
+              selectionId={h.id}
+              label={h.label}
+              top={h.top}
+              left={h.left ?? 50}
+              active={activeSelectionId === h.id}
+              onClick={onJointClick}
+            />
           );
         })}
-      </g>
-
-      {/* === LABELS WITH CONNECTOR LINES === */}
-      <g pointerEvents="none">
-        {HUMANOID_JOINTS.map((p) => {
-          const { jointId: activeJointId } = parseSelectionId(activeSelectionId);
-          const isActive = activeJointId === p.id;
-          const isHover = hovered?.startsWith(p.id) ?? false;
-          const startX = p.shape === "circle" ? p.cx! : p.shape === "ellipse" ? p.cx! : 100;
-          const startY = p.shape === "circle" ? p.cy! : p.shape === "ellipse" ? p.cy! : p.labelY;
-          return (
-            <g key={`label-${p.id}`} opacity={isActive || isHover ? 1 : 0.7}>
-              <line
-                x1={startX}
-                y1={startY}
-                x2={p.labelX}
-                y2={p.labelY}
-                stroke={isActive ? "hsl(180 70% 45%)" : "hsl(220 10% 60%)"}
-                strokeWidth="0.6"
-                strokeDasharray="2 2"
-              />
-              <text
-                x={p.labelX}
-                y={p.labelY + 3}
-                fontSize="9"
-                fontWeight={isActive ? 700 : 600}
-                textAnchor={p.labelAnchor || "middle"}
-                fill={isActive ? "hsl(180 70% 35%)" : "hsl(var(--foreground))"}
-                className="font-display"
-              >
-                {p.label}
-              </text>
-            </g>
-          );
-        })}
-      </g>
-    </svg>
+      </div>
+    </div>
   );
 });
 Humanoid.displayName = "Humanoid";
+
 
 
 
