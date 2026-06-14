@@ -11,6 +11,7 @@ import {
   Bone,
   Activity,
 } from "lucide-react";
+import { trackJointPicker } from "@/lib/ga-events";
 import "@/components/HeroSection.css";
 
 type Joint = {
@@ -61,7 +62,10 @@ const JointPicker = () => {
             <li key={label}>
               <button
                 type="button"
-                onClick={() => navigate(to)}
+                onClick={() => {
+                  trackJointPicker(label, to);
+                  navigate(to);
+                }}
                 aria-label={`View guidance for ${label.toLowerCase()} pain`}
                 className="hover-lift-crimson group w-full aspect-square flex flex-col items-center justify-center gap-3 rounded-2xl bg-secondary/40 hover:bg-secondary/70 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
