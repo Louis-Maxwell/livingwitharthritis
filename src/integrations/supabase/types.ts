@@ -1646,24 +1646,6 @@ export type Database = {
         }
         Relationships: []
       }
-      site_visitor_count: {
-        Row: {
-          id: number
-          total_count: number
-          updated_at: string
-        }
-        Insert: {
-          id?: number
-          total_count?: number
-          updated_at?: string
-        }
-        Update: {
-          id?: number
-          total_count?: number
-          updated_at?: string
-        }
-        Relationships: []
-      }
       sitemap_cache: {
         Row: {
           id: number
@@ -1942,7 +1924,6 @@ export type Database = {
         Returns: boolean
       }
       increment_blog_view: { Args: { p_slug: string }; Returns: number }
-      increment_visitor_count: { Args: never; Returns: number }
       is_admin: { Args: never; Returns: boolean }
       match_content: {
         Args: {
