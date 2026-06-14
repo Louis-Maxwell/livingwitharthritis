@@ -41,8 +41,8 @@ const NewsletterHeroBanner = memo(() => {
         .insert({
           email,
           source: "hero_banner",
-          preferences: selected.length ? selected : null,
-        } as never);
+          categories: selected,
+        });
       if (error && error.code !== "23505") throw error;
       trackEmailSignup(selected.join(",") || "general", "hero_banner");
       setDone(true);

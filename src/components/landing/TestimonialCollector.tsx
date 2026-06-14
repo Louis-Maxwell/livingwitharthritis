@@ -23,12 +23,12 @@ const TestimonialCollector = memo(() => {
     if (busy) return;
     setBusy(true);
     try {
-      const { error } = await supabase.from("contact_submissions").insert({
+      const { error } = await supabase.from("contact_inquiries").insert({
         name,
         email: "testimonial@livingwitharthritis.org.uk",
         subject: `Testimonial — ${condition || "unspecified"}`,
         message: `${story}\n\nConsent to publish: ${consent ? "yes" : "no"}`,
-      } as never);
+      });
       if (error) throw error;
       trackTestimonialSubmit(condition);
       setDone(true);
