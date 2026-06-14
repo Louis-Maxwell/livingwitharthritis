@@ -186,8 +186,17 @@ function HomePage() {
           <OAHero />
 
           <Suspense fallback={<SectionFallback />}>
+            <NewsletterHeroBanner />
+          </Suspense>
+
+          <Suspense fallback={<SectionFallback />}>
+            <SearchBar />
+          </Suspense>
+
+          <Suspense fallback={<SectionFallback />}>
             <HeroStatsStrip />
           </Suspense>
+
 
           <Suspense fallback={<SectionFallback />}>
             <OAProblemBand />
@@ -245,6 +254,10 @@ function HomePage() {
           </Suspense>
 
           <Suspense fallback={<SectionFallback />}>
+            <TestimonialCollector />
+          </Suspense>
+
+          <Suspense fallback={<SectionFallback />}>
             <FAQSection />
           </Suspense>
 
@@ -252,6 +265,7 @@ function HomePage() {
             <NewsletterSection />
           </Suspense>
         </main>
+
 
         <Suspense fallback={null}>
           <NextReadStrip currentPath="/" />
