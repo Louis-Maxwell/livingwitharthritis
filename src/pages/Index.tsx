@@ -244,6 +244,10 @@ function HomePage() {
             <QuoteSection />
           </Suspense>
 
+          <Suspense fallback={<SectionFallback />}>
+            <ImpactFactBand />
+          </Suspense>
+
           <DeferredMount>
             <Suspense fallback={<SectionFallback />}>
               <DonationImpactSection />
