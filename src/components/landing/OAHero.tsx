@@ -100,6 +100,17 @@ const OAHero = memo(() => {
             .
           </p>
 
+          {/* Impact stat — real GA4 lifetime visitor count */}
+          <div className="hero-item mt-6 flex items-baseline gap-3">
+            <span className="font-display text-3xl sm:text-4xl font-bold text-foreground tracking-tight">
+              2.3M+
+            </span>
+            <span className="text-sm text-foreground/70 font-medium">
+              website visitors trust our guides
+            </span>
+          </div>
+
+
           {/* Popular right now — internal links to reduce bounce */}
           <nav
             aria-label="Popular guides"

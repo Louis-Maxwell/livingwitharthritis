@@ -46,6 +46,10 @@ const NextReadStrip = lazy(() => import("@/components/NextReadStrip"));
 const BackToTopButton = lazy(() => import("@/components/landing/BackToTopButton"));
 const CookieBanner = lazy(() => import("@/components/landing/CookieBanner"));
 const StickyDonateBar = lazy(() => import("@/components/landing/StickyDonateBar"));
+const MobileBottomCTA = lazy(() => import("@/components/landing/MobileBottomCTA"));
+const NewsletterHeroBanner = lazy(() => import("@/components/landing/NewsletterHeroBanner"));
+const SearchBar = lazy(() => import("@/components/landing/SearchBar"));
+const TestimonialCollector = lazy(() => import("@/components/landing/TestimonialCollector"));
 
 const SITE_URL = "https://livingwitharthritis.org.uk";
 
