@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
 import { Stethoscope, MapPin, Dumbbell } from "lucide-react";
+import { trackStartHereCard } from "@/lib/ga-events";
 
 /**
  * Beginner journey entry-point band placed under the hero.
@@ -53,12 +54,13 @@ const StartHereBand = memo(() => {
             );
             const cls =
               "block min-h-[88px] p-5 rounded-2xl bg-card border border-border hover:border-primary/40 hover:shadow-lg transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary";
+            const onClick = () => trackStartHereCard(label, href);
             return href.startsWith("#") ? (
-              <a key={label} href={href} className={cls}>
+              <a key={label} href={href} className={cls} onClick={onClick}>
                 {inner}
               </a>
             ) : (
-              <Link key={label} to={href} className={cls}>
+              <Link key={label} to={href} className={cls} onClick={onClick}>
                 {inner}
               </Link>
             );

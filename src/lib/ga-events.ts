@@ -33,3 +33,18 @@ export function trackMobileBottomCTA(ctaType: "donate" | "start_reading") {
 export function trackTestimonialSubmit(condition?: string) {
   trackEvent("testimonial_submit", { condition: condition || "unspecified" });
 }
+
+export function trackStartHereCard(label: string, href: string) {
+  trackEvent("start_here_click", {
+    card_label: label,
+    destination_path: href,
+    is_donation: false,
+  });
+}
+
+export function trackJointPicker(joint: string, path: string) {
+  trackEvent("joint_picker_click", {
+    joint_label: joint,
+    destination_path: path,
+  });
+}
