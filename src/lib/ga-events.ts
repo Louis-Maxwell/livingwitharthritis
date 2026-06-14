@@ -1,0 +1,35 @@
+/**
+ * GA4 event helpers for conversion tracking.
+ * Safe no-ops when gtag isn't available (pre-consent, tests).
+ */
+import { trackEvent } from "@/lib/analytics";
+
+export function trackEmailSignup(preference?: string, source = "hero_banner") {
+  trackEvent("email_signup", {
+    preference: preference || "general",
+    source,
+  });
+}
+
+export function trackDonationClick(source = "sticky_bar") {
+  trackEvent("donation_click", {
+    amount_goal: 50000,
+    current_progress: 5000,
+    source,
+  });
+}
+
+export function trackSearch(query: string, results: number) {
+  trackEvent("search", {
+    search_term: query,
+    results_found: results,
+  });
+}
+
+export function trackMobileBottomCTA(ctaType: "donate" | "start_reading") {
+  trackEvent("mobile_cta_click", { cta_type: ctaType });
+}
+
+export function trackTestimonialSubmit(condition?: string) {
+  trackEvent("testimonial_submit", { condition: condition || "unspecified" });
+}
