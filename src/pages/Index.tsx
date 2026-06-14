@@ -52,6 +52,8 @@ const SearchBar = lazy(() => import("@/components/landing/SearchBar"));
 const TestimonialCollector = lazy(() => import("@/components/landing/TestimonialCollector"));
 const StartHereBand = lazy(() => import("@/components/landing/StartHereBand"));
 const ImpactFactBand = lazy(() => import("@/components/landing/ImpactFactBand"));
+const ImpactProgressBand = lazy(() => import("@/components/landing/ImpactProgressBand"));
+const FinalDonateBand = lazy(() => import("@/components/landing/FinalDonateBand"));
 
 const SITE_URL = "https://livingwitharthritis.org.uk";
 
@@ -185,71 +187,93 @@ function HomePage() {
         <ScrollProgress />
 
         <main id="main-content" role="main" tabIndex={-1}>
+          {/* 01 — Editorial hero */}
           <OAHero />
 
+          {/* 02 — Beginner journey chooser */}
           <Suspense fallback={<SectionFallback />}>
             <StartHereBand />
           </Suspense>
 
-          <Suspense fallback={<SectionFallback />}>
-            <SearchBar />
-          </Suspense>
-
-          <Suspense fallback={<SectionFallback />}>
-            <NewsletterHeroBanner />
-          </Suspense>
-
-          <Suspense fallback={<SectionFallback />}>
-            <HeroStatsStrip />
-          </Suspense>
-
-
-          <Suspense fallback={<SectionFallback />}>
-            <OAProblemBand />
-          </Suspense>
-
+          {/* 03 — Where does it hurt? */}
           <Suspense fallback={<SectionFallback />}>
             <JointPicker />
           </Suspense>
 
+          {/* 04 — Search the library */}
           <Suspense fallback={<SectionFallback />}>
-            <OAPlanPillarsSection />
+            <SearchBar />
           </Suspense>
 
+          {/* 05 — Why we exist */}
           <Suspense fallback={<SectionFallback />}>
-            <AboutArthritisCards />
+            <OAProblemBand />
           </Suspense>
 
-          <Suspense fallback={<SectionFallback />}>
-            <FacesStrip />
-          </Suspense>
-
-          <Suspense fallback={<SectionFallback />}>
-            <ResourcesForYouSection />
-          </Suspense>
-
-          <Suspense fallback={<SectionFallback />}>
-            <ConditionPillBand />
-          </Suspense>
-
-          <Suspense fallback={<SectionFallback />}>
-            <InspiredHeroBand />
-          </Suspense>
-
+          {/* 06 — Mission pull quote */}
           <Suspense fallback={<SectionFallback />}>
             <MissionStatementBand />
           </Suspense>
 
+          {/* 07 — Four pillars (Move/Eat/Rest/Connect) */}
+          <Suspense fallback={<SectionFallback />}>
+            <OAPlanPillarsSection />
+          </Suspense>
+
+          {/* 08 — National-scale stats */}
+          <Suspense fallback={<SectionFallback />}>
+            <HeroStatsStrip />
+          </Suspense>
+
+          {/* 09 — Faces / real stories */}
+          <Suspense fallback={<SectionFallback />}>
+            <FacesStrip />
+          </Suspense>
+
+          {/* 10 — Featured guides */}
+          <Suspense fallback={<SectionFallback />}>
+            <BlogPreview />
+          </Suspense>
+
+          {/* 11 — About arthritis (condition cards) */}
+          <Suspense fallback={<SectionFallback />}>
+            <AboutArthritisCards />
+          </Suspense>
+
+          {/* 12 — Resources hub */}
+          <Suspense fallback={<SectionFallback />}>
+            <ResourcesForYouSection />
+          </Suspense>
+
+          {/* 13 — Condition pill quick links */}
+          <Suspense fallback={<SectionFallback />}>
+            <ConditionPillBand />
+          </Suspense>
+
+          {/* 14 — Fundraising progress (animated £5k/£50k) */}
+          <Suspense fallback={<SectionFallback />}>
+            <ImpactProgressBand />
+          </Suspense>
+
+          {/* 15 — Editorial board quote */}
           <Suspense fallback={<SectionFallback />}>
             <QuoteSection />
           </Suspense>
 
+          {/* 16 — Newsletter signup */}
+          <Suspense fallback={<SectionFallback />}>
+            <NewsletterHeroBanner />
+          </Suspense>
+
+          {/* 17 — Verified impact facts */}
           <Suspense fallback={<SectionFallback />}>
             <ImpactFactBand />
           </Suspense>
 
+          {/* Deferred — below-the-fold supporting bands */}
           <DeferredMount>
             <Suspense fallback={<SectionFallback />}>
+              <InspiredHeroBand />
               <DonationImpactSection />
               <MissionEthosBand />
               <HowWeAreFundedSection />
@@ -257,20 +281,22 @@ function HomePage() {
             </Suspense>
           </DeferredMount>
 
-
-
-          <Suspense fallback={<SectionFallback />}>
-            <BlogPreview />
-          </Suspense>
-
+          {/* 18 — Testimonial collector */}
           <Suspense fallback={<SectionFallback />}>
             <TestimonialCollector />
           </Suspense>
 
+          {/* 19 — FAQ */}
           <Suspense fallback={<SectionFallback />}>
             <FAQSection />
           </Suspense>
 
+          {/* 20 — Final donate band (closing CTA) */}
+          <Suspense fallback={<SectionFallback />}>
+            <FinalDonateBand />
+          </Suspense>
+
+          {/* 21 — Newsletter footer band */}
           <Suspense fallback={<SectionFallback />}>
             <NewsletterSection />
           </Suspense>
