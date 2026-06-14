@@ -33,8 +33,9 @@ const JointPicker = () => {
 
   return (
     <section
+      id="joint-picker"
       aria-labelledby="joint-picker-heading"
-      className="bg-background py-16 lg:py-20 border-b border-border/30"
+      className="bg-background py-16 lg:py-20 border-b border-border/30 scroll-mt-24"
     >
       <div className="container mx-auto max-w-7xl px-6 sm:px-8 lg:px-16">
         <div className="mb-10 max-w-2xl">

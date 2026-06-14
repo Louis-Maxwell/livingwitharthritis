@@ -50,6 +50,8 @@ const MobileBottomCTA = lazy(() => import("@/components/landing/MobileBottomCTA"
 const NewsletterHeroBanner = lazy(() => import("@/components/landing/NewsletterHeroBanner"));
 const SearchBar = lazy(() => import("@/components/landing/SearchBar"));
 const TestimonialCollector = lazy(() => import("@/components/landing/TestimonialCollector"));
+const StartHereBand = lazy(() => import("@/components/landing/StartHereBand"));
+const ImpactFactBand = lazy(() => import("@/components/landing/ImpactFactBand"));
 
 const SITE_URL = "https://livingwitharthritis.org.uk";
 
@@ -186,11 +188,15 @@ function HomePage() {
           <OAHero />
 
           <Suspense fallback={<SectionFallback />}>
-            <NewsletterHeroBanner />
+            <StartHereBand />
           </Suspense>
 
           <Suspense fallback={<SectionFallback />}>
             <SearchBar />
+          </Suspense>
+
+          <Suspense fallback={<SectionFallback />}>
+            <NewsletterHeroBanner />
           </Suspense>
 
           <Suspense fallback={<SectionFallback />}>
@@ -236,6 +242,10 @@ function HomePage() {
 
           <Suspense fallback={<SectionFallback />}>
             <QuoteSection />
+          </Suspense>
+
+          <Suspense fallback={<SectionFallback />}>
+            <ImpactFactBand />
           </Suspense>
 
           <DeferredMount>

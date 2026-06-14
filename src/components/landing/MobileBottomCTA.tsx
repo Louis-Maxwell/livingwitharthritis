@@ -1,5 +1,5 @@
 import { memo, useEffect, useState } from "react";
-import { Heart, BookOpen, X } from "lucide-react";
+import { Heart, BookOpen, MapPin, X } from "lucide-react";
 import { trackMobileBottomCTA } from "@/lib/ga-events";
 
 const STORAGE_KEY = "lwa.mobileCta.dismissed";
@@ -54,16 +54,24 @@ const MobileBottomCTA = memo(() => {
           <a
             href="#donate-inline"
             onClick={() => trackMobileBottomCTA("donate")}
-            className="flex-1 inline-flex items-center justify-center gap-2 min-h-11 rounded-xl bg-primary text-primary-foreground font-bold text-sm"
+            className="flex-1 inline-flex items-center justify-center gap-1.5 min-h-11 rounded-xl bg-primary text-primary-foreground font-bold text-xs px-2"
           >
             <Heart className="w-4 h-4" aria-hidden="true" /> Donate
           </a>
           <a
             href="/conditions/osteoarthritis"
             onClick={() => trackMobileBottomCTA("start_reading")}
-            className="flex-1 inline-flex items-center justify-center gap-2 min-h-11 rounded-xl bg-foreground text-background font-bold text-sm"
+            className="flex-1 inline-flex items-center justify-center gap-1.5 min-h-11 rounded-xl bg-foreground text-background font-bold text-xs px-2"
           >
-            <BookOpen className="w-4 h-4" aria-hidden="true" /> Start reading
+            <BookOpen className="w-4 h-4" aria-hidden="true" /> Read
+          </a>
+          <a
+            href="/arthritis-support"
+            onClick={() => trackMobileBottomCTA("start_reading")}
+            aria-label="Find local support"
+            className="flex-1 inline-flex items-center justify-center gap-1.5 min-h-11 rounded-xl bg-card text-foreground border border-border font-bold text-xs px-2"
+          >
+            <MapPin className="w-4 h-4" aria-hidden="true" /> Support
           </a>
         </div>
       </div>
