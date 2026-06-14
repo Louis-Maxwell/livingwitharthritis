@@ -1,67 +1,63 @@
+## Goal
 
-# New Landing Page — Charity-Grade Editorial
+Audit and harden the existing Supabase backend. **No new tables, no data model changes, no frontend changes.** Only RLS, GRANTs, function permissions, and a public-bucket fix.
 
-Inspired by **arthritis.org**, **arthritisaction.org.uk**, **redcross.org.uk** and **savethechildren.org.uk**: a calm, institutional, mission-led layout with big editorial photography, a clear "I need help / I want to help" split, and a persistent donate rail.
+## Current state (verified)
 
-Locked brand (no changes): white background, black text, red `hsl(350 85% 42%)` reserved for buttons/icons/accents, Playfair Display for h1/h2, Inter for body. No purple, no gradients, no AI branding, no political content. Only verified figures: **8.75M**, **1 in 6**, **£10bn**, **£5,000 / £50,000**, **100% free**.
+- **52 tables**, RLS enabled on all 52. ✅
+- **Sensitive write/read policies look correct**: donations, contact_inquiries, newsletter_subscriptions, fundraising_inquiries, volunteer_signups, pain_journal_entries, triage_assessments, buddy_profiles, profiles, forum_topics, blog_articles, conditions all scope reads/writes properly via `is_admin()` or `auth.uid()`.
+- **26 linter warnings** to resolve:
+  - 1× extension installed in `public` schema
+  - 1× `exercise-videos` public bucket allows arbitrary listing
+  - 12× SECURITY DEFINER functions callable by `anon` that shouldn't be
+  - 12× SECURITY DEFINER functions callable by `authenticated` that shouldn't be
 
-## Page structure (top → bottom)
+## Plan (single migration, four areas)
 
-```text
-01  Sticky utility bar          Donate · Get help · Volunteer (red right rail)
-02  Editorial hero              Full-bleed photo, serif headline, dual CTA
-                                "I have arthritis" / "I want to help"
-03  StartHereBand               (existing) 3 beginner journey cards
-04  Where does it hurt?         (existing JointPicker, restyled tighter)
-05  Search guides               (existing SearchBar promoted)
-06  Mission band                Red full-bleed pull quote from Clinical Board
-07  4 Pillars                   Move · Eat · Rest · Connect — image cards
-08  Featured guides grid        6 cards from /data/articles (newest)
-09  Stats strip                 8.75M · 1 in 6 · £10bn (existing HeroStatsStrip)
-10  Real stories                Testimonial carousel (existing data)
-11  Impact / fundraising band   Animated £5k of £50k progress bar
-12  Newsletter                  (existing NewsletterHeroBanner, restyled)
-13  Final donate band           Black panel, dual CTA "Give once / Monthly"
-14  Footer                      (existing 5-col footer untouched)
-```
+### 1. Lock down SECURITY DEFINER function EXECUTE grants
 
-## Interactivity
+Trigger functions and internal helpers must not be callable through the Data API.
 
-- Sticky compressed header with red Donate pill (already exists).
-- Scroll-reveal fade-up on each section (reuse `RevealOnScroll`).
-- `CountUp` on stats and on the £5,000 figure in the impact band.
-- Joint chips: red ring halo + magnetic lift on hover.
-- Progress bar fills from 0 → 10% when impact band enters viewport.
-- Featured guide cards: image zoom + red underline reveal on hover.
-- Mobile sticky bottom CTA (existing `MobileBottomCTA`) kept.
+- **Revoke `EXECUTE` from `anon` and `authenticated`** on internal-only functions:
+  - `buddy_matches_guard_participant_updates`, `forum_replies_guard_updates`, `forum_topics_guard_admin_fields`, `handle_new_forum_reply` (trigger functions — never call directly)
+  - `move_to_dlq`, `read_email_batch`, `delete_email`, `enqueue_email` (email queue internals — service-role / cron only)
+- **Keep** EXECUTE for legitimate client-callable functions:
+  - `has_role(uuid, app_role)` — used by RLS
+  - `get_public_profile(uuid)` — public-by-design read
+  - `increment_blog_view(text)` — anon-callable view counter
+  - `increment_visitor_count()` — anon-callable counter
 
-## Files
+### 2. Fix `exercise-videos` public bucket listing
 
-**New:**
-- `src/components/landing/EditorialHero.tsx` — replaces current `OAHero` slot on `/` only.
-- `src/components/landing/MissionQuoteBand.tsx` — red full-bleed pull quote.
-- `src/components/landing/FourPillars.tsx` — Move/Eat/Rest/Connect image cards.
-- `src/components/landing/FeaturedGuidesGrid.tsx` — 6 article cards from `src/data/articles.ts`.
-- `src/components/landing/ImpactProgressBand.tsx` — animated £5k/£50k bar with CountUp.
-- `src/components/landing/FinalDonateBand.tsx` — black closing panel.
+The bucket is public-read (correct for embedded videos) but currently allows any client to enumerate every file. Replace the broad `storage.objects` SELECT policy with one that allows public **GET-by-path** only (no `list`). Listing remains restricted to `service_role` / admins.
 
-**Edited:**
-- `src/pages/Index.tsx` — reorder sections per layout above; lazy-load new components.
-- `src/components/landing/JointPicker.tsx` — tighten spacing only (no logic change).
+### 3. Audit + tighten remaining policy gaps
 
-**Untouched:** Header, Footer, routing, data layer, all other pages.
+- **`newsletter_subscriptions`**: INSERT policy is wide-open for anon (needed for signup), but confirm no `WITH CHECK` allows `unsubscribed_at`/admin-only columns to be set on insert. Add a `WITH CHECK` clause that pins `status` to a default and forbids setting admin fields.
+- **`donations` INSERT**: same — add `WITH CHECK` that forces `status='pending'`, blocks setting `user_id` to anyone other than `auth.uid()` (or NULL for anon), and blocks setting Stripe IDs from the client.
+- **`contact_inquiries` / `fundraising_inquiries` / `volunteer_signups` INSERTs**: add `WITH CHECK` to forbid setting `status` or admin-only response fields from the client.
+- **`forum_topics` INSERT**: scope `to authenticated` (currently `public`) and add `WITH CHECK (auth.uid() = user_id AND status IN ('draft','published'))`.
+- **`profiles` INSERT/UPDATE**: scope both `to authenticated` and add `WITH CHECK (auth.uid() = user_id)`.
 
-## Technical notes
+### 4. Extension-in-public warning
 
-- All new components are presentational; no data fetching beyond reading `src/data/articles.ts`.
-- Reuse existing primitives: `RevealOnScroll`, `CountUp`, `Button`, `Progress`, `ga-events.ts`.
-- Add GA4 events for: `hero_primary_cta`, `hero_secondary_cta`, `pillar_click`, `featured_guide_click`, `impact_donate_click`, `final_donate_click`.
-- CSS-only animations (project rule — no Framer Motion for routing/large layouts).
-- Images from existing `src/data/images.ts` Unsplash CDN set — no new uploads.
-- Tailwind only; no new dependencies.
+The `vector` extension is installed in `public`. Document as **accepted** (moving it requires recreating every embedding column and is high-risk). Mark the linter finding as ignored with an explanation; do not migrate.
 
 ## Out of scope
 
-- Brand colours, fonts, footer, header, routes, copy on other pages.
-- No new backend tables, no Supabase changes.
-- No partner logos / sponsorship lists (project rule).
+- No new tables, no column changes, no data backfill.
+- No frontend wiring changes.
+- No Stripe / Resend / edge function rewrites.
+- No content seeding (blog_articles, conditions, etc. content is a separate task).
+- No changes to `auth.*`, `storage.*` schemas beyond the one bucket policy.
+
+## Deliverable
+
+**One migration file** containing all REVOKE / GRANT / DROP POLICY / CREATE POLICY statements, plus one storage policy replacement. After it runs I'll re-run the linter and the security scan; target is 0 SECURITY DEFINER warnings, 0 public-bucket warning, extension warning explicitly ignored with rationale.
+
+## Risks
+
+- Revoking EXECUTE on `enqueue_email` could break email sending if any edge function calls it with the anon key instead of the service-role key. Mitigation: I'll grep edge functions before applying and confirm all callers use the service role.
+- Tightening `WITH CHECK` on INSERT policies could reject existing client payloads that send extra fields. Mitigation: I'll read the current insert call sites for donations/contact/newsletter/fundraising/volunteer before writing the policy and only restrict columns the client never sends.
+
+Approve and I'll prepare the migration + the call-site checks in one pass.
