@@ -188,11 +188,15 @@ function HomePage() {
           <OAHero />
 
           <Suspense fallback={<SectionFallback />}>
-            <NewsletterHeroBanner />
+            <StartHereBand />
           </Suspense>
 
           <Suspense fallback={<SectionFallback />}>
             <SearchBar />
+          </Suspense>
+
+          <Suspense fallback={<SectionFallback />}>
+            <NewsletterHeroBanner />
           </Suspense>
 
           <Suspense fallback={<SectionFallback />}>
