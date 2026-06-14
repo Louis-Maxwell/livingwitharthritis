@@ -52,6 +52,8 @@ const SearchBar = lazy(() => import("@/components/landing/SearchBar"));
 const TestimonialCollector = lazy(() => import("@/components/landing/TestimonialCollector"));
 const StartHereBand = lazy(() => import("@/components/landing/StartHereBand"));
 const ImpactFactBand = lazy(() => import("@/components/landing/ImpactFactBand"));
+const ImpactProgressBand = lazy(() => import("@/components/landing/ImpactProgressBand"));
+const FinalDonateBand = lazy(() => import("@/components/landing/FinalDonateBand"));
 
 const SITE_URL = "https://livingwitharthritis.org.uk";
 
