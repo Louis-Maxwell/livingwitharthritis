@@ -46,6 +46,10 @@ const NextReadStrip = lazy(() => import("@/components/NextReadStrip"));
 const BackToTopButton = lazy(() => import("@/components/landing/BackToTopButton"));
 const CookieBanner = lazy(() => import("@/components/landing/CookieBanner"));
 const StickyDonateBar = lazy(() => import("@/components/landing/StickyDonateBar"));
+const MobileBottomCTA = lazy(() => import("@/components/landing/MobileBottomCTA"));
+const NewsletterHeroBanner = lazy(() => import("@/components/landing/NewsletterHeroBanner"));
+const SearchBar = lazy(() => import("@/components/landing/SearchBar"));
+const TestimonialCollector = lazy(() => import("@/components/landing/TestimonialCollector"));
 
 const SITE_URL = "https://livingwitharthritis.org.uk";
 
@@ -182,8 +186,17 @@ function HomePage() {
           <OAHero />
 
           <Suspense fallback={<SectionFallback />}>
+            <NewsletterHeroBanner />
+          </Suspense>
+
+          <Suspense fallback={<SectionFallback />}>
+            <SearchBar />
+          </Suspense>
+
+          <Suspense fallback={<SectionFallback />}>
             <HeroStatsStrip />
           </Suspense>
+
 
           <Suspense fallback={<SectionFallback />}>
             <OAProblemBand />
@@ -241,6 +254,10 @@ function HomePage() {
           </Suspense>
 
           <Suspense fallback={<SectionFallback />}>
+            <TestimonialCollector />
+          </Suspense>
+
+          <Suspense fallback={<SectionFallback />}>
             <FAQSection />
           </Suspense>
 
@@ -248,6 +265,7 @@ function HomePage() {
             <NewsletterSection />
           </Suspense>
         </main>
+
 
         <Suspense fallback={null}>
           <NextReadStrip currentPath="/" />
@@ -263,6 +281,9 @@ function HomePage() {
         </Suspense>
         <Suspense fallback={null}>
           <StickyDonateBar />
+        </Suspense>
+        <Suspense fallback={null}>
+          <MobileBottomCTA />
         </Suspense>
       </div>
     </>
