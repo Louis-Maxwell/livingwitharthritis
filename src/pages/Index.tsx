@@ -282,6 +282,9 @@ function HomePage() {
         <Suspense fallback={null}>
           <StickyDonateBar />
         </Suspense>
+        <Suspense fallback={null}>
+          <MobileBottomCTA />
+        </Suspense>
       </div>
     </>
   );
