@@ -106,6 +106,8 @@ export default function DebugSchema() {
         <title>Schema Debug Inspector</title>
         <meta name="robots" content="noindex,nofollow" />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/debug/schema" />
+        <meta property="og:title" content="Schema Debug Inspector" />
+        <meta property="og:description" content="Internal JSON-LD inspector — not for public use." />
       </Helmet>
       <Header />
 

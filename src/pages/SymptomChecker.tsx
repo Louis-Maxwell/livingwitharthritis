@@ -110,6 +110,13 @@ export default function SymptomChecker() {
         <title>Symptom Checker — Living With Arthritis UK</title>
         <meta name="description" content="Answer five quick questions and get matched to the arthritis conditions most likely to fit your symptoms — with links to UK guides." />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/symptom-checker" />
+        <meta property="og:title" content="Symptom Checker — Living With Arthritis UK" />
+        <meta property="og:description" content="Answer five quick questions and get matched to the arthritis conditions most likely to fit your symptoms — with links to UK guides." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://livingwitharthritis.org.uk/symptom-checker" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Symptom Checker — Living With Arthritis UK" />
+        <meta name="twitter:description" content="Match your symptoms to likely arthritis conditions in five quick questions." />
       </Helmet>
       <div className="min-h-screen bg-background">
         <Header />

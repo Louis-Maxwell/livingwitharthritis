@@ -59,6 +59,13 @@ const Library = () => {
           rel="canonical"
           href="https://livingwitharthritis.org.uk/library"
         />
+        <meta property="og:title" content="Health Library | Living With Arthritis UK" />
+        <meta property="og:description" content="Plain-English library of conditions, medications, supplements and treatments related to arthritis and joint health." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://livingwitharthritis.org.uk/library" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Health Library | Living With Arthritis UK" />
+        <meta name="twitter:description" content="Plain-English library of conditions, medications, supplements and treatments related to arthritis and joint health." />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
