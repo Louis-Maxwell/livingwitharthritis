@@ -9,6 +9,7 @@ import { useAdmin } from "@/hooks/useAdmin";
 import { supabase } from "@/integrations/supabase/client";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SeoHead from "@/components/SeoHead";
 import { TrendingUp, Plus, RefreshCw, Trash2 } from "lucide-react";
 
 interface TrackedKeyword {
@@ -93,6 +94,7 @@ const AdminRankTracker = () => {
 
   return (
     <>
+      <SeoHead title="Admin: Rank Tracker" description="Internal admin view for tracked keyword rankings." path="/admin/rank-tracker" noindex />
       <Header />
       <main className="container mx-auto px-6 py-10 max-w-6xl">
         <div className="flex items-center justify-between mb-8">
