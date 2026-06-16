@@ -131,6 +131,9 @@ export default function AdminDistribute() {
       <Helmet>
         <title>Distribute Blogs — Admin</title>
         <meta name="robots" content="noindex,nofollow" />
+        <link rel="canonical" href="https://livingwitharthritis.org.uk/admin/distribute" />
+        <meta property="og:title" content="Distribute Blogs — Admin" />
+        <meta property="og:description" content="Internal admin tool — not for public use." />
       </Helmet>
 
       <div className="max-w-7xl mx-auto px-4 py-10">

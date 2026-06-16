@@ -58,6 +58,13 @@ const LibraryTopic = () => {
           rel="canonical"
           href={`https://livingwitharthritis.org.uk/library/${topic.slug}`}
         />
+        <meta property="og:title" content={`${topic.title} | Living With Arthritis UK`} />
+        <meta property="og:description" content={topic.subtitle || `${topic.title} — plain-English information from Living With Arthritis UK.`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://livingwitharthritis.org.uk/library/${topic.slug}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${topic.title} | Living With Arthritis UK`} />
+        <meta name="twitter:description" content={topic.subtitle || `${topic.title} — plain-English information from Living With Arthritis UK.`} />
       </Helmet>
 
       <Header />
