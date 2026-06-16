@@ -34,23 +34,22 @@ function generateToken(): string {
     .join('')
 }
 
-// Auth: this function is server-to-server only. The Supabase gateway validates
-// the JWT (verify_jwt = true), and we additionally enforce that the caller
-// presents the service_role key. This blocks abuse from anon-key holders who
-// could otherwise trigger arbitrary email sends from the charity's domain.
-function decodeJwtRole(authHeader: string | null): string | null {
-  if (!authHeader?.startsWith('Bearer ')) return null
-  const token = authHeader.slice(7)
-  const parts = token.split('.')
-  if (parts.length !== 3) return null
-  try {
-    const payload = JSON.parse(
-      atob(parts[1].replace(/-/g, '+').replace(/_/g, '/'))
-    )
-    return typeof payload.role === 'string' ? payload.role : null
-  } catch {
-    return null
+// Auth: this function is server-to-server only. We require the caller to
+// present the actual service-role key as the bearer token rather than trusting
+// an unverified JWT payload — Lovable's default is verify_jwt=false, which
+// would otherwise let an attacker forge a token with role=service_role using
+// alg=none and bypass the check.
+function isServiceRoleCaller(authHeader: string | null): boolean {
+  if (!authHeader?.startsWith('Bearer ')) return false
+  const token = authHeader.slice(7).trim()
+  const serviceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')
+  if (!serviceKey || !token) return false
+  if (token.length !== serviceKey.length) return false
+  let diff = 0
+  for (let i = 0; i < token.length; i++) {
+    diff |= token.charCodeAt(i) ^ serviceKey.charCodeAt(i)
   }
+  return diff === 0
 }
 
 Deno.serve(async (req) => {
@@ -60,8 +59,7 @@ Deno.serve(async (req) => {
   }
 
   // Defense-in-depth: only accept service_role callers (other edge functions).
-  const role = decodeJwtRole(req.headers.get('Authorization'))
-  if (role !== 'service_role') {
+  if (!isServiceRoleCaller(req.headers.get('Authorization'))) {
     return new Response(
       JSON.stringify({ error: 'forbidden' }),
       { status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
