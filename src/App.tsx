@@ -125,6 +125,7 @@ const TaiChiForBalance = lazy(() => import("./pages/exercises/TaiChiForBalance")
 const TaiChiForArthritis = lazy(() => import("./pages/exercises/TaiChiForArthritis"));
 const SeatedTaiChiForArthritis = lazy(() => import("./pages/exercises/SeatedTaiChiForArthritis"));
 const TaiChiForBeginners = lazy(() => import("./pages/exercises/TaiChiForBeginners"));
+const AnkleArthritisExercises = lazy(() => import("./pages/exercises/AnkleArthritisExercises"));
 const ExerciseConditionPage = lazy(() => import("./pages/ExerciseConditionPage"));
 const ConditionSubpagePage = lazy(() => import("./pages/ConditionSubpagePage"));
 const CityServicePage = lazy(() => import("./pages/CityServicePage"));
@@ -202,6 +203,7 @@ function AnimatedRoutes() {
         <Route path="/exercises/tai-chi-for-arthritis" element={<TaiChiForArthritis />} />
         <Route path="/exercises/seated-tai-chi-for-arthritis" element={<SeatedTaiChiForArthritis />} />
         <Route path="/exercises/tai-chi-for-beginners" element={<TaiChiForBeginners />} />
+        <Route path="/exercises/ankle-arthritis-exercises" element={<AnkleArthritisExercises />} />
         <Route path="/diet" element={<DietHub />} />
         <Route path="/diet/mediterranean-diet-for-arthritis" element={<MediterraneanDietForArthritis />} />
         <Route path="/myths/does-cracking-knuckles-cause-arthritis" element={<DoesCrackingKnucklesCauseArthritis />} />
