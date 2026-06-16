@@ -8,6 +8,7 @@ import { useAdmin } from "@/hooks/useAdmin";
 import { supabase } from "@/integrations/supabase/client";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SeoHead from "@/components/SeoHead";
 import { Sparkles, Check, X, RefreshCw } from "lucide-react";
 
 interface QueueItem {
@@ -75,6 +76,7 @@ const AdminContentRefresh = () => {
 
   return (
     <>
+      <SeoHead title="Admin: Content Refresh" description="Internal admin view for the content refresh queue." path="/admin/content-refresh" noindex />
       <Header />
       <main className="container mx-auto px-6 py-10 max-w-5xl">
         <div className="flex items-center justify-between mb-8">

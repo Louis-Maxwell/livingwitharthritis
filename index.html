@@ -85,11 +85,10 @@
       })();
     </script>
 
-    <title>Living With Arthritis UK | Evidence-Based Health Guides</title>
-    <!-- Homepage fallback description for non-JS crawlers. Per-route SeoHead
-         (react-helmet-async) dedupes by `name` and overrides this for every
-         other route, so no duplicate descriptions ship across the site. -->
-    <meta name="description" content="Living With Arthritis UK provides free, evidence-based physiotherapy, anti-inflammatory diet guides, and exercises for people with arthritis across the UK.">
+    <!-- Per-route <title>, <meta description> and <link canonical> are emitted
+         via react-helmet-async (SeoHead) on every route, including the homepage.
+         Statically hardcoding them here caused non-JS crawlers to see identical
+         metadata across every URL on the site. -->
     <meta name="author" content="Living With Arthritis UK" />
     <meta name="publisher" content="Living With Arthritis UK" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -100,8 +99,6 @@
     <meta name="coverage" content="United Kingdom" />
     <meta name="target" content="UK, England, Scotland, Wales, Northern Ireland" />
     <meta name="HandheldFriendly" content="True" />
-    <!-- theme-color is emitted per-route (light/dark variants) via SeoHead -->
-    <meta name="keywords" content="arthritis UK, osteoarthritis help UK, rheumatoid arthritis support UK, joint pain relief United Kingdom, physiotherapy exercises UK, anti-inflammatory diet UK, arthritis charity UK, living with arthritis, arthritis nutrition UK, arthritis services, knee pain UK, hip arthritis UK, psoriatic arthritis UK, arthritis treatment UK, arthritis exercises UK, Mediterranean diet arthritis, turmeric arthritis UK, glucosamine UK, arthritis supplements UK, PIP arthritis disability UK, arthritis flare up UK, water aerobics arthritis, yoga arthritis UK, tai chi arthritis, arthritis pain management UK, arthritis self help UK, gentle exercises arthritis, omega 3 fish oil arthritis, arthritis and sleep UK, arthritis and work UK, arthritis diet UK, NICE guidelines arthritis, arthritis charity donate UK, zakat rehabilitation UK, first contact practitioner arthritis, arthritis GP referral UK, rheumatology the health service, compression gloves arthritis UK, arthritis support group UK, free physiotherapy arthritis UK, best exercises knee arthritis UK, arthritis walking aids UK, hand exercises arthritis UK, shoulder exercises arthritis, chair exercises arthritis UK, swimming arthritis UK, cycling arthritis UK, gardening arthritis UK, arthritis pregnancy UK, arthritis mental health UK, arthritis fatigue management, arthritis medication UK the health service, arthritis pain relief natural UK, best diet joint pain UK, arthritis weight loss UK, collagen arthritis UK, ginger arthritis, curcumin joint pain" />
 
     <!-- Geo targeting for UK -->
     <meta name="geo.region" content="GB" />
@@ -112,10 +109,6 @@
     <meta name="content-language" content="en-GB" />
     <meta http-equiv="content-language" content="en-GB" />
 
-    <!-- Static homepage canonical for non-JS crawlers/auditors. Per-route SeoHead
-         (react-helmet-async) sets per-page canonicals, and CanonicalEnforcer
-         removes duplicates on route change so only the route-specific one remains. -->
-    <link rel="canonical" href="https://livingwitharthritis.org.uk/" id="static-canonical" />
     <link rel="alternate" hreflang="en-GB" href="https://livingwitharthritis.org.uk/" />
     <link rel="alternate" hreflang="en" href="https://livingwitharthritis.org.uk/" />
     <link rel="alternate" hreflang="x-default" href="https://livingwitharthritis.org.uk/" />
@@ -282,22 +275,11 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
-  <!-- og:title / og:description / twitter:title / twitter:description are emitted
-       per-route via SeoHead (react-helmet-async). Duplicating them statically here
-       caused every page to ship two of each tag. -->
-
-  
-  
-  
-  
-  
-  
-  
-  
-  <meta property="og:title" content="Living With Arthritis UK | Evidence-Based Health Guides">
-  <meta name="twitter:title" content="Living With Arthritis UK | Evidence-Based Health Guides">
-  <meta property="og:description" content="Living With Arthritis UK provides free, evidence-based physiotherapy, anti-inflammatory diet guides, and exercises for people with arthritis across the UK.">
-  <meta name="twitter:description" content="Living With Arthritis UK provides free, evidence-based physiotherapy, anti-inflammatory diet guides, and exercises for people with arthritis across the UK.">
+  <!-- og:title / og:description / og:type / twitter:title / twitter:description
+       are emitted per-route via SeoHead (react-helmet-async). Duplicating them
+       statically here caused every page to ship two of each tag and forced
+       og:type=website on article/guide routes. og:image, og:site_name and the
+       twitter card remain as generic fallbacks. -->
 </head>
 
   <body style="background:#ffffff;">
