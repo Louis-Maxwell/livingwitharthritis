@@ -34,22 +34,18 @@ function getRetryAfterSeconds(error: unknown): number {
   return 60
 }
 
-function parseJwtClaims(token: string): Record<string, unknown> | null {
-  const parts = token.split('.')
-  if (parts.length < 2) {
-    return null
+// Defense-in-depth: compare the bearer token to the service-role key directly
+// rather than trusting an unverified JWT payload. Lovable's default is
+// verify_jwt=false, so a forged alg=none token with role=service_role would
+// otherwise bypass the gate.
+function isServiceRoleToken(token: string, serviceKey: string | undefined): boolean {
+  if (!serviceKey || !token) return false
+  if (token.length !== serviceKey.length) return false
+  let diff = 0
+  for (let i = 0; i < token.length; i++) {
+    diff |= token.charCodeAt(i) ^ serviceKey.charCodeAt(i)
   }
-
-  try {
-    const payload = parts[1]
-      .replaceAll('-', '+')
-      .replaceAll('_', '/')
-      .padEnd(Math.ceil(parts[1].length / 4) * 4, '=')
-
-    return JSON.parse(atob(payload)) as Record<string, unknown>
-  } catch {
-    return null
-  }
+  return diff === 0
 }
 
 // Move a message to the dead letter queue and log the reason.
