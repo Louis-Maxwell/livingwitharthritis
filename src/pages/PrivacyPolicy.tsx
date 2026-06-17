@@ -12,7 +12,7 @@ const PrivacyPolicy = () => (
   <>
     <Helmet>
       <title>Privacy Policy | Living With Arthritis UK</title>
-      <meta name="description" content="Privacy Policy for Living With Arthritis UK. Learn how we collect, use, store and protect your personal data in full compliance with UK GDPR and the Data Protection Act 2018." />
+      <meta name="description" content="How Living With Arthritis UK collects, uses and protects your personal data under UK GDPR and the Data Protection Act 2018." />
       <link rel="canonical" href="https://livingwitharthritis.org.uk/privacy" />
       <meta property="og:title" content="Privacy Policy | Living With Arthritis UK" />
       <meta property="og:description" content="How Living With Arthritis UK protects your personal data under UK GDPR. Your privacy matters to us." />

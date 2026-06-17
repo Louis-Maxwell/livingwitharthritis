@@ -85,10 +85,11 @@
       })();
     </script>
 
-    <!-- Per-route <title>, <meta description> and <link canonical> are emitted
-         via react-helmet-async (SeoHead) on every route, including the homepage.
-         Statically hardcoding them here caused non-JS crawlers to see identical
-         metadata across every URL on the site. -->
+    <!-- Static fallbacks for non-JS crawlers (social previews, basic SEO bots).
+         Per-route SeoHead (react-helmet-async) overrides title / description /
+         og:title / og:description for JS-executing crawlers on subpages. -->
+    <title>Living With Arthritis UK — Free Physiotherapy, Exercises & Diet Support</title>
+    <meta name="description" content="UK arthritis charity offering free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory nutrition and community support for people living with arthritis." />
     <meta name="author" content="Living With Arthritis UK" />
     <meta name="publisher" content="Living With Arthritis UK" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -139,8 +140,8 @@
          JS-executing crawlers (Googlebot, Twitterbot). Subpages shared on
          non-JS social platforms will preview with the homepage copy below
          until SSR/prerender is added. -->
-    
-    
+    <meta property="og:title" content="Living With Arthritis UK — Free Physiotherapy, Exercises & Diet Support" />
+    <meta property="og:description" content="UK arthritis charity offering free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory nutrition and community support for people living with arthritis." />
     <meta property="og:url" content="https://livingwitharthritis.org.uk/" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_GB" />
@@ -153,8 +154,8 @@
 
     <!-- Twitter / X Card (per-route SeoHead overrides title/description for JS crawlers) -->
     <meta name="twitter:card" content="summary_large_image" />
-    
-    
+    <meta name="twitter:title" content="Living With Arthritis UK — Free Physiotherapy, Exercises & Diet Support" />
+    <meta name="twitter:description" content="UK arthritis charity offering free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory nutrition and community support for people living with arthritis." />
     <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/b6578022-1ff1-490f-8f9d-e8d8d12e8117">
 
 
