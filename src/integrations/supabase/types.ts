@@ -1530,42 +1530,6 @@ export type Database = {
         }
         Relationships: []
       }
-      quiz_submissions: {
-        Row: {
-          activity_goal: string
-          age_band: string
-          created_at: string
-          email: string | null
-          id: string
-          joint: string
-          pain_level: number
-          plan: Json
-          stiffness_minutes: number
-        }
-        Insert: {
-          activity_goal: string
-          age_band: string
-          created_at?: string
-          email?: string | null
-          id?: string
-          joint: string
-          pain_level: number
-          plan: Json
-          stiffness_minutes: number
-        }
-        Update: {
-          activity_goal?: string
-          age_band?: string
-          created_at?: string
-          email?: string | null
-          id?: string
-          joint?: string
-          pain_level?: number
-          plan?: Json
-          stiffness_minutes?: number
-        }
-        Relationships: []
-      }
       rank_history: {
         Row: {
           captured_at: string
