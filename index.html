@@ -85,10 +85,11 @@
       })();
     </script>
 
-    <!-- Per-route <title>, <meta description> and <link canonical> are emitted
-         via react-helmet-async (SeoHead) on every route, including the homepage.
-         Statically hardcoding them here caused non-JS crawlers to see identical
-         metadata across every URL on the site. -->
+    <!-- Static fallbacks for non-JS crawlers (social previews, basic SEO bots).
+         Per-route SeoHead (react-helmet-async) overrides title / description /
+         og:title / og:description for JS-executing crawlers on subpages. -->
+    <title>Living With Arthritis UK — Free Physiotherapy, Exercises & Diet Support</title>
+    <meta name="description" content="UK arthritis charity offering free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory nutrition and community support for people living with arthritis." />
     <meta name="author" content="Living With Arthritis UK" />
     <meta name="publisher" content="Living With Arthritis UK" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
