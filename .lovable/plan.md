@@ -1,44 +1,21 @@
-## Plan — British Red Cross reskin
+# Vary blog preview images
 
-You asked for a full frontend + backend redesign. I'm scoping this down to a **frontend colour reskin only** because:
+## Problem
+All four cards on the homepage "Expert advice for living well with arthritis" section show the same gym photo because every `blog_articles.image_url` in the database is `NULL`, so `BlogPreview.tsx` falls back to a single hardcoded Unsplash image (`FALLBACK_IMG`).
 
-- The backend (database, edge functions, auth, donations, email) is live and working. Redesigning it would break donations, lose data, and take weeks of regression work with no user-visible benefit.
-- "British Red Cross colour pattern" is fundamentally a visual change. Tokens drive every component, so a token-level swap re-themes the entire site in one pass.
+## Fix (frontend only)
+Edit `src/components/landing/BlogPreview.tsx`:
 
-If you want page-by-page composition changes after this, we can iterate on the homepage first.
+1. Replace the single `FALLBACK_IMG` constant with a small map of category → curated Unsplash photo (warm, editorial, on-brand). Categories present today include:
+   - Finances & Benefits → calm desk / paperwork photo
+   - Expert Q&A → clinician/consultation photo
+   - Work & Career → workplace / hands-on-laptop photo
+   - Default → existing wellness photo
+2. Add a `pickImage(article)` helper: if `article.image_url` exists, use it; otherwise pick from the category map; otherwise the default.
+3. Also vary within a category so the three "Finances & Benefits" cards aren't identical — use a deterministic hash of the slug to pick from a 2–3 photo list per category.
+4. Apply `pickImage` to both the featured article `<img>` and the rest grid; keep existing `imgSrcSet`, `sizes`, `loading="lazy"`, `decoding="async"`.
 
-### Locked decisions (chose defaults since you skipped)
-
-- **Palette:** Official BRC — Red `#EE2A24`, White `#FFFFFF`, Charcoal `#1A1A1A`, Light grey `#F4F4F4`.
-- **Typography:** Keep Montserrat + Open Sans (matches BRC's geometric humanist feel; avoids a second large change).
-- **Scope:** Reskin only. No backend, schema, or edge-function changes.
-
-### What changes
-
-1. **`src/index.css`** — rewrite the HSL token block:
-   - `--primary` → BRC red (HSL: `2 85% 54%`)
-   - `--background` → white, `--foreground` → near-black
-   - `--secondary`, `--accent`, `--muted`, `--card`, `--border`, `--ring`, sidebar tokens, gradients, shadows all retuned to the BRC palette
-   - Dark mode tokens kept consistent (red stays the accent; surfaces invert to charcoal)
-   - Update the existing red accent currently used (HSL `350 85% 42%`) to the BRC red across the same token surfaces
-2. **`tailwind.config.ts`** — no structural change; tokens flow through automatically. Only adjust any extra named brand colours if they hard-code the old red.
-3. **Audit for hardcoded reds** — search for `350 85`, `#b3122a`, `bg-red-`, `text-red-`, etc. Replace any hardcoded values with semantic tokens so the new red applies everywhere (buttons, icons, hover states, focus rings, donate CTAs, sticky bars).
-4. **Header/Footer/Donate CTAs** — verify visual hierarchy still reads correctly with the new red. The brand currently uses red as accent only; that pattern is preserved (red for CTAs/icons/accents, black text, white surfaces) — which already matches BRC.
-5. **Update memory** — refresh `mem://style/visual-identity` so future work uses the BRC red.
-
-### What does NOT change
-
-- Database, RLS, edge functions, auth, Stripe, email templates, content, routes, components' structure, SEO, analytics.
-- Layouts and page compositions stay as-is.
-- Fonts stay Montserrat/Open Sans.
-
-### Verification
-
-- View preview after CSS swap; spot-check Home, Donate, Blog, Exercises, Footer, Header, sticky donate bar, mobile bottom CTA.
-- Confirm contrast (BRC red on white passes AA for large text / UI; body text remains charcoal on white).
-
-### Out of scope (call out explicitly)
-
-- Backend rebuild — declined as destructive.
-- Per-page redesigns — happy to follow up on the homepage next if you want.
-- Logo/wordmark changes — none requested.
+## Out of scope
+- No DB writes, no schema changes, no edge function changes.
+- No layout/copy changes — only the image source per card.
+- Backfilling real `image_url` values per article is a separate task and can follow if you want.
