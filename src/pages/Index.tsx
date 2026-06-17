@@ -1,12 +1,9 @@
 /**
- * Living With Arthritis UK — Homepage
+ * Living With Arthritis UK — Homepage (interactive redesign)
  *
- * Focused fundraising landing page for the osteoarthritis
- * management plan. Composed from existing landing primitives + three
- * OA-specific sections (Hero, Problem Band, Plan Pillars, Ethos Band).
- *
- * Strict editorial voice. UK English. No fabricated stats beyond
- * publicly cited figures (8.75M, 1 in 6, £10bn).
+ * Scroll-driven editorial composition built around the BRC red palette.
+ * Anchors: parallax hero, interactive joint picker, scroll-pinned story,
+ * animated counters, 60-second self-check, donation thermometer.
  */
 
 import { lazy, Suspense, useEffect } from "react";
@@ -17,168 +14,127 @@ import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import DeferredMount from "@/components/DeferredMount";
 
-// OAHero stays eager — required for LCP.
-import OAHero from "@/components/landing/OAHero";
+import HeroParallax from "@/components/landing/interactive/HeroParallax";
 
-// Q1: Lazy-load every sub-section to reduce first-paint JS cost.
-const HeroStatsStrip = lazy(() => import("@/components/landing/HeroStatsStrip"));
-const OAProblemBand = lazy(() => import("@/components/landing/OAProblemBand"));
-const JointPicker = lazy(() => import("@/components/landing/JointPicker"));
-const FacesStrip = lazy(() => import("@/components/landing/FacesStrip"));
+const BodyJointPicker = lazy(() => import("@/components/landing/interactive/BodyJointPicker"));
+const ScrollStoryStrip = lazy(() => import("@/components/landing/interactive/ScrollStoryStrip"));
+const AnimatedImpactCounters = lazy(() => import("@/components/landing/interactive/AnimatedImpactCounters"));
+const QuickAssessmentQuiz = lazy(() => import("@/components/landing/interactive/QuickAssessmentQuiz"));
+const ProgressThermometer = lazy(() => import("@/components/landing/interactive/ProgressThermometer"));
+
 const OAPlanPillarsSection = lazy(() => import("@/components/landing/OAPlanPillarsSection"));
-const MissionStatementBand = lazy(() => import("@/components/landing/MissionStatementBand"));
-const DonationImpactSection = lazy(() => import("@/components/landing/DonationImpactSection"));
-const MissionEthosBand = lazy(() => import("@/components/landing/MissionEthosBand"));
-const HowWeAreFundedSection = lazy(() => import("@/components/landing/HowWeAreFundedSection"));
-const SEOTeaserSection = lazy(() => import("@/components/landing/SEOTeaserSection"));
-
-const AboutArthritisCards = lazy(() => import("@/components/landing/AboutArthritisCards"));
-const ResourcesForYouSection = lazy(() => import("@/components/landing/ResourcesForYouSection"));
-const ConditionPillBand = lazy(() => import("@/components/landing/ConditionPillBand"));
-
-const InspiredHeroBand = lazy(() => import("@/components/landing/InspiredHeroBand"));
-const QuoteSection = lazy(() => import("@/components/landing/QuoteSection"));
+const FacesStrip = lazy(() => import("@/components/landing/FacesStrip"));
 const BlogPreview = lazy(() => import("@/components/landing/BlogPreview"));
 const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
 const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSection"));
+const FinalDonateBand = lazy(() => import("@/components/landing/FinalDonateBand"));
+
 const Footer = lazy(() => import("@/components/Footer"));
-const NextReadStrip = lazy(() => import("@/components/NextReadStrip"));
 const BackToTopButton = lazy(() => import("@/components/landing/BackToTopButton"));
 const CookieBanner = lazy(() => import("@/components/landing/CookieBanner"));
 const StickyDonateBar = lazy(() => import("@/components/landing/StickyDonateBar"));
 const MobileBottomCTA = lazy(() => import("@/components/landing/MobileBottomCTA"));
-const NewsletterHeroBanner = lazy(() => import("@/components/landing/NewsletterHeroBanner"));
-const SearchBar = lazy(() => import("@/components/landing/SearchBar"));
-const TestimonialCollector = lazy(() => import("@/components/landing/TestimonialCollector"));
-const StartHereBand = lazy(() => import("@/components/landing/StartHereBand"));
-const ImpactFactBand = lazy(() => import("@/components/landing/ImpactFactBand"));
-const ImpactProgressBand = lazy(() => import("@/components/landing/ImpactProgressBand"));
-const FinalDonateBand = lazy(() => import("@/components/landing/FinalDonateBand"));
+const NextReadStrip = lazy(() => import("@/components/NextReadStrip"));
 
 const SITE_URL = "https://livingwitharthritis.org.uk";
 
 const SectionFallback = () => <div className="h-32" aria-hidden="true" />;
 
 function HomePage() {
-  // JSON-LD injected manually (per project memory) to avoid Helmet crashes.
   useEffect(() => {
-    const id = "ld-home-ngo";
-    const existing = document.getElementById(id);
-    if (existing) existing.remove();
+    const scripts = [
+      {
+        id: "ld-home-ngo",
+        json: {
+          "@context": "https://schema.org",
+          "@type": "NGO",
+          name: "Living With Arthritis UK",
+          url: SITE_URL,
+          description:
+            "An open-source osteoarthritis management plan — clinically reviewed, freely published, and made for everyone living with arthritis in the UK.",
+          areaServed: { "@type": "Country", name: "United Kingdom" },
+          knowsAbout: [
+            "Osteoarthritis",
+            "Anti-inflammatory diet",
+            "Physiotherapy",
+            "Chronic pain management",
+          ],
+        },
+      },
+      {
+        id: "ld-home-breadcrumb",
+        json: {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL + "/" },
+          ],
+        },
+      },
+      {
+        id: "ld-home-faq",
+        json: {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "Is everything on this site really free?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. Every guide, plan, and resource is free for everyone in the UK living with arthritis. We're a small charity funded entirely by donations.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Who writes and reviews the guidance?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "All clinical content is written or reviewed by HCPC-registered physiotherapists and CSP members, and aligned to NICE guidance for osteoarthritis.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Can this replace seeing my GP or physiotherapist?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "No. Our guidance is educational and complements — never replaces — care from your GP, physiotherapist or rheumatologist.",
+              },
+            },
+          ],
+        },
+      },
+    ];
 
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.id = id;
-    script.text = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "NGO",
-      name: "Living With Arthritis UK",
-      url: SITE_URL,
-      description:
-        "An open-source osteoarthritis management plan — clinically reviewed, freely published, and made for everyone living with OA in the UK.",
-      areaServed: { "@type": "Country", name: "United Kingdom" },
-      knowsAbout: [
-        "Osteoarthritis",
-        "Anti-inflammatory diet",
-        "Physiotherapy",
-        "Chronic pain management",
-      ],
+    scripts.forEach(({ id, json }) => {
+      document.getElementById(id)?.remove();
+      const el = document.createElement("script");
+      el.type = "application/ld+json";
+      el.id = id;
+      el.text = JSON.stringify(json);
+      document.head.appendChild(el);
     });
-    document.head.appendChild(script);
-
-    // BreadcrumbList — home anchors the breadcrumb trail.
-    const breadcrumbId = "ld-home-breadcrumb";
-    document.getElementById(breadcrumbId)?.remove();
-    const breadcrumbScript = document.createElement("script");
-    breadcrumbScript.type = "application/ld+json";
-    breadcrumbScript.id = breadcrumbId;
-    breadcrumbScript.text = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: SITE_URL + "/",
-        },
-      ],
-    });
-    document.head.appendChild(breadcrumbScript);
-
-    // FAQPage — mirrors the FAQSection rendered below for rich results.
-    const faqId = "ld-home-faq";
-    document.getElementById(faqId)?.remove();
-    const faqScript = document.createElement("script");
-    faqScript.type = "application/ld+json";
-    faqScript.id = faqId;
-    faqScript.text = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "Is everything on this site really free?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Yes. Every guide, plan, and resource is free for everyone in the UK living with arthritis. We're a small charity funded entirely by donations.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Who writes and reviews the guidance?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "All clinical content is written or reviewed by HCPC-registered physiotherapists and CSP members, and aligned to NICE guidance for osteoarthritis.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Can this replace seeing my GP or physiotherapist?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "No. Our guidance is educational and complements — never replaces — care from your GP, physiotherapist or rheumatologist. Always seek medical advice for new or worsening symptoms.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "How do you use my donation?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Donations fund clinical reviewers, plain-English writers, and hosting so we can keep every guide free for people in the UK living with arthritis.",
-          },
-        },
-      ],
-    });
-    document.head.appendChild(faqScript);
 
     return () => {
-      [id, breadcrumbId, faqId].forEach((scriptId) => {
-        const el = document.getElementById(scriptId);
-        if (el) el.remove();
-      });
+      scripts.forEach(({ id }) => document.getElementById(id)?.remove());
     };
   }, []);
-
 
   return (
     <>
       <Helmet>
-        <title>Living With Arthritis UK | Evidence-Based Health Guides</title>
+        <title>Living With Arthritis UK | Free, Clinically Reviewed Plan</title>
         <meta
           name="description"
-          content="Open-source osteoarthritis plan: clinically reviewed diet, movement and pain-relief guidance in plain English. Free for everyone in the UK."
+          content="Interactive, clinically reviewed arthritis plan — movement, nutrition and pain-relief guidance in plain English. Free for everyone in the UK."
         />
         <link rel="canonical" href={SITE_URL + "/"} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={SITE_URL + "/"} />
-        <meta
-          property="og:title"
-          content="Living With Arthritis UK | Evidence-Based Health Guides"
-        />
+        <meta property="og:title" content="Living With Arthritis UK | Free, Clinically Reviewed Plan" />
         <meta
           property="og:description"
-          content="The evidence to manage osteoarthritis well already exists. We're unlocking it — in plain English, free for everyone."
+          content="Tap a joint. Take the 60-second check. Get a personalised plan. Free for everyone in the UK living with arthritis."
         />
       </Helmet>
 
@@ -187,121 +143,51 @@ function HomePage() {
         <ScrollProgress />
 
         <main id="main-content" role="main" tabIndex={-1}>
-          {/* 01 — Editorial hero */}
-          <OAHero />
+          <HeroParallax />
 
-          {/* 02 — Beginner journey chooser */}
           <Suspense fallback={<SectionFallback />}>
-            <StartHereBand />
+            <BodyJointPicker />
           </Suspense>
 
-          {/* 03 — Where does it hurt? */}
           <Suspense fallback={<SectionFallback />}>
-            <JointPicker />
+            <ScrollStoryStrip />
           </Suspense>
 
-          {/* 04 — Search the library */}
           <Suspense fallback={<SectionFallback />}>
-            <SearchBar />
+            <AnimatedImpactCounters />
           </Suspense>
 
-          {/* 05 — Why we exist */}
           <Suspense fallback={<SectionFallback />}>
-            <OAProblemBand />
+            <QuickAssessmentQuiz />
           </Suspense>
 
-          {/* 06 — Mission pull quote */}
-          <Suspense fallback={<SectionFallback />}>
-            <MissionStatementBand />
-          </Suspense>
-
-          {/* 07 — Four pillars (Move/Eat/Rest/Connect) */}
           <Suspense fallback={<SectionFallback />}>
             <OAPlanPillarsSection />
           </Suspense>
 
-          {/* 08 — National-scale stats */}
           <Suspense fallback={<SectionFallback />}>
-            <HeroStatsStrip />
+            <ProgressThermometer />
           </Suspense>
 
-          {/* 09 — Faces / real stories */}
           <Suspense fallback={<SectionFallback />}>
             <FacesStrip />
           </Suspense>
 
-          {/* 10 — Featured guides */}
           <Suspense fallback={<SectionFallback />}>
             <BlogPreview />
           </Suspense>
 
-          {/* 11 — About arthritis (condition cards) */}
-          <Suspense fallback={<SectionFallback />}>
-            <AboutArthritisCards />
-          </Suspense>
-
-          {/* 12 — Resources hub */}
-          <Suspense fallback={<SectionFallback />}>
-            <ResourcesForYouSection />
-          </Suspense>
-
-          {/* 13 — Condition pill quick links */}
-          <Suspense fallback={<SectionFallback />}>
-            <ConditionPillBand />
-          </Suspense>
-
-          {/* 14 — Fundraising progress (animated £5k/£50k) */}
-          <Suspense fallback={<SectionFallback />}>
-            <ImpactProgressBand />
-          </Suspense>
-
-          {/* 15 — Editorial board quote */}
-          <Suspense fallback={<SectionFallback />}>
-            <QuoteSection />
-          </Suspense>
-
-          {/* 16 — Newsletter signup */}
-          <Suspense fallback={<SectionFallback />}>
-            <NewsletterHeroBanner />
-          </Suspense>
-
-          {/* 17 — Verified impact facts */}
-          <Suspense fallback={<SectionFallback />}>
-            <ImpactFactBand />
-          </Suspense>
-
-          {/* Deferred — below-the-fold supporting bands */}
-          <DeferredMount>
-            <Suspense fallback={<SectionFallback />}>
-              <InspiredHeroBand />
-              <DonationImpactSection />
-              <MissionEthosBand />
-              <HowWeAreFundedSection />
-              <SEOTeaserSection />
-            </Suspense>
-          </DeferredMount>
-
-          {/* 18 — Testimonial collector */}
-          <Suspense fallback={<SectionFallback />}>
-            <TestimonialCollector />
-          </Suspense>
-
-          {/* 19 — FAQ */}
           <Suspense fallback={<SectionFallback />}>
             <FAQSection />
           </Suspense>
 
-          {/* 20 — Final donate band (closing CTA) */}
-          <Suspense fallback={<SectionFallback />}>
-            <FinalDonateBand />
-          </Suspense>
-
-          {/* 21 — Newsletter footer band */}
-          <Suspense fallback={<SectionFallback />}>
-            <NewsletterSection />
-          </Suspense>
+          <DeferredMount>
+            <Suspense fallback={<SectionFallback />}>
+              <NewsletterSection />
+              <FinalDonateBand />
+            </Suspense>
+          </DeferredMount>
         </main>
-
 
         <Suspense fallback={null}>
           <NextReadStrip currentPath="/" />
