@@ -19,7 +19,46 @@ function estimateReadingTime(content: string): string {
   return `${Math.max(1, Math.ceil(words / 220))} min read`;
 }
 
-const FALLBACK_IMG = "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1080&h=720&fit=crop&q=80";
+const DEFAULT_IMG = "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1080&h=720&fit=crop&q=80";
+
+const CATEGORY_IMAGES: Record<string, string[]> = {
+  "Finances & Benefits": [
+    "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1080&h=720&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1080&h=720&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1586282391129-76a6df230234?w=1080&h=720&fit=crop&q=80",
+  ],
+  "Expert Q&A": [
+    "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=1080&h=720&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1080&h=720&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1080&h=720&fit=crop&q=80",
+  ],
+  "Work & Career": [
+    "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1080&h=720&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=1080&h=720&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1543269865-cbf427effbad?w=1080&h=720&fit=crop&q=80",
+  ],
+  "Diet & Nutrition": [
+    "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1080&h=720&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1080&h=720&fit=crop&q=80",
+  ],
+  "Exercise & Movement": [
+    "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1080&h=720&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=1080&h=720&fit=crop&q=80",
+  ],
+};
+
+function hashString(s: string): number {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0;
+  return Math.abs(h);
+}
+
+function pickImage(a: DBArticle): string {
+  if (a.image_url) return a.image_url;
+  const list = CATEGORY_IMAGES[a.category];
+  if (list?.length) return list[hashString(a.slug) % list.length];
+  return DEFAULT_IMG;
+}
 
 function imgSrcSet(url: string | null) {
   if (!url || !url.includes("unsplash.com")) return undefined;
