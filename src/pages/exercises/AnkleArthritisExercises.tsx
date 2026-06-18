@@ -121,7 +121,7 @@ export default function AnkleArthritisExercises() {
   return (
     <>
       <SeoHead
-        title="Ankle Arthritis Exercises: 7 UK Physio-Approved Moves"
+        title="Ankle Arthritis Exercises (UK)"
         description="Seven gentle ankle arthritis exercises to ease pain and stiffness — range of motion, strength and balance work for osteoarthritis, RA and gout."
         path="/exercises/ankle-arthritis-exercises"
         type="article"
