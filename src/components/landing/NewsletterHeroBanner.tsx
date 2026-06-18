@@ -92,7 +92,7 @@ const NewsletterHeroBanner = memo(() => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@example.com"
-                  className="flex-1 min-h-11 h-12 px-5 rounded-full bg-background border border-border text-foreground placeholder:text-foreground/40 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                  className="flex-1 min-h-11 h-12 px-5 rounded-full bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
                   disabled={busy}
                 />
                 <button
