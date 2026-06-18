@@ -6,12 +6,12 @@ const data: ConditionPageData = {
   name: "Gout",
   tagline:
     "Gout is one of the most painful forms of inflammatory arthritis, caused by uric-acid crystals collecting in the joints. With the right treatment and diet, attacks can be prevented entirely.",
-  metaTitle: "Gout: Symptoms, Causes, Diet & Treatment Guide",
+  metaTitle: "Gout Symptoms, Causes, Diet & Treatment (UK Guide)",
   metaDescription:
-    "UK guide to gout — symptoms, triggers, low-purine diet, allopurinol treatment and natural ways to prevent attacks. Written for patients by Living With Arthritis.",
+    "What is gout? UK guide to gout symptoms, the first signs in the big toe, triggers, low-purine diet, allopurinol treatment and how to prevent attacks.",
   keywords:
-    "gout, gout symptoms, gout treatment, gout diet, low purine diet, allopurinol, uric acid, gout flare up, foods to avoid gout, gout in big toe, gout UK, crystal arthritis, joint pain charity, arthritis support",
-  alternateNames: ["Crystal arthritis", "Urate arthropathy"],
+    "gout, what is gout, gout symptoms, first signs of gout, gout in big toe, gout treatment, gout diet, low purine diet, allopurinol, uric acid, gout flare up, foods to avoid gout, gout UK, crystal arthritis, joint pain charity, arthritis support",
+  alternateNames: ["Crystal arthritis", "Urate arthropathy", "Podagra"],
   aeoAnswer: {
     question: "What is the fastest way to stop a gout attack?",
     answer: (
@@ -102,6 +102,16 @@ const data: ConditionPageData = {
     </>
   ),
   faqs: [
+    {
+      question: "What are the first signs of gout?",
+      answer:
+        "The first sign is usually a sudden, severe attack of pain in a single joint — most often the big toe — that wakes you up at night. The joint becomes red, hot, swollen and so tender that even the weight of a bedsheet feels unbearable. Attacks typically peak within 24 hours.",
+    },
+    {
+      question: "How do I know if my toe pain is gout?",
+      answer:
+        "Gout in the big toe (called podagra) comes on suddenly, usually overnight, with intense burning pain, redness, heat and swelling at the base of the toe. If you can't bear weight on it or even touch it, and the attack settles over 3–10 days, gout is the most likely cause. A blood test for uric acid and joint fluid analysis can confirm it.",
+    },
     {
       question: "What does a gout attack feel like?",
       answer:

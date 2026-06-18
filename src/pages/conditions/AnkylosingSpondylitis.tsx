@@ -3,26 +3,58 @@ import ConditionPageTemplate, { type ConditionPageData } from "@/components/cond
 const data: ConditionPageData = {
   blogCategories: ["Exercise", "Treatment"],
   slug: "ankylosing-spondylitis",
-  name: "Ankylosing Spondylitis",
+  name: "Ankylosing Spondylitis & Axial Spondyloarthritis",
   tagline:
-    "Ankylosing spondylitis (AS) is a long-term inflammatory arthritis that mainly affects the spine and pelvis. Early diagnosis and the right exercise programme can keep you mobile for life.",
-  metaTitle: "Ankylosing Spondylitis: Symptoms, Causes & Treatment",
+    "Axial spondyloarthritis (axSpA) is the umbrella term for inflammatory arthritis of the spine and pelvis. Ankylosing spondylitis (AS) is the form with visible changes on X-ray. Early diagnosis and daily exercise keep most people mobile for life.",
+  metaTitle: "Axial Spondyloarthritis (axSpA) & Ankylosing Spondylitis: UK Guide",
   metaDescription:
-    "UK guide to ankylosing spondylitis — back pain symptoms, HLA-B27 testing, biologic treatment and the daily stretches that protect your spine. Written for patients.",
+    "UK guide to axial spondyloarthritis (axSpA) and ankylosing spondylitis — symptoms, HLA-B27 testing, the difference between radiographic AS and non-radiographic axSpA, biologic treatment and daily exercise.",
   keywords:
-    "ankylosing spondylitis, AS, axial spondyloarthritis, spinal arthritis, lower back pain young adult, HLA-B27, biologic therapy, ankylosing spondylitis exercises, ankylosing spondylitis UK, inflammatory back pain, NASS",
-  alternateNames: ["AS", "Axial spondyloarthritis", "Bechterew's disease"],
+    "axial spondyloarthritis, axSpA, non-radiographic axial spondyloarthritis, nr-axSpA, ankylosing spondylitis, AS, spinal arthritis, lower back pain young adult, HLA-B27, biologic therapy, ankylosing spondylitis exercises, inflammatory back pain, NASS, axial spa, spondyloarthropathy",
+  alternateNames: [
+    "AS",
+    "Axial spondyloarthritis",
+    "axSpA",
+    "Non-radiographic axial spondyloarthritis",
+    "nr-axSpA",
+    "Bechterew's disease",
+  ],
+  aeoAnswer: {
+    question: "What is axial spondyloarthritis?",
+    answer: (
+      <p>
+        Axial spondyloarthritis (axSpA) is an inflammatory arthritis of the spine and sacroiliac
+        joints. It has two forms: <strong>radiographic axSpA</strong> — also called{" "}
+        <strong>ankylosing spondylitis (AS)</strong> — where damage is visible on X-ray; and{" "}
+        <strong>non-radiographic axSpA (nr-axSpA)</strong>, where inflammation shows on MRI but
+        not X-ray. Both cause inflammatory back pain, morning stiffness and fatigue, and both
+        respond to the same exercise and biologic treatments.
+      </p>
+    ),
+    reviewed: "2026-06-18",
+  },
   whatIs: (
     <>
       <p>
-        Ankylosing spondylitis is a type of <strong>inflammatory arthritis</strong> where the
-        body's immune system attacks the joints between the spine and pelvis (the sacroiliac
-        joints). Over time, inflammation can cause spinal vertebrae to fuse, reducing
-        flexibility.
+        Axial spondyloarthritis (axSpA) is the umbrella term for inflammatory arthritis that
+        mainly affects the <strong>spine and sacroiliac joints</strong> (where the spine meets
+        the pelvis). It includes two overlapping conditions:
       </p>
+      <ul>
+        <li>
+          <strong>Ankylosing spondylitis (AS)</strong>, also called radiographic axSpA — damage
+          is visible on an X-ray of the sacroiliac joints.
+        </li>
+        <li>
+          <strong>Non-radiographic axSpA (nr-axSpA)</strong> — the same disease earlier in its
+          course, with inflammation visible only on MRI. Many people with nr-axSpA later progress
+          to AS, but not everyone does.
+        </li>
+      </ul>
       <p>
-        It usually starts between the ages of <strong>17 and 45</strong> and affects roughly
-        1 in 200 adults in the UK. With early diagnosis, modern biologic treatments and a
+        AxSpA usually starts between the ages of <strong>17 and 45</strong> and affects roughly
+        1 in 200 adults in the UK. Men and women are affected equally, although women are still
+        diagnosed later on average. With early diagnosis, modern biologic treatments and a
         consistent exercise programme, most people stay active and well.
       </p>
     </>
@@ -88,6 +120,11 @@ const data: ConditionPageData = {
     </>
   ),
   faqs: [
+    {
+      question: "What is the difference between ankylosing spondylitis and axial spondyloarthritis?",
+      answer:
+        "Axial spondyloarthritis (axSpA) is the umbrella term. Ankylosing spondylitis (AS) is the form of axSpA where damage to the sacroiliac joints is visible on an X-ray. Non-radiographic axSpA (nr-axSpA) is the same condition earlier in its course — visible only on MRI. Treatment is the same for both.",
+    },
     {
       question: "What is the first sign of ankylosing spondylitis?",
       answer:
