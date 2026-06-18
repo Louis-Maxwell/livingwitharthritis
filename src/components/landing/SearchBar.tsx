@@ -75,7 +75,7 @@ const SearchBar = memo(() => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Try 'knee exercises', 'arthritis diet', 'flare up tips'…"
-            className="w-full h-14 pl-14 pr-5 rounded-full bg-card border border-border text-foreground placeholder:text-foreground/40 text-base focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all"
+            className="w-full h-14 pl-14 pr-5 rounded-full bg-card border border-border text-foreground placeholder:text-muted-foreground text-base focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all"
             autoComplete="off"
           />
         </form>

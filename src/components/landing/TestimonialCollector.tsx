@@ -124,7 +124,7 @@ const TestimonialCollector = memo(() => {
             >
               {busy ? "Sending…" : "Submit your story"}
             </button>
-            <p className="text-xs text-foreground/50 text-center">
+            <p className="text-xs text-muted-foreground text-center">
               We review every submission. Nothing is published without your written consent.
             </p>
           </form>
