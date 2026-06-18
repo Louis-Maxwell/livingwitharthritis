@@ -139,6 +139,10 @@ const EditorialStandards = lazy(() => import("./pages/EditorialStandards"));
 const SupplementsHub = lazy(() => import("./pages/supplements/SupplementsHub"));
 const Glucosamine = lazy(() => import("./pages/supplements/Glucosamine"));
 const Msm = lazy(() => import("./pages/supplements/Msm"));
+const LivingWithArthritis = lazy(() => import("./pages/LivingWithArthritis"));
+const FaqArticle = lazy(() => import("./pages/FaqArticle"));
+const ExpertArticle = lazy(() => import("./pages/ExpertArticle"));
+const PatientStory = lazy(() => import("./pages/PatientStory"));
 // No visible loader — Suspense falls back to null so the previous page
 // (or blank background) stays visible until the next chunk is ready,
 // avoiding the spinner flash on first paint.
@@ -202,6 +206,10 @@ function AnimatedRoutes() {
         <Route path="/supplements" element={<SupplementsHub />} />
         <Route path="/supplements/glucosamine" element={<Glucosamine />} />
         <Route path="/supplements/msm" element={<Msm />} />
+        <Route path="/living-with-arthritis" element={<LivingWithArthritis />} />
+        <Route path="/faq/:slug" element={<FaqArticle />} />
+        <Route path="/expert/:slug" element={<ExpertArticle />} />
+        <Route path="/stories/:slug" element={<PatientStory />} />
         <Route path="/conditions/:condition/:subpage" element={<ConditionSubpagePage />} />
         <Route path="/self-help" element={<SelfHelpTool />} />
         <Route path="/symptom-checker" element={<SymptomChecker />} />

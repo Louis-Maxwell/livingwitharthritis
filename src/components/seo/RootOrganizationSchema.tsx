@@ -34,6 +34,21 @@ const PAYLOAD = {
     name: "United Kingdom",
   },
   medicalSpecialty: ["Rheumatology", "Physiotherapy", "Nutrition"],
+  founder: {
+    "@type": "Person",
+    name: "Maxwell",
+    jobTitle: "First Contact Practitioner",
+    identifier: "HCPC PH128483",
+  },
+  member: [
+    {
+      "@type": "Person",
+      name: "Maxwell",
+      jobTitle: "First Contact Practitioner",
+      identifier: "HCPC PH128483",
+      url: `${BASE}/about#maxwell`,
+    },
+  ],
   knowsAbout: [
     "Osteoarthritis",
     "Rheumatoid arthritis",
