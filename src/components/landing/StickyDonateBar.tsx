@@ -96,10 +96,13 @@ const StickyDonateBar = memo(() => {
       {/* Desktop — bottom-right card */}
       <div
         aria-hidden={!visible}
-        className={`hidden lg:block fixed bottom-6 right-6 z-50 transition-all duration-300 ${
+        className={`hidden lg:flex flex-col items-end gap-2 fixed bottom-6 right-6 z-50 transition-all duration-300 ${
           visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
         }`}
       >
+        <div className="rounded-full bg-background border border-border shadow-md px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-foreground/70">
+          Registered Charity <span className="text-foreground">No. 1218461</span>
+        </div>
         <div className="w-[320px] rounded-2xl bg-background border border-border shadow-2xl overflow-hidden">
           <div className="p-5">
             <div className="flex items-center gap-2 mb-1">
