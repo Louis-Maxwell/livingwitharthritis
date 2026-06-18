@@ -394,6 +394,44 @@ const AboutUs = () => {
             </motion.div>
           </div>
         </section>
+
+        <section id="maxwell" className="py-16 px-4 bg-white">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+              Our Team & Clinical Leadership
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="border border-border rounded-lg p-6 bg-background">
+                <h3 className="text-xl font-bold mb-1">Maxwell</h3>
+                <p className="text-primary font-semibold mb-3 text-sm">
+                  First Contact Practitioner · HCPC PH128483 · CSP Member
+                </p>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Clinical Leadership & Content Review
+                </p>
+                <p className="leading-relaxed mb-4">
+                  Maxwell is a Band 8 Advanced Physiotherapy Practitioner with over
+                  20 years of clinical experience in arthritis management, joint
+                  pain relief, and patient education. He leads all clinical review
+                  and medical accuracy standards for Living With Arthritis UK.
+                </p>
+                <p className="text-xs font-semibold mb-2">Credentials:</p>
+                <ul className="text-xs text-muted-foreground list-disc list-inside space-y-1">
+                  <li>HCPC Registration: PH128483</li>
+                  <li>CSP Member (Chartered Society of Physiotherapy)</li>
+                  <li>Evidence-based Practice Certification</li>
+                  <li>Patient Education Specialist</li>
+                </ul>
+              </div>
+              <div className="border border-dashed border-border rounded-lg p-6 bg-muted/30 flex items-center justify-center">
+                <p className="text-muted-foreground text-center text-sm">
+                  Additional trustees and clinical advisors joining soon.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <InternalLinks />
         <NextReadStrip currentPath="/about" />
         <Footer />
