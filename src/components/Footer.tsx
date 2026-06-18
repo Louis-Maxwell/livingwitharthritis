@@ -121,7 +121,15 @@ const Footer = () => {
       <div className="border-t border-border/15">
         <div className="container mx-auto px-6 md:px-12 py-5 flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-muted-foreground text-[11px] tracking-wide">
-            © {new Date().getFullYear()} Living with Arthritis™ · Oswestry Health Centre, Thomas Savin Road, Off Gobowen Road, Oswestry SY11 1GA · Registered Charity in England & Wales No. 1218461
+            © {new Date().getFullYear()} Living with Arthritis™ · Oswestry Health Centre, Thomas Savin Road, Off Gobowen Road, Oswestry SY11 1GA ·{" "}
+            <a
+              href="https://register-of-charities.charitycommission.gov.uk/charity-search?search=1218461"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline-offset-2 hover:text-primary hover:underline transition-colors"
+            >
+              Registered Charity in England &amp; Wales No. 1218461
+            </a>
           </p>
           <a
             href="https://maxwellhealth.co.uk"
