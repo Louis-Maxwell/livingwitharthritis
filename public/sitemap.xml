@@ -133,6 +133,30 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://livingwitharthritis.org.uk/conditions/axial-spondyloarthritis</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/supplements</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/supplements/glucosamine</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/supplements/msm</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://livingwitharthritis.org.uk/self-help</loc>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
