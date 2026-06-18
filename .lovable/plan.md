@@ -1,17 +1,17 @@
-## Goal
-Display the registered charity number (1218461) in two places:
-1. A small standalone badge floating just above the desktop sticky donate card (bottom-right).
-2. The footer bottom bar, updated from "Registered in England & Wales" to "Registered Charity in England & Wales No. 1218461".
+## Objective
+Make the charity registration number (1218461) clickable in both the footer and the floating badge above the donate card, linking to the Charity Commission search results.
+
+## Scope
+- `src/components/Footer.tsx` — the bottom copyright/registration line
+- `src/components/landing/StickyDonateBar.tsx` — the mini pill/badge above the desktop donate card
 
 ## Implementation
-1. **StickyDonateBar** (`src/components/landing/StickyDonateBar.tsx`)
-   - Insert a compact pill/badge (e.g., "Registered Charity 1218461") immediately above the fixed desktop donate card.
-   - Style it with a white/light card, subtle border, and small typography so it reads as a trust signal without competing with the donation CTA.
+1. In `Footer.tsx`, wrap the charity number portion of the text in an `<a>` element pointing to the Charity Commission search URL for 1218461:
+   ```text
+   https://register-of-charities.charitycommission.gov.uk/charity-search?search=1218461
+   ```
+   Apply `target="_blank"` and `rel="noopener noreferrer"` per project external-link rules.
 
-2. **Footer** (`src/components/Footer.tsx`)
-   - Update the bottom copyright/registration line from:
-     `…Registered in England & Wales`
-     to:
-     `…Registered Charity in England & Wales No. 1218461`
+2. In `StickyDonateBar.tsx`, wrap the `<span>No. 1218461</span>` inside the badge pill with the same `<a>` element and attributes.
 
-No other pages or components will be changed. Charity number is already confirmed as 1218461.
+3. Keep existing styling (text colour, font size, uppercase tracking) intact so the link blends visually with the surrounding text.
