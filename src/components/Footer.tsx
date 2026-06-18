@@ -9,6 +9,7 @@ const columns = [
       { label: "Virtual Physiotherapy", href: "/chat" },
       { label: "Exercise Hub", href: "/exercises" },
       { label: "Diet & Nutrition Hub", href: "/diet" },
+      { label: "Supplements Guide", href: "/supplements" },
       { label: "Self Help Tool", href: "/self-help" },
       { label: "Arthritis Flare-Ups", href: "/arthritis-flare-ups" },
       { label: "Contact Us", href: "/contact" },
