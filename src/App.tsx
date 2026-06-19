@@ -140,6 +140,7 @@ const SupplementsHub = lazy(() => import("./pages/supplements/SupplementsHub"));
 const Glucosamine = lazy(() => import("./pages/supplements/Glucosamine"));
 const Msm = lazy(() => import("./pages/supplements/Msm"));
 const LivingWithArthritis = lazy(() => import("./pages/LivingWithArthritis"));
+const ArthritisMentalHealth = lazy(() => import("./pages/ArthritisMentalHealth"));
 const FaqArticle = lazy(() => import("./pages/FaqArticle"));
 const ExpertArticle = lazy(() => import("./pages/ExpertArticle"));
 const PatientStory = lazy(() => import("./pages/PatientStory"));
