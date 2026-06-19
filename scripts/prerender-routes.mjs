@@ -36,6 +36,7 @@ export const PRERENDER_ROUTES = [
   "/supplements/glucosamine",
   "/supplements/msm",
   "/living-with-arthritis",
+  "/arthritis-mental-health",
   "/faq/can-arthritis-cause-fatigue",
   "/faq/arthritis-employment-rights-uk",
   "/faq/arthritis-disability-benefits-uk",
