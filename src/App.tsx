@@ -140,6 +140,7 @@ const SupplementsHub = lazy(() => import("./pages/supplements/SupplementsHub"));
 const Glucosamine = lazy(() => import("./pages/supplements/Glucosamine"));
 const Msm = lazy(() => import("./pages/supplements/Msm"));
 const LivingWithArthritis = lazy(() => import("./pages/LivingWithArthritis"));
+const ArthritisMentalHealth = lazy(() => import("./pages/ArthritisMentalHealth"));
 const FaqArticle = lazy(() => import("./pages/FaqArticle"));
 const ExpertArticle = lazy(() => import("./pages/ExpertArticle"));
 const PatientStory = lazy(() => import("./pages/PatientStory"));
@@ -207,6 +208,7 @@ function AnimatedRoutes() {
         <Route path="/supplements/glucosamine" element={<Glucosamine />} />
         <Route path="/supplements/msm" element={<Msm />} />
         <Route path="/living-with-arthritis" element={<LivingWithArthritis />} />
+        <Route path="/arthritis-mental-health" element={<ArthritisMentalHealth />} />
         <Route path="/faq/:slug" element={<FaqArticle />} />
         <Route path="/expert/:slug" element={<ExpertArticle />} />
         <Route path="/stories/:slug" element={<PatientStory />} />
