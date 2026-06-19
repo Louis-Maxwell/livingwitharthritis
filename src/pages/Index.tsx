@@ -197,7 +197,7 @@ function HomePage() {
 
           {/* 03 — Where does it hurt? */}
           <Suspense fallback={<SectionFallback />}>
-            <JointPicker />
+            <JointSelector />
           </Suspense>
 
           {/* 04 — Search the library */}
