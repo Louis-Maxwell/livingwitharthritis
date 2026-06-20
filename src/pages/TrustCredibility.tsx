@@ -50,6 +50,7 @@ const impactMetrics = [
 ];
 
 const TrustCredibility = () => {
+  useEffect(() => injectJsonLd("ld-charity-trust", buildCharitySchema()), []);
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "NGO",
