@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
 import StripeDonationModal from "@/components/StripeDonationModal";
+import CharityRegBadge from "@/components/CharityRegBadge";
+import { buildCharitySchema, injectJsonLd } from "@/lib/jsonLd";
 
 const PRESET_AMOUNTS = [50, 150, 200, 500];
 const MIN_AMOUNT = 1;
