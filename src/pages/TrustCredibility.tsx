@@ -102,6 +102,9 @@ const TrustCredibility = () => {
               <h2 className="text-3xl font-bold text-foreground mb-3">Our Impact at a Glance</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">Registered with the Charity Commission for England and Wales. Every donation is accounted for and reported.</p>
             </div>
+            <div className="max-w-3xl mx-auto mb-12">
+              <CharityRegBadge variant="card" />
+            </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {impactMetrics.map((m, i) => (
                 <motion.div
