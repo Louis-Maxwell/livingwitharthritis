@@ -202,7 +202,7 @@ const ALL_LINKS: SitemapLink[] = [
 
   // Buddy
   { label: "Buddy Programme", href: "/buddy" },
-  { label: "Buddy Match", href: "/buddy-match" },
+  { label: "Buddy Match", href: "/buddy/match" },
 
   // Regional hubs
   { label: "North West Region", href: "/regions/north-west" },
