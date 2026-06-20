@@ -37,11 +37,16 @@ const CONDITION_SLUGS = [
 
 // Programmatic /conditions/:condition/:subpage URLs — previously only linked
 // from their parent condition page, so they appeared as orphans in audits.
+// Mirrors the 13 conditions in src/data/conditionSubpages.ts (× 4 sub-pages = 52).
 const CONDITION_SUBPAGE_SLUGS = [
+  ["osteoarthritis", "Osteoarthritis"],
   ["rheumatoid-arthritis", "Rheumatoid Arthritis"],
   ["psoriatic-arthritis", "Psoriatic Arthritis"],
+  ["gout", "Gout"],
   ["ankylosing-spondylitis", "Ankylosing Spondylitis"],
   ["juvenile-arthritis", "Juvenile Arthritis"],
+  ["fibromyalgia", "Fibromyalgia"],
+  ["lupus", "Lupus"],
   ["knee-arthritis", "Knee Arthritis"],
   ["hand-arthritis", "Hand Arthritis"],
   ["shoulder-arthritis", "Shoulder Arthritis"],
