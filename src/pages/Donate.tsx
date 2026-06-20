@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
 import StripeDonationModal from "@/components/StripeDonationModal";
+import CharityRegBadge from "@/components/CharityRegBadge";
+import { buildCharitySchema, injectJsonLd } from "@/lib/jsonLd";
 
 const PRESET_AMOUNTS = [50, 150, 200, 500];
 const MIN_AMOUNT = 1;
@@ -88,6 +90,7 @@ const WAYS_TO_GIVE = [
 ];
 
 export default function Donate() {
+  useEffect(() => injectJsonLd("ld-charity-donate", buildCharitySchema()), []);
   const navigate = useNavigate();
   const [frequency, setFrequency] = useState<"one-time" | "monthly">("one-time");
   const [selectedAmount, setSelectedAmount] = useState<number>(50);
@@ -317,7 +320,11 @@ export default function Donate() {
 
         {/* Tax-Efficient Giving */}
         <section className="container mx-auto px-6 md:px-10 py-16 max-w-5xl">
+          <div className="mb-10 max-w-3xl mx-auto">
+            <CharityRegBadge variant="card" />
+          </div>
           <div className="text-center mb-10">
+
             <h2 className="text-2xl font-bold text-foreground mb-3">Tax-Efficient Giving</h2>
             <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto">
               Make your donation go further. UK taxpayers have several ways to give that increase your impact at no extra cost.

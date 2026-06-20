@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -11,6 +12,8 @@ import {
   Building2
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import CharityRegBadge from "@/components/CharityRegBadge";
+import { buildCharitySchema, injectJsonLd } from "@/lib/jsonLd";
 
 const trustees = [
   { name: "Dr Amina Patel", role: "Chair of Trustees", credentials: "MBBS, FRCP — Consultant Rheumatologist, Public Health" },
@@ -47,6 +50,7 @@ const impactMetrics = [
 ];
 
 const TrustCredibility = () => {
+  useEffect(() => injectJsonLd("ld-charity-trust", buildCharitySchema()), []);
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "NGO",
@@ -97,6 +101,9 @@ const TrustCredibility = () => {
               </div>
               <h2 className="text-3xl font-bold text-foreground mb-3">Our Impact at a Glance</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">Registered with the Charity Commission for England and Wales. Every donation is accounted for and reported.</p>
+            </div>
+            <div className="max-w-3xl mx-auto mb-12">
+              <CharityRegBadge variant="card" />
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {impactMetrics.map((m, i) => (

@@ -80,8 +80,18 @@ const DonationConfirmationEmail = ({
           </Text>
 
           <Text style={charityNote}>
-            {SITE_NAME} is a registered charitable initiative.
-            Your donation may be eligible for tax relief.
+            {SITE_NAME} is a Registered Charity in England &amp; Wales (No. 1218461),
+            regulated by the Charity Commission for England and Wales. Verify our
+            registration on the{' '}
+            <a
+              href="https://register-of-charities.charitycommission.gov.uk/charity-search?search=1218461"
+              style={{ color: '#dc2626', textDecoration: 'underline' }}
+            >
+              Charity Commission register
+            </a>
+            . Your donation may be eligible for tax relief; if you ticked Gift Aid,
+            your declaration applies to this and future donations until you tell us
+            otherwise.
           </Text>
         </Section>
       </Container>

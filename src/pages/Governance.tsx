@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -13,6 +14,8 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { CONTACT_EMAILS } from "@/config/contact";
+import CharityRegBadge from "@/components/CharityRegBadge";
+import { buildCharitySchema, injectJsonLd } from "@/lib/jsonLd";
 
 const trustees = [
   {
@@ -76,6 +79,7 @@ const meetingSchedule = [
 ];
 
 const Governance = () => {
+  useEffect(() => injectJsonLd("ld-charity-governance", buildCharitySchema()), []);
   const handleDownloadConstitution = () => {
     // Generate a simple text-based constitution document
     const constitutionText = `
@@ -209,6 +213,9 @@ Regulated by the Charity Commission for England and Wales.
         {/* Registered Details */}
         <section className="py-14 lg:py-20 bg-muted/20">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
+            <div className="mb-8">
+              <CharityRegBadge variant="card" />
+            </div>
             <div className="grid md:grid-cols-2 gap-6">
               <Card className="border border-border/40">
                 <CardContent className="p-6 md:p-8">

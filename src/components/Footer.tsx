@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import FooterMostRead from "@/components/FooterMostRead";
+import { CHARITY } from "@/config/charity";
 
 const columns = [
   {
@@ -122,14 +123,14 @@ const Footer = () => {
       <div className="border-t border-border/15">
         <div className="container mx-auto px-6 md:px-12 py-5 flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-muted-foreground text-[11px] tracking-wide">
-            © {new Date().getFullYear()} Living with Arthritis™ · Oswestry Health Centre, Thomas Savin Road, Off Gobowen Road, Oswestry SY11 1GA ·{" "}
+            © {new Date().getFullYear()} {CHARITY.legalName}™ · {CHARITY.address.name}, {CHARITY.address.street}, {CHARITY.address.locality} {CHARITY.address.postalCode} ·{" "}
             <a
-              href="https://register-of-charities.charitycommission.gov.uk/charity-search?search=1218461"
+              href={CHARITY.registerUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="underline-offset-2 hover:text-primary hover:underline transition-colors"
             >
-              Registered Charity in England &amp; Wales No. 1218461
+              Registered Charity in England &amp; Wales No. {CHARITY.number}
             </a>
           </p>
           <a

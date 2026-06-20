@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { motion } from "framer-motion";
@@ -11,6 +12,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import NextReadStrip from "@/components/NextReadStrip";
 import InternalLinks from "@/components/InternalLinks";
+import CharityRegBadge from "@/components/CharityRegBadge";
+import { buildCharitySchema, injectJsonLd } from "@/lib/jsonLd";
 
 
 const sectionIcons: Record<string, React.ElementType> = {
@@ -63,6 +66,7 @@ const teamMembers = [
 ];
 
 const AboutUs = () => {
+  useEffect(() => injectJsonLd("ld-charity-about", buildCharitySchema()), []);
   const { data: sections = [], isLoading } = useQuery({
     queryKey: ["about_us_sections"],
     queryFn: async () => {
@@ -339,33 +343,17 @@ const AboutUs = () => {
         <section className="py-14 lg:py-20">
           <div className="container mx-auto px-6 md:px-10 max-w-4xl">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-8">
-              <div className="rounded-2xl bg-muted/30 border border-border/20 p-6 md:p-8">
-                <h2 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
-                  <Shield className="w-5 h-5 text-primary" /> Organisation Details
-                </h2>
-                <div className="grid sm:grid-cols-2 gap-4 text-sm text-muted-foreground">
-                  <div>
-                    <p className="font-semibold text-foreground mb-1">Charity Name</p>
-                    <p>Living With Arthritis</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground mb-1">Registered Address</p>
-                    <address className="not-italic">
-                      Oswestry Health Centre<br />Thomas Savin Road, Off Gobowen Road<br />Oswestry SY11 1GA<br />(SatNav: SY11 1HS)<br />England
-                    </address>
-                  </div>
-                </div>
-                <div className="flex flex-wrap gap-3 mt-5">
-                  <Link to="/governance">
-                    <Button variant="outline" size="sm" className="rounded-full text-xs font-medium">Our Governance</Button>
-                  </Link>
-                  <Link to="/finances">
-                    <Button variant="outline" size="sm" className="rounded-full text-xs font-medium">Our Finances</Button>
-                  </Link>
-                  <Link to="/impact">
-                    <Button variant="outline" size="sm" className="rounded-full text-xs font-medium">Our Impact</Button>
-                  </Link>
-                </div>
+              <CharityRegBadge variant="card" />
+              <div className="flex flex-wrap gap-3 mt-5">
+                <Link to="/governance">
+                  <Button variant="outline" size="sm" className="rounded-full text-xs font-medium">Our Governance</Button>
+                </Link>
+                <Link to="/finances">
+                  <Button variant="outline" size="sm" className="rounded-full text-xs font-medium">Our Finances</Button>
+                </Link>
+                <Link to="/impact">
+                  <Button variant="outline" size="sm" className="rounded-full text-xs font-medium">Our Impact</Button>
+                </Link>
               </div>
             </motion.div>
 
