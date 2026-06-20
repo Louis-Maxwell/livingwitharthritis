@@ -1,73 +1,67 @@
 ## Goal
 
-Lift the 6 keywords showing in your rank tracker (axial spondyloarthritis, glucosamine, gout symptoms, msm, what is gout, rheumatoid arthritis) from low visibility (10% or less) toward page-1 positions by adding dedicated supporting content and tightening existing pages.
+Resolve the two Semrush Site Audit issues:
+- **40 "incorrect pages"** in `public/sitemap.xml` (URLs that error, redirect, or render the in‑app NotFound page).
+- **315 "orphaned pages"** (URLs reachable only via sitemap, with no internal links pointing to them).
 
-## Current state
+Every URL in our sitemap currently maps to a React route definition, so the problem isn't bad route patterns — it's (a) programmatic combinations that render NotFound at runtime and (b) huge programmatic clusters with no nav links into them.
 
-| Keyword | Existing page | Action |
+## What I'll do
+
+### 1. Identify the real 40 broken URLs (no guessing)
+
+Add `scripts/audit-sitemap.mjs` that:
+- Parses every `<loc>` in `public/sitemap.xml` (844 URLs).
+- Fetches each against the published domain `https://livingwitharthritis.org.uk` with a small concurrency pool.
+- Flags any URL that:
+  - returns non-2xx,
+  - redirects to a different path,
+  - returns 200 but the prerendered HTML contains the NotFound marker (e.g. `data-page="not-found"` / "Page not found" title).
+- Writes `audit-sitemap-report.json` with the broken list.
+
+Run it once, review the output, then remove the offending entries at their source in `scripts/generate-sitemap.ts` (e.g. drop a city×condition combo from `ukCities.ts`, an exercise×joint combo from `exerciseJointMatrix.ts`, or an ECR pair from the inline lists). Regenerate the sitemap.
+
+This is the only way to fix the "40 incorrect" number truthfully — replacing 844 URLs with a guessed shortlist would delete real ranking pages.
+
+### 2. De‑orphan the 315 programmatic pages
+
+The orphans come from four clusters that have no inbound internal links:
+
+| Cluster | Count | Generated in |
 |---|---|---|
-| what is gout | `/conditions/gout` | Strengthen (already targets) |
-| gout symptoms | `/conditions/gout` | Strengthen (add deeper symptom section + FAQ) |
-| rheumatoid arthritis | `/conditions/rheumatoid-arthritis` | Strengthen (improve title, intro, FAQ) |
-| axial spondyloarthritis | `/conditions/ankylosing-spondylitis` | Expand to cover axSpA umbrella + non-radiographic form |
-| glucosamine | none | **Create new pillar page** |
-| msm | none | **Create new pillar page** |
+| `/arthritis-support/:city/:condition` | ~150 | `generate-sitemap.ts` (50 cities × 3 conds) |
+| `/uk/:city/:service` | 104 | `city-services.ts` |
+| `/exercises/:joint/for/:condition` | 78 | `exerciseConditionRecommendations.ts` |
+| `/conditions/:condition/:subpage` | 52 | `conditionSubpages.ts` |
 
-## What I'll build
+Fix by adding **hub index pages** that list every combination, plus contextual links from existing pillar pages:
 
-### 1. New page: `/supplements/glucosamine`
-- Pillar article (~1,500 words) targeting "glucosamine", "glucosamine for arthritis", "glucosamine vs chondroitin", "glucosamine side effects", "glucosamine dosage UK".
-- Sections: what it is, evidence for OA, dosage, glucosamine vs collagen, side effects, NHS view, FAQ, MedicallyReviewed badge, JSON-LD MedicalWebPage + FAQPage.
-- Internal links to `/conditions/osteoarthritis`, `/diet`, `/conditions/knee-arthritis`.
+- `/arthritis-support` city index → already lists cities; extend each city page to link its 3 condition sub-pages (component `CityConditionLinks`).
+- `/uk` services hub at `/uk` (new lightweight index) linking all 104 city×service pages, grouped by service.
+- On each `/exercises/:slug` and `/conditions/:condition` pillar, render the existing `ConditionSubpageLinks` / a new `ExerciseConditionLinks` to expose the joint×condition matrix.
+- Add a "Related pages" block on each condition pillar linking its 4 sub-pages (`symptoms`, `treatment`, `exercises`, `diet`).
 
-### 2. New page: `/supplements/msm`
-- Pillar article (~1,200 words) targeting "msm", "msm supplement", "msm for joint pain", "msm vs glucosamine", "methylsulfonylmethane benefits".
-- Same structural pattern as glucosamine page.
-- Cross-link with glucosamine page and OA page.
+Every orphan ends up with at least one internal link from a parent hub, which is what Semrush wants.
 
-### 3. New hub: `/supplements`
-- Lightweight index linking to glucosamine + msm (plus future turmeric, omega-3, collagen, ginger entries already covered in your project knowledge).
-- Adds internal-link equity to the two new pillars.
+### 3. Re-run audit + IndexNow
 
-### 4. Strengthen `/conditions/gout`
-- Add a dedicated "Gout symptoms" H2 block with bullet list mirroring the `gout symptoms` query, plus an AEO-style answer paragraph.
-- Add 2 FAQ entries: "What are the first signs of gout?", "How do I know if my toe pain is gout?".
-- Update metaTitle to lead with "Gout Symptoms, Causes & Treatment (UK Guide)".
+After the prune + hub links land:
+- Regenerate `public/sitemap.xml` (the `predev`/`prebuild` hook already does this).
+- Re-run `scripts/audit-sitemap.mjs` to confirm 0 broken URLs.
+- Trigger the existing `supabase/functions/indexnow-ping` for the changed set.
 
-### 5. Strengthen `/conditions/rheumatoid-arthritis`
-- Tighten meta title/description for the head term.
-- Add intro AEO answer ("What is rheumatoid arthritis?") and a "Living with RA in the UK" section to deepen topical authority.
+## What I won't do without your say-so
 
-### 6. Expand `/conditions/ankylosing-spondylitis` to cover axSpA
-- Rename heading + add section explaining the axial spondyloarthritis umbrella (radiographic = AS, non-radiographic axSpA).
-- Add alternateNames: ["Axial spondyloarthritis", "axSpA", "Non-radiographic axSpA"].
-- Add FAQ "What's the difference between AS and axial spondyloarthritis?".
-- Add 301-style route alias `/conditions/axial-spondyloarthritis` → same page (React Router redirect).
+- Won't swap mechanisms (generator stays; not migrating to the edge function `generate-sitemap`).
+- Won't delete any blog/condition/exercise content pages — only prune sitemap entries for combinations the app genuinely doesn't render.
+- Won't claim "40 → 0" until the audit script's report confirms it.
 
-### 7. Plumbing
-- Register all new routes in `src/App.tsx`.
-- Add new routes to `scripts/prerender-routes.mjs` and `scripts/generate-sitemap.ts` so they're crawlable.
-- Add the two supplement slugs to `src/data/keyword-content-map.json` under a new "Supplements" cluster (or extend the existing nutrition cluster) so the rank tracker and internal-link suggester pick them up.
-- Add the 6 keywords to `tracked_keywords` if not already there (you already see them, so this is just a verify step).
+## Technical details
 
-## Out of scope (ask if you want them)
-- Paid Semrush deep dives per keyword (can run if you want intent/SERP confirmation before writing).
-- Backlink outreach for the new supplement pages.
-- Programmatic city pages for these terms.
+- `audit-sitemap.mjs`: Node 20, `fetch` with `Promise.allSettled` batches of 20, 10s timeout, follows redirects with `redirect: 'manual'` so we can detect them. NotFound detection reads first 4KB of HTML and checks for the prerendered `<title>404` / NotFound text used by the project's NotFound page.
+- Hub components: pure presentational, `kebab-case` CSS classes, Tailwind, `Link` from `react-router-dom`, no new deps.
+- `generate-sitemap.ts`: only edits are removing entries the audit proved are broken — no priority/changefreq churn.
 
-## Files to be created
-- `src/pages/supplements/Glucosamine.tsx`
-- `src/pages/supplements/Msm.tsx`
-- `src/pages/supplements/SupplementsHub.tsx`
+## Open question
 
-## Files to be edited
-- `src/App.tsx` (routes + redirect)
-- `src/pages/conditions/Gout.tsx`
-- `src/pages/conditions/RheumatoidArthritis.tsx`
-- `src/pages/conditions/AnkylosingSpondylitis.tsx`
-- `scripts/prerender-routes.mjs`
-- `scripts/generate-sitemap.ts`
-- `src/data/keyword-content-map.json`
-- `src/components/Footer.tsx` (add Supplements link under resources)
-
-Approve and I'll build it in one pass.
+If you already have the Semrush Site Audit CSV/JSON export of the 40 errors and 315 orphans, drop it in and I'll skip step 1's crawl and act directly on that list — faster and authoritative. Otherwise the script does the same job from our side.

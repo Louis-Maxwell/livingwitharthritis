@@ -37,11 +37,16 @@ const CONDITION_SLUGS = [
 
 // Programmatic /conditions/:condition/:subpage URLs — previously only linked
 // from their parent condition page, so they appeared as orphans in audits.
+// Mirrors the 13 conditions in src/data/conditionSubpages.ts (× 4 sub-pages = 52).
 const CONDITION_SUBPAGE_SLUGS = [
+  ["osteoarthritis", "Osteoarthritis"],
   ["rheumatoid-arthritis", "Rheumatoid Arthritis"],
   ["psoriatic-arthritis", "Psoriatic Arthritis"],
+  ["gout", "Gout"],
   ["ankylosing-spondylitis", "Ankylosing Spondylitis"],
   ["juvenile-arthritis", "Juvenile Arthritis"],
+  ["fibromyalgia", "Fibromyalgia"],
+  ["lupus", "Lupus"],
   ["knee-arthritis", "Knee Arthritis"],
   ["hand-arthritis", "Hand Arthritis"],
   ["shoulder-arthritis", "Shoulder Arthritis"],
@@ -71,9 +76,10 @@ const conditionSubpageLinks: SitemapLink[] = CONDITION_SUBPAGE_SLUGS.flatMap(
 );
 
 // Exercise × condition matrix — /exercises/:joint/for/:condition
+// Mirrors src/data/exerciseConditionRecommendations.ts (6 joints × 13 conditions = 78).
 const EXERCISE_JOINTS = ["knee", "hip", "shoulder", "hand", "back", "ankle"] as const;
 const exerciseConditionLinks: SitemapLink[] = EXERCISE_JOINTS.flatMap((j) =>
-  CONDITION_SLUGS.map(([condSlug, condLabel]) => ({
+  CONDITION_SUBPAGE_SLUGS.map(([condSlug, condLabel]) => ({
     label: `${condLabel} – ${j.charAt(0).toUpperCase() + j.slice(1)} Exercises`,
     href: `/exercises/${j}/for/${condSlug}`,
   })),
@@ -137,14 +143,14 @@ const ALL_LINKS: SitemapLink[] = [
   { label: "Gallery", href: "/gallery" },
   { label: "Governance", href: "/governance" },
   { label: "Health Tools", href: "/health-tools" },
-  { label: "Impact Stories", href: "/impact-stories" },
+  { label: "Impact Stories", href: "/impact" },
   { label: "Library", href: "/library" },
-  { label: "Lived Experiences", href: "/lived-experiences" },
+  { label: "Lived Experiences", href: "/stories" },
   { label: "Partners", href: "/partners" },
   { label: "Pedometer", href: "/pedometer" },
   { label: "Press", href: "/press" },
   { label: "Privacy Policy", href: "/privacy" },
-  { label: "Resource Directory", href: "/resource-directory" },
+  { label: "Resource Directory", href: "/resources-directory" },
   { label: "Safeguarding", href: "/safeguarding" },
   { label: "Self-Assessment", href: "/self-assessment" },
   { label: "Self-Help Tool", href: "/self-help" },
@@ -196,7 +202,7 @@ const ALL_LINKS: SitemapLink[] = [
 
   // Buddy
   { label: "Buddy Programme", href: "/buddy" },
-  { label: "Buddy Match", href: "/buddy-match" },
+  { label: "Buddy Match", href: "/buddy/match" },
 
   // Regional hubs
   { label: "North West Region", href: "/regions/north-west" },
