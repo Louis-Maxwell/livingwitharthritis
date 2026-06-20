@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -11,6 +12,8 @@ import {
   Building2
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import CharityRegBadge from "@/components/CharityRegBadge";
+import { buildCharitySchema, injectJsonLd } from "@/lib/jsonLd";
 
 const trustees = [
   { name: "Dr Amina Patel", role: "Chair of Trustees", credentials: "MBBS, FRCP — Consultant Rheumatologist, Public Health" },
