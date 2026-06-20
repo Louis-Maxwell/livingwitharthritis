@@ -213,6 +213,9 @@ Regulated by the Charity Commission for England and Wales.
         {/* Registered Details */}
         <section className="py-14 lg:py-20 bg-muted/20">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
+            <div className="mb-8">
+              <CharityRegBadge variant="card" />
+            </div>
             <div className="grid md:grid-cols-2 gap-6">
               <Card className="border border-border/40">
                 <CardContent className="p-6 md:p-8">
