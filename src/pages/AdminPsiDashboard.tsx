@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import SeoHead from "@/components/SeoHead";
 import {
   LineChart,
@@ -13,6 +14,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { supabase } from "@/integrations/supabase/client";
+import { useAdmin } from "@/hooks/useAdmin";
 
 const BUCKET = "lighthouse-reports";
 
@@ -61,10 +63,16 @@ function fmtMs(ms: number | null | undefined) {
 }
 
 export default function AdminPsiDashboard() {
+  const navigate = useNavigate();
+  const { isAdmin, isLoading: adminLoading } = useAdmin();
   const [latest, setLatest] = useState<Summary | null>(null);
   const [history, setHistory] = useState<HistoryEntry[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!adminLoading && !isAdmin) navigate("/auth");
+  }, [isAdmin, adminLoading, navigate]);
 
   useEffect(() => {
     document.title = "PSI Performance Dashboard";
@@ -122,6 +130,8 @@ export default function AdminPsiDashboard() {
     "production-mobile": "hsl(38, 92%, 52%)",
     "production-desktop": "hsl(158, 64%, 38%)",
   };
+
+  if (adminLoading || !isAdmin) return null;
 
   return (
     <main className="min-h-screen bg-background py-12 px-4">
