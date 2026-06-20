@@ -79,6 +79,7 @@ const meetingSchedule = [
 ];
 
 const Governance = () => {
+  useEffect(() => injectJsonLd("ld-charity-governance", buildCharitySchema()), []);
   const handleDownloadConstitution = () => {
     // Generate a simple text-based constitution document
     const constitutionText = `
