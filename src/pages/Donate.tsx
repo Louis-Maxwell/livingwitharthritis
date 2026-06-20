@@ -320,7 +320,11 @@ export default function Donate() {
 
         {/* Tax-Efficient Giving */}
         <section className="container mx-auto px-6 md:px-10 py-16 max-w-5xl">
+          <div className="mb-10 max-w-3xl mx-auto">
+            <CharityRegBadge variant="card" />
+          </div>
           <div className="text-center mb-10">
+
             <h2 className="text-2xl font-bold text-foreground mb-3">Tax-Efficient Giving</h2>
             <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto">
               Make your donation go further. UK taxpayers have several ways to give that increase your impact at no extra cost.
