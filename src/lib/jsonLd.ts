@@ -3,7 +3,46 @@
  * react-helmet-async crashes when stringifying complex schemas).
  */
 
+import { CHARITY } from '@/config/charity';
+
 const SITE_URL = 'https://livingwitharthritis.org.uk';
+
+/**
+ * NGO / Charity schema with UK Charity Commission registration number.
+ * Use on About, Donate, Trust, Governance pages so AI/search engines
+ * can verify the organisation's regulator and registration.
+ */
+export const buildCharitySchema = () => ({
+  '@context': 'https://schema.org',
+  '@type': ['NGO', 'Organization'],
+  '@id': `${SITE_URL}/#charity`,
+  name: CHARITY.shortName,
+  legalName: CHARITY.legalName,
+  url: SITE_URL,
+  logo: `${SITE_URL}/favicon.png`,
+  taxID: CHARITY.number,
+  foundingDate: CHARITY.registrationDate,
+  identifier: [
+    {
+      '@type': 'PropertyValue',
+      propertyID: 'UK Charity Commission Registration',
+      value: CHARITY.number,
+    },
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: `${CHARITY.address.name}, ${CHARITY.address.street}`,
+    addressLocality: CHARITY.address.locality,
+    postalCode: CHARITY.address.postalCode,
+    addressRegion: CHARITY.address.region,
+    addressCountry: CHARITY.address.country,
+  },
+  subjectOf: {
+    '@type': 'CreativeWork',
+    name: 'UK Charity Commission Register entry',
+    url: CHARITY.registerUrl,
+  },
+});
 
 export interface BreadcrumbItem {
   name: string;
