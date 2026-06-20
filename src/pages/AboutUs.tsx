@@ -68,7 +68,7 @@ const teamMembers = [
 const AboutUs = () => {
   useEffect(() => injectJsonLd("ld-charity-about", buildCharitySchema()), []);
   const { data: sections = [], isLoading } = useQuery({
-
+    queryKey: ["about_us_sections"],
     queryFn: async () => {
       const { data, error } = await supabase
         .from("about_us_sections")
