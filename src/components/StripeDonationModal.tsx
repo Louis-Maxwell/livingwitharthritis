@@ -166,7 +166,7 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
                     className="mt-0.5 border-primary/40 data-[state=checked]:bg-primary data-[state=checked]:border-primary"
                   />
                   <span className="text-xs text-foreground leading-relaxed">
-                    I am a UK taxpayer and understand that if I pay less Income Tax and/or Capital Gains Tax than the amount of Gift Aid claimed on all my donations, it is my responsibility to pay any difference.
+                    I want to Gift Aid this donation and any donations I make in the future or have made in the past 4 years to <strong>Living With Arthritis</strong> (Registered Charity in England &amp; Wales No. 1218461). I am a UK taxpayer and understand that if I pay less Income Tax and/or Capital Gains Tax than the amount of Gift Aid claimed on all my donations in that tax year, it is my responsibility to pay any difference.
                   </span>
 
                 </label>
