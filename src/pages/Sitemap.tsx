@@ -76,9 +76,10 @@ const conditionSubpageLinks: SitemapLink[] = CONDITION_SUBPAGE_SLUGS.flatMap(
 );
 
 // Exercise × condition matrix — /exercises/:joint/for/:condition
+// Mirrors src/data/exerciseConditionRecommendations.ts (6 joints × 13 conditions = 78).
 const EXERCISE_JOINTS = ["knee", "hip", "shoulder", "hand", "back", "ankle"] as const;
 const exerciseConditionLinks: SitemapLink[] = EXERCISE_JOINTS.flatMap((j) =>
-  CONDITION_SLUGS.map(([condSlug, condLabel]) => ({
+  CONDITION_SUBPAGE_SLUGS.map(([condSlug, condLabel]) => ({
     label: `${condLabel} – ${j.charAt(0).toUpperCase() + j.slice(1)} Exercises`,
     href: `/exercises/${j}/for/${condSlug}`,
   })),
