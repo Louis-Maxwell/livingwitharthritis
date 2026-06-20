@@ -90,6 +90,7 @@ const WAYS_TO_GIVE = [
 ];
 
 export default function Donate() {
+  useEffect(() => injectJsonLd("ld-charity-donate", buildCharitySchema()), []);
   const navigate = useNavigate();
   const [frequency, setFrequency] = useState<"one-time" | "monthly">("one-time");
   const [selectedAmount, setSelectedAmount] = useState<number>(50);
