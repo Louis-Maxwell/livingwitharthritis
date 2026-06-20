@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import FooterMostRead from "@/components/FooterMostRead";
+import { CHARITY } from "@/config/charity";
 
 const columns = [
   {
