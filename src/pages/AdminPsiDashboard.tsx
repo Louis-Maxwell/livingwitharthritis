@@ -131,6 +131,8 @@ export default function AdminPsiDashboard() {
     "production-desktop": "hsl(158, 64%, 38%)",
   };
 
+  if (adminLoading || !isAdmin) return null;
+
   return (
     <main className="min-h-screen bg-background py-12 px-4">
       <SeoHead title="Admin: PageSpeed Dashboard" description="Internal PageSpeed Insights performance dashboard." path="/admin/psi" noindex />
