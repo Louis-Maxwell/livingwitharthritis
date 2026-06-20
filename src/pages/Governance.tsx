@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -8,6 +9,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import {
+  Shield, Users, FileText, Scale, Building2, MapPin, Mail, Phone, Award, CheckCircle2, Calendar, ExternalLink
+} from "lucide-react";
+import { Link } from "react-router-dom";
+import { CONTACT_EMAILS } from "@/config/contact";
+import CharityRegBadge from "@/components/CharityRegBadge";
+import { buildCharitySchema, injectJsonLd } from "@/lib/jsonLd";
   Shield, Users, FileText, Download, MapPin, Mail, Phone,
   Scale, BookOpen, CheckCircle, Building2, Gavel, Heart, Clock
 } from "lucide-react";
