@@ -63,10 +63,16 @@ function fmtMs(ms: number | null | undefined) {
 }
 
 export default function AdminPsiDashboard() {
+  const navigate = useNavigate();
+  const { isAdmin, isLoading: adminLoading } = useAdmin();
   const [latest, setLatest] = useState<Summary | null>(null);
   const [history, setHistory] = useState<HistoryEntry[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!adminLoading && !isAdmin) navigate("/auth");
+  }, [isAdmin, adminLoading, navigate]);
 
   useEffect(() => {
     document.title = "PSI Performance Dashboard";
