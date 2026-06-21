@@ -29,14 +29,18 @@ export const buildCharitySchema = () => ({
       value: CHARITY.number,
     },
   ],
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: `${CHARITY.address.name}, ${CHARITY.address.street}`,
-    addressLocality: CHARITY.address.locality,
-    postalCode: CHARITY.address.postalCode,
-    addressRegion: CHARITY.address.region,
-    addressCountry: CHARITY.address.country,
-  },
+  ...(CHARITY.address.street && CHARITY.address.postalCode
+    ? {
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: `${CHARITY.address.name}, ${CHARITY.address.street}`,
+          addressLocality: CHARITY.address.locality,
+          postalCode: CHARITY.address.postalCode,
+          addressRegion: CHARITY.address.region,
+          addressCountry: CHARITY.address.country,
+        },
+      }
+    : {}),
   subjectOf: {
     '@type': 'CreativeWork',
     name: 'UK Charity Commission Register entry',
@@ -77,6 +81,127 @@ export const buildFAQPage = (items: FAQItem[]) => ({
     },
   })),
 });
+
+/* ---------------------------------------------------------------------- *
+ *  MedicalWebPage — strongest E-E-A-T signal for health (YMYL) pages.
+ *  Search engines and AI answer engines treat MedicalWebPage as a
+ *  higher-authority surface than a generic WebPage and lift it into
+ *  AI Overviews / ChatGPT / Perplexity answers with attribution.
+ * ---------------------------------------------------------------------- */
+
+export type MedicalSpecialty =
+  | 'Rheumatology'
+  | 'Physiotherapy'
+  | 'Nutrition'
+  | 'Orthopedic';
+
+export interface MedicalWebPageInput {
+  /** Absolute or relative URL for the page (relative is resolved against SITE_URL). */
+  path: string;
+  /** Page H1 / browser title. */
+  name: string;
+  /** 1-2 sentence summary (40-160 words ideal). */
+  description: string;
+  /** ISO date (YYYY-MM-DD) the content was last clinically reviewed. */
+  lastReviewed?: string;
+  /** Specialty hint for the search engine. Defaults to Rheumatology. */
+  specialty?: MedicalSpecialty | MedicalSpecialty[];
+  /** Optional MedicalCondition name(s) this page is about. */
+  conditions?: string[];
+  /** Image URL for the page (absolute). */
+  image?: string;
+}
+
+const REVIEWER = {
+  '@type': 'Person',
+  name: 'Maxwell',
+  jobTitle: 'First Contact Practitioner — Chartered Physiotherapist',
+  identifier: 'HCPC PH128483',
+  affiliation: {
+    '@type': 'MedicalOrganization',
+    name: 'Chartered Society of Physiotherapy (CSP)',
+  },
+};
+
+export const buildMedicalWebPage = (input: MedicalWebPageInput) => {
+  const url = input.path.startsWith('http') ? input.path : `${SITE_URL}${input.path}`;
+  const specialty = input.specialty ?? 'Rheumatology';
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalWebPage',
+    '@id': `${url}#medicalwebpage`,
+    url,
+    name: input.name,
+    description: input.description,
+    inLanguage: 'en-GB',
+    isPartOf: { '@id': `${SITE_URL}/#website` },
+    publisher: { '@id': `${SITE_URL}/#organization` },
+    medicalAudience: { '@type': 'MedicalAudience', audienceType: 'Patient' },
+    specialty,
+    ...(input.lastReviewed
+      ? {
+          lastReviewed: input.lastReviewed,
+          reviewedBy: REVIEWER,
+        }
+      : {}),
+    ...(input.conditions && input.conditions.length
+      ? {
+          about: input.conditions.map((c) => ({
+            '@type': 'MedicalCondition',
+            name: c,
+          })),
+        }
+      : {}),
+    ...(input.image ? { image: input.image } : {}),
+  };
+};
+
+/* ---------------------------------------------------------------------- *
+ *  HowTo — used for exercise programmes and step-by-step tools so AI
+ *  answer engines can surface ordered steps as a rich result.
+ * ---------------------------------------------------------------------- */
+
+export interface HowToStepInput {
+  name: string;
+  text: string;
+  url?: string;
+  image?: string;
+}
+
+export interface HowToInput {
+  name: string;
+  description: string;
+  totalTime?: string; // ISO 8601 duration e.g. "PT10M"
+  image?: string;
+  supply?: string[];
+  tool?: string[];
+  steps: HowToStepInput[];
+}
+
+export const buildHowTo = (input: HowToInput) => ({
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: input.name,
+  description: input.description,
+  inLanguage: 'en-GB',
+  ...(input.totalTime ? { totalTime: input.totalTime } : {}),
+  ...(input.image ? { image: input.image } : {}),
+  ...(input.supply && input.supply.length
+    ? { supply: input.supply.map((s) => ({ '@type': 'HowToSupply', name: s })) }
+    : {}),
+  ...(input.tool && input.tool.length
+    ? { tool: input.tool.map((t) => ({ '@type': 'HowToTool', name: t })) }
+    : {}),
+  step: input.steps.map((s, i) => ({
+    '@type': 'HowToStep',
+    position: i + 1,
+    name: s.name,
+    text: s.text,
+    ...(s.url ? { url: s.url.startsWith('http') ? s.url : `${SITE_URL}${s.url}` } : {}),
+    ...(s.image ? { image: s.image } : {}),
+  })),
+});
+
 
 /**
  * Inject (or replace) a JSON-LD <script> by id. Returns the cleanup

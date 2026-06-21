@@ -61,9 +61,30 @@ export interface PageSchemaProps {
   howTo?: SchemaHowTo;
   /** CSS selector for SpeakableSpecification (e.g. ".speakable-intro"). */
   speakableSelector?: string;
+  /** ISO date (YYYY-MM-DD) the page was last clinically reviewed. Drives the
+   *  MedicalWebPage `lastReviewed` field — a strong YMYL E-E-A-T signal. */
+  lastReviewed?: string;
+  /** Override the default reviewer (HCPC-registered chartered physiotherapist). */
+  reviewedBy?: {
+    name: string;
+    jobTitle: string;
+    /** Professional registration, e.g. "HCPC PH128483". */
+    identifier?: string;
+  };
   /** Stable id prefix to scope script cleanup if multiple instances render. */
   idPrefix?: string;
 }
+
+const DEFAULT_REVIEWER = {
+  "@type": "Person",
+  name: "Maxwell",
+  jobTitle: "First Contact Practitioner — Chartered Physiotherapist",
+  identifier: "HCPC PH128483",
+  affiliation: {
+    "@type": "MedicalOrganization",
+    name: "Chartered Society of Physiotherapy (CSP)",
+  },
+};
 
 function toAbsolute(url: string): string {
   if (!url) return BASE;
@@ -80,6 +101,8 @@ export default function PageSchema({
   medical,
   howTo,
   speakableSelector,
+  lastReviewed,
+  reviewedBy,
   idPrefix = "page-schema",
 }: PageSchemaProps) {
   useEffect(() => {
@@ -143,6 +166,17 @@ export default function PageSchema({
           cssSelector: [speakableSelector],
         };
       }
+      if (lastReviewed) {
+        medicalPage.lastReviewed = lastReviewed;
+        medicalPage.reviewedBy = reviewedBy
+          ? {
+              "@type": "Person",
+              name: reviewedBy.name,
+              jobTitle: reviewedBy.jobTitle,
+              ...(reviewedBy.identifier ? { identifier: reviewedBy.identifier } : {}),
+            }
+          : DEFAULT_REVIEWER;
+      }
       blocks.push(medicalPage);
     }
 
@@ -171,7 +205,7 @@ export default function PageSchema({
     });
 
     return () => nodes.forEach((n) => n.remove());
-  }, [url, name, description, breadcrumbs, faqs, medical, howTo, speakableSelector, idPrefix]);
+  }, [url, name, description, breadcrumbs, faqs, medical, howTo, speakableSelector, lastReviewed, reviewedBy, idPrefix]);
 
   return null;
 }

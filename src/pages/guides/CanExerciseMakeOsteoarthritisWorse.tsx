@@ -126,6 +126,7 @@ export default function CanExerciseMakeOsteoarthritisWorse() {
           { name: "Can exercise make osteoarthritis worse?" },
         ]}
         faqs={FAQS}
+        lastReviewed="2026-06-01"
         idPrefix="oa-exercise-myth"
       />
       <Header />

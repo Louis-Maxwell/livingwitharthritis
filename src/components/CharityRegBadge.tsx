@@ -1,5 +1,5 @@
 import { ShieldCheck, ExternalLink, MapPin } from 'lucide-react';
-import { CHARITY } from '@/config/charity';
+import { CHARITY, hasCharityAddress } from '@/config/charity';
 import { cn } from '@/lib/utils';
 
 interface CharityRegBadgeProps {
@@ -48,13 +48,15 @@ const CharityRegBadge = ({ variant = 'inline', className }: CharityRegBadgeProps
             <p className="text-xs text-muted-foreground mt-1.5">
               Regulated by the {CHARITY.regulator}
             </p>
-            <address className="not-italic text-xs text-muted-foreground mt-3 flex items-start gap-1.5 leading-relaxed">
-              <MapPin className="w-3.5 h-3.5 mt-0.5 shrink-0" />
-              <span>
-                {CHARITY.address.name}, {CHARITY.address.street}, {CHARITY.address.locality}{' '}
-                {CHARITY.address.postalCode}, {CHARITY.address.region}
-              </span>
-            </address>
+            {hasCharityAddress() && (
+              <address className="not-italic text-xs text-muted-foreground mt-3 flex items-start gap-1.5 leading-relaxed">
+                <MapPin className="w-3.5 h-3.5 mt-0.5 shrink-0" />
+                <span>
+                  {CHARITY.address.name}, {CHARITY.address.street}, {CHARITY.address.locality}{' '}
+                  {CHARITY.address.postalCode}, {CHARITY.address.region}
+                </span>
+              </address>
+            )}
             <a
               href={CHARITY.registerUrl}
               target="_blank"

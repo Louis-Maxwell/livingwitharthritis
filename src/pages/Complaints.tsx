@@ -69,9 +69,6 @@ export default function Complaints() {
                     <Phone className="w-4 h-4" /> 07760 512 084
                   </a>
                 </div>
-                <p className="text-muted-foreground text-sm">
-                  Or write to: Living With Arthritis UK, Oswestry Health Centre, Thomas Savin Road, Off Gobowen Road, Oswestry SY11 1GA
-                </p>
               </div>
             </section>
 

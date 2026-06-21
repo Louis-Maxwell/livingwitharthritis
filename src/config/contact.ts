@@ -17,8 +17,8 @@ export const CONTACT_EMAILS = {
 export const CONTACT_PHONE = "07760 512 084";
 export const CONTACT_PHONE_TEL = "07760512084";
 
-export const CONTACT_ADDRESS =
-  "Living With Arthritis UK, Oswestry Health Centre, Thomas Savin Road, Off Gobowen Road, Oswestry SY11 1GA";
+/** Postal address intentionally omitted — new registered address pending. */
+export const CONTACT_ADDRESS = "";
 
 /** Convenience helper for building mailto: links. */
 export const mailto = (

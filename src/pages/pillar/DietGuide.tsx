@@ -206,6 +206,7 @@ export default function DietGuide() {
           { name: "Diet Guide" },
         ]}
         faqs={DIET_GUIDE_FAQS}
+        lastReviewed="2026-06-01"
         idPrefix="diet-guide"
       />
       <Header />

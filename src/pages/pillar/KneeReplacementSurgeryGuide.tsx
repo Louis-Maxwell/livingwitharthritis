@@ -199,6 +199,7 @@ export default function KneeReplacementSurgeryGuide() {
           { name: "Knee Replacement Surgery" },
         ]}
         faqs={KNEE_REPLACEMENT_FAQS}
+        lastReviewed="2026-06-01"
         idPrefix="knee-replacement-guide"
       />
       <Header />

@@ -211,6 +211,7 @@ export default function ExerciseGuide() {
           { name: "Exercise Guide" },
         ]}
         faqs={EXERCISE_GUIDE_FAQS}
+        lastReviewed="2026-06-01"
         idPrefix="exercise-guide"
       />
       <Header />

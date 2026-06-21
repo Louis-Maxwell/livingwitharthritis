@@ -155,6 +155,7 @@ export default function SteroidsGuide() {
           { name: "Steroids for Arthritis" },
         ]}
         faqs={STEROID_FAQS}
+        lastReviewed="2026-06-01"
         idPrefix="steroids-guide"
       />
       <Header />

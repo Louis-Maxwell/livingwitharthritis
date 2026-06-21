@@ -173,6 +173,7 @@ export default function HealthServicesGuide() {
           { name: "Arthritis Services" },
         ]}
         faqs={HEALTH_SERVICES_FAQS}
+        lastReviewed="2026-06-01"
         idPrefix="health-services-guide"
       />
       <Header />
