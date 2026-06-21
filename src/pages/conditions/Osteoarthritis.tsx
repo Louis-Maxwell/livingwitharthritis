@@ -14,6 +14,7 @@ import ReadNextCards from "@/components/ReadNextCards";
 import ConditionSubpageLinks from "@/components/ConditionSubpageLinks";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import AnswerBox from "@/components/seo/AnswerBox";
+import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 
 const BASE = "https://livingwitharthritis.org.uk";
 
