@@ -39,13 +39,7 @@ const Contact = () => (
           "name": "Living With Arthritis UK",
           "email": "info@livingwitharthritis.org.uk",
           "telephone": "+44-7760-512-084",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "27 Old Gloucester Street",
-            "addressLocality": "London",
-            "postalCode": "WC1N 3AX",
-            "addressCountry": "GB"
-          },
+          "address": { "@type": "PostalAddress", "addressCountry": "GB" },
           "contactPoint": [{
             "@type": "ContactPoint",
             "contactType": "customer support",

@@ -3,6 +3,10 @@
  * details. Imported by Footer, About, Trust, Governance, Donate, JSON-LD
  * schema, and donation email templates so the number/address can never
  * drift between surfaces.
+ *
+ * NOTE: The postal address is intentionally blank — a new registered
+ * address will be added shortly. Until then, surfaces that render the
+ * address check `hasCharityAddress()` and hide the block.
  */
 export const CHARITY = {
   number: '1218461',
@@ -16,14 +20,17 @@ export const CHARITY = {
     'https://register-of-charities.charitycommission.gov.uk/charity-search?search=1218461',
   registrationDate: '2020-03-15',
   address: {
-    name: 'Oswestry Health Centre',
-    street: 'Thomas Savin Road, Off Gobowen Road',
-    locality: 'Oswestry',
-    postalCode: 'SY11 1GA',
-    region: 'England',
+    name: '',
+    street: '',
+    locality: '',
+    postalCode: '',
+    region: '',
     country: 'GB',
   },
 } as const;
+
+export const hasCharityAddress = (): boolean =>
+  Boolean(CHARITY.address.street && CHARITY.address.postalCode);
 
 export const charityRegLine = (): string =>
   `Registered Charity in England & Wales No. ${CHARITY.number}`;

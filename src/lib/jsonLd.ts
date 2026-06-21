@@ -29,14 +29,18 @@ export const buildCharitySchema = () => ({
       value: CHARITY.number,
     },
   ],
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: `${CHARITY.address.name}, ${CHARITY.address.street}`,
-    addressLocality: CHARITY.address.locality,
-    postalCode: CHARITY.address.postalCode,
-    addressRegion: CHARITY.address.region,
-    addressCountry: CHARITY.address.country,
-  },
+  ...(CHARITY.address.street && CHARITY.address.postalCode
+    ? {
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: `${CHARITY.address.name}, ${CHARITY.address.street}`,
+          addressLocality: CHARITY.address.locality,
+          postalCode: CHARITY.address.postalCode,
+          addressRegion: CHARITY.address.region,
+          addressCountry: CHARITY.address.country,
+        },
+      }
+    : {}),
   subjectOf: {
     '@type': 'CreativeWork',
     name: 'UK Charity Commission Register entry',

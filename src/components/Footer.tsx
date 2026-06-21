@@ -123,7 +123,7 @@ const Footer = () => {
       <div className="border-t border-border/15">
         <div className="container mx-auto px-6 md:px-12 py-5 flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-muted-foreground text-[11px] tracking-wide">
-            © {new Date().getFullYear()} {CHARITY.legalName}™ · {CHARITY.address.name}, {CHARITY.address.street}, {CHARITY.address.locality} {CHARITY.address.postalCode} ·{" "}
+            © {new Date().getFullYear()} {CHARITY.legalName}™ ·{" "}
             <a
               href={CHARITY.registerUrl}
               target="_blank"

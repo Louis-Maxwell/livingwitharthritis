@@ -136,13 +136,6 @@ This constitution may be amended by a resolution agreed by not less than two-thi
 Adopted on 15 March 2020.
 Amended on 1 January 2024.
 
-Registered address:
-Living With Arthritis
-Oswestry Health Centre
-Thomas Savin Road, Off Gobowen Road
-Oswestry SY11 1GA (SatNav: SY11 1HS)
-England
-
 Regulated by the Charity Commission for England and Wales.
     `.trim();
 
@@ -177,7 +170,7 @@ Regulated by the Charity Commission for England and Wales.
             name: "Living With Arthritis",
             foundingDate: "2020",
             areaServed: { "@type": "Country", name: "United Kingdom" },
-            address: { "@type": "PostalAddress", streetAddress: "Oswestry Health Centre, Thomas Savin Road, Off Gobowen Road", addressLocality: "Oswestry", postalCode: "SY11 1GA", addressCountry: "GB" },
+            address: { "@type": "PostalAddress", addressCountry: "GB" },
           }
         })}</script>
       <meta name="twitter:card" content="summary_large_image" />
@@ -252,15 +245,8 @@ Regulated by the Charity Commission for England and Wales.
                     <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                       <MapPin className="w-5 h-5 text-primary" />
                     </div>
-                    <h2 className="text-lg font-bold text-foreground">Registered Address</h2>
+                    <h2 className="text-lg font-bold text-foreground">Contact</h2>
                   </div>
-                  <address className="not-italic text-sm text-muted-foreground leading-relaxed mb-5">
-                    Living With Arthritis<br />
-                    Oswestry Health Centre<br />
-                    Thomas Savin Road, Off Gobowen Road<br />
-                    Oswestry SY11 1GA (SatNav: SY11 1HS)<br />
-                    England
-                  </address>
                   <div className="space-y-2.5">
                     <a href={`mailto:${CONTACT_EMAILS.info}`} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
                       <Mail className="w-4 h-4" /> {CONTACT_EMAILS.info}

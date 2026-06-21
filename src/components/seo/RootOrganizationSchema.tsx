@@ -22,13 +22,6 @@ const PAYLOAD = {
   description:
     "UK charity providing free virtual physiotherapy, NICE-aligned exercise programmes, anti-inflammatory diet guidance, benefits advice and peer support for the ~10 million people living with arthritis across the United Kingdom.",
   email: "info@livingwitharthritis.org.uk",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "27 Old Gloucester Street",
-    addressLocality: "London",
-    postalCode: "WC1N 3AX",
-    addressCountry: "GB",
-  },
   areaServed: {
     "@type": "Country",
     name: "United Kingdom",
