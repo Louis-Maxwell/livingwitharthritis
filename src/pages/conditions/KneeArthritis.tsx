@@ -154,6 +154,7 @@ const KneeArthritis = () => (
             been tried.
           </p>
         </AnswerBox>
+        <MedicalReviewBadge compact reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
       </section>
 
       <section className="py-12 lg:py-16 bg-tint-green">
