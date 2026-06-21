@@ -4915,6 +4915,36 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://livingwitharthritis.org.uk/blog/understanding-frailty-older-adults</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/blog/preventing-falls-guide-frail-adults</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/blog/sarcopenia-muscle-loss-how-to-combat</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/blog/nutrition-strategies-reduce-frailty-risk</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/blog/building-strength-resilience-exercise-frailty-prevention</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/supplements</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -5060,6 +5090,12 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/diet</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/blog/category/frailty</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
