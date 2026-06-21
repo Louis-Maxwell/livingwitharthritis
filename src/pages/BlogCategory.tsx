@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import BlogIndex from "./BlogIndex";
 import SeoHead from "@/components/SeoHead";
 
-const validCategories = ["exercise", "nutrition", "lifestyle", "health", "mental-health", "supplements", "treatment"];
+const validCategories = ["exercise", "nutrition", "lifestyle", "health", "mental-health", "supplements", "treatment", "frailty"];
 
 const CATEGORY_META: Record<string, { title: string; description: string }> = {
   exercise: {
@@ -33,6 +33,10 @@ const CATEGORY_META: Record<string, { title: string; description: string }> = {
   "mental-health": {
     title: "Mental Health & Arthritis: UK Guides",
     description: "Living with arthritis affects mental wellbeing. Read evidence-based UK guides on mood, anxiety, sleep and coping with chronic pain.",
+  },
+  frailty: {
+    title: "Frailty in Older Adults: UK Guides",
+    description: "Evidence-based UK articles on frailty, sarcopenia, falls prevention, nutrition and exercise for older adults — reviewed by HCPC clinicians.",
   },
 };
 
