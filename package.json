@@ -8,6 +8,7 @@
     "dev": "vite",
     "prebuild": "bun scripts/generate-sitemap.ts",
     "build": "vite build",
+    "postbuild": "node scripts/inject-canonicals.mjs",
     "build:prerender": "PRERENDER=1 vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
