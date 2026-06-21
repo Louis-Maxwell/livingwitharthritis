@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import BlogIndex from "./BlogIndex";
 import SeoHead from "@/components/SeoHead";
 
-const validCategories = ["exercise", "nutrition", "lifestyle", "health", "mental-health", "supplements", "treatment"];
+const validCategories = ["exercise", "nutrition", "lifestyle", "health", "mental-health", "supplements", "treatment", "frailty"];
 
 const CATEGORY_META: Record<string, { title: string; description: string }> = {
   exercise: {
