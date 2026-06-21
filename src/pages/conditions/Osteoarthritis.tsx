@@ -14,6 +14,7 @@ import ReadNextCards from "@/components/ReadNextCards";
 import ConditionSubpageLinks from "@/components/ConditionSubpageLinks";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import AnswerBox from "@/components/seo/AnswerBox";
+import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 
 const BASE = "https://livingwitharthritis.org.uk";
 
@@ -164,6 +165,7 @@ const Osteoarthritis = () => (
             unresponsive cases.
           </p>
         </AnswerBox>
+        <MedicalReviewBadge compact reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
       </section>
 
       {/* ─── Key Stats ─── */}

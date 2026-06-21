@@ -14,6 +14,7 @@ import ConditionSubpageLinks from "@/components/ConditionSubpageLinks";
 import ReadNextCards from "@/components/ReadNextCards";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import AnswerBox from "@/components/seo/AnswerBox";
+import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 
 const BASE = "https://livingwitharthritis.org.uk";
 
@@ -147,6 +148,7 @@ const RheumatoidArthritis = () => (
             function.
           </p>
         </AnswerBox>
+        <MedicalReviewBadge compact reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
       </section>
       {/* ─── RA Key Stats ─── */}
       <section className="py-12 lg:py-16 bg-tint-blue">

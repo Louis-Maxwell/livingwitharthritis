@@ -69,6 +69,7 @@ const ZakatAppeal = lazy(() => import("./pages/ZakatAppeal"));
 const ExerciseHub = lazy(() => import("./pages/ExerciseHub"));
 const DietHub = lazy(() => import("./pages/DietHub"));
 const MediterraneanDietForArthritis = lazy(() => import("./pages/diet/MediterraneanDietForArthritis"));
+const FoodsToAvoidWithArthritis = lazy(() => import("./pages/diet/FoodsToAvoidWithArthritis"));
 const DoesCrackingKnucklesCauseArthritis = lazy(() => import("./pages/myths/DoesCrackingKnucklesCauseArthritis"));
 const TrustCredibility = lazy(() => import("./pages/TrustCredibility"));
 const CommunityHub = lazy(() => import("./pages/CommunityHub"));
@@ -223,6 +224,7 @@ function AnimatedRoutes() {
         <Route path="/exercises/ankle-arthritis-exercises" element={<AnkleArthritisExercises />} />
         <Route path="/diet" element={<DietHub />} />
         <Route path="/diet/mediterranean-diet-for-arthritis" element={<MediterraneanDietForArthritis />} />
+        <Route path="/diet/foods-to-avoid-with-arthritis" element={<FoodsToAvoidWithArthritis />} />
         <Route path="/myths/does-cracking-knuckles-cause-arthritis" element={<DoesCrackingKnucklesCauseArthritis />} />
         <Route path="/zakat-appeal" element={<ZakatAppeal />} />
         <Route path="/trust" element={<TrustCredibility />} />
