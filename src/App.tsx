@@ -146,6 +146,11 @@ const ArthritisMentalHealth = lazy(() => import("./pages/ArthritisMentalHealth")
 const FaqArticle = lazy(() => import("./pages/FaqArticle"));
 const ExpertArticle = lazy(() => import("./pages/ExpertArticle"));
 const PatientStory = lazy(() => import("./pages/PatientStory"));
+const FrailtyManagementHub = lazy(() => import("./pages/guides/FrailtyManagementHub"));
+const SarcopeniaMuscleControl = lazy(() => import("./pages/guides/SarcopeniaMuscleControl"));
+const PreventativeMSKHealth = lazy(() => import("./pages/guides/PreventativeMSKHealth"));
+const BoneDensityOsteoporosis = lazy(() => import("./pages/guides/BoneDensityOsteoporosis"));
+const FallPreventionOlderAdults = lazy(() => import("./pages/guides/FallPreventionOlderAdults"));
 // No visible loader — Suspense falls back to null so the previous page
 // (or blank background) stays visible until the next chunk is ready,
 // avoiding the spinner flash on first paint.
@@ -212,6 +217,11 @@ function AnimatedRoutes() {
         <Route path="/supplements/msm" element={<Msm />} />
         <Route path="/living-with-arthritis" element={<LivingWithArthritis />} />
         <Route path="/arthritis-mental-health" element={<ArthritisMentalHealth />} />
+        <Route path="/guides/frailty-management-hub" element={<FrailtyManagementHub />} />
+        <Route path="/guides/sarcopenia-muscle-loss" element={<SarcopeniaMuscleControl />} />
+        <Route path="/guides/preventative-msk-health" element={<PreventativeMSKHealth />} />
+        <Route path="/guides/bone-density-osteoporosis" element={<BoneDensityOsteoporosis />} />
+        <Route path="/guides/fall-prevention-older-adults" element={<FallPreventionOlderAdults />} />
         <Route path="/faq/:slug" element={<FaqArticle />} />
         <Route path="/expert/:slug" element={<ExpertArticle />} />
         <Route path="/stories/:slug" element={<PatientStory />} />
