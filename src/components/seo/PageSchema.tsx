@@ -166,6 +166,17 @@ export default function PageSchema({
           cssSelector: [speakableSelector],
         };
       }
+      if (lastReviewed) {
+        medicalPage.lastReviewed = lastReviewed;
+        medicalPage.reviewedBy = reviewedBy
+          ? {
+              "@type": "Person",
+              name: reviewedBy.name,
+              jobTitle: reviewedBy.jobTitle,
+              ...(reviewedBy.identifier ? { identifier: reviewedBy.identifier } : {}),
+            }
+          : DEFAULT_REVIEWER;
+      }
       blocks.push(medicalPage);
     }
 
@@ -194,7 +205,7 @@ export default function PageSchema({
     });
 
     return () => nodes.forEach((n) => n.remove());
-  }, [url, name, description, breadcrumbs, faqs, medical, howTo, speakableSelector, idPrefix]);
+  }, [url, name, description, breadcrumbs, faqs, medical, howTo, speakableSelector, lastReviewed, reviewedBy, idPrefix]);
 
   return null;
 }
