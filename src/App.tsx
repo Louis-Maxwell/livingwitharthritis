@@ -70,6 +70,7 @@ const ExerciseHub = lazy(() => import("./pages/ExerciseHub"));
 const DietHub = lazy(() => import("./pages/DietHub"));
 const MediterraneanDietForArthritis = lazy(() => import("./pages/diet/MediterraneanDietForArthritis"));
 const FoodsToAvoidWithArthritis = lazy(() => import("./pages/diet/FoodsToAvoidWithArthritis"));
+const KneeOsteoarthritisExercises = lazy(() => import("./pages/blog/KneeOsteoarthritisExercises"));
 const DoesCrackingKnucklesCauseArthritis = lazy(() => import("./pages/myths/DoesCrackingKnucklesCauseArthritis"));
 const TrustCredibility = lazy(() => import("./pages/TrustCredibility"));
 const CommunityHub = lazy(() => import("./pages/CommunityHub"));
