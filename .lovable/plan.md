@@ -1,49 +1,30 @@
-## Root cause
+## Investigation
 
-Semrush flags 40 sitemap URLs as "Non-canonical URL" because:
+I audited every URL in `public/sitemap.xml` (844 entries) against:
+- React Router patterns in `src/App.tsx` (115 routes)
+- Published rows in `blog_articles` (217 slugs)
 
-- The site is a SPA — every URL serves the same static `dist/index.html`.
-- `index.html` contains `og:url = https://livingwitharthritis.org.uk/` and **no** `<link rel="canonical">`.
-- Per‑route canonical/og:url are only injected client‑side by `react-helmet-async`, which Semrush's crawler does not execute.
-- Result: every sitemap URL appears canonicalised to the homepage.
+**Findings:**
+1. **Zero broken URLs in the sitemap.** Every entry matches a route, and every `/blog/<slug>` entry maps to a published row.
+2. **5 new frailty articles exist in the database but are missing from `public/sitemap.xml`** — the sitemap was last generated before I inserted them. They are: `understanding-frailty-older-adults`, `preventing-falls-guide-frail-adults`, `sarcopenia-muscle-loss-how-to-combat`, `nutrition-strategies-reduce-frailty-risk`, `building-strength-resilience-exercise-frailty-prevention`. Until the sitemap is regenerated they are reachable but undiscoverable to crawlers — not strictly a 404, but the closest thing to one on the live site.
+3. **SEO scanner reports "Sitemap needs attention"** flagging `/auth`, `/admin`, `/admin/appointments`, `/admin/psi`, `/admin/emails`. This is a **false positive** — `scripts/generate-sitemap.ts` intentionally excludes these (auth + admin routes) and matches `public/robots.txt`'s `Disallow` rules. Indexing them would surface auth walls to Google. Will mark fixed with explanation.
 
-The existing puppeteer prerender is gated behind `PRERENDER=1` and does not run in the Lovable build, so it can't be relied on.
+## Plan
 
-## Fix
+### 1. Regenerate the sitemap
+Run `bun scripts/generate-sitemap.ts` so the 5 new frailty articles (and the new `/blog/category/frailty` page) get written into `public/sitemap.xml`. Expected: 844 → 850 entries.
 
-Add a lightweight, puppeteer-free post-build step that emits per-route static HTML with the correct `<link rel="canonical">` and `og:url`. No new dependencies.
+### 2. Dismiss the false-positive SEO finding
+Call `seo_chat--update_findings` with `finding_id: http:sitemap`, state `fixed`, explaining that `/auth` and `/admin/*` are intentionally excluded from the sitemap to match `robots.txt` and avoid indexing private routes.
 
-### 1. `index.html` — homepage baseline
-
-- Add `<link rel="canonical" href="https://livingwitharthritis.org.uk/" />` to the head.
-- Leave the existing homepage `og:url` as-is (it is correct for `/`).
-
-### 2. New script `scripts/inject-canonicals.mjs`
-
-- Runs after `vite build` (wired as `postbuild` in `package.json`).
-- Reads the list of routes from `scripts/prerender-routes.mjs` **plus** every `<loc>` in `public/sitemap.xml` (so all 800+ sitemap URLs are covered, including the 40 flagged ones: `/contact`, `/governance`, `/accessibility`, `/faq`, `/blog`, `/buddy`, `/community`, `/credits`, `/finances`, `/safeguarding`, `/complaints`, `/corporate-giving`, `/ways-to-help`, `/health-tools`, `/arthritis-support`, `/conditions/*`, `/exercises/*`, `/diet/*`, `/guides/*`, `/regions/*`, etc.).
-- For each route, writes `dist/<route>/index.html` by copying `dist/index.html` and replacing:
-  - the homepage `og:url` with the route URL,
-  - injecting `<link rel="canonical" href="https://livingwitharthritis.org.uk<route>" />` before `</head>`.
-- Skips routes where the directory already exists from puppeteer prerender (so `PRERENDER=1` builds keep working).
-
-### 3. `package.json`
-
-- Add `"postbuild": "node scripts/inject-canonicals.mjs"`.
-
-### 4. Validation
-
-- Run the build locally in the sandbox and `grep` a handful of the 40 flagged URLs in `dist/` to confirm each has the correct canonical and og:url.
-- After deploy, the user can re-run the Semrush "Site Audit" — the 40 errors will clear once Semrush re-crawls.
+### 3. No code changes needed
+- No routes are missing.
+- No DB rows are orphaned.
+- The 404 page itself (`NotFound.tsx`) is working correctly — it just renders when a user hits a path that isn't in the router (e.g. typo'd URL or removed page from external backlink).
 
 ## Out of scope
+- Adding new content/routes.
+- Editing the 404 page design.
+- Rewriting the sitemap generator (it already works correctly).
 
-- No changes to sitemap.xml content, React components, or routing.
-- No puppeteer/SSR — pure HTML rewrite, fast (<5s for ~800 routes).
-- Does not affect JS-capable crawlers (Helmet still wins post-hydration).
-
-## Files
-
-- edit `index.html` (add homepage canonical)
-- create `scripts/inject-canonicals.mjs`
-- edit `package.json` (add `postbuild` hook)
+If you actually have a specific URL in mind that's returning 404 (e.g. an old external link or a Semrush row), paste it and I'll diagnose that one directly instead.
