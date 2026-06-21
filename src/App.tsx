@@ -70,6 +70,7 @@ const ExerciseHub = lazy(() => import("./pages/ExerciseHub"));
 const DietHub = lazy(() => import("./pages/DietHub"));
 const MediterraneanDietForArthritis = lazy(() => import("./pages/diet/MediterraneanDietForArthritis"));
 const FoodsToAvoidWithArthritis = lazy(() => import("./pages/diet/FoodsToAvoidWithArthritis"));
+const KneeOsteoarthritisExercises = lazy(() => import("./pages/blog/KneeOsteoarthritisExercises"));
 const DoesCrackingKnucklesCauseArthritis = lazy(() => import("./pages/myths/DoesCrackingKnucklesCauseArthritis"));
 const TrustCredibility = lazy(() => import("./pages/TrustCredibility"));
 const CommunityHub = lazy(() => import("./pages/CommunityHub"));
@@ -185,6 +186,7 @@ function AnimatedRoutes() {
         <Route path="/library/:slug" element={<LibraryTopic />} />
         <Route path="/blog-hub" element={<BlogHub />} />
         <Route path="/blog/category/:category" element={<BlogCategory />} />
+        <Route path="/blog/knee-osteoarthritis-exercises" element={<KneeOsteoarthritisExercises />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/daily-tips/:slug" element={<DailyTipDetail />} />
         <Route path="/about" element={<AboutUs />} />
