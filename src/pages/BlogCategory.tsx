@@ -34,6 +34,10 @@ const CATEGORY_META: Record<string, { title: string; description: string }> = {
     title: "Mental Health & Arthritis: UK Guides",
     description: "Living with arthritis affects mental wellbeing. Read evidence-based UK guides on mood, anxiety, sleep and coping with chronic pain.",
   },
+  frailty: {
+    title: "Frailty in Older Adults: UK Guides",
+    description: "Evidence-based UK articles on frailty, sarcopenia, falls prevention, nutrition and exercise for older adults — reviewed by HCPC clinicians.",
+  },
 };
 
 const BlogCategory = () => {
