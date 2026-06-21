@@ -5,6 +5,7 @@ import { ArrowRight, Pill } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
+import PageSchema from "@/components/seo/PageSchema";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const URL = `${BASE}/supplements`;
@@ -49,6 +50,29 @@ const SUPPLEMENTS = [
     label: "Ginger",
     desc: "Plant-based anti-inflammatory. 500–1,000 mg extract per day modestly eases knee OA pain and stiffness.",
     available: false,
+  },
+];
+
+const SUPPLEMENT_FAQS = [
+  {
+    question: "Do supplements really work for arthritis?",
+    answer:
+      "Evidence is mixed. Glucosamine sulfate (1,500 mg/day), turmeric/curcumin and omega-3 fish oil have the strongest data — each can offer modest pain or stiffness improvement for some people. None are as effective as exercise, weight management or an anti-inflammatory diet, and none reverse joint damage.",
+  },
+  {
+    question: "Which arthritis supplement has the best evidence?",
+    answer:
+      "For knee osteoarthritis, glucosamine sulfate and turmeric/curcumin have the most consistent positive trials. For rheumatoid arthritis, high-dose omega-3 fish oil (2.7 g+ EPA/DHA per day) has good evidence for reducing morning stiffness and tender joints.",
+  },
+  {
+    question: "Are joint supplements safe?",
+    answer:
+      "Most are well tolerated, but they can interact with prescription medication. Glucosamine may interact with warfarin, turmeric thins the blood, and high-dose fish oil increases bleeding risk. Always check with your GP or pharmacist before starting one, especially if you take blood-thinners or have diabetes.",
+  },
+  {
+    question: "How long do supplements take to work for arthritis?",
+    answer:
+      "Allow 8–12 weeks of consistent daily use before judging whether a supplement is helping. If there's no benefit after 3 months, it is unlikely to work for you and you can stop.",
   },
 ];
 
@@ -101,6 +125,20 @@ export default function SupplementsHub() {
         <meta property="og:locale" content="en_GB" />
         <meta property="og:site_name" content="Living With Arthritis UK" />
       </Helmet>
+
+      <PageSchema
+        url="/supplements"
+        name="Arthritis Supplements: What Actually Works (UK Guide)"
+        description="Evidence-based UK guides to the most popular arthritis supplements — glucosamine, MSM, turmeric, omega-3 and collagen — covering the data, dosing and side effects."
+        medical={{ condition: "Arthritis" }}
+        breadcrumbs={[
+          { name: "Home", item: "/" },
+          { name: "Supplements" },
+        ]}
+        faqs={SUPPLEMENT_FAQS}
+        lastReviewed="2026-06-01"
+        idPrefix="supplements-hub"
+      />
 
       <div className="min-h-screen bg-background">
         <Header />
