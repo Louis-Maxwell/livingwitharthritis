@@ -309,6 +309,22 @@ export default function LivingWithArthritis() {
         </ul>
       </section>
 
+      <section id="living-well" className="mb-12">
+        <h2 className="text-2xl font-bold mb-4">Living Well with Arthritis: Practical Strategies for Independence</h2>
+        <p className="leading-relaxed mb-4">Living well with arthritis is about working with your joints rather than against them. The strategies that make the biggest day-to-day difference combine gentle, consistent movement, joint-protection techniques, an anti-inflammatory eating pattern, good sleep, and the right supportive equipment. Many people find that small adaptations — a kettle tipper, a long-handled shoehorn, a raised toilet seat — make the difference between struggling and staying independent.</p>
+        <p className="leading-relaxed mb-4">An occupational therapy assessment is often the single most valuable step: a clinician will review your home, your routines and your goals, then recommend specific equipment, adaptations and pacing strategies tailored to your needs.</p>
+        <h3 className="text-xl font-bold mt-6 mb-3">Essential Adaptive Equipment</h3>
+        <ul className="list-disc list-inside space-y-2 ml-4">
+          <li><strong>Kitchen tools:</strong> ergonomic utensils, jar openers, kettle tippers, reachers and lightweight pans</li>
+          <li><strong>Clothing aids:</strong> magnetic buttons, Velcro closures, long-handled shoehorns, dressing sticks</li>
+          <li><strong>Home safety:</strong> grab rails, shower seats, raised toilet seats, stairlifts and walk-in showers</li>
+          <li><strong>Fitness:</strong> chair yoga and aquatic therapy classes — see our <Link to="/exercises" className="text-primary underline">exercise hub</Link></li>
+          <li><strong>Furniture:</strong> lift-assist recliners, supportive mattresses and ergonomic seating</li>
+        </ul>
+        <p className="mt-4">For nutrition strategy see our <Link to="/guides/diet" className="text-primary underline">diet hub</Link> and <Link to="/diet/foods-to-avoid-with-arthritis" className="text-primary underline">foods to avoid with arthritis</Link>.</p>
+        <p className="mt-3 text-sm text-muted-foreground italic">Educational information only — we don&apos;t endorse specific brands or products. An occupational therapy assessment is the best starting point.</p>
+      </section>
+
       <section id="faq" className="mb-12">
         <h2 className="text-2xl font-bold mb-6">Frequently asked questions</h2>
         <div className="space-y-6">
