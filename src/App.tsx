@@ -151,6 +151,9 @@ const SarcopeniaMuscleControl = lazy(() => import("./pages/guides/SarcopeniaMusc
 const PreventativeMSKHealth = lazy(() => import("./pages/guides/PreventativeMSKHealth"));
 const BoneDensityOsteoporosis = lazy(() => import("./pages/guides/BoneDensityOsteoporosis"));
 const FallPreventionOlderAdults = lazy(() => import("./pages/guides/FallPreventionOlderAdults"));
+const Arthritis = lazy(() => import("./pages/conditions/Arthritis"));
+const MusculoskeletalHealth = lazy(() => import("./pages/guides/MusculoskeletalHealth"));
+const DisabilitySupport = lazy(() => import("./pages/guides/DisabilitySupport"));
 // No visible loader — Suspense falls back to null so the previous page
 // (or blank background) stays visible until the next chunk is ready,
 // avoiding the spinner flash on first paint.
@@ -222,6 +225,9 @@ function AnimatedRoutes() {
         <Route path="/guides/preventative-msk-health" element={<PreventativeMSKHealth />} />
         <Route path="/guides/bone-density-osteoporosis" element={<BoneDensityOsteoporosis />} />
         <Route path="/guides/fall-prevention-older-adults" element={<FallPreventionOlderAdults />} />
+        <Route path="/conditions/arthritis" element={<Arthritis />} />
+        <Route path="/guides/musculoskeletal-health" element={<MusculoskeletalHealth />} />
+        <Route path="/guides/disability-support" element={<DisabilitySupport />} />
         <Route path="/faq/:slug" element={<FaqArticle />} />
         <Route path="/expert/:slug" element={<ExpertArticle />} />
         <Route path="/stories/:slug" element={<PatientStory />} />

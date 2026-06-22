@@ -103,6 +103,22 @@ export default function FrailtyManagementHub() {
         <p className="mt-4 leading-relaxed">Speak to your GP, who can refer to community physiotherapy, falls clinics and social prescribing.</p>
       </section>
 
+      <section id="family-focus" className="mb-12">
+        <h2 className="text-2xl font-bold mb-4">6. What families are looking for</h2>
+        <p className="mb-4 leading-relaxed">Many adult children begin researching frailty after a parent has a fall, loses weight or struggles with day-to-day tasks. The most effective interventions are preventative rather than reactive — nutritional support, balance and strength work, home safety changes and assistive technology — and the earlier they start, the better the outcome.</p>
+        <p className="leading-relaxed mb-4">A community geriatric or occupational therapy assessment is the highest-value starting point: it pulls together the medical, functional and home-environment picture and signposts the right combination of services and equipment.</p>
+        <h3 className="text-xl font-bold mt-6 mb-3">Common frailty solutions</h3>
+        <ul className="list-disc pl-6 space-y-2">
+          <li>High-protein supplements and fortified foods to counter sarcopenia</li>
+          <li>Vitamin D and other targeted nutritional intervention</li>
+          <li>Medical alert systems, personal alarms and fall detectors</li>
+          <li>Home modifications — grab rails, ramps, improved lighting, removing trip hazards</li>
+          <li>Geriatric assessments (Comprehensive Geriatric Assessment) and frailty case management</li>
+          <li>Balance, resistance and tai chi programmes — group or one-to-one</li>
+        </ul>
+        <p className="mt-4 text-sm text-muted-foreground italic">Educational information only — we don&apos;t endorse specific brands or providers. Speak to your GP, community physiotherapy or social services for personalised recommendations.</p>
+      </section>
+
       <section id="related" className="mb-12 bg-muted p-6 rounded-lg border-l-4 border-primary">
         <h2 className="text-2xl font-bold mb-4">Related guides</h2>
         <ul className="space-y-2">

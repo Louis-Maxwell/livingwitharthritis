@@ -308,6 +308,22 @@ const Osteoarthritis = () => (
           <p>Glucosamine, chondroitin, and collagen supplements have some evidence for modest symptom relief, though results are mixed. Turmeric/curcumin (500-1000 mg/day) shows more consistent anti-inflammatory benefits. Always consult your GP before starting supplements.</p>
         </Section>
 
+        <Section icon={Pill} title="The Osteoarthritis Journey: From Diagnosis to Management">
+          <p>Osteoarthritis is the most common form of arthritis — a degenerative, wear-related condition that develops slowly over years. Most people first notice deep joint ache after activity, morning stiffness that eases within 30 minutes, and a gradual loss of range of movement. Diagnosis is usually clinical, supported by X-ray when needed.</p>
+          <p>Management is a journey, not a single decision. Conservative care — exercise, weight optimisation, an anti-inflammatory diet, pacing and supportive aids — is the foundation for everyone. If symptoms progress, escalation can include topical or oral anti-inflammatories, physiotherapy-led rehabilitation, injections, and, when conservative care has been exhausted, joint replacement surgery. Decisions are shared between you, your GP, physiotherapist and (if needed) an orthopaedic surgeon.</p>
+          <h3>Common OA Interventions</h3>
+          <ul>
+            <li><strong>Unloader knee braces</strong> — offload the affected compartment in medial knee OA</li>
+            <li><strong>Imaging</strong> — X-ray, MRI or ultrasound when red flags or surgical planning warrant it</li>
+            <li><strong>Viscosupplementation</strong> — hyaluronic acid (gel) injections, often for knee OA</li>
+            <li><strong>Corticosteroid injections</strong> — short-term flare control</li>
+            <li><strong>Joint replacement surgery</strong> — knee, hip or thumb replacement for end-stage OA</li>
+            <li><strong>Regenerative medicine</strong> — platelet-rich plasma (PRP) and stem-cell options, where evidence is still developing</li>
+          </ul>
+          <p>For exercise programmes see our <Link to="/exercises" className="text-primary underline">exercise hub</Link>. For nutrition strategy see our <Link to="/guides/diet" className="text-primary underline">diet guide</Link> and <Link to="/diet/foods-to-avoid-with-arthritis" className="text-primary underline">foods to avoid with arthritis</Link>.</p>
+          <p className="text-sm text-muted-foreground italic">Educational information only — we don&apos;t endorse specific brands, devices or providers. Always discuss treatment escalation with your clinician.</p>
+        </Section>
+
         {/* Live Blog & Stories — Advice & Guidance */}
         <ConditionBlogStrip
           conditionName="Osteoarthritis"
