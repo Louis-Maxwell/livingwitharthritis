@@ -570,7 +570,7 @@ export const faqArticles: FaqArticle[] = [
     title: 'Footwear That Helps Arthritis Pain',
     question: 'What footwear helps arthritis pain?',
     quickAnswer:
-      'A wide toe box, cushioned sole, rigid mid-foot, low heel and secure fastening cut foot, knee, hip and back pain in arthritis — far more than any 'orthopaedic' label.',
+      "A wide toe box, cushioned sole, rigid mid-foot, low heel and secure fastening cut foot, knee, hip and back pain in arthritis — far more than any 'orthopaedic' label.",
     sections: [
       { heading: 'Why Shoes Matter Beyond the Feet', content: "Every step travels a shock wave from the heel up through the knees, hips and spine. Hard, thin-soled or unstable shoes amplify that shock; well-cushioned shoes absorb it. Trial evidence shows that good footwear alone can reduce knee OA pain by 10-15% and dramatically improves walking distance." },
       { heading: 'The Five Features to Look For', content: "1. Wide rounded toe box — no pressure on bunions or swollen toe joints. 2. Cushioned sole, especially under the heel and ball of the foot. 3. Firm mid-foot ('twist test' — the shoe should resist twisting). 4. Heel height under 3 cm. 5. Laces, velcro or buckles for secure fit — never slip-on shoes that force the toes to grip." },
