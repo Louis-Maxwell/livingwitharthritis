@@ -210,6 +210,7 @@ function AnimatedRoutes() {
         <Route path="/conditions/lupus" element={<Lupus />} />
         <Route path="/conditions/knee-arthritis" element={<KneeArthritis />} />
         <Route path="/conditions/hand-arthritis" element={<HandArthritis />} />
+        <Route path="/conditions/hip-arthritis" element={<HipArthritis />} />
         <Route path="/conditions/shoulder-arthritis" element={<ShoulderArthritis />} />
         <Route path="/conditions/elbow-arthritis" element={<ElbowArthritis />} />
         <Route path="/conditions/elbow-pain" element={<ElbowArthritis />} />
