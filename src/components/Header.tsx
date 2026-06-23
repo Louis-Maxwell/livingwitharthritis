@@ -286,7 +286,7 @@ const Header = () => {
               <Button
                 size="sm"
                 onClick={() => navigate("/donate")}
-                className="h-9 px-4 rounded-full text-[11px] font-bold tracking-wider bg-[hsl(0,72%,51%)] hover:bg-[hsl(0,72%,45%)] text-primary-foreground shadow-md shadow-primary/20"
+                className="h-9 px-4 rounded-full text-[11px] font-bold tracking-wider bg-primary hover:bg-primary/90 text-primary-foreground shadow-md shadow-primary/20"
               >
                 <Heart className="w-3 h-3 mr-1.5 fill-background/30" />
                 Donate Now
