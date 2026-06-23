@@ -249,17 +249,19 @@ const Header = () => {
           }`}
         >
           <div className="container mx-auto px-6 md:px-10 py-2.5 flex items-center justify-between gap-4">
-            {/* Logo — left aligned */}
+            {/* Logo — text-only red badge with tagline */}
             <button
               onClick={() => navigate("/")}
-              className="flex items-center gap-3 group cursor-pointer select-none shrink-0"
+              className="group cursor-pointer select-none shrink-0"
               aria-label="Living With Arthritis — Go to homepage"
             >
-              <div className="relative w-10 h-10 md:w-12 md:h-12 shrink-0">
-                <LogoMark className="w-full h-full drop-shadow-sm group-hover:scale-105 transition-transform duration-300" aria-hidden="true" />
-              </div>
-              <span className="text-lg sm:text-xl md:text-[1.55rem] font-black text-primary tracking-tight leading-none uppercase">
-                Living With Arthritis
+              <span className="flex flex-col items-start justify-center bg-primary text-primary-foreground px-3 py-1.5 md:px-4 md:py-2 rounded-md shadow-sm group-hover:bg-primary/90 transition-colors leading-none">
+                <span className="font-display text-base sm:text-lg md:text-xl font-black tracking-tight uppercase">
+                  Living With Arthritis
+                </span>
+                <span className="mt-1 text-[9px] sm:text-[10px] md:text-[11px] font-bold tracking-[0.18em] uppercase opacity-95">
+                  Motion is Lotion
+                </span>
               </span>
             </button>
 
