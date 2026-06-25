@@ -356,7 +356,15 @@ const BlogPost = () => {
 
             <CrossLinkBanner preset="blog" exclude={`/blog/${slug}`} title="Related resources" />
 
-            {slug && <RelatedArticles currentSlug={slug} />}
+            {slug && (
+              <RelatedArticles
+                currentSlug={slug}
+                currentCategory={article.category}
+                currentTitle={article.title}
+                currentExcerpt={article.excerpt}
+                currentKeywords={article.keywords ?? undefined}
+              />
+            )}
             {slug && <BlogComments slug={slug} />}
           </footer>
         </main>

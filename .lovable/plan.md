@@ -1,69 +1,38 @@
-# Plan: Remove address + ship AI-ranking schema
+# Automatic "Related Articles" by Content Cluster
 
-## Part 1 — Remove charity address (everywhere)
+Upgrade the existing `RelatedArticles` component to recommend posts using **content clusters** (knee OA, frailty, flare-ups, diet, exercise, etc.) instead of the current single-category match. Cluster definitions reuse the keyword taxonomy already in `src/data/keyword-taxonomy.json` / `keyword-content-map.json`, so there is no new content store to maintain.
 
-Strip the postal address from every surface. The legal name, charity number, and regulator stay (still required for charity compliance and trust). A `CHARITY.address` placeholder will remain in `src/config/charity.ts` typed as optional/empty so nothing crashes — you can drop the new address in tomorrow by editing one file.
+## What changes
 
-Files touched:
+1. **New cluster map** — `src/lib/relatedClusters.ts`
+   - Defines 8 user-facing clusters with keyword triggers and curated "best supporting page" URLs:
+     - Knee OA, Hip OA, Rheumatoid Arthritis, Flare-ups, Diet & Nutrition, Exercise & Movement, Frailty & Falls, Supplements
+   - Helpers: `getClustersForText(title, excerpt, category, keywords)` and `scoreArticleForClusters(article, clusters)`.
 
-- `src/config/charity.ts` — set `address` to empty/optional; export `hasAddress` helper.
-- `supabase/functions/_shared/contact.ts` — remove `CONTACT_ADDRESS` constant.
-- `src/config/contact.ts` — remove address fields.
-- `src/components/Footer.tsx` — drop address from copyright line, keep charity reg link.
-- `src/components/CharityRegBadge.tsx` — hide the `<address>` block when address is empty.
-- `src/components/seo/RootOrganizationSchema.tsx` — remove `address` property from JSON-LD.
-- `src/lib/jsonLd.ts` — remove `address` from `buildCharitySchema`.
-- `src/pages/Contact.tsx`, `src/pages/Complaints.tsx`, `src/pages/Governance.tsx` — remove address blocks, keep email/phone/charity number.
-- `index.html` — remove address from any meta/JSON-LD.
-- `public/llms.txt` — strip the address line.
+2. **Hook upgrade** — `src/hooks/useBlogArticles.ts`
+   - Replace `useRelatedArticles` body with a cluster-scored query:
+     1. Detect clusters of the current post from its title/excerpt/category/keywords.
+     2. Fetch a candidate pool (≈ 30 latest published articles, list fields + keywords).
+     3. Score each candidate by cluster overlap (+3 per shared cluster), same category (+1), recency tiebreak.
+     4. Return top 3, excluding `currentSlug`.
+   - Falls back to current category-based logic when no clusters match.
 
-No design changes — just clean removal so layouts stay intact.
+3. **Component upgrade** — `src/components/RelatedArticles.tsx`
+   - Accepts optional `currentCategory`, `currentTitle`, `currentExcerpt`, `currentKeywords` so condition pages can use it without a blog slug.
+   - Renders the detected cluster as the eyebrow chip ("Knee OA", "Flare-ups", …) instead of the raw DB category, and adds a final **"Best supporting guide"** card that links to the curated pillar page for the top cluster (from `relatedClusters.ts`).
 
-## Part 2 — Schema markup for AI ranking (priority)
+4. **Wider surfacing**
+   - `src/pages/BlogPost.tsx` (line 359): pass the new props from `post`.
+   - Add `<RelatedArticles … />` to condition pages that don't yet have it: `Osteoarthritis.tsx`, `RheumatoidArthritis.tsx`, `PsoriaticArthritis.tsx`, seeded with a hard-coded cluster (e.g. `clusters={["knee-oa","flare-ups"]}`).
 
-Add three schema types so ChatGPT, Perplexity, Google AI Overviews, and Gemini can lift answers cleanly. All injected via `useEffect` per project memory (never Helmet).
+## Out of scope
 
-### 2a. `MedicalWebPage` schema
-New helper `buildMedicalWebPage()` in `src/lib/jsonLd.ts`. Apply to:
-- All condition pages (`/conditions/*` — Osteoarthritis, RA, PsA, Knee, Hand, etc.)
-- All diet/supplement pages (`/diet/*`, `/supplements/*`)
-- Pillar guides (`/guides/*`)
-- BlogPost (when `category` is medical)
-
-Each emits: `medicalAudience: Patient`, `lastReviewed`, `reviewedBy` (HCPC physio), `specialty: Rheumatology|Physiotherapy`, `about: MedicalCondition`.
-
-### 2b. `FAQPage` schema
-New helper `buildFAQPage()` already exists. Wire it into pages that have visible FAQ sections but don't emit schema yet (audit pass — likely ~15-20 pages including ArthritisFlareUps, SelfHelpTool, condition pages, supplement pages).
-
-### 2c. `HowTo` schema
-New helper `buildHowTo()`. Apply to:
-- Exercise pages (`/exercises/*`, `ExerciseConditionPage`, `ExerciseJointPage`) — each exercise becomes a `HowToStep`.
-- Tai Chi pages
-- Pedometer, WaitingTimeCalculator (tool how-tos)
-
-### 2d. New reusable component
-`src/components/seo/MedicalPageSchema.tsx` — drop-in wrapper that takes `{ type: 'condition' | 'exercise' | 'diet' | 'faq', data }` and emits the right combo (Article + MedicalWebPage + FAQ + HowTo as appropriate). Reduces per-page boilerplate.
-
-## Part 3 — Keyword research (Semrush)
-
-Run on `livingwitharthritis.org.uk` (UK database) to propose 3 target keywords with the best balance of volume / difficulty / fit to your existing content. I'll:
-
-1. `domain_analysis` — current ranking snapshot.
-2. `competitive_analysis` — gaps vs Versus Arthritis / NHS.
-3. `keyword_compare` on the top candidates to pick the final 3.
-
-Output: a short ranked list (volume, KDI, suggested page to target/build) — no code changes from this step; it becomes the brief for the next session.
+- No DB schema changes; no new `tags` column. Cluster detection is purely client-side from existing fields.
+- No edits to `keyword-taxonomy.json` / `keyword-content-map.json`.
+- No design overhaul of the card grid — same look as today, just smarter selection + cluster eyebrow.
 
 ## Technical notes
 
-- All schema helpers go in `src/lib/jsonLd.ts` and use the existing `injectJsonLd(id, payload)` pattern — id-namespaced so multiple schemas can coexist per page without collision.
-- No new dependencies. No Helmet. No routing changes.
-- `CHARITY.address` stays in the config typed as `Partial` with empty strings — when you paste the new address tomorrow, every surface re-populates automatically.
-- Skips `/auth` and `/admin/*` (already excluded from sitemap).
-
-## Out of scope (can do next)
-
-- Question-based H2s / answer boxes on existing pages
-- Internal linking pass between knee-OA cluster
-- Content gap pages (work, mental health, daily living)
-- Backlink outreach
+- Cluster triggers are simple lowercase substring/keyword arrays so they stay editable in one file.
+- Curated "best supporting page" map points at existing routes only (`/conditions/osteoarthritis/knee`, `/exercises`, `/diet`, `/guides/uk-arthritis`, etc.) — no new pages created.
+- Candidate pool kept at 30 to keep one Supabase round-trip; scoring runs in memory.

@@ -7,6 +7,7 @@ import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, ThermometerSun, Book
 import { motion } from "framer-motion";
 import { StatCounter, HorizontalBar, WaveDivider, EmojiCard } from "@/components/graphics/InfographicElements";
 import InternalLinks from "@/components/InternalLinks";
+import RelatedArticles from "@/components/RelatedArticles";
 import ContextualLinks from "@/components/ContextualLinks";
 import ConditionBlogStrip from "@/components/ConditionBlogStrip";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
@@ -395,6 +396,14 @@ const Osteoarthritis = () => (
             </Link>
           </div>
           <CrossLinkBanner preset="condition" exclude="/conditions/osteoarthritis" title="Explore related resources" />
+        </div>
+        <div className="max-w-6xl mx-auto px-6">
+          <RelatedArticles
+            currentSlug=""
+            currentCategory="Osteoarthritis"
+            clusters={["knee-oa", "hip-oa", "exercise", "diet"]}
+            heading="Related arthritis reading"
+          />
         </div>
       </main>
       <InternalLinks />
