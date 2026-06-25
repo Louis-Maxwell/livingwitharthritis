@@ -19,6 +19,7 @@ import DeferredMount from "@/components/DeferredMount";
 
 // OAHero stays eager — required for LCP.
 import OAHero from "@/components/landing/OAHero";
+import VisitorStats from "@/components/VisitorStats";
 
 // Q1: Lazy-load every sub-section to reduce first-paint JS cost.
 const HeroStatsStrip = lazy(() => import("@/components/landing/HeroStatsStrip"));
