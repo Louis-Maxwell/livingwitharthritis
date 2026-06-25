@@ -2,13 +2,24 @@
  * Visitor stats — single source of truth for the homepage visitor badge,
  * meta descriptions and OG snippets.
  *
- * Update without touching components by setting Vite env vars in `.env`:
- *   VITE_VISITOR_COUNT="Over 12,500"
- *   VITE_VISITOR_PERIOD="in the past month"
- *   VITE_VISITOR_VERIFIED="2026-07-01"
+ * ⚠️  ALWAYS source `VITE_VISITOR_COUNT` from **Google Analytics 4**, never
+ * from the Lovable in-app analytics panel. GA4 auto-filters known bot/spider
+ * traffic; Lovable's panel counts every HTTP hit, including SEO crawlers
+ * (SemrushBot, AhrefsBot, DataForSEO) and AI training bots. A single crawler
+ * sweep can inflate the Lovable number by 1,000+ in an hour and make the
+ * visitor badge dishonest.
  *
- * Later, to auto-refresh from GA4: replace this module with a hook that
- * calls a `ga-visitors` edge function (Google Analytics Data API v1beta,
+ * To refresh monthly:
+ *   1. Open GA4 → Reports → Acquisition → Traffic acquisition
+ *   2. Set date range = "Last 28 days"
+ *   3. Read the "Users" column total
+ *   4. Round down to the nearest hundred and update `.env`:
+ *        VITE_VISITOR_COUNT="Over 12,500"
+ *        VITE_VISITOR_PERIOD="in the past month"
+ *        VITE_VISITOR_VERIFIED="2026-07-01"
+ *
+ * Later, to auto-refresh: replace this module with a hook that calls a
+ * `ga-visitors` edge function (Google Analytics Data API v1beta,
  * `runReport` on metric `activeUsers` over the last 30 days), caches the
  * result in localStorage for 24h, and falls back to these defaults.
  */

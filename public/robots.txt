@@ -85,19 +85,19 @@ User-agent: FacebookBot
 Allow: /
 
 User-agent: SemrushBot
-Allow: /
+Disallow: /
 
 User-agent: SemrushBot-SA
-Allow: /
+Disallow: /
 
 User-agent: SemrushBot-BA
-Allow: /
+Disallow: /
 
 User-agent: AhrefsBot
-Allow: /
+Disallow: /
 
 User-agent: AhrefsSiteAudit
-Allow: /
+Disallow: /
 
 User-agent: Bytespider
 Disallow: /
