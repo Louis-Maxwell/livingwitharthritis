@@ -78,13 +78,14 @@ export interface ConditionPageData {
   aeoAnswer?: { question: string; answer: ReactNode; reviewed?: string };
 }
 
+// Real Unsplash photographs (free to use) — replaces previous AI-generated webp set.
 const CONDITION_IMAGES: Record<string, string> = {
-  osteoarthritis: "/images/condition-osteoarthritis.webp",
-  "rheumatoid-arthritis": "/images/condition-rheumatoid.webp",
-  "psoriatic-arthritis": "/images/condition-psoriatic.webp",
-  "ankylosing-spondylitis": "/images/condition-ankylosing.webp",
-  fibromyalgia: "/images/condition-fibromyalgia.webp",
-  gout: "/images/condition-gout.webp",
+  osteoarthritis: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&q=80&fm=webp",
+  "rheumatoid-arthritis": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&q=80&fm=webp",
+  "psoriatic-arthritis": "https://images.unsplash.com/photo-1586104195538-050b9f74f58e?w=1200&q=80&fm=webp",
+  "ankylosing-spondylitis": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1200&q=80&fm=webp",
+  fibromyalgia: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200&q=80&fm=webp",
+  gout: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=1200&q=80&fm=webp",
 };
 
 function resolveOgImage(slug: string, override?: string): string {
