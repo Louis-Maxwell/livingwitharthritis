@@ -141,45 +141,105 @@ export function useNextArticle(currentSlug: string) {
   });
 }
 
-/** Related articles for a given slug */
-export function useRelatedArticles(currentSlug: string) {
+export interface RelatedArticle {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  category: string;
+  keywords?: string | null;
+}
+
+export interface RelatedArticlesOptions {
+  /** Pre-seed clusters (used by non-blog pages like /conditions/*). */
+  seedClusters?: string[];
+  /** Pre-seed category (used when there is no DB row to read). */
+  seedCategory?: string;
+  /** Pre-seed title/excerpt/keywords for cluster detection. */
+  seedTitle?: string;
+  seedExcerpt?: string;
+  seedKeywords?: string;
+}
+
+/**
+ * Related articles, scored by content-cluster overlap (knee OA, flare-ups,
+ * diet, exercise, frailty, etc.) with category and recency as tiebreakers.
+ */
+export function useRelatedArticles(
+  currentSlug: string,
+  options: RelatedArticlesOptions = {},
+) {
+  const { seedClusters, seedCategory, seedTitle, seedExcerpt, seedKeywords } = options;
+
   return useQuery({
-    queryKey: ["related_articles", currentSlug],
+    queryKey: [
+      "related_articles_v2",
+      currentSlug,
+      seedClusters ?? null,
+      seedCategory ?? null,
+      seedTitle ?? null,
+    ],
     queryFn: async () => {
-      // Get current article's category
-      const { data: current } = await supabase
-        .from("blog_articles")
-        .select("category")
-        .eq("slug", currentSlug)
-        .single();
+      // 1. Resolve the source article's clusters + category.
+      let sourceClusters: string[] = seedClusters ?? [];
+      let sourceCategory: string | null = seedCategory ?? null;
 
-      const category = current?.category;
+      if (currentSlug && (sourceClusters.length === 0 || !sourceCategory)) {
+        const { data: current } = await supabase
+          .from("blog_articles")
+          .select("title, excerpt, category, keywords")
+          .eq("slug", currentSlug)
+          .maybeSingle();
 
-      // Same category first
-      const { data: sameCat } = await supabase
+        if (current) {
+          sourceCategory = sourceCategory ?? current.category ?? null;
+          if (sourceClusters.length === 0) {
+            sourceClusters = getClustersForArticle(current);
+          }
+        }
+      }
+
+      if (sourceClusters.length === 0) {
+        sourceClusters = getClustersForArticle({
+          title: seedTitle,
+          excerpt: seedExcerpt,
+          category: sourceCategory,
+          keywords: seedKeywords,
+        });
+      }
+
+      // 2. Pull a candidate pool (one round-trip).
+      const { data: pool } = await supabase
         .from("blog_articles")
-        .select("slug, title, excerpt, date, category")
+        .select("slug, title, excerpt, date, category, keywords")
         .eq("is_published", true)
-        .eq("category", category ?? "Health")
         .neq("slug", currentSlug)
         .order("date", { ascending: false })
-        .limit(3);
+        .limit(30);
 
-      if ((sameCat?.length ?? 0) >= 3) return sameCat!;
+      const candidates = (pool ?? []) as RelatedArticle[];
 
-      // Fill with other categories
-      const existingSlugs = (sameCat ?? []).map((a) => a.slug);
-      existingSlugs.push(currentSlug);
+      // 3. Score + sort.
+      const scored = candidates
+        .map((a) => ({
+          article: a,
+          score: scoreCandidate(a, sourceClusters, sourceCategory),
+        }))
+        .sort((a, b) => {
+          if (b.score !== a.score) return b.score - a.score;
+          return (b.article.date ?? "").localeCompare(a.article.date ?? "");
+        });
 
-      const { data: others } = await supabase
-        .from("blog_articles")
-        .select("slug, title, excerpt, date, category")
-        .eq("is_published", true)
-        .not("slug", "in", `(${existingSlugs.map((s) => `"${s}"`).join(",")})`)
-        .order("date", { ascending: false })
-        .limit(3 - (sameCat?.length ?? 0));
+      // 4. Fallback: if nothing scored, return latest 3.
+      const top = scored.filter((s) => s.score > 0).slice(0, 3);
+      if (top.length >= 3) return top.map((s) => s.article);
 
-      return [...(sameCat ?? []), ...(others ?? [])].slice(0, 3);
+      const filler = candidates
+        .filter((c) => !top.find((t) => t.article.slug === c.slug))
+        .slice(0, 3 - top.length);
+
+      return [...top.map((s) => s.article), ...filler];
     },
   });
 }
+
