@@ -108,6 +108,7 @@ const ExerciseGuide = lazy(() => import("./pages/pillar/ExerciseGuide"));
 const ArthritisPainRelief = lazy(() => import("./pages/guides/ArthritisPainRelief"));
 const CanExerciseMakeOsteoarthritisWorse = lazy(() => import("./pages/guides/CanExerciseMakeOsteoarthritisWorse"));
 const SteroidsGuide = lazy(() => import("./pages/pillar/SteroidsGuide"));
+const AzathioprineGuide = lazy(() => import("./pages/pillar/AzathioprineGuide"));
 const BenefitsPIPGuide = lazy(() => import("./pages/pillar/BenefitsPIPGuide"));
 const KneeReplacementSurgeryGuide = lazy(() => import("./pages/pillar/KneeReplacementSurgeryGuide"));
 const Press = lazy(() => import("./pages/Press"));
