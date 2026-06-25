@@ -1,6 +1,11 @@
 import React from "react"; // v18
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
+import "@fontsource/fraunces/400.css";
+import "@fontsource/fraunces/600.css";
+import "@fontsource/fraunces/900.css";
+import "@fontsource/fraunces/900-italic.css";
+import "@fontsource-variable/inter-tight";
 import "./index.css";
 
 // Auto-recover from stale code-split chunks after a new deploy.
