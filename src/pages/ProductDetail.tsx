@@ -86,13 +86,13 @@ const ProductDetail = () => {
         <meta property="og:url" content={`https://livingwitharthritis.org.uk/product/${product.id}`} />
         <meta property="og:site_name" content="Living With Arthritis UK" />
         <meta property="og:locale" content="en_GB" />
-        <meta property="og:image" content={product.image || "https://livingwitharthritis.org.uk/images/hero-community.webp"} />
+        <meta property="og:image" content={product.image || "https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp"} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${product.title} — Recommended Product`} />
         <meta name="twitter:description" content={product.description.slice(0, 200)} />
-        <meta name="twitter:image" content={product.image || "https://livingwitharthritis.org.uk/images/hero-community.webp"} />
+        <meta name="twitter:image" content={product.image || "https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp"} />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Product",

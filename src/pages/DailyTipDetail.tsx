@@ -104,13 +104,13 @@ const DailyTipDetail = () => {
         <meta property="og:url" content={`https://livingwitharthritis.org.uk/daily-tips/${slug || "overview"}`} />
         <meta property="og:site_name" content="Living With Arthritis UK" />
         <meta property="og:locale" content="en_GB" />
-        <meta property="og:image" content={image || "https://livingwitharthritis.org.uk/images/hero-community.webp"} />
+        <meta property="og:image" content={image || "https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp"} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${metaTitle} — Daily Living Tips`} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={image || "https://livingwitharthritis.org.uk/images/hero-community.webp"} />
+        <meta name="twitter:image" content={image || "https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp"} />
       </Helmet>
 
       <Header />

@@ -60,11 +60,11 @@ const Accessibility_Page = () => {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Accessibility Statement – WCAG 2.1 AA | Living With Arthritis UK" />
       <meta name="twitter:description" content="Accessibility statement for Living With Arthritis UK. We are committed to WCAG 2.1 AA compliance, ensuring our arthritis support resources are usable by everyone including people with disabilities." />
-      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
-        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
+        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
+        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
       <div className="min-h-screen bg-background">
         <Header />

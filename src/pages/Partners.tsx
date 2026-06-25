@@ -84,13 +84,13 @@ export default function Partners() {
       <meta property="og:url" content="https://livingwitharthritis.org.uk/partners" />
       <meta property="og:site_name" content="Living With Arthritis UK" />
       <meta property="og:locale" content="en_GB" />
-      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
+      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Partner With Us | Living With Arthritis UK" />
       <meta name="twitter:description" content="Partner with Living With Arthritis UK — public health bodies, GP practices, health charities and community groups. Resource sharing, co-branded guides, joint events and research collaboration." />
-      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
       <Header />
       <main className="min-h-screen bg-background">

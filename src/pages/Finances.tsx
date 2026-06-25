@@ -151,13 +151,13 @@ James Whitfield — Treasurer
       <meta property="og:url" content="https://livingwitharthritis.org.uk/finances" />
       <meta property="og:site_name" content="Living With Arthritis UK" />
       <meta property="og:locale" content="en_GB" />
-      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
+      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Our Finances & Annual Accounts | Living With Arthritis UK Charity" />
       <meta name="twitter:description" content="Full financial transparency. See how Living With Arthritis allocates funds, income sources, and download our annual accounts. 88p of every £1 supports patients." />
-      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
 
       <Header />
