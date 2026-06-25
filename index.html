@@ -17,6 +17,10 @@
         var loaded = false;
         function loadGA() {
           if (loaded) return;
+          // Consent gate: only load GA when user has accepted cookies.
+          try {
+            if (localStorage.getItem('cookie-consent') !== 'accepted') return;
+          } catch(e) { return; }
           loaded = true;
           var s = document.createElement('script');
           s.src = 'https://www.googletagmanager.com/gtag/js?id=G-X8GTW05JJS';
@@ -25,9 +29,6 @@
             gtag('js', new Date());
             gtag('config', 'G-X8GTW05JJS', {
               send_page_view: true,
-              // Register custom params as event-scoped dimensions so
-              // bounce rate can be pivoted by page_path / is_landing_page
-              // in GA4 Explore without manual dashboard setup.
               custom_map: {
                 dimension1: 'page_path',
                 dimension2: 'is_landing_page'
@@ -39,9 +40,12 @@
             window.removeEventListener(e, loadGA, { passive: true });
           });
         }
+        // Schedule loader; loadGA() itself checks consent before firing.
         ['scroll','mousemove','touchstart','keydown','click'].forEach(function(e){
           window.addEventListener(e, loadGA, { passive: true, once: true });
         });
+        // Fire immediately when CookieConsent dispatches acceptance.
+        window.addEventListener('cookie-consent-accepted', loadGA);
         if (typeof requestIdleCallback !== 'undefined') {
           requestIdleCallback(loadGA, { timeout: 5000 });
         } else {
@@ -51,35 +55,71 @@
     </script>
     <!-- referrer meta is emitted per-route via SeoHead (Helmet) -->
 
-    <!-- Bot exclusion: prevent known spiders/scrapers from firing analytics pageviews.
-         Allowed: Googlebot, Bingbot, DuckDuckBot, Applebot, Twitterbot, LinkedInBot, facebookexternalhit (we want indexing/social previews).
-         Blocked: Sogou, Baidu, Yisou, 360, HaoSou, Bytespider, PetalBot, AhrefsBot, SemrushBot, MJ12, DotBot, generic *bot*/spider/crawler, HeadlessChrome, PhantomJS. -->
+    <!-- Bot + declined-consent exclusion: prevents spiders, scrapers, headless browsers,
+         and users who declined cookies from firing analytics pageviews. Aligns the
+         Lovable analytics panel with GA4's IVT/bot filtering.
+         Allowed: Googlebot, Bingbot, DuckDuckBot, Applebot, Twitterbot, LinkedInBot, facebookexternalhit. -->
     <script>
       (function(){
         try {
-          var ua = (navigator.userAgent || '').toLowerCase();
+          var rawUa = navigator.userAgent || '';
+          var ua = rawUa.toLowerCase();
           var allow = /(googlebot|bingbot|duckduckbot|applebot|twitterbot|linkedinbot|facebookexternalhit|slackbot|whatsapp|telegrambot)/i;
-          var block = /(sogou|baidu|yisou|360spider|haosou|bytespider|petalbot|mj12bot|dotbot|blexbot|dataforseo|seekport|serpstat|zoominfo|diffbot|gptbot|ccbot|claude|anthropic|perplexity|imagesift|omgili|headlesschrome|phantomjs|puppeteer|selenium|crawler|spider|\bbot\b)/i;
-          var isBot = !allow.test(navigator.userAgent || '') && block.test(ua);
-          if (isBot) {
-            // Stub out gtag + analytics beacons so no pageview is recorded
+          var block = /(sogou|baidu|yisou|360spider|haosou|bytespider|petalbot|mj12bot|dotbot|blexbot|dataforseo|seekport|serpstat|zoominfo|diffbot|gptbot|ccbot|claude|anthropic|perplexity|imagesift|omgili|headlesschrome|phantomjs|puppeteer|selenium|playwright|crawler|spider|\bbot\b|yandex|naver|qwant|archive\.org|ia_archiver|wayback|lighthouse|pagespeed|gtmetrix|pingdom|uptimerobot|statuscake|monitor|scrape|\bcurl\b|wget|python-requests|axios|node-fetch|go-http|okhttp|java\/|ruby|apache-httpclient|postman|insomnia|chrome-lighthouse|screaming\s?frog|httpclient|libwww|lwp::)/i;
+          var uaBot = !allow.test(rawUa) && block.test(ua);
+
+          // Headless / automation signal checks (GA4 catches these via IVT lists).
+          var signalBot = false;
+          try {
+            if (navigator.webdriver === true) signalBot = true;
+            if (navigator.languages && navigator.languages.length === 0) signalBot = true;
+            if (window.outerWidth === 0 || window.outerHeight === 0) signalBot = true;
+            if (navigator.plugins && navigator.plugins.length === 0 && !/Mobi|Android/i.test(rawUa)) signalBot = true;
+          } catch(e) {}
+
+          var isBot = uaBot || signalBot;
+
+          // Consent state: declined users should not be tracked by either GA or Lovable.
+          var declined = false;
+          try { declined = localStorage.getItem('cookie-consent') === 'declined'; } catch(e) {}
+
+          if (isBot || declined) {
+            // Stub out gtag so no GA event queues
             window.dataLayer = []; window.gtag = function(){};
-            window.__BOT_DETECTED__ = true;
-            // Block fetch/XHR to analytics endpoints
+            if (isBot) window.__BOT_DETECTED__ = true;
+            if (declined) window.__CONSENT_DECLINED__ = true;
+
+            var analyticsRe = /google-analytics\.com|analytics\.google\.com|googletagmanager\.com|lovable\.app\/api\/analytics|lovableproject\.com\/api\/analytics|\/stats\b|\/beacon\b/i;
+
+            // Block fetch
             var origFetch = window.fetch;
             window.fetch = function(u){
-              try { var s = String(u||''); if (/google-analytics\.com|analytics\.google\.com|googletagmanager\.com|lovable\.app\/api\/analytics|stats|beacon/i.test(s)) return Promise.resolve(new Response('', { status: 204 })); } catch(e){}
+              try { if (analyticsRe.test(String(u||''))) return Promise.resolve(new Response('', { status: 204 })); } catch(e){}
               return origFetch.apply(this, arguments);
             };
+
+            // Block XHR
             var OrigXHR = window.XMLHttpRequest;
             window.XMLHttpRequest = function(){
               var x = new OrigXHR();
               var origOpen = x.open;
-              x.open = function(m, u){ try { if (/google-analytics|analytics\.google|googletagmanager|stats|beacon/i.test(String(u||''))) { this.send = function(){}; } } catch(e){} return origOpen.apply(this, arguments); };
+              x.open = function(m, u){ try { if (analyticsRe.test(String(u||''))) { this.send = function(){}; } } catch(e){} return origOpen.apply(this, arguments); };
               return x;
             };
-            // Hint to crawlers not to index this stub render
-            var m = document.createElement('meta'); m.name = 'robots'; m.content = 'noindex, nofollow'; document.head.appendChild(m);
+
+            // Block sendBeacon (the primary path most lightweight trackers use)
+            if (navigator.sendBeacon) {
+              var origBeacon = navigator.sendBeacon.bind(navigator);
+              navigator.sendBeacon = function(u){
+                try { if (analyticsRe.test(String(u||''))) return true; } catch(e){}
+                return origBeacon.apply(navigator, arguments);
+              };
+            }
+
+            // Only flag noindex for actual bots, not declined humans
+            if (isBot) {
+              var m = document.createElement('meta'); m.name = 'robots'; m.content = 'noindex, nofollow'; document.head.appendChild(m);
+            }
           }
         } catch(e) {}
       })();

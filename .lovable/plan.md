@@ -1,74 +1,53 @@
-# Azathioprine Guide + Internal Link Cluster
+# Tighten Lovable tracker to match GA4
 
-The Semrush gap "azathioprine for arthritis" needs both a destination page and inbound internal links from high-authority pages. We'll mirror the existing `SteroidsGuide` pattern.
+Goal: make the Lovable analytics panel report numbers that line up with GA4 — same bot filtering, same consent gate, same "real human" definition. The 1,027-visit spike that GA4 ignored should also disappear from Lovable.
 
-## 1. New pillar page: `/guides/azathioprine-for-arthritis`
+## What's wrong today
 
-Create `src/pages/pillar/AzathioprineGuide.tsx`, modelled on `SteroidsGuide.tsx`. Sections:
+`index.html` already has a bot stub that blocks Lovable's `lovable.app/api/analytics` beacon for known bot user-agents. Two gaps let the spike through:
 
-- `AnswerBox` summary (what Azathioprine is, who it's prescribed for, plain English).
-- How it works (immunosuppressant / DMARD context).
-- Conditions it's used in (RA, lupus, vasculitis, IBD-related arthritis).
-- Dosing & how it's taken (general — educational, not prescriptive).
-- Monitoring requirements (TPMT testing, regular bloods, infection risk).
-- Common & serious side effects.
-- Interactions (allopurinol, live vaccines, alcohol).
-- Pregnancy & fertility notes.
-- FAQ block (FAQPage schema).
-- `MedicalReviewBadge` (Maxwell, HCPC PH128483).
-- `Citation` block referencing NICE / BNF / NHS public guidance.
-- `RelatedArticles` cluster.
+1. **Bot regex is too narrow.** It catches `bot`/`spider`/`crawler` strings, but most scrapers and headless browsers in 2026 send a clean Chrome UA. GA4 catches them via the IAB/ABC bot list + datacenter IP heuristics; we have to approximate that with stricter UA + signal checks.
+2. **No consent gate.** GA4 effectively only counts consenting users (and Google bot-filters the rest). Lovable's tracker fires on every page load regardless of `cookie-consent` value. Declined or pre-consent hits inflate Lovable's counts vs GA4.
 
-Register the route in `src/App.tsx` (lazy import) and add to `public/sitemap.xml`.
+There is also a small mismatch we cannot close: GA4 dedupes by client-id across the 28-day window, Lovable counts sessions per day. That gap is fine — after the two fixes below, daily Lovable numbers should track GA4 "Sessions" within ~10–20%.
 
-## 2. Internal links (the SEO ask)
+## Changes
 
-Add prominent, contextual links — not footer-buried — pointing at the new guide.
+### 1. `index.html` — expand the bot stub
+Edit the existing IIFE around lines 57–86.
 
-| Source page | Where the link goes | Anchor text |
-|---|---|---|
-| `src/pages/Index.tsx` | New "Medication guides" band (alongside existing Steroids card) | "Azathioprine for arthritis" |
-| `src/pages/conditions/RheumatoidArthritis.tsx` | Treatment / DMARDs section | "Azathioprine: how it works, side effects & monitoring" |
-| `src/pages/conditions/Lupus.tsx` | Treatment section | "Azathioprine for lupus" |
-| `src/pages/conditions/PsoriaticArthritis.tsx` | DMARDs paragraph | "Azathioprine guide" |
-| `src/pages/pillar/SteroidsGuide.tsx` | "Related medications" footer block | "Azathioprine (immunosuppressant)" |
-| `src/components/Footer.tsx` | Guides column | "Azathioprine" |
+- Widen the `block` regex to also match: `yandex`, `naver`, `qwant`, `archive.org`, `ia_archiver`, `wayback`, `lighthouse`, `pagespeed`, `gtmetrix`, `pingdom`, `uptimerobot`, `statuscake`, `monitor`, `scrape`, `fetch`, `curl`, `wget`, `python-requests`, `axios`, `node-fetch`, `go-http`, `okhttp`, `java/`, `ruby`, `apache-httpclient`, `postman`, `insomnia`, `chrome-lighthouse`, `screaming frog`.
+- Add a **headless-signal check** in addition to UA: if `navigator.webdriver === true`, or `navigator.languages?.length === 0`, or `window.outerWidth === 0`, or `navigator.plugins?.length === 0 && !/Mobi/.test(navigator.userAgent)`, treat as bot.
+- When `isBot`, the existing fetch/XHR shim already blocks `lovable.app/api/analytics` — leave that as-is. Also block `sendBeacon` (currently missed):
+  ```js
+  if (navigator.sendBeacon) {
+    var origBeacon = navigator.sendBeacon.bind(navigator);
+    navigator.sendBeacon = function(u){
+      if (/google-analytics|googletagmanager|lovable\.app\/api\/analytics|stats|beacon/i.test(String(u||''))) return true;
+      return origBeacon.apply(navigator, arguments);
+    };
+  }
+  ```
 
-Each link uses descriptive anchor text (Google rewards keyword-rich internal anchors) and lives inside body copy or a visible card — not hidden in a long list.
+### 2. `index.html` — gate GA + Lovable beacon on consent
+Wrap the GA loader IIFE (lines 13–51) so it only schedules `loadGA` when `localStorage.getItem('cookie-consent') === 'accepted'`. If the value is missing or `'declined'`, do not load `gtag.js`.
 
-## 3. Schema & metadata
+Add a parallel guard for the Lovable beacon: in the bot-stub IIFE, also treat **declined consent** as bot-equivalent for the analytics endpoint — block `lovable.app/api/analytics` fetch/XHR/sendBeacon when `localStorage.getItem('cookie-consent') === 'declined'`. (Leave pre-consent unblocked for now so we don't lose all data; flip to "block until accepted" in a follow-up if GA4 vs Lovable still diverges.)
 
-- `Helmet`: title "Azathioprine for Arthritis: Uses, Side Effects & Monitoring | Living With Arthritis UK", description <160 chars, self-referential canonical and `og:url`.
-- JSON-LD: `Article` + `MedicalWebPage` + `FAQPage`, with `author.identifier = "HCPC PH128483"` matching the audited BlogPost pattern.
-- `lastReviewed` + `reviewedBy` fields.
+### 3. `src/components/CookieConsent.tsx` — reload on accept
+When the user clicks **Accept All**, GA needs to actually load. Easiest: after `setVisible(false)`, dispatch `window.dispatchEvent(new Event('cookie-consent-accepted'))`. Then in the `index.html` GA IIFE, also listen for that event to trigger `loadGA()` immediately (instead of waiting for the next page load). No reload needed.
 
-## 4. Content guardrails
+### 4. `public/robots.txt` — already done
+The SemrushBot / AhrefsBot disallow added last week stays. No change.
 
-- Educational tone, no dosing recommendations beyond "as prescribed".
-- Explicit "speak to your rheumatology team / GP" disclaimers.
-- Neutrality: no NHS branding (per project rule), reference "your rheumatology team" / "BNF" / "NICE guidance" generically.
-- No AI branding in copy.
+## Out of scope
+- Server-side IP/datacenter filtering (Lovable's tracker is platform-managed; we can only shape what the browser sends).
+- Replacing the Lovable tracker with a self-hosted Plausible/Umami — bigger architectural change, ask separately if you want it.
+- Auto-pulling the homepage badge number from GA4 — separate plan, offered earlier.
 
-## 5. Out of scope
+## Expected outcome
+- Bot waves (like today's 1,027 hit spike) will be suppressed in the Lovable panel the same way GA4 already suppresses them.
+- Declined-consent users stop firing GA — matching what GA4 already records.
+- Lovable daily "visits" should land within 10–20% of GA4 daily "Sessions" going forward. Won't ever match exactly: GA4 dedupes users across sessions and applies Google's proprietary IVT list.
 
-- Writing additional DMARD guides (methotrexate, sulfasalazine, hydroxychloroquine) — flag as a follow-up cluster, don't build now.
-- Backend / database changes — none needed.
-
-## Files touched
-
-```text
-Created:
-  src/pages/pillar/AzathioprineGuide.tsx
-
-Edited:
-  src/App.tsx                                       (lazy import + route)
-  public/sitemap.xml                                (new URL)
-  src/pages/Index.tsx                               (medication band link)
-  src/pages/conditions/RheumatoidArthritis.tsx      (DMARD link)
-  src/pages/conditions/Lupus.tsx                    (treatment link)
-  src/pages/conditions/PsoriaticArthritis.tsx       (DMARD link)
-  src/pages/pillar/SteroidsGuide.tsx                (related-medications link)
-  src/components/Footer.tsx                         (guides column link)
-```
-
-Approve to build.
+Approve to implement, or tell me to also flip pre-consent hits to "blocked until accepted" (stricter, but you'll lose ~30% of legitimate first-visit data).
