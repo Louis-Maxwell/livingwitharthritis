@@ -49,6 +49,8 @@ const BlogPost = lazy(() => import("./pages/BlogPost"));
 const Sitemap = lazy(() => import("./pages/Sitemap"));
 const DailyTipDetail = lazy(() => import("./pages/DailyTipDetail"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
+const AITransparency = lazy(() => import("./pages/about/AITransparency"));
+const Sources = lazy(() => import("./pages/about/Sources"));
 const Osteoarthritis = lazy(() => import("./pages/conditions/Osteoarthritis"));
 const RheumatoidArthritis = lazy(() => import("./pages/conditions/RheumatoidArthritis"));
 const PsoriaticArthritis = lazy(() => import("./pages/conditions/PsoriaticArthritis"));
@@ -199,6 +201,8 @@ function AnimatedRoutes() {
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/daily-tips/:slug" element={<DailyTipDetail />} />
         <Route path="/about" element={<AboutUs />} />
+        <Route path="/about/ai-transparency" element={<AITransparency />} />
+        <Route path="/sources" element={<Sources />} />
         <Route path="/editorial-standards" element={<EditorialStandards />} />
         <Route path="/conditions/osteoarthritis" element={<Osteoarthritis />} />
         <Route path="/conditions/rheumatoid-arthritis" element={<RheumatoidArthritis />} />

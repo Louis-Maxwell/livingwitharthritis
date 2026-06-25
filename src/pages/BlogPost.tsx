@@ -171,10 +171,12 @@ const BlogPost = () => {
           "datePublished": article.date,
           "dateModified": dateModifiedIso,
           "author": {
-            "@type": "Organization",
-            "name": authorName,
-            "url": "https://livingwitharthritis.org.uk",
-            "memberOf": { "@type": "MedicalOrganization", "name": "Living With Arthritis Clinical Review Board" }
+            "@type": "Person",
+            "name": "Maxwell",
+            "jobTitle": "First Contact Practitioner",
+            "identifier": "HCPC PH128483",
+            "url": "https://livingwitharthritis.org.uk/about/ai-transparency",
+            "affiliation": { "@type": "Organization", "name": "Chartered Society of Physiotherapy" }
           },
           "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk", "logo": { "@type": "ImageObject", "url": "https://livingwitharthritis.org.uk/favicon.ico" } },
           "inLanguage": "en-GB",
@@ -200,10 +202,12 @@ const BlogPost = () => {
           "datePublished": article.date,
           "dateModified": dateModifiedIso,
           "author": {
-            "@type": "Organization",
-            "name": authorName,
-            "url": "https://livingwitharthritis.org.uk",
-            "memberOf": { "@type": "MedicalOrganization", "name": "Living With Arthritis Clinical Review Board" }
+            "@type": "Person",
+            "name": "Maxwell",
+            "jobTitle": "First Contact Practitioner",
+            "identifier": "HCPC PH128483",
+            "url": "https://livingwitharthritis.org.uk/about/ai-transparency",
+            "affiliation": { "@type": "Organization", "name": "Chartered Society of Physiotherapy" }
           },
           "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk", "logo": { "@type": "ImageObject", "url": "https://livingwitharthritis.org.uk/favicon.ico", "width": 512, "height": 512 } },
           "mainEntityOfPage": { "@type": "WebPage", "@id": `https://livingwitharthritis.org.uk/blog/${slug}` },
