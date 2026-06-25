@@ -288,6 +288,7 @@ function AnimatedRoutes() {
         <Route path="/guides/benefits-pip" element={<BenefitsPIPGuide />} />
         <Route path="/guides/knee-replacement-surgery" element={<KneeReplacementSurgeryGuide />} />
         <Route path="/guides/steroids-for-arthritis" element={<SteroidsGuide />} />
+        <Route path="/guides/azathioprine-for-arthritis" element={<AzathioprineGuide />} />
         <Route path="/press" element={<Press />} />
         <Route path="/partners" element={<Partners />} />
         <Route path="/stories" element={<LivedExperiences />} />
