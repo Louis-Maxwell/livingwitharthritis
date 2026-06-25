@@ -112,6 +112,28 @@ export default function SymptomChecker() {
 
   const reset = () => { setStep(0); setAnswers({}); setResults(null); setError(null); };
 
+  const handlePrint = () => window.print();
+
+  const handleShare = async () => {
+    const top = results?.[0];
+    const text = results
+      ? `My Living With Arthritis symptom-checker results:\n\n${results
+          .map((r, i) => `${i + 1}. ${r.name} (${r.confidence} match) — ${r.summary}`)
+          .join("\n\n")}\n\nNot a diagnosis. Source: livingwitharthritis.org.uk/symptom-checker`
+      : "";
+    const shareData = { title: "My arthritis symptom-checker results", text, url: top ? `https://livingwitharthritis.org.uk${top.url}` : "https://livingwitharthritis.org.uk/symptom-checker" };
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+      } else {
+        await navigator.clipboard.writeText(`${text}\n\n${shareData.url}`);
+        alert("Results copied to clipboard — you can paste them into an email or message.");
+      }
+    } catch {
+      /* user dismissed share */
+    }
+  };
+
   return (
     <>
       <Helmet>
@@ -125,6 +147,15 @@ export default function SymptomChecker() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Symptom Checker — Living With Arthritis UK" />
         <meta name="twitter:description" content="Match your symptoms to likely arthritis conditions in five quick questions." />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: SYMPTOM_FAQS.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        })}</script>
       </Helmet>
       <div className="min-h-screen bg-background">
         <Header />
