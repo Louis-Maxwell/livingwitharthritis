@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import PageHero from "@/components/ui/PageHero";
 import { StatCounter, WaveDivider } from "@/components/graphics/InfographicElements";
 import InternalLinks from "@/components/InternalLinks";
+import RelatedArticles from "@/components/RelatedArticles";
 import ContextualLinks from "@/components/ContextualLinks";
 import ConditionBlogStrip from "@/components/ConditionBlogStrip";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
@@ -361,6 +362,14 @@ const PsoriaticArthritis = () => (
             ]}
           />
           <CrossLinkBanner preset="condition" exclude="/conditions/psoriatic-arthritis" title="Explore related resources" />
+        </div>
+        <div className="max-w-6xl mx-auto px-6">
+          <RelatedArticles
+            currentSlug=""
+            currentCategory="Psoriatic Arthritis"
+            clusters={["rheumatoid", "flare-ups", "exercise", "diet"]}
+            heading="Related arthritis reading"
+          />
         </div>
       </main>
       <InternalLinks />
