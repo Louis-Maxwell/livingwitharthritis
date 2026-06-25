@@ -200,107 +200,71 @@ function HomePage() {
             <JointSelector />
           </Suspense>
 
-          {/* 04 — Search the library */}
-          <Suspense fallback={<SectionFallback />}>
-            <SearchBar />
-          </Suspense>
-
-          {/* 05 — Why we exist */}
+          {/* 04 — Why we exist (problem + national stats merged) */}
           <Suspense fallback={<SectionFallback />}>
             <OAProblemBand />
+            <HeroStatsStrip />
           </Suspense>
 
-          {/* 06 — Mission pull quote */}
-          <Suspense fallback={<SectionFallback />}>
-            <MissionStatementBand />
-          </Suspense>
-
-          {/* 07 — Four pillars (Move/Eat/Rest/Connect) */}
+          {/* 05 — Four pillars (Move/Eat/Rest/Connect) */}
           <Suspense fallback={<SectionFallback />}>
             <OAPlanPillarsSection />
           </Suspense>
 
-          {/* 08 — National-scale stats */}
-          <Suspense fallback={<SectionFallback />}>
-            <HeroStatsStrip />
-          </Suspense>
-
-          {/* 09 — Faces / real stories */}
+          {/* 06 — Real stories */}
           <Suspense fallback={<SectionFallback />}>
             <FacesStrip />
           </Suspense>
 
-          {/* 10 — Featured guides */}
+          {/* 07 — Featured guides */}
           <Suspense fallback={<SectionFallback />}>
             <BlogPreview />
           </Suspense>
 
-          {/* 11 — About arthritis (condition cards) */}
+          {/* 08 — Conditions overview (cards + pill links merged) */}
           <Suspense fallback={<SectionFallback />}>
             <AboutArthritisCards />
+            <ConditionPillBand />
           </Suspense>
 
-          {/* 12 — Resources hub */}
+          {/* 09 — Resources hub */}
           <Suspense fallback={<SectionFallback />}>
             <ResourcesForYouSection />
           </Suspense>
 
-          {/* 13 — Condition pill quick links */}
-          <Suspense fallback={<SectionFallback />}>
-            <ConditionPillBand />
-          </Suspense>
-
-          {/* 14 — Fundraising progress (animated £5k/£50k) */}
+          {/* 10 — Fundraising progress */}
           <Suspense fallback={<SectionFallback />}>
             <ImpactProgressBand />
           </Suspense>
 
-          {/* 15 — Editorial board quote */}
+          {/* 11 — Editorial board quote */}
           <Suspense fallback={<SectionFallback />}>
             <QuoteSection />
           </Suspense>
 
-          {/* 16 — Newsletter signup */}
-          <Suspense fallback={<SectionFallback />}>
-            <NewsletterHeroBanner />
-          </Suspense>
-
-          {/* 17 — Verified impact facts */}
-          <Suspense fallback={<SectionFallback />}>
-            <ImpactFactBand />
-          </Suspense>
-
-          {/* Deferred — below-the-fold supporting bands */}
+          {/* 12 — Search the library (deferred — secondary nav) */}
           <DeferredMount>
             <Suspense fallback={<SectionFallback />}>
-              <InspiredHeroBand />
-              <DonationImpactSection />
-              <MissionEthosBand />
-              <HowWeAreFundedSection />
-              <SEOTeaserSection />
+              <SearchBar />
             </Suspense>
           </DeferredMount>
 
-          {/* 18 — Testimonial collector */}
-          <Suspense fallback={<SectionFallback />}>
-            <TestimonialCollector />
-          </Suspense>
-
-          {/* 19 — FAQ */}
+          {/* 13 — FAQ */}
           <Suspense fallback={<SectionFallback />}>
             <FAQSection />
           </Suspense>
 
-          {/* 20 — Final donate band (closing CTA) */}
+          {/* 14 — Final donate band (closing CTA) */}
           <Suspense fallback={<SectionFallback />}>
             <FinalDonateBand />
           </Suspense>
 
-          {/* 21 — Newsletter footer band */}
+          {/* 15 — Newsletter footer band */}
           <Suspense fallback={<SectionFallback />}>
             <NewsletterSection />
           </Suspense>
         </main>
+
 
 
         <Suspense fallback={null}>
