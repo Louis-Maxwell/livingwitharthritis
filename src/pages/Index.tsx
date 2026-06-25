@@ -168,7 +168,7 @@ function HomePage() {
         <title>Living With Arthritis UK | Evidence-Based Health Guides</title>
         <meta
           name="description"
-          content="Open-source osteoarthritis plan: clinically reviewed diet, movement and pain-relief guidance in plain English. Free for everyone in the UK."
+          content={`${VISITOR_STATS_SNIPPET} Open-source osteoarthritis plan: clinically reviewed diet, movement and pain-relief guidance in plain English. Free for everyone in the UK.`}
         />
         <link rel="canonical" href={SITE_URL + "/"} />
         <meta property="og:type" content="website" />
@@ -179,7 +179,11 @@ function HomePage() {
         />
         <meta
           property="og:description"
-          content="The evidence to manage osteoarthritis well already exists. We're unlocking it — in plain English, free for everyone."
+          content={`${VISITOR_STATS_SNIPPET} The evidence to manage osteoarthritis well already exists — we're unlocking it in plain English, free for everyone.`}
+        />
+        <meta
+          name="twitter:description"
+          content={`${VISITOR_STATS_SNIPPET} Free, clinically reviewed arthritis guidance for everyone in the UK.`}
         />
       </Helmet>
 
@@ -191,10 +195,9 @@ function HomePage() {
           {/* 01 — Editorial hero */}
           <OAHero />
 
-          {/* Visitor stats — trust signal under hero */}
-          <div className="container mx-auto px-6 md:px-12 max-w-7xl py-6 flex justify-center">
-            <VisitorStats />
-          </div>
+          {/* Visitor stats — visible trust signal directly under hero image */}
+          <VisitorStats variant="band" />
+
 
           {/* 02 — Beginner journey chooser */}
           <Suspense fallback={<SectionFallback />}>
