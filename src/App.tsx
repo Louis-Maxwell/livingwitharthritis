@@ -158,6 +158,57 @@ const FallPreventionOlderAdults = lazy(() => import("./pages/guides/FallPreventi
 const Arthritis = lazy(() => import("./pages/conditions/Arthritis"));
 const MusculoskeletalHealth = lazy(() => import("./pages/guides/MusculoskeletalHealth"));
 const DisabilitySupport = lazy(() => import("./pages/guides/DisabilitySupport"));
+
+// Phase 1 / Phase 3 — IA stubs + Newly Diagnosed full guide
+const NewlyDiagnosed = lazy(() => import("./pages/guides/NewlyDiagnosed"));
+const DrugGuideStub = lazy(() =>
+  import("./pages/stubs").then((m) => ({ default: m.DrugGuideStub })),
+);
+const SurgeryStub = lazy(() =>
+  import("./pages/stubs").then((m) => ({ default: m.SurgeryStub })),
+);
+const ComplementaryTherapiesStub = lazy(() =>
+  import("./pages/stubs").then((m) => ({ default: m.ComplementaryTherapiesStub })),
+);
+const InsuranceStub = lazy(() =>
+  import("./pages/stubs").then((m) => ({ default: m.InsuranceStub })),
+);
+const WorkStub = lazy(() =>
+  import("./pages/stubs").then((m) => ({ default: m.WorkStub })),
+);
+const TravelStub = lazy(() =>
+  import("./pages/stubs").then((m) => ({ default: m.TravelStub })),
+);
+const FindSpecialistStub = lazy(() =>
+  import("./pages/stubs").then((m) => ({ default: m.FindSpecialistStub })),
+);
+const ConnectGroupsStub = lazy(() =>
+  import("./pages/stubs").then((m) => ({ default: m.ConnectGroupsStub })),
+);
+const EventsStub = lazy(() =>
+  import("./pages/stubs").then((m) => ({ default: m.EventsStub })),
+);
+const PodcastsStub = lazy(() =>
+  import("./pages/stubs").then((m) => ({ default: m.PodcastsStub })),
+);
+const HelplineStub = lazy(() =>
+  import("./pages/stubs").then((m) => ({ default: m.HelplineStub })),
+);
+const VolunteerStub = lazy(() =>
+  import("./pages/stubs").then((m) => ({ default: m.VolunteerStub })),
+);
+const AdvocacyStub = lazy(() =>
+  import("./pages/stubs").then((m) => ({ default: m.AdvocacyStub })),
+);
+const ResearchStub = lazy(() =>
+  import("./pages/stubs").then((m) => ({ default: m.ResearchStub })),
+);
+const ClinicalTrialsStub = lazy(() =>
+  import("./pages/stubs").then((m) => ({ default: m.ClinicalTrialsStub })),
+);
+const GrantsStub = lazy(() =>
+  import("./pages/stubs").then((m) => ({ default: m.GrantsStub })),
+);
 // No visible loader — Suspense falls back to null so the previous page
 // (or blank background) stays visible until the next chunk is ready,
 // avoiding the spinner flash on first paint.
@@ -311,6 +362,26 @@ function AnimatedRoutes() {
         <Route path="/buddy/match" element={<BuddyMatch />} />
         <Route path="/newsletter/confirm" element={<NewsletterConfirm />} />
         <Route path="/debug/schema" element={<DebugSchema />} />
+
+        {/* Phase 1 — 5-pillar IA stubs + Newly Diagnosed full guide */}
+        <Route path="/guides/newly-diagnosed" element={<NewlyDiagnosed />} />
+        <Route path="/treatments/drug-guide" element={<DrugGuideStub />} />
+        <Route path="/treatments/surgery-options" element={<SurgeryStub />} />
+        <Route path="/treatments/complementary-therapies" element={<ComplementaryTherapiesStub />} />
+        <Route path="/guides/insurance-coverage" element={<InsuranceStub />} />
+        <Route path="/guides/work-with-arthritis" element={<WorkStub />} />
+        <Route path="/guides/travel-with-arthritis" element={<TravelStub />} />
+        <Route path="/tools/find-specialist" element={<FindSpecialistStub />} />
+        <Route path="/community/connect-groups" element={<ConnectGroupsStub />} />
+        <Route path="/events" element={<EventsStub />} />
+        <Route path="/podcasts" element={<PodcastsStub />} />
+        <Route path="/helpline" element={<HelplineStub />} />
+        <Route path="/volunteer" element={<VolunteerStub />} />
+        <Route path="/advocacy" element={<AdvocacyStub />} />
+        <Route path="/research" element={<ResearchStub />} />
+        <Route path="/research/clinical-trials" element={<ClinicalTrialsStub />} />
+        <Route path="/research/grants" element={<GrantsStub />} />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </PageTransition>
