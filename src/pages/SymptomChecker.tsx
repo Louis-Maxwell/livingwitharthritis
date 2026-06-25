@@ -1,11 +1,19 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { ArrowRight, Loader2, AlertCircle, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Loader2, AlertCircle, CheckCircle2, Printer, Share2, Stethoscope, HandHeart, BookOpen } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
+
+const SYMPTOM_FAQS = [
+  { q: "Is the symptom checker a diagnosis?", a: "No. It's an educational tool that suggests arthritis conditions whose typical pattern matches your answers. Only a GP or rheumatologist can diagnose arthritis using examination, blood tests and imaging." },
+  { q: "Should I see a GP?", a: "Yes — book a GP appointment for any joint pain, swelling or stiffness that lasts more than two weeks, or any joint pain accompanied by fever, unexplained weight loss or a rash." },
+  { q: "Can I print or share my results?", a: "Yes. Use the Print button to save a PDF or take it to your appointment, and use Share to send a summary to a family member or clinician." },
+  { q: "What if my joints hurt all over?", a: "Pain in many joints can point to inflammatory arthritis (rheumatoid, psoriatic, lupus) or fibromyalgia. A GP can order blood tests (ESR, CRP, RF, anti-CCP, ANA) to help narrow it down." },
+  { q: "How accurate is the matching?", a: "The tool uses well-documented symptom patterns, but real cases overlap. Treat results as a starting point for conversation with your clinician — not a definitive answer." },
+];
 
 interface Answers {
   location: string;
