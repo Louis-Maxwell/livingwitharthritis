@@ -17,11 +17,24 @@ const CookieConsent = () => {
   const accept = () => {
     localStorage.setItem("cookie-consent", "accepted");
     setVisible(false);
+    // Notify index.html GA loader so gtag fires immediately on this page.
+    try {
+      window.dispatchEvent(new Event("cookie-consent-accepted"));
+    } catch (e) {
+      // no-op
+    }
   };
 
   const decline = () => {
     localStorage.setItem("cookie-consent", "declined");
     setVisible(false);
+    // Reload so the bot/consent guard in index.html re-evaluates and starts
+    // blocking analytics beacons for the rest of this session.
+    try {
+      window.location.reload();
+    } catch (e) {
+      // no-op
+    }
   };
 
   if (!visible) return null;
