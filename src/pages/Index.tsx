@@ -11,6 +11,7 @@
 
 import { lazy, Suspense, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 
 import Header from "@/components/Header";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -242,6 +243,38 @@ function HomePage() {
           <Suspense fallback={<SectionFallback />}>
             <ResourcesForYouSection />
           </Suspense>
+
+          {/* 09b — Medication guides quick links (SEO topical authority) */}
+          <section aria-labelledby="medication-guides-heading" className="py-12 md:py-16 bg-muted/30">
+            <div className="container mx-auto px-5 md:px-10 max-w-6xl">
+              <div className="text-center mb-8">
+                <p className="text-xs font-bold tracking-[0.2em] text-primary uppercase mb-2">UK Medication Guides</p>
+                <h2 id="medication-guides-heading" className="font-display font-bold text-2xl md:text-3xl text-foreground">
+                  Plain-English guides to common arthritis medications
+                </h2>
+                <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
+                  Clinically reviewed UK guides explaining how each drug works, monitoring, side effects and what to ask your rheumatology team.
+                </p>
+              </div>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <Link to="/guides/azathioprine-for-arthritis" className="group p-5 rounded-xl border border-border/40 bg-card hover:border-primary/50 hover:shadow-md transition-all">
+                  <p className="text-xs text-primary font-bold mb-1">DMARD</p>
+                  <p className="font-bold text-foreground group-hover:text-primary transition-colors">Azathioprine for Arthritis</p>
+                  <p className="text-sm text-muted-foreground mt-1">TPMT testing, dosing, monitoring and side effects.</p>
+                </Link>
+                <Link to="/guides/steroids-for-arthritis" className="group p-5 rounded-xl border border-border/40 bg-card hover:border-primary/50 hover:shadow-md transition-all">
+                  <p className="text-xs text-primary font-bold mb-1">Steroid</p>
+                  <p className="font-bold text-foreground group-hover:text-primary transition-colors">Steroids for Arthritis</p>
+                  <p className="text-sm text-muted-foreground mt-1">Injections, tablets, side effects and UK access.</p>
+                </Link>
+                <Link to="/guides/benefits-pip" className="group p-5 rounded-xl border border-border/40 bg-card hover:border-primary/50 hover:shadow-md transition-all">
+                  <p className="text-xs text-primary font-bold mb-1">Support</p>
+                  <p className="font-bold text-foreground group-hover:text-primary transition-colors">Benefits &amp; PIP Guide</p>
+                  <p className="text-sm text-muted-foreground mt-1">Eligibility, claiming and appealing PIP for arthritis.</p>
+                </Link>
+              </div>
+            </div>
+          </section>
 
           {/* 10 — Fundraising progress */}
           <Suspense fallback={<SectionFallback />}>

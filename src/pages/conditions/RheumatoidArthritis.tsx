@@ -224,7 +224,7 @@ const RheumatoidArthritis = () => (
         <Section icon={Pill} title="Treatment Options">
           <p>Modern treatment aims to achieve <strong>remission</strong> — a state where the disease is controlled and no active inflammation is present. The UK follows a <strong>"treat to target"</strong> approach.</p>
           <h3>DMARDs (Disease-Modifying Anti-Rheumatic Drugs)</h3>
-          <p><strong>Methotrexate</strong> is usually the first-line treatment, often combined with other DMARDs like sulfasalazine or hydroxychloroquine. DMARDs slow disease progression and prevent joint damage — they are the cornerstone of RA treatment.</p>
+          <p><strong>Methotrexate</strong> is usually the first-line treatment, often combined with other DMARDs like sulfasalazine or hydroxychloroquine. If first-line DMARDs are not tolerated or effective, <a href="/guides/azathioprine-for-arthritis"><strong>azathioprine</strong></a> may be used as an alternative immunosuppressant DMARD. DMARDs slow disease progression and prevent joint damage — they are the cornerstone of RA treatment.</p>
           <h3>Biologic Therapies</h3>
           <p>If DMARDs alone are insufficient, <strong>biologic therapies</strong> (anti-TNF drugs, rituximab, tocilizumab, abatacept) or <strong>JAK inhibitors</strong> (tofacitinib, baricitinib) may be prescribed. These target specific parts of the immune system driving inflammation.</p>
           <h3>Symptom Relief</h3>

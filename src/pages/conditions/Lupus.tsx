@@ -47,7 +47,7 @@ const data: ConditionPageData = {
   treatments: [
     "<strong>Hydroxychloroquine</strong> — first-line for most people, reduces flares and protects organs",
     "<strong>Steroids</strong> (low-dose long-term or short bursts during flares)",
-    "<strong>Immunosuppressants</strong> (azathioprine, mycophenolate, methotrexate)",
+    "<strong>Immunosuppressants</strong> (<a href=\"/guides/azathioprine-for-arthritis\">azathioprine</a>, mycophenolate, methotrexate)",
     "<strong>Biologics</strong> (belimumab, rituximab) for resistant disease",
     "<strong>Strict sun protection</strong> — SPF 50, hats, UV-protective clothing year-round",
     "Stop smoking",

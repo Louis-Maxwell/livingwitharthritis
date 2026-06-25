@@ -29,6 +29,7 @@ const columns = [
       { label: "Diet & Nutrition Guide", href: "/guides/diet" },
       { label: "Exercise Guide", href: "/guides/exercise" },
       { label: "Benefits & PIP Guide", href: "/guides/benefits-pip" },
+      { label: "Azathioprine Guide", href: "/guides/azathioprine-for-arthritis" },
     ],
   },
   {
