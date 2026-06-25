@@ -270,11 +270,11 @@ export default function SymptomChecker() {
               <div className="mt-10 print:hidden">
                 <h3 className="font-display text-lg font-bold text-foreground mb-4">What to do next</h3>
                 <div className="grid sm:grid-cols-3 gap-3">
-                  <a href="https://www.nhs.uk/nhs-services/gps/how-to-register-with-a-gp-surgery/" target="_blank" rel="noopener noreferrer" className="rounded-xl border border-border p-4 hover:border-primary transition-colors group">
+                  <Link to="/guides/newly-diagnosed" className="rounded-xl border border-border p-4 hover:border-primary transition-colors group">
                     <Stethoscope className="w-5 h-5 text-primary mb-2" />
-                    <p className="font-semibold text-foreground text-sm group-hover:text-primary">Book a GP appointment</p>
-                    <p className="text-xs text-muted-foreground mt-1">Take these results to your next consultation.</p>
-                  </a>
+                    <p className="font-semibold text-foreground text-sm group-hover:text-primary">Prepare for your GP visit</p>
+                    <p className="text-xs text-muted-foreground mt-1">Checklist, what to ask, printable summary.</p>
+                  </Link>
                   {results[0] && (
                     <Link to={results[0].url} className="rounded-xl border border-border p-4 hover:border-primary transition-colors group">
                       <BookOpen className="w-5 h-5 text-primary mb-2" />
