@@ -5,7 +5,7 @@ import "@fontsource/fraunces/400.css";
 import "@fontsource/fraunces/600.css";
 import "@fontsource/fraunces/900.css";
 import "@fontsource/fraunces/900-italic.css";
-import "@fontsource-variable/inter-tight";
+import "@fontsource-variable/inter-tight/index.css";
 import "./index.css";
 
 // Auto-recover from stale code-split chunks after a new deploy.
