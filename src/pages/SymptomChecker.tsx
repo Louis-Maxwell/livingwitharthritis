@@ -214,10 +214,29 @@ export default function SymptomChecker() {
           )}
 
           {results && (
-            <div>
-              <h2 className="section-header-left font-display text-2xl font-bold text-foreground mb-2">Your top matches</h2>
-              <p className="text-sm text-muted-foreground mb-6">Ranked from most to least likely based on your answers.</p>
-              <div className="space-y-4">
+            <div className="print:p-0" id="symptom-results">
+              <div className="flex flex-wrap items-start justify-between gap-4 mb-2">
+                <div>
+                  <h2 className="section-header-left font-display text-2xl font-bold text-foreground mb-2">Your top matches</h2>
+                  <p className="text-sm text-muted-foreground">Ranked from most to least likely based on your answers.</p>
+                </div>
+                <div className="flex gap-2 print:hidden">
+                  <Button onClick={handlePrint} variant="outline" size="sm" className="gap-2">
+                    <Printer className="w-4 h-4" /> Print / PDF
+                  </Button>
+                  <Button onClick={handleShare} variant="outline" size="sm" className="gap-2">
+                    <Share2 className="w-4 h-4" /> Share
+                  </Button>
+                </div>
+              </div>
+
+              <div className="hidden print:block mb-6 text-xs text-muted-foreground border-b border-border pb-3">
+                <p><strong>Living With Arthritis — Symptom Checker results</strong></p>
+                <p>Generated {new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</p>
+                <p className="mt-1">Your answers: {Object.entries(answers).map(([k, v]) => `${k}: ${v}`).join(" · ")}</p>
+              </div>
+
+              <div className="space-y-4 mt-6">
                 {results.map((r, i) => (
                   <Link
                     key={r.slug}
@@ -238,16 +257,45 @@ export default function SymptomChecker() {
                       <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                       <span>{r.reasoning}</span>
                     </div>
-                    <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary mt-4">
+                    <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary mt-4 print:hidden">
                       Read the full guide <ArrowRight className="w-3.5 h-3.5" />
+                    </span>
+                    <span className="hidden print:inline text-xs text-muted-foreground mt-3 block">
+                      Full guide: livingwitharthritis.org.uk{r.url}
                     </span>
                   </Link>
                 ))}
               </div>
-              <div className="mt-8 flex flex-wrap gap-3">
+
+              <div className="mt-10 print:hidden">
+                <h3 className="font-display text-lg font-bold text-foreground mb-4">What to do next</h3>
+                <div className="grid sm:grid-cols-3 gap-3">
+                  <a href="https://www.nhs.uk/nhs-services/gps/how-to-register-with-a-gp-surgery/" target="_blank" rel="noopener noreferrer" className="rounded-xl border border-border p-4 hover:border-primary transition-colors group">
+                    <Stethoscope className="w-5 h-5 text-primary mb-2" />
+                    <p className="font-semibold text-foreground text-sm group-hover:text-primary">Book a GP appointment</p>
+                    <p className="text-xs text-muted-foreground mt-1">Take these results to your next consultation.</p>
+                  </a>
+                  {results[0] && (
+                    <Link to={results[0].url} className="rounded-xl border border-border p-4 hover:border-primary transition-colors group">
+                      <BookOpen className="w-5 h-5 text-primary mb-2" />
+                      <p className="font-semibold text-foreground text-sm group-hover:text-primary">Learn about {results[0].name}</p>
+                      <p className="text-xs text-muted-foreground mt-1">Full evidence-based guide with treatment options.</p>
+                    </Link>
+                  )}
+                  <Link to="/community/connect-groups" className="rounded-xl border border-border p-4 hover:border-primary transition-colors group">
+                    <HandHeart className="w-5 h-5 text-primary mb-2" />
+                    <p className="font-semibold text-foreground text-sm group-hover:text-primary">Join a support group</p>
+                    <p className="text-xs text-muted-foreground mt-1">Free UK peer-support communities.</p>
+                  </Link>
+                </div>
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-3 print:hidden">
                 <Button onClick={reset} variant="outline">Start again</Button>
                 <Button asChild><Link to="/chat">Talk to support</Link></Button>
+                <Button asChild variant="outline"><Link to="/helpline">Helpline options</Link></Button>
               </div>
+
               <p className="text-xs text-muted-foreground mt-6">
                 This tool is for education only and does not replace medical advice. Book a GP appointment for persistent joint pain, swelling or stiffness.
               </p>
