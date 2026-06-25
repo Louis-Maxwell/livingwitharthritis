@@ -176,11 +176,11 @@ Regulated by the Charity Commission for England and Wales.
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Governance & Constitution | Living With Arthritis UK Charity" />
       <meta name="twitter:description" content="Our charity governance structure, board of trustees, constitution, and policies. Regulated by the Charity Commission for England and Wales." />
-      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
-        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
+        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
+        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
 
       <Header />

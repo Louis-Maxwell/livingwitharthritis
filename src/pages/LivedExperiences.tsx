@@ -187,13 +187,13 @@ export default function LivedExperiences() {
       <meta property="og:url" content="https://livingwitharthritis.org.uk/stories" />
       <meta property="og:site_name" content="Living With Arthritis UK" />
       <meta property="og:locale" content="en_GB" />
-      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
+      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Real Stories – Living With Arthritis | Patient Experiences UK" />
       <meta name="twitter:description" content="Read real stories from people living with arthritis across the UK. Honest accounts of diagnosis, treatment, challenges, and hope from osteoarthritis, RA, and PsA patients." />
-      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
       <div className="min-h-screen bg-background">
         <Header />

@@ -141,10 +141,10 @@ export default function ArthritisFlareUps() {
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:site_name" content="Living With Arthritis UK" />
-        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
+        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
+        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="How to Manage Arthritis Flare-Ups — A Complete UK Guide" />
         <meta name="twitter:description" content="Expert UK guide on managing arthritis flare-ups: triggers, relief strategies, diet, exercise and prevention." />

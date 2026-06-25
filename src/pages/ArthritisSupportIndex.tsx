@@ -34,11 +34,11 @@ const ArthritisSupportIndex = () => {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Arthritis Support Across the UK — Find Local Health Services | Living With Arthritis" />
       <meta name="twitter:description" content="Find arthritis support, rheumatology services, and local help in 50 UK cities. Comprehensive directory of local health trusts, local resources, and community groups." />
-      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
-        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
+      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
+        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
+        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
 
       <Header />

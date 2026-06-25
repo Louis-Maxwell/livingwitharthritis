@@ -106,13 +106,13 @@ export default function CanExerciseMakeOsteoarthritisWorse() {
         <meta property="og:description" content={description} />
         <meta property="og:url" content={url} />
         <meta property="og:site_name" content="Living With Arthritis UK" />
-        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
+        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-community.webp" />
+        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       </Helmet>
       <PageSchema
         url="/guides/can-exercise-make-osteoarthritis-worse"

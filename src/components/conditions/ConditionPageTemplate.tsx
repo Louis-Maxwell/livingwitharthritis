@@ -88,7 +88,7 @@ const CONDITION_IMAGES: Record<string, string> = {
 };
 
 function resolveOgImage(slug: string, override?: string): string {
-  const path = override ?? CONDITION_IMAGES[slug] ?? "/images/hero-community.webp";
+  const path = override ?? CONDITION_IMAGES[slug] ?? "/images/hero-walking-group-1600.webp";
   return path.startsWith("http") ? path : `${BASE}${path}`;
 }
 

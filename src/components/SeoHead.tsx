@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 
 const SITE_URL = "https://livingwitharthritis.org.uk";
 const SITE_NAME = "Living With Arthritis UK";
-const DEFAULT_IMAGE = `${SITE_URL}/images/hero-community.webp`;
+const DEFAULT_IMAGE = `${SITE_URL}/images/hero-walking-group-1600.webp`;
 
 interface SeoHeadProps {
   /** Page title (will be appended with site name unless includeSiteName=false) */
