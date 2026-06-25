@@ -97,10 +97,10 @@ const AboutUs = () => {
     <>
       <Helmet>
         <title>About Our Mission | Living With Arthritis UK</title>
-        <meta name="description" content="Trusted by over 10,000 monthly visitors. The mission and story behind Living With Arthritis UK — a national charity delivering free, evidence-based arthritis support across the UK." />
+        <meta name="description" content="Trusted by 10,000+ monthly visitors. The mission behind Living With Arthritis UK — free, evidence-based arthritis support across the UK." />
         <meta name="keywords" content="arthritis charity, arthritis foundation, arthritis organisation, arthritis support, joint pain charity, arthritis awareness, arthritis advocacy, arthritis research, arthritis helpline, arthritis UK charity, living with arthritis, musculoskeletal conditions, volunteer for charity, donate to arthritis charity" />
         <meta property="og:title" content="About Us — Living With Arthritis UK" />
-        <meta property="og:description" content="Founded by First Contact Practitioners to provide osteoarthritis awareness and education. Free virtual physiotherapy, nutrition guidance and community support UK-wide." />
+        <meta property="og:description" content="Founded by First Contact Practitioners — free virtual physiotherapy, nutrition guidance and community arthritis support UK-wide." />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/about" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
