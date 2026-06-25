@@ -169,7 +169,7 @@ function HomePage() {
         <title>Living With Arthritis UK | Evidence-Based Health Guides</title>
         <meta
           name="description"
-          content={`${VISITOR_STATS_SNIPPET} Open-source osteoarthritis plan: clinically reviewed diet, movement and pain-relief guidance in plain English. Free for everyone in the UK.`}
+          content={`${VISITOR_STATS_SNIPPET} Free UK arthritis support: clinically reviewed diet, movement and pain-relief guidance in plain English.`}
         />
         <link rel="canonical" href={SITE_URL + "/"} />
         <meta property="og:type" content="website" />
@@ -180,11 +180,11 @@ function HomePage() {
         />
         <meta
           property="og:description"
-          content={`${VISITOR_STATS_SNIPPET} The evidence to manage osteoarthritis well already exists — we're unlocking it in plain English, free for everyone.`}
+          content={`${VISITOR_STATS_SNIPPET} Clinically reviewed arthritis guidance in plain English — free for everyone in the UK.`}
         />
         <meta
           name="twitter:description"
-          content={`${VISITOR_STATS_SNIPPET} Free, clinically reviewed arthritis guidance for everyone in the UK.`}
+          content={`${VISITOR_STATS_SNIPPET} Free, clinically reviewed arthritis guidance for the UK.`}
         />
       </Helmet>
 
