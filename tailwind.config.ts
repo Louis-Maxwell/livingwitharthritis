@@ -14,10 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Fraunces"', 'Georgia', 'serif'],
-        heading: ['"Fraunces"', 'Georgia', 'serif'],
-        sans: ['"Inter Tight Variable"', '"Inter Tight"', '"Open Sans"', 'system-ui', 'sans-serif'],
-        serif: ['"Fraunces"', 'Georgia', 'serif'],
+        display: ['"Montserrat"', 'system-ui', 'sans-serif'],
+        heading: ['"Montserrat"', 'system-ui', 'sans-serif'],
+        sans: ['"Open Sans"', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
