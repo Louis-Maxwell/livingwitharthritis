@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import FooterMostRead from "@/components/FooterMostRead";
+import HelplineWidget from "@/components/HelplineWidget";
+import NewsletterSignup from "@/components/NewsletterSignup";
 import { CHARITY } from "@/config/charity";
 
 const columns = [
@@ -75,6 +77,14 @@ const columns = [
 const Footer = () => {
   return (
     <footer className="bg-muted/30 border-t border-border/20 pb-20 lg:pb-0" role="contentinfo" aria-label="Site footer">
+      {/* Helpline strip — sits above the footer on every page */}
+      <HelplineWidget />
+
+      {/* Newsletter signup — wide band below helpline */}
+      <div className="container mx-auto px-6 md:px-12 pt-12 lg:pt-16">
+        <NewsletterSignup variant="card" source="footer" />
+      </div>
+
       <FooterMostRead />
       <div className="container mx-auto px-6 md:px-12 py-16 lg:py-20">
         <div className="mb-14">
