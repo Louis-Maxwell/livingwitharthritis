@@ -190,10 +190,16 @@ function HomePage() {
           {/* 01 — Editorial hero */}
           <OAHero />
 
+          {/* Visitor stats — trust signal under hero */}
+          <div className="container mx-auto px-6 md:px-12 max-w-7xl py-6 flex justify-center">
+            <VisitorStats />
+          </div>
+
           {/* 02 — Beginner journey chooser */}
           <Suspense fallback={<SectionFallback />}>
             <StartHereBand />
           </Suspense>
+
 
           {/* 03 — Where does it hurt? */}
           <Suspense fallback={<SectionFallback />}>
