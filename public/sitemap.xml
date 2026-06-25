@@ -43,18 +43,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/about/ai-transparency</loc>
-    <lastmod>2026-06-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/sources</loc>
-    <lastmod>2026-06-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/editorial-standards</loc>
     <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
@@ -5174,6 +5162,18 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/frailty</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/about/ai-transparency</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/sources</loc>
     <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

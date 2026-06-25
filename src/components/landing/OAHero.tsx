@@ -46,7 +46,7 @@ const OAHero = memo(() => {
           {/* Headline */}
           <h1
             id="oa-hero"
-            className="hero-item font-display text-[2.75rem] sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-[-0.03em] leading-[0.98] text-foreground text-balance"
+            className="hero-item font-display font-bold tracking-[-0.03em] leading-[0.98] text-foreground text-balance text-[clamp(2.5rem,5vw,4.75rem)]"
           >
             The UK's <span className="italic text-primary">clinically-reviewed</span> guide to living well with arthritis.
           </h1>
