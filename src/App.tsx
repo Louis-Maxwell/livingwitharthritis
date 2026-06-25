@@ -201,6 +201,8 @@ function AnimatedRoutes() {
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/daily-tips/:slug" element={<DailyTipDetail />} />
         <Route path="/about" element={<AboutUs />} />
+        <Route path="/about/ai-transparency" element={<AITransparency />} />
+        <Route path="/sources" element={<Sources />} />
         <Route path="/editorial-standards" element={<EditorialStandards />} />
         <Route path="/conditions/osteoarthritis" element={<Osteoarthritis />} />
         <Route path="/conditions/rheumatoid-arthritis" element={<RheumatoidArthritis />} />
