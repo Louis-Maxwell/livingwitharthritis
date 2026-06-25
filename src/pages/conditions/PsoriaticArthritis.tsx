@@ -224,6 +224,7 @@ const PsoriaticArthritis = () => (
           <ul>
             <li><strong>Methotrexate</strong> — first-line DMARD, treats both joints and skin</li>
             <li><strong>Leflunomide</strong> — alternative DMARD</li>
+            <li><a href="/guides/azathioprine-for-arthritis"><strong>Azathioprine</strong></a> — immunosuppressant DMARD used when other options aren't suitable</li>
             <li><strong>Apremilast</strong> — PDE4 inhibitor, oral option for joints and skin</li>
           </ul>
           <h3>Biologic Therapies</h3>
