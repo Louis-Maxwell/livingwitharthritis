@@ -146,21 +146,22 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
-    line-height: 1.7;
+    font-family: 'Inter Tight Variable', 'Inter Tight', 'Open Sans', system-ui, sans-serif;
+    line-height: 1.6;
     font-size: 16px;
   }
 
-  p { font-size: 16px; line-height: 1.7; color: hsl(var(--foreground)); }
+  p { font-size: 16px; line-height: 1.6; color: hsl(var(--foreground)); }
   small, .text-small { font-size: 13px; line-height: 1.5; }
-  .lead { font-size: 18px; line-height: 1.6; color: hsl(var(--foreground)); }
+  .lead { font-size: 18px; line-height: 1.5; color: hsl(var(--foreground)); }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', system-ui, sans-serif;
-    font-weight: 800;
-    letter-spacing: -0.022em;
-    line-height: 1.15;
+    font-family: 'Fraunces', 'Georgia', serif;
+    font-weight: 900;
+    letter-spacing: -0.025em;
+    line-height: 1.0;
     color: hsl(var(--foreground));
+    font-variation-settings: "opsz" 144, "SOFT" 30;
   }
 
   h1 { font-size: clamp(44px, 5.5vw, 72px); line-height: 1.04; font-weight: 800; letter-spacing: -0.025em; }
