@@ -182,6 +182,10 @@ export default function SteroidsGuide() {
                 <p className="text-xs text-primary font-bold mb-1">← Related Guide</p>
                 <p className="font-bold text-foreground">Arthritis Services Guide</p>
               </Link>
+              <Link to="/guides/azathioprine-for-arthritis" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
+                <p className="text-xs text-primary font-bold mb-1">Medication Guide →</p>
+                <p className="font-bold text-foreground">Azathioprine for Arthritis</p>
+              </Link>
               <Link to="/guides/knee-replacement-surgery" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
                 <p className="text-xs text-primary font-bold mb-1">Next Guide →</p>
                 <p className="font-bold text-foreground">Knee Replacement Surgery</p>
