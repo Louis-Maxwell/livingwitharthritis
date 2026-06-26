@@ -261,6 +261,7 @@ function AnimatedRoutes() {
         <Route path="/sources" element={<Sources />} />
         <Route path="/ai-citations" element={<AICitations />} />
         <Route path="/ai-guidelines" element={<AIGuidelines />} />
+        <Route path="/ai" element={<AiHub />} />
         <Route path="/accessibility-for-ai" element={<AccessibilityForAi />} />
         <Route path="/editorial-standards" element={<EditorialStandards />} />
         <Route path="/conditions/osteoarthritis" element={<Osteoarthritis />} />
