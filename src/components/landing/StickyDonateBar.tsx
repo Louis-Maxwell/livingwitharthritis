@@ -55,7 +55,7 @@ const StickyDonateBar = memo(() => {
     <>
       {/* Mobile — bottom bar */}
       <div
-        aria-hidden={!visible}
+        {...(!visible ? { inert: "" as unknown as undefined } : {})}
         className={`fixed inset-x-0 bottom-0 z-50 lg:hidden transition-transform duration-300 ${
           visible ? "translate-y-0" : "translate-y-full pointer-events-none"
         }`}
