@@ -54,6 +54,7 @@ const AITransparency = lazy(() => import("./pages/about/AITransparency"));
 const Sources = lazy(() => import("./pages/about/Sources"));
 const AICitations = lazy(() => import("./pages/about/AICitations"));
 const AIGuidelines = lazy(() => import("./pages/about/AIGuidelines"));
+const AiHub = lazy(() => import("./pages/AiHub"));
 const AccessibilityForAi = lazy(() => import("./pages/about/AccessibilityForAi"));
 const Osteoarthritis = lazy(() => import("./pages/conditions/Osteoarthritis"));
 const RheumatoidArthritis = lazy(() => import("./pages/conditions/RheumatoidArthritis"));
