@@ -1,53 +1,90 @@
-# Tighten Lovable tracker to match GA4
+## Full-Site Audit & Remediation Plan — Living With Arthritis
 
-Goal: make the Lovable analytics panel report numbers that line up with GA4 — same bot filtering, same consent gate, same "real human" definition. The 1,027-visit spike that GA4 ignored should also disappear from Lovable.
+A two-phase plan: **(1) Audit** the live app across 10 dimensions and produce a severity-ranked report, then **(2) Fix** issues in priority order with your approval at each gate.
 
-## What's wrong today
+---
 
-`index.html` already has a bot stub that blocks Lovable's `lovable.app/api/analytics` beacon for known bot user-agents. Two gaps let the spike through:
+### Phase 1 — Audit (read-only, ~0.4 credits)
 
-1. **Bot regex is too narrow.** It catches `bot`/`spider`/`crawler` strings, but most scrapers and headless browsers in 2026 send a clean Chrome UA. GA4 catches them via the IAB/ABC bot list + datacenter IP heuristics; we have to approximate that with stricter UA + signal checks.
-2. **No consent gate.** GA4 effectively only counts consenting users (and Google bot-filters the rest). Lovable's tracker fires on every page load regardless of `cookie-consent` value. Declined or pre-consent hits inflate Lovable's counts vs GA4.
+I'll inspect the codebase and live preview and produce a single Markdown report at `docs/SITE-AUDIT-2026.md` with findings tagged **Critical / High / Medium / Low**, each including: file path, evidence, user impact, recommended fix, estimated effort.
 
-There is also a small mismatch we cannot close: GA4 dedupes by client-id across the 28-day window, Lovable counts sessions per day. That gap is fine — after the two fixes below, daily Lovable numbers should track GA4 "Sessions" within ~10–20%.
+**Scope per dimension:**
 
-## Changes
+1. **Code quality & performance**
+   - Bundle analysis (heavy lazy chunks, duplicate deps)
+   - Re-render hotspots in `Index.tsx`, `Header.tsx` (549 lines), `App.tsx` (467 lines, 100+ routes)
+   - Unused imports / dead routes / orphan stub pages
+   - Image weights vs. served formats (webp coverage)
+   - Run `tsgo` for type errors, `rg` for `console.log`, `any`, `TODO`, `@ts-ignore`
 
-### 1. `index.html` — expand the bot stub
-Edit the existing IIFE around lines 57–86.
+2. **UI/UX & visual consistency**
+   - Hardcoded colour audit (`text-gray-*`, `bg-white`, hex literals) vs. semantic tokens (memory rule)
+   - Typography scale drift, button variant misuse, spacing inconsistencies
+   - Header mega-menu behaviour, mobile drawer, focus traps
 
-- Widen the `block` regex to also match: `yandex`, `naver`, `qwant`, `archive.org`, `ia_archiver`, `wayback`, `lighthouse`, `pagespeed`, `gtmetrix`, `pingdom`, `uptimerobot`, `statuscake`, `monitor`, `scrape`, `fetch`, `curl`, `wget`, `python-requests`, `axios`, `node-fetch`, `go-http`, `okhttp`, `java/`, `ruby`, `apache-httpclient`, `postman`, `insomnia`, `chrome-lighthouse`, `screaming frog`.
-- Add a **headless-signal check** in addition to UA: if `navigator.webdriver === true`, or `navigator.languages?.length === 0`, or `window.outerWidth === 0`, or `navigator.plugins?.length === 0 && !/Mobi/.test(navigator.userAgent)`, treat as bot.
-- When `isBot`, the existing fetch/XHR shim already blocks `lovable.app/api/analytics` — leave that as-is. Also block `sendBeacon` (currently missed):
-  ```js
-  if (navigator.sendBeacon) {
-    var origBeacon = navigator.sendBeacon.bind(navigator);
-    navigator.sendBeacon = function(u){
-      if (/google-analytics|googletagmanager|lovable\.app\/api\/analytics|stats|beacon/i.test(String(u||''))) return true;
-      return origBeacon.apply(navigator, arguments);
-    };
-  }
-  ```
+3. **Content**
+   - Typos / grammar (en-GB spellcheck pass on top 30 pages)
+   - Forbidden terms: any lingering "NHS", "AI", "AI-powered", robot iconography (memory rules)
+   - Address still present anywhere (memory: removed)
+   - Duplicate / placeholder copy
 
-### 2. `index.html` — gate GA + Lovable beacon on consent
-Wrap the GA loader IIFE (lines 13–51) so it only schedules `loadGA` when `localStorage.getItem('cookie-consent') === 'accepted'`. If the value is missing or `'declined'`, do not load `gtag.js`.
+4. **Functionality**
+   - Playwright smoke against `localhost:8080`: nav, mega-menu, symptom checker flow, newsletter signup, donate CTA, exercise video playback, blog post render, helpline links (tel:/mailto:/wa.me)
+   - Capture console errors + failed network requests per page
+   - Edge-function preflight reports already show `process-donation` + `process-email-queue` failing — investigate
 
-Add a parallel guard for the Lovable beacon: in the bot-stub IIFE, also treat **declined consent** as bot-equivalent for the analytics endpoint — block `lovable.app/api/analytics` fetch/XHR/sendBeacon when `localStorage.getItem('cookie-consent') === 'declined'`. (Leave pre-consent unblocked for now so we don't lose all data; flip to "block until accepted" in a follow-up if GA4 vs Lovable still diverges.)
+5. **Mobile responsiveness**
+   - Playwright at 375×812 and 768×1024: tap targets ≥44px, overflow, sticky header collision, mega-menu→drawer swap
 
-### 3. `src/components/CookieConsent.tsx` — reload on accept
-When the user clicks **Accept All**, GA needs to actually load. Easiest: after `setVisible(false)`, dispatch `window.dispatchEvent(new Event('cookie-consent-accepted'))`. Then in the `index.html` GA IIFE, also listen for that event to trigger `loadGA()` immediately (instead of waiting for the next page load). No reload needed.
+6. **SEO & metadata**
+   - Run `seo_chat--trigger_scan` for fresh findings (1 stale low finding already shows Azathioprine — likely fixed, will verify and mark)
+   - Validate JSON-LD with `scripts/validate-jsonld.mjs`
+   - Canonical/og:url self-reference check (`scripts/check-canonicals.mjs`)
+   - Sitemap parity vs. `App.tsx` routes (`scripts/audit-sitemap.mjs`)
+   - Title/description length per route
 
-### 4. `public/robots.txt` — already done
-The SemrushBot / AhrefsBot disallow added last week stays. No change.
+7. **Accessibility**
+   - Apply `skill/accessibility` checklist: alt text, icon-button labels, heading order, single `<main>`, `h-screen`→`h-dvh`, focus-visible, colour-contrast on the new `#EF4444` primary
+   - Run axe via Playwright on 8 key routes
 
-## Out of scope
-- Server-side IP/datacenter filtering (Lovable's tracker is platform-managed; we can only shape what the browser sends).
-- Replacing the Lovable tracker with a self-hosted Plausible/Umami — bigger architectural change, ask separately if you want it.
-- Auto-pulling the homepage badge number from GA4 — separate plan, offered earlier.
+8. **Missing features**
+   - Cross-reference the roadmap items deferred in earlier turns (newsletter confirmation email, Find-a-Specialist data source, Connect Groups moderation, podcasts/events/webinars, weather widget, header helpline badge) and list status
 
-## Expected outcome
-- Bot waves (like today's 1,027 hit spike) will be suppressed in the Lovable panel the same way GA4 already suppresses them.
-- Declined-consent users stop firing GA — matching what GA4 already records.
-- Lovable daily "visits" should land within 10–20% of GA4 daily "Sessions" going forward. Won't ever match exactly: GA4 dedupes users across sessions and applies Google's proprietary IVT list.
+9. **Integrations**
+   - Stripe donation flow (`create-donation-checkout` + `process-donation` edge fn)
+   - GA4 firing under consent gate, bot-filter integrity
+   - Supabase RLS via `security--run_security_scan`
+   - Resend / email queue (`process-email-queue` preflight failure)
+   - Shopify product feed
 
-Approve to implement, or tell me to also flip pre-consent hits to "blocked until accepted" (stricter, but you'll lose ~30% of legitimate first-visit data).
+10. **Browser compatibility**
+    - Playwright on Chromium + Firefox + WebKit for homepage, blog post, symptom checker, donate
+    - Check `clamp()`, `:has()`, `aspect-*`, `h-dvh` fallbacks
+
+**Tooling I'll run during audit:**
+`tsgo`, `rg`, `scripts/audit-sitemap.mjs`, `scripts/check-canonicals.mjs`, `scripts/check-social-meta.mjs`, `scripts/validate-jsonld.mjs`, Playwright (3 browsers, 2 viewports), `seo_chat--trigger_scan`, `security--run_security_scan`, `supabase--linter`, `supabase--edge_function_logs` for the two failing functions.
+
+**Deliverable:** `docs/SITE-AUDIT-2026.md` — a severity-ranked checklist with one row per issue. No code changes in Phase 1.
+
+---
+
+### Phase 2 — Remediation (gated on your approval)
+
+After you read the audit, I'll propose a fix batch grouped by severity:
+
+- **Batch A — Critical** (broken donation/email functions, runtime errors, accessibility blockers, exposed secrets) — fix immediately
+- **Batch B — High** (SEO regressions, mobile layout breaks, content rule violations) — single pass
+- **Batch C — Medium** (perf, code-quality refactors, missing alt text) — single pass
+- **Batch D — Low** (polish, deferred-feature stubs, nice-to-haves) — optional
+
+Each batch ships with verification: rerun the relevant audit check, screenshot diff for UI, type-check pass.
+
+---
+
+### What I need from you before starting
+
+1. **Approve Phase 1 scope** (or trim — e.g. skip Firefox/WebKit if Chromium-only is fine, skip Shopify if not in use right now).
+2. **Edge-function fixes** — the preflight reports show `process-donation` and `process-email-queue` already failing. Want me to treat those as in-scope Critical for Batch A, or are they known/intentional?
+3. **Browser matrix** — confirm Chromium + Firefox + WebKit, or narrower?
+
+Reply "approve audit" and I'll execute Phase 1 and come back with the report.
