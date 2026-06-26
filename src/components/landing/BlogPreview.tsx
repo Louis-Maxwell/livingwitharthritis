@@ -122,7 +122,7 @@ const BlogPreview = memo(() => {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {rest.map((a) => (
             <article key={a.slug} className="card-accent-top group bg-card rounded-2xl shadow-sm ring-1 ring-border overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all">
-              <Link to={`/blog/${a.slug}`} className="block aspect-[16/10] overflow-hidden" tabIndex={-1} aria-hidden="true">
+              <Link to={`/blog/${a.slug}`} className="block aspect-[16/10] overflow-hidden" tabIndex={-1} aria-label={a.title}>
                 <img src={pickImage(a)} srcSet={imgSrcSet(pickImage(a))} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
               </Link>
               <div className="p-5">
