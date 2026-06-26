@@ -46,7 +46,7 @@ export default function MusculoskeletalHealth() {
     <article className="max-w-4xl mx-auto py-12 px-4">
       <SeoHead
         title="Musculoskeletal Health: Back, Neck & Repetitive Strain | UK Guide"
-        description="UK guide to musculoskeletal health — acute vs chronic conditions, physiotherapy, workplace ergonomics and at-home strategies. Reviewed by an HCPC physio."
+        description="Musculoskeletal health guide: Back pain, neck pain, repetitive strain & prevention. Workplace ergonomics & rehabilitation strategies."
         path="/guides/musculoskeletal-health"
         type="article"
         keywords="musculoskeletal, msk health, back pain, neck pain, repetitive strain, workplace ergonomics, physiotherapy"

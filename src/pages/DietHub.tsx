@@ -110,12 +110,12 @@ const DietHub = () => {
     <>
       <Helmet>
         <title>Best Arthritis Diet UK | Anti-Inflammatory Foods</title>
-        <meta name="description" content="Free anti-inflammatory diet plans and Mediterranean recipes for arthritis. Evidence-based meal plans and nutrition tips to ease joint pain." />
+        <meta name="description" content="Foods to avoid with arthritis: Inflammatory foods, omega-6 oils, sugar & salt. Anti-inflammatory diet strategies from a nutritionist." />
         <meta name="keywords" content="arthritis diet, anti-inflammatory diet, Mediterranean diet arthritis, foods for joint pain, omega 3 arthritis, turmeric arthritis, natural remedies for arthritis, arthritis meal plan, foods to avoid arthritis, how to reduce joint inflammation, joint swelling causes, arthritis nutrition, anti-inflammatory foods, gout diet, rheumatoid arthritis diet, osteoarthritis diet" />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/diet" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/diet" />
         <meta property="og:title" content="Best Diet for Arthritis Pain UK – Complete Guide" />
-        <meta property="og:description" content="Anti-inflammatory diet, Mediterranean eating, foods to avoid and meal plans for arthritis." />
+        <meta property="og:description" content="Foods to avoid with arthritis: Inflammatory foods, omega-6 oils, sugar & salt. Anti-inflammatory diet strategies from a nutritionist." />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/diet" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
@@ -126,7 +126,7 @@ const DietHub = () => {
         <meta name="twitter:image" content="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=1200&q=80&fm=webp" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Diet for Arthritis Pain UK – Complete Guide" />
-        <meta name="twitter:description" content="Evidence-based arthritis diet guide: anti-inflammatory foods, Mediterranean diet and meal plans for joint pain relief." />
+        <meta name="twitter:description" content="Foods to avoid with arthritis: Inflammatory foods, omega-6 oils, sugar & salt. Anti-inflammatory diet strategies from a nutritionist." />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
@@ -407,12 +407,12 @@ const DietHub = () => {
             <h2 className="text-2xl font-bold text-foreground mb-2">Nutrition Quick Tips</h2>
             <p className="text-sm text-muted-foreground mb-8">Simple daily habits for joint-friendly eating.</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-              <EmojiCard emoji="🐟" title="Eat Oily Fish" description="Salmon or mackerel 2× per week" />
-              <EmojiCard emoji="🫒" title="Use Olive Oil" description="Replace butter with EVOO" />
-              <EmojiCard emoji="🫐" title="Berry Boost" description="A handful of berries daily" />
-              <EmojiCard emoji="🥦" title="Go Green" description="Half your plate = colourful veg" />
-              <EmojiCard emoji="🧡" title="Spice It Up" description="Add turmeric & ginger daily" />
-              <EmojiCard emoji="💧" title="Hydrate Well" description="8 glasses of water daily" />
+              <EmojiCard emoji="🐟" title="Eat Oily Fish" description="Foods to avoid with arthritis: Inflammatory foods, omega-6 oils, sugar & salt. Anti-inflammatory diet strategies from a nutritionist." />
+              <EmojiCard emoji="🫒" title="Use Olive Oil" description="Foods to avoid with arthritis: Inflammatory foods, omega-6 oils, sugar & salt. Anti-inflammatory diet strategies from a nutritionist." />
+              <EmojiCard emoji="🫐" title="Berry Boost" description="Foods to avoid with arthritis: Inflammatory foods, omega-6 oils, sugar & salt. Anti-inflammatory diet strategies from a nutritionist." />
+              <EmojiCard emoji="🥦" title="Go Green" description="Foods to avoid with arthritis: Inflammatory foods, omega-6 oils, sugar & salt. Anti-inflammatory diet strategies from a nutritionist." />
+              <EmojiCard emoji="🧡" title="Spice It Up" description="Foods to avoid with arthritis: Inflammatory foods, omega-6 oils, sugar & salt. Anti-inflammatory diet strategies from a nutritionist." />
+              <EmojiCard emoji="💧" title="Hydrate Well" description="Foods to avoid with arthritis: Inflammatory foods, omega-6 oils, sugar & salt. Anti-inflammatory diet strategies from a nutritionist." />
             </div>
           </div>
         </section>

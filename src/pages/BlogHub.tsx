@@ -207,7 +207,7 @@ const BlogHub = () => {
         <title>Arthritis Advice Hub | Living With Arthritis UK</title>
         <meta
           name="description"
-          content="UK arthritis guidance by topic — anti-inflammatory diet, joint-friendly exercises, flare-up management and treatments. Free and evidence-based."
+          content="Arthritis blog: Expert articles on pain relief, exercise, nutrition, mental health & living well. Evidence-based guidance for arthritis management."
         />
         <meta
           name="keywords"
@@ -217,7 +217,7 @@ const BlogHub = () => {
         <meta property="og:title" content="Arthritis Advice Hub: Diet, Exercises, Flare-Ups & Treatment" />
         <meta
           property="og:description"
-          content="Long-tail arthritis guidance grouped by topic — diet, exercises, flare-ups and treatment. Written for UK patients."
+          content="Arthritis blog: Expert articles on pain relief, exercise, nutrition, mental health & living well. Evidence-based guidance for arthritis management."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${SITE}/blog-hub`} />

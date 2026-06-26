@@ -85,7 +85,7 @@ const Sources = () => {
     <div className="min-h-screen bg-background">
       <SeoHead
         title="Clinical Sources & Evidence"
-        description="Clinical guidelines, peer-reviewed research and authoritative bodies used to inform Living With Arthritis UK content."
+        description="Clinical sources & evidence: NICE guidelines, Cochrane reviews, peer-reviewed research. Full bibliography of trusted sources."
         path={PATH}
       />
       <Header />

@@ -92,10 +92,10 @@ const KneeArthritis = () => (
   <>
     <Helmet>
       <title>Knee Arthritis: Symptoms & Exercises | Living With Arthritis</title>
-      <meta name="description" content="Knee arthritis guide for UK patients: symptoms, causes, the best evidence-based exercises, weight management, treatment options and when to consider knee replacement." />
+      <meta name="description" content="Knee arthritis symptoms, treatment & exercises: Pain relief strategies, exercises & when to see a specialist. Complete management guide." />
       <meta name="keywords" content="knee arthritis, knee osteoarthritis, knee OA, knee pain, arthritic knee, knee arthritis exercises, knee arthritis treatment, knee replacement, quadriceps exercises, NICE knee osteoarthritis" />
       <meta property="og:title" content="Knee Arthritis – Symptoms, Exercises & Treatment" />
-      <meta property="og:description" content="Evidence-based UK guide to knee arthritis: symptoms, exercises, weight loss, injections and when surgery is appropriate." />
+      <meta property="og:description" content="Knee arthritis symptoms, treatment & exercises: Pain relief strategies, exercises & when to see a specialist. Complete management guide." />
       <meta property="og:url" content={URL} />
       <meta property="og:type" content="article" />
       <meta property="og:locale" content="en_GB" />
@@ -106,7 +106,7 @@ const KneeArthritis = () => (
       <meta property="og:image:alt" content="Knee arthritis – symptoms, exercises and treatment guide" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Knee Arthritis – Symptoms, Exercises & Treatment" />
-      <meta name="twitter:description" content="UK guide to knee arthritis: symptoms, exercises, weight loss, injections and surgery." />
+      <meta name="twitter:description" content="Knee arthritis symptoms, treatment & exercises: Pain relief strategies, exercises & when to see a specialist. Complete management guide." />
       <meta name="twitter:image" content={`${BASE}/images/og-osteoarthritis.webp`} />
       <meta name="geo.region" content="GB" />
       <link rel="canonical" href={URL} />
@@ -241,10 +241,10 @@ const KneeArthritis = () => (
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
           <h3 className="font-display text-lg font-bold text-foreground mb-4">Daily knee-care checklist</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <EmojiCard emoji="🦵" title="Strength" description="Quad sets daily" />
-            <EmojiCard emoji="🚴" title="Cycle" description="20 min, low resistance" />
-            <EmojiCard emoji="⚖️" title="Weight" description="5% loss = big relief" />
-            <EmojiCard emoji="🧊" title="Ice" description="15 min after activity" />
+            <EmojiCard emoji="🦵" title="Strength" description="Knee arthritis symptoms, treatment & exercises: Pain relief strategies, exercises & when to see a specialist. Complete management guide." />
+            <EmojiCard emoji="🚴" title="Cycle" description="Knee arthritis symptoms, treatment & exercises: Pain relief strategies, exercises & when to see a specialist. Complete management guide." />
+            <EmojiCard emoji="⚖️" title="Weight" description="Knee arthritis symptoms, treatment & exercises: Pain relief strategies, exercises & when to see a specialist. Complete management guide." />
+            <EmojiCard emoji="🧊" title="Ice" description="Knee arthritis symptoms, treatment & exercises: Pain relief strategies, exercises & when to see a specialist. Complete management guide." />
           </div>
         </motion.div>
 

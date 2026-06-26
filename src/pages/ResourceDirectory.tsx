@@ -84,10 +84,10 @@ export default function ResourceDirectory() {
     <>
       <Helmet>
         <title>UK Arthritis Resource Directory | Living With Arthritis</title>
-        <meta name="description" content="A curated UK directory of arthritis help: NHS services, charities, benefits, equipment and research — all in one place, free to use." />
+        <meta name="description" content="Arthritis resources: Guides, webinars, e-books, recipes & support groups. Free tools to manage arthritis effectively." />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/resources-directory" />
       <meta property="og:title" content="UK Arthritis Resource Directory – Public Health, Charities, Benefits | Living With Arthritis" />
-      <meta property="og:description" content="Comprehensive directory of UK arthritis resources: health services, charities, benefits, equipment, and research. Curated by healthcare professionals for patients and carers." />
+      <meta property="og:description" content="Arthritis resources: Guides, webinars, e-books, recipes & support groups. Free tools to manage arthritis effectively." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/resources-directory" />
       <meta property="og:site_name" content="Living With Arthritis UK" />
@@ -97,7 +97,7 @@ export default function ResourceDirectory() {
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="UK Arthritis Resource Directory – Public Health, Charities, Benefits | Living With Arthritis" />
-      <meta name="twitter:description" content="Comprehensive directory of UK arthritis resources: health services, charities, benefits, equipment, and research. Curated by healthcare professionals for patients and carers." />
+      <meta name="twitter:description" content="Arthritis resources: Guides, webinars, e-books, recipes & support groups. Free tools to manage arthritis effectively." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
       <div className="min-h-screen bg-background">

@@ -92,10 +92,10 @@ const HandArthritis = () => (
   <>
     <Helmet>
       <title>Hand Arthritis: Symptoms & Exercises | Living With Arthritis</title>
-      <meta name="description" content="UK guide to hand and finger arthritis: thumb base (CMC) pain, Heberden's nodes, the best hand exercises, splints, topical treatments and when to consider surgery." />
+      <meta name="description" content="Hand arthritis: Symptoms, functional strategies & adaptive equipment. Maintain independence with expert physiotherapy & practical aids." />
       <meta name="keywords" content="hand arthritis, finger arthritis, thumb arthritis, thumb base arthritis, CMC arthritis, Heberden's nodes, Bouchard's nodes, hand osteoarthritis, hand exercises arthritis, hand splint" />
       <meta property="og:title" content="Hand Arthritis – Symptoms, Exercises & Treatment" />
-      <meta property="og:description" content="Evidence-based UK guide to hand and finger arthritis: exercises, splints, topical treatments and surgery options." />
+      <meta property="og:description" content="Hand arthritis: Symptoms, functional strategies & adaptive equipment. Maintain independence with expert physiotherapy & practical aids." />
       <meta property="og:url" content={URL} />
       <meta property="og:type" content="article" />
       <meta property="og:locale" content="en_GB" />
@@ -106,7 +106,7 @@ const HandArthritis = () => (
       <meta property="og:image:alt" content="Hand arthritis – symptoms, exercises and treatment guide" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Hand Arthritis – Symptoms, Exercises & Treatment" />
-      <meta name="twitter:description" content="UK guide to hand and finger arthritis: exercises, splints and treatment." />
+      <meta name="twitter:description" content="Hand arthritis: Symptoms, functional strategies & adaptive equipment. Maintain independence with expert physiotherapy & practical aids." />
       <meta name="twitter:image" content={`${BASE}/images/og-osteoarthritis.webp`} />
       <meta name="geo.region" content="GB" />
       <link rel="canonical" href={URL} />
@@ -242,10 +242,10 @@ const HandArthritis = () => (
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
           <h3 className="font-display text-lg font-bold text-foreground mb-4">Daily hand-care checklist</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <EmojiCard emoji="✋" title="Move" description="5 min mobility, twice daily" />
-            <EmojiCard emoji="🧤" title="Splint" description="During heavy tasks" />
-            <EmojiCard emoji="♨️" title="Heat" description="Warm soak in the morning" />
-            <EmojiCard emoji="🛠️" title="Adapt" description="Easy-grip kitchen tools" />
+            <EmojiCard emoji="✋" title="Move" description="Hand arthritis: Symptoms, functional strategies & adaptive equipment. Maintain independence with expert physiotherapy & practical aids." />
+            <EmojiCard emoji="🧤" title="Splint" description="Hand arthritis: Symptoms, functional strategies & adaptive equipment. Maintain independence with expert physiotherapy & practical aids." />
+            <EmojiCard emoji="♨️" title="Heat" description="Hand arthritis: Symptoms, functional strategies & adaptive equipment. Maintain independence with expert physiotherapy & practical aids." />
+            <EmojiCard emoji="🛠️" title="Adapt" description="Hand arthritis: Symptoms, functional strategies & adaptive equipment. Maintain independence with expert physiotherapy & practical aids." />
           </div>
         </motion.div>
 

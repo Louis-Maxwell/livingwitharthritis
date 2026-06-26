@@ -189,7 +189,7 @@ export default function KneeOsteoarthritisExercises() {
     <div className="min-h-screen bg-background">
       <SeoHead
         title="Knee Osteoarthritis Exercises — UK Guide"
-        description="Evidence-based, low-impact exercises for knee arthritis pain relief. Complete guide reviewed by an HCPC physiotherapist — start at home."
+        description="Knee osteoarthritis exercises: Low-impact routines to reduce pain & improve mobility. Tier 1 & 2 exercises with video guides included."
         path={PATH}
         type="article"
         keywords="knee osteoarthritis exercises, knee arthritis pain relief, knee OA exercises at home, exercises for knee pain, strengthening exercises knee"

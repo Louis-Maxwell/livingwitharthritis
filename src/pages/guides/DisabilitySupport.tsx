@@ -46,7 +46,7 @@ export default function DisabilitySupport() {
     <article className="max-w-4xl mx-auto py-12 px-4">
       <SeoHead
         title="Disability Support: Accessibility, Equipment & Independence | UK Guide"
-        description="UK guide to disability support — mobility, home accessibility, benefits navigation, legal services and assistive technology. Reviewed by an HCPC physio."
+        description="Disability support guide: Accessibility, equipment, legal services & benefits. Navigate disability support services in the UK."
         path="/guides/disability-support"
         type="article"
         keywords="disability support, accessibility, mobility equipment, disability benefits uk, assistive technology, home modifications"

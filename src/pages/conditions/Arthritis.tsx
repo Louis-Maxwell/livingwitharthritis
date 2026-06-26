@@ -46,7 +46,7 @@ export default function Arthritis() {
     <article className="max-w-4xl mx-auto py-12 px-4">
       <SeoHead
         title="Arthritis: Symptoms, Diagnosis & Treatment | UK Guide"
-        description="Patient-friendly UK guide to arthritis. Learn the symptoms, how it is diagnosed, treatment options and what patients commonly look for — reviewed by an HCPC physio."
+        description="Arthritis overview: 100+ types, symptoms, diagnosis & treatment options. UK evidence-based guide to living well with arthritis."
         path="/conditions/arthritis"
         type="article"
         keywords="arthritis, arthritis symptoms, arthritis treatment, arthritis uk, joint pain"
