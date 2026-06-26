@@ -45,7 +45,7 @@ export default function Arthritis() {
   return (
     <article className="max-w-4xl mx-auto py-12 px-4">
       <SeoHead
-        title="Arthritis: Symptoms, Diagnosis & Treatment Options | UK Guide"
+        title="Arthritis: Symptoms, Diagnosis & Treatment | UK Guide"
         description="Patient-friendly UK guide to arthritis. Learn the symptoms, how it is diagnosed, treatment options and what patients commonly look for — reviewed by an HCPC physio."
         path="/conditions/arthritis"
         type="article"

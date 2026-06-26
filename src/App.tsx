@@ -437,6 +437,7 @@ const App = () => {
               </Suspense>
             </DeferredMount>
             <BrowserRouter>
+              <SeoDefaults />
               <Suspense fallback={null}>
                 <AppWithSync />
               </Suspense>

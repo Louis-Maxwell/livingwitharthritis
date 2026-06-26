@@ -51,9 +51,9 @@ export default function SeoHead({
       ) : (
         <meta name="robots" content="index,follow,max-image-preview:large" />
       )}
-      <link rel="canonical" href={canonical} />
-      <link rel="alternate" hrefLang="en-GB" href={canonical} />
-      <link rel="alternate" hrefLang="x-default" href={canonical} />
+      {/* canonical + hreflang are emitted globally by <SeoDefaults /> to
+          guarantee a single self-referencing set per route (Helmet does
+          not dedupe <link> by rel). */}
       <meta name="geo.region" content="GB" />
       <meta name="theme-color" content="#e6002b" media="(prefers-color-scheme: light)" />
       <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
