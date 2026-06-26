@@ -54,6 +54,7 @@ const AITransparency = lazy(() => import("./pages/about/AITransparency"));
 const Sources = lazy(() => import("./pages/about/Sources"));
 const AICitations = lazy(() => import("./pages/about/AICitations"));
 const AIGuidelines = lazy(() => import("./pages/about/AIGuidelines"));
+const AiHub = lazy(() => import("./pages/AiHub"));
 const AccessibilityForAi = lazy(() => import("./pages/about/AccessibilityForAi"));
 const Osteoarthritis = lazy(() => import("./pages/conditions/Osteoarthritis"));
 const RheumatoidArthritis = lazy(() => import("./pages/conditions/RheumatoidArthritis"));
@@ -261,6 +262,7 @@ function AnimatedRoutes() {
         <Route path="/sources" element={<Sources />} />
         <Route path="/ai-citations" element={<AICitations />} />
         <Route path="/ai-guidelines" element={<AIGuidelines />} />
+        <Route path="/ai" element={<AiHub />} />
         <Route path="/accessibility-for-ai" element={<AccessibilityForAi />} />
         <Route path="/editorial-standards" element={<EditorialStandards />} />
         <Route path="/conditions/osteoarthritis" element={<Osteoarthritis />} />
