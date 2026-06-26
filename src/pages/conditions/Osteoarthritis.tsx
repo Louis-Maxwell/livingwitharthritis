@@ -94,10 +94,10 @@ const Osteoarthritis = () => (
   <>
     <Helmet>
       <title>Osteoarthritis: Symptoms & Treatment | Living With Arthritis</title>
-      <meta name="description" content="Everything you need to know about osteoarthritis: symptoms like joint pain and stiffness, causes, risk factors, best exercises, diet tips, and treatment options for UK patients." />
+      <meta name="description" content="Osteoarthritis treatment & management: Degenerative joint disease explained. Learn about medications, injections, surgery & lifestyle strategies." />
       <meta name="keywords" content="osteoarthritis, osteoarthritis symptoms, osteoarthritis treatment, osteoarthritis exercises, osteoarthritis diet, OA, degenerative joint disease, knee arthritis, hip arthritis, hand arthritis, joint pain relief, what causes arthritis, is arthritis curable, difference between osteoarthritis and rheumatoid arthritis, anti-inflammatory diet, arthritis medication, mobility aids for arthritis, musculoskeletal conditions" />
       <meta property="og:title" content="Osteoarthritis – Symptoms, Causes & Management" />
-      <meta property="og:description" content="Comprehensive guide to osteoarthritis including symptoms, causes, exercises, diet and self-management for UK patients." />
+      <meta property="og:description" content="Osteoarthritis treatment & management: Degenerative joint disease explained. Learn about medications, injections, surgery & lifestyle strategies." />
       <meta property="og:url" content={`${BASE}/conditions/osteoarthritis`} />
       <meta property="og:type" content="article" />
       <meta property="og:locale" content="en_GB" />
@@ -108,7 +108,7 @@ const Osteoarthritis = () => (
       <meta property="og:image:alt" content="Osteoarthritis – Symptoms, Causes & Management guide" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Osteoarthritis – Symptoms, Causes & Management" />
-      <meta name="twitter:description" content="Comprehensive guide to osteoarthritis for UK patients: symptoms, exercises, diet and treatment." />
+      <meta name="twitter:description" content="Osteoarthritis treatment & management: Degenerative joint disease explained. Learn about medications, injections, surgery & lifestyle strategies." />
       <meta name="twitter:image" content={`${BASE}/images/og-osteoarthritis.webp`} />
       <meta name="geo.region" content="GB" />
       <link rel="canonical" href={`${BASE}/conditions/osteoarthritis`} />
@@ -281,10 +281,10 @@ const Osteoarthritis = () => (
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
           <h3 className="font-display text-lg font-bold text-foreground mb-4">Daily Self-Care Checklist</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <EmojiCard emoji="🚶" title="Stay Active" description="30 min walking daily" />
-            <EmojiCard emoji="⚖️" title="Healthy Weight" description="Reduces knee pressure by 4× per lb" />
-            <EmojiCard emoji="🐟" title="Eat Well" description="Omega-3 rich Mediterranean diet" />
-            <EmojiCard emoji="😴" title="Sleep Well" description="7-9 hours for joint recovery" />
+            <EmojiCard emoji="🚶" title="Stay Active" description="Osteoarthritis treatment & management: Degenerative joint disease explained. Learn about medications, injections, surgery & lifestyle strategies." />
+            <EmojiCard emoji="⚖️" title="Healthy Weight" description="Osteoarthritis treatment & management: Degenerative joint disease explained. Learn about medications, injections, surgery & lifestyle strategies." />
+            <EmojiCard emoji="🐟" title="Eat Well" description="Osteoarthritis treatment & management: Degenerative joint disease explained. Learn about medications, injections, surgery & lifestyle strategies." />
+            <EmojiCard emoji="😴" title="Sleep Well" description="Osteoarthritis treatment & management: Degenerative joint disease explained. Learn about medications, injections, surgery & lifestyle strategies." />
           </div>
         </motion.div>
 

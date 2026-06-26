@@ -94,10 +94,10 @@ const RheumatoidArthritis = () => (
   <>
     <Helmet>
       <title>Rheumatoid Arthritis: Symptoms, Causes & Treatment (UK)</title>
-      <meta name="description" content="UK guide to rheumatoid arthritis (RA) — autoimmune joint inflammation, early symptoms, DMARDs, biologic treatment, exercise and diet. Written for patients." />
+      <meta name="description" content="Rheumatoid arthritis treatment: Inflammatory arthritis guide covering medications, flare management & achieving remission. Expert care plan." />
       <meta name="keywords" content="rheumatoid arthritis, what is rheumatoid arthritis, rheumatoid arthritis symptoms, rheumatoid arthritis treatment, RA, autoimmune arthritis, DMARDs, methotrexate, biologic therapy, rheumatoid arthritis UK, rheumatoid arthritis diet, anti-inflammatory diet, difference between osteoarthritis and rheumatoid arthritis, is rheumatoid arthritis curable, early signs of RA, rheumatoid arthritis hands, joint inflammation" />
       <meta property="og:title" content="Rheumatoid Arthritis – Symptoms, Causes & Treatment" />
-      <meta property="og:description" content="Complete UK guide to rheumatoid arthritis: symptoms, diagnosis, modern treatments and self-management." />
+      <meta property="og:description" content="Rheumatoid arthritis treatment: Inflammatory arthritis guide covering medications, flare management & achieving remission. Expert care plan." />
       <meta property="og:url" content={`${BASE}/conditions/rheumatoid-arthritis`} />
       <meta property="og:type" content="article" />
       <meta property="og:locale" content="en_GB" />
@@ -108,7 +108,7 @@ const RheumatoidArthritis = () => (
       <meta property="og:image:alt" content="Rheumatoid Arthritis – Symptoms, Causes & Treatment guide" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Rheumatoid Arthritis – Symptoms, Causes & Treatment" />
-      <meta name="twitter:description" content="Complete UK guide to rheumatoid arthritis: symptoms, diagnosis, modern treatments and self-management." />
+      <meta name="twitter:description" content="Rheumatoid arthritis treatment: Inflammatory arthritis guide covering medications, flare management & achieving remission. Expert care plan." />
       <meta name="twitter:image" content={`${BASE}/images/og-rheumatoid-arthritis.webp`} />
       <meta name="geo.region" content="GB" />
       <link rel="canonical" href={`${BASE}/conditions/rheumatoid-arthritis`} />

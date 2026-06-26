@@ -238,7 +238,7 @@ export default function NewlyDiagnosed() {
         <title>Newly Diagnosed With Arthritis: Step-by-Step UK Guide</title>
         <meta
           name="description"
-          content="Just diagnosed with arthritis? A clear UK guide covering your first steps, what to ask your clinician, treatment basics, and how to live well from day one."
+          content="Newly diagnosed with arthritis? Step-by-step guide covering diagnosis, appointments, treatment options & resources. Expert-reviewed checklist."
         />
         <link rel="canonical" href={`${BASE}/${SLUG}`} />
         <meta
@@ -247,7 +247,7 @@ export default function NewlyDiagnosed() {
         />
         <meta
           property="og:description"
-          content="A clear, practical UK guide for anyone newly diagnosed with arthritis — checklists, questions to ask, treatment basics and how to live well."
+          content="Newly diagnosed with arthritis? Step-by-step guide covering diagnosis, appointments, treatment options & resources. Expert-reviewed checklist."
         />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`${BASE}/${SLUG}`} />

@@ -43,7 +43,7 @@ export default function FallPreventionOlderAdults() {
     <article className="max-w-4xl mx-auto py-12 px-4">
       <SeoHead
         title="Fall Prevention for Older Adults with Arthritis | UK Guide"
-        description="Balance training, strength, home safety and post-fall recovery for older adults with arthritis — reviewed by HCPC physiotherapist."
+        description="Fall prevention for older adults: Balance training, home safety, strength exercises & medical assessment. Reduce injury risk significantly."
         path="/guides/fall-prevention-older-adults"
         type="article"
         keywords="fall prevention, falls older adults, balance training, otago exercise, arthritis falls, home safety older"

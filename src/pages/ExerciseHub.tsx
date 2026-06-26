@@ -165,12 +165,12 @@ const ExerciseHub = () => {
     <>
       <Helmet>
         <title>Arthritis Exercises UK | Knee, Hand & Shoulder Routines</title>
-        <meta name="description" content="Free arthritis exercises and physio routines for osteoarthritis, rheumatoid arthritis and joint pain. Guides and videos to improve mobility safely at home." />
+        <meta name="description" content="Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist." />
         <meta name="keywords" content="arthritis exercises, arthritis friendly exercises, exercises to avoid with arthritis, knee arthritis exercises, hip arthritis exercises, hand arthritis exercises, shoulder arthritis exercises, osteoarthritis exercises, rheumatoid arthritis exercises, low impact exercises arthritis, chair exercises arthritis, physiotherapy for arthritis, joint pain relief, mobility aids for arthritis, arthritis self-care" />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/exercises" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/exercises" />
         <meta property="og:title" content="Best Exercises for Arthritis UK – Complete Guide" />
-        <meta property="og:description" content="Evidence-based arthritis exercises for every joint. Physiotherapy routines, swimming, yoga and more." />
+        <meta property="og:description" content="Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist." />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/exercises" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
@@ -181,7 +181,7 @@ const ExerciseHub = () => {
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Exercises for Arthritis UK – Complete Guide" />
-        <meta name="twitter:description" content="clinically aligned arthritis exercises for knees, hands, shoulders and chair-based routines." />
+        <meta name="twitter:description" content="Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist." />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
@@ -471,12 +471,12 @@ const ExerciseHub = () => {
             <h2 className="text-2xl font-bold text-foreground mb-2">Quick Exercise Tips</h2>
             <p className="text-sm text-muted-foreground mb-8">Simple guidelines for safe, effective arthritis exercise.</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-              <EmojiCard emoji="🔥" title="Warm Up" description="5 min gentle movement before each session" />
-              <EmojiCard emoji="💧" title="Stay Hydrated" description="Drink water before, during and after" />
-              <EmojiCard emoji="⏱️" title="Pace Yourself" description="Start slow, increase gradually over weeks" />
-              <EmojiCard emoji="🧊" title="Ice After" description="Apply cold pack if joints feel warm post-exercise" />
-              <EmojiCard emoji="📅" title="Be Consistent" description="Daily short sessions beat weekly long ones" />
-              <EmojiCard emoji="🛑" title="Listen to Pain" description="Sharp pain = stop. Mild ache = OK to continue" />
+              <EmojiCard emoji="🔥" title="Warm Up" description="Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist." />
+              <EmojiCard emoji="💧" title="Stay Hydrated" description="Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist." />
+              <EmojiCard emoji="⏱️" title="Pace Yourself" description="Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist." />
+              <EmojiCard emoji="🧊" title="Ice After" description="Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist." />
+              <EmojiCard emoji="📅" title="Be Consistent" description="Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist." />
+              <EmojiCard emoji="🛑" title="Listen to Pain" description="Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist." />
             </div>
           </div>
         </section>

@@ -12,10 +12,10 @@ const PrivacyPolicy = () => (
   <>
     <Helmet>
       <title>Privacy Policy | Living With Arthritis UK</title>
-      <meta name="description" content="How Living With Arthritis UK collects, uses and protects your personal data under UK GDPR and the Data Protection Act 2018." />
+      <meta name="description" content="Privacy policy & data protection: How we protect your data. GDPR compliant, no third-party selling. Your privacy matters to us." />
       <link rel="canonical" href="https://livingwitharthritis.org.uk/privacy" />
       <meta property="og:title" content="Privacy Policy | Living With Arthritis UK" />
-      <meta property="og:description" content="How Living With Arthritis UK protects your personal data under UK GDPR. Your privacy matters to us." />
+      <meta property="og:description" content="Privacy policy & data protection: How we protect your data. GDPR compliant, no third-party selling. Your privacy matters to us." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/privacy" />
       <meta property="og:locale" content="en_GB" />
@@ -31,7 +31,7 @@ const PrivacyPolicy = () => (
       })}</script>
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Privacy Policy – UK GDPR Data Protection | Living With Arthritis UK" />
-      <meta name="twitter:description" content="Privacy Policy for Living With Arthritis UK. Learn how we collect, use, store and protect your personal data in full compliance with UK GDPR and the Data Protection Act 2018." />
+      <meta name="twitter:description" content="Privacy policy & data protection: How we protect your data. GDPR compliant, no third-party selling. Your privacy matters to us." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />

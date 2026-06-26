@@ -88,12 +88,12 @@ const CommunityHub = () => {
     <>
       <Helmet>
         <title>Arthritis Community & Support UK | Living With Arthritis</title>
-        <meta name="description" content="Join our arthritis community: patient stories, peer support, live webinars, and a step-by-step guide for the newly diagnosed. You're not alone." />
+        <meta name="description" content="Community support for arthritis: Connect groups, webinars, stories & peer support. Join others managing arthritis in the UK." />
         <meta name="keywords" content="arthritis support groups near me, arthritis community, peer support arthritis, arthritis webinars, newly diagnosed arthritis, arthritis stories, arthritis helpline, arthritis advocacy, living with arthritis, arthritis and mental health, how to support someone with chronic pain, arthritis events, volunteer for charity" />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/community" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/community" />
         <meta property="og:title" content="Arthritis Community & Support UK" />
-        <meta property="og:description" content="Join our arthritis community: patient stories, peer support, live webinars and guided resources." />
+        <meta property="og:description" content="Community support for arthritis: Connect groups, webinars, stories & peer support. Join others managing arthritis in the UK." />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/community" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
@@ -104,7 +104,7 @@ const CommunityHub = () => {
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Arthritis Community & Support UK" />
-        <meta name="twitter:description" content="Join our arthritis community: patient stories, peer support and guided resources for the newly diagnosed." />
+        <meta name="twitter:description" content="Community support for arthritis: Connect groups, webinars, stories & peer support. Join others managing arthritis in the UK." />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
@@ -224,12 +224,12 @@ const CommunityHub = () => {
             <h2 className="text-2xl font-bold text-foreground mb-2">Quick Support Resources</h2>
             <p className="text-sm text-muted-foreground mb-8">Instant access to key areas of support.</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-              <EmojiCard emoji="🏋️" title="Exercise Hub" description="Joint-specific routines and programmes" />
-              <EmojiCard emoji="🥗" title="Diet Hub" description="Anti-inflammatory eating guides" />
-              <EmojiCard emoji="💬" title="Help Chat" description="24/7 personalised health guidance" />
-              <EmojiCard emoji="📖" title="Blog Articles" description="In-depth condition & lifestyle guides" />
-              <EmojiCard emoji="📋" title="Self-Help Tool" description="Interactive joint pain diagram" />
-              <EmojiCard emoji="💊" title="Supplements" description="Evidence review of common supplements" />
+              <EmojiCard emoji="🏋️" title="Exercise Hub" description="Community support for arthritis: Connect groups, webinars, stories & peer support. Join others managing arthritis in the UK." />
+              <EmojiCard emoji="🥗" title="Diet Hub" description="Community support for arthritis: Connect groups, webinars, stories & peer support. Join others managing arthritis in the UK." />
+              <EmojiCard emoji="💬" title="Help Chat" description="Community support for arthritis: Connect groups, webinars, stories & peer support. Join others managing arthritis in the UK." />
+              <EmojiCard emoji="📖" title="Blog Articles" description="Community support for arthritis: Connect groups, webinars, stories & peer support. Join others managing arthritis in the UK." />
+              <EmojiCard emoji="📋" title="Self-Help Tool" description="Community support for arthritis: Connect groups, webinars, stories & peer support. Join others managing arthritis in the UK." />
+              <EmojiCard emoji="💊" title="Supplements" description="Community support for arthritis: Connect groups, webinars, stories & peer support. Join others managing arthritis in the UK." />
             </div>
           </div>
         </section>

@@ -97,10 +97,10 @@ const AboutUs = () => {
     <>
       <Helmet>
         <title>About Our Mission | Living With Arthritis UK</title>
-        <meta name="description" content="Trusted by 10,000+ monthly visitors. The mission behind Living With Arthritis UK — free, evidence-based arthritis support across the UK." />
+        <meta name="description" content="About Living With Arthritis UK: Free, evidence-based arthritis education charity. Maxwell's mission to support independent living." />
         <meta name="keywords" content="arthritis charity, arthritis foundation, arthritis organisation, arthritis support, joint pain charity, arthritis awareness, arthritis advocacy, arthritis research, arthritis helpline, arthritis UK charity, living with arthritis, musculoskeletal conditions, volunteer for charity, donate to arthritis charity" />
         <meta property="og:title" content="About Us — Living With Arthritis UK" />
-        <meta property="og:description" content="Founded by First Contact Practitioners — free virtual physiotherapy, nutrition guidance and community arthritis support UK-wide." />
+        <meta property="og:description" content="About Living With Arthritis UK: Free, evidence-based arthritis education charity. Maxwell's mission to support independent living." />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/about" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
@@ -111,7 +111,7 @@ const AboutUs = () => {
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="About Us — Living With Arthritis UK" />
-        <meta name="twitter:description" content="UK charity supporting people living with arthritis through free physio, nutrition and community." />
+        <meta name="twitter:description" content="About Living With Arthritis UK: Free, evidence-based arthritis education charity. Maxwell's mission to support independent living." />
         <meta name="geo.region" content="GB" />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/about" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/about" />

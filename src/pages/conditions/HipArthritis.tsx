@@ -93,10 +93,10 @@ const HipArthritis = () => (
   <>
     <Helmet>
       <title>Hip Arthritis: Symptoms, Exercises & Pain Relief | Living With Arthritis</title>
-      <meta name="description" content="UK guide to hip arthritis: symptoms, evidence-based exercises, how to relieve hip pain while sleeping, weight management, treatment options and when to consider hip replacement." />
+      <meta name="description" content="Hip arthritis treatment: Exercise, mobility aids, injections & surgery options. Manage pain & maintain independence with evidence-based strategies." />
       <meta name="keywords" content="hip arthritis, hip osteoarthritis, hip OA, hip pain, how to relieve hip pain while sleeping, hip arthritis exercises, hip arthritis treatment, hip replacement, glute exercises hip" />
       <meta property="og:title" content="Hip Arthritis – Symptoms, Exercises & Pain Relief" />
-      <meta property="og:description" content="Evidence-based UK guide to hip arthritis: symptoms, exercises, sleep positions, weight loss and when surgery is appropriate." />
+      <meta property="og:description" content="Hip arthritis treatment: Exercise, mobility aids, injections & surgery options. Manage pain & maintain independence with evidence-based strategies." />
       <meta property="og:url" content={URL} />
       <meta property="og:type" content="article" />
       <meta property="og:locale" content="en_GB" />
@@ -107,7 +107,7 @@ const HipArthritis = () => (
       <meta property="og:image:alt" content="Hip arthritis – symptoms, exercises and treatment guide" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Hip Arthritis – Symptoms, Exercises & Pain Relief" />
-      <meta name="twitter:description" content="UK guide to hip arthritis: symptoms, exercises, sleep positions, weight loss and surgery." />
+      <meta name="twitter:description" content="Hip arthritis treatment: Exercise, mobility aids, injections & surgery options. Manage pain & maintain independence with evidence-based strategies." />
       <meta name="twitter:image" content={`${BASE}/images/og-osteoarthritis.webp`} />
       <meta name="geo.region" content="GB" />
       <link rel="canonical" href={URL} />
@@ -256,10 +256,10 @@ const HipArthritis = () => (
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
           <h3 className="font-display text-lg font-bold text-foreground mb-4">Daily hip-care checklist</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <EmojiCard emoji="🍑" title="Glutes" description="Bridges daily" />
-            <EmojiCard emoji="🚴" title="Cycle" description="20 min, raised saddle" />
-            <EmojiCard emoji="⚖️" title="Weight" description="5% loss = big relief" />
-            <EmojiCard emoji="🛏️" title="Sleep" description="Pillow between knees" />
+            <EmojiCard emoji="🍑" title="Glutes" description="Hip arthritis treatment: Exercise, mobility aids, injections & surgery options. Manage pain & maintain independence with evidence-based strategies." />
+            <EmojiCard emoji="🚴" title="Cycle" description="Hip arthritis treatment: Exercise, mobility aids, injections & surgery options. Manage pain & maintain independence with evidence-based strategies." />
+            <EmojiCard emoji="⚖️" title="Weight" description="Hip arthritis treatment: Exercise, mobility aids, injections & surgery options. Manage pain & maintain independence with evidence-based strategies." />
+            <EmojiCard emoji="🛏️" title="Sleep" description="Hip arthritis treatment: Exercise, mobility aids, injections & surgery options. Manage pain & maintain independence with evidence-based strategies." />
           </div>
         </motion.div>
 

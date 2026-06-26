@@ -115,11 +115,11 @@ export default function Donate() {
     <>
       <Helmet>
         <title>Donate to Living With Arthritis UK</title>
-        <meta name="description" content="Donate to Living With Arthritis UK and fund free virtual physiotherapy, anti-inflammatory diet plans and online support for over 10,000 people with arthritis." />
+        <meta name="description" content="Support Living With Arthritis UK: Donate to fund free arthritis education, research & community support. Help others manage arthritis better." />
         <meta name="keywords" content="donate to arthritis charity, arthritis charity, arthritis foundation, arthritis research, arthritis helpline, fundraising ideas for health charity, arthritis events, arthritis advocacy, financial help for arthritis patients, joint pain charity, arthritis support, arthritis awareness, volunteer for charity" />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/donate" />
       <meta property="og:title" content="Donate to Arthritis Support UK: Fund Free Physio, Diet & Help" />
-      <meta property="og:description" content="Donate to Living With Arthritis UK and fund free virtual physiotherapy, anti-inflammatory diet plans and online support for over 10,000 people with arthritis." />
+      <meta property="og:description" content="Support Living With Arthritis UK: Donate to fund free arthritis education, research & community support. Help others manage arthritis better." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/donate" />
       <meta property="og:site_name" content="Living With Arthritis UK" />
@@ -129,7 +129,7 @@ export default function Donate() {
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Donate to Arthritis Support UK: Fund Free Physio, Diet & Help" />
-      <meta name="twitter:description" content="Donate to Living With Arthritis UK and fund free virtual physiotherapy, anti-inflammatory diet plans and online support for over 10,000 people with arthritis." />
+      <meta name="twitter:description" content="Support Living With Arthritis UK: Donate to fund free arthritis education, research & community support. Help others manage arthritis better." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
       <Header />

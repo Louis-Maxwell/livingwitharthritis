@@ -82,10 +82,10 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
     <>
       <Helmet>
         <title>Arthritis Blog UK | Diet, Exercise & Pain Management Guides</title>
-        <meta name="description" content="Expert UK arthritis articles on anti-inflammatory diet, exercise, supplements and osteoarthritis. Free guidance for living well with joint pain." />
+        <meta name="description" content="Arthritis blog index: Browse all articles on pain, exercise, diet, mental health & lifestyle. Evidence-based, clinically reviewed content." />
         <meta name="keywords" content="arthritis blog UK, joint pain advice, arthritis, anti-inflammatory diet UK, osteoarthritis exercises, arthritis help UK, joint pain diet, rheumatoid arthritis UK, swimming arthritis, yoga arthritis, turmeric arthritis, arthritis flare up" />
         <meta property="og:title" content="Arthritis Blog UK – Joint Pain, Diet & Exercise Advice" />
-        <meta property="og:description" content="Expert UK arthritis articles on diet, exercise, supplements and osteoarthritis. Free guidance for living well with joint pain." />
+        <meta property="og:description" content="Arthritis blog index: Browse all articles on pain, exercise, diet, mental health & lifestyle. Evidence-based, clinically reviewed content." />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/blog" />
@@ -96,7 +96,7 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Arthritis Blog UK – Joint Pain, Diet & Exercise Advice" />
-        <meta name="twitter:description" content="Expert UK arthritis articles on diet, exercise, supplements and osteoarthritis. Free guidance for living well with joint pain." />
+        <meta name="twitter:description" content="Arthritis blog index: Browse all articles on pain, exercise, diet, mental health & lifestyle. Evidence-based, clinically reviewed content." />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/blog" />

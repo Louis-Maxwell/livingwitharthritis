@@ -138,15 +138,15 @@ export default function SymptomChecker() {
     <>
       <Helmet>
         <title>Symptom Checker — Living With Arthritis UK</title>
-        <meta name="description" content="Answer five quick questions and get matched to the arthritis conditions most likely to fit your symptoms — with links to UK guides." />
+        <meta name="description" content="Arthritis symptom checker: Identify joint pain, stiffness, swelling causes. Get condition guidance & appointment preparation tips." />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/symptom-checker" />
         <meta property="og:title" content="Symptom Checker — Living With Arthritis UK" />
-        <meta property="og:description" content="Answer five quick questions and get matched to the arthritis conditions most likely to fit your symptoms — with links to UK guides." />
+        <meta property="og:description" content="Arthritis symptom checker: Identify joint pain, stiffness, swelling causes. Get condition guidance & appointment preparation tips." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/symptom-checker" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Symptom Checker — Living With Arthritis UK" />
-        <meta name="twitter:description" content="Match your symptoms to likely arthritis conditions in five quick questions." />
+        <meta name="twitter:description" content="Arthritis symptom checker: Identify joint pain, stiffness, swelling causes. Get condition guidance & appointment preparation tips." />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",

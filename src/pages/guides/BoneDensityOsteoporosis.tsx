@@ -43,7 +43,7 @@ export default function BoneDensityOsteoporosis() {
     <article className="max-w-4xl mx-auto py-12 px-4">
       <SeoHead
         title="Bone Density & Osteoarthritis: Manage Both | UK Guide"
-        description="How to protect bones while managing osteoarthritis. Calcium, vitamin D, weight-bearing exercise and screening guidance — HCPC reviewed."
+        description="Bone density & osteoarthritis: Manage both conditions together. Calcium, vitamin D, exercise & screening guidance from HCPC."
         path="/guides/bone-density-osteoporosis"
         type="article"
         keywords="osteoporosis osteoarthritis, bone density arthritis, calcium vitamin d, dexa scan, weight bearing exercise"

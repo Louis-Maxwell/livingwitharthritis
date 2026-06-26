@@ -45,7 +45,7 @@ export default function LivingWithArthritis() {
     <article className="max-w-4xl mx-auto py-12 px-4">
       <SeoHead
         title="Living With Arthritis: Complete UK Guide"
-        description="Evidence-based guide to living with arthritis in the UK. Symptoms, management, exercises, diet, mental health and work support — reviewed by HCPC physiotherapist."
+        description="Living with arthritis UK: Complete guide to managing pain, independence, work, relationships & daily routines. Evidence-based strategies."
         path="/living-with-arthritis"
         type="article"
         keywords="living with arthritis, arthritis management, arthritis guide UK"

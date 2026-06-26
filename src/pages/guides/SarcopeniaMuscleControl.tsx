@@ -55,7 +55,7 @@ export default function SarcopeniaMuscleControl() {
     <article className="max-w-4xl mx-auto py-12 px-4">
       <SeoHead
         title="Sarcopenia & Arthritis: Prevent Muscle Loss | UK Guide"
-        description="How to prevent and reverse muscle loss with arthritis. Protein targets, strength training, supplements — reviewed by HCPC physiotherapist."
+        description="Sarcopenia guide: Prevent muscle loss with protein, strength training & nutrition. Combat muscle wasting caused by arthritis & ageing."
         path="/guides/sarcopenia-muscle-loss"
         type="article"
         keywords="sarcopenia, muscle loss, arthritis muscle weakness, protein older adults, strength training over 60"

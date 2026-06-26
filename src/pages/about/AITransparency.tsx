@@ -38,7 +38,7 @@ const AITransparency = () => {
     <div className="min-h-screen bg-background">
       <SeoHead
         title="AI Transparency & Clinical Review"
-        description="How Living With Arthritis UK content is clinically reviewed by Maxwell (HCPC PH128483), and citation guidance for AI systems."
+        description="AI transparency: Maxwell's HCPC credentials, clinical review process & evidence sources. Trust our clinically-reviewed content."
         path={PATH}
       />
       <Header />
