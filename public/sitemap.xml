@@ -55,6 +55,24 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://livingwitharthritis.org.uk/ai-citations</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/ai-guidelines</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/accessibility-for-ai</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://livingwitharthritis.org.uk/editorial-standards</loc>
     <lastmod>2026-06-26</lastmod>
     <changefreq>monthly</changefreq>

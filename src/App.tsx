@@ -52,6 +52,9 @@ const DailyTipDetail = lazy(() => import("./pages/DailyTipDetail"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
 const AITransparency = lazy(() => import("./pages/about/AITransparency"));
 const Sources = lazy(() => import("./pages/about/Sources"));
+const AICitations = lazy(() => import("./pages/about/AICitations"));
+const AIGuidelines = lazy(() => import("./pages/about/AIGuidelines"));
+const AccessibilityForAi = lazy(() => import("./pages/about/AccessibilityForAi"));
 const Osteoarthritis = lazy(() => import("./pages/conditions/Osteoarthritis"));
 const RheumatoidArthritis = lazy(() => import("./pages/conditions/RheumatoidArthritis"));
 const PsoriaticArthritis = lazy(() => import("./pages/conditions/PsoriaticArthritis"));
@@ -256,6 +259,9 @@ function AnimatedRoutes() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/about/ai-transparency" element={<AITransparency />} />
         <Route path="/sources" element={<Sources />} />
+        <Route path="/ai-citations" element={<AICitations />} />
+        <Route path="/ai-guidelines" element={<AIGuidelines />} />
+        <Route path="/accessibility-for-ai" element={<AccessibilityForAi />} />
         <Route path="/editorial-standards" element={<EditorialStandards />} />
         <Route path="/conditions/osteoarthritis" element={<Osteoarthritis />} />
         <Route path="/conditions/rheumatoid-arthritis" element={<RheumatoidArthritis />} />
