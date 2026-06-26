@@ -123,7 +123,7 @@ const RegionHub = () => {
   return (
     <>
       <Helmet>
-        <title>{`Arthritis Support in ${r.name} — Rheumatology & Local Help | Living With Arthritis`}</title>
+        <title>{`${r.name} Arthritis Support | Living With Arthritis`}</title>
         <meta name="description" content={`${r.intro.slice(0, 155)}`} />
         <meta name="keywords" content={r.keywords} />
         <link rel="canonical" href={`${BASE}/regions/${r.slug}`} />

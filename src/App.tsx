@@ -13,6 +13,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "next-themes";
 import { DeferredMount } from "@/components/DeferredMount";
 import CanonicalEnforcer from "@/components/CanonicalEnforcer";
+import SeoDefaults from "@/components/SeoDefaults";
 import RootOrganizationSchema from "@/components/seo/RootOrganizationSchema";
 
 // Home is eager — it's the top entry point (~36% of pageviews) so
@@ -437,6 +438,7 @@ const App = () => {
               </Suspense>
             </DeferredMount>
             <BrowserRouter>
+              <SeoDefaults />
               <Suspense fallback={null}>
                 <AppWithSync />
               </Suspense>

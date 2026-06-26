@@ -157,9 +157,10 @@
     <meta name="content-language" content="en-GB" />
     <meta http-equiv="content-language" content="en-GB" />
 
-    <link rel="alternate" hreflang="en-GB" href="https://livingwitharthritis.org.uk/" />
-    <link rel="alternate" hreflang="en" href="https://livingwitharthritis.org.uk/" />
-    <link rel="alternate" hreflang="x-default" href="https://livingwitharthritis.org.uk/" />
+    <!-- Per-route hreflang (en-GB + x-default) is emitted by <SeoDefaults />
+         (react-helmet-async). Static homepage-pointing alternates were
+         removed to avoid hreflang conflicts on non-home routes. -->
+
 
 
 
