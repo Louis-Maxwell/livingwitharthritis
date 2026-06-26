@@ -55,7 +55,7 @@ const StickyDonateBar = memo(() => {
     <>
       {/* Mobile — bottom bar */}
       <div
-        aria-hidden={!visible}
+        {...(!visible ? { inert: "" as unknown as undefined } : {})}
         className={`fixed inset-x-0 bottom-0 z-50 lg:hidden transition-transform duration-300 ${
           visible ? "translate-y-0" : "translate-y-full pointer-events-none"
         }`}
@@ -95,7 +95,7 @@ const StickyDonateBar = memo(() => {
 
       {/* Desktop — bottom-right card */}
       <div
-        aria-hidden={!visible}
+        {...(!visible ? { inert: "" as unknown as undefined } : {})}
         className={`hidden lg:flex flex-col items-end gap-2 fixed bottom-6 right-6 z-50 transition-all duration-300 ${
           visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
         }`}
