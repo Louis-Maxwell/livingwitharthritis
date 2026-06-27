@@ -32,6 +32,7 @@ const RelatedArticles = memo(
     currentKeywords,
     clusters,
     heading = "You might also like",
+    preferUnvisited = false,
   }: RelatedArticlesProps) => {
     const { data: related = [] } = useRelatedArticles(currentSlug, {
       seedClusters: clusters,
@@ -41,13 +42,25 @@ const RelatedArticles = memo(
       seedKeywords: currentKeywords,
     });
 
+    // Bias toward unvisited slugs without removing visited ones entirely.
+    const orderedRelated = useMemo(() => {
+      if (!preferUnvisited) return related;
+      const { unvisited, visited } = partitionByVisited(related, currentSlug);
+      return [...unvisited, ...visited];
+    }, [related, preferUnvisited, currentSlug]);
+
+    const unvisitedSet = useMemo(() => {
+      if (!preferUnvisited) return new Set<string>();
+      return new Set(partitionByVisited(related, currentSlug).unvisited.map((r) => r.slug));
+    }, [related, preferUnvisited, currentSlug]);
+
     // Determine the best supporting guide based on the highest-signal cluster.
     const seedClusterIds =
       clusters && clusters.length > 0
         ? clusters
         : (() => {
             const counts = new Map<string, number>();
-            for (const r of related) {
+            for (const r of orderedRelated) {
               const c = primaryClusterFor(r);
               if (c) counts.set(c.id, (counts.get(c.id) ?? 0) + 1);
             }
@@ -60,19 +73,29 @@ const RelatedArticles = memo(
       (seedClusterIds.map((id) => getClusterById(id)).find(Boolean) ??
         CONTENT_CLUSTERS[0])?.bestGuide;
 
-    if (related.length === 0) return null;
+    if (orderedRelated.length === 0) return null;
 
     return (
       <aside className="mt-16 pt-12 border-t border-border/50" aria-label="Related articles">
         <h2 className="font-display text-2xl font-bold text-foreground mb-6">{heading}</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {related.map((post) => {
+          {orderedRelated.map((post) => {
             const cluster = primaryClusterFor(post);
-            const eyebrow = cluster?.label ?? post.category;
+            const isUnvisited = unvisitedSet.has(post.slug);
+            const eyebrow = preferUnvisited && isUnvisited
+              ? "New to you"
+              : (cluster?.label ?? post.category);
             return (
               <Link
                 key={post.slug}
                 to={`/blog/${post.slug}`}
+                onClick={() =>
+                  trackEvent("related_click", {
+                    target_slug: post.slug,
+                    source_slug: currentSlug,
+                    unvisited: isUnvisited,
+                  })
+                }
                 className="group rounded-xl border border-border/60 bg-card p-5 hover:shadow-medium hover:border-primary/20 transition-all duration-300"
               >
                 <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-primary mb-2 block">
