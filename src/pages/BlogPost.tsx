@@ -407,7 +407,9 @@ const BlogPost = () => {
                 currentTitle={article.title}
                 currentExcerpt={article.excerpt}
                 currentKeywords={article.keywords ?? undefined}
+                preferUnvisited
               />
+
             )}
             {slug && <BlogComments slug={slug} />}
           </footer>
