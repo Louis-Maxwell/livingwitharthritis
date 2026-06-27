@@ -370,8 +370,22 @@ const BlogPost = () => {
               prose-img:rounded-xl prose-img:shadow-sm prose-img:my-8
               prose-ul:my-6 prose-ol:my-6
               first:prose-p:first-letter:text-5xl first:prose-p:first-letter:font-bold first:prose-p:first-letter:text-primary first:prose-p:first-letter:float-left first:prose-p:first-letter:mr-3 first:prose-p:first-letter:mt-1 first:prose-p:first-letter:leading-none"
-            dangerouslySetInnerHTML={{ __html: addHeadingIds(htmlContent) }}
-          />
+          >
+            <div dangerouslySetInnerHTML={{ __html: htmlBeforeStrip }} />
+            {slug && htmlAfterStrip && (
+              <InlineRelatedStrip
+                currentSlug={slug}
+                currentCategory={article.category}
+                currentTitle={article.title}
+                currentExcerpt={article.excerpt}
+                currentKeywords={article.keywords ?? undefined}
+              />
+            )}
+            {htmlAfterStrip && (
+              <div dangerouslySetInnerHTML={{ __html: htmlAfterStrip }} />
+            )}
+          </section>
+
 
           <ArticleCitations />
 
