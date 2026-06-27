@@ -106,7 +106,35 @@ const EngagementTracker = () => {
           ms: Math.round(s.activeMs),
         });
       }
+
+      if (!s.engaged60Fired && s.activeMs >= 60_000) {
+        s.engaged60Fired = true;
+        trackEvent("engagement_60s", {
+          page_path: path,
+          is_landing_page: landing,
+          ms: Math.round(s.activeMs),
+        });
+      }
+
+      if (!s.engaged180Fired && s.activeMs >= 180_000) {
+        s.engaged180Fired = true;
+        trackEvent("engagement_180s", {
+          page_path: path,
+          is_landing_page: landing,
+          ms: Math.round(s.activeMs),
+        });
+      }
+
+      if (!s.engaged240Fired && s.activeMs >= 240_000) {
+        s.engaged240Fired = true;
+        trackEvent("engagement_240s", {
+          page_path: path,
+          is_landing_page: landing,
+          ms: Math.round(s.activeMs),
+        });
+      }
     };
+
 
 
     const interval = window.setInterval(tick, TICK_MS);
