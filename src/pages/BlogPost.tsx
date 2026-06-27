@@ -27,6 +27,9 @@ import ArticleCitations, { DEFAULT_CITATIONS } from "@/components/blog/ArticleCi
 import NextReadStrip from "@/components/NextReadStrip";
 import KeyTakeaways from "@/components/article/KeyTakeaways";
 import FeedbackPoll from "@/components/article/FeedbackPoll";
+import InlineRelatedStrip from "@/components/article/InlineRelatedStrip";
+import { markVisited } from "@/lib/visitedArticles";
+
 
 
 function markdownToHtml(md: string): string {
