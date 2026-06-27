@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, ShoppingBag, HandHeart, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Sparkles, Globe, Search } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import ThemeToggle from "@/components/ThemeToggle";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const _CartDrawer = lazy(() => import("@/components/CartDrawer"));
 const ResourceLibraryDrawer = lazy(() => import("@/components/ResourceLibraryDrawer"));
@@ -277,11 +278,13 @@ const Header = () => {
             {/* Desktop: search + theme on right of logo */}
             <div className="hidden lg:flex items-center gap-2 flex-1 justify-end">
               <Suspense fallback={null}><SiteSearch /></Suspense>
+              <LanguageSwitcher />
               <ThemeToggle />
             </div>
 
             {/* Mobile: search icon + hamburger */}
             <div className="flex items-center gap-1.5 lg:hidden">
+              <LanguageSwitcher />
               <ThemeToggle />
               <Button
                 variant="ghost"

@@ -162,4 +162,9 @@ Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
 
+Sitemap: https://livingwitharthritis.org.uk/sitemap-index.xml
 Sitemap: https://livingwitharthritis.org.uk/sitemap.xml
+Sitemap: https://livingwitharthritis.org.uk/sitemap-es.xml
+Sitemap: https://livingwitharthritis.org.uk/sitemap-fr.xml
+Sitemap: https://livingwitharthritis.org.uk/sitemap-de.xml
+Sitemap: https://livingwitharthritis.org.uk/sitemap-pt.xml
