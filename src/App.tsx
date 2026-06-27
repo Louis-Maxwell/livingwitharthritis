@@ -19,6 +19,8 @@ import RootOrganizationSchema from "@/components/seo/RootOrganizationSchema";
 // Home is eager — it's the top entry point (~36% of pageviews) so
 // shipping it in the main bundle removes a Suspense round-trip on first paint.
 import Index from "./pages/Index";
+const LocalizedHome = lazy(() => import("./pages/LocalizedHome"));
+const LocalizedOsteoarthritis = lazy(() => import("./pages/LocalizedOsteoarthritis"));
 
 const ChatBotWidget = lazy(() => import("./components/ChatBotWidget"));
 const CookieConsent = lazy(() => import("./components/CookieConsent"));
@@ -238,6 +240,17 @@ function AnimatedRoutes() {
     <PageTransition key={location.pathname}>
       <Routes location={location}>
         <Route path="/" element={<Index />} />
+        {/* Localized landing pages (ES/FR/DE/PT). Foundation set —
+            other localized routes fall through to English until
+            translated equivalents exist. */}
+        <Route path="/es" element={<LocalizedHome />} />
+        <Route path="/fr" element={<LocalizedHome />} />
+        <Route path="/de" element={<LocalizedHome />} />
+        <Route path="/pt" element={<LocalizedHome />} />
+        <Route path="/es/conditions/osteoarthritis" element={<LocalizedOsteoarthritis />} />
+        <Route path="/fr/conditions/osteoarthritis" element={<LocalizedOsteoarthritis />} />
+        <Route path="/de/conditions/osteoarthritis" element={<LocalizedOsteoarthritis />} />
+        <Route path="/pt/conditions/osteoarthritis" element={<LocalizedOsteoarthritis />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/admin" element={<AdminDashboard />} />
