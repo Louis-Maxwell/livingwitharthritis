@@ -135,6 +135,12 @@ const BlogPost = () => {
   }
 
   const htmlContent = markdownToHtml(article.content);
+  const htmlWithIds = addHeadingIds(htmlContent);
+  // Split after the first </h2> so we can inject an inline related-strip mid-article.
+  const firstH2End = htmlWithIds.search(/<\/h2>/i);
+  const splitAt = firstH2End >= 0 ? firstH2End + "</h2>".length : -1;
+  const htmlBeforeStrip = splitAt > 0 ? htmlWithIds.slice(0, splitAt) : htmlWithIds;
+  const htmlAfterStrip = splitAt > 0 ? htmlWithIds.slice(splitAt) : "";
   const readingTime = getReadingTime(htmlContent);
   const publishDate = new Date(article.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
   const updatedAtRaw = (article as { updated_at?: string | null }).updated_at ?? null;
