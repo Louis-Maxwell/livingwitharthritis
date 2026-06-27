@@ -7,7 +7,8 @@ import "./index.css";
 // When index.html references chunk hashes that no longer exist on the CDN,
 // dynamic imports throw "Failed to fetch dynamically imported module".
 // We reload once (guarded by sessionStorage) to pick up the fresh manifest.
-const RELOAD_KEY = "lovable:chunk-reloaded";
+const RELOAD_KEY = "lovable:chunk-reloaded-at";
+const RELOAD_COOLDOWN_MS = 10_000; // allow another reload after 10s, scoped per URL
 const isChunkLoadError = (msg: string) =>
   /Failed to fetch dynamically imported module|Importing a module script failed|error loading dynamically imported module/i.test(
     msg,
@@ -15,8 +16,14 @@ const isChunkLoadError = (msg: string) =>
 
 const tryReload = (msg: string) => {
   if (!isChunkLoadError(msg)) return;
-  if (sessionStorage.getItem(RELOAD_KEY)) return;
-  sessionStorage.setItem(RELOAD_KEY, "1");
+  try {
+    const key = `${RELOAD_KEY}:${window.location.pathname}`;
+    const last = Number(sessionStorage.getItem(key) || 0);
+    if (Date.now() - last < RELOAD_COOLDOWN_MS) return;
+    sessionStorage.setItem(key, String(Date.now()));
+  } catch {
+    // sessionStorage may be unavailable; reload anyway
+  }
   window.location.reload();
 };
 
@@ -24,11 +31,6 @@ window.addEventListener("error", (e) => tryReload(e.message || ""));
 window.addEventListener("unhandledrejection", (e) => {
   const reason: any = e.reason;
   tryReload(typeof reason === "string" ? reason : reason?.message || "");
-});
-
-// Clear the guard once a successful load is in stable state.
-window.addEventListener("load", () => {
-  setTimeout(() => sessionStorage.removeItem(RELOAD_KEY), 5000);
 });
 
 createRoot(document.getElementById("root")!).render(<App />);
