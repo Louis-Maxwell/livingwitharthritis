@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { BLOG_SLUG_REDIRECTS } from "@/data/blogRedirects";
 import { Helmet } from "react-helmet-async";
@@ -26,6 +27,9 @@ import ArticleCitations, { DEFAULT_CITATIONS } from "@/components/blog/ArticleCi
 import NextReadStrip from "@/components/NextReadStrip";
 import KeyTakeaways from "@/components/article/KeyTakeaways";
 import FeedbackPoll from "@/components/article/FeedbackPoll";
+import InlineRelatedStrip from "@/components/article/InlineRelatedStrip";
+import { markVisited } from "@/lib/visitedArticles";
+
 
 
 function markdownToHtml(md: string): string {
@@ -91,6 +95,13 @@ const BlogPost = () => {
   const { data: article, isLoading } = useBlogArticle(redirectTo ? undefined : slug);
   const viewCount = useBlogViews(redirectTo ? undefined : slug);
 
+  // Mark this article as visited after 5s dwell so bounces don't pollute the set.
+  useEffect(() => {
+    if (!slug || redirectTo) return;
+    const t = window.setTimeout(() => markVisited(slug), 5000);
+    return () => window.clearTimeout(t);
+  }, [slug, redirectTo]);
+
   if (redirectTo) {
     return <Navigate to={`/blog/${redirectTo}`} replace />;
   }
@@ -124,6 +135,12 @@ const BlogPost = () => {
   }
 
   const htmlContent = markdownToHtml(article.content);
+  const htmlWithIds = addHeadingIds(htmlContent);
+  // Split after the first </h2> so we can inject an inline related-strip mid-article.
+  const firstH2End = htmlWithIds.search(/<\/h2>/i);
+  const splitAt = firstH2End >= 0 ? firstH2End + "</h2>".length : -1;
+  const htmlBeforeStrip = splitAt > 0 ? htmlWithIds.slice(0, splitAt) : htmlWithIds;
+  const htmlAfterStrip = splitAt > 0 ? htmlWithIds.slice(splitAt) : "";
   const readingTime = getReadingTime(htmlContent);
   const publishDate = new Date(article.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
   const updatedAtRaw = (article as { updated_at?: string | null }).updated_at ?? null;
@@ -353,8 +370,22 @@ const BlogPost = () => {
               prose-img:rounded-xl prose-img:shadow-sm prose-img:my-8
               prose-ul:my-6 prose-ol:my-6
               first:prose-p:first-letter:text-5xl first:prose-p:first-letter:font-bold first:prose-p:first-letter:text-primary first:prose-p:first-letter:float-left first:prose-p:first-letter:mr-3 first:prose-p:first-letter:mt-1 first:prose-p:first-letter:leading-none"
-            dangerouslySetInnerHTML={{ __html: addHeadingIds(htmlContent) }}
-          />
+          >
+            <div dangerouslySetInnerHTML={{ __html: htmlBeforeStrip }} />
+            {slug && htmlAfterStrip && (
+              <InlineRelatedStrip
+                currentSlug={slug}
+                currentCategory={article.category}
+                currentTitle={article.title}
+                currentExcerpt={article.excerpt}
+                currentKeywords={article.keywords ?? undefined}
+              />
+            )}
+            {htmlAfterStrip && (
+              <div dangerouslySetInnerHTML={{ __html: htmlAfterStrip }} />
+            )}
+          </section>
+
 
           <ArticleCitations />
 
@@ -376,7 +407,9 @@ const BlogPost = () => {
                 currentTitle={article.title}
                 currentExcerpt={article.excerpt}
                 currentKeywords={article.keywords ?? undefined}
+                preferUnvisited
               />
+
             )}
             {slug && <BlogComments slug={slug} />}
           </footer>
