@@ -333,7 +333,10 @@ const BlogPost = () => {
 
         <main className="container mx-auto px-6 md:px-10 py-10 md:py-14 max-w-[720px]">
           <MedicalReviewBadge />
+          <KeyTakeaways html={htmlContent} title={article.title} />
           <TableOfContents html={htmlContent} />
+
+
 
           <section
             aria-label="Article body"
