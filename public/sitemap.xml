@@ -7,6 +7,54 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://livingwitharthritis.org.uk/es</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/fr</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/de</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/pt</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/es/conditions/osteoarthritis</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/fr/conditions/osteoarthritis</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/de/conditions/osteoarthritis</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/pt/conditions/osteoarthritis</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://livingwitharthritis.org.uk/chat</loc>
     <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
