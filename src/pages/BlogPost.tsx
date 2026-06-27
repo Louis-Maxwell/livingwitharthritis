@@ -358,7 +358,10 @@ const BlogPost = () => {
 
           <ArticleCitations />
 
+          {slug && <FeedbackPoll slug={slug} title={article.title} />}
+
           <HealthToolsCTA />
+
 
           <footer className="mt-14 pt-8 border-t border-border/20">
             {slug && <SocialShareButtons title={article.title} slug={slug} />}
