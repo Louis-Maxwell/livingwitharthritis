@@ -95,6 +95,13 @@ const BlogPost = () => {
   const { data: article, isLoading } = useBlogArticle(redirectTo ? undefined : slug);
   const viewCount = useBlogViews(redirectTo ? undefined : slug);
 
+  // Mark this article as visited after 5s dwell so bounces don't pollute the set.
+  useEffect(() => {
+    if (!slug || redirectTo) return;
+    const t = window.setTimeout(() => markVisited(slug), 5000);
+    return () => window.clearTimeout(t);
+  }, [slug, redirectTo]);
+
   if (redirectTo) {
     return <Navigate to={`/blog/${redirectTo}`} replace />;
   }
