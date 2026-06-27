@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Compass } from "lucide-react";
 import { useRelatedArticles, type RelatedArticlesOptions } from "@/hooks/useBlogArticles";
@@ -7,6 +7,8 @@ import {
   getClusterById,
   CONTENT_CLUSTERS,
 } from "@/lib/relatedClusters";
+import { partitionByVisited } from "@/lib/visitedArticles";
+import { trackEvent } from "@/lib/analytics";
 
 interface RelatedArticlesProps extends RelatedArticlesOptions {
   currentSlug: string;
@@ -17,6 +19,8 @@ interface RelatedArticlesProps extends RelatedArticlesOptions {
   /** Pre-seed clusters when used on a non-blog page. */
   clusters?: string[];
   heading?: string;
+  /** Bias ordering toward articles the visitor hasn't read yet. */
+  preferUnvisited?: boolean;
 }
 
 const RelatedArticles = memo(
