@@ -29,10 +29,15 @@ const EngagementTracker = () => {
     lastTick: performance.now(),
     engaged10Fired: false,
     engaged30Fired: false,
+    engaged60Fired: false,
+    engaged180Fired: false,
+    engaged240Fired: false,
     clickedFired: false,
     scrollMarks: new Set<number>(),
     initialPageView: true,
   });
+
+
 
   useEffect(() => {
     const isInitial = stateRef.current.initialPageView;
