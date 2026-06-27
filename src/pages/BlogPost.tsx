@@ -24,6 +24,9 @@ import { marked } from "marked";
 import DOMPurify from "dompurify";
 import ArticleCitations, { DEFAULT_CITATIONS } from "@/components/blog/ArticleCitations";
 import NextReadStrip from "@/components/NextReadStrip";
+import KeyTakeaways from "@/components/article/KeyTakeaways";
+import FeedbackPoll from "@/components/article/FeedbackPoll";
+
 
 function markdownToHtml(md: string): string {
   // If content already looks like HTML, sanitize and return
@@ -330,7 +333,10 @@ const BlogPost = () => {
 
         <main className="container mx-auto px-6 md:px-10 py-10 md:py-14 max-w-[720px]">
           <MedicalReviewBadge />
+          <KeyTakeaways html={htmlContent} title={article.title} />
           <TableOfContents html={htmlContent} />
+
+
 
           <section
             aria-label="Article body"
@@ -352,7 +358,10 @@ const BlogPost = () => {
 
           <ArticleCitations />
 
+          {slug && <FeedbackPoll slug={slug} title={article.title} />}
+
           <HealthToolsCTA />
+
 
           <footer className="mt-14 pt-8 border-t border-border/20">
             {slug && <SocialShareButtons title={article.title} slug={slug} />}
