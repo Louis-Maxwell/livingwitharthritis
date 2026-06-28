@@ -19,6 +19,7 @@ import RootOrganizationSchema from "@/components/seo/RootOrganizationSchema";
 // Home is eager — it's the top entry point (~36% of pageviews) so
 // shipping it in the main bundle removes a Suspense round-trip on first paint.
 import Index from "./pages/Index";
+import GuideLayout from "./components/layouts/GuideLayout";
 const LocalizedHome = lazy(() => import("./pages/LocalizedHome"));
 const LocalizedOsteoarthritis = lazy(() => import("./pages/LocalizedOsteoarthritis"));
 
