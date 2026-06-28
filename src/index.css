@@ -159,21 +159,25 @@
   small, .text-small { font-size: 13px; line-height: 1.5; }
   .lead { font-size: 18px; line-height: 1.6; color: hsl(var(--foreground)); }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3 {
     font-family: 'Anton', 'Montserrat', system-ui, sans-serif;
     font-weight: 400;
-    letter-spacing: -0.005em;
-    line-height: 1.05;
+    letter-spacing: 0.005em;
+    line-height: 1.02;
     color: hsl(var(--foreground));
-    text-transform: none;
+    text-transform: uppercase;
+  }
+  h4, h5, h6 {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    color: hsl(var(--foreground));
   }
 
-  h1 { font-size: clamp(2.75rem, 6vw, 5.5rem); line-height: 0.98; letter-spacing: -0.01em; }
-  h2 { font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.02; letter-spacing: -0.005em; }
-  h3 { font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 400; }
-  h4 { font-size: 1.25rem; font-weight: 400; font-family: 'Montserrat', system-ui, sans-serif; font-weight: 700; }
-  h5 { font-size: 1rem; font-weight: 700; font-family: 'Montserrat', system-ui, sans-serif; }
-  h6 { font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.25em; font-weight: 700; font-family: 'Montserrat', system-ui, sans-serif; }
+  h1 { font-size: clamp(3rem, 7vw, 6rem); line-height: 0.95; letter-spacing: 0.002em; }
+  h2 { font-size: clamp(2.25rem, 4.5vw, 4rem); line-height: 0.98; }
+  h3 { font-size: clamp(1.5rem, 2.6vw, 2.25rem); line-height: 1.05; }
+  h4 { font-size: 1.25rem; font-weight: 700; }
+  h5 { font-size: 1rem; font-weight: 700; }
+  h6 { font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.25em; font-weight: 700; }
 
   /* Focus-visible — institutional red ring, no glow */
   a:focus-visible,
