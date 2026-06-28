@@ -95,6 +95,7 @@ const ContactSection = memo(() => {
       if (fnErr) console.warn("Email notification failed (message saved to DB):", fnErr);
 
       setSubmitted(true);
+      trackContactSubmit({ topic: form.subject });
       toast.success("Message sent! We'll reply to " + form.email.trim() + " within 2 business days.");
     } catch (err) {
       console.error("Contact form error:", err);
