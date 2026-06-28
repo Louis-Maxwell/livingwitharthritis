@@ -14,8 +14,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Montserrat"', 'system-ui', 'sans-serif'],
-        heading: ['"Montserrat"', 'system-ui', 'sans-serif'],
+        display: ['"Anton"', '"Montserrat"', 'system-ui', 'sans-serif'],
+        anton: ['"Anton"', 'system-ui', 'sans-serif'],
+        heading: ['"Anton"', '"Montserrat"', 'system-ui', 'sans-serif'],
+        subheading: ['"Montserrat"', 'system-ui', 'sans-serif'],
         sans: ['"Open Sans"', 'system-ui', 'sans-serif'],
       },
       colors: {
