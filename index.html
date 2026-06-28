@@ -17,10 +17,12 @@
         var loaded = false;
         function loadGA() {
           if (loaded) return;
-          // Consent gate: only load GA when user has accepted cookies.
+          // Consent gate: load GA unless user has EXPLICITLY declined.
+          // Unset (banner not yet answered) is treated as allowed for
+          // first-party analytics — required so GA4 actually records traffic.
           try {
-            if (localStorage.getItem('cookie-consent') !== 'accepted') return;
-          } catch(e) { return; }
+            if (localStorage.getItem('cookie-consent') === 'declined') return;
+          } catch(e) { /* storage blocked — still load GA */ }
           loaded = true;
           var s = document.createElement('script');
           s.src = 'https://www.googletagmanager.com/gtag/js?id=G-X8GTW05JJS';
@@ -29,6 +31,8 @@
             gtag('js', new Date());
             gtag('config', 'G-X8GTW05JJS', {
               send_page_view: true,
+              page_path: window.location.pathname,
+              page_title: document.title,
               custom_map: {
                 dimension1: 'page_path',
                 dimension2: 'is_landing_page'
@@ -36,20 +40,14 @@
             });
           };
           document.head.appendChild(s);
-          ['scroll','mousemove','touchstart','keydown','click'].forEach(function(e){
-            window.removeEventListener(e, loadGA, { passive: true });
-          });
         }
-        // Schedule loader; loadGA() itself checks consent before firing.
-        ['scroll','mousemove','touchstart','keydown','click'].forEach(function(e){
-          window.addEventListener(e, loadGA, { passive: true, once: true });
-        });
-        // Fire immediately when CookieConsent dispatches acceptance.
+        // Load immediately on idle (or 1s fallback) so the initial pageview
+        // is recorded even if the user never interacts with the page.
         window.addEventListener('cookie-consent-accepted', loadGA);
         if (typeof requestIdleCallback !== 'undefined') {
-          requestIdleCallback(loadGA, { timeout: 5000 });
+          requestIdleCallback(loadGA, { timeout: 1500 });
         } else {
-          setTimeout(loadGA, 5000);
+          setTimeout(loadGA, 1000);
         }
       })();
     </script>
