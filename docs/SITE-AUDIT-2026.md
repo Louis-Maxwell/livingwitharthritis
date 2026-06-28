@@ -262,3 +262,28 @@ Phase 1 is effectively a no-op — the site already meets every Critical-tier ac
 ### Recommendation
 
 Skip directly to **Phase 2 (Performance)** next turn — the marginal value is highest there. Specifically: LCP image preload audit, `vite-imagetools` adoption for hero photographs, and a manual-chunks review now that `framer-motion` and `recharts` are isolated.
+
+---
+
+## Phase 2 — Semrush Audit (PDF, 26 June 2026) reconciliation
+
+### Already remediated in earlier sessions
+| Semrush finding | Status | Evidence |
+|---|---|---|
+| 107 hreflang conflicts | ✅ Fixed | `src/components/SeoDefaults.tsx` emits 5-language + `x-default` cluster on every route |
+| 87 duplicate meta descriptions | ✅ Fixed | Bulk dedupe in `src/data/articles.ts`, `src/data/faqArticles.ts` |
+| Missing canonicals | ✅ Fixed | `ConditionPageTemplate`, `SeoHead`, `StubPage`, `SeoDefaults` all emit self-referencing canonical. `LocalizedHome` / `LocalizedOsteoarthritis` now emit explicit locale-aware canonical (this turn). `scripts/check-canonicals.mjs` updated to recognise `StubPage` (this turn) |
+| /auth, /admin "missing from sitemap" | ✅ Intentional | Both are `Disallow:` in `public/robots.txt` for every UA and `noindex` via `SeoHead`. Semrush flag is a false positive |
+| Slow-loading URLs (LCP) | ✅ Already optimal | Hero (`OAHero.tsx`) uses `<picture>` AVIF→WebP→JPG with explicit `width`/`height`, `fetchPriority="high"`, `loading="eager"`, and `<link rel="preload">` in `index.html`. Verified `/public/hero/oa.{avif,webp,jpg}` exist |
+| Invalid structured data | ✅ Fixed | `PageSchema.tsx` now emits `author.url`, `reviewedBy`, `lastReviewed` on all medical pages; validated with `scripts/validate-jsonld.mjs` |
+
+### Deferred (requires user decision or out-of-scope for one-turn fix)
+| Item | Reason |
+|---|---|
+| Backend rate limiting (Redis) | Workspace policy — needs Upstash/Redis provisioning + budget approval |
+| Full WCAG AA contrast audit on all 600+ pages | Manual QA effort estimated 8h — propose as Batch C |
+| AVIF conversion for every blog hero (~120 images) | Bulk image pipeline change — propose `vite-imagetools` adoption ticket |
+| Multi-language professional translation (ES/FR/DE/PT) | Currently English seed strings only — covered in `docs/GLOBAL-EXPANSION.md` budget line |
+
+### Verdict
+The actionable items from both documents (improvement plan Phase 1 + Semrush PDF) are now closed. The remaining work is either (a) deferred policy items, or (b) larger bodies of work that need explicit approval because they are multi-day efforts that cannot be honestly completed "today".

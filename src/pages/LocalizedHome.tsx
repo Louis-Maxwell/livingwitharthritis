@@ -20,6 +20,7 @@ export default function LocalizedHome() {
       <Helmet>
         <title>{t.home.heroTitle}</title>
         <meta name="description" content={t.home.heroSubtitle} />
+        <link rel="canonical" href={`https://livingwitharthritis.org.uk${buildLangUrl(lang, "/")}`} />
         <html lang={lang} />
       </Helmet>
 

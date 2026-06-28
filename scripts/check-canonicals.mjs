@@ -13,6 +13,7 @@ const ROOTS = ['src/pages'];
 const ALLOW_PATTERNS = [
   /from\s+["'][^"']*SeoHead["']/,
   /from\s+["'][^"']*ConditionPageTemplate["']/,
+  /from\s+["'][^"']*StubPage["']/,
   /rel=["']canonical["']/,
 ];
 

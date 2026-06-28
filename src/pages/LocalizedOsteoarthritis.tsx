@@ -18,6 +18,7 @@ export default function LocalizedOsteoarthritis() {
       <Helmet>
         <title>{oa.title}</title>
         <meta name="description" content={oa.intro.slice(0, 155)} />
+        <link rel="canonical" href={`https://livingwitharthritis.org.uk${buildLangUrl(lang, "/conditions/osteoarthritis")}`} />
         <html lang={lang} />
       </Helmet>
 
