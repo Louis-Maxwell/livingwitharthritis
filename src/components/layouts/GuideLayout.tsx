@@ -1,19 +1,20 @@
-import { lazy, Suspense, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 
-const NextReadStrip = lazy(() => import("@/components/NextReadStrip"));
-
-/**
- * Shared chrome for /guides/* pages. Adds Header, Footer and a
- * "Next read" strip — previously these long-form pillar pages
- * shipped with no global navigation, which crushed pages/session.
- */
 interface GuideLayoutProps {
   children: ReactNode;
   currentPath: string;
 }
 
+/**
+ * Shared chrome for /guides/* pages: Header, main content,
+ * onward-journey blocks (Related guides + Next read), and Footer.
+ * Standalone guide pages that already render their own
+ * Header/Footer should import GuideOnwardJourney directly
+ * instead of using this wrapper.
+ */
 export default function GuideLayout({ children, currentPath }: GuideLayoutProps) {
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
@@ -21,9 +22,7 @@ export default function GuideLayout({ children, currentPath }: GuideLayoutProps)
       <main id="main-content" className="flex-1">
         {children}
       </main>
-      <Suspense fallback={null}>
-        <NextReadStrip currentPath={currentPath} heading="Keep exploring" />
-      </Suspense>
+      <GuideOnwardJourney currentPath={currentPath} />
       <Footer />
     </div>
   );
