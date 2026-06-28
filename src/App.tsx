@@ -116,6 +116,8 @@ const ArthritisPainRelief = lazy(() => import("./pages/guides/ArthritisPainRelie
 const CanExerciseMakeOsteoarthritisWorse = lazy(() => import("./pages/guides/CanExerciseMakeOsteoarthritisWorse"));
 const SteroidsGuide = lazy(() => import("./pages/pillar/SteroidsGuide"));
 const AzathioprineGuide = lazy(() => import("./pages/pillar/AzathioprineGuide"));
+const FebuxostatGoutGuide = lazy(() => import("./pages/pillar/FebuxostatGoutGuide"));
+const PainkillersNsaidsGuide = lazy(() => import("./pages/pillar/PainkillersNsaidsGuide"));
 const BenefitsPIPGuide = lazy(() => import("./pages/pillar/BenefitsPIPGuide"));
 const KneeReplacementSurgeryGuide = lazy(() => import("./pages/pillar/KneeReplacementSurgeryGuide"));
 const Press = lazy(() => import("./pages/Press"));
@@ -364,6 +366,8 @@ function AnimatedRoutes() {
         <Route path="/guides/knee-replacement-surgery" element={<KneeReplacementSurgeryGuide />} />
         <Route path="/guides/steroids-for-arthritis" element={<SteroidsGuide />} />
         <Route path="/guides/azathioprine-for-arthritis" element={<AzathioprineGuide />} />
+        <Route path="/guides/febuxostat-for-gout" element={<FebuxostatGoutGuide />} />
+        <Route path="/guides/painkillers-and-nsaids" element={<PainkillersNsaidsGuide />} />
         <Route path="/press" element={<Press />} />
         <Route path="/partners" element={<Partners />} />
         <Route path="/stories" element={<LivedExperiences />} />
