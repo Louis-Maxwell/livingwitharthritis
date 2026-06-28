@@ -23,6 +23,7 @@ const NewsletterConfirm = () => {
       } else {
         setStatus("ok");
         setMessage(`Subscription confirmed for ${data.data.email}.`);
+        trackEvent("newsletter_confirmed", { method: "newsletter" });
       }
     })();
   }, [token]);
