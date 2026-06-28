@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
+import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
@@ -170,6 +171,7 @@ export default function CanExerciseMakeOsteoarthritisWorse() {
           </div>
         </div>
       </main>
+      <GuideOnwardJourney currentPath="/guides/can-exercise-make-osteoarthritis-worse" />
       <Suspense fallback={null}><Footer /></Suspense>
     </>
   );

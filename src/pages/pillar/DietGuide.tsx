@@ -6,6 +6,7 @@ import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
 import AnswerBox from "@/components/seo/AnswerBox";
+import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
@@ -246,6 +247,7 @@ export default function DietGuide() {
           </div>
         </div>
       </main>
+      <GuideOnwardJourney currentPath="/guides/diet" />
       <Suspense fallback={null}><Footer /></Suspense>
     </>
   );

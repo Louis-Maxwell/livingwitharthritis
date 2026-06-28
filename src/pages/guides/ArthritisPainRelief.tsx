@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { ArrowLeft, Activity, Heart, ThermometerSun, Pill, Dumbbell, Apple, Moon } from "lucide-react";
 import { motion } from "framer-motion";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
+import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const URL = `${BASE}/guides/arthritis-pain-relief`;
@@ -202,6 +203,7 @@ const ArthritisPainRelief = () => (
           </div>
         </div>
       </main>
+      <GuideOnwardJourney currentPath="/guides/arthritis-pain-relief" />
       <Footer />
     </div>
   </>
