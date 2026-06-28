@@ -3,6 +3,7 @@ import { toast } from "sonner";
 import { Mail, Phone, MapPin, Send, CheckCircle2, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { CONTACT_EMAILS } from "@/config/contact";
+import { trackContactSubmit } from "@/lib/analytics";
 
 const CONTACT_EMAIL = CONTACT_EMAILS.info;
 
