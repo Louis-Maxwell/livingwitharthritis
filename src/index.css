@@ -1,4 +1,4 @@
-/* Fonts loaded asynchronously via index.html (Montserrat + Open Sans) */
+/* Fonts loaded asynchronously via index.html (Anton display + Montserrat + Open Sans) */
 
 @tailwind base;
 @tailwind components;
@@ -6,10 +6,9 @@
 
 @layer base {
   :root {
-    /* ─── Institutional charity palette ─── */
-    /* Pure white background, near-black text, deep crimson accent */
-    --background: 0 0% 100%;            /* #FFFFFF */
-    --foreground: 0 0% 6%;              /* #0F0F0F near-black */
+    /* ─── MAP-inspired palette (cream + MAP red + near-black) ─── */
+    --background: 34 50% 95%;           /* #F8F2EA warm cream */
+    --foreground: 0 0% 6%;              /* #0E0E0E near-black */
 
     --card: 0 0% 100%;
     --card-foreground: 0 0% 6%;
@@ -17,55 +16,55 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 6%;
 
-    --primary: 0 84% 60%;             /* #EE2A24 British Red Cross red */
+    --primary: 354 85% 54%;             /* #EE2737 MAP red */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 96%;              /* light grey surface */
-    --secondary-foreground: 0 0% 6%;
+    --secondary: 0 0% 8%;               /* black secondary surface (MAP-style pills) */
+    --secondary-foreground: 0 0% 100%;
 
-    --accent: 0 84% 97%;                /* soft red wash */
+    --accent: 354 90% 96%;              /* soft red wash */
     --accent-foreground: 0 0% 6%;
 
-    --muted: 24 14% 96%;                /* #F7F5F4 warm grey band */
-    --muted-foreground: 0 0% 18%;       /* stays near-black for legibility */
+    --muted: 34 35% 92%;                /* deeper cream band */
+    --muted-foreground: 0 0% 18%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 354 85% 54%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 20 8% 90%;                /* #E7E2E0 subtle warm grey */
-    --input: 20 8% 88%;
-    --ring: 0 84% 60%;
+    --border: 30 18% 86%;               /* warm beige border */
+    --input: 30 18% 84%;
+    --ring: 354 85% 54%;
 
     /* Legacy aliases — collapsed to charity palette */
-    --gold: 0 84% 60%;
+    --gold: 354 85% 54%;
     --gold-foreground: 0 0% 100%;
-    --gold-muted: 0 84% 97%;
-    --amber: 0 84% 60%;
+    --gold-muted: 354 90% 96%;
+    --amber: 354 85% 54%;
 
-    --navy: 0 0% 8%;                    /* near-black for contrast band */
+    --navy: 0 0% 8%;
     --navy-foreground: 0 0% 100%;
 
-    --warm: 24 14% 96%;
+    --warm: 34 35% 92%;
 
-    --tint-blue: 24 14% 96%;
-    --tint-green: 24 14% 96%;
-    --tint-amber: 0 84% 97%;
-    --tint-rose: 0 84% 97%;
-    --tint-violet: 24 14% 96%;
-    --tint-cyan: 24 14% 96%;
-    --tint-peach: 0 84% 97%;
-    --tint-mint: 24 14% 96%;
-    --tint-lavender: 24 14% 96%;
-    --tint-coral: 0 84% 97%;
+    --tint-blue: 34 35% 92%;
+    --tint-green: 34 35% 92%;
+    --tint-amber: 354 90% 96%;
+    --tint-rose: 354 90% 96%;
+    --tint-violet: 34 35% 92%;
+    --tint-cyan: 34 35% 92%;
+    --tint-peach: 354 90% 96%;
+    --tint-mint: 34 35% 92%;
+    --tint-lavender: 34 35% 92%;
+    --tint-coral: 354 90% 96%;
 
-    --emerald: 0 84% 60%;
-    --sky: 0 84% 60%;
-    --violet: 0 84% 60%;
-    --coral: 0 84% 60%;
-    --teal: 0 84% 60%;
-    --magenta: 0 84% 60%;
-    --indigo: 0 84% 60%;
-    --lime: 0 84% 60%;
+    --emerald: 354 85% 54%;
+    --sky: 354 85% 54%;
+    --violet: 354 85% 54%;
+    --coral: 354 85% 54%;
+    --teal: 354 85% 54%;
+    --magenta: 354 85% 54%;
+    --indigo: 354 85% 54%;
+    --lime: 354 85% 54%;
 
     /* Gradients — red on white only */
     --gradient-mesh: radial-gradient(at 18% 22%, hsl(0 84% 60% / 0.05) 0px, transparent 50%),
@@ -104,35 +103,35 @@
 
   /* Dark mode aliased to light — site is always white bg / near-black ink / red accent */
   .dark {
-    --background: 0 0% 100%;
+    --background: 34 50% 95%;
     --foreground: 0 0% 6%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 6%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 6%;
-    --primary: 0 84% 60%;
+    --primary: 354 85% 54%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 6%;
-    --accent: 0 84% 97%;
+    --secondary: 0 0% 8%;
+    --secondary-foreground: 0 0% 100%;
+    --accent: 354 90% 96%;
     --accent-foreground: 0 0% 6%;
-    --muted: 24 14% 96%;
+    --muted: 34 35% 92%;
     --muted-foreground: 0 0% 18%;
-    --destructive: 0 84% 60%;
+    --destructive: 354 85% 54%;
     --destructive-foreground: 0 0% 100%;
-    --border: 20 8% 90%;
-    --input: 20 8% 88%;
-    --ring: 0 84% 60%;
+    --border: 30 18% 86%;
+    --input: 30 18% 84%;
+    --ring: 354 85% 54%;
     --navy: 0 0% 8%;
     --navy-foreground: 0 0% 100%;
-    --sidebar-background: 0 0% 100%;
+    --sidebar-background: 34 50% 95%;
     --sidebar-foreground: 0 0% 6%;
-    --sidebar-primary: 0 84% 60%;
+    --sidebar-primary: 354 85% 54%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 24 14% 96%;
+    --sidebar-accent: 34 35% 92%;
     --sidebar-accent-foreground: 0 0% 6%;
-    --sidebar-border: 20 8% 90%;
-    --sidebar-ring: 0 84% 60%;
+    --sidebar-border: 30 18% 86%;
+    --sidebar-ring: 354 85% 54%;
   }
 }
 
@@ -161,19 +160,20 @@
   .lead { font-size: 18px; line-height: 1.6; color: hsl(var(--foreground)); }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', system-ui, sans-serif;
-    font-weight: 800;
-    letter-spacing: -0.022em;
-    line-height: 1.15;
+    font-family: 'Anton', 'Montserrat', system-ui, sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    line-height: 1.05;
     color: hsl(var(--foreground));
+    text-transform: none;
   }
 
-  h1 { font-size: clamp(44px, 5.5vw, 72px); line-height: 1.04; font-weight: 800; letter-spacing: -0.025em; }
-  h2 { font-size: clamp(28px, 3vw, 40px); line-height: 1.1; font-weight: 800; letter-spacing: -0.022em; }
-  h3 { font-size: 24px; font-weight: 700; }
-  h4 { font-size: 18px; font-weight: 700; }
-  h5 { font-size: 15px; font-weight: 700; }
-  h6 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.25em; font-weight: 700; }
+  h1 { font-size: clamp(2.75rem, 6vw, 5.5rem); line-height: 0.98; letter-spacing: -0.01em; }
+  h2 { font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.02; letter-spacing: -0.005em; }
+  h3 { font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 400; }
+  h4 { font-size: 1.25rem; font-weight: 400; font-family: 'Montserrat', system-ui, sans-serif; font-weight: 700; }
+  h5 { font-size: 1rem; font-weight: 700; font-family: 'Montserrat', system-ui, sans-serif; }
+  h6 { font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.25em; font-weight: 700; font-family: 'Montserrat', system-ui, sans-serif; }
 
   /* Focus-visible — institutional red ring, no glow */
   a:focus-visible,
