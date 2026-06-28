@@ -139,6 +139,7 @@ const TaiChiForArthritis = lazy(() => import("./pages/exercises/TaiChiForArthrit
 const SeatedTaiChiForArthritis = lazy(() => import("./pages/exercises/SeatedTaiChiForArthritis"));
 const TaiChiForBeginners = lazy(() => import("./pages/exercises/TaiChiForBeginners"));
 const AnkleArthritisExercises = lazy(() => import("./pages/exercises/AnkleArthritisExercises"));
+const NeckArthritisExercises = lazy(() => import("./pages/exercises/NeckArthritisExercises"));
 const ExerciseConditionPage = lazy(() => import("./pages/ExerciseConditionPage"));
 const ConditionSubpagePage = lazy(() => import("./pages/ConditionSubpagePage"));
 const CityServicePage = lazy(() => import("./pages/CityServicePage"));
@@ -320,6 +321,7 @@ function AnimatedRoutes() {
         <Route path="/exercises/seated-tai-chi-for-arthritis" element={<SeatedTaiChiForArthritis />} />
         <Route path="/exercises/tai-chi-for-beginners" element={<TaiChiForBeginners />} />
         <Route path="/exercises/ankle-arthritis-exercises" element={<AnkleArthritisExercises />} />
+        <Route path="/exercises/neck-arthritis-exercises" element={<NeckArthritisExercises />} />
         <Route path="/diet" element={<DietHub />} />
         <Route path="/diet/mediterranean-diet-for-arthritis" element={<MediterraneanDietForArthritis />} />
         <Route path="/diet/foods-to-avoid-with-arthritis" element={<FoodsToAvoidWithArthritis />} />
