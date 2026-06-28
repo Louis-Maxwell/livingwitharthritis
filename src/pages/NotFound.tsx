@@ -4,6 +4,7 @@ import { Search, Home, Map, Mail, ArrowRight } from "lucide-react";
 import SeoHead from "@/components/SeoHead";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { trackEvent } from "@/lib/analytics";
 
 // Top-viewed evergreen articles — surfaced to keep 404 visitors on-site.
 const TOP_ARTICLES = [
@@ -35,8 +36,15 @@ const NotFound = () => {
   const [query, setQuery] = useState("");
 
   useEffect(() => {
-    console.error("404 Error: User attempted to access non-existent route:", location.pathname);
-  }, [location.pathname]);
+    const missingPath = location.pathname + location.search;
+    const referrer = typeof document !== "undefined" ? document.referrer : "";
+    console.error("404 Error: User attempted to access non-existent route:", missingPath, "ref:", referrer);
+    // Surface the broken URL in GA4 so we can map redirects for the worst offenders.
+    trackEvent("page_not_found", {
+      missing_path: missingPath,
+      referrer: referrer || "direct",
+    });
+  }, [location.pathname, location.search]);
 
   const searchTarget = useMemo(() => {
     const q = query.trim();
