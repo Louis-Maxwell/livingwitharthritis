@@ -1415,3 +1415,46 @@
 
 /* Touch target safety — applied opt-in via class for mobile-critical buttons */
 .touch-44 { min-height: 44px; min-width: 44px; }
+
+/* ─── MAP-inspired utilities ─── */
+@layer components {
+  /* Octagon image frame — MAP's signature shape */
+  .clip-octagon {
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  }
+
+  /* Sharp uppercase MAP-style button */
+  .btn-map {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 1.5rem;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-weight: 800;
+    font-size: 0.8125rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 0;
+    transition: background-color 150ms ease;
+  }
+  .btn-map:hover { background: hsl(var(--secondary)); color: hsl(var(--secondary-foreground)); }
+  .btn-map.btn-map-dark { background: hsl(var(--secondary)); color: hsl(var(--secondary-foreground)); }
+  .btn-map.btn-map-dark:hover { background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
+
+  /* Scroll reveal — staggered fade-up */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 600ms ease-out, transform 600ms ease-out;
+  }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+  /* Full-bleed red band (MAP hero) */
+  .band-red {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+  .band-red h1, .band-red h2, .band-red h3, .band-red p, .band-red li { color: hsl(var(--primary-foreground)); }
+}
