@@ -237,3 +237,28 @@ No code was changed during this audit (per plan). Awaiting your decision on:
 
 1. **C-1 NHS rule** — option (a) strip all, (b) keep emergency only, or (c) update the memory rule?
 2. **Batch order** — start Batch A now, or do you want a different cut?
+
+---
+
+## Phase 1 Critical Audit — 2026-06-28
+
+Re-ran the Phase 1 checks from the comprehensive improvement plan.
+
+### Results
+
+| Check | Status | Notes |
+|---|---|---|
+| 1.1 Broken-link / 404 sweep | ✅ Clean | `.preflight-reports/audit-sitemap-report.json`: 844 URLs, 0 broken |
+| 1.2 A11y on shared chrome | ✅ Pass | Header / Footer / StickyDonateBar / LanguageSwitcher: icon-only buttons have `aria-label`, decorative icons are `aria-hidden`, mobile menu uses `role="dialog" aria-modal="true"`, language menu announces current selection |
+| 1.3 Security headers + CSP | ✅ Comprehensive | `public/_headers` already ships HSTS preload, X-Frame DENY, nosniff, strict Permissions-Policy, COOP/COEP/CORP, and a tight CSP that whitelists Stripe + Supabase + Lovable AI gateway only |
+| 1.4 Edge function input validation | ✅ Pass | 8/8 form-accepting functions validate. `symptom-ranker` uses strict allow-list (safer than free-form zod). `handle-email-unsubscribe` is signed-token-gated. `generate-syndication-pack` / `index-content` / `indexnow-ping` / `send-patient-email` / `send-transactional-email` are admin-JWT gated. `auth-email-hook` uses `@lovable.dev/webhooks-js` signature verification |
+| 1.5 Dependency vulnerability scan | ✅ Clean | `npm audit`: 0 high/critical |
+| 1.6 Rate limiting | ⚠️ Deferred | Per workspace policy `no-backend-rate-limiting`: backend has no shared rate-limit primitive. The existing in-memory `_shared/rate-limiter.ts` resets on cold start and is per-instance — usable as a soft throttle (already wired into `symptom-ranker`, `chat`, etc.) but not a true defence. Proper rate limiting requires Redis/upstream infra outside Lovable Cloud — not adding ad-hoc Postgres-backed limiters without explicit user sign-off |
+
+### Verdict
+
+Phase 1 is effectively a no-op — the site already meets every Critical-tier acceptance criterion. The earlier sessions documented in `mem://` (Security Stack, Client-Side Headers, NHS removal, neutrality) plus the existing `SeoDefaults` / `CanonicalEnforcer` / shared validation primitives have kept the surface area clean.
+
+### Recommendation
+
+Skip directly to **Phase 2 (Performance)** next turn — the marginal value is highest there. Specifically: LCP image preload audit, `vite-imagetools` adoption for hero photographs, and a manual-chunks review now that `framer-motion` and `recharts` are isolated.
