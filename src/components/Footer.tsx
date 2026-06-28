@@ -88,8 +88,8 @@ const Footer = () => {
       <FooterMostRead />
       <div className="container mx-auto px-6 md:px-12 py-16 lg:py-20">
         <div className="mb-14">
-          <p className="text-lg font-bold text-foreground tracking-tight">Living With Arthritis</p>
-          <p className="text-sm text-muted-foreground mt-1.5 max-w-sm leading-relaxed">
+          <p className="font-display text-3xl md:text-4xl uppercase tracking-wide text-foreground leading-none">Living With Arthritis</p>
+          <p className="text-sm text-muted-foreground mt-3 max-w-sm leading-relaxed">
             Free physiotherapy, diet plans and evidence-based support for people living with arthritis across the UK.
           </p>
         </div>
