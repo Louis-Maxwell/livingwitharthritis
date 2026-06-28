@@ -1,0 +1,26 @@
+{
+  "base": "https://livingwitharthritis.org.uk",
+  "total": 893,
+  "broken": 3,
+  "ranAt": "2026-06-28T11:17:10.360Z",
+  "items": [
+    {
+      "url": "/blog/bedtime-routine-arthritis-relief",
+      "status": 0,
+      "reason": "fetch-error",
+      "error": "The operation was aborted due to timeout"
+    },
+    {
+      "url": "/blog/managing-arthritis-flare-ups-at-home",
+      "status": 0,
+      "reason": "fetch-error",
+      "error": "The operation was aborted due to timeout"
+    },
+    {
+      "url": "/exercises/ankle/for/reactive-arthritis",
+      "status": 0,
+      "reason": "fetch-error",
+      "error": "The operation was aborted due to timeout"
+    }
+  ]
+}
