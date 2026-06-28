@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
+import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
@@ -233,6 +234,7 @@ export default function KneeReplacementSurgeryGuide() {
           </div>
         </div>
       </main>
+      <GuideOnwardJourney currentPath="/guides/knee-replacement-surgery" />
       <Suspense fallback={null}><Footer /></Suspense>
     </>
   );
