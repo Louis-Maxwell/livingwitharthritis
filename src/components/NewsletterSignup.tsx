@@ -4,6 +4,7 @@ import { Mail, CheckCircle2, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { trackEvent, trackNewsletterSignup } from "@/lib/analytics";
 
 /**
  * Newsletter signup with interest segmentation and GDPR consent.
