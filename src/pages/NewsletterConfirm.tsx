@@ -5,6 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import Header from "@/components/Header";
 import PageHero from "@/components/ui/PageHero";
 import { CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 const NewsletterConfirm = () => {
   const [params] = useSearchParams();
@@ -22,6 +23,7 @@ const NewsletterConfirm = () => {
       } else {
         setStatus("ok");
         setMessage(`Subscription confirmed for ${data.data.email}.`);
+        trackEvent("newsletter_confirmed", { method: "newsletter" });
       }
     })();
   }, [token]);

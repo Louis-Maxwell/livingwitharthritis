@@ -3,6 +3,7 @@ import { toast } from "sonner";
 import { Mail, Phone, MapPin, Send, CheckCircle2, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { CONTACT_EMAILS } from "@/config/contact";
+import { trackContactSubmit } from "@/lib/analytics";
 
 const CONTACT_EMAIL = CONTACT_EMAILS.info;
 
@@ -94,6 +95,7 @@ const ContactSection = memo(() => {
       if (fnErr) console.warn("Email notification failed (message saved to DB):", fnErr);
 
       setSubmitted(true);
+      trackContactSubmit({ topic: form.subject });
       toast.success("Message sent! We'll reply to " + form.email.trim() + " within 2 business days.");
     } catch (err) {
       console.error("Contact form error:", err);

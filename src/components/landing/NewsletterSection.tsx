@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { trackNewsletterSignup } from "@/lib/analytics";
 
 
 const NewsletterSection = memo(() => {
@@ -30,6 +31,7 @@ const NewsletterSection = memo(() => {
       } else {
         toast.success("Welcome! You'll receive our next update soon.");
         setIsSubscribed(true);
+        trackNewsletterSignup({ location: "landing_section" });
       }
       setEmail("");
     } catch {

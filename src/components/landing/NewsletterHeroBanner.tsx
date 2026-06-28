@@ -3,6 +3,7 @@ import { Mail, ArrowRight, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { trackEmailSignup } from "@/lib/ga-events";
+import { trackNewsletterSignup } from "@/lib/analytics";
 
 type PrefKey = "exercise" | "flare" | "recipes" | "research";
 const PREFS: { key: PrefKey; label: string }[] = [
@@ -45,6 +46,7 @@ const NewsletterHeroBanner = memo(() => {
         });
       if (error && error.code !== "23505") throw error;
       trackEmailSignup(selected.join(",") || "general", "hero_banner");
+      trackNewsletterSignup({ location: "hero_banner", interests: selected.length });
       setDone(true);
       setEmail("");
       toast.success("Thanks — check your inbox to confirm.");
