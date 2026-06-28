@@ -168,7 +168,6 @@ const FallPreventionOlderAdults = lazy(() => import("./pages/guides/FallPreventi
 const Arthritis = lazy(() => import("./pages/conditions/Arthritis"));
 const MusculoskeletalHealth = lazy(() => import("./pages/guides/MusculoskeletalHealth"));
 const DisabilitySupport = lazy(() => import("./pages/guides/DisabilitySupport"));
-import GuideLayout from "./components/layouts/GuideLayout";
 
 // Phase 1 / Phase 3 — IA stubs + Newly Diagnosed full guide
 const NewlyDiagnosed = lazy(() => import("./pages/guides/NewlyDiagnosed"));
