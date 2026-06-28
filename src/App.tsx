@@ -19,6 +19,7 @@ import RootOrganizationSchema from "@/components/seo/RootOrganizationSchema";
 // Home is eager — it's the top entry point (~36% of pageviews) so
 // shipping it in the main bundle removes a Suspense round-trip on first paint.
 import Index from "./pages/Index";
+import GuideLayout from "./components/layouts/GuideLayout";
 const LocalizedHome = lazy(() => import("./pages/LocalizedHome"));
 const LocalizedOsteoarthritis = lazy(() => import("./pages/LocalizedOsteoarthritis"));
 
@@ -303,14 +304,14 @@ function AnimatedRoutes() {
         <Route path="/supplements/msm" element={<Msm />} />
         <Route path="/living-with-arthritis" element={<LivingWithArthritis />} />
         <Route path="/arthritis-mental-health" element={<ArthritisMentalHealth />} />
-        <Route path="/guides/frailty-management-hub" element={<FrailtyManagementHub />} />
-        <Route path="/guides/sarcopenia-muscle-loss" element={<SarcopeniaMuscleControl />} />
-        <Route path="/guides/preventative-msk-health" element={<PreventativeMSKHealth />} />
-        <Route path="/guides/bone-density-osteoporosis" element={<BoneDensityOsteoporosis />} />
-        <Route path="/guides/fall-prevention-older-adults" element={<FallPreventionOlderAdults />} />
+        <Route path="/guides/frailty-management-hub" element={<GuideLayout currentPath="/guides/frailty-management-hub"><FrailtyManagementHub /></GuideLayout>} />
+        <Route path="/guides/sarcopenia-muscle-loss" element={<GuideLayout currentPath="/guides/sarcopenia-muscle-loss"><SarcopeniaMuscleControl /></GuideLayout>} />
+        <Route path="/guides/preventative-msk-health" element={<GuideLayout currentPath="/guides/preventative-msk-health"><PreventativeMSKHealth /></GuideLayout>} />
+        <Route path="/guides/bone-density-osteoporosis" element={<GuideLayout currentPath="/guides/bone-density-osteoporosis"><BoneDensityOsteoporosis /></GuideLayout>} />
+        <Route path="/guides/fall-prevention-older-adults" element={<GuideLayout currentPath="/guides/fall-prevention-older-adults"><FallPreventionOlderAdults /></GuideLayout>} />
         <Route path="/conditions/arthritis" element={<Arthritis />} />
-        <Route path="/guides/musculoskeletal-health" element={<MusculoskeletalHealth />} />
-        <Route path="/guides/disability-support" element={<DisabilitySupport />} />
+        <Route path="/guides/musculoskeletal-health" element={<GuideLayout currentPath="/guides/musculoskeletal-health"><MusculoskeletalHealth /></GuideLayout>} />
+        <Route path="/guides/disability-support" element={<GuideLayout currentPath="/guides/disability-support"><DisabilitySupport /></GuideLayout>} />
         <Route path="/faq/:slug" element={<FaqArticle />} />
         <Route path="/expert/:slug" element={<ExpertArticle />} />
         <Route path="/stories/:slug" element={<PatientStory />} />
@@ -392,7 +393,7 @@ function AnimatedRoutes() {
         <Route path="/debug/schema" element={<DebugSchema />} />
 
         {/* Phase 1 — 5-pillar IA stubs + Newly Diagnosed full guide */}
-        <Route path="/guides/newly-diagnosed" element={<NewlyDiagnosed />} />
+        <Route path="/guides/newly-diagnosed" element={<GuideLayout currentPath="/guides/newly-diagnosed"><NewlyDiagnosed /></GuideLayout>} />
         <Route path="/treatments/drug-guide" element={<DrugGuideStub />} />
         <Route path="/treatments/surgery-options" element={<SurgeryStub />} />
         <Route path="/treatments/complementary-therapies" element={<ComplementaryTherapiesStub />} />
