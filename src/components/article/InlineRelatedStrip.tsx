@@ -61,7 +61,7 @@ const InlineRelatedStrip = memo(
               <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors leading-snug">
                 {post.title}
               </span>
-              <ArrowRight className="w-4 h-4 text-muted-foreground/50 group-hover:text-primary shrink-0 mt-0.5 group-hover:translate-x-0.5 transition-all" />
+              <ArrowRight aria-hidden="true" className="w-4 h-4 text-muted-foreground group-hover:text-primary shrink-0 mt-0.5 group-hover:translate-x-0.5 transition-all" />
             </Link>
           ))}
         </div>
