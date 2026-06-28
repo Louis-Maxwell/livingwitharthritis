@@ -1,47 +1,74 @@
-# Step 3: Mid-article cross-links + unvisited-aware "People also read"
 
-Goal: catch readers earlier in the scroll and route them onward to articles they haven't seen yet, lifting pages/session and total dwell.
+# Comprehensive Improvement Plan — Phased Execution
 
-## What ships
+Your 6-dimension brief is ~10 weeks of work. I won't try to ship it in one turn — that produces shallow changes across the board. Instead I'll execute it phase-by-phase, starting with **Phase 1 (Critical)** which I can complete now. After each phase you approve the next.
 
-### 1. Mid-article inline related strip
-- New component `src/components/article/InlineRelatedStrip.tsx` — compact 2-card horizontal strip ("Keep reading on this topic") styled lighter than the end-of-article `RelatedArticles` so it doesn't feel like the article has ended.
-- Injected into `src/pages/BlogPost.tsx` after the **first `<h2>`** in the rendered article HTML. Implementation: split the sanitized HTML on the first `</h2>`, render part A, mount the strip, render part B. Falls back to no-op if the article has no `<h2>`.
-- Pulls 2 candidates from `useRelatedArticles` (already cluster-scored), excluding any slugs about to appear in the end-of-article block.
-- Fires GA4 `inline_related_click` with `{ position: "mid_article", target_slug }`.
+## Assumption
+You want me to start with Phase 1 and return for approval before Phase 2. Tell me if you'd rather I batch Phases 1+2 together or reorder.
 
-### 2. Unvisited-aware "People also read"
-- New helper `src/lib/visitedArticles.ts`:
-  - `markVisited(slug)` — writes to `localStorage` key `lwa.visited.v1` (capped at last 200 slugs, FIFO).
-  - `getVisited(): Set<string>` — safe read with try/catch.
-  - `filterUnvisited(items, currentSlug)` — drops current + already-visited.
-- `src/pages/BlogPost.tsx` calls `markVisited(slug)` on mount (after 5s dwell to avoid bounces inflating the set).
-- Extend `src/components/RelatedArticles.tsx`:
-  - New optional prop `preferUnvisited?: boolean` (default `true` when used on `BlogPost`).
-  - When true, partition candidates into unvisited vs visited; render unvisited first, then top up from visited only if fewer than 4 remain. Never hides the section entirely.
-  - Eyebrow chip on unvisited cards switches to "New to you" (subtle, same colour token).
-- Fires GA4 `related_click` with `{ unvisited: true|false }`.
+---
 
-### 3. Analytics
-- Add the two events to `src/lib/analytics.ts` event taxonomy comment (no schema file exists).
-- Document in `docs/BOUNCE-RATE-AUDIT.md`: new metric "unvisited CTR" = clicks on unvisited cards ÷ impressions, target ≥ 8%.
+## PHASE 1 — CRITICAL (this execution)
 
-## Files touched
+Scope chosen because these items are (a) shippable from code, (b) don't need external services, and (c) unblock everything else.
 
-- New: `src/components/article/InlineRelatedStrip.tsx`, `src/lib/visitedArticles.ts`
-- Edited: `src/pages/BlogPost.tsx`, `src/components/RelatedArticles.tsx`, `src/lib/analytics.ts`, `docs/BOUNCE-RATE-AUDIT.md`
+### 1.1 Broken-link / 404 sweep
+- Run `node scripts/audit-sitemap.mjs https://livingwitharthritis.org.uk` against the live site.
+- Cross-reference `.preflight-reports/audit-sitemap-report.json` with `src/App.tsx` routes.
+- Fix: missing routes → add lazy route + page stub; dead sitemap entries → remove from `public/sitemap.xml` + localized sitemaps.
 
-## Out of scope (saved for step 4+)
+### 1.2 Accessibility — WCAG 2.1 AA pass on shared chrome
+Targeted, not site-wide (site-wide audit = Phase 4). Focus on components rendered on every route:
+- `Header.tsx`, `Footer.tsx`, `StickyDonateBar.tsx`, `LanguageSwitcher.tsx`, mega-menu.
+- Checks: icon-only button labels, single `<main>`, focus-visible rings, 44×44 tap targets, color-contrast tokens, `aria-hidden` + focusable conflicts (already fixed on donate bar — verify others), keyboard nav for mega menu close.
+- Drive Playwright headless against `localhost:8080` to capture before/after screenshots at mobile + desktop viewports.
 
-- Pagination experiment, interactive widgets, audio playback, exit-intent — those are later steps in `.lovable/plan.md`.
-- No changes to `useRelatedArticles` scoring; reuse as-is.
-- No backend/Supabase work; `visitedArticles` is local-only and privacy-safe (no PII, no sync).
+### 1.3 Security headers + CSP audit
+- Review `public/_headers` for: `Strict-Transport-Security`, `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy`, `Permissions-Policy`, `Content-Security-Policy` (allow GA4, Stripe, Supabase, Unsplash, Resend pixel).
+- Add any missing; tighten CSP without breaking GA4/Stripe (per existing `tech/seo/analytics` memory).
 
-## Risk / guardrails
+### 1.4 Edge function input validation spot-check
+Confirm every public edge function under `supabase/functions/` that accepts a body uses `parseWithSchema` from `_shared/validation.ts`. Patch the ones that don't (likely: `submit-contact`, `submit-fundraising`, `book-appointment`, `request-buddy-match`, `confirm-newsletter`).
 
-- HTML split on first `</h2>` runs after `sanitize()` so it can't introduce XSS.
-- Inline strip lazy-loaded via existing `DeferredMount` to protect LCP.
-- `localStorage` writes wrapped in try/catch (Safari private mode, quota errors).
-- Strip is hidden when fewer than 2 related candidates exist — never shows a half-empty row.
+### 1.5 Dependency vulnerability scan
+- Run `code--dependency_scan`. Patch any high/critical via `bun update <pkg>`.
 
-Expected lift: +20–40s median dwell on articles with a mid-article strip, +0.2–0.4 pages/session from unvisited bias.
+### 1.6 Rate limiting — scoped clarification
+Workspace policy (`no-backend-rate-limiting`): backend has no standard rate-limit primitive. The `_shared/rate-limiter.ts` in-memory limiter is **per-instance only** and resets on cold start — not a real limit. I will NOT add ad-hoc limits unless you explicitly confirm that tradeoff. Default = leave as-is and document the gap in `docs/SITE-AUDIT-2026.md`.
+
+### Deliverables
+- Code patches + Playwright screenshots inline.
+- Updated `docs/SITE-AUDIT-2026.md` with: findings table, what was fixed, what was deferred and why.
+- `seo_chat--update_findings` calls for anything that maps to existing SEO findings.
+
+---
+
+## PHASES 2–6 (queued, ~1 turn each on approval)
+
+| Phase | Focus | Key deliverables |
+|---|---|---|
+| 2. Performance | LCP, lazy loading, bundle | `vite-imagetools` for hero/landing, route-level `React.lazy` audit, manual chunks review, PSI rerun |
+| 3. Content QA | Metadata + freshness | Unique-meta-description sweep across 200+ articles, `Last updated` audit, dead internal-link check |
+| 4. Testing | Vitest + Playwright | Lift coverage on `src/hooks` + `src/lib`, E2E for donate / contact / search flows, wire into existing `e2e/` |
+| 5. Monitoring | Sentry + uptime | Sentry already connected — add release tagging, sourcemaps, `ErrorBoundary` reporting; document UptimeRobot setup (external) |
+| 6. Ongoing | Cadence | Weekly/monthly checklist committed to `docs/MAINTENANCE.md` |
+
+---
+
+## What I will NOT do without explicit go-ahead
+- Add Redis / read replicas / WAF / CDN swap (infra outside Lovable Cloud — needs your account + budget).
+- Add a backend rate limiter (see 1.6).
+- Add PWA / service worker (per workspace PWA default).
+- Add dark mode (no user demand stated; would clash with the locked black-on-white palette in memory).
+- Run Copyscape / Grammarly API audits (paid third-party, not wired up).
+
+---
+
+## Technical notes
+- All edits stay in frontend/presentation + edge-function validation. No schema migrations in Phase 1.
+- Canonical/SEO work continues using the existing `SeoDefaults` + `CanonicalEnforcer` pattern — no new abstractions.
+- Verification: build runs automatically; I'll additionally run `tsgo` typecheck and a Playwright smoke against `localhost:8080` before reporting back.
+
+---
+
+**Approve to start Phase 1**, or tell me to (a) reorder, (b) batch 1+2, or (c) drop/add items from the Phase 1 list above.
