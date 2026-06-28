@@ -20,7 +20,7 @@ import DeferredMount from "@/components/DeferredMount";
 
 // OAHero stays eager — required for LCP.
 import OAHero from "@/components/landing/OAHero";
-import VisitorStats from "@/components/VisitorStats";
+
 import { VISITOR_STATS_SNIPPET } from "@/config/visitorStats";
 
 // Q1: Lazy-load every sub-section to reduce first-paint JS cost.
@@ -197,8 +197,6 @@ function HomePage() {
           {/* 01 — Editorial hero */}
           <OAHero />
 
-          {/* Visitor stats — visible trust signal directly under hero image */}
-          <VisitorStats variant="band" />
 
 
           {/* 02 — Beginner journey chooser */}
