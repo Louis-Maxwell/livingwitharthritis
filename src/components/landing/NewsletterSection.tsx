@@ -31,6 +31,7 @@ const NewsletterSection = memo(() => {
       } else {
         toast.success("Welcome! You'll receive our next update soon.");
         setIsSubscribed(true);
+        trackNewsletterSignup({ location: "landing_section" });
       }
       setEmail("");
     } catch {
