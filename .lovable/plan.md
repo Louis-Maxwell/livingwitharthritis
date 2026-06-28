@@ -1,55 +1,42 @@
-## The benchmarking gap
+## Goal
+Lift pages/session (currently 1.15, bounce 88%) by ensuring every `/guides/*` page ends with two onward-journey blocks: **Related guides** (peer pillar pages in the same cluster) and **Next read** (curated next article).
 
-Semrush UK database, livingwitharthritis.org.uk vs versusarthritis.org:
+## Scope: 23 guide routes
+Already wrapped in `GuideLayout` (gets `NextReadStrip` automatically, but no Related-guides block):
+- frailty-management-hub, sarcopenia-muscle-loss, preventative-msk-health, bone-density-osteoporosis, fall-prevention-older-adults, musculoskeletal-health, disability-support, newly-diagnosed
 
-| Metric | You | Versus Arthritis | Gap |
-|---|---|---|---|
-| Organic keywords | 49 | 323 | 6.6× |
-| Est. organic traffic | 0/mo | 498/mo | — |
-| Authority Score | 0/100 | 32/100 | 32 pts |
-| Referring domains | 3 | 9,811 | 3,270× |
+Standalone guide pages with NO Header/Footer/NextRead/Related blocks:
+- uk-arthritis, health-services, diet, exercise, arthritis-pain-relief, can-exercise-make-osteoarthritis-worse, benefits-pip, knee-replacement-surgery, steroids-for-arthritis, azathioprine-for-arthritis, febuxostat-for-gout, painkillers-and-nsaids
 
-Authority Score 0 means new pages take months to rank — that's why even strong content isn't pulling traffic yet. The fastest unlock is **targeting the specific high-traffic pages competitors own** with better, more current versions, while we build authority in parallel.
+Stubs (insurance-coverage, work-with-arthritis, travel-with-arthritis): include in same layout pass.
 
-## What I'll build
+## Approach
 
-### 1. Five competitor-gap pages (highest traffic concentration on versusarthritis.org)
+### 1. New component `src/components/guides/RelatedGuidesBlock.tsx`
+Takes `currentPath` and renders a 3-card grid of peer guides drawn from a typed registry. Cards: title, 1-line description, eyebrow cluster label, arrow CTA. Uses existing design tokens (white bg, black text, red accent), `aria-label`, semantic `<nav>`.
 
-Each follows the existing pillar template (AnswerBox, FAQPage schema, MedicalReviewBadge, internal cluster links):
+### 2. New registry `src/lib/guideRegistry.ts`
+Single source of truth for all 23 guides:
+```ts
+{ path, title, description, cluster: 'medication'|'msk'|'lifestyle'|'support'|'surgery' }
+```
+`getRelatedGuides(currentPath, limit=3)` returns peers in the same cluster, falling back to cross-cluster top picks if fewer than 3.
 
-1. `/treatments/drugs/azathioprine` — competitor's #1 traffic page (33.7% share, pos 8). We already have `AzathioprineGuide`; promote it into the `/treatments/drugs/` namespace with stronger schema + redirect old slug.
-2. `/treatments/drugs/steroids-for-arthritis` — 14 keywords, pos 2 for competitor.
-3. `/treatments/drugs/febuxostat-gout` — 3 keywords, pos 2 (gout/uric acid intent — a cluster we don't own).
-4. `/treatments/painkillers-and-nsaids` — 6 keywords, branded pain-relief intent.
-5. `/exercises/neck-arthritis-exercises` — already shipped last turn; cross-link into this cluster and add a sibling `/exercises/foot-and-ankle-arthritis-exercises` (matches competitor's foot/ankle surgery traffic with a conservative-care angle).
+### 3. Extend `GuideLayout`
+Render `<RelatedGuidesBlock currentPath={...} />` directly above the existing `<NextReadStrip />`. Order on page: article content → Related guides → Next read → Footer. This gives two distinct onward CTAs (peer pillars vs. mixed content).
 
-### 2. Authority-building fixes (close the AS 0 → meaningful score gap)
+### 4. Route the 12+ standalone guides through `GuideLayout`
+Wrap them in `App.tsx` exactly like the 8 already converted, so they inherit Header, Footer, Related guides and Next read in one move. Remove the now-duplicate Header/Footer JSX from each standalone guide page body to avoid double chrome.
 
-- Add `sameAs` links to Maxwell's HCPC register + LinkedIn in the existing `Person` JSON-LD (medical-authors.json) — biggest E-E-A-T signal we're missing.
-- Add `citation` arrays to the 5 new pages pointing at NICE/Cochrane/PubMed — Google uses these for medical YMYL trust.
-- Add `MedicalCondition` schema cross-references between the new drug pages and existing condition pages (gout ↔ febuxostat, RA ↔ azathioprine, etc.).
+### 5. QA
+- Visit 3 representative guides in Playwright (medication, lifestyle, support) → screenshot to confirm both blocks render and links resolve.
+- Verify no duplicated Header/Footer.
+- Spot-check no console errors and that lazy chunks still load.
 
-### 3. Internal link mesh
+## Out of scope
+- Visual redesign of guide bodies.
+- New content writing — registry uses each guide's existing title/description.
+- Condition / blog / exercise pages (separate templates already have related links).
 
-Update `src/lib/relatedClusters.ts` so each new drug page links to: (a) the condition it treats, (b) sibling drugs, (c) the relevant exercise/diet pillar. This is the lever that lifted versusarthritis.org's steroids page from 1 keyword to 14.
-
-### 4. Sitemap + rescan
-
-- Register all new routes in `src/App.tsx`.
-- Add to `public/sitemap.xml` with current `lastmod`.
-- Trigger an SEO rescan so the platform re-benchmarks.
-
-## Out of scope (need separate decisions)
-
-- **Backlinks (3 → 9,811 gap)** — can't be solved in code. Needs an outreach plan; happy to draft one separately.
-- **Paid-search benchmarking** — would need the Semrush connector wired into the app.
-- **Live competitor monitoring dashboard** — same; flag if you want it.
-
-## Technical notes
-
-- All new pages use existing `BlogPost`/pillar templates, `MedicalReviewBadge`, `SeoDefaults`, and the FAQ/HowTo JSON-LD helpers in `src/lib/jsonLd.ts` — no new dependencies.
-- Drug pages carry a clear "not medical advice — consult prescriber" disclaimer (matches existing tone, satisfies YMYL).
-- No copy mentioning NHS, per project memory.
-- Old `/blog/azathioprine-guide` URL gets a 301 entry in `src/data/blogRedirects.ts`.
-
-Approve and I'll implement, then trigger the SEO rescan.
+## Expected impact
+Two onward links per page lift pages/session from ~1.15 toward 1.6–2.0 on guide entries, and reduce single-page exits on the highest-intent pillar URLs.
