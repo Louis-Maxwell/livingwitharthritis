@@ -1,57 +1,30 @@
 ## Goal
-Verify the MAP design system (cream `#F8F2EA` bg, MAP red `#EE2737`, Anton uppercase headlines, sharp CTAs, MAP type scale) is applied consistently on every page and template — no leftover blue/indigo accents, no `Inter`/`Poppins` headlines, no rounded-pill primary buttons.
+Make the community benefits bars (and other accent-coloured UI) visibly colourful again.
 
-## Audit Method
+## Root cause
+In `src/index.css`, the accent tokens used by charts, icon circles, and benefit bars were all collapsed to the MAP red during the brand refresh:
+```
+--amber:   354 85% 54%;
+--emerald: 354 85% 54%;
+--sky:     354 85% 54%;
+--violet:  354 85% 54%;
+```
+So every bar/donut segment renders the same red, even though `CommunityHub.tsx` already passes `--emerald / --sky / --violet / --amber` per item.
 
-### 1. Static codebase sweep (`rg`)
-Catch hardcoded values that bypass the design tokens:
-- Color leaks: `bg-(blue|indigo|purple|emerald|sky|violet|teal)-`, `text-(blue|indigo|...)-`, raw hex like `#[0-9a-f]{6}` outside `index.css`, `bg-white` / `text-black` literals.
-- Typography leaks: `font-sans` applied to headings, `font-(serif|mono)` on display copy, hardcoded `Inter`/`Poppins`/`Playfair` references, `text-5xl|6xl|7xl` on non-heading elements that fight the global h1/h2 clamp.
-- CTA leaks: `rounded-full` / `rounded-2xl` on `<Button>` or `<a class*="btn-">`, ad-hoc `bg-primary` buttons missing uppercase/tracking.
-- Token bypasses: inline `style={{ color: ... }}`, `!important` color overrides.
+## Fix
+Restore distinct, MAP-palette-friendly hues for the accent tokens (kept warm so they sit on the cream background and beside the red primary without clashing):
 
-Output a categorized list of offending files + line numbers.
+- `--emerald` → `158 64% 40%` (deep green)
+- `--sky`     → `199 78% 46%` (clear blue)
+- `--violet`  → `262 60% 55%` (royal violet)
+- `--amber`   → `38 92% 50%` (warm amber)
 
-### 2. Tailwind/CSS token verification
-- Re-read `src/index.css` to confirm `--background`, `--primary`, `--foreground`, `--secondary` resolve to MAP values in both `:root` and `.dark`.
-- Confirm `tailwind.config.ts` `font-display` → Anton, `font-anton` token present.
-- Confirm global `h1`/`h2`/`h3` rules + `.eyebrow`, `.clip-octagon`, `.clip-octagon-soft`, `.band-red`, `.btn-map` are intact.
+Apply the same values in both `:root` and any dark overrides. Leave `--primary` (MAP red) untouched so headings, CTAs, and red accents are unaffected.
 
-### 3. Rendered Playwright pass
-Boot the running dev server and screenshot a representative slice at 1280×1800:
-- `/` (landing)
-- `/conditions/osteoarthritis` (condition template)
-- `/guides/frailty-management-hub` (guide template)
-- `/blog/knee-osteoarthritis-exercises` (blog template)
-- `/diet/foods-to-avoid-with-arthritis` (diet template)
-- `/exercises` (hub)
-- `/about/ai-transparency` (about template)
-- `/ai` (AiHub)
-- `/donate` and `/contact` (conversion)
-- 404 page
+## Files
+- `src/index.css` — update the four accent token values (lines ~42, 60–62).
 
-For each screenshot, sample computed styles via `page.evaluate`:
-- `body` background color → expect `rgb(248, 242, 234)` cream
-- First `h1` `font-family` → expect Anton; `text-transform` → uppercase; `font-size` within clamp range
-- First primary `button` → `border-radius: 0px`, `text-transform: uppercase`, `background-color: rgb(238, 39, 55)`
-- Any element whose color is in the forbidden indigo/blue range — flag
-
-### 4. Report
-Produce `docs/MAP-STYLE-AUDIT.md` with:
-- Pass/fail per page (color, type, CTA shape, eyebrow usage, octagon imagery)
-- Ranked list of files that still need cleanup, grouped by issue class
-- Concrete next-edit suggestions (e.g. "replace `rounded-full` on `src/components/X.tsx:42`")
-
-## Out of Scope
-- No fixes in this pass — audit only. A follow-up plan will batch the remediations once the offender list is known.
-- No content, routing, SEO, or backend changes.
-
-## Verification of the audit itself
-- `rg` results captured to file under `/tmp/audit/`.
-- All Playwright screenshots saved under `/tmp/browser/map-audit/screenshots/` and referenced in the report.
-- Computed-style assertions logged as JSON next to each screenshot.
-
-## Technical Notes
-- Pure read-only audit: `rg`, `code--view`, Playwright in headless Chromium.
-- Use the running dev server on `localhost:8080`; do not restart.
-- Report lives in `docs/` so it's reviewable in the repo and can drive the next remediation plan.
+## Verification
+- Reload `/community`: the four bars and the donut chart show green / blue / violet / amber.
+- `tsgo --noEmit` + `bun run build` clean.
+- Spot-check other pages using `btn-emerald`, `icon-circle-sky`, etc. to confirm they pick up the new hues.
