@@ -48,3 +48,35 @@ export const trackEvent = (
     /* analytics must never break UX */
   }
 };
+
+/**
+ * GA4-recommended `generate_lead` conversion event for newsletter signups.
+ * Marked as a key event in GA4 → Admin → Events.
+ */
+export const trackNewsletterSignup = (opts: {
+  location: string;
+  interests?: number;
+}): void => {
+  trackEvent("generate_lead", {
+    method: "newsletter",
+    location: opts.location,
+    interests: opts.interests ?? 0,
+    value: 1,
+    currency: "GBP",
+  });
+};
+
+/**
+ * GA4 conversion event for successful contact form submissions.
+ * Also mirrors as `generate_lead` so a single key event can cover both.
+ */
+export const trackContactSubmit = (opts: { topic?: string } = {}): void => {
+  const params = {
+    method: "contact_form",
+    topic: opts.topic ?? "general",
+    value: 1,
+    currency: "GBP",
+  };
+  trackEvent("contact_form_submit", params);
+  trackEvent("generate_lead", { ...params, method: "contact" });
+};
