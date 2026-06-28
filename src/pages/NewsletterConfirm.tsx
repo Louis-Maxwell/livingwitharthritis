@@ -5,6 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import Header from "@/components/Header";
 import PageHero from "@/components/ui/PageHero";
 import { CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 const NewsletterConfirm = () => {
   const [params] = useSearchParams();
