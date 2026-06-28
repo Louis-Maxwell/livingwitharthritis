@@ -1461,4 +1461,42 @@
     color: hsl(var(--primary-foreground));
   }
   .band-red h1, .band-red h2, .band-red h3, .band-red p, .band-red li { color: hsl(var(--primary-foreground)); }
+
+  /* Softer octagon for inline cards / thumbnails */
+  .clip-octagon-soft {
+    clip-path: polygon(8% 0%, 92% 0%, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0% 92%, 0% 8%);
+  }
+
+  /* MAP eyebrow — small red kicker above headings */
+  .eyebrow {
+    font-family: 'Anton', 'Montserrat', system-ui, sans-serif;
+    font-size: 0.8125rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: hsl(var(--primary));
+    display: inline-block;
+    line-height: 1;
+  }
+  .eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 2px;
+    background: hsl(var(--primary));
+    vertical-align: middle;
+    margin-right: 0.75rem;
+    transform: translateY(-2px);
+  }
+
+  /* MAP-style primary CTA — align legacy class with MAP aesthetic */
+  .btn-primary-cta,
+  .btn-secondary-cta,
+  .btn-gold,
+  .btn-premium {
+    border-radius: 0 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-weight: 800;
+  }
 }
