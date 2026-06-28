@@ -46,6 +46,7 @@ const NewsletterHeroBanner = memo(() => {
         });
       if (error && error.code !== "23505") throw error;
       trackEmailSignup(selected.join(",") || "general", "hero_banner");
+      trackNewsletterSignup({ location: "hero_banner", interests: selected.length });
       setDone(true);
       setEmail("");
       toast.success("Thanks — check your inbox to confirm.");
