@@ -3,6 +3,7 @@ import { Mail, ArrowRight, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { trackEmailSignup } from "@/lib/ga-events";
+import { trackNewsletterSignup } from "@/lib/analytics";
 
 type PrefKey = "exercise" | "flare" | "recipes" | "research";
 const PREFS: { key: PrefKey; label: string }[] = [
