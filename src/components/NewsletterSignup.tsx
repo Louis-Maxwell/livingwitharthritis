@@ -102,16 +102,12 @@ export default function NewsletterSignup({
     }
 
     setStatus("success");
-    // Fire a GA event if available.
-    try {
-      (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.(
-        "event",
-        "newsletter_signup",
-        { source, interests: categories.join(",") || "general" },
-      );
-    } catch {
-      // no-op
-    }
+    // Legacy custom event (kept for existing dashboards) + canonical GA4 conversion.
+    trackEvent("newsletter_signup", {
+      source,
+      interests: categories.join(",") || "general",
+    });
+    trackNewsletterSignup({ location: source, interests: categories.length });
   };
 
   if (status === "success") {
