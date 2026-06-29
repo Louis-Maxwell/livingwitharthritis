@@ -240,6 +240,21 @@ const queryClient = new QueryClient({
 function AnimatedRoutes() {
   const location = useLocation();
 
+  // GA4 SPA pageview tracker — fires `page_view` on every route change.
+  // The initial pageview is sent by gtag('config') in index.html; this
+  // handler covers all subsequent client-side navigations so multi-page
+  // sessions are recorded correctly in GA4 (and not collapsed to 1).
+  useEffect(() => {
+    const w = window as unknown as { gtag?: (...a: unknown[]) => void };
+    if (typeof w.gtag !== "function") return;
+    w.gtag("event", "page_view", {
+      page_path: location.pathname + location.search,
+      page_location: window.location.href,
+      page_title: document.title,
+      send_to: "G-X8GTW05JJS",
+    });
+  }, [location.pathname, location.search]);
+
   return (
     <PageTransition key={location.pathname}>
       <Routes location={location}>
