@@ -58,6 +58,12 @@ const ImpactFactBand = lazy(() => import("@/components/landing/ImpactFactBand"))
 const ImpactProgressBand = lazy(() => import("@/components/landing/ImpactProgressBand"));
 const FinalDonateBand = lazy(() => import("@/components/landing/FinalDonateBand"));
 
+// MAP-inspired landing sections
+const HowYouCanHelp = lazy(() => import("@/components/landing/HowYouCanHelp"));
+const ImpactStats = lazy(() => import("@/components/landing/ImpactStats"));
+const WhatWeDo = lazy(() => import("@/components/landing/WhatWeDo"));
+const LatestGrid = lazy(() => import("@/components/landing/LatestGrid"));
+
 const SITE_URL = "https://livingwitharthritis.org.uk";
 
 const SectionFallback = () => <div className="h-32" aria-hidden="true" />;
@@ -210,25 +216,34 @@ function HomePage() {
             <JointSelector />
           </Suspense>
 
-          {/* 04 — Why we exist (problem + national stats merged) */}
+          {/* 04 — How you can help (MAP-style mosaic) */}
+          <Suspense fallback={<SectionFallback />}>
+            <HowYouCanHelp />
+          </Suspense>
+
+          {/* 05 — Our impact (MAP-style stat blocks) */}
+          <Suspense fallback={<SectionFallback />}>
+            <ImpactStats />
+          </Suspense>
+
+          {/* 06 — What we do (MAP-style three-up) */}
+          <Suspense fallback={<SectionFallback />}>
+            <WhatWeDo />
+          </Suspense>
+
+          {/* 07 — Why we exist */}
           <Suspense fallback={<SectionFallback />}>
             <OAProblemBand />
-            <HeroStatsStrip />
           </Suspense>
 
-          {/* 05 — Four pillars (Move/Eat/Rest/Connect) */}
-          <Suspense fallback={<SectionFallback />}>
-            <OAPlanPillarsSection />
-          </Suspense>
-
-          {/* 06 — Real stories */}
+          {/* 08 — Real stories */}
           <Suspense fallback={<SectionFallback />}>
             <FacesStrip />
           </Suspense>
 
-          {/* 07 — Featured guides */}
+          {/* 09 — Latest articles (MAP-style grid) */}
           <Suspense fallback={<SectionFallback />}>
-            <BlogPreview />
+            <LatestGrid />
           </Suspense>
 
           {/* 08 — Conditions overview (cards + pill links merged) */}
