@@ -26,92 +26,117 @@ const trackClick = (channel: string) => {
  * shared GA tracking. Uses brand red token for the band itself; channel
  * cards use card surface so the band reads scannably on any page.
  */
+type Channel = {
+  Icon: typeof Phone;
+  eyebrow: string;
+  value: string;
+  sub: string;
+  href: string;
+  external?: boolean;
+  track: string;
+};
+
+const channels: Channel[] = [
+  {
+    Icon: Phone,
+    eyebrow: "Call",
+    value: CONTACT_PHONE,
+    sub: "Mon–Fri, 9am–5pm",
+    href: `tel:${CONTACT_PHONE_TEL}`,
+    track: "phone",
+  },
+  {
+    Icon: Mail,
+    eyebrow: "Email",
+    value: CONTACT_EMAILS.info,
+    sub: "Reply within 2 working days",
+    href: `mailto:${CONTACT_EMAILS.info}`,
+    track: "email",
+  },
+  {
+    Icon: MessageCircle,
+    eyebrow: "WhatsApp",
+    value: "Chat with us",
+    sub: "Fast, friendly replies",
+    href: WHATSAPP_URL,
+    external: true,
+    track: "whatsapp",
+  },
+  {
+    Icon: MessageSquare,
+    eyebrow: "Contact form",
+    value: "Send a message",
+    sub: "We’ll get back to you",
+    href: "/contact",
+    track: "form",
+  },
+];
+
 export default function HelplineWidget() {
   return (
     <section
       aria-labelledby="helpline-heading"
       className="bg-primary text-primary-foreground"
     >
-      <div className="container mx-auto px-4 md:px-6 py-10 md:py-12 max-w-6xl">
-        <div className="text-center mb-8">
+      <div className="container mx-auto px-4 md:px-6 py-12 md:py-16 max-w-6xl">
+        <div className="text-center mb-10">
           <h2
             id="helpline-heading"
-            className="font-display text-2xl md:text-3xl font-black tracking-tight"
+            className="font-display text-3xl md:text-4xl font-black tracking-tight"
           >
             We’re here to help
           </h2>
-          <p className="mt-2 text-sm md:text-base text-primary-foreground/90 max-w-2xl mx-auto">
+          <p className="mt-3 text-sm md:text-base text-primary-foreground/90 max-w-2xl mx-auto">
             A real person — not a chatbot — replies within 2 working days.
             Available Monday to Friday, 9am – 5pm.
           </p>
         </div>
 
-        <ul className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
-          <li>
-            <a
-              href={`tel:${CONTACT_PHONE_TEL}`}
-              onClick={() => trackClick("phone")}
-              className="flex flex-col items-center text-center gap-2 p-4 md:p-5 rounded-xl bg-background text-foreground hover:bg-background/95 transition-colors h-full"
-            >
-              <Phone className="w-6 h-6 text-primary" aria-hidden />
-              <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                Call
-              </span>
-              <span className="font-bold text-sm md:text-base text-foreground">
-                {CONTACT_PHONE}
-              </span>
-            </a>
-          </li>
-
-          <li>
-            <a
-              href={`mailto:${CONTACT_EMAILS.info}`}
-              onClick={() => trackClick("email")}
-              className="flex flex-col items-center text-center gap-2 p-4 md:p-5 rounded-xl bg-background text-foreground hover:bg-background/95 transition-colors h-full"
-            >
-              <Mail className="w-6 h-6 text-primary" aria-hidden />
-              <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                Email
-              </span>
-              <span className="font-semibold text-xs md:text-sm break-all">
-                {CONTACT_EMAILS.info}
-              </span>
-            </a>
-          </li>
-
-          <li>
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackClick("whatsapp")}
-              className="flex flex-col items-center text-center gap-2 p-4 md:p-5 rounded-xl bg-background text-foreground hover:bg-background/95 transition-colors h-full"
-            >
-              <MessageCircle className="w-6 h-6 text-primary" aria-hidden />
-              <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                WhatsApp
-              </span>
-              <span className="font-bold text-sm md:text-base">
-                Chat with us
-              </span>
-            </a>
-          </li>
-
-          <li>
-            <Link
-              to="/contact"
-              onClick={() => trackClick("form")}
-              className="flex flex-col items-center text-center gap-2 p-4 md:p-5 rounded-xl bg-background text-foreground hover:bg-background/95 transition-colors h-full"
-            >
-              <MessageSquare className="w-6 h-6 text-primary" aria-hidden />
-              <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                Contact form
-              </span>
-              <span className="font-bold text-sm md:text-base">
-                Send a message
-              </span>
-            </Link>
-          </li>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+          {channels.map(({ Icon, eyebrow, value, sub, href, external, track }) => {
+            const cardClass =
+              "group relative flex flex-col items-center text-center gap-3 p-6 rounded-2xl bg-white text-foreground shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full focus:outline-none focus-visible:ring-4 focus-visible:ring-white/60";
+            const inner = (
+              <>
+                <span
+                  className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300"
+                  aria-hidden
+                >
+                  <Icon className="w-7 h-7 text-primary group-hover:text-white transition-colors" />
+                </span>
+                <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-muted-foreground">
+                  {eyebrow}
+                </span>
+                <span className="font-bold text-sm md:text-base text-foreground break-words leading-snug">
+                  {value}
+                </span>
+                <span className="text-xs text-muted-foreground">{sub}</span>
+              </>
+            );
+            return (
+              <li key={eyebrow}>
+                {external ? (
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackClick(track)}
+                    className={cardClass}
+                  >
+                    {inner}
+                  </a>
+                ) : href.startsWith("/") ? (
+                  <Link to={href} onClick={() => trackClick(track)} className={cardClass}>
+                    {inner}
+                  </Link>
+                ) : (
+                  <a href={href} onClick={() => trackClick(track)} className={cardClass}>
+                    {inner}
+                  </a>
+                )}
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>
