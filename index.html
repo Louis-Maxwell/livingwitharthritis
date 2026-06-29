@@ -66,13 +66,14 @@
           var block = /(sogou|baidu|yisou|360spider|haosou|bytespider|petalbot|mj12bot|dotbot|blexbot|dataforseo|seekport|serpstat|zoominfo|diffbot|gptbot|ccbot|claude|anthropic|perplexity|imagesift|omgili|headlesschrome|phantomjs|puppeteer|selenium|playwright|crawler|spider|\bbot\b|yandex|naver|qwant|archive\.org|ia_archiver|wayback|lighthouse|pagespeed|gtmetrix|pingdom|uptimerobot|statuscake|monitor|scrape|\bcurl\b|wget|python-requests|axios|node-fetch|go-http|okhttp|java\/|ruby|apache-httpclient|postman|insomnia|chrome-lighthouse|screaming\s?frog|httpclient|libwww|lwp::)/i;
           var uaBot = !allow.test(rawUa) && block.test(ua);
 
-          // Headless / automation signal checks (GA4 catches these via IVT lists).
+          // Headless / automation signal checks. Keep these CONSERVATIVE — false
+          // positives here silently break GA4 for real humans (Firefox/Safari
+          // desktop both legitimately report 0 plugins; some privacy modes
+          // report empty languages; zero-sized windows happen during prerender).
+          // navigator.webdriver is the only signal reliable enough to act on.
           var signalBot = false;
           try {
             if (navigator.webdriver === true) signalBot = true;
-            if (navigator.languages && navigator.languages.length === 0) signalBot = true;
-            if (window.outerWidth === 0 || window.outerHeight === 0) signalBot = true;
-            if (navigator.plugins && navigator.plugins.length === 0 && !/Mobi|Android/i.test(rawUa)) signalBot = true;
           } catch(e) {}
 
           var isBot = uaBot || signalBot;
