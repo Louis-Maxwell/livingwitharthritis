@@ -1,30 +1,45 @@
 ## Goal
-Make the community benefits bars (and other accent-coloured UI) visibly colourful again.
+Bring the MAP-inspired layout from the reference (HOW YOU CAN HELP / OUR IMPACT / WHAT WE DO / LATEST) to the homepage, with strong readability: large Anton headlines, dark body copy on cream surfaces, no faded greys.
 
-## Root cause
-In `src/index.css`, the accent tokens used by charts, icon circles, and benefit bars were all collapsed to the MAP red during the brand refresh:
-```
---amber:   354 85% 54%;
---emerald: 354 85% 54%;
---sky:     354 85% 54%;
---violet:  354 85% 54%;
-```
-So every bar/donut segment renders the same red, even though `CommunityHub.tsx` already passes `--emerald / --sky / --violet / --amber` per item.
+## Sections to add/refresh on `/` (in order)
 
-## Fix
-Restore distinct, MAP-palette-friendly hues for the accent tokens (kept warm so they sit on the cream background and beside the red primary without clashing):
+1. **HOW YOU CAN HELP** — asymmetric mosaic
+   - Large feature card (image + dark overlay) with "Donate now" headline, supporting paragraph, red MAKE A DONATION button.
+   - Two stacked side cards (thumbnail + headline + 2-line description), e.g. "Join the community", "Take action — share your story".
+   - Cream `#F4ECDE` band, Anton uppercase H2, body text in `foreground` (near-black) at 16px / 1.6 line-height.
 
-- `--emerald` → `158 64% 40%` (deep green)
-- `--sky`     → `199 78% 46%` (clear blue)
-- `--violet`  → `262 60% 55%` (royal violet)
-- `--amber`   → `38 92% 50%` (warm amber)
+2. **OUR IMPACT** — 3 stat blocks
+   - Coloured blocks (teal tint, deep green, MAP red) with white icon badge, huge Anton number, bold sub-label, small description.
+   - Use existing stats (visitors helped, articles published, conditions covered) — no fabricated metrics.
+   - Min contrast AA: white text on red/green, near-black on teal tint.
 
-Apply the same values in both `:root` and any dark overrides. Leave `--primary` (MAP red) untouched so headings, CTAs, and red accents are unaffected.
+3. **WHAT WE DO** — slider rail
+   - Eyebrow + arrow controls, then 2–3 wide cards: image left, headline + underline link + paragraph right.
+   - Pulls from existing pillar guides (Exercise, Diet, Self-help).
 
-## Files
-- `src/index.css` — update the four accent token values (lines ~42, 60–62).
+4. **LATEST** — 3-up press/article grid
+   - Red "Article" cover cards for items without thumbnails; photo cards for those with images.
+   - Date + tag chips beneath title.
+   - Wired to existing `useBlogArticles` top 3.
 
-## Verification
-- Reload `/community`: the four bars and the donut chart show green / blue / violet / amber.
-- `tsgo --noEmit` + `bun run build` clean.
-- Spot-check other pages using `btn-emerald`, `icon-circle-sky`, etc. to confirm they pick up the new hues.
+## Readability fixes (global, applied this pass)
+- Body copy color: bump muted paragraph text from `--muted-foreground` to `--foreground` inside these new sections (no light-grey-on-cream).
+- Minimum body size 16px; section intros 18px.
+- All headlines Anton, tracking-tight, `text-foreground`.
+- Buttons keep sharp MAP red with white text + arrow icon.
+- Fix the visible "Skip to main content" leak (currently shows as a red pill mid-page in your screenshot context) by restoring `sr-only` + `focus:not-sr-only` behaviour.
+
+## Files to touch
+- `src/pages/Index.tsx` — slot the four new sections in place of the current equivalents.
+- New components under `src/components/landing/`:
+  - `HowYouCanHelp.tsx`
+  - `ImpactStats.tsx`
+  - `WhatWeDo.tsx`
+  - `LatestGrid.tsx`
+- `src/index.css` — add `.surface-cream`, `.surface-cream-warm`, ensure `.skip-link` only shows on focus.
+- No data/business-logic changes; uses existing `images.ts`, `guideRegistry.ts`, `useBlogArticles`.
+
+## Out of scope
+- No new routes, no copy rewrites beyond section headings, no changes to header/footer.
+
+Confirm and I'll build it.
