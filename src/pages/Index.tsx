@@ -243,6 +243,17 @@ function HomePage() {
             <FacesStrip />
           </Suspense>
 
+          {/* 08b — Photo break: movement is medicine */}
+          <Suspense fallback={<SectionFallback />}>
+            <PhotoBreak
+              image={diverAsset.url}
+              alt="Aerial black-and-white photograph of a diver mid-air above sparkling water, body fully extended in motion"
+              quote="Motion is lotion — every movement is medicine."
+              attr="Living With Arthritis UK"
+            />
+          </Suspense>
+
+
           {/* 09 — Latest articles (MAP-style grid) */}
           <Suspense fallback={<SectionFallback />}>
             <LatestGrid />
