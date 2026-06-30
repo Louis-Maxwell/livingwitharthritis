@@ -126,6 +126,21 @@ export default function ExercisePlanGenerator() {
   if (step === "joints") {
     return (
       <div className="space-y-6">
+        <div className="rounded-2xl overflow-hidden bg-[#F3E8FF] flex items-center gap-4 p-4 sm:p-6">
+          <img
+            src={strengthIllustration.url}
+            alt="Illustration of a woman in purple workout gear holding dumbbells in front of a mirror"
+            width={400}
+            height={400}
+            loading="lazy"
+            decoding="async"
+            className="w-24 h-24 sm:w-32 sm:h-32 object-contain flex-shrink-0"
+          />
+          <div>
+            <h3 className="text-lg font-bold text-foreground">Build your personalised plan</h3>
+            <p className="text-sm text-muted-foreground mt-1">Tell us about your joints, fitness level and goals — we'll generate a weekly routine.</p>
+          </div>
+        </div>
         <h3 className="text-lg font-bold text-foreground">Step 1: Select Your Affected Joints</h3>
         <p className="text-sm text-muted-foreground">Choose all joints where you experience pain or stiffness.</p>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
