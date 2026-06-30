@@ -63,7 +63,6 @@ const HowYouCanHelp = lazy(() => import("@/components/landing/HowYouCanHelp"));
 const ImpactStats = lazy(() => import("@/components/landing/ImpactStats"));
 const WhatWeDo = lazy(() => import("@/components/landing/WhatWeDo"));
 const LatestGrid = lazy(() => import("@/components/landing/LatestGrid"));
-const PhotoBreak = lazy(() => import("@/components/landing/PhotoBreak"));
 import diverAsset from "@/assets/diver-movement.jpg.asset.json";
 
 const SITE_URL = "https://livingwitharthritis.org.uk";
