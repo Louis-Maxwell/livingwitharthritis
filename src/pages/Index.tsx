@@ -63,6 +63,7 @@ const HowYouCanHelp = lazy(() => import("@/components/landing/HowYouCanHelp"));
 const ImpactStats = lazy(() => import("@/components/landing/ImpactStats"));
 const WhatWeDo = lazy(() => import("@/components/landing/WhatWeDo"));
 const LatestGrid = lazy(() => import("@/components/landing/LatestGrid"));
+import diverAsset from "@/assets/diver-movement.jpg.asset.json";
 
 const SITE_URL = "https://livingwitharthritis.org.uk";
 
@@ -240,6 +241,30 @@ function HomePage() {
           <Suspense fallback={<SectionFallback />}>
             <FacesStrip />
           </Suspense>
+
+          {/* 08b — Photo break: movement is medicine */}
+          <section aria-label="Movement is medicine" className="relative h-[400px] md:h-[480px] overflow-hidden bg-foreground">
+            <img
+              src={diverAsset.url}
+              alt="Aerial black-and-white photograph of a diver mid-air above sparkling water, body fully extended in motion"
+              width={1920}
+              height={1440}
+              loading="lazy"
+              decoding="async"
+              className="h-full w-full object-cover opacity-90"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/30 to-transparent" aria-hidden="true" />
+            <figure className="absolute bottom-0 p-8 md:p-14 max-w-3xl">
+              <blockquote>
+                <p className="font-display text-2xl md:text-4xl font-bold text-primary-foreground leading-tight" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.5)" }}>
+                  &ldquo;Motion is lotion — every movement is medicine.&rdquo;
+                </p>
+              </blockquote>
+              <figcaption className="mt-3 text-sm md:text-base text-primary-foreground/80 font-medium tracking-wide uppercase">Living With Arthritis UK</figcaption>
+            </figure>
+          </section>
+
+
 
           {/* 09 — Latest articles (MAP-style grid) */}
           <Suspense fallback={<SectionFallback />}>

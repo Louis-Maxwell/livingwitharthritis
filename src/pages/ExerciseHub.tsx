@@ -28,6 +28,7 @@ import InternalLinks from "@/components/InternalLinks";
 import ContextualLinks from "@/components/ContextualLinks";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
+import diverAsset from "@/assets/diver-movement.jpg.asset.json";
 import { EXERCISE_ANIMATIONS, type ExerciseAnimationKey } from "@/components/exercises/ExerciseAnimations";
 import AnswerBox from "@/components/seo/AnswerBox";
 import { jointSlugs, jointLabel, conditions as exerciseConditions } from "@/data/exerciseConditionRecommendations";
@@ -237,6 +238,29 @@ const ExerciseHub = () => {
           <span className="flex items-center gap-1.5"><Clock className="w-4 h-4 text-primary" /> 10–20 min routines</span>
         </div>
       </PageHero>
+
+      {/* Editorial photo band — movement as discipline */}
+      <section aria-label="Movement is medicine" className="relative h-[320px] md:h-[420px] overflow-hidden bg-foreground">
+        <img
+          src={diverAsset.url}
+          alt="Aerial black-and-white photograph of a diver mid-air above sparkling water, body fully extended in motion"
+          width={1920}
+          height={1440}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+          className="h-full w-full object-cover opacity-90"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-foreground/70 via-foreground/30 to-transparent" aria-hidden="true" />
+        <figure className="absolute inset-y-0 left-0 flex items-center p-8 md:p-14 max-w-2xl">
+          <blockquote>
+            <p className="font-display text-2xl md:text-4xl font-bold text-primary-foreground leading-tight" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.5)" }}>
+              &ldquo;Motion is lotion. Every stretch, every step, every breath — medicine.&rdquo;
+            </p>
+            <figcaption className="mt-3 text-xs md:text-sm text-primary-foreground/80 font-medium tracking-wider uppercase">Living With Arthritis UK · Exercise Hub</figcaption>
+          </blockquote>
+        </figure>
+      </section>
 
       <main id="main-content">
         <section className="container mx-auto px-6 md:px-10 max-w-3xl pt-8">
