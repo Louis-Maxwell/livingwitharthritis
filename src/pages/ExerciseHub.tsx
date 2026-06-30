@@ -28,6 +28,7 @@ import InternalLinks from "@/components/InternalLinks";
 import ContextualLinks from "@/components/ContextualLinks";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
+import diverAsset from "@/assets/diver-movement.jpg.asset.json";
 import { EXERCISE_ANIMATIONS, type ExerciseAnimationKey } from "@/components/exercises/ExerciseAnimations";
 import AnswerBox from "@/components/seo/AnswerBox";
 import { jointSlugs, jointLabel, conditions as exerciseConditions } from "@/data/exerciseConditionRecommendations";
