@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Download, Dumbbell, CheckCircle } from "lucide-react";
 import { exerciseJointPages } from "@/data/exerciseJointMatrix";
+import strengthIllustration from "@/assets/strength-illustration.jpg.asset.json";
 
 const allJoints = ["knee", "hip", "shoulder", "hand", "back", "ankle"] as const;
 const jointLabels: Record<string, string> = { knee: "Knee", hip: "Hip", shoulder: "Shoulder", hand: "Hand", back: "Back", ankle: "Ankle" };
