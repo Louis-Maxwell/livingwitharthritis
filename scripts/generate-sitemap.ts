@@ -33,6 +33,12 @@ const read = (p: string) => readFileSync(resolve(p), "utf8");
 //   /auth, /admin*, /donation-result, /unsubscribe, /newsletter/confirm,
 //   /sitemap, /site-index, /debug/*
 // /chat (Help & Support) IS public and IS included in the sitemap.
+//
+// Also excluded: ALIAS routes whose canonical <link> points to a different
+// canonical URL. Including these triggers Semrush "incorrect pages in
+// sitemap" (canonical mismatch). Alias route → canonical page:
+//   /conditions/elbow-pain              → /conditions/elbow-arthritis
+//   /conditions/axial-spondyloarthritis → /conditions/ankylosing-spondylitis
 const STATIC_EXCLUDE = new Set([
   "*",
   "/auth",
@@ -50,6 +56,9 @@ const STATIC_EXCLUDE = new Set([
   "/sitemap",
   "/site-index",
   "/buddy/match",
+  // Alias / non-canonical routes (canonical points elsewhere)
+  "/conditions/elbow-pain",
+  "/conditions/axial-spondyloarthritis",
 ]);
 
 // Prefix-based exclusions for entire route trees that must never appear in
@@ -157,8 +166,14 @@ async function blogPosts(): Promise<{ slug: string; lastmod?: string; category?:
       updated_at?: string;
       category?: string;
     }>;
+    // Exclude legacy slugs that redirect to newer canonical slugs — including
+    // them creates canonical mismatches Semrush flags as "incorrect pages".
+    const redirectSrc = read("src/data/blogRedirects.ts");
+    const REDIRECT_SLUGS = new Set(
+      [...redirectSrc.matchAll(/"([^"]+)"\s*:\s*"[^"]+"/g)].map((m) => m[1]),
+    );
     return rows
-      .filter((r) => r.slug)
+      .filter((r) => r.slug && !REDIRECT_SLUGS.has(r.slug))
       .map((r) => ({
         slug: r.slug,
         lastmod: r.updated_at?.slice(0, 10),
