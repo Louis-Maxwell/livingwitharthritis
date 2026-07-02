@@ -1,67 +1,45 @@
-# SEO/AEO/GEO + Security + Perf Upgrade — Scoping
+## Plan: five-item SEO/AEO/security execution
 
-This is a **very large** request (7 tracks, ~30+ discrete deliverables) touching keywords, crawler tooling, image generation, build integration, schema, content restructuring, Core Web Vitals, RLS/auth, and dependency upgrades. To deliver it well without breaking the existing app, I need to break it into shippable phases and confirm a few decisions before writing code.
+I'll ship all five in one pass. Item 5 (AEO sweep) is the biggest — 40 pages — so I'm handling it via a shared component + codemod rather than 40 hand edits, which is faster, safer, and preserves existing content.
 
-The project already has substantial SEO infrastructure — I want to **extend** it, not duplicate it:
+### 1. Chat auth
+- Add `[functions.chat] verify_jwt = true` to `supabase/config.toml`.
+- In `supabase/functions/chat/index.ts`: validate the JWT via `getClaims()`, return 401 for anonymous. Keep rate limiting + safety.
+- `src/pages/Chat.tsx` + `src/components/ChatBot.tsx`: when no session, render a friendly sign-in / sign-up card instead of the composer; send `Authorization: Bearer <access_token>` on invoke.
 
-- `public/robots.txt` — full multi-bot policy already in place
-- `public/sitemap-index.xml` + `sitemap.xml` + locale sitemaps (es/fr/de/pt)
-- `scripts/generate-sitemap.ts`, `scripts/audit-sitemap.mjs`, `scripts/check-canonicals.mjs`, `scripts/check-social-meta.mjs`, `scripts/validate-jsonld.mjs`, `scripts/prerender-routes.mjs`
-- `src/components/SeoHead.tsx`, `src/components/seo/PageSchema.tsx` (BreadcrumbList / FAQPage / MedicalWebPage / HowTo / Speakable), `AnswerBox.tsx`
-- `src/data/keyword-taxonomy.json`, `keyword-content-map.json` (5,000-keyword taxonomy), `KeywordTargeting.tsx`, `useKeywordData` hook, `/admin/rank-tracker`
-- `public/llms.txt`, `public/llms-full.txt`, `public/.well-known/ai.txt`
-- Medical reviewer identity baked into `PageSchema` (HCPC PH128483)
+### 2. OG images (build-time, satori + resvg)
+- Add `satori`, `@resvg/resvg-js`, `yoga-wasm-web` as devDeps.
+- New `scripts/generate-og-images.ts`: iterates blog articles + guide/condition pages, renders 1200×630 branded PNG (title, category chip, `livingwitharthritis.org.uk` footer) into `public/og/<slug>.png`. Idempotent (skips existing unless `--force`).
+- Wire into `prebuild` (after sitemap) and `predev` (best-effort).
+- New helper `src/lib/ogImage.ts` → `getOgImageUrl(slug)`. Update `SeoHead` / page templates to prefer per-slug OG.
 
-So a fair amount of the ask is **already implemented**. I'll flag what exists vs. what's genuinely new.
+### 3. RLS + security migration
+- Inspect current policies on `buddy_profiles`, `contact_inquiries`, `chat_messages`, `profiles`.
+- Migration:
+  - Tighten `buddy_profiles` SELECT so non-owners only see the fields needed for matching (via a `public.buddy_profile_match_view` SECURITY INVOKER view or a policy that restricts to matched pairs + owner + admin).
+  - Restrict `contact_inquiries` SELECT to admins + submitter (if user_id present).
+  - Revoke `EXECUTE ... FROM PUBLIC` on SECURITY DEFINER functions that don't need public execution (`increment_blog_view` stays public; `move_to_dlq`, `enqueue_email`, `email_queue_wake`, `email_queue_dispatch`, `read_email_batch`, `delete_email` restricted to `service_role`).
+  - Add index: `CREATE INDEX IF NOT EXISTS idx_chat_messages_conversation_id ON public.chat_messages(conversation_id)` (matches the RLS subquery).
 
-## Proposed phased plan
+### 4. Dependency upgrades
+- `bun add -d vitest@latest @vitest/coverage-v8@latest jsdom@latest picomatch@latest`
+- `bun add jspdf@latest` — read `src/lib/generatePdf.ts`, adapt to v3 API (jsPDF export shape changed only mildly: `import { jsPDF } from 'jspdf'` still works; `autoTable` is separate — check).
+- Run `tsgo` + `bun run build` to verify.
 
-### Phase 1 — Keyword strategy (net-new)
-- Add `src/data/keywords-1000.ts` with **1000 UK arthritis keywords**, 500 organic + 500 PPC, typed `{ keyword, intent, category, targetPage, group: "organic" | "paid" }`.
-- Build `/admin/keyword-strategy` dashboard (admin-gated via existing `useAdmin`) with filter by group/intent/category, search, CSV export.
-- Do **not** auto-inject into every page's `<meta keywords>` — the existing `SeoHead` already accepts `keywords`, and stuffing 1000 terms hurts more than helps. Instead expose a helper `getKeywordsForPage(path)` that returns the 5-10 relevant ones.
+### 5. AEO sweep across ~40 pages
+- New `src/components/seo/AeoEnhancement.tsx` — a single drop-in wrapping:
+  - `AnswerBox` (answer-first summary)
+  - `LastUpdated` line + `MedicallyReviewed` badge
+  - optional `FAQ` list rendered as accordion + injects FAQPage JSON-LD
+  - optional definition/stat callout slots
+- New `src/data/page-aeo.ts` — a map of `route → { answer, faqs, reviewer, updatedAt, definition? }` for the 40 target pages (16 conditions + ~11 guides + 13 top blog/hub pages).
+- `scripts/apply-aeo.mjs` — codemod that scans `src/pages/conditions/*.tsx`, `src/pages/guides/*.tsx`, and a whitelisted set of hub pages; inserts `<AeoEnhancement route={...} />` immediately after the first `<h1>` if not already present. Idempotent.
+- Run the codemod once, verify a sample renders, commit.
 
-### Phase 2 — Sitemap + robots in Vite build
-- `generate-sitemap.ts` already runs via `predev`/`prebuild` (verify + wire if missing). Confirm robots.txt Sitemap: directive points at prod domain (already does).
-- Add `lastmod`/`changefreq`/`priority` per route type (guide vs. condition vs. static).
+### Verification
+- `bun run seo:audit` and `bun run seo:schema` at the end.
+- Typecheck + build must stay green.
 
-### Phase 3 — SEO audit script (`npm run seo:audit`)
-- New `scripts/seo-audit.ts` that composes the existing `check-canonicals`, `check-social-meta`, `audit-sitemap`, `validate-jsonld` into one pass/fail report written to `/mnt/documents/seo-audit-report.md`. Reuse, don't reimplement.
-
-### Phase 4 — JSON-LD schema validation (`npm run seo:schema`)
-- Alias `scripts/validate-jsonld.mjs` (already exists, does exactly this) to `seo:schema` in `package.json`. Extend required-field table for DonateAction / NGO / HowTo if not covered.
-
-### Phase 5 — AEO/GEO content polish
-- Audit top 20 pages (home, condition landings, top guides, FAQ, Tai Chi hub, donate). For each: ensure `AnswerBox` at top, H2 questions, FAQ block with schema, "Last updated" + reviewer badge. Existing components (`AnswerBox`, `PageSchema`, `MedicallyReviewed`) already exist — just apply consistently.
-- Confirm `public/llms.txt` covers all major sections (already present — will diff and top up).
-
-### Phase 6 — OG image generation *(decision needed — see below)*
-
-### Phase 7 — Core Web Vitals + a11y polish
-- Add `loading="lazy"`, `width`/`height`, `decoding="async"` on non-LCP images in hero/card components. Preload the LCP hero image + primary font. Verify skip-link + focus rings exist (`index.css`).
-- Non-goal: full route code-splitting refactor — will code-split only the two biggest routes if bundle analysis shows a win.
-
-### Phase 8 — Backend/security
-- **Chat endpoint auth**: audit `supabase/functions/chat/index.ts`. If `verify_jwt = false`, add in-code `getClaims` gate (rate-limit anon path if the "public help chat" is intended — need decision, see below).
-- **RLS review** on `buddy_profiles`, `profiles`, `contact_inquiries`, `chat_messages` via `supabase--read_query` → migration to tighten SELECT policies + add index on `chat_messages(conversation_id)` for the RLS subquery.
-- **SECURITY DEFINER audit**: keep `has_role`, `is_admin`, `get_public_profile`, guard-triggers (all needed); no changes unless a specific function is over-privileged.
-
-### Phase 9 — Dependency upgrades
-- `bun update jsdom jspdf vitest picomatch` to patched majors. Run typecheck + vitest. If jspdf major bump breaks `src/lib/generatePdf.ts`, patch call sites.
-
-## Decisions I need from you before I start
-
-1. **OG image generation** — three options, pick one:
-   - **(a) Build-time static generation** via `satori` + `@resvg/resvg-js` — renders 1200×630 PNGs for every article/guide into `public/og/`. Zero runtime cost. Adds ~50MB to repo if you have hundreds of articles. **My recommendation.**
-   - **(b) Runtime edge function** (`supabase/functions/og-image/`) that renders on demand and caches. No repo bloat but cold-start latency on first share.
-   - **(c) Skip** — hosting already injects a default social preview; per-article branded images are nice-to-have.
-
-2. **Chat endpoint** — is `/chat` (Help & Support) intended to be **usable by anonymous visitors** or **signed-in users only**? Current code deploys with `verify_jwt = false`. If anonymous is intentional, I'll keep it open but harden with rate limiting + Turnstile / hCaptcha. If signed-in only, I'll require auth in-code.
-
-3. **Scope of Phase 5 content edits** — do you want me to touch **all** condition and guide pages, or a **top-20 priority list**? Full-site sweep is significantly more work.
-
-4. **Keyword dataset source** — should I generate the 1000 keywords from the existing 5,000-keyword taxonomy (`keyword-taxonomy.json`) by classifying entries into organic vs. paid intent, or hand-curate a fresh 1000? First option keeps a single source of truth; second gives cleaner PPC intent.
-
-5. **Delivery cadence** — I recommend shipping this in **3 PRs** (Phase 1-4 tooling → Phase 5 content + 6 OG → Phase 7-9 perf/security/deps) rather than one giant change, so each is reviewable and the build stays green. OK?
-
-Once you answer these five, I'll execute end-to-end.
+### Deliverables
+- Files: `supabase/config.toml`, `supabase/functions/chat/index.ts`, `src/pages/Chat.tsx`, `src/components/ChatBot.tsx`, one migration, `scripts/generate-og-images.ts`, `src/lib/ogImage.ts`, `src/components/seo/AeoEnhancement.tsx`, `src/data/page-aeo.ts`, `scripts/apply-aeo.mjs`, 40 touched page files, `package.json`.
+- New npm scripts: `og:generate`, `aeo:apply`.
