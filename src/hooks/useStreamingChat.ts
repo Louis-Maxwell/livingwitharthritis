@@ -74,12 +74,10 @@ async function streamChat({
 }) {
   let resp: Response;
   try {
+    const authHeaders = await getAuthHeaders();
     resp = await fetch(CHAT_URL, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
-      },
+      headers: authHeaders,
       body: JSON.stringify({ messages }),
     });
   } catch (e) {
