@@ -166,8 +166,14 @@ async function blogPosts(): Promise<{ slug: string; lastmod?: string; category?:
       updated_at?: string;
       category?: string;
     }>;
+    // Exclude legacy slugs that redirect to newer canonical slugs — including
+    // them creates canonical mismatches Semrush flags as "incorrect pages".
+    const redirectSrc = read("src/data/blogRedirects.ts");
+    const REDIRECT_SLUGS = new Set(
+      [...redirectSrc.matchAll(/"([^"]+)"\s*:\s*"[^"]+"/g)].map((m) => m[1]),
+    );
     return rows
-      .filter((r) => r.slug)
+      .filter((r) => r.slug && !REDIRECT_SLUGS.has(r.slug))
       .map((r) => ({
         slug: r.slug,
         lastmod: r.updated_at?.slice(0, 10),
