@@ -228,7 +228,7 @@ const HipArthritis = () => (
             <li><strong>Swimming or aqua-aerobics</strong> — buoyancy removes 70–90% of body weight from the joint; avoid breaststroke kick if it provokes groin pain</li>
             <li><strong>Walking</strong> — start with 10-minute blocks, build to 30; cushioned shoes and a pole in the opposite hand</li>
           </ul>
-          <p>Pair this page with our <Link to="/exercises" className="text-primary underline">exercise library</Link> for video-guided sessions.</p>
+          <p>For a step-by-step home routine, follow our <Link to="/guides/hip-exercises-for-osteoarthritis" className="text-primary underline">8-move hip osteoarthritis exercise guide</Link>, or pair this page with our <Link to="/exercises" className="text-primary underline">exercise library</Link> for video-guided sessions.</p>
         </Section>
 
         <Section icon={Moon} title="How to relieve hip pain while sleeping">
@@ -296,7 +296,8 @@ const HipArthritis = () => (
             {
               title: "Exercises & movement",
               links: [
-                { label: "Hip-specific exercises", to: "/exercises" },
+                { label: "Hip exercises for osteoarthritis (8-move routine)", to: "/guides/hip-exercises-for-osteoarthritis" },
+                { label: "Hip-specific exercise library", to: "/exercises" },
                 { label: "Tai Chi for balance", to: "/exercises/tai-chi-for-balance" },
                 { label: "Exercises to avoid", to: "/guides/exercise" },
               ],

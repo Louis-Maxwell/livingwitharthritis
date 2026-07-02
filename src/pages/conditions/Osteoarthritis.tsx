@@ -321,7 +321,7 @@ const Osteoarthritis = () => (
             <li><strong>Joint replacement surgery</strong> — knee, hip or thumb replacement for end-stage OA</li>
             <li><strong>Regenerative medicine</strong> — platelet-rich plasma (PRP) and stem-cell options, where evidence is still developing</li>
           </ul>
-          <p>For exercise programmes see our <Link to="/exercises" className="text-primary underline">exercise hub</Link>. For nutrition strategy see our <Link to="/guides/diet" className="text-primary underline">diet guide</Link> and <Link to="/diet/foods-to-avoid-with-arthritis" className="text-primary underline">foods to avoid with arthritis</Link>.</p>
+          <p>For exercise programmes see our <Link to="/exercises" className="text-primary underline">exercise hub</Link> or the joint-specific <Link to="/guides/hip-exercises-for-osteoarthritis" className="text-primary underline">hip osteoarthritis exercise routine</Link>. For nutrition strategy see our <Link to="/guides/diet" className="text-primary underline">diet guide</Link> and <Link to="/diet/foods-to-avoid-with-arthritis" className="text-primary underline">foods to avoid with arthritis</Link>.</p>
           <p className="text-sm text-muted-foreground italic">Educational information only — we don&apos;t endorse specific brands, devices or providers. Always discuss treatment escalation with your clinician.</p>
         </Section>
 
@@ -352,7 +352,7 @@ const Osteoarthritis = () => (
               title: "Exercise & movement",
               links: [
                 { label: "Knee arthritis exercises", to: "/exercises" },
-                { label: "Hip arthritis exercises", to: "/exercises" },
+                { label: "Hip arthritis exercises", to: "/guides/hip-exercises-for-osteoarthritis" },
                 { label: "Hand arthritis exercises", to: "/exercises" },
                 { label: "Tai Chi for balance", to: "/exercises/tai-chi-for-balance" },
                 { label: "Exercises to avoid with arthritis", to: "/guides/exercise" },
