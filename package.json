@@ -15,7 +15,11 @@
     "preview": "vite preview",
     "preflight:functions": "bash scripts/preflight-edge-functions.sh",
     "deploy:functions": "npm run preflight:functions && supabase functions deploy",
-    "sitemap": "bun scripts/generate-sitemap.ts"
+    "sitemap": "bun scripts/generate-sitemap.ts",
+    "seo:audit": "bun scripts/seo-audit.ts",
+    "seo:schema": "node scripts/validate-jsonld.mjs",
+    "seo:canonicals": "node scripts/check-canonicals.mjs",
+    "seo:social": "node scripts/check-social-meta.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
