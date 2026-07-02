@@ -103,10 +103,6 @@ export function ChatBot() {
   }, [messages]);
 
   const safelySend = (text: string) => {
-    if (!isAuthenticated) {
-      window.location.href = "/auth?mode=signin&redirect=/chat";
-      return;
-    }
     const flag = detectClientRedFlag(text);
     if (flag.matched) {
       setEmergency({ open: true, category: flag.category });
@@ -360,61 +356,39 @@ export function ChatBot() {
         </AnimatePresence>
       </ScrollArea>
 
-      {/* ── Input (auth-gated) ── */}
-      {!isAuthenticated ? (
-        <div className="p-4 border-t border-border/40 bg-muted/20">
-          <div className="rounded-xl border border-primary/20 bg-background p-4 text-center space-y-3">
-            <ShieldCheck className="h-6 w-6 text-primary mx-auto" />
-            <div>
-              <p className="text-sm font-semibold text-foreground">Sign in to start chatting</p>
-              <p className="text-xs text-muted-foreground mt-1">
-                Free account. Your conversation history is saved securely and private to you.
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-2">
-              <Button asChild size="sm" className="flex-1">
-                <a href="/auth?mode=signin&redirect=/chat">Sign in</a>
-              </Button>
-              <Button asChild size="sm" variant="outline" className="flex-1">
-                <a href="/auth?mode=signup&redirect=/chat">Create free account</a>
-              </Button>
-            </div>
-          </div>
+      {/* ── Input ── */}
+      <form onSubmit={handleSubmit} className="p-2.5 border-t border-border/40">
+        <div className="flex items-end gap-2 rounded-xl border border-border/50 focus-within:border-primary/30 focus-within:ring-1 focus-within:ring-primary/10 transition-all px-3 py-1.5 bg-muted/20">
+          <textarea
+            ref={inputRef}
+            value={input}
+            onChange={handleTextareaChange}
+            onKeyDown={handleKeyDown}
+            placeholder="Type a message…"
+            disabled={isLoading}
+            rows={1}
+            className="flex-1 bg-transparent text-[15px] resize-none outline-none placeholder:text-muted-foreground max-h-[100px] py-1.5 leading-relaxed"
+          />
+          <Button
+            type="submit"
+            disabled={isLoading || !input.trim()}
+            size="icon"
+            className="h-8 w-8 rounded-lg shrink-0 transition-all"
+          >
+            {isLoading ? (
+              <Loader2 className="h-3.5 w-3.5 animate-spin" />
+            ) : (
+              <Send className="h-3.5 w-3.5" />
+            )}
+          </Button>
         </div>
-      ) : (
-        <form onSubmit={handleSubmit} className="p-2.5 border-t border-border/40">
-          <div className="flex items-end gap-2 rounded-xl border border-border/50 focus-within:border-primary/30 focus-within:ring-1 focus-within:ring-primary/10 transition-all px-3 py-1.5 bg-muted/20">
-            <textarea
-              ref={inputRef}
-              value={input}
-              onChange={handleTextareaChange}
-              onKeyDown={handleKeyDown}
-              placeholder="Type a message…"
-              disabled={isLoading}
-              rows={1}
-              className="flex-1 bg-transparent text-[15px] resize-none outline-none placeholder:text-muted-foreground max-h-[100px] py-1.5 leading-relaxed"
-            />
-            <Button
-              type="submit"
-              disabled={isLoading || !input.trim()}
-              size="icon"
-              className="h-8 w-8 rounded-lg shrink-0 transition-all"
-            >
-              {isLoading ? (
-                <Loader2 className="h-3.5 w-3.5 animate-spin" />
-              ) : (
-                <Send className="h-3.5 w-3.5" />
-              )}
-            </Button>
-          </div>
-          <div className="flex items-center justify-center gap-1 mt-1.5">
-            <ShieldCheck className="h-2.5 w-2.5 text-muted-foreground" />
-            <p className="text-[10px] text-muted-foreground">
-              Always consult your healthcare provider
-            </p>
-          </div>
-        </form>
-      )}
+        <div className="flex items-center justify-center gap-1 mt-1.5">
+          <ShieldCheck className="h-2.5 w-2.5 text-muted-foreground" />
+          <p className="text-[10px] text-muted-foreground">
+            Always consult your healthcare provider
+          </p>
+        </div>
+      </form>
     </div>
   );
 }
