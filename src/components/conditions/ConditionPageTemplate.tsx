@@ -18,6 +18,7 @@ import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import AnswerBox from "@/components/seo/AnswerBox";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
 
 // Below-the-fold — lazy to reduce initial route chunk + speed up LCP
 const InternalLinks = lazy(() => import("@/components/InternalLinks"));
