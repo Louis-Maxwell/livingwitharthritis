@@ -379,6 +379,7 @@ function AnimatedRoutes() {
         <Route path="/guides/exercise" element={<ExerciseGuide />} />
         <Route path="/guides/arthritis-pain-relief" element={<ArthritisPainRelief />} />
         <Route path="/guides/can-exercise-make-osteoarthritis-worse" element={<CanExerciseMakeOsteoarthritisWorse />} />
+        <Route path="/guides/hip-exercises-for-osteoarthritis" element={<HipExercisesForOsteoarthritis />} />
         <Route path="/guides/benefits-pip" element={<BenefitsPIPGuide />} />
         <Route path="/guides/knee-replacement-surgery" element={<KneeReplacementSurgeryGuide />} />
         <Route path="/guides/steroids-for-arthritis" element={<SteroidsGuide />} />
