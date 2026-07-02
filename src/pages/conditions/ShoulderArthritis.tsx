@@ -90,7 +90,7 @@ const ShoulderArthritis = () => (
   <>
     <Helmet>
       <title>Shoulder Arthritis: Symptoms & Exercises | LWA UK</title>
-      <meta name="description" content="UK guide to shoulder arthritis: glenohumeral and AC joint OA, rotator cuff arthropathy, symptoms, the best exercises, injections and shoulder replacement options." />
+      <meta name="description" content="UK guide to shoulder arthritis: glenohumeral & AC joint OA, rotator cuff arthropathy, symptoms, treatment and exercises." />
       <meta name="keywords" content="shoulder arthritis, shoulder osteoarthritis, glenohumeral arthritis, AC joint arthritis, rotator cuff arthropathy, shoulder pain, shoulder exercises arthritis, shoulder replacement, reverse shoulder replacement" />
       <meta property="og:title" content="Shoulder Arthritis – Symptoms, Exercises & Treatment" />
       <meta property="og:description" content="Evidence-based UK guide to shoulder arthritis: exercises, injections, physiotherapy and shoulder replacement." />

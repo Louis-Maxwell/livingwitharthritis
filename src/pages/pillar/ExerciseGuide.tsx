@@ -181,8 +181,8 @@ export default function ExerciseGuide() {
   return (
     <>
       <Helmet>
-        <title>Best Exercises for Arthritis UK – Knee, Hip, Hand &amp; Chair Exercises Guide</title>
-        <meta name="description" content="Evidence-based exercise guide for arthritis: low-impact aerobic, strength training, flexibility, water-based and chair exercises. Progressive programmes for knee, hip, hand and shoulder joints." />
+        <title>Best Arthritis Exercises | UK Patient Guide</title>
+        <meta name="description" content="Evidence-based arthritis exercise guide: low-impact aerobic, strength, flexibility, water and chair routines for knee, hip, hand & shoulder." />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/guides/exercise" />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />

@@ -10,7 +10,7 @@ const Chat = () => {
     <>
       <Helmet>
         <title>Arthritis Help & Support Chat | Living With Arthritis UK</title>
-        <meta name="description" content="Get free arthritis support today. Chat on WhatsApp, call 07760 512 084, ask our help chat or request virtual physiotherapy. No waiting lists. HCPC-registered team ready to help." />
+        <meta name="description" content="Free arthritis help & support: chat on WhatsApp, call 07760 512 084, or ask our online help chat for guidance and information." />
         <meta name="keywords" content="arthritis chat UK, virtual physiotherapy, arthritis help, joint pain advice UK, arthritis support, arthritis questions" />
         <meta property="og:title" content="Arthritis Help & Support Chat | Living With Arthritis UK" />
         <meta property="og:description" content="Get free, instant arthritis advice from our help chat. Ask about joint pain, exercises, diet, standard treatments and more." />

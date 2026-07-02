@@ -140,7 +140,7 @@ James Whitfield — Treasurer
   return (
     <>
       <Helmet>
-        <title>Our Finances & Annual Accounts | Living With Arthritis UK Charity</title>
+        <title>Our Finances & Annual Accounts | Living With Arthritis UK</title>
         <meta name="description" content="Full financial transparency. See how Living With Arthritis allocates funds, income sources, and download our annual accounts. 88p of every £1 supports patients." />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/finances" />
         <meta property="og:locale" content="en_GB" />

@@ -84,7 +84,7 @@ const WaitingTimeCalculator = () => {
   return (
     <>
       <Helmet>
-        <title>Arthritis Waiting Time Calculator — Free UK Tool | Living With Arthritis</title>
+        <title>Arthritis Waiting Time Calculator | Free UK Tool</title>
         <meta name="description" content="Free rheumatology waiting time calculator for UK patients. Estimate your wait by region, urgency and condition — get a personalised action plan." />
         <meta name="keywords" content="rheumatology waiting time calculator, rheumatology waiting list UK, arthritis referral wait, rheumatology wait by region" />
         <link rel="canonical" href={`${BASE}/tools/waiting-time`} />

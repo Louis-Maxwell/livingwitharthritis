@@ -166,8 +166,8 @@ export default function LivedExperiences() {
   return (
     <>
       <Helmet>
-        <title>Real Stories – Living With Arthritis | Patient Experiences UK</title>
-        <meta name="description" content="Read real stories from people living with arthritis across the UK. Honest accounts of diagnosis, treatment, challenges, and hope from osteoarthritis, RA, and PsA patients." />
+        <title>Real Arthritis Stories | Living With Arthritis UK</title>
+        <meta name="description" content="Real UK stories from people living with arthritis — honest accounts of diagnosis, treatment, work and daily life." />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/stories" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",

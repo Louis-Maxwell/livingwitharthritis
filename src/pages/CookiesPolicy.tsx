@@ -11,8 +11,8 @@ const Footer = lazy(() => import("@/components/Footer"));
 const CookiesPolicy = () => (
   <>
     <Helmet>
-      <title>Cookies Policy – How We Use Cookies | Living With Arthritis UK</title>
-      <meta name="description" content="Cookies Policy for Living With Arthritis UK. Learn about essential, functional, analytics and payment cookies we use, why we use them, and how to manage your preferences under UK GDPR." />
+      <title>Cookies Policy | Living With Arthritis UK</title>
+      <meta name="description" content="How Living With Arthritis UK uses essential, functional, analytics and payment cookies — plus how to manage your cookie preferences." />
       <link rel="canonical" href="https://livingwitharthritis.org.uk/cookies" />
       <meta property="og:title" content="Cookies Policy | Living With Arthritis UK" />
       <meta property="og:description" content="Learn how Living With Arthritis UK uses cookies to improve your experience. Manage your cookie preferences easily." />

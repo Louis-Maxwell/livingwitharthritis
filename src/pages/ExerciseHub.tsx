@@ -247,7 +247,7 @@ const ExerciseHub = () => {
           width={1920}
           height={1440}
           loading="eager"
-          fetchPriority="high"
+          {...({ fetchpriority: "high" } as Record<string, string>)}
           decoding="async"
           className="h-full w-full object-cover opacity-90"
         />

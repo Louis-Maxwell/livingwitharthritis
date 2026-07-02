@@ -80,7 +80,7 @@ const HeroSection = memo(() => {
           className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none z-0 lg:hidden"
           loading="eager"
           decoding="async"
-          fetchPriority="high"
+          {...({ fetchpriority: "high" } as Record<string, string>)}
           onError={() => reportHeroImageFailure(HERO_JPG_1600)}
         />
       </picture>
@@ -190,7 +190,7 @@ const HeroSection = memo(() => {
                     className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-[1200ms] ease-out"
                     loading="eager"
                     decoding="async"
-                    fetchPriority="high"
+                    {...({ fetchpriority: "high" } as Record<string, string>)}
                     onError={() => reportHeroImageFailure(HERO_JPG_1600)}
                   />
                 </picture>

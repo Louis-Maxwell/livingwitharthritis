@@ -127,8 +127,8 @@ export default function SteroidsGuide() {
   return (
     <>
       <Helmet>
-        <title>Steroids for Arthritis – Injections, Tablets, Side Effects &amp; UK Access Guide</title>
-        <meta name="description" content="Plain-English guide to steroid injections and tablets for arthritis: how they work, what to expect, side effects, how often you can have them and how to access them on the public health service." />
+        <title>Steroids for Arthritis — UK Guide | Living With Arthritis</title>
+        <meta name="description" content="UK guide to steroid injections and tablets for arthritis: how they work, what to expect, side effects, frequency limits and how to access them." />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/guides/steroids-for-arthritis" />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
