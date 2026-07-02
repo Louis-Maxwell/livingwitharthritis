@@ -1,49 +1,38 @@
-## Plan: SEO metadata for new guide + key landing pages
+## Plan: Internal links from condition pages to new hip-exercises guide
 
-The new guide (`/guides/hip-exercises-for-osteoarthritis`) already ships full Helmet SEO (title, description, canonical, OG, Twitter). I'll verify it and extend the same pattern to the highest-value landing pages that are currently missing per-route head tags.
+### Relevance audit
+Two condition pages have direct topical overlap with `/guides/hip-exercises-for-osteoarthritis`:
 
-### 1. Audit (read-only)
-Read each candidate page and check whether it already emits `<Helmet>` with title/description/canonical/og:*. Skip anything already covered by `SeoHead` / `SeoDefaults`.
+1. **`src/pages/conditions/HipArthritis.tsx`** — primary target
+2. **`src/pages/conditions/Osteoarthritis.tsx`** — secondary (osteoarthritis of the hip)
 
-### 2. Target landing pages
-Priority routes (high-traffic, high-intent, likely missing or thin metadata):
+A third, lighter link from the parent hub **`src/pages/conditions/Arthritis.tsx`** is optional and only added if a natural placement exists.
 
-1. `/` — Home (Index.tsx)
-2. `/about-us`
-3. `/donate`
-4. `/exercise` (Exercise Hub)
-5. `/diet` (Nutrition Hub)
-6. `/conditions` (Conditions Hub)
-7. `/blog-hub` (Guides hub)
-8. `/chat` (Help & Support)
-9. `/contact`
+### Edits
 
-For any of these already using `SeoHead`, confirm title/description are specific and non-default; otherwise add `<SeoHead>` with:
-- Unique `title` (≤60 chars, keyword-led)
-- `description` (140–160 chars, UK English, plain)
-- `path` (self-referencing canonical via SeoHead + SeoDefaults)
-- `type="website"`
-- Default OG image (already handled by SeoHead)
+**1. `HipArthritis.tsx`**
+- Replace the generic `"Hip-specific exercises" → /exercises` entry in the related-links sidebar with a direct link to `/guides/hip-exercises-for-osteoarthritis`.
+- Add one inline contextual sentence in the exercise / self-management section: "For a step-by-step routine, follow our [8-move hip osteoarthritis exercise guide](/guides/hip-exercises-for-osteoarthritis)."
+- Update the "surgical options" line's stray self-link (`/conditions/hip-arthritis`) → out of scope; leave untouched.
 
-### 3. Verify new guide
-Confirm `HipExercisesForOsteoarthritis.tsx` already emits:
-- `<title>` + description
-- `<link rel="canonical">`
-- `og:title / og:description / og:url / og:type=article / og:image`
-- `twitter:card` summary_large_image
+**2. `Osteoarthritis.tsx`**
+- Update the related-link entry `"Hip arthritis exercises" → /exercises` to point at `/guides/hip-exercises-for-osteoarthritis`.
+- Add a one-line inline mention in the exercise paragraph linking to the new guide alongside the existing exercise-hub link.
 
-(It does — from the file already in context.) No changes needed to that file.
+**3. `Arthritis.tsx`** (hub) — only if it already has a "See also" or related-content block for hip content. If not, skip.
 
-### 4. Out of scope
-- No new imagery / og:image generation
-- No JSON-LD changes beyond what pages already emit
-- No sitemap or route changes
-- No copy rewrites beyond title/description
+### Breadcrumbs & schema
+Already in place:
+- Both condition pages emit `PageBreadcrumb` + `BreadcrumbList` JSON-LD.
+- The new hip guide emits `PageSchema` with `MedicalWebPage`, `BreadcrumbList`, and `FAQPage` JSON-LD (breadcrumbs: Home → Guides → Hip exercises for osteoarthritis).
 
-### Technical notes
-- `SeoHead` component already centralises Helmet output; prefer it over hand-rolled Helmet blocks on landing pages.
-- `SeoDefaults` handles canonical + hreflang globally, so per-page canonical from SeoHead is compatible (Helmet dedupes `<meta>`, not `<link rel=canonical>` — SeoHead intentionally omits canonical to avoid duplicates; SeoDefaults owns it).
-- All titles will use en-GB spelling to match existing site voice.
+No schema changes needed. No new breadcrumbs to add.
+
+### Out of scope
+- No visual/layout changes to condition pages beyond the link text.
+- No copy rewrites outside the added sentence.
+- No sitemap/routing changes (guide is already registered).
+- No changes to other condition pages (knee, hand, etc.) — not directly relevant to a hip-specific guide.
 
 ### Deliverable
-Up to 9 small edits adding `<SeoHead …/>` (or tightening existing head tags) on the listed pages. No behavioural or visual changes.
+Two small edits (`HipArthritis.tsx`, `Osteoarthritis.tsx`) — one related-link swap and one inline contextual link each.
