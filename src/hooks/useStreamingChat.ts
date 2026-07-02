@@ -37,12 +37,12 @@ async function fetchJsonFallback({
   onDelta: (deltaText: string) => void;
   onDone: () => void;
 }) {
+  const authHeaders = await getAuthHeaders();
   const resp = await fetch(`${CHAT_URL}?stream=0`, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      ...authHeaders,
       Accept: "application/json",
-      apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
     },
     body: JSON.stringify({ messages }),
   });
