@@ -1,22 +1,13 @@
-## Plan: Add uploaded images to the site
+## Plan
 
-Skip the children photo (off-brand). Use the other two.
+No fix is needed in code. I re-ran the build and TypeScript check and both pass with zero errors:
 
-### 1. Upload to Lovable Assets CDN
-- `engin_akyurt-man-9158644.jpg` → `src/assets/diver-movement.jpg.asset.json`
-- `biancavandijk-movement-8255242.jpg` → `src/assets/strength-illustration.jpg.asset.json`
+- `bun run build` — completed successfully (all chunks emitted, canonicals injected)
+- `bunx tsgo --noEmit` — no errors
 
-### 2. Image 1 — Diver (B&W, dramatic movement)
-**a) Homepage photo break** — add a `PhotoBreak` between existing sections in `src/pages/Index.tsx` with quote like "Motion is lotion — every movement is medicine."
+`src/components/ui/chart.tsx` and `vite.config.ts` compile cleanly. The earlier note about chart.tsx type errors is stale.
 
-**b) Exercise hub hero** — locate the exercises landing page (`src/pages/Exercises.tsx` or equivalent) and swap/add hero image to the diver, with proper alt text and responsive sizing.
+### Next step
+Re-run publish. If the Publish UI reports a specific error, paste the message and I'll target the actual cause.
 
-### 3. Image 2 — Strength illustration
-Add to the **Exercise Plan** tab of `src/pages/HealthTools.tsx` (or inside `ExercisePlanGenerator.tsx`) as a decorative header illustration above the form, on a cream background that matches the MAP palette.
-
-### 4. Accessibility & SEO
-- Descriptive alt text for both images.
-- `loading="lazy"` + `decoding="async"` (eager for hero LCP image on exercises page).
-- Explicit width/height to prevent CLS.
-
-No content, copy, or design-system changes beyond placing the images.
+Once you approve, I'll switch to build mode and call `preview_ui--publish` to deploy the pending SEO changes.
