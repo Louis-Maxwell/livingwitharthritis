@@ -26,6 +26,7 @@ const mockArticle = {
 
 vi.mock("@/hooks/useBlogArticles", () => ({
   useBlogArticle: vi.fn(),
+  useRelatedArticles: vi.fn(() => []),
 }));
 vi.mock("@/hooks/useBlogViews", () => ({
   useBlogViews: vi.fn(() => 42),
@@ -173,7 +174,7 @@ describe("BlogPost Page", () => {
     });
 
     renderBlogPost("test-article");
-    expect(screen.getByText("Living With Arthritis Clinical Team")).toBeInTheDocument();
+    expect(screen.getByText("Living With Arthritis Clinical Review Board")).toBeInTheDocument();
     expect(screen.getByText("Evidence-based health content")).toBeInTheDocument();
   });
 });

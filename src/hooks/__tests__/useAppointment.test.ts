@@ -83,16 +83,16 @@ describe("useAppointment", () => {
     expect(mockInvoke).not.toHaveBeenCalled();
   });
 
-  it("rate limits after 3 rapid attempts", async () => {
+  it("rate limits after 10 rapid attempts", async () => {
     mockInvoke.mockResolvedValue({
       data: { message: "OK", appointmentId: "x" },
       error: null,
     });
     const { result } = renderHook(() => useAppointment());
 
-    await act(async () => { await result.current.bookAppointment(validData); });
-    await act(async () => { await result.current.bookAppointment(validData); });
-    await act(async () => { await result.current.bookAppointment(validData); });
+    for (let i = 0; i < 10; i++) {
+      await act(async () => { await result.current.bookAppointment(validData); });
+    }
 
     let response: { success: boolean; error?: string };
     await act(async () => {
