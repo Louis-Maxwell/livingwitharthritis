@@ -1,0 +1,78 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Cache bun install
+        uses: actions/cache@v4
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('bun.lock', 'package.json') }}
+          restore-keys: ${{ runner.os }}-bun-
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: TypeScript typecheck
+        run: bunx tsgo --noEmit || bunx tsc --noEmit
+
+      - name: Build
+        run: bun run build
+        env:
+          NODE_ENV: production
+
+      - name: Start preview server
+        run: |
+          bunx vite preview --port 8080 --host 0.0.0.0 &
+          echo $! > .preview.pid
+          # Wait for readiness
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:8080/ > /dev/null; then
+              echo "Preview server ready"; break
+            fi
+            sleep 1
+          done
+
+      - name: SEO schema (JSON-LD) validation
+        run: BASE_URL=http://localhost:8080 bun run seo:schema
+
+      - name: SEO audit
+        run: BASE_URL=http://localhost:8080 bun run seo:audit
+
+      - name: Stop preview server
+        if: always()
+        run: |
+          if [ -f .preview.pid ]; then kill "$(cat .preview.pid)" 2>/dev/null || true; fi
+
+      - name: Upload SEO audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-audit-report
+          path: |
+            /mnt/documents/seo-audit-report.md
+            audit-sitemap-report.json
+          if-no-files-found: ignore
