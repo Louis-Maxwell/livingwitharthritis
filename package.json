@@ -6,9 +6,12 @@
   "scripts": {
     "predev": "bun scripts/generate-sitemap.ts || true",
     "dev": "vite",
-    "prebuild": "bun scripts/generate-sitemap.ts",
+    "prebuild": "bun scripts/generate-sitemap.ts && bun scripts/generate-og-images.ts",
     "build": "vite build",
     "postbuild": "node scripts/inject-canonicals.mjs",
+    "og:generate": "bun scripts/generate-og-images.ts",
+    "og:regenerate": "bun scripts/generate-og-images.ts --force",
+    "aeo:apply": "node scripts/apply-aeo.mjs",
     "build:prerender": "PRERENDER=1 vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
