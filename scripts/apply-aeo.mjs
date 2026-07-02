@@ -80,9 +80,7 @@ for (const [route, relPath] of Object.entries(ROUTE_TO_FILE)) {
   // 2) Insert component immediately after first </h1>
   const h1Close = src.indexOf("</h1>");
   if (h1Close === -1) {
-    console.warn(`[aeo] no </h1> in ${relPath}, skipping insertion (import kept for manual use)`);
-    // Still keep the import; user may add it manually.
-    await writeFile(full, src);
+    console.warn(`[aeo] no </h1> in ${relPath}, skipping (no changes)`);
     skipped++;
     continue;
   }
