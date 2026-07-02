@@ -11,7 +11,7 @@ import { PRERENDER_ROUTES } from "./scripts/prerender-routes.mjs";
 // Run locally with: PRERENDER=1 npm run build
 const ENABLE_PRERENDER = process.env.PRERENDER === "1";
 
-export default defineConfig(({ mode }) => ({
+export default defineConfig(({ mode }): any => ({
   server: {
     host: "::",
     port: 8080,
