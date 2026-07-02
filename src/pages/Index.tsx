@@ -81,7 +81,7 @@ function HomePage() {
     script.id = id;
     script.text = JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "NGO",
+      "@type": "MedicalOrganization",
       name: "Living With Arthritis UK",
       url: SITE_URL,
       description:

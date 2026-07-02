@@ -18,6 +18,13 @@ export default function LocalizedOsteoarthritis() {
       <Helmet>
         <title>{oa.title}</title>
         <meta name="description" content={oa.intro.slice(0, 155)} />
+        <meta property="og:title" content={oa.title} />
+        <meta property="og:description" content={oa.intro.slice(0, 155)} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://livingwitharthritis.org.uk${buildLangUrl(lang, "/conditions/osteoarthritis")}`} />
+        <meta property="og:locale" content={lang} />
+        <meta name="twitter:title" content={oa.title} />
+        <meta name="twitter:description" content={oa.intro.slice(0, 155)} />
         <link rel="canonical" href={`https://livingwitharthritis.org.uk${buildLangUrl(lang, "/conditions/osteoarthritis")}`} />
         <html lang={lang} />
       </Helmet>
