@@ -94,7 +94,7 @@ const ZakatAppeal = () => {
   return (
     <>
       <Helmet>
-        <title>Zakat Appeal – Fund Rehab for War & Trauma Survivors | Living With Arthritis UK</title>
+        <title>Zakat Appeal | Living With Arthritis UK</title>
         <meta name="description" content="Give your Zakat to fund physiotherapy and rehabilitation sessions for war and trauma survivors. Shariah-compliant, transparent and life-changing." />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/zakat-appeal" />
         <meta property="og:title" content="Zakat Appeal – Fund Rehab for War & Trauma Survivors" />

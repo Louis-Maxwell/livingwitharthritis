@@ -192,7 +192,7 @@ export default function AzathioprineGuide() {
   return (
     <>
       <Helmet>
-        <title>Azathioprine for Arthritis — UK Guide | Living With Arthritis</title>
+        <title>Azathioprine for Arthritis — UK Patient Guide</title>
         <meta
           name="description"
           content="UK guide to azathioprine for arthritis: how it works, who it's for, TPMT testing, blood monitoring, side effects and safe long-term use."

@@ -49,10 +49,10 @@ export default function EditorialStandards() {
   return (
     <>
       <Helmet>
-        <title>Editorial Standards & Medical Review Process | Living With Arthritis UK</title>
+        <title>Editorial & Medical Review Standards | Living With Arthritis</title>
         <meta
           name="description"
-          content="How Living With Arthritis UK reviews health content: HCPC-registered First Contact Practitioner, NICE-aligned sourcing, conflict-of-interest policy, and update cadence."
+          content="How Living With Arthritis UK reviews health content: HCPC-registered clinicians, NICE-aligned sourcing and clear editorial standards."
         />
         <link rel="canonical" href={URL} />
         <meta property="og:title" content="Editorial Standards | Living With Arthritis UK" />

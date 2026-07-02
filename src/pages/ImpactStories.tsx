@@ -132,7 +132,7 @@ const ImpactStories = () => {
             }
           }))
         })}</script>
-        <meta name="description" content="Real stories from people we've helped. See how Living With Arthritis has supported over 10,000 people across the UK with free physiotherapy, nutrition guidance, and community support." />
+        <meta name="description" content="Real stories from people we've helped. See how Living With Arthritis has supported over 10,000 people across the UK live better." />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/impact" />
         <meta property="og:locale" content="en_GB" />
         <meta name="geo.region" content="GB" />

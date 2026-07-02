@@ -93,7 +93,7 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
 const HipArthritis = () => (
   <>
     <Helmet>
-      <title>Hip Arthritis: Symptoms, Exercises & Pain Relief | Living With Arthritis</title>
+      <title>Hip Arthritis: Symptoms, Exercises & Relief | UK</title>
       <meta name="description" content="Hip arthritis treatment: Exercise, mobility aids, injections & surgery options. Manage pain & maintain independence with evidence-based strategies." />
       <meta name="keywords" content="hip arthritis, hip osteoarthritis, hip OA, hip pain, how to relieve hip pain while sleeping, hip arthritis exercises, hip arthritis treatment, hip replacement, glute exercises hip" />
       <meta property="og:title" content="Hip Arthritis – Symptoms, Exercises & Pain Relief" />

@@ -69,7 +69,7 @@ const WaitingListHelp = () => {
   return (
     <>
       <Helmet>
-        <title>Arthritis Waiting List Help — Free UK Patient Support | Living With Arthritis</title>
+        <title>Arthritis Waiting List Help — Free UK Support</title>
         <meta name="description" content="Stuck on the rheumatology waiting list? Get free, evidence-based arthritis help, exercises, diet plans and a waiting time calculator for UK patients." />
         <meta name="keywords" content="arthritis waiting list, rheumatology waiting time UK, rheumatology referral, arthritis help while waiting on referral" />
         <link rel="canonical" href={`${BASE}/arthritis-waiting-list-help`} />

@@ -76,7 +76,7 @@ export default function Partners() {
     <>
       <Helmet>
         <title>Partner With Us | Living With Arthritis UK</title>
-        <meta name="description" content="Partner with Living With Arthritis UK — public health bodies, GP practices, health charities and community groups. Resource sharing, co-branded guides, joint events and research collaboration." />
+        <meta name="description" content="Partner with Living With Arthritis UK — public health bodies, GP practices, health charities and community groups working together." />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/partners" />
       <meta property="og:title" content="Partner With Us | Living With Arthritis UK" />
       <meta property="og:description" content="Partner with Living With Arthritis UK — public health bodies, GP practices, health charities and community groups. Resource sharing, co-branded guides, joint events and research collaboration." />

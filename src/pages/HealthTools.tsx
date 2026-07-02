@@ -24,7 +24,7 @@ export default function HealthTools() {
     <>
       <Helmet>
         <title>Interactive Health Tools | Living With Arthritis UK</title>
-        <meta name="description" content="Free interactive arthritis health tools: symptom quiz, inflammation risk calculator, and personalised exercise plan generator. Evidence-based tools for UK patients." />
+        <meta name="description" content="Free interactive arthritis health tools: symptom quiz, inflammation risk calculator and personalised results — all free to use." />
         <meta property="og:title" content="Interactive Health Tools | Living With Arthritis UK" />
         <meta property="og:description" content="Free interactive arthritis health tools: symptom quiz, inflammation risk calculator, and personalised exercise plan generator." />
         <meta property="og:locale" content="en_GB" />
