@@ -26,6 +26,7 @@ const mockArticle = {
 
 vi.mock("@/hooks/useBlogArticles", () => ({
   useBlogArticle: vi.fn(),
+  useRelatedArticles: vi.fn(() => []),
 }));
 vi.mock("@/hooks/useBlogViews", () => ({
   useBlogViews: vi.fn(() => 42),
