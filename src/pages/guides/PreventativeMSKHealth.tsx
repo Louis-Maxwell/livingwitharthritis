@@ -4,6 +4,7 @@ import SeoHead from '@/components/SeoHead';
 import MedicalReviewBadge from '@/components/MedicalReviewBadge';
 import AnswerBox from '@/components/seo/AnswerBox';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
 
 const FAQS = [
   { q: 'Can arthritis be prevented?', a: 'You cannot fully prevent age-related joint changes, but you can significantly delay onset and reduce severity by managing weight, building strength, treating injuries early, and addressing posture and load.' },
@@ -54,6 +55,7 @@ export default function PreventativeMSKHealth() {
       </nav>
 
       <h1 className="text-4xl md:text-5xl font-bold mb-6">Preventative MSK Health: Stop Arthritis Before It Spreads</h1>
+            <AeoEnhancement route="/guides/preventative-msk-health" />
 
       <AnswerBox question="Can early intervention prevent arthritis getting worse?" reviewed="2026-06-21">
         Yes. Early intervention — within weeks, not years — significantly reduces joint damage. Building strength, managing weight, treating injuries promptly, and adjusting daily load preserves cartilage and slows progression. Most adults aged 40–60 have a 5–10 year window to change their arthritis trajectory.

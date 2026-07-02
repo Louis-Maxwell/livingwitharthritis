@@ -32,6 +32,7 @@ import diverAsset from "@/assets/diver-movement.jpg.asset.json";
 import { EXERCISE_ANIMATIONS, type ExerciseAnimationKey } from "@/components/exercises/ExerciseAnimations";
 import AnswerBox from "@/components/seo/AnswerBox";
 import { jointSlugs, jointLabel, conditions as exerciseConditions } from "@/data/exerciseConditionRecommendations";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
 
 const exerciseCategories = [
   {

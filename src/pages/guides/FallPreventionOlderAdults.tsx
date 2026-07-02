@@ -4,6 +4,7 @@ import SeoHead from '@/components/SeoHead';
 import MedicalReviewBadge from '@/components/MedicalReviewBadge';
 import AnswerBox from '@/components/seo/AnswerBox';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
 
 const FAQS = [
   { q: 'Why do older adults with arthritis fall more often?', a: 'Arthritis reduces muscle strength, joint stability and balance reactions. Pain alters walking patterns, medications can cause dizziness, and reduced activity erodes confidence — together raising fall risk substantially.' },
@@ -54,6 +55,7 @@ export default function FallPreventionOlderAdults() {
       </nav>
 
       <h1 className="text-4xl md:text-5xl font-bold mb-6">Fall Prevention for Older Adults with Arthritis</h1>
+            <AeoEnhancement route="/guides/fall-prevention-older-adults" />
 
       <AnswerBox question="How can older adults with arthritis prevent falls?" reviewed="2026-06-21">
         Falls are the leading cause of injury in older adults with arthritis, but most are preventable. Multi-faceted programmes combining strength, balance, home safety, medication review and vision care reduce fall risk by up to 35%. Start with the Otago Exercise Programme and a free NHS home assessment.

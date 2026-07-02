@@ -4,6 +4,7 @@ import SeoHead from '@/components/SeoHead';
 import MedicalReviewBadge from '@/components/MedicalReviewBadge';
 import AnswerBox from '@/components/seo/AnswerBox';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
 
 const FAQS = [
   { q: 'What is sarcopenia?', a: 'Sarcopenia is age-related loss of muscle mass, strength and function. It typically begins after age 40 and accelerates after 60, raising the risk of falls, frailty and disability.' },
@@ -66,6 +67,7 @@ export default function SarcopeniaMuscleControl() {
       </nav>
 
       <h1 className="text-4xl md:text-5xl font-bold mb-6">Sarcopenia &amp; Arthritis: How to Prevent Muscle Loss</h1>
+            <AeoEnhancement route="/guides/sarcopenia-muscle-control" />
 
       <AnswerBox question="What is sarcopenia and how is it linked to arthritis?" reviewed="2026-06-21">
         Sarcopenia is age-related loss of muscle mass and strength. Arthritis accelerates it because joint pain reduces activity and chronic inflammation breaks down muscle. Prevention combines 1.0–1.2 g/kg/day protein, twice-weekly resistance training, vitamin D, and treating pain so movement stays possible.

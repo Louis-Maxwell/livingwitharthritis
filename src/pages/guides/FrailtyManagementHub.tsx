@@ -4,6 +4,7 @@ import SeoHead from '@/components/SeoHead';
 import MedicalReviewBadge from '@/components/MedicalReviewBadge';
 import AnswerBox from '@/components/seo/AnswerBox';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
 
 const FAQS = [
   { q: 'What is frailty?', a: 'Frailty is a clinical state of reduced reserve and resilience across multiple body systems, leaving older adults more vulnerable to falls, hospital admission and slower recovery.' },
@@ -55,6 +56,7 @@ export default function FrailtyManagementHub() {
       </nav>
 
       <h1 className="text-4xl md:text-5xl font-bold mb-6">Frailty &amp; Arthritis: A Complete Management Hub</h1>
+            <AeoEnhancement route="/guides/frailty-management-hub" />
 
       <AnswerBox question="What is frailty and can it be reversed?" reviewed="2026-06-21">
         Frailty is a state of reduced physical reserve common in older adults with arthritis. The good news: mild and moderate frailty can be reversed with progressive strength training, adequate protein, social engagement, mood support and treatment of underlying conditions. Early intervention is most effective.

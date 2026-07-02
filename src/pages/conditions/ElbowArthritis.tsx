@@ -10,6 +10,7 @@ import ContextualLinks from "@/components/ContextualLinks";
 import ConditionBlogStrip from "@/components/ConditionBlogStrip";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const URL = `${BASE}/conditions/elbow-arthritis`;
@@ -130,6 +131,7 @@ const ElbowArthritis = () => (
             <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-5 leading-tight tracking-tight">
               Elbow Pain &amp; Arthritis
             </h1>
+            <AeoEnhancement route="/conditions/elbow-arthritis" />
             <p className="text-lg text-muted-foreground leading-relaxed">
               Elbow pain affects roughly 1 in 20 UK adults each year. Most cases are tendon overload — tennis or golfer's elbow — but true elbow arthritis is increasingly recognised, particularly after old fractures and in people with rheumatoid arthritis. This UK guide explains the main causes, the exercises that help, and when to ask your GP for a referral.
             </p>
