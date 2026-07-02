@@ -103,6 +103,10 @@ export function ChatBot() {
   }, [messages]);
 
   const safelySend = (text: string) => {
+    if (!isAuthenticated) {
+      window.location.href = "/auth?mode=signin&redirect=/chat";
+      return;
+    }
     const flag = detectClientRedFlag(text);
     if (flag.matched) {
       setEmergency({ open: true, category: flag.category });
