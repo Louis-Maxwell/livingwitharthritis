@@ -67,7 +67,7 @@ const FinalDonateBand = () => {
 
         <RevealOnScroll
           delay={300}
-          className="mt-10 text-center text-[11px] uppercase tracking-[0.22em] text-background/50"
+          className="mt-10 text-center text-[11px] uppercase tracking-[0.22em] text-background/85"
         >
           Gift Aid eligible · Secure card payment · UK charity
         </RevealOnScroll>
