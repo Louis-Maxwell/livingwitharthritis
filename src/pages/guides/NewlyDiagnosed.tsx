@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import { Button } from "@/components/ui/button";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const SLUG = "guides/newly-diagnosed";
@@ -310,6 +311,7 @@ export default function NewlyDiagnosed() {
             <h1 className="font-display text-3xl md:text-5xl font-black tracking-tight text-foreground mb-4">
               Newly diagnosed with arthritis? Your step-by-step guide
             </h1>
+            <AeoEnhancement route="/guides/newly-diagnosed" />
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
               A clear, practical UK guide that walks you through the first
               weeks after diagnosis — what to ask, what to expect, and how to

@@ -4,6 +4,7 @@ import SeoHead from '@/components/SeoHead';
 import MedicalReviewBadge from '@/components/MedicalReviewBadge';
 import AnswerBox from '@/components/seo/AnswerBox';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
 
 const FAQS = [
   { q: 'What is the difference between osteoporosis and osteoarthritis?', a: 'Osteoporosis weakens bones, raising fracture risk. Osteoarthritis wears the cartilage in joints, causing pain and stiffness. Both can co-exist but have different causes and treatments.' },
@@ -54,6 +55,7 @@ export default function BoneDensityOsteoporosis() {
       </nav>
 
       <h1 className="text-4xl md:text-5xl font-bold mb-6">Bone Density &amp; Osteoarthritis: Managing Both Conditions</h1>
+            <AeoEnhancement route="/guides/bone-density-osteoporosis" />
 
       <AnswerBox question="Can you have osteoarthritis and osteoporosis at the same time?" reviewed="2026-06-21">
         Yes — they are different conditions but often coexist, especially in post-menopausal women. Osteoarthritis affects joint cartilage; osteoporosis weakens bones. Dual management focuses on calcium (700–1,200 mg/day), vitamin D, weight-bearing exercise, strength training and DEXA screening when appropriate.

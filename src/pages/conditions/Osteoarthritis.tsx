@@ -16,6 +16,7 @@ import ConditionSubpageLinks from "@/components/ConditionSubpageLinks";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import AnswerBox from "@/components/seo/AnswerBox";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
 
 const BASE = "https://livingwitharthritis.org.uk";
 
@@ -144,6 +145,7 @@ const Osteoarthritis = () => (
             <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-5 leading-tight tracking-tight">
               Osteoarthritis
             </h1>
+            <AeoEnhancement route="/conditions/osteoarthritis" />
             <p className="text-lg text-muted-foreground leading-relaxed">
               Osteoarthritis (OA) is the most common form of arthritis in the UK, affecting over 8.75 million people. This comprehensive guide covers everything you need to know about living with and managing osteoarthritis.
             </p>

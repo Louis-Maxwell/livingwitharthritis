@@ -4,6 +4,7 @@ import SeoHead from '@/components/SeoHead';
 import MedicalReviewBadge from '@/components/MedicalReviewBadge';
 import AnswerBox from '@/components/seo/AnswerBox';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
 
 const FAQS = [
   { q: 'What is considered a disability in the UK?', a: 'Under the Equality Act 2010, a disability is a physical or mental impairment that has a substantial and long-term (12+ months) effect on your ability to do normal daily activities.' },
@@ -57,6 +58,7 @@ export default function DisabilitySupport() {
       </nav>
 
       <h1 className="text-4xl md:text-5xl font-bold mb-6">Disability Support: Accessibility, Equipment and Independence</h1>
+            <AeoEnhancement route="/guides/disability-support" />
 
       <AnswerBox question="What disability support is available in the UK?" reviewed="2026-06-22">
         Disability support covers everything that helps someone live independently — mobility equipment, accessible home modifications, financial benefits, legal advice and assistive technology. In the UK that means wheelchairs and scooters, ramps and stairlifts, Personal Independence Payment, Access to Work grants, Disabled Facilities Grants, occupational therapy assessments and increasingly smart-home and communication technology. Starting with an occupational therapy assessment — through your GP or privately — is the most efficient way to access the right combination of equipment, modifications and funding for your situation.

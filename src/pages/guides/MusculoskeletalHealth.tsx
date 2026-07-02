@@ -4,6 +4,7 @@ import SeoHead from '@/components/SeoHead';
 import MedicalReviewBadge from '@/components/MedicalReviewBadge';
 import AnswerBox from '@/components/seo/AnswerBox';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
 
 const FAQS = [
   { q: 'What does musculoskeletal mean?', a: 'Musculoskeletal (MSK) refers to the bones, joints, muscles, tendons, ligaments and nerves that allow you to move. MSK conditions are the leading cause of disability worldwide.' },
@@ -57,6 +58,7 @@ export default function MusculoskeletalHealth() {
       </nav>
 
       <h1 className="text-4xl md:text-5xl font-bold mb-6">Musculoskeletal Health: Back, Neck and Repetitive Strain</h1>
+            <AeoEnhancement route="/guides/musculoskeletal-health" />
 
       <AnswerBox question="What is musculoskeletal health and why does it matter?" reviewed="2026-06-22">
         Musculoskeletal (MSK) health covers the bones, joints, muscles, tendons and ligaments that allow you to move. MSK conditions — back pain, neck pain, repetitive strain and joint disorders — are the single biggest cause of years lived with disability in the UK. Most MSK problems split into acute (under 12 weeks, often injury-related) and chronic (longer-term, needing graded rehabilitation). Physiotherapy, workplace ergonomics, targeted exercise and supportive home tools are the highest-value interventions. Early assessment, graded movement and posture variety prevent most acute problems from becoming chronic.

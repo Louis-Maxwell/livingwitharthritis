@@ -13,6 +13,7 @@ import ConditionSubpageLinks from "@/components/ConditionSubpageLinks";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import AnswerBox from "@/components/seo/AnswerBox";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const URL = `${BASE}/conditions/hand-arthritis`;
@@ -133,6 +134,7 @@ const HandArthritis = () => (
             <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-5 leading-tight tracking-tight">
               Hand Arthritis
             </h1>
+            <AeoEnhancement route="/conditions/hand-arthritis" />
             <p className="text-lg text-muted-foreground leading-relaxed">
               Hand arthritis affects the small finger joints and the base of the thumb. This UK guide explains the difference between Heberden's nodes, Bouchard's nodes and thumb base (CMC) arthritis — and the exercises, splints and treatments that help most.
             </p>

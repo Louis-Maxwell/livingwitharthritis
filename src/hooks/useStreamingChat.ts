@@ -16,6 +16,18 @@ export type ConversationSummary = {
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat`;
 
+async function getAuthHeaders(): Promise<Record<string, string>> {
+  const { data: { session } } = await supabase.auth.getSession();
+  const headers: Record<string, string> = {
+    "Content-Type": "application/json",
+    apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
+  };
+  if (session?.access_token) {
+    headers.Authorization = `Bearer ${session.access_token}`;
+  }
+  return headers;
+}
+
 async function fetchJsonFallback({
   messages,
   onDelta,
@@ -25,12 +37,12 @@ async function fetchJsonFallback({
   onDelta: (deltaText: string) => void;
   onDone: () => void;
 }) {
+  const authHeaders = await getAuthHeaders();
   const resp = await fetch(`${CHAT_URL}?stream=0`, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      ...authHeaders,
       Accept: "application/json",
-      apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
     },
     body: JSON.stringify({ messages }),
   });
@@ -62,12 +74,10 @@ async function streamChat({
 }) {
   let resp: Response;
   try {
+    const authHeaders = await getAuthHeaders();
     resp = await fetch(CHAT_URL, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
-      },
+      headers: authHeaders,
       body: JSON.stringify({ messages }),
     });
   } catch (e) {
