@@ -94,7 +94,7 @@ const OAHero = memo(() => {
                 alt="An older couple stretching together at home, smiling — living well with osteoarthritis."
                 width={1080}
                 height={1080}
-                fetchPriority="high"
+                {...({ fetchpriority: "high" } as Record<string, string>)}
                 decoding="async"
                 loading="eager"
                 className="clip-octagon w-full h-full object-cover transition-transform duration-500 hover:scale-[1.03]"
