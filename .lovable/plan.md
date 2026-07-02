@@ -1,53 +1,49 @@
-## Goal
-Add a new pillar guide page at `/guides/hip-exercises-for-osteoarthritis` (~1,500 words) with FAQs, JSON-LD, and clear next steps — matching the existing guide pattern.
+## Plan: SEO metadata for new guide + key landing pages
 
-## Files to create
-1. `src/pages/guides/HipExercisesForOsteoarthritis.tsx` — new guide page component:
-   - `SeoHead` (title, meta description, keywords, canonical)
-   - Injected JSON-LD via `useEffect`: `MedicalWebPage`, `BreadcrumbList`, `FAQPage`, and `ExercisePlan`/`HowTo` for the routine
-   - Sections (~1,500 words total):
-     1. Hero + intro (why hip OA needs specific work)
-     2. How exercise helps hip osteoarthritis (evidence + benefits)
-     3. Before you start (safety, pain rules, when to see a GP/physio)
-     4. Warm-up (2–3 mins)
-     5. Core routine — 8 exercises with sets/reps and technique cues:
-        - Hip abduction (side-lying)
-        - Clamshell
-        - Glute bridge
-        - Standing hip extension
-        - Sit-to-stand
-        - Mini squat
-        - Standing hip flexion / marching
-        - Hamstring stretch + hip flexor stretch (cool-down)
-     6. Weekly programme (2–3× / week + walking)
-     7. Modifications for flare-ups and pre/post hip-replacement notes
-     8. Progression signals and red flags
-     9. FAQs (6 questions — e.g. "Does walking help hip OA?", "Should I exercise through pain?", "Is cycling safe?", "How long until I feel better?", "Can exercise delay hip replacement?", "Best exercise if I have severe hip OA?")
-     10. Next steps: link to `/guides/exercise`, `/guides/knee-replacement-surgery` (as related joint-replacement info), `/exercises/hip`, `/guides/can-exercise-make-osteoarthritis-worse`, `/chat`
-   - `MedicalReviewBadge`, `SocialShareButtons`, medical disclaimer, `PageBreadcrumb`
+The new guide (`/guides/hip-exercises-for-osteoarthritis`) already ships full Helmet SEO (title, description, canonical, OG, Twitter). I'll verify it and extend the same pattern to the highest-value landing pages that are currently missing per-route head tags.
 
-2. `src/App.tsx` — register lazy import + route:
-   ```
-   const HipExercisesForOsteoarthritis = lazy(() => import("./pages/guides/HipExercisesForOsteoarthritis"));
-   <Route path="/guides/hip-exercises-for-osteoarthritis" element={<GuideLayout currentPath="/guides/hip-exercises-for-osteoarthritis"><HipExercisesForOsteoarthritis /></GuideLayout>} />
-   ```
+### 1. Audit (read-only)
+Read each candidate page and check whether it already emits `<Helmet>` with title/description/canonical/og:*. Skip anything already covered by `SeoHead` / `SeoDefaults`.
 
-3. `src/lib/guideRegistry.ts` — add an entry (cluster: `msk`) so the onward-journey blocks surface it:
-   ```
-   { path: "/guides/hip-exercises-for-osteoarthritis", title: "Hip exercises for osteoarthritis",
-     description: "A safe, physio-aligned hip OA routine with warm-up, strength work and progression.",
-     cluster: "msk" }
-   ```
+### 2. Target landing pages
+Priority routes (high-traffic, high-intent, likely missing or thin metadata):
 
-4. `public/sitemap.xml` — add `<url>` entry for the new path so it's discoverable.
+1. `/` — Home (Index.tsx)
+2. `/about-us`
+3. `/donate`
+4. `/exercise` (Exercise Hub)
+5. `/diet` (Nutrition Hub)
+6. `/conditions` (Conditions Hub)
+7. `/blog-hub` (Guides hub)
+8. `/chat` (Help & Support)
+9. `/contact`
 
-## Content style
-- UK English, plain language, evidence-based (aligned with NICE NG226 / GDG hip OA advice — exercise as core treatment)
-- No NHS references (per project memory)
-- Editorial voice, black text on white, red accents for CTAs
-- Uses existing Tailwind + shadcn components; no new deps
+For any of these already using `SeoHead`, confirm title/description are specific and non-default; otherwise add `<SeoHead>` with:
+- Unique `title` (≤60 chars, keyword-led)
+- `description` (140–160 chars, UK English, plain)
+- `path` (self-referencing canonical via SeoHead + SeoDefaults)
+- `type="website"`
+- Default OG image (already handled by SeoHead)
 
-## Out of scope
-- No new imagery generation (uses existing icons only)
-- No CMS/DB changes
-- Not touching prerender scripts beyond sitemap
+### 3. Verify new guide
+Confirm `HipExercisesForOsteoarthritis.tsx` already emits:
+- `<title>` + description
+- `<link rel="canonical">`
+- `og:title / og:description / og:url / og:type=article / og:image`
+- `twitter:card` summary_large_image
+
+(It does — from the file already in context.) No changes needed to that file.
+
+### 4. Out of scope
+- No new imagery / og:image generation
+- No JSON-LD changes beyond what pages already emit
+- No sitemap or route changes
+- No copy rewrites beyond title/description
+
+### Technical notes
+- `SeoHead` component already centralises Helmet output; prefer it over hand-rolled Helmet blocks on landing pages.
+- `SeoDefaults` handles canonical + hreflang globally, so per-page canonical from SeoHead is compatible (Helmet dedupes `<meta>`, not `<link rel=canonical>` — SeoHead intentionally omits canonical to avoid duplicates; SeoDefaults owns it).
+- All titles will use en-GB spelling to match existing site voice.
+
+### Deliverable
+Up to 9 small edits adding `<SeoHead …/>` (or tightening existing head tags) on the listed pages. No behavioural or visual changes.
