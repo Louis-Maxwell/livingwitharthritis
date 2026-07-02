@@ -37,11 +37,20 @@ function getNameField(data: any): string | null {
   return data.name || data.headline || data.url || null;
 }
 
+function sanitizePath(raw: string | null): string {
+  if (!raw) return "/";
+  // Only allow same-origin relative paths (must start with a single "/" and
+  // not be a protocol-relative "//..." URL that browsers treat as absolute).
+  if (raw.startsWith("/") && !raw.startsWith("//")) return raw;
+  return "/";
+}
+
 export default function DebugSchema() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const initialPath = searchParams.get("page") || "/";
+  const initialPath = sanitizePath(searchParams.get("page"));
   const [pagePath, setPagePath] = useState(initialPath);
   const [inputValue, setInputValue] = useState(initialPath);
+
   const [blocks, setBlocks] = useState<SchemaBlock[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
