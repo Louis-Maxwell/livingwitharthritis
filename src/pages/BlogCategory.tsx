@@ -2,6 +2,7 @@ import { useParams, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import BlogIndex from "./BlogIndex";
 import SeoHead from "@/components/SeoHead";
+import { useConditionArticles } from "@/hooks/useBlogArticles";
 
 const validCategories = ["exercise", "nutrition", "lifestyle", "health", "mental-health", "supplements", "treatment", "frailty"];
 
@@ -52,6 +53,20 @@ const BlogCategory = () => {
 
   const categoryLabel = meta?.title?.split(":")[0]?.split("Articles")[0]?.trim() || key;
   const url = `https://livingwitharthritis.org.uk/blog/category/${key}`;
+  const { data: catArticles = [] } = useConditionArticles([key], 20);
+
+  const itemListLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: meta?.title ?? categoryLabel,
+    url,
+    itemListElement: catArticles.map((a, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `https://livingwitharthritis.org.uk/blog/${a.slug}`,
+      name: a.title,
+    })),
+  };
 
   return (
     <>
@@ -81,6 +96,9 @@ const BlogCategory = () => {
             "url": url,
             "inLanguage": "en-GB"
           })}</script>
+          {catArticles.length > 0 && (
+            <script type="application/ld+json">{JSON.stringify(itemListLd)}</script>
+          )}
         </Helmet>
       )}
       <BlogIndex initialCategory={category} />
