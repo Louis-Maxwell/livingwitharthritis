@@ -67,7 +67,38 @@ serve(async (req) => {
   const corsHeaders = getCorsHeaders(req);
 
   try {
-    if (!limiter.check(getClientIp(req))) {
+    // ── Require authenticated user (Help & Support chat is signed-in only) ──
+    const authHeader = req.headers.get("Authorization") ?? "";
+    if (!authHeader.toLowerCase().startsWith("bearer ")) {
+      return errJson(req, {
+        code: "unauthorized",
+        message: "Please sign in to use Help & Support chat.",
+        requestId,
+        status: 401,
+      });
+    }
+    const token = authHeader.slice(7).trim();
+    const supabaseUrl = Deno.env.get("SUPABASE_URL");
+    const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY");
+    if (!supabaseUrl || !supabaseAnonKey) {
+      console.error(`[${requestId}] Supabase env missing`);
+      return errJson(req, { code: "service_unavailable", message: "Auth not configured.", requestId });
+    }
+    const authClient = createClient(supabaseUrl, supabaseAnonKey, {
+      global: { headers: { Authorization: authHeader } },
+    });
+    const { data: claimsData, error: claimsError } = await authClient.auth.getClaims(token);
+    if (claimsError || !claimsData?.claims?.sub) {
+      return errJson(req, {
+        code: "unauthorized",
+        message: "Your session has expired. Please sign in again.",
+        requestId,
+        status: 401,
+      });
+    }
+    const userId = claimsData.claims.sub as string;
+
+    if (!limiter.check(`${userId}:${getClientIp(req)}`)) {
       return errJson(req, {
         code: "rate_limited",
         message: "You're sending messages too quickly. Please wait a moment.",
