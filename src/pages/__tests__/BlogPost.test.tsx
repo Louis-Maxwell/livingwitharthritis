@@ -174,7 +174,7 @@ describe("BlogPost Page", () => {
     });
 
     renderBlogPost("test-article");
-    expect(screen.getByText("Living With Arthritis Clinical Team")).toBeInTheDocument();
+    expect(screen.getByText("Living With Arthritis Clinical Review Board")).toBeInTheDocument();
     expect(screen.getByText("Evidence-based health content")).toBeInTheDocument();
   });
 });
