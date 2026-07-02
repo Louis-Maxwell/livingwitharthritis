@@ -115,6 +115,7 @@ const DietGuide = lazy(() => import("./pages/pillar/DietGuide"));
 const ExerciseGuide = lazy(() => import("./pages/pillar/ExerciseGuide"));
 const ArthritisPainRelief = lazy(() => import("./pages/guides/ArthritisPainRelief"));
 const CanExerciseMakeOsteoarthritisWorse = lazy(() => import("./pages/guides/CanExerciseMakeOsteoarthritisWorse"));
+const HipExercisesForOsteoarthritis = lazy(() => import("./pages/guides/HipExercisesForOsteoarthritis"));
 const SteroidsGuide = lazy(() => import("./pages/pillar/SteroidsGuide"));
 const AzathioprineGuide = lazy(() => import("./pages/pillar/AzathioprineGuide"));
 const FebuxostatGoutGuide = lazy(() => import("./pages/pillar/FebuxostatGoutGuide"));
