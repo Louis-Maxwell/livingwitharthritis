@@ -180,8 +180,8 @@ export default function BenefitsPIPGuide() {
   return (
     <>
       <Helmet>
-        <title>Arthritis Benefits &amp; PIP Guide UK – Personal Independence Payment, Blue Badge &amp; More</title>
-        <meta name="description" content="Complete guide to UK benefits for arthritis: PIP (Personal Independence Payment), Attendance Allowance, Blue Badge, Motability, workplace rights, Disabled Facilities Grant and where to get free help." />
+        <title>UK Arthritis Benefits & PIP Guide | Living With Arthritis</title>
+        <meta name="description" content="Guide to UK benefits for arthritis: PIP, Attendance Allowance, Blue Badge, Motability, workplace rights and Disabled Facilities Grant." />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/guides/benefits-pip" />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />

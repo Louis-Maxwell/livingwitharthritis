@@ -192,10 +192,10 @@ export default function AzathioprineGuide() {
   return (
     <>
       <Helmet>
-        <title>Azathioprine for Arthritis: Uses, Side Effects &amp; Monitoring | UK Guide</title>
+        <title>Azathioprine for Arthritis — UK Guide | Living With Arthritis</title>
         <meta
           name="description"
-          content="Plain-English UK guide to azathioprine for arthritis: how it works, who it's prescribed for, TPMT testing, dosing, side effects, blood monitoring, interactions and pregnancy advice."
+          content="UK guide to azathioprine for arthritis: how it works, who it's for, TPMT testing, blood monitoring, side effects and safe long-term use."
         />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/guides/azathioprine-for-arthritis" />
         <meta property="og:type" content="article" />
