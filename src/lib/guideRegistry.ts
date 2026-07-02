@@ -66,6 +66,12 @@ export const GUIDE_REGISTRY: GuideEntry[] = [
     cluster: "msk",
   },
   {
+    path: "/guides/hip-exercises-for-osteoarthritis",
+    title: "Hip exercises for osteoarthritis",
+    description: "A safe, physio-aligned hip OA routine with warm-up, strength work and progression.",
+    cluster: "msk",
+  },
+  {
     path: "/guides/musculoskeletal-health",
     title: "Musculoskeletal health",
     description: "Whole-body MSK fundamentals across the lifespan.",
