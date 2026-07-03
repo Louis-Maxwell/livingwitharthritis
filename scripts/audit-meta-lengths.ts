@@ -38,7 +38,7 @@ const attrRe = (name: string) =>
   new RegExp(`\\b${name}\\s*=\\s*(?:\\{\\s*)?(?:"((?:[^"\\\\]|\\\\.)*)"|'((?:[^'\\\\]|\\\\.)*)'|\`([^\`$]*)\`)`);
 const titleTagRe = /<title>\s*([^<{`][^<{]*?)\s*<\/title>/g;
 const descMetaRe =
-  /<meta\s+name=["']description["']\s+content=(?:\{\s*)?["']([^"']+)["']/g;
+  /<meta\s+name=["']description["']\s+content=(?:\{\s*)?(?:"((?:[^"\\]|\\.)*)"|'((?:[^'\\]|\\.)*)')/g;
 
 function unescape(s: string): string {
   return s.replace(/\\"/g, '"').replace(/\\'/g, "'");
@@ -101,7 +101,8 @@ for (const file of files) {
 
   // Direct <meta name="description" content="…" />
   for (const m of src.matchAll(descMetaRe)) {
-    const raw = m[1].trim();
+    const raw = unescape((m[1] ?? m[2] ?? "").trim());
+    if (!raw) continue;
     if (raw.length > MAX_DESC || raw.length < MIN_DESC) {
       findings.push({
         file,
