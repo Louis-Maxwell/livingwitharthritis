@@ -82,19 +82,7 @@ for (const file of files) {
       }
     }
   }
-    if (descMatch) {
-      const raw = unescape(descMatch[1] || descMatch[2] || descMatch[3] || "");
-      if (raw.length > MAX_DESC || raw.length < MIN_DESC) {
-        findings.push({
-          file,
-          kind: "description",
-          length: raw.length,
-          limit: raw.length > MAX_DESC ? `> ${MAX_DESC}` : `< ${MIN_DESC}`,
-          value: raw,
-        });
-      }
-    }
-  }
+
 
   // Direct <title>…</title>
   for (const m of src.matchAll(titleTagRe)) {
