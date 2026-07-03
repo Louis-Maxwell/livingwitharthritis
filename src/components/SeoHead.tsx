@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { enforceTitle, enforceDescription } from "@/lib/seoMeta";
 
 const SITE_URL = "https://livingwitharthritis.org.uk";
 const SITE_NAME = "Living With Arthritis UK";
@@ -38,13 +39,16 @@ export default function SeoHead({
   includeSiteName = true,
   keywords,
 }: SeoHeadProps) {
-  const fullTitle = includeSiteName ? `${title} | ${SITE_NAME}` : title;
+  const fullTitle = enforceTitle(title, { includeSiteName, route: path });
+  const safeDescription = enforceDescription(description, path);
   const canonical = `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
+  // Silence unused-var lint when suffix is dropped for over-long titles.
+  void SITE_NAME;
 
   return (
     <Helmet>
       <title>{fullTitle}</title>
-      <meta name="description" content={description} />
+      <meta name="description" content={safeDescription} />
       {keywords && <meta name="keywords" content={keywords} />}
       {noindex ? (
         <meta name="robots" content="noindex,nofollow" />
@@ -62,7 +66,7 @@ export default function SeoHead({
 
       {/* Open Graph */}
       <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
+      <meta property="og:description" content={safeDescription} />
       <meta property="og:type" content={type} />
       <meta property="og:url" content={canonical} />
       <meta property="og:site_name" content={SITE_NAME} />
@@ -75,7 +79,7 @@ export default function SeoHead({
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={description} />
+      <meta name="twitter:description" content={safeDescription} />
       <meta name="twitter:image" content={image} />
     </Helmet>
   );
