@@ -55,7 +55,7 @@ export default function SarcopeniaMuscleControl() {
   return (
     <article className="max-w-4xl mx-auto py-12 px-4">
       <SeoHead
-        title="Sarcopenia & Arthritis: Prevent Muscle Loss | UK Guide"
+        title="Sarcopenia & Arthritis Guide"
         description="Sarcopenia guide: Prevent muscle loss with protein, strength training & nutrition. Combat muscle wasting caused by arthritis & ageing."
         path="/guides/sarcopenia-muscle-loss"
         type="article"

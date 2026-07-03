@@ -44,7 +44,7 @@ export default function FrailtyManagementHub() {
   return (
     <article className="max-w-4xl mx-auto py-12 px-4">
       <SeoHead
-        title="Frailty & Arthritis: Complete Management Hub | UK Guide"
+        title="Frailty & Arthritis Guide"
         description="Frailty & arthritis guide: Nutrition, exercise, fall prevention & reversing decline. Expert strategies for functional independence."
         path="/guides/frailty-management-hub"
         type="article"

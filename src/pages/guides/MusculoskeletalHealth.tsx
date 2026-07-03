@@ -46,7 +46,7 @@ export default function MusculoskeletalHealth() {
   return (
     <article className="max-w-4xl mx-auto py-12 px-4">
       <SeoHead
-        title="Musculoskeletal Health: Back, Neck & Repetitive Strain | UK Guide"
+        title="Musculoskeletal Health Guide"
         description="Musculoskeletal health guide: Back pain, neck pain, repetitive strain & prevention. Workplace ergonomics & rehabilitation strategies."
         path="/guides/musculoskeletal-health"
         type="article"

@@ -43,7 +43,7 @@ export default function PreventativeMSKHealth() {
   return (
     <article className="max-w-4xl mx-auto py-12 px-4">
       <SeoHead
-        title="Preventative MSK Health: Stop Arthritis Spreading | UK"
+        title="Preventative MSK Health Guide"
         description="Preventative musculoskeletal health: Early intervention before arthritis develops. Posture, movement patterns & load management strategies."
         path="/guides/preventative-msk-health"
         type="article"
