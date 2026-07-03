@@ -188,7 +188,7 @@ export default function KneeOsteoarthritisExercises() {
   return (
     <div className="min-h-screen bg-background">
       <SeoHead
-        title="Knee Osteoarthritis Exercises — UK Guide"
+        title="Knee Osteoarthritis Exercises"
         description="Knee osteoarthritis exercises: Low-impact routines to reduce pain & improve mobility. Tier 1 & 2 exercises with video guides included."
         path={PATH}
         type="article"

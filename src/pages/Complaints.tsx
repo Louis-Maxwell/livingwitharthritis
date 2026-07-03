@@ -9,7 +9,7 @@ export default function Complaints() {
     <>
       <Helmet>
         <title>Complaints Procedure | Living With Arthritis UK</title>
-        <meta name="description" content="Our complaints procedure explains how to raise a concern about Living With Arthritis UK and how we will respond." />
+        <meta name="description" content="Our complaints procedure explains how to raise a concern about Living With Arthritis UK, what happens next, and how we will respond fairly and promptly." />
       <link rel="canonical" href="https://livingwitharthritis.org.uk/complaints" />
       <meta property="og:title" content="Complaints Procedure | Living With Arthritis UK" />
       <meta property="og:description" content="Our complaints procedure explains how to raise a concern about Living With Arthritis UK and how we will respond." />

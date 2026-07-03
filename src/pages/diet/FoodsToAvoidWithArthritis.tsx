@@ -221,7 +221,7 @@ export default function FoodsToAvoidWithArthritis() {
   return (
     <div className="min-h-screen bg-background">
       <SeoHead
-        title="Foods to Avoid With Arthritis — UK Guide"
+        title="Foods to Avoid With Arthritis"
         description="Which foods worsen arthritis? Evidence-based UK guide to the foods that drive joint inflammation, what to eat instead, and how quickly diet change helps."
         path={PATH}
         type="article"
