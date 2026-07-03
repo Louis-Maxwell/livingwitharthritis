@@ -54,6 +54,7 @@ for (const file of files) {
     const descMatch = attrs.match(attrRe("description"));
     const includeSiteName =
       !/includeSiteName\s*=\s*\{\s*false\s*\}/.test(attrs);
+    const isNoindex = /\bnoindex(\s|=|\/|>)/.test(attrs);
 
     if (titleMatch) {
       const raw = unescape(titleMatch[1] || titleMatch[2] || titleMatch[3] || "");
@@ -68,6 +69,19 @@ for (const file of files) {
         });
       }
     }
+    if (descMatch && !isNoindex) {
+      const raw = unescape(descMatch[1] || descMatch[2] || descMatch[3] || "");
+      if (raw.length > MAX_DESC || raw.length < MIN_DESC) {
+        findings.push({
+          file,
+          kind: "description",
+          length: raw.length,
+          limit: raw.length > MAX_DESC ? `> ${MAX_DESC}` : `< ${MIN_DESC}`,
+          value: raw,
+        });
+      }
+    }
+  }
     if (descMatch) {
       const raw = unescape(descMatch[1] || descMatch[2] || descMatch[3] || "");
       if (raw.length > MAX_DESC || raw.length < MIN_DESC) {
