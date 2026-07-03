@@ -107,7 +107,7 @@ export default function AdminKeywordStrategy() {
   return (
     <div className="min-h-screen bg-background">
       <SeoHead
-        title="Keyword Strategy — 1,000 UK Arthritis Keywords"
+        title="Keyword Strategy: 1,000 Keywords"
         description="Admin dashboard for browsing the 1,000-keyword UK arthritis strategy (500 organic + 500 paid) by intent, category and target page."
         path="/admin/keyword-strategy"
         noindex

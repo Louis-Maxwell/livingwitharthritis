@@ -1,45 +1,71 @@
-## Plan: five-item SEO/AEO/security execution
+# Plan: Enforce meta title & description length at render time
 
-I'll ship all five in one pass. Item 5 (AEO sweep) is the biggest — 40 pages — so I'm handling it via a shared component + codemod rather than 40 hand edits, which is faster, safer, and preserves existing content.
+## Goal
+Guarantee that every route emits:
+- `<title>` ≤ 60 characters (including any " | Living With Arthritis UK" suffix)
+- `<meta name="description">` between 120–160 characters
 
-### 1. Chat auth
-- Add `[functions.chat] verify_jwt = true` to `supabase/config.toml`.
-- In `supabase/functions/chat/index.ts`: validate the JWT via `getClaims()`, return 401 for anonymous. Keep rate limiting + safety.
-- `src/pages/Chat.tsx` + `src/components/ChatBot.tsx`: when no session, render a friendly sign-in / sign-up card instead of the composer; send `Authorization: Bearer <access_token>` on invoke.
+…regardless of static strings, dynamic slugs, CMS content, or truncated descriptions. Also fix any current offenders surfaced by the audit.
 
-### 2. OG images (build-time, satori + resvg)
-- Add `satori`, `@resvg/resvg-js`, `yoga-wasm-web` as devDeps.
-- New `scripts/generate-og-images.ts`: iterates blog articles + guide/condition pages, renders 1200×630 branded PNG (title, category chip, `livingwitharthritis.org.uk` footer) into `public/og/<slug>.png`. Idempotent (skips existing unless `--force`).
-- Wire into `prebuild` (after sitemap) and `predev` (best-effort).
-- New helper `src/lib/ogImage.ts` → `getOgImageUrl(slug)`. Update `SeoHead` / page templates to prefer per-slug OG.
+## Approach
 
-### 3. RLS + security migration
-- Inspect current policies on `buddy_profiles`, `contact_inquiries`, `chat_messages`, `profiles`.
-- Migration:
-  - Tighten `buddy_profiles` SELECT so non-owners only see the fields needed for matching (via a `public.buddy_profile_match_view` SECURITY INVOKER view or a policy that restricts to matched pairs + owner + admin).
-  - Restrict `contact_inquiries` SELECT to admins + submitter (if user_id present).
-  - Revoke `EXECUTE ... FROM PUBLIC` on SECURITY DEFINER functions that don't need public execution (`increment_blog_view` stays public; `move_to_dlq`, `enqueue_email`, `email_queue_wake`, `email_queue_dispatch`, `read_email_batch`, `delete_email` restricted to `service_role`).
-  - Add index: `CREATE INDEX IF NOT EXISTS idx_chat_messages_conversation_id ON public.chat_messages(conversation_id)` (matches the RLS subquery).
+### 1. Central enforcement in `src/components/SeoHead.tsx`
+`SeoHead` is used by ~all pages. Add a pure helper module and apply it inside the component so enforcement is unavoidable:
 
-### 4. Dependency upgrades
-- `bun add -d vitest@latest @vitest/coverage-v8@latest jsdom@latest picomatch@latest`
-- `bun add jspdf@latest` — read `src/lib/generatePdf.ts`, adapt to v3 API (jsPDF export shape changed only mildly: `import { jsPDF } from 'jspdf'` still works; `autoTable` is separate — check).
-- Run `tsgo` + `bun run build` to verify.
+- New `src/lib/seoMeta.ts` exporting:
+  - `enforceTitle(title: string, opts?: { includeSiteName?: boolean }): string`
+    - Reserves space for `" | Living With Arthritis UK"` suffix when `includeSiteName` is true.
+    - If the composed title > 60 chars, truncate the raw title on a word boundary, append `…` only if truncation removed a full word; ensures final composed length ≤ 60.
+    - If `includeSiteName` is true but there is no room for the suffix (raw title already > ~35 chars), drop the suffix rather than overflow.
+  - `enforceDescription(desc: string, min = 120, max = 160): string`
+    - If length > max: truncate on word boundary ≤ 157 chars + `…` (final ≤ 160).
+    - If length < min: leave as-is but flag via `console.warn` in dev; do NOT pad with filler (padding would be low quality). Under-length is a content bug to fix at source.
+  - `assertMetaLengths(route, title, desc)` — dev-only `console.warn` when limits are violated pre-truncation, so future authors see the warning in Vite dev.
 
-### 5. AEO sweep across ~40 pages
-- New `src/components/seo/AeoEnhancement.tsx` — a single drop-in wrapping:
-  - `AnswerBox` (answer-first summary)
-  - `LastUpdated` line + `MedicallyReviewed` badge
-  - optional `FAQ` list rendered as accordion + injects FAQPage JSON-LD
-  - optional definition/stat callout slots
-- New `src/data/page-aeo.ts` — a map of `route → { answer, faqs, reviewer, updatedAt, definition? }` for the 40 target pages (16 conditions + ~11 guides + 13 top blog/hub pages).
-- `scripts/apply-aeo.mjs` — codemod that scans `src/pages/conditions/*.tsx`, `src/pages/guides/*.tsx`, and a whitelisted set of hub pages; inserts `<AeoEnhancement route={...} />` immediately after the first `<h1>` if not already present. Idempotent.
-- Run the codemod once, verify a sample renders, commit.
+- Update `SeoHead` to:
+  - Run `enforceTitle` on the composed title (respecting `includeSiteName`).
+  - Run `enforceDescription` on `description`.
+  - Emit warnings in `import.meta.env.DEV` only.
+  - Feed the enforced values into both the primary `<title>`/`<meta description>` and the OG/Twitter mirrors so all social tags stay consistent.
 
-### Verification
-- `bun run seo:audit` and `bun run seo:schema` at the end.
-- Typecheck + build must stay green.
+### 2. Cover the non-SeoHead routes
+A handful of pages (e.g. `ArthritisSupportIndex.tsx`, some city/service programmatic pages, `ExpertArticle`) build `<Helmet>` directly. Two options — I'll do both:
+- Migrate those to `SeoHead` where trivial (preferred).
+- For dynamic/templated pages that must keep custom Helmet (city × service matrix, condition subpages, blog articles), import `enforceTitle` / `enforceDescription` and wrap the strings at the point they're passed to `<title>` / `<meta name="description">`.
 
-### Deliverables
-- Files: `supabase/config.toml`, `supabase/functions/chat/index.ts`, `src/pages/Chat.tsx`, `src/components/ChatBot.tsx`, one migration, `scripts/generate-og-images.ts`, `src/lib/ogImage.ts`, `src/components/seo/AeoEnhancement.tsx`, `src/data/page-aeo.ts`, `scripts/apply-aeo.mjs`, 40 touched page files, `package.json`.
-- New npm scripts: `og:generate`, `aeo:apply`.
+Target files (based on repo tree):
+- `src/pages/ArthritisSupportIndex.tsx`
+- `src/pages/ExpertArticle.tsx`
+- Programmatic route templates: city-service, city-condition, exercise-joint, condition subpages, blog article template, faq article template.
+  (I'll grep for `<title>` / `name="description"` and enforce every occurrence.)
+
+### 3. Audit script + build-time check
+Extend `scripts/seo-audit.ts` (already exists) so it:
+- Iterates every route emitted into `sitemap.xml`.
+- Renders the route via the existing prerender pathway OR reads the static SEO data files/templates that back each route.
+- Fails (non-zero exit) if any composed title > 60 or description < 120 or > 160.
+- Prints a table of offenders with route, length, and text.
+
+Wire it into the existing `bun run seo:audit` (already run in CI). Since it already exists in CI, this makes the constraint enforced on every PR as well as at render time.
+
+### 4. Fix current offenders
+Run the extended audit locally, then patch each offending file — trimming titles, rewriting under-length descriptions to sit in 140–155 chars, keeping UK spelling and existing voice. Expected surface: dynamic templates (city × service, condition subpages), plus any pages missed in the previous meta audit pass. No design changes.
+
+### 5. Verification
+- `bunx tsgo --noEmit` stays green.
+- `bun run seo:audit` passes with zero length violations.
+- `bun run seo:schema` unchanged (should stay green).
+- Spot-check 5 routes in the preview and confirm the emitted `<title>` / `<meta description>` in DOM are within limits.
+
+## Out of scope
+- No design/content overhaul beyond trimming to length.
+- No changes to canonical/OG image logic.
+- No changes to the chatbot, sitemap generation, or migrations.
+
+## Deliverables
+- `src/lib/seoMeta.ts` (new)
+- `src/components/SeoHead.tsx` (enforcement wired in)
+- Direct-Helmet route files updated to use the helpers
+- `scripts/seo-audit.ts` extended with length check
+- Any offending page's title/description trimmed to fit
+- Final summary listing every file changed and the audit result

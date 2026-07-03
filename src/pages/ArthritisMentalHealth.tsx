@@ -69,7 +69,7 @@ export default function ArthritisMentalHealth() {
   return (
     <article className="max-w-4xl mx-auto py-12 px-4">
       <SeoHead
-        title="Arthritis & Mental Health: Complete UK Guide"
+        title="Arthritis & Mental Health Guide"
         description={pillar.metaDescription}
         path={pillar.route}
         type="article"

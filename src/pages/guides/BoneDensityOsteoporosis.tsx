@@ -43,7 +43,7 @@ export default function BoneDensityOsteoporosis() {
   return (
     <article className="max-w-4xl mx-auto py-12 px-4">
       <SeoHead
-        title="Bone Density & Osteoarthritis: Manage Both | UK Guide"
+        title="Bone Density & Osteoarthritis"
         description="Bone density & osteoarthritis: Manage both conditions together. Calcium, vitamin D, exercise & screening guidance from HCPC."
         path="/guides/bone-density-osteoporosis"
         type="article"

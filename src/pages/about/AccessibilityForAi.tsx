@@ -34,7 +34,7 @@ const AccessibilityForAi = () => {
     <div className="min-h-screen bg-background">
       <SeoHead
         title="Machine-Readable Content for AI"
-        description="Discoverability surfaces for AI crawlers: JSON-LD schemas, llms.txt, ai.txt, sitemap & robots policy explained."
+        description="Discoverability surfaces for AI crawlers on Living With Arthritis UK: JSON-LD schemas, llms.txt, ai.txt, sitemap and robots policy explained in detail."
         path={PATH}
       />
       <Header />

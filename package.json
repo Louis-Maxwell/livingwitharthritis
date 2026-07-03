@@ -22,7 +22,8 @@
     "seo:audit": "bun scripts/seo-audit.ts",
     "seo:schema": "node scripts/validate-jsonld.mjs",
     "seo:canonicals": "node scripts/check-canonicals.mjs",
-    "seo:social": "node scripts/check-social-meta.mjs"
+    "seo:social": "node scripts/check-social-meta.mjs",
+    "seo:meta-lengths": "bun scripts/audit-meta-lengths.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

@@ -43,7 +43,7 @@ export default function FallPreventionOlderAdults() {
   return (
     <article className="max-w-4xl mx-auto py-12 px-4">
       <SeoHead
-        title="Fall Prevention for Older Adults with Arthritis | UK Guide"
+        title="Fall Prevention with Arthritis"
         description="Fall prevention for older adults: Balance training, home safety, strength exercises & medical assessment. Reduce injury risk significantly."
         path="/guides/fall-prevention-older-adults"
         type="article"
