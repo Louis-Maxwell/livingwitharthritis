@@ -1,39 +1,11 @@
 {
   "violations": [
     {
-      "kind": "no-h1",
-      "route": "src/pages/AboutUs.tsx",
-      "file": "src/pages/AboutUs.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/Accessibility.tsx",
-      "file": "src/pages/Accessibility.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
       "kind": "multiple-h1",
       "route": "src/pages/AdminDistribute.tsx",
       "file": "src/pages/AdminDistribute.tsx",
       "line": 142,
       "detail": "duplicate <h1>: \"Distribute\""
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/ArthritisFlareUps.tsx",
-      "file": "src/pages/ArthritisFlareUps.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/ArthritisStarterGuide.tsx",
-      "file": "src/pages/ArthritisStarterGuide.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
     },
     {
       "kind": "no-h1",
@@ -57,20 +29,6 @@
       "detail": "empty <h2>"
     },
     {
-      "kind": "no-h1",
-      "route": "src/pages/BlogHub.tsx",
-      "file": "src/pages/BlogHub.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/BlogIndex.tsx",
-      "file": "src/pages/BlogIndex.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
       "kind": "empty-heading",
       "route": "src/pages/BlogIndex.tsx",
       "file": "src/pages/BlogIndex.tsx",
@@ -85,53 +43,11 @@
       "detail": "duplicate <h1>: \"{article.title}\""
     },
     {
-      "kind": "no-h1",
-      "route": "src/pages/Buddy.tsx",
-      "file": "src/pages/Buddy.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/BuddyMatch.tsx",
-      "file": "src/pages/BuddyMatch.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
       "kind": "level-skip",
       "route": "src/pages/Chat.tsx",
       "file": "src/components/ChatBot.tsx",
       "line": 170,
       "detail": "page uses <h3> but no <h2>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/CommunityHub.tsx",
-      "file": "src/pages/CommunityHub.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/Contact.tsx",
-      "file": "src/pages/Contact.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/CookiesPolicy.tsx",
-      "file": "src/pages/CookiesPolicy.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/Credits.tsx",
-      "file": "src/pages/Credits.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
     },
     {
       "kind": "multiple-h1",
@@ -141,67 +57,11 @@
       "detail": "duplicate <h1>: \"{title}\""
     },
     {
-      "kind": "no-h1",
-      "route": "src/pages/DietHub.tsx",
-      "file": "src/pages/DietHub.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
       "kind": "multiple-h1",
       "route": "src/pages/DonationSuccess.tsx",
       "file": "src/pages/DonationSuccess.tsx",
       "line": 73,
       "detail": "duplicate <h1>: \"Donation Cancelled\""
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/ExerciseHub.tsx",
-      "file": "src/pages/ExerciseHub.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/ExpertArticles.tsx",
-      "file": "src/pages/ExpertArticles.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/FAQ.tsx",
-      "file": "src/pages/FAQ.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/Finances.tsx",
-      "file": "src/pages/Finances.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/Gallery.tsx",
-      "file": "src/pages/Gallery.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/Governance.tsx",
-      "file": "src/pages/Governance.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/HealthTools.tsx",
-      "file": "src/pages/HealthTools.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
     },
     {
       "kind": "level-skip",
@@ -211,27 +71,6 @@
       "detail": "page uses <h3> but no <h2>"
     },
     {
-      "kind": "no-h1",
-      "route": "src/pages/ImpactStories.tsx",
-      "file": "src/pages/ImpactStories.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/Library.tsx",
-      "file": "src/pages/Library.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/LivedExperiences.tsx",
-      "file": "src/pages/LivedExperiences.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
       "kind": "empty-heading",
       "route": "src/pages/LivedExperiences.tsx",
       "file": "src/pages/LivedExperiences.tsx",
@@ -239,32 +78,11 @@
       "detail": "empty <h3>"
     },
     {
-      "kind": "no-h1",
-      "route": "src/pages/NewsletterConfirm.tsx",
-      "file": "src/pages/NewsletterConfirm.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
       "kind": "empty-heading",
       "route": "src/pages/NotFound.tsx",
       "file": "src/pages/NotFound.tsx",
       "line": 66,
       "detail": "empty <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/Pedometer.tsx",
-      "file": "src/pages/Pedometer.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/PrivacyPolicy.tsx",
-      "file": "src/pages/PrivacyPolicy.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
     },
     {
       "kind": "empty-heading",
@@ -281,13 +99,6 @@
       "detail": "duplicate <h1>: \"{product.title}\""
     },
     {
-      "kind": "no-h1",
-      "route": "src/pages/ResourceDirectory.tsx",
-      "file": "src/pages/ResourceDirectory.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
       "kind": "empty-heading",
       "route": "src/pages/ResourceDirectory.tsx",
       "file": "src/pages/ResourceDirectory.tsx",
@@ -295,53 +106,11 @@
       "detail": "empty <h2>"
     },
     {
-      "kind": "no-h1",
-      "route": "src/pages/SelfAssessment.tsx",
-      "file": "src/pages/SelfAssessment.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
       "kind": "level-skip",
       "route": "src/pages/SelfAssessment.tsx",
       "file": "src/pages/SelfAssessment.tsx",
       "line": 105,
       "detail": "page uses <h3> but no <h2>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/SelfHelpTool.tsx",
-      "file": "src/pages/SelfHelpTool.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/Services.tsx",
-      "file": "src/pages/Services.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/Shop.tsx",
-      "file": "src/pages/Shop.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/TermsConditions.tsx",
-      "file": "src/pages/TermsConditions.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/TrustCredibility.tsx",
-      "file": "src/pages/TrustCredibility.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
     },
     {
       "kind": "multiple-h1",
@@ -372,81 +141,11 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "no-h1",
-      "route": "src/pages/conditions/PsoriaticArthritis.tsx",
-      "file": "src/pages/conditions/PsoriaticArthritis.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/conditions/RheumatoidArthritis.tsx",
-      "file": "src/pages/conditions/RheumatoidArthritis.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/diet/FoodsToAvoidWithArthritis.tsx",
-      "file": "src/pages/diet/FoodsToAvoidWithArthritis.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/diet/MediterraneanDietForArthritis.tsx",
-      "file": "src/pages/diet/MediterraneanDietForArthritis.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/exercises/SeatedTaiChiForArthritis.tsx",
-      "file": "src/pages/exercises/SeatedTaiChiForArthritis.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/exercises/TaiChiForArthritis.tsx",
-      "file": "src/pages/exercises/TaiChiForArthritis.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/exercises/TaiChiForBalance.tsx",
-      "file": "src/pages/exercises/TaiChiForBalance.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/exercises/TaiChiForBeginners.tsx",
-      "file": "src/pages/exercises/TaiChiForBeginners.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/guides/CanExerciseMakeOsteoarthritisWorse.tsx",
-      "file": "src/pages/guides/CanExerciseMakeOsteoarthritisWorse.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
       "kind": "level-skip",
       "route": "src/pages/guides/CanExerciseMakeOsteoarthritisWorse.tsx",
       "file": "src/pages/guides/CanExerciseMakeOsteoarthritisWorse.tsx",
       "line": 154,
       "detail": "page uses <h3> but no <h2>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/guides/HipExercisesForOsteoarthritis.tsx",
-      "file": "src/pages/guides/HipExercisesForOsteoarthritis.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
     },
     {
       "kind": "level-skip",
@@ -456,46 +155,11 @@
       "detail": "page uses <h3> but no <h2>"
     },
     {
-      "kind": "no-h1",
-      "route": "src/pages/myths/DoesCrackingKnucklesCauseArthritis.tsx",
-      "file": "src/pages/myths/DoesCrackingKnucklesCauseArthritis.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/pillar/AzathioprineGuide.tsx",
-      "file": "src/pages/pillar/AzathioprineGuide.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/pillar/BenefitsPIPGuide.tsx",
-      "file": "src/pages/pillar/BenefitsPIPGuide.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
       "kind": "level-skip",
       "route": "src/pages/pillar/BenefitsPIPGuide.tsx",
       "file": "src/pages/pillar/BenefitsPIPGuide.tsx",
       "line": 244,
       "detail": "page uses <h3> but no <h2>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/pillar/DietGuide.tsx",
-      "file": "src/pages/pillar/DietGuide.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/pillar/ExerciseGuide.tsx",
-      "file": "src/pages/pillar/ExerciseGuide.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
     },
     {
       "kind": "level-skip",
@@ -505,32 +169,11 @@
       "detail": "page uses <h3> but no <h2>"
     },
     {
-      "kind": "no-h1",
-      "route": "src/pages/pillar/FebuxostatGoutGuide.tsx",
-      "file": "src/pages/pillar/FebuxostatGoutGuide.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/pillar/HealthServicesGuide.tsx",
-      "file": "src/pages/pillar/HealthServicesGuide.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
       "kind": "level-skip",
       "route": "src/pages/pillar/HealthServicesGuide.tsx",
       "file": "src/pages/pillar/HealthServicesGuide.tsx",
       "line": 197,
       "detail": "page uses <h3> but no <h2>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
-      "file": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
     },
     {
       "kind": "level-skip",
@@ -540,32 +183,11 @@
       "detail": "page uses <h3> but no <h2>"
     },
     {
-      "kind": "no-h1",
-      "route": "src/pages/pillar/PainkillersNsaidsGuide.tsx",
-      "file": "src/pages/pillar/PainkillersNsaidsGuide.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
       "kind": "level-skip",
       "route": "src/pages/pillar/PainkillersNsaidsGuide.tsx",
       "file": "src/pages/pillar/PainkillersNsaidsGuide.tsx",
       "line": 166,
       "detail": "page uses <h3> but no <h2>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/pillar/SteroidsGuide.tsx",
-      "file": "src/pages/pillar/SteroidsGuide.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
-      "kind": "no-h1",
-      "route": "src/pages/pillar/UKArthritisGuide.tsx",
-      "file": "src/pages/pillar/UKArthritisGuide.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
     },
     {
       "kind": "level-skip",
@@ -612,6 +234,13 @@
           "text": "Join Our Mission",
           "file": "src/pages/AboutUs.tsx",
           "line": 364,
+          "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
           "hasAriaHidden": false
         },
         {
@@ -701,6 +330,13 @@
           "text": "Enforcement Procedure",
           "file": "src/pages/Accessibility.tsx",
           "line": 155,
+          "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
           "hasAriaHidden": false
         }
       ]
@@ -1009,6 +645,13 @@
           "hasAriaHidden": false
         },
         {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
+        },
+        {
           "level": 3,
           "text": "{title || }",
           "file": "src/components/CrossLinkBanner.tsx",
@@ -1122,6 +765,13 @@
           "file": "src/pages/ArthritisStarterGuide.tsx",
           "line": 423,
           "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
         }
       ]
     },
@@ -1212,6 +862,13 @@
           "file": "src/pages/BlogHub.tsx",
           "line": 311,
           "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
         }
       ]
     },
@@ -1237,6 +894,13 @@
           "text": "{page.title}",
           "file": "src/components/InternalLinks.tsx",
           "line": 90,
+          "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
           "hasAriaHidden": false
         }
       ]
@@ -1346,11 +1010,27 @@
     },
     {
       "route": "src/pages/Buddy.tsx",
-      "headings": []
+      "headings": [
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
+        }
+      ]
     },
     {
       "route": "src/pages/BuddyMatch.tsx",
-      "headings": []
+      "headings": [
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
+        }
+      ]
     },
     {
       "route": "src/pages/Chat.tsx",
@@ -1543,6 +1223,13 @@
     {
       "route": "src/pages/CommunityHub.tsx",
       "headings": [
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
+        },
         {
           "level": 2,
           "text": "Explore More Resources",
@@ -1781,7 +1468,15 @@
     },
     {
       "route": "src/pages/Contact.tsx",
-      "headings": []
+      "headings": [
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
+        }
+      ]
     },
     {
       "route": "src/pages/CookiesPolicy.tsx",
@@ -1827,6 +1522,13 @@
           "file": "src/pages/CookiesPolicy.tsx",
           "line": 79,
           "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
         }
       ]
     },
@@ -1850,6 +1552,13 @@
           "text": "{group.label}",
           "file": "src/pages/Credits.tsx",
           "line": 78,
+          "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
           "hasAriaHidden": false
         }
       ]
@@ -2012,6 +1721,13 @@
           "text": "Get Personalised Diet Advice",
           "file": "src/pages/DietHub.tsx",
           "line": 504,
+          "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
           "hasAriaHidden": false
         },
         {
@@ -2341,6 +2057,13 @@
           "hasAriaHidden": false
         },
         {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
+        },
+        {
           "level": 2,
           "text": "Weekly Progress Tracker",
           "file": "src/components/ExerciseProgressTracker.tsx",
@@ -2536,12 +2259,27 @@
           "file": "src/pages/ExpertArticles.tsx",
           "line": 354,
           "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
         }
       ]
     },
     {
       "route": "src/pages/FAQ.tsx",
-      "headings": []
+      "headings": [
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
+        }
+      ]
     },
     {
       "route": "src/pages/FaqArticle.tsx",
@@ -2657,6 +2395,13 @@
           "hasAriaHidden": false
         },
         {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
+        },
+        {
           "level": 2,
           "text": "Explore More Resources",
           "file": "src/components/InternalLinks.tsx",
@@ -2681,7 +2426,15 @@
     },
     {
       "route": "src/pages/Gallery.tsx",
-      "headings": []
+      "headings": [
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
+        }
+      ]
     },
     {
       "route": "src/pages/Governance.tsx",
@@ -2771,6 +2524,13 @@
           "hasAriaHidden": false
         },
         {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
+        },
+        {
           "level": 2,
           "text": "Explore More Resources",
           "file": "src/components/InternalLinks.tsx",
@@ -2789,6 +2549,13 @@
     {
       "route": "src/pages/HealthTools.tsx",
       "headings": [
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
+        },
         {
           "level": 3,
           "text": "{top.name}",
@@ -2865,6 +2632,13 @@
           "hasAriaHidden": false
         },
         {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
+        },
+        {
           "level": 2,
           "text": "Explore More Resources",
           "file": "src/components/InternalLinks.tsx",
@@ -2914,6 +2688,13 @@
           "text": "{topic.title}",
           "file": "src/pages/Library.tsx",
           "line": 159,
+          "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
           "hasAriaHidden": false
         }
       ]
@@ -2973,6 +2754,13 @@
           "text": "",
           "file": "src/pages/LivedExperiences.tsx",
           "line": 298,
+          "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
           "hasAriaHidden": false
         }
       ]
@@ -3106,7 +2894,15 @@
     },
     {
       "route": "src/pages/NewsletterConfirm.tsx",
-      "headings": []
+      "headings": [
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
+        }
+      ]
     },
     {
       "route": "src/pages/NotFound.tsx",
@@ -3180,6 +2976,13 @@
           "text": "Why walking helps arthritis",
           "file": "src/pages/Pedometer.tsx",
           "line": 75,
+          "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
           "hasAriaHidden": false
         },
         {
@@ -3345,6 +3148,13 @@
           "file": "src/pages/PrivacyPolicy.tsx",
           "line": 132,
           "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
         }
       ]
     },
@@ -3396,6 +3206,13 @@
           "text": "",
           "file": "src/pages/ResourceDirectory.tsx",
           "line": 187,
+          "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
           "hasAriaHidden": false
         }
       ]
@@ -3491,6 +3308,13 @@
           "file": "src/pages/SelfAssessment.tsx",
           "line": 130,
           "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
         }
       ]
     },
@@ -3512,6 +3336,13 @@
           "hasAriaHidden": false
         },
         {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
+        },
+        {
           "level": 2,
           "text": "{question}",
           "file": "src/components/seo/AnswerBox.tsx",
@@ -3522,7 +3353,15 @@
     },
     {
       "route": "src/pages/Services.tsx",
-      "headings": []
+      "headings": [
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
+        }
+      ]
     },
     {
       "route": "src/pages/Shop.tsx",
@@ -3532,6 +3371,13 @@
           "text": "Shopify Store Launching Soon",
           "file": "src/pages/Shop.tsx",
           "line": 39,
+          "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
           "hasAriaHidden": false
         }
       ]
@@ -3653,6 +3499,13 @@
           "file": "src/pages/TermsConditions.tsx",
           "line": 182,
           "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
         }
       ]
     },
@@ -3706,6 +3559,13 @@
           "text": "<Heart className= /> Medical Disclaimer",
           "file": "src/pages/TrustCredibility.tsx",
           "line": 235,
+          "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
           "hasAriaHidden": false
         }
       ]
@@ -5483,6 +5343,13 @@
           "hasAriaHidden": false
         },
         {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
+        },
+        {
           "level": 4,
           "text": "{title}",
           "file": "src/components/graphics/InfographicElements.tsx",
@@ -5735,6 +5602,13 @@
           "text": "Living well with RA",
           "file": "src/pages/conditions/RheumatoidArthritis.tsx",
           "line": 326,
+          "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
           "hasAriaHidden": false
         },
         {
@@ -6126,6 +6000,13 @@
           "hasAriaHidden": false
         },
         {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
+        },
+        {
           "level": 2,
           "text": "{question}",
           "file": "src/components/seo/AnswerBox.tsx",
@@ -6170,6 +6051,13 @@
           "text": "One trip to the supermarket",
           "file": "src/pages/diet/MediterraneanDietForArthritis.tsx",
           "line": 454,
+          "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
           "hasAriaHidden": false
         }
       ]
@@ -6298,6 +6186,13 @@
           "file": "src/pages/exercises/SeatedTaiChiForArthritis.tsx",
           "line": 219,
           "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
         }
       ]
     },
@@ -6401,6 +6296,13 @@
           "file": "src/pages/exercises/TaiChiForArthritis.tsx",
           "line": 339,
           "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
         }
       ]
     },
@@ -6476,6 +6378,13 @@
           "file": "src/pages/exercises/TaiChiForBalance.tsx",
           "line": 311,
           "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
         }
       ]
     },
@@ -6543,6 +6452,13 @@
           "text": "{f.q}",
           "file": "src/pages/exercises/TaiChiForBeginners.tsx",
           "line": 301,
+          "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
           "hasAriaHidden": false
         }
       ]
@@ -6663,6 +6579,13 @@
           "text": "Continue reading",
           "file": "src/pages/guides/CanExerciseMakeOsteoarthritisWorse.tsx",
           "line": 154,
+          "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
           "hasAriaHidden": false
         }
       ]
@@ -6949,6 +6872,13 @@
           "text": "Next steps",
           "file": "src/pages/guides/HipExercisesForOsteoarthritis.tsx",
           "line": 211,
+          "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
           "hasAriaHidden": false
         }
       ]
@@ -7325,12 +7255,27 @@
           "file": "src/pages/myths/DoesCrackingKnucklesCauseArthritis.tsx",
           "line": 468,
           "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
         }
       ]
     },
     {
       "route": "src/pages/pillar/AzathioprineGuide.tsx",
-      "headings": []
+      "headings": [
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
+        }
+      ]
     },
     {
       "route": "src/pages/pillar/BenefitsPIPGuide.tsx",
@@ -7340,6 +7285,13 @@
           "text": "Continue Reading",
           "file": "src/pages/pillar/BenefitsPIPGuide.tsx",
           "line": 244,
+          "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
           "hasAriaHidden": false
         }
       ]
@@ -7352,6 +7304,13 @@
           "text": "Continue Reading",
           "file": "src/pages/pillar/DietGuide.tsx",
           "line": 236,
+          "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
           "hasAriaHidden": false
         },
         {
@@ -7372,12 +7331,27 @@
           "file": "src/pages/pillar/ExerciseGuide.tsx",
           "line": 236,
           "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
         }
       ]
     },
     {
       "route": "src/pages/pillar/FebuxostatGoutGuide.tsx",
-      "headings": []
+      "headings": [
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
+        }
+      ]
     },
     {
       "route": "src/pages/pillar/HealthServicesGuide.tsx",
@@ -7387,6 +7361,13 @@
           "text": "Continue Reading",
           "file": "src/pages/pillar/HealthServicesGuide.tsx",
           "line": 197,
+          "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
           "hasAriaHidden": false
         }
       ]
@@ -7400,6 +7381,13 @@
           "file": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
           "line": 223,
           "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
         }
       ]
     },
@@ -7412,12 +7400,27 @@
           "file": "src/pages/pillar/PainkillersNsaidsGuide.tsx",
           "line": 166,
           "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
         }
       ]
     },
     {
       "route": "src/pages/pillar/SteroidsGuide.tsx",
-      "headings": []
+      "headings": [
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
+          "hasAriaHidden": false
+        }
+      ]
     },
     {
       "route": "src/pages/pillar/UKArthritisGuide.tsx",
@@ -7427,6 +7430,13 @@
           "text": "Continue Reading",
           "file": "src/pages/pillar/UKArthritisGuide.tsx",
           "line": 266,
+          "hasAriaHidden": false
+        },
+        {
+          "level": 1,
+          "text": "{title}",
+          "file": "src/components/ui/PageHero.tsx",
+          "line": 29,
           "hasAriaHidden": false
         }
       ]
