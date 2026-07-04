@@ -8,25 +8,11 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/AboutUs.tsx",
-      "file": "src/pages/AboutUs.tsx",
-      "line": 183,
-      "detail": "first heading is <h2>: \"Led by <span className= >clinicians</span>, built with care\""
-    },
-    {
       "kind": "no-h1",
       "route": "src/pages/Accessibility.tsx",
       "file": "src/pages/Accessibility.tsx",
       "line": 1,
       "detail": "page has no <h1>"
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/Accessibility.tsx",
-      "file": "src/pages/Accessibility.tsx",
-      "line": 94,
-      "detail": "first heading is <h2>: \"Accessibility Features\""
     },
     {
       "kind": "multiple-h1",
@@ -43,13 +29,6 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/ArthritisFlareUps.tsx",
-      "file": "src/pages/ArthritisFlareUps.tsx",
-      "line": 88,
-      "detail": "first heading is <h3>: \"{title}\""
-    },
-    {
       "kind": "no-h1",
       "route": "src/pages/ArthritisStarterGuide.tsx",
       "file": "src/pages/ArthritisStarterGuide.tsx",
@@ -57,25 +36,11 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/ArthritisStarterGuide.tsx",
-      "file": "src/pages/ArthritisStarterGuide.tsx",
-      "line": 291,
-      "detail": "first heading is <h2>: \"14 pages, six chapters, zero fluff.\""
-    },
-    {
       "kind": "no-h1",
       "route": "src/pages/Auth.tsx",
       "file": "src/pages/Auth.tsx",
       "line": 1,
       "detail": "page has no <h1>"
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/Auth.tsx",
-      "file": "src/pages/Auth.tsx",
-      "line": 65,
-      "detail": "first heading is <h2>: \"Your free, private arthritis support account\""
     },
     {
       "kind": "no-h1",
@@ -83,13 +48,6 @@
       "file": "src/pages/BlogCategory.tsx",
       "line": 1,
       "detail": "page has no <h1>"
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/BlogCategory.tsx",
-      "file": "src/pages/BlogIndex.tsx",
-      "line": 151,
-      "detail": "first heading is <h2>: \"\""
     },
     {
       "kind": "empty-heading",
@@ -106,25 +64,11 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/BlogHub.tsx",
-      "file": "src/pages/BlogHub.tsx",
-      "line": 265,
-      "detail": "first heading is <h2>: \"{title}\""
-    },
-    {
       "kind": "no-h1",
       "route": "src/pages/BlogIndex.tsx",
       "file": "src/pages/BlogIndex.tsx",
       "line": 1,
       "detail": "page has no <h1>"
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/BlogIndex.tsx",
-      "file": "src/pages/BlogIndex.tsx",
-      "line": 151,
-      "detail": "first heading is <h2>: \"\""
     },
     {
       "kind": "empty-heading",
@@ -159,7 +103,7 @@
       "route": "src/pages/Chat.tsx",
       "file": "src/components/ChatBot.tsx",
       "line": 170,
-      "detail": "<h1> -> <h3>: \"Help & Support\""
+      "detail": "page uses <h3> but no <h2>"
     },
     {
       "kind": "no-h1",
@@ -167,13 +111,6 @@
       "file": "src/pages/CommunityHub.tsx",
       "line": 1,
       "detail": "page has no <h1>"
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/CommunityHub.tsx",
-      "file": "src/components/InternalLinks.tsx",
-      "line": 64,
-      "detail": "first heading is <h2>: \"Explore More Resources\""
     },
     {
       "kind": "no-h1",
@@ -190,25 +127,11 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/CookiesPolicy.tsx",
-      "file": "src/pages/CookiesPolicy.tsx",
-      "line": 57,
-      "detail": "first heading is <h2>: \"1. What Are Cookies?\""
-    },
-    {
       "kind": "no-h1",
       "route": "src/pages/Credits.tsx",
       "file": "src/pages/Credits.tsx",
       "line": 1,
       "detail": "page has no <h1>"
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/Credits.tsx",
-      "file": "src/pages/Credits.tsx",
-      "line": 78,
-      "detail": "first heading is <h2>: \"{group.label}\""
     },
     {
       "kind": "multiple-h1",
@@ -218,39 +141,11 @@
       "detail": "duplicate <h1>: \"{title}\""
     },
     {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/DailyTipDetail.tsx",
-      "file": "src/pages/DailyTipDetail.tsx",
-      "line": 30,
-      "detail": "first heading is <h2>: \"<span className= /> {trimmed.replace( , )}\""
-    },
-    {
-      "kind": "level-skip",
-      "route": "src/pages/DailyTipDetail.tsx",
-      "file": "src/pages/DailyTipDetail.tsx",
-      "line": 175,
-      "detail": "<h1> -> <h3>: \"<Heart className= /> Key Takeaways\""
-    },
-    {
       "kind": "no-h1",
       "route": "src/pages/DietHub.tsx",
       "file": "src/pages/DietHub.tsx",
       "line": 1,
       "detail": "page has no <h1>"
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/DietHub.tsx",
-      "file": "src/pages/DietHub.tsx",
-      "line": 202,
-      "detail": "first heading is <h2>: \"What to Eat vs What to Avoid\""
-    },
-    {
-      "kind": "level-skip",
-      "route": "src/pages/DietHub.tsx",
-      "file": "src/components/graphics/InfographicElements.tsx",
-      "line": 264,
-      "detail": "<h2> -> <h4>: \"{title}\""
     },
     {
       "kind": "multiple-h1",
@@ -267,25 +162,11 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/ExerciseHub.tsx",
-      "file": "src/pages/ExerciseHub.tsx",
-      "line": 329,
-      "detail": "first heading is <h2>: \"{cat.title}\""
-    },
-    {
       "kind": "no-h1",
       "route": "src/pages/ExpertArticles.tsx",
       "file": "src/pages/ExpertArticles.tsx",
       "line": 1,
       "detail": "page has no <h1>"
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/ExpertArticles.tsx",
-      "file": "src/pages/ExpertArticles.tsx",
-      "line": 268,
-      "detail": "first heading is <h2>: \"Our Clinical Contributors\""
     },
     {
       "kind": "no-h1",
@@ -302,13 +183,6 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/Finances.tsx",
-      "file": "src/pages/Finances.tsx",
-      "line": 237,
-      "detail": "first heading is <h2>: \"How Funds Are Spent (2024/25)\""
-    },
-    {
       "kind": "no-h1",
       "route": "src/pages/Gallery.tsx",
       "file": "src/pages/Gallery.tsx",
@@ -323,13 +197,6 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/Governance.tsx",
-      "file": "src/pages/Governance.tsx",
-      "line": 219,
-      "detail": "first heading is <h2>: \"Registered Details\""
-    },
-    {
       "kind": "no-h1",
       "route": "src/pages/HealthTools.tsx",
       "file": "src/pages/HealthTools.tsx",
@@ -337,11 +204,11 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
+      "kind": "level-skip",
       "route": "src/pages/HealthTools.tsx",
       "file": "src/components/tools/SymptomQuiz.tsx",
       "line": 138,
-      "detail": "first heading is <h3>: \"{top.name}\""
+      "detail": "page uses <h3> but no <h2>"
     },
     {
       "kind": "no-h1",
@@ -351,20 +218,6 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/ImpactStories.tsx",
-      "file": "src/pages/ImpactStories.tsx",
-      "line": 224,
-      "detail": "first heading is <h3>: \"{cs.name}, {cs.age}\""
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/Index.tsx",
-      "file": "src/pages/Index.tsx",
-      "line": 290,
-      "detail": "first heading is <h2>: \"Plain-English guides to common arthritis medications\""
-    },
-    {
       "kind": "no-h1",
       "route": "src/pages/Library.tsx",
       "file": "src/pages/Library.tsx",
@@ -372,25 +225,11 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/Library.tsx",
-      "file": "src/pages/Library.tsx",
-      "line": 159,
-      "detail": "first heading is <h2>: \"{topic.title}\""
-    },
-    {
       "kind": "no-h1",
       "route": "src/pages/LivedExperiences.tsx",
       "file": "src/pages/LivedExperiences.tsx",
       "line": 1,
       "detail": "page has no <h1>"
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/LivedExperiences.tsx",
-      "file": "src/pages/LivedExperiences.tsx",
-      "line": 244,
-      "detail": "first heading is <h2>: \"{story.name}, {story.age}\""
     },
     {
       "kind": "empty-heading",
@@ -421,25 +260,11 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/Pedometer.tsx",
-      "file": "src/pages/Pedometer.tsx",
-      "line": 75,
-      "detail": "first heading is <h2>: \"Why walking helps arthritis\""
-    },
-    {
       "kind": "no-h1",
       "route": "src/pages/PrivacyPolicy.tsx",
       "file": "src/pages/PrivacyPolicy.tsx",
       "line": 1,
       "detail": "page has no <h1>"
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/PrivacyPolicy.tsx",
-      "file": "src/pages/PrivacyPolicy.tsx",
-      "line": 57,
-      "detail": "first heading is <h2>: \"1. Who We Are\""
     },
     {
       "kind": "empty-heading",
@@ -463,13 +288,6 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/ResourceDirectory.tsx",
-      "file": "src/pages/ResourceDirectory.tsx",
-      "line": 152,
-      "detail": "first heading is <h3>: \"{r.name}\""
-    },
-    {
       "kind": "empty-heading",
       "route": "src/pages/ResourceDirectory.tsx",
       "file": "src/pages/ResourceDirectory.tsx",
@@ -484,11 +302,11 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
+      "kind": "level-skip",
       "route": "src/pages/SelfAssessment.tsx",
       "file": "src/pages/SelfAssessment.tsx",
       "line": 105,
-      "detail": "first heading is <h3>: \"Suggested physiotherapy\""
+      "detail": "page uses <h3> but no <h2>"
     },
     {
       "kind": "no-h1",
@@ -496,13 +314,6 @@
       "file": "src/pages/SelfHelpTool.tsx",
       "line": 1,
       "detail": "page has no <h1>"
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/SelfHelpTool.tsx",
-      "file": "src/pages/SelfHelpTool.tsx",
-      "line": 153,
-      "detail": "first heading is <h2>: \"Medications and supplements for joint health\""
     },
     {
       "kind": "no-h1",
@@ -519,13 +330,6 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/Shop.tsx",
-      "file": "src/pages/Shop.tsx",
-      "line": 39,
-      "detail": "first heading is <h2>: \"Shopify Store Launching Soon\""
-    },
-    {
       "kind": "no-h1",
       "route": "src/pages/TermsConditions.tsx",
       "file": "src/pages/TermsConditions.tsx",
@@ -533,25 +337,11 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/TermsConditions.tsx",
-      "file": "src/pages/TermsConditions.tsx",
-      "line": 59,
-      "detail": "first heading is <h2>: \"1. Introduction\""
-    },
-    {
       "kind": "no-h1",
       "route": "src/pages/TrustCredibility.tsx",
       "file": "src/pages/TrustCredibility.tsx",
       "line": 1,
       "detail": "page has no <h1>"
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/TrustCredibility.tsx",
-      "file": "src/pages/TrustCredibility.tsx",
-      "line": 102,
-      "detail": "first heading is <h2>: \"Our Impact at a Glance\""
     },
     {
       "kind": "multiple-h1",
@@ -582,207 +372,11 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/ZakatAppeal.tsx",
-      "file": "src/pages/ZakatAppeal.tsx",
-      "line": 148,
-      "detail": "first heading is <h2>: \"Zakat — Rebuilding Lives After War & Trauma\""
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/conditions/AnkylosingSpondylitis.tsx",
-      "file": "src/components/conditions/ConditionPageTemplate.tsx",
-      "line": 111,
-      "detail": "first heading is <h2>: \"{title}\""
-    },
-    {
-      "kind": "level-skip",
-      "route": "src/pages/conditions/AnkylosingSpondylitis.tsx",
-      "file": "src/components/conditions/ConditionPageTemplate.tsx",
-      "line": 257,
-      "detail": "<h1> -> <h3>: \"When to see a GP\""
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/conditions/ElbowArthritis.tsx",
-      "file": "src/pages/conditions/ElbowArthritis.tsx",
-      "line": 81,
-      "detail": "first heading is <h2>: \"{title}\""
-    },
-    {
-      "kind": "level-skip",
-      "route": "src/pages/conditions/ElbowArthritis.tsx",
-      "file": "src/pages/conditions/ElbowArthritis.tsx",
-      "line": 191,
-      "detail": "<h1> -> <h3>: \"Daily tasks most affected\""
-    },
-    {
-      "kind": "level-skip",
-      "route": "src/pages/conditions/ElbowArthritis.tsx",
-      "file": "src/components/graphics/InfographicElements.tsx",
-      "line": 264,
-      "detail": "<h2> -> <h4>: \"{title}\""
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/conditions/Fibromyalgia.tsx",
-      "file": "src/components/conditions/ConditionPageTemplate.tsx",
-      "line": 111,
-      "detail": "first heading is <h2>: \"{title}\""
-    },
-    {
-      "kind": "level-skip",
-      "route": "src/pages/conditions/Fibromyalgia.tsx",
-      "file": "src/components/conditions/ConditionPageTemplate.tsx",
-      "line": 257,
-      "detail": "<h1> -> <h3>: \"When to see a GP\""
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/conditions/Gout.tsx",
-      "file": "src/pages/conditions/Gout.tsx",
-      "line": 73,
-      "detail": "first heading is <h3>: \"Eat more\""
-    },
-    {
-      "kind": "level-skip",
-      "route": "src/pages/conditions/Gout.tsx",
-      "file": "src/components/conditions/ConditionPageTemplate.tsx",
-      "line": 257,
-      "detail": "<h1> -> <h3>: \"When to see a GP\""
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/conditions/HandArthritis.tsx",
-      "file": "src/pages/conditions/HandArthritis.tsx",
-      "line": 84,
-      "detail": "first heading is <h2>: \"{title}\""
-    },
-    {
-      "kind": "level-skip",
-      "route": "src/pages/conditions/HandArthritis.tsx",
-      "file": "src/pages/conditions/HandArthritis.tsx",
-      "line": 245,
-      "detail": "<h1> -> <h3>: \"Daily hand-care checklist\""
-    },
-    {
-      "kind": "level-skip",
-      "route": "src/pages/conditions/HandArthritis.tsx",
-      "file": "src/components/graphics/InfographicElements.tsx",
-      "line": 264,
-      "detail": "<h2> -> <h4>: \"{title}\""
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/conditions/HipArthritis.tsx",
-      "file": "src/pages/conditions/HipArthritis.tsx",
-      "line": 85,
-      "detail": "first heading is <h2>: \"{title}\""
-    },
-    {
-      "kind": "level-skip",
-      "route": "src/pages/conditions/HipArthritis.tsx",
-      "file": "src/pages/conditions/HipArthritis.tsx",
-      "line": 181,
-      "detail": "<h1> -> <h3>: \"How common is it in the UK?\""
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/conditions/JuvenileArthritis.tsx",
-      "file": "src/pages/conditions/JuvenileArthritis.tsx",
-      "line": 27,
-      "detail": "first heading is <h3>: \"The seven subtypes of JIA\""
-    },
-    {
-      "kind": "level-skip",
-      "route": "src/pages/conditions/JuvenileArthritis.tsx",
-      "file": "src/components/conditions/ConditionPageTemplate.tsx",
-      "line": 257,
-      "detail": "<h1> -> <h3>: \"When to see a GP\""
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/conditions/KneeArthritis.tsx",
-      "file": "src/pages/conditions/KneeArthritis.tsx",
-      "line": 84,
-      "detail": "first heading is <h2>: \"{title}\""
-    },
-    {
-      "kind": "level-skip",
-      "route": "src/pages/conditions/KneeArthritis.tsx",
-      "file": "src/pages/conditions/KneeArthritis.tsx",
-      "line": 180,
-      "detail": "<h1> -> <h3>: \"How common is it in the UK?\""
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/conditions/Lupus.tsx",
-      "file": "src/components/conditions/ConditionPageTemplate.tsx",
-      "line": 111,
-      "detail": "first heading is <h2>: \"{title}\""
-    },
-    {
-      "kind": "level-skip",
-      "route": "src/pages/conditions/Lupus.tsx",
-      "file": "src/components/conditions/ConditionPageTemplate.tsx",
-      "line": 257,
-      "detail": "<h1> -> <h3>: \"When to see a GP\""
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/conditions/Osteoarthritis.tsx",
-      "file": "src/pages/conditions/Osteoarthritis.tsx",
-      "line": 86,
-      "detail": "first heading is <h2>: \"{title}\""
-    },
-    {
-      "kind": "level-skip",
-      "route": "src/pages/conditions/Osteoarthritis.tsx",
-      "file": "src/pages/conditions/Osteoarthritis.tsx",
-      "line": 193,
-      "detail": "<h1> -> <h3>: \"How Common Is Osteoarthritis in the UK?\""
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/conditions/PolymyalgiaRheumatica.tsx",
-      "file": "src/pages/conditions/PolymyalgiaRheumatica.tsx",
-      "line": 72,
-      "detail": "first heading is <h3>: \"Eat more\""
-    },
-    {
-      "kind": "level-skip",
-      "route": "src/pages/conditions/PolymyalgiaRheumatica.tsx",
-      "file": "src/components/conditions/ConditionPageTemplate.tsx",
-      "line": 257,
-      "detail": "<h1> -> <h3>: \"When to see a GP\""
-    },
-    {
       "kind": "no-h1",
       "route": "src/pages/conditions/PsoriaticArthritis.tsx",
       "file": "src/pages/conditions/PsoriaticArthritis.tsx",
       "line": 1,
       "detail": "page has no <h1>"
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/conditions/PsoriaticArthritis.tsx",
-      "file": "src/pages/conditions/PsoriaticArthritis.tsx",
-      "line": 84,
-      "detail": "first heading is <h2>: \"{title}\""
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/conditions/ReactiveArthritis.tsx",
-      "file": "src/pages/conditions/ReactiveArthritis.tsx",
-      "line": 62,
-      "detail": "first heading is <h3>: \"Eat more\""
-    },
-    {
-      "kind": "level-skip",
-      "route": "src/pages/conditions/ReactiveArthritis.tsx",
-      "file": "src/components/conditions/ConditionPageTemplate.tsx",
-      "line": 257,
-      "detail": "<h1> -> <h3>: \"When to see a GP\""
     },
     {
       "kind": "no-h1",
@@ -792,46 +386,11 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/conditions/RheumatoidArthritis.tsx",
-      "file": "src/pages/conditions/RheumatoidArthritis.tsx",
-      "line": 85,
-      "detail": "first heading is <h2>: \"{title}\""
-    },
-    {
-      "kind": "level-skip",
-      "route": "src/pages/conditions/RheumatoidArthritis.tsx",
-      "file": "src/components/graphics/InfographicElements.tsx",
-      "line": 264,
-      "detail": "<h2> -> <h4>: \"{title}\""
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/conditions/ShoulderArthritis.tsx",
-      "file": "src/pages/conditions/ShoulderArthritis.tsx",
-      "line": 81,
-      "detail": "first heading is <h2>: \"{title}\""
-    },
-    {
-      "kind": "level-skip",
-      "route": "src/pages/conditions/ShoulderArthritis.tsx",
-      "file": "src/pages/conditions/ShoulderArthritis.tsx",
-      "line": 190,
-      "detail": "<h1> -> <h3>: \"Daily tasks most affected\""
-    },
-    {
       "kind": "no-h1",
       "route": "src/pages/diet/FoodsToAvoidWithArthritis.tsx",
       "file": "src/pages/diet/FoodsToAvoidWithArthritis.tsx",
       "line": 1,
       "detail": "page has no <h1>"
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/diet/FoodsToAvoidWithArthritis.tsx",
-      "file": "src/pages/diet/FoodsToAvoidWithArthritis.tsx",
-      "line": 308,
-      "detail": "first heading is <h2>: \"The six foods most likely to worsen joint inflammation\""
     },
     {
       "kind": "no-h1",
@@ -841,25 +400,11 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/diet/MediterraneanDietForArthritis.tsx",
-      "file": "src/pages/diet/MediterraneanDietForArthritis.tsx",
-      "line": 388,
-      "detail": "first heading is <h2>: \"Why this is the diet to try first\""
-    },
-    {
       "kind": "no-h1",
       "route": "src/pages/exercises/SeatedTaiChiForArthritis.tsx",
       "file": "src/pages/exercises/SeatedTaiChiForArthritis.tsx",
       "line": 1,
       "detail": "page has no <h1>"
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/exercises/SeatedTaiChiForArthritis.tsx",
-      "file": "src/pages/exercises/SeatedTaiChiForArthritis.tsx",
-      "line": 150,
-      "detail": "first heading is <h2>: \"Who seated tai chi is for\""
     },
     {
       "kind": "no-h1",
@@ -869,13 +414,6 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/exercises/TaiChiForArthritis.tsx",
-      "file": "src/pages/exercises/TaiChiForArthritis.tsx",
-      "line": 161,
-      "detail": "first heading is <h2>: \"Why tai chi works for arthritis\""
-    },
-    {
       "kind": "no-h1",
       "route": "src/pages/exercises/TaiChiForBalance.tsx",
       "file": "src/pages/exercises/TaiChiForBalance.tsx",
@@ -883,32 +421,11 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/exercises/TaiChiForBalance.tsx",
-      "file": "src/pages/exercises/TaiChiForBalance.tsx",
-      "line": 165,
-      "detail": "first heading is <h2>: \"Why tai chi, for arthritis?\""
-    },
-    {
       "kind": "no-h1",
       "route": "src/pages/exercises/TaiChiForBeginners.tsx",
       "file": "src/pages/exercises/TaiChiForBeginners.tsx",
       "line": 1,
       "detail": "page has no <h1>"
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/exercises/TaiChiForBeginners.tsx",
-      "file": "src/pages/exercises/TaiChiForBeginners.tsx",
-      "line": 151,
-      "detail": "first heading is <h2>: \"What tai chi actually is\""
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/guides/ArthritisPainRelief.tsx",
-      "file": "src/pages/guides/ArthritisPainRelief.tsx",
-      "line": 64,
-      "detail": "first heading is <h2>: \"{title}\""
     },
     {
       "kind": "no-h1",
@@ -918,11 +435,11 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
+      "kind": "level-skip",
       "route": "src/pages/guides/CanExerciseMakeOsteoarthritisWorse.tsx",
       "file": "src/pages/guides/CanExerciseMakeOsteoarthritisWorse.tsx",
       "line": 154,
-      "detail": "first heading is <h3>: \"Continue reading\""
+      "detail": "page uses <h3> but no <h2>"
     },
     {
       "kind": "no-h1",
@@ -932,11 +449,11 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
+      "kind": "level-skip",
       "route": "src/pages/guides/HipExercisesForOsteoarthritis.tsx",
       "file": "src/pages/guides/HipExercisesForOsteoarthritis.tsx",
       "line": 187,
-      "detail": "first heading is <h3>: \"People also ask\""
+      "detail": "page uses <h3> but no <h2>"
     },
     {
       "kind": "no-h1",
@@ -944,13 +461,6 @@
       "file": "src/pages/myths/DoesCrackingKnucklesCauseArthritis.tsx",
       "line": 1,
       "detail": "page has no <h1>"
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/myths/DoesCrackingKnucklesCauseArthritis.tsx",
-      "file": "src/pages/myths/DoesCrackingKnucklesCauseArthritis.tsx",
-      "line": 244,
-      "detail": "first heading is <h2>: \"The short answer\""
     },
     {
       "kind": "no-h1",
@@ -967,11 +477,11 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
+      "kind": "level-skip",
       "route": "src/pages/pillar/BenefitsPIPGuide.tsx",
       "file": "src/pages/pillar/BenefitsPIPGuide.tsx",
       "line": 244,
-      "detail": "first heading is <h3>: \"Continue Reading\""
+      "detail": "page uses <h3> but no <h2>"
     },
     {
       "kind": "no-h1",
@@ -981,13 +491,6 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/pillar/DietGuide.tsx",
-      "file": "src/pages/pillar/DietGuide.tsx",
-      "line": 236,
-      "detail": "first heading is <h3>: \"Continue Reading\""
-    },
-    {
       "kind": "no-h1",
       "route": "src/pages/pillar/ExerciseGuide.tsx",
       "file": "src/pages/pillar/ExerciseGuide.tsx",
@@ -995,11 +498,11 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
+      "kind": "level-skip",
       "route": "src/pages/pillar/ExerciseGuide.tsx",
       "file": "src/pages/pillar/ExerciseGuide.tsx",
       "line": 236,
-      "detail": "first heading is <h3>: \"Continue Reading\""
+      "detail": "page uses <h3> but no <h2>"
     },
     {
       "kind": "no-h1",
@@ -1016,11 +519,11 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
+      "kind": "level-skip",
       "route": "src/pages/pillar/HealthServicesGuide.tsx",
       "file": "src/pages/pillar/HealthServicesGuide.tsx",
       "line": 197,
-      "detail": "first heading is <h3>: \"Continue Reading\""
+      "detail": "page uses <h3> but no <h2>"
     },
     {
       "kind": "no-h1",
@@ -1030,11 +533,11 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
+      "kind": "level-skip",
       "route": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
       "file": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
       "line": 223,
-      "detail": "first heading is <h3>: \"Continue Reading\""
+      "detail": "page uses <h3> but no <h2>"
     },
     {
       "kind": "no-h1",
@@ -1044,11 +547,11 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
+      "kind": "level-skip",
       "route": "src/pages/pillar/PainkillersNsaidsGuide.tsx",
       "file": "src/pages/pillar/PainkillersNsaidsGuide.tsx",
       "line": 166,
-      "detail": "first heading is <h3>: \"Continue Reading\""
+      "detail": "page uses <h3> but no <h2>"
     },
     {
       "kind": "no-h1",
@@ -1065,11 +568,11 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
+      "kind": "level-skip",
       "route": "src/pages/pillar/UKArthritisGuide.tsx",
       "file": "src/pages/pillar/UKArthritisGuide.tsx",
       "line": 266,
-      "detail": "first heading is <h3>: \"Continue Reading\""
+      "detail": "page uses <h3> but no <h2>"
     }
   ],
   "pageReports": [
