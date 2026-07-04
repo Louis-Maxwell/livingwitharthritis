@@ -101,7 +101,7 @@ const BlogPreview = memo(() => {
         {featured && (
           <article className="mb-10 rounded-2xl overflow-hidden bg-card shadow-sm ring-1 ring-border md:flex">
             <Link to={`/blog/${featured.slug}`} className="md:w-1/2 block" aria-label={featured.title}>
-              <img src={pickImage(featured)} srcSet={imgSrcSet(pickImage(featured))} sizes="(max-width: 768px) 100vw, 50vw" alt="" className="w-full h-72 object-cover" loading="lazy" decoding="async" />
+              <img src={pickImage(featured)} srcSet={imgSrcSet(pickImage(featured))} sizes="(max-width: 768px) 100vw, 50vw" alt="" aria-hidden="true" className="w-full h-72 object-cover" loading="lazy" decoding="async" />
             </Link>
             <div className="p-6 flex flex-col justify-center">
               <span className="text-xs font-semibold text-primary bg-primary/5 px-3 py-1 rounded-full w-fit">{featured.category}</span>
