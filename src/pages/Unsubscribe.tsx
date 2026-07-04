@@ -98,7 +98,7 @@ const Unsubscribe = () => {
           {status === "already" && (
             <>
               <CheckCircle2 className="h-12 w-12 text-muted-foreground mx-auto" />
-              <h1 className="text-2xl font-bold text-foreground">Already Unsubscribed</h1>
+              <h2 className="text-2xl font-bold text-foreground">Already Unsubscribed</h2>
               <p className="text-muted-foreground">
                 This email address has already been unsubscribed.
               </p>
