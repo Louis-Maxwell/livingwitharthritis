@@ -447,7 +447,7 @@ export function useStreamingChat() {
     historyLoadedRef.current = true;
     const { data: msgs } = await supabase
       .from("chat_messages")
-      .select("role, content, created_at")
+      .select("id, role, content, created_at")
       .eq("conversation_id", conversationId)
       .order("created_at", { ascending: false })
       .limit(30);
@@ -456,7 +456,7 @@ export function useStreamingChat() {
         msgs
           .reverse()
           .filter((m) => m.role === "user" || m.role === "assistant")
-          .map((m) => ({ role: m.role as "user" | "assistant", content: m.content }))
+          .map((m) => ({ id: m.id, role: m.role as "user" | "assistant", content: m.content })),
       );
     }
   }, [userId]);
