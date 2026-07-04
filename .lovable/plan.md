@@ -1,61 +1,49 @@
-# Plan: Alt-text & image dimension/CLS audit
+## Heading hierarchy audit & auto-fix
 
-## Goal
-Every `<img>`, `<Image>`, and background-image-critical asset across the site has:
-- A **meaningful `alt`** attribute (or `alt=""` when the image is truly decorative)
-- Explicit `width` and `height` (or a Tailwind `aspect-*` wrapper) so the layout doesn't shift when the image loads
-- Correct `loading` hint (eager only for above-the-fold hero, lazy for the rest)
+Add an automated audit for heading order across every route, then fix all violations it surfaces.
 
-Fix every violation the audit surfaces.
+### Rules enforced
+- Exactly one `<h1>` per page (route-level component).
+- First heading on the page is `<h1>`.
+- No level skips going down (h1 → h3 is a violation; h3 → h2 is fine).
+- Empty headings are violations.
+- Applies to static `<h1>`–`<h6>` JSX in route/page components and their child components on that route.
 
-## Approach
+### Deliverables
 
-### 1. Static audit script — `scripts/audit-images.ts` (new)
-Scans all `.tsx` under `src/` and reports per-file findings:
+**1. Static audit script — `scripts/audit-headings.ts`**
+- Walks `src/pages/**/*.tsx` and follows imported local components (`@/components/**`, relative imports) one level deep to build the effective heading sequence for each route file.
+- Parses JSX with the TypeScript compiler API; records heading level, file, line, and text.
+- Skips: `.stories.tsx`, `.test.tsx`, files under `src/components/ui/` (shadcn primitives — headings there are slots), and elements marked `aria-hidden`.
+- Reports violations: `no-h1`, `multiple-h1`, `first-heading-not-h1`, `level-skip`, `empty-heading`.
+- Writes `audit-headings-report.json` and exits non-zero on any violation.
+- Wire up:
+  - `package.json` → `"seo:headings": "bun scripts/audit-headings.ts"`
+  - `scripts/seo-audit.ts` → run as a required step alongside `seo:images` and `seo:meta-lengths`.
 
-- **Missing alt** — `<img …>` with no `alt=` prop.
-- **Non-meaningful alt** — alt equals `""`, `"image"`, `"photo"`, `"picture"`, `"img"`, `"icon"`, `"logo"` (unless it *is* a decorative image marked `role="presentation"` / `aria-hidden`), filename-only, or purely numeric.
-- **Missing dimensions** — `<img …>` with no `width`/`height` and no `aspect-*` class on the img or its immediate wrapper.
-- **Missing loading hint** — no `loading=` on non-hero images (informational; fixed only where obvious).
-- **Duplicate `alt` from a mapped array** where the alt string is a hardcoded generic (e.g. `alt="Image"` in a `.map`).
+**2. Playwright spot-check (optional, run once locally)**
+- Render ~10 representative routes (`/`, `/conditions/osteoarthritis`, a pillar guide, `/exercise-hub`, an exercise page, `/blog`, a blog article, `/site-index`, `/chat`, donation) headless, extract the DOM heading sequence, and cross-check against the static report. Used only to validate the static checker's coverage; not part of CI.
 
-Skip: `<img>` inside `.stories.tsx`, `node_modules`, generated `.asset.json` (not tsx), and any element with `aria-hidden="true"` or `role="presentation"` (treated as decorative → `alt=""` OK).
+**3. Fixes**
+For every violation the static audit reports:
+- **multiple-h1** on a page → keep the semantic page title as `<h1>`, downgrade the rest to `<h2>` (preserving Tailwind classes so visual design is unchanged).
+- **first-heading-not-h1 / no-h1** → promote the top intro heading to `<h1>` (usually already styled `text-4xl`+), or add a visually-styled `<h1>` matching existing type scale where a page truly lacks one.
+- **level-skip** (e.g. `<h2>` → `<h4>`) → relevel the deeper heading to the next valid level, cascading downward siblings so relative structure is preserved.
+- **empty-heading** → remove the element or move its wrapper role to a `<div>`.
 
-Emit a pass/fail summary and a machine-readable list. Non-zero exit on any critical finding (missing alt, missing dimensions on a non-wrapped `<img>`).
+Design language stays intact: only the heading **tag** changes; className/text/layout are preserved.
 
-Wire it into `package.json` as `seo:images` and add it as a required step in `scripts/seo-audit.ts` so CI enforces it going forward.
+### Out of scope
+- No copy rewrites beyond removing empty headings.
+- No changes to shadcn `ui/` primitives or Radix-rendered headings inside dialogs/sheets.
+- No new sections or restructuring of page content.
 
-### 2. Fix findings, batched by category
-Once the audit runs, group findings and fix them file-by-file:
+### Verification
+- `bun run seo:headings` → 0 violations.
+- `bunx tsgo --noEmit` → green.
+- `bun run seo:audit` orchestrator passes end-to-end.
 
-- **Meaningful alt text**: replace generic/empty alt with content-derived text — the surrounding heading, article title, exercise name, condition name, or city/service label — respecting the existing UK-English voice.
-- **Decorative images**: keep `alt=""` but add `aria-hidden="true"` for clarity, so the scanner and screen readers agree.
-- **Dimensions / CLS**: for raw `<img>`, add `width={W} height={H}` when the file's intrinsic size is known (or a reasonable ratio), otherwise wrap in `<div className="aspect-[ratio]">` + `className="size-full object-cover"` on the img. Prefer the aspect wrapper for responsive hero/card images so the ratio is preserved on all breakpoints.
-- **Loading hints**: leave hero images `loading="eager"` + `fetchpriority="high"`; add `loading="lazy"` + `decoding="async"` to any below-the-fold image lacking one. Do not disturb existing intentional eager-load images.
-
-Likely surfaces (based on repo shape): blog article covers, exercise cards, city/service programmatic pages, gallery, Faces of Arthritis, Openverse image list, hero splits, partner/logo strips.
-
-### 3. Runtime spot-check via Playwright
-Run a headless pass over ~8 representative routes (home, /conditions/osteoarthritis, /exercise, /blog, /gallery, /diet, /uk/london/physiotherapy, /site-index). For each:
-- Enumerate `<img>` elements; assert every one has non-empty `alt` OR `aria-hidden="true"`.
-- Assert every image has non-zero `naturalWidth`/`naturalHeight` (loads correctly).
-- Capture layout-shift by comparing `getBoundingClientRect()` before and after `img.decode()` — flag any element whose top shifts more than 4px.
-
-Report the sample results in the final summary; fix any runtime-only findings the static pass missed.
-
-### 4. Verification
-- `bun scripts/audit-images.ts` exits 0.
-- `bun scripts/audit-meta-lengths.ts` still passes.
-- `bunx tsgo --noEmit` green.
-- Playwright spot-check clean.
-- Final summary lists every file changed and a per-severity count.
-
-## Out of scope
-- No new imagery — only alt text, dimensions, loading hints on existing images.
-- No design/layout changes beyond adding aspect wrappers where needed to prevent CLS.
-- No changes to the Lovable Assets pipeline or `.asset.json` pointers.
-
-## Deliverables
-- `scripts/audit-images.ts` (new) + `seo:images` npm script + wired into `seo:audit`.
-- All `.tsx` files with alt/dimension fixes.
-- Final report of findings + count of fixes.
+### Technical notes
+- Follow-imports depth is capped at 1 to keep the walker fast and deterministic; a route's own file plus its direct local children cover the real heading tree for this codebase (Header/Footer are excluded from the walk since they contain no headings).
+- Dynamic headings built via `.map()` are counted once at their source location (matches how `audit-images.ts` already handles dedup).
+- Report format mirrors `audit-images-report.json` so tooling stays consistent.
