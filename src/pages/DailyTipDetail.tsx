@@ -68,7 +68,7 @@ const DailyTipDetail = () => {
         <Header />
         <main className="flex-1 flex items-center justify-center">
           <div className="text-center">
-            <h1 className="text-2xl font-bold text-foreground mb-4">Tip not found</h1>
+            <h2 className="text-2xl font-bold text-foreground mb-4">Tip not found</h2>
             <Button variant="outline" onClick={() => navigate("/")}>Back to Home</Button>
           </div>
         </main>
