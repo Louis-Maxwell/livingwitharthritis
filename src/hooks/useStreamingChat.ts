@@ -38,12 +38,16 @@ async function getAuthHeaders(): Promise<Record<string, string>> {
   return headers;
 }
 
+type WireMessage = { role: "user" | "assistant"; content: string };
+
 async function fetchJsonFallback({
   messages,
+  userProfile,
   onDelta,
   onDone,
 }: {
-  messages: Message[];
+  messages: WireMessage[];
+  userProfile?: ChatProfile;
   onDelta: (deltaText: string) => void;
   onDone: () => void;
 }) {
@@ -54,7 +58,7 @@ async function fetchJsonFallback({
       ...authHeaders,
       Accept: "application/json",
     },
-    body: JSON.stringify({ messages }),
+    body: JSON.stringify({ messages, userProfile }),
   });
   if (!resp.ok) {
     const errorData = await resp.json().catch(() => null);
@@ -75,10 +79,12 @@ async function fetchJsonFallback({
 
 async function streamChat({
   messages,
+  userProfile,
   onDelta,
   onDone,
 }: {
-  messages: Message[];
+  messages: WireMessage[];
+  userProfile?: ChatProfile;
   onDelta: (deltaText: string) => void;
   onDone: () => void;
 }) {
@@ -88,11 +94,11 @@ async function streamChat({
     resp = await fetch(CHAT_URL, {
       method: "POST",
       headers: authHeaders,
-      body: JSON.stringify({ messages }),
+      body: JSON.stringify({ messages, userProfile }),
     });
   } catch (e) {
     // Network/proxy blocked the streaming request — try JSON fallback.
-    return fetchJsonFallback({ messages, onDelta, onDone });
+    return fetchJsonFallback({ messages, userProfile, onDelta, onDone });
   }
 
   if (!resp.ok) {
