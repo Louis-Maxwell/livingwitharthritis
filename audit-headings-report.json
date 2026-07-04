@@ -71,13 +71,6 @@
       "detail": "page uses <h3> but no <h2>"
     },
     {
-      "kind": "no-h1",
-      "route": "src/pages/Sitemap.tsx",
-      "file": "src/pages/Sitemap.tsx",
-      "line": 1,
-      "detail": "page has no <h1>"
-    },
-    {
       "kind": "multiple-h1",
       "route": "src/pages/Unsubscribe.tsx",
       "file": "src/pages/Unsubscribe.tsx",
@@ -3861,6 +3854,13 @@
     {
       "route": "src/pages/Sitemap.tsx",
       "headings": [
+        {
+          "level": 1,
+          "text": "A–Z Index",
+          "file": "src/pages/Sitemap.tsx",
+          "line": 331,
+          "hasAriaHidden": false
+        },
         {
           "level": 2,
           "text": "{letter}",
