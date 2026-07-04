@@ -151,7 +151,11 @@ function extractLocalImports(src: string, fromFile: string): string[] {
     const resolved = resolveImport(spec, fromFile);
     if (!resolved) continue;
     // Skip primitives / non-heading owners
-    if (resolved.includes(`${SRC}/components/ui/`)) continue;
+    if (resolved.includes(`${SRC}/components/ui/`)) {
+      const uiBase = resolved.split("/").pop()!.replace(/\.tsx?$/, "");
+      if (EXCLUDE_UI_BASENAMES.has(uiBase)) continue;
+      // otherwise fall through — project-specific ui/ files (e.g. PageHero) contribute headings
+    }
     const base = resolved.split("/").pop()!.replace(/\.tsx?$/, "");
     if (EXCLUDE_IMPORT_BASENAMES.has(base)) continue;
     out.push(resolved);
