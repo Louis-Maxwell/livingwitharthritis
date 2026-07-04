@@ -120,7 +120,7 @@ export default function AdminDistribute() {
   if (!isAdmin) {
     return (
       <div className="p-10 max-w-xl mx-auto">
-        <h1 className="text-2xl font-bold mb-4">Admins only</h1>
+        <h2 className="text-2xl font-bold mb-4">Admins only</h2>
         <Link to="/auth" className="underline">Sign in</Link>
       </div>
     );
