@@ -53,7 +53,51 @@ function lineOf(src: string, index: number): number {
  * whole opening tag, and the text between the opening and closing tag (best-
  * effort — dynamic children stay as `{expr}`).
  */
-function extractHeadings(src: string): Heading[] {
+function stripCommentsAndStrings(src: string): string {
+  // Replace block comments, line comments, and string/template literals with
+  // whitespace of equal length so line numbers stay accurate.
+  const out = src.split("");
+  let i = 0;
+  const N = src.length;
+  const blank = (start: number, end: number) => {
+    for (let k = start; k < end; k++) if (src[k] !== "\n") out[k] = " ";
+  };
+  while (i < N) {
+    const c = src[i];
+    const c2 = src[i + 1];
+    if (c === "/" && c2 === "*") {
+      const end = src.indexOf("*/", i + 2);
+      const stop = end < 0 ? N : end + 2;
+      blank(i, stop);
+      i = stop;
+      continue;
+    }
+    if (c === "/" && c2 === "/") {
+      let end = src.indexOf("\n", i);
+      if (end < 0) end = N;
+      blank(i, end);
+      i = end;
+      continue;
+    }
+    if (c === '"' || c === "'" || c === "`") {
+      const quote = c;
+      let j = i + 1;
+      while (j < N) {
+        if (src[j] === "\\") { j += 2; continue; }
+        if (src[j] === quote) break;
+        j++;
+      }
+      blank(i, Math.min(j + 1, N));
+      i = j + 1;
+      continue;
+    }
+    i++;
+  }
+  return out.join("");
+}
+
+function extractHeadings(rawSrc: string): Heading[] {
+  const src = stripCommentsAndStrings(rawSrc);
   const out: Heading[] = [];
   // Match opening h1-h6 tags; capture attrs; require immediate ">" or whitespace-then-attrs
   const re = /<h([1-6])(\s[^>]*)?>/g;
