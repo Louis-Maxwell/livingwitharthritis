@@ -162,7 +162,7 @@ async function streamChat({
     }
   } catch (e) {
     if (!receivedAny) {
-      return fetchJsonFallback({ messages, onDelta, onDone });
+      return fetchJsonFallback({ messages, userProfile, onDelta, onDone });
     }
     throw e;
   }
@@ -186,7 +186,7 @@ async function streamChat({
   }
 
   if (!receivedAny) {
-    return fetchJsonFallback({ messages, onDelta, onDone });
+    return fetchJsonFallback({ messages, userProfile, onDelta, onDone });
   }
 
   onDone();
