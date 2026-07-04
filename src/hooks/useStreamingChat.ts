@@ -2,10 +2,13 @@ import { useState, useCallback, useEffect, useRef } from "react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { getFallbackAnswer } from "@/lib/arthritisChatFallback";
+import type { ChatProfile } from "@/lib/chatProfile";
 
 export type Message = {
   role: "user" | "assistant";
   content: string;
+  /** DB id (signed-in) or client-generated uuid (anonymous). Used for feedback. */
+  id?: string;
 };
 
 export type ConversationSummary = {
@@ -15,6 +18,13 @@ export type ConversationSummary = {
 };
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat`;
+
+function makeId(): string {
+  if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
+    return crypto.randomUUID();
+  }
+  return `msg_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
+}
 
 async function getAuthHeaders(): Promise<Record<string, string>> {
   const { data: { session } } = await supabase.auth.getSession();
