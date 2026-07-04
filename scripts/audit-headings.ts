@@ -167,7 +167,7 @@ function collectForPage(pageFile: string): Heading[] {
     const src = readFileSync(file, "utf8");
     const rel = relative(ROOT, file);
     for (const h of extractHeadings(src)) all.push({ ...h, file: rel });
-    if (depth < 1) {
+    if (depth < 2) {
       for (const imp of extractLocalImports(src, file)) {
         queue.push({ file: imp, depth: depth + 1 });
       }
