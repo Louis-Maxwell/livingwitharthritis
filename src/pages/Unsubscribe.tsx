@@ -108,9 +108,9 @@ const Unsubscribe = () => {
           {(status === "invalid" || status === "error") && (
             <>
               <AlertCircle className="h-12 w-12 text-destructive mx-auto" />
-              <h1 className="text-2xl font-bold text-foreground">
+              <h2 className="text-2xl font-bold text-foreground">
                 {status === "invalid" ? "Invalid Link" : "Something Went Wrong"}
-              </h1>
+              </h2>
               <p className="text-muted-foreground">
                 {status === "invalid"
                   ? "This unsubscribe link is invalid or has expired."
