@@ -55,7 +55,7 @@ const ProductDetail = () => {
         <Header />
         <div className="min-h-screen flex flex-col items-center justify-center bg-background gap-4">
           <Package className="h-16 w-16 text-muted-foreground" />
-          <h1 className="text-2xl font-bold text-foreground">Product not found</h1>
+          <h2 className="text-2xl font-bold text-foreground">Product not found</h2>
           <Button variant="outline" onClick={() => navigate("/shop")}>
             <ArrowLeft className="h-4 w-4 mr-2" /> Back to Shop
           </Button>

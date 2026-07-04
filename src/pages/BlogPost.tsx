@@ -126,7 +126,7 @@ const BlogPost = () => {
       <div className="min-h-screen bg-background">
         <Header />
         <main className="container mx-auto px-6 md:px-10 py-24 text-center">
-          <h1 className="font-display text-3xl font-bold text-foreground mb-4">Article Not Found</h1>
+          <h2 className="font-display text-3xl font-bold text-foreground mb-4">Article Not Found</h2>
           <Link to="/blog" className="text-primary hover:underline">← Back to blog</Link>
         </main>
         <Footer />

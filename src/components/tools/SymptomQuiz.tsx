@@ -135,7 +135,7 @@ export default function SymptomQuiz() {
 
         <div className="text-center mb-6">
           <Badge className={`${top.color} text-sm px-4 py-1.5 mb-3`}>Most Likely</Badge>
-          <h3 className="text-2xl font-bold text-foreground">{top.name}</h3>
+          <h2 className="text-2xl font-bold text-foreground">{top.name}</h2>
           <p className="text-muted-foreground mt-1 text-sm max-w-md mx-auto">{top.desc}</p>
         </div>
 

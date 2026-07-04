@@ -88,7 +88,7 @@ const Unsubscribe = () => {
           {status === "done" && (
             <>
               <CheckCircle2 className="h-12 w-12 text-primary mx-auto" />
-              <h1 className="text-2xl font-bold text-foreground">Unsubscribed</h1>
+              <h2 className="text-2xl font-bold text-foreground">Unsubscribed</h2>
               <p className="text-muted-foreground">
                 You've been successfully unsubscribed. You won't receive any more emails from us.
               </p>
@@ -98,7 +98,7 @@ const Unsubscribe = () => {
           {status === "already" && (
             <>
               <CheckCircle2 className="h-12 w-12 text-muted-foreground mx-auto" />
-              <h1 className="text-2xl font-bold text-foreground">Already Unsubscribed</h1>
+              <h2 className="text-2xl font-bold text-foreground">Already Unsubscribed</h2>
               <p className="text-muted-foreground">
                 This email address has already been unsubscribed.
               </p>
@@ -108,9 +108,9 @@ const Unsubscribe = () => {
           {(status === "invalid" || status === "error") && (
             <>
               <AlertCircle className="h-12 w-12 text-destructive mx-auto" />
-              <h1 className="text-2xl font-bold text-foreground">
+              <h2 className="text-2xl font-bold text-foreground">
                 {status === "invalid" ? "Invalid Link" : "Something Went Wrong"}
-              </h1>
+              </h2>
               <p className="text-muted-foreground">
                 {status === "invalid"
                   ? "This unsubscribe link is invalid or has expired."

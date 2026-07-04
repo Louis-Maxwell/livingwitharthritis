@@ -62,9 +62,9 @@ export default function AuthPage() {
           <p className="text-xs uppercase tracking-[0.18em] text-primary font-semibold">
             Living With Arthritis UK · Member access
           </p>
-          <h2 className="font-display text-3xl font-bold text-foreground leading-tight">
+          <h1 className="font-display text-3xl font-bold text-foreground leading-tight">
             Your free, private arthritis support account
-          </h2>
+          </h1>
           <p className="text-muted-foreground leading-relaxed">
             Creating a Living With Arthritis account unlocks the virtual
             physiotherapy assistant, your personalised exercise plan, diet
