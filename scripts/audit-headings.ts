@@ -21,6 +21,8 @@ const SRC = join(ROOT, "src");
 const PAGES = join(SRC, "pages");
 
 const EXCLUDE_IMPORT_BASENAMES = new Set(["Header", "Footer", "SeoHead"]);
+// shadcn primitives whose <h*> renders inside a slot (users override) — skip.
+const EXCLUDE_UI_BASENAMES = new Set(["card", "alert", "dialog", "sheet", "alert-dialog"]);
 
 type Heading = { level: number; text: string; file: string; line: number; hasAriaHidden: boolean };
 type Violation = { kind: string; file: string; line: number; detail: string; route: string };
