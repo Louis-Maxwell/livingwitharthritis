@@ -161,7 +161,8 @@ for (const file of walk(SRC)) {
     const hasW = hasAttr(tag, "width");
     const hasH = hasAttr(tag, "height");
     const hasAspect = hasAspectClass(tag);
-    if (!(hasW && hasH) && !hasAspect) {
+    const hasFixedSize = hasFixedSizeClasses(tag);
+    if (!(hasW && hasH) && !hasAspect && !hasFixedSize) {
       findings.push({
         file: rel,
         line,
