@@ -35,6 +35,13 @@ export default defineConfig(({ mode }): any => ({
           renderAfterTime: 1500,
         },
       }),
+    ENABLE_ANALYZE &&
+      visualizer({
+        filename: "dist/stats.html",
+        gzipSize: true,
+        brotliSize: true,
+        template: "treemap",
+      }),
   ].filter(Boolean),
   resolve: {
     alias: {
