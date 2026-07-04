@@ -70,7 +70,7 @@ const DonationSuccess = () => {
               </div>
 
               <div className="space-y-2">
-                <h1 className="text-3xl font-bold text-foreground">Donation Cancelled</h1>
+                <h2 className="text-3xl font-bold text-foreground">Donation Cancelled</h2>
                 <p className="text-lg text-muted-foreground">
                   No worries — your payment was not processed. You can try again anytime, or explore other ways to support our work.
                 </p>
