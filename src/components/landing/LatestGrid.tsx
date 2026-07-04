@@ -65,6 +65,7 @@ export default function LatestGrid() {
                     <img
                       src={a.image_url}
                       alt=""
+                      aria-hidden="true"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
                     />

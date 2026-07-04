@@ -35,7 +35,8 @@ const steps: Step[] = [
     cmd: `BASE_URL=${BASE_URL} node scripts/validate-jsonld.mjs`,
     required: false,
   },
-  { name: "meta-lengths", cmd: "bun scripts/audit-meta-lengths.ts", required: true },
+ { name: "meta-lengths", cmd: "bun scripts/audit-meta-lengths.ts", required: true },
+ { name: "images", cmd: "bun scripts/audit-images.ts", required: true },
 ];
 
 type Result = { name: string; ok: boolean; out: string };

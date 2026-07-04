@@ -79,6 +79,7 @@ export default function HowYouCanHelp() {
                 <img
                   src={c.img}
                   alt=""
+                  aria-hidden="true"
                   className="w-28 h-28 md:w-32 md:h-32 object-cover flex-shrink-0"
                   loading="lazy"
                 />

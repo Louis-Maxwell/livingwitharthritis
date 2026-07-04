@@ -153,7 +153,7 @@ export default function TaiChiForBalance() {
       <section className="bg-secondary/30 border-b border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px] py-10">
           <figure className="rounded-xl overflow-hidden shadow-lg">
-            <img src={heroImage} alt="Older and younger person practising tai chi together outdoors" className="w-full h-auto object-cover" loading="eager" decoding="async" />
+            <img src={heroImage} alt="Older and younger person practising tai chi together outdoors" width={1600} height={900} className="w-full h-auto object-cover" loading="eager" decoding="async" />
           </figure>
         </div>
       </section>
