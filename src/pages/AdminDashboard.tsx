@@ -242,7 +242,13 @@ const AdminDashboard = () => {
                 <h2 className="text-xl font-bold text-foreground">Booking Diary</h2>
                 <p className="text-sm text-muted-foreground">View and manage patient appointments</p>
               </div>
-              <div className="flex gap-2">
+              <div className="flex gap-2 flex-wrap">
+                <Link to="/admin/chat-feedback">
+                  <Button variant="outline" className="gap-2 rounded-xl">
+                    <MessageSquare className="w-4 h-4" />
+                    Chat Feedback
+                  </Button>
+                </Link>
                 <Link to="/admin/emails">
                   <Button variant="outline" className="gap-2 rounded-xl">
                     <MessageSquare className="w-4 h-4" />

@@ -2,10 +2,13 @@ import { useState, useCallback, useEffect, useRef } from "react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { getFallbackAnswer } from "@/lib/arthritisChatFallback";
+import type { ChatProfile } from "@/lib/chatProfile";
 
 export type Message = {
   role: "user" | "assistant";
   content: string;
+  /** DB id (signed-in) or client-generated uuid (anonymous). Used for feedback. */
+  id?: string;
 };
 
 export type ConversationSummary = {
@@ -15,6 +18,13 @@ export type ConversationSummary = {
 };
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat`;
+
+function makeId(): string {
+  if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
+    return crypto.randomUUID();
+  }
+  return `msg_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
+}
 
 async function getAuthHeaders(): Promise<Record<string, string>> {
   const { data: { session } } = await supabase.auth.getSession();
@@ -28,12 +38,16 @@ async function getAuthHeaders(): Promise<Record<string, string>> {
   return headers;
 }
 
+type WireMessage = { role: "user" | "assistant"; content: string };
+
 async function fetchJsonFallback({
   messages,
+  userProfile,
   onDelta,
   onDone,
 }: {
-  messages: Message[];
+  messages: WireMessage[];
+  userProfile?: ChatProfile;
   onDelta: (deltaText: string) => void;
   onDone: () => void;
 }) {
@@ -44,7 +58,7 @@ async function fetchJsonFallback({
       ...authHeaders,
       Accept: "application/json",
     },
-    body: JSON.stringify({ messages }),
+    body: JSON.stringify({ messages, userProfile }),
   });
   if (!resp.ok) {
     const errorData = await resp.json().catch(() => null);
@@ -65,10 +79,12 @@ async function fetchJsonFallback({
 
 async function streamChat({
   messages,
+  userProfile,
   onDelta,
   onDone,
 }: {
-  messages: Message[];
+  messages: WireMessage[];
+  userProfile?: ChatProfile;
   onDelta: (deltaText: string) => void;
   onDone: () => void;
 }) {
@@ -78,11 +94,11 @@ async function streamChat({
     resp = await fetch(CHAT_URL, {
       method: "POST",
       headers: authHeaders,
-      body: JSON.stringify({ messages }),
+      body: JSON.stringify({ messages, userProfile }),
     });
   } catch (e) {
     // Network/proxy blocked the streaming request — try JSON fallback.
-    return fetchJsonFallback({ messages, onDelta, onDone });
+    return fetchJsonFallback({ messages, userProfile, onDelta, onDone });
   }
 
   if (!resp.ok) {
@@ -146,7 +162,7 @@ async function streamChat({
     }
   } catch (e) {
     if (!receivedAny) {
-      return fetchJsonFallback({ messages, onDelta, onDone });
+      return fetchJsonFallback({ messages, userProfile, onDelta, onDone });
     }
     throw e;
   }
@@ -170,7 +186,7 @@ async function streamChat({
   }
 
   if (!receivedAny) {
-    return fetchJsonFallback({ messages, onDelta, onDone });
+    return fetchJsonFallback({ messages, userProfile, onDelta, onDone });
   }
 
   onDone();
@@ -222,7 +238,7 @@ export function useStreamingChat() {
         // Load only the last 30 messages for speed
         const { data: msgs } = await supabase
           .from("chat_messages")
-          .select("role, content, created_at")
+          .select("id, role, content, created_at")
           .eq("conversation_id", convo.id)
           .order("created_at", { ascending: false })
           .limit(30);
@@ -232,7 +248,7 @@ export function useStreamingChat() {
             msgs
               .reverse()
               .filter((m) => m.role === "user" || m.role === "assistant")
-              .map((m) => ({ role: m.role as "user" | "assistant", content: m.content }))
+              .map((m) => ({ id: m.id, role: m.role as "user" | "assistant", content: m.content })),
           );
         }
       }
@@ -279,7 +295,7 @@ export function useStreamingChat() {
     return data.id;
   }, []);
 
-  const sendMessage = useCallback(async (input: string) => {
+  const sendMessage = useCallback(async (input: string, userProfile?: ChatProfile) => {
     if (!input.trim() || isLoading) return;
 
     // Lazy-load history on first message for logged-in users
@@ -287,7 +303,7 @@ export function useStreamingChat() {
       await loadHistoryRef.current(userId);
     }
 
-    const userMsg: Message = { role: "user", content: input.trim() };
+    const userMsg: Message = { role: "user", content: input.trim(), id: makeId() };
     setMessages((prev) => [...prev, userMsg]);
     setIsLoading(true);
 
@@ -307,36 +323,54 @@ export function useStreamingChat() {
     }
 
     let assistantSoFar = "";
+    const assistantClientId = makeId();
     const upsertAssistant = (nextChunk: string) => {
       assistantSoFar += nextChunk;
       setMessages((prev) => {
         const last = prev[prev.length - 1];
         if (last?.role === "assistant") {
           return prev.map((m, i) =>
-            i === prev.length - 1 ? { ...m, content: assistantSoFar } : m
+            i === prev.length - 1 ? { ...m, content: assistantSoFar } : m,
           );
         }
-        return [...prev, { role: "assistant", content: assistantSoFar }];
+        return [...prev, { role: "assistant", content: assistantSoFar, id: assistantClientId }];
       });
     };
 
+    const assignAssistantDbId = (dbId: string) => {
+      setMessages((prev) =>
+        prev.map((m) => (m.id === assistantClientId ? { ...m, id: dbId } : m)),
+      );
+    };
+
     try {
-      // Trim context sent to AI: last 10 messages keeps responses snappy
-      const recentContext = [...messages, userMsg].slice(-10);
+      // Trim context sent to AI: last 10 messages keeps responses snappy.
+      // Strip client-only fields (id) before sending to the server.
+      const recentContext: WireMessage[] = [...messages, userMsg]
+        .slice(-10)
+        .map((m) => ({ role: m.role, content: m.content }));
       await streamChat({
         messages: recentContext,
+        userProfile,
         onDelta: (chunk) => upsertAssistant(chunk),
         onDone: async () => {
           setIsLoading(false);
           if (userId && assistantSoFar.trim()) {
             const convoId = await convoIdPromise;
             if (convoId) {
-              // Fire-and-forget; don't block UI
-              supabase.from("chat_messages").insert({
-                conversation_id: convoId,
-                role: "assistant",
-                content: assistantSoFar,
-              }).then(() => {});
+              // Insert assistant message and adopt the DB id so feedback links to it.
+              supabase
+                .from("chat_messages")
+                .insert({
+                  conversation_id: convoId,
+                  role: "assistant",
+                  content: assistantSoFar,
+                })
+                .select("id")
+                .single()
+                .then(({ data }) => {
+                  if (data?.id) assignAssistantDbId(data.id);
+                });
               supabase
                 .from("chat_conversations")
                 .update({ updated_at: new Date().toISOString() })
@@ -358,22 +392,25 @@ export function useStreamingChat() {
         return;
       }
 
-      // For any other failure (network/proxy/empty response/service error),
-      // serve a curated arthritis answer so the visitor still gets useful
-      // guidance instead of an empty failure or alarming "AI unavailable" toast.
       const fallback = getFallbackAnswer(userMsg.content);
       upsertAssistant(fallback);
       setIsLoading(false);
 
-      // Persist the fallback for signed-in users so chat history stays consistent.
       if (userId) {
         const convoId = await convoIdPromise;
         if (convoId) {
-          supabase.from("chat_messages").insert({
-            conversation_id: convoId,
-            role: "assistant",
-            content: fallback,
-          }).then(() => {});
+          supabase
+            .from("chat_messages")
+            .insert({
+              conversation_id: convoId,
+              role: "assistant",
+              content: fallback,
+            })
+            .select("id")
+            .single()
+            .then(({ data }) => {
+              if (data?.id) assignAssistantDbId(data.id);
+            });
           supabase
             .from("chat_conversations")
             .update({ updated_at: new Date().toISOString() })
@@ -410,7 +447,7 @@ export function useStreamingChat() {
     historyLoadedRef.current = true;
     const { data: msgs } = await supabase
       .from("chat_messages")
-      .select("role, content, created_at")
+      .select("id, role, content, created_at")
       .eq("conversation_id", conversationId)
       .order("created_at", { ascending: false })
       .limit(30);
@@ -419,7 +456,7 @@ export function useStreamingChat() {
         msgs
           .reverse()
           .filter((m) => m.role === "user" || m.role === "assistant")
-          .map((m) => ({ role: m.role as "user" | "assistant", content: m.content }))
+          .map((m) => ({ id: m.id, role: m.role as "user" | "assistant", content: m.content })),
       );
     }
   }, [userId]);

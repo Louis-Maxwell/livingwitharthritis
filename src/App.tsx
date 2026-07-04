@@ -46,6 +46,7 @@ const AdminRankTracker = lazy(() => import("./pages/AdminRankTracker"));
 const AdminKeywordStrategy = lazy(() => import("./pages/AdminKeywordStrategy"));
 const AdminContentRefresh = lazy(() => import("./pages/AdminContentRefresh"));
 const AdminBacklinks = lazy(() => import("./pages/AdminBacklinks"));
+const AdminChatFeedback = lazy(() => import("./pages/AdminChatFeedback"));
 const BlogIndex = lazy(() => import("./pages/BlogIndex"));
 const Library = lazy(() => import("./pages/Library"));
 const LibraryTopic = lazy(() => import("./pages/LibraryTopic"));
@@ -284,6 +285,7 @@ function AnimatedRoutes() {
         <Route path="/admin/keyword-strategy" element={<AdminKeywordStrategy />} />
         <Route path="/admin/content-refresh" element={<AdminContentRefresh />} />
         <Route path="/admin/backlinks" element={<AdminBacklinks />} />
+        <Route path="/admin/chat-feedback" element={<AdminChatFeedback />} />
         <Route path="/blog" element={<BlogIndex />} />
         <Route path="/library" element={<Library />} />
         <Route path="/library/:slug" element={<LibraryTopic />} />
