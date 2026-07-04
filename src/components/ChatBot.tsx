@@ -217,7 +217,7 @@ export function ChatBot() {
               className="absolute inset-y-0 left-0 z-30 w-[78%] max-w-[300px] bg-background border-r border-border/50 shadow-xl flex flex-col"
             >
               <div className="flex items-center justify-between px-3.5 py-3 border-b border-border/40">
-                <h4 className="text-sm font-semibold text-foreground">Past chats</h4>
+                <h3 className="text-sm font-semibold text-foreground">Past chats</h3>
                 <button
                   onClick={() => setHistoryOpen(false)}
                   aria-label="Close history"
