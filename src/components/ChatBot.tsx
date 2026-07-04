@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Send, User, Trash2, Loader2, Stethoscope, Apple, Dumbbell, HelpCircle, Heart, ShieldCheck, MessageCircle, Plus, History, X } from "lucide-react";
@@ -8,6 +8,11 @@ import ReactMarkdown from "react-markdown";
 import { motion, AnimatePresence } from "framer-motion";
 import { chatRheumatoid, chatFoods, chatExercise, chatDoctor } from "@/data/images";
 import EmergencyRedirectDialog, { detectClientRedFlag } from "@/components/ai/EmergencyRedirectDialog";
+import { AboutYouPanel } from "@/components/chat/AboutYouPanel";
+import { ResourceCards } from "@/components/chat/ResourceCards";
+import { FeedbackButtons } from "@/components/chat/FeedbackButtons";
+import { loadChatProfile, saveChatProfile, type ChatProfile } from "@/lib/chatProfile";
+import { extractResources, stripStreamingResourceFence } from "@/lib/chatResources";
 
 const quickSuggestions = [
   { icon: Stethoscope, label: "What is rheumatoid arthritis?", image: chatRheumatoid },
@@ -15,6 +20,25 @@ const quickSuggestions = [
   { icon: Dumbbell, label: "Safe exercises for OA?", image: chatExercise },
   { icon: HelpCircle, label: "When should I see a doctor?", image: chatDoctor },
 ];
+
+const SESSION_KEY_STORAGE = "arthritis_chat_session_key_v1";
+
+function getOrCreateSessionKey(): string {
+  if (typeof window === "undefined") return "";
+  try {
+    let key = window.localStorage.getItem(SESSION_KEY_STORAGE);
+    if (!key) {
+      key =
+        typeof crypto !== "undefined" && typeof crypto.randomUUID === "function"
+          ? crypto.randomUUID()
+          : `sess_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
+      window.localStorage.setItem(SESSION_KEY_STORAGE, key);
+    }
+    return key;
+  } catch {
+    return "";
+  }
+}
 
 const TypingIndicator = () => (
   <div className="flex items-center gap-1.5 px-4 py-2.5">
@@ -29,8 +53,32 @@ const TypingIndicator = () => (
   </div>
 );
 
-const ChatMessage = ({ message }: { message: Message; isLatest: boolean }) => {
+interface ChatMessageProps {
+  message: Message;
+  isLatest: boolean;
+  isStreaming: boolean;
+  sessionKey: string;
+  previousUserMessage?: string;
+}
+
+const ChatMessage = ({ message, isLatest, isStreaming, sessionKey, previousUserMessage }: ChatMessageProps) => {
   const isUser = message.role === "user";
+
+  // For an assistant message that's still streaming, hide the resources
+  // fence until it closes. Once complete, parse and render as cards.
+  const { displayText, resources, streaming } = useMemo(() => {
+    if (isUser) return { displayText: message.content, resources: [], streaming: false };
+    const isStillStreaming = isLatest && isStreaming;
+    if (isStillStreaming) {
+      return {
+        displayText: stripStreamingResourceFence(message.content),
+        resources: [],
+        streaming: true,
+      };
+    }
+    const { cleanText, resources: parsed } = extractResources(message.content);
+    return { displayText: cleanText, resources: parsed, streaming: false };
+  }, [message.content, isUser, isLatest, isStreaming]);
 
   return (
     <motion.div
@@ -39,35 +87,42 @@ const ChatMessage = ({ message }: { message: Message; isLatest: boolean }) => {
       transition={{ duration: 0.15 }}
       className={cn("flex gap-2.5", isUser ? "flex-row-reverse" : "")}
     >
-      {/* Avatar */}
       <div
         className={cn(
           "flex h-7 w-7 shrink-0 items-center justify-center rounded-full mt-0.5",
-          isUser
-            ? "bg-primary text-primary-foreground"
-            : "bg-primary/8 text-primary"
+          isUser ? "bg-primary text-primary-foreground" : "bg-primary/8 text-primary",
         )}
       >
         {isUser ? <User className="h-3.5 w-3.5" /> : <Heart className="h-3.5 w-3.5" />}
       </div>
 
-      {/* Bubble */}
-      <div
-        className={cn(
-          "max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed",
-          isUser
-            ? "bg-primary text-primary-foreground rounded-tr-sm"
-            : "bg-muted/60 text-foreground rounded-tl-sm"
-        )}
-      >
-        {isUser ? (
-          <p>{message.content}</p>
-        ) : (
-          <div>
+      <div className="max-w-[85%] flex flex-col">
+        <div
+          className={cn(
+            "rounded-2xl px-4 py-3 text-sm leading-relaxed",
+            isUser
+              ? "bg-primary text-primary-foreground rounded-tr-sm"
+              : "bg-muted/60 text-foreground rounded-tl-sm",
+          )}
+        >
+          {isUser ? (
+            <p>{message.content}</p>
+          ) : (
             <div className="prose prose-sm dark:prose-invert max-w-none prose-p:my-1.5 prose-p:text-sm prose-p:leading-relaxed prose-ul:my-1.5 prose-li:my-0.5 prose-li:text-sm prose-headings:my-2 prose-headings:text-base prose-headings:font-semibold prose-headings:text-foreground prose-strong:text-foreground">
-              <ReactMarkdown>{message.content}</ReactMarkdown>
+              <ReactMarkdown>{displayText}</ReactMarkdown>
             </div>
-          </div>
+          )}
+        </div>
+
+        {!isUser && resources.length > 0 && <ResourceCards resources={resources} />}
+
+        {!isUser && !streaming && displayText.trim() && (
+          <FeedbackButtons
+            messageId={message.id}
+            sessionKey={sessionKey}
+            userMessage={previousUserMessage}
+            assistantMessage={message.content}
+          />
         )}
       </div>
     </motion.div>
@@ -77,6 +132,8 @@ const ChatMessage = ({ message }: { message: Message; isLatest: boolean }) => {
 export function ChatBot() {
   const [input, setInput] = useState("");
   const [historyOpen, setHistoryOpen] = useState(false);
+  const [profile, setProfile] = useState<ChatProfile>({});
+  const [sessionKey, setSessionKey] = useState("");
   const [emergency, setEmergency] = useState<{ open: boolean; category: string | null }>({
     open: false,
     category: null,
@@ -97,10 +154,20 @@ export function ChatBot() {
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
+    setProfile(loadChatProfile());
+    setSessionKey(getOrCreateSessionKey());
+  }, []);
+
+  useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages]);
+
+  const handleProfileChange = (next: ChatProfile) => {
+    setProfile(next);
+    saveChatProfile(next);
+  };
 
   const safelySend = (text: string) => {
     const flag = detectClientRedFlag(text);
@@ -108,7 +175,7 @@ export function ChatBot() {
       setEmergency({ open: true, category: flag.category });
       return;
     }
-    sendMessage(text);
+    sendMessage(text, profile);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -143,6 +210,14 @@ export function ChatBot() {
     setHistoryOpen(false);
   };
 
+  // For feedback context: map each assistant message to the preceding user message.
+  const userMessageBefore = (index: number): string | undefined => {
+    for (let i = index - 1; i >= 0; i--) {
+      if (messages[i].role === "user") return messages[i].content;
+    }
+    return undefined;
+  };
+
   return (
     <div className="flex flex-col h-full w-full overflow-hidden bg-background relative">
       <EmergencyRedirectDialog
@@ -150,7 +225,8 @@ export function ChatBot() {
         category={emergency.category}
         onClose={() => setEmergency({ open: false, category: null })}
       />
-      {/* ── Header ── clean, minimal */}
+
+      {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-border/40 bg-primary">
         <div className="flex items-center gap-2.5">
           {isAuthenticated && (
@@ -198,7 +274,10 @@ export function ChatBot() {
         </div>
       </div>
 
-      {/* ── History Sidebar ── slide-in overlay */}
+      {/* About You panel */}
+      <AboutYouPanel profile={profile} onChange={handleProfileChange} />
+
+      {/* History Sidebar */}
       <AnimatePresence>
         {historyOpen && (
           <>
@@ -272,7 +351,7 @@ export function ChatBot() {
         )}
       </AnimatePresence>
 
-      {/* ── Messages ── */}
+      {/* Messages */}
       <ScrollArea ref={scrollRef} className="flex-1 px-3.5 py-3">
         <AnimatePresence mode="wait">
           {messages.length === 0 ? (
@@ -283,7 +362,6 @@ export function ChatBot() {
               exit={{ opacity: 0 }}
               className="flex flex-col items-center text-center pt-6 pb-2"
             >
-              {/* Welcome */}
               <div className="h-14 w-14 rounded-2xl bg-primary/8 flex items-center justify-center mb-4">
                 <MessageCircle className="h-7 w-7 text-primary/50" />
               </div>
@@ -293,7 +371,6 @@ export function ChatBot() {
                 Ask about symptoms, diet, exercises, or treatments for arthritis.
               </p>
 
-              {/* Quick suggestions — clean list style */}
               <div className="w-full grid grid-cols-2 gap-2">
                 {quickSuggestions.map((s, i) => {
                   const Icon = s.icon;
@@ -332,9 +409,12 @@ export function ChatBot() {
             <div className="space-y-3">
               {messages.map((message, index) => (
                 <ChatMessage
-                  key={index}
+                  key={message.id ?? index}
                   message={message}
                   isLatest={index === messages.length - 1}
+                  isStreaming={isLoading && index === messages.length - 1}
+                  sessionKey={sessionKey}
+                  previousUserMessage={userMessageBefore(index)}
                 />
               ))}
               {isLoading && messages[messages.length - 1]?.role === "user" && (
@@ -356,7 +436,7 @@ export function ChatBot() {
         </AnimatePresence>
       </ScrollArea>
 
-      {/* ── Input ── */}
+      {/* Input */}
       <form onSubmit={handleSubmit} className="p-2.5 border-t border-border/40">
         <div className="flex items-end gap-2 rounded-xl border border-border/50 focus-within:border-primary/30 focus-within:ring-1 focus-within:ring-primary/10 transition-all px-3 py-1.5 bg-muted/20">
           <textarea
