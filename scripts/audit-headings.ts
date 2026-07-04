@@ -81,29 +81,12 @@ function stripCommentsAndStrings(src: string): string {
       i = end;
       continue;
     }
-    // Only strip string/template literals; skip JSX text (apostrophes in prose
-    // would otherwise be treated as strings). A literal starts a string only
-    // when the previous non-whitespace character is a token that expects an
-    // expression: not `>` (JSX text) or a letter/digit (identifier).
-    if (c === '"' || c === "'" || c === "`") {
-      let k = i - 1;
-      while (k >= 0 && (src[k] === " " || src[k] === "\t")) k--;
-      const prev = k >= 0 ? src[k] : "";
-      const jsxText = prev === ">" || /[A-Za-z0-9_)\]}]/.test(prev) && prev !== ")" && prev !== "]" && prev !== "}";
-      // Treat as JS string literal only in JS-expression positions:
-      const jsContext = prev === "" || "([{=,:?;+*&|!<>~^%".includes(prev) || prev === ")" || prev === "]" || prev === "}";
-      if (!jsContext || jsxText) { i++; continue; }
-      const quote = c;
-      let j = i + 1;
-      while (j < N) {
-        if (src[j] === "\\") { j += 2; continue; }
-        if (src[j] === quote) break;
-        j++;
-      }
-      blank(i, Math.min(j + 1, N));
-      i = j + 1;
-      continue;
-    }
+    // Do NOT strip string literals: JSX prose contains apostrophes that would
+    // otherwise be treated as string starts. Comments alone catch the JSDoc
+    // case (which was the main source of false `<h1>` matches). Real string
+    // literals containing "<h1>" text in source are extremely rare and would
+    // produce at most a benign false positive.
+    i++;
     i++;
   }
   return out.join("");
