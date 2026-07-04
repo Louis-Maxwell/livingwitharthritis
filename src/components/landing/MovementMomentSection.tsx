@@ -52,6 +52,8 @@ const MovementMomentSection = memo(() => (
         <img
           src={yogaMonumentGroup}
           alt="A large outdoor group practising tree pose on yoga mats in front of the Washington Monument"
+          width={1200}
+          height={800}
           className="max-w-full h-auto rounded-md sm:rounded-lg shadow-md sm:shadow-lg"
           loading="lazy"
           decoding="async"
