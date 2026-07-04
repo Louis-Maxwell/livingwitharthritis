@@ -101,6 +101,22 @@ function hasAspectClass(tag: string): boolean {
   return /aspect-(?:\[|square|video|auto|\d)/.test(tag);
 }
 
+function hasFixedSizeClasses(tag: string): boolean {
+  // className that pins both width and height (fills parent, or explicit fixed size)
+  const classAttr = tag.match(/className\s*=\s*(?:"([^"]*)"|'([^']*)')/);
+  const cls = classAttr ? (classAttr[1] ?? classAttr[2] ?? "") : "";
+  if (!cls) return false;
+  // fills a sized parent
+  if (/\bw-full\b/.test(cls) && /\bh-full\b/.test(cls)) return true;
+  // explicit fixed height class (h-72, h-96, h-[400px], h-24, max-h-96, etc.)
+  const hasFixedH = /\b(?:h|max-h|min-h)-(?:\d|\[)/.test(cls);
+  const hasFixedW = /\b(?:w|max-w|min-w)-(?:\d|\[|full)/.test(cls);
+  if (hasFixedH && hasFixedW) return true;
+  // full-width + fixed height (common hero pattern) — still CLS-safe
+  if (/\bw-full\b/.test(cls) && hasFixedH) return true;
+  return false;
+}
+
 function isDecorative(tag: string): boolean {
   return /aria-hidden\s*=\s*(?:"true"|'true'|\{true\})/.test(tag)
     || /role\s*=\s*(?:"presentation"|'presentation'|"none"|'none')/.test(tag);
