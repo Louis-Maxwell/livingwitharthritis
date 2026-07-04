@@ -512,6 +512,60 @@ export type Database = {
         }
         Relationships: []
       }
+      chat_feedback: {
+        Row: {
+          assistant_message: string | null
+          comment: string | null
+          conversation_id: string | null
+          created_at: string
+          id: string
+          message_id: string | null
+          rating: number
+          session_key: string | null
+          user_id: string | null
+          user_message: string | null
+        }
+        Insert: {
+          assistant_message?: string | null
+          comment?: string | null
+          conversation_id?: string | null
+          created_at?: string
+          id?: string
+          message_id?: string | null
+          rating: number
+          session_key?: string | null
+          user_id?: string | null
+          user_message?: string | null
+        }
+        Update: {
+          assistant_message?: string | null
+          comment?: string | null
+          conversation_id?: string | null
+          created_at?: string
+          id?: string
+          message_id?: string | null
+          rating?: number
+          session_key?: string | null
+          user_id?: string | null
+          user_message?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "chat_feedback_conversation_id_fkey"
+            columns: ["conversation_id"]
+            isOneToOne: false
+            referencedRelation: "chat_conversations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "chat_feedback_message_id_fkey"
+            columns: ["message_id"]
+            isOneToOne: false
+            referencedRelation: "chat_messages"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       chat_messages: {
         Row: {
           content: string
