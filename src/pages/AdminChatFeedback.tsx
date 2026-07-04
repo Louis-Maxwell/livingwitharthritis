@@ -114,7 +114,7 @@ const AdminChatFeedback = () => {
       <SeoHead
         title="Chat feedback — Admin"
         description="Review chatbot feedback and refine model prompts."
-        canonical="/admin/chat-feedback"
+        path="/admin/chat-feedback"
         noindex
       />
 
