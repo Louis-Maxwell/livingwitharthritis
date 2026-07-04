@@ -12,7 +12,7 @@
       "route": "src/pages/AboutUs.tsx",
       "file": "src/pages/AboutUs.tsx",
       "line": 183,
-      "detail": "first heading is <h2>: \"Led by <span className=\"text-primary\">clinicians</span>, bui\""
+      "detail": "first heading is <h2>: \"Led by <span className= >clinicians</span>, built with care\""
     },
     {
       "kind": "no-h1",
@@ -89,7 +89,14 @@
       "route": "src/pages/BlogCategory.tsx",
       "file": "src/pages/BlogIndex.tsx",
       "line": 151,
-      "detail": "first heading is <h2>: \"<Sparkles className=\"w-5 h-5 text-primary\" /> Editor's Picks\""
+      "detail": "first heading is <h2>: \"\""
+    },
+    {
+      "kind": "empty-heading",
+      "route": "src/pages/BlogCategory.tsx",
+      "file": "src/pages/BlogIndex.tsx",
+      "line": 151,
+      "detail": "empty <h2>"
     },
     {
       "kind": "no-h1",
@@ -117,7 +124,14 @@
       "route": "src/pages/BlogIndex.tsx",
       "file": "src/pages/BlogIndex.tsx",
       "line": 151,
-      "detail": "first heading is <h2>: \"<Sparkles className=\"w-5 h-5 text-primary\" /> Editor's Picks\""
+      "detail": "first heading is <h2>: \"\""
+    },
+    {
+      "kind": "empty-heading",
+      "route": "src/pages/BlogIndex.tsx",
+      "file": "src/pages/BlogIndex.tsx",
+      "line": 151,
+      "detail": "empty <h2>"
     },
     {
       "kind": "multiple-h1",
@@ -132,13 +146,6 @@
       "file": "src/pages/Buddy.tsx",
       "line": 1,
       "detail": "page has no <h1>"
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/Buddy.tsx",
-      "file": "src/pages/Buddy.tsx",
-      "line": 147,
-      "detail": "first heading is <h2>: \"Ready to be matched?\""
     },
     {
       "kind": "no-h1",
@@ -164,9 +171,9 @@
     {
       "kind": "first-heading-not-h1",
       "route": "src/pages/CommunityHub.tsx",
-      "file": "src/pages/CommunityHub.tsx",
-      "line": 152,
-      "detail": "first heading is <h2>: \"Why Community & Self-Management Work\""
+      "file": "src/components/InternalLinks.tsx",
+      "line": 64,
+      "detail": "first heading is <h2>: \"Explore More Resources\""
     },
     {
       "kind": "no-h1",
@@ -215,14 +222,14 @@
       "route": "src/pages/DailyTipDetail.tsx",
       "file": "src/pages/DailyTipDetail.tsx",
       "line": 30,
-      "detail": "first heading is <h2>: \"<span className=\"w-1 h-6 bg-primary rounded-full inline-bloc\""
+      "detail": "first heading is <h2>: \"<span className= /> {trimmed.replace( , )}\""
     },
     {
       "kind": "level-skip",
       "route": "src/pages/DailyTipDetail.tsx",
       "file": "src/pages/DailyTipDetail.tsx",
       "line": 175,
-      "detail": "<h1> -> <h3>: \"<Heart className=\"w-4 h-4\" /> Key Takeaways\""
+      "detail": "<h1> -> <h3>: \"<Heart className= /> Key Takeaways\""
     },
     {
       "kind": "no-h1",
@@ -347,8 +354,8 @@
       "kind": "first-heading-not-h1",
       "route": "src/pages/ImpactStories.tsx",
       "file": "src/pages/ImpactStories.tsx",
-      "line": 176,
-      "detail": "first heading is <h2>: \"Our Impact in Numbers\""
+      "line": 224,
+      "detail": "first heading is <h3>: \"{cs.name}, {cs.age}\""
     },
     {
       "kind": "first-heading-not-h1",
@@ -386,11 +393,25 @@
       "detail": "first heading is <h2>: \"{story.name}, {story.age}\""
     },
     {
+      "kind": "empty-heading",
+      "route": "src/pages/LivedExperiences.tsx",
+      "file": "src/pages/LivedExperiences.tsx",
+      "line": 298,
+      "detail": "empty <h3>"
+    },
+    {
       "kind": "no-h1",
       "route": "src/pages/NewsletterConfirm.tsx",
       "file": "src/pages/NewsletterConfirm.tsx",
       "line": 1,
       "detail": "page has no <h1>"
+    },
+    {
+      "kind": "empty-heading",
+      "route": "src/pages/NotFound.tsx",
+      "file": "src/pages/NotFound.tsx",
+      "line": 66,
+      "detail": "empty <h1>"
     },
     {
       "kind": "no-h1",
@@ -421,6 +442,13 @@
       "detail": "first heading is <h2>: \"1. Who We Are\""
     },
     {
+      "kind": "empty-heading",
+      "route": "src/pages/PrivacyPolicy.tsx",
+      "file": "src/pages/PrivacyPolicy.tsx",
+      "line": 132,
+      "detail": "empty <h2>"
+    },
+    {
       "kind": "multiple-h1",
       "route": "src/pages/ProductDetail.tsx",
       "file": "src/pages/ProductDetail.tsx",
@@ -440,6 +468,13 @@
       "file": "src/pages/ResourceDirectory.tsx",
       "line": 152,
       "detail": "first heading is <h3>: \"{r.name}\""
+    },
+    {
+      "kind": "empty-heading",
+      "route": "src/pages/ResourceDirectory.tsx",
+      "file": "src/pages/ResourceDirectory.tsx",
+      "line": 187,
+      "detail": "empty <h2>"
     },
     {
       "kind": "no-h1",
@@ -537,14 +572,14 @@
       "route": "src/pages/Unsubscribe.tsx",
       "file": "src/pages/Unsubscribe.tsx",
       "line": 111,
-      "detail": "duplicate <h1>: \"{status === \"invalid\" ? \"Invalid Link\" : \"Something Went Wro\""
+      "detail": "duplicate <h1>: \"{status === ? : }\""
     },
     {
-      "kind": "level-skip",
-      "route": "src/pages/WaysToHelp.tsx",
-      "file": "src/pages/WaysToHelp.tsx",
-      "line": 447,
-      "detail": "<h2> -> <h4>: \"{benefit.title}\""
+      "kind": "no-h1",
+      "route": "src/pages/ZakatAppeal.tsx",
+      "file": "src/pages/ZakatAppeal.tsx",
+      "line": 1,
+      "detail": "page has no <h1>"
     },
     {
       "kind": "first-heading-not-h1",
@@ -568,13 +603,6 @@
       "detail": "<h1> -> <h3>: \"When to see a GP\""
     },
     {
-      "kind": "multiple-h1",
-      "route": "src/pages/conditions/ElbowArthritis.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "duplicate <h1>: \"\""
-    },
-    {
       "kind": "first-heading-not-h1",
       "route": "src/pages/conditions/ElbowArthritis.tsx",
       "file": "src/pages/conditions/ElbowArthritis.tsx",
@@ -594,13 +622,6 @@
       "file": "src/components/graphics/InfographicElements.tsx",
       "line": 264,
       "detail": "<h2> -> <h4>: \"{title}\""
-    },
-    {
-      "kind": "empty-heading",
-      "route": "src/pages/conditions/ElbowArthritis.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "empty <h1>"
     },
     {
       "kind": "first-heading-not-h1",
@@ -631,13 +652,6 @@
       "detail": "<h1> -> <h3>: \"When to see a GP\""
     },
     {
-      "kind": "multiple-h1",
-      "route": "src/pages/conditions/HandArthritis.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "duplicate <h1>: \"\""
-    },
-    {
       "kind": "first-heading-not-h1",
       "route": "src/pages/conditions/HandArthritis.tsx",
       "file": "src/pages/conditions/HandArthritis.tsx",
@@ -648,8 +662,8 @@
       "kind": "level-skip",
       "route": "src/pages/conditions/HandArthritis.tsx",
       "file": "src/pages/conditions/HandArthritis.tsx",
-      "line": 209,
-      "detail": "<h1> -> <h3>: \"Most affected joints (UK clinic data)\""
+      "line": 245,
+      "detail": "<h1> -> <h3>: \"Daily hand-care checklist\""
     },
     {
       "kind": "level-skip",
@@ -657,20 +671,6 @@
       "file": "src/components/graphics/InfographicElements.tsx",
       "line": 264,
       "detail": "<h2> -> <h4>: \"{title}\""
-    },
-    {
-      "kind": "empty-heading",
-      "route": "src/pages/conditions/HandArthritis.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "empty <h1>"
-    },
-    {
-      "kind": "multiple-h1",
-      "route": "src/pages/conditions/HipArthritis.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "duplicate <h1>: \"\""
     },
     {
       "kind": "first-heading-not-h1",
@@ -687,20 +687,6 @@
       "detail": "<h1> -> <h3>: \"How common is it in the UK?\""
     },
     {
-      "kind": "level-skip",
-      "route": "src/pages/conditions/HipArthritis.tsx",
-      "file": "src/components/graphics/InfographicElements.tsx",
-      "line": 264,
-      "detail": "<h2> -> <h4>: \"{title}\""
-    },
-    {
-      "kind": "empty-heading",
-      "route": "src/pages/conditions/HipArthritis.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "empty <h1>"
-    },
-    {
       "kind": "first-heading-not-h1",
       "route": "src/pages/conditions/JuvenileArthritis.tsx",
       "file": "src/pages/conditions/JuvenileArthritis.tsx",
@@ -713,13 +699,6 @@
       "file": "src/components/conditions/ConditionPageTemplate.tsx",
       "line": 257,
       "detail": "<h1> -> <h3>: \"When to see a GP\""
-    },
-    {
-      "kind": "multiple-h1",
-      "route": "src/pages/conditions/KneeArthritis.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "duplicate <h1>: \"\""
     },
     {
       "kind": "first-heading-not-h1",
@@ -736,20 +715,6 @@
       "detail": "<h1> -> <h3>: \"How common is it in the UK?\""
     },
     {
-      "kind": "level-skip",
-      "route": "src/pages/conditions/KneeArthritis.tsx",
-      "file": "src/components/graphics/InfographicElements.tsx",
-      "line": 264,
-      "detail": "<h2> -> <h4>: \"{title}\""
-    },
-    {
-      "kind": "empty-heading",
-      "route": "src/pages/conditions/KneeArthritis.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "empty <h1>"
-    },
-    {
       "kind": "first-heading-not-h1",
       "route": "src/pages/conditions/Lupus.tsx",
       "file": "src/components/conditions/ConditionPageTemplate.tsx",
@@ -764,13 +729,6 @@
       "detail": "<h1> -> <h3>: \"When to see a GP\""
     },
     {
-      "kind": "multiple-h1",
-      "route": "src/pages/conditions/Osteoarthritis.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "duplicate <h1>: \"\""
-    },
-    {
       "kind": "first-heading-not-h1",
       "route": "src/pages/conditions/Osteoarthritis.tsx",
       "file": "src/pages/conditions/Osteoarthritis.tsx",
@@ -783,13 +741,6 @@
       "file": "src/pages/conditions/Osteoarthritis.tsx",
       "line": 193,
       "detail": "<h1> -> <h3>: \"How Common Is Osteoarthritis in the UK?\""
-    },
-    {
-      "kind": "empty-heading",
-      "route": "src/pages/conditions/Osteoarthritis.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "empty <h1>"
     },
     {
       "kind": "first-heading-not-h1",
@@ -818,13 +769,6 @@
       "file": "src/pages/conditions/PsoriaticArthritis.tsx",
       "line": 84,
       "detail": "first heading is <h2>: \"{title}\""
-    },
-    {
-      "kind": "level-skip",
-      "route": "src/pages/conditions/PsoriaticArthritis.tsx",
-      "file": "src/components/graphics/InfographicElements.tsx",
-      "line": 264,
-      "detail": "<h2> -> <h4>: \"{title}\""
     },
     {
       "kind": "first-heading-not-h1",
@@ -862,13 +806,6 @@
       "detail": "<h2> -> <h4>: \"{title}\""
     },
     {
-      "kind": "multiple-h1",
-      "route": "src/pages/conditions/ShoulderArthritis.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "duplicate <h1>: \"\""
-    },
-    {
       "kind": "first-heading-not-h1",
       "route": "src/pages/conditions/ShoulderArthritis.tsx",
       "file": "src/pages/conditions/ShoulderArthritis.tsx",
@@ -881,20 +818,6 @@
       "file": "src/pages/conditions/ShoulderArthritis.tsx",
       "line": 190,
       "detail": "<h1> -> <h3>: \"Daily tasks most affected\""
-    },
-    {
-      "kind": "level-skip",
-      "route": "src/pages/conditions/ShoulderArthritis.tsx",
-      "file": "src/components/graphics/InfographicElements.tsx",
-      "line": 264,
-      "detail": "<h2> -> <h4>: \"{title}\""
-    },
-    {
-      "kind": "empty-heading",
-      "route": "src/pages/conditions/ShoulderArthritis.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "empty <h1>"
     },
     {
       "kind": "no-h1",
@@ -981,13 +904,6 @@
       "detail": "first heading is <h2>: \"What tai chi actually is\""
     },
     {
-      "kind": "multiple-h1",
-      "route": "src/pages/guides/ArthritisPainRelief.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "duplicate <h1>: \"\""
-    },
-    {
       "kind": "first-heading-not-h1",
       "route": "src/pages/guides/ArthritisPainRelief.tsx",
       "file": "src/pages/guides/ArthritisPainRelief.tsx",
@@ -995,27 +911,6 @@
       "detail": "first heading is <h2>: \"{title}\""
     },
     {
-      "kind": "empty-heading",
-      "route": "src/pages/guides/ArthritisPainRelief.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "empty <h1>"
-    },
-    {
-      "kind": "multiple-h1",
-      "route": "src/pages/guides/BoneDensityOsteoporosis.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "duplicate <h1>: \"\""
-    },
-    {
-      "kind": "empty-heading",
-      "route": "src/pages/guides/BoneDensityOsteoporosis.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "empty <h1>"
-    },
-    {
       "kind": "no-h1",
       "route": "src/pages/guides/CanExerciseMakeOsteoarthritisWorse.tsx",
       "file": "src/pages/guides/CanExerciseMakeOsteoarthritisWorse.tsx",
@@ -1026,50 +921,8 @@
       "kind": "first-heading-not-h1",
       "route": "src/pages/guides/CanExerciseMakeOsteoarthritisWorse.tsx",
       "file": "src/pages/guides/CanExerciseMakeOsteoarthritisWorse.tsx",
-      "line": 41,
-      "detail": "first heading is <h2>: \"The short answer\""
-    },
-    {
-      "kind": "multiple-h1",
-      "route": "src/pages/guides/DisabilitySupport.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "duplicate <h1>: \"\""
-    },
-    {
-      "kind": "empty-heading",
-      "route": "src/pages/guides/DisabilitySupport.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "empty <h1>"
-    },
-    {
-      "kind": "multiple-h1",
-      "route": "src/pages/guides/FallPreventionOlderAdults.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "duplicate <h1>: \"\""
-    },
-    {
-      "kind": "empty-heading",
-      "route": "src/pages/guides/FallPreventionOlderAdults.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "empty <h1>"
-    },
-    {
-      "kind": "multiple-h1",
-      "route": "src/pages/guides/FrailtyManagementHub.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "duplicate <h1>: \"\""
-    },
-    {
-      "kind": "empty-heading",
-      "route": "src/pages/guides/FrailtyManagementHub.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "empty <h1>"
+      "line": 154,
+      "detail": "first heading is <h3>: \"Continue reading\""
     },
     {
       "kind": "no-h1",
@@ -1082,64 +935,8 @@
       "kind": "first-heading-not-h1",
       "route": "src/pages/guides/HipExercisesForOsteoarthritis.tsx",
       "file": "src/pages/guides/HipExercisesForOsteoarthritis.tsx",
-      "line": 46,
-      "detail": "first heading is <h2>: \"Why hip OA needs a specific routine\""
-    },
-    {
-      "kind": "multiple-h1",
-      "route": "src/pages/guides/MusculoskeletalHealth.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "duplicate <h1>: \"\""
-    },
-    {
-      "kind": "empty-heading",
-      "route": "src/pages/guides/MusculoskeletalHealth.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "empty <h1>"
-    },
-    {
-      "kind": "multiple-h1",
-      "route": "src/pages/guides/NewlyDiagnosed.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "duplicate <h1>: \"\""
-    },
-    {
-      "kind": "empty-heading",
-      "route": "src/pages/guides/NewlyDiagnosed.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "empty <h1>"
-    },
-    {
-      "kind": "multiple-h1",
-      "route": "src/pages/guides/PreventativeMSKHealth.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "duplicate <h1>: \"\""
-    },
-    {
-      "kind": "empty-heading",
-      "route": "src/pages/guides/PreventativeMSKHealth.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "empty <h1>"
-    },
-    {
-      "kind": "multiple-h1",
-      "route": "src/pages/guides/SarcopeniaMuscleControl.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "duplicate <h1>: \"\""
-    },
-    {
-      "kind": "empty-heading",
-      "route": "src/pages/guides/SarcopeniaMuscleControl.tsx",
-      "file": "src/components/seo/AeoEnhancement.tsx",
-      "line": 20,
-      "detail": "empty <h1>"
+      "line": 187,
+      "detail": "first heading is <h3>: \"People also ask\""
     },
     {
       "kind": "no-h1",
@@ -1163,13 +960,6 @@
       "detail": "page has no <h1>"
     },
     {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/pillar/AzathioprineGuide.tsx",
-      "file": "src/pages/pillar/AzathioprineGuide.tsx",
-      "line": 56,
-      "detail": "first heading is <h2>: \"Azathioprine for arthritis: an overview\""
-    },
-    {
       "kind": "no-h1",
       "route": "src/pages/pillar/BenefitsPIPGuide.tsx",
       "file": "src/pages/pillar/BenefitsPIPGuide.tsx",
@@ -1180,8 +970,8 @@
       "kind": "first-heading-not-h1",
       "route": "src/pages/pillar/BenefitsPIPGuide.tsx",
       "file": "src/pages/pillar/BenefitsPIPGuide.tsx",
-      "line": 12,
-      "detail": "first heading is <h2>: \"Benefits and Financial Support for Arthritis in the UK\""
+      "line": 244,
+      "detail": "first heading is <h3>: \"Continue Reading\""
     },
     {
       "kind": "no-h1",
@@ -1194,8 +984,8 @@
       "kind": "first-heading-not-h1",
       "route": "src/pages/pillar/DietGuide.tsx",
       "file": "src/pages/pillar/DietGuide.tsx",
-      "line": 23,
-      "detail": "first heading is <h2>: \"Why Diet Matters for Arthritis\""
+      "line": 236,
+      "detail": "first heading is <h3>: \"Continue Reading\""
     },
     {
       "kind": "no-h1",
@@ -1208,8 +998,8 @@
       "kind": "first-heading-not-h1",
       "route": "src/pages/pillar/ExerciseGuide.tsx",
       "file": "src/pages/pillar/ExerciseGuide.tsx",
-      "line": 22,
-      "detail": "first heading is <h2>: \"Why Exercise Is the Best Medicine for Arthritis\""
+      "line": 236,
+      "detail": "first heading is <h3>: \"Continue Reading\""
     },
     {
       "kind": "no-h1",
@@ -1217,13 +1007,6 @@
       "file": "src/pages/pillar/FebuxostatGoutGuide.tsx",
       "line": 1,
       "detail": "page has no <h1>"
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/pillar/FebuxostatGoutGuide.tsx",
-      "file": "src/pages/pillar/FebuxostatGoutGuide.tsx",
-      "line": 23,
-      "detail": "first heading is <h2>: \"Febuxostat for gout: an overview\""
     },
     {
       "kind": "no-h1",
@@ -1236,8 +1019,8 @@
       "kind": "first-heading-not-h1",
       "route": "src/pages/pillar/HealthServicesGuide.tsx",
       "file": "src/pages/pillar/HealthServicesGuide.tsx",
-      "line": 22,
-      "detail": "first heading is <h2>: \"Overview of Arthritis Services\""
+      "line": 197,
+      "detail": "first heading is <h3>: \"Continue Reading\""
     },
     {
       "kind": "no-h1",
@@ -1250,8 +1033,8 @@
       "kind": "first-heading-not-h1",
       "route": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
       "file": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
-      "line": 22,
-      "detail": "first heading is <h2>: \"A Patient's Guide to Knee Replacement Surgery\""
+      "line": 223,
+      "detail": "first heading is <h3>: \"Continue Reading\""
     },
     {
       "kind": "no-h1",
@@ -1264,8 +1047,8 @@
       "kind": "first-heading-not-h1",
       "route": "src/pages/pillar/PainkillersNsaidsGuide.tsx",
       "file": "src/pages/pillar/PainkillersNsaidsGuide.tsx",
-      "line": 23,
-      "detail": "first heading is <h2>: \"Painkillers and NSAIDs for arthritis: an overview\""
+      "line": 166,
+      "detail": "first heading is <h3>: \"Continue Reading\""
     },
     {
       "kind": "no-h1",
@@ -1273,13 +1056,6 @@
       "file": "src/pages/pillar/SteroidsGuide.tsx",
       "line": 1,
       "detail": "page has no <h1>"
-    },
-    {
-      "kind": "first-heading-not-h1",
-      "route": "src/pages/pillar/SteroidsGuide.tsx",
-      "file": "src/pages/pillar/SteroidsGuide.tsx",
-      "line": 23,
-      "detail": "first heading is <h2>: \"Steroids for arthritis: an overview\""
     },
     {
       "kind": "no-h1",
@@ -1292,8 +1068,8 @@
       "kind": "first-heading-not-h1",
       "route": "src/pages/pillar/UKArthritisGuide.tsx",
       "file": "src/pages/pillar/UKArthritisGuide.tsx",
-      "line": 22,
-      "detail": "first heading is <h2>: \"What Is Arthritis?\""
+      "line": 266,
+      "detail": "first heading is <h3>: \"Continue Reading\""
     }
   ],
   "pageReports": [
@@ -1302,7 +1078,7 @@
       "headings": [
         {
           "level": 2,
-          "text": "Led by <span className=\"text-primary\">clinicians</span>, built with care",
+          "text": "Led by <span className= >clinicians</span>, built with care",
           "file": "src/pages/AboutUs.tsx",
           "line": 183,
           "hasAriaHidden": false
@@ -1316,7 +1092,7 @@
         },
         {
           "level": 2,
-          "text": "Six years of<br className=\"hidden sm:block\" /> <span className=\"text-primary italic\"> measurable impact.</span>",
+          "text": "Six years of<br className= /> <span className= > measurable impact.</span>",
           "file": "src/pages/AboutUs.tsx",
           "line": 280,
           "hasAriaHidden": false
@@ -1333,20 +1109,6 @@
           "text": "Join Our Mission",
           "file": "src/pages/AboutUs.tsx",
           "line": 364,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Our Team & Clinical Leadership",
-          "file": "src/pages/AboutUs.tsx",
-          "line": 388,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Maxwell",
-          "file": "src/pages/AboutUs.tsx",
-          "line": 393,
           "hasAriaHidden": false
         },
         {
@@ -1405,7 +1167,7 @@
         },
         {
           "level": 3,
-          "text": "<CheckCircle2 className=\"w-4 h-4 text-primary\" /> {s.title}",
+          "text": "<CheckCircle2 className= /> {s.title}",
           "file": "src/pages/Accessibility.tsx",
           "line": 117,
           "hasAriaHidden": false
@@ -1469,7 +1231,7 @@
       "headings": [
         {
           "level": 1,
-          "text": "<Sparkles className=\"w-7 h-7 text-primary\" /> Content Refresh Queue",
+          "text": "<Sparkles className= /> Content Refresh Queue",
           "file": "src/pages/AdminContentRefresh.tsx",
           "line": 84,
           "hasAriaHidden": false
@@ -1495,14 +1257,14 @@
         },
         {
           "level": 2,
-          "text": "<Star className=\"w-5 h-5 text-primary\" /> User Feedback",
+          "text": "<Star className= /> User Feedback",
           "file": "src/pages/AdminDashboard.tsx",
           "line": 396,
           "hasAriaHidden": false
         },
         {
           "level": 2,
-          "text": "<MessageSquare className=\"w-5 h-5 text-primary\" /> Blog Comment Moderation",
+          "text": "<MessageSquare className= /> Blog Comment Moderation",
           "file": "src/pages/AdminDashboard.tsx",
           "line": 558,
           "hasAriaHidden": false
@@ -1576,7 +1338,7 @@
       "headings": [
         {
           "level": 1,
-          "text": "<TrendingUp className=\"w-7 h-7 text-primary\" /> Rank Tracker",
+          "text": "<TrendingUp className= /> Rank Tracker",
           "file": "src/pages/AdminRankTracker.tsx",
           "line": 102,
           "hasAriaHidden": false
@@ -1668,30 +1430,16 @@
         },
         {
           "level": 3,
-          "text": "<CheckCircle2 className=\"w-5 h-5 text-primary\" /> Eat More",
+          "text": "<CheckCircle2 className= /> Eat More",
           "file": "src/pages/ArthritisFlareUps.tsx",
           "line": 347,
           "hasAriaHidden": false
         },
         {
           "level": 3,
-          "text": "<AlertTriangle className=\"w-5 h-5 text-primary\" /> Eat Less",
+          "text": "<AlertTriangle className= /> Eat Less",
           "file": "src/pages/ArthritisFlareUps.tsx",
           "line": 362,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Flare-Friendly Exercise Guide",
-          "file": "src/pages/ArthritisFlareUps.tsx",
-          "line": 392,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 4,
-          "text": "{col.label}",
-          "file": "src/pages/ArthritisFlareUps.tsx",
-          "line": 400,
           "hasAriaHidden": false
         },
         {
@@ -1759,7 +1507,7 @@
         },
         {
           "level": 3,
-          "text": "{title || \"Continue exploring\"}",
+          "text": "{title || }",
           "file": "src/components/CrossLinkBanner.tsx",
           "line": 119,
           "hasAriaHidden": false
@@ -1859,13 +1607,6 @@
           "hasAriaHidden": false
         },
         {
-          "level": 3,
-          "text": "{p.title}",
-          "file": "src/pages/ArthritisStarterGuide.tsx",
-          "line": 313,
-          "hasAriaHidden": false
-        },
-        {
           "level": 2,
           "text": "The guide alone is enough to start tomorrow.",
           "file": "src/pages/ArthritisStarterGuide.tsx",
@@ -1938,58 +1679,9 @@
       "headings": [
         {
           "level": 2,
-          "text": "<Sparkles className=\"w-5 h-5 text-primary\" /> Editor's Picks",
+          "text": "",
           "file": "src/pages/BlogIndex.tsx",
           "line": 151,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "{post.title}",
-          "file": "src/pages/BlogIndex.tsx",
-          "line": 178,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "<Flame className=\"w-5 h-5 text-primary\" /> Trending Now",
-          "file": "src/pages/BlogIndex.tsx",
-          "line": 255,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "{post.title}",
-          "file": "src/pages/BlogIndex.tsx",
-          "line": 270,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "{post.title}",
-          "file": "src/pages/BlogIndex.tsx",
-          "line": 304,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Looking for answers by topic?",
-          "file": "src/pages/BlogIndex.tsx",
-          "line": 369,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Browse by Category",
-          "file": "src/pages/BlogIndex.tsx",
-          "line": 385,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "{cat} Articles",
-          "file": "src/pages/BlogIndex.tsx",
-          "line": 405,
           "hasAriaHidden": false
         }
       ]
@@ -2006,7 +1698,7 @@
         },
         {
           "level": 3,
-          "text": "<HelpCircle className=\"w-3.5 h-3.5\" /> People often ask",
+          "text": "<HelpCircle className= /> People often ask",
           "file": "src/pages/BlogHub.tsx",
           "line": 272,
           "hasAriaHidden": false
@@ -2025,58 +1717,9 @@
       "headings": [
         {
           "level": 2,
-          "text": "<Sparkles className=\"w-5 h-5 text-primary\" /> Editor's Picks",
+          "text": "",
           "file": "src/pages/BlogIndex.tsx",
           "line": 151,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "{post.title}",
-          "file": "src/pages/BlogIndex.tsx",
-          "line": 178,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "<Flame className=\"w-5 h-5 text-primary\" /> Trending Now",
-          "file": "src/pages/BlogIndex.tsx",
-          "line": 255,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "{post.title}",
-          "file": "src/pages/BlogIndex.tsx",
-          "line": 270,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "{post.title}",
-          "file": "src/pages/BlogIndex.tsx",
-          "line": 304,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Looking for answers by topic?",
-          "file": "src/pages/BlogIndex.tsx",
-          "line": 369,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Browse by Category",
-          "file": "src/pages/BlogIndex.tsx",
-          "line": 385,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "{cat} Articles",
-          "file": "src/pages/BlogIndex.tsx",
-          "line": 405,
           "hasAriaHidden": false
         },
         {
@@ -2114,7 +1757,7 @@
         },
         {
           "level": 2,
-          "text": "<MessageSquare className=\"w-5 h-5 text-primary\" /> Comments {comments.length > 0 && `(${comments.length})`}",
+          "text": "<MessageSquare className= /> Comments {comments.length > 0 && }",
           "file": "src/components/BlogComments.tsx",
           "line": 63,
           "hasAriaHidden": false
@@ -2149,7 +1792,7 @@
         },
         {
           "level": 3,
-          "text": "{title || \"Continue exploring\"}",
+          "text": "{title || }",
           "file": "src/components/CrossLinkBanner.tsx",
           "line": 119,
           "hasAriaHidden": false
@@ -2200,15 +1843,7 @@
     },
     {
       "route": "src/pages/Buddy.tsx",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Ready to be matched?",
-          "file": "src/pages/Buddy.tsx",
-          "line": 147,
-          "hasAriaHidden": false
-        }
-      ]
+      "headings": []
     },
     {
       "route": "src/pages/BuddyMatch.tsx",
@@ -2219,7 +1854,7 @@
       "headings": [
         {
           "level": 1,
-          "text": "Help & <span className=\"text-primary\">Support</span>",
+          "text": "Help & <span className= >Support</span>",
           "file": "src/pages/Chat.tsx",
           "line": 71,
           "hasAriaHidden": false
@@ -2259,48 +1894,6 @@
         },
         {
           "level": 2,
-          "text": "<Users className=\"w-5 h-5 text-primary\" /> Local Resources in {cityData.name}",
-          "file": "src/pages/CityArthritisPage.tsx",
-          "line": 152,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Managing Arthritis in {cityData.name}",
-          "file": "src/pages/CityArthritisPage.tsx",
-          "line": 167,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "{title}",
-          "file": "src/pages/CityArthritisPage.tsx",
-          "line": 178,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "<Phone className=\"w-5 h-5 text-primary\" /> How to Get an GP Referral in {cityData.name}",
-          "file": "src/pages/CityArthritisPage.tsx",
-          "line": 191,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "<Stethoscope className=\"w-5 h-5 text-primary\" /> Arthritis Types in {cityData.name}",
-          "file": "src/pages/CityArthritisPage.tsx",
-          "line": 205,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Arthritis Support in Other UK Cities",
-          "file": "src/pages/CityArthritisPage.tsx",
-          "line": 224,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
           "text": "{heading}",
           "file": "src/components/ReadNextCards.tsx",
           "line": 34,
@@ -2334,14 +1927,14 @@
         },
         {
           "level": 2,
-          "text": "<Stethoscope className=\"w-5 h-5 text-primary\" /> Common Symptoms of {conditionData.name}",
+          "text": "<Stethoscope className= /> Common Symptoms of {conditionData.name}",
           "file": "src/pages/CityConditionPage.tsx",
           "line": 218,
           "hasAriaHidden": false
         },
         {
           "level": 2,
-          "text": "<ListChecks className=\"w-5 h-5 text-primary\" /> Managing {conditionData.shortName} in {cityData.name}",
+          "text": "<ListChecks className= /> Managing {conditionData.shortName} in {cityData.name}",
           "file": "src/pages/CityConditionPage.tsx",
           "line": 233,
           "hasAriaHidden": false
@@ -2355,14 +1948,14 @@
         },
         {
           "level": 2,
-          "text": "<AlertCircle className=\"w-5 h-5 text-primary\" /> When to See Your GP",
+          "text": "<AlertCircle className= /> When to See Your GP",
           "file": "src/pages/CityConditionPage.tsx",
           "line": 265,
           "hasAriaHidden": false
         },
         {
           "level": 2,
-          "text": "<Phone className=\"w-5 h-5 text-primary\" /> Getting an GP Referral in {cityData.name}",
+          "text": "<Phone className= /> Getting an GP Referral in {cityData.name}",
           "file": "src/pages/CityConditionPage.tsx",
           "line": 279,
           "hasAriaHidden": false
@@ -2449,97 +2042,6 @@
       "headings": [
         {
           "level": 2,
-          "text": "Why Community & Self-Management Work",
-          "file": "src/pages/CommunityHub.tsx",
-          "line": 152,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Newly Diagnosed? Start Here",
-          "file": "src/pages/CommunityHub.tsx",
-          "line": 186,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "{s.title}",
-          "file": "src/pages/CommunityHub.tsx",
-          "line": 206,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Quick Support Resources",
-          "file": "src/pages/CommunityHub.tsx",
-          "line": 224,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Living With Arthritis Stories",
-          "file": "src/pages/CommunityHub.tsx",
-          "line": 245,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "{s.name}, {s.age}",
-          "file": "src/pages/CommunityHub.tsx",
-          "line": 265,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "More Community Features",
-          "file": "src/pages/CommunityHub.tsx",
-          "line": 296,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "{f.title}",
-          "file": "src/pages/CommunityHub.tsx",
-          "line": 314,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Free Downloadable Resources",
-          "file": "src/pages/CommunityHub.tsx",
-          "line": 335,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "{r.title}",
-          "file": "src/pages/CommunityHub.tsx",
-          "line": 361,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Help Us Build This Community",
-          "file": "src/pages/CommunityHub.tsx",
-          "line": 388,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Daily tips for joint health",
-          "file": "src/pages/CommunityHub.tsx",
-          "line": 442,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "{tip.title}",
-          "file": "src/pages/CommunityHub.tsx",
-          "line": 451,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
           "text": "Explore More Resources",
           "file": "src/components/InternalLinks.tsx",
           "line": 64,
@@ -2575,21 +2077,21 @@
         },
         {
           "level": 3,
-          "text": "{replies.length} {replies.length === 1 ? \"Reply\" : \"Replies\"}",
+          "text": "{replies.length} {replies.length === 1 ? : }",
           "file": "src/components/PeerSupportForum.tsx",
           "line": 180,
           "hasAriaHidden": false
         },
         {
           "level": 3,
-          "text": "<Send className=\"w-4 h-4 text-primary\" /> Post a Reply",
+          "text": "<Send className= /> Post a Reply",
           "file": "src/components/PeerSupportForum.tsx",
           "line": 205,
           "hasAriaHidden": false
         },
         {
           "level": 3,
-          "text": "<Plus className=\"w-4 h-4 text-primary\" /> Start a New Discussion",
+          "text": "<Plus className= /> Start a New Discussion",
           "file": "src/components/PeerSupportForum.tsx",
           "line": 290,
           "hasAriaHidden": false
@@ -2746,7 +2248,7 @@
         },
         {
           "level": 2,
-          "text": "<HelpCircle className=\"w-5 h-5 text-primary\" /> People also ask about {lcName} {subpage === \"diet\" ? \"and diet\" : subpage}",
+          "text": "<HelpCircle className= /> People also ask about {lcName} {subpage === ? : subpage}",
           "file": "src/pages/ConditionSubpagePage.tsx",
           "line": 255,
           "hasAriaHidden": false
@@ -2822,41 +2324,6 @@
           "file": "src/pages/CookiesPolicy.tsx",
           "line": 79,
           "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "3. Third-Party Cookies",
-          "file": "src/pages/CookiesPolicy.tsx",
-          "line": 84,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "4. Managing Your Cookie Preferences",
-          "file": "src/pages/CookiesPolicy.tsx",
-          "line": 93,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "5. How Long Do Cookies Last?",
-          "file": "src/pages/CookiesPolicy.tsx",
-          "line": 103,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "6. Updates to This Policy",
-          "file": "src/pages/CookiesPolicy.tsx",
-          "line": 112,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "7. Contact Us",
-          "file": "src/pages/CookiesPolicy.tsx",
-          "line": 117,
-          "hasAriaHidden": false
         }
       ]
     },
@@ -2865,44 +2332,9 @@
       "headings": [
         {
           "level": 1,
-          "text": "Together, we can make a <span className=\"text-primary italic\">bigger impact</span>",
+          "text": "Together, we can make a <span className= >bigger impact</span>",
           "file": "src/pages/CorporateGiving.tsx",
           "line": 173,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Partnership Tiers",
-          "file": "src/pages/CorporateGiving.tsx",
-          "line": 215,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "{tier.name}",
-          "file": "src/pages/CorporateGiving.tsx",
-          "line": 231,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Ways to Partner",
-          "file": "src/pages/CorporateGiving.tsx",
-          "line": 260,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "{way.title}",
-          "file": "src/pages/CorporateGiving.tsx",
-          "line": 278,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Get in Touch",
-          "file": "src/pages/CorporateGiving.tsx",
-          "line": 291,
           "hasAriaHidden": false
         }
       ]
@@ -2924,7 +2356,7 @@
       "headings": [
         {
           "level": 2,
-          "text": "<span className=\"w-1 h-6 bg-primary rounded-full inline-block\" /> {trimmed.replace(\"## \", \"\")}",
+          "text": "<span className= /> {trimmed.replace( , )}",
           "file": "src/pages/DailyTipDetail.tsx",
           "line": 30,
           "hasAriaHidden": false
@@ -2945,7 +2377,7 @@
         },
         {
           "level": 3,
-          "text": "<Heart className=\"w-4 h-4\" /> Key Takeaways",
+          "text": "<Heart className= /> Key Takeaways",
           "file": "src/pages/DailyTipDetail.tsx",
           "line": 175,
           "hasAriaHidden": false
@@ -3025,7 +2457,7 @@
         },
         {
           "level": 3,
-          "text": "<Star className=\"w-4 h-4 text-primary\" /> Sample Daily Meal Plan",
+          "text": "<Star className= /> Sample Daily Meal Plan",
           "file": "src/pages/DietHub.tsx",
           "line": 343,
           "hasAriaHidden": false
@@ -3109,7 +2541,7 @@
         },
         {
           "level": 3,
-          "text": "{title || \"Continue exploring\"}",
+          "text": "{title || }",
           "file": "src/components/CrossLinkBanner.tsx",
           "line": 119,
           "hasAriaHidden": false
@@ -3142,7 +2574,7 @@
       "headings": [
         {
           "level": 1,
-          "text": "Help us keep arthritis support{\" \"} <span className=\"text-gradient italic\">free for everyone</span>",
+          "text": "Help us keep arthritis support{ } <span className= >free for everyone</span>",
           "file": "src/pages/Donate.tsx",
           "line": 144,
           "hasAriaHidden": false
@@ -3166,41 +2598,6 @@
           "text": "Ways to Give",
           "file": "src/pages/Donate.tsx",
           "line": 293,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "{way.title}",
-          "file": "src/pages/Donate.tsx",
-          "line": 303,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Tax-Efficient Giving",
-          "file": "src/pages/Donate.tsx",
-          "line": 328,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Gift Aid (+25%)",
-          "file": "src/pages/Donate.tsx",
-          "line": 339,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Higher-Rate Relief",
-          "file": "src/pages/Donate.tsx",
-          "line": 348,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Payroll Giving",
-          "file": "src/pages/Donate.tsx",
-          "line": 357,
           "hasAriaHidden": false
         },
         {
@@ -3276,14 +2673,14 @@
         },
         {
           "level": 2,
-          "text": "<CheckCircle className=\"w-5 h-5 text-primary\" /> Why these {jointName.toLowerCase()} exercises work for {cond.name.toLowerCase()}",
+          "text": "<CheckCircle className= /> Why these {jointName.toLowerCase()} exercises work for {cond.name.toLowerCase()}",
           "file": "src/pages/ExerciseConditionPage.tsx",
           "line": 189,
           "hasAriaHidden": false
         },
         {
           "level": 2,
-          "text": "<BookOpen className=\"w-5 h-5 text-primary\" /> Recommended {jointName.toLowerCase()} exercises",
+          "text": "<BookOpen className= /> Recommended {jointName.toLowerCase()} exercises",
           "file": "src/pages/ExerciseConditionPage.tsx",
           "line": 209,
           "hasAriaHidden": false
@@ -3519,7 +2916,7 @@
         },
         {
           "level": 3,
-          "text": "{title || \"Continue exploring\"}",
+          "text": "{title || }",
           "file": "src/components/CrossLinkBanner.tsx",
           "line": 119,
           "hasAriaHidden": false
@@ -3545,14 +2942,14 @@
         },
         {
           "level": 2,
-          "text": "<CheckCircle className=\"w-5 h-5 text-primary\" /> Benefits of {page.exercise} for {page.joint} Arthritis",
+          "text": "<CheckCircle className= /> Benefits of {page.exercise} for {page.joint} Arthritis",
           "file": "src/pages/ExerciseJointPage.tsx",
           "line": 116,
           "hasAriaHidden": false
         },
         {
           "level": 2,
-          "text": "<BookOpen className=\"w-5 h-5 text-primary\" /> Recommended {page.joint} Exercises",
+          "text": "<BookOpen className= /> Recommended {page.joint} Exercises",
           "file": "src/pages/ExerciseJointPage.tsx",
           "line": 131,
           "hasAriaHidden": false
@@ -3566,14 +2963,14 @@
         },
         {
           "level": 2,
-          "text": "<AlertTriangle className=\"w-5 h-5 text-destructive\" /> Safety Tips",
+          "text": "<AlertTriangle className= /> Safety Tips",
           "file": "src/pages/ExerciseJointPage.tsx",
           "line": 149,
           "hasAriaHidden": false
         },
         {
           "level": 2,
-          "text": "<ShieldAlert className=\"w-5 h-5 text-destructive\" /> When to Avoid {page.exercise}",
+          "text": "<ShieldAlert className= /> When to Avoid {page.exercise}",
           "file": "src/pages/ExerciseJointPage.tsx",
           "line": 165,
           "hasAriaHidden": false
@@ -3625,7 +3022,7 @@
         },
         {
           "level": 3,
-          "text": "{para.replace(/\\*\\*/g, \"\")}",
+          "text": "{para.replace(/\\*\\*/g, )}",
           "file": "src/pages/ExpertArticles.tsx",
           "line": 330,
           "hasAriaHidden": false
@@ -3716,7 +3113,7 @@
         },
         {
           "level": 2,
-          "text": "<FileText className=\"w-5 h-5 text-primary\" /> Annual Report Summary 2024/25",
+          "text": "<FileText className= /> Annual Report Summary 2024/25",
           "file": "src/pages/Finances.tsx",
           "line": 396,
           "hasAriaHidden": false
@@ -3768,13 +3165,6 @@
           "text": "{page.title}",
           "file": "src/components/InternalLinks.tsx",
           "line": 90,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "We don't rely on{\" \"} <span className=\"text-primary italic\">donations alone.</span>",
-          "file": "src/components/landing/HowWeAreFundedSection.tsx",
-          "line": 40,
           "hasAriaHidden": false
         },
         {
@@ -3865,7 +3255,7 @@
         },
         {
           "level": 3,
-          "text": "<CheckCircle className=\"w-4 h-4 text-primary shrink-0\" /> {p.title}",
+          "text": "<CheckCircle className= /> {p.title}",
           "file": "src/pages/Governance.tsx",
           "line": 423,
           "hasAriaHidden": false
@@ -3905,7 +3295,7 @@
         },
         {
           "level": 4,
-          "text": "<Stethoscope className=\"w-4 h-4 text-primary\" /> Recommended Next Steps",
+          "text": "<Stethoscope className= /> Recommended Next Steps",
           "file": "src/components/tools/SymptomQuiz.tsx",
           "line": 159,
           "hasAriaHidden": false
@@ -3919,7 +3309,7 @@
         },
         {
           "level": 4,
-          "text": "<Lightbulb className=\"w-4 h-4 text-primary\" /> Personalised Tips",
+          "text": "<Lightbulb className= /> Personalised Tips",
           "file": "src/components/tools/InflammationCalculator.tsx",
           "line": 157,
           "hasAriaHidden": false
@@ -3930,54 +3320,12 @@
           "file": "src/components/tools/ExercisePlanGenerator.tsx",
           "line": 140,
           "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Step 1: Select Your Affected Joints",
-          "file": "src/components/tools/ExercisePlanGenerator.tsx",
-          "line": 144,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Step 2: Your Fitness Level",
-          "file": "src/components/tools/ExercisePlanGenerator.tsx",
-          "line": 174,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Step 3: Your Primary Goal",
-          "file": "src/components/tools/ExercisePlanGenerator.tsx",
-          "line": 202,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Your 7-Day Exercise Plan",
-          "file": "src/components/tools/ExercisePlanGenerator.tsx",
-          "line": 232,
-          "hasAriaHidden": false
         }
       ]
     },
     {
       "route": "src/pages/ImpactStories.tsx",
       "headings": [
-        {
-          "level": 2,
-          "text": "Our Impact in Numbers",
-          "file": "src/pages/ImpactStories.tsx",
-          "line": 176,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Patient Case Studies",
-          "file": "src/pages/ImpactStories.tsx",
-          "line": 203,
-          "hasAriaHidden": false
-        },
         {
           "level": 3,
           "text": "{cs.name}, {cs.age}",
@@ -3994,7 +3342,7 @@
         },
         {
           "level": 3,
-          "text": "<Sparkles className=\"w-4 h-4 text-primary\" /> {section.title}",
+          "text": "<Sparkles className= /> {section.title}",
           "file": "src/pages/ImpactStories.tsx",
           "line": 269,
           "hasAriaHidden": false
@@ -4105,30 +3453,23 @@
         },
         {
           "level": 3,
-          "text": "<Calendar className=\"w-4 h-4 text-primary\" /> Journey Timeline",
+          "text": "<Calendar className= /> Journey Timeline",
           "file": "src/pages/LivedExperiences.tsx",
           "line": 261,
           "hasAriaHidden": false
         },
         {
           "level": 3,
-          "text": "<Star className=\"w-4 h-4 text-primary\" /> Key Outcomes",
+          "text": "<Star className= /> Key Outcomes",
           "file": "src/pages/LivedExperiences.tsx",
           "line": 285,
           "hasAriaHidden": false
         },
         {
           "level": 3,
-          "text": "<Heart className=\"w-4 h-4 text-primary\" /> {story.name.split(\" \")[0]}'s Advice",
+          "text": "",
           "file": "src/pages/LivedExperiences.tsx",
           "line": 298,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Share Your Story",
-          "file": "src/pages/LivedExperiences.tsx",
-          "line": 313,
           "hasAriaHidden": false
         }
       ]
@@ -4166,44 +3507,16 @@
         },
         {
           "level": 3,
-          "text": "<Link to=\"/conditions/osteoarthritis\" className=\"text-primary hover:underline\">Osteoarthritis (OA)</Link>",
+          "text": "<Link to= className= >Osteoarthritis (OA)</Link>",
           "file": "src/pages/LivingWithArthritis.tsx",
           "line": 104,
           "hasAriaHidden": false
         },
         {
           "level": 3,
-          "text": "<Link to=\"/conditions/rheumatoid-arthritis\" className=\"text-primary hover:underline\">Rheumatoid Arthritis (RA)</Link>",
+          "text": "<Link to= className= >Rheumatoid Arthritis (RA)</Link>",
           "file": "src/pages/LivingWithArthritis.tsx",
           "line": 117,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "<Link to=\"/conditions/juvenile-arthritis\" className=\"text-primary hover:underline\">Juvenile Arthritis (JA)</Link>",
-          "file": "src/pages/LivingWithArthritis.tsx",
-          "line": 129,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Other types",
-          "file": "src/pages/LivingWithArthritis.tsx",
-          "line": 140,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Symptoms & diagnosis",
-          "file": "src/pages/LivingWithArthritis.tsx",
-          "line": 152,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Management strategies",
-          "file": "src/pages/LivingWithArthritis.tsx",
-          "line": 173,
           "hasAriaHidden": false
         },
         {
@@ -4239,90 +3552,6 @@
           "text": "Diet & nutrition",
           "file": "src/pages/LivingWithArthritis.tsx",
           "line": 228,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Mental health & emotional wellbeing",
-          "file": "src/pages/LivingWithArthritis.tsx",
-          "line": 251,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Work & employment rights",
-          "file": "src/pages/LivingWithArthritis.tsx",
-          "line": 273,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Benefits & financial support",
-          "file": "src/pages/LivingWithArthritis.tsx",
-          "line": 294,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Living Well with Arthritis: Practical Strategies for Independence",
-          "file": "src/pages/LivingWithArthritis.tsx",
-          "line": 313,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Essential Adaptive Equipment",
-          "file": "src/pages/LivingWithArthritis.tsx",
-          "line": 316,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Frequently asked questions",
-          "file": "src/pages/LivingWithArthritis.tsx",
-          "line": 329,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Can arthritis be cured?",
-          "file": "src/pages/LivingWithArthritis.tsx",
-          "line": 332,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Is arthritis only for older people?",
-          "file": "src/pages/LivingWithArthritis.tsx",
-          "line": 339,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Can exercise make arthritis worse?",
-          "file": "src/pages/LivingWithArthritis.tsx",
-          "line": 346,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Can I have a normal life with arthritis?",
-          "file": "src/pages/LivingWithArthritis.tsx",
-          "line": 353,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Related articles",
-          "file": "src/pages/LivingWithArthritis.tsx",
-          "line": 362,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Get weekly arthritis tips",
-          "file": "src/pages/LivingWithArthritis.tsx",
-          "line": 374,
           "hasAriaHidden": false
         }
       ]
@@ -4381,23 +3610,9 @@
       "headings": [
         {
           "level": 1,
-          "text": "We couldn't find that page",
+          "text": "",
           "file": "src/pages/NotFound.tsx",
           "line": 66,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Popular right now",
-          "file": "src/pages/NotFound.tsx",
-          "line": 102,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Or jump to",
-          "file": "src/pages/NotFound.tsx",
-          "line": 125,
           "hasAriaHidden": false
         }
       ]
@@ -4623,23 +3838,9 @@
         },
         {
           "level": 2,
-          "text": "9. Children's Privacy",
+          "text": "",
           "file": "src/pages/PrivacyPolicy.tsx",
           "line": 132,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "10. Changes to This Policy",
-          "file": "src/pages/PrivacyPolicy.tsx",
-          "line": 137,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "11. Contact Us",
-          "file": "src/pages/PrivacyPolicy.tsx",
-          "line": 142,
           "hasAriaHidden": false
         }
       ]
@@ -4689,7 +3890,7 @@
         },
         {
           "level": 2,
-          "text": "Can't Find What You Need?",
+          "text": "",
           "file": "src/pages/ResourceDirectory.tsx",
           "line": 187,
           "hasAriaHidden": false
@@ -4867,34 +4068,6 @@
           "file": "src/pages/SymptomChecker.tsx",
           "line": 163,
           "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "{current.label}",
-          "file": "src/pages/SymptomChecker.tsx",
-          "line": 180,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Your top matches",
-          "file": "src/pages/SymptomChecker.tsx",
-          "line": 220,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "{r.name}",
-          "file": "src/pages/SymptomChecker.tsx",
-          "line": 249,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "What to do next",
-          "file": "src/pages/SymptomChecker.tsx",
-          "line": 271,
-          "hasAriaHidden": false
         }
       ]
     },
@@ -5013,7 +4186,7 @@
         },
         {
           "level": 3,
-          "text": "{s.name} <ExternalLink className=\"w-3 h-3 text-muted-foreground\" />",
+          "text": "{s.name} <ExternalLink className= />",
           "file": "src/pages/TrustCredibility.tsx",
           "line": 194,
           "hasAriaHidden": false
@@ -5027,7 +4200,7 @@
         },
         {
           "level": 3,
-          "text": "<Heart className=\"w-4 h-4 text-primary\" /> Medical Disclaimer",
+          "text": "<Heart className= /> Medical Disclaimer",
           "file": "src/pages/TrustCredibility.tsx",
           "line": 235,
           "hasAriaHidden": false
@@ -5060,7 +4233,7 @@
         },
         {
           "level": 1,
-          "text": "{status === \"invalid\" ? \"Invalid Link\" : \"Something Went Wrong\"}",
+          "text": "{status === ? : }",
           "file": "src/pages/Unsubscribe.tsx",
           "line": 111,
           "hasAriaHidden": false
@@ -5083,27 +4256,6 @@
           "file": "src/pages/WaitingListHelp.tsx",
           "line": 99,
           "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Free Rheumatology Waiting Time Calculator",
-          "file": "src/pages/WaitingListHelp.tsx",
-          "line": 110,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "<Clock className=\"w-5 h-5 text-primary\" /> What to do while you wait",
-          "file": "src/pages/WaitingListHelp.tsx",
-          "line": 125,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Frequently Asked Questions",
-          "file": "src/pages/WaitingListHelp.tsx",
-          "line": 163,
-          "hasAriaHidden": false
         }
       ]
     },
@@ -5112,7 +4264,7 @@
       "headings": [
         {
           "level": 1,
-          "text": "Every action helps someone live{\" \"} <span className=\"relative\"> <span className=\"relative z-10\">a fuller life</span> <span className=\"absolute bottom-1 left-0 right-0 h-3 bg-background/15 -skew-x-2 rounded\" /> </span>",
+          "text": "Every action helps someone live{ } <span className= > <span className= >a fuller life</span> <span className= /> </span>",
           "file": "src/pages/WaysToHelp.tsx",
           "line": 180,
           "hasAriaHidden": false
@@ -5160,27 +4312,6 @@
           "hasAriaHidden": false
         },
         {
-          "level": 4,
-          "text": "{benefit.title}",
-          "file": "src/pages/WaysToHelp.tsx",
-          "line": 447,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Thank you!",
-          "file": "src/pages/WaysToHelp.tsx",
-          "line": 463,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Sign Up to Volunteer",
-          "file": "src/pages/WaysToHelp.tsx",
-          "line": 470,
-          "hasAriaHidden": false
-        },
-        {
           "level": 2,
           "text": "Ready to Make a Difference?",
           "file": "src/pages/WaysToHelp.tsx",
@@ -5204,13 +4335,6 @@
           "text": "Gift Aid — Boost Your Donation by 25%",
           "file": "src/pages/ZakatAppeal.tsx",
           "line": 165,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 1,
-          "text": "Zakat Appeal",
-          "file": "src/pages/ZakatAppeal.tsx",
-          "line": 179,
           "hasAriaHidden": false
         },
         {
@@ -5855,16 +4979,9 @@
         },
         {
           "level": 3,
-          "text": "{title || \"Continue exploring\"}",
+          "text": "{title || }",
           "file": "src/components/CrossLinkBanner.tsx",
           "line": 119,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 1,
-          "text": "",
-          "file": "src/components/seo/AeoEnhancement.tsx",
-          "line": 20,
           "hasAriaHidden": false
         },
         {
@@ -6003,27 +5120,6 @@
         },
         {
           "level": 3,
-          "text": "Most affected joints (UK clinic data)",
-          "file": "src/pages/conditions/HandArthritis.tsx",
-          "line": 209,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Range of motion",
-          "file": "src/pages/conditions/HandArthritis.tsx",
-          "line": 220,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Strength",
-          "file": "src/pages/conditions/HandArthritis.tsx",
-          "line": 226,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
           "text": "Daily hand-care checklist",
           "file": "src/pages/conditions/HandArthritis.tsx",
           "line": 245,
@@ -6129,7 +5225,7 @@
         },
         {
           "level": 3,
-          "text": "{title || \"Continue exploring\"}",
+          "text": "{title || }",
           "file": "src/components/CrossLinkBanner.tsx",
           "line": 119,
           "hasAriaHidden": false
@@ -6146,13 +5242,6 @@
           "text": "{question}",
           "file": "src/components/seo/AnswerBox.tsx",
           "line": 28,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 1,
-          "text": "",
-          "file": "src/components/seo/AeoEnhancement.tsx",
-          "line": 20,
           "hasAriaHidden": false
         },
         {
@@ -6231,20 +5320,6 @@
           "hasAriaHidden": false
         },
         {
-          "level": 3,
-          "text": "Surgery",
-          "file": "src/pages/conditions/HipArthritis.tsx",
-          "line": 283,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Need more support?",
-          "file": "src/pages/conditions/HipArthritis.tsx",
-          "line": 336,
-          "hasAriaHidden": false
-        },
-        {
           "level": 4,
           "text": "{title}",
           "file": "src/components/graphics/InfographicElements.tsx",
@@ -6316,7 +5391,7 @@
         },
         {
           "level": 3,
-          "text": "{title || \"Continue exploring\"}",
+          "text": "{title || }",
           "file": "src/components/CrossLinkBanner.tsx",
           "line": 119,
           "hasAriaHidden": false
@@ -6333,13 +5408,6 @@
           "text": "{question}",
           "file": "src/components/seo/AnswerBox.tsx",
           "line": 28,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 1,
-          "text": "",
-          "file": "src/components/seo/AeoEnhancement.tsx",
-          "line": 20,
           "hasAriaHidden": false
         },
         {
@@ -6472,20 +5540,6 @@
           "hasAriaHidden": false
         },
         {
-          "level": 3,
-          "text": "Surgery",
-          "file": "src/pages/conditions/KneeArthritis.tsx",
-          "line": 268,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Need more support?",
-          "file": "src/pages/conditions/KneeArthritis.tsx",
-          "line": 320,
-          "hasAriaHidden": false
-        },
-        {
           "level": 4,
           "text": "{title}",
           "file": "src/components/graphics/InfographicElements.tsx",
@@ -6557,7 +5611,7 @@
         },
         {
           "level": 3,
-          "text": "{title || \"Continue exploring\"}",
+          "text": "{title || }",
           "file": "src/components/CrossLinkBanner.tsx",
           "line": 119,
           "hasAriaHidden": false
@@ -6574,13 +5628,6 @@
           "text": "{question}",
           "file": "src/components/seo/AnswerBox.tsx",
           "line": 28,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 1,
-          "text": "",
-          "file": "src/components/seo/AeoEnhancement.tsx",
-          "line": 20,
           "hasAriaHidden": false
         },
         {
@@ -6668,90 +5715,6 @@
           "text": "When to See a GP",
           "file": "src/pages/conditions/Osteoarthritis.tsx",
           "line": 208,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Risk Factor Prevalence",
-          "file": "src/pages/conditions/Osteoarthritis.tsx",
-          "line": 227,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Aerobic / Low-Impact",
-          "file": "src/pages/conditions/Osteoarthritis.tsx",
-          "line": 239,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Strengthening",
-          "file": "src/pages/conditions/Osteoarthritis.tsx",
-          "line": 245,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Flexibility & Balance",
-          "file": "src/pages/conditions/Osteoarthritis.tsx",
-          "line": 252,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Foods to Eat",
-          "file": "src/pages/conditions/Osteoarthritis.tsx",
-          "line": 262,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Foods to Limit",
-          "file": "src/pages/conditions/Osteoarthritis.tsx",
-          "line": 272,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Daily Self-Care Checklist",
-          "file": "src/pages/conditions/Osteoarthritis.tsx",
-          "line": 284,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Self-Management",
-          "file": "src/pages/conditions/Osteoarthritis.tsx",
-          "line": 295,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Medical Treatments",
-          "file": "src/pages/conditions/Osteoarthritis.tsx",
-          "line": 303,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Supplements",
-          "file": "src/pages/conditions/Osteoarthritis.tsx",
-          "line": 310,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Common OA Interventions",
-          "file": "src/pages/conditions/Osteoarthritis.tsx",
-          "line": 317,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Need more support?",
-          "file": "src/pages/conditions/Osteoarthritis.tsx",
-          "line": 390,
           "hasAriaHidden": false
         },
         {
@@ -6861,7 +5824,7 @@
         },
         {
           "level": 3,
-          "text": "{title || \"Continue exploring\"}",
+          "text": "{title || }",
           "file": "src/components/CrossLinkBanner.tsx",
           "line": 119,
           "hasAriaHidden": false
@@ -6892,13 +5855,6 @@
           "text": "{question}",
           "file": "src/components/seo/AnswerBox.tsx",
           "line": 28,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 1,
-          "text": "",
-          "file": "src/components/seo/AeoEnhancement.tsx",
-          "line": 20,
           "hasAriaHidden": false
         },
         {
@@ -7024,27 +5980,6 @@
           "hasAriaHidden": false
         },
         {
-          "level": 3,
-          "text": "Biologic Therapies",
-          "file": "src/pages/conditions/PsoriaticArthritis.tsx",
-          "line": 230,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Skin Care During Exercise",
-          "file": "src/pages/conditions/PsoriaticArthritis.tsx",
-          "line": 248,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Managing psoriatic arthritis",
-          "file": "src/pages/conditions/PsoriaticArthritis.tsx",
-          "line": 319,
-          "hasAriaHidden": false
-        },
-        {
           "level": 4,
           "text": "{title}",
           "file": "src/components/graphics/InfographicElements.tsx",
@@ -7137,7 +6072,7 @@
         },
         {
           "level": 3,
-          "text": "{title || \"Continue exploring\"}",
+          "text": "{title || }",
           "file": "src/components/CrossLinkBanner.tsx",
           "line": 119,
           "hasAriaHidden": false
@@ -7392,7 +6327,7 @@
         },
         {
           "level": 3,
-          "text": "{title || \"Continue exploring\"}",
+          "text": "{title || }",
           "file": "src/components/CrossLinkBanner.tsx",
           "line": 119,
           "hasAriaHidden": false
@@ -7494,13 +6429,6 @@
           "hasAriaHidden": false
         },
         {
-          "level": 2,
-          "text": "Need more support?",
-          "file": "src/pages/conditions/ShoulderArthritis.tsx",
-          "line": 303,
-          "hasAriaHidden": false
-        },
-        {
           "level": 4,
           "text": "{title}",
           "file": "src/components/graphics/InfographicElements.tsx",
@@ -7572,7 +6500,7 @@
         },
         {
           "level": 3,
-          "text": "{title || \"Continue exploring\"}",
+          "text": "{title || }",
           "file": "src/components/CrossLinkBanner.tsx",
           "line": 119,
           "hasAriaHidden": false
@@ -7582,13 +6510,6 @@
           "text": "Explore the full {conditionName} guide",
           "file": "src/components/ConditionSubpageLinks.tsx",
           "line": 19,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 1,
-          "text": "",
-          "file": "src/components/seo/AeoEnhancement.tsx",
-          "line": 20,
           "hasAriaHidden": false
         },
         {
@@ -7747,76 +6668,6 @@
           "file": "src/pages/diet/MediterraneanDietForArthritis.tsx",
           "line": 454,
           "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "{cat.title}",
-          "file": "src/pages/diet/MediterraneanDietForArthritis.tsx",
-          "line": 465,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Your first Mediterranean week",
-          "file": "src/pages/diet/MediterraneanDietForArthritis.tsx",
-          "line": 487,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "5 anti-inflammatory recipes to start with",
-          "file": "src/pages/diet/MediterraneanDietForArthritis.tsx",
-          "line": 533,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "{r.title}",
-          "file": "src/pages/diet/MediterraneanDietForArthritis.tsx",
-          "line": 545,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "5 common mistakes to sidestep",
-          "file": "src/pages/diet/MediterraneanDietForArthritis.tsx",
-          "line": 565,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "{m.title}",
-          "file": "src/pages/diet/MediterraneanDietForArthritis.tsx",
-          "line": 575,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Keep going",
-          "file": "src/pages/diet/MediterraneanDietForArthritis.tsx",
-          "line": 587,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "{c.title}",
-          "file": "src/pages/diet/MediterraneanDietForArthritis.tsx",
-          "line": 608,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Mediterranean Diet for Arthritis: FAQs",
-          "file": "src/pages/diet/MediterraneanDietForArthritis.tsx",
-          "line": 623,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "{f.q}",
-          "file": "src/pages/diet/MediterraneanDietForArthritis.tsx",
-          "line": 630,
-          "hasAriaHidden": false
         }
       ]
     },
@@ -7828,55 +6679,6 @@
           "text": "Ankle arthritis exercises: 7 gentle moves to do at home",
           "file": "src/pages/exercises/AnkleArthritisExercises.tsx",
           "line": 137,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Who these exercises are for",
-          "file": "src/pages/exercises/AnkleArthritisExercises.tsx",
-          "line": 159,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "The seven exercises",
-          "file": "src/pages/exercises/AnkleArthritisExercises.tsx",
-          "line": 175,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "{i + 1}. {e.name}",
-          "file": "src/pages/exercises/AnkleArthritisExercises.tsx",
-          "line": 179,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "How often should I do them?",
-          "file": "src/pages/exercises/AnkleArthritisExercises.tsx",
-          "line": 189,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Frequently asked questions",
-          "file": "src/pages/exercises/AnkleArthritisExercises.tsx",
-          "line": 204,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "{f.q}",
-          "file": "src/pages/exercises/AnkleArthritisExercises.tsx",
-          "line": 208,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Related guides",
-          "file": "src/pages/exercises/AnkleArthritisExercises.tsx",
-          "line": 215,
           "hasAriaHidden": false
         }
       ]
@@ -8036,14 +6838,14 @@
         },
         {
           "level": 3,
-          "text": "<a href={r.url} target=\"_blank\" rel=\"noopener noreferrer\" className=\"hover:text-primary transition-colors\">{r.name}</a>",
+          "text": "<a href={r.url} target= rel= className= >{r.name}</a>",
           "file": "src/pages/exercises/TaiChiForArthritis.tsx",
           "line": 223,
           "hasAriaHidden": false
         },
         {
           "level": 3,
-          "text": "<CheckCircle2 className=\"h-5 w-5 text-primary\" />A simple first month",
+          "text": "<CheckCircle2 className= />A simple first month",
           "file": "src/pages/exercises/TaiChiForArthritis.tsx",
           "line": 232,
           "hasAriaHidden": false
@@ -8207,20 +7009,6 @@
         },
         {
           "level": 3,
-          "text": "<PlayCircle className=\"h-5 w-5 text-primary shrink-0 mt-0.5\" /> {d.title}",
-          "file": "src/pages/exercises/TaiChiForBeginners.tsx",
-          "line": 235,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "5 common beginner mistakes",
-          "file": "src/pages/exercises/TaiChiForBeginners.tsx",
-          "line": 253,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
           "text": "{m.title}",
           "file": "src/pages/exercises/TaiChiForBeginners.tsx",
           "line": 259,
@@ -8271,20 +7059,6 @@
           "text": "Arthritis Pain Relief",
           "file": "src/pages/guides/ArthritisPainRelief.tsx",
           "line": 106,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Build your own plan",
-          "file": "src/pages/guides/ArthritisPainRelief.tsx",
-          "line": 196,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 1,
-          "text": "",
-          "file": "src/components/seo/AeoEnhancement.tsx",
-          "line": 20,
           "hasAriaHidden": false
         },
         {
@@ -8370,13 +7144,6 @@
           "hasAriaHidden": false
         },
         {
-          "level": 1,
-          "text": "",
-          "file": "src/components/seo/AeoEnhancement.tsx",
-          "line": 20,
-          "hasAriaHidden": false
-        },
-        {
           "level": 2,
           "text": "Frequently asked questions",
           "file": "src/components/seo/AeoEnhancement.tsx",
@@ -8388,55 +7155,6 @@
     {
       "route": "src/pages/guides/CanExerciseMakeOsteoarthritisWorse.tsx",
       "headings": [
-        {
-          "level": 2,
-          "text": "The short answer",
-          "file": "src/pages/guides/CanExerciseMakeOsteoarthritisWorse.tsx",
-          "line": 41,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Why the \"exercise wears joints out\" myth persists",
-          "file": "src/pages/guides/CanExerciseMakeOsteoarthritisWorse.tsx",
-          "line": 45,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Productive soreness vs flare pain",
-          "file": "src/pages/guides/CanExerciseMakeOsteoarthritisWorse.tsx",
-          "line": 54,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "A practical framework for balancing rest with movement",
-          "file": "src/pages/guides/CanExerciseMakeOsteoarthritisWorse.tsx",
-          "line": 62,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "When to seek professional advice",
-          "file": "src/pages/guides/CanExerciseMakeOsteoarthritisWorse.tsx",
-          "line": 72,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Bottom line",
-          "file": "src/pages/guides/CanExerciseMakeOsteoarthritisWorse.tsx",
-          "line": 83,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Sources &amp; disclaimer",
-          "file": "src/pages/guides/CanExerciseMakeOsteoarthritisWorse.tsx",
-          "line": 86,
-          "hasAriaHidden": false
-        },
         {
           "level": 3,
           "text": "Continue reading",
@@ -8527,13 +7245,6 @@
           "hasAriaHidden": false
         },
         {
-          "level": 1,
-          "text": "",
-          "file": "src/components/seo/AeoEnhancement.tsx",
-          "line": 20,
-          "hasAriaHidden": false
-        },
-        {
           "level": 2,
           "text": "Frequently asked questions",
           "file": "src/components/seo/AeoEnhancement.tsx",
@@ -8613,13 +7324,6 @@
           "text": "{question}",
           "file": "src/components/seo/AnswerBox.tsx",
           "line": 28,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 1,
-          "text": "",
-          "file": "src/components/seo/AeoEnhancement.tsx",
-          "line": 20,
           "hasAriaHidden": false
         },
         {
@@ -8719,13 +7423,6 @@
           "hasAriaHidden": false
         },
         {
-          "level": 1,
-          "text": "",
-          "file": "src/components/seo/AeoEnhancement.tsx",
-          "line": 20,
-          "hasAriaHidden": false
-        },
-        {
           "level": 2,
           "text": "Frequently asked questions",
           "file": "src/components/seo/AeoEnhancement.tsx",
@@ -8737,132 +7434,6 @@
     {
       "route": "src/pages/guides/HipExercisesForOsteoarthritis.tsx",
       "headings": [
-        {
-          "level": 2,
-          "text": "Why hip OA needs a specific routine",
-          "file": "src/pages/guides/HipExercisesForOsteoarthritis.tsx",
-          "line": 46,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "How exercise helps a stiff, painful hip",
-          "file": "src/pages/guides/HipExercisesForOsteoarthritis.tsx",
-          "line": 50,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Before you start",
-          "file": "src/pages/guides/HipExercisesForOsteoarthritis.tsx",
-          "line": 59,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Warm-up (2–3 minutes)",
-          "file": "src/pages/guides/HipExercisesForOsteoarthritis.tsx",
-          "line": 63,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "The core routine — 8 hip exercises",
-          "file": "src/pages/guides/HipExercisesForOsteoarthritis.tsx",
-          "line": 71,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "1. Side-lying hip abduction",
-          "file": "src/pages/guides/HipExercisesForOsteoarthritis.tsx",
-          "line": 74,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "2. Clamshell",
-          "file": "src/pages/guides/HipExercisesForOsteoarthritis.tsx",
-          "line": 77,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "3. Glute bridge",
-          "file": "src/pages/guides/HipExercisesForOsteoarthritis.tsx",
-          "line": 80,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "4. Standing hip extension",
-          "file": "src/pages/guides/HipExercisesForOsteoarthritis.tsx",
-          "line": 83,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "5. Sit-to-stand",
-          "file": "src/pages/guides/HipExercisesForOsteoarthritis.tsx",
-          "line": 86,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "6. Mini squat",
-          "file": "src/pages/guides/HipExercisesForOsteoarthritis.tsx",
-          "line": 89,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "7. Standing hip flexion (marching)",
-          "file": "src/pages/guides/HipExercisesForOsteoarthritis.tsx",
-          "line": 92,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "8. Cool-down stretches — hamstring &amp; hip flexor",
-          "file": "src/pages/guides/HipExercisesForOsteoarthritis.tsx",
-          "line": 95,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "A sensible weekly plan",
-          "file": "src/pages/guides/HipExercisesForOsteoarthritis.tsx",
-          "line": 98,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Flare-ups, prehab and post-hip-replacement",
-          "file": "src/pages/guides/HipExercisesForOsteoarthritis.tsx",
-          "line": 106,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Progression and red flags",
-          "file": "src/pages/guides/HipExercisesForOsteoarthritis.tsx",
-          "line": 111,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Your next step",
-          "file": "src/pages/guides/HipExercisesForOsteoarthritis.tsx",
-          "line": 115,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Sources &amp; disclaimer",
-          "file": "src/pages/guides/HipExercisesForOsteoarthritis.tsx",
-          "line": 118,
-          "hasAriaHidden": false
-        },
         {
           "level": 3,
           "text": "People also ask",
@@ -8960,13 +7531,6 @@
           "hasAriaHidden": false
         },
         {
-          "level": 1,
-          "text": "",
-          "file": "src/components/seo/AeoEnhancement.tsx",
-          "line": 20,
-          "hasAriaHidden": false
-        },
-        {
           "level": 2,
           "text": "Frequently asked questions",
           "file": "src/components/seo/AeoEnhancement.tsx",
@@ -9018,13 +7582,6 @@
           "text": "Take the next step",
           "file": "src/pages/guides/NewlyDiagnosed.tsx",
           "line": 481,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 1,
-          "text": "",
-          "file": "src/components/seo/AeoEnhancement.tsx",
-          "line": 20,
           "hasAriaHidden": false
         },
         {
@@ -9110,13 +7667,6 @@
           "hasAriaHidden": false
         },
         {
-          "level": 1,
-          "text": "",
-          "file": "src/components/seo/AeoEnhancement.tsx",
-          "line": 20,
-          "hasAriaHidden": false
-        },
-        {
           "level": 2,
           "text": "Frequently asked questions",
           "file": "src/components/seo/AeoEnhancement.tsx",
@@ -9199,13 +7749,6 @@
           "hasAriaHidden": false
         },
         {
-          "level": 1,
-          "text": "",
-          "file": "src/components/seo/AeoEnhancement.tsx",
-          "line": 20,
-          "hasAriaHidden": false
-        },
-        {
           "level": 2,
           "text": "Frequently asked questions",
           "file": "src/components/seo/AeoEnhancement.tsx",
@@ -9226,30 +7769,9 @@
         },
         {
           "level": 2,
-          "text": "What's actually happening when a joint cracks",
+          "text": "What s the pop.</strong> The process is called <em>tribonucleation</em>, and it was filmed for the first time in a 2015 real-time MRI study by Kawchuk and colleagues. </p> <p> The bubble takes around 20 minutes to dissolve back into the fluid — which is why you usually can t cause it; the underlying joint change is what makes the toe more likely to click. If pain or stiffness is involved, it t cause */} <section className= > <div className= > <div className= > <h2 className= > What cracking can — and cannot — cause",
           "file": "src/pages/myths/DoesCrackingKnucklesCauseArthritis.tsx",
           "line": 267,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "What the research actually shows",
-          "file": "src/pages/myths/DoesCrackingKnucklesCauseArthritis.tsx",
-          "line": 300,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "{e.title}",
-          "file": "src/pages/myths/DoesCrackingKnucklesCauseArthritis.tsx",
-          "line": 310,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "What about cracking your toes?",
-          "file": "src/pages/myths/DoesCrackingKnucklesCauseArthritis.tsx",
-          "line": 327,
           "hasAriaHidden": false
         },
         {
@@ -9300,304 +7822,16 @@
           "file": "src/pages/myths/DoesCrackingKnucklesCauseArthritis.tsx",
           "line": 468,
           "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "{s.title}",
-          "file": "src/pages/myths/DoesCrackingKnucklesCauseArthritis.tsx",
-          "line": 478,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Common questions",
-          "file": "src/pages/myths/DoesCrackingKnucklesCauseArthritis.tsx",
-          "line": 502,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "{f.q}",
-          "file": "src/pages/myths/DoesCrackingKnucklesCauseArthritis.tsx",
-          "line": 508,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Sources",
-          "file": "src/pages/myths/DoesCrackingKnucklesCauseArthritis.tsx",
-          "line": 519,
-          "hasAriaHidden": false
         }
       ]
     },
     {
       "route": "src/pages/pillar/AzathioprineGuide.tsx",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Azathioprine for arthritis: an overview",
-          "file": "src/pages/pillar/AzathioprineGuide.tsx",
-          "line": 56,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "How azathioprine works",
-          "file": "src/pages/pillar/AzathioprineGuide.tsx",
-          "line": 61,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Conditions azathioprine is used for",
-          "file": "src/pages/pillar/AzathioprineGuide.tsx",
-          "line": 65,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Before you start: TPMT testing and baseline checks",
-          "file": "src/pages/pillar/AzathioprineGuide.tsx",
-          "line": 76,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "How azathioprine is taken",
-          "file": "src/pages/pillar/AzathioprineGuide.tsx",
-          "line": 89,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Blood-test monitoring on azathioprine",
-          "file": "src/pages/pillar/AzathioprineGuide.tsx",
-          "line": 100,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Side effects of azathioprine",
-          "file": "src/pages/pillar/AzathioprineGuide.tsx",
-          "line": 110,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Common and usually mild",
-          "file": "src/pages/pillar/AzathioprineGuide.tsx",
-          "line": 111,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Less common but important",
-          "file": "src/pages/pillar/AzathioprineGuide.tsx",
-          "line": 118,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Drug interactions to know",
-          "file": "src/pages/pillar/AzathioprineGuide.tsx",
-          "line": 129,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Azathioprine, pregnancy and breastfeeding",
-          "file": "src/pages/pillar/AzathioprineGuide.tsx",
-          "line": 139,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Living well on azathioprine",
-          "file": "src/pages/pillar/AzathioprineGuide.tsx",
-          "line": 143,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "How azathioprine is prescribed in the UK",
-          "file": "src/pages/pillar/AzathioprineGuide.tsx",
-          "line": 153,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Questions to ask your rheumatology team",
-          "file": "src/pages/pillar/AzathioprineGuide.tsx",
-          "line": 163,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Key takeaways",
-          "file": "src/pages/pillar/AzathioprineGuide.tsx",
-          "line": 175,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Related medication &amp; condition guides",
-          "file": "src/pages/pillar/AzathioprineGuide.tsx",
-          "line": 252,
-          "hasAriaHidden": false
-        }
-      ]
+      "headings": []
     },
     {
       "route": "src/pages/pillar/BenefitsPIPGuide.tsx",
       "headings": [
-        {
-          "level": 2,
-          "text": "Benefits and Financial Support for Arthritis in the UK",
-          "file": "src/pages/pillar/BenefitsPIPGuide.tsx",
-          "line": 12,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Personal Independence Payment (PIP)",
-          "file": "src/pages/pillar/BenefitsPIPGuide.tsx",
-          "line": 16,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "PIP Components and Rates (2024/25)",
-          "file": "src/pages/pillar/BenefitsPIPGuide.tsx",
-          "line": 19,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Who Is Eligible?",
-          "file": "src/pages/pillar/BenefitsPIPGuide.tsx",
-          "line": 33,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "PIP Activities and Descriptors",
-          "file": "src/pages/pillar/BenefitsPIPGuide.tsx",
-          "line": 43,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "How to Apply for PIP",
-          "file": "src/pages/pillar/BenefitsPIPGuide.tsx",
-          "line": 68,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Tips for a Successful PIP Claim",
-          "file": "src/pages/pillar/BenefitsPIPGuide.tsx",
-          "line": 77,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "If Your PIP Claim Is Refused",
-          "file": "src/pages/pillar/BenefitsPIPGuide.tsx",
-          "line": 89,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Other Benefits You May Be Entitled To",
-          "file": "src/pages/pillar/BenefitsPIPGuide.tsx",
-          "line": 97,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Attendance Allowance",
-          "file": "src/pages/pillar/BenefitsPIPGuide.tsx",
-          "line": 99,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Employment and Support Allowance (ESA)",
-          "file": "src/pages/pillar/BenefitsPIPGuide.tsx",
-          "line": 107,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Universal Credit",
-          "file": "src/pages/pillar/BenefitsPIPGuide.tsx",
-          "line": 114,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Carer's Allowance",
-          "file": "src/pages/pillar/BenefitsPIPGuide.tsx",
-          "line": 117,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Blue Badge Scheme",
-          "file": "src/pages/pillar/BenefitsPIPGuide.tsx",
-          "line": 120,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Motability Scheme",
-          "file": "src/pages/pillar/BenefitsPIPGuide.tsx",
-          "line": 124,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Disabled Facilities Grant",
-          "file": "src/pages/pillar/BenefitsPIPGuide.tsx",
-          "line": 127,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Council Tax Reduction",
-          "file": "src/pages/pillar/BenefitsPIPGuide.tsx",
-          "line": 137,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Prescription Charge Exemptions",
-          "file": "src/pages/pillar/BenefitsPIPGuide.tsx",
-          "line": 140,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Your Rights at Work",
-          "file": "src/pages/pillar/BenefitsPIPGuide.tsx",
-          "line": 150,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Where to Get Free Help",
-          "file": "src/pages/pillar/BenefitsPIPGuide.tsx",
-          "line": 162,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Sources &amp; Disclaimer",
-          "file": "src/pages/pillar/BenefitsPIPGuide.tsx",
-          "line": 173,
-          "hasAriaHidden": false
-        },
         {
           "level": 3,
           "text": "Continue Reading",
@@ -9610,174 +7844,6 @@
     {
       "route": "src/pages/pillar/DietGuide.tsx",
       "headings": [
-        {
-          "level": 2,
-          "text": "Why Diet Matters for Arthritis",
-          "file": "src/pages/pillar/DietGuide.tsx",
-          "line": 23,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "The Mediterranean Diet: The Gold Standard",
-          "file": "src/pages/pillar/DietGuide.tsx",
-          "line": 27,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Core Principles",
-          "file": "src/pages/pillar/DietGuide.tsx",
-          "line": 30,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Key Anti-Inflammatory Foods",
-          "file": "src/pages/pillar/DietGuide.tsx",
-          "line": 45,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Omega-3 Fatty Acids",
-          "file": "src/pages/pillar/DietGuide.tsx",
-          "line": 46,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Turmeric and Curcumin",
-          "file": "src/pages/pillar/DietGuide.tsx",
-          "line": 60,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Ginger",
-          "file": "src/pages/pillar/DietGuide.tsx",
-          "line": 70,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Berries and Antioxidant-Rich Foods",
-          "file": "src/pages/pillar/DietGuide.tsx",
-          "line": 73,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Foods That May Worsen Arthritis",
-          "file": "src/pages/pillar/DietGuide.tsx",
-          "line": 76,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Supplements: What the Evidence Says",
-          "file": "src/pages/pillar/DietGuide.tsx",
-          "line": 88,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Glucosamine and Chondroitin",
-          "file": "src/pages/pillar/DietGuide.tsx",
-          "line": 89,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Collagen (Hydrolysed)",
-          "file": "src/pages/pillar/DietGuide.tsx",
-          "line": 92,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Vitamin D",
-          "file": "src/pages/pillar/DietGuide.tsx",
-          "line": 95,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Fish Oil (Omega-3 Supplements)",
-          "file": "src/pages/pillar/DietGuide.tsx",
-          "line": 98,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Sample 7-Day Anti-Inflammatory Meal Plan",
-          "file": "src/pages/pillar/DietGuide.tsx",
-          "line": 101,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Day 1",
-          "file": "src/pages/pillar/DietGuide.tsx",
-          "line": 103,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Day 2",
-          "file": "src/pages/pillar/DietGuide.tsx",
-          "line": 110,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Day 3",
-          "file": "src/pages/pillar/DietGuide.tsx",
-          "line": 117,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Day 4–7",
-          "file": "src/pages/pillar/DietGuide.tsx",
-          "line": 124,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Gut Health and Arthritis",
-          "file": "src/pages/pillar/DietGuide.tsx",
-          "line": 127,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Weight Management for Joint Health",
-          "file": "src/pages/pillar/DietGuide.tsx",
-          "line": 136,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Practical Tips for UK Shoppers",
-          "file": "src/pages/pillar/DietGuide.tsx",
-          "line": 147,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Anti-Inflammatory Smoothie Recipe",
-          "file": "src/pages/pillar/DietGuide.tsx",
-          "line": 156,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Sources &amp; Disclaimer",
-          "file": "src/pages/pillar/DietGuide.tsx",
-          "line": 169,
-          "hasAriaHidden": false
-        },
         {
           "level": 3,
           "text": "Continue Reading",
@@ -9798,146 +7864,6 @@
       "route": "src/pages/pillar/ExerciseGuide.tsx",
       "headings": [
         {
-          "level": 2,
-          "text": "Why Exercise Is the Best Medicine for Arthritis",
-          "file": "src/pages/pillar/ExerciseGuide.tsx",
-          "line": 22,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Types of Exercise for Arthritis",
-          "file": "src/pages/pillar/ExerciseGuide.tsx",
-          "line": 37,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "1. Aerobic (Cardiovascular) Exercise",
-          "file": "src/pages/pillar/ExerciseGuide.tsx",
-          "line": 40,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "2. Strength (Resistance) Training",
-          "file": "src/pages/pillar/ExerciseGuide.tsx",
-          "line": 51,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Knee exercises",
-          "file": "src/pages/pillar/ExerciseGuide.tsx",
-          "line": 55,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Hip exercises",
-          "file": "src/pages/pillar/ExerciseGuide.tsx",
-          "line": 63,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Hand and wrist exercises",
-          "file": "src/pages/pillar/ExerciseGuide.tsx",
-          "line": 71,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Shoulder exercises",
-          "file": "src/pages/pillar/ExerciseGuide.tsx",
-          "line": 80,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "3. Flexibility and Range of Motion",
-          "file": "src/pages/pillar/ExerciseGuide.tsx",
-          "line": 87,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Chair-Based Exercises",
-          "file": "src/pages/pillar/ExerciseGuide.tsx",
-          "line": 96,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Water-Based Exercise (Hydrotherapy)",
-          "file": "src/pages/pillar/ExerciseGuide.tsx",
-          "line": 107,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Exercising During Flare-Ups",
-          "file": "src/pages/pillar/ExerciseGuide.tsx",
-          "line": 117,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Getting Started: A Progressive Programme",
-          "file": "src/pages/pillar/ExerciseGuide.tsx",
-          "line": 127,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Weeks 1–2: Foundation",
-          "file": "src/pages/pillar/ExerciseGuide.tsx",
-          "line": 128,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Weeks 3–4: Building",
-          "file": "src/pages/pillar/ExerciseGuide.tsx",
-          "line": 134,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Weeks 5–8: Progressing",
-          "file": "src/pages/pillar/ExerciseGuide.tsx",
-          "line": 140,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Weeks 9+: Maintenance",
-          "file": "src/pages/pillar/ExerciseGuide.tsx",
-          "line": 146,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Safety Guidelines",
-          "file": "src/pages/pillar/ExerciseGuide.tsx",
-          "line": 154,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "UK Exercise Resources",
-          "file": "src/pages/pillar/ExerciseGuide.tsx",
-          "line": 165,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Sources &amp; Disclaimer",
-          "file": "src/pages/pillar/ExerciseGuide.tsx",
-          "line": 174,
-          "hasAriaHidden": false
-        },
-        {
           "level": 3,
           "text": "Continue Reading",
           "file": "src/pages/pillar/ExerciseGuide.tsx",
@@ -9948,159 +7874,11 @@
     },
     {
       "route": "src/pages/pillar/FebuxostatGoutGuide.tsx",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Febuxostat for gout: an overview",
-          "file": "src/pages/pillar/FebuxostatGoutGuide.tsx",
-          "line": 23,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "How febuxostat works",
-          "file": "src/pages/pillar/FebuxostatGoutGuide.tsx",
-          "line": 28,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Who febuxostat is for",
-          "file": "src/pages/pillar/FebuxostatGoutGuide.tsx",
-          "line": 33,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Dosing and monitoring",
-          "file": "src/pages/pillar/FebuxostatGoutGuide.tsx",
-          "line": 44,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Side effects and safety",
-          "file": "src/pages/pillar/FebuxostatGoutGuide.tsx",
-          "line": 54,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Febuxostat vs allopurinol: which is better?",
-          "file": "src/pages/pillar/FebuxostatGoutGuide.tsx",
-          "line": 69,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Lifestyle alongside febuxostat",
-          "file": "src/pages/pillar/FebuxostatGoutGuide.tsx",
-          "line": 73,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "When to seek urgent help",
-          "file": "src/pages/pillar/FebuxostatGoutGuide.tsx",
-          "line": 85,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Key takeaways",
-          "file": "src/pages/pillar/FebuxostatGoutGuide.tsx",
-          "line": 93,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Continue Reading",
-          "file": "src/pages/pillar/FebuxostatGoutGuide.tsx",
-          "line": 153,
-          "hasAriaHidden": false
-        }
-      ]
+      "headings": []
     },
     {
       "route": "src/pages/pillar/HealthServicesGuide.tsx",
       "headings": [
-        {
-          "level": 2,
-          "text": "Overview of Arthritis Services",
-          "file": "src/pages/pillar/HealthServicesGuide.tsx",
-          "line": 22,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Your GP and First Contact Physiotherapists",
-          "file": "src/pages/pillar/HealthServicesGuide.tsx",
-          "line": 26,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Getting a Rheumatology Referral",
-          "file": "src/pages/pillar/HealthServicesGuide.tsx",
-          "line": 39,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Public Health Physiotherapy for Arthritis",
-          "file": "src/pages/pillar/HealthServicesGuide.tsx",
-          "line": 58,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Public Pain Management Programmes",
-          "file": "src/pages/pillar/HealthServicesGuide.tsx",
-          "line": 70,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Joint Replacement Surgery through the public health service",
-          "file": "src/pages/pillar/HealthServicesGuide.tsx",
-          "line": 83,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Medications Available through the public health service",
-          "file": "src/pages/pillar/HealthServicesGuide.tsx",
-          "line": 96,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Mental Health Support Through the Public Health System",
-          "file": "src/pages/pillar/HealthServicesGuide.tsx",
-          "line": 107,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Differences Across the UK Nations",
-          "file": "src/pages/pillar/HealthServicesGuide.tsx",
-          "line": 116,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "How to Get the Most From Arthritis Services",
-          "file": "src/pages/pillar/HealthServicesGuide.tsx",
-          "line": 125,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Sources &amp; Disclaimer",
-          "file": "src/pages/pillar/HealthServicesGuide.tsx",
-          "line": 136,
-          "hasAriaHidden": false
-        },
         {
           "level": 3,
           "text": "Continue Reading",
@@ -10114,174 +7892,6 @@
       "route": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
       "headings": [
         {
-          "level": 2,
-          "text": "A Patient's Guide to Knee Replacement Surgery",
-          "file": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
-          "line": 22,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "When to Consider Knee Replacement",
-          "file": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
-          "line": 26,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Types of Knee Replacement",
-          "file": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
-          "line": 38,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Total Knee Replacement (TKR)",
-          "file": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
-          "line": 39,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Partial (Unicompartmental) Knee Replacement",
-          "file": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
-          "line": 41,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Patellofemoral Replacement",
-          "file": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
-          "line": 43,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Revision Knee Replacement",
-          "file": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
-          "line": 45,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Preparing for Surgery (Prehabilitation)",
-          "file": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
-          "line": 48,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Preparing Your Home",
-          "file": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
-          "line": 61,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "What Happens in Hospital",
-          "file": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
-          "line": 73,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Day of Surgery",
-          "file": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
-          "line": 75,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Days 1–2",
-          "file": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
-          "line": 77,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Before Discharge",
-          "file": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
-          "line": 79,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Recovery Timeline: Week by Week",
-          "file": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
-          "line": 82,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Weeks 1–2: Pain &amp; Swelling Control",
-          "file": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
-          "line": 84,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Weeks 3–6: Building Movement",
-          "file": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
-          "line": 92,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Weeks 6–12: Strength &amp; Confidence",
-          "file": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
-          "line": 100,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Months 3–12: Long-Term Recovery",
-          "file": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
-          "line": 106,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Essential Recovery Exercises",
-          "file": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
-          "line": 114,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Risks and How They Are Managed",
-          "file": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
-          "line": 125,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Public Waiting Lists and Private Options",
-          "file": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
-          "line": 138,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Alternatives and Delaying Surgery",
-          "file": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
-          "line": 142,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "The Emotional Side of Surgery",
-          "file": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
-          "line": 155,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Sources &amp; Disclaimer",
-          "file": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
-          "line": 164,
-          "hasAriaHidden": false
-        },
-        {
           "level": 3,
           "text": "Continue Reading",
           "file": "src/pages/pillar/KneeReplacementSurgeryGuide.tsx",
@@ -10294,76 +7904,6 @@
       "route": "src/pages/pillar/PainkillersNsaidsGuide.tsx",
       "headings": [
         {
-          "level": 2,
-          "text": "Painkillers and NSAIDs for arthritis: an overview",
-          "file": "src/pages/pillar/PainkillersNsaidsGuide.tsx",
-          "line": 23,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "First-line: topical NSAID gels",
-          "file": "src/pages/pillar/PainkillersNsaidsGuide.tsx",
-          "line": 27,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Oral NSAIDs: ibuprofen, naproxen, diclofenac",
-          "file": "src/pages/pillar/PainkillersNsaidsGuide.tsx",
-          "line": 38,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Paracetamol: useful but limited",
-          "file": "src/pages/pillar/PainkillersNsaidsGuide.tsx",
-          "line": 48,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Codeine, tramadol and stronger opioids",
-          "file": "src/pages/pillar/PainkillersNsaidsGuide.tsx",
-          "line": 57,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Who should avoid which painkiller",
-          "file": "src/pages/pillar/PainkillersNsaidsGuide.tsx",
-          "line": 66,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Combining painkillers safely",
-          "file": "src/pages/pillar/PainkillersNsaidsGuide.tsx",
-          "line": 77,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "What works alongside painkillers",
-          "file": "src/pages/pillar/PainkillersNsaidsGuide.tsx",
-          "line": 86,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "When to ask for a medication review",
-          "file": "src/pages/pillar/PainkillersNsaidsGuide.tsx",
-          "line": 96,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Key takeaways",
-          "file": "src/pages/pillar/PainkillersNsaidsGuide.tsx",
-          "line": 105,
-          "hasAriaHidden": false
-        },
-        {
           "level": 3,
           "text": "Continue Reading",
           "file": "src/pages/pillar/PainkillersNsaidsGuide.tsx",
@@ -10374,278 +7914,11 @@
     },
     {
       "route": "src/pages/pillar/SteroidsGuide.tsx",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Steroids for arthritis: an overview",
-          "file": "src/pages/pillar/SteroidsGuide.tsx",
-          "line": 23,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "How steroids work in an inflamed joint",
-          "file": "src/pages/pillar/SteroidsGuide.tsx",
-          "line": 28,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Types of steroid injection",
-          "file": "src/pages/pillar/SteroidsGuide.tsx",
-          "line": 39,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "What to expect during a joint injection",
-          "file": "src/pages/pillar/SteroidsGuide.tsx",
-          "line": 48,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Side effects and risks",
-          "file": "src/pages/pillar/SteroidsGuide.tsx",
-          "line": 60,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Oral steroids and inflammatory arthritis",
-          "file": "src/pages/pillar/SteroidsGuide.tsx",
-          "line": 71,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Steroids for osteoarthritis: what the evidence says",
-          "file": "src/pages/pillar/SteroidsGuide.tsx",
-          "line": 76,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Alternatives to steroid injections",
-          "file": "src/pages/pillar/SteroidsGuide.tsx",
-          "line": 80,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "How to access steroid treatment in the UK",
-          "file": "src/pages/pillar/SteroidsGuide.tsx",
-          "line": 91,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Questions to ask your clinician",
-          "file": "src/pages/pillar/SteroidsGuide.tsx",
-          "line": 102,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Key takeaways",
-          "file": "src/pages/pillar/SteroidsGuide.tsx",
-          "line": 113,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Continue Reading",
-          "file": "src/pages/pillar/SteroidsGuide.tsx",
-          "line": 180,
-          "hasAriaHidden": false
-        }
-      ]
+      "headings": []
     },
     {
       "route": "src/pages/pillar/UKArthritisGuide.tsx",
       "headings": [
-        {
-          "level": 2,
-          "text": "What Is Arthritis?",
-          "file": "src/pages/pillar/UKArthritisGuide.tsx",
-          "line": 22,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "The Main Types at a Glance",
-          "file": "src/pages/pillar/UKArthritisGuide.tsx",
-          "line": 26,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "How Common Is Arthritis in the UK?",
-          "file": "src/pages/pillar/UKArthritisGuide.tsx",
-          "line": 36,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "The Cost to the UK",
-          "file": "src/pages/pillar/UKArthritisGuide.tsx",
-          "line": 40,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Types of Arthritis Explained",
-          "file": "src/pages/pillar/UKArthritisGuide.tsx",
-          "line": 45,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Osteoarthritis (OA)",
-          "file": "src/pages/pillar/UKArthritisGuide.tsx",
-          "line": 46,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 4,
-          "text": "Who is at risk",
-          "file": "src/pages/pillar/UKArthritisGuide.tsx",
-          "line": 50,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 4,
-          "text": "Common symptoms",
-          "file": "src/pages/pillar/UKArthritisGuide.tsx",
-          "line": 60,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Rheumatoid Arthritis (RA)",
-          "file": "src/pages/pillar/UKArthritisGuide.tsx",
-          "line": 70,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 4,
-          "text": "Symptoms to watch for",
-          "file": "src/pages/pillar/UKArthritisGuide.tsx",
-          "line": 74,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Psoriatic Arthritis (PsA)",
-          "file": "src/pages/pillar/UKArthritisGuide.tsx",
-          "line": 82,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Other Types",
-          "file": "src/pages/pillar/UKArthritisGuide.tsx",
-          "line": 86,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Symptoms and Diagnosis",
-          "file": "src/pages/pillar/UKArthritisGuide.tsx",
-          "line": 95,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "How diagnosis works",
-          "file": "src/pages/pillar/UKArthritisGuide.tsx",
-          "line": 107,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Treatment Options in the UK",
-          "file": "src/pages/pillar/UKArthritisGuide.tsx",
-          "line": 111,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Conservative Management",
-          "file": "src/pages/pillar/UKArthritisGuide.tsx",
-          "line": 114,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Medications",
-          "file": "src/pages/pillar/UKArthritisGuide.tsx",
-          "line": 123,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Surgical Options",
-          "file": "src/pages/pillar/UKArthritisGuide.tsx",
-          "line": 133,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Living Well With Arthritis",
-          "file": "src/pages/pillar/UKArthritisGuide.tsx",
-          "line": 140,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Seven habits that help",
-          "file": "src/pages/pillar/UKArthritisGuide.tsx",
-          "line": 143,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Mental Health and Arthritis",
-          "file": "src/pages/pillar/UKArthritisGuide.tsx",
-          "line": 154,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 3,
-          "text": "Where to get help",
-          "file": "src/pages/pillar/UKArthritisGuide.tsx",
-          "line": 157,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Arthritis in Younger People",
-          "file": "src/pages/pillar/UKArthritisGuide.tsx",
-          "line": 165,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Research and Future Treatments",
-          "file": "src/pages/pillar/UKArthritisGuide.tsx",
-          "line": 170,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Key UK Resources",
-          "file": "src/pages/pillar/UKArthritisGuide.tsx",
-          "line": 181,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Sources &amp; Disclaimer",
-          "file": "src/pages/pillar/UKArthritisGuide.tsx",
-          "line": 191,
-          "hasAriaHidden": false
-        },
         {
           "level": 3,
           "text": "Continue Reading",
@@ -10674,7 +7947,7 @@
         },
         {
           "level": 2,
-          "text": "<Users className=\"w-5 h-5 text-primary\" /> Cities & Towns in {r.name}",
+          "text": "<Users className= /> Cities & Towns in {r.name}",
           "file": "src/pages/regions/RegionHub.tsx",
           "line": 177,
           "hasAriaHidden": false
@@ -10688,7 +7961,7 @@
         },
         {
           "level": 2,
-          "text": "<Stethoscope className=\"w-5 h-5 text-primary\" /> Common Conditions",
+          "text": "<Stethoscope className= /> Common Conditions",
           "file": "src/pages/regions/RegionHub.tsx",
           "line": 214,
           "hasAriaHidden": false
@@ -10808,13 +8081,6 @@
         },
         {
           "level": 2,
-          "text": "What is MSM?",
-          "file": "src/pages/supplements/Msm.tsx",
-          "line": 173,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
           "text": "What the evidence says",
           "file": "src/pages/supplements/Msm.tsx",
           "line": 197,
@@ -10872,13 +8138,6 @@
           "text": "Arthritis supplements: what actually works",
           "file": "src/pages/supplements/SupplementsHub.tsx",
           "line": 152,
-          "hasAriaHidden": false
-        },
-        {
-          "level": 2,
-          "text": "Supplements are not a substitute",
-          "file": "src/pages/supplements/SupplementsHub.tsx",
-          "line": 188,
           "hasAriaHidden": false
         }
       ]
