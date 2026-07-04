@@ -101,6 +101,8 @@ const SelfAssessment = () => {
                 </div>
                 <p className="text-base leading-relaxed">{result.recommendations.summary}</p>
 
+                <h2 className="font-serif text-2xl font-semibold pt-2">Your recommendations</h2>
+
                 <div>
                   <h3 className="font-semibold mb-2">Suggested physiotherapy</h3>
                   <p className="text-muted-foreground">{result.recommendations.physioSessions}</p>
