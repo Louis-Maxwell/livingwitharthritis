@@ -238,7 +238,7 @@ export function useStreamingChat() {
         // Load only the last 30 messages for speed
         const { data: msgs } = await supabase
           .from("chat_messages")
-          .select("role, content, created_at")
+          .select("id, role, content, created_at")
           .eq("conversation_id", convo.id)
           .order("created_at", { ascending: false })
           .limit(30);
@@ -248,7 +248,7 @@ export function useStreamingChat() {
             msgs
               .reverse()
               .filter((m) => m.role === "user" || m.role === "assistant")
-              .map((m) => ({ role: m.role as "user" | "assistant", content: m.content }))
+              .map((m) => ({ id: m.id, role: m.role as "user" | "assistant", content: m.content })),
           );
         }
       }
