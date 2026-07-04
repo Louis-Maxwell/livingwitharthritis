@@ -87,7 +87,6 @@ function stripCommentsAndStrings(src: string): string {
     // literals containing "<h1>" text in source are extremely rare and would
     // produce at most a benign false positive.
     i++;
-    i++;
   }
   return out.join("");
 }
