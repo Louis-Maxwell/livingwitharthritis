@@ -115,6 +115,7 @@
     "picomatch": "^4.0.5",
     "postcss": "^8.5.16",
     "puppeteer": "^24.43.1",
+    "rollup-plugin-visualizer": "^7.0.1",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0",

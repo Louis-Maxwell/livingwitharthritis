@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 import Prerender from "@prerenderer/rollup-plugin";
+import { visualizer } from "rollup-plugin-visualizer";
 // @ts-expect-error - plain .mjs route list, no type declarations needed
 import { PRERENDER_ROUTES } from "./scripts/prerender-routes.mjs";
 
@@ -10,6 +11,8 @@ import { PRERENDER_ROUTES } from "./scripts/prerender-routes.mjs";
 // in environments where it isn't available (e.g. Lovable's auto-build).
 // Run locally with: PRERENDER=1 npm run build
 const ENABLE_PRERENDER = process.env.PRERENDER === "1";
+// Bundle analyzer is opt-in via ANALYZE=1 npm run build → dist/stats.html
+const ENABLE_ANALYZE = process.env.ANALYZE === "1";
 
 export default defineConfig(({ mode }): any => ({
   server: {
@@ -31,6 +34,13 @@ export default defineConfig(({ mode }): any => ({
           // Give useEffect-injected JSON-LD a moment after route mount
           renderAfterTime: 1500,
         },
+      }),
+    ENABLE_ANALYZE &&
+      visualizer({
+        filename: "dist/stats.html",
+        gzipSize: true,
+        brotliSize: true,
+        template: "treemap",
       }),
   ].filter(Boolean),
   resolve: {
