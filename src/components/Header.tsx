@@ -225,10 +225,14 @@ const Header = () => {
     { label: "Newly Diagnosed", icon: Sparkles, desc: "Your essential first steps guide", href: "/about", action: () => navigate("/about") },
     { label: "Self Help Tool", icon: Activity, desc: "Interactive joint exercise diagram", href: "/self-help", action: () => navigate("/self-help") },
     { label: "Exercises & Diet", icon: Dumbbell, desc: "Physio exercises & nutrition plans", href: "/exercises", action: () => navigate("/exercises") },
+    { label: "Pets & Arthritis", icon: HeartPulse, desc: "Dogs, cats, horses & more", href: "/pets", action: () => navigate("/pets") },
     { label: "Conditions", icon: HeartPulse, desc: "OA, RA, Gout, PsA & more", href: "#conditions" },
     { label: "Blog & Stories", icon: Newspaper, desc: "40+ evidence-based articles", href: "/blog", action: () => navigate("/blog") },
+    { label: "Glossary", icon: BookOpen, desc: "Plain-English arthritis A–Z", href: "/glossary", action: () => navigate("/glossary") },
+    { label: "Trust & Credibility", icon: ShieldCheck, desc: "Evidence, authors & governance", href: "/trust", action: () => navigate("/trust") },
     { label: "Support Us", icon: HandHeart, desc: "Donate, volunteer & fundraise", href: "#involved" },
-    { label: "Resources", icon: BookOpen, desc: "care pathways, benefits & guides", href: "#resources", action: () => setResourceDrawerOpen(true) },
+    { label: "Corporate Partnerships", icon: Globe, desc: "Formal partnership programme", href: "/corporate-partnerships", action: () => navigate("/corporate-partnerships") },
+    { label: "Resources", icon: BookOpen, desc: "Care pathways, benefits & guides", href: "#resources", action: () => setResourceDrawerOpen(true) },
     { label: "Shop", icon: ShoppingBag, desc: "Recommended arthritis products", href: "/shop", action: () => navigate("/shop") },
   ];
 
