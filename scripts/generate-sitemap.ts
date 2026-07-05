@@ -286,6 +286,29 @@ async function main() {
     if (slug) entries.push({ path: `/blog/category/${slug}` });
   }
 
+  // Programmatic SEO: glossary, comparison guides, city hubs & pet articles.
+  // These come from generated data files so the sitemap stays in sync.
+  const glossarySrc = read("src/data/glossary-routes.generated.ts");
+  for (const p of extractAll(/"(\/glossary(?:\/[^"]+)?)"/g, glossarySrc))
+    entries.push({ path: p, priority: p === "/glossary" ? "0.7" : "0.6", changefreq: "monthly" });
+
+  const comparisonSrc = read("src/data/comparison-routes.generated.ts");
+  for (const p of extractAll(/"(\/guides\/[^"]+)"/g, comparisonSrc))
+    entries.push({ path: p, priority: "0.7", changefreq: "monthly" });
+
+  const cityRoutesSrc = read("src/data/city-routes.generated.ts");
+  for (const p of extractAll(/"(\/arthritis-support\/[^"]+)"/g, cityRoutesSrc))
+    entries.push({ path: p, priority: "0.6", changefreq: "monthly" });
+
+  const petsSrc = read("src/data/pets-arthritis.generated.ts");
+  entries.push({ path: "/pets", priority: "0.8", changefreq: "weekly" });
+  for (const s of extractAll(/"slug":\s*"([^"]+)"/g, petsSrc))
+    entries.push({ path: `/pets/${s}`, priority: "0.7", changefreq: "monthly" });
+
+  // Trust & partnerships hubs.
+  entries.push({ path: "/trust", priority: "0.8", changefreq: "monthly" });
+  entries.push({ path: "/corporate-partnerships", priority: "0.7", changefreq: "monthly" });
+
   const xml = build(entries);
   writeFileSync(resolve("public/sitemap.xml"), xml);
   console.log(`[sitemap] wrote ${entries.length} entries -> public/sitemap.xml`);
