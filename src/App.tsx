@@ -9,6 +9,7 @@ const Sonner = lazy(() => import("@/components/ui/sonner").then(m => ({ default:
 import { PageTransition } from "@/components/ui/PageTransition";
 import { useCartSync } from "@/hooks/useCartSync";
 import { useLinkPrefetch } from "@/hooks/useLinkPrefetch";
+import { useScrollDepth } from "@/hooks/useScrollDepth";
 import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "next-themes";
 import { DeferredMount } from "@/components/DeferredMount";
@@ -448,6 +449,7 @@ function AnimatedRoutes() {
 function AppWithSync() {
   useCartSync();
   useLinkPrefetch();
+  useScrollDepth();
   const location = useLocation();
 
   // Signal the prerender renderer (@prerenderer/renderer-puppeteer) that the
