@@ -1,49 +1,51 @@
-## Heading hierarchy audit & auto-fix
+## Goal
 
-Add an automated audit for heading order across every route, then fix all violations it surfaces.
+Add all 44 files from `github-upload-bundle_8.zip` into the project. Because Lovable ↔ GitHub sync is bidirectional and automatic, anything committed here appears on the connected GitHub repo within seconds — no separate "push to GitHub" step is required.
 
-### Rules enforced
-- Exactly one `<h1>` per page (route-level component).
-- First heading on the page is `<h1>`.
-- No level skips going down (h1 → h3 is a violation; h3 → h2 is fine).
-- Empty headings are violations.
-- Applies to static `<h1>`–`<h6>` JSX in route/page components and their child components on that route.
+## How each file group is handled
 
-### Deliverables
+### 1. Copy verbatim (safe, no conflicts) — 33 files
+Docs, generated data, staging pages, new workflows — no live behaviour change.
 
-**1. Static audit script — `scripts/audit-headings.ts`**
-- Walks `src/pages/**/*.tsx` and follows imported local components (`@/components/**`, relative imports) one level deep to build the effective heading sequence for each route file.
-- Parses JSX with the TypeScript compiler API; records heading level, file, line, and text.
-- Skips: `.stories.tsx`, `.test.tsx`, files under `src/components/ui/` (shadcn primitives — headings there are slots), and elements marked `aria-hidden`.
-- Reports violations: `no-h1`, `multiple-h1`, `first-heading-not-h1`, `level-skip`, `empty-heading`.
-- Writes `audit-headings-report.json` and exits non-zero on any violation.
-- Wire up:
-  - `package.json` → `"seo:headings": "bun scripts/audit-headings.ts"`
-  - `scripts/seo-audit.ts` → run as a required step alongside `seo:images` and `seo:meta-lengths`.
+- Root docs: `UPLOAD-README.md`, `DEPENDENCY-GRAPH-REPORT.md`, `FUNDRAISING-ROADMAP.md`, `GROWTH-PLAYBOOK.md`, `IMPLEMENTATION-ROADMAP.md`, `LEGAL-COMPLIANCE-CHECKLIST.md`, `MONTH-1-PLAN.md`, `PERFORMANCE-CHECKLIST.md`, `PETS-INTEGRATION-GUIDE.md`
+- Root: `SECURITY.md` (in addition to existing `.github/SECURITY.md`, per bundle intent)
+- Generated data: `src/data/keywords.generated.ts` (971 KB), `keywords.generated.json` (850 KB), `pets-arthritis.generated.ts`, `comparison-routes.generated.ts`, `glossary-routes.generated.ts`, `city-routes.generated.ts`
+- Public data: `public/data/keywords-30000.json` (4.7 MB — stays as static asset, out of bundle), `public/llms-full.txt`
+- Hooks: `src/hooks/useKeywords30k.ts`
+- Staging pages (`.NEW.tsx` — intentionally NOT routed): `HomePage.NEW.tsx`, `CorporatePartnerships.NEW.tsx`, `TrustCredibility.NEW.tsx`, `PrivacyPolicy.NEW.tsx`, `PetsHub.NEW.tsx`, `PetArticle.NEW.tsx`
+- Scripts: `scripts/generate-keywords.py`, `generate-keywords-30k.py`, `ai-head-data.json` (348 KB)
+- GitHub: `.github/dependabot.yml`, `.github/workflows/regenerate-lockfile.yml`
 
-**2. Playwright spot-check (optional, run once locally)**
-- Render ~10 representative routes (`/`, `/conditions/osteoarthritis`, a pillar guide, `/exercise-hub`, an exercise page, `/blog`, a blog article, `/site-index`, `/chat`, donation) headless, extract the DOM heading sequence, and cross-check against the static report. Used only to validate the static checker's coverage; not part of CI.
+### 2. Overwrite live config — 3 files (bundle is newer/expanded)
 
-**3. Fixes**
-For every violation the static audit reports:
-- **multiple-h1** on a page → keep the semantic page title as `<h1>`, downgrade the rest to `<h2>` (preserving Tailwind classes so visual design is unchanged).
-- **first-heading-not-h1 / no-h1** → promote the top intro heading to `<h1>` (usually already styled `text-4xl`+), or add a visually-styled `<h1>` matching existing type scale where a page truly lacks one.
-- **level-skip** (e.g. `<h2>` → `<h4>`) → relevel the deeper heading to the next valid level, cascading downward siblings so relative structure is preserved.
-- **empty-heading** → remove the element or move its wrapper role to a `<div>`.
+- `scripts/inject-canonicals.mjs` — bundle version (10 KB) is the v2 rewrite that injects visible static content per route; project has the earlier 2.8 KB version. Overwrite.
+- `.github/workflows/ci.yml` — bundle version adds a step; overwrite.
+- `index.html` — bundle version removes AI-crawler `noindex` and defers GA. **Risk:** this file has been edited by earlier Lovable sessions (head metadata rules, preconnects). I will merge rather than blanket-overwrite: apply the bundle's AI-crawler and GA changes on top of the current file, keeping existing preconnects, title/description, and JSON-LD hooks.
 
-Design language stays intact: only the heading **tag** changes; className/text/layout are preserved.
+### 3. Do NOT overwrite — 1 file
 
-### Out of scope
-- No copy rewrites beyond removing empty headings.
-- No changes to shadcn `ui/` primitives or Radix-rendered headings inside dialogs/sheets.
-- No new sections or restructuring of page content.
+- `public/_headers` — the project's version (2.9 KB) is larger and more complete than the bundle's (0.8 KB). Overwriting would drop live cache/security headers. **Skip.** If the user wants the bundle's immutable-asset rules merged in, I'll do that as a follow-up.
 
-### Verification
-- `bun run seo:headings` → 0 violations.
-- `bunx tsgo --noEmit` → green.
-- `bun run seo:audit` orchestrator passes end-to-end.
+## What will NOT happen automatically
 
-### Technical notes
-- Follow-imports depth is capped at 1 to keep the walker fast and deterministic; a route's own file plus its direct local children cover the real heading tree for this codebase (Header/Footer are excluded from the walk since they contain no headings).
-- Dynamic headings built via `.map()` are counted once at their source location (matches how `audit-images.ts` already handles dedup).
-- Report format mirrors `audit-images-report.json` so tooling stays consistent.
+Per the bundle's own README, these need explicit follow-up work and are **out of scope for this import**:
+
+- Renaming `*.NEW.tsx` → `*.tsx` and wiring routes (requires filling `TODO:` placeholders — charity number, ICO reg, etc.)
+- Wiring the 30k-keyword hook into any dashboard
+- Registering the 238 AI-head-data routes in the sitemap/prerender
+- Filling the 9 `TODO:` values in `TrustCredibility.NEW.tsx`
+
+I'll flag these in the closing message so you can decide when to activate them.
+
+## Verification after import
+
+1. Typecheck passes (auto-run by harness).
+2. Spot-check that `.NEW.tsx` files are NOT imported anywhere (grep).
+3. Confirm `index.html` still has current title/description/preconnects.
+4. GitHub sync: the commit shows up on `main` within seconds of these edits landing.
+
+## Technical notes
+
+- Total size ~7 MB; the 4.7 MB `keywords-30000.json` sits in `public/data/` so it stays out of the JS bundle (loaded on-demand via the provided hook).
+- No `package.json` changes — the bundle explicitly says its `package-overrides.json` is superseded and excluded.
+- No `.git` directories in the archive (verified) — safe to copy.

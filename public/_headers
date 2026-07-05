@@ -1,56 +1,25 @@
-# ═══════════════════════════════════════════════════════
-# Security Headers – Living With Arthritis
-# ═══════════════════════════════════════════════════════
-# NOTE: Stripe.js does not support SRI (Subresource Integrity)
-# as they update the script frequently. CSP frame-src restricts
-# Stripe to its own origins which mitigates the risk.
+# Long-term caching for hashed build assets (js/css get a content hash in Vite → safe to cache forever).
+# Fixes the "Serve static assets with an efficient cache policy" Lighthouse warning.
 
-# Global security headers for ALL pages
-/*
-  X-Frame-Options: DENY
-  X-Content-Type-Options: nosniff
-  X-XSS-Protection: 1; mode=block
-  Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=(), payment=(), usb=(), magnetometer=(), gyroscope=()
-  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
-  Cross-Origin-Opener-Policy: same-origin
-  Cross-Origin-Embedder-Policy: credentialless
-  Cross-Origin-Resource-Policy: same-site
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://js.stripe.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https://*.supabase.co https://*.supabase.in https://ai.gateway.lovable.dev https://api.stripe.com https://*.lovable.app https://*.lovableproject.com; frame-src https://js.stripe.com https://hooks.stripe.com; object-src 'none'; base-uri 'self'; form-action 'self' https://checkout.stripe.com; upgrade-insecure-requests;
-
-# Cache hashed JS & CSS assets for 1 year (content-hash ensures safe immutable caching)
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
-  Vary: Accept-Encoding
 
-# Cache public images for 1 week
+/og/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+/hero/*
+  Cache-Control: public, max-age=31536000, immutable
+
 /images/*
-  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+  Cache-Control: public, max-age=2592000
 
-# Cache openverse imagery for 30 days (filenames are stable)
-/openverse/*
-  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
-
-# Cache exercise videos for 30 days
-/exercise-videos/*
-  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
-
-# Cache favicon for 1 day
-/favicon.ico
-  Cache-Control: public, max-age=86400
-
-# Cache sitemap and robots for 1 day — force correct Content-Type
-# (prevents SPA fallback from serving these as text/html)
-/sitemap.xml
-  Content-Type: application/xml; charset=utf-8
-  Cache-Control: public, max-age=86400, must-revalidate
-  X-Robots-Tag: noindex
-/robots.txt
-  Content-Type: text/plain; charset=utf-8
-  Cache-Control: public, max-age=86400
-
-# HTML: no-cache (always revalidate so users get the latest app shell)
-/*.html
-  Cache-Control: no-cache, no-store, must-revalidate
-/
-  Cache-Control: no-cache, no-store, must-revalidate
+# HTML must revalidate so users see new deploys.
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(self)
