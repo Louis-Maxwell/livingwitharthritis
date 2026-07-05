@@ -125,6 +125,7 @@ const Header = () => {
         { label: "Juvenile Arthritis", desc: "Arthritis in children", icon: Stethoscope, href: "/conditions/juvenile-arthritis", action: () => navigate("/conditions/juvenile-arthritis"), color: "text-primary bg-primary/10" },
         { label: "Fibromyalgia", desc: "Widespread pain & fatigue", icon: Stethoscope, href: "/conditions/fibromyalgia", action: () => navigate("/conditions/fibromyalgia"), color: "text-primary bg-primary/10" },
         { label: "Lupus (SLE)", desc: "Autoimmune disease", icon: Stethoscope, href: "/conditions/lupus", action: () => navigate("/conditions/lupus"), color: "text-primary bg-primary/10" },
+        { label: "Trust & Credibility", desc: "Our evidence, authors & governance", icon: ShieldCheck, href: "/trust", action: () => navigate("/trust"), color: "text-primary bg-primary/10" },
       ],
     },
     {
@@ -159,6 +160,8 @@ const Header = () => {
         { label: "Patient Stories", desc: "Lived experience from real people", icon: Heart, href: "/stories", action: () => navigate("/stories"), color: "text-primary bg-primary/10" },
         { label: "Buddy Programme", desc: "1-to-1 peer mentoring", icon: HandHeart, href: "/buddy", action: () => navigate("/buddy"), color: "text-primary bg-primary/10" },
         { label: "Blog & Library", desc: "100+ evidence-based articles", icon: BookOpen, href: "/blog", action: () => navigate("/blog"), color: "text-primary bg-primary/10" },
+        { label: "Glossary A–Z", desc: "Plain-English arthritis terms", icon: BookOpen, href: "/glossary", action: () => navigate("/glossary"), color: "text-primary bg-primary/10" },
+        { label: "Pets & Arthritis", desc: "Dogs, cats, horses & more", icon: HeartPulse, href: "/pets", action: () => navigate("/pets"), color: "text-primary bg-primary/10" },
       ],
     },
     {
@@ -170,6 +173,7 @@ const Header = () => {
         { label: "Volunteer", desc: "Flexible UK roles around lived experience", icon: HandHeart, href: "/volunteer", action: () => navigate("/volunteer"), color: "text-primary bg-primary/10" },
         { label: "Advocacy", desc: "Share your story, shape research", icon: ShieldCheck, href: "/advocacy", action: () => navigate("/advocacy"), color: "text-primary bg-primary/10" },
         { label: "Corporate Giving", desc: "Partner with us as an organisation", icon: Globe, href: "/corporate-giving", action: () => navigate("/corporate-giving"), color: "text-primary bg-primary/10" },
+        { label: "Corporate Partnerships", desc: "Formal partnership programme", icon: Globe, href: "/corporate-partnerships", action: () => navigate("/corporate-partnerships"), color: "text-primary bg-primary/10" },
         { label: "Zakat Appeal", desc: "Give your Zakat to joint health", icon: Globe, href: "/zakat-appeal", action: () => navigate("/zakat-appeal"), color: "text-primary bg-primary/10" },
         { label: "Ways to Help", desc: "All the ways you can support us", icon: Heart, href: "/ways-to-help", action: () => navigate("/ways-to-help"), color: "text-primary bg-primary/10" },
       ],

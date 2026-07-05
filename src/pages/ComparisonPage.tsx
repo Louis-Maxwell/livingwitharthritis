@@ -1,9 +1,10 @@
 import { Helmet } from "react-helmet-async";
 import { Link, useLocation, Navigate } from "react-router-dom";
 import { lazy, Suspense, useMemo } from "react";
-import { ChevronLeft, Scale, ArrowRight } from "lucide-react";
+import { ChevronLeft, Scale, ArrowRight, CheckCircle2 } from "lucide-react";
 import Header from "@/components/Header";
 import { COMPARISON_ROUTES } from "@/data/comparison-routes.generated";
+import { getComparisonArticle } from "@/data/comparison-content";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
@@ -16,7 +17,6 @@ const prettify = (slug: string) =>
 
 /** Split "a-vs-b-for-context" into { a, b, context }. */
 function parseComparison(slug: string): { a: string; b: string; context?: string } | null {
-  // Handle "-vs-" separator, with optional "-for-<context>" or "-<context>" tail.
   const m = slug.match(/^(.+?)-vs-(.+)$/);
   if (!m) return null;
   const a = m[1];
@@ -28,9 +28,8 @@ function parseComparison(slug: string): { a: string; b: string; context?: string
 
 /**
  * Renders any of the auto-generated `/guides/*-vs-*` comparison routes.
- * The route slug fully drives the page — no per-slug component needed. Long-
- * form content can later be layered in via a `comparison-content.generated.ts`
- * dataset without changing this route shape.
+ * Uses long-form COMPARISON_CONTENT when available, with a lightweight
+ * fallback for slugs not yet fleshed out.
  */
 export default function ComparisonPage() {
   const location = useLocation();
@@ -42,10 +41,14 @@ export default function ComparisonPage() {
     return <Navigate to="/guides" replace />;
   }
 
-  const a = prettify(parsed.a);
-  const b = prettify(parsed.b);
+  const article = getComparisonArticle(path);
+  const a = article?.optionA.name ?? prettify(parsed.a);
+  const b = article?.optionB.name ?? prettify(parsed.b);
   const context = parsed.context ? prettify(parsed.context) : undefined;
-  const title = context ? `${a} vs ${b} for ${context}` : `${a} vs ${b}`;
+  const title = article?.title ?? (context ? `${a} vs ${b} for ${context}` : `${a} vs ${b}`);
+  const metaDescription =
+    article?.metaDescription ??
+    `${title}: an evidence-informed side-by-side comparison for UK arthritis patients, covering effectiveness, safety and cost.`;
 
   const others = COMPARISON_ROUTES.filter((r) => r !== path).slice(0, 6);
 
@@ -53,10 +56,7 @@ export default function ComparisonPage() {
     <>
       <Helmet>
         <title>{title} — Compared | Living With Arthritis UK</title>
-        <meta
-          name="description"
-          content={`${title}: an evidence-informed side-by-side comparison for UK arthritis patients, covering effectiveness, safety and cost.`}
-        />
+        <meta name="description" content={metaDescription} />
         <link rel="canonical" href={`https://livingwitharthritis.org.uk${path}`} />
       </Helmet>
 
@@ -80,33 +80,88 @@ export default function ComparisonPage() {
           </div>
           <h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">{title}</h1>
           <p className="text-lg text-muted-foreground mb-10">
-            A plain-English comparison of <strong>{a}</strong> and <strong>{b}</strong>
-            {context ? ` for ${context}` : ""}, written for UK arthritis patients. We
-            cover what each option actually is, how effective it tends to be, common
-            side-effects, NHS availability and typical cost.
+            {article?.intro ??
+              `A plain-English comparison of ${a} and ${b}${context ? ` for ${context}` : ""}, written for UK arthritis patients. We cover what each option actually is, how effective it tends to be, common side-effects, NHS availability and typical cost.`}
           </p>
 
           <div className="grid md:grid-cols-2 gap-6 mb-12">
-            {[{ name: a }, { name: b }].map(({ name }) => (
+            {(article ? [article.optionA, article.optionB] : [
+              { name: a } as const,
+              { name: b } as const,
+            ]).map((opt) => (
               <section
-                key={name}
+                key={opt.name}
                 className="rounded-2xl border border-border bg-white shadow-sm p-6"
               >
-                <h2 className="text-2xl font-bold mb-3">{name}</h2>
-                <p className="text-sm text-muted-foreground mb-4">
-                  A quick summary of what {name} is and when clinicians typically
-                  recommend it for arthritis or musculoskeletal pain.
-                </p>
-                <ul className="text-sm space-y-2">
-                  <li><strong>How it works:</strong> — to be added</li>
-                  <li><strong>Best for:</strong> — to be added</li>
-                  <li><strong>Common side-effects:</strong> — to be added</li>
-                  <li><strong>NHS availability:</strong> — to be added</li>
-                  <li><strong>Typical UK cost:</strong> — to be added</li>
-                </ul>
+                <h2 className="text-2xl font-bold mb-3">{opt.name}</h2>
+                {"howItWorks" in opt ? (
+                  <ul className="text-sm space-y-2">
+                    <li><strong>How it works:</strong> {opt.howItWorks}</li>
+                    <li><strong>Best for:</strong> {opt.bestFor}</li>
+                    <li><strong>Common side-effects:</strong> {opt.sideEffects}</li>
+                    <li><strong>NHS availability:</strong> {opt.nhs}</li>
+                    <li><strong>Typical UK cost:</strong> {opt.cost}</li>
+                  </ul>
+                ) : (
+                  <p className="text-sm text-muted-foreground">
+                    Detailed evidence for {opt.name} is being written by our clinical
+                    team — see the summary sections below for now.
+                  </p>
+                )}
               </section>
             ))}
           </div>
+
+          {article && (
+            <>
+              {article.sections.map((s) => (
+                <section key={s.heading} className="mb-10">
+                  <h2 className="text-2xl font-bold mb-3">{s.heading}</h2>
+                  {s.paragraphs.map((p, i) => (
+                    <p key={i} className="text-base leading-relaxed mb-3 text-foreground/90">
+                      {p}
+                    </p>
+                  ))}
+                </section>
+              ))}
+
+              <section className="mb-12">
+                <h2 className="text-2xl font-bold mb-4">At a glance</h2>
+                <div className="overflow-x-auto rounded-2xl border border-border">
+                  <table className="w-full text-sm">
+                    <thead className="bg-secondary/60">
+                      <tr>
+                        <th className="text-left p-3 font-bold"> </th>
+                        <th className="text-left p-3 font-bold">{article.optionA.name}</th>
+                        <th className="text-left p-3 font-bold">{article.optionB.name}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {article.table.map((row) => (
+                        <tr key={row.label} className="border-t border-border">
+                          <td className="p-3 font-semibold">{row.label}</td>
+                          <td className="p-3">{row.a}</td>
+                          <td className="p-3">{row.b}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+
+              <section className="mb-12 rounded-2xl border border-border p-6 bg-primary/5">
+                <h2 className="text-xl font-bold mb-4">Key takeaways</h2>
+                <ul className="space-y-2">
+                  {article.takeaways.map((t) => (
+                    <li key={t} className="flex items-start gap-2 text-sm">
+                      <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" aria-hidden="true" />
+                      <span>{t}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </>
+          )}
 
           <section className="rounded-2xl border border-border p-6 bg-secondary/40 mb-12">
             <h2 className="text-lg font-bold mb-2">Talk to your clinician</h2>
