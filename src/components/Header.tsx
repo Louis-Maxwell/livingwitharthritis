@@ -173,6 +173,7 @@ const Header = () => {
         { label: "Volunteer", desc: "Flexible UK roles around lived experience", icon: HandHeart, href: "/volunteer", action: () => navigate("/volunteer"), color: "text-primary bg-primary/10" },
         { label: "Advocacy", desc: "Share your story, shape research", icon: ShieldCheck, href: "/advocacy", action: () => navigate("/advocacy"), color: "text-primary bg-primary/10" },
         { label: "Corporate Giving", desc: "Partner with us as an organisation", icon: Globe, href: "/corporate-giving", action: () => navigate("/corporate-giving"), color: "text-primary bg-primary/10" },
+        { label: "Corporate Partnerships", desc: "Formal partnership programme", icon: Globe, href: "/corporate-partnerships", action: () => navigate("/corporate-partnerships"), color: "text-primary bg-primary/10" },
         { label: "Zakat Appeal", desc: "Give your Zakat to joint health", icon: Globe, href: "/zakat-appeal", action: () => navigate("/zakat-appeal"), color: "text-primary bg-primary/10" },
         { label: "Ways to Help", desc: "All the ways you can support us", icon: Heart, href: "/ways-to-help", action: () => navigate("/ways-to-help"), color: "text-primary bg-primary/10" },
       ],
