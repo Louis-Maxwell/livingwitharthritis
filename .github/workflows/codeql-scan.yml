@@ -1,0 +1,50 @@
+# Adds code-level vulnerability scanning (XSS, injection, insecure
+# randomness, etc.) on top of the existing Dependabot dependency alerts
+# and Gitleaks secret scan. This is GitHub's free native CodeQL — no
+# third-party account or API key needed.
+#
+# Together, the three workflows now cover:
+#   - Gitleaks        -> leaked secrets in commits
+#   - Dependabot       -> vulnerable dependency versions
+#   - CodeQL (this)    -> vulnerable patterns in your own code
+
+name: CodeQL Security Scan
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: "0 5 * * 3" # Wednesdays 05:00 UTC
+
+concurrency:
+  group: codeql-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      matrix:
+        language: ["javascript-typescript"]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+          queries: security-extended
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:${{ matrix.language }}"

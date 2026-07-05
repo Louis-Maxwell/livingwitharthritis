@@ -1,51 +1,43 @@
-## Goal
+## Import bundle 9 (v10 additions) into the project
 
-Add all 44 files from `github-upload-bundle_8.zip` into the project. Because Lovable ↔ GitHub sync is bidirectional and automatic, anything committed here appears on the connected GitHub repo within seconds — no separate "push to GitHub" step is required.
+Lovable ↔ GitHub sync is automatic, so committing these into the project publishes them to `Louis-Maxwell/livingwitharthritis` within seconds — no separate GitHub step.
 
-## How each file group is handled
+### Files to add (net-new)
 
-### 1. Copy verbatim (safe, no conflicts) — 33 files
-Docs, generated data, staging pages, new workflows — no live behaviour change.
+| File | Notes |
+|---|---|
+| `public/data/keywords-40000.json` | 6.8 MB static asset (39,928 keywords). Served on-demand, kept out of the JS bundle. |
+| `src/hooks/useKeywords40k.ts` | Lazy-load hook mirroring existing `useKeywords30k.ts`. |
+| `src/data/keywords-paid.generated.ts` | 50 Ad Grants (paid) keywords mapped to conversion pages. |
+| `src/data/article-scaffolds.generated.ts` | 25 topic stubs. Intentionally **not** routed — needs clinical review. |
+| `scripts/faq-schema-helper.mjs` | FAQPage JSON-LD helper that refuses placeholder text. |
+| `.github/workflows/codeql-scan.yml` | New free GitHub-native code vulnerability scan. |
+| `src/pages/KeywordStrategyV2.NEW.tsx` | Staging admin page (`.NEW.tsx`), deliberately **not** wired into the router. |
 
-- Root docs: `UPLOAD-README.md`, `DEPENDENCY-GRAPH-REPORT.md`, `FUNDRAISING-ROADMAP.md`, `GROWTH-PLAYBOOK.md`, `IMPLEMENTATION-ROADMAP.md`, `LEGAL-COMPLIANCE-CHECKLIST.md`, `MONTH-1-PLAN.md`, `PERFORMANCE-CHECKLIST.md`, `PETS-INTEGRATION-GUIDE.md`
-- Root: `SECURITY.md` (in addition to existing `.github/SECURITY.md`, per bundle intent)
-- Generated data: `src/data/keywords.generated.ts` (971 KB), `keywords.generated.json` (850 KB), `pets-arthritis.generated.ts`, `comparison-routes.generated.ts`, `glossary-routes.generated.ts`, `city-routes.generated.ts`
-- Public data: `public/data/keywords-30000.json` (4.7 MB — stays as static asset, out of bundle), `public/llms-full.txt`
-- Hooks: `src/hooks/useKeywords30k.ts`
-- Staging pages (`.NEW.tsx` — intentionally NOT routed): `HomePage.NEW.tsx`, `CorporatePartnerships.NEW.tsx`, `TrustCredibility.NEW.tsx`, `PrivacyPolicy.NEW.tsx`, `PetsHub.NEW.tsx`, `PetArticle.NEW.tsx`
-- Scripts: `scripts/generate-keywords.py`, `generate-keywords-30k.py`, `ai-head-data.json` (348 KB)
-- GitHub: `.github/dependabot.yml`, `.github/workflows/regenerate-lockfile.yml`
+### Files to overwrite
 
-### 2. Overwrite live config — 3 files (bundle is newer/expanded)
+- `.github/workflows/ci.yml` — bundle version renames the job to match the live `build-and-audit` required check, replaces the blind `sleep 3` with a readiness poll, and adds a 5-minute timeout (fixes the 20-min hang the bundle notes).
 
-- `scripts/inject-canonicals.mjs` — bundle version (10 KB) is the v2 rewrite that injects visible static content per route; project has the earlier 2.8 KB version. Overwrite.
-- `.github/workflows/ci.yml` — bundle version adds a step; overwrite.
-- `index.html` — bundle version removes AI-crawler `noindex` and defers GA. **Risk:** this file has been edited by earlier Lovable sessions (head metadata rules, preconnects). I will merge rather than blanket-overwrite: apply the bundle's AI-crawler and GA changes on top of the current file, keeping existing preconnects, title/description, and JSON-LD hooks.
+### Files intentionally skipped
 
-### 3. Do NOT overwrite — 1 file
+- `public/data/keywords-30000.json`, `src/data/keywords.generated.*`, `src/hooks/useKeywords30k.ts`, pets/glossary/comparison/city generated data, `.NEW.tsx` pages other than `KeywordStrategyV2`, all v1–v9 docs — already present in the project (verified).
+- `public/_headers` — project's live version is larger/more complete than the bundle's; do not overwrite (same rule applied in earlier bundles).
+- `index.html` — do not blanket-overwrite; project version already has the AI-crawler and GA changes plus later edits (title, preconnects, JSON-LD hooks).
+- `scripts/inject-canonicals.mjs`, `scripts/ai-head-data.json`, `scripts/generate-keywords*.py`, `SECURITY.md`, `.github/dependabot.yml`, `.github/workflows/regenerate-lockfile.yml` — already imported in prior bundles; not re-copied unless newer content is detectable (none of these changed in v10).
 
-- `public/_headers` — the project's version (2.9 KB) is larger and more complete than the bundle's (0.8 KB). Overwriting would drop live cache/security headers. **Skip.** If the user wants the bundle's immutable-asset rules merged in, I'll do that as a follow-up.
+### Not done automatically (out of scope for this import)
 
-## What will NOT happen automatically
-
-Per the bundle's own README, these need explicit follow-up work and are **out of scope for this import**:
-
-- Renaming `*.NEW.tsx` → `*.tsx` and wiring routes (requires filling `TODO:` placeholders — charity number, ICO reg, etc.)
-- Wiring the 30k-keyword hook into any dashboard
-- Registering the 238 AI-head-data routes in the sitemap/prerender
-- Filling the 9 `TODO:` values in `TrustCredibility.NEW.tsx`
+Per the bundle's own README:
+- Renaming `KeywordStrategyV2.NEW.tsx` → real route and wiring it into `App.tsx` / admin nav.
+- Wiring `useKeywords40k` or the paid-keywords dataset into any dashboard.
+- Turning `article-scaffolds.generated.ts` stubs into real articles (needs clinical review).
+- Filling any remaining `TODO:` values in earlier `.NEW.tsx` pages.
 
 I'll flag these in the closing message so you can decide when to activate them.
 
-## Verification after import
+### Verification after import
 
-1. Typecheck passes (auto-run by harness).
-2. Spot-check that `.NEW.tsx` files are NOT imported anywhere (grep).
-3. Confirm `index.html` still has current title/description/preconnects.
-4. GitHub sync: the commit shows up on `main` within seconds of these edits landing.
-
-## Technical notes
-
-- Total size ~7 MB; the 4.7 MB `keywords-30000.json` sits in `public/data/` so it stays out of the JS bundle (loaded on-demand via the provided hook).
-- No `package.json` changes — the bundle explicitly says its `package-overrides.json` is superseded and excluded.
-- No `.git` directories in the archive (verified) — safe to copy.
+1. Typecheck passes (auto-run by the harness).
+2. Grep confirms `KeywordStrategyV2.NEW.tsx` is not imported anywhere.
+3. `.github/workflows/ci.yml` diff shows the job-name + timeout change only.
+4. GitHub sync surfaces the commit on `main` within seconds.
