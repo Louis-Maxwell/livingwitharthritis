@@ -172,6 +172,9 @@ const FallPreventionOlderAdults = lazy(() => import("./pages/guides/FallPreventi
 const Arthritis = lazy(() => import("./pages/conditions/Arthritis"));
 const MusculoskeletalHealth = lazy(() => import("./pages/guides/MusculoskeletalHealth"));
 const DisabilitySupport = lazy(() => import("./pages/guides/DisabilitySupport"));
+const PetsHub = lazy(() => import("./pages/PetsHub"));
+const PetArticle = lazy(() => import("./pages/PetArticle"));
+const CorporatePartnerships = lazy(() => import("./pages/CorporatePartnerships"));
 
 // Phase 1 / Phase 3 — IA stubs + Newly Diagnosed full guide
 const NewlyDiagnosed = lazy(() => import("./pages/guides/NewlyDiagnosed"));
@@ -431,6 +434,10 @@ function AnimatedRoutes() {
         <Route path="/research" element={<ResearchStub />} />
         <Route path="/research/clinical-trials" element={<ClinicalTrialsStub />} />
         <Route path="/research/grants" element={<GrantsStub />} />
+
+        <Route path="/pets" element={<PetsHub />} />
+        <Route path="/pets/:slug" element={<PetArticle />} />
+        <Route path="/corporate-partnerships" element={<CorporatePartnerships />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>
