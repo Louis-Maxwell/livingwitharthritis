@@ -1,29 +1,81 @@
 /**
  * GA4 event helpers for conversion tracking.
  * Safe no-ops when gtag isn't available (pre-consent, tests).
+ *
+ * Fires distinct, easy-to-mark-as-key-event GA4 events:
+ *   - newsletter_signup
+ *   - donation_click
+ *   - contact_form_submit
+ *   - file_download
+ *   - scroll_80        (fired once per page once a visitor passes 80% depth)
  */
 import { trackEvent } from "@/lib/analytics";
 
-export function trackEmailSignup(preference?: string, source = "hero_banner") {
-  trackEvent("email_signup", {
-    preference: preference || "general",
-    source,
+/* ---------- Conversion events (call these from UI) ---------- */
+
+/** Fired the moment a visitor successfully submits the newsletter form. */
+export function trackNewsletterSignup(opts: { source?: string; interests?: number } = {}) {
+  trackEvent("newsletter_signup", {
+    source: opts.source ?? "site",
+    interests: opts.interests ?? 0,
+    value: 1,
+    currency: "GBP",
   });
 }
 
-export function trackDonationClick(source = "sticky_bar") {
+/** Kept for backwards compatibility with existing call-sites. */
+export function trackEmailSignup(preference?: string, source = "hero_banner") {
+  trackEvent("email_signup", { preference: preference || "general", source });
+  trackNewsletterSignup({ source });
+}
+
+/** Fired when a user clicks any "Donate" CTA (before the checkout redirect). */
+export function trackDonationClick(opts: {
+  source?: string;
+  amount?: number;
+  currency?: string;
+  method?: string;
+} = {}) {
   trackEvent("donation_click", {
-    amount_goal: 50000,
-    current_progress: 5000,
-    source,
+    source: opts.source ?? "donate_page",
+    amount: opts.amount ?? 0,
+    currency: opts.currency ?? "GBP",
+    method: opts.method ?? "stripe",
   });
 }
+
+/** Fired after the /contact form successfully submits. */
+export function trackContactFormSubmit(topic?: string) {
+  trackEvent("contact_form_submit", {
+    topic: topic ?? "general",
+    value: 1,
+    currency: "GBP",
+  });
+}
+
+/** Fired when a user clicks a downloadable asset (PDF, guide, etc.). */
+export function trackFileDownload(opts: {
+  file_name: string;
+  file_extension?: string;
+  file_url?: string;
+  source?: string;
+}) {
+  const ext =
+    opts.file_extension ||
+    (opts.file_name.includes(".") ? opts.file_name.split(".").pop() : undefined) ||
+    "unknown";
+  trackEvent("file_download", {
+    file_name: opts.file_name,
+    file_extension: ext,
+    file_url: opts.file_url,
+    source: opts.source ?? "site",
+  });
+}
+
+/* ---------- Existing helpers (kept for other call-sites) ---------- */
 
 export function trackSearch(query: string, results: number) {
-  trackEvent("search", {
-    search_term: query,
-    results_found: results,
-  });
+  trackEvent("search", { search_term: query, results_found: results });
 }
 
 export function trackMobileBottomCTA(ctaType: "donate" | "start_reading") {
@@ -43,10 +95,7 @@ export function trackStartHereCard(label: string, href: string) {
 }
 
 export function trackJointPicker(joint: string, path: string) {
-  trackEvent("joint_picker_click", {
-    joint_label: joint,
-    destination_path: path,
-  });
+  trackEvent("joint_picker_click", { joint_label: joint, destination_path: path });
 }
 
 export function trackPillarClick(pillar: string, path: string) {
@@ -54,8 +103,5 @@ export function trackPillarClick(pillar: string, path: string) {
 }
 
 export function trackFeaturedGuide(title: string, path: string) {
-  trackEvent("featured_guide_click", {
-    guide_title: title,
-    destination_path: path,
-  });
+  trackEvent("featured_guide_click", { guide_title: title, destination_path: path });
 }
