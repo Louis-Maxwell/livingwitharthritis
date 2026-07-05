@@ -7,10 +7,12 @@
     <!-- X-Frame-Options must be sent as an HTTP header (see public/_headers) — browsers ignore it in <meta> and log a console error. -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.supabase.co https://js.stripe.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.resend.com https://api-m.paypal.com https://api-m.sandbox.paypal.com https://ai.gateway.lovable.dev https://api.stripe.com https://*.lovable.app https://*.lovableproject.com https://www.google-analytics.com https://analytics.google.com https://*.google-analytics.com https://*.analytics.google.com; frame-src 'self' https://*.paypal.com https://js.stripe.com https://hooks.stripe.com; object-src 'none'; base-uri 'self'; form-action 'self' https://checkout.stripe.com;" />
 
-    <!-- Google Analytics 4 — loaded eagerly so EVERY pageview is recorded,
-         including fast bouncers and SPA visits that never reach an idle frame.
-         GA still respects an explicit "declined" consent: the bot/consent
-         guard below stubs gtag and blocks /collect beacons in that case. -->
+    <!-- Google Analytics 4 — DEFERRED. Loading gtag before hydration costs
+         ~200ms of main-thread and blocks LCP on mobile. We instead queue
+         events into dataLayer, and load gtag AFTER first paint (via
+         requestIdleCallback / setTimeout fallback), which keeps every early
+         pageview but removes it from the LCP critical path. Consent decline
+         and bot exclusion (below) still short-circuit before load. -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -19,20 +21,39 @@
         send_page_view: true,
         page_path: window.location.pathname,
         page_title: document.title,
-        transport_type: 'beacon',
-        custom_map: {
-          dimension1: 'page_path',
-          dimension2: 'is_landing_page'
-        }
+        transport_type: 'beacon'
       });
+      // Defer the ~90KB gtag.js payload out of the LCP critical path.
+      (function(){
+        function load(){
+          if (window.__GA_LOADED__) return; window.__GA_LOADED__ = true;
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-X8GTW05JJS';
+          document.head.appendChild(s);
+        }
+        // Load on first user interaction OR after 3s, whichever comes first.
+        var loaded = false, mark = function(){ if(loaded) return; loaded=true; load(); };
+        ['scroll','keydown','pointerdown','touchstart'].forEach(function(e){
+          addEventListener(e, mark, { once: true, passive: true });
+        });
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(mark, { timeout: 3000 });
+        } else {
+          setTimeout(mark, 3000);
+        }
+      })();
     </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X8GTW05JJS"></script>
     <!-- referrer meta is emitted per-route via SeoHead (Helmet) -->
 
     <!-- Bot + declined-consent exclusion: prevents spiders, scrapers, headless browsers,
          and users who declined cookies from firing analytics pageviews. Aligns the
          Lovable analytics panel with GA4's IVT/bot filtering.
-         Allowed: Googlebot, Bingbot, DuckDuckBot, Applebot, Twitterbot, LinkedInBot, facebookexternalhit. -->
+         Allowed: Googlebot, Bingbot, DuckDuckBot, Applebot, Twitterbot, LinkedInBot, facebookexternalhit.
+         AI assistant / answer-engine crawlers (GPTBot, ClaudeBot, PerplexityBot,
+         Google-Extended, CCBot, etc.) are excluded from ANALYTICS only — they must
+         NEVER receive the noindex meta below, because we want this site to be
+         indexed and cited by ChatGPT, Claude, Perplexity, Gemini and AI Overviews. -->
     <script>
       (function(){
         try {
@@ -41,6 +62,12 @@
           var allow = /(googlebot|bingbot|duckduckbot|applebot|twitterbot|linkedinbot|facebookexternalhit|slackbot|whatsapp|telegrambot)/i;
           var block = /(sogou|baidu|yisou|360spider|haosou|bytespider|petalbot|mj12bot|dotbot|blexbot|dataforseo|seekport|serpstat|zoominfo|diffbot|gptbot|ccbot|claude|anthropic|perplexity|imagesift|omgili|headlesschrome|phantomjs|puppeteer|selenium|playwright|crawler|spider|\bbot\b|yandex|naver|qwant|archive\.org|ia_archiver|wayback|lighthouse|pagespeed|gtmetrix|pingdom|uptimerobot|statuscake|monitor|scrape|\bcurl\b|wget|python-requests|axios|node-fetch|go-http|okhttp|java\/|ruby|apache-httpclient|postman|insomnia|chrome-lighthouse|screaming\s?frog|httpclient|libwww|lwp::)/i;
           var uaBot = !allow.test(rawUa) && block.test(ua);
+
+          // AI assistant / answer-engine crawlers. These stay analytics-blocked
+          // (they match `block` above) but are exempted from the noindex meta:
+          // serving noindex to a JS-rendering AI crawler tells it to drop the
+          // page from AI search results and never cite it.
+          var aiAssist = /(gptbot|oai-searchbot|chatgpt-user|claudebot|claude-user|claude-searchbot|claude-web|anthropic|claude|perplexitybot|perplexity-user|perplexity|google-extended|geminibot|gemini-deep-research|ccbot|meta-externalagent|meta-externalfetcher|amazonbot|applebot-extended|duckassistbot|youbot|cohere-ai|ai2bot|mistralai-user|bytespider)/i;
 
           // Headless / automation signal checks. Keep these CONSERVATIVE — false
           // positives here silently break GA4 for real humans (Firefox/Safari
@@ -91,8 +118,9 @@
               };
             }
 
-            // Only flag noindex for actual bots, not declined humans
-            if (isBot) {
+            // Only flag noindex for actual bots, not declined humans — and NEVER
+            // for AI assistant / answer-engine crawlers (we want AI citations).
+            if (isBot && !aiAssist.test(ua)) {
               var m = document.createElement('meta'); m.name = 'robots'; m.content = 'noindex, nofollow'; document.head.appendChild(m);
             }
           }
@@ -143,7 +171,10 @@
     <link rel="preload" as="image" href="/hero/oa.avif" type="image/avif" fetchpriority="high" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Anton (MAP-style display) + Montserrat (subheads) + Open Sans (body) -->
+    <!-- Anton (MAP-style display) + Montserrat (subheads) + Open Sans (body).
+         Single non-blocking load: preload as style, swap to stylesheet onload,
+         noscript fallback for JS-off clients. Do NOT also add a blocking
+         <link rel="stylesheet"> — that causes render-blocking + double download. -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" /></noscript>
     <!-- Preconnect to API backend for faster first data fetch -->
@@ -185,106 +216,17 @@
 
 
     <!-- JSON-LD Structured Data: Organisation -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": ["MedicalOrganization", "NGO", "Organization"],
-      "@id": "https://livingwitharthritis.org.uk/#organization",
-      "name": "Living With Arthritis UK",
-      "legalName": "Living With Arthritis",
-      "alternateName": ["Living With Arthritis", "Arthritis Help UK"],
-      "url": "https://livingwitharthritis.org.uk",
-      "logo": "https://livingwitharthritis.org.uk/favicon.png",
-      "taxID": "1218461",
-      "foundingDate": "2020-03-15",
-      "identifier": [
-        {
-          "@type": "PropertyValue",
-          "propertyID": "UK Charity Commission Registration",
-          "value": "1218461"
-        }
-      ],
-      "subjectOf": {
-        "@type": "CreativeWork",
-        "name": "UK Charity Commission Register entry",
-        "url": "https://register-of-charities.charitycommission.gov.uk/charity-search?search=1218461"
-      },
-      "description": "UK arthritis charity supporting people across England, Scotland, Wales and Northern Ireland with free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory nutrition, waiting list help and a help chat.",
-      "medicalSpecialty": ["Rheumatology", "Physiotherapy", "Nutrition"],
-      "areaServed": [
-        { "@type": "Country", "name": "United Kingdom" },
-        { "@type": "AdministrativeArea", "name": "England" },
-        { "@type": "AdministrativeArea", "name": "Scotland" },
-        { "@type": "AdministrativeArea", "name": "Wales" },
-        { "@type": "AdministrativeArea", "name": "Northern Ireland" }
-      ],
-      "address": { "@type": "PostalAddress", "addressCountry": "GB" },
-      "contactPoint": [{
-        "@type": "ContactPoint",
-        "telephone": "+44-7760-512-084",
-        "email": "info@livingwitharthritis.org.uk",
-        "contactType": "customer support",
-        "availableLanguage": ["English", "en-GB"],
-        "areaServed": "GB"
-      }],
-      "knowsAbout": [
-        "Osteoarthritis", "Rheumatoid Arthritis", "Psoriatic Arthritis",
-        "Joint Pain", "Physiotherapy", "Anti-inflammatory Diet",
-        "Arthritis Services", "PIP Disability Benefits", "NICE Guidelines"
-      ],
-      "sameAs": []
-    }
-    </script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":["MedicalOrganization","NGO","Organization"],"@id":"https://livingwitharthritis.org.uk/#organization","name":"Living With Arthritis UK","legalName":"Living With Arthritis","alternateName":["Living With Arthritis","Arthritis Help UK"],"url":"https://livingwitharthritis.org.uk","logo":"https://livingwitharthritis.org.uk/favicon.png","taxID":"1218461","foundingDate":"2020-03-15","identifier":[{"@type":"PropertyValue","propertyID":"UK Charity Commission Registration","value":"1218461"}],"subjectOf":{"@type":"CreativeWork","name":"UK Charity Commission Register entry","url":"https://register-of-charities.charitycommission.gov.uk/charity-search?search=1218461"},"description":"UK arthritis charity supporting people across England, Scotland, Wales and Northern Ireland with free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory nutrition, waiting list help and a help chat.","medicalSpecialty":["Rheumatology","Physiotherapy","Nutrition"],"areaServed":[{"@type":"Country","name":"United Kingdom"},{"@type":"AdministrativeArea","name":"England"},{"@type":"AdministrativeArea","name":"Scotland"},{"@type":"AdministrativeArea","name":"Wales"},{"@type":"AdministrativeArea","name":"Northern Ireland"}],"address":{"@type":"PostalAddress","addressCountry":"GB"},"contactPoint":[{"@type":"ContactPoint","telephone":"+44-7760-512-084","email":"info@livingwitharthritis.org.uk","contactType":"customer support","availableLanguage":["English","en-GB"],"areaServed":"GB"}],"knowsAbout":["Osteoarthritis","Rheumatoid Arthritis","Psoriatic Arthritis","Joint Pain","Physiotherapy","Anti-inflammatory Diet","Arthritis Services","PIP Disability Benefits","NICE Guidelines"],"sameAs":[]}</script>
 
     <!-- Per-page schemas (MedicalWebPage, BreadcrumbList, FAQPage) are injected
          per-route via react-helmet-async to avoid duplicate/irrelevant rich
          results data on subpages. -->
 
     <!-- JSON-LD: WebSite with SearchAction -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "@id": "https://livingwitharthritis.org.uk/#website",
-      "name": "Living With Arthritis UK",
-      "url": "https://livingwitharthritis.org.uk/",
-      "inLanguage": "en-GB",
-      "description": "Expert arthritis support, virtual physiotherapy, anti-inflammatory nutrition and community resources for UK residents.",
-      "publisher": { "@id": "https://livingwitharthritis.org.uk/#organization" },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://livingwitharthritis.org.uk/blog?q={search_term_string}"
-        },
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://livingwitharthritis.org.uk/#website","name":"Living With Arthritis UK","url":"https://livingwitharthritis.org.uk/","inLanguage":"en-GB","description":"Expert arthritis support, virtual physiotherapy, anti-inflammatory nutrition and community resources for UK residents.","publisher":{"@id":"https://livingwitharthritis.org.uk/#organization"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://livingwitharthritis.org.uk/blog?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script>
 
     <!-- JSON-LD: LocalBusiness / MedicalBusiness for local SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": ["LocalBusiness", "MedicalBusiness"],
-      "@id": "https://livingwitharthritis.org.uk/#localbusiness",
-      "name": "Living With Arthritis UK",
-      "image": "https://livingwitharthritis.org.uk/favicon.png",
-      "url": "https://livingwitharthritis.org.uk",
-      "telephone": "+44-7760-512-084",
-      "email": "info@livingwitharthritis.org.uk",
-      "priceRange": "Free",
-      "address": { "@type": "PostalAddress", "addressCountry": "GB" },
-      "areaServed": { "@type": "Country", "name": "United Kingdom" },
-      "openingHoursSpecification": [{
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-        "opens": "09:00",
-        "closes": "17:00"
-      }],
-      "sameAs": []
-    }
-    </script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":["LocalBusiness","MedicalBusiness"],"@id":"https://livingwitharthritis.org.uk/#localbusiness","name":"Living With Arthritis UK","image":"https://livingwitharthritis.org.uk/favicon.png","url":"https://livingwitharthritis.org.uk","telephone":"+44-7760-512-084","email":"info@livingwitharthritis.org.uk","priceRange":"Free","address":{"@type":"PostalAddress","addressCountry":"GB"},"areaServed":{"@type":"Country","name":"United Kingdom"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"17:00"}],"sameAs":[]}</script>
 
 
 

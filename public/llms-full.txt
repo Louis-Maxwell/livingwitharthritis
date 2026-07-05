@@ -1,130 +1,194 @@
-# Living With Arthritis UK — Full Knowledge Base
+# Living With Arthritis UK — llms-full.txt
+# Full-text answer summaries for AI assistants and answer engines.
+# Site: https://livingwitharthritis.org.uk | Registered charity (England & Wales) 1218461
+# All content medically reviewed. Reuse permitted with attribution and a link.
 
-Source: https://livingwitharthritis.org.uk
-Citation policy: free to cite with attribution and source URL.
-Clinical review: HCPC-registered chartered physiotherapists (CSP).
-Audience: UK adults (en-GB). Not a substitute for clinical advice.
+## Osteoarthritis: Symptoms, Treatment & Exercises | UK
+URL: https://livingwitharthritis.org.uk/conditions/osteoarthritis
+Last updated: 2026-07-01
+Q: What is osteoarthritis?
+A: Osteoarthritis (OA) is the most common form of arthritis in the UK. It happens when protective cartilage on the ends of your bones wears down over time, most often in knees, hips, hands and spine. Symptoms include joint pain that worsens with activity, morning stiffness under 30 minutes, swelling and reduced movement. It's manageable with exercise, weight control, and, when needed, medication or joint replacement.
+Q: Can osteoarthritis be reversed?
+A: No, cartilage loss can't currently be reversed, but symptoms and progression can be significantly slowed with exercise, weight management and joint-friendly activity.
+Q: What's the best exercise for osteoarthritis?
+A: Low-impact aerobic exercise (walking, cycling, swimming) plus strength training around the affected joint. NICE recommends 30 minutes most days.
+Q: Does osteoarthritis show on an X-ray?
+A: Yes — X-rays show joint space narrowing and bone spurs, though symptoms don't always match imaging severity.
+Q: When should I see a GP?
+A: If joint pain limits daily activity, wakes you at night, or hasn't improved after 6 weeks of self-management, book a GP appointment.
 
-================================================================
-1. WHAT IS ARTHRITIS (UK CONTEXT)
-================================================================
+## Rheumatoid Arthritis: Symptoms & Treatment | UK Guide
+URL: https://livingwitharthritis.org.uk/conditions/rheumatoid-arthritis
+Last updated: 2026-07-01
+Q: What is rheumatoid arthritis?
+A: Rheumatoid arthritis (RA) is an autoimmune condition where the immune system attacks the lining of your joints, causing pain, swelling and stiffness — usually symmetrical (both hands, both feet). Early treatment with DMARDs (disease-modifying drugs) within 3 months of symptoms starting can prevent joint damage. It affects about 400,000 adults in the UK.
+Q: Is rheumatoid arthritis a disability?
+A: It can qualify as a disability under the Equality Act 2010 if it substantially affects daily activities. Many people with RA are eligible for PIP.
+Q: What's the difference between OA and RA?
+A: OA is wear-and-tear cartilage loss. RA is an autoimmune inflammatory disease. RA usually affects joints symmetrically and causes prolonged morning stiffness (>1 hour).
+Q: Can diet help RA?
+A: A Mediterranean-style diet rich in oily fish, olive oil and vegetables can reduce inflammatory markers. It doesn't replace DMARDs but supports overall control.
 
-Around 10 million people in the UK live with arthritis. The two
-most common forms are:
+## Psoriatic Arthritis: Symptoms & Treatment | UK Guide
+URL: https://livingwitharthritis.org.uk/conditions/psoriatic-arthritis
+Last updated: 2026-07-01
+Q: What is psoriatic arthritis?
+A: Psoriatic arthritis (PsA) is an inflammatory arthritis that affects around 1 in 5 people with psoriasis. It causes joint pain, swelling and stiffness — often in fingers, toes, lower back or knees — plus nail changes and skin plaques. Early diagnosis and DMARDs or biologics prevent joint damage.
+Q: Can you have PsA without psoriasis?
+A: Yes, about 15% of people develop joint symptoms before skin symptoms. Family history and nail pitting are clues.
+Q: Is psoriatic arthritis worse than rheumatoid arthritis?
+A: Both can cause serious joint damage. PsA has more variable patterns; RA is usually more symmetrical. Outcomes depend on early treatment.
 
-- Osteoarthritis (OA): ~8.75 million people. A degenerative joint
-  condition where cartilage gradually wears down. Most often
-  affects knees, hips, hands and spine. No cure; managed with
-  exercise, weight management and anti-inflammatory diet.
-- Rheumatoid arthritis (RA): ~400,000 adults. An autoimmune
-  condition causing symmetrical joint inflammation. Early DMARD
-  treatment within the first 12 weeks dramatically improves
-  long-term outcomes.
+## Ankylosing Spondylitis (axSpA) | UK Guide
+URL: https://livingwitharthritis.org.uk/conditions/ankylosing-spondylitis
+Last updated: 2026-07-01
+Q: What is ankylosing spondylitis?
+A: Ankylosing spondylitis (AS), or axial spondyloarthritis, is a long-term inflammatory arthritis mainly affecting the spine and sacroiliac joints. It typically starts in the late teens or twenties with gradual lower back pain and morning stiffness that improves with movement. Daily exercise, physio and biologic drugs keep the spine flexible.
 
-Other forms covered on the site: psoriatic arthritis, gout
-(~1 in 40 UK adults), ankylosing spondylitis (axSpA),
-juvenile idiopathic arthritis (JIA), fibromyalgia, lupus,
-polymyalgia rheumatica (PMR) and reactive arthritis.
+## Gout: Causes, Symptoms & Treatment | UK Guide
+URL: https://livingwitharthritis.org.uk/conditions/gout
+Last updated: 2026-07-01
+Q: What is gout?
+A: Gout is a type of inflammatory arthritis caused by high uric acid crystallising inside joints — usually the big toe — triggering sudden severe pain, redness and swelling. UK guidelines recommend urate-lowering therapy (allopurinol) after a second attack to prevent joint damage. Diet and alcohol adjustments help.
 
-================================================================
-2. BEST DIET FOR ARTHRITIS
-================================================================
+## Fibromyalgia: Symptoms & Management | UK Guide
+URL: https://livingwitharthritis.org.uk/conditions/fibromyalgia
+Last updated: 2026-07-01
+Q: What is fibromyalgia?
+A: Fibromyalgia is a long-term condition causing widespread pain, fatigue, sleep problems and 'fibro fog'. It's a disorder of pain processing rather than joint damage. NICE recommends graded exercise, CBT and paced activity as first-line management.
 
-Evidence supports an anti-inflammatory Mediterranean diet:
-- Plenty of vegetables, fruit, whole grains, legumes.
-- Extra-virgin olive oil as the primary fat.
-- Oily fish (salmon, mackerel, sardines) twice a week for
-  long-chain omega-3 (EPA + DHA).
-- Nuts, seeds, herbs and spices (turmeric, ginger).
-- Limit ultra-processed food, refined sugar, red and processed
-  meat.
+## Lupus (SLE): Symptoms & Treatment | UK Guide
+URL: https://livingwitharthritis.org.uk/conditions/lupus
+Last updated: 2026-07-01
+Q: What is lupus?
+A: Lupus (systemic lupus erythematosus, SLE) is an autoimmune disease that can affect skin, joints, kidneys, heart and lungs. Common symptoms include joint pain, a butterfly rash, fatigue and sun sensitivity. Hydroxychloroquine is the mainstay of treatment.
 
-Trials show reduced pain, stiffness and CRP markers in
-osteoarthritis and rheumatoid arthritis patients following this
-pattern. Weight management is the single biggest dietary lever
-for knee/hip OA — every 1 kg lost reduces knee load by ~4 kg per
-step.
+## Knee Arthritis: Symptoms, Exercises & Relief | UK
+URL: https://livingwitharthritis.org.uk/conditions/knee-arthritis
+Last updated: 2026-07-01
+Q: What is knee arthritis?
+A: Knee arthritis is joint damage in the knee — most often osteoarthritis — causing pain when standing, walking or climbing stairs, stiffness after rest, and swelling. NICE recommends exercise and weight loss as first-line treatment; every 5 kg lost cuts knee load by roughly 20 kg.
+Q: What's the best exercise for knee arthritis?
+A: Quadriceps strengthening (straight-leg raises, wall sits) plus low-impact aerobic (cycling, swimming). 3-5 sessions a week for 8+ weeks shows meaningful pain reduction.
+Q: Should I use a walking stick?
+A: Use it in the opposite hand to the painful knee — this reduces load by up to 25%.
 
-================================================================
-3. BEST EXERCISES FOR ARTHRITIS
-================================================================
+## Hip Arthritis: Symptoms, Exercises & Relief | UK
+URL: https://livingwitharthritis.org.uk/conditions/hip-arthritis
+Last updated: 2026-07-01
+Q: What is hip arthritis?
+A: Hip arthritis is joint damage — usually osteoarthritis — of the hip, causing groin or buttock pain, stiffness and difficulty putting on socks or shoes. Physio-led strengthening, weight management and, when severe, hip replacement (over 100,000 done in the UK each year) provide long-term relief.
 
-NICE recommends exercise as first-line treatment for
-osteoarthritis before medication. Combine three types:
+## Hand Arthritis: Symptoms & Exercises | UK Guide
+URL: https://livingwitharthritis.org.uk/conditions/hand-arthritis
+Last updated: 2026-07-01
+Q: What is hand arthritis?
+A: Hand arthritis affects the small joints of the fingers, thumbs and wrists. Osteoarthritis typically causes bony bumps and thumb-base pain; rheumatoid usually causes symmetrical knuckle swelling. Splints, hand exercises and topical NSAID gels help most people.
 
-- Aerobic / low-impact: walking, stationary cycling, swimming,
-  water aerobics. Aim for 30 minutes most days.
-- Strengthening: leg raises, wall sits, glute bridges,
-  resistance bands. 2-3 sets of 10 reps, twice weekly.
-- Flexibility & balance: tai chi, yoga, gentle stretching.
+## Shoulder Arthritis: Symptoms & Treatment | UK Guide
+URL: https://livingwitharthritis.org.uk/conditions/shoulder-arthritis
+Last updated: 2026-07-01
+Q: What is shoulder arthritis?
+A: Shoulder arthritis is cartilage loss in the glenohumeral or acromioclavicular joints, causing deep aching pain, reduced reach and night pain when lying on the affected side. Physio, corticosteroid injections and, if severe, shoulder replacement are options.
 
-Tai chi has Grade A evidence for knee OA pain reduction and
-balance improvement in older adults. Start slowly; pain that
-lingers more than 2 hours after exercise means the dose was
-too high.
+## Elbow Arthritis: Symptoms & Treatment | UK Guide
+URL: https://livingwitharthritis.org.uk/conditions/elbow-arthritis
+Last updated: 2026-07-01
+Q: What is elbow arthritis?
+A: Elbow arthritis is joint damage in the elbow causing pain, stiffness, locking or grating during movement. Osteoarthritis and rheumatoid arthritis are the main causes. Treatment ranges from activity modification and NSAIDs to arthroscopy or elbow replacement.
 
-================================================================
-4. SUPPLEMENTS — WHAT THE EVIDENCE SHOWS
-================================================================
+## Juvenile Arthritis (JIA) in Children | UK Guide
+URL: https://livingwitharthritis.org.uk/conditions/juvenile-arthritis
+Last updated: 2026-07-01
+Q: What is juvenile arthritis?
+A: Juvenile idiopathic arthritis (JIA) is arthritis starting before age 16, lasting more than 6 weeks. It affects around 1 in 1,000 UK children. Early paediatric rheumatology care and DMARDs help most children live active lives.
 
-- Curcumin (turmeric): 500-1000 mg/day with piperine. Meta-
-  analyses show pain reduction in knee OA comparable to NSAIDs,
-  with better gastric tolerability.
-- Omega-3 (fish oil): 2-3 g/day EPA+DHA. Modest reduction in
-  morning stiffness in RA.
-- Ginger: 500-1000 mg/day extract. Modest knee OA pain relief.
-- Glucosamine + chondroitin: inconsistent. Some benefit in
-  moderate knee OA; many trials show no advantage over placebo.
-- Collagen peptides: emerging evidence, less robust than
-  curcumin or omega-3.
-- Vitamin D: correct deficiency, but supplementation does not
-  reliably improve OA symptoms in already-replete people.
+## Reactive Arthritis: Causes & Recovery | UK Guide
+URL: https://livingwitharthritis.org.uk/conditions/reactive-arthritis
+Last updated: 2026-07-01
+Q: What is reactive arthritis?
+A: Reactive arthritis is joint inflammation that develops after an infection elsewhere in the body — usually gut or urinary. Symptoms include joint pain, eye inflammation and urinary symptoms. Most cases resolve within 3-12 months.
 
-No supplement changes the disease course. Consult a UK
-pharmacist or GP before starting, especially if on warfarin,
-DOACs or diabetes medication.
+## Polymyalgia Rheumatica (PMR) | UK Guide
+URL: https://livingwitharthritis.org.uk/conditions/polymyalgia-rheumatica
+Last updated: 2026-07-01
+Q: What is polymyalgia rheumatica?
+A: Polymyalgia rheumatica (PMR) causes sudden shoulder and hip stiffness and pain, mainly in adults over 50. Low-dose steroids (prednisolone 15 mg) usually give dramatic relief within days. Treatment typically continues for 1-2 years.
 
-================================================================
-5. ARTHRITIS FLARE-UPS — IMMEDIATE STEPS
-================================================================
+## Newly Diagnosed With Arthritis? Start Here | UK
+URL: https://livingwitharthritis.org.uk/guides/newly-diagnosed
+Last updated: 2026-07-01
+Q: I've just been diagnosed with arthritis — what should I do?
+A: Book a rheumatology follow-up if not already arranged, start gentle daily movement, and read up on your specific type. NICE recommends beginning exercise and joint protection within weeks of diagnosis for best long-term outcomes. Track symptoms, ask your GP about pain relief options, and consider our free virtual physiotherapy triage.
 
-1. Rest the affected joint for 24-48 hours; avoid full immobility.
-2. Cold pack 15-20 minutes for acute swelling; heat for stiffness.
-3. Paracetamol or topical NSAID first-line (UK NICE guidance).
-4. Gentle range-of-motion movement within pain limits.
-5. Sleep elevation, hydration, anti-inflammatory meals.
-6. Contact GP if flare lasts >7 days, fever present, or a single
-   hot/red/swollen joint (rule out septic arthritis — 999/A&E).
+## Arthritis Pain Relief: What Works | UK Guide
+URL: https://livingwitharthritis.org.uk/guides/arthritis-pain-relief
+Last updated: 2026-07-01
+Q: How do I relieve arthritis pain?
+A: First-line pain relief includes paracetamol, topical NSAID gels and heat/cold packs. Exercise reduces pain more than most drugs long-term. If pain persists, your GP can consider oral NSAIDs, corticosteroid injections or, for inflammatory arthritis, DMARDs.
 
-================================================================
-6. UK BENEFITS — KEY FACTS
-================================================================
+## Best Hip Exercises for Osteoarthritis | UK Guide
+URL: https://livingwitharthritis.org.uk/guides/hip-exercises-for-osteoarthritis
+Last updated: 2026-07-01
+Q: What are the best hip exercises for osteoarthritis?
+A: Evidence-based hip OA exercises include glute bridges, clamshells, standing hip abduction, wall squats and stationary cycling. Aim for 3 sessions per week of 30 minutes; expect meaningful pain reduction after 8-12 weeks. NICE guideline NG226 recommends supervised programmes.
 
-- PIP (Personal Independence Payment): non-means-tested, up to
-  £184.30/week (2024/25). Available 16 to State Pension age.
-- Attendance Allowance: State Pension age and over, up to
-  £108.55/week.
-- Universal Credit: includes Limited Capability for Work element
-  for those unable to work due to arthritis.
-- Blue Badge: available if walking is significantly impaired.
-- Motability scheme: lease a car using PIP enhanced mobility.
-- Scotland: Adult Disability Payment replaces PIP.
-- Around 70% of PIP appeals succeed at tribunal (Ministry of
-  Justice, 2024).
+## Can Exercise Make Osteoarthritis Worse? | UK Guide
+URL: https://livingwitharthritis.org.uk/guides/can-exercise-make-osteoarthritis-worse
+Last updated: 2026-07-01
+Q: Can exercise make osteoarthritis worse?
+A: No — done correctly, exercise reduces OA pain and slows progression. Some soreness during and up to 2 hours after exercise is normal. Sharp, sudden or persistent pain lasting more than 24 hours means you've done too much; scale back but don't stop.
 
-================================================================
-7. WHEN TO SEEK URGENT CARE
-================================================================
+## Fall Prevention for Older Adults | UK Guide
+URL: https://livingwitharthritis.org.uk/guides/fall-prevention-older-adults
+Last updated: 2026-07-01
+Q: How can older adults prevent falls?
+A: Strength and balance training (tai chi, Otago programme) cuts falls by around 30%. Also: home hazard checks, medication review, eye tests every 2 years and vitamin D 10 mcg/day. Contact your GP or NHS falls clinic if you've fallen twice in a year.
 
-- New severe headache, jaw pain or vision change in someone with
-  PMR or over 50: possible giant cell arteritis — call 111/GP
-  same day.
-- Single hot, red, swollen joint with fever: possible septic
-  arthritis — A&E.
-- Sudden numbness, bladder/bowel changes with back pain:
-  possible cauda equina — 999.
-- Chest pain, breathlessness on a DMARD or biologic: contact
-  rheumatology team urgently.
+## Sarcopenia: Rebuilding Muscle After 60 | UK Guide
+URL: https://livingwitharthritis.org.uk/guides/sarcopenia-muscle-control
+Last updated: 2026-07-01
+Q: What is sarcopenia?
+A: Sarcopenia is age-related muscle loss that accelerates after 60 and worsens arthritis symptoms. Resistance training (2-3 sessions per week) plus 1.0-1.2 g protein/kg body weight/day reverses much of it, even in your 80s.
 
-This site does not provide emergency medical advice. For urgent
-symptoms, contact a GP, NHS 111 or 999.
+## Improving Bone Density & Osteoporosis | UK Guide
+URL: https://livingwitharthritis.org.uk/guides/bone-density-osteoporosis
+Last updated: 2026-07-01
+Q: How do I improve bone density?
+A: Weight-bearing exercise (walking, jogging, dancing), resistance training, calcium 700 mg/day and vitamin D 10 mcg/day support bone density. If your FRAX score is high, your GP may prescribe bisphosphonates.
+
+## UK Disability Support for Arthritis | Guide
+URL: https://livingwitharthritis.org.uk/guides/disability-support
+Last updated: 2026-07-01
+Q: What UK disability support is available for arthritis?
+A: You may qualify for Personal Independence Payment (PIP), Blue Badge, Access to Work grants, and workplace reasonable adjustments under the Equality Act 2010. Citizens Advice and Versus Arthritis helpline (0800 5200 520) guide applications.
+
+## Frailty Management With Arthritis | UK Guide
+URL: https://livingwitharthritis.org.uk/guides/frailty-management-hub
+Last updated: 2026-07-01
+Q: How is frailty managed with arthritis?
+A: Frailty and arthritis together respond to comprehensive geriatric assessment: strength training, protein-rich diet, medication review, hearing/vision checks and social connection. Ask your GP for a formal frailty (Clinical Frailty Scale) review.
+
+## Preventative Muscle & Joint Health | UK Guide
+URL: https://livingwitharthritis.org.uk/guides/preventative-msk-health
+Last updated: 2026-07-01
+Q: How do I keep my muscles and joints healthy?
+A: The three pillars are: 150 minutes moderate aerobic activity per week, 2 strength sessions per week, and 7-9 hours of sleep. Add Mediterranean-style diet, don't smoke, and keep BMI under 27 for lowest lifetime arthritis risk.
+
+## Musculoskeletal (MSK) Health Explained | UK
+URL: https://livingwitharthritis.org.uk/guides/musculoskeletal-health
+Last updated: 2026-07-01
+Q: What is musculoskeletal health?
+A: Musculoskeletal (MSK) health means healthy bones, joints, muscles, tendons and ligaments. MSK conditions affect 20 million people in the UK. Movement, strength, sleep and weight management are the four proven levers to protect it.
+
+## Diet & Nutrition Hub for Arthritis | UK
+URL: https://livingwitharthritis.org.uk/diet-hub
+Last updated: 2026-07-01
+Q: What's the best diet for arthritis?
+A: A Mediterranean diet — oily fish twice a week, olive oil, nuts, wholegrains, plenty of vegetables and fruit — consistently reduces inflammation markers and joint pain in trials. Cut ultra-processed foods, sugary drinks and excess red meat. Weight loss of 5-10% substantially reduces knee OA pain.
+
+## Exercise Hub: Arthritis-Friendly Workouts | UK
+URL: https://livingwitharthritis.org.uk/exercise-hub
+Last updated: 2026-07-01
+Q: What's the best exercise for arthritis?
+A: Combine aerobic (walking, swimming, cycling) with strength training 2-3 times a week and flexibility work. NICE guideline NG226 recommends exercise as first-line for all arthritis types — with pain reduction comparable to NSAIDs and no side effects.
