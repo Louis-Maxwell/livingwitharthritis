@@ -440,6 +440,7 @@ function AnimatedRoutes() {
         <Route path="/corporate-partnerships" element={<CorporatePartnerships />} />
 
         <Route path="*" element={<NotFound />} />
+      </Routes>
     </PageTransition>
   );
 }
