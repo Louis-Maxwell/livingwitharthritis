@@ -435,8 +435,11 @@ function AnimatedRoutes() {
         <Route path="/research/clinical-trials" element={<ClinicalTrialsStub />} />
         <Route path="/research/grants" element={<GrantsStub />} />
 
+        <Route path="/pets" element={<PetsHub />} />
+        <Route path="/pets/:slug" element={<PetArticle />} />
+        <Route path="/corporate-partnerships" element={<CorporatePartnerships />} />
+
         <Route path="*" element={<NotFound />} />
-      </Routes>
     </PageTransition>
   );
 }
