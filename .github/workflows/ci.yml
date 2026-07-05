@@ -29,27 +29,22 @@ permissions:
 # ---------------------------------------------------------------------------
 
 jobs:
-  verify:
+  # NOTE: job id matches the currently-failing "CI / build-and-audit" check
+  # on GitHub so this file replaces it rather than running alongside it.
+  build-and-audit:
     runs-on: ubuntu-latest
-    # timeout-minutes prevents a hung job burning your monthly minutes budget.
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
         with:
-          # Shallow clone — fewer API calls, faster, lower rate-limit cost.
           fetch-depth: 1
 
-      # Aggressive dependency caching. Every cache hit avoids ~200 npm-
-      # registry API calls per install — matters when Dependabot's 5-PR
-      # weekly grouping runs.
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
 
       - name: Install
-        # --prefer-offline uses the cache before hitting the registry;
-        # --no-audit skips the npm audit call (Dependabot does this better).
         run: npm ci --prefer-offline --no-audit --no-fund
 
       - name: Typecheck
@@ -61,10 +56,30 @@ jobs:
       - name: SEO schema check
         run: npm run seo:schema
 
+      # ROOT CAUSE OF THE 20m HANG: the server was started with `&` and the
+      # step moved on after a blind `sleep 3` with no check that it was
+      # actually up, AND `npm run seo:audit` had no timeout — so a slow
+      # server start or a hung network call inside the audit would run
+      # until GitHub's own hang-detection eventually cancelled the job.
+      #
+      # Fix: poll for the server to actually respond before auditing, wrap
+      # the audit in `timeout 5m` so a hang fails fast and visibly, and
+      # always kill the server even if the audit step fails.
       - name: SEO audit (against local build)
         run: |
           npx serve -s dist -p 4173 &
           SERVER_PID=$!
-          sleep 3
-          SITE_URL=http://localhost:4173 npm run seo:audit
-          kill $SERVER_PID
+          for i in $(seq 1 20); do
+            if curl -sf http://localhost:4173 > /dev/null; then
+              echo "Server ready after ${i}s"
+              break
+            fi
+            sleep 1
+          done
+          set +e
+          timeout 5m npm run seo:audit
+          AUDIT_EXIT=$?
+          kill "$SERVER_PID" 2>/dev/null || true
+          exit $AUDIT_EXIT
+        env:
+          SITE_URL: http://localhost:4173
