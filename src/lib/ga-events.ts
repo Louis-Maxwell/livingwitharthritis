@@ -30,12 +30,12 @@ export function trackEmailSignup(preference?: string, source = "hero_banner") {
 }
 
 /** Fired when a user clicks any "Donate" CTA (before the checkout redirect). */
-export function trackDonationClick(opts: {
-  source?: string;
-  amount?: number;
-  currency?: string;
-  method?: string;
-} = {}) {
+export function trackDonationClick(
+  sourceOrOpts:
+    | string
+    | { source?: string; amount?: number; currency?: string; method?: string } = {},
+) {
+  const opts = typeof sourceOrOpts === "string" ? { source: sourceOrOpts } : sourceOrOpts;
   trackEvent("donation_click", {
     source: opts.source ?? "donate_page",
     amount: opts.amount ?? 0,
