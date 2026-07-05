@@ -16,6 +16,7 @@ import { DeferredMount } from "@/components/DeferredMount";
 import CanonicalEnforcer from "@/components/CanonicalEnforcer";
 import SeoDefaults from "@/components/SeoDefaults";
 import RootOrganizationSchema from "@/components/seo/RootOrganizationSchema";
+import { COMPARISON_ROUTES } from "@/data/comparison-routes.generated";
 
 // Home is eager — it's the top entry point (~36% of pageviews) so
 // shipping it in the main bundle removes a Suspense round-trip on first paint.
@@ -176,6 +177,9 @@ const DisabilitySupport = lazy(() => import("./pages/guides/DisabilitySupport"))
 const PetsHub = lazy(() => import("./pages/PetsHub"));
 const PetArticle = lazy(() => import("./pages/PetArticle"));
 const CorporatePartnerships = lazy(() => import("./pages/CorporatePartnerships"));
+const Glossary = lazy(() => import("./pages/Glossary"));
+const GlossaryTerm = lazy(() => import("./pages/GlossaryTerm"));
+const ComparisonPage = lazy(() => import("./pages/ComparisonPage"));
 
 // Phase 1 / Phase 3 — IA stubs + Newly Diagnosed full guide
 const NewlyDiagnosed = lazy(() => import("./pages/guides/NewlyDiagnosed"));
@@ -439,6 +443,15 @@ function AnimatedRoutes() {
         <Route path="/pets" element={<PetsHub />} />
         <Route path="/pets/:slug" element={<PetArticle />} />
         <Route path="/corporate-partnerships" element={<CorporatePartnerships />} />
+
+        <Route path="/glossary" element={<Glossary />} />
+        <Route path="/glossary/:term" element={<GlossaryTerm />} />
+
+        {/* Auto-generated comparison guides (COMPARISON_ROUTES). Registered
+            explicitly so they don't fight the /guides/* catch-alls above. */}
+        {COMPARISON_ROUTES.map((path) => (
+          <Route key={path} path={path} element={<ComparisonPage />} />
+        ))}
 
         <Route path="*" element={<NotFound />} />
       </Routes>
