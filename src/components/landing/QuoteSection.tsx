@@ -24,10 +24,10 @@ const QuoteSection = memo(() => (
         
         <div className="w-20 h-px bg-primary-foreground/15 mx-auto mb-8" />
         
-        <cite className="text-primary-foreground/50 text-sm font-medium not-italic block mb-2 tracking-[0.15em] uppercase">
+        <cite className="text-primary-foreground/90 text-sm font-medium not-italic block mb-2 tracking-[0.15em] uppercase">
           The Living With Arthritis Clinical Advisory Board
         </cite>
-        <p className="text-primary-foreground/30 text-xs mb-20 tracking-wider">
+        <p className="text-primary-foreground/80 text-xs mb-20 tracking-wider">
           Comprising HCPC-registered physiotherapists, rheumatology consultants and dietitians
         </p>
 
@@ -37,10 +37,10 @@ const QuoteSection = memo(() => (
             return (
               <div
                 key={i}
-                className="flex items-center gap-2.5 bg-primary-foreground/[0.08] rounded-full px-6 py-3 border border-primary-foreground/10"
+                className="flex items-center gap-2.5 bg-primary-foreground/[0.12] rounded-full px-6 py-3 border border-primary-foreground/20"
               >
-                <Icon className="w-3.5 h-3.5 text-primary-foreground/40" />
-                <span className="text-primary-foreground/50 text-[10px] font-bold tracking-[0.2em] uppercase">{c.label}</span>
+                <Icon className="w-3.5 h-3.5 text-primary-foreground/90" />
+                <span className="text-primary-foreground/90 text-[10px] font-bold tracking-[0.2em] uppercase">{c.label}</span>
               </div>
             );
           })}
