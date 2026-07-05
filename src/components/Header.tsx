@@ -125,6 +125,7 @@ const Header = () => {
         { label: "Juvenile Arthritis", desc: "Arthritis in children", icon: Stethoscope, href: "/conditions/juvenile-arthritis", action: () => navigate("/conditions/juvenile-arthritis"), color: "text-primary bg-primary/10" },
         { label: "Fibromyalgia", desc: "Widespread pain & fatigue", icon: Stethoscope, href: "/conditions/fibromyalgia", action: () => navigate("/conditions/fibromyalgia"), color: "text-primary bg-primary/10" },
         { label: "Lupus (SLE)", desc: "Autoimmune disease", icon: Stethoscope, href: "/conditions/lupus", action: () => navigate("/conditions/lupus"), color: "text-primary bg-primary/10" },
+        { label: "Trust & Credibility", desc: "Our evidence, authors & governance", icon: ShieldCheck, href: "/trust", action: () => navigate("/trust"), color: "text-primary bg-primary/10" },
       ],
     },
     {
