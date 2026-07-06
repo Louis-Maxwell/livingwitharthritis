@@ -10,7 +10,8 @@ import {
   buildRefusalStream,
 } from "../_shared/ai-safety.ts";
 
-const limiter = createRateLimiter({ windowMs: 300_000, maxRequests: 30 });
+// 20 requests / minute per IP — see docs/EDGE-FUNCTION-RATE-LIMITING.md
+const limiter = createRateLimiter({ windowMs: 60_000, maxRequests: 20 });
 
 const MAX_MESSAGES = 30;
 const MAX_MESSAGE_LENGTH = 4000;
