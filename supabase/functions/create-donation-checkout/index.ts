@@ -5,7 +5,8 @@ import { errJson, okJson, parseJsonBody, preflight, newRequestId } from "../_sha
 import { z, parseWithSchema, emailSchema } from "../_shared/validation.ts";
 
 // 20 checkout sessions per IP per 10 minutes (allow donors to retry / change amount)
-const limiter = createRateLimiter({ windowMs: 600_000, maxRequests: 20 });
+// 10 requests / minute per IP (donation category) — see docs/EDGE-FUNCTION-RATE-LIMITING.md
+const limiter = createRateLimiter({ windowMs: 60_000, maxRequests: 10 });
 
 const VALID_CURRENCIES = ["GBP", "USD", "EUR"] as const;
 const VALID_FUND_TYPES = ["research", "support", "helpline", "general", "zakat"] as const;
