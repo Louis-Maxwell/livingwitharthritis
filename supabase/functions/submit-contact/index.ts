@@ -8,7 +8,8 @@ import { CONTACT_EMAILS } from "../_shared/contact.ts";
 const ADMIN_EMAIL = CONTACT_EMAILS.info;
 
 // 5 contact submissions per IP per 15 minutes
-const limiter = createRateLimiter({ windowMs: 900_000, maxRequests: 5 });
+// 10 requests / minute per IP (feedback category) — see docs/EDGE-FUNCTION-RATE-LIMITING.md
+const limiter = createRateLimiter({ windowMs: 60_000, maxRequests: 10 });
 
 const ContactSchema = z.object({
   name: shortText(100),
