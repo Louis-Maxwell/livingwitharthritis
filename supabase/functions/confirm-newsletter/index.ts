@@ -9,7 +9,8 @@ import { z, parseWithSchema } from "../_shared/validation.ts";
 //   POST {action:"preferences", token, frequency, categories}
 //   POST {action:"unsubscribe", token}    — flips is_active=false (uses unsubscribe_token)
 
-const limiter = createRateLimiter({ windowMs: 60_000, maxRequests: 20 });
+// 5 requests / minute per IP (email signup category) — see docs/EDGE-FUNCTION-RATE-LIMITING.md
+const limiter = createRateLimiter({ windowMs: 60_000, maxRequests: 5 });
 
 const Schema = z.object({
   action: z.enum(["confirm", "preferences", "unsubscribe"]),
