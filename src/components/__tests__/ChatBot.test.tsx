@@ -60,7 +60,7 @@ describe("ChatBot", () => {
   it("sends message on quick suggestion click", () => {
     render(<ChatBot />);
     fireEvent.click(screen.getByText("What is rheumatoid arthritis?"));
-    expect(mockSendMessage).toHaveBeenCalledWith("What is rheumatoid arthritis?");
+    expect(mockSendMessage).toHaveBeenCalledWith("What is rheumatoid arthritis?", expect.any(Object));
   });
 
   it("has a text input placeholder", () => {
@@ -73,7 +73,7 @@ describe("ChatBot", () => {
     const textarea = screen.getByPlaceholderText("Type a message…");
     fireEvent.change(textarea, { target: { value: "Hello" } });
     fireEvent.submit(textarea.closest("form")!);
-    expect(mockSendMessage).toHaveBeenCalledWith("Hello");
+    expect(mockSendMessage).toHaveBeenCalledWith("Hello", expect.any(Object));
   });
 
   it("does not send empty message", () => {

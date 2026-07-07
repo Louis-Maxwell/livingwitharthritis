@@ -453,12 +453,13 @@ export function ChatBot() {
             type="submit"
             disabled={isLoading || !input.trim()}
             size="icon"
+            aria-label={isLoading ? "Sending message" : "Send message"}
             className="h-8 w-8 rounded-lg shrink-0 transition-all"
           >
             {isLoading ? (
-              <Loader2 className="h-3.5 w-3.5 animate-spin" />
+              <Loader2 className="h-3.5 w-3.5 animate-spin" aria-hidden="true" />
             ) : (
-              <Send className="h-3.5 w-3.5" />
+              <Send className="h-3.5 w-3.5" aria-hidden="true" />
             )}
           </Button>
         </div>
