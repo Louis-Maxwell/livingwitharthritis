@@ -160,9 +160,7 @@ export default function TrustCredibility() {
           </span>
         </p>
         <p>
-          We publish our approach to fundraising transparency on our{" "}
-          <a className="text-primary underline" href="/finances">finances page</a>, and we follow the
-          Fundraising Regulator&rsquo;s Code of Fundraising Practice{" "}
+          We follow the Fundraising Regulator&rsquo;s Code of Fundraising Practice{" "}
           <span className="text-muted-foreground">(TODO: add Fundraising Regulator registration once complete)</span>.
         </p>
       </section>
@@ -175,7 +173,7 @@ export default function TrustCredibility() {
         </p>
         <ul className="list-disc space-y-2 pl-5">
           <li><a className="text-primary underline" href="/governance">Governance &amp; trustees</a></li>
-          <li><a className="text-primary underline" href="/finances">Finances &amp; funding model</a></li>
+          
           <li><a className="text-primary underline" href="/safeguarding">Safeguarding policy</a></li>
           <li><a className="text-primary underline" href="/complaints">Complaints procedure</a></li>
           <li><a className="text-primary underline" href="/accessibility">Accessibility statement</a></li>

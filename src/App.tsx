@@ -106,7 +106,7 @@ const CorporateGiving = lazy(() => import("./pages/CorporateGiving"));
 const DonationSuccess = lazy(() => import("./pages/DonationSuccess"));
 const Unsubscribe = lazy(() => import("./pages/Unsubscribe"));
 const Governance = lazy(() => import("./pages/Governance"));
-const Finances = lazy(() => import("./pages/Finances"));
+
 const ImpactStories = lazy(() => import("./pages/ImpactStories"));
 const WaysToHelp = lazy(() => import("./pages/WaysToHelp"));
 const TermsConditions = lazy(() => import("./pages/TermsConditions"));
@@ -378,7 +378,7 @@ function AnimatedRoutes() {
         <Route path="/donation-result" element={<DonationSuccess />} />
         <Route path="/unsubscribe" element={<Unsubscribe />} />
         <Route path="/governance" element={<Governance />} />
-        <Route path="/finances" element={<Finances />} />
+        
         <Route path="/impact" element={<ImpactStories />} />
         <Route path="/ways-to-help" element={<WaysToHelp />} />
         <Route path="/terms" element={<TermsConditions />} />

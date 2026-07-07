@@ -139,7 +139,7 @@ const ALL_LINKS: SitemapLink[] = [
   { label: "Exercise Hub", href: "/exercises" },
   { label: "Expert Articles", href: "/expert-articles" },
   { label: "FAQ", href: "/faq" },
-  { label: "Finances", href: "/finances" },
+  
   { label: "Gallery", href: "/gallery" },
   { label: "Governance", href: "/governance" },
   { label: "Health Tools", href: "/health-tools" },

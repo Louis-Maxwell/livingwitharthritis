@@ -335,11 +335,6 @@ const ImpactStories = () => {
                   <Heart className="w-4 h-4 mr-2" /> Donate Now
                 </Button>
               </Link>
-              <Link to="/finances">
-                <Button variant="outline" className="rounded-full px-6 h-10 text-sm font-medium">
-                  <BookOpen className="w-4 h-4 mr-2" /> View Our Finances
-                </Button>
-              </Link>
               <Link to="/governance">
                 <Button variant="outline" className="rounded-full px-6 h-10 text-sm font-medium">
                   <Shield className="w-4 h-4 mr-2" /> Our Governance

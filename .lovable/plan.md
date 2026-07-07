@@ -1,34 +1,35 @@
-## Plan: Black scrollbar styling
+## Goal
+Completely remove the Finances page from the site.
 
-### What we’ll change
-Update the global custom scrollbar in `src/index.css` so the thumb is black instead of the current muted-foreground tint, while keeping the transparent track and 8px width from the previous update.
+## Changes
 
-### Proposed CSS update
-```css
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: hsl(0 0% 0% / 0.35);
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: hsl(0 0% 0% / 0.55);
-}
-```
+1. **Delete** `src/pages/Finances.tsx`.
 
-### Rationale
-- Black thumb aligns with the project’s black-on-white visual identity.
-- 35% opacity keeps the scrollbar subtle when idle; 55% on hover provides clear feedback without becoming visually heavy.
-- Track stays transparent so it doesn’t add visual noise against white backgrounds.
-- No change to width (remains 8px as previously requested).
+2. **`src/App.tsx`** — remove the lazy import (line 109) and the `<Route path="/finances" ...>` (line 381).
 
-### Verification
-- Open any scrollable area (e.g., the “Managing Arthritis” header dropdown on a short viewport) and confirm the scrollbar thumb renders black.
-- Hover the thumb to confirm the colour darkens.
+3. **`src/components/Footer.tsx`** — remove the "Our Finances" nav link (line 46).
 
-### Files affected
-- `src/index.css`
+4. **`scripts/prerender-routes.mjs`** — remove `"/finances"` from the prerender list so build doesn't try to render it.
+
+5. **`public/sitemap.xml`** — remove the `/finances` `<url>` entry.
+
+6. **`public/llms.txt`** — remove any `/finances` line.
+
+7. **Internal links pointing to `/finances`** — replace with a sensible neighbour (`/trust` for trust/governance context) or remove entirely, in:
+   - `src/pages/AboutUs.tsx`
+   - `src/pages/Governance.tsx`
+   - `src/pages/ImpactStories.tsx`
+   - `src/pages/TermsConditions.tsx`
+   - `src/pages/Sitemap.tsx`
+   - `src/pages/TrustCredibility.NEW.tsx`
+   - `src/components/AboutSection.tsx`
+   - `src/components/landing/BlogPreview.tsx`
+   - `src/components/landing/HowWeAreFundedSection.tsx`
+   - `scripts/audit-word-count.ts` (drop the route from any list)
+
+## Verification
+- `rg "/finances"` returns no matches after changes.
+- Build succeeds; footer no longer shows "Our Finances"; visiting `/finances` shows the site's NotFound page.
+
+## Question
+For the ~9 internal links currently pointing to `/finances`, do you want me to (a) repoint them to `/trust` (governance/transparency lives there), or (b) simply remove those link items? I'll default to **(a) repoint to `/trust`** unless you say otherwise.

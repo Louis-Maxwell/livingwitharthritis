@@ -120,7 +120,7 @@ const TermsConditions = () => (
             <ul className="list-disc pl-6 text-muted-foreground space-y-2">
               <li>Donations are generally non-refundable. If you believe a donation was made in error, please contact us within 30 days at <a href={`mailto:${CONTACT_EMAILS.info}`} className="text-primary underline">{CONTACT_EMAILS.info}</a>.</li>
               <li>Gift Aid declarations are subject to HMRC rules. You must be a UK taxpayer for Gift Aid to apply.</li>
-              <li>We are committed to transparent use of funds. See our <a href="/governance" className="text-primary underline">Governance</a> and <a href="/finances" className="text-primary underline">Finances</a> pages for details.</li>
+              <li>We are committed to transparent use of funds. See our <a href="/governance" className="text-primary underline">Governance</a> page for details.</li>
             </ul>
           </section>
 

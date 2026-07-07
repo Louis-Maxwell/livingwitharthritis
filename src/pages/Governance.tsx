@@ -441,11 +441,6 @@ Regulated by the Charity Commission for England and Wales.
               We welcome enquiries about how we operate. Contact our trustees directly or view our other compliance pages.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
-              <Link to="/finances">
-                <Button variant="outline" className="rounded-full px-6 h-10 text-sm font-medium">
-                  <BookOpen className="w-4 h-4 mr-2" /> View Our Finances
-                </Button>
-              </Link>
               <Link to="/trust">
                 <Button variant="outline" className="rounded-full px-6 h-10 text-sm font-medium">
                   <Shield className="w-4 h-4 mr-2" /> Trust & Credibility

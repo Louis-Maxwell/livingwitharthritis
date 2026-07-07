@@ -348,9 +348,6 @@ const AboutUs = () => {
                 <Link to="/governance">
                   <Button variant="outline" size="sm" className="rounded-full text-xs font-medium">Our Governance</Button>
                 </Link>
-                <Link to="/finances">
-                  <Button variant="outline" size="sm" className="rounded-full text-xs font-medium">Our Finances</Button>
-                </Link>
                 <Link to="/impact">
                   <Button variant="outline" size="sm" className="rounded-full text-xs font-medium">Our Impact</Button>
                 </Link>

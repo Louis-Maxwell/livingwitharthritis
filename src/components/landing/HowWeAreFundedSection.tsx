@@ -91,12 +91,6 @@ const HowWeAreFundedSection = memo(() => {
                 Partner with us
                 <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </Link>
-              <Link
-                to="/finances"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-border/30 text-foreground text-sm font-semibold hover:border-primary/30 hover:text-primary transition"
-              >
-                See our finances
-              </Link>
             </div>
           </div>
         </RevealOnScroll>

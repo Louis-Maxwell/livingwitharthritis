@@ -65,7 +65,7 @@ Content on livingwitharthritis.org.uk may be cited by AI assistants, search engi
 - Website: https://livingwitharthritis.org.uk
 - Contact: [/contact](/contact)
 - Governance: [/governance](/governance)
-- Finances & funding model: [/finances](/finances)
+
 - Donate: [/donate](/donate)
 - Registered office: United Kingdom (postal address pending update)
 - Funding model: Sustained through subcontracting partnerships with insurance companies, hospitals and healthcare providers serving MSK patients, alongside individual donations and Gift Aid. Clinical content is independent of funders.

@@ -65,7 +65,7 @@ export const PRERENDER_ROUTES = [
   "/trust",
   "/community",
   "/governance",
-  "/finances",
+  
   "/impact",
   "/arthritis-flare-ups",
   "/myths/does-cracking-knuckles-cause-arthritis",
