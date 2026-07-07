@@ -398,7 +398,7 @@ const Header = () => {
                     {/* Rich sub-menu dropdown */}
                     {link.subs && activeDropdown === link.label && (
                       <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-[90]" role="menu" aria-label={`${link.label} submenu`}>
-                        <div className="relative bg-background border border-border/30 rounded-xl shadow-2xl shadow-primary/8 p-1.5 min-w-[340px] animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-200">
+                        <div className="relative bg-background border border-border/30 rounded-xl shadow-2xl shadow-primary/8 p-1.5 min-w-[340px] max-h-[calc(100vh-8rem)] overflow-y-auto overscroll-contain animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-200">
                           {/* Top notch */}
                           <div className="absolute -top-[6px] left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 bg-background border-l border-t border-border/30" />
                           {link.subs.map((sub, idx) => {
