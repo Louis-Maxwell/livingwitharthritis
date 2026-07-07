@@ -115,7 +115,7 @@ Rules:
 - Allowed types: "guide", "exercise", "condition", "article", "video".
 - Do not mention the block in prose — the UI renders it as cards automatically.`;
 
-function buildProfileBlock(profile: z.infer<typeof UserProfile>): string {
+export function buildProfileBlock(profile: z.infer<typeof UserProfile>): string {
   if (!profile) return "";
   const parts: string[] = [];
   if (profile.arthritisType) parts.push(`- Arthritis type: ${profile.arthritisType}`);
