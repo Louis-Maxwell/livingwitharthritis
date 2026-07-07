@@ -101,7 +101,7 @@ jobs:
             sleep 1
           done
       - name: Run Playwright tests
-        run: bunx playwright test tests/visual/
+        run: bunx playwright test --config=tests/visual/playwright.config.ts
       - name: Upload Playwright report
         if: always()
         uses: actions/upload-artifact@v4
