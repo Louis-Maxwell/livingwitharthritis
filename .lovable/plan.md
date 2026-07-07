@@ -1,43 +1,52 @@
-## Import bundle 9 (v10 additions) into the project
+## What's broken today
 
-Lovable ↔ GitHub sync is automatic, so committing these into the project publishes them to `Louis-Maxwell/livingwitharthritis` within seconds — no separate GitHub step.
+In `src/components/landing/ContactSection.tsx`, the section wrapper uses `bg-accent`, which currently resolves to the brand red. That fights every child:
 
-### Files to add (net-new)
+- The white card backgrounds sit inside a red band and get visually clipped.
+- The circular icon badges use `bg-primary/10` (transparent red on red) so they disappear into the background above the card.
+- The heading "WE'RE HERE TO HELP" inherits a display-font transform that reads as broken block letters against the red.
+- The 4-card grid has no consistent minimum height, so cards jag at different sizes as content wraps.
 
-| File | Notes |
-|---|---|
-| `public/data/keywords-40000.json` | 6.8 MB static asset (39,928 keywords). Served on-demand, kept out of the JS bundle. |
-| `src/hooks/useKeywords40k.ts` | Lazy-load hook mirroring existing `useKeywords30k.ts`. |
-| `src/data/keywords-paid.generated.ts` | 50 Ad Grants (paid) keywords mapped to conversion pages. |
-| `src/data/article-scaffolds.generated.ts` | 25 topic stubs. Intentionally **not** routed — needs clinical review. |
-| `scripts/faq-schema-helper.mjs` | FAQPage JSON-LD helper that refuses placeholder text. |
-| `.github/workflows/codeql-scan.yml` | New free GitHub-native code vulnerability scan. |
-| `src/pages/KeywordStrategyV2.NEW.tsx` | Staging admin page (`.NEW.tsx`), deliberately **not** wired into the router. |
+Project memory rule: **white background everywhere, black text, red is only for buttons / icons / hover accents — never a section background.** The red band is the root cause.
 
-### Files to overwrite
+## Redesign direction
 
-- `.github/workflows/ci.yml` — bundle version renames the job to match the live `build-and-audit` required check, replaces the blind `sleep 3` with a readiness poll, and adds a 5-minute timeout (fixes the 20-min hang the bundle notes).
+Keep the same content and 4 channels (Call, Email, WhatsApp, Contact form), but reset the visual language to match the rest of the site:
 
-### Files intentionally skipped
+1. **Section band**
+   - White background, generous vertical padding (`py-24`).
+   - Thin top divider hairline for editorial rhythm.
+   - Eyebrow label "Get in touch" in small caps, black.
+   - H2 in the site's display font, black, sentence case: "We're here to help."
+   - Subhead in muted grey.
 
-- `public/data/keywords-30000.json`, `src/data/keywords.generated.*`, `src/hooks/useKeywords30k.ts`, pets/glossary/comparison/city generated data, `.NEW.tsx` pages other than `KeywordStrategyV2`, all v1–v9 docs — already present in the project (verified).
-- `public/_headers` — project's live version is larger/more complete than the bundle's; do not overwrite (same rule applied in earlier bundles).
-- `index.html` — do not blanket-overwrite; project version already has the AI-crawler and GA changes plus later edits (title, preconnects, JSON-LD hooks).
-- `scripts/inject-canonicals.mjs`, `scripts/ai-head-data.json`, `scripts/generate-keywords*.py`, `SECURITY.md`, `.github/dependabot.yml`, `.github/workflows/regenerate-lockfile.yml` — already imported in prior bundles; not re-copied unless newer content is detectable (none of these changed in v10).
+2. **Channel cards (4-up desktop, 2×2 tablet, stacked mobile)**
+   - White card, 1px black hairline border, no shadow at rest.
+   - On hover: border thickens to red, card lifts 2px, icon badge fills red.
+   - Icon badge: 56px circle, red outline at rest, red fill + white glyph on hover.
+   - Fixed card min-height so all four align.
+   - Label (Call us / Email us / WhatsApp / Contact form) in uppercase black micro-caps.
+   - Primary value line in bold black.
+   - Sub line in muted grey.
+   - Whole card is the click target with a visible focus ring.
 
-### Not done automatically (out of scope for this import)
+3. **Contact form card below**
+   - Stays white, same hairline border treatment as channel cards for consistency.
+   - Primary "Send message" button stays red (existing pattern).
+   - No other changes to fields, validation, or submit logic.
 
-Per the bundle's own README:
-- Renaming `KeywordStrategyV2.NEW.tsx` → real route and wiring it into `App.tsx` / admin nav.
-- Wiring `useKeywords40k` or the paid-keywords dataset into any dashboard.
-- Turning `article-scaffolds.generated.ts` stubs into real articles (needs clinical review).
-- Filling any remaining `TODO:` values in earlier `.NEW.tsx` pages.
+4. **Motion**
+   - Cards fade/slide up on scroll into view (single, subtle reveal — no per-icon micro-interactions).
+   - Respect `prefers-reduced-motion`.
 
-I'll flag these in the closing message so you can decide when to activate them.
+## Files touched
 
-### Verification after import
+- `src/components/landing/ContactSection.tsx` — replace the section wrapper background, restyle the 4 channel cards and heading block, add reveal animation. Form logic, validation, analytics, Supabase calls, and props stay identical.
 
-1. Typecheck passes (auto-run by the harness).
-2. Grep confirms `KeywordStrategyV2.NEW.tsx` is not imported anywhere.
-3. `.github/workflows/ci.yml` diff shows the job-name + timeout change only.
-4. GitHub sync surfaces the commit on `main` within seconds.
+No other files change. No new dependencies. No backend or data changes.
+
+## Out of scope
+
+- Contact form fields, subjects list, validation rules, submit handler.
+- The `/contact` page, WhatsApp URL, phone/email config.
+- Any other landing sections.
