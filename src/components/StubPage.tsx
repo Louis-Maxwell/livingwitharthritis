@@ -184,7 +184,7 @@ export default function StubPage({
                     <li key={l.href} className="flex list-none">
                       <Link
                         to={l.href}
-                        className="!flex flex-1 items-center justify-between gap-2 p-4 border border-border rounded-lg bg-card hover:border-primary hover:bg-accent/20 transition-colors group no-underline"
+                        className="flex flex-1 items-center justify-between gap-2 p-4 border border-border rounded-lg bg-card hover:border-primary hover:bg-accent/20 transition-colors group"
                       >
                         <span className="font-medium text-foreground">{l.label}</span>
                         <ArrowRight className="w-4 h-4 shrink-0 text-primary group-hover:translate-x-1 transition-transform" />
