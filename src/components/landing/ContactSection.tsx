@@ -144,7 +144,7 @@ const ContactSection = memo(() => {
   return (
     <section aria-labelledby="contact-heading" className="py-24 bg-white" id="contact">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="border-t border-black/10 pt-16" />
+        <div className="border-t border-border pt-16" />
         <div className="text-center max-w-2xl mx-auto mb-14">
           <span className="section-label text-foreground/60 block mb-4 text-[11px] font-bold uppercase tracking-[0.2em]">
             Get in touch
