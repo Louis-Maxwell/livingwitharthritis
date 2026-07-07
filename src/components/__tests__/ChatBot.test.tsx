@@ -60,7 +60,7 @@ describe("ChatBot", () => {
   it("sends message on quick suggestion click", () => {
     render(<ChatBot />);
     fireEvent.click(screen.getByText("What is rheumatoid arthritis?"));
-    expect(mockSendMessage).toHaveBeenCalledWith("What is rheumatoid arthritis?");
+    expect(mockSendMessage).toHaveBeenCalledWith("What is rheumatoid arthritis?", expect.any(Object));
   });
 
   it("has a text input placeholder", () => {
