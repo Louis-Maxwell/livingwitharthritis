@@ -188,8 +188,10 @@
     border-radius: 2px;
   }
 
-  /* Prose link underline-grow (scoped to body copy; skips CTA buttons) */
-  :where(p, li) a:not([class*="btn-"]):not(.no-underline) {
+  /* Prose link underline-grow (scoped to .prose body copy; skips CTA buttons
+     and card-like anchors that use flex/grid utilities). Applied only inside
+     `.prose` so it doesn't hijack anchors in card grids, nav lists, etc. */
+  .prose :where(p, li) a:not([class*="btn-"]):not(.no-underline):not([class*="flex"]):not([class*="grid"]):not([class*="block"]) {
     position: relative;
     display: inline;
     background-image: linear-gradient(hsl(var(--primary)), hsl(var(--primary)));
@@ -198,7 +200,7 @@
     background-position: 0 100%;
     transition: background-size 0.25s ease-out, color 0.2s ease-out;
   }
-  :where(p, li) a:not([class*="btn-"]):not(.no-underline):hover {
+  .prose :where(p, li) a:not([class*="btn-"]):not(.no-underline):not([class*="flex"]):not([class*="grid"]):not([class*="block"]):hover {
     background-size: 100% 1px;
   }
 
