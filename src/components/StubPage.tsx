@@ -181,7 +181,7 @@ export default function StubPage({
                 </h2>
                 <ul className="grid sm:grid-cols-2 gap-3 list-none p-0 m-0">
                   {relatedLinks.map((l) => (
-                    <li key={l.href} className="list-none">
+                    <li key={l.href} className="block list-none">
                       <Link
                         to={l.href}
                         className="flex w-full items-center justify-between gap-2 p-4 border border-border rounded-lg bg-card hover:border-primary hover:bg-accent/20 transition-colors group"
