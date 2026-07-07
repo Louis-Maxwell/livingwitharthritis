@@ -27,38 +27,20 @@ vi.mock("@/data/images", () => ({
   chatDoctor: "/test-image.jpg",
 }));
 
+// Passthrough framer-motion mock — same shape as the one used by
+// src/components/__tests__/ChatBot.test.tsx.
 vi.mock("framer-motion", () => ({
-  motion: new Proxy(
-    {},
-    {
-      get: () => (props: Record<string, unknown>) => {
-        const { children, ...rest } = props as { children?: unknown };
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        return (globalThis as any).React
-          ? // handled below
-            null
-          : null;
-        void rest;
-        void children;
-      },
-    },
-  ),
-  AnimatePresence: ({ children }: { children: unknown }) => <>{children as JSX.Element}</>,
-}));
-
-// Simpler framer-motion stub that renders each motion.X as a plain element.
-vi.doMock("framer-motion", () => {
-  const passthrough = (tag: keyof JSX.IntrinsicElements) =>
+  motion: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ({ children, ...rest }: any) => {
-      const Tag = tag as unknown as string;
-      return <Tag {...rest}>{children}</Tag>;
-    };
-  return {
-    motion: new Proxy({}, { get: (_t, prop: string) => passthrough(prop as keyof JSX.IntrinsicElements) }),
-    AnimatePresence: ({ children }: { children: React.ReactNode }) => <>{children}</>,
-  };
-});
+    div: ({ children, ...props }: any) => <div {...props}>{children}</div>,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    button: ({ children, ...props }: any) => <button {...props}>{children}</button>,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    span: ({ children, ...props }: any) => <span {...props}>{children}</span>,
+  },
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  AnimatePresence: ({ children }: any) => <>{children}</>,
+}));
 
 const AXE_OPTIONS: axe.RunOptions = {
   runOnly: {
