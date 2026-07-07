@@ -60,7 +60,7 @@ const ROUTES: Array<{ path: string; file: string }> = [
   { path: "/donation-result", file: "pages/DonationSuccess.tsx" },
   { path: "/unsubscribe", file: "pages/Unsubscribe.tsx" },
   { path: "/governance", file: "pages/Governance.tsx" },
-  { path: "/finances", file: "pages/Finances.tsx" },
+  
   { path: "/impact", file: "pages/ImpactStories.tsx" },
   { path: "/ways-to-help", file: "pages/WaysToHelp.tsx" },
   { path: "/terms", file: "pages/TermsConditions.tsx" },

@@ -43,7 +43,7 @@ const columns = [
       { label: "Clinical Sources", href: "/sources" },
       { label: "Editorial Standards", href: "/editorial-standards" },
       { label: "Governance", href: "/governance" },
-      { label: "Our Finances", href: "/finances" },
+      
       { label: "Our Impact", href: "/impact" },
       { label: "Community Hub", href: "/community" },
       { label: "Corporate Giving", href: "/corporate-giving" },

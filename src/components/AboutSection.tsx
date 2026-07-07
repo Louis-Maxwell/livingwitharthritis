@@ -33,9 +33,6 @@ const AboutSection = memo(() => {
               <Link to="/about" className="feature-pill text-muted-foreground hover:text-primary hover:border-primary/20">
                 Our Story
               </Link>
-              <Link to="/finances" className="feature-pill text-muted-foreground hover:text-primary hover:border-primary/20">
-                Our Finances
-              </Link>
               <Link to="/governance" className="feature-pill text-muted-foreground hover:text-primary hover:border-primary/20">
                 Governance
               </Link>
