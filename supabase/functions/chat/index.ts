@@ -49,7 +49,7 @@ const sanitizeAgainst = (allow: Set<string>) => (v: string | undefined) => {
   return allow.has(cleaned) ? cleaned : undefined;
 };
 
-const UserProfile = z
+export const UserProfile = z
   .object({
     arthritisType: z.string().max(80).optional().transform(sanitizeAgainst(ARTHRITIS_TYPES)),
     ageRange: z.string().max(40).optional().transform(sanitizeAgainst(AGE_RANGES)),
@@ -65,7 +65,7 @@ const UserProfile = z
   .partial()
   .optional();
 
-const ChatRequest = z.object({
+export const ChatRequest = z.object({
   messages: z.array(ChatMessage).min(1).max(MAX_MESSAGES),
   userProfile: UserProfile,
 });
@@ -115,7 +115,7 @@ Rules:
 - Allowed types: "guide", "exercise", "condition", "article", "video".
 - Do not mention the block in prose — the UI renders it as cards automatically.`;
 
-function buildProfileBlock(profile: z.infer<typeof UserProfile>): string {
+export function buildProfileBlock(profile: z.infer<typeof UserProfile>): string {
   if (!profile) return "";
   const parts: string[] = [];
   if (profile.arthritisType) parts.push(`- Arthritis type: ${profile.arthritisType}`);

@@ -144,7 +144,7 @@ const ContactSection = memo(() => {
   return (
     <section aria-labelledby="contact-heading" className="py-24 bg-white" id="contact">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="border-t border-black/10 pt-16" />
+        <div className="border-t border-border pt-16" />
         <div className="text-center max-w-2xl mx-auto mb-14">
           <span className="section-label text-foreground/60 block mb-4 text-[11px] font-bold uppercase tracking-[0.2em]">
             Get in touch
@@ -162,7 +162,7 @@ const ContactSection = memo(() => {
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mb-16 motion-safe:animate-fade-in-up">
           {channels.map(({ Icon, label, value, sub, href, internal, external }) => {
             const cardClass =
-              "group flex flex-col items-center text-center gap-3 p-7 rounded-2xl bg-white border border-black/15 hover:border-primary hover:-translate-y-0.5 transition-all duration-300 h-full min-h-[220px] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary";
+              "group flex flex-col items-center text-center gap-3 p-7 rounded-2xl bg-white border border-border hover:border-primary hover:-translate-y-0.5 transition-all duration-300 h-full min-h-[220px] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary";
             const inner = (
               <>
                 <span
@@ -198,7 +198,7 @@ const ContactSection = memo(() => {
           })}
         </ul>
 
-        <div className="max-w-3xl mx-auto bg-white rounded-2xl border border-black/15 p-6 sm:p-10">
+        <div className="max-w-3xl mx-auto bg-white rounded-2xl border border-border p-6 sm:p-10" data-testid="contact-form-card">
           {submitted ? (
             <div className="text-center py-12" role="alert">
               <div className="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mx-auto mb-4">
