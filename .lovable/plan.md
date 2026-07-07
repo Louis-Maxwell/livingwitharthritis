@@ -1,46 +1,33 @@
-## Full-site visual audit & fix
+## Goal
+Add a Playwright test that opens the desktop **Managing Arthritis** header dropdown and verifies (a) the scroll container is scrollable when the viewport can't fit all 13 items, and (b) every item is reachable by scrolling.
 
-Realistic scope: this site has ~60 routes. A single-pass "fix everything" would take many hours of blind edits and probably regress things that already work. Instead I'll run a structured audit in phases so we always know what's being touched and why.
+## Where the behaviour lives
+- `src/components/Header.tsx` lines 132–150 — the "Managing Arthritis" nav link with 13 sub-items.
+- Lines 399–435 — the dropdown container uses `max-h-[calc(100vh-8rem)] overflow-y-auto` with `role="menu"` / `aria-label="Managing Arthritis submenu"` and each item has `role="menuitem"`.
 
-### Phase 1 — Audit (read-only, no code changes)
+## Test plan
 
-Drive Playwright against the running preview at three viewports (375 / 768 / 1440) and capture screenshots of the top routes:
+New file: `tests/visual/managing-arthritis-dropdown.spec.ts`
 
-- `/` (landing)
-- `/conditions/arthritis`, `/conditions/osteoarthritis`, `/conditions/rheumatoid-arthritis`, `/conditions/psoriatic-arthritis`, `/conditions/gout`, `/conditions/ankylosing-spondylitis`, `/conditions/juvenile-arthritis`, `/conditions/fibromyalgia`, `/conditions/lupus`
-- `/living-with-arthritis`, `/exercises`, `/diet`, `/arthritis-mental-health`, `/self-help`, `/symptom-checker`
-- `/guides/newly-diagnosed`, `/guides/arthritis-pain-relief`, `/guides/work-with-arthritis`, `/guides/travel-with-arthritis`, `/guides/insurance-coverage`
-- `/community`, `/helpline`, `/events`, `/stories`, `/buddy`, `/blog`, `/glossary`, `/pets`
-- `/ways-to-help`, `/donate`, `/volunteer`, `/advocacy`, `/corporate-partnerships`, `/zakat-appeal`
-- `/research`, `/research/clinical-trials`, `/research/grants`, `/trust`, `/sources`, `/shop`, `/contact`
+1. **Short viewport that forces overflow.** Set viewport to `1280 × 600` (desktop width so the mobile drawer doesn't take over, short height so `max-h-[calc(100vh-8rem)]` = ~416px can't fit 13 rows).
+2. **Open the dropdown.** Navigate to `/`, then click the top-nav button `Managing Arthritis` (`page.getByRole("button", { name: "Managing Arthritis" })`).
+3. **Locate scroll container.** `page.getByRole("menu", { name: /Managing Arthritis submenu/i }).locator("> div")` — this is the element with `overflow-y-auto`.
+4. **Assert scrollability.** Read `scrollHeight` and `clientHeight` via `evaluate` and assert `scrollHeight > clientHeight` (proves the scrollbar is warranted).
+5. **Assert all 13 items exist.** `expect(menu.getByRole("menuitem")).toHaveCount(13)`.
+6. **Assert last item reachable by scrolling.**
+   - Locate the last item (`Treatment Access & Costs`).
+   - Confirm it is *not* fully in view initially: compare its `boundingBox().y + height` against the container's bottom.
+   - Call `lastItem.scrollIntoViewIfNeeded()` on the item within the scroll container.
+   - Re-read positions and assert the item's bottom is now within the container's visible area.
+7. **Assert first item still reachable by scrolling back.** Scroll container back to `scrollTop = 0` and confirm the first item (`Newly Diagnosed`) is fully visible again.
 
-For each screenshot I catalogue:
+## CI hookup
+No workflow change needed — `.github/workflows/tests.yml` already runs `bunx playwright test tests/visual/` on every PR, so the new spec is picked up automatically.
 
-- Layout breakage — clipping, overflow, staggered/overlapping cards (the stub-page issue in the screenshot lands here)
-- Spacing rhythm — sections that break the `py-24 / py-32` project standard
-- Typography — off-brand fonts, unreadable sizes, broken hierarchy (h1→h3 skips)
-- Colour tokens — hard-coded colours that skip the black/red/white system
-- Mobile-only regressions — tap targets, horizontal scroll, off-screen content
-- Empty/broken states (blank sections, missing images, dead links to `#`)
+## Out of scope
+- Mobile menu variant (separate drawer component, different DOM).
+- Visual/screenshot regression for the dropdown (can be added later if desired).
+- Keyboard-only scroll flow (arrow-key traversal) — the current dropdown uses `role="menu"` but doesn't implement roving tabindex, so keyboard scroll semantics would be a component change, not a test.
 
-Deliverable: a single "findings" report grouped by page, severity-tagged (P0 broken / P1 ugly / P2 polish), attached as `/mnt/documents/visual-audit.md` with linked screenshots. No code touched in this phase.
-
-### Phase 2 — Fix P0 (broken layouts)
-
-Only things that are visibly broken — clipping, overlap, unreadable, off-screen. Fixed in small commits per page/component. First target is the stub-page `Related guides` grid from the screenshot.
-
-### Phase 3 — Fix P1 (visual inconsistency)
-
-Spacing/typography/token drift. Bring stragglers in line with the project's existing landing-section language (referenced in project memory: white bg, black text, red accents, `py-24/32` rhythm, no purple gradients).
-
-### Phase 4 — Fix P2 (polish)
-
-Micro-details: hover states, focus rings, subtle motion consistency.
-
-### What I need from you before starting
-
-1. Confirm this phased approach — or tell me to just skip to Phase 2 and start fixing without a written audit first.
-2. Any route above I should skip (e.g. WIP pages)?
-3. Any route missing from the list that you know is broken?
-
-Once you approve I'll start Phase 1. Each phase ends with a checkpoint so you can steer the next one.
+## Deliverable
+One new file: `tests/visual/managing-arthritis-dropdown.spec.ts`. No production code changes.
