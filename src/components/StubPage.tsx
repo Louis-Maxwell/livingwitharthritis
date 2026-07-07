@@ -179,15 +179,15 @@ export default function StubPage({
                 <h2 className="font-display text-xl font-bold text-foreground mb-4">
                   Related guides
                 </h2>
-                <ul className="grid sm:grid-cols-2 gap-3">
+                <ul className="grid sm:grid-cols-2 gap-3 list-none p-0 m-0">
                   {relatedLinks.map((l) => (
-                    <li key={l.href}>
+                    <li key={l.href} className="list-none">
                       <Link
                         to={l.href}
-                        className="flex items-center justify-between gap-2 p-4 border border-border rounded-lg bg-card hover:border-primary hover:bg-accent/20 transition-colors group"
+                        className="flex w-full items-center justify-between gap-2 p-4 border border-border rounded-lg bg-card hover:border-primary hover:bg-accent/20 transition-colors group"
                       >
                         <span className="font-medium text-foreground">{l.label}</span>
-                        <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="w-4 h-4 shrink-0 text-primary group-hover:translate-x-1 transition-transform" />
                       </Link>
                     </li>
                   ))}
