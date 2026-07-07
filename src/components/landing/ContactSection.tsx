@@ -198,7 +198,7 @@ const ContactSection = memo(() => {
           })}
         </ul>
 
-        <div className="max-w-3xl mx-auto bg-white rounded-2xl border border-black/15 p-6 sm:p-10">
+        <div className="max-w-3xl mx-auto bg-white rounded-2xl border border-border p-6 sm:p-10" data-testid="contact-form-card">
           {submitted ? (
             <div className="text-center py-12" role="alert">
               <div className="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mx-auto mb-4">
