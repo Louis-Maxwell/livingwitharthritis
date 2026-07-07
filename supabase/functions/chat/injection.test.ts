@@ -120,10 +120,10 @@ Deno.test("UserProfile rejects oversized strings before allowlist check", () => 
   assertFalse(parsed.success);
 });
 
-Deno.test("UserProfile treats non-string joint items as filtered", () => {
-  const out = block({ affectedJoints: ["knee", 42 as unknown as string, null as unknown as string, "hip"] });
-  assertStringIncludes(out, "knee");
-  assertStringIncludes(out, "hip");
-  assertFalse(out.includes("42"));
-  assertFalse(out.includes("null"));
+Deno.test("UserProfile rejects non-string joint items outright", () => {
+  const parsed = UserProfile.safeParse({
+    affectedJoints: ["knee", 42, null, "hip"],
+  });
+  // Non-string entries fail Zod's z.string() — request 400s at the edge.
+  assertFalse(parsed.success);
 });
