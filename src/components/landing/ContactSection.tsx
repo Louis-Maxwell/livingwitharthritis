@@ -162,7 +162,7 @@ const ContactSection = memo(() => {
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mb-16 motion-safe:animate-fade-in-up">
           {channels.map(({ Icon, label, value, sub, href, internal, external }) => {
             const cardClass =
-              "group flex flex-col items-center text-center gap-3 p-7 rounded-2xl bg-white border border-black/15 hover:border-primary hover:-translate-y-0.5 transition-all duration-300 h-full min-h-[220px] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary";
+              "group flex flex-col items-center text-center gap-3 p-7 rounded-2xl bg-white border border-border hover:border-primary hover:-translate-y-0.5 transition-all duration-300 h-full min-h-[220px] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary";
             const inner = (
               <>
                 <span
