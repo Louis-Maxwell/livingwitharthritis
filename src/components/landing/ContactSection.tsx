@@ -142,39 +142,42 @@ const ContactSection = memo(() => {
   const inputErr = `${inputBase} border-destructive/50 focus:ring-destructive focus:border-destructive bg-destructive/5`;
 
   return (
-    <section aria-labelledby="contact-heading" className="py-20 bg-accent" id="contact">
+    <section aria-labelledby="contact-heading" className="py-24 bg-white" id="contact">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="section-label text-primary/60 block mb-4">Get In Touch</span>
-          <h2 id="contact-heading" className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
-            We’re Here to Help
+        <div className="border-t border-black/10 pt-16" />
+        <div className="text-center max-w-2xl mx-auto mb-14">
+          <span className="section-label text-foreground/60 block mb-4 text-[11px] font-bold uppercase tracking-[0.2em]">
+            Get in touch
+          </span>
+          <h2 id="contact-heading" className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
+            We're here to help.
           </h2>
-          <p className="mt-4 text-muted-foreground">
+          <p className="mt-5 text-muted-foreground text-base sm:text-lg leading-relaxed">
             A real person — not a chatbot — replies within 2 working days.
             Available Monday to Friday, 9am – 5pm.
           </p>
         </div>
 
         {/* 4-across on desktop, 2x2 on tablet, single column on mobile */}
-        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mb-14">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mb-16 motion-safe:animate-fade-in-up">
           {channels.map(({ Icon, label, value, sub, href, internal, external }) => {
             const cardClass =
-              "group flex flex-col items-center text-center gap-3 p-6 rounded-2xl bg-white border border-border shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary";
+              "group flex flex-col items-center text-center gap-3 p-7 rounded-2xl bg-white border border-black/15 hover:border-primary hover:-translate-y-0.5 transition-all duration-300 h-full min-h-[220px] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary";
             const inner = (
               <>
                 <span
-                  className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300"
+                  className="w-14 h-14 rounded-full border border-primary/40 bg-white flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-300"
                   aria-hidden
                 >
-                  <Icon className="w-7 h-7 text-primary group-hover:text-white transition-colors" />
+                  <Icon className="w-6 h-6 text-primary group-hover:text-white transition-colors" />
                 </span>
-                <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-muted-foreground">
+                <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-foreground/70">
                   {label}
                 </span>
-                <span className="font-bold text-sm md:text-base text-foreground break-words leading-snug">
+                <span className="font-bold text-base text-foreground break-words leading-snug">
                   {value}
                 </span>
-                <span className="text-xs text-muted-foreground">{sub}</span>
+                <span className="text-xs text-muted-foreground leading-relaxed">{sub}</span>
               </>
             );
             return (
@@ -195,7 +198,7 @@ const ContactSection = memo(() => {
           })}
         </ul>
 
-        <div className="max-w-3xl mx-auto bg-card rounded-2xl border border-border shadow-sm p-6 sm:p-8">
+        <div className="max-w-3xl mx-auto bg-white rounded-2xl border border-black/15 p-6 sm:p-10">
           {submitted ? (
             <div className="text-center py-12" role="alert">
               <div className="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mx-auto mb-4">
