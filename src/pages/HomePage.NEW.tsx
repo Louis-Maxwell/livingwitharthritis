@@ -3,6 +3,8 @@ import { Helmet } from "react-helmet-async";
 import { ChevronRight, Mail, MapPin, Heart, BookOpen, MessageCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import NewsletterSignup from "@/components/NewsletterSignup";
+import { CHARITY } from "@/config/charity";
 
 /**
  * HOMEPAGE REDESIGN — 25-Image Version
@@ -14,8 +16,7 @@ import { Input } from "@/components/ui/input";
  */
 
 export default function HomePage() {
-  const [email, setEmail] = useState("");
-  const [emailError, setEmailError] = useState("");
+  
   const [activeCondition, setActiveCondition] = useState(0);
   const [activeStory, setActiveStory] = useState(0);
 
@@ -152,18 +153,8 @@ export default function HomePage() {
     },
   ];
 
-  const handleEmailSignup = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email.includes("@")) {
-      setEmailError("Please enter a valid email");
-      return;
-    }
-    // TODO: wire to email service (Resend + Supabase)
-    console.log("Signup:", email);
-    setEmail("");
-    setEmailError("");
-    // Show success message
-  };
+  // Newsletter signup is delegated to <NewsletterSignup /> below, which
+  // writes to `newsletter_subscriptions` and triggers the confirmation email.
 
   return (
     <>
@@ -171,7 +162,7 @@ export default function HomePage() {
         <title>Living With Arthritis UK — Free Physio, Exercises & Diet</title>
         <meta
           name="description"
-          content="Clinically-reviewed guides, exercises, and support for arthritis. Free for everyone. Registered charity 1218461."
+          content={`Clinically-reviewed guides, exercises, and support for arthritis. Free for everyone. Registered charity ${CHARITY.number}.`}
         />
       </Helmet>
 
@@ -199,27 +190,10 @@ export default function HomePage() {
                 arthritis pain.
               </p>
 
-              {/* Email Signup Form */}
-              <form onSubmit={handleEmailSignup} className="mb-8 max-w-sm">
-                <label className="block text-sm font-semibold mb-2">Get Daily Tips & Support</label>
-                <div className="flex gap-2">
-                  <Input
-                    type="email"
-                    placeholder="Your email"
-                    value={email}
-                    onChange={(e) => {
-                      setEmail(e.target.value);
-                      setEmailError("");
-                    }}
-                    className="flex-1 bg-white text-black"
-                  />
-                  <Button className="bg-white text-red-600 hover:bg-red-50">
-                    <Mail className="w-4 h-4" />
-                  </Button>
-                </div>
-                {emailError && <p className="text-sm text-red-200 mt-1">{emailError}</p>}
-                <p className="text-xs text-red-100 mt-2">Free 7-day arthritis email course included</p>
-              </form>
+              {/* Email Signup — real subscription flow */}
+              <div className="mb-8 max-w-sm">
+                <NewsletterSignup variant="compact" source="homepage-hero" />
+              </div>
 
               {/* Two Main CTAs */}
               <div className="flex gap-3">
@@ -256,7 +230,7 @@ export default function HomePage() {
             {[
               { icon: "📊", stat: "500K+", label: "Monthly Visits", img: "👥" },
               { icon: "📖", stat: "229", label: "Evidence-Based Guides", img: "📚" },
-              { icon: "🏛️", stat: "1218461", label: "Charity Registration", img: "✓" },
+              { icon: "🏛️", stat: CHARITY.number, label: "Charity Registration", img: "✓" },
               { icon: "💪", stat: "2M+", label: "People Affected in UK", img: "🇬🇧" },
             ].map((item, i) => (
               <div key={i} className="text-center p-6 bg-gray-50 rounded-lg border">
@@ -370,7 +344,7 @@ export default function HomePage() {
           <div className="flex flex-wrap justify-center gap-8 items-center">
             <div className="text-center">
               <div className="text-4xl mb-2">✓</div>
-              <p className="font-semibold">Registered Charity<br />1218461</p>
+              <p className="font-semibold">Registered Charity<br />{CHARITY.number}</p>
             </div>
             <div className="text-center">
               <div className="text-4xl mb-2">👨‍⚕️</div>
@@ -508,7 +482,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="border-t border-gray-700 pt-8 text-center text-sm">
-            <p className="mb-2">Living With Arthritis UK — Registered Charity 1218461</p>
+            <p className="mb-2">Living With Arthritis UK — Registered Charity {CHARITY.number}</p>
             <p className="text-gray-400">© 2024–2026. All rights reserved. Free for everyone.</p>
           </div>
         </div>

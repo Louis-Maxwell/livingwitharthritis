@@ -1,46 +1,47 @@
-## Goal
-Make `src/config/charity.ts` the true single source of truth for charity facts (URL, contact, founding, regulator links, fundraising code), and remove hardcoded duplicates from pages/schema that already talk about the charity.
+## Scope
 
-## 1. Extend `src/config/charity.ts`
+Three `.NEW.tsx` files remain (TrustCredibility.NEW was cleaned in the prior turn):
 
-Add these fields to `CHARITY` (keep existing ones unchanged):
+| File | Placeholders? | Recommended action |
+|---|---|---|
+| `src/pages/PrivacyPolicy.NEW.tsx` | Yes — `TODO: ZAxxxxxxx` ICO number, fabricated Oswestry postal address, hardcoded `1218461`, hardcoded email/phone | **Clean up + wire to config** |
+| `src/pages/HomePage.NEW.tsx` | Yes — 1 `TODO` (email signup wiring); plus non-placeholder issues (hardcoded `red-600`/`bg-white`, Unsplash testimonial images, non-existent `/hero/*.jpg` and `/og/*.png` paths, hardcoded `1218461`, no `Header`/`Footer`) | **Minimal placeholder pass only** (see below). A full redesign is out of scope. |
+| `src/pages/KeywordStrategyV2.NEW.tsx` | No TODOs, no placeholder strings — reads real data via `useKeywords40k` + `keywords-paid.generated` | **No change** |
 
-- `siteUrl: 'https://livingwitharthritis.org.uk'` — canonical base URL used across `<link rel="canonical">`, og:url and JSON-LD.
-- `websiteDomain: 'livingwitharthritis.org.uk'` — bare host for prose ("Website: livingwitharthritis.org.uk").
-- `contactEmail: 'info@livingwitharthritis.org.uk'` — mirrors `CONTACT_EMAILS.info`, imported where only the primary charity email is needed.
-- `foundedYear: 2020` — derived from `registrationDate` for prose ("founded in 2020").
-- `fundraisingCodeUrl: 'https://www.fundraisingregulator.org.uk/code'` — for the Code of Fundraising Practice link on Trust/Donate.
-- `charityCommissionUrl: 'https://www.gov.uk/find-charity-information'` — public lookup link (distinct from `regulatorUrl` which points at the regulator body).
+None of these files are routed (`rg` for imports of `*.NEW` returns nothing), so edits are safe drop-in candidates.
 
-Also export a small helper:
-- `charityRegisterLinkText()` → e.g. `Registered Charity in England & Wales No. 1218461` (already exists as `charityRegLine`; alias/keep).
+## 1. `PrivacyPolicy.NEW.tsx`
 
-No breaking changes to existing exports.
+Bring the copy in line with `src/config/charity.ts`, `src/config/contact.ts`, and the project memory rule *"no placeholder registration numbers"*:
 
-## 2. Wire fields into pages
+- Import `CHARITY` and `hasCharityAddress` from `@/config/charity`, plus `CONTACT_EMAILS`, `CONTACT_PHONE` from `@/config/contact`.
+- **Section 1 — Data controller.** Replace the hardcoded charity number and the Oswestry address with `CHARITY.legalName`, `CHARITY.number`, `CHARITY.jurisdiction`, `CHARITY.siteUrl`. Wrap the postal-address sentence in `hasCharityAddress() && …` so the address block is hidden until a verified one is added (matches the same pattern used in `CharityRegBadge`).
+- **ICO paragraph.** Delete the whole "We are registered with the Information Commissioner's Office … `TODO: ZAxxxxxxx`" sentence rather than publish a placeholder registration number. Keep the surrounding UK GDPR / DPA 2018 sentence.
+- **Meta + title.** Use `CHARITY.shortName`, `CHARITY.number`, `CHARITY.siteUrl` in `<title>`, description, og:*, and `<link rel="canonical">`.
+- **Section 12 — Contact.** Same treatment: `CHARITY.legalName` + `CHARITY.number`, hide the postal line via `hasCharityAddress()`, use `CONTACT_EMAILS.info` and `CONTACT_PHONE`.
+- Update the header comment to note that the ICO reference will be added once the data protection fee is registered — no placeholder retained.
 
-Replace hardcoded strings with imports from `@/config/charity`. Scope limited to files that already reference the charity or its URL/email/type.
+## 2. `HomePage.NEW.tsx`
 
-- **`src/lib/jsonLd.ts`** — replace local `SITE_URL` constant with `CHARITY.siteUrl`.
-- **`src/pages/TrustCredibility.NEW.tsx`** — swap the local `BASE` for `CHARITY.siteUrl`; use `CHARITY.fundraisingCodeUrl` for the Code of Fundraising Practice link.
-- **`src/pages/TrustCredibility.tsx`** (live page) — use `CHARITY.siteUrl` in JSON-LD/meta where currently hardcoded.
-- **`src/pages/Governance.tsx`** — replace hardcoded `"Charitable Incorporated Organisation (CIO)"` / regulator strings and canonical URL with `CHARITY.type`, `CHARITY.regulator`, `CHARITY.siteUrl`.
-- **`src/pages/TermsConditions.tsx`** — replace `livingwitharthritis.org.uk` prose and canonical/og URLs with `CHARITY.websiteDomain` / `CHARITY.siteUrl`; use `CHARITY.legalName` in body copy.
-- **`src/pages/Donate.tsx`** — canonical/og:url from `CHARITY.siteUrl`; site name from `CHARITY.shortName`.
-- **`src/pages/AboutUs.tsx`** — site name/legal name via `CHARITY` in meta; founded year via `CHARITY.foundedYear` if the copy references a year.
-- **`src/pages/PrivacyPolicy.tsx`**, **`src/pages/Complaints.tsx`**, **`src/pages/Safeguarding.tsx`** — canonical and og:url from `CHARITY.siteUrl`; regulator name/link on Complaints from `CHARITY.regulator` / `CHARITY.regulatorUrl`.
+This file is a design draft, not a drop-in replacement (no `Header`/`Footer`, hardcoded `red-600`/`bg-white`/`bg-gray-50` violating the token/dark-mode rule, non-existent asset paths, Unsplash testimonial images, exposes charity number `1218461` as a stat block). Turning it into the live homepage is a redesign, not a placeholder pass. I'll limit this turn to the two placeholder-class fixes and leave the rest as-is:
 
-Not touched: edge functions (`supabase/functions/**`) — they can't import from `src/`. Left as-is per existing comment in `contact.ts`. If mirroring is wanted later, that's a separate change.
+- Import `CHARITY` from `@/config/charity`. Replace the hardcoded `1218461` in the `<meta name="description">` and in the "Impact So Far" stat card with `CHARITY.number`.
+- Replace the `// TODO: wire to email service` block with a call to the existing newsletter subscription pattern used by `NewsletterSignup` (which posts to the `confirm-newsletter` edge function). Simplest: swap the inline form for `<NewsletterSignup variant="inline" source="homepage-hero" />` so it inherits the real flow, error handling and CHARITY-consistent styling.
 
-## 3. Verification
+Not doing in this file (would need a separate design pass): color-token remediation, adding `Header`/`Footer`, replacing Unsplash testimonial faces with `src/data/facesOfArthritis.ts` entries, fixing the missing `/hero/*.jpg` / `/og/*.png` image paths, and adding `<Helmet>` fields for canonical / og:*.
 
-- `rg -n "https://livingwitharthritis\.org\.uk" src/pages src/lib` after the edits — should be near-empty (only allowed places: `charity.ts`, image asset URLs).
-- `rg -n "Charitable Incorporated Organisation" src/pages` — should return no hits outside constitutional text quoted in `Governance.tsx` (that stays verbatim).
-- Type-check / build passes.
-- Spot-check `/trust`, `/governance`, `/donate`, `/terms` in preview after implementation.
+## 3. `KeywordStrategyV2.NEW.tsx`
+
+No placeholder content — it reads live data via `useKeywords40k` and `PAID_KEYWORDS`. No changes.
+
+## Verification
+
+- `rg -n "TODO|1218461|ZAxxxxxxx|Oswestry" src/pages/*.NEW.tsx` → only the header-comment mention should remain.
+- Type-check passes (`bunx tsgo --noEmit`).
+- Files remain unrouted; live `/privacy` and `/` are untouched.
 
 ## Out of scope
 
-- No changes to routes, copy meaning, or design.
-- No touching auto-generated files or edge functions.
-- No new placeholder facts (trustees, HCPC numbers, Gift Aid, Companies House) — memory rule respected.
+- Redesigning `HomePage.NEW.tsx` to match the project design system.
+- Legal review of the privacy copy (memory rule already flags this).
+- Any generated data files (keywords JSON, article scaffolds) — unrelated to placeholders in `.NEW` pages.
