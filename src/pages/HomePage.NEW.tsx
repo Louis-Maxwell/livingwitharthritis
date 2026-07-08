@@ -154,18 +154,8 @@ export default function HomePage() {
     },
   ];
 
-  const handleEmailSignup = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email.includes("@")) {
-      setEmailError("Please enter a valid email");
-      return;
-    }
-    // TODO: wire to email service (Resend + Supabase)
-    console.log("Signup:", email);
-    setEmail("");
-    setEmailError("");
-    // Show success message
-  };
+  // Newsletter signup is delegated to <NewsletterSignup /> below, which
+  // writes to `newsletter_subscriptions` and triggers the confirmation email.
 
   return (
     <>
