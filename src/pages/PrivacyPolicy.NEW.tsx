@@ -6,7 +6,13 @@ import { Shield } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { CONTACT_EMAILS } from "@/config/contact";
 import { CONTACT_PHONE } from "@/config/contact";
-import { CHARITY, hasCharityAddress } from "@/config/charity";
+import {
+  getCharity,
+  hasCharityAddress,
+  canonicalUrl,
+  pageTitle,
+  registeredCharityPhrase,
+} from "@/config/charity";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
