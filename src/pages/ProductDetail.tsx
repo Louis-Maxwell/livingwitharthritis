@@ -75,19 +75,19 @@ const ProductDetail = () => {
     mobility: "Mobility Aids",
   }[product.category];
 
+  const seoTitle = enforceTitle(product.title, {
+    route: `/product/${product.id}`,
+  });
+  const seoDescription = enforceDescription(
+    product.description,
+    `/product/${product.id}`,
+  );
+
   return (
     <>
-      {(() => {
-        const seoTitle = enforceTitle(product.title, {
-          route: `/product/${product.id}`,
-        });
-        const seoDescription = enforceDescription(
-          product.description,
-          `/product/${product.id}`,
-        );
-        return (
       <Helmet>
         <title>{seoTitle}</title>
+
         <meta name="description" content={seoDescription} />
         <link rel="canonical" href={`https://livingwitharthritis.org.uk/product/${product.id}`} />
         <meta property="og:title" content={seoTitle} />
