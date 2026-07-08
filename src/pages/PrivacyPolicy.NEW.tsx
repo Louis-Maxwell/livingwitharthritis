@@ -212,7 +212,7 @@ const PrivacyPolicy = () => {
               <h2 className="text-xl font-bold text-foreground mt-8 mb-3">12. Changes, contact and complaints</h2>
               <p>We may update this policy; material changes will be highlighted on this page with a new "last updated" date.</p>
               <p className="mt-2">
-                <strong>{CHARITY.legalName}</strong> (registered charity {CHARITY.number})
+                <strong>{legalName}</strong> ({registeredCharityPhrase()})
                 {showAddress && (
                   <>
                     <br />
