@@ -191,27 +191,10 @@ export default function HomePage() {
                 arthritis pain.
               </p>
 
-              {/* Email Signup Form */}
-              <form onSubmit={handleEmailSignup} className="mb-8 max-w-sm">
-                <label className="block text-sm font-semibold mb-2">Get Daily Tips & Support</label>
-                <div className="flex gap-2">
-                  <Input
-                    type="email"
-                    placeholder="Your email"
-                    value={email}
-                    onChange={(e) => {
-                      setEmail(e.target.value);
-                      setEmailError("");
-                    }}
-                    className="flex-1 bg-white text-black"
-                  />
-                  <Button className="bg-white text-red-600 hover:bg-red-50">
-                    <Mail className="w-4 h-4" />
-                  </Button>
-                </div>
-                {emailError && <p className="text-sm text-red-200 mt-1">{emailError}</p>}
-                <p className="text-xs text-red-100 mt-2">Free 7-day arthritis email course included</p>
-              </form>
+              {/* Email Signup — real subscription flow */}
+              <div className="mb-8 max-w-sm">
+                <NewsletterSignup variant="compact" source="homepage-hero" />
+              </div>
 
               {/* Two Main CTAs */}
               <div className="flex gap-3">
