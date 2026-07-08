@@ -16,9 +16,11 @@ import { getCharity, pageTitle, charityFooterLine } from "@/config/charity";
  */
 
 export default function HomePage() {
-  
+  const { number } = getCharity();
+
   const [activeCondition, setActiveCondition] = useState(0);
   const [activeStory, setActiveStory] = useState(0);
+
 
   const conditions = [
     {
