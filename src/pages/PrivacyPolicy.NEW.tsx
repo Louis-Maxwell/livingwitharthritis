@@ -86,11 +86,12 @@ const PrivacyPolicy = () => {
             <section>
               <h2 className="text-xl font-bold text-foreground mt-8 mb-3">1. Who we are (data controller)</h2>
               <p>
-                {CHARITY.legalName} ("we", "us", "our") is a{" "}
-                {CHARITY.type} registered in {CHARITY.jurisdiction},{" "}
-                {CHARITY.regulator} number <strong>{CHARITY.number}</strong>. We are the{" "}
+                {legalName} ("we", "us", "our") is a{" "}
+                {type} registered in {jurisdiction},{" "}
+                {regulator} number <strong>{number}</strong>. We are the{" "}
                 <strong>data controller</strong> for personal data collected through{" "}
-                {CHARITY.websiteDomain}.
+                {websiteDomain}.
+
               </p>
               {showAddress && (
                 <p>
