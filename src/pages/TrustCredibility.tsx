@@ -14,6 +14,7 @@ import {
 import { Link } from "react-router-dom";
 import CharityRegBadge from "@/components/CharityRegBadge";
 import { buildCharitySchema, injectJsonLd } from "@/lib/jsonLd";
+import { CHARITY } from "@/config/charity";
 
 const trustees = [
   { name: "Dr Amina Patel", role: "Chair of Trustees", credentials: "MBBS, FRCP — Consultant Rheumatologist, Public Health" },
@@ -54,8 +55,8 @@ const TrustCredibility = () => {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "NGO",
-    name: "Living With Arthritis",
-    url: "https://livingwitharthritis.org.uk",
+    name: CHARITY.legalName,
+    url: CHARITY.siteUrl,
     description: "UK registered charity providing free physiotherapy resources, anti-inflammatory diet plans, and community support for people living with arthritis.",
     areaServed: { "@type": "Country", name: "United Kingdom" },
     knowsAbout: ["Arthritis", "Physiotherapy", "Anti-inflammatory diet", "Osteoarthritis", "Rheumatoid arthritis"],
@@ -64,23 +65,23 @@ const TrustCredibility = () => {
   return (
     <>
       <Helmet>
-        <title>Trust & Credibility | Living With Arthritis UK Charity</title>
+        <title>Trust & Credibility | {CHARITY.shortName} Charity</title>
         <meta name="description" content="Our charity registration, medical advisors, evidence sources, partner organisations and governance. Trusted by the UK arthritis community." />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/trust" />
+        <link rel="canonical" href={`${CHARITY.siteUrl}/trust`} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-      <meta property="og:title" content="Trust & Credibility | Living With Arthritis UK Charity" />
+      <meta property="og:title" content={`Trust & Credibility | ${CHARITY.shortName} Charity`} />
       <meta property="og:description" content="Our charity registration, medical advisors, evidence sources, partner organisations and governance. Trusted by the UK arthritis community." />
       <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://livingwitharthritis.org.uk/trust" />
-      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:url" content={`${CHARITY.siteUrl}/trust`} />
+      <meta property="og:site_name" content={CHARITY.shortName} />
       <meta property="og:locale" content="en_GB" />
-      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
+      <meta property="og:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Trust & Credibility | Living With Arthritis UK Charity" />
+      <meta name="twitter:title" content={`Trust & Credibility | ${CHARITY.shortName} Charity`} />
       <meta name="twitter:description" content="Our charity registration, medical advisors, evidence sources, partner organisations and governance. Trusted by the UK arthritis community." />
-      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
+      <meta name="twitter:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
     </Helmet>
 
       <Header />

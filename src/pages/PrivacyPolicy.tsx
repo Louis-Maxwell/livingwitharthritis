@@ -5,38 +5,39 @@ import PageHero from "@/components/ui/PageHero";
 import { Shield } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { CONTACT_EMAILS } from "@/config/contact";
+import { CHARITY } from "@/config/charity";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
 const PrivacyPolicy = () => (
   <>
     <Helmet>
-      <title>Privacy Policy | Living With Arthritis UK</title>
+      <title>Privacy Policy | {CHARITY.shortName}</title>
       <meta name="description" content="Privacy policy & data protection: How we protect your data. GDPR compliant, no third-party selling. Your privacy matters to us." />
-      <link rel="canonical" href="https://livingwitharthritis.org.uk/privacy" />
-      <meta property="og:title" content="Privacy Policy | Living With Arthritis UK" />
+      <link rel="canonical" href={`${CHARITY.siteUrl}/privacy`} />
+      <meta property="og:title" content={`Privacy Policy | ${CHARITY.shortName}`} />
       <meta property="og:description" content="Privacy policy & data protection: How we protect your data. GDPR compliant, no third-party selling. Your privacy matters to us." />
       <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://livingwitharthritis.org.uk/privacy" />
+      <meta property="og:url" content={`${CHARITY.siteUrl}/privacy`} />
       <meta property="og:locale" content="en_GB" />
       <meta name="robots" content="index, follow" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "Privacy Policy",
-        "description": "Privacy Policy for Living With Arthritis UK — UK GDPR compliant data protection.",
-        "url": "https://livingwitharthritis.org.uk/privacy",
+        "description": `Privacy Policy for ${CHARITY.shortName} — UK GDPR compliant data protection.`,
+        "url": `${CHARITY.siteUrl}/privacy`,
         "inLanguage": "en-GB",
-        "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" }
+        "isPartOf": { "@type": "WebSite", "name": CHARITY.shortName, "url": CHARITY.siteUrl }
       })}</script>
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Privacy Policy – UK GDPR Data Protection | Living With Arthritis UK" />
+      <meta name="twitter:title" content={`Privacy Policy – UK GDPR Data Protection | ${CHARITY.shortName}`} />
       <meta name="twitter:description" content="Privacy policy & data protection: How we protect your data. GDPR compliant, no third-party selling. Your privacy matters to us." />
-      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
-        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
+      <meta name="twitter:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
+        <meta property="og:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
+        <meta name="twitter:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
     </Helmet>
     <div className="min-h-screen bg-background">
       <Header />

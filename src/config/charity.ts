@@ -16,9 +16,15 @@ export const CHARITY = {
   jurisdiction: 'England and Wales',
   regulator: 'Charity Commission for England and Wales',
   regulatorUrl: 'https://www.gov.uk/government/organisations/charity-commission',
+  charityCommissionUrl: 'https://www.gov.uk/find-charity-information',
   registerUrl:
     'https://register-of-charities.charitycommission.gov.uk/charity-search?search=1218461',
+  fundraisingCodeUrl: 'https://www.fundraisingregulator.org.uk/code',
   registrationDate: '2020-03-15',
+  foundedYear: 2020,
+  siteUrl: 'https://livingwitharthritis.org.uk',
+  websiteDomain: 'livingwitharthritis.org.uk',
+  contactEmail: 'info@livingwitharthritis.org.uk',
   address: {
     name: '',
     street: '',
@@ -34,3 +40,6 @@ export const hasCharityAddress = (): boolean =>
 
 export const charityRegLine = (): string =>
   `Registered Charity in England & Wales No. ${CHARITY.number}`;
+
+/** Alias — clearer intent when used as link text. */
+export const charityRegisterLinkText = charityRegLine;

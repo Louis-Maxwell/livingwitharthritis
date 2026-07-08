@@ -3,27 +3,28 @@ import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
 import { MessageSquareWarning, Clock, Mail, Phone } from "lucide-react";
 import { CONTACT_EMAILS } from "@/config/contact";
+import { CHARITY } from "@/config/charity";
 
 export default function Complaints() {
   return (
     <>
       <Helmet>
-        <title>Complaints Procedure | Living With Arthritis UK</title>
-        <meta name="description" content="Our complaints procedure explains how to raise a concern about Living With Arthritis UK, what happens next, and how we will respond fairly and promptly." />
-      <link rel="canonical" href="https://livingwitharthritis.org.uk/complaints" />
-      <meta property="og:title" content="Complaints Procedure | Living With Arthritis UK" />
-      <meta property="og:description" content="Our complaints procedure explains how to raise a concern about Living With Arthritis UK and how we will respond." />
+        <title>Complaints Procedure | {CHARITY.shortName}</title>
+        <meta name="description" content={`Our complaints procedure explains how to raise a concern about ${CHARITY.shortName}, what happens next, and how we will respond fairly and promptly.`} />
+      <link rel="canonical" href={`${CHARITY.siteUrl}/complaints`} />
+      <meta property="og:title" content={`Complaints Procedure | ${CHARITY.shortName}`} />
+      <meta property="og:description" content={`Our complaints procedure explains how to raise a concern about ${CHARITY.shortName} and how we will respond.`} />
       <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://livingwitharthritis.org.uk/complaints" />
-      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:url" content={`${CHARITY.siteUrl}/complaints`} />
+      <meta property="og:site_name" content={CHARITY.shortName} />
       <meta property="og:locale" content="en_GB" />
-      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
+      <meta property="og:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Complaints Procedure | Living With Arthritis UK" />
-      <meta name="twitter:description" content="Our complaints procedure explains how to raise a concern about Living With Arthritis UK and how we will respond." />
-      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
+      <meta name="twitter:title" content={`Complaints Procedure | ${CHARITY.shortName}`} />
+      <meta name="twitter:description" content={`Our complaints procedure explains how to raise a concern about ${CHARITY.shortName} and how we will respond.`} />
+      <meta name="twitter:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
     </Helmet>
       <Header />
       <main id="main-content" className="min-h-screen bg-background">
@@ -98,7 +99,7 @@ export default function Complaints() {
             <section>
               <h2 className="text-xl font-semibold text-foreground">5. External Escalation</h2>
               <p className="text-muted-foreground leading-relaxed">
-                If you remain dissatisfied after completing our internal process, you may contact the Charity Commission for England and Wales at{" "}
+                If you remain dissatisfied after completing our internal process, you may contact the {CHARITY.regulator} at{" "}
                 <a href="https://www.gov.uk/complain-about-charity" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                   gov.uk/complain-about-charity
                 </a>

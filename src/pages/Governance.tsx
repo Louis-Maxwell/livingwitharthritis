@@ -16,6 +16,7 @@ import { Link } from "react-router-dom";
 import { CONTACT_EMAILS } from "@/config/contact";
 import CharityRegBadge from "@/components/CharityRegBadge";
 import { buildCharitySchema, injectJsonLd } from "@/lib/jsonLd";
+import { CHARITY } from "@/config/charity";
 
 const trustees = [
   {
@@ -151,11 +152,11 @@ Regulated by the Charity Commission for England and Wales.
   return (
     <>
       <Helmet>
-        <title>Governance & Constitution | Living With Arthritis UK Charity</title>
-        <meta name="description" content="Our charity governance structure, board of trustees, constitution, and policies. Regulated by the Charity Commission for England and Wales." />
+        <title>Governance & Constitution | {CHARITY.shortName} Charity</title>
+        <meta name="description" content={`Our charity governance structure, board of trustees, constitution, and policies. Regulated by the ${CHARITY.regulator}.`} />
         <meta name="keywords" content="charity governance, trustees, constitution, charity commission, registered charity UK, arthritis charity governance" />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/governance" />
-        <meta property="og:title" content="Governance & Constitution | Living With Arthritis UK" />
+        <link rel="canonical" href={`${CHARITY.siteUrl}/governance`} />
+        <meta property="og:title" content={`Governance & Constitution | ${CHARITY.shortName}`} />
         <meta property="og:description" content="Full transparency on our charity governance, trustees, and constitution." />
         <meta property="og:locale" content="en_GB" />
         <meta name="geo.region" content="GB" />
@@ -163,24 +164,24 @@ Regulated by the Charity Commission for England and Wales.
           "@context": "https://schema.org",
           "@type": "WebPage",
           name: "Governance & Constitution",
-          url: "https://livingwitharthritis.org.uk/governance",
-          isPartOf: { "@type": "WebSite", name: "Living With Arthritis", url: "https://livingwitharthritis.org.uk" },
+          url: `${CHARITY.siteUrl}/governance`,
+          isPartOf: { "@type": "WebSite", name: CHARITY.legalName, url: CHARITY.siteUrl },
           about: {
             "@type": "NGO",
-            name: "Living With Arthritis",
-            foundingDate: "2020",
+            name: CHARITY.legalName,
+            foundingDate: String(CHARITY.foundedYear),
             areaServed: { "@type": "Country", name: "United Kingdom" },
             address: { "@type": "PostalAddress", addressCountry: "GB" },
           }
         })}</script>
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Governance & Constitution | Living With Arthritis UK Charity" />
-      <meta name="twitter:description" content="Our charity governance structure, board of trustees, constitution, and policies. Regulated by the Charity Commission for England and Wales." />
-      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
-        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
+      <meta name="twitter:title" content={`Governance & Constitution | ${CHARITY.shortName} Charity`} />
+      <meta name="twitter:description" content={`Our charity governance structure, board of trustees, constitution, and policies. Regulated by the ${CHARITY.regulator}.`} />
+      <meta name="twitter:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
+        <meta property="og:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
+        <meta name="twitter:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
     </Helmet>
 
       <Header />
@@ -221,19 +222,19 @@ Regulated by the Charity Commission for England and Wales.
                   <dl className="space-y-3 text-sm">
                     <div>
                       <dt className="font-semibold text-foreground">Charity Name</dt>
-                      <dd className="text-muted-foreground">Living With Arthritis</dd>
+                      <dd className="text-muted-foreground">{CHARITY.legalName}</dd>
                     </div>
                     <div>
                       <dt className="font-semibold text-foreground">Structure</dt>
-                      <dd className="text-muted-foreground">Charitable Incorporated Organisation (CIO)</dd>
+                      <dd className="text-muted-foreground">{CHARITY.type}</dd>
                     </div>
                     <div>
                       <dt className="font-semibold text-foreground">Date of Registration</dt>
-                      <dd className="text-muted-foreground">15 March 2020</dd>
+                      <dd className="text-muted-foreground">15 March {CHARITY.foundedYear}</dd>
                     </div>
                     <div>
                       <dt className="font-semibold text-foreground">Regulator</dt>
-                      <dd className="text-muted-foreground">Charity Commission for England and Wales</dd>
+                      <dd className="text-muted-foreground">{CHARITY.regulator}</dd>
                     </div>
                   </dl>
                 </CardContent>

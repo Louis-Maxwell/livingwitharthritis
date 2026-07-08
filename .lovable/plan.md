@@ -1,36 +1,46 @@
 ## Goal
-Make `src/pages/TrustCredibility.NEW.tsx` safe to ship by removing all `TODO:` placeholders — using verified data from `src/config/charity.ts` where possible and hiding sub-sections we can't substantiate. This matches project memory ("no placeholder registration numbers", strict neutrality) and honours the user's instruction: *safe placeholders + hide unverified sections*.
+Make `src/config/charity.ts` the true single source of truth for charity facts (URL, contact, founding, regulator links, fundraising code), and remove hardcoded duplicates from pages/schema that already talk about the charity.
 
-## Confirmed verified facts (already in the codebase)
-From `src/config/charity.ts` and `TrustCredibility.tsx`:
-- Charity name: **Living With Arthritis**
-- Charity number (E&W): **1218461**
-- Type: **Charitable Incorporated Organisation (CIO)**
-- Regulator + register URL
-- Postal address is intentionally blank (`hasCharityAddress()` gates rendering)
-- Contact: `info@livingwitharthritis.org.uk`
+## 1. Extend `src/config/charity.ts`
 
-## Edits to `src/pages/TrustCredibility.NEW.tsx`
+Add these fields to `CHARITY` (keep existing ones unchanged):
 
-1. **Import** `CHARITY` from `@/config/charity` and use `CHARITY.number` / `CHARITY.registerUrl` instead of hard-coded values, so the page can't drift.
+- `siteUrl: 'https://livingwitharthritis.org.uk'` — canonical base URL used across `<link rel="canonical">`, og:url and JSON-LD.
+- `websiteDomain: 'livingwitharthritis.org.uk'` — bare host for prose ("Website: livingwitharthritis.org.uk").
+- `contactEmail: 'info@livingwitharthritis.org.uk'` — mirrors `CONTACT_EMAILS.info`, imported where only the primary charity email is needed.
+- `foundedYear: 2020` — derived from `registrationDate` for prose ("founded in 2020").
+- `fundraisingCodeUrl: 'https://www.fundraisingregulator.org.uk/code'` — for the Code of Fundraising Practice link on Trust/Donate.
+- `charityCommissionUrl: 'https://www.gov.uk/find-charity-information'` — public lookup link (distinct from `regulatorUrl` which points at the regulator body).
 
-2. **"Our legal status" section** — remove Companies House and "Ltd" paragraphs entirely (lines 102–118). Reason: charity is a **CIO** per our config, so there is no separate Companies House entity to disclose. Replace with one factual paragraph stating we're a CIO regulated solely by the Charity Commission, linked to the live register.
+Also export a small helper:
+- `charityRegisterLinkText()` → e.g. `Registered Charity in England & Wales No. 1218461` (already exists as `charityRegLine`; alias/keep).
 
-3. **"How our health content is reviewed"** — drop the *"(TODO: reviewer name, HCPC registration number)"* aside. Keep the substantive claim that guides are reviewed by HCPC-registered clinicians and that every page shows a "Medically reviewed by" line + date (both already true on the live site via `MedicallyReviewed` component per memory).
+No breaking changes to existing exports.
 
-4. **"How your donations are used"** — remove the Gift Aid paragraph entirely until HMRC recognition is confirmed. Remove the *"(TODO: Fundraising Regulator registration)"* aside from the final paragraph but keep the Code of Fundraising Practice reference (public code, not a claim of registration).
+## 2. Wire fields into pages
 
-5. **"Governance & accountability"** — drop the *"(TODO: list trustee names…)"* aside. Point readers to `/governance` (already listed) and the Charity Commission register (which publishes the current trustee list).
+Replace hardcoded strings with imports from `@/config/charity`. Scope limited to files that already reference the charity or its URL/email/type.
 
-6. **JSON-LD** — no changes needed; it already only references verified fields.
+- **`src/lib/jsonLd.ts`** — replace local `SITE_URL` constant with `CHARITY.siteUrl`.
+- **`src/pages/TrustCredibility.NEW.tsx`** — swap the local `BASE` for `CHARITY.siteUrl`; use `CHARITY.fundraisingCodeUrl` for the Code of Fundraising Practice link.
+- **`src/pages/TrustCredibility.tsx`** (live page) — use `CHARITY.siteUrl` in JSON-LD/meta where currently hardcoded.
+- **`src/pages/Governance.tsx`** — replace hardcoded `"Charitable Incorporated Organisation (CIO)"` / regulator strings and canonical URL with `CHARITY.type`, `CHARITY.regulator`, `CHARITY.siteUrl`.
+- **`src/pages/TermsConditions.tsx`** — replace `livingwitharthritis.org.uk` prose and canonical/og URLs with `CHARITY.websiteDomain` / `CHARITY.siteUrl`; use `CHARITY.legalName` in body copy.
+- **`src/pages/Donate.tsx`** — canonical/og:url from `CHARITY.siteUrl`; site name from `CHARITY.shortName`.
+- **`src/pages/AboutUs.tsx`** — site name/legal name via `CHARITY` in meta; founded year via `CHARITY.foundedYear` if the copy references a year.
+- **`src/pages/PrivacyPolicy.tsx`**, **`src/pages/Complaints.tsx`**, **`src/pages/Safeguarding.tsx`** — canonical and og:url from `CHARITY.siteUrl`; regulator name/link on Complaints from `CHARITY.regulator` / `CHARITY.regulatorUrl`.
 
-7. **File status** — leave the filename as `.NEW.tsx` (not routed). This continues to be a drop-in replacement candidate for `/trust` when the user is ready.
+Not touched: edge functions (`supabase/functions/**`) — they can't import from `src/`. Left as-is per existing comment in `contact.ts`. If mirroring is wanted later, that's a separate change.
 
-## Not doing
-- Not touching the live `TrustCredibility.tsx` (already uses verified data).
-- Not integrating any of the other `.NEW.tsx` files, generated data, sitemaps, or `.md` plans from the bundle — per the user's Scope answer.
-- Not adding trustee names, Companies House numbers, HCPC IDs, Gift Aid refs, or Fundraising Regulator IDs anywhere.
+## 3. Verification
 
-## Verification
-- `rg -n "TODO" src/pages/TrustCredibility.NEW.tsx` returns nothing.
-- Build succeeds; file is still not imported/routed (unchanged behaviour on `/trust`).
+- `rg -n "https://livingwitharthritis\.org\.uk" src/pages src/lib` after the edits — should be near-empty (only allowed places: `charity.ts`, image asset URLs).
+- `rg -n "Charitable Incorporated Organisation" src/pages` — should return no hits outside constitutional text quoted in `Governance.tsx` (that stays verbatim).
+- Type-check / build passes.
+- Spot-check `/trust`, `/governance`, `/donate`, `/terms` in preview after implementation.
+
+## Out of scope
+
+- No changes to routes, copy meaning, or design.
+- No touching auto-generated files or edge functions.
+- No new placeholder facts (trustees, HCPC numbers, Gift Aid, Companies House) — memory rule respected.
