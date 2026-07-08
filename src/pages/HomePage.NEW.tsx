@@ -4,7 +4,7 @@ import { ChevronRight, Mail, MapPin, Heart, BookOpen, MessageCircle, ArrowRight 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import NewsletterSignup from "@/components/NewsletterSignup";
-import { CHARITY } from "@/config/charity";
+import { getCharity, charityFooterLine } from "@/config/charity";
 
 /**
  * HOMEPAGE REDESIGN — 25-Image Version
@@ -16,9 +16,11 @@ import { CHARITY } from "@/config/charity";
  */
 
 export default function HomePage() {
-  
+  const { number } = getCharity();
+
   const [activeCondition, setActiveCondition] = useState(0);
   const [activeStory, setActiveStory] = useState(0);
+
 
   const conditions = [
     {
@@ -162,7 +164,7 @@ export default function HomePage() {
         <title>Living With Arthritis UK — Free Physio, Exercises & Diet</title>
         <meta
           name="description"
-          content={`Clinically-reviewed guides, exercises, and support for arthritis. Free for everyone. Registered charity ${CHARITY.number}.`}
+          content={`Clinically-reviewed guides, exercises, and support for arthritis. Free for everyone. Registered charity ${number}.`}
         />
       </Helmet>
 
@@ -230,7 +232,7 @@ export default function HomePage() {
             {[
               { icon: "📊", stat: "500K+", label: "Monthly Visits", img: "👥" },
               { icon: "📖", stat: "229", label: "Evidence-Based Guides", img: "📚" },
-              { icon: "🏛️", stat: CHARITY.number, label: "Charity Registration", img: "✓" },
+              { icon: "🏛️", stat: number, label: "Charity Registration", img: "✓" },
               { icon: "💪", stat: "2M+", label: "People Affected in UK", img: "🇬🇧" },
             ].map((item, i) => (
               <div key={i} className="text-center p-6 bg-gray-50 rounded-lg border">
@@ -344,7 +346,7 @@ export default function HomePage() {
           <div className="flex flex-wrap justify-center gap-8 items-center">
             <div className="text-center">
               <div className="text-4xl mb-2">✓</div>
-              <p className="font-semibold">Registered Charity<br />{CHARITY.number}</p>
+              <p className="font-semibold">Registered Charity<br />{number}</p>
             </div>
             <div className="text-center">
               <div className="text-4xl mb-2">👨‍⚕️</div>
@@ -482,7 +484,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="border-t border-gray-700 pt-8 text-center text-sm">
-            <p className="mb-2">Living With Arthritis UK — Registered Charity {CHARITY.number}</p>
+            <p className="mb-2">{charityFooterLine()}</p>
             <p className="text-gray-400">© 2024–2026. All rights reserved. Free for everyone.</p>
           </div>
         </div>

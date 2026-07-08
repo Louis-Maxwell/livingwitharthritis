@@ -6,7 +6,13 @@ import { Shield } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { CONTACT_EMAILS } from "@/config/contact";
 import { CONTACT_PHONE } from "@/config/contact";
-import { CHARITY, hasCharityAddress } from "@/config/charity";
+import {
+  getCharity,
+  hasCharityAddress,
+  canonicalUrl,
+  pageTitle,
+  registeredCharityPhrase,
+} from "@/config/charity";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
@@ -27,20 +33,31 @@ const Footer = lazy(() => import("@/components/Footer"));
  * review before relying on it.
  */
 const PrivacyPolicy = () => {
-  const canonical = `${CHARITY.siteUrl}/privacy`;
+  const {
+    legalName,
+    shortName,
+    type,
+    jurisdiction,
+    regulator,
+    number,
+    websiteDomain,
+    address,
+  } = getCharity();
+  const canonical = canonicalUrl("/privacy");
   const showAddress = hasCharityAddress();
-  const address = CHARITY.address;
+  const title = pageTitle("Privacy Policy");
 
   return (
     <>
       <Helmet>
-        <title>{`Privacy Policy | ${CHARITY.shortName}`}</title>
+        <title>{title}</title>
         <meta
           name="description"
-          content={`How ${CHARITY.shortName} (registered charity ${CHARITY.number}) collects, uses and protects your personal data, including health information, under UK GDPR.`}
+          content={`How ${shortName} (${registeredCharityPhrase()}) collects, uses and protects your personal data, including health information, under UK GDPR.`}
         />
         <link rel="canonical" href={canonical} />
-        <meta property="og:title" content={`Privacy Policy | ${CHARITY.shortName}`} />
+        <meta property="og:title" content={title} />
+
         <meta
           property="og:description"
           content="How we collect, use and protect your personal data, including health information, under UK GDPR and the Data Protection Act 2018."
@@ -69,11 +86,12 @@ const PrivacyPolicy = () => {
             <section>
               <h2 className="text-xl font-bold text-foreground mt-8 mb-3">1. Who we are (data controller)</h2>
               <p>
-                {CHARITY.legalName} ("we", "us", "our") is a{" "}
-                {CHARITY.type} registered in {CHARITY.jurisdiction},{" "}
-                {CHARITY.regulator} number <strong>{CHARITY.number}</strong>. We are the{" "}
+                {legalName} ("we", "us", "our") is a{" "}
+                {type} registered in {jurisdiction},{" "}
+                {regulator} number <strong>{number}</strong>. We are the{" "}
                 <strong>data controller</strong> for personal data collected through{" "}
-                {CHARITY.websiteDomain}.
+                {websiteDomain}.
+
               </p>
               {showAddress && (
                 <p>
@@ -194,7 +212,7 @@ const PrivacyPolicy = () => {
               <h2 className="text-xl font-bold text-foreground mt-8 mb-3">12. Changes, contact and complaints</h2>
               <p>We may update this policy; material changes will be highlighted on this page with a new "last updated" date.</p>
               <p className="mt-2">
-                <strong>{CHARITY.legalName}</strong> (registered charity {CHARITY.number})
+                <strong>{legalName}</strong> ({registeredCharityPhrase()})
                 {showAddress && (
                   <>
                     <br />

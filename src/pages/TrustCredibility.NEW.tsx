@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { CHARITY } from "@/config/charity";
+import { getCharity, canonicalUrl, pageTitle } from "@/config/charity";
 
 /**
  * Trust, Governance & Clinical Review
@@ -12,23 +12,38 @@ import { CHARITY } from "@/config/charity";
  * Fundraising Regulator registration, individual trustee names) are
  * intentionally omitted rather than shown as placeholders.
  */
-const BASE = CHARITY.siteUrl;
+
 
 export default function TrustCredibility() {
+  const {
+    shortName,
+    legalName,
+    number,
+    type,
+    jurisdiction,
+    regulator,
+    registerUrl,
+    fundraisingCodeUrl,
+  } = getCharity();
+  const trustUrl = canonicalUrl("/trust-credibility");
+  const homeUrl = canonicalUrl("/");
+  const orgId = `${canonicalUrl("/")}#organization`;
+  const siteId = `${canonicalUrl("/")}#website`;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    "@id": `${BASE}/trust-credibility#webpage`,
-    url: `${BASE}/trust-credibility`,
+    "@id": `${trustUrl}#webpage`,
+    url: trustUrl,
     name: "Trust, Governance & Clinical Review",
     inLanguage: "en-GB",
-    isPartOf: { "@id": `${BASE}/#website` },
-    about: { "@id": `${BASE}/#organization` },
+    isPartOf: { "@id": siteId },
+    about: { "@id": orgId },
     breadcrumb: {
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: `${BASE}/` },
-        { "@type": "ListItem", position: 2, name: "Trust & Governance", item: `${BASE}/trust-credibility` },
+        { "@type": "ListItem", position: 1, name: "Home", item: homeUrl },
+        { "@type": "ListItem", position: 2, name: "Trust & Governance", item: trustUrl },
       ],
     },
   };
@@ -36,14 +51,15 @@ export default function TrustCredibility() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-10">
       <Helmet>
-        <title>Trust, Governance &amp; Clinical Review | Living With Arthritis UK</title>
+        <title>{pageTitle("Trust, Governance & Clinical Review")}</title>
         <meta
           name="description"
-          content={`How ${CHARITY.shortName} is governed and clinically reviewed. Registered charity ${CHARITY.number}, our editorial policy, and how your donations are used.`}
+          content={`How ${shortName} is governed and clinically reviewed. Registered charity ${number}, our editorial policy, and how your donations are used.`}
         />
-        <link rel="canonical" href={`${BASE}/trust-credibility`} />
+        <link rel="canonical" href={trustUrl} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
+
 
       <nav aria-label="Breadcrumb" className="mb-4 text-sm text-muted-foreground">
         <a href="/" className="hover:underline">Home</a> <span aria-hidden>›</span> Trust &amp; Governance
@@ -61,8 +77,8 @@ export default function TrustCredibility() {
         <h2 className="mb-3 text-lg font-semibold">Key takeaways</h2>
         <ul className="list-disc space-y-2 pl-5 text-sm">
           <li>
-            We are a <strong>registered charity in {CHARITY.jurisdiction}</strong> — Charity
-            Commission number <strong>{CHARITY.number}</strong>.
+            We are a <strong>registered charity in {jurisdiction}</strong> — Charity
+            Commission number <strong>{number}</strong>.
           </li>
           <li>
             All health content is written in plain English and <strong>reviewed by HCPC-registered
@@ -83,13 +99,13 @@ export default function TrustCredibility() {
       <section className="mb-10">
         <h2 className="mb-3 text-xl font-semibold">Our legal status</h2>
         <p className="mb-3">
-          {CHARITY.legalName} is a <strong>{CHARITY.type}</strong> registered with the{" "}
-          {CHARITY.regulator} under number <strong>{CHARITY.number}</strong>. As a CIO, we are a
+          {legalName} is a <strong>{type}</strong> registered with the{" "}
+          {regulator} under number <strong>{number}</strong>. As a CIO, we are a
           single legal entity regulated by the Charity Commission — there is no separate company
           filing at Companies House. You can verify our entry directly on the{" "}
           <a
             className="text-primary underline"
-            href={CHARITY.registerUrl}
+            href={registerUrl}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -148,7 +164,7 @@ export default function TrustCredibility() {
           Our fundraising follows the Fundraising Regulator&rsquo;s{" "}
           <a
             className="text-primary underline"
-            href={CHARITY.fundraisingCodeUrl}
+            href={fundraisingCodeUrl}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -165,7 +181,7 @@ export default function TrustCredibility() {
           The current trustee list is published and maintained on the{" "}
           <a
             className="text-primary underline"
-            href={CHARITY.registerUrl}
+            href={registerUrl}
             target="_blank"
             rel="noopener noreferrer"
           >
