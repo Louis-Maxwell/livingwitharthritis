@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { CHARITY } from "@/config/charity";
+import { getCharity, canonicalUrl, pageTitle } from "@/config/charity";
 
 /**
  * Trust, Governance & Clinical Review
@@ -12,7 +12,7 @@ import { CHARITY } from "@/config/charity";
  * Fundraising Regulator registration, individual trustee names) are
  * intentionally omitted rather than shown as placeholders.
  */
-const BASE = CHARITY.siteUrl;
+
 
 export default function TrustCredibility() {
   const jsonLd = {
