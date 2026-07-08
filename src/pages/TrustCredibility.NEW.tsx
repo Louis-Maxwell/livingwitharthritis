@@ -12,7 +12,7 @@ import { CHARITY } from "@/config/charity";
  * Fundraising Regulator registration, individual trustee names) are
  * intentionally omitted rather than shown as placeholders.
  */
-const BASE = "https://livingwitharthritis.org.uk";
+const BASE = CHARITY.siteUrl;
 
 export default function TrustCredibility() {
   const jsonLd = {

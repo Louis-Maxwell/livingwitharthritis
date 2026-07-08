@@ -5,7 +5,7 @@
 
 import { CHARITY } from '@/config/charity';
 
-const SITE_URL = 'https://livingwitharthritis.org.uk';
+const SITE_URL = CHARITY.siteUrl;
 
 /**
  * NGO / Charity schema with UK Charity Commission registration number.
