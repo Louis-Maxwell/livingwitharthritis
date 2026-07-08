@@ -188,16 +188,14 @@
          No static preload link here — the previous hero-walking-group preload
          pointed at a stale asset that wasn't actually on the page. -->
 
-    <!-- Open Graph: static homepage fallbacks for non-JS social crawlers
-         (Facebook, LinkedIn, Slack, WhatsApp). Per-route SeoHead
-         (react-helmet-async) overrides og:title/og:description/og:url for
-         JS-executing crawlers (Googlebot, Twitterbot). Subpages shared on
-         non-JS social platforms will preview with the homepage copy below
-         until SSR/prerender is added. -->
-    <meta property="og:title" content="Living With Arthritis UK — Free Physio, Exercises & Diet" />
-    <meta property="og:description" content="Trusted by 10,000+ monthly UK visitors. Free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory nutrition and arthritis support." />
-    <meta property="og:url" content="https://livingwitharthritis.org.uk/" />
-    <!-- Per-route canonical is emitted via SeoHead/Helmet; the homepage fallback lives on the Index route's Helmet block. -->
+    <!-- Open Graph: sitewide fallbacks. Per-route SeoHead (react-helmet-async)
+         overrides og:title / og:description / og:url / twitter:* for JS-executing
+         crawlers on every subpage. og:title / og:description / og:url are
+         intentionally NOT set statically — a hardcoded homepage og:url on the
+         static head caused non-JS social crawlers (LinkedIn, Slack, Facebook)
+         to attribute every shared subpage to the homepage. og:image + og:type +
+         og:site_name remain as generic fallbacks; crawlers fall back to the
+         request URL when og:url is absent. -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:locale:alternate" content="en_GB" />
@@ -207,11 +205,10 @@
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Living With Arthritis UK – free physiotherapy and arthritis support across the United Kingdom" />
 
-    <!-- Twitter / X Card (per-route SeoHead overrides title/description for JS crawlers) -->
+    <!-- Twitter / X Card: per-route SeoHead overrides title/description on JS crawlers. -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Living With Arthritis UK — Free Physio, Exercises & Diet" />
-    <meta name="twitter:description" content="Trusted by 10,000+ monthly UK visitors. Free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory nutrition and arthritis support." />
     <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/b6578022-1ff1-490f-8f9d-e8d8d12e8117">
+
 
 
 
