@@ -16,8 +16,7 @@ import { CHARITY } from "@/config/charity";
  */
 
 export default function HomePage() {
-  const [email, setEmail] = useState("");
-  const [emailError, setEmailError] = useState("");
+  const [activeCondition, setActiveConditionUnused] = useState(0);
   const [activeCondition, setActiveCondition] = useState(0);
   const [activeStory, setActiveStory] = useState(0);
 
