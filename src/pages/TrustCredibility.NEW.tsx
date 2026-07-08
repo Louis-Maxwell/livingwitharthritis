@@ -15,20 +15,35 @@ import { getCharity, canonicalUrl, pageTitle } from "@/config/charity";
 
 
 export default function TrustCredibility() {
+  const {
+    shortName,
+    legalName,
+    number,
+    type,
+    jurisdiction,
+    regulator,
+    registerUrl,
+    fundraisingCodeUrl,
+  } = getCharity();
+  const trustUrl = canonicalUrl("/trust-credibility");
+  const homeUrl = canonicalUrl("/");
+  const orgId = `${canonicalUrl("/")}#organization`;
+  const siteId = `${canonicalUrl("/")}#website`;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    "@id": `${BASE}/trust-credibility#webpage`,
-    url: `${BASE}/trust-credibility`,
+    "@id": `${trustUrl}#webpage`,
+    url: trustUrl,
     name: "Trust, Governance & Clinical Review",
     inLanguage: "en-GB",
-    isPartOf: { "@id": `${BASE}/#website` },
-    about: { "@id": `${BASE}/#organization` },
+    isPartOf: { "@id": siteId },
+    about: { "@id": orgId },
     breadcrumb: {
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: `${BASE}/` },
-        { "@type": "ListItem", position: 2, name: "Trust & Governance", item: `${BASE}/trust-credibility` },
+        { "@type": "ListItem", position: 1, name: "Home", item: homeUrl },
+        { "@type": "ListItem", position: 2, name: "Trust & Governance", item: trustUrl },
       ],
     },
   };
@@ -36,14 +51,15 @@ export default function TrustCredibility() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-10">
       <Helmet>
-        <title>Trust, Governance &amp; Clinical Review | Living With Arthritis UK</title>
+        <title>{pageTitle("Trust, Governance & Clinical Review")}</title>
         <meta
           name="description"
-          content={`How ${CHARITY.shortName} is governed and clinically reviewed. Registered charity ${CHARITY.number}, our editorial policy, and how your donations are used.`}
+          content={`How ${shortName} is governed and clinically reviewed. Registered charity ${number}, our editorial policy, and how your donations are used.`}
         />
-        <link rel="canonical" href={`${BASE}/trust-credibility`} />
+        <link rel="canonical" href={trustUrl} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
+
 
       <nav aria-label="Breadcrumb" className="mb-4 text-sm text-muted-foreground">
         <a href="/" className="hover:underline">Home</a> <span aria-hidden>›</span> Trust &amp; Governance
