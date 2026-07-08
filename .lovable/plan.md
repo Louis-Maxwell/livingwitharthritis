@@ -1,33 +1,44 @@
-## Verification results
+## Current state
 
-I ran the checks against the current codebase:
+The values in `src/config/charity.ts` are:
 
-| Check | Command | Result |
+- `CHARITY.siteUrl = 'https://livingwitharthritis.org.uk'`
+- `CHARITY.websiteDomain = 'livingwitharthritis.org.uk'`
+
+Every SEO file that hardcodes a domain **already uses these exact values**:
+
+| File | Hardcoded value | Matches config? |
 |---|---|---|
-| Deleted `Finances.tsx` route leftovers | `rg "Finances\|/finances[^-]" src/ scripts/ public/` | ✅ None. Only match is the unrelated body word "finance" in Governance/Corporate copy and the `BlogPreview` category label **"Finances & Benefits"** (see note). |
-| Sitemap references to `/finances` | `rg "/finances[^-]" public/sitemap.xml` | ✅ None. |
-| Broken internal `<Link to="…">` / `href="/…"` | Extracted 294 unique `to=` + 52 `href=` targets, matched against the 168 `path=` entries in `src/App.tsx` (`:param` → regex) | ✅ 0 unresolved. |
-| Sitemap URLs vs App routes | Extracted all 1063 `<loc>` paths, matched against App route patterns | ✅ 0 orphans. |
-| Sitemap generator references to deleted page | `rg "Finances" scripts/generate-sitemap.ts scripts/prerender-routes.mjs` | ✅ None. |
-| `robots.txt` / `llms.txt` / prerender list | `rg "Finances\|/finances" public/robots.txt public/llms.txt scripts/prerender-routes.mjs` | ✅ None. |
-| Page metadata drift | `TrustCredibility.NEW`, `Governance`, `AboutUs`, `TermsConditions`, `PrivacyPolicy`, `Complaints`, `Safeguarding`, `Donate`, `TrustCredibility`, `HomePage.NEW`, `PrivacyPolicy.NEW` all source `title`/`description`/`canonical`/`og:*` from `CHARITY` in `@/config/charity` (verified last turn). | ✅ Consistent. |
+| `scripts/generate-sitemap.ts` (`BASE_URL`) | `https://livingwitharthritis.org.uk` | ✅ |
+| `scripts/inject-canonicals.mjs` (`BASE`) | `https://livingwitharthritis.org.uk` | ✅ |
+| `scripts/audit-sitemap.mjs` (default `BASE`) | `https://livingwitharthritis.org.uk` | ✅ |
+| `scripts/validate-jsonld.mjs` (`PROD_HOST`) | `https://livingwitharthritis.org.uk` | ✅ |
+| `public/robots.txt` (Sitemap directives) | 6 `https://livingwitharthritis.org.uk/…` lines | ✅ |
+| `public/sitemap-index.xml` | 5 `https://livingwitharthritis.org.uk/…` sitemap entries | ✅ |
+| `public/sitemap.xml` + 4 locale sitemaps | All `<loc>` prefixes | ✅ |
 
-### Note on "finances-benefits"
+So there are **no stale URLs to rewrite** — the earlier turn that added `siteUrl`/`websiteDomain` to `CHARITY` picked the same values already baked into these files.
 
-`public/sitemap.xml` contains `/blog/category/finances-benefits`. This is **not** related to the deleted `Finances.tsx` page. It is generated dynamically by `scripts/generate-sitemap.ts` from live rows in the `blog_articles` Supabase table (category slug of at least one published article). The matching label "Finances & Benefits" is also declared in `src/components/landing/BlogPreview.tsx` as a legitimate blog taxonomy. **Keep as-is** — deleting it would create a mismatch with the actual blog data.
+## What to actually do
 
-## Proposed action
+Two low-risk actions:
 
-**No code changes required.** The audit passes on every dimension the user asked about.
+1. **Regenerate `public/sitemap.xml`** by running the existing generator script — this refreshes `lastmod` timestamps and pulls the latest published blog / condition / exercise rows from Supabase. The script already runs on `predev` and `prebuild`, so this is purely a "refresh now" step:
 
-Two optional follow-ups if desired (not part of this plan unless approved):
+   ```
+   bun scripts/generate-sitemap.ts
+   ```
 
-1. **Regenerate `public/sitemap.xml` now** by running `bun scripts/generate-sitemap.ts` — the file will already regenerate on the next `predev`/`prebuild`, so this is only needed if you want the timestamps refreshed today.
-2. **Trigger a fresh SEO scan** via the SEO & AI Search tab to re-verify metadata against the crawler's view.
+2. **Verify** the regenerated file:
+   - `rg -c '<url>' public/sitemap.xml` — entry count, compared to today's 1063
+   - `rg -n 'livingwitharthritis' public/sitemap.xml | head -3` — confirm `<loc>` prefix unchanged
+   - `head -1 public/sitemap.xml` — confirm XML header intact
+   - No changes needed to `sitemap-{es,fr,de,pt}.xml`, `sitemap-index.xml`, `robots.txt`, or `llms.txt` — they already carry the correct absolute URLs.
 
-If either is wanted, approve this plan and say which; otherwise the verification stands and nothing needs to be built.
+That's the whole change. No source-file edits, no config drift to reconcile, no reroute of the generator.
 
-## Out of scope
+## Not doing (would be a separate request)
 
-- Non-URL "finance" words in body copy (Governance treasurer bio, Corporate Giving pro-bono list, guides) — legitimate content, not references to the deleted page.
-- The `/blog/category/finances-benefits` sitemap entry — legitimate blog taxonomy driven by real database data.
+- Refactoring `scripts/generate-sitemap.ts` to `import { CHARITY } from "../src/config/charity"` instead of a local `BASE_URL` constant. The script runs under `bunx tsx` so it's technically possible, but the other `.mjs` audit scripts can't import TypeScript without additional loader setup — inconsistent, and the values already match. Worth doing only if the domain ever needs to change.
+- Rebuilding the locale sitemaps (`sitemap-es.xml`, etc.) — those are static, no domain change needed, and the generator only writes `sitemap.xml`.
+- Triggering an SEO rescan — separate action, offered as a follow-up if you want fresh scan results.
