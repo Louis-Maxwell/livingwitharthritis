@@ -77,8 +77,8 @@ export default function TrustCredibility() {
         <h2 className="mb-3 text-lg font-semibold">Key takeaways</h2>
         <ul className="list-disc space-y-2 pl-5 text-sm">
           <li>
-            We are a <strong>registered charity in {CHARITY.jurisdiction}</strong> — Charity
-            Commission number <strong>{CHARITY.number}</strong>.
+            We are a <strong>registered charity in {jurisdiction}</strong> — Charity
+            Commission number <strong>{number}</strong>.
           </li>
           <li>
             All health content is written in plain English and <strong>reviewed by HCPC-registered
@@ -99,13 +99,13 @@ export default function TrustCredibility() {
       <section className="mb-10">
         <h2 className="mb-3 text-xl font-semibold">Our legal status</h2>
         <p className="mb-3">
-          {CHARITY.legalName} is a <strong>{CHARITY.type}</strong> registered with the{" "}
-          {CHARITY.regulator} under number <strong>{CHARITY.number}</strong>. As a CIO, we are a
+          {legalName} is a <strong>{type}</strong> registered with the{" "}
+          {regulator} under number <strong>{number}</strong>. As a CIO, we are a
           single legal entity regulated by the Charity Commission — there is no separate company
           filing at Companies House. You can verify our entry directly on the{" "}
           <a
             className="text-primary underline"
-            href={CHARITY.registerUrl}
+            href={registerUrl}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -164,7 +164,7 @@ export default function TrustCredibility() {
           Our fundraising follows the Fundraising Regulator&rsquo;s{" "}
           <a
             className="text-primary underline"
-            href={CHARITY.fundraisingCodeUrl}
+            href={fundraisingCodeUrl}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -181,7 +181,7 @@ export default function TrustCredibility() {
           The current trustee list is published and maintained on the{" "}
           <a
             className="text-primary underline"
-            href={CHARITY.registerUrl}
+            href={registerUrl}
             target="_blank"
             rel="noopener noreferrer"
           >
