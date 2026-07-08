@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { enforceTitle, enforceDescription } from "@/lib/seoMeta";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -74,14 +75,23 @@ const ProductDetail = () => {
     mobility: "Mobility Aids",
   }[product.category];
 
+  const seoTitle = enforceTitle(product.title, {
+    route: `/product/${product.id}`,
+  });
+  const seoDescription = enforceDescription(
+    product.description,
+    `/product/${product.id}`,
+  );
+
   return (
     <>
       <Helmet>
-        <title>{product.title} | Recommended Products — Living With Arthritis</title>
-        <meta name="description" content={product.description.slice(0, 160)} />
+        <title>{seoTitle}</title>
+
+        <meta name="description" content={seoDescription} />
         <link rel="canonical" href={`https://livingwitharthritis.org.uk/product/${product.id}`} />
-        <meta property="og:title" content={`${product.title} — Recommended Product`} />
-        <meta property="og:description" content={product.description.slice(0, 200)} />
+        <meta property="og:title" content={seoTitle} />
+        <meta property="og:description" content={seoDescription} />
         <meta property="og:type" content="product" />
         <meta property="og:url" content={`https://livingwitharthritis.org.uk/product/${product.id}`} />
         <meta property="og:site_name" content="Living With Arthritis UK" />
@@ -90,9 +100,10 @@ const ProductDetail = () => {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${product.title} — Recommended Product`} />
-        <meta name="twitter:description" content={product.description.slice(0, 200)} />
+        <meta name="twitter:title" content={seoTitle} />
+        <meta name="twitter:description" content={seoDescription} />
         <meta name="twitter:image" content={product.image || "https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp"} />
+
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Product",
