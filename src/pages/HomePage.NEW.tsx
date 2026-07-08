@@ -163,7 +163,7 @@ export default function HomePage() {
         <title>Living With Arthritis UK — Free Physio, Exercises & Diet</title>
         <meta
           name="description"
-          content="Clinically-reviewed guides, exercises, and support for arthritis. Free for everyone. Registered charity 1218461."
+          content={`Clinically-reviewed guides, exercises, and support for arthritis. Free for everyone. Registered charity ${CHARITY.number}.`}
         />
       </Helmet>
 
