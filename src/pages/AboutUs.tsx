@@ -14,6 +14,7 @@ import NextReadStrip from "@/components/NextReadStrip";
 import InternalLinks from "@/components/InternalLinks";
 import CharityRegBadge from "@/components/CharityRegBadge";
 import { buildCharitySchema, injectJsonLd } from "@/lib/jsonLd";
+import { CHARITY } from "@/config/charity";
 
 
 const sectionIcons: Record<string, React.ElementType> = {
@@ -96,36 +97,36 @@ const AboutUs = () => {
   return (
     <>
       <Helmet>
-        <title>About Our Mission | Living With Arthritis UK</title>
-        <meta name="description" content="About Living With Arthritis UK: Free, evidence-based arthritis education charity. Maxwell's mission to support independent living." />
+        <title>About Our Mission | {CHARITY.shortName}</title>
+        <meta name="description" content={`About ${CHARITY.shortName}: Free, evidence-based arthritis education charity. Maxwell's mission to support independent living.`} />
         <meta name="keywords" content="arthritis charity, arthritis foundation, arthritis organisation, arthritis support, joint pain charity, arthritis awareness, arthritis advocacy, arthritis research, arthritis helpline, arthritis UK charity, living with arthritis, musculoskeletal conditions, volunteer for charity, donate to arthritis charity" />
-        <meta property="og:title" content="About Us — Living With Arthritis UK" />
-        <meta property="og:description" content="About Living With Arthritis UK: Free, evidence-based arthritis education charity. Maxwell's mission to support independent living." />
-        <meta property="og:url" content="https://livingwitharthritis.org.uk/about" />
+        <meta property="og:title" content={`About Us — ${CHARITY.shortName}`} />
+        <meta property="og:description" content={`About ${CHARITY.shortName}: Free, evidence-based arthritis education charity. Maxwell's mission to support independent living.`} />
+        <meta property="og:url" content={`${CHARITY.siteUrl}/about`} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
-        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
+        <meta property="og:site_name" content={CHARITY.shortName} />
+        <meta property="og:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
+        <meta name="twitter:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="About Us — Living With Arthritis UK" />
-        <meta name="twitter:description" content="About Living With Arthritis UK: Free, evidence-based arthritis education charity. Maxwell's mission to support independent living." />
+        <meta name="twitter:title" content={`About Us — ${CHARITY.shortName}`} />
+        <meta name="twitter:description" content={`About ${CHARITY.shortName}: Free, evidence-based arthritis education charity. Maxwell's mission to support independent living.`} />
         <meta name="geo.region" content="GB" />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/about" />
-        <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/about" />
+        <link rel="canonical" href={`${CHARITY.siteUrl}/about`} />
+        <link rel="alternate" hrefLang="en-GB" href={`${CHARITY.siteUrl}/about`} />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "AboutPage",
-          "name": "About Living With Arthritis",
-          "url": "https://livingwitharthritis.org.uk/about",
+          "name": `About ${CHARITY.legalName}`,
+          "url": `${CHARITY.siteUrl}/about`,
           "inLanguage": "en-GB",
           "mainEntity": {
             "@type": "NGO",
-            "name": "Living With Arthritis",
-            "foundingDate": "2020",
-            "url": "https://livingwitharthritis.org.uk",
+            "name": CHARITY.legalName,
+            "foundingDate": String(CHARITY.foundedYear),
+            "url": CHARITY.siteUrl,
             "areaServed": { "@type": "Country", "name": "United Kingdom" },
           }
         })}</script>
@@ -133,8 +134,8 @@ const AboutUs = () => {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
-            { "@type": "ListItem", "position": 2, "name": "About", "item": "https://livingwitharthritis.org.uk/about" }
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": `${CHARITY.siteUrl}/` },
+            { "@type": "ListItem", "position": 2, "name": "About", "item": `${CHARITY.siteUrl}/about` }
           ]
         })}</script>
       </Helmet>
