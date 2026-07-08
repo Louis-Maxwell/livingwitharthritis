@@ -4,7 +4,7 @@ import { ChevronRight, Mail, MapPin, Heart, BookOpen, MessageCircle, ArrowRight 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import NewsletterSignup from "@/components/NewsletterSignup";
-import { CHARITY } from "@/config/charity";
+import { getCharity, pageTitle, charityFooterLine } from "@/config/charity";
 
 /**
  * HOMEPAGE REDESIGN — 25-Image Version
