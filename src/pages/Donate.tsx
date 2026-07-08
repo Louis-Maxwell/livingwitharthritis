@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import StripeDonationModal from "@/components/StripeDonationModal";
 import CharityRegBadge from "@/components/CharityRegBadge";
 import { buildCharitySchema, injectJsonLd } from "@/lib/jsonLd";
+import { CHARITY } from "@/config/charity";
 
 const PRESET_AMOUNTS = [50, 150, 200, 500];
 const MIN_AMOUNT = 1;
@@ -114,23 +115,23 @@ export default function Donate() {
   return (
     <>
       <Helmet>
-        <title>Donate to Living With Arthritis UK</title>
-        <meta name="description" content="Support Living With Arthritis UK: Donate to fund free arthritis education, research & community support. Help others manage arthritis better." />
+        <title>Donate to {CHARITY.shortName}</title>
+        <meta name="description" content={`Support ${CHARITY.shortName}: Donate to fund free arthritis education, research & community support. Help others manage arthritis better.`} />
         <meta name="keywords" content="donate to arthritis charity, arthritis charity, arthritis foundation, arthritis research, arthritis helpline, fundraising ideas for health charity, arthritis events, arthritis advocacy, financial help for arthritis patients, joint pain charity, arthritis support, arthritis awareness, volunteer for charity" />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/donate" />
+        <link rel="canonical" href={`${CHARITY.siteUrl}/donate`} />
       <meta property="og:title" content="Donate to Arthritis Support UK: Fund Free Physio, Diet & Help" />
-      <meta property="og:description" content="Support Living With Arthritis UK: Donate to fund free arthritis education, research & community support. Help others manage arthritis better." />
+      <meta property="og:description" content={`Support ${CHARITY.shortName}: Donate to fund free arthritis education, research & community support. Help others manage arthritis better.`} />
       <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://livingwitharthritis.org.uk/donate" />
-      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:url" content={`${CHARITY.siteUrl}/donate`} />
+      <meta property="og:site_name" content={CHARITY.shortName} />
       <meta property="og:locale" content="en_GB" />
-      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
+      <meta property="og:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Donate to Arthritis Support UK: Fund Free Physio, Diet & Help" />
-      <meta name="twitter:description" content="Support Living With Arthritis UK: Donate to fund free arthritis education, research & community support. Help others manage arthritis better." />
-      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
+      <meta name="twitter:description" content={`Support ${CHARITY.shortName}: Donate to fund free arthritis education, research & community support. Help others manage arthritis better.`} />
+      <meta name="twitter:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
     </Helmet>
       <Header />
       <main id="main-content" className="min-h-screen bg-background">
