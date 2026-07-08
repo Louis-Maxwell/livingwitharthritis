@@ -5,38 +5,39 @@ import PageHero from "@/components/ui/PageHero";
 import { FileText } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { CONTACT_EMAILS } from "@/config/contact";
+import { CHARITY } from "@/config/charity";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
 const TermsConditions = () => (
   <>
     <Helmet>
-      <title>Terms & Conditions | Living With Arthritis UK</title>
-      <meta name="description" content="Terms and Conditions for using the Living With Arthritis UK website. Covers use of the site, intellectual property, donations, refunds, and liability." />
-      <link rel="canonical" href="https://livingwitharthritis.org.uk/terms" />
-      <meta property="og:title" content="Terms & Conditions | Living With Arthritis UK" />
-      <meta property="og:description" content="Terms and Conditions governing the use of the Living With Arthritis UK website." />
+      <title>Terms & Conditions | {CHARITY.shortName}</title>
+      <meta name="description" content={`Terms and Conditions for using the ${CHARITY.shortName} website. Covers use of the site, intellectual property, donations, refunds, and liability.`} />
+      <link rel="canonical" href={`${CHARITY.siteUrl}/terms`} />
+      <meta property="og:title" content={`Terms & Conditions | ${CHARITY.shortName}`} />
+      <meta property="og:description" content={`Terms and Conditions governing the use of the ${CHARITY.shortName} website.`} />
       <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://livingwitharthritis.org.uk/terms" />
+      <meta property="og:url" content={`${CHARITY.siteUrl}/terms`} />
       <meta property="og:locale" content="en_GB" />
       <meta name="robots" content="index, follow" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "Terms & Conditions",
-        "description": "Terms and Conditions for Living With Arthritis UK.",
-        "url": "https://livingwitharthritis.org.uk/terms",
+        "description": `Terms and Conditions for ${CHARITY.shortName}.`,
+        "url": `${CHARITY.siteUrl}/terms`,
         "inLanguage": "en-GB",
-        "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" }
+        "isPartOf": { "@type": "WebSite", "name": CHARITY.shortName, "url": CHARITY.siteUrl }
       })}</script>
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Terms & Conditions | Living With Arthritis UK" />
-      <meta name="twitter:description" content="Terms and Conditions for using the Living With Arthritis UK website. Covers use of the site, intellectual property, donations, refunds, and liability." />
-      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
-        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
+      <meta name="twitter:title" content={`Terms & Conditions | ${CHARITY.shortName}`} />
+      <meta name="twitter:description" content={`Terms and Conditions for using the ${CHARITY.shortName} website. Covers use of the site, intellectual property, donations, refunds, and liability.`} />
+      <meta name="twitter:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
+        <meta property="og:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
+        <meta name="twitter:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
     </Helmet>
     <div className="min-h-screen bg-background">
       <Header />
@@ -58,13 +59,13 @@ const TermsConditions = () => (
           <section>
             <h2 className="text-2xl font-bold text-foreground">1. Introduction</h2>
             <p className="text-muted-foreground leading-relaxed">
-              These Terms and Conditions govern your use of the Living With Arthritis UK website
-              (livingwitharthritis.org.uk). By accessing or using this website, you agree to be
+              These Terms and Conditions govern your use of the {CHARITY.shortName} website
+              ({CHARITY.websiteDomain}). By accessing or using this website, you agree to be
               bound by these terms. If you do not agree, please do not use the site.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Living With Arthritis UK is a charitable organisation registered in England &amp; Wales.
-              References to "we", "us", or "our" refer to Living With Arthritis UK.
+              {CHARITY.shortName} is a charitable organisation registered in {CHARITY.jurisdiction}.
+              References to "we", "us", or "our" refer to {CHARITY.shortName}.
             </p>
           </section>
 
@@ -184,9 +185,9 @@ const TermsConditions = () => (
               If you have any questions about these Terms and Conditions, please contact us at:
             </p>
             <div className="bg-muted/30 rounded-xl p-6 mt-4">
-              <p className="text-foreground font-semibold">Living With Arthritis UK</p>
+              <p className="text-foreground font-semibold">{CHARITY.shortName}</p>
               <p className="text-muted-foreground">Email: <a href={`mailto:${CONTACT_EMAILS.info}`} className="text-primary underline">{CONTACT_EMAILS.info}</a></p>
-              <p className="text-muted-foreground">Website: <a href="https://livingwitharthritis.org.uk" className="text-primary underline">livingwitharthritis.org.uk</a></p>
+              <p className="text-muted-foreground">Website: <a href={CHARITY.siteUrl} className="text-primary underline">{CHARITY.websiteDomain}</a></p>
             </div>
           </section>
 
