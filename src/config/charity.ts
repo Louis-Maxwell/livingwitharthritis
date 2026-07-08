@@ -43,3 +43,28 @@ export const charityRegLine = (): string =>
 
 /** Alias — clearer intent when used as link text. */
 export const charityRegisterLinkText = charityRegLine;
+
+/** Typed shape of the charity record. */
+export type CharityInfo = typeof CHARITY;
+
+/** Single accessor — returns the frozen charity record. Use this in
+ *  place of importing `CHARITY` directly so field access stays typed
+ *  and consistent across surfaces. */
+export const getCharity = (): CharityInfo => CHARITY;
+
+/** Build an absolute site URL from a root-relative path. */
+export const canonicalUrl = (path: string = '/'): string =>
+  `${CHARITY.siteUrl}${path.startsWith('/') ? path : `/${path}`}`;
+
+/** Inline phrasing: "registered charity 1218461". */
+export const registeredCharityPhrase = (): string =>
+  `registered charity ${CHARITY.number}`;
+
+/** Footer/attribution line: "Living With Arthritis UK — Registered Charity 1218461". */
+export const charityFooterLine = (): string =>
+  `${CHARITY.shortName} — Registered Charity ${CHARITY.number}`;
+
+/** Page-title helper: `${label} | Living With Arthritis UK`. */
+export const pageTitle = (label: string): string =>
+  `${label} | ${CHARITY.shortName}`;
+
