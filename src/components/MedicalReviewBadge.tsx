@@ -7,11 +7,23 @@ interface MedicalReviewBadgeProps {
   date?: string;
   title?: string;
   credential?: string;
+  /** Slug in medical-authors.json — controls whether the badge links to
+   * /authors/:slug or /reviewers/:slug. Defaults to the author "maxwell". */
+  authorSlug?: string;
   /** Compact variant — single line, smaller padding */
   compact?: boolean;
 }
 
+type AuthorRecord = { kind: "author" | "reviewer"; slug: string };
+
 const DEFAULT_AUTHOR = authors.maxwell;
+
+function bioHref(slug: string): string {
+  const record = (authors as Record<string, AuthorRecord>)[slug];
+  if (!record) return "/editorial-standards";
+  const prefix = record.kind === "reviewer" ? "reviewers" : "authors";
+  return `/${prefix}/${record.slug}`;
+}
 
 /**
  * Medical review trust badge — surfaces reviewer credentials (HCPC,
@@ -23,16 +35,20 @@ export default function MedicalReviewBadge({
   date = "June 2026",
   title = DEFAULT_AUTHOR.title,
   credential = DEFAULT_AUTHOR.credential,
+  authorSlug = "maxwell",
   compact = false,
 }: MedicalReviewBadgeProps) {
+  const href = bioHref(authorSlug);
   if (compact) {
     return (
       <div className="flex items-start gap-2 text-xs text-muted-foreground my-4">
         <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
         <span>
           Medically reviewed by{" "}
-          <span className="font-semibold text-foreground">{reviewer}</span> —{" "}
-          {title} • {credential} • CSP Member • Last updated {date}.{" "}
+          <Link to={href} className="font-semibold text-foreground underline hover:text-primary">
+            {reviewer}
+          </Link>{" "}
+          — {title} • {credential} • CSP Member • Last updated {date}.{" "}
           <Link to="/editorial-standards" className="underline hover:text-primary">
             Editorial standards
           </Link>
@@ -50,7 +66,10 @@ export default function MedicalReviewBadge({
         <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 shrink-0" />
         <div>
           <p className="font-semibold text-sm text-foreground">
-            Medically reviewed by {reviewer}
+            Medically reviewed by{" "}
+            <Link to={href} className="underline hover:text-primary">
+              {reviewer}
+            </Link>
           </p>
           <p className="text-xs text-muted-foreground mt-1">
             {title} • {credential} • CSP Member • Last updated {date}
