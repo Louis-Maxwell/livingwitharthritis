@@ -194,7 +194,7 @@ const Osteoarthritis = () => (
           <p>According to Versus Arthritis, approximately <strong>8.75 million people</strong> in the UK have sought treatment for osteoarthritis. It is the single most common cause of disability among older adults in England and Wales, and its prevalence is rising due to an ageing population and increasing obesity rates.</p>
         </Section>
 
-        <Section icon={ThermometerSun} title="Symptoms of Osteoarthritis">
+        <Section icon={ThermometerSun} title="What are the symptoms of osteoarthritis?">
           <p>Symptoms typically develop slowly and worsen over time. They may include:</p>
           <ul>
             <li><strong>Joint pain</strong> — especially during or after activity, often described as a deep ache</li>
@@ -209,7 +209,7 @@ const Osteoarthritis = () => (
           <p>If you experience persistent joint pain or stiffness that doesn't improve, book an appointment with your GP. Early diagnosis can help you access the right support and slow progression.</p>
         </Section>
 
-        <Section icon={Heart} title="Causes & Risk Factors">
+        <Section icon={Heart} title="What causes osteoarthritis?">
           <p>Osteoarthritis develops when the cartilage protecting bone surfaces breaks down faster than it can repair itself. Several factors increase your risk:</p>
           <ul>
             <li><strong>Age</strong> — most common after age 50, though younger people can develop it after injury</li>
@@ -234,7 +234,7 @@ const Osteoarthritis = () => (
           ]} />
         </motion.div>
 
-        <Section icon={Dumbbell} title="Best Exercises for Osteoarthritis">
+        <Section icon={Dumbbell} title="What are the best exercises for osteoarthritis?">
           <p>Regular exercise is one of the most effective treatments for OA. It strengthens muscles around joints, improves flexibility, reduces pain, and helps manage weight. Always start gradually and consult a physiotherapist if unsure.</p>
           <h3>Aerobic / Low-Impact</h3>
           <ul>
@@ -257,7 +257,7 @@ const Osteoarthritis = () => (
           </ul>
         </Section>
 
-        <Section icon={Apple} title="Best Diet for Osteoarthritis">
+        <Section icon={Apple} title="What is the best diet for osteoarthritis?">
           <p>An <strong>anti-inflammatory diet</strong>, particularly the Mediterranean diet, is the most evidence-supported dietary approach for OA management. It can help reduce inflammation, manage weight, and improve overall joint health.</p>
           <h3>Foods to Eat</h3>
           <ul>
@@ -290,7 +290,7 @@ const Osteoarthritis = () => (
           </div>
         </motion.div>
 
-        <Section icon={Pill} title="Treatment & Management">
+        <Section icon={Pill} title="How is osteoarthritis treated?">
           <p>While there is no cure for osteoarthritis, a combination of approaches can significantly improve quality of life:</p>
           <h3>Self-Management</h3>
           <ul>
