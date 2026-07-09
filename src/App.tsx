@@ -311,6 +311,8 @@ function AnimatedRoutes() {
         <Route path="/ai" element={<AiHub />} />
         <Route path="/accessibility-for-ai" element={<AccessibilityForAi />} />
         <Route path="/editorial-standards" element={<EditorialStandards />} />
+        <Route path="/authors/:slug" element={<AuthorProfile variant="author" />} />
+        <Route path="/reviewers/:slug" element={<AuthorProfile variant="reviewer" />} />
         <Route path="/conditions/osteoarthritis" element={<Osteoarthritis />} />
         <Route path="/conditions/rheumatoid-arthritis" element={<RheumatoidArthritis />} />
         <Route path="/conditions/psoriatic-arthritis" element={<PsoriaticArthritis />} />
