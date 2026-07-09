@@ -32,6 +32,7 @@ const PAYLOAD = {
     name: "Maxwell",
     jobTitle: "First Contact Practitioner",
     identifier: "HCPC PH128483",
+    url: `${BASE}/authors/maxwell`,
   },
   member: [
     {
@@ -39,7 +40,13 @@ const PAYLOAD = {
       name: "Maxwell",
       jobTitle: "First Contact Practitioner",
       identifier: "HCPC PH128483",
-      url: `${BASE}/about#maxwell`,
+      url: `${BASE}/authors/maxwell`,
+    },
+    {
+      "@type": "Person",
+      name: "Dr Amina Patel",
+      jobTitle: "Consultant Rheumatologist",
+      url: `${BASE}/reviewers/dr-amina-patel`,
     },
   ],
   knowsAbout: [
@@ -56,8 +63,20 @@ const PAYLOAD = {
     "Joint exercises",
     "PIP arthritis benefits",
   ],
+  // sameAs strengthens the entity graph for LLMs and search engines.
+  // Only include URLs that resolve to a real, publicly-visible profile
+  // owned by this charity. Do NOT add placeholder or guessed URLs.
   sameAs: [
     "https://www.pinterest.co.uk/livingwitharthritis",
+    // TODO: add UK Charity Commission page URL (e.g.
+    //   https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/<id>)
+    // TODO: add Companies House page URL if the charity has a registered company number
+    // TODO: add LinkedIn company page URL (https://www.linkedin.com/company/<slug>)
+    // TODO: add X / Twitter profile URL
+    // TODO: add Facebook page URL
+    // TODO: add Instagram profile URL
+    // TODO: add YouTube channel URL
+    // TODO: add Wikipedia article URL if one exists
   ],
 };
 

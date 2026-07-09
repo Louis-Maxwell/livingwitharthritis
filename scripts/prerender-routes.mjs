@@ -1,13 +1,24 @@
 // Curated list of routes to prerender into static HTML so JSON-LD,
 // <title>, and meta are visible to crawlers and extractors that do
-// NOT execute JavaScript (Rich Results Test, LinkedIn, Slack, etc).
+// NOT execute JavaScript (Rich Results Test, LinkedIn, Slack,
+// CCBot, PerplexityBot, and the citation-scrape passes many LLM
+// engines still run without a JS runtime).
 //
-// Keep this list to routes where SEO/social previews matter most.
 // Dynamic auth/admin/result pages are intentionally excluded.
+//
+// Blog posts are auto-included from src/data/blog-slugs.generated.json,
+// which scripts/generate-sitemap.ts refreshes on predev/prebuild by
+// querying blog_articles. Set PRERENDER_LIMIT to cap the blog set
+// (newest-first) when a full render is too slow locally.
 
-export const PRERENDER_ROUTES = [
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
+
+const CURATED = [
   "/",
   "/about",
+  "/authors/maxwell",
+  "/reviewers/dr-amina-patel",
   "/blog",
   "/blog-hub",
   "/diet",
@@ -65,7 +76,7 @@ export const PRERENDER_ROUTES = [
   "/trust",
   "/community",
   "/governance",
-  
+  "/glossary",
   "/impact",
   "/arthritis-flare-ups",
   "/myths/does-cracking-knuckles-cause-arthritis",
@@ -78,6 +89,7 @@ export const PRERENDER_ROUTES = [
   "/arthritis-waiting-list-help",
   "/tools/waiting-time",
   "/arthritis-support",
+  "/editorial-standards",
   "/privacy",
   "/cookies",
   "/terms",
@@ -85,3 +97,35 @@ export const PRERENDER_ROUTES = [
   "/safeguarding",
   "/complaints",
 ];
+
+function loadBlogSlugs() {
+  try {
+    const raw = readFileSync(
+      resolve(process.cwd(), "src/data/blog-slugs.generated.json"),
+      "utf8",
+    );
+    const slugs = JSON.parse(raw);
+    return Array.isArray(slugs) ? slugs : [];
+  } catch {
+    // File hasn't been generated yet — first-run bootstrap. The predev/prebuild
+    // sitemap script populates it; falling through is safe.
+    return [];
+  }
+}
+
+const rawLimit = Number(process.env.PRERENDER_LIMIT || 0);
+const blogSlugs = loadBlogSlugs();
+const trimmed = rawLimit > 0 ? blogSlugs.slice(0, rawLimit) : blogSlugs;
+const blogRoutes = trimmed.map((s) => `/blog/${s}`);
+
+// Deduplicate. Curated wins if a slug is also hard-coded above.
+const seen = new Set(CURATED);
+for (const r of blogRoutes) seen.add(r);
+
+export const PRERENDER_ROUTES = [...seen];
+
+// Diagnostic on import so `PRERENDER=1 vite build` shows what will be rendered.
+console.log(
+  `[prerender] curated=${CURATED.length} blog=${blogRoutes.length} total=${PRERENDER_ROUTES.length}` +
+    (rawLimit > 0 ? ` (PRERENDER_LIMIT=${rawLimit})` : ""),
+);

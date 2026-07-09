@@ -1,5 +1,7 @@
 {
   "maxwell": {
+    "slug": "maxwell",
+    "kind": "author",
     "name": "Maxwell",
     "title": "First Contact Practitioner",
     "credential": "HCPC PH128483",
@@ -16,6 +18,31 @@
       "CSP Member (Chartered Society of Physiotherapy)",
       "Evidence-based practice training",
       "Patient education specialist"
-    ]
+    ],
+    "image": null,
+    "sameAs": []
+  },
+  "dr-amina-patel": {
+    "slug": "dr-amina-patel",
+    "kind": "reviewer",
+    "name": "Dr Amina Patel",
+    "title": "Consultant Rheumatologist",
+    "credential": "[PLACEHOLDER - CLIENT TO PROVIDE GMC number]",
+    "organization": "[PLACEHOLDER - CLIENT TO PROVIDE NHS trust / clinic]",
+    "specialties": [
+      "Rheumatoid Arthritis",
+      "Psoriatic Arthritis",
+      "Ankylosing Spondylitis",
+      "Connective Tissue Disease"
+    ],
+    "bio": "Consultant Rheumatologist reviewing clinical content on Living With Arthritis. [PLACEHOLDER - CLIENT TO PROVIDE 1–2 paragraph biography covering training, current NHS/private appointments, research interests and patient-facing work.]",
+    "credentials": [
+      "[PLACEHOLDER - CLIENT TO PROVIDE GMC registration number]",
+      "[PLACEHOLDER - CLIENT TO PROVIDE fellowship / membership e.g. FRCP, MRCP]",
+      "[PLACEHOLDER - CLIENT TO PROVIDE medical school and year of qualification]",
+      "[PLACEHOLDER - CLIENT TO PROVIDE current NHS trust or clinic]"
+    ],
+    "image": null,
+    "sameAs": []
   }
 }

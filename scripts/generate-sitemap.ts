@@ -312,6 +312,18 @@ async function main() {
   const xml = build(entries);
   writeFileSync(resolve("public/sitemap.xml"), xml);
   console.log(`[sitemap] wrote ${entries.length} entries -> public/sitemap.xml`);
+
+  // Also emit a slug list for the prerender pipeline. Sorted newest-first by
+  // lastmod so `PRERENDER_LIMIT` can trim to the freshest N without missing
+  // recently-published posts. Consumed by scripts/prerender-routes.mjs.
+  const slugList = [...posts]
+    .sort((a, b) => (b.lastmod ?? "").localeCompare(a.lastmod ?? ""))
+    .map((p) => p.slug);
+  writeFileSync(
+    resolve("src/data/blog-slugs.generated.json"),
+    JSON.stringify(slugList, null, 2) + "\n",
+  );
+  console.log(`[sitemap] wrote ${slugList.length} slugs -> src/data/blog-slugs.generated.json`);
 }
 
 main().catch((e) => {

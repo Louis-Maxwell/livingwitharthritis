@@ -2,6 +2,12 @@ import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { getClustersForArticle, scoreCandidate } from "@/lib/relatedClusters";
 
+export interface BlogArticleCitation {
+  label: string;
+  url: string;
+  publisher?: string;
+}
+
 export interface DBBlogArticle {
   slug: string;
   title: string;
@@ -20,9 +26,14 @@ export interface DBBlogArticle {
   is_published: boolean;
   display_order: number;
   updated_at?: string | null;
+  /** 40–60 word plain-English answer rendered in the on-page AnswerBox. */
+  direct_answer?: string | null;
+  /** Optional per-article citations (JSONB). When set, overrides/extends the
+   *  shared NHS/NICE defaults on ArticleCitations. */
+  citations?: BlogArticleCitation[] | null;
 }
 
-const FIELDS = "slug, title, excerpt, content, date, category, image_url, meta_title, meta_description, keywords, author, author_credentials, reviewed_by, reviewer_credentials, is_published, display_order, updated_at";
+const FIELDS = "slug, title, excerpt, content, date, category, image_url, meta_title, meta_description, keywords, author, author_credentials, reviewed_by, reviewer_credentials, is_published, display_order, updated_at, direct_answer, citations";
 const LIST_FIELDS = "slug, title, excerpt, date, category, image_url, display_order";
 
 /** Single article by slug */
@@ -38,7 +49,7 @@ export function useBlogArticle(slug: string | undefined) {
         .eq("is_published", true)
         .single();
       if (error) throw error;
-      return data as DBBlogArticle;
+      return data as unknown as DBBlogArticle;
     },
     enabled: !!slug,
   });

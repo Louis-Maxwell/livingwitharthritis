@@ -5,6 +5,7 @@ import { BookOpen, Search } from "lucide-react";
 import Header from "@/components/Header";
 import PageHero from "@/components/ui/PageHero";
 import { GLOSSARY_ROUTES } from "@/data/glossary-routes.generated";
+import { GLOSSARY_CONTENT } from "@/data/glossary-content";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
@@ -49,6 +50,32 @@ export default function Glossary() {
           content="Plain-English definitions of arthritis, rheumatology and MSK terms — from DMARDs to synovium — reviewed for UK patients."
         />
         <link rel="canonical" href="https://livingwitharthritis.org.uk/glossary" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "DefinedTermSet",
+          "@id": "https://livingwitharthritis.org.uk/glossary#termset",
+          name: "Arthritis & Musculoskeletal Glossary",
+          description:
+            "Plain-English UK definitions of arthritis, rheumatology and musculoskeletal terminology reviewed for patients.",
+          url: "https://livingwitharthritis.org.uk/glossary",
+          inLanguage: "en-GB",
+          publisher: {
+            "@type": "Organization",
+            name: "Living With Arthritis UK",
+            url: "https://livingwitharthritis.org.uk",
+          },
+          hasDefinedTerm: terms.map((t) => {
+            const entry = GLOSSARY_CONTENT[t.slug];
+            return {
+              "@type": "DefinedTerm",
+              "@id": `https://livingwitharthritis.org.uk${t.href}#term`,
+              name: entry?.label ?? t.label,
+              ...(entry?.short ? { description: entry.short } : {}),
+              url: `https://livingwitharthritis.org.uk${t.href}`,
+              inDefinedTermSet: "https://livingwitharthritis.org.uk/glossary#termset",
+            };
+          }),
+        })}</script>
       </Helmet>
 
       <Header />

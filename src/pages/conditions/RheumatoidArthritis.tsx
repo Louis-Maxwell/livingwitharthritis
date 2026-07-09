@@ -194,7 +194,7 @@ const RheumatoidArthritis = () => (
           />
         </motion.div>
 
-        <Section icon={ShieldAlert} title="Symptoms of Rheumatoid Arthritis">
+        <Section icon={ShieldAlert} title="What are the symptoms of rheumatoid arthritis?">
           <p>RA symptoms can vary in severity and may come and go in periods called flares. Common symptoms include:</p>
           <ul>
             <li><strong>Joint pain and swelling</strong> — warm, tender joints, especially in hands, wrists, and feet</li>
@@ -209,7 +209,7 @@ const RheumatoidArthritis = () => (
           <p>See your GP urgently if you experience persistent joint swelling, morning stiffness lasting over 30 minutes, or fatigue with joint symptoms. Early treatment within the first 12 weeks of symptoms (<strong>"window of opportunity"</strong>) dramatically improves long-term outcomes.</p>
         </Section>
 
-        <Section icon={Heart} title="Causes & Risk Factors">
+        <Section icon={Heart} title="What causes rheumatoid arthritis?">
           <p>The exact cause of RA is unknown, but it involves a combination of genetic and environmental factors:</p>
           <ul>
             <li><strong>Genetics</strong> — the HLA-DR4 gene increases susceptibility; family history raises risk</li>
@@ -221,7 +221,7 @@ const RheumatoidArthritis = () => (
           </ul>
         </Section>
 
-        <Section icon={Pill} title="Treatment Options">
+        <Section icon={Pill} title="How is rheumatoid arthritis treated?">
           <p>Modern treatment aims to achieve <strong>remission</strong> — a state where the disease is controlled and no active inflammation is present. The UK follows a <strong>"treat to target"</strong> approach.</p>
           <h3>DMARDs (Disease-Modifying Anti-Rheumatic Drugs)</h3>
           <p><strong>Methotrexate</strong> is usually the first-line treatment, often combined with other DMARDs like sulfasalazine or hydroxychloroquine. If first-line DMARDs are not tolerated or effective, <a href="/guides/azathioprine-for-arthritis"><strong>azathioprine</strong></a> may be used as an alternative immunosuppressant DMARD. DMARDs slow disease progression and prevent joint damage — they are the cornerstone of RA treatment.</p>
@@ -236,7 +236,7 @@ const RheumatoidArthritis = () => (
           </ul>
         </Section>
 
-        <Section icon={Dumbbell} title="Exercise for Rheumatoid Arthritis">
+        <Section icon={Dumbbell} title="What exercises help rheumatoid arthritis?">
           <p>Exercise is safe and beneficial for RA — it reduces fatigue, improves mood, and maintains joint function. The key is choosing appropriate activities and adapting intensity during flares.</p>
           <ul>
             <li><strong>Hydrotherapy / swimming</strong> — warm water eases stiffness; buoyancy protects joints</li>
@@ -249,7 +249,7 @@ const RheumatoidArthritis = () => (
           <p><strong>During flares:</strong> reduce intensity but try to maintain some gentle movement. Complete rest can worsen stiffness. Listen to your body and work with your physiotherapist.</p>
         </Section>
 
-        <Section icon={Apple} title="Diet & Nutrition">
+        <Section icon={Apple} title="What foods help rheumatoid arthritis?">
           <p>While no diet can cure RA, anti-inflammatory eating patterns can complement medical treatment and help manage symptoms:</p>
           <h3>Recommended</h3>
           <ul>

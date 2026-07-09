@@ -54,10 +54,17 @@ export default function GlossaryTerm() {
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "DefinedTerm",
+          "@id": `https://livingwitharthritis.org.uk${href}#term`,
           "name": label,
           "description": entry?.short ?? description,
-          "inDefinedTermSet": "https://livingwitharthritis.org.uk/glossary",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "@id": "https://livingwitharthritis.org.uk/glossary#termset",
+            "url": "https://livingwitharthritis.org.uk/glossary",
+            "name": "Arthritis & Musculoskeletal Glossary",
+          },
           "url": `https://livingwitharthritis.org.uk${href}`,
+          "inLanguage": "en-GB",
         })}</script>
       </Helmet>
 

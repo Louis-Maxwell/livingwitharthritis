@@ -23,7 +23,8 @@ import InternalLinks from "@/components/InternalLinks";
 import { Skeleton } from "@/components/ui/skeleton";
 import { marked } from "marked";
 import DOMPurify from "dompurify";
-import ArticleCitations, { DEFAULT_CITATIONS } from "@/components/blog/ArticleCitations";
+import ArticleCitations, { DEFAULT_CITATIONS, type Citation } from "@/components/blog/ArticleCitations";
+import AnswerBox from "@/components/seo/AnswerBox";
 import NextReadStrip from "@/components/NextReadStrip";
 import KeyTakeaways from "@/components/article/KeyTakeaways";
 import FeedbackPoll from "@/components/article/FeedbackPoll";
@@ -195,7 +196,7 @@ const BlogPost = () => {
             "name": "Maxwell",
             "jobTitle": "First Contact Practitioner",
             "identifier": "HCPC PH128483",
-            "url": "https://livingwitharthritis.org.uk/about/ai-transparency",
+            "url": "https://livingwitharthritis.org.uk/authors/maxwell",
             "affiliation": { "@type": "Organization", "name": "Chartered Society of Physiotherapy" }
           },
           "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk", "logo": { "@type": "ImageObject", "url": "https://livingwitharthritis.org.uk/favicon.ico" } },
@@ -204,7 +205,7 @@ const BlogPost = () => {
           "about": { "@type": "MedicalCondition", "name": "Arthritis", "alternateName": ["Osteoarthritis", "Rheumatoid Arthritis"] },
           "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } },
           "lastReviewed": dateModifiedIso,
-          "reviewedBy": { "@type": "Person", "name": reviewerName, "jobTitle": reviewerCreds },
+          "reviewedBy": { "@type": "Person", "name": reviewerName, "jobTitle": reviewerCreds, "url": "https://livingwitharthritis.org.uk/reviewers/dr-amina-patel" },
           "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Patient" },
           "citation": DEFAULT_CITATIONS.map((c) => ({
             "@type": "CreativeWork",
@@ -226,7 +227,7 @@ const BlogPost = () => {
             "name": "Maxwell",
             "jobTitle": "First Contact Practitioner",
             "identifier": "HCPC PH128483",
-            "url": "https://livingwitharthritis.org.uk/about/ai-transparency",
+            "url": "https://livingwitharthritis.org.uk/authors/maxwell",
             "affiliation": { "@type": "Organization", "name": "Chartered Society of Physiotherapy" }
           },
           "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk", "logo": { "@type": "ImageObject", "url": "https://livingwitharthritis.org.uk/favicon.ico", "width": 512, "height": 512 } },
@@ -349,6 +350,14 @@ const BlogPost = () => {
         </header>
 
         <main className="container mx-auto px-6 md:px-10 py-10 md:py-14 max-w-[720px]">
+          {article.direct_answer && (
+            <AnswerBox
+              question={article.title.replace(/[?.!]+$/, "").trim() + "?"}
+              reviewed={dateModifiedIso?.slice(0, 10)}
+            >
+              {article.direct_answer}
+            </AnswerBox>
+          )}
           <MedicalReviewBadge />
           <KeyTakeaways html={htmlContent} title={article.title} />
           <TableOfContents html={htmlContent} />
@@ -387,7 +396,16 @@ const BlogPost = () => {
           </section>
 
 
-          <ArticleCitations />
+          <ArticleCitations
+            citations={
+              // Per-article citations extend (not replace) the shared NHS/NICE
+              // defaults so E-E-A-T signal remains strong even when a post
+              // has no bespoke sources yet.
+              Array.isArray(article.citations) && article.citations.length > 0
+                ? ([...DEFAULT_CITATIONS, ...article.citations] as Citation[])
+                : DEFAULT_CITATIONS
+            }
+          />
 
           {slug && <FeedbackPoll slug={slug} title={article.title} />}
 

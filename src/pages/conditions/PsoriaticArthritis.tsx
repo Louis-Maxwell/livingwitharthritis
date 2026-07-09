@@ -176,7 +176,7 @@ const PsoriaticArthritis = () => (
           </ul>
         </Section>
 
-        <Section icon={Fingerprint} title="Symptoms">
+        <Section icon={Fingerprint} title="What are the symptoms of psoriatic arthritis?">
           <p>PsA symptoms can develop gradually or suddenly, and may alternate between flares and periods of remission:</p>
           <h3>Joint Symptoms</h3>
           <ul>
@@ -199,7 +199,7 @@ const PsoriaticArthritis = () => (
           </ul>
         </Section>
 
-        <Section icon={Heart} title="Causes & Risk Factors">
+        <Section icon={Heart} title="What causes psoriatic arthritis?">
           <p>PsA is an autoimmune condition with both genetic and environmental triggers:</p>
           <ul>
             <li><strong>Psoriasis</strong> — the strongest risk factor; 70-80% develop skin symptoms before joint symptoms</li>
@@ -212,7 +212,7 @@ const PsoriaticArthritis = () => (
           </ul>
         </Section>
 
-        <Section icon={Pill} title="Treatment">
+        <Section icon={Pill} title="How is psoriatic arthritis treated?">
           <p>Treatment aims to control both joint inflammation and skin disease, prevent joint damage, and maintain quality of life:</p>
           <h3>Mild Disease</h3>
           <ul>
@@ -236,7 +236,7 @@ const PsoriaticArthritis = () => (
           </ul>
         </Section>
 
-        <Section icon={Dumbbell} title="Exercise & Lifestyle">
+        <Section icon={Dumbbell} title="What exercises help psoriatic arthritis?">
           <p>Regular exercise is vital for managing PsA — it maintains joint function, supports weight management, improves mood, and may help reduce skin symptoms through stress reduction.</p>
           <ul>
             <li><strong>Swimming</strong> — excellent for joints; chlorinated water may irritate skin psoriasis (use emollients before and after)</li>
@@ -249,7 +249,7 @@ const PsoriaticArthritis = () => (
           <p>Wear moisture-wicking, loose-fitting clothes. Apply emollients before swimming. Shower promptly after exercise and moisturise to prevent skin flares.</p>
         </Section>
 
-        <Section icon={Apple} title="Diet & Nutrition">
+        <Section icon={Apple} title="What foods help psoriatic arthritis?">
           <p>Diet plays a role in managing both the skin and joint components of PsA:</p>
           <ul>
             <li><strong>Mediterranean diet</strong> — anti-inflammatory pattern that benefits both joints and skin</li>
