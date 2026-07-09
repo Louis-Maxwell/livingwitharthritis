@@ -30,7 +30,7 @@ export default defineConfig(({ mode }): any => ({
         rendererOptions: {
           renderAfterDocumentEvent: "prerender-ready",
           maxConcurrentRoutes: 4,
-          headless: "new",
+          headless: true,
           // Give useEffect-injected JSON-LD a moment after route mount
           renderAfterTime: 1500,
         },
