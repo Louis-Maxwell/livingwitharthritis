@@ -32,6 +32,7 @@ const PAYLOAD = {
     name: "Maxwell",
     jobTitle: "First Contact Practitioner",
     identifier: "HCPC PH128483",
+    url: `${BASE}/authors/maxwell`,
   },
   member: [
     {
@@ -39,7 +40,13 @@ const PAYLOAD = {
       name: "Maxwell",
       jobTitle: "First Contact Practitioner",
       identifier: "HCPC PH128483",
-      url: `${BASE}/about#maxwell`,
+      url: `${BASE}/authors/maxwell`,
+    },
+    {
+      "@type": "Person",
+      name: "Dr Amina Patel",
+      jobTitle: "Consultant Rheumatologist",
+      url: `${BASE}/reviewers/dr-amina-patel`,
     },
   ],
   knowsAbout: [
