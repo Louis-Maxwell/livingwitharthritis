@@ -164,7 +164,7 @@ const ShoulderArthritis = () => (
           <p>Each pattern has slightly different symptoms and treatment, so accurate diagnosis (usually X-ray + clinical exam) matters.</p>
         </Section>
 
-        <Section icon={ThermometerSun} title="Symptoms of shoulder arthritis">
+        <Section icon={ThermometerSun} title="What are the symptoms of shoulder arthritis?">
           <ul>
             <li><strong>Deep shoulder ache</strong> — worse with movement, often felt at the back of the joint</li>
             <li><strong>Night pain</strong> — particularly lying on the affected side</li>
@@ -175,7 +175,7 @@ const ShoulderArthritis = () => (
           </ul>
         </Section>
 
-        <Section icon={Heart} title="Causes & risk factors">
+        <Section icon={Heart} title="What causes shoulder arthritis?">
           <ul>
             <li><strong>Age</strong> — most cases develop after 60</li>
             <li><strong>Previous dislocation or fracture</strong> — single biggest risk factor; can cause arthritis 10–20 years later</li>
@@ -197,7 +197,7 @@ const ShoulderArthritis = () => (
           ]} />
         </motion.div>
 
-        <Section icon={Dumbbell} title="Best exercises for shoulder arthritis">
+        <Section icon={Dumbbell} title="What are the best exercises for shoulder arthritis?">
           <p>The aim is to maintain range of motion and rotator cuff strength <em>without</em> impinging the joint. Avoid heavy overhead pressing.</p>
           <h3>Range of motion</h3>
           <ul>
@@ -214,7 +214,7 @@ const ShoulderArthritis = () => (
           <p><strong>Avoid:</strong> military press, behind-the-neck pulldowns, upright rows, and heavy bench press — all increase impingement risk.</p>
         </Section>
 
-        <Section icon={Apple} title="Diet & lifestyle">
+        <Section icon={Apple} title="What diet and lifestyle changes help shoulder arthritis?">
           <p>The same anti-inflammatory eating pattern that helps every form of arthritis applies — see our <Link to="/diet" className="text-primary underline">Diet Hub</Link>. For shoulders specifically:</p>
           <ul>
             <li>Sleep position matters — try lying on the unaffected side with a pillow hugged to the chest to support the painful arm</li>
@@ -233,7 +233,7 @@ const ShoulderArthritis = () => (
           </div>
         </motion.div>
 
-        <Section icon={Pill} title="Treatment & management">
+        <Section icon={Pill} title="How is shoulder arthritis treated?">
           <h3>Self-management</h3>
           <ul>
             <li>Daily mobility and cuff routine (above)</li>

@@ -181,7 +181,7 @@ const KneeArthritis = () => (
           <p>Around <strong>4.11 million</strong> people in the UK live with knee osteoarthritis, making it the single most common cause of mobility loss in older adults.</p>
         </Section>
 
-        <Section icon={ThermometerSun} title="Symptoms of knee arthritis">
+        <Section icon={ThermometerSun} title="What are the symptoms of knee arthritis?">
           <ul>
             <li><strong>Pain on stairs</strong> — particularly going downstairs, when load on the patellofemoral joint peaks</li>
             <li><strong>Morning stiffness</strong> — usually under 30 minutes; longer suggests inflammatory arthritis</li>
@@ -192,7 +192,7 @@ const KneeArthritis = () => (
           </ul>
         </Section>
 
-        <Section icon={Heart} title="Causes & risk factors">
+        <Section icon={Heart} title="What causes knee arthritis?">
           <ul>
             <li><strong>Age</strong> — most cases develop after 45</li>
             <li><strong>Body weight</strong> — every extra pound transmits ~4 lb of force through the knee</li>
@@ -214,7 +214,7 @@ const KneeArthritis = () => (
           ]} />
         </motion.div>
 
-        <Section icon={Dumbbell} title="Best exercises for knee arthritis">
+        <Section icon={Dumbbell} title="What are the best exercises for knee arthritis?">
           <p>NICE lists exercise as a <strong>core treatment</strong> for everyone with knee OA — not optional. The most effective programmes combine quadriceps strengthening with low-impact aerobic work.</p>
           <h3>Strengthening</h3>
           <ul>
@@ -231,7 +231,7 @@ const KneeArthritis = () => (
           </ul>
         </Section>
 
-        <Section icon={Apple} title="Diet & weight management">
+        <Section icon={Apple} title="What diet helps knee arthritis?">
           <p>Weight loss is the single most powerful non-surgical treatment for knee arthritis. A 5% reduction in body weight typically delivers a 20–30% drop in knee pain. Pair calorie control with the Mediterranean pattern covered in our <Link to="/diet" className="text-primary underline">Diet Hub</Link>:</p>
           <ul>
             <li>Oily fish twice a week (salmon, mackerel, sardines)</li>
@@ -250,7 +250,7 @@ const KneeArthritis = () => (
           </div>
         </motion.div>
 
-        <Section icon={Pill} title="Treatment & management">
+        <Section icon={Pill} title="How is knee arthritis treated?">
           <h3>Self-management</h3>
           <ul>
             <li>Daily strengthening programme</li>

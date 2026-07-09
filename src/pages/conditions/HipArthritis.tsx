@@ -182,7 +182,7 @@ const HipArthritis = () => (
           <p>Around <strong>3.2 million</strong> people in the UK live with hip osteoarthritis. Roughly 100,000 hip replacements are performed each year through the NHS and private sector combined.</p>
         </Section>
 
-        <Section icon={ThermometerSun} title="Symptoms of hip arthritis">
+        <Section icon={ThermometerSun} title="What are the symptoms of hip arthritis?">
           <ul>
             <li><strong>Groin or front-of-thigh pain</strong> — the most reliable sign; pain felt only on the outside of the hip is more often bursitis or gluteal tendinopathy</li>
             <li><strong>Stiffness after sitting</strong> — the "movie-theatre sign" of having to walk a few stiff steps after standing up</li>
@@ -193,7 +193,7 @@ const HipArthritis = () => (
           </ul>
         </Section>
 
-        <Section icon={Heart} title="Causes & risk factors">
+        <Section icon={Heart} title="What causes hip arthritis?">
           <ul>
             <li><strong>Age</strong> — most cases develop after 45</li>
             <li><strong>Body weight</strong> — the hip carries 3× body weight when walking and up to 5× when climbing stairs</li>
@@ -215,7 +215,7 @@ const HipArthritis = () => (
           ]} />
         </motion.div>
 
-        <Section icon={Dumbbell} title="Best exercises for hip arthritis">
+        <Section icon={Dumbbell} title="What are the best exercises for hip arthritis?">
           <p>NICE lists exercise as a <strong>core treatment</strong> for everyone with hip OA — not optional. The most effective programmes combine glute and hip-abductor strengthening with low-impact aerobic work.</p>
           <h3>Strengthening</h3>
           <ul>
@@ -246,7 +246,7 @@ const HipArthritis = () => (
           <p>If pain still wakes you most nights despite these changes, ask your GP about a short course of oral NSAIDs or a hip injection. Persistent night pain is also one of the clearest signals it's time to discuss <Link to="/conditions/hip-arthritis" className="text-primary underline">surgical options</Link>.</p>
         </Section>
 
-        <Section icon={Apple} title="Diet & weight management">
+        <Section icon={Apple} title="What diet helps hip arthritis?">
           <p>Weight loss is the single most powerful non-surgical treatment for hip arthritis. A 5% reduction in body weight typically delivers a 20–30% drop in hip pain. Pair calorie control with the Mediterranean pattern covered in our <Link to="/diet" className="text-primary underline">Diet Hub</Link>:</p>
           <ul>
             <li>Oily fish twice a week (salmon, mackerel, sardines)</li>
@@ -265,7 +265,7 @@ const HipArthritis = () => (
           </div>
         </motion.div>
 
-        <Section icon={Pill} title="Treatment & management">
+        <Section icon={Pill} title="How is hip arthritis treated?">
           <h3>Self-management</h3>
           <ul>
             <li>Daily glute and hip-abductor programme</li>

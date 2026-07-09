@@ -183,7 +183,7 @@ const HandArthritis = () => (
           <p>Inflammatory arthritis (rheumatoid, psoriatic) typically targets different joints — see our <Link to="/conditions/rheumatoid-arthritis" className="text-primary underline">rheumatoid arthritis</Link> guide if morning stiffness lasts over an hour or multiple knuckles are swollen and warm.</p>
         </Section>
 
-        <Section icon={ThermometerSun} title="Symptoms of hand arthritis">
+        <Section icon={ThermometerSun} title="What are the symptoms of hand arthritis?">
           <ul>
             <li><strong>Heberden's nodes</strong> — small bony bumps on the end finger joints</li>
             <li><strong>Bouchard's nodes</strong> — similar bumps on the middle finger joints</li>
@@ -194,7 +194,7 @@ const HandArthritis = () => (
           </ul>
         </Section>
 
-        <Section icon={Heart} title="Causes & risk factors">
+        <Section icon={Heart} title="What causes hand arthritis?">
           <ul>
             <li><strong>Age</strong> — most common after 50</li>
             <li><strong>Sex</strong> — women are 2–3× more likely to develop hand OA, particularly around menopause</li>
@@ -215,7 +215,7 @@ const HandArthritis = () => (
           ]} />
         </motion.div>
 
-        <Section icon={Dumbbell} title="Best exercises for hand arthritis">
+        <Section icon={Dumbbell} title="What are the best exercises for hand arthritis?">
           <p>A short daily routine maintains range of motion and grip strength better than any supplement. Aim for 5 minutes, twice a day, in a warm room or after a warm shower.</p>
           <h3>Range of motion</h3>
           <ul>
@@ -231,7 +231,7 @@ const HandArthritis = () => (
           </ul>
         </Section>
 
-        <Section icon={Apple} title="Diet & lifestyle">
+        <Section icon={Apple} title="What diet and lifestyle changes help hand arthritis?">
           <p>The same anti-inflammatory pattern that helps every type of arthritis applies — see our <Link to="/diet" className="text-primary underline">Diet Hub</Link>. For hands specifically:</p>
           <ul>
             <li>Stay hydrated — joint cartilage is 70% water</li>
@@ -251,7 +251,7 @@ const HandArthritis = () => (
           </div>
         </motion.div>
 
-        <Section icon={Pill} title="Treatment & management">
+        <Section icon={Pill} title="How is hand arthritis treated?">
           <h3>Self-management</h3>
           <ul>
             <li>Daily exercise routine (above)</li>
