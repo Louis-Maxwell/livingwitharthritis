@@ -2,6 +2,7 @@ import { CheckCircle2, Download, Mail, BookOpen, Stethoscope, ArrowRight, FileTe
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
+import { trackFileDownload } from "@/lib/ga-events";
 import type { ExitIntentVariant, ExitIntentVariantId } from "@/lib/exitIntentVariants";
 import { CONTACT_EMAILS } from "@/config/contact";
 
@@ -48,6 +49,12 @@ const ExitIntentSuccess = ({ variant, variantId, confirmedEmail, onClose }: Prop
       return;
     }
     trackEvent("exit_intent_pdf_preview_download", { variant: variantId });
+    trackFileDownload({
+      file_name: "arthritis-starter-guide-preview.pdf",
+      file_extension: "pdf",
+      file_url: PDF_URL,
+      source: `exit_intent:${variantId}`,
+    });
   };
 
   const handleNextStep = (step: string, href: string) => {

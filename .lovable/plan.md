@@ -1,41 +1,54 @@
-## Plan: Create `/blog/ginger-vs-turmeric-for-arthritis` post
 
-The blog post at `/blog/:slug` is rendered by `src/pages/BlogPost.tsx` from the `blog_articles` Cloud database table (via `useBlogArticle`). To make the URL live, I'll insert one published row into that table.
+# GA4 + Search Console optimisation
 
-### What I'll insert
+Work through the checklist you pasted, item by item, using what's already in the codebase and filling the gaps.
 
-A single row in `public.blog_articles`:
+## 1. GA4 — tracking coverage
+- Verify `G-X8GTW05JJS` loads on every route by reading `index.html` and confirming `EngagementTracker` fires `page_view` on SPA navigations (already wired in `src/components/EngagementTracker.tsx`).
+- Add a lightweight runtime check in dev that warns if `window.gtag` is missing after mount, so future regressions surface immediately.
 
-- **slug**: `ginger-vs-turmeric-for-arthritis`
-- **title**: "Ginger vs Turmeric for Arthritis: Which Actually Works?"
-- **meta_title** / **meta_description**: SEO-optimised, ≤60 / ≤160 chars, targeting the "ginger vs turmeric arthritis" query from the SEMrush suggestion.
-- **excerpt**: ~1–2 sentence summary shown on the blog index.
-- **category**: `Nutrition` (matches existing diet/supplement posts).
-- **keywords**: `ginger, turmeric, curcumin, arthritis, anti-inflammatory, supplements, osteoarthritis`
-- **author**: `Maxwell` / **author_credentials**: `First Contact Practitioner · HCPC PH128483` (matches JSON-LD author across the site).
-- **reviewed_by**: `Dr. Amina Patel` / **reviewer_credentials**: `Consultant Rheumatologist` (matches BlogPost defaults).
-- **image_url**: existing `og-blog-default.webp` fallback (no new asset).
-- **date**: today (2026-07-09), **updated_at**: same.
-- **is_published**: `true`, **display_order**: mid-range (e.g. `50`) so it slots into the list naturally.
-- **content**: markdown, ~1,200–1,500 words, UK English, drawing on the project knowledge (curcumin ~1,000 mg/day with piperine; ginger 500–1,000 mg/day; safety notes re blood thinners; not a cure). Structure:
-  1. Intro — why patients ask this
-  2. What ginger does (mechanism, evidence, meta-analyses)
-  3. What turmeric/curcumin does (mechanism, evidence, comparison to NSAIDs)
-  4. Head-to-head comparison table (H2, with `?` H3 Q&A blocks so `FAQPage` JSON-LD auto-populates)
-  5. Dosage & safety (blood thinners, diabetes meds, GI)
-  6. How to combine them in food (with 1 simple recipe idea)
-  7. Bottom line + "speak to your GP" line
-  Includes 3–5 H2/H3 questions ending in `?` so the existing `extractFaqs` picks them up, and internal markdown links to related posts (e.g. `/blog/anti-inflammatory-diet-arthritis` style — only link to slugs that already exist; I'll confirm before writing).
+## 2. GA4 — conversions / key events
+Already firing: `generate_lead` (newsletter + contact), `newsletter_confirmed`, `contact_form_submit`, `donation_click`, `file_download`. Gaps to close:
+- Fire `donation_click` from every Donate CTA that currently isn't wired (audit `src/components/**` for Donate buttons and add `trackDonationClick({ source })`).
+- Fire `file_download` on the starter-guide PDF link (`public/downloads/arthritis-starter-guide-preview.pdf`) and any other downloadable asset.
+- Add `view_item` on `/products/:slug` and `begin_checkout` on the cart → checkout transition (shop conversion funnel).
+- Document all key events in `docs/GA4-CONVERSIONS.md` and note which to mark as key events in GA4 Admin.
 
-### How
+## 3. GA4 — UTM discipline
+- Add a short `docs/UTM-CONVENTIONS.md` with the standard `utm_source/medium/campaign/content/term` naming we'll use for newsletter, social, and partner links, plus 3–4 worked examples.
+- No code change needed — GA4 already parses UTMs automatically.
 
-1. Read `blog_articles` schema (columns, defaults, RLS) via `supabase--read_query` on `information_schema`, and list existing slugs so internal links point to real posts.
-2. Write a new migration `supabase/migrations/<timestamp>_add_ginger_vs_turmeric_blog.sql` containing a single `INSERT INTO public.blog_articles (...) VALUES (...) ON CONFLICT (slug) DO NOTHING;`.
-3. No app code changes — `BlogPost.tsx`, sitemap generation, and related-article scoring all pick the row up automatically once it's inserted.
-4. Verify by loading `/blog/ginger-vs-turmeric-for-arthritis` in the preview and confirming the SEMrush `content_suggestions` finding clears on the next scan.
+## 4. GA4 — custom dashboards
+- Not a code task; add a short "Recommended GA4 Explorations" section to `docs/GA4-CONVERSIONS.md` listing the 4 reports to build in GA4 UI: Landing pages (using `is_landing_page`), Conversion funnel, Content engagement (using `engagement_30s/60s/180s`), Scroll depth by page.
 
-### Not doing
+## 5. Search Console — property coverage
+- Use the connected Search Console to list verified properties and confirm all four variants (`http://`, `https://`, `www`, non-www) are present for `livingwitharthritis.org.uk`. If any are missing, add them via the Site Verification API using the META token flow (site already has `google6403cab80af896ec.html` file verification).
+- Report back which properties exist and which need adding.
 
-- No new React page, no route change, no design work.
-- No changes to `index.html`, sitemap XML, or JSON-LD helpers (existing `BlogPost.tsx` handles all of that).
-- No new images — reusing the existing OG fallback.
+## 6. Search Console — sitemap submission
+- Confirm `public/sitemap-index.xml` is submitted for each verified property via the Sitemaps API. Submit any that are missing.
+
+## 7. Search Console — coverage & performance monitoring
+- Run URL Inspection on the 6 canonical landing pages (`/`, `/about`, `/diet`, `/exercises`, `/arthritis-flare-ups`, `/guides/exercise`) plus the new `/blog/ginger-vs-turmeric-for-arthritis` and report indexing state.
+- Pull 28-day performance summary (impressions, clicks, CTR, avg position) and top 10 queries — surface in chat, no code change.
+
+## 8. Backlinks
+- Pull the Semrush backlink profile for `livingwitharthritis.org.uk` (authority score, referring domains, top anchors) and summarise in chat. No code change.
+
+## Deliverables
+Code / docs:
+- `docs/GA4-CONVERSIONS.md` — expanded with dashboards section + new events.
+- `docs/UTM-CONVENTIONS.md` — new.
+- Wire `trackDonationClick` / `trackFileDownload` / shop funnel events into any un-instrumented CTAs.
+
+Chat-only reports (no file changes):
+- Verified GSC properties + any that need adding.
+- Sitemap submission status per property.
+- URL Inspection results for 7 key URLs.
+- 28-day GSC performance snapshot + top queries.
+- Semrush backlink summary.
+
+## Out of scope
+- No visual/UI changes.
+- No new pages or routes.
+- No backend/schema changes.
