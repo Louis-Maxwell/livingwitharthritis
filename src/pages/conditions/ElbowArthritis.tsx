@@ -165,7 +165,7 @@ const ElbowArthritis = () => (
           <p>Other causes include cubital tunnel syndrome (ulnar nerve irritation), olecranon bursitis ("student's elbow"), and gout — see our <Link to="/conditions/gout" className="text-primary underline">gout guide</Link> for more.</p>
         </Section>
 
-        <Section icon={ThermometerSun} title="Symptoms of elbow arthritis">
+        <Section icon={ThermometerSun} title="What are the symptoms of elbow arthritis?">
           <ul>
             <li><strong>Deep elbow ache</strong> — worse when bending or straightening fully, often felt at the back of the joint</li>
             <li><strong>Loss of full extension</strong> — the arm no longer straightens the last few degrees, an early and very specific sign</li>
@@ -176,7 +176,7 @@ const ElbowArthritis = () => (
           </ul>
         </Section>
 
-        <Section icon={Heart} title="Causes &amp; risk factors">
+        <Section icon={Heart} title="What causes elbow arthritis?">
           <ul>
             <li><strong>Previous fracture or dislocation</strong> — the single biggest risk factor for elbow OA; arthritis can develop 10–20 years later</li>
             <li><strong>Heavy manual or overhead work</strong> — builders, decorators, mechanics and labourers</li>
@@ -198,7 +198,7 @@ const ElbowArthritis = () => (
           ]} />
         </motion.div>
 
-        <Section icon={Dumbbell} title="Best exercises for elbow arthritis">
+        <Section icon={Dumbbell} title="What are the best exercises for elbow arthritis?">
           <p>The aim is to preserve bending, straightening and forearm rotation <em>without</em> overloading the joint. Stop short of sharp pain, and use heat for 10 minutes before starting.</p>
           <h3>Range of motion</h3>
           <ul>
@@ -216,7 +216,7 @@ const ElbowArthritis = () => (
           <p>For joint-by-joint routines that pair with elbow care, browse our <Link to="/exercises" className="text-primary underline">exercise hub</Link>.</p>
         </Section>
 
-        <Section icon={Apple} title="Diet &amp; lifestyle">
+        <Section icon={Apple} title="What diet and lifestyle changes help elbow arthritis?">
           <p>The same anti-inflammatory eating pattern that helps every form of arthritis applies — see our <Link to="/diet" className="text-primary underline">Diet Hub</Link>. For elbows specifically:</p>
           <ul>
             <li>Switch a heavy shoulder bag for a backpack to take load off the arm</li>
@@ -236,7 +236,7 @@ const ElbowArthritis = () => (
           </div>
         </motion.div>
 
-        <Section icon={Pill} title="Treatment &amp; management">
+        <Section icon={Pill} title="How is elbow arthritis treated?">
           <h3>Self-management</h3>
           <ul>
             <li>Daily mobility and grip routine (above)</li>
@@ -255,7 +255,7 @@ const ElbowArthritis = () => (
           <p><strong>Arthroscopic debridement</strong> (keyhole clean-up of loose bodies and bone spurs) can buy years of relief in earlier disease. <strong>Total elbow replacement</strong> is reserved for severe rheumatoid involvement or end-stage OA, with around 85% of patients reporting good pain relief at 5 years. Replacements have stricter lifting limits than knees or hips, so they're used selectively.</p>
         </Section>
 
-        <Section icon={Activity} title="When to see your GP">
+        <Section icon={Activity} title="When should you see your GP?">
           <p>Book an appointment if any of the following apply:</p>
           <ul>
             <li>Elbow pain has lasted more than six weeks</li>
