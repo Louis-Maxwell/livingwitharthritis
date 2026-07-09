@@ -226,7 +226,7 @@ const BlogPost = () => {
             "name": "Maxwell",
             "jobTitle": "First Contact Practitioner",
             "identifier": "HCPC PH128483",
-            "url": "https://livingwitharthritis.org.uk/about/ai-transparency",
+            "url": "https://livingwitharthritis.org.uk/authors/maxwell",
             "affiliation": { "@type": "Organization", "name": "Chartered Society of Physiotherapy" }
           },
           "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk", "logo": { "@type": "ImageObject", "url": "https://livingwitharthritis.org.uk/favicon.ico", "width": 512, "height": 512 } },
