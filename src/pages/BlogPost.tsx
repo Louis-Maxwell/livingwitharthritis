@@ -396,7 +396,16 @@ const BlogPost = () => {
           </section>
 
 
-          <ArticleCitations />
+          <ArticleCitations
+            citations={
+              // Per-article citations extend (not replace) the shared NHS/NICE
+              // defaults so E-E-A-T signal remains strong even when a post
+              // has no bespoke sources yet.
+              Array.isArray(article.citations) && article.citations.length > 0
+                ? ([...DEFAULT_CITATIONS, ...article.citations] as Citation[])
+                : DEFAULT_CITATIONS
+            }
+          />
 
           {slug && <FeedbackPoll slug={slug} title={article.title} />}
 
