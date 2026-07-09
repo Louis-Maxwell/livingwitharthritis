@@ -37,3 +37,47 @@ All events fire only after the backend call resolves successfully — validation
   - `src/components/landing/NewsletterHeroBanner.tsx`
   - `src/components/landing/ContactSection.tsx`
   - `src/pages/NewsletterConfirm.tsx`
+- Donation + download helpers: `src/lib/ga-events.ts`
+  (`trackDonationClick`, `trackFileDownload`)
+- Wired into:
+  - `src/components/landing/StickyDonateBar.tsx`
+  - `src/components/landing/FinalDonateBand.tsx`
+  - `src/components/landing/ImpactProgressBand.tsx`
+  - `src/components/ExitIntentSuccess.tsx` (PDF starter-guide download)
+
+## Recommended GA4 Explorations
+
+Build these four Explorations in GA4 → Explore. All rely on custom
+dimensions that our tracker already emits — no code changes required.
+
+1. **Landing pages** — Free-form. Rows: `page_path`. Filter:
+   `is_landing_page = true`. Metrics: Sessions, Engaged sessions,
+   Engagement rate, Key events. Shows how the six canonical landing
+   pages perform in isolation.
+2. **Conversion funnel** — Funnel exploration. Steps: `page_view` →
+   `engaged_session` → `generate_lead` (or `donation_click` for the
+   donation funnel). Filter by campaign (`Session campaign`) to
+   compare UTMs.
+3. **Content engagement** — Free-form. Rows: `page_path`. Metrics:
+   count of `engagement_30s`, `engagement_60s`, `engagement_180s`,
+   `engagement_240s`. Surfaces the pages readers actually finish.
+4. **Scroll depth by page** — Free-form. Rows: `page_path`. Columns:
+   event parameter `depth` from `scroll_depth`. Values: event count.
+   Shows drop-off points on long-form guides.
+
+## Mark as key events
+
+In GA4 → Admin → Events, toggle **Mark as key event** on:
+
+- `generate_lead` — covers newsletter + contact + confirmed opt-ins.
+- `donation_click` — every Donate CTA click across the site.
+- `file_download` — PDF starter guide and any future asset downloads.
+- `newsletter_confirmed` — optional, to separate double opt-in from
+  initial signup.
+
+## UTM tagging
+
+Follow `docs/UTM-CONVENTIONS.md` for every outbound link that points
+back at the site. GA4 auto-parses UTMs into
+`Session source / medium / campaign`.
+
