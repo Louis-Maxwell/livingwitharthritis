@@ -181,7 +181,57 @@ const KneeArthritis = () => (
           <p>Around <strong>4.11 million</strong> people in the UK live with knee osteoarthritis, making it the single most common cause of mobility loss in older adults.</p>
         </Section>
 
-        <Section icon={ThermometerSun} title="What are the symptoms of knee arthritis?">
+        <Section icon={ThermometerSun} title="Symptoms of knee arthritis">
+          <ul>
+            <li><strong>Pain on stairs</strong> — particularly going downstairs, when load on the patellofemoral joint peaks</li>
+            <li><strong>Morning stiffness</strong> — usually under 30 minutes; longer suggests inflammatory arthritis</li>
+            <li><strong>Swelling</strong> — a "boggy" feeling around the kneecap, often worse after activity</li>
+            <li><strong>Crepitus</strong> — grinding or clicking when bending the knee</li>
+            <li><strong>Giving way</strong> — the knee buckles momentarily, usually because the quadriceps have weakened</li>
+            <li><strong>Reduced range</strong> — difficulty fully straightening or bending the knee</li>
+          </ul>
+        </Section>
+
+        <Section icon={Heart} title="Causes & risk factors">
+          <ul>
+            <li><strong>Age</strong> — most cases develop after 45</li>
+            <li><strong>Body weight</strong> — every extra pound transmits ~4 lb of force through the knee</li>
+            <li><strong>Previous injury</strong> — meniscus tears, ACL ruptures and fractures multiply risk 3–6×</li>
+            <li><strong>Occupation</strong> — repeated kneeling, squatting or heavy lifting (carpet fitters, tilers, farmers)</li>
+            <li><strong>Sex</strong> — women are roughly 1.5× more likely to develop knee OA after menopause</li>
+            <li><strong>Alignment</strong> — bow-legs (varus) load the medial compartment; knock-knees (valgus) load the lateral</li>
+          </ul>
+        </Section>
+
+        <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12 p-6 rounded-2xl bg-tint-amber border border-border/30">
+          <h3 className="font-display text-lg font-bold text-foreground mb-4">Symptom impact (typical patient survey)</h3>
+          <HorizontalBar items={[
+            { label: "Pain on stairs", value: 88, color: "hsl(var(--primary))" },
+            { label: "Morning stiffness", value: 76, color: "hsl(var(--amber))" },
+            { label: "Swelling after activity", value: 64, color: "hsl(var(--sky))" },
+            { label: "Sleep disturbance", value: 52, color: "hsl(var(--violet))" },
+            { label: "Giving way", value: 38, color: "hsl(var(--emerald))" },
+          ]} />
+        </motion.div>
+
+        <Section icon={Dumbbell} title="Best exercises for knee arthritis">
+          <p>NICE lists exercise as a <strong>core treatment</strong> for everyone with knee OA — not optional. The most effective programmes combine quadriceps strengthening with low-impact aerobic work.</p>
+          <h3>Strengthening</h3>
+          <ul>
+            <li><strong>Straight-leg raises</strong> — the safest way to load the quadriceps without bending the knee. 3 sets of 10, daily.</li>
+            <li><strong>Wall sits</strong> — start at 10 seconds, build to 60. Stop above 90° of knee bend if painful.</li>
+            <li><strong>Step-ups</strong> — onto a low step, controlling the lowering phase. 2 sets of 10 each leg.</li>
+            <li><strong>Glute bridges</strong> — strong glutes reduce knee load by improving hip mechanics.</li>
+          </ul>
+          <h3>Low-impact cardio</h3>
+          <ul>
+            <li><strong>Stationary cycling</strong> — set the saddle high enough that the knee is almost straight at the bottom</li>
+            <li><strong>Swimming or aqua-aerobics</strong> — buoyancy removes 70–90% of body weight from the joint</li>
+            <li><strong>Walking</strong> — start with 10-minute blocks, build to 30; cushioned shoes only</li>
+          </ul>
+        </Section>
+
+        <Section icon={Apple} title="Diet & weight management">
           <p>Weight loss is the single most powerful non-surgical treatment for knee arthritis. A 5% reduction in body weight typically delivers a 20–30% drop in knee pain. Pair calorie control with the Mediterranean pattern covered in our <Link to="/diet" className="text-primary underline">Diet Hub</Link>:</p>
           <ul>
             <li>Oily fish twice a week (salmon, mackerel, sardines)</li>
