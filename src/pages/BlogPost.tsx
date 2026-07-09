@@ -350,6 +350,14 @@ const BlogPost = () => {
         </header>
 
         <main className="container mx-auto px-6 md:px-10 py-10 md:py-14 max-w-[720px]">
+          {article.direct_answer && (
+            <AnswerBox
+              question={article.title.replace(/[?.!]+$/, "").trim() + "?"}
+              reviewed={dateModifiedIso?.slice(0, 10)}
+            >
+              {article.direct_answer}
+            </AnswerBox>
+          )}
           <MedicalReviewBadge />
           <KeyTakeaways html={htmlContent} title={article.title} />
           <TableOfContents html={htmlContent} />
