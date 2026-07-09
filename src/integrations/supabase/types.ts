@@ -265,9 +265,11 @@ export type Database = {
           author: string | null
           author_credentials: string | null
           category: string
+          citations: Json | null
           content: string
           created_at: string
           date: string
+          direct_answer: string | null
           display_order: number
           excerpt: string
           id: string
@@ -286,9 +288,11 @@ export type Database = {
           author?: string | null
           author_credentials?: string | null
           category?: string
+          citations?: Json | null
           content?: string
           created_at?: string
           date?: string
+          direct_answer?: string | null
           display_order?: number
           excerpt: string
           id?: string
@@ -307,9 +311,11 @@ export type Database = {
           author?: string | null
           author_credentials?: string | null
           category?: string
+          citations?: Json | null
           content?: string
           created_at?: string
           date?: string
+          direct_answer?: string | null
           display_order?: number
           excerpt?: string
           id?: string
