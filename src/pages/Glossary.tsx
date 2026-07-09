@@ -5,6 +5,7 @@ import { BookOpen, Search } from "lucide-react";
 import Header from "@/components/Header";
 import PageHero from "@/components/ui/PageHero";
 import { GLOSSARY_ROUTES } from "@/data/glossary-routes.generated";
+import { GLOSSARY_CONTENT } from "@/data/glossary-content";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
