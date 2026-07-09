@@ -195,7 +195,7 @@ const BlogPost = () => {
             "name": "Maxwell",
             "jobTitle": "First Contact Practitioner",
             "identifier": "HCPC PH128483",
-            "url": "https://livingwitharthritis.org.uk/about/ai-transparency",
+            "url": "https://livingwitharthritis.org.uk/authors/maxwell",
             "affiliation": { "@type": "Organization", "name": "Chartered Society of Physiotherapy" }
           },
           "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk", "logo": { "@type": "ImageObject", "url": "https://livingwitharthritis.org.uk/favicon.ico" } },
@@ -204,7 +204,7 @@ const BlogPost = () => {
           "about": { "@type": "MedicalCondition", "name": "Arthritis", "alternateName": ["Osteoarthritis", "Rheumatoid Arthritis"] },
           "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } },
           "lastReviewed": dateModifiedIso,
-          "reviewedBy": { "@type": "Person", "name": reviewerName, "jobTitle": reviewerCreds },
+          "reviewedBy": { "@type": "Person", "name": reviewerName, "jobTitle": reviewerCreds, "url": "https://livingwitharthritis.org.uk/reviewers/dr-amina-patel" },
           "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Patient" },
           "citation": DEFAULT_CITATIONS.map((c) => ({
             "@type": "CreativeWork",
