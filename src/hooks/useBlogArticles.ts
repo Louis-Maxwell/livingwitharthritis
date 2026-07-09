@@ -49,7 +49,7 @@ export function useBlogArticle(slug: string | undefined) {
         .eq("is_published", true)
         .single();
       if (error) throw error;
-      return data as DBBlogArticle;
+      return data as unknown as DBBlogArticle;
     },
     enabled: !!slug,
   });
