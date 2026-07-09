@@ -158,6 +158,7 @@ const BuddyMatch = lazy(() => import("./pages/BuddyMatch"));
 const NewsletterConfirm = lazy(() => import("./pages/NewsletterConfirm"));
 const DebugSchema = lazy(() => import("./pages/DebugSchema"));
 const EditorialStandards = lazy(() => import("./pages/EditorialStandards"));
+const AuthorProfile = lazy(() => import("./pages/AuthorProfile"));
 const SupplementsHub = lazy(() => import("./pages/supplements/SupplementsHub"));
 const Glucosamine = lazy(() => import("./pages/supplements/Glucosamine"));
 const Msm = lazy(() => import("./pages/supplements/Msm"));
