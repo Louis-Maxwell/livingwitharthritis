@@ -135,18 +135,30 @@ const Footer = () => {
       </div>
 
       <div className="border-t border-border/15">
-        <div className="container mx-auto px-6 md:px-12 py-5 flex flex-col md:flex-row justify-between items-center gap-3">
-          <p className="text-muted-foreground text-[11px] tracking-wide">
-            © {new Date().getFullYear()} {CHARITY.legalName}™ ·{" "}
-            <a
-              href={CHARITY.registerUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline-offset-2 hover:text-primary hover:underline transition-colors"
-            >
-              Registered Charity in England &amp; Wales No. {CHARITY.number}
-            </a>
-          </p>
+        <div className="container mx-auto px-6 md:px-12 py-5 flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+          <div className="text-[11px] text-muted-foreground tracking-wide">
+            <p>
+              © {new Date().getFullYear()} {CHARITY.legalName}™ ·{" "}
+              <a
+                href={CHARITY.registerUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline-offset-2 hover:text-primary hover:underline transition-colors"
+              >
+                Registered Charity in England &amp; Wales No. {CHARITY.number}
+              </a>
+            </p>
+            {hasCharityAddress() && (
+              <address className="not-italic mt-1.5 flex items-start gap-1.5 leading-relaxed">
+                <MapPin className="w-3.5 h-3.5 mt-0.5 shrink-0" aria-hidden="true" />
+                <span>
+                  Registered address: {CHARITY.address.name}, {CHARITY.address.street},{" "}
+                  {CHARITY.address.locality}, {CHARITY.address.region} {CHARITY.address.postalCode}
+                </span>
+              </address>
+            )}
+            <p className="mt-1.5">Recently registered with the Charity Commission for England and Wales.</p>
+          </div>
           <a
             href="https://maxwellhealth.co.uk"
             target="_blank"
