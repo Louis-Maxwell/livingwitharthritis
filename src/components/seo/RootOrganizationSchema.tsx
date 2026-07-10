@@ -27,6 +27,12 @@ const PAYLOAD = {
     name: "United Kingdom",
   },
   medicalSpecialty: ["Rheumatology", "Physiotherapy", "Nutrition"],
+  identifier: {
+    "@type": "PropertyValue",
+    propertyID: "GB-CHC",
+    value: "1218461",
+    url: "https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/5274747/charity-overview",
+  },
   founder: {
     "@type": "Person",
     name: "Maxwell",
@@ -68,8 +74,7 @@ const PAYLOAD = {
   // owned by this charity. Do NOT add placeholder or guessed URLs.
   sameAs: [
     "https://www.pinterest.co.uk/livingwitharthritis",
-    // TODO: add UK Charity Commission page URL (e.g.
-    //   https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/<id>)
+    "https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/5274747/charity-overview",
     // TODO: add Companies House page URL if the charity has a registered company number
     // TODO: add LinkedIn company page URL (https://www.linkedin.com/company/<slug>)
     // TODO: add X / Twitter profile URL
