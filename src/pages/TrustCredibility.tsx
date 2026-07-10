@@ -105,6 +105,9 @@ const TrustCredibility = () => {
             </div>
             <div className="max-w-3xl mx-auto mb-12">
               <CharityRegBadge variant="card" />
+              <p className="text-center text-xs text-muted-foreground mt-4">
+                Recently registered with the Charity Commission for England and Wales.
+              </p>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {impactMetrics.map((m, i) => (
