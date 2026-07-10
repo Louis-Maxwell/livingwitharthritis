@@ -3,10 +3,6 @@
  * details. Imported by Footer, About, Trust, Governance, Donate, JSON-LD
  * schema, and donation email templates so the number/address can never
  * drift between surfaces.
- *
- * NOTE: The postal address is intentionally blank — a new registered
- * address will be added shortly. Until then, surfaces that render the
- * address check `hasCharityAddress()` and hide the block.
  */
 export const CHARITY = {
   number: '1218461',
@@ -18,7 +14,7 @@ export const CHARITY = {
   regulatorUrl: 'https://www.gov.uk/government/organisations/charity-commission',
   charityCommissionUrl: 'https://www.gov.uk/find-charity-information',
   registerUrl:
-    'https://register-of-charities.charitycommission.gov.uk/charity-search?search=1218461',
+    'https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/5274747/charity-overview',
   fundraisingCodeUrl: 'https://www.fundraisingregulator.org.uk/code',
   registrationDate: '2020-03-15',
   foundedYear: 2020,
@@ -26,11 +22,11 @@ export const CHARITY = {
   websiteDomain: 'livingwitharthritis.org.uk',
   contactEmail: 'info@livingwitharthritis.org.uk',
   address: {
-    name: '',
-    street: '',
-    locality: '',
-    postalCode: '',
-    region: '',
+    name: 'Oswestry Primary Care Centre',
+    street: 'Thomas Savin Road',
+    locality: 'Oswestry',
+    postalCode: 'SY11 1GA',
+    region: 'Shropshire',
     country: 'GB',
   },
 } as const;
