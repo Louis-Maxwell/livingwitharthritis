@@ -38,6 +38,7 @@ const EngagementTracker = lazy(() => import("./components/EngagementTracker"));
 // Lazy load pages for code splitting
 const Chat = lazy(() => import("./pages/Chat"));
 const Auth = lazy(() => import("./pages/Auth"));
+const OAuthConsent = lazy(() => import("./pages/OAuthConsent"));
 const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
 const AdminAppointments = lazy(() => import("./pages/AdminAppointments"));
 const AdminPsiDashboard = lazy(() => import("./pages/AdminPsiDashboard"));
@@ -284,6 +285,7 @@ function AnimatedRoutes() {
         <Route path="/pt/conditions/osteoarthritis" element={<LocalizedOsteoarthritis />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/auth" element={<Auth />} />
+        <Route path="/.lovable/oauth/consent" element={<OAuthConsent />} />
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/admin/appointments" element={<AdminAppointments />} />
         <Route path="/admin/psi" element={<AdminPsiDashboard />} />
