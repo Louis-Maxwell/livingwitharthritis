@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import { MapPin } from "lucide-react";
 import FooterMostRead from "@/components/FooterMostRead";
 import HelplineWidget from "@/components/HelplineWidget";
 import NewsletterSignup from "@/components/NewsletterSignup";
-import { CHARITY } from "@/config/charity";
+import { CHARITY, hasCharityAddress } from "@/config/charity";
 
 const columns = [
   {
