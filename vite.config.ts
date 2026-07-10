@@ -4,6 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 import Prerender from "@prerenderer/rollup-plugin";
 import { visualizer } from "rollup-plugin-visualizer";
+import { mcpPlugin } from "@lovable.dev/mcp-js/stacks/supabase/vite";
 // @ts-expect-error - plain .mjs route list, no type declarations needed
 import { PRERENDER_ROUTES } from "./scripts/prerender-routes.mjs";
 
@@ -20,6 +21,7 @@ export default defineConfig(({ mode }): any => ({
     port: 8080,
   },
   plugins: [
+    mcpPlugin(),
     react(),
     mode === "development" && componentTagger(),
     ENABLE_PRERENDER &&
