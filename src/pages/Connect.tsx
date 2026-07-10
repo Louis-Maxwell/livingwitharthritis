@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import SeoHead from "@/components/SeoHead";
 import { Button } from "@/components/ui/button";
 import { injectJsonLd, buildBreadcrumb } from "@/lib/jsonLd";
-import { Copy, Check, Bot } from "lucide-react";
+import { Copy, Check, Plug } from "lucide-react";
 
 const PATH = "/connect";
 
