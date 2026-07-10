@@ -1,33 +1,40 @@
 import { Auth } from '@supabase/auth-ui-react';
 import { ThemeSupa } from '@supabase/auth-ui-shared';
 import { supabase } from '@/integrations/supabase/client';
-import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import SeoHead from '@/components/SeoHead';
 
+// Only allow same-origin relative paths as post-auth redirects.
+function safeNext(raw: string | null): string {
+  if (!raw) return '/chat';
+  if (!raw.startsWith('/') || raw.startsWith('//')) return '/chat';
+  return raw;
+}
+
 export default function AuthPage() {
   const navigate = useNavigate();
+  const [params] = useSearchParams();
+  const nextPath = useMemo(() => safeNext(params.get('next')), [params]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Check if user is already logged in
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session) {
-        navigate('/chat');
+        navigate(nextPath);
       }
       setIsLoading(false);
     });
 
-    // Listen for auth state changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       if (event === 'SIGNED_IN' && session) {
-        navigate('/chat');
+        navigate(nextPath);
       }
     });
 
     return () => subscription.unsubscribe();
-  }, [navigate]);
+  }, [navigate, nextPath]);
 
   if (isLoading) {
     return (
