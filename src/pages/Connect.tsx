@@ -108,7 +108,7 @@ const Connect = () => {
 
         <section className="mb-12">
           <h2 className="font-display text-2xl font-bold mb-6 flex items-center gap-2">
-            <Bot className="w-6 h-6" aria-hidden="true" />
+            <Plug className="w-6 h-6" aria-hidden="true" />
             ChatGPT
           </h2>
           <ol className="space-y-3 text-foreground/85 list-decimal list-inside">
@@ -134,7 +134,7 @@ const Connect = () => {
 
         <section className="mb-12">
           <h2 className="font-display text-2xl font-bold mb-6 flex items-center gap-2">
-            <Bot className="w-6 h-6" aria-hidden="true" />
+            <Plug className="w-6 h-6" aria-hidden="true" />
             Claude
           </h2>
           <ol className="space-y-3 text-foreground/85 list-decimal list-inside">
