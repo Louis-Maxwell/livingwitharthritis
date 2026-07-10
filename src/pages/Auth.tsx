@@ -211,7 +211,7 @@ export default function AuthPage() {
                 },
               }}
               providers={[]}
-              redirectTo={`${window.location.origin}/chat`}
+              redirectTo={`${window.location.origin}${nextPath}`}
             />
 
             <p className="mt-6 text-xs text-muted-foreground text-center leading-relaxed">
