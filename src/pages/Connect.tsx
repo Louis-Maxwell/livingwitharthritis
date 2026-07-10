@@ -22,7 +22,7 @@ const Connect = () => {
       "connect-breadcrumb",
       buildBreadcrumb([
         { name: "Home", path: "/" },
-        { name: "Connect an AI assistant", path: PATH },
+        { name: "Connect an Assistant", path: PATH },
       ])
     );
     return () => {
@@ -70,8 +70,8 @@ const Connect = () => {
             Your MCP server URL
           </h2>
           <p className="text-foreground/85 mb-4">
-            Copy this address and paste it into your AI assistant when it asks
-            for an MCP server URL.
+            Copy this address and paste it into your assistant when it asks for
+            an MCP server URL.
           </p>
 
           {mcpUrl ? (
