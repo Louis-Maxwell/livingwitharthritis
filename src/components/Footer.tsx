@@ -41,6 +41,7 @@ const columns = [
       { label: "Our Mission", href: "/about" },
       { label: "Trust & Credibility", href: "/trust" },
       { label: "AI Transparency", href: "/about/ai-transparency" },
+      { label: "Connect an AI Assistant", href: "/connect" },
       { label: "Clinical Sources", href: "/sources" },
       { label: "Editorial Standards", href: "/editorial-standards" },
       { label: "Governance", href: "/governance" },

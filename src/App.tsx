@@ -59,6 +59,7 @@ const Sitemap = lazy(() => import("./pages/Sitemap"));
 const DailyTipDetail = lazy(() => import("./pages/DailyTipDetail"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
 const AITransparency = lazy(() => import("./pages/about/AITransparency"));
+const Connect = lazy(() => import("./pages/Connect"));
 const Sources = lazy(() => import("./pages/about/Sources"));
 const AICitations = lazy(() => import("./pages/about/AICitations"));
 const AIGuidelines = lazy(() => import("./pages/about/AIGuidelines"));
@@ -310,6 +311,7 @@ function AnimatedRoutes() {
         <Route path="/sources" element={<Sources />} />
         <Route path="/ai-citations" element={<AICitations />} />
         <Route path="/ai-guidelines" element={<AIGuidelines />} />
+        <Route path="/connect" element={<Connect />} />
         <Route path="/ai" element={<AiHub />} />
         <Route path="/accessibility-for-ai" element={<AccessibilityForAi />} />
         <Route path="/editorial-standards" element={<EditorialStandards />} />
