@@ -44,18 +44,18 @@ const Connect = () => {
   return (
     <div className="min-h-screen bg-background">
       <SeoHead
-        title="Connect an AI Assistant"
-        description="Connect ChatGPT, Claude or another AI assistant to Living With Arthritis UK so it can read our evidence-based guides and, when you sign in, help with your own appointments and pain journal."
+        title="Connect an Assistant"
+        description="Connect ChatGPT, Claude or another MCP-compatible assistant to Living With Arthritis UK so it can read our evidence-based guides and, when you sign in, help with your own appointments and pain journal."
         path={PATH}
       />
       <Header />
       <main className="container mx-auto px-6 md:px-12 py-16 lg:py-24 max-w-3xl">
         <header className="mb-12">
           <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">
-            Agent Integrations
+            Agent Connections
           </p>
           <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Connect an AI assistant
+            Connect an assistant
           </h1>
           <p className="text-lg text-foreground/75 leading-relaxed">
             Link ChatGPT, Claude or another MCP-compatible assistant to Living
