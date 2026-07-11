@@ -129,7 +129,6 @@ export default function SteroidsGuide() {
       <Helmet>
         <title>Steroids for Arthritis — UK Guide | Living With Arthritis</title>
         <meta name="description" content="UK guide to steroid injections and tablets for arthritis: how they work, what to expect, side effects, frequency limits and how to access them." />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/guides/steroids-for-arthritis" />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:title" content="Steroids for Arthritis – Injections, Tablets, Side Effects &amp; UK Access Guide" />

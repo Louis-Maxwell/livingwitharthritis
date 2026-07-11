@@ -99,7 +99,6 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
         <meta name="twitter:description" content="Arthritis blog index: Browse all articles on pain, exercise, diet, mental health & lifestyle. Evidence-based, clinically reviewed content." />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/blog" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/blog" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",

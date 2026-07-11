@@ -12,7 +12,6 @@ const Services = () => (
     <Helmet>
       <title>Arthritis Support Services UK | Living With Arthritis</title>
       <meta name="description" content="Free arthritis support services in the UK — virtual physiotherapy, personalised exercise plans, anti-inflammatory diet guidance and 24/7 community help." />
-      <link rel="canonical" href="https://livingwitharthritis.org.uk/services" />
       <meta property="og:title" content="Arthritis Support Services UK | Living With Arthritis" />
       <meta property="og:description" content="Free arthritis support services in the UK — virtual physiotherapy, personalised exercise plans, anti-inflammatory diet guidance and 24/7 community help." />
       <meta property="og:type" content="website" />

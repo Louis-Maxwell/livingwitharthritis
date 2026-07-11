@@ -68,7 +68,6 @@ const ExerciseJointPage = () => {
       <Helmet>
         <title>{page.title} | Living With Arthritis</title>
         <meta name="description" content={page.metaDescription} />
-        <link rel="canonical" href={`${BASE}/exercises/${page.slug}`} />
         <meta property="og:title" content={page.title} />
         <meta property="og:description" content={page.metaDescription} />
         <meta property="og:url" content={`${BASE}/exercises/${page.slug}`} />

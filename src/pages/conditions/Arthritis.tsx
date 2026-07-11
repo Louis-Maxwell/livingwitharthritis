@@ -65,13 +65,13 @@ export default function Arthritis() {
       <MedicalReviewBadge reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
 
       <section id="overview" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">1. What arthritis is</h2>
+        <h2 className="text-2xl font-bold mb-4">What is arthritis?</h2>
         <p className="mb-4 leading-relaxed">Arthritis is not a single disease — it is a broad term covering more than 100 joint conditions. The two most common are <Link to="/conditions/osteoarthritis" className="text-primary underline">osteoarthritis</Link>, where joint cartilage gradually wears down, and <Link to="/conditions/rheumatoid-arthritis" className="text-primary underline">rheumatoid arthritis</Link>, an autoimmune condition where the immune system attacks the joint lining.</p>
         <p className="leading-relaxed">More than 10 million people in the UK live with arthritis. It is the leading cause of pain and disability and affects people of every age — including children with juvenile arthritis.</p>
       </section>
 
       <section id="symptoms" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">2. Symptoms to watch for</h2>
+        <h2 className="text-2xl font-bold mb-4">What are the symptoms of arthritis?</h2>
         <ul className="list-disc pl-6 space-y-2">
           <li>Joint pain that worsens with activity or after rest</li>
           <li>Morning stiffness lasting more than 30 minutes</li>
@@ -83,12 +83,12 @@ export default function Arthritis() {
       </section>
 
       <section id="diagnosis" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">3. How arthritis is diagnosed</h2>
+        <h2 className="text-2xl font-bold mb-4">How is arthritis diagnosed?</h2>
         <p className="leading-relaxed">A GP or first-contact practitioner will take a detailed history, examine your joints and check for swelling or restricted movement. Blood tests (CRP, ESR, rheumatoid factor, anti-CCP, uric acid) and imaging (X-ray, ultrasound, MRI) help identify the type and severity of arthritis and rule out other causes.</p>
       </section>
 
       <section id="patients-look-for" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">4. What patients commonly look for</h2>
+        <h2 className="text-2xl font-bold mb-4">What do arthritis patients commonly look for?</h2>
         <p className="mb-4 leading-relaxed">People newly diagnosed — and those managing arthritis long-term — typically search for help in four areas:</p>
         <ul className="list-disc pl-6 space-y-2">
           <li><strong>Pain relief options:</strong> topical and oral anti-inflammatories, heat and cold therapy, compression supports, splints and pain-relief gels.</li>
@@ -100,7 +100,7 @@ export default function Arthritis() {
       </section>
 
       <section id="treatments" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">5. Evidence-based treatment options</h2>
+        <h2 className="text-2xl font-bold mb-4">What are the evidence-based treatment options for arthritis?</h2>
         <ul className="list-disc pl-6 space-y-2">
           <li><strong>Exercise:</strong> progressive strength, mobility and aerobic training reduce pain and improve function — see our <Link to="/guides/exercise" className="text-primary underline">exercise guide</Link>.</li>
           <li><strong>Weight management:</strong> a 5–10% reduction in body weight significantly reduces knee and hip load.</li>

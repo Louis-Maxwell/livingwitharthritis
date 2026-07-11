@@ -183,7 +183,6 @@ const BlogPost = () => {
         <meta name="twitter:description" content={metaDesc} />
         <meta name="twitter:image" content={article.image_url || "https://livingwitharthritis.org.uk/images/og-blog-default.webp"} />
         <meta name="geo.region" content="GB" />
-        <link rel="canonical" href={`https://livingwitharthritis.org.uk/blog/${slug}`} />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "MedicalWebPage",

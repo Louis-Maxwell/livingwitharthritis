@@ -115,7 +115,6 @@ export default function SupplementsHub() {
           name="keywords"
           content="arthritis supplements, joint supplements UK, glucosamine, msm, turmeric, omega 3, collagen, supplements for joint pain"
         />
-        <link rel="canonical" href={URL} />
         <link rel="alternate" hrefLang="en-GB" href={URL} />
         <meta name="geo.region" content="GB" />
         <meta property="og:title" content={META_TITLE} />

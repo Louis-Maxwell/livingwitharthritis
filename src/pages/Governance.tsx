@@ -155,7 +155,6 @@ Regulated by the Charity Commission for England and Wales.
         <title>Governance & Constitution | {CHARITY.shortName} Charity</title>
         <meta name="description" content={`Our charity governance structure, board of trustees, constitution, and policies. Regulated by the ${CHARITY.regulator}.`} />
         <meta name="keywords" content="charity governance, trustees, constitution, charity commission, registered charity UK, arthritis charity governance" />
-        <link rel="canonical" href={`${CHARITY.siteUrl}/governance`} />
         <meta property="og:title" content={`Governance & Constitution | ${CHARITY.shortName}`} />
         <meta property="og:description" content="Full transparency on our charity governance, trustees, and constitution." />
         <meta property="og:locale" content="en_GB" />

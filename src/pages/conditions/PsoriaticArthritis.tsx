@@ -110,7 +110,6 @@ const PsoriaticArthritis = () => (
       <meta name="twitter:description" content="Complete UK guide to psoriatic arthritis: symptoms, modern treatments, exercises and self-management." />
       <meta name="twitter:image" content={`${BASE}/images/og-psoriatic-arthritis.webp`} />
       <meta name="geo.region" content="GB" />
-      <link rel="canonical" href={`${BASE}/conditions/psoriatic-arthritis`} />
       <link rel="alternate" hrefLang="en-GB" href={`${BASE}/conditions/psoriatic-arthritis`} />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
@@ -163,7 +162,7 @@ const PsoriaticArthritis = () => (
       <WaveDivider color="hsl(var(--background))" />
 
       <main className="container mx-auto px-6 md:px-10 py-16 md:py-24 max-w-3xl">
-        <Section icon={Activity} title="What Is Psoriatic Arthritis?">
+        <Section icon={Activity} title="What is psoriatic arthritis?">
           <p>Psoriatic arthritis is a chronic inflammatory condition that combines the joint inflammation of arthritis with the skin disease psoriasis. The immune system attacks both the joints and skin, causing pain, swelling, stiffness, and characteristic scaly skin patches.</p>
           <p>PsA can affect any joint and varies considerably between individuals. It was once considered a mild form of arthritis, but we now know it can be <strong>progressive and destructive</strong> if left untreated.</p>
           <h3>Five Patterns of Psoriatic Arthritis</h3>
@@ -316,7 +315,7 @@ const PsoriaticArthritis = () => (
         />
 
         <div className="p-8 rounded-2xl bg-accent border border-border/30">
-          <h2 className="font-display text-xl font-bold text-foreground mb-3">Managing psoriatic arthritis</h2>
+          <h2 className="font-display text-xl font-bold text-foreground mb-3">How is psoriatic arthritis managed day-to-day?</h2>
           <p className="text-muted-foreground mb-5">Modern treatments can control both skin and joint symptoms. Explore our resources or start a chat for personalised guidance.</p>
           <div className="flex flex-wrap gap-3">
             <Link to="/chat" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity">

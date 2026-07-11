@@ -100,7 +100,6 @@ export default function CanExerciseMakeOsteoarthritisWorse() {
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
-        <link rel="canonical" href={url} />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:title" content={title} />

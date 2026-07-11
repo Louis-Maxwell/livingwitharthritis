@@ -25,7 +25,6 @@ export default function LocalizedOsteoarthritis() {
         <meta property="og:locale" content={lang} />
         <meta name="twitter:title" content={oa.title} />
         <meta name="twitter:description" content={oa.intro.slice(0, 155)} />
-        <link rel="canonical" href={`https://livingwitharthritis.org.uk${buildLangUrl(lang, "/conditions/osteoarthritis")}`} />
         <html lang={lang} />
       </Helmet>
 

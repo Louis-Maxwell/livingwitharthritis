@@ -139,7 +139,6 @@ export default function SymptomChecker() {
       <Helmet>
         <title>Symptom Checker — Living With Arthritis UK</title>
         <meta name="description" content="Arthritis symptom checker: Identify joint pain, stiffness, swelling causes. Get condition guidance & appointment preparation tips." />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/symptom-checker" />
         <meta property="og:title" content="Symptom Checker — Living With Arthritis UK" />
         <meta property="og:description" content="Arthritis symptom checker: Identify joint pain, stiffness, swelling causes. Get condition guidance & appointment preparation tips." />
         <meta property="og:type" content="website" />

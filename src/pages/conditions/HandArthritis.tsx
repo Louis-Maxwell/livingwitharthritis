@@ -110,7 +110,6 @@ const HandArthritis = () => (
       <meta name="twitter:description" content="Hand arthritis: Symptoms, functional strategies & adaptive equipment. Maintain independence with expert physiotherapy & practical aids." />
       <meta name="twitter:image" content={`${BASE}/images/og-osteoarthritis.webp`} />
       <meta name="geo.region" content="GB" />
-      <link rel="canonical" href={URL} />
       <link rel="alternate" hrefLang="en-GB" href={URL} />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>

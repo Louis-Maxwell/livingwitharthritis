@@ -182,7 +182,6 @@ export default function BenefitsPIPGuide() {
       <Helmet>
         <title>UK Arthritis Benefits & PIP Guide | Living With Arthritis</title>
         <meta name="description" content="Guide to UK benefits for arthritis: PIP, Attendance Allowance, Blue Badge, Motability, workplace rights and Disabled Facilities Grant." />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/guides/benefits-pip" />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
       <meta property="og:title" content="Arthritis Benefits &amp; PIP Guide UK – Personal Independence Payment, Blue Badge &amp; More" />

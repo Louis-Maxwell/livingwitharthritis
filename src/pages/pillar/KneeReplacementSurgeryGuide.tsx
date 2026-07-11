@@ -173,7 +173,6 @@ export default function KneeReplacementSurgeryGuide() {
       <Helmet>
         <title>Knee Replacement Surgery UK — Guide | Living With Arthritis</title>
         <meta name="description" content="UK patient guide to knee replacement: when to consider it, prehab, hospital stay, recovery timeline, exercises, risks and waiting-list options." />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/guides/knee-replacement-surgery" />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:title" content="Knee Replacement Surgery UK – Patient Guide, Recovery &amp; Public Waits" />

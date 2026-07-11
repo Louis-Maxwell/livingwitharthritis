@@ -89,7 +89,6 @@ const ProductDetail = () => {
         <title>{seoTitle}</title>
 
         <meta name="description" content={seoDescription} />
-        <link rel="canonical" href={`https://livingwitharthritis.org.uk/product/${product.id}`} />
         <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={seoDescription} />
         <meta property="og:type" content="product" />

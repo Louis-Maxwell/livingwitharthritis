@@ -36,7 +36,6 @@ export default function Press() {
       <Helmet>
         <title>Press & Media Kit | Living With Arthritis UK</title>
         <meta name="description" content="Press resources, key facts, expert spokespeople and brand assets for Living With Arthritis UK — a free physiotherapy and arthritis support charity." />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/press" />
       <meta property="og:title" content="Press & Media Kit | Living With Arthritis UK" />
       <meta property="og:description" content="Press resources, key facts, expert spokespeople and brand assets for Living With Arthritis UK — a free physiotherapy and arthritis support charity." />
       <meta property="og:type" content="website" />

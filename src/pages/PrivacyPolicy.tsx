@@ -14,7 +14,6 @@ const PrivacyPolicy = () => (
     <Helmet>
       <title>Privacy Policy | {CHARITY.shortName}</title>
       <meta name="description" content="Privacy policy & data protection: How we protect your data. GDPR compliant, no third-party selling. Your privacy matters to us." />
-      <link rel="canonical" href={`${CHARITY.siteUrl}/privacy`} />
       <meta property="og:title" content={`Privacy Policy | ${CHARITY.shortName}`} />
       <meta property="og:description" content="Privacy policy & data protection: How we protect your data. GDPR compliant, no third-party selling. Your privacy matters to us." />
       <meta property="og:type" content="website" />

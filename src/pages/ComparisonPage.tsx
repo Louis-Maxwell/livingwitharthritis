@@ -52,12 +52,34 @@ export default function ComparisonPage() {
 
   const others = COMPARISON_ROUTES.filter((r) => r !== path).slice(0, 6);
 
+  const canonicalUrl = `https://livingwitharthritis.org.uk${path}`;
+  const medicalWebPageLd = {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    name: title,
+    headline: title,
+    description: metaDescription,
+    url: canonicalUrl,
+    inLanguage: "en-GB",
+    about: [
+      { "@type": "MedicalTherapy", name: a },
+      { "@type": "MedicalTherapy", name: b },
+    ],
+    audience: { "@type": "MedicalAudience", audienceType: "Patient", geographicArea: { "@type": "Country", name: "United Kingdom" } },
+    publisher: { "@type": "MedicalOrganization", name: "Living With Arthritis UK" },
+    dateModified: new Date().toISOString().slice(0, 10),
+  };
+
   return (
     <>
       <Helmet>
         <title>{title} — Compared | Living With Arthritis UK</title>
         <meta name="description" content={metaDescription} />
-        <link rel="canonical" href={`https://livingwitharthritis.org.uk${path}`} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={metaDescription} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:type" content="article" />
+        <script type="application/ld+json">{JSON.stringify(medicalWebPageLd)}</script>
       </Helmet>
 
       <Header />

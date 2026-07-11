@@ -239,7 +239,6 @@ export default function ExpertArticles() {
           }))
         })}</script>
         <meta name="description" content="Evidence-based arthritis articles by HCPC physiotherapists, consultant rheumatologists, registered dietitians and clinical psychologists." />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/expert-articles" />
       <meta property="og:title" content="Expert Articles – Clinician-Written Arthritis Guides | Living With Arthritis UK" />
       <meta property="og:description" content="Evidence-based arthritis articles written by HCPC physiotherapists, consultant rheumatologists, registered dietitians, and clinical psychologists. Expert UK health content." />
       <meta property="og:type" content="website" />

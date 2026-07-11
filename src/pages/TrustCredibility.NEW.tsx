@@ -56,7 +56,6 @@ export default function TrustCredibility() {
           name="description"
           content={`How ${shortName} is governed and clinically reviewed. Registered charity ${number}, our editorial policy, and how your donations are used.`}
         />
-        <link rel="canonical" href={trustUrl} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 

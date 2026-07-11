@@ -12,7 +12,6 @@ const Contact = () => (
     <Helmet>
       <title>Contact Us | Living With Arthritis UK</title>
       <meta name="description" content="Contact Living With Arthritis: Get in touch with our team. WhatsApp, email & helpline support for arthritis questions & guidance." />
-      <link rel="canonical" href="https://livingwitharthritis.org.uk/contact" />
       <meta property="og:title" content="Contact Us | Living With Arthritis UK" />
       <meta property="og:description" content="Contact Living With Arthritis: Get in touch with our team. WhatsApp, email & helpline support for arthritis questions & guidance." />
       <meta property="og:type" content="website" />

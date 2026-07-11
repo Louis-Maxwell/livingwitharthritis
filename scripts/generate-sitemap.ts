@@ -309,6 +309,14 @@ async function main() {
   entries.push({ path: "/trust", priority: "0.8", changefreq: "monthly" });
   entries.push({ path: "/corporate-partnerships", priority: "0.7", changefreq: "monthly" });
 
+  // Author & reviewer bio pages (E-E-A-T signals for AEO/GEO).
+  const authorsSrc = read("src/data/medical-authors.json");
+  const authors = JSON.parse(authorsSrc) as Record<string, { slug: string; kind: "author" | "reviewer" }>;
+  for (const rec of Object.values(authors)) {
+    const prefix = rec.kind === "reviewer" ? "reviewers" : "authors";
+    entries.push({ path: `/${prefix}/${rec.slug}`, priority: "0.6", changefreq: "yearly" });
+  }
+
   const xml = build(entries);
   writeFileSync(resolve("public/sitemap.xml"), xml);
   console.log(`[sitemap] wrote ${entries.length} entries -> public/sitemap.xml`);

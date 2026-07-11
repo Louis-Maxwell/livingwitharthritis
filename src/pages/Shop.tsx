@@ -10,7 +10,6 @@ const Shop = () => {
       <Helmet>
         <title>Supplements & Arthritis Shop — Coming Soon</title>
         <meta name="description" content="Our Shopify store for arthritis supplements and products is launching soon. Stay tuned for carefully curated items to support your joint health journey." />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/shop" />
       <meta property="og:title" content="Supplements & Arthritis Shop — Coming Soon | Living With Arthritis UK" />
       <meta property="og:description" content="Our Shopify store for arthritis supplements and products is launching soon. Stay tuned for carefully curated items to support your joint health journey." />
       <meta property="og:type" content="website" />

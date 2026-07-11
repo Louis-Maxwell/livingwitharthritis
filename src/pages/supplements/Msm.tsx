@@ -111,7 +111,6 @@ export default function Msm() {
           name="keywords"
           content="msm, msm supplement, methylsulfonylmethane, msm for joint pain, msm dosage, msm side effects, msm vs glucosamine, msm benefits, msm arthritis, msm uk, msm knee pain, methylsulfonylmethane benefits"
         />
-        <link rel="canonical" href={URL} />
         <link rel="alternate" hrefLang="en-GB" href={URL} />
         <meta name="geo.region" content="GB" />
         <meta property="og:title" content={META_TITLE} />

@@ -54,10 +54,6 @@ const LibraryTopic = () => {
             `${topic.title} — plain-English information from Living With Arthritis UK.`
           }
         />
-        <link
-          rel="canonical"
-          href={`https://livingwitharthritis.org.uk/library/${topic.slug}`}
-        />
         <meta property="og:title" content={`${topic.title} | Living With Arthritis UK`} />
         <meta property="og:description" content={topic.subtitle || `${topic.title} — plain-English information from Living With Arthritis UK.`} />
         <meta property="og:type" content="article" />

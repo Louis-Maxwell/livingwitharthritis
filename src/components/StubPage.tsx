@@ -82,7 +82,7 @@ export default function StubPage({
       <Helmet>
         <title>{title} | Living With Arthritis</title>
         <meta name="description" content={description} />
-        <link rel="canonical" href={canonical} />
+        
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />

@@ -27,7 +27,6 @@ export default function LocalizedHome() {
         <meta property="og:locale" content={lang} />
         <meta name="twitter:title" content={t.home.heroTitle} />
         <meta name="twitter:description" content={t.home.heroSubtitle} />
-        <link rel="canonical" href={`https://livingwitharthritis.org.uk${buildLangUrl(lang, "/")}`} />
         <html lang={lang} />
       </Helmet>
 

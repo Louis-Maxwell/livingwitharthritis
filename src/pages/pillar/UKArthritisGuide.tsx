@@ -201,7 +201,6 @@ export default function UKArthritisGuide() {
       <Helmet>
         <title>Complete UK Arthritis Guide 2025 | Living With Arthritis</title>
         <meta name="description" content="Definitive UK arthritis guide: types (OA, RA, PsA), symptoms, treatments, self-management and support for the 10 million affected." />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/guides/uk-arthritis" />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
         <script type="application/ld+json">{JSON.stringify({

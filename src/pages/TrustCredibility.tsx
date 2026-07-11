@@ -67,7 +67,6 @@ const TrustCredibility = () => {
       <Helmet>
         <title>Trust & Credibility | {CHARITY.shortName} Charity</title>
         <meta name="description" content="Our charity registration, medical advisors, evidence sources, partner organisations and governance. Trusted by the UK arthritis community." />
-        <link rel="canonical" href={`${CHARITY.siteUrl}/trust`} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       <meta property="og:title" content={`Trust & Credibility | ${CHARITY.shortName} Charity`} />
       <meta property="og:description" content="Our charity registration, medical advisors, evidence sources, partner organisations and governance. Trusted by the UK arthritis community." />

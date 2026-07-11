@@ -54,7 +54,6 @@ export default function EditorialStandards() {
           name="description"
           content="How Living With Arthritis UK reviews health content: HCPC-registered clinicians, NICE-aligned sourcing and clear editorial standards."
         />
-        <link rel="canonical" href={URL} />
         <meta property="og:title" content="Editorial Standards | Living With Arthritis UK" />
         <meta
           property="og:description"

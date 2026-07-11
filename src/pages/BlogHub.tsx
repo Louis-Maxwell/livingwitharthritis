@@ -213,7 +213,6 @@ const BlogHub = () => {
           name="keywords"
           content="arthritis advice, arthritis diet, anti-inflammatory diet, arthritis friendly exercises, knee arthritis exercises, hand arthritis exercises, arthritis flare up, managing arthritis flare ups, arthritis treatment, arthritis medication, natural remedies for arthritis, best pain relief for arthritis, how to reduce joint inflammation, exercises to avoid with arthritis, difference between osteoarthritis and rheumatoid arthritis, is arthritis curable, what causes arthritis, arthritis self-care, arthritis in cold weather, working with arthritis, arthritis and mental health"
         />
-        <link rel="canonical" href={`${SITE}/blog-hub`} />
         <meta property="og:title" content="Arthritis Advice Hub: Diet, Exercises, Flare-Ups & Treatment" />
         <meta
           property="og:description"

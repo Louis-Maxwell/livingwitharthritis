@@ -133,7 +133,6 @@ export default function ArthritisFlareUps() {
         <title>Managing Arthritis Flare-Ups | Living With Arthritis</title>
         <meta name="description" content="A kind UK guide to easing arthritis flare-ups: spotting triggers, fast relief, gentle exercises, anti-inflammatory food and prevention tips." />
         <meta name="keywords" content="arthritis flare up, arthritis flare up what to do, managing arthritis flare ups, arthritis pain relief, arthritis triggers, anti-inflammatory diet, arthritis flare up treatment, joint swelling causes, chronic pain management, arthritis in cold weather, best pain relief for arthritis, how to reduce joint inflammation, arthritis symptoms, arthritis medication, natural remedies for arthritis" />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/arthritis-flare-ups" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/arthritis-flare-ups" />
         <meta property="og:title" content="How to Manage Arthritis Flare-Ups — A Complete UK Guide" />
         <meta property="og:description" content="Expert UK guide on managing arthritis flare-ups: triggers, relief strategies, diet, exercise and prevention." />

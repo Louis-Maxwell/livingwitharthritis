@@ -241,7 +241,6 @@ export default function NewlyDiagnosed() {
           name="description"
           content="Newly diagnosed with arthritis? Step-by-step guide covering diagnosis, appointments, treatment options & resources. Expert-reviewed checklist."
         />
-        <link rel="canonical" href={`${BASE}/${SLUG}`} />
         <meta
           property="og:title"
           content="Newly Diagnosed With Arthritis: Step-by-Step UK Guide"

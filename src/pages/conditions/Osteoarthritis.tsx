@@ -112,7 +112,6 @@ const Osteoarthritis = () => (
       <meta name="twitter:description" content="Osteoarthritis treatment & management: Degenerative joint disease explained. Learn about medications, injections, surgery & lifestyle strategies." />
       <meta name="twitter:image" content={`${BASE}/images/og-osteoarthritis.webp`} />
       <meta name="geo.region" content="GB" />
-      <link rel="canonical" href={`${BASE}/conditions/osteoarthritis`} />
       <link rel="alternate" hrefLang="en-GB" href={`${BASE}/conditions/osteoarthritis`} />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>

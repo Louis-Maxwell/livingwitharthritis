@@ -13,7 +13,6 @@ const FAQ = () => (
       <title>Arthritis FAQs UK – Symptoms, Treatment & Diet</title>
       <meta name="description" content="Arthritis FAQs answered by UK clinicians — symptoms, treatment, diet, exercise & how to access free Living With Arthritis support." />
       <meta name="keywords" content="what causes arthritis, is arthritis curable, how to reduce joint inflammation, best pain relief for arthritis, difference between osteoarthritis and rheumatoid arthritis, exercises to avoid with arthritis, how to support someone with chronic pain, arthritis symptoms, arthritis treatment, arthritis medication, arthritis diet, anti-inflammatory diet, arthritis flare up, joint swelling causes, natural remedies for arthritis, arthritis FAQ" />
-      <link rel="canonical" href="https://livingwitharthritis.org.uk/faq" />
       <meta property="og:title" content="Arthritis FAQs UK – Symptoms, Treatment & Diet" />
       <meta property="og:description" content="Arthritis FAQs answered by UK clinicians — symptoms, treatment, diet, exercise & how to access free Living With Arthritis support." />
       <meta property="og:type" content="website" />

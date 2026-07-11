@@ -22,7 +22,6 @@ export default function PetsHub() {
           name="description"
           content="Free UK guides to arthritis in dogs, cats, horses, llamas and alpacas — signs, vet treatments, weight, exercise and home adaptations."
         />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/pets" />
       </Helmet>
 
       <main className="bg-white">

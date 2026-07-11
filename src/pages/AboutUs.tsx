@@ -114,7 +114,6 @@ const AboutUs = () => {
         <meta name="twitter:title" content={`About Us — ${CHARITY.shortName}`} />
         <meta name="twitter:description" content={`About ${CHARITY.shortName}: Free, evidence-based arthritis education charity. Maxwell's mission to support independent living.`} />
         <meta name="geo.region" content="GB" />
-        <link rel="canonical" href={`${CHARITY.siteUrl}/about`} />
         <link rel="alternate" hrefLang="en-GB" href={`${CHARITY.siteUrl}/about`} />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
