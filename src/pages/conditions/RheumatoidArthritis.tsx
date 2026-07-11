@@ -166,7 +166,7 @@ const RheumatoidArthritis = () => (
 
       <main className="container mx-auto px-6 md:px-10 py-16 md:py-24 max-w-3xl">
 
-        <Section icon={Activity} title="What Is Rheumatoid Arthritis?">
+        <Section icon={Activity} title="What is rheumatoid arthritis?">
           <p>Rheumatoid arthritis is a chronic autoimmune disease in which the immune system mistakenly attacks the <strong>synovium</strong> — the lining of the membranes that surround your joints. This causes inflammation that can eventually destroy cartilage and bone within the joint.</p>
           <p>RA typically affects joints <strong>symmetrically</strong> — if one wrist is affected, the other usually is too. It most commonly begins in the small joints of the hands, wrists, and feet, but can affect larger joints and even other body systems including the skin, eyes, lungs, heart, and blood vessels.</p>
           <h3>RA vs Osteoarthritis: Key Differences</h3>
@@ -322,7 +322,7 @@ const RheumatoidArthritis = () => (
         />
 
         <div className="p-8 rounded-2xl bg-accent border border-border/30">
-          <h2 className="font-display text-xl font-bold text-foreground mb-3">Living well with RA</h2>
+          <h2 className="font-display text-xl font-bold text-foreground mb-3">How do you live well with rheumatoid arthritis?</h2>
           <p className="text-muted-foreground mb-5">Early diagnosis and treatment can achieve remission. Explore our resources or start a chat for personalised guidance.</p>
           <div className="flex flex-wrap gap-3">
             <Link to="/chat" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity">

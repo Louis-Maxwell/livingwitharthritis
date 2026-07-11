@@ -162,7 +162,7 @@ const PsoriaticArthritis = () => (
       <WaveDivider color="hsl(var(--background))" />
 
       <main className="container mx-auto px-6 md:px-10 py-16 md:py-24 max-w-3xl">
-        <Section icon={Activity} title="What Is Psoriatic Arthritis?">
+        <Section icon={Activity} title="What is psoriatic arthritis?">
           <p>Psoriatic arthritis is a chronic inflammatory condition that combines the joint inflammation of arthritis with the skin disease psoriasis. The immune system attacks both the joints and skin, causing pain, swelling, stiffness, and characteristic scaly skin patches.</p>
           <p>PsA can affect any joint and varies considerably between individuals. It was once considered a mild form of arthritis, but we now know it can be <strong>progressive and destructive</strong> if left untreated.</p>
           <h3>Five Patterns of Psoriatic Arthritis</h3>
