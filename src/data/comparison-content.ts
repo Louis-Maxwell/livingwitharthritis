@@ -633,3 +633,63 @@ export const COMPARISON_CONTENT: Record<string, ComparisonArticle> = {
 export function getComparisonArticle(path: string): ComparisonArticle | undefined {
   return COMPARISON_CONTENT[path];
 }
+
+/**
+ * Hand-written, topic-specific meta descriptions for comparison routes
+ * that don't have a full COMPARISON_CONTENT article yet. Keeps each
+ * `/guides/*-vs-*` URL unique for search and answer engines instead of
+ * falling back to the generic template string in ComparisonPage.
+ */
+export const COMPARISON_META_DESCRIPTIONS: Record<string, string> = {
+  "/guides/topical-nsaid-vs-oral-nsaid-arthritis":
+    "Topical vs oral NSAIDs for arthritis: which route works better for knee and hand osteoarthritis, and how stomach, kidney and heart risks differ between gels and tablets in UK practice.",
+  "/guides/physiotherapy-vs-surgery-knee-arthritis":
+    "Physiotherapy vs surgery for knee arthritis: when strengthening, weight loss and physio-led rehab can delay a knee replacement, and the point at which NHS orthopaedic referral becomes the better option.",
+  "/guides/yoga-vs-pilates-arthritis":
+    "Yoga vs Pilates for arthritis: how each affects joint pain, flexibility and core strength, which is gentler on knees and hips, and how to choose the safer starting point for UK beginners.",
+  "/guides/glucosamine-vs-turmeric-arthritis":
+    "Glucosamine vs turmeric for arthritis: what the evidence actually shows for joint pain, typical UK doses, side effects and interactions — and which is worth trying first.",
+  "/guides/walking-stick-vs-crutch-arthritis":
+    "Walking stick vs crutch for arthritis: which mobility aid best fits knee, hip or ankle joint pain, correct height and side, and how UK NHS physiotherapists decide between the two.",
+  "/guides/rollator-vs-walking-frame":
+    "Rollator vs walking frame (Zimmer frame): a UK guide to which is safer for arthritis, when to move from a Zimmer to a wheeled rollator, and how to get one through the NHS or Occupational Therapy.",
+  "/guides/steroid-injection-vs-hyaluronic-acid":
+    "Steroid injection vs hyaluronic acid for knee arthritis: how quickly each works, how long relief lasts, NHS availability, cost and which suits mild, moderate or severe osteoarthritis.",
+  "/guides/gout-vs-pseudogout":
+    "Gout vs pseudogout: how to tell these two crystal arthritis conditions apart by symptoms, joint pattern and blood tests, and why they need different long-term treatment in UK rheumatology.",
+  "/guides/arthritis-vs-fibromyalgia":
+    "Arthritis vs fibromyalgia: how joint pain differs from widespread body pain, why blood tests and imaging often look normal in fibromyalgia, and how UK GPs distinguish and manage each.",
+  "/guides/tendonitis-vs-arthritis":
+    "Tendonitis vs arthritis: how to tell soft-tissue tendon pain from true joint disease, which is more likely to settle on its own, and when a UK GP or physio referral is warranted.",
+  "/guides/bursitis-vs-arthritis":
+    "Bursitis vs arthritis: how inflamed bursae cause joint-adjacent pain that mimics arthritis, which is usually short-lived versus lifelong, and how UK clinicians tell them apart.",
+  "/guides/sciatica-vs-hip-arthritis":
+    "Sciatica vs hip arthritis: how nerve pain from the lower back is confused with hip joint pain, the tests that separate them, and why treatment differs sharply between the two.",
+  "/guides/physio-self-referral-vs-gp-referral":
+    "NHS physio self-referral vs GP referral: which is faster in the UK for arthritis, what each route offers, and how to know when a GP appointment is still the right first step.",
+  "/guides/pip-vs-attendance-allowance":
+    "PIP vs Attendance Allowance for arthritis: which UK benefit fits which age group, how the eligibility criteria differ, and whether you should ever try to switch between them.",
+  "/guides/blue-badge-vs-disability-parking":
+    "Blue Badge vs general disability parking bays: how the UK Blue Badge scheme actually works for arthritis, how to apply, and what the difference is between council bays and Blue Badge entitlement.",
+  "/guides/wet-vs-dry-heat-therapy":
+    "Wet vs dry heat for arthritis joint pain: how hot baths, showers and hydrotherapy compare with heat pads and wheat bags, and which is better for stiffness, flares and deep joint aches.",
+  "/guides/resistance-bands-vs-weights":
+    "Resistance bands vs free weights for arthritis: which is safer for painful joints, how each builds the muscle that protects arthritic knees and hips, and how to choose the right starting point.",
+  "/guides/standing-desk-vs-sitting-desk":
+    "Standing desk vs sitting desk with arthritis: how prolonged sitting and prolonged standing each affect knee, hip and back pain, and how UK occupational therapists set up a workstation that alternates the two.",
+  "/guides/magnesium-vs-vitamin-d":
+    "Magnesium vs vitamin D for arthritis: what each does for muscle cramps, bone health and inflammation, UK NHS guidance on deficiency, and whether you need one, the other or both.",
+  "/guides/chair-yoga-vs-tai-chi":
+    "Chair yoga vs tai chi for arthritis: how a seated yoga practice compares with tai chi for stiffness, balance and pain, and which is easier for beginners, older adults or people with severe joint disease.",
+  "/guides/meditation-vs-cbt-arthritis-pain":
+    "Meditation vs CBT for arthritis pain: how mindfulness meditation and cognitive behavioural therapy each change the experience of chronic joint pain, what the UK NHS offers, and which suits you.",
+  "/guides/cold-plunge-vs-warm-bath-arthritis":
+    "Cold plunge vs warm bath for arthritis: when cold water immersion helps inflamed joints, when heat is safer for stiff arthritic joints, and the UK evidence for each approach to pain relief.",
+  "/guides/dog-arthritis-supplements-vs-prescription":
+    "Dog arthritis supplements vs prescription medication: how joint supplements (glucosamine, omega-3, green-lipped mussel) compare with vet-prescribed NSAIDs and monoclonal antibodies for canine arthritis.",
+};
+
+export function getComparisonMetaDescription(path: string): string | undefined {
+  return COMPARISON_CONTENT[path]?.metaDescription ?? COMPARISON_META_DESCRIPTIONS[path];
+}
+
