@@ -1,4 +1,3 @@
-// @ts-nocheck
 // AUTO-GENERATED — do not edit by hand. Regenerate with scripts/generate-keywords.py
 // 5000 deduplicated UK keywords across arthritis, musculoskeletal,
 // disability, frailty and elderly-care topics. Used by the Keyword Strategy

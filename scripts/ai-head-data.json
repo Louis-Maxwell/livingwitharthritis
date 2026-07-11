@@ -2943,7 +2943,7 @@
     ]
   },
   "/guides/yoga-vs-pilates-arthritis": {
-    "title": "Yoga vs Pilates for Arthritis",
+    "title": "Yoga vs Pilates for Arthritis | UK Comparison Guide",
     "description": "Both improve mobility and pain, but Pilates is generally easier to modify for arthritis because it emphasises controlled, low-range movement and core strengt...",
     "breadcrumb": "Yoga vs Pilates for Arthritis",
     "question": "Should I try yoga or Pilates for arthritis?",
@@ -3267,7 +3267,7 @@
     ]
   },
   "/guides/arthritis-vs-fibromyalgia": {
-    "title": "Arthritis vs Fibromyalgia",
+    "title": "Arthritis vs Fibromyalgia | UK Comparison Guide",
     "description": "Arthritis is joint disease \u2014 pain, stiffness and often swelling in specific joints, visible on examination or imaging. Fibromyalgia is a widespread pain-proc...",
     "breadcrumb": "Arthritis vs Fibromyalgia",
     "question": "How do I know if it's arthritis or fibromyalgia?",
@@ -3303,7 +3303,7 @@
     ]
   },
   "/guides/tendonitis-vs-arthritis": {
-    "title": "Tendonitis vs Arthritis",
+    "title": "Tendonitis vs Arthritis | UK Comparison Guide",
     "description": "Tendonitis is inflammation of the tendon attaching muscle to bone \u2014 pain is usually on movement, tender to touch over the tendon, and improves with rest and ...",
     "breadcrumb": "Tendonitis vs Arthritis",
     "question": "Is my joint pain tendonitis or arthritis?",
@@ -3339,7 +3339,7 @@
     ]
   },
   "/guides/bursitis-vs-arthritis": {
-    "title": "Bursitis vs Arthritis",
+    "title": "Bursitis vs Arthritis | UK Comparison Guide",
     "description": "Bursitis is inflammation of a bursa \u2014 a fluid sac that cushions between joints and tendons, most often in the shoulder, hip or knee. Pain is usually localise...",
     "breadcrumb": "Bursitis vs Arthritis",
     "question": "Is it bursitis or arthritis?",
@@ -3375,7 +3375,7 @@
     ]
   },
   "/guides/sciatica-vs-hip-arthritis": {
-    "title": "Sciatica vs Hip Arthritis",
+    "title": "Sciatica vs Hip Arthritis | UK Comparison Guide",
     "description": "Sciatica is nerve pain radiating from the lower back down the leg, often with tingling, numbness or shooting pain past the knee. Hip arthritis pain is felt i...",
     "breadcrumb": "Sciatica vs Hip Arthritis",
     "question": "Is my pain sciatica or hip arthritis?",
@@ -3862,7 +3862,7 @@
   },
   "/glossary/biologic": {
     "title": "Biologic: Meaning & Explanation | Arthritis Glossary",
-    "description": "Injected/infused drug targeting a specific part of the immune system.",
+    "description": "Injected/infused drug targeting a specific part of the immune system. Biologic: Biologics are targeted immune-system drugs used when conventional DMARDs...",
     "breadcrumb": "Biologic",
     "question": "What is biologic?",
     "answer": "Biologic: Biologics are targeted immune-system drugs used when conventional DMARDs alone don't control inflammatory arthritis. UK NICE approves them based on disease activity scores. Examples: adalimumab, etanercept, tocilizumab, rituximab. They increase infection risk so vaccinations and screening are essential.",
@@ -3880,7 +3880,7 @@
   },
   "/glossary/nsaid": {
     "title": "NSAID: Meaning & Explanation | Arthritis Glossary",
-    "description": "Non-steroidal anti-inflammatory drug (e.g. ibuprofen, naproxen).",
+    "description": "Non-steroidal anti-inflammatory drug (e.g. ibuprofen, naproxen). NSAID: NSAIDs reduce pain and inflammation but carry stomach, kidney and heart risk with...",
     "breadcrumb": "NSAID",
     "question": "What is nsaid?",
     "answer": "NSAID: NSAIDs reduce pain and inflammation but carry stomach, kidney and heart risk with sustained use. NICE recommends topical NSAIDs first for hand/knee OA. Take with food; check with pharmacist if over 65, taking blood thinners, or with kidney/heart conditions.",
@@ -3898,7 +3898,7 @@
   },
   "/glossary/corticosteroid": {
     "title": "Corticosteroid: Meaning & Explanation | Arthritis Glossary",
-    "description": "Anti-inflammatory drug given as tablet, injection or infusion.",
+    "description": "Anti-inflammatory drug given as tablet, injection or infusion. Corticosteroid: Corticosteroids (prednisolone, methylprednisolone, hydrocortisone) rapidly...",
     "breadcrumb": "Corticosteroid",
     "question": "What is corticosteroid?",
     "answer": "Corticosteroid: Corticosteroids (prednisolone, methylprednisolone, hydrocortisone) rapidly reduce inflammation but have long-term side effects: weight gain, high blood sugar, bone thinning, mood changes. Used short-term for flares or as targeted joint injections.",
@@ -3916,7 +3916,7 @@
   },
   "/glossary/synovium": {
     "title": "Synovium: Meaning & Explanation | Arthritis Glossary",
-    "description": "Thin lining of a joint that produces lubricating fluid.",
+    "description": "Thin lining of a joint that produces lubricating fluid. Synovium: The synovium is the thin membrane lining the inside of a joint capsule.",
     "breadcrumb": "Synovium",
     "question": "What is synovium?",
     "answer": "Synovium: The synovium is the thin membrane lining the inside of a joint capsule. It produces synovial fluid, which lubricates and nourishes cartilage. In rheumatoid arthritis, the immune system attacks the synovium, causing swelling, warmth and long-term joint damage.",
@@ -3934,7 +3934,7 @@
   },
   "/glossary/cartilage": {
     "title": "Cartilage: Meaning & Explanation | Arthritis Glossary",
-    "description": "Smooth tissue covering the ends of bones in a joint.",
+    "description": "Smooth tissue covering the ends of bones in a joint. Cartilage: Cartilage is the smooth, tough connective tissue capping the ends of bones where they meet...",
     "breadcrumb": "Cartilage",
     "question": "What is cartilage?",
     "answer": "Cartilage: Cartilage is the smooth, tough connective tissue capping the ends of bones where they meet in joints. It cushions impact and allows friction-free movement. In osteoarthritis, cartilage gradually thins and roughens; it has no direct blood supply so heals slowly.",
@@ -3952,7 +3952,7 @@
   },
   "/glossary/hla-b27": {
     "title": "HLA-B27: Meaning & Explanation | Arthritis Glossary",
-    "description": "A gene marker linked to inflammatory spinal arthritis.",
+    "description": "A gene marker linked to inflammatory spinal arthritis. HLA-B27: HLA-B27 is a genetic marker present in ~90% of people with ankylosing spondylitis, but...",
     "breadcrumb": "HLA-B27",
     "question": "What is hla-b27?",
     "answer": "HLA-B27: HLA-B27 is a genetic marker present in ~90% of people with ankylosing spondylitis, but also in ~8% of the general UK population without disease. A positive test alone doesn't diagnose disease \u2014 clinical assessment and imaging are essential.",
@@ -3969,8 +3969,8 @@
     ]
   },
   "/glossary/rheumatoid-factor": {
-    "title": "Rheumatoid factor: Meaning & Explanation | Arthritis Glossary",
-    "description": "A blood antibody found in most people with rheumatoid arthritis.",
+    "title": "Rheumatoid factor | Arthritis Glossary",
+    "description": "A blood antibody found in most people with rheumatoid arthritis. Rheumatoid factor: Rheumatoid factor (RF) is an antibody detected in roughly 70-80% of...",
     "breadcrumb": "Rheumatoid factor",
     "question": "What is rheumatoid factor?",
     "answer": "Rheumatoid factor: Rheumatoid factor (RF) is an antibody detected in roughly 70-80% of people with rheumatoid arthritis. Can also be positive in other conditions (Sj\u00f6gren's, chronic infections) and in ~5% of healthy older adults, so it's diagnostic only with symptoms.",
@@ -3988,7 +3988,7 @@
   },
   "/glossary/anti-ccp": {
     "title": "Anti-CCP: Meaning & Explanation | Arthritis Glossary",
-    "description": "A more specific blood test for rheumatoid arthritis.",
+    "description": "A more specific blood test for rheumatoid arthritis. Anti-CCP: Anti-CCP (anti-cyclic citrullinated peptide) antibodies are more specific than rheumatoid...",
     "breadcrumb": "Anti-CCP",
     "question": "What is anti-ccp?",
     "answer": "Anti-CCP: Anti-CCP (anti-cyclic citrullinated peptide) antibodies are more specific than rheumatoid factor for diagnosing RA. Positive anti-CCP predicts more aggressive disease and helps rheumatologists decide on early aggressive treatment.",
@@ -4006,7 +4006,7 @@
   },
   "/glossary/esr": {
     "title": "ESR: Meaning & Explanation | Arthritis Glossary",
-    "description": "Erythrocyte sedimentation rate \u2014 blood test for inflammation.",
+    "description": "Erythrocyte sedimentation rate \u2014 blood test for inflammation. ESR: ESR measures how quickly red blood cells settle in a tube, indirectly indicating...",
     "breadcrumb": "ESR",
     "question": "What is esr?",
     "answer": "ESR: ESR measures how quickly red blood cells settle in a tube, indirectly indicating inflammation. Elevated in inflammatory arthritis, infections, and other conditions. Used alongside CRP to monitor disease activity, not for diagnosis alone.",
@@ -4024,7 +4024,7 @@
   },
   "/glossary/crp": {
     "title": "CRP: Meaning & Explanation | Arthritis Glossary",
-    "description": "C-reactive protein \u2014 a faster blood marker of inflammation.",
+    "description": "C-reactive protein \u2014 a faster blood marker of inflammation. CRP: CRP is a protein made by the liver in response to inflammation.",
     "breadcrumb": "CRP",
     "question": "What is crp?",
     "answer": "CRP: CRP is a protein made by the liver in response to inflammation. Rises faster than ESR (hours vs days) and drops more quickly when inflammation resolves. Used to monitor flares and treatment response in inflammatory arthritis.",
@@ -4042,7 +4042,7 @@
   },
   "/glossary/joint-effusion": {
     "title": "Joint effusion: Meaning & Explanation | Arthritis Glossary",
-    "description": "Fluid build-up inside a joint causing swelling.",
+    "description": "Fluid build-up inside a joint causing swelling. Joint effusion: A joint effusion is abnormal accumulation of fluid inside the joint capsule, causing...",
     "breadcrumb": "Joint effusion",
     "question": "What is joint effusion?",
     "answer": "Joint effusion: A joint effusion is abnormal accumulation of fluid inside the joint capsule, causing visible swelling, tightness and reduced movement. Common in OA, RA, gout, trauma or infection. May be drained (aspirated) to relieve symptoms and analyse the cause.",
@@ -4060,7 +4060,7 @@
   },
   "/glossary/crepitus": {
     "title": "Crepitus: Meaning & Explanation | Arthritis Glossary",
-    "description": "The grating or crackling sound in a moving joint.",
+    "description": "The grating or crackling sound in a moving joint. Crepitus: Crepitus is the audible or palpable grating, crackling or clicking felt when a joint moves.",
     "breadcrumb": "Crepitus",
     "question": "What is crepitus?",
     "answer": "Crepitus: Crepitus is the audible or palpable grating, crackling or clicking felt when a joint moves. Common in OA and often harmless in isolation \u2014 many people over 40 have crepitus without pain. Concerning if painful or new.",
@@ -4078,7 +4078,7 @@
   },
   "/glossary/flare": {
     "title": "Flare: Meaning & Explanation | Arthritis Glossary",
-    "description": "A period when arthritis symptoms suddenly worsen.",
+    "description": "A period when arthritis symptoms suddenly worsen. Flare: A flare is a sudden or gradual worsening of arthritis symptoms \u2014 more pain, stiffness, swelling...",
     "breadcrumb": "Flare",
     "question": "What is flare?",
     "answer": "Flare: A flare is a sudden or gradual worsening of arthritis symptoms \u2014 more pain, stiffness, swelling and fatigue \u2014 lasting days to weeks. Common triggers: stress, illness, over-exertion, weather changes, missed medication. Have a written flare plan agreed with your rheumatology team.",
@@ -4096,7 +4096,7 @@
   },
   "/glossary/remission": {
     "title": "Remission: Meaning & Explanation | Arthritis Glossary",
-    "description": "When arthritis symptoms are absent or minimal.",
+    "description": "When arthritis symptoms are absent or minimal. Remission: Remission means very low or absent disease activity, measured by symptoms and blood markers.",
     "breadcrumb": "Remission",
     "question": "What is remission?",
     "answer": "Remission: Remission means very low or absent disease activity, measured by symptoms and blood markers. In RA, drug-induced remission is now a realistic goal with early DMARDs. Medication is usually continued even during remission to prevent flares.",
@@ -4114,7 +4114,7 @@
   },
   "/glossary/seronegative": {
     "title": "Seronegative: Meaning & Explanation | Arthritis Glossary",
-    "description": "Arthritis with negative blood tests for RA antibodies.",
+    "description": "Arthritis with negative blood tests for RA antibodies. Seronegative: Seronegative arthritis means inflammatory joint disease without positive RF or...",
     "breadcrumb": "Seronegative",
     "question": "What is seronegative?",
     "answer": "Seronegative: Seronegative arthritis means inflammatory joint disease without positive RF or anti-CCP tests. Includes AS, PsA, reactive arthritis. Diagnosis relies on clinical picture and imaging; management is similar to seropositive disease.",
@@ -4132,7 +4132,7 @@
   },
   "/glossary/enthesitis": {
     "title": "Enthesitis: Meaning & Explanation | Arthritis Glossary",
-    "description": "Inflammation where a tendon or ligament joins bone.",
+    "description": "Inflammation where a tendon or ligament joins bone. Enthesitis: Enthesitis is inflammation at the entheses \u2014 where tendons or ligaments attach to bone.",
     "breadcrumb": "Enthesitis",
     "question": "What is enthesitis?",
     "answer": "Enthesitis: Enthesitis is inflammation at the entheses \u2014 where tendons or ligaments attach to bone. Characteristic of spondyloarthropathies (AS, PsA) and often the first symptom (e.g. Achilles tendon pain, plantar fasciitis).",
@@ -4150,7 +4150,7 @@
   },
   "/glossary/dactylitis": {
     "title": "Dactylitis: Meaning & Explanation | Arthritis Glossary",
-    "description": "Sausage-like swelling of an entire finger or toe.",
+    "description": "Sausage-like swelling of an entire finger or toe. Dactylitis: Dactylitis is swelling of a whole digit ('sausage finger' or 'sausage toe') from combined...",
     "breadcrumb": "Dactylitis",
     "question": "What is dactylitis?",
     "answer": "Dactylitis: Dactylitis is swelling of a whole digit ('sausage finger' or 'sausage toe') from combined joint and tendon inflammation. Highly characteristic of psoriatic and reactive arthritis. Requires rheumatology assessment.",
@@ -4167,8 +4167,8 @@
     ]
   },
   "/glossary/morning-stiffness": {
-    "title": "Morning stiffness: Meaning & Explanation | Arthritis Glossary",
-    "description": "Joint stiffness first thing after waking.",
+    "title": "Morning stiffness | Arthritis Glossary",
+    "description": "Joint stiffness first thing after waking. Morning stiffness: Morning stiffness lasting under 30 minutes is typical of osteoarthritis.",
     "breadcrumb": "Morning stiffness",
     "question": "What is morning stiffness?",
     "answer": "Morning stiffness: Morning stiffness lasting under 30 minutes is typical of osteoarthritis. Stiffness over an hour, especially symmetrical, points to inflammatory arthritis like RA and needs urgent GP review. Duration is a key diagnostic clue.",
@@ -4186,7 +4186,7 @@
   },
   "/glossary/osteophyte": {
     "title": "Osteophyte: Meaning & Explanation | Arthritis Glossary",
-    "description": "A bony spur that grows near an arthritic joint.",
+    "description": "A bony spur that grows near an arthritic joint. Osteophyte: Osteophytes ('bone spurs') are bony outgrowths at the edges of joints damaged by...",
     "breadcrumb": "Osteophyte",
     "question": "What is osteophyte?",
     "answer": "Osteophyte: Osteophytes ('bone spurs') are bony outgrowths at the edges of joints damaged by osteoarthritis. Show clearly on X-rays. They can restrict movement and, in the spine, sometimes press on nerves \u2014 but many are painless.",
@@ -4204,7 +4204,7 @@
   },
   "/glossary/subchondral": {
     "title": "Subchondral bone: Meaning & Explanation | Arthritis Glossary",
-    "description": "The bone just underneath the joint cartilage.",
+    "description": "The bone just underneath the joint cartilage. Subchondral bone: Subchondral bone lies immediately beneath the joint cartilage.",
     "breadcrumb": "Subchondral bone",
     "question": "What is subchondral bone?",
     "answer": "Subchondral bone: Subchondral bone lies immediately beneath the joint cartilage. In OA, it thickens ('sclerosis'), may develop small holes ('cysts') and gets damaged as cartilage thins. Changes are visible on X-ray and are diagnostic.",
@@ -4222,7 +4222,7 @@
   },
   "/glossary/pannus": {
     "title": "Pannus: Meaning & Explanation | Arthritis Glossary",
-    "description": "Inflamed tissue that invades and damages joints in RA.",
+    "description": "Inflamed tissue that invades and damages joints in RA. Pannus: Pannus is abnormal granulation tissue that grows in RA-affected joints, releasing enzymes...",
     "breadcrumb": "Pannus",
     "question": "What is pannus?",
     "answer": "Pannus: Pannus is abnormal granulation tissue that grows in RA-affected joints, releasing enzymes that erode cartilage and bone. Early effective DMARD treatment prevents pannus formation and the resulting joint damage.",
@@ -4240,7 +4240,7 @@
   },
   "/glossary/ankylosis": {
     "title": "Ankylosis: Meaning & Explanation | Arthritis Glossary",
-    "description": "Fusion of bones in a joint.",
+    "description": "Fusion of bones in a joint. Ankylosis: Ankylosis is stiffening or fusion of a joint, either bony (in ankylosing spondylitis) or fibrous.",
     "breadcrumb": "Ankylosis",
     "question": "What is ankylosis?",
     "answer": "Ankylosis: Ankylosis is stiffening or fusion of a joint, either bony (in ankylosing spondylitis) or fibrous. Untreated inflammation and immobility promote it. Prevention through medication and exercise is far more effective than reversal.",
@@ -4258,7 +4258,7 @@
   },
   "/glossary/uric-acid": {
     "title": "Uric acid: Meaning & Explanation | Arthritis Glossary",
-    "description": "A waste product that forms crystals in gout.",
+    "description": "A waste product that forms crystals in gout. Uric acid: Uric acid is a natural waste product of purine breakdown.",
     "breadcrumb": "Uric acid",
     "question": "What is uric acid?",
     "answer": "Uric acid: Uric acid is a natural waste product of purine breakdown. High blood levels ('hyperuricaemia') can crystallise in joints, causing gout attacks. Managed by lowering intake (alcohol, offal, seafood) and, when attacks recur, urate-lowering drugs (allopurinol).",
@@ -4276,7 +4276,7 @@
   },
   "/glossary/tophi": {
     "title": "Tophi: Meaning & Explanation | Arthritis Glossary",
-    "description": "Chalky uric acid deposits under the skin in chronic gout.",
+    "description": "Chalky uric acid deposits under the skin in chronic gout. Tophi: Tophi are visible or palpable lumps of urate crystals in the skin, ears, tendons or...",
     "breadcrumb": "Tophi",
     "question": "What is tophi?",
     "answer": "Tophi: Tophi are visible or palpable lumps of urate crystals in the skin, ears, tendons or joints in long-standing gout. They cause deformity and joint damage. Their presence means urate-lowering therapy is essential.",
@@ -4293,8 +4293,8 @@
     ]
   },
   "/glossary/physiotherapy-triage": {
-    "title": "Physiotherapy triage: Meaning & Explanation | Arthritis Glossary",
-    "description": "Assessment to decide the right care pathway.",
+    "title": "Physiotherapy triage | Arthritis Glossary",
+    "description": "Assessment to decide the right care pathway. Physiotherapy triage: Physiotherapy triage is an initial assessment (often by a First Contact Practitioner in...",
     "breadcrumb": "Physiotherapy triage",
     "question": "What is physiotherapy triage?",
     "answer": "Physiotherapy triage: Physiotherapy triage is an initial assessment (often by a First Contact Practitioner in general practice) to sort MSK problems into: self-management, physio treatment, imaging, or specialist referral. Reduces GP burden and speeds care.",
@@ -4311,8 +4311,8 @@
     ]
   },
   "/glossary/musculoskeletal": {
-    "title": "Musculoskeletal (MSK): Meaning & Explanation | Arthritis Glossary",
-    "description": "Related to muscles, bones, joints, tendons and ligaments.",
+    "title": "Musculoskeletal (MSK) | Arthritis Glossary",
+    "description": "Related to muscles, bones, joints, tendons and ligaments. Musculoskeletal (MSK): 'Musculoskeletal' means anything involving muscles, bones, joints...",
     "breadcrumb": "Musculoskeletal (MSK)",
     "question": "What is musculoskeletal (msk)?",
     "answer": "Musculoskeletal (MSK): 'Musculoskeletal' means anything involving muscles, bones, joints, tendons or ligaments. MSK conditions are the leading cause of work absence and disability in the UK, affecting around 20 million people. Most GP visits for back pain, joint pain and sports injuries are MSK.",
@@ -4330,7 +4330,7 @@
   },
   "/glossary/proprioception": {
     "title": "Proprioception: Meaning & Explanation | Arthritis Glossary",
-    "description": "The body's sense of where its joints are.",
+    "description": "The body's sense of where its joints are. Proprioception: Proprioception is your brain's awareness of joint position without looking.",
     "breadcrumb": "Proprioception",
     "question": "What is proprioception?",
     "answer": "Proprioception: Proprioception is your brain's awareness of joint position without looking. Arthritis and joint injury impair proprioception, worsening balance and falls risk. Specific balance and coordination exercises restore it.",
@@ -4347,8 +4347,8 @@
     ]
   },
   "/glossary/range-of-motion": {
-    "title": "Range of motion (ROM): Meaning & Explanation | Arthritis Glossary",
-    "description": "How far a joint can move in each direction.",
+    "title": "Range of motion (ROM) | Arthritis Glossary",
+    "description": "How far a joint can move in each direction. Range of motion (ROM): ROM is the measurable extent of movement at a joint \u2014 flexion, extension, rotation.",
     "breadcrumb": "Range of motion (ROM)",
     "question": "What is range of motion (rom)?",
     "answer": "Range of motion (ROM): ROM is the measurable extent of movement at a joint \u2014 flexion, extension, rotation. Physiotherapists compare your ROM to normal ranges and track improvement. Regular gentle movement preserves ROM even in painful joints.",
@@ -4365,8 +4365,8 @@
     ]
   },
   "/glossary/passive-vs-active-movement": {
-    "title": "Passive vs active movement: Meaning & Explanation | Arthritis Glossary",
-    "description": "Someone moves your joint for you vs you move it yourself.",
+    "title": "Passive vs active movement | Arthritis Glossary",
+    "description": "Someone moves your joint for you vs you move it yourself. Passive vs active movement: Passive movement is when a therapist moves your joint through its...",
     "breadcrumb": "Passive vs active movement",
     "question": "What is passive vs active movement?",
     "answer": "Passive vs active movement: Passive movement is when a therapist moves your joint through its range without you contracting muscles. Active movement is when you do it yourself. Both are used in arthritis rehabilitation \u2014 passive keeps joints supple; active builds strength.",
@@ -4384,7 +4384,7 @@
   },
   "/glossary/hydrotherapy": {
     "title": "Hydrotherapy: Meaning & Explanation | Arthritis Glossary",
-    "description": "Exercise in a heated pool for pain relief and mobility.",
+    "description": "Exercise in a heated pool for pain relief and mobility. Hydrotherapy: Hydrotherapy is supervised exercise in a warm pool (33-36\u00b0C).",
     "breadcrumb": "Hydrotherapy",
     "question": "What is hydrotherapy?",
     "answer": "Hydrotherapy: Hydrotherapy is supervised exercise in a warm pool (33-36\u00b0C). Water reduces joint load and warmth eases pain, allowing movement that isn't possible on land. NHS access varies; some rheumatology units offer courses.",
@@ -4401,8 +4401,8 @@
     ]
   },
   "/glossary/occupational-therapy": {
-    "title": "Occupational therapy: Meaning & Explanation | Arthritis Glossary",
-    "description": "Practical help adapting daily activities to your condition.",
+    "title": "Occupational therapy | Arthritis Glossary",
+    "description": "Practical help adapting daily activities to your condition. Occupational therapy: Occupational therapists (OTs) help with practical daily activities \u2014...",
     "breadcrumb": "Occupational therapy",
     "question": "What is occupational therapy?",
     "answer": "Occupational therapy: Occupational therapists (OTs) help with practical daily activities \u2014 dressing, cooking, work, hobbies \u2014 using adapted techniques, aids and equipment. NHS OTs assess your home and provide equipment such as grab rails free of charge.",
@@ -4420,7 +4420,7 @@
   },
   "/glossary/nice": {
     "title": "NICE: Meaning & Explanation | Arthritis Glossary",
-    "description": "The UK body that publishes health guidance.",
+    "description": "The UK body that publishes health guidance. NICE: The National Institute for Health and Care Excellence (NICE) develops evidence-based guidelines for the...",
     "breadcrumb": "NICE",
     "question": "What is nice?",
     "answer": "NICE: The National Institute for Health and Care Excellence (NICE) develops evidence-based guidelines for the NHS in England (and adopted by Wales/NI). Key arthritis guidelines: NG226 (OA), NG100 (RA), CG79 (RA in adults). Your care should broadly follow NICE guidance.",
@@ -4438,7 +4438,7 @@
   },
   "/glossary/pip": {
     "title": "PIP: Meaning & Explanation | Arthritis Glossary",
-    "description": "Personal Independence Payment, a UK disability benefit.",
+    "description": "Personal Independence Payment, a UK disability benefit. PIP: PIP is a non-means-tested benefit for people aged 16 to State Pension age with a long-term...",
     "breadcrumb": "PIP",
     "question": "What is pip?",
     "answer": "PIP: PIP is a non-means-tested benefit for people aged 16 to State Pension age with a long-term condition affecting daily life or mobility. Assessed on functional impact, not diagnosis. Arthritis frequently qualifies; Citizens Advice offers free application help.",
@@ -4455,8 +4455,8 @@
     ]
   },
   "/glossary/attendance-allowance": {
-    "title": "Attendance Allowance: Meaning & Explanation | Arthritis Glossary",
-    "description": "A UK benefit for people over State Pension age with a care need.",
+    "title": "Attendance Allowance | Arthritis Glossary",
+    "description": "A UK benefit for people over State Pension age with a care need. Attendance Allowance: Attendance Allowance is a non-means-tested benefit for people over...",
     "breadcrumb": "Attendance Allowance",
     "question": "What is attendance allowance?",
     "answer": "Attendance Allowance: Attendance Allowance is a non-means-tested benefit for people over State Pension age who need help with personal care because of illness or disability. \u00a368.10-\u00a3101.75/week (2025 rates). Doesn't require an assessment of ability to walk.",
@@ -4474,7 +4474,7 @@
   },
   "/glossary/blue-badge": {
     "title": "Blue Badge: Meaning & Explanation | Arthritis Glossary",
-    "description": "UK parking concession for people with severe mobility problems.",
+    "description": "UK parking concession for people with severe mobility problems. Blue Badge: The Blue Badge is a UK-wide parking scheme giving concessions to people with...",
     "breadcrumb": "Blue Badge",
     "question": "What is blue badge?",
     "answer": "Blue Badge: The Blue Badge is a UK-wide parking scheme giving concessions to people with severe walking difficulty. Automatic eligibility with higher-rate PIP mobility; discretionary applications also possible. Fee \u00a310 in England, free in Wales/Scotland.",
@@ -4492,7 +4492,7 @@
   },
   "/glossary/gp-referral": {
     "title": "GP referral: Meaning & Explanation | Arthritis Glossary",
-    "description": "When your GP refers you to a specialist.",
+    "description": "When your GP refers you to a specialist. GP referral: GP referral is the standard NHS route to see a specialist (rheumatologist, orthopaedic surgeon).",
     "breadcrumb": "GP referral",
     "question": "What is gp referral?",
     "answer": "GP referral: GP referral is the standard NHS route to see a specialist (rheumatologist, orthopaedic surgeon). For MSK physio, many areas now allow self-referral without GP. Waiting times for rheumatology first appointment: 4-30 weeks depending on area.",
@@ -4510,7 +4510,7 @@
   },
   "/glossary/self-referral": {
     "title": "Self-referral: Meaning & Explanation | Arthritis Glossary",
-    "description": "Booking NHS physiotherapy without a GP appointment.",
+    "description": "Booking NHS physiotherapy without a GP appointment. Self-referral: Self-referral means going directly to an NHS service without a GP letter.",
     "breadcrumb": "Self-referral",
     "question": "What is self-referral?",
     "answer": "Self-referral: Self-referral means going directly to an NHS service without a GP letter. Common for MSK physiotherapy, IAPT/Talking Therapies and sexual health. Search 'NHS [service] self referral [your area]'. Saves both your and your GP's time.",
@@ -4528,7 +4528,7 @@
   },
   "/glossary/triple-therapy": {
     "title": "Triple therapy: Meaning & Explanation | Arthritis Glossary",
-    "description": "Combining three DMARDs in rheumatoid arthritis.",
+    "description": "Combining three DMARDs in rheumatoid arthritis. Triple therapy: Triple therapy typically means methotrexate + sulfasalazine + hydroxychloroquine, an...",
     "breadcrumb": "Triple therapy",
     "question": "What is triple therapy?",
     "answer": "Triple therapy: Triple therapy typically means methotrexate + sulfasalazine + hydroxychloroquine, an evidence-based combination for people with RA whose disease isn't controlled on methotrexate alone. Cheaper alternative to biologics with comparable outcomes for some patients.",
@@ -4546,7 +4546,7 @@
   },
   "/glossary/methotrexate": {
     "title": "Methotrexate: Meaning & Explanation | Arthritis Glossary",
-    "description": "The most common first-line DMARD.",
+    "description": "The most common first-line DMARD. Methotrexate: Methotrexate is the anchor drug for rheumatoid arthritis and many inflammatory conditions, usually taken...",
     "breadcrumb": "Methotrexate",
     "question": "What is methotrexate?",
     "answer": "Methotrexate: Methotrexate is the anchor drug for rheumatoid arthritis and many inflammatory conditions, usually taken once weekly with folic acid on other days. Requires regular blood tests. Common side effects (nausea, tiredness) often improve after a few months.",
@@ -4564,7 +4564,7 @@
   },
   "/glossary/sulfasalazine": {
     "title": "Sulfasalazine: Meaning & Explanation | Arthritis Glossary",
-    "description": "A conventional DMARD.",
+    "description": "A conventional DMARD. Sulfasalazine: Sulfasalazine is a well-established DMARD used for RA and some spondyloarthropathies.. Taken as tablets.",
     "breadcrumb": "Sulfasalazine",
     "question": "What is sulfasalazine?",
     "answer": "Sulfasalazine: Sulfasalazine is a well-established DMARD used for RA and some spondyloarthropathies. Taken as tablets. Common in the UK because it's affordable and safe in pregnancy (unlike methotrexate). Can cause harmless orange discolouration of urine and skin.",
@@ -4581,8 +4581,8 @@
     ]
   },
   "/glossary/hydroxychloroquine": {
-    "title": "Hydroxychloroquine: Meaning & Explanation | Arthritis Glossary",
-    "description": "A DMARD often used in mild RA and lupus.",
+    "title": "Hydroxychloroquine | Arthritis Glossary",
+    "description": "A DMARD often used in mild RA and lupus. Hydroxychloroquine: Hydroxychloroquine is a well-tolerated DMARD used in lupus, mild RA and combination therapy.",
     "breadcrumb": "Hydroxychloroquine",
     "question": "What is hydroxychloroquine?",
     "answer": "Hydroxychloroquine: Hydroxychloroquine is a well-tolerated DMARD used in lupus, mild RA and combination therapy. Requires annual eye checks because of a small long-term retinal risk. Safe in pregnancy.",
@@ -4600,7 +4600,7 @@
   },
   "/glossary/leflunomide": {
     "title": "Leflunomide: Meaning & Explanation | Arthritis Glossary",
-    "description": "A conventional DMARD used in RA and PsA.",
+    "description": "A conventional DMARD used in RA and PsA. Leflunomide: Leflunomide is an oral DMARD for RA and PsA when methotrexate isn't tolerated or effective.",
     "breadcrumb": "Leflunomide",
     "question": "What is leflunomide?",
     "answer": "Leflunomide: Leflunomide is an oral DMARD for RA and PsA when methotrexate isn't tolerated or effective. Requires regular blood monitoring and effective contraception in men and women (long half-life).",
@@ -4618,7 +4618,7 @@
   },
   "/glossary/adalimumab": {
     "title": "Adalimumab: Meaning & Explanation | Arthritis Glossary",
-    "description": "An anti-TNF biologic (brand Humira).",
+    "description": "An anti-TNF biologic (brand Humira). Adalimumab: Adalimumab is a biologic that blocks TNF-alpha, used for RA, PsA, AS and other inflammatory conditions.",
     "breadcrumb": "Adalimumab",
     "question": "What is adalimumab?",
     "answer": "Adalimumab: Adalimumab is a biologic that blocks TNF-alpha, used for RA, PsA, AS and other inflammatory conditions. Self-injected every 1-2 weeks. Biosimilars are widely used in the NHS. Screening for TB, hepatitis and current infections is essential before starting.",
@@ -4636,7 +4636,7 @@
   },
   "/glossary/etanercept": {
     "title": "Etanercept: Meaning & Explanation | Arthritis Glossary",
-    "description": "An anti-TNF biologic (brand Enbrel).",
+    "description": "An anti-TNF biologic (brand Enbrel). Etanercept: Etanercept is a TNF-blocking biologic self-injected weekly or twice weekly.",
     "breadcrumb": "Etanercept",
     "question": "What is etanercept?",
     "answer": "Etanercept: Etanercept is a TNF-blocking biologic self-injected weekly or twice weekly. Widely used in the UK for RA, PsA, AS and juvenile arthritis. NHS eligibility depends on disease activity scores (DAS28).",
@@ -4654,7 +4654,7 @@
   },
   "/glossary/infliximab": {
     "title": "Infliximab: Meaning & Explanation | Arthritis Glossary",
-    "description": "An anti-TNF biologic given by infusion.",
+    "description": "An anti-TNF biologic given by infusion. Infliximab: Infliximab is a biologic given by hospital infusion every 6-8 weeks.",
     "breadcrumb": "Infliximab",
     "question": "What is infliximab?",
     "answer": "Infliximab: Infliximab is a biologic given by hospital infusion every 6-8 weeks. Used in RA, PsA, AS, Crohn's and other conditions. Requires ongoing hospital appointments but effective and predictable.",
@@ -4672,7 +4672,7 @@
   },
   "/glossary/rituximab": {
     "title": "Rituximab: Meaning & Explanation | Arthritis Glossary",
-    "description": "A biologic that targets B-cells.",
+    "description": "A biologic that targets B-cells. Rituximab: Rituximab depletes B lymphocytes, given as hospital infusions typically every 6 months.",
     "breadcrumb": "Rituximab",
     "question": "What is rituximab?",
     "answer": "Rituximab: Rituximab depletes B lymphocytes, given as hospital infusions typically every 6 months. Used when TNF-blockers fail or aren't suitable. Requires screening for hepatitis B and monitoring for infection risk.",
@@ -4690,7 +4690,7 @@
   },
   "/glossary/tocilizumab": {
     "title": "Tocilizumab: Meaning & Explanation | Arthritis Glossary",
-    "description": "A biologic that blocks IL-6.",
+    "description": "A biologic that blocks IL-6. Tocilizumab: Tocilizumab blocks interleukin-6, used in RA, giant cell arteritis and juvenile arthritis.",
     "breadcrumb": "Tocilizumab",
     "question": "What is tocilizumab?",
     "answer": "Tocilizumab: Tocilizumab blocks interleukin-6, used in RA, giant cell arteritis and juvenile arthritis. Available as subcutaneous injection or IV infusion. Requires regular blood monitoring.",
@@ -4708,7 +4708,7 @@
   },
   "/glossary/jak-inhibitor": {
     "title": "JAK inhibitor: Meaning & Explanation | Arthritis Glossary",
-    "description": "A newer oral targeted arthritis drug.",
+    "description": "A newer oral targeted arthritis drug. JAK inhibitor: JAK inhibitors (baricitinib, tofacitinib, upadacitinib) are oral drugs that block the JAK-STAT immune...",
     "breadcrumb": "JAK inhibitor",
     "question": "What is jak inhibitor?",
     "answer": "JAK inhibitor: JAK inhibitors (baricitinib, tofacitinib, upadacitinib) are oral drugs that block the JAK-STAT immune signalling pathway. Highly effective in RA and PsA. UK regulators have restricted use in some groups because of cardiovascular and cancer safety data.",
@@ -4726,7 +4726,7 @@
   },
   "/glossary/das28": {
     "title": "DAS28: Meaning & Explanation | Arthritis Glossary",
-    "description": "A score for measuring RA disease activity.",
+    "description": "A score for measuring RA disease activity. DAS28: The Disease Activity Score in 28 joints (DAS28) is used by UK rheumatology to decide treatment...",
     "breadcrumb": "DAS28",
     "question": "What is das28?",
     "answer": "DAS28: The Disease Activity Score in 28 joints (DAS28) is used by UK rheumatology to decide treatment escalation. Combines tender joints, swollen joints, ESR/CRP and patient global rating. NICE thresholds determine biologic eligibility.",
@@ -4744,7 +4744,7 @@
   },
   "/glossary/acr-response": {
     "title": "ACR20/50/70: Meaning & Explanation | Arthritis Glossary",
-    "description": "Trial-outcome measures for RA improvement.",
+    "description": "Trial-outcome measures for RA improvement. ACR20/50/70: ACR response criteria (American College of Rheumatology) measure whether patients improve 20%, 50%...",
     "breadcrumb": "ACR20/50/70",
     "question": "What is acr20/50/70?",
     "answer": "ACR20/50/70: ACR response criteria (American College of Rheumatology) measure whether patients improve 20%, 50% or 70% in RA trials. Used to compare drugs but rarely quoted directly in NHS clinics.",
@@ -4762,7 +4762,7 @@
   },
   "/glossary/gout-attack": {
     "title": "Gout attack: Meaning & Explanation | Arthritis Glossary",
-    "description": "A sudden onset of severe joint pain from urate crystals.",
+    "description": "A sudden onset of severe joint pain from urate crystals. Gout attack: A gout attack is sudden severe joint pain, swelling and redness, most often in the...",
     "breadcrumb": "Gout attack",
     "question": "What is gout attack?",
     "answer": "Gout attack: A gout attack is sudden severe joint pain, swelling and redness, most often in the big toe. Peaks within 24 hours. Treated with NSAIDs, colchicine or short steroid course. Recurrent attacks need urate-lowering therapy (allopurinol).",
@@ -4780,7 +4780,7 @@
   },
   "/glossary/allopurinol": {
     "title": "Allopurinol: Meaning & Explanation | Arthritis Glossary",
-    "description": "The main long-term urate-lowering drug for gout.",
+    "description": "The main long-term urate-lowering drug for gout. Allopurinol: Allopurinol lowers uric acid production and prevents future gout attacks.",
     "breadcrumb": "Allopurinol",
     "question": "What is allopurinol?",
     "answer": "Allopurinol: Allopurinol lowers uric acid production and prevents future gout attacks. Started at low dose after the acute attack settles, titrated up over months. Target: uric acid <360 \u03bcmol/L, or <300 with tophi.",
@@ -4798,7 +4798,7 @@
   },
   "/glossary/colchicine": {
     "title": "Colchicine: Meaning & Explanation | Arthritis Glossary",
-    "description": "A drug for acute gout attacks.",
+    "description": "A drug for acute gout attacks. Colchicine: Colchicine is used for acute gout when NSAIDs aren't suitable.. Effective if started early in the attack.",
     "breadcrumb": "Colchicine",
     "question": "What is colchicine?",
     "answer": "Colchicine: Colchicine is used for acute gout when NSAIDs aren't suitable. Effective if started early in the attack. Dose reduced from historical high doses because of side effects.",
@@ -4816,7 +4816,7 @@
   },
   "/glossary/uveitis": {
     "title": "Uveitis: Meaning & Explanation | Arthritis Glossary",
-    "description": "Eye inflammation associated with inflammatory arthritis.",
+    "description": "Eye inflammation associated with inflammatory arthritis. Uveitis: Uveitis is inflammation of the eye's uveal tract, causing pain, redness and blurred...",
     "breadcrumb": "Uveitis",
     "question": "What is uveitis?",
     "answer": "Uveitis: Uveitis is inflammation of the eye's uveal tract, causing pain, redness and blurred vision. Strongly associated with ankylosing spondylitis and other spondyloarthropathies. Any red painful eye with AS needs same-day ophthalmology assessment.",
@@ -4833,8 +4833,8 @@
     ]
   },
   "/glossary/sjogrens": {
-    "title": "Sj\u00f6gren's syndrome: Meaning & Explanation | Arthritis Glossary",
-    "description": "An autoimmune condition causing dry eyes and mouth.",
+    "title": "Sj\u00f6gren's syndrome | Arthritis Glossary",
+    "description": "An autoimmune condition causing dry eyes and mouth. Sj\u00f6gren's syndrome: Sj\u00f6gren's syndrome is an autoimmune condition where the immune system attacks...",
     "breadcrumb": "Sj\u00f6gren's syndrome",
     "question": "What is sj\u00f6gren's syndrome?",
     "answer": "Sj\u00f6gren's syndrome: Sj\u00f6gren's syndrome is an autoimmune condition where the immune system attacks moisture-producing glands, causing dry eyes and mouth. Often coexists with RA and lupus. Managed with tear substitutes, saliva stimulants and immunosuppression when needed.",
@@ -4851,8 +4851,8 @@
     ]
   },
   "/glossary/raynauds": {
-    "title": "Raynaud's phenomenon: Meaning & Explanation | Arthritis Glossary",
-    "description": "Fingers/toes turning white and blue in the cold.",
+    "title": "Raynaud's phenomenon | Arthritis Glossary",
+    "description": "Fingers/toes turning white and blue in the cold. Raynaud's phenomenon: Raynaud's is exaggerated cold response \u2014 fingers/toes turn white, then blue, then...",
     "breadcrumb": "Raynaud's phenomenon",
     "question": "What is raynaud's phenomenon?",
     "answer": "Raynaud's phenomenon: Raynaud's is exaggerated cold response \u2014 fingers/toes turn white, then blue, then red. Primary Raynaud's is common and benign. Secondary Raynaud's is linked to autoimmune conditions (scleroderma, lupus) and needs specialist review.",
@@ -4870,7 +4870,7 @@
   },
   "/glossary/erythema-migrans": {
     "title": "Erythema migrans: Meaning & Explanation | Arthritis Glossary",
-    "description": "A characteristic rash of Lyme disease.",
+    "description": "A characteristic rash of Lyme disease. Erythema migrans: Erythema migrans is the classic expanding 'bulls-eye' rash of early Lyme disease.",
     "breadcrumb": "Erythema migrans",
     "question": "What is erythema migrans?",
     "answer": "Erythema migrans: Erythema migrans is the classic expanding 'bulls-eye' rash of early Lyme disease. Antibiotics started early prevent Lyme arthritis and other complications. If you develop joint pain after a tick bite and rash, see your GP promptly.",
@@ -4888,7 +4888,7 @@
   },
   "/glossary/septic-arthritis": {
     "title": "Septic arthritis: Meaning & Explanation | Arthritis Glossary",
-    "description": "Bacterial infection inside a joint \u2014 a medical emergency.",
+    "description": "Bacterial infection inside a joint \u2014 a medical emergency. Septic arthritis: Septic arthritis is bacterial infection of a joint, causing severe pain...",
     "breadcrumb": "Septic arthritis",
     "question": "What is septic arthritis?",
     "answer": "Septic arthritis: Septic arthritis is bacterial infection of a joint, causing severe pain, swelling, redness, warmth and fever. Requires emergency hospital treatment: joint drainage and IV antibiotics. Delay can destroy the joint within days.",
@@ -4906,7 +4906,7 @@
   },
   "/glossary/rice-protocol": {
     "title": "RICE: Meaning & Explanation | Arthritis Glossary",
-    "description": "Rest, Ice, Compression, Elevation for joint injuries.",
+    "description": "Rest, Ice, Compression, Elevation for joint injuries. RICE: RICE is the classic first-aid protocol for acute joint injury: Rest, Ice, Compression...",
     "breadcrumb": "RICE",
     "question": "What is rice?",
     "answer": "RICE: RICE is the classic first-aid protocol for acute joint injury: Rest, Ice, Compression, Elevation. Recent evidence (PEACE and LOVE) suggests early gentle movement may be preferable to prolonged rest, but RICE remains a useful starting point.",
@@ -4924,7 +4924,7 @@
   },
   "/glossary/tens": {
     "title": "TENS: Meaning & Explanation | Arthritis Glossary",
-    "description": "Transcutaneous electrical nerve stimulation for pain relief.",
+    "description": "Transcutaneous electrical nerve stimulation for pain relief. TENS: TENS units deliver small electrical pulses through skin electrodes to block pain...",
     "breadcrumb": "TENS",
     "question": "What is tens?",
     "answer": "TENS: TENS units deliver small electrical pulses through skin electrodes to block pain signals. Available from pharmacies for \u00a320-50. Evidence in chronic arthritis pain is modest but many people find them helpful, with no side effects.",
@@ -4942,7 +4942,7 @@
   },
   "/glossary/kinesiology-tape": {
     "title": "Kinesiology tape: Meaning & Explanation | Arthritis Glossary",
-    "description": "Elastic tape applied to joints for support.",
+    "description": "Elastic tape applied to joints for support. Kinesiology tape: Kinesiology tape is elastic tape applied by physiotherapists to support joints without...",
     "breadcrumb": "Kinesiology tape",
     "question": "What is kinesiology tape?",
     "answer": "Kinesiology tape: Kinesiology tape is elastic tape applied by physiotherapists to support joints without restricting movement. Evidence for specific pain relief is limited, but many people report benefit as part of a broader rehab plan.",
@@ -4960,7 +4960,7 @@
   },
   "/glossary/orthotics": {
     "title": "Orthotics: Meaning & Explanation | Arthritis Glossary",
-    "description": "Shoe inserts to redistribute foot and joint load.",
+    "description": "Shoe inserts to redistribute foot and joint load. Orthotics: Orthotics are custom or off-the-shelf shoe inserts that change how weight passes through the...",
     "breadcrumb": "Orthotics",
     "question": "What is orthotics?",
     "answer": "Orthotics: Orthotics are custom or off-the-shelf shoe inserts that change how weight passes through the foot, ankle, knee and hip. Helpful for hallux valgus, flat feet, plantar fasciitis and some knee OA. NHS podiatry can prescribe them.",
@@ -4978,7 +4978,7 @@
   },
   "/glossary/acupuncture": {
     "title": "Acupuncture: Meaning & Explanation | Arthritis Glossary",
-    "description": "Traditional practice sometimes used for chronic pain.",
+    "description": "Traditional practice sometimes used for chronic pain. Acupuncture: Acupuncture uses thin needles at specific body points.",
     "breadcrumb": "Acupuncture",
     "question": "What is acupuncture?",
     "answer": "Acupuncture: Acupuncture uses thin needles at specific body points. NICE no longer recommends it for OA (evidence downgraded), but some people find it helpful for chronic pain as part of a broader plan. Rarely available on NHS for arthritis.",
@@ -4996,7 +4996,7 @@
   },
   "/glossary/cbd": {
     "title": "CBD: Meaning & Explanation | Arthritis Glossary",
-    "description": "Cannabidiol \u2014 a cannabis compound used for pain.",
+    "description": "Cannabidiol \u2014 a cannabis compound used for pain. CBD: CBD is a non-psychoactive cannabis compound sold in the UK as an over-the-counter supplement.",
     "breadcrumb": "CBD",
     "question": "What is cbd?",
     "answer": "CBD: CBD is a non-psychoactive cannabis compound sold in the UK as an over-the-counter supplement. Evidence for arthritis pain relief is preliminary. Legally sold if <0.2% THC. Not the same as prescribed medical cannabis.",
@@ -5014,7 +5014,7 @@
   },
   "/glossary/medical-cannabis": {
     "title": "Medical cannabis: Meaning & Explanation | Arthritis Glossary",
-    "description": "Prescribed cannabis-based products in the UK.",
+    "description": "Prescribed cannabis-based products in the UK. Medical cannabis: Medical cannabis has been legal on prescription in the UK since 2018 but is very rarely...",
     "breadcrumb": "Medical cannabis",
     "question": "What is medical cannabis?",
     "answer": "Medical cannabis: Medical cannabis has been legal on prescription in the UK since 2018 but is very rarely prescribed for arthritis \u2014 usually reserved for specific licensed conditions (severe epilepsy, chemotherapy nausea, MS spasticity).",
@@ -5032,7 +5032,7 @@
   },
   "/glossary/hip-replacement": {
     "title": "Hip replacement: Meaning & Explanation | Arthritis Glossary",
-    "description": "Surgery to replace a worn-out hip joint.",
+    "description": "Surgery to replace a worn-out hip joint. Hip replacement: Hip replacement (arthroplasty) replaces the worn-out hip with metal, ceramic and plastic...",
     "breadcrumb": "Hip replacement",
     "question": "What is hip replacement?",
     "answer": "Hip replacement: Hip replacement (arthroplasty) replaces the worn-out hip with metal, ceramic and plastic components. Around 100,000 done in the UK yearly. Excellent outcomes for pain and function; modern implants last 20+ years for most.",
@@ -5050,7 +5050,7 @@
   },
   "/glossary/knee-replacement": {
     "title": "Knee replacement: Meaning & Explanation | Arthritis Glossary",
-    "description": "Surgery to replace part or all of a worn knee.",
+    "description": "Surgery to replace part or all of a worn knee. Knee replacement: Knee replacement replaces the worn joint surfaces.",
     "breadcrumb": "Knee replacement",
     "question": "What is knee replacement?",
     "answer": "Knee replacement: Knee replacement replaces the worn joint surfaces. Total knee replacement is more common than partial. Recovery: hospital stay 1-3 days, walking with aid within weeks, full recovery 6-12 months. Physio before and after is critical.",
@@ -5068,7 +5068,7 @@
   },
   "/glossary/arthrodesis": {
     "title": "Arthrodesis: Meaning & Explanation | Arthritis Glossary",
-    "description": "Surgical joint fusion.",
+    "description": "Surgical joint fusion. Arthrodesis: Arthrodesis fuses bones in a joint together, eliminating movement to eliminate pain.",
     "breadcrumb": "Arthrodesis",
     "question": "What is arthrodesis?",
     "answer": "Arthrodesis: Arthrodesis fuses bones in a joint together, eliminating movement to eliminate pain. Sometimes done in ankles, wrists, spine and small joints when replacement isn't suitable. Trades movement for pain relief.",
@@ -5086,7 +5086,7 @@
   },
   "/glossary/arthroscopy": {
     "title": "Arthroscopy: Meaning & Explanation | Arthritis Glossary",
-    "description": "Keyhole surgery to look inside a joint.",
+    "description": "Keyhole surgery to look inside a joint. Arthroscopy: Arthroscopy is keyhole surgery to diagnose or treat problems inside a joint.",
     "breadcrumb": "Arthroscopy",
     "question": "What is arthroscopy?",
     "answer": "Arthroscopy: Arthroscopy is keyhole surgery to diagnose or treat problems inside a joint. Small incisions, thin camera. NICE no longer recommends 'clean-out' arthroscopy for OA \u2014 evidence showed no benefit \u2014 but it remains useful for specific mechanical problems.",
@@ -5104,7 +5104,7 @@
   },
   "/glossary/osteotomy": {
     "title": "Osteotomy: Meaning & Explanation | Arthritis Glossary",
-    "description": "Surgery to reshape bone around an arthritic joint.",
+    "description": "Surgery to reshape bone around an arthritic joint. Osteotomy: Osteotomy cuts and realigns bone to shift load onto a healthier part of the joint.",
     "breadcrumb": "Osteotomy",
     "question": "What is osteotomy?",
     "answer": "Osteotomy: Osteotomy cuts and realigns bone to shift load onto a healthier part of the joint. Sometimes used in younger patients with unilateral knee OA to delay replacement. Now less common with modern replacement techniques.",
@@ -5122,7 +5122,7 @@
   },
   "/glossary/meniscus": {
     "title": "Meniscus: Meaning & Explanation | Arthritis Glossary",
-    "description": "Cartilage disc in the knee that cushions the joint.",
+    "description": "Cartilage disc in the knee that cushions the joint. Meniscus: The meniscus is a C-shaped cartilage disc in the knee that cushions and stabilises the joint.",
     "breadcrumb": "Meniscus",
     "question": "What is meniscus?",
     "answer": "Meniscus: The meniscus is a C-shaped cartilage disc in the knee that cushions and stabilises the joint. Age-related tears are common and often symptomless. NICE recommends physiotherapy first for degenerative tears \u2014 surgery only for specific mechanical symptoms.",
@@ -5140,7 +5140,7 @@
   },
   "/glossary/labrum": {
     "title": "Labrum: Meaning & Explanation | Arthritis Glossary",
-    "description": "Cartilage rim of the hip or shoulder socket.",
+    "description": "Cartilage rim of the hip or shoulder socket. Labrum: The labrum is the ring of cartilage around the hip and shoulder sockets, deepening the joint and...",
     "breadcrumb": "Labrum",
     "question": "What is labrum?",
     "answer": "Labrum: The labrum is the ring of cartilage around the hip and shoulder sockets, deepening the joint and helping stability. Tears can cause pain and clicking. Some are surgically treated but many respond to physiotherapy.",
@@ -5157,8 +5157,8 @@
     ]
   },
   "/glossary/bone-density": {
-    "title": "Bone density (BMD): Meaning & Explanation | Arthritis Glossary",
-    "description": "How mineral-dense your bones are.",
+    "title": "Bone density (BMD) | Arthritis Glossary",
+    "description": "How mineral-dense your bones are. Bone density (BMD): Bone mineral density is measured by DEXA scan, expressed as a T-score.",
     "breadcrumb": "Bone density (BMD)",
     "question": "What is bone density (bmd)?",
     "answer": "Bone density (BMD): Bone mineral density is measured by DEXA scan, expressed as a T-score. Below -1: osteopenia; below -2.5: osteoporosis. Weight-bearing exercise, calcium, vitamin D and, when needed, bisphosphonates maintain BMD.",
@@ -5176,7 +5176,7 @@
   },
   "/glossary/osteoporosis": {
     "title": "Osteoporosis: Meaning & Explanation | Arthritis Glossary",
-    "description": "Low bone density that increases fracture risk.",
+    "description": "Low bone density that increases fracture risk. Osteoporosis: Osteoporosis is silently reduced bone density until a fragility fracture happens.",
     "breadcrumb": "Osteoporosis",
     "question": "What is osteoporosis?",
     "answer": "Osteoporosis: Osteoporosis is silently reduced bone density until a fragility fracture happens. Screening after menopause or long-term steroid use. Managed with lifestyle, calcium, vitamin D and bisphosphonates (alendronic acid) if high risk.",
@@ -5194,7 +5194,7 @@
   },
   "/glossary/frax": {
     "title": "FRAX score: Meaning & Explanation | Arthritis Glossary",
-    "description": "A tool that estimates 10-year fracture risk.",
+    "description": "A tool that estimates 10-year fracture risk. FRAX score: FRAX is an online tool from Sheffield University that estimates your 10-year risk of hip and...",
     "breadcrumb": "FRAX score",
     "question": "What is frax score?",
     "answer": "FRAX score: FRAX is an online tool from Sheffield University that estimates your 10-year risk of hip and major fracture based on age, sex, BMI, family and clinical factors. Used by NHS GPs to decide who needs bone-density scanning or treatment.",
@@ -5212,7 +5212,7 @@
   },
   "/glossary/bisphosphonates": {
     "title": "Bisphosphonates: Meaning & Explanation | Arthritis Glossary",
-    "description": "Drugs that slow bone loss.",
+    "description": "Drugs that slow bone loss. Bisphosphonates: Bisphosphonates (alendronic acid, risedronate, zoledronic acid) slow bone breakdown and reduce fracture risk...",
     "breadcrumb": "Bisphosphonates",
     "question": "What is bisphosphonates?",
     "answer": "Bisphosphonates: Bisphosphonates (alendronic acid, risedronate, zoledronic acid) slow bone breakdown and reduce fracture risk in osteoporosis. Weekly tablet or annual infusion. Take on an empty stomach, stay upright 30 min. Rare jaw and thigh bone side effects.",
@@ -5230,7 +5230,7 @@
   },
   "/glossary/sarcopenia": {
     "title": "Sarcopenia: Meaning & Explanation | Arthritis Glossary",
-    "description": "Age-related loss of muscle mass and strength.",
+    "description": "Age-related loss of muscle mass and strength. Sarcopenia: Sarcopenia is accelerated muscle loss with age, worsened by inactivity and low protein intake.",
     "breadcrumb": "Sarcopenia",
     "question": "What is sarcopenia?",
     "answer": "Sarcopenia: Sarcopenia is accelerated muscle loss with age, worsened by inactivity and low protein intake. Reversible with resistance training and adequate protein (~1.0-1.2 g/kg/day). Contributes to falls and frailty.",
@@ -5248,7 +5248,7 @@
   },
   "/glossary/frailty": {
     "title": "Frailty: Meaning & Explanation | Arthritis Glossary",
-    "description": "A state of reduced reserve and resilience.",
+    "description": "A state of reduced reserve and resilience. Frailty: Frailty is not the same as ageing \u2014 it's reduced physiological reserve making people vulnerable to...",
     "breadcrumb": "Frailty",
     "question": "What is frailty?",
     "answer": "Frailty: Frailty is not the same as ageing \u2014 it's reduced physiological reserve making people vulnerable to setbacks. Assessed with tools like the Clinical Frailty Scale. Reversible early: strength training, protein, treating cataracts, medication review.",
@@ -5265,8 +5265,8 @@
     ]
   },
   "/glossary/cfs": {
-    "title": "Clinical Frailty Scale: Meaning & Explanation | Arthritis Glossary",
-    "description": "A 9-point score used by NHS staff.",
+    "title": "Clinical Frailty Scale | Arthritis Glossary",
+    "description": "A 9-point score used by NHS staff. Clinical Frailty Scale: The Rockwood Clinical Frailty Scale rates frailty 1 (very fit) to 9 (terminally ill).",
     "breadcrumb": "Clinical Frailty Scale",
     "question": "What is clinical frailty scale?",
     "answer": "Clinical Frailty Scale: The Rockwood Clinical Frailty Scale rates frailty 1 (very fit) to 9 (terminally ill). Used across the NHS in hospital admissions and community care. Scores 1-3 fit; 4-5 vulnerable; 6+ frail.",
@@ -5283,8 +5283,8 @@
     ]
   },
   "/glossary/otago": {
-    "title": "Otago exercise programme: Meaning & Explanation | Arthritis Glossary",
-    "description": "An NHS-endorsed strength and balance course.",
+    "title": "Otago exercise programme | Arthritis Glossary",
+    "description": "An NHS-endorsed strength and balance course. Otago exercise programme: The Otago Exercise Programme is a physiotherapy-designed home programme of leg...",
     "breadcrumb": "Otago exercise programme",
     "question": "What is otago exercise programme?",
     "answer": "Otago exercise programme: The Otago Exercise Programme is a physiotherapy-designed home programme of leg strength and balance exercises. Randomised trial evidence shows ~35% fewer falls in older adults. Available through NHS falls services.",
@@ -5302,7 +5302,7 @@
   },
   "/glossary/falls-risk": {
     "title": "Falls risk: Meaning & Explanation | Arthritis Glossary",
-    "description": "Likelihood of falling in the next year.",
+    "description": "Likelihood of falling in the next year. Falls risk: Falls risk in older adults with arthritis is doubled by pain, weakness, poor balance, medications and...",
     "breadcrumb": "Falls risk",
     "question": "What is falls risk?",
     "answer": "Falls risk: Falls risk in older adults with arthritis is doubled by pain, weakness, poor balance, medications and vision. Assessed via history (previous falls, near-falls), timed-up-and-go test, and medication review. Halveable with structured intervention.",
@@ -5320,7 +5320,7 @@
   },
   "/glossary/ct-scan": {
     "title": "CT scan: Meaning & Explanation | Arthritis Glossary",
-    "description": "Computed tomography \u2014 detailed bone imaging.",
+    "description": "Computed tomography \u2014 detailed bone imaging. CT scan: CT scans use X-rays to build detailed cross-sectional bone images.",
     "breadcrumb": "CT scan",
     "question": "What is ct scan?",
     "answer": "CT scan: CT scans use X-rays to build detailed cross-sectional bone images. Better than plain X-ray for complex fractures and bony detail; poorer than MRI for soft tissue. Uses ionising radiation.",
@@ -5338,7 +5338,7 @@
   },
   "/glossary/mri": {
     "title": "MRI: Meaning & Explanation | Arthritis Glossary",
-    "description": "Magnetic resonance imaging \u2014 detailed joint imaging.",
+    "description": "Magnetic resonance imaging \u2014 detailed joint imaging. MRI: MRI uses magnetic fields to image soft tissue and bone marrow in detail.",
     "breadcrumb": "MRI",
     "question": "What is mri?",
     "answer": "MRI: MRI uses magnetic fields to image soft tissue and bone marrow in detail. Best for cartilage, ligaments, tendons and early inflammatory changes not visible on X-ray. No radiation. NHS waiting times vary.",
@@ -5356,7 +5356,7 @@
   },
   "/glossary/ultrasound": {
     "title": "Ultrasound: Meaning & Explanation | Arthritis Glossary",
-    "description": "Real-time imaging of joints and soft tissue.",
+    "description": "Real-time imaging of joints and soft tissue. Ultrasound: Musculoskeletal ultrasound uses sound waves to image joints, tendons and inflammation in real...",
     "breadcrumb": "Ultrasound",
     "question": "What is ultrasound?",
     "answer": "Ultrasound: Musculoskeletal ultrasound uses sound waves to image joints, tendons and inflammation in real time. Increasingly used by rheumatologists for early RA detection and injection guidance.",
@@ -5374,7 +5374,7 @@
   },
   "/glossary/bone-scan": {
     "title": "Bone scan: Meaning & Explanation | Arthritis Glossary",
-    "description": "Nuclear medicine test for bone activity.",
+    "description": "Nuclear medicine test for bone activity. Bone scan: A bone (bone scintigraphy) scan uses a small dose of radioactive tracer taken up by active bone.",
     "breadcrumb": "Bone scan",
     "question": "What is bone scan?",
     "answer": "Bone scan: A bone (bone scintigraphy) scan uses a small dose of radioactive tracer taken up by active bone. Used for detecting metastases, hidden fractures, complex regional pain syndrome and bone infections.",
@@ -5392,7 +5392,7 @@
   },
   "/glossary/dexa-scan": {
     "title": "DEXA scan: Meaning & Explanation | Arthritis Glossary",
-    "description": "The standard test for bone density.",
+    "description": "The standard test for bone density. DEXA scan: Dual-energy X-ray absorptiometry (DEXA) measures bone mineral density at hip and spine.",
     "breadcrumb": "DEXA scan",
     "question": "What is dexa scan?",
     "answer": "DEXA scan: Dual-energy X-ray absorptiometry (DEXA) measures bone mineral density at hip and spine. Standard test for osteoporosis diagnosis. Low radiation dose. NHS available on GP or specialist referral.",
@@ -5410,7 +5410,7 @@
   },
   "/glossary/dass-score": {
     "title": "DASS: Meaning & Explanation | Arthritis Glossary",
-    "description": "Depression, Anxiety and Stress Scale.",
+    "description": "Depression, Anxiety and Stress Scale. DASS: DASS is a self-report questionnaire measuring depression, anxiety and stress.",
     "breadcrumb": "DASS",
     "question": "What is dass?",
     "answer": "DASS: DASS is a self-report questionnaire measuring depression, anxiety and stress. Used to identify mental health impact of chronic conditions like arthritis. NHS Talking Therapies uses similar tools to guide treatment.",
@@ -5428,7 +5428,7 @@
   },
   "/glossary/act-therapy": {
     "title": "ACT: Meaning & Explanation | Arthritis Glossary",
-    "description": "Acceptance and Commitment Therapy for chronic pain.",
+    "description": "Acceptance and Commitment Therapy for chronic pain. ACT: Acceptance and Commitment Therapy (ACT) is a psychological approach for chronic pain that focuses...",
     "breadcrumb": "ACT",
     "question": "What is act?",
     "answer": "ACT: Acceptance and Commitment Therapy (ACT) is a psychological approach for chronic pain that focuses on living well with pain rather than eliminating it. Growing NICE endorsement for chronic primary pain. Available via NHS Talking Therapies.",
@@ -5445,8 +5445,8 @@
     ]
   },
   "/glossary/iapt": {
-    "title": "NHS Talking Therapies: Meaning & Explanation | Arthritis Glossary",
-    "description": "Free NHS psychological therapy.",
+    "title": "NHS Talking Therapies | Arthritis Glossary",
+    "description": "Free NHS psychological therapy. NHS Talking Therapies: NHS Talking Therapies (formerly IAPT) provides free CBT, counselling and mindfulness-based therapy...",
     "breadcrumb": "NHS Talking Therapies",
     "question": "What is nhs talking therapies?",
     "answer": "NHS Talking Therapies: NHS Talking Therapies (formerly IAPT) provides free CBT, counselling and mindfulness-based therapy for adults with anxiety, depression and chronic pain. Self-referral online in most areas. Waiting times variable.",
@@ -5464,7 +5464,7 @@
   },
   "/glossary/nsaid-topical": {
     "title": "Topical NSAID: Meaning & Explanation | Arthritis Glossary",
-    "description": "NSAID applied as gel or cream to the skin.",
+    "description": "NSAID applied as gel or cream to the skin. Topical NSAID: Topical NSAIDs (ibuprofen gel, diclofenac gel) are applied to the skin over a painful joint.",
     "breadcrumb": "Topical NSAID",
     "question": "What is topical nsaid?",
     "answer": "Topical NSAID: Topical NSAIDs (ibuprofen gel, diclofenac gel) are applied to the skin over a painful joint. NICE first-line for hand and knee OA \u2014 comparable pain relief to oral NSAIDs but far lower systemic risk.",
@@ -5482,7 +5482,7 @@
   },
   "/glossary/capsaicin": {
     "title": "Capsaicin: Meaning & Explanation | Arthritis Glossary",
-    "description": "A chilli-derived topical pain cream.",
+    "description": "A chilli-derived topical pain cream. Capsaicin: Capsaicin cream (from chilli peppers) desensitises pain nerves over 2-4 weeks of regular application.",
     "breadcrumb": "Capsaicin",
     "question": "What is capsaicin?",
     "answer": "Capsaicin: Capsaicin cream (from chilli peppers) desensitises pain nerves over 2-4 weeks of regular application. NICE-recommended for OA hand and knee. Available on NHS prescription. Wash hands after use.",
@@ -5500,7 +5500,7 @@
   },
   "/glossary/amitriptyline": {
     "title": "Amitriptyline: Meaning & Explanation | Arthritis Glossary",
-    "description": "A low-dose antidepressant used for pain and sleep.",
+    "description": "A low-dose antidepressant used for pain and sleep. Amitriptyline: Low-dose amitriptyline (10-25 mg at night) is a common NHS prescription for chronic pain...",
     "breadcrumb": "Amitriptyline",
     "question": "What is amitriptyline?",
     "answer": "Amitriptyline: Low-dose amitriptyline (10-25 mg at night) is a common NHS prescription for chronic pain including fibromyalgia and neuropathic pain. Improves sleep and reduces pain sensitivity. Not addictive but takes weeks to work.",
@@ -5518,7 +5518,7 @@
   },
   "/glossary/pregabalin": {
     "title": "Pregabalin: Meaning & Explanation | Arthritis Glossary",
-    "description": "A drug for nerve pain and fibromyalgia.",
+    "description": "A drug for nerve pain and fibromyalgia. Pregabalin: Pregabalin (Lyrica) is used for neuropathic pain and fibromyalgia.",
     "breadcrumb": "Pregabalin",
     "question": "What is pregabalin?",
     "answer": "Pregabalin: Pregabalin (Lyrica) is used for neuropathic pain and fibromyalgia. Controlled drug in UK \u2014 slow to increase, slow to reduce. Side effects: drowsiness, weight gain, dependence risk.",
@@ -5536,7 +5536,7 @@
   },
   "/glossary/gabapentin": {
     "title": "Gabapentin: Meaning & Explanation | Arthritis Glossary",
-    "description": "Related nerve-pain medication.",
+    "description": "Related nerve-pain medication. Gabapentin: Gabapentin has similar uses to pregabalin (nerve pain, fibromyalgia).. Also a controlled drug in the UK.",
     "breadcrumb": "Gabapentin",
     "question": "What is gabapentin?",
     "answer": "Gabapentin: Gabapentin has similar uses to pregabalin (nerve pain, fibromyalgia). Also a controlled drug in the UK. Cheaper than pregabalin. Titrated up over weeks; withdrawal must be gradual.",
@@ -5554,7 +5554,7 @@
   },
   "/glossary/codeine": {
     "title": "Codeine: Meaning & Explanation | Arthritis Glossary",
-    "description": "A mild opioid painkiller.",
+    "description": "A mild opioid painkiller. Codeine: Codeine is a weak opioid, often combined with paracetamol (co-codamol).",
     "breadcrumb": "Codeine",
     "question": "What is codeine?",
     "answer": "Codeine: Codeine is a weak opioid, often combined with paracetamol (co-codamol). Constipation is universal; addiction risk with regular use. NICE increasingly cautions against long-term opioid use in chronic non-cancer pain.",
@@ -5572,7 +5572,7 @@
   },
   "/glossary/tramadol": {
     "title": "Tramadol: Meaning & Explanation | Arthritis Glossary",
-    "description": "A moderate-strength painkiller.",
+    "description": "A moderate-strength painkiller. Tramadol: Tramadol is a controlled painkiller for moderate pain.",
     "breadcrumb": "Tramadol",
     "question": "What is tramadol?",
     "answer": "Tramadol: Tramadol is a controlled painkiller for moderate pain. Interacts with many antidepressants and can lower seizure threshold. Long-term use in chronic pain is discouraged by current NHS guidance.",
@@ -5590,7 +5590,7 @@
   },
   "/glossary/morphine": {
     "title": "Morphine: Meaning & Explanation | Arthritis Glossary",
-    "description": "A strong opioid, rarely used long-term in arthritis.",
+    "description": "A strong opioid, rarely used long-term in arthritis. Morphine: Strong opioids like morphine are rarely used in chronic arthritis because evidence for...",
     "breadcrumb": "Morphine",
     "question": "What is morphine?",
     "answer": "Morphine: Strong opioids like morphine are rarely used in chronic arthritis because evidence for long-term benefit is poor and risks (dependence, falls, respiratory depression) are high. Occasionally used short-term for severe flares or post-op.",
@@ -5608,7 +5608,7 @@
   },
   "/glossary/epidural": {
     "title": "Epidural: Meaning & Explanation | Arthritis Glossary",
-    "description": "Injection of drugs into the spinal space.",
+    "description": "Injection of drugs into the spinal space. Epidural: Epidural steroid injections deliver anti-inflammatory drugs to the spine for radiculopathy (nerve root...",
     "breadcrumb": "Epidural",
     "question": "What is epidural?",
     "answer": "Epidural: Epidural steroid injections deliver anti-inflammatory drugs to the spine for radiculopathy (nerve root pain). NICE recommends caution \u2014 some benefit for acute severe sciatica, limited role in chronic back pain.",
@@ -5625,8 +5625,8 @@
     ]
   },
   "/glossary/facet-joint-injection": {
-    "title": "Facet joint injection: Meaning & Explanation | Arthritis Glossary",
-    "description": "Steroid injection into small spine joints.",
+    "title": "Facet joint injection | Arthritis Glossary",
+    "description": "Steroid injection into small spine joints. Facet joint injection: Facet joint injections deliver local anaesthetic and steroid to the small joints at the...",
     "breadcrumb": "Facet joint injection",
     "question": "What is facet joint injection?",
     "answer": "Facet joint injection: Facet joint injections deliver local anaesthetic and steroid to the small joints at the back of the spine. Used for suspected facet-mediated back pain. Evidence for lasting benefit is mixed.",
@@ -5643,8 +5643,8 @@
     ]
   },
   "/glossary/radiofrequency-denervation": {
-    "title": "Radiofrequency denervation: Meaning & Explanation | Arthritis Glossary",
-    "description": "Nerve ablation for chronic back pain.",
+    "title": "Radiofrequency denervation | Arthritis Glossary",
+    "description": "Nerve ablation for chronic back pain. Radiofrequency denervation: Radiofrequency denervation heats specific nerves to disrupt pain signals from spinal...",
     "breadcrumb": "Radiofrequency denervation",
     "question": "What is radiofrequency denervation?",
     "answer": "Radiofrequency denervation: Radiofrequency denervation heats specific nerves to disrupt pain signals from spinal facet joints. Considered by NICE for carefully selected patients with confirmed facet-joint pain who haven't responded to other treatments.",
@@ -5662,7 +5662,7 @@
   },
   "/glossary/spinal-fusion": {
     "title": "Spinal fusion: Meaning & Explanation | Arthritis Glossary",
-    "description": "Surgery joining two or more vertebrae together.",
+    "description": "Surgery joining two or more vertebrae together. Spinal fusion: Spinal fusion joins two or more vertebrae together to stop movement causing pain.",
     "breadcrumb": "Spinal fusion",
     "question": "What is spinal fusion?",
     "answer": "Spinal fusion: Spinal fusion joins two or more vertebrae together to stop movement causing pain. Considered for specific structural problems (severe instability, deformity). Not a routine treatment for chronic non-specific back pain.",
@@ -5680,7 +5680,7 @@
   },
   "/glossary/prolotherapy": {
     "title": "Prolotherapy: Meaning & Explanation | Arthritis Glossary",
-    "description": "Injection of irritant solutions to promote healing.",
+    "description": "Injection of irritant solutions to promote healing. Prolotherapy: Prolotherapy injects irritant solutions (often dextrose) around tendons or joints to...",
     "breadcrumb": "Prolotherapy",
     "question": "What is prolotherapy?",
     "answer": "Prolotherapy: Prolotherapy injects irritant solutions (often dextrose) around tendons or joints to stimulate healing. Evidence is preliminary and mixed. Not routinely available on NHS. Sometimes offered privately for chronic joint pain.",
@@ -5698,7 +5698,7 @@
   },
   "/glossary/prp": {
     "title": "PRP: Meaning & Explanation | Arthritis Glossary",
-    "description": "Platelet-rich plasma injections.",
+    "description": "Platelet-rich plasma injections. PRP: PRP (platelet-rich plasma) injections use concentrated platelets from your own blood to promote tissue healing.",
     "breadcrumb": "PRP",
     "question": "What is prp?",
     "answer": "PRP: PRP (platelet-rich plasma) injections use concentrated platelets from your own blood to promote tissue healing. Evidence for arthritis is emerging but not strong enough for routine NHS use. Common in private sports medicine.",
@@ -5715,8 +5715,8 @@
     ]
   },
   "/glossary/stem-cell": {
-    "title": "Stem cell therapy: Meaning & Explanation | Arthritis Glossary",
-    "description": "Experimental cell-based treatments.",
+    "title": "Stem cell therapy | Arthritis Glossary",
+    "description": "Experimental cell-based treatments. Stem cell therapy: Stem cell therapy for arthritis remains experimental.. Regulatory framework is tight.",
     "breadcrumb": "Stem cell therapy",
     "question": "What is stem cell therapy?",
     "answer": "Stem cell therapy: Stem cell therapy for arthritis remains experimental. Regulatory framework is tight. Beware of overseas clinics making strong claims. UK approved treatments are limited to specific research settings.",
@@ -5733,8 +5733,8 @@
     ]
   },
   "/glossary/weight-loss-arthritis": {
-    "title": "Weight loss for arthritis: Meaning & Explanation | Arthritis Glossary",
-    "description": "Losing weight to reduce joint load.",
+    "title": "Weight loss for arthritis | Arthritis Glossary",
+    "description": "Losing weight to reduce joint load. Weight loss for arthritis: Weight loss of 5-10% substantially reduces knee OA pain.",
     "breadcrumb": "Weight loss for arthritis",
     "question": "What is weight loss for arthritis?",
     "answer": "Weight loss for arthritis: Weight loss of 5-10% substantially reduces knee OA pain. Every 1 kg lost cuts knee load by about 4 kg during walking. Combine with strength work to protect muscle mass.",
@@ -5752,7 +5752,7 @@
   },
   "/glossary/bmi": {
     "title": "BMI: Meaning & Explanation | Arthritis Glossary",
-    "description": "Body mass index, a rough weight-for-height measure.",
+    "description": "Body mass index, a rough weight-for-height measure. BMI: BMI is weight (kg) divided by height (m) squared.",
     "breadcrumb": "BMI",
     "question": "What is bmi?",
     "answer": "BMI: BMI is weight (kg) divided by height (m) squared. Rough guide only \u2014 doesn't distinguish muscle from fat. NHS categories: <18.5 underweight, 18.5-24.9 healthy, 25-29.9 overweight, 30+ obese.",
@@ -5769,8 +5769,8 @@
     ]
   },
   "/glossary/pain-scale": {
-    "title": "Pain scale (0-10): Meaning & Explanation | Arthritis Glossary",
-    "description": "Numeric rating of pain intensity.",
+    "title": "Pain scale (0-10) | Arthritis Glossary",
+    "description": "Numeric rating of pain intensity. Pain scale (0-10): The 0-10 numeric pain rating is used in NHS clinics to track pain over time.",
     "breadcrumb": "Pain scale (0-10)",
     "question": "What is pain scale (0-10)?",
     "answer": "Pain scale (0-10): The 0-10 numeric pain rating is used in NHS clinics to track pain over time. 0 = no pain, 10 = worst imaginable. Useful for consultation, less useful for diagnosis (subjective).",
@@ -5788,7 +5788,7 @@
   },
   "/glossary/das28-remission": {
     "title": "DAS28 remission: Meaning & Explanation | Arthritis Glossary",
-    "description": "A DAS28 score under 2.6 indicating minimal RA activity.",
+    "description": "A DAS28 score under 2.6 indicating minimal RA activity. DAS28 remission: DAS28 < 2.6 is the standard definition of RA remission.",
     "breadcrumb": "DAS28 remission",
     "question": "What is das28 remission?",
     "answer": "DAS28 remission: DAS28 < 2.6 is the standard definition of RA remission. Achievable in around half of people on early aggressive treatment. Goal of modern RA management.",
@@ -5805,8 +5805,8 @@
     ]
   },
   "/glossary/shared-decision-making": {
-    "title": "Shared decision-making: Meaning & Explanation | Arthritis Glossary",
-    "description": "Doctors and patients agreeing treatment together.",
+    "title": "Shared decision-making | Arthritis Glossary",
+    "description": "Doctors and patients agreeing treatment together. Shared decision-making: Shared decision-making is a formal NHS approach where clinicians present options...",
     "breadcrumb": "Shared decision-making",
     "question": "What is shared decision-making?",
     "answer": "Shared decision-making: Shared decision-making is a formal NHS approach where clinicians present options and patients contribute values and preferences to reach a treatment plan. Especially important in arthritis where multiple options fit different lifestyles.",
@@ -5830,7 +5830,7 @@
     "updatedAt": "2026-07-04"
   },
   "/pets/arthritis-in-dogs": {
-    "title": "Arthritis in Dogs: Signs, Treatment & Daily Care | Living With Arthritis UK",
+    "title": "Arthritis in Dogs: Signs, Treatment & Daily Care",
     "description": "Around 80% of dogs over 8 show signs of arthritis. Learn the early warning signs, what your vet can offer (from supplements to Librela), and simple home chan...",
     "breadcrumb": "Arthritis in Dogs: Signs, Treatment & Daily Care",
     "question": "Which dog breeds get arthritis most?",
@@ -5862,7 +5862,7 @@
     ]
   },
   "/pets/arthritis-in-cats": {
-    "title": "Arthritis in Cats: The Silent Condition | Living With Arthritis UK",
+    "title": "Arthritis in Cats: The Silent Condition",
     "description": "Up to 90% of cats over 12 have arthritic changes on X-ray, yet most are never diagnosed \u2014 cats mask pain superbly. Here's how to spot it and what genuinely h...",
     "breadcrumb": "Arthritis in Cats: The Silent Condition",
     "question": "How do I know if my cat is in pain?",
@@ -5926,7 +5926,7 @@
     ]
   },
   "/pets/arthritis-in-llamas-and-alpacas": {
-    "title": "Arthritis in Llamas & Alpacas: A Practical Owner's Guide | Living With Arthritis UK",
+    "title": "Arthritis in Llamas & Alpacas: A Practical Owner's Guide",
     "description": "Camelids are stoic animals that hide lameness until it's advanced. Learn the subtle signs of joint disease in llamas and alpacas and the husbandry changes th...",
     "breadcrumb": "Arthritis in Llamas & Alpacas: A Practical Owner's Guide",
     "question": "How long do llamas and alpacas live with arthritis?",
@@ -5954,7 +5954,7 @@
     ]
   },
   "/pets/senior-pet-exercise-guide": {
-    "title": "Exercise for Arthritic Pets: Little and Often Wins | Living With Arthritis UK",
+    "title": "Exercise for Arthritic Pets: Little and Often Wins",
     "description": "The single most common mistake owners make is weekend-warrior exercise. Here's how to build a joint-friendly movement routine for dogs, cats and horses alike",
     "breadcrumb": "Exercise for Arthritic Pets: Little and Often Wins",
     "question": "Is hydrotherapy worth it for dogs?",
@@ -5982,7 +5982,7 @@
     ]
   },
   "/pets/pet-weight-and-joint-health": {
-    "title": "Pet Weight & Joint Health: The Treatment Owners Control | Living With Arthritis UK",
+    "title": "Pet Weight & Joint Health: The Treatment Owners Control",
     "description": "Excess weight is the most powerful \u2014 and most fixable \u2014 driver of arthritis pain in pets. A practical guide to body condition scoring and safe weight loss fo...",
     "breadcrumb": "Pet Weight & Joint Health: The Treatment Owners Control",
     "question": "How fast should my dog lose weight?",
@@ -6038,7 +6038,7 @@
     ]
   },
   "/pets/when-to-see-the-vet-pet-arthritis": {
-    "title": "Pet Arthritis: When to See the Vet (Red Flags) | Living With Arthritis UK",
+    "title": "Pet Arthritis: When to See the Vet (Red Flags)",
     "description": "Most pet arthritis can be managed at a routine appointment \u2014 but some signs need urgent attention. Know the difference.",
     "breadcrumb": "Pet Arthritis: When to See the Vet (Red Flags)",
     "question": "Is limping ever an emergency?",
@@ -6066,7 +6066,7 @@
     ]
   },
   "/pets": {
-    "title": "Pets & Arthritis Hub: Dogs, Cats, Horses, Llamas | Living With Arthritis UK",
+    "title": "Pets & Arthritis Hub: Dogs, Cats, Horses, Llamas",
     "description": "Free UK guides to arthritis in dogs, cats, horses, llamas and alpacas \u2014 signs, vet treatments, weight, exercise and home adaptations.",
     "question": "Can pets get arthritis?",
     "answer": "Yes \u2014 arthritis is extremely common in pets. Around 80% of dogs over 8 and up to 90% of cats over 12 show arthritic changes, and it's the leading cause of early retirement in UK horses. Living With Arthritis UK's pet hub covers signs, veterinary treatments (including Librela for dogs and Solensia for cats), weight management, joint-friendly exercise and home adaptations for dogs, cats, horses, llamas and alpacas. One rule above all: never give pets human painkillers \u2014 paracetamol and ibuprofen are toxic to dogs and cats.",
