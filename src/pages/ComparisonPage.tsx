@@ -74,7 +74,7 @@ export default function ComparisonPage() {
     ],
     audience: { "@type": "MedicalAudience", audienceType: "Patient", geographicArea: { "@type": "Country", name: "United Kingdom" } },
     publisher: { "@type": "MedicalOrganization", name: "Living With Arthritis UK" },
-    dateModified: new Date().toISOString().slice(0, 10),
+    dateModified: LAST_REVIEWED_ISO,
   };
 
   return (
