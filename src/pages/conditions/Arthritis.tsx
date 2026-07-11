@@ -58,6 +58,7 @@ export default function Arthritis() {
       </nav>
 
       <h1 className="text-4xl md:text-5xl font-bold mb-6">Arthritis: Understanding Joint Pain and Treatment Options</h1>
+      <LastReviewed date={LAST_REVIEWED_ISO} className="mb-6 -mt-4" />
 
       <AnswerBox question="What is arthritis and how is it treated?" reviewed="2026-06-22">
         Arthritis describes over 100 conditions that affect the joints — causing pain, stiffness, swelling and reduced movement. Osteoarthritis (wear-related) and rheumatoid arthritis (inflammatory) are the most common forms in the UK. Effective management combines targeted exercise, weight optimisation, an anti-inflammatory diet, medical treatment for pain and inflammation, and — when needed — specialist rheumatology care, injections or joint replacement surgery. Early diagnosis and a structured care plan dramatically improve long-term outcomes.
