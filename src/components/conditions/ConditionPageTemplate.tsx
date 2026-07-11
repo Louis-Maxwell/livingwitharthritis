@@ -185,7 +185,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
         <title>{`${data.metaTitle} | Living With Arthritis UK`}</title>
         <meta name="description" content={data.metaDescription} />
         <meta name="keywords" content={data.keywords} />
-        <link rel="canonical" href={url} />
+        
         <link rel="alternate" hrefLang="en-GB" href={url} />
         <meta name="geo.region" content="GB" />
         <meta property="og:title" content={data.metaTitle} />
