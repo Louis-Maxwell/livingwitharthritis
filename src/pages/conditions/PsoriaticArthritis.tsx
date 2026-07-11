@@ -13,6 +13,7 @@ import ConditionBlogStrip from "@/components/ConditionBlogStrip";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
 import ConditionSubpageLinks from "@/components/ConditionSubpageLinks";
 import ReadNextCards from "@/components/ReadNextCards";
+import LastReviewed, { LAST_REVIEWED_ISO } from "@/components/LastReviewed";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import AnswerBox from "@/components/seo/AnswerBox";
 
@@ -134,6 +135,7 @@ const PsoriaticArthritis = () => (
         </Link>
       </PageHero>
       <section className="container mx-auto px-6 md:px-10 max-w-3xl pt-10">
+        <LastReviewed date={LAST_REVIEWED_ISO} className="mb-6" />
         <AnswerBox
           question="What is the best treatment for psoriatic arthritis?"
           reviewed="2026-06-13"

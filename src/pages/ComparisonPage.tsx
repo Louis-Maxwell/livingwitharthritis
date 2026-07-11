@@ -4,7 +4,7 @@ import { lazy, Suspense, useMemo } from "react";
 import { ChevronLeft, Scale, ArrowRight, CheckCircle2 } from "lucide-react";
 import Header from "@/components/Header";
 import { COMPARISON_ROUTES } from "@/data/comparison-routes.generated";
-import { getComparisonArticle } from "@/data/comparison-content";
+import { getComparisonArticle, COMPARISON_META_DESCRIPTIONS } from "@/data/comparison-content";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
@@ -55,6 +55,7 @@ export default function ComparisonPage() {
   const title = article?.title ?? (context ? `${a} vs ${b} for ${context}` : `${a} vs ${b}`);
   const metaDescription =
     article?.metaDescription ??
+    COMPARISON_META_DESCRIPTIONS[path] ??
     `${title}: an evidence-informed side-by-side comparison for UK arthritis patients, covering effectiveness, safety and cost.`;
 
   const others = COMPARISON_ROUTES.filter((r) => r !== path).slice(0, 6);

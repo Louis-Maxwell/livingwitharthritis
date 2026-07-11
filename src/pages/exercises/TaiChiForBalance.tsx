@@ -95,13 +95,33 @@ const jsonLd = {
   audience: { "@type": "PeopleAudience", suggestedMinAge: 18, healthCondition: { "@type": "MedicalCondition", name: "Arthritis" } },
 };
 
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to do a tai chi balance routine for arthritis",
+  description:
+    "A 15-minute arthritis-friendly tai chi routine to improve balance, reduce fall risk and ease knee and hip pain. Five slow, weight-shifted moves.",
+  inLanguage: "en-GB",
+  totalTime: "PT15M",
+  step: moves.map((m, i) => ({
+    "@type": "HowToStep",
+    position: i + 1,
+    name: m.name,
+    text: `${m.how} Why: ${m.why}`,
+  })),
+};
+
 export default function TaiChiForBalance() {
   useEffect(() => {
     const s = document.createElement("script");
     s.type = "application/ld+json";
     s.text = JSON.stringify(jsonLd);
+    const h = document.createElement("script");
+    h.type = "application/ld+json";
+    h.text = JSON.stringify(howToJsonLd);
     document.head.appendChild(s);
-    return () => { document.head.removeChild(s); };
+    document.head.appendChild(h);
+    return () => { document.head.removeChild(s); document.head.removeChild(h); };
   }, []);
 
   return (
