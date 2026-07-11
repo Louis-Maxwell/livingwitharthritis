@@ -315,7 +315,7 @@ const PsoriaticArthritis = () => (
         />
 
         <div className="p-8 rounded-2xl bg-accent border border-border/30">
-          <h2 className="font-display text-xl font-bold text-foreground mb-3">Managing psoriatic arthritis</h2>
+          <h2 className="font-display text-xl font-bold text-foreground mb-3">How is psoriatic arthritis managed day-to-day?</h2>
           <p className="text-muted-foreground mb-5">Modern treatments can control both skin and joint symptoms. Explore our resources or start a chat for personalised guidance.</p>
           <div className="flex flex-wrap gap-3">
             <Link to="/chat" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity">
