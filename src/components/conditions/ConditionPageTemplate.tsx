@@ -19,6 +19,7 @@ import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import AnswerBox from "@/components/seo/AnswerBox";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import LastReviewed, { LAST_REVIEWED_ISO } from "@/components/LastReviewed";
 
 // Below-the-fold — lazy to reduce initial route chunk + speed up LCP
 const InternalLinks = lazy(() => import("@/components/InternalLinks"));
