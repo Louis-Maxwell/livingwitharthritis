@@ -99,6 +99,22 @@ const itemListJsonLd = {
   ],
 };
 
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to practise tai chi for arthritis",
+  description:
+    "Five core tai chi movements every NICE-aligned arthritis programme builds on — a slow, weight-shifted sequence for knee, hip, hand and back joint pain.",
+  inLanguage: "en-GB",
+  totalTime: "PT20M",
+  step: movementLibrary.map((m, i) => ({
+    "@type": "HowToStep",
+    position: i + 1,
+    name: m.name,
+    text: `${m.brief} Cue: ${m.cue}`,
+  })),
+};
+
 export default function TaiChiForArthritis() {
   useEffect(() => {
     const a = document.createElement("script");
