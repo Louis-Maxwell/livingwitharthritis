@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useReveal } from "@/hooks/useReveal";
+import heroCommunity from "@/assets/hero-community.jpg.asset.json";
 import "@/components/HeroSection.css";
 
 const OAHero = memo(() => {
@@ -86,20 +87,16 @@ const OAHero = memo(() => {
 
           {/* Octagon image — MAP signature shape */}
           <div className="reveal relative aspect-square w-full max-w-[560px] mx-auto">
-            <picture>
-              <source srcSet="/hero/oa.avif" type="image/avif" />
-              <source srcSet="/hero/oa.webp" type="image/webp" />
-              <img
-                src="/hero/oa.jpg"
-                alt="An older couple stretching together at home, smiling — living well with osteoarthritis."
-                width={1080}
-                height={1080}
-                {...({ fetchpriority: "high" } as Record<string, string>)}
-                decoding="async"
-                loading="eager"
-                className="clip-octagon w-full h-full object-cover transition-transform duration-500 hover:scale-[1.03]"
-              />
-            </picture>
+            <img
+              src={heroCommunity.url}
+              alt="Two young women smiling together outdoors — the community we support."
+              width={1080}
+              height={1080}
+              {...({ fetchpriority: "high" } as Record<string, string>)}
+              decoding="async"
+              loading="eager"
+              className="clip-octagon w-full h-full object-cover transition-transform duration-500 hover:scale-[1.03]"
+            />
           </div>
         </div>
       </div>
