@@ -91,6 +91,22 @@ const faqJsonLd = {
   })),
 };
 
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "Tai chi for beginners — a 7-day at-home starter plan",
+  description:
+    "A free 7-day at-home tai chi starter plan for UK beginners. Around 10 minutes per day, no equipment, gentle on arthritic joints.",
+  inLanguage: "en-GB",
+  totalTime: "PT70M",
+  step: days.map((d) => ({
+    "@type": "HowToStep",
+    position: d.day,
+    name: `Day ${d.day}: ${d.title}`,
+    text: `${d.what} Duration: ${d.mins}. Cue: ${d.cue}`,
+  })),
+};
+
 export default function TaiChiForBeginners() {
   useEffect(() => {
     const a = document.createElement("script");
@@ -99,11 +115,16 @@ export default function TaiChiForBeginners() {
     const b = document.createElement("script");
     b.type = "application/ld+json";
     b.text = JSON.stringify(faqJsonLd);
+    const c = document.createElement("script");
+    c.type = "application/ld+json";
+    c.text = JSON.stringify(howToJsonLd);
     document.head.appendChild(a);
     document.head.appendChild(b);
+    document.head.appendChild(c);
     return () => {
       document.head.removeChild(a);
       document.head.removeChild(b);
+      document.head.removeChild(c);
     };
   }, []);
 
