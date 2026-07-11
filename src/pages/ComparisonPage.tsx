@@ -108,6 +108,12 @@ export default function ComparisonPage() {
             </span>
           </div>
           <h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">{title}</h1>
+          <p className="text-xs text-muted-foreground mb-4">
+            Last reviewed{" "}
+            <time dateTime={LAST_REVIEWED_ISO} className="font-medium text-foreground/80">
+              {LAST_REVIEWED_LABEL}
+            </time>
+          </p>
           <p className="text-lg text-muted-foreground mb-10">
             {article?.intro ??
               `A plain-English comparison of ${a} and ${b}${context ? ` for ${context}` : ""}, written for UK arthritis patients. We cover what each option actually is, how effective it tends to be, common side-effects, NHS availability and typical cost.`}
