@@ -42,6 +42,7 @@ const CityArthritisPage = () => {
         geo: { "@type": "GeoCoordinates", latitude: cityData.lat, longitude: cityData.lng },
       },
     },
+    dateModified: LAST_REVIEWED_ISO,
   };
 
   const breadcrumbLd = {
