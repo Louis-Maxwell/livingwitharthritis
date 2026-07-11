@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useReveal } from "@/hooks/useReveal";
+import heroCommunity from "@/assets/hero-community.jpg.asset.json";
 import "@/components/HeroSection.css";
 
 const OAHero = memo(() => {
