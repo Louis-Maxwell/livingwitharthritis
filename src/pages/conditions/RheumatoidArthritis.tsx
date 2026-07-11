@@ -111,7 +111,6 @@ const RheumatoidArthritis = () => (
       <meta name="twitter:description" content="Rheumatoid arthritis treatment: Inflammatory arthritis guide covering medications, flare management & achieving remission. Expert care plan." />
       <meta name="twitter:image" content={`${BASE}/images/og-rheumatoid-arthritis.webp`} />
       <meta name="geo.region" content="GB" />
-      <link rel="canonical" href={`${BASE}/conditions/rheumatoid-arthritis`} />
       <link rel="alternate" hrefLang="en-GB" href={`${BASE}/conditions/rheumatoid-arthritis`} />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>

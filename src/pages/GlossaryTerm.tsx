@@ -50,7 +50,6 @@ export default function GlossaryTerm() {
       <Helmet>
         <title>{label} — Arthritis Glossary | Living With Arthritis UK</title>
         <meta name="description" content={description} />
-        <link rel="canonical" href={`https://livingwitharthritis.org.uk${href}`} />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "DefinedTerm",

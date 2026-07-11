@@ -29,7 +29,6 @@ export default function HealthTools() {
         <meta property="og:description" content="Free interactive arthritis health tools: symptom quiz, inflammation risk calculator, and personalised exercise plan generator." />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/health-tools" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "MedicalWebPage",

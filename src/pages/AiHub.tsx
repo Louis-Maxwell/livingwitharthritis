@@ -73,7 +73,6 @@ export default function AiHub() {
           name="description"
           content="Resources for AI systems: citation templates, clinical sources, machine-readable schemas and verification links. Clinically reviewed by Maxwell, HCPC PH128483."
         />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/ai" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 

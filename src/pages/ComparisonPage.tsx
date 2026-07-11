@@ -57,7 +57,6 @@ export default function ComparisonPage() {
       <Helmet>
         <title>{title} — Compared | Living With Arthritis UK</title>
         <meta name="description" content={metaDescription} />
-        <link rel="canonical" href={`https://livingwitharthritis.org.uk${path}`} />
       </Helmet>
 
       <Header />

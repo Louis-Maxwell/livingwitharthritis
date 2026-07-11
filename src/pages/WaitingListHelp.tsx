@@ -72,7 +72,6 @@ const WaitingListHelp = () => {
         <title>Arthritis Waiting List Help — Free UK Support</title>
         <meta name="description" content="Stuck on the rheumatology waiting list? Get free, evidence-based arthritis help, exercises, diet plans and a waiting time calculator for UK patients." />
         <meta name="keywords" content="arthritis waiting list, rheumatology waiting time UK, rheumatology referral, arthritis help while waiting on referral" />
-        <link rel="canonical" href={`${BASE}/arthritis-waiting-list-help`} />
         <meta property="og:title" content="Arthritis Waiting List Help — UK Patient Support" />
         <meta property="og:description" content="Free, evidence-based help for UK arthritis patients waiting for rheumatology." />
         <meta property="og:url" content={`${BASE}/arthritis-waiting-list-help`} />

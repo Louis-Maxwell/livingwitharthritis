@@ -14,7 +14,6 @@ const TermsConditions = () => (
     <Helmet>
       <title>Terms & Conditions | {CHARITY.shortName}</title>
       <meta name="description" content={`Terms and Conditions for using the ${CHARITY.shortName} website. Covers use of the site, intellectual property, donations, refunds, and liability.`} />
-      <link rel="canonical" href={`${CHARITY.siteUrl}/terms`} />
       <meta property="og:title" content={`Terms & Conditions | ${CHARITY.shortName}`} />
       <meta property="og:description" content={`Terms and Conditions governing the use of the ${CHARITY.shortName} website.`} />
       <meta property="og:type" content="website" />

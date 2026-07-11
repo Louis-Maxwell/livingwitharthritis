@@ -110,7 +110,6 @@ const PsoriaticArthritis = () => (
       <meta name="twitter:description" content="Complete UK guide to psoriatic arthritis: symptoms, modern treatments, exercises and self-management." />
       <meta name="twitter:image" content={`${BASE}/images/og-psoriatic-arthritis.webp`} />
       <meta name="geo.region" content="GB" />
-      <link rel="canonical" href={`${BASE}/conditions/psoriatic-arthritis`} />
       <link rel="alternate" hrefLang="en-GB" href={`${BASE}/conditions/psoriatic-arthritis`} />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>

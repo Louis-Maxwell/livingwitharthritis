@@ -27,7 +27,6 @@ const Chat = () => {
         <meta name="twitter:description" content="Get free, instant arthritis advice from our help chat." />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/chat" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/chat" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",

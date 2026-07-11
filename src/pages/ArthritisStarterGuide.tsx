@@ -187,7 +187,6 @@ export default function ArthritisStarterGuide() {
           name="description"
           content="A free 14-page UK Arthritis Starter Guide with clinically aligned advice, anti-inflammatory meal ideas, and gentle joint mobility routines. Download instantly."
         />
-        <link rel="canonical" href="https://www.livingwitharthritis.org.uk/arthritis-starter-guide" />
         <meta property="og:title" content="Free UK Arthritis Starter Guide — 14-page PDF" />
         <meta
           property="og:description"

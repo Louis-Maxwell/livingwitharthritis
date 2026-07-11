@@ -87,7 +87,6 @@ const WaitingTimeCalculator = () => {
         <title>Arthritis Waiting Time Calculator | Free UK Tool</title>
         <meta name="description" content="Free rheumatology waiting time calculator for UK patients. Estimate your wait by region, urgency and condition — get a personalised action plan." />
         <meta name="keywords" content="rheumatology waiting time calculator, rheumatology waiting list UK, arthritis referral wait, rheumatology wait by region" />
-        <link rel="canonical" href={`${BASE}/tools/waiting-time`} />
         <meta property="og:title" content="Arthritis Waiting Time Calculator" />
         <meta property="og:description" content="Free UK tool — estimate your rheumatology wait in seconds." />
         <meta property="og:url" content={`${BASE}/tools/waiting-time`} />

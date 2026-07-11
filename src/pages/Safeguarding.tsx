@@ -11,7 +11,6 @@ export default function Safeguarding() {
       <Helmet>
         <title>Safeguarding Policy | {CHARITY.shortName}</title>
         <meta name="description" content={`Our safeguarding policy outlines how ${CHARITY.shortName} protects vulnerable adults and ensures the safety of everyone who engages with our services.`} />
-      <link rel="canonical" href={`${CHARITY.siteUrl}/safeguarding`} />
       <meta property="og:title" content={`Safeguarding Policy | ${CHARITY.shortName}`} />
       <meta property="og:description" content={`Our safeguarding policy outlines how ${CHARITY.shortName} protects vulnerable adults and ensures the safety of everyone who engages with our services.`} />
       <meta property="og:type" content="website" />

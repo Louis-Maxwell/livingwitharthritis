@@ -111,7 +111,6 @@ export default function Glucosamine() {
           name="keywords"
           content="glucosamine, glucosamine for arthritis, glucosamine sulfate, glucosamine UK, glucosamine dosage, glucosamine side effects, glucosamine vs chondroitin, glucosamine vs collagen, does glucosamine work, glucosamine and chondroitin, glucosamine osteoarthritis, glucosamine knee"
         />
-        <link rel="canonical" href={URL} />
         <link rel="alternate" hrefLang="en-GB" href={URL} />
         <meta name="geo.region" content="GB" />
         <meta property="og:title" content={META_TITLE} />

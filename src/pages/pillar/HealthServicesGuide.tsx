@@ -145,7 +145,6 @@ export default function HealthServicesGuide() {
       <Helmet>
         <title>UK Arthritis Health Services Guide | Living With Arthritis</title>
         <meta name="description" content="Guide to UK arthritis services: GP referral, first contact physio, rheumatology clinics, pain management, joint replacement and mental health." />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/guides/health-services" />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
       <meta property="og:title" content="Arthritis Services UK – GP, Rheumatology, Physio &amp; Joint Replacement Guide" />

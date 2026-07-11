@@ -120,7 +120,6 @@ export default function PainkillersNsaidsGuide() {
       <Helmet>
         <title>Painkillers & NSAIDs for Arthritis | UK Guide</title>
         <meta name="description" content="UK guide to painkillers and NSAIDs for arthritis: topical gels, ibuprofen, naproxen, paracetamol, codeine — what to use, avoid, and review." />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/guides/painkillers-and-nsaids" />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:title" content="Painkillers & NSAIDs for Arthritis – UK Guide to Safer Pain Relief" />

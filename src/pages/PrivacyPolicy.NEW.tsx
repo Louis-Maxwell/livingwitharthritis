@@ -55,7 +55,6 @@ const PrivacyPolicy = () => {
           name="description"
           content={`How ${shortName} (${registeredCharityPhrase()}) collects, uses and protects your personal data, including health information, under UK GDPR.`}
         />
-        <link rel="canonical" href={canonical} />
         <meta property="og:title" content={title} />
 
         <meta

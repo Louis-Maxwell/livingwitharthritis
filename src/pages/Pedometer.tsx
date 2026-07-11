@@ -47,7 +47,6 @@ export default function Pedometer() {
         />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/pedometer" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />

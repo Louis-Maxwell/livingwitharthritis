@@ -13,7 +13,6 @@ const CookiesPolicy = () => (
     <Helmet>
       <title>Cookies Policy | Living With Arthritis UK</title>
       <meta name="description" content="How Living With Arthritis UK uses essential, functional, analytics and payment cookies — plus how to manage your cookie preferences." />
-      <link rel="canonical" href="https://livingwitharthritis.org.uk/cookies" />
       <meta property="og:title" content="Cookies Policy | Living With Arthritis UK" />
       <meta property="og:description" content="Learn how Living With Arthritis UK uses cookies to improve your experience. Manage your cookie preferences easily." />
       <meta property="og:type" content="website" />

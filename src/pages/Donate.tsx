@@ -118,7 +118,6 @@ export default function Donate() {
         <title>Donate to {CHARITY.shortName}</title>
         <meta name="description" content={`Support ${CHARITY.shortName}: Donate to fund free arthritis education, research & community support. Help others manage arthritis better.`} />
         <meta name="keywords" content="donate to arthritis charity, arthritis charity, arthritis foundation, arthritis research, arthritis helpline, fundraising ideas for health charity, arthritis events, arthritis advocacy, financial help for arthritis patients, joint pain charity, arthritis support, arthritis awareness, volunteer for charity" />
-        <link rel="canonical" href={`${CHARITY.siteUrl}/donate`} />
       <meta property="og:title" content="Donate to Arthritis Support UK: Fund Free Physio, Diet & Help" />
       <meta property="og:description" content={`Support ${CHARITY.shortName}: Donate to fund free arthritis education, research & community support. Help others manage arthritis better.`} />
       <meta property="og:type" content="website" />

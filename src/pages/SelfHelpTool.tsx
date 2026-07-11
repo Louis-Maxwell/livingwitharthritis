@@ -51,7 +51,6 @@ export default function SelfHelpTool() {
         <meta name="twitter:description" content="Interactive self-help tool for arthritis joint exercises." />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/self-help" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/self-help" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",

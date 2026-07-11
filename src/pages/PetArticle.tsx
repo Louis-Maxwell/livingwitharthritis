@@ -22,7 +22,6 @@ export default function PetArticle() {
       <Helmet>
         <title>{article.title} | Living With Arthritis UK</title>
         <meta name="description" content={article.summary.slice(0, 158)} />
-        <link rel="canonical" href={`https://livingwitharthritis.org.uk/pets/${article.slug}`} />
       </Helmet>
 
       <main className="bg-white">

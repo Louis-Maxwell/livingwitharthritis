@@ -97,7 +97,6 @@ const DailyTipDetail = () => {
       <Helmet>
         <title>{metaTitle} — Daily Living Tips | Living With Arthritis</title>
         <meta name="description" content={description} />
-        <link rel="canonical" href={`https://livingwitharthritis.org.uk/daily-tips/${slug || "overview"}`} />
         <meta property="og:title" content={`${metaTitle} — Daily Living Tips`} />
         <meta property="og:description" content={description} />
         <meta property="og:type" content="article" />

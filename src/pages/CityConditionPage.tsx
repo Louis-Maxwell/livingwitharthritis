@@ -132,7 +132,6 @@ const CityConditionPage = () => {
       <Helmet>
         <title>{`${title} | Living With Arthritis`}</title>
         <meta name="description" content={metaDescription} />
-        <link rel="canonical" href={url} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={metaDescription} />
         <meta property="og:url" content={url} />

@@ -11,7 +11,6 @@ export default function Complaints() {
       <Helmet>
         <title>Complaints Procedure | {CHARITY.shortName}</title>
         <meta name="description" content={`Our complaints procedure explains how to raise a concern about ${CHARITY.shortName}, what happens next, and how we will respond fairly and promptly.`} />
-      <link rel="canonical" href={`${CHARITY.siteUrl}/complaints`} />
       <meta property="og:title" content={`Complaints Procedure | ${CHARITY.shortName}`} />
       <meta property="og:description" content={`Our complaints procedure explains how to raise a concern about ${CHARITY.shortName} and how we will respond.`} />
       <meta property="og:type" content="website" />

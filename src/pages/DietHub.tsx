@@ -112,7 +112,6 @@ const DietHub = () => {
         <title>Best Arthritis Diet UK | Anti-Inflammatory Foods</title>
         <meta name="description" content="Foods to avoid with arthritis: Inflammatory foods, omega-6 oils, sugar & salt. Anti-inflammatory diet strategies from a nutritionist." />
         <meta name="keywords" content="arthritis diet, anti-inflammatory diet, Mediterranean diet arthritis, foods for joint pain, omega 3 arthritis, turmeric arthritis, natural remedies for arthritis, arthritis meal plan, foods to avoid arthritis, how to reduce joint inflammation, joint swelling causes, arthritis nutrition, anti-inflammatory foods, gout diet, rheumatoid arthritis diet, osteoarthritis diet" />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/diet" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/diet" />
         <meta property="og:title" content="Best Diet for Arthritis Pain UK – Complete Guide" />
         <meta property="og:description" content="Foods to avoid with arthritis: Inflammatory foods, omega-6 oils, sugar & salt. Anti-inflammatory diet strategies from a nutritionist." />

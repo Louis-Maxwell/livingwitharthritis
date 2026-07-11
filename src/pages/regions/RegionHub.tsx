@@ -126,7 +126,6 @@ const RegionHub = () => {
         <title>{`${r.name} Arthritis Support | Living With Arthritis`}</title>
         <meta name="description" content={`${r.intro.slice(0, 155)}`} />
         <meta name="keywords" content={r.keywords} />
-        <link rel="canonical" href={`${BASE}/regions/${r.slug}`} />
         <meta property="og:title" content={`Arthritis Support in ${r.name}`} />
         <meta property="og:description" content={r.intro} />
         <meta property="og:url" content={`${BASE}/regions/${r.slug}`} />

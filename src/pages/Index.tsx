@@ -179,7 +179,6 @@ function HomePage() {
           name="description"
           content={`${VISITOR_STATS_SNIPPET} Free UK arthritis support: clinically reviewed diet, movement and pain-relief guidance in plain English.`}
         />
-        <link rel="canonical" href={SITE_URL + "/"} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={SITE_URL + "/"} />
         <meta

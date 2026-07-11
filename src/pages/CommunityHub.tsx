@@ -90,7 +90,6 @@ const CommunityHub = () => {
         <title>Arthritis Community & Support UK | Living With Arthritis</title>
         <meta name="description" content="Community support for arthritis: Connect groups, webinars, stories & peer support. Join others managing arthritis in the UK." />
         <meta name="keywords" content="arthritis support groups near me, arthritis community, peer support arthritis, arthritis webinars, newly diagnosed arthritis, arthritis stories, arthritis helpline, arthritis advocacy, living with arthritis, arthritis and mental health, how to support someone with chronic pain, arthritis events, volunteer for charity" />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/community" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/community" />
         <meta property="og:title" content="Arthritis Community & Support UK" />
         <meta property="og:description" content="Community support for arthritis: Connect groups, webinars, stories & peer support. Join others managing arthritis in the UK." />

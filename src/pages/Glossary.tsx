@@ -49,7 +49,6 @@ export default function Glossary() {
           name="description"
           content="Plain-English definitions of arthritis, rheumatology and MSK terms — from DMARDs to synovium — reviewed for UK patients."
         />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/glossary" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "DefinedTermSet",

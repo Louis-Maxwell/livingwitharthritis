@@ -140,7 +140,6 @@ export default function WaysToHelp() {
         <title>Ways to Help | Living With Arthritis UK</title>
         <meta name="description" content="Discover how you can support people living with arthritis across the UK. Donate, volunteer, fundraise, partner with us or leave a legacy." />
         <meta name="keywords" content="volunteer for charity, donate to arthritis charity, fundraising ideas for health charity, arthritis events, arthritis advocacy, arthritis charity, arthritis foundation, arthritis research, arthritis awareness, arthritis support, joint pain charity, financial help for arthritis patients" />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/ways-to-help" />
       <meta property="og:title" content="Ways to Help | Living With Arthritis UK" />
       <meta property="og:description" content="Discover how you can support people living with arthritis across the UK. Donate, volunteer, fundraise, partner with us or leave a legacy." />
       <meta property="og:type" content="website" />

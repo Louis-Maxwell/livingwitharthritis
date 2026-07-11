@@ -197,7 +197,6 @@ export default function AzathioprineGuide() {
           name="description"
           content="UK guide to azathioprine for arthritis: how it works, who it's for, TPMT testing, blood monitoring, side effects and safe long-term use."
         />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/guides/azathioprine-for-arthritis" />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:title" content="Azathioprine for Arthritis: UK Guide" />

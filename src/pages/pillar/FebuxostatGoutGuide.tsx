@@ -108,7 +108,6 @@ export default function FebuxostatGoutGuide() {
       <Helmet>
         <title>Febuxostat for Gout — UK Guide | Living With Arthritis</title>
         <meta name="description" content="UK guide to febuxostat (Adenuric) for gout: how it works, dosing, monitoring, side effects, how it compares with allopurinol, and lifestyle tips." />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/guides/febuxostat-for-gout" />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:title" content="Febuxostat for Gout – UK Guide to Dose, Side Effects & Monitoring" />

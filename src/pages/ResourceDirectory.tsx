@@ -85,7 +85,6 @@ export default function ResourceDirectory() {
       <Helmet>
         <title>UK Arthritis Resource Directory | Living With Arthritis</title>
         <meta name="description" content="Arthritis resource directory: free UK guides, webinars, e-books, anti-inflammatory recipes and support groups to help you manage arthritis effectively." />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/resources-directory" />
       <meta property="og:title" content="UK Arthritis Resource Directory – Public Health, Charities, Benefits | Living With Arthritis" />
       <meta property="og:description" content="Arthritis resources: Guides, webinars, e-books, recipes & support groups. Free tools to manage arthritis effectively." />
       <meta property="og:type" content="website" />
