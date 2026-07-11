@@ -93,6 +93,12 @@ export default function GlossaryTerm() {
             </span>
           </div>
           <h1 className="text-3xl md:text-4xl font-bold mb-4">{label}</h1>
+          <p className="text-xs text-muted-foreground mb-6">
+            Last reviewed{" "}
+            <time dateTime={LAST_REVIEWED_ISO} className="font-medium text-foreground/80">
+              {LAST_REVIEWED_LABEL}
+            </time>
+          </p>
 
           {entry ? (
             <>
