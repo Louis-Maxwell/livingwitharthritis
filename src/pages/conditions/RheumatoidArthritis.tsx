@@ -136,6 +136,7 @@ const RheumatoidArthritis = () => (
         </Link>
       </PageHero>
       <section className="container mx-auto px-6 md:px-10 max-w-3xl pt-10">
+        <LastReviewed date={LAST_REVIEWED_ISO} className="mb-6" />
         <AnswerBox
           question="What is the best treatment for rheumatoid arthritis?"
           reviewed="2026-06-13"
