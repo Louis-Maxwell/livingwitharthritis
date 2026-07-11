@@ -192,6 +192,12 @@ const CityConditionPage = () => {
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed mb-3">{conditionData.description}</p>
             <p className="text-sm text-muted-foreground">{conditionData.ukPrevalence}</p>
+            <p className="text-xs text-muted-foreground mt-3">
+              Last reviewed{" "}
+              <time dateTime={LAST_REVIEWED_ISO} className="font-medium text-foreground/80">
+                {LAST_REVIEWED_LABEL}
+              </time>
+            </p>
           </div>
 
           {/* GP Referral */}
