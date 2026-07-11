@@ -128,3 +128,31 @@ merging it would be a downgrade. Discard it.
 - `src/components/FAQSection.NEW.tsx` — FAQ schema + question headings in one component
 - `src/components/SEOHead.NEW.tsx` — Open Graph defaults, reusable everywhere
 - FLAGGED, not fixed: /blog, /exercises, /es/de/fr pages — outside my visibility entirely
+
+## v16 — AEO/GEO/SEO improvement pass (Claude credits only)
+- Fixed: 30 empty breadcrumbs, added keyTakeaways to all 238 routes (real
+  content only), fixed 92 redundant label prefixes — see AEO-GEO-SEO-IMPROVEMENT-REPORT.md
+- `src/components/SchemaBlocks.NEW.tsx` — BreadcrumbList + MedicalWebPage schema,
+  reviewedBy deliberately has no default (won't fabricate a clinical reviewer)
+
+## v17 — Full bundle bug sweep (Claude credits only)
+- FIXED: missing src/config/contact.ts (broken import in 2 files)
+- FIXED: leftover console.log + missing success state in HomePage.NEW.tsx email signup
+- RE-VERIFIED: all JSON valid, all TS/TSX balanced, keyword-route consistency holds, 0 real placeholder leaks
+- See FULL-BUNDLE-BUG-SWEEP.md for details
+
+## v18 — AEO/GEO/SEO pass 2 (Claude credits only)
+- Completed faqs array: 238/238 (135 wrapped from existing Q&A, 103 already rich/real)
+- Added relatedRoutes (keyword-overlap based internal linking): 237/238
+- Corrected a flawed self-check: re-scoped definitional-opener audit, found 1 real case not 35
+- See AEO-GEO-SEO-PASS-2.md
+
+## v19 — Realistic engagement plan + RelatedReading component (Claude credits only)
+- FLAGGED: 30-minute session duration target is not achievable for this
+  content type; real benchmark is 2-4 min, realistic ceiling ~3-5 min
+- `src/components/RelatedReading.NEW.tsx` — real "Keep Reading" component
+  using the relatedRoutes data from last session; the honest mechanism
+  for increasing pages-per-session
+- CORRECTED: stale route-splitting item in PERFORMANCE-CHECKLIST.md
+  (was already done, checklist hadn't been updated)
+- See REALISTIC-ENGAGEMENT-AND-UX-PLAN.md

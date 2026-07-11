@@ -23,13 +23,17 @@
 
 ## What is *not* in this bundle (needs a Lovable-side change)
 
+**CORRECTION (this session):** the original version of this checklist
+listed route-level code splitting below as still-needed. That's stale —
+an earlier session in this thread confirmed it was already implemented
+site-wide ("all 140+ routes already use React.lazy(); only Index is
+eager"). Leaving the incorrect item in a checklist risks someone spending
+time re-verifying or re-doing already-finished work, so it's removed here
+rather than left for someone to trip over.
+
 These are the highest-impact remaining wins but they live in components
 we can't safely rewrite from a static bundle — they need one Lovable
 change each after this ships:
-
-- **Route-level code splitting** — every route should use
-  `React.lazy(() => import('./pages/Foo'))` in `App.tsx`. Cuts initial JS by
-  40–60 %. This is the single biggest remaining mobile win.
 - **Hero image dimensions + `srcset`** — the LCP `<img>` in `OAHero.tsx`
   should have explicit `width`/`height` (no CLS) and a `srcset` at
   400/800/1200 with a `sizes` attribute (mobile downloads ~40 % less).
