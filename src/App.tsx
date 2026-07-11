@@ -164,6 +164,7 @@ const AuthorProfile = lazy(() => import("./pages/AuthorProfile"));
 const SupplementsHub = lazy(() => import("./pages/supplements/SupplementsHub"));
 const Glucosamine = lazy(() => import("./pages/supplements/Glucosamine"));
 const Msm = lazy(() => import("./pages/supplements/Msm"));
+const Turmeric = lazy(() => import("./pages/supplements/Turmeric"));
 const LivingWithArthritis = lazy(() => import("./pages/LivingWithArthritis"));
 const ArthritisMentalHealth = lazy(() => import("./pages/ArthritisMentalHealth"));
 const FaqArticle = lazy(() => import("./pages/FaqArticle"));
@@ -337,6 +338,7 @@ function AnimatedRoutes() {
         <Route path="/supplements" element={<SupplementsHub />} />
         <Route path="/supplements/glucosamine" element={<Glucosamine />} />
         <Route path="/supplements/msm" element={<Msm />} />
+        <Route path="/supplements/turmeric" element={<Turmeric />} />
         <Route path="/living-with-arthritis" element={<LivingWithArthritis />} />
         <Route path="/arthritis-mental-health" element={<ArthritisMentalHealth />} />
         <Route path="/guides/frailty-management-hub" element={<GuideLayout currentPath="/guides/frailty-management-hub"><FrailtyManagementHub /></GuideLayout>} />

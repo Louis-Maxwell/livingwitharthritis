@@ -28,10 +28,10 @@ const SUPPLEMENTS = [
     available: true,
   },
   {
-    to: "/blog/category/supplements",
+    to: "/supplements/turmeric",
     label: "Turmeric & curcumin",
-    desc: "Strong anti-inflammatory action — comparable to low-dose NSAIDs in some knee OA trials. Coming soon as a dedicated guide.",
-    available: false,
+    desc: "Strong anti-inflammatory action — around 1,000 mg/day curcumin is comparable to ibuprofen for knee OA pain, with fewer stomach side effects.",
+    available: true,
   },
   {
     to: "/blog/category/supplements",
