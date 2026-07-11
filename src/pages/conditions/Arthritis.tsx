@@ -4,6 +4,7 @@ import SeoHead from '@/components/SeoHead';
 import MedicalReviewBadge from '@/components/MedicalReviewBadge';
 import AnswerBox from '@/components/seo/AnswerBox';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
+import LastReviewed, { LAST_REVIEWED_ISO } from '@/components/LastReviewed';
 
 const FAQS = [
   { q: 'What is arthritis?', a: 'Arthritis is an umbrella term for over 100 conditions that cause joint pain, stiffness and swelling. The most common forms in the UK are osteoarthritis (wear-related) and rheumatoid arthritis (inflammatory).' },
