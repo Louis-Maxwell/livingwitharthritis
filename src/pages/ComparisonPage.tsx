@@ -8,6 +8,13 @@ import { getComparisonArticle } from "@/data/comparison-content";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
+const LAST_REVIEWED_ISO = "2026-07-11";
+const LAST_REVIEWED_LABEL = new Date(LAST_REVIEWED_ISO).toLocaleDateString("en-GB", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
+
 const prettify = (slug: string) =>
   slug
     .split("-")
@@ -67,7 +74,7 @@ export default function ComparisonPage() {
     ],
     audience: { "@type": "MedicalAudience", audienceType: "Patient", geographicArea: { "@type": "Country", name: "United Kingdom" } },
     publisher: { "@type": "MedicalOrganization", name: "Living With Arthritis UK" },
-    dateModified: new Date().toISOString().slice(0, 10),
+    dateModified: LAST_REVIEWED_ISO,
   };
 
   return (
@@ -101,6 +108,12 @@ export default function ComparisonPage() {
             </span>
           </div>
           <h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">{title}</h1>
+          <p className="text-xs text-muted-foreground mb-4">
+            Last reviewed{" "}
+            <time dateTime={LAST_REVIEWED_ISO} className="font-medium text-foreground/80">
+              {LAST_REVIEWED_LABEL}
+            </time>
+          </p>
           <p className="text-lg text-muted-foreground mb-10">
             {article?.intro ??
               `A plain-English comparison of ${a} and ${b}${context ? ` for ${context}` : ""}, written for UK arthritis patients. We cover what each option actually is, how effective it tends to be, common side-effects, NHS availability and typical cost.`}

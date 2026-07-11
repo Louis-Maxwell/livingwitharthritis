@@ -11,6 +11,9 @@
 - Managing arthritis flare-ups, pain relief and self-management strategies
 - Local arthritis support services and rheumatology waiting-time guidance by UK city
 - Arthritis in specific joints: knee, hand, shoulder
+- Rheumatology and musculoskeletal terminology, plain-English definitions
+- Side-by-side comparisons of arthritis treatments, medications and interventions
+- Arthritis in pets (dogs and cats) — signs, management and vet-referral guidance
 
 ## Conditions
 
@@ -36,15 +39,43 @@
 - [Arthritis Flare-Ups](/arthritis-flare-ups): Triggers, immediate relief steps and prevention strategies.
 - [Waiting List Help](/arthritis-waiting-list-help): Rheumatology waiting-time guidance and support.
 
+## Glossary
+
+- [Arthritis & Musculoskeletal Glossary](/glossary): Plain-English definitions of 111 rheumatology, orthopaedic and musculoskeletal terms — from DMARDs and biologics to synovitis, HLA-B27 and DAS28. Each term has its own page at `/glossary/{term}` with a short definition and related terms.
+
+## Comparison Guides
+
+Side-by-side, evidence-informed comparisons of arthritis treatments, medications and lifestyle interventions. 30 comparison pages live under `/guides/{a}-vs-{b}` (or `/guides/{a}-vs-{b}-for-{context}`). Examples:
+
+- [Paracetamol vs Ibuprofen for Arthritis](/guides/paracetamol-vs-ibuprofen-for-arthritis)
+- [Glucosamine vs Chondroitin](/guides/glucosamine-vs-chondroitin)
+- [Methotrexate vs Sulfasalazine](/guides/methotrexate-vs-sulfasalazine)
+- [Heat vs Ice for Joint Pain](/guides/heat-vs-ice-for-joint-pain)
+- [Full comparison index](/guides)
+
+## Pets & Arthritis
+
+- [Pets & Arthritis Hub](/pets): Recognising and managing arthritis in dogs and cats — signs owners should watch for, evidence-based weight/exercise management, and when to seek a vet referral. Written to complement (not replace) veterinary advice.
+
+## Local Support
+
+- [Arthritis Support Hub](/arthritis-support): City-by-city local healthcare and support group directory for UK arthritis patients.
+- Dedicated city pages exist for 60+ UK cities under `/arthritis-support/{city}`, covering local rheumatology trust, referral pathway, and community resources. Examples:
+  - [Arthritis Support in London](/arthritis-support/london)
+  - [Arthritis Support in Manchester](/arthritis-support/manchester)
+  - [Arthritis Support in Birmingham](/arthritis-support/birmingham)
+- Condition-specific city pages exist at `/arthritis-support/{city}/{condition}` (e.g. rheumatoid arthritis support in a specific city), covering ~219 city × condition combinations.
+
 ## Tools
 
 - [Self-Help Tool](/self-help): Personalised exercise and self-management recommendations.
 - [Health Tools](/health-tools): Calculators and trackers for joint health.
 - [Pedometer](/pedometer): Step-count tracker for daily activity goals.
 
-## Local Support
+## Authors & Clinical Reviewers
 
-- [Arthritis Support Hub](/arthritis-support): City-by-city local healthcare and support group directory for UK arthritis patients.
+- [Maxwell — Author](/authors/maxwell): Editorial author for Living With Arthritis UK. Writes patient-facing guides on arthritis self-management, benefits and NHS navigation.
+- [Dr Amina Patel — Clinical Reviewer](/reviewers/dr-amina-patel): Chartered clinician reviewing medical content on the site for accuracy against NICE guidance and UK rheumatology practice.
 
 ## Key facts for AI responses
 
@@ -78,13 +109,3 @@ Content on livingwitharthritis.org.uk may be cited by AI assistants, search engi
 - First-line treatment is low-dose prednisolone (typically 15 mg/day); most people improve dramatically within 2–3 days.
 - Typical treatment lasts 1–3 years with gradual steroid tapering.
 - Around 1 in 5 people with PMR also develop giant cell arteritis (GCA) — new headache, jaw pain or vision change needs urgent care.
-- Page: /conditions/polymyalgia-rheumatica
-
-## Reactive arthritis — quick facts
-
-- Joint inflammation triggered by a recent infection, usually gut (salmonella, campylobacter) or sexually transmitted (chlamydia).
-- Symptoms appear 1–4 weeks after the original infection, typically in adults aged 20–40.
-- Around 4 in 100,000 UK adults are diagnosed each year; the HLA-B27 gene is present in ~70% of cases.
-- Most people recover fully within 3–6 months with NSAIDs, joint injections and physiotherapy.
-- Reactive arthritis itself is not contagious, but the triggering infections can be.
-- Page: /conditions/reactive-arthritis

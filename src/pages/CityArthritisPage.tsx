@@ -12,6 +12,13 @@ import { motion } from "framer-motion";
 
 const BASE = "https://livingwitharthritis.org.uk";
 
+const LAST_REVIEWED_ISO = "2026-07-11";
+const LAST_REVIEWED_LABEL = new Date(LAST_REVIEWED_ISO).toLocaleDateString("en-GB", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
+
 const CityArthritisPage = () => {
   const { city } = useParams<{ city: string }>();
   const cityData = ukCities.find((c) => c.slug === city);
@@ -35,6 +42,7 @@ const CityArthritisPage = () => {
         geo: { "@type": "GeoCoordinates", latitude: cityData.lat, longitude: cityData.lng },
       },
     },
+    dateModified: LAST_REVIEWED_ISO,
   };
 
   const breadcrumbLd = {
@@ -122,6 +130,12 @@ const CityArthritisPage = () => {
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">{cityData.description}</p>
             <p className="text-sm text-muted-foreground mt-2">Population: approx. {cityData.population}</p>
+            <p className="text-xs text-muted-foreground mt-3">
+              Last reviewed{" "}
+              <time dateTime={LAST_REVIEWED_ISO} className="font-medium text-foreground/80">
+                {LAST_REVIEWED_LABEL}
+              </time>
+            </p>
           </div>
 
           {/* Local Health Trust */}

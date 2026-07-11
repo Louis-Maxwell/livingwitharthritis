@@ -8,6 +8,13 @@ import { getGlossaryEntry, GLOSSARY_CONTENT } from "@/data/glossary-content";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
+const LAST_REVIEWED_ISO = "2026-07-11";
+const LAST_REVIEWED_LABEL = new Date(LAST_REVIEWED_ISO).toLocaleDateString("en-GB", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
+
 const prettify = (slug: string) =>
   slug
     .split("-")
@@ -86,6 +93,12 @@ export default function GlossaryTerm() {
             </span>
           </div>
           <h1 className="text-3xl md:text-4xl font-bold mb-4">{label}</h1>
+          <p className="text-xs text-muted-foreground mb-6">
+            Last reviewed{" "}
+            <time dateTime={LAST_REVIEWED_ISO} className="font-medium text-foreground/80">
+              {LAST_REVIEWED_LABEL}
+            </time>
+          </p>
 
           {entry ? (
             <>
