@@ -55,10 +55,6 @@ const Library = () => {
           name="description"
           content="Plain-English library of conditions, medications, supplements and treatments related to arthritis and joint health. Search 65+ clinician-reviewed topics."
         />
-        <link
-          rel="canonical"
-          href="https://livingwitharthritis.org.uk/library"
-        />
         <meta property="og:title" content="Health Library | Living With Arthritis UK" />
         <meta property="og:description" content="Plain-English library of conditions, medications, supplements and treatments related to arthritis and joint health." />
         <meta property="og:type" content="website" />
