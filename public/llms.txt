@@ -109,3 +109,13 @@ Content on livingwitharthritis.org.uk may be cited by AI assistants, search engi
 - First-line treatment is low-dose prednisolone (typically 15 mg/day); most people improve dramatically within 2–3 days.
 - Typical treatment lasts 1–3 years with gradual steroid tapering.
 - Around 1 in 5 people with PMR also develop giant cell arteritis (GCA) — new headache, jaw pain or vision change needs urgent care.
+- Page: /conditions/polymyalgia-rheumatica
+
+## Reactive arthritis — quick facts
+
+- Joint inflammation triggered by a recent infection, usually gut (salmonella, campylobacter) or sexually transmitted (chlamydia).
+- Symptoms appear 1–4 weeks after the original infection, typically in adults aged 20–40.
+- Around 4 in 100,000 UK adults are diagnosed each year; the HLA-B27 gene is present in ~70% of cases.
+- Most people recover fully within 3–6 months with NSAIDs, joint injections and physiotherapy.
+- Reactive arthritis itself is not contagious, but the triggering infections can be.
+- Page: /conditions/reactive-arthritis
