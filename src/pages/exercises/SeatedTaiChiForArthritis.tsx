@@ -90,6 +90,22 @@ const faqJsonLd = {
   })),
 };
 
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to do seated tai chi for arthritis",
+  description:
+    "A 13-minute seated tai chi routine designed for severe knee or hip osteoarthritis, post-surgery recovery, wheelchair users and anyone with balance concerns.",
+  inLanguage: "en-GB",
+  totalTime: "PT13M",
+  step: moves.map((m, i) => ({
+    "@type": "HowToStep",
+    position: i + 1,
+    name: m.name,
+    text: `${m.how} Why: ${m.why} Duration: ${m.duration}.`,
+  })),
+};
+
 export default function SeatedTaiChiForArthritis() {
   useEffect(() => {
     const a = document.createElement("script");
@@ -98,11 +114,16 @@ export default function SeatedTaiChiForArthritis() {
     const b = document.createElement("script");
     b.type = "application/ld+json";
     b.text = JSON.stringify(faqJsonLd);
+    const c = document.createElement("script");
+    c.type = "application/ld+json";
+    c.text = JSON.stringify(howToJsonLd);
     document.head.appendChild(a);
     document.head.appendChild(b);
+    document.head.appendChild(c);
     return () => {
       document.head.removeChild(a);
       document.head.removeChild(b);
+      document.head.removeChild(c);
     };
   }, []);
 
