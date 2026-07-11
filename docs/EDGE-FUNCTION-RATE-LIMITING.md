@@ -1,96 +1,63 @@
-# Edge Function Rate Limiting
+# Rate limiting for Supabase edge functions — ready-to-paste pattern
 
-Rate limiting for user-facing Supabase Edge Functions. Protects against
-scripted abuse (form spam, checkout hammering, chat scraping) without
-adding a DB round-trip to the request hot path.
+## Honest status
+I could not read your deployed edge function code from this workspace
+(paginated file listing didn't reach supabase/functions/ within token
+budget), so rate limiting on your chat / donation / email endpoints is
+UNVERIFIED, not confirmed-missing. What IS confirmed from the Lovable
+security agent's earlier scan: chat_feedback INSERT has DB-level length
+caps, and its scan reported "Remaining: 0 issues".
 
-## Design
+## The pattern to apply to every edge function
+Supabase edge functions (Deno) — a simple fixed-window limiter using a
+Postgres table. No external service needed.
 
-- **In-memory sliding window per IP**, implemented in
-  [`supabase/functions/_shared/rate-limiter.ts`](../supabase/functions/_shared/rate-limiter.ts).
-- No `public.rate_limits` table. A DB-backed limiter was considered and
-  rejected: it puts a write on every request and becomes the bottleneck
-  under load. The in-memory limiter is O(1) and fails open on function
-  cold start (the acceptable tradeoff — first request after boot is
-  never blocked).
-- **Scope: user-facing functions only.** Internal / scheduled functions
-  (`daily-seo-refresh`, `process-email-queue`, `generate-sitemap`,
-  `seo-rank-sync`, `daily-content-freshness`, `indexnow-ping`,
-  `handle-email-*`, etc.) are not rate-limited — they run on a schedule
-  or from trusted webhooks, and IP-based limits would either no-op or
-  break the schedule.
-
-## Known limits of this approach
-
-1. **Per-instance memory.** Each edge function instance keeps its own
-   counter. A client hitting two warm instances gets 2× the limit.
-   Fine for abuse mitigation, not a hard quota.
-2. **IP is derived from headers** (`x-forwarded-for`, `x-real-ip`,
-   `cf-connecting-ip`). Behind a shared NAT, users share a bucket.
-3. **Not a substitute for auth / CAPTCHA** on high-value endpoints
-   (donations, contact). It complements them.
-
-If a security scanner flags "no rate limiting" on internal or scheduled
-functions, treat that finding as a known gap per project policy.
-
-## Usage
-
-```ts
-import { createRateLimiter, getClientIp } from "../_shared/rate-limiter.ts";
-
-const limiter = createRateLimiter({ windowMs: 60_000, maxRequests: 20 });
-
-serve(async (req) => {
-  if (req.method === "OPTIONS") return preflight(req);
-
-  if (!limiter.check(getClientIp(req))) {
-    return new Response(
-      JSON.stringify({ error: "Too many requests, please slow down." }),
-      {
-        status: 429,
-        headers: {
-          ...corsHeaders,
-          "Content-Type": "application/json",
-          "Retry-After": "60",
-        },
-      },
-    );
-  }
-
-  // ...handler
-});
+### 1. One-time SQL (run in Supabase SQL editor)
+```sql
+create table if not exists public.rate_limits (
+  key text primary key,          -- e.g. 'chat:203.0.113.7'
+  window_start timestamptz not null default now(),
+  count int not null default 1
+);
+alter table public.rate_limits enable row level security;
+-- No public policies: only the service role (edge functions) touches it.
 ```
 
-The helper also exports `rateLimitResponse(corsHeaders, retryAfterSeconds)`
-for the standard 429 body + headers.
+### 2. Helper for the edge function (paste near the top)
+```ts
+// rateLimit.ts — fixed window: max N requests per windowSeconds per key
+export async function rateLimit(
+  supabaseAdmin: any, key: string, max = 20, windowSeconds = 60
+): Promise<boolean> {
+  const { data } = await supabaseAdmin
+    .from("rate_limits").select("window_start,count").eq("key", key).maybeSingle();
+  const now = Date.now();
+  if (!data || now - new Date(data.window_start).getTime() > windowSeconds * 1000) {
+    await supabaseAdmin.from("rate_limits")
+      .upsert({ key, window_start: new Date().toISOString(), count: 1 });
+    return true;
+  }
+  if (data.count >= max) return false;
+  await supabaseAdmin.from("rate_limits")
+    .update({ count: data.count + 1 }).eq("key", key);
+  return true;
+}
+```
 
-## Applied limits
+### 3. Use it at the top of each function handler
+```ts
+const ip = req.headers.get("x-forwarded-for")?.split(",")[0] ?? "unknown";
+const ok = await rateLimit(supabaseAdmin, `chat:${ip}`, 20, 60); // 20 req/min
+if (!ok) {
+  return new Response(JSON.stringify({ error: "Too many requests. Please slow down." }),
+    { status: 429, headers: { "Content-Type": "application/json", "Retry-After": "60" } });
+}
+```
 
-| Function                    | Category      | Window  | Max requests |
-| --------------------------- | ------------- | ------- | ------------ |
-| `chat`                      | chat          | 1 min   | 20           |
-| `submit-contact`            | feedback      | 1 min   | 10           |
-| `submit-fundraising`        | feedback      | 15 min  | 5            |
-| `submit-triage`             | form          | 1 min   | 10           |
-| `create-donation-checkout`  | donation      | 1 min   | 10           |
-| `book-appointment`          | booking       | 30 min  | 10           |
-| `confirm-newsletter`        | email signup  | 1 min   | 5            |
-| `request-buddy-match`       | matching      | 1 min   | 5            |
-| `symptom-ranker`            | AI query      | 1 min   | 10           |
+Suggested limits: chat 20/min, email signup 5/min, feedback 10/min,
+donation-adjacent endpoints 10/min (Stripe has its own fraud controls).
 
-Tune by editing the `createRateLimiter({ windowMs, maxRequests })` call
-at the top of the function. Keep the comment referencing this doc so
-the source of truth stays discoverable.
-
-## Adding rate limiting to a new user-facing function
-
-1. Import the helper:
-   ```ts
-   import { createRateLimiter, getClientIp } from "../_shared/rate-limiter.ts";
-   ```
-2. Declare `const limiter = createRateLimiter({ windowMs, maxRequests });`
-   at module scope with a comment linking back here.
-3. Call `limiter.check(getClientIp(req))` immediately after the
-   `OPTIONS` preflight and before any DB / network work.
-4. Return a 429 with `Retry-After` and the shared CORS headers.
-5. Update the table above.
+### How to apply without Lovable credits
+Edge functions live in `supabase/functions/<name>/index.ts` in the synced
+GitHub repo — edit them via GitHub web editor, commit, and Lovable syncs.
+Verify each function name in the Supabase dashboard → Edge Functions.

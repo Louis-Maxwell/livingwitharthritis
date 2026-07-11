@@ -62,7 +62,7 @@ export const ARTICLE_SCAFFOLDS: ArticleScaffold[] = [
     "keyword": "baricitinib for ankle arthritis",
     "title_template": "Baricitinib for ankle arthritis \u2014 What UK Patients Need to Know",
     "meta_template": "An evidence-based, medically-reviewed guide to baricitinib for ankle arthritis. [REVIEWER: replace with 150-char summary].",
-    "target_page": "/glossary/baricitinib",
+    "target_page": "/glossary/jak-inhibitor",
     "category": "treatment",
     "status": "STUB \u2014 needs clinical review before publishing",
     "faq_shell": [
@@ -315,7 +315,7 @@ export const ARTICLE_SCAFFOLDS: ArticleScaffold[] = [
     "keyword": "physiotherapy for ankle arthritis",
     "title_template": "Physiotherapy for ankle arthritis \u2014 What UK Patients Need to Know",
     "meta_template": "An evidence-based, medically-reviewed guide to physiotherapy for ankle arthritis. [REVIEWER: replace with 150-char summary].",
-    "target_page": "/glossary/physiotherapy",
+    "target_page": "/glossary/physiotherapy-triage",
     "category": "treatment",
     "status": "STUB \u2014 needs clinical review before publishing",
     "faq_shell": [
@@ -338,7 +338,7 @@ export const ARTICLE_SCAFFOLDS: ArticleScaffold[] = [
     "keyword": "prednisolone for ankle arthritis",
     "title_template": "Prednisolone for ankle arthritis \u2014 What UK Patients Need to Know",
     "meta_template": "An evidence-based, medically-reviewed guide to prednisolone for ankle arthritis. [REVIEWER: replace with 150-char summary].",
-    "target_page": "/glossary/prednisolone",
+    "target_page": "/glossary/corticosteroid",
     "category": "treatment",
     "status": "STUB \u2014 needs clinical review before publishing",
     "faq_shell": [

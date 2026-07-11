@@ -112,7 +112,7 @@ export const PAID_KEYWORDS: PaidKeyword[] = [
   {
     "keyword": "arthritis charity grant",
     "category": "donation_intent",
-    "target_page": "/grants",
+    "target_page": "/corporate-partnerships",
     "source": "ad_grants_2026_07",
     "intent": "paid",
     "suggested_match_type": "phrase"
