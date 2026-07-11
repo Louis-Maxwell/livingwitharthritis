@@ -230,6 +230,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
               {data.name}
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">{data.tagline}</p>
+            <LastReviewed date={LAST_REVIEWED_ISO} className="mt-4" />
           </div>
         </div>
 
