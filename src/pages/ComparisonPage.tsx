@@ -55,6 +55,7 @@ export default function ComparisonPage() {
   const title = article?.title ?? (context ? `${a} vs ${b} for ${context}` : `${a} vs ${b}`);
   const metaDescription =
     article?.metaDescription ??
+    COMPARISON_META_DESCRIPTIONS[path] ??
     `${title}: an evidence-informed side-by-side comparison for UK arthritis patients, covering effectiveness, safety and cost.`;
 
   const others = COMPARISON_ROUTES.filter((r) => r !== path).slice(0, 6);
