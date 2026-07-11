@@ -90,6 +90,14 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
         <meta property="og:description" content={description} />
         <meta property="og:url" content={url} />
         <meta property="og:type" content="profile" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfilePage",
+          url,
+          mainEntity: personLd,
+          dateModified: new Date().toISOString().slice(0, 10),
+          inLanguage: "en-GB",
+        })}</script>
         <script type="application/ld+json">{JSON.stringify(personLd)}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
