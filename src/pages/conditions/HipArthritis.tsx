@@ -14,6 +14,7 @@ import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import AnswerBox from "@/components/seo/AnswerBox";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import LastReviewed, { LAST_REVIEWED_ISO } from "@/components/LastReviewed";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const URL = `${BASE}/conditions/hip-arthritis`;
@@ -134,6 +135,7 @@ const HipArthritis = () => (
             <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-5 leading-tight tracking-tight">
               Hip Arthritis
             </h1>
+            <LastReviewed date={LAST_REVIEWED_ISO} className="mb-5" />
             <AeoEnhancement route="/conditions/hip-arthritis" />
             <p className="text-lg text-muted-foreground leading-relaxed">
               Hip osteoarthritis is one of the most common causes of groin and outer-hip pain in adults over 45. This guide covers what hip arthritis feels like, the exercises that help most, how to sleep without flaring it up, and the UK treatment ladder — from self-management through to hip replacement.

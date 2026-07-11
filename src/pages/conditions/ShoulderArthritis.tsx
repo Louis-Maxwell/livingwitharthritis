@@ -12,6 +12,7 @@ import CrossLinkBanner from "@/components/CrossLinkBanner";
 import ConditionSubpageLinks from "@/components/ConditionSubpageLinks";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import LastReviewed, { LAST_REVIEWED_ISO } from "@/components/LastReviewed";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const URL = `${BASE}/conditions/shoulder-arthritis`;
@@ -130,6 +131,7 @@ const ShoulderArthritis = () => (
             <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-5 leading-tight tracking-tight">
               Shoulder Arthritis
             </h1>
+            <LastReviewed date={LAST_REVIEWED_ISO} className="mb-5" />
             <AeoEnhancement route="/conditions/shoulder-arthritis" />
             <p className="text-lg text-muted-foreground leading-relaxed">
               Shoulder arthritis is less common than knee or hand OA but more disabling for daily tasks like dressing, washing hair and reaching overhead. This UK guide covers the three main types, the exercises that help, and when shoulder replacement is the right answer.
