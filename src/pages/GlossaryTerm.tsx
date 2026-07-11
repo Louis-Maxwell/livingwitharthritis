@@ -8,6 +8,13 @@ import { getGlossaryEntry, GLOSSARY_CONTENT } from "@/data/glossary-content";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
+const LAST_REVIEWED_ISO = "2026-07-11";
+const LAST_REVIEWED_LABEL = new Date(LAST_REVIEWED_ISO).toLocaleDateString("en-GB", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
+
 const prettify = (slug: string) =>
   slug
     .split("-")
