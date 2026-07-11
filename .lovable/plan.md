@@ -1,68 +1,64 @@
+# Finish the remaining audit items
 
-# Full-site improvement plan
+Most of the earlier audit list is already done (direct_answer 191/218, ProfilePage/MedicalWebPage schema, sitemap additions, question-form H2s, alt tag, canonical dedupe, /ai footer link). This plan closes out what's left, in batches small enough not to time out.
 
-You picked all four scopes at depth **5 (aggressive)** with no off-limits areas. This is a large project — 50+ pages, ~50 tables, ~30 edge functions — so trying to redo everything in a single pass would break donations, auth, or SEO ranking. I'll sequence it into four phases, each independently shippable, each ending with a working site.
+## What's left
 
-## Phase 1 — Visual refresh (design system + key pages)
+**Meta titles (blog_articles, 218 published):**
+- 28 posts with NULL/empty `meta_title`
+- 41 posts with `meta_title` > 60 chars
+- 4 posts with `meta_title` < 40 chars (the audit's "23 too-short" figure appears to have counted across other page types too — see Question 1)
 
-Anchor the look before touching everything else, so later phases inherit it.
+**Orphans:**
+- `/ai` — already fixed via Footer link last turn
+- 4 locale-root pages still have zero inbound internal links
 
-1. Capture the current homepage, a condition page, and the blog index in Playwright.
-2. Ask you to pick a **palette**, **type pair**, and **layout** (three visual-choice questions).
-3. Generate three rendered design directions locked to those picks; you choose one.
-4. Roll the chosen tokens into `src/index.css` + `tailwind.config.ts` and rebuild:
-   - Home hero, Header, Footer
-   - Condition page template (5 arthritis pages share it)
-   - Blog article template
-   - Connect, Trust, About, Donate
-5. Keep semantic tokens only — no hardcoded colours in components. Respect existing memory: white bg, black text, red HSL 350 85% 42% accent, no AI branding, no framer-motion route transitions.
+**Content quality (separate from SEO):**
+- 27 remaining blog posts without direct_answer are template filler (~2,500 chars, identical 5-section skeleton). Nothing to summarise faithfully until content is rewritten.
 
-## Phase 2 — Performance & code quality
+## Proposed work, in order
 
-1. **Route-level code splitting** in `src/App.tsx` — the router currently imports every page eagerly. Convert non-critical routes to `React.lazy` + `Suspense`.
-2. **Image pipeline** — add `vite-imagetools`, convert bundled images to AVIF/WebP, preload only the LCP image.
-3. **Split monoliths** — `Index.tsx` and the largest condition pages into sub-components (already flagged in `.lovable/memory/tech/development/technical-debt.md`).
-4. **Dead code** — remove unused `data/keywords-30k`, orphan scripts, and any component with zero imports (verified with ripgrep).
-5. **Bundle audit** — run `vite build` with `--report`, cut anything above 300 KB gz that isn't on the critical path.
-6. Add a `React.memo` + `useMemo` pass on the heavy list pages (city-services, glossary, blog index).
+### 1. Fix blog meta_titles (69 posts, done in 3 batches of ~25)
 
-## Phase 3 — Backend hardening
+For each affected post, generate a `meta_title`:
+- Faithful to the post's existing `title` and body content — no invented claims, same guardrail as direct_answer
+- Length 45–60 chars, single H1-equivalent phrasing
+- Include the primary keyword when it's already the post's topic; append " | Living with Arthritis" only if it fits under 60 chars
+- Skip any post where the title itself is generic filler (same boilerplate cluster) — list skipped slugs
 
-1. Run `supabase--linter` and `security--run_security_scan`; fix every high/critical finding.
-2. Review RLS on the 50 public tables — flag any without policies or with permissive `USING (true)`.
-3. Confirm every public table has explicit `GRANT` statements (some older migrations may be missing them).
-4. Add indexes for the slow queries surfaced by `supabase--slow_queries` (blog_views by slug, pain_journal_entries by user_id+entry_date, appointments by user_id+status).
-5. Audit the 30 edge functions for: CORS on every response, Zod input validation, no `execute_sql`, no service-role leakage. Fix in place.
-6. Tighten the MCP OAuth flow already in place — verify the `/auth?next=` redirect is applied on password, signup, and Google paths (per `app-mcp-server-authoring` guidance).
-7. Enable HIBP leaked-password check via `supabase--configure_auth`.
+Batches:
+- Batch A: 28 missing meta_titles
+- Batch B: 25 of 41 over-length meta_titles (trim, keep meaning)
+- Batch C: remaining 16 over-length + the 4 short ones
 
-## Phase 4 — Content & SEO polish
+Write via `UPDATE public.blog_articles` (migration tool, same pattern used successfully for direct_answer batches).
 
-1. Trigger `seo_chat--trigger_scan`, then fix every failing finding.
-2. Audit `<title>` / meta descriptions across every route via `scripts/audit-meta-lengths.ts` — bring all under the length caps.
-3. Verify canonical + og:url self-reference on every page (script already exists: `scripts/check-canonicals.mjs`).
-4. Regenerate `public/sitemap.xml` from `scripts/generate-sitemap.ts` after route changes in Phase 2.
-5. Add missing JSON-LD (MedicalWebPage on condition subpages, Article on any blog post missing it).
-6. Internal linking: ensure every condition page links to its symptoms/diet/exercises/treatment subpages and vice-versa.
+### 2. Fix the 4 orphaned locale-root pages
 
-## Deliverables per phase
+Add contextual internal links from a natural parent surface (likely the Footer's existing "Locations" or a new "Regions" column, or from the main City hub page). Confirm target list first (see Question 2).
 
-Each phase ends with:
-- Build passing (`bun run build`)
-- Playwright smoke on Home, Blog, one Condition page, Donate, Connect
-- Short changelog in chat
+### 3. Content-quality decision on the 27 boilerplate posts
 
-## What I will NOT touch without asking
+Not a code task — needs a call from you. Options:
+- (a) Queue into `content_refresh_queue` for a proper rewrite pass (recommended — thin duplicate-pattern content is a Google quality risk beyond just AEO)
+- (b) Unpublish them until rewritten
+- (c) Leave as-is and accept the missing AnswerBoxes
 
-- Trustee names, financial figures, or charity registration data (per earlier instructions)
-- Donation Stripe flow logic (visual only)
-- Auto-generated files (`supabase/functions/mcp/index.ts`, `integrations/supabase/client.ts`, `types.ts`)
-- Auth email templates unless a finding requires it
+## Out of scope for this plan
 
-## Order of execution
+- No changes to templates, routes, or components beyond adding internal links for the 4 orphans
+- No new schema wrappers (already done)
+- No sitemap changes (already regenerated at 1,165 entries)
+- No content rewriting of the 27 boilerplate posts — that's a separate content project
 
-I'll start Phase 1 (design directions) as soon as you approve, because the visual tokens shape everything after it. Phases 2–4 are largely independent and can be shipped in that order without blocking each other.
+## Technical notes
 
-## Open question before I start
+- Meta title generation uses the same Lovable AI Gateway script (`/tmp/lovable_ai.py`, `openai/gpt-5.5`) that produced the direct_answers, with a stricter system prompt clamping output to a single line under 60 chars.
+- Updates land via `supabase--migration` UPDATE statements per batch (the earlier PATCH-via-anon-key approach silently no-ops under RLS; migrations are the reliable path).
+- Verification after each batch: `SELECT count(*) ... WHERE meta_title IS NULL OR length(meta_title) > 60` should trend to 0.
 
-Phase 1's design step needs your taste input (palette / type pair / layout). Approve this plan and I'll ask those three visual questions as the first build-mode step.
+## Questions before I start
+
+1. The audit summary said "23 posts with too-short meta titles" but the DB shows only 4 blog posts under 40 chars. Was that count including glossary/city/comparison pages? If so, do you want me to include those in the meta_title pass, or keep it blog-only?
+2. For the 4 orphaned locale-root pages — can you confirm which pages these are (URLs), or should I run a fresh orphan check to identify them before adding links?
+3. On the 27 boilerplate posts — do you want me to at least queue them into `content_refresh_queue` now, or leave that decision for later?
