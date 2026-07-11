@@ -4,7 +4,7 @@ import { lazy, Suspense, useMemo } from "react";
 import { ChevronLeft, Scale, ArrowRight, CheckCircle2 } from "lucide-react";
 import Header from "@/components/Header";
 import { COMPARISON_ROUTES } from "@/data/comparison-routes.generated";
-import { getComparisonArticle } from "@/data/comparison-content";
+import { getComparisonArticle, COMPARISON_META_DESCRIPTIONS } from "@/data/comparison-content";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
