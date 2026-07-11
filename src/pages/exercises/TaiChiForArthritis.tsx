@@ -126,13 +126,18 @@ export default function TaiChiForArthritis() {
     const c = document.createElement("script");
     c.type = "application/ld+json";
     c.text = JSON.stringify(itemListJsonLd);
+    const d = document.createElement("script");
+    d.type = "application/ld+json";
+    d.text = JSON.stringify(howToJsonLd);
     document.head.appendChild(a);
     document.head.appendChild(b);
     document.head.appendChild(c);
+    document.head.appendChild(d);
     return () => {
       document.head.removeChild(a);
       document.head.removeChild(b);
       document.head.removeChild(c);
+      document.head.removeChild(d);
     };
   }, []);
 
