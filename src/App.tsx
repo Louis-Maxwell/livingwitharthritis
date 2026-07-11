@@ -338,6 +338,7 @@ function AnimatedRoutes() {
         <Route path="/supplements" element={<SupplementsHub />} />
         <Route path="/supplements/glucosamine" element={<Glucosamine />} />
         <Route path="/supplements/msm" element={<Msm />} />
+        <Route path="/supplements/turmeric" element={<Turmeric />} />
         <Route path="/living-with-arthritis" element={<LivingWithArthritis />} />
         <Route path="/arthritis-mental-health" element={<ArthritisMentalHealth />} />
         <Route path="/guides/frailty-management-hub" element={<GuideLayout currentPath="/guides/frailty-management-hub"><FrailtyManagementHub /></GuideLayout>} />
