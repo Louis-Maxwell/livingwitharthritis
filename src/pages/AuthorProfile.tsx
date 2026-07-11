@@ -136,17 +136,13 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
             {realCredential && <> · {realCredential}</>}
           </p>
 
-          {record.image ? (
+          {record.image && (
             <img
               src={record.image}
               alt={`Portrait of ${record.name}`}
               className="w-full max-w-xs rounded-2xl mb-8"
               loading="lazy"
             />
-          ) : (
-            <p className="text-xs text-muted-foreground italic mb-8">
-              [PLACEHOLDER — CLIENT TO PROVIDE profile photograph]
-            </p>
           )}
 
           <section className="prose prose-slate max-w-none mb-10">
