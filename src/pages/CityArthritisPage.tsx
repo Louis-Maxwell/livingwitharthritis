@@ -12,6 +12,13 @@ import { motion } from "framer-motion";
 
 const BASE = "https://livingwitharthritis.org.uk";
 
+const LAST_REVIEWED_ISO = "2026-07-11";
+const LAST_REVIEWED_LABEL = new Date(LAST_REVIEWED_ISO).toLocaleDateString("en-GB", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
+
 const CityArthritisPage = () => {
   const { city } = useParams<{ city: string }>();
   const cityData = ukCities.find((c) => c.slug === city);
