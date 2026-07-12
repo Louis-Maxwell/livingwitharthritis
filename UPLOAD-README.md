@@ -156,3 +156,9 @@ merging it would be a downgrade. Discard it.
 - CORRECTED: stale route-splitting item in PERFORMANCE-CHECKLIST.md
   (was already done, checklist hadn't been updated)
 - See REALISTIC-ENGAGEMENT-AND-UX-PLAN.md
+
+## v21 — AI-visibility refresh (Claude credits only)
+- public/llms.txt + public/llms-full.txt regenerated from ALL 266 routes
+  (previously 28) — every Q&A, key takeaways and NHS/NICE sources included
+- Could NOT verify live per-page injection this turn (fetch-tool restriction);
+  confirm after next deploy by viewing source on any condition page
