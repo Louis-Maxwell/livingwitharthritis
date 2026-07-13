@@ -16,6 +16,18 @@
 /images/*
   Cache-Control: public, max-age=2592000
 
+# Lovable CDN-hosted assets are content-addressed (immutable UUID paths).
+/__l5e/assets-v1/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Sitemaps, robots and LLM feeds: revalidated daily by crawlers.
+/sitemap*.xml
+  Cache-Control: public, max-age=86400
+/robots.txt
+  Cache-Control: public, max-age=86400
+/llms*.txt
+  Cache-Control: public, max-age=86400
+
 # HTML must revalidate so users see new deploys.
 /*
   Cache-Control: public, max-age=0, must-revalidate

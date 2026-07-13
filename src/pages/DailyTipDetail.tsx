@@ -231,7 +231,7 @@ const DailyTipDetail = () => {
                             to={`/daily-tips/${t.slug}`}
                             className="flex items-center gap-4 p-4 rounded-2xl border border-border/20 hover:border-primary/30 hover:bg-accent/40 transition-all group"
                           >
-                            <img src={t.image} alt={t.title} className="w-16 h-16 rounded-xl object-cover shrink-0" />
+                            <img src={t.image} alt={t.title} className="w-16 h-16 rounded-xl object-cover shrink-0" loading="lazy" decoding="async" />
                             <div>
                               <h4 className="text-sm font-bold text-foreground group-hover:text-primary transition-colors">{t.title}</h4>
                               <p className="text-xs text-muted-foreground line-clamp-2">{t.desc}</p>
