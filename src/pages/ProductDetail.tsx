@@ -144,7 +144,7 @@ const ProductDetail = () => {
             {/* Image */}
             <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4 }}>
               <div className="aspect-square rounded-2xl overflow-hidden bg-muted relative">
-                <img src={product.image} alt={product.title} className="w-full h-full object-cover" />
+                <img src={product.image} alt={product.title} className="w-full h-full object-cover" loading="lazy" decoding="async" />
                 {product.badge && (
                   <Badge className={`absolute top-4 left-4 text-sm ${badgeColors[product.badge] || ""}`}>
                     {product.badge}
