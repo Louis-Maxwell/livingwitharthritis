@@ -166,8 +166,8 @@
 
 
 
-    <!-- LCP hero preload: AVIF first, browser falls back via <picture> if unsupported -->
-    <link rel="preload" as="image" href="/hero/oa.avif" type="image/avif" fetchpriority="high" />
+    <!-- LCP hero preload: points at the actual CDN-hosted hero image the OAHero component renders. -->
+    <link rel="preload" as="image" href="/__l5e/assets-v1/b76c9f8b-9f04-4557-ac8e-da1ba63b7bad/hero-community.jpg" type="image/jpeg" fetchpriority="high" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Anton (MAP-style display) + Montserrat (subheads) + Open Sans (body).
