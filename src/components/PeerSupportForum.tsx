@@ -199,45 +199,19 @@ function ThreadView({
         </div>
       )}
 
-      {/* Reply box */}
-      <Card className="border border-primary/20 bg-primary/5">
+      {/* Reply box — posting temporarily unavailable */}
+      <Card className="border border-border/40 bg-muted/30">
         <CardContent className="p-5">
-          <h3 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
-            <Send className="w-4 h-4 text-primary" /> Post a Reply
-          </h3>
-          {currentUserId ? (
-            <>
-              <Textarea
-                value={replyText}
-                onChange={(e) => setReplyText(e.target.value)}
-                placeholder="Share your experience, advice or support…"
-                className="min-h-[100px] text-sm resize-none mb-3"
-                maxLength={2000}
-              />
-              <div className="flex items-center justify-between">
-                <span className="text-xs text-muted-foreground">{replyText.length}/2000</span>
-                <Button
-                  size="sm"
-                  onClick={() => replyText.trim() && postReply.mutate(replyText)}
-                  disabled={!replyText.trim() || postReply.isPending}
-                  className="gap-1.5"
-                >
-                  <Send className="w-3.5 h-3.5" />
-                  {postReply.isPending ? "Posting…" : "Post Reply"}
-                </Button>
-              </div>
-            </>
-          ) : (
-            <div className="flex items-center gap-3 text-sm text-muted-foreground bg-background rounded-lg p-4 border border-border/40">
-              <AlertCircle className="w-4 h-4 text-primary shrink-0" />
-              <span>
-                <Link to="/auth" className="text-primary font-medium hover:underline">Sign in</Link> or{" "}
-                <Link to="/auth" className="text-primary font-medium hover:underline">create an account</Link> to post a reply.
-              </span>
+          <div className="flex items-start gap-3 text-sm text-muted-foreground">
+            <AlertCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+            <div>
+              <p className="font-semibold text-foreground mb-1">Posting is temporarily unavailable</p>
+              <p>Replies are paused while we upgrade the forum. You can still read discussions — thank you for your patience.</p>
             </div>
-          )}
+          </div>
         </CardContent>
       </Card>
+
     </div>
   );
 }
