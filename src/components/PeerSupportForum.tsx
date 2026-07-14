@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   MessageCircle, Plus, ArrowLeft, Eye, Pin,
   Clock, User, Send, Shield, AlertCircle, Search, ChevronRight
@@ -199,177 +199,30 @@ function ThreadView({
         </div>
       )}
 
-      {/* Reply box */}
-      <Card className="border border-primary/20 bg-primary/5">
+      {/* Reply box — posting temporarily unavailable */}
+      <Card className="border border-border/40 bg-muted/30">
         <CardContent className="p-5">
-          <h3 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
-            <Send className="w-4 h-4 text-primary" /> Post a Reply
-          </h3>
-          {currentUserId ? (
-            <>
-              <Textarea
-                value={replyText}
-                onChange={(e) => setReplyText(e.target.value)}
-                placeholder="Share your experience, advice or support…"
-                className="min-h-[100px] text-sm resize-none mb-3"
-                maxLength={2000}
-              />
-              <div className="flex items-center justify-between">
-                <span className="text-xs text-muted-foreground">{replyText.length}/2000</span>
-                <Button
-                  size="sm"
-                  onClick={() => replyText.trim() && postReply.mutate(replyText)}
-                  disabled={!replyText.trim() || postReply.isPending}
-                  className="gap-1.5"
-                >
-                  <Send className="w-3.5 h-3.5" />
-                  {postReply.isPending ? "Posting…" : "Post Reply"}
-                </Button>
-              </div>
-            </>
-          ) : (
-            <div className="flex items-center gap-3 text-sm text-muted-foreground bg-background rounded-lg p-4 border border-border/40">
-              <AlertCircle className="w-4 h-4 text-primary shrink-0" />
-              <span>
-                <Link to="/auth" className="text-primary font-medium hover:underline">Sign in</Link> or{" "}
-                <Link to="/auth" className="text-primary font-medium hover:underline">create an account</Link> to post a reply.
-              </span>
+          <div className="flex items-start gap-3 text-sm text-muted-foreground">
+            <AlertCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+            <div>
+              <p className="font-semibold text-foreground mb-1">Posting is temporarily unavailable</p>
+              <p>Replies are paused while we upgrade the forum. You can still read discussions — thank you for your patience.</p>
             </div>
-          )}
+          </div>
         </CardContent>
       </Card>
+
     </div>
   );
 }
 
-// ——— New topic form ———
-function NewTopicForm({
-  onCancel,
-  onSuccess,
-  currentUserId,
-}: {
-  onCancel: () => void;
-  onSuccess: () => void;
-  currentUserId: string | null;
-}) {
-  const qc = useQueryClient();
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
-  const [category, setCategory] = useState("General");
+// NewTopicForm removed — posting is temporarily disabled site-wide.
 
-  const createTopic = useMutation({
-    mutationFn: async () => {
-      if (!currentUserId) throw new Error("not-logged-in");
-      const { error } = await supabase.from("forum_topics").insert({
-        title: title.trim(),
-        body: body.trim(),
-        category,
-        user_id: currentUserId,
-        status: "published",
-      });
-      if (error) throw error;
-    },
-    onSuccess: () => {
-      toast.success("Topic posted!");
-      qc.invalidateQueries({ queryKey: ["forum_topics"] });
-      onSuccess();
-    },
-    onError: (err: Error) => {
-      if (err.message === "not-logged-in") {
-        toast.error("Please sign in to create a topic.");
-      } else {
-        toast.error("Failed to create topic. Please try again.");
-      }
-    },
-  });
-
-  return (
-    <Card className="border border-primary/30 bg-primary/5">
-      <CardContent className="p-6 space-y-4">
-        <div className="flex items-center justify-between mb-1">
-          <h3 className="font-semibold text-foreground flex items-center gap-2">
-            <Plus className="w-4 h-4 text-primary" /> Start a New Discussion
-          </h3>
-          <button onClick={onCancel} className="text-xs text-muted-foreground hover:text-foreground transition-colors">
-            Cancel
-          </button>
-        </div>
-
-        <div className="space-y-1.5">
-          <Label htmlFor="topic-title" className="text-xs">Title *</Label>
-          <Input
-            id="topic-title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            placeholder="What would you like to discuss?"
-            maxLength={200}
-            className="text-sm"
-          />
-          <span className="text-xs text-muted-foreground">{title.length}/200</span>
-        </div>
-
-        <div className="space-y-1.5">
-          <Label htmlFor="topic-category" className="text-xs">Category *</Label>
-          <select
-            id="topic-category"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            className="w-full h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-          >
-            {CATEGORIES.map((c) => (
-              <option key={c} value={c}>{c}</option>
-            ))}
-          </select>
-        </div>
-
-        <div className="space-y-1.5">
-          <Label htmlFor="topic-body" className="text-xs">Your message *</Label>
-          <Textarea
-            id="topic-body"
-            value={body}
-            onChange={(e) => setBody(e.target.value)}
-            placeholder="Share your question, experience or story…"
-            className="min-h-[120px] text-sm resize-none"
-            maxLength={5000}
-          />
-          <span className="text-xs text-muted-foreground">{body.length}/5000</span>
-        </div>
-
-        <div className="flex items-center gap-2 text-xs text-muted-foreground bg-background rounded-lg px-3 py-2 border border-border/40">
-          <Shield className="w-3.5 h-3.5 text-primary shrink-0" />
-          All posts are reviewed against our community guidelines. Please be respectful and supportive.
-        </div>
-
-        <div className="flex gap-2 justify-end">
-          <Button variant="outline" size="sm" onClick={onCancel}>Cancel</Button>
-          <Button
-            size="sm"
-            onClick={() => createTopic.mutate()}
-            disabled={!title.trim() || !body.trim() || createTopic.isPending || !currentUserId}
-            className="gap-1.5"
-          >
-            <Send className="w-3.5 h-3.5" />
-            {createTopic.isPending ? "Posting…" : "Post Discussion"}
-          </Button>
-        </div>
-
-        {!currentUserId && (
-          <div className="flex items-center gap-2 text-sm text-muted-foreground bg-background rounded-lg p-3 border border-border/40">
-            <AlertCircle className="w-4 h-4 text-primary shrink-0" />
-            <span>
-              <Link to="/auth" className="text-primary font-medium hover:underline">Sign in</Link> to post.
-            </span>
-          </div>
-        )}
-      </CardContent>
-    </Card>
-  );
-}
 
 // ——— Main Forum Component ———
 export default function PeerSupportForum() {
   const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null);
-  const [showNewForm, setShowNewForm] = useState(false);
+  
   const [searchQ, setSearchQ] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
   const [currentUserId, setCurrentUserId] = useState<string | null>(null);
@@ -451,30 +304,24 @@ export default function PeerSupportForum() {
           </div>
           <Button
             size="sm"
-            onClick={() => setShowNewForm((v) => !v)}
-            className="gap-1.5 self-start sm:self-auto"
+            disabled
+            aria-disabled="true"
+            title="New discussions are temporarily paused"
+            className="gap-1.5 self-start sm:self-auto opacity-60 cursor-not-allowed"
           >
             <Plus className="w-4 h-4" /> New Discussion
           </Button>
         </div>
 
-        {/* New topic form */}
-        <AnimatePresence>
-          {showNewForm && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="overflow-hidden mb-6"
-            >
-              <NewTopicForm
-                onCancel={() => setShowNewForm(false)}
-                onSuccess={() => setShowNewForm(false)}
-                currentUserId={currentUserId}
-              />
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* Posting temporarily disabled notice */}
+        <div className="mb-6 rounded-lg border border-border/40 bg-muted/30 p-4 flex items-start gap-3 text-sm">
+          <AlertCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+          <div>
+            <p className="font-semibold text-foreground">Posting is temporarily unavailable</p>
+            <p className="text-muted-foreground">You can browse existing discussions. New topics and replies are paused while we upgrade the forum.</p>
+          </div>
+        </div>
+
 
         {/* Search + filter */}
         <div className="flex flex-col sm:flex-row gap-3 mb-6">
@@ -572,21 +419,8 @@ export default function PeerSupportForum() {
           </div>
         )}
 
-        {/* Guest CTA */}
-        {!currentUserId && (
-          <div className="mt-8 text-center">
-            <Card className="border border-border/40 bg-muted/20 inline-block w-full">
-              <CardContent className="p-6">
-                <User className="w-8 h-8 text-primary mx-auto mb-2" />
-                <h3 className="font-semibold text-foreground mb-1">Join the Community</h3>
-                <p className="text-sm text-muted-foreground mb-4">Sign in to post topics, reply to discussions, and connect with others.</p>
-                <Button asChild size="sm">
-                  <Link to="/auth">Sign In / Create Account</Link>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        )}
+
+
       </div>
     </section>
   );

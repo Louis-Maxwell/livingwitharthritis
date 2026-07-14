@@ -1,38 +1,11 @@
-import { useEffect, useState } from "react";
 import SeoHead from "@/components/SeoHead";
-import { Link, useNavigate } from "react-router-dom";
-import { supabase } from "@/integrations/supabase/client";
 import Header from "@/components/Header";
 import PageHero from "@/components/ui/PageHero";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Loader2 } from "lucide-react";
-
-interface Match {
-  id: string;
-  mentor_id: string;
-  mentee_id: string;
-  status: string;
-  compatibility_score: number;
-  compatibility_breakdown: Record<string, number>;
-  created_at: string;
-}
+import { AlertCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const BuddyMatch = () => {
-  const navigate = useNavigate();
-  const [loading, setLoading] = useState(true);
-  const [matches, setMatches] = useState<Match[]>([]);
-
-  useEffect(() => {
-    (async () => {
-      const { data: s } = await supabase.auth.getSession();
-      if (!s.session) { navigate("/auth?redirect=/buddy/match"); return; }
-      const { data } = await supabase.from("buddy_matches").select("*").order("created_at", { ascending: false });
-      setMatches((data ?? []) as Match[]);
-      setLoading(false);
-    })();
-  }, [navigate]);
-
   return (
     <>
       <SeoHead
@@ -44,22 +17,22 @@ const BuddyMatch = () => {
       <Header />
       <main id="main-content">
         <PageHero badge="Buddy" title="Your matches" subtitle="Pending and active buddy pairings." />
-        <section className="container mx-auto px-4 py-16 max-w-3xl space-y-4">
-          {loading && <Loader2 className="h-6 w-6 animate-spin mx-auto" />}
-          {!loading && matches.length === 0 && (
-            <p className="text-muted-foreground">No matches yet. <Link to="/buddy" className="text-primary underline-offset-4 hover:underline">Request a buddy</Link>.</p>
-          )}
-          {matches.map((m) => (
-            <Card key={m.id}>
-              <CardContent className="p-6 space-y-2">
-                <div className="flex items-center justify-between">
-                  <Badge variant={m.status === "active" ? "default" : "secondary"}>{m.status}</Badge>
-                  <span className="text-sm text-muted-foreground">Compatibility: {m.compatibility_score}/100</span>
+        <section className="container mx-auto px-4 py-16 max-w-3xl">
+          <Card>
+            <CardContent className="p-8">
+              <div className="flex items-start gap-4">
+                <AlertCircle className="w-6 h-6 text-primary shrink-0 mt-1" />
+                <div className="space-y-3">
+                  <h2 className="text-xl font-serif font-semibold">Buddy matches are temporarily unavailable</h2>
+                  <p className="text-muted-foreground">
+                    The buddy programme is paused while we upgrade it. See our{" "}
+                    <Link to="/community/connect-groups" className="text-primary underline-offset-4 hover:underline">Connect Groups</Link>{" "}
+                    for peer support in the meantime.
+                  </p>
                 </div>
-                <p className="text-sm text-muted-foreground">Created {new Date(m.created_at).toLocaleDateString("en-GB")}</p>
-              </CardContent>
-            </Card>
-          ))}
+              </div>
+            </CardContent>
+          </Card>
         </section>
       </main>
     </>
