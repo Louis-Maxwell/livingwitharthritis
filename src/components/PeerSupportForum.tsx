@@ -540,21 +540,8 @@ export default function PeerSupportForum() {
           </div>
         )}
 
-        {/* Guest CTA */}
-        {!currentUserId && (
-          <div className="mt-8 text-center">
-            <Card className="border border-border/40 bg-muted/20 inline-block w-full">
-              <CardContent className="p-6">
-                <User className="w-8 h-8 text-primary mx-auto mb-2" />
-                <h3 className="font-semibold text-foreground mb-1">Join the Community</h3>
-                <p className="text-sm text-muted-foreground mb-4">Sign in to post topics, reply to discussions, and connect with others.</p>
-                <Button asChild size="sm">
-                  <Link to="/auth">Sign In / Create Account</Link>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        )}
+
+
       </div>
     </section>
   );
