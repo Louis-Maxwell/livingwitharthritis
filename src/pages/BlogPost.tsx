@@ -5,7 +5,9 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
-import { Eye, BookOpen, ChevronRight } from "lucide-react";
+import { Eye, BookOpen, ChevronRight, Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
 import { useBlogArticle } from "@/hooks/useBlogArticles";
 import { useBlogViews } from "@/hooks/useBlogViews";
 import BlogComments from "@/components/BlogComments";
@@ -264,7 +266,8 @@ const BlogPost = () => {
       </Helmet>
       <div className="min-h-screen bg-background">
         <ScrollProgress />
-        <Header />
+        <div className="no-print"><Header /></div>
+
         <article itemScope itemType="https://schema.org/MedicalWebPage">
 
 
@@ -357,7 +360,33 @@ const BlogPost = () => {
               {article.direct_answer}
             </AnswerBox>
           )}
+
+          {/* Print header: only visible when saving to PDF / printing */}
+          <div className="print-only mb-6 pb-4 border-b border-black">
+            <div className="flex items-center justify-between text-xs">
+              <strong>Living With Arthritis UK</strong>
+              <span>livingwitharthritis.org.uk</span>
+            </div>
+            <div className="text-[10px] mt-1">
+              Reviewed by {reviewerName}{reviewerCreds ? `, ${reviewerCreds}` : ""}
+              {updatedDate ? ` · Last reviewed ${updatedDate}` : ""}
+            </div>
+          </div>
+
+          <div className="no-print mb-6 flex justify-end">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => window.print()}
+              aria-label="Download this article as PDF"
+            >
+              <Download className="w-4 h-4 mr-2" />
+              Download PDF
+            </Button>
+          </div>
+
           <MedicalReviewBadge />
+
           <KeyTakeaways html={htmlContent} title={article.title} />
           <TableOfContents html={htmlContent} />
 
@@ -393,6 +422,19 @@ const BlogPost = () => {
               <div dangerouslySetInnerHTML={{ __html: htmlAfterStrip }} />
             )}
           </section>
+
+          {/* Print footer: only visible when saving to PDF / printing */}
+          <div className="print-only mt-8 pt-4 border-t border-black text-[10px] leading-snug">
+            <p>
+              Source: https://livingwitharthritis.org.uk/blog/{slug}
+            </p>
+            <p>
+              © Living With Arthritis UK. For personal and informational use only.
+              This article is not a substitute for professional medical advice —
+              always consult your GP or a qualified clinician.
+            </p>
+          </div>
+
 
 
           <ArticleCitations
@@ -432,10 +474,13 @@ const BlogPost = () => {
           </footer>
         </main>
         </article>
-        {slug && <ContinueReadingBar currentSlug={slug} />}
-        <InternalLinks />
-        <NextReadStrip currentPath={`/blog/${slug}`} heading="Keep reading arthritis insights" />
-        <Footer />
+        <div className="no-print">
+          {slug && <ContinueReadingBar currentSlug={slug} />}
+          <InternalLinks />
+          <NextReadStrip currentPath={`/blog/${slug}`} heading="Keep reading arthritis insights" />
+          <Footer />
+        </div>
+
       </div>
 
     </>
