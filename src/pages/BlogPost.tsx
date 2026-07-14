@@ -5,7 +5,9 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
-import { Eye, BookOpen, ChevronRight } from "lucide-react";
+import { Eye, BookOpen, ChevronRight, Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
 import { useBlogArticle } from "@/hooks/useBlogArticles";
 import { useBlogViews } from "@/hooks/useBlogViews";
 import BlogComments from "@/components/BlogComments";
