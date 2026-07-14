@@ -474,10 +474,13 @@ const BlogPost = () => {
           </footer>
         </main>
         </article>
-        {slug && <ContinueReadingBar currentSlug={slug} />}
-        <InternalLinks />
-        <NextReadStrip currentPath={`/blog/${slug}`} heading="Keep reading arthritis insights" />
-        <Footer />
+        <div className="no-print">
+          {slug && <ContinueReadingBar currentSlug={slug} />}
+          <InternalLinks />
+          <NextReadStrip currentPath={`/blog/${slug}`} heading="Keep reading arthritis insights" />
+          <Footer />
+        </div>
+
       </div>
 
     </>
