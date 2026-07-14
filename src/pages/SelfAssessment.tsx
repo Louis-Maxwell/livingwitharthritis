@@ -53,25 +53,15 @@ const SelfAssessment = () => {
     e.preventDefault();
     setSubmitting(true);
     try {
-      const { data: session } = await supabase.auth.getSession();
-      if (!session.session) {
-        toast({ title: "Sign in required", description: "Please sign in to save your assessment." });
-        navigate("/auth?redirect=/self-assessment");
-        return;
-      }
-      const { data, error } = await supabase.functions.invoke("submit-triage", {
-        body: { arthritisType, painLevel, mobilityLevel, affectedAreas, limitations, goals },
+      toast({
+        title: "Saving is temporarily unavailable",
+        description: "The self-assessment save feature is paused while we upgrade it. Please screenshot or note your answers.",
       });
-      if (error || !data?.ok) {
-        toast({ title: "Could not save", description: data?.error?.message ?? "Please try again.", variant: "destructive" });
-        return;
-      }
-      setResult(data.data as Result);
-      window.scrollTo({ top: 0, behavior: "smooth" });
     } finally {
       setSubmitting(false);
     }
   };
+
 
   return (
     <>
