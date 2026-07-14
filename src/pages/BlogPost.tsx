@@ -422,6 +422,19 @@ const BlogPost = () => {
             )}
           </section>
 
+          {/* Print footer: only visible when saving to PDF / printing */}
+          <div className="print-only mt-8 pt-4 border-t border-black text-[10px] leading-snug">
+            <p>
+              Source: https://livingwitharthritis.org.uk/blog/{slug}
+            </p>
+            <p>
+              © Living With Arthritis UK. For personal and informational use only.
+              This article is not a substitute for professional medical advice —
+              always consult your GP or a qualified clinician.
+            </p>
+          </div>
+
+
 
           <ArticleCitations
             citations={
