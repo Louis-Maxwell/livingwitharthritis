@@ -1091,8 +1091,15 @@
   @apply py-28 lg:py-36;
 }
 
+/* Print-only elements are hidden on screen */
+.print-only { display: none !important; }
+
 /* ===== Print-friendly styles for blog articles ===== */
 @media print {
+  .print-only { display: block !important; }
+  .no-print { display: none !important; }
+  @page { margin: 18mm 16mm; }
+
   /* Hide non-content UI */
   header,
   footer,
