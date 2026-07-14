@@ -425,30 +425,24 @@ export default function PeerSupportForum() {
           </div>
           <Button
             size="sm"
-            onClick={() => setShowNewForm((v) => !v)}
-            className="gap-1.5 self-start sm:self-auto"
+            disabled
+            aria-disabled="true"
+            title="New discussions are temporarily paused"
+            className="gap-1.5 self-start sm:self-auto opacity-60 cursor-not-allowed"
           >
             <Plus className="w-4 h-4" /> New Discussion
           </Button>
         </div>
 
-        {/* New topic form */}
-        <AnimatePresence>
-          {showNewForm && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="overflow-hidden mb-6"
-            >
-              <NewTopicForm
-                onCancel={() => setShowNewForm(false)}
-                onSuccess={() => setShowNewForm(false)}
-                currentUserId={currentUserId}
-              />
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* Posting temporarily disabled notice */}
+        <div className="mb-6 rounded-lg border border-border/40 bg-muted/30 p-4 flex items-start gap-3 text-sm">
+          <AlertCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+          <div>
+            <p className="font-semibold text-foreground">Posting is temporarily unavailable</p>
+            <p className="text-muted-foreground">You can browse existing discussions. New topics and replies are paused while we upgrade the forum.</p>
+          </div>
+        </div>
+
 
         {/* Search + filter */}
         <div className="flex flex-col sm:flex-row gap-3 mb-6">
