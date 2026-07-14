@@ -1100,6 +1100,15 @@
   .no-print { display: none !important; }
   @page { margin: 18mm 16mm; }
 
+  /* Belt-and-braces: hide any fixed/sticky overlays (cookie banners, chat widgets, sticky bars) */
+  [class*="fixed"],
+  .cookie-consent,
+  [aria-label*="cookie" i],
+  [role="dialog"] {
+    display: none !important;
+  }
+
+
   /* Hide non-content UI */
   header,
   footer,
