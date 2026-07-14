@@ -343,7 +343,7 @@ function NewTopicForm({
 // ——— Main Forum Component ———
 export default function PeerSupportForum() {
   const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null);
-  const [showNewForm, setShowNewForm] = useState(false);
+  
   const [searchQ, setSearchQ] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
   const [currentUserId, setCurrentUserId] = useState<string | null>(null);
