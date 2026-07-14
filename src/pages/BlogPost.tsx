@@ -359,7 +359,33 @@ const BlogPost = () => {
               {article.direct_answer}
             </AnswerBox>
           )}
+
+          {/* Print header: only visible when saving to PDF / printing */}
+          <div className="print-only mb-6 pb-4 border-b border-black">
+            <div className="flex items-center justify-between text-xs">
+              <strong>Living With Arthritis UK</strong>
+              <span>livingwitharthritis.org.uk</span>
+            </div>
+            <div className="text-[10px] mt-1">
+              Reviewed by {reviewerName}{reviewerCreds ? `, ${reviewerCreds}` : ""}
+              {updatedDate ? ` · Last reviewed ${updatedDate}` : ""}
+            </div>
+          </div>
+
+          <div className="no-print mb-6 flex justify-end">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => window.print()}
+              aria-label="Download this article as PDF"
+            >
+              <Download className="w-4 h-4 mr-2" />
+              Download PDF
+            </Button>
+          </div>
+
           <MedicalReviewBadge />
+
           <KeyTakeaways html={htmlContent} title={article.title} />
           <TableOfContents html={htmlContent} />
 
