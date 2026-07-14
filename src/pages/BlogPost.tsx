@@ -266,7 +266,8 @@ const BlogPost = () => {
       </Helmet>
       <div className="min-h-screen bg-background">
         <ScrollProgress />
-        <Header />
+        <div className="no-print"><Header /></div>
+
         <article itemScope itemType="https://schema.org/MedicalWebPage">
 
 
