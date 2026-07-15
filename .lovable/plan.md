@@ -1,61 +1,77 @@
-# Performance Optimization Sweep
+# Deep refinement plan — frontend, performance, backend, DB
 
-Incremental work with a typecheck/build gate after each meaningful change. No functional, layout, or design changes.
+A codebase this size (218 blog posts, ~50 tables, ~30 edge functions, huge `src/pages` + `src/components` trees) can't be safely "deep refactored" in one pass. I'll do it in four sequential stages, each self-contained, each verifiable, each reversible. After each stage I'll report what changed and pause so you can eyeball the preview before I move on.
 
-## Scope & phases
+Nothing in stages 1–2 changes behavior. Stages 3–4 touch runtime code and DB — I'll flag every behavior change explicitly.
 
-### Phase 1 — Recon (read-only)
-- Enumerate `<img>` usage across `src/**` and `public/**` to build the image inventory (source, alt text, current loading/fetchpriority attrs, above/below fold classification).
-- List route definitions in `src/App.tsx` and classify which routes are already lazy-loaded vs. eagerly imported. Identify heavy non-critical routes (admin dashboards, tools, hubs) that are still eager.
-- Build a dependency-size baseline: run `bun run build`, capture the current output sizes, and note top 5 largest chunks / any single chunk >250 KB gzipped.
-- Query Supabase `slow_queries` and read `hooks/*` + `supabase/functions/*` for obvious over-fetches (`select *`, unfiltered lists, N+1 patterns inside `.map`).
-- Deliverable: short inventory posted back in-chat before any edits.
+---
 
-### Phase 2 — Image pipeline
-- All below-the-fold `<img>` gain `loading="lazy"` + `decoding="async"`. Hero image stays eager + `fetchpriority="high"`.
-- Where a component uses an `.asset.json` CDN pointer for a photo and there is no reason it must be JPEG (illustrations/photos rendered <1600px), replace with a re-encoded WebP variant via `lovable-assets create`. Keep the original pointer file as a fallback only if we introduce a `<picture>` element — otherwise a direct swap keeps the diff surface small.
-- Add explicit `width`/`height` on any `<img>` missing them to remove CLS.
-- Where an `<img>` is genuinely responsive (hero, cards inside a fluid grid), add `srcset` + `sizes` using the CDN pointer's URL plus any new WebP variant.
-- Skip: `.svg` icons, avatars <100 KB, exercise videos (already externalized).
+## Stage 1 — Frontend polish (no behavior change)
 
-### Phase 3 — Bundle / code-splitting
-- Convert any still-eager route in `App.tsx` that is not the landing route or a shared shell (Header/Footer) to `React.lazy(() => import(...))`, wrapped in the existing `<Suspense>` fallback.
-- Prime target list (confirmed after Phase 1): admin routes, tools (`WaitingTimeCalculator`, `KeywordStrategy*`), Pets hub, Press/Media, Trust/Credibility, blog post detail.
-- In `vite.config.ts`, add `build.rollupOptions.output.manualChunks` for large stable deps (`react`, `react-dom`, `react-router-dom`, `@supabase/supabase-js`, `recharts`/`chart.js` if used, icon library) so they cache independently of app code.
-- Remove any dependency imported once and only from a low-traffic route from the eager path (via lazy of that route).
-- Do NOT prune `package.json` in this pass — dependency removal is a separate risk profile.
+Goal: consistency, dead-code removal, token discipline.
 
-### Phase 4 — Caching headers
-- `public/_headers` already sets `immutable` for `/assets/*`, `/og/*`, `*.woff2`, `/hero/*`; extend to cover `/__l5e/assets-v1/*` (Lovable CDN already sets its own long-cache headers, so this is a no-op belt-and-braces; skip if it conflicts). Verify HTML stays `must-revalidate`.
-- Add `Cache-Control: public, max-age=86400` for `sitemap*.xml`, `robots.txt`, `llms*.txt` so crawlers still see fresh copies within a day.
+- **Design-token sweep.** Grep all `text-white`, `bg-black`, `text-gray-*`, `bg-[#…]`, `text-*-foreground/40|50` hardcodes across `src/`. Replace with semantic tokens (`text-foreground`, `text-muted-foreground`, `bg-background`, `bg-primary`, etc.) per the project's white/black/red rule in memory. Skip decorative `aria-hidden` icons already flagged as intentional.
+- **Dead code.** Remove unused Lucide imports, stale `// TODO` blocks, orphan files (there are several `*-report.md`, `*-report.json` at repo root that aren't referenced — I'll list them, not delete, and let you confirm).
+- **Duplicate components.** Verify the `ContactSection` / `GetInTouchSection` dedupe from `.lovable/memory/tech/development/technical-debt.md` is complete; catch any remaining duplicates (e.g. multiple hero variants, footer variants).
+- **Large-file split.** Any `src/pages/*.tsx` over ~600 lines gets its inline subcomponents extracted to `src/components/<page>/` — same pattern already applied to `Index.tsx`. Candidates I'll check: `BlogPost.tsx`, `Exercises.tsx`, admin dashboards.
+- **A11y quick wins.** `aria-label` on icon-only `<Button size="icon">`; single `<main>` per route; `id` uniqueness in list-rendered inputs (per a11y knowledge).
+- **SEO tags.** Confirm each route sets a real `<title>` / `<meta description>` via Helmet; fix any that fall back to defaults.
 
-### Phase 5 — Backend / DB
-- Read `slow_queries` output; for each query >100 ms mean, inspect the source hook/edge function.
-- Fix low-risk items only in this pass: replace `select("*")` with column lists where a hook only reads a few columns; add `.limit()` where a list is rendered paginated; consolidate obvious N+1s (e.g. per-row fetches inside a map) into a single `.in()` query.
-- If an index is clearly missing (seq scan on a filter column in a hot query), add a `CREATE INDEX` migration. Skip anything that requires schema shape changes.
-- Do NOT touch RLS policies, security-definer functions, or auth flows.
+Verify: `bunx tsgo --noEmit`, spot-check landing + a blog post + `/exercises` in Playwright.
 
-### Phase 6 — Verify & publish
-- Final `bun run build` — must exit 0. Capture before/after chunk sizes for the report.
-- `tsgo --noEmit` clean.
-- Publish.
-- Trigger SEO/Lighthouse rescan and report the new scores plus LCP + contrast status side-by-side with the previous run.
+## Stage 2 — Frontend performance
 
-## Guardrails
+Goal: smaller critical JS, faster LCP, fewer wasted renders.
 
-- After each phase: `bun run build` + `npx tsgo --noEmit`. Any regression → revert that phase's edits, surface the error, do not proceed.
-- No visual changes: no color/spacing/typography edits, no component restructuring beyond adding `loading`/`decoding`/`width`/`height`/`srcset` attributes and swapping asset URLs.
-- No dependency removals in this pass.
-- Reversibility: everything is a code edit — user can revert this commit range from chat history.
+- **Route-level `React.lazy`** for heavy leaf routes (admin, glossary, comparison, city pages) that aren't already split. Confirm `App.tsx` suspense boundaries are correct.
+- **Manual-chunks audit** in `vite.config.ts`. Current chunks look sensible; I'll run `ANALYZE=1 bun run build`, inspect `dist/stats.html`, and only rebalance if a route pulls a heavy lib synchronously.
+- **Image discipline.** Anything imported from `src/assets/` that's still `.jpg`/`.png` used above-the-fold gets a `?format=webp` variant via `vite-imagetools` (add plugin if missing). LCP image keeps `fetchpriority="high"` + `<link rel="preload">` (already done for hero).
+- **Query hygiene.** Audit `useQuery` calls for missing `staleTime`; wrap expensive derived data in `useMemo` where profiler shows re-renders.
+- **Prefetch tuning.** `useLinkPrefetch` — cap concurrent prefetches, gate on `navigator.connection.saveData`.
 
-## Out of scope
+Verify: build succeeds, bundle report before/after, Playwright PSI-lite check on landing (LCP element, TBT).
 
-- Font subsetting / self-hosting (fonts already use `display=swap` via non-blocking preload).
-- SSR migration.
-- Removing GA / third-party scripts.
-- Changing the Supabase compute tier.
-- Refactoring the 5k-keyword generated data (already migrated to JSON import last turn).
+## Stage 3 — Backend / edge functions
 
-## Reporting
+Goal: consistent auth, validation, error shape, rate-limiting; no functional regressions.
 
-Final message will contain: image count re-encoded + bytes saved, route count lazified + build size before/after, cache-header diff, DB queries touched (with mean-ms before/after when available), and the fresh Lighthouse scores.
+- **Shared helpers.** `supabase/functions/_shared/` already has `http.ts`, `validation.ts`, `rate-limiter.ts`, `ai-safety.ts`. Migrate any function still hand-rolling CORS, JSON parsing, or Zod error responses onto these helpers. Target list is any `supabase/functions/*/index.ts` that imports `corsHeaders` locally or duplicates the `errJson` / `preflight` pattern.
+- **JWT validation.** Every function that reads user data must call `supabase.auth.getClaims(token)` (per the edge-function knowledge) — audit `book-appointment`, `submit-contact`, `submit-fundraising`, `submit-triage`, `request-buddy-match`, `send-patient-email`, `notify-patient-status`, `process-donation`. Public webhooks (`create-donation-checkout` return, email hooks) stay public but keep signature/secret checks.
+- **Zod input schemas** on every function that accepts a body. Reject with 400 + field errors, no stack traces to the client.
+- **Rate-limit coverage.** Apply the shared `createRateLimiter` to any user-facing POST that doesn't have one (contact, fundraising, triage, buddy).
+- **Structured logs.** Every function logs `[${requestId}]` prefix on both success + error paths; drop `console.log` of PII.
+- **Deno lockfile check.** Confirm no stale `deno.lock` blocking deploys.
+
+Verify: `bunx deno test` on functions that have tests; `supabase--test_edge_functions` where applicable; smoke a couple with `supabase--curl_edge_functions`.
+
+## Stage 4 — Database / RLS hardening
+
+Goal: no exposed data, indexes on real hotspots, functions pinned.
+
+- **Run `supabase--linter` + `security--run_security_scan`.** Fix every finding: missing RLS, permissive `USING (true)` on writable tables, functions without `SET search_path`.
+- **GRANT audit.** For each of the ~50 public tables, confirm the GRANT matches the intended reader (drop `anon` on tables that only serve authenticated users; add `service_role` where edge functions read).
+- **Roles.** Verify roles live in `user_roles` (confirmed via `has_role` + `is_admin` functions — memory says this is already correct); check no policy still reads a role column off `profiles`.
+- **Slow-query pass.** `supabase--slow_queries` → `EXPLAIN ANALYZE` the top 3–5 → add targeted `CREATE INDEX` migrations. Likely candidates given the schema: `blog_views(slug)`, `content_embeddings(source_type)`, `appointments(user_id, status)`, `pain_journal_entries(user_id, created_at DESC)`.
+- **`updated_at` triggers.** Any table with an `updated_at` column but no trigger gets one (`update_updated_at_column`).
+
+Every DB change goes through the migration tool one at a time, with a plain-English description, so you approve each SQL block individually.
+
+Verify: re-run linter + security scan, spot-check the RLS-scoped hooks (`useAdmin`, `useAppointment`, `useBlogArticles`) still work in Playwright as an authed user.
+
+---
+
+## What I won't touch
+
+- `src/integrations/supabase/client.ts`, `types.ts`, `.env`, `supabase/config.toml` project-level settings.
+- The 218 blog article content files under `src/data/`.
+- Anything under `mem://` unless a memory becomes stale as a result of a change (in which case I update it in the same turn).
+- Publish / deploy — I only publish when you explicitly ask.
+
+## Order of operations & stop points
+
+1. Stage 1 → report → **stop for review**
+2. Stage 2 → report → **stop for review**
+3. Stage 3 → report → **stop for review**
+4. Stage 4 (per-migration approval built in) → final report
+
+If you'd rather I collapse the stop points and run 1→4 continuously, say so and I'll only pause for the DB migration approvals (which are mandatory).
