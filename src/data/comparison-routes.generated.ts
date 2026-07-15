@@ -1,4 +1,4 @@
-// AUTO-GENERATED — 30 comparison guides
+// AUTO-GENERATED — 31 comparison guides
 export const COMPARISON_ROUTES = [
   "/guides/paracetamol-vs-ibuprofen-for-arthritis",
   "/guides/topical-nsaid-vs-oral-nsaid-arthritis",
@@ -30,5 +30,6 @@ export const COMPARISON_ROUTES = [
   "/guides/meditation-vs-cbt-arthritis-pain",
   "/guides/cold-plunge-vs-warm-bath-arthritis",
   "/guides/dog-arthritis-supplements-vs-prescription",
+  "/guides/collagen-vs-glucosamine",
 ];
 export default COMPARISON_ROUTES;
