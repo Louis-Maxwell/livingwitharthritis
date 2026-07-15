@@ -628,6 +628,100 @@ export const COMPARISON_CONTENT: Record<string, ComparisonArticle> = {
       "A one-off private consult can be a smart bridge into the NHS pathway.",
     ],
   },
+
+  "/guides/collagen-vs-glucosamine": {
+    path: "/guides/collagen-vs-glucosamine",
+    title: "Collagen vs Glucosamine for Arthritis",
+    metaDescription:
+      "Collagen vs glucosamine for arthritis: which supplement has better evidence for joint pain, UK doses, side effects, cost and who each one actually suits.",
+    intro:
+      "Collagen and glucosamine are the two supplements people ask about most when they want to try something over the counter for arthritis. Both claim to support cartilage and reduce joint pain, both are sold in every UK pharmacy and health shop, and both have a mixed evidence base that's easy to misread. This guide compares them honestly — what each one is, what the trials actually show, sensible UK doses, safety, cost, and who each one tends to suit.",
+    optionA: {
+      name: "Hydrolysed collagen",
+      howItWorks:
+        "Collagen peptides are absorbed as small amino-acid fragments. Some reach cartilage and connective tissue, where they may stimulate the body's own collagen production and reduce inflammatory signalling.",
+      bestFor:
+        "Mild to moderate osteoarthritis with aching joints, people who also want skin, hair and tendon benefits, and those who cannot tolerate shellfish-derived glucosamine.",
+      sideEffects:
+        "Generally very well tolerated. Occasional mild bloating or an unpleasant aftertaste. Not suitable for vegetarians or vegans (usually bovine or marine).",
+      nhs: "Not prescribed on the NHS for arthritis. NICE does not recommend it, but it is not discouraged either — considered a personal choice.",
+      cost: "£10–£25 per month for a 10 g/day hydrolysed collagen powder or peptide capsules.",
+    },
+    optionB: {
+      name: "Glucosamine (sulfate)",
+      howItWorks:
+        "A building block of cartilage. Taken orally, glucosamine sulfate may modestly slow cartilage breakdown and reduce pain signalling in the joint over several weeks.",
+      bestFor:
+        "Mild to moderate knee osteoarthritis, particularly in people willing to trial a supplement for at least 8–12 weeks before judging effect.",
+      sideEffects:
+        "Mild stomach upset, heartburn, occasional headaches. Caution in shellfish allergy, warfarin users (may raise INR), and poorly controlled diabetes.",
+      nhs: "Not prescribed on the NHS. NICE 2022 osteoarthritis guidance specifically recommends against routine use, citing inconsistent evidence.",
+      cost: "£8–£20 per month for 1,500 mg/day glucosamine sulfate; combined glucosamine + chondroitin products cost more (£15–£30).",
+    },
+    sections: [
+      {
+        heading: "What each one actually is",
+        paragraphs: [
+          "Collagen is the main structural protein in cartilage, tendon, skin and bone. Supplements are almost always 'hydrolysed collagen' or 'collagen peptides' — long chains broken down into short fragments the gut can absorb. Sources are usually bovine (cow hide), marine (fish skin) or, less commonly, chicken (type II collagen).",
+          "Glucosamine is a natural amino sugar the body uses to build the sticky, cushioning parts of cartilage (glycosaminoglycans). Supplements are extracted mainly from shellfish shells, though shellfish-free versions from fermented corn are now available. The sulfate form is the one used in most positive trials — the hydrochloride form has weaker evidence.",
+        ],
+      },
+      {
+        heading: "What the evidence actually shows",
+        paragraphs: [
+          "For glucosamine, the picture is genuinely mixed. Early European trials of pharmaceutical-grade glucosamine sulfate (usually 1,500 mg once daily) reported modest but real improvements in knee osteoarthritis pain and function over 6 months. Larger, more rigorous US trials (notably GAIT, 2006) found no meaningful difference over placebo. The most likely explanation is that a subset of people — often those with moderate knee OA — respond, while others don't. That's why NICE 2022 no longer recommends it routinely, but many patients still find it useful.",
+          "For collagen, the evidence is younger but more consistently positive for symptoms. Randomised trials of 10 g/day hydrolysed collagen or 40 mg/day undenatured type II collagen have shown reductions in knee OA pain and stiffness after 3–6 months, with effect sizes broadly comparable to glucosamine in some head-to-head studies. A 2019 meta-analysis in the International Journal of Rheumatic Diseases concluded collagen hydrolysate produced a significant reduction in joint pain versus placebo. Study sizes are still smaller than the glucosamine literature, so cautious optimism is the fair read.",
+          "Neither supplement has been shown to slow the underlying structural progression of osteoarthritis reliably. What they may do is reduce symptoms — pain, stiffness, morning discomfort — enough to keep you active, which is itself protective.",
+        ],
+      },
+      {
+        heading: "How quickly you'd notice a difference",
+        paragraphs: [
+          "Both supplements work slowly. Neither is a painkiller. A fair trial period is 8–12 weeks at a proper dose, taken daily. If you've had no benefit at all by three months, it's unlikely to start working later — stop and try something else.",
+          "Collagen often shows its earliest effects on non-joint tissues (skin firmness, nail strength, tendon comfort) within 4–6 weeks, with joint benefits appearing later. Glucosamine tends to be joint-specific — you either notice a reduction in that background knee ache after 6–10 weeks or you don't.",
+        ],
+      },
+      {
+        heading: "Sensible UK doses",
+        paragraphs: [
+          "Glucosamine: 1,500 mg glucosamine sulfate once daily, ideally with food. Splitting into 500 mg three times a day has no proven advantage. Combined glucosamine + chondroitin (1,500 mg + 1,200 mg) products are more expensive and the evidence for adding chondroitin is weaker than for glucosamine alone.",
+          "Collagen: 10 g/day of hydrolysed collagen peptides is the dose used in most positive trials, taken in water, coffee or a smoothie. Undenatured type II collagen (UC-II) uses a much smaller dose — 40 mg/day — and works by a different immune-modulating mechanism.",
+        ],
+      },
+      {
+        heading: "Safety, allergies and interactions",
+        paragraphs: [
+          "Both are among the safer supplements on the market, but not risk-free. Glucosamine can raise INR in people on warfarin — a genuine bleeding risk that's easy to miss. It may also nudge fasting glucose slightly higher, which matters if diabetes is poorly controlled. Anyone with a serious shellfish allergy should use a shellfish-free (fermented) glucosamine.",
+          "Collagen has very few interactions. Marine collagen shouldn't be used by anyone with a fish allergy, and bovine collagen is not suitable for vegetarians or those avoiding animal products for religious reasons (halal- and kosher-certified collagen exists, but you have to look for it).",
+        ],
+      },
+      {
+        heading: "So which should you try first?",
+        paragraphs: [
+          "If your main problem is knee osteoarthritis pain and you want the option with the longest evidence base — even if that evidence is mixed — start with 1,500 mg/day glucosamine sulfate for 12 weeks. It's the cheaper of the two, and if you're going to respond, you'll likely know by then.",
+          "If your joint pain is more generalised (hands, hips, back, tendons), if you also want potential skin and connective-tissue benefits, or if glucosamine has already failed for you, hydrolysed collagen at 10 g/day is the more sensible next step.",
+          "Some people take both. There's no known interaction and no reason not to — but it doubles the monthly cost, so it's worth trialling them one at a time first to see which (if either) is actually doing something for you.",
+        ],
+      },
+    ],
+    table: [
+      { label: "Typical UK dose", a: "10 g/day hydrolysed peptides", b: "1,500 mg/day sulfate" },
+      { label: "Time to judge effect", a: "8–12 weeks", b: "8–12 weeks" },
+      { label: "Best evidence for", a: "Knee OA pain, tendon comfort", b: "Knee OA pain in responders" },
+      { label: "NICE 2022 guidance", a: "Not recommended, not discouraged", b: "Recommend against routine use" },
+      { label: "Main safety flag", a: "Fish/beef allergies; not vegan", b: "Warfarin, shellfish allergy" },
+      { label: "Monthly cost", a: "£10–£25", b: "£8–£20" },
+      { label: "Slows joint damage?", a: "No proven structural effect", b: "No proven structural effect" },
+    ],
+    takeaways: [
+      "Both are symptom supplements, not disease-modifiers.",
+      "Give either one a fair 12-week trial at a real dose before judging it.",
+      "Glucosamine sulfate 1,500 mg/day suits knee-only osteoarthritis best.",
+      "Hydrolysed collagen 10 g/day suits broader joint and tendon aches.",
+      "Check with a pharmacist if you take warfarin or have a shellfish allergy.",
+      "Neither replaces exercise, weight management or clinician-guided treatment.",
+    ],
+  },
 };
 
 export function getComparisonArticle(path: string): ComparisonArticle | undefined {
