@@ -1,4 +1,4 @@
-// AUTO-GENERATED — 30 comparison guides
+// AUTO-GENERATED — 31 comparison guides
 export const COMPARISON_ROUTES = [
   "/guides/paracetamol-vs-ibuprofen-for-arthritis",
   "/guides/topical-nsaid-vs-oral-nsaid-arthritis",
