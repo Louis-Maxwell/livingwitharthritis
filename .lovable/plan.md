@@ -1,22 +1,38 @@
-## Fix stale sitemap
+## Goal
 
-The generator (`scripts/generate-sitemap.ts`) is correct and wired to `predev`/`prebuild`, but `public/sitemap.xml` was last written on 2026-07-16 against an older route set, and two legacy artifacts still sit in the repo competing with it.
+Make every blog post render in the layout shown in the uploaded images, without writing new medical copy. All 218 posts inherit the change from a single template edit in `src/pages/BlogPost.tsx` (+ small helpers). Posts that already contain matching content (Quick Answer, FAQs, "Helpful tip" callouts, tables, numbered steps) will now display in the intended style; posts missing a block simply skip it — no fabricated content.
 
-### Steps
+## What the uploaded format contains vs. what's already in the template
 
-1. **Regenerate the canonical sitemap.** Run `bun scripts/generate-sitemap.ts` so `public/sitemap.xml` picks up:
-   - all 31 comparison guides in `src/data/comparison-routes.generated.ts`
-   - the 110 glossary routes in `src/data/glossary-routes.generated.ts`
-   - current `blog_articles` rows (published, minus redirect slugs)
-   - condition subpages, exercise×joint, city×service, pets, authors/reviewers
-   - refreshed `<lastmod>` values
+| Uploaded section | Already rendered | Action |
+|---|---|---|
+| Title + reviewer byline + last-reviewed date | ✅ header | none |
+| Quick Answer box | ✅ `AnswerBox` (only when `article.direct_answer` set) | render a fallback Quick Answer built from the first paragraph when `direct_answer` is empty |
+| Key Takeaways | ✅ `KeyTakeaways` | none |
+| Body headings / numbered steps / tables | ✅ prose styles | tighten `prose` styles for numbered `<ol>` (larger number, bold heading pattern) so exercise-step lists look like the images |
+| 💡 Helpful tip / ✅ Try this gently / ⚠️ When to get help / 📝 Remember callouts | ❌ plain paragraphs today | new `renderCallouts()` post-processor: wrap `<p>` starting with one of the four emoji prefixes in a styled `<aside>` (info / success / warning / note variants) |
+| Visible **Frequently Asked Questions** block | ❌ Q&A only surfaces via FAQPage JSON-LD; also gets swept into normal prose | new `<ArticleFaqSection>` that reuses the existing `extractFaqs()` result and renders it as a proper accordion-style list under the body. Strip those `<h2>?…</h2>` blocks from the prose so they don't render twice. |
+| Closing **Find Support for Living With …** CTA | ❌ | new `<ArticleClosingCTA title={article.title} />` — static component, category-aware copy, links to `/self-help` and `/contact`. No new claims. |
+| Print / Download PDF | ✅ | none |
+| Citations, Medical Review badge, TOC, related, comments | ✅ | none |
 
-2. **Remove the stale duplicate `public/sitemap-generated.xml`** (1,473 lines, from the July 3 audit — no code references it, and `public/sitemap-index.xml` points only at `sitemap.xml` plus the four language variants). Keeping two sitemaps invites Search Console mismatches.
+## Files touched
 
-3. **Remove the legacy `scripts/generate-sitemap.mjs`.** It's the pre-TS generator; only `scripts/generate-sitemap.ts` is referenced from `package.json` (`predev`, `prebuild`, `sitemap`). Leaving both around is what caused earlier "which one is canonical" confusion in the audits.
+1. `src/pages/BlogPost.tsx` — wire in fallback Quick Answer, callout post-processor, FAQ section, closing CTA; strip duplicated FAQ headings from body HTML.
+2. `src/components/article/Callouts.tsx` *(new)* — pure function `renderCallouts(html)` returning HTML with the four styled callout variants.
+3. `src/components/article/ArticleFaqSection.tsx` *(new)* — visible FAQ list rendered from the existing `extractFaqs()` output; no schema change (BlogPost still emits FAQPage JSON-LD).
+4. `src/components/article/ArticleClosingCTA.tsx` *(new)* — "Find Support for Living With Arthritis" block matching the uploaded closing paragraph.
+5. `src/index.css` — small print + callout styles (aside variants, no colour tokens hardcoded — uses existing semantic tokens).
 
-4. **Also refresh `src/data/blog-slugs.generated.json`** — the same generator run writes it, so the prerender pipeline stays in sync.
+No data migrations, no changes to `useBlogArticle`, no changes to article rows in the DB. Any post whose current body already contains the four emoji-prefixed lines or Q&A `?` headings will automatically look like the uploaded example; posts without them just render the standard prose.
 
-5. **Verify**: `head -5 public/sitemap.xml` shows today's `<lastmod>`, `grep -c "<url>" public/sitemap.xml` returns a sensible count (~900±), and `bunx tsgo --noEmit` still passes.
+## Out of scope
 
-Not touching: `supabase/functions/generate-sitemap/index.ts` (separate edge-function path, unrelated to the static file), the four language sitemaps, `robots.txt`, or `sitemap-index.xml`.
+- Rewriting body copy of any individual post (that's the "batch rewrite" option you didn't pick).
+- Generating new FAQs / takeaways / progression tables where the post has none — I won't invent medical detail.
+- Backend/API changes.
+
+## Verification
+
+- `bunx tsgo --noEmit` clean.
+- Playwright screenshot of one knee-exercises-style post and one short post (no FAQs / no callouts) to confirm the missing-block case degrades gracefully.

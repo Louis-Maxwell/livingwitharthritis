@@ -31,7 +31,33 @@ import NextReadStrip from "@/components/NextReadStrip";
 import KeyTakeaways from "@/components/article/KeyTakeaways";
 import FeedbackPoll from "@/components/article/FeedbackPoll";
 import InlineRelatedStrip from "@/components/article/InlineRelatedStrip";
+import ArticleFaqSection from "@/components/article/ArticleFaqSection";
+import ArticleClosingCTA from "@/components/article/ArticleClosingCTA";
+import { renderCallouts } from "@/components/article/Callouts";
 import { markVisited } from "@/lib/visitedArticles";
+
+/**
+ * Remove any H2/H3 whose text ends in "?" plus everything up to the next
+ * heading. These get rendered as a dedicated FAQ block below the body, so
+ * we drop them from the main prose to prevent duplicate content.
+ */
+function stripQuestionHeadings(html: string): string {
+  return html.replace(
+    /<h([23])[^>]*>([^<]*\?)\s*<\/h\1>[\s\S]*?(?=<h[1-3][^>]*>|$)/gi,
+    "",
+  );
+}
+
+/** Build a fallback direct-answer sentence from the first substantive paragraph. */
+function firstParagraphSummary(html: string): string {
+  const m = html.match(/<p[^>]*>([\s\S]*?)<\/p>/i);
+  if (!m) return "";
+  const text = m[1].replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+  if (text.length < 60) return "";
+  // First 1–2 sentences, capped at ~280 chars
+  const sentences = text.split(/(?<=[.!?])\s+/).slice(0, 2).join(" ");
+  return sentences.length > 300 ? sentences.slice(0, 297) + "…" : sentences;
+}
 
 
 
@@ -138,12 +164,15 @@ const BlogPost = () => {
   }
 
   const htmlContent = markdownToHtml(article.content);
-  const htmlWithIds = addHeadingIds(htmlContent);
+  const faqs = extractFaqs(htmlContent, article.title);
+  const bodyForRender = renderCallouts(stripQuestionHeadings(htmlContent));
+  const htmlWithIds = addHeadingIds(bodyForRender);
   // Split after the first </h2> so we can inject an inline related-strip mid-article.
   const firstH2End = htmlWithIds.search(/<\/h2>/i);
   const splitAt = firstH2End >= 0 ? firstH2End + "</h2>".length : -1;
   const htmlBeforeStrip = splitAt > 0 ? htmlWithIds.slice(0, splitAt) : htmlWithIds;
   const htmlAfterStrip = splitAt > 0 ? htmlWithIds.slice(splitAt) : "";
+  const directAnswer = article.direct_answer || firstParagraphSummary(htmlContent);
   const readingTime = getReadingTime(htmlContent);
   const publishDate = new Date(article.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
   const updatedAtRaw = (article as { updated_at?: string | null }).updated_at ?? null;
@@ -352,12 +381,12 @@ const BlogPost = () => {
         </header>
 
         <main className="container mx-auto px-6 md:px-10 py-10 md:py-14 max-w-[720px]">
-          {article.direct_answer && (
+          {directAnswer && (
             <AnswerBox
               question={article.title.replace(/[?.!]+$/, "").trim() + "?"}
               reviewed={dateModifiedIso?.slice(0, 10)}
             >
-              {article.direct_answer}
+              {directAnswer}
             </AnswerBox>
           )}
 
@@ -422,6 +451,9 @@ const BlogPost = () => {
               <div dangerouslySetInnerHTML={{ __html: htmlAfterStrip }} />
             )}
           </section>
+
+          <ArticleFaqSection faqs={faqs} />
+          <ArticleClosingCTA title={article.title} />
 
           {/* Print footer: only visible when saving to PDF / printing */}
           <div className="print-only mt-8 pt-4 border-t border-black text-[10px] leading-snug">
