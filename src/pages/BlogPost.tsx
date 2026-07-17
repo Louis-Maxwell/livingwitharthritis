@@ -452,6 +452,9 @@ const BlogPost = () => {
             )}
           </section>
 
+          <ArticleFaqSection faqs={faqs} />
+          <ArticleClosingCTA title={article.title} />
+
           {/* Print footer: only visible when saving to PDF / printing */}
           <div className="print-only mt-8 pt-4 border-t border-black text-[10px] leading-snug">
             <p>
