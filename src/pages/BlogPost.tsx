@@ -31,7 +31,33 @@ import NextReadStrip from "@/components/NextReadStrip";
 import KeyTakeaways from "@/components/article/KeyTakeaways";
 import FeedbackPoll from "@/components/article/FeedbackPoll";
 import InlineRelatedStrip from "@/components/article/InlineRelatedStrip";
+import ArticleFaqSection from "@/components/article/ArticleFaqSection";
+import ArticleClosingCTA from "@/components/article/ArticleClosingCTA";
+import { renderCallouts } from "@/components/article/Callouts";
 import { markVisited } from "@/lib/visitedArticles";
+
+/**
+ * Remove any H2/H3 whose text ends in "?" plus everything up to the next
+ * heading. These get rendered as a dedicated FAQ block below the body, so
+ * we drop them from the main prose to prevent duplicate content.
+ */
+function stripQuestionHeadings(html: string): string {
+  return html.replace(
+    /<h([23])[^>]*>([^<]*\?)\s*<\/h\1>[\s\S]*?(?=<h[1-3][^>]*>|$)/gi,
+    "",
+  );
+}
+
+/** Build a fallback direct-answer sentence from the first substantive paragraph. */
+function firstParagraphSummary(html: string): string {
+  const m = html.match(/<p[^>]*>([\s\S]*?)<\/p>/i);
+  if (!m) return "";
+  const text = m[1].replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+  if (text.length < 60) return "";
+  // First 1–2 sentences, capped at ~280 chars
+  const sentences = text.split(/(?<=[.!?])\s+/).slice(0, 2).join(" ");
+  return sentences.length > 300 ? sentences.slice(0, 297) + "…" : sentences;
+}
 
 
 
