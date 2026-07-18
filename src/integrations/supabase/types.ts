@@ -332,6 +332,78 @@ export type Database = {
         }
         Relationships: []
       }
+      blog_articles_backup_20260718: {
+        Row: {
+          author: string | null
+          author_credentials: string | null
+          category: string | null
+          citations: Json | null
+          content: string | null
+          created_at: string | null
+          date: string | null
+          direct_answer: string | null
+          display_order: number | null
+          excerpt: string | null
+          id: string | null
+          image_url: string | null
+          is_published: boolean | null
+          keywords: string | null
+          meta_description: string | null
+          meta_title: string | null
+          reviewed_by: string | null
+          reviewer_credentials: string | null
+          slug: string | null
+          title: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          author?: string | null
+          author_credentials?: string | null
+          category?: string | null
+          citations?: Json | null
+          content?: string | null
+          created_at?: string | null
+          date?: string | null
+          direct_answer?: string | null
+          display_order?: number | null
+          excerpt?: string | null
+          id?: string | null
+          image_url?: string | null
+          is_published?: boolean | null
+          keywords?: string | null
+          meta_description?: string | null
+          meta_title?: string | null
+          reviewed_by?: string | null
+          reviewer_credentials?: string | null
+          slug?: string | null
+          title?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          author?: string | null
+          author_credentials?: string | null
+          category?: string | null
+          citations?: Json | null
+          content?: string | null
+          created_at?: string | null
+          date?: string | null
+          direct_answer?: string | null
+          display_order?: number | null
+          excerpt?: string | null
+          id?: string | null
+          image_url?: string | null
+          is_published?: boolean | null
+          keywords?: string | null
+          meta_description?: string | null
+          meta_title?: string | null
+          reviewed_by?: string | null
+          reviewer_credentials?: string | null
+          slug?: string | null
+          title?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       blog_comments: {
         Row: {
           author_name: string
