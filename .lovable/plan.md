@@ -1,22 +1,21 @@
-# Verify Google Search Console
+# Complete Google Search Console verification
 
-Verify ownership of `https://livingwitharthritis.org.uk/` using the META tag method through the Google Search Console connector, then register the site as a property.
+The verification meta tag is already in `index.html` and (per your message) the site has been published. Now finalize verification and register the property.
 
 ## Steps
 
-1. **Request a META verification token** via the connector gateway:
-   `POST /siteVerification/v1/token` with `{ site: { identifier: "https://livingwitharthritis.org.uk/", type: "SITE" }, verificationMethod: "META" }`.
+1. **Sanity-check the live tag** — `curl -s https://livingwitharthritis.org.uk/ | grep google-site-verification` to confirm Google will find `content="l-qVt5TBBgjYNFIo3al0voSLQYBkaRRwM899InNHcqw"` on the live domain. If it's missing, stop and tell you to re-publish (verification would fail otherwise).
 
-2. **Add the returned `<meta name="google-site-verification" content="…" />` tag to `index.html`** inside `<head>`, alongside the existing verification meta tags. This is the only file change.
+2. **Call the verify endpoint** through the connector gateway:
+   `POST /siteVerification/v1/webResource?verificationMethod=META` with `{ site: { identifier: "https://livingwitharthritis.org.uk/", type: "SITE" } }`. A 200 confirms ownership.
 
-3. **User publishes the site** so the tag is live on the production domain. (Verification can only succeed after publish — Google fetches the live URL.)
+3. **Register the property in Search Console** so it appears in your property list:
+   `PUT /webmasters/v3/sites/https%3A%2F%2Flivingwitharthritis.org.uk%2F`.
 
-4. **Call verify**: `POST /siteVerification/v1/webResource?verificationMethod=META` with the same identifier. A 200 confirms ownership.
+4. **Confirm** by listing verified properties: `GET /webmasters/v3/sites` and reporting back whether the domain now appears.
 
-5. **Register the property in Search Console**: `PUT /webmasters/v3/sites/https%3A%2F%2Flivingwitharthritis.org.uk%2F` so it appears in the user's property list, then confirm via `GET /webmasters/v3/sites`.
+No file changes in this turn — this is purely gateway API calls.
 
-## Notes
+## If verification fails
 
-- The existing `public/google6403cab80af896ec.html` file is a separate (file-based) verification artifact from a prior attempt; it can stay — it won't conflict with a new META verification.
-- No sitemap/robots changes needed here; `sitemap.xml` and `robots.txt` are already correct and can be submitted from Search Console after verification succeeds.
-- If step 4 returns `failedToFindMetaTag`, the deploy hasn't propagated yet — wait and retry, don't loop.
+If step 2 returns `failedToFindMetaTag`, the deploy hasn't propagated yet. I'll report the exact response and wait for you to confirm before retrying — no retry loop.
