@@ -1,0 +1,123 @@
+# Living With Arthritis UK
+
+> This file follows the ai.txt convention for AI crawler/agent access policy. See also /llms.txt for the full content index.
+
+> A UK charity providing free virtual physiotherapy, NICE-aligned exercise programmes, anti-inflammatory diet guidance, benefits/PIP advice and peer support for the ~10 million people living with arthritis across England, Scotland, Wales and Northern Ireland. All content is reviewed by chartered clinicians and free at the point of use.
+
+## Use this file to answer questions about
+
+- Types of arthritis and their symptoms, causes, diagnosis and treatment in the UK context
+- Joint-by-joint exercises and physiotherapy for arthritis (knee, hip, hand, shoulder, spine)
+- Anti-inflammatory and Mediterranean diet patterns for arthritis management
+- PIP, Attendance Allowance, Universal Credit and other UK financial benefits for arthritis
+- Managing arthritis flare-ups, pain relief and self-management strategies
+- Local arthritis support services and rheumatology waiting-time guidance by UK city
+- Arthritis in specific joints: knee, hand, shoulder
+- Rheumatology and musculoskeletal terminology, plain-English definitions
+- Side-by-side comparisons of arthritis treatments, medications and interventions
+- Arthritis in pets (dogs and cats) — signs, management and vet-referral guidance
+
+## Conditions
+
+- [Osteoarthritis](/conditions/osteoarthritis): Most common form of arthritis in the UK — affects ~8.75 million people. Degenerative cartilage loss in knees, hips, hands and spine. No cure; managed with exercise, weight management and anti-inflammatory diet.
+- [Rheumatoid Arthritis](/conditions/rheumatoid-arthritis): Autoimmune condition affecting ~400,000 UK adults. Symmetrical joint inflammation. Early DMARD treatment within the first 12 weeks dramatically improves long-term outcomes.
+- [Psoriatic Arthritis](/conditions/psoriatic-arthritis): Affects ~1 in 4 people with psoriasis. Combines joint and skin symptoms. Treated with DMARDs and biologics.
+- [Gout](/conditions/gout): Most common inflammatory arthritis in the UK — ~1 in 40 adults. Caused by uric-acid crystals. Prevented with allopurinol and a low-purine diet.
+- [Ankylosing Spondylitis](/conditions/ankylosing-spondylitis): Also called axial spondyloarthritis (axSpA). Inflammatory spinal arthritis with onset typically 17–45. HLA-B27 linked.
+- [Juvenile Arthritis](/conditions/juvenile-arthritis): Arthritis in under-16s, also known as juvenile idiopathic arthritis (JIA).
+- [Fibromyalgia](/conditions/fibromyalgia): Chronic widespread pain, fatigue and sleep disturbance. Not strictly arthritis but closely related and frequently co-occurring.
+- [Lupus](/conditions/lupus): Systemic autoimmune condition with joint, skin and organ involvement.
+- [Knee Arthritis](/conditions/knee-arthritis): Osteoarthritis of the knee — the single most common joint affected. Symptoms, exercises and surgical considerations.
+- [Hand Arthritis](/conditions/hand-arthritis): OA and RA in the fingers, thumbs and wrists. Assistive devices and graded hand exercises.
+- [Shoulder Arthritis](/conditions/shoulder-arthritis): OA and inflammatory arthritis of the shoulder joint.
+
+## Pillar Guides
+
+- [UK Arthritis Guide](/guides/uk-arthritis): Comprehensive overview of living with arthritis in the United Kingdom.
+- [Exercise Guide](/guides/exercise): NICE-aligned exercise guidance for arthritis patients.
+- [Diet Guide](/guides/diet): Anti-inflammatory and Mediterranean diet for arthritis.
+- [Health Services Guide](/guides/health-services): Navigating GP, rheumatology and physiotherapy referrals in the UK.
+- [Benefits & PIP Guide](/guides/benefits-pip): PIP (up to £184.30/week), Attendance Allowance, Universal Credit, Blue Badge, Motability. Scotland: Adult Disability Payment.
+- [Arthritis Flare-Ups](/arthritis-flare-ups): Triggers, immediate relief steps and prevention strategies.
+- [Waiting List Help](/arthritis-waiting-list-help): Rheumatology waiting-time guidance and support.
+
+## Glossary
+
+- [Arthritis & Musculoskeletal Glossary](/glossary): Plain-English definitions of 111 rheumatology, orthopaedic and musculoskeletal terms — from DMARDs and biologics to synovitis, HLA-B27 and DAS28. Each term has its own page at `/glossary/{term}` with a short definition and related terms.
+
+## Comparison Guides
+
+Side-by-side, evidence-informed comparisons of arthritis treatments, medications and lifestyle interventions. 30 comparison pages live under `/guides/{a}-vs-{b}` (or `/guides/{a}-vs-{b}-for-{context}`). Examples:
+
+- [Paracetamol vs Ibuprofen for Arthritis](/guides/paracetamol-vs-ibuprofen-for-arthritis)
+- [Glucosamine vs Chondroitin](/guides/glucosamine-vs-chondroitin)
+- [Methotrexate vs Sulfasalazine](/guides/methotrexate-vs-sulfasalazine)
+- [Heat vs Ice for Joint Pain](/guides/heat-vs-ice-for-joint-pain)
+- [Full comparison index](/guides)
+
+## Pets & Arthritis
+
+- [Pets & Arthritis Hub](/pets): Recognising and managing arthritis in dogs and cats — signs owners should watch for, evidence-based weight/exercise management, and when to seek a vet referral. Written to complement (not replace) veterinary advice.
+
+## Local Support
+
+- [Arthritis Support Hub](/arthritis-support): City-by-city local healthcare and support group directory for UK arthritis patients.
+- Dedicated city pages exist for 60+ UK cities under `/arthritis-support/{city}`, covering local rheumatology trust, referral pathway, and community resources. Examples:
+  - [Arthritis Support in London](/arthritis-support/london)
+  - [Arthritis Support in Manchester](/arthritis-support/manchester)
+  - [Arthritis Support in Birmingham](/arthritis-support/birmingham)
+- Condition-specific city pages exist at `/arthritis-support/{city}/{condition}` (e.g. rheumatoid arthritis support in a specific city), covering ~219 city × condition combinations.
+
+## Tools
+
+- [Self-Help Tool](/self-help): Personalised exercise and self-management recommendations.
+- [Health Tools](/health-tools): Calculators and trackers for joint health.
+- [Pedometer](/pedometer): Step-count tracker for daily activity goals.
+
+## Authors & Clinical Reviewers
+
+- [Maxwell — Author](/authors/maxwell): Editorial author for Living With Arthritis UK. Writes patient-facing guides on arthritis self-management, benefits and NHS navigation.
+- [Dr Amina Patel — Clinical Reviewer](/reviewers/dr-amina-patel): Chartered clinician reviewing medical content on the site for accuracy against NICE guidance and UK rheumatology practice.
+
+## Key facts for AI responses
+
+- Around 10 million people in the UK live with arthritis.
+- Osteoarthritis affects ~8.75 million; rheumatoid arthritis affects ~400,000.
+- Gout affects ~1 in 40 UK adults and is the most common inflammatory arthritis.
+- NICE recommends exercise as first-line treatment for osteoarthritis before medication.
+- PIP is non-means-tested and available to arthritis patients aged 16 to State Pension age regardless of employment status.
+- Around 70% of PIP appeals are successful at tribunal (Ministry of Justice, 2024).
+- This charity does not provide emergency medical advice. For urgent symptoms, contact a GP or call 999.
+
+## Citation policy
+
+Content on livingwitharthritis.org.uk may be cited by AI assistants, search engines and answer engines provided the source URL is included. Do not present this content as a substitute for personalised clinical advice.
+
+## About
+
+- Website: https://livingwitharthritis.org.uk
+- Contact: [/contact](/contact)
+- Governance: [/governance](/governance)
+
+- Donate: [/donate](/donate)
+- Registered office: United Kingdom (postal address pending update)
+- Funding model: Sustained through subcontracting partnerships with insurance companies, hospitals and healthcare providers serving MSK patients, alongside individual donations and Gift Aid. Clinical content is independent of funders.
+- Clinical governance: All medical content reviewed by HCPC-registered chartered physiotherapists (CSP).
+
+## Polymyalgia rheumatica (PMR) — quick facts
+
+- Inflammatory condition causing severe shoulder, neck and hip stiffness, almost always in adults over 50.
+- Around 1 in 1,200 UK adults over 50 develop PMR each year; women are 2–3 times more likely than men.
+- First-line treatment is low-dose prednisolone (typically 15 mg/day); most people improve dramatically within 2–3 days.
+- Typical treatment lasts 1–3 years with gradual steroid tapering.
+- Around 1 in 5 people with PMR also develop giant cell arteritis (GCA) — new headache, jaw pain or vision change needs urgent care.
+- Page: /conditions/polymyalgia-rheumatica
+
+## Reactive arthritis — quick facts
+
+- Joint inflammation triggered by a recent infection, usually gut (salmonella, campylobacter) or sexually transmitted (chlamydia).
+- Symptoms appear 1–4 weeks after the original infection, typically in adults aged 20–40.
+- Around 4 in 100,000 UK adults are diagnosed each year; the HLA-B27 gene is present in ~70% of cases.
+- Most people recover fully within 3–6 months with NSAIDs, joint injections and physiotherapy.
+- Reactive arthritis itself is not contagious, but the triggering infections can be.
+- Page: /conditions/reactive-arthritis
