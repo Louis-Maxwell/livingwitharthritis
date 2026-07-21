@@ -5,6 +5,8 @@ import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import ReadNextCards from "@/components/ReadNextCards";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import { enforceTitle, enforceDescription } from "@/lib/seoMeta";
 import { ukCities } from "@/data/ukCities";
 import { arthritisConditions } from "@/data/arthritisConditions";
 import { MapPin, Hospital, Phone, BookOpen, ArrowRight, Users, Dumbbell, Apple, Heart, Stethoscope, Timer } from "lucide-react";
@@ -84,10 +86,10 @@ const CityArthritisPage = () => {
   return (
     <>
       <Helmet>
-        <title>{`Arthritis Support in ${cityData.name} — Health Services & Local Help | Living With Arthritis`}</title>
-        <meta name="description" content={cityData.description} />
+        <title>{enforceTitle(`Arthritis Support in ${cityData.name}`, { route: `/arthritis-support/${cityData.slug}` })}</title>
+        <meta name="description" content={enforceDescription(cityData.description, `/arthritis-support/${cityData.slug}`)} />
         <meta property="og:title" content={`Arthritis Support in ${cityData.name}`} />
-        <meta property="og:description" content={cityData.description} />
+        <meta property="og:description" content={enforceDescription(cityData.description, `/arthritis-support/${cityData.slug}`)} />
         <meta property="og:url" content={`${BASE}/arthritis-support/${cityData.slug}`} />
         <meta property="og:type" content="article" />
         <meta name="geo.region" content="GB" />
@@ -128,6 +130,12 @@ const CityArthritisPage = () => {
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Arthritis Support in {cityData.name}
             </h1>
+            <AeoEnhancement
+              route={`/arthritis-support/${cityData.slug}`}
+              question={`Where can I get arthritis support in ${cityData.name}?`}
+              answer={`In ${cityData.name} (${cityData.region}), NHS rheumatology referrals are typically made via ${cityData.localTrust}. Local resources include ${cityData.localResources.slice(0, 2).join(" and ")}. Living With Arthritis UK also runs a free online community and exercise programme accessible from anywhere.`}
+              updatedAt={LAST_REVIEWED_ISO}
+            />
             <p className="text-lg text-muted-foreground leading-relaxed">{cityData.description}</p>
             <p className="text-sm text-muted-foreground mt-2">Population: approx. {cityData.population}</p>
             <p className="text-xs text-muted-foreground mt-3">

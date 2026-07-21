@@ -5,6 +5,8 @@ import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import ReadNextCards from "@/components/ReadNextCards";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import { enforceTitle, enforceDescription } from "@/lib/seoMeta";
 import { ukCities } from "@/data/ukCities";
 import { arthritisConditions } from "@/data/arthritisConditions";
 import {
@@ -138,10 +140,10 @@ const CityConditionPage = () => {
   return (
     <>
       <Helmet>
-        <title>{`${title} | Living With Arthritis`}</title>
-        <meta name="description" content={metaDescription} />
+        <title>{enforceTitle(title, { route: url })}</title>
+        <meta name="description" content={enforceDescription(metaDescription, url)} />
         <meta property="og:title" content={title} />
-        <meta property="og:description" content={metaDescription} />
+        <meta property="og:description" content={enforceDescription(metaDescription, url)} />
         <meta property="og:url" content={url} />
         <meta property="og:type" content="article" />
         <meta name="geo.region" content="GB" />
@@ -191,6 +193,12 @@ const CityConditionPage = () => {
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               {conditionData.name} Support in {cityData.name}
             </h1>
+            <AeoEnhancement
+              route={`/arthritis-support/${cityData.slug}/${conditionData.slug}`}
+              question={`How do I get help for ${conditionData.name} in ${cityData.name}?`}
+              answer={`People in ${cityData.name} with ${conditionData.name} are typically referred by their GP to ${cityData.localTrust} for rheumatology assessment and ongoing care. ${conditionData.ukPrevalence} Common symptoms include ${conditionData.commonSymptoms.slice(0, 3).join(", ")}.`}
+              updatedAt={LAST_REVIEWED_ISO}
+            />
             <p className="text-lg text-muted-foreground leading-relaxed mb-3">{conditionData.description}</p>
             <p className="text-sm text-muted-foreground">{conditionData.ukPrevalence}</p>
             <p className="text-xs text-muted-foreground mt-3">
