@@ -130,6 +130,12 @@ const CityArthritisPage = () => {
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Arthritis Support in {cityData.name}
             </h1>
+            <AeoEnhancement
+              route={`/arthritis-support/${cityData.slug}`}
+              question={`Where can I get arthritis support in ${cityData.name}?`}
+              answer={`In ${cityData.name} (${cityData.region}), NHS rheumatology referrals are typically made via ${cityData.localTrust}. Local resources include ${cityData.localResources.slice(0, 2).join(" and ")}. Living With Arthritis UK also runs a free online community and exercise programme accessible from anywhere.`}
+              updatedAt={LAST_REVIEWED_ISO}
+            />
             <p className="text-lg text-muted-foreground leading-relaxed">{cityData.description}</p>
             <p className="text-sm text-muted-foreground mt-2">Population: approx. {cityData.population}</p>
             <p className="text-xs text-muted-foreground mt-3">
