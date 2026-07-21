@@ -5,6 +5,8 @@ import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import ReadNextCards from "@/components/ReadNextCards";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import { enforceTitle, enforceDescription } from "@/lib/seoMeta";
 import { ukCities } from "@/data/ukCities";
 import { arthritisConditions } from "@/data/arthritisConditions";
 import { MapPin, Hospital, Phone, BookOpen, ArrowRight, Users, Dumbbell, Apple, Heart, Stethoscope, Timer } from "lucide-react";
