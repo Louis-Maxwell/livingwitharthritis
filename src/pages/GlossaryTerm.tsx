@@ -3,8 +3,10 @@ import { Link, useParams, Navigate } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { ChevronLeft, BookOpen } from "lucide-react";
 import Header from "@/components/Header";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import { GLOSSARY_ROUTES } from "@/data/glossary-routes.generated";
 import { getGlossaryEntry, GLOSSARY_CONTENT } from "@/data/glossary-content";
+import { enforceTitle, enforceDescription } from "@/lib/seoMeta";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
