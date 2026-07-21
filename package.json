@@ -1,8 +1,15 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "livingwitharthritis",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
+  "description": "Living With Arthritis — frontend built with Vite, React, TypeScript, and TailwindCSS",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Louis-Maxwell/livingwitharthritis.git"
+  },
+  "author": "Louis-Maxwell",
+  "license": "MIT",
   "scripts": {
     "predev": "bun scripts/generate-sitemap.ts || true",
     "dev": "vite",
