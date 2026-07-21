@@ -140,10 +140,10 @@ const CityConditionPage = () => {
   return (
     <>
       <Helmet>
-        <title>{`${title} | Living With Arthritis`}</title>
-        <meta name="description" content={metaDescription} />
+        <title>{enforceTitle(title, { route: url })}</title>
+        <meta name="description" content={enforceDescription(metaDescription, url)} />
         <meta property="og:title" content={title} />
-        <meta property="og:description" content={metaDescription} />
+        <meta property="og:description" content={enforceDescription(metaDescription, url)} />
         <meta property="og:url" content={url} />
         <meta property="og:type" content="article" />
         <meta name="geo.region" content="GB" />
