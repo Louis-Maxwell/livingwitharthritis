@@ -140,7 +140,8 @@ Deno.serve(async (req) => {
     supabase = getServiceClient('send-transactional-email')
   } catch (e) {
     if (isSupabaseConfigError(e)) {
-      return new Response(JSON.stringify({ error: e.message }), {
+      console.error('[send-transactional-email] Supabase config error:', e.message)
+      return new Response(JSON.stringify({ error: 'Server configuration error' }), {
         status: 500,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       })

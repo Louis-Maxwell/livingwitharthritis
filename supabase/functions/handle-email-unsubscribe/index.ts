@@ -64,7 +64,10 @@ Deno.serve(async (req) => {
   try {
     supabase = getServiceClient('handle-email-unsubscribe')
   } catch (e) {
-    if (isSupabaseConfigError(e)) return jsonResponse({ error: e.message }, 500)
+    if (isSupabaseConfigError(e)) {
+      console.error('[handle-email-unsubscribe] Supabase config error:', e.message)
+      return jsonResponse({ error: 'Server configuration error' }, 500)
+    }
     throw e
   }
 

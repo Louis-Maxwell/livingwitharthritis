@@ -80,7 +80,10 @@ Deno.serve(async (req) => {
   try {
     supabase = getServiceClient('handle-email-suppression')
   } catch (e) {
-    if (isSupabaseConfigError(e)) return jsonResponse({ error: e.message }, 500)
+    if (isSupabaseConfigError(e)) {
+      console.error('[handle-email-suppression] Supabase config error:', e.message)
+      return jsonResponse({ error: 'Server configuration error' }, 500)
+    }
     throw e
   }
   const normalizedEmail = payload.email.toLowerCase()
