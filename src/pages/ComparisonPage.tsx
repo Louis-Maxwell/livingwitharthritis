@@ -80,13 +80,22 @@ export default function ComparisonPage() {
     dateModified: LAST_REVIEWED_ISO,
   };
 
+  const fullTitle = enforceTitle(`${title} — Compared`, { route: path });
+  const safeDesc = enforceDescription(metaDescription, path);
+  const aeoQuestion = `How do ${a} and ${b} compare${context ? ` for ${context.toLowerCase()}` : ""}?`;
+  const aeoAnswer = article?.intro ?? metaDescription;
+  const aeoFaqs = article?.takeaways?.slice(0, 4).map((t, i) => ({
+    q: `Key point ${i + 1}: ${a} vs ${b}`,
+    a: t,
+  }));
+
   return (
     <>
       <Helmet>
-        <title>{title} — Compared | Living With Arthritis UK</title>
-        <meta name="description" content={metaDescription} />
+        <title>{fullTitle}</title>
+        <meta name="description" content={safeDesc} />
         <meta property="og:title" content={title} />
-        <meta property="og:description" content={metaDescription} />
+        <meta property="og:description" content={safeDesc} />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:type" content="article" />
         <script type="application/ld+json">{JSON.stringify(medicalWebPageLd)}</script>
@@ -111,6 +120,13 @@ export default function ComparisonPage() {
             </span>
           </div>
           <h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">{title}</h1>
+          <AeoEnhancement
+            route={path}
+            question={aeoQuestion}
+            answer={aeoAnswer}
+            faqs={aeoFaqs}
+            updatedAt={LAST_REVIEWED_ISO}
+          />
           <p className="text-xs text-muted-foreground mb-4">
             Last reviewed{" "}
             <time dateTime={LAST_REVIEWED_ISO} className="font-medium text-foreground/80">
