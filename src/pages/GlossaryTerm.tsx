@@ -57,8 +57,8 @@ export default function GlossaryTerm() {
   return (
     <>
       <Helmet>
-        <title>{label} — Arthritis Glossary | Living With Arthritis UK</title>
-        <meta name="description" content={description} />
+        <title>{enforceTitle(`${label} — Arthritis Glossary`, { route: href })}</title>
+        <meta name="description" content={enforceDescription(description, href)} />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "DefinedTerm",
@@ -95,6 +95,12 @@ export default function GlossaryTerm() {
             </span>
           </div>
           <h1 className="text-3xl md:text-4xl font-bold mb-4">{label}</h1>
+          <AeoEnhancement
+            route={href}
+            question={`What is ${label}?`}
+            answer={entry?.short ?? description}
+            updatedAt={LAST_REVIEWED_ISO}
+          />
           <p className="text-xs text-muted-foreground mb-6">
             Last reviewed{" "}
             <time dateTime={LAST_REVIEWED_ISO} className="font-medium text-foreground/80">
