@@ -41,9 +41,9 @@ const DonationQuickBar = () => {
 
   return (
     <>
-      <div className="text-primary-foreground" style={{ backgroundColor: '#E60023' }}>
-        <div className="container mx-auto px-3 sm:px-4 py-2 bg-[#ff0000]">
-          <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 bg-[#ff0000]">
+      <div className="bg-primary text-primary-foreground">
+        <div className="container mx-auto px-3 sm:px-4 py-2">
+          <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
             {/* Frequency pill toggle */}
             <div className="flex items-center bg-background/15 rounded-full p-0.5 h-9">
               {(["one-time", "monthly"] as const).map((f) => (
@@ -74,7 +74,7 @@ const DonationQuickBar = () => {
             </div>
 
             {/* Amount input */}
-            <div className="bg-background/15 rounded-full h-9 px-4 flex items-center w-[110px]">
+            <div className="bg-background/15 rounded-full h-9 px-4 flex items-center w-[84px] sm:w-[110px] shrink-0">
               <Input
                 type="number"
                 min="1"
@@ -112,7 +112,7 @@ const DonationQuickBar = () => {
             <Select value={fund} onValueChange={setFund}>
               <SelectTrigger
                 aria-label="Choose appeal"
-                className="h-9 bg-background/15 text-primary-foreground border-0 rounded-full text-xs font-semibold w-[160px] px-4 focus:ring-0 focus:ring-offset-0 [&>svg]:opacity-80"
+                className="h-9 bg-background/15 text-primary-foreground border-0 rounded-full text-xs font-semibold w-[120px] sm:w-[160px] px-3 sm:px-4 focus:ring-0 focus:ring-offset-0 [&>svg]:opacity-80"
               >
                 <SelectValue />
               </SelectTrigger>
