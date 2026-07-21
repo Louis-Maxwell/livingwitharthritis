@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import {
   SUPPORTED_LANGS,
   HREFLANG_CODES,
+  TRANSLATED_BASE_PATHS,
   detectLangFromPath,
   stripLangPrefix,
   buildLangUrl,
@@ -23,11 +24,15 @@ export default function SeoDefaults() {
   const canonical = `${SITE_URL}${path}`;
   const currentLang = detectLangFromPath(path);
   const basePath = stripLangPrefix(path);
+  // Only emit hreflang alternates when a translated route genuinely
+  // exists for this page — otherwise we'd link to 404s on every one
+  // of the ~800+ pages that aren't translated (see TRANSLATED_BASE_PATHS).
+  const hasTranslations = TRANSLATED_BASE_PATHS.includes(basePath);
 
   return (
     <Helmet>
       <link rel="canonical" href={canonical} />
-      {SUPPORTED_LANGS.map((lang) => (
+      {hasTranslations && SUPPORTED_LANGS.map((lang) => (
         <link
           key={lang}
           rel="alternate"
@@ -35,7 +40,9 @@ export default function SeoDefaults() {
           href={`${SITE_URL}${buildLangUrl(lang, basePath)}`}
         />
       ))}
-      <link rel="alternate" hrefLang="x-default" href={`${SITE_URL}${basePath}`} />
+      {hasTranslations && (
+        <link rel="alternate" hrefLang="x-default" href={`${SITE_URL}${basePath}`} />
+      )}
       <html lang={HREFLANG_CODES[currentLang]} />
     </Helmet>
   );

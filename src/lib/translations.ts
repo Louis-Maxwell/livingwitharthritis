@@ -27,6 +27,24 @@ export const HREFLANG_CODES: Record<Lang, string> = {
   pt: "pt",
 };
 
+/**
+ * Base paths (English, no lang prefix) that ACTUALLY have a translated
+ * route registered in App.tsx for every locale in SUPPORTED_LANGS.
+ *
+ * CRITICAL: only list a path here once /{lang}/{path} genuinely exists
+ * as a <Route> for es, fr, de AND pt. Emitting hreflang alternates for
+ * pages that don't have a real translated route creates broken links
+ * that search engines crawl and flag as errors — this list exists to
+ * prevent that. Currently only the homepage and the Osteoarthritis
+ * condition page have full translated versions; every other page
+ * (blog posts, other conditions, comparisons, city pages, glossary,
+ * etc.) does NOT and must not get a hreflang cluster.
+ */
+export const TRANSLATED_BASE_PATHS: string[] = [
+  "/",
+  "/conditions/osteoarthritis",
+];
+
 type Dict = {
   nav: {
     home: string;
