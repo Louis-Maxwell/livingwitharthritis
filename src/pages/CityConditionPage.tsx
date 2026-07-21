@@ -193,6 +193,12 @@ const CityConditionPage = () => {
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               {conditionData.name} Support in {cityData.name}
             </h1>
+            <AeoEnhancement
+              route={`/arthritis-support/${cityData.slug}/${conditionData.slug}`}
+              question={`How do I get help for ${conditionData.name} in ${cityData.name}?`}
+              answer={`People in ${cityData.name} with ${conditionData.name} are typically referred by their GP to ${cityData.localTrust} for rheumatology assessment and ongoing care. ${conditionData.ukPrevalence} Common symptoms include ${conditionData.commonSymptoms.slice(0, 3).join(", ")}.`}
+              updatedAt={LAST_REVIEWED_ISO}
+            />
             <p className="text-lg text-muted-foreground leading-relaxed mb-3">{conditionData.description}</p>
             <p className="text-sm text-muted-foreground">{conditionData.ukPrevalence}</p>
             <p className="text-xs text-muted-foreground mt-3">
