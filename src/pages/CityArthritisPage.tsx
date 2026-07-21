@@ -86,10 +86,10 @@ const CityArthritisPage = () => {
   return (
     <>
       <Helmet>
-        <title>{`Arthritis Support in ${cityData.name} — Health Services & Local Help | Living With Arthritis`}</title>
-        <meta name="description" content={cityData.description} />
+        <title>{enforceTitle(`Arthritis Support in ${cityData.name}`, { route: `/arthritis-support/${cityData.slug}` })}</title>
+        <meta name="description" content={enforceDescription(cityData.description, `/arthritis-support/${cityData.slug}`)} />
         <meta property="og:title" content={`Arthritis Support in ${cityData.name}`} />
-        <meta property="og:description" content={cityData.description} />
+        <meta property="og:description" content={enforceDescription(cityData.description, `/arthritis-support/${cityData.slug}`)} />
         <meta property="og:url" content={`${BASE}/arthritis-support/${cityData.slug}`} />
         <meta property="og:type" content="article" />
         <meta name="geo.region" content="GB" />
