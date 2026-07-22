@@ -1,5 +1,6 @@
-// AUTO-GENERATED — 31 comparison guides
+// AUTO-GENERATED — 32 comparison guides
 export const COMPARISON_ROUTES = [
+  "/guides/febuxostat-vs-allopurinol",
   "/guides/paracetamol-vs-ibuprofen-for-arthritis",
   "/guides/topical-nsaid-vs-oral-nsaid-arthritis",
   "/guides/physiotherapy-vs-surgery-knee-arthritis",

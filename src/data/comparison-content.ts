@@ -722,6 +722,106 @@ export const COMPARISON_CONTENT: Record<string, ComparisonArticle> = {
       "Neither replaces exercise, weight management or clinician-guided treatment.",
     ],
   },
+
+  "/guides/febuxostat-vs-allopurinol": {
+    path: "/guides/febuxostat-vs-allopurinol",
+    title: "Febuxostat vs Allopurinol for Gout",
+    metaDescription:
+      "Febuxostat vs allopurinol for gout: UK-focused comparison of effectiveness, side effects, cardiovascular safety, NHS eligibility and cost for long-term urate-lowering therapy.",
+    intro:
+      "Allopurinol and febuxostat are the two urate-lowering drugs used long term to prevent gout attacks in the UK. Both lower blood uric acid by blocking xanthine oxidase, but they differ in effectiveness at standard doses, cardiovascular safety, kidney handling and NHS availability. This guide explains what NICE and the British Society for Rheumatology actually recommend, how each drug performs in practice, and when febuxostat is the sensible second choice.",
+    optionA: {
+      name: "Allopurinol",
+      howItWorks:
+        "Xanthine oxidase inhibitor. Lowers uric acid production. Standard first-line urate-lowering therapy in UK guidelines, titrated from 100 mg up to 900 mg/day to hit a target serum urate below 300–360 µmol/L.",
+      bestFor:
+        "Almost everyone starting long-term gout treatment. Effective, cheap, well studied over 60+ years, and safe for most people with mild to moderate kidney impairment when titrated slowly.",
+      sideEffects:
+        "Rash (common), rare but serious hypersensitivity syndrome (higher risk in people of Han Chinese, Thai or Korean ancestry with the HLA-B*5801 gene), mildly deranged liver enzymes. Acute gout flares in the first weeks of treatment.",
+      nhs: "First-line urate-lowering therapy on the NHS per NICE NG219 (2022) and BSR guidance. Available on standard NHS prescription.",
+      cost: "Approximately £1–£3 per month at standard doses. Free with an NHS prescription exemption.",
+    },
+    optionB: {
+      name: "Febuxostat",
+      howItWorks:
+        "A newer, non-purine xanthine oxidase inhibitor. Licensed doses in the UK are 80 mg or 120 mg once daily. More potent per milligram than allopurinol, so a fixed dose often reaches target serum urate faster.",
+      bestFor:
+        "People who cannot tolerate allopurinol, those who fail to reach target urate on maximum allopurinol, and some patients with significant renal impairment where allopurinol dose titration is limited.",
+      sideEffects:
+        "Liver enzyme rise, nausea, headache, rash, and acute flares during initiation. A large cardiovascular safety trial (CARES, 2018) raised concerns about higher cardiovascular death rates versus allopurinol, though a later trial (FAST, 2020) in a UK/European population did not confirm this.",
+      nhs: "Second-line on the NHS. NICE TA164 restricts it to patients intolerant of allopurinol or in whom allopurinol is contraindicated. Not first-choice.",
+      cost: "Roughly £13–£20 per month for 80 mg tablets. Free with an NHS prescription exemption.",
+    },
+    sections: [
+      {
+        heading: "What UK guidelines actually say",
+        paragraphs: [
+          "NICE NG219 (2022) and the British Society for Rheumatology are clear: allopurinol is first-line urate-lowering therapy for essentially all UK adults with gout who need long-term treatment. Febuxostat sits as a second-line option, reserved for people who cannot tolerate allopurinol or in whom it is contraindicated.",
+          "This is not because febuxostat is a worse drug — it isn't. It reflects cost, decades of allopurinol safety data, and the unresolved cardiovascular question from the CARES trial. If allopurinol is well tolerated and reaches the target serum urate, there is no reason to switch.",
+        ],
+      },
+      {
+        heading: "Effectiveness — reaching the target urate",
+        paragraphs: [
+          "The whole point of urate-lowering therapy is to drop serum urate below 300–360 µmol/L (5–6 mg/dL) and keep it there. Below that threshold, existing urate crystals in joints slowly dissolve and new attacks become rare.",
+          "At its full titrated dose (up to 900 mg/day, though most UK patients reach target on 300–500 mg), allopurinol gets 70–80% of people to target. The problem is that many are left under-treated on 100–300 mg because their GP doesn't titrate high enough.",
+          "Febuxostat at 80 mg or 120 mg once daily reaches target urate in more people at a fixed dose than allopurinol 300 mg does — but the fair comparison is against properly titrated allopurinol, and there the difference narrows significantly.",
+        ],
+      },
+      {
+        heading: "The cardiovascular question",
+        paragraphs: [
+          "The CARES trial (published in the New England Journal of Medicine in 2018) enrolled US patients with gout and pre-existing cardiovascular disease. Febuxostat and allopurinol prevented similar numbers of cardiovascular events overall, but there was a higher rate of cardiovascular death and all-cause death in the febuxostat group. This prompted the MHRA to issue a warning and the EMA to update the label.",
+          "The FAST trial (Lancet, 2020) was a UK, Danish and Swedish study of over 6,000 patients. It did not find a higher cardiovascular death rate on febuxostat versus allopurinol, which reassured many UK rheumatologists. Current UK practice treats febuxostat as safe in people without severe pre-existing cardiovascular disease, but avoids it in those with a history of major cardiovascular events where allopurinol is a reasonable alternative.",
+        ],
+      },
+      {
+        heading: "When allopurinol is not suitable",
+        paragraphs: [
+          "The main reasons a UK patient ends up on febuxostat are: a previous allopurinol rash or hypersensitivity, inability to reach target urate on the maximum tolerated allopurinol dose, or significant renal impairment where allopurinol titration is capped.",
+          "People of Han Chinese, Thai or Korean ancestry are offered HLA-B*5801 testing before starting allopurinol because that gene raises the risk of severe cutaneous reactions (Stevens–Johnson syndrome). A positive test is a clear indication for febuxostat instead.",
+        ],
+      },
+      {
+        heading: "Kidney disease — a real difference",
+        paragraphs: [
+          "Allopurinol needs careful dose reduction in moderate to severe chronic kidney disease. UK guidance now allows titration up in CKD, but slowly and with close monitoring. In practice many patients with CKD are under-dosed.",
+          "Febuxostat needs no dose adjustment in mild to moderate renal impairment and only cautious use in severe CKD. That makes it a practical option for patients where allopurinol titration keeps hitting a ceiling.",
+        ],
+      },
+      {
+        heading: "Starting either drug — the flare paradox",
+        paragraphs: [
+          "Both drugs frequently trigger gout attacks in the first weeks of treatment as urate crystals start to dissolve and shed from joints. This is expected, not a treatment failure. UK guidance recommends covering the first 3–6 months of urate-lowering therapy with a low-dose colchicine (usually 500 micrograms once or twice daily) or a low-dose NSAID if colchicine is not tolerated.",
+          "The most common reason people stop urate-lowering therapy is stopping in the middle of an early flare. If your urate is coming down, do not stop the drug — that's when the flares are most likely, but also when the long-term benefit is beginning.",
+        ],
+      },
+      {
+        heading: "So which should you take?",
+        paragraphs: [
+          "For almost all UK adults with gout, allopurinol first — titrated properly to hit a serum urate target below 360 µmol/L. This is the NICE- and BSR-recommended route, it is far cheaper, and it has the longest safety record.",
+          "Febuxostat is the right answer if you cannot tolerate allopurinol, if you have failed to reach target on the highest allopurinol dose you can take, or if kidney disease is limiting how high your allopurinol can go. In those situations it is often the drug that finally gets your urate under control.",
+        ],
+      },
+    ],
+    table: [
+      { label: "UK guideline position", a: "First-line (NICE NG219, BSR)", b: "Second-line (NICE TA164)" },
+      { label: "Typical dose", a: "100 → 300–900 mg/day, titrated", b: "80 mg or 120 mg once daily" },
+      { label: "Reaches urate target", a: "70–80% when properly titrated", b: "Higher at fixed dose vs allopurinol 300 mg" },
+      { label: "Renal impairment", a: "Slow titration; capped in severe CKD", b: "No adjustment mild–moderate CKD" },
+      { label: "Cardiovascular safety", a: "Preferred where CV disease present", b: "Signal in CARES, not confirmed in FAST" },
+      { label: "Cost per month (NHS)", a: "£1–£3", b: "£13–£20" },
+      { label: "Serious rash risk", a: "Rare; test HLA-B*5801 in at-risk ancestry", b: "Lower than allopurinol" },
+    ],
+    takeaways: [
+      "Allopurinol is first-line urate-lowering therapy in the UK — titrate to a serum urate below 360 µmol/L.",
+      "Febuxostat is second-line on the NHS, used when allopurinol is not tolerated, contraindicated, or not effective at maximum dose.",
+      "Both drugs commonly trigger flares in the first weeks — cover with low-dose colchicine or NSAID for 3–6 months.",
+      "People of Han Chinese, Thai or Korean ancestry should be HLA-B*5801 tested before starting allopurinol.",
+      "Febuxostat is a useful alternative in significant kidney disease where allopurinol titration is limited.",
+      "Do not stop urate-lowering therapy during an early flare — that's when it's starting to work.",
+    ],
+  },
 };
 
 export function getComparisonArticle(path: string): ComparisonArticle | undefined {
