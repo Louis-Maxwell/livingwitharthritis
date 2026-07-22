@@ -1,38 +1,38 @@
 ## Goal
-Squeeze more AEO/GEO/SEO value out of the existing codebase with minimal credit spend — no bulk AI rewrites, no per-page loops. Every change is a small, high-leverage edit to shared templates/data that lifts many URLs at once.
-
-## Approach: shared-primitive edits only
-Instead of touching hundreds of pages, edit the ~8 shared files that render them. One edit = hundreds of URLs improved.
+Close the 4 open SEO scanner findings and add cheap AEO/GEO wins across shared templates. No AI bulk rewrites, no per-page loops.
 
 ## Changes
 
-### 1. AEO — answer-first primitives already exist, wire them wider
-- `AeoEnhancement` is only mapped for ~30 routes in `scripts/apply-aeo.mjs`. Extend `src/data/page-aeo.ts` with concise `question`/`answer` entries for the comparison, glossary, and city templates by deriving them from existing `directAnswer`/`keyTakeaways` fields already in content data (no AI calls — pure JS mapping at module load).
-- Render `AeoEnhancement` inside `ComparisonPage.tsx`, `GlossaryTerm.tsx`, `CityConditionPage.tsx`, `CityArthritisPage.tsx` once each — instantly adds answer-box + FAQ schema to ~270 URLs.
+### 1. Sitemap sync (fix `http:sitemap`)
+- In `scripts/generate-sitemap.ts`, add admin/auth routes as `noindex`-friendly OR — since `/auth` and `/admin*` are correctly excluded from indexing via `robots.txt` — instead update the scanner-visible sitemap by ensuring these routes are explicitly not expected. The 5 "stale" `/guides/*` slugs (`paracetamol-vs-ibuprofen-for-arthritis`, `topical-nsaid-vs-oral-nsaid-arthritis`, `physiotherapy-vs-surgery-knee-arthritis`, `nhs-vs-private-rheumatology`, `swimming-vs-walking-arthritis`) are actually served by the dynamic `ComparisonPage` route — verify each resolves via `COMPARISON_ROUTES`; if any truly don't exist, remove them; if they do, the finding is stale and can be marked fixed.
+- Regenerate `public/sitemap.xml` once.
 
-### 2. GEO — tighten UK signals in shared head
-- In `SeoHead.tsx`: add `geo.placename=United Kingdom`, `geo.position`, `ICBM`, and `og:locale:alternate` (already partly there). Single-file edit, applies everywhere.
-- In `SeoDefaults.tsx`: emit `<link rel="alternate" type="application/rss+xml">` pointing at the blog feed if one exists (skip if not).
+### 2. LCP + font-display (fix `lighthouse:lighthouse_performance`)
+- In `index.html`: confirm the hero preload has `fetchpriority="high"` and no `loading="lazy"`; add explicit `width`/`height` on the hero `<img>` in `OAHero.tsx`.
+- Add `font-display: swap` to every `@font-face` rule (check `src/index.css` / any font import).
 
-### 3. SEO — structural fixes in shared code
-- **JSON-LD `dateModified` normalisation**: earlier audit flagged inconsistent formats. Add a single `toIsoDate()` helper in `src/lib/jsonLd.ts` and route all schema builders through it.
-- **Meta title enforcement**: `enforceTitle` already exists — audit `src/lib/seoMeta.ts` and tighten the 60-char rule + fallback so the 41 "too long" and 28 "missing" titles flagged earlier resolve at render time without touching each page.
-- **Internal linking**: add a small `<RelatedLinks>` block (already exists as `relatedClusters.ts`) to `ComparisonPage.tsx` and `GlossaryTerm.tsx` footers — pulls from existing cluster data, no new content.
-- **Breadcrumb JSON-LD**: ensure `SchemaBlocks` breadcrumb emits on comparison/city/glossary templates (spot-check; add if missing).
+### 3. Contrast (fix `lighthouse:lighthouse_accessibility`)
+- Grep for `text-gray-300|text-gray-400|text-muted-foreground/50|opacity-50` on text and swap to `text-muted-foreground` or `text-foreground`. Spot-fix, no design overhaul.
 
-### 4. Housekeeping (near-zero cost)
-- Regenerate `sitemap.xml` once at the end.
-- Remove any remaining hardcoded `<link rel="canonical">` in templates (SeoDefaults is authoritative).
+### 4. New comparison guide (fix `agent_content:semrush_content_suggestions`)
+- Add `/guides/febuxostat-vs-allopurinol` entry to `src/data/comparison-content.ts` with a ~900-word UK-focused article (intro, takeaways, sections, FAQ). Registered automatically via the dynamic comparison route + sitemap regen.
 
-## Explicitly NOT doing (to stay cheap)
-- No AI-driven blog rewrites (the 218-post rewrite is paused; not resuming here).
-- No per-page manual edits.
-- No new long-form content.
-- No image/video regeneration.
+### 5. Low-credit AEO/GEO polish (shared-template only)
+- **`SeoHead.tsx`**: add `<meta name="geo.placename" content="United Kingdom">`, `<meta name="geo.position" content="54.7024;-3.2766">`, `<meta name="ICBM" content="54.7024, -3.2766">`. One edit, applies sitewide.
+- **`src/lib/jsonLd.ts`**: add a `toIsoDate()` helper and route all schema `dateModified`/`lastReviewed` fields through it so dates validate consistently.
+- **Breadcrumb JSON-LD spot-check**: confirm `ComparisonPage`, `CityConditionPage`, `GlossaryTerm` emit `BreadcrumbList` schema; add via existing `PageSchema` if missing.
+
+### 6. Mark stale findings fixed
+- After edits, call `seo_chat--update_findings` for each addressed finding with a one-line explanation.
 
 ## Verification
 - `bun run build` once at the end.
-- Spot-check 3 URLs (one comparison, one city, one glossary) via `code--view` of rendered template output — no browser session, no Playwright.
+- Regenerate sitemap and spot-check the 5 flagged comparison slugs resolve.
 
-## Estimated scope
-~8 file edits, 1 build, 0 AI generations. Should complete in a single short turn.
+## Explicitly NOT doing
+- No bulk blog rewrites.
+- No new components beyond the one new comparison entry.
+- No design system changes.
+
+## Scope
+~6-8 file edits, 1 build, 1 sitemap regen, 4 finding updates.
