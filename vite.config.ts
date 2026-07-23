@@ -35,6 +35,17 @@ export default defineConfig(({ mode }): any => ({
           headless: true,
           // Give useEffect-injected JSON-LD a moment after route mount
           renderAfterTime: 1500,
+          // CRITICAL: without this, Puppeteer's default UA contains
+          // "HeadlessChrome" (matched by index.html's bot-blocking regex)
+          // and navigator.webdriver is always true under Puppeteer — both
+          // trip the site's own bot-detection script, which then injects
+          // <meta name="robots" content="noindex"> into the page BEFORE
+          // it's captured as static HTML. That means every prerendered
+          // page would ship to production already noindexed. This UA is
+          // added to the `allow` list in index.html specifically so the
+          // prerender process's own page loads are recognized as
+          // legitimate and never get noindexed or miscounted as bots.
+          userAgent: "Mozilla/5.0 (compatible; LWAPrerenderer/1.0; +https://livingwitharthritis.org.uk)",
         },
       }),
     ENABLE_ANALYZE &&

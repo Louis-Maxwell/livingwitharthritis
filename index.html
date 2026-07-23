@@ -59,7 +59,7 @@
         try {
           var rawUa = navigator.userAgent || '';
           var ua = rawUa.toLowerCase();
-          var allow = /(googlebot|bingbot|duckduckbot|applebot|twitterbot|linkedinbot|facebookexternalhit|slackbot|whatsapp|telegrambot)/i;
+          var allow = /(googlebot|bingbot|duckduckbot|applebot|twitterbot|linkedinbot|facebookexternalhit|slackbot|whatsapp|telegrambot|lwaprerenderer)/i;
           var block = /(sogou|baidu|yisou|360spider|haosou|bytespider|petalbot|mj12bot|dotbot|blexbot|dataforseo|seekport|serpstat|zoominfo|diffbot|gptbot|ccbot|claude|anthropic|perplexity|imagesift|omgili|headlesschrome|phantomjs|puppeteer|selenium|playwright|crawler|spider|\bbot\b|yandex|naver|qwant|archive\.org|ia_archiver|wayback|lighthouse|pagespeed|gtmetrix|pingdom|uptimerobot|statuscake|monitor|scrape|\bcurl\b|wget|python-requests|axios|node-fetch|go-http|okhttp|java\/|ruby|apache-httpclient|postman|insomnia|chrome-lighthouse|screaming\s?frog|httpclient|libwww|lwp::)/i;
           var uaBot = !allow.test(rawUa) && block.test(ua);
 
@@ -73,7 +73,10 @@
           // positives here silently break GA4 for real humans (Firefox/Safari
           // desktop both legitimately report 0 plugins; some privacy modes
           // report empty languages; zero-sized windows happen during prerender).
-          // navigator.webdriver is the only signal reliable enough to act on.
+          // navigator.webdriver is a USEFUL signal but NOT safe to act on alone:
+          // Googlebot's own evergreen renderer sets navigator.webdriver = true,
+          // so it WILL match this check. It must always be combined with the
+          // `allow` UA check downstream before any noindex decision is made.
           var signalBot = false;
           try {
             if (navigator.webdriver === true) signalBot = true;
@@ -119,8 +122,15 @@
             }
 
             // Only flag noindex for actual bots, not declined humans — and NEVER
-            // for AI assistant / answer-engine crawlers (we want AI citations).
-            if (isBot && !aiAssist.test(ua)) {
+            // for AI assistant / answer-engine crawlers (we want AI citations),
+            // and NEVER for anything matching the `allow` list (Googlebot, Bingbot,
+            // etc). This second check matters because navigator.webdriver === true
+            // is set by Googlebot's own evergreen headless-Chromium renderer — so
+            // the webdriver signal alone WILL misfire on real Googlebot. The UA
+            // allow-list must always win over the webdriver signal, or the site
+            // silently noindexes itself to Google. (Confirmed real incident:
+            // Googlebot + SemrushBot both received noindex via this path.)
+            if (isBot && !aiAssist.test(ua) && !allow.test(rawUa)) {
               var m = document.createElement('meta'); m.name = 'robots'; m.content = 'noindex, nofollow'; document.head.appendChild(m);
             }
           }
