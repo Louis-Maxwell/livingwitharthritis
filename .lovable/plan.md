@@ -1,38 +1,36 @@
-## Goal
-Close the 4 open SEO scanner findings and add cheap AEO/GEO wins across shared templates. No AI bulk rewrites, no per-page loops.
+## Skill: enforce-blog-min-wordcount
 
-## Changes
+Create a reusable skill at `.agents/skills/enforce-blog-min-wordcount/` that a future agent instance can invoke to ensure every blog article in the `blog_articles` table has at least **1,400 words** of body content.
 
-### 1. Sitemap sync (fix `http:sitemap`)
-- In `scripts/generate-sitemap.ts`, add admin/auth routes as `noindex`-friendly OR — since `/auth` and `/admin*` are correctly excluded from indexing via `robots.txt` — instead update the scanner-visible sitemap by ensuring these routes are explicitly not expected. The 5 "stale" `/guides/*` slugs (`paracetamol-vs-ibuprofen-for-arthritis`, `topical-nsaid-vs-oral-nsaid-arthritis`, `physiotherapy-vs-surgery-knee-arthritis`, `nhs-vs-private-rheumatology`, `swimming-vs-walking-arthritis`) are actually served by the dynamic `ComparisonPage` route — verify each resolves via `COMPARISON_ROUTES`; if any truly don't exist, remove them; if they do, the finding is stale and can be marked fixed.
-- Regenerate `public/sitemap.xml` once.
+### What the skill will contain
 
-### 2. LCP + font-display (fix `lighthouse:lighthouse_performance`)
-- In `index.html`: confirm the hero preload has `fetchpriority="high"` and no `loading="lazy"`; add explicit `width`/`height` on the hero `<img>` in `OAHero.tsx`.
-- Add `font-display: swap` to every `@font-face` rule (check `src/index.css` / any font import).
+**SKILL.md** (frontmatter + instructions):
+- `name`: enforce-blog-min-wordcount
+- `description`: "Audit and expand every published blog article in the Lovable Cloud `blog_articles` table to a minimum of 1,400 words. Trigger when the user asks to lengthen, expand, standardize, or hit a word-count floor on blog posts."
+- Body sections:
+  1. **Preflight** — read the article schema from `src/hooks/useBlogArticles.ts`; confirm `content`, `slug`, `title`, `is_published` columns.
+  2. **Audit step** — run the bundled `audit.ts` script (via `supabase--read_query`) that returns every published slug with `word_count < 1400`, sorted ascending.
+  3. **Expansion rules** (strict, verbatim in SKILL.md):
+     - Preserve existing headings, callouts, FAQ, UK English, medical accuracy, and the Quick Answer / Key Takeaways / FAQ structure already used in `BlogPost.tsx`.
+     - Only add net-new material: extended explanations, UK NHS pathways, evidence citations, expanded FAQ entries, practical examples. Never repeat sentences to pad.
+     - Target 1,400–1,700 words. Never trim content that is already long enough.
+     - Keep `meta_description` ≤160 chars; do not rewrite `title` or `slug`.
+  4. **Batched execution** — process in batches of 10 slugs, one AI call per slug via the Lovable AI gateway (`openai/gpt-5.4-mini`, reasoning_effort not applicable), then bulk `UPDATE blog_articles SET content = ... WHERE slug = ...` via migration. Stage rewrites under `/tmp/blog-expansion/<slug>.md` for review before writing back.
+  5. **Verification** — re-run the audit query; confirm zero rows returned. Report before/after counts.
 
-### 3. Contrast (fix `lighthouse:lighthouse_accessibility`)
-- Grep for `text-gray-300|text-gray-400|text-muted-foreground/50|opacity-50` on text and swap to `text-muted-foreground` or `text-foreground`. Spot-fix, no design overhaul.
+**scripts/audit.sql** — the read-only word-count audit query.
+**scripts/expand-one.ts** — template for a single-slug expansion call (system prompt, user prompt, length validator).
+**references/style-rules.md** — the exact voice/structure rules extracted from the earlier rewrite work (Quick Answer, Key Takeaways, Callouts, FAQ, UK English, medical review line).
 
-### 4. New comparison guide (fix `agent_content:semrush_content_suggestions`)
-- Add `/guides/febuxostat-vs-allopurinol` entry to `src/data/comparison-content.ts` with a ~900-word UK-focused article (intro, takeaways, sections, FAQ). Registered automatically via the dynamic comparison route + sitemap regen.
+### What this plan does NOT do
 
-### 5. Low-credit AEO/GEO polish (shared-template only)
-- **`SeoHead.tsx`**: add `<meta name="geo.placename" content="United Kingdom">`, `<meta name="geo.position" content="54.7024;-3.2766">`, `<meta name="ICBM" content="54.7024, -3.2766">`. One edit, applies sitewide.
-- **`src/lib/jsonLd.ts`**: add a `toIsoDate()` helper and route all schema `dateModified`/`lastReviewed` fields through it so dates validate consistently.
-- **Breadcrumb JSON-LD spot-check**: confirm `ComparisonPage`, `CityConditionPage`, `GlossaryTerm` emit `BreadcrumbList` schema; add via existing `PageSchema` if missing.
+- Does **not** run the expansion now. This turn only creates and applies the skill so a future turn (or you, next message) can invoke it.
+- Does **not** touch any blog content, database rows, or components.
 
-### 6. Mark stale findings fixed
-- After edits, call `seo_chat--update_findings` for each addressed finding with a one-line explanation.
+### After approval
 
-## Verification
-- `bun run build` once at the end.
-- Regenerate sitemap and spot-check the 5 flagged comparison slugs resolve.
+I will write the skill files under `.agents/skills/enforce-blog-min-wordcount/`, then call `skills--apply_draft` to activate it. Next message you can say "run the blog word-count skill" and I'll execute the audit + expansion.
 
-## Explicitly NOT doing
-- No bulk blog rewrites.
-- No new components beyond the one new comparison entry.
-- No design system changes.
+### Note on the request itself
 
-## Scope
-~6-8 file edits, 1 build, 1 sitemap regen, 4 finding updates.
+If you'd rather I **just do the expansion right now** on the current set of short articles (no skill, one-off), say so and I'll replace this with an execution plan instead. A skill only pays off if you expect to re-run this workflow repeatedly.
