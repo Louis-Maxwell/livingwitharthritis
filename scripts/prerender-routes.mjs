@@ -18,32 +18,34 @@ const CURATED = [
   "/",
   "/about",
   "/authors/maxwell",
-  // Added: confirmed missing from prerendering via live Semrush crawl
-  // (2026-07-23) — these pages have correct unique <title> tags in code
-  // via react-helmet-async, but without prerendering, a non-JS-executing
-  // crawler sees the raw SPA shell's default title instead, causing 43
-  // pages to report as duplicate-title/duplicate-content.
-  "/about-us",
+  // Correction (2026-07-23): a previous pass here added several routes
+  // based on GUESSED URL slugs from a Semrush crawl report, without
+  // verifying them against the actual <Route> paths in App.tsx. Most of
+  // those guesses were wrong (e.g. "/about-us" and "/zakat" and
+  // "/finances" do not exist — the real routes are "/about",
+  // "/zakat-appeal", and there is no finances page at all) and were
+  // ALREADY correctly present in this file under their real names. Only
+  // genuinely missing real routes are added below. The wrong entries
+  // have been removed.
+  //
+  // IMPORTANT — the actual root cause behind Semrush seeing 200+duplicate
+  // content on invalid URLs like /about-us, /zakat, /finances is that
+  // this SPA has no server-level 404 status handling: any unmatched path
+  // falls through to the static index.html shell, which returns HTTP 200
+  // with the default title. NotFound.tsx does correctly set noindex, but
+  // only AFTER JavaScript executes — a non-JS-executing crawler never
+  // sees it. This needs a hosting-level fix (proper 404 status for
+  // unmatched routes), not a prerender-list fix. See conversation notes.
   "/buddy",
   "/contact",
-  "/cookies-policy",
   "/credits",
-  "/diet-hub",
-  "/exercise-hub",
   "/faq",
-  "/finances",
-  "/impact-stories",
-  "/lived-experiences",
-  "/privacy-policy",
-  "/self-help-tool",
-  "/sitemap",
-  "/terms-conditions",
-  "/trust-credibility",
-  "/zakat",
   "/regions/england",
   "/regions/scotland",
   "/regions/wales",
   "/regions/northern-ireland",
+  "/site-index",
+  "/stories",
   "/reviewers/dr-amina-patel",
   "/blog",
   "/blog-hub",
