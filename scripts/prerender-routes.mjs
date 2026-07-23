@@ -18,6 +18,32 @@ const CURATED = [
   "/",
   "/about",
   "/authors/maxwell",
+  // Added: confirmed missing from prerendering via live Semrush crawl
+  // (2026-07-23) — these pages have correct unique <title> tags in code
+  // via react-helmet-async, but without prerendering, a non-JS-executing
+  // crawler sees the raw SPA shell's default title instead, causing 43
+  // pages to report as duplicate-title/duplicate-content.
+  "/about-us",
+  "/buddy",
+  "/contact",
+  "/cookies-policy",
+  "/credits",
+  "/diet-hub",
+  "/exercise-hub",
+  "/faq",
+  "/finances",
+  "/impact-stories",
+  "/lived-experiences",
+  "/privacy-policy",
+  "/self-help-tool",
+  "/sitemap",
+  "/terms-conditions",
+  "/trust-credibility",
+  "/zakat",
+  "/regions/england",
+  "/regions/scotland",
+  "/regions/wales",
+  "/regions/northern-ireland",
   "/reviewers/dr-amina-patel",
   "/blog",
   "/blog-hub",
