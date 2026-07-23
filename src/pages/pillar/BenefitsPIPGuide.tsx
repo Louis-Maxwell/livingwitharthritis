@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import PageSchema from "@/components/seo/PageSchema";
 import Header from "@/components/Header";
 import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
@@ -177,8 +178,30 @@ const CONTENT = `
 export default function BenefitsPIPGuide() {
   const html = addHeadingIds(CONTENT);
 
+  const PIP_GUIDE_FAQS = [
+    { question: "How much is PIP worth for arthritis?", answer: "PIP has two components you can claim either or both of. The Daily Living component pays £72.65/week (standard) or £108.55/week (enhanced); the Mobility component pays £28.70/week (standard) or £75.75/week (enhanced). At the enhanced rate for both, PIP is worth up to £184.30 per week (£9,584 per year)." },
+    { question: "Do I need a specific arthritis diagnosis to qualify for PIP?", answer: "No — there is no minimum level of disability or specific diagnosis required. PIP is assessed on how your condition affects you on your worst days, not on diagnosis alone. Many people with osteoarthritis, rheumatoid arthritis, psoriatic arthritis and other forms of arthritis qualify." },
+    { question: "How long do I need to have had arthritis to claim PIP?", answer: "Your condition must have affected you for at least 3 months and be expected to continue for at least 9 months. You must also be aged 16 to State Pension age and resident in England or Wales (Scotland has Adult Disability Payment instead)." },
+    { question: "What happens if my PIP claim is refused?", answer: "You can request a Mandatory Reconsideration within 1 month of the decision, providing additional evidence — around 17% of reconsiderations result in a changed decision (DWP, 2024). If that fails, you can appeal to the Social Security and Child Support Tribunal within 1 month; around 70% of PIP appeals are successful (Ministry of Justice, 2024)." },
+    { question: "What benefit replaces PIP once I reach State Pension age?", answer: "Attendance Allowance replaces PIP if you are over State Pension age. It pays £72.65/week (lower rate, day or night needs) or £108.55/week (higher rate, day and night needs), though it has no mobility component." },
+    { question: "Can I get help with a PIP application for arthritis?", answer: "Yes — free help with PIP applications and appeals is available from Citizens Advice, law centres, and Versus Arthritis (helpline: 0800 5200 520)." },
+  ];
+
   return (
     <>
+      <PageSchema
+        url="/guides/benefits-pip"
+        name="UK Arthritis Benefits & PIP Guide"
+        description="Guide to UK benefits for arthritis: PIP, Attendance Allowance, Blue Badge, Motability, workplace rights and Disabled Facilities Grant."
+        medical={{ condition: "Arthritis" }}
+        breadcrumbs={[
+          { name: "Home", item: "/" },
+          { name: "Guides", item: "/blog-hub" },
+          { name: "Benefits & PIP Guide" },
+        ]}
+        faqs={PIP_GUIDE_FAQS}
+        idPrefix="benefits-pip-guide"
+      />
       <Helmet>
         <title>UK Arthritis Benefits & PIP Guide | Living With Arthritis</title>
         <meta name="description" content="Guide to UK benefits for arthritis: PIP, Attendance Allowance, Blue Badge, Motability, workplace rights and Disabled Facilities Grant." />
