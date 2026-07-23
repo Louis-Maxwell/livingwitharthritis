@@ -1,14 +1,11 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { getServiceClient } from "../_shared/supabase-client.ts";
-import { createRateLimiter, getClientIp } from "../_shared/rate-limiter.ts";
+import { checkRateLimit, getClientIp } from "../_shared/rate-limiter-v2.ts";
 import { errJson, okJson, parseJsonBody, preflight, newRequestId } from "../_shared/http.ts";
 import { z, parseWithSchema, emailSchema, phoneSchema, shortText, longText } from "../_shared/validation.ts";
 import { CONTACT_EMAILS } from "../_shared/contact.ts";
 
 const ADMIN_EMAIL = CONTACT_EMAILS.info;
-
-// 5 fundraising submissions per IP per 15 minutes
-const limiter = createRateLimiter({ windowMs: 900_000, maxRequests: 5 });
 
 const VALID_INQUIRY_TYPES = [
   "Corporate Partnerships",
@@ -37,12 +34,19 @@ serve(async (req) => {
   const requestId = newRequestId();
 
   try {
-    if (!limiter.check(getClientIp(req))) {
+    const supabase = getServiceClient("submit-fundraising");
+
+    const rl = await checkRateLimit(supabase, {
+      ip: getClientIp(req),
+      tier: "public",
+      scope: "submit-fundraising",
+    });
+    if (!rl.allowed) {
       return errJson(req, {
         code: "rate_limited",
         message: "Too many submissions. Please try again in a few minutes.",
         requestId,
-        headers: { "Retry-After": "60" },
+        headers: { "Retry-After": String(rl.retryAfterSeconds ?? 60) },
       });
     }
 
@@ -53,7 +57,6 @@ serve(async (req) => {
     if (!validated.ok) return validated.response;
 
     const inquiry = validated.data;
-    const supabase = getServiceClient("submit-fundraising");
 
     const { data, error: insertError } = await supabase
       .from("fundraising_inquiries")

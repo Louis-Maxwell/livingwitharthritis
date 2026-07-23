@@ -1,12 +1,9 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import Stripe from "https://esm.sh/stripe@18.5.0";
-import { createRateLimiter, getClientIp } from "../_shared/rate-limiter.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
+import { checkRateLimit, getClientIp } from "../_shared/rate-limiter-v2.ts";
 import { errJson, okJson, parseJsonBody, preflight, newRequestId } from "../_shared/http.ts";
 import { z, parseWithSchema, emailSchema } from "../_shared/validation.ts";
-
-// 20 checkout sessions per IP per 10 minutes (allow donors to retry / change amount)
-// 10 requests / minute per IP (donation category) — see docs/EDGE-FUNCTION-RATE-LIMITING.md
-const limiter = createRateLimiter({ windowMs: 60_000, maxRequests: 10 });
 
 const VALID_CURRENCIES = ["GBP", "USD", "EUR"] as const;
 const VALID_FUND_TYPES = ["research", "support", "helpline", "general", "zakat"] as const;
@@ -49,12 +46,22 @@ serve(async (req) => {
   const requestId = newRequestId();
 
   try {
-    if (!limiter.check(getClientIp(req))) {
+    const rlClient = createClient(
+      Deno.env.get("SUPABASE_URL") ?? "",
+      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "",
+      { auth: { persistSession: false, autoRefreshToken: false } },
+    );
+    const rl = await checkRateLimit(rlClient, {
+      ip: getClientIp(req),
+      tier: "public",
+      scope: "create-donation-checkout",
+    });
+    if (!rl.allowed) {
       return errJson(req, {
         code: "rate_limited",
         message: "Too many checkout attempts. Please wait a moment.",
         requestId,
-        headers: { "Retry-After": "30" },
+        headers: { "Retry-After": String(rl.retryAfterSeconds ?? 30) },
       });
     }
 

@@ -3,7 +3,8 @@
 // Returns top 3 ranked conditions with confidence + reasoning.
 
 import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
-import { createRateLimiter, getClientIp, rateLimitResponse } from "../_shared/rate-limiter.ts";
+import { createClient } from "npm:@supabase/supabase-js@2";
+import { checkRateLimit, getClientIp, rateLimitResponse } from "../_shared/rate-limiter-v2.ts";
 
 const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY")!;
 
@@ -14,8 +15,6 @@ const ALLOWED: Record<string, string[]> = {
   swelling: ["yes", "no", "sometimes"],
   coldSensitivity: ["yes", "no"],
 };
-
-const limiter = createRateLimiter({ windowMs: 60_000, maxRequests: 10 });
 
 interface Answers {
   location: string;       // "knees" | "hands" | "back" | "feet" | "multiple"
@@ -62,7 +61,13 @@ Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
   try {
     const ip = getClientIp(req);
-    if (!limiter.check(ip)) return rateLimitResponse(corsHeaders);
+    const rlClient = createClient(
+      Deno.env.get("SUPABASE_URL") ?? "",
+      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "",
+      { auth: { persistSession: false, autoRefreshToken: false } },
+    );
+    const rl = await checkRateLimit(rlClient, { ip, tier: "public", scope: "symptom-ranker" });
+    if (!rl.allowed) return rateLimitResponse(corsHeaders, rl.retryAfterSeconds);
 
     const { answers } = (await req.json()) as { answers: Answers };
     if (!answers || typeof answers !== "object") {

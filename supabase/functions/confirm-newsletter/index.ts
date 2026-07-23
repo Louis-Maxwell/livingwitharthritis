@@ -1,6 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { getServiceClient } from "../_shared/supabase-client.ts";
-import { createRateLimiter, getClientIp } from "../_shared/rate-limiter.ts";
+import { checkRateLimit, getClientIp } from "../_shared/rate-limiter-v2.ts";
 import { errJson, okJson, preflight, newRequestId, parseJsonBody } from "../_shared/http.ts";
 import { z, parseWithSchema } from "../_shared/validation.ts";
 
@@ -10,7 +10,7 @@ import { z, parseWithSchema } from "../_shared/validation.ts";
 //   POST {action:"unsubscribe", token}    — flips is_active=false (uses unsubscribe_token)
 
 // 5 requests / minute per IP (email signup category) — see docs/EDGE-FUNCTION-RATE-LIMITING.md
-const limiter = createRateLimiter({ windowMs: 60_000, maxRequests: 5 });
+
 
 const Schema = z.object({
   action: z.enum(["confirm", "preferences", "unsubscribe"]),
@@ -28,8 +28,20 @@ serve(async (req) => {
   if (req.method !== "POST") {
     return errJson(req, { code: "method_not_allowed", message: "POST only", requestId });
   }
-  if (!limiter.check(getClientIp(req))) {
-    return errJson(req, { code: "rate_limited", message: "Too many requests.", requestId });
+  const service = getServiceClient("confirm-newsletter");
+
+  const rl = await checkRateLimit(service, {
+    ip: getClientIp(req),
+    tier: "public",
+    scope: "confirm-newsletter",
+  });
+  if (!rl.allowed) {
+    return errJson(req, {
+      code: "rate_limited",
+      message: "Too many requests.",
+      requestId,
+      headers: { "Retry-After": String(rl.retryAfterSeconds ?? 60) },
+    });
   }
 
   const body = await parseJsonBody(req, requestId);
@@ -37,8 +49,6 @@ serve(async (req) => {
   const parsed = parseWithSchema(Schema, body.data, req, requestId);
   if (!parsed.ok) return parsed.response;
   const { action, token, frequency, categories } = parsed.data;
-
-  const service = getServiceClient("confirm-newsletter");
 
   try {
     if (action === "confirm") {

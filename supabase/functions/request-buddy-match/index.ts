@@ -1,10 +1,8 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { getAnonClient, getServiceClient } from "../_shared/supabase-client.ts";
-import { createRateLimiter, getClientIp } from "../_shared/rate-limiter.ts";
+import { checkRateLimit, getClientIp } from "../_shared/rate-limiter-v2.ts";
 import { errJson, okJson, preflight, newRequestId } from "../_shared/http.ts";
 import { pickBestMentor, type BuddyCandidate, type MenteeFacts } from "./compatibility.ts";
-
-const limiter = createRateLimiter({ windowMs: 60_000, maxRequests: 5 });
 
 serve(async (req) => {
   if (req.method === "OPTIONS") return preflight(req);
@@ -12,9 +10,6 @@ serve(async (req) => {
 
   if (req.method !== "POST") {
     return errJson(req, { code: "method_not_allowed", message: "POST only", requestId });
-  }
-  if (!limiter.check(getClientIp(req))) {
-    return errJson(req, { code: "rate_limited", message: "Too many match requests.", requestId });
   }
 
   try {
@@ -30,6 +25,21 @@ serve(async (req) => {
     const menteeUserId = userData.user.id;
 
     const service = getServiceClient("request-buddy-match");
+
+    const rl = await checkRateLimit(service, {
+      ip: getClientIp(req),
+      accountId: menteeUserId,
+      tier: "authenticated",
+      scope: "request-buddy-match",
+    });
+    if (!rl.allowed) {
+      return errJson(req, {
+        code: "rate_limited",
+        message: "Too many match requests. Please try again shortly.",
+        requestId,
+        headers: { "Retry-After": String(rl.retryAfterSeconds ?? 60) },
+      });
+    }
 
     // 1. Mentee must have a buddy_profile of role='mentee'.
     const { data: menteeProfile, error: menteeErr } = await service

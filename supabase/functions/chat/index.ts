@@ -1,6 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
-import { createRateLimiter, getClientIp } from "../_shared/rate-limiter.ts";
+import { checkRateLimit, getClientIp } from "../_shared/rate-limiter-v2.ts";
 import { errJson, parseJsonBody, preflight, newRequestId, getCorsHeaders } from "../_shared/http.ts";
 import { z, parseWithSchema } from "../_shared/validation.ts";
 import {
@@ -9,9 +9,6 @@ import {
   redactPII,
   buildRefusalStream,
 } from "../_shared/ai-safety.ts";
-
-// 20 requests / minute per IP — see docs/EDGE-FUNCTION-RATE-LIMITING.md
-const limiter = createRateLimiter({ windowMs: 60_000, maxRequests: 20 });
 
 const MAX_MESSAGES = 30;
 const MAX_MESSAGE_LENGTH = 4000;
@@ -202,12 +199,22 @@ serve(async (req) => {
   const corsHeaders = getCorsHeaders(req);
 
   try {
-    if (!limiter.check(getClientIp(req))) {
+    const rlClient = createClient(
+      Deno.env.get("SUPABASE_URL") ?? "",
+      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "",
+      { auth: { persistSession: false, autoRefreshToken: false } },
+    );
+    const rl = await checkRateLimit(rlClient, {
+      ip: getClientIp(req),
+      tier: "public",
+      scope: "chat",
+    });
+    if (!rl.allowed) {
       return errJson(req, {
         code: "rate_limited",
         message: "You're sending messages too quickly. Please wait a moment.",
         requestId,
-        headers: { "Retry-After": "30" },
+        headers: { "Retry-After": String(rl.retryAfterSeconds ?? 30) },
       });
     }
 

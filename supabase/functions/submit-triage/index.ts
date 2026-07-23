@@ -1,11 +1,11 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { getAnonClient, getServiceClient } from "../_shared/supabase-client.ts";
-import { createRateLimiter, getClientIp } from "../_shared/rate-limiter.ts";
+import { checkRateLimit, getClientIp } from "../_shared/rate-limiter-v2.ts";
 import { errJson, okJson, parseJsonBody, preflight, newRequestId } from "../_shared/http.ts";
 import { z, parseWithSchema } from "../_shared/validation.ts";
 import { scoreTriage } from "./scoring.ts";
 
-const limiter = createRateLimiter({ windowMs: 60_000, maxRequests: 10 });
+
 
 const ARTHRITIS_TYPES = [
   "osteoarthritis",
@@ -38,8 +38,18 @@ serve(async (req) => {
   if (req.method !== "POST") {
     return errJson(req, { code: "method_not_allowed", message: "POST only", requestId });
   }
-  if (!limiter.check(getClientIp(req))) {
-    return errJson(req, { code: "rate_limited", message: "Too many requests. Try again shortly.", requestId });
+  const rl = await checkRateLimit(getServiceClient("submit-triage"), {
+    ip: getClientIp(req),
+    tier: "public",
+    scope: "submit-triage",
+  });
+  if (!rl.allowed) {
+    return errJson(req, {
+      code: "rate_limited",
+      message: "Too many requests. Try again shortly.",
+      requestId,
+      headers: { "Retry-After": String(rl.retryAfterSeconds ?? 60) },
+    });
   }
 
   try {

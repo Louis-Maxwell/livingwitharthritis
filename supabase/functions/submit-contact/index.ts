@@ -1,15 +1,11 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { getServiceClient } from "../_shared/supabase-client.ts";
-import { createRateLimiter, getClientIp } from "../_shared/rate-limiter.ts";
-import { errJson, okJson, parseJsonBody, preflight, newRequestId } from "../_shared/http.ts";
+import { checkRateLimit, getClientIp, rateLimitResponse } from "../_shared/rate-limiter-v2.ts";
+import { errJson, okJson, parseJsonBody, preflight, newRequestId, getCorsHeaders } from "../_shared/http.ts";
 import { z, parseWithSchema, emailSchema, phoneSchema, shortText, longText } from "../_shared/validation.ts";
 import { CONTACT_EMAILS } from "../_shared/contact.ts";
 
 const ADMIN_EMAIL = CONTACT_EMAILS.info;
-
-// 5 contact submissions per IP per 15 minutes
-// 10 requests / minute per IP (feedback category) — see docs/EDGE-FUNCTION-RATE-LIMITING.md
-const limiter = createRateLimiter({ windowMs: 60_000, maxRequests: 10 });
 
 const ContactSchema = z.object({
   name: shortText(100),
@@ -25,13 +21,15 @@ serve(async (req) => {
   const requestId = newRequestId();
 
   try {
-    if (!limiter.check(getClientIp(req))) {
-      return errJson(req, {
-        code: "rate_limited",
-        message: "Too many submissions. Please try again in a few minutes.",
-        requestId,
-        headers: { "Retry-After": "60" },
-      });
+    const supabase = getServiceClient("submit-contact");
+
+    const rl = await checkRateLimit(supabase, {
+      ip: getClientIp(req),
+      tier: "public",
+      scope: "submit-contact",
+    });
+    if (!rl.allowed) {
+      return rateLimitResponse(getCorsHeaders(req), rl.retryAfterSeconds);
     }
 
     const parsed = await parseJsonBody(req, requestId);
@@ -41,7 +39,6 @@ serve(async (req) => {
     if (!validated.ok) return validated.response;
 
     const contact = validated.data;
-    const supabase = getServiceClient("submit-contact");
 
     const { data, error: insertError } = await supabase
       .from("contact_inquiries")
