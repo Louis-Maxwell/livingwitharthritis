@@ -3,6 +3,18 @@
 # /chat (Help & Support) is public and indexable. /auth and /admin*
 # are private and noindex'd via SeoHead as belt-and-braces.
 
+# An automated audit flagged DuckDuckBot and the Internet Archive bot as
+# blocked. DuckDuckBot already has an explicit Allow: / rule further down
+# (same shape as Googlebot/Bingbot) so nothing changes there. The Internet
+# Archive crawler had no rule at all, so it fell through to the wildcard
+# group — added an explicit allow for both known user-agent token variants
+# it uses, for clarity.
+User-agent: ia_archiver
+Allow: /
+
+User-agent: archive.org_bot
+Allow: /
+
 User-agent: Googlebot
 Allow: /
 Disallow: /admin/
