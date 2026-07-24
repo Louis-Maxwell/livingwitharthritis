@@ -3,10 +3,10 @@
 // supabase function: mcp
 // Bundled from src/lib/mcp/index.ts by @lovable.dev/mcp-js.
 // src/lib/mcp/index.ts
-import { auth, defineMcp } from "npm:@lovable.dev/mcp-js@0.22.2";
+import { auth, defineMcp } from "npm:@lovable.dev/mcp-js@0.22.0";
 
 // src/lib/mcp/tools/search-blog-articles.ts
-import { defineTool } from "npm:@lovable.dev/mcp-js@0.22.2";
+import { defineTool } from "npm:@lovable.dev/mcp-js@0.22.0";
 import { z } from "npm:zod@^3.25.76";
 
 // src/lib/mcp/tools/_supabase.ts
@@ -44,7 +44,7 @@ var search_blog_articles_default = defineTool({
 });
 
 // src/lib/mcp/tools/get-blog-article.ts
-import { defineTool as defineTool2 } from "npm:@lovable.dev/mcp-js@0.22.2";
+import { defineTool as defineTool2 } from "npm:@lovable.dev/mcp-js@0.22.0";
 import { z as z2 } from "npm:zod@^3.25.76";
 var get_blog_article_default = defineTool2({
   name: "get_blog_article",
@@ -70,7 +70,7 @@ var get_blog_article_default = defineTool2({
 });
 
 // src/lib/mcp/tools/list-my-appointments.ts
-import { defineTool as defineTool3 } from "npm:@lovable.dev/mcp-js@0.22.2";
+import { defineTool as defineTool3 } from "npm:@lovable.dev/mcp-js@0.22.0";
 import { z as z3 } from "npm:zod@^3.25.76";
 var list_my_appointments_default = defineTool3({
   name: "list_my_appointments",
@@ -95,7 +95,7 @@ var list_my_appointments_default = defineTool3({
 });
 
 // src/lib/mcp/tools/list-my-pain-journal.ts
-import { defineTool as defineTool4 } from "npm:@lovable.dev/mcp-js@0.22.2";
+import { defineTool as defineTool4 } from "npm:@lovable.dev/mcp-js@0.22.0";
 import { z as z4 } from "npm:zod@^3.25.76";
 var list_my_pain_journal_default = defineTool4({
   name: "list_my_pain_journal_entries",
@@ -120,7 +120,7 @@ var list_my_pain_journal_default = defineTool4({
 });
 
 // src/lib/mcp/tools/create-pain-journal-entry.ts
-import { defineTool as defineTool5 } from "npm:@lovable.dev/mcp-js@0.22.2";
+import { defineTool as defineTool5 } from "npm:@lovable.dev/mcp-js@0.22.0";
 import { z as z5 } from "npm:zod@^3.25.76";
 var create_pain_journal_entry_default = defineTool5({
   name: "create_pain_journal_entry",
@@ -187,5 +187,5 @@ var mcp_default = defineMcp({
 });
 
 // lovable-mcp-supabase-entry.ts
-import { createSupabaseHandler } from "npm:@lovable.dev/mcp-js@0.22.2/stacks/supabase";
+import { createSupabaseHandler } from "npm:@lovable.dev/mcp-js@0.22.0/stacks/supabase";
 Deno.serve(createSupabaseHandler(mcp_default, { functionName: "mcp" }));
