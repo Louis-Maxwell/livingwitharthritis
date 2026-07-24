@@ -40,6 +40,13 @@
 - [Benefits & PIP Guide](/guides/benefits-pip): PIP (up to £184.30/week), Attendance Allowance, Universal Credit, Blue Badge, Motability. Scotland: Adult Disability Payment.
 - [Arthritis Flare-Ups](/arthritis-flare-ups): Triggers, immediate relief steps and prevention strategies.
 - [Waiting List Help](/arthritis-waiting-list-help): Rheumatology waiting-time guidance and support.
+- [Musculoskeletal Health](/guides/musculoskeletal-health): Back, neck and repetitive strain guidance — symptoms, causes, diagnosis, physiotherapy, NHS self-referral, exercise and diet for MSK conditions.
+- [Frailty Management Hub](/guides/frailty-management-hub): Recognising and managing frailty in older adults.
+- [Sarcopenia & Muscle Loss](/guides/sarcopenia-muscle-loss): Age-related muscle decline — causes and how to counter it.
+- [Bone Density & Osteoporosis](/guides/bone-density-osteoporosis): Protecting skeletal strength and reducing fracture risk.
+- [Falls Prevention for Older Adults](/guides/fall-prevention-older-adults): Reducing fall risk at home.
+- [Preventative MSK Health](/guides/preventative-msk-health): Staying ahead of musculoskeletal problems across the life course.
+- [Disability Support](/guides/disability-support): UK disability support and services for MSK/arthritis-related disability.
 
 ## Glossary
 
