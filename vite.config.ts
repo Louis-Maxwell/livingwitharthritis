@@ -92,11 +92,18 @@ export default defineConfig(({ mode }): any => ({
           // Deduplicate lucide icons across all routes (~15 KB saved per route
           // that imports icons, significant on the 78 exercise/condition pages).
           "lucide-icons": ["lucide-react"],
-          // Bundle animation + chart libs into single shared chunks so every
-          // lazy route that needs them shares one cached file instead of
+          // Bundle animation libs into a single shared chunk so every lazy
+          // route that needs them shares one cached file instead of
           // duplicating the code inside each route chunk.
           "framer-motion": ["framer-motion"],
-          "recharts": ["recharts"],
+          // recharts intentionally NOT listed here (was previously, in error —
+          // see 2026-07-24 PageSpeed fix). Static manualChunks entries get
+          // eagerly modulepreloaded from the root index.html regardless of
+          // whether the entry point actually uses them. recharts (~391 KB,
+          // ~113 KB gzipped) was being preloaded on every single page,
+          // including the homepage, which never renders a chart. Letting
+          // Rollup route-split it naturally means only pages that actually
+          // import recharts (e.g. admin dashboards) pay that cost.
         },
       },
     },
