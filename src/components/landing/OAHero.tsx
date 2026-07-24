@@ -3,8 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useReveal } from "@/hooks/useReveal";
-import heroCommunity from "@/assets/hero-community.jpg.asset.json";
 import "@/components/HeroSection.css";
+
+// Was a 2.3MB unoptimized JPEG on Lovable's asset CDN — this single image
+// was the dominant cause of a 27.8s mobile LCP (PageSpeed Insights, 24 Jul
+// 2026). Replaced with an already-compressed local WebP (154KB, ~93%
+// smaller) at its native resolution — no upscaling artifacts.
+const HERO_IMG = "/openverse/community-03-a-senior-indian-couple-on-a-scooty.webp";
 
 const OAHero = memo(() => {
   const navigate = useNavigate();
@@ -26,7 +31,7 @@ const OAHero = memo(() => {
               We work to uphold UK arthritis health and dignity.
             </h1>
 
-            <p className="reveal hero-item mt-8 text-lg lg:text-xl max-w-xl opacity-95 leading-relaxed">
+            <p className="reveal hero-item mt-8 text-lg lg:text-xl max-w-xl leading-relaxed">
               Millions of people across the UK live with arthritis pain and stiffness.
               Living With Arthritis provides clinically-reviewed guidance, exercise plans and
               nutrition support — free, for everyone.
@@ -48,7 +53,7 @@ const OAHero = memo(() => {
 
             <ul
               aria-label="Clinical alignment"
-              className="reveal hero-item mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.18em] opacity-90"
+              className="reveal hero-item mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.18em]"
             >
               <li className="flex items-center gap-2">
                 <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-white" />
@@ -64,7 +69,7 @@ const OAHero = memo(() => {
               </li>
             </ul>
 
-            <p className="reveal hero-item mt-4 text-xs opacity-80">
+            <p className="reveal hero-item mt-4 text-xs">
               Learn about our{" "}
               <Link to="/editorial-standards" className="underline hover:no-underline font-medium">
                 medical review process and editorial standards
@@ -76,7 +81,7 @@ const OAHero = memo(() => {
               aria-label="Popular guides"
               className="reveal hero-item mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm"
             >
-              <span className="font-semibold opacity-90">Popular:</span>
+              <span className="font-semibold">Popular:</span>
               <a href="/conditions/knee-arthritis" className="font-semibold underline underline-offset-4 hover:no-underline">Knee exercises</a>
               <span aria-hidden="true" className="opacity-50">·</span>
               <a href="/diet" className="font-semibold underline underline-offset-4 hover:no-underline">Anti-inflammatory diet</a>
@@ -88,10 +93,10 @@ const OAHero = memo(() => {
           {/* Octagon image — MAP signature shape */}
           <div className="reveal relative aspect-square w-full max-w-[560px] mx-auto">
             <img
-              src={heroCommunity.url}
-              alt="Two young women smiling together outdoors — the community we support."
-              width={1080}
-              height={1080}
+              src={HERO_IMG}
+              alt="An older couple outdoors together — representing the community Living With Arthritis UK supports."
+              width={800}
+              height={602}
               {...({ fetchpriority: "high" } as Record<string, string>)}
               decoding="async"
               loading="eager"

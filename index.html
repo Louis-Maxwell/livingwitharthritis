@@ -178,16 +178,12 @@
 
 
     <!-- LCP hero image: served via OAHero's <img fetchpriority="high" loading="eager">
-         (see src/components/landing/OAHero.tsx). A static preload was
-         removed here (2026-07-23) because it pointed at /hero/oa.avif,
-         an unused asset from a retired hero component (HeroSection.tsx,
-         no longer rendered anywhere) -- it was stealing early-priority
-         bandwidth from the actual hero image without providing any LCP
-         benefit itself. The real hero image (hero-community.jpg, served
-         via a stable asset-CDN URL) is a good preload candidate if this
-         is revisited -- see conversation notes: it's currently an
-         unoptimized 2.3MB raw JPEG with no responsive sizing, which is a
-         separate and more urgent fix than the preload itself. -->
+         (see src/components/landing/OAHero.tsx). The prior hero-community.jpg
+         (2.3MB, unoptimized, asset-CDN-hosted -- flagged 2026-07 as the
+         dominant cause of a 27.8s mobile LCP) was replaced 2026-07-24 with
+         a local, already-compressed 154KB WebP. Preload re-added now that
+         the underlying file is actually small enough to be worth prioritising. -->
+    <link rel="preload" as="image" href="/openverse/community-03-a-senior-indian-couple-on-a-scooty.webp" fetchpriority="high" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Anton (MAP-style display) + Montserrat (subheads) + Open Sans (body).
