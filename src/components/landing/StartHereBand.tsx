@@ -1,11 +1,11 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
-import { Stethoscope, MapPin, Dumbbell } from "lucide-react";
+import { Stethoscope, MapPin, Dumbbell, ClipboardList, LifeBuoy } from "lucide-react";
 import { trackStartHereCard } from "@/lib/ga-events";
 
 /**
  * Beginner journey entry-point band placed under the hero.
- * Three large tap targets (≥44px) — no quiz, no client state.
+ * Five large tap targets (≥44px) — no quiz, no client state.
  */
 const cards = [
   {
@@ -19,6 +19,18 @@ const cards = [
     label: "A specific joint hurts",
     sub: "Find guidance for your joint",
     href: "#joint-picker",
+  },
+  {
+    icon: ClipboardList,
+    label: "Check my symptoms",
+    sub: "Free interactive symptom checker",
+    href: "/symptom-checker",
+  },
+  {
+    icon: LifeBuoy,
+    label: "I need self-help now",
+    sub: "Personalised self-help tool",
+    href: "/self-help",
   },
   {
     icon: Dumbbell,
@@ -41,7 +53,7 @@ const StartHereBand = memo(() => {
         <p className="text-center text-sm text-foreground/60 mb-8">
           Pick the path that fits where you are today.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
           {cards.map(({ icon: Icon, label, sub, href }) => {
             const inner = (
               <>

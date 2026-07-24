@@ -14,9 +14,13 @@
  *   2. Set date range = "Last 28 days"
  *   3. Read the "Users" column total
  *   4. Round down to the nearest hundred and update `.env`:
- *        VITE_VISITOR_COUNT="Over 12,500"
- *        VITE_VISITOR_PERIOD="in the past month"
+ *        VITE_VISITOR_COUNT="Thousands of"
+ *        VITE_VISITOR_PERIOD="people across the UK"
  *        VITE_VISITOR_VERIFIED="2026-07-01"
+ *
+ *   Until a GA4 baseline is confirmed, the fallback stays deliberately
+ *   non-numeric ("Thousands of ... people across the UK") to avoid
+ *   overstating an unverified specific count.
  *
  * Later, to auto-refresh: replace this module with a hook that calls a
  * `ga-visitors` edge function (Google Analytics Data API v1beta,
@@ -27,13 +31,13 @@
 const env = import.meta.env;
 
 export const VISITOR_STATS = {
-  /** Display label e.g. "Over 10,000" or "12,480". */
-  count: (env.VITE_VISITOR_COUNT as string | undefined) ?? "Over 10,000",
-  /** Period descriptor e.g. "in the past month". */
-  period: (env.VITE_VISITOR_PERIOD as string | undefined) ?? "in the past month",
+  /** Display label e.g. "Thousands of" or an override like "12,480". */
+  count: (env.VITE_VISITOR_COUNT as string | undefined) ?? "Thousands of",
+  /** Period descriptor e.g. "people across the UK". */
+  period: (env.VITE_VISITOR_PERIOD as string | undefined) ?? "people across the UK",
   /** Last manually verified against GA4 (YYYY-MM-DD). */
   lastVerified: (env.VITE_VISITOR_VERIFIED as string | undefined) ?? "2026-06-25",
 } as const;
 
 /** Snippet ready to drop into meta descriptions / OG copy. */
-export const VISITOR_STATS_SNIPPET = `Trusted by ${VISITOR_STATS.count.toLowerCase()} monthly visitors.`;
+export const VISITOR_STATS_SNIPPET = `Trusted by ${VISITOR_STATS.count.toLowerCase()} ${VISITOR_STATS.period}.`;
