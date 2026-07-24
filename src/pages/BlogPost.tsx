@@ -35,6 +35,7 @@ import ArticleFaqSection from "@/components/article/ArticleFaqSection";
 import ArticleClosingCTA from "@/components/article/ArticleClosingCTA";
 import { renderCallouts } from "@/components/article/Callouts";
 import { markVisited } from "@/lib/visitedArticles";
+import { getArticleImages } from "@/lib/articleImages";
 
 /**
  * Remove any H2/H3 whose text ends in "?" plus everything up to the next
@@ -140,7 +141,7 @@ const BlogPost = () => {
     return (
       <div className="min-h-screen bg-background">
         <Header />
-        <main className="container mx-auto px-6 md:px-10 py-24 max-w-[720px]">
+        <main className="container mx-auto px-6 md:px-10 py-24 max-w-[860px]">
           <Skeleton className="h-8 w-3/4 mb-4" />
           <Skeleton className="h-4 w-1/2 mb-8" />
           <Skeleton className="h-64 w-full" />
@@ -172,6 +173,7 @@ const BlogPost = () => {
   const splitAt = firstH2End >= 0 ? firstH2End + "</h2>".length : -1;
   const htmlBeforeStrip = splitAt > 0 ? htmlWithIds.slice(0, splitAt) : htmlWithIds;
   const htmlAfterStrip = splitAt > 0 ? htmlWithIds.slice(splitAt) : "";
+  const articleImages = getArticleImages(article.category, article.title, slug || article.title);
   const directAnswer = article.direct_answer || firstParagraphSummary(htmlContent);
   const readingTime = getReadingTime(htmlContent);
   const publishDate = new Date(article.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
@@ -301,7 +303,7 @@ const BlogPost = () => {
 
 
         <header className="border-b border-border/20">
-          <div className="container mx-auto px-6 md:px-10 max-w-[720px]">
+          <div className="container mx-auto px-6 md:px-10 max-w-[860px]">
             <nav className="pt-6 pb-4 flex items-center gap-1.5 text-xs text-muted-foreground">
               <Link to="/" className="hover:text-primary transition-colors">Home</Link>
               <ChevronRight className="w-3 h-3" />
@@ -380,7 +382,24 @@ const BlogPost = () => {
           </div>
         </header>
 
-        <main className="container mx-auto px-6 md:px-10 py-10 md:py-14 max-w-[720px]">
+        <div className="container mx-auto px-6 md:px-10 max-w-[860px]">
+          <figure className="mt-6 md:mt-8 mb-2">
+            <img
+              src={articleImages[0].src}
+              alt={articleImages[0].alt}
+              width={1600}
+              height={900}
+              loading="eager"
+              decoding="async"
+              className="w-full h-auto rounded-2xl shadow-sm object-cover aspect-[16/9]"
+            />
+            <figcaption className="text-xs text-muted-foreground/70 mt-2">
+              {articleImages[0].credit}
+            </figcaption>
+          </figure>
+        </div>
+
+        <main className="container mx-auto px-6 md:px-10 py-10 md:py-14 max-w-[860px]">
           {directAnswer && (
             <AnswerBox
               question={article.title.replace(/[?.!]+$/, "").trim() + "?"}
@@ -438,6 +457,22 @@ const BlogPost = () => {
               first:prose-p:first-letter:text-5xl first:prose-p:first-letter:font-bold first:prose-p:first-letter:text-primary first:prose-p:first-letter:float-left first:prose-p:first-letter:mr-3 first:prose-p:first-letter:mt-1 first:prose-p:first-letter:leading-none"
           >
             <div dangerouslySetInnerHTML={{ __html: htmlBeforeStrip }} />
+            {htmlAfterStrip && (
+              <figure className="not-prose my-8">
+                <img
+                  src={articleImages[1].src}
+                  alt={articleImages[1].alt}
+                  width={1200}
+                  height={800}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-auto rounded-xl shadow-sm object-cover aspect-[3/2]"
+                />
+                <figcaption className="text-xs text-muted-foreground/70 mt-2">
+                  {articleImages[1].credit}
+                </figcaption>
+              </figure>
+            )}
             {slug && htmlAfterStrip && (
               <InlineRelatedStrip
                 currentSlug={slug}
@@ -450,6 +485,21 @@ const BlogPost = () => {
             {htmlAfterStrip && (
               <div dangerouslySetInnerHTML={{ __html: htmlAfterStrip }} />
             )}
+
+            <figure className="not-prose my-8">
+              <img
+                src={articleImages[2].src}
+                alt={articleImages[2].alt}
+                width={1200}
+                height={800}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-auto rounded-xl shadow-sm object-cover aspect-[3/2]"
+              />
+              <figcaption className="text-xs text-muted-foreground/70 mt-2">
+                {articleImages[2].credit}
+              </figcaption>
+            </figure>
           </section>
 
           <ArticleFaqSection faqs={faqs} />
