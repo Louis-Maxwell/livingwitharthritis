@@ -13,6 +13,12 @@ const FAQS = [
   { q: 'Can workplace ergonomics really prevent MSK problems?', a: 'Yes. Evidence shows correct desk setup, regular movement breaks and supported posture reduce neck, shoulder and lower-back pain in office workers.' },
   { q: 'Do I need a scan for back or joint pain?', a: 'Most MSK conditions do not require imaging — a clinical assessment is usually enough. Scans are reserved for red-flag symptoms, suspected fractures or when surgery is being considered.' },
   { q: 'What home strategies help most?', a: 'Movement, graded strength training, sleep, stress management, postural variety and targeted supports such as insoles or lumbar cushions are the highest-value home interventions.' },
+  { q: 'What are the common symptoms of an MSK condition?', a: 'Pain, stiffness, swelling, reduced range of movement, weakness and a catching or grinding sensation in a joint are the most common signs. Symptoms that worsen with rest rather than movement, or that wake you at night, warrant a clinical assessment.' },
+  { q: 'Can I refer myself to physiotherapy on the NHS?', a: 'Many NHS areas in the UK now offer MSK self-referral, meaning you can book a physiotherapy assessment directly without seeing your GP first. Availability varies by local Integrated Care Board, so check your GP practice website or NHS.uk for the self-referral option in your area.' },
+  { q: 'What does a good MSK diet look like?', a: 'There is no single "MSK diet", but a Mediterranean-style pattern — vegetables, oily fish, whole grains, olive oil and legumes — combined with maintaining a healthy weight reduces load on weight-bearing joints and supports general tissue health. See our diet hub for specifics.' },
+  { q: 'How does musculoskeletal health change with age?', a: 'Muscle mass and bone density naturally decline with age, and joint tissue becomes less resilient. This is why MSK health overlaps closely with frailty, sarcopenia and falls prevention in later life — see our dedicated guides on each below.' },
+  { q: 'Is there a self-assessment score for MSK problems?', a: 'Clinicians often use validated tools such as the STarT Back Screening Tool for lower back pain, or region-specific outcome measures, to gauge severity and guide treatment. Our free self-assessment tool can help you organise your symptoms before a clinical appointment.' },
+  { q: 'What mobility aids or equipment might help?', a: 'Depending on the condition, options range from simple insoles and lumbar cushions to walking aids, splints or orthotics. An occupational therapist or physiotherapist can recommend equipment matched to your specific needs — self-selecting equipment without assessment can sometimes do more harm than good.' },
 ];
 
 export default function MusculoskeletalHealth() {
@@ -47,10 +53,10 @@ export default function MusculoskeletalHealth() {
     <article className="max-w-4xl mx-auto py-12 px-4">
       <SeoHead
         title="Musculoskeletal Health Guide"
-        description="Musculoskeletal health guide: Back pain, neck pain, repetitive strain & prevention. Workplace ergonomics & rehabilitation strategies."
+        description="Musculoskeletal health guide: symptoms, causes, diagnosis, back pain, neck pain, repetitive strain & prevention. Workplace ergonomics, NHS pathways & rehabilitation strategies."
         path="/guides/musculoskeletal-health"
         type="article"
-        keywords="musculoskeletal, msk health, back pain, neck pain, repetitive strain, workplace ergonomics, physiotherapy"
+        keywords="musculoskeletal, msk health, msk symptoms, back pain, neck pain, repetitive strain, workplace ergonomics, physiotherapy, msk self referral, msk diet, msk in elderly"
       />
 
       <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground mb-4">
@@ -72,22 +78,50 @@ export default function MusculoskeletalHealth() {
         <p className="leading-relaxed">MSK health overlaps heavily with arthritis — many of the same exercise, weight and posture principles apply across both fields.</p>
       </section>
 
+      <section id="symptoms-causes" className="mb-12">
+        <h2 className="text-2xl font-bold mb-4">2. Common symptoms and causes</h2>
+        <p className="leading-relaxed mb-4">MSK symptoms vary by site but commonly include:</p>
+        <ul className="list-disc pl-6 space-y-2 mb-4">
+          <li><strong>Pain</strong> — aching, sharp, or a dull background ache that changes with movement or time of day</li>
+          <li><strong>Stiffness</strong> — particularly first thing in the morning or after sitting still</li>
+          <li><strong>Swelling or warmth</strong> around a joint, which can suggest inflammation</li>
+          <li><strong>Reduced range of movement</strong> — difficulty reaching, bending or turning fully</li>
+          <li><strong>Weakness</strong> in the surrounding muscles, often from disuse during a painful episode</li>
+          <li><strong>Clicking, catching or grinding</strong> sensations within a joint</li>
+        </ul>
+        <p className="leading-relaxed mb-4">Causes range from a one-off injury or overuse (repetitive strain from typing, lifting or sport), through mechanical wear (osteoarthritis), to inflammatory disease (rheumatoid or psoriatic arthritis), poor load management, deconditioning, or simply the accumulated effect of prolonged static posture at a desk.</p>
+        <p className="leading-relaxed">Certain symptoms need same-day medical attention rather than self-management: sudden severe swelling, redness and heat over a joint, fever alongside joint pain, numbness or weakness spreading down a limb, or loss of bladder/bowel control alongside back pain. If any of these apply to you, contact NHS 111 or your GP promptly rather than waiting.</p>
+      </section>
+
       <section id="acute-chronic" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">2. Acute vs. chronic MSK conditions</h2>
+        <h2 className="text-2xl font-bold mb-4">3. Acute vs. chronic MSK conditions</h2>
         <ul className="list-disc pl-6 space-y-2">
           <li><strong>Acute (under 12 weeks):</strong> short-term, often follows a strain, sprain or flare. Relative rest, gradual return to movement and pain modulation are the priority.</li>
           <li><strong>Chronic (over 12 weeks):</strong> needs a structured rehabilitation plan — graded strength, mobility, pacing, sleep and stress strategies.</li>
         </ul>
       </section>
 
+      <section id="diagnosis" className="mb-12">
+        <h2 className="text-2xl font-bold mb-4">4. Diagnosis and assessment</h2>
+        <p className="leading-relaxed mb-4">Most MSK conditions are diagnosed through a clinical history and physical examination rather than imaging. A physiotherapist or GP will typically ask about the pattern of pain, what aggravates or eases it, any red-flag symptoms, and your work or activity demands, before testing movement, strength and specific joint signs.</p>
+        <p className="leading-relaxed mb-4">Validated screening tools — such as the STarT Back Screening Tool for lower back pain — help clinicians judge whether simple advice, physiotherapy, or a more specialist pathway is the right next step. Our free <Link to="/self-assessment" className="text-primary underline">self-assessment tool</Link> can help you organise your symptoms and history ahead of an appointment, though it is educational and does not replace a clinical diagnosis.</p>
+        <p className="leading-relaxed">Imaging (X-ray, ultrasound or MRI) is reserved for suspected fractures, red-flag symptoms, or when the result would change treatment — for example before considering injections or surgery.</p>
+      </section>
+
       <section id="care" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">3. Physiotherapy, chiropractic care and sports massage</h2>
+        <h2 className="text-2xl font-bold mb-4">5. Physiotherapy, chiropractic care and sports massage</h2>
         <p className="leading-relaxed mb-4">Physiotherapy is the first-line, evidence-backed treatment for most MSK conditions. Chiropractic and osteopathic care may help in selected cases. Sports and remedial massage support recovery from soft-tissue injuries and tightness, but should sit alongside — not replace — active rehabilitation.</p>
-        <p className="leading-relaxed">A good clinician will combine hands-on treatment with a progressive home exercise programme.</p>
+        <p className="leading-relaxed">A good clinician will combine hands-on treatment with a progressive home exercise programme. Many NHS areas now offer MSK physiotherapy self-referral — meaning you can book directly without a GP appointment first. Check your GP practice website or search "physiotherapy self-referral" plus your area on NHS.uk to see what's available locally.</p>
+      </section>
+
+      <section id="exercise-diet" className="mb-12">
+        <h2 className="text-2xl font-bold mb-4">6. Exercise and diet for MSK health</h2>
+        <p className="leading-relaxed mb-4">Movement — not rest — is the foundation of most MSK recovery plans. Graded strength training around the affected area, combined with general aerobic activity (walking, swimming or cycling), reduces pain and rebuilds capacity over time. Our <Link to="/exercises" className="text-primary underline">exercise hub</Link> has condition-specific routines to start from.</p>
+        <p className="leading-relaxed">There's no single "MSK diet", but maintaining a healthy weight measurably reduces load on weight-bearing joints (hips, knees, lower back), and a Mediterranean-style eating pattern — vegetables, oily fish, whole grains, olive oil and legumes — is generally associated with lower systemic inflammation. See our <Link to="/diet" className="text-primary underline">diet &amp; nutrition hub</Link> for practical guidance.</p>
       </section>
 
       <section id="ergonomics" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">4. Workplace ergonomics and occupational assessment</h2>
+        <h2 className="text-2xl font-bold mb-4">7. Workplace ergonomics and occupational assessment</h2>
         <ul className="list-disc pl-6 space-y-2">
           <li>Monitor at eye level, screen an arm&apos;s length away</li>
           <li>Elbows at ~90°, wrists neutral, feet flat or supported</li>
@@ -98,8 +132,21 @@ export default function MusculoskeletalHealth() {
       </section>
 
       <section id="home" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">5. Home solutions: insoles, taping and posture support</h2>
-        <p className="leading-relaxed">Off-the-shelf insoles, kinesiology tape, posture-reminder devices and lumbar cushions can help symptom control while you rehabilitate. They work best as part of a wider strength and movement programme — never as a standalone fix.</p>
+        <h2 className="text-2xl font-bold mb-4">8. Home solutions: insoles, taping and posture support</h2>
+        <p className="leading-relaxed">Off-the-shelf insoles, kinesiology tape, posture-reminder devices and lumbar cushions can help symptom control while you rehabilitate. They work best as part of a wider strength and movement programme — never as a standalone fix. For anything beyond simple, general supports, an occupational therapist or physiotherapist can match equipment to your specific needs — self-selecting specialist equipment without assessment can sometimes do more harm than good.</p>
+      </section>
+
+      <section id="msk-later-life" className="mb-12 bg-muted/30 p-6 rounded-lg">
+        <h2 className="text-2xl font-bold mb-4">9. MSK health in later life: frailty, sarcopenia and falls</h2>
+        <p className="leading-relaxed mb-4">Muscle mass and bone density naturally decline with age, and joint tissue becomes less resilient to load — which is why musculoskeletal health overlaps so closely with frailty, sarcopenia (age-related muscle loss) and falls risk in later life. Strength and balance work that supports MSK recovery earlier in life is the same foundation that protects independence later on.</p>
+        <p className="leading-relaxed mb-4">If MSK symptoms are appearing alongside general slowing down, reduced grip strength, or a fall or near-fall, it's worth looking at these related guides:</p>
+        <ul className="list-disc pl-6 space-y-2">
+          <li><Link to="/guides/frailty-management-hub" className="text-primary underline">Frailty management hub</Link> — recognising and managing frailty</li>
+          <li><Link to="/guides/sarcopenia-muscle-loss" className="text-primary underline">Sarcopenia &amp; muscle loss</Link> — age-related muscle decline and how to counter it</li>
+          <li><Link to="/guides/bone-density-osteoporosis" className="text-primary underline">Bone density &amp; osteoporosis</Link> — protecting skeletal strength</li>
+          <li><Link to="/guides/fall-prevention-older-adults" className="text-primary underline">Falls prevention for older adults</Link> — reducing fall risk at home</li>
+          <li><Link to="/guides/preventative-msk-health" className="text-primary underline">Preventative MSK health</Link> — staying ahead of problems before they start</li>
+        </ul>
       </section>
 
       <section id="patients-look-for" className="mb-12">
@@ -119,7 +166,13 @@ export default function MusculoskeletalHealth() {
         <h2 className="text-2xl font-bold mb-4">Related guides</h2>
         <ul className="space-y-2">
           <li><Link to="/exercises" className="text-primary underline">Exercise hub</Link></li>
+          <li><Link to="/diet" className="text-primary underline">Diet &amp; nutrition hub</Link></li>
+          <li><Link to="/self-assessment" className="text-primary underline">Self-assessment tool</Link></li>
           <li><Link to="/guides/preventative-msk-health" className="text-primary underline">Preventative MSK health</Link></li>
+          <li><Link to="/guides/frailty-management-hub" className="text-primary underline">Frailty management</Link></li>
+          <li><Link to="/guides/sarcopenia-muscle-loss" className="text-primary underline">Sarcopenia &amp; muscle loss</Link></li>
+          <li><Link to="/guides/bone-density-osteoporosis" className="text-primary underline">Bone density &amp; osteoporosis</Link></li>
+          <li><Link to="/guides/fall-prevention-older-adults" className="text-primary underline">Falls prevention</Link></li>
           <li><Link to="/conditions/arthritis" className="text-primary underline">Arthritis overview</Link></li>
           <li><Link to="/living-with-arthritis" className="text-primary underline">Living with arthritis</Link></li>
           <li><Link to="/guides/disability-support" className="text-primary underline">Disability support</Link></li>
