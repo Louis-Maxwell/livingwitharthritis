@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
+import AnswerBox from "@/components/seo/AnswerBox";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 
 const Footer = lazy(() => import("@/components/Footer"));
@@ -152,13 +153,16 @@ export default function PainkillersNsaidsGuide() {
           badge="Pillar Guide"
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
-          <p className="speakable-intro text-lg md:text-xl text-foreground/85 leading-relaxed mb-8">
-            Painkillers are the most widely used arthritis treatment — and the most often
-            misused. NICE now recommends topical NSAID gels as first-line for knee and hand
-            osteoarthritis, with oral NSAIDs, paracetamol and short-course opioids reserved
-            for specific situations. This guide explains exactly what to use, what to avoid,
-            and how to combine them safely.
-          </p>
+          <AnswerBox question="What is the best painkiller for arthritis?" reviewed="2026-06-13">
+            <p>
+              There is no single "best" painkiller — it depends on which joints are affected
+              and your other health conditions. NICE now recommends <strong>topical NSAID
+              gels</strong> (diclofenac or ibuprofen) as first-line for knee and hand
+              osteoarthritis, with oral NSAIDs added at the lowest effective dose if that
+              isn't enough. Paracetamol and short-course opioids are reserved for specific
+              situations, not routine daily use.
+            </p>
+          </AnswerBox>
           <TableOfContents html={html} />
           <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" dangerouslySetInnerHTML={{ __html: html }} />
           <div className="mt-16 pt-8 border-t border-border/30">
