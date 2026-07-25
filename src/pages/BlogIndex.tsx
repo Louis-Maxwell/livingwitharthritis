@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, type ReactNode } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -38,9 +38,13 @@ function slugToCategory(slug?: string): Category {
 
 interface BlogIndexProps {
   initialCategory?: string;
+  /** Category-specific H1 override — keeps each /blog/category/:slug page's heading distinct instead of always showing the generic blog title. */
+  heroTitle?: ReactNode;
+  /** Category-specific hero subtitle override, paired with heroTitle. */
+  heroSubtitle?: string;
 }
 
-const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
+const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps = {}) => {
   const [activeCategory, setActiveCategory] = useState<Category>(slugToCategory(initialCategory));
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
@@ -138,8 +142,8 @@ const BlogIndex = ({ initialCategory }: BlogIndexProps = {}) => {
               </Badge>
             </div>
           }
-          title={<>Arthritis Advice: <span className="text-primary">Evidence-Based Health Guides</span></>}
-          subtitle={`${blogPosts.length} evidence-based articles and counting — helping UK residents manage arthritis, reduce joint pain and live well.`}
+          title={heroTitle ?? <>Arthritis Advice: <span className="text-primary">Evidence-Based Health Guides</span></>}
+          subtitle={heroSubtitle ?? `${blogPosts.length} evidence-based articles and counting — helping UK residents manage arthritis, reduce joint pain and live well.`}
         />
 
         <main className="container mx-auto px-6 md:px-10 py-6 md:py-8">

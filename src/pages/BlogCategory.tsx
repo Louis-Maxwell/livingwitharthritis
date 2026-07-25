@@ -43,17 +43,18 @@ const CATEGORY_META: Record<string, { title: string; description: string }> = {
 
 const BlogCategory = () => {
   const { category } = useParams<{ category: string }>();
+  const key = category?.toLowerCase() ?? "";
+  // Hook must run unconditionally (rules-of-hooks) — the invalid-category
+  // redirect below happens after this, so it's fine to key it on "" here.
+  const { data: catArticles = [] } = useConditionArticles([key], 20);
 
-  if (!category || !validCategories.includes(category.toLowerCase())) {
+  if (!category || !validCategories.includes(key)) {
     return <Navigate to="/blog" replace />;
   }
 
-  const key = category.toLowerCase();
   const meta = CATEGORY_META[key];
-
   const categoryLabel = meta?.title?.split(":")[0]?.split("Articles")[0]?.trim() || key;
   const url = `https://livingwitharthritis.org.uk/blog/category/${key}`;
-  const { data: catArticles = [] } = useConditionArticles([key], 20);
 
   const itemListLd = {
     "@context": "https://schema.org",
@@ -101,7 +102,11 @@ const BlogCategory = () => {
           )}
         </Helmet>
       )}
-      <BlogIndex initialCategory={category} />
+      <BlogIndex
+        initialCategory={category}
+        heroTitle={meta?.title}
+        heroSubtitle={meta?.description}
+      />
     </>
   );
 };
