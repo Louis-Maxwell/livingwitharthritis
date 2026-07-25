@@ -45,7 +45,7 @@ const Connect = () => {
     <div className="min-h-screen bg-background">
       <SeoHead
         title="Connect an Assistant"
-        description="Connect ChatGPT, Claude or another MCP-compatible assistant to Living With Arthritis UK so it can read our evidence-based guides and, when you sign in, help with your own appointments and pain journal."
+        description="Connect ChatGPT, Claude or another MCP-compatible assistant to Living With Arthritis UK to read our guides and help with your appointments and pain journal."
         path={PATH}
       />
       <Header />

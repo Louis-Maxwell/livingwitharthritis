@@ -47,7 +47,7 @@ export default function PreventativeMSKHealth() {
     <article className="max-w-4xl mx-auto py-12 px-4">
       <SeoHead
         title="Preventative MSK Health Guide"
-        description="Preventative musculoskeletal health: Early intervention before arthritis develops. Posture, movement patterns, load management and life-course prevention strategies."
+        description="Preventative musculoskeletal health: early intervention before arthritis develops. Posture, movement, load management and life-course prevention."
         path="/guides/preventative-msk-health"
         type="article"
         keywords="prevent arthritis, early arthritis signs, msk health, joint health, preventative physiotherapy, preventative msk health, prevention vs management"
