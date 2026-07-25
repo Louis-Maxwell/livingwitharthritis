@@ -40,7 +40,7 @@ function walk(dir: string, out: string[] = []): string[] {
     const p = join(dir, name);
     const s = statSync(p);
     if (s.isDirectory()) walk(p, out);
-    else if (p.endsWith(".tsx") && !p.endsWith(".stories.tsx")) out.push(p);
+    else if (p.endsWith(".tsx") && !p.endsWith(".stories.tsx") && !p.endsWith(".test.tsx")) out.push(p);
   }
   return out;
 }

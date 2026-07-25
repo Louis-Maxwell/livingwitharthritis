@@ -137,12 +137,14 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
           </p>
 
           {record.image && (
-            <img
-              src={record.image}
-              alt={`Portrait of ${record.name}`}
-              className="w-full max-w-xs rounded-2xl mb-8"
-              loading="lazy"
-            />
+            <div className="w-full max-w-xs aspect-[4/5] overflow-hidden rounded-2xl mb-8">
+              <img
+                src={record.image}
+                alt={`Portrait of ${record.name}`}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
           )}
 
           <section className="prose prose-slate max-w-none mb-10">
