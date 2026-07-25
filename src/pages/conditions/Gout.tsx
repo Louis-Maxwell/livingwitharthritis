@@ -56,6 +56,34 @@ const data: ConditionPageData = {
     "<strong>Kidney problems</strong> reducing uric acid clearance",
     "Certain medicines (diuretics, low-dose aspirin)",
   ],
+  diagnosis: (
+    <>
+      <p>
+        A GP can often diagnose gout from the classic pattern — sudden, severe pain in a
+        single joint, usually the big toe — but confirming it properly matters, since other
+        conditions can look similar.
+      </p>
+      <h3>Joint fluid aspiration</h3>
+      <p>
+        The gold-standard test is removing a small sample of fluid from the affected joint
+        with a fine needle and examining it under a polarised-light microscope for
+        needle-shaped urate crystals. This also rules out a joint infection, which can look
+        similar but needs urgent, different treatment.
+      </p>
+      <h3>Blood tests</h3>
+      <p>
+        A blood uric acid test is useful but not always conclusive on its own — levels can
+        be normal during an actual attack and only rise again afterwards, so a single normal
+        result doesn't rule gout out.
+      </p>
+      <h3>Imaging</h3>
+      <p>
+        Ultrasound or dual-energy CT scanning can show characteristic urate crystal deposits
+        non-invasively, and are especially useful for confirming gout in joints that are
+        difficult to aspirate, or in long-standing disease.
+      </p>
+    </>
+  ),
   treatments: [
     "<strong>NSAIDs</strong> (ibuprofen, naproxen) — first-line for acute attacks",
     "<strong>Colchicine</strong> — used when NSAIDs aren't suitable",

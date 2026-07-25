@@ -12,6 +12,7 @@ import {
   Pill,
   HelpCircle,
   Users,
+  Stethoscope,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -62,6 +63,8 @@ export interface ConditionPageData {
   symptoms: string[];
   /** Causes & risk factors bullets */
   causes: string[];
+  /** Optional "How is X diagnosed?" section content — omitted if not provided */
+  diagnosis?: ReactNode;
   /** Treatment & management bullets */
   treatments: string[];
   /** Diet recommendations */
@@ -270,6 +273,12 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
               ))}
             </ul>
           </Section>
+
+          {data.diagnosis && (
+            <Section icon={Stethoscope} title={`How is ${data.name} diagnosed?`}>
+              {data.diagnosis}
+            </Section>
+          )}
 
           <Section icon={Pill} title="Treatment & Management">
             <ul>
