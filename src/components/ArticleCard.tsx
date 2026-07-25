@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 import { Clock, ArrowRight } from 'lucide-react';
 
 interface ArticleCardProps {
@@ -59,7 +59,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
   };
 
   return (
-    <Link href={href}>
+    <Link to={href}>
       <article className="group relative overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer">
         {/* Thumbnail */}
         {thumbnail ? (

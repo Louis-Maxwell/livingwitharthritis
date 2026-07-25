@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 interface MainNavProps {
@@ -37,7 +37,7 @@ export const MainNav: React.FC<MainNavProps> = ({
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 font-bold text-xl text-red-700 hover:text-red-800 transition-colors">
+            <Link to="/" className="flex items-center gap-2 font-bold text-xl text-red-700 hover:text-red-800 transition-colors">
               {logo || (
                 <div className="flex items-center gap-2">
                   <span className="text-2xl">❤️🐾</span>
@@ -51,7 +51,7 @@ export const MainNav: React.FC<MainNavProps> = ({
               {currentLinks.map((link) => (
                 <Link
                   key={link.href}
-                  href={link.href}
+                  to={link.href}
                   className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-red-700 hover:bg-red-50 transition-all"
                 >
                   {link.label}
