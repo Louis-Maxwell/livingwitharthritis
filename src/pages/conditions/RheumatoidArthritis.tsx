@@ -17,6 +17,7 @@ import LastReviewed, { LAST_REVIEWED_ISO } from "@/components/LastReviewed";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import AnswerBox from "@/components/seo/AnswerBox";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
+import ArticleFaqSection from "@/components/article/ArticleFaqSection";
 
 const BASE = "https://livingwitharthritis.org.uk";
 
@@ -222,6 +223,19 @@ const RheumatoidArthritis = () => (
           </ul>
         </Section>
 
+        <Section icon={BookOpen} title="How is rheumatoid arthritis diagnosed?">
+          <p>There is no single test for RA — diagnosis combines symptoms, blood tests and imaging. If you have persistent joint swelling or morning stiffness lasting over 30 minutes, your GP will usually refer you to a rheumatologist.</p>
+          <h3>Blood tests</h3>
+          <ul>
+            <li><strong>Rheumatoid factor (RF)</strong> — an antibody present in around 70-80% of people with RA, though it can also be positive in other conditions or absent in early disease</li>
+            <li><strong>Anti-CCP antibodies</strong> — more specific to RA than RF and can appear years before symptoms start</li>
+            <li><strong>ESR and CRP</strong> — inflammatory markers that rise during active disease and help track flares</li>
+          </ul>
+          <h3>Imaging</h3>
+          <p><strong>X-rays</strong> can show joint space narrowing and bone erosion, though early RA often looks normal on X-ray. <strong>Ultrasound</strong> and <strong>MRI</strong> are more sensitive and can detect synovitis (joint lining inflammation) before permanent damage occurs — useful for catching RA early, within the "window of opportunity."</p>
+          <p>A rheumatologist confirms diagnosis using a combination of these results alongside the pattern and duration of your symptoms, since no single blood test or scan is diagnostic on its own.</p>
+        </Section>
+
         <Section icon={Pill} title="How is rheumatoid arthritis treated?">
           <p>Modern treatment aims to achieve <strong>remission</strong> — a state where the disease is controlled and no active inflammation is present. The UK follows a <strong>"treat to target"</strong> approach.</p>
           <h3>DMARDs (Disease-Modifying Anti-Rheumatic Drugs)</h3>
@@ -269,6 +283,13 @@ const RheumatoidArthritis = () => (
           </ul>
           <p><strong>Important:</strong> If you are on methotrexate, discuss alcohol intake and folic acid supplementation with your rheumatologist.</p>
         </Section>
+
+        <ArticleFaqSection
+          faqs={faqLd.mainEntity.map((f) => ({
+            question: f.name,
+            answer: f.acceptedAnswer.text,
+          }))}
+        />
 
         {/* Live Blog & Stories — Advice & Guidance */}
         <ConditionBlogStrip

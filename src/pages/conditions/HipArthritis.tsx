@@ -15,6 +15,7 @@ import AnswerBox from "@/components/seo/AnswerBox";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import LastReviewed, { LAST_REVIEWED_ISO } from "@/components/LastReviewed";
+import ArticleFaqSection from "@/components/article/ArticleFaqSection";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const URL = `${BASE}/conditions/hip-arthritis`;
@@ -284,6 +285,13 @@ const HipArthritis = () => (
           <h3>Surgery</h3>
           <p><strong>Total hip replacement</strong> is considered when pain disturbs sleep, severely limits daily activity, and at least 3–6 months of conservative treatment has not worked. UK outcomes are excellent — over 95% of hip replacements are still functioning well at 10 years and around 85% at 20 years.</p>
         </Section>
+
+        <ArticleFaqSection
+          faqs={faqLd.mainEntity.map((f) => ({
+            question: f.name,
+            answer: f.acceptedAnswer.text,
+          }))}
+        />
 
         <ConditionBlogStrip
           conditionName="Hip arthritis"

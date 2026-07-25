@@ -12,6 +12,9 @@ import CrossLinkBanner from "@/components/CrossLinkBanner";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import LastReviewed, { LAST_REVIEWED_ISO } from "@/components/LastReviewed";
+import AnswerBox from "@/components/seo/AnswerBox";
+import MedicalReviewBadge from "@/components/MedicalReviewBadge";
+import ArticleFaqSection from "@/components/article/ArticleFaqSection";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const URL = `${BASE}/conditions/elbow-arthritis`;
@@ -139,6 +142,22 @@ const ElbowArthritis = () => (
           </motion.div>
         </div>
       </div>
+
+      <section className="container mx-auto px-6 md:px-10 max-w-3xl pt-10">
+        <AnswerBox
+          question="What is the best treatment for elbow arthritis?"
+          reviewed="2026-06-13"
+        >
+          <p>
+            Gentle range-of-motion work — bending and straightening the elbow within a
+            pain-free range, plus forearm rotations — is the most evidence-supported daily
+            routine. For flare-ups, <strong>topical NSAID gel</strong> or a <strong>corticosteroid
+            injection</strong> settles pain. <strong>Elbow replacement</strong> is reserved for
+            severe pain or loss of function and gives good relief in around 85% of cases.
+          </p>
+        </AnswerBox>
+        <MedicalReviewBadge compact reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
+      </section>
 
       <section className="py-12 lg:py-16 bg-tint-green">
         <div className="container mx-auto px-6 md:px-10 max-w-4xl">
@@ -268,6 +287,13 @@ const ElbowArthritis = () => (
           </ul>
           <p>If your appointment is delayed, our <Link to="/arthritis-waiting-list-help" className="text-primary underline">waiting-list help guide</Link> covers what you can do in the meantime.</p>
         </Section>
+
+        <ArticleFaqSection
+          faqs={faqLd.mainEntity.map((f) => ({
+            question: f.name,
+            answer: f.acceptedAnswer.text,
+          }))}
+        />
 
         <ConditionBlogStrip
           conditionName="Elbow arthritis"

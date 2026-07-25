@@ -15,6 +15,7 @@ import AnswerBox from "@/components/seo/AnswerBox";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import LastReviewed, { LAST_REVIEWED_ISO } from "@/components/LastReviewed";
+import ArticleFaqSection from "@/components/article/ArticleFaqSection";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const URL = `${BASE}/conditions/hand-arthritis`;
@@ -137,7 +138,7 @@ const HandArthritis = () => (
             <LastReviewed date={LAST_REVIEWED_ISO} className="mb-5" />
             <AeoEnhancement route="/conditions/hand-arthritis" />
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Hand arthritis affects the small finger joints and the base of the thumb. This UK guide explains the difference between Heberden's nodes, Bouchard's nodes and thumb base (CMC) arthritis — and the exercises, splints and treatments that help most.
+              Hand arthritis is osteoarthritis of the small finger joints and the base of the thumb. This UK guide explains the difference between Heberden's nodes, Bouchard's nodes and thumb base (CMC) arthritis — and the exercises, splints and treatments that help most.
             </p>
           </motion.div>
         </div>
@@ -270,6 +271,13 @@ const HandArthritis = () => (
           <h3>Surgery</h3>
           <p><strong>Trapeziectomy</strong> (removal of the trapezium bone at the thumb base) is the most common hand-arthritis operation in the UK, with around 80% of patients reporting good pain relief. Finger joint <strong>fusion</strong> or <strong>replacement</strong> is reserved for severe deformity.</p>
         </Section>
+
+        <ArticleFaqSection
+          faqs={faqLd.mainEntity.map((f) => ({
+            question: f.name,
+            answer: f.acceptedAnswer.text,
+          }))}
+        />
 
         <ConditionBlogStrip
           conditionName="Hand arthritis"
