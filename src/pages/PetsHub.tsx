@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { PawPrint, AlertTriangle } from "lucide-react";
 import PET_ARTICLES from "@/data/pets-arthritis.generated";
+import SeoHead from "@/components/SeoHead";
 
 /**
  * /pets — Pets & Arthritis Hub
@@ -16,13 +16,11 @@ export default function PetsHub() {
 
   return (
     <>
-      <Helmet>
-        <title>Pets & Arthritis Hub: Dogs, Cats, Horses, Llamas | Living With Arthritis UK</title>
-        <meta
-          name="description"
-          content="Free UK guides to arthritis in dogs, cats, horses, llamas and alpacas — signs, vet treatments, weight, exercise and home adaptations."
-        />
-      </Helmet>
+      <SeoHead
+        title="Pets & Arthritis Hub"
+        description="Free UK guides to arthritis in dogs, cats, horses, llamas and alpacas — signs, vet treatments, weight, exercise and home adaptations."
+        path="/pets"
+      />
 
       <main className="bg-white">
         {/* Hero */}

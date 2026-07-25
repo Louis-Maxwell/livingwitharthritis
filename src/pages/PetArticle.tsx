@@ -1,7 +1,7 @@
-import { Helmet } from "react-helmet-async";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { AlertTriangle, ChevronLeft } from "lucide-react";
 import PET_ARTICLES from "@/data/pets-arthritis.generated";
+import SeoHead from "@/components/SeoHead";
 
 /**
  * /pets/:slug — Pet article page
@@ -19,10 +19,11 @@ export default function PetArticle() {
 
   return (
     <>
-      <Helmet>
-        <title>{article.title} | Living With Arthritis UK</title>
-        <meta name="description" content={article.summary.slice(0, 158)} />
-      </Helmet>
+      <SeoHead
+        title={article.title}
+        description={article.summary.slice(0, 158)}
+        path={`/pets/${article.slug}`}
+      />
 
       <main className="bg-white">
         <article className="max-w-3xl mx-auto px-6 py-10">

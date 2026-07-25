@@ -28,6 +28,7 @@ for (const file of walk(ROOT)) {
   if (
     src.includes("SeoHead") ||
     src.includes("ConditionPageTemplate") ||
+    src.includes("StubPage") || // StubPage itself emits og:title internally
     src.includes("og:title")
   ) continue;
   missing.push(file);

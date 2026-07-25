@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import SeoHead from "@/components/SeoHead";
 import { Link } from "react-router-dom";
 import { lazy, Suspense, useMemo } from "react";
 import { BookOpen, Search } from "lucide-react";
@@ -43,12 +44,12 @@ export default function Glossary() {
 
   return (
     <>
+      <SeoHead
+        title="Arthritis Glossary A–Z"
+        description="Plain-English definitions of arthritis, rheumatology and MSK terms — from DMARDs to synovium — reviewed for UK patients."
+        path="/glossary"
+      />
       <Helmet>
-        <title>Arthritis Glossary A–Z | Living With Arthritis UK</title>
-        <meta
-          name="description"
-          content="Plain-English definitions of arthritis, rheumatology and MSK terms — from DMARDs to synovium — reviewed for UK patients."
-        />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "DefinedTermSet",

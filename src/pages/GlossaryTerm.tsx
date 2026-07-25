@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import { GLOSSARY_ROUTES } from "@/data/glossary-routes.generated";
 import { getGlossaryEntry, GLOSSARY_CONTENT } from "@/data/glossary-content";
-import { enforceTitle, enforceDescription } from "@/lib/seoMeta";
+import SeoHead from "@/components/SeoHead";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
@@ -56,9 +56,12 @@ export default function GlossaryTerm() {
 
   return (
     <>
+      <SeoHead
+        title={`${label} — Arthritis Glossary`}
+        description={description}
+        path={href}
+      />
       <Helmet>
-        <title>{enforceTitle(`${label} — Arthritis Glossary`, { route: href })}</title>
-        <meta name="description" content={enforceDescription(description, href)} />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "DefinedTerm",

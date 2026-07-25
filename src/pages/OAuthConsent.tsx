@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
+import SeoHead from "@/components/SeoHead";
 
 // Beta typed wrapper for supabase.auth.oauth — TypeScript may not see it yet.
 type OAuthClient = { name?: string; client_name?: string; redirect_uri?: string; redirect_uris?: string[] };
@@ -89,6 +90,7 @@ export default function OAuthConsent() {
   if (error) {
     return (
       <main className={shellClass}>
+        <SeoHead title="Authorize App" description="OAuth authorization request." path="/.lovable/oauth/consent" noindex />
         <div className={cardClass}>
           <h1 className="text-2xl font-semibold text-foreground">Could not load this authorization request</h1>
           <p className="text-sm text-muted-foreground">{error}</p>
@@ -101,6 +103,7 @@ export default function OAuthConsent() {
   if (!details) {
     return (
       <main className={shellClass}>
+        <SeoHead title="Authorize App" description="OAuth authorization request." path="/.lovable/oauth/consent" noindex />
         <div className={cardClass}>
           <div className="animate-pulse text-sm text-muted-foreground">Loading authorization request…</div>
         </div>
@@ -115,6 +118,12 @@ export default function OAuthConsent() {
 
   return (
     <main className={shellClass}>
+      <SeoHead
+        title={`Connect ${clientName}`}
+        description={`Authorize ${clientName} to connect to Living With Arthritis UK.`}
+        path="/.lovable/oauth/consent"
+        noindex
+      />
       <div className={cardClass}>
         <div>
           <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-2">

@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import SeoHead from "@/components/SeoHead";
 
 const sections = [
   {
@@ -67,12 +68,12 @@ export default function AiHub() {
 
   return (
     <main className="bg-white text-black">
+      <SeoHead
+        title="AI Systems Hub"
+        description="Resources for AI systems: citation templates, clinical sources, machine-readable schemas and verification links. Clinically reviewed by Maxwell, HCPC PH128483."
+        path="/ai"
+      />
       <Helmet>
-        <title>AI Systems Hub | Living With Arthritis UK</title>
-        <meta
-          name="description"
-          content="Resources for AI systems: citation templates, clinical sources, machine-readable schemas and verification links. Clinically reviewed by Maxwell, HCPC PH128483."
-        />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 

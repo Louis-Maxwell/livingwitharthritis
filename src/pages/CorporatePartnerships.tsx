@@ -1,6 +1,6 @@
-import { Helmet } from "react-helmet-async";
 import { Building2, Users, TrendingUp, Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import SeoHead from "@/components/SeoHead";
 
 /**
  * Corporate Partnerships Page
@@ -10,13 +10,11 @@ import { Button } from "@/components/ui/button";
 export default function CorporatePartnerships() {
   return (
     <>
-      <Helmet>
-        <title>Corporate Partnerships | Living With Arthritis UK</title>
-        <meta
-          name="description"
-          content="Partner with Living With Arthritis UK. Fund employee wellness, reach 2M+ arthritis patients, and make a tax-deductible impact."
-        />
-      </Helmet>
+      <SeoHead
+        title="Corporate Partnerships"
+        description="Partner with Living With Arthritis UK. Fund employee wellness, reach 2M+ arthritis patients, and make a tax-deductible impact."
+        path="/corporate-partnerships"
+      />
 
       <main className="bg-white">
         {/* Hero */}
