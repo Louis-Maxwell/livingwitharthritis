@@ -1,0 +1,76 @@
+<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .logo-heart { fill: #DC2626; }
+      .logo-paw { fill: #991B1B; }
+      .logo-accent { fill: #FCA5A5; }
+      .logo-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+      .logo-title { font-size: 32px; font-weight: 700; fill: #1F2937; letter-spacing: -0.5px; }
+      .logo-subtitle { font-size: 12px; font-weight: 500; fill: #6B7280; letter-spacing: 1px; text-transform: uppercase; }
+    </style>
+  </defs>
+
+  <!-- Heart Shape (Human Care) -->
+  <path
+    class="logo-heart"
+    d="M 50 65 
+       C 50 55, 45 45, 35 45 
+       C 25 45, 20 55, 20 65 
+       C 20 85, 50 110, 50 110 
+       C 50 110, 80 85, 80 65 
+       C 80 55, 75 45, 65 45 
+       C 55 45, 50 55, 50 65 Z"
+  />
+
+  <!-- Paw Print Integrated (Animal Care) -->
+  <!-- Main Pad (integrated into heart) -->
+  <circle class="logo-paw" cx="50" cy="85" r="16" opacity="0.85" />
+  
+  <!-- Toe Pads -->
+  <!-- Top -->
+  <circle class="logo-paw" cx="50" cy="45" r="9" opacity="0.9" />
+  <!-- Left -->
+  <circle class="logo-paw" cx="25" cy="75" r="9" opacity="0.9" />
+  <!-- Right -->
+  <circle class="logo-paw" cx="75" cy="75" r="9" opacity="0.9" />
+  <!-- Bottom Right -->
+  <circle class="logo-paw" cx="65" cy="100" r="9" opacity="0.9" />
+  <!-- Bottom Left -->
+  <circle class="logo-paw" cx="35" cy="100" r="9" opacity="0.9" />
+
+  <!-- Accent Elements (Connection/Unity) -->
+  <!-- Left arch accent -->
+  <path
+    class="logo-accent"
+    d="M 30 55 Q 28 70, 35 85"
+    stroke="#FCA5A5"
+    stroke-width="2"
+    fill="none"
+    stroke-linecap="round"
+  />
+  <!-- Right arch accent -->
+  <path
+    class="logo-accent"
+    d="M 70 55 Q 72 70, 65 85"
+    stroke="#FCA5A5"
+    stroke-width="2"
+    fill="none"
+    stroke-linecap="round"
+  />
+
+  <!-- Wordmark: "Living With Arthritis" -->
+  <text x="130" y="75" class="logo-text logo-title">
+    Living With
+  </text>
+  <text x="130" y="105" class="logo-text logo-title">
+    Arthritis
+  </text>
+
+  <!-- Tagline: "Humans & Pets" -->
+  <text x="130" y="135" class="logo-text logo-subtitle">
+    ❤️ Humans • Pets 🐾
+  </text>
+
+  <!-- Optional: Decorative line -->
+  <line x1="130" y1="140" x2="390" y2="140" stroke="#E5E7EB" stroke-width="1" />
+</svg>
