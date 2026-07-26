@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, type ReactNode, type ElementType } from "react";
+import { lazy, Suspense, type ReactNode, type ElementType } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import {
@@ -21,6 +21,7 @@ import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import AnswerBox from "@/components/seo/AnswerBox";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import LastReviewed, { LAST_REVIEWED_ISO } from "@/components/LastReviewed";
+import MedicalPageSchema from "@/components/seo/MedicalPageSchema";
 
 // Below-the-fold — lazy to reduce initial route chunk + speed up LCP
 const InternalLinks = lazy(() => import("@/components/InternalLinks"));
@@ -124,67 +125,25 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
   const url = `${BASE}/conditions/${data.slug}`;
   const ogImage = resolveOgImage(data.slug, data.ogImage);
 
-  useEffect(() => {
-    const medicalLd = {
-      "@context": "https://schema.org",
-      "@type": "MedicalWebPage",
-      name: data.metaTitle,
-      description: data.metaDescription,
-      url,
-      inLanguage: "en-GB",
-      author: { "@type": "Organization", name: "Living With Arthritis", url: BASE },
-      publisher: {
-        "@type": "Organization",
-        name: "Living With Arthritis",
-        url: BASE,
-        logo: { "@type": "ImageObject", url: `${BASE}/favicon.ico` },
-      },
-      about: {
-        "@type": "MedicalCondition",
-        name: data.name,
-        ...(data.alternateNames ? { alternateName: data.alternateNames } : {}),
-        signOrSymptom: data.symptoms,
-        riskFactor: data.causes,
-      },
-      audience: {
-        "@type": "MedicalAudience",
-        audienceType: "Patient",
-        geographicArea: { "@type": "Country", name: "United Kingdom" },
-      },
-    };
-
-    const breadcrumbLd = {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: `${BASE}/` },
-        { "@type": "ListItem", position: 2, name: "Conditions", item: `${BASE}/#conditions` },
-        { "@type": "ListItem", position: 3, name: data.name, item: url },
-      ],
-    };
-
-    const faqLd = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: data.faqs.map((f) => ({
-        "@type": "Question",
-        name: f.question,
-        acceptedAnswer: { "@type": "Answer", text: f.answer },
-      })),
-    };
-
-    const scripts = [medicalLd, breadcrumbLd, faqLd].map((d) => {
-      const s = document.createElement("script");
-      s.type = "application/ld+json";
-      s.text = JSON.stringify(d);
-      document.head.appendChild(s);
-      return s;
-    });
-    return () => scripts.forEach((s) => s.remove());
-  }, [data, url]);
-
   return (
     <>
+      <MedicalPageSchema
+        id={`condition-${data.slug}`}
+        medical={{
+          path: url,
+          name: data.metaTitle,
+          description: data.metaDescription,
+          lastReviewed: LAST_REVIEWED_ISO,
+          conditions: [data.name],
+          alternateNames: data.alternateNames,
+          signOrSymptom: data.symptoms,
+          riskFactor: data.causes,
+          image: ogImage,
+        }}
+        faqs={data.faqs}
+        // No breadcrumbs prop: <PageBreadcrumb> below already injects its
+        // own BreadcrumbList JSON-LD from the same segments.
+      />
       <Helmet>
         <title>{`${data.metaTitle} | Living With Arthritis UK`}</title>
         <meta name="description" content={data.metaDescription} />

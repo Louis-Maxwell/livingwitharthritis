@@ -140,7 +140,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/guides/can-exercise-make-osteoarthritis-worse": withDefaults({
     question: "Can exercise make osteoarthritis worse?",
     answer:
-      "No — done correctly, exercise reduces OA pain and slows progression. Some soreness during and up to 2 hours after exercise is normal. Sharp, sudden or persistent pain lasting >24 hours means you've done too much; scale back but don't stop.",
+      "No — done correctly, exercise reduces OA pain and slows progression. Some soreness during and up to 2 hours after exercise is normal. Sharp, sudden or persistent pain lasting more than 24 hours means you've done too much; scale back but don't stop.",
   }),
   "/guides/fall-prevention-older-adults": withDefaults({
     question: "How can older adults prevent falls?",

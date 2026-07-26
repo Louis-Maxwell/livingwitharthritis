@@ -108,6 +108,12 @@ export interface MedicalWebPageInput {
   specialty?: MedicalSpecialty | MedicalSpecialty[];
   /** Optional MedicalCondition name(s) this page is about. */
   conditions?: string[];
+  /** Alternate name(s) for the FIRST entry in `conditions`. */
+  alternateNames?: string[];
+  /** Signs/symptoms for the FIRST entry in `conditions`. */
+  signOrSymptom?: string[];
+  /** Risk factors for the FIRST entry in `conditions`. */
+  riskFactor?: string[];
   /** Image URL for the page (absolute). */
   image?: string;
 }
@@ -146,9 +152,18 @@ export const buildMedicalWebPage = (input: MedicalWebPageInput) => {
       : {}),
     ...(input.conditions && input.conditions.length
       ? {
-          about: input.conditions.map((c) => ({
+          about: input.conditions.map((c, i) => ({
             '@type': 'MedicalCondition',
             name: c,
+            ...(i === 0 && input.alternateNames?.length
+              ? { alternateName: input.alternateNames }
+              : {}),
+            ...(i === 0 && input.signOrSymptom?.length
+              ? { signOrSymptom: input.signOrSymptom }
+              : {}),
+            ...(i === 0 && input.riskFactor?.length
+              ? { riskFactor: input.riskFactor }
+              : {}),
           })),
         }
       : {}),

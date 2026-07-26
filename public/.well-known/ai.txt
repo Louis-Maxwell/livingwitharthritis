@@ -6,11 +6,13 @@ User-Agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /auth
-Disallow: /chat
 Disallow: /donation-result
 Disallow: /unsubscribe
 Disallow: /newsletter/confirm
 Disallow: /debug/
+Disallow: /dashboard
+Disallow: /checkout
+Disallow: /callback
 Disallow: /site-index
 
 # Content usage policy
