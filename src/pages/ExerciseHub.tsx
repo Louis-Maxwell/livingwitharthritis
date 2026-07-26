@@ -43,7 +43,7 @@ const exerciseCategories = [
     color: "from-primary/15 to-primary/10",
     iconColor: "text-primary bg-primary/10",
     borderColor: "border-primary/20 hover:border-primary/40",
-    href: "/blog/knee-arthritis-exercises-uk",
+    href: "/blog/knee-osteoarthritis-exercises",
     exercises: [
       "Straight leg raises – 3 sets of 10",
       "Wall sits – hold 15–30 seconds",

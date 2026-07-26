@@ -54,7 +54,7 @@ const rawIndex: SearchItem[] = [
   { label: "Best Diet for Joint Pain UK", href: "/blog/best-diet-for-joint-pain-uk", category: "Blog", icon: Utensils },
   { label: "Turmeric for Arthritis UK", href: "/blog/turmeric-for-arthritis-uk", category: "Blog", icon: Utensils },
   { label: "Omega-3 & Fish Oil", href: "/blog/arthritis-and-omega-3-fish-oil", category: "Blog", icon: Utensils },
-  { label: "Knee Arthritis Exercises UK", href: "/blog/knee-arthritis-exercises-uk", category: "Blog", icon: Dumbbell },
+  { label: "Knee Arthritis Exercises UK", href: "/blog/knee-osteoarthritis-exercises", category: "Blog", icon: Dumbbell },
   { label: "Hand Exercises for Arthritis", href: "/blog/hand-exercises-for-arthritis", category: "Blog", icon: Dumbbell },
   { label: "Shoulder Arthritis Exercises UK", href: "/blog/shoulder-arthritis-exercises-uk", category: "Blog", icon: Dumbbell },
   { label: "Arthritis Exercises", href: "/blog/arthritis-exercises", category: "Blog", icon: Dumbbell },

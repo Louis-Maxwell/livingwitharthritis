@@ -6,7 +6,7 @@ import { avatarMargaret, avatarPriya, avatarJames } from "@/data/images";
 const testimonials = [
   { name: "Margaret T.", location: "Bristol", condition: "Osteoarthritis", text: "The virtual physiotherapy sessions changed my life. I can now garden again without constant pain. After 3 months, my GP reduced my painkillers.", rating: 5, highlight: "reduced my painkillers", verified: true, avatar: avatarMargaret, storySlug: "arthritis-and-gardening-uk" },
   { name: "Priya S.", location: "London", condition: "Psoriatic Arthritis", text: "The anti-inflammatory diet plan reduced my flare-ups significantly within just 3 months. My CRP levels dropped from 28 to 8.", rating: 5, highlight: "CRP levels dropped", verified: true, avatar: avatarPriya, storySlug: "best-diet-for-joint-pain-uk" },
-  { name: "James W.", location: "Edinburgh", condition: "Knee OA", text: "I was sceptical at first, but the gentle exercise guides have made a real difference to my mobility. Walking distance up 40% in 8 weeks.", rating: 5, highlight: "40% in 8 weeks", verified: true, avatar: avatarJames, storySlug: "knee-arthritis-exercises-uk" },
+  { name: "James W.", location: "Edinburgh", condition: "Knee OA", text: "I was sceptical at first, but the gentle exercise guides have made a real difference to my mobility. Walking distance up 40% in 8 weeks.", rating: 5, highlight: "40% in 8 weeks", verified: true, avatar: avatarJames, storySlug: "knee-osteoarthritis-exercises" },
 ];
 
 const HighlightedText = ({ text, highlight }: { text: string; highlight: string }) => {

@@ -224,7 +224,7 @@ const ALL_LINKS: SitemapLink[] = [
 
   // Blog – Exercise articles
   { label: "Arthritis Exercises", href: "/blog/arthritis-exercises" },
-  { label: "Knee Arthritis Exercises", href: "/blog/knee-arthritis-exercises-uk" },
+  { label: "Knee Arthritis Exercises", href: "/blog/knee-osteoarthritis-exercises" },
   { label: "Hand Exercises for Arthritis", href: "/blog/hand-exercises-for-arthritis" },
   { label: "Shoulder Arthritis Exercises", href: "/blog/shoulder-arthritis-exercises-uk" },
   { label: "Foot & Ankle Arthritis", href: "/blog/foot-and-ankle-arthritis-uk" },
