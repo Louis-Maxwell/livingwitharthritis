@@ -747,6 +747,16 @@ URL: https://livingwitharthritis.org.uk/conditions/elbow-arthritis
 Last updated: 2026-07-01
 Q: What is elbow arthritis?
 A: Elbow arthritis is joint damage in the elbow causing pain, stiffness, locking or grating during movement. Osteoarthritis and rheumatoid arthritis are the main causes. Treatment ranges from activity modification and NSAIDs to arthroscopy or elbow replacement.
+Q: What does elbow arthritis feel like?
+A: Most people describe a deep ache on the outside or back of the elbow that worsens when straightening the arm fully or carrying a heavy bag. Many lose the last few degrees of extension, so the arm no longer goes completely straight.
+Q: Is elbow pain always arthritis?
+A: No. The most common causes of elbow pain in UK adults are tennis elbow (lateral epicondylitis) and golfer's elbow (medial epicondylitis) — tendon overload conditions rather than joint arthritis. True elbow arthritis is less common and usually follows an old fracture or develops in people with rheumatoid arthritis.
+Q: What is the best exercise for elbow arthritis?
+A: Gentle range-of-motion work — bending and straightening the elbow within a pain-free range, plus forearm rotations (palm up, palm down) — is the most evidence-supported routine. Light isometric grip work protects forearm strength without loading the joint.
+Q: Should I see a GP about elbow pain?
+A: See your GP if elbow pain lasts more than six weeks, wakes you at night, locks or catches, or is accompanied by tingling into the ring and little fingers — that pattern can indicate ulnar nerve irritation that benefits from early treatment.
+Q: Can elbow arthritis be cured?
+A: Arthritis itself isn't cured, but most people manage symptoms well with exercise, activity modification, topical NSAIDs and occasional corticosteroid injections. Elbow replacement is reserved for severe pain or loss of function and gives good relief in around 85% of cases.
 
 ## Fibromyalgia: Symptoms & Management | UK Guide
 URL: https://livingwitharthritis.org.uk/conditions/fibromyalgia
@@ -789,12 +799,34 @@ URL: https://livingwitharthritis.org.uk/conditions/hand-arthritis
 Last updated: 2026-07-01
 Q: What is hand arthritis?
 A: Hand arthritis affects the small joints of the fingers, thumbs and wrists. Osteoarthritis typically causes bony bumps and thumb-base pain; rheumatoid usually causes symmetrical knuckle swelling. Splints, hand exercises and topical NSAID gels help most people.
+Q: What are the first signs of hand arthritis?
+A: Early signs include stiffness in the fingers in the morning, a dull ache at the base of the thumb when opening jars or turning keys, and small bony lumps on the end finger joints (Heberden's nodes).
+Q: What is the best exercise for arthritic hands?
+A: A daily 5-minute routine of fist-to-fan, finger-to-thumb touches, and gentle putty squeezes maintains range of motion and grip strength without overloading inflamed joints.
+Q: Do hand splints actually help?
+A: Yes — for thumb base (CMC) arthritis, a custom or off-the-shelf neoprene splint reduces pain during pinching tasks and is recommended by NICE as part of first-line care.
+Q: Are the bony lumps on my fingers permanent?
+A: Heberden's and Bouchard's nodes are bone changes and don't shrink, but the pain associated with their formation usually settles within 1–2 years. The remaining stiffness can be managed with exercise.
+Q: When is hand surgery needed?
+A: Surgery (most commonly trapeziectomy for thumb base arthritis or joint fusion for severe finger OA) is reserved for persistent pain that hasn't responded to splinting, exercise, injections and topical NSAIDs over 6+ months.
 
 ## Hip Arthritis: Symptoms, Exercises & Relief | UK
 URL: https://livingwitharthritis.org.uk/conditions/hip-arthritis
 Last updated: 2026-07-01
 Q: What is hip arthritis?
 A: Hip arthritis is joint damage — usually osteoarthritis — of the hip, causing groin or buttock pain, stiffness and difficulty putting on socks or shoes. Physio-led strengthening, weight management and, when severe, hip replacement (over 100,000 done in the UK each year) provide long-term relief.
+Q: What does hip arthritis feel like?
+A: Most people feel a deep ache in the groin or front of the hip that worsens with walking, standing up from a chair, or putting on socks. Stiffness is common after sitting and first thing in the morning, usually easing within 30 minutes of moving.
+Q: How do I relieve hip pain while sleeping?
+A: Sleep on your back or on the unaffected side with a firm pillow between your knees to keep the hips aligned. A medium-firm mattress, a warm bath before bed, and a topical NSAID gel applied to the hip help reduce night pain. Avoid sleeping on the painful side and don't tuck your top knee in front of the bottom one — it twists the joint.
+Q: What is the best exercise for hip arthritis?
+A: Glute and hip-abductor strengthening (bridges, clams, side-lying leg raises) combined with low-impact cardio such as cycling, swimming or pool walking is the most evidence-based approach. NICE recommends exercise as a core treatment for everyone with hip OA.
+Q: Should I keep walking with hip arthritis?
+A: Yes. Regular walking strengthens the muscles that support the hip and reduces pain over time. Build up gradually, wear cushioned shoes, and use a walking pole in the hand opposite to the painful hip to offload the joint by up to 25%.
+Q: When is a hip replacement needed?
+A: Hip replacement is usually considered when pain disturbs sleep, severely limits walking or daily activity, and conservative measures (exercise, weight management, painkillers, injections) have not worked over several months. UK outcomes are excellent — over 95% of hip replacements still function well at 10 years.
+Q: Does losing weight help hip arthritis?
+A: Yes. The hip carries roughly three times body weight when walking and up to five times when climbing stairs, so even small weight loss meaningfully reduces joint load and pain.
 
 ## Juvenile Arthritis (JIA) in Children | UK Guide
 URL: https://livingwitharthritis.org.uk/conditions/juvenile-arthritis
@@ -915,6 +947,16 @@ URL: https://livingwitharthritis.org.uk/conditions/shoulder-arthritis
 Last updated: 2026-07-01
 Q: What is shoulder arthritis?
 A: Shoulder arthritis is cartilage loss in the glenohumeral or acromioclavicular joints, causing deep aching pain, reduced reach and night pain when lying on the affected side. Physio, corticosteroid injections and, if severe, shoulder replacement are options.
+Q: What does shoulder arthritis feel like?
+A: Most people describe a deep ache at the back of the shoulder that worsens when reaching overhead, behind the back, or lying on that side at night. Stiffness limits putting on coats and reaching seatbelts.
+Q: Is shoulder arthritis the same as a frozen shoulder?
+A: No. Frozen shoulder (adhesive capsulitis) is inflammation of the joint capsule and usually resolves within 1–3 years. Shoulder arthritis is cartilage wear and is progressive — but both can cause similar early symptoms, so accurate diagnosis matters.
+Q: What is the best exercise for shoulder arthritis?
+A: Pendulum swings, doorway stretches and gentle external rotation with a resistance band are the most evidence-supported exercises. They protect range of motion and rotator cuff strength without overloading the joint.
+Q: Should I get an injection in my shoulder?
+A: Corticosteroid injections can give 6–12 weeks of meaningful pain relief and are useful to bridge a flare or to allow physiotherapy to progress. Most clinicians limit injections to 2–3 per year.
+Q: When is shoulder replacement needed?
+A: Shoulder replacement is considered when night pain is severe, function is limited despite physiotherapy and injections, and X-rays confirm advanced joint changes. The reverse total shoulder replacement is the most common option in the UK.
 
 ## Diet & Nutrition Hub for Arthritis | UK
 URL: https://livingwitharthritis.org.uk/diet-hub
