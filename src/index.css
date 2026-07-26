@@ -16,7 +16,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 6%;
 
-    --primary: 354 85% 54%;             /* #EE2737 MAP red */
+    --primary: 354 85% 46%;             /* #D91226 MAP red — darkened from #EE2737 (l=54%) to l=46% for WCAG AA contrast (4.5:1) on white */
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 8%;               /* black secondary surface (MAP-style pills) */
@@ -28,15 +28,15 @@
     --muted: 34 35% 92%;                /* deeper cream band */
     --muted-foreground: 0 0% 18%;
 
-    --destructive: 354 85% 54%;
+    --destructive: 354 85% 46%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 30 18% 86%;               /* warm beige border */
     --input: 30 18% 84%;
-    --ring: 354 85% 54%;
+    --ring: 354 85% 46%;
 
     /* Legacy aliases — collapsed to charity palette */
-    --gold: 354 85% 54%;
+    --gold: 354 85% 46%;
     --gold-foreground: 0 0% 100%;
     --gold-muted: 354 90% 96%;
     --amber: 38 92% 50%;
@@ -63,8 +63,8 @@
     --coral: 12 82% 58%;
     --teal: 178 65% 40%;
     --magenta: 322 75% 52%;
-    --indigo: 354 85% 54%;
-    --lime: 354 85% 54%;
+    --indigo: 354 85% 46%;
+    --lime: 354 85% 46%;
 
     /* Gradients — red on white only */
     --gradient-mesh: radial-gradient(at 18% 22%, hsl(0 84% 60% / 0.05) 0px, transparent 50%),
@@ -109,7 +109,7 @@
     --card-foreground: 0 0% 6%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 6%;
-    --primary: 354 85% 54%;
+    --primary: 354 85% 46%;
     --primary-foreground: 0 0% 100%;
     --secondary: 0 0% 8%;
     --secondary-foreground: 0 0% 100%;
@@ -117,21 +117,21 @@
     --accent-foreground: 0 0% 6%;
     --muted: 34 35% 92%;
     --muted-foreground: 0 0% 18%;
-    --destructive: 354 85% 54%;
+    --destructive: 354 85% 46%;
     --destructive-foreground: 0 0% 100%;
     --border: 30 18% 86%;
     --input: 30 18% 84%;
-    --ring: 354 85% 54%;
+    --ring: 354 85% 46%;
     --navy: 0 0% 8%;
     --navy-foreground: 0 0% 100%;
     --sidebar-background: 34 50% 95%;
     --sidebar-foreground: 0 0% 6%;
-    --sidebar-primary: 354 85% 54%;
+    --sidebar-primary: 354 85% 46%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 34 35% 92%;
     --sidebar-accent-foreground: 0 0% 6%;
     --sidebar-border: 30 18% 86%;
-    --sidebar-ring: 354 85% 54%;
+    --sidebar-ring: 354 85% 46%;
   }
 }
 
@@ -152,12 +152,17 @@
     @apply bg-background text-foreground;
     font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
     line-height: 1.7;
-    font-size: 16px;
+    /* 1.125rem (~18px at the default root size) — a more readable baseline
+       for patient-facing health content. Uses rem (not a fixed px) so the
+       AccessibilityToolbar's font-size control (which scales the root
+       <html> font-size) actually resizes body copy instead of leaving it
+       fixed while only headings responded. */
+    font-size: 1.125rem;
   }
 
-  p { font-size: 16px; line-height: 1.7; color: hsl(var(--foreground)); }
-  small, .text-small { font-size: 13px; line-height: 1.5; }
-  .lead { font-size: 18px; line-height: 1.6; color: hsl(var(--foreground)); }
+  p { font-size: 1.125rem; line-height: 1.7; color: hsl(var(--foreground)); }
+  small, .text-small { font-size: 0.8125rem; line-height: 1.5; }
+  .lead { font-size: 1.25rem; line-height: 1.6; color: hsl(var(--foreground)); }
 
   h1, h2, h3 {
     font-family: 'Anton', 'Montserrat', system-ui, sans-serif;

@@ -151,8 +151,8 @@ export default {
       },
     },
   },
-  // tailwindcss-animate ships no type declarations and no ESM export, so a
-  // static import isn't a safe drop-in here.
+  // tailwindcss-animate and @tailwindcss/typography ship CJS-only (no ESM
+  // export), so a static import isn't a safe drop-in here.
   // eslint-disable-next-line @typescript-eslint/no-require-imports
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config;

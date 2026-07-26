@@ -46,10 +46,10 @@ const TOKENS = {
   background: [34, 50, 95],       // warm cream
   foreground: [0, 0, 6],          // near-black
   card: [0, 0, 100],              // pure white
-  primary: [354, 85, 54],         // MAP red
+  primary: [354, 85, 46],         // MAP red (darkened for AA contrast)
   primaryForeground: [0, 0, 100], // white on red buttons
   mutedForeground: [0, 0, 18],
-  destructive: [354, 85, 54],
+  destructive: [354, 85, 46],
 } as const;
 
 const rgb = (t: readonly [number, number, number]) =>
@@ -77,18 +77,16 @@ describe("ContactSection contrast (WCAG AA)", () => {
     expect(contrast(rgb(TOKENS.mutedForeground), rgb(TOKENS.background))).toBeGreaterThanOrEqual(AA_NORMAL);
   });
 
-  // KNOWN AA GAP — audit finding, tracked but not blocking CI.
-  //
-  // #EE2737 (--primary) on #FFFFFF gives 4.24:1 — below the 4.5:1
-  // threshold for normal text. This affects both:
-  //   - white text on the primary "Send message" button
-  //   - primary red used as body-text colour on the mailto link
-  //
-  // Fixing means darkening --primary (e.g. l=54 → l=48 → ~5.3:1) which
-  // is a global brand decision, not a ContactSection-scoped change.
-  // Left as `.todo` so the audit is visible without breaking CI.
-  it.todo("primary-foreground on primary (Send message button) meets AA (4.5:1) — currently 4.24:1");
-  it.todo("destructive error text on white card meets AA (4.5:1) — currently 4.24:1 (same red)");
+  // Was a KNOWN AA GAP: #EE2737 (--primary, l=54%) on #FFFFFF gave 4.24:1,
+  // below the 4.5:1 threshold for normal text. Fixed by darkening --primary
+  // (and --destructive, which shares the same red) to l=46% (#D91226),
+  // giving 5.17:1 — see src/index.css.
+  it("primary-foreground on primary (Send message button) meets AA (4.5:1)", () => {
+    expect(contrast(rgb(TOKENS.primaryForeground), rgb(TOKENS.primary))).toBeGreaterThanOrEqual(AA_NORMAL);
+  });
+  it("destructive error text on white card meets AA (4.5:1)", () => {
+    expect(contrast(rgb(TOKENS.destructive), rgb(TOKENS.card))).toBeGreaterThanOrEqual(AA_NORMAL);
+  });
 
   // The channel-card labels use text-foreground/70 (opacity 0.7). Even
   // fully opaque, foreground on white is ~19:1, so a 30 % lift toward
@@ -102,7 +100,10 @@ describe("ContactSection contrast (WCAG AA)", () => {
     expect(contrast(blended, rgb(TOKENS.card))).toBeGreaterThanOrEqual(AA_LARGE);
   });
 
-  // Same red-on-white gap as above — recorded via .todo so the audit
-  // captures every failing pair without hiding any.
-  it.todo("primary red text on white card meets AA (4.5:1) — currently 4.24:1");
+  // Same red used directly as body-text colour (e.g. the mailto link),
+  // not just as a button background — verified separately from the
+  // button-contrast test above since it's a distinct usage.
+  it("primary red text on white card meets AA (4.5:1)", () => {
+    expect(contrast(rgb(TOKENS.primary), rgb(TOKENS.card))).toBeGreaterThanOrEqual(AA_NORMAL);
+  });
 });
