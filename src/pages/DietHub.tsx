@@ -89,7 +89,7 @@ const dietSections = [
 ];
 
 const relatedTopics = [
-  { title: "Turmeric for Arthritis", icon: Sparkles, href: "/blog/turmeric-for-arthritis-uk", desc: "Evidence, dosage and best supplements" },
+  { title: "Turmeric for Arthritis", icon: Sparkles, href: "/blog/turmeric-for-arthritis", desc: "Evidence, dosage and best supplements" },
   { title: "Omega-3 & Fish Oil", icon: Fish, href: "/blog/arthritis-and-omega-3-fish-oil", desc: "Benefits, dosage and UK food sources" },
   { title: "Supplements Guide", icon: Heart, href: "/blog/arthritis-supplements-uk", desc: "Glucosamine, collagen and more" },
   { title: "Meal Planning", icon: Utensils, href: "/blog/meal-planning-arthritis-uk", desc: "Weekly meal plans for joint health" },

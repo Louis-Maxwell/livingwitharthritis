@@ -213,14 +213,14 @@ const ALL_LINKS: SitemapLink[] = [
 
   // Blog – Diet & nutrition articles
   { label: "Best Diet for Joint Pain UK", href: "/blog/best-diet-for-joint-pain-uk" },
-  { label: "Turmeric for Arthritis", href: "/blog/turmeric-for-arthritis-uk" },
+  { label: "Turmeric for Arthritis", href: "/blog/turmeric-for-arthritis" },
   { label: "Omega-3 & Fish Oil for Arthritis", href: "/blog/arthritis-and-omega-3-fish-oil" },
   { label: "Anti-Inflammatory Herbs & Spices", href: "/blog/anti-inflammatory-herbs-spices-arthritis" },
   { label: "Gut Health & Arthritis", href: "/blog/gut-health-arthritis-connection" },
   { label: "Meal Planning for Arthritis", href: "/blog/meal-planning-arthritis-uk" },
   { label: "Arthritis & Weight Loss UK", href: "/blog/arthritis-and-weight-loss-uk" },
   { label: "Arthritis Supplements UK", href: "/blog/arthritis-supplements-uk" },
-  { label: "Arthritis Medication UK", href: "/blog/arthritis-medication-uk" },
+  { label: "Arthritis Medication UK", href: "/blog/arthritis-medication-guide" },
 
   // Blog – Exercise articles
   { label: "Arthritis Exercises", href: "/blog/arthritis-exercises" },
@@ -228,17 +228,17 @@ const ALL_LINKS: SitemapLink[] = [
   { label: "Hand Exercises for Arthritis", href: "/blog/hand-exercises-for-arthritis" },
   { label: "Shoulder Arthritis Exercises", href: "/blog/shoulder-arthritis-exercises-uk" },
   { label: "Foot & Ankle Arthritis", href: "/blog/foot-and-ankle-arthritis-uk" },
-  { label: "Swimming for Arthritis", href: "/blog/swimming-for-arthritis-uk" },
+  { label: "Swimming for Arthritis", href: "/blog/swimming-for-arthritis" },
   { label: "Yoga for Arthritis Beginners", href: "/blog/yoga-for-arthritis-beginners" },
-  { label: "Cycling for Arthritis", href: "/blog/arthritis-and-cycling-uk" },
+  { label: "Cycling for Arthritis", href: "/blog/cycling-with-arthritis" },
   { label: "Tai Chi for Arthritis (Article)", href: "/blog/tai-chi-for-arthritis-uk" },
   { label: "Hydrotherapy for Arthritis", href: "/blog/hydrotherapy-arthritis-uk" },
   { label: "Staying Active in Winter", href: "/blog/staying-active-arthritis-winter-uk" },
 
   // Blog – Lifestyle & wellbeing
-  { label: "Cold Weather & Joint Pain", href: "/blog/arthritis-and-cold-weather-uk" },
+  { label: "Cold Weather & Joint Pain", href: "/blog/cold-weather-arthritis-uk-winter" },
   { label: "Arthritis & Sleep Problems", href: "/blog/arthritis-and-sleep-problems" },
-  { label: "Arthritis & Mental Health", href: "/blog/arthritis-and-mental-health" },
+  { label: "Arthritis & Mental Health", href: "/blog/arthritis-and-mental-health-uk" },
   { label: "Arthritis at Work UK", href: "/blog/arthritis-and-work-uk" },
   { label: "Arthritis Flare-Up Guide", href: "/blog/arthritis-flare-up-what-to-do" },
   { label: "Osteoarthritis Symptoms UK", href: "/blog/osteoarthritis-symptoms-uk" },
