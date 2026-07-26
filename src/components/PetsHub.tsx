@@ -97,7 +97,7 @@ export const PetsHub: React.FC<PetsHubProps> = ({ articles, isLoading = false })
         {/* Search Bar */}
         <div className="mb-8">
           <div className="relative">
-            <Search className="absolute left-4 top-3.5 text-gray-400" size={20} />
+            <Search className="absolute left-4 top-3.5 text-muted-foreground" size={20} />
             <input
               type="text"
               placeholder="Search pet health articles..."
