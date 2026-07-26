@@ -60,21 +60,56 @@ export const PAGE_AEO: Record<string, AeoPage> = {
     question: "What is ankylosing spondylitis?",
     answer:
       "Ankylosing spondylitis (AS), or axial spondyloarthritis, is a long-term inflammatory arthritis mainly affecting the spine and sacroiliac joints. It typically starts in the late teens or twenties with gradual lower back pain and morning stiffness that improves with movement. Daily exercise, physio and biologic drugs keep the spine flexible.",
+  
+    faqs: [
+      { q: "What is the difference between ankylosing spondylitis and axial spondyloarthritis?", a: "Axial spondyloarthritis (axSpA) is the umbrella term. Ankylosing spondylitis (AS) is the form of axSpA where damage to the sacroiliac joints is visible on an X-ray. Non-radiographic axSpA (nr-axSpA) is the same condition earlier in its course — visible only on MRI. Treatment is the same for both." },
+      { q: "What is the first sign of ankylosing spondylitis?", a: "The earliest sign is usually persistent lower back or buttock pain that comes on slowly before age 45, is worse in the morning, lasts over 30 minutes and improves with movement." },
+      { q: "Is ankylosing spondylitis a disability?", a: "AS is recognised under the UK Equality Act 2010 as it can have a long-term substantial effect on daily activities. Many people qualify for reasonable adjustments at work and may be eligible for PIP." },
+      { q: "Can ankylosing spondylitis be cured?", a: "There is no cure, but biologics, NSAIDs and daily exercise can keep inflammation under control and prevent spinal damage for most people." },
+      { q: "What is the HLA-B27 test?", a: "A blood test that checks for the HLA-B27 gene, found in around 90% of UK people with AS. A positive test alone doesn't diagnose AS — it's used alongside symptoms and MRI scans." },
+      { q: "Should I exercise if my back hurts?", a: "Yes — gentle, regular movement is the single most important treatment for AS. Pain that eases with activity is typical. A physiotherapist can build a safe, progressive programme." },
+    ],
   }),
   "/conditions/gout": withDefaults({
     question: "What is gout?",
     answer:
       "Gout is a type of inflammatory arthritis caused by high uric acid crystallising inside joints — usually the big toe — triggering sudden severe pain, redness and swelling. UK guidelines recommend urate-lowering therapy (allopurinol) after a second attack to prevent joint damage. Diet and alcohol adjustments help.",
+  
+    faqs: [
+      { q: "What are the first signs of gout?", a: "The first sign is usually a sudden, severe attack of pain in a single joint — most often the big toe — that wakes you up at night. The joint becomes red, hot, swollen and so tender that even the weight of a bedsheet feels unbearable. Attacks typically peak within 24 hours." },
+      { q: "How do I know if my toe pain is gout?", a: "Gout in the big toe (called podagra) comes on suddenly, usually overnight, with intense burning pain, redness, heat and swelling at the base of the toe. If you can't bear weight on it or even touch it, and the attack settles over 3–10 days, gout is the most likely cause. A blood test for uric acid and joint fluid analysis can confirm it." },
+      { q: "What does a gout attack feel like?", a: "Most people describe a sudden, intense burning or throbbing pain in one joint — often the big toe — that starts overnight. The joint becomes red, hot, swollen and so tender that even a bedsheet can be unbearable." },
+      { q: "Is gout curable?", a: "Gout itself is a long-term condition, but with allopurinol or febuxostat plus diet and lifestyle changes, most people stop having attacks completely." },
+      { q: "What foods should I avoid with gout?", a: "Limit red meat, organ meats, shellfish, oily fish (anchovies, sardines), beer, spirits and sugary drinks. Cherries, water and low-fat dairy can help reduce attacks." },
+      { q: "How long does a gout attack last?", a: "An untreated attack peaks at 24 hours and usually settles within 3 to 10 days. NSAIDs or colchicine started early can shorten and ease attacks." },
+      { q: "Is gout the same as arthritis?", a: "Gout is a type of inflammatory arthritis caused by uric-acid crystals, distinct from osteoarthritis (wear and tear) or rheumatoid arthritis (autoimmune)." },
+    ],
   }),
   "/conditions/fibromyalgia": withDefaults({
     question: "What is fibromyalgia?",
     answer:
       "Fibromyalgia is a long-term condition causing widespread pain, fatigue, sleep problems and 'fibro fog'. It's a disorder of pain processing rather than joint damage. NICE recommends graded exercise, CBT and paced activity as first-line management.",
+  
+    faqs: [
+      { q: "Is fibromyalgia a form of arthritis?", a: "No. Fibromyalgia doesn't damage joints or cause inflammation. However, it commonly occurs alongside arthritis and is treated by similar rheumatology teams." },
+      { q: "How is fibromyalgia diagnosed in the UK?", a: "Diagnosis is clinical — based on widespread pain lasting over 3 months, plus fatigue, sleep and cognitive symptoms. Blood tests are used to rule out other conditions." },
+      { q: "What is fibro fog?", a: "Fibro fog is the cognitive symptom of fibromyalgia — short-term memory lapses, word-finding difficulties and trouble concentrating. It improves with better sleep, pacing and exercise." },
+      { q: "Can fibromyalgia be cured?", a: "There is no cure, but with self-management, exercise, medication and CBT, many people significantly reduce symptoms and stay in work and family life." },
+      { q: "Does fibromyalgia get worse over time?", a: "Fibromyalgia is not progressive — it doesn't damage tissue. Symptoms fluctuate, often worsening with stress, poor sleep or overdoing activity, and easing with steady self-management." },
+    ],
   }),
   "/conditions/lupus": withDefaults({
     question: "What is lupus?",
     answer:
       "Lupus (systemic lupus erythematosus, SLE) is an autoimmune disease that can affect skin, joints, kidneys, heart and lungs. Common symptoms include joint pain, a butterfly rash, fatigue and sun sensitivity. Hydroxychloroquine is the mainstay of treatment.",
+  
+    faqs: [
+      { q: "Is lupus a form of arthritis?", a: "Lupus isn't classed as arthritis but it commonly causes joint pain and stiffness. Many people are managed by the same rheumatology teams that treat rheumatoid arthritis." },
+      { q: "Can lupus be cured?", a: "There is no cure, but modern treatments — particularly hydroxychloroquine — control symptoms and reduce flares for most people. Many achieve long periods of remission." },
+      { q: "What is the butterfly rash?", a: "A flat or slightly raised red rash across the cheeks and bridge of the nose, in the shape of a butterfly. It is one of the most recognisable signs of lupus, though not everyone develops it." },
+      { q: "Why is sun protection so important with lupus?", a: "UV light can trigger lupus flares — both skin rashes and internal symptoms. Daily SPF 50, UV-protective clothing and hats are essential, even on cloudy UK days." },
+      { q: "Can people with lupus have children?", a: "Yes. Pregnancy in lupus needs to be planned with your rheumatology and obstetric team, ideally during a period of stable disease, with medications reviewed in advance." },
+    ],
   }),
   "/conditions/knee-arthritis": withDefaults({
     question: "What is knee arthritis?",
@@ -109,16 +144,42 @@ export const PAGE_AEO: Record<string, AeoPage> = {
     question: "What is juvenile arthritis?",
     answer:
       "Juvenile idiopathic arthritis (JIA) is arthritis starting before age 16, lasting more than 6 weeks. It affects around 1 in 1,000 UK children. Early paediatric rheumatology care and DMARDs help most children live active lives.",
+  
+    faqs: [
+      { q: "What are the first signs of arthritis in a child?", a: "Look out for limping (worse in the morning), a swollen joint, a child avoiding a normally favourite activity, or unexplained fevers and rashes. Always see your GP if joint symptoms last more than two weeks." },
+      { q: "Is juvenile arthritis the same as rheumatoid arthritis?", a: "No. JIA is its own group of conditions. Some forms behave similarly to rheumatoid arthritis, but JIA also includes types not seen in adults, such as systemic JIA (Still's disease)." },
+      { q: "Will my child grow out of JIA?", a: "Some children — particularly those with oligoarticular JIA — do go into long-term remission. Others have ongoing disease into adulthood. Modern treatments have transformed the outlook for most." },
+      { q: "Why does my child need eye checks?", a: "JIA can cause silent eye inflammation (uveitis) that, if missed, can damage sight. Regular slit-lamp checks by an ophthalmologist are essential." },
+      { q: "Can my child still play sport?", a: "Yes — sport is encouraged. Swimming and cycling are particularly good. Adapt during flares and work with the rheumatology team and PE staff." },
+    ],
   }),
   "/conditions/reactive-arthritis": withDefaults({
     question: "What is reactive arthritis?",
     answer:
       "Reactive arthritis is joint inflammation that develops after an infection elsewhere in the body — usually gut or urinary. Symptoms include joint pain, eye inflammation and urinary symptoms. Most cases resolve within 3-12 months.",
+  
+    faqs: [
+      { q: "How long does reactive arthritis last?", a: "Most people recover fully within 3 to 6 months. Around 1 in 5 develop longer-lasting joint problems, and a smaller number go on to develop a chronic inflammatory arthritis, which is why early specialist input matters." },
+      { q: "Is reactive arthritis curable?", a: "Yes — for most people reactive arthritis settles completely once the triggering infection clears and inflammation is treated. NSAIDs, joint injections and physiotherapy speed recovery." },
+      { q: "Can reactive arthritis come back?", a: "It can. People with the HLA-B27 gene are more likely to have repeat episodes, often triggered by a new gut or urinary infection. Practising food hygiene and safer sex reduces the risk." },
+      { q: "How is reactive arthritis diagnosed in the UK?", a: "Your GP will ask about recent gut, urinary or chest infections and examine your joints, eyes and skin. Blood tests (CRP, ESR, HLA-B27), urine tests and sometimes joint fluid analysis or imaging are used to confirm the diagnosis and rule out other arthritis." },
+      { q: "Is reactive arthritis contagious?", a: "No. Reactive arthritis itself cannot be passed from person to person. However, the infections that trigger it (such as chlamydia or salmonella) can be — so treating partners and practising good food hygiene matters." },
+      { q: "What is the difference between reactive arthritis and rheumatoid arthritis?", a: "Reactive arthritis is triggered by a recent infection, usually affects one or a few large joints, and most people recover within months. Rheumatoid arthritis is a lifelong autoimmune disease that typically affects small joints on both sides of the body and needs long-term medication." },
+    ],
   }),
   "/conditions/polymyalgia-rheumatica": withDefaults({
     question: "What is polymyalgia rheumatica?",
     answer:
       "Polymyalgia rheumatica (PMR) causes sudden shoulder and hip stiffness and pain, mainly in adults over 50. Low-dose steroids (prednisolone 15 mg) usually give dramatic relief within days. Treatment typically continues for 1-2 years.",
+  
+    faqs: [
+      { q: "How is polymyalgia rheumatica diagnosed in the UK?", a: "Your GP will check your symptoms, examine your shoulders and hips, and arrange blood tests (CRP and ESR) to look for inflammation. A dramatic improvement within a few days of starting prednisolone helps confirm the diagnosis." },
+      { q: "How long does polymyalgia rheumatica last?", a: "Most people need steroid treatment for 1 to 3 years. Around half of those affected have one or more flares during the taper, but the condition usually goes into long-term remission." },
+      { q: "Is polymyalgia rheumatica an autoimmune disease?", a: "Yes — PMR is driven by an overactive immune response that inflames the lining of joints and bursae, particularly in the shoulders and hips. It is not contagious and is not caused by anything you have done." },
+      { q: "What is the link with giant cell arteritis?", a: "Around 1 in 5 people with PMR also develop giant cell arteritis (GCA), which inflames blood vessels in the head. New headaches, scalp tenderness, jaw pain when chewing, or any change in vision need urgent medical attention." },
+      { q: "Can I exercise with polymyalgia rheumatica?", a: "Yes, and you should. Gentle walking, shoulder and hip mobility work, and light resistance training protect muscle and bone during long-term steroid use. Start slowly and build up." },
+      { q: "Are there natural alternatives to steroids for PMR?", a: "There is no proven natural alternative to steroids for PMR — untreated inflammation can damage tissue and increase the risk of GCA. A Mediterranean diet, exercise and bone-protection medicines support steroid treatment rather than replace it." },
+    ],
   }),
 
   // ── Guides ────────────────────────────────────────────────────────────
