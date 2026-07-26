@@ -80,7 +80,6 @@ const ROUTES: Array<{ path: string; file: string }> = [
   { path: "/health-tools", file: "pages/HealthTools.tsx" },
   { path: "/services", file: "pages/Services.tsx" },
   { path: "/faq", file: "pages/FAQ.tsx" },
-  { path: "/ai-safety", file: "pages/AISafety.tsx" },
   { path: "/contact", file: "pages/Contact.tsx" },
   { path: "/arthritis-waiting-list-help", file: "pages/WaitingListHelp.tsx" },
   { path: "/tools/waiting-time", file: "pages/tools/WaitingTimeCalculator.tsx" },
@@ -125,7 +124,7 @@ function extractText(src: string): string {
     if (t && /[A-Za-z]/.test(t)) out.push(t);
   }
   // 2) String children: {"..."} {'...'} {`...`}
-  const childStrRe = /\{\s*([\"'`])([^\"'`\n]{2,})\1\s*\}/g;
+  const childStrRe = /\{\s*(["'`])([^"'`\n]{2,})\1\s*\}/g;
   while ((m = childStrRe.exec(src))) {
     const t = m[2].trim();
     if (t && /[A-Za-z]/.test(t)) out.push(t);
@@ -136,15 +135,15 @@ function extractText(src: string): string {
     if (ATTR_KEEP.has(m[1])) out.push(m[3]);
   }
   // 4) Array of plain strings: ["...", "..."] often used as bullet lists
-  const arrStrRe = /\[\s*((?:["'`][^\"'`\n]{3,}["'`]\s*,\s*){1,}["'`][^\"'`\n]{3,}["'`])\s*\]/g;
+  const arrStrRe = /\[\s*((?:["'`][^"'`\n]{3,}["'`]\s*,\s*){1,}["'`][^"'`\n]{3,}["'`])\s*\]/g;
   while ((m = arrStrRe.exec(src))) {
     const inner = m[1];
-    const strRe = /["'`]([^\"'`\n]{3,})["'`]/g;
+    const strRe = /["'`]([^"'`\n]{3,})["'`]/g;
     let sm;
     while ((sm = strRe.exec(inner))) out.push(sm[1]);
   }
   // 5) Common content-object literal keys: title:, description:, body:, content:, text:, label:, name:, summary:, q:, a:, question:, answer:
-  const objStrRe = /\b(title|description|body|content|text|label|name|summary|question|answer|q|a|heading|subheading|excerpt|caption|quote|author|copy|intro|outro|p)\s*:\s*(["'`])([^\"'`\n]{4,})\2/g;
+  const objStrRe = /\b(title|description|body|content|text|label|name|summary|question|answer|q|a|heading|subheading|excerpt|caption|quote|author|copy|intro|outro|p)\s*:\s*(["'`])([^"'`\n]{4,})\2/g;
   while ((m = objStrRe.exec(src))) out.push(m[3]);
   return out.join(" ");
 }
@@ -164,7 +163,7 @@ function gatherText(entry: string, seen = new Set<string>()): string {
   const stripped = stripCode(raw);
   let text = extractText(stripped);
   // Follow project-local imports (static + dynamic)
-  const importRe = /import\s+(?:[^\"']+?\s+from\s+)?["']([^\"']+)["']/g;
+  const importRe = /import\s+(?:[^"']+?\s+from\s+)?["']([^"']+)["']/g;
   let m;
   while ((m = importRe.exec(raw))) {
     const resolved = resolveImport(m[1], entry);
