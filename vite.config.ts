@@ -64,6 +64,13 @@ export default defineConfig(({ mode }) => ({
   },
   optimizeDeps: {
     include: ["react", "react-dom"],
+    // html2canvas/canvg are only ever reached via jsPDF's own dynamic
+    // import() inside its .html() plugin path (never called here — see
+    // src/lib/generatePdf.ts) and are already excluded from the production
+    // bundle by that code-split boundary. Excluding them from dev-server
+    // dependency pre-bundling too avoids scanning/pre-bundling ~440KB of
+    // unused code on every cold dev-server start.
+    exclude: ["html2canvas", "canvg"],
   },
   build: {
     target: "es2020",
