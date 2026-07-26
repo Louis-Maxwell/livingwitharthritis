@@ -1,7 +1,32 @@
 import React from "react"; // v18
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
+import ErrorBoundary from "./components/ErrorBoundary.tsx";
 import "./index.css";
+
+const AppCrashFallback = (
+  <div className="min-h-screen flex items-center justify-center bg-background p-6">
+    <div className="text-center max-w-md space-y-4">
+      <h1 className="font-display text-2xl font-bold text-foreground">
+        Something went wrong
+      </h1>
+      <p className="text-sm text-muted-foreground leading-relaxed">
+        We're sorry — an unexpected error stopped this page from loading.
+        Refreshing usually fixes it. If it keeps happening, our{" "}
+        <a href="/chat" className="text-primary underline">
+          help &amp; support team
+        </a>{" "}
+        can help.
+      </p>
+      <a
+        href="/"
+        className="inline-block px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
+      >
+        Go to homepage
+      </a>
+    </div>
+  </div>
+);
 
 // Auto-recover from stale code-split chunks after a new deploy.
 // When index.html references chunk hashes that no longer exist on the CDN,
@@ -29,8 +54,18 @@ const tryReload = (msg: string) => {
 
 window.addEventListener("error", (e) => tryReload(e.message || ""));
 window.addEventListener("unhandledrejection", (e) => {
-  const reason: any = e.reason;
-  tryReload(typeof reason === "string" ? reason : reason?.message || "");
+  const reason: unknown = e.reason;
+  const message =
+    typeof reason === "string"
+      ? reason
+      : reason instanceof Error
+        ? reason.message
+        : "";
+  tryReload(message);
 });
 
-createRoot(document.getElementById("root")!).render(<App />);
+createRoot(document.getElementById("root")!).render(
+  <ErrorBoundary fallback={AppCrashFallback}>
+    <App />
+  </ErrorBoundary>,
+);

@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { getAnonClient, getServiceClient } from "../_shared/supabase-client.ts";
+import { checkRateLimit, getClientIp } from "../_shared/rate-limiter-v2.ts";
 
 const ALLOWED_ORIGINS = [
   "https://id-preview--0b2fd6ca-4e21-4ac7-99fa-d741e996f45e.lovable.app",
@@ -49,8 +50,22 @@ serve(async (req) => {
 
     const userId = userData.user.id;
 
-    // Check admin role
     const serviceClient = getServiceClient("send-patient-email");
+
+    const rl = await checkRateLimit(serviceClient, {
+      ip: getClientIp(req),
+      accountId: userId,
+      tier: "authenticated",
+      scope: "send-patient-email",
+    });
+    if (!rl.allowed) {
+      return new Response(JSON.stringify({ error: "Too many requests. Please wait a moment." }), {
+        status: 429,
+        headers: { ...corsHeaders, "Content-Type": "application/json", "Retry-After": String(rl.retryAfterSeconds ?? 30) },
+      });
+    }
+
+    // Check admin role
     const { data: roleData } = await serviceClient
       .from("user_roles")
       .select("role")

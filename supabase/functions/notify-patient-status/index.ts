@@ -2,6 +2,7 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { getAnonClient, getServiceClient } from "../_shared/supabase-client.ts";
 import { errJson, okJson, parseJsonBody, preflight, newRequestId } from "../_shared/http.ts";
 import { z, parseWithSchema } from "../_shared/validation.ts";
+import { checkRateLimit, getClientIp } from "../_shared/rate-limiter-v2.ts";
 
 const StatusSchema = z.object({
   appointmentId: z.string().uuid("Appointment ID must be a valid UUID"),
@@ -30,6 +31,22 @@ serve(async (req) => {
     const userId = userData.user.id;
 
     const serviceClient = getServiceClient("notify-patient-status");
+
+    const rl = await checkRateLimit(serviceClient, {
+      ip: getClientIp(req),
+      accountId: userId,
+      tier: "authenticated",
+      scope: "notify-patient-status",
+    });
+    if (!rl.allowed) {
+      return errJson(req, {
+        code: "rate_limited",
+        message: "Too many requests. Please wait a moment.",
+        requestId,
+        headers: { "Retry-After": String(rl.retryAfterSeconds ?? 30) },
+      });
+    }
+
     const { data: roleData } = await serviceClient
       .from("user_roles")
       .select("role")
