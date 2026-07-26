@@ -15,7 +15,7 @@ const ENABLE_PRERENDER = process.env.PRERENDER === "1";
 // Bundle analyzer is opt-in via ANALYZE=1 npm run build → dist/stats.html
 const ENABLE_ANALYZE = process.env.ANALYZE === "1";
 
-export default defineConfig(({ mode }): any => ({
+export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,

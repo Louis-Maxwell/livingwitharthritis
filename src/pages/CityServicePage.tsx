@@ -40,18 +40,21 @@ const CityServicePage = () => {
     useParams<{ city: string; service: string }>();
 
   const data = citySlug && serviceSlug ? getCityService(citySlug, serviceSlug) : null;
-  if (!data) return <Navigate to="/404" replace />;
 
-  const { city, service, content } = data;
-  const path = `/uk/${city.slug}/${service}`;
-  const url = `${BASE}${path}`;
-  const sLabel = serviceLabel[service];
-  const title = `${sLabel} for Arthritis in ${city.name} (${city.region}) — Local UK Guide`;
-  const description =
-    `Find ${sLabel.toLowerCase()} for arthritis in ${city.name}: local services, waiting-time tips and practical next steps near you.`;
-  const Icon = serviceIcon[service];
-
+  // Hooks must run unconditionally on every render, so this effect re-derives
+  // everything it needs from the route params itself rather than relying on
+  // variables computed after the early-return below.
   useEffect(() => {
+    const data = citySlug && serviceSlug ? getCityService(citySlug, serviceSlug) : null;
+    if (!data) return;
+    const { city, service } = data;
+    const sLabel = serviceLabel[service];
+    const path = `/uk/${city.slug}/${service}`;
+    const url = `${BASE}${path}`;
+    const title = `${sLabel} for Arthritis in ${city.name} (${city.region}) — Local UK Guide`;
+    const description =
+      `Find ${sLabel.toLowerCase()} for arthritis in ${city.name}: local services, waiting-time tips and practical next steps near you.`;
+
     const medicalLd = {
       "@context": "https://schema.org",
       "@type": "MedicalWebPage",
@@ -143,7 +146,18 @@ const CityServicePage = () => {
       nodes.push(s);
     }
     return () => nodes.forEach((n) => n.remove());
-  }, [url, title, description, sLabel, city]);
+  }, [citySlug, serviceSlug]);
+
+  if (!data) return <Navigate to="/404" replace />;
+
+  const { city, service, content } = data;
+  const path = `/uk/${city.slug}/${service}`;
+  const url = `${BASE}${path}`;
+  const sLabel = serviceLabel[service];
+  const title = `${sLabel} for Arthritis in ${city.name} (${city.region}) — Local UK Guide`;
+  const description =
+    `Find ${sLabel.toLowerCase()} for arthritis in ${city.name}: local services, waiting-time tips and practical next steps near you.`;
+  const Icon = serviceIcon[service];
 
   const siblingServices = services.filter((s) => s !== service);
 

@@ -11,6 +11,7 @@ import {
   jointSlugs,
   jointLabel,
   type JointSlug,
+  type ConditionEntry,
 } from "@/data/exerciseConditionRecommendations";
 import { exerciseJointPages } from "@/data/exerciseJointMatrix";
 import {
@@ -26,6 +27,28 @@ const BASE = "https://livingwitharthritis.org.uk";
 const isJoint = (v: string | undefined): v is JointSlug =>
   !!v && (jointSlugs as readonly string[]).includes(v);
 
+function buildExerciseConditionFaqs(jointName: string, cond: ConditionEntry) {
+  const jn = jointName.toLowerCase();
+  return [
+    {
+      q: `What are the best ${jn} exercises for ${cond.name.toLowerCase()}?`,
+      a: `The best ${jn} exercises for ${cond.name.toLowerCase()} are low-impact, physiotherapist-aligned movements that build strength and mobility without provoking inflammation — typically a combination of gentle range-of-motion, isometric holds and graded strengthening, performed 3–4 times per week.`,
+    },
+    {
+      q: `How long until ${jn} exercises reduce ${cond.shortName} pain?`,
+      a: `Most people notice reduced stiffness within 2–3 weeks of consistent practice. Meaningful pain reduction usually appears at 6–8 weeks, with the full benefit of a structured programme seen at 12 weeks.`,
+    },
+    {
+      q: `Can exercise cure ${cond.name.toLowerCase()} in the ${jn}?`,
+      a: `No — exercise cannot reverse the underlying disease process, but it is the most effective non-surgical management for ${cond.name.toLowerCase()} and can significantly reduce pain, improve function and delay the need for stronger medical interventions.`,
+    },
+    {
+      q: `Should I modify these ${jn} exercises during a flare?`,
+      a: `Yes. During an active flare, reduce intensity to pain-free range-of-motion only. ${cond.modifications}`,
+    },
+  ];
+}
+
 /**
  * Programmatic SEO page: /exercises/:joint/for/:condition
  * Generates 6 joints × 13 conditions = 78 unique pages.
@@ -33,28 +56,20 @@ const isJoint = (v: string | undefined): v is JointSlug =>
 const ExerciseConditionPage = () => {
   const { joint, condition } = useParams<{ joint: string; condition: string }>();
 
-  if (!isJoint(joint)) return <Navigate to="/404" replace />;
-  const cond = condition ? conditionBySlug.get(condition) : undefined;
-  if (!cond) return <Navigate to="/404" replace />;
-
-  const jointName = jointLabel[joint];
-  const path = `/exercises/${joint}/for/${cond.slug}`;
-  const title = `${jointName} Exercises for ${cond.name}`;
-  const description = `Safe, physiotherapist-aligned ${jointName.toLowerCase()} exercises for ${cond.name.toLowerCase()}. Step-by-step instructions, benefits and modifications.`;
-
-  // Pick the safe exercises for this condition that have entries for this joint.
-  const picks = cond.safeExercises
-    .map((exKey) => {
-      // Slug pattern in exerciseJointPages: `${exercise}-for-${joint}-arthritis`
-      const slug = `${exKey}-for-${joint}-arthritis`;
-      return exerciseJointPages.find((p) => p.slug === slug);
-    })
-    .filter(Boolean)
-    .slice(0, 5) as typeof exerciseJointPages;
-
-  // JSON-LD via useEffect (project convention — no Helmet-injected JSON-LD).
+  // Hooks must run unconditionally on every render, so this effect re-derives
+  // everything it needs from the route params itself rather than relying on
+  // variables computed after the early-returns below.
   useEffect(() => {
+    if (!isJoint(joint) || !condition) return;
+    const cond = conditionBySlug.get(condition);
+    if (!cond) return;
+
+    const jointName = jointLabel[joint];
+    const path = `/exercises/${joint}/for/${cond.slug}`;
+    const title = `${jointName} Exercises for ${cond.name}`;
+    const description = `Safe, physiotherapist-aligned ${jointName.toLowerCase()} exercises for ${cond.name.toLowerCase()}. Step-by-step instructions, benefits and modifications.`;
     const url = `${BASE}${path}`;
+
     const medicalLd = {
       "@context": "https://schema.org",
       "@type": "MedicalWebPage",
@@ -84,24 +99,7 @@ const ExerciseConditionPage = () => {
         { "@type": "ListItem", position: 4, name: cond.name, item: url },
       ],
     };
-    const faqs = [
-      {
-        q: `What are the best ${jointName.toLowerCase()} exercises for ${cond.name.toLowerCase()}?`,
-        a: `The best ${jointName.toLowerCase()} exercises for ${cond.name.toLowerCase()} are low-impact, physiotherapist-aligned movements that build strength and mobility without provoking inflammation — typically a combination of gentle range-of-motion, isometric holds and graded strengthening, performed 3–4 times per week.`,
-      },
-      {
-        q: `How long until ${jointName.toLowerCase()} exercises reduce ${cond.shortName} pain?`,
-        a: `Most people notice reduced stiffness within 2–3 weeks of consistent practice. Meaningful pain reduction usually appears at 6–8 weeks, with the full benefit of a structured programme seen at 12 weeks.`,
-      },
-      {
-        q: `Can exercise cure ${cond.name.toLowerCase()} in the ${jointName.toLowerCase()}?`,
-        a: `No — exercise cannot reverse the underlying disease process, but it is the most effective non-surgical management for ${cond.name.toLowerCase()} and can significantly reduce pain, improve function and delay the need for stronger medical interventions.`,
-      },
-      {
-        q: `Should I modify these ${jointName.toLowerCase()} exercises during a flare?`,
-        a: `Yes. During an active flare, reduce intensity to pain-free range-of-motion only. ${cond.modifications}`,
-      },
-    ];
+    const faqs = buildExerciseConditionFaqs(jointName, cond);
     const faqLd = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -120,28 +118,29 @@ const ExerciseConditionPage = () => {
       nodes.push(s);
     }
     return () => nodes.forEach((n) => n.remove());
-  }, [path, title, description, cond, jointName]);
+  }, [joint, condition]);
+
+  if (!isJoint(joint)) return <Navigate to="/404" replace />;
+  const cond = condition ? conditionBySlug.get(condition) : undefined;
+  if (!cond) return <Navigate to="/404" replace />;
+
+  const jointName = jointLabel[joint];
+  const path = `/exercises/${joint}/for/${cond.slug}`;
+  const title = `${jointName} Exercises for ${cond.name}`;
+  const description = `Safe, physiotherapist-aligned ${jointName.toLowerCase()} exercises for ${cond.name.toLowerCase()}. Step-by-step instructions, benefits and modifications.`;
+
+  // Pick the safe exercises for this condition that have entries for this joint.
+  const picks = cond.safeExercises
+    .map((exKey) => {
+      // Slug pattern in exerciseJointPages: `${exercise}-for-${joint}-arthritis`
+      const slug = `${exKey}-for-${joint}-arthritis`;
+      return exerciseJointPages.find((p) => p.slug === slug);
+    })
+    .filter(Boolean)
+    .slice(0, 5) as typeof exerciseJointPages;
 
   // FAQs rendered on-page (same content as JSON-LD).
-  const faqs = [
-    {
-      q: `What are the best ${jointName.toLowerCase()} exercises for ${cond.name.toLowerCase()}?`,
-      a: `The best ${jointName.toLowerCase()} exercises for ${cond.name.toLowerCase()} are low-impact, physiotherapist-aligned movements that build strength and mobility without provoking inflammation — typically a combination of gentle range-of-motion, isometric holds and graded strengthening, performed 3–4 times per week.`,
-    },
-    {
-      q: `How long until ${jointName.toLowerCase()} exercises reduce ${cond.shortName} pain?`,
-      a: `Most people notice reduced stiffness within 2–3 weeks of consistent practice. Meaningful pain reduction usually appears at 6–8 weeks, with the full benefit of a structured programme seen at 12 weeks.`,
-    },
-    {
-      q: `Can exercise cure ${cond.name.toLowerCase()} in the ${jointName.toLowerCase()}?`,
-      a: `No — exercise cannot reverse the underlying disease process, but it is the most effective non-surgical management for ${cond.name.toLowerCase()} and can significantly reduce pain, improve function and delay the need for stronger medical interventions.`,
-    },
-    {
-      q: `Should I modify these ${jointName.toLowerCase()} exercises during a flare?`,
-      a: `Yes. During an active flare, reduce intensity to pain-free range-of-motion only. ${cond.modifications}`,
-    },
-  ];
-
+  const faqs = buildExerciseConditionFaqs(jointName, cond);
 
   // Sibling links
   const otherJointsForCondition = jointSlugs

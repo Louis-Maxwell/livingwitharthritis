@@ -38,6 +38,27 @@ const subpageIcon: Record<SubpageSlug, typeof Activity> = {
   diet: Apple,
 };
 
+function subpageTitle(condName: string, subpage: SubpageSlug): string {
+  const titleMap: Record<SubpageSlug, string> = {
+    symptoms: `${condName} Symptoms: Early Signs, Causes & UK Diagnosis Guide`,
+    treatment: `${condName} Treatment in the UK: NHS Options, Medication & Self-Care`,
+    exercises: `Best Exercises for ${condName}: Safe UK Physio-Aligned Routines`,
+    diet: `Best Diet for ${condName}: Anti-Inflammatory Foods to Eat & Avoid (UK)`,
+  };
+  return titleMap[subpage];
+}
+
+function subpageDescription(condName: string, subpage: SubpageSlug): string {
+  const lcName = condName.toLowerCase();
+  const descMap: Record<SubpageSlug, string> = {
+    symptoms: `Recognise the early signs of ${lcName}, common flare-up symptoms, and when to see your GP. Plain-English UK guidance aligned with NHS and NICE.`,
+    treatment: `Evidence-based ${lcName} treatment in the UK — NHS pathways, medication options, pain relief and self-management strategies that actually work.`,
+    exercises: `Safe, effective ${lcName} exercises aligned with UK physiotherapy guidance. Movements to try, exercises to avoid, and how to build a weekly routine.`,
+    diet: `What to eat — and what to limit — with ${lcName}. UK-aligned anti-inflammatory diet guidance, food triggers, and the supplements with the best evidence.`,
+  };
+  return descMap[subpage];
+}
+
 /**
  * Programmatic SEO page: /conditions/:condition/:subpage
  * 13 conditions × 4 sub-pages = 52 unique pages.
@@ -45,35 +66,22 @@ const subpageIcon: Record<SubpageSlug, typeof Activity> = {
 const ConditionSubpagePage = () => {
   const { condition, subpage } = useParams<{ condition: string; subpage: string }>();
 
-  if (!isSubpage(subpage)) return <Navigate to="/404" replace />;
-  const cond = condition ? conditionBySlug.get(condition) : undefined;
-  const content = condition ? conditionSubpages[condition] : undefined;
-  if (!cond || !content) return <Navigate to="/404" replace />;
-
-  const sub = content[subpage];
-  const path = `/conditions/${cond.slug}/${subpage}`;
-  const subLabel = subpageLabel[subpage];
-  const lcName = cond.name.toLowerCase();
-  const titleMap: Record<typeof subpage, string> = {
-    symptoms: `${cond.name} Symptoms: Early Signs, Causes & UK Diagnosis Guide`,
-    treatment: `${cond.name} Treatment in the UK: NHS Options, Medication & Self-Care`,
-    exercises: `Best Exercises for ${cond.name}: Safe UK Physio-Aligned Routines`,
-    diet: `Best Diet for ${cond.name}: Anti-Inflammatory Foods to Eat & Avoid (UK)`,
-  };
-  const descMap: Record<typeof subpage, string> = {
-    symptoms: `Recognise the early signs of ${lcName}, common flare-up symptoms, and when to see your GP. Plain-English UK guidance aligned with NHS and NICE.`,
-    treatment: `Evidence-based ${lcName} treatment in the UK — NHS pathways, medication options, pain relief and self-management strategies that actually work.`,
-    exercises: `Safe, effective ${lcName} exercises aligned with UK physiotherapy guidance. Movements to try, exercises to avoid, and how to build a weekly routine.`,
-    diet: `What to eat — and what to limit — with ${lcName}. UK-aligned anti-inflammatory diet guidance, food triggers, and the supplements with the best evidence.`,
-  };
-  const title = titleMap[subpage];
-  const description = descMap[subpage];
-  const faqs = buildSubpageFaqs(cond.name, cond.shortName, subpage);
-
-  const Icon = subpageIcon[subpage];
-
+  // Hooks must run unconditionally on every render, so this effect re-derives
+  // everything it needs from the route params itself rather than relying on
+  // variables computed after the early-returns below.
   useEffect(() => {
+    if (!isSubpage(subpage) || !condition) return;
+    const cond = conditionBySlug.get(condition);
+    const content = conditionSubpages[condition];
+    if (!cond || !content) return;
+
+    const path = `/conditions/${cond.slug}/${subpage}`;
     const url = `${BASE}${path}`;
+    const subLabel = subpageLabel[subpage];
+    const title = subpageTitle(cond.name, subpage);
+    const description = subpageDescription(cond.name, subpage);
+    const faqs = buildSubpageFaqs(cond.name, cond.shortName, subpage);
+
     const medicalLd = {
       "@context": "https://schema.org",
       "@type": "MedicalWebPage",
@@ -121,7 +129,22 @@ const ConditionSubpagePage = () => {
       nodes.push(s);
     }
     return () => nodes.forEach((n) => n.remove());
-  }, [path, title, description, cond, subLabel, faqs]);
+  }, [condition, subpage]);
+
+  if (!isSubpage(subpage)) return <Navigate to="/404" replace />;
+  const cond = condition ? conditionBySlug.get(condition) : undefined;
+  const content = condition ? conditionSubpages[condition] : undefined;
+  if (!cond || !content) return <Navigate to="/404" replace />;
+
+  const sub = content[subpage];
+  const path = `/conditions/${cond.slug}/${subpage}`;
+  const subLabel = subpageLabel[subpage];
+  const lcName = cond.name.toLowerCase();
+  const title = subpageTitle(cond.name, subpage);
+  const description = subpageDescription(cond.name, subpage);
+  const faqs = buildSubpageFaqs(cond.name, cond.shortName, subpage);
+
+  const Icon = subpageIcon[subpage];
 
   // Sibling sub-pages for this condition.
   const siblingSubpages = subpageSlugs.filter((s) => s !== subpage);

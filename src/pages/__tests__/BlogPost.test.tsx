@@ -109,7 +109,10 @@ describe("BlogPost Page", () => {
     expect(screen.getByRole("heading", { level: 1, name: "Managing Arthritis Pain" })).toBeInTheDocument();
     expect(screen.getByText("Dr. Sarah Johnson")).toBeInTheDocument();
     expect(screen.getByText("MSc Physiotherapy")).toBeInTheDocument();
-    expect(screen.getByText(/Reviewed by Dr. Amina Patel/)).toBeInTheDocument();
+    // "Reviewed by ..." legitimately renders twice: an on-screen badge, and a
+    // .print-only citation block (CSS-hidden on screen, jsdom doesn't apply
+    // @media print so both are queryable here) — assert at least one match.
+    expect(screen.getAllByText(/Reviewed by Dr. Amina Patel/).length).toBeGreaterThan(0);
   });
 
   it("renders publish date in en-GB format", () => {

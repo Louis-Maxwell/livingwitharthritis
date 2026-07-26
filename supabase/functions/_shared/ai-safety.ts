@@ -56,7 +56,7 @@ export function redactPII(text: string): string {
     // UK postcodes
     .replace(/\b[A-Z]{1,2}\d[A-Z\d]?\s*\d[A-Z]{2}\b/gi, "[postcode]")
     // dates of birth (dd/mm/yyyy or dd-mm-yyyy)
-    .replace(/\b\d{1,2}[\/\-]\d{1,2}[\/\-](19|20)\d{2}\b/g, "[dob]")
+    .replace(/\b\d{1,2}[/-]\d{1,2}[/-](19|20)\d{2}\b/g, "[dob]")
     .slice(0, 500);
 }
 
