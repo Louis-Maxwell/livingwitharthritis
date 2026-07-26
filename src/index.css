@@ -223,7 +223,8 @@
   }
 
   /* Placeholder readability */
-  ::placeholder { color: hsl(var(--muted-foreground)); opacity: 0.7; }
+  /* Full opacity keeps placeholders at ≥4.5:1 contrast (WCAG AA). */
+  ::placeholder { color: hsl(var(--muted-foreground)); opacity: 1; }
 
   a:hover { color: hsl(var(--primary)); }
 
