@@ -6,10 +6,14 @@
 //
 // Dynamic auth/admin/result pages are intentionally excluded.
 //
-// Blog posts are auto-included from src/data/blog-slugs.generated.json,
-// which scripts/generate-sitemap.ts refreshes on predev/prebuild by
-// querying blog_articles. Set PRERENDER_LIMIT to cap the blog set
-// (newest-first) when a full render is too slow locally.
+// Blog posts are auto-included from src/data/blog-slugs.generated.json.
+// Every other dynamic route family (city x service, condition x subpage,
+// exercise x condition, glossary, comparison guides, city hubs, pets,
+// authors/reviewers, etc.) is auto-included from
+// src/data/prerender-routes.generated.json. Both files are refreshed by
+// scripts/generate-sitemap.ts on predev/prebuild — this file itself never
+// needs editing when new combinatorial content is added. Set PRERENDER_LIMIT
+// to cap the blog set (newest-first) when a full render is too slow locally.
 
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
@@ -126,14 +130,11 @@ const CURATED = [
   "/complaints",
 ];
 
-function loadBlogSlugs() {
+function loadGeneratedList(relPath) {
   try {
-    const raw = readFileSync(
-      resolve(process.cwd(), "src/data/blog-slugs.generated.json"),
-      "utf8",
-    );
-    const slugs = JSON.parse(raw);
-    return Array.isArray(slugs) ? slugs : [];
+    const raw = readFileSync(resolve(process.cwd(), relPath), "utf8");
+    const list = JSON.parse(raw);
+    return Array.isArray(list) ? list : [];
   } catch {
     // File hasn't been generated yet — first-run bootstrap. The predev/prebuild
     // sitemap script populates it; falling through is safe.
@@ -142,18 +143,25 @@ function loadBlogSlugs() {
 }
 
 const rawLimit = Number(process.env.PRERENDER_LIMIT || 0);
-const blogSlugs = loadBlogSlugs();
-const trimmed = rawLimit > 0 ? blogSlugs.slice(0, rawLimit) : blogSlugs;
-const blogRoutes = trimmed.map((s) => `/blog/${s}`);
+const blogSlugs = loadGeneratedList("src/data/blog-slugs.generated.json");
+const trimmedBlogSlugs = rawLimit > 0 ? blogSlugs.slice(0, rawLimit) : blogSlugs;
+const blogRoutes = trimmedBlogSlugs.map((s) => `/blog/${s}`);
+
+// Every other route the sitemap generator discovered: static App.tsx routes,
+// the city/condition/exercise/glossary/comparison/pet combinatorial
+// families, author/reviewer pages, etc. Previously these had zero prerender
+// coverage beyond the small hand-curated list below.
+const otherRoutes = loadGeneratedList("src/data/prerender-routes.generated.json");
 
 // Deduplicate. Curated wins if a slug is also hard-coded above.
 const seen = new Set(CURATED);
+for (const r of otherRoutes) seen.add(r);
 for (const r of blogRoutes) seen.add(r);
 
 export const PRERENDER_ROUTES = [...seen];
 
 // Diagnostic on import so `PRERENDER=1 vite build` shows what will be rendered.
 console.log(
-  `[prerender] curated=${CURATED.length} blog=${blogRoutes.length} total=${PRERENDER_ROUTES.length}` +
+  `[prerender] curated=${CURATED.length} other=${otherRoutes.length} blog=${blogRoutes.length} total=${PRERENDER_ROUTES.length}` +
     (rawLimit > 0 ? ` (PRERENDER_LIMIT=${rawLimit})` : ""),
 );

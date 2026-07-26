@@ -332,6 +332,21 @@ async function main() {
     JSON.stringify(slugList, null, 2) + "\n",
   );
   console.log(`[sitemap] wrote ${slugList.length} slugs -> src/data/blog-slugs.generated.json`);
+
+  // Also emit every non-blog path this run discovered (deduplicated) — the
+  // combinatorial city/condition/exercise/glossary/comparison/pet families
+  // above previously had no prerender coverage at all, since prerender-routes.mjs
+  // only knew about a small hand-curated list plus blog posts. Excludes
+  // /blog/* (already covered by blogSlugList above) to avoid duplicating a
+  // large array across two generated files.
+  const otherPaths = [...new Set(entries.map((e) => e.path))].filter(
+    (p) => !p.startsWith("/blog/"),
+  );
+  writeFileSync(
+    resolve("src/data/prerender-routes.generated.json"),
+    JSON.stringify(otherPaths, null, 2) + "\n",
+  );
+  console.log(`[sitemap] wrote ${otherPaths.length} routes -> src/data/prerender-routes.generated.json`);
 }
 
 main().catch((e) => {
