@@ -24,6 +24,11 @@ import OAHero from "@/components/landing/OAHero";
 
 import { VISITOR_STATS_SNIPPET } from "@/config/visitorStats";
 
+/** Prefixes `rest` with the visitor-stats snippet when one is set (a real,
+ * verified count), without leaving a stray leading space when it's empty. */
+const withVisitorSnippet = (rest: string) =>
+  [VISITOR_STATS_SNIPPET, rest].filter(Boolean).join(" ");
+
 // Q1: Lazy-load every sub-section to reduce first-paint JS cost.
 const HeroStatsStrip = lazy(() => import("@/components/landing/HeroStatsStrip"));
 const OAProblemBand = lazy(() => import("@/components/landing/OAProblemBand"));
@@ -178,7 +183,9 @@ function HomePage() {
         <title>Living With Arthritis UK | Evidence-Based Health Guides</title>
         <meta
           name="description"
-          content={`${VISITOR_STATS_SNIPPET} Free UK arthritis support: clinically reviewed diet, movement and pain-relief guidance in plain English.`}
+          content={withVisitorSnippet(
+            "Free UK arthritis support: clinically reviewed diet, movement and pain-relief guidance in plain English.",
+          )}
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={SITE_URL + "/"} />
@@ -188,11 +195,15 @@ function HomePage() {
         />
         <meta
           property="og:description"
-          content={`${VISITOR_STATS_SNIPPET} Clinically reviewed arthritis guidance in plain English — free for everyone in the UK.`}
+          content={withVisitorSnippet(
+            "Clinically reviewed arthritis guidance in plain English — free for everyone in the UK.",
+          )}
         />
         <meta
           name="twitter:description"
-          content={`${VISITOR_STATS_SNIPPET} Free, clinically reviewed arthritis guidance for the UK.`}
+          content={withVisitorSnippet(
+            "Free, clinically reviewed arthritis guidance for the UK.",
+          )}
         />
       </Helmet>
 

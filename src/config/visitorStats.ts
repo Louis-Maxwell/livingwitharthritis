@@ -31,13 +31,25 @@
 const env = import.meta.env;
 
 export const VISITOR_STATS = {
-  /** Display label e.g. "Thousands of" or an override like "12,480". */
-  count: (env.VITE_VISITOR_COUNT as string | undefined) ?? "Thousands of",
+  /** Display label e.g. "Thousands of" or a verified override like "12,480". Undefined until a real VITE_VISITOR_COUNT is set. */
+  count: env.VITE_VISITOR_COUNT as string | undefined,
   /** Period descriptor e.g. "people across the UK". */
   period: (env.VITE_VISITOR_PERIOD as string | undefined) ?? "people across the UK",
-  /** Last manually verified against GA4 (YYYY-MM-DD). */
-  lastVerified: (env.VITE_VISITOR_VERIFIED as string | undefined) ?? "2026-06-25",
+  /** Last manually verified against GA4 (YYYY-MM-DD), if a count has been set. */
+  lastVerified: env.VITE_VISITOR_VERIFIED as string | undefined,
 } as const;
 
-/** Snippet ready to drop into meta descriptions / OG copy. */
-export const VISITOR_STATS_SNIPPET = `Trusted by ${VISITOR_STATS.count.toLowerCase()} ${VISITOR_STATS.period}.`;
+/**
+ * Snippet ready to drop into meta descriptions / OG copy. Empty string until
+ * a real VITE_VISITOR_COUNT is verified and set (see instructions above).
+ *
+ * IMPORTANT: previously defaulted to "Trusted by thousands of people across
+ * the UK" whenever VITE_VISITOR_COUNT was unset -- but that's still a
+ * specific, falsifiable scale claim, not a safe placeholder, and no
+ * VITE_VISITOR_COUNT override has ever actually been set (checked .env).
+ * That sentence was live in the homepage's meta description, og:description
+ * and twitter:description with no real traffic to back it.
+ */
+export const VISITOR_STATS_SNIPPET = VISITOR_STATS.count
+  ? `Trusted by ${VISITOR_STATS.count.toLowerCase()} ${VISITOR_STATS.period}.`
+  : "";
