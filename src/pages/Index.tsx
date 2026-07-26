@@ -12,6 +12,7 @@
 import { lazy, Suspense, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import { Stethoscope, ArrowRight } from "lucide-react";
 
 import Header from "@/components/Header";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -26,7 +27,7 @@ import { VISITOR_STATS_SNIPPET } from "@/config/visitorStats";
 // Q1: Lazy-load every sub-section to reduce first-paint JS cost.
 const HeroStatsStrip = lazy(() => import("@/components/landing/HeroStatsStrip"));
 const OAProblemBand = lazy(() => import("@/components/landing/OAProblemBand"));
-const JointSelector = lazy(() => import("@/components/JointSelector"));
+const JointExerciseSection = lazy(() => import("@/components/JointExerciseSection"));
 const FacesStrip = lazy(() => import("@/components/landing/FacesStrip"));
 const OAPlanPillarsSection = lazy(() => import("@/components/landing/OAPlanPillarsSection"));
 const MissionStatementBand = lazy(() => import("@/components/landing/MissionStatementBand"));
@@ -211,10 +212,31 @@ function HomePage() {
           </Suspense>
 
 
-          {/* 03 — Where does it hurt? */}
+          {/* 03 — Where does it hurt? Interactive anatomy diagram — click a
+              joint to reveal a personalised home exercise plan inline. */}
           <Suspense fallback={<SectionFallback />}>
-            <JointSelector />
+            <JointExerciseSection />
           </Suspense>
+
+          {/* 03b — Bridge to the fuller symptom-matching quiz for visitors
+              who aren't sure which joint/condition applies to them. */}
+          <section aria-label="Not sure where to start" className="py-10 bg-muted/30 border-y border-border/40">
+            <div className="container mx-auto px-6 max-w-3xl text-center">
+              <Stethoscope className="w-6 h-6 text-primary mx-auto mb-3" aria-hidden="true" />
+              <p className="text-foreground font-semibold mb-1">
+                Not sure which condition matches your symptoms?
+              </p>
+              <p className="text-sm text-muted-foreground mb-4">
+                Answer five quick questions and we'll suggest which conditions to read about first.
+              </p>
+              <Link
+                to="/symptom-checker"
+                className="inline-flex items-center gap-1.5 text-primary font-semibold hover:underline"
+              >
+                Try the symptom checker <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </section>
 
           {/* 04 — How you can help (MAP-style mosaic) */}
           <Suspense fallback={<SectionFallback />}>

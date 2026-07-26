@@ -18,7 +18,7 @@ const cards = [
     icon: MapPin,
     label: "A specific joint hurts",
     sub: "Find guidance for your joint",
-    href: "#joint-picker",
+    href: "#joint-exercises",
   },
   {
     icon: ClipboardList,

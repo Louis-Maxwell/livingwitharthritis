@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Dumbbell, Clock, RotateCcw, Activity } from "lucide-react";
 import { EXERCISE_ANIMATIONS, type ExerciseAnimationKey } from "@/components/exercises/ExerciseAnimations";
 import anatomyFigure from "@/assets/anatomy-figure.jpg";
+import { trackEvent } from "@/lib/analytics";
 
 interface Exercise {
   name: string;
@@ -349,7 +350,13 @@ const JointExerciseSection = memo(() => {
   const panelWrapRef = useRef<HTMLDivElement>(null);
 
   const handleJointClick = useCallback((selectionId: string) => {
-    setActiveSelectionId((prev) => (prev === selectionId ? null : selectionId));
+    setActiveSelectionId((prev) => {
+      const next = prev === selectionId ? null : selectionId;
+      if (next) {
+        trackEvent("joint_exercise_click", { joint: next, source: "homepage" });
+      }
+      return next;
+    });
   }, []);
 
   // Scroll to & highlight the panel whenever a joint is selected
@@ -369,7 +376,7 @@ const JointExerciseSection = memo(() => {
   const activeData = activeJointId ? jointDatabase[activeJointId] : null;
 
   return (
-    <section id="joint-exercises" className="py-14 lg:py-20 relative overflow-hidden bg-background">
+    <section id="joint-exercises" className="py-14 lg:py-20 relative overflow-hidden bg-background scroll-mt-24">
       <div className="container mx-auto px-4 md:px-8 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
