@@ -3,6 +3,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { getFallbackAnswer } from "@/lib/arthritisChatFallback";
 import type { ChatProfile } from "@/lib/chatProfile";
+import { loadAnonChatHistory, saveAnonChatHistory, clearAnonChatHistory } from "@/lib/chatHistory";
 
 export type Message = {
   role: "user" | "assistant";
@@ -40,6 +41,28 @@ async function getAuthHeaders(): Promise<Record<string, string>> {
 
 type WireMessage = { role: "user" | "assistant"; content: string };
 
+/** No response at all within this many ms — abort rather than hang forever. */
+const REQUEST_TIMEOUT_MS = 30_000;
+
+/**
+ * Aborts `controller` after `ms` of inactivity. Call `bump()` on every
+ * received chunk to reset the window, so a genuinely long-but-progressing
+ * streamed answer isn't cut off — only a stalled connection is.
+ */
+function createInactivityWatchdog(controller: AbortController, ms: number) {
+  let timer: ReturnType<typeof setTimeout> | null = null;
+  const bump = () => {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => controller.abort(), ms);
+  };
+  const cancel = () => {
+    if (timer) clearTimeout(timer);
+    timer = null;
+  };
+  bump();
+  return { bump, cancel };
+}
+
 async function fetchJsonFallback({
   messages,
   userProfile,
@@ -52,14 +75,27 @@ async function fetchJsonFallback({
   onDone: () => void;
 }) {
   const authHeaders = await getAuthHeaders();
-  const resp = await fetch(`${CHAT_URL}?stream=0`, {
-    method: "POST",
-    headers: {
-      ...authHeaders,
-      Accept: "application/json",
-    },
-    body: JSON.stringify({ messages, userProfile }),
-  });
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+  let resp: Response;
+  try {
+    resp = await fetch(`${CHAT_URL}?stream=0`, {
+      method: "POST",
+      headers: {
+        ...authHeaders,
+        Accept: "application/json",
+      },
+      body: JSON.stringify({ messages, userProfile }),
+      signal: controller.signal,
+    });
+  } catch (e) {
+    if (e instanceof DOMException && e.name === "AbortError") {
+      throw new Error("The request timed out. Please try again.");
+    }
+    throw e;
+  } finally {
+    clearTimeout(timer);
+  }
   if (!resp.ok) {
     const errorData = await resp.json().catch(() => null);
     const err = errorData?.error;
@@ -88,6 +124,9 @@ async function streamChat({
   onDelta: (deltaText: string) => void;
   onDone: () => void;
 }) {
+  const controller = new AbortController();
+  const watchdog = createInactivityWatchdog(controller, REQUEST_TIMEOUT_MS);
+
   let resp: Response;
   try {
     const authHeaders = await getAuthHeaders();
@@ -95,13 +134,17 @@ async function streamChat({
       method: "POST",
       headers: authHeaders,
       body: JSON.stringify({ messages, userProfile }),
+      signal: controller.signal,
     });
   } catch (e) {
-    // Network/proxy blocked the streaming request — try JSON fallback.
+    watchdog.cancel();
+    // Network/proxy blocked the streaming request, or it timed out — try
+    // the non-streaming JSON path once (its own fresh timeout applies).
     return fetchJsonFallback({ messages, userProfile, onDelta, onDone });
   }
 
   if (!resp.ok) {
+    watchdog.cancel();
     const errorData = await resp.json().catch(() => null);
     if (resp.status === 429) {
       throw new Error("Rate limit exceeded. Please try again later.");
@@ -117,7 +160,8 @@ async function streamChat({
   }
 
   if (!resp.body) {
-    return fetchJsonFallback({ messages, onDelta, onDone });
+    watchdog.cancel();
+    return fetchJsonFallback({ messages, userProfile, onDelta, onDone });
   }
 
   const reader = resp.body.getReader();
@@ -129,6 +173,7 @@ async function streamChat({
   try {
     while (!streamDone) {
       const { done, value } = await reader.read();
+      watchdog.bump(); // any activity (including keep-alives) resets the window
       if (done) break;
       textBuffer += decoder.decode(value, { stream: true });
 
@@ -161,11 +206,14 @@ async function streamChat({
       }
     }
   } catch (e) {
+    watchdog.cancel();
     if (!receivedAny) {
       return fetchJsonFallback({ messages, userProfile, onDelta, onDone });
     }
     throw e;
   }
+
+  watchdog.cancel();
 
   if (textBuffer.trim()) {
     for (let raw of textBuffer.split("\n")) {
@@ -258,8 +306,15 @@ export function useStreamingChat() {
 
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (!active) return;
-      setUserId(session?.user?.id ?? null);
+      const uid = session?.user?.id ?? null;
+      setUserId(uid);
       // History loaded lazily on first sendMessage to keep page-load fast
+      // (signed-in users). Anonymous visitors have no server-side history
+      // to lazy-load, so restore any locally-saved thread immediately.
+      if (!uid) {
+        const saved = loadAnonChatHistory();
+        if (saved.length) setMessages(saved);
+      }
     });
 
     const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
@@ -278,6 +333,15 @@ export function useStreamingChat() {
       sub.subscription.unsubscribe();
     };
   }, []);
+
+  // Keep the anonymous-visitor's conversation saved locally as it grows.
+  // Guarded to anonymous users only — signed-in history already persists
+  // server-side via chat_conversations/chat_messages.
+  useEffect(() => {
+    if (userId === null && messages.length > 0) {
+      saveAnonChatHistory(messages);
+    }
+  }, [messages, userId]);
 
   const ensureConversation = useCallback(async (uid: string, firstMessage: string): Promise<string | null> => {
     if (conversationIdRef.current) return conversationIdRef.current;
@@ -427,13 +491,15 @@ export function useStreamingChat() {
     setMessages([]);
     conversationIdRef.current = null;
     historyLoadedRef.current = true;
-  }, []);
+    if (userId === null) clearAnonChatHistory();
+  }, [userId]);
 
   const newChat = useCallback(() => {
     setMessages([]);
     conversationIdRef.current = null;
     historyLoadedRef.current = true;
-  }, []);
+    if (userId === null) clearAnonChatHistory();
+  }, [userId]);
 
   const loadConversations = useCallback(async () => {
     if (userId && refreshConversationsRef.current) {

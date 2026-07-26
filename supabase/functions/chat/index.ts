@@ -228,6 +228,18 @@ serve(async (req) => {
     const lastUser = [...messages].reverse().find((m) => m.role === "user");
     const lastUserText = lastUser?.content ?? "";
 
+    // Redact PII (emails, UK phone numbers, NHS numbers, postcodes, DOBs)
+    // from user turns before anything leaves this function for a
+    // third-party service — the embedding call and the chat completion
+    // call both go to ai.gateway.lovable.dev. Red-flag/blocked-content
+    // detection below intentionally runs on the original lastUserText,
+    // not this redacted copy, since those checks need the real content.
+    // Assistant turns are the model's own prior replies and aren't redacted.
+    const redactedMessages = messages.map((m) =>
+      m.role === "user" ? { ...m, content: redactPII(m.content) } : m,
+    );
+    const redactedLastUserText = redactPII(lastUserText);
+
     /* ── Safety ───────────────────────────────────────────────────── */
     if (containsBlockedContent(lastUserText)) {
       console.warn(`[${requestId}] Blocked content; redacted="${redactPII(lastUserText)}"`);
@@ -253,8 +265,8 @@ serve(async (req) => {
     let contextBlock = "";
     const supabaseUrl = Deno.env.get("SUPABASE_URL");
     const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
-    if (supabaseUrl && serviceKey && lastUserText.length > 3) {
-      const embedding = await embedQuery(lastUserText, LOVABLE_API_KEY, requestId);
+    if (supabaseUrl && serviceKey && redactedLastUserText.length > 3) {
+      const embedding = await embedQuery(redactedLastUserText, LOVABLE_API_KEY, requestId);
       if (embedding) {
         const results = await retrieveContext(supabaseUrl, serviceKey, embedding, requestId);
         contextBlock = buildContextBlock(results);
@@ -278,7 +290,7 @@ serve(async (req) => {
       body: JSON.stringify({
         model: "openai/gpt-5",
         max_completion_tokens: 1200,
-        messages: [{ role: "system", content: systemPrompt }, ...messages],
+        messages: [{ role: "system", content: systemPrompt }, ...redactedMessages],
         stream: wantsStream,
       }),
     });
