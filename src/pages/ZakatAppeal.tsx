@@ -176,7 +176,7 @@ const ZakatAppeal = () => {
                 {/* Card header */}
                 <div className="bg-primary px-6 py-5 text-primary-foreground">
                   <h1 className="text-2xl sm:text-3xl font-display font-bold">Zakat Appeal</h1>
-                  <p className="text-primary-foreground/80 text-sm mt-1">
+                  <p className="text-primary-foreground text-sm mt-1">
                     Fund rehabilitation for war & trauma survivors
                   </p>
                 </div>
@@ -272,7 +272,7 @@ const ZakatAppeal = () => {
                 <div key={item.label} className="space-y-1">
                   <item.icon className="w-6 h-6 mx-auto mb-2 opacity-80" />
                   <p className="text-2xl sm:text-3xl font-display font-bold">{item.stat}</p>
-                  <p className="text-xs text-primary-foreground/70">{item.label}</p>
+                  <p className="text-xs text-primary-foreground">{item.label}</p>
                 </div>
               ))}
             </div>

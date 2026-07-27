@@ -54,7 +54,7 @@ const ExpertContentSection = memo(() => (
   <section aria-labelledby="expert-content-heading" className="py-20 bg-background">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center max-w-2xl mx-auto mb-14">
-        <span className="section-label text-primary/60 block mb-4">Expert Advice</span>
+        <span className="section-label text-primary block mb-4">Expert Advice</span>
         <h2 id="expert-content-heading" className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
           Practical knowledge for <span className="text-primary">daily life with arthritis</span>
         </h2>
@@ -86,7 +86,7 @@ const ExpertContentSection = memo(() => (
             </ul>
             <Link
               to={t.href}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors group focus:outline-none focus:underline"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary transition-colors group focus:outline-none focus:underline"
             >
               {t.cta}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />

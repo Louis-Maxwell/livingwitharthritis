@@ -36,7 +36,7 @@ export function ResourceCards({ resources }: { resources: ChatResource[] }) {
             </div>
             <div className="min-w-0 flex-1">
               <div className="flex items-center gap-1.5">
-                <span className="text-[10px] uppercase tracking-wide text-primary/70 font-medium">
+                <span className="text-[10px] uppercase tracking-wide text-primary font-medium">
                   {LABELS[r.type]}
                 </span>
               </div>

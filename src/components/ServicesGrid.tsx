@@ -40,7 +40,7 @@ const ServicesGrid = () => {
     <section id="services" className="py-24 lg:py-32 bg-background relative">
       <div className="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl">
         <div className="text-center mb-20">
-          <span className="section-label text-primary/60 mb-5 block">Comprehensive Care Platform</span>
+          <span className="section-label text-primary mb-5 block">Comprehensive Care Platform</span>
           <h2 className="font-display text-3xl sm:text-4xl md:text-[3.5rem] font-bold text-foreground mb-7 leading-[1.06] tracking-tight">
             World-class services,{" "}
             <span className="text-gradient italic">for everyone</span>

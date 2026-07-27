@@ -74,7 +74,7 @@ const FooterMostRead = memo(() => {
                 to={`/blog/${a.slug}`}
                 className="group block rounded-lg p-3 -m-3 hover:bg-card transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               >
-                <span className="text-[11px] font-bold text-primary/70 tabular-nums">
+                <span className="text-[11px] font-bold text-primary tabular-nums">
                   0{i + 1}
                 </span>
                 <p className="mt-1 text-sm font-semibold text-foreground leading-snug group-hover:text-primary transition-colors line-clamp-3">

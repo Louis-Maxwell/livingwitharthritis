@@ -27,7 +27,7 @@ const FinalDonateBand = () => {
     >
       <div className="container mx-auto max-w-5xl px-6 sm:px-8 lg:px-16">
         <RevealOnScroll className="text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary mb-6">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[hsl(354_90%_72%)] mb-6">
             Keep every guide free
           </p>
           <h2

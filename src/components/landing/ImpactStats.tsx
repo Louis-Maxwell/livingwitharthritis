@@ -61,11 +61,11 @@ export default function ImpactStats() {
               <span className={`${iconBg} w-12 h-12 inline-flex items-center justify-center`}>
                 <Icon className="w-6 h-6" />
               </span>
-              <p className="font-display text-5xl md:text-6xl tracking-tight leading-none">
+              <p className={`font-display text-5xl md:text-6xl tracking-tight leading-none ${fg}`}>
                 {value}
               </p>
-              <p className="font-bold text-base md:text-lg leading-snug">{label}</p>
-              <p className={`text-sm leading-relaxed ${fg === "text-white" ? "text-white/90" : "text-foreground/85"}`}>
+              <p className={`font-bold text-base md:text-lg leading-snug ${fg}`}>{label}</p>
+              <p className={`text-sm leading-relaxed ${fg === "text-white" ? "text-white" : "text-foreground"}`}>
                 {desc}
               </p>
             </div>

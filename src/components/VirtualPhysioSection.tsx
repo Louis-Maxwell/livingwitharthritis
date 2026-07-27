@@ -100,7 +100,7 @@ const MythCard = memo(({ item, index }: { item: PhysioMyth; index: number }) => 
 
           {/* Source citation */}
           <div className="flex items-center gap-2 pt-2 border-t border-border/20">
-            <ShieldCheck className="w-3.5 h-3.5 text-primary/60 flex-shrink-0" />
+            <ShieldCheck className="w-3.5 h-3.5 text-primary flex-shrink-0" />
             <p className="text-[11px] text-muted-foreground italic">
               Source: {sourceLabels[index % sourceLabels.length]}
             </p>
@@ -231,14 +231,14 @@ const VirtualPhysioSection = memo(() => {
           <div className="relative max-w-xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-background/10 rounded-full px-4 py-1.5 mb-6">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-xs font-medium text-primary-foreground/80">Appointments available this week</span>
+              <span className="text-xs font-medium text-primary-foreground">Appointments available this week</span>
             </div>
 
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold mb-4 leading-tight">
               Virtual physiotherapy isn't the future —{" "}
               <span className="italic font-normal opacity-90">it's the now.</span>
             </h3>
-            <p className="text-primary-foreground/85 mb-10 text-base sm:text-lg leading-relaxed">
+            <p className="text-primary-foreground mb-10 text-base sm:text-lg leading-relaxed">
               HCPC-registered physiotherapists. No waiting lists. No referral needed.
               Flexible sessions from the comfort of your home.
             </p>
@@ -252,7 +252,7 @@ const VirtualPhysioSection = memo(() => {
                   </Button>
                 }
               />
-              <p className="text-primary-foreground/75 text-xs">Free · No obligation · Takes 2 minutes</p>
+              <p className="text-primary-foreground text-xs">Free · No obligation · Takes 2 minutes</p>
             </div>
           </div>
         </motion.div>

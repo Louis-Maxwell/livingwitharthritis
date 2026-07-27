@@ -48,7 +48,7 @@ const MissionStatementBand = memo(() => {
                 i % 2 === 0 ? "border-r sm:border-r" : ""
               }`}
             >
-              <p className="text-[9px] sm:text-[10px] font-bold tracking-[0.28em] uppercase text-primary/70 mb-2">
+              <p className="text-[9px] sm:text-[10px] font-bold tracking-[0.28em] uppercase text-primary mb-2">
                 {p.kicker}
               </p>
               <p className="font-display text-lg sm:text-xl lg:text-2xl tracking-tight text-foreground">

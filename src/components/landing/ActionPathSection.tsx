@@ -36,7 +36,7 @@ const ActionPathSection = memo(() => (
   <section aria-labelledby="action-path-heading" className="py-20 bg-background">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center max-w-2xl mx-auto mb-14">
-        <span className="section-label text-primary/60 block mb-4">Your Journey</span>
+        <span className="section-label text-primary block mb-4">Your Journey</span>
         <h2 id="action-path-heading" className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
           Living with arthritis is hard. <span className="text-primary">Managing it doesn't have to be.</span>
         </h2>

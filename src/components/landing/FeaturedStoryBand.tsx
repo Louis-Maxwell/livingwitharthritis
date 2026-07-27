@@ -150,7 +150,7 @@ const FeaturedStoryBand = memo(() => {
               <dl className="grid grid-cols-3 gap-4 sm:gap-6 mt-8 mb-10">
                 {facts.map((f) => (
                   <div key={f.kicker}>
-                    <dt className="text-[9px] sm:text-[10px] font-bold tracking-[0.28em] uppercase text-primary/70 mb-2">
+                    <dt className="text-[9px] sm:text-[10px] font-bold tracking-[0.28em] uppercase text-primary mb-2">
                       {f.kicker}
                     </dt>
                     <dd className="font-display text-xl sm:text-2xl lg:text-[1.75rem] tracking-tight text-foreground">

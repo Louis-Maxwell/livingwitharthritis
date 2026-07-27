@@ -38,7 +38,7 @@ const WhyUsSection = memo(() => (
   <section aria-labelledby="why-us-heading" className="py-20 bg-gradient-to-b from-accent to-background">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center max-w-2xl mx-auto mb-14">
-        <span className="section-label text-primary/60 block mb-4">Why Choose Us</span>
+        <span className="section-label text-primary block mb-4">Why Choose Us</span>
         <h2 id="why-us-heading" className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
           Different from the public health service. Different from other charities.{" "}
           <span className="text-primary">Built just for you.</span>
@@ -69,7 +69,7 @@ const WhyUsSection = memo(() => (
       <div className="mt-12 rounded-2xl bg-primary text-primary-foreground p-8 sm:p-10 flex flex-col sm:flex-row items-center gap-6">
         <div className="flex-1">
           <h3 className="text-xl font-bold mb-2">Aligned with the arthritis community</h3>
-          <p className="text-primary-foreground/80 text-sm leading-relaxed">
+          <p className="text-primary-foreground text-sm leading-relaxed">
             Our content is aligned with Versus Arthritis, NRAS (National Rheumatoid Arthritis Society), and the public health service
             guidance — so you always get information you can trust.
           </p>

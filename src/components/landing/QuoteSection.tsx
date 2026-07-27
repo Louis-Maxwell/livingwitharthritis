@@ -27,7 +27,7 @@ const QuoteSection = memo(() => (
         <cite className="text-primary-foreground/90 text-sm font-medium not-italic block mb-2 tracking-[0.15em] uppercase">
           The Living With Arthritis Clinical Advisory Board
         </cite>
-        <p className="text-primary-foreground/80 text-xs mb-20 tracking-wider">
+        <p className="text-primary-foreground text-xs mb-20 tracking-wider">
           Comprising HCPC-registered physiotherapists, rheumatology consultants and dietitians
         </p>
 

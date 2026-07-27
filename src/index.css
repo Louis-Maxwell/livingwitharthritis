@@ -16,7 +16,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 6%;
 
-    --primary: 354 85% 46%;             /* #D91226 MAP red — darkened from #EE2737 (l=54%) to l=46% for WCAG AA contrast (4.5:1) on white */
+    --primary: 354 85% 42%;             /* MAP red at l=42% for WCAG AA contrast on white, incl. /85–/90 opacity variants */
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 8%;               /* black secondary surface (MAP-style pills) */
@@ -109,7 +109,7 @@
     --card-foreground: 0 0% 6%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 6%;
-    --primary: 354 85% 46%;
+    --primary: 354 85% 42%;
     --primary-foreground: 0 0% 100%;
     --secondary: 0 0% 8%;
     --secondary-foreground: 0 0% 100%;

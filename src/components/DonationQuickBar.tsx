@@ -54,7 +54,7 @@ const DonationQuickBar = () => {
                   className={`h-8 px-4 rounded-full text-xs font-bold transition-colors ${
                     frequency === f
                       ? "bg-background text-primary"
-                      : "text-primary-foreground/90 hover:text-primary-foreground"
+                      : "text-primary-foreground"
                   }`}
                 >
                   {f === "one-time" ? "One-time" : "Monthly"}
@@ -65,7 +65,7 @@ const DonationQuickBar = () => {
             {/* Currency */}
             <div className="flex items-center bg-background/15 rounded-full h-9 pl-3 pr-1 gap-2">
               <span className="text-xs font-bold tracking-wide">GB</span>
-              <div className="flex items-center bg-background/20 rounded-full h-7 px-2.5 gap-1">
+              <div className="flex items-center bg-foreground/25 rounded-full h-7 px-2.5 gap-1">
                 <span className="text-xs font-bold">GBP</span>
                 <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden>
                   <path d="M3 4.5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" fill="none" />
@@ -85,7 +85,7 @@ const DonationQuickBar = () => {
                   setSelectedPreset(null);
                 }}
                 aria-label="Donation amount in GBP"
-                className="border-0 h-8 px-0 bg-transparent text-sm font-semibold text-primary-foreground focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none placeholder:text-primary-foreground/70"
+                className="border-0 h-8 px-0 bg-transparent text-sm font-semibold text-primary-foreground focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none placeholder:text-primary-foreground"
               />
             </div>
 

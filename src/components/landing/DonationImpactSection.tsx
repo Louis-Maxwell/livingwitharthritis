@@ -27,7 +27,7 @@ const DonationImpactSection = () => {
     <section className="py-24 lg:py-32">
       <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-4xl">
         <div className="text-center mb-16">
-          <span className="section-label text-primary/60 mb-5 block">A small gift, a real difference</span>
+          <span className="section-label text-primary mb-5 block">A small gift, a real difference</span>
           <h2 className="font-display text-3xl sm:text-4xl md:text-[3.5rem] font-bold text-foreground tracking-tight leading-[1.06]">
             Your kindness keeps this <span className="text-primary italic">free for everyone</span>
           </h2>

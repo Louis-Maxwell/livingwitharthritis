@@ -40,7 +40,7 @@ export function AboutYouPanel({ profile, onChange }: AboutYouPanelProps) {
           <User2 className="h-3.5 w-3.5 text-primary" />
           <span className="font-medium text-foreground">About you</span>
           {filled && (
-            <span className="inline-flex items-center gap-0.5 text-[10px] text-primary/80 bg-primary/8 px-1.5 py-0.5 rounded">
+            <span className="inline-flex items-center gap-0.5 text-[10px] text-primary bg-primary/8 px-1.5 py-0.5 rounded">
               <Check className="h-2.5 w-2.5" />
               Personalised
             </span>
