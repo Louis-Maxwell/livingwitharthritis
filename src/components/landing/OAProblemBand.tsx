@@ -43,7 +43,7 @@ const OAProblemBand = memo(() => {
           </div>
           <Link
             to="/conditions/osteoarthritis"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2.5 transition-all whitespace-nowrap"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:gap-2.5 transition-all whitespace-nowrap"
           >
             Read our gentle guide to arthritis
             <ArrowUpRight className="w-4 h-4" />
