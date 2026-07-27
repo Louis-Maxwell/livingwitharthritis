@@ -54,7 +54,7 @@ const DonationQuickBar = () => {
                   className={`h-8 px-4 rounded-full text-xs font-bold transition-colors ${
                     frequency === f
                       ? "bg-background text-primary"
-                      : "text-primary-foreground/90 hover:text-primary-foreground"
+                      : "text-primary-foreground"
                   }`}
                 >
                   {f === "one-time" ? "One-time" : "Monthly"}
