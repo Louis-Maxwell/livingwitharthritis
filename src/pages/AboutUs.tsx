@@ -321,7 +321,7 @@ const AboutUs = () => {
                             <Sparkles className="w-2.5 h-2.5" /> The Year Ahead
                           </span>
                         )}
-                        <span className="block text-[10px] font-extrabold text-primary/70 tracking-[0.25em] uppercase mb-2">
+                        <span className="block text-[10px] font-extrabold text-primary tracking-[0.25em] uppercase mb-2">
                           Chapter {String(i + 1).padStart(2, "0")} · {c.year}
                         </span>
                         <h3 className="font-display text-xl md:text-2xl font-bold text-foreground mb-3 leading-tight">

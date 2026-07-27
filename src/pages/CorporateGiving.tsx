@@ -198,7 +198,7 @@ const CorporateGiving = () => {
                   transition={{ delay: i * 0.1 }}
                   className="space-y-1"
                 >
-                  <stat.icon className="w-5 h-5 text-primary/60 mx-auto mb-2" />
+                  <stat.icon className="w-5 h-5 text-primary mx-auto mb-2" />
                   <p className="text-2xl font-bold text-foreground">{stat.value}</p>
                   <p className="text-xs text-muted-foreground">{stat.label}</p>
                 </motion.div>

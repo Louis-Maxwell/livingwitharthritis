@@ -116,7 +116,7 @@ const HeroSection = memo(() => {
                 Physiotherapy, anti-inflammatory nutrition, and clinician-built tools — for everyone living with arthritis in the United Kingdom.
               </p>
 
-              <p className="hero-item text-xs sm:text-[13px] text-primary/80 font-medium mb-8 sm:mb-10 flex items-center justify-center lg:justify-start gap-2">
+              <p className="hero-item text-xs sm:text-[13px] text-primary font-medium mb-8 sm:mb-10 flex items-center justify-center lg:justify-start gap-2">
                 <Heart className="w-3.5 h-3.5 fill-primary/20 animate-pulse-soft" aria-hidden="true" />
                 Funded entirely by donations. For everyone, always.
               </p>
@@ -157,7 +157,7 @@ const HeroSection = memo(() => {
                   return (
                     <div
                       key={badge.label}
-                      className="flex items-center gap-1.5 text-muted-foreground hover:text-primary/80 transition-colors duration-300 cursor-default"
+                      className="flex items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors duration-300 cursor-default"
                     >
                       <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5" aria-hidden="true" />
                       <span className="text-[9px] sm:text-[10px] font-bold tracking-[0.18em] uppercase">
@@ -227,7 +227,7 @@ const HeroSection = memo(() => {
                     i % 2 === 0 ? "border-r sm:border-r" : ""
                   }`}
                 >
-                  <p className="text-[9px] font-bold tracking-[0.28em] uppercase text-primary/70 mb-2">
+                  <p className="text-[9px] font-bold tracking-[0.28em] uppercase text-primary mb-2">
                     Fig. 0{i + 1}
                   </p>
                   <AnimatedCounter

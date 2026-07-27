@@ -32,7 +32,7 @@ const OAProblemBand = memo(() => {
       <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 mb-16">
           <div className="max-w-2xl">
-            <p className="section-label text-primary/60 mb-5">You are not alone</p>
+            <p className="section-label text-primary mb-5">You are not alone</p>
             <h2
               id="problem"
               className="font-display text-3xl sm:text-4xl md:text-[3.25rem] font-bold tracking-tight leading-[1.06] text-foreground"

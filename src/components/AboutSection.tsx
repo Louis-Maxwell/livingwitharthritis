@@ -16,7 +16,7 @@ const AboutSection = memo(() => {
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-28 items-start">
           {/* Left — Mission */}
           <div>
-            <span className="section-label text-primary/60 mb-5 block">About Our Mission</span>
+            <span className="section-label text-primary mb-5 block">About Our Mission</span>
             <h2 className="font-display text-3xl sm:text-4xl md:text-[3.5rem] font-bold mb-8 text-foreground leading-[1.06] tracking-tight">
               Building the future of{" "}
               <span className="text-primary italic">arthritis care</span>
@@ -50,7 +50,7 @@ const AboutSection = memo(() => {
                     className="text-center p-10 rounded-2xl bg-card border border-border/10 hover:shadow-large hover:-translate-y-1 transition-all duration-500"
                   >
                     <div className="w-14 h-14 rounded-2xl bg-primary/[0.04] flex items-center justify-center mx-auto mb-5">
-                      <Icon className="w-6 h-6 text-primary/80" />
+                      <Icon className="w-6 h-6 text-primary" />
                     </div>
                     <p className="text-4xl font-display font-bold text-foreground tracking-tight">{m.value}</p>
                     <p className="text-[10px] text-muted-foreground font-bold mt-3 tracking-[0.2em] uppercase">{m.label}</p>

@@ -255,7 +255,7 @@ export default function BookingDiary() {
                       <div className="flex gap-0.5">
                         <span className={`w-1.5 h-1.5 rounded-full ${isSelected ? "bg-primary-foreground" : hasPending ? "bg-primary" : "bg-secondary"}`} />
                         {dayAppts.length > 1 && (
-                          <span className={`text-[9px] ${isSelected ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
+                          <span className={`text-[9px] ${isSelected ? "text-primary-foreground" : "text-muted-foreground"}`}>
                             {dayAppts.length}
                           </span>
                         )}

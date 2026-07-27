@@ -27,7 +27,7 @@ const PhotoBreak = memo(({ image, alt, quote, attr }: PhotoBreakProps) => (
           &ldquo;{quote}&rdquo;
         </p>
       </blockquote>
-      <figcaption className="mt-3 text-primary/60 font-medium">{attr}</figcaption>
+      <figcaption className="mt-3 text-primary font-medium">{attr}</figcaption>
     </figure>
   </section>
 ));

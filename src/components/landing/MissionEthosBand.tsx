@@ -25,7 +25,7 @@ const MissionEthosBand = memo(() => {
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left: manifesto */}
           <div className="lg:col-span-6">
-            <p className="flex items-center gap-3 text-[10px] sm:text-[11px] font-bold tracking-[0.32em] uppercase text-primary-foreground/70 mb-8">
+            <p className="flex items-center gap-3 text-[10px] sm:text-[11px] font-bold tracking-[0.32em] uppercase text-primary-foreground mb-8">
               <span className="w-8 h-px bg-primary-foreground/50" aria-hidden="true" />
               Built for everyone, always
             </p>
@@ -34,12 +34,12 @@ const MissionEthosBand = memo(() => {
               id="mission-ethos"
               className="font-display text-3xl sm:text-4xl md:text-[3.25rem] font-bold tracking-tight leading-[1.06] mb-8"
             >
-              Everything we make is <span className="italic text-primary-foreground/80">free to read.</span>
+              Everything we make is <span className="italic text-primary-foreground">free to read.</span>
               <br />
               Clinically checked. Written for people, not patients.
             </h2>
 
-            <p className="text-primary-foreground/80 text-base sm:text-lg leading-relaxed mb-10 max-w-xl">
+            <p className="text-primary-foreground text-base sm:text-lg leading-relaxed mb-10 max-w-xl">
               We share our arthritis guides the way good neighbours share a recipe — clearly,
               warmly, and so anyone can pick it up. If something can be said more kindly or
               more simply, tell us. A clinician checks every change before it goes out.
@@ -50,7 +50,7 @@ const MissionEthosBand = memo(() => {
                 <div key={label}>
                   <Icon className="w-4 h-4 text-primary-foreground/60 mb-3" aria-hidden="true" />
                   <p className="font-display text-2xl sm:text-3xl font-bold tracking-tight">{value}</p>
-                  <p className="text-[11px] sm:text-xs text-primary-foreground/70 tracking-wide mt-1">{label}</p>
+                  <p className="text-[11px] sm:text-xs text-primary-foreground tracking-wide mt-1">{label}</p>
                 </div>
               ))}
             </div>
@@ -60,7 +60,7 @@ const MissionEthosBand = memo(() => {
           <div className="lg:col-span-6 lg:pl-8">
             <div className="bg-primary-foreground/[0.08] border border-primary-foreground/15 rounded-2xl p-6 sm:p-8 backdrop-blur-sm">
               <div className="flex items-center justify-between mb-6 pb-4 border-b border-primary-foreground/15">
-                <span className="flex items-center gap-2 text-xs font-medium text-primary-foreground/80">
+                <span className="flex items-center gap-2 text-xs font-medium text-primary-foreground">
                   <Calendar className="w-4 h-4" aria-hidden="true" />
                   Recently updated
                 </span>

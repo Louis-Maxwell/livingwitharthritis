@@ -104,7 +104,7 @@ const EditorialIndex = memo(() => {
                 className="group relative w-full text-left p-7 sm:p-8 lg:p-10 h-full flex flex-col hover:bg-primary/[0.025] transition-colors duration-300 cursor-pointer"
               >
                 {/* Roman numeral */}
-                <p className="font-display text-[11px] font-bold tracking-[0.32em] uppercase text-primary/70 mb-6">
+                <p className="font-display text-[11px] font-bold tracking-[0.32em] uppercase text-primary mb-6">
                   Chapter {c.no}
                 </p>
 

@@ -85,7 +85,7 @@ const DonationQuickBar = () => {
                   setSelectedPreset(null);
                 }}
                 aria-label="Donation amount in GBP"
-                className="border-0 h-8 px-0 bg-transparent text-sm font-semibold text-primary-foreground focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none placeholder:text-primary-foreground/70"
+                className="border-0 h-8 px-0 bg-transparent text-sm font-semibold text-primary-foreground focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none placeholder:text-primary-foreground"
               />
             </div>
 

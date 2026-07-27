@@ -256,7 +256,7 @@ const ExerciseHub = () => {
             <p className="font-display text-2xl md:text-4xl font-bold text-primary-foreground leading-tight" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.5)" }}>
               &ldquo;Motion is lotion. Every stretch, every step, every breath — medicine.&rdquo;
             </p>
-            <figcaption className="mt-3 text-xs md:text-sm text-primary-foreground/80 font-medium tracking-wider uppercase">Living With Arthritis UK · Exercise Hub</figcaption>
+            <figcaption className="mt-3 text-xs md:text-sm text-primary-foreground font-medium tracking-wider uppercase">Living With Arthritis UK · Exercise Hub</figcaption>
           </blockquote>
         </figure>
       </section>

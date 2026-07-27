@@ -221,7 +221,7 @@ export default function TaiChiForBeginners() {
                 </div>
               ) : (
                 <div className="aspect-video bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
-                  <Sparkles className="h-12 w-12 text-primary/60" />
+                  <Sparkles className="h-12 w-12 text-primary" />
                 </div>
               );
               return (
