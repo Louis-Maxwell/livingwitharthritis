@@ -33,7 +33,7 @@ const ContentDepthSection = memo(() => (
   <section className="py-24 lg:py-32 bg-background relative">
     <div className="container mx-auto px-6 md:px-12 lg:px-16 max-w-6xl">
       <div className="text-center mb-20">
-        <span className="section-label text-primary mb-5 block">Content Library</span>
+        <span className="section-label text-foreground mb-5 block">Content Library</span>
         <h2 className="font-display text-3xl sm:text-4xl md:text-[3.5rem] font-bold text-foreground mb-6 tracking-tight leading-[1.06]">
           The UK's most comprehensive{" "}
           <span className="text-primary italic">arthritis resource</span>
@@ -56,7 +56,7 @@ const ContentDepthSection = memo(() => (
               <p className="text-sm text-muted-foreground leading-[1.8] mb-7 max-w-xs mx-auto">{item.description}</p>
               <Link
                 to={item.link}
-                className="inline-flex items-center gap-1.5 text-[11px] font-bold text-primary tracking-[0.15em] uppercase hover:gap-2.5 transition-all"
+                className="inline-flex items-center gap-1.5 text-[11px] font-bold text-foreground tracking-[0.15em] uppercase hover:gap-2.5 transition-all"
               >
                 {item.linkText} <ArrowRight className="w-3 h-3" />
               </Link>
