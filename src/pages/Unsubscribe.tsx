@@ -4,6 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { MailX, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import SeoHead from "@/components/SeoHead";
+import { SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY } from "@/integrations/supabase/config";
 
 type Status = "loading" | "valid" | "already" | "invalid" | "confirming" | "done" | "error";
 
@@ -17,9 +18,9 @@ const Unsubscribe = () => {
 
     const validate = async () => {
       try {
-        const url = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/handle-email-unsubscribe?token=${token}`;
+        const url = `${SUPABASE_URL}/functions/v1/handle-email-unsubscribe?token=${token}`;
         const res = await fetch(url, {
-          headers: { apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY },
+          headers: { apikey: SUPABASE_PUBLISHABLE_KEY },
         });
         const data = await res.json();
         if (!res.ok) { setStatus("invalid"); return; }
