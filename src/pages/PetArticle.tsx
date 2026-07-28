@@ -27,11 +27,11 @@ export default function PetArticle() {
 
       <main className="bg-white">
         <article className="max-w-3xl mx-auto px-6 py-10">
-          <Link to="/pets" className="inline-flex items-center gap-1 text-sm text-amber-700 font-semibold mb-6 hover:underline">
+          <Link to="/pets" className="inline-flex items-center gap-1 text-sm text-primary font-semibold mb-6 hover:underline">
             <ChevronLeft className="w-4 h-4" aria-hidden="true" /> All pet guides
           </Link>
 
-          <span className="text-xs font-bold uppercase tracking-wide text-amber-700">{article.species}</span>
+          <span className="text-xs font-bold uppercase tracking-wide text-primary">{article.species}</span>
           <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">{article.title}</h1>
           <p className="text-lg text-gray-600 mb-6">{article.summary}</p>
 
@@ -92,7 +92,7 @@ export default function PetArticle() {
                 <details key={i} className="border rounded-lg p-4 group">
                   <summary className="font-semibold cursor-pointer list-none flex justify-between items-center">
                     {f.q}
-                    <span className="text-amber-700 group-open:rotate-45 transition text-xl leading-none" aria-hidden="true">+</span>
+                    <span className="text-primary group-open:rotate-45 transition text-xl leading-none" aria-hidden="true">+</span>
                   </summary>
                   <p className="text-gray-700 mt-2 text-sm leading-relaxed">{f.a}</p>
                 </details>
@@ -115,7 +115,7 @@ export default function PetArticle() {
                     decoding="async"
                     className="w-full h-28 object-cover"
                   />
-                  <p className="p-3 text-sm font-semibold group-hover:text-amber-700 transition">{r.title}</p>
+                  <p className="p-3 text-sm font-semibold group-hover:text-primary transition">{r.title}</p>
                 </Link>
               ))}
             </div>

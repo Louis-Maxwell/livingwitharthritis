@@ -18,15 +18,15 @@ export default function CorporatePartnerships() {
 
       <main className="bg-white">
         {/* Hero */}
-        <section className="bg-gradient-to-r from-slate-900 to-slate-800 text-white px-6 py-20">
+        <section className="bg-gradient-to-r from-black to-secondary text-white px-6 py-20">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               Partner With UK's Leading Arthritis Charity
             </h1>
-            <p className="text-xl text-slate-200 mb-8">
+            <p className="text-xl text-white/80 mb-8">
               Fund employee wellness. Reach 2M+ patients. Make a measurable difference.
             </p>
-            <Button size="lg" className="bg-red-600 hover:bg-red-700">
+            <Button size="lg" className="bg-primary hover:bg-secondary">
               Schedule a Partnership Call
             </Button>
           </div>
@@ -36,29 +36,29 @@ export default function CorporatePartnerships() {
         <section className="max-w-6xl mx-auto px-6 py-20">
           <h2 className="text-3xl font-bold mb-12 text-center">Why Partner With Us?</h2>
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-blue-50 p-8 rounded-lg border-l-4 border-blue-600">
-              <Building2 className="w-8 h-8 text-blue-600 mb-3" />
+            <div className="bg-black/5 p-8 rounded-lg border-l-4 border-black">
+              <Building2 className="w-8 h-8 text-black mb-3" />
               <h3 className="font-bold text-xl mb-2">Employee Wellness</h3>
               <p className="text-gray-700">
                 <strong>2M UK employees manage arthritis.</strong> Your workforce likely includes many of them. Partnering gives them free, workplace-ready guidance on managing pain, staying active, and accessing NHS care.
               </p>
             </div>
-            <div className="bg-green-50 p-8 rounded-lg border-l-4 border-green-600">
-              <Users className="w-8 h-8 text-green-600 mb-3" />
+            <div className="bg-secondary/5 p-8 rounded-lg border-l-4 border-secondary">
+              <Users className="w-8 h-8 text-secondary mb-3" />
               <h3 className="font-bold text-xl mb-2">Brand Alignment</h3>
               <p className="text-gray-700">
                 <strong>Associates your brand with health equity and disability inclusion.</strong> Messaging that resonates with 70% of consumers who prioritise corporate social responsibility.
               </p>
             </div>
-            <div className="bg-purple-50 p-8 rounded-lg border-l-4 border-purple-600">
-              <TrendingUp className="w-8 h-8 text-purple-600 mb-3" />
+            <div className="bg-primary/5 p-8 rounded-lg border-l-4 border-primary/60">
+              <TrendingUp className="w-8 h-8 text-primary/80 mb-3" />
               <h3 className="font-bold text-xl mb-2">Measurable Impact</h3>
               <p className="text-gray-700">
                 <strong>We report monthly on reach and outcomes.</strong> Your partnership funds X guides, Y exercise videos, Z lives improved. Transparent, auditable, real.
               </p>
             </div>
-            <div className="bg-red-50 p-8 rounded-lg border-l-4 border-red-600">
-              <Gift className="w-8 h-8 text-red-600 mb-3" />
+            <div className="bg-primary/5 p-8 rounded-lg border-l-4 border-primary">
+              <Gift className="w-8 h-8 text-primary mb-3" />
               <h3 className="font-bold text-xl mb-2">Tax Deductible</h3>
               <p className="text-gray-700">
                 <strong>100% of your donation is tax-deductible.</strong> Registered charity 1218461. Equivalent of 25% discount on your sponsorship cost.
@@ -106,20 +106,20 @@ export default function CorporatePartnerships() {
               },
             ].map((t, i) => (
               <div key={i} className={`rounded-lg p-8 border-2 ${
-                i === 1 ? "border-red-600 bg-white shadow-lg" : "border-gray-200 bg-white"
+                i === 1 ? "border-primary bg-white shadow-lg" : "border-gray-200 bg-white"
               }`}>
-                {i === 1 && <div className="bg-red-600 text-white text-xs font-bold py-1 px-3 rounded inline-block mb-3">Most Popular</div>}
+                {i === 1 && <div className="bg-primary text-white text-xs font-bold py-1 px-3 rounded inline-block mb-3">Most Popular</div>}
                 <h3 className="font-bold text-2xl mb-2">{t.tier}</h3>
-                <p className="text-3xl font-bold text-red-600 mb-6">{t.amount}</p>
+                <p className="text-3xl font-bold text-primary mb-6">{t.amount}</p>
                 <ul className="space-y-2 text-sm mb-6">
                   {t.benefits.map((b, j) => (
                     <li key={j} className="flex gap-2">
-                      <span className="text-red-600">✓</span>
+                      <span className="text-primary">✓</span>
                       <span>{b}</span>
                     </li>
                   ))}
                 </ul>
-                <Button className="w-full bg-red-600 hover:bg-red-700">
+                <Button className="w-full bg-primary hover:bg-secondary">
                   Discuss This Tier
                 </Button>
               </div>
@@ -130,7 +130,7 @@ export default function CorporatePartnerships() {
         {/* Case Study */}
         <section className="max-w-4xl mx-auto px-6 py-20">
           <h2 className="text-3xl font-bold mb-8 text-center">What Companies Say</h2>
-          <blockquote className="border-l-4 border-red-600 pl-6 py-4 mb-8">
+          <blockquote className="border-l-4 border-primary pl-6 py-4 mb-8">
             <p className="text-lg italic text-gray-700 mb-4">
               "Partnering with Living With Arthritis let us reach 15,000 of our employees who have arthritis or family members with it. We saw a 22% increase in our wellness programme participation, and the partnership strengthened our ESG story with investors."
             </p>
@@ -139,15 +139,15 @@ export default function CorporatePartnerships() {
         </section>
 
         {/* CTA */}
-        <section className="bg-red-600 text-white px-6 py-16">
+        <section className="bg-primary text-white px-6 py-16">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-4">Ready to Make an Impact?</h2>
             <p className="text-lg mb-8">Let's discuss how Living With Arthritis UK can align with your corporate strategy.</p>
             <div className="flex flex-col md:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-red-600 hover:bg-gray-100">
+              <Button size="lg" className="bg-white text-primary hover:bg-gray-100">
                 Schedule a Call
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-red-700">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-secondary">
                 Download Partnership Deck (PDF)
               </Button>
             </div>

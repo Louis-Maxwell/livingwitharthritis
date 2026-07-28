@@ -23,28 +23,28 @@ const PET_LABELS: Record<string, string> = {
 
 const PET_COLORS: Record<string, { bg: string; text: string; border: string }> = {
   dog: {
-    bg: 'bg-amber-50',
-    text: 'text-amber-900',
-    border: 'border-amber-200',
+    bg: 'bg-primary/5',
+    text: 'text-primary',
+    border: 'border-primary/20',
   },
   cat: {
-    bg: 'bg-orange-50',
-    text: 'text-orange-900',
-    border: 'border-orange-200',
+    bg: 'bg-secondary/5',
+    text: 'text-secondary',
+    border: 'border-secondary/20',
   },
   equine: {
-    bg: 'bg-rose-50',
-    text: 'text-rose-900',
-    border: 'border-rose-200',
+    bg: 'bg-primary/10',
+    text: 'text-secondary',
+    border: 'border-primary/25',
   },
   rabbit: {
-    bg: 'bg-pink-50',
-    text: 'text-pink-900',
-    border: 'border-pink-200',
+    bg: 'bg-black/5',
+    text: 'text-black',
+    border: 'border-black/15',
   },
   other: {
     bg: 'bg-gray-50',
-    text: 'text-gray-900',
+    text: 'text-black',
     border: 'border-gray-200',
   },
 };

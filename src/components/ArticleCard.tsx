@@ -16,20 +16,20 @@ interface ArticleCardProps {
 }
 
 const PET_TYPE_COLORS: Record<string, string> = {
-  dog: 'bg-amber-100 text-amber-800',
-  cat: 'bg-orange-100 text-orange-800',
-  equine: 'bg-rose-100 text-rose-800',
-  rabbit: 'bg-pink-100 text-pink-800',
-  other: 'bg-gray-100 text-gray-800',
+  dog: 'bg-primary/10 text-primary',
+  cat: 'bg-secondary/10 text-secondary',
+  equine: 'bg-black/5 text-black',
+  rabbit: 'bg-primary/15 text-secondary',
+  other: 'bg-black/5 text-black',
 };
 
 const CATEGORY_COLORS: Record<string, string> = {
-  exercise: 'bg-blue-100 text-blue-800',
-  nutrition: 'bg-green-100 text-green-800',
-  benefits: 'bg-purple-100 text-purple-800',
-  support: 'bg-indigo-100 text-indigo-800',
-  healthcare: 'bg-teal-100 text-teal-800',
-  conditions: 'bg-red-100 text-red-800',
+  exercise: 'bg-black/5 text-black',
+  nutrition: 'bg-primary/10 text-primary',
+  benefits: 'bg-secondary/10 text-secondary',
+  support: 'bg-primary/15 text-secondary',
+  healthcare: 'bg-black/5 text-black',
+  conditions: 'bg-primary/10 text-primary',
 };
 
 export const ArticleCard: React.FC<ArticleCardProps> = ({
@@ -73,10 +73,10 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
           </div>
         ) : (
-          <div className="h-48 w-full bg-gradient-to-br from-red-100 to-red-50 flex items-center justify-center">
+          <div className="h-48 w-full bg-gradient-to-br from-primary/10 to-accent flex items-center justify-center">
             <div className="text-center">
               <div className="text-4xl mb-2">{isPet ? '🐾' : '❤️'}</div>
-              <p className="text-sm text-red-700 font-medium">Article</p>
+              <p className="text-sm text-primary font-medium">Article</p>
             </div>
           </div>
         )}
@@ -100,7 +100,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
           </div>
 
           {/* Title */}
-          <h3 className="font-bold text-lg leading-snug text-gray-900 mb-2 line-clamp-2 group-hover:text-red-700 transition-colors">
+          <h3 className="font-bold text-lg leading-snug text-black mb-2 line-clamp-2 group-hover:text-primary transition-colors">
             {title}
           </h3>
 
@@ -121,7 +121,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
             </div>
             <ArrowRight
               size={16}
-              className="text-red-600 transition-transform group-hover:translate-x-1"
+              className="text-primary transition-transform group-hover:translate-x-1"
             />
           </div>
         </div>

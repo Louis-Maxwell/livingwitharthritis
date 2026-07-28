@@ -112,7 +112,7 @@ export const PetsHub: React.FC<PetsHubProps> = ({ articles, isLoading = false })
         <div className="grid md:grid-cols-2 gap-8">
           {/* Pet Type Filters */}
           <div>
-            <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+            <h3 className="font-semibold text-black mb-3 flex items-center gap-2">
               <Filter size={18} className="text-red-600" />
               Pet Type
             </h3>
@@ -135,7 +135,7 @@ export const PetsHub: React.FC<PetsHubProps> = ({ articles, isLoading = false })
 
           {/* Category Filters */}
           <div>
-            <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+            <h3 className="font-semibold text-black mb-3 flex items-center gap-2">
               <Filter size={18} className="text-red-600" />
               Topic
             </h3>
@@ -159,8 +159,8 @@ export const PetsHub: React.FC<PetsHubProps> = ({ articles, isLoading = false })
 
         {/* Results Counter */}
         <div className="mt-8 text-sm text-gray-600">
-          Showing <span className="font-semibold text-gray-900">{filteredArticles.length}</span> of{' '}
-          <span className="font-semibold text-gray-900">{articles.length}</span> articles
+          Showing <span className="font-semibold text-black">{filteredArticles.length}</span> of{' '}
+          <span className="font-semibold text-black">{articles.length}</span> articles
         </div>
       </section>
 
@@ -188,7 +188,7 @@ export const PetsHub: React.FC<PetsHubProps> = ({ articles, isLoading = false })
         ) : (
           <div className="text-center py-16">
             <div className="text-5xl mb-4">🔍</div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">
+            <h3 className="text-2xl font-bold text-black mb-2">
               No articles found
             </h3>
             <p className="text-gray-600 mb-6">
@@ -211,7 +211,7 @@ export const PetsHub: React.FC<PetsHubProps> = ({ articles, isLoading = false })
       {/* Call-to-Action Section */}
       <section className="bg-red-50 border-t border-red-200 py-12">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl font-bold text-black mb-4">
             Can't find what you're looking for?
           </h2>
           <p className="text-gray-700 mb-6">

@@ -126,7 +126,7 @@ export default function ExercisePlanGenerator() {
   if (step === "joints") {
     return (
       <div className="space-y-6">
-        <div className="rounded-2xl overflow-hidden bg-[#F3E8FF] flex items-center gap-4 p-4 sm:p-6">
+        <div className="rounded-2xl overflow-hidden bg-accent flex items-center gap-4 p-4 sm:p-6">
           <img
             src={strengthIllustration.url}
             alt="Illustration of a woman in purple workout gear holding dumbbells in front of a mirror"

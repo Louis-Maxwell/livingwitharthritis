@@ -251,7 +251,7 @@ const ParticleNetworkSection = memo(() => {
           </span>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary-foreground leading-[1.1]">
             Every point of care,{" "}
-            <span style={{ color: "#E4002B" }}>interconnected</span>
+            <span style={{ color: "#D60000" }}>interconnected</span>
           </h2>
           <p className="text-primary-foreground/80 text-base sm:text-lg leading-relaxed max-w-lg mx-auto lg:mx-0">
             Our network links physiotherapists, dietitians, exercise specialists,

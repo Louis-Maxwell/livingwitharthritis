@@ -59,8 +59,8 @@ export default function SeoHead({
           guarantee a single self-referencing set per route (Helmet does
           not dedupe <link> by rel). */}
       <meta name="geo.region" content="GB" />
-      <meta name="theme-color" content="#e6002b" media="(prefers-color-scheme: light)" />
-      <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+      <meta name="theme-color" content="#D60000" media="(prefers-color-scheme: light)" />
+      <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
       <meta name="format-detection" content="telephone=no" />
       <meta name="referrer" content="strict-origin-when-cross-origin" />
 

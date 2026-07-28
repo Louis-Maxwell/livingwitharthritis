@@ -33,9 +33,9 @@ interface Submission {
 
 const STATUS_META: Record<Status, { label: string; icon: typeof Circle; cls: string }> = {
   not_started: { label: "Not started", icon: Circle, cls: "bg-muted text-muted-foreground" },
-  submitted: { label: "Submitted", icon: Clock, cls: "bg-yellow-100 text-yellow-900" },
-  live: { label: "Live", icon: CheckCircle2, cls: "bg-green-100 text-green-900" },
-  rejected: { label: "Rejected", icon: XCircle, cls: "bg-red-100 text-red-900" },
+  submitted: { label: "Submitted", icon: Clock, cls: "bg-black/5 text-black" },
+  live: { label: "Live", icon: CheckCircle2, cls: "bg-secondary/10 text-secondary" },
+  rejected: { label: "Rejected", icon: XCircle, cls: "bg-primary/10 text-primary" },
 };
 
 export default function AdminBacklinks() {

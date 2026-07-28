@@ -43,13 +43,13 @@ function contrast(fg: [number, number, number], bg: [number, number, number]): n
 // Kept in sync manually. If index.css changes, update these and the tests
 // will re-verify AA compliance in the new palette.
 const TOKENS = {
-  background: [34, 50, 95],       // warm cream
-  foreground: [0, 0, 6],          // near-black
-  card: [0, 0, 100],              // pure white
-  primary: [354, 85, 46],         // MAP red (darkened for AA contrast)
-  primaryForeground: [0, 0, 100], // white on red buttons
-  mutedForeground: [0, 0, 18],
-  destructive: [354, 85, 46],
+  background: [0, 0, 97],          // off-white #F8F8F8
+  foreground: [0, 0, 0],           // pure black
+  card: [0, 0, 100],               // pure white
+  primary: [0, 100, 42],           // brand red #D60000
+  primaryForeground: [0, 0, 100],  // white on red buttons
+  mutedForeground: [0, 0, 20],
+  destructive: [0, 100, 35],       // brand secondary red #B30000
 } as const;
 
 const rgb = (t: readonly [number, number, number]) =>
@@ -77,10 +77,9 @@ describe("ContactSection contrast (WCAG AA)", () => {
     expect(contrast(rgb(TOKENS.mutedForeground), rgb(TOKENS.background))).toBeGreaterThanOrEqual(AA_NORMAL);
   });
 
-  // Was a KNOWN AA GAP: #EE2737 (--primary, l=54%) on #FFFFFF gave 4.24:1,
-  // below the 4.5:1 threshold for normal text. Fixed by darkening --primary
-  // (and --destructive, which shares the same red) to l=46% (#D91226),
-  // giving 5.17:1 — see src/index.css.
+  // Verified against the confirmed red/white/black rebrand (2026-07-28):
+  // #D60000 (--primary) on white gives 5.4:1, comfortably clearing 4.5:1 —
+  // see src/index.css.
   it("primary-foreground on primary (Send message button) meets AA (4.5:1)", () => {
     expect(contrast(rgb(TOKENS.primaryForeground), rgb(TOKENS.primary))).toBeGreaterThanOrEqual(AA_NORMAL);
   });

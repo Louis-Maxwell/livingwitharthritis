@@ -6,73 +6,73 @@
 
 @layer base {
   :root {
-    /* ─── MAP-inspired palette (cream + MAP red + near-black) ─── */
-    --background: 34 50% 95%;           /* #F8F2EA warm cream */
-    --foreground: 0 0% 6%;              /* #0E0E0E near-black */
+    /* ─── Red/White/Black brand palette (confirmed rebrand 2026-07-28) ─── */
+    --background: 0 0% 97%;             /* #F8F8F8 off-white */
+    --foreground: 0 0% 0%;              /* #000000 black — body/heading/nav text */
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 6%;
+    --card: 0 0% 100%;                  /* #FFFFFF white */
+    --card-foreground: 0 0% 0%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 6%;
+    --popover-foreground: 0 0% 0%;
 
-    --primary: 354 85% 46%;             /* #D91226 MAP red — darkened from #EE2737 (l=54%) to l=46% for WCAG AA contrast (4.5:1) on white */
+    --primary: 0 100% 42%;              /* #D60000 brand primary red — 5.4:1 on white, passes WCAG AA */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 8%;               /* black secondary surface (MAP-style pills) */
+    --secondary: 0 100% 35%;            /* #B30000 brand secondary red — 7.2:1 on white */
     --secondary-foreground: 0 0% 100%;
 
-    --accent: 354 90% 96%;              /* soft red wash */
-    --accent-foreground: 0 0% 6%;
+    --accent: 0 90% 96%;                /* light red wash — tint of primary, not a foreign hue */
+    --accent-foreground: 0 0% 0%;
 
-    --muted: 34 35% 92%;                /* deeper cream band */
-    --muted-foreground: 0 0% 18%;
+    --muted: 0 0% 92%;                  /* neutral light grey band (greyscale, not an off-palette hue) */
+    --muted-foreground: 0 0% 20%;       /* de-emphasised UI text (captions/placeholders) kept dark grey, not pure black, to preserve hierarchy against main black body copy */
 
-    --destructive: 354 85% 46%;
+    --destructive: 0 100% 35%;          /* secondary red — distinct from primary CTA red */
     --destructive-foreground: 0 0% 100%;
 
-    --border: 30 18% 86%;               /* warm beige border */
-    --input: 30 18% 84%;
-    --ring: 354 85% 46%;
+    --border: 0 0% 88%;                 /* neutral grey border */
+    --input: 0 0% 85%;
+    --ring: 0 100% 42%;
 
-    /* Legacy aliases — collapsed to charity palette */
-    --gold: 354 85% 46%;
+    /* Legacy aliases — all collapsed into the red/white/black palette */
+    --gold: 0 100% 42%;
     --gold-foreground: 0 0% 100%;
-    --gold-muted: 354 90% 96%;
-    --amber: 38 92% 50%;
+    --gold-muted: 0 90% 96%;
+    --amber: 0 100% 35%;
 
-    --navy: 0 0% 8%;
+    --navy: 0 100% 35%;                 /* was near-black surface; surfaces must be red or white per brief, black reserved for text */
     --navy-foreground: 0 0% 100%;
 
-    --warm: 34 35% 92%;
+    --warm: 0 0% 92%;
 
-    --tint-blue: 199 78% 94%;
-    --tint-green: 158 50% 92%;
-    --tint-amber: 38 90% 94%;
-    --tint-rose: 354 90% 96%;
-    --tint-violet: 262 60% 95%;
-    --tint-cyan: 188 70% 93%;
-    --tint-peach: 20 90% 94%;
-    --tint-mint: 158 50% 92%;
-    --tint-lavender: 262 60% 95%;
-    --tint-coral: 12 85% 94%;
+    --tint-blue: 0 90% 95%;
+    --tint-green: 0 90% 95%;
+    --tint-amber: 0 90% 95%;
+    --tint-rose: 0 90% 95%;
+    --tint-violet: 0 90% 95%;
+    --tint-cyan: 0 90% 95%;
+    --tint-peach: 0 90% 95%;
+    --tint-mint: 0 90% 95%;
+    --tint-lavender: 0 90% 95%;
+    --tint-coral: 0 90% 95%;
 
-    --emerald: 158 64% 40%;
-    --sky: 199 78% 46%;
-    --violet: 262 60% 55%;
-    --coral: 12 82% 58%;
-    --teal: 178 65% 40%;
-    --magenta: 322 75% 52%;
-    --indigo: 354 85% 46%;
-    --lime: 354 85% 46%;
+    --emerald: 0 100% 42%;
+    --sky: 0 100% 42%;
+    --violet: 0 100% 42%;
+    --coral: 0 100% 42%;
+    --teal: 0 100% 42%;
+    --magenta: 0 100% 42%;
+    --indigo: 0 100% 42%;
+    --lime: 0 100% 42%;
 
     /* Gradients — red on white only */
-    --gradient-mesh: radial-gradient(at 18% 22%, hsl(0 84% 60% / 0.05) 0px, transparent 50%),
-                     radial-gradient(at 82% 78%, hsl(0 84% 60% / 0.04) 0px, transparent 50%);
-    --gradient-aurora: linear-gradient(135deg, hsl(0 84% 60%), hsl(0 84% 50%));
-    --gradient-sunset: linear-gradient(135deg, hsl(0 84% 60%), hsl(0 84% 46%));
-    --gradient-ocean: linear-gradient(135deg, hsl(0 84% 66%), hsl(0 84% 52%));
-    --gradient-cosmic: linear-gradient(135deg, hsl(0 84% 60%), hsl(0 84% 50%));
+    --gradient-mesh: radial-gradient(at 18% 22%, hsl(0 100% 42% / 0.05) 0px, transparent 50%),
+                     radial-gradient(at 82% 78%, hsl(0 100% 42% / 0.04) 0px, transparent 50%);
+    --gradient-aurora: linear-gradient(135deg, hsl(0 100% 42%), hsl(0 100% 35%));
+    --gradient-sunset: linear-gradient(135deg, hsl(0 100% 42%), hsl(0 100% 35%));
+    --gradient-ocean: linear-gradient(135deg, hsl(0 100% 48%), hsl(0 100% 38%));
+    --gradient-cosmic: linear-gradient(135deg, hsl(0 100% 42%), hsl(0 100% 35%));
 
     /* Shadows — soft warm grey, no garish red glow */
     --shadow-soft: 0 1px 3px 0 hsl(0 0% 0% / 0.06), 0 1px 2px -1px hsl(0 0% 0% / 0.04);
@@ -80,9 +80,9 @@
     --shadow-large: 0 24px 60px -16px hsl(0 0% 0% / 0.12), 0 8px 24px -8px hsl(0 0% 0% / 0.06);
     --shadow-xl: 0 36px 72px -20px hsl(0 0% 0% / 0.14), 0 16px 40px -12px hsl(0 0% 0% / 0.08);
     --shadow-2xl: 0 56px 100px -30px hsl(0 0% 0% / 0.16), 0 24px 56px -16px hsl(0 0% 0% / 0.1);
-    --shadow-primary: 0 12px 36px -8px hsl(0 84% 60% / 0.28);
-    --shadow-glow: 0 0 56px -16px hsl(0 84% 60% / 0.2);
-    --shadow-gold: 0 12px 36px -8px hsl(0 84% 60% / 0.25);
+    --shadow-primary: 0 12px 36px -8px hsl(0 100% 42% / 0.28);
+    --shadow-glow: 0 0 56px -16px hsl(0 100% 42% / 0.2);
+    --shadow-gold: 0 12px 36px -8px hsl(0 100% 42% / 0.25);
     --shadow-glass: 0 8px 32px hsl(0 0% 0% / 0.06), inset 0 1px 0 rgb(255 255 255 / 0.9);
 
     --radius: 0.625rem;
@@ -92,46 +92,46 @@
     --space-section-tight: clamp(3rem, 6vw, 6rem);
 
     --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 0 0% 6%;
-    --sidebar-primary: 0 84% 60%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 0 100% 42%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 24 14% 96%;
-    --sidebar-accent-foreground: 0 0% 6%;
-    --sidebar-border: 20 8% 90%;
-    --sidebar-ring: 0 84% 60%;
+    --sidebar-accent: 0 90% 96%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 0 0% 88%;
+    --sidebar-ring: 0 100% 42%;
   }
 
   /* Dark mode aliased to light — site is always white bg / near-black ink / red accent */
   .dark {
-    --background: 34 50% 95%;
-    --foreground: 0 0% 6%;
+    --background: 0 0% 97%;
+    --foreground: 0 0% 0%;
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 6%;
+    --card-foreground: 0 0% 0%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 6%;
-    --primary: 354 85% 46%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 0 100% 42%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 8%;
+    --secondary: 0 100% 35%;
     --secondary-foreground: 0 0% 100%;
-    --accent: 354 90% 96%;
-    --accent-foreground: 0 0% 6%;
-    --muted: 34 35% 92%;
-    --muted-foreground: 0 0% 18%;
-    --destructive: 354 85% 46%;
+    --accent: 0 90% 96%;
+    --accent-foreground: 0 0% 0%;
+    --muted: 0 0% 92%;
+    --muted-foreground: 0 0% 20%;
+    --destructive: 0 100% 35%;
     --destructive-foreground: 0 0% 100%;
-    --border: 30 18% 86%;
-    --input: 30 18% 84%;
-    --ring: 354 85% 46%;
-    --navy: 0 0% 8%;
+    --border: 0 0% 88%;
+    --input: 0 0% 85%;
+    --ring: 0 100% 42%;
+    --navy: 0 100% 35%;
     --navy-foreground: 0 0% 100%;
-    --sidebar-background: 34 50% 95%;
-    --sidebar-foreground: 0 0% 6%;
-    --sidebar-primary: 354 85% 46%;
+    --sidebar-background: 0 0% 97%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 0 100% 42%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 34 35% 92%;
-    --sidebar-accent-foreground: 0 0% 6%;
-    --sidebar-border: 30 18% 86%;
-    --sidebar-ring: 354 85% 46%;
+    --sidebar-accent: 0 0% 92%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 0 0% 88%;
+    --sidebar-ring: 0 100% 42%;
   }
 }
 
@@ -338,13 +338,13 @@
     @apply relative overflow-hidden font-bold;
     background: hsl(var(--navy));
     color: hsl(var(--navy-foreground));
-    box-shadow: 0 4px 24px -6px hsl(220 35% 14% / 0.25);
+    box-shadow: 0 4px 24px -6px hsl(0 0% 0% / 0.25);
     transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .btn-premium:hover {
     transform: translateY(-2px);
-    box-shadow: 0 20px 48px -10px hsl(220 35% 14% / 0.35);
+    box-shadow: 0 20px 48px -10px hsl(0 0% 0% / 0.35);
   }
 
   /* Ghost premium button */
@@ -844,7 +844,7 @@
   }
   .social-icon:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px -6px hsl(220 35% 14% / 0.2);
+    box-shadow: 0 8px 24px -6px hsl(0 0% 0% / 0.2);
   }
   .social-icon > * {
     @apply relative z-10;
@@ -1282,7 +1282,7 @@
 
 /* Duotone hover treatment for editorial imagery */
 .duotone {
-  background: hsl(0 0% 6%);
+  background: hsl(0 0% 0%);
   isolation: isolate;
 }
 .duotone-img {
@@ -1297,7 +1297,7 @@
 .duotone-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, hsl(0 84% 60% / 0.0), hsl(0 84% 60% / 0.0));
+  background: linear-gradient(135deg, hsl(0 100% 42% / 0.0), hsl(0 100% 42% / 0.0));
   mix-blend-mode: multiply;
   pointer-events: none;
   transition: background 0.7s ease-out;
@@ -1309,7 +1309,7 @@
   transform: scale(1.03);
 }
 .duotone.group:hover .duotone-overlay {
-  background: linear-gradient(135deg, hsl(0 84% 60% / 0.15), hsl(0 84% 60% / 0.0));
+  background: linear-gradient(135deg, hsl(0 100% 42% / 0.15), hsl(0 100% 42% / 0.0));
 }
 
 /* SVG illustration stroke draw-in */
@@ -1437,8 +1437,8 @@
   border: 1px solid currentColor;
   background: hsl(0 0% 100%);
 }
-.difficulty-pill.easy { color: hsl(150 60% 32%); }
-.difficulty-pill.moderate { color: hsl(35 85% 38%); }
+.difficulty-pill.easy { color: hsl(0 0% 20%); }
+.difficulty-pill.moderate { color: hsl(var(--secondary)); }
 .difficulty-pill.hard { color: hsl(var(--primary)); }
 
 /* Touch target safety — applied opt-in via class for mobile-critical buttons */
@@ -1545,10 +1545,10 @@
     letter-spacing: 0.01em;
   }
   .article-callout__body { color: hsl(var(--foreground) / 0.9); }
-  .article-callout--success { border-left-color: hsl(142 60% 40%); background: hsl(142 60% 40% / 0.06); }
-  .article-callout--success .article-callout__label { color: hsl(142 60% 30%); }
-  .article-callout--warning { border-left-color: hsl(38 92% 45%); background: hsl(38 92% 45% / 0.07); }
-  .article-callout--warning .article-callout__label { color: hsl(28 80% 35%); }
+  .article-callout--success { border-left-color: hsl(var(--secondary)); background: hsl(var(--secondary) / 0.06); }
+  .article-callout--success .article-callout__label { color: hsl(var(--secondary)); }
+  .article-callout--warning { border-left-color: hsl(var(--primary)); background: hsl(var(--primary) / 0.07); }
+  .article-callout--warning .article-callout__label { color: hsl(var(--primary)); }
   .article-callout--note { border-left-color: hsl(var(--muted-foreground)); background: hsl(var(--muted) / 0.5); }
   .article-callout--note .article-callout__label { color: hsl(var(--foreground)); }
 }
