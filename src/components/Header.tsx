@@ -4,6 +4,7 @@ import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import SiteLogo from "@/components/SiteLogo";
 
 const _CartDrawer = lazy(() => import("@/components/CartDrawer"));
 const ResourceLibraryDrawer = lazy(() => import("@/components/ResourceLibraryDrawer"));
