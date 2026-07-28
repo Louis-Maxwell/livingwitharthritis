@@ -68,7 +68,12 @@ const faqLd = {
     { "@type": "Question", "name": "What is the best exercise for hip arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Glute and hip-abductor strengthening (bridges, clams, side-lying leg raises) combined with low-impact cardio such as cycling, swimming or pool walking is the most evidence-based approach. NICE recommends exercise as a core treatment for everyone with hip OA." } },
     { "@type": "Question", "name": "Should I keep walking with hip arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Regular walking strengthens the muscles that support the hip and reduces pain over time. Build up gradually, wear cushioned shoes, and use a walking pole in the hand opposite to the painful hip to offload the joint by up to 25%." } },
     { "@type": "Question", "name": "When is a hip replacement needed?", "acceptedAnswer": { "@type": "Answer", "text": "Hip replacement is usually considered when pain disturbs sleep, severely limits walking or daily activity, and conservative measures (exercise, weight management, painkillers, injections) have not worked over several months. UK outcomes are excellent — over 95% of hip replacements still function well at 10 years." } },
-    { "@type": "Question", "name": "Does losing weight help hip arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The hip carries roughly three times body weight when walking and up to five times when climbing stairs, so even small weight loss meaningfully reduces joint load and pain." } }
+    { "@type": "Question", "name": "Does losing weight help hip arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The hip carries roughly three times body weight when walking and up to five times when climbing stairs, so even small weight loss meaningfully reduces joint load and pain." } },
+    /* DRAFT — added 2026-07-28, NOT yet clinically reviewed. Flagging for
+       the site's clinical reviewer before this is treated as reviewed
+       content; do not update LAST_REVIEWED_ISO/reviewer badge for this
+       page until it's been checked. */
+    { "@type": "Question", "name": "Can hip arthritis cause pain down the leg?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — this is a well-recognised pattern called referred pain. Hip arthritis pain often radiates to the groin, the front or side of the thigh, and sometimes as far as the knee, because the hip joint shares nerve pathways with these areas. This can make it feel like the problem is in your leg or knee rather than your hip, which is one reason hip arthritis is sometimes initially misdiagnosed. Pain that's worse with weight-bearing or walking, combined with stiffness after rest, points more toward the hip as the true source." } }
   ]
 };
 

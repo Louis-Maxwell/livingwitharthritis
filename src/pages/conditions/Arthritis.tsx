@@ -13,6 +13,11 @@ const FAQS = [
   { q: 'Can arthritis be cured?', a: 'Most forms of arthritis cannot be cured, but symptoms can be effectively managed with exercise, weight management, an anti-inflammatory diet, medication, and in some cases joint replacement surgery.' },
   { q: 'What treatments help most?', a: 'Evidence consistently supports a combination of progressive exercise, weight optimisation, topical or oral anti-inflammatories, physiotherapy and joint protection strategies. Inflammatory arthritis often needs DMARDs or biologics.' },
   { q: 'When should I see a specialist?', a: 'Ask your GP for a rheumatology referral if you have suspected inflammatory arthritis, persistent unexplained joint swelling, or symptoms that are not responding to first-line care.' },
+  // DRAFT — added 2026-07-28, NOT yet clinically reviewed. Flagging for
+  // the site's clinical reviewer before this is treated as reviewed
+  // content; do not update lastReviewed/reviewedBy above on the basis of
+  // this entry alone until it's been checked.
+  { q: 'Can arthritis come and go?', a: 'For some types, yes. Inflammatory arthritis (like rheumatoid or psoriatic arthritis) commonly flares and eases in cycles — periods of active symptoms followed by remission. Gout is defined by sudden attacks with symptom-free periods between them. Osteoarthritis behaves differently: it’s typically a gradual, progressive condition, though day-to-day pain can still vary with activity, weather, or overuse. If symptoms are genuinely disappearing and returning, that pattern itself is a useful thing to describe to a GP or rheumatologist, since it helps narrow down which type of arthritis is involved.' },
 ];
 
 export default function Arthritis() {

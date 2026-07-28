@@ -67,7 +67,14 @@ const faqLd = {
     { "@type": "Question", "name": "What is the best exercise for arthritic hands?", "acceptedAnswer": { "@type": "Answer", "text": "A daily 5-minute routine of fist-to-fan, finger-to-thumb touches, and gentle putty squeezes maintains range of motion and grip strength without overloading inflamed joints." } },
     { "@type": "Question", "name": "Do hand splints actually help?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — for thumb base (CMC) arthritis, a custom or off-the-shelf neoprene splint reduces pain during pinching tasks and is recommended by NICE as part of first-line care." } },
     { "@type": "Question", "name": "Are the bony lumps on my fingers permanent?", "acceptedAnswer": { "@type": "Answer", "text": "Heberden's and Bouchard's nodes are bone changes and don't shrink, but the pain associated with their formation usually settles within 1–2 years. The remaining stiffness can be managed with exercise." } },
-    { "@type": "Question", "name": "When is hand surgery needed?", "acceptedAnswer": { "@type": "Answer", "text": "Surgery (most commonly trapeziectomy for thumb base arthritis or joint fusion for severe finger OA) is reserved for persistent pain that hasn't responded to splinting, exercise, injections and topical NSAIDs over 6+ months." } }
+    { "@type": "Question", "name": "When is hand surgery needed?", "acceptedAnswer": { "@type": "Answer", "text": "Surgery (most commonly trapeziectomy for thumb base arthritis or joint fusion for severe finger OA) is reserved for persistent pain that hasn't responded to splinting, exercise, injections and topical NSAIDs over 6+ months." } },
+    /* DRAFT — added 2026-07-28, NOT yet clinically reviewed. Flagging for
+       the site's clinical reviewer before this is treated as reviewed
+       content; do not update LAST_REVIEWED_ISO/reviewer badge for this
+       page until it's been checked. Deliberately broader than the
+       existing "first signs" FAQ above (which covers only early signs)
+       to avoid near-duplicate content. */
+    { "@type": "Question", "name": "What are the signs of arthritis in hands?", "acceptedAnswer": { "@type": "Answer", "text": "Beyond the early stiffness and thumb-base ache, hand arthritis signs include visible swelling around finger joints, reduced grip strength (struggling with jars, taps or buttons), joints that feel warm to the touch during a flare, a grating or crackling sensation (crepitus) on movement, and — over time — joints that gradually change shape or angle. Not everyone gets every sign, and how quickly they appear varies by the type of arthritis involved." } }
   ]
 };
 
