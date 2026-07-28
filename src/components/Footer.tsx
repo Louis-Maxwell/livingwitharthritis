@@ -3,6 +3,7 @@ import { MapPin } from "lucide-react";
 import FooterMostRead from "@/components/FooterMostRead";
 import HelplineWidget from "@/components/HelplineWidget";
 import NewsletterSignup from "@/components/NewsletterSignup";
+import SiteLogo from "@/components/SiteLogo";
 import { CHARITY, hasCharityAddress } from "@/config/charity";
 
 const columns = [
