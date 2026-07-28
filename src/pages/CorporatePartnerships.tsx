@@ -12,7 +12,7 @@ export default function CorporatePartnerships() {
     <>
       <SeoHead
         title="Corporate Partnerships"
-        description="Partner with Living With Arthritis UK. Fund employee wellness, reach 2M+ arthritis patients, and make a tax-deductible impact."
+        description="Partner with Living With Arthritis UK. Fund evidence-based employee wellness support and make a tax-deductible impact."
         path="/corporate-partnerships"
       />
 
@@ -21,10 +21,10 @@ export default function CorporatePartnerships() {
         <section className="bg-gradient-to-r from-black to-secondary text-white px-6 py-20">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Partner With UK's Leading Arthritis Charity
+              Partner With Living With Arthritis UK
             </h1>
             <p className="text-xl text-white/80 mb-8">
-              Fund employee wellness. Reach 2M+ patients. Make a measurable difference.
+              Fund evidence-based, clinically reviewed arthritis support. Make a measurable difference.
             </p>
             <Button size="lg" className="bg-primary hover:bg-secondary">
               Schedule a Partnership Call
