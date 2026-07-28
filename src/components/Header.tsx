@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
+import { useState, useEffect, useRef, useCallback, lazy, Suspense, type MouseEvent, type KeyboardEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, ShoppingBag, HandHeart, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Sparkles, Globe, Search } from "lucide-react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
@@ -351,39 +351,40 @@ const Header = () => {
                 {navLinks.map((link) => {
                   const active = isLinkActive(link);
                   const open = activeDropdown === link.label;
-                  return (
-                  <div key={link.label} className="relative" data-nav-dropdown>
-                    <button
-                      onClick={(e) => {
-                        if (link.subs) {
+                  const isHash = link.href.startsWith("#");
+                  const topLevelHandlers = {
+                    onClick: (e: MouseEvent) => {
+                      if (link.subs) {
+                        e.preventDefault();
+                        setActiveDropdown(activeDropdown === link.label ? null : link.label);
+                      } else {
+                        if (link.action) {
                           e.preventDefault();
-                          setActiveDropdown(activeDropdown === link.label ? null : link.label);
+                          link.action();
                         } else {
-                          if (link.action) {
-                            e.preventDefault();
-                            link.action();
-                          } else {
-                            scrollToSection(link.href);
-                          }
-                          setActiveDropdown(null);
+                          scrollToSection(link.href);
                         }
-                      }}
-                      onKeyDown={(e) => {
-                        if (e.key === "Escape" && activeDropdown === link.label) {
-                          setActiveDropdown(null);
-                        }
-                      }}
-                      aria-expanded={link.subs ? open : undefined}
-                      aria-haspopup={link.subs ? "true" : undefined}
-                      aria-current={active ? "page" : undefined}
-                      className={`relative px-3.5 py-1.5 text-[13px] font-semibold rounded-lg transition-all duration-200 cursor-pointer flex items-center gap-1 ${
-                        open
-                          ? "text-primary bg-primary/5"
-                          : active
-                            ? "text-primary"
-                            : "text-muted-foreground hover:text-foreground hover:bg-accent"
-                      }`}
-                    >
+                        setActiveDropdown(null);
+                      }
+                    },
+                    onKeyDown: (e: KeyboardEvent) => {
+                      if (e.key === "Escape" && activeDropdown === link.label) {
+                        setActiveDropdown(null);
+                      }
+                    },
+                    "aria-expanded": link.subs ? open : undefined,
+                    "aria-haspopup": link.subs ? ("true" as const) : undefined,
+                    "aria-current": active ? ("page" as const) : undefined,
+                    className: `relative px-3.5 py-1.5 text-[13px] font-semibold rounded-lg transition-all duration-200 cursor-pointer flex items-center gap-1 ${
+                      open
+                        ? "text-primary bg-primary/5"
+                        : active
+                          ? "text-primary"
+                          : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                    }`,
+                  };
+                  const topLevelContent = (
+                    <>
                       {link.label}
                       {link.subs && <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${open ? "rotate-180" : ""}`} aria-hidden="true" />}
                       {/* Magazine-style active indicator */}
@@ -393,29 +394,58 @@ const Header = () => {
                           active ? "scale-x-100" : "scale-x-0"
                         }`}
                       />
-                    </button>
+                    </>
+                  );
+                  return (
+                  <div key={link.label} className="relative" data-nav-dropdown>
+                    {/* A real <Link>/<a href> is required here (not a <button>) so
+                        crawlers that parse hrefs — not just those that execute JS —
+                        can discover every hub page linked from this mega-menu. A
+                        <button onClick={navigate(...)}> has no href at all and is
+                        invisible to link-discovery crawling regardless of JS
+                        rendering support. Hash-only items (e.g. "Resources", which
+                        opens a drawer, not a real route) stay buttons since there's
+                        no destination URL to expose. */}
+                    {isHash ? (
+                      <button {...topLevelHandlers}>{topLevelContent}</button>
+                    ) : (
+                      <Link to={link.href} {...topLevelHandlers}>{topLevelContent}</Link>
+                    )}
 
-                    {/* Rich sub-menu dropdown */}
-                    {link.subs && activeDropdown === link.label && (
-                      <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-[90]" role="menu" aria-label={`${link.label} submenu`}>
-                        <div className="relative bg-background border border-border/30 rounded-xl shadow-2xl shadow-primary/8 p-1.5 min-w-[340px] max-h-[min(70vh,32rem)] overflow-y-auto overscroll-contain scrollbar-thin animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-200">
+                    {/* Rich sub-menu dropdown — always rendered in the DOM (not
+                        conditionally mounted) so every link inside it is
+                        crawlable even though it's only visually revealed on
+                        hover/click. Visibility toggles via CSS, not JSX mount. */}
+                    {link.subs && (
+                      <div
+                        className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 z-[90] transition-all duration-200 ${
+                          open ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-1 pointer-events-none"
+                        }`}
+                        role="menu"
+                        aria-label={`${link.label} submenu`}
+                        aria-hidden={!open}
+                      >
+                        <div className="relative bg-background border border-border/30 rounded-xl shadow-2xl shadow-primary/8 p-1.5 min-w-[340px] max-h-[min(70vh,32rem)] overflow-y-auto overscroll-contain scrollbar-thin">
                           {/* Top notch */}
                           <div className="absolute -top-[6px] left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 bg-background border-l border-t border-border/30" />
                           {link.subs.map((sub, idx) => {
                             const Icon = sub.icon;
                             return (
-                              <button
+                              <Link
                                 key={sub.label}
-                                onClick={() => {
+                                to={sub.href.startsWith("#") ? link.href : sub.href}
+                                onClick={(e) => {
                                   setActiveDropdown(null);
-                                  if (sub.action) {
+                                  if (sub.href.startsWith("#")) {
+                                    e.preventDefault();
+                                    if (sub.action) sub.action();
+                                    else scrollToSection(sub.href);
+                                  } else if (sub.action) {
+                                    e.preventDefault();
                                     sub.action();
-                                  } else if (sub.href.startsWith("#")) {
-                                    scrollToSection(sub.href);
-                                  } else {
-                                    navigate(sub.href);
                                   }
                                 }}
+                                tabIndex={open ? 0 : -1}
                                 className={`w-full text-left flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-accent/60 transition-all duration-150 cursor-pointer group/item ${idx > 0 ? "mt-0.5" : ""}`}
                                 role="menuitem"
                               >
@@ -427,7 +457,7 @@ const Header = () => {
                                   <span className="block text-[11px] text-muted-foreground leading-snug">{sub.desc}</span>
                                 </div>
                                 <ArrowRight aria-hidden="true" className="w-3.5 h-3.5 text-muted-foreground opacity-0 group-hover/item:opacity-100 group-hover/item:text-primary transition-all duration-150 group-hover/item:translate-x-0.5 rtl:rotate-180 rtl:group-hover/item:-translate-x-0.5" />
-                              </button>
+                              </Link>
                             );
                           })}
                         </div>
@@ -438,21 +468,21 @@ const Header = () => {
                 })}
 
                 {/* Persistent Donate button — charity red, matches Ways to Help pill style */}
-                <button
-                  onClick={() => navigate("/zakat-appeal")}
+                <Link
+                  to="/zakat-appeal"
                   className="ms-3 group relative inline-flex items-center gap-1.5 px-5 py-2 text-[13px] font-bold rounded-full bg-destructive text-destructive-foreground border border-destructive/80 hover:bg-destructive/90 hover:shadow-md hover:shadow-destructive/25 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
                 >
                   <Heart className="w-3.5 h-3.5 fill-background/30 transition-transform duration-300 group-hover:scale-110" />
                   Donate Now
-                </button>
+                </Link>
 
                 {/* Ways to Help — demoted to a quiet text link to avoid competing with primary Donate CTA */}
-                <button
-                  onClick={() => navigate("/ways-to-help")}
+                <Link
+                  to="/ways-to-help"
                   className="ms-3 inline-flex items-center gap-1 text-[12px] font-semibold text-muted-foreground hover:text-primary underline-offset-4 hover:underline transition-colors duration-200"
                 >
                   Ways to Help
-                </button>
+                </Link>
               </nav>
 
               {/* Mobile placeholder — keeps header height consistent on mobile */}
@@ -489,27 +519,32 @@ const Header = () => {
                   : item.href === "/"
                     ? pathname === "/"
                     : pathname === item.href || pathname.startsWith(`${item.href}/`);
-                return (
-                  <button
-                    key={item.label}
-                    aria-current={active ? "page" : undefined}
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      if (item.action) {
-                        item.action();
-                      } else if (item.href.startsWith("#")) {
-                        scrollToSection(item.href);
-                      } else {
-                        navigate(item.href);
-                      }
-                    }}
-                    className={`relative flex items-center gap-3 w-full text-left px-4 py-4 text-[15px] font-semibold rounded-xl transition-all cursor-pointer group min-h-[56px] ${
-                      active
-                        ? "text-primary bg-primary/5 ring-1 ring-primary/15"
-                        : "text-muted-foreground hover:text-foreground hover:bg-accent active:bg-accent/80"
-                    }`}
-                    style={{ animationDelay: `${index * 50}ms` }}
-                  >
+                const isHashItem = item.href.startsWith("#");
+                const commonProps = {
+                  "aria-current": active ? ("page" as const) : undefined,
+                  onClick: () => {
+                    setMobileMenuOpen(false);
+                    // Hash items (no real route) still need their own handler —
+                    // either a custom action (e.g. opening the resource drawer)
+                    // or a scroll-to-section fallback. Non-hash items are real
+                    // <Link> elements now; every mobileNavItems action for those
+                    // is just `() => navigate(item.href)`, redundant with what
+                    // the Link's href already does, so it's intentionally not
+                    // called here to avoid a double-navigation.
+                    if (isHashItem) {
+                      if (item.action) item.action();
+                      else scrollToSection(item.href);
+                    }
+                  },
+                  className: `relative flex items-center gap-3 w-full text-left px-4 py-4 text-[15px] font-semibold rounded-xl transition-all cursor-pointer group min-h-[56px] ${
+                    active
+                      ? "text-primary bg-primary/5 ring-1 ring-primary/15"
+                      : "text-muted-foreground hover:text-foreground hover:bg-accent active:bg-accent/80"
+                  }`,
+                  style: { animationDelay: `${index * 50}ms` },
+                };
+                const content = (
+                  <>
                     {active && (
                       <span aria-hidden="true" className="absolute left-0 top-3 bottom-3 w-[3px] rounded-r bg-primary" />
                     )}
@@ -520,7 +555,12 @@ const Header = () => {
                       <span className="block truncate">{item.label}</span>
                       <span className="text-[11px] font-normal text-muted-foreground truncate block">{item.desc}</span>
                     </div>
-                  </button>
+                  </>
+                );
+                return isHashItem ? (
+                  <button key={item.label} {...commonProps}>{content}</button>
+                ) : (
+                  <Link key={item.label} to={item.href} {...commonProps}>{content}</Link>
                 );
               })}
             </nav>
