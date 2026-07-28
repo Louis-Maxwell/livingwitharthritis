@@ -167,7 +167,8 @@ var create_pain_journal_entry_default = defineTool5({
 });
 
 // src/lib/mcp/index.ts
-var projectRef = "zrvcejlncpndjfyuvcrd";
+import { SUPABASE_PROJECT_ID } from "npm:@/integrations/supabase/config";
+var projectRef = SUPABASE_PROJECT_ID;
 var mcp_default = defineMcp({
   name: "living-with-arthritis-mcp",
   title: "Living With Arthritis UK",

@@ -30,7 +30,7 @@ const ConditionPillBand = () => {
           >
             Understanding arthritis
           </h2>
-          <p className="mt-3 text-base lg:text-lg text-primary-foreground/80 leading-relaxed">
+          <p className="mt-3 text-base lg:text-lg text-primary-foreground leading-relaxed">
             Learn what to expect from your condition, plus practical tips to
             help you manage it and other useful information.
           </p>

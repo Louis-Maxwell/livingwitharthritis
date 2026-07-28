@@ -81,7 +81,7 @@ const FacesStrip = memo(() => {
                 <p className="font-display text-xl lg:text-2xl font-bold text-primary-foreground leading-tight">
                   {f.name}
                 </p>
-                <p className="mt-2 text-sm text-primary-foreground/85 leading-relaxed">
+                <p className="mt-2 text-sm text-primary-foreground leading-relaxed">
                   {f.caption}
                 </p>
               </figcaption>

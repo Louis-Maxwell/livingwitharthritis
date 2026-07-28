@@ -80,7 +80,7 @@ const Row = ({
       />
     </div>
     <div className="max-w-lg">
-      <p className="text-xs uppercase tracking-[0.2em] text-primary font-semibold mb-4">
+      <p className="text-xs uppercase tracking-[0.2em] text-foreground font-semibold mb-4">
         {row.eyebrow}
       </p>
       <h3 className="font-display text-3xl lg:text-4xl font-bold tracking-tight text-foreground mb-5 text-balance">
@@ -108,7 +108,7 @@ const ResourcesForYouSection = () => {
     >
       <div className="container mx-auto max-w-7xl px-6 sm:px-8 lg:px-16">
         <div className="text-center max-w-2xl mx-auto mb-16 lg:mb-24">
-          <p className="text-xs uppercase tracking-[0.2em] text-primary font-semibold mb-4">
+          <p className="text-xs uppercase tracking-[0.2em] text-foreground font-semibold mb-4">
             Help where you need it
           </p>
           <h2

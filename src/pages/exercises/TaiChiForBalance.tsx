@@ -329,7 +329,7 @@ export default function TaiChiForBalance() {
       <section className="py-16 lg:py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px] text-center">
           <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">Build a routine that fits your joints</h2>
-          <p className="text-primary-foreground/85 max-w-2xl mx-auto mb-8 leading-relaxed">Combine tai chi with our other arthritis-friendly programmes — strength, mobility, and anti-inflammatory eating.</p>
+          <p className="text-primary-foreground max-w-2xl mx-auto mb-8 leading-relaxed">Combine tai chi with our other arthritis-friendly programmes — strength, mobility, and anti-inflammatory eating.</p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Button asChild size="lg" variant="secondary"><Link to="/exercises">All exercises</Link></Button>
             <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"><Link to="/diet">Anti-inflammatory diet</Link></Button>

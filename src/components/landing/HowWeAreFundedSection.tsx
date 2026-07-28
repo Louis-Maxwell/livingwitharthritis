@@ -34,7 +34,7 @@ const HowWeAreFundedSection = memo(() => {
       <div className="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl">
         <RevealOnScroll>
           <div className="max-w-3xl">
-            <span className="section-label text-primary/60 mb-5 block">
+            <span className="section-label text-primary mb-5 block">
               How we're funded
             </span>
             <h2

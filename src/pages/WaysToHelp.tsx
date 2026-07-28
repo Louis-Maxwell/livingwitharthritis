@@ -184,7 +184,7 @@ export default function WaysToHelp() {
                   </span>
                 </h1>
 
-                <p className="text-base sm:text-lg lg:text-xl text-primary-foreground/80 leading-relaxed max-w-2xl mb-8">
+                <p className="text-base sm:text-lg lg:text-xl text-primary-foreground leading-relaxed max-w-2xl mb-8">
                   More than 10 million people across the UK live with arthritis. Your support — whether a donation, your time, or spreading the word — directly transforms lives.
                 </p>
 
@@ -262,7 +262,7 @@ export default function WaysToHelp() {
                           <Icon className="w-8 h-8" />
                         </div>
                         <h3 className="text-2xl sm:text-3xl font-bold mb-2">{way.title}</h3>
-                        <p className="text-sm text-primary-foreground/80 font-medium">{way.impact}</p>
+                        <p className="text-sm text-primary-foreground font-medium">{way.impact}</p>
                       </div>
 
                       {/* Right: content */}
@@ -574,7 +574,7 @@ export default function WaysToHelp() {
               <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-4">
                 Ready to Make a Difference?
               </h2>
-              <p className="text-base sm:text-lg text-primary-foreground/75 leading-relaxed mb-8 max-w-xl mx-auto">
+              <p className="text-base sm:text-lg text-primary-foreground leading-relaxed mb-8 max-w-xl mx-auto">
                 Join thousands of supporters across the UK who are helping people with arthritis live better, more active lives.
               </p>
               <div className="flex flex-wrap justify-center gap-3">

@@ -301,7 +301,7 @@ export default function TaiChiForArthritis() {
                       <h3 className="font-display text-lg font-semibold leading-snug">{m.name}</h3>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">{m.brief}</p>
-                    <p className="text-xs uppercase tracking-wider text-primary/80 font-semibold mt-auto">{m.bestFor}</p>
+                    <p className="text-xs uppercase tracking-wider text-primary font-semibold mt-auto">{m.bestFor}</p>
                   </div>
                 </Card>
               );

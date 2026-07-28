@@ -46,7 +46,7 @@ const NewsletterSection = memo(() => {
       <div className="container mx-auto px-6 md:px-12 lg:px-16 max-w-3xl">
         <div className="text-center">
           <div className="w-16 h-16 rounded-2xl bg-primary/[0.04] flex items-center justify-center mx-auto mb-10">
-            <Mail className="w-7 h-7 text-primary/80" />
+            <Mail className="w-7 h-7 text-primary" />
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-[3.5rem] font-display font-bold text-foreground mb-6 tracking-tight leading-[1.06]">
             A kind letter, <span className="text-primary italic">once a week</span>

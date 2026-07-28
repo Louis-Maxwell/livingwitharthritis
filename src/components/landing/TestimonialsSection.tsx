@@ -28,7 +28,7 @@ const TestimonialsSection = memo(() => (
     
     <div className="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl relative">
       <div className="text-center mb-20">
-        <span className="section-label text-primary/60 mb-5 block">Patient Outcomes</span>
+        <span className="section-label text-primary mb-5 block">Patient Outcomes</span>
         <h2 className="font-display text-3xl sm:text-4xl md:text-[3.5rem] font-bold text-foreground mb-6 tracking-tight leading-[1.06]">
           Real voices, real <span className="text-primary italic">transformations</span>
         </h2>

@@ -292,7 +292,7 @@ function HomePage() {
                   &ldquo;Motion is lotion — every movement is medicine.&rdquo;
                 </p>
               </blockquote>
-              <figcaption className="mt-3 text-sm md:text-base text-primary-foreground/80 font-medium tracking-wide uppercase">Living With Arthritis UK</figcaption>
+              <figcaption className="mt-3 text-sm md:text-base text-primary-foreground font-medium tracking-wide uppercase">Living With Arthritis UK</figcaption>
             </figure>
           </section>
 

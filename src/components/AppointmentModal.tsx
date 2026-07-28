@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Loader2, Clock, CalendarDays, AlertCircle, CheckCircle2 } from "lucide-react";
 import { useAppointment } from "@/hooks/useAppointment";
 import { motion, AnimatePresence } from "framer-motion";
+import { SUPABASE_PROJECT_ID, SUPABASE_PUBLISHABLE_KEY } from "@/integrations/supabase/config";
 
 interface AppointmentModalProps {
   trigger: React.ReactNode;
@@ -37,8 +38,8 @@ export function AppointmentModal({ trigger }: AppointmentModalProps) {
     setForm((prev) => ({ ...prev, preferredTime: "" }));
 
     try {
-      const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID;
-      const anonKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+      const projectId = SUPABASE_PROJECT_ID;
+      const anonKey = SUPABASE_PUBLISHABLE_KEY;
 
       const res = await fetch(
         `https://${projectId}.supabase.co/functions/v1/book-appointment?date=${date}`,

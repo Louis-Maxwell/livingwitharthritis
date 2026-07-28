@@ -29,7 +29,7 @@ export default function QuickAccessSection() {
 
       <div className="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl relative">
         <div className="text-center mb-20">
-          <span className="section-label text-primary/60 mb-5 block">Quick Access</span>
+          <span className="section-label text-primary mb-5 block">Quick Access</span>
           <h2
             id="quick-access-heading"
             className="font-display text-3xl sm:text-4xl lg:text-[3.5rem] font-bold text-foreground tracking-tight leading-[1.06] mb-6"

@@ -4,9 +4,10 @@ import getBlogArticleTool from "./tools/get-blog-article";
 import listMyAppointmentsTool from "./tools/list-my-appointments";
 import listMyPainJournalTool from "./tools/list-my-pain-journal";
 import createPainJournalEntryTool from "./tools/create-pain-journal-entry";
+import { SUPABASE_PROJECT_ID } from "@/integrations/supabase/config";
 
 // Supabase project ref is inlined by Vite at build time — kept import-safe (no runtime env read).
-const projectRef = import.meta.env.VITE_SUPABASE_PROJECT_ID ?? "project-ref-unset";
+const projectRef = SUPABASE_PROJECT_ID;
 
 export default defineMcp({
   name: "living-with-arthritis-mcp",

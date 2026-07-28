@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, ThumbsUp, ThumbsDown, RefreshCw, Trash2, Database } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { toast } from "sonner";
+import { SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY } from "@/integrations/supabase/config";
 
 type FeedbackRow = {
   id: string;
@@ -82,12 +83,12 @@ const AdminChatFeedback = () => {
         return;
       }
       const resp = await fetch(
-        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/ingest-content`,
+        `${SUPABASE_URL}/functions/v1/ingest-content`,
         {
           method: "POST",
           headers: {
             Authorization: `Bearer ${session.session.access_token}`,
-            apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
+            apikey: SUPABASE_PUBLISHABLE_KEY,
             "Content-Type": "application/json",
           },
           body: "{}",

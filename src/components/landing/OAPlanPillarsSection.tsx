@@ -60,7 +60,7 @@ const OAPlanPillarsSection = memo(() => {
     >
       <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl">
         <div className="max-w-3xl mb-16">
-          <p className="section-label text-primary/60 mb-5">A gentle plan, made with you in mind</p>
+          <p className="section-label text-primary mb-5">A gentle plan, made with you in mind</p>
           <h2
             id="oa-plan"
             className="font-display text-3xl sm:text-4xl md:text-[3.25rem] font-bold tracking-tight leading-[1.06] text-foreground"
@@ -87,7 +87,7 @@ const OAPlanPillarsSection = memo(() => {
                 className="group bg-card p-8 sm:p-10 lg:p-12 hover:bg-secondary/40 transition-colors duration-300 flex flex-col h-full"
               >
                 <div className="flex items-start justify-between mb-8">
-                  <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.32em] uppercase text-primary/70">
+                  <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.32em] uppercase text-primary">
                     Pillar {n}
                   </span>
                   <Illustration
@@ -99,7 +99,7 @@ const OAPlanPillarsSection = memo(() => {
                 <h3 className="font-display text-3xl sm:text-4xl font-bold text-foreground tracking-tight leading-none mb-2">
                   {title}
                 </h3>
-                <p className="text-sm font-medium text-primary/80 mb-5 tracking-wide">{sub}</p>
+                <p className="text-sm font-medium text-primary mb-5 tracking-wide">{sub}</p>
 
                 <p className="text-muted-foreground text-[15px] leading-relaxed flex-1 mb-8">
                   {body}

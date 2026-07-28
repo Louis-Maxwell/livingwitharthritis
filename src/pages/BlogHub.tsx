@@ -278,7 +278,7 @@ const BlogHub = () => {
                         to={q.to}
                         className="group flex items-start gap-2 text-sm text-foreground hover:text-primary transition-colors leading-snug"
                       >
-                        <ArrowRight className="w-3.5 h-3.5 mt-1 text-primary/60 group-hover:translate-x-0.5 transition-transform shrink-0" />
+                        <ArrowRight className="w-3.5 h-3.5 mt-1 text-primary group-hover:translate-x-0.5 transition-transform shrink-0" />
                         <span>{q.label}</span>
                       </Link>
                     </li>

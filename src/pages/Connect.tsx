@@ -6,13 +6,14 @@ import SeoHead from "@/components/SeoHead";
 import { Button } from "@/components/ui/button";
 import { injectJsonLd, buildBreadcrumb } from "@/lib/jsonLd";
 import { Copy, Check, Plug } from "lucide-react";
+import { SUPABASE_PROJECT_ID } from "@/integrations/supabase/config";
 
 const PATH = "/connect";
 
 const Connect = () => {
   const [copied, setCopied] = useState(false);
 
-  const projectRef = import.meta.env.VITE_SUPABASE_PROJECT_ID ?? "";
+  const projectRef = SUPABASE_PROJECT_ID;
   const mcpUrl = projectRef
     ? `https://${projectRef}.supabase.co/functions/v1/mcp`
     : "";

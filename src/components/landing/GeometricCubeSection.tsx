@@ -218,14 +218,14 @@ const GeometricCubeSection = memo(() => {
 
         {/* Text content — right side */}
         <div className="px-8 sm:px-12 lg:px-16 py-12 lg:py-0 space-y-6 text-center lg:text-left">
-          <span className="inline-block text-xs font-bold tracking-[0.35em] uppercase text-primary-foreground/70">
+          <span className="inline-block text-xs font-bold tracking-[0.35em] uppercase text-primary-foreground">
             Built Different
           </span>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary-foreground leading-[1.1]">
             Structured Support,{" "}
             <span style={{ color: "#D60000" }}>Piece by Piece</span>
           </h2>
-          <p className="text-primary-foreground/80 text-base sm:text-lg leading-relaxed max-w-lg mx-auto lg:mx-0">
+          <p className="text-primary-foreground text-base sm:text-lg leading-relaxed max-w-lg mx-auto lg:mx-0">
             Like interlocking building blocks, our services connect
             physiotherapy, nutrition, exercise, and community into one
             cohesive support system — designed to help you rebuild

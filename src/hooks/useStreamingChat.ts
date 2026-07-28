@@ -4,6 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { getFallbackAnswer } from "@/lib/arthritisChatFallback";
 import type { ChatProfile } from "@/lib/chatProfile";
 import { loadAnonChatHistory, saveAnonChatHistory, clearAnonChatHistory } from "@/lib/chatHistory";
+import { SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY } from "@/integrations/supabase/config";
 
 export type Message = {
   role: "user" | "assistant";
@@ -18,7 +19,7 @@ export type ConversationSummary = {
   updated_at: string;
 };
 
-const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat`;
+const CHAT_URL = `${SUPABASE_URL}/functions/v1/chat`;
 
 function makeId(): string {
   if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
@@ -31,7 +32,7 @@ async function getAuthHeaders(): Promise<Record<string, string>> {
   const { data: { session } } = await supabase.auth.getSession();
   const headers: Record<string, string> = {
     "Content-Type": "application/json",
-    apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
+    apikey: SUPABASE_PUBLISHABLE_KEY,
   };
   if (session?.access_token) {
     headers.Authorization = `Bearer ${session.access_token}`;

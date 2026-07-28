@@ -234,7 +234,7 @@ export function ChatBot() {
               onClick={openHistory}
               title="Past conversations"
               aria-label="Open past conversations"
-              className="text-primary-foreground/70 hover:text-primary-foreground p-1.5 -ml-1 rounded-lg hover:bg-background/10 transition-colors"
+              className="text-primary-foreground hover:text-primary-foreground p-1.5 -ml-1 rounded-lg hover:bg-background/10 transition-colors"
             >
               <History className="h-4 w-4" />
             </button>
