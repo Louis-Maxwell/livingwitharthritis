@@ -4,24 +4,13 @@ import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import SiteLogo from "@/components/SiteLogo";
 
 const _CartDrawer = lazy(() => import("@/components/CartDrawer"));
 const ResourceLibraryDrawer = lazy(() => import("@/components/ResourceLibraryDrawer"));
 const SiteSearch = lazy(() => import("@/components/SiteSearch"));
 const DonationQuickBar = lazy(() => import("@/components/DonationQuickBar"));
 
-/* Dynamic SVG logo mark */
-const LogoMark = ({ className = "" }: { className?: string }) => (
-  <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-    <circle cx="28" cy="7.5" r="5" fill="hsl(var(--primary))" />
-    <path d="M28 13 C28 18, 26 22, 22 26 C18 30, 15 36, 13 46 L19 46 C20 40, 22 35, 24 31 Q26 27, 28 27 Q30 27, 32 31 C34 35, 36 40, 37 46 L43 46 C41 36, 38 30, 34 26 C30 22, 28 18, 28 13Z" fill="hsl(var(--primary))" />
-    <path d="M20.5 36 Q28 33, 35.5 36" stroke="hsl(var(--background))" strokeWidth="2.8" strokeLinecap="round" fill="none" />
-    <path d="M26 17 C22 15, 16 12, 10 5" stroke="hsl(var(--primary))" strokeWidth="3.2" strokeLinecap="round" fill="none" />
-    <path d="M30 17 C34 15, 40 12, 46 5" stroke="hsl(var(--primary))" strokeWidth="3.2" strokeLinecap="round" fill="none" />
-    <circle cx="9" cy="4" r="2" fill="hsl(var(--primary))" opacity="0.7" />
-    <circle cx="47" cy="4" r="2" fill="hsl(var(--primary))" opacity="0.7" />
-  </svg>
-);
 
 type SubItem = {
   label: string;
@@ -205,7 +194,7 @@ const Header = () => {
 
   useEffect(() => {
     if (!activeDropdown) return;
-    const handleClick = (e: MouseEvent) => {
+    const handleClick = (e: globalThis.MouseEvent) => {
       const target = e.target as HTMLElement;
       if (!target.closest('[data-nav-dropdown]')) {
         setActiveDropdown(null);
@@ -267,21 +256,24 @@ const Header = () => {
           }`}
         >
           <div className="container mx-auto px-6 md:px-10 py-2.5 flex items-center justify-between gap-4">
-            {/* Logo — text-only red badge with tagline */}
+            {/* Logo — stick figure mark + wordmark */}
             <button
               onClick={() => navigate("/")}
-              className="group cursor-pointer select-none shrink-0"
+              className="group cursor-pointer select-none shrink-0 transition-opacity hover:opacity-80"
               aria-label="Living With Arthritis — Go to homepage"
             >
-              <span className="flex flex-col items-start justify-center bg-primary text-primary-foreground px-3 py-1.5 md:px-4 md:py-2 rounded-md shadow-sm group-hover:bg-primary/90 transition-colors leading-none">
-                <span className="font-display text-base sm:text-lg md:text-xl font-black tracking-tight uppercase">
-                  Living With Arthritis
-                </span>
-                <span className="mt-1 text-[9px] sm:text-[10px] md:text-[11px] font-bold tracking-[0.18em] uppercase opacity-95">
+              <span className="flex flex-col items-start leading-none">
+                <SiteLogo
+                  variant="full"
+                  markClassName="h-8 md:h-10"
+                  textClassName="text-lg sm:text-xl md:text-2xl"
+                />
+                <span className="mt-1 ms-11 md:ms-[3.25rem] text-[9px] md:text-[10px] font-bold tracking-[0.18em] uppercase text-primary">
                   Motion is Lotion
                 </span>
               </span>
             </button>
+
 
             {/* Desktop: search + theme on right of logo */}
             <div className="hidden lg:flex items-center gap-2 flex-1 justify-end">
@@ -503,7 +495,7 @@ const Header = () => {
           <div className="fixed top-0 end-0 bottom-0 w-[80%] max-w-sm bg-background z-[70] lg:hidden shadow-2xl flex flex-col border-s border-border/30 animate-in slide-in-from-right rtl:slide-in-from-left duration-300" role="dialog" aria-modal="true" aria-label="Navigation menu">
             <div className="flex items-center justify-between p-6 border-b border-border/20">
               <div className="flex items-center gap-2.5">
-                <LogoMark className="w-8 h-8" />
+                <SiteLogo variant="mark" markClassName="h-8 w-auto" />
                 <span className="text-lg font-extrabold text-primary">Menu</span>
               </div>
               <Button variant="ghost" size="icon" className="rounded-lg h-9 w-9" onClick={() => setMobileMenuOpen(false)} aria-label="Close menu">
