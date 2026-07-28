@@ -205,7 +205,7 @@ const Header = () => {
 
   useEffect(() => {
     if (!activeDropdown) return;
-    const handleClick = (e: MouseEvent) => {
+    const handleClick = (e: globalThis.MouseEvent) => {
       const target = e.target as HTMLElement;
       if (!target.closest('[data-nav-dropdown]')) {
         setActiveDropdown(null);
