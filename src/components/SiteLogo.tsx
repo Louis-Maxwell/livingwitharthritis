@@ -54,7 +54,7 @@ const SiteLogo = ({
       <LogoFigure className={cn('h-9 w-auto shrink-0', markClassName)} />
       <span
         className={cn(
-          'font-display font-black uppercase tracking-tight leading-none text-primary',
+          'font-sans font-extrabold uppercase tracking-[-0.01em] leading-none text-primary',
           'text-xl sm:text-2xl md:text-[1.75rem]',
           textClassName,
         )}
