@@ -11,18 +11,6 @@ const ResourceLibraryDrawer = lazy(() => import("@/components/ResourceLibraryDra
 const SiteSearch = lazy(() => import("@/components/SiteSearch"));
 const DonationQuickBar = lazy(() => import("@/components/DonationQuickBar"));
 
-/* Dynamic SVG logo mark */
-const LogoMark = ({ className = "" }: { className?: string }) => (
-  <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-    <circle cx="28" cy="7.5" r="5" fill="hsl(var(--primary))" />
-    <path d="M28 13 C28 18, 26 22, 22 26 C18 30, 15 36, 13 46 L19 46 C20 40, 22 35, 24 31 Q26 27, 28 27 Q30 27, 32 31 C34 35, 36 40, 37 46 L43 46 C41 36, 38 30, 34 26 C30 22, 28 18, 28 13Z" fill="hsl(var(--primary))" />
-    <path d="M20.5 36 Q28 33, 35.5 36" stroke="hsl(var(--background))" strokeWidth="2.8" strokeLinecap="round" fill="none" />
-    <path d="M26 17 C22 15, 16 12, 10 5" stroke="hsl(var(--primary))" strokeWidth="3.2" strokeLinecap="round" fill="none" />
-    <path d="M30 17 C34 15, 40 12, 46 5" stroke="hsl(var(--primary))" strokeWidth="3.2" strokeLinecap="round" fill="none" />
-    <circle cx="9" cy="4" r="2" fill="hsl(var(--primary))" opacity="0.7" />
-    <circle cx="47" cy="4" r="2" fill="hsl(var(--primary))" opacity="0.7" />
-  </svg>
-);
 
 type SubItem = {
   label: string;
