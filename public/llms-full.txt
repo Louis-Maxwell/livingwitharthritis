@@ -2448,12 +2448,6 @@ Last updated: 2026-06-08
 Q: How Sleep Quality Affects Arthritis Pain: What the Research 
 A: Poor sleep can worsen arthritis pain, with up to 80% of rheumatoid arthritis patients experiencing sleep disturbances. This is because inflammatory cytokines peak at night, increasing stiffness, and pain sensitivity increases with sleep deprivation. To improve sleep, maintain consistent bedtimes, keep the bedroom cool (16–18°C), and block blue light before bed. Consider gentle stretching or a warm bath in the evening.
 
-## Strength Training with Arthritis: A Beginner's Safe Start Gu
-URL: https://livingwitharthritis.org.uk/blog/strength-training-arthritis-beginners
-Last updated: 2026-06-08
-Q: Strength Training with Arthritis: A Beginner's Safe Start Gu
-A: Strength training is beneficial for arthritis, reducing pain and improving function. A beginner programme could include wall push-ups, seated leg extensions, and resistance band rows for weeks 1–2. Progress to chair squats and step-ups in weeks 3–4. Always warm up, avoid training through sharp pain, and allow 48 hours rest between sessions for the same muscle group.
-
 ## Swimming for Arthritis: A Complete Guide
 URL: https://livingwitharthritis.org.uk/blog/swimming-for-arthritis
 Last updated: 2026-06-08
@@ -2988,6 +2982,12 @@ Last updated: 2026-06-08
 Q: Mindfulness for Arthritis: A 10-Minute Daily Practice
 A: Mindfulness-based stress reduction (MBSR) reduces arthritis pain intensity by up to 30%. A simple starter routine you can begin tonight.
 
+## Arthritis in Older Adults: What Changes and What Helps
+URL: https://livingwitharthritis.org.uk/blog/arthritis-in-older-adults
+Last updated: 2026-07-28
+Q: Arthritis in Older Adults: What Changes and What Helps
+A: Arthritis risk rises with age due to cartilage changes, muscle loss and conditions like polymyalgia rheumatica and gout becoming more common — but it is not inevitable. Treatment often needs extra care around kidney/liver function and drug interactions, and joint pain is closely linked to falls risk, making strength and balance exercise a genuinely protective measure.
+
 ## Paracetamol for Arthritis Pain: What the Evidence Says
 URL: https://livingwitharthritis.org.uk/blog/paracetamol-for-arthritis-pain-what-the-evidence-says
 Last updated: 2026-06-08
@@ -2999,12 +2999,6 @@ URL: https://livingwitharthritis.org.uk/blog/managing-methotrexate-side-effects-
 Last updated: 2026-06-08
 Q: Managing Methotrexate Side Effects: Practical Tips
 A: Common methotrexate side effects like nausea, fatigue, and mouth ulcers are often manageable. Taking prescribed folic acid significantly reduces these. If you experience new or concerning symptoms, such as sudden joint pain, fever, yellowing skin, or persistent vomiting, contact your doctor. Never stop methotrexate suddenly without consulting your care team due to the risk of disease flares.
-
-## The Best Supplement for Knee Joint Health: Evidence-Based Ra
-URL: https://livingwitharthritis.org.uk/blog/best-supplement-for-knee-joint
-Last updated: 2026-06-08
-Q: The Best Supplement for Knee Joint Health: Evidence-Based Ra
-A: Evidence for knee joint supplements is strongest for glucosamine sulphate, UC-II collagen, chondroitin sulphate, Boswellia serrata, bioavailable curcumin and high-dose omega-3, with oral hyaluronic acid as a possible addition. It stresses product quality, pharmaceutical-grade forms and third-party testing, and says supplements should sit alongside weight management, physiotherapy, medical care and GP advice.
 
 ## Foods to Avoid With Arthritis: A Complete UK Guide
 URL: https://livingwitharthritis.org.uk/blog/foods-to-avoid-with-arthritis
@@ -3018,11 +3012,23 @@ Last updated: 2026-06-21
 Q: Nutrition Strategies to Reduce Frailty Risk
 A: Frailty is linked to unintentional weight loss and inadequate nutrient intake. Optimising nutrition — particularly protein intake of 1.0–1.2 grams per kilogram of body weight daily, plus Vitamin D, calcium, B vitamins and adequate fluid — helps manage it. Addressing barriers like reduced appetite or dental issues, and seeking guidance from a registered dietitian, improves outcomes.
 
+## The Best Supplement for Knee Joint Health: Evidence-Based Ra
+URL: https://livingwitharthritis.org.uk/blog/best-supplement-for-knee-joint
+Last updated: 2026-07-28
+Q: The Best Supplement for Knee Joint Health: Evidence-Based Ra
+A: Evidence for knee joint supplements is strongest for glucosamine sulphate, UC-II collagen, chondroitin sulphate, Boswellia serrata, bioavailable curcumin and high-dose omega-3, with oral hyaluronic acid as a possible addition. It stresses product quality, pharmaceutical-grade forms and third-party testing, and says supplements should sit alongside weight management, physiotherapy, medical care and GP advice.
+
 ## Ginger vs Turmeric for Arthritis: Which Actually Works?
 URL: https://livingwitharthritis.org.uk/blog/ginger-vs-turmeric-for-arthritis
 Last updated: 2026-07-09
 Q: Ginger vs Turmeric for Arthritis: Which Actually Works?
 A: For most people with arthritis, turmeric (as a properly absorbed curcumin supplement at around 1,000 mg/day for 8–12 weeks) has the stronger evidence for reducing pain and stiffness. Ginger at 500–1,000 mg/day is a well-tolerated adjunct, especially if you also have morning stiffness or nausea. Check with your GP before starting.
+
+## Arthritis in Young Adults: Recognising It Early
+URL: https://livingwitharthritis.org.uk/blog/arthritis-in-young-adults
+Last updated: 2026-07-28
+Q: Arthritis in Young Adults: Recognising It Early
+A: Several forms of arthritis, including reactive arthritis and ankylosing spondylitis, characteristically begin in a person’s 20s or 30s. Diagnosis is often delayed because joint pain in younger adults is frequently attributed to injury or posture rather than investigated for inflammatory disease — persistence in seeking assessment matters, since untreated inflammation causes more damage the longer it continues.
 
 ## Ginger Root: A Natural Anti-Inflammatory Food
 URL: https://livingwitharthritis.org.uk/blog/ginger-root-natural-anti-inflammatory
@@ -3036,6 +3042,12 @@ Last updated: 2026-06-08
 Q: Core Strengthening: Deep Stabilisers for Spinal Arthritis
 A: This guide says spinal arthritis pain can involve joints, ligaments, muscles and the nervous system, with inflammatory and degenerative patterns needing different management. It recommends graded movement, Mediterranean-style eating, weight management, heat or cold, sleep hygiene and simple progress tracking. Seek GP or physiotherapy advice for hot swollen joints, weight loss, prolonged morning stiffness, numbness or weakness.
 
+## Inflammatory Arthritis: Types, Causes and Treatment
+URL: https://livingwitharthritis.org.uk/blog/inflammatory-arthritis-guide
+Last updated: 2026-07-28
+Q: Inflammatory Arthritis: Types, Causes and Treatment
+A: Inflammatory arthritis is an umbrella term for immune-driven joint conditions (rheumatoid, psoriatic, reactive arthritis and more), distinct from the mechanical wear of osteoarthritis. It typically causes morning stiffness over 30 minutes, joint swelling and fatigue, and is treated with immune-modulating medication such as DMARDs or biologics alongside exercise and lifestyle measures.
+
 ## Anti-Inflammatory Diet for Arthritis — What to Eat for Happier Joints
 URL: https://livingwitharthritis.org.uk/blog/anti-inflammatory-diet
 Last updated: 2026-06-16
@@ -3047,6 +3059,12 @@ URL: https://livingwitharthritis.org.uk/blog/anti-inflammatory-herbs-spices-arth
 Last updated: 2026-06-08
 Q: Anti-Inflammatory Herbs and Spices for Arthritis: A Complete
 A: Several herbs and spices available in UK shops have genuine anti-inflammatory evidence for arthritis, including turmeric (curcumin), ginger, garlic, cinnamon, rosemary and boswellia. None replace medical treatment, but the strongest data are for curcumin at around 1,000 mg/day with an absorption aid, and ginger extract at 500–1,000 mg/day. Use consistently for 4–12 weeks before judging effect.
+
+## Best Knee Exercises for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/knee-exercises-for-arthritis
+Last updated: 2026-07-28
+Q: Best Knee Exercises for Arthritis
+A: Knee exercises are beneficial for arthritis by strengthening muscles, particularly the quadriceps, which can act as shock absorbers and reduce cartilage load. Key exercises include straight leg raises, wall sits, step-ups, hamstring curls, calf raises, and seated knee extensions, performed consistently three times a week. These help reduce pain and improve physical function.
 
 ## Expert Brief: Frozen Shoulder vs Rheumatoid Shoulder
 URL: https://livingwitharthritis.org.uk/blog/expert-brief-frozen-shoulder-vs-ra
@@ -3077,6 +3095,12 @@ URL: https://livingwitharthritis.org.uk/blog/physiotherapy-arthritis
 Last updated: 2026-06-16
 Q: Physiotherapy for Arthritis — How It Helps and How to Access It
 A: Physiotherapy helps arthritis by providing a comprehensive assessment, exercise programmes, and manual therapy. Physiotherapists offer pain management advice, joint protection techniques, and gait re-training. You can access physiotherapy on the NHS via GP referral or self-referral, or privately. Your first appointment includes assessment, physical examination, and a personalised treatment plan.
+
+## Strength Training with Arthritis: A Beginner's Safe Start Gu
+URL: https://livingwitharthritis.org.uk/blog/strength-training-arthritis-beginners
+Last updated: 2026-07-28
+Q: Strength Training with Arthritis: A Beginner's Safe Start Gu
+A: Strength training is beneficial for arthritis, reducing pain and improving function. A beginner programme could include wall push-ups, seated leg extensions, and resistance band rows for weeks 1–2. Progress to chair squats and step-ups in weeks 3–4. Always warm up, avoid training through sharp pain, and allow 48 hours rest between sessions for the same muscle group.
 
 ## Steroid Injections vs Oral Steroids: When Each Makes Sense
 URL: https://livingwitharthritis.org.uk/blog/steroid-injections-vs-oral-steroids-when-each-makes-sense
@@ -3203,12 +3227,6 @@ URL: https://livingwitharthritis.org.uk/blog/gut-joint-connection-microbiome-art
 Last updated: 2026-06-08
 Q: The Gut-Joint Connection: How Your Microbiome Affects Arthri
 A: The gut-joint connection suggests that gut microbiome imbalances can influence arthritis. People with inflammatory arthritis often have less diverse gut bacteria and higher levels of inflammatory strains like *Prevotella copri*. Leaky gut can trigger immune responses. Supporting your microbiome with fermented foods, prebiotic fibre, and polyphenol-rich foods, while avoiding ultra-processed items, may help. Probiotic strains like *Lactobacillus* and *Bifidobacterium* show promise in early research.
-
-## Best Knee Exercises for Arthritis
-URL: https://livingwitharthritis.org.uk/blog/knee-exercises-for-arthritis
-Last updated: 2026-06-08
-Q: Best Knee Exercises for Arthritis
-A: Knee exercises are beneficial for arthritis by strengthening muscles, particularly the quadriceps, which can act as shock absorbers and reduce cartilage load. Key exercises include straight leg raises, wall sits, step-ups, hamstring curls, calf raises, and seated knee extensions, performed consistently three times a week. These help reduce pain and improve physical function.
 
 ## Managing Arthritis at Work: Practical Tips
 URL: https://livingwitharthritis.org.uk/blog/managing-arthritis-at-work
