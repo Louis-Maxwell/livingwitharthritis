@@ -72,6 +72,12 @@ export const GUIDE_REGISTRY: GuideEntry[] = [
     cluster: "msk",
   },
   {
+    path: "/guides/shoulder-pain-relief",
+    title: "Shoulder pain relief",
+    description: "Causes, fast-relief measures and a staged mobility-then-strength shoulder routine.",
+    cluster: "msk",
+  },
+  {
     path: "/guides/musculoskeletal-health",
     title: "Musculoskeletal health",
     description: "Whole-body MSK fundamentals across the lifespan.",
