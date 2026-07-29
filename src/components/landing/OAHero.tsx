@@ -26,18 +26,18 @@ const OAHero = memo(() => {
           <div className="hero-stagger">
             <h1
               id="oa-hero"
-              className="reveal hero-item text-balance text-[clamp(2.75rem,6vw,5.5rem)] leading-[0.95] uppercase"
+              className="hero-item text-balance text-[clamp(2.75rem,6vw,5.5rem)] leading-[0.95] uppercase"
             >
               We work to uphold UK arthritis health and dignity.
             </h1>
 
-            <p className="reveal hero-item mt-8 text-lg lg:text-xl max-w-xl leading-relaxed">
+            <p className="hero-item mt-8 text-lg lg:text-xl max-w-xl leading-relaxed">
               Millions of people across the UK live with arthritis pain and stiffness.
               Living With Arthritis provides clinically-reviewed guidance, exercise plans and
               nutrition support — free, for everyone.
             </p>
 
-            <div className="reveal hero-item mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <div className="hero-item mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
               <button
                 onClick={() => navigate("/conditions/osteoarthritis")}
                 className="btn-map btn-map-dark group"
@@ -53,7 +53,7 @@ const OAHero = memo(() => {
 
             <ul
               aria-label="Clinical alignment"
-              className="reveal hero-item mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.18em]"
+              className="hero-item mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.18em]"
             >
               <li className="flex items-center gap-2">
                 <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-white" />
@@ -69,7 +69,7 @@ const OAHero = memo(() => {
               </li>
             </ul>
 
-            <p className="reveal hero-item mt-4 text-xs">
+            <p className="hero-item mt-4 text-xs">
               Learn about our{" "}
               <Link to="/editorial-standards" className="underline hover:no-underline font-medium">
                 medical review process and editorial standards
@@ -79,7 +79,7 @@ const OAHero = memo(() => {
 
             <nav
               aria-label="Popular guides"
-              className="reveal hero-item mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm"
+              className="hero-item mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm"
             >
               <span className="font-semibold">Popular:</span>
               <a href="/conditions/knee-arthritis" className="font-semibold underline underline-offset-4 hover:no-underline">Knee exercises</a>
