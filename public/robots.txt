@@ -105,20 +105,46 @@ Allow: /
 User-agent: FacebookBot
 Allow: /
 
+# SEO tooling crawlers are allowed so the site can be audited.
 User-agent: SemrushBot
-Disallow: /
+Allow: /
 
 User-agent: SemrushBot-SA
-Disallow: /
+Allow: /
 
 User-agent: SemrushBot-BA
-Disallow: /
+Allow: /
 
 User-agent: AhrefsBot
-Disallow: /
+Allow: /
 
 User-agent: AhrefsSiteAudit
-Disallow: /
+Allow: /
+
+User-agent: MJ12bot
+Allow: /
+
+User-agent: DotBot
+Allow: /
+
+User-agent: DataForSeoBot
+Allow: /
+
+User-agent: serpstatbot
+Allow: /
+
+User-agent: rogerbot
+Allow: /
+
+User-agent: SiteAuditBot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
 
 User-agent: Bytespider
 Disallow: /
