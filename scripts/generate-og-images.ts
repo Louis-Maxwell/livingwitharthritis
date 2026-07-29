@@ -77,6 +77,25 @@ async function collectPages(): Promise<OgPage[]> {
   return pages;
 }
 
+/** Brand red — matches --primary (hsl 354 85% 42%). */
+const BRAND_RED = "#c61022";
+
+/** Stick-figure brand mark (same geometry as src/components/SiteLogo.tsx). */
+const LOGO_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 72" width="64" height="72" fill="none"><g stroke="${BRAND_RED}" stroke-width="7" stroke-linecap="round" fill="none"><path d="M32 30 L6 6"/><path d="M32 30 L58 6"/><path d="M32 28 L32 46"/><path d="M32 44 L18 68"/><path d="M32 44 L46 68"/></g><circle cx="32" cy="12" r="9" fill="${BRAND_RED}"/></svg>`;
+const LOGO_DATA_URI = `data:image/svg+xml;base64,${Buffer.from(LOGO_SVG).toString("base64")}`;
+
+function logoMark(height: number): unknown {
+  return {
+    type: "img",
+    props: {
+      src: LOGO_DATA_URI,
+      width: Math.round((height * 64) / 72),
+      height,
+      style: { display: "block" },
+    },
+  };
+}
+
 function template(page: OgPage): unknown {
   return {
     type: "div",
@@ -97,17 +116,32 @@ function template(page: OgPage): unknown {
         {
           type: "div",
           props: {
-            style: { display: "flex", flexDirection: "column", gap: "12px" },
+            style: { display: "flex", alignItems: "center", gap: "20px" },
             children: [
+              logoMark(64),
               {
                 type: "div",
                 props: {
                   style: {
+                    fontSize: "34px",
+                    fontWeight: 700,
+                    letterSpacing: "-0.01em",
+                    textTransform: "uppercase",
+                    color: BRAND_RED,
+                  },
+                  children: "Living With Arthritis",
+                },
+              },
+              {
+                type: "div",
+                props: {
+                  style: {
+                    marginLeft: "auto",
                     fontSize: "22px",
                     fontWeight: 700,
                     letterSpacing: "0.14em",
                     textTransform: "uppercase",
-                    color: "#c1121f",
+                    color: "#555555",
                   },
                   children: page.category,
                 },
@@ -135,7 +169,7 @@ function template(page: OgPage): unknown {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              borderTop: "2px solid #c1121f",
+              borderTop: `2px solid ${BRAND_RED}`,
               paddingTop: "24px",
             },
             children: [
@@ -160,6 +194,7 @@ function template(page: OgPage): unknown {
     },
   };
 }
+
 
 async function main() {
   await mkdir(OUT_DIR, { recursive: true });
