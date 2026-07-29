@@ -145,7 +145,6 @@ Allow: /
 User-agent: Baiduspider
 Allow: /
 
-
 User-agent: Bytespider
 Disallow: /
 
@@ -158,34 +157,19 @@ Disallow: /
 User-agent: Diffbot
 Disallow: /
 
-User-agent: MJ12bot
-Disallow: /
-
-User-agent: DotBot
-Disallow: /
-
 User-agent: BLEXBot
 Disallow: /
 
 User-agent: PetalBot
 Disallow: /
 
-User-agent: DataForSeoBot
-Disallow: /
-
 User-agent: SeekportBot
-Disallow: /
-
-User-agent: serpstatbot
 Disallow: /
 
 User-agent: ZoominfoBot
 Disallow: /
 
 User-agent: Sogou
-Disallow: /
-
-User-agent: Baiduspider
 Disallow: /
 
 User-agent: YisouSpider
