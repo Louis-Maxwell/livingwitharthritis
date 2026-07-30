@@ -24,7 +24,9 @@ export default function AccessibilityToolbar() {
         const prefs = JSON.parse(saved);
         if (prefs.fontSize) setFontSize(prefs.fontSize);
         if (prefs.highContrast) setHighContrast(prefs.highContrast);
-      } catch {}
+      } catch {
+        // Silently ignore parse errors — corrupted localStorage data falls back to defaults
+      }
     }
   }, []);
 

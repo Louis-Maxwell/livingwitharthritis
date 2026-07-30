@@ -27,7 +27,11 @@ const NewsletterHeroBanner = memo(() => {
   const togglePref = (k: PrefKey) =>
     setPrefs((cur) => {
       const next = new Set(cur);
-      next.has(k) ? next.delete(k) : next.add(k);
+      if (next.has(k)) {
+        next.delete(k);
+      } else {
+        next.add(k);
+      }
       return next;
     });
 

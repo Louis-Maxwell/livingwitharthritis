@@ -41,11 +41,11 @@ const GeometricCubeSection = memo(() => {
 
     function project3D(x: number, y: number, z: number): [number, number, number] {
       // Rotate around Y
-      let x1 = x * cosY - z * sinY;
-      let z1 = x * sinY + z * cosY;
+      const x1 = x * cosY - z * sinY;
+      const z1 = x * sinY + z * cosY;
       // Rotate around X
-      let y1 = y * cosX - z1 * sinX;
-      let z2 = y * sinX + z1 * cosX;
+      const y1 = y * cosX - z1 * sinX;
+      const z2 = y * sinX + z1 * cosX;
       // Simple perspective
       const perspective = 600;
       const scale = perspective / (perspective + z2);
