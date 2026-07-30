@@ -59,6 +59,7 @@ const STATIC_EXCLUDE = new Set([
   // Alias / non-canonical routes (canonical points elsewhere)
   "/conditions/elbow-pain",
   "/conditions/axial-spondyloarthritis",
+  "/conditions/calcific-tendinitis",
 ]);
 
 // Prefix-based exclusions for entire route trees that must never appear in
