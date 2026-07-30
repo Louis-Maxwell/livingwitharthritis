@@ -336,6 +336,8 @@ function AnimatedRoutes() {
         <Route path="/conditions/elbow-pain" element={<ElbowArthritis />} />
         <Route path="/conditions/polymyalgia-rheumatica" element={<PolymyalgiaRheumatica />} />
         <Route path="/conditions/reactive-arthritis" element={<ReactiveArthritis />} />
+        <Route path="/conditions/calcific-periarthritis" element={<CalcificPeriarthritis />} />
+        <Route path="/conditions/calcific-tendinitis" element={<CalcificPeriarthritis />} />
         <Route path="/conditions/axial-spondyloarthritis" element={<AnkylosingSpondylitis />} />
         <Route path="/supplements" element={<SupplementsHub />} />
         <Route path="/supplements/glucosamine" element={<Glucosamine />} />
