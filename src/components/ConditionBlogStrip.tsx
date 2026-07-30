@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, BookOpen, Sparkles } from "lucide-react";
 import { useFeaturedArticles, useConditionArticles } from "@/hooks/useBlogArticles";
+import { getArticleImages } from "@/lib/articleImages";
 
 interface ConditionBlogStripProps {
   /** Friendly condition name, e.g. "Osteoarthritis" — shown in copy */
@@ -30,16 +31,14 @@ const FeatureCard = ({ a }: { a: CardArticle }) => (
     to={`/blog/${a.slug}`}
     className="group flex flex-col overflow-hidden rounded-2xl border border-border/40 bg-card hover:border-primary/40 hover:shadow-lg transition-all"
   >
-    {a.image_url && (
-      <div className="aspect-[16/10] overflow-hidden bg-muted">
-        <img
-          src={a.image_url}
-          alt={a.title}
-          loading="lazy"
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        />
-      </div>
-    )}
+    <div className="aspect-[16/10] overflow-hidden bg-muted">
+      <img
+        src={a.image_url || getArticleImages(a.category, a.title, a.slug)[0].src}
+        alt={a.title}
+        loading="lazy"
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      />
+    </div>
     <div className="flex flex-col flex-1 p-5">
       <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-primary mb-2">
         {a.category}

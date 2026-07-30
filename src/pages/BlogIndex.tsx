@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { useBlogViewCounts } from "@/hooks/useBlogViews";
 import { useBlogArticlesList, useFeaturedArticles } from "@/hooks/useBlogArticles";
 import { Skeleton } from "@/components/ui/skeleton";
+import { getArticleImages } from "@/lib/articleImages";
 
 type Category = "All" | "Exercise" | "Nutrition" | "Lifestyle" | "Health" | "Mental Health" | "Supplements" | "Treatment";
 
@@ -164,16 +165,14 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
                     aria-label={`Read featured article: ${post.title}`}
                     className="card-accent-top group rounded-2xl overflow-hidden border border-border/30 bg-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                   >
-                    {post.image_url && (
-                      <div className="aspect-[16/9] overflow-hidden bg-muted/20">
-                        <img
-                          src={post.image_url}
-                          alt={post.title}
-                          loading="lazy"
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                      </div>
-                    )}
+                    <div className="aspect-[16/9] overflow-hidden bg-muted/20">
+                      <img
+                        src={post.image_url || getArticleImages(post.category, post.title, post.slug)[0].src}
+                        alt={post.title}
+                        loading="lazy"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
                     <div className="p-5">
                       <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
                         {post.category}
