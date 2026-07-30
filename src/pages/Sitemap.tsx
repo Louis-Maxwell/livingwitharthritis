@@ -175,6 +175,7 @@ const ALL_LINKS: SitemapLink[] = [
   { label: "Psoriatic Arthritis", href: "/conditions/psoriatic-arthritis" },
   { label: "Rheumatoid Arthritis", href: "/conditions/rheumatoid-arthritis" },
   { label: "Shoulder Arthritis", href: "/conditions/shoulder-arthritis" },
+  { label: "Calcific Periarthritis", href: "/conditions/calcific-periarthritis" },
 
   // Pillar guides
   { label: "UK Arthritis Guide", href: "/guides/uk-arthritis" },
