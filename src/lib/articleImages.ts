@@ -79,8 +79,8 @@ function humanizeAlt(filename: string): string {
 
 function bucketFor(category: string, title: string): Bucket {
   const text = `${category ?? ""} ${title ?? ""}`.toLowerCase();
-  if (/diet|nutrition|food|meal|eat|supplement/.test(text)) return "nutrition";
-  if (/exercise|yoga|tai chi|pilates|walk|stretch|physio|movement|swim|activity|active/.test(text)) return "wellness";
+  if (/diet|nutrition|food|meal|\beat(?:s|en|ing)?\b|supplement/.test(text)) return "nutrition";
+  if (/exercise|yoga|tai chi|pilates|walk|stretch|physio|movement|swim|activity|\bactive\b/.test(text)) return "wellness";
   if (/communit|support|mental|story|stories|wellbeing|well-being|social|group|peer/.test(text)) return "community";
   return "arthritis";
 }
