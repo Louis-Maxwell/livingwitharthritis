@@ -3,6 +3,7 @@ import { MapPin } from "lucide-react";
 import FooterMostRead from "@/components/FooterMostRead";
 import HelplineWidget from "@/components/HelplineWidget";
 import NewsletterSignup from "@/components/NewsletterSignup";
+import SiteLogo from "@/components/SiteLogo";
 import { CHARITY, hasCharityAddress } from "@/config/charity";
 
 const columns = [
@@ -91,7 +92,7 @@ const Footer = () => {
       <FooterMostRead />
       <div className="container mx-auto px-6 md:px-12 py-16 lg:py-20">
         <div className="mb-14">
-          <p className="font-display text-3xl md:text-4xl uppercase tracking-wide text-foreground leading-none">Living With Arthritis</p>
+          <SiteLogo variant="full" markClassName="h-10 md:h-12" textClassName="text-3xl md:text-4xl" />
           <p className="text-sm text-muted-foreground mt-3 max-w-sm leading-relaxed">
             Free physiotherapy, diet plans and evidence-based support for people living with arthritis across the UK.
           </p>

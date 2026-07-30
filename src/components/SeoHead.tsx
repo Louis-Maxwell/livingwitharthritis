@@ -3,7 +3,7 @@ import { enforceTitle, enforceDescription } from "@/lib/seoMeta";
 
 const SITE_URL = "https://livingwitharthritis.org.uk";
 const SITE_NAME = "Living With Arthritis UK";
-const DEFAULT_IMAGE = `${SITE_URL}/images/hero-walking-group-1600.webp`;
+const DEFAULT_IMAGE = `${SITE_URL}/og/home.png`;
 
 interface SeoHeadProps {
   /** Page title (will be appended with site name unless includeSiteName=false) */
@@ -74,7 +74,7 @@ export default function SeoHead({
       <meta property="og:image" content={image} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content={title} />
+      <meta property="og:image:alt" content={`${title} — ${SITE_NAME}`} />
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
