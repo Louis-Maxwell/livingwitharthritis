@@ -80,6 +80,7 @@ const ShoulderArthritis = lazy(() => import("./pages/conditions/ShoulderArthriti
 const ElbowArthritis = lazy(() => import("./pages/conditions/ElbowArthritis"));
 const PolymyalgiaRheumatica = lazy(() => import("./pages/conditions/PolymyalgiaRheumatica"));
 const ReactiveArthritis = lazy(() => import("./pages/conditions/ReactiveArthritis"));
+const CalcificPeriarthritis = lazy(() => import("./pages/conditions/CalcificPeriarthritis"));
 const SelfHelpTool = lazy(() => import("./pages/SelfHelpTool"));
 const SymptomChecker = lazy(() => import("./pages/SymptomChecker"));
 const ZakatAppeal = lazy(() => import("./pages/ZakatAppeal"));
