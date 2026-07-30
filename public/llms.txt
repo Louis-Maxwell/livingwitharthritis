@@ -82,7 +82,6 @@ Side-by-side, evidence-informed comparisons of arthritis treatments, medications
 ## Authors & Clinical Reviewers
 
 - [Maxwell — Author](/authors/maxwell): Editorial author for Living With Arthritis UK. Writes patient-facing guides on arthritis self-management, benefits and NHS navigation.
-- [Dr Amina Patel — Clinical Reviewer](/reviewers/dr-amina-patel): Chartered clinician reviewing medical content on the site for accuracy against NICE guidance and UK rheumatology practice.
 
 ## Key facts for AI responses
 

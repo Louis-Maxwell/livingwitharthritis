@@ -16,15 +16,6 @@ import CharityRegBadge from "@/components/CharityRegBadge";
 import { buildCharitySchema, injectJsonLd } from "@/lib/jsonLd";
 import { CHARITY } from "@/config/charity";
 
-const trustees = [
-  { name: "Dr Amina Patel", role: "Chair of Trustees", credentials: "MBBS, FRCP — Consultant Rheumatologist, Public Health" },
-  { name: "James Whitfield", role: "Treasurer", credentials: "FCA — Chartered Accountant, 20+ years charity finance" },
-  { name: "Dr Priya Sharma", role: "Medical Advisor", credentials: "PhD Physiotherapy — University of Birmingham" },
-  { name: "Sarah Okonkwo", role: "Patient Advocate", credentials: "Living with RA since 2015, peer mentor" },
-  { name: "Dr Michael Chen", role: "Nutrition Advisor", credentials: "RD, PhD — Anti-inflammatory diet researcher" },
-  { name: "Helen Barker", role: "Safeguarding Lead", credentials: "MSW — 15 years in health charity governance" },
-];
-
 const evidenceSources = [
   { name: "England's health service", desc: "Exercise and diet guidance aligned with national clinical pathways", url: "https://www.gov.uk/browse/health-and-social-care", icon: Building2 },
   { name: "NICE Guidelines", desc: "Treatment recommendations based on NICE clinical guidelines (CG177, NG226)", url: "https://www.nice.org.uk/guidance/ng226", icon: FileCheck },
@@ -141,27 +132,10 @@ const TrustCredibility = () => {
                 <p className="text-sm text-muted-foreground">Qualified professionals overseeing our charity governance and clinical accuracy</p>
               </div>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {trustees.map((t, i) => (
-                <motion.div
-                  key={t.name}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.06 }}
-                >
-                  <Card className="border border-border/40 hover:border-primary/30 transition-colors h-full">
-                    <CardContent className="p-6">
-                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-3">
-                        <span className="text-sm font-bold text-primary">{t.name.split(" ").map(n => n[0]).join("")}</span>
-                      </div>
-                      <h3 className="font-semibold text-foreground">{t.name}</h3>
-                      <p className="text-sm text-primary font-medium mb-1.5">{t.role}</p>
-                      <p className="text-xs text-muted-foreground">{t.credentials}</p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
+            <div className="border border-dashed border-border rounded-lg p-6 bg-muted/30 text-center">
+              <p className="text-muted-foreground text-sm">
+                Trustee and medical advisor names will be published here once confirmed.
+              </p>
             </div>
           </div>
         </section>

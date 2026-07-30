@@ -18,7 +18,7 @@ const mockArticle = {
   keywords: "arthritis, pain management",
   author: "Dr. Sarah Johnson",
   author_credentials: "MSc Physiotherapy",
-  reviewed_by: "Dr. Amina Patel",
+  reviewed_by: "Dr. Test Reviewer",
   reviewer_credentials: "Consultant Rheumatologist",
   is_published: true,
   display_order: 1,
@@ -112,7 +112,7 @@ describe("BlogPost Page", () => {
     // "Reviewed by ..." legitimately renders twice: an on-screen badge, and a
     // .print-only citation block (CSS-hidden on screen, jsdom doesn't apply
     // @media print so both are queryable here) — assert at least one match.
-    expect(screen.getAllByText(/Reviewed by Dr. Amina Patel/).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/Reviewed by Dr. Test Reviewer/).length).toBeGreaterThan(0);
   });
 
   it("renders publish date in en-GB format", () => {

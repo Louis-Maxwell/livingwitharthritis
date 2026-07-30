@@ -48,12 +48,6 @@ const PAYLOAD = {
       identifier: "HCPC PH128483",
       url: `${BASE}/authors/maxwell`,
     },
-    {
-      "@type": "Person",
-      name: "Dr Amina Patel",
-      jobTitle: "Consultant Rheumatologist",
-      url: `${BASE}/reviewers/dr-amina-patel`,
-    },
   ],
   knowsAbout: [
     "Osteoarthritis",

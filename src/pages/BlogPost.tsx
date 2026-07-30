@@ -186,9 +186,27 @@ const BlogPost = () => {
   const metaDesc = article.meta_description || article.excerpt;
   const authorName = article.author || "Living With Arthritis Clinical Review Board";
   const authorCreds = article.author_credentials || "Evidence-based health content";
-  const reviewerName = article.reviewed_by || "Dr. Amina Patel";
-  const reviewerCreds = article.reviewer_credentials || "Consultant Rheumatologist";
+  const reviewerName = article.reviewed_by || "Clinical Review Board";
+  const reviewerCreds = article.reviewer_credentials || "Evidence-based clinical review";
   const dateModifiedIso = updatedAtRaw || article.date;
+
+  const maxwellSchemaFields = {
+    "identifier": "HCPC PH128483",
+    "url": "https://livingwitharthritis.org.uk/authors/maxwell",
+    "affiliation": { "@type": "Organization", "name": "Chartered Society of Physiotherapy" },
+  };
+  const authorSchema = {
+    "@type": "Person",
+    "name": authorName,
+    "jobTitle": authorCreds,
+    ...(authorName === "Maxwell" ? maxwellSchemaFields : {}),
+  };
+  const reviewedBySchema = {
+    "@type": "Person",
+    "name": reviewerName,
+    "jobTitle": reviewerCreds,
+    ...(reviewerName === "Maxwell" ? maxwellSchemaFields : {}),
+  };
 
   return (
     <>
@@ -223,21 +241,14 @@ const BlogPost = () => {
           "description": metaDesc,
           "datePublished": article.date,
           "dateModified": dateModifiedIso,
-          "author": {
-            "@type": "Person",
-            "name": "Maxwell",
-            "jobTitle": "First Contact Practitioner",
-            "identifier": "HCPC PH128483",
-            "url": "https://livingwitharthritis.org.uk/authors/maxwell",
-            "affiliation": { "@type": "Organization", "name": "Chartered Society of Physiotherapy" }
-          },
+          "author": authorSchema,
           "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk", "logo": { "@type": "ImageObject", "url": "https://livingwitharthritis.org.uk/favicon.ico" } },
           "inLanguage": "en-GB",
           "mainEntityOfPage": `https://livingwitharthritis.org.uk/blog/${slug}`,
           "about": { "@type": "MedicalCondition", "name": "Arthritis", "alternateName": ["Osteoarthritis", "Rheumatoid Arthritis"] },
           "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } },
           "lastReviewed": dateModifiedIso,
-          "reviewedBy": { "@type": "Person", "name": reviewerName, "jobTitle": reviewerCreds, "url": "https://livingwitharthritis.org.uk/reviewers/dr-amina-patel" },
+          "reviewedBy": reviewedBySchema,
           "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Patient" },
           "citation": DEFAULT_CITATIONS.map((c) => ({
             "@type": "CreativeWork",
@@ -254,14 +265,7 @@ const BlogPost = () => {
           "image": "https://livingwitharthritis.org.uk/images/og-blog-default.webp",
           "datePublished": article.date,
           "dateModified": dateModifiedIso,
-          "author": {
-            "@type": "Person",
-            "name": "Maxwell",
-            "jobTitle": "First Contact Practitioner",
-            "identifier": "HCPC PH128483",
-            "url": "https://livingwitharthritis.org.uk/authors/maxwell",
-            "affiliation": { "@type": "Organization", "name": "Chartered Society of Physiotherapy" }
-          },
+          "author": authorSchema,
           "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk", "logo": { "@type": "ImageObject", "url": "https://livingwitharthritis.org.uk/favicon.ico", "width": 512, "height": 512 } },
           "mainEntityOfPage": { "@type": "WebPage", "@id": `https://livingwitharthritis.org.uk/blog/${slug}` },
           "wordCount": htmlContent.replace(/<[^>]*>/g, " ").trim().split(/\s+/).length,

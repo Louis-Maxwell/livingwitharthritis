@@ -10,16 +10,18 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const experts = [
-  { name: "Dr Sarah Patel", role: "HCPC Registered Physiotherapist", credentials: "MSc Physiotherapy, BSc Sport Science", specialty: "Musculoskeletal Rehabilitation" },
-  { name: "Dr Michael Chen", role: "Consultant Rheumatologist", credentials: "MBBS, MRCP, PhD Rheumatology", specialty: "Inflammatory Arthritis" },
-  { name: "Emma Watson BSc RD", role: "Registered Dietitian", credentials: "BSc Nutrition & Dietetics, HCPC", specialty: "Anti-Inflammatory Nutrition" },
-  { name: "Dr Aisha Khan", role: "Clinical Psychologist", credentials: "DClinPsy, BPS Chartered", specialty: "Chronic Pain Psychology" },
+  { role: "HCPC Registered Physiotherapist", credentials: "MSc Physiotherapy, BSc Sport Science", specialty: "Musculoskeletal Rehabilitation" },
+  { role: "Consultant Rheumatologist", credentials: "MBBS, MRCP, PhD Rheumatology", specialty: "Inflammatory Arthritis" },
+  { role: "Registered Dietitian", credentials: "BSc Nutrition & Dietetics, HCPC", specialty: "Anti-Inflammatory Nutrition" },
+  { role: "Clinical Psychologist", credentials: "DClinPsy, BPS Chartered", specialty: "Chronic Pain Psychology" },
 ];
+
+const CONTRIBUTOR_BYLINE = "Living With Arthritis Clinical Review Board";
 
 const articles = [
   {
     title: "Understanding Biologics: A Patient's Guide to Modern RA Treatment",
-    author: "Dr Michael Chen",
+    author: CONTRIBUTOR_BYLINE,
     authorRole: "Consultant Rheumatologist",
     date: "March 2026",
     readTime: "12 min read",
@@ -56,7 +58,7 @@ Regular monitoring with blood tests every 3-6 months is essential. If a biologic
   },
   {
     title: "The Science Behind Exercise and Joint Cartilage Health",
-    author: "Dr Sarah Patel",
+    author: CONTRIBUTOR_BYLINE,
     authorRole: "HCPC Registered Physiotherapist",
     date: "February 2026",
     readTime: "10 min read",
@@ -98,7 +100,7 @@ Start slowly and progress gradually. Some discomfort during exercise is normal, 
   },
   {
     title: "Anti-Inflammatory Nutrition: What the Evidence Actually Shows",
-    author: "Emma Watson BSc RD",
+    author: CONTRIBUTOR_BYLINE,
     authorRole: "Registered Dietitian",
     date: "January 2026",
     readTime: "14 min read",
@@ -149,7 +151,7 @@ For knee and hip OA, weight management is arguably the most powerful dietary int
   },
   {
     title: "Managing the Mental Health Impact of Chronic Joint Pain",
-    author: "Dr Aisha Khan",
+    author: CONTRIBUTOR_BYLINE,
     authorRole: "Clinical Psychologist",
     date: "December 2025",
     readTime: "11 min read",
@@ -231,7 +233,7 @@ export default function ExpertArticles() {
             "item": {
               "@type": "Article",
               "headline": a.title,
-              "author": { "@type": "Person", "name": a.author },
+              "author": { "@type": "Organization", "name": a.author },
               "datePublished": a.date,
               "description": a.summary,
               "publisher": { "@type": "Organization", "name": "Living With Arthritis UK" }
@@ -267,13 +269,13 @@ export default function ExpertArticles() {
               <h2 className="text-lg font-semibold text-center mb-6 text-foreground">Our Clinical Contributors</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
                 {experts.map(e => (
-                  <Card key={e.name} className="text-center border-primary/10">
+                  <Card key={e.role} className="text-center border-primary/10">
                     <CardContent className="p-4 space-y-1">
                       <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-2">
                         <GraduationCap className="w-5 h-5 text-primary" />
                       </div>
-                      <p className="font-semibold text-sm text-foreground">{e.name}</p>
-                      <p className="text-xs text-primary">{e.role}</p>
+                      <p className="font-semibold text-sm text-foreground">{e.role}</p>
+                      <p className="text-xs text-primary">{e.specialty}</p>
                       <p className="text-xs text-muted-foreground">{e.credentials}</p>
                     </CardContent>
                   </Card>

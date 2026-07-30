@@ -18,51 +18,6 @@ import CharityRegBadge from "@/components/CharityRegBadge";
 import { buildCharitySchema, injectJsonLd } from "@/lib/jsonLd";
 import { CHARITY } from "@/config/charity";
 
-const trustees = [
-  {
-    name: "Dr Amina Patel",
-    role: "Chair of Trustees",
-    credentials: "MBBS, FRCP — Consultant Rheumatologist, Public Health",
-    bio: "Dr Patel has over 20 years' experience in rheumatology across local health trusts. She co-founded Living With Arthritis to bridge the gap between clinical care and patient education. She chairs our quarterly board meetings and oversees clinical governance.",
-    appointed: "2020",
-  },
-  {
-    name: "James Whitfield",
-    role: "Treasurer",
-    credentials: "FCA — Chartered Accountant, 20+ years charity finance",
-    bio: "James brings extensive experience in charity financial management, having served as treasurer for three UK health charities. He ensures all funds are allocated transparently and prepares our annual accounts for Charity Commission submission.",
-    appointed: "2020",
-  },
-  {
-    name: "Dr Priya Sharma",
-    role: "Trustee – Research & Education",
-    credentials: "PhD Physiotherapy — University of Birmingham",
-    bio: "Dr Sharma leads our evidence review process, ensuring all exercise programmes and physiotherapy content meets national clinical standards. She has published 15+ peer-reviewed papers on musculoskeletal rehabilitation.",
-    appointed: "2021",
-  },
-  {
-    name: "Sarah Okonkwo",
-    role: "Trustee – Patient Advocacy",
-    credentials: "Living with RA since 2015, certified peer mentor",
-    bio: "Sarah provides the patient perspective on our board, ensuring our services genuinely meet the needs of people living with arthritis. She coordinates our peer support programme and reviews all patient-facing materials.",
-    appointed: "2021",
-  },
-  {
-    name: "Dr Michael Chen",
-    role: "Trustee – Nutrition & Wellbeing",
-    credentials: "RD, PhD — Anti-inflammatory diet researcher",
-    bio: "Dr Chen oversees our dietary guidance, ensuring all nutrition content is evidence-based and aligned with current research on anti-inflammatory diets for arthritis management. He reviews our meal plans and supplement guidance.",
-    appointed: "2022",
-  },
-  {
-    name: "Helen Barker",
-    role: "Trustee – Safeguarding & Compliance",
-    credentials: "MSW — 15 years in health charity governance",
-    bio: "Helen oversees our safeguarding policies, GDPR compliance, and organisational risk management. She ensures we meet all regulatory requirements and best practices for health charities operating in England and Wales.",
-    appointed: "2022",
-  },
-];
-
 const governancePolicies = [
   { title: "Conflict of Interest Policy", desc: "All trustees declare interests annually. No trustee may benefit financially from the charity." },
   { title: "Safeguarding Policy", desc: "Comprehensive DBS checks and safeguarding procedures for all staff and volunteers working with vulnerable adults." },
@@ -337,37 +292,10 @@ Regulated by the Charity Commission for England and Wales.
               </div>
             </div>
 
-            <div className="space-y-4">
-              {trustees.map((t, i) => (
-                <motion.div
-                  key={t.name}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.06 }}
-                >
-                  <Card className="border border-border/40 hover:border-primary/20 transition-colors">
-                    <CardContent className="p-5 md:p-6">
-                      <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center text-primary-foreground font-bold text-sm shrink-0">
-                          {t.name.split(" ").map(n => n[0]).join("").slice(0, 2)}
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                            <h3 className="font-bold text-foreground">{t.name}</h3>
-                            <span className="text-xs text-primary font-semibold">{t.role}</span>
-                          </div>
-                          <p className="text-xs text-muted-foreground mt-0.5 mb-2">{t.credentials}</p>
-                          <p className="text-sm text-muted-foreground leading-relaxed">{t.bio}</p>
-                          <p className="text-xs text-muted-foreground mt-2">
-                            <Clock className="w-3 h-3 inline mr-1" />Appointed {t.appointed}
-                          </p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
+            <div className="border border-dashed border-border rounded-lg p-6 bg-muted/30 text-center">
+              <p className="text-muted-foreground text-sm">
+                Trustee names and biographies will be published here once confirmed.
+              </p>
             </div>
           </div>
         </section>
