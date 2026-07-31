@@ -81,6 +81,7 @@ const ShoulderArthritis = lazy(() => import("./pages/conditions/ShoulderArthriti
 const ElbowArthritis = lazy(() => import("./pages/conditions/ElbowArthritis"));
 const PolymyalgiaRheumatica = lazy(() => import("./pages/conditions/PolymyalgiaRheumatica"));
 const ReactiveArthritis = lazy(() => import("./pages/conditions/ReactiveArthritis"));
+const CalcificPeriarthritis = lazy(() => import("./pages/conditions/CalcificPeriarthritis"));
 const SelfHelpTool = lazy(() => import("./pages/SelfHelpTool"));
 const SymptomChecker = lazy(() => import("./pages/SymptomChecker"));
 const ZakatAppeal = lazy(() => import("./pages/ZakatAppeal"));
@@ -336,6 +337,8 @@ function AnimatedRoutes() {
         <Route path="/conditions/elbow-pain" element={<ElbowArthritis />} />
         <Route path="/conditions/polymyalgia-rheumatica" element={<PolymyalgiaRheumatica />} />
         <Route path="/conditions/reactive-arthritis" element={<ReactiveArthritis />} />
+        <Route path="/conditions/calcific-periarthritis" element={<CalcificPeriarthritis />} />
+        <Route path="/conditions/calcific-tendinitis" element={<CalcificPeriarthritis />} />
         <Route path="/conditions/axial-spondyloarthritis" element={<AnkylosingSpondylitis />} />
         <Route path="/supplements" element={<SupplementsHub />} />
         <Route path="/supplements/glucosamine" element={<Glucosamine />} />

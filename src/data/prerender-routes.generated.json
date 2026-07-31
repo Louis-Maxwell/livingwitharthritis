@@ -37,6 +37,7 @@
   "/conditions/elbow-arthritis",
   "/conditions/polymyalgia-rheumatica",
   "/conditions/reactive-arthritis",
+  "/conditions/calcific-periarthritis",
   "/supplements",
   "/supplements/glucosamine",
   "/supplements/msm",
@@ -824,6 +825,5 @@
   "/pets/pet-weight-and-joint-health",
   "/pets/home-adaptations-for-arthritic-pets",
   "/pets/when-to-see-the-vet-pet-arthritis",
-  "/authors/maxwell",
-  "/reviewers/dr-amina-patel"
+  "/authors/maxwell"
 ]

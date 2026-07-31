@@ -125,3 +125,12 @@ Content on livingwitharthritis.org.uk may be cited by AI assistants, search engi
 - Most people recover fully within 3–6 months with NSAIDs, joint injections and physiotherapy.
 - Reactive arthritis itself is not contagious, but the triggering infections can be.
 - Page: /conditions/reactive-arthritis
+
+## Calcific periarthritis — quick facts
+
+- Sudden, severe pain caused by calcium hydroxyapatite crystals forming in a tendon, most often the rotator cuff of the shoulder.
+- Also called calcific tendinitis or hydroxyapatite deposition disease; the joint surface itself is usually normal.
+- Most common between ages 30 and 60, and slightly more common in women; diabetes and thyroid disorders raise the risk.
+- Pain peaks over 1–2 weeks and settles over 6–12 weeks; the deposit often resorbs on its own.
+- Treated with NSAIDs, relative rest, ultrasound-guided steroid injection, barbotage or shockwave therapy, then physiotherapy.
+- Page: /conditions/calcific-periarthritis
