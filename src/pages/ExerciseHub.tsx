@@ -28,7 +28,6 @@ import InternalLinks from "@/components/InternalLinks";
 import ContextualLinks from "@/components/ContextualLinks";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
-import diverAsset from "@/assets/diver-movement.jpg.asset.json";
 import { EXERCISE_ANIMATIONS, type ExerciseAnimationKey } from "@/components/exercises/ExerciseAnimations";
 import AnswerBox from "@/components/seo/AnswerBox";
 import { jointSlugs, jointLabel, conditions as exerciseConditions } from "@/data/exerciseConditionRecommendations";
@@ -241,7 +240,7 @@ const ExerciseHub = () => {
       {/* Editorial photo band — movement as discipline */}
       <section aria-label="Movement is medicine" className="relative h-[320px] md:h-[420px] overflow-hidden bg-foreground">
         <img
-          src={diverAsset.url}
+          src="/images/diver-movement.webp"
           alt="Aerial black-and-white photograph of a diver mid-air above sparkling water, body fully extended in motion"
           width={1920}
           height={1440}

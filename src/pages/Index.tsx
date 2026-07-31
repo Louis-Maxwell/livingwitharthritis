@@ -69,7 +69,6 @@ const HowYouCanHelp = lazy(() => import("@/components/landing/HowYouCanHelp"));
 const ImpactStats = lazy(() => import("@/components/landing/ImpactStats"));
 const WhatWeDo = lazy(() => import("@/components/landing/WhatWeDo"));
 const LatestGrid = lazy(() => import("@/components/landing/LatestGrid"));
-import diverAsset from "@/assets/diver-movement.jpg.asset.json";
 
 const SITE_URL = "https://livingwitharthritis.org.uk";
 
@@ -277,7 +276,7 @@ function HomePage() {
           {/* 08b — Photo break: movement is medicine */}
           <section aria-label="Movement is medicine" className="relative h-[400px] md:h-[480px] overflow-hidden bg-foreground">
             <img
-              src={diverAsset.url}
+              src="/images/diver-movement.webp"
               alt="Aerial black-and-white photograph of a diver mid-air above sparkling water, body fully extended in motion"
               width={1920}
               height={1440}
