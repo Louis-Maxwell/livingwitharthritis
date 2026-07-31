@@ -28,7 +28,7 @@ export default function LocalizedOsteoarthritis() {
         <html lang={lang} />
       </Helmet>
 
-      <main className="min-h-screen bg-background text-foreground">
+      <main id="main-content" className="min-h-screen bg-background text-foreground">
         <article className="max-w-3xl mx-auto px-6 py-16 md:py-24">
           <Button asChild variant="ghost" size="sm" className="mb-6">
             <Link to={buildLangUrl(lang, "/")}>

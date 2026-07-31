@@ -89,7 +89,7 @@ export default function OAuthConsent() {
 
   if (error) {
     return (
-      <main className={shellClass}>
+      <main id="main-content" className={shellClass}>
         <SeoHead title="Authorize App" description="OAuth authorization request." path="/.lovable/oauth/consent" noindex />
         <div className={cardClass}>
           <h1 className="text-2xl font-semibold text-foreground">Could not load this authorization request</h1>
@@ -102,7 +102,7 @@ export default function OAuthConsent() {
 
   if (!details) {
     return (
-      <main className={shellClass}>
+      <main id="main-content" className={shellClass}>
         <SeoHead title="Authorize App" description="OAuth authorization request." path="/.lovable/oauth/consent" noindex />
         <div className={cardClass}>
           <div className="animate-pulse text-sm text-muted-foreground">Loading authorization request…</div>
@@ -117,7 +117,7 @@ export default function OAuthConsent() {
   const scopes = details.scopes ?? details.requested_scopes ?? [];
 
   return (
-    <main className={shellClass}>
+    <main id="main-content" className={shellClass}>
       <SeoHead
         title={`Connect ${clientName}`}
         description={`Authorize ${clientName} to connect to Living With Arthritis UK.`}

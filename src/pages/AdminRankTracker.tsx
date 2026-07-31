@@ -96,7 +96,7 @@ const AdminRankTracker = () => {
     <>
       <SeoHead title="Admin: Rank Tracker" description="Internal admin view for tracked keyword rankings." path="/admin/rank-tracker" noindex />
       <Header />
-      <main className="container mx-auto px-6 py-10 max-w-6xl">
+      <main id="main-content" className="container mx-auto px-6 py-10 max-w-6xl">
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-3xl font-bold flex items-center gap-2">

@@ -119,7 +119,7 @@ export default function DebugSchema() {
       </Helmet>
       <Header />
 
-      <main className="container mx-auto px-6 md:px-10 py-10 max-w-[1200px]">
+      <main id="main-content" className="container mx-auto px-6 md:px-10 py-10 max-w-[1200px]">
         <div className="mb-8">
           <Badge variant="secondary" className="mb-3">Internal tool</Badge>
           <h1 className="font-display text-3xl md:text-4xl font-bold mb-2">

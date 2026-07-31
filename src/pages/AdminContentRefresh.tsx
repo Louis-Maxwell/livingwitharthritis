@@ -78,7 +78,7 @@ const AdminContentRefresh = () => {
     <>
       <SeoHead title="Admin: Content Refresh" description="Internal admin view for the content refresh queue." path="/admin/content-refresh" noindex />
       <Header />
-      <main className="container mx-auto px-6 py-10 max-w-5xl">
+      <main id="main-content" className="container mx-auto px-6 py-10 max-w-5xl">
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-3xl font-bold flex items-center gap-2">

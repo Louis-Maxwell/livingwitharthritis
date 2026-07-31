@@ -234,11 +234,11 @@ const BlogHub = () => {
           pattern="dots"
           badge={
             <div className="flex items-center gap-3">
-              <Badge className="bg-primary/10 text-primary border-0 text-xs font-bold px-3 py-1.5">
+              <Badge className="bg-background text-primary border-0 text-xs font-bold px-3 py-1.5">
                 <Newspaper className="w-3 h-3 mr-1.5" />
                 Advice Hub
               </Badge>
-              <Badge className="bg-primary/10 text-primary border-0 text-xs font-bold px-3 py-1.5">
+              <Badge className="bg-background text-primary border-0 text-xs font-bold px-3 py-1.5">
                 <Sparkles className="w-3 h-3 mr-1.5" />
                 Evidence-Based
               </Badge>

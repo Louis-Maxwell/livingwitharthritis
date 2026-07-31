@@ -156,7 +156,7 @@ const CorporateGiving = () => {
         })}</script>
       </Helmet>
       <Header />
-      <main className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-screen bg-background">
         {/* Hero */}
         <section className="relative py-20 lg:py-28 bg-gradient-to-br from-primary/8 via-accent/30 to-background overflow-hidden">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl text-center">

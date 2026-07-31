@@ -78,7 +78,7 @@ const Accessibility_Page = () => {
           title="Accessibility Statement"
           subtitle="We are committed to making our website accessible to everyone, including people with disabilities."
         />
-        <main className="w-full px-6 md:px-10 lg:px-20 py-10 md:py-16 max-w-5xl mx-auto">
+        <main id="main-content" className="w-full px-6 md:px-10 lg:px-20 py-10 md:py-16 max-w-5xl mx-auto">
           {/* Intro */}
           <div className="prose prose-lg max-w-none text-foreground/80 leading-relaxed mb-12">
             <p>

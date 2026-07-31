@@ -62,7 +62,7 @@ const formatViolations = (violations: Result[]) =>
 describe("ChatBot accessibility", () => {
   it("has no WCAG 2.1 AA violations in the initial empty state", async () => {
     const { container } = render(
-      <main>
+      <main id="main-content">
         <ChatBot />
       </main>,
     );

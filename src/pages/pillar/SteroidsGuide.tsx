@@ -159,7 +159,7 @@ export default function SteroidsGuide() {
         idPrefix="steroids-guide"
       />
       <Header />
-      <main className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-screen bg-background">
         <PageHero
           title="Steroids for Arthritis"
           subtitle="A plain-English guide to corticosteroid injections and tablets — how they work, what to expect, side effects and how to access them in the UK."

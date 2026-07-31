@@ -203,7 +203,7 @@ export default function KneeReplacementSurgeryGuide() {
         idPrefix="knee-replacement-guide"
       />
       <Header />
-      <main className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-screen bg-background">
         <PageHero
           title="Knee Replacement Surgery: A UK Patient Guide"
           subtitle="From deciding on surgery to post-operative recovery — an evidence-based walk-through of every stage, written for UK patients."

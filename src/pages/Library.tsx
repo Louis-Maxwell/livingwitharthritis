@@ -82,7 +82,7 @@ const Library = () => {
 
       <Header />
 
-      <main className="min-h-screen bg-background text-foreground">
+      <main id="main-content" className="min-h-screen bg-background text-foreground">
         <PageHero
           badge={
             <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 rounded-full">
@@ -126,7 +126,7 @@ const Library = () => {
                   aria-pressed={isActive}
                 >
                   {cat}
-                  <span className="ms-2 opacity-70">{counts[cat] ?? 0}</span>
+                  <span className={isActive ? "ms-2" : "ms-2 opacity-70"}>{counts[cat] ?? 0}</span>
                 </button>
               );
             })}

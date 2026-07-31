@@ -158,7 +158,7 @@ export default function TaiChiForBalance() {
       ]} />
 
       <PageHero
-        badge={<Badge variant="secondary" className="bg-primary/10 text-primary border-0">Evidence-based · NICE-recommended</Badge>}
+        badge={<Badge variant="secondary" className="bg-background text-primary border-0">Evidence-based · NICE-recommended</Badge>}
         title="Tai Chi for Balance"
         subtitle="A 15-minute, low-impact routine to ease joint pain, steady your balance and rebuild confidence on your feet — supported by Cochrane and BMJ evidence."
       >
@@ -205,7 +205,7 @@ export default function TaiChiForBalance() {
       <section id="routine" className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
           <div className="max-w-2xl mb-10">
-            <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-0">15 minutes · 5 movements</Badge>
+            <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">15 minutes · 5 movements</Badge>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">The beginner routine</h2>
             <p className="text-muted-foreground leading-relaxed">Move through these in order. Each posture has an animated demonstration on the right — follow the figure at your own pace. Breathe slowly through the nose throughout.</p>
           </div>

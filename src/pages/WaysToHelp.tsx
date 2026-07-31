@@ -351,7 +351,7 @@ export default function WaysToHelp() {
                 "Volunteering with Living With Arthritis has been one of the most rewarding experiences of my life. Knowing that my time directly helps someone manage their pain and stay active — that's priceless."
               </blockquote>
               <div className="flex items-center justify-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-sm font-bold text-primary">
+                <div className="w-10 h-10 rounded-full bg-background border border-primary/20 flex items-center justify-center text-sm font-bold text-primary">
                   SC
                 </div>
                 <div className="text-left">

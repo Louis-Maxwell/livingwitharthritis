@@ -176,7 +176,7 @@ const AboutUs = () => {
         <section className="py-14 lg:py-20">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-              <Badge className="bg-primary/10 text-primary border-0 text-xs font-bold px-3 py-1.5 mb-4">
+              <Badge className="bg-background text-primary border-0 text-xs font-bold px-3 py-1.5 mb-4">
                 <Users className="w-3 h-3 mr-1.5" />
                 Our Team
               </Badge>
@@ -273,7 +273,7 @@ const AboutUs = () => {
 
           <div className="container mx-auto px-6 md:px-10 max-w-5xl relative z-10">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
-              <Badge className="bg-primary/10 text-primary border-0 text-xs font-bold px-3 py-1.5 mb-5 tracking-widest uppercase">
+              <Badge className="bg-background text-primary border-0 text-xs font-bold px-3 py-1.5 mb-5 tracking-widest uppercase">
                 <Sparkles className="w-3 h-3 mr-1.5" />
                 Our Journey
               </Badge>

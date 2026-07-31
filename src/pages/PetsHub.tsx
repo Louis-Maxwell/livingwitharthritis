@@ -22,7 +22,7 @@ export default function PetsHub() {
         path="/pets"
       />
 
-      <main className="bg-white">
+      <main id="main-content" className="bg-white">
         {/* Hero */}
         <section className="bg-gradient-to-br from-primary to-secondary text-white px-6 py-16">
           <div className="max-w-5xl mx-auto text-center">

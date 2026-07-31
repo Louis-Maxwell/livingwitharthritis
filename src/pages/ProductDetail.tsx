@@ -133,7 +133,7 @@ const ProductDetail = () => {
         })}</script>
       </Helmet>
       <Header />
-      <main className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-screen bg-background">
         <div className="container mx-auto px-4 sm:px-6 py-8 max-w-6xl">
           {/* Breadcrumb */}
           <Button variant="ghost" size="sm" className="mb-6 text-muted-foreground" onClick={() => navigate("/shop")}>

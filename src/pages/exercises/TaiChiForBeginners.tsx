@@ -146,7 +146,7 @@ export default function TaiChiForBeginners() {
       ]} />
 
       <PageHero
-        badge={<Badge variant="secondary" className="bg-primary/10 text-primary border-0">Beginner · 7-day plan · Free</Badge>}
+        badge={<Badge variant="secondary" className="bg-background text-primary border-0">Beginner · 7-day plan · Free</Badge>}
         title="Tai Chi for Beginners: Your First 7 Days"
         subtitle="A gentle, evidence-aligned at-home start. No equipment, ~10 minutes a day, and especially kind to stiff or arthritic joints. Begin today."
       >
@@ -187,7 +187,7 @@ export default function TaiChiForBeginners() {
       <section className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
           <div className="mb-8">
-            <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-0">Zero equipment</Badge>
+            <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">Zero equipment</Badge>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">What you need to start</h2>
             <p className="text-muted-foreground leading-relaxed">Truly nothing to buy. If you have a hallway and trainers, you have a tai chi studio.</p>
           </div>
@@ -206,7 +206,7 @@ export default function TaiChiForBeginners() {
       <section id="day-1" className="py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
           <div className="max-w-2xl mb-10">
-            <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-0"><Clock className="h-3 w-3 mr-1 inline" />Your first week</Badge>
+            <Badge variant="secondary" className="mb-4 bg-background text-primary border-0"><Clock className="h-3 w-3 mr-1 inline" />Your first week</Badge>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">The 7-day plan</h2>
             <p className="text-muted-foreground leading-relaxed">One movement at a time. By Day 7, you'll string them into your first mini-form.</p>
           </div>
@@ -250,7 +250,7 @@ export default function TaiChiForBeginners() {
                   </p>
                   <div className="p-5 flex flex-col gap-3 flex-1">
                     <div className="flex items-center justify-between">
-                      <Badge variant="secondary" className="bg-primary/10 text-primary border-0">Day {d.day}</Badge>
+                      <Badge variant="secondary" className="bg-background text-primary border-0">Day {d.day}</Badge>
                       <span className="text-xs text-muted-foreground font-medium">{d.mins}</span>
                     </div>
                     <h3 className="font-display text-lg font-semibold leading-snug flex items-start gap-2">
@@ -270,7 +270,7 @@ export default function TaiChiForBeginners() {
       <section className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
           <div className="mb-8">
-            <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-0"><AlertCircle className="h-3 w-3 mr-1 inline" />Avoid these</Badge>
+            <Badge variant="secondary" className="mb-4 bg-background text-primary border-0"><AlertCircle className="h-3 w-3 mr-1 inline" />Avoid these</Badge>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">5 common beginner mistakes</h2>
             <p className="text-muted-foreground leading-relaxed">Sidestep these and you'll progress twice as fast.</p>
           </div>
@@ -289,7 +289,7 @@ export default function TaiChiForBeginners() {
       <section className="py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
           <div className="max-w-2xl mb-10">
-            <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-0">After Day 7</Badge>
+            <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">After Day 7</Badge>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">Where to go next</h2>
             <p className="text-muted-foreground leading-relaxed">Pick the path that fits your body and your week.</p>
           </div>

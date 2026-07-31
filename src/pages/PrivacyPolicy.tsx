@@ -51,7 +51,7 @@ const PrivacyPolicy = () => (
         title="Privacy Policy"
         subtitle="How we collect, use and protect your personal data in accordance with UK GDPR."
       />
-      <main className="w-full px-6 md:px-10 lg:px-20 py-10 md:py-16 max-w-5xl mx-auto">
+      <main id="main-content" className="w-full px-6 md:px-10 lg:px-20 py-10 md:py-16 max-w-5xl mx-auto">
         <div className="prose prose-lg max-w-none space-y-8 text-foreground/80 leading-relaxed">
           <section>
             <h2 className="text-xl font-bold text-foreground mt-8 mb-3">1. Who We Are</h2>

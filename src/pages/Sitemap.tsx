@@ -323,7 +323,7 @@ const Sitemap = () => {
       <div className="min-h-screen bg-background">
         <Header />
 
-        <main className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl pt-12 pb-20 md:pt-20 md:pb-28">
+        <main id="main-content" className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl pt-12 pb-20 md:pt-20 md:pb-28">
           <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
             Site Index
           </p>

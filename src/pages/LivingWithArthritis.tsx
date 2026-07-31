@@ -371,8 +371,8 @@ export default function LivingWithArthritis() {
       </section>
 
       <section className="bg-primary text-primary-foreground p-8 rounded-lg text-center">
-        <h2 className="text-2xl font-bold mb-4">Get weekly arthritis tips</h2>
-        <p className="mb-6 text-lg">
+        <h2 className="text-2xl font-bold mb-4 text-primary-foreground">Get weekly arthritis tips</h2>
+        <p className="mb-6 text-lg text-primary-foreground">
           Join thousands of people living well with arthritis. Evidence-based tips,
           exercises and support delivered to your inbox.
         </p>

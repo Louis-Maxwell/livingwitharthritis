@@ -146,7 +146,7 @@ export default function PainkillersNsaidsGuide() {
         idPrefix="nsaids-guide"
       />
       <Header />
-      <main className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-screen bg-background">
         <PageHero
           title="Painkillers & NSAIDs for Arthritis"
           subtitle="Topical gels, oral NSAIDs, paracetamol and opioids — what works, what to avoid, and how to use them safely."

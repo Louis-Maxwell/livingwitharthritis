@@ -389,7 +389,7 @@ export default function Donate() {
           </div>
 
           <div className="text-center">
-            <div className="inline-flex flex-wrap items-center justify-center gap-2 px-5 py-3 rounded-full bg-primary/10 border border-primary/20">
+            <div className="inline-flex flex-wrap items-center justify-center gap-2 px-5 py-3 rounded-full bg-background border border-primary/40">
               <span className="text-sm font-semibold text-primary">
                 🎁 A £100 donation becomes £125 with Gift Aid
               </span>

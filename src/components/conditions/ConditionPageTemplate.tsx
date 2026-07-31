@@ -186,7 +186,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
             >
               <ArrowLeft className="w-3.5 h-3.5" /> Back to conditions
             </Link>
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 bg-primary/10 px-3 py-1 rounded-full">
+            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 bg-background border border-primary/20 px-3 py-1 rounded-full">
               <Activity className="w-3 h-3" /> Condition Guide
             </span>
             <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-5 leading-tight tracking-tight">
@@ -197,7 +197,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
           </div>
         </div>
 
-        <main className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
+        <main id="main-content" className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
           <MedicalReviewBadge />
 
           {data.aeoAnswer ? (

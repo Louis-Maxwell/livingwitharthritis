@@ -161,7 +161,7 @@ export default function HipExercisesForOsteoarthritis() {
         idPrefix="hip-oa-exercises"
       />
       <Header />
-      <main className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-screen bg-background">
         <PageHero
           title="Hip exercises for osteoarthritis"
           subtitle="A safe, physio-aligned home routine — eight moves, a weekly plan, and clear rules for progressing without provoking a flare."

@@ -210,7 +210,7 @@ export default function DietGuide() {
         idPrefix="diet-guide"
       />
       <Header />
-      <main className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-screen bg-background">
         <PageHero
           title="Diet &amp; Nutrition Guide for Arthritis"
           subtitle="The evidence-based guide to eating for joint health — anti-inflammatory foods, Mediterranean meal plans, supplements and practical tips for UK shoppers."

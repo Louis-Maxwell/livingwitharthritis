@@ -105,7 +105,7 @@ const WaitingTimeCalculator = () => {
 
       <PageBreadcrumb segments={[{ label: "Tools" }, { label: "Rheumatology Waiting Time Calculator" }]} />
 
-      <main className="container mx-auto px-6 md:px-10 py-12 max-w-3xl">
+      <main id="main-content" className="container mx-auto px-6 md:px-10 py-12 max-w-3xl">
         <div className="flex items-center gap-2 text-primary mb-3">
           <Calculator className="w-5 h-5" />
           <span className="text-sm font-medium uppercase tracking-wide">Free UK Tool</span>
@@ -120,8 +120,9 @@ const WaitingTimeCalculator = () => {
         <div className="bg-card border border-border rounded-2xl p-6 md:p-8 mb-8 shadow-sm">
           <div className="space-y-5">
             <div>
-              <label className="block text-sm font-medium mb-2">Your UK region</label>
+              <label htmlFor="wtc-region" className="block text-sm font-medium mb-2">Your UK region</label>
               <select
+                id="wtc-region"
                 value={region}
                 onChange={(e) => setRegion(e.target.value)}
                 className="w-full bg-background border border-border rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary"
@@ -131,8 +132,9 @@ const WaitingTimeCalculator = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Referral urgency</label>
+              <label htmlFor="wtc-urgency" className="block text-sm font-medium mb-2">Referral urgency</label>
               <select
+                id="wtc-urgency"
                 value={urgency}
                 onChange={(e) => setUrgency(e.target.value)}
                 className="w-full bg-background border border-border rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary"
@@ -142,8 +144,9 @@ const WaitingTimeCalculator = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Suspected condition</label>
+              <label htmlFor="wtc-condition" className="block text-sm font-medium mb-2">Suspected condition</label>
               <select
+                id="wtc-condition"
                 value={condition}
                 onChange={(e) => setCondition(e.target.value)}
                 className="w-full bg-background border border-border rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary"

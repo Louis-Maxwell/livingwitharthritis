@@ -89,7 +89,7 @@ const Sources = () => {
         path={PATH}
       />
       <Header />
-      <main className="container mx-auto px-6 md:px-12 py-16 lg:py-24 max-w-3xl">
+      <main id="main-content" className="container mx-auto px-6 md:px-12 py-16 lg:py-24 max-w-3xl">
         <header className="mb-12">
           <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">About</p>
           <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">

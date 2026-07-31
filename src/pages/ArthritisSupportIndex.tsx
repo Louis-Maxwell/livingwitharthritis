@@ -43,7 +43,7 @@ const ArthritisSupportIndex = () => {
       <Header />
       <PageBreadcrumb segments={[{ label: "Arthritis Support" }]} />
 
-      <main className="container mx-auto px-6 md:px-10 py-10 max-w-5xl">
+      <main id="main-content" className="container mx-auto px-6 md:px-10 py-10 max-w-5xl">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Arthritis Support Across the UK

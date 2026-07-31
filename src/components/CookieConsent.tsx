@@ -58,8 +58,8 @@ const CookieConsent = () => {
             <h3 className="font-bold text-foreground text-sm mb-1">We use cookies</h3>
             <p className="text-muted-foreground text-xs leading-relaxed mb-4">
               We use essential cookies to make our site work. With your consent, we may also use non-essential cookies to improve your experience. Read our{" "}
-              <Link to="/cookies" className="text-primary hover:underline">Cookies Policy</Link> and{" "}
-              <Link to="/privacy" className="text-primary hover:underline">Privacy Policy</Link>.
+              <Link to="/cookies" className="text-primary underline underline-offset-2">Cookies Policy</Link> and{" "}
+              <Link to="/privacy" className="text-primary underline underline-offset-2">Privacy Policy</Link>.
             </p>
             <div className="flex gap-2">
               <Button size="sm" onClick={accept} className="rounded-full text-xs font-semibold px-5 h-9">

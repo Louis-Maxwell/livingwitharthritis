@@ -19,7 +19,7 @@ export default function ClinicalReviewBadge({
   return (
     <div
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/5 px-2.5 py-1 text-[11px] font-medium text-primary dark:text-primary",
+        "inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-background px-2.5 py-1 text-[11px] font-medium text-primary dark:text-primary",
         className,
       )}
     >

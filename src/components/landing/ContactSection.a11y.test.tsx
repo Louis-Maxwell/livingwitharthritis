@@ -44,7 +44,7 @@ describe("ContactSection accessibility", () => {
   beforeEach(() => {
     ({ container } = render(
       <MemoryRouter>
-        <main>
+        <main id="main-content">
           <ContactSection />
         </main>
       </MemoryRouter>,

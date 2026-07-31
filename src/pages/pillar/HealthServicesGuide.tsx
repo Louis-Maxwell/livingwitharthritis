@@ -177,7 +177,7 @@ export default function HealthServicesGuide() {
         idPrefix="health-services-guide"
       />
       <Header />
-      <main className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-screen bg-background">
         <PageHero
           title="Arthritis Services Guide"
           subtitle="How to access free arthritis care through the public health service — from your first GP visit to specialist rheumatology, physiotherapy and joint replacement surgery."

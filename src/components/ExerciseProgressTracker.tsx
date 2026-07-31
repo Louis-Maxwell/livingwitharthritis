@@ -14,7 +14,7 @@ const EXERCISE_GUIDES = [
     icon: "🦵",
     color: "border-primary/30 bg-primary/5",
     accentColor: "text-primary",
-    badgeColor: "bg-primary/10 text-primary",
+    badgeColor: "bg-background text-primary",
     exercises: [
       "Straight leg raises – 3 × 10",
       "Wall sits – hold 15–30 sec",
@@ -28,7 +28,7 @@ const EXERCISE_GUIDES = [
     icon: "✋",
     color: "border-primary/30 bg-primary/5",
     accentColor: "text-primary",
-    badgeColor: "bg-primary/10 text-primary",
+    badgeColor: "bg-background text-primary",
     exercises: [
       "Finger bends – 10 reps each finger",
       "Thumb touches – 10 reps each hand",
@@ -42,7 +42,7 @@ const EXERCISE_GUIDES = [
     icon: "💪",
     color: "border-primary/30 bg-primary/5",
     accentColor: "text-primary",
-    badgeColor: "bg-primary/10 text-primary",
+    badgeColor: "bg-background text-primary",
     exercises: [
       "Pendulum swings – 30 sec each arm",
       "Wall crawls – reach higher daily",
@@ -56,7 +56,7 @@ const EXERCISE_GUIDES = [
     icon: "🪑",
     color: "border-primary/30 bg-primary/5",
     accentColor: "text-primary",
-    badgeColor: "bg-primary/10 text-primary",
+    badgeColor: "bg-background text-primary",
     exercises: [
       "Seated marching – 2 minutes",
       "Ankle circles – 10 each direction",

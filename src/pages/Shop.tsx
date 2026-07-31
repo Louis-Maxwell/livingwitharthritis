@@ -25,7 +25,7 @@ const Shop = () => {
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
       <Header />
-      <main className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-screen bg-background">
         <PageHero
           title="Supplements & Arthritis Shop"
           subtitle="Carefully curated products to support your joint health journey"

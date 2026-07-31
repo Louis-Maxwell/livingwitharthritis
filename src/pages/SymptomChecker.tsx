@@ -158,7 +158,7 @@ export default function SymptomChecker() {
       </Helmet>
       <div className="min-h-screen bg-background">
         <Header />
-        <main className="container mx-auto px-6 md:px-10 py-16 md:py-24 max-w-2xl">
+        <main id="main-content" className="container mx-auto px-6 md:px-10 py-16 md:py-24 max-w-2xl">
           <h1 className="font-display text-4xl md:text-5xl font-extrabold text-foreground mb-3 tracking-tight">Symptom Checker</h1>
           <p className="text-lg text-muted-foreground mb-10">
             Five quick questions. We'll point you to the arthritis conditions most likely to fit your symptoms. Not a diagnosis — always see a GP for persistent pain.

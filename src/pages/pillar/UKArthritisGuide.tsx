@@ -242,7 +242,7 @@ export default function UKArthritisGuide() {
         idPrefix="uk-arthritis-guide"
       />
       <Header />
-      <main className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-screen bg-background">
         <PageHero
           title="The Complete UK Arthritis Guide"
           subtitle="Everything you need to know about arthritis — types, symptoms, treatments and support available across the United Kingdom."

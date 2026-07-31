@@ -87,7 +87,7 @@ const TrustCredibility = () => {
         <section className="py-16 lg:py-20 bg-muted/20">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-5 py-2.5 rounded-full text-sm font-bold mb-6">
+              <div className="inline-flex items-center gap-2 bg-background border border-primary/20 text-primary px-5 py-2.5 rounded-full text-sm font-bold mb-6">
                 <Award className="w-4 h-4" /> UK Registered Charity
               </div>
               <h2 className="text-3xl font-bold text-foreground mb-3">Our Impact at a Glance</h2>

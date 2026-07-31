@@ -345,7 +345,7 @@ export default function MediterraneanDietForArthritis() {
 
       <PageHero
         badge={
-          <Badge variant="secondary" className="bg-primary/10 text-primary border-0">
+          <Badge variant="secondary" className="bg-background text-primary border-0">
             Eating plan · UK · Free
           </Badge>
         }
@@ -410,7 +410,7 @@ export default function MediterraneanDietForArthritis() {
       <section className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
           <div className="max-w-2xl mb-10">
-            <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-0">
+            <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">
               <Utensils className="h-3 w-3 mr-1 inline" /> The plate
             </Badge>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -448,7 +448,7 @@ export default function MediterraneanDietForArthritis() {
       <section className="py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
           <div className="max-w-2xl mb-10">
-            <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-0">
+            <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">
               <ShoppingBasket className="h-3 w-3 mr-1 inline" /> UK shopping list
             </Badge>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -481,7 +481,7 @@ export default function MediterraneanDietForArthritis() {
       <section id="seven-day-plan" className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
           <div className="max-w-2xl mb-10">
-            <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-0">
+            <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">
               7-day plan
             </Badge>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -496,7 +496,7 @@ export default function MediterraneanDietForArthritis() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {days.map((d) => (
               <Card key={d.day} className="p-6 border border-border/40 bg-background flex flex-col gap-3">
-                <Badge variant="secondary" className="bg-primary/10 text-primary border-0 w-fit">
+                <Badge variant="secondary" className="bg-background text-primary border-0 w-fit">
                   Day {d.day}
                 </Badge>
                 <div className="space-y-3 text-sm leading-relaxed">
@@ -527,7 +527,7 @@ export default function MediterraneanDietForArthritis() {
       <section className="py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
           <div className="max-w-2xl mb-10">
-            <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-0">
+            <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">
               <Fish className="h-3 w-3 mr-1 inline" /> Recipes
             </Badge>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -559,7 +559,7 @@ export default function MediterraneanDietForArthritis() {
       <section className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
           <div className="mb-8">
-            <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-0">
+            <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">
               <AlertCircle className="h-3 w-3 mr-1 inline" /> Avoid these
             </Badge>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">

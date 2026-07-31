@@ -238,7 +238,7 @@ export default function FoodsToAvoidWithArthritis() {
 
       <PageHero
         badge={
-          <Badge variant="secondary" className="bg-primary/10 text-primary border-0">
+          <Badge variant="secondary" className="bg-background text-primary border-0">
             Diet · UK · Evidence-based
           </Badge>
         }
@@ -302,7 +302,7 @@ export default function FoodsToAvoidWithArthritis() {
       <section id="triggers" className="py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
           <div className="max-w-2xl mb-10">
-            <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-0">
+            <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">
               <AlertTriangle className="h-3 w-3 mr-1 inline" /> Trigger foods
             </Badge>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -335,7 +335,7 @@ export default function FoodsToAvoidWithArthritis() {
       <section className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[1000px]">
           <div className="max-w-2xl mb-10">
-            <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-0">
+            <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">
               <Leaf className="h-3 w-3 mr-1 inline" /> Eat instead
             </Badge>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">

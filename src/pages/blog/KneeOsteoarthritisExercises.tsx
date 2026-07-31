@@ -207,7 +207,7 @@ export default function KneeOsteoarthritisExercises() {
       <section className="bg-secondary/30 border-b border-border/15 py-12">
         <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
           <div className="mb-6">
-            <Badge variant="secondary" className="bg-primary/10 text-primary border-0">
+            <Badge variant="secondary" className="bg-background text-primary border-0">
               Exercise · Knee OA · Evidence-based
             </Badge>
           </div>
@@ -265,7 +265,7 @@ export default function KneeOsteoarthritisExercises() {
       <section id="tier1" className="py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-6 md:px-12 max-w-[1000px]">
           <div className="mb-10">
-            <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-0">
+            <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">
               <Zap className="h-3 w-3 mr-1 inline" /> Tier 1
             </Badge>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -307,7 +307,7 @@ export default function KneeOsteoarthritisExercises() {
       <section className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[1000px]">
           <div className="mb-10">
-            <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-0">
+            <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">
               <Droplet className="h-3 w-3 mr-1 inline" /> Tier 2
             </Badge>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">

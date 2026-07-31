@@ -114,7 +114,7 @@ export default function AdminKeywordStrategy() {
       />
       <Header />
 
-      <main className="container mx-auto px-4 py-12">
+      <main id="main-content" className="container mx-auto px-4 py-12">
         <div className="mb-8 flex items-center gap-3">
           <TrendingUp className="h-8 w-8 text-primary" aria-hidden />
           <div>

@@ -141,7 +141,7 @@ const BlogPost = () => {
     return (
       <div className="min-h-screen bg-background">
         <Header />
-        <main className="container mx-auto px-6 md:px-10 py-24 max-w-[860px]">
+        <main id="main-content" className="container mx-auto px-6 md:px-10 py-24 max-w-[860px]">
           <Skeleton className="h-8 w-3/4 mb-4" />
           <Skeleton className="h-4 w-1/2 mb-8" />
           <Skeleton className="h-64 w-full" />
@@ -155,7 +155,7 @@ const BlogPost = () => {
     return (
       <div className="min-h-screen bg-background">
         <Header />
-        <main className="container mx-auto px-6 md:px-10 py-24 text-center">
+        <main id="main-content" className="container mx-auto px-6 md:px-10 py-24 text-center">
           <h2 className="font-display text-3xl font-bold text-foreground mb-4">Article Not Found</h2>
           <Link to="/blog" className="text-primary hover:underline">← Back to blog</Link>
         </main>
@@ -403,7 +403,7 @@ const BlogPost = () => {
           </figure>
         </div>
 
-        <main className="container mx-auto px-6 md:px-10 py-10 md:py-14 max-w-[860px]">
+        <main id="main-content" className="container mx-auto px-6 md:px-10 py-10 md:py-14 max-w-[860px]">
           {directAnswer && (
             <AnswerBox
               question={article.title.replace(/[?.!]+$/, "").trim() + "?"}

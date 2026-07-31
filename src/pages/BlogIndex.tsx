@@ -19,14 +19,14 @@ const categories: Category[] = ["All", "Exercise", "Nutrition", "Lifestyle", "He
 const POSTS_PER_PAGE = 9;
 
 const categoryColors: Record<Category, string> = {
-  All: "bg-primary/10 text-primary hover:bg-primary/20 border-primary/20",
-  Exercise: "bg-primary/10 text-primary hover:bg-primary/20 border-primary/20",
-  Nutrition: "bg-primary/10 text-primary hover:bg-primary/20 border-primary/20",
-  Lifestyle: "bg-primary/10 text-primary hover:bg-primary/20 border-primary/20",
-  Health: "bg-primary/10 text-primary hover:bg-primary/20 border-primary/20",
-  "Mental Health": "bg-primary/10 text-primary hover:bg-primary/20 border-primary/20",
-  Supplements: "bg-primary/10 text-primary hover:bg-primary/20 border-primary/20",
-  Treatment: "bg-primary/10 text-primary hover:bg-primary/20 border-primary/20",
+  All: "bg-background text-primary hover:bg-primary/10 border-primary/40",
+  Exercise: "bg-background text-primary hover:bg-primary/10 border-primary/40",
+  Nutrition: "bg-background text-primary hover:bg-primary/10 border-primary/40",
+  Lifestyle: "bg-background text-primary hover:bg-primary/10 border-primary/40",
+  Health: "bg-background text-primary hover:bg-primary/10 border-primary/40",
+  "Mental Health": "bg-background text-primary hover:bg-primary/10 border-primary/40",
+  Supplements: "bg-background text-primary hover:bg-primary/10 border-primary/40",
+  Treatment: "bg-background text-primary hover:bg-primary/10 border-primary/40",
 };
 
 /** Convert a URL slug like "mental-health" or "exercise" to a Category. */
@@ -133,11 +133,11 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
           pattern="dots"
           badge={
             <div className="flex items-center gap-3">
-              <Badge className="bg-primary/10 text-primary border-0 text-xs font-bold px-3 py-1.5">
+              <Badge className="bg-background text-primary border-0 text-xs font-bold px-3 py-1.5">
                 <Newspaper className="w-3 h-3 mr-1.5" />
                 {blogPosts.length} Articles
               </Badge>
-              <Badge className="bg-primary/10 text-primary border-0 text-xs font-bold px-3 py-1.5">
+              <Badge className="bg-background text-primary border-0 text-xs font-bold px-3 py-1.5">
                 <Sparkles className="w-3 h-3 mr-1.5" />
                 Evidence-Based
               </Badge>
@@ -147,7 +147,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
           subtitle={heroSubtitle ?? `${blogPosts.length} evidence-based articles and counting — helping UK residents manage arthritis, reduce joint pain and live well.`}
         />
 
-        <main className="container mx-auto px-6 md:px-10 py-6 md:py-8">
+        <main id="main-content" className="container mx-auto px-6 md:px-10 py-6 md:py-8">
           {/* Featured / Editor's picks */}
           {activeCategory === "All" && !searchQuery && currentPage === 1 && featuredPosts.length > 0 && (
             <section aria-labelledby="featured-heading" className="mb-12">

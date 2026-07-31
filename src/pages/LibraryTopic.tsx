@@ -65,7 +65,7 @@ const LibraryTopic = () => {
 
       <Header />
 
-      <main className="min-h-screen bg-background text-foreground">
+      <main id="main-content" className="min-h-screen bg-background text-foreground">
         <article className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-3xl py-16">
           <Link
             to="/library"

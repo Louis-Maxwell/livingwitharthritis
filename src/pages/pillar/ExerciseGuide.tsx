@@ -215,7 +215,7 @@ export default function ExerciseGuide() {
         idPrefix="exercise-guide"
       />
       <Header />
-      <main className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-screen bg-background">
         <PageHero
           title="Exercise Guide for Arthritis"
           subtitle="The definitive guide to exercising with arthritis — from gentle chair-based routines to progressive strength programmes, backed by clinical evidence."

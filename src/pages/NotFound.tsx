@@ -61,7 +61,7 @@ const NotFound = () => {
       />
       <Header />
 
-      <main className="flex-1 container mx-auto px-6 md:px-10 py-16 max-w-3xl">
+      <main id="main-content" className="flex-1 container mx-auto px-6 md:px-10 py-16 max-w-3xl">
         <p className="text-sm font-semibold uppercase tracking-wider text-primary">404</p>
         <h1 className="mt-2 font-display text-3xl md:text-4xl font-bold text-foreground">
           We couldn't find that page

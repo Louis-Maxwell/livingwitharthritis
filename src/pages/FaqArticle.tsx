@@ -105,7 +105,7 @@ export default function FaqArticle() {
       )}
 
       <section className="bg-primary text-primary-foreground p-8 rounded-lg text-center">
-        <p className="mb-4 text-lg">Want the full picture? Read our complete</p>
+        <p className="mb-4 text-lg text-primary-foreground">Want the full picture? Read our complete</p>
         <Link to="/living-with-arthritis" className="underline text-xl font-bold">
           Living With Arthritis Guide →
         </Link>

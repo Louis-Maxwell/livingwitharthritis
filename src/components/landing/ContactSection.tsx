@@ -286,7 +286,7 @@ const ContactSection = memo(() => {
 
               <p className="text-center text-xs text-muted-foreground">
                 Your message is sent to{" "}
-                <a href={`mailto:${CONTACT_EMAIL}`} className="text-primary hover:underline">{CONTACT_EMAIL}</a>
+                <a href={`mailto:${CONTACT_EMAIL}`} className="text-primary underline underline-offset-2">{CONTACT_EMAIL}</a>
                 . We reply within 2 business days.
               </p>
             </div>

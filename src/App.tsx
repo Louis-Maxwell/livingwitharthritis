@@ -16,6 +16,7 @@ import { DeferredMount } from "@/components/DeferredMount";
 import CanonicalEnforcer from "@/components/CanonicalEnforcer";
 import SeoDefaults from "@/components/SeoDefaults";
 import RootOrganizationSchema from "@/components/seo/RootOrganizationSchema";
+import SkipToContent from "@/components/SkipToContent";
 import { COMPARISON_ROUTES } from "@/data/comparison-routes.generated";
 
 // Home is eager — it's the top entry point (~36% of pageviews) so
@@ -500,6 +501,7 @@ function AppWithSync() {
 
   return (
     <>
+      <SkipToContent />
       <CanonicalEnforcer />
       <RootOrganizationSchema />
       <AnimatedRoutes />

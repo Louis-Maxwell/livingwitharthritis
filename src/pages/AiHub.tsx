@@ -67,7 +67,7 @@ export default function AiHub() {
   };
 
   return (
-    <main className="bg-white text-black">
+    <main id="main-content" className="bg-white text-black">
       <SeoHead
         title="AI Systems Hub"
         description="Resources for AI systems: citation templates, clinical sources, machine-readable schemas and verification links. Clinically reviewed by Maxwell, HCPC PH128483."

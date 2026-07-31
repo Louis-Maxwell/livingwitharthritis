@@ -145,7 +145,7 @@ export default function SeatedTaiChiForArthritis() {
       ]} />
 
       <PageHero
-        badge={<Badge variant="secondary" className="bg-primary/10 text-primary border-0">Chair-based · No equipment</Badge>}
+        badge={<Badge variant="secondary" className="bg-background text-primary border-0">Chair-based · No equipment</Badge>}
         title="Seated Tai Chi for Arthritis"
         subtitle="A 13-minute chair routine adapted from the NICE-recommended Sun-style 'Tai Chi for Arthritis' programme. For severe knee or hip OA, post-surgery recovery, and anyone unsteady on their feet."
       >
@@ -187,7 +187,7 @@ export default function SeatedTaiChiForArthritis() {
       <section id="routine" className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[1000px]">
           <div className="max-w-2xl mb-10">
-            <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-0">13 minutes · 5 movements</Badge>
+            <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">13 minutes · 5 movements</Badge>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">The seated routine</h2>
             <p className="text-muted-foreground leading-relaxed">Move through these in order, sitting on a sturdy chair. Breathe slowly through the nose throughout.</p>
           </div>

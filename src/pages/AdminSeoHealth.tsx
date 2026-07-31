@@ -82,7 +82,7 @@ export default function AdminSeoHealth() {
         path="/admin/seo-health"
         noindex
       />
-      <main className="container mx-auto px-4 py-10 max-w-5xl">
+      <main id="main-content" className="container mx-auto px-4 py-10 max-w-5xl">
         <header className="flex items-end justify-between mb-8">
           <div>
             <h1 className="text-3xl font-semibold">SEO Health</h1>

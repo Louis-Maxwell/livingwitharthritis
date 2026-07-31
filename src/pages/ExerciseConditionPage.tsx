@@ -166,7 +166,7 @@ const ExerciseConditionPage = () => {
         ]}
       />
 
-      <main className="container mx-auto px-6 md:px-10 py-10 max-w-4xl">
+      <main id="main-content" className="container mx-auto px-6 md:px-10 py-10 max-w-4xl">
         {/* Hero */}
         <header className="mb-10">
           <div className="flex items-center gap-2 text-primary mb-3">

@@ -16,7 +16,7 @@ export default function CorporatePartnerships() {
         path="/corporate-partnerships"
       />
 
-      <main className="bg-white">
+      <main id="main-content" className="bg-white">
         {/* Hero */}
         <section className="bg-gradient-to-r from-black to-secondary text-white px-6 py-20">
           <div className="max-w-4xl mx-auto text-center">

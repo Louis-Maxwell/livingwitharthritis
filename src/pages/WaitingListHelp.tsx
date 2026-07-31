@@ -90,7 +90,7 @@ const WaitingListHelp = () => {
 
       <PageBreadcrumb segments={[{ label: "Waiting List Help" }]} />
 
-      <main className="container mx-auto px-6 md:px-10 py-12 max-w-4xl">
+      <main id="main-content" className="container mx-auto px-6 md:px-10 py-12 max-w-4xl">
         <div className="flex items-center gap-2 text-primary mb-3">
           <Hospital className="w-5 h-5" />
           <span className="text-sm font-medium uppercase tracking-wide">UK public health Patient Guide</span>

@@ -145,7 +145,7 @@ export default function SupplementsHub() {
 
         <div className="relative bg-gradient-to-br from-primary/8 via-background to-primary/5 border-b border-border/20 overflow-hidden">
           <div className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl relative z-10">
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 bg-primary/10 px-3 py-1 rounded-full">
+            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 bg-background border border-primary/20 px-3 py-1 rounded-full">
               <Pill className="w-3 h-3" /> Supplement Hub
             </span>
             <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-5 leading-tight tracking-tight">
@@ -160,7 +160,7 @@ export default function SupplementsHub() {
           </div>
         </div>
 
-        <main className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
+        <main id="main-content" className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
           <div className="grid sm:grid-cols-2 gap-4">
             {SUPPLEMENTS.map((s) => (
               <Link

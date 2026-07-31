@@ -52,7 +52,7 @@ const TermsConditions = () => (
         subtitle="Please read these terms carefully before using our website."
       />
 
-      <main className="container mx-auto px-4 py-12 max-w-4xl">
+      <main id="main-content" className="container mx-auto px-4 py-12 max-w-4xl">
         <div className="prose prose-lg dark:prose-invert max-w-none space-y-8">
 
           <section>

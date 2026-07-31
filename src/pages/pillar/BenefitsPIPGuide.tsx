@@ -253,7 +253,7 @@ export default function BenefitsPIPGuide() {
       })}</script>
     </Helmet>
       <Header />
-      <main className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-screen bg-background">
         <PageHero
           title="Benefits &amp; PIP Support Guide"
           subtitle="Everything you need to know about claiming disability benefits, PIP, Blue Badge, Motability and workplace rights when living with arthritis in the UK."

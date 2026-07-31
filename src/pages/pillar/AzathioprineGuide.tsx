@@ -227,7 +227,7 @@ export default function AzathioprineGuide() {
         idPrefix="azathioprine-guide"
       />
       <Header />
-      <main className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-screen bg-background">
         <PageHero
           title="Azathioprine for Arthritis"
           subtitle="A plain-English UK guide to azathioprine — how it works, TPMT testing, dosing, side effects, blood monitoring and the conditions it's prescribed for."

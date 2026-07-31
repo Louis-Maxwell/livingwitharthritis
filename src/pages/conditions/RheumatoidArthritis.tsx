@@ -167,7 +167,7 @@ const RheumatoidArthritis = () => (
       </section>
       <WaveDivider color="hsl(var(--background))" />
 
-      <main className="container mx-auto px-6 md:px-10 py-16 md:py-24 max-w-3xl">
+      <main id="main-content" className="container mx-auto px-6 md:px-10 py-16 md:py-24 max-w-3xl">
 
         <Section icon={Activity} title="What is rheumatoid arthritis?">
           <p>Rheumatoid arthritis is a chronic autoimmune disease in which the immune system mistakenly attacks the <strong>synovium</strong> — the lining of the membranes that surround your joints. This causes inflammation that can eventually destroy cartilage and bone within the joint.</p>

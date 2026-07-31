@@ -119,7 +119,7 @@ const CityArthritisPage = () => {
         { label: cityData.name },
       ]} />
 
-      <main className="container mx-auto px-6 md:px-10 py-10 max-w-4xl">
+      <main id="main-content" className="container mx-auto px-6 md:px-10 py-10 max-w-4xl">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
           {/* Hero */}
           <div className="mb-10">
@@ -217,7 +217,7 @@ const CityArthritisPage = () => {
               <li>Ask specifically for a referral to rheumatology</li>
               <li>You may be referred to <strong>{cityData.localTrust}</strong></li>
               <li>Waiting times vary — ask your GP about the current wait</li>
-              <li>While waiting, try our <Link to="/self-help" className="text-primary hover:underline">self-help tools</Link></li>
+              <li>While waiting, try our <Link to="/self-help" className="text-primary underline underline-offset-2">self-help tools</Link></li>
             </ol>
           </section>
 

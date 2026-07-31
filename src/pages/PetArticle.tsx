@@ -25,7 +25,7 @@ export default function PetArticle() {
         path={`/pets/${article.slug}`}
       />
 
-      <main className="bg-white">
+      <main id="main-content" className="bg-white">
         <article className="max-w-3xl mx-auto px-6 py-10">
           <Link to="/pets" className="inline-flex items-center gap-1 text-sm text-primary font-semibold mb-6 hover:underline">
             <ChevronLeft className="w-4 h-4" aria-hidden="true" /> All pet guides

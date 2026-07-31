@@ -66,7 +66,7 @@ const DailyTipDetail = () => {
     return (
       <div className="min-h-screen flex flex-col">
         <Header />
-        <main className="flex-1 flex items-center justify-center">
+        <main id="main-content" className="flex-1 flex items-center justify-center">
           <div className="text-center">
             <h2 className="text-2xl font-bold text-foreground mb-4">Tip not found</h2>
             <Button variant="outline" onClick={() => navigate("/")}>Back to Home</Button>
@@ -114,7 +114,7 @@ const DailyTipDetail = () => {
 
       <Header />
 
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         {/* Hero banner */}
         <section className="relative h-72 sm:h-80 md:h-[28rem] overflow-hidden">
           <img src={image} alt={title} className="w-full h-full object-cover" loading="lazy" decoding="async" />

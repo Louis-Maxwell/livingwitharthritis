@@ -28,7 +28,7 @@ const Credits = () => {
         path="/credits"
       />
       <Header />
-      <main>
+      <main id="main-content">
         <PageHero
           badge={<span className="text-xs uppercase tracking-[0.2em] text-primary font-bold">Attribution</span>}
           title="Image credits"

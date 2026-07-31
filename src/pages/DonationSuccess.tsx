@@ -26,7 +26,7 @@ const DonationSuccess = () => {
         noindex
       />
       <Header />
-      <main className="min-h-[70vh] flex items-center justify-center px-4 py-20">
+      <main id="main-content" className="min-h-[70vh] flex items-center justify-center px-4 py-20">
         <div className="max-w-md w-full text-center space-y-6 animate-fade-in">
           {isSuccess ? (
             <>

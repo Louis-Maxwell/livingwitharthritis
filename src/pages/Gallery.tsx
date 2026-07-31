@@ -31,7 +31,7 @@ const Gallery = () => {
         path="/gallery"
       />
       <Header />
-      <main>
+      <main id="main-content">
         <PageHero
           badge={<span className="text-xs uppercase tracking-[0.2em] text-primary font-bold">Image library</span>}
           title="50 Creative Commons photographs"
@@ -39,26 +39,28 @@ const Gallery = () => {
         />
 
         <section className="container mx-auto px-6 md:px-12 py-10">
-          <div className="flex flex-wrap gap-2 mb-10" role="tablist" aria-label="Filter images by theme">
-            {FILTERS.map((f) => {
-              const active = f.value === filter;
-              return (
-                <button
-                  key={f.value}
-                  type="button"
-                  role="tab"
-                  aria-selected={active}
-                  onClick={() => setFilter(f.value)}
-                  className={`px-4 py-2 text-sm font-medium rounded-full border transition-colors ${
-                    active
-                      ? "bg-primary text-primary-foreground border-primary"
-                      : "bg-transparent text-foreground/70 border-border hover:border-primary/40 hover:text-foreground"
-                  }`}
-                >
-                  {f.label}
-                </button>
-              );
-            })}
+          <div className="flex flex-wrap items-center gap-2 mb-10">
+            <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter images by theme">
+              {FILTERS.map((f) => {
+                const active = f.value === filter;
+                return (
+                  <button
+                    key={f.value}
+                    type="button"
+                    role="tab"
+                    aria-selected={active}
+                    onClick={() => setFilter(f.value)}
+                    className={`px-4 py-2 text-sm font-medium rounded-full border transition-colors ${
+                      active
+                        ? "bg-primary text-primary-foreground border-primary"
+                        : "bg-transparent text-foreground/70 border-border hover:border-primary/40 hover:text-foreground"
+                    }`}
+                  >
+                    {f.label}
+                  </button>
+                );
+              })}
+            </div>
             <Link
               to="/credits"
               className="ml-auto px-4 py-2 text-sm font-medium rounded-full border border-border text-foreground/70 hover:text-foreground hover:border-primary/40 transition-colors"

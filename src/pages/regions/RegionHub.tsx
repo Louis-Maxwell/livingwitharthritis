@@ -147,7 +147,7 @@ const RegionHub = () => {
 
       <PageBreadcrumb segments={[{ label: "Regions", href: "/regions" }, { label: r.name }]} />
 
-      <main className="container mx-auto px-6 md:px-10 py-10 max-w-5xl">
+      <main id="main-content" className="container mx-auto px-6 md:px-10 py-10 max-w-5xl">
         <div className="flex items-center gap-2 text-primary mb-3">
           <MapPin className="w-5 h-5" />
           <span className="text-sm font-medium uppercase tracking-wide">United Kingdom</span>

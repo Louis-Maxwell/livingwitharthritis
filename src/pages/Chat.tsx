@@ -74,11 +74,11 @@ const Chat = () => {
                 Ask about arthritis management, exercises, diet and UK-specific support. Our team and resources are here for you.
               </p>
               <div className="flex items-center gap-3 justify-center mt-4">
-                <Badge className="bg-primary/10 text-primary border-0 text-xs">
+                <Badge className="bg-background text-primary border-0 text-xs">
                   <Shield className="w-3 h-3 mr-1" />
                   Evidence-Based
                 </Badge>
-                <Badge className="bg-primary/10 text-primary border-0 text-xs">
+                <Badge className="bg-background text-primary border-0 text-xs">
                   <Sparkles className="w-3 h-3 mr-1" />
                   Free & Instant
                 </Badge>

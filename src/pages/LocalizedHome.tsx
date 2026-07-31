@@ -30,7 +30,7 @@ export default function LocalizedHome() {
         <html lang={lang} />
       </Helmet>
 
-      <main className="min-h-screen bg-background text-foreground">
+      <main id="main-content" className="min-h-screen bg-background text-foreground">
         <section className="px-6 py-20 md:py-32 max-w-4xl mx-auto">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary mb-4">
             {t.home.heroEyebrow}

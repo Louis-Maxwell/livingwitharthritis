@@ -123,7 +123,7 @@ const ZakatAppeal = () => {
 
       <Header />
 
-      <main className="bg-background">
+      <main id="main-content" className="bg-background">
         {/* Hero split section */}
         <section className="container mx-auto px-4 py-10 lg:py-16">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 items-start">

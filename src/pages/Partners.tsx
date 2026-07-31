@@ -92,7 +92,7 @@ export default function Partners() {
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
       <Header />
-      <main className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-screen bg-background">
         {/* Hero */}
         <section className="relative bg-gradient-to-br from-primary/10 via-background to-accent/10 py-20 md:py-28">
           <div className="container mx-auto px-4 max-w-5xl text-center">

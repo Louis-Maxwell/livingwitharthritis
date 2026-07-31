@@ -129,7 +129,7 @@ export default function NeckArthritisExercises() {
       />
       <Header />
 
-      <main className="bg-background text-foreground">
+      <main id="main-content" className="bg-background text-foreground">
         <article className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-3xl py-16">
           <Badge variant="secondary" className="mb-4">
             Exercise Hub · Neck
