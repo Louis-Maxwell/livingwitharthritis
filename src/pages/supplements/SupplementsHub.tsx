@@ -40,11 +40,12 @@ const SUPPLEMENTS = [
     available: false,
   },
   {
-    to: "/blog/category/supplements",
+    to: "/supplements/collagen",
     label: "Collagen peptides",
-    desc: "Hydrolysed type II collagen — emerging evidence for joint comfort and cartilage support.",
-    available: false,
+    desc: "Hydrolysed peptides (10 g/day) or undenatured type II (40 mg/day) — emerging evidence for knee pain, stiffness and joint comfort.",
+    available: true,
   },
+
   {
     to: "/blog/category/supplements",
     label: "Ginger",
