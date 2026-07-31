@@ -1,0 +1,214 @@
+{
+  "version": "1.0.0",
+  "generated": "2026-07-31",
+  "site": "livingwitharthritis.org.uk",
+  "brandName": "Living With Arthritis UK",
+  "defaultOgImage": "/og-default.png",
+  "routes": {
+    "/": {
+      "title": "Living With Arthritis UK — Free Exercises, Diet & Support",
+      "description": "Free, expert-reviewed guides on managing arthritis: exercises, diet, pain relief and UK benefits. A non-profit founded by someone living with it."
+    },
+    "/about-us": {
+      "title": "About Living With Arthritis UK | Our Story & Mission",
+      "description": "How a 2020 osteoarthritis diagnosis with no management plan led to a UK non-profit providing free arthritis guidance. Meet our team and our mission."
+    },
+    "/accessibility": {
+      "title": "Accessibility Statement | Living With Arthritis UK",
+      "description": "Our commitment to WCAG 2.1 AA accessibility, the standards we meet, known issues we are fixing, and how to report an accessibility problem to us."
+    },
+    "/arthritis-support": {
+      "title": "Arthritis Support: Where to Get Help in the UK",
+      "description": "Practical arthritis support in the UK: peer groups, NHS services, helplines, benefits advice and free guides. Find the help that fits your situation."
+    },
+    "/blog": {
+      "title": "Arthritis Articles & Guides | Living With Arthritis UK",
+      "description": "Expert-reviewed articles on arthritis exercises, diet, pain management and daily living. Written for people managing arthritis, not for clinicians."
+    },
+    "/buddy": {
+      "title": "Arthritis Buddy Scheme: Talk to Someone Who Gets It",
+      "description": "Our buddy scheme pairs you with someone who lives with arthritis too. Free, confidential peer support for anyone newly diagnosed or struggling."
+    },
+    "/community": {
+      "title": "Arthritis Community & Peer Support Groups in the UK",
+      "description": "Join our arthritis community: local peer support groups, online spaces and shared experiences from people managing arthritis across the UK."
+    },
+    "/complaints": {
+      "title": "Complaints Procedure | Living With Arthritis UK",
+      "description": "How to make a complaint about Living With Arthritis UK, what happens next, our response timescales, and how to escalate if you are not satisfied."
+    },
+    "/contact": {
+      "title": "Contact Us | Living With Arthritis UK Non-Profit",
+      "description": "Get in touch with Living With Arthritis UK. Questions about our guides, partnership enquiries, media requests and accessibility feedback."
+    },
+    "/cookies-policy": {
+      "title": "Cookies Policy | Living With Arthritis UK",
+      "description": "Which cookies we use, what they do, how long they last, and how to control or refuse them. Written in plain English, without the legal padding."
+    },
+    "/corporate-giving": {
+      "title": "Corporate Giving & Partnerships | Arthritis Non-Profit",
+      "description": "Partner with Living With Arthritis UK. Corporate donations, matched giving, sponsorship of community events and employee wellbeing programmes."
+    },
+    "/credits": {
+      "title": "Credits & Acknowledgements | Living With Arthritis UK",
+      "description": "The clinicians, volunteers, contributors and organisations who make our free arthritis resources possible. With thanks from all of us."
+    },
+    "/diet-hub": {
+      "title": "Arthritis Diet Hub: Foods, Plans & the Evidence",
+      "description": "All our arthritis diet guidance in one place: anti-inflammatory eating, foods to limit, the Mediterranean diet, weight and joints, and meal ideas."
+    },
+    "/diet/mediterranean-diet-for-arthritis": {
+      "title": "Mediterranean Diet for Arthritis: Does It Help?",
+      "description": "What the evidence actually shows about the Mediterranean diet and arthritis pain, plus a practical UK shopping list and a simple weekly meal plan."
+    },
+    "/donate": {
+      "title": "Donate to Living With Arthritis UK | Keep It Free",
+      "description": "Your donation keeps our arthritis guides free for everyone. See exactly where the money goes, and give once or monthly from as little as £3."
+    },
+    "/exercise-hub": {
+      "title": "Arthritis Exercise Hub: Safe Routines by Joint",
+      "description": "Exercises for arthritic knees, hips, hands, shoulders and neck. Low-impact, physio-reviewed routines with clear guidance on when to stop."
+    },
+    "/exercises/seated-tai-chi-for-arthritis": {
+      "title": "Seated Tai Chi for Arthritis: Beginner Routine",
+      "description": "A gentle seated tai chi routine for arthritis, suitable if standing is painful or unsafe. Step by step, no equipment, around 15 minutes."
+    },
+    "/exercises/tai-chi-for-arthritis": {
+      "title": "Tai Chi for Arthritis: Benefits & How to Start",
+      "description": "Why tai chi is recommended for arthritis, what the research shows about pain and balance, and how to begin safely at home in the UK."
+    },
+    "/exercises/tai-chi-for-balance": {
+      "title": "Tai Chi for Balance: Reduce Your Risk of Falls",
+      "description": "Tai chi movements that improve balance and reduce falls risk with arthritis. Gentle, evidence-backed, and safe to practise beside a chair."
+    },
+    "/exercises/tai-chi-for-beginners": {
+      "title": "Tai Chi for Beginners with Arthritis: Start Here",
+      "description": "New to tai chi and living with arthritis? Start with these six simple movements. What to wear, how long to practise, and what should not hurt."
+    },
+    "/faq": {
+      "title": "Arthritis FAQs: Your Questions Answered",
+      "description": "Straight answers to the questions we are asked most about arthritis: symptoms, exercise, diet, medication, benefits and getting a diagnosis."
+    },
+    "/finances": {
+      "title": "Our Finances: Income, Spending & Accounts",
+      "description": "Where our funding comes from, what we spend it on, and our published accounts. Full transparency on how a small arthritis non-profit operates."
+    },
+    "/governance": {
+      "title": "Governance & Trustees | Living With Arthritis UK",
+      "description": "Our trustees, governance structure, community advisory board, and the policies that hold us accountable to the people we serve."
+    },
+    "/guides/benefits-pip": {
+      "title": "PIP for Osteoarthritis: Do You Qualify? UK Guide",
+      "description": "Can you claim PIP with osteoarthritis? How assessment works, what to write on the form, and what to do if you are refused. Free UK guide."
+    },
+    "/guides/diet": {
+      "title": "Arthritis Diet: What to Eat and What to Limit",
+      "description": "An evidence-based arthritis diet guide: anti-inflammatory foods, what to cut back on, supplements with real evidence, and where claims fall short."
+    },
+    "/guides/exercise": {
+      "title": "Exercise for Arthritis: A Safe Starting Guide",
+      "description": "How to exercise safely with arthritis: how much, how often, which types help, what level of pain is acceptable, and when to stop and rest."
+    },
+    "/guides/health-services": {
+      "title": "NHS Arthritis Care: What to Expect & How to Access",
+      "description": "How NHS arthritis care works: GP appointments, rheumatology referral, physiotherapy, waiting times, and how to ask for what you need."
+    },
+    "/guides/uk-arthritis": {
+      "title": "Arthritis in the UK: Facts, Figures & Support",
+      "description": "How many people in the UK live with arthritis, which types are most common, what care is available, and where to find support near you."
+    },
+    "/health-tools": {
+      "title": "Free Arthritis Health Tools & Symptom Trackers",
+      "description": "Free tools to help you manage arthritis: symptom and pain trackers, flare diaries, appointment question builders and printable exercise plans."
+    },
+    "/impact-stories": {
+      "title": "Impact Stories: How Our Guides Changed Things",
+      "description": "Real stories from people who used our free arthritis resources. What changed, what helped, and what they would tell someone newly diagnosed."
+    },
+    "/lived-experiences": {
+      "title": "Living With Arthritis: Real Stories, Real People",
+      "description": "First-person accounts of living with arthritis in the UK: diagnosis, work, relationships, bad days, and what people wish they had known sooner."
+    },
+    "/privacy-policy": {
+      "title": "Privacy Policy | Living With Arthritis UK",
+      "description": "What data we collect, why, how long we keep it, who we share it with, and your GDPR rights. Written in plain English, not legal jargon."
+    },
+    "/regions/england": {
+      "title": "Arthritis Support in England: Services & Groups",
+      "description": "Arthritis support across England: NHS rheumatology services, local peer groups, benefits help, and regional contacts area by area."
+    },
+    "/regions/northern-ireland": {
+      "title": "Arthritis Support in Northern Ireland: Your Guide",
+      "description": "Arthritis support in Northern Ireland: HSC services, rheumatology access, local peer groups, and benefits advice specific to NI."
+    },
+    "/regions/scotland": {
+      "title": "Arthritis Support in Scotland: Services & Groups",
+      "description": "Arthritis support in Scotland: NHS Scotland rheumatology services, local peer groups, and benefits guidance under Scottish rules."
+    },
+    "/regions/wales": {
+      "title": "Arthritis Support in Wales: Services & Groups",
+      "description": "Arthritis support in Wales: NHS Wales rheumatology services, local peer groups, and Welsh-specific benefits and social care guidance."
+    },
+    "/safeguarding": {
+      "title": "Safeguarding Policy | Living With Arthritis UK",
+      "description": "How we protect vulnerable adults and children across our events, peer groups and online spaces, and how to raise a safeguarding concern."
+    },
+    "/self-help-tool": {
+      "title": "Arthritis Self-Help Tool: Build Your Own Plan",
+      "description": "Answer a few questions and get a personalised arthritis management plan covering exercise, diet, pain relief, and what to ask your GP."
+    },
+    "/sitemap": {
+      "title": "Site Map: Every Page on Living With Arthritis UK",
+      "description": "Browse every guide, article and resource on Living With Arthritis UK, organised by topic. The full index of our free arthritis content."
+    },
+    "/terms-conditions": {
+      "title": "Terms & Conditions | Living With Arthritis UK",
+      "description": "The terms for using our website and resources, including our medical disclaimer, copyright, and limits of liability. In plain English."
+    },
+    "/trust-credibility": {
+      "title": "How We Ensure Accuracy | Editorial Review Policy",
+      "description": "Who writes and reviews our arthritis content, how we source and check every claim, how often we update, and how to report an error to us."
+    },
+    "/ways-to-help": {
+      "title": "Ways to Help: Donate, Volunteer or Fundraise",
+      "description": "Support free arthritis guidance in the UK. Donate, volunteer at community events, fundraise, or share our resources with someone who needs them."
+    },
+    "/zakat": {
+      "title": "Zakat-Eligible Giving | Living With Arthritis UK",
+      "description": "How your Zakat supports free arthritis care for those in need, how we keep Zakat funds separate, and our full eligibility statement."
+    },
+    "/blog/knee-arthritis-exercises-uk": {
+      "title": "Knee Arthritis Exercises: Physio-Reviewed Routine",
+      "description": "Safe, physio-reviewed exercises for knee arthritis: strengthening, range of motion and low-impact cardio. How often, and when to stop."
+    },
+    "/blog/hand-osteoarthritis-keeping-hands-functional": {
+      "title": "Hand Osteoarthritis Exercises: Keep Your Grip",
+      "description": "Gentle hand exercises for osteoarthritis to maintain grip strength and finger movement. Physio-reviewed, no equipment, five minutes a day."
+    }
+  },
+  "fallback": {
+    "titleTemplate": "%s | Living With Arthritis UK",
+    "title": "Living With Arthritis UK — Free Arthritis Guides & Support",
+    "description": "Free, expert-reviewed arthritis guidance from a UK non-profit: exercises, diet, pain management, NHS navigation and benefits advice."
+  },
+  "redirects": [
+    {
+      "from": "/blog/knee-exercises-arthritis",
+      "to": "/blog/knee-arthritis-exercises-uk",
+      "status": 301,
+      "reason": "Duplicate topic. Three knee-exercise pages currently compete for the same searches."
+    },
+    {
+      "from": "/blog/knee-osteoarthritis-exercises",
+      "to": "/blog/knee-arthritis-exercises-uk",
+      "status": 301,
+      "reason": "Duplicate topic. Merge useful content into the target page before redirecting."
+    },
+    {
+      "from": "/about",
+      "to": "/about-us",
+      "status": 301,
+      "reason": "VERIFY FIRST. Both /about and /about-us appeared in data. If only one exists, delete this redirect."
+    }
+  ]
+}
