@@ -2,13 +2,21 @@ import { useState, useEffect } from "react";
 import { Type, Moon, Sun, RotateCcw, Accessibility } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const FONT_SIZES = ["default", "large", "x-large"] as const;
+const FONT_SIZES = ["default", "large", "x-large", "xx-large"] as const;
 type FontSize = typeof FONT_SIZES[number];
 
 const fontSizeMap: Record<FontSize, string> = {
   default: "100%",
-  large: "112%",
-  "x-large": "125%",
+  large: "115%",
+  "x-large": "135%",
+  "xx-large": "160%",
+};
+
+const fontSizeLabels: Record<FontSize, string> = {
+  default: "Normal",
+  large: "Large",
+  "x-large": "Extra Large",
+  "xx-large": "Largest",
 };
 
 export default function AccessibilityToolbar() {
@@ -58,10 +66,10 @@ export default function AccessibilityToolbar() {
             size="sm"
             className="w-full justify-start gap-2 text-xs h-9"
             onClick={cycleFontSize}
-            aria-label={`Font size: ${fontSize}`}
+            aria-label={`Font size: ${fontSizeLabels[fontSize]}`}
           >
             <Type className="w-4 h-4 shrink-0" />
-            Font: {fontSize === "default" ? "Normal" : fontSize === "large" ? "Large" : "Extra Large"}
+            Font: {fontSizeLabels[fontSize]}
           </Button>
 
           <Button
