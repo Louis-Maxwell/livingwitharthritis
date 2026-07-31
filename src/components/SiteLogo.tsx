@@ -25,14 +25,14 @@ const LogoFigure = ({ className = '' }: { className?: string }) => (
     focusable="false"
   >
     <g stroke="hsl(var(--primary))" strokeWidth="7" strokeLinecap="round" fill="none">
-      {/* raised arms */}
-      <path d="M32 30 L6 6" />
-      <path d="M32 30 L58 6" />
+      {/* raised arms, curved through the shoulder */}
+      <path d="M32 29 Q19 20 8 5" />
+      <path d="M32 29 Q45 20 56 5" />
       {/* torso */}
-      <path d="M32 28 L32 46" />
-      {/* legs apart */}
-      <path d="M32 44 L18 68" />
-      <path d="M32 44 L46 68" />
+      <path d="M32 27 L32 45" />
+      {/* legs apart, curved through the hip */}
+      <path d="M32 45 Q23 54 17 69" />
+      <path d="M32 45 Q41 54 47 69" />
     </g>
     {/* head */}
     <circle cx="32" cy="12" r="9" fill="hsl(var(--primary))" />
