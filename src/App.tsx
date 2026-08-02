@@ -169,6 +169,9 @@ const Glucosamine = lazy(() => import("./pages/supplements/Glucosamine"));
 const Msm = lazy(() => import("./pages/supplements/Msm"));
 const Turmeric = lazy(() => import("./pages/supplements/Turmeric"));
 const Collagen = lazy(() => import("./pages/supplements/Collagen"));
+const CollagenAlternatives = lazy(
+  () => import("./pages/supplements/CollagenAlternatives"),
+);
 const LivingWithArthritis = lazy(() => import("./pages/LivingWithArthritis"));
 const ArthritisMentalHealth = lazy(() => import("./pages/ArthritisMentalHealth"));
 const FaqArticle = lazy(() => import("./pages/FaqArticle"));
