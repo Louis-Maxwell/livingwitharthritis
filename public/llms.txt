@@ -46,6 +46,15 @@
 - [Preventative MSK Health](/guides/preventative-msk-health): Staying ahead of musculoskeletal problems before they start, across the life course.
 - [Disability Support](/guides/disability-support): UK disability support, adjustments and services for people with musculoskeletal and arthritis-related disability.
 
+## Supplements
+
+- [Supplements Hub](/supplements): Honest UK guides to the most popular arthritis supplements, covering evidence, dosing and side effects. NICE guideline NG226 does not recommend any oral supplement for osteoarthritis.
+- [Glucosamine](/supplements/glucosamine): Glucosamine sulfate 1,500 mg/day — most-studied joint supplement, inconsistent results. Usually shellfish-derived; can raise INR on warfarin.
+- [MSM](/supplements/msm): Methylsulfonylmethane 1.5–3 g/day — modest pain and stiffness improvement in knee OA.
+- [Turmeric & Curcumin](/supplements/turmeric): ~1,000 mg/day curcumin — strongest anti-inflammatory evidence, comparable to ibuprofen in knee OA trials.
+- [Collagen](/supplements/collagen): Hydrolysed peptides 10 g/day or undenatured type II (UC-II) 40 mg/day — small-to-moderate knee OA improvements at 12–24 weeks. All collagen is animal-derived.
+- [Collagen Alternatives](/supplements/collagen-alternatives): What to take instead of collagen. There is no vegan collagen — "vegan collagen" products are collagen builders (vitamin C, glycine, proline, zinc). Evidence-based alternatives: turmeric/curcumin ~1,000 mg/day, glucosamine sulfate 1,500 mg/day, MSM 1.5–3 g/day, omega-3 (algal oil for vegans and fish allergy), vitamin C plus 1.0–1.2 g protein/kg/day, vitamin D 10 µg daily in autumn/winter.
+
 ## Glossary
 
 - [Arthritis & Musculoskeletal Glossary](/glossary): Plain-English definitions of 111 rheumatology, orthopaedic and musculoskeletal terms — from DMARDs and biologics to synovitis, HLA-B27 and DAS28. Each term has its own page at `/glossary/{term}` with a short definition and related terms.
