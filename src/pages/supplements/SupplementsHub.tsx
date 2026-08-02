@@ -45,6 +45,12 @@ const SUPPLEMENTS = [
     desc: "Hydrolysed peptides (10 g/day) or undenatured type II (40 mg/day) — emerging evidence for knee pain, stiffness and joint comfort.",
     available: true,
   },
+  {
+    to: "/supplements/collagen-alternatives",
+    label: "Collagen alternatives",
+    desc: "Vegan, halal and allergy-safe options when collagen is off the table — turmeric, MSM, algal omega-3, vitamin C and D, with doses.",
+    available: true,
+  },
 
   {
     to: "/blog/category/supplements",
