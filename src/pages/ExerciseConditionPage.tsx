@@ -101,7 +101,7 @@ const ExerciseConditionPage = () => {
       })),
     };
     const nodes: HTMLScriptElement[] = [];
-    for (const data of [medicalLd, breadcrumbLd, faqLd]) {
+    for (const data of [medicalLd, faqLd]) {
       const s = document.createElement("script");
       s.type = "application/ld+json";
       s.text = JSON.stringify(data);
