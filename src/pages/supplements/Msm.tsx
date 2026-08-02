@@ -83,16 +83,8 @@ export default function Msm() {
         acceptedAnswer: { "@type": "Answer", text: f.a },
       })),
     };
-    const breadcrumb = {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: `${BASE}/` },
-        { "@type": "ListItem", position: 2, name: "Supplements", item: `${BASE}/supplements` },
-        { "@type": "ListItem", position: 3, name: "MSM", item: URL },
-      ],
-    };
-    const scripts = [medical, faq, breadcrumb].map((d) => {
+    // BreadcrumbList intentionally not emitted here — <PageBreadcrumb> below covers it.
+    const scripts = [medical, faq].map((d) => {
       const s = document.createElement("script");
       s.type = "application/ld+json";
       s.text = JSON.stringify(d);

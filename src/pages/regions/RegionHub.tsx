@@ -92,25 +92,12 @@ const RegionHub = () => {
         geographicArea: { "@type": "AdministrativeArea", name: `${r.name}, United Kingdom` },
       },
     };
-    const breadcrumb = {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: `${BASE}/` },
-        { "@type": "ListItem", position: 2, name: "Regions", item: `${BASE}/regions` },
-        { "@type": "ListItem", position: 3, name: r.name, item: `${BASE}/regions/${r.slug}` },
-      ],
-    };
+    // BreadcrumbList intentionally not emitted here — <PageBreadcrumb> below covers it.
     const s1 = document.createElement("script");
     s1.type = "application/ld+json";
     s1.text = JSON.stringify(ld);
     s1.dataset.region = "1";
     document.head.appendChild(s1);
-    const s2 = document.createElement("script");
-    s2.type = "application/ld+json";
-    s2.text = JSON.stringify(breadcrumb);
-    s2.dataset.region = "2";
-    document.head.appendChild(s2);
     return () => {
       document.querySelectorAll("script[data-region]").forEach((el) => el.remove());
     };

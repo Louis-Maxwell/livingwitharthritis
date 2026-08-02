@@ -27,16 +27,6 @@ const jsonLd = {
   "mainEntityOfPage": URL
 };
 
-const breadcrumbLd = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": `${BASE}/` },
-    { "@type": "ListItem", "position": 2, "name": "Guides", "item": `${BASE}/blog` },
-    { "@type": "ListItem", "position": 3, "name": "Arthritis Pain Relief", "item": URL }
-  ]
-};
-
 const faqLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -87,7 +77,7 @@ const ArthritisPainRelief = () => (
       <meta name="geo.region" content="GB" />
       <link rel="alternate" hrefLang="en-GB" href={URL} />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-      <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
+      {/* BreadcrumbList intentionally not emitted here — <PageBreadcrumb> below covers it. */}
       <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
     </Helmet>
     <div className="min-h-screen bg-background">

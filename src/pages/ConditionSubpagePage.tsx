@@ -101,16 +101,7 @@ const ConditionSubpagePage = () => {
       },
       dateModified: new Date().toISOString().slice(0, 10),
     };
-    const breadcrumbLd = {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: `${BASE}/` },
-        { "@type": "ListItem", position: 2, name: "Conditions", item: `${BASE}/conditions/${cond.slug}` },
-        { "@type": "ListItem", position: 3, name: cond.name, item: `${BASE}/conditions/${cond.slug}` },
-        { "@type": "ListItem", position: 4, name: subLabel, item: url },
-      ],
-    };
+    // BreadcrumbList intentionally not emitted here — <PageBreadcrumb> below covers it.
     const faqLd = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -121,7 +112,7 @@ const ConditionSubpagePage = () => {
       })),
     };
     const nodes: HTMLScriptElement[] = [];
-    for (const data of [medicalLd, breadcrumbLd, faqLd]) {
+    for (const data of [medicalLd, faqLd]) {
       const s = document.createElement("script");
       s.type = "application/ld+json";
       s.text = JSON.stringify(data);

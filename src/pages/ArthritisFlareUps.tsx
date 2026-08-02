@@ -152,14 +152,6 @@ export default function ArthritisFlareUps() {
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
-            { "@type": "ListItem", "position": 2, "name": "Arthritis Flare-Ups", "item": "https://livingwitharthritis.org.uk/arthritis-flare-ups" }
-          ]
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
           "@type": "HowTo",
           "name": "How to manage an arthritis flare-up",
           "description": "Five evidence-based steps to reduce pain and inflammation during an arthritis flare-up.",

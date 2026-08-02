@@ -295,23 +295,10 @@ const howToJsonLd = {
   })),
 };
 
-const breadcrumbJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Diet", item: `${SITE}/diet` },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "Mediterranean Diet for Arthritis",
-      item: `${SITE}/diet/mediterranean-diet-for-arthritis`,
-    },
-  ],
-};
-
 export default function MediterraneanDietForArthritis() {
   useEffect(() => {
-    const scripts = [articleJsonLd, faqJsonLd, howToJsonLd, breadcrumbJsonLd].map(
+    // BreadcrumbList intentionally not emitted here — <PageBreadcrumb> below covers it.
+    const scripts = [articleJsonLd, faqJsonLd, howToJsonLd].map(
       (data) => {
         const s = document.createElement("script");
         s.type = "application/ld+json";

@@ -89,15 +89,9 @@ export default function SupplementsHub() {
         url: `${BASE}${s.to}`,
       })),
     };
-    const breadcrumb = {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: `${BASE}/` },
-        { "@type": "ListItem", position: 2, name: "Supplements", item: URL },
-      ],
-    };
-    const scripts = [itemList, breadcrumb].map((d) => {
+    // BreadcrumbList is intentionally not emitted here — <PageBreadcrumb>
+    // below already injects it, and <PageSchema> no longer duplicates it.
+    const scripts = [itemList].map((d) => {
       const s = document.createElement("script");
       s.type = "application/ld+json";
       s.text = JSON.stringify(d);

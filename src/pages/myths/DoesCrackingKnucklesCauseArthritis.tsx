@@ -149,24 +149,11 @@ const faqJsonLd = {
   })),
 };
 
-const breadcrumbJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
-    { "@type": "ListItem", position: 2, name: "Myths", item: `${SITE}/myths` },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: "Does Cracking Knuckles Cause Arthritis?",
-      item: `${SITE}${PAGE_PATH}`,
-    },
-  ],
-};
 
 export default function DoesCrackingKnucklesCauseArthritis() {
   useEffect(() => {
-    const scripts = [articleJsonLd, faqJsonLd, breadcrumbJsonLd].map((data) => {
+    // BreadcrumbList intentionally not emitted here — <PageBreadcrumb> below covers it.
+    const scripts = [articleJsonLd, faqJsonLd].map((data) => {
       const s = document.createElement("script");
       s.type = "application/ld+json";
       s.text = JSON.stringify(data);

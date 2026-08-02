@@ -109,18 +109,14 @@ export default function PageSchema({
     const absUrl = toAbsolute(url);
     const blocks: Record<string, unknown>[] = [];
 
-    if (breadcrumbs && breadcrumbs.length > 0) {
-      blocks.push({
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        itemListElement: breadcrumbs.map((b, i) => ({
-          "@type": "ListItem",
-          position: i + 1,
-          name: b.name,
-          ...(b.item ? { item: toAbsolute(b.item) } : {}),
-        })),
-      });
-    }
+    // BreadcrumbList is intentionally NOT emitted here — every caller of
+    // PageSchema also renders <PageBreadcrumb>, which independently injects
+    // its own BreadcrumbList JSON-LD built from the same visual trail. Two
+    // BreadcrumbList blocks per page is bad structured-data hygiene (Google
+    // can drop the rich result as ambiguous), so <PageBreadcrumb> is the
+    // single source of truth; the `breadcrumbs` prop is kept for API
+    // compatibility but no longer used.
+    void breadcrumbs;
 
     if (faqs && faqs.length > 0) {
       blocks.push({

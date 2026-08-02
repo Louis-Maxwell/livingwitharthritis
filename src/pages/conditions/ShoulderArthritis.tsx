@@ -45,16 +45,6 @@ const jsonLd = {
   "mainEntityOfPage": URL
 };
 
-const breadcrumbLd = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": `${BASE}/` },
-    { "@type": "ListItem", "position": 2, "name": "Conditions", "item": `${BASE}/#conditions` },
-    { "@type": "ListItem", "position": 3, "name": "Shoulder Arthritis", "item": URL }
-  ]
-};
-
 const faqLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -110,7 +100,6 @@ const ShoulderArthritis = () => (
       <meta name="geo.region" content="GB" />
       <link rel="alternate" hrefLang="en-GB" href={URL} />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-      <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
       <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
     </Helmet>
     <div className="min-h-screen bg-background">

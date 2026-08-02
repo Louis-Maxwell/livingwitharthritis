@@ -47,16 +47,6 @@ const CityArthritisPage = () => {
     dateModified: LAST_REVIEWED_ISO,
   };
 
-  const breadcrumbLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `${BASE}/` },
-      { "@type": "ListItem", position: 2, name: "Arthritis Support", item: `${BASE}/arthritis-support` },
-      { "@type": "ListItem", position: 3, name: cityData.name, item: `${BASE}/arthritis-support/${cityData.slug}` },
-    ],
-  };
-
   const localBusinessLd = {
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
@@ -108,7 +98,6 @@ const CityArthritisPage = () => {
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(localBusinessLd)}</script>
-        <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
         <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
       </Helmet>
 

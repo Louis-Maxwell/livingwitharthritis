@@ -89,16 +89,6 @@ const CityServicePage = () => {
         longitude: city.lng,
       },
     };
-    const breadcrumbLd = {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: `${BASE}/` },
-        { "@type": "ListItem", position: 2, name: "UK", item: `${BASE}/arthritis-support` },
-        { "@type": "ListItem", position: 3, name: city.name, item: `${BASE}/arthritis-support/${city.slug}` },
-        { "@type": "ListItem", position: 4, name: sLabel, item: url },
-      ],
-    };
     const faqLd = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -138,7 +128,7 @@ const CityServicePage = () => {
       ],
     };
     const nodes: HTMLScriptElement[] = [];
-    for (const data of [medicalLd, placeLd, breadcrumbLd, faqLd]) {
+    for (const data of [medicalLd, placeLd, faqLd]) {
       const s = document.createElement("script");
       s.type = "application/ld+json";
       s.text = JSON.stringify(data);

@@ -184,14 +184,7 @@ const ExerciseHub = () => {
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
-            { "@type": "ListItem", "position": 2, "name": "Exercises", "item": "https://livingwitharthritis.org.uk/exercises" }
-          ]
-        })}</script>
+        {/* BreadcrumbList intentionally not emitted here — <PageBreadcrumb> below covers it. */}
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "HowTo",

@@ -89,16 +89,7 @@ const ExerciseConditionPage = () => {
       },
       dateModified: new Date().toISOString().slice(0, 10),
     };
-    const breadcrumbLd = {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: `${BASE}/` },
-        { "@type": "ListItem", position: 2, name: "Exercises", item: `${BASE}/exercises` },
-        { "@type": "ListItem", position: 3, name: `${jointName} Exercises`, item: `${BASE}/exercises` },
-        { "@type": "ListItem", position: 4, name: cond.name, item: url },
-      ],
-    };
+    // BreadcrumbList intentionally not emitted here — <PageBreadcrumb> below covers it.
     const faqs = buildExerciseConditionFaqs(jointName, cond);
     const faqLd = {
       "@context": "https://schema.org",

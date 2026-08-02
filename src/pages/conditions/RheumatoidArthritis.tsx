@@ -50,16 +50,6 @@ const jsonLd = {
   "mainEntityOfPage": `${BASE}/conditions/rheumatoid-arthritis`
 };
 
-const breadcrumbLd = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": `${BASE}/` },
-    { "@type": "ListItem", "position": 2, "name": "Conditions", "item": `${BASE}/#conditions` },
-    { "@type": "ListItem", "position": 3, "name": "Rheumatoid Arthritis", "item": `${BASE}/conditions/rheumatoid-arthritis` }
-  ]
-};
-
 const faqLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -115,7 +105,6 @@ const RheumatoidArthritis = () => (
       <meta name="geo.region" content="GB" />
       <link rel="alternate" hrefLang="en-GB" href={`${BASE}/conditions/rheumatoid-arthritis`} />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-      <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
       <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
     </Helmet>
     <div className="min-h-screen bg-background">

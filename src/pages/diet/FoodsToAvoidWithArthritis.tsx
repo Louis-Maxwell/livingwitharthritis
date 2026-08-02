@@ -187,27 +187,13 @@ const faqJsonLd = {
   })),
 };
 
-const breadcrumbJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Diet", item: `${SITE}/diet` },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "Foods to Avoid With Arthritis",
-      item: URL,
-    },
-  ],
-};
-
 export default function FoodsToAvoidWithArthritis() {
   useEffect(() => {
+    // BreadcrumbList intentionally not emitted here — <PageBreadcrumb> below covers it.
     const scripts = [
       articleJsonLd,
       medicalWebPageJsonLd,
       faqJsonLd,
-      breadcrumbJsonLd,
     ].map((data) => {
       const s = document.createElement("script");
       s.type = "application/ld+json";

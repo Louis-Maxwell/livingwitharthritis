@@ -80,17 +80,6 @@ const CityConditionPage = () => {
     dateModified: LAST_REVIEWED_ISO,
   };
 
-  const breadcrumbLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `${BASE}/` },
-      { "@type": "ListItem", position: 2, name: "Arthritis Support", item: `${BASE}/arthritis-support` },
-      { "@type": "ListItem", position: 3, name: cityData.name, item: `${BASE}/arthritis-support/${cityData.slug}` },
-      { "@type": "ListItem", position: 4, name: conditionData.name, item: url },
-    ],
-  };
-
   const medicalBusinessLd = {
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
@@ -166,7 +155,6 @@ const CityConditionPage = () => {
         <script type="application/ld+json">{JSON.stringify(medicalConditionLd)}</script>
         <script type="application/ld+json">{JSON.stringify(webPageLd)}</script>
         <script type="application/ld+json">{JSON.stringify(medicalBusinessLd)}</script>
-        <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
         <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
       </Helmet>
 

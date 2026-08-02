@@ -30,15 +30,6 @@ const ExerciseJointPage = () => {
     },
   };
 
-  const breadcrumbLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `${BASE}/` },
-      { "@type": "ListItem", position: 2, name: "Exercises", item: `${BASE}/exercises` },
-      { "@type": "ListItem", position: 3, name: `${page.exercise} for ${page.joint}`, item: `${BASE}/exercises/${page.slug}` },
-    ],
-  };
 
   // HowTo schema for Google step-by-step rich results
   const howToLd = {
@@ -83,7 +74,7 @@ const ExerciseJointPage = () => {
         <meta name="twitter:description" content={page.metaDescription} />
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-        <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
+        {/* BreadcrumbList intentionally not emitted here — <PageBreadcrumb> below covers it. */}
         <script type="application/ld+json">{JSON.stringify(howToLd)}</script>
       </Helmet>
 
