@@ -342,7 +342,11 @@ export default function Collagen() {
               </ul>
               <p>
                 Tell your GP or pharmacist about any supplement you start, particularly if you
-                take regular medication.
+                take regular medication. If collagen is ruled out for you, see our guide to{' '}
+                <Link to="/supplements/collagen-alternatives" className="text-primary underline">
+                  collagen alternatives
+                </Link>
+                .
               </p>
             </div>
           </section>
