@@ -1,0 +1,30 @@
+{
+  "timestamp": "2026-08-03T19:22:04.262Z",
+  "ok": false,
+  "options": {
+    "skipBuild": false,
+    "skipFunctions": false,
+    "skipVersionCheck": false,
+    "strict": false
+  },
+  "stages": [
+    {
+      "name": "Typecheck",
+      "state": "PASS",
+      "detail": "tsgo",
+      "durationMs": 147
+    },
+    {
+      "name": "Production build",
+      "state": "PASS",
+      "detail": "dist/ + generated edge functions",
+      "durationMs": 26636
+    },
+    {
+      "name": "Edge function check",
+      "state": "FAIL",
+      "detail": "exit 1",
+      "durationMs": 45228
+    }
+  ]
+}
