@@ -22,6 +22,7 @@ import AnswerBox from "@/components/seo/AnswerBox";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import LastReviewed, { LAST_REVIEWED_ISO } from "@/components/LastReviewed";
 import MedicalPageSchema from "@/components/seo/MedicalPageSchema";
+import FaqAccordion from "@/components/faq/FaqAccordion";
 
 // Below-the-fold — lazy to reduce initial route chunk + speed up LCP
 const InternalLinks = lazy(() => import("@/components/InternalLinks"));
@@ -265,22 +266,11 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
                 Frequently Asked Questions
               </h2>
             </div>
-            <div className="space-y-4">
-              {data.faqs.map((f) => (
-                <details
-                  key={f.question}
-                  className="group rounded-xl border border-border/40 bg-card p-5 open:bg-accent/40"
-                >
-                  <summary className="cursor-pointer list-none font-display text-base md:text-lg font-semibold text-foreground flex items-center justify-between gap-4">
-                    {f.question}
-                    <ArrowRight className="w-4 h-4 text-primary shrink-0 transition-transform group-open:rotate-90" />
-                  </summary>
-                  <p className="mt-3 text-sm md:text-base text-muted-foreground leading-relaxed">
-                    {f.answer}
-                  </p>
-                </details>
-              ))}
-            </div>
+            <FaqAccordion
+              idPrefix={`condition-${data.slug}-faq`}
+              items={data.faqs}
+              injectSchema={false}
+            />
           </section>
 
           {/* Live Blog & Stories — Advice & Guidance for this condition */}

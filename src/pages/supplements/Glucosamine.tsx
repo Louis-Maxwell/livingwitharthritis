@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import AnswerBox from "@/components/seo/AnswerBox";
+import FaqAccordion from "@/components/faq/FaqAccordion";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const URL = `${BASE}/supplements/glucosamine`;
@@ -74,17 +75,9 @@ export default function Glucosamine() {
         logo: { "@type": "ImageObject", url: `${BASE}/favicon.ico` },
       },
     };
-    const faq = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: FAQS.map((f) => ({
-        "@type": "Question",
-        name: f.q,
-        acceptedAnswer: { "@type": "Answer", text: f.a },
-      })),
-    };
     // BreadcrumbList intentionally not emitted here — <PageBreadcrumb> below covers it.
-    const scripts = [medical, faq].map((d) => {
+    // FAQPage intentionally not emitted here — <FaqAccordion> below covers it.
+    const scripts = [medical].map((d) => {
       const s = document.createElement("script");
       s.type = "application/ld+json";
       s.text = JSON.stringify(d);
@@ -326,22 +319,10 @@ export default function Glucosamine() {
                 Frequently asked questions
               </h2>
             </div>
-            <div className="space-y-4">
-              {FAQS.map((f) => (
-                <details
-                  key={f.q}
-                  className="group rounded-xl border border-border/40 bg-card p-5 open:bg-accent/40"
-                >
-                  <summary className="cursor-pointer list-none font-display text-base md:text-lg font-semibold text-foreground flex items-center justify-between gap-4">
-                    {f.q}
-                    <ArrowRight className="w-4 h-4 text-primary shrink-0 transition-transform group-open:rotate-90" />
-                  </summary>
-                  <p className="mt-3 text-sm md:text-base text-muted-foreground leading-relaxed">
-                    {f.a}
-                  </p>
-                </details>
-              ))}
-            </div>
+            <FaqAccordion
+              idPrefix="supplements-glucosamine-faq"
+              items={FAQS.map((f) => ({ question: f.q, answer: f.a }))}
+            />
           </section>
 
           <div className="p-8 rounded-2xl bg-accent border border-border/30">

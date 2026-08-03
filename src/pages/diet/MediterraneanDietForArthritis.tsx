@@ -19,6 +19,7 @@ import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import FaqAccordion from "@/components/faq/FaqAccordion";
 
 const heroImage =
   "https://images.unsplash.com/photo-1505253758473-96b7015fcd40?auto=format&fit=crop&w=1600&q=80";
@@ -270,16 +271,6 @@ const articleJsonLd = {
   },
 };
 
-const faqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
-  })),
-};
-
 const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
@@ -298,7 +289,8 @@ const howToJsonLd = {
 export default function MediterraneanDietForArthritis() {
   useEffect(() => {
     // BreadcrumbList intentionally not emitted here — <PageBreadcrumb> below covers it.
-    const scripts = [articleJsonLd, faqJsonLd, howToJsonLd].map(
+    // FAQPage intentionally not emitted here — <FaqAccordion> below covers it.
+    const scripts = [articleJsonLd, howToJsonLd].map(
       (data) => {
         const s = document.createElement("script");
         s.type = "application/ld+json";
@@ -610,17 +602,10 @@ export default function MediterraneanDietForArthritis() {
           <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-8">
             Mediterranean Diet for Arthritis: FAQs
           </h2>
-          <div className="space-y-4">
-            {faqs.map((f) => (
-              <details key={f.q} className="group bg-background rounded-lg border border-border/40 p-5">
-                <summary className="cursor-pointer flex items-center justify-between gap-4">
-                  <h3 className="font-display text-lg font-semibold m-0">{f.q}</h3>
-                  <ArrowRight className="h-4 w-4 shrink-0 group-open:rotate-90 transition-transform" />
-                </summary>
-                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
-              </details>
-            ))}
-          </div>
+          <FaqAccordion
+            idPrefix="diet-mediterranean-faq"
+            items={faqs.map((f) => ({ question: f.q, answer: f.a }))}
+          />
         </div>
       </section>
 

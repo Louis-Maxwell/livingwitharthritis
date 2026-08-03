@@ -7,6 +7,7 @@ import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import NextReadStrip from "@/components/NextReadStrip";
+import FaqAccordion from "@/components/faq/FaqAccordion";
 import {
   conditionSubpages,
   subpageSlugs,
@@ -102,24 +103,12 @@ const ConditionSubpagePage = () => {
       dateModified: new Date().toISOString().slice(0, 10),
     };
     // BreadcrumbList intentionally not emitted here — <PageBreadcrumb> below covers it.
-    const faqLd = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: faqs.map((f) => ({
-        "@type": "Question",
-        name: f.question,
-        acceptedAnswer: { "@type": "Answer", text: f.answer },
-      })),
-    };
-    const nodes: HTMLScriptElement[] = [];
-    for (const data of [medicalLd, faqLd]) {
-      const s = document.createElement("script");
-      s.type = "application/ld+json";
-      s.text = JSON.stringify(data);
-      document.head.appendChild(s);
-      nodes.push(s);
-    }
-    return () => nodes.forEach((n) => n.remove());
+    // FAQPage intentionally not emitted here — <FaqAccordion> below covers it.
+    const s = document.createElement("script");
+    s.type = "application/ld+json";
+    s.text = JSON.stringify(medicalLd);
+    document.head.appendChild(s);
+    return () => s.remove();
   }, [condition, subpage]);
 
   if (!isSubpage(subpage)) return <Navigate to="/404" replace />;
@@ -270,22 +259,7 @@ const ConditionSubpagePage = () => {
             <HelpCircle className="w-5 h-5 text-primary" />
             People also ask about {lcName} {subpage === "diet" ? "and diet" : subpage}
           </h2>
-          <div className="space-y-3">
-            {faqs.map((f, i) => (
-              <details
-                key={i}
-                className="bg-card border border-border rounded-xl p-5 group"
-              >
-                <summary className="font-semibold text-foreground cursor-pointer list-none flex items-start justify-between gap-3">
-                  <span>{f.question}</span>
-                  <ArrowRight className="w-4 h-4 text-primary shrink-0 mt-1 transition-transform group-open:rotate-90" />
-                </summary>
-                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                  {f.answer}
-                </p>
-              </details>
-            ))}
-          </div>
+          <FaqAccordion idPrefix={`${cond.slug}-${subpage}-faq`} items={faqs} />
         </section>
 
         {/* Sibling sub-pages — same condition */}

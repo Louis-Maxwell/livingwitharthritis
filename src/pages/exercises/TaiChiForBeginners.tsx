@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { TAI_CHI_ANIMATIONS, TAI_CHI_VIDEOS } from "@/components/exercises/TaiChiAnimations";
 import ExerciseVideoModal from "@/components/exercises/ExerciseVideoModal";
+import FaqAccordion from "@/components/faq/FaqAccordion";
 import { Play } from "lucide-react";
 
 const heroImage = "/openverse/wellness-02-tai-chi-young-and-old.webp";
@@ -81,16 +82,6 @@ const courseJsonLd = {
   },
 };
 
-const faqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
-  })),
-};
-
 const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
@@ -109,21 +100,17 @@ const howToJsonLd = {
 
 export default function TaiChiForBeginners() {
   useEffect(() => {
+    // FAQPage intentionally not emitted here — <FaqAccordion> below covers it.
     const a = document.createElement("script");
     a.type = "application/ld+json";
     a.text = JSON.stringify(courseJsonLd);
-    const b = document.createElement("script");
-    b.type = "application/ld+json";
-    b.text = JSON.stringify(faqJsonLd);
     const c = document.createElement("script");
     c.type = "application/ld+json";
     c.text = JSON.stringify(howToJsonLd);
     document.head.appendChild(a);
-    document.head.appendChild(b);
     document.head.appendChild(c);
     return () => {
       document.head.removeChild(a);
-      document.head.removeChild(b);
       document.head.removeChild(c);
     };
   }, []);
@@ -315,17 +302,10 @@ export default function TaiChiForBeginners() {
       <section className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
           <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-8">Tai Chi for Beginners: FAQs</h2>
-          <div className="space-y-4">
-            {faqs.map((f) => (
-              <details key={f.q} className="group bg-background rounded-lg border border-border/40 p-5">
-                <summary className="cursor-pointer flex items-center justify-between gap-4">
-                  <h3 className="font-display text-lg font-semibold m-0">{f.q}</h3>
-                  <ArrowRight className="h-4 w-4 shrink-0 group-open:rotate-90 transition-transform" />
-                </summary>
-                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
-              </details>
-            ))}
-          </div>
+          <FaqAccordion
+            idPrefix="tai-chi-beginners-faq"
+            items={faqs.map((f) => ({ question: f.q, answer: f.a }))}
+          />
         </div>
       </section>
 

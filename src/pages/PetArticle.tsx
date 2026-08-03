@@ -2,6 +2,7 @@ import { Link, useParams, Navigate } from "react-router-dom";
 import { AlertTriangle, ChevronLeft } from "lucide-react";
 import PET_ARTICLES from "@/data/pets-arthritis.generated";
 import SeoHead from "@/components/SeoHead";
+import FaqAccordion from "@/components/faq/FaqAccordion";
 
 /**
  * /pets/:slug — Pet article page
@@ -87,17 +88,10 @@ export default function PetArticle() {
           {/* FAQs */}
           <section className="mt-10">
             <h2 className="text-2xl font-bold mb-4">Frequently asked questions</h2>
-            <div className="space-y-3">
-              {article.faqs.map((f, i) => (
-                <details key={i} className="border rounded-lg p-4 group">
-                  <summary className="font-semibold cursor-pointer list-none flex justify-between items-center">
-                    {f.q}
-                    <span className="text-primary group-open:rotate-45 transition text-xl leading-none" aria-hidden="true">+</span>
-                  </summary>
-                  <p className="text-gray-700 mt-2 text-sm leading-relaxed">{f.a}</p>
-                </details>
-              ))}
-            </div>
+            <FaqAccordion
+              idPrefix={`pets-${article.slug}-faq`}
+              items={article.faqs.map((f) => ({ question: f.q, answer: f.a }))}
+            />
           </section>
 
           {/* Related — keeps visitors on-site (bounce-rate lever) */}

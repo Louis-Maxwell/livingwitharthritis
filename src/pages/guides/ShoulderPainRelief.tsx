@@ -6,6 +6,7 @@ import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
+import FaqAccordion from "@/components/faq/FaqAccordion";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
@@ -180,24 +181,11 @@ export default function ShoulderPainRelief() {
             <h3 className="font-display font-bold text-lg mb-4">
               People also ask
             </h3>
-            <div className="space-y-3">
-              {FAQS.map((f) => (
-                <details
-                  key={f.question}
-                  className="group rounded-xl border border-border/30 bg-card p-5"
-                >
-                  <summary className="cursor-pointer list-none font-semibold text-foreground flex items-start justify-between gap-3">
-                    <span>{f.question}</span>
-                    <span className="text-primary transition-transform group-open:rotate-45">
-                      +
-                    </span>
-                  </summary>
-                  <p className="mt-3 text-foreground/80 leading-relaxed">
-                    {f.answer}
-                  </p>
-                </details>
-              ))}
-            </div>
+            <FaqAccordion
+              idPrefix="shoulder-pain-relief-faq"
+              items={FAQS}
+              injectSchema={false}
+            />
           </div>
 
           <div className="mt-16 pt-8 border-t border-border/30">

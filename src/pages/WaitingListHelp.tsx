@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { Clock, Hospital, ArrowRight, Calculator, CheckCircle2, Phone, BookOpen } from "lucide-react";
+import FaqAccordion from "@/components/faq/FaqAccordion";
 
 const BASE = "https://livingwitharthritis.org.uk";
 
@@ -33,15 +34,7 @@ const FAQS = [
 
 const WaitingListHelp = () => {
   useEffect(() => {
-    const faqLd = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: FAQS.map((f) => ({
-        "@type": "Question",
-        name: f.q,
-        acceptedAnswer: { "@type": "Answer", text: f.a },
-      })),
-    };
+    // FAQPage intentionally not emitted here — <FaqAccordion> below covers it.
     const articleLd = {
       "@context": "https://schema.org",
       "@type": "MedicalWebPage",
@@ -51,11 +44,6 @@ const WaitingListHelp = () => {
       inLanguage: "en-GB",
       audience: { "@type": "MedicalAudience", audienceType: "Patient", geographicArea: { "@type": "Country", "name": "United Kingdom" } },
     };
-    const s1 = document.createElement("script");
-    s1.type = "application/ld+json";
-    s1.text = JSON.stringify(faqLd);
-    s1.dataset.nhswait = "1";
-    document.head.appendChild(s1);
     const s2 = document.createElement("script");
     s2.type = "application/ld+json";
     s2.text = JSON.stringify(articleLd);
@@ -160,17 +148,10 @@ const WaitingListHelp = () => {
 
         <section>
           <h2 className="text-2xl font-semibold mb-5">Frequently Asked Questions</h2>
-          <div className="space-y-4">
-            {FAQS.map((f) => (
-              <details key={f.q} className="bg-card border border-border rounded-xl p-5 group">
-                <summary className="font-semibold cursor-pointer list-none flex items-center justify-between">
-                  {f.q}
-                  <span className="text-primary ml-3 group-open:rotate-45 transition">+</span>
-                </summary>
-                <p className="text-muted-foreground mt-3 leading-relaxed">{f.a}</p>
-              </details>
-            ))}
-          </div>
+          <FaqAccordion
+            idPrefix="waiting-list-help-faq"
+            items={FAQS.map((f) => ({ question: f.q, answer: f.a }))}
+          />
         </section>
       </main>
 

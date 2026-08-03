@@ -2,8 +2,9 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SeoHead from '@/components/SeoHead';
 import MedicalReviewBadge from '@/components/MedicalReviewBadge';
-import { injectJsonLd, buildBreadcrumb, buildFAQPage } from '@/lib/jsonLd';
+import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
 import { pillarScaffolds, tier2OutlinesByPillar } from '@/data/tier2Outlines';
+import FaqAccordion from '@/components/faq/FaqAccordion';
 
 /**
  * Pillar page — "Arthritis & Mental Health" complete guide. Scaffold (sections,
@@ -59,11 +60,10 @@ export default function ArthritisMentalHealth() {
       { name: 'Home', path: '/' },
       { name: 'Arthritis & Mental Health', path: pillar.route },
     ]);
-    const faqLd = buildFAQPage(faqs);
+    // FAQPage intentionally not emitted here — <FaqAccordion> below covers it.
     const c1 = injectJsonLd('mental-health-article', article);
     const c2 = injectJsonLd('mental-health-breadcrumb', breadcrumb);
-    const c3 = injectJsonLd('mental-health-faq', faqLd);
-    return () => { c1(); c2(); c3(); };
+    return () => { c1(); c2(); };
   }, []);
 
   return (
@@ -134,14 +134,7 @@ export default function ArthritisMentalHealth() {
 
       <section id="faqs" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">Frequently asked questions</h2>
-        <div className="space-y-4">
-          {faqs.map((f) => (
-            <details key={f.question} className="rounded-lg border p-5 open:bg-accent/40">
-              <summary className="font-semibold cursor-pointer">{f.question}</summary>
-              <p className="mt-3 text-muted-foreground leading-relaxed">{f.answer}</p>
-            </details>
-          ))}
-        </div>
+        <FaqAccordion idPrefix="mental-health" items={faqs} />
       </section>
 
       <aside className="bg-accent rounded-lg p-6 border-l-4 border-primary">

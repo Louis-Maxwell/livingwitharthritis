@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
+import FaqAccordion from "@/components/faq/FaqAccordion";
 
 export interface StubPageFAQ {
   q: string;
@@ -48,15 +49,6 @@ export default function StubPage({
   const canonical = `${BASE}/${slug.replace(/^\//, "")}`;
 
   useEffect(() => {
-    const faqJsonLd = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: faqs.map((f) => ({
-        "@type": "Question",
-        name: f.q,
-        acceptedAnswer: { "@type": "Answer", text: f.a },
-      })),
-    };
     const breadcrumbJsonLd = {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -67,15 +59,12 @@ export default function StubPage({
         item: `${BASE}${b.href}`,
       })),
     };
-    const nodes = [faqJsonLd, breadcrumbJsonLd].map((data) => {
-      const el = document.createElement("script");
-      el.type = "application/ld+json";
-      el.text = JSON.stringify(data);
-      document.head.appendChild(el);
-      return el;
-    });
-    return () => nodes.forEach((n) => n.remove());
-  }, [slug, faqs, breadcrumbs]);
+    const el = document.createElement("script");
+    el.type = "application/ld+json";
+    el.text = JSON.stringify(breadcrumbJsonLd);
+    document.head.appendChild(el);
+    return () => el.remove();
+  }, [slug, breadcrumbs]);
 
   return (
     <>
@@ -146,25 +135,10 @@ export default function StubPage({
             >
               Frequently asked questions
             </h2>
-            <div className="space-y-4">
-              {faqs.map((f) => (
-                <details
-                  key={f.q}
-                  className="group border border-border rounded-lg p-4 md:p-5 bg-card open:bg-accent/20"
-                >
-                  <summary className="cursor-pointer list-none flex items-start justify-between gap-3 font-semibold text-foreground">
-                    <span>{f.q}</span>
-                    <ChevronRight
-                      className="w-5 h-5 shrink-0 text-primary transition-transform group-open:rotate-90"
-                      aria-hidden
-                    />
-                  </summary>
-                  <p className="mt-3 text-sm md:text-base text-muted-foreground leading-relaxed">
-                    {f.a}
-                  </p>
-                </details>
-              ))}
-            </div>
+            <FaqAccordion
+              idPrefix={`${slug.replace(/\//g, "-")}-faq`}
+              items={faqs.map((f) => ({ question: f.q, answer: f.a }))}
+            />
           </section>
 
           {/* "More coming soon" + Related */}

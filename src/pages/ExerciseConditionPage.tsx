@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import SeoHead from "@/components/SeoHead";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import SocialShareButtons from "@/components/SocialShareButtons";
+import FaqAccordion from "@/components/faq/FaqAccordion";
 import { useEffect } from "react";
 import {
   conditionBySlug,
@@ -90,25 +91,12 @@ const ExerciseConditionPage = () => {
       dateModified: new Date().toISOString().slice(0, 10),
     };
     // BreadcrumbList intentionally not emitted here — <PageBreadcrumb> below covers it.
-    const faqs = buildExerciseConditionFaqs(jointName, cond);
-    const faqLd = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: faqs.map((f) => ({
-        "@type": "Question",
-        name: f.q,
-        acceptedAnswer: { "@type": "Answer", text: f.a },
-      })),
-    };
-    const nodes: HTMLScriptElement[] = [];
-    for (const data of [medicalLd, breadcrumbLd, faqLd]) {
-      const s = document.createElement("script");
-      s.type = "application/ld+json";
-      s.text = JSON.stringify(data);
-      document.head.appendChild(s);
-      nodes.push(s);
-    }
-    return () => nodes.forEach((n) => n.remove());
+    // FAQPage intentionally not emitted here — <FaqAccordion> below covers it.
+    const s = document.createElement("script");
+    s.type = "application/ld+json";
+    s.text = JSON.stringify(medicalLd);
+    document.head.appendChild(s);
+    return () => s.remove();
   }, [joint, condition]);
 
   if (!isJoint(joint)) return <Navigate to="/404" replace />;
@@ -313,14 +301,10 @@ const ExerciseConditionPage = () => {
           <h2 className="section-header-left text-xl font-semibold text-foreground mb-4">
             {jointName} exercises for {cond.shortName} — People Also Ask
           </h2>
-          <div className="space-y-3">
-            {faqs.map((f, i) => (
-              <details key={i} className="bg-card border border-border rounded-xl p-4">
-                <summary className="font-medium text-foreground cursor-pointer">{f.q}</summary>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
-              </details>
-            ))}
-          </div>
+          <FaqAccordion
+            idPrefix={`exercise-${joint}-${cond.slug}-faq`}
+            items={faqs.map((f) => ({ question: f.q, answer: f.a }))}
+          />
         </section>
 
         <SocialShareButtons title={title} slug={`exercises/${joint}/for/${cond.slug}`} />

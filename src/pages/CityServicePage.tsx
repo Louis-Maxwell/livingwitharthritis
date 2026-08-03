@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import SeoHead from "@/components/SeoHead";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import SocialShareButtons from "@/components/SocialShareButtons";
+import FaqAccordion from "@/components/faq/FaqAccordion";
 import {
   getCityService,
   services,
@@ -89,46 +90,9 @@ const CityServicePage = () => {
         longitude: city.lng,
       },
     };
-    const faqLd = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: `Where can I find ${sLabel.toLowerCase()} for arthritis in ${city.name}?`,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: `${city.name} residents can access ${sLabel.toLowerCase()} for arthritis through their GP, local public-healthcare services and a growing range of community providers. Most local options accept self-referral; start with your GP for a structured care pathway.`,
-          },
-        },
-        {
-          "@type": "Question",
-          name: `How long is the wait for ${sLabel.toLowerCase()} in ${city.name}?`,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: `Waiting times for ${sLabel.toLowerCase()} in ${city.name} vary by provider and pathway. Public-healthcare routes typically take 4–18 weeks; private and community options are usually faster. Use the tips on this page to make progress while you wait.`,
-          },
-        },
-        {
-          "@type": "Question",
-          name: `Is ${sLabel.toLowerCase()} for arthritis free in ${city.name}?`,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: `Many ${sLabel.toLowerCase()} pathways for arthritis in ${city.name} are available at no cost through public healthcare. Private and specialist routes are paid but often have shorter waits.`,
-          },
-        },
-        {
-          "@type": "Question",
-          name: `What should I do while waiting for ${sLabel.toLowerCase()} in ${city.name}?`,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: `Start the evidence-based self-management steps that physiotherapists recommend: low-impact movement, an anti-inflammatory diet, and pacing your daily activities. Our exercises and diet guides cover the same routines used in formal programmes.`,
-          },
-        },
-      ],
-    };
+    // FAQPage intentionally not emitted here — <FaqAccordion> below covers it.
     const nodes: HTMLScriptElement[] = [];
-    for (const data of [medicalLd, placeLd, faqLd]) {
+    for (const data of [medicalLd, placeLd]) {
       const s = document.createElement("script");
       s.type = "application/ld+json";
       s.text = JSON.stringify(data);
@@ -308,19 +272,15 @@ const CityServicePage = () => {
           <h2 className="section-header-left text-xl font-semibold text-foreground mb-4">
             {sLabel} in {city.name} — People Also Ask
           </h2>
-          <div className="space-y-3">
-            {[
-              { q: `Where can I find ${sLabel.toLowerCase()} for arthritis in ${city.name}?`, a: `${city.name} residents can access ${sLabel.toLowerCase()} for arthritis through their GP, local public-healthcare services and a growing range of community providers. Most local options accept self-referral; start with your GP for a structured care pathway.` },
-              { q: `How long is the wait for ${sLabel.toLowerCase()} in ${city.name}?`, a: `Waiting times for ${sLabel.toLowerCase()} in ${city.name} vary by provider and pathway. Public-healthcare routes typically take 4–18 weeks; private and community options are usually faster. Use the tips on this page to make progress while you wait.` },
-              { q: `Is ${sLabel.toLowerCase()} for arthritis free in ${city.name}?`, a: `Many ${sLabel.toLowerCase()} pathways for arthritis in ${city.name} are available at no cost through public healthcare. Private and specialist routes are paid but often have shorter waits.` },
-              { q: `What should I do while waiting for ${sLabel.toLowerCase()} in ${city.name}?`, a: `Start the evidence-based self-management steps that physiotherapists recommend: low-impact movement, an anti-inflammatory diet, and pacing your daily activities. Our exercises and diet guides cover the same routines used in formal programmes.` },
-            ].map((f, i) => (
-              <details key={i} className="bg-card border border-border rounded-xl p-4">
-                <summary className="font-medium text-foreground cursor-pointer">{f.q}</summary>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
-              </details>
-            ))}
-          </div>
+          <FaqAccordion
+            idPrefix={`${city.slug}-${service}-faq`}
+            items={[
+              { question: `Where can I find ${sLabel.toLowerCase()} for arthritis in ${city.name}?`, answer: `${city.name} residents can access ${sLabel.toLowerCase()} for arthritis through their GP, local public-healthcare services and a growing range of community providers. Most local options accept self-referral; start with your GP for a structured care pathway.` },
+              { question: `How long is the wait for ${sLabel.toLowerCase()} in ${city.name}?`, answer: `Waiting times for ${sLabel.toLowerCase()} in ${city.name} vary by provider and pathway. Public-healthcare routes typically take 4–18 weeks; private and community options are usually faster. Use the tips on this page to make progress while you wait.` },
+              { question: `Is ${sLabel.toLowerCase()} for arthritis free in ${city.name}?`, answer: `Many ${sLabel.toLowerCase()} pathways for arthritis in ${city.name} are available at no cost through public healthcare. Private and specialist routes are paid but often have shorter waits.` },
+              { question: `What should I do while waiting for ${sLabel.toLowerCase()} in ${city.name}?`, answer: `Start the evidence-based self-management steps that physiotherapists recommend: low-impact movement, an anti-inflammatory diet, and pacing your daily activities. Our exercises and diet guides cover the same routines used in formal programmes.` },
+            ]}
+          />
         </section>
 
         <SocialShareButtons title={title} slug={`uk/${city.slug}/${service}`} />

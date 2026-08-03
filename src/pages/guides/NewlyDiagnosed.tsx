@@ -14,6 +14,7 @@ import {
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import { Button } from "@/components/ui/button";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import FaqAccordion from "@/components/faq/FaqAccordion";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const SLUG = "guides/newly-diagnosed";
@@ -178,15 +179,7 @@ export default function NewlyDiagnosed() {
           jobTitle: "HCPC-registered Physiotherapist",
         },
       },
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: FAQS.map((f) => ({
-          "@type": "Question",
-          name: f.q,
-          acceptedAnswer: { "@type": "Answer", text: f.a },
-        })),
-      },
+      // FAQPage intentionally not emitted here — <FaqAccordion> below covers it.
       {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -454,25 +447,10 @@ export default function NewlyDiagnosed() {
             >
               Common questions after diagnosis
             </h2>
-            <div className="space-y-4">
-              {FAQS.map((f) => (
-                <details
-                  key={f.q}
-                  className="group border border-border rounded-lg p-4 md:p-5 bg-card open:bg-accent/20"
-                >
-                  <summary className="cursor-pointer list-none flex items-start justify-between gap-3 font-semibold text-foreground">
-                    <span>{f.q}</span>
-                    <ChevronRight
-                      className="w-5 h-5 shrink-0 text-primary transition-transform group-open:rotate-90"
-                      aria-hidden
-                    />
-                  </summary>
-                  <p className="mt-3 text-sm md:text-base text-muted-foreground leading-relaxed">
-                    {f.a}
-                  </p>
-                </details>
-              ))}
-            </div>
+            <FaqAccordion
+              idPrefix="newly-diagnosed-faq"
+              items={FAQS.map((f) => ({ question: f.q, answer: f.a }))}
+            />
           </section>
 
           {/* Related */}
