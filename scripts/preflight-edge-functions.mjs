@@ -263,7 +263,13 @@ function getInstalledDenoVersionResolved() {
 }
 
 function checkEntrypoint(entryPath) {
-  const denoArgs = ["check", entryPath];
+  // Edge functions run on Deno's own module resolution — never the repo's
+  // node_modules. Without this, the root package.json makes Deno demand a
+  // local install for every `npm:` specifier and every function "fails" for
+  // an environment reason rather than a real type error.
+  // Set PREFLIGHT_NODE_MODULES_DIR=auto to opt out.
+  const nodeModulesMode = process.env.PREFLIGHT_NODE_MODULES_DIR || "none";
+  const denoArgs = ["check", `--node-modules-dir=${nodeModulesMode}`, entryPath];
   const cwd = ROOT;
   const env = captureRelevantEnv();
   const started = Date.now();

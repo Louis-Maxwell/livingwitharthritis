@@ -34,7 +34,8 @@
     "seo:meta-lengths": "bun scripts/audit-meta-lengths.ts",
     "seo:images": "bun scripts/audit-images.ts",
     "seo:headings": "bun scripts/audit-headings.ts",
-    "seo:aeo-sync": "node scripts/check-aeo-sync.mjs"
+    "seo:aeo-sync": "node scripts/check-aeo-sync.mjs",
+    "smoke:prepublish": "node scripts/prepublish-smoke.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
