@@ -187,7 +187,7 @@ const HeroSection = memo(() => {
                     alt="A diverse group of adults walking together outdoors, smiling — staying active with arthritis in a UK community walking group"
                     width={1600}
                     height={1067}
-                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-[1200ms] ease-out"
+                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform [transition-duration:1200ms] ease-out"
                     loading="eager"
                     decoding="async"
                     {...({ fetchpriority: "high" } as Record<string, string>)}

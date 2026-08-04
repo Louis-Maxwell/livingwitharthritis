@@ -53,7 +53,7 @@ const ImpactProgressBand = () => {
               aria-valuemin={0}
               aria-valuemax={100}
               aria-label={`£${RAISED.toLocaleString()} raised of £${GOAL.toLocaleString()} goal`}
-              className="h-full bg-primary rounded-full transition-[width] duration-[2000ms] ease-out"
+              className="h-full bg-primary rounded-full transition-[width] [transition-duration:2000ms] ease-out"
               style={{ width: `${PCT}%` }}
             />
           </div>

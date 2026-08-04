@@ -107,7 +107,7 @@ const FeaturedStoryBand = memo(() => {
                 height={1500}
                 loading="lazy"
                 decoding="async"
-                className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-[1200ms] ease-out"
+                className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform [transition-duration:1200ms] ease-out"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/75 via-foreground/10 to-transparent" />
               <figcaption className="absolute inset-x-0 bottom-0 p-6 lg:p-7 text-background">
