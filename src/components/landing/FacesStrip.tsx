@@ -69,7 +69,7 @@ const FacesStrip = memo(() => {
                   decoding="async"
                   width={800}
                   height={1000}
-                  className="h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-105"
+                  className="h-full w-full object-cover transition-transform [transition-duration:1400ms] ease-out group-hover:scale-105"
                   referrerPolicy={f.image.startsWith("http") ? "no-referrer" : undefined}
                 />
                 <div
