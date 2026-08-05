@@ -504,9 +504,30 @@ const Header = () => {
                 <SiteLogo variant="mark" markClassName="h-8 w-auto" />
                 <span className="text-lg font-extrabold text-primary">Menu</span>
               </div>
-              <Button variant="ghost" size="icon" className="rounded-lg h-9 w-9" onClick={() => setMobileMenuOpen(false)} aria-label="Close menu">
-                <X size={18} />
-              </Button>
+              <div className="flex items-center gap-1.5">
+                {/* On narrow phones these controls live here instead of the
+                    header row, which would otherwise overflow the viewport. */}
+                <span className="flex sm:hidden items-center gap-1.5">
+                  <LanguageSwitcher />
+                  <ThemeToggle />
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="rounded-lg h-9 w-9"
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      setMobileSearchOpen(true);
+                    }}
+                    aria-label="Open search"
+                  >
+                    <Search size={18} aria-hidden="true" />
+                  </Button>
+                </span>
+                <Button variant="ghost" size="icon" className="rounded-lg h-9 w-9" onClick={() => setMobileMenuOpen(false)} aria-label="Close menu">
+                  <X size={18} />
+                </Button>
+              </div>
+
             </div>
 
             <nav className="flex-1 overflow-y-auto px-5 py-6 space-y-1" aria-label="Mobile navigation">
