@@ -293,7 +293,7 @@ const Header = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-lg h-9 w-9 shrink-0"
+                className="hidden sm:inline-flex rounded-lg h-9 w-9 shrink-0"
                 onClick={() => setMobileSearchOpen((v) => !v)}
                 aria-label="Open search"
               >
