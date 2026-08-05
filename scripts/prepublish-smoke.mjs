@@ -99,7 +99,7 @@ function finish(exitCode) {
 // Stage 1 — typecheck
 // ---------------------------------------------------------------------------
 hr();
-console.log("Stage 1/3 — Typecheck (TypeScript, no emit)");
+console.log("Stage 1/4 — Typecheck (TypeScript, no emit)");
 hr();
 {
   const useTsgo = binaryExists("tsgo") || existsSync(join(ROOT, "node_modules", ".bin", "tsgo"));
@@ -147,10 +147,10 @@ if (skipBuild) {
 }
 
 // ---------------------------------------------------------------------------
-// Stage 3 — edge function compilation check
+// Stage 4 — edge function compilation check
 // ---------------------------------------------------------------------------
 hr();
-console.log("Stage 3/3 — Edge function compilation check");
+console.log("Stage 4/4 — Edge function compilation check");
 hr();
 if (skipFunctions) {
   record("Edge function check", "SKIPPED", "--skip-functions");
