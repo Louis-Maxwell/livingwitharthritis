@@ -255,7 +255,7 @@ const Header = () => {
               : "bg-background border-b border-border/15"
           }`}
         >
-          <div className="container mx-auto px-6 md:px-10 py-2.5 flex items-center justify-between gap-4">
+          <div className="container mx-auto px-4 sm:px-6 md:px-10 py-2.5 flex items-center justify-between gap-2 sm:gap-4">
             {/* Logo — stick figure mark + wordmark */}
             <button
               onClick={() => navigate("/")}
@@ -265,10 +265,10 @@ const Header = () => {
               <span className="flex flex-col items-start leading-none">
                 <SiteLogo
                   variant="full"
-                  markClassName="h-8 md:h-10"
-                  textClassName="text-lg sm:text-xl md:text-2xl"
+                  markClassName="h-7 sm:h-8 md:h-10"
+                  textClassName="text-[15px] sm:text-xl md:text-2xl"
                 />
-                <span className="mt-1 ms-11 md:ms-[3.25rem] text-[9px] md:text-[10px] font-bold tracking-[0.18em] uppercase text-primary">
+                <span className="mt-1 ms-9 sm:ms-11 md:ms-[3.25rem] text-[8px] sm:text-[9px] md:text-[10px] font-bold tracking-[0.18em] uppercase text-primary">
                   Motion is Lotion
                 </span>
               </span>
@@ -283,13 +283,17 @@ const Header = () => {
             </div>
 
             {/* Mobile: search icon + hamburger */}
-            <div className="flex items-center gap-1.5 lg:hidden">
-              <LanguageSwitcher />
-              <ThemeToggle />
+            <div className="flex items-center gap-1.5 lg:hidden min-w-0">
+              {/* Language + theme move into the drawer on narrow phones so the
+                  header row never overflows the viewport. */}
+              <span className="hidden sm:flex items-center gap-1.5">
+                <LanguageSwitcher />
+                <ThemeToggle />
+              </span>
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-lg h-9 w-9"
+                className="hidden sm:inline-flex rounded-lg h-9 w-9 shrink-0"
                 onClick={() => setMobileSearchOpen((v) => !v)}
                 aria-label="Open search"
               >
@@ -298,11 +302,13 @@ const Header = () => {
               <Button
                 size="sm"
                 onClick={() => navigate("/donate")}
-                className="h-9 px-4 rounded-full text-[11px] font-bold tracking-wider bg-primary hover:bg-primary/90 text-primary-foreground shadow-md shadow-primary/20"
+                className="h-9 px-3 sm:px-4 rounded-full text-[11px] font-bold tracking-wider bg-primary hover:bg-primary/90 text-primary-foreground shadow-md shadow-primary/20 shrink-0"
               >
                 <Heart className="w-3 h-3 mr-1.5 fill-background/30" />
-                Donate Now
+                <span className="hidden sm:inline">Donate Now</span>
+                <span className="sm:hidden">Donate</span>
               </Button>
+
               <Button
                 variant="ghost"
                 size="icon"
@@ -498,9 +504,30 @@ const Header = () => {
                 <SiteLogo variant="mark" markClassName="h-8 w-auto" />
                 <span className="text-lg font-extrabold text-primary">Menu</span>
               </div>
-              <Button variant="ghost" size="icon" className="rounded-lg h-9 w-9" onClick={() => setMobileMenuOpen(false)} aria-label="Close menu">
-                <X size={18} />
-              </Button>
+              <div className="flex items-center gap-1.5">
+                {/* On narrow phones these controls live here instead of the
+                    header row, which would otherwise overflow the viewport. */}
+                <span className="flex sm:hidden items-center gap-1.5">
+                  <LanguageSwitcher />
+                  <ThemeToggle />
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="rounded-lg h-9 w-9"
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      setMobileSearchOpen(true);
+                    }}
+                    aria-label="Open search"
+                  >
+                    <Search size={18} aria-hidden="true" />
+                  </Button>
+                </span>
+                <Button variant="ghost" size="icon" className="rounded-lg h-9 w-9" onClick={() => setMobileMenuOpen(false)} aria-label="Close menu">
+                  <X size={18} />
+                </Button>
+              </div>
+
             </div>
 
             <nav className="flex-1 overflow-y-auto px-5 py-6 space-y-1" aria-label="Mobile navigation">

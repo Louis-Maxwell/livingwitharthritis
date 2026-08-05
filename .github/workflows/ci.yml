@@ -50,8 +50,23 @@ jobs:
       - name: Typecheck
         run: npx tsc --noEmit
 
+      # Alerts on Tailwind utilities that are ambiguous (e.g. duration-[1200ms])
+      # or that bypass the design tokens, before they reach a build.
+      - name: CSS utility check
+        run: npm run css:check -- --json
+
+      - name: Upload CSS utility report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: css-utility-report
+          path: .preflight-reports/css-utilities-*.json
+          retention-days: 7
+          if-no-files-found: ignore
+
       - name: Build
         run: npm run build
+
 
       - name: SEO schema check
         run: npm run seo:schema

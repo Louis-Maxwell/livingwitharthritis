@@ -99,7 +99,7 @@ function finish(exitCode) {
 // Stage 1 — typecheck
 // ---------------------------------------------------------------------------
 hr();
-console.log("Stage 1/3 — Typecheck (TypeScript, no emit)");
+console.log("Stage 1/4 — Typecheck (TypeScript, no emit)");
 hr();
 {
   const useTsgo = binaryExists("tsgo") || existsSync(join(ROOT, "node_modules", ".bin", "tsgo"));
@@ -114,11 +114,27 @@ hr();
 }
 
 // ---------------------------------------------------------------------------
-// Stage 2 — production build (also regenerates the MCP edge function)
+// Stage 2 — CSS utility guard (ambiguous / non-tokenised Tailwind utilities)
 // ---------------------------------------------------------------------------
 hr();
-console.log("Stage 2/3 — Production build");
+console.log("Stage 2/4 — CSS utility check");
 hr();
+{
+  const r = run("node", ["scripts/check-css-utilities.mjs", "--json"]);
+  if (r.status !== 0) {
+    record("CSS utility check", "FAIL", r.error ?? `exit ${r.status}`, r.durationMs);
+    finish(1);
+  }
+  record("CSS utility check", "PASS", "no ambiguous utilities", r.durationMs);
+}
+
+// ---------------------------------------------------------------------------
+// Stage 3 — production build (also regenerates the MCP edge function)
+// ---------------------------------------------------------------------------
+hr();
+console.log("Stage 3/4 — Production build");
+hr();
+
 if (skipBuild) {
   record("Production build", "SKIPPED", "--skip-build");
 } else {
@@ -131,10 +147,10 @@ if (skipBuild) {
 }
 
 // ---------------------------------------------------------------------------
-// Stage 3 — edge function compilation check
+// Stage 4 — edge function compilation check
 // ---------------------------------------------------------------------------
 hr();
-console.log("Stage 3/3 — Edge function compilation check");
+console.log("Stage 4/4 — Edge function compilation check");
 hr();
 if (skipFunctions) {
   record("Edge function check", "SKIPPED", "--skip-functions");
