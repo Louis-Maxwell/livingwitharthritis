@@ -255,7 +255,7 @@ const Header = () => {
               : "bg-background border-b border-border/15"
           }`}
         >
-          <div className="container mx-auto px-6 md:px-10 py-2.5 flex items-center justify-between gap-4">
+          <div className="container mx-auto px-4 sm:px-6 md:px-10 py-2.5 flex items-center justify-between gap-2 sm:gap-4">
             {/* Logo — stick figure mark + wordmark */}
             <button
               onClick={() => navigate("/")}
@@ -265,10 +265,10 @@ const Header = () => {
               <span className="flex flex-col items-start leading-none">
                 <SiteLogo
                   variant="full"
-                  markClassName="h-8 md:h-10"
-                  textClassName="text-lg sm:text-xl md:text-2xl"
+                  markClassName="h-7 sm:h-8 md:h-10"
+                  textClassName="text-[15px] sm:text-xl md:text-2xl"
                 />
-                <span className="mt-1 ms-11 md:ms-[3.25rem] text-[9px] md:text-[10px] font-bold tracking-[0.18em] uppercase text-primary">
+                <span className="mt-1 ms-9 sm:ms-11 md:ms-[3.25rem] text-[8px] sm:text-[9px] md:text-[10px] font-bold tracking-[0.18em] uppercase text-primary">
                   Motion is Lotion
                 </span>
               </span>
