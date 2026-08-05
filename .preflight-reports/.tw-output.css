@@ -9612,6 +9612,10 @@ video {
     display: flex;
   }
 
+  .sm\:hidden {
+    display: none;
+  }
+
   .sm\:aspect-\[16\/11\] {
     aspect-ratio: 16/11;
   }
