@@ -114,11 +114,27 @@ hr();
 }
 
 // ---------------------------------------------------------------------------
-// Stage 2 — production build (also regenerates the MCP edge function)
+// Stage 2 — CSS utility guard (ambiguous / non-tokenised Tailwind utilities)
 // ---------------------------------------------------------------------------
 hr();
-console.log("Stage 2/3 — Production build");
+console.log("Stage 2/4 — CSS utility check");
 hr();
+{
+  const r = run("node", ["scripts/check-css-utilities.mjs", "--json"]);
+  if (r.status !== 0) {
+    record("CSS utility check", "FAIL", r.error ?? `exit ${r.status}`, r.durationMs);
+    finish(1);
+  }
+  record("CSS utility check", "PASS", "no ambiguous utilities", r.durationMs);
+}
+
+// ---------------------------------------------------------------------------
+// Stage 3 — production build (also regenerates the MCP edge function)
+// ---------------------------------------------------------------------------
+hr();
+console.log("Stage 3/4 — Production build");
+hr();
+
 if (skipBuild) {
   record("Production build", "SKIPPED", "--skip-build");
 } else {
