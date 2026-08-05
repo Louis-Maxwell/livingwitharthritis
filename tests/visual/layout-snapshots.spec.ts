@@ -96,8 +96,8 @@ for (const viewport of VIEWPORTS) {
       test(`${section.name} matches its visual baseline`, async ({ page }) => {
         const baseline = `${section.name}-${viewport.name}.png`;
         test.skip(
-          !updatingSnapshots && !existsSync(join(SNAPSHOT_DIR, baseline)),
-          `No committed baseline for ${baseline} — run \`bun run test:layout:update\` to create one.`,
+          !updatingSnapshots && !existsSync(SNAPSHOT_DIR),
+          `No committed baselines yet — run \`bun run test:layout:update\` to create them.`,
         );
 
         await page.goto("/", { waitUntil: "domcontentloaded" });
