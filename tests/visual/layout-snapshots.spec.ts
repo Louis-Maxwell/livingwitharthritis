@@ -24,7 +24,10 @@ import { test, expect, type Page } from "@playwright/test";
  *   bun run test:layout:update
  */
 
-const SNAPSHOT_DIR = join(__dirname, "layout-snapshots.spec.ts-snapshots");
+const SNAPSHOT_DIR = join(
+  dirname(fileURLToPath(import.meta.url)),
+  "layout-snapshots.spec.ts-snapshots",
+);
 const updatingSnapshots = process.argv.some((arg) => arg.includes("update-snapshots"));
 
 const VIEWPORTS = [
