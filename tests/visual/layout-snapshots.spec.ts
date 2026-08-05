@@ -94,16 +94,24 @@ for (const viewport of VIEWPORTS) {
 
     for (const section of SECTIONS) {
       test(`${section.name} matches its visual baseline`, async ({ page }) => {
+        const baseline = `${section.name}-${viewport.name}.png`;
+        test.skip(
+          !updatingSnapshots && !existsSync(join(SNAPSHOT_DIR, baseline)),
+          `No committed baseline for ${baseline} — run \`bun run test:layout:update\` to create one.`,
+        );
+
         await page.goto("/", { waitUntil: "domcontentloaded" });
         await settle(page);
 
         const locator = page.locator(section.selector).first();
         await expect(locator).toBeVisible();
-        await expect(locator).toHaveScreenshot(
-          `${section.name}-${viewport.name}.png`,
-          { maxDiffPixelRatio: 0.02, animations: "disabled", timeout: 20_000 },
-        );
+        await expect(locator).toHaveScreenshot(baseline, {
+          maxDiffPixelRatio: 0.02,
+          animations: "disabled",
+          timeout: 20_000,
+        });
       });
     }
+
   });
 }
