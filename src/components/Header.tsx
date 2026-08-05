@@ -283,13 +283,17 @@ const Header = () => {
             </div>
 
             {/* Mobile: search icon + hamburger */}
-            <div className="flex items-center gap-1.5 lg:hidden">
-              <LanguageSwitcher />
-              <ThemeToggle />
+            <div className="flex items-center gap-1.5 lg:hidden min-w-0">
+              {/* Language + theme move into the drawer on narrow phones so the
+                  header row never overflows the viewport. */}
+              <span className="hidden sm:flex items-center gap-1.5">
+                <LanguageSwitcher />
+                <ThemeToggle />
+              </span>
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-lg h-9 w-9"
+                className="rounded-lg h-9 w-9 shrink-0"
                 onClick={() => setMobileSearchOpen((v) => !v)}
                 aria-label="Open search"
               >
@@ -298,11 +302,13 @@ const Header = () => {
               <Button
                 size="sm"
                 onClick={() => navigate("/donate")}
-                className="h-9 px-4 rounded-full text-[11px] font-bold tracking-wider bg-primary hover:bg-primary/90 text-primary-foreground shadow-md shadow-primary/20"
+                className="h-9 px-3 sm:px-4 rounded-full text-[11px] font-bold tracking-wider bg-primary hover:bg-primary/90 text-primary-foreground shadow-md shadow-primary/20 shrink-0"
               >
                 <Heart className="w-3 h-3 mr-1.5 fill-background/30" />
-                Donate Now
+                <span className="hidden xs:inline">Donate Now</span>
+                <span className="xs:hidden">Donate</span>
               </Button>
+
               <Button
                 variant="ghost"
                 size="icon"
