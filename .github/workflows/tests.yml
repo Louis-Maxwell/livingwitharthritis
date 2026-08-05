@@ -100,7 +100,10 @@ jobs:
             fi
             sleep 1
           done
-      - name: Run Playwright tests
+      # Includes tests/visual/layout-snapshots.spec.ts — the layout
+      # regression alerts (no horizontal overflow, no element wider than the
+      # viewport, plus screenshot diffs when baselines are committed).
+      - name: Run Playwright tests (visual + layout alerts)
         run: bunx playwright test --config=tests/visual/playwright.config.ts
       - name: Upload Playwright report
         if: always()
