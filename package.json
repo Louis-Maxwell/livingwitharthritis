@@ -35,6 +35,8 @@
     "seo:images": "bun scripts/audit-images.ts",
     "seo:headings": "bun scripts/audit-headings.ts",
     "seo:aeo-sync": "node scripts/check-aeo-sync.mjs",
+    "css:check": "node scripts/check-css-utilities.mjs",
+    "test:layout": "playwright test --config=tests/visual/playwright.config.ts",
     "smoke:prepublish": "node scripts/prepublish-smoke.mjs"
   },
   "dependencies": {

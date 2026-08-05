@@ -14,9 +14,16 @@
 pre-push:
   parallel: true
   commands:
+    css-utilities:
+      run: node scripts/check-css-utilities.mjs
+      fail_text: |
+        ✖ CSS utility check failed.
+        Ambiguous or non-tokenised Tailwind utilities were found above.
+        Fix them before pushing, or run `git push --no-verify` to bypass.
     supabase-db-lint:
       run: supabase db lint --level warning
       fail_text: |
         ✖ supabase db lint reported issues.
         Fix the migration/policy warnings above before pushing,
         or run `git push --no-verify` to bypass (not recommended).
+
