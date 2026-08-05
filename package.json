@@ -37,6 +37,7 @@
     "seo:aeo-sync": "node scripts/check-aeo-sync.mjs",
     "css:check": "node scripts/check-css-utilities.mjs",
     "test:layout": "playwright test --config=tests/visual/playwright.config.ts",
+    "test:layout:update": "playwright test --config=tests/visual/playwright.config.ts layout-snapshots --update-snapshots",
     "smoke:prepublish": "node scripts/prepublish-smoke.mjs"
   },
   "dependencies": {
