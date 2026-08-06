@@ -178,20 +178,30 @@
 
 
     <!-- LCP hero image: served via OAHero's <img fetchpriority="high" loading="eager">
-         (see src/components/landing/OAHero.tsx). The prior hero-community.jpg
-         (2.3MB, unoptimized, asset-CDN-hosted -- flagged 2026-07 as the
-         dominant cause of a 27.8s mobile LCP) was replaced 2026-07-24 with
-         a local, already-compressed 154KB WebP. Preload re-added now that
-         the underlying file is actually small enough to be worth prioritising. -->
-    <link rel="preload" as="image" href="/openverse/community-03-a-senior-indian-couple-on-a-scooty.webp" fetchpriority="high" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Anton (MAP-style display) + Montserrat (subheads) + Open Sans (body).
-         Single non-blocking load: preload as style, swap to stylesheet onload,
-         noscript fallback for JS-off clients. Do NOT also add a blocking
-         <link rel="stylesheet"> — that causes render-blocking + double download. -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" /></noscript>
+         (see src/components/landing/OAHero.tsx). Responsive: phones pull the
+         400w variant (~31KB) instead of the full 800w file (~133KB). The
+         imagesrcset/imagesizes here must stay in sync with OAHero's srcset. -->
+    <link
+      rel="preload"
+      as="image"
+      href="/openverse/hero-couple-800.webp"
+      imagesrcset="/openverse/hero-couple-400.webp 400w, /openverse/hero-couple-800.webp 800w"
+      imagesizes="(min-width: 1024px) 560px, 100vw"
+      fetchpriority="high"
+    />
+    <!-- Anton (display) + Montserrat (subheads) + Open Sans (body), self-hosted
+         from /public/fonts as latin-subset woff2. No fonts.googleapis.com round
+         trip: removes two third-party connections and a render-blocking-ish CSS
+         hop from the critical path. Montserrat/Open Sans files are variable, so
+         one file covers every weight used. -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/OpenSans.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/Anton-400.woff2" crossorigin />
+    <style>
+      @font-face{font-family:'Anton';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/Anton-400.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+      @font-face{font-family:'Montserrat';font-style:normal;font-weight:100 900;font-display:swap;src:url('/fonts/Montserrat.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+      @font-face{font-family:'Open Sans';font-style:normal;font-weight:300 800;font-display:swap;src:url('/fonts/OpenSans.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+    </style>
+
     <!-- Preconnect to API backend for faster first data fetch -->
     <link rel="preconnect" href="https://zrvcejlncpndjfyuvcrd.supabase.co" crossorigin />
     <link rel="dns-prefetch" href="https://zrvcejlncpndjfyuvcrd.supabase.co" />
