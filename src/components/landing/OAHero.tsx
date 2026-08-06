@@ -9,7 +9,9 @@ import "@/components/HeroSection.css";
 // was the dominant cause of a 27.8s mobile LCP (PageSpeed Insights, 24 Jul
 // 2026). Replaced with an already-compressed local WebP (154KB, ~93%
 // smaller) at its native resolution — no upscaling artifacts.
-const HERO_IMG = "/openverse/community-03-a-senior-indian-couple-on-a-scooty.webp";
+const HERO_IMG = "/openverse/hero-couple-800.webp";
+const HERO_SRCSET = "/openverse/hero-couple-400.webp 400w, /openverse/hero-couple-800.webp 800w";
+const HERO_SIZES = "(min-width: 1024px) 560px, 100vw";
 
 const OAHero = memo(() => {
   const navigate = useNavigate();
@@ -94,6 +96,8 @@ const OAHero = memo(() => {
           <div className="reveal relative aspect-square w-full max-w-[560px] mx-auto">
             <img
               src={HERO_IMG}
+              srcSet={HERO_SRCSET}
+              sizes={HERO_SIZES}
               alt="An older couple outdoors together — representing the community Living With Arthritis UK supports."
               width={800}
               height={602}

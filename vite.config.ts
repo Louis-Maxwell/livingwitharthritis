@@ -89,9 +89,11 @@ export default defineConfig(({ mode }) => ({
           router: ["react-router-dom"],
           query: ["@tanstack/react-query"],
           helmet: ["react-helmet-async"],
-          forms: ["react-hook-form", "@hookform/resolvers", "zod"],
-          "ui-core": ["@radix-ui/react-dialog", "@radix-ui/react-tooltip"],
-          "ui-extra": ["@radix-ui/react-tabs", "@radix-ui/react-accordion"],
+          // forms / ui-extra intentionally NOT listed: static manualChunks
+          // entries are modulepreloaded from the root index.html on every
+          // route, including the homepage, which renders no form, tabs or
+          // accordion. Rollup route-splits them onto the pages that use them.
+          "ui-core": ["@radix-ui/react-tooltip"],
           // Isolate the Supabase client (~40 KiB gzipped) into its own chunk so it
           // only loads when a route/hook that touches the API is reached. Cuts
           // first-paint JS by ~34 KiB on the homepage per PSI.
