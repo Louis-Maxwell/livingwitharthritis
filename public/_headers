@@ -22,6 +22,24 @@
 /images/*
   Cache-Control: public, max-age=2592000
 
+# Icons live at unhashed paths, so they must revalidate often or browsers
+# keep showing a stale mark long after the artwork changes.
+/favicon.svg
+  Content-Type: image/svg+xml
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/favicon.png
+  Content-Type: image/png
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/apple-touch-icon.png
+  Content-Type: image/png
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/favicon.ico
+  Content-Type: image/x-icon
+  Cache-Control: public, max-age=3600, must-revalidate
+
 # Lovable CDN-hosted assets are content-addressed (immutable UUID paths).
 /__l5e/assets-v1/*
   Cache-Control: public, max-age=31536000, immutable
