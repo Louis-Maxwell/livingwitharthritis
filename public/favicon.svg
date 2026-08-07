@@ -1,11 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Living With Arthritis">
   <rect width="512" height="512" rx="112" fill="#C61022"/>
-  <g stroke="#FFFFFF" stroke-width="46" stroke-linecap="round" fill="none">
-    <path d="M256 244 Q170 190 96 96"/>
-    <path d="M256 244 Q342 190 416 96"/>
-    <path d="M256 230 L256 348"/>
-    <path d="M256 348 Q196 408 158 412"/>
-    <path d="M256 348 Q316 408 354 412"/>
+  <g transform="translate(90.5 70) scale(5.17)">
+    <g stroke="#FFFFFF" stroke-width="7.4" stroke-linecap="round" fill="none">
+      <path d="M32 29 Q19 20 8 5"/>
+      <path d="M32 29 Q45 20 56 5"/>
+      <path d="M32 27 L32 45"/>
+      <path d="M32 45 Q23 54 17 69"/>
+      <path d="M32 45 Q41 54 47 69"/>
+    </g>
+    <circle cx="32" cy="12" r="9.5" fill="#FFFFFF"/>
   </g>
-  <circle cx="256" cy="150" r="58" fill="#FFFFFF"/>
 </svg>
