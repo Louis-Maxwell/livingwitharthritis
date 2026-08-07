@@ -22,8 +22,10 @@
 /images/*
   Cache-Control: public, max-age=2592000
 
-# Icons live at unhashed paths, so they must revalidate often or browsers
-# keep showing a stale mark long after the artwork changes.
+# Canonical icon sources live in src/assets/icons/ and are emitted with a content
+# hash under /assets/* (immutable). The copies below are fallbacks for clients
+# that request the well-known paths without reading the HTML — update both in the
+# same change. They stay short-lived so a stale mark can't stick around.
 /favicon.svg
   Content-Type: image/svg+xml
   Cache-Control: public, max-age=3600, must-revalidate
