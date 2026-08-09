@@ -2,84 +2,67 @@
   {
     "name": "minScore",
     "expected": 0.85,
-    "actual": 0.34,
+    "actual": 0.54,
     "values": [
-      0.29,
-      0.34,
-      0.32
+      0.53,
+      0.52,
+      0.54
     ],
     "operator": ">=",
     "passed": false,
     "auditProperty": "performance",
     "auditId": "categories",
     "level": "error",
-    "url": "http://localhost:8080/"
+    "url": "http://localhost:4173/"
   },
   {
     "name": "maxNumericValue",
     "expected": 2500,
-    "actual": 57913.67677999998,
+    "actual": 6299.598999999997,
     "values": [
-      59778.40656999999,
-      59065.98599999997,
-      57913.67677999998
+      6337.473224999997,
+      6314.340225000002,
+      6299.598999999997
     ],
     "operator": "<=",
     "passed": false,
     "auditId": "largest-contentful-paint",
     "level": "error",
-    "url": "http://localhost:8080/",
+    "url": "http://localhost:4173/",
     "auditTitle": "Largest Contentful Paint",
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/"
   },
   {
     "name": "maxNumericValue",
-    "expected": 0.1,
-    "actual": 0.145941,
-    "values": [
-      0.145941,
-      0.145941,
-      0.145941
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "cumulative-layout-shift",
-    "level": "error",
-    "url": "http://localhost:8080/",
-    "auditTitle": "Cumulative Layout Shift",
-    "auditDocumentationLink": "https://web.dev/articles/cls"
-  },
-  {
-    "name": "maxNumericValue",
     "expected": 300,
-    "actual": 612,
+    "actual": 624.6700499999993,
     "values": [
-      863.5,
-      612,
-      711.5
+      679.0015750000002,
+      693.9505750000012,
+      624.6700499999993
     ],
     "operator": "<=",
     "passed": false,
     "auditId": "total-blocking-time",
     "level": "error",
-    "url": "http://localhost:8080/",
+    "url": "http://localhost:4173/",
     "auditTitle": "Total Blocking Time",
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/lighthouse-total-blocking-time/"
   },
   {
     "name": "maxNumericValue",
     "expected": 3400,
-    "actual": 27576.203750000004,
+    "actual": 3577.345974999999,
     "values": [
-      27654.64375,
-      27726.149999999972,
-      27576.203750000004
+      3647.1279385137204,
+      3577.345974999999,
+      3605.021665365988
     ],
     "operator": "<=",
     "passed": false,
     "auditId": "speed-index",
     "level": "warn",
-    "url": "http://localhost:8080/",
+    "url": "http://localhost:4173/",
     "auditTitle": "Speed Index",
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/speed-index/"
   },
@@ -96,7 +79,7 @@
     "passed": false,
     "auditId": "unused-javascript",
     "level": "warn",
-    "url": "http://localhost:8080/",
+    "url": "http://localhost:4173/",
     "auditTitle": "Reduce unused JavaScript",
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/"
   },
@@ -113,7 +96,7 @@
     "passed": false,
     "auditId": "modern-image-formats",
     "level": "warn",
-    "url": "http://localhost:8080/",
+    "url": "http://localhost:4173/",
     "auditTitle": "Serve images in next-gen formats",
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/uses-webp-images/"
   },
@@ -130,74 +113,74 @@
     "passed": false,
     "auditId": "uses-responsive-images",
     "level": "warn",
-    "url": "http://localhost:8080/",
+    "url": "http://localhost:4173/",
     "auditTitle": "Properly size images",
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/uses-responsive-images/"
   },
   {
     "name": "minScore",
     "expected": 0.85,
-    "actual": 0.33,
+    "actual": 0.45,
     "values": [
-      0.31,
-      0.32,
-      0.33
+      0.42,
+      0.45,
+      0.44
     ],
     "operator": ">=",
     "passed": false,
     "auditProperty": "performance",
     "auditId": "categories",
     "level": "error",
-    "url": "http://localhost:8080/conditions/osteoarthritis"
+    "url": "http://localhost:4173/conditions/osteoarthritis"
   },
   {
     "name": "maxNumericValue",
     "expected": 2500,
-    "actual": 62462.28085000005,
+    "actual": 9918.243999999999,
     "values": [
-      62883.46909999999,
-      62462.28085000005,
-      62634.642800000045
+      10264.787449999996,
+      9918.243999999999,
+      10053.343600000002
     ],
     "operator": "<=",
     "passed": false,
     "auditId": "largest-contentful-paint",
     "level": "error",
-    "url": "http://localhost:8080/conditions/osteoarthritis",
+    "url": "http://localhost:4173/conditions/osteoarthritis",
     "auditTitle": "Largest Contentful Paint",
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/"
   },
   {
     "name": "maxNumericValue",
     "expected": 300,
-    "actual": 1030.5,
+    "actual": 948.5,
     "values": [
-      1241,
-      1124.5,
-      1030.5
+      1268.9999999999982,
+      948.5,
+      1052.4999999999998
     ],
     "operator": "<=",
     "passed": false,
     "auditId": "total-blocking-time",
     "level": "error",
-    "url": "http://localhost:8080/conditions/osteoarthritis",
+    "url": "http://localhost:4173/conditions/osteoarthritis",
     "auditTitle": "Total Blocking Time",
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/lighthouse-total-blocking-time/"
   },
   {
     "name": "maxNumericValue",
     "expected": 3400,
-    "actual": 24825.149814589306,
+    "actual": 3939.8691508630945,
     "values": [
-      25457.21322675126,
-      26269.755225000004,
-      24825.149814589306
+      4036.0517914658976,
+      3946.248773407973,
+      3939.8691508630945
     ],
     "operator": "<=",
     "passed": false,
     "auditId": "speed-index",
     "level": "warn",
-    "url": "http://localhost:8080/conditions/osteoarthritis",
+    "url": "http://localhost:4173/conditions/osteoarthritis",
     "auditTitle": "Speed Index",
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/speed-index/"
   },
@@ -214,76 +197,59 @@
     "passed": false,
     "auditId": "unused-javascript",
     "level": "warn",
-    "url": "http://localhost:8080/conditions/osteoarthritis",
+    "url": "http://localhost:4173/conditions/osteoarthritis",
     "auditTitle": "Reduce unused JavaScript",
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/"
   },
   {
     "name": "minScore",
     "expected": 0.85,
-    "actual": 0.36,
+    "actual": 0.54,
     "values": [
-      0.36,
-      0.33,
-      0.32
+      0.54,
+      0.45,
+      0.54
     ],
     "operator": ">=",
     "passed": false,
     "auditProperty": "performance",
     "auditId": "categories",
     "level": "error",
-    "url": "http://localhost:8080/blog"
+    "url": "http://localhost:4173/blog"
   },
   {
     "name": "maxNumericValue",
     "expected": 2500,
-    "actual": 57831.86394999996,
+    "actual": 7023.419900000001,
     "values": [
-      58333.716600000036,
-      57831.86394999996,
-      58061.98660000002
+      7865.593874999999,
+      7023.419900000001,
+      7057.222750000004
     ],
     "operator": "<=",
     "passed": false,
     "auditId": "largest-contentful-paint",
     "level": "error",
-    "url": "http://localhost:8080/blog",
+    "url": "http://localhost:4173/blog",
     "auditTitle": "Largest Contentful Paint",
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/"
   },
   {
     "name": "maxNumericValue",
     "expected": 300,
-    "actual": 785.5281000000014,
+    "actual": 543.9999999999991,
     "values": [
-      785.5281000000014,
-      1023.4999999999927,
-      1085.5
+      598.2961250000003,
+      543.9999999999991,
+      605.8586749999993
     ],
     "operator": "<=",
     "passed": false,
     "auditId": "total-blocking-time",
     "level": "error",
-    "url": "http://localhost:8080/blog",
+    "url": "http://localhost:4173/blog",
     "auditTitle": "Total Blocking Time",
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/lighthouse-total-blocking-time/"
-  },
-  {
-    "name": "maxNumericValue",
-    "expected": 3400,
-    "actual": 24467.11120000002,
-    "values": [
-      24467.11120000002,
-      24947.85582499999,
-      24936.075875000006
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "speed-index",
-    "level": "warn",
-    "url": "http://localhost:8080/blog",
-    "auditTitle": "Speed Index",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/speed-index/"
   },
   {
     "name": "minScore",
@@ -298,7 +264,7 @@
     "passed": false,
     "auditId": "unused-javascript",
     "level": "warn",
-    "url": "http://localhost:8080/blog",
+    "url": "http://localhost:4173/blog",
     "auditTitle": "Reduce unused JavaScript",
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/"
   },
@@ -315,76 +281,59 @@
     "passed": false,
     "auditId": "uses-responsive-images",
     "level": "warn",
-    "url": "http://localhost:8080/blog",
+    "url": "http://localhost:4173/blog",
     "auditTitle": "Properly size images",
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/uses-responsive-images/"
   },
   {
     "name": "minScore",
     "expected": 0.85,
-    "actual": 0.37,
+    "actual": 0.54,
     "values": [
-      0.36,
-      0.36,
-      0.37
+      0.51,
+      0.54,
+      0.54
     ],
     "operator": ">=",
     "passed": false,
     "auditProperty": "performance",
     "auditId": "categories",
     "level": "error",
-    "url": "http://localhost:8080/donate"
+    "url": "http://localhost:4173/donate"
   },
   {
     "name": "maxNumericValue",
     "expected": 2500,
-    "actual": 48551.45700000001,
+    "actual": 5458.688399999999,
     "values": [
-      48551.45700000001,
-      49677.71144999997,
-      49763.39054999998
+      7812.902750000006,
+      5458.688399999999,
+      6420.941799999999
     ],
     "operator": "<=",
     "passed": false,
     "auditId": "largest-contentful-paint",
     "level": "error",
-    "url": "http://localhost:8080/donate",
+    "url": "http://localhost:4173/donate",
     "auditTitle": "Largest Contentful Paint",
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/"
   },
   {
     "name": "maxNumericValue",
     "expected": 300,
-    "actual": 747.5,
+    "actual": 633.5203000000001,
     "values": [
-      799.5,
-      834.5,
-      747.5
+      697.9492499999994,
+      763,
+      633.5203000000001
     ],
     "operator": "<=",
     "passed": false,
     "auditId": "total-blocking-time",
     "level": "error",
-    "url": "http://localhost:8080/donate",
+    "url": "http://localhost:4173/donate",
     "auditTitle": "Total Blocking Time",
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/lighthouse-total-blocking-time/"
-  },
-  {
-    "name": "maxNumericValue",
-    "expected": 3400,
-    "actual": 24556.909500000012,
-    "values": [
-      24556.909500000012,
-      25030.435524999997,
-      25177.57449999998
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "speed-index",
-    "level": "warn",
-    "url": "http://localhost:8080/donate",
-    "auditTitle": "Speed Index",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/speed-index/"
   },
   {
     "name": "minScore",
@@ -399,7 +348,7 @@
     "passed": false,
     "auditId": "unused-javascript",
     "level": "warn",
-    "url": "http://localhost:8080/donate",
+    "url": "http://localhost:4173/donate",
     "auditTitle": "Reduce unused JavaScript",
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/"
   }
