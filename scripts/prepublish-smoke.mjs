@@ -36,6 +36,7 @@ const skipBuild = has("--skip-build");
 const skipFunctions = has("--skip-functions");
 const skipVersionCheck = has("--skip-version-check");
 const strict = has("--strict");
+const withPerf = has("--perf");
 
 const stages = [];
 
