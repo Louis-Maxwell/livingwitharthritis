@@ -1,0 +1,72 @@
+name: Lighthouse performance budget
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: lighthouse-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install
+        run: npm ci --prefer-offline --no-audit --no-fund
+
+      - name: Build
+        run: npm run build
+
+      - name: Serve production build
+        run: |
+          npx serve -s dist -p 4173 &
+          echo "SERVER_PID=$!" >> "$GITHUB_ENV"
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:4173 > /dev/null; then
+              echo "Server ready after ${i}s"
+              break
+            fi
+            sleep 1
+          done
+
+      # Report-only for the first runs so real medians can be recorded before
+      # the budgets start blocking merges. Flip LHCI_REPORT_ONLY to 'false'
+      # (or delete it) once thresholds are calibrated in lighthouserc.json.
+      - name: Lighthouse CI
+        env:
+          LHCI_REPORT_ONLY: 'true'
+        run: |
+          set +e
+          npx --yes @lhci/cli@0.15.x autorun --config=./lighthouserc.json
+          LH_EXIT=$?
+          kill "$SERVER_PID" 2>/dev/null || true
+          if [ "$LHCI_REPORT_ONLY" = "true" ]; then
+            echo "Report-only mode: exit code $LH_EXIT ignored."
+            exit 0
+          fi
+          exit $LH_EXIT
+
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-reports
+          path: .lighthouseci/
+          retention-days: 14
+          if-no-files-found: ignore
