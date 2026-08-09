@@ -15,7 +15,7 @@
           "uses-http2",
           "canonical"
         ],
-        "formFactor": "mobile"
+        "preset": "desktop"
       }
     },
     "assert": {
@@ -23,13 +23,13 @@
         "categories:performance": [
           "error",
           {
-            "minScore": 0.85
+            "minScore": 0.95
           }
         ],
         "largest-contentful-paint": [
           "error",
           {
-            "maxNumericValue": 2500
+            "maxNumericValue": 2000
           }
         ],
         "cumulative-layout-shift": [
@@ -61,7 +61,7 @@
     },
     "upload": {
       "target": "filesystem",
-      "outputDir": ".lighthouseci"
+      "outputDir": ".lighthouseci-desktop"
     }
   }
 }
