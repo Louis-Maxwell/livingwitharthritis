@@ -83,7 +83,7 @@ function finish(exitCode) {
       {
         timestamp: new Date().toISOString(),
         ok: exitCode === 0,
-        options: { skipBuild, skipFunctions, skipVersionCheck, strict },
+        options: { skipBuild, skipFunctions, skipVersionCheck, strict, withPerf },
         stages,
       },
       null,
