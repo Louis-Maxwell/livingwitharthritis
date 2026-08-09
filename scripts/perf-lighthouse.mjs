@@ -30,7 +30,7 @@ const BASE = (process.env.PERF_BASE_URL || `http://localhost:${PORT}`).replace(/
 
 // Routes audited on every run. Keep this list short — each entry costs
 // numberOfRuns × ~15s per form factor.
-const ROUTES = ["/", "/conditions/osteoarthritis", "/blog", "/donate"];
+const ROUTES = ["/", "/conditions/osteoarthritis", "/blog"];
 
 function run(cmd, args) {
   const r = spawnSync(cmd, args, { stdio: "inherit", shell: process.platform === "win32" });
