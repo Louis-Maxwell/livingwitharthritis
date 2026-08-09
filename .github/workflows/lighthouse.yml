@@ -56,6 +56,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: lighthouse-reports
-          path: .lighthouseci/
+          path: |
+            .lighthouseci/
+            .lighthouseci-desktop/
           retention-days: 14
           if-no-files-found: ignore
