@@ -76,7 +76,7 @@ if (!ready) {
   process.exit(1);
 }
 
-const urlFlags = ROUTES.flatMap((route) => ["--collect.url", `${BASE}${route}`]);
+const urlFlags = ROUTES.map((route) => `--collect.url=${BASE}${route}`);
 
 const passes = [];
 if (!desktopOnly) passes.push({ label: "mobile", config: "./lighthouserc.json" });
