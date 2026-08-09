@@ -2,15 +2,16 @@
 /**
  * Lighthouse performance budget runner.
  *
- * Builds (unless --no-build), serves dist/ on :4173, runs Lighthouse CI with
- * the assertions in lighthouserc.json + resource budgets in budget.json, then
- * tears the server down. Exits non-zero when a budget is breached, unless
- * --report-only is passed.
+ * Builds (unless --no-build), serves dist/ on :4173, then runs Lighthouse CI
+ * twice — mobile (lighthouserc.json) and desktop (lighthouserc.desktop.json) —
+ * asserting LCP / CLS / TBT / performance score plus the resource budgets in
+ * budget.json. Exits non-zero when a budget is breached, unless --report-only.
  *
  * Usage:
  *   node scripts/perf-lighthouse.mjs
  *   node scripts/perf-lighthouse.mjs --no-build
  *   node scripts/perf-lighthouse.mjs --report-only
+ *   node scripts/perf-lighthouse.mjs --mobile-only | --desktop-only
  *   PERF_BASE_URL=http://localhost:8080 node scripts/perf-lighthouse.mjs --no-build --no-serve
  */
 import { spawn, spawnSync } from "node:child_process";
@@ -21,8 +22,15 @@ const has = (f) => argv.includes(f);
 const skipBuild = has("--no-build");
 const skipServe = has("--no-serve");
 const reportOnly = has("--report-only");
+const mobileOnly = has("--mobile-only");
+const desktopOnly = has("--desktop-only");
+
 const PORT = process.env.PERF_PORT || "4173";
-const BASE = process.env.PERF_BASE_URL || `http://localhost:${PORT}`;
+const BASE = (process.env.PERF_BASE_URL || `http://localhost:${PORT}`).replace(/\/$/, "");
+
+// Routes audited on every run. Keep this list short — each entry costs
+// numberOfRuns × ~15s per form factor.
+const ROUTES = ["/", "/conditions/osteoarthritis", "/blog", "/donate"];
 
 function run(cmd, args) {
   const r = spawnSync(cmd, args, { stdio: "inherit", shell: process.platform === "win32" });
@@ -68,8 +76,27 @@ if (!ready) {
   process.exit(1);
 }
 
-console.log("→ Running Lighthouse CI…");
-const lhStatus = run("npx", ["--yes", "@lhci/cli@0.15.x", "autorun", "--config=./lighthouserc.json"]);
+const urlFlags = ROUTES.flatMap((route) => ["--collect.url", `${BASE}${route}`]);
+
+const passes = [];
+if (!desktopOnly) passes.push({ label: "mobile", config: "./lighthouserc.json" });
+if (!mobileOnly) passes.push({ label: "desktop", config: "./lighthouserc.desktop.json" });
+
+let failed = false;
+for (const pass of passes) {
+  console.log(`\n→ Lighthouse CI — ${pass.label}`);
+  const status = run("npx", [
+    "--yes",
+    "@lhci/cli@0.15.x",
+    "autorun",
+    `--config=${pass.config}`,
+    ...urlFlags,
+  ]);
+  if (status !== 0) {
+    failed = true;
+    console.error(`Lighthouse ${pass.label} pass failed (exit ${status}).`);
+  }
+}
 
 if (server) {
   try {
@@ -79,10 +106,10 @@ if (server) {
   }
 }
 
-if (lhStatus !== 0 && reportOnly) {
-  console.log(`Report-only mode: Lighthouse exit ${lhStatus} ignored.`);
+if (failed && reportOnly) {
+  console.log("Report-only mode: Lighthouse failures ignored.");
   process.exit(0);
 }
 
-console.log(lhStatus === 0 ? "PERF BUDGET: PASS" : "PERF BUDGET: FAIL");
-process.exit(lhStatus);
+console.log(failed ? "PERF BUDGET: FAIL" : "PERF BUDGET: PASS");
+process.exit(failed ? 1 : 0);
