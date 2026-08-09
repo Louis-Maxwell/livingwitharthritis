@@ -1,0 +1,36 @@
+{
+  "ci": {
+    "collect": {
+      "numberOfRuns": 3,
+      "url": [
+        "http://localhost:4173/",
+        "http://localhost:4173/conditions/osteoarthritis",
+        "http://localhost:4173/blog",
+        "http://localhost:4173/donate"
+      ],
+      "settings": {
+        "preset": "desktop",
+        "budgetsPath": "./budget.json",
+        "chromeFlags": "--no-sandbox --headless=new",
+        "skipAudits": ["uses-http2", "canonical"]
+      }
+    },
+    "assert": {
+      "assertions": {
+        "categories:performance": ["error", { "minScore": 0.85 }],
+        "largest-contentful-paint": ["error", { "maxNumericValue": 2500 }],
+        "cumulative-layout-shift": ["error", { "maxNumericValue": 0.1 }],
+        "total-blocking-time": ["error", { "maxNumericValue": 300 }],
+        "performance-budget": ["error", {}],
+        "speed-index": ["warn", { "maxNumericValue": 3400 }],
+        "unused-javascript": "warn",
+        "modern-image-formats": "warn",
+        "uses-responsive-images": "warn"
+      }
+    },
+    "upload": {
+      "target": "filesystem",
+      "outputDir": ".lighthouseci"
+    }
+  }
+}
