@@ -40,7 +40,7 @@ jobs:
       - name: Lighthouse CI (mobile + desktop budgets)
         env:
           LHCI_REPORT_ONLY: 'false'
-          CHROME_PATH: ''
+
         run: |
           set +e
           node scripts/perf-lighthouse.mjs --no-build
