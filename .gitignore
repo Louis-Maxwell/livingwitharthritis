@@ -31,3 +31,6 @@ supabase/functions/node_modules/
 
 # Claude Code personal/local overrides
 .claude/settings.local.json
+
+.lighthouseci/
+.lighthouseci-desktop/
