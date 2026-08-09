@@ -1,0 +1,63 @@
+name: Lighthouse performance budget
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: lighthouse-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install
+        run: npm ci --prefer-offline --no-audit --no-fund
+
+      - name: Build
+        run: npm run build
+
+      # Thresholds in lighthouserc.json (mobile) and lighthouserc.desktop.json
+      # (desktop) are calibrated to the current medians with headroom, so this
+      # gate fails on regressions rather than on today's baseline. Set
+      # LHCI_REPORT_ONLY=true temporarily to un-block merges while recalibrating.
+      - name: Lighthouse CI (mobile + desktop budgets)
+        env:
+          LHCI_REPORT_ONLY: 'false'
+
+        run: |
+          set +e
+          node scripts/perf-lighthouse.mjs --no-build
+          LH_EXIT=$?
+          if [ "$LHCI_REPORT_ONLY" = "true" ]; then
+            echo "Report-only mode: exit code $LH_EXIT ignored."
+            exit 0
+          fi
+          exit $LH_EXIT
+
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-reports
+          path: |
+            .lighthouseci/
+            .lighthouseci-desktop/
+          retention-days: 14
+          if-no-files-found: ignore

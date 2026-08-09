@@ -38,7 +38,9 @@
     "css:check": "node scripts/check-css-utilities.mjs",
     "test:layout": "playwright test --config=tests/visual/playwright.config.ts",
     "test:layout:update": "playwright test --config=tests/visual/playwright.config.ts layout-snapshots --update-snapshots",
-    "smoke:prepublish": "node scripts/prepublish-smoke.mjs"
+    "smoke:prepublish": "node scripts/prepublish-smoke.mjs",
+    "perf:lhci": "node scripts/perf-lighthouse.mjs",
+    "perf:lhci:local": "node scripts/perf-lighthouse.mjs --no-build --no-serve"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -104,6 +106,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",
+    "@lhci/cli": "^0.15.0",
     "@lovable.dev/vite-plugin-dev-server-bridge": "^1.0.2",
     "@lovable.dev/vite-plugin-hmr-gate": "^1.5.0",
     "@playwright/test": "^1.57.0",

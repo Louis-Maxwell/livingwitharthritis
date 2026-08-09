@@ -36,6 +36,7 @@ const skipBuild = has("--skip-build");
 const skipFunctions = has("--skip-functions");
 const skipVersionCheck = has("--skip-version-check");
 const strict = has("--strict");
+const withPerf = has("--perf");
 
 const stages = [];
 
@@ -82,7 +83,7 @@ function finish(exitCode) {
       {
         timestamp: new Date().toISOString(),
         ok: exitCode === 0,
-        options: { skipBuild, skipFunctions, skipVersionCheck, strict },
+        options: { skipBuild, skipFunctions, skipVersionCheck, strict, withPerf },
         stages,
       },
       null,
@@ -171,4 +172,22 @@ if (skipFunctions) {
   record("Edge function check", "PASS", "deno check across supabase/functions", r.durationMs);
 }
 
+// ---------------------------------------------------------------------------
+// Optional stage — Lighthouse performance budget (--perf)
+// ---------------------------------------------------------------------------
+hr();
+console.log("Optional stage — Lighthouse performance budget");
+hr();
+if (!withPerf) {
+  record("Performance budget", "SKIPPED", "pass --perf to run Lighthouse budgets");
+} else {
+  const r = run("node", ["scripts/perf-lighthouse.mjs", "--no-build"]);
+  if (r.status !== 0) {
+    record("Performance budget", "FAIL", r.error ?? `exit ${r.status}`, r.durationMs);
+    finish(1);
+  }
+  record("Performance budget", "PASS", "LCP/CLS/TBT + resource budgets", r.durationMs);
+}
+
 finish(0);
+
