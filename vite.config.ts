@@ -1,6 +1,8 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
+import fs from "node:fs";
+import { createRequire } from "node:module";
 import { componentTagger } from "lovable-tagger";
 import Prerender from "@prerenderer/rollup-plugin";
 import { visualizer } from "rollup-plugin-visualizer";
@@ -8,10 +10,31 @@ import { mcpPlugin } from "@lovable.dev/mcp-js/stacks/supabase/vite";
 // @ts-expect-error - plain .mjs route list, no type declarations needed
 import { PRERENDER_ROUTES } from "./scripts/prerender-routes.mjs";
 
-// Prerender is opt-in via PRERENDER=1 to avoid running headless Chromium
-// in environments where it isn't available (e.g. Lovable's auto-build).
-// Run locally with: PRERENDER=1 npm run build
-const ENABLE_PRERENDER = process.env.PRERENDER === "1";
+// Prerender is ON by default for production builds so crawlers (Googlebot's
+// non-JS pass, Bing, LLM scrapers) receive real HTML instead of an empty SPA
+// shell. It is skipped automatically when no Chromium binary is available,
+// and can be forced off with PRERENDER=0.
+function chromiumAvailable() {
+  if (process.env.PRERENDER === "0") return false;
+  try {
+    const req = createRequire(import.meta.url);
+    const puppeteer = req("puppeteer");
+    const exe =
+      process.env.PUPPETEER_EXECUTABLE_PATH || puppeteer.executablePath();
+    return Boolean(exe) && fs.existsSync(exe);
+  } catch {
+    return false;
+  }
+}
+
+const ENABLE_PRERENDER = chromiumAvailable();
+if (!ENABLE_PRERENDER) {
+  console.warn(
+    "[prerender] skipped — no Chromium binary found (or PRERENDER=0). " +
+      "Production HTML will be an SPA shell for crawlers.",
+  );
+}
+
 // Bundle analyzer is opt-in via ANALYZE=1 npm run build → dist/stats.html
 const ENABLE_ANALYZE = process.env.ANALYZE === "1";
 
@@ -33,21 +56,45 @@ export default defineConfig(({ mode }) => ({
           renderAfterDocumentEvent: "prerender-ready",
           maxConcurrentRoutes: 4,
           headless: true,
+          // react-helmet-async flushes title/meta changes inside a
+          // requestAnimationFrame. Chromium throttles rAF in backgrounded /
+          // occluded renderers, so without these flags most prerendered
+          // pages froze with the static index.html <title> and description
+          // instead of their own — ~850 pages of duplicate titles.
+          launchOptions: {
+            args: [
+              "--disable-background-timer-throttling",
+              "--disable-renderer-backgrounding",
+              "--disable-backgrounding-occluded-windows",
+              "--no-sandbox",
+            ],
+          },
+
           // Give useEffect-injected JSON-LD a moment after route mount
           renderAfterTime: 1500,
-          // CRITICAL: without this, Puppeteer's default UA contains
-          // "HeadlessChrome" (matched by index.html's bot-blocking regex)
-          // and navigator.webdriver is always true under Puppeteer — both
-          // trip the site's own bot-detection script, which then injects
-          // <meta name="robots" content="noindex"> into the page BEFORE
-          // it's captured as static HTML. That means every prerendered
-          // page would ship to production already noindexed. This UA is
-          // added to the `allow` list in index.html specifically so the
-          // prerender process's own page loads are recognized as
-          // legitimate and never get noindexed or miscounted as bots.
+          // The renderer does not reliably apply this UA before the
+          // document's inline scripts run, so it is only the first of
+          // three defences against self-noindexing (see below).
           userAgent: "Mozilla/5.0 (compatible; LWAPrerenderer/1.0; +https://livingwitharthritis.org.uk)",
+          // Defence 2: injected via evaluateOnNewDocument, so it exists
+          // BEFORE index.html's bot-detection script executes. That script
+          // bails out entirely when it sees this flag, so it can never
+          // append <meta name="robots" content="noindex"> into the HTML we
+          // are about to ship as static files.
+          inject: { prerender: true },
+          injectProperty: "__PRERENDER_INJECTED__",
+        },
+        // Defence 3: strip any noindex/nofollow robots meta that still made
+        // it into the snapshot. Shipping one on every prerendered page would
+        // de-index the whole site.
+        postProcess(renderedRoute: { html: string; route: string }) {
+          renderedRoute.html = renderedRoute.html.replace(
+            /<meta[^>]+name=["']robots["'][^>]*content=["'][^"']*noindex[^"']*["'][^>]*>/gi,
+            "",
+          );
         },
       }),
+
     ENABLE_ANALYZE &&
       visualizer({
         filename: "dist/stats.html",
