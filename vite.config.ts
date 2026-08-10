@@ -1,6 +1,8 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
+import fs from "node:fs";
+import { createRequire } from "node:module";
 import { componentTagger } from "lovable-tagger";
 import Prerender from "@prerenderer/rollup-plugin";
 import { visualizer } from "rollup-plugin-visualizer";
@@ -8,10 +10,31 @@ import { mcpPlugin } from "@lovable.dev/mcp-js/stacks/supabase/vite";
 // @ts-expect-error - plain .mjs route list, no type declarations needed
 import { PRERENDER_ROUTES } from "./scripts/prerender-routes.mjs";
 
-// Prerender is opt-in via PRERENDER=1 to avoid running headless Chromium
-// in environments where it isn't available (e.g. Lovable's auto-build).
-// Run locally with: PRERENDER=1 npm run build
-const ENABLE_PRERENDER = process.env.PRERENDER === "1";
+// Prerender is ON by default for production builds so crawlers (Googlebot's
+// non-JS pass, Bing, LLM scrapers) receive real HTML instead of an empty SPA
+// shell. It is skipped automatically when no Chromium binary is available,
+// and can be forced off with PRERENDER=0.
+function chromiumAvailable() {
+  if (process.env.PRERENDER === "0") return false;
+  try {
+    const req = createRequire(import.meta.url);
+    const puppeteer = req("puppeteer");
+    const exe =
+      process.env.PUPPETEER_EXECUTABLE_PATH || puppeteer.executablePath();
+    return Boolean(exe) && fs.existsSync(exe);
+  } catch {
+    return false;
+  }
+}
+
+const ENABLE_PRERENDER = chromiumAvailable();
+if (!ENABLE_PRERENDER) {
+  console.warn(
+    "[prerender] skipped — no Chromium binary found (or PRERENDER=0). " +
+      "Production HTML will be an SPA shell for crawlers.",
+  );
+}
+
 // Bundle analyzer is opt-in via ANALYZE=1 npm run build → dist/stats.html
 const ENABLE_ANALYZE = process.env.ANALYZE === "1";
 
