@@ -96,9 +96,9 @@ const OAHero = memo(() => {
               src={HERO_IMG}
               srcSet={HERO_SRCSET}
               sizes={HERO_SIZES}
-              alt="An older couple outdoors together — representing the community Living With Arthritis UK supports."
+              alt="Two smiling young women outdoors together — representing the community Living With Arthritis UK supports."
               width={800}
-              height={602}
+              height={800}
               {...({ fetchpriority: "high" } as Record<string, string>)}
               decoding="async"
               loading="eager"
