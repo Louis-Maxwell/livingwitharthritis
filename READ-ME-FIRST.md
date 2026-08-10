@@ -54,6 +54,23 @@ during a manual audit of your actual codebase.
 | `src/pages/AdminDashboard.tsx` | `src/pages/` | Same type-checking fix, applied to the admin comment moderation feed |
 | `src/pages/AdminEmails.tsx` | `src/pages/` | Minor type-checking fix (icon display) |
 | `src/pages/AdminAppointments.tsx` | `src/pages/` | Minor type-checking fix (icon display) |
+| `public/robots.txt` | root of repo | **Already correctly fixed in your code** (allows DuckDuckBot and the Internet Archive bot) — but your live site still shows this as broken, meaning it was never actually deployed. Re-including it here so it finally ships. |
+| `public/_headers` | root of repo | Same situation — correct caching rules already written, never deployed. Re-including so browsers finally cache your images/scripts properly (should meaningfully improve repeat-visit speed). |
+| `package-lock.json` | root of repo | Updates 7 dependencies to patched versions, fixing 6 real security vulnerabilities flagged by GitHub (including one rated High severity in `react-router`, `undici`, `nanoid`, `fast-uri`, `brace-expansion`, `dompurify`). All are small, safe patch-version bumps — nothing that changes behavior. |
+| `.github/workflows/lighthouse.yml` | `.github/workflows/` | Replaces a broken performance-testing workflow (it was failing every time with "command not found") with a working one, using a well-established, actively maintained tool instead of guessing at the original broken script |
+| `src/components/ui/dialog.tsx` | `src/components/ui/` | Fixes a real bug: the ✕ close button on every popup/modal across your whole site (donation popup, exit-intent popup, etc.) was only 16×16 pixels — too small to reliably tap on a phone. Now a proper 44×44 tap area, same visual size. |
+| `src/components/ui/sheet.tsx` | `src/components/ui/` | Same fix, for the mobile slide-out menu panel |
+| `src/components/ui/toast.tsx` | `src/components/ui/` | Same fix, for the small notification pop-ups (e.g. "Thank you for volunteering") |
+
+**One more fix inside `src/components/Header.tsx` this round:** the mobile hamburger menu button and search icon button were both 36×36 pixels — under the recommended minimum. Now 44×44, matching Google's own mobile usability guidance. This is the button that opens your entire navigation menu on a phone, so it's a meaningful one to get right.
+
+### A pattern worth knowing about
+
+Four separate things in this round (`robots.txt`, `_headers`, and two earlier fixes) turned out to **already be correctly written in your code** — but were never actually live on your website. If your team member or a previous AI session made changes, it's worth double-checking they're pushing all the way through to a real deploy, not just saving locally. This ZIP re-ships all of them properly.
+
+### What still needs real testing (not something I can fix blind)
+
+PageSpeed Insights flagged "Improve image delivery" as a large potential saving (1,100+ KiB), but I don't have the specific list of which image files it means — that detail was collapsed in your screenshot. If you expand that section in the PageSpeed report and send a screenshot, I can act on the exact list rather than guessing.
 
 **What "type-checking fix" means in plain terms:** several places in the code
 had a workaround that told the code-checking tool "trust me, don't check
