@@ -5,12 +5,10 @@ import { Button } from "@/components/ui/button";
 import { useReveal } from "@/hooks/useReveal";
 import "@/components/HeroSection.css";
 
-// Was a 2.3MB unoptimized JPEG on Lovable's asset CDN — this single image
-// was the dominant cause of a 27.8s mobile LCP (PageSpeed Insights, 24 Jul
-// 2026). Replaced with an already-compressed local WebP (154KB, ~93%
-// smaller) at its native resolution — no upscaling artifacts.
-const HERO_IMG = "/openverse/hero-couple-800.webp";
-const HERO_SRCSET = "/openverse/hero-couple-400.webp 400w, /openverse/hero-couple-800.webp 800w";
+// Hero photo, compressed locally to WebP at 400/800 square variants so the
+// LCP element stays tiny on mobile (~14KB at 400w).
+const HERO_IMG = "/openverse/hero-friends-800.webp";
+const HERO_SRCSET = "/openverse/hero-friends-400.webp 400w, /openverse/hero-friends-800.webp 800w";
 const HERO_SIZES = "(min-width: 1024px) 560px, 100vw";
 
 const OAHero = memo(() => {
