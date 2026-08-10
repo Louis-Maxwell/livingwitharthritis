@@ -24,7 +24,7 @@ Allow: /
 User-agent: Googlebot
 Allow: /
 Disallow: /admin/
-Disallow: /auth
+Disallow: /auth$
 Disallow: /donation-result
 Disallow: /unsubscribe
 Disallow: /newsletter/confirm
@@ -37,7 +37,7 @@ Disallow: /site-index
 User-agent: Bingbot
 Allow: /
 Disallow: /admin/
-Disallow: /auth
+Disallow: /auth$
 Disallow: /donation-result
 Disallow: /unsubscribe
 Disallow: /newsletter/confirm
@@ -50,7 +50,7 @@ Disallow: /site-index
 User-agent: DuckDuckBot
 Allow: /
 Disallow: /admin/
-Disallow: /auth
+Disallow: /auth$
 Disallow: /donation-result
 Disallow: /unsubscribe
 Disallow: /newsletter/confirm
@@ -184,7 +184,7 @@ Disallow: /
 User-agent: *
 Allow: /
 Disallow: /admin/
-Disallow: /auth
+Disallow: /auth$
 Disallow: /donation-result
 Disallow: /unsubscribe
 Disallow: /newsletter/confirm
