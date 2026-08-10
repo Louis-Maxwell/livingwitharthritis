@@ -58,19 +58,29 @@ export default defineConfig(({ mode }) => ({
           headless: true,
           // Give useEffect-injected JSON-LD a moment after route mount
           renderAfterTime: 1500,
-          // CRITICAL: without this, Puppeteer's default UA contains
-          // "HeadlessChrome" (matched by index.html's bot-blocking regex)
-          // and navigator.webdriver is always true under Puppeteer — both
-          // trip the site's own bot-detection script, which then injects
-          // <meta name="robots" content="noindex"> into the page BEFORE
-          // it's captured as static HTML. That means every prerendered
-          // page would ship to production already noindexed. This UA is
-          // added to the `allow` list in index.html specifically so the
-          // prerender process's own page loads are recognized as
-          // legitimate and never get noindexed or miscounted as bots.
+          // The renderer does not reliably apply this UA before the
+          // document's inline scripts run, so it is only the first of
+          // three defences against self-noindexing (see below).
           userAgent: "Mozilla/5.0 (compatible; LWAPrerenderer/1.0; +https://livingwitharthritis.org.uk)",
+          // Defence 2: injected via evaluateOnNewDocument, so it exists
+          // BEFORE index.html's bot-detection script executes. That script
+          // bails out entirely when it sees this flag, so it can never
+          // append <meta name="robots" content="noindex"> into the HTML we
+          // are about to ship as static files.
+          inject: { prerender: true },
+          injectProperty: "__PRERENDER_INJECTED__",
+        },
+        // Defence 3: strip any noindex/nofollow robots meta that still made
+        // it into the snapshot. Shipping one on every prerendered page would
+        // de-index the whole site.
+        postProcess(renderedRoute: { html: string; route: string }) {
+          renderedRoute.html = renderedRoute.html.replace(
+            /<meta[^>]+name=["']robots["'][^>]*content=["'][^"']*noindex[^"']*["'][^>]*>/gi,
+            "",
+          );
         },
       }),
+
     ENABLE_ANALYZE &&
       visualizer({
         filename: "dist/stats.html",
