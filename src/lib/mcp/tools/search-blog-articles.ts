@@ -17,7 +17,10 @@ export default defineTool({
       return { content: [{ type: "text", text: "Not authenticated" }], isError: true };
     }
     const supabase = supabaseForUser(ctx);
-    const like = `%${query.replace(/[%_]/g, (m) => `\\${m}`)}%`;
+    // Escape backslash, comma, period, and parens (PostgREST or-filter structural
+    // characters) in addition to %/_ (ILIKE wildcards) — otherwise a query like
+    // "a,is_published.eq.false" or "a)or(x.eq.y" could inject extra filter clauses.
+    const like = `%${query.replace(/[\\,.()%_]/g, (m) => `\\${m}`)}%`;
     const { data, error } = await supabase
       .from("blog_articles")
       .select("slug,title,category,excerpt,direct_answer,date")

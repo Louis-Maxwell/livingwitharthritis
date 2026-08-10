@@ -8,10 +8,9 @@
  * "supabaseUrl is required" at module-init time (which blanks the whole app).
  */
 
-const FALLBACK_PROJECT_ID = 'zrvcejlncpndjfyuvcrd';
+const FALLBACK_PROJECT_ID = 'eswdtpmknwjxtvkyxvmi';
 const FALLBACK_URL = `https://${FALLBACK_PROJECT_ID}.supabase.co`;
-const FALLBACK_PUBLISHABLE_KEY =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpydmNlamxuY3BuZGpmeXV2Y3JkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAwMjExMDAsImV4cCI6MjA4NTU5NzEwMH0.qOueBdqCYFMZKAROVBqqP8gNi0Li8JkMwvary2YfJzs';
+const FALLBACK_PUBLISHABLE_KEY = 'sb_publishable_R-r2QJnvd3S9RSC8BqNTfw_JvNUm_Dd';
 
 const pick = (value: unknown, fallback: string): string =>
   typeof value === 'string' && value.length > 0 ? value : fallback;

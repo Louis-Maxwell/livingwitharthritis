@@ -33,7 +33,7 @@ var search_blog_articles_default = defineTool({
       return { content: [{ type: "text", text: "Not authenticated" }], isError: true };
     }
     const supabase = supabaseForUser(ctx);
-    const like = `%${query.replace(/[%_]/g, (m) => `\\${m}`)}%`;
+    const like = `%${query.replace(/[\\,.()%_]/g, (m) => `\\${m}`)}%`;
     const { data, error } = await supabase.from("blog_articles").select("slug,title,category,excerpt,direct_answer,date").eq("is_published", true).or(`title.ilike.${like},excerpt.ilike.${like},category.ilike.${like},keywords.ilike.${like}`).order("date", { ascending: false }).limit(limit ?? 10);
     if (error) return { content: [{ type: "text", text: error.message }], isError: true };
     return {
@@ -167,7 +167,7 @@ var create_pain_journal_entry_default = defineTool5({
 });
 
 // src/lib/mcp/index.ts
-var projectRef = "zrvcejlncpndjfyuvcrd";
+var projectRef = "eswdtpmknwjxtvkyxvmi";
 var mcp_default = defineMcp({
   name: "living-with-arthritis-mcp",
   title: "Living With Arthritis UK",
