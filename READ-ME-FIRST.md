@@ -32,7 +32,9 @@ removed entirely, so there's nothing to configure for it.)
 **Note:** Supabase itself is being **kept** — it still runs your donations,
 logins, and admin dashboard. Only the exposed key is being fixed. Google
 Analytics (GA4) is being **removed entirely**, per your instruction — you will
-stop receiving any visitor/traffic statistics after this goes live.
+stop receiving any visitor/traffic statistics after this goes live. This
+update also includes a round of code-quality and accessibility fixes found
+during a manual audit of your actual codebase.
 
 | File | Repo location | What it does |
 |---|---|---|
@@ -45,6 +47,21 @@ stop receiving any visitor/traffic statistics after this goes live.
 | `src/components/a11y/AccessibilityToolbar.tsx` | new folder `src/components/a11y/` | The accessibility settings button your readers will see |
 | `src/hooks/a11y/useAccessibilityPreferences.ts` | new folder `src/hooks/a11y/` | Makes the accessibility button remember each reader's settings |
 | `src/styles/accessibility.css` | new folder `src/styles/` | The styling for large text, dyslexia font, high contrast |
+| `src/components/Header.tsx` | `src/components/` | Fixes a real bug: keyboard/screen-reader users heard "Skip to main content" twice on every page — now it's said once |
+| `src/components/BlogHelpfulness.tsx` | `src/components/` | Removes unnecessary workaround code on the "was this helpful" blog widget; restores proper type-checking |
+| `src/hooks/useBlogViews.ts` | `src/hooks/` | Same type-checking fix, for blog view counts |
+| `src/pages/WaysToHelp.tsx` | `src/pages/` | Same type-checking fix, for the volunteer sign-up form |
+| `src/pages/AdminDashboard.tsx` | `src/pages/` | Same type-checking fix, applied to the admin comment moderation feed |
+| `src/pages/AdminEmails.tsx` | `src/pages/` | Minor type-checking fix (icon display) |
+| `src/pages/AdminAppointments.tsx` | `src/pages/` | Minor type-checking fix (icon display) |
+
+**What "type-checking fix" means in plain terms:** several places in the code
+had a workaround that told the code-checking tool "trust me, don't check
+this" — usually added defensively at some point and never removed. Those
+database tables now have real, verified definitions, so I removed the
+workaround and let the checker actually verify the code is correct. This
+doesn't change how anything looks or behaves — it just means future changes
+to these files are more likely to get caught before they break something.
 
 **Not touched, but worth knowing:** your codebase has a shared helper file
 (`src/lib/analytics.ts`) that ~20 other files call into for tracking events.
