@@ -56,6 +56,20 @@ export default defineConfig(({ mode }) => ({
           renderAfterDocumentEvent: "prerender-ready",
           maxConcurrentRoutes: 4,
           headless: true,
+          // react-helmet-async flushes title/meta changes inside a
+          // requestAnimationFrame. Chromium throttles rAF in backgrounded /
+          // occluded renderers, so without these flags most prerendered
+          // pages froze with the static index.html <title> and description
+          // instead of their own — ~850 pages of duplicate titles.
+          launchOptions: {
+            args: [
+              "--disable-background-timer-throttling",
+              "--disable-renderer-backgrounding",
+              "--disable-backgrounding-occluded-windows",
+              "--no-sandbox",
+            ],
+          },
+
           // Give useEffect-injected JSON-LD a moment after route mount
           renderAfterTime: 1500,
           // The renderer does not reliably apply this UA before the
