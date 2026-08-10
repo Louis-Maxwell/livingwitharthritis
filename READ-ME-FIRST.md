@@ -68,9 +68,24 @@ during a manual audit of your actual codebase.
 
 Four separate things in this round (`robots.txt`, `_headers`, and two earlier fixes) turned out to **already be correctly written in your code** — but were never actually live on your website. If your team member or a previous AI session made changes, it's worth double-checking they're pushing all the way through to a real deploy, not just saving locally. This ZIP re-ships all of them properly.
 
-### What still needs real testing (not something I can fix blind)
+### This round: LCP, CLS, and CI infrastructure
 
-PageSpeed Insights flagged "Improve image delivery" as a large potential saving (1,100+ KiB), but I don't have the specific list of which image files it means — that detail was collapsed in your screenshot. If you expand that section in the PageSpeed report and send a screenshot, I can act on the exact list rather than guessing.
+**The real root cause of your Lighthouse CI failures:** your `package.json` referenced a script file (`scripts/perf-lighthouse.mjs`) that **doesn't actually exist** in your repo. Every Lighthouse-related CI check was built on top of a missing file — that's why `/donate` (and honestly, every route) was never reliably tested. This wasn't a `/donate`-specific bug; there was no working system at all.
+
+**What I built instead:**
+
+| File | What it does |
+|---|---|
+| `lighthouserc.json` | New — the actual performance budget/gate. Tests 4 routes (home, `/conditions/osteoarthritis`, `/blog`, `/donate`) on mobile, 3 runs each (median result used, so a single unlucky slow run doesn't fail the whole check) |
+| `scripts/lighthouse-pr-comment.mjs` | New — reads the real test results and builds a results table |
+| `.github/workflows/lighthouse.yml` | Replaced again — now actually runs your project's real testing tool (`@lhci/cli`, which was already a dependency, just never wired up) and posts/updates one PR comment with a Performance/LCP/TBT/CLS table per route |
+| `src/pages/BlogIndex.tsx` | Real bug fixed — see below |
+
+**The real CLS bug on `/blog` (found and fixed):** the "Editor's Picks" section — 3 large cards with images — was coded to render **nothing at all** while its data loaded, then pop in suddenly once ready, shoving everything below it down the page. This is exactly the kind of thing Lighthouse flags as a layout-shift outlier, and exactly the kind of bug that looks "flaky" (sometimes the data arrives fast enough that you don't notice, sometimes it doesn't). Fixed by showing a same-sized placeholder while loading, so nothing has to jump once the real content arrives.
+
+**On `/conditions/osteoarthritis` mobile LCP:** I checked thoroughly and the fundamentals here are already properly built — the page is pre-built as static HTML (not waiting on JavaScript to show text), the heading font is already correctly preloaded, and heavier interactive features (chat widget, donation pop-up) are already set up to load separately so they don't slow down the initial page. I did not find a further code-level bug to fix here. Getting mobile LCP further down from here realistically needs either a live, iterative testing loop (try something, measure the real result, adjust — which needs Lovable credits or you running tests locally) or a larger initiative around your images and overall JavaScript bundle size, not a single fix. I've set the budget to *warn* (not hard-fail) on LCP for now, at a realistic 4.0 seconds, rather than an instantly-failing target — this can be tightened once you're consistently passing it.
+
+**Honest note on the budget numbers I chose:** Accessibility/Best Practices/SEO are set to hard-fail if they drop below 90 (matching your current scores, so this protects what's already good). Performance and LCP/TBT are set to warn-only for now rather than hard-fail, since your current mobile Performance score (60, per your last test) is well below what a strict gate would demand — I didn't want to set an impossible bar that blocks every future deploy. CLS is set to hard-fail at the recognized "good" threshold (0.1), since the actual bug causing it is now fixed.
 
 **What "type-checking fix" means in plain terms:** several places in the code
 had a workaround that told the code-checking tool "trust me, don't check
@@ -120,3 +135,13 @@ If the site breaks after deploying, it's almost certainly the environment
 variable check above — go back and confirm those 3 Supabase values are set
 in Lovable.
 
+
+### Still needs real testing (not something I can fix blind)
+
+PageSpeed Insights flagged "Improve image delivery" as a large potential saving (1,100+ KiB), but I don't have the specific list of which image files it means — that detail was collapsed in your screenshot. If you expand that section in the PageSpeed report and send a screenshot, I can act on the exact list rather than guessing.
+
+### After uploading this round
+
+1. Once live, open a small test Pull Request (or push directly to a branch) to see the new Lighthouse workflow actually run
+2. Check the **Actions** tab — the Lighthouse check should now run 4 real tests and either pass or fail with real reasons, instead of failing instantly with "command not found"
+3. If it's a Pull Request, you should see an automatic comment appear with a results table
