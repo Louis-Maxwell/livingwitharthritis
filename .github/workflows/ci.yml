@@ -64,9 +64,24 @@ jobs:
           retention-days: 7
           if-no-files-found: ignore
 
-      - name: Build
-        run: npm run build
+      # Prerendered build: this is the artefact that actually gets published,
+      # so it is what the meta/indexing checks below must audit.
+      - name: Build (prerendered)
+        run: npm run build:prerender
 
+      # Fails if any built page still ships the generic homepage
+      # title/description, or a noindex robots tag.
+      - name: Prerender meta check
+        run: npm run seo:prerender-meta -- --json
+
+      - name: Upload prerender meta report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: prerender-meta-report
+          path: .preflight-reports/prerender-meta-*.json
+          retention-days: 7
+          if-no-files-found: ignore
 
       - name: SEO schema check
         run: npm run seo:schema
