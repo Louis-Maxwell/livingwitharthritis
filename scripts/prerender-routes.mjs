@@ -158,10 +158,19 @@ const seen = new Set(CURATED);
 for (const r of otherRoutes) seen.add(r);
 for (const r of blogRoutes) seen.add(r);
 
-export const PRERENDER_ROUTES = [...seen];
+// Hard cap so the published output can never approach the hosting limits
+// (50,000 files / 3 GiB). Curated routes are first in the set, so a cap
+// always keeps the highest-value pages.
+const MAX_PRERENDER_ROUTES = Number(process.env.MAX_PRERENDER_ROUTES || 5000);
+const allRoutes = [...seen];
+export const PRERENDER_ROUTES = allRoutes.slice(0, MAX_PRERENDER_ROUTES);
 
-// Diagnostic on import so `PRERENDER=1 vite build` shows what will be rendered.
+// Diagnostic on import so the build log shows what will be rendered.
 console.log(
   `[prerender] curated=${CURATED.length} other=${otherRoutes.length} blog=${blogRoutes.length} total=${PRERENDER_ROUTES.length}` +
+    (allRoutes.length > PRERENDER_ROUTES.length
+      ? ` (capped from ${allRoutes.length})`
+      : "") +
     (rawLimit > 0 ? ` (PRERENDER_LIMIT=${rawLimit})` : ""),
 );
+

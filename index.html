@@ -25,8 +25,15 @@
     <script>
       (function(){
         try {
+          // The build-time prerenderer injects this flag before any page
+          // script runs. Bail out completely: anything this script does
+          // (analytics stubbing, and especially the noindex meta below)
+          // would be frozen into the static HTML shipped to every visitor
+          // and crawler.
+          if (window.__PRERENDER_INJECTED__) return;
           var rawUa = navigator.userAgent || '';
           var ua = rawUa.toLowerCase();
+
           var allow = /(googlebot|bingbot|duckduckbot|applebot|twitterbot|linkedinbot|facebookexternalhit|slackbot|whatsapp|telegrambot|lwaprerenderer)/i;
           var block = /(sogou|baidu|yisou|360spider|haosou|bytespider|petalbot|mj12bot|dotbot|blexbot|dataforseo|seekport|serpstat|zoominfo|diffbot|gptbot|ccbot|claude|anthropic|perplexity|imagesift|omgili|headlesschrome|phantomjs|puppeteer|selenium|playwright|crawler|spider|\bbot\b|yandex|naver|qwant|archive\.org|ia_archiver|wayback|lighthouse|pagespeed|gtmetrix|pingdom|uptimerobot|statuscake|monitor|scrape|\bcurl\b|wget|python-requests|axios|node-fetch|go-http|okhttp|java\/|ruby|apache-httpclient|postman|insomnia|chrome-lighthouse|screaming\s?frog|httpclient|libwww|lwp::)/i;
           var uaBot = !allow.test(rawUa) && block.test(ua);
@@ -152,8 +159,8 @@
     <link
       rel="preload"
       as="image"
-      href="/openverse/hero-couple-800.webp"
-      imagesrcset="/openverse/hero-couple-400.webp 400w, /openverse/hero-couple-800.webp 800w"
+      href="/openverse/hero-friends-800.webp"
+      imagesrcset="/openverse/hero-friends-400.webp 400w, /openverse/hero-friends-800.webp 800w"
       imagesizes="(min-width: 1024px) 560px, 100vw"
       fetchpriority="high"
     />
