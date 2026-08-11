@@ -173,6 +173,23 @@ if (skipFunctions) {
 }
 
 // ---------------------------------------------------------------------------
+// Stage 5 — prerendered head guard (generic title/description, noindex)
+// ---------------------------------------------------------------------------
+hr();
+console.log("Stage 5 — Prerender meta check");
+hr();
+if (skipBuild) {
+  record("Prerender meta check", "SKIPPED", "--skip-build (no fresh dist/)");
+} else {
+  const r = run("node", ["scripts/check-prerender-meta.mjs", "--json"]);
+  if (r.status !== 0) {
+    record("Prerender meta check", "FAIL", r.error ?? `exit ${r.status}`, r.durationMs);
+    finish(1);
+  }
+  record("Prerender meta check", "PASS", "no generic homepage head, no noindex", r.durationMs);
+}
+
+// ---------------------------------------------------------------------------
 // Optional stage — Lighthouse performance budget (--perf)
 // ---------------------------------------------------------------------------
 hr();
