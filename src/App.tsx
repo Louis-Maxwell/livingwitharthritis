@@ -44,6 +44,7 @@ const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
 const AdminAppointments = lazy(() => import("./pages/AdminAppointments"));
 const AdminPsiDashboard = lazy(() => import("./pages/AdminPsiDashboard"));
 const AdminEmails = lazy(() => import("./pages/AdminEmails"));
+const AdminNewsletter = lazy(() => import("./pages/AdminNewsletter"));
 const AdminSeoHealth = lazy(() => import("./pages/AdminSeoHealth"));
 const AdminDistribute = lazy(() => import("./pages/AdminDistribute"));
 const AdminRankTracker = lazy(() => import("./pages/AdminRankTracker"));
@@ -299,6 +300,7 @@ function AnimatedRoutes() {
         <Route path="/admin/appointments" element={<AdminAppointments />} />
         <Route path="/admin/psi" element={<AdminPsiDashboard />} />
         <Route path="/admin/emails" element={<AdminEmails />} />
+        <Route path="/admin/newsletter" element={<AdminNewsletter />} />
         <Route path="/admin/seo-health" element={<AdminSeoHealth />} />
         <Route path="/admin/distribute" element={<AdminDistribute />} />
         <Route path="/admin/rank-tracker" element={<AdminRankTracker />} />

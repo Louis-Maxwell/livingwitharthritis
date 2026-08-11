@@ -121,54 +121,12 @@ function HomePage() {
     });
     document.head.appendChild(breadcrumbScript);
 
-    // FAQPage — mirrors the FAQSection rendered below for rich results.
-    const faqId = "ld-home-faq";
-    document.getElementById(faqId)?.remove();
-    const faqScript = document.createElement("script");
-    faqScript.type = "application/ld+json";
-    faqScript.id = faqId;
-    faqScript.text = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "Is everything on this site really free?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Yes. Every guide, plan, and resource is free for everyone in the UK living with arthritis. We're a small charity funded entirely by donations.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Who writes and reviews the guidance?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "All clinical content is written or reviewed by HCPC-registered physiotherapists and CSP members, and aligned to NICE guidance for osteoarthritis.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Can this replace seeing my GP or physiotherapist?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "No. Our guidance is educational and complements — never replaces — care from your GP, physiotherapist or rheumatologist. Always seek medical advice for new or worsening symptoms.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "How do you use my donation?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Donations fund clinical reviewers, plain-English writers, and hosting so we can keep every guide free for people in the UK living with arthritis.",
-          },
-        },
-      ],
-    });
-    document.head.appendChild(faqScript);
+    // FAQPage schema is emitted by FAQSection itself (rendered below) — not
+    // duplicated here, since two FAQPage blocks with different question sets
+    // on one page confuses structured-data validators and rich-result eligibility.
 
     return () => {
-      [id, breadcrumbId, faqId].forEach((scriptId) => {
+      [id, breadcrumbId].forEach((scriptId) => {
         const el = document.getElementById(scriptId);
         if (el) el.remove();
       });

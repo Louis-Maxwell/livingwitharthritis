@@ -12,7 +12,7 @@ const cards = [
     icon: Stethoscope,
     label: "I was recently diagnosed",
     sub: "Start with the basics of arthritis",
-    href: "/about-arthritis",
+    href: "/living-with-arthritis",
   },
   {
     icon: MapPin,

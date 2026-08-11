@@ -48,7 +48,7 @@ const OAHero = memo(() => {
                 Start your gentle plan
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </button>
-              <a href="#donate-inline" className="btn-map" style={{ background: "white", color: "hsl(var(--foreground))" }}>
+              <a href="/donate" className="btn-map" style={{ background: "white", color: "hsl(var(--foreground))" }}>
                 Donate — keep it free
               </a>
             </div>

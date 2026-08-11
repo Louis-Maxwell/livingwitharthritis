@@ -18,18 +18,18 @@ const NewsletterSection = memo(() => {
 
     setIsSubmitting(true);
     try {
-      const { error } = await supabase
-        .from("newsletter_subscriptions")
-        .insert({ email, source: "landing_page" });
+      const { data: response, error } = await supabase.functions.invoke("submit-newsletter", {
+        body: { email, source: "landing_page" },
+      });
 
-      if (error) {
-        if (error.code === "23505") {
-          toast.info("You're already subscribed!");
-        } else {
-          throw error;
-        }
+      if (error || !response?.ok) {
+        throw error ?? new Error("submit-newsletter failed");
+      }
+
+      if (response.data?.alreadySubscribed) {
+        toast.info("You're already subscribed!");
       } else {
-        toast.success("Welcome! You'll receive our next update soon.");
+        toast.success("Check your inbox to confirm your subscription.");
         setIsSubscribed(true);
         trackNewsletterSignup({ location: "landing_section" });
       }
@@ -58,7 +58,7 @@ const NewsletterSection = memo(() => {
           {isSubscribed ? (
             <div className="flex items-center justify-center gap-3 p-10 rounded-2xl bg-card border border-primary/8 animate-in fade-in zoom-in-95 duration-300">
               <CheckCircle className="w-6 h-6 text-primary" />
-              <span className="text-foreground font-semibold text-lg">You're subscribed! Check your inbox soon.</span>
+              <span className="text-foreground font-semibold text-lg">Almost there — check your inbox to confirm.</span>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">

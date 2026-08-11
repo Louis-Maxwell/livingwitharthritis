@@ -8,9 +8,9 @@ import { trackEvent, trackNewsletterSignup } from "@/lib/analytics";
 
 /**
  * Newsletter signup with interest segmentation and GDPR consent.
- * Writes to `newsletter_subscriptions` (anon INSERT policy enforces
- * `confirmation_token IS NULL` so we set categories + source only;
- * verification is handled server-side later).
+ * Submits via the `submit-newsletter` edge function, which issues a
+ * confirmation token server-side and emails the subscriber a confirm link
+ * (the row stays unconfirmed in `newsletter_subscriptions` until they click it).
  *
  * Variants:
  *  - `band`    : full-width hero strip (homepage)
@@ -78,24 +78,19 @@ export default function NewsletterSignup({
     }
 
     setStatus("loading");
-    const { error: insertError } = await supabase
-      .from("newsletter_subscriptions")
-      .insert({
-        email: parsed.data.email.toLowerCase(),
-        categories: parsed.data.categories.length
-          ? parsed.data.categories
-          : ["general"],
-        source,
-        is_active: true,
-        frequency: "weekly",
-      });
+    const { data: response, error: invokeError } = await supabase.functions.invoke(
+      "submit-newsletter",
+      {
+        body: {
+          email: parsed.data.email.toLowerCase(),
+          categories: parsed.data.categories,
+          source,
+          frequency: "weekly",
+        },
+      },
+    );
 
-    if (insertError) {
-      // Unique-violation = already subscribed (still a success from the user's POV).
-      if (insertError.code === "23505") {
-        setStatus("success");
-        return;
-      }
+    if (invokeError || !response?.ok) {
       setStatus("error");
       setError("Something went wrong. Please try again in a moment.");
       return;
