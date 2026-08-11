@@ -167,7 +167,7 @@ var create_pain_journal_entry_default = defineTool5({
 });
 
 // src/lib/mcp/index.ts
-var projectRef = "zrvcejlncpndjfyuvcrd";
+var projectRef = "eswdtpmknwjxtvkyxvmi";
 var mcp_default = defineMcp({
   name: "living-with-arthritis-mcp",
   title: "Living With Arthritis UK",
