@@ -209,3 +209,74 @@ live investigation.
 In Search Console, click **"8 reasons"** under *Not indexed* and screenshot the
 list. That tells us exactly why Google rejected each group, and would let me
 diagnose the rest precisely instead of inferring it.
+
+---
+
+## ⚠️ IMPORTANT — this round REVERSES part of my earlier advice
+
+**Please read this bit; I got the balance wrong earlier and I want to be clear about it.**
+
+### What I got wrong
+
+In an earlier round I removed the built-in database credentials from your code
+and told you it was a critical security fix. I described it as urgent. That was
+an overstatement, and it may have broken your site.
+
+I've now actually decoded the key in question. Its permission level is `anon` —
+it is the **publishable** key, which is *designed* to be sent to every visitor's
+browser. It's downloaded by every person who loads your site regardless of how
+it's stored in the code. Your real data protection comes from Row Level Security
+rules in the database, which I verified are properly configured.
+
+Having it in the repo was untidy practice, not a breach.
+
+### What removing it actually did
+
+Without those values set in Lovable's environment variable settings, your site
+was building with **no database credentials at all** — which silently breaks
+every database-backed feature:
+
+- Newsletter signups (the error you saw)
+- The contact form
+- The peer support forum
+- Appointment booking
+- **Donations**
+
+For a charity, silently breaking donations is far worse than a browser-public
+key sitting in a private repo. I weighted that wrong.
+
+### What this round changes
+
+`src/integrations/supabase/config.ts` now works like this:
+
+1. **If** environment variables are set in Lovable → it uses those (still the
+   better setup, lets you separate staging from production)
+2. **If not** → it falls back to the live project values, and the site keeps
+   working instead of silently failing
+
+It also logs a note in the browser console when it's using the fallback, so the
+gap is visible rather than invisible.
+
+### Honest caveat
+
+I have not been able to confirm that missing credentials *are* the cause of your
+newsletter error — I've been inferring it, because I verified the newsletter code
+itself is correct (table structure, permission rules, validation constraints,
+allowed values — all fine).
+
+This change rules out the most likely cause. If the newsletter still fails after
+deploying this, the cause is something else, and the console-logging change in
+`src/components/NewsletterSignup.tsx` (also in this ZIP) will now print the real
+underlying error so it can be diagnosed properly instead of guessed at.
+
+### Still worth doing
+
+Setting `VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_KEY` and
+`VITE_SUPABASE_PROJECT_ID` in Lovable is still good practice. It's just no
+longer something that breaks your site if you don't.
+
+### The one thing that IS a genuine secret
+
+Your `service_role` key. That must never appear in front-end code and should
+only ever live in Supabase Edge Function settings. Nothing in this ZIP touches
+it, and I saw no sign of it being exposed anywhere in your codebase.
