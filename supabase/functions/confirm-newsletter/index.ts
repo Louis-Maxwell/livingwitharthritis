@@ -121,6 +121,22 @@ serve(async (req) => {
     if (!data) {
       return errJson(req, { code: "not_found", message: "Unsubscribe link is invalid.", requestId });
     }
+
+    // Also add to suppressed_emails — the single source of truth checked by
+    // send-transactional-email/process-email-queue before sending anything.
+    // Without this, flipping is_active here only affects newsletter-specific
+    // queries; any other sender keyed off suppressed_emails would still be
+    // able to email someone who just unsubscribed.
+    const { error: suppressError } = await service
+      .from("suppressed_emails")
+      .upsert(
+        { email: data.email.toLowerCase(), reason: "unsubscribe" },
+        { onConflict: "email" },
+      );
+    if (suppressError) {
+      console.error(`[confirm-newsletter:${requestId}] Failed to suppress email:`, suppressError);
+    }
+
     return okJson({ unsubscribed: true, email: data.email }, req, { requestId });
   } catch (e) {
     console.error(`[confirm-newsletter:${requestId}]`, e);

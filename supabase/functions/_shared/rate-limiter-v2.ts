@@ -86,11 +86,19 @@ async function checkKey(
   tier: TierConfig,
 ): Promise<{ allowed: boolean; retryAfterSeconds?: number }> {
   const now = Date.now();
-  const { data } = await supabase
+  const { data, error: selectError } = await supabase
     .from("rate_limits")
     .select("window_start,count,consecutive_violations,blocked_until")
     .eq("key", key)
     .maybeSingle();
+
+  if (selectError) {
+    // Fail closed, not open: a rate limiter that lets everything through
+    // whenever its own store errors is not a rate limiter. Deny this one
+    // request rather than silently no-op the limit under DB hiccups.
+    console.error(`[rate-limiter] select failed for key "${key}":`, selectError);
+    return { allowed: false, retryAfterSeconds: 5 };
+  }
 
   // Currently serving an active backoff block.
   if (data?.blocked_until && new Date(data.blocked_until).getTime() > now) {
@@ -107,7 +115,7 @@ async function checkKey(
     // Fresh window. Violation streak only resets after a clean window
     // (no block triggered) — a single successful window is treated as
     // "recovered", so a one-off burst doesn't carry a permanent penalty.
-    await supabase.from("rate_limits").upsert({
+    const { error: upsertError } = await supabase.from("rate_limits").upsert({
       key,
       window_start: new Date(now).toISOString(),
       count: 1,
@@ -115,6 +123,10 @@ async function checkKey(
       blocked_until: null,
       updated_at: new Date(now).toISOString(),
     });
+    if (upsertError) {
+      console.error(`[rate-limiter] upsert failed for key "${key}":`, upsertError);
+      return { allowed: false, retryAfterSeconds: 5 };
+    }
     return { allowed: true };
   }
 
@@ -127,7 +139,7 @@ async function checkKey(
       tier.maxBackoffMs,
     );
     const blockedUntil = new Date(now + backoffMs).toISOString();
-    await supabase
+    const { error: blockUpdateError } = await supabase
       .from("rate_limits")
       .update({
         count: nextCount,
@@ -136,13 +148,20 @@ async function checkKey(
         updated_at: new Date(now).toISOString(),
       })
       .eq("key", key);
+    if (blockUpdateError) {
+      console.error(`[rate-limiter] block update failed for key "${key}":`, blockUpdateError);
+    }
     return { allowed: false, retryAfterSeconds: Math.ceil(backoffMs / 1000) };
   }
 
-  await supabase
+  const { error: countUpdateError } = await supabase
     .from("rate_limits")
     .update({ count: nextCount, updated_at: new Date(now).toISOString() })
     .eq("key", key);
+  if (countUpdateError) {
+    console.error(`[rate-limiter] count update failed for key "${key}":`, countUpdateError);
+    return { allowed: false, retryAfterSeconds: 5 };
+  }
   return { allowed: true };
 }
 
@@ -181,12 +200,24 @@ export async function checkRateLimit(
   return { allowed: true };
 }
 
-/** Extract client IP from request headers (works behind proxies). */
+/**
+ * Extract client IP from request headers.
+ *
+ * This app sits behind Cloudflare, which sets `cf-connecting-ip` at its edge
+ * to the real client IP and strips/overwrites any client-supplied value for
+ * that header — it cannot be spoofed by the caller. `x-forwarded-for`, by
+ * contrast, is a client-appendable list: a caller can send their own
+ * `X-Forwarded-For: 1.2.3.4` and this function would previously have taken
+ * that attacker-controlled left-most segment, letting anyone rotate their
+ * declared IP per request to bypass the per-IP rate limit. Prefer the
+ * Cloudflare header; fall back to x-forwarded-for/x-real-ip only for
+ * non-Cloudflare environments (e.g. local dev).
+ */
 export function getClientIp(req: Request): string {
   return (
-    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-    req.headers.get("x-real-ip") ||
     req.headers.get("cf-connecting-ip") ||
+    req.headers.get("x-real-ip") ||
+    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
     "unknown"
   );
 }

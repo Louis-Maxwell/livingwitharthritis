@@ -68,6 +68,18 @@ export const phoneSchema = z
 export const shortText = (max = 200) =>
   z.string().trim().min(1, "This field is required").max(max, `Must be ${max} characters or fewer`);
 
+// For text that ends up in an email header or header-adjacent context
+// (subject lines, display names). Strips CR/LF so a submitted value can't
+// inject extra headers (e.g. a "Subject" containing a newline followed by
+// "Bcc: ...") into an outgoing email built from it downstream.
+export const headerSafeText = (max = 200) =>
+  z
+    .string()
+    .trim()
+    .min(1, "This field is required")
+    .max(max, `Must be ${max} characters or fewer`)
+    .transform((s) => s.replace(/[\r\n]+/g, " "));
+
 export const longText = (max = 2000) =>
   z.string().trim().min(1, "This field is required").max(max, `Must be ${max} characters or fewer`);
 

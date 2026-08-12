@@ -84,6 +84,32 @@ serve(async (req) => {
     // Insert into Supabase using service role
     const supabase = getServiceClient("process-donation");
 
+    // Idempotency: Stripe retries webhook delivery on timeout/non-2xx/slow
+    // response, which is normal. Without this check a retry would insert a
+    // second donation row and send a second confirmation email for the same
+    // payment. Check for an existing record before inserting.
+    const { data: existing, error: existingLookupError } = await supabase
+      .from("donations")
+      .select("id")
+      .eq("stripe_session_id", session.id)
+      .maybeSingle();
+
+    if (existingLookupError) {
+      console.error("[WEBHOOK] Failed to check for existing donation:", existingLookupError);
+      return new Response(JSON.stringify({ error: "Lookup failed" }), {
+        status: 500,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    if (existing) {
+      console.log(`[WEBHOOK] Duplicate delivery for session ${session.id}, already recorded as ${existing.id}`);
+      return new Response(JSON.stringify({ received: true, donationId: existing.id, duplicate: true }), {
+        status: 200,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
     const { data: donationRecord, error: insertError } = await supabase
       .from("donations")
       .insert({

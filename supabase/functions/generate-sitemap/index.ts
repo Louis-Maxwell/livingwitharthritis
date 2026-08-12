@@ -40,6 +40,9 @@ const conditionPages = [
   "/conditions/osteoarthritis",
   "/conditions/rheumatoid-arthritis",
   "/conditions/psoriatic-arthritis",
+  "/conditions/gout",
+  "/conditions/ankylosing-spondylitis",
+  "/conditions/fibromyalgia",
 ];
 
 /* ── UK City pages ── */

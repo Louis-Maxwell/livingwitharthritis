@@ -86,9 +86,28 @@ serve(async (req) => {
       return errJson(req, { code: "server_error", message: "Failed to update appointment.", requestId });
     }
 
-    // Notify patient (best-effort)
+    // Notify patient (best-effort, but tracked so the admin knows if it failed)
+    let notificationSent = false;
     const resendApiKey = Deno.env.get("RESEND_API_KEY");
+    let skippedSuppressed = false;
     if (resendApiKey && apt.email) {
+      // This sends directly via Resend rather than through
+      // send-transactional-email, so it must do its own suppression check —
+      // otherwise a patient who unsubscribed/bounced/complained would still
+      // receive appointment-status emails.
+      const { data: suppressed, error: suppressionError } = await serviceClient
+        .from("suppressed_emails")
+        .select("id")
+        .eq("email", apt.email.toLowerCase())
+        .maybeSingle();
+
+      if (suppressionError) {
+        console.error(`[${requestId}] Suppression check failed — skipping notification:`, suppressionError);
+      } else if (suppressed) {
+        skippedSuppressed = true;
+      }
+    }
+    if (resendApiKey && apt.email && !skippedSuppressed) {
       const dateFormatted = new Date(apt.preferred_date + "T00:00:00").toLocaleDateString("en-GB", {
         weekday: "long", day: "numeric", month: "long", year: "numeric",
       });
@@ -122,7 +141,7 @@ serve(async (req) => {
       const safeStatus = esc(newStatus.charAt(0).toUpperCase() + newStatus.slice(1));
 
       try {
-        await fetch("https://api.resend.com/emails", {
+        const emailRes = await fetch("https://api.resend.com/emails", {
           method: "POST",
           headers: { "Content-Type": "application/json", Authorization: `Bearer ${resendApiKey}` },
           body: JSON.stringify({
@@ -151,16 +170,24 @@ serve(async (req) => {
             `,
           }),
         });
+        if (!emailRes.ok) {
+          const errBody = await emailRes.text();
+          console.error(`[${requestId}] Notification email failed:`, emailRes.status, errBody);
+        } else {
+          notificationSent = true;
+        }
       } catch (e) {
         console.error(`[${requestId}] Notification email error:`, e instanceof Error ? e.message : "Unknown");
       }
     }
 
-    return okJson(
-      { success: true, message: `Appointment ${newStatus}. Patient has been notified.` },
-      req,
-      { requestId },
-    );
+    const message = skippedSuppressed
+      ? `Appointment ${newStatus}. Patient email is suppressed (unsubscribed/bounced) — no notification sent.`
+      : notificationSent
+        ? `Appointment ${newStatus}. Patient has been notified.`
+        : `Appointment ${newStatus}. Notification email could not be sent — check logs.`;
+
+    return okJson({ success: true, notificationSent, message }, req, { requestId });
   } catch (error) {
     console.error(`[${requestId}] Status update unhandled error:`, error instanceof Error ? error.message : "Unknown");
     return errJson(req, { code: "server_error", message: "An unexpected error occurred.", requestId });

@@ -24,6 +24,12 @@ const BLOCKED: RegExp[] = [
   /\b(how (much|many).*(paracetamol|ibuprofen|opioid|tramadol|codeine|oxycodone|morphine).*(overdose|kill|die))\b/i,
   /\b(ignore.*(previous|above).*(instruction|prompt|system))\b/i,
   /\b(jailbreak|DAN mode|developer mode)\b/i,
+  // Bare "DAN" persona jailbreak ("you are now DAN", "act as DAN") — the
+  // classic "Do Anything Now" prompt. Matching "DAN" alone would false-
+  // positive on the name Dan, so this requires the persona-assignment
+  // phrasing around it.
+  /\b(you are now|act as|become|pretend (to be|you'?re)) (dan)\b/i,
+  /\bdan\b.{0,20}\b(do anything now)\b/i,
   /\b(prescribe|prescription).*(child|infant|baby|toddler).*(dose|dosage|mg)\b/i,
 ];
 

@@ -2,16 +2,19 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { getServiceClient } from "../_shared/supabase-client.ts";
 import { checkRateLimit, getClientIp, rateLimitResponse } from "../_shared/rate-limiter-v2.ts";
 import { errJson, okJson, parseJsonBody, preflight, newRequestId, getCorsHeaders } from "../_shared/http.ts";
-import { z, parseWithSchema, emailSchema, phoneSchema, shortText, longText } from "../_shared/validation.ts";
+import { z, parseWithSchema, emailSchema, phoneSchema, headerSafeText, longText } from "../_shared/validation.ts";
 import { CONTACT_EMAILS } from "../_shared/contact.ts";
 
 const ADMIN_EMAIL = CONTACT_EMAILS.info;
 
+// name and subject both flow into the admin-notification email's Subject
+// header (see contact-admin-notification.tsx), so both must be header-safe
+// (no embedded CR/LF) to prevent header injection.
 const ContactSchema = z.object({
-  name: shortText(100),
+  name: headerSafeText(100),
   email: emailSchema,
   phone: phoneSchema.optional(),
-  subject: shortText(200),
+  subject: headerSafeText(200),
   message: longText(5000),
 });
 

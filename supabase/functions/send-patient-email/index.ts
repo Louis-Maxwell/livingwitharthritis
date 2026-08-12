@@ -111,6 +111,32 @@ serve(async (req) => {
       });
     }
 
+    // Check suppression list (fail-closed: if we can't verify, don't send).
+    // This path sends directly via Resend rather than through
+    // send-transactional-email, so it must do its own suppression check —
+    // otherwise a patient who unsubscribed/bounced/complained would still
+    // receive admin-composed messages.
+    const { data: suppressed, error: suppressionError } = await serviceClient
+      .from("suppressed_emails")
+      .select("id")
+      .eq("email", to.toLowerCase())
+      .maybeSingle();
+
+    if (suppressionError) {
+      console.error("Suppression check failed — refusing to send:", suppressionError);
+      return new Response(JSON.stringify({ error: "Failed to verify suppression status" }), {
+        status: 500,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    if (suppressed) {
+      return new Response(JSON.stringify({ success: false, reason: "email_suppressed" }), {
+        status: 200,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
     // Escape helper to prevent HTML injection
     const esc = (s: string) =>
       String(s ?? "")
