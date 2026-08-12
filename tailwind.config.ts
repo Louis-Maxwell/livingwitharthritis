@@ -13,6 +13,15 @@ export default {
       },
     },
     extend: {
+      // Tailwind's default text-xs (0.75rem/12px) is hard to read for the
+      // captions, badges, and labels that make up most of its 500+ uses
+      // across this codebase. Bumped one step up while keeping it below
+      // text-sm (0.875rem), so the size hierarchy between the two is
+      // preserved — this is a single-lever change rather than a per-file
+      // sweep across every text-xs call site.
+      fontSize: {
+        xs: ["0.8125rem", { lineHeight: "1.125rem" }],
+      },
       fontFamily: {
         display: ['"Anton"', '"Montserrat"', 'system-ui', 'sans-serif'],
         anton: ['"Anton"', 'system-ui', 'sans-serif'],
