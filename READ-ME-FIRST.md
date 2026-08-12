@@ -145,3 +145,67 @@ PageSpeed Insights flagged "Improve image delivery" as a large potential saving 
 1. Once live, open a small test Pull Request (or push directly to a branch) to see the new Lighthouse workflow actually run
 2. Check the **Actions** tab — the Lighthouse check should now run 4 real tests and either pass or fail with real reasons, instead of failing instantly with "command not found"
 3. If it's a Pull Request, you should see an automatic comment appear with a results table
+
+---
+
+## This round: fixing the "632 pages not indexed" problem
+
+**What I found, in plain terms:** your sitemap tells Google about 1,095 pages,
+but roughly **254 of them are near-duplicates generated from a template**:
+
+- 150 pages like `/arthritis-support/london/osteoarthritis` — I checked the code,
+  and the actual medical content (symptoms, treatments, description) is
+  **identical on every one**. Only the city name and local hospital trust name
+  change.
+- 104 pages like `/uk/london/physiotherapy` — same situation. "Physiotherapy for
+  Arthritis in London" and the Birmingham version are the same page with two
+  words swapped.
+
+Google was almost certainly not *failing* to index these — it was *declining* to.
+Mass-produced pages that differ only by a place name are something Google
+actively filters out, and it's treated more strictly in health content.
+
+**Why this matters beyond those pages:** a large volume of thin near-duplicates
+can lower how Google judges your site *as a whole*, including your genuinely
+good pages. Trying to force these to index would risk making things worse, not
+better.
+
+### What I changed
+
+| File | Change |
+|---|---|
+| `src/pages/CityConditionPage.tsx` | Marked "don't index" — pages stay live and usable, just no longer put forward to Google |
+| `src/pages/CityServicePage.tsx` | Same |
+| `scripts/generate-sitemap.ts` | Removed those 254 URLs from the sitemap, so Google's attention goes to pages that deserve it |
+
+**Kept deliberately:** the ~68 `/arthritis-support/{city}` hub pages. I checked
+these and they *do* carry real local information — named hospitals, actual local
+health trusts, named local support groups. Those are legitimately useful and
+should be competing in search.
+
+**Everything here is easily reversible.** Each change has a comment explaining
+exactly how to undo it if you disagree with the call.
+
+### Honest expectations
+
+- Your sitemap will drop from ~1,095 to ~840 pages. **This is intended.** A
+  smaller sitemap of good pages beats a large one full of thin ones.
+- Your "not indexed" count in Search Console should fall substantially — but
+  because those pages are now correctly excluded, not because they got indexed.
+- This will not increase clicks by itself. Clicks are near-zero right now
+  because your real pages sit around position 20-45 in Google (page 2-5).
+  Moving those up is a content and authority problem, not a technical one.
+- Timeline: Google takes days to weeks to re-crawl and update these counts.
+
+### Still worth investigating (I couldn't diagnose this from code)
+
+You rank at **position 11 for your own brand name** ("livingwitharthritis.org.uk").
+A site normally ranks #1 for a search of its own name. That's unusual and worth
+looking into — but I can't tell why from the codebase alone; it needs
+live investigation.
+
+### What would help most next
+
+In Search Console, click **"8 reasons"** under *Not indexed* and screenshot the
+list. That tells us exactly why Google rejected each group, and would let me
+diagnose the rest precisely instead of inferring it.
