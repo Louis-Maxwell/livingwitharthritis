@@ -80,6 +80,11 @@ interface CheckResult {
   limitedBy?: "ip" | "account";
 }
 
+/** PostgREST's "table not in schema cache" error — see checkKey's selectError branch. */
+function isSchemaCacheMiss(error: { code?: string } | null | undefined): boolean {
+  return error?.code === "PGRST205";
+}
+
 async function checkKey(
   supabase: SupabaseClient,
   key: string,
@@ -93,6 +98,16 @@ async function checkKey(
     .maybeSingle();
 
   if (selectError) {
+    if (isSchemaCacheMiss(selectError)) {
+      // PGRST205 specifically means PostgREST's schema cache hasn't picked up
+      // the rate_limits table yet (e.g. right after it was created) — a
+      // known, self-resolving propagation delay, not a real failure. Taking
+      // down every public form on the site until that cache warms is a worse
+      // outcome than letting requests through uncounted for this narrow,
+      // identifiable case. Any OTHER select error still fails closed below.
+      console.error(`[rate-limiter] schema cache miss for "rate_limits" — allowing through:`, selectError);
+      return { allowed: true };
+    }
     // Fail closed, not open: a rate limiter that lets everything through
     // whenever its own store errors is not a rate limiter. Deny this one
     // request rather than silently no-op the limit under DB hiccups.
