@@ -1733,6 +1733,33 @@ export type Database = {
           },
         ]
       }
+      rate_limits: {
+        Row: {
+          blocked_until: string | null
+          consecutive_violations: number
+          count: number
+          key: string
+          updated_at: string
+          window_start: string
+        }
+        Insert: {
+          blocked_until?: string | null
+          consecutive_violations?: number
+          count?: number
+          key: string
+          updated_at?: string
+          window_start?: string
+        }
+        Update: {
+          blocked_until?: string | null
+          consecutive_violations?: number
+          count?: number
+          key?: string
+          updated_at?: string
+          window_start?: string
+        }
+        Relationships: []
+      }
       seo_refresh_runs: {
         Row: {
           ai_txt_updated: boolean
