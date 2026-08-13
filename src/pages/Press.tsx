@@ -165,7 +165,7 @@ export default function Press() {
         <section className="py-16">
           <div className="container mx-auto px-4 max-w-3xl text-center">
             <h2 className="text-2xl font-bold text-foreground mb-4">Press Releases & News</h2>
-            <p className="text-muted-foreground mb-6">No press releases yet. Check back soon for updates, or subscribe to our newsletter.</p>
+            <p className="text-muted-foreground mb-6">No press releases yet. Check back soon for updates.</p>
           </div>
         </section>
 

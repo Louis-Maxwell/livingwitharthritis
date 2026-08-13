@@ -62,7 +62,7 @@ const PrivacyPolicy = () => (
             <h2 className="text-xl font-bold text-foreground mt-8 mb-3">2. Information We Collect</h2>
             <p>We may collect the following types of personal information:</p>
             <ul className="list-disc pl-6 space-y-2 mt-3">
-              <li><strong>Contact details:</strong> Your name, email address and phone number when you fill in forms, book appointments or subscribe to our newsletter.</li>
+              <li><strong>Contact details:</strong> Your name, email address and phone number when you fill in forms or book appointments.</li>
               <li><strong>Health-related information:</strong> Details you voluntarily share about your arthritis condition when using our self-help tools or chatbot.</li>
               <li><strong>Usage data:</strong> Information about how you navigate our website, including pages visited, time spent and device information, collected through cookies and similar technologies.</li>
               <li><strong>Donation data:</strong> Payment information processed securely through our payment provider when you make a donation. We do not store full card details.</li>
@@ -77,7 +77,6 @@ const PrivacyPolicy = () => (
               <li>Provide our services, including virtual physiotherapy guidance, self-help tools and online assistance.</li>
               <li>Process appointment bookings and respond to enquiries.</li>
               <li>Process and acknowledge donations, including Gift Aid claims where applicable.</li>
-              <li>Send newsletters and updates you have opted in to receive.</li>
               <li>Improve our website, services and user experience through anonymised analytics.</li>
               <li>Comply with legal obligations and protect against fraud.</li>
             </ul>
@@ -87,7 +86,7 @@ const PrivacyPolicy = () => (
             <h2 className="text-xl font-bold text-foreground mt-8 mb-3">4. Legal Basis for Processing</h2>
             <p>We process your data based on one or more of the following grounds:</p>
             <ul className="list-disc pl-6 space-y-2 mt-3">
-              <li><strong>Consent:</strong> Where you have given clear consent for us to process your personal data for a specific purpose (e.g. newsletter sign-up).</li>
+              <li><strong>Consent:</strong> Where you have given clear consent for us to process your personal data for a specific purpose.</li>
               <li><strong>Contract:</strong> Where processing is necessary to fulfil a service you have requested (e.g. booking an appointment).</li>
               <li><strong>Legitimate interests:</strong> Where we have a genuine reason to use your data and this does not override your rights (e.g. improving our services).</li>
               <li><strong>Legal obligation:</strong> Where we are required to process data by law.</li>
@@ -106,7 +105,7 @@ const PrivacyPolicy = () => (
 
           <section>
             <h2 className="text-xl font-bold text-foreground mt-8 mb-3">6. Data Retention</h2>
-            <p>We retain personal data only for as long as necessary to fulfil the purposes for which it was collected. Donation records are kept for up to 7 years for financial compliance. Newsletter subscriptions are retained until you unsubscribe. Contact enquiries are kept for up to 2 years unless ongoing communication is required.</p>
+            <p>We retain personal data only for as long as necessary to fulfil the purposes for which it was collected. Donation records are kept for up to 7 years for financial compliance. Contact enquiries are kept for up to 2 years unless ongoing communication is required.</p>
           </section>
 
           <section>

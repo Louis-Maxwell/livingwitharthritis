@@ -49,14 +49,12 @@ const InspiredHeroBand = lazy(() => import("@/components/landing/InspiredHeroBan
 const QuoteSection = lazy(() => import("@/components/landing/QuoteSection"));
 const BlogPreview = lazy(() => import("@/components/landing/BlogPreview"));
 const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
-const NewsletterSection = lazy(() => import("@/components/landing/NewsletterSection"));
 const Footer = lazy(() => import("@/components/Footer"));
 const NextReadStrip = lazy(() => import("@/components/NextReadStrip"));
 const BackToTopButton = lazy(() => import("@/components/landing/BackToTopButton"));
 const CookieBanner = lazy(() => import("@/components/landing/CookieBanner"));
 const StickyDonateBar = lazy(() => import("@/components/landing/StickyDonateBar"));
 const MobileBottomCTA = lazy(() => import("@/components/landing/MobileBottomCTA"));
-const NewsletterHeroBanner = lazy(() => import("@/components/landing/NewsletterHeroBanner"));
 const SearchBar = lazy(() => import("@/components/landing/SearchBar"));
 const TestimonialCollector = lazy(() => import("@/components/landing/TestimonialCollector"));
 const StartHereBand = lazy(() => import("@/components/landing/StartHereBand"));
@@ -330,10 +328,6 @@ function HomePage() {
             <FinalDonateBand />
           </Suspense>
 
-          {/* 15 — Newsletter footer band */}
-          <Suspense fallback={<SectionFallback />}>
-            <NewsletterSection />
-          </Suspense>
         </main>
 
 

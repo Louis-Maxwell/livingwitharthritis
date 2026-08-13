@@ -14,7 +14,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   ArrowLeft, DollarSign, Users, TrendingUp, CalendarDays, ExternalLink,
   MessageSquare, Download, CalendarIcon, Check, X, Trash2, Heart, BarChart3,
-  Star, Zap, Globe, Shield, Activity, Mail,
+  Star, Zap, Globe, Shield, Activity,
 } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -253,12 +253,6 @@ const AdminDashboard = () => {
                   <Button variant="outline" className="gap-2 rounded-xl">
                     <MessageSquare className="w-4 h-4" />
                     Email Monitoring
-                  </Button>
-                </Link>
-                <Link to="/admin/newsletter">
-                  <Button variant="outline" className="gap-2 rounded-xl">
-                    <Mail className="w-4 h-4" />
-                    Newsletter Subscribers
                   </Button>
                 </Link>
                 <Link to="/admin/appointments">

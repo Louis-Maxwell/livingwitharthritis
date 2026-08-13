@@ -32,7 +32,6 @@ const AccessibilityToolbar = lazy(() => import("./components/AccessibilityToolba
 const MobileBottomNav = lazy(() => import("./components/MobileBottomNav"));
 const MobileNextStepBar = lazy(() => import("./components/MobileNextStepBar"));
 const DonationNotification = lazy(() => import("./components/DonationNotification"));
-const ExitIntentModal = lazy(() => import("./components/ExitIntentModal"));
 const EngagementTracker = lazy(() => import("./components/EngagementTracker"));
 
 
@@ -44,7 +43,6 @@ const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
 const AdminAppointments = lazy(() => import("./pages/AdminAppointments"));
 const AdminPsiDashboard = lazy(() => import("./pages/AdminPsiDashboard"));
 const AdminEmails = lazy(() => import("./pages/AdminEmails"));
-const AdminNewsletter = lazy(() => import("./pages/AdminNewsletter"));
 const AdminSeoHealth = lazy(() => import("./pages/AdminSeoHealth"));
 const AdminDistribute = lazy(() => import("./pages/AdminDistribute"));
 const AdminRankTracker = lazy(() => import("./pages/AdminRankTracker"));
@@ -145,7 +143,6 @@ const Contact = lazy(() => import("./pages/Contact"));
 const RegionHub = lazy(() => import("./pages/regions/RegionHub"));
 const WaitingListHelp = lazy(() => import("./pages/WaitingListHelp"));
 const WaitingTimeCalculator = lazy(() => import("./pages/tools/WaitingTimeCalculator"));
-const ArthritisStarterGuide = lazy(() => import("./pages/ArthritisStarterGuide"));
 const Gallery = lazy(() => import("./pages/Gallery"));
 const Credits = lazy(() => import("./pages/Credits"));
 const TaiChiForBalance = lazy(() => import("./pages/exercises/TaiChiForBalance"));
@@ -161,7 +158,6 @@ const Pedometer = lazy(() => import("./pages/Pedometer"));
 const SelfAssessment = lazy(() => import("./pages/SelfAssessment"));
 const Buddy = lazy(() => import("./pages/Buddy"));
 const BuddyMatch = lazy(() => import("./pages/BuddyMatch"));
-const NewsletterConfirm = lazy(() => import("./pages/NewsletterConfirm"));
 const DebugSchema = lazy(() => import("./pages/DebugSchema"));
 const EditorialStandards = lazy(() => import("./pages/EditorialStandards"));
 const AuthorProfile = lazy(() => import("./pages/AuthorProfile"));
@@ -300,7 +296,6 @@ function AnimatedRoutes() {
         <Route path="/admin/appointments" element={<AdminAppointments />} />
         <Route path="/admin/psi" element={<AdminPsiDashboard />} />
         <Route path="/admin/emails" element={<AdminEmails />} />
-        <Route path="/admin/newsletter" element={<AdminNewsletter />} />
         <Route path="/admin/seo-health" element={<AdminSeoHealth />} />
         <Route path="/admin/distribute" element={<AdminDistribute />} />
         <Route path="/admin/rank-tracker" element={<AdminRankTracker />} />
@@ -438,13 +433,11 @@ function AnimatedRoutes() {
         <Route path="/arthritis-waiting-list-help" element={<WaitingListHelp />} />
         <Route path="/tools/waiting-time" element={<WaitingTimeCalculator />} />
         <Route path="/pedometer" element={<Pedometer />} />
-        <Route path="/arthritis-starter-guide" element={<ArthritisStarterGuide />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/credits" element={<Credits />} />
         <Route path="/self-assessment" element={<SelfAssessment />} />
         <Route path="/buddy" element={<Buddy />} />
         <Route path="/buddy/match" element={<BuddyMatch />} />
-        <Route path="/newsletter/confirm" element={<NewsletterConfirm />} />
         <Route path="/debug/schema" element={<DebugSchema />} />
 
         {/* Phase 1 — 5-pillar IA stubs + Newly Diagnosed full guide */}
@@ -553,7 +546,6 @@ const App = () => {
                 <Suspense fallback={null}>
                   <ChatBotWidget />
                   <DonationNotification />
-                  <ExitIntentModal />
                 </Suspense>
               </DeferredMount>
             </BrowserRouter>

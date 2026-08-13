@@ -104,7 +104,6 @@ const AITransparency = () => {
             <li>No third-party tracking beyond Google Analytics for anonymised metrics.</li>
             <li>We never sell personal data.</li>
             <li>GDPR compliant (UK data protection).</li>
-            <li>Newsletter is opt-in only — no spam.</li>
           </ul>
         </section>
 

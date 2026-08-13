@@ -42,7 +42,7 @@ const Shop = () => {
             We're building a dedicated Shopify store with evidence-based supplements, compression aids, and daily living products — all selected by our physiotherapy team.
           </p>
           <p className="text-sm text-muted-foreground">
-            Check back soon or subscribe to our newsletter to be the first to know when we launch.
+            Check back soon to be the first to know when we launch.
           </p>
         </div>
       </main>

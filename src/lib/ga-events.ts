@@ -3,7 +3,6 @@
  * Safe no-ops when gtag isn't available (pre-consent, tests).
  *
  * Fires distinct, easy-to-mark-as-key-event GA4 events:
- *   - newsletter_signup
  *   - donation_click
  *   - contact_form_submit
  *   - file_download
@@ -12,22 +11,6 @@
 import { trackEvent } from "@/lib/analytics";
 
 /* ---------- Conversion events (call these from UI) ---------- */
-
-/** Fired the moment a visitor successfully submits the newsletter form. */
-export function trackNewsletterSignup(opts: { source?: string; interests?: number } = {}) {
-  trackEvent("newsletter_signup", {
-    source: opts.source ?? "site",
-    interests: opts.interests ?? 0,
-    value: 1,
-    currency: "GBP",
-  });
-}
-
-/** Kept for backwards compatibility with existing call-sites. */
-export function trackEmailSignup(preference?: string, source = "hero_banner") {
-  trackEvent("email_signup", { preference: preference || "general", source });
-  trackNewsletterSignup({ source });
-}
 
 /** Fired when a user clicks any "Donate" CTA (before the checkout redirect). */
 export function trackDonationClick(

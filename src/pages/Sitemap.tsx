@@ -119,7 +119,7 @@ const cityConditionLinks: SitemapLink[] = ukCities.flatMap((c) =>
 );
 
 // Curated set of every public, indexable page. Auth/admin/utility routes
-// (/auth, /admin/*, /chat, /donation-result, /unsubscribe, /newsletter/confirm,
+// (/auth, /admin/*, /chat, /donation-result, /unsubscribe,
 // /debug/*) are intentionally omitted from this user-facing index.
 const ALL_LINKS: SitemapLink[] = [
   // Main pages
@@ -199,7 +199,6 @@ const ALL_LINKS: SitemapLink[] = [
   // Waiting list & tools
   { label: "Arthritis Waiting List Help", href: "/arthritis-waiting-list-help" },
   { label: "Waiting Time Calculator", href: "/tools/waiting-time" },
-  { label: "Arthritis Starter Guide", href: "/arthritis-starter-guide" },
 
   // Buddy
   { label: "Buddy Programme", href: "/buddy" },

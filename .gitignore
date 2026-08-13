@@ -28,6 +28,7 @@ dist-ssr
 *.sln
 *.sw?
 supabase/functions/node_modules/
+supabase/.temp/
 
 # Claude Code personal/local overrides
 .claude/settings.local.json
