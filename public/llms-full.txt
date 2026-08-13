@@ -3018,12 +3018,6 @@ Last updated: 2026-07-28
 Q: The Best Supplement for Knee Joint Health: Evidence-Based Ra
 A: Evidence for knee joint supplements is strongest for glucosamine sulphate, UC-II collagen, chondroitin sulphate, Boswellia serrata, bioavailable curcumin and high-dose omega-3, with oral hyaluronic acid as a possible addition. It stresses product quality, pharmaceutical-grade forms and third-party testing, and says supplements should sit alongside weight management, physiotherapy, medical care and GP advice.
 
-## Ginger vs Turmeric for Arthritis: Which Actually Works?
-URL: https://livingwitharthritis.org.uk/blog/ginger-vs-turmeric-for-arthritis
-Last updated: 2026-07-09
-Q: Ginger vs Turmeric for Arthritis: Which Actually Works?
-A: For most people with arthritis, turmeric (as a properly absorbed curcumin supplement at around 1,000 mg/day for 8–12 weeks) has the stronger evidence for reducing pain and stiffness. Ginger at 500–1,000 mg/day is a well-tolerated adjunct, especially if you also have morning stiffness or nausea. Check with your GP before starting.
-
 ## Arthritis in Young Adults: Recognising It Early
 URL: https://livingwitharthritis.org.uk/blog/arthritis-in-young-adults
 Last updated: 2026-07-28
@@ -3048,12 +3042,6 @@ Last updated: 2026-07-28
 Q: Inflammatory Arthritis: Types, Causes and Treatment
 A: Inflammatory arthritis is an umbrella term for immune-driven joint conditions (rheumatoid, psoriatic, reactive arthritis and more), distinct from the mechanical wear of osteoarthritis. It typically causes morning stiffness over 30 minutes, joint swelling and fatigue, and is treated with immune-modulating medication such as DMARDs or biologics alongside exercise and lifestyle measures.
 
-## Anti-Inflammatory Diet for Arthritis — What to Eat for Happier Joints
-URL: https://livingwitharthritis.org.uk/blog/anti-inflammatory-diet
-Last updated: 2026-06-16
-Q: Anti-Inflammatory Diet for Arthritis — What to Eat for Happier Joints
-A: Diet does not cure arthritis, but a consistent anti-inflammatory pattern can reduce background inflammation, support joint health and improve wellbeing. The evidence points to a Mediterranean-style approach: more oily fish, vegetables, wholegrains, olive oil, nuts and berries; less red and processed meat, refined sugar and ultra-processed food. This guide is based on published research and NHS dietary advice.
-
 ## Anti-Inflammatory Herbs and Spices for Arthritis: A Complete
 URL: https://livingwitharthritis.org.uk/blog/anti-inflammatory-herbs-spices-arthritis
 Last updated: 2026-06-08
@@ -3077,24 +3065,6 @@ URL: https://livingwitharthritis.org.uk/blog/berries-antioxidants-inflammation
 Last updated: 2026-06-08
 Q: Berries and Antioxidants: Food Medicine for Inflammation
 A: Evidence in this guide frames arthritis pain as multifactorial, with inflammatory and degenerative patterns needing different management. It highlights structured movement, Mediterranean-style anti-inflammatory eating, weight management, heat or cold, and sleep habits as helpful. Start small, track simple weekly outcomes, and seek GP or physiotherapy advice for red, swollen joints, weight loss, prolonged morning stiffness, numbness or weakness.
-
-## Arthritis Flare-Ups — How to Recognise, Manage, and Recover
-URL: https://livingwitharthritis.org.uk/blog/arthritis-flare-management
-Last updated: 2026-06-16
-Q: Arthritis Flare-Ups — How to Recognise, Manage, and Recover
-A: An arthritis flare-up is a temporary worsening of arthritis symptoms, which can vary depending on the type of arthritis. It may involve increased pain, stiffness, swelling, and fatigue, lasting from days to several weeks. Early signs include unusual tiredness or increased stiffness. Managing a flare involves resting the affected joint(s), using heat or ice, and taking prescribed medications.
-
-## Arthritis Medication — What Works, What to Expect
-URL: https://livingwitharthritis.org.uk/blog/arthritis-medication-guide
-Last updated: 2026-06-16
-Q: Arthritis Medication — What Works, What to Expect
-A: Arthritis medications include painkillers like paracetamol and stronger opioids for severe pain. NSAIDs such as ibuprofen reduce both pain and inflammation. DMARDs and biologics treat underlying disease processes in inflammatory arthritis. Corticosteroids offer potent anti-inflammatory effects. Topical gels and creams can provide localised relief. Most are available on NHS prescription.
-
-## Physiotherapy for Arthritis — How It Helps and How to Access It
-URL: https://livingwitharthritis.org.uk/blog/physiotherapy-arthritis
-Last updated: 2026-06-16
-Q: Physiotherapy for Arthritis — How It Helps and How to Access It
-A: Physiotherapy helps arthritis by providing a comprehensive assessment, exercise programmes, and manual therapy. Physiotherapists offer pain management advice, joint protection techniques, and gait re-training. You can access physiotherapy on the NHS via GP referral or self-referral, or privately. Your first appointment includes assessment, physical examination, and a personalised treatment plan.
 
 ## Strength Training with Arthritis: A Beginner's Safe Start Gu
 URL: https://livingwitharthritis.org.uk/blog/strength-training-arthritis-beginners
@@ -3131,12 +3101,6 @@ URL: https://livingwitharthritis.org.uk/blog/arthritis-and-alcohol-uk
 Last updated: 2026-06-08
 Q: Arthritis and Alcohol – What You Need to Know
 A: Moderate alcohol consumption may slightly reduce rheumatoid arthritis risk but can also worsen inflammation, gout, and sleep. Alcohol interacts with many arthritis medications: combining it with methotrexate increases liver damage risk, and with NSAIDs or steroids, it raises stomach ulcer risk. The NHS recommends no more than 14 units per week. Discuss alcohol intake with your rheumatologist.
-
-## Arthritis Pain Management — A Kind, Practical Guide
-URL: https://livingwitharthritis.org.uk/blog/arthritis-pain-management
-Last updated: 2026-06-16
-Q: Arthritis Pain Management — A Kind, Practical Guide
-A: Arthritis pain is influenced by physical factors, muscle tension, nervous system sensitisation, emotions, and sleep. Effective management takes a whole-person approach: exercise, sensible medication use, heat and cold therapy, and mindfulness. Prioritising sleep, setting realistic daily goals, and having a plan for flare-ups reduces pain and improves well-being. If pain affects your mood, speak to your GP.
 
 ## DMARDs Explained: How Methotrexate Slows Rheumatoid Arthriti
 URL: https://livingwitharthritis.org.uk/blog/dmards-explained-how-methotrexate-slows-rheumatoid-arthritis
@@ -3288,6 +3252,24 @@ Last updated: 2026-06-08
 Q: Hand Exercises for Arthritis Pain Relief
 A: Hand exercises can help reduce arthritis pain and improve hand function. Perform exercises like finger spreads, making a fist, and thumb circles daily for at least eight weeks. These activities, which also include using therapy putty and wrist circles, aim to strengthen muscles, increase grip strength, and enhance fine motor skills. Warming hands beforehand can further improve effectiveness.
 
+## Anti-Inflammatory Diet for Arthritis — What to Eat for Happier Joints
+URL: https://livingwitharthritis.org.uk/blog/anti-inflammatory-diet
+Last updated: 2026-06-16
+Q: Anti-Inflammatory Diet for Arthritis — What to Eat for Happier Joints
+A: Diet does not cure arthritis, but a consistent anti-inflammatory pattern can reduce background inflammation, support joint health and improve wellbeing. The evidence points to a Mediterranean-style approach: more oily fish, vegetables, wholegrains, olive oil, nuts and berries; less red and processed meat, refined sugar and ultra-processed food. This guide is based on published research and NHS dietary advice.
+
+## Arthritis Flare-Ups — How to Recognise, Manage, and Recover
+URL: https://livingwitharthritis.org.uk/blog/arthritis-flare-management
+Last updated: 2026-06-16
+Q: Arthritis Flare-Ups — How to Recognise, Manage, and Recover
+A: An arthritis flare-up is a temporary worsening of arthritis symptoms, which can vary depending on the type of arthritis. It may involve increased pain, stiffness, swelling, and fatigue, lasting from days to several weeks. Early signs include unusual tiredness or increased stiffness. Managing a flare involves resting the affected joint(s), using heat or ice, and taking prescribed medications.
+
+## Arthritis Medication — What Works, What to Expect
+URL: https://livingwitharthritis.org.uk/blog/arthritis-medication-guide
+Last updated: 2026-06-16
+Q: Arthritis Medication — What Works, What to Expect
+A: Arthritis medications include painkillers like paracetamol and stronger opioids for severe pain. NSAIDs such as ibuprofen reduce both pain and inflammation. DMARDs and biologics treat underlying disease processes in inflammatory arthritis. Corticosteroids offer potent anti-inflammatory effects. Topical gels and creams can provide localised relief. Most are available on NHS prescription.
+
 ## Tai Chi for Arthritis: Why the Recommends It
 URL: https://livingwitharthritis.org.uk/blog/tai-chi-for-arthritis-uk
 Last updated: 2026-06-08
@@ -3300,11 +3282,29 @@ Last updated: 2026-06-08
 Q: Travelling with Arthritis: A UK Guide to Pain-Free Holidays
 A: To travel with arthritis, consult your GP or rheumatologist at least six weeks before your trip to discuss medication and time zone changes. Always declare arthritis on travel insurance. Pack double the medication, split between hand and hold luggage. During travel, request assistance, stand and stretch frequently, and consider accessible destinations. Planning, pacing, and permission to rest are key for a comfortable journey.
 
+## Physiotherapy for Arthritis — How It Helps and How to Access It
+URL: https://livingwitharthritis.org.uk/blog/physiotherapy-arthritis
+Last updated: 2026-06-16
+Q: Physiotherapy for Arthritis — How It Helps and How to Access It
+A: Physiotherapy helps arthritis by providing a comprehensive assessment, exercise programmes, and manual therapy. Physiotherapists offer pain management advice, joint protection techniques, and gait re-training. You can access physiotherapy on the NHS via GP referral or self-referral, or privately. Your first appointment includes assessment, physical examination, and a personalised treatment plan.
+
 ## Gout Medication UK: A Complete Guide to Drugs for Gout
 URL: https://livingwitharthritis.org.uk/blog/gout-medication-uk
 Last updated: 2026-06-08
 Q: Gout Medication UK: A Complete Guide to Drugs for Gout
 A: For acute gout attacks, common treatments include NSAIDs like naproxen (500mg twice daily) or indomethacin, which reduce inflammation and pain. Colchicine, taken as 1mg initially then 500 micrograms one hour later, is an alternative, especially if NSAIDs are unsuitable. If these are ineffective, corticosteroids such as prednisolone (30-35mg daily for 3-5 days) can be used.
+
+## Arthritis Pain Management — A Kind, Practical Guide
+URL: https://livingwitharthritis.org.uk/blog/arthritis-pain-management
+Last updated: 2026-06-16
+Q: Arthritis Pain Management — A Kind, Practical Guide
+A: Arthritis pain is influenced by physical factors, muscle tension, nervous system sensitisation, emotions, and sleep. Effective management takes a whole-person approach: exercise, sensible medication use, heat and cold therapy, and mindfulness. Prioritising sleep, setting realistic daily goals, and having a plan for flare-ups reduces pain and improves well-being. If pain affects your mood, speak to your GP.
+
+## Arthritis Treatment — Your Complete Guide to Managing Joint Pain
+URL: https://livingwitharthritis.org.uk/blog/arthritis-treatment-hub
+Last updated: 2026-06-16
+Q: Arthritis Treatment — Your Complete Guide to Managing Joint Pain
+A: Arthritis treatment involves a combination of approaches to manage symptoms. Key options include exercise and movement (recommended as a first-line treatment), weight management, physiotherapy, occupational therapy, and various medications for pain and inflammation. Surgery may be considered for severe cases when other treatments are insufficient. Complementary therapies can also provide additional relief. Always discuss treatment choices with your GP.
 
 ## The Best Foods to Eat for Arthritis: Your Anti-Inflammatory 
 URL: https://livingwitharthritis.org.uk/blog/best-foods-to-eat-for-arthritis
@@ -3312,11 +3312,29 @@ Last updated: 2026-06-08
 Q: The Best Foods to Eat for Arthritis: Your Anti-Inflammatory 
 A: For arthritis management, aim for an anti-inflammatory diet rich in oily fish, extra-virgin olive oil, leafy green vegetables, berries, walnuts, and alliums like garlic. Oily fish like salmon and mackerel provide omega-3s, while EVOO contains anti-inflammatory oleocanthal. These foods can help reduce inflammation and improve joint health.
 
+## Joint Replacement Surgery for Arthritis — A Complete UK Guide
+URL: https://livingwitharthritis.org.uk/blog/joint-replacement-surgery
+Last updated: 2026-06-16
+Q: Joint Replacement Surgery for Arthritis — A Complete UK Guide
+A: Joint replacement surgery is considered when severe, persistent pain affects daily activities and sleep, other treatments have failed, X-rays show significant joint damage, and quality of life is impacted. In the UK, over 200,000 hip and knee replacements occur annually, and more than 90% of people report significant improvement in pain and mobility.
+
 ## Managing Arthritis Flare-Ups at Home
 URL: https://livingwitharthritis.org.uk/blog/managing-arthritis-flare-ups-at-home
 Last updated: 2026-06-08
 Q: Managing Arthritis Flare-Ups at Home
 A: Managing arthritis flare-ups involves a multi-pronged approach at home. Regularly take paracetamol (up to 4g daily) or suitable NSAIDs, and use topical treatments. Apply heat for stiffness, cold for swelling. Balance rest for acutely inflamed joints with gentle movement and short walks. Create an action plan: for mild flares, increase pain relief; for moderate, reduce activities; for severe, contact your GP, especially if lasting over 3-5 days.
+
+## Osteoarthritis vs Rheumatoid Arthritis — Understanding the Differences
+URL: https://livingwitharthritis.org.uk/blog/oa-vs-ra-comparison
+Last updated: 2026-06-16
+Q: Osteoarthritis vs Rheumatoid Arthritis — Understanding the Differences
+A: Osteoarthritis (OA) and rheumatoid arthritis (RA) both cause joint pain but differ fundamentally. OA involves cartilage breakdown, usually from wear and tear, and commonly affects knees, hips, and hands. RA is an autoimmune disease where the immune system attacks joint linings, causing inflammation and damage — typically symmetrical, often starting in smaller joints on both sides of the body.
+
+## Ginger vs Turmeric for Arthritis: Which Actually Works?
+URL: https://livingwitharthritis.org.uk/blog/ginger-vs-turmeric-for-arthritis
+Last updated: 2026-07-09
+Q: Ginger vs Turmeric for Arthritis: Which Actually Works?
+A: For most people with arthritis, turmeric (as a properly absorbed curcumin supplement at around 1,000 mg/day for 8–12 weeks) has the stronger evidence for reducing pain and stiffness. Ginger at 500–1,000 mg/day is a well-tolerated adjunct, especially if you also have morning stiffness or nausea. Check with your GP before starting.
 
 ## Arthritis and Pregnancy in the UK
 URL: https://livingwitharthritis.org.uk/blog/arthritis-and-pregnancy-uk
@@ -3432,12 +3450,6 @@ Last updated: 2026-06-08
 Q: Natural Pain Relief for Arthritis: Evidence-Based Home Remed
 A: Heat relaxes muscles and reduces stiffness, useful for chronic pain. Cold numbs pain and reduces swelling, effective for flare-ups. Turmeric (500–1,000 mg curcumin daily) and ginger (500–1,000 mg extract daily) have anti-inflammatory benefits. TENS machines use electrical currents for pain relief. Topical capsaicin cream and arnica gel can also alleviate joint pain.
 
-## Arthritis Treatment — Your Complete Guide to Managing Joint Pain
-URL: https://livingwitharthritis.org.uk/blog/arthritis-treatment-hub
-Last updated: 2026-06-16
-Q: Arthritis Treatment — Your Complete Guide to Managing Joint Pain
-A: Arthritis treatment involves a combination of approaches to manage symptoms. Key options include exercise and movement (recommended as a first-line treatment), weight management, physiotherapy, occupational therapy, and various medications for pain and inflammation. Surgery may be considered for severe cases when other treatments are insufficient. Complementary therapies can also provide additional relief. Always discuss treatment choices with your GP.
-
 ## Assistive Devices for Arthritis – UK Buyer's Guide
 URL: https://livingwitharthritis.org.uk/blog/assistive-devices-arthritis-uk
 Last updated: 2026-06-08
@@ -3473,18 +3485,6 @@ URL: https://livingwitharthritis.org.uk/blog/hydrotherapy-arthritis-uk
 Last updated: 2026-06-08
 Q: Hydrotherapy for Arthritis UK: Benefits, Access and What to 
 A: Hydrotherapy is exercising in warm water, typically 33–36°C, helping arthritis by reducing body weight, allowing easier movement. The warmth relaxes muscles and lessens pain, while water resistance builds strength. NHS sessions, usually 30–45 minutes, are led by a physiotherapist, with courses often lasting 6–12 weeks. Access is usually via GP or rheumatologist referral.
-
-## Joint Replacement Surgery for Arthritis — A Complete UK Guide
-URL: https://livingwitharthritis.org.uk/blog/joint-replacement-surgery
-Last updated: 2026-06-16
-Q: Joint Replacement Surgery for Arthritis — A Complete UK Guide
-A: Joint replacement surgery is considered when severe, persistent pain affects daily activities and sleep, other treatments have failed, X-rays show significant joint damage, and quality of life is impacted. In the UK, over 200,000 hip and knee replacements occur annually, and more than 90% of people report significant improvement in pain and mobility.
-
-## Osteoarthritis vs Rheumatoid Arthritis — Understanding the Differences
-URL: https://livingwitharthritis.org.uk/blog/oa-vs-ra-comparison
-Last updated: 2026-06-16
-Q: Osteoarthritis vs Rheumatoid Arthritis — Understanding the Differences
-A: Osteoarthritis (OA) and rheumatoid arthritis (RA) both cause joint pain but differ fundamentally. OA involves cartilage breakdown, usually from wear and tear, and commonly affects knees, hips, and hands. RA is an autoimmune disease where the immune system attacks joint linings, causing inflammation and damage — typically symmetrical, often starting in smaller joints on both sides of the body.
 
 ## Occupational Therapy for Arthritis in the UK
 URL: https://livingwitharthritis.org.uk/blog/occupational-therapy-arthritis-uk
