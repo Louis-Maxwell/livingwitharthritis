@@ -5,6 +5,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import SiteLogo from "@/components/SiteLogo";
+import SiteAnnouncementBanner from "@/components/SiteAnnouncementBanner";
 
 const _CartDrawer = lazy(() => import("@/components/CartDrawer"));
 const ResourceLibraryDrawer = lazy(() => import("@/components/ResourceLibraryDrawer"));
@@ -241,6 +242,9 @@ const Header = () => {
       <div
         className={`sticky top-0 z-50 transition-transform duration-300 ${isHidden ? "-translate-y-full" : "translate-y-0"}`}
       >
+
+        {/* Maintenance / update notice — very top of sticky header */}
+        <SiteAnnouncementBanner />
 
         {/* Donation Quick Bar — top of sticky header */}
         <Suspense fallback={<div className="bg-primary h-[52px]" />}>
