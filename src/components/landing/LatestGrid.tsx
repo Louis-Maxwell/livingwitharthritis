@@ -1,10 +1,13 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useBlogArticlesList } from "@/hooks/useBlogArticles";
+import { getArticleImages } from "@/lib/articleImages";
 
 /**
- * MAP-style "Latest" 3-up grid. Photo when available; otherwise a
- * solid red "Article" cover. Dark body copy on cream for readability.
+ * MAP-style "Latest" 3-up grid, matching the image fallback pattern used by
+ * BlogPreview/BlogIndex/ConditionBlogStrip (DB image_url, else curated
+ * openverse image) so newly published articles without an image_url yet
+ * still show a photo instead of a blank cover.
  */
 function formatDate(iso: string) {
   try {
@@ -61,19 +64,13 @@ export default function LatestGrid() {
                 className="group bg-white block overflow-hidden hover:shadow-xl transition-shadow focus:outline-none focus-visible:ring-4 focus-visible:ring-primary/50"
               >
                 <div className="aspect-[4/3] overflow-hidden bg-primary flex items-center justify-center">
-                  {a.image_url ? (
-                    <img
-                      src={a.image_url}
-                      alt=""
-                      aria-hidden="true"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <span className="font-display uppercase text-4xl md:text-5xl text-white tracking-tight">
-                      Article
-                    </span>
-                  )}
+                  <img
+                    src={a.image_url || getArticleImages(a.category, a.title, a.slug)[0].src}
+                    alt=""
+                    aria-hidden="true"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="p-5 md:p-6">
                   <h3 className="font-display uppercase text-xl md:text-2xl tracking-tight text-foreground leading-tight group-hover:text-primary transition-colors">
