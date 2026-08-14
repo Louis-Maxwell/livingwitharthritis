@@ -35,7 +35,6 @@ import ArticleFaqSection from "@/components/article/ArticleFaqSection";
 import ArticleClosingCTA from "@/components/article/ArticleClosingCTA";
 import { renderCallouts } from "@/components/article/Callouts";
 import { markVisited } from "@/lib/visitedArticles";
-import { getArticleImages } from "@/lib/articleImages";
 
 /**
  * Remove any H2/H3 whose text ends in "?" plus everything up to the next
@@ -173,7 +172,25 @@ const BlogPost = () => {
   const splitAt = firstH2End >= 0 ? firstH2End + "</h2>".length : -1;
   const htmlBeforeStrip = splitAt > 0 ? htmlWithIds.slice(0, splitAt) : htmlWithIds;
   const htmlAfterStrip = splitAt > 0 ? htmlWithIds.slice(splitAt) : "";
-  const articleImages = getArticleImages(article.category, article.title, slug || article.title);
+  // Use database image_url as primary source, with category-matched Unsplash fallbacks
+  // matching the pattern used in BlogPreview (external URLs instead of local /openverse/ paths)
+  const categoryImages: Record<string, string[]> = {
+    "Finances & Benefits": ["https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1080&h=720&fit=crop&q=80", "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1080&h=720&fit=crop&q=80"],
+    "Expert Q&A": ["https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=1080&h=720&fit=crop&q=80", "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1080&h=720&fit=crop&q=80"],
+    "Work & Career": ["https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1080&h=720&fit=crop&q=80", "https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=1080&h=720&fit=crop&q=80"],
+    "Diet & Nutrition": ["https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1080&h=720&fit=crop&q=80", "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1080&h=720&fit=crop&q=80"],
+    "Exercise & Movement": ["https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1080&h=720&fit=crop&q=80", "https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=1080&h=720&fit=crop&q=80"],
+    "Nutrition": ["https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1080&h=720&fit=crop&q=80", "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1080&h=720&fit=crop&q=80"],
+    "Exercise": ["https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1080&h=720&fit=crop&q=80", "https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=1080&h=720&fit=crop&q=80"],
+    "Health": ["https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1080&h=720&fit=crop&q=80", "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1080&h=720&fit=crop&q=80"],
+    "default": ["https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1080&h=720&fit=crop&q=80", "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1080&h=720&fit=crop&q=80"],
+  };
+  const fallbackList = categoryImages[article.category] || categoryImages["default"];
+  const articleImages = [
+    { src: article.image_url || fallbackList[0], alt: article.title, credit: "Featured image" },
+    { src: fallbackList[0], alt: article.title, credit: "Unsplash" },
+    { src: fallbackList[1], alt: article.title, credit: "Unsplash" },
+  ];
   const directAnswer = article.direct_answer || firstParagraphSummary(htmlContent);
   const readingTime = getReadingTime(htmlContent);
   const publishDate = new Date(article.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
