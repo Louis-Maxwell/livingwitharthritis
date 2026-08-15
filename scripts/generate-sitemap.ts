@@ -73,7 +73,7 @@ const STATIC_EXCLUDE = new Set([
 //   /dashboard — authenticated user area
 //   /checkout  — Stripe redirect target
 //   /callback  — OAuth callback handlers
-const EXCLUDE_PREFIXES = ["/admin", "/debug", "/auth", "/dashboard", "/checkout", "/callback"];
+const EXCLUDE_PREFIXES = ["/admin", "/debug", "/auth", "/dashboard", "/checkout", "/callback", "/.lovable"];
 
 function parseStaticRoutes(): string[] {
   const src = read("src/App.tsx");
@@ -117,10 +117,11 @@ function citySlugs(): string[] {
   return extractAll(re, src);
 }
 
-function regionSlugsFromCities(): string[] {
-  const src = read("src/data/ukCities.ts");
-  const regions = extractAll(/region:\s*"([^"]+)"/g, src);
-  return [...new Set(regions.map((r) => r.toLowerCase().replace(/\s+/g, "-")))];
+// Only these four regional hubs exist as real pages (src/pages/regions/RegionHub.tsx).
+// Deriving slugs from city `region` labels previously emitted redirecting URLs
+// such as /regions/greater-manchester into the sitemap.
+function regionSlugs(): string[] {
+  return ["north-west", "midlands", "scotland", "wales"];
 }
 
 function conditionSlugs(): string[] {
@@ -139,7 +140,10 @@ function exerciseJointSlugs(): string[] {
   const exercises = list(exMatch[1]);
   const joints = list(jtMatch[1]);
   const slugs: string[] = [];
-  for (const e of exercises) for (const j of joints) slugs.push(`${e}-for-${j}`);
+  // Route slugs are `<exercise>-for-<joint>-arthritis` (see exerciseJointMatrix.ts).
+  // Emitting the shorter `<exercise>-for-<joint>` form put 48 URLs in the sitemap
+  // that resolve to /404 — Google reported them as soft 404s.
+  for (const e of exercises) for (const j of joints) slugs.push(`${e}-for-${j}-arthritis`);
   return slugs;
 }
 
@@ -235,7 +239,7 @@ async function main() {
   for (const slug of dailyTipSlugs()) entries.push({ path: `/daily-tips/${slug}` });
   for (const id of productIds()) entries.push({ path: `/product/${id}` });
   for (const c of citySlugs()) entries.push({ path: `/arthritis-support/${c}` });
-  for (const r of regionSlugsFromCities()) entries.push({ path: `/regions/${r}` });
+  for (const r of regionSlugs()) entries.push({ path: `/regions/${r}` });
 
   const conds = conditionSlugs();
   for (const c of citySlugs())
@@ -290,9 +294,16 @@ async function main() {
 
   // Programmatic SEO: glossary, comparison guides, city hubs & pet articles.
   // These come from generated data files so the sitemap stays in sync.
+  // Only glossary terms that have a written definition in glossary-content.ts are
+  // listed. The remaining routes still render (with noindex) but showed a
+  // placeholder, which Google reported as soft 404s.
+  const glossaryContentSrc = read("src/data/glossary-content.ts");
+  const writtenTerms = new Set(extractAll(/^\s{2}"?([a-z0-9-]+)"?:\s*\{/gm, glossaryContentSrc));
   const glossarySrc = read("src/data/glossary-routes.generated.ts");
-  for (const p of extractAll(/"(\/glossary(?:\/[^"]+)?)"/g, glossarySrc))
+  for (const p of extractAll(/"(\/glossary(?:\/[^"]+)?)"/g, glossarySrc)) {
+    if (p !== "/glossary" && !writtenTerms.has(p.replace("/glossary/", ""))) continue;
     entries.push({ path: p, priority: p === "/glossary" ? "0.7" : "0.6", changefreq: "monthly" });
+  }
 
   const comparisonSrc = read("src/data/comparison-routes.generated.ts");
   for (const p of extractAll(/"(\/guides\/[^"]+)"/g, comparisonSrc))

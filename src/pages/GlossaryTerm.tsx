@@ -60,6 +60,7 @@ export default function GlossaryTerm() {
         title={`${label} — Arthritis Glossary`}
         description={description}
         path={href}
+        noindex={!entry}
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify({
