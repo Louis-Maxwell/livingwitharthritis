@@ -20,6 +20,7 @@ export default function Complaints() {
       <meta property="og:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Complaints | Living With Arthritis UK" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={`Complaints Procedure | ${CHARITY.shortName}`} />
       <meta name="twitter:description" content={`Our complaints procedure explains how to raise a concern about ${CHARITY.shortName} and how we will respond.`} />

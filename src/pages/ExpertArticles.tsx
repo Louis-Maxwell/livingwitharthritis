@@ -250,6 +250,7 @@ export default function ExpertArticles() {
       <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Expert Articles | Living With Arthritis UK" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Expert Articles – Clinician-Written Arthritis Guides | Living With Arthritis UK" />
       <meta name="twitter:description" content="Evidence-based arthritis articles written by HCPC physiotherapists, consultant rheumatologists, registered dietitians, and clinical psychologists. Expert UK health content." />

@@ -149,6 +149,7 @@ export default function WaysToHelp() {
       <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Ways To Help | Living With Arthritis UK" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Ways to Help | Living With Arthritis UK" />
       <meta name="twitter:description" content="Discover how you can support people living with arthritis across the UK. Donate, volunteer, fundraise, partner with us or leave a legacy." />

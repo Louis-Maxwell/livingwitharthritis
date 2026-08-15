@@ -21,6 +21,7 @@ const Contact = () => (
       <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Contact Us | Living With Arthritis UK" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Contact Us | Living With Arthritis UK" />
       <meta name="twitter:description" content="Contact Living With Arthritis: Get in touch with our team. WhatsApp, email & helpline support for arthritis questions & guidance." />

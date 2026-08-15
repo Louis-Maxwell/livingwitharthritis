@@ -92,6 +92,7 @@ const CityArthritisPage = () => {
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={`Arthritis Support in ${cityData.name}`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`Arthritis Support in ${cityData.name}`} />
         <meta name="twitter:description" content={cityData.description} />

@@ -20,6 +20,7 @@ export default function Safeguarding() {
       <meta property="og:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Safeguarding | Living With Arthritis UK" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={`Safeguarding Policy | ${CHARITY.shortName}`} />
       <meta name="twitter:description" content={`Our safeguarding policy outlines how ${CHARITY.shortName} protects vulnerable adults and ensures the safety of everyone who engages with our services.`} />

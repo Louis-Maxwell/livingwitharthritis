@@ -143,6 +143,7 @@ export default function ArthritisFlareUps() {
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="How to Manage Arthritis Flare-Ups — A Complete UK Guide" />
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="How to Manage Arthritis Flare-Ups — A Complete UK Guide" />

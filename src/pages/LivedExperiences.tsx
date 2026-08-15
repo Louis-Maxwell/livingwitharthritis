@@ -189,6 +189,7 @@ export default function LivedExperiences() {
       <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Lived Experiences | Living With Arthritis UK" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Real Stories – Living With Arthritis | Patient Experiences UK" />
       <meta name="twitter:description" content="Read real stories from people living with arthritis across the UK. Honest accounts of diagnosis, treatment, challenges, and hope from osteoarthritis, RA, and PsA patients." />

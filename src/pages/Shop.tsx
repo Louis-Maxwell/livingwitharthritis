@@ -19,6 +19,7 @@ const Shop = () => {
       <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Shop | Living With Arthritis UK" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Supplements & Arthritis Shop — Coming Soon | Living With Arthritis UK" />
       <meta name="twitter:description" content="Our Shopify store for arthritis supplements and products is launching soon. Stay tuned for carefully curated items to support your joint health journey." />

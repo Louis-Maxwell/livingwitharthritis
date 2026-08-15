@@ -127,6 +127,7 @@ export default function Donate() {
       <meta property="og:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Donate | Living With Arthritis UK" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Donate to Arthritis Support UK: Fund Free Physio, Diet & Help" />
       <meta name="twitter:description" content={`Support ${CHARITY.shortName}: Donate to fund free arthritis education, research & community support. Help others manage arthritis better.`} />

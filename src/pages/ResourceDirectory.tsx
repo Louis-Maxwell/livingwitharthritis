@@ -94,6 +94,7 @@ export default function ResourceDirectory() {
       <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Resource Directory | Living With Arthritis UK" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="UK Arthritis Resource Directory – Public Health, Charities, Benefits | Living With Arthritis" />
       <meta name="twitter:description" content="Arthritis resources: Guides, webinars, e-books, recipes & support groups. Free tools to manage arthritis effectively." />

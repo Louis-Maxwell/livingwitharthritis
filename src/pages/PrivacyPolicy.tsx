@@ -36,6 +36,7 @@ const PrivacyPolicy = () => (
         <meta property="og:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Privacy Policy | Living With Arthritis UK" />
         <meta name="twitter:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
     </Helmet>
     <div className="min-h-screen bg-background">
