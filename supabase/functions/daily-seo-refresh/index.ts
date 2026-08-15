@@ -267,11 +267,13 @@ Deno.serve(async (req) => {
     // 3. ai.txt refresh marker
     await refreshAiTxt(supabaseUrl, serviceKey);
 
-    // 4. JSON-LD sweep on rotating sample
+    // 4. JSON-LD sweep on rotating sample (parallelized for performance)
     const sample = rotatingSample(urls, SAMPLE_SIZE);
     routesChecked = sample.length;
-    for (const u of sample) {
-      const errs = await validateRouteSchema(u);
+    const validationResults = await Promise.all(
+      sample.map((u) => validateRouteSchema(u))
+    );
+    for (const errs of validationResults) {
       schemaErrors.push(...errs);
     }
 
