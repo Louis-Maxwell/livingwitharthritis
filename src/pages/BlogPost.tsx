@@ -250,6 +250,7 @@ const BlogPost = () => {
           "lastReviewed": dateModifiedIso,
           "reviewedBy": reviewedBySchema,
           "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Patient" },
+          "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".speakable-intro"] },
           "citation": DEFAULT_CITATIONS.map((c) => ({
             "@type": "CreativeWork",
             "name": c.label,
@@ -272,6 +273,7 @@ const BlogPost = () => {
           "inLanguage": "en-GB",
           "isAccessibleForFree": true,
           "articleSection": "Health",
+          "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".speakable-intro"] },
           "citation": DEFAULT_CITATIONS.map((c) => ({
             "@type": "CreativeWork",
             "name": c.label,
