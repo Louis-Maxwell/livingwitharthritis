@@ -35,3 +35,4 @@ supabase/.temp/
 
 .lighthouseci/
 .lighthouseci-desktop/
+.preflight-reports/
