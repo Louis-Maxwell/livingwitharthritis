@@ -86,59 +86,71 @@ Deno.serve(async (req) => {
     }
     throw e
   }
-  const normalizedEmail = payload.email.toLowerCase()
 
-  // 1. Upsert to suppressed_emails (idempotent — safe for retries)
-  const { error: suppressError } = await supabase
-    .from('suppressed_emails')
-    .upsert(
-      {
-        email: normalizedEmail,
-        reason: payload.reason,
+  try {
+    const normalizedEmail = payload.email.toLowerCase()
+
+    // 1. Upsert to suppressed_emails (idempotent — safe for retries)
+    const { error: suppressError } = await supabase
+      .from('suppressed_emails')
+      .upsert(
+        {
+          email: normalizedEmail,
+          reason: payload.reason,
+          metadata: payload.metadata ?? null,
+        },
+        { onConflict: 'email' },
+      )
+
+    if (suppressError) {
+      const emailSuffix = normalizedEmail.includes('@') ? normalizedEmail.split('@')[1] : 'invalid'
+      console.error('Failed to upsert suppressed email', {
+        error: suppressError,
+        email_redacted: normalizedEmail[0] + '***@' + emailSuffix,
+      })
+      return jsonResponse({ error: 'Failed to write suppression' }, 500)
+    }
+
+    // 2. Append a new log entry for the suppression event (never update existing rows)
+    const sendLogStatus = mapReasonToStatus(payload.reason)
+    const sendLogMessage = mapReasonToMessage(payload.reason)
+
+    const { error: insertError } = await supabase
+      .from('email_send_log')
+      .insert({
+        message_id: payload.message_id ?? null,
+        template_name: 'system',
+        recipient_email: normalizedEmail,
+        status: sendLogStatus,
+        error_message: sendLogMessage,
         metadata: payload.metadata ?? null,
-      },
-      { onConflict: 'email' },
-    )
+      })
 
-  if (suppressError) {
-    console.error('Failed to upsert suppressed email', {
-      error: suppressError,
-      email_redacted: normalizedEmail[0] + '***@' + normalizedEmail.split('@')[1],
+    if (insertError) {
+      // Non-fatal — log and continue. The suppression was already recorded.
+      console.warn('Failed to insert email_send_log', {
+        error: insertError,
+      })
+    }
+
+    const emailSuffix = normalizedEmail.includes('@') ? normalizedEmail.split('@')[1] : 'invalid'
+    console.log('Suppression processed', {
+      email_redacted: normalizedEmail[0] + '***@' + emailSuffix,
+      reason: payload.reason,
+      is_retry: payload.is_retry,
+      retry_count: payload.retry_count,
+      has_message_id: !!payload.message_id,
     })
-    return jsonResponse({ error: 'Failed to write suppression' }, 500)
+
+    return jsonResponse({ success: true })
+  } catch (error) {
+    const errorMsg = error instanceof Error ? error.message : String(error)
+    console.error('[handle-email-suppression] Unhandled error processing suppression', {
+      error: errorMsg,
+      reason: payload?.reason,
+    })
+    return jsonResponse({ error: 'Internal server error' }, 500)
   }
-
-  // 2. Append a new log entry for the suppression event (never update existing rows)
-  const sendLogStatus = mapReasonToStatus(payload.reason)
-  const sendLogMessage = mapReasonToMessage(payload.reason)
-
-  const { error: insertError } = await supabase
-    .from('email_send_log')
-    .insert({
-      message_id: payload.message_id ?? null,
-      template_name: 'system',
-      recipient_email: normalizedEmail,
-      status: sendLogStatus,
-      error_message: sendLogMessage,
-      metadata: payload.metadata ?? null,
-    })
-
-  if (insertError) {
-    // Non-fatal — log and continue. The suppression was already recorded.
-    console.warn('Failed to insert email_send_log', {
-      error: insertError,
-    })
-  }
-
-  console.log('Suppression processed', {
-    email_redacted: normalizedEmail[0] + '***@' + normalizedEmail.split('@')[1],
-    reason: payload.reason,
-    is_retry: payload.is_retry,
-    retry_count: payload.retry_count,
-    has_message_id: !!payload.message_id,
-  })
-
-  return jsonResponse({ success: true })
 })
 
 function mapReasonToStatus(
