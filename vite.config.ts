@@ -123,9 +123,8 @@ export default defineConfig(({ mode }) => ({
     target: "es2020",
     cssMinify: true,
     minify: "esbuild",
-    modulePreload: {
-      polyfill: false, // Modern browsers support modulepreload natively
-    },
+    modulePreload: false, // Disable automatic modulepreload to avoid unnecessarily downloading supabase chunk (55KB gzip) on every page when it's only used on lazy-loaded /auth/* and /admin/* routes
+    // Previous config: modulePreload: { polyfill: false } generated modulepreload links for chunks like supabase-CgLacNy3.js (207KB, 55.34KB gzip) which were not needed on the homepage critical path. See 2026-08-15 perf audit.
     rollupOptions: {
       output: {
         manualChunks: {
