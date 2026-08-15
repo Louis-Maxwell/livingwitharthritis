@@ -1,0 +1,80 @@
+name: Supabase Deploy
+
+# Closes a gap found 2026-08-15: nothing in CI ever actually deployed
+# supabase/functions/** or supabase/migrations/** — edge-functions-preflight.yml
+# only type-checks on PRs, and supabase-db-lint.yml only lints. Code and SQL
+# committed to those paths sat inert in git until someone ran the Supabase CLI
+# manually. This workflow deploys edge functions automatically on every push
+# to main that touches them.
+#
+# Migration deploys are intentionally NOT automatic yet (see the
+# deploy-migrations job below) — this project's migration history was never
+# tracked via `supabase db push` (changes were applied out-of-band), so the
+# CLI's local migration table doesn't match the live database's actual applied
+# state. Running `supabase db push` cold would try to re-run everything from
+# the start and fail on objects that already exist. Run
+# `supabase migration repair --status applied <version>` for each existing
+# migration file's timestamp once (a one-time reconciliation), THEN change
+# deploy-migrations' `on:` trigger to match deploy-functions below.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "supabase/functions/**"
+      - ".github/workflows/supabase-deploy.yml"
+  workflow_dispatch:
+
+jobs:
+  deploy-functions:
+    name: Deploy edge functions
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Supabase CLI
+        uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Link Supabase project
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+        run: supabase link --project-ref eswdtpmknwjxtvkyxvmi
+
+      - name: Deploy all functions
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+        run: supabase functions deploy
+
+  # Manual-only until the one-time migration history repair above is done.
+  # Run via the Actions tab ("Run workflow") once you're ready to reconcile,
+  # or after repairing history, move this job's trigger to match
+  # deploy-functions so it runs automatically on every push touching migrations.
+  deploy-migrations:
+    name: Push database migrations (manual trigger only)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    if: github.event_name == 'workflow_dispatch'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Supabase CLI
+        uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Link Supabase project
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+        run: supabase link --project-ref eswdtpmknwjxtvkyxvmi
+
+      - name: Push pending migrations
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+        run: supabase db push --linked
