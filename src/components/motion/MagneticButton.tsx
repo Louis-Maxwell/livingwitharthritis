@@ -12,7 +12,7 @@ interface Props {
  * Subtle cursor-follow lift on desktop. No-op on touch / reduced motion.
  */
 export function MagneticButton({ children, className, strength = 14, as: Tag = "div" }: Props) {
-  const ref = useRef<HTMLDivElement | null>(null);
+  const ref = useRef<HTMLElement | null>(null);
 
   const onMove = (e: MouseEvent) => {
     const el = ref.current;
@@ -31,10 +31,11 @@ export function MagneticButton({ children, className, strength = 14, as: Tag = "
     el.style.transform = "translate3d(0,0,0)";
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const Comp = Tag as any;
   return (
     <Comp
-      ref={ref as any}
+      ref={ref}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       className={cn("inline-block will-change-transform transition-transform duration-300 ease-out", className)}

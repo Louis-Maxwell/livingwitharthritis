@@ -3,6 +3,11 @@ import { ThumbsUp, ThumbsDown } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { motion } from "framer-motion";
 
+interface BlogHelpfulness {
+  slug: string;
+  helpful: boolean;
+}
+
 interface Props {
   slug: string;
 }
@@ -17,13 +22,14 @@ export default function BlogHelpfulness({ slug }: Props) {
     if (saved !== null) setVote(saved === "true");
 
     supabase
-      .from("blog_helpfulness" as any)
+      .from("blog_helpfulness")
       .select("helpful")
       .eq("slug", slug)
       .then(({ data }) => {
         if (!data) return;
-        const up = (data as any[]).filter((r: any) => r.helpful).length;
-        setCounts({ up, down: (data as any[]).length - up });
+        const records = data as BlogHelpfulness[];
+        const up = records.filter((r) => r.helpful).length;
+        setCounts({ up, down: records.length - up });
       });
   }, [slug, storageKey]);
 
@@ -33,7 +39,7 @@ export default function BlogHelpfulness({ slug }: Props) {
     sessionStorage.setItem(storageKey, String(helpful));
     setCounts((c) => helpful ? { ...c, up: c.up + 1 } : { ...c, down: c.down + 1 });
 
-    await supabase.from("blog_helpfulness" as any).insert({ slug, helpful });
+    await supabase.from("blog_helpfulness").insert({ slug, helpful });
   };
 
   const total = counts.up + counts.down;
