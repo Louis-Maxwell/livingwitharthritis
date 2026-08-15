@@ -2,30 +2,27 @@
  * Backend connection constants.
  *
  * These are publishable, client-side-safe values (the project URL and the
- * anon/publishable key). They are read from Vite env vars when available and
- * fall back to the known project values so that a build performed without the
- * `.env` file still produces a working bundle instead of throwing
- * "supabaseUrl is required" at module-init time (which blanks the whole app).
+ * anon/publishable key). They must be provided via environment variables.
  */
 
-const FALLBACK_PROJECT_ID = 'eswdtpmknwjxtvkyxvmi';
-const FALLBACK_URL = `https://${FALLBACK_PROJECT_ID}.supabase.co`;
-const FALLBACK_PUBLISHABLE_KEY = 'sb_publishable_R-r2QJnvd3S9RSC8BqNTfw_JvNUm_Dd';
+const requiredEnv = (name: string, value: unknown): string => {
+  if (typeof value === 'string' && value.length > 0) return value;
+  throw new Error(
+    `Missing required environment variable: ${name}. Check your .env.local file or deployment configuration.`,
+  );
+};
 
-const pick = (value: unknown, fallback: string): string =>
-  typeof value === 'string' && value.length > 0 ? value : fallback;
-
-export const SUPABASE_PROJECT_ID = pick(
+export const SUPABASE_PROJECT_ID = requiredEnv(
+  'VITE_SUPABASE_PROJECT_ID',
   import.meta.env.VITE_SUPABASE_PROJECT_ID,
-  FALLBACK_PROJECT_ID,
 );
 
-export const SUPABASE_URL = pick(
+export const SUPABASE_URL = requiredEnv(
+  'VITE_SUPABASE_URL',
   import.meta.env.VITE_SUPABASE_URL,
-  FALLBACK_URL,
 );
 
-export const SUPABASE_PUBLISHABLE_KEY = pick(
+export const SUPABASE_PUBLISHABLE_KEY = requiredEnv(
+  'VITE_SUPABASE_PUBLISHABLE_KEY',
   import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
-  FALLBACK_PUBLISHABLE_KEY,
 );

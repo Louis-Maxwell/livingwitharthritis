@@ -7,8 +7,12 @@ import createPainJournalEntryTool from "./tools/create-pain-journal-entry";
 
 // Supabase project ref is inlined by Vite at build time — kept import-safe (no runtime env read).
 // Must be a literal here (not an aliased import) so the bundled edge function stays self-contained.
-const projectRef =
-  import.meta.env.VITE_SUPABASE_PROJECT_ID ?? "eswdtpmknwjxtvkyxvmi";
+const projectRef = import.meta.env.VITE_SUPABASE_PROJECT_ID;
+if (!projectRef) {
+  throw new Error(
+    "VITE_SUPABASE_PROJECT_ID is not set. Please check your environment configuration.",
+  );
+}
 
 
 export default defineMcp({
