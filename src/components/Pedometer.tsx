@@ -17,6 +17,14 @@ interface PedometerState {
   history: { date: string; steps: number }[];
 }
 
+interface DeviceMotionEventWithPermission extends DeviceMotionEvent {
+  requestPermission?: () => Promise<PermissionStatus>;
+}
+
+type DeviceMotionEventConstructor = typeof DeviceMotionEvent & {
+  requestPermission?: () => Promise<PermissionStatus>;
+};
+
 function getTodayKey() {
   return new Date().toISOString().slice(0, 10);
 }
@@ -71,7 +79,8 @@ const Pedometer = () => {
   useEffect(() => {
     if (typeof DeviceMotionEvent !== "undefined") {
       // iOS 13+ requires permission
-      if (typeof (DeviceMotionEvent as any).requestPermission === "function") {
+      const DME = DeviceMotionEvent as unknown as DeviceMotionEventConstructor;
+      if (typeof DME.requestPermission === "function") {
         setSensorAvailable(true); // Will need to request on start
       } else {
         setSensorAvailable(true);
@@ -105,8 +114,9 @@ const Pedometer = () => {
   const startTracking = useCallback(async () => {
     try {
       // iOS 13+ permission request
-      if (typeof (DeviceMotionEvent as any).requestPermission === "function") {
-        const permission = await (DeviceMotionEvent as any).requestPermission();
+      const DME = DeviceMotionEvent as unknown as DeviceMotionEventConstructor;
+      if (typeof DME.requestPermission === "function") {
+        const permission = await DME.requestPermission();
         if (permission !== "granted") {
           alert("Motion sensor permission is needed for the pedometer. Please allow access in your browser settings.");
           return;

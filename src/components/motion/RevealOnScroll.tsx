@@ -53,10 +53,11 @@ export function RevealOnScroll({
           ? "reveal-right"
           : "reveal-up";
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const Tag2 = Tag as any;
   return (
     <Tag2
-      ref={ref as any}
+      ref={ref}
       className={cn("reveal", dirClass, className)}
       style={delay ? { transitionDelay: `${delay}ms` } : undefined}
     >

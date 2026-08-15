@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 /**
  * Admin-only endpoint to seed / refresh the content_embeddings table.
  * Chunks a curated arthritis knowledge corpus, embeds each chunk with

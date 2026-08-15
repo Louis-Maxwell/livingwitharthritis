@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 import { getServiceClient, isSupabaseConfigError } from '../_shared/supabase-client.ts'
 
 const corsHeaders = {

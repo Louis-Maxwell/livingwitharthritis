@@ -1,5 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { supabase } from "@/integrations/supabase/client";
+
+interface BlogView {
+  slug: string;
+  view_count: number;
+}
 
 export function useBlogViews(slug: string | undefined) {
   const [viewCount, setViewCount] = useState<number | null>(null);
@@ -17,6 +22,7 @@ export function useBlogViews(slug: string | undefined) {
 
 export function useBlogViewCounts(slugs: string[]) {
   const [counts, setCounts] = useState<Record<string, number>>({});
+  const slugKey = useMemo(() => slugs.join(","), [slugs]);
 
   useEffect(() => {
     if (!slugs.length) return;
@@ -27,11 +33,12 @@ export function useBlogViewCounts(slugs: string[]) {
       .then(({ data }) => {
         if (data) {
           const map: Record<string, number> = {};
-          data.forEach((r: any) => { map[r.slug] = r.view_count; });
+          const records = data as BlogView[];
+          records.forEach((r) => { map[r.slug] = r.view_count; });
           setCounts(map);
         }
       });
-  }, [slugs.join(",")]);
+  }, [slugKey]);
 
   return counts;
 }

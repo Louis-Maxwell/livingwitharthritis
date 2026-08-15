@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 // Daily SEO / AEO / GEO refresh.
 //
 // Pulls the live sitemap, merges in fresh blog `lastmod` values from the

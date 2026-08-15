@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 /**
  * conditions-feed — public JSON feed of arthritis conditions, exercises,
  * and core guidance for AI crawlers (ChatGPT, Perplexity, Gemini, etc.).

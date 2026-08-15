@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import { lazy, Suspense, useState } from "react";
