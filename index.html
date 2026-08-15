@@ -243,10 +243,20 @@
        statically here caused every page to ship two of each tag and forced
        og:type=website on article/guide routes. og:image, og:site_name and the
        twitter card remain as generic fallbacks. -->
-    <!-- Evarist analytics -->
+    <!-- Evarist analytics. Gated behind the bot/consent detection above
+         (window.__BOT_DETECTED__ / window.__CONSENT_DECLINED__) — that script
+         was written for GA4 and never updated when Evarist replaced it, so
+         Evarist was loading unconditionally for every visit, including
+         headless/automated ones (Puppeteer-based route prerendering in CI,
+         Lighthouse runs, etc). Confirmed via Evarist's own traffic data:
+         thousands of daily pageviews on 127.0.0.1 hitting every route in
+         scripts/prerender-routes.mjs's curated list, including a since-removed
+         one (see fix in that file), each visited once per prerender pass. -->
     <script>
-      window.evarist=window.evarist||function(){(window.evarist.q=window.evarist.q||[]).push(arguments)};
-      (function(){var s=document.createElement("script");s.src="https://app.evarist.ai/script.js";s.setAttribute("data-evarist","11C6BZx6hg");(document.head||document.documentElement).appendChild(s);})();
+      if (!window.__BOT_DETECTED__ && !window.__CONSENT_DECLINED__) {
+        window.evarist=window.evarist||function(){(window.evarist.q=window.evarist.q||[]).push(arguments)};
+        (function(){var s=document.createElement("script");s.src="https://app.evarist.ai/script.js";s.setAttribute("data-evarist","11C6BZx6hg");(document.head||document.documentElement).appendChild(s);})();
+      }
     </script>
   </head>
 

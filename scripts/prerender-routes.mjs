@@ -50,7 +50,12 @@ const CURATED = [
   "/regions/northern-ireland",
   "/site-index",
   "/stories",
-  "/reviewers/dr-amina-patel",
+  // "/reviewers/dr-amina-patel" removed 2026-08-15: that reviewer profile
+  // was a fabricated placeholder credential, already scrubbed from
+  // blog_articles by a 2026-07-30 migration; the route itself no longer
+  // exists (404s), and this stale entry was the single largest source of
+  // 404s during every prerender pass — 4,000+ hits in Evarist's traffic
+  // data over the last week alone, all misattributed as real visits.
   "/blog",
   "/blog-hub",
   "/diet",
