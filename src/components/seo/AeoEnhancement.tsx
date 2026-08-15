@@ -44,10 +44,21 @@ export default function AeoEnhancement(props: AeoEnhancementProps) {
     script.textContent = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "FAQPage",
+      speakable: {
+        "@type": "SpeakableSpecification",
+        cssSelector: [".speakable-intro", ".faq-item"]
+      },
       mainEntity: faqs.map((f) => ({
         "@type": "Question",
         name: f.q,
-        acceptedAnswer: { "@type": "Answer", text: f.a },
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: f.a,
+          speakable: {
+            "@type": "SpeakableSpecification",
+            cssSelector: ".faq-item"
+          }
+        },
       })),
     });
     document.head.appendChild(script);
