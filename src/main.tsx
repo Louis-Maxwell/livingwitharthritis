@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import * as Sentry from "@sentry/react";
 import App from "./App.tsx";
 import ErrorBoundary from "./components/ErrorBoundary.tsx";
+import { initWebVitals } from "./lib/web-vitals.ts";
 import "./index.css";
 
 // Initialize Sentry for error tracking
@@ -31,6 +32,9 @@ const initializeSentry = () => {
 };
 
 initializeSentry();
+
+// Initialize Core Web Vitals tracking (captures LCP, FCP, CLS, INP, TTFB)
+initWebVitals();
 
 const AppCrashFallback = (
   <div className="min-h-screen flex items-center justify-center bg-background p-6">
