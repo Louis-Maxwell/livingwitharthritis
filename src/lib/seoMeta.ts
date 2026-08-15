@@ -73,7 +73,7 @@ export function enforceDescription(
     return truncateOnWord(desc, MAX_DESC);
   }
   if (isDev && desc.length > 0 && desc.length < MIN_DESC) {
-    // eslint-disable-next-line no-console
+     
     console.warn(
       `[seo] description under ${MIN_DESC} chars (${desc.length})${
         route ? ` @ ${route}` : ""
@@ -96,7 +96,7 @@ export function assertMetaLengths(
   if (description.length > MAX_DESC) {
     warnLength("description", description.length, MAX_DESC, route, description);
   } else if (description.length > 0 && description.length < MIN_DESC) {
-    // eslint-disable-next-line no-console
+     
     console.warn(
       `[seo] description under ${MIN_DESC} chars (${description.length}) @ ${route}: "${description}"`,
     );
@@ -110,7 +110,7 @@ function warnLength(
   route: string | undefined,
   value: string,
 ): void {
-  // eslint-disable-next-line no-console
+   
   console.warn(
     `[seo] ${kind} exceeds ${max} chars (${actual})${
       route ? ` @ ${route}` : ""

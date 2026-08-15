@@ -609,7 +609,7 @@ function SettingsPanel({ goal, setGoal, unit, setUnit, onClose, returnFocusRef }
 
   // Focus first element on open; restore focus on unmount
   // Capture ref at effect time to avoid closure issues in cleanup
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+   
   useEffect(() => {
     closeBtnRef.current?.focus();
     const elementToFocus = returnFocusRef.current;

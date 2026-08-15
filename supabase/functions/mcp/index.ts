@@ -19,7 +19,7 @@ function supabaseForUser(ctx) {
 }
 
 // src/lib/mcp/tools/search-blog-articles.ts
-var search_blog_articles_default = defineTool({
+const search_blog_articles_default = defineTool({
   name: "search_blog_articles",
   title: "Search blog articles",
   description: "Search published Living With Arthritis UK blog articles by keyword in title, excerpt, or category. Returns up to 20 matching articles with title, slug, category, excerpt, and direct answer summary.",
@@ -46,7 +46,7 @@ var search_blog_articles_default = defineTool({
 // src/lib/mcp/tools/get-blog-article.ts
 import { defineTool as defineTool2 } from "npm:@lovable.dev/mcp-js@0.22.0";
 import { z as z2 } from "npm:zod@^3.25.76";
-var get_blog_article_default = defineTool2({
+const get_blog_article_default = defineTool2({
   name: "get_blog_article",
   title: "Get blog article",
   description: "Fetch the full content of a published Living With Arthritis UK blog article by its slug. Returns title, author, review info, direct answer, and full markdown body.",
@@ -72,7 +72,7 @@ var get_blog_article_default = defineTool2({
 // src/lib/mcp/tools/list-my-appointments.ts
 import { defineTool as defineTool3 } from "npm:@lovable.dev/mcp-js@0.22.0";
 import { z as z3 } from "npm:zod@^3.25.76";
-var list_my_appointments_default = defineTool3({
+const list_my_appointments_default = defineTool3({
   name: "list_my_appointments",
   title: "List my appointments",
   description: "List the signed-in user's own Living With Arthritis UK appointments (virtual physiotherapy / consultation bookings), most recent first. Row-Level Security ensures only your own rows are returned.",
@@ -97,7 +97,7 @@ var list_my_appointments_default = defineTool3({
 // src/lib/mcp/tools/list-my-pain-journal.ts
 import { defineTool as defineTool4 } from "npm:@lovable.dev/mcp-js@0.22.0";
 import { z as z4 } from "npm:zod@^3.25.76";
-var list_my_pain_journal_default = defineTool4({
+const list_my_pain_journal_default = defineTool4({
   name: "list_my_pain_journal_entries",
   title: "List my pain journal entries",
   description: "List the signed-in user's own pain journal entries, most recent first. Returns pain level (0\u201310), stiffness duration, joints affected, mood, sleep quality, and free-text notes. RLS ensures only your own entries are returned.",
@@ -122,7 +122,7 @@ var list_my_pain_journal_default = defineTool4({
 // src/lib/mcp/tools/create-pain-journal-entry.ts
 import { defineTool as defineTool5 } from "npm:@lovable.dev/mcp-js@0.22.0";
 import { z as z5 } from "npm:zod@^3.25.76";
-var create_pain_journal_entry_default = defineTool5({
+const create_pain_journal_entry_default = defineTool5({
   name: "create_pain_journal_entry",
   title: "Create pain journal entry",
   description: "Record a new pain journal entry for the signed-in user. Use this to log daily pain, stiffness, joints affected, mood, sleep, and notes. Writes to the caller's own row under RLS.",
@@ -167,8 +167,8 @@ var create_pain_journal_entry_default = defineTool5({
 });
 
 // src/lib/mcp/index.ts
-var projectRef = "zrvcejlncpndjfyuvcrd";
-var mcp_default = defineMcp({
+const projectRef = "zrvcejlncpndjfyuvcrd";
+const mcp_default = defineMcp({
   name: "living-with-arthritis-mcp",
   title: "Living With Arthritis UK",
   version: "0.1.0",

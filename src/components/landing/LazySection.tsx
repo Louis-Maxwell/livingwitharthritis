@@ -22,7 +22,7 @@ class SectionErrorBoundary extends Component<
   }
 
   componentDidCatch(error: unknown) {
-    // eslint-disable-next-line no-console
+     
     console.error(`[LazySection${this.props.name ? `:${this.props.name}` : ""}] failed`, error);
   }
 

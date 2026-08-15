@@ -36,7 +36,7 @@ export const trackEvent = (
   try {
     if (typeof window === "undefined") return;
     if (import.meta.env.DEV) {
-      // eslint-disable-next-line no-console
+       
       console.debug("[ga4]", name, params);
     }
     if (typeof window.gtag === "function") {

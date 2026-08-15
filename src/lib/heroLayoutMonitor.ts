@@ -37,10 +37,10 @@ const emit = (event: HeroMonitorEvent) => {
   if (typeof window === 'undefined') return;
   if (event.type === 'hero:alert') {
     // Use console.warn so it surfaces in monitoring dashboards / Sentry breadcrumbs.
-    // eslint-disable-next-line no-console
+     
     console.warn('[hero-monitor]', event.reason, event.detail);
   } else {
-    // eslint-disable-next-line no-console
+     
     console.info('[hero-monitor]', event.type, event.viewport);
   }
   try {
