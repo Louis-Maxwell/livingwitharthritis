@@ -61,12 +61,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/.lovable/oauth/consent</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -1267,25 +1261,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/regions/greater-london</loc>
+    <loc>https://livingwitharthritis.org.uk/regions/north-west</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/regions/west-midlands</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/regions/greater-manchester</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/regions/west-yorkshire</loc>
+    <loc>https://livingwitharthritis.org.uk/regions/midlands</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1297,73 +1279,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/regions/merseyside</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/regions/south-west</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/regions/south-yorkshire</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/regions/north-east</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/regions/wales</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/regions/east-midlands</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/regions/northern-ireland</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/regions/south-east</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/regions/east-of-england</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/regions/north-yorkshire</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/regions/east-yorkshire</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/regions/north-west</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -2269,289 +2185,289 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/swimming-for-knee</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/swimming-for-knee-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/swimming-for-hip</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/swimming-for-hip-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/swimming-for-shoulder</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/swimming-for-shoulder-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/swimming-for-hand</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/swimming-for-hand-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/swimming-for-back</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/swimming-for-back-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/swimming-for-ankle</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/swimming-for-ankle-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/yoga-for-knee</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/yoga-for-knee-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/yoga-for-hip</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/yoga-for-hip-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/yoga-for-shoulder</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/yoga-for-shoulder-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/yoga-for-hand</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/yoga-for-hand-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/yoga-for-back</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/yoga-for-back-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/yoga-for-ankle</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/yoga-for-ankle-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/cycling-for-knee</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/cycling-for-knee-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/cycling-for-hip</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/cycling-for-hip-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/cycling-for-shoulder</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/cycling-for-shoulder-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/cycling-for-hand</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/cycling-for-hand-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/cycling-for-back</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/cycling-for-back-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/cycling-for-ankle</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/cycling-for-ankle-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/walking-for-knee</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/walking-for-knee-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/walking-for-hip</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/walking-for-hip-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/walking-for-shoulder</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/walking-for-shoulder-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/walking-for-hand</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/walking-for-hand-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/walking-for-back</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/walking-for-back-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/walking-for-ankle</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/walking-for-ankle-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/tai-chi-for-knee</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/tai-chi-for-knee-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/tai-chi-for-hip</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/tai-chi-for-hip-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/tai-chi-for-shoulder</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/tai-chi-for-shoulder-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/tai-chi-for-hand</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/tai-chi-for-hand-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/tai-chi-for-back</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/tai-chi-for-back-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/tai-chi-for-ankle</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/tai-chi-for-ankle-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/pilates-for-knee</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/pilates-for-knee-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/pilates-for-hip</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/pilates-for-hip-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/pilates-for-shoulder</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/pilates-for-shoulder-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/pilates-for-hand</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/pilates-for-hand-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/pilates-for-back</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/pilates-for-back-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/pilates-for-ankle</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/pilates-for-ankle-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/stretching-for-knee</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/stretching-for-knee-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/stretching-for-hip</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/stretching-for-hip-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/stretching-for-shoulder</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/stretching-for-shoulder-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/stretching-for-hand</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/stretching-for-hand-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/stretching-for-back</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/stretching-for-back-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/stretching-for-ankle</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/stretching-for-ankle-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/strength-training-for-knee</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/strength-training-for-knee-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/strength-training-for-hip</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/strength-training-for-hip-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/strength-training-for-shoulder</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/strength-training-for-shoulder-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/strength-training-for-hand</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/strength-training-for-hand-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/strength-training-for-back</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/strength-training-for-back-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/strength-training-for-ankle</loc>
+    <loc>https://livingwitharthritis.org.uk/exercises/strength-training-for-ankle-arthritis</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -5708,504 +5624,6 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/glossary/musculoskeletal</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/proprioception</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/range-of-motion</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/passive-vs-active-movement</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/hydrotherapy</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/occupational-therapy</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/nice</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/pip</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/attendance-allowance</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/blue-badge</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/gp-referral</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/self-referral</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/triple-therapy</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/methotrexate</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/sulfasalazine</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/hydroxychloroquine</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/leflunomide</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/adalimumab</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/etanercept</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/infliximab</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/rituximab</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/tocilizumab</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/jak-inhibitor</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/das28</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/acr-response</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/gout-attack</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/allopurinol</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/colchicine</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/uveitis</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/sjogrens</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/raynauds</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/erythema-migrans</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/septic-arthritis</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/rice-protocol</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/tens</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/kinesiology-tape</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/orthotics</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/acupuncture</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/cbd</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/medical-cannabis</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/hip-replacement</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/knee-replacement</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/arthrodesis</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/arthroscopy</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/osteotomy</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/meniscus</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/labrum</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/bone-density</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/osteoporosis</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/frax</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/bisphosphonates</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/sarcopenia</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/frailty</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/cfs</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/otago</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/falls-risk</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/ct-scan</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/mri</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/ultrasound</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/bone-scan</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/dexa-scan</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/dass-score</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/act-therapy</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/iapt</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/nsaid-topical</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/capsaicin</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/amitriptyline</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/pregabalin</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/gabapentin</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/codeine</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/tramadol</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/morphine</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/epidural</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/facet-joint-injection</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/radiofrequency-denervation</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/spinal-fusion</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/prolotherapy</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/prp</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/stem-cell</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/weight-loss-arthritis</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/bmi</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/pain-scale</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/das28-remission</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/glossary/shared-decision-making</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

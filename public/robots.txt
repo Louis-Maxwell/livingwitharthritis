@@ -23,6 +23,8 @@ Allow: /
 
 User-agent: Googlebot
 Allow: /
+Allow: /authors/
+Allow: /reviewers/
 Disallow: /admin/
 Disallow: /auth$
 Disallow: /donation-result
@@ -36,6 +38,8 @@ Disallow: /site-index
 
 User-agent: Bingbot
 Allow: /
+Allow: /authors/
+Allow: /reviewers/
 Disallow: /admin/
 Disallow: /auth$
 Disallow: /donation-result
@@ -49,6 +53,8 @@ Disallow: /site-index
 
 User-agent: DuckDuckBot
 Allow: /
+Allow: /authors/
+Allow: /reviewers/
 Disallow: /admin/
 Disallow: /auth$
 Disallow: /donation-result
@@ -183,6 +189,8 @@ Disallow: /
 
 User-agent: *
 Allow: /
+Allow: /authors/
+Allow: /reviewers/
 Disallow: /admin/
 Disallow: /auth$
 Disallow: /donation-result

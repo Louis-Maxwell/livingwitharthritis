@@ -14,6 +14,13 @@ const ExerciseJointPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const page = exerciseJointPages.find((p) => p.slug === slug);
 
+  // Legacy short form (`swimming-for-knee`) used to be listed in the sitemap and
+  // returned a 200 placeholder — redirect it to the real page instead.
+  if (!page && slug) {
+    const legacy = exerciseJointPages.find((p) => p.slug === `${slug}-arthritis`);
+    if (legacy) return <Navigate to={`/exercises/${legacy.slug}`} replace />;
+  }
+
   if (!page) return <Navigate to="/404" replace />;
 
   const jsonLd = {

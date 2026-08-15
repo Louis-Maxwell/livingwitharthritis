@@ -62,9 +62,12 @@ export default function SeoDefaults() {
   const path = cleanPath !== "/" && cleanPath.endsWith("/")
     ? cleanPath.slice(0, -1)
     : cleanPath;
-  const canonical = `${SITE_URL}${path}`;
   const currentLang = detectLangFromPath(path);
   const basePath = stripLangPrefix(path);
+  // A /es|/fr|/de|/pt URL with no translated route serves the English page,
+  // so it must canonicalise to (and not be indexed alongside) the English URL.
+  const untranslatedLangPath = basePath !== path && !TRANSLATED_BASE_PATHS.includes(basePath);
+  const canonical = `${SITE_URL}${untranslatedLangPath ? basePath : path}`;
   // Only emit hreflang alternates when a translated route genuinely
   // exists for this page — otherwise we'd link to 404s on every one
   // of the ~800+ pages that aren't translated (see TRANSLATED_BASE_PATHS).
@@ -73,6 +76,7 @@ export default function SeoDefaults() {
   return (
     <Helmet>
       <link rel="canonical" href={canonical} />
+      {untranslatedLangPath && <meta name="robots" content="noindex,follow" />}
       {hasTranslations && SUPPORTED_LANGS.map((lang) => (
         <link
           key={lang}
