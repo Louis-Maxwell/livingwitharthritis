@@ -110,7 +110,11 @@ serve(async (req) => {
       customer_email: donation.donorEmail || undefined,
       line_items: [{ price_data: priceData, quantity: 1 }],
       mode: isRecurring ? "subscription" : "payment",
-      success_url: `${redirectOrigin}/donation-result?donation=success`,
+      // A distinct path (not just a query param) for success, so it can be
+      // tracked as an analytics conversion goal — query strings are stripped
+      // before analytics ever sees them, so ?donation=success alone can't be
+      // told apart from ?donation=cancelled on the same path.
+      success_url: `${redirectOrigin}/donation-result/success?donation=success`,
       cancel_url: `${redirectOrigin}/donation-result?donation=cancelled`,
       metadata: {
         fundType: donation.fundType,

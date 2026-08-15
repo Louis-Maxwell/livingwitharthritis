@@ -396,6 +396,7 @@ function AnimatedRoutes() {
         <Route path="/site-index" element={<Sitemap />} />
         <Route path="/corporate-giving" element={<CorporateGiving />} />
         <Route path="/donation-result" element={<DonationSuccess />} />
+        <Route path="/donation-result/success" element={<DonationSuccess />} />
         <Route path="/unsubscribe" element={<Unsubscribe />} />
         <Route path="/governance" element={<Governance />} />
         

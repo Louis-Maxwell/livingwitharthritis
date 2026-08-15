@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useSearchParams, Link } from "react-router-dom";
+import { useSearchParams, useLocation, Link } from "react-router-dom";
 import SeoHead from "@/components/SeoHead";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -8,8 +8,14 @@ import { CheckCircle, XCircle, Heart, ArrowLeft, Home } from "lucide-react";
 
 const DonationSuccess = () => {
   const [searchParams] = useSearchParams();
+  const location = useLocation();
   const status = searchParams.get("donation");
-  const isSuccess = status === "success";
+  // /donation-result/success is the canonical success path (query strings are
+  // stripped before analytics ever sees them, so a goal can't be tracked
+  // reliably off ?donation=success alone — see create-donation-checkout).
+  // The query param is still checked for any in-flight Stripe sessions
+  // created before this path existed.
+  const isSuccess = status === "success" || location.pathname === "/donation-result/success";
 
   useEffect(() => {
     if (isSuccess) {

@@ -51,6 +51,7 @@ const STATIC_EXCLUDE = new Set([
   "/admin/rank-tracker",
   "/admin/content-refresh",
   "/donation-result",
+  "/donation-result/success",
   "/unsubscribe",
   "/newsletter/confirm",
   "/sitemap",
