@@ -73,9 +73,28 @@ const REGIONS: Record<string, Region> = {
   },
 };
 
+/**
+ * Legacy / county-level region slugs that were once emitted into the sitemap
+ * (derived from city `region` labels). They have no page of their own — map
+ * each to the regional hub that actually covers it so the URL resolves to
+ * real content instead of bouncing to the homepage.
+ */
+const REGION_ALIASES: Record<string, string> = {
+  "greater-manchester": "north-west",
+  merseyside: "north-west",
+  lancashire: "north-west",
+  cheshire: "north-west",
+  "west-midlands": "midlands",
+  "east-midlands": "midlands",
+  staffordshire: "midlands",
+  warwickshire: "midlands",
+};
+
 const RegionHub = () => {
   const { region } = useParams<{ region: string }>();
+  const alias = region ? REGION_ALIASES[region] : undefined;
   const r = region ? REGIONS[region] : undefined;
+
 
   useEffect(() => {
     if (!r) return;
