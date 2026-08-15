@@ -41,13 +41,27 @@ serve(async (req) => {
       });
     }
 
-    // 1. Mentee must have a buddy_profile of role='mentee'.
-    const { data: menteeProfile, error: menteeErr } = await service
-      .from("buddy_profiles")
-      .select("user_id, role, arthritis_type, location_region, mobility_level, age_band")
-      .eq("user_id", menteeUserId)
-      .maybeSingle();
+    // 1-3. Load mentee profile, existing matches, and available mentors in parallel
+    const [menteeQuery, existingQuery, mentorsQuery] = await Promise.all([
+      service
+        .from("buddy_profiles")
+        .select("user_id, role, arthritis_type, location_region, mobility_level, age_band")
+        .eq("user_id", menteeUserId)
+        .maybeSingle(),
+      service
+        .from("buddy_matches")
+        .select("mentor_id, status")
+        .eq("mentee_id", menteeUserId)
+        .in("status", ["pending", "active"]),
+      service
+        .from("buddy_profiles")
+        .select("id, user_id, arthritis_type, location_region, mobility_level, age_band, available, max_mentees")
+        .eq("role", "mentor")
+        .eq("available", true),
+    ]);
 
+    // Mentee must have a buddy_profile of role='mentee'.
+    const { data: menteeProfile, error: menteeErr } = menteeQuery;
     if (menteeErr) {
       console.error(`[buddy:${requestId}] mentee lookup`, menteeErr);
       return errJson(req, { code: "server_error", message: "Could not load your profile.", requestId });
@@ -56,12 +70,8 @@ serve(async (req) => {
       return errJson(req, { code: "bad_request", message: "Create a buddy profile as a mentee first.", requestId });
     }
 
-    // 2. Skip mentors the mentee already has an active/pending match with.
-    const { data: existing } = await service
-      .from("buddy_matches")
-      .select("mentor_id, status")
-      .eq("mentee_id", menteeUserId)
-      .in("status", ["pending", "active"]);
+    // Skip mentors the mentee already has an active/pending match with.
+    const { data: existing } = existingQuery;
     const excluded = new Set<string>((existing ?? []).map((r) => r.mentor_id as string));
 
     if (excluded.size > 0) {
@@ -73,13 +83,8 @@ serve(async (req) => {
       });
     }
 
-    // 3. Pull available mentor candidates.
-    const { data: mentors, error: mentorsErr } = await service
-      .from("buddy_profiles")
-      .select("id, user_id, arthritis_type, location_region, mobility_level, age_band, available, max_mentees")
-      .eq("role", "mentor")
-      .eq("available", true);
-
+    // Pull available mentor candidates.
+    const { data: mentors, error: mentorsErr } = mentorsQuery;
     if (mentorsErr) {
       console.error(`[buddy:${requestId}] mentors`, mentorsErr);
       return errJson(req, { code: "server_error", message: "Could not load mentors.", requestId });
