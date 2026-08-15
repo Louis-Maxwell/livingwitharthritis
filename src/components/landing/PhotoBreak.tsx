@@ -15,6 +15,8 @@ const PhotoBreak = memo(({ image, alt, quote, attr }: PhotoBreakProps) => (
       srcSet={unsplashSrcSet(image, [640, 1080, 1400, 1920])}
       sizes={fullWidthSizes}
       alt={alt}
+      width={1920}
+      height={400}
       className="h-full w-full object-cover ken-burns"
       loading="lazy"
       decoding="async"

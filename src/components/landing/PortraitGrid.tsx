@@ -78,6 +78,8 @@ const PortraitGrid = memo(() => {
               srcSet={unsplashSrcSet(feature.image_url, [600, 900, 1200, 1600])}
               sizes="(min-width: 1024px) 58vw, 100vw"
               alt={feature.alt_text}
+              width={1200}
+              height={1440}
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
               loading="lazy"
               decoding="async"
@@ -129,6 +131,8 @@ const PortraitGrid = memo(() => {
                   srcSet={unsplashSrcSet(story.image_url, [400, 640, 900, 1200])}
                   sizes={defaultSizes}
                   alt={story.alt_text}
+                  width={900}
+                  height={720}
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                   loading="lazy"
                   decoding="async"

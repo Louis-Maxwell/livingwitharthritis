@@ -35,6 +35,8 @@ const FeatureCard = ({ a }: { a: CardArticle }) => (
       <img
         src={a.image_url || getArticleImages(a.category, a.title, a.slug)[0].src}
         alt={a.title}
+        width={400}
+        height={250}
         loading="lazy"
         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
       />

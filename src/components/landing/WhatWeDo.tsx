@@ -55,6 +55,8 @@ export default function WhatWeDo() {
                   src={it.img}
                   alt=""
                   aria-hidden="true"
+                  width={400}
+                  height={300}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                 />

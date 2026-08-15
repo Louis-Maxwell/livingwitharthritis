@@ -50,6 +50,8 @@ export default function DownloadableResources() {
             <img
               src={r.image}
               alt={r.title}
+              width={400}
+              height={250}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               decoding="async"
