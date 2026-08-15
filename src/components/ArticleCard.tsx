@@ -67,6 +67,8 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
             <img
               src={thumbnail}
               alt={title}
+              width={500}
+              height={300}
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
             {/* Overlay gradient */}

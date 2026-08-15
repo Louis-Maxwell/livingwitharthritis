@@ -32,6 +32,8 @@ const InspiredHeroBand = memo(() => {
           srcSet={unsplashSrcSet(portraitHeroWomenOutdoors, [800, 1200, 1600, 1920])}
           sizes={fullWidthSizes}
           alt="People supported by Living With Arthritis UK walking outdoors"
+          width={1920}
+          height={1280}
           className="h-full w-full object-cover object-center opacity-90"
           loading="lazy"
           decoding="async"
