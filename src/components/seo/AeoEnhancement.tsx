@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import AnswerBox from "@/components/seo/AnswerBox";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
@@ -31,7 +31,7 @@ export default function AeoEnhancement(props: AeoEnhancementProps) {
   const configured = getPageAeo(props.route);
   const question = props.question ?? configured?.question;
   const answer = props.answer ?? configured?.answer;
-  const faqs = props.faqs ?? configured?.faqs ?? [];
+  const faqs = useMemo(() => props.faqs ?? configured?.faqs ?? [], [props.faqs, configured?.faqs]);
   const reviewer = props.reviewer ?? configured?.reviewer ?? "Living With Arthritis clinical team";
   const updatedAt = props.updatedAt ?? configured?.updatedAt ?? "2026-07-01";
 
