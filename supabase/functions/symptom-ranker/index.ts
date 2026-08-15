@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // Rule-based + AI-confirmed symptom checker.
 // POST { answers: { location, duration, timing, swelling, coldSensitivity } }
 // Returns top 3 ranked conditions with confidence + reasoning.

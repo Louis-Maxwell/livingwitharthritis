@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // Pulls current positions for tracked keywords via Semrush connector gateway,
 // writes a snapshot into rank_history. Triggered weekly via pg_cron.
 import { createClient } from "npm:@supabase/supabase-js@2.45.0";

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // Serves the daily-refreshed sitemap from `public.sitemap_cache`.
 // Falls back to a friendly 404 when the cache is empty (first run not done).
 

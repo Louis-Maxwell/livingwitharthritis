@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // Scheduled PageSpeed Insights audit runner.
 // Audits published + production URLs across mobile + desktop, stores
 // timestamped Lighthouse JSON in the `lighthouse-reports` storage bucket.

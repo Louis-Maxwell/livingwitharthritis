@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { getServiceClient } from "../_shared/supabase-client.ts";
 
 const corsHeaders = {

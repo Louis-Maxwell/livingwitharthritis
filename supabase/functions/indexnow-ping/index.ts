@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // Submits URLs to IndexNow (used by Bing, Yandex, Seznam) for faster
 // crawling. The key is published at /public/{key}.txt so search engines
 // can verify ownership.

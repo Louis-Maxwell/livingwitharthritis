@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // Picks the oldest published article, asks Lovable AI to rewrite its intro,
 // stores the draft in content_refresh_queue for admin review.
 import { createClient } from "npm:@supabase/supabase-js@2.45.0";

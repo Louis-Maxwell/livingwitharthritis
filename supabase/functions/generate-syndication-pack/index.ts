@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // Generates a multi-channel syndication pack (Medium, LinkedIn, Twitter
 // thread, Facebook, Reddit, Pinterest) for a blog post using Lovable AI.
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";

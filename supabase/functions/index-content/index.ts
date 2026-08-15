@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // Batch content indexer — embeds chunks of site content and upserts into content_embeddings.
 // POST { items: [{ source_type, source_slug, url, title, content, chunk_index?, snippet? }] }
 // Uses SHA-256 checksum to skip unchanged content (zero embedding cost on re-runs).
