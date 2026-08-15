@@ -1,8 +1,36 @@
 import React from "react"; // v18
 import { createRoot } from "react-dom/client";
+import * as Sentry from "@sentry/react";
 import App from "./App.tsx";
 import ErrorBoundary from "./components/ErrorBoundary.tsx";
 import "./index.css";
+
+// Initialize Sentry for error tracking
+const initializeSentry = () => {
+  if (!import.meta.env.VITE_SENTRY_DSN) {
+    console.warn(
+      "[Sentry] DSN not configured. Error tracking disabled. Set VITE_SENTRY_DSN to enable.",
+    );
+    return;
+  }
+
+  Sentry.init({
+    dsn: import.meta.env.VITE_SENTRY_DSN,
+    environment: import.meta.env.MODE,
+    tracesSampleRate: import.meta.env.MODE === "production" ? 0.1 : 1.0,
+    integrations: [
+      new Sentry.Replay({
+        maskAllText: true,
+        blockAllMedia: true,
+      }),
+    ],
+    replaySessionSampleRate: import.meta.env.MODE === "production" ? 0.1 : 1.0,
+    replayOnErrorSampleRate: 1.0,
+    allowUrls: [/https?:\/\/(www\.)?livingwitharthritis\.org\.uk/],
+  });
+};
+
+initializeSentry();
 
 const AppCrashFallback = (
   <div className="min-h-screen flex items-center justify-center bg-background p-6">

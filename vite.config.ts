@@ -6,6 +6,7 @@ import { createRequire } from "node:module";
 import { componentTagger } from "lovable-tagger";
 import Prerender from "@prerenderer/rollup-plugin";
 import { visualizer } from "rollup-plugin-visualizer";
+import { sentryVitePlugin } from "@sentry/vite-plugin";
 import { mcpPlugin } from "@lovable.dev/mcp-js/stacks/supabase/vite";
 // @ts-expect-error - plain .mjs route list, no type declarations needed
 import { PRERENDER_ROUTES } from "./scripts/prerender-routes.mjs";
@@ -101,6 +102,16 @@ export default defineConfig(({ mode }) => ({
         gzipSize: true,
         brotliSize: true,
         template: "treemap",
+      }),
+
+    mode === "production" &&
+      sentryVitePlugin({
+        org: process.env.SENTRY_ORG,
+        project: process.env.SENTRY_PROJECT,
+        authToken: process.env.SENTRY_AUTH_TOKEN,
+        sourceMaps: {
+          include: ["./dist"],
+        },
       }),
   ].filter(Boolean),
   resolve: {
