@@ -142,7 +142,7 @@ export const trackResourceView = (resourceId: string, resourceName: string, reso
         item_category: resourceCategory,
       },
     ],
-  });
+  } as unknown as EventParams);
 };
 
 export const trackResourceAccess = (resourceId: string, resourceName: string) => {
