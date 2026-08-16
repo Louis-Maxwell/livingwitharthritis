@@ -1,4 +1,4 @@
-import { getCLS, getFCP, getFID, getLCP, getNavigationTiming, getINP } from 'web-vitals';
+import { onCLS, onFCP, onLCP, onINP, onTTFB } from 'web-vitals';
 import * as Sentry from '@sentry/react';
 
 export interface CoreWebVitalsMetrics {
@@ -14,7 +14,7 @@ const metrics: CoreWebVitalsMetrics = {};
 
 // Send metrics to Sentry for monitoring
 const sendToSentry = (name: string, value: number, unit: string = 'ms') => {
-  if (!window.__SENTRY_CLIENT__) return; // Sentry not initialized
+  if (!Sentry.getClient()) return; // Sentry not initialized
 
   Sentry.captureMessage(`Core Web Vital: ${name}`, {
     level: 'info',
@@ -64,54 +64,38 @@ const getRating = (metric: string, value: number): string => {
 // Initialize Core Web Vitals tracking
 export const initWebVitals = () => {
   // Largest Contentful Paint
-  getLCP((metric) => {
+  onLCP((metric) => {
     metrics.lcp = metric.value;
     sendToSentry('LCP', metric.value);
     sendToGoogleAnalytics('page_view_lcp', metric.value);
   });
 
   // First Contentful Paint
-  getFCP((metric) => {
+  onFCP((metric) => {
     metrics.fcp = metric.value;
     sendToSentry('FCP', metric.value);
     sendToGoogleAnalytics('page_view_fcp', metric.value);
   });
 
   // Cumulative Layout Shift
-  getCLS((metric) => {
+  onCLS((metric) => {
     metrics.cls = metric.value;
     sendToSentry('CLS', metric.value);
     sendToGoogleAnalytics('page_view_cls', metric.value * 1000); // Convert to 0-1000 scale
   });
 
-  // First Input Delay (legacy) / Interaction to Next Paint (modern)
-  // Use INP for newer browsers, FID for older ones
-  if ('PerformanceObserver' in window) {
-    try {
-      // Try INP first (more accurate)
-      getINP((metric) => {
-        metrics.inp = metric.value;
-        sendToSentry('INP', metric.value);
-        sendToGoogleAnalytics('page_view_inp', metric.value);
-      });
-    } catch {
-      // Fall back to FID for older browsers
-      getFID((metric) => {
-        metrics.fid = metric.value;
-        sendToSentry('FID', metric.value);
-        sendToGoogleAnalytics('page_view_fid', metric.value);
-      });
-    }
-  }
+  // Interaction to Next Paint (replaces the deprecated FID metric)
+  onINP((metric) => {
+    metrics.inp = metric.value;
+    sendToSentry('INP', metric.value);
+    sendToGoogleAnalytics('page_view_inp', metric.value);
+  });
 
-  // Time to First Byte (from Navigation Timing API)
-  getNavigationTiming((metric) => {
-    if (metric.responseStart && metric.fetchStart) {
-      const ttfb = metric.responseStart - metric.fetchStart;
-      metrics.ttfb = ttfb;
-      sendToSentry('TTFB', ttfb);
-      sendToGoogleAnalytics('page_view_ttfb', ttfb);
-    }
+  // Time to First Byte
+  onTTFB((metric) => {
+    metrics.ttfb = metric.value;
+    sendToSentry('TTFB', metric.value);
+    sendToGoogleAnalytics('page_view_ttfb', metric.value);
   });
 
   // Log metrics to console in development

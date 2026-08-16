@@ -519,7 +519,22 @@ export type Database = {
           status?: string
           updated_at?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "buddy_matches_mentee_id_fkey"
+            columns: ["mentee_id"]
+            isOneToOne: false
+            referencedRelation: "buddy_profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "buddy_matches_mentor_id_fkey"
+            columns: ["mentor_id"]
+            isOneToOne: false
+            referencedRelation: "buddy_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       buddy_profiles: {
         Row: {
@@ -534,7 +549,7 @@ export type Database = {
           mobility_level: string
           role: string
           updated_at: string
-          user_id: string
+          user_id: string | null
         }
         Insert: {
           age_band: string
@@ -548,7 +563,7 @@ export type Database = {
           mobility_level: string
           role: string
           updated_at?: string
-          user_id: string
+          user_id?: string | null
         }
         Update: {
           age_band?: string
@@ -562,7 +577,7 @@ export type Database = {
           mobility_level?: string
           role?: string
           updated_at?: string
-          user_id?: string
+          user_id?: string | null
         }
         Relationships: []
       }
@@ -1630,7 +1645,7 @@ export type Database = {
           mobility_level: string | null
           pain_level: number | null
           updated_at: string
-          user_id: string
+          user_id: string | null
         }
         Insert: {
           arthritis_type?: string | null
@@ -1644,7 +1659,7 @@ export type Database = {
           mobility_level?: string | null
           pain_level?: number | null
           updated_at?: string
-          user_id: string
+          user_id?: string | null
         }
         Update: {
           arthritis_type?: string | null
@@ -1658,7 +1673,7 @@ export type Database = {
           mobility_level?: string | null
           pain_level?: number | null
           updated_at?: string
-          user_id?: string
+          user_id?: string | null
         }
         Relationships: []
       }
@@ -2007,7 +2022,7 @@ export type Database = {
           recommendations: Json
           triage_score: number
           updated_at: string
-          user_id: string
+          user_id: string | null
           valid_until: string
         }
         Insert: {
@@ -2022,7 +2037,7 @@ export type Database = {
           recommendations?: Json
           triage_score: number
           updated_at?: string
-          user_id: string
+          user_id?: string | null
           valid_until?: string
         }
         Update: {
@@ -2037,7 +2052,7 @@ export type Database = {
           recommendations?: Json
           triage_score?: number
           updated_at?: string
-          user_id?: string
+          user_id?: string | null
           valid_until?: string
         }
         Relationships: []

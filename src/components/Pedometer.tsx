@@ -116,7 +116,7 @@ const Pedometer = () => {
       // iOS 13+ permission request
       const DME = DeviceMotionEvent as unknown as DeviceMotionEventConstructor;
       if (typeof DME.requestPermission === "function") {
-        const permission = await DME.requestPermission();
+        const permission = (await DME.requestPermission()) as unknown as string;
         if (permission !== "granted") {
           alert("Motion sensor permission is needed for the pedometer. Please allow access in your browser settings.");
           return;
