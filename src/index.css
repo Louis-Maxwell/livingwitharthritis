@@ -196,11 +196,17 @@
   /* Focus-visible — institutional red ring, no glow */
   a:focus-visible,
   button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  summary:focus-visible,
+  [tabindex]:focus-visible,
   [role="button"]:focus-visible {
-    outline: 2px solid hsl(var(--primary));
+    outline: 3px solid hsl(var(--primary));
     outline-offset: 3px;
     border-radius: 2px;
   }
+
 
   /* Prose link underline-grow (scoped to .prose body copy; skips CTA buttons
      and card-like anchors that use flex/grid utilities). Applied only inside
