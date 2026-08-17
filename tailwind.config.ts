@@ -20,14 +20,16 @@ export default {
       // preserved — this is a single-lever change rather than a per-file
       // sweep across every text-xs call site.
       fontSize: {
-        xs: ["0.8125rem", { lineHeight: "1.125rem" }],
+        xs: ["1rem", { lineHeight: "1.6" }],
+        sm: ["1.0625rem", { lineHeight: "1.6" }],
+        base: ["1.125rem", { lineHeight: "1.7" }],
       },
       fontFamily: {
-        display: ['"Anton"', '"Montserrat"', 'system-ui', 'sans-serif'],
-        anton: ['"Anton"', 'system-ui', 'sans-serif'],
-        heading: ['"Anton"', '"Montserrat"', 'system-ui', 'sans-serif'],
-        subheading: ['"Montserrat"', 'system-ui', 'sans-serif'],
-        sans: ['"Open Sans"', 'system-ui', 'sans-serif'],
+        display: ['"Inter"', '-apple-system', '"Segoe UI"', 'system-ui', 'sans-serif'],
+        anton: ['"Inter"', '-apple-system', '"Segoe UI"', 'system-ui', 'sans-serif'],
+        heading: ['"Inter"', '-apple-system', '"Segoe UI"', 'system-ui', 'sans-serif'],
+        subheading: ['"Inter"', '-apple-system', '"Segoe UI"', 'system-ui', 'sans-serif'],
+        sans: ['"Inter"', '-apple-system', '"Segoe UI"', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
