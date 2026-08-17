@@ -150,7 +150,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
+    font-family: 'Open Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
     line-height: 1.7;
     /* 1.125rem (~18px at the default root size) — a more readable baseline
        for patient-facing health content. Uses rem (not a fixed px) so the
@@ -158,11 +158,20 @@
        <html> font-size) actually resizes body copy instead of leaving it
        fixed while only headings responded. */
     font-size: 1.125rem;
+    /* ~0.5px at 18px — WCAG-friendly character spacing for low-vision users */
+    letter-spacing: 0.03em;
+    /* Keep 200% zoom free of horizontal scrolling */
+    overflow-x: hidden;
   }
 
-  p { font-size: 1.125rem; line-height: 1.7; color: hsl(var(--foreground)); }
+  p { font-size: 1.125rem; line-height: 1.7; letter-spacing: 0.03em; color: hsl(var(--foreground)); }
+  li { line-height: 1.7; letter-spacing: 0.03em; }
   small, .text-small { font-size: 0.8125rem; line-height: 1.5; }
   .lead { font-size: 1.25rem; line-height: 1.6; color: hsl(var(--foreground)); }
+
+  /* Comfortable measure: 60–70 characters per line in long-form body copy */
+  .prose :where(p, li, blockquote) { max-width: 68ch; }
+
 
   h1, h2, h3 {
     font-family: 'Anton', 'Montserrat', system-ui, sans-serif;
