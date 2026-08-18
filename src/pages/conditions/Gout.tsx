@@ -168,6 +168,11 @@ const data: ConditionPageData = {
   ],
   related: [
     {
+      label: "Febuxostat for gout",
+      to: "/guides/febuxostat-for-gout",
+      desc: "How febuxostat works for long-term uric acid control and gout prevention",
+    },
+    {
       label: "Anti-inflammatory diet",
       to: "/diet",
       desc: "Mediterranean meal plans that work alongside gout treatment",
@@ -181,11 +186,6 @@ const data: ConditionPageData = {
       label: "Osteoarthritis",
       to: "/conditions/osteoarthritis",
       desc: "Wear-and-tear arthritis — symptoms and treatment",
-    },
-    {
-      label: "Advice Hub",
-      to: "/blog-hub",
-      desc: "Browse arthritis guidance by topic",
     },
   ],
 };
