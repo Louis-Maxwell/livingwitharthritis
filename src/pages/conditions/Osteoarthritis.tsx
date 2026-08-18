@@ -334,20 +334,30 @@ const Osteoarthritis = () => (
             {
               title: "Diet & supplements",
               links: [
-                { label: "Best diet for osteoarthritis", to: "/diet" },
+                { label: "Anti-inflammatory diet for arthritis", to: "/blog/anti-inflammatory-diet" },
                 { label: "Mediterranean diet pillar guide", to: "/guides/diet" },
-                { label: "Foods to avoid with arthritis", to: "/blog/category/nutrition" },
-                { label: "Glucosamine, collagen, turmeric — what works", to: "/blog/category/supplements" },
+                { label: "Foods to avoid with arthritis", to: "/diet/foods-to-avoid-with-arthritis" },
+                { label: "Glucosamine, collagen, turmeric — what works", to: "/supplements/glucosamine" },
               ],
             },
             {
               title: "Exercise & movement",
               links: [
-                { label: "Knee arthritis exercises", to: "/exercises" },
+                { label: "Knee arthritis exercises", to: "/blog/knee-arthritis-exercises-uk" },
                 { label: "Hip arthritis exercises", to: "/guides/hip-exercises-for-osteoarthritis" },
                 { label: "Hand arthritis exercises", to: "/exercises" },
-                { label: "Tai Chi for balance", to: "/exercises/tai-chi-for-balance" },
+                { label: "Tai Chi for arthritis", to: "/exercises/tai-chi-for-arthritis" },
+                { label: "Cycling with arthritis", to: "/blog/arthritis-and-cycling-uk" },
                 { label: "Exercises to avoid with arthritis", to: "/guides/exercise" },
+              ],
+            },
+            {
+              title: "Medical treatments",
+              links: [
+                { label: "Arthritis medication guide", to: "/blog/arthritis-medication-guide" },
+                { label: "NSAIDs and paracetamol comparison", to: "/guides/paracetamol-vs-ibuprofen-for-arthritis" },
+                { label: "Joint replacement surgery", to: "/blog/joint-replacement-surgery" },
+                { label: "TENS machines for arthritis pain", to: "/blog/tens-machines-arthritis-uk" },
               ],
             },
             {
