@@ -18,7 +18,7 @@ import AnswerBox from '@/components/seo/AnswerBox';
 import MedicalReviewBadge from '@/components/MedicalReviewBadge';
 
 const SITE = 'https://livingwitharthritis.org.uk';
-const PATH = '/blog/knee-osteoarthritis-exercises';
+const PATH = '/blog/knee-arthritis-exercises-uk';
 
 const heroImage =
   'https://images.unsplash.com/photo-1517836357463-d25ddfcbf042?auto=format&fit=crop&w=1600&q=80';

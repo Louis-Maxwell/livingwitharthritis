@@ -153,6 +153,41 @@ Living With Arthritis had critical SEO issues:
 
 ## PHASE 4-7: ENHANCEMENTS (STATUS: VERIFIED READY)
 
+## PHASE 0B: CRITICAL REDIRECT FIX ✅ COMPLETE (2026-08-18)
+
+### Redirect Direction Correction
+
+**Issue Identified:** The Phase 2 configuration had the redirect direction reversed.
+
+**What Was Wrong:**
+- Original approach: Redirect `/blog/knee-arthritis-exercises-uk` → `/blog/knee-osteoarthritis-exercises`
+- Problem: This went against the SEO brief preference for `/blog/knee-arthritis-exercises-uk` as canonical
+
+**What Was Fixed:**
+1. **Moved hardcoded route** (App.tsx line 311):
+   - From: `/blog/knee-osteoarthritis-exercises` → KneeOsteoarthritisExercises component
+   - To: `/blog/knee-arthritis-exercises-uk` → KneeOsteoarthritisExercises component
+
+2. **Updated component PATH constant:**
+   - From: `/blog/knee-osteoarthritis-exercises`
+   - To: `/blog/knee-arthritis-exercises-uk`
+
+3. **Corrected redirects** (src/data/blogRedirects.ts):
+   - `knee-osteoarthritis-exercises` → `knee-arthritis-exercises-uk` ✅
+   - `knee-exercises-arthritis` → `knee-arthritis-exercises-uk` ✅
+
+**SEO Impact:**
+- ✅ Aligns with GSC data: `/blog/knee-arthritis-exercises-uk` has 934 impressions (vs 241 for the old route)
+- ✅ Consolidates search intent correctly to the brief's preferred canonical
+- ✅ Proper signal concentration for ranking improvement
+
+**Files Modified:**
+- `src/App.tsx` — Route updated
+- `src/pages/blog/KneeOsteoarthritisExercises.tsx` — PATH constant updated
+- `src/data/blogRedirects.ts` — Redirects reversed
+
+---
+
 ### Phase 4: Topic Clusters ✅
 - **Status:** Internal linking components well-designed and in place
 - **CrossLinkBanner:** Comprehensive library of 10+ topic clusters already configured

@@ -308,7 +308,7 @@ function AnimatedRoutes() {
         <Route path="/library/:slug" element={<LibraryTopic />} />
         <Route path="/blog-hub" element={<BlogHub />} />
         <Route path="/blog/category/:category" element={<BlogCategory />} />
-        <Route path="/blog/knee-osteoarthritis-exercises" element={<KneeOsteoarthritisExercises />} />
+        <Route path="/blog/knee-arthritis-exercises-uk" element={<KneeOsteoarthritisExercises />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/daily-tips/:slug" element={<DailyTipDetail />} />
         <Route path="/about" element={<AboutUs />} />
