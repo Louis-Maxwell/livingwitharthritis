@@ -109,10 +109,10 @@ const faqs = [
 
 const articleJsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: 'Knee Osteoarthritis Exercises: A Complete UK Guide',
+  '@type': 'MedicalWebPage',
+  headline: 'Knee Arthritis Exercises: Safe, Effective Routines for Pain Relief and Mobility',
   description:
-    'Evidence-based exercises for knee osteoarthritis pain relief. Low-impact, home-friendly routines reviewed by an HCPC physiotherapist.',
+    'Evidence-based exercises for knee arthritis pain relief and strength. Low-impact, home-friendly routines (quadriceps, swimming, walking) reviewed by an HCPC-registered physiotherapist.',
   inLanguage: 'en-GB',
   image: heroImage,
   datePublished: '2026-06-21',
@@ -122,11 +122,37 @@ const articleJsonLd = {
     name: 'Maxwell',
     jobTitle: 'First Contact Practitioner — Chartered Physiotherapist',
     identifier: 'HCPC PH128483',
+    affiliation: {
+      '@type': 'Organization',
+      name: 'Chartered Society of Physiotherapy',
+    },
   },
   publisher: {
     '@type': 'Organization',
     name: 'Living With Arthritis UK',
     url: SITE,
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://livingwitharthritis.org.uk/favicon.ico',
+    },
+  },
+  about: {
+    '@type': 'MedicalCondition',
+    name: 'Knee Osteoarthritis',
+    alternateName: ['Knee arthritis', 'Knee OA', 'Knee pain'],
+  },
+  audience: {
+    '@type': 'MedicalAudience',
+    audienceType: 'Patients',
+    geographicArea: {
+      '@type': 'Country',
+      name: 'United Kingdom',
+    },
+  },
+  medicalReviewProcess: {
+    '@type': 'MedicalWebPageElement',
+    name: 'Reviewed by HCPC-registered physiotherapist',
+    lastReviewDate: '2026-06-21',
   },
 };
 
@@ -188,18 +214,20 @@ export default function KneeOsteoarthritisExercises() {
   return (
     <div className="min-h-screen bg-background">
       <SeoHead
-        title="Knee Osteoarthritis Exercises"
-        description="Knee osteoarthritis exercises: Low-impact routines to reduce pain & improve mobility. Tier 1 & 2 exercises with video guides included."
+        title="Knee Arthritis Exercises: Safe Exercises for Pain, Strength & Mobility | Living With Arthritis UK"
+        description="Evidence-based knee arthritis exercises for pain relief and strength. Low-impact routines including quadriceps strengthening, swimming, and walks. Reviewed by HCPC physiotherapist."
         path={PATH}
         type="article"
-        keywords="knee osteoarthritis exercises, knee arthritis pain relief, knee OA exercises at home, exercises for knee pain, strengthening exercises knee"
+        keywords="knee arthritis exercises, exercises for knee arthritis, knee osteoarthritis exercises, exercises for arthritic knees, knee exercises for arthritis, knee OA exercises, knee strengthening exercises, knee stretches for arthritis"
       />
       <Header />
 
       <PageBreadcrumb
         segments={[
-          { label: 'Blog', href: '/blog' },
-          { label: 'Knee Osteoarthritis Exercises' },
+          { label: 'Home', href: '/' },
+          { label: 'Conditions', href: '/conditions/osteoarthritis' },
+          { label: 'Knee Arthritis', href: '/conditions/knee-arthritis' },
+          { label: 'Exercises' },
         ]}
       />
 
@@ -212,10 +240,10 @@ export default function KneeOsteoarthritisExercises() {
             </Badge>
           </div>
           <h1 className="font-display text-4xl md:text-5xl font-bold tracking-tight mb-4">
-            Knee Osteoarthritis Exercises
+            Knee Arthritis Exercises: Safe, Effective Routines for Pain Relief and Mobility
           </h1>
           <p className="text-xl text-muted-foreground mb-6">
-            Low-impact, evidence-based exercises to reduce knee pain and improve mobility. Reviewed by an HCPC physiotherapist.
+            Evidence-based exercises to reduce knee pain, improve strength, and maintain function. Tier 1 (most effective) and Tier 2 (additional strength) routines, reviewed by an HCPC-registered physiotherapist with credentials.
           </p>
           <div className="flex flex-wrap gap-3">
             <Button asChild>
@@ -228,21 +256,23 @@ export default function KneeOsteoarthritisExercises() {
         </div>
       </section>
 
-      {/* Answer box */}
+      {/* Answer box + Medical review */}
       <section className="py-12 bg-background">
         <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
+          <div className="mb-6">
+            <MedicalReviewBadge
+              reviewer="Maxwell"
+              title="First Contact Practitioner — Chartered Physiotherapist"
+              credential="HCPC PH128483"
+              date="Reviewed June 2026"
+            />
+          </div>
           <AnswerBox
             question="What are the best exercises for knee arthritis?"
             reviewed="2026-06-21"
           >
-            Knee osteoarthritis (OA) is wear-and-tear damage to knee cartilage that causes pain, stiffness and reduced mobility. Exercise is one of the most effective treatments, alongside weight management and an anti-inflammatory diet. Low-impact activities like swimming and walking, combined with targeted strengthening for the quadriceps and hamstrings, reduce pain and improve function in most people. Sharp pain is a sign to stop, but mild discomfort during exercise is normal. Most people benefit from 3–4 sessions a week with adequate rest days.
+            Knee arthritis (osteoarthritis or OA) is wear-and-tear damage to knee cartilage that causes pain, stiffness and reduced mobility. Exercise is one of the most effective treatments, alongside weight management and an anti-inflammatory diet. Low-impact activities like swimming and walking, combined with targeted strengthening for the quadriceps and hamstrings, reduce pain and improve function in most people. Mild discomfort during or shortly after exercise is normal; sharp pain is a sign to stop. Most people benefit from 3–4 exercise sessions per week with adequate rest days between.
           </AnswerBox>
-          <MedicalReviewBadge
-            reviewer="Maxwell"
-            title="First Contact Practitioner"
-            credential="HCPC PH128483"
-            date="June 2026"
-          />
         </div>
       </section>
 
