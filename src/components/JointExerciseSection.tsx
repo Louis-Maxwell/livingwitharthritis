@@ -195,7 +195,7 @@ const Humanoid = memo(({ activeSelectionId, onJointClick }: {
         alt="Anatomical reference figure — select a joint to view its exercise plan"
         width={1024}
         height={1024}
-        loading="lazy"
+        loading="lazy" decoding="async"
         decoding="async"
         draggable={false}
         className="absolute inset-0 w-full h-full object-contain select-none"

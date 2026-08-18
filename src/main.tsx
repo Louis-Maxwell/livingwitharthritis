@@ -20,13 +20,13 @@ const initializeSentry = () => {
     environment: import.meta.env.MODE,
     tracesSampleRate: import.meta.env.MODE === "production" ? 0.1 : 1.0,
     integrations: [
-      new Sentry.Replay({
+      Sentry.replayIntegration({
         maskAllText: true,
         blockAllMedia: true,
       }),
     ],
-    replaySessionSampleRate: import.meta.env.MODE === "production" ? 0.1 : 1.0,
-    replayOnErrorSampleRate: 1.0,
+    replaysSessionSampleRate: import.meta.env.MODE === "production" ? 0.1 : 1.0,
+    replaysOnErrorSampleRate: 1.0,
     allowUrls: [/https?:\/\/(www\.)?livingwitharthritis\.org\.uk/],
   });
 };
