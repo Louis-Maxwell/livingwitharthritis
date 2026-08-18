@@ -273,10 +273,10 @@ const Osteoarthritis = () => (
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
           <h3 className="font-display text-lg font-bold text-foreground mb-4">Daily Self-Care Checklist</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <EmojiCard emoji="🚶" title="Stay Active" description="Osteoarthritis treatment & management: Degenerative joint disease explained. Learn about medications, injections, surgery & lifestyle strategies." />
-            <EmojiCard emoji="⚖️" title="Healthy Weight" description="Osteoarthritis treatment & management: Degenerative joint disease explained. Learn about medications, injections, surgery & lifestyle strategies." />
-            <EmojiCard emoji="🐟" title="Eat Well" description="Osteoarthritis treatment & management: Degenerative joint disease explained. Learn about medications, injections, surgery & lifestyle strategies." />
-            <EmojiCard emoji="😴" title="Sleep Well" description="Osteoarthritis treatment & management: Degenerative joint disease explained. Learn about medications, injections, surgery & lifestyle strategies." />
+            <EmojiCard emoji="🚶" title="Stay Active" description="Regular low-impact exercise like walking, swimming, or cycling strengthens muscles and reduces joint pain." />
+            <EmojiCard emoji="⚖️" title="Healthy Weight" description="Losing just 5% of body weight can significantly reduce pain in knees, hips, and other weight-bearing joints." />
+            <EmojiCard emoji="🐟" title="Eat Well" description="An anti-inflammatory Mediterranean diet rich in fish, vegetables, and olive oil helps manage symptoms." />
+            <EmojiCard emoji="😴" title="Sleep Well" description="Good sleep supports healing and pain management. Use pillows to support affected joints at night." />
           </div>
         </motion.div>
 

@@ -262,8 +262,9 @@ export default function KneeOsteoarthritisExercises() {
           <div className="mb-6">
             <MedicalReviewBadge
               reviewer="Maxwell"
-              title="First Contact Practitioner — Chartered Physiotherapist"
+              title="First Contact Practitioner"
               credential="HCPC PH128483"
+              authorSlug="maxwell"
               date="Reviewed June 2026"
             />
           </div>
