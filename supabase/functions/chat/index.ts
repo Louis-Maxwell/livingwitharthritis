@@ -161,35 +161,114 @@ async function embedQuery(query: string, apiKey: string, requestId: string): Pro
   }
 }
 
+type Retrieved = {
+  title: string | null;
+  snippet: string | null;
+  url: string | null;
+  source_type: string | null;
+};
+
+/** Matches below this cosine similarity are noise — better no context than wrong context. */
+const MIN_SIMILARITY = 0.28;
+const MATCH_COUNT = 12;
+const MAX_CONTEXT_PASSAGES = 6;
+
 async function retrieveContext(
   supabaseUrl: string,
   serviceKey: string,
   embedding: number[],
   requestId: string,
-): Promise<Array<{ title: string | null; snippet: string | null; url: string | null; source_type: string | null }>> {
+): Promise<Retrieved[]> {
   try {
     const client = createClient(supabaseUrl, serviceKey, {
       auth: { persistSession: false, autoRefreshToken: false },
     });
     const { data, error } = await client.rpc("match_content", {
       query_embedding: embedding as unknown as string,
-      match_count: 5,
+      match_count: MATCH_COUNT,
     });
     if (error) {
       console.warn(`[${requestId}] match_content failed:`, error.message);
       return [];
     }
-    return (data ?? []).map((r: Record<string, unknown>) => ({
-      title: (r.title as string) ?? null,
-      snippet: (r.snippet as string) ?? null,
-      url: (r.url as string) ?? null,
-      source_type: (r.source_type as string) ?? null,
-    }));
+    const seenUrls = new Set<string>();
+    const out: Retrieved[] = [];
+    for (const r of (data ?? []) as Array<Record<string, unknown>>) {
+      const similarity = typeof r.similarity === "number" ? r.similarity : 0;
+      if (similarity < MIN_SIMILARITY) continue;
+      const url = (r.url as string) ?? null;
+      // One passage per page — keeps six distinct sources rather than six
+      // chunks of the same article.
+      if (url && seenUrls.has(url)) continue;
+      if (url) seenUrls.add(url);
+      out.push({
+        title: (r.title as string) ?? null,
+        snippet: (r.snippet as string) ?? null,
+        url,
+        source_type: (r.source_type as string) ?? null,
+      });
+      if (out.length >= MAX_CONTEXT_PASSAGES) break;
+    }
+    return out;
   } catch (e) {
     console.warn(`[${requestId}] Retrieval threw:`, e);
     return [];
   }
 }
+
+/**
+ * Keyword fallback for when the vector index returns nothing useful (empty
+ * index, embedding outage, or an off-distribution question). Plain text
+ * search over published articles so the reply still points at a real page.
+ */
+async function keywordFallback(
+  supabaseUrl: string,
+  serviceKey: string,
+  query: string,
+  requestId: string,
+): Promise<Retrieved[]> {
+  try {
+    const terms = query
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, " ")
+      .split(/\s+/)
+      .filter((w) => w.length > 3 && !STOPWORDS.has(w))
+      .slice(0, 4);
+    if (!terms.length) return [];
+
+    const client = createClient(supabaseUrl, serviceKey, {
+      auth: { persistSession: false, autoRefreshToken: false },
+    });
+    const or = terms.map((t) => `title.ilike.%${t}%,excerpt.ilike.%${t}%`).join(",");
+    const { data, error } = await client
+      .from("blog_articles")
+      .select("slug, title, excerpt, direct_answer")
+      .eq("is_published", true)
+      .or(or)
+      .limit(4);
+    if (error) {
+      console.warn(`[${requestId}] keyword fallback failed:`, error.message);
+      return [];
+    }
+    return ((data ?? []) as Array<Record<string, string | null>>).map((r) => ({
+      title: r.title,
+      snippet: r.direct_answer || r.excerpt,
+      url: `/blog/${r.slug}`,
+      source_type: "article",
+    }));
+  } catch (e) {
+    console.warn(`[${requestId}] keyword fallback threw:`, e);
+    return [];
+  }
+}
+
+const STOPWORDS = new Set([
+  "what", "when", "where", "which", "with", "your", "have", "does", "about",
+  "from", "this", "that", "they", "there", "should", "would", "could", "help",
+  "best", "good", "tell", "know", "like", "than", "then", "will", "make",
+  "arthritis", "please", "thanks",
+]);
+
 
 /* ── Handler ──────────────────────────────────────────────────────────── */
 
