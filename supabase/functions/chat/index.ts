@@ -346,12 +346,26 @@ serve(async (req) => {
     const supabaseUrl = Deno.env.get("SUPABASE_URL");
     const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
     if (supabaseUrl && serviceKey && redactedLastUserText.length > 3) {
-      const embedding = await embedQuery(redactedLastUserText, LOVABLE_API_KEY, requestId);
-      if (embedding) {
-        const results = await retrieveContext(supabaseUrl, serviceKey, embedding, requestId);
-        contextBlock = buildContextBlock(results);
+      // Include the previous user turn so follow-ups ("what about the knee
+      // one?") still retrieve against the actual topic.
+      const priorUser = redactedMessages
+        .filter((m) => m.role === "user")
+        .slice(-3, -1)
+        .map((m) => m.content)
+        .join(" ");
+      const searchQuery = `${priorUser} ${redactedLastUserText}`.trim().slice(0, 1200);
+
+      const embedding = await embedQuery(searchQuery, LOVABLE_API_KEY, requestId);
+      let results = embedding
+        ? await retrieveContext(supabaseUrl, serviceKey, embedding, requestId)
+        : [];
+      if (!results.length) {
+        results = await keywordFallback(supabaseUrl, serviceKey, redactedLastUserText, requestId);
       }
+      console.log(`[${requestId}] retrieved ${results.length} passages`);
+      contextBlock = buildContextBlock(results);
     }
+
 
     const systemPrompt = BASE_SYSTEM_PROMPT + buildProfileBlock(userProfile) + contextBlock;
 
