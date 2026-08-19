@@ -196,7 +196,6 @@ const Humanoid = memo(({ activeSelectionId, onJointClick }: {
         width={1024}
         height={1024}
         loading="lazy" decoding="async"
-        decoding="async"
         draggable={false}
         className="absolute inset-0 w-full h-full object-contain select-none"
       />
