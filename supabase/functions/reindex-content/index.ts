@@ -95,14 +95,18 @@ async function blogItems(
   client: ReturnType<typeof createClient>,
   offset: number,
   limit: number,
+  sinceIso?: string,
 ): Promise<{ items: Item[]; hasMore: boolean }> {
-  const { data, error } = await client
+  let query = client
     .from("blog_articles")
     .select("slug, title, excerpt, direct_answer, content, category")
-    .eq("is_published", true)
+    .eq("is_published", true);
+  if (sinceIso) query = query.gte("updated_at", sinceIso);
+  const { data, error } = await query
     .order("slug", { ascending: true })
     .range(offset, offset + limit - 1);
   if (error) throw new Error(`blog fetch failed: ${error.message}`);
+
 
   const rows = (data ?? []) as Array<Record<string, string | null>>;
   const items: Item[] = [];
