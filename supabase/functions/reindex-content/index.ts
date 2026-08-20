@@ -95,14 +95,18 @@ async function blogItems(
   client: ReturnType<typeof createClient>,
   offset: number,
   limit: number,
+  sinceIso?: string,
 ): Promise<{ items: Item[]; hasMore: boolean }> {
-  const { data, error } = await client
+  let query = client
     .from("blog_articles")
     .select("slug, title, excerpt, direct_answer, content, category")
-    .eq("is_published", true)
+    .eq("is_published", true);
+  if (sinceIso) query = query.gte("updated_at", sinceIso);
+  const { data, error } = await query
     .order("slug", { ascending: true })
     .range(offset, offset + limit - 1);
   if (error) throw new Error(`blog fetch failed: ${error.message}`);
+
 
   const rows = (data ?? []) as Array<Record<string, string | null>>;
   const items: Item[] = [];
@@ -199,7 +203,10 @@ Deno.serve(async (req) => {
       offset?: number;
       limit?: number;
     };
-    const source = body.source === "blog" || body.source === "pages" ? body.source : "all";
+    const source =
+      body.source === "blog" || body.source === "pages" || body.source === "recent"
+        ? body.source
+        : "all";
     const offset = Math.max(0, Number(body.offset ?? 0) | 0);
     const limit = Math.min(80, Math.max(1, Number(body.limit ?? 40) | 0));
 
@@ -215,8 +222,15 @@ Deno.serve(async (req) => {
       return json({ source, offset, processed: slice.length, ...res, nextOffset, total: all.length });
     }
 
-    if (source === "blog") {
-      const { items, hasMore } = await blogItems(client, offset, limit);
+    if (source === "blog" || source === "recent") {
+      // "recent" is the daily maintenance mode: only articles created or
+      // edited in the last 3 days, so the nightly run is cheap and the index
+      // never drifts behind the site.
+      const sinceIso =
+        source === "recent"
+          ? new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString()
+          : undefined;
+      const { items, hasMore } = await blogItems(client, offset, limit, sinceIso);
       const res = await upsert(client, items);
       return json({
         source,
@@ -226,6 +240,7 @@ Deno.serve(async (req) => {
         nextOffset: hasMore ? offset + limit : null,
       });
     }
+
 
     // "all" — pages first, then blog, in caller-driven pages to stay inside
     // the function time budget.
