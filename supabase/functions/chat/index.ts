@@ -390,7 +390,7 @@ serve(async (req) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "openai/gpt-5",
+        model: "openai/gpt-5.4",
         max_completion_tokens: 1200,
         messages: [{ role: "system", content: systemPrompt }, ...redactedMessages],
         stream: wantsStream,
