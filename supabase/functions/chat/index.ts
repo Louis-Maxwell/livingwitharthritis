@@ -98,7 +98,15 @@ const BASE_SYSTEM_PROMPT = `You are "Arthritis Support," the senior virtual heal
 7. UK English, UK care pathways.
 8. Be honest about uncertainty.
 
+## Grounding — accuracy comes first
+- A "Relevant site content" block below may contain passages retrieved from livingwitharthritis.org.uk. When it is present, answer FROM those passages first and mirror their wording, figures and guideline references.
+- If a passage contradicts your general knowledge, the passage wins — it is the charity's own reviewed content.
+- If the passages don't cover the question, answer from established UK clinical guidance and say which parts the site doesn't cover yet. Never fill a gap by inventing a statistic, a study, a NICE guideline number, a service, or a page on this site.
+- Never state a specific number (prevalence, dose ranges, waiting times, costs) unless it appears in the retrieved passages or is well-established UK guidance you are confident about. Otherwise describe it qualitatively.
+- If you are unsure, say so plainly in one sentence and point to the GP, pharmacist or rheumatology team.
+
 Tone: warm, calm, expert, encouraging. Never patronising. Never alarmist.
+
 
 ## Rich resources (optional)
 When suggesting a specific page, exercise, or article from the Living With Arthritis UK site, you may append a fenced JSON block at the very end of your reply, on its own lines:
@@ -161,35 +169,114 @@ async function embedQuery(query: string, apiKey: string, requestId: string): Pro
   }
 }
 
+type Retrieved = {
+  title: string | null;
+  snippet: string | null;
+  url: string | null;
+  source_type: string | null;
+};
+
+/** Matches below this cosine similarity are noise — better no context than wrong context. */
+const MIN_SIMILARITY = 0.28;
+const MATCH_COUNT = 12;
+const MAX_CONTEXT_PASSAGES = 6;
+
 async function retrieveContext(
   supabaseUrl: string,
   serviceKey: string,
   embedding: number[],
   requestId: string,
-): Promise<Array<{ title: string | null; snippet: string | null; url: string | null; source_type: string | null }>> {
+): Promise<Retrieved[]> {
   try {
     const client = createClient(supabaseUrl, serviceKey, {
       auth: { persistSession: false, autoRefreshToken: false },
     });
     const { data, error } = await client.rpc("match_content", {
       query_embedding: embedding as unknown as string,
-      match_count: 5,
+      match_count: MATCH_COUNT,
     });
     if (error) {
       console.warn(`[${requestId}] match_content failed:`, error.message);
       return [];
     }
-    return (data ?? []).map((r: Record<string, unknown>) => ({
-      title: (r.title as string) ?? null,
-      snippet: (r.snippet as string) ?? null,
-      url: (r.url as string) ?? null,
-      source_type: (r.source_type as string) ?? null,
-    }));
+    const seenUrls = new Set<string>();
+    const out: Retrieved[] = [];
+    for (const r of (data ?? []) as Array<Record<string, unknown>>) {
+      const similarity = typeof r.similarity === "number" ? r.similarity : 0;
+      if (similarity < MIN_SIMILARITY) continue;
+      const url = (r.url as string) ?? null;
+      // One passage per page — keeps six distinct sources rather than six
+      // chunks of the same article.
+      if (url && seenUrls.has(url)) continue;
+      if (url) seenUrls.add(url);
+      out.push({
+        title: (r.title as string) ?? null,
+        snippet: (r.snippet as string) ?? null,
+        url,
+        source_type: (r.source_type as string) ?? null,
+      });
+      if (out.length >= MAX_CONTEXT_PASSAGES) break;
+    }
+    return out;
   } catch (e) {
     console.warn(`[${requestId}] Retrieval threw:`, e);
     return [];
   }
 }
+
+/**
+ * Keyword fallback for when the vector index returns nothing useful (empty
+ * index, embedding outage, or an off-distribution question). Plain text
+ * search over published articles so the reply still points at a real page.
+ */
+async function keywordFallback(
+  supabaseUrl: string,
+  serviceKey: string,
+  query: string,
+  requestId: string,
+): Promise<Retrieved[]> {
+  try {
+    const terms = query
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, " ")
+      .split(/\s+/)
+      .filter((w) => w.length > 3 && !STOPWORDS.has(w))
+      .slice(0, 4);
+    if (!terms.length) return [];
+
+    const client = createClient(supabaseUrl, serviceKey, {
+      auth: { persistSession: false, autoRefreshToken: false },
+    });
+    const or = terms.map((t) => `title.ilike.%${t}%,excerpt.ilike.%${t}%`).join(",");
+    const { data, error } = await client
+      .from("blog_articles")
+      .select("slug, title, excerpt, direct_answer")
+      .eq("is_published", true)
+      .or(or)
+      .limit(4);
+    if (error) {
+      console.warn(`[${requestId}] keyword fallback failed:`, error.message);
+      return [];
+    }
+    return ((data ?? []) as Array<Record<string, string | null>>).map((r) => ({
+      title: r.title,
+      snippet: r.direct_answer || r.excerpt,
+      url: `/blog/${r.slug}`,
+      source_type: "article",
+    }));
+  } catch (e) {
+    console.warn(`[${requestId}] keyword fallback threw:`, e);
+    return [];
+  }
+}
+
+const STOPWORDS = new Set([
+  "what", "when", "where", "which", "with", "your", "have", "does", "about",
+  "from", "this", "that", "they", "there", "should", "would", "could", "help",
+  "best", "good", "tell", "know", "like", "than", "then", "will", "make",
+  "arthritis", "please", "thanks",
+]);
+
 
 /* ── Handler ──────────────────────────────────────────────────────────── */
 
@@ -267,12 +354,26 @@ serve(async (req) => {
     const supabaseUrl = Deno.env.get("SUPABASE_URL");
     const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
     if (supabaseUrl && serviceKey && redactedLastUserText.length > 3) {
-      const embedding = await embedQuery(redactedLastUserText, LOVABLE_API_KEY, requestId);
-      if (embedding) {
-        const results = await retrieveContext(supabaseUrl, serviceKey, embedding, requestId);
-        contextBlock = buildContextBlock(results);
+      // Include the previous user turn so follow-ups ("what about the knee
+      // one?") still retrieve against the actual topic.
+      const priorUser = redactedMessages
+        .filter((m) => m.role === "user")
+        .slice(-3, -1)
+        .map((m) => m.content)
+        .join(" ");
+      const searchQuery = `${priorUser} ${redactedLastUserText}`.trim().slice(0, 1200);
+
+      const embedding = await embedQuery(searchQuery, LOVABLE_API_KEY, requestId);
+      let results = embedding
+        ? await retrieveContext(supabaseUrl, serviceKey, embedding, requestId)
+        : [];
+      if (!results.length) {
+        results = await keywordFallback(supabaseUrl, serviceKey, redactedLastUserText, requestId);
       }
+      console.log(`[${requestId}] retrieved ${results.length} passages`);
+      contextBlock = buildContextBlock(results);
     }
+
 
     const systemPrompt = BASE_SYSTEM_PROMPT + buildProfileBlock(userProfile) + contextBlock;
 
@@ -289,7 +390,7 @@ serve(async (req) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "openai/gpt-5",
+        model: "openai/gpt-5.4",
         max_completion_tokens: 1200,
         messages: [{ role: "system", content: systemPrompt }, ...redactedMessages],
         stream: wantsStream,
