@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <!-- X-Frame-Options must be sent as an HTTP header (see public/_headers) — browsers ignore it in <meta> and log a console error. -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.supabase.co https://js.stripe.com https://*.evarist.ai; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; media-src 'self' https://*.supabase.co; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.resend.com https://api-m.paypal.com https://api-m.sandbox.paypal.com https://ai.gateway.lovable.dev https://api.stripe.com https://*.lovable.app https://*.lovableproject.com https://*.evarist.ai; frame-src 'self' https://*.paypal.com https://js.stripe.com https://hooks.stripe.com; object-src 'none'; base-uri 'self'; form-action 'self' https://checkout.stripe.com;" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.supabase.co https://js.stripe.com https://*.evarist.ai https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; media-src 'self' https://*.supabase.co; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.resend.com https://api-m.paypal.com https://api-m.sandbox.paypal.com https://ai.gateway.lovable.dev https://api.stripe.com https://*.lovable.app https://*.lovableproject.com https://*.evarist.ai https://www.google-analytics.com https://www.googletagmanager.com; frame-src 'self' https://*.paypal.com https://js.stripe.com https://hooks.stripe.com; object-src 'none'; base-uri 'self'; form-action 'self' https://checkout.stripe.com;" />
 
-    <!-- Google Analytics 4 has been removed from this site (per site owner
-         request, August 2026). The bot/consent-exclusion script below still
-         runs — it also handles the noindex-for-bots logic used for SEO and
-         is left in place — but there is no gtag script left for it to
-         block, so it is inert with respect to analytics. -->
+    <!-- Google Analytics 4 (G-ZLLSD3PXZ9) — re-enabled August 2026 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZLLSD3PXZ9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZLLSD3PXZ9');
+    </script>
+
     <!-- referrer meta is emitted per-route via SeoHead (Helmet) -->
 
     <!-- Bot + declined-consent exclusion: prevents spiders, scrapers, headless browsers,
