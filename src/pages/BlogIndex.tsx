@@ -213,7 +213,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
               <button
                 key={cat}
                 onClick={() => handleCategory(cat)}
-                className={`px-4 py-2 rounded-full text-xs font-bold tracking-wide border transition-all duration-200 cursor-pointer ${
+                className={`min-h-11 px-4 py-2 rounded-full text-xs font-bold tracking-wide border transition-all duration-200 cursor-pointer ${
                   activeCategory === cat
                     ? `${categoryColors[cat]} border-current shadow-sm scale-105`
                     : "bg-muted/30 text-muted-foreground border-border/30 hover:bg-muted/50"

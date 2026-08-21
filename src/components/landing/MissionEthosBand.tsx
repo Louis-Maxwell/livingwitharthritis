@@ -45,7 +45,7 @@ const MissionEthosBand = memo(() => {
               more simply, tell us. A clinician checks every change before it goes out.
             </p>
 
-            <div className="grid grid-cols-3 gap-6 sm:gap-8 pt-8 border-t border-primary-foreground/15">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 pt-8 border-t border-primary-foreground/15">
               {STATS.map(({ icon: Icon, label, value }) => (
                 <div key={label}>
                   <Icon className="w-4 h-4 text-primary-foreground/60 mb-3" aria-hidden="true" />

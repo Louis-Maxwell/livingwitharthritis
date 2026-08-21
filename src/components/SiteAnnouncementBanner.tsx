@@ -40,9 +40,9 @@ export default function SiteAnnouncementBanner() {
       aria-live="polite"
       className="bg-primary text-primary-foreground w-full"
     >
-      <div className="container mx-auto px-4 sm:px-6 md:px-10">
-        <div className="flex items-center justify-center gap-3 py-2">
-          <p className="text-xs sm:text-sm font-medium text-center leading-snug m-0">
+      <div className="container mx-auto max-w-full px-4 sm:px-6 md:px-10">
+        <div className="flex items-start sm:items-center justify-center gap-2 sm:gap-3 py-2 min-w-0">
+          <p className="min-w-0 flex-1 text-xs sm:text-sm font-medium text-center leading-snug m-0 text-pretty">
             We're currently updating this website — please bear with us while
             we make improvements. You may notice changes as you browse.
           </p>
@@ -50,7 +50,7 @@ export default function SiteAnnouncementBanner() {
             type="button"
             onClick={dismiss}
             aria-label="Dismiss update notice"
-            className="shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-full hover:bg-primary-foreground/15 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground focus-visible:ring-offset-1 focus-visible:ring-offset-primary"
+            className="shrink-0 inline-flex items-center justify-center min-h-11 min-w-11 rounded-full hover:bg-primary-foreground/15 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground focus-visible:ring-offset-1 focus-visible:ring-offset-primary"
           >
             <X className="w-4 h-4" aria-hidden="true" />
           </button>

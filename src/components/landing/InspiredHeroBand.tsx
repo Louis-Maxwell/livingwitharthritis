@@ -120,7 +120,7 @@ const InspiredHeroBand = memo(() => {
                       setCustom("");
                     }}
                     aria-pressed={active}
-                    className={`py-3 rounded-lg text-sm font-bold border transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
+                    className={`min-h-11 py-3 rounded-lg text-sm font-bold border transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
                       active
                         ? "border-primary bg-primary/5 text-primary"
                         : "border-border text-foreground hover:border-primary/60"

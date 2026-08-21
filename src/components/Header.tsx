@@ -240,7 +240,8 @@ const Header = () => {
 
       {/* ── STICKY WRAPPER — entire header block sticks together ── */}
       <div
-        className={`sticky top-0 z-50 transition-transform duration-300 ${isHidden ? "-translate-y-full" : "translate-y-0"}`}
+        role="banner"
+        className={`sticky top-0 z-50 overflow-x-hidden transition-transform duration-300 ${isHidden ? "-translate-y-full" : "translate-y-0"}`}
       >
 
         {/* Maintenance / update notice — very top of sticky header */}
@@ -259,11 +260,11 @@ const Header = () => {
               : "bg-background border-b border-border/15"
           }`}
         >
-          <div className="container mx-auto px-4 sm:px-6 md:px-10 py-2.5 flex items-center justify-between gap-2 sm:gap-4">
+          <div className="container mx-auto max-w-full px-3 sm:px-6 md:px-10 py-2.5 flex items-center justify-between gap-2 sm:gap-4 min-w-0">
             {/* Logo — stick figure mark + wordmark */}
             <button
               onClick={() => navigate("/")}
-              className="group cursor-pointer select-none shrink-0 transition-opacity hover:opacity-80"
+              className="group cursor-pointer select-none min-w-0 shrink transition-opacity hover:opacity-80"
               aria-label="Living With Arthritis — Go to homepage"
             >
               <span className="flex flex-col items-start leading-none">
@@ -294,10 +295,10 @@ const Header = () => {
                 <LanguageSwitcher />
                 <ThemeToggle />
               </span>
-              <Button
+                <Button
                 variant="ghost"
                 size="icon"
-                className="hidden sm:inline-flex rounded-lg h-9 w-9 shrink-0"
+                className="hidden sm:inline-flex rounded-lg h-11 w-11 shrink-0"
                 onClick={() => setMobileSearchOpen((v) => !v)}
                 aria-label="Open search"
               >
@@ -306,7 +307,7 @@ const Header = () => {
               <Button
                 size="sm"
                 onClick={() => navigate("/donate")}
-                className="h-9 px-3 sm:px-4 rounded-full text-[11px] font-bold tracking-wider bg-primary hover:bg-primary/90 text-primary-foreground shadow-md shadow-primary/20 shrink-0"
+                className="h-11 min-w-11 px-3 sm:px-4 rounded-full text-[11px] font-bold tracking-wider bg-primary hover:bg-primary/90 text-primary-foreground shadow-md shadow-primary/20 shrink-0"
               >
                 <Heart className="w-3 h-3 mr-1.5 fill-background/30" />
                 <span className="hidden sm:inline">Donate Now</span>
@@ -316,7 +317,7 @@ const Header = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-lg h-9 w-9"
+                className="rounded-lg h-11 w-11"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={mobileMenuOpen}
@@ -338,8 +339,7 @@ const Header = () => {
 
         {/* Nav Bar */}
         <header
-          role="banner"
-          className={`transition-all duration-300 ${
+          className={`hidden lg:block transition-all duration-300 ${
             scrolled
               ? "bg-background/95 backdrop-blur-xl shadow-md border-b border-border/30"
               : "bg-background border-b border-border/20"
@@ -487,8 +487,6 @@ const Header = () => {
                 </Link>
               </nav>
 
-              {/* Mobile placeholder — keeps header height consistent on mobile */}
-              <div className="lg:hidden w-full" />
             </div>
           </div>
         </header>
@@ -517,7 +515,7 @@ const Header = () => {
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="rounded-lg h-9 w-9"
+                    className="rounded-lg h-11 w-11"
                     onClick={() => {
                       setMobileMenuOpen(false);
                       setMobileSearchOpen(true);
@@ -527,7 +525,7 @@ const Header = () => {
                     <Search size={18} aria-hidden="true" />
                   </Button>
                 </span>
-                <Button variant="ghost" size="icon" className="rounded-lg h-9 w-9" onClick={() => setMobileMenuOpen(false)} aria-label="Close menu">
+                <Button variant="ghost" size="icon" className="rounded-lg h-11 w-11" onClick={() => setMobileMenuOpen(false)} aria-label="Close menu">
                   <X size={18} />
                 </Button>
               </div>

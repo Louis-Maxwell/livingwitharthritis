@@ -64,7 +64,7 @@ export default function AccessibilityToolbar() {
           <Button
             variant="ghost"
             size="sm"
-            className="w-full justify-start gap-2 text-xs h-9"
+            className="w-full justify-start gap-2 text-xs min-h-11 h-11"
             onClick={cycleFontSize}
             aria-label={`Font size: ${fontSizeLabels[fontSize]}`}
           >
@@ -75,7 +75,7 @@ export default function AccessibilityToolbar() {
           <Button
             variant="ghost"
             size="sm"
-            className="w-full justify-start gap-2 text-xs h-9"
+            className="w-full justify-start gap-2 text-xs min-h-11 h-11"
             onClick={() => setHighContrast(!highContrast)}
             aria-label={highContrast ? "Disable high contrast" : "Enable high contrast"}
           >
@@ -86,7 +86,7 @@ export default function AccessibilityToolbar() {
           <Button
             variant="ghost"
             size="sm"
-            className="w-full justify-start gap-2 text-xs h-9 text-muted-foreground"
+            className="w-full justify-start gap-2 text-xs min-h-11 h-11 text-muted-foreground"
             onClick={reset}
           >
             <RotateCcw className="w-4 h-4 shrink-0" />

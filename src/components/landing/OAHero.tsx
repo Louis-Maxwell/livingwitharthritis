@@ -26,7 +26,7 @@ const OAHero = memo(() => {
           <div className="hero-stagger">
             <h1
               id="oa-hero"
-              className="hero-item text-balance text-[clamp(2.75rem,6vw,5.5rem)] leading-[0.95] uppercase"
+              className="hero-item text-balance break-words text-[clamp(1.85rem,7vw,5.5rem)] leading-[0.95] uppercase"
             >
               Evidence-based arthritis support and health guides for the UK
             </h1>
@@ -40,13 +40,13 @@ const OAHero = memo(() => {
             <div className="hero-item mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
               <button
                 onClick={() => navigate("/conditions/osteoarthritis")}
-                className="btn-map btn-map-dark group"
+                className="btn-map btn-map-dark group min-h-11"
               >
                 <Heart className="w-4 h-4 mr-2" aria-hidden="true" />
                 Start your gentle plan
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </button>
-              <a href="/donate" className="btn-map" style={{ background: "white", color: "hsl(var(--foreground))" }}>
+              <a href="/donate" className="btn-map min-h-11" style={{ background: "white", color: "hsl(var(--foreground))" }}>
                 Donate — keep it free
               </a>
             </div>
@@ -91,7 +91,7 @@ const OAHero = memo(() => {
           </div>
 
           {/* Octagon image — MAP signature shape */}
-          <div className="reveal relative aspect-square w-full max-w-[560px] mx-auto">
+          <div className="reveal relative aspect-square w-full max-w-[560px] mx-auto min-w-0">
             <img
               src={HERO_IMG}
               srcSet={HERO_SRCSET}

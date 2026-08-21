@@ -31,12 +31,15 @@ const SNAPSHOT_DIR = join(
 const updatingSnapshots = process.argv.some((arg) => arg.includes("update-snapshots"));
 
 const VIEWPORTS = [
+  { name: "mobile-375", width: 375, height: 812 },
   { name: "mobile", width: 390, height: 844 },
   { name: "desktop", width: 1280, height: 900 },
 ] as const;
 
+const ROUTES = ["/", "/donate"] as const;
+
 const SECTIONS = [
-  { name: "header", selector: "header" },
+  { name: "header", selector: '[role="banner"]' },
   { name: "hero", selector: "main section:first-of-type" },
   { name: "footer", selector: "footer" },
 ] as const;
@@ -57,66 +60,71 @@ async function settle(page: Page) {
 }
 
 for (const viewport of VIEWPORTS) {
-  test.describe(`landing layout — ${viewport.name}`, () => {
+  test.describe(`layout — ${viewport.name}`, () => {
     test.use({ viewport: { width: viewport.width, height: viewport.height } });
 
-    test("has no horizontal overflow", async ({ page }) => {
-      await page.goto("/", { waitUntil: "domcontentloaded" });
-      await settle(page);
+    for (const route of ROUTES) {
+      test.describe(route, () => {
+        test("has no horizontal overflow", async ({ page }) => {
+          await page.goto(route, { waitUntil: "domcontentloaded" });
+          await settle(page);
 
-      const overflow = await page.evaluate(() => {
-        const doc = document.documentElement;
-        return {
-          scrollWidth: doc.scrollWidth,
-          clientWidth: doc.clientWidth,
-        };
-      });
-      // 1px of tolerance for sub-pixel rounding.
-      expect(overflow.scrollWidth).toBeLessThanOrEqual(overflow.clientWidth + 1);
-    });
-
-    test("has no element wider than the viewport", async ({ page }) => {
-      await page.goto("/", { waitUntil: "domcontentloaded" });
-      await settle(page);
-
-      const offenders = await page.evaluate((limit) => {
-        const bad: string[] = [];
-        document.querySelectorAll<HTMLElement>("body *").forEach((el) => {
-          const rect = el.getBoundingClientRect();
-          if (rect.width > limit + 2 && rect.height > 0) {
-            const style = window.getComputedStyle(el);
-            if (style.position === "fixed" || style.overflowX !== "visible") return;
-            bad.push(
-              `${el.tagName.toLowerCase()}${el.className && typeof el.className === "string" ? `.${el.className.split(" ")[0]}` : ""} (${Math.round(rect.width)}px)`,
-            );
-          }
+          const overflow = await page.evaluate(() => {
+            const doc = document.documentElement;
+            return {
+              scrollWidth: doc.scrollWidth,
+              clientWidth: doc.clientWidth,
+            };
+          });
+          expect(overflow.scrollWidth).toBeLessThanOrEqual(overflow.clientWidth + 1);
         });
-        return bad.slice(0, 10);
-      }, viewport.width);
 
-      expect(offenders, `Elements overflow the ${viewport.name} viewport`).toEqual([]);
-    });
+        test("has no element wider than the viewport", async ({ page }) => {
+          await page.goto(route, { waitUntil: "domcontentloaded" });
+          await settle(page);
 
-    for (const section of SECTIONS) {
-      test(`${section.name} matches its visual baseline`, async ({ page }) => {
-        const baseline = `${section.name}-${viewport.name}.png`;
-        test.skip(
-          !updatingSnapshots && !existsSync(SNAPSHOT_DIR),
-          `No committed baselines yet — run \`bun run test:layout:update\` to create them.`,
-        );
+          const offenders = await page.evaluate((limit) => {
+            const bad: string[] = [];
+            document.querySelectorAll<HTMLElement>("body *").forEach((el) => {
+              const rect = el.getBoundingClientRect();
+              if (rect.width > limit + 2 && rect.height > 0) {
+                const style = window.getComputedStyle(el);
+                if (style.position === "fixed" || style.overflowX !== "visible") return;
+                bad.push(
+                  `${el.tagName.toLowerCase()}${el.className && typeof el.className === "string" ? `.${el.className.split(" ")[0]}` : ""} (${Math.round(rect.width)}px)`,
+                );
+              }
+            });
+            return bad.slice(0, 10);
+          }, viewport.width);
 
-        await page.goto("/", { waitUntil: "domcontentloaded" });
-        await settle(page);
-
-        const locator = page.locator(section.selector).first();
-        await expect(locator).toBeVisible();
-        await expect(locator).toHaveScreenshot(baseline, {
-          maxDiffPixelRatio: 0.02,
-          animations: "disabled",
-          timeout: 20_000,
+          expect(offenders, `Elements overflow the ${viewport.name} viewport on ${route}`).toEqual([]);
         });
       });
     }
 
+    // Visual baselines stay on the homepage at the original named viewports.
+    if (viewport.name === "mobile" || viewport.name === "desktop") {
+      for (const section of SECTIONS) {
+        test(`${section.name} matches its visual baseline`, async ({ page }) => {
+          const baseline = `${section.name}-${viewport.name}.png`;
+          test.skip(
+            !updatingSnapshots && !existsSync(SNAPSHOT_DIR),
+            `No committed baselines yet — run \`bun run test:layout:update\` to create them.`,
+          );
+
+          await page.goto("/", { waitUntil: "domcontentloaded" });
+          await settle(page);
+
+          const locator = page.locator(section.selector).first();
+          await expect(locator).toBeVisible();
+          await expect(locator).toHaveScreenshot(baseline, {
+            maxDiffPixelRatio: 0.02,
+            animations: "disabled",
+            timeout: 20_000,
+          });
+        });
+      }
+    }
   });
 }

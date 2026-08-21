@@ -50,12 +50,13 @@ const SiteLogo = ({
   }
 
   return (
-    <span className={cn('inline-flex items-center gap-3', className)}>
+    <span className={cn('inline-flex items-center gap-2 sm:gap-3 min-w-0', className)}>
       <LogoFigure className={cn('h-9 w-auto shrink-0', markClassName)} />
       <span
         className={cn(
-          'font-sans font-extrabold uppercase tracking-[-0.01em] leading-none text-primary',
+          'font-sans font-extrabold uppercase tracking-[-0.01em] leading-tight text-primary',
           'text-xl sm:text-2xl md:text-[1.75rem]',
+          'max-w-[8.75rem] sm:max-w-none text-balance',
           textClassName,
         )}
       >

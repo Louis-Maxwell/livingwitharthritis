@@ -9,7 +9,7 @@ const ThemeToggle = () => {
     <Button
       variant="ghost"
       size="icon"
-      className="rounded-lg h-9 w-9"
+      className="rounded-lg h-11 w-11 sm:h-9 sm:w-9"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
     >

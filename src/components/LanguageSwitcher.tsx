@@ -66,7 +66,7 @@ export default function LanguageSwitcher() {
         <Button
           variant="ghost"
           size="sm"
-          className="h-9 px-2 gap-1.5 text-xs font-semibold"
+          className="h-11 min-w-11 px-2 gap-1.5 text-xs font-semibold sm:h-9"
           aria-label={`Change language. Current: ${LANG_LABELS[currentLang].native}`}
         >
           <Globe className="w-4 h-4" aria-hidden="true" />

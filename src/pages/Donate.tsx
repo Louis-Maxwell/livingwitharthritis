@@ -307,7 +307,7 @@ export default function Donate() {
                       variant="outline"
                       size="sm"
                       onClick={() => navigate(way.href)}
-                      className="rounded-full text-xs font-semibold"
+                      className="rounded-full text-xs font-semibold min-h-11"
                     >
                       {way.action}
                       <ArrowRight className="w-3 h-3 ml-1.5" />

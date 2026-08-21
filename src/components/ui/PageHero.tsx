@@ -26,7 +26,7 @@ export default function PageHero({
         <div className="opacity-0 animate-[revealUp_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]">
           {badge && <div className="mb-5">{badge}</div>}
 
-          <h1 className="font-display text-[2rem] sm:text-4xl md:text-[3.5rem] lg:text-[3.75rem] font-bold text-foreground tracking-[-0.025em] leading-[1.05] mb-4">
+          <h1 className="font-display text-[1.75rem] sm:text-4xl md:text-[3.5rem] lg:text-[3.75rem] font-bold text-foreground tracking-[-0.025em] leading-[1.05] mb-4 break-words">
             {title}
           </h1>
 
