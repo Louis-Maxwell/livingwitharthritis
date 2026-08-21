@@ -134,7 +134,7 @@ export default function Donate() {
       <meta name="twitter:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
     </Helmet>
       <Header />
-      <main id="main-content" className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-screen bg-background overflow-x-hidden">
         {/* Hero */}
         <section className="bg-gradient-to-br from-primary/5 via-background to-primary/5 border-b border-border/20">
           <div className="container mx-auto px-6 md:px-10 py-16 md:py-24 max-w-4xl text-center">
@@ -152,7 +152,7 @@ export default function Donate() {
             <Button
               size="lg"
               onClick={scrollToGive}
-              className="btn-primary-cta px-10 h-14 rounded-full text-sm font-bold tracking-wide group"
+              className="btn-primary-cta max-w-full px-6 sm:px-10 h-14 rounded-full text-sm font-bold tracking-wide group whitespace-normal"
             >
               <Heart className="w-5 h-5 mr-2 fill-current/20 group-hover:scale-110 transition-transform" />
               Donate Now
@@ -297,7 +297,7 @@ export default function Donate() {
               {WAYS_TO_GIVE.map((way) => {
                 const Icon = way.icon;
                 return (
-                  <div key={way.title} className="bg-background rounded-2xl border border-border/30 p-6 hover:shadow-lg transition-shadow duration-300">
+                  <div key={way.title} className="bg-background rounded-2xl border border-border/30 p-6 min-w-0 hover:shadow-lg transition-shadow duration-300">
                     <div className={`w-11 h-11 rounded-xl ${way.color} flex items-center justify-center mb-4`}>
                       <Icon className="w-5 h-5" />
                     </div>
@@ -307,7 +307,7 @@ export default function Donate() {
                       variant="outline"
                       size="sm"
                       onClick={() => navigate(way.href)}
-                      className="rounded-full text-xs font-semibold min-h-11"
+                      className="rounded-full text-xs font-semibold min-h-11 max-w-full whitespace-normal h-auto"
                     >
                       {way.action}
                       <ArrowRight className="w-3 h-3 ml-1.5" />
@@ -389,9 +389,9 @@ export default function Donate() {
             </div>
           </div>
 
-          <div className="text-center">
-            <div className="inline-flex flex-wrap items-center justify-center gap-2 px-5 py-3 rounded-full bg-background border border-primary/40">
-              <span className="text-sm font-semibold text-primary">
+          <div className="text-center px-2">
+            <div className="flex w-full max-w-full min-w-0 flex-wrap items-center justify-center gap-2 px-4 sm:px-5 py-3 rounded-full bg-background border border-primary/40">
+              <span className="text-sm font-semibold text-primary text-pretty text-center min-w-0 break-words">
                 🎁 A £100 donation becomes £125 with Gift Aid
               </span>
             </div>
