@@ -270,7 +270,7 @@ function AnimatedRoutes() {
       page_path: location.pathname + location.search,
       page_location: window.location.href,
       page_title: document.title,
-      send_to: "G-X8GTW05JJS",
+      send_to: "G-ZLLSD3PXZ9",
     });
   }, [location.pathname, location.search]);
 
