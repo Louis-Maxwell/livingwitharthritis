@@ -3,7 +3,7 @@ import { unsplashSrcSet, fullWidthSizes } from "@/data/images";
 
 interface PhotoBreakProps {
   image: string;
-  alt: string;
+  alt?: string;
   quote: string;
   attr: string;
 }
