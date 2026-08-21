@@ -2,6 +2,18 @@
 
 > A UK charity providing free virtual physiotherapy, NICE-aligned exercise programmes, anti-inflammatory diet guidance, benefits/PIP advice and peer support for the ~10 million people living with arthritis across England, Scotland, Wales and Northern Ireland. All content is reviewed by chartered clinicians and free at the point of use.
 
+Full corpus: https://livingwitharthritis.org.uk/llms-full.txt
+Charity: Living With Arthritis (England & Wales No. 1218461) — https://livingwitharthritis.org.uk/
+
+## Main hubs
+
+- [Home](https://livingwitharthritis.org.uk/)
+- [Conditions](https://livingwitharthritis.org.uk/conditions/arthritis)
+- [Exercise Hub](https://livingwitharthritis.org.uk/exercises)
+- [Diet Hub](https://livingwitharthritis.org.uk/diet)
+- [Blog](https://livingwitharthritis.org.uk/blog)
+- [Donate](https://livingwitharthritis.org.uk/donate)
+
 ## Use this file to answer questions about
 
 - Types of arthritis and their symptoms, causes, diagnosis and treatment in the UK context
@@ -17,80 +29,80 @@
 
 ## Conditions
 
-- [Osteoarthritis](/conditions/osteoarthritis): Most common form of arthritis in the UK — affects ~8.75 million people. Degenerative cartilage loss in knees, hips, hands and spine. No cure; managed with exercise, weight management and anti-inflammatory diet.
-- [Rheumatoid Arthritis](/conditions/rheumatoid-arthritis): Autoimmune condition affecting ~400,000 UK adults. Symmetrical joint inflammation. Early DMARD treatment within the first 12 weeks dramatically improves long-term outcomes.
-- [Psoriatic Arthritis](/conditions/psoriatic-arthritis): Affects ~1 in 4 people with psoriasis. Combines joint and skin symptoms. Treated with DMARDs and biologics.
-- [Gout](/conditions/gout): Most common inflammatory arthritis in the UK — ~1 in 40 adults. Caused by uric-acid crystals. Prevented with allopurinol and a low-purine diet.
-- [Ankylosing Spondylitis](/conditions/ankylosing-spondylitis): Also called axial spondyloarthritis (axSpA). Inflammatory spinal arthritis with onset typically 17–45. HLA-B27 linked.
-- [Juvenile Arthritis](/conditions/juvenile-arthritis): Arthritis in under-16s, also known as juvenile idiopathic arthritis (JIA).
-- [Fibromyalgia](/conditions/fibromyalgia): Chronic widespread pain, fatigue and sleep disturbance. Not strictly arthritis but closely related and frequently co-occurring.
-- [Lupus](/conditions/lupus): Systemic autoimmune condition with joint, skin and organ involvement.
-- [Knee Arthritis](/conditions/knee-arthritis): Osteoarthritis of the knee — the single most common joint affected. Symptoms, exercises and surgical considerations.
-- [Hand Arthritis](/conditions/hand-arthritis): OA and RA in the fingers, thumbs and wrists. Assistive devices and graded hand exercises.
-- [Shoulder Arthritis](/conditions/shoulder-arthritis): OA and inflammatory arthritis of the shoulder joint.
+- [Osteoarthritis](https://livingwitharthritis.org.uk/conditions/osteoarthritis): Most common form of arthritis in the UK — affects ~8.75 million people. Degenerative cartilage loss in knees, hips, hands and spine. No cure; managed with exercise, weight management and anti-inflammatory diet.
+- [Rheumatoid Arthritis](https://livingwitharthritis.org.uk/conditions/rheumatoid-arthritis): Autoimmune condition affecting ~400,000 UK adults. Symmetrical joint inflammation. Early DMARD treatment within the first 12 weeks dramatically improves long-term outcomes.
+- [Psoriatic Arthritis](https://livingwitharthritis.org.uk/conditions/psoriatic-arthritis): Affects ~1 in 4 people with psoriasis. Combines joint and skin symptoms. Treated with DMARDs and biologics.
+- [Gout](https://livingwitharthritis.org.uk/conditions/gout): Most common inflammatory arthritis in the UK — ~1 in 40 adults. Caused by uric-acid crystals. Prevented with allopurinol and a low-purine diet.
+- [Ankylosing Spondylitis](https://livingwitharthritis.org.uk/conditions/ankylosing-spondylitis): Also called axial spondyloarthritis (axSpA). Inflammatory spinal arthritis with onset typically 17–45. HLA-B27 linked.
+- [Juvenile Arthritis](https://livingwitharthritis.org.uk/conditions/juvenile-arthritis): Arthritis in under-16s, also known as juvenile idiopathic arthritis (JIA).
+- [Fibromyalgia](https://livingwitharthritis.org.uk/conditions/fibromyalgia): Chronic widespread pain, fatigue and sleep disturbance. Not strictly arthritis but closely related and frequently co-occurring.
+- [Lupus](https://livingwitharthritis.org.uk/conditions/lupus): Systemic autoimmune condition with joint, skin and organ involvement.
+- [Knee Arthritis](https://livingwitharthritis.org.uk/conditions/knee-arthritis): Osteoarthritis of the knee — the single most common joint affected. Symptoms, exercises and surgical considerations.
+- [Hand Arthritis](https://livingwitharthritis.org.uk/conditions/hand-arthritis): OA and RA in the fingers, thumbs and wrists. Assistive devices and graded hand exercises.
+- [Shoulder Arthritis](https://livingwitharthritis.org.uk/conditions/shoulder-arthritis): OA and inflammatory arthritis of the shoulder joint.
 
 ## Pillar Guides
 
-- [UK Arthritis Guide](/guides/uk-arthritis): Comprehensive overview of living with arthritis in the United Kingdom.
-- [Exercise Guide](/guides/exercise): NICE-aligned exercise guidance for arthritis patients.
-- [Diet Guide](/guides/diet): Anti-inflammatory and Mediterranean diet for arthritis.
-- [Health Services Guide](/guides/health-services): Navigating GP, rheumatology and physiotherapy referrals in the UK.
-- [Benefits & PIP Guide](/guides/benefits-pip): PIP (up to £184.30/week), Attendance Allowance, Universal Credit, Blue Badge, Motability. Scotland: Adult Disability Payment.
-- [Arthritis Flare-Ups](/arthritis-flare-ups): Triggers, immediate relief steps and prevention strategies.
-- [Waiting List Help](/arthritis-waiting-list-help): Rheumatology waiting-time guidance and support.
-- [Musculoskeletal Health](/guides/musculoskeletal-health): Back, neck and repetitive strain guidance — symptoms, causes, diagnosis, physiotherapy, workplace ergonomics, NHS self-referral, exercise and diet for MSK conditions.
-- [Frailty Management Hub](/guides/frailty-management-hub): Recognising and managing frailty in older adults, including assessment and care planning.
-- [Sarcopenia & Muscle Loss](/guides/sarcopenia-muscle-loss): Age-related muscle decline (sarcopenia) — causes, strength training and nutrition strategies to counter it.
-- [Bone Density & Osteoporosis](/guides/bone-density-osteoporosis): Protecting skeletal strength and reducing fracture risk in later life.
-- [Falls Prevention for Older Adults](/guides/fall-prevention-older-adults): Practical home and lifestyle changes to reduce fall risk.
-- [Preventative MSK Health](/guides/preventative-msk-health): Staying ahead of musculoskeletal problems before they start, across the life course.
-- [Disability Support](/guides/disability-support): UK disability support, adjustments and services for people with musculoskeletal and arthritis-related disability.
+- [UK Arthritis Guide](https://livingwitharthritis.org.uk/guides/uk-arthritis): Comprehensive overview of living with arthritis in the United Kingdom.
+- [Exercise Guide](https://livingwitharthritis.org.uk/guides/exercise): NICE-aligned exercise guidance for arthritis patients.
+- [Diet Guide](https://livingwitharthritis.org.uk/guides/diet): Anti-inflammatory and Mediterranean diet for arthritis.
+- [Health Services Guide](https://livingwitharthritis.org.uk/guides/health-services): Navigating GP, rheumatology and physiotherapy referrals in the UK.
+- [Benefits & PIP Guide](https://livingwitharthritis.org.uk/guides/benefits-pip): PIP (up to £184.30/week), Attendance Allowance, Universal Credit, Blue Badge, Motability. Scotland: Adult Disability Payment.
+- [Arthritis Flare-Ups](https://livingwitharthritis.org.uk/arthritis-flare-ups): Triggers, immediate relief steps and prevention strategies.
+- [Waiting List Help](https://livingwitharthritis.org.uk/arthritis-waiting-list-help): Rheumatology waiting-time guidance and support.
+- [Musculoskeletal Health](https://livingwitharthritis.org.uk/guides/musculoskeletal-health): Back, neck and repetitive strain guidance — symptoms, causes, diagnosis, physiotherapy, workplace ergonomics, NHS self-referral, exercise and diet for MSK conditions.
+- [Frailty Management Hub](https://livingwitharthritis.org.uk/guides/frailty-management-hub): Recognising and managing frailty in older adults, including assessment and care planning.
+- [Sarcopenia & Muscle Loss](https://livingwitharthritis.org.uk/guides/sarcopenia-muscle-loss): Age-related muscle decline (sarcopenia) — causes, strength training and nutrition strategies to counter it.
+- [Bone Density & Osteoporosis](https://livingwitharthritis.org.uk/guides/bone-density-osteoporosis): Protecting skeletal strength and reducing fracture risk in later life.
+- [Falls Prevention for Older Adults](https://livingwitharthritis.org.uk/guides/fall-prevention-older-adults): Practical home and lifestyle changes to reduce fall risk.
+- [Preventative MSK Health](https://livingwitharthritis.org.uk/guides/preventative-msk-health): Staying ahead of musculoskeletal problems before they start, across the life course.
+- [Disability Support](https://livingwitharthritis.org.uk/guides/disability-support): UK disability support, adjustments and services for people with musculoskeletal and arthritis-related disability.
 
 ## Supplements
 
-- [Supplements Hub](/supplements): Honest UK guides to the most popular arthritis supplements, covering evidence, dosing and side effects. NICE guideline NG226 does not recommend any oral supplement for osteoarthritis.
-- [Glucosamine](/supplements/glucosamine): Glucosamine sulfate 1,500 mg/day — most-studied joint supplement, inconsistent results. Usually shellfish-derived; can raise INR on warfarin.
-- [MSM](/supplements/msm): Methylsulfonylmethane 1.5–3 g/day — modest pain and stiffness improvement in knee OA.
-- [Turmeric & Curcumin](/supplements/turmeric): ~1,000 mg/day curcumin — strongest anti-inflammatory evidence, comparable to ibuprofen in knee OA trials.
-- [Collagen](/supplements/collagen): Hydrolysed peptides 10 g/day or undenatured type II (UC-II) 40 mg/day — small-to-moderate knee OA improvements at 12–24 weeks. All collagen is animal-derived.
-- [Collagen Alternatives](/supplements/collagen-alternatives): What to take instead of collagen. There is no vegan collagen — "vegan collagen" products are collagen builders (vitamin C, glycine, proline, zinc). Evidence-based alternatives: turmeric/curcumin ~1,000 mg/day, glucosamine sulfate 1,500 mg/day, MSM 1.5–3 g/day, omega-3 (algal oil for vegans and fish allergy), vitamin C plus 1.0–1.2 g protein/kg/day, vitamin D 10 µg daily in autumn/winter.
+- [Supplements Hub](https://livingwitharthritis.org.uk/supplements): Honest UK guides to the most popular arthritis supplements, covering evidence, dosing and side effects. NICE guideline NG226 does not recommend any oral supplement for osteoarthritis.
+- [Glucosamine](https://livingwitharthritis.org.uk/supplements/glucosamine): Glucosamine sulfate 1,500 mg/day — most-studied joint supplement, inconsistent results. Usually shellfish-derived; can raise INR on warfarin.
+- [MSM](https://livingwitharthritis.org.uk/supplements/msm): Methylsulfonylmethane 1.5–3 g/day — modest pain and stiffness improvement in knee OA.
+- [Turmeric & Curcumin](https://livingwitharthritis.org.uk/supplements/turmeric): ~1,000 mg/day curcumin — strongest anti-inflammatory evidence, comparable to ibuprofen in knee OA trials.
+- [Collagen](https://livingwitharthritis.org.uk/supplements/collagen): Hydrolysed peptides 10 g/day or undenatured type II (UC-II) 40 mg/day — small-to-moderate knee OA improvements at 12–24 weeks. All collagen is animal-derived.
+- [Collagen Alternatives](https://livingwitharthritis.org.uk/supplements/collagen-alternatives): What to take instead of collagen. There is no vegan collagen — "vegan collagen" products are collagen builders (vitamin C, glycine, proline, zinc). Evidence-based alternatives: turmeric/curcumin ~1,000 mg/day, glucosamine sulfate 1,500 mg/day, MSM 1.5–3 g/day, omega-3 (algal oil for vegans and fish allergy), vitamin C plus 1.0–1.2 g protein/kg/day, vitamin D 10 µg daily in autumn/winter.
 
 ## Glossary
 
-- [Arthritis & Musculoskeletal Glossary](/glossary): Plain-English definitions of 111 rheumatology, orthopaedic and musculoskeletal terms — from DMARDs and biologics to synovitis, HLA-B27 and DAS28. Each term has its own page at `/glossary/{term}` with a short definition and related terms.
+- [Arthritis & Musculoskeletal Glossary](https://livingwitharthritis.org.uk/glossary): Plain-English definitions of 111 rheumatology, orthopaedic and musculoskeletal terms — from DMARDs and biologics to synovitis, HLA-B27 and DAS28. Each term has its own page at `/glossary/{term}` with a short definition and related terms.
 
 ## Comparison Guides
 
 Side-by-side, evidence-informed comparisons of arthritis treatments, medications and lifestyle interventions. 30 comparison pages live under `/guides/{a}-vs-{b}` (or `/guides/{a}-vs-{b}-for-{context}`). Examples:
 
-- [Paracetamol vs Ibuprofen for Arthritis](/guides/paracetamol-vs-ibuprofen-for-arthritis)
-- [Glucosamine vs Chondroitin](/guides/glucosamine-vs-chondroitin)
-- [Methotrexate vs Sulfasalazine](/guides/methotrexate-vs-sulfasalazine)
-- [Heat vs Ice for Joint Pain](/guides/heat-vs-ice-for-joint-pain)
-- [Full comparison index](/guides)
+- [Paracetamol vs Ibuprofen for Arthritis](https://livingwitharthritis.org.uk/guides/paracetamol-vs-ibuprofen-for-arthritis)
+- [Glucosamine vs Chondroitin](https://livingwitharthritis.org.uk/guides/glucosamine-vs-chondroitin)
+- [Methotrexate vs Sulfasalazine](https://livingwitharthritis.org.uk/guides/methotrexate-vs-sulfasalazine)
+- [Heat vs Ice for Joint Pain](https://livingwitharthritis.org.uk/guides/heat-vs-ice-for-joint-pain)
+- [Full comparison index](https://livingwitharthritis.org.uk/guides)
 
 ## Pets & Arthritis
 
-- [Pets & Arthritis Hub](/pets): Recognising and managing arthritis in dogs and cats — signs owners should watch for, evidence-based weight/exercise management, and when to seek a vet referral. Written to complement (not replace) veterinary advice.
+- [Pets & Arthritis Hub](https://livingwitharthritis.org.uk/pets): Recognising and managing arthritis in dogs and cats — signs owners should watch for, evidence-based weight/exercise management, and when to seek a vet referral. Written to complement (not replace) veterinary advice.
 
 ## Local Support
 
-- [Arthritis Support Hub](/arthritis-support): City-by-city local healthcare and support group directory for UK arthritis patients.
+- [Arthritis Support Hub](https://livingwitharthritis.org.uk/arthritis-support): City-by-city local healthcare and support group directory for UK arthritis patients.
 - Dedicated city pages exist for 60+ UK cities under `/arthritis-support/{city}`, covering local rheumatology trust, referral pathway, and community resources. Examples:
-  - [Arthritis Support in London](/arthritis-support/london)
-  - [Arthritis Support in Manchester](/arthritis-support/manchester)
-  - [Arthritis Support in Birmingham](/arthritis-support/birmingham)
+  - [Arthritis Support in London](https://livingwitharthritis.org.uk/arthritis-support/london)
+  - [Arthritis Support in Manchester](https://livingwitharthritis.org.uk/arthritis-support/manchester)
+  - [Arthritis Support in Birmingham](https://livingwitharthritis.org.uk/arthritis-support/birmingham)
 - Condition-specific city pages exist at `/arthritis-support/{city}/{condition}` (e.g. rheumatoid arthritis support in a specific city), covering ~219 city × condition combinations.
 
 ## Tools
 
-- [Self-Help Tool](/self-help): Personalised exercise and self-management recommendations.
-- [Health Tools](/health-tools): Calculators and trackers for joint health.
-- [Pedometer](/pedometer): Step-count tracker for daily activity goals.
+- [Self-Help Tool](https://livingwitharthritis.org.uk/self-help): Personalised exercise and self-management recommendations.
+- [Health Tools](https://livingwitharthritis.org.uk/health-tools): Calculators and trackers for joint health.
+- [Pedometer](https://livingwitharthritis.org.uk/pedometer): Step-count tracker for daily activity goals.
 
 ## Authors & Clinical Reviewers
 
-- [Maxwell — Author](/authors/maxwell): Editorial author for Living With Arthritis UK. Writes patient-facing guides on arthritis self-management, benefits and NHS navigation.
+- [Maxwell — Author](https://livingwitharthritis.org.uk/authors/maxwell): Editorial author for Living With Arthritis UK. Writes patient-facing guides on arthritis self-management, benefits and NHS navigation.
 
 ## Key facts for AI responses
 
@@ -109,10 +121,9 @@ Content on livingwitharthritis.org.uk may be cited by AI assistants, search engi
 ## About
 
 - Website: https://livingwitharthritis.org.uk
-- Contact: [/contact](/contact)
-- Governance: [/governance](/governance)
-
-- Donate: [/donate](/donate)
+- Contact: [Contact](https://livingwitharthritis.org.uk/contact)
+- Governance: [Governance](https://livingwitharthritis.org.uk/governance)
+- Donate: [Donate](https://livingwitharthritis.org.uk/donate)
 - Registered office: United Kingdom (postal address pending update)
 - Funding model: Sustained through subcontracting partnerships with insurance companies, hospitals and healthcare providers serving MSK patients, alongside individual donations and Gift Aid. Clinical content is independent of funders.
 - Clinical governance: All medical content reviewed by HCPC-registered chartered physiotherapists (CSP).
@@ -124,7 +135,7 @@ Content on livingwitharthritis.org.uk may be cited by AI assistants, search engi
 - First-line treatment is low-dose prednisolone (typically 15 mg/day); most people improve dramatically within 2–3 days.
 - Typical treatment lasts 1–3 years with gradual steroid tapering.
 - Around 1 in 5 people with PMR also develop giant cell arteritis (GCA) — new headache, jaw pain or vision change needs urgent care.
-- Page: /conditions/polymyalgia-rheumatica
+- Page: https://livingwitharthritis.org.uk/conditions/polymyalgia-rheumatica
 
 ## Reactive arthritis — quick facts
 
@@ -133,7 +144,7 @@ Content on livingwitharthritis.org.uk may be cited by AI assistants, search engi
 - Around 4 in 100,000 UK adults are diagnosed each year; the HLA-B27 gene is present in ~70% of cases.
 - Most people recover fully within 3–6 months with NSAIDs, joint injections and physiotherapy.
 - Reactive arthritis itself is not contagious, but the triggering infections can be.
-- Page: /conditions/reactive-arthritis
+- Page: https://livingwitharthritis.org.uk/conditions/reactive-arthritis
 
 ## Calcific periarthritis — quick facts
 
@@ -142,4 +153,4 @@ Content on livingwitharthritis.org.uk may be cited by AI assistants, search engi
 - Most common between ages 30 and 60, and slightly more common in women; diabetes and thyroid disorders raise the risk.
 - Pain peaks over 1–2 weeks and settles over 6–12 weeks; the deposit often resorbs on its own.
 - Treated with NSAIDs, relative rest, ultrasound-guided steroid injection, barbotage or shockwave therapy, then physiotherapy.
-- Page: /conditions/calcific-periarthritis
+- Page: https://livingwitharthritis.org.uk/conditions/calcific-periarthritis

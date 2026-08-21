@@ -75,29 +75,9 @@ const SectionFallback = () => <div className="h-32" aria-hidden="true" />;
 function HomePage() {
   // JSON-LD injected manually (per project memory) to avoid Helmet crashes.
   useEffect(() => {
-    const id = "ld-home-ngo";
-    const existing = document.getElementById(id);
-    if (existing) existing.remove();
-
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.id = id;
-    script.text = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "MedicalOrganization",
-      name: "Living With Arthritis UK",
-      url: SITE_URL,
-      description:
-        "An open-source osteoarthritis management plan — clinically reviewed, freely published, and made for everyone living with OA in the UK.",
-      areaServed: { "@type": "Country", name: "United Kingdom" },
-      knowsAbout: [
-        "Osteoarthritis",
-        "Anti-inflammatory diet",
-        "Physiotherapy",
-        "Chronic pain management",
-      ],
-    });
-    document.head.appendChild(script);
+    // MedicalOrganization is already emitted once sitewide by
+    // RootOrganizationSchema (and the static index.html #organization node).
+    // Do not add a second Organisation block on the homepage.
 
     // BreadcrumbList — home anchors the breadcrumb trail.
     const breadcrumbId = "ld-home-breadcrumb";
@@ -124,10 +104,8 @@ function HomePage() {
     // on one page confuses structured-data validators and rich-result eligibility.
 
     return () => {
-      [id, breadcrumbId].forEach((scriptId) => {
-        const el = document.getElementById(scriptId);
-        if (el) el.remove();
-      });
+      const el = document.getElementById(breadcrumbId);
+      if (el) el.remove();
     };
   }, []);
 

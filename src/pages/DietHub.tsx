@@ -130,14 +130,7 @@ const DietHub = () => {
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
-            { "@type": "ListItem", "position": 2, "name": "Diet", "item": "https://livingwitharthritis.org.uk/diet" }
-          ]
-        })}</script>
+        {/* BreadcrumbList is emitted by <PageBreadcrumb> below — do not duplicate. */}
       </Helmet>
 
       <Header />
