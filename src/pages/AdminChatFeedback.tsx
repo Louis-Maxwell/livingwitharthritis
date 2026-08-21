@@ -122,7 +122,7 @@ const AdminChatFeedback = () => {
 
       <div className="min-h-screen bg-background">
         <div className="container mx-auto max-w-6xl px-4 py-8">
-          <Button variant="ghost" size="sm" onClick={() => navigate("/admin")} className="mb-4 gap-2">
+          <Button variant="ghost" size="sm" aria-label="Back to admin" onClick={() => navigate("/admin")} className="mb-4 gap-2">
             <ArrowLeft className="h-4 w-4" />
             Back to admin
           </Button>
