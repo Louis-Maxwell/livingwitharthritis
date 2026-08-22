@@ -17,6 +17,7 @@
 import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
 import { createClient } from "npm:@supabase/supabase-js@2";
 import sitePages from "./site-corpus.json" with { type: "json" };
+import { withEndpointRateLimit } from "../_shared/rate-limit.ts";
 
 const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY")!;
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
@@ -181,7 +182,7 @@ async function upsert(
   return { embedded, skipped: enriched.length - todo.length };
 }
 
-Deno.serve(async (req) => {
+Deno.serve(withEndpointRateLimit("reindex-content", async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
 
   const json = (body: unknown, status = 200) =>
@@ -271,4 +272,4 @@ Deno.serve(async (req) => {
     console.error("reindex-content error:", e);
     return json({ error: e instanceof Error ? e.message : "unknown" }, 500);
   }
-});
+}));

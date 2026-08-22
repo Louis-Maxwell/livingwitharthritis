@@ -1,8 +1,7 @@
  
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import Stripe from "https://esm.sh/stripe@18.5.0";
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
-import { checkRateLimit, getClientIp } from "../_shared/rate-limiter-v2.ts";
+import { withEndpointRateLimit } from "../_shared/rate-limit.ts";
 import { errJson, okJson, parseJsonBody, preflight, newRequestId } from "../_shared/http.ts";
 import { z, parseWithSchema, emailSchema } from "../_shared/validation.ts";
 
@@ -41,31 +40,12 @@ const ALLOWED_REDIRECT_ORIGINS = new Set([
   "https://www.livingwitharthritis.org.uk",
 ]);
 
-serve(async (req) => {
+serve(withEndpointRateLimit("create-donation-checkout", async (req) => {
   if (req.method === "OPTIONS") return preflight(req);
 
   const requestId = newRequestId();
 
   try {
-    const rlClient = createClient(
-      Deno.env.get("SUPABASE_URL") ?? "",
-      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "",
-      { auth: { persistSession: false, autoRefreshToken: false } },
-    );
-    const rl = await checkRateLimit(rlClient, {
-      ip: getClientIp(req),
-      tier: "public",
-      scope: "create-donation-checkout",
-    });
-    if (!rl.allowed) {
-      return errJson(req, {
-        code: "rate_limited",
-        message: "Too many checkout attempts. Please wait a moment.",
-        requestId,
-        headers: { "Retry-After": String(rl.retryAfterSeconds ?? 30) },
-      });
-    }
-
     const stripeKey = Deno.env.get("STRIPE_SECRET_KEY");
     if (!stripeKey) {
       console.error(`[${requestId}] STRIPE_SECRET_KEY not set`);
@@ -135,4 +115,4 @@ serve(async (req) => {
       requestId,
     });
   }
-});
+}));

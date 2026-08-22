@@ -1,5 +1,6 @@
  
 import { getServiceClient } from "../_shared/supabase-client.ts";
+import { withEndpointRateLimit } from "../_shared/rate-limit.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -82,7 +83,7 @@ function urlEntry(loc: string, lastmod: string, changefreq: string, priority: st
   return entry;
 }
 
-Deno.serve(async (req) => {
+Deno.serve(withEndpointRateLimit("generate-sitemap", async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
@@ -182,4 +183,4 @@ ${entries.join("\n")}
       headers: corsHeaders,
     });
   }
-});
+}));

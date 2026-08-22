@@ -1,7 +1,7 @@
  
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
-import { checkRateLimit, getClientIp } from "../_shared/rate-limiter-v2.ts";
+import { withEndpointRateLimit } from "../_shared/rate-limit.ts";
 import { errJson, parseJsonBody, preflight, newRequestId, getCorsHeaders } from "../_shared/http.ts";
 import { z, parseWithSchema } from "../_shared/validation.ts";
 import {
@@ -280,32 +280,13 @@ const STOPWORDS = new Set([
 
 /* ── Handler ──────────────────────────────────────────────────────────── */
 
-serve(async (req) => {
+serve(withEndpointRateLimit("chat", async (req) => {
   if (req.method === "OPTIONS") return preflight(req);
 
   const requestId = newRequestId();
   const corsHeaders = getCorsHeaders(req);
 
   try {
-    const rlClient = createClient(
-      Deno.env.get("SUPABASE_URL") ?? "",
-      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "",
-      { auth: { persistSession: false, autoRefreshToken: false } },
-    );
-    const rl = await checkRateLimit(rlClient, {
-      ip: getClientIp(req),
-      tier: "public",
-      scope: "chat",
-    });
-    if (!rl.allowed) {
-      return errJson(req, {
-        code: "rate_limited",
-        message: "You're sending messages too quickly. Please wait a moment.",
-        requestId,
-        headers: { "Retry-After": String(rl.retryAfterSeconds ?? 30) },
-      });
-    }
-
     const parsed = await parseJsonBody(req, requestId);
     if (!parsed.ok) return parsed.response;
 
@@ -434,4 +415,4 @@ serve(async (req) => {
     console.error(`[${requestId}] Chat unhandled error:`, error);
     return errJson(req, { code: "server_error", message: "An unexpected error occurred.", requestId });
   }
-});
+}));

@@ -8,6 +8,7 @@
  * Requires: signed-in admin user.
  */
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { withEndpointRateLimit } from "../_shared/rate-limit.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
 import { preflight, getCorsHeaders, newRequestId, errJson } from "../_shared/http.ts";
 
@@ -232,7 +233,7 @@ function checksum(text: string): string {
   return (hash >>> 0).toString(16);
 }
 
-serve(async (req) => {
+serve(withEndpointRateLimit("ingest-content", async (req) => {
   if (req.method === "OPTIONS") return preflight(req);
   const requestId = newRequestId();
   const corsHeaders = getCorsHeaders(req);
@@ -318,4 +319,4 @@ serve(async (req) => {
       requestId,
     });
   }
-});
+}));

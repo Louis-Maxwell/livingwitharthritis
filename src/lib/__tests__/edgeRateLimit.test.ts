@@ -1,5 +1,9 @@
+/// <reference types="node" />
+import { existsSync, readFileSync, readdirSync } from "node:fs";
+import { resolve } from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import {
+  ENDPOINT_RATE_LIMIT_CATEGORIES,
   MemoryRateLimitStore,
   checkRequestRateLimit,
   createRateLimitStore,
@@ -196,5 +200,30 @@ describe("edge rate limiting", () => {
       limit: 30,
       remaining: 29,
     });
+  });
+
+  it("classifies and wraps every deployed Edge Function", () => {
+    const functionsRoot = resolve(process.cwd(), "supabase/functions");
+    const deployed = readdirSync(functionsRoot, { withFileTypes: true })
+      .filter(
+        (entry) =>
+          entry.isDirectory() &&
+          existsSync(resolve(functionsRoot, entry.name, "index.ts")),
+      )
+      .map((entry) => entry.name)
+      .sort();
+    const classified = Object.keys(ENDPOINT_RATE_LIMIT_CATEGORIES).sort();
+
+    expect(classified).toEqual(deployed);
+    for (const scope of classified) {
+      const source = readFileSync(
+        resolve(functionsRoot, scope, "index.ts"),
+        "utf8",
+      );
+      expect(source).toContain("withEndpointRateLimit");
+      expect(source).toMatch(
+        new RegExp(`withEndpointRateLimit\\(\\s*["']${scope}["']`),
+      );
+    }
   });
 });

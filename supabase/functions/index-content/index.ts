@@ -5,6 +5,7 @@
 
 import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
 import { createClient } from "npm:@supabase/supabase-js@2";
+import { withEndpointRateLimit } from "../_shared/rate-limit.ts";
 
 const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY")!;
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
@@ -39,7 +40,7 @@ async function embedBatch(inputs: string[]): Promise<number[][]> {
   return json.data.map((d: { embedding: number[] }) => d.embedding);
 }
 
-Deno.serve(async (req) => {
+Deno.serve(withEndpointRateLimit("index-content", async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
   try {
     // Require admin JWT or service-role key to prevent RAG poisoning / AI credit drain
@@ -146,4 +147,4 @@ Deno.serve(async (req) => {
       status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   }
-});
+}));

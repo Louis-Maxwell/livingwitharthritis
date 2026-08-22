@@ -1,7 +1,7 @@
  
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { getAnonClient, getServiceClient } from "../_shared/supabase-client.ts";
-import { checkRateLimit, getClientIp } from "../_shared/rate-limiter-v2.ts";
+import { withEndpointRateLimit } from "../_shared/rate-limit.ts";
 
 const ALLOWED_ORIGINS = [
   "https://id-preview--0b2fd6ca-4e21-4ac7-99fa-d741e996f45e.lovable.app",
@@ -22,7 +22,7 @@ function getCorsHeaders(req: Request): Record<string, string> {
   };
 }
 
-serve(async (req) => {
+serve(withEndpointRateLimit("send-patient-email", async (req) => {
   const corsHeaders = getCorsHeaders(req);
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -52,19 +52,6 @@ serve(async (req) => {
     const userId = userData.user.id;
 
     const serviceClient = getServiceClient("send-patient-email");
-
-    const rl = await checkRateLimit(serviceClient, {
-      ip: getClientIp(req),
-      accountId: userId,
-      tier: "authenticated",
-      scope: "send-patient-email",
-    });
-    if (!rl.allowed) {
-      return new Response(JSON.stringify({ error: "Too many requests. Please wait a moment." }), {
-        status: 429,
-        headers: { ...corsHeaders, "Content-Type": "application/json", "Retry-After": String(rl.retryAfterSeconds ?? 30) },
-      });
-    }
 
     // Check admin role
     const { data: roleData } = await serviceClient
@@ -194,4 +181,4 @@ serve(async (req) => {
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   }
-});
+}));

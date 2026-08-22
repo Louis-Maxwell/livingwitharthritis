@@ -1,11 +1,11 @@
  
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { getAnonClient, getServiceClient } from "../_shared/supabase-client.ts";
-import { checkRateLimit, getClientIp } from "../_shared/rate-limiter-v2.ts";
+import { withEndpointRateLimit } from "../_shared/rate-limit.ts";
 import { errJson, okJson, preflight, newRequestId } from "../_shared/http.ts";
 import { pickBestMentor, type BuddyCandidate, type MenteeFacts } from "./compatibility.ts";
 
-serve(async (req) => {
+serve(withEndpointRateLimit("request-buddy-match", async (req) => {
   if (req.method === "OPTIONS") return preflight(req);
   const requestId = newRequestId();
 
@@ -26,21 +26,6 @@ serve(async (req) => {
     const menteeUserId = userData.user.id;
 
     const service = getServiceClient("request-buddy-match");
-
-    const rl = await checkRateLimit(service, {
-      ip: getClientIp(req),
-      accountId: menteeUserId,
-      tier: "authenticated",
-      scope: "request-buddy-match",
-    });
-    if (!rl.allowed) {
-      return errJson(req, {
-        code: "rate_limited",
-        message: "Too many match requests. Please try again shortly.",
-        requestId,
-        headers: { "Retry-After": String(rl.retryAfterSeconds ?? 60) },
-      });
-    }
 
     // 1-3. Load mentee profile, existing matches, and available mentors in parallel
     const [menteeQuery, existingQuery, mentorsQuery] = await Promise.all([
@@ -163,4 +148,4 @@ serve(async (req) => {
     console.error(`[buddy:${requestId}] unhandled`, e);
     return errJson(req, { code: "server_error", message: "Unexpected error.", requestId });
   }
-});
+}));

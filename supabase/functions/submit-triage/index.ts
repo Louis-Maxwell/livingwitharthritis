@@ -1,7 +1,7 @@
  
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { getAnonClient, getServiceClient } from "../_shared/supabase-client.ts";
-import { checkRateLimit, getClientIp } from "../_shared/rate-limiter-v2.ts";
+import { withEndpointRateLimit } from "../_shared/rate-limit.ts";
 import { errJson, okJson, parseJsonBody, preflight, newRequestId } from "../_shared/http.ts";
 import { z, parseWithSchema } from "../_shared/validation.ts";
 import { scoreTriage } from "./scoring.ts";
@@ -32,27 +32,13 @@ const Schema = z.object({
   mobilityLevel: z.enum(["high", "moderate", "low"]),
 });
 
-serve(async (req) => {
+serve(withEndpointRateLimit("submit-triage", async (req) => {
   if (req.method === "OPTIONS") return preflight(req);
   const requestId = newRequestId();
 
   if (req.method !== "POST") {
     return errJson(req, { code: "method_not_allowed", message: "POST only", requestId });
   }
-  const rl = await checkRateLimit(getServiceClient("submit-triage"), {
-    ip: getClientIp(req),
-    tier: "public",
-    scope: "submit-triage",
-  });
-  if (!rl.allowed) {
-    return errJson(req, {
-      code: "rate_limited",
-      message: "Too many requests. Try again shortly.",
-      requestId,
-      headers: { "Retry-After": String(rl.retryAfterSeconds ?? 60) },
-    });
-  }
-
   try {
     // Auth: require a logged-in user (we store a row keyed by user_id).
     const authHeader = req.headers.get("Authorization");
@@ -115,4 +101,4 @@ serve(async (req) => {
     console.error(`[submit-triage:${requestId}] unhandled`, e);
     return errJson(req, { code: "server_error", message: "Unexpected error.", requestId });
   }
-});
+}));

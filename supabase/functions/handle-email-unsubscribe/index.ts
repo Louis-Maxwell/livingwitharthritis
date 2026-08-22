@@ -1,5 +1,6 @@
  
 import { getServiceClient, isSupabaseConfigError } from '../_shared/supabase-client.ts'
+import { withEndpointRateLimit } from '../_shared/rate-limit.ts'
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -14,7 +15,7 @@ function jsonResponse(data: Record<string, unknown>, status = 200): Response {
   })
 }
 
-Deno.serve(async (req) => {
+Deno.serve(withEndpointRateLimit("handle-email-unsubscribe", async (req) => {
   // Handle CORS preflight
   if (req.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders })
@@ -130,4 +131,4 @@ Deno.serve(async (req) => {
   console.log('Email unsubscribed', { email: tokenRecord.email })
 
   return jsonResponse({ success: true })
-})
+}))

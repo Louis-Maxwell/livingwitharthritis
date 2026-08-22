@@ -2,6 +2,7 @@
 // Pulls current positions for tracked keywords via Semrush connector gateway,
 // writes a snapshot into rank_history. Triggered weekly via pg_cron.
 import { createClient } from "npm:@supabase/supabase-js@2.45.0";
+import { withEndpointRateLimit } from "../_shared/rate-limit.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -40,7 +41,7 @@ async function authorize(
   return { ok: false, status: 403, error: "Admin access required" };
 }
 
-Deno.serve(async (req) => {
+Deno.serve(withEndpointRateLimit("seo-rank-sync", async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
 
   const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
@@ -142,4 +143,4 @@ Deno.serve(async (req) => {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   }
-});
+}));

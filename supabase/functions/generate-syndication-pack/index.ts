@@ -2,6 +2,7 @@
 // Generates a multi-channel syndication pack (Medium, LinkedIn, Twitter
 // thread, Facebook, Reddit, Pinterest) for a blog post using Lovable AI.
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { withEndpointRateLimit } from "../_shared/rate-limit.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -47,7 +48,7 @@ async function callAI(systemPrompt: string, userPrompt: string): Promise<string>
   return json.choices?.[0]?.message?.content?.trim() ?? "";
 }
 
-Deno.serve(async (req) => {
+Deno.serve(withEndpointRateLimit("generate-syndication-pack", async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
 
   try {
@@ -183,4 +184,4 @@ ${trimmed}`;
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   }
-});
+}));

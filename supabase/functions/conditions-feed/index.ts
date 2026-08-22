@@ -9,6 +9,7 @@
  * Listed in /llms.txt and /ai.txt so assistants can discover it without
  * scraping rendered HTML.
  */
+import { withEndpointRateLimit } from "../_shared/rate-limit.ts";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -144,7 +145,7 @@ const exercises = [
   },
 ];
 
-Deno.serve((req: Request) => {
+Deno.serve(withEndpointRateLimit("conditions-feed", (req: Request) => {
   if (req.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders });
   }
@@ -171,4 +172,4 @@ Deno.serve((req: Request) => {
       'X-Robots-Tag': 'all',
     },
   });
-});
+}));

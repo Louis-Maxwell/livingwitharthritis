@@ -4,6 +4,7 @@
 // timestamped Lighthouse JSON in the `lighthouse-reports` storage bucket.
 
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
+import { withEndpointRateLimit } from "../_shared/rate-limit.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -143,7 +144,7 @@ async function runOne(
   }
 }
 
-Deno.serve(async (req) => {
+Deno.serve(withEndpointRateLimit("run-psi-audit", async (req) => {
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
   }
@@ -270,4 +271,4 @@ Deno.serve(async (req) => {
     status: 200,
     headers: { ...corsHeaders, "Content-Type": "application/json" },
   });
-});
+}));

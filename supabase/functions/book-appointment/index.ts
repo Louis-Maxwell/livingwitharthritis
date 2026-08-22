@@ -1,8 +1,8 @@
  
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { getAnonClient, getServiceClient } from "../_shared/supabase-client.ts";
-import { checkRateLimit, getClientIp } from "../_shared/rate-limiter-v2.ts";
-import { errJson, okJson, parseJsonBody, preflight, newRequestId, getCorsHeaders } from "../_shared/http.ts";
+import { withEndpointRateLimit } from "../_shared/rate-limit.ts";
+import { errJson, okJson, parseJsonBody, preflight, newRequestId } from "../_shared/http.ts";
 import { z, parseWithSchema, emailSchema, phoneSchema, shortText, isoDate } from "../_shared/validation.ts";
 import { CONTACT_EMAILS } from "../_shared/contact.ts";
 
@@ -55,28 +55,13 @@ const AppointmentSchema = z
     }
   });
 
-serve(async (req) => {
+serve(withEndpointRateLimit("book-appointment", async (req) => {
   if (req.method === "OPTIONS") return preflight(req);
 
   const requestId = newRequestId();
 
   try {
     const supabase = getServiceClient("book-appointment");
-
-    const rl = await checkRateLimit(supabase, {
-      ip: getClientIp(req),
-      tier: "public",
-      scope: "book-appointment",
-    });
-    if (!rl.allowed) {
-      return errJson(req, {
-        code: "rate_limited",
-        message: "Too many booking attempts. Please try again later.",
-        requestId,
-        headers: { "Retry-After": String(rl.retryAfterSeconds ?? 60) },
-      });
-    }
-
 
     // GET: list available slots for a date
     if (req.method === "GET") {
@@ -247,7 +232,4 @@ serve(async (req) => {
       requestId,
     });
   }
-});
-
-// Suppress unused-import warning when corsHeaders not directly referenced.
-void getCorsHeaders;
+}));

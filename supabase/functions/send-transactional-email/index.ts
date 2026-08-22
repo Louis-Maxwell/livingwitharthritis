@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import * as React from 'npm:react@18.3.1'
 import { renderAsync } from 'npm:@react-email/components@0.0.22'
+import { withEndpointRateLimit } from '../_shared/rate-limit.ts'
 import { getServiceClient, isSupabaseConfigError } from '../_shared/supabase-client.ts'
 import { TEMPLATES } from '../_shared/transactional-email-templates/registry.ts'
 import { generateToken } from '../_shared/tokens.ts'
@@ -45,7 +46,7 @@ function isServiceRoleCaller(authHeader: string | null): boolean {
   return diff === 0
 }
 
-Deno.serve(async (req) => {
+Deno.serve(withEndpointRateLimit("send-transactional-email", async (req) => {
   // Handle CORS preflight
   if (req.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders })
@@ -374,4 +375,4 @@ Deno.serve(async (req) => {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     }
   )
-})
+}))

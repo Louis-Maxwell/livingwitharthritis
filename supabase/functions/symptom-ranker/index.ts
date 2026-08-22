@@ -4,8 +4,7 @@
 // Returns top 3 ranked conditions with confidence + reasoning.
 
 import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
-import { createClient } from "npm:@supabase/supabase-js@2";
-import { checkRateLimit, getClientIp, rateLimitResponse } from "../_shared/rate-limiter-v2.ts";
+import { withEndpointRateLimit } from "../_shared/rate-limit.ts";
 
 const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY")!;
 
@@ -58,18 +57,9 @@ const CONDITIONS = [
   },
 ];
 
-Deno.serve(async (req) => {
+Deno.serve(withEndpointRateLimit("symptom-ranker", async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
   try {
-    const ip = getClientIp(req);
-    const rlClient = createClient(
-      Deno.env.get("SUPABASE_URL") ?? "",
-      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "",
-      { auth: { persistSession: false, autoRefreshToken: false } },
-    );
-    const rl = await checkRateLimit(rlClient, { ip, tier: "public", scope: "symptom-ranker" });
-    if (!rl.allowed) return rateLimitResponse(corsHeaders, rl.retryAfterSeconds);
-
     const { answers } = (await req.json()) as { answers: Answers };
     if (!answers || typeof answers !== "object") {
       return new Response(JSON.stringify({ error: "answers required" }), {
@@ -160,4 +150,4 @@ Return strictly this JSON shape, no prose:
       status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   }
-});
+}));

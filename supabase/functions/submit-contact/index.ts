@@ -1,8 +1,8 @@
  
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { getServiceClient } from "../_shared/supabase-client.ts";
-import { checkRateLimit, getClientIp, rateLimitResponse } from "../_shared/rate-limiter-v2.ts";
-import { errJson, okJson, parseJsonBody, preflight, newRequestId, getCorsHeaders } from "../_shared/http.ts";
+import { withEndpointRateLimit } from "../_shared/rate-limit.ts";
+import { errJson, okJson, parseJsonBody, preflight, newRequestId } from "../_shared/http.ts";
 import { z, parseWithSchema, emailSchema, phoneSchema, headerSafeText, longText } from "../_shared/validation.ts";
 import { CONTACT_EMAILS } from "../_shared/contact.ts";
 
@@ -19,22 +19,13 @@ const ContactSchema = z.object({
   message: longText(5000),
 });
 
-serve(async (req) => {
+serve(withEndpointRateLimit("submit-contact", async (req) => {
   if (req.method === "OPTIONS") return preflight(req);
 
   const requestId = newRequestId();
 
   try {
     const supabase = getServiceClient("submit-contact");
-
-    const rl = await checkRateLimit(supabase, {
-      ip: getClientIp(req),
-      tier: "public",
-      scope: "submit-contact",
-    });
-    if (!rl.allowed) {
-      return rateLimitResponse(getCorsHeaders(req), rl.retryAfterSeconds);
-    }
 
     const parsed = await parseJsonBody(req, requestId);
     if (!parsed.ok) return parsed.response;
@@ -129,4 +120,4 @@ serve(async (req) => {
       requestId,
     });
   }
-});
+}));

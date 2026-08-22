@@ -4,6 +4,7 @@
  * Production uses a Redis-compatible REST API (Upstash by default). Local
  * development and tests use an isolate-local in-memory store.
  */
+import { getCorsHeaders } from "./http.ts";
 
 export type RateLimitCategory =
   | "authentication"
@@ -50,6 +51,42 @@ const ENV_PREFIX: Record<Exclude<RateLimitCategory, "exempt">, string> = {
 const ERROR_BODY = {
   error: "Too many requests. Please try again later.",
 };
+
+export const ENDPOINT_RATE_LIMIT_CATEGORIES = {
+  "auth-email-hook": "authentication",
+  "book-appointment": "contact",
+  chat: "search",
+  "conditions-feed": "general",
+  "create-donation-checkout": "general",
+  "daily-content-freshness": "general",
+  "daily-seo-refresh": "general",
+  "generate-sitemap": "general",
+  "generate-syndication-pack": "general",
+  "handle-email-suppression": "general",
+  "handle-email-unsubscribe": "general",
+  "index-content": "general",
+  "indexnow-ping": "general",
+  "ingest-content": "general",
+  mcp: "search",
+  "notify-patient-status": "general",
+  "preview-transactional-email": "general",
+  "process-donation": "general",
+  "process-email-queue": "general",
+  "reindex-content": "general",
+  "request-buddy-match": "contact",
+  "run-psi-audit": "exempt",
+  "send-patient-email": "general",
+  "send-transactional-email": "general",
+  "seo-rank-sync": "exempt",
+  "serve-sitemap": "general",
+  "submit-contact": "contact",
+  "submit-fundraising": "contact",
+  "submit-triage": "contact",
+  "symptom-ranker": "search",
+} as const satisfies Record<string, RateLimitCategory>;
+
+export type RateLimitedEndpoint =
+  keyof typeof ENDPOINT_RATE_LIMIT_CATEGORIES;
 
 function defaultEnv(name: string): string | undefined {
   const deno = (globalThis as {
@@ -263,6 +300,8 @@ function rateLimitHeaders(decision: RateLimitDecision): Record<string, string> {
     "X-RateLimit-Limit": String(decision.limit),
     "X-RateLimit-Remaining": String(decision.remaining),
     "X-RateLimit-Reset": String(decision.resetEpochSeconds),
+    "Access-Control-Expose-Headers":
+      "X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After",
   };
 }
 
@@ -363,7 +402,10 @@ export function withRateLimit(
         JSON.stringify({ error: "Service temporarily unavailable." }),
         {
           status: 503,
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            ...getCorsHeaders(request),
+            "Content-Type": "application/json",
+          },
         },
       );
     }
@@ -382,6 +424,7 @@ export function withRateLimit(
       return new Response(JSON.stringify(ERROR_BODY), {
         status: 429,
         headers: {
+          ...getCorsHeaders(request),
           "Content-Type": "application/json",
           "Retry-After": String(decision.retryAfterSeconds),
           ...headers,
@@ -391,4 +434,15 @@ export function withRateLimit(
 
     return withHeaders(await handler(request), headers);
   };
+}
+
+export function withEndpointRateLimit(
+  scope: RateLimitedEndpoint,
+  handler: Handler,
+): Handler {
+  return withRateLimit(
+    scope,
+    ENDPOINT_RATE_LIMIT_CATEGORIES[scope],
+    handler,
+  );
 }

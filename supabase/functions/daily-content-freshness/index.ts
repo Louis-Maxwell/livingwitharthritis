@@ -2,6 +2,7 @@
 // Picks the oldest published article, asks Lovable AI to rewrite its intro,
 // stores the draft in content_refresh_queue for admin review.
 import { createClient } from "npm:@supabase/supabase-js@2.45.0";
+import { withEndpointRateLimit } from "../_shared/rate-limit.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -38,7 +39,7 @@ async function authorize(
   return { ok: false, status: 403, error: "Admin access required" };
 }
 
-Deno.serve(async (req) => {
+Deno.serve(withEndpointRateLimit("daily-content-freshness", async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
 
   try {
@@ -131,4 +132,4 @@ Deno.serve(async (req) => {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   }
-});
+}));

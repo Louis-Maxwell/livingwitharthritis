@@ -10,6 +10,7 @@
 // admin user with a Supabase JWT. No anon access.
 
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
+import { withEndpointRateLimit } from "../_shared/rate-limit.ts";
 import { refreshBlogLastmods } from "../_shared/sitemap-lastmod.ts";
 
 const corsHeaders = {
@@ -178,7 +179,7 @@ async function runPsi(
   return results;
 }
 
-Deno.serve(async (req) => {
+Deno.serve(withEndpointRateLimit("daily-seo-refresh", async (req) => {
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
   }
@@ -284,4 +285,4 @@ Deno.serve(async (req) => {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     },
   );
-});
+}));
