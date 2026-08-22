@@ -80,7 +80,6 @@ const CURATED = [
   "/conditions/elbow-arthritis",
   "/conditions/polymyalgia-rheumatica",
   "/conditions/reactive-arthritis",
-  "/conditions/axial-spondyloarthritis",
   "/supplements",
   "/supplements/glucosamine",
   "/supplements/msm",

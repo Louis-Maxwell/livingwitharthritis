@@ -70,9 +70,6 @@ export default defineConfig(({ mode }) => ({
               "--no-sandbox",
             ],
           },
-
-          // Give useEffect-injected JSON-LD a moment after route mount
-          renderAfterTime: 1500,
           // The renderer does not reliably apply this UA before the
           // document's inline scripts run, so it is only the first of
           // three defences against self-noindexing (see below).

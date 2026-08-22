@@ -7,6 +7,10 @@ import {
   SUPABASE_PROJECT_ID,
   SUPABASE_URL,
 } from "@/integrations/supabase/config";
+import {
+  GENERIC_HOME_TITLE,
+  isPrerenderDocumentReady,
+} from "@/lib/prerenderReady";
 
 describe("SEO build safety", () => {
   it("blocks unexplained canonical blog inventory loss above five percent", () => {
@@ -34,5 +38,28 @@ describe("SEO build safety", () => {
     expect(SUPABASE_URL).toBe(
       "https://eswdtpmknwjxtvkyxvmi.supabase.co",
     );
+  });
+
+  it("waits for route-specific prerender content and metadata", () => {
+    document.title = GENERIC_HOME_TITLE;
+    document.head.insertAdjacentHTML(
+      "beforeend",
+      '<link rel="canonical" href="https://livingwitharthritis.org.uk/blog/anti-inflammatory-diet">',
+    );
+    document.body.innerHTML = "<main><h1>Anti-Inflammatory Diet</h1></main>";
+
+    expect(
+      isPrerenderDocumentReady(document, "/blog/anti-inflammatory-diet"),
+    ).toBe(false);
+
+    document.title = "Anti-Inflammatory Diet for Arthritis";
+    expect(
+      isPrerenderDocumentReady(document, "/blog/anti-inflammatory-diet"),
+    ).toBe(true);
+
+    document.body.innerHTML = "<main><div>Loading</div></main>";
+    expect(
+      isPrerenderDocumentReady(document, "/blog/anti-inflammatory-diet"),
+    ).toBe(false);
   });
 });
