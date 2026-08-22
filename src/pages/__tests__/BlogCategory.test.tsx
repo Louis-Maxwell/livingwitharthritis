@@ -4,16 +4,21 @@ import { MemoryRouter, Route, Routes } from "react-router-dom";
 import { describe, expect, it, vi } from "vitest";
 import BlogCategory from "../BlogCategory";
 
+const conditionArticleCalls: string[][] = [];
+
 vi.mock("@/hooks/useBlogArticles", () => ({
-  useConditionArticles: () => ({ data: [] }),
+  useConditionArticles: (categories: string[]) => {
+    conditionArticleCalls.push(categories);
+    return { data: [] };
+  },
 }));
 
 vi.mock("../BlogIndex", () => ({
-  default: (props: { emitSeo?: boolean; categoryAliases?: string[] }) => (
+  default: (props: { emitSeo?: boolean; initialCategory?: string }) => (
     <div
       data-testid="blog-index"
       data-emit-seo={String(props.emitSeo)}
-      data-aliases={props.categoryAliases?.join("|")}
+      data-initial-category={props.initialCategory}
     />
   ),
 }));
@@ -37,9 +42,16 @@ describe("BlogCategory", () => {
       "data-emit-seo",
       "false",
     );
+    // The hub hands its canonical key to the shared index, which resolves
+    // every alias label from the same map used for the ItemList query.
     expect(screen.getByTestId("blog-index")).toHaveAttribute(
-      "data-aliases",
-      "Exercise|Exercises|Exercise Guides",
+      "data-initial-category",
+      "exercise",
     );
+    expect(conditionArticleCalls.at(-1)).toEqual([
+      "Exercise",
+      "Exercises",
+      "Exercise Guides",
+    ]);
   });
 });

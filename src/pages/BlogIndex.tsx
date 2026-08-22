@@ -12,34 +12,56 @@ import { useBlogViewCounts } from "@/hooks/useBlogViews";
 import { useBlogArticlesList, useFeaturedArticles } from "@/hooks/useBlogArticles";
 import { Skeleton } from "@/components/ui/skeleton";
 import { getArticleImages } from "@/lib/articleImages";
+import {
+  BLOG_CATEGORY_KEYS,
+  canonicalBlogCategoryKey,
+  type BlogCategoryKey,
+} from "@/data/blogCategories";
 
-type Category = "All" | "Exercise" | "Nutrition" | "Lifestyle" | "Health" | "Mental Health" | "Supplements" | "Treatment";
+/** A chip selection: one canonical category hub, or the unfiltered index. */
+type CategoryFilter = "All" | BlogCategoryKey;
 
-const categories: Category[] = ["All", "Exercise", "Nutrition", "Lifestyle", "Health", "Mental Health", "Supplements", "Treatment"];
+const categoryFilters: CategoryFilter[] = ["All", ...BLOG_CATEGORY_KEYS];
 const POSTS_PER_PAGE = 9;
 
-const categoryColors: Record<Category, string> = {
-  All: "bg-background text-primary hover:bg-primary/10 border-primary/40",
-  Exercise: "bg-background text-primary hover:bg-primary/10 border-primary/40",
-  Nutrition: "bg-background text-primary hover:bg-primary/10 border-primary/40",
-  Lifestyle: "bg-background text-primary hover:bg-primary/10 border-primary/40",
-  Health: "bg-background text-primary hover:bg-primary/10 border-primary/40",
-  "Mental Health": "bg-background text-primary hover:bg-primary/10 border-primary/40",
-  Supplements: "bg-background text-primary hover:bg-primary/10 border-primary/40",
-  Treatment: "bg-background text-primary hover:bg-primary/10 border-primary/40",
+const CATEGORY_LABELS: Record<BlogCategoryKey, string> = {
+  exercise: "Exercise",
+  nutrition: "Nutrition",
+  lifestyle: "Lifestyle",
+  health: "Health",
+  "mental-health": "Mental Health",
+  supplements: "Supplements",
+  treatment: "Treatment",
+  frailty: "Frailty",
 };
 
-/** Convert a URL slug like "mental-health" or "exercise" to a Category. */
-function slugToCategory(slug?: string): Category {
+const CATEGORY_BLURBS: Record<BlogCategoryKey, string> = {
+  exercise: "Physio routines, yoga, swimming & cycling",
+  nutrition: "Anti-inflammatory diet, meal plans & recipes",
+  lifestyle: "Work, travel, gardening & daily living",
+  health: "Symptoms, diagnosis & condition guides",
+  "mental-health": "Mood, anxiety & coping with chronic pain",
+  supplements: "Turmeric, omega-3, glucosamine & collagen",
+  treatment: "Medication, TENS, hydrotherapy & relief",
+  frailty: "Falls prevention, sarcopenia & staying strong",
+};
+
+const CATEGORY_ACCENT = "bg-background text-primary hover:bg-primary/10 border-primary/40";
+
+const filterLabel = (filter: CategoryFilter) =>
+  filter === "All" ? "All" : CATEGORY_LABELS[filter];
+
+/**
+ * Resolve a URL slug like "mental-health" or "frailty" to the canonical hub
+ * it belongs to, so every hub page starts filtered to its own articles.
+ */
+function slugToCategory(slug?: string): CategoryFilter {
   if (!slug) return "All";
-  const normalized = slug.toLowerCase().replace(/-/g, " ");
-  const match = categories.find((c) => c.toLowerCase() === normalized);
-  return match ?? "All";
+  return canonicalBlogCategoryKey(slug) ?? "All";
 }
 
 interface BlogIndexProps {
   initialCategory?: string;
-  categoryAliases?: string[];
   emitSeo?: boolean;
   /** Category-specific H1 override — keeps each /blog/category/:slug page's heading distinct instead of always showing the generic blog title. */
   heroTitle?: ReactNode;
@@ -49,12 +71,15 @@ interface BlogIndexProps {
 
 const BlogIndex = ({
   initialCategory,
-  categoryAliases,
   emitSeo = true,
   heroTitle,
   heroSubtitle,
 }: BlogIndexProps = {}) => {
-  const [activeCategory, setActiveCategory] = useState<Category>(slugToCategory(initialCategory));
+  const hubCategory = slugToCategory(initialCategory);
+  // On a hub page the chips navigate between hubs instead of filtering in
+  // place, so the URL, the heading and the article list never disagree.
+  const isCategoryHub = hubCategory !== "All";
+  const [activeCategory, setActiveCategory] = useState<CategoryFilter>(hubCategory);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -65,28 +90,39 @@ const BlogIndex = ({
   const allSlugs = useMemo(() => blogPosts.map((p) => p.slug), [blogPosts]);
   const viewCounts = useBlogViewCounts(allSlugs);
 
+  // Counts are computed from the same canonical mapping the grid filters on,
+  // so a chip never advertises a different number of articles than it shows.
+  const categoryCounts = useMemo(() => {
+    const counts = Object.fromEntries(
+      BLOG_CATEGORY_KEYS.map((key) => [key, 0]),
+    ) as Record<BlogCategoryKey, number>;
+    for (const post of blogPosts) {
+      const key = canonicalBlogCategoryKey(post.category);
+      if (key) counts[key] += 1;
+    }
+    return counts;
+  }, [blogPosts]);
+
   const filtered = useMemo(() => {
     // Exclude featured rows from the grid only when no filter is active.
     const base = activeCategory === "All" && !searchQuery.trim()
       ? blogPosts.filter((p) => !featuredSlugs.has(p.slug))
       : blogPosts;
-    let posts = categoryAliases?.length
-      ? base.filter((post) => categoryAliases.includes(post.category))
-      : activeCategory === "All"
-        ? base
-        : base.filter((post) => post.category === activeCategory);
+    let posts = activeCategory === "All"
+      ? base
+      : base.filter((post) => canonicalBlogCategoryKey(post.category) === activeCategory);
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
       posts = posts.filter((p) => p.title.toLowerCase().includes(q) || p.excerpt.toLowerCase().includes(q));
     }
     return posts;
-  }, [activeCategory, categoryAliases, searchQuery, blogPosts, featuredSlugs]);
+  }, [activeCategory, searchQuery, blogPosts, featuredSlugs]);
 
   const totalPages = Math.ceil(filtered.length / POSTS_PER_PAGE);
   const paginated = filtered.slice((currentPage - 1) * POSTS_PER_PAGE, currentPage * POSTS_PER_PAGE);
 
-  const handleCategory = (cat: Category) => {
-    setActiveCategory(cat);
+  const handleCategory = (filter: CategoryFilter) => {
+    setActiveCategory(filter);
     setCurrentPage(1);
   };
 
@@ -221,24 +257,42 @@ const BlogIndex = ({
           </div>
 
           <div className="flex flex-wrap gap-2 mb-8">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => handleCategory(cat)}
-                className={`px-4 py-2 rounded-full text-xs font-bold tracking-wide border transition-all duration-200 cursor-pointer ${
-                  activeCategory === cat
-                    ? `${categoryColors[cat]} border-current shadow-sm scale-105`
-                    : "bg-muted/30 text-muted-foreground border-border/30 hover:bg-muted/50"
-                }`}
-              >
-                {cat}
-                {cat !== "All" && (
-                  <span className="ml-1.5">
-                    ({blogPosts.filter((p) => p.category === cat).length})
-                  </span>
-                )}
-              </button>
-            ))}
+            {categoryFilters.map((filter) => {
+              const isActive = activeCategory === filter;
+              const className = `px-4 py-2 rounded-full text-xs font-bold tracking-wide border transition-all duration-200 cursor-pointer ${
+                isActive
+                  ? `${CATEGORY_ACCENT} border-current shadow-sm scale-105`
+                  : "bg-muted/30 text-muted-foreground border-border/30 hover:bg-muted/50"
+              }`;
+              const label = (
+                <>
+                  {filterLabel(filter)}
+                  {filter !== "All" && (
+                    <span className="ml-1.5">({categoryCounts[filter]})</span>
+                  )}
+                </>
+              );
+
+              return isCategoryHub ? (
+                <Link
+                  key={filter}
+                  to={filter === "All" ? "/blog" : `/blog/category/${filter}`}
+                  aria-current={isActive ? "page" : undefined}
+                  className={className}
+                >
+                  {label}
+                </Link>
+              ) : (
+                <button
+                  key={filter}
+                  onClick={() => handleCategory(filter)}
+                  aria-pressed={isActive}
+                  className={className}
+                >
+                  {label}
+                </button>
+              );
+            })}
           </div>
 
           <p className="text-sm text-muted-foreground mb-6">
@@ -312,7 +366,7 @@ const BlogIndex = ({
                   <div className="p-6">
                     <div className="flex items-center justify-between mb-3">
                       <time className="text-xs text-muted-foreground">{new Date(post.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</time>
-                      <span className={`text-[10px] font-bold uppercase tracking-[0.15em] px-2.5 py-1 rounded-full border ${categoryColors[post.category as Category] || categoryColors.Health}`}>
+                      <span className={`text-[10px] font-bold uppercase tracking-[0.15em] px-2.5 py-1 rounded-full border ${CATEGORY_ACCENT}`}>
                         {post.category}
                       </span>
                     </div>
@@ -400,34 +454,27 @@ const BlogIndex = ({
             <h2 className="font-display text-xl font-bold text-foreground mb-2">Browse by Category</h2>
             <p className="text-muted-foreground text-sm mb-6">Explore all our arthritis advice topics</p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {categories.filter((c) => c !== "All").map((cat) => {
-                const count = blogPosts.filter((p) => p.category === cat).length;
-                const isActive = activeCategory === cat;
+              {BLOG_CATEGORY_KEYS.map((key) => {
+                const isActive = activeCategory === key;
                 return (
                   <Link
-                    key={cat}
-                    to={`/blog/category/${cat.toLowerCase().replace(/\s+/g, "-")}`}
+                    key={key}
+                    to={`/blog/category/${key}`}
                     className={`group flex items-center gap-4 rounded-xl border p-4 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 ${
                       isActive
-                        ? `${categoryColors[cat]} border-current bg-opacity-20`
+                        ? `${CATEGORY_ACCENT} border-current bg-opacity-20`
                         : "border-border/40 bg-card hover:border-primary/30"
                     }`}
                   >
-                    <span className={`flex items-center justify-center w-10 h-10 rounded-lg text-sm font-bold ${categoryColors[cat]}`}>
-                      {count}
+                    <span className={`flex items-center justify-center w-10 h-10 rounded-lg text-sm font-bold ${CATEGORY_ACCENT}`}>
+                      {categoryCounts[key]}
                     </span>
                     <div className="flex-1 min-w-0">
                       <h3 className="font-display text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
-                        {cat} Articles
+                        {CATEGORY_LABELS[key]} Articles
                       </h3>
                       <p className="text-xs text-muted-foreground mt-0.5">
-                        {cat === "Exercise" && "Physio routines, yoga, swimming & cycling"}
-                        {cat === "Nutrition" && "Anti-inflammatory diet, meal plans & recipes"}
-                        {cat === "Lifestyle" && "Work, travel, gardening & daily living"}
-                        {cat === "Health" && "Symptoms, diagnosis & condition guides"}
-                        {cat === "Mental Health" && "Mood, anxiety & coping with chronic pain"}
-                        {cat === "Supplements" && "Turmeric, omega-3, glucosamine & collagen"}
-                        {cat === "Treatment" && "Medication, TENS, hydrotherapy & relief"}
+                        {CATEGORY_BLURBS[key]}
                       </p>
                     </div>
                     <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
