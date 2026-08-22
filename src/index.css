@@ -1057,6 +1057,7 @@
   .hover-tilt:hover { transform: translateY(-3px); }
   .hover-icon-bounce:hover .icon-target { animation: none; }
   .link-underline::after { transition: none; }
+  .page-transition-enter { animation: none; }
 }
 
 /* ─── High Contrast Mode ─── */

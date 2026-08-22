@@ -104,6 +104,13 @@ export interface MedicalWebPageInput {
   description: string;
   /** ISO date (YYYY-MM-DD) the content was last clinically reviewed. */
   lastReviewed?: string;
+  /** Verified reviewer details. Omit when no named review is documented. */
+  reviewedBy?: {
+    name: string;
+    jobTitle: string;
+    identifier?: string;
+    profileUrl?: string;
+  };
   /** Specialty hint for the search engine. Defaults to Rheumatology. */
   specialty?: MedicalSpecialty | MedicalSpecialty[];
   /** Optional MedicalCondition name(s) this page is about. */
@@ -117,17 +124,6 @@ export interface MedicalWebPageInput {
   /** Image URL for the page (absolute). */
   image?: string;
 }
-
-const REVIEWER = {
-  '@type': 'Person',
-  name: 'Maxwell',
-  jobTitle: 'First Contact Practitioner — Chartered Physiotherapist',
-  identifier: 'HCPC PH128483',
-  affiliation: {
-    '@type': 'MedicalOrganization',
-    name: 'Chartered Society of Physiotherapy (CSP)',
-  },
-};
 
 export const buildMedicalWebPage = (input: MedicalWebPageInput) => {
   const url = input.path.startsWith('http') ? input.path : `${SITE_URL}${input.path}`;
@@ -144,10 +140,20 @@ export const buildMedicalWebPage = (input: MedicalWebPageInput) => {
     publisher: { '@id': `${SITE_URL}/#organization` },
     medicalAudience: { '@type': 'MedicalAudience', audienceType: 'Patient' },
     specialty,
-    ...(input.lastReviewed
+    ...(input.lastReviewed && input.reviewedBy
       ? {
           lastReviewed: input.lastReviewed,
-          reviewedBy: REVIEWER,
+          reviewedBy: {
+            '@type': 'Person',
+            name: input.reviewedBy.name,
+            jobTitle: input.reviewedBy.jobTitle,
+            ...(input.reviewedBy.identifier
+              ? { identifier: input.reviewedBy.identifier }
+              : {}),
+            ...(input.reviewedBy.profileUrl
+              ? { url: input.reviewedBy.profileUrl }
+              : {}),
+          },
         }
       : {}),
     ...(input.conditions && input.conditions.length

@@ -48,7 +48,12 @@ export default function ExpertArticle() {
         By {article.author} · {article.month}
       </p>
 
-      <MedicalReviewBadge reviewer={article.author} title={article.authorTitle} />
+      <MedicalReviewBadge
+        reviewer={article.author}
+        title={article.authorTitle}
+        credential={article.authorCredential}
+        date={article.publishDate}
+      />
 
       <div className="prose prose-lg max-w-none whitespace-pre-wrap leading-relaxed">
         {article.content}
@@ -57,9 +62,8 @@ export default function ExpertArticle() {
       <aside className="bg-muted p-6 rounded-lg mt-12">
         <p className="font-bold mb-2">About the author</p>
         <p className="text-sm">
-          {article.author} is a {article.authorTitle} ({article.authorCredential})
-          with over 20 years of clinical experience in arthritis management and
-          patient education.
+          {article.author} is listed as a {article.authorTitle} (
+          {article.authorCredential}).
         </p>
       </aside>
     </article>

@@ -5,7 +5,6 @@ import { ArrowLeft, ArrowRight, Pill, FlaskConical, ShieldAlert, HelpCircle, Boo
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
-import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import AnswerBox from "@/components/seo/AnswerBox";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 
@@ -138,7 +137,6 @@ export default function Msm() {
         </div>
 
         <main id="main-content" className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
-          <MedicalReviewBadge />
 
           <AnswerBox question="What is MSM and does it help arthritis?" reviewed="2026-06-18">
             <p>

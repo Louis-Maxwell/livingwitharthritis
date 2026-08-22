@@ -90,6 +90,9 @@ jobs:
       - name: SEO schema check
         run: npm run seo:schema
 
+      - name: Redirect map check
+        run: npm run seo:redirects
+
       # ROOT CAUSE OF THE 20m HANG: the server was started with `&` and the
       # step moved on after a blind `sleep 3` with no check that it was
       # actually up, AND `npm run seo:audit` had no timeout — so a slow

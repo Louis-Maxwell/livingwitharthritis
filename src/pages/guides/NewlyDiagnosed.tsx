@@ -11,7 +11,6 @@ import {
   Activity,
   Sparkles,
 } from "lucide-react";
-import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import { Button } from "@/components/ui/button";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import FaqAccordion from "@/components/faq/FaqAccordion";
@@ -328,7 +327,6 @@ export default function NewlyDiagnosed() {
             </p>
           </aside>
 
-          <MedicalReviewBadge />
 
           <div className="flex flex-wrap gap-3 my-6 print:hidden">
             <Button onClick={handlePrint} variant="outline" className="gap-2">

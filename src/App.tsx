@@ -17,7 +17,9 @@ import CanonicalEnforcer from "@/components/CanonicalEnforcer";
 import SeoDefaults from "@/components/SeoDefaults";
 import RootOrganizationSchema from "@/components/seo/RootOrganizationSchema";
 import SkipToContent from "@/components/SkipToContent";
+import RouteFocus from "@/components/RouteFocus";
 import { COMPARISON_ROUTES } from "@/data/comparison-routes.generated";
+import { isPrerenderDocumentReady } from "@/lib/prerenderReady";
 
 // Home is eager — it's the top entry point (~36% of pageviews) so
 // shipping it in the main bundle removes a Suspense round-trip on first paint.
@@ -494,27 +496,38 @@ function AppWithSync() {
   // route's React tree — including JSON-LD injected via useEffect — has
   // settled and document.head is ready to be snapshotted into static HTML.
   useEffect(() => {
+    const startedAt = Date.now();
+    const maxWaitMs = 30_000;
+
     const fire = () => {
+      window.clearInterval(interval);
       document.dispatchEvent(new Event("prerender-ready"));
     };
-    const ric = (window as unknown as {
-      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
-    }).requestIdleCallback;
-    const id = ric
-      ? ric(fire, { timeout: 1200 })
-      : (window.setTimeout(fire, 600) as unknown as number);
-    return () => {
-      const cic = (window as unknown as {
-        cancelIdleCallback?: (id: number) => void;
-      }).cancelIdleCallback;
-      if (cic) cic(id);
-      else window.clearTimeout(id);
+
+    const check = () => {
+      if (isPrerenderDocumentReady(document, location.pathname)) {
+        // Helmet updates title/meta in a microtask after the route commits.
+        window.setTimeout(fire, 50);
+        return;
+      }
+      if (Date.now() - startedAt >= maxWaitMs) {
+        console.warn(
+          `[prerender] timed out waiting for route metadata: ${location.pathname}`,
+        );
+        fire();
+      }
     };
+
+    const interval = window.setInterval(check, 100);
+    check();
+
+    return () => window.clearInterval(interval);
   }, [location.pathname]);
 
   return (
     <>
       <SkipToContent />
+      <RouteFocus />
       <CanonicalEnforcer />
       <RootOrganizationSchema />
       <AnimatedRoutes />

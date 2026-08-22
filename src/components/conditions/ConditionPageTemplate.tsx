@@ -17,10 +17,8 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
-import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import AnswerBox from "@/components/seo/AnswerBox";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
-import LastReviewed, { LAST_REVIEWED_ISO } from "@/components/LastReviewed";
 import MedicalPageSchema from "@/components/seo/MedicalPageSchema";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 
@@ -83,6 +81,8 @@ export interface ConditionPageData {
   ogImage?: string;
   /** Optional AEO answer box: shown under H1, lifted by AI engines. */
   aeoAnswer?: { question: string; answer: ReactNode; reviewed?: string };
+  /** Authoritative, page-specific sources shown to readers. */
+  sources?: { label: string; url: string }[];
 }
 
 // Real Unsplash photographs (free to use) — replaces previous AI-generated webp set.
@@ -134,7 +134,6 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
           path: url,
           name: data.metaTitle,
           description: data.metaDescription,
-          lastReviewed: LAST_REVIEWED_ISO,
           conditions: [data.name],
           alternateNames: data.alternateNames,
           signOrSymptom: data.symptoms,
@@ -194,13 +193,10 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
               {data.name}
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">{data.tagline}</p>
-            <LastReviewed date={LAST_REVIEWED_ISO} className="mt-4" />
           </div>
         </div>
 
         <main id="main-content" className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
-          <MedicalReviewBadge />
-
           {data.aeoAnswer ? (
             <AnswerBox question={data.aeoAnswer.question} reviewed={data.aeoAnswer.reviewed}>
               {data.aeoAnswer.answer}
@@ -272,6 +268,31 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
               injectSchema={false}
             />
           </section>
+
+          {data.sources && data.sources.length > 0 && (
+            <section className="mb-12" aria-labelledby={`condition-${data.slug}-sources`}>
+              <h2
+                id={`condition-${data.slug}-sources`}
+                className="section-header-left font-display text-2xl md:text-3xl font-bold text-foreground mb-5"
+              >
+                Sources and further guidance
+              </h2>
+              <ul className="space-y-3">
+                {data.sources.map((source) => (
+                  <li key={source.url}>
+                    <a
+                      href={source.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary underline underline-offset-2"
+                    >
+                      {source.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
 
           {/* Live Blog & Stories — Advice & Guidance for this condition */}
           <Suspense fallback={null}>

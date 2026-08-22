@@ -5,7 +5,6 @@ import { ArrowLeft, ArrowRight, Pill, FlaskConical, ShieldAlert, HelpCircle, Sca
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
-import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import AnswerBox from "@/components/seo/AnswerBox";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 
@@ -19,31 +18,31 @@ const META_DESC =
 const FAQS = [
   {
     q: "Does glucosamine actually work for arthritis?",
-    a: "Evidence is mixed. Larger UK and European trials show glucosamine sulfate (1,500 mg/day) gives a modest reduction in knee osteoarthritis pain over 6+ months for some people. Glucosamine hydrochloride performs less well. It is not a cure and does not regrow cartilage.",
+    a: "Evidence is mixed and NICE advises healthcare professionals not to offer glucosamine for osteoarthritis. Some studies report small benefits, while others do not. It is not a cure and there is no good evidence that it regrows cartilage.",
   },
   {
     q: "Is glucosamine sulfate better than glucosamine HCl?",
-    a: "Most positive trials used glucosamine sulfate. NICE and the European OA guidelines (ESCEO) only recommend pharmaceutical-grade crystalline glucosamine sulfate, not HCl. Read the label and look for 'glucosamine sulfate' with a stated 1,500 mg daily dose.",
+    a: "Research has used different formulations, which is one reason results are difficult to compare. Some positive studies used glucosamine sulfate, but NICE does not recommend offering glucosamine for osteoarthritis.",
   },
   {
     q: "How long until glucosamine works?",
-    a: "Allow 8–12 weeks of consistent daily use before judging the effect. If you feel no benefit by 3 months, stop — your money is better spent elsewhere.",
+    a: "There is no reliable timeframe because evidence of benefit is inconsistent. If you choose to try it, discuss the product and a sensible review point with a pharmacist or GP rather than continuing indefinitely without benefit.",
   },
   {
     q: "What's the right glucosamine dosage?",
-    a: "1,500 mg per day, taken with food. This can be a single dose or split (e.g. 500 mg three times daily). Higher doses don't improve results.",
+    a: "There is no NHS-recommended dose for treating arthritis. Trial doses and retail products vary. Follow the product directions and ask a pharmacist before use, particularly if you take other medicines.",
   },
   {
     q: "What are the side effects of glucosamine?",
-    a: "Generally well tolerated. Mild stomach upset, heartburn, nausea or headache are the most common. Avoid if you have a shellfish allergy (most glucosamine is shellfish-derived), are pregnant or breastfeeding, or take warfarin — glucosamine can raise INR.",
+    a: "Side effects can include stomach upset, heartburn, nausea or headache. Ask a pharmacist or GP before taking it if you use warfarin, have allergies, are pregnant or breastfeeding, or have another health condition.",
   },
   {
     q: "Glucosamine vs chondroitin — which is better?",
-    a: "Trials of combined glucosamine + chondroitin (the GAIT study) show benefit only for moderate-to-severe knee OA, not mild cases. Taken alone, glucosamine sulfate has stronger evidence than chondroitin in Europe.",
+    a: "Evidence for both products, alone or together, is inconsistent. Neither should replace exercise, weight management where appropriate, or treatment recommended by your healthcare professional.",
   },
   {
     q: "Does the NHS recommend glucosamine?",
-    a: "No. NICE does not recommend glucosamine on the NHS because the evidence is inconsistent. You can still buy it from UK pharmacies — many people try it for 3 months and continue only if they feel a clear benefit.",
+    a: "NICE advises healthcare professionals not to offer glucosamine for osteoarthritis because there is no strong evidence of benefit. It remains available to buy, so ask a pharmacist about safety and interactions before trying it.",
   },
 ];
 
@@ -141,14 +140,14 @@ export default function Glucosamine() {
         </div>
 
         <main id="main-content" className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
-          <MedicalReviewBadge />
 
-          <AnswerBox question="Does glucosamine work for arthritis?" reviewed="2026-06-18">
+          <AnswerBox question="Does glucosamine work for arthritis?">
             <p>
-              Glucosamine <strong>sulfate</strong> at <strong>1,500 mg/day</strong> gives a modest
-              reduction in knee osteoarthritis pain for some people after 8–12 weeks of consistent
-              use. It does not regrow cartilage and the NHS does not prescribe it. If you don't feel
-              clear benefit after 3 months, stop.
+              Evidence is mixed, and NICE advises healthcare professionals not
+              to offer glucosamine for osteoarthritis. It is not a cure and
+              should not replace exercise or recommended treatment. Ask a
+              pharmacist before trying it, especially if you take warfarin or
+              other medicines.
             </p>
           </AnswerBox>
 
@@ -178,6 +177,34 @@ export default function Glucosamine() {
                 <li><strong>N-acetyl glucosamine</strong> — sometimes added; very little evidence for arthritis.</li>
               </ul>
             </div>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-5">
+              Sources and safety information
+            </h2>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>
+                <a
+                  href="https://www.nice.org.uk/guidance/ng226"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary underline"
+                >
+                  NICE NG226: Osteoarthritis in over 16s
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.nhs.uk/medicines/warfarin/taking-warfarin-with-other-medicines-and-herbal-supplements/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary underline"
+                >
+                  NHS: Taking warfarin with other medicines and supplements
+                </a>
+              </li>
+            </ul>
           </section>
 
           <section className="mb-12">
@@ -231,12 +258,16 @@ export default function Glucosamine() {
               </h2>
             </div>
             <div className="prose prose-lg max-w-none text-foreground/85 prose-strong:text-foreground prose-headings:font-display prose-headings:text-foreground">
+              <p>
+                There is no NHS-recommended glucosamine dose for treating
+                arthritis. If you decide to try a product after speaking with a
+                pharmacist:
+              </p>
               <ul>
-                <li><strong>Dose:</strong> 1,500 mg of glucosamine sulfate per day.</li>
-                <li><strong>Schedule:</strong> one 1,500 mg tablet, or 500 mg three times a day.</li>
-                <li><strong>With food</strong> to reduce stomach upset.</li>
-                <li><strong>Trial length:</strong> 8–12 weeks before judging the effect.</li>
-                <li><strong>Stop if</strong> you notice no clear benefit by 3 months.</li>
+                <li>Follow the product label rather than combining several products.</li>
+                <li>Check whether the formulation and source are clearly stated.</li>
+                <li>Agree how and when you will judge benefit.</li>
+                <li>Stop and seek advice if you develop a suspected side effect.</li>
               </ul>
             </div>
           </section>
@@ -257,12 +288,12 @@ export default function Glucosamine() {
                 <li>Headache, drowsiness</li>
                 <li>Rash or itching</li>
               </ul>
-              <h3>Do not take glucosamine if you</h3>
+              <h3>Ask a pharmacist or GP before use if you</h3>
               <ul>
-                <li>Have a shellfish allergy (unless the label confirms vegan/fermented source)</li>
-                <li>Are pregnant or breastfeeding — not enough safety data</li>
-                <li>Take warfarin — glucosamine can raise INR and increase bleeding risk</li>
-                <li>Are about to have surgery — stop 2 weeks before</li>
+                <li>Have a shellfish or other significant allergy</li>
+                <li>Are pregnant or breastfeeding</li>
+                <li>Take warfarin or another medicine that needs monitoring</li>
+                <li>Are due to have surgery</li>
               </ul>
               <p>
                 Always tell your GP or pharmacist about any supplement you start, especially if you
@@ -283,29 +314,29 @@ export default function Glucosamine() {
             <div className="prose prose-lg max-w-none text-foreground/85 prose-strong:text-foreground prose-headings:font-display prose-headings:text-foreground">
               <ul>
                 <li>
-                  <strong>Chondroitin</strong> — often combined with glucosamine. Modest benefit in
-                  moderate-to-severe knee OA; little benefit alone for mild OA.
+                  <strong>Chondroitin</strong> — often combined with glucosamine,
+                  but evidence of meaningful benefit is inconsistent.
                 </li>
                 <li>
                   <strong><Link to="/supplements/msm" className="text-primary underline">MSM</Link></strong> — small
-                  studies suggest it eases pain and stiffness in knee OA. Often added to glucosamine
-                  formulas.
+                  studies exist, but the evidence base remains limited.
                 </li>
                 <li>
-                  <strong>Collagen peptides (hydrolysed type II)</strong> — emerging evidence for joint
-                  comfort; may complement glucosamine rather than replace it.
+                  <strong>Collagen products</strong> — formulations vary and
+                  evidence is not strong enough to promise benefit.
                 </li>
                 <li>
-                  <strong>Turmeric / curcumin</strong> — strong anti-inflammatory action; in some trials
-                  works as well as low-dose ibuprofen for knee OA.
+                  <strong>Turmeric / curcumin</strong> — research is ongoing;
+                  products vary and interactions are possible.
                 </li>
                 <li>
                   <strong>Omega-3 (fish oil)</strong> — best evidence is in rheumatoid arthritis, not OA.
                 </li>
               </ul>
               <p>
-                If you're going to try one, try it on its own for 12 weeks. Stacking three supplements
-                makes it impossible to tell what's working.
+                Do not replace prescribed treatment with a supplement. A
+                pharmacist can help check interactions and avoid duplicating
+                ingredients across products.
               </p>
             </div>
           </section>
@@ -330,8 +361,9 @@ export default function Glucosamine() {
               Pair supplements with what really works
             </h2>
             <p className="text-muted-foreground mb-5">
-              Supplements help a bit. Exercise, weight management and an anti-inflammatory diet help
-              a lot. Build all three together.
+              Evidence for supplements varies. Exercise and weight management,
+              where appropriate, remain core osteoarthritis treatments in NICE
+              guidance.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link

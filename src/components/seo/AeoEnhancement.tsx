@@ -32,7 +32,7 @@ export default function AeoEnhancement(props: AeoEnhancementProps) {
   const question = props.question ?? configured?.question;
   const answer = props.answer ?? configured?.answer;
   const faqs = useMemo(() => props.faqs ?? configured?.faqs ?? [], [props.faqs, configured?.faqs]);
-  const reviewer = props.reviewer ?? configured?.reviewer ?? "Living With Arthritis clinical team";
+  const reviewer = props.reviewer ?? configured?.reviewer;
   const updatedAt = props.updatedAt ?? configured?.updatedAt ?? "2026-07-01";
 
   // Inject FAQPage JSON-LD when FAQs are present
@@ -74,10 +74,12 @@ export default function AeoEnhancement(props: AeoEnhancementProps) {
       )}
 
       <div className="flex flex-wrap items-center gap-2 text-xs">
-        <Badge variant="outline" className="gap-1.5 border-primary/30 text-foreground">
-          <ShieldCheck className="h-3 w-3 text-primary" />
-          Medically reviewed · {reviewer}
-        </Badge>
+        {reviewer && !/clinical team/i.test(reviewer) && (
+          <Badge variant="outline" className="gap-1.5 border-primary/30 text-foreground">
+            <ShieldCheck className="h-3 w-3 text-primary" />
+            Medically reviewed · {reviewer}
+          </Badge>
+        )}
         <Badge variant="outline" className="gap-1.5 border-primary/30 text-foreground">
           <CalendarClock className="h-3 w-3 text-primary" />
           Updated {new Date(updatedAt).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}

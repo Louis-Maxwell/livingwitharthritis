@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HelmetProvider } from "react-helmet-async";
@@ -18,8 +18,8 @@ const mockArticle = {
   keywords: "arthritis, pain management",
   author: "Dr. Sarah Johnson",
   author_credentials: "MSc Physiotherapy",
-  reviewed_by: "Dr. Test Reviewer",
-  reviewer_credentials: "Consultant Rheumatologist",
+  reviewed_by: "Maxwell",
+  reviewer_credentials: "First Contact Practitioner, HCPC PH128483, CSP Member",
   is_published: true,
   display_order: 1,
 };
@@ -84,7 +84,7 @@ describe("BlogPost Page", () => {
     expect(screen.getByTestId("header")).toBeInTheDocument();
   });
 
-  it("shows 'Article Not Found' for missing article", () => {
+  it("shows the noindex 404 experience for a missing article", () => {
     (useBlogArticle as ReturnType<typeof vi.fn>).mockReturnValue({
       data: null,
       isLoading: false,
@@ -93,8 +93,10 @@ describe("BlogPost Page", () => {
     });
 
     renderBlogPost("nonexistent");
-    expect(screen.getByText("Article Not Found")).toBeInTheDocument();
-    expect(screen.getByText("← Back to blog")).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { level: 1, name: "We couldn't find that page" }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Article library" })).toBeInTheDocument();
   });
 
   it("renders article title, author, and reviewer", () => {
@@ -112,7 +114,7 @@ describe("BlogPost Page", () => {
     // "Reviewed by ..." legitimately renders twice: an on-screen badge, and a
     // .print-only citation block (CSS-hidden on screen, jsdom doesn't apply
     // @media print so both are queryable here) — assert at least one match.
-    expect(screen.getAllByText(/Reviewed by Dr. Test Reviewer/).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/Reviewed by Maxwell/).length).toBeGreaterThan(0);
   });
 
   it("renders publish date in en-GB format", () => {
@@ -177,7 +179,49 @@ describe("BlogPost Page", () => {
     });
 
     renderBlogPost("test-article");
-    expect(screen.getByText("Living With Arthritis Clinical Review Board")).toBeInTheDocument();
-    expect(screen.getByText("Evidence-based health content")).toBeInTheDocument();
+    expect(screen.getByText("Living With Arthritis UK Editorial Team")).toBeInTheDocument();
+    expect(screen.getByText("Editorial content")).toBeInTheDocument();
+  });
+
+  it("does not claim an unverified generic review or generic citations", async () => {
+    (useBlogArticle as ReturnType<typeof vi.fn>).mockReturnValue({
+      data: {
+        ...mockArticle,
+        reviewed_by: "Clinical Advisory Panel",
+        reviewer_credentials: "Physiotherapy input",
+        citations: null,
+      },
+      isLoading: false,
+      isSuccess: true,
+      isError: false,
+    });
+
+    renderBlogPost("test-article");
+    expect(screen.queryByText(/Reviewed by Clinical Advisory Panel/)).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("heading", { name: "Sources & References" }),
+    ).not.toBeInTheDocument();
+
+    const readSchemas = () =>
+      Array.from(
+        document.head.querySelectorAll<HTMLScriptElement>(
+          'script[type="application/ld+json"]',
+        ),
+      ).map((script) => JSON.parse(script.textContent || "{}"));
+    const articleSchema = await waitFor(() => {
+      const schema = readSchemas().find(
+        (candidate) => candidate["@type"] === "Article",
+      );
+      expect(schema).toBeDefined();
+      return schema;
+    });
+    expect(articleSchema["@id"]).toBe(
+      "https://livingwitharthritis.org.uk/blog/test-article#article",
+    );
+    expect(articleSchema.reviewedBy).toBeUndefined();
+    expect(articleSchema.citation).toBeUndefined();
+    expect(
+      readSchemas().some((schema) => schema["@type"] === "FAQPage"),
+    ).toBe(false);
   });
 });
