@@ -8,12 +8,12 @@
  * fall back to the built-in defaults and warn, rather than throwing: a missing
  * variable must never take the whole site down.
  */
+import { PUBLIC_SUPABASE_DEFAULTS } from "./publicDefaults";
 
 const DEFAULTS = {
-  VITE_SUPABASE_PROJECT_ID: 'eswdtpmknwjxtvkyxvmi',
-  VITE_SUPABASE_URL: 'https://eswdtpmknwjxtvkyxvmi.supabase.co',
-  VITE_SUPABASE_PUBLISHABLE_KEY:
-    'sb_publishable_R-r2QJnvd3S9RSC8BqNTfw_JvNUm_Dd',
+  VITE_SUPABASE_PROJECT_ID: PUBLIC_SUPABASE_DEFAULTS.projectId,
+  VITE_SUPABASE_URL: PUBLIC_SUPABASE_DEFAULTS.url,
+  VITE_SUPABASE_PUBLISHABLE_KEY: PUBLIC_SUPABASE_DEFAULTS.publishableKey,
 } as const;
 
 type EnvName = keyof typeof DEFAULTS;

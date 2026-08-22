@@ -33,6 +33,17 @@ describe("SEO build safety", () => {
     expect(source).toContain('"/regions/wales"');
   });
 
+  it("protects the Search Console cycling URL from a client-side redirect", () => {
+    const redirects = readFileSync(
+      resolve(process.cwd(), "src/data/blogRedirects.ts"),
+      "utf8",
+    );
+
+    expect(redirects).not.toContain(
+      '"arthritis-and-cycling-uk": "cycling-with-arthritis"',
+    );
+  });
+
   it("falls back to the active production Supabase project", () => {
     expect(SUPABASE_PROJECT_ID).toBe("eswdtpmknwjxtvkyxvmi");
     expect(SUPABASE_URL).toBe(

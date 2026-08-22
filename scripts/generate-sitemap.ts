@@ -7,6 +7,7 @@
 import { writeFileSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { assertSafeBlogInventory } from "../src/lib/seoBuildSafety";
+import { PUBLIC_SUPABASE_DEFAULTS } from "../src/integrations/supabase/publicDefaults";
 
 const BASE_URL = "https://livingwitharthritis.org.uk";
 
@@ -35,7 +36,6 @@ interface BlogInventory {
   source: "supabase" | "checked-in-fallback";
 }
 
-const today = new Date().toISOString().slice(0, 10);
 const read = (p: string) => readFileSync(resolve(p), "utf8");
 const BLOG_SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
@@ -246,11 +246,15 @@ function checkedInBlogFallback(reason: string): BlogInventory {
 }
 
 async function blogPosts(): Promise<BlogInventory> {
-  const url = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
+  const url =
+    process.env.VITE_SUPABASE_URL ||
+    process.env.SUPABASE_URL ||
+    PUBLIC_SUPABASE_DEFAULTS.url;
   const key =
     process.env.VITE_SUPABASE_PUBLISHABLE_KEY ||
     process.env.SUPABASE_PUBLISHABLE_KEY ||
-    process.env.SUPABASE_ANON_KEY;
+    process.env.SUPABASE_ANON_KEY ||
+    PUBLIC_SUPABASE_DEFAULTS.publishableKey;
   if (!url || !key) {
     return checkedInBlogFallback("Supabase environment is unavailable");
   }
@@ -322,7 +326,7 @@ function build(entries: SitemapEntry[]): string {
     return [
       "  <url>",
       `    <loc>${BASE_URL}${e.path}</loc>`,
-      `    <lastmod>${e.lastmod ?? today}</lastmod>`,
+      ...(e.lastmod ? [`    <lastmod>${e.lastmod}</lastmod>`] : []),
       `    <changefreq>${e.changefreq ?? meta.changefreq}</changefreq>`,
       `    <priority>${e.priority ?? meta.priority}</priority>`,
       "  </url>",
