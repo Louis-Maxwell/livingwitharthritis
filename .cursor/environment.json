@@ -1,0 +1,11 @@
+{
+  "name": "Living With Arthritis",
+  "install": "export PATH=\"$HOME/.bun/bin:$HOME/.deno/bin:$PATH\"; command -v bun >/dev/null 2>&1 || curl -fsSL https://bun.sh/install | bash; command -v deno >/dev/null 2>&1 || curl -fsSL https://deno.land/install.sh | sh -s v2.6.10; export PATH=\"$HOME/.bun/bin:$HOME/.deno/bin:$PATH\"; bun install --frozen-lockfile",
+  "terminals": [
+    {
+      "name": "dev",
+      "command": "export PATH=\"$HOME/.bun/bin:$HOME/.deno/bin:$PATH\" && bun run dev"
+    }
+  ],
+  "ports": [{ "name": "vite dev server", "port": 8080 }]
+}
