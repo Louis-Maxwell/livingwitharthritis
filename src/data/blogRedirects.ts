@@ -11,6 +11,7 @@ export const BLOG_SLUG_REDIRECTS: Record<string, string> = {
   // a named HCPC-credentialed reviewer and HowTo/FAQ schema).
   "knee-osteoarthritis-exercises": "knee-arthritis-exercises-uk",
   "knee-exercises-arthritis": "knee-arthritis-exercises-uk",
+  "knee-exercises-for-arthritis": "knee-arthritis-exercises-uk",
   // Batch content-generation duplicated these 15 topics into near-identical
   // pairs (matching titles, published days/weeks apart). Consolidated onto
   // whichever article was most recently updated in each pair.
