@@ -34,7 +34,10 @@ const sendToSentry = (name: string, value: number, unit: string = 'ms') => {
 const sendToGoogleAnalytics = (name: string, value: number) => {
   if (typeof window === 'undefined' || !('gtag' in window)) return;
 
-  (window as any).gtag('event', name, {
+  const analyticsWindow = window as Window & {
+    gtag?: (...args: unknown[]) => void;
+  };
+  analyticsWindow.gtag?.('event', name, {
     value: Math.round(value),
     event_category: 'Web Vitals',
     event_label: name,
