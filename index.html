@@ -67,7 +67,6 @@
       })();
     </script>
 
-
     <!-- Static fallbacks for non-JS crawlers (social previews, basic SEO bots).
          Per-route SeoHead (react-helmet-async) overrides title / description /
          og:title / og:description for JS-executing crawlers on subpages. -->
@@ -79,12 +78,8 @@
     <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <meta name="bingbot" content="index, follow" />
 
-    <!-- AI citation / attribution signals (ChatGPT, Perplexity, Claude, Gemini, Google AI Overview) -->
-    <meta name="author" content="Maxwell, First Contact Practitioner (HCPC PH128483)" />
-    <meta name="article:author" content="Maxwell, HCPC PH128483" />
-    <meta name="article:publisher" content="Living With Arthritis UK" />
-    <meta name="article:section" content="Health & Wellness" />
-    <meta name="schema:reviewedBy" content="Maxwell, First Contact Practitioner, HCPC PH128483" />
+    <!-- Geographic and audience signals for UK-focused content. Article-level
+         authorship and review data is emitted only on the relevant route. -->
     <meta name="rating" content="General" />
     <meta name="distribution" content="UK" />
     <meta name="coverage" content="United Kingdom" />
@@ -175,12 +170,6 @@
 
     <!-- JSON-LD: WebSite with SearchAction -->
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://livingwitharthritis.org.uk/#website","name":"Living With Arthritis UK","url":"https://livingwitharthritis.org.uk/","inLanguage":"en-GB","description":"Expert arthritis support, virtual physiotherapy, anti-inflammatory nutrition and community resources for UK residents.","publisher":{"@id":"https://livingwitharthritis.org.uk/#organization"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://livingwitharthritis.org.uk/blog?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script>
-
-    <!-- JSON-LD: LocalBusiness / MedicalBusiness for local SEO -->
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":["LocalBusiness","MedicalBusiness"],"@id":"https://livingwitharthritis.org.uk/#localbusiness","name":"Living With Arthritis UK","image":"https://livingwitharthritis.org.uk/favicon.png","url":"https://livingwitharthritis.org.uk","telephone":"+44-7760-512-084","email":"info@livingwitharthritis.org.uk","priceRange":"Free","address":{"@type":"PostalAddress","addressCountry":"GB"},"areaServed":{"@type":"Country","name":"United Kingdom"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"17:00"}],"sameAs":[]}</script>
-
-
-
 
   <!-- Per-route og:title, og:description, og:url and twitter equivalents are
        emitted via react-helmet-async (SeoHead) on every page. Do not duplicate

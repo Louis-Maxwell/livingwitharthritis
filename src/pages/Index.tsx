@@ -342,7 +342,6 @@ function HomePage() {
           <BackToTopButton />
         </Suspense>
         <Suspense fallback={null}>
-
           <StickyDonateBar />
         </Suspense>
         <Suspense fallback={null}>

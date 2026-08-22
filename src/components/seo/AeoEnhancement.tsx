@@ -38,26 +38,22 @@ export default function AeoEnhancement(props: AeoEnhancementProps) {
   // Inject FAQPage JSON-LD when FAQs are present
   useEffect(() => {
     if (!faqs.length) return;
+    const pageUrl = `https://livingwitharthritis.org.uk${props.route.startsWith("/") ? props.route : `/${props.route}`}`;
     const script = document.createElement("script");
     script.type = "application/ld+json";
     script.setAttribute("data-aeo-faq", props.route);
     script.textContent = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      speakable: {
-        "@type": "SpeakableSpecification",
-        cssSelector: [".speakable-intro", ".faq-item"]
-      },
+      "@id": `${pageUrl}#faq`,
+      url: pageUrl,
+      inLanguage: "en-GB",
       mainEntity: faqs.map((f) => ({
         "@type": "Question",
         name: f.q,
         acceptedAnswer: {
           "@type": "Answer",
           text: f.a,
-          speakable: {
-            "@type": "SpeakableSpecification",
-            cssSelector: ".faq-item"
-          }
         },
       })),
     });

@@ -7,19 +7,22 @@ interface CookieBannerProps {
 }
 
 const CookieBanner = memo(({ onAnalyticsChange }: CookieBannerProps) => {
-  const [show, setShow] = useState(() => !localStorage.getItem("lwa_cv3"));
+  const [show, setShow] = useState(
+    () =>
+      !localStorage.getItem("lwa_cv3") &&
+      !localStorage.getItem("cookie-consent"),
+  );
   const [open, setOpen] = useState(false);
   const [local, setLocal] = useState({ a: false, p: false, m: false });
 
   const save = (vals: typeof local) => {
     localStorage.setItem("lwa_cv3", JSON.stringify(vals));
-    // Single source of truth for the analytics loaders in index.html.
     localStorage.setItem("cookie-consent", vals.a ? "accepted" : "declined");
+    onAnalyticsChange?.(vals.a);
+    setShow(false);
     if (vals.a) {
       window.dispatchEvent(new Event("cookie-consent-accepted"));
     }
-    onAnalyticsChange?.(vals.a);
-    setShow(false);
   };
 
 

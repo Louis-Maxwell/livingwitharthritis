@@ -32,12 +32,16 @@ describe("CookieBanner", () => {
 
   it("Accept All saves all consent and hides banner", () => {
     const onChange = vi.fn();
+    const accepted = vi.fn();
+    window.addEventListener("cookie-consent-accepted", accepted, { once: true });
     renderBanner(onChange);
     fireEvent.click(screen.getByRole("button", { name: /accept all/i }));
     expect(screen.queryByText(/we value your privacy/i)).not.toBeInTheDocument();
     const stored = JSON.parse(localStorage.getItem("lwa_cv3")!);
     expect(stored).toEqual({ a: true, p: true, m: true });
+    expect(localStorage.getItem("cookie-consent")).toBe("accepted");
     expect(onChange).toHaveBeenCalledWith(true);
+    expect(accepted).toHaveBeenCalledOnce();
   });
 
   it("Essential Only saves no consent and hides banner", () => {
@@ -47,6 +51,7 @@ describe("CookieBanner", () => {
     expect(screen.queryByText(/we value your privacy/i)).not.toBeInTheDocument();
     const stored = JSON.parse(localStorage.getItem("lwa_cv3")!);
     expect(stored).toEqual({ a: false, p: false, m: false });
+    expect(localStorage.getItem("cookie-consent")).toBe("declined");
     expect(onChange).toHaveBeenCalledWith(false);
   });
 
