@@ -27,7 +27,7 @@ const LocalizedHome = lazy(() => import("./pages/LocalizedHome"));
 const LocalizedOsteoarthritis = lazy(() => import("./pages/LocalizedOsteoarthritis"));
 
 const ChatBotWidget = lazy(() => import("./components/ChatBotWidget"));
-const CookieConsent = lazy(() => import("./components/CookieConsent"));
+const CookieBanner = lazy(() => import("./components/landing/CookieBanner"));
 const AccessibilityToolbar = lazy(() => import("./components/AccessibilityToolbar"));
 const MobileBottomNav = lazy(() => import("./components/MobileBottomNav"));
 const MobileNextStepBar = lazy(() => import("./components/MobileNextStepBar"));
