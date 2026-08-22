@@ -498,10 +498,9 @@ function AppWithSync() {
   useEffect(() => {
     const startedAt = Date.now();
     const maxWaitMs = 30_000;
-    let interval: number | undefined;
 
     const fire = () => {
-      if (interval !== undefined) window.clearInterval(interval);
+      window.clearInterval(interval);
       document.dispatchEvent(new Event("prerender-ready"));
     };
 
@@ -519,12 +518,10 @@ function AppWithSync() {
       }
     };
 
-    interval = window.setInterval(check, 100);
+    const interval = window.setInterval(check, 100);
     check();
 
-    return () => {
-      if (interval !== undefined) window.clearInterval(interval);
-    };
+    return () => window.clearInterval(interval);
   }, [location.pathname]);
 
   return (
