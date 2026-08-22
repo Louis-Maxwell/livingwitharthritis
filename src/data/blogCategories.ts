@@ -49,3 +49,21 @@ export const canonicalBlogCategoryKey = (
 
 export const blogCategoryAliases = (key: BlogCategoryKey): string[] =>
   ALIASES[key];
+
+/**
+ * Every real-world `blog_articles.category` label that belongs to the same
+ * hub as one of `categories`, for use in an exact-match `IN` query. Older
+ * rows stored some labels in lower case ("exercises", "treatments"), and
+ * Postgres `IN` is case-sensitive, so both casings are returned.
+ */
+export const expandBlogCategoryLabels = (categories: string[]): string[] => {
+  const labels = new Set<string>();
+  for (const category of categories) {
+    const key = canonicalBlogCategoryKey(category);
+    for (const label of key ? ALIASES[key] : [category]) {
+      labels.add(label);
+      labels.add(label.toLowerCase());
+    }
+  }
+  return [...labels];
+};

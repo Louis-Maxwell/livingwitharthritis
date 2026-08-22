@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
+import { expandBlogCategoryLabels } from "@/data/blogCategories";
 import { getClustersForArticle, scoreCandidate } from "@/lib/relatedClusters";
 
 export interface BlogArticleCitation {
@@ -91,30 +92,19 @@ export function useFeaturedArticles(limit = 3) {
 }
 
 /**
+ * Recent articles filtered by one or more categories — used on Condition
+ * pages and the blog category hubs.
+ *
  * The `category` column has accumulated inconsistent labels over time
  * (e.g. "Exercise" vs "Exercises" vs "Exercise Guides" vs lowercase
  * "exercises" — confirmed via a real query against blog_articles: 11
  * published articles under Exercise-family labels and 22 under
  * Treatment-family labels were invisible to every condition page
  * requesting the canonical "Exercise"/"Treatment" category, since the
- * lookup below is an exact-match `IN` query). This expands each
- * requested category to its known real-world aliases before querying,
- * rather than requiring a data migration to fix at the source.
+ * lookup below is an exact-match `IN` query). Requested categories are
+ * expanded through the shared hub alias map before querying, so condition
+ * strips and category hubs always agree on which labels belong together.
  */
-const CATEGORY_ALIASES: Record<string, string[]> = {
-  Exercise: ["Exercise", "Exercises", "Exercise Guides", "exercises"],
-  Treatment: ["Treatment", "Treatment Guides", "treatments"],
-};
-
-function expandCategoryAliases(categories: string[]): string[] {
-  const expanded = new Set<string>();
-  for (const c of categories) {
-    for (const alias of CATEGORY_ALIASES[c] ?? [c]) expanded.add(alias);
-  }
-  return [...expanded];
-}
-
-/** Recent articles filtered by one or more categories — used on Condition pages */
 export function useConditionArticles(categories: string[] = [], limit = 4) {
   return useQuery({
     queryKey: ["blog_articles_by_categories", categories, limit],
@@ -124,7 +114,7 @@ export function useConditionArticles(categories: string[] = [], limit = 4) {
         .select(LIST_FIELDS)
         .eq("is_published", true);
       if (categories.length > 0) {
-        q = q.in("category", expandCategoryAliases(categories));
+        q = q.in("category", expandBlogCategoryLabels(categories));
       }
       const { data, error } = await q
         .order("date", { ascending: false })
