@@ -183,7 +183,7 @@ describe("BlogPost Page", () => {
     expect(screen.getByText("Editorial content")).toBeInTheDocument();
   });
 
-  it("does not claim an unverified generic review or generic citations", () => {
+  it("does not claim an unverified generic review or generic citations", async () => {
     (useBlogArticle as ReturnType<typeof vi.fn>).mockReturnValue({
       data: {
         ...mockArticle,
@@ -202,21 +202,26 @@ describe("BlogPost Page", () => {
       screen.queryByRole("heading", { name: "Sources & References" }),
     ).not.toBeInTheDocument();
 
-    const schemas = Array.from(
-      document.head.querySelectorAll<HTMLScriptElement>(
-        'script[type="application/ld+json"]',
-      ),
-    ).map((script) => JSON.parse(script.textContent || "{}"));
-    const articleSchema = schemas.find(
-      (schema) => schema["@type"] === "Article",
-    );
+    const readSchemas = () =>
+      Array.from(
+        document.head.querySelectorAll<HTMLScriptElement>(
+          'script[type="application/ld+json"]',
+        ),
+      ).map((script) => JSON.parse(script.textContent || "{}"));
+    const articleSchema = await waitFor(() => {
+      const schema = readSchemas().find(
+        (candidate) => candidate["@type"] === "Article",
+      );
+      expect(schema).toBeDefined();
+      return schema;
+    });
     expect(articleSchema["@id"]).toBe(
       "https://livingwitharthritis.org.uk/blog/test-article#article",
     );
     expect(articleSchema.reviewedBy).toBeUndefined();
     expect(articleSchema.citation).toBeUndefined();
     expect(
-      schemas.some((schema) => schema["@type"] === "FAQPage"),
+      readSchemas().some((schema) => schema["@type"] === "FAQPage"),
     ).toBe(false);
   });
 });
