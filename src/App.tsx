@@ -259,20 +259,25 @@ const queryClient = new QueryClient({
 function AnimatedRoutes() {
   const location = useLocation();
 
-  // GA4 SPA pageview tracker — fires `page_view` on every route change.
-  // The initial pageview is sent by gtag('config') in index.html; this
-  // handler covers all subsequent client-side navigations so multi-page
-  // sessions are recorded correctly in GA4 (and not collapsed to 1).
+  // GA4 SPA pageview tracker. GA4 is loaded with send_page_view:false and only
+  // after analytics consent, so this sends every pageview — including the first
+  // one, which is re-sent when `analytics-ready` fires post-consent.
   useEffect(() => {
-    const w = window as unknown as { gtag?: (...a: unknown[]) => void };
-    if (typeof w.gtag !== "function") return;
-    w.gtag("event", "page_view", {
-      page_path: location.pathname + location.search,
-      page_location: window.location.href,
-      page_title: document.title,
-      send_to: "G-ZLLSD3PXZ9",
-    });
+    const sendPageView = () => {
+      const w = window as unknown as { gtag?: (...a: unknown[]) => void };
+      if (typeof w.gtag !== "function") return;
+      w.gtag("event", "page_view", {
+        page_path: location.pathname + location.search,
+        page_location: window.location.href,
+        page_title: document.title,
+        send_to: "G-ZLLSD3PXZ9",
+      });
+    };
+    sendPageView();
+    window.addEventListener("analytics-ready", sendPageView);
+    return () => window.removeEventListener("analytics-ready", sendPageView);
   }, [location.pathname, location.search]);
+
 
   return (
     <PageTransition key={location.pathname}>
@@ -537,7 +542,7 @@ const App = () => {
               <DeferredMount timeout={1200}>
                 <Suspense fallback={null}>
                   <EngagementTracker />
-                  <CookieConsent />
+                  <CookieBanner />
                   <MobileBottomNav />
                   <MobileNextStepBar />
                   <AccessibilityToolbar />

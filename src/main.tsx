@@ -6,14 +6,30 @@ import ErrorBoundary from "./components/ErrorBoundary.tsx";
 import { initWebVitals } from "./lib/web-vitals.ts";
 import "./index.css";
 
-// Initialize Sentry for error tracking
+// Initialize Sentry (incl. session replay) only after explicit analytics consent
+const hasAnalyticsConsent = () => {
+  try {
+    if (localStorage.getItem("cookie-consent") === "accepted") return true;
+    const raw = localStorage.getItem("lwa_cv3");
+    if (!raw) return false;
+    return JSON.parse(raw).a === true;
+  } catch {
+    return false;
+  }
+};
+
+let sentryInitialized = false;
+
 const initializeSentry = () => {
+  if (sentryInitialized) return;
+  if (!hasAnalyticsConsent()) return;
   if (!import.meta.env.VITE_SENTRY_DSN) {
     console.warn(
       "[Sentry] DSN not configured. Error tracking disabled. Set VITE_SENTRY_DSN to enable.",
     );
     return;
   }
+  sentryInitialized = true;
 
   Sentry.init({
     dsn: import.meta.env.VITE_SENTRY_DSN,
@@ -32,9 +48,11 @@ const initializeSentry = () => {
 };
 
 initializeSentry();
+window.addEventListener("cookie-consent-accepted", initializeSentry);
 
 // Initialize Core Web Vitals tracking (captures LCP, FCP, CLS, INP, TTFB)
 initWebVitals();
+
 
 const AppCrashFallback = (
   <div className="min-h-screen flex items-center justify-center bg-background p-6">
