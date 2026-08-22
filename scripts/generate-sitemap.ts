@@ -477,7 +477,7 @@ async function main() {
   // /blog/* (already covered by blogSlugList above) to avoid duplicating a
   // large array across two generated files.
   const otherPaths = [...new Set(entries.map((e) => e.path))].filter(
-    (p) => !p.startsWith("/blog/"),
+    (p) => !p.startsWith("/blog/") || p.startsWith("/blog/category/"),
   );
   writeFileSync(
     resolve("src/data/prerender-routes.generated.json"),

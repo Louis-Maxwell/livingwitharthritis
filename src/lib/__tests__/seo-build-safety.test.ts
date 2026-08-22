@@ -101,6 +101,15 @@ describe("SEO build safety", () => {
     expect(kneeSource).not.toContain("Often eases pain within 1–2 sessions");
   });
 
+  it("keeps blog category pages in the prerender inventory", () => {
+    const sitemapSource = readFileSync(
+      resolve(process.cwd(), "scripts/generate-sitemap.ts"),
+      "utf8",
+    );
+
+    expect(sitemapSource).toContain('p.startsWith("/blog/category/")');
+  });
+
   it("falls back to the active production Supabase project", () => {
     expect(SUPABASE_PROJECT_ID).toBe("eswdtpmknwjxtvkyxvmi");
     expect(SUPABASE_URL).toBe(
