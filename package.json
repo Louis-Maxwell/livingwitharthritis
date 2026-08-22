@@ -36,6 +36,7 @@
     "seo:images": "bun scripts/audit-images.ts",
     "seo:headings": "bun scripts/audit-headings.ts",
     "seo:aeo-sync": "bun scripts/check-aeo-sync.mjs",
+    "seo:redirects": "node scripts/check-redirects.mjs",
     "seo:prerender-meta": "node scripts/check-prerender-meta.mjs",
     "css:check": "node scripts/check-css-utilities.mjs",
     "test:layout": "playwright test --config=tests/visual/playwright.config.ts",
