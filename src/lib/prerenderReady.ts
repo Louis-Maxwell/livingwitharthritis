@@ -3,6 +3,14 @@ export const GENERIC_HOME_TITLE =
 
 const SITE_URL = "https://livingwitharthritis.org.uk";
 
+export function isBlogListingPath(pathname: string): boolean {
+  const normalisedPath =
+    pathname === "/" ? "/" : `/${pathname.replace(/^\/+|\/+$/g, "")}`;
+  return (
+    normalisedPath === "/blog" || normalisedPath.startsWith("/blog/category/")
+  );
+}
+
 export function isPrerenderDocumentReady(
   document: Document,
   pathname: string,
@@ -18,6 +26,11 @@ export function isPrerenderDocumentReady(
 
   if (normalisedPath === "/") {
     return canonical.href === `${SITE_URL}/`;
+  }
+
+  if (isBlogListingPath(normalisedPath)) {
+    const listing = document.querySelector("[data-blog-listing]");
+    if (!listing) return false;
   }
 
   return (

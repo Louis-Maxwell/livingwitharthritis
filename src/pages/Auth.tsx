@@ -76,8 +76,9 @@ export default function AuthPage() {
             Creating a Living With Arthritis account unlocks the virtual
             physiotherapy assistant, your personalised exercise plan, diet
             guidance, and a private space to track flare-ups and progress
-            over time. Everything is free for everyone in the UK, with no
-            paywalls, no upsells, and no data ever sold to third parties.
+            over time. Sign in with Google or email. Everything is free for
+            everyone in the UK, with no paywalls, no upsells, and no data
+            ever sold to third parties. Your notes stay visible only to you.
           </p>
           <ul className="space-y-4">
             <li className="flex gap-3">
@@ -210,7 +211,7 @@ export default function AuthPage() {
                   label: 'auth-label',
                 },
               }}
-              providers={[]}
+              providers={["google"]}
               redirectTo={`${window.location.origin}${nextPath}`}
             />
 

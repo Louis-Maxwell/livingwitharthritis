@@ -172,4 +172,39 @@ describe("SEO build safety", () => {
       isPrerenderDocumentReady(document, "/blog/anti-inflammatory-diet"),
     ).toBe(false);
   });
+
+  it("waits for blog listing cards before prerender snapshots", () => {
+    document.title = "Arthritis Blog UK | Diet, Exercise & Pain Management Guides";
+    document.head.innerHTML =
+      '<link rel="canonical" href="https://livingwitharthritis.org.uk/blog">';
+    document.body.innerHTML = "<main><h1>Arthritis Advice</h1></main>";
+
+    expect(isPrerenderDocumentReady(document, "/blog")).toBe(false);
+
+    document.body.innerHTML =
+      '<main data-blog-listing="ready"><h1>Arthritis Advice</h1><a href="/blog/example">Example</a></main>';
+    expect(isPrerenderDocumentReady(document, "/blog")).toBe(true);
+  });
+
+  it("keeps Google sign-in on the account page", () => {
+    const authSource = readFileSync(
+      resolve(process.cwd(), "src/pages/Auth.tsx"),
+      "utf8",
+    );
+    expect(authSource).toContain('providers={["google"]}');
+    expect(authSource).not.toContain("providers={[]}");
+  });
+
+  it("ships a Netlify 404 page without a homepage catch-all", () => {
+    const netlify = readFileSync(resolve(process.cwd(), "netlify.toml"), "utf8");
+    const notFound = readFileSync(resolve(process.cwd(), "public/404.html"), "utf8");
+
+    expect(netlify).toContain('to = "/404.html"');
+    expect(netlify).toContain("status = 404");
+    expect(netlify).not.toMatch(
+      /from\s*=\s*"\/\*"[\s\S]{0,80}to\s*=\s*"\/index\.html"[\s\S]{0,40}status\s*=\s*200/,
+    );
+    expect(notFound).toContain("noindex");
+    expect(notFound).toContain("We could not find that page");
+  });
 });

@@ -12,6 +12,7 @@ import { useBlogViewCounts } from "@/hooks/useBlogViews";
 import { useBlogArticlesList, useFeaturedArticles } from "@/hooks/useBlogArticles";
 import { Skeleton } from "@/components/ui/skeleton";
 import { getArticleImages } from "@/lib/articleImages";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
 
 type Category = "All" | "Exercise" | "Nutrition" | "Lifestyle" | "Health" | "Mental Health" | "Supplements" | "Treatment";
 
@@ -137,6 +138,19 @@ const BlogIndex = ({
             { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://livingwitharthritis.org.uk/blog" }
           ]
         })}</script>
+        {!isLoading && blogPosts.length > 0 && (
+          <script type="application/ld+json">{JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Arthritis Blog UK",
+            "itemListElement": blogPosts.slice(0, 12).map((post, index) => ({
+              "@type": "ListItem",
+              "position": index + 1,
+              "url": `https://livingwitharthritis.org.uk/blog/${post.slug}`,
+              "name": post.title,
+            })),
+          })}</script>
+        )}
       </Helmet>}
       <div className="min-h-screen bg-background">
         <Header />
@@ -160,7 +174,31 @@ const BlogIndex = ({
           subtitle={heroSubtitle ?? `${blogPosts.length} evidence-based articles and counting — helping UK residents manage arthritis, reduce joint pain and live well.`}
         />
 
-        <main id="main-content" className="container mx-auto px-6 md:px-10 py-6 md:py-8">
+        {emitSeo && (
+          <div className="container mx-auto px-6 md:px-10">
+            <AeoEnhancement
+              route="/blog"
+              question="What is the Living With Arthritis UK blog?"
+              answer="It is a free library of UK-focused articles on living with arthritis: movement, food, pain, mood and daily practicalities. It is information, not a diagnosis. If you are worried about new or worsening symptoms, contact your GP or NHS 111."
+              faqs={[
+                {
+                  q: "Is the blog a substitute for NHS care?",
+                  a: "No. Use it to prepare for appointments and to find practical self-management ideas. Diagnosis and treatment decisions stay with your clinician.",
+                },
+                {
+                  q: "Do I need an account to read articles?",
+                  a: "No. Articles are free to read without signing in. An optional Google or email account is only for private tools such as saved notes.",
+                },
+              ]}
+            />
+          </div>
+        )}
+
+        <main
+          id="main-content"
+          className="container mx-auto px-6 md:px-10 py-6 md:py-8"
+          {...(!isLoading ? { "data-blog-listing": "ready" } : {})}
+        >
           {/* Featured / Editor's picks */}
           {activeCategory === "All" && !searchQuery && currentPage === 1 && featuredPosts.length > 0 && (
             <section aria-labelledby="featured-heading" className="mb-12">
@@ -171,7 +209,7 @@ const BlogIndex = ({
                 <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Featured</span>
               </div>
               <div className="grid md:grid-cols-3 gap-6">
-                {featuredPosts.map((post) => (
+                {featuredPosts.map((post, index) => (
                   <Link
                     key={post.slug}
                     to={`/blog/${post.slug}`}
@@ -182,7 +220,13 @@ const BlogIndex = ({
                       <img
                         src={post.image_url || getArticleImages(post.category, post.title, post.slug)[0].src}
                         alt={post.title}
-                        loading="lazy"
+                        width={640}
+                        height={360}
+                        loading={index === 0 ? "eager" : "lazy"}
+                        {...(index === 0
+                          ? ({ fetchpriority: "high" } as Record<string, string>)
+                          : {})}
+                        decoding="async"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                     </div>

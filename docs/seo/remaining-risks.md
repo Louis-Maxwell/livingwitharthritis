@@ -2,9 +2,9 @@
 
 ## Blocking infrastructure decisions
 
-1. **Real HTTP 404 responses:** Lovable's managed SPA fallback returns HTTP 200 for unknown paths. The React 404 cannot change the transport status.
-2. **Real HTTP 301 redirects:** the 19 current mappings use React replacement navigation. The two owner-approved knee redirects and all other legacy mappings need a configurable edge/server layer.
-3. Do not place a generic `/* /index.html 200` rule in front of a server-level 404 solution; that recreates the soft-404 problem.
+1. **Real HTTP 404 responses:** Lovable's managed SPA fallback still returns HTTP 200 for unknown paths. `netlify.toml` and `public/404.html` are now in the repo so a Netlify publish of this branch can return HTTP 404 for unknown paths. That does **not** change the live charity domain until DNS/hosting is pointed at Netlify. I am not certain of a Netlify preview URL; none has been created from this environment.
+2. **Real HTTP 301 redirects:** the 19 mappings remain as React replacements on Lovable hosting. The same mappings are now also declared as force-on 301s in `netlify.toml`, gated by connecting the GitHub repo in Netlify.
+3. Do not place a generic `/* /index.html 200` rule in front of a server-level 404 solution; that recreates the soft-404 problem. The Netlify catch-all points at `/404.html` with status 404 and without `force`, so prerendered files still win.
 
 ## Production data approval
 

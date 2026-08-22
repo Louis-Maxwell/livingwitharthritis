@@ -81,7 +81,7 @@ The full browser-based JSON-LD crawler was not rerun across all 959 URLs because
 
 ## Hosting status limitation
 
-Lovable managed hosting currently returns the SPA fallback with HTTP 200 for an unknown path and does not provide a demonstrated repository-controlled path-level 301/404 mechanism. Therefore:
+A Netlify config now exists in the repository (`netlify.toml`, `public/404.html`) with path-level 301s and an HTTP 404 catch-all. Until the public domain is served from that Netlify site, Lovable managed hosting still returns the SPA fallback with HTTP 200 for an unknown path. Therefore:
 
 - the custom 404 renders correctly after JavaScript but the transport status is still 200;
 - the 19 redirect mappings are documented client-side replacements, not genuine HTTP 301s;

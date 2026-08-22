@@ -1,0 +1,238 @@
+# Hosting layer for Living With Arthritis UK.
+# Static prerendered files are served first. Legacy blog URLs get real HTTP 301s.
+# Unknown paths get HTTP 404 via public/404.html — not a homepage 200 fallback.
+# App-only screens that are not prerendered (sign-in, admin, checkout) still
+# rewrite to the SPA shell so Google sign-in and private tools keep working.
+
+[build]
+  command = "npx puppeteer browsers install chrome && npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+  PUPPETEER_CACHE_DIR = "/opt/buildhome/.cache/puppeteer"
+
+# --- Legacy blog consolidations (must stay in sync with src/data/blogRedirects.ts) ---
+
+[[redirects]]
+  from = "/blog/nhs-arthritis-exercises"
+  to = "/blog/arthritis-exercises-uk-clinical"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/nhs-rheumatology-waiting-times-uk"
+  to = "/blog/rheumatology-waiting-times-uk"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/knee-osteoarthritis-exercises"
+  to = "/blog/knee-arthritis-exercises-uk"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/knee-exercises-arthritis"
+  to = "/blog/knee-arthritis-exercises-uk"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/food-supplements-for-joint-pain"
+  to = "/blog/best-supplements-joint-pain"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/arthritis-medication-uk"
+  to = "/blog/arthritis-medication-guide"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/arthritis-and-weight-management-uk"
+  to = "/blog/weight-management-arthritis-evidence"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/swimming-for-arthritis-uk"
+  to = "/blog/swimming-for-arthritis"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/turmeric-for-arthritis-uk"
+  to = "/blog/turmeric-for-arthritis"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/mindfulness-meditation-chronic-pain"
+  to = "/blog/mindfulness-chronic-pain-arthritis-guide"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/vitamin-d-arthritis-uk-risk"
+  to = "/blog/vitamin-d-arthritis-uk"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/arthritis-and-cold-weather-uk"
+  to = "/blog/cold-weather-arthritis-uk-winter"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/cold-weather-and-arthritis"
+  to = "/blog/cold-weather-arthritis-uk-winter"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/arthritis-and-sleep-uk"
+  to = "/blog/how-to-sleep-with-arthritis-uk"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/glucosamine-vs-collagen-arthritis"
+  to = "/blog/glucosamine-vs-collagen"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/hand-arthritis-exercises-uk"
+  to = "/blog/hand-exercises-for-arthritis"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/arthritis-and-mental-health"
+  to = "/blog/arthritis-and-mental-health-uk"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/arthritis-diet-myths-debunked"
+  to = "/blog/arthritis-and-diet-myths-uk"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/arthritis-fatigue-management"
+  to = "/blog/arthritis-fatigue-management-uk"
+  status = 301
+  force = true
+
+# --- App screens that are not prerendered static files ---
+
+[[redirects]]
+  from = "/auth"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/chat"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/.lovable/oauth/consent"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/donation-result"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/donation-result/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/unsubscribe"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/debug/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/shop"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/product/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/buddy/match"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/symptom-checker"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/self-help"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/self-assessment"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/pedometer"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/tools/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/callback"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/checkout"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/dashboard"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/newsletter/*"
+  to = "/index.html"
+  status = 200
+
+# Missing files: HTTP 404. Do not use force=true — prerendered pages must win.
+# Do not add a catch-all /* → /index.html 200; that recreates soft-404s.
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404

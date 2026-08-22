@@ -119,12 +119,32 @@ function HomePage() {
     });
     document.head.appendChild(breadcrumbScript);
 
+    const speakableId = "ld-home-speakable";
+    document.getElementById(speakableId)?.remove();
+    const speakableScript = document.createElement("script");
+    speakableScript.type = "application/ld+json";
+    speakableScript.id = speakableId;
+    speakableScript.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/#webpage`,
+      url: `${SITE_URL}/`,
+      name: "Living With Arthritis UK | Evidence-Based Health Guides",
+      inLanguage: "en-GB",
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+      speakable: {
+        "@type": "SpeakableSpecification",
+        cssSelector: ["h1", ".speakable-intro"],
+      },
+    });
+    document.head.appendChild(speakableScript);
+
     // FAQPage schema is emitted by FAQSection itself (rendered below) — not
     // duplicated here, since two FAQPage blocks with different question sets
     // on one page confuses structured-data validators and rich-result eligibility.
 
     return () => {
-      [id, breadcrumbId].forEach((scriptId) => {
+      [id, breadcrumbId, speakableId].forEach((scriptId) => {
         const el = document.getElementById(scriptId);
         if (el) el.remove();
       });

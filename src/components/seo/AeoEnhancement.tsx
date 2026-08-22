@@ -33,7 +33,7 @@ export default function AeoEnhancement(props: AeoEnhancementProps) {
   const answer = props.answer ?? configured?.answer;
   const faqs = useMemo(() => props.faqs ?? configured?.faqs ?? [], [props.faqs, configured?.faqs]);
   const reviewer = props.reviewer ?? configured?.reviewer;
-  const updatedAt = props.updatedAt ?? configured?.updatedAt ?? "2026-07-01";
+  const updatedAt = props.updatedAt ?? configured?.updatedAt;
 
   // Inject FAQPage JSON-LD when FAQs are present
   useEffect(() => {
@@ -73,6 +73,7 @@ export default function AeoEnhancement(props: AeoEnhancementProps) {
         </AnswerBox>
       )}
 
+      {((reviewer && !/clinical team/i.test(reviewer)) || updatedAt) && (
       <div className="flex flex-wrap items-center gap-2 text-xs">
         {reviewer && !/clinical team/i.test(reviewer) && (
           <Badge variant="outline" className="gap-1.5 border-primary/30 text-foreground">
@@ -80,11 +81,14 @@ export default function AeoEnhancement(props: AeoEnhancementProps) {
             Medically reviewed · {reviewer}
           </Badge>
         )}
-        <Badge variant="outline" className="gap-1.5 border-primary/30 text-foreground">
-          <CalendarClock className="h-3 w-3 text-primary" />
-          Updated {new Date(updatedAt).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
-        </Badge>
+        {updatedAt && (
+          <Badge variant="outline" className="gap-1.5 border-primary/30 text-foreground">
+            <CalendarClock className="h-3 w-3 text-primary" />
+            Updated {new Date(updatedAt).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
+          </Badge>
+        )}
       </div>
+      )}
 
       {faqs.length > 0 && (
         <div className="rounded-xl bg-white p-6">

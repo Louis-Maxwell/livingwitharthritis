@@ -31,7 +31,7 @@ const OAHero = memo(() => {
               Evidence-based arthritis support and health guides for the UK
             </h1>
 
-            <p className="hero-item mt-8 text-lg lg:text-xl max-w-xl leading-relaxed">
+            <p className="hero-item speakable-intro mt-8 text-lg lg:text-xl max-w-xl leading-relaxed">
               Millions of people across the UK live with arthritis pain and stiffness.
               Living With Arthritis provides practical guidance, exercise ideas and
               nutrition information — free, for everyone.
@@ -91,7 +91,7 @@ const OAHero = memo(() => {
           </div>
 
           {/* Octagon image — MAP signature shape */}
-          <div className="reveal relative aspect-square w-full max-w-[560px] mx-auto">
+          <div className="reveal relative aspect-square w-full max-w-[560px] mx-auto min-h-[240px] bg-muted/30">
             <img
               src={HERO_IMG}
               srcSet={HERO_SRCSET}
