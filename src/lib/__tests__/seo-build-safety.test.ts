@@ -1,5 +1,6 @@
 /// <reference types="node" />
 import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import { assertSafeBlogInventory } from "@/lib/seoBuildSafety";
 import {
@@ -18,7 +19,7 @@ describe("SEO build safety", () => {
 
   it("does not prerender invalid regional routes that navigate over the homepage", () => {
     const source = readFileSync(
-      new URL("../../../scripts/prerender-routes.mjs", import.meta.url),
+      resolve(process.cwd(), "scripts/prerender-routes.mjs"),
       "utf8",
     );
 
