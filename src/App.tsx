@@ -17,6 +17,7 @@ import CanonicalEnforcer from "@/components/CanonicalEnforcer";
 import SeoDefaults from "@/components/SeoDefaults";
 import RootOrganizationSchema from "@/components/seo/RootOrganizationSchema";
 import SkipToContent from "@/components/SkipToContent";
+import RouteFocus from "@/components/RouteFocus";
 import { COMPARISON_ROUTES } from "@/data/comparison-routes.generated";
 import { isPrerenderDocumentReady } from "@/lib/prerenderReady";
 
@@ -529,6 +530,7 @@ function AppWithSync() {
   return (
     <>
       <SkipToContent />
+      <RouteFocus />
       <CanonicalEnforcer />
       <RootOrganizationSchema />
       <AnimatedRoutes />
