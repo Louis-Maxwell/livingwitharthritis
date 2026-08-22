@@ -5,7 +5,7 @@ const data: ConditionPageData = {
   slug: "gout",
   name: "Gout",
   tagline:
-    "Gout is one of the most painful forms of inflammatory arthritis, caused by uric-acid crystals collecting in the joints. With the right treatment and diet, attacks can be prevented entirely.",
+    "Gout is a painful inflammatory arthritis caused by urate crystals in a joint. Treatment can settle attacks and lower the risk of future flares.",
   metaTitle: "Gout Symptoms, Causes, Diet & Treatment (UK Guide)",
   metaDescription:
     "What is gout? UK guide to gout symptoms, the first signs in the big toe, triggers, low-purine diet, allopurinol treatment and how to prevent attacks.",
@@ -16,10 +16,10 @@ const data: ConditionPageData = {
     question: "What is the fastest way to stop a gout attack?",
     answer: (
       <p>
-        Start an NSAID (ibuprofen or naproxen) or colchicine within the first 12–24 hours,
-        rest the joint, ice it for 20-minute spells and drink 2 litres of water. Most UK GPs
-        also start long-term urate-lowering therapy (allopurinol) after the first attack to
-        stop future flare-ups. Avoid beer, red meat and sugary drinks while you recover.
+        Contact a GP promptly. An NSAID, colchicine or a short course of
+        corticosteroid may be offered depending on your other conditions and
+        medicines. Rest the joint and use a wrapped cold pack for comfort.
+        Do not start or change prescription treatment without medical advice.
       </p>
     ),
     reviewed: "2026-06-13",
@@ -33,9 +33,8 @@ const data: ConditionPageData = {
         unbearable to touch.
       </p>
       <p>
-        Around <strong>1 in 40 adults in the UK</strong> live with gout, making it the most
-        common inflammatory arthritis. The good news: with the right medication and lifestyle
-        changes, most people can stop attacks altogether.
+        Effective treatment can settle an attack and lower the urate level over
+        time, reducing the risk of future attacks and joint damage.
       </p>
     </>
   ),
@@ -148,7 +147,7 @@ const data: ConditionPageData = {
     {
       question: "Is gout curable?",
       answer:
-        "Gout itself is a long-term condition, but with allopurinol or febuxostat plus diet and lifestyle changes, most people stop having attacks completely.",
+        "Gout is a long-term condition, but urate-lowering treatment can greatly reduce future attacks when it is appropriate and taken as prescribed.",
     },
     {
       question: "What foods should I avoid with gout?",
@@ -164,6 +163,16 @@ const data: ConditionPageData = {
       question: "Is gout the same as arthritis?",
       answer:
         "Gout is a type of inflammatory arthritis caused by uric-acid crystals, distinct from osteoarthritis (wear and tear) or rheumatoid arthritis (autoimmune).",
+    },
+  ],
+  sources: [
+    {
+      label: "NHS: Gout",
+      url: "https://www.nhs.uk/conditions/gout/",
+    },
+    {
+      label: "NICE NG219: Gout — diagnosis and management",
+      url: "https://www.nice.org.uk/guidance/ng219",
     },
   ],
   related: [

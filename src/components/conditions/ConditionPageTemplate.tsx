@@ -81,6 +81,8 @@ export interface ConditionPageData {
   ogImage?: string;
   /** Optional AEO answer box: shown under H1, lifted by AI engines. */
   aeoAnswer?: { question: string; answer: ReactNode; reviewed?: string };
+  /** Authoritative, page-specific sources shown to readers. */
+  sources?: { label: string; url: string }[];
 }
 
 // Real Unsplash photographs (free to use) — replaces previous AI-generated webp set.
@@ -266,6 +268,31 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
               injectSchema={false}
             />
           </section>
+
+          {data.sources && data.sources.length > 0 && (
+            <section className="mb-12" aria-labelledby={`condition-${data.slug}-sources`}>
+              <h2
+                id={`condition-${data.slug}-sources`}
+                className="section-header-left font-display text-2xl md:text-3xl font-bold text-foreground mb-5"
+              >
+                Sources and further guidance
+              </h2>
+              <ul className="space-y-3">
+                {data.sources.map((source) => (
+                  <li key={source.url}>
+                    <a
+                      href={source.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary underline underline-offset-2"
+                    >
+                      {source.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
 
           {/* Live Blog & Stories — Advice & Guidance for this condition */}
           <Suspense fallback={null}>

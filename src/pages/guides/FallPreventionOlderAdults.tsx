@@ -8,11 +8,11 @@ import AeoEnhancement from "@/components/seo/AeoEnhancement";
 
 const FAQS = [
   { q: 'Why do older adults with arthritis fall more often?', a: 'Arthritis reduces muscle strength, joint stability and balance reactions. Pain alters walking patterns, medications can cause dizziness, and reduced activity erodes confidence — together raising fall risk substantially.' },
-  { q: 'What is the single most effective fall prevention exercise?', a: 'Strength and balance training combined — particularly programmes like the Otago Exercise Programme — reduce falls by up to 35% in older adults at risk.' },
+  { q: 'What exercise helps prevent falls?', a: 'Programmes that combine progressive strength and balance work are commonly used for people at risk of falls. The best programme is one matched to your health, mobility and current balance.' },
   { q: 'Are walking aids a sign of giving up?', a: 'No. A correctly fitted stick or frame increases confidence, reduces falls and lets you stay active longer. They are tools — not failures.' },
-  { q: 'What should I do immediately after a fall?', a: 'If you can move safely, roll onto your side, push up onto hands and knees, crawl to a sturdy chair, and rise. If injured or unable to get up, use a pendant alarm or phone for help.' },
+  { q: 'What should I do immediately after a fall?', a: 'Check for pain or injury before trying to move. If you may be injured, feel unwell or cannot get up safely, use a phone or pendant alarm and keep warm while you wait for help. Call 999 for a serious injury or emergency.' },
   { q: 'Do certain medications increase fall risk?', a: 'Yes. Sedatives, sleeping tablets, blood pressure medications and some painkillers can cause dizziness. Ask your GP for a medication review if you have fallen.' },
-  { q: 'Should I get a home safety check?', a: 'Yes. NHS occupational therapists offer free home assessments via your GP. Simple changes — grab rails, better lighting, removing rugs — prevent the majority of indoor falls.' },
+  { q: 'Should I get a home safety check?', a: 'A home assessment can identify hazards and useful equipment. Availability and referral routes vary, so ask your GP, local council or NHS service whether an occupational therapy or falls assessment is available locally.' },
 ];
 
 export default function FallPreventionOlderAdults() {
@@ -23,7 +23,7 @@ export default function FallPreventionOlderAdults() {
       description: 'Evidence-based fall prevention for older adults with arthritis. Balance training, strength, home safety and immediate response after a fall.',
       author: { '@type': 'Person', name: 'Maxwell', jobTitle: 'First Contact Practitioner', identifier: 'HCPC PH128483' },
       publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis UK' },
-      datePublished: '2026-06-21', dateModified: new Date().toISOString().slice(0, 10),
+      datePublished: '2026-06-21', dateModified: '2026-08-22',
       mainEntityOfPage: 'https://livingwitharthritis.org.uk/guides/fall-prevention-older-adults',
     };
     const faq = {
@@ -57,8 +57,12 @@ export default function FallPreventionOlderAdults() {
       <h1 className="text-4xl md:text-5xl font-bold mb-6">Fall Prevention for Older Adults with Arthritis</h1>
             <AeoEnhancement route="/guides/fall-prevention-older-adults" />
 
-      <AnswerBox question="How can older adults with arthritis prevent falls?" reviewed="2026-06-21">
-        Falls are the leading cause of injury in older adults with arthritis, but most are preventable. Multi-faceted programmes combining strength, balance, home safety, medication review and vision care reduce fall risk by up to 35%. Start with the Otago Exercise Programme and a free NHS home assessment.
+      <AnswerBox question="How can older adults with arthritis prevent falls?">
+        Fall prevention usually combines strength and balance exercise, a
+        medication and vision review, suitable footwear, and changes to hazards
+        at home. Ask a GP, physiotherapist or local falls service for an
+        individual assessment if you have fallen, feel unsteady or are worried
+        about falling.
       </AnswerBox>
 
       <MedicalReviewBadge reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
@@ -92,7 +96,33 @@ export default function FallPreventionOlderAdults() {
 
       <section id="after" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">5. When a fall happens: immediate response and recovery</h2>
-        <p className="leading-relaxed mb-4">Stay calm. Check for injury before moving. If safe, roll onto your side, push to hands and knees, crawl to a sturdy chair and rise. If injured or unable to rise, use a pendant alarm or phone for help. Always tell your GP — a fall is a medical event needing a review of strength, medication, vision and home environment.</p>
+        <p className="leading-relaxed mb-4">Stay calm and check for pain or injury before moving. If you may be injured, feel unwell or cannot get up safely, use a phone or pendant alarm and keep warm while you wait for help. Call 999 for a serious injury or emergency. Tell your GP or another healthcare professional about a fall so they can consider strength, medication, vision and home hazards.</p>
+      </section>
+
+      <section id="sources" className="mb-12">
+        <h2 className="text-2xl font-bold mb-4">Sources and further guidance</h2>
+        <ul className="list-disc pl-6 space-y-2">
+          <li>
+            <a
+              href="https://www.nhs.uk/conditions/falls/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary underline"
+            >
+              NHS: Falls
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.nice.org.uk/guidance/cg161"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary underline"
+            >
+              NICE CG161: Falls in older people
+            </a>
+          </li>
+        </ul>
       </section>
 
       <section id="related" className="mb-12 bg-muted p-6 rounded-lg border-l-4 border-primary">
