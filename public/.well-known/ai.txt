@@ -28,3 +28,4 @@ Training-Data: allowed-with-attribution
 Sitemap: https://livingwitharthritis.org.uk/sitemap.xml
 LLMs-File: https://livingwitharthritis.org.uk/llms.txt
 LLMs-Full-File: https://livingwitharthritis.org.uk/llms-full.txt
+AI-txt: https://livingwitharthritis.org.uk/ai.txt

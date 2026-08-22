@@ -12,6 +12,7 @@ import { useBlogViewCounts } from "@/hooks/useBlogViews";
 import { useBlogArticlesList, useFeaturedArticles } from "@/hooks/useBlogArticles";
 import { Skeleton } from "@/components/ui/skeleton";
 import { getArticleImages } from "@/lib/articleImages";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
 
 type Category = "All" | "Exercise" | "Nutrition" | "Lifestyle" | "Health" | "Mental Health" | "Supplements" | "Treatment";
 
@@ -87,6 +88,9 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
     <>
       <Helmet>
         <title>Arthritis Blog UK | Diet, Exercise & Pain Management Guides</title>
+        <link rel="canonical" href="https://livingwitharthritis.org.uk/blog" />
+        <meta name="geo.region" content="GB" />
+        <meta name="geo.placename" content="United Kingdom" />
         <meta name="description" content="Arthritis blog index: Browse all articles on pain, exercise, diet, mental health & lifestyle. Evidence-based, clinically reviewed content." />
         <meta name="keywords" content="arthritis blog UK, joint pain advice, arthritis, anti-inflammatory diet UK, osteoarthritis exercises, arthritis help UK, joint pain diet, rheumatoid arthritis UK, swimming arthritis, yoga arthritis, turmeric arthritis, arthritis flare up" />
         <meta property="og:title" content="Arthritis Blog UK – Joint Pain, Diet & Exercise Advice" />
@@ -103,8 +107,6 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Arthritis Blog UK – Joint Pain, Diet & Exercise Advice" />
         <meta name="twitter:description" content="Arthritis blog index: Browse all articles on pain, exercise, diet, mental health & lifestyle. Evidence-based, clinically reviewed content." />
-        <meta name="geo.region" content="GB" />
-        <meta name="geo.placename" content="United Kingdom" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/blog" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
@@ -147,6 +149,9 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
           title={heroTitle ?? <>Arthritis Advice: <span className="text-primary">Evidence-Based Health Guides</span></>}
           subtitle={heroSubtitle ?? `${blogPosts.length} evidence-based articles and counting — helping UK residents manage arthritis, reduce joint pain and live well.`}
         />
+        <div className="container mx-auto px-6 md:px-10 max-w-4xl">
+          <AeoEnhancement route="/blog" />
+        </div>
 
         <main id="main-content" className="container mx-auto px-6 md:px-10 py-6 md:py-8">
           {/* Featured / Editor's picks */}

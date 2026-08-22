@@ -6357,5 +6357,53 @@
         "url": "https://www.bluecross.org.uk/advice"
       }
     ]
+  },
+  "/blog": {
+    "title": "Arthritis Blog UK | Diet, Exercise & Pain Management Guides",
+    "description": "Arthritis blog index: Browse all articles on pain, exercise, diet, mental health & lifestyle. Evidence-based, clinically reviewed content.",
+    "about": "Arthritis self-management",
+    "question": "Where can I read UK arthritis advice?",
+    "answer": "The Living With Arthritis UK blog publishes free, clinically reviewed articles on exercise, diet, pain, benefits and daily living. Start with the topic that matches your joints, then use the condition pages and donate if you want the library to stay free.",
+    "updatedAt": "2026-07-01",
+    "faqs": [
+      {
+        "q": "Is the blog a substitute for a GP?",
+        "a": "No. It is educational. See your GP or rheumatology team for diagnosis and treatment decisions."
+      },
+      {
+        "q": "Are articles written for the UK?",
+        "a": "Yes — NHS pathways, NICE-aligned exercise advice, and UK benefits such as PIP are covered in UK English."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Living With Arthritis UK blog",
+        "url": "https://livingwitharthritis.org.uk/blog"
+      }
+    ]
+  },
+  "/donate": {
+    "title": "Donate to Living With Arthritis UK",
+    "description": "Support Living With Arthritis UK: Donate to fund free arthritis education, research & community support. Help others manage arthritis better.",
+    "about": "Charitable donations",
+    "question": "How do I donate to Living With Arthritis UK?",
+    "answer": "Give a one-off or monthly amount on this page via Stripe. UK taxpayers can add Gift Aid so HMRC adds 25p per £1. You can also give Zakat, fundraise, or set up payroll giving. Donations keep virtual physio, diet guides and the help chat free.",
+    "updatedAt": "2026-07-01",
+    "faqs": [
+      {
+        "q": "Is my card payment secure?",
+        "a": "Yes. Card details are handled by Stripe, not stored on this website."
+      },
+      {
+        "q": "Can I give monthly?",
+        "a": "Yes. Choose Monthly, pick an amount, and you can cancel later."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Living With Arthritis UK donate",
+        "url": "https://livingwitharthritis.org.uk/donate"
+      }
+    ]
   }
 }
