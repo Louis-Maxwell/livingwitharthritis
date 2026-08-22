@@ -1,5 +1,5 @@
 {
-  "maxGeneric": 36,
-  "recordedAt": "2026-08-22T12:21:03.785Z",
+  "maxGeneric": 0,
+  "recordedAt": "2026-08-22T12:31:20.000Z",
   "note": "Pages still carrying the generic homepage head. Drive this number down as more routes get real per-route metadata; never raise it."
 }
