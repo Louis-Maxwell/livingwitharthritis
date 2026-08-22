@@ -55,7 +55,7 @@ during a manual audit of your actual codebase.
 | `src/pages/AdminEmails.tsx` | `src/pages/` | Minor type-checking fix (icon display) |
 | `src/pages/AdminAppointments.tsx` | `src/pages/` | Minor type-checking fix (icon display) |
 | `public/robots.txt` | root of repo | **Already correctly fixed in your code** (allows DuckDuckBot and the Internet Archive bot) — but your live site still shows this as broken, meaning it was never actually deployed. Re-including it here so it finally ships. |
-| `public/_headers` | root of repo | Same situation — correct caching rules already written, never deployed. Re-including so browsers finally cache your images/scripts properly (should meaningfully improve repeat-visit speed). |
+| `cloudflare/worker.ts` | `cloudflare/` | Cloudflare now applies cache and security headers while serving static assets, so the old host-specific `public/_headers` file is no longer needed. |
 | `package-lock.json` | root of repo | Updates 7 dependencies to patched versions, fixing 6 real security vulnerabilities flagged by GitHub (including one rated High severity in `react-router`, `undici`, `nanoid`, `fast-uri`, `brace-expansion`, `dompurify`). All are small, safe patch-version bumps — nothing that changes behavior. |
 | `.github/workflows/lighthouse.yml` | `.github/workflows/` | Replaces a broken performance-testing workflow (it was failing every time with "command not found") with a working one, using a well-established, actively maintained tool instead of guessing at the original broken script |
 | `src/components/ui/dialog.tsx` | `src/components/ui/` | Fixes a real bug: the ✕ close button on every popup/modal across your whole site (donation popup, exit-intent popup, etc.) was only 16×16 pixels — too small to reliably tap on a phone. Now a proper 44×44 tap area, same visual size. |
@@ -66,7 +66,10 @@ during a manual audit of your actual codebase.
 
 ### A pattern worth knowing about
 
-Four separate things in this round (`robots.txt`, `_headers`, and two earlier fixes) turned out to **already be correctly written in your code** — but were never actually live on your website. If your team member or a previous AI session made changes, it's worth double-checking they're pushing all the way through to a real deploy, not just saving locally. This ZIP re-ships all of them properly.
+Several things in this round (`robots.txt` and earlier fixes) turned out to
+**already be correctly written in your code** — but were never actually live on
+your website. Cloudflare deployment now has one explicit source of truth for
+runtime headers and routing.
 
 ### This round: LCP, CLS, and CI infrastructure
 

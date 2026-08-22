@@ -136,7 +136,7 @@ WHAT'S NEXT:
 2. Choose: Script (automated) or Manual
 3. Apply: The fixes to your project
 4. Test: Locally with npm run dev
-5. Deploy: To Lovable (push to main)
+5. Deploy: Cloudflare Workers Builds deploys from main
 6. Verify: Live site works without errors
 
 That's it! You'll be done in 25-40 minutes.

@@ -2,59 +2,98 @@
 
 **Last updated:** 2026-08-22
 
-## Hosting platform
+## Architecture
 
-The frontend is built and hosted by **Lovable**, served through Cloudflare.
+The frontend is deployed as a **Cloudflare Worker with Static Assets**.
 
-```
+```text
 GitHub main branch
-        ↓  (Lovable Git sync)
-   Lovable build  (npm run build → prerender → inject-canonicals)
+        ↓  (Cloudflare Workers Builds Git integration)
+npm run build
         ↓
-   Cloudflare edge
+npx wrangler deploy
+        ↓
+Cloudflare Worker + prerendered static assets
         ↓
 https://livingwitharthritis.org.uk
 ```
 
-The backend is Supabase: Postgres, Auth, Storage and Edge Functions.
+`cloudflare/worker.ts` owns redirects, static asset delivery, security/cache
+headers, known private SPA routes, and real HTTP 404 responses.
 
-**This project does not use Vercel, Netlify, or any other external frontend
-host.** Do not add `vercel.json`, `netlify.toml`, or a platform-specific
-`_redirects` file unless the hosting platform is deliberately migrated and this
-document is updated in the same change. A stray rewrite rule can silently
-reintroduce soft-404s — see [`seo/remaining-risks.md`](./seo/remaining-risks.md).
+The backend remains Supabase: Postgres, Auth, Storage and Edge Functions.
 
-To confirm which platform is serving production at any time:
+## Why Workers Static Assets
+
+Cloudflare Pages would host the static build, but this site needs routing logic:
+
+- HTTP 301 redirects for every legacy blog slug;
+- real HTTP 404 responses rather than a blanket SPA 200 fallback;
+- SPA fallback only for known private client routes such as `/auth` and
+  `/admin/*`;
+- consistent cache and security headers.
+
+Workers Static Assets deploys the Worker and `dist/` as one version.
+
+## Cloudflare configuration
+
+Source of truth: `wrangler.jsonc`.
+
+- Worker name: `living-with-arthritis`
+- Entry point: `cloudflare/worker.ts`
+- Static assets: `dist/`
+- Unknown assets: no automatic SPA fallback
+- HTML URLs: no trailing slash
+- Observability: enabled
+
+Validate configuration:
 
 ```bash
-curl -sI https://livingwitharthritis.org.uk | grep -iE 'server|x-deployment-id'
+npm run cloudflare:types
+npm run cloudflare:check
 ```
 
-Expect `server: cloudflare` and a Lovable `x-deployment-id`.
+## Initial account setup
 
-## Deploying
+This is an account-level action and cannot be completed without Cloudflare
+authentication.
 
-Pushing to `main` triggers a Lovable build through the Git sync. No GitHub
-Actions workflow is required for the site to go live.
+1. Sign in to Cloudflare and ensure `livingwitharthritis.org.uk` is in the
+   intended account.
+2. Run `npx wrangler login` locally, or authenticate the Cloudflare MCP tools.
+3. Deploy once with:
 
-`.github/workflows/deploy-to-lovable.yml` additionally calls the Lovable deploy
-API on push to `main`. It is a convenience trigger, not the primary path; if
-GitHub Actions is unavailable, Lovable still deploys from the Git sync.
+   ```bash
+   npm run deploy:cloudflare
+   ```
 
-To deploy manually:
+4. Verify the generated `workers.dev` URL before changing production DNS.
+5. In **Workers & Pages → living-with-arthritis → Settings → Domains & Routes**,
+   add `livingwitharthritis.org.uk` as a custom domain.
+6. Add `www.livingwitharthritis.org.uk` if it should resolve separately.
+7. Remove the old custom-domain attachment only after the Cloudflare deployment
+   passes the checks below.
 
-1. Open the [Lovable project](https://lovable.dev/projects/0b2fd6ca-4e21-4ac7-99fa-d741e996f45e)
-2. Click **Publish**
-3. Wait for the build to finish
-4. Verify https://livingwitharthritis.org.uk
+## Automatic Git deployments
 
-## Environment variables
+Use Cloudflare Workers Builds rather than GitHub Actions:
 
-### Frontend build (Lovable project settings)
+1. Open **Workers & Pages → living-with-arthritis → Settings → Builds**.
+2. Connect `Louis-Maxwell/livingwitharthritis`.
+3. Production branch: `main`.
+4. Build command: `npm run build:cloudflare`.
+5. Deploy command: `npx wrangler deploy`.
+6. Build root: repository root.
+7. Add the build variables below.
 
-Client-side values only. Anything prefixed `VITE_` is shipped to the browser.
+The Worker name in Cloudflare must exactly match `name` in `wrangler.jsonc`.
+Cloudflare's Git integration deploys independently of GitHub Actions billing.
 
-```
+## Build environment variables
+
+Anything prefixed `VITE_` is shipped to the browser.
+
+```text
 VITE_SUPABASE_PROJECT_ID=eswdtpmknwjxtvkyxvmi
 VITE_SUPABASE_URL=https://eswdtpmknwjxtvkyxvmi.supabase.co
 VITE_SUPABASE_PUBLISHABLE_KEY=<publishable key>
@@ -62,129 +101,102 @@ VITE_SENTRY_DSN=<sentry dsn>
 VITE_GA4_PRIMARY_ID=G-<id>
 ```
 
-Sentry source-map upload additionally needs `SENTRY_ORG`, `SENTRY_PROJECT` and
-`SENTRY_AUTH_TOKEN` at build time.
+Sentry source maps additionally need `SENTRY_ORG`, `SENTRY_PROJECT` and
+`SENTRY_AUTH_TOKEN` during the build.
 
-The sitemap generator reads `VITE_SUPABASE_URL` and
-`VITE_SUPABASE_PUBLISHABLE_KEY` during `prebuild`. Without them the build falls
-back to the checked-in canonical route inventory rather than dropping blog URLs.
+Supabase Edge Function secrets remain in Supabase; do not copy server-side
+Stripe, email, service-role or rate-limiting secrets into Cloudflare.
 
-### Server-side secrets (Supabase Edge Function secrets)
-
-Never prefix these with `VITE_`.
-
-```bash
-supabase secrets set \
-  STRIPE_SECRET_KEY=... \
-  STRIPE_WEBHOOK_SECRET=... \
-  RESEND_API_KEY=... \
-  LOVABLE_API_KEY=... \
-  CONTENT_REINDEX_TOKEN=... \
-  RATE_LIMIT_STORE=redis \
-  RATE_LIMIT_REDIS_URL=... \
-  RATE_LIMIT_REDIS_TOKEN=... \
-  RATE_LIMIT_KEY_SALT=...
-```
-
-Rate limiting fails closed in production when Redis is unreachable. See
-[`RATE-LIMITING.md`](./RATE-LIMITING.md).
-
-## Pre-deployment checks
-
-Run locally, since GitHub Actions is not guaranteed to be available:
+## Local validation
 
 ```bash
 npx tsc --noEmit -p tsconfig.app.json
 npm run lint
 npx vitest run
-npm run build:prerender
+npm run build:cloudflare
 npm run seo:prerender-meta
 npm run seo:redirects
+npm run cloudflare:check
 ```
 
-The prerender metadata gate must report zero generic pages and zero unexpected
-`noindex` pages.
-
-## Post-deployment verification
+Preview with the Worker runtime:
 
 ```bash
-# Homepage responds and is self-canonical
-curl -s https://livingwitharthritis.org.uk/ | grep -o '<link rel="canonical"[^>]*>'
+npx wrangler dev
+```
 
-# A priority article serves its own content, not the homepage shell
-curl -s https://livingwitharthritis.org.uk/blog/anti-inflammatory-diet | grep -o '<title>[^<]*</title>'
+## Production verification
 
-# Discovery files
+```bash
+# Homepage
+curl -sI https://livingwitharthritis.org.uk/
+
+# Real edge 301, including query-string preservation
+curl -sI 'https://livingwitharthritis.org.uk/blog/knee-osteoarthritis-exercises?source=test'
+
+# Real 404, not a homepage shell
+curl -sI https://livingwitharthritis.org.uk/not-a-real-page
+
+# Private client route still receives the SPA shell
+curl -sI https://livingwitharthritis.org.uk/auth
+
+# Prerendered article metadata
+curl -s https://livingwitharthritis.org.uk/blog/anti-inflammatory-diet |
+  grep -o '<title>[^<]*</title>'
+
 curl -sI https://livingwitharthritis.org.uk/robots.txt
 curl -sI https://livingwitharthritis.org.uk/sitemap.xml
 ```
 
-Then confirm:
+Expected:
 
-- Sentry is receiving events and shows no new critical issues
-- GA4 real-time traffic appears after analytics consent
-- Google Search Console shows no new coverage or canonical errors
-- Core Web Vitals remain in the good range
+- legacy redirect: `301` with one `Location`;
+- unknown path: `404` with `X-Robots-Tag: noindex, nofollow`;
+- canonical pages: `200` and route-specific metadata;
+- `/auth`: `200` SPA shell;
+- production responses include Cloudflare headers.
 
 ## Rollback
 
-### Via Lovable
+```bash
+npx wrangler versions list
+npx wrangler rollback
+```
 
-1. Open the Lovable project
-2. Select a previous successful deployment
-3. Republish it
+Or select a previous deployment in the Cloudflare dashboard.
 
-### Via Git
+If a code rollback is required:
 
 ```bash
 git revert <commit>
 git push origin main
 ```
 
-Lovable rebuilds from `main`.
-
-### Environment variable rollback
-
-Correct the value in Lovable project settings (frontend) or with
-`supabase secrets set` (server side), then redeploy.
-
-## Monitoring cadence
-
-**Daily** — Sentry errors, GA4 traffic, rate limiting violation logs.
-
-**Weekly** — Search Console performance and coverage, Core Web Vitals, Supabase
-query performance.
-
-**Monthly** — SEO audit, dependency and security review, cost review across
-Supabase, Lovable and Sentry.
-
 ## Troubleshooting
 
-**Build fails.** Check the Lovable build log. Reproduce locally with
-`npm run build:prerender`. Confirm build-time environment variables are set.
+**Wrangler is not authenticated.** Run `npx wrangler login` or set a scoped
+Cloudflare API token in the deployment environment.
 
-**Pages serve homepage content.** The prerender step did not produce per-route
-HTML. Run `npm run seo:prerender-meta` against the build output and confirm
-Chromium is available during the build.
+**Build fails.** Run `npm run build` locally and verify Cloudflare build
+variables.
 
-**Unknown URLs return HTTP 200.** This is a known limitation of the current
-managed hosting, documented in [`seo/remaining-risks.md`](./seo/remaining-risks.md).
-It needs a hosting-level fix, not a prerender change.
+**A valid public route returns 404.** Confirm it appears in
+`src/data/prerender-routes.generated.json` or
+`src/data/blog-slugs.generated.json`, then rebuild.
 
-**Edge Function errors.** Check Supabase Edge Function logs, verify secrets, and
-run `npm run preflight:functions` locally (requires Deno).
+**A private route returns 404.** Add only the exact route or protected prefix to
+`SPA_SHELL_PATHS` in `cloudflare/routing.ts`. Do not enable a global SPA
+fallback.
 
-**Analytics missing.** GA4 loads only after analytics consent. Verify
-`VITE_GA4_PRIMARY_ID` and check for CSP blocking in the browser console.
+**Redirect is missing.** Add the source/target to `src/data/blogRedirects.ts`.
+The Worker imports that map directly.
+
+**Edge Function errors.** Those run on Supabase, not the frontend Worker. Check
+Supabase logs and secrets.
 
 ## Resources
 
-- [Lovable documentation](https://docs.lovable.dev)
+- [Cloudflare Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/)
+- [Workers Static Assets](https://developers.cloudflare.com/workers/static-assets/)
+- [Wrangler](https://developers.cloudflare.com/workers/wrangler/)
 - [Supabase production checklist](https://supabase.com/docs/guides/deployment/going-into-prod)
-- [Sentry releases](https://docs.sentry.io/product/releases/)
-
-## Support
-
-- Lovable: support@lovable.dev
-- Supabase: community forums or Pro support
-- Sentry: https://sentry.io/support/

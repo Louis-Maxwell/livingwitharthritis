@@ -20,7 +20,7 @@ Living With Arthritis had critical SEO issues:
 | Phase | Status | Effort | Impact |
 |-------|--------|--------|--------|
 | **Phase 1** | ✅ COMPLETE | 4-6 hours | Optimized highest-value page, documented hosting requirements |
-| **Phase 2** | ⏳ QUEUED | 4-6 hours | Hosting: 301 redirects, 404 status codes (DevOps) |
+| **Phase 2** | 🟡 READY TO DEPLOY | Account action | Cloudflare Worker: 301 redirects and real 404 status |
 | **Phase 3** | ✅ COMPLETE | 15+ hours | Content strategy, 24-priority audit, team handoffs |
 | **Phase 4-9** | 📋 PLANNED | 30-40 hours | Topic clusters, optimizations, testing, final validation |
 
@@ -62,40 +62,35 @@ Living With Arthritis had critical SEO issues:
 - `SEO-REMEDIATION.md` — 30 KB hosting team handoff document
 
 ### Next Step
-**DevOps Team:** Implement hosting-layer redirect and 404 changes (Phase 2)
+**Cloudflare account owner:** Authenticate, deploy and attach the production
+domain to complete Phase 2.
 
 ---
 
-## PHASE 2: HOSTING LAYER CONFIGURATION ⏳ QUEUED
+## PHASE 2: CLOUDFLARE EDGE CONFIGURATION 🟡 READY TO DEPLOY
 
-### What Needs to Be Done (DevOps)
+### Implemented in the repository
 
-**1. Implement 301 Redirects**
-```json
-{
-  "redirects": [
-    {
-      "source": "/blog/knee-arthritis-exercises-uk",
-      "destination": "/blog/knee-osteoarthritis-exercises",
-      "permanent": true
-    },
-    {
-      "source": "/blog/knee-exercises-arthritis",
-      "destination": "/blog/knee-osteoarthritis-exercises",
-      "permanent": true
-    }
-  ]
-}
-```
+- `wrangler.jsonc` deploys the prerendered build as Worker Static Assets.
+- `cloudflare/worker.ts` returns HTTP 301 for every source in
+  `BLOG_SLUG_REDIRECTS`.
+- The redirect destination for the knee cluster is
+  `/blog/knee-arthritis-exercises-uk`.
+- Unknown URLs receive `public/404.html` with HTTP 404 and a noindex header.
+- Only known private client routes receive the SPA shell.
 
-**2. Implement 404 Status Codes**
-- Currently: Unmatched URLs return HTTP 200 (SPA shell)
-- Required: Return proper HTTP 404 for unknown URLs
-- Solution: an edge/proxy layer that can emit a real 404 status
+### Remaining account actions
 
-**3. Test & Monitor**
+1. Authenticate Wrangler or the Cloudflare MCP connection.
+2. Deploy `living-with-arthritis`.
+3. Validate the `workers.dev` URL.
+4. Attach `livingwitharthritis.org.uk` as a custom domain.
+5. Connect Cloudflare Workers Builds to the GitHub repository.
+
+### Test & monitor
+
 - Verify redirects return HTTP 301 (not 307 or 308)
-- Test with curl: `curl -I https://livingwitharthritis.org.uk/blog/knee-arthritis-exercises-uk`
+- Test with curl: `curl -I https://livingwitharthritis.org.uk/blog/knee-osteoarthritis-exercises`
 - Submit to Search Console for re-crawl
 - Monitor consolidation over 2-4 weeks
 
@@ -405,13 +400,13 @@ jobs:
 - Patterns proven
 - Minimal additional work needed
 
-### Queued (Ready to Execute)
+### Ready to deploy
 
-**Phase 2: Hosting Layer** ⏳
-- Owner: DevOps team
-- Effort: 4-6 hours
-- Timeline: Parallel with Phase 3 (start now)
-- Deliverable: hosting-layer 301 redirects + real 404 status handling
+**Phase 2: Cloudflare edge** 🟡
+- Owner: Cloudflare account owner
+- Repository configuration: complete
+- Remaining: authenticate, deploy, validate, attach custom domain and connect Git builds
+- Deliverable: Cloudflare Worker with static assets, edge 301s and real 404 handling
 
 **Phase 3 Content Updates** ⏳
 - Owner: Content team

@@ -223,14 +223,16 @@ git push origin main
 
 ### **Step 5: Deploy**
 ```bash
-# Call Lovable deploy
-mcp__claude_ai_lovable__deploy_project with project_id: 0b2fd6ca-4e21-4ac7-99fa-d741e996f45e
+# Cloudflare Workers Builds deploys main automatically.
+# Manual deployment (requires Wrangler authentication):
+npm run deploy:cloudflare
 ```
 
 ### **Step 6: Verify**
 ```bash
-# Check preview URL while build is pending
-https://id-preview--0b2fd6ca-4e21-4ac7-99fa-d741e996f45e.lovable.app
+# Check the workers.dev URL from Wrangler/Cloudflare before domain cutover,
+# then verify:
+https://livingwitharthritis.org.uk
 ```
 
 ---

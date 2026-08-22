@@ -1,18 +1,21 @@
 # Living With Arthritis SEO and Technical Remediation Plan
 
-Status: implementation plan based on the repository and production audit on 22 August 2026.
+Status: implementation plan based on the repository and production audit on 22
+August 2026. Hosting remediation is now implemented as a Cloudflare Worker and
+awaits account authentication/domain cutover.
 
 ## Architecture and content sources
 
 - Frontend: React 18, TypeScript, React Router and Tailwind CSS, built by Vite.
-- Hosting: Lovable's Cloudflare-fronted managed hosting, deployed from `main`.
+- Hosting: Cloudflare Worker with Static Assets, configured in `wrangler.jsonc`.
 - Rendering: client-side SPA plus Puppeteer prerendering during the production build.
 - Primary routes: declared in `src/App.tsx`; many condition, guide and exercise pages are React components.
 - Blog CMS: published rows in the Supabase `public.blog_articles` table, queried by slug in `src/hooks/useBlogArticles.ts`.
 - Generated content: daily tips, glossary entries, condition subpages, exercise matrices, comparisons, city pages and pet pages are generated from files under `src/data`.
 - SEO: `SeoHead`, `SeoDefaults`, `CanonicalEnforcer`, page-specific Helmet blocks, JSON-LD components and post-build scripts.
 - Discovery: `scripts/generate-sitemap.ts`, checked-in sitemap files and generated prerender route lists.
-- Deployment and checks: GitHub Actions, Lovable deploy workflow, Vitest, Playwright, Lighthouse and repository SEO scripts.
+- Deployment and checks: Cloudflare Workers Builds, Vitest, Playwright,
+  Lighthouse and repository SEO scripts.
 - Integrations: Supabase, Sentry, GA4, Stripe, Resend, Shopify, PageSpeed and Lovable APIs. Secret values remain outside source control.
 
 ## Confirmed production defects

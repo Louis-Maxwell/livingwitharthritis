@@ -154,22 +154,23 @@ describe("SEO build safety", () => {
     ).toBe(false);
   });
 
-  it("does not ship configuration for an unused hosting platform", () => {
+  it("ships only the selected Cloudflare hosting configuration", () => {
     const root = process.cwd();
 
-    // The site is built and served by Lovable behind Cloudflare. A stray
-    // platform config here would either be dead weight or, worse, install a
+    // A second platform config would be dead weight or, worse, install a
     // blanket SPA rewrite that reintroduces soft-404s.
     for (const config of [
       "vercel.json",
       "netlify.toml",
       "public/_redirects",
+      "public/_headers",
       "firebase.json",
       "staticwebapp.config.json",
     ]) {
       expect(existsSync(resolve(root, config))).toBe(false);
     }
 
-    expect(existsSync(resolve(root, "public/_headers"))).toBe(true);
+    expect(existsSync(resolve(root, "wrangler.jsonc"))).toBe(true);
+    expect(existsSync(resolve(root, "cloudflare/worker.ts"))).toBe(true);
   });
 });

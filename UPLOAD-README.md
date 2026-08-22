@@ -56,7 +56,8 @@ merging it would be a downgrade. Discard it.
 
 ## v5 additions (performance)
 - `index.html` — GA deferred out of LCP path, JSON-LD minified, duplicate font stylesheet removed.
-- `public/_headers` — immutable caching for hashed assets and images (fixes "efficient cache policy" audit).
+- `cloudflare/worker.ts` — immutable caching and production security headers
+  for static assets.
 - `PERFORMANCE-CHECKLIST.md` — what shipped, what still needs a Lovable-side change, and honest score targets.
 
 ## v6 additions (competitor gap closure)

@@ -17,18 +17,15 @@ PgBouncer is a lightweight connection pooler for PostgreSQL. Enabling it in Supa
 
 ### Environment Configuration
 
-PgBouncer is accessed via a separate connection string. Update your deployment platform:
+PgBouncer is accessed via a separate connection string. Store it only in
+trusted migration or server tooling that opens direct Postgres connections:
 
-**Lovable:** Settings > Environment Variables:
 ```
-VITE_SUPABASE_URL=https://[project-ref].supabase.co  # Regular URL (for frontend)
 DATABASE_URL=postgresql://[user]:[password]@[project-ref].pooling.supabase.co:6543/postgres
 ```
 
-**Lovable:** Project Settings > Environment Variables:
-```
-DATABASE_URL=postgresql://[user]:[password]@[project-ref].pooling.supabase.co:6543/postgres
-```
+The Cloudflare frontend Worker and browser use the Supabase HTTPS API and do
+not need `DATABASE_URL`.
 
 ## Connection String Format
 

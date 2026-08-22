@@ -58,15 +58,15 @@ Three URLs compete for the same search intent:
 
 ---
 
-## Phase 2: Hosting Configuration (REQUIRED - DevOps Task)
+## Phase 2: Cloudflare Edge Configuration
 
 ### Critical: Redirect configuration
 
-The site is hosted on Lovable behind Cloudflare. It is **not** hosted on Vercel,
-so do not add a `vercel.json`. Lovable's managed hosting does not currently
-expose repository-level path redirects, which is why these remain outstanding.
+The frontend is configured as a Cloudflare Worker with Static Assets.
+`cloudflare/worker.ts` imports `BLOG_SLUG_REDIRECTS` directly and returns
+permanent edge redirects before static asset lookup.
 
-Required behaviour, whichever platform ultimately serves the redirect:
+Required behaviour:
 
 | Source | Destination | Status |
 | --- | --- | ---: |
@@ -77,37 +77,26 @@ The canonical destination is `/blog/knee-arthritis-exercises-uk`. Earlier
 revisions of this document had the direction reversed; the application map in
 `src/data/blogRedirects.ts` and `docs/seo/redirect-map.csv` are authoritative.
 
-Every mapping in `BLOG_SLUG_REDIRECTS` needs the same treatment. The full list
+Every mapping in `BLOG_SLUG_REDIRECTS` is covered automatically. The full list
 with reasons is in `docs/seo/redirect-map.csv`.
 
 ### Critical: 404 Status Codes
 
-All unmatched URLs must return HTTP 404, not HTTP 200. The React `NotFound`
-route renders correctly but cannot change the transport status.
+`wrangler.jsonc` sets `not_found_handling` to `none`, so Cloudflare never
+applies a global SPA fallback. The Worker serves `public/404.html` with HTTP 404
+and `X-Robots-Tag: noindex, nofollow` when neither a built asset nor an explicit
+private SPA route matches.
 
-**Option A: Edge layer at the hosting provider (preferred)**
-Serve a real 404 status for any path that is neither a built route nor a static
-asset. Requires a hosting platform that exposes edge routing.
-
-**Option B: Reverse proxy in front of the origin**
-Terminate at a proxy that can distinguish known routes from unknown ones and
-emit `404` with the prerendered 404 document.
-
-**Option C: Self-hosted Nginx**
-```nginx
-error_page 404 /404.html;
-location / {
-  try_files $uri $uri/ =404;
-}
-```
-
-Do not add a blanket `/* → /index.html 200` rewrite. That is what produces the
-current soft-404 behaviour.
+Known private routes such as `/auth`, `/admin/*` and `/unsubscribe` receive the
+SPA shell explicitly. Do not enable `single-page-application` globally.
 
 ### Implementation Checklist
-- [ ] Confirm the hosting platform supports path-level 301s
-- [ ] Configure redirects for all URLs in `BLOG_SLUG_REDIRECTS`
-- [ ] Test redirects with `curl -I https://livingwitharthritis.org.uk/blog/knee-arthritis-exercises-uk`
+- [x] Configure Cloudflare Worker static asset routing
+- [x] Configure redirects for all URLs in `BLOG_SLUG_REDIRECTS`
+- [x] Add a real 404 document and Worker status handling
+- [ ] Authenticate the Cloudflare account and deploy the Worker
+- [ ] Attach `livingwitharthritis.org.uk` to the Worker
+- [ ] Test redirects with `curl -I https://livingwitharthritis.org.uk/blog/knee-osteoarthritis-exercises`
 - [ ] Verify HTTP 301 status code (not 307 or 308)
 - [ ] Deploy to staging and test
 - [ ] Submit to Search Console > URL Inspection for re-crawl
@@ -240,7 +229,7 @@ If redirects cause issues:
 ## Contacts & Approvals
 
 - **Technical SEO Owner:** Living With Arthritis Technical Team
-- **Hosting/DevOps Owner:** Lovable workspace owner
+- **Hosting/DevOps Owner:** Cloudflare account owner
 - **Content Owner:** Editorial Team
 - **Medical Review Owner:** Clinical Review Board
 

@@ -18,9 +18,8 @@ Status:     Active
 
 ### Hosting
 
-The frontend is built and served by Lovable behind Cloudflare. See
-[`PRODUCTION-DEPLOYMENT.md`](./PRODUCTION-DEPLOYMENT.md). This project does not
-use Vercel, Netlify, or any other external hosting platform.
+The frontend is deployed as a Cloudflare Worker with Static Assets. See
+[`PRODUCTION-DEPLOYMENT.md`](./PRODUCTION-DEPLOYMENT.md).
 
 ### Dependencies
 
@@ -46,7 +45,8 @@ tailwindcss:    3.4.17
 2. **Settings → Database → Connection Pooling**
 3. Toggle **on** and select **Transaction mode**
 4. Copy the pooled connection string
-5. Update `DATABASE_URL` in the Lovable project environment settings
+5. Update `DATABASE_URL` only in trusted migration/server tooling that opens a
+   direct Postgres connection. The browser and frontend Worker do not need it.
 6. Verify: `psql postgresql://...@...pooling.supabase.co:6543/postgres`
 
 See [`SUPABASE-PGBOUNCER.md`](./SUPABASE-PGBOUNCER.md) for detail.
@@ -102,7 +102,7 @@ Every new function must be registered for rate limiting — see
 ### Two-factor authentication
 
 - Supabase: https://app.supabase.com → Account settings
-- Lovable: workspace account settings
+- Cloudflare: account authentication settings
 - GitHub: https://github.com/settings/security
 
 ### Secret rotation (quarterly)
@@ -114,8 +114,7 @@ Every new function must be registered for rate limiting — see
 
 ### Transport security
 
-HTTPS and HSTS are already enforced. Response headers are configured in
-`public/_headers`.
+HTTPS and HSTS are enforced by Cloudflare and `cloudflare/worker.ts`.
 
 ---
 
@@ -134,8 +133,8 @@ data where practical.
 
 ### Caching
 
-Configure cache headers in edge functions. Static asset and sitemap caching is
-defined in `public/_headers`.
+Configure API cache headers in Supabase Edge Functions. Frontend asset and
+sitemap caching is enforced by `cloudflare/worker.ts`.
 
 ### Images
 
@@ -164,7 +163,7 @@ ANALYZE=1 npm run build   # writes dist/stats.html
 
 ### Phase 2
 
-- [ ] Enable 2FA on Supabase, Lovable and GitHub
+- [ ] Enable 2FA on Supabase, Cloudflare and GitHub
 - [ ] Test backup restore
 - [ ] Review Sentry alert routing
 
@@ -181,7 +180,7 @@ ANALYZE=1 npm run build   # writes dist/stats.html
 | Service | Plan | Cost |
 | --- | --- | ---: |
 | Supabase | Free | $0 |
-| Lovable hosting | Per workspace plan | Varies |
+| Cloudflare Workers | Free or Paid | Per Cloudflare plan |
 | Sentry | Free | $0 |
 | Google Analytics | Free | $0 |
 
@@ -201,7 +200,7 @@ $29/month.
 
 **Hosting**
 
-- [ ] Latest Lovable deployment is live
+- [ ] Latest Cloudflare Worker deployment is live
 - [ ] Custom domain resolves over HTTPS
 - [ ] Sentry receiving events
 - [ ] GA4 receiving pageviews after consent
@@ -222,5 +221,5 @@ $29/month.
 ## Support
 
 - Supabase: https://supabase.com/support
-- Lovable: support@lovable.dev
+- Cloudflare: https://support.cloudflare.com
 - Sentry: https://sentry.io/support
