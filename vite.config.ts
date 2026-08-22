@@ -55,6 +55,12 @@ export default defineConfig(({ mode }) => ({
         renderer: "@prerenderer/renderer-puppeteer",
         rendererOptions: {
           renderAfterDocumentEvent: "prerender-ready",
+          // Must stay above the app's own 30s readiness fallback (see
+          // AppWithSync in src/App.tsx). With the renderer's 30s default the
+          // two deadlines race, and a single slow route fails the whole
+          // build instead of snapshotting whatever metadata it has — which
+          // the prerender meta check then judges on its merits.
+          timeout: 60_000,
           // Dynamic blog/city routes query Supabase while rendering. Keeping
           // concurrency low avoids API throttling that otherwise freezes a
           // random subset of snapshots on their loading skeleton.
