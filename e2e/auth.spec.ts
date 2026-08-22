@@ -56,8 +56,13 @@ test.describe("Authentication Flow", () => {
 
     await signUpLink.click();
 
-    // Should now show sign-up related UI
-    const signInLink = page.getByText(/sign in|already have an account/i);
-    await expect(signInLink).toBeVisible({ timeout: 5000 });
+    await expect(page.getByRole("link", { name: /already have an account/i })).toBeVisible({
+      timeout: 5000,
+    });
+  });
+
+  test("should offer Google sign-in", async ({ page }) => {
+    await page.goto("/auth");
+    await expect(page.getByRole("button", { name: /google/i })).toBeVisible({ timeout: 10000 });
   });
 });

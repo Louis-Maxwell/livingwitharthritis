@@ -210,8 +210,8 @@ export default function AuthPage() {
                   label: 'auth-label',
                 },
               }}
-              providers={[]}
-              redirectTo={`${window.location.origin}${nextPath}`}
+              providers={["google"]}
+              redirectTo={`${window.location.origin}/auth?next=${encodeURIComponent(nextPath)}`}
             />
 
             <p className="mt-6 text-xs text-muted-foreground text-center leading-relaxed">

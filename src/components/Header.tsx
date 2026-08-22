@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback, lazy, Suspense, type MouseEvent, type KeyboardEvent } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, ShoppingBag, HandHeart, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Sparkles, Globe, Search } from "lucide-react";
+import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, ShoppingBag, HandHeart, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Sparkles, Globe, Search, LogIn } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
@@ -471,11 +471,19 @@ const Header = () => {
 
                 {/* Persistent Donate button — charity red, matches Ways to Help pill style */}
                 <Link
-                  to="/zakat-appeal"
+                  to="/donate"
                   className="ms-3 group relative inline-flex items-center gap-1.5 px-5 py-2 text-[13px] font-bold rounded-full bg-destructive text-destructive-foreground border border-destructive/80 hover:bg-destructive/90 hover:shadow-md hover:shadow-destructive/25 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
                 >
                   <Heart className="w-3.5 h-3.5 fill-background/30 transition-transform duration-300 group-hover:scale-110" />
                   Donate Now
+                </Link>
+
+                <Link
+                  to="/auth"
+                  className="ms-3 inline-flex items-center gap-1.5 text-[12px] font-semibold text-muted-foreground hover:text-primary underline-offset-4 hover:underline transition-colors duration-200"
+                >
+                  <LogIn className="w-3.5 h-3.5" aria-hidden="true" />
+                  Sign in
                 </Link>
 
                 {/* Ways to Help — demoted to a quiet text link to avoid competing with primary Donate CTA */}
@@ -598,6 +606,17 @@ const Header = () => {
               >
                 <MessageCircle className="w-4 h-4 mr-2" />
                 Start a chat
+              </Button>
+              <Button
+                variant="outline"
+                className="w-full h-12 rounded-full text-xs font-semibold"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  navigate("/auth");
+                }}
+              >
+                <LogIn className="w-3.5 h-3.5 mr-2" />
+                Sign in with Google
               </Button>
               <Button
                 variant="outline"
