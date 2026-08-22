@@ -72,14 +72,14 @@ export default class extends WorkerEntrypoint<Env> {
       }
 
       if (shouldServeSpaShell(pathname)) {
-        const shellUrl = new URL("/index.html", url);
+        const shellUrl = new URL("/", url);
         const shellResponse = await this.env.ASSETS.fetch(
           new Request(shellUrl, request),
         );
         return withProductionHeaders(shellResponse, pathname);
       }
 
-      const notFoundUrl = new URL("/404.html", url);
+      const notFoundUrl = new URL("/404", url);
       const notFoundResponse = await this.env.ASSETS.fetch(
         new Request(notFoundUrl, request),
       );

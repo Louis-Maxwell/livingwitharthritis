@@ -51,7 +51,8 @@ describe("Cloudflare routing", () => {
     expect(config.name).toBe("living-with-arthritis");
     expect(config.assets.directory).toBe("./dist");
     expect(config.assets.not_found_handling).toBe("none");
-    expect(config.assets.run_worker_first).toBe(true);
+    expect(config.assets.run_worker_first).toContain("/*");
+    expect(config.assets.run_worker_first).toContain("!/assets/*");
     expect(existsSync(resolve(root, "public/404.html"))).toBe(true);
   });
 });
