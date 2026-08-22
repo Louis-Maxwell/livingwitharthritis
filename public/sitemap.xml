@@ -4668,122 +4668,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/category/expert-q-a</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/category/exercises</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/category/symptoms</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/exercise</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/category/family-relationships</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/category/surgery-recovery</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/category/finances-benefits</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/category/work-career</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/category/prevention-longevity</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/category/treatment-guides</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/category/supplements</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/category/exercise-guides</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/category/travel</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/category/social-leisure</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/category/weather-season</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/category/sleep</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/category/mental-health</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/category/older-adults</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/category/frailty</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/category/treatments</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/category/young-adults</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/category/inflammatory</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/category/diet</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/category/living-well</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -4793,7 +4678,17 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/category/conditions</loc>
+    <loc>https://livingwitharthritis.org.uk/blog/category/frailty</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/blog/category/supplements</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/blog/category/mental-health</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
