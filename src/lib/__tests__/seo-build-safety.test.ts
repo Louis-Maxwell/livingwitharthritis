@@ -14,6 +14,10 @@ import {
   GENERIC_HOME_TITLE,
   isPrerenderDocumentReady,
 } from "@/lib/prerenderReady";
+import {
+  BLOG_CATEGORY_KEYS,
+  canonicalBlogCategoryKey,
+} from "@/data/blogCategories";
 
 describe("SEO build safety", () => {
   it("blocks unexplained canonical blog inventory loss above five percent", () => {
@@ -108,6 +112,16 @@ describe("SEO build safety", () => {
     );
 
     expect(sitemapSource).toContain('p.startsWith("/blog/category/")');
+  });
+
+  it("consolidates database category variants onto canonical hubs", () => {
+    expect(canonicalBlogCategoryKey("Exercise Guides")).toBe("exercise");
+    expect(canonicalBlogCategoryKey("Treatments")).toBe("treatment");
+    expect(canonicalBlogCategoryKey("Family & Relationships")).toBe(
+      "lifestyle",
+    );
+    expect(canonicalBlogCategoryKey("Expert Q&A")).toBe("health");
+    expect(new Set(BLOG_CATEGORY_KEYS).size).toBe(BLOG_CATEGORY_KEYS.length);
   });
 
   it("falls back to the active production Supabase project", () => {

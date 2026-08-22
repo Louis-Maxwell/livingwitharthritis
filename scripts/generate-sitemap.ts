@@ -11,6 +11,10 @@ import {
   isValidCitySupportRoute,
 } from "../src/lib/seoBuildSafety";
 import { PUBLIC_SUPABASE_DEFAULTS } from "../src/integrations/supabase/publicDefaults";
+import {
+  BLOG_CATEGORY_KEYS,
+  canonicalBlogCategoryKey,
+} from "../src/data/blogCategories";
 
 const BASE_URL = "https://livingwitharthritis.org.uk";
 
@@ -223,13 +227,16 @@ function checkedInBlogPosts(): BlogPostEntry[] {
 function previousBlogCategoryPaths(): string[] {
   try {
     const xml = read("public/sitemap.xml");
+    const validPaths = new Set(
+      BLOG_CATEGORY_KEYS.map((key) => `/blog/category/${key}`),
+    );
     return [
       ...new Set(
         [...xml.matchAll(/<loc>https?:\/\/[^/]+(\/blog\/category\/[^<]+)<\/loc>/g)].map(
           (match) => match[1],
         ),
       ),
-    ];
+    ].filter((path) => validPaths.has(path));
   } catch {
     return [];
   }
@@ -399,11 +406,13 @@ async function main() {
   const cats = new Set<string>();
   for (const p of posts) {
     entries.push({ path: `/blog/${p.slug}`, lastmod: p.lastmod });
-    if (p.category) cats.add(p.category);
+    if (p.category) {
+      const category = canonicalBlogCategoryKey(p.category);
+      if (category) cats.add(category);
+    }
   }
   for (const cat of cats) {
-    const slug = cat.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-    if (slug) entries.push({ path: `/blog/category/${slug}` });
+    entries.push({ path: `/blog/category/${cat}` });
   }
   if (blogInventory.source === "checked-in-fallback") {
     for (const path of previousBlogCategoryPaths()) entries.push({ path });
