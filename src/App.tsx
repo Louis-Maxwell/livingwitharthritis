@@ -496,7 +496,7 @@ function AppWithSync() {
   // settled and document.head is ready to be snapshotted into static HTML.
   useEffect(() => {
     const startedAt = Date.now();
-    const maxWaitMs = 12_000;
+    const maxWaitMs = 30_000;
     let interval: number | undefined;
 
     const fire = () => {

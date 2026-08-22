@@ -55,7 +55,10 @@ export default defineConfig(({ mode }) => ({
         renderer: "@prerenderer/renderer-puppeteer",
         rendererOptions: {
           renderAfterDocumentEvent: "prerender-ready",
-          maxConcurrentRoutes: 4,
+          // Dynamic blog/city routes query Supabase while rendering. Keeping
+          // concurrency low avoids API throttling that otherwise freezes a
+          // random subset of snapshots on their loading skeleton.
+          maxConcurrentRoutes: 2,
           headless: true,
           // react-helmet-async flushes title/meta changes inside a
           // requestAnimationFrame. Chromium throttles rAF in backgrounded /
