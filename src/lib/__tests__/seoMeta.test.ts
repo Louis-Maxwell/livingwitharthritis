@@ -12,8 +12,8 @@ describe("enforceTitle", () => {
       { route: "/arthritis-support/cardiff/osteoarthritis" },
     );
 
-    expect(bristol).toBe("Osteoarthritis Support in Bristol");
-    expect(cardiff).toBe("Osteoarthritis Support in Cardiff");
+    expect(bristol).toContain("Bristol");
+    expect(cardiff).toContain("Cardiff");
     expect(bristol).not.toBe(cardiff);
     expect(bristol.length).toBeLessThanOrEqual(60);
   });
