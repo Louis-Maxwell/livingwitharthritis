@@ -181,7 +181,7 @@ function previousBlogLastmods(): Map<string, string> {
   return lastmods;
 }
 
-function checkedInBlogPosts(): BlogPostEntry[] {
+function checkedInBlogSlugs(): string[] {
   let slugs: unknown;
   try {
     slugs = JSON.parse(read("src/data/blog-slugs.generated.json"));
@@ -189,15 +189,32 @@ function checkedInBlogPosts(): BlogPostEntry[] {
     slugs = [];
   }
   const redirects = blogRedirectSlugs();
-  const lastmods = previousBlogLastmods();
   return (Array.isArray(slugs) ? slugs : [])
     .filter(
       (slug): slug is string =>
         typeof slug === "string" &&
         BLOG_SLUG_PATTERN.test(slug) &&
         !redirects.has(slug),
-    )
-    .map((slug) => ({ slug, lastmod: lastmods.get(slug) }));
+    );
+}
+
+function checkedInBlogPosts(): BlogPostEntry[] {
+  const slugs = checkedInBlogSlugs();
+  const allowed = new Set(slugs);
+  const fromSitemap: BlogPostEntry[] = [];
+  try {
+    const xml = read("public/sitemap.xml");
+    for (const match of xml.matchAll(/<url>\s*<loc>https?:\/\/[^/]+\/blog\/([^<]+)<\/loc>\s*<lastmod>([^<]+)<\/lastmod>[\s\S]*?<\/url>/g)) {
+      if (allowed.has(match[1])) {
+        fromSitemap.push({ slug: match[1], lastmod: match[2] });
+      }
+    }
+  } catch {
+    // Fall through to the generated slug snapshot below.
+  }
+  if (fromSitemap.length === slugs.length) return fromSitemap;
+  const lastmods = previousBlogLastmods();
+  return slugs.map((slug) => ({ slug, lastmod: lastmods.get(slug) }));
 }
 
 function previousBlogCategoryPaths(): string[] {
@@ -430,9 +447,12 @@ async function main() {
   // Also emit a slug list for the prerender pipeline. Sorted newest-first by
   // lastmod so `PRERENDER_LIMIT` can trim to the freshest N without missing
   // recently-published posts. Consumed by scripts/prerender-routes.mjs.
-  const slugList = [...posts]
-    .sort((a, b) => (b.lastmod ?? "").localeCompare(a.lastmod ?? ""))
-    .map((p) => p.slug);
+  const slugList =
+    blogInventory.source === "checked-in-fallback"
+      ? checkedInBlogSlugs()
+      : [...posts]
+          .sort((a, b) => (b.lastmod ?? "").localeCompare(a.lastmod ?? ""))
+          .map((p) => p.slug);
   writeFileSync(
     resolve("src/data/blog-slugs.generated.json"),
     JSON.stringify(slugList, null, 2) + "\n",
