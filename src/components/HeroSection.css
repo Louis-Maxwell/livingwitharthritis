@@ -1,8 +1,10 @@
 /* CSS-only stagger animation — replaces framer-motion for critical-path Hero */
 .hero-stagger .hero-item {
-  opacity: 0;
-  transform: translateY(24px);
-  animation: heroFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  /* Opacity-only fade: translating the hero copy was contributing to layout
+     shift on first paint. The H1 stays fully visible for LCP. */
+  opacity: 1;
+  transform: none;
+  animation: none;
 }
 
 .hero-stagger .hero-item:first-child {

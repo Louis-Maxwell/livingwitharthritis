@@ -1,0 +1,37 @@
+# Netlify redirects. First matching rule wins.
+# Do not add a catch-all `/* /index.html 200` rule — that recreates soft 404s.
+
+# Legacy blog URLs → canonical articles (HTTP 301)
+/blog/knee-osteoarthritis-exercises /blog/knee-arthritis-exercises-uk 301
+/blog/knee-exercises-arthritis /blog/knee-arthritis-exercises-uk 301
+/blog/nhs-arthritis-exercises /blog/arthritis-exercises-uk-clinical 301
+/blog/nhs-rheumatology-waiting-times-uk /blog/rheumatology-waiting-times-uk 301
+/blog/food-supplements-for-joint-pain /blog/best-supplements-joint-pain 301
+/blog/arthritis-medication-uk /blog/arthritis-medication-guide 301
+/blog/arthritis-and-weight-management-uk /blog/weight-management-arthritis-evidence 301
+/blog/swimming-for-arthritis-uk /blog/swimming-for-arthritis 301
+/blog/turmeric-for-arthritis-uk /blog/turmeric-for-arthritis 301
+/blog/mindfulness-meditation-chronic-pain /blog/mindfulness-chronic-pain-arthritis-guide 301
+/blog/vitamin-d-arthritis-uk-risk /blog/vitamin-d-arthritis-uk 301
+/blog/arthritis-and-cold-weather-uk /blog/cold-weather-arthritis-uk-winter 301
+/blog/cold-weather-and-arthritis /blog/cold-weather-arthritis-uk-winter 301
+/blog/arthritis-and-sleep-uk /blog/how-to-sleep-with-arthritis-uk 301
+/blog/glucosamine-vs-collagen-arthritis /blog/glucosamine-vs-collagen 301
+/blog/hand-arthritis-exercises-uk /blog/hand-exercises-for-arthritis 301
+/blog/arthritis-and-mental-health /blog/arthritis-and-mental-health-uk 301
+/blog/arthritis-diet-myths-debunked /blog/arthritis-and-diet-myths-uk 301
+/blog/arthritis-fatigue-management /blog/arthritis-fatigue-management-uk 301
+
+# Signed-in and utility screens that are not prerendered as static files.
+# These are listed one-by-one so unknown public URLs still hit 404.html.
+/auth /index.html 200
+/chat /index.html 200
+/admin/* /index.html 200
+/donation-result /index.html 200
+/donation-result/* /index.html 200
+/unsubscribe /index.html 200
+/.lovable/oauth/consent /index.html 200
+/debug/* /index.html 200
+/callback /index.html 200
+/checkout /index.html 200
+/dashboard /index.html 200

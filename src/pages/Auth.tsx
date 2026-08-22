@@ -69,9 +69,9 @@ export default function AuthPage() {
           <p className="text-xs uppercase tracking-[0.18em] text-primary font-semibold">
             Living With Arthritis UK · Member access
           </p>
-          <h1 className="font-display text-3xl font-bold text-foreground leading-tight">
+          <p className="font-display text-3xl font-bold text-foreground leading-tight">
             Your free, private arthritis support account
-          </h1>
+          </p>
           <p className="text-muted-foreground leading-relaxed">
             Creating a Living With Arthritis account unlocks the virtual
             physiotherapy assistant, your personalised exercise plan, diet
@@ -157,7 +157,7 @@ export default function AuthPage() {
                 transition={{ delay: 0.3 }}
                 className="text-muted-foreground"
               >
-                Sign in to access the virtual physiotherapy assistant
+                Sign in with Google or email to access the virtual physiotherapy assistant
               </motion.p>
             </div>
 
@@ -210,8 +210,8 @@ export default function AuthPage() {
                   label: 'auth-label',
                 },
               }}
-              providers={[]}
-              redirectTo={`${window.location.origin}${nextPath}`}
+              providers={["google"]}
+              redirectTo={`${window.location.origin}/auth?next=${encodeURIComponent(nextPath)}`}
             />
 
             <p className="mt-6 text-xs text-muted-foreground text-center leading-relaxed">

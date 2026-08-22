@@ -1,0 +1,13 @@
+# Netlify publish config for Living With Arthritis UK.
+# Connecting this GitHub repo in Netlify is still a dashboard step;
+# this file does not by itself create a live URL.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Redirects live in public/_redirects so they ship inside the published folder
+# and stay in lockstep with docs/seo/redirect-map.csv (see scripts/check-redirects.mjs).

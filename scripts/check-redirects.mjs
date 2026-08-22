@@ -5,6 +5,7 @@ const SITE = "https://livingwitharthritis.org.uk";
 const redirectSource = readFileSync("src/data/blogRedirects.ts", "utf8");
 const sitemap = readFileSync("public/sitemap.xml", "utf8");
 const csv = readFileSync("docs/seo/redirect-map.csv", "utf8");
+const netlifyRedirects = readFileSync("public/_redirects", "utf8");
 
 const redirects = new Map(
   [...redirectSource.matchAll(/^\s*"([^"]+)"\s*:\s*"([^"]+)",?\s*$/gm)].map(
@@ -44,12 +45,22 @@ for (const [from, to] of redirects) {
   if (csvRedirects.get(from) !== to) {
     failures.push(`${from}: missing or inconsistent docs/seo/redirect-map.csv row`);
   }
+  const netlifyRule = `/blog/${from} /blog/${to} 301`;
+  if (!netlifyRedirects.includes(netlifyRule)) {
+    failures.push(`${from}: missing Netlify 301 in public/_redirects`);
+  }
 }
 
 for (const [from, to] of csvRedirects) {
   if (redirects.get(from) !== to) {
     failures.push(`${from}: documented redirect is not implemented (${to})`);
   }
+}
+
+if (/^\s*\/\*\s+\/index\.html\s+200/m.test(netlifyRedirects)) {
+  failures.push(
+    "public/_redirects has a catch-all SPA rewrite; that recreates soft 404s",
+  );
 }
 
 console.log(`Redirect audit: ${redirects.size} mappings checked`);

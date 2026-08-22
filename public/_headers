@@ -54,6 +54,19 @@
 /llms*.txt
   Cache-Control: public, max-age=86400
 
+# Signed-in and result URLs should not be indexed if a host serves the SPA shell.
+/auth
+  X-Robots-Tag: noindex, nofollow
+
+/admin/*
+  X-Robots-Tag: noindex, nofollow
+
+/donation-result
+  X-Robots-Tag: noindex, nofollow
+
+/donation-result/*
+  X-Robots-Tag: noindex, nofollow
+
 # HTML must revalidate so users see new deploys.
 /*
   Cache-Control: public, max-age=0, must-revalidate

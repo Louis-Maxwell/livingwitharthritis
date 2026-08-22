@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SeoHead from '@/components/SeoHead';
+import AeoEnhancement from '@/components/seo/AeoEnhancement';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
 
 /**
@@ -53,6 +54,12 @@ export default function LivingWithArthritis() {
       <h1 className="text-4xl md:text-5xl font-bold mb-6">
         Living With Arthritis: A Complete Guide
       </h1>
+
+      <AeoEnhancement
+        route="/living-with-arthritis"
+        question="What does living with arthritis involve in the UK?"
+        answer="Living with arthritis means managing joint pain, stiffness and fatigue over the long term, without giving up work, movement or independence. In the UK, self-management usually combines gentle exercise, weight control, medication when needed, and support from your GP or rheumatology team. This guide covers symptoms, daily routines, work, benefits and where to get help."
+      />
 
       <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
         Arthritis affects 10 million people in the UK. It's a long-term condition,

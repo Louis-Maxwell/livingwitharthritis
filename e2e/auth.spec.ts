@@ -6,7 +6,7 @@ test.describe("Authentication Flow", () => {
     
     // Should show welcome heading
     await expect(page.getByText("Welcome Back")).toBeVisible();
-    await expect(page.getByText("Sign in to access the virtual physiotherapy assistant")).toBeVisible();
+    await expect(page.getByText(/Sign in with Google or email/i)).toBeVisible();
   });
 
   test("should show email and password input fields", async ({ page }) => {

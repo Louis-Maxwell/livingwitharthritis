@@ -141,6 +141,28 @@ describe("SEO build safety", () => {
     expect(indexHtml).not.toContain("/openverse/hero-couple-800.webp");
     expect(indexHtml).toContain("https://eswdtpmknwjxtvkyxvmi.supabase.co");
     expect(indexHtml).not.toContain("https://zrvcejlncpndjfyuvcrd.supabase.co");
+    expect(indexHtml).toContain("Oswestry, Shropshire, United Kingdom");
+    expect(indexHtml).not.toContain("London, United Kingdom");
+    expect(indexHtml).not.toContain("51.5074");
+  });
+
+  it("keeps Google sign-in on the member login page", () => {
+    const authSource = readFileSync(
+      resolve(process.cwd(), "src/pages/Auth.tsx"),
+      "utf8",
+    );
+    expect(authSource).toContain('providers={["google"]}');
+  });
+
+  it("does not ship a catch-all Netlify SPA rewrite", () => {
+    const redirects = readFileSync(
+      resolve(process.cwd(), "public/_redirects"),
+      "utf8",
+    );
+    expect(redirects).not.toMatch(/^\s*\/\*\s+\/index\.html\s+200/m);
+    expect(redirects).toContain(
+      "/blog/knee-osteoarthritis-exercises /blog/knee-arthritis-exercises-uk 301",
+    );
   });
 
   it("falls back to the active production Supabase project", () => {
