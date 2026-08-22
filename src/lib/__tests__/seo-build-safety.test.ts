@@ -1,7 +1,7 @@
+/// <reference types="node" />
 import { readFileSync } from "node:fs";
-import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
-import { assertSafeBlogInventory } from "../../../scripts/generate-sitemap";
+import { assertSafeBlogInventory } from "@/lib/seoBuildSafety";
 import {
   SUPABASE_PROJECT_ID,
   SUPABASE_URL,
@@ -12,13 +12,13 @@ describe("SEO build safety", () => {
     expect(() => assertSafeBlogInventory(237, 224, false)).toThrow(
       /refusing to reduce canonical blog inventory/,
     );
-    expect(() => assertSafeBlogInventory(237, 225, false)).not.toThrow();
+    expect(() => assertSafeBlogInventory(237, 226, false)).not.toThrow();
     expect(() => assertSafeBlogInventory(237, 0, true)).not.toThrow();
   });
 
   it("does not prerender invalid regional routes that navigate over the homepage", () => {
     const source = readFileSync(
-      resolve(process.cwd(), "scripts/prerender-routes.mjs"),
+      new URL("../../../scripts/prerender-routes.mjs", import.meta.url),
       "utf8",
     );
 

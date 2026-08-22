@@ -6,6 +6,7 @@
 
 import { writeFileSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { assertSafeBlogInventory } from "../src/lib/seoBuildSafety";
 
 const BASE_URL = "https://livingwitharthritis.org.uk";
 
@@ -214,21 +215,6 @@ function previousBlogCategoryPaths(): string[] {
   }
 }
 
-export function assertSafeBlogInventory(
-  previousCount: number,
-  nextCount: number,
-  allowLoss = process.env.ALLOW_SITEMAP_URL_LOSS === "1",
-): void {
-  if (allowLoss || previousCount < 20) return;
-  const minimum = Math.ceil(previousCount * 0.95);
-  if (nextCount < minimum) {
-    throw new Error(
-      `[sitemap] refusing to reduce canonical blog inventory from ${previousCount} to ${nextCount} ` +
-        `(minimum ${minimum}). Investigate the data source or set ALLOW_SITEMAP_URL_LOSS=1 after manual review.`,
-    );
-  }
-}
-
 function checkedInBlogFallback(reason: string): BlogInventory {
   const posts = checkedInBlogPosts();
   if (posts.length === 0) {
@@ -277,7 +263,11 @@ async function blogPosts(): Promise<BlogInventory> {
         lastmod: r.updated_at?.slice(0, 10),
         category: r.category,
       }));
-    assertSafeBlogInventory(checkedInBlogPosts().length, posts.length);
+    assertSafeBlogInventory(
+      checkedInBlogPosts().length,
+      posts.length,
+      process.env.ALLOW_SITEMAP_URL_LOSS === "1",
+    );
     return { posts, source: "supabase" };
   } catch (e) {
     if (
