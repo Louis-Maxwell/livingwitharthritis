@@ -40,8 +40,8 @@ export default function GlossaryTerm() {
   const entry = getGlossaryEntry(slug);
   const label = entry?.label ?? prettify(slug);
   const description =
-    entry?.short ??
-    `${label}: a plain-English definition of this arthritis / rheumatology term for UK patients.`;
+    entry?.short?.trim() ||
+    `${label}: a plain-English definition of this arthritis or rheumatology term for UK patients.`;
 
   const relatedSlugs =
     entry?.related?.filter((s) => GLOSSARY_CONTENT[s]) ??
@@ -106,7 +106,7 @@ export default function GlossaryTerm() {
             updatedAt={LAST_REVIEWED_ISO}
           />
           <p className="text-xs text-muted-foreground mb-6">
-            Last reviewed{" "}
+            Page updated{" "}
             <time dateTime={LAST_REVIEWED_ISO} className="font-medium text-foreground/80">
               {LAST_REVIEWED_LABEL}
             </time>
