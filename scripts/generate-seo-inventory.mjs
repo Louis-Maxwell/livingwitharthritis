@@ -25,6 +25,7 @@ const decode = (value = "") =>
     .replace(/&amp;/g, "&")
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g, "'")
+    .replace(/&#x27;/gi, "'")
     .replace(/&lt;/g, "<")
     .replace(/&gt;/g, ">")
     .replace(/\s+/g, " ")
@@ -34,8 +35,7 @@ const textOf = (html, pattern) =>
 const tagAttribute = (html, tagPattern, attribute) => {
   const tag = html.match(tagPattern)?.[0] ?? "";
   return decode(
-    tag.match(new RegExp(`\\b${attribute}=["']([^"']*)["']`, "i"))?.[1] ??
-      "",
+    tag.match(new RegExp(`\\b${attribute}=(["'])(.*?)\\1`, "i"))?.[2] ?? "",
   );
 };
 const meta = (html, attr, value) =>
