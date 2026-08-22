@@ -1,5 +1,9 @@
 #!/usr/bin/env node
 import { readFileSync } from "node:fs";
+import {
+  buildRedirectsFile,
+  parseBlogRedirects,
+} from "./netlify-redirects.mjs";
 
 const SITE = "https://livingwitharthritis.org.uk";
 const redirectSource = readFileSync("src/data/blogRedirects.ts", "utf8");
@@ -50,6 +54,18 @@ for (const [from, to] of csvRedirects) {
   if (redirects.get(from) !== to) {
     failures.push(`${from}: documented redirect is not implemented (${to})`);
   }
+}
+
+const expectedNetlify = buildRedirectsFile(parseBlogRedirects(redirectSource));
+const actualNetlify = readFileSync("public/_redirects", "utf8");
+if (actualNetlify !== expectedNetlify) {
+  failures.push("public/_redirects is stale; run node scripts/generate-netlify-redirects.mjs");
+}
+if (!actualNetlify.includes("/blog/knee-osteoarthritis-exercises /blog/knee-arthritis-exercises-uk 301")) {
+  failures.push("knee osteoarthritis slug is missing a Netlify 301");
+}
+if (/^\/\* \/index\.html 200$/m.test(actualNetlify)) {
+  failures.push("catch-all SPA 200 would hide genuine 404s");
 }
 
 console.log(`Redirect audit: ${redirects.size} mappings checked`);

@@ -283,6 +283,26 @@ export const PAGE_AEO: Record<string, AeoPage> = {
     answer:
       "Combine aerobic (walking, swimming, cycling) with strength training 2-3 times a week and flexibility work. NICE guideline NG226 recommends exercise as first-line for all arthritis types — with pain reduction comparable to NSAIDs and no side effects.",
   }),
+  "/donate": {
+    question: "How do I donate to Living With Arthritis UK?",
+    answer:
+      "You can give a one-off or monthly donation on this page by card through Stripe. UK taxpayers can add Gift Aid in the donation form so HMRC adds 25p for every £1 at no extra cost to you. Living With Arthritis is a registered charity in England and Wales (number 1218461).",
+    faqs: [
+      {
+        q: "Is my donation secure?",
+        a: "Card payments are processed by Stripe. We do not store full card numbers on our own servers.",
+      },
+      {
+        q: "What is Gift Aid?",
+        a: "If you are a UK taxpayer, ticking Gift Aid lets us reclaim 25p from HMRC for every £1 you give. You must have paid enough UK tax to cover the amount we reclaim.",
+      },
+      {
+        q: "Can I give monthly?",
+        a: "Yes. Choose Monthly, pick an amount, and you can cancel later through the confirmation email or by contacting us.",
+      },
+    ],
+    updatedAt: "2026-08-22",
+  },
 };
 
 /** Look up AEO data for a route. Returns undefined if not configured. */

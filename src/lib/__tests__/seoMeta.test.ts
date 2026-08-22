@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { enforceTitle } from "@/lib/seoMeta";
 
 describe("enforceTitle", () => {
-  it("drops branding before truncating the unique page title", () => {
+  it("keeps unique page titles when branding still fits the 60-character limit", () => {
     const bristol = enforceTitle(
       "Osteoarthritis Support in Bristol",
       { route: "/arthritis-support/bristol/osteoarthritis" },
@@ -12,8 +12,12 @@ describe("enforceTitle", () => {
       { route: "/arthritis-support/cardiff/osteoarthritis" },
     );
 
-    expect(bristol).toBe("Osteoarthritis Support in Bristol");
-    expect(cardiff).toBe("Osteoarthritis Support in Cardiff");
+    expect(bristol).toBe(
+      "Osteoarthritis Support in Bristol | Living With Arthritis UK",
+    );
+    expect(cardiff).toBe(
+      "Osteoarthritis Support in Cardiff | Living With Arthritis UK",
+    );
     expect(bristol).not.toBe(cardiff);
     expect(bristol.length).toBeLessThanOrEqual(60);
   });

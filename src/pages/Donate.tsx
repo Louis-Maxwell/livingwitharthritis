@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
 import StripeDonationModal from "@/components/StripeDonationModal";
 import CharityRegBadge from "@/components/CharityRegBadge";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import { buildCharitySchema, injectJsonLd } from "@/lib/jsonLd";
 import { CHARITY } from "@/config/charity";
 
@@ -45,7 +46,7 @@ const WAYS_TO_GIVE = [
     title: "One-Off Donation",
     desc: "Make a single gift to support our work",
     action: "Donate Now",
-    href: "/zakat-appeal",
+    href: "#give",
     color: "text-primary bg-primary/10",
   },
   {
@@ -77,7 +78,7 @@ const WAYS_TO_GIVE = [
     title: "Gift Aid",
     desc: "UK taxpayers can boost their donation by 25% at no extra cost",
     action: "Learn about Gift Aid",
-    href: "/zakat-appeal",
+    href: "#gift-aid",
     color: "text-primary bg-primary/10",
   },
   {
@@ -92,6 +93,14 @@ const WAYS_TO_GIVE = [
 
 export default function Donate() {
   useEffect(() => injectJsonLd("ld-charity-donate", buildCharitySchema()), []);
+  useEffect(() => {
+    const id = window.location.hash.replace("#", "");
+    if (!id) return;
+    const timer = window.setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 50);
+    return () => window.clearTimeout(timer);
+  }, []);
   const navigate = useNavigate();
   const [frequency, setFrequency] = useState<"one-time" | "monthly">("one-time");
   const [selectedAmount, setSelectedAmount] = useState<number>(50);
@@ -116,9 +125,10 @@ export default function Donate() {
     <>
       <Helmet>
         <title>Donate to {CHARITY.shortName}</title>
+        <link rel="canonical" href={`${CHARITY.siteUrl}/donate`} />
         <meta name="description" content={`Support ${CHARITY.shortName}: Donate to fund free arthritis education, research & community support. Help others manage arthritis better.`} />
         <meta name="keywords" content="donate to arthritis charity, arthritis charity, arthritis foundation, arthritis research, arthritis helpline, fundraising ideas for health charity, arthritis events, arthritis advocacy, financial help for arthritis patients, joint pain charity, arthritis support, arthritis awareness, volunteer for charity" />
-      <meta property="og:title" content="Donate to Arthritis Support UK: Fund Free Physio, Diet & Help" />
+      <meta property="og:title" content={`Donate to ${CHARITY.shortName}`} />
       <meta property="og:description" content={`Support ${CHARITY.shortName}: Donate to fund free arthritis education, research & community support. Help others manage arthritis better.`} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={`${CHARITY.siteUrl}/donate`} />
@@ -129,7 +139,7 @@ export default function Donate() {
       <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Donate | Living With Arthritis UK" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Donate to Arthritis Support UK: Fund Free Physio, Diet & Help" />
+      <meta name="twitter:title" content={`Donate to ${CHARITY.shortName}`} />
       <meta name="twitter:description" content={`Support ${CHARITY.shortName}: Donate to fund free arthritis education, research & community support. Help others manage arthritis better.`} />
       <meta name="twitter:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
     </Helmet>
@@ -146,8 +156,9 @@ export default function Donate() {
               Help us keep arthritis support{" "}
               <span className="text-gradient italic">free for everyone</span>
             </h1>
+            <AeoEnhancement route="/donate" />
             <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-8">
-              Your generosity funds free virtual physiotherapy, evidence-based diet plans, online health support and community programmes for over 10,000 people across the UK living with arthritis.
+              Your generosity funds free virtual physiotherapy, evidence-based diet plans, online health support and community programmes for people across the UK living with arthritis.
             </p>
             <Button
               size="lg"
@@ -306,7 +317,15 @@ export default function Donate() {
                     <Button
                       variant="outline"
                       size="sm"
-                      onClick={() => navigate(way.href)}
+                      onClick={() => {
+                        if (way.href.startsWith("#")) {
+                          document
+                            .getElementById(way.href.slice(1))
+                            ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                          return;
+                        }
+                        navigate(way.href);
+                      }}
                       className="rounded-full text-xs font-semibold"
                     >
                       {way.action}
@@ -333,7 +352,7 @@ export default function Donate() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
-            <div className="bg-card rounded-2xl border border-border/30 p-6">
+            <div id="gift-aid" className="bg-card rounded-2xl border border-border/30 p-6 scroll-mt-24">
               <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
                 <Gift className="w-5 h-5" />
               </div>

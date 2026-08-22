@@ -153,4 +153,24 @@ describe("SEO build safety", () => {
       isPrerenderDocumentReady(document, "/blog/anti-inflammatory-diet"),
     ).toBe(false);
   });
+
+  it("offers Google sign-in on the member page", () => {
+    const authSource = readFileSync(
+      resolve(process.cwd(), "src/pages/Auth.tsx"),
+      "utf8",
+    );
+
+    expect(authSource).toContain('providers={["google"]}');
+    expect(authSource).toContain("/auth?next=");
+  });
+
+  it("keeps redirected blog slugs out of the prerender list", () => {
+    const source = readFileSync(
+      resolve(process.cwd(), "scripts/prerender-routes.mjs"),
+      "utf8",
+    );
+
+    expect(source).toContain("isRedirectedBlog");
+    expect(source).toContain("blogRedirectSlugs");
+  });
 });

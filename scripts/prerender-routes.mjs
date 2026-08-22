@@ -147,10 +147,34 @@ function loadGeneratedList(relPath) {
   }
 }
 
+function blogRedirectSlugs() {
+  try {
+    const redirectSrc = readFileSync(
+      resolve(process.cwd(), "src/data/blogRedirects.ts"),
+      "utf8",
+    );
+    return new Set(
+      [...redirectSrc.matchAll(/^\s*"([^"]+)"\s*:\s*"([^"]+)",?\s*$/gm)].map(
+        (match) => match[1],
+      ),
+    );
+  } catch {
+    return new Set();
+  }
+}
+
+const redirectSlugs = blogRedirectSlugs();
+const isRedirectedBlog = (path) => {
+  const slug = path.match(/^\/blog\/([^/]+)$/)?.[1];
+  return Boolean(slug && redirectSlugs.has(slug));
+};
+
 const rawLimit = Number(process.env.PRERENDER_LIMIT || 0);
 const blogSlugs = loadGeneratedList("src/data/blog-slugs.generated.json");
 const trimmedBlogSlugs = rawLimit > 0 ? blogSlugs.slice(0, rawLimit) : blogSlugs;
-const blogRoutes = trimmedBlogSlugs.map((s) => `/blog/${s}`);
+const blogRoutes = trimmedBlogSlugs
+  .filter((slug) => !redirectSlugs.has(slug))
+  .map((s) => `/blog/${s}`);
 
 // Every other route the sitemap generator discovered: static App.tsx routes,
 // the city/condition/exercise/glossary/comparison/pet combinatorial
@@ -159,8 +183,10 @@ const blogRoutes = trimmedBlogSlugs.map((s) => `/blog/${s}`);
 const otherRoutes = loadGeneratedList("src/data/prerender-routes.generated.json");
 
 // Deduplicate. Curated wins if a slug is also hard-coded above.
-const seen = new Set(CURATED);
-for (const r of otherRoutes) seen.add(r);
+const seen = new Set(CURATED.filter((path) => !isRedirectedBlog(path)));
+for (const r of otherRoutes) {
+  if (!isRedirectedBlog(r)) seen.add(r);
+}
 for (const r of blogRoutes) seen.add(r);
 
 // Hard cap so the published output can never approach the hosting limits
