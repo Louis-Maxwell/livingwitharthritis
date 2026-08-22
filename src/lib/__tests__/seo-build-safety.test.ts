@@ -80,6 +80,27 @@ describe("SEO build safety", () => {
     expect(regionSource).not.toContain("+44 20 1234 5678");
   });
 
+  it("keeps the knee consolidation destination evidence-led", () => {
+    const kneeSource = readFileSync(
+      resolve(
+        process.cwd(),
+        "src/pages/blog/KneeOsteoarthritisExercises.tsx",
+      ),
+      "utf8",
+    );
+
+    expect(kneeSource).toContain(
+      "Knee Arthritis Exercises: Safe Exercises for Pain, Strength & Mobility",
+    );
+    expect(kneeSource).toContain("https://www.nice.org.uk/guidance/ng226");
+    expect(kneeSource).toContain(
+      "https://www.nhs.uk/conditions/osteoarthritis/treatment/",
+    );
+    expect(kneeSource).not.toContain("reduce stress on the knee joint by 20–40%");
+    expect(kneeSource).not.toContain("Buoyancy reduces joint stress by 80%");
+    expect(kneeSource).not.toContain("Often eases pain within 1–2 sessions");
+  });
+
   it("falls back to the active production Supabase project", () => {
     expect(SUPABASE_PROJECT_ID).toBe("eswdtpmknwjxtvkyxvmi");
     expect(SUPABASE_URL).toBe(

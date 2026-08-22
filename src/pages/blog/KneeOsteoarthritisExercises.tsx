@@ -27,22 +27,22 @@ const tier1Exercises = [
   {
     title: 'Quadriceps Strengthening (Straight-Leg Raises)',
     description:
-      'Sitting in a chair, straighten one leg out in front of you. Hold for 2–3 seconds. Lower slowly without touching the ground. Repeat 10–15 times, 2–3 times daily.',
-    why: 'Strong quads reduce stress on the knee joint by 20–40%. This is the single best home exercise for knee OA.',
+      'Sit in a sturdy chair and slowly straighten one leg to a comfortable position. Hold briefly, then lower with control. Start with a few repetitions and build up if symptoms remain manageable.',
+    why: 'Strengthening the muscles around the knee can support the joint and improve pain and function.',
     difficulty: 'Beginner',
   },
   {
     title: 'Swimming or Water Aerobics',
     description:
-      '30 minutes at a comfortable pace, 2–3 times weekly. Any stroke works — front crawl, breast stroke, or just walking in the pool.',
-    why: 'Buoyancy reduces joint stress by 80%. Resistance builds strength without pain. Often eases pain within 1–2 sessions.',
+      'Try comfortable swimming or walking in the pool. Begin with a short session and increase the duration gradually.',
+    why: 'Water supports body weight while providing resistance, which can make movement more comfortable for some people.',
     difficulty: 'Beginner to intermediate',
   },
   {
     title: 'Walking (Modified)',
     description:
-      'Flat surfaces, 20–30 minutes at a comfortable pace, most days of the week. Avoid hills and stairs initially.',
-    why: 'Maintains cardiovascular health, mobility and muscle engagement. Low-impact nature minimises joint strain.',
+      'Begin with a short walk on a route you feel confident using. Increase time or distance gradually and use a walking aid if one has been recommended for you.',
+    why: 'Regular walking supports cardiovascular health, mobility and leg strength.',
     difficulty: 'Beginner',
   },
 ];
@@ -50,73 +50,73 @@ const tier1Exercises = [
 const tier2Exercises = [
   {
     title: 'Hamstring Curls',
-    description: 'Lying on your back, bend one knee, then straighten. Repeat 12–15 times.',
+    description: 'Standing with support, bend one knee as far as is comfortable, then lower slowly.',
     why: 'Strengthens the hamstring, which supports the back of the knee.',
   },
   {
     title: 'Calf Raises',
-    description: 'Standing, slowly rise up onto your toes, then lower. Repeat 15–20 times.',
+    description: 'Holding a stable surface, slowly rise onto your toes, then lower with control.',
     why: 'Improves calf strength and ankle mobility.',
   },
   {
     title: 'Step-Ups (Low Step)',
     description:
-      'Using a low step (2–4 inches), step up slowly with one leg, then down. Repeat 10–12 times per side.',
+      'Using a low, stable step and a handrail or support, step up and down slowly. Stop if the movement feels unsafe.',
     why: 'Builds functional leg strength needed for stairs and daily activity.',
   },
   {
     title: 'Wall Squats',
     description:
-      'Back against a wall, slide down until your knees are at a 90-degree angle. Hold 5–10 seconds, then slide back up.',
-    why: 'Strengthens quads and glutes in a controlled, joint-friendly way.',
+      'With your back against a wall, slide down only as far as is comfortable, then return to standing. A shallow bend is enough to begin.',
+    why: 'Strengthens the thigh and hip muscles in a controlled position.',
   },
 ];
 
-const avoidExercises = [
-  'High-impact running or jogging',
-  'Deep squats or full lunges',
-  'Heavy leg presses',
-  'Jumping movements (plyometrics)',
-  'Kneeling on a hard floor for extended periods',
+const exercisesToModify = [
+  'High-impact activity that repeatedly causes a marked increase in pain or swelling',
+  'Deep or heavily loaded squats and lunges before you have built sufficient strength',
+  'Heavy resistance exercises performed without appropriate technique or supervision',
+  'Jumping movements if balance, pain or joint stability is a concern',
+  'Prolonged kneeling when it aggravates symptoms',
 ];
 
 const faqs = [
   {
     q: 'How often should I exercise with knee arthritis?',
-    a: 'Aim for 3–4 exercise sessions per week, with at least one rest day between sessions. Consistency is more important than duration. Start with 10–15 minute sessions and build gradually.',
+    a: 'A tailored plan matters more than a fixed number. Begin with short, manageable sessions and increase gradually. Strengthening is often spread across the week with recovery time between harder sessions; a physiotherapist can personalise the frequency.',
   },
   {
     q: 'Should knee arthritis pain stop me from exercising?',
-    a: 'Mild discomfort during or shortly after exercise is normal and expected. Sharp, severe pain is a sign to stop immediately. Pain that persists for hours after exercise suggests you have overdone it. Work with a physiotherapist to find the right intensity.',
+    a: 'Some temporary discomfort can occur when you start. Reduce or stop an exercise if pain is sharp, severe or clearly worsening. Seek professional advice if symptoms do not settle, swelling increases, or you are unsure how much activity is appropriate.',
   },
   {
     q: 'How long before I notice improvement?',
-    a: 'Pain often begins to ease within 2–4 weeks of consistent exercise. Significant improvement typically takes 8–12 weeks. Some people notice relief within days if they also improve their diet and reduce weight.',
+    a: 'Improvement is gradual and varies from person to person. Give a suitable programme time to work, increase it progressively, and ask a physiotherapist or GP for advice if pain or function is getting worse rather than better.',
   },
   {
     q: 'Can I exercise if my knee is swollen?',
-    a: 'Mild swelling is okay to exercise through, though ice after and elevation help. If the swelling is significant or hot to the touch, rest for 1–2 days and consult your GP. Once the acute swelling settles, resume gentle exercise.',
+    a: 'Reduce the intensity if activity makes swelling worse. A newly hot, red or very swollen joint, especially with fever or feeling unwell, needs prompt medical advice rather than an exercise session.',
   },
   {
     q: 'What if I do not have access to a swimming pool?',
-    a: 'Walking, stationary cycling, and recumbent bikes are excellent low-impact alternatives. Even chair-based leg exercises provide meaningful benefit if done consistently.',
+    a: 'Walking, cycling and chair-based strengthening are possible alternatives. Choose an activity that is safe and accessible for you and build it up gradually.',
   },
   {
     q: 'Should I wear a knee brace while exercising?',
-    a: 'A brace can provide confidence and reduce pain during exercise for some people, but do not rely on it long-term — your muscles need to do the work. Use a brace to build confidence initially, then gradually reduce reliance as strength improves.',
+    a: 'Some people find a brace helpful, but the right type and fit depend on the person and the knee problem. Ask a physiotherapist or other clinician before buying one, particularly if it changes your walking or causes pressure on the skin.',
   },
 ];
 
 const articleJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'MedicalWebPage',
-  headline: 'Knee Arthritis Exercises: Safe, Effective Routines for Pain Relief and Mobility',
+  headline: 'Knee Arthritis Exercises: Safe Exercises for Pain, Strength & Mobility',
   description:
-    'Evidence-based exercises for knee arthritis pain relief and strength. Low-impact, home-friendly routines (quadriceps, swimming, walking) reviewed by an HCPC-registered physiotherapist.',
+    'A practical guide to strengthening, mobility and low-impact activity for knee arthritis, with safety advice and links to NHS and NICE information.',
   inLanguage: 'en-GB',
   image: heroImage,
   datePublished: '2026-06-21',
-  dateModified: '2026-06-21',
+  dateModified: '2026-08-22',
   author: {
     '@type': 'Person',
     name: 'Maxwell',
@@ -170,7 +170,7 @@ const howToJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'HowTo',
   name: 'How to Do Quadriceps Strengthening for Knee Arthritis',
-  description: 'Step-by-step guide to the most effective home exercise for knee OA.',
+  description: 'Step-by-step guide to a seated knee-strengthening exercise.',
   step: [
     {
       '@type': 'HowToStep',
@@ -194,7 +194,7 @@ const howToJsonLd = {
       '@type': 'HowToStep',
       position: 4,
       name: 'Lower slowly',
-      text: 'Lower the leg slowly without letting it touch the ground. Repeat 10–15 times.',
+      text: 'Lower the leg slowly with control. Begin with a few repetitions and build up gradually.',
     },
   ],
 };
@@ -214,8 +214,8 @@ export default function KneeOsteoarthritisExercises() {
   return (
     <div className="min-h-screen bg-background">
       <SeoHead
-        title="Knee Arthritis Exercises: Safe Exercises for Pain, Strength & Mobility | Living With Arthritis UK"
-        description="Evidence-based knee arthritis exercises for pain relief and strength. Low-impact routines including quadriceps strengthening, swimming, and walks. Reviewed by HCPC physiotherapist."
+        title="Knee Arthritis Exercises: Safe Exercises for Pain, Strength & Mobility"
+        description="Knee arthritis exercises for strength and mobility, including seated leg raises, walking and water exercise, with practical safety advice."
         path={PATH}
         type="article"
         keywords="knee arthritis exercises, exercises for knee arthritis, knee osteoarthritis exercises, exercises for arthritic knees, knee exercises for arthritis, knee OA exercises, knee strengthening exercises, knee stretches for arthritis"
@@ -240,10 +240,11 @@ export default function KneeOsteoarthritisExercises() {
             </Badge>
           </div>
           <h1 className="font-display text-4xl md:text-5xl font-bold tracking-tight mb-4">
-            Knee Arthritis Exercises: Safe, Effective Routines for Pain Relief and Mobility
+            Knee Arthritis Exercises: Safe Exercises for Pain, Strength &amp; Mobility
           </h1>
           <p className="text-xl text-muted-foreground mb-6">
-            Evidence-based exercises to reduce knee pain, improve strength, and maintain function. Tier 1 (most effective) and Tier 2 (additional strength) routines, reviewed by an HCPC-registered physiotherapist with credentials.
+            A practical introduction to strengthening, mobility and low-impact
+            activity, with guidance on adapting exercise when symptoms change.
           </p>
           <div className="flex flex-wrap gap-3">
             <Button asChild>
@@ -272,7 +273,11 @@ export default function KneeOsteoarthritisExercises() {
             question="What are the best exercises for knee arthritis?"
             reviewed="2026-06-21"
           >
-            Knee arthritis (osteoarthritis or OA) is wear-and-tear damage to knee cartilage that causes pain, stiffness and reduced mobility. Exercise is one of the most effective treatments, alongside weight management and an anti-inflammatory diet. Low-impact activities like swimming and walking, combined with targeted strengthening for the quadriceps and hamstrings, reduce pain and improve function in most people. Mild discomfort during or shortly after exercise is normal; sharp pain is a sign to stop. Most people benefit from 3–4 exercise sessions per week with adequate rest days between.
+            Regular, tailored exercise is a core treatment for knee
+            osteoarthritis. Strengthening the muscles around the knee and
+            choosing manageable aerobic activity can improve pain and function.
+            Start gradually, adapt movements to your ability, and seek advice if
+            exercise causes severe or worsening symptoms.
           </AnswerBox>
         </div>
       </section>
@@ -300,10 +305,11 @@ export default function KneeOsteoarthritisExercises() {
               <Zap className="h-3 w-3 mr-1 inline" /> Tier 1
             </Badge>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              Most effective exercises
+              Core exercises to consider
             </h2>
             <p className="text-lg text-muted-foreground">
-              Start here. These three have the strongest evidence for reducing knee OA pain.
+              These options cover strengthening and low-impact aerobic activity.
+              Choose a manageable starting point rather than doing all three at once.
             </p>
           </div>
           <div className="space-y-8">
@@ -368,15 +374,17 @@ export default function KneeOsteoarthritisExercises() {
               <AlertCircle className="h-3 w-3 mr-1 inline" /> Avoid
             </Badge>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              Exercises to avoid
+              Exercises to modify when needed
             </h2>
             <p className="text-lg text-muted-foreground">
-              These put too much stress on the knee joint and typically increase pain.
+              No single exercise is unsuitable for everyone. Modify or pause
+              movements that repeatedly worsen symptoms, and get professional
+              advice when balance, technique or joint stability is a concern.
             </p>
           </div>
           <Card className="p-8 border-2 border-destructive/20 bg-destructive/5">
             <ul className="space-y-3">
-              {avoidExercises.map((ex) => (
+              {exercisesToModify.map((ex) => (
                 <li key={ex} className="flex items-start gap-3">
                   <div className="h-2 w-2 rounded-full bg-destructive mt-2 shrink-0" />
                   <span className="text-base">{ex}</span>
@@ -401,6 +409,45 @@ export default function KneeOsteoarthritisExercises() {
               </Card>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="py-12 bg-background" aria-labelledby="sources-heading">
+        <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
+          <h2
+            id="sources-heading"
+            className="font-display text-2xl md:text-3xl font-bold tracking-tight mb-5"
+          >
+            Sources and further guidance
+          </h2>
+          <ul className="space-y-3 text-base">
+            <li>
+              <a
+                href="https://www.nice.org.uk/guidance/ng226"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary underline underline-offset-2"
+              >
+                NICE NG226: Osteoarthritis in over 16s — diagnosis and management
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.nhs.uk/conditions/osteoarthritis/treatment/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary underline underline-offset-2"
+              >
+                NHS: Osteoarthritis treatment
+              </a>
+            </li>
+          </ul>
+          <p className="mt-5 text-sm text-muted-foreground">
+            This guide provides general information and cannot assess an
+            individual knee. A physiotherapist or GP can help tailor exercise
+            when symptoms, balance or other health conditions make activity
+            difficult.
+          </p>
         </div>
       </section>
 
