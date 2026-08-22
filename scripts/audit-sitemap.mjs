@@ -2,13 +2,16 @@
 // Flags: non-2xx, redirects, homepage fallbacks, missing/wrong canonicals, or
 // HTML that looks like the NotFound page. Writes audit-sitemap-report.json.
 //
-// Usage: node scripts/audit-sitemap.mjs [base-url] [concurrency] [output-path]
+// Usage: node scripts/audit-sitemap.mjs [fetch-base] [concurrency] [output-path]
+//                                       [canonical-base]
 
 import { readFileSync, writeFileSync } from "node:fs";
 
 const BASE = process.argv[2] || "https://livingwitharthritis.org.uk";
 const CONCURRENCY = Number(process.argv[3]) || 16;
 const OUTPUT = process.argv[4] || "audit-sitemap-report.json";
+const CANONICAL_BASE =
+  process.argv[5] || "https://livingwitharthritis.org.uk";
 const TIMEOUT_MS = 12_000;
 
 const xml = readFileSync("public/sitemap.xml", "utf8");
@@ -83,7 +86,7 @@ async function checkOne(url) {
       };
     }
     const canonical = canonicalOf(head);
-    const expectedCanonical = `${BASE}${path}`;
+    const expectedCanonical = `${CANONICAL_BASE}${path}`;
     if (!canonical) {
       return { url: path, status: 200, reason: "missing-canonical" };
     }
