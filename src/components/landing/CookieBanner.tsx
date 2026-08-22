@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Lock } from "lucide-react";
 
 interface CookieBannerProps {
-  onAnalyticsChange: (enabled: boolean) => void;
+  onAnalyticsChange?: (enabled: boolean) => void;
 }
 
 const CookieBanner = memo(({ onAnalyticsChange }: CookieBannerProps) => {
@@ -13,9 +13,15 @@ const CookieBanner = memo(({ onAnalyticsChange }: CookieBannerProps) => {
 
   const save = (vals: typeof local) => {
     localStorage.setItem("lwa_cv3", JSON.stringify(vals));
-    onAnalyticsChange(vals.a);
+    // Single source of truth for the analytics loaders in index.html.
+    localStorage.setItem("cookie-consent", vals.a ? "accepted" : "declined");
+    if (vals.a) {
+      window.dispatchEvent(new Event("cookie-consent-accepted"));
+    }
+    onAnalyticsChange?.(vals.a);
     setShow(false);
   };
+
 
   if (!show) return null;
 
