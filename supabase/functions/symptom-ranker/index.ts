@@ -67,7 +67,7 @@ Deno.serve(withEndpointRateLimit("symptom-ranker", async (req) => {
       });
     }
     for (const [key, allowed] of Object.entries(ALLOWED)) {
-      const val = (answers as Record<string, unknown>)[key];
+      const val = (answers as unknown as Record<string, unknown>)[key];
       if (typeof val !== "string" || !allowed.includes(val)) {
         return new Response(JSON.stringify({ error: `Invalid value for ${key}` }), {
           status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" },
