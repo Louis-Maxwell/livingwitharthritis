@@ -33,8 +33,8 @@ const OAHero = memo(() => {
 
             <p className="hero-item mt-8 text-lg lg:text-xl max-w-xl leading-relaxed">
               Millions of people across the UK live with arthritis pain and stiffness.
-              Living With Arthritis provides clinically-reviewed guidance, exercise plans and
-              nutrition support — free, for everyone.
+              Living With Arthritis provides practical guidance, exercise ideas and
+              nutrition information — free, for everyone.
             </p>
 
             <div className="hero-item mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
@@ -52,20 +52,20 @@ const OAHero = memo(() => {
             </div>
 
             <ul
-              aria-label="Clinical alignment"
+              aria-label="About our information"
               className="hero-item mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.18em]"
             >
               <li className="flex items-center gap-2">
                 <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-white" />
-                HCPC-registered physiotherapists
+                UK-focused information
               </li>
               <li className="flex items-center gap-2">
                 <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-white" />
-                CSP members
+                Free to access
               </li>
               <li className="flex items-center gap-2">
                 <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-white" />
-                Aligned with NICE guidance
+                Transparent editorial standards
               </li>
             </ul>
 
@@ -82,7 +82,7 @@ const OAHero = memo(() => {
               className="hero-item mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm"
             >
               <span className="font-semibold">Popular:</span>
-              <a href="/conditions/knee-arthritis" className="font-semibold underline underline-offset-4 hover:no-underline">Knee exercises</a>
+              <a href="/blog/knee-arthritis-exercises-uk" className="font-semibold underline underline-offset-4 hover:no-underline">Knee exercises</a>
               <span aria-hidden="true" className="opacity-50">·</span>
               <a href="/diet" className="font-semibold underline underline-offset-4 hover:no-underline">Anti-inflammatory diet</a>
               <span aria-hidden="true" className="opacity-50">·</span>

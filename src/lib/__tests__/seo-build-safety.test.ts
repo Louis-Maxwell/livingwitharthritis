@@ -124,6 +124,25 @@ describe("SEO build safety", () => {
     expect(new Set(BLOG_CATEGORY_KEYS).size).toBe(BLOG_CATEGORY_KEYS.length);
   });
 
+  it("keeps the homepage preload and API preconnect in sync", () => {
+    const indexHtml = readFileSync(
+      resolve(process.cwd(), "index.html"),
+      "utf8",
+    );
+    const heroSource = readFileSync(
+      resolve(process.cwd(), "src/components/landing/OAHero.tsx"),
+      "utf8",
+    );
+
+    expect(indexHtml).toContain("/openverse/hero-friends-800.webp");
+    expect(heroSource).toContain(
+      'const HERO_IMG = "/openverse/hero-friends-800.webp"',
+    );
+    expect(indexHtml).not.toContain("/openverse/hero-couple-800.webp");
+    expect(indexHtml).toContain("https://eswdtpmknwjxtvkyxvmi.supabase.co");
+    expect(indexHtml).not.toContain("https://zrvcejlncpndjfyuvcrd.supabase.co");
+  });
+
   it("falls back to the active production Supabase project", () => {
     expect(SUPABASE_PROJECT_ID).toBe("eswdtpmknwjxtvkyxvmi");
     expect(SUPABASE_URL).toBe(
