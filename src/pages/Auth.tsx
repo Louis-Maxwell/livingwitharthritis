@@ -210,7 +210,7 @@ export default function AuthPage() {
                   label: 'auth-label',
                 },
               }}
-              providers={[]}
+              providers={["google"]}
               redirectTo={`${window.location.origin}${nextPath}`}
             />
 

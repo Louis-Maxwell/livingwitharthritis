@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -15,9 +15,19 @@ import {
 } from "@/data/healthTopics";
 
 const Library = () => {
-  const [query, setQuery] = useState("");
+  const [params, setParams] = useSearchParams();
+  const [query, setQuery] = useState(() => params.get("q") ?? "");
   const [activeCategory, setActiveCategory] =
     useState<HealthTopicCategory | "All">("All");
+
+  const onQueryChange = (value: string) => {
+    setQuery(value);
+    const next = new URLSearchParams(params);
+    const trimmed = value.trim();
+    if (trimmed) next.set("q", trimmed);
+    else next.delete("q");
+    setParams(next, { replace: true });
+  };
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -103,7 +113,7 @@ const Library = () => {
             <Input
               type="search"
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e) => onQueryChange(e.target.value)}
               placeholder="Search the library — e.g. naproxen, turmeric, plantar fasciitis"
               className="h-14 ps-12 text-base"
               aria-label="Search the health library"

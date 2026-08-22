@@ -32,7 +32,7 @@ Report the count and the top 10 shortest slugs before proceeding.
 For each slug in the audit result:
 
 1. Fetch full row (`content`, `title`, `category`, `meta_description`).
-2. Call the Lovable AI gateway via `/tmp/lovable_ai.py` (see `knowledge://skill/ai-gateway`) with model `openai/gpt-5.4-mini` and the system + user prompts in `scripts/expand-one.md`.
+2. Expand the article **in Cursor** using `scripts/expand-one.md`. Do **not** call the Lovable AI gateway or `/tmp/lovable_ai.py` (those burn Lovable credits). Use a small-capable model; one article per call.
 3. Validate the returned markdown: word count must be **1,400–1,700**. If short, re-prompt once asking to extend to 1,500 words. If still short, skip and log to `/tmp/blog-expansion/_failed.txt`.
 4. Stage each rewrite as `/tmp/blog-expansion/<slug>.md`.
 

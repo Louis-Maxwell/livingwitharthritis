@@ -1,0 +1,99 @@
+{
+  "redirects": [
+    {
+      "source": "/blog/nhs-arthritis-exercises",
+      "destination": "/blog/arthritis-exercises-uk-clinical",
+      "permanent": true
+    },
+    {
+      "source": "/blog/nhs-rheumatology-waiting-times-uk",
+      "destination": "/blog/rheumatology-waiting-times-uk",
+      "permanent": true
+    },
+    {
+      "source": "/blog/knee-osteoarthritis-exercises",
+      "destination": "/blog/knee-arthritis-exercises-uk",
+      "permanent": true
+    },
+    {
+      "source": "/blog/knee-exercises-arthritis",
+      "destination": "/blog/knee-arthritis-exercises-uk",
+      "permanent": true
+    },
+    {
+      "source": "/blog/food-supplements-for-joint-pain",
+      "destination": "/blog/best-supplements-joint-pain",
+      "permanent": true
+    },
+    {
+      "source": "/blog/arthritis-medication-uk",
+      "destination": "/blog/arthritis-medication-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/arthritis-and-weight-management-uk",
+      "destination": "/blog/weight-management-arthritis-evidence",
+      "permanent": true
+    },
+    {
+      "source": "/blog/swimming-for-arthritis-uk",
+      "destination": "/blog/swimming-for-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/blog/turmeric-for-arthritis-uk",
+      "destination": "/blog/turmeric-for-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/blog/mindfulness-meditation-chronic-pain",
+      "destination": "/blog/mindfulness-chronic-pain-arthritis-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/vitamin-d-arthritis-uk-risk",
+      "destination": "/blog/vitamin-d-arthritis-uk",
+      "permanent": true
+    },
+    {
+      "source": "/blog/arthritis-and-cold-weather-uk",
+      "destination": "/blog/cold-weather-arthritis-uk-winter",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cold-weather-and-arthritis",
+      "destination": "/blog/cold-weather-arthritis-uk-winter",
+      "permanent": true
+    },
+    {
+      "source": "/blog/arthritis-and-sleep-uk",
+      "destination": "/blog/how-to-sleep-with-arthritis-uk",
+      "permanent": true
+    },
+    {
+      "source": "/blog/glucosamine-vs-collagen-arthritis",
+      "destination": "/blog/glucosamine-vs-collagen",
+      "permanent": true
+    },
+    {
+      "source": "/blog/hand-arthritis-exercises-uk",
+      "destination": "/blog/hand-exercises-for-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/blog/arthritis-and-mental-health",
+      "destination": "/blog/arthritis-and-mental-health-uk",
+      "permanent": true
+    },
+    {
+      "source": "/blog/arthritis-diet-myths-debunked",
+      "destination": "/blog/arthritis-and-diet-myths-uk",
+      "permanent": true
+    },
+    {
+      "source": "/blog/arthritis-fatigue-management",
+      "destination": "/blog/arthritis-fatigue-management-uk",
+      "permanent": true
+    }
+  ]
+}

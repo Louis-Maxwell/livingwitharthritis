@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Page not found | Living With Arthritis UK</title>
+    <meta
+      name="description"
+      content="That page is missing. Search the library, read a popular guide, or donate to Living With Arthritis UK."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="canonical" href="https://livingwitharthritis.org.uk/404" />
+    <style>
+      :root {
+        --red: #d60000;
+        --ink: #000;
+        --paper: #f8f8f8;
+        --muted: #4a4a4a;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        background: var(--paper);
+        color: var(--ink);
+        line-height: 1.5;
+      }
+      header, main, footer { width: min(44rem, calc(100% - 2rem)); margin-inline: auto; }
+      header { padding: 1.25rem 0; }
+      a { color: var(--red); }
+      .brand {
+        font-weight: 700;
+        text-decoration: none;
+        color: var(--ink);
+        letter-spacing: 0.02em;
+      }
+      h1 { font-size: clamp(1.75rem, 4vw, 2.25rem); margin: 0.35rem 0 0.75rem; }
+      .kicker { color: var(--red); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; font-family: system-ui, sans-serif; }
+      p { color: var(--muted); }
+      form { display: flex; gap: 0.5rem; margin: 1.5rem 0; }
+      input {
+        flex: 1;
+        min-height: 3rem;
+        padding: 0.75rem 1rem;
+        border: 1px solid #ddd;
+        border-radius: 999px;
+        font-size: 1rem;
+      }
+      button, .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 3rem;
+        padding: 0.75rem 1.1rem;
+        border: 0;
+        border-radius: 999px;
+        background: var(--red);
+        color: #fff;
+        text-decoration: none;
+        font-family: system-ui, sans-serif;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .links { display: grid; gap: 0.75rem; margin: 1.5rem 0 2.5rem; }
+      .links a {
+        display: block;
+        padding: 1rem 1.1rem;
+        background: #fff;
+        border-radius: 1rem;
+        text-decoration: none;
+        color: var(--ink);
+        box-shadow: 0 1px 0 #eee;
+      }
+      .links a span { display: block; color: var(--muted); font-size: 0.9rem; margin-top: 0.2rem; }
+      footer { padding: 0 0 2rem; font-size: 0.85rem; font-family: system-ui, sans-serif; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="/">Living With Arthritis UK</a>
+    </header>
+    <main>
+      <p class="kicker">404</p>
+      <h1>We could not find that page</h1>
+      <p>The link may be broken, or the page may have moved. Search the library or pick a popular guide.</p>
+      <form action="/library" method="get">
+        <label class="sr-only" for="q" style="position:absolute;left:-9999px">Search the health library</label>
+        <input id="q" name="q" type="search" placeholder="Search — e.g. turmeric, knee pain" />
+        <button type="submit">Search</button>
+      </form>
+      <div class="links">
+        <a href="/conditions/osteoarthritis">Osteoarthritis: full UK guide<span>Symptoms, causes, exercises and treatment</span></a>
+        <a href="/blog">Read the blog<span>Practical articles for living with arthritis</span></a>
+        <a href="/donate">Donate<span>Keep the guides free for everyone</span></a>
+      </div>
+    </main>
+    <footer>
+      <a href="/">Home</a>
+      ·
+      <a href="/contact">Report a broken link</a>
+    </footer>
+  </body>
+</html>

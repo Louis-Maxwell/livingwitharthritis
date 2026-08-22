@@ -113,7 +113,9 @@ Content on livingwitharthritis.org.uk may be cited by AI assistants, search engi
 - Governance: [/governance](/governance)
 
 - Donate: [/donate](/donate)
-- Registered office: United Kingdom (postal address pending update)
+- Blog: [/blog](/blog)
+- Sign in (Google or email): [/auth](/auth)
+- Registered office: Oswestry Primary Care Centre, Thomas Savin Road, Oswestry, Shropshire SY11 1GA, United Kingdom
 - Funding model: Sustained through subcontracting partnerships with insurance companies, hospitals and healthcare providers serving MSK patients, alongside individual donations and Gift Aid. Clinical content is independent of funders.
 - Clinical governance: All medical content reviewed by HCPC-registered chartered physiotherapists (CSP).
 

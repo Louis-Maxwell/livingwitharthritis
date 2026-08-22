@@ -1,0 +1,104 @@
+# Hosting rules for search engines.
+# Known pages from the prerendered build are served as real files.
+# Unknown URLs get HTTP 404 (not a fake homepage). Redirects are HTTP 301.
+
+[[redirects]]
+  from = "/blog/nhs-arthritis-exercises"
+  to = "/blog/arthritis-exercises-uk-clinical"
+  status = 301
+
+[[redirects]]
+  from = "/blog/nhs-rheumatology-waiting-times-uk"
+  to = "/blog/rheumatology-waiting-times-uk"
+  status = 301
+
+[[redirects]]
+  from = "/blog/knee-osteoarthritis-exercises"
+  to = "/blog/knee-arthritis-exercises-uk"
+  status = 301
+
+[[redirects]]
+  from = "/blog/knee-exercises-arthritis"
+  to = "/blog/knee-arthritis-exercises-uk"
+  status = 301
+
+[[redirects]]
+  from = "/blog/food-supplements-for-joint-pain"
+  to = "/blog/best-supplements-joint-pain"
+  status = 301
+
+[[redirects]]
+  from = "/blog/arthritis-medication-uk"
+  to = "/blog/arthritis-medication-guide"
+  status = 301
+
+[[redirects]]
+  from = "/blog/arthritis-and-weight-management-uk"
+  to = "/blog/weight-management-arthritis-evidence"
+  status = 301
+
+[[redirects]]
+  from = "/blog/swimming-for-arthritis-uk"
+  to = "/blog/swimming-for-arthritis"
+  status = 301
+
+[[redirects]]
+  from = "/blog/turmeric-for-arthritis-uk"
+  to = "/blog/turmeric-for-arthritis"
+  status = 301
+
+[[redirects]]
+  from = "/blog/mindfulness-meditation-chronic-pain"
+  to = "/blog/mindfulness-chronic-pain-arthritis-guide"
+  status = 301
+
+[[redirects]]
+  from = "/blog/vitamin-d-arthritis-uk-risk"
+  to = "/blog/vitamin-d-arthritis-uk"
+  status = 301
+
+[[redirects]]
+  from = "/blog/arthritis-and-cold-weather-uk"
+  to = "/blog/cold-weather-arthritis-uk-winter"
+  status = 301
+
+[[redirects]]
+  from = "/blog/cold-weather-and-arthritis"
+  to = "/blog/cold-weather-arthritis-uk-winter"
+  status = 301
+
+[[redirects]]
+  from = "/blog/arthritis-and-sleep-uk"
+  to = "/blog/how-to-sleep-with-arthritis-uk"
+  status = 301
+
+[[redirects]]
+  from = "/blog/glucosamine-vs-collagen-arthritis"
+  to = "/blog/glucosamine-vs-collagen"
+  status = 301
+
+[[redirects]]
+  from = "/blog/hand-arthritis-exercises-uk"
+  to = "/blog/hand-exercises-for-arthritis"
+  status = 301
+
+[[redirects]]
+  from = "/blog/arthritis-and-mental-health"
+  to = "/blog/arthritis-and-mental-health-uk"
+  status = 301
+
+[[redirects]]
+  from = "/blog/arthritis-diet-myths-debunked"
+  to = "/blog/arthritis-and-diet-myths-uk"
+  status = 301
+
+[[redirects]]
+  from = "/blog/arthritis-fatigue-management"
+  to = "/blog/arthritis-fatigue-management-uk"
+  status = 301
+
+# Last rule. force = false so real prerendered files still win.
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
