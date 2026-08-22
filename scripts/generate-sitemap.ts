@@ -6,7 +6,10 @@
 
 import { writeFileSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
-import { assertSafeBlogInventory } from "../src/lib/seoBuildSafety";
+import {
+  assertSafeBlogInventory,
+  isValidCitySupportRoute,
+} from "../src/lib/seoBuildSafety";
 import { PUBLIC_SUPABASE_DEFAULTS } from "../src/integrations/supabase/publicDefaults";
 
 const BASE_URL = "https://livingwitharthritis.org.uk";
@@ -424,8 +427,12 @@ async function main() {
     entries.push({ path: p, priority: "0.7", changefreq: "monthly" });
 
   const cityRoutesSrc = read("src/data/city-routes.generated.ts");
-  for (const p of extractAll(/"(\/arthritis-support\/[^"]+)"/g, cityRoutesSrc))
+  const validCities = new Set(citySlugs());
+  const validConditions = new Set(conds);
+  for (const p of extractAll(/"(\/arthritis-support\/[^"]+)"/g, cityRoutesSrc)) {
+    if (!isValidCitySupportRoute(p, validCities, validConditions)) continue;
     entries.push({ path: p, priority: "0.6", changefreq: "monthly" });
+  }
 
   const petsSrc = read("src/data/pets-arthritis.generated.ts");
   entries.push({ path: "/pets", priority: "0.8", changefreq: "weekly" });

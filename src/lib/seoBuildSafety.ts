@@ -12,3 +12,15 @@ export function assertSafeBlogInventory(
     );
   }
 }
+
+export function isValidCitySupportRoute(
+  path: string,
+  validCities: ReadonlySet<string>,
+  validConditions: ReadonlySet<string>,
+): boolean {
+  const match = path.match(
+    /^\/arthritis-support\/([^/]+)(?:\/([^/]+))?$/,
+  );
+  if (!match || !validCities.has(match[1])) return false;
+  return !match[2] || validConditions.has(match[2]);
+}

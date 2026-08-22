@@ -2,7 +2,10 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
-import { assertSafeBlogInventory } from "@/lib/seoBuildSafety";
+import {
+  assertSafeBlogInventory,
+  isValidCitySupportRoute,
+} from "@/lib/seoBuildSafety";
 import {
   SUPABASE_PROJECT_ID,
   SUPABASE_URL,
@@ -42,6 +45,29 @@ describe("SEO build safety", () => {
     expect(redirects).not.toContain(
       '"arthritis-and-cycling-uk": "cycling-with-arthritis"',
     );
+  });
+
+  it("excludes generated city routes without real city content", () => {
+    const cities = new Set(["belfast", "bristol"]);
+    const conditions = new Set(["osteoarthritis", "rheumatoid-arthritis"]);
+
+    expect(
+      isValidCitySupportRoute(
+        "/arthritis-support/belfast/osteoarthritis",
+        cities,
+        conditions,
+      ),
+    ).toBe(true);
+    expect(
+      isValidCitySupportRoute("/arthritis-support/oswestry", cities, conditions),
+    ).toBe(false);
+    expect(
+      isValidCitySupportRoute(
+        "/arthritis-support/bristol/not-a-condition",
+        cities,
+        conditions,
+      ),
+    ).toBe(false);
   });
 
   it("falls back to the active production Supabase project", () => {
