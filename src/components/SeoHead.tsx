@@ -42,6 +42,10 @@ export default function SeoHead({
   const fullTitle = enforceTitle(title, { includeSiteName, route: path });
   const safeDescription = enforceDescription(description, path);
   const canonical = `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
+  const socialImage = image.startsWith("http")
+    ? image
+    : `${SITE_URL}${image.startsWith("/") ? image : `/${image}`}`;
+  const imageAlt = `${title} — ${SITE_NAME}`;
   // Silence unused-var lint when suffix is dropped for over-long titles.
   void SITE_NAME;
 
@@ -53,7 +57,7 @@ export default function SeoHead({
       {noindex ? (
         <meta name="robots" content="noindex,nofollow" />
       ) : (
-        <meta name="robots" content="index,follow,max-image-preview:large" />
+        <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
       )}
       {/* canonical + hreflang are emitted globally by <SeoDefaults /> to
           guarantee a single self-referencing set per route (Helmet does
@@ -71,16 +75,17 @@ export default function SeoHead({
       <meta property="og:url" content={canonical} />
       <meta property="og:site_name" content={SITE_NAME} />
       <meta property="og:locale" content="en_GB" />
-      <meta property="og:image" content={image} />
+      <meta property="og:image" content={socialImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content={`${title} — ${SITE_NAME}`} />
+      <meta property="og:image:alt" content={imageAlt} />
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={safeDescription} />
-      <meta name="twitter:image" content={image} />
+      <meta name="twitter:image" content={socialImage} />
+      <meta name="twitter:image:alt" content={imageAlt} />
     </Helmet>
   );
 }

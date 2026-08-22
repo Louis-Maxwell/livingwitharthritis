@@ -7,108 +7,56 @@
     <!-- X-Frame-Options must be sent as an HTTP header (see public/_headers) — browsers ignore it in <meta> and log a console error. -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.supabase.co https://js.stripe.com https://*.evarist.ai https://*.googletagmanager.com https://*.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; media-src 'self' https://*.supabase.co; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.resend.com https://api-m.paypal.com https://api-m.sandbox.paypal.com https://ai.gateway.lovable.dev https://api.stripe.com https://*.lovable.app https://*.lovableproject.com https://*.evarist.ai https://*.google-analytics.com https://analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net; frame-src 'self' https://*.paypal.com https://js.stripe.com https://hooks.stripe.com; object-src 'none'; base-uri 'self'; form-action 'self' https://checkout.stripe.com;" />
 
-    <!-- Google Analytics 4 (G-ZLLSD3PXZ9) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZLLSD3PXZ9"></script>
+    <!-- Non-essential analytics are loaded only after explicit consent. -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-ZLLSD3PXZ9');
+      (function () {
+        var measurementId = "G-ZLLSD3PXZ9";
+        var loaded = false;
+
+        function hasConsent() {
+          try {
+            if (localStorage.getItem("cookie-consent") === "accepted") return true;
+            var preferences = JSON.parse(localStorage.getItem("lwa_cv3") || "null");
+            return Boolean(preferences && preferences.a === true);
+          } catch (e) {
+            return false;
+          }
+        }
+
+        function loadAnalytics() {
+          if (loaded || !hasConsent()) return;
+          loaded = true;
+
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = window.gtag || function () {
+            window.dataLayer.push(arguments);
+          };
+
+          var ga = document.createElement("script");
+          ga.async = true;
+          ga.src = "https://www.googletagmanager.com/gtag/js?id=" + measurementId;
+          document.head.appendChild(ga);
+          window.gtag("js", new Date());
+          // React owns SPA page views, including the initial route.
+          window.gtag("config", measurementId, { send_page_view: false });
+
+          window.evarist = window.evarist || function () {
+            (window.evarist.q = window.evarist.q || []).push(arguments);
+          };
+          var evarist = document.createElement("script");
+          evarist.src = "https://app.evarist.ai/script.js";
+          evarist.setAttribute("data-evarist", "11C6BZx6hg");
+          document.head.appendChild(evarist);
+
+          window.dispatchEvent(new Event("analytics-ready"));
+        }
+
+        window.addEventListener("cookie-consent-accepted", loadAnalytics);
+        loadAnalytics();
+      })();
     </script>
 
     <!-- referrer meta is emitted per-route via SeoHead (Helmet) -->
-
-    <!-- Bot + declined-consent exclusion: prevents spiders, scrapers, headless browsers,
-         and users who declined cookies from firing analytics pageviews. Aligns the
-         Lovable analytics panel with GA4's IVT/bot filtering.
-         Allowed: Googlebot, Bingbot, DuckDuckBot, Applebot, Twitterbot, LinkedInBot, facebookexternalhit.
-         AI assistant / answer-engine crawlers (GPTBot, ClaudeBot, PerplexityBot,
-         Google-Extended, CCBot, etc.) are excluded from ANALYTICS only — they must
-         NEVER receive the noindex meta below, because we want this site to be
-         indexed and cited by ChatGPT, Claude, Perplexity, Gemini and AI Overviews. -->
-    <script>
-      (function(){
-        try {
-          var rawUa = navigator.userAgent || '';
-          var ua = rawUa.toLowerCase();
-          var allow = /(googlebot|bingbot|duckduckbot|applebot|twitterbot|linkedinbot|facebookexternalhit|slackbot|whatsapp|telegrambot|lwaprerenderer)/i;
-          var block = /(sogou|baidu|yisou|360spider|haosou|bytespider|petalbot|mj12bot|dotbot|blexbot|dataforseo|seekport|serpstat|zoominfo|diffbot|gptbot|ccbot|claude|anthropic|perplexity|imagesift|omgili|headlesschrome|phantomjs|puppeteer|selenium|playwright|crawler|spider|\bbot\b|yandex|naver|qwant|archive\.org|ia_archiver|wayback|lighthouse|pagespeed|gtmetrix|pingdom|uptimerobot|statuscake|monitor|scrape|\bcurl\b|wget|python-requests|axios|node-fetch|go-http|okhttp|java\/|ruby|apache-httpclient|postman|insomnia|chrome-lighthouse|screaming\s?frog|httpclient|libwww|lwp::)/i;
-          var uaBot = !allow.test(rawUa) && block.test(ua);
-
-          // AI assistant / answer-engine crawlers. These stay analytics-blocked
-          // (they match `block` above) but are exempted from the noindex meta:
-          // serving noindex to a JS-rendering AI crawler tells it to drop the
-          // page from AI search results and never cite it.
-          var aiAssist = /(gptbot|oai-searchbot|chatgpt-user|claudebot|claude-user|claude-searchbot|claude-web|anthropic|claude|perplexitybot|perplexity-user|perplexity|google-extended|geminibot|gemini-deep-research|ccbot|meta-externalagent|meta-externalfetcher|amazonbot|applebot-extended|duckassistbot|youbot|cohere-ai|ai2bot|mistralai-user|bytespider)/i;
-
-          // Headless / automation signal checks. Keep these CONSERVATIVE — false
-          // positives here silently break GA4 for real humans (Firefox/Safari
-          // desktop both legitimately report 0 plugins; some privacy modes
-          // report empty languages; zero-sized windows happen during prerender).
-          // navigator.webdriver is a USEFUL signal but NOT safe to act on alone:
-          // Googlebot's own evergreen renderer sets navigator.webdriver = true,
-          // so it WILL match this check. It must always be combined with the
-          // `allow` UA check downstream before any noindex decision is made.
-          var signalBot = false;
-          try {
-            if (navigator.webdriver === true) signalBot = true;
-          } catch(e) {}
-
-          var isBot = uaBot || signalBot;
-
-          // Consent state: declined users should not be tracked by either GA or Lovable.
-          var declined = false;
-          try { declined = localStorage.getItem('cookie-consent') === 'declined'; } catch(e) {}
-
-          if (isBot || declined) {
-            // Stub out gtag so no GA event queues
-            window.dataLayer = []; window.gtag = function(){};
-            if (isBot) window.__BOT_DETECTED__ = true;
-            if (declined) window.__CONSENT_DECLINED__ = true;
-
-            var analyticsRe = /google-analytics\.com|analytics\.google\.com|googletagmanager\.com|lovable\.app\/api\/analytics|lovableproject\.com\/api\/analytics|\/stats\b|\/beacon\b/i;
-
-            // Block fetch
-            var origFetch = window.fetch;
-            window.fetch = function(u){
-              try { if (analyticsRe.test(String(u||''))) return Promise.resolve(new Response('', { status: 204 })); } catch(e){}
-              return origFetch.apply(this, arguments);
-            };
-
-            // Block XHR
-            var OrigXHR = window.XMLHttpRequest;
-            window.XMLHttpRequest = function(){
-              var x = new OrigXHR();
-              var origOpen = x.open;
-              x.open = function(m, u){ try { if (analyticsRe.test(String(u||''))) { this.send = function(){}; } } catch(e){} return origOpen.apply(this, arguments); };
-              return x;
-            };
-
-            // Block sendBeacon (the primary path most lightweight trackers use)
-            if (navigator.sendBeacon) {
-              var origBeacon = navigator.sendBeacon.bind(navigator);
-              navigator.sendBeacon = function(u){
-                try { if (analyticsRe.test(String(u||''))) return true; } catch(e){}
-                return origBeacon.apply(navigator, arguments);
-              };
-            }
-
-            // Only flag noindex for actual bots, not declined humans — and NEVER
-            // for AI assistant / answer-engine crawlers (we want AI citations),
-            // and NEVER for anything matching the `allow` list (Googlebot, Bingbot,
-            // etc). This second check matters because navigator.webdriver === true
-            // is set by Googlebot's own evergreen headless-Chromium renderer — so
-            // the webdriver signal alone WILL misfire on real Googlebot. The UA
-            // allow-list must always win over the webdriver signal, or the site
-            // silently noindexes itself to Google. (Confirmed real incident:
-            // Googlebot + SemrushBot both received noindex via this path.)
-            if (isBot && !aiAssist.test(ua) && !allow.test(rawUa)) {
-              var m = document.createElement('meta'); m.name = 'robots'; m.content = 'noindex, nofollow'; document.head.appendChild(m);
-            }
-          }
-        } catch(e) {}
-      })();
-    </script>
 
     <!-- Static fallbacks for non-JS crawlers (social previews, basic SEO bots).
          Per-route SeoHead (react-helmet-async) overrides title / description /
@@ -121,12 +69,8 @@
     <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <meta name="bingbot" content="index, follow" />
 
-    <!-- AI citation / attribution signals (ChatGPT, Perplexity, Claude, Gemini, Google AI Overview) -->
-    <meta name="author" content="Maxwell, First Contact Practitioner (HCPC PH128483)" />
-    <meta name="article:author" content="Maxwell, HCPC PH128483" />
-    <meta name="article:publisher" content="Living With Arthritis UK" />
-    <meta name="article:section" content="Health & Wellness" />
-    <meta name="schema:reviewedBy" content="Maxwell, First Contact Practitioner, HCPC PH128483" />
+    <!-- Geographic and audience signals for UK-focused content. Article-level
+         authorship and review data is emitted only on the relevant route. -->
     <meta name="rating" content="General" />
     <meta name="distribution" content="UK" />
     <meta name="coverage" content="United Kingdom" />
@@ -218,12 +162,6 @@
     <!-- JSON-LD: WebSite with SearchAction -->
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://livingwitharthritis.org.uk/#website","name":"Living With Arthritis UK","url":"https://livingwitharthritis.org.uk/","inLanguage":"en-GB","description":"Expert arthritis support, virtual physiotherapy, anti-inflammatory nutrition and community resources for UK residents.","publisher":{"@id":"https://livingwitharthritis.org.uk/#organization"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://livingwitharthritis.org.uk/blog?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script>
 
-    <!-- JSON-LD: LocalBusiness / MedicalBusiness for local SEO -->
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":["LocalBusiness","MedicalBusiness"],"@id":"https://livingwitharthritis.org.uk/#localbusiness","name":"Living With Arthritis UK","image":"https://livingwitharthritis.org.uk/favicon.png","url":"https://livingwitharthritis.org.uk","telephone":"+44-7760-512-084","email":"info@livingwitharthritis.org.uk","priceRange":"Free","address":{"@type":"PostalAddress","addressCountry":"GB"},"areaServed":{"@type":"Country","name":"United Kingdom"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"17:00"}],"sameAs":[]}</script>
-
-
-
-
   <!-- Per-route og:title, og:description, og:url and twitter equivalents are
        emitted via react-helmet-async (SeoHead) on every page. Do not duplicate
        them statically here — duplicate property names confuse social crawlers
@@ -241,21 +179,6 @@
        statically here caused every page to ship two of each tag and forced
        og:type=website on article/guide routes. og:image, og:site_name and the
        twitter card remain as generic fallbacks. -->
-    <!-- Evarist analytics. Gated behind the bot/consent detection above
-         (window.__BOT_DETECTED__ / window.__CONSENT_DECLINED__) — that script
-         was written for GA4 and never updated when Evarist replaced it, so
-         Evarist was loading unconditionally for every visit, including
-         headless/automated ones (Puppeteer-based route prerendering in CI,
-         Lighthouse runs, etc). Confirmed via Evarist's own traffic data:
-         thousands of daily pageviews on 127.0.0.1 hitting every route in
-         scripts/prerender-routes.mjs's curated list, including a since-removed
-         one (see fix in that file), each visited once per prerender pass. -->
-    <script>
-      if (!window.__BOT_DETECTED__ && !window.__CONSENT_DECLINED__) {
-        window.evarist=window.evarist||function(){(window.evarist.q=window.evarist.q||[]).push(arguments)};
-        (function(){var s=document.createElement("script");s.src="https://app.evarist.ai/script.js";s.setAttribute("data-evarist","11C6BZx6hg");(document.head||document.documentElement).appendChild(s);})();
-      }
-    </script>
   </head>
 
   <body style="background:#ffffff;">

@@ -27,7 +27,7 @@ const LocalizedHome = lazy(() => import("./pages/LocalizedHome"));
 const LocalizedOsteoarthritis = lazy(() => import("./pages/LocalizedOsteoarthritis"));
 
 const ChatBotWidget = lazy(() => import("./components/ChatBotWidget"));
-const CookieConsent = lazy(() => import("./components/CookieConsent"));
+const CookieBanner = lazy(() => import("./components/landing/CookieBanner"));
 const AccessibilityToolbar = lazy(() => import("./components/AccessibilityToolbar"));
 const MobileBottomNav = lazy(() => import("./components/MobileBottomNav"));
 const MobileNextStepBar = lazy(() => import("./components/MobileNextStepBar"));
@@ -259,19 +259,25 @@ const queryClient = new QueryClient({
 function AnimatedRoutes() {
   const location = useLocation();
 
-  // GA4 SPA pageview tracker — fires `page_view` on every route change.
-  // The initial pageview is sent by gtag('config') in index.html; this
-  // handler covers all subsequent client-side navigations so multi-page
-  // sessions are recorded correctly in GA4 (and not collapsed to 1).
+  // GA4 SPA pageview tracker. The consent-gated loader configures GA with
+  // send_page_view:false, so this is the single source of page views.
+  // Listening for analytics-ready also records the current route when a
+  // visitor accepts cookies after the app has mounted.
   useEffect(() => {
-    const w = window as unknown as { gtag?: (...a: unknown[]) => void };
-    if (typeof w.gtag !== "function") return;
-    w.gtag("event", "page_view", {
-      page_path: location.pathname + location.search,
-      page_location: window.location.href,
-      page_title: document.title,
-      send_to: "G-ZLLSD3PXZ9",
-    });
+    const sendPageView = () => {
+      const w = window as unknown as { gtag?: (...a: unknown[]) => void };
+      if (typeof w.gtag !== "function") return;
+      w.gtag("event", "page_view", {
+        page_path: location.pathname + location.search,
+        page_location: window.location.href,
+        page_title: document.title,
+        send_to: "G-ZLLSD3PXZ9",
+      });
+    };
+
+    sendPageView();
+    window.addEventListener("analytics-ready", sendPageView);
+    return () => window.removeEventListener("analytics-ready", sendPageView);
   }, [location.pathname, location.search]);
 
   return (
@@ -537,7 +543,7 @@ const App = () => {
               <DeferredMount timeout={1200}>
                 <Suspense fallback={null}>
                   <EngagementTracker />
-                  <CookieConsent />
+                  <CookieBanner onAnalyticsChange={() => {}} />
                   <MobileBottomNav />
                   <MobileNextStepBar />
                   <AccessibilityToolbar />

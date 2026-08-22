@@ -28,8 +28,19 @@ const MANAGED_META = [
   { attr: "name", value: "description" },
   { attr: "property", value: "og:title" },
   { attr: "property", value: "og:description" },
+  { attr: "property", value: "og:type" },
+  { attr: "property", value: "og:url" },
+  { attr: "property", value: "og:site_name" },
+  { attr: "property", value: "og:locale" },
+  { attr: "property", value: "og:image" },
+  { attr: "property", value: "og:image:width" },
+  { attr: "property", value: "og:image:height" },
+  { attr: "property", value: "og:image:alt" },
+  { attr: "name", value: "twitter:card" },
   { attr: "name", value: "twitter:title" },
   { attr: "name", value: "twitter:description" },
+  { attr: "name", value: "twitter:image" },
+  { attr: "name", value: "twitter:image:alt" },
 ] as const;
 
 function pruneStaticMetaDuplicates() {

@@ -8,6 +8,7 @@ import "./index.css";
 
 // Initialize Sentry for error tracking
 const initializeSentry = () => {
+  if (Sentry.getClient()) return;
   if (!import.meta.env.VITE_SENTRY_DSN) {
     console.warn(
       "[Sentry] DSN not configured. Error tracking disabled. Set VITE_SENTRY_DSN to enable.",
@@ -31,7 +32,22 @@ const initializeSentry = () => {
   });
 };
 
-initializeSentry();
+const hasAnalyticsConsent = () => {
+  try {
+    if (localStorage.getItem("cookie-consent") === "accepted") return true;
+    const preferences = JSON.parse(localStorage.getItem("lwa_cv3") || "null");
+    return preferences?.a === true;
+  } catch {
+    return false;
+  }
+};
+
+// Session replay and telemetry are non-essential. Initialise them only after
+// the same explicit consent that enables analytics.
+if (hasAnalyticsConsent()) initializeSentry();
+window.addEventListener("cookie-consent-accepted", initializeSentry, {
+  once: true,
+});
 
 // Initialize Core Web Vitals tracking (captures LCP, FCP, CLS, INP, TTFB)
 initWebVitals();

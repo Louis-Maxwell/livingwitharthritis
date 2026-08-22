@@ -10,6 +10,7 @@
 // admin user with a Supabase JWT. No anon access.
 
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
+import { refreshBlogLastmods } from "../_shared/sitemap-lastmod.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -79,37 +80,6 @@ function extractUrls(xml: string): string[] {
   let m: RegExpExecArray | null;
   while ((m = re.exec(xml)) !== null) out.push(m[1]);
   return out;
-}
-
-function refreshLastmods(
-  xml: string,
-  blogLastmods: Map<string, string>,
-): string {
-  const today = new Date().toISOString().slice(0, 10);
-  // Rewrite each <url>…</url> block: blog posts get DB lastmod when known;
-  // every other entry's lastmod is bumped to today.
-  return xml.replace(/<url>([\s\S]*?)<\/url>/g, (block) => {
-    const locMatch = block.match(/<loc>([^<]+)<\/loc>/);
-    if (!locMatch) return block;
-    const loc = locMatch[1];
-    const path = loc.replace(PROD_HOST, "");
-    let lastmod = today;
-    if (path.startsWith("/blog/")) {
-      const slug = path.slice("/blog/".length);
-      const dbDate = blogLastmods.get(slug);
-      if (dbDate) lastmod = dbDate;
-    }
-    if (block.includes("<lastmod>")) {
-      return block.replace(
-        /<lastmod>[^<]+<\/lastmod>/,
-        `<lastmod>${lastmod}</lastmod>`,
-      );
-    }
-    return block.replace(
-      /<\/loc>/,
-      `</loc>\n    <lastmod>${lastmod}</lastmod>`,
-    );
-  });
 }
 
 // Lightweight JSON-LD sampler: fetches static prerendered HTML and checks
@@ -248,7 +218,7 @@ Deno.serve(async (req) => {
         );
       }
     }
-    const refreshedXml = refreshLastmods(xml, blogLastmods);
+    const refreshedXml = refreshBlogLastmods(xml, blogLastmods, PROD_HOST);
     const urls = extractUrls(refreshedXml);
     sitemapCount = urls.length;
 
