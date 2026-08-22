@@ -25,7 +25,7 @@ import InternalLinks from "@/components/InternalLinks";
 import { Skeleton } from "@/components/ui/skeleton";
 import { marked } from "marked";
 import DOMPurify from "dompurify";
-import ArticleCitations, { DEFAULT_CITATIONS, type Citation } from "@/components/blog/ArticleCitations";
+import ArticleCitations, { type Citation } from "@/components/blog/ArticleCitations";
 import AnswerBox from "@/components/seo/AnswerBox";
 import NextReadStrip from "@/components/NextReadStrip";
 import KeyTakeaways from "@/components/article/KeyTakeaways";
@@ -83,9 +83,10 @@ function getReadingTime(html: string) {
 /**
  * Extract Q&A pairs from rendered HTML for FAQPage JSON-LD.
  * Looks for headings (h2/h3) ending in "?" followed by paragraph(s) of answer text.
- * Falls back to a generic FAQ set so every article still emits FAQPage schema.
+ * Returns only questions that are present in the article and later rendered
+ * in the visible FAQ section. Never manufacture fallback questions for schema.
  */
-function extractFaqs(html: string, articleTitle: string): { question: string; answer: string }[] {
+function extractFaqs(html: string): { question: string; answer: string }[] {
   const faqs: { question: string; answer: string }[] = [];
   const headingRe = /<h[23][^>]*>([\s\S]*?)<\/h[23]>([\s\S]*?)(?=<h[23][^>]*>|$)/gi;
   let m: RegExpExecArray | null;
@@ -102,22 +103,7 @@ function extractFaqs(html: string, articleTitle: string): { question: string; an
     }
     if (faqs.length >= 6) break;
   }
-  if (faqs.length >= 2) return faqs;
-  // Fallback so the schema is always valid & populated
-  return [
-    {
-      question: `What does this article about ${articleTitle} cover?`,
-      answer: `This guide explains key facts, symptoms, treatments and self-management tips relevant to UK arthritis patients, reviewed by clinical specialists.`,
-    },
-    {
-      question: "Is the information on Living With Arthritis medically reviewed?",
-      answer: "Yes. All clinical content is written or reviewed by qualified UK healthcare professionals including consultant rheumatologists and physiotherapists.",
-    },
-    {
-      question: "When should I speak to a GP about my joint symptoms?",
-      answer: "You should contact your GP if joint pain or stiffness lasts more than a few weeks, worsens, or limits daily activities. Early assessment improves long-term outcomes.",
-    },
-  ];
+  return faqs;
 }
 
 const BlogPost = () => {
@@ -157,7 +143,7 @@ const BlogPost = () => {
   }
 
   const htmlContent = markdownToHtml(article.content);
-  const faqs = extractFaqs(htmlContent, article.title);
+  const faqs = extractFaqs(htmlContent);
   const bodyForRender = renderCallouts(stripQuestionHeadings(htmlContent));
   const htmlWithIds = addHeadingIds(bodyForRender);
   // Split after the first </h2> so we can inject an inline related-strip mid-article.
@@ -176,10 +162,21 @@ const BlogPost = () => {
   const showUpdated = !!updatedAtRaw && new Date(updatedAtRaw).toDateString() !== new Date(article.date).toDateString();
   const metaTitle = article.meta_title || article.title;
   const metaDesc = article.meta_description || article.excerpt;
-  const authorName = article.author || "Living With Arthritis Clinical Review Board";
-  const authorCreds = article.author_credentials || "Evidence-based health content";
-  const reviewerName = article.reviewed_by || "Clinical Review Board";
-  const reviewerCreds = article.reviewer_credentials || "Evidence-based clinical review";
+  const authorName = article.author || "Living With Arthritis UK Editorial Team";
+  const rawAuthorCreds = article.author_credentials || "Editorial content";
+  const authorCreds = /PH123456/i.test(rawAuthorCreds)
+    ? "Editorial content"
+    : rawAuthorCreds;
+  const reviewerName = article.reviewed_by || "";
+  const reviewerCreds = article.reviewer_credentials || "";
+  const hasVerifiedReviewer =
+    reviewerName === "Maxwell" && /\bPH128483\b/.test(reviewerCreds);
+  const citations = Array.isArray(article.citations)
+    ? article.citations.filter(
+        (citation): citation is Citation =>
+          Boolean(citation?.label && /^https?:\/\//i.test(citation.url)),
+      )
+    : [];
   const dateModifiedIso = updatedAtRaw || article.date;
 
   const maxwellSchemaFields = {
@@ -187,18 +184,39 @@ const BlogPost = () => {
     "url": "https://livingwitharthritis.org.uk/authors/maxwell",
     "affiliation": { "@type": "Organization", "name": "Chartered Society of Physiotherapy" },
   };
-  const authorSchema = {
-    "@type": "Person",
-    "name": authorName,
-    "jobTitle": authorCreds,
-    ...(authorName === "Maxwell" ? maxwellSchemaFields : {}),
-  };
-  const reviewedBySchema = {
-    "@type": "Person",
-    "name": reviewerName,
-    "jobTitle": reviewerCreds,
-    ...(reviewerName === "Maxwell" ? maxwellSchemaFields : {}),
-  };
+  const authorSchema =
+    authorName === "Maxwell" && /\bPH128483\b/.test(authorCreds)
+      ? {
+          "@type": "Person",
+          "name": authorName,
+          "jobTitle": authorCreds,
+          ...maxwellSchemaFields,
+        }
+      : {
+          "@type": "Organization",
+          "name": authorName,
+        };
+  const reviewedBySchema = hasVerifiedReviewer
+    ? {
+        "@type": "Person",
+        "name": reviewerName,
+        "jobTitle": reviewerCreds,
+        ...maxwellSchemaFields,
+      }
+    : null;
+  const citationSchema = citations.map((citation) => ({
+    "@type": "CreativeWork",
+    "name": citation.label,
+    "url": citation.url,
+    ...(citation.publisher
+      ? {
+          "publisher": {
+            "@type": "Organization",
+            "name": citation.publisher,
+          },
+        }
+      : {}),
+  }));
 
   return (
     <>
@@ -239,16 +257,10 @@ const BlogPost = () => {
           "mainEntityOfPage": `https://livingwitharthritis.org.uk/blog/${slug}`,
           "about": { "@type": "MedicalCondition", "name": "Arthritis", "alternateName": ["Osteoarthritis", "Rheumatoid Arthritis"] },
           "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } },
-          "lastReviewed": dateModifiedIso,
-          "reviewedBy": reviewedBySchema,
+          ...(reviewedBySchema ? { "reviewedBy": reviewedBySchema } : {}),
           "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Patient" },
           "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".speakable-intro"] },
-          "citation": DEFAULT_CITATIONS.map((c) => ({
-            "@type": "CreativeWork",
-            "name": c.label,
-            "url": c.url,
-            ...(c.publisher ? { "publisher": { "@type": "Organization", "name": c.publisher } } : {})
-          }))
+          ...(citationSchema.length ? { "citation": citationSchema } : {})
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
@@ -266,12 +278,8 @@ const BlogPost = () => {
           "isAccessibleForFree": true,
           "articleSection": "Health",
           "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".speakable-intro"] },
-          "citation": DEFAULT_CITATIONS.map((c) => ({
-            "@type": "CreativeWork",
-            "name": c.label,
-            "url": c.url,
-            ...(c.publisher ? { "publisher": { "@type": "Organization", "name": c.publisher } } : {})
-          }))
+          ...(reviewedBySchema ? { "reviewedBy": reviewedBySchema } : {}),
+          ...(citationSchema.length ? { "citation": citationSchema } : {})
         })}</script>
 
         <script type="application/ld+json">{JSON.stringify({
@@ -283,15 +291,17 @@ const BlogPost = () => {
             { "@type": "ListItem", "position": 3, "name": article.title, "item": `https://livingwitharthritis.org.uk/blog/${slug}` }
           ]
         })}</script>
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": extractFaqs(htmlContent, article.title).map((f) => ({
-            "@type": "Question",
-            "name": f.question,
-            "acceptedAnswer": { "@type": "Answer", "text": f.answer }
-          }))
-        })}</script>
+        {faqs.length >= 2 && (
+          <script type="application/ld+json">{JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map((f) => ({
+              "@type": "Question",
+              "name": f.question,
+              "acceptedAnswer": { "@type": "Answer", "text": f.answer }
+            }))
+          })}</script>
+        )}
       </Helmet>
       <div className="min-h-screen bg-background">
         <ScrollProgress />
@@ -367,14 +377,17 @@ const BlogPost = () => {
                   </div>
                 </div>
 
-                <div className="hidden sm:block w-px h-8 bg-border/40" />
-
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/5 border border-primary/10 w-fit">
-                  <BookOpen className="w-3.5 h-3.5 text-primary" />
-                  <span className="text-xs font-medium text-primary">
-                    Reviewed by {reviewerName}
-                  </span>
-                </div>
+                {hasVerifiedReviewer && (
+                  <>
+                    <div className="hidden sm:block w-px h-8 bg-border/40" />
+                    <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/5 border border-primary/10 w-fit">
+                      <BookOpen className="w-3.5 h-3.5 text-primary" />
+                      <span className="text-xs font-medium text-primary">
+                        Reviewed by {reviewerName}
+                      </span>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           </div>
@@ -401,7 +414,6 @@ const BlogPost = () => {
           {directAnswer && (
             <AnswerBox
               question={article.title.replace(/[?.!]+$/, "").trim() + "?"}
-              reviewed={dateModifiedIso?.slice(0, 10)}
             >
               {directAnswer}
             </AnswerBox>
@@ -413,10 +425,11 @@ const BlogPost = () => {
               <strong>Living With Arthritis UK</strong>
               <span>livingwitharthritis.org.uk</span>
             </div>
-            <div className="text-[10px] mt-1">
-              Reviewed by {reviewerName}{reviewerCreds ? `, ${reviewerCreds}` : ""}
-              {updatedDate ? ` · Last reviewed ${updatedDate}` : ""}
-            </div>
+            {hasVerifiedReviewer && (
+              <div className="text-[10px] mt-1">
+                Reviewed by {reviewerName}, {reviewerCreds}
+              </div>
+            )}
           </div>
 
           <div className="no-print mb-6 flex justify-end">
@@ -431,7 +444,15 @@ const BlogPost = () => {
             </Button>
           </div>
 
-          <MedicalReviewBadge />
+          {hasVerifiedReviewer && (
+            <MedicalReviewBadge
+              reviewer={reviewerName}
+              title="First Contact Practitioner"
+              credential="HCPC PH128483"
+              authorSlug="maxwell"
+              date={updatedDate ?? publishDate}
+            />
+          )}
 
           <KeyTakeaways html={htmlContent} title={article.title} />
           <TableOfContents html={htmlContent} />
@@ -517,16 +538,7 @@ const BlogPost = () => {
 
 
 
-          <ArticleCitations
-            citations={
-              // Per-article citations extend (not replace) the shared NHS/NICE
-              // defaults so E-E-A-T signal remains strong even when a post
-              // has no bespoke sources yet.
-              Array.isArray(article.citations) && article.citations.length > 0
-                ? ([...DEFAULT_CITATIONS, ...article.citations] as Citation[])
-                : DEFAULT_CITATIONS
-            }
-          />
+          <ArticleCitations citations={citations} />
 
           {slug && <FeedbackPoll slug={slug} title={article.title} />}
 

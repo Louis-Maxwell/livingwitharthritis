@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import authors from "@/data/medical-authors.json";
 
 interface MedicalReviewBadgeProps {
-  reviewer?: string;
+  reviewer: string;
   date?: string;
-  title?: string;
-  credential?: string;
+  title: string;
+  credential: string;
   /** Slug in medical-authors.json — controls whether the badge links to
    * /authors/:slug or /reviewers/:slug. Defaults to the author "maxwell". */
   authorSlug?: string;
@@ -15,8 +15,6 @@ interface MedicalReviewBadgeProps {
 }
 
 type AuthorRecord = { kind: "author" | "reviewer"; slug: string };
-
-const DEFAULT_AUTHOR = authors.maxwell;
 
 function bioHref(slug: string): string {
   const record = (authors as Record<string, AuthorRecord>)[slug];
@@ -31,10 +29,10 @@ function bioHref(slug: string): string {
  * Uses project tokens (no blue/grey hard-coded) per visual identity rule.
  */
 export default function MedicalReviewBadge({
-  reviewer = DEFAULT_AUTHOR.name,
-  date = "June 2026",
-  title = DEFAULT_AUTHOR.title,
-  credential = DEFAULT_AUTHOR.credential,
+  reviewer,
+  date,
+  title,
+  credential,
   authorSlug = "maxwell",
   compact = false,
 }: MedicalReviewBadgeProps) {
@@ -48,7 +46,8 @@ export default function MedicalReviewBadge({
           <Link to={href} className="font-semibold text-foreground underline hover:text-primary">
             {reviewer}
           </Link>{" "}
-          — {title} • {credential} • CSP Member • Last updated {date}.{" "}
+          — {title} • {credential}
+          {date ? ` • Last updated ${date}. ` : ". "}
           <Link to="/editorial-standards" className="underline hover:text-primary">
             Editorial standards
           </Link>
@@ -72,17 +71,17 @@ export default function MedicalReviewBadge({
             </Link>
           </p>
           <p className="text-xs text-muted-foreground mt-1">
-            {title} • {credential} • CSP Member • Last updated {date}
+            {title} • {credential}
+            {date ? ` • Last updated ${date}` : ""}
           </p>
           <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
-            This content is reviewed by a qualified healthcare professional and
-            based on evidence from NICE guidelines, NHS resources, and
-            peer-reviewed research.{" "}
+            Reviewer details and the site's clinical review process are
+            documented in our{" "}
             <Link
               to="/editorial-standards"
               className="text-primary font-medium underline hover:no-underline"
             >
-              Read our editorial standards
+              editorial standards
             </Link>
             .
           </p>

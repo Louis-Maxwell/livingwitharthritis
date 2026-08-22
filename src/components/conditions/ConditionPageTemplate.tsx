@@ -17,10 +17,8 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
-import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import AnswerBox from "@/components/seo/AnswerBox";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
-import LastReviewed, { LAST_REVIEWED_ISO } from "@/components/LastReviewed";
 import MedicalPageSchema from "@/components/seo/MedicalPageSchema";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 
@@ -134,7 +132,6 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
           path: url,
           name: data.metaTitle,
           description: data.metaDescription,
-          lastReviewed: LAST_REVIEWED_ISO,
           conditions: [data.name],
           alternateNames: data.alternateNames,
           signOrSymptom: data.symptoms,
@@ -194,13 +191,10 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
               {data.name}
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">{data.tagline}</p>
-            <LastReviewed date={LAST_REVIEWED_ISO} className="mt-4" />
           </div>
         </div>
 
         <main id="main-content" className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
-          <MedicalReviewBadge />
-
           {data.aeoAnswer ? (
             <AnswerBox question={data.aeoAnswer.question} reviewed={data.aeoAnswer.reviewed}>
               {data.aeoAnswer.answer}

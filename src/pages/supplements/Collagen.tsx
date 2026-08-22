@@ -14,7 +14,6 @@ import {
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageBreadcrumb from '@/components/ui/PageBreadcrumb';
-import MedicalReviewBadge from '@/components/MedicalReviewBadge';
 import AnswerBox from '@/components/seo/AnswerBox';
 import FaqAccordion from '@/components/faq/FaqAccordion';
 
@@ -164,7 +163,6 @@ export default function Collagen() {
           id="main-content"
           className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl"
         >
-          <MedicalReviewBadge />
           <p className="text-sm text-muted-foreground mb-8">
             Last reviewed:{' '}
             <time dateTime={REVIEWED}>31 July 2026</time>

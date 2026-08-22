@@ -18,8 +18,8 @@ const mockArticle = {
   keywords: "arthritis, pain management",
   author: "Dr. Sarah Johnson",
   author_credentials: "MSc Physiotherapy",
-  reviewed_by: "Dr. Test Reviewer",
-  reviewer_credentials: "Consultant Rheumatologist",
+  reviewed_by: "Maxwell",
+  reviewer_credentials: "First Contact Practitioner, HCPC PH128483, CSP Member",
   is_published: true,
   display_order: 1,
 };
@@ -114,7 +114,7 @@ describe("BlogPost Page", () => {
     // "Reviewed by ..." legitimately renders twice: an on-screen badge, and a
     // .print-only citation block (CSS-hidden on screen, jsdom doesn't apply
     // @media print so both are queryable here) — assert at least one match.
-    expect(screen.getAllByText(/Reviewed by Dr. Test Reviewer/).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/Reviewed by Maxwell/).length).toBeGreaterThan(0);
   });
 
   it("renders publish date in en-GB format", () => {
@@ -179,7 +179,27 @@ describe("BlogPost Page", () => {
     });
 
     renderBlogPost("test-article");
-    expect(screen.getByText("Living With Arthritis Clinical Review Board")).toBeInTheDocument();
-    expect(screen.getByText("Evidence-based health content")).toBeInTheDocument();
+    expect(screen.getByText("Living With Arthritis UK Editorial Team")).toBeInTheDocument();
+    expect(screen.getByText("Editorial content")).toBeInTheDocument();
+  });
+
+  it("does not claim an unverified generic review or generic citations", () => {
+    (useBlogArticle as ReturnType<typeof vi.fn>).mockReturnValue({
+      data: {
+        ...mockArticle,
+        reviewed_by: "Clinical Advisory Panel",
+        reviewer_credentials: "Physiotherapy input",
+        citations: null,
+      },
+      isLoading: false,
+      isSuccess: true,
+      isError: false,
+    });
+
+    renderBlogPost("test-article");
+    expect(screen.queryByText(/Reviewed by Clinical Advisory Panel/)).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("heading", { name: "Sources & References" }),
+    ).not.toBeInTheDocument();
   });
 });

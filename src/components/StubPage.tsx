@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet-async";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ChevronRight } from "lucide-react";
-import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 
 export interface StubPageFAQ {
@@ -32,7 +31,7 @@ const BASE = "https://livingwitharthritis.org.uk";
 
 /**
  * Lightweight content stub for navigation destinations that don’t yet have
- * a full editorial page. Renders an AnswerBox, MedicalReviewBadge, FAQ
+ * a full editorial page. Renders an AnswerBox, FAQ
  * accordion, and JSON-LD (FAQPage + BreadcrumbList) so the URL is
  * indexable, AI-citable, and not an empty 404 in the meantime.
  */
@@ -120,8 +119,6 @@ export default function StubPage({
               {answer}
             </p>
           </aside>
-
-          <MedicalReviewBadge />
 
           {intro && (
             <div className="prose prose-neutral max-w-none my-8">{intro}</div>

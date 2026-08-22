@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SeoHead from '@/components/SeoHead';
-import MedicalReviewBadge from '@/components/MedicalReviewBadge';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
 
 /**
@@ -62,7 +61,6 @@ export default function LivingWithArthritis() {
         practical strategies for living well.
       </p>
 
-      <MedicalReviewBadge />
 
       <nav aria-label="Table of contents" className="bg-muted p-6 rounded-lg mb-10 border-l-4 border-primary">
         <h2 className="font-bold text-lg mb-4">In this guide</h2>

@@ -92,13 +92,7 @@ function buildJsonLd(route, url, d) {
     inLanguage: "en-GB",
     isPartOf: { "@id": `${BASE}/#website` },
     about: d.about ? { "@type": "MedicalCondition", name: d.about } : undefined,
-    lastReviewed: d.updatedAt,
     dateModified: d.updatedAt,
-    reviewedBy: {
-      "@type": "Organization",
-      name: "Living With Arthritis UK clinical team",
-      parentOrganization: { "@id": `${BASE}/#organization` },
-    },
     publisher: { "@id": `${BASE}/#organization` },
     audience: { "@type": "MedicalAudience", audienceType: "Patient", geographicArea: { "@type": "Country", name: "United Kingdom" } },
     speakable: d.answer
@@ -199,10 +193,8 @@ function enrichHead(html, route, url) {
   // attribution + freshness line, a question-headed FAQ section, and an
   // authoritative-sources list. The rest of the fallback (internal links,
   // site sections) is kept for link equity and word count.
-  const reviewer =
-    "Medically reviewed by Maxwell, First Contact Practitioner (HCPC PH128483)";
   const updated = d.updatedAt
-    ? ` · Last updated ${d.updatedAt}`
+    ? `Last updated ${d.updatedAt}. `
     : "";
 
   const faqPairs = [];
@@ -226,7 +218,7 @@ function enrichHead(html, route, url) {
   const answerBlock =
     `<h1>${escText(d.question || d.title)}</h1>` +
     (d.answer ? `<p class="answer-box"><strong>${escText(d.answer)}</strong></p>` : "") +
-    `<p><em>${escText(reviewer)}${escText(updated)}. Content aligned with NICE guidance and NHS information. This is general information, not a substitute for personalised medical advice.</em></p>` +
+    `<p><em>${escText(updated)}This is general information, not a substitute for personalised medical advice.</em></p>` +
     faqHtml +
     sourcesHtml;
 

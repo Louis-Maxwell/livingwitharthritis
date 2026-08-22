@@ -14,12 +14,10 @@ interface Props {
  * Reuses the same Q&A pairs the template already extracts for FAQPage JSON-LD,
  * so we don't duplicate content — the schema and the visible block match.
  *
- * Skips render when the extracted list is only the generic fallback (question
- * text contains "this article about" — the fallback marker in extractFaqs).
+ * Skips render unless at least two genuine questions were extracted.
  */
 const ArticleFaqSection = ({ faqs }: Props) => {
-  const real = faqs.filter((f) => !/this article about/i.test(f.question));
-  if (real.length < 2) return null;
+  if (faqs.length < 2) return null;
 
   return (
     <section
@@ -33,7 +31,7 @@ const ArticleFaqSection = ({ faqs }: Props) => {
         </h2>
       </div>
       <dl className="space-y-6">
-        {real.map((f, i) => (
+        {faqs.map((f, i) => (
           <div key={i} className="rounded-xl border border-border/40 bg-secondary/30 p-5">
             <dt className="font-semibold text-foreground mb-2">{f.question}</dt>
             <dd className="text-foreground/80 leading-relaxed m-0">{f.answer}</dd>

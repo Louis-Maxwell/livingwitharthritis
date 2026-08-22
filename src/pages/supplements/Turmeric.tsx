@@ -5,7 +5,6 @@ import { ArrowLeft, ArrowRight, Pill, FlaskConical, ShieldAlert, HelpCircle, Boo
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
-import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import AnswerBox from "@/components/seo/AnswerBox";
 
 const BASE = "https://livingwitharthritis.org.uk";
@@ -145,7 +144,6 @@ export default function Turmeric() {
         </div>
 
         <main id="main-content" className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
-          <MedicalReviewBadge />
 
           <AnswerBox question="Does turmeric help arthritis pain?" reviewed="2026-07-11">
             <p>
