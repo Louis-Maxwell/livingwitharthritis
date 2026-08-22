@@ -212,7 +212,7 @@ const Header = () => {
   };
 
   const mobileNavItems = [
-    { label: "Newly Diagnosed", icon: Sparkles, desc: "Your essential first steps guide", href: "/about", action: () => navigate("/about") },
+    { label: "Newly Diagnosed", icon: Sparkles, desc: "Your essential first steps guide", href: "/guides/newly-diagnosed", action: () => navigate("/guides/newly-diagnosed") },
     { label: "Self Help Tool", icon: Activity, desc: "Interactive joint exercise diagram", href: "/self-help", action: () => navigate("/self-help") },
     { label: "Exercises & Diet", icon: Dumbbell, desc: "Physio exercises & nutrition plans", href: "/exercises", action: () => navigate("/exercises") },
     { label: "Pets & Arthritis", icon: HeartPulse, desc: "Dogs, cats, horses & more", href: "/pets", action: () => navigate("/pets") },

@@ -2,6 +2,7 @@ import { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import { Search, X, ArrowRight, FileText, Dumbbell, Utensils, Sun, Stethoscope } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
+import { exerciseJointPages } from "@/data/exerciseJointMatrix";
 
 interface SearchItem {
   label: string;
@@ -15,25 +16,14 @@ interface IndexedItem extends SearchItem {
   l: string; // lowercase label, computed once
 }
 
-const joints = ["knee", "hip", "shoulder", "hand", "back", "ankle"] as const;
-const exercises = ["swimming", "yoga", "cycling", "walking", "tai-chi", "pilates", "stretching", "strength-training"] as const;
-
-const exerciseLabels: Record<string, string> = {
-  swimming: "Swimming", yoga: "Yoga", cycling: "Cycling", walking: "Walking",
-  "tai-chi": "Tai Chi", pilates: "Pilates", stretching: "Stretching", "strength-training": "Strength Training"
-};
-const jointLabels: Record<string, string> = {
-  knee: "Knee", hip: "Hip", shoulder: "Shoulder", hand: "Hand", back: "Back", ankle: "Ankle"
-};
-
-const jointExerciseItems: SearchItem[] = joints.flatMap((joint) =>
-  exercises.map((exercise) => ({
-    label: `${exerciseLabels[exercise]} for ${jointLabels[joint]} Arthritis`,
-    href: `/exercises/${exercise}/${joint}`,
-    category: "Joint Exercises",
-    icon: Dumbbell,
-  }))
-);
+// Built from the same data that generates the /exercises/:slug routes, so a
+// result can never point at a URL the router does not serve.
+const jointExerciseItems: SearchItem[] = exerciseJointPages.map((page) => ({
+  label: `${page.exercise} for ${page.joint} Arthritis`,
+  href: `/exercises/${page.slug}`,
+  category: "Joint Exercises",
+  icon: Dumbbell,
+}));
 
 const rawIndex: SearchItem[] = [
   { label: "Home", href: "/", category: "Pages", icon: FileText },
@@ -54,7 +44,7 @@ const rawIndex: SearchItem[] = [
   { label: "Best Diet for Joint Pain UK", href: "/blog/best-diet-for-joint-pain-uk", category: "Blog", icon: Utensils },
   { label: "Turmeric for Arthritis UK", href: "/blog/turmeric-for-arthritis", category: "Blog", icon: Utensils },
   { label: "Omega-3 & Fish Oil", href: "/blog/arthritis-and-omega-3-fish-oil", category: "Blog", icon: Utensils },
-  { label: "Knee Arthritis Exercises UK", href: "/blog/knee-osteoarthritis-exercises", category: "Blog", icon: Dumbbell },
+  { label: "Knee Arthritis Exercises UK", href: "/blog/knee-arthritis-exercises-uk", category: "Blog", icon: Dumbbell },
   { label: "Hand Exercises for Arthritis", href: "/blog/hand-exercises-for-arthritis", category: "Blog", icon: Dumbbell },
   { label: "Shoulder Arthritis Exercises UK", href: "/blog/shoulder-arthritis-exercises-uk", category: "Blog", icon: Dumbbell },
   { label: "Arthritis Exercises", href: "/blog/arthritis-exercises", category: "Blog", icon: Dumbbell },
