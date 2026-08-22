@@ -1,283 +1,190 @@
 # Production Deployment Guide
 
-**Last Updated:** 2026-08-16  
-**Status:** Ready for Production
+**Last updated:** 2026-08-22
 
-## Deployment Architecture
+## Hosting platform
+
+The frontend is built and hosted by **Lovable**, served through Cloudflare.
 
 ```
-GitHub Main Branch
+GitHub main branch
+        ↓  (Lovable Git sync)
+   Lovable build  (npm run build → prerender → inject-canonicals)
         ↓
-   [git push]
+   Cloudflare edge
         ↓
-  Lovable Platform
-        ↓
-   [npm build]
-        ↓
-  Vercel CDN
-        ↓
-  https://livingwitharthritis.org.uk (Live)
+https://livingwitharthritis.org.uk
 ```
 
-## Step 1: Deploy to Lovable
+The backend is Supabase: Postgres, Auth, Storage and Edge Functions.
 
-After pushing to GitHub main, trigger Lovable deployment:
+**This project does not use Vercel, Netlify, or any other external frontend
+host.** Do not add `vercel.json`, `netlify.toml`, or a platform-specific
+`_redirects` file unless the hosting platform is deliberately migrated and this
+document is updated in the same change. A stray rewrite rule can silently
+reintroduce soft-404s — see [`seo/remaining-risks.md`](./seo/remaining-risks.md).
 
-### Manual Deployment (via Lovable Dashboard)
-1. Go to [Lovable Studio](https://lovable.dev)
-2. Select **livingwitharthritis** project (ID: `0b2fd6ca-4e21-4ac7-99fa-d741e996f45e`)
-3. Click **Deploy to Vercel**
-4. Confirm deployment
-5. Wait for build to complete (2-5 minutes)
-6. Verify at https://livingwitharthritis.org.uk
+To confirm which platform is serving production at any time:
 
-### CLI Deployment (if available)
 ```bash
-lovable deploy --project 0b2fd6ca-4e21-4ac7-99fa-d741e996f45e
+curl -sI https://livingwitharthritis.org.uk | grep -iE 'server|x-deployment-id'
 ```
 
-## Step 2: Production Environment Variables
+Expect `server: cloudflare` and a Lovable `x-deployment-id`.
 
-Add these to Vercel Project Settings:
+## Deploying
 
-### Critical (Required)
+Pushing to `main` triggers a Lovable build through the Git sync. No GitHub
+Actions workflow is required for the site to go live.
+
+`.github/workflows/deploy-to-lovable.yml` additionally calls the Lovable deploy
+API on push to `main`. It is a convenience trigger, not the primary path; if
+GitHub Actions is unavailable, Lovable still deploys from the Git sync.
+
+To deploy manually:
+
+1. Open the [Lovable project](https://lovable.dev/projects/0b2fd6ca-4e21-4ac7-99fa-d741e996f45e)
+2. Click **Publish**
+3. Wait for the build to finish
+4. Verify https://livingwitharthritis.org.uk
+
+## Environment variables
+
+### Frontend build (Lovable project settings)
+
+Client-side values only. Anything prefixed `VITE_` is shipped to the browser.
+
 ```
 VITE_SUPABASE_PROJECT_ID=eswdtpmknwjxtvkyxvmi
 VITE_SUPABASE_URL=https://eswdtpmknwjxtvkyxvmi.supabase.co
-VITE_SUPABASE_PUBLISHABLE_KEY=<your-key>
-DATABASE_URL=postgresql://postgres:<password>@eswdtpmknwjxtvkyxvmi.pooling.supabase.co:6543/postgres
+VITE_SUPABASE_PUBLISHABLE_KEY=<publishable key>
+VITE_SENTRY_DSN=<sentry dsn>
+VITE_GA4_PRIMARY_ID=G-<id>
 ```
 
-### Error Tracking (Sentry)
-```
-VITE_SENTRY_DSN=<your-sentry-dsn>
-SENTRY_ORG=<your-org>
-SENTRY_PROJECT=<your-project>
-SENTRY_AUTH_TOKEN=<your-auth-token>
-```
+Sentry source-map upload additionally needs `SENTRY_ORG`, `SENTRY_PROJECT` and
+`SENTRY_AUTH_TOKEN` at build time.
 
-### Analytics
-```
-VITE_GA4_PRIMARY_ID=G-<your-ga4-id>
-VITE_GA4_SECONDARY_ID=<optional>
-VITE_GA4_PAGEVIEW_ID=<optional>
-```
+The sitemap generator reads `VITE_SUPABASE_URL` and
+`VITE_SUPABASE_PUBLISHABLE_KEY` during `prebuild`. Without them the build falls
+back to the checked-in canonical route inventory rather than dropping blog URLs.
 
-### E-Commerce (if enabled)
-```
-VITE_SHOPIFY_STOREFRONT_TOKEN=<your-token>
-VITE_STRIPE_PUBLIC_KEY=pk_live_<your-key>
-VITE_PAYPAL_CLIENT_ID=<your-id>
-```
+### Server-side secrets (Supabase Edge Function secrets)
 
-### Email Service
-```
-VITE_RESEND_API_KEY=<your-key>
-```
+Never prefix these with `VITE_`.
 
-### Vercel Specific
-```
-NODE_ENV=production
-```
-
-**How to set in Vercel:**
-1. Go to [Vercel Dashboard](https://vercel.com/dashboard)
-2. Select **livingwitharthritis** project
-3. **Settings > Environment Variables**
-4. Add each variable above (mark as Production only)
-5. Save and redeploy
-
-## Step 3: Verify Production Deployment
-
-### Check Deployment Status
-1. Vercel Dashboard > **Deployments** tab
-2. Latest deployment should show ✅ Ready
-3. Verify domains: 
-   - https://livingwitharthritis.org.uk
-   - https://www.livingwitharthritis.org.uk (if configured)
-
-### Smoke Tests
 ```bash
-# Test homepage loads
-curl -I https://livingwitharthritis.org.uk
-
-# Check status code (should be 200)
-# Verify no 5xx errors
+supabase secrets set \
+  STRIPE_SECRET_KEY=... \
+  STRIPE_WEBHOOK_SECRET=... \
+  RESEND_API_KEY=... \
+  LOVABLE_API_KEY=... \
+  CONTENT_REINDEX_TOKEN=... \
+  RATE_LIMIT_STORE=redis \
+  RATE_LIMIT_REDIS_URL=... \
+  RATE_LIMIT_REDIS_TOKEN=... \
+  RATE_LIMIT_KEY_SALT=...
 ```
 
-### Monitor Errors
-1. Sentry: https://sentry.io/organizations/yourorg/issues/
-2. Vercel: Dashboard > **Function Logs** tab
-3. Check for deployment errors
+Rate limiting fails closed in production when Redis is unreachable. See
+[`RATE-LIMITING.md`](./RATE-LIMITING.md).
 
-### Performance Check
-1. Google PageSpeed Insights: https://pagespeed.insights.com
-2. Enter: livingwitharthritis.org.uk
-3. Verify Core Web Vitals are in "Good" range
+## Pre-deployment checks
 
-### Analytics Verification
-1. Google Analytics: Check real-time dashboard
-2. Verify traffic is being tracked
-3. Check event tracking (button clicks, forms)
+Run locally, since GitHub Actions is not guaranteed to be available:
 
-## Step 4: Post-Deployment Verification
-
-### SEO & Indexing
 ```bash
-# Check if site is indexed
-site:livingwitharthritis.org.uk
+npx tsc --noEmit -p tsconfig.app.json
+npm run lint
+npx vitest run
+npm run build:prerender
+npm run seo:prerender-meta
+npm run seo:redirects
 ```
 
-1. Google Search Console > Coverage
-   - Verify pages are indexed
-   - Check for crawl errors
-   - Submit sitemaps if needed
+The prerender metadata gate must report zero generic pages and zero unexpected
+`noindex` pages.
 
-2. Robots.txt check
-   ```bash
-   curl https://livingwitharthritis.org.uk/robots.txt
-   ```
+## Post-deployment verification
 
-### SSL/Security
-1. Browser: Check 🔒 icon in address bar
-2. SSL Labs: https://www.ssllabs.com/ssltest/
-3. Verify certificate is valid
-
-### Database Connectivity
 ```bash
-# Test Supabase connection via API
-curl -H "Authorization: Bearer <anon-key>" \
-  https://eswdtpmknwjxtvkyxvmi.supabase.co/rest/v1/
+# Homepage responds and is self-canonical
+curl -s https://livingwitharthritis.org.uk/ | grep -o '<link rel="canonical"[^>]*>'
+
+# A priority article serves its own content, not the homepage shell
+curl -s https://livingwitharthritis.org.uk/blog/anti-inflammatory-diet | grep -o '<title>[^<]*</title>'
+
+# Discovery files
+curl -sI https://livingwitharthritis.org.uk/robots.txt
+curl -sI https://livingwitharthritis.org.uk/sitemap.xml
 ```
 
-## Step 5: Rollback Procedure
+Then confirm:
 
-If issues occur after deployment:
+- Sentry is receiving events and shows no new critical issues
+- GA4 real-time traffic appears after analytics consent
+- Google Search Console shows no new coverage or canonical errors
+- Core Web Vitals remain in the good range
 
-### Quick Rollback (via Vercel)
-1. Vercel Dashboard > **Deployments**
-2. Find the previous stable deployment
-3. Click **...** > **Promote to Production**
-4. Vercel will redeploy the previous version
+## Rollback
 
-### Full Rollback (via Git)
+### Via Lovable
+
+1. Open the Lovable project
+2. Select a previous successful deployment
+3. Republish it
+
+### Via Git
+
 ```bash
-# Revert the last commit
-git revert HEAD
+git revert <commit>
 git push origin main
-
-# Then redeploy via Lovable
 ```
 
-### Partial Rollback (Environment Variables)
-If an env var caused issues:
-1. Go to Vercel > Settings > Environment Variables
-2. Update or remove problematic variable
-3. Trigger redeploy: Vercel > Deployments > **Redeploy**
+Lovable rebuilds from `main`.
 
-## Continuous Monitoring
+### Environment variable rollback
 
-### Daily
-- Check Sentry for new errors
-- Monitor Google Analytics (traffic, bounce rate)
-- Review Vercel deployment logs
+Correct the value in Lovable project settings (frontend) or with
+`supabase secrets set` (server side), then redeploy.
 
-### Weekly
-- Google Search Console: Performance report
-- Core Web Vitals monitoring
-- Error tracking review
-- Database query performance
+## Monitoring cadence
 
-### Monthly
-- Comprehensive SEO audit
-- Performance optimization review
-- Security audit (SSL, dependencies)
-- Cost review (Vercel, Supabase, Sentry)
+**Daily** — Sentry errors, GA4 traffic, rate limiting violation logs.
 
-## Deployment Checklist
+**Weekly** — Search Console performance and coverage, Core Web Vitals, Supabase
+query performance.
 
-Before each deployment:
-
-- [ ] All tests pass locally (`npm run lint`, `npm run build`)
-- [ ] Phase complete and committed
-- [ ] Environment variables configured in Vercel
-- [ ] Sentry DSN configured for error tracking
-- [ ] Database backups taken (Supabase)
-- [ ] Google Search Console sitemaps updated
-- [ ] Google Analytics tracking verified
-
-After each deployment:
-
-- [ ] Homepage loads without errors
-- [ ] Core Web Vitals are "Good"
-- [ ] Sentry shows no critical errors
-- [ ] Google Analytics shows real-time traffic
-- [ ] Database queries are responsive
-- [ ] SSL certificate is valid
-- [ ] No 5xx server errors in logs
+**Monthly** — SEO audit, dependency and security review, cost review across
+Supabase, Lovable and Sentry.
 
 ## Troubleshooting
 
-### "Build failed" error
-- Check build logs in Vercel
-- Verify all environment variables are set
-- Check for TypeScript errors: `npm run build`
-- Check node_modules: `rm -rf node_modules && npm ci`
+**Build fails.** Check the Lovable build log. Reproduce locally with
+`npm run build:prerender`. Confirm build-time environment variables are set.
 
-### "500 Internal Server Error"
-- Check Vercel Function Logs
-- Check Sentry for stack traces
-- Verify database connection (DATABASE_URL)
-- Check API endpoint availability
+**Pages serve homepage content.** The prerender step did not produce per-route
+HTML. Run `npm run seo:prerender-meta` against the build output and confirm
+Chromium is available during the build.
 
-### "Page not found" (404)
-- Verify route exists in src/pages/
-- Check for routing errors in App.tsx
-- Vercel: Check for build output in .vercel/output
+**Unknown URLs return HTTP 200.** This is a known limitation of the current
+managed hosting, documented in [`seo/remaining-risks.md`](./seo/remaining-risks.md).
+It needs a hosting-level fix, not a prerender change.
 
-### Analytics not tracking
-- Verify VITE_GA4_PRIMARY_ID is set
-- Check browser console for gtag errors
-- Verify GA4 property is receiving events
-- Check for Content Security Policy blocking gtag
+**Edge Function errors.** Check Supabase Edge Function logs, verify secrets, and
+run `npm run preflight:functions` locally (requires Deno).
 
-### Slow performance
-- Check Core Web Vitals in PageSpeed Insights
-- Review Vercel Analytics
-- Check database query logs
-- Verify CDN caching headers
-
-## Cost Optimization
-
-### Vercel
-- Monitor deployment frequency (excessive builds cost)
-- Use Vercel's pricing calculator
-- Consider Pro plan if over free tier limits
-
-### Supabase
-- Monitor database rows and storage
-- Use PgBouncer to reduce connection overhead
-- Archive old data if needed
-
-### Sentry
-- Adjust error sampling (e.g., 10% in production)
-- Set up noise filters for known non-critical errors
-- Review monthly quota usage
+**Analytics missing.** GA4 loads only after analytics consent. Verify
+`VITE_GA4_PRIMARY_ID` and check for CSP blocking in the browser console.
 
 ## Resources
 
-- [Lovable Documentation](https://docs.lovable.dev)
-- [Vercel Deployment Guide](https://vercel.com/docs)
-- [Supabase Production Checklist](https://supabase.com/docs/guides/getting-started/architecture)
-- [Sentry Release Tracking](https://docs.sentry.io/product/releases/)
+- [Lovable documentation](https://docs.lovable.dev)
+- [Supabase production checklist](https://supabase.com/docs/guides/deployment/going-into-prod)
+- [Sentry releases](https://docs.sentry.io/product/releases/)
 
-## Support Contacts
+## Support
 
-- **Lovable:** support@lovable.dev
-- **Vercel:** support@vercel.com (Pro plan) / Community forums
-- **Supabase:** Community forums or Pro support
-- **Sentry:** https://sentry.io/support/
-
----
-
-**Next:** Monitor production metrics and iterate on Phase 2 enhancements.
+- Lovable: support@lovable.dev
+- Supabase: community forums or Pro support
+- Sentry: https://sentry.io/support/

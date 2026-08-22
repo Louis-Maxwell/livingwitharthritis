@@ -25,7 +25,7 @@ VITE_SUPABASE_URL=https://[project-ref].supabase.co  # Regular URL (for frontend
 DATABASE_URL=postgresql://[user]:[password]@[project-ref].pooling.supabase.co:6543/postgres
 ```
 
-**Vercel:** Project Settings > Environment Variables:
+**Lovable:** Project Settings > Environment Variables:
 ```
 DATABASE_URL=postgresql://[user]:[password]@[project-ref].pooling.supabase.co:6543/postgres
 ```

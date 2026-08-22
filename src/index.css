@@ -628,7 +628,7 @@
     box-shadow: 0 16px 40px -8px hsl(var(--violet) / 0.4);
   }
 
-  /* ─── Multicolor mesh & aurora backgrounds (Stripe/Linear/Vercel inspired) ─── */
+  /* ─── Multicolor mesh & aurora backgrounds ─── */
   .bg-mesh {
     background-color: hsl(var(--background));
     background-image: var(--gradient-mesh);

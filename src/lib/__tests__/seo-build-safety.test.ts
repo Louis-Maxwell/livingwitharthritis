@@ -1,5 +1,5 @@
 /// <reference types="node" />
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import {
@@ -152,5 +152,24 @@ describe("SEO build safety", () => {
     expect(
       isPrerenderDocumentReady(document, "/blog/anti-inflammatory-diet"),
     ).toBe(false);
+  });
+
+  it("does not ship configuration for an unused hosting platform", () => {
+    const root = process.cwd();
+
+    // The site is built and served by Lovable behind Cloudflare. A stray
+    // platform config here would either be dead weight or, worse, install a
+    // blanket SPA rewrite that reintroduces soft-404s.
+    for (const config of [
+      "vercel.json",
+      "netlify.toml",
+      "public/_redirects",
+      "firebase.json",
+      "staticwebapp.config.json",
+    ]) {
+      expect(existsSync(resolve(root, config))).toBe(false);
+    }
+
+    expect(existsSync(resolve(root, "public/_headers"))).toBe(true);
   });
 });

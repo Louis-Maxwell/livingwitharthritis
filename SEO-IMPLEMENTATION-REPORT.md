@@ -53,7 +53,7 @@ Living With Arthritis had critical SEO issues:
 **2. SEO Remediation Documentation**
 - ✅ Created `SEO-REMEDIATION.md` — Comprehensive hosting requirements
   - Explains P0 issue (SPA shell fallback)
-  - Provides Vercel config template for 301 redirects
+  - Specifies the required 301 redirect behaviour for the hosting layer
   - Documents 404 status code requirements
   - Includes testing procedures and monitoring strategy
 
@@ -62,7 +62,7 @@ Living With Arthritis had critical SEO issues:
 - `SEO-REMEDIATION.md` — 30 KB hosting team handoff document
 
 ### Next Step
-**DevOps Team:** Implement Vercel config changes (Phase 2)
+**DevOps Team:** Implement hosting-layer redirect and 404 changes (Phase 2)
 
 ---
 
@@ -91,7 +91,7 @@ Living With Arthritis had critical SEO issues:
 **2. Implement 404 Status Codes**
 - Currently: Unmatched URLs return HTTP 200 (SPA shell)
 - Required: Return proper HTTP 404 for unknown URLs
-- Solution: Vercel Edge Middleware or Supabase Edge Function
+- Solution: an edge/proxy layer that can emit a real 404 status
 
 **3. Test & Monitor**
 - Verify redirects return HTTP 301 (not 307 or 308)
@@ -270,7 +270,7 @@ test('meta descriptions are 120-160 characters', async () => {
 
 // tests/seo/redirects.test.ts
 test('no redirect chains exist', async () => {
-  const redirects = getConfiguredRedirects(); // from vercel.json
+  const redirects = getConfiguredRedirects(); // from docs/seo/redirect-map.csv
   for (const [source, target] of redirects) {
     const status = await getStatusCode(target);
     if (status >= 300 && status < 400) {
@@ -411,7 +411,7 @@ jobs:
 - Owner: DevOps team
 - Effort: 4-6 hours
 - Timeline: Parallel with Phase 3 (start now)
-- Deliverable: vercel.json with redirects + 404 middleware
+- Deliverable: hosting-layer 301 redirects + real 404 status handling
 
 **Phase 3 Content Updates** ⏳
 - Owner: Content team
@@ -461,7 +461,7 @@ jobs:
 **Risk 2: Redirect Implementation Issues**
 - **Mitigation:** Template provided; thorough testing before deploy
 - **Monitoring:** Monitor 404 rates post-deployment
-- **Rollback:** Simple vercel.json removal
+- **Rollback:** Remove the hosting redirect rules and redeploy
 
 **Risk 3: Content Quality Issues**
 - **Mitigation:** Medical content standards checklist provided

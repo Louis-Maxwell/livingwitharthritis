@@ -60,64 +60,40 @@ Three URLs compete for the same search intent:
 
 ## Phase 2: Hosting Configuration (REQUIRED - DevOps Task)
 
-### Critical: Vercel Configuration
+### Critical: Redirect configuration
 
-Create or update `vercel.json` with proper redirect rules:
+The site is hosted on Lovable behind Cloudflare. It is **not** hosted on Vercel,
+so do not add a `vercel.json`. Lovable's managed hosting does not currently
+expose repository-level path redirects, which is why these remain outstanding.
 
-```json
-{
-  "redirects": [
-    {
-      "source": "/blog/knee-arthritis-exercises-uk",
-      "destination": "/blog/knee-osteoarthritis-exercises",
-      "permanent": true
-    },
-    {
-      "source": "/blog/knee-exercises-arthritis",
-      "destination": "/blog/knee-osteoarthritis-exercises",
-      "permanent": true
-    }
-  ],
-  "headers": [
-    {
-      "source": "/api/healthy",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=60"
-        }
-      ]
-    }
-  ]
-}
-```
+Required behaviour, whichever platform ultimately serves the redirect:
+
+| Source | Destination | Status |
+| --- | --- | ---: |
+| `/blog/knee-osteoarthritis-exercises` | `/blog/knee-arthritis-exercises-uk` | 301 |
+| `/blog/knee-exercises-arthritis` | `/blog/knee-arthritis-exercises-uk` | 301 |
+
+The canonical destination is `/blog/knee-arthritis-exercises-uk`. Earlier
+revisions of this document had the direction reversed; the application map in
+`src/data/blogRedirects.ts` and `docs/seo/redirect-map.csv` are authoritative.
+
+Every mapping in `BLOG_SLUG_REDIRECTS` needs the same treatment. The full list
+with reasons is in `docs/seo/redirect-map.csv`.
 
 ### Critical: 404 Status Codes
 
-All unmatched URLs must return HTTP 404, not HTTP 200. Options:
+All unmatched URLs must return HTTP 404, not HTTP 200. The React `NotFound`
+route renders correctly but cannot change the transport status.
 
-**Option A: Vercel Edge Middleware (Recommended)**
-Create `middleware.ts` at project root:
-```typescript
-import { NextRequest, NextResponse } from 'next/server';
+**Option A: Edge layer at the hosting provider (preferred)**
+Serve a real 404 status for any path that is neither a built route nor a static
+asset. Requires a hosting platform that exposes edge routing.
 
-// List of valid routes from prerender-routes.mjs
-const VALID_ROUTES = [ /* ... */ ];
+**Option B: Reverse proxy in front of the origin**
+Terminate at a proxy that can distinguish known routes from unknown ones and
+emit `404` with the prerendered 404 document.
 
-export function middleware(req: NextRequest) {
-  const path = new URL(req.url).pathname;
-  
-  // If path is not in VALID_ROUTES and not a static asset, return 404
-  if (!isValidRoute(path) && !isStaticAsset(path)) {
-    return NextResponse.rewrite(new URL('/404', req.url), { status: 404 });
-  }
-}
-```
-
-**Option B: Supabase Edge Function**
-Deploy edge function to intercept 404 responses and set proper status code.
-
-**Option C: Nginx Configuration** (If using self-hosted Nginx)
+**Option C: Self-hosted Nginx**
 ```nginx
 error_page 404 /404.html;
 location / {
@@ -125,9 +101,12 @@ location / {
 }
 ```
 
+Do not add a blanket `/* → /index.html 200` rewrite. That is what produces the
+current soft-404 behaviour.
+
 ### Implementation Checklist
-- [ ] Create `vercel.json` with redirects
-- [ ] Add redirect for all URLs in `BLOG_SLUG_REDIRECTS`
+- [ ] Confirm the hosting platform supports path-level 301s
+- [ ] Configure redirects for all URLs in `BLOG_SLUG_REDIRECTS`
 - [ ] Test redirects with `curl -I https://livingwitharthritis.org.uk/blog/knee-arthritis-exercises-uk`
 - [ ] Verify HTTP 301 status code (not 307 or 308)
 - [ ] Deploy to staging and test
@@ -170,8 +149,8 @@ Some Search Console URLs don't match database slugs:
 ### Pre-Deployment
 ```bash
 # Test redirects locally
-curl -I http://localhost:8080/blog/knee-arthritis-exercises-uk
-# Should show 200 (SPA shell) in dev; will be 301 in prod after vercel.json deployed
+curl -I http://localhost:8080/blog/knee-osteoarthritis-exercises
+# Shows 200 (SPA shell) in dev; must be 301 in prod once edge redirects are configured
 
 # Test 404 handling
 curl -I http://localhost:8080/blog/nonexistent-article-slug
@@ -202,9 +181,13 @@ When adding new redirects, follow this pattern:
 1. **Identify cannibalizing URLs** in Search Console
 2. **Choose canonical** (prefer highest position or best authority)
 3. **Add to `BLOG_SLUG_REDIRECTS`** in code
-4. **Add to `vercel.json`** for hosting-layer redirect
+4. **Record it in `docs/seo/redirect-map.csv`** with a reason, and configure the
+   hosting-layer redirect once the platform supports it
 5. **Test** with curl and Search Console
 6. **Document in commit message**
+
+`npm run seo:redirects` fails the build if the code map and the documented map
+drift apart, if a redirect source is still in the sitemap, or if a chain forms.
 
 ---
 
@@ -247,7 +230,7 @@ When adding new redirects, follow this pattern:
 ## Rollback Plan
 
 If redirects cause issues:
-1. Remove redirects from `vercel.json`
+1. Remove the redirect rules from the hosting configuration
 2. Deploy
 3. Verify changes live (check curl responses)
 4. Monitor Search Console for errors
@@ -257,7 +240,7 @@ If redirects cause issues:
 ## Contacts & Approvals
 
 - **Technical SEO Owner:** Living With Arthritis Technical Team
-- **Hosting/DevOps Owner:** Vercel Account Team
+- **Hosting/DevOps Owner:** Lovable workspace owner
 - **Content Owner:** Editorial Team
 - **Medical Review Owner:** Clinical Review Board
 
