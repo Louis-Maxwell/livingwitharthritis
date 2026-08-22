@@ -13,6 +13,9 @@ wrapped by `supabase/functions/_shared/rate-limit.ts`.
 | General API | 100 requests / 900 seconds | Every other non-exempt Edge Function |
 | Monitoring | Exempt | `run-psi-audit`, `seo-rank-sync` |
 
+The contact tier applies to `POST` submissions. Non-POST requests on those
+functions (for example appointment availability lookup) use the general tier.
+
 Supabase-hosted login, signup, password recovery and token endpoints do not pass
 through this repository's Edge Functions. Configure their equivalent
 5-per-minute limits under **Supabase Dashboard → Authentication → Rate Limits**.

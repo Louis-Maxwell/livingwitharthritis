@@ -325,7 +325,7 @@ export async function checkRequestRateLimit(
     ip,
     env("RATE_LIMIT_KEY_SALT") ?? "living-with-arthritis",
   );
-  const key = `rate-limit:v1:${scope}:${identifier}:${window}`;
+  const key = `rate-limit:v1:${scope}:${category}:${identifier}:${window}`;
   const store = options.store ?? getSharedStore(env);
   const count = await store.increment(key, config.windowSeconds);
   const remaining = Math.max(0, config.limit - count);
@@ -439,10 +439,19 @@ export function withRateLimit(
 export function withEndpointRateLimit(
   scope: RateLimitedEndpoint,
   handler: Handler,
+  options: {
+    env?: EnvReader;
+    store?: RateLimitStore;
+    now?: () => number;
+  } = {},
 ): Handler {
-  return withRateLimit(
-    scope,
-    ENDPOINT_RATE_LIMIT_CATEGORIES[scope],
-    handler,
-  );
+  const configuredCategory = ENDPOINT_RATE_LIMIT_CATEGORIES[scope];
+  const endpointHandler: Handler = (request) => {
+    const category =
+      configuredCategory === "contact" && request.method !== "POST"
+        ? "general"
+        : configuredCategory;
+    return withRateLimit(scope, category, handler, options)(request);
+  };
+  return endpointHandler;
 }

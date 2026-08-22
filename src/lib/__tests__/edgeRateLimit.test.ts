@@ -5,10 +5,12 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import {
   ENDPOINT_RATE_LIMIT_CATEGORIES,
   MemoryRateLimitStore,
+  RedisRestRateLimitStore,
   checkRequestRateLimit,
   createRateLimitStore,
   getClientIp,
   getRateLimitConfig,
+  withEndpointRateLimit,
   withRateLimit,
   type RateLimitStore,
 } from "../../../supabase/functions/_shared/rate-limit";
@@ -18,6 +20,7 @@ const envFrom = (values: Record<string, string>) => (name: string) =>
 
 afterEach(() => {
   vi.restoreAllMocks();
+  vi.unstubAllGlobals();
 });
 
 describe("edge rate limiting", () => {
@@ -42,6 +45,9 @@ describe("edge rate limiting", () => {
   });
 
   it("allows three contact submissions then returns the standard 429", async () => {
+    const violationLog = vi
+      .spyOn(console, "warn")
+      .mockImplementation(() => undefined);
     let now = Date.UTC(2026, 7, 22);
     const store = new MemoryRateLimitStore(() => now);
     const handler = vi.fn(async () =>
@@ -77,6 +83,9 @@ describe("edge rate limiting", () => {
     expect(blocked.headers.get("X-RateLimit-Remaining")).toBe("0");
     expect(blocked.headers.get("Retry-After")).toMatch(/^\d+$/);
     expect(handler).toHaveBeenCalledTimes(3);
+    expect(violationLog).toHaveBeenCalledWith(
+      expect.stringContaining('"event":"rate_limit_exceeded"'),
+    );
 
     now += 61_000;
     expect((await limited(request())).status).toBe(200);
@@ -133,6 +142,37 @@ describe("edge rate limiting", () => {
     ).toThrow(/Redis rate limiting requires/);
   });
 
+  it("increments production counters through the Redis REST pipeline", async () => {
+    const fetchMock = vi.fn(
+      async (_input: RequestInfo | URL, _init?: RequestInit) =>
+        new Response(
+        JSON.stringify([{ result: 2 }, { result: 1 }]),
+        { status: 200, headers: { "Content-Type": "application/json" } },
+        ),
+    );
+    vi.stubGlobal("fetch", fetchMock);
+    const store = new RedisRestRateLimitStore(
+      "https://redis.example.test/",
+      "secret-token",
+    );
+
+    await expect(store.increment("rate-limit:key", 60)).resolves.toBe(2);
+    expect(fetchMock).toHaveBeenCalledWith(
+      "https://redis.example.test/pipeline",
+      expect.objectContaining({
+        method: "POST",
+        headers: expect.objectContaining({
+          Authorization: "Bearer secret-token",
+        }),
+      }),
+    );
+    const init = fetchMock.mock.calls[0][1] as RequestInit;
+    expect(JSON.parse(String(init.body))).toEqual([
+      ["INCR", "rate-limit:key"],
+      ["EXPIRE", "rate-limit:key", "65"],
+    ]);
+  });
+
   it("exempts monitoring endpoints and OPTIONS requests", async () => {
     const store: RateLimitStore = {
       increment: vi.fn(async () => {
@@ -160,6 +200,37 @@ describe("edge rate limiting", () => {
       ).status,
     ).toBe(200);
     expect(store.increment).not.toHaveBeenCalled();
+  });
+
+  it("uses the contact limit only for submissions", async () => {
+    const store = new MemoryRateLimitStore();
+    const options = {
+      store,
+      now: () => 1_700_000_000_000,
+      env: envFrom({ RATE_LIMIT_KEY_SALT: "test" }),
+    };
+    const handler = async () => new Response("ok");
+    const endpoint = withEndpointRateLimit(
+      "book-appointment",
+      handler,
+      options,
+    );
+
+    const availability = await endpoint(
+      new Request("https://example.test", {
+        method: "GET",
+        headers: { "x-real-ip": "192.0.2.22" },
+      }),
+    );
+    expect(availability.headers.get("X-RateLimit-Limit")).toBe("100");
+
+    const submission = await endpoint(
+      new Request("https://example.test", {
+        method: "POST",
+        headers: { "x-real-ip": "192.0.2.22" },
+      }),
+    );
+    expect(submission.headers.get("X-RateLimit-Limit")).toBe("3");
   });
 
   it("fails closed when the production store is unavailable", async () => {
