@@ -201,5 +201,22 @@ describe("BlogPost Page", () => {
     expect(
       screen.queryByRole("heading", { name: "Sources & References" }),
     ).not.toBeInTheDocument();
+
+    const schemas = Array.from(
+      document.head.querySelectorAll<HTMLScriptElement>(
+        'script[type="application/ld+json"]',
+      ),
+    ).map((script) => JSON.parse(script.textContent || "{}"));
+    const articleSchema = schemas.find(
+      (schema) => schema["@type"] === "Article",
+    );
+    expect(articleSchema["@id"]).toBe(
+      "https://livingwitharthritis.org.uk/blog/test-article#article",
+    );
+    expect(articleSchema.reviewedBy).toBeUndefined();
+    expect(articleSchema.citation).toBeUndefined();
+    expect(
+      schemas.some((schema) => schema["@type"] === "FAQPage"),
+    ).toBe(false);
   });
 });

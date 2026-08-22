@@ -70,6 +70,16 @@ describe("SEO build safety", () => {
     ).toBe(false);
   });
 
+  it("does not publish a fabricated regional office or telephone", () => {
+    const regionSource = readFileSync(
+      resolve(process.cwd(), "src/pages/regions/RegionHub.tsx"),
+      "utf8",
+    );
+
+    expect(regionSource).not.toContain('"@type": "LocalBusiness"');
+    expect(regionSource).not.toContain("+44 20 1234 5678");
+  });
+
   it("falls back to the active production Supabase project", () => {
     expect(SUPABASE_PROJECT_ID).toBe("eswdtpmknwjxtvkyxvmi");
     expect(SUPABASE_URL).toBe(

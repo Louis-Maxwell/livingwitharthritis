@@ -162,6 +162,7 @@ const BlogPost = () => {
   const showUpdated = !!updatedAtRaw && new Date(updatedAtRaw).toDateString() !== new Date(article.date).toDateString();
   const metaTitle = article.meta_title || article.title;
   const metaDesc = article.meta_description || article.excerpt;
+  const pageUrl = `https://livingwitharthritis.org.uk/blog/${slug}`;
   const authorName = article.author || "Living With Arthritis UK Editorial Team";
   const rawAuthorCreds = article.author_credentials || "Editorial content";
   const authorCreds = /PH123456/i.test(rawAuthorCreds)
@@ -228,7 +229,7 @@ const BlogPost = () => {
         <meta property="og:description" content={metaDesc} />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://livingwitharthritis.org.uk/blog/${slug}`} />
+        <meta property="og:url" content={pageUrl} />
         <meta property="og:site_name" content="Living With Arthritis UK" />
         <meta property="og:image" content={article.image_url || "https://livingwitharthritis.org.uk/images/og-blog-default.webp"} />
         <meta property="og:image:width" content="1200" />
@@ -247,15 +248,17 @@ const BlogPost = () => {
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "MedicalWebPage",
+          "@id": `${pageUrl}#webpage`,
+          "url": pageUrl,
           "headline": article.title,
           "description": metaDesc,
           "datePublished": article.date,
           "dateModified": dateModifiedIso,
           "author": authorSchema,
-          "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk", "logo": { "@type": "ImageObject", "url": "https://livingwitharthritis.org.uk/favicon.ico" } },
+          "publisher": { "@id": "https://livingwitharthritis.org.uk/#organization" },
           "inLanguage": "en-GB",
-          "mainEntityOfPage": `https://livingwitharthritis.org.uk/blog/${slug}`,
-          "about": { "@type": "MedicalCondition", "name": "Arthritis", "alternateName": ["Osteoarthritis", "Rheumatoid Arthritis"] },
+          "mainEntity": { "@id": `${pageUrl}#article` },
+          "about": { "@type": "MedicalCondition", "name": "Arthritis" },
           "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } },
           ...(reviewedBySchema ? { "reviewedBy": reviewedBySchema } : {}),
           "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Patient" },
@@ -265,18 +268,19 @@ const BlogPost = () => {
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Article",
+          "@id": `${pageUrl}#article`,
           "headline": article.title,
           "description": metaDesc,
-          "image": "https://livingwitharthritis.org.uk/images/og-blog-default.webp",
+          "image": article.image_url || "https://livingwitharthritis.org.uk/images/og-blog-default.webp",
           "datePublished": article.date,
           "dateModified": dateModifiedIso,
           "author": authorSchema,
-          "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk", "logo": { "@type": "ImageObject", "url": "https://livingwitharthritis.org.uk/favicon.ico", "width": 512, "height": 512 } },
-          "mainEntityOfPage": { "@type": "WebPage", "@id": `https://livingwitharthritis.org.uk/blog/${slug}` },
+          "publisher": { "@id": "https://livingwitharthritis.org.uk/#organization" },
+          "mainEntityOfPage": { "@id": `${pageUrl}#webpage` },
           "wordCount": htmlContent.replace(/<[^>]*>/g, " ").trim().split(/\s+/).length,
           "inLanguage": "en-GB",
           "isAccessibleForFree": true,
-          "articleSection": "Health",
+          "articleSection": article.category || "Health",
           "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".speakable-intro"] },
           ...(reviewedBySchema ? { "reviewedBy": reviewedBySchema } : {}),
           ...(citationSchema.length ? { "citation": citationSchema } : {})
@@ -285,16 +289,20 @@ const BlogPost = () => {
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
+          "@id": `${pageUrl}#breadcrumb`,
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
             { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://livingwitharthritis.org.uk/blog" },
-            { "@type": "ListItem", "position": 3, "name": article.title, "item": `https://livingwitharthritis.org.uk/blog/${slug}` }
+            { "@type": "ListItem", "position": 3, "name": article.title, "item": pageUrl }
           ]
         })}</script>
         {faqs.length >= 2 && (
           <script type="application/ld+json">{JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
+            "@id": `${pageUrl}#faq`,
+            "url": pageUrl,
+            "inLanguage": "en-GB",
             "mainEntity": faqs.map((f) => ({
               "@type": "Question",
               "name": f.question,
