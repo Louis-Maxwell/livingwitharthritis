@@ -7,14 +7,15 @@ wrapped by `supabase/functions/_shared/rate-limit.ts`.
 
 | Category | Default | Endpoints |
 | --- | --- | --- |
-| Authentication | 5 requests / 60 seconds | `auth-email-hook` |
-| Contact and submission forms | 3 requests / 60 seconds | `submit-contact`, `submit-fundraising`, `submit-triage`, `request-buddy-match`, `book-appointment` |
-| Search and AI query | 30 requests / 60 seconds | `chat`, `symptom-ranker`, `mcp` |
-| General API | 100 requests / 900 seconds | Every other non-exempt Edge Function |
-| Monitoring | Exempt | `run-psi-audit`, `seo-rank-sync` |
+| Authentication / token-gated user flow | 5 requests / 60 seconds | `book-appointment` POST, `submit-triage`, `request-buddy-match`, `handle-email-unsubscribe` |
+| Contact forms | 3 requests / 60 seconds | `submit-contact`, `submit-fundraising` |
+| Search and AI query | 30 requests / 60 seconds | `chat`, `symptom-ranker`, `mcp`, `conditions-feed` |
+| General public API | 100 requests / 900 seconds | `book-appointment` GET, `create-donation-checkout`, `generate-sitemap` |
+| Internal / monitoring | Exempt | Signed webhooks, service-role/admin jobs, `serve-sitemap`, `run-psi-audit`, `seo-rank-sync` |
 
-The contact tier applies to `POST` submissions. Non-POST requests on those
-functions (for example appointment availability lookup) use the general tier.
+The contact tier applies only to contact-form `POST` submissions. Appointment
+availability lookup uses the general tier; an authenticated booking submission
+uses the authentication tier.
 
 Supabase-hosted login, signup, password recovery and token endpoints do not pass
 through this repository's Edge Functions. Configure their equivalent
@@ -136,7 +137,8 @@ Create log alerts for bursts of violations and any storage error.
 2. Wrap its handler with `withEndpointRateLimit`.
 3. Run `npx vitest run src/lib/__tests__/edgeRateLimit.test.ts`; the coverage
    test fails when a deployed function is unclassified or unwrapped.
-4. Review exemptions quarterly.
+4. Review exemptions quarterly. Exempt endpoints must remain protected by a
+   service-role/admin check or a verified webhook signature.
 5. Rotate Redis tokens and `RATE_LIMIT_KEY_SALT` using the normal secrets
    process. Salt rotation creates a fresh set of counters.
 

@@ -53,35 +53,35 @@ const ERROR_BODY = {
 };
 
 export const ENDPOINT_RATE_LIMIT_CATEGORIES = {
-  "auth-email-hook": "authentication",
-  "book-appointment": "contact",
+  "auth-email-hook": "exempt",
+  "book-appointment": "authentication",
   chat: "search",
-  "conditions-feed": "general",
+  "conditions-feed": "search",
   "create-donation-checkout": "general",
-  "daily-content-freshness": "general",
-  "daily-seo-refresh": "general",
+  "daily-content-freshness": "exempt",
+  "daily-seo-refresh": "exempt",
   "generate-sitemap": "general",
-  "generate-syndication-pack": "general",
-  "handle-email-suppression": "general",
-  "handle-email-unsubscribe": "general",
-  "index-content": "general",
-  "indexnow-ping": "general",
-  "ingest-content": "general",
+  "generate-syndication-pack": "exempt",
+  "handle-email-suppression": "exempt",
+  "handle-email-unsubscribe": "authentication",
+  "index-content": "exempt",
+  "indexnow-ping": "exempt",
+  "ingest-content": "exempt",
   mcp: "search",
-  "notify-patient-status": "general",
-  "preview-transactional-email": "general",
-  "process-donation": "general",
-  "process-email-queue": "general",
-  "reindex-content": "general",
-  "request-buddy-match": "contact",
+  "notify-patient-status": "exempt",
+  "preview-transactional-email": "exempt",
+  "process-donation": "exempt",
+  "process-email-queue": "exempt",
+  "reindex-content": "exempt",
+  "request-buddy-match": "authentication",
   "run-psi-audit": "exempt",
-  "send-patient-email": "general",
-  "send-transactional-email": "general",
+  "send-patient-email": "exempt",
+  "send-transactional-email": "exempt",
   "seo-rank-sync": "exempt",
-  "serve-sitemap": "general",
+  "serve-sitemap": "exempt",
   "submit-contact": "contact",
   "submit-fundraising": "contact",
-  "submit-triage": "contact",
+  "submit-triage": "authentication",
   "symptom-ranker": "search",
 } as const satisfies Record<string, RateLimitCategory>;
 
@@ -448,7 +448,8 @@ export function withEndpointRateLimit(
   const configuredCategory = ENDPOINT_RATE_LIMIT_CATEGORIES[scope];
   const endpointHandler: Handler = (request) => {
     const category =
-      configuredCategory === "contact" && request.method !== "POST"
+      (configuredCategory === "contact" && request.method !== "POST") ||
+        (scope === "book-appointment" && request.method !== "POST")
         ? "general"
         : configuredCategory;
     return withRateLimit(scope, category, handler, options)(request);

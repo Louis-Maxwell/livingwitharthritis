@@ -202,7 +202,7 @@ describe("edge rate limiting", () => {
     expect(store.increment).not.toHaveBeenCalled();
   });
 
-  it("uses the contact limit only for submissions", async () => {
+  it("uses general limits for availability and auth limits for booking", async () => {
     const store = new MemoryRateLimitStore();
     const options = {
       store,
@@ -230,7 +230,7 @@ describe("edge rate limiting", () => {
         headers: { "x-real-ip": "192.0.2.22" },
       }),
     );
-    expect(submission.headers.get("X-RateLimit-Limit")).toBe("3");
+    expect(submission.headers.get("X-RateLimit-Limit")).toBe("5");
   });
 
   it("fails closed when the production store is unavailable", async () => {
@@ -296,5 +296,16 @@ describe("edge rate limiting", () => {
         new RegExp(`withEndpointRateLimit\\(\\s*["']${scope}["']`),
       );
     }
+  });
+
+  it("keeps public, authenticated, and internal endpoint policies distinct", () => {
+    expect(ENDPOINT_RATE_LIMIT_CATEGORIES["submit-contact"]).toBe("contact");
+    expect(ENDPOINT_RATE_LIMIT_CATEGORIES["conditions-feed"]).toBe("search");
+    expect(ENDPOINT_RATE_LIMIT_CATEGORIES["handle-email-unsubscribe"]).toBe(
+      "authentication",
+    );
+    expect(ENDPOINT_RATE_LIMIT_CATEGORIES["auth-email-hook"]).toBe("exempt");
+    expect(ENDPOINT_RATE_LIMIT_CATEGORIES["process-donation"]).toBe("exempt");
+    expect(ENDPOINT_RATE_LIMIT_CATEGORIES["daily-seo-refresh"]).toBe("exempt");
   });
 });
