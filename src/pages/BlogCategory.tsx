@@ -115,6 +115,8 @@ const BlogCategory = () => {
       )}
       <BlogIndex
         initialCategory={category}
+        categoryAliases={blogCategoryAliases(canonicalKey)}
+        emitSeo={false}
         heroTitle={meta?.title}
         heroSubtitle={meta?.description}
       />

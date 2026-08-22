@@ -39,13 +39,21 @@ function slugToCategory(slug?: string): Category {
 
 interface BlogIndexProps {
   initialCategory?: string;
+  categoryAliases?: string[];
+  emitSeo?: boolean;
   /** Category-specific H1 override — keeps each /blog/category/:slug page's heading distinct instead of always showing the generic blog title. */
   heroTitle?: ReactNode;
   /** Category-specific hero subtitle override, paired with heroTitle. */
   heroSubtitle?: string;
 }
 
-const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps = {}) => {
+const BlogIndex = ({
+  initialCategory,
+  categoryAliases,
+  emitSeo = true,
+  heroTitle,
+  heroSubtitle,
+}: BlogIndexProps = {}) => {
   const [activeCategory, setActiveCategory] = useState<Category>(slugToCategory(initialCategory));
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
@@ -62,13 +70,17 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
     const base = activeCategory === "All" && !searchQuery.trim()
       ? blogPosts.filter((p) => !featuredSlugs.has(p.slug))
       : blogPosts;
-    let posts = activeCategory === "All" ? base : base.filter((p) => p.category === activeCategory);
+    let posts = categoryAliases?.length
+      ? base.filter((post) => categoryAliases.includes(post.category))
+      : activeCategory === "All"
+        ? base
+        : base.filter((post) => post.category === activeCategory);
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
       posts = posts.filter((p) => p.title.toLowerCase().includes(q) || p.excerpt.toLowerCase().includes(q));
     }
     return posts;
-  }, [activeCategory, searchQuery, blogPosts, featuredSlugs]);
+  }, [activeCategory, categoryAliases, searchQuery, blogPosts, featuredSlugs]);
 
   const totalPages = Math.ceil(filtered.length / POSTS_PER_PAGE);
   const paginated = filtered.slice((currentPage - 1) * POSTS_PER_PAGE, currentPage * POSTS_PER_PAGE);
@@ -85,12 +97,12 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
 
   return (
     <>
-      <Helmet>
+      {emitSeo && <Helmet>
         <title>Arthritis Blog UK | Diet, Exercise & Pain Management Guides</title>
-        <meta name="description" content="Arthritis blog index: Browse all articles on pain, exercise, diet, mental health & lifestyle. Evidence-based, clinically reviewed content." />
+        <meta name="description" content="Browse Living With Arthritis UK articles on pain, exercise, diet, mental health and daily life, with practical guidance and support." />
         <meta name="keywords" content="arthritis blog UK, joint pain advice, arthritis, anti-inflammatory diet UK, osteoarthritis exercises, arthritis help UK, joint pain diet, rheumatoid arthritis UK, swimming arthritis, yoga arthritis, turmeric arthritis, arthritis flare up" />
         <meta property="og:title" content="Arthritis Blog UK – Joint Pain, Diet & Exercise Advice" />
-        <meta property="og:description" content="Arthritis blog index: Browse all articles on pain, exercise, diet, mental health & lifestyle. Evidence-based, clinically reviewed content." />
+        <meta property="og:description" content="Browse Living With Arthritis UK articles on pain, exercise, diet, mental health and daily life, with practical guidance and support." />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/blog" />
@@ -125,7 +137,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
             { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://livingwitharthritis.org.uk/blog" }
           ]
         })}</script>
-      </Helmet>
+      </Helmet>}
       <div className="min-h-screen bg-background">
         <Header />
 
