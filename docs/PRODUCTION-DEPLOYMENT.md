@@ -74,6 +74,12 @@ authentication.
 7. Remove the old custom-domain attachment only after the Cloudflare deployment
    passes the checks below.
 
+Wrangler's unauthenticated `--temporary` preview accounts impose a 5 MiB
+per-file limit. This build includes admin keyword datasets up to roughly 8 MiB,
+so a temporary-account upload is expected to fail. Authenticated production
+accounts allow 25 MiB per asset; `npm run cloudflare:assets` enforces that
+production limit and the 20,000-file free-plan limit before deployment.
+
 ## Automatic Git deployments
 
 Use Cloudflare Workers Builds rather than GitHub Actions:
