@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { ukCities } from "@/data/ukCities";
 import { MapPin, Hospital, ArrowRight, Stethoscope, Calculator, Users } from "lucide-react";
+import NotFound from "@/pages/NotFound";
 
 const BASE = "https://livingwitharthritis.org.uk";
 
@@ -150,7 +151,7 @@ const RegionHub = () => {
   }, [r]);
 
   if (alias) return <Navigate to={`/regions/${alias}`} replace />;
-  if (!r) return <Navigate to="/" replace />;
+  if (!r) return <NotFound />;
 
 
   const cities = r.citySlugs.map((s) => ukCities.find((c) => c.slug === s)).filter(Boolean) as typeof ukCities;

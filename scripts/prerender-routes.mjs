@@ -44,10 +44,11 @@ const CURATED = [
   "/contact",
   "/credits",
   "/faq",
-  "/regions/england",
+  // Only real RegionHub records belong here. Invalid paths navigate to "/"
+  // inside React Router, which makes the prerender plugin overwrite the root
+  // output with the invalid route's canonical metadata.
   "/regions/scotland",
   "/regions/wales",
-  "/regions/northern-ireland",
   "/site-index",
   "/stories",
   // "/reviewers/dr-amina-patel" removed 2026-08-15: that reviewer profile

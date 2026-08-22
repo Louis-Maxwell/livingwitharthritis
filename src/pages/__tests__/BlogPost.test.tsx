@@ -84,7 +84,7 @@ describe("BlogPost Page", () => {
     expect(screen.getByTestId("header")).toBeInTheDocument();
   });
 
-  it("shows 'Article Not Found' for missing article", () => {
+  it("shows the noindex 404 experience for a missing article", () => {
     (useBlogArticle as ReturnType<typeof vi.fn>).mockReturnValue({
       data: null,
       isLoading: false,
@@ -93,8 +93,10 @@ describe("BlogPost Page", () => {
     });
 
     renderBlogPost("nonexistent");
-    expect(screen.getByText("Article Not Found")).toBeInTheDocument();
-    expect(screen.getByText("← Back to blog")).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { level: 1, name: "We couldn't find that page" }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Article library" })).toBeInTheDocument();
   });
 
   it("renders article title, author, and reviewer", () => {

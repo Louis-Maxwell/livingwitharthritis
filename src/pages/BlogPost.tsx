@@ -36,6 +36,7 @@ import ArticleClosingCTA from "@/components/article/ArticleClosingCTA";
 import { renderCallouts } from "@/components/article/Callouts";
 import { markVisited } from "@/lib/visitedArticles";
 import { getArticleImages } from "@/lib/articleImages";
+import NotFound from "@/pages/NotFound";
 
 /**
  * Remove any H2/H3 whose text ends in "?" plus everything up to the next
@@ -152,16 +153,7 @@ const BlogPost = () => {
   }
 
   if (!article) {
-    return (
-      <div className="min-h-screen bg-background">
-        <Header />
-        <main id="main-content" className="container mx-auto px-6 md:px-10 py-24 text-center">
-          <h2 className="font-display text-3xl font-bold text-foreground mb-4">Article Not Found</h2>
-          <Link to="/blog" className="text-primary hover:underline">← Back to blog</Link>
-        </main>
-        <Footer />
-      </div>
-    );
+    return <NotFound />;
   }
 
   const htmlContent = markdownToHtml(article.content);

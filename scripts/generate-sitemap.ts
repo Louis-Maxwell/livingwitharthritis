@@ -23,8 +23,20 @@ interface SitemapEntry {
   priority?: string;
 }
 
+interface BlogPostEntry {
+  slug: string;
+  lastmod?: string;
+  category?: string;
+}
+
+interface BlogInventory {
+  posts: BlogPostEntry[];
+  source: "supabase" | "checked-in-fallback";
+}
+
 const today = new Date().toISOString().slice(0, 10);
 const read = (p: string) => readFileSync(resolve(p), "utf8");
+const BLOG_SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 // ---------- 1. STATIC ROUTES (parsed from App.tsx) ----------
 // Keep in sync with Disallow rules in public/robots.txt — search engines
@@ -148,15 +160,96 @@ function exerciseJointSlugs(): string[] {
 }
 
 // ---------- 3. SUPABASE: blog_articles ----------
-async function blogPosts(): Promise<{ slug: string; lastmod?: string; category?: string }[]> {
+function blogRedirectSlugs(): Set<string> {
+  const redirectSrc = read("src/data/blogRedirects.ts");
+  return new Set(
+    [...redirectSrc.matchAll(/"([^"]+)"\s*:\s*"[^"]+"/g)].map((m) => m[1]),
+  );
+}
+
+function previousBlogLastmods(): Map<string, string> {
+  const lastmods = new Map<string, string>();
+  try {
+    const xml = read("public/sitemap.xml");
+    for (const match of xml.matchAll(/<url>\s*<loc>[^<]+\/blog\/([^<]+)<\/loc>\s*<lastmod>([^<]+)<\/lastmod>[\s\S]*?<\/url>/g)) {
+      if (!match[1].startsWith("category/")) lastmods.set(match[1], match[2]);
+    }
+  } catch {
+    // The generated slug snapshot below remains the fallback source of truth.
+  }
+  return lastmods;
+}
+
+function checkedInBlogPosts(): BlogPostEntry[] {
+  let slugs: unknown;
+  try {
+    slugs = JSON.parse(read("src/data/blog-slugs.generated.json"));
+  } catch {
+    slugs = [];
+  }
+  const redirects = blogRedirectSlugs();
+  const lastmods = previousBlogLastmods();
+  return (Array.isArray(slugs) ? slugs : [])
+    .filter(
+      (slug): slug is string =>
+        typeof slug === "string" &&
+        BLOG_SLUG_PATTERN.test(slug) &&
+        !redirects.has(slug),
+    )
+    .map((slug) => ({ slug, lastmod: lastmods.get(slug) }));
+}
+
+function previousBlogCategoryPaths(): string[] {
+  try {
+    const xml = read("public/sitemap.xml");
+    return [
+      ...new Set(
+        [...xml.matchAll(/<loc>https?:\/\/[^/]+(\/blog\/category\/[^<]+)<\/loc>/g)].map(
+          (match) => match[1],
+        ),
+      ),
+    ];
+  } catch {
+    return [];
+  }
+}
+
+export function assertSafeBlogInventory(
+  previousCount: number,
+  nextCount: number,
+  allowLoss = process.env.ALLOW_SITEMAP_URL_LOSS === "1",
+): void {
+  if (allowLoss || previousCount < 20) return;
+  const minimum = Math.ceil(previousCount * 0.95);
+  if (nextCount < minimum) {
+    throw new Error(
+      `[sitemap] refusing to reduce canonical blog inventory from ${previousCount} to ${nextCount} ` +
+        `(minimum ${minimum}). Investigate the data source or set ALLOW_SITEMAP_URL_LOSS=1 after manual review.`,
+    );
+  }
+}
+
+function checkedInBlogFallback(reason: string): BlogInventory {
+  const posts = checkedInBlogPosts();
+  if (posts.length === 0) {
+    throw new Error(
+      `[sitemap] ${reason}; no checked-in blog inventory is available, so the build cannot continue safely.`,
+    );
+  }
+  console.warn(
+    `[sitemap] ${reason}; preserving ${posts.length} checked-in canonical blog routes.`,
+  );
+  return { posts, source: "checked-in-fallback" };
+}
+
+async function blogPosts(): Promise<BlogInventory> {
   const url = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
   const key =
     process.env.VITE_SUPABASE_PUBLISHABLE_KEY ||
     process.env.SUPABASE_PUBLISHABLE_KEY ||
     process.env.SUPABASE_ANON_KEY;
   if (!url || !key) {
-    console.warn("[sitemap] Supabase env missing — skipping blog_articles");
-    return [];
+    return checkedInBlogFallback("Supabase environment is unavailable");
   }
   try {
     const res = await fetch(
@@ -164,30 +257,36 @@ async function blogPosts(): Promise<{ slug: string; lastmod?: string; category?:
       { headers: { apikey: key, Authorization: `Bearer ${key}` } },
     );
     if (!res.ok) {
-      console.warn(`[sitemap] blog fetch ${res.status} — skipping`);
-      return [];
+      return checkedInBlogFallback(`blog fetch returned HTTP ${res.status}`);
     }
     const rows = (await res.json()) as Array<{
       slug: string;
       updated_at?: string;
       category?: string;
     }>;
-    // Exclude legacy slugs that redirect to newer canonical slugs — including
-    // them creates canonical mismatches Semrush flags as "incorrect pages".
-    const redirectSrc = read("src/data/blogRedirects.ts");
-    const REDIRECT_SLUGS = new Set(
-      [...redirectSrc.matchAll(/"([^"]+)"\s*:\s*"[^"]+"/g)].map((m) => m[1]),
-    );
-    return rows
-      .filter((r) => r.slug && !REDIRECT_SLUGS.has(r.slug))
+    const redirectSlugs = blogRedirectSlugs();
+    const posts = rows
+      .filter(
+        (r) =>
+          r.slug &&
+          BLOG_SLUG_PATTERN.test(r.slug) &&
+          !redirectSlugs.has(r.slug),
+      )
       .map((r) => ({
         slug: r.slug,
         lastmod: r.updated_at?.slice(0, 10),
         category: r.category,
       }));
+    assertSafeBlogInventory(checkedInBlogPosts().length, posts.length);
+    return { posts, source: "supabase" };
   } catch (e) {
-    console.warn("[sitemap] blog fetch failed:", (e as Error).message);
-    return [];
+    if (
+      e instanceof Error &&
+      e.message.startsWith("[sitemap] refusing to reduce canonical blog inventory")
+    ) {
+      throw e;
+    }
+    return checkedInBlogFallback(`blog fetch failed: ${(e as Error).message}`);
   }
 }
 
@@ -281,7 +380,8 @@ async function main() {
     for (const svc of CS_SERVICES)
       entries.push({ path: `/uk/${city}/${svc}`, priority: "0.6", changefreq: "monthly" });
 
-  const posts = await blogPosts();
+  const blogInventory = await blogPosts();
+  const posts = blogInventory.posts;
   const cats = new Set<string>();
   for (const p of posts) {
     entries.push({ path: `/blog/${p.slug}`, lastmod: p.lastmod });
@@ -290,6 +390,9 @@ async function main() {
   for (const cat of cats) {
     const slug = cat.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
     if (slug) entries.push({ path: `/blog/category/${slug}` });
+  }
+  if (blogInventory.source === "checked-in-fallback") {
+    for (const path of previousBlogCategoryPaths()) entries.push({ path });
   }
 
   // Programmatic SEO: glossary, comparison guides, city hubs & pet articles.
@@ -362,7 +465,9 @@ async function main() {
   console.log(`[sitemap] wrote ${otherPaths.length} routes -> src/data/prerender-routes.generated.json`);
 }
 
-main().catch((e) => {
-  console.error("[sitemap] failed:", e);
-  process.exit(1);
-});
+if ((import.meta as ImportMeta & { main?: boolean }).main) {
+  main().catch((e) => {
+    console.error("[sitemap] failed:", e);
+    process.exit(1);
+  });
+}
