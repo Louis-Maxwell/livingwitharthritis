@@ -58,12 +58,38 @@ export default function StubPage({
         item: `${BASE}${b.href}`,
       })),
     };
-    const el = document.createElement("script");
-    el.type = "application/ld+json";
-    el.text = JSON.stringify(breadcrumbJsonLd);
-    document.head.appendChild(el);
-    return () => el.remove();
-  }, [slug, breadcrumbs]);
+
+    const graph: Record<string, unknown>[] = [breadcrumbJsonLd];
+
+    if (faqs.length > 0) {
+      graph.push({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "@id": `${canonical}#faq`,
+        url: canonical,
+        inLanguage: "en-GB",
+        mainEntity: faqs.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: f.a,
+          },
+        })),
+      });
+    }
+
+    const nodes = graph.map((data) => {
+      const el = document.createElement("script");
+      el.type = "application/ld+json";
+      el.text = JSON.stringify(data);
+      document.head.appendChild(el);
+      return el;
+    });
+
+    return () => nodes.forEach((n) => n.remove());
+  }, [slug, breadcrumbs, faqs, canonical]);
+
 
   return (
     <>
