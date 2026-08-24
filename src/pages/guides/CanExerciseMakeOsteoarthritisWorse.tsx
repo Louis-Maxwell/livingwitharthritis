@@ -6,6 +6,7 @@ import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
+import { useSafeHtml } from "@/hooks/useSafeHtml";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
@@ -147,7 +148,7 @@ export default function CanExerciseMakeOsteoarthritisWorse() {
           <TableOfContents html={html} />
           <article
             className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary"
-            dangerouslySetInnerHTML={{ __html: html }}
+            dangerouslySetInnerHTML={{ __html: useSafeHtml(html) }}
           />
           <div className="mt-16 pt-8 border-t border-border/30">
             <h3 className="font-display font-bold text-lg mb-4">Continue reading</h3>

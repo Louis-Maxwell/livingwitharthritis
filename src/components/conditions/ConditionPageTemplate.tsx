@@ -1,6 +1,7 @@
 import { lazy, Suspense, type ReactNode, type ElementType } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import { useSafeHtml } from "@/hooks/useSafeHtml";
 import {
   ArrowLeft,
   ArrowRight,
@@ -212,7 +213,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
           <Section icon={ThermometerSun} title="Symptoms">
             <ul>
               {data.symptoms.map((s) => (
-                <li key={s} dangerouslySetInnerHTML={{ __html: s }} />
+                <li key={s} dangerouslySetInnerHTML={{ __html: useSafeHtml(s) }} />
               ))}
             </ul>
             <h3>When to see a GP</h3>
@@ -225,7 +226,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
           <Section icon={Heart} title="Causes & Risk Factors">
             <ul>
               {data.causes.map((c) => (
-                <li key={c} dangerouslySetInnerHTML={{ __html: c }} />
+                <li key={c} dangerouslySetInnerHTML={{ __html: useSafeHtml(c) }} />
               ))}
             </ul>
           </Section>
@@ -239,7 +240,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
           <Section icon={Pill} title="Treatment & Management">
             <ul>
               {data.treatments.map((t) => (
-                <li key={t} dangerouslySetInnerHTML={{ __html: t }} />
+                <li key={t} dangerouslySetInnerHTML={{ __html: useSafeHtml(t) }} />
               ))}
             </ul>
           </Section>

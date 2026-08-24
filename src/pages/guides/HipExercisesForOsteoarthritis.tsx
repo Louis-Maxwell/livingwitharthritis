@@ -7,6 +7,7 @@ import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import FaqAccordion from "@/components/faq/FaqAccordion";
+import { useSafeHtml } from "@/hooks/useSafeHtml";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
@@ -180,7 +181,7 @@ export default function HipExercisesForOsteoarthritis() {
           <TableOfContents html={html} />
           <article
             className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary"
-            dangerouslySetInnerHTML={{ __html: html }}
+            dangerouslySetInnerHTML={{ __html: useSafeHtml(html) }}
           />
 
           <div className="mt-12 pt-8 border-t border-border/30">

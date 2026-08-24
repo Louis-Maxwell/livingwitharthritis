@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { GraduationCap, Clock, ArrowRight, Shield, FlaskConical, Utensils, Activity, Brain } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useSafeHtml } from "@/hooks/useSafeHtml";
 
 const experts = [
   { role: "HCPC Registered Physiotherapist", credentials: "MSc Physiotherapy, BSc Sport Science", specialty: "Musculoskeletal Rehabilitation" },
@@ -340,7 +341,7 @@ export default function ExpertArticles() {
                               </ul>
                             );
                           }
-                          return <p key={j} className="text-foreground/80 leading-relaxed text-sm" dangerouslySetInnerHTML={{ __html: para.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />;
+                          return <p key={j} className="text-foreground/80 leading-relaxed text-sm" dangerouslySetInnerHTML={{ __html: useSafeHtml(para.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")) }} />;
                         })}
                       </div>
                     </CardContent>
