@@ -46,9 +46,7 @@
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:debug": "playwright test --debug",
-    "smoke:prepublish": "node scripts/prepublish-smoke.mjs",
-    "perf:lhci": "node scripts/perf-lighthouse.mjs",
-    "perf:lhci:local": "node scripts/perf-lighthouse.mjs --no-build --no-serve"
+    "smoke:prepublish": "node scripts/prepublish-smoke.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -119,12 +117,11 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",
-    "@lhci/cli": "^0.6.1",
     "@lovable.dev/vite-plugin-dev-server-bridge": "^1.0.2",
     "@lovable.dev/vite-plugin-hmr-gate": "^1.8.0",
     "@playwright/test": "^1.57.0",
-    "@prerenderer/renderer-puppeteer": "^1.2.2",
-    "@prerenderer/rollup-plugin": "^0.3.7",
+    "@prerenderer/renderer-puppeteer": "^1.2.4",
+    "@prerenderer/rollup-plugin": "^0.3.12",
     "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/typography": "^0.5.16",
     "@testing-library/jest-dom": "^6.6.0",
@@ -170,7 +167,9 @@
     "dompurify": "^3.4.12",
     "jspdf": "^4.2.1",
     "picomatch": "^4.0.5",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "ts-deepmerge": "^8.0.0",
+    "esbuild": "^0.28.2"
   },
   "resolutions": {
     "minimatch": "^10.2.6",
