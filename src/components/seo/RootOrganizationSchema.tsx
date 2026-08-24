@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { getSchemaOrgSameAs } from "@/config/social-media";
 
 /**
  * Sitewide MedicalOrganization JSON-LD with sameAs links.
@@ -65,11 +66,10 @@ const PAYLOAD = {
   ],
   // sameAs strengthens the entity graph for LLMs and search engines.
   // Only include URLs that resolve to a real, publicly-visible profile
-  // owned by this charity. Do NOT add placeholder or guessed URLs.
+  // owned by this charity. Generated from centralized social-media.ts config.
   sameAs: [
-    "https://www.pinterest.co.uk/livingwitharthritis",
+    ...getSchemaOrgSameAs(),
     "https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/5274747/charity-overview",
-    // Additional social profiles: Companies House, LinkedIn, Twitter, Facebook, Instagram, YouTube, Wikipedia — add when available
   ],
 };
 

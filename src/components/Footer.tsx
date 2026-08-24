@@ -3,6 +3,7 @@ import { MapPin } from "lucide-react";
 import FooterMostRead from "@/components/FooterMostRead";
 import HelplineWidget from "@/components/HelplineWidget";
 import SiteLogo from "@/components/SiteLogo";
+import SocialLinks from "@/components/SocialLinks";
 import { CHARITY, hasCharityAddress } from "@/config/charity";
 
 const columns = [
@@ -68,13 +69,7 @@ const columns = [
       { label: "Image Credits", href: "/credits" },
     ],
   },
-  {
-    title: "Connect",
-    links: [
-      { label: "X / Twitter", href: "https://x.com/ArthritisOrg" },
-      { label: "LinkedIn", href: "https://www.linkedin.com/company/112596569/" },
-    ],
-  },
+  // Removed - now using SocialLinks component
 ];
 
 const Footer = () => {
@@ -92,7 +87,7 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-8 mb-10">
           {columns.map((col) => (
             <div key={col.title}>
               <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-5">{col.title}</h3>
@@ -128,6 +123,18 @@ const Footer = () => {
               </ul>
             </div>
           ))}
+
+          {/* Social Media Section */}
+          <div>
+            <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-5">Connect</h3>
+            <SocialLinks
+              context="footer"
+              size="md"
+              orientation="vertical"
+              linkClassName="text-foreground/70 hover:text-primary transition-colors duration-200 text-[13px] flex items-center gap-2"
+              showLabels={true}
+            />
+          </div>
         </div>
       </div>
 
