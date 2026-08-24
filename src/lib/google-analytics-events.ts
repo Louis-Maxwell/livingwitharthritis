@@ -4,7 +4,7 @@
  */
 
 interface EventParams {
-  [key: string]: string | number | boolean | string[];
+  [key: string]: string | number | boolean | string[] | undefined;
 }
 
 type AnalyticsWindow = Window & {

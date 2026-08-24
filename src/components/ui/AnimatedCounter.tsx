@@ -57,7 +57,7 @@ const AnimatedCounter = memo(({
             const step = (now: number) => {
               const progress = Math.min((now - start) / duration, 1);
               const eased = 1 - Math.pow(1 - progress, 4);
-              setCount(Math.floor(eased * target));
+              setCount(Math.floor(eased * (target ?? 0)));
               if (progress < 1) requestAnimationFrame(step);
             };
             requestAnimationFrame(step);
