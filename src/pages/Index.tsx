@@ -18,6 +18,7 @@ import Header from "@/components/Header";
 import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import DeferredMount from "@/components/DeferredMount";
+import ViewportSection from "@/components/ViewportSection";
 
 // OAHero stays eager — required for LCP.
 import OAHero from "@/components/landing/OAHero";
@@ -209,35 +210,15 @@ function HomePage() {
             </div>
           </section>
 
-          {/* 04 — How you can help (MAP-style mosaic) */}
-          <Suspense fallback={<SectionFallback />}>
+          {/* 04–08a — Below-fold editorial block, mounted on approach */}
+          <ViewportSection fallback={<SectionFallback />}>
             <HowYouCanHelp />
-          </Suspense>
-
-          {/* 05 — Our impact (MAP-style stat blocks) */}
-          <Suspense fallback={<SectionFallback />}>
             <ImpactStats />
-          </Suspense>
-
-          {/* 06 — What we do (MAP-style three-up) */}
-          <Suspense fallback={<SectionFallback />}>
             <WhatWeDo />
-          </Suspense>
-
-          {/* 07 — Why we exist */}
-          <Suspense fallback={<SectionFallback />}>
             <OAProblemBand />
-          </Suspense>
-
-          {/* 08 — Real stories */}
-          <Suspense fallback={<SectionFallback />}>
             <FacesStrip />
-          </Suspense>
-
-          {/* 08a — Testimonials: patient and donor stories */}
-          <Suspense fallback={<SectionFallback />}>
             <TestimonialDisplay />
-          </Suspense>
+          </ViewportSection>
 
           {/* 08b — Photo break: movement is medicine */}
           <section aria-label="Movement is medicine" className="relative h-[400px] md:h-[480px] overflow-hidden bg-foreground">
@@ -263,21 +244,13 @@ function HomePage() {
 
 
 
-          {/* 09 — Latest articles (MAP-style grid) */}
-          <Suspense fallback={<SectionFallback />}>
+          {/* 09 — Latest articles, conditions overview and resources hub */}
+          <ViewportSection fallback={<SectionFallback />}>
             <LatestGrid />
-          </Suspense>
-
-          {/* 08 — Conditions overview (cards + pill links merged) */}
-          <Suspense fallback={<SectionFallback />}>
             <AboutArthritisCards />
             <ConditionPillBand />
-          </Suspense>
-
-          {/* 09 — Resources hub */}
-          <Suspense fallback={<SectionFallback />}>
             <ResourcesForYouSection />
-          </Suspense>
+          </ViewportSection>
 
           {/* 09b — Medication guides quick links (SEO topical authority) */}
           <section aria-labelledby="medication-guides-heading" className="py-12 md:py-16 bg-muted/30">
@@ -311,52 +284,32 @@ function HomePage() {
             </div>
           </section>
 
-          {/* 10 — Fundraising progress */}
-          <Suspense fallback={<SectionFallback />}>
+          {/* 10–14 — Progress, quote, search, FAQ and closing CTA */}
+          <ViewportSection fallback={<SectionFallback />}>
             <ImpactProgressBand />
-          </Suspense>
-
-          {/* 11 — Editorial board quote */}
-          <Suspense fallback={<SectionFallback />}>
             <QuoteSection />
-          </Suspense>
-
-          {/* 12 — Search the library (deferred — secondary nav) */}
-          <DeferredMount>
-            <Suspense fallback={<SectionFallback />}>
-              <SearchBar />
-            </Suspense>
-          </DeferredMount>
-
-          {/* 13 — FAQ */}
-          <Suspense fallback={<SectionFallback />}>
+            <SearchBar />
             <FAQSection />
-          </Suspense>
-
-          {/* 14 — Final donate band (closing CTA) */}
-          <Suspense fallback={<SectionFallback />}>
             <FinalDonateBand />
-          </Suspense>
+          </ViewportSection>
 
         </main>
 
 
 
-        <Suspense fallback={null}>
+        <ViewportSection fallback={<div className="h-64" aria-hidden="true" />}>
           <NextReadStrip currentPath="/" />
-        </Suspense>
-        <Suspense fallback={null}>
           <Footer />
-        </Suspense>
-        <Suspense fallback={null}>
-          <BackToTopButton />
-        </Suspense>
-        <Suspense fallback={null}>
-          <StickyDonateBar />
-        </Suspense>
-        <Suspense fallback={null}>
-          <MobileBottomCTA />
-        </Suspense>
+        </ViewportSection>
+
+        {/* Floating widgets: never part of first paint. */}
+        <DeferredMount>
+          <Suspense fallback={null}>
+            <BackToTopButton />
+            <StickyDonateBar />
+            <MobileBottomCTA />
+          </Suspense>
+        </DeferredMount>
       </div>
     </>
   );
