@@ -5,6 +5,12 @@
  */
 
 import { trackEvent } from './analytics';
+import {
+  requestUrlIndexing,
+  trackNewPagePublished,
+  trackPageUpdated,
+  getUrlInspectionStatus,
+} from './gsc-indexing';
 
 interface GSCMetrics {
   query: string;
@@ -169,6 +175,59 @@ export const initGSCMonitoring = (): void => {
   };
 
   setupGSCAlertListener();
+};
+
+/**
+ * Convenience methods that combine indexing + tracking
+ */
+
+/**
+ * Publish new content and request indexing
+ */
+export const publishNewContent = async (
+  url: string,
+  metadata?: {
+    title?: string;
+    description?: string;
+    category?: string;
+  },
+): Promise<void> => {
+  await trackNewPagePublished(url, metadata);
+  trackEvent('content_published_for_indexing', {
+    url,
+    title: metadata?.title,
+    category: metadata?.category,
+  });
+};
+
+/**
+ * Update content and request reindexing
+ */
+export const updateContentAndReindex = async (
+  url: string,
+  metadata?: {
+    title?: string;
+    description?: string;
+    updateType?: 'minor' | 'major';
+  },
+): Promise<void> => {
+  await trackPageUpdated(url, metadata);
+  trackEvent('content_updated_for_reindexing', {
+    url,
+    update_type: metadata?.updateType ?? 'minor',
+  });
+};
+
+/**
+ * Check if page is indexed
+ */
+export const checkPageIndexationStatus = async (url: string): Promise<string> => {
+  const status = await getUrlInspectionStatus(url);
+  if (status) {
+    trackUrlInspection(url, status.status as 'live' | 'crawled' | 'indexed' | 'not_indexed');
+    return status.status;
+  }
+  return 'unknown';
 };
 
 /**
