@@ -118,6 +118,7 @@ const TermsConditions = lazy(() => import("./pages/TermsConditions"));
 const Safeguarding = lazy(() => import("./pages/Safeguarding"));
 const Complaints = lazy(() => import("./pages/Complaints"));
 const Donate = lazy(() => import("./pages/Donate"));
+const ExerciseCircuit500 = lazy(() => import("./pages/campaigns/ExerciseCircuit500"));
 const UKArthritisGuide = lazy(() => import("./pages/pillar/UKArthritisGuide"));
 const HealthServicesGuide = lazy(() => import("./pages/pillar/HealthServicesGuide"));
 const DietGuide = lazy(() => import("./pages/pillar/DietGuide"));
@@ -413,6 +414,7 @@ function AnimatedRoutes() {
         <Route path="/safeguarding" element={<Safeguarding />} />
         <Route path="/complaints" element={<Complaints />} />
         <Route path="/donate" element={<Donate />} />
+        <Route path="/campaigns/exercise-circuit-500" element={<ExerciseCircuit500 />} />
         <Route path="/guides/uk-arthritis" element={<UKArthritisGuide />} />
         <Route path="/guides/health-services" element={<HealthServicesGuide />} />
         <Route path="/guides/diet" element={<DietGuide />} />
