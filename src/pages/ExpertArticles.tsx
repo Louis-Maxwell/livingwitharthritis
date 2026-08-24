@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { GraduationCap, Clock, ArrowRight, Shield, FlaskConical, Utensils, Activity, Brain } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useSafeHtml } from "@/utils/sanitizeHtml";
+import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
 const experts = [
   { role: "HCPC Registered Physiotherapist", credentials: "MSc Physiotherapy, BSc Sport Science", specialty: "Musculoskeletal Rehabilitation" },
