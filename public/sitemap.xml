@@ -426,6 +426,11 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://livingwitharthritis.org.uk/campaigns/exercise-circuit-500</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://livingwitharthritis.org.uk/guides/uk-arthritis</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
