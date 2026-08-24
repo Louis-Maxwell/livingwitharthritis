@@ -15,8 +15,14 @@ import { PRERENDER_ROUTES } from "./scripts/prerender-routes.mjs";
 // non-JS pass, Bing, LLM scrapers) receive real HTML instead of an empty SPA
 // shell. It is skipped automatically when no Chromium binary is available,
 // and can be forced off with PRERENDER=0.
+//
+// IMPORTANT: prerendering ~1,000 routes through headless Chromium takes far
+// longer than the hosted publish build's time limit, which made `npm run
+// build` (what publishing runs) hang until it was killed. It is therefore
+// OPT-IN via PRERENDER=1 (`npm run build:prerender`, CI, local audits) and
+// never runs during a plain production/publish build.
 function chromiumAvailable() {
-  if (process.env.PRERENDER === "0") return false;
+  if (process.env.PRERENDER !== "1") return false;
   try {
     const req = createRequire(import.meta.url);
     const puppeteer = req("puppeteer");
@@ -31,10 +37,11 @@ function chromiumAvailable() {
 const ENABLE_PRERENDER = chromiumAvailable();
 if (!ENABLE_PRERENDER) {
   console.warn(
-    "[prerender] skipped — no Chromium binary found (or PRERENDER=0). " +
-      "Production HTML will be an SPA shell for crawlers.",
+    "[prerender] skipped — set PRERENDER=1 (npm run build:prerender) with a " +
+      "Chromium binary available to generate static HTML for crawlers.",
   );
 }
+
 
 // Bundle analyzer is opt-in via ANALYZE=1 npm run build → dist/stats.html
 const ENABLE_ANALYZE = process.env.ANALYZE === "1";
