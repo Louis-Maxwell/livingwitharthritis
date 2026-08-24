@@ -3,7 +3,7 @@ import { unsplashSrcSet, fullWidthSizes } from "@/data/images";
 
 interface PhotoBreakProps {
   image: string;
-  alt: string;
+  alt?: string;
   quote: string;
   attr: string;
 }
@@ -14,7 +14,7 @@ const PhotoBreak = memo(({ image, alt, quote, attr }: PhotoBreakProps) => (
       src={image}
       srcSet={unsplashSrcSet(image, [640, 1080, 1400, 1920])}
       sizes={fullWidthSizes}
-      alt={alt}
+      alt={alt ?? ""}
       width={1920}
       height={400}
       className="h-full w-full object-cover ken-burns"

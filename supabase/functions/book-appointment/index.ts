@@ -146,7 +146,8 @@ serve(async (req) => {
     }
     const userId = userData.user.id;
 
-    // Double-booking prevention
+    // Fast path for an already-taken slot. The uq_appointments_active_slot
+    // index below is what actually prevents a concurrent double-booking.
     const { data: existing } = await supabase
       .from("appointments")
       .select("id")
@@ -179,6 +180,15 @@ serve(async (req) => {
       .single();
 
     if (insertError) {
+      // A concurrent request won the race for this slot.
+      if (insertError.code === "23505") {
+        return errJson(req, {
+          code: "conflict",
+          message: "This time slot was just booked. Please choose a different time.",
+          requestId,
+        });
+      }
+
       console.error(`[${requestId}] Appointment insert error:`, insertError.message);
       return errJson(req, {
         code: "server_error",

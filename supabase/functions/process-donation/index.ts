@@ -135,10 +135,22 @@ serve(async (req) => {
       .single();
 
     if (insertError) {
+      // A unique violation means a concurrent delivery of this same session
+      // already recorded the donation, so the webhook succeeded.
+      if (insertError.code === "23505") {
+        console.log(`[WEBHOOK] Concurrent duplicate for session ${session.id}, already recorded`);
+        return new Response(JSON.stringify({ received: true, duplicate: true }), {
+          status: 200,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        });
+      }
+
+      // Any other failure means a paid donation is not recorded. Fail loudly
+      // so Stripe retries; the unique index on stripe_session_id makes that
+      // retry idempotent.
       console.error("[WEBHOOK] Failed to insert donation:", insertError);
-      // Return 200 anyway so Stripe doesn't retry (we logged the error)
-      return new Response(JSON.stringify({ received: true, error: "Insert failed" }), {
-        status: 200,
+      return new Response(JSON.stringify({ received: false, error: "Insert failed" }), {
+        status: 500,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }

@@ -11,9 +11,12 @@
  */
 import fs from 'fs';
 import { execSync } from 'child_process';
+import { join } from 'path';
+import { tmpdir } from 'os';
 
 const BASE_URL = (process.env.BASE_URL || 'http://localhost:8080').replace(/\/$/, '');
 const PROD_HOST = 'https://livingwitharthritis.org.uk';
+const REPORT_DIR = process.env.JSONLD_REPORT_DIR || join(tmpdir(), 'livingwitharthritis-jsonld');
 
 const routes = execSync("grep -oE '<loc>[^<]+</loc>' public/sitemap.xml | sed 's|</*loc>||g'", { encoding: 'utf8' })
   .trim().split('\n').map(u => u.replace(PROD_HOST, '') || '/');
@@ -111,8 +114,8 @@ for (const route of routes) {
 await browser.close();
 
 // Write reports
-fs.mkdirSync('/mnt/documents', { recursive: true });
-fs.writeFileSync('/mnt/documents/jsonld-report.json', JSON.stringify(report, null, 2));
+fs.mkdirSync(REPORT_DIR, { recursive: true });
+fs.writeFileSync(join(REPORT_DIR, 'jsonld-report.json'), JSON.stringify(report, null, 2));
 
 let md = `# JSON-LD Validation Report\n\nBase: ${BASE_URL}\nRoutes scanned: ${report.length}\n\n`;
 const errs = report.filter(r => r.errors.length);
@@ -137,6 +140,7 @@ if (warns.length) {
 }
 if (!errs.length && !warns.length) md += `All schemas pass parse + required-field checks.\n`;
 
-fs.writeFileSync('/mnt/documents/jsonld-report.md', md);
-console.log(`\nReport: /mnt/documents/jsonld-report.md (${errs.length} err routes, ${warns.length} warn routes)`);
+const markdownReport = join(REPORT_DIR, 'jsonld-report.md');
+fs.writeFileSync(markdownReport, md);
+console.log(`\nReport: ${markdownReport} (${errs.length} err routes, ${warns.length} warn routes)`);
 process.exit(errs.length ? 1 : 0);

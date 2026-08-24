@@ -3,8 +3,13 @@ import { Helmet } from "react-helmet-async";
 import BlogIndex from "./BlogIndex";
 import SeoHead from "@/components/SeoHead";
 import { useConditionArticles } from "@/hooks/useBlogArticles";
+import {
+  BLOG_CATEGORY_KEYS,
+  blogCategoryAliases,
+  type BlogCategoryKey,
+} from "@/data/blogCategories";
 
-const validCategories = ["exercise", "nutrition", "lifestyle", "health", "mental-health", "supplements", "treatment", "frailty"];
+const validCategories = new Set<string>(BLOG_CATEGORY_KEYS);
 
 const CATEGORY_META: Record<string, { title: string; description: string }> = {
   exercise: {
@@ -13,7 +18,7 @@ const CATEGORY_META: Record<string, { title: string; description: string }> = {
   },
   nutrition: {
     title: "Anti-Inflammatory Nutrition for Arthritis",
-    description: "Mediterranean diet, anti-inflammatory recipes and food guidance for people living with arthritis in the UK. Written by clinicians.",
+    description: "Mediterranean diet, anti-inflammatory recipes and food guidance for people living with arthritis in the UK.",
   },
   lifestyle: {
     title: "Lifestyle Tips for Living With Arthritis",
@@ -21,11 +26,11 @@ const CATEGORY_META: Record<string, { title: string; description: string }> = {
   },
   health: {
     title: "Arthritis Health & Wellbeing Articles",
-    description: "Trusted UK arthritis health articles — symptoms, flare-ups, mental health, care pathways and clinical updates from HCPC-registered authors.",
+    description: "UK arthritis health articles covering symptoms, flare-ups, mental health, care pathways and treatment updates.",
   },
   supplements: {
     title: "Supplements for Arthritis: Evidence & Reviews",
-    description: "Independent reviews of arthritis supplements — turmeric, omega-3, glucosamine, collagen and more. Evidence-graded by UK clinicians.",
+    description: "Evidence-led reviews of arthritis supplements including turmeric, omega-3, glucosamine and collagen.",
   },
   treatment: {
     title: "Arthritis Treatment Articles & Updates",
@@ -37,18 +42,24 @@ const CATEGORY_META: Record<string, { title: string; description: string }> = {
   },
   frailty: {
     title: "Frailty in Older Adults: UK Guides",
-    description: "Evidence-based UK articles on frailty, sarcopenia, falls prevention, nutrition and exercise for older adults — reviewed by HCPC clinicians.",
+    description: "UK articles on frailty, sarcopenia, falls prevention, nutrition and exercise for older adults.",
   },
 };
 
 const BlogCategory = () => {
   const { category } = useParams<{ category: string }>();
   const key = category?.toLowerCase() ?? "";
+  const canonicalKey = validCategories.has(key)
+    ? (key as BlogCategoryKey)
+    : undefined;
   // Hook must run unconditionally (rules-of-hooks) — the invalid-category
   // redirect below happens after this, so it's fine to key it on "" here.
-  const { data: catArticles = [] } = useConditionArticles([key], 20);
+  const { data: catArticles = [] } = useConditionArticles(
+    canonicalKey ? blogCategoryAliases(canonicalKey) : [],
+    20,
+  );
 
-  if (!category || !validCategories.includes(key)) {
+  if (!category || !canonicalKey) {
     return <Navigate to="/blog" replace />;
   }
 

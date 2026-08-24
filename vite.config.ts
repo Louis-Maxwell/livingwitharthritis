@@ -55,7 +55,10 @@ export default defineConfig(({ mode }) => ({
         renderer: "@prerenderer/renderer-puppeteer",
         rendererOptions: {
           renderAfterDocumentEvent: "prerender-ready",
-          maxConcurrentRoutes: 4,
+          // Dynamic blog/city routes query Supabase while rendering. Keeping
+          // concurrency low avoids API throttling that otherwise freezes a
+          // random subset of snapshots on their loading skeleton.
+          maxConcurrentRoutes: 2,
           headless: true,
           // react-helmet-async flushes title/meta changes inside a
           // requestAnimationFrame. Chromium throttles rAF in backgrounded /
@@ -70,9 +73,6 @@ export default defineConfig(({ mode }) => ({
               "--no-sandbox",
             ],
           },
-
-          // Give useEffect-injected JSON-LD a moment after route mount
-          renderAfterTime: 1500,
           // The renderer does not reliably apply this UA before the
           // document's inline scripts run, so it is only the first of
           // three defences against self-noindexing (see below).

@@ -6,26 +6,12 @@ export interface Citation {
   publisher?: string;
 }
 
-/**
- * Pre-approved authoritative sources for medical/health claims.
- * Used as the default citation set on every blog article unless
- * the article supplies its own.
- */
-export const DEFAULT_CITATIONS: Citation[] = [
-  { label: "Osteoarthritis — overview, symptoms and treatment", url: "https://www.nhs.uk/conditions/osteoarthritis/", publisher: "NHS" },
-  { label: "Osteoarthritis: care and management (NG226)", url: "https://www.nice.org.uk/guidance/ng226", publisher: "NICE" },
-  { label: "Rheumatoid arthritis in adults: management (NG100)", url: "https://www.nice.org.uk/guidance/ng100", publisher: "NICE" },
-  { label: "Arthritis — symptoms and causes", url: "https://www.mayoclinic.org/diseases-conditions/arthritis/symptoms-causes/syc-20350772", publisher: "Mayo Clinic" },
-  { label: "Osteoarthritis fact sheet", url: "https://www.who.int/news-room/fact-sheets/detail/osteoarthritis", publisher: "World Health Organization" },
-  { label: "Arthritis — basics", url: "https://www.cdc.gov/arthritis/basics/index.html", publisher: "Centers for Disease Control and Prevention" },
-];
-
 interface Props {
   citations?: Citation[];
   title?: string;
 }
 
-export default function ArticleCitations({ citations = DEFAULT_CITATIONS, title = "Sources & References" }: Props) {
+export default function ArticleCitations({ citations = [], title = "Sources & References" }: Props) {
   if (!citations.length) return null;
   return (
     <section
@@ -39,9 +25,8 @@ export default function ArticleCitations({ citations = DEFAULT_CITATIONS, title 
         {title}
       </h2>
       <p className="text-sm text-muted-foreground mb-5">
-        Medical and clinical statements in this article are informed by the
-        following pre-approved authoritative sources. Always consult a qualified
-        healthcare professional for personal advice.
+        Sources used for this article are listed below. Always consult a
+        qualified healthcare professional for personal advice.
       </p>
       <ol className="space-y-3 list-decimal list-inside text-sm">
         {citations.map((c, i) => (

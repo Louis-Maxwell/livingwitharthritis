@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SeoHead from '@/components/SeoHead';
-import MedicalReviewBadge from '@/components/MedicalReviewBadge';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
 import { pillarScaffolds, tier2OutlinesByPillar } from '@/data/tier2Outlines';
 import FaqAccordion from '@/components/faq/FaqAccordion';
@@ -87,7 +86,6 @@ export default function ArthritisMentalHealth() {
         get support — for you and the people around you.
       </p>
 
-      <MedicalReviewBadge />
 
       <nav aria-label="Table of contents" className="bg-muted p-6 rounded-lg mb-10 border-l-4 border-primary">
         <h2 className="font-bold text-lg mb-4">In this guide</h2>

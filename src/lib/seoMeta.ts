@@ -50,16 +50,11 @@ export function enforceTitle(
   const composed = `${title}${SITE_SUFFIX}`;
   if (composed.length <= MAX_TITLE) return composed;
 
-  // Try to keep the suffix: how much room does the raw title have?
-  const budget = MAX_TITLE - SITE_SUFFIX.length;
-  if (budget >= 20) {
-    if (isDev) warnLength("title", composed.length, MAX_TITLE, route, composed);
-    return `${truncateOnWord(title, budget)}${SITE_SUFFIX}`;
-  }
-
-  // Not enough room — drop the suffix rather than overflow.
+  // Preserve the unique page title before preserving branding. Truncating the
+  // page title to make room for the suffix caused hundreds of programmatic
+  // city/condition pages to collapse onto identical titles.
   if (isDev) warnLength("title", composed.length, MAX_TITLE, route, composed);
-  return truncateOnWord(title, MAX_TITLE);
+  return title.length <= MAX_TITLE ? title : truncateOnWord(title, MAX_TITLE);
 }
 
 /** Returns a description ≤ 160 chars. Warns (dev only) when < 120. */

@@ -212,7 +212,7 @@ const Header = () => {
   };
 
   const mobileNavItems = [
-    { label: "Newly Diagnosed", icon: Sparkles, desc: "Your essential first steps guide", href: "/about", action: () => navigate("/about") },
+    { label: "Newly Diagnosed", icon: Sparkles, desc: "Your essential first steps guide", href: "/guides/newly-diagnosed", action: () => navigate("/guides/newly-diagnosed") },
     { label: "Self Help Tool", icon: Activity, desc: "Interactive joint exercise diagram", href: "/self-help", action: () => navigate("/self-help") },
     { label: "Exercises & Diet", icon: Dumbbell, desc: "Physio exercises & nutrition plans", href: "/exercises", action: () => navigate("/exercises") },
     { label: "Pets & Arthritis", icon: HeartPulse, desc: "Dogs, cats, horses & more", href: "/pets", action: () => navigate("/pets") },
@@ -230,14 +230,6 @@ const Header = () => {
 
   return (
     <>
-      {/* Skip to content — first focusable element */}
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:start-4 focus:z-[100] focus:px-6 focus:py-3 focus:bg-primary focus:text-primary-foreground focus:rounded-xl focus:text-sm focus:font-bold focus:shadow-xl focus:outline-none"
-      >
-        Skip to main content
-      </a>
-
       {/* ── STICKY WRAPPER — entire header block sticks together ── */}
       <div
         className={`sticky top-0 z-50 transition-transform duration-300 ${isHidden ? "-translate-y-full" : "translate-y-0"}`}

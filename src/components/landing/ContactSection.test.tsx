@@ -15,6 +15,10 @@ vi.mock("@/integrations/supabase/client", () => ({
   },
 }));
 
+/** Payload sent to the submit-contact edge function on the nth call. */
+const submittedBody = (call = 0) =>
+  (invokeMock.mock.calls[call]?.[1] as { body: Record<string, string> }).body;
+
 vi.mock("sonner", () => ({
   toast: { success: vi.fn(), error: vi.fn() },
 }));
@@ -35,7 +39,9 @@ const fill = (labelRe: RegExp, value: string) => {
 
 beforeEach(() => {
   insertMock.mockReset().mockResolvedValue({ error: null });
-  invokeMock.mockReset().mockResolvedValue({ error: null });
+  invokeMock
+    .mockReset()
+    .mockResolvedValue({ data: { ok: true, data: {} }, error: null });
 });
 
 // ── Validation: required fields, email format, message length ─────────
@@ -49,7 +55,7 @@ describe("ContactSection validation", () => {
     expect(screen.getByText(/please enter a valid email/i)).toBeInTheDocument();
     expect(screen.getByText(/please choose a subject/i)).toBeInTheDocument();
     expect(screen.getByText(/message must be at least 20 characters/i)).toBeInTheDocument();
-    expect(insertMock).not.toHaveBeenCalled();
+    expect(invokeMock).not.toHaveBeenCalled();
   });
 
   it("rejects malformed email addresses", async () => {
@@ -61,7 +67,7 @@ describe("ContactSection validation", () => {
     fireEvent.click(screen.getByRole("button", { name: /send message/i }));
 
     expect(await screen.findByText(/please enter a valid email/i)).toBeInTheDocument();
-    expect(insertMock).not.toHaveBeenCalled();
+    expect(invokeMock).not.toHaveBeenCalled();
   });
 
   it("rejects messages shorter than 20 characters", async () => {
@@ -73,7 +79,7 @@ describe("ContactSection validation", () => {
     fireEvent.click(screen.getByRole("button", { name: /send message/i }));
 
     expect(await screen.findByText(/at least 20 characters/i)).toBeInTheDocument();
-    expect(insertMock).not.toHaveBeenCalled();
+    expect(invokeMock).not.toHaveBeenCalled();
   });
 
   it("clears an error once the user edits that field", async () => {
@@ -99,9 +105,9 @@ describe("ContactSection submission feedback", () => {
   };
 
   it("disables the submit button and shows a loading label while sending", async () => {
-    let resolveInsert: (v: { error: null }) => void = () => {};
-    insertMock.mockImplementation(
-      () => new Promise((r) => { resolveInsert = r; }),
+    let resolveSubmit: (v: { data: unknown; error: null }) => void = () => {};
+    invokeMock.mockImplementation(
+      () => new Promise((r) => { resolveSubmit = r; }),
     );
 
     renderSection();
@@ -112,13 +118,13 @@ describe("ContactSection submission feedback", () => {
     await waitFor(() => expect(btn).toBeDisabled());
     expect(screen.getByText(/sending your message/i)).toBeInTheDocument();
 
-    resolveInsert({ error: null });
+    resolveSubmit({ data: { ok: true, data: {} }, error: null });
     await waitFor(() =>
       expect(screen.getByText(/message received/i)).toBeInTheDocument(),
     );
   });
 
-  it("shows a success screen after a valid submission", async () => {
+  it("submits through the guarded submit-contact function only", async () => {
     renderSection();
     fillValid();
     fireEvent.click(screen.getByRole("button", { name: /send message/i }));
@@ -126,13 +132,33 @@ describe("ContactSection submission feedback", () => {
     await waitFor(() =>
       expect(screen.getByText(/message received/i)).toBeInTheDocument(),
     );
-    expect(insertMock).toHaveBeenCalledTimes(1);
+    expect(invokeMock).toHaveBeenCalledTimes(1);
     expect(invokeMock).toHaveBeenCalledWith(
-      "send-contact-email",
+      "submit-contact",
       expect.objectContaining({
         body: expect.objectContaining({ email: "jane@example.com" }),
       }),
     );
+    // The browser must never write to contact_inquiries directly: that path
+    // skips rate limiting and both notification emails.
+    expect(insertMock).not.toHaveBeenCalled();
+  });
+
+  it("keeps the form open and reports the error when the server rejects", async () => {
+    invokeMock.mockResolvedValue({
+      data: {
+        ok: false,
+        error: { code: "rate_limited", message: "Too many requests." },
+      },
+      error: null,
+    });
+
+    renderSection();
+    fillValid();
+    fireEvent.click(screen.getByRole("button", { name: /send message/i }));
+
+    await waitFor(() => expect(invokeMock).toHaveBeenCalledTimes(1));
+    expect(screen.queryByText(/message received/i)).not.toBeInTheDocument();
   });
 });
 
@@ -157,8 +183,8 @@ describe("ContactSection stores hostile payloads as plain text", () => {
     fill(/your message/i, `Hello, my message contains: ${payload} and is long enough.`);
     fireEvent.click(screen.getByRole("button", { name: /send message/i }));
 
-    await waitFor(() => expect(insertMock).toHaveBeenCalledTimes(1));
-    const arg = insertMock.mock.calls[0][0] as { name: string; message: string };
+    await waitFor(() => expect(invokeMock).toHaveBeenCalledTimes(1));
+    const arg = submittedBody();
     expect(arg.name).toContain(payload);
     expect(arg.message).toContain(payload);
     // No injected DOM: the form card should not contain a live <script>.

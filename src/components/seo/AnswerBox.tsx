@@ -7,6 +7,8 @@ interface AnswerBoxProps {
   children: ReactNode;
   /** Optional last-reviewed date (ISO YYYY-MM-DD) shown to readers. */
   reviewed?: string;
+  /** Verified reviewer label. Review copy is hidden when this is absent. */
+  reviewer?: string;
 }
 
 /**
@@ -18,7 +20,12 @@ interface AnswerBoxProps {
  * Follows the project visual identity: white background, black text,
  * red left rule. No borders elsewhere.
  */
-export default function AnswerBox({ question, children, reviewed }: AnswerBoxProps) {
+export default function AnswerBox({
+  question,
+  children,
+  reviewed,
+  reviewer,
+}: AnswerBoxProps) {
   return (
     <aside
       className="speakable-intro my-8 pl-5 border-l-4 border-primary bg-white"
@@ -39,9 +46,9 @@ export default function AnswerBox({ question, children, reviewed }: AnswerBoxPro
       >
         <div itemProp="text">{children}</div>
       </div>
-      {reviewed && (
+      {reviewed && reviewer && (
         <p className="mt-2 text-xs text-foreground/70">
-          Reviewed by a chartered physiotherapist (CSP). Last updated{" "}
+          Reviewed by {reviewer}. Last reviewed{" "}
           <time dateTime={reviewed}>{reviewed}</time>.
         </p>
       )}

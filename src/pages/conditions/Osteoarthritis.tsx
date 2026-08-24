@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import NextReadStrip from "@/components/NextReadStrip";
-import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, ThermometerSun, BookOpen, ArrowRight, Users, TrendingUp, Timer, Scale } from "lucide-react";
+import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, ThermometerSun, BookOpen, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { StatCounter, HorizontalBar, WaveDivider, EmojiCard } from "@/components/graphics/InfographicElements";
+import { WaveDivider, EmojiCard } from "@/components/graphics/InfographicElements";
 import InternalLinks from "@/components/InternalLinks";
 import RelatedArticles from "@/components/RelatedArticles";
 import ContextualLinks from "@/components/ContextualLinks";
@@ -150,29 +150,17 @@ const Osteoarthritis = () => (
           reviewed="2026-06-13"
         >
           <p>
-            UK NICE guidance puts <strong>exercise and weight management first</strong> for
-            osteoarthritis — they reduce pain by up to 40% and improve function more than any
-            painkiller. Add <strong>topical NSAIDs</strong> (ibuprofen gel) for hand or knee
-            pain, short courses of oral NSAIDs for flares, and consider physiotherapy or a
-            joint injection. Surgery (knee or hip replacement) is reserved for severe,
-            unresponsive cases.
+            NICE recommends tailored therapeutic exercise for everyone with
+            osteoarthritis and weight management where appropriate. Other
+            options depend on the joint, symptoms and other health conditions,
+            and can include topical anti-inflammatory medicines,
+            physiotherapy and, for severe symptoms that have not improved,
+            referral to discuss joint surgery.
           </p>
         </AnswerBox>
         <MedicalReviewBadge compact reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
       </section>
 
-      {/* ─── Key Stats ─── */}
-      <section className="py-12 lg:py-16 bg-tint-green">
-        <div className="container mx-auto px-6 md:px-10 max-w-4xl">
-          <p className="section-label text-primary mb-6">Osteoarthritis at a Glance</p>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            <StatCounter value="8.75" suffix="M" label="People affected in the UK" icon={<Users className="w-6 h-6" />} color="emerald" />
-            <StatCounter value="50" suffix="+" label="Most common age of onset" icon={<Timer className="w-6 h-6" />} color="sky" />
-            <StatCounter value="40" suffix="%" label="Pain reduction with exercise" icon={<TrendingUp className="w-6 h-6" />} color="amber" />
-            <StatCounter value="5" suffix="%" label="Weight loss target for relief" icon={<Scale className="w-6 h-6" />} color="violet" />
-          </div>
-        </div>
-      </section>
       <WaveDivider color="hsl(var(--background))" />
 
       <main id="main-content" className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
@@ -211,18 +199,6 @@ const Osteoarthritis = () => (
             <li><strong>Other conditions</strong> — diabetes, metabolic disorders, and congenital joint issues</li>
           </ul>
         </Section>
-
-        {/* ─── Risk Factor Chart ─── */}
-        <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12 p-6 rounded-2xl bg-tint-amber border border-border/30">
-          <h3 className="font-display text-lg font-bold text-foreground mb-4">Risk Factor Prevalence</h3>
-          <HorizontalBar items={[
-            { label: "Age over 50", value: 85, color: "hsl(var(--primary))" },
-            { label: "Obesity / overweight", value: 72, color: "hsl(var(--amber))" },
-            { label: "Previous joint injury", value: 58, color: "hsl(var(--sky))" },
-            { label: "Female sex", value: 55, color: "hsl(var(--violet))" },
-            { label: "Genetic factors", value: 40, color: "hsl(var(--emerald))" },
-          ]} />
-        </motion.div>
 
         <Section icon={Dumbbell} title="What are the best exercises for osteoarthritis?">
           <p>Regular exercise is one of the most effective treatments for OA. It strengthens muscles around joints, improves flexibility, reduces pain, and helps manage weight. Always start gradually and consult a physiotherapist if unsure.</p>
@@ -316,6 +292,37 @@ const Osteoarthritis = () => (
           <p>For exercise programmes see our <Link to="/exercises" className="text-primary underline">exercise hub</Link> or the joint-specific <Link to="/guides/hip-exercises-for-osteoarthritis" className="text-primary underline">hip osteoarthritis exercise routine</Link>. For nutrition strategy see our <Link to="/guides/diet" className="text-primary underline">diet guide</Link> and <Link to="/diet/foods-to-avoid-with-arthritis" className="text-primary underline">foods to avoid with arthritis</Link>.</p>
           <p className="text-sm text-muted-foreground italic">Educational information only — we don&apos;t endorse specific brands, devices or providers. Always discuss treatment escalation with your clinician.</p>
         </Section>
+
+        <section className="mb-12" aria-labelledby="osteoarthritis-sources">
+          <h2
+            id="osteoarthritis-sources"
+            className="font-display text-2xl md:text-3xl font-bold text-foreground mb-5"
+          >
+            Sources and further guidance
+          </h2>
+          <ul className="space-y-3">
+            <li>
+              <a
+                href="https://www.nice.org.uk/guidance/ng226"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary underline underline-offset-2"
+              >
+                NICE NG226: Osteoarthritis in over 16s
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.nhs.uk/conditions/osteoarthritis/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary underline underline-offset-2"
+              >
+                NHS: Osteoarthritis
+              </a>
+            </li>
+          </ul>
+        </section>
 
         {/* Live Blog & Stories — Advice & Guidance */}
         <ConditionBlogStrip

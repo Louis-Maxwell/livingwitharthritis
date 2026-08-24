@@ -17,7 +17,9 @@ import CanonicalEnforcer from "@/components/CanonicalEnforcer";
 import SeoDefaults from "@/components/SeoDefaults";
 import RootOrganizationSchema from "@/components/seo/RootOrganizationSchema";
 import SkipToContent from "@/components/SkipToContent";
+import RouteFocus from "@/components/RouteFocus";
 import { COMPARISON_ROUTES } from "@/data/comparison-routes.generated";
+import { isPrerenderDocumentReady } from "@/lib/prerenderReady";
 
 // Home is eager — it's the top entry point (~36% of pageviews) so
 // shipping it in the main bundle removes a Suspense round-trip on first paint.
@@ -27,7 +29,7 @@ const LocalizedHome = lazy(() => import("./pages/LocalizedHome"));
 const LocalizedOsteoarthritis = lazy(() => import("./pages/LocalizedOsteoarthritis"));
 
 const ChatBotWidget = lazy(() => import("./components/ChatBotWidget"));
-const CookieConsent = lazy(() => import("./components/CookieConsent"));
+const CookieBanner = lazy(() => import("./components/landing/CookieBanner"));
 const AccessibilityToolbar = lazy(() => import("./components/AccessibilityToolbar"));
 const MobileBottomNav = lazy(() => import("./components/MobileBottomNav"));
 const MobileNextStepBar = lazy(() => import("./components/MobileNextStepBar"));
@@ -259,20 +261,25 @@ const queryClient = new QueryClient({
 function AnimatedRoutes() {
   const location = useLocation();
 
-  // GA4 SPA pageview tracker — fires `page_view` on every route change.
-  // The initial pageview is sent by gtag('config') in index.html; this
-  // handler covers all subsequent client-side navigations so multi-page
-  // sessions are recorded correctly in GA4 (and not collapsed to 1).
+  // GA4 SPA pageview tracker. GA4 is loaded with send_page_view:false and only
+  // after analytics consent, so this sends every pageview — including the first
+  // one, which is re-sent when `analytics-ready` fires post-consent.
   useEffect(() => {
-    const w = window as unknown as { gtag?: (...a: unknown[]) => void };
-    if (typeof w.gtag !== "function") return;
-    w.gtag("event", "page_view", {
-      page_path: location.pathname + location.search,
-      page_location: window.location.href,
-      page_title: document.title,
-      send_to: "G-X8GTW05JJS",
-    });
+    const sendPageView = () => {
+      const w = window as unknown as { gtag?: (...a: unknown[]) => void };
+      if (typeof w.gtag !== "function") return;
+      w.gtag("event", "page_view", {
+        page_path: location.pathname + location.search,
+        page_location: window.location.href,
+        page_title: document.title,
+        send_to: "G-ZLLSD3PXZ9",
+      });
+    };
+    sendPageView();
+    window.addEventListener("analytics-ready", sendPageView);
+    return () => window.removeEventListener("analytics-ready", sendPageView);
   }, [location.pathname, location.search]);
+
 
   return (
     <PageTransition key={location.pathname}>
@@ -489,27 +496,38 @@ function AppWithSync() {
   // route's React tree — including JSON-LD injected via useEffect — has
   // settled and document.head is ready to be snapshotted into static HTML.
   useEffect(() => {
+    const startedAt = Date.now();
+    const maxWaitMs = 30_000;
+
     const fire = () => {
+      window.clearInterval(interval);
       document.dispatchEvent(new Event("prerender-ready"));
     };
-    const ric = (window as unknown as {
-      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
-    }).requestIdleCallback;
-    const id = ric
-      ? ric(fire, { timeout: 1200 })
-      : (window.setTimeout(fire, 600) as unknown as number);
-    return () => {
-      const cic = (window as unknown as {
-        cancelIdleCallback?: (id: number) => void;
-      }).cancelIdleCallback;
-      if (cic) cic(id);
-      else window.clearTimeout(id);
+
+    const check = () => {
+      if (isPrerenderDocumentReady(document, location.pathname)) {
+        // Helmet updates title/meta in a microtask after the route commits.
+        window.setTimeout(fire, 50);
+        return;
+      }
+      if (Date.now() - startedAt >= maxWaitMs) {
+        console.warn(
+          `[prerender] timed out waiting for route metadata: ${location.pathname}`,
+        );
+        fire();
+      }
     };
+
+    const interval = window.setInterval(check, 100);
+    check();
+
+    return () => window.clearInterval(interval);
   }, [location.pathname]);
 
   return (
     <>
       <SkipToContent />
+      <RouteFocus />
       <CanonicalEnforcer />
       <RootOrganizationSchema />
       <AnimatedRoutes />
@@ -537,7 +555,7 @@ const App = () => {
               <DeferredMount timeout={1200}>
                 <Suspense fallback={null}>
                   <EngagementTracker />
-                  <CookieConsent />
+                  <CookieBanner />
                   <MobileBottomNav />
                   <MobileNextStepBar />
                   <AccessibilityToolbar />

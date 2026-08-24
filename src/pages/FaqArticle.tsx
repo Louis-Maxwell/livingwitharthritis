@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import SeoHead from '@/components/SeoHead';
-import MedicalReviewBadge from '@/components/MedicalReviewBadge';
 import { faqArticles } from '@/data/faqArticles';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
 
@@ -69,8 +68,6 @@ export default function FaqArticle() {
       </nav>
 
       <h1 className="text-3xl md:text-4xl font-bold mb-6">{article.question}</h1>
-
-      <MedicalReviewBadge compact />
 
       <div className="bg-accent/40 border-l-4 border-primary p-6 rounded-r-lg my-6 text-lg font-semibold">
         {article.quickAnswer}

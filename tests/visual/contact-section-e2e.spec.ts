@@ -4,8 +4,8 @@
  * Mocks the Supabase client at the network boundary (page.route) so no
  * real database rows or emails are created. Asserts that:
  *   1. Filling in valid form data and submitting triggers a POST to the
- *      `functions/v1/send-contact-email` edge function with the expected
- *      JSON payload.
+ *      `functions/v1/submit-contact` edge function with the expected
+ *      JSON payload, and never writes to contact_inquiries directly.
  *   2. The success screen ("Message received!") appears afterwards.
  *
  * Run against a local dev server:
@@ -18,7 +18,7 @@ import { test, expect } from "@playwright/test";
 const BASE_URL = process.env.PLAYWRIGHT_BASE_URL ?? "http://localhost:8080";
 const SUPABASE_HOST_RE = /supabase\.co\/(rest|functions)\/v1\//;
 
-test("Contact form submission calls send-contact-email and shows success", async ({ browser }) => {
+test("Contact form submission calls submit-contact and shows success", async ({ browser }) => {
   const context = await browser.newContext({ viewport: { width: 1280, height: 1800 } });
   const page = await context.newPage();
 
@@ -36,18 +36,11 @@ test("Contact form submission calls send-contact-email and shows success", async
     }
     invokeCalls.push({ url, body });
 
-    if (url.includes("/functions/v1/send-contact-email")) {
+    if (url.includes("/functions/v1/submit-contact")) {
       return route.fulfill({
         status: 200,
         contentType: "application/json",
-        body: JSON.stringify({ ok: true }),
-      });
-    }
-    if (url.includes("/rest/v1/contact_inquiries")) {
-      return route.fulfill({
-        status: 201,
-        contentType: "application/json",
-        body: JSON.stringify([{ id: "test-id" }]),
+        body: JSON.stringify({ ok: true, data: { contactId: "test-id" } }),
       });
     }
     // Everything else Supabase — pass through as an empty 200 so the app
@@ -70,21 +63,25 @@ test("Contact form submission calls send-contact-email and shows success", async
 
   // Wait for the edge function POST to fire.
   const invokeResponse = page.waitForResponse(
-    (r) => r.url().includes("/functions/v1/send-contact-email") && r.request().method() === "POST",
+    (r) => r.url().includes("/functions/v1/submit-contact") && r.request().method() === "POST",
   );
   await page.getByRole("button", { name: /send message/i }).click();
   const resp = await invokeResponse;
   expect(resp.status()).toBe(200);
 
   // Assert payload shape.
-  const functionCall = invokeCalls.find((c) => c.url.includes("/functions/v1/send-contact-email"));
-  expect(functionCall, "expected send-contact-email to be called").toBeTruthy();
+  const functionCall = invokeCalls.find((c) => c.url.includes("/functions/v1/submit-contact"));
+  expect(functionCall, "expected submit-contact to be called").toBeTruthy();
   expect(functionCall!.body).toMatchObject({
     name: "Playwright Tester",
     email: "tester@example.com",
     subject: "General enquiry",
     message: expect.stringContaining("end-to-end test message"),
   });
+
+  // The browser must not insert rows itself — that path has no rate limit.
+  const directInsert = invokeCalls.find((c) => c.url.includes("/rest/v1/contact_inquiries"));
+  expect(directInsert, "contact_inquiries must not be written from the client").toBeFalsy();
 
   // Success screen renders.
   await expect(page.getByRole("alert").getByText(/message received/i)).toBeVisible();

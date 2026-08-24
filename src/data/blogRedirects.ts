@@ -24,7 +24,6 @@ export const BLOG_SLUG_REDIRECTS: Record<string, string> = {
   "arthritis-and-cold-weather-uk": "cold-weather-arthritis-uk-winter",
   "cold-weather-and-arthritis": "cold-weather-arthritis-uk-winter",
   "arthritis-and-sleep-uk": "how-to-sleep-with-arthritis-uk",
-  "arthritis-and-cycling-uk": "cycling-with-arthritis",
   "glucosamine-vs-collagen-arthritis": "glucosamine-vs-collagen",
   "hand-arthritis-exercises-uk": "hand-exercises-for-arthritis",
   "arthritis-and-mental-health": "arthritis-and-mental-health-uk",

@@ -32,32 +32,28 @@ export default function AeoEnhancement(props: AeoEnhancementProps) {
   const question = props.question ?? configured?.question;
   const answer = props.answer ?? configured?.answer;
   const faqs = useMemo(() => props.faqs ?? configured?.faqs ?? [], [props.faqs, configured?.faqs]);
-  const reviewer = props.reviewer ?? configured?.reviewer ?? "Living With Arthritis clinical team";
+  const reviewer = props.reviewer ?? configured?.reviewer;
   const updatedAt = props.updatedAt ?? configured?.updatedAt ?? "2026-07-01";
 
   // Inject FAQPage JSON-LD when FAQs are present
   useEffect(() => {
     if (!faqs.length) return;
+    const pageUrl = `https://livingwitharthritis.org.uk${props.route.startsWith("/") ? props.route : `/${props.route}`}`;
     const script = document.createElement("script");
     script.type = "application/ld+json";
     script.setAttribute("data-aeo-faq", props.route);
     script.textContent = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      speakable: {
-        "@type": "SpeakableSpecification",
-        cssSelector: [".speakable-intro", ".faq-item"]
-      },
+      "@id": `${pageUrl}#faq`,
+      url: pageUrl,
+      inLanguage: "en-GB",
       mainEntity: faqs.map((f) => ({
         "@type": "Question",
         name: f.q,
         acceptedAnswer: {
           "@type": "Answer",
           text: f.a,
-          speakable: {
-            "@type": "SpeakableSpecification",
-            cssSelector: ".faq-item"
-          }
         },
       })),
     });
@@ -78,10 +74,12 @@ export default function AeoEnhancement(props: AeoEnhancementProps) {
       )}
 
       <div className="flex flex-wrap items-center gap-2 text-xs">
-        <Badge variant="outline" className="gap-1.5 border-primary/30 text-foreground">
-          <ShieldCheck className="h-3 w-3 text-primary" />
-          Medically reviewed · {reviewer}
-        </Badge>
+        {reviewer && !/clinical team/i.test(reviewer) && (
+          <Badge variant="outline" className="gap-1.5 border-primary/30 text-foreground">
+            <ShieldCheck className="h-3 w-3 text-primary" />
+            Medically reviewed · {reviewer}
+          </Badge>
+        )}
         <Badge variant="outline" className="gap-1.5 border-primary/30 text-foreground">
           <CalendarClock className="h-3 w-3 text-primary" />
           Updated {new Date(updatedAt).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}

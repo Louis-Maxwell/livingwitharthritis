@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { ukCities } from "@/data/ukCities";
 import { MapPin, Hospital, ArrowRight, Stethoscope, Calculator, Users } from "lucide-react";
+import NotFound from "@/pages/NotFound";
 
 const BASE = "https://livingwitharthritis.org.uk";
 
@@ -112,25 +113,6 @@ const RegionHub = () => {
       },
     };
 
-    // LocalBusiness schema for regional office presence
-    const localBusiness = {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      name: "Living With Arthritis UK",
-      alternateName: "LWA UK",
-      url: `${BASE}/regions/${r.slug}`,
-      telephone: "+44 20 1234 5678",
-      email: "info@livingwitharthritis.org.uk",
-      areaServed: { "@type": "AdministrativeArea", name: r.name },
-      address: {
-        "@type": "PostalAddress",
-        addressCountry: "GB",
-        addressRegion: r.name,
-      },
-      description: `Arthritis support, resources and peer community for people in ${r.name}, UK`,
-      sameAs: "https://livingwitharthritis.org.uk",
-    };
-
     // BreadcrumbList intentionally not emitted here — <PageBreadcrumb> below covers it.
     const s1 = document.createElement("script");
     s1.type = "application/ld+json";
@@ -138,19 +120,13 @@ const RegionHub = () => {
     s1.dataset.region = "medical";
     document.head.appendChild(s1);
 
-    const s2 = document.createElement("script");
-    s2.type = "application/ld+json";
-    s2.text = JSON.stringify(localBusiness);
-    s2.dataset.region = "local";
-    document.head.appendChild(s2);
-
     return () => {
       document.querySelectorAll("script[data-region]").forEach((el) => el.remove());
     };
   }, [r]);
 
   if (alias) return <Navigate to={`/regions/${alias}`} replace />;
-  if (!r) return <Navigate to="/" replace />;
+  if (!r) return <NotFound />;
 
 
   const cities = r.citySlugs.map((s) => ukCities.find((c) => c.slug === s)).filter(Boolean) as typeof ukCities;

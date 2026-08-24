@@ -163,7 +163,7 @@ const AdminAppointments = () => {
       {/* Top bar */}
       <div className="border-b border-border/40 bg-background/80 backdrop-blur-xl sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center gap-4">
-          <Button variant="ghost" size="icon" onClick={() => navigate("/admin")} className="rounded-xl">
+          <Button variant="ghost" size="icon" aria-label="Back to admin" onClick={() => navigate("/admin")} className="rounded-xl">
             <ArrowLeft className="h-5 w-5" />
           </Button>
           <div className="flex items-center gap-3">

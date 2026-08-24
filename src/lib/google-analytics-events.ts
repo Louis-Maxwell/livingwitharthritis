@@ -7,16 +7,21 @@ interface EventParams {
   [key: string]: string | number | boolean | string[];
 }
 
+type AnalyticsWindow = Window & {
+  gtag?: (...args: unknown[]) => void;
+  __GTAG_DEBUG__?: boolean;
+};
+
 export const trackEvent = (eventName: string, params?: EventParams) => {
   if (typeof window === 'undefined' || !('gtag' in window)) return;
 
-  (window as any).gtag('event', eventName, params || {});
+  (window as AnalyticsWindow).gtag?.('event', eventName, params || {});
 };
 
 export const setUserProperties = (properties: EventParams) => {
   if (typeof window === 'undefined' || !('gtag' in window)) return;
 
-  (window as any).gtag('set', properties);
+  (window as AnalyticsWindow).gtag?.('set', properties);
 };
 
 // Content engagement events
@@ -183,11 +188,11 @@ export const trackAppError = (errorType: string, errorMessage: string, errorPage
 // Debug helper
 export const getGTAGDebugStatus = (): boolean => {
   if (typeof window === 'undefined') return false;
-  return (window as any).__GTAG_DEBUG__ === true;
+  return (window as AnalyticsWindow).__GTAG_DEBUG__ === true;
 };
 
 export const enableGTAGDebug = () => {
   if (typeof window === 'undefined') return;
-  (window as any).__GTAG_DEBUG__ = true;
+  (window as AnalyticsWindow).__GTAG_DEBUG__ = true;
   console.log('[GA4] Debug mode enabled. Check GA4 DebugView in console.');
 };

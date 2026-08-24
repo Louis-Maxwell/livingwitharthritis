@@ -75,17 +75,6 @@ export interface PageSchemaProps {
   idPrefix?: string;
 }
 
-const DEFAULT_REVIEWER = {
-  "@type": "Person",
-  name: "Maxwell",
-  jobTitle: "First Contact Practitioner — Chartered Physiotherapist",
-  identifier: "HCPC PH128483",
-  affiliation: {
-    "@type": "MedicalOrganization",
-    name: "Chartered Society of Physiotherapy (CSP)",
-  },
-};
-
 function toAbsolute(url: string): string {
   if (!url) return BASE;
   if (url.startsWith("http")) return url;
@@ -162,16 +151,14 @@ export default function PageSchema({
           cssSelector: [speakableSelector],
         };
       }
-      if (lastReviewed) {
+      if (lastReviewed && reviewedBy) {
         medicalPage.lastReviewed = lastReviewed;
-        medicalPage.reviewedBy = reviewedBy
-          ? {
-              "@type": "Person",
-              name: reviewedBy.name,
-              jobTitle: reviewedBy.jobTitle,
-              ...(reviewedBy.identifier ? { identifier: reviewedBy.identifier } : {}),
-            }
-          : DEFAULT_REVIEWER;
+        medicalPage.reviewedBy = {
+          "@type": "Person",
+          name: reviewedBy.name,
+          jobTitle: reviewedBy.jobTitle,
+          ...(reviewedBy.identifier ? { identifier: reviewedBy.identifier } : {}),
+        };
       }
       blocks.push(medicalPage);
     }

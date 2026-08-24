@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 interface Props {
   src: string;
-  alt: string;
+  alt?: string;
   className?: string;
   imgClassName?: string;
   width?: number;
@@ -13,7 +13,7 @@ interface Props {
  * Image with red-tint duotone hover, monochrome at rest.
  * Pure CSS — uses mix-blend overlays and grayscale filters.
  */
-export function DuotoneImage({ src, alt, className, imgClassName, width, height }: Props) {
+export function DuotoneImage({ src, alt = "", className, imgClassName, width, height }: Props) {
   return (
     <figure className={cn("duotone group relative overflow-hidden", className)}>
       <img
