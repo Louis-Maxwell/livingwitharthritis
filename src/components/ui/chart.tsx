@@ -1,9 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+﻿/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as React from "react";
 import * as RechartsPrimitive from "recharts";
 
 import { cn } from "@/lib/utils";
-import { useSafeHtml } from "@/hooks/useSafeHtml";
+import { useSafeHtml } from "@/utils/sanitizeHtml";
 
 // Format: { THEME_NAME: CSS_SELECTOR }
 const THEMES = { light: "", dark: ".dark" } as const;
@@ -85,7 +85,7 @@ ${colorConfig
   return (
     <style
       dangerouslySetInnerHTML={{
-        __html: useSafeHtml(cssContent),
+        __html: sanitizeHtml(cssContent),
       }}
     />
   );
@@ -312,3 +312,4 @@ function getPayloadConfigFromPayload(config: ChartConfig, payload: unknown, key:
 }
 
 export { ChartContainer, ChartTooltip, ChartTooltipContent, ChartLegend, ChartLegendContent, ChartStyle };
+

@@ -1,16 +1,16 @@
 ﻿import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
-import { useSafeHtml } from "@/hooks/useSafeHtml";
+import { useSafeHtml } from "@/utils/sanitizeHtml";
 import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
-import { useSafeHtml } from "@/hooks/useSafeHtml";
+import { useSafeHtml } from "@/utils/sanitizeHtml";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
-import { useSafeHtml } from "@/hooks/useSafeHtml";
+import { useSafeHtml } from "@/utils/sanitizeHtml";
 import PageSchema from "@/components/seo/PageSchema";
-import { useSafeHtml } from "@/hooks/useSafeHtml";
+import { useSafeHtml } from "@/utils/sanitizeHtml";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
-import { useSafeHtml } from "@/hooks/useSafeHtml";
+import { useSafeHtml } from "@/utils/sanitizeHtml";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
@@ -152,7 +152,7 @@ export default function FebuxostatGoutGuide() {
             how it works, what to expect, and how to get the most from it.
           </p>
           <TableOfContents html={html} />
-          <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" dangerouslySetInnerHTML={{ __html: useSafeHtml(html) }} />
+          <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" dangerouslySetInnerHTML={{ __html: sanitizeHtml(html) }} />
           <div className="mt-16 pt-8 border-t border-border/30">
             <h3 className="font-display font-bold text-lg mb-4">Continue Reading</h3>
             <div className="grid sm:grid-cols-2 gap-4">
@@ -177,4 +177,5 @@ export default function FebuxostatGoutGuide() {
     </>
   );
 }
+
 

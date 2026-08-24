@@ -1,7 +1,7 @@
-import { lazy, Suspense, type ReactNode, type ElementType } from "react";
+﻿import { lazy, Suspense, type ReactNode, type ElementType } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { useSafeHtml } from "@/hooks/useSafeHtml";
+import { useSafeHtml } from "@/utils/sanitizeHtml";
 import {
   ArrowLeft,
   ArrowRight,
@@ -23,7 +23,7 @@ import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import MedicalPageSchema from "@/components/seo/MedicalPageSchema";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 
-// Below-the-fold — lazy to reduce initial route chunk + speed up LCP
+// Below-the-fold â€” lazy to reduce initial route chunk + speed up LCP
 const InternalLinks = lazy(() => import("@/components/InternalLinks"));
 const CrossLinkBanner = lazy(() => import("@/components/CrossLinkBanner"));
 const ContextualLinks = lazy(() => import("@/components/ContextualLinks"));
@@ -44,9 +44,9 @@ export interface RelatedLink {
 }
 
 export interface ConditionPageData {
-  /** URL slug — e.g. "gout" → /conditions/gout */
+  /** URL slug â€” e.g. "gout" â†’ /conditions/gout */
   slug: string;
-  /** Friendly name — "Gout" */
+  /** Friendly name â€” "Gout" */
   name: string;
   /** Short tagline shown under H1 */
   tagline: string;
@@ -64,7 +64,7 @@ export interface ConditionPageData {
   symptoms: string[];
   /** Causes & risk factors bullets */
   causes: string[];
-  /** Optional "How is X diagnosed?" section content — omitted if not provided */
+  /** Optional "How is X diagnosed?" section content â€” omitted if not provided */
   diagnosis?: ReactNode;
   /** Treatment & management bullets */
   treatments: string[];
@@ -86,7 +86,7 @@ export interface ConditionPageData {
   sources?: { label: string; url: string }[];
 }
 
-// Real Unsplash photographs (free to use) — replaces previous AI-generated webp set.
+// Real Unsplash photographs (free to use) â€” replaces previous AI-generated webp set.
 const CONDITION_IMAGES: Record<string, string> = {
   osteoarthritis: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&q=80&fm=webp",
   "rheumatoid-arthritis": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&q=80&fm=webp",
@@ -213,7 +213,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
           <Section icon={ThermometerSun} title="Symptoms">
             <ul>
               {data.symptoms.map((s) => (
-                <li key={s} dangerouslySetInnerHTML={{ __html: useSafeHtml(s) }} />
+                <li key={s} dangerouslySetInnerHTML={{ __html: sanitizeHtml(s) }} />
               ))}
             </ul>
             <h3>When to see a GP</h3>
@@ -226,7 +226,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
           <Section icon={Heart} title="Causes & Risk Factors">
             <ul>
               {data.causes.map((c) => (
-                <li key={c} dangerouslySetInnerHTML={{ __html: useSafeHtml(c) }} />
+                <li key={c} dangerouslySetInnerHTML={{ __html: sanitizeHtml(c) }} />
               ))}
             </ul>
           </Section>
@@ -240,7 +240,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
           <Section icon={Pill} title="Treatment & Management">
             <ul>
               {data.treatments.map((t) => (
-                <li key={t} dangerouslySetInnerHTML={{ __html: useSafeHtml(t) }} />
+                <li key={t} dangerouslySetInnerHTML={{ __html: sanitizeHtml(t) }} />
               ))}
             </ul>
           </Section>
@@ -295,7 +295,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
             </section>
           )}
 
-          {/* Live Blog & Stories — Advice & Guidance for this condition */}
+          {/* Live Blog & Stories â€” Advice & Guidance for this condition */}
           <Suspense fallback={null}>
             <ConditionBlogStrip
               conditionName={data.name}
@@ -307,11 +307,11 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
             <ConditionSubpageLinks conditionSlug={data.slug} conditionName={data.name} />
           </Suspense>
 
-          {/* Contextual SEO links — keyword-rich, page-aware */}
+          {/* Contextual SEO links â€” keyword-rich, page-aware */}
           <Suspense fallback={null}>
             <ContextualLinks
               heading={`Pair ${data.name} care with the right resources`}
-              intro="Use these guides alongside your treatment plan — diet, movement, flare management and other conditions worth knowing about."
+              intro="Use these guides alongside your treatment plan â€” diet, movement, flare management and other conditions worth knowing about."
               groups={[
                 {
                   title: "Anti-inflammatory diet",
@@ -319,7 +319,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
                     { label: `Best diet for ${data.name.toLowerCase()}`, to: "/diet" },
                     { label: "Mediterranean diet pillar guide", to: "/guides/diet" },
                     { label: "Foods to avoid with arthritis", to: "/blog/category/nutrition" },
-                    { label: "Turmeric, omega-3 and collagen — what works", to: "/blog/category/supplements" },
+                    { label: "Turmeric, omega-3 and collagen â€” what works", to: "/blog/category/supplements" },
                   ],
                 },
                 {
@@ -389,7 +389,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
             </h2>
             <p className="text-muted-foreground mb-5">
               Start a chat, browse the Advice Hub or book a virtual physiotherapy
-              consultation — all free.
+              consultation â€” all free.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -422,3 +422,4 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
     </>
   );
 }
+

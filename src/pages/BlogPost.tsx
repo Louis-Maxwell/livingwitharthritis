@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import { Eye, BookOpen, ChevronRight, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useSafeHtml } from "@/hooks/useSafeHtml";
+import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
 import { useBlogArticle } from "@/hooks/useBlogArticles";
 import { useBlogViews } from "@/hooks/useBlogViews";
@@ -484,7 +484,7 @@ const BlogPost = () => {
               prose-ul:my-6 prose-ol:my-6
               first:prose-p:first-letter:text-5xl first:prose-p:first-letter:font-bold first:prose-p:first-letter:text-primary first:prose-p:first-letter:float-left first:prose-p:first-letter:mr-3 first:prose-p:first-letter:mt-1 first:prose-p:first-letter:leading-none"
           >
-            <div dangerouslySetInnerHTML={{ __html: useSafeHtml(htmlBeforeStrip) }} />
+            <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(htmlBeforeStrip) }} />
             {htmlAfterStrip && (
               <figure className="not-prose my-8">
                 <img
@@ -511,7 +511,7 @@ const BlogPost = () => {
               />
             )}
             {htmlAfterStrip && (
-              <div dangerouslySetInnerHTML={{ __html: useSafeHtml(htmlAfterStrip) }} />
+              <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(htmlAfterStrip) }} />
             )}
 
             <figure className="not-prose my-8">
