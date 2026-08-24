@@ -67,14 +67,14 @@ serve(async (req) => {
 
     console.log(`[${requestId}] Contact inquiry submitted: ${data.id}`);
 
-    // Fire-and-forget admin notification + visitor confirmation emails
+    // Send admin notification + visitor confirmation emails
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
     const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 
     const sendEmail = async (
       label: string,
       payload: Record<string, unknown>,
-    ) => {
+    ): Promise<{ ok: boolean; error?: string }> => {
       try {
         const res = await fetch(`${supabaseUrl}/functions/v1/send-transactional-email`, {
           method: "POST",
@@ -85,38 +85,57 @@ serve(async (req) => {
           body: JSON.stringify(payload),
         });
         const body = await res.text();
-        if (!res.ok) console.error(`[${requestId}] ${label} email failed:`, res.status, body);
+        if (!res.ok) {
+          console.error(`[${requestId}] ${label} email failed:`, res.status, body);
+          return { ok: false, error: `${label} email failed (${res.status})` };
+        }
+        return { ok: true };
       } catch (err) {
         console.error(`[${requestId}] ${label} email error:`, err);
+        return { ok: false, error: `${label} email error: ${err}` };
       }
     };
 
-    await sendEmail("admin-notification", {
-      templateName: "contact-admin-notification",
-      recipientEmail: ADMIN_EMAIL,
-      idempotencyKey: `contact-admin-${data.id}`,
-      templateData: {
-        name: contact.name,
-        email: contact.email,
-        phone: contact.phone || undefined,
-        subject: contact.subject,
-        message: contact.message,
-      },
-    });
+    const [adminRes, confirmRes] = await Promise.all([
+      sendEmail("admin-notification", {
+        templateName: "contact-admin-notification",
+        recipientEmail: ADMIN_EMAIL,
+        idempotencyKey: `contact-admin-${data.id}`,
+        templateData: {
+          name: contact.name,
+          email: contact.email,
+          phone: contact.phone || undefined,
+          subject: contact.subject,
+          message: contact.message,
+        },
+      }),
+      sendEmail("visitor-confirmation", {
+        templateName: "contact-confirmation",
+        recipientEmail: contact.email,
+        idempotencyKey: `contact-confirm-${data.id}`,
+        templateData: { name: contact.name, subject: contact.subject },
+      }),
+    ]);
 
-    await sendEmail("visitor-confirmation", {
-      templateName: "contact-confirmation",
-      recipientEmail: contact.email,
-      idempotencyKey: `contact-confirm-${data.id}`,
-      templateData: { name: contact.name, subject: contact.subject },
-    });
+    // If both emails failed, return error
+    if (!adminRes.ok && !confirmRes.ok) {
+      console.error(`[${requestId}] Both emails failed: admin=${adminRes.error}, confirm=${confirmRes.error}`);
+      return errJson(req, {
+        code: "email_failed",
+        message: "We received your message but failed to send confirmations. Please contact support.",
+        requestId,
+        status: 500,
+      });
+    }
 
+    // Return success (even if one email failed, the inquiry is stored)
     return okJson(
       {
         // Legacy fields kept for backward-compat with existing frontend hooks
         success: true,
         message: "Thank you for contacting us. We'll get back to you soon!",
         contactId: data.id,
+        ...(adminRes.ok && confirmRes.ok ? {} : { warning: "We had trouble sending one of the confirmation emails, but your message was received." }),
       },
       req,
       { requestId },

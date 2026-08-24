@@ -10,6 +10,7 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
 import { preflight, getCorsHeaders, newRequestId, errJson } from "../_shared/http.ts";
+import { checkRateLimit, getClientIp, rateLimitResponse } from "../_shared/rate-limiter-v2.ts";
 
 interface CorpusItem {
   source_type: "condition" | "guide" | "exercise" | "diet" | "article";
@@ -269,6 +270,17 @@ serve(async (req) => {
     });
     if (!isAdminData) {
       return errJson(req, { code: "forbidden", message: "Admin only.", requestId, status: 403 });
+    }
+
+    // Rate limit content ingestion (prevent abuse of batch embedding operations)
+    const rl = await checkRateLimit(adminClient, {
+      ip: getClientIp(req),
+      accountId: userData.user.id,
+      tier: "authenticated",
+      scope: "ingest-content",
+    });
+    if (!rl.allowed) {
+      return rateLimitResponse(corsHeaders, rl.retryAfterSeconds);
     }
 
     // Embed all corpus items in batches (max 100 per request for safety).

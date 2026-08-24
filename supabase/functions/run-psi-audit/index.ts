@@ -1,9 +1,10 @@
- 
+
 // Scheduled PageSpeed Insights audit runner.
 // Audits published + production URLs across mobile + desktop, stores
 // timestamped Lighthouse JSON in the `lighthouse-reports` storage bucket.
 
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
+import { checkRateLimit, getClientIp, rateLimitResponse } from "../_shared/rate-limiter-v2.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -180,6 +181,17 @@ Deno.serve(async (req) => {
   }
 
   const supabase = createClient(supabaseUrl, serviceKey);
+
+  // Rate limit PageSpeed audit runs (prevent API quota exhaustion)
+  const rl = await checkRateLimit(supabase, {
+    ip: getClientIp(req),
+    tier: "authenticated",
+    scope: "run-psi-audit",
+  });
+  if (!rl.allowed) {
+    return rateLimitResponse(corsHeaders, rl.retryAfterSeconds);
+  }
+
   const runStamp = new Date().toISOString().replace(/[:.]/g, "-");
 
   const results: RunResult[] = [];

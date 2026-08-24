@@ -1,7 +1,8 @@
- 
+
 // Pulls current positions for tracked keywords via Semrush connector gateway,
 // writes a snapshot into rank_history. Triggered weekly via pg_cron.
 import { createClient } from "npm:@supabase/supabase-js@2.45.0";
+import { checkRateLimit, getClientIp, rateLimitResponse } from "../_shared/rate-limiter-v2.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -51,6 +52,18 @@ Deno.serve(async (req) => {
       status: auth.status,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
+  }
+
+  const supabase = createClient(supabaseUrl, serviceKey);
+
+  // Rate limit SEO rank sync (prevent excessive Semrush API calls)
+  const rl = await checkRateLimit(supabase, {
+    ip: getClientIp(req),
+    tier: "authenticated",
+    scope: "seo-rank-sync",
+  });
+  if (!rl.allowed) {
+    return rateLimitResponse(corsHeaders, rl.retryAfterSeconds);
   }
 
   const lovableKey = Deno.env.get("LOVABLE_API_KEY");

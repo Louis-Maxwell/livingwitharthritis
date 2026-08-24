@@ -25,6 +25,16 @@ async function sha256(text: string): Promise<string> {
   return Array.from(new Uint8Array(buf)).map((b) => b.toString(16).padStart(2, "0")).join("");
 }
 
+/** Constant-time string comparison to prevent timing attacks on secrets. */
+function constantTimeEqual(a: string, b: string): boolean {
+  if (a.length !== b.length) return false;
+  let result = 0;
+  for (let i = 0; i < a.length; i++) {
+    result |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  }
+  return result === 0;
+}
+
 async function embedBatch(inputs: string[]): Promise<number[][]> {
   const resp = await fetch("https://ai.gateway.lovable.dev/v1/embeddings", {
     method: "POST",
@@ -50,7 +60,7 @@ Deno.serve(async (req) => {
         status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
-    if (token !== SERVICE_ROLE) {
+    if (!constantTimeEqual(token, SERVICE_ROLE)) {
       const anonKey = Deno.env.get("SUPABASE_ANON_KEY") ?? "";
       const authClient = createClient(SUPABASE_URL, anonKey, {
         global: { headers: { Authorization: `Bearer ${token}` } },

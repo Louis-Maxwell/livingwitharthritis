@@ -1,7 +1,8 @@
- 
+
 // Picks the oldest published article, asks Lovable AI to rewrite its intro,
 // stores the draft in content_refresh_queue for admin review.
 import { createClient } from "npm:@supabase/supabase-js@2.45.0";
+import { checkRateLimit, getClientIp, rateLimitResponse } from "../_shared/rate-limiter-v2.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -55,6 +56,16 @@ Deno.serve(async (req) => {
       Deno.env.get("SUPABASE_URL")!,
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
     );
+
+    // Rate limit daily refresh (prevent abuse of AI content generation)
+    const rl = await checkRateLimit(supabase, {
+      ip: getClientIp(req),
+      tier: "authenticated",
+      scope: "daily-content-freshness",
+    });
+    if (!rl.allowed) {
+      return rateLimitResponse(corsHeaders, rl.retryAfterSeconds);
+    }
 
     // Find oldest published article not currently in a pending refresh
     const { data: articles, error: articleErr } = await supabase
