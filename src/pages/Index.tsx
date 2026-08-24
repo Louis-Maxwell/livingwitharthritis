@@ -33,6 +33,7 @@ const withVisitorSnippet = (rest: string) =>
 const HeroStatsStrip = lazy(() => import("@/components/landing/HeroStatsStrip"));
 const OAProblemBand = lazy(() => import("@/components/landing/OAProblemBand"));
 const JointExerciseSection = lazy(() => import("@/components/JointExerciseSection"));
+const FounderStoryBand = lazy(() => import("@/components/landing/FounderStoryBand"));
 const FacesStrip = lazy(() => import("@/components/landing/FacesStrip"));
 const OAPlanPillarsSection = lazy(() => import("@/components/landing/OAPlanPillarsSection"));
 const MissionStatementBand = lazy(() => import("@/components/landing/MissionStatementBand"));
@@ -57,6 +58,7 @@ const StickyDonateBar = lazy(() => import("@/components/landing/StickyDonateBar"
 const MobileBottomCTA = lazy(() => import("@/components/landing/MobileBottomCTA"));
 const SearchBar = lazy(() => import("@/components/landing/SearchBar"));
 const TestimonialCollector = lazy(() => import("@/components/landing/TestimonialCollector"));
+const TestimonialDisplay = lazy(() => import("@/components/landing/TestimonialDisplay"));
 const StartHereBand = lazy(() => import("@/components/landing/StartHereBand"));
 const ImpactFactBand = lazy(() => import("@/components/landing/ImpactFactBand"));
 const ImpactProgressBand = lazy(() => import("@/components/landing/ImpactProgressBand"));
@@ -170,7 +172,10 @@ function HomePage() {
           {/* 01 — Editorial hero */}
           <OAHero />
 
-
+          {/* 01b — Founder story: why we exist */}
+          <Suspense fallback={<SectionFallback />}>
+            <FounderStoryBand />
+          </Suspense>
 
           {/* 02 — Beginner journey chooser */}
           <Suspense fallback={<SectionFallback />}>
@@ -227,6 +232,11 @@ function HomePage() {
           {/* 08 — Real stories */}
           <Suspense fallback={<SectionFallback />}>
             <FacesStrip />
+          </Suspense>
+
+          {/* 08a — Testimonials: patient and donor stories */}
+          <Suspense fallback={<SectionFallback />}>
+            <TestimonialDisplay />
           </Suspense>
 
           {/* 08b — Photo break: movement is medicine */}
