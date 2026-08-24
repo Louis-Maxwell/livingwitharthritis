@@ -2,7 +2,7 @@ import { memo, useState } from "react";
 import { Mail, CheckCircle2, AlertCircle } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
-import { trackEmailSignup } from "@/lib/ga-events";
+import { trackEvent } from "@/lib/analytics";
 
 interface EmailSignupFormProps {
   placeholder?: string;
@@ -51,7 +51,7 @@ const EmailSignupForm = memo(({
           throw dbError;
         }
       } else {
-        trackEmailSignup(sequence);
+        trackEvent("email_signup", { sequence });
         setSuccess(true);
         setEmail("");
         toast.success("Welcome! Check your email for the first guide.");

@@ -1,7 +1,7 @@
 ﻿import { lazy, Suspense, type ReactNode, type ElementType } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { useSafeHtml } from "@/utils/sanitizeHtml";
+import { sanitizeHtml } from "@/utils/sanitizeHtml";
 import {
   ArrowLeft,
   ArrowRight,

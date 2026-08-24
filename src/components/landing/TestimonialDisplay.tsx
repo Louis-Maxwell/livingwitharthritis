@@ -27,7 +27,7 @@ const TestimonialDisplay = memo(() => {
           .order("display_order", { ascending: true });
 
         if (error) throw error;
-        setTestimonials(data || []);
+        setTestimonials((data || []) as unknown as Testimonial[]);
       } catch (error) {
       } finally {
         setLoading(false);

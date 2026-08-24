@@ -1,18 +1,13 @@
 ﻿import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
-import { useSafeHtml } from "@/utils/sanitizeHtml";
+import { sanitizeHtml } from "@/utils/sanitizeHtml";
 import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
-import { useSafeHtml } from "@/utils/sanitizeHtml";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
-import { useSafeHtml } from "@/utils/sanitizeHtml";
 import PageSchema from "@/components/seo/PageSchema";
-import { useSafeHtml } from "@/utils/sanitizeHtml";
 import AnswerBox from "@/components/seo/AnswerBox";
-import { useSafeHtml } from "@/utils/sanitizeHtml";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
-import { useSafeHtml } from "@/utils/sanitizeHtml";
 
 const Footer = lazy(() => import("@/components/Footer"));
 

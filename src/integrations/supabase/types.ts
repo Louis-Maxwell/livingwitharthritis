@@ -1012,6 +1012,33 @@ export type Database = {
         }
         Relationships: []
       }
+      email_subscriptions: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          source: string | null
+          subscribed_sequences: string[]
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          source?: string | null
+          subscribed_sequences?: string[]
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          source?: string | null
+          subscribed_sequences?: string[]
+          updated_at?: string
+        }
+        Relationships: []
+      }
       email_unsubscribe_tokens: {
         Row: {
           created_at: string
@@ -1976,6 +2003,48 @@ export type Database = {
           slug?: string
           title?: string
           twitter_thread?: string | null
+        }
+        Relationships: []
+      }
+      testimonials: {
+        Row: {
+          condition: string | null
+          context: string | null
+          created_at: string
+          display_order: number
+          id: string
+          image_url: string | null
+          is_published: boolean
+          name: string
+          quote: string
+          type: string
+          updated_at: string
+        }
+        Insert: {
+          condition?: string | null
+          context?: string | null
+          created_at?: string
+          display_order?: number
+          id?: string
+          image_url?: string | null
+          is_published?: boolean
+          name: string
+          quote: string
+          type?: string
+          updated_at?: string
+        }
+        Update: {
+          condition?: string | null
+          context?: string | null
+          created_at?: string
+          display_order?: number
+          id?: string
+          image_url?: string | null
+          is_published?: boolean
+          name?: string
+          quote?: string
+          type?: string
+          updated_at?: string
         }
         Relationships: []
       }

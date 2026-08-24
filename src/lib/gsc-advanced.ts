@@ -470,7 +470,7 @@ export const logGSCMetricsSummary = (): void => {
 
   if (metrics.insights.recommendations.length > 0) {
     console.group('💡 Recommendations');
-    metrics.insights.recommendations.forEach(rec => {
+    metrics.insights.recommendations.forEach((rec: GSCInsights['recommendations'][number]) => {
       console.log(`[${rec.priority.toUpperCase()}] ${rec.title}`);
       console.log(`  Impact: ${rec.impact}`);
       console.log(`  Actions: ${rec.actionItems.join(', ')}`);
@@ -480,7 +480,7 @@ export const logGSCMetricsSummary = (): void => {
 
   if (metrics.insights.alerts.length > 0) {
     console.group('⚠️ Alerts');
-    metrics.insights.alerts.forEach(alert => {
+    metrics.insights.alerts.forEach((alert: GSCInsights['alerts'][number]) => {
       console.log(`[${alert.type.toUpperCase()}] ${alert.message}`);
     });
     console.groupEnd();
