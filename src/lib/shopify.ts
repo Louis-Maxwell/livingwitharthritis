@@ -252,7 +252,6 @@ export async function createShopifyCart(item: CartItem): Promise<{ cartId: strin
     input: { lines: [{ quantity: item.quantity, merchandiseId: item.variantId }] },
   });
   if (data?.data?.cartCreate?.userErrors?.length > 0) {
-    console.error('Cart creation failed:', data.data.cartCreate.userErrors);
     return null;
   }
   const cart = data?.data?.cartCreate?.cart;
@@ -269,7 +268,6 @@ export async function addLineToShopifyCart(cartId: string, item: CartItem): Prom
   });
   const userErrors = data?.data?.cartLinesAdd?.userErrors || [];
   if (isCartNotFoundError(userErrors)) return { success: false, cartNotFound: true };
-  if (userErrors.length > 0) { console.error('Add line failed:', userErrors); return { success: false }; }
   const lines = data?.data?.cartLinesAdd?.cart?.lines?.edges || [];
   const newLine = lines.find((l: { node: { id: string; merchandise: { id: string } } }) => l.node.merchandise.id === item.variantId);
   return { success: true, lineId: newLine?.node?.id };
@@ -279,7 +277,6 @@ export async function updateShopifyCartLine(cartId: string, lineId: string, quan
   const data = await storefrontApiRequest(CART_LINES_UPDATE_MUTATION, { cartId, lines: [{ id: lineId, quantity }] });
   const userErrors = data?.data?.cartLinesUpdate?.userErrors || [];
   if (isCartNotFoundError(userErrors)) return { success: false, cartNotFound: true };
-  if (userErrors.length > 0) { console.error('Update line failed:', userErrors); return { success: false }; }
   return { success: true };
 }
 
@@ -287,6 +284,5 @@ export async function removeLineFromShopifyCart(cartId: string, lineId: string):
   const data = await storefrontApiRequest(CART_LINES_REMOVE_MUTATION, { cartId, lineIds: [lineId] });
   const userErrors = data?.data?.cartLinesRemove?.userErrors || [];
   if (isCartNotFoundError(userErrors)) return { success: false, cartNotFound: true };
-  if (userErrors.length > 0) { console.error('Remove line failed:', userErrors); return { success: false }; }
   return { success: true };
 }

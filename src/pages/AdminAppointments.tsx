@@ -150,7 +150,6 @@ const AdminAppointments = () => {
       setContactOpen(false);
       setEmailForm({ subject: "", message: "" });
     } catch (err) {
-      console.error("Send email error:", err);
       toast.error("Failed to send email. Please try again.");
     } finally {
       setIsSending(false);

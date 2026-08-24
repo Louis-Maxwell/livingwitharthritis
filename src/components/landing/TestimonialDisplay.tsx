@@ -29,7 +29,6 @@ const TestimonialDisplay = memo(() => {
         if (error) throw error;
         setTestimonials(data || []);
       } catch (error) {
-        console.error("Failed to fetch testimonials:", error);
       } finally {
         setLoading(false);
       }

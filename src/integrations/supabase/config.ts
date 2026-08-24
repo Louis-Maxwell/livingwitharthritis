@@ -20,9 +20,6 @@ type EnvName = keyof typeof DEFAULTS;
 
 const envOrDefault = (name: EnvName, value: unknown): string => {
   if (typeof value === 'string' && value.length > 0) return value;
-  console.warn(
-    `[backend] ${name} is not set; using the built-in publishable default.`,
-  );
   return DEFAULTS[name];
 };
 

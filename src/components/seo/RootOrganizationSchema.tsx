@@ -69,13 +69,7 @@ const PAYLOAD = {
   sameAs: [
     "https://www.pinterest.co.uk/livingwitharthritis",
     "https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/5274747/charity-overview",
-    // TODO: add Companies House page URL if the charity has a registered company number
-    // TODO: add LinkedIn company page URL (https://www.linkedin.com/company/<slug>)
-    // TODO: add X / Twitter profile URL
-    // TODO: add Facebook page URL
-    // TODO: add Instagram profile URL
-    // TODO: add YouTube channel URL
-    // TODO: add Wikipedia article URL if one exists
+    // Additional social profiles: Companies House, LinkedIn, Twitter, Facebook, Instagram, YouTube, Wikipedia — add when available
   ],
 };
 

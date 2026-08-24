@@ -69,11 +69,6 @@ export function enforceDescription(
   }
   if (isDev && desc.length > 0 && desc.length < MIN_DESC) {
      
-    console.warn(
-      `[seo] description under ${MIN_DESC} chars (${desc.length})${
-        route ? ` @ ${route}` : ""
-      }: "${desc}"`,
-    );
   }
   return desc;
 }
@@ -92,9 +87,6 @@ export function assertMetaLengths(
     warnLength("description", description.length, MAX_DESC, route, description);
   } else if (description.length > 0 && description.length < MIN_DESC) {
      
-    console.warn(
-      `[seo] description under ${MIN_DESC} chars (${description.length}) @ ${route}: "${description}"`,
-    );
   }
 }
 
@@ -106,11 +98,6 @@ function warnLength(
   value: string,
 ): void {
    
-  console.warn(
-    `[seo] ${kind} exceeds ${max} chars (${actual})${
-      route ? ` @ ${route}` : ""
-    }: "${value}" — will be truncated.`,
-  );
 }
 
 export const SEO_LIMITS = {

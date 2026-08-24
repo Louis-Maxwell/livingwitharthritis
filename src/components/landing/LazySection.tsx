@@ -23,7 +23,6 @@ class SectionErrorBoundary extends Component<
 
   componentDidCatch(error: unknown) {
      
-    console.error(`[LazySection${this.props.name ? `:${this.props.name}` : ""}] failed`, error);
   }
 
   reset = () => this.setState({ hasError: false });

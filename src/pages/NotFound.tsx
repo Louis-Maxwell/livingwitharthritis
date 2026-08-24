@@ -38,7 +38,6 @@ const NotFound = () => {
   useEffect(() => {
     const missingPath = location.pathname + location.search;
     const referrer = typeof document !== "undefined" ? document.referrer : "";
-    console.error("404 Error: User attempted to access non-existent route:", missingPath, "ref:", referrer);
     // Surface the broken URL in GA4 so we can map redirects for the worst offenders.
     trackEvent("page_not_found", {
       missing_path: missingPath,

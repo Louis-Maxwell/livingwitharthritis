@@ -60,7 +60,6 @@ export const useCartStore = create<CartStore>()(
             } else if (result.cartNotFound) clearCart();
           }
         } catch (error) {
-          console.error('Failed to add item:', error);
         } finally {
           set({ isLoading: false });
         }
@@ -78,7 +77,6 @@ export const useCartStore = create<CartStore>()(
             set({ items: get().items.map(i => i.variantId === variantId ? { ...i, quantity } : i) });
           } else if (result.cartNotFound) clearCart();
         } catch (error) {
-          console.error('Failed to update quantity:', error);
         } finally {
           set({ isLoading: false });
         }
@@ -100,7 +98,6 @@ export const useCartStore = create<CartStore>()(
             }
           } else if (result.cartNotFound) clearCart();
         } catch (error) {
-          console.error('Failed to remove item:', error);
         } finally {
           set({ isLoading: false });
         }
@@ -119,7 +116,6 @@ export const useCartStore = create<CartStore>()(
           const cart = data?.data?.cart;
           if (!cart || cart.totalQuantity === 0) clearCart();
         } catch (error) {
-          console.error('Failed to sync cart with Shopify:', error);
         } finally {
           set({ isSyncing: false });
         }

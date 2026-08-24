@@ -513,9 +513,6 @@ function AppWithSync() {
         return;
       }
       if (Date.now() - startedAt >= maxWaitMs) {
-        console.warn(
-          `[prerender] timed out waiting for route metadata: ${location.pathname}`,
-        );
         fire();
       }
     };

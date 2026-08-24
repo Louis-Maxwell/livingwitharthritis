@@ -43,7 +43,6 @@ export function FeedbackButtons({
       });
 
       if (error) {
-        console.error("Feedback insert failed", error);
         toast.error("Couldn't save feedback. Please try again.");
         return;
       }

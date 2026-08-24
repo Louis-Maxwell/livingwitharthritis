@@ -131,7 +131,6 @@ const ContactSection = memo(() => {
       trackContactFormSubmit(form.subject);
       toast.success("Message sent! We'll reply to " + form.email.trim() + " within 2 business days.");
     } catch (err) {
-      console.error("Contact form error:", err);
       toast.error("Something went wrong. Please email us directly at " + CONTACT_EMAIL);
     } finally {
       setLoading(false);

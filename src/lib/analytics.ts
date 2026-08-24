@@ -37,7 +37,6 @@ export const trackEvent = (
     if (typeof window === "undefined") return;
     if (import.meta.env.DEV) {
        
-      console.debug("[ga4]", name, params);
     }
     if (typeof window.gtag === "function") {
       window.gtag("event", name, params);

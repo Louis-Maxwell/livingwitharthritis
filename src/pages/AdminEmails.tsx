@@ -73,7 +73,6 @@ const AdminEmails = () => {
       .order("created_at", { ascending: false })
       .limit(2000);
     if (error) {
-      console.error(error);
       setRows([]);
     } else {
       const seen = new Set<string>();

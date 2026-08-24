@@ -76,7 +76,6 @@ export const useArticles = (
       setArticles(data.articles || []);
     } catch (err) {
       setError(err instanceof Error ? err : new Error('Unknown error'));
-      console.error('Error fetching articles:', err);
     } finally {
       setIsLoading(false);
     }
@@ -136,7 +135,6 @@ export const usePetArticles = (
       setArticles(data.articles || []);
     } catch (err) {
       setError(err instanceof Error ? err : new Error('Unknown error'));
-      console.error('Error fetching pet articles:', err);
     } finally {
       setIsLoading(false);
     }

@@ -24,9 +24,6 @@ const initializeSentry = () => {
   if (sentryInitialized) return;
   if (!hasAnalyticsConsent()) return;
   if (!import.meta.env.VITE_SENTRY_DSN) {
-    console.warn(
-      "[Sentry] DSN not configured. Error tracking disabled. Set VITE_SENTRY_DSN to enable.",
-    );
     return;
   }
   sentryInitialized = true;

@@ -194,5 +194,4 @@ export const getGTAGDebugStatus = (): boolean => {
 export const enableGTAGDebug = () => {
   if (typeof window === 'undefined') return;
   (window as AnalyticsWindow).__GTAG_DEBUG__ = true;
-  console.log('[GA4] Debug mode enabled. Check GA4 DebugView in console.');
 };

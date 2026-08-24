@@ -353,7 +353,6 @@ export function useStreamingChat() {
       .select("id")
       .single();
     if (error) {
-      console.error("Failed to create conversation:", error);
       return null;
     }
     conversationIdRef.current = data.id;
@@ -448,7 +447,6 @@ export function useStreamingChat() {
         },
       });
     } catch (error) {
-      console.error("Chat error:", error);
       const msg = error instanceof Error ? error.message : "Failed to send message";
 
       if (msg.toLowerCase().includes("rate limit")) {

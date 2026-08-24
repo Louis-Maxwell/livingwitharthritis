@@ -125,7 +125,6 @@ const Pedometer = () => {
       window.addEventListener("devicemotion", handleMotion);
       setIsTracking(true);
     } catch (err) {
-      console.error("Motion sensor error:", err);
       alert("Could not access motion sensors. This feature requires a mobile device with an accelerometer.");
     }
   }, [handleMotion]);
