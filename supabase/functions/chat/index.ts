@@ -1,9 +1,10 @@
- 
+
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
 import { checkRateLimit, getClientIp } from "../_shared/rate-limiter-v2.ts";
 import { errJson, parseJsonBody, preflight, newRequestId, getCorsHeaders } from "../_shared/http.ts";
 import { z, parseWithSchema } from "../_shared/validation.ts";
+import { withTimeout, timeoutSignal } from "../_shared/timeout.ts";
 import {
   detectRedFlags,
   containsBlockedContent,
@@ -146,17 +147,22 @@ function buildContextBlock(results: Array<{ title: string | null; snippet: strin
 
 async function embedQuery(query: string, apiKey: string, requestId: string): Promise<number[] | null> {
   try {
-    const resp = await fetch("https://ai.gateway.lovable.dev/v1/embeddings", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        model: "openai/text-embedding-3-small",
-        input: query.slice(0, 2000),
+    const resp = await withTimeout(
+      fetch("https://ai.gateway.lovable.dev/v1/embeddings", {
+        method: "POST",
+        signal: timeoutSignal(8000),
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          model: "openai/text-embedding-3-small",
+          input: query.slice(0, 2000),
+        }),
       }),
-    });
+      8000,
+      "embedQuery"
+    );
     if (!resp.ok) {
       console.warn(`[${requestId}] Embedding failed: ${resp.status}`);
       return null;
@@ -383,19 +389,24 @@ serve(async (req) => {
       url.searchParams.get("stream") !== "0" &&
       !(req.headers.get("accept") ?? "").includes("application/json");
 
-    const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${LOVABLE_API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        model: "openai/gpt-5.4",
-        max_completion_tokens: 1200,
-        messages: [{ role: "system", content: systemPrompt }, ...redactedMessages],
-        stream: wantsStream,
+    const response = await withTimeout(
+      fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+        method: "POST",
+        signal: timeoutSignal(25000),
+        headers: {
+          Authorization: `Bearer ${LOVABLE_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          model: "openai/gpt-5.4",
+          max_completion_tokens: 1200,
+          messages: [{ role: "system", content: systemPrompt }, ...redactedMessages],
+          stream: wantsStream,
+        }),
       }),
-    });
+      25000,
+      "chat-completion"
+    );
 
     if (!response.ok) {
       if (response.status === 429) {

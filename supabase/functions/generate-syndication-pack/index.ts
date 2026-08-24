@@ -1,7 +1,9 @@
- 
+
 // Generates a multi-channel syndication pack (Medium, LinkedIn, Twitter
 // thread, Facebook, Reddit, Pinterest) for a blog post using Lovable AI.
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { withTimeout, timeoutSignal } from "../_shared/timeout.ts";
+import { checkRateLimit, getClientIp, rateLimitResponse } from "../_shared/rate-limiter-v2.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -24,20 +26,25 @@ async function callAI(systemPrompt: string, userPrompt: string): Promise<string>
   const apiKey = Deno.env.get("LOVABLE_API_KEY");
   if (!apiKey) throw new Error("LOVABLE_API_KEY not configured");
 
-  const resp = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      model: "google/gemini-2.5-flash",
-      messages: [
-        { role: "system", content: systemPrompt },
-        { role: "user", content: userPrompt },
-      ],
+  const resp = await withTimeout(
+    fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+      method: "POST",
+      signal: timeoutSignal(15000),
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: "google/gemini-2.5-flash",
+        messages: [
+          { role: "system", content: systemPrompt },
+          { role: "user", content: userPrompt },
+        ],
+      }),
     }),
-  });
+    15000,
+    "syndication-pack-ai-call"
+  );
 
   if (!resp.ok) {
     const text = await resp.text();
@@ -87,6 +94,17 @@ Deno.serve(async (req) => {
         status: 403,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
+    }
+
+    // Rate limit syndication pack generation (prevents abuse of 6 parallel AI calls)
+    const rl = await checkRateLimit(admin, {
+      ip: getClientIp(req),
+      accountId: userData.user.id,
+      tier: "authenticated",
+      scope: "generate-syndication-pack",
+    });
+    if (!rl.allowed) {
+      return rateLimitResponse(corsHeaders, rl.retryAfterSeconds);
     }
 
     const body = await req.json().catch(() => ({}));

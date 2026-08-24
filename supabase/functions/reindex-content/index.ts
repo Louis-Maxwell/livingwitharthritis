@@ -16,6 +16,8 @@
  */
 import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
 import { createClient } from "npm:@supabase/supabase-js@2";
+import { withTimeout, timeoutSignal } from "../_shared/timeout.ts";
+import { checkRateLimit, getClientIp, rateLimitResponse } from "../_shared/rate-limiter-v2.ts";
 import sitePages from "./site-corpus.json" with { type: "json" };
 
 const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY")!;
@@ -70,19 +72,41 @@ function chunk(text: string): string[] {
   return out;
 }
 
-async function embedBatch(inputs: string[]): Promise<number[][]> {
-  const resp = await fetch("https://ai.gateway.lovable.dev/v1/embeddings", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${LOVABLE_API_KEY}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ model: EMBED_MODEL, input: inputs }),
-  });
-  if (!resp.ok) {
-    throw new Error(`embedding failed ${resp.status}: ${await resp.text()}`);
+async function embedBatch(inputs: string[], retries = 3): Promise<number[][]> {
+  for (let attempt = 0; attempt < retries; attempt++) {
+    try {
+      const resp = await withTimeout(
+        fetch("https://ai.gateway.lovable.dev/v1/embeddings", {
+          method: "POST",
+          signal: timeoutSignal(15000),
+          headers: { Authorization: `Bearer ${LOVABLE_API_KEY}`, "Content-Type": "application/json" },
+          body: JSON.stringify({ model: EMBED_MODEL, input: inputs }),
+        }),
+        15000,
+        `embedBatch-attempt-${attempt + 1}`
+      );
+      if (!resp.ok) {
+        const text = await resp.text();
+        if (resp.status >= 500 && attempt < retries - 1) {
+          const delay = Math.pow(2, attempt) * 1000;
+          console.warn(`[embedBatch] API error ${resp.status}, retrying in ${delay}ms...`);
+          await new Promise(r => setTimeout(r, delay));
+          continue;
+        }
+        throw new Error(`embedding failed ${resp.status}: ${text}`);
+      }
+      const json = await resp.json();
+      return json.data
+        .sort((a: { index: number }, b: { index: number }) => a.index - b.index)
+        .map((d: { embedding: number[] }) => d.embedding);
+    } catch (e) {
+      if (attempt === retries - 1) throw e;
+      const delay = Math.pow(2, attempt) * 1000;
+      console.warn(`[embedBatch] Attempt ${attempt + 1} failed, retrying in ${delay}ms:`, e);
+      await new Promise(r => setTimeout(r, delay));
+    }
   }
-  const json = await resp.json();
-  return json.data
-    .sort((a: { index: number }, b: { index: number }) => a.index - b.index)
-    .map((d: { embedding: number[] }) => d.embedding);
+  throw new Error("embedBatch: all retries exhausted");
 }
 
 function pageItems(): Item[] {
@@ -197,6 +221,19 @@ Deno.serve(async (req) => {
     const authorised =
       (REINDEX_TOKEN && token === REINDEX_TOKEN) || (SERVICE_ROLE && token === SERVICE_ROLE);
     if (!authorised) return json({ error: "Unauthorized" }, 401);
+
+    // Rate limit admin reindex operations (prevent abuse of expensive embeddings)
+    const rlClient = createClient(SUPABASE_URL, SERVICE_ROLE, {
+      auth: { persistSession: false, autoRefreshToken: false },
+    });
+    const rl = await checkRateLimit(rlClient, {
+      ip: getClientIp(req),
+      tier: "authenticated",
+      scope: "reindex-content",
+    });
+    if (!rl.allowed) {
+      return rateLimitResponse({ ...corsHeaders, "Content-Type": "application/json" }, rl.retryAfterSeconds);
+    }
 
     const body = (await req.json().catch(() => ({}))) as {
       source?: string;
