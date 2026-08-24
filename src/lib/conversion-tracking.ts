@@ -54,7 +54,7 @@ export enum ConversionStep {
  */
 export const trackConversionStep = (
   step: ConversionStep,
-  metadata?: Record<string, string | number>,
+  metadata?: Record<string, string | number | boolean | undefined>,
 ): void => {
   trackEvent('conversion_funnel_step', {
     step,

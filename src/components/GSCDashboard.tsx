@@ -83,7 +83,8 @@ const GSCDashboard: React.FC<GSCDashboardProps> = ({
     return null;
   }
 
-  const { performance, coverage, webVitals, insights } = metrics;
+  const { performance, coverage, webVitals } = metrics;
+  const insights = metrics.insights as GSCInsights;
 
   return (
     <div className="space-y-8">
@@ -167,7 +168,7 @@ const GSCDashboard: React.FC<GSCDashboardProps> = ({
                     cx="50%"
                     cy="50%"
                     labelLine={false}
-                    label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+                    label={({ name, percent }) => `${name}: ${((percent ?? 0) * 100).toFixed(0)}%`}
                     outerRadius={80}
                     fill="#8884d8"
                     dataKey="value"
@@ -243,7 +244,7 @@ const GSCDashboard: React.FC<GSCDashboardProps> = ({
       {insights.alerts.length > 0 && (
         <div className="space-y-2">
           <h3 className="text-lg font-semibold">Alerts</h3>
-          {insights.alerts.map((alert, idx) => (
+          {insights.alerts.map((alert: GSCInsights['alerts'][number], idx: number) => (
             <AlertCard key={idx} alert={alert} />
           ))}
         </div>
@@ -253,7 +254,7 @@ const GSCDashboard: React.FC<GSCDashboardProps> = ({
       {showRecommendations && insights.recommendations.length > 0 && (
         <div className="space-y-2">
           <h3 className="text-lg font-semibold">Recommendations</h3>
-          {insights.recommendations.map((rec, idx) => (
+          {insights.recommendations.map((rec: GSCInsights['recommendations'][number], idx: number) => (
             <RecommendationCard key={idx} recommendation={rec} />
           ))}
         </div>
