@@ -43,6 +43,9 @@
     "css:check": "node scripts/check-css-utilities.mjs",
     "test:layout": "playwright test --config=tests/visual/playwright.config.ts",
     "test:layout:update": "playwright test --config=tests/visual/playwright.config.ts layout-snapshots --update-snapshots",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:debug": "playwright test --debug",
     "smoke:prepublish": "node scripts/prepublish-smoke.mjs",
     "perf:lhci": "node scripts/perf-lighthouse.mjs",
     "perf:lhci:local": "node scripts/perf-lighthouse.mjs --no-build --no-serve"
