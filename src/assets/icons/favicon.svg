@@ -1,13 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Living With Arthritis">
-  <rect width="512" height="512" rx="112" fill="#C61022"/>
-  <g transform="translate(90.5 70) scale(5.17)">
-    <g stroke="#FFFFFF" stroke-width="7.4" stroke-linecap="round" fill="none">
-      <path d="M32 29 Q19 20 8 5"/>
-      <path d="M32 29 Q45 20 56 5"/>
-      <path d="M32 27 L32 45"/>
-      <path d="M32 45 Q23 54 17 69"/>
-      <path d="M32 45 Q41 54 47 69"/>
-    </g>
-    <circle cx="32" cy="12" r="9.5" fill="#FFFFFF"/>
+  <rect width="512" height="512" rx="116" fill="#D60000"/>
+  <g stroke="#FFFFFF" stroke-width="30" stroke-linecap="round" fill="none">
+    <!-- raised arms, victory pose -->
+    <path d="M256 200 Q176 128 92 64"/>
+    <path d="M256 200 Q336 128 420 64"/>
+    <!-- torso -->
+    <path d="M256 172 L256 308"/>
+    <!-- legs apart, grounded -->
+    <path d="M256 308 Q206 388 168 460"/>
+    <path d="M256 308 Q306 388 344 460"/>
   </g>
+  <!-- head -->
+  <circle cx="256" cy="124" r="44" fill="#FFFFFF"/>
 </svg>
