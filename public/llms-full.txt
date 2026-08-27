@@ -2154,6 +2154,12 @@ Last updated: 2026-06-08
 Q: Travelling with Arthritis – UK & Abroad Guide
 A: When travelling with arthritis, declare your condition for travel insurance and carry medications in hand luggage with a GP letter. Request airport assistance, reserve an aisle seat, and move frequently during flights. Choose accessible accommodation, such as ground-floor rooms or those with lifts and walk-in showers. Pace yourself, use a fold-up walking stick, and consider a RADAR key for accessible toilets.
 
+## Clinically recommended Arthritis Exercises
+URL: https://livingwitharthritis.org.uk/blog/arthritis-exercises-uk-clinical
+Last updated: 2026-06-08
+Q: Clinically recommended Arthritis Exercises
+A: To manage arthritis, the NHS recommends at least 150 minutes of moderate aerobic exercise weekly, strengthening exercises targeting affected joints at least twice a week, and daily flexibility work. Examples include walking, swimming, cycling, Tai Chi, and light strength training. If joints are more painful 24 hours after exercise, reduce intensity, but do not stop exercising.
+
 ## Caring for a Parent With Arthritis: Practical Tips
 URL: https://livingwitharthritis.org.uk/blog/caring-for-parent-with-arthritis
 Last updated: 2026-07-24
@@ -2166,12 +2172,6 @@ Last updated: 2026-07-24
 Q: Psoriatic Arthritis vs Rheumatoid Arthritis: Key Differences
 A: Psoriatic arthritis is linked to psoriasis and can be asymmetric, affecting DIP joints and causing nail changes. Rheumatoid arthritis is symmetrical, seronegative in 20-30%, and does not cause skin changes. Both are treated with DMARDs but biologic choices differ.
 
-## Clinically recommended Arthritis Exercises
-URL: https://livingwitharthritis.org.uk/blog/arthritis-exercises-uk-clinical
-Last updated: 2026-06-08
-Q: Clinically recommended Arthritis Exercises
-A: To manage arthritis, the NHS recommends at least 150 minutes of moderate aerobic exercise weekly, strengthening exercises targeting affected joints at least twice a week, and daily flexibility work. Examples include walking, swimming, cycling, Tai Chi, and light strength training. If joints are more painful 24 hours after exercise, reduce intensity, but do not stop exercising.
-
 ## Arthritis Flare-Up: What to Do When Symptoms Get Worse
 URL: https://livingwitharthritis.org.uk/blog/arthritis-flare-up-what-to-do
 Last updated: 2026-06-08
@@ -2183,6 +2183,12 @@ URL: https://livingwitharthritis.org.uk/blog/tai-chi-arthritis-joint-pain
 Last updated: 2026-07-24
 Q: Tai Chi for Arthritis Joint Pain: Benefits and Evidence
 A: Tai chi reduces arthritis pain, improves balance and function based on multiple systematic reviews. The Arthritis Foundation Tai Chi programme is specifically adapted for arthritis. Benefits appear within 8-12 weeks of twice-weekly practice.
+
+## Best Walking Shoes for Arthritis in the UK
+URL: https://livingwitharthritis.org.uk/blog/best-walking-shoes-arthritis-uk
+Last updated: 2026-06-08
+Q: Best Walking Shoes for Arthritis in the UK
+A: For arthritis, choose walking shoes with a cushioned midsole for impact absorption and good arch support for alignment. A wide toe box allows natural toe spread, and lightweight materials reduce effort. Look for non-slip soles for balance and easy fastenings like Velcro for stiff hands. A removable insole is useful for custom orthotics.
 
 ## How to Get Arthritis Physiotherapy on the NHS Waiting List
 URL: https://livingwitharthritis.org.uk/blog/arthritis-physiotherapy-nhs-waiting-list
@@ -2202,29 +2208,17 @@ Last updated: 2026-06-08
 Q: Arthritis in Young People – UK Guide
 A: Arthritis can affect young people, with around 15,000 children and young people in the UK living with the condition. Juvenile Idiopathic Arthritis (JIA) is the most common form in under-16s, causing joint pain, swelling, and stiffness. Symptoms can include morning stiffness, fatigue, and fevers. Early diagnosis by a GP and paediatric rheumatologist is important for managing the condition.
 
-## Best Walking Shoes for Arthritis in the UK
-URL: https://livingwitharthritis.org.uk/blog/best-walking-shoes-arthritis-uk
-Last updated: 2026-06-08
-Q: Best Walking Shoes for Arthritis in the UK
-A: For arthritis, choose walking shoes with a cushioned midsole for impact absorption and good arch support for alignment. A wide toe box allows natural toe spread, and lightweight materials reduce effort. Look for non-slip soles for balance and easy fastenings like Velcro for stiff hands. A removable insole is useful for custom orthotics.
-
-## PIP for Arthritis – How to Apply in the UK
-URL: https://livingwitharthritis.org.uk/blog/pip-for-arthritis-uk
-Last updated: 2026-06-08
-Q: PIP for Arthritis – How to Apply in the UK
-A: Personal Independence Payment (PIP) for arthritis is a UK benefit that helps with additional living costs due to a long-term health condition. It has Daily Living and Mobility components, each with standard and enhanced rates. Eligibility depends on how arthritis affects daily activities or movement, not solely on diagnosis. To apply, call the DWP, complete the PIP2 form, and gather evidence.
-
 ## Best Plantar Fasciitis Shoes for Women (UK Guide, 2026)
 URL: https://livingwitharthritis.org.uk/blog/best-plantar-fasciitis-shoes-women-uk
 Last updated: 2026-06-08
 Q: Best Plantar Fasciitis Shoes for Women (UK Guide, 2026)
 A: Plantar fasciitis is inflammation of the tissue band along the foot's sole, affecting around 1 in 10 adults. Supportive footwear, combined with stretches, often reduces pain within 4–8 weeks. Key shoe features include firm arch support, medium-firm cushioning, a deep heel cup, rigid heel counter, and an 8–12mm heel-to-toe drop, which can improve symptoms within weeks.
 
-## Clinical Trials for Arthritis: How to Find and Join One
-URL: https://livingwitharthritis.org.uk/blog/clinical-trials-for-arthritis-how-to-find-and-join-one
+## PIP for Arthritis – How to Apply in the UK
+URL: https://livingwitharthritis.org.uk/blog/pip-for-arthritis-uk
 Last updated: 2026-06-08
-Q: Clinical Trials for Arthritis: How to Find and Join One
-A: Clinical trials for arthritis offer access to innovative treatments and close medical monitoring. While some participants might receive a placebo, the comprehensive care and regular assessments provide significant benefits. Trials adhere to ethical frameworks ensuring informed consent, patient safety, and data privacy. The data gathered helps advance understanding of arthritis, leading to improved diagnostics and therapies.
+Q: PIP for Arthritis – How to Apply in the UK
+A: Personal Independence Payment (PIP) for arthritis is a UK benefit that helps with additional living costs due to a long-term health condition. It has Daily Living and Mobility components, each with standard and enhanced rates. Eligibility depends on how arthritis affects daily activities or movement, not solely on diagnosis. To apply, call the DWP, complete the PIP2 form, and gather evidence.
 
 ## Gout Flare Up Diet: What Foods to Avoid
 URL: https://livingwitharthritis.org.uk/blog/gout-flare-up-diet-foods-avoid
@@ -2249,6 +2243,12 @@ URL: https://livingwitharthritis.org.uk/blog/turmeric-for-arthritis
 Last updated: 2026-06-08
 Q: Turmeric for Arthritis: Does It Really Work?
 A: Curcumin, turmeric's active compound, has reasonable clinical evidence for arthritis. Around 1,000 mg/day for 8–12 weeks appears to reduce pain and stiffness by blocking the NF-κB and COX-2 inflammatory pathways. Absorption from plain turmeric is poor, so use a piperine, phytosome or liposomal formulation and take with food.
+
+## Clinical Trials for Arthritis: How to Find and Join One
+URL: https://livingwitharthritis.org.uk/blog/clinical-trials-for-arthritis-how-to-find-and-join-one
+Last updated: 2026-06-08
+Q: Clinical Trials for Arthritis: How to Find and Join One
+A: Clinical trials for arthritis offer access to innovative treatments and close medical monitoring. While some participants might receive a placebo, the comprehensive care and regular assessments provide significant benefits. Trials adhere to ethical frameworks ensuring informed consent, patient safety, and data privacy. The data gathered helps advance understanding of arthritis, leading to improved diagnostics and therapies.
 
 ## Hip Replacement for Arthritis – UK Guide
 URL: https://livingwitharthritis.org.uk/blog/hip-replacement-arthritis-uk
@@ -2292,12 +2292,6 @@ Last updated: 2026-07-24
 Q: Free Arthritis Exercise Classes Near Me England
 A: Free arthritis exercise classes in England: ask your GP about social prescribing, contact Versus Arthritis (0800 5200 520) for local groups, try Arthritis Action self-management groups, check your local leisure centre for concessionary memberships, or use NHS Fitness Studio online for free.
 
-## Expert Q&A: How to Track Progress Without Constant Measuring
-URL: https://livingwitharthritis.org.uk/blog/expert-qa-track-progress-without-measuring
-Last updated: 2026-06-08
-Q: Expert Q&A: How to Track Progress Without Constant Measuring
-A: Progress with arthritis can be tracked simply by checking three weekly markers: pain on waking, the longest pain-free interval and one functional win. The guide recommends small, consistent steps: graded movement, anti-inflammatory eating, weight management, heat or cold and better sleep. Seek GP or physiotherapist advice for hot swollen joints, weight loss, prolonged morning stiffness, numbness or weakness.
-
 ## How to Talk to Your Employer About Rheumatoid Arthritis at Work
 URL: https://livingwitharthritis.org.uk/blog/talk-employer-rheumatoid-arthritis-work
 Last updated: 2026-07-24
@@ -2310,17 +2304,17 @@ Last updated: 2026-07-24
 Q: Mediterranean Diet Shopping List for Arthritis UK
 A: Mediterranean diet shopping list for arthritis UK: tinned sardines/mackerel, salmon, eggs, chickpeas, frozen berries and vegetables, wholemeal grains, extra virgin olive oil, walnuts and turmeric. Budget approximately £35-50/week using own-brand and frozen options.
 
+## Expert Q&A: How to Track Progress Without Constant Measuring
+URL: https://livingwitharthritis.org.uk/blog/expert-qa-track-progress-without-measuring
+Last updated: 2026-06-08
+Q: Expert Q&A: How to Track Progress Without Constant Measuring
+A: Progress with arthritis can be tracked simply by checking three weekly markers: pain on waking, the longest pain-free interval and one functional win. The guide recommends small, consistent steps: graded movement, anti-inflammatory eating, weight management, heat or cold and better sleep. Seek GP or physiotherapist advice for hot swollen joints, weight loss, prolonged morning stiffness, numbness or weakness.
+
 ## Grip Strength Exercises: A Gentle Progression for Hand OA
 URL: https://livingwitharthritis.org.uk/blog/grip-strength-exercises-hand-oa
 Last updated: 2026-06-08
 Q: Grip Strength Exercises: A Gentle Progression for Hand OA
 A: Movement and graded exercise are considered a first-line treatment for hand osteoarthritis. Aim for 150 minutes of moderate activity weekly, in 20–30 minute sessions. Other helpful approaches include an anti-inflammatory diet, maintaining a healthy weight, and using heat or cold for pain relief. Most individuals experience meaningful improvement within 6–12 weeks of consistent practice.
-
-## Expert Q&A: When to Consider Spinal Injections vs Exercise
-URL: https://livingwitharthritis.org.uk/blog/expert-qa-spinal-injections-vs-exercise
-Last updated: 2026-06-08
-Q: Expert Q&A: When to Consider Spinal Injections vs Exercise
-A: The post says arthritis-related spinal or joint pain should be managed by identifying inflammatory or degenerative patterns. It presents structured movement and graded exercise as first-line, supported by diet, weight management, heat or cold, sleep routines and small weekly goals. It advises GP or physiotherapy review for hot swollen joints, weight loss, prolonged morning stiffness, numbness or weakness.
 
 ## How to Appeal a Rejected PIP Claim for Arthritis
 URL: https://livingwitharthritis.org.uk/blog/appeal-rejected-pip-arthritis
@@ -2339,6 +2333,12 @@ URL: https://livingwitharthritis.org.uk/blog/best-supplements-joint-pain
 Last updated: 2026-07-24
 Q: Best Supplements for Joint Pain: What Actually Works
 A: Best supplements for joint pain with good evidence: omega-3 fish oil (2.7g EPA+DHA daily for RA), vitamin D (especially UK autumn/winter), curcumin with piperine (moderate evidence for OA). Glucosamine has weak evidence and is not recommended by NICE. Always tell your GP what you are taking.
+
+## Expert Q&A: When to Consider Spinal Injections vs Exercise
+URL: https://livingwitharthritis.org.uk/blog/expert-qa-spinal-injections-vs-exercise
+Last updated: 2026-06-08
+Q: Expert Q&A: When to Consider Spinal Injections vs Exercise
+A: The post says arthritis-related spinal or joint pain should be managed by identifying inflammatory or degenerative patterns. It presents structured movement and graded exercise as first-line, supported by diet, weight management, heat or cold, sleep routines and small weekly goals. It advises GP or physiotherapy review for hot swollen joints, weight loss, prolonged morning stiffness, numbness or weakness.
 
 ## Hip Pain When Climbing Stairs: Causes and Relief
 URL: https://livingwitharthritis.org.uk/blog/hip-pain-climbing-stairs-causes-relief
@@ -2400,17 +2400,17 @@ Last updated: 2026-07-24
 Q: How to Find an NHS Rheumatologist Near Me Northern Ireland
 A: NHS rheumatology in Northern Ireland: ask your GP to refer you to your nearest HSC Trust rheumatology department. Current waiting times are 12-24+ months for routine; urgent (new inflammatory arthritis) should be within weeks. Patient Client Council: 0800 917 0222 for waiting list rights.
 
-## Expert Q&A: Will My Children Inherit My Arthritis?
-URL: https://livingwitharthritis.org.uk/blog/expert-qa-will-my-children-inherit-my-arthritis
-Last updated: 2026-06-08
-Q: Expert Q&A: Will My Children Inherit My Arthritis?
-A: Children do not usually inherit arthritis in a simple, direct way. Some types, including rheumatoid and psoriatic arthritis, have a genetic component, so a close relative can slightly raise susceptibility, but most children will not develop it. Genes interact with triggers such as lifestyle, infections and environment. Seek medical advice for persistent joint symptoms.
-
 ## Early Signs of Gout in the Big Toe UK
 URL: https://livingwitharthritis.org.uk/blog/early-signs-gout-big-toe
 Last updated: 2026-07-24
 Q: Early Signs of Gout in the Big Toe UK
 A: Early gout in the big toe: intense pain developing over 6-12 hours, joint becomes exquisitely tender (even sheet weight intolerable), swells, turns red and hot. See GP urgently — prescription NSAIDs or colchicine reduce severity. Apply ice, rest, elevate, drink plenty of water.
+
+## Expert Q&A: Will My Children Inherit My Arthritis?
+URL: https://livingwitharthritis.org.uk/blog/expert-qa-will-my-children-inherit-my-arthritis
+Last updated: 2026-06-08
+Q: Expert Q&A: Will My Children Inherit My Arthritis?
+A: Children do not usually inherit arthritis in a simple, direct way. Some types, including rheumatoid and psoriatic arthritis, have a genetic component, so a close relative can slightly raise susceptibility, but most children will not develop it. Genes interact with triggers such as lifestyle, infections and environment. Seek medical advice for persistent joint symptoms.
 
 ## How to Get a Blue Badge for Arthritis in Scotland
 URL: https://livingwitharthritis.org.uk/blog/blue-badge-arthritis-scotland
@@ -2442,12 +2442,6 @@ Last updated: 2026-07-24
 Q: Arthritis Support Groups Near Me Scotland
 A: Arthritis support groups in Scotland: search versusarthritis.org/get-help/local-support by postcode, call Versus Arthritis (0800 5200 520), ask your GP about NHS community link workers, or contact NRAS Scotland (0800 298 7650). Most groups are free and no referral is needed.
 
-## Expert Q&A: Exercising Through a Flare-Up
-URL: https://livingwitharthritis.org.uk/blog/expert-qa-exercising-through-a-flare-up
-Last updated: 2026-06-08
-Q: Expert Q&A: Exercising Through a Flare-Up
-A: During an arthritis flare-up, the article advises adapting rather than stopping exercise: keep gentle, regular, low-impact movement within comfort, track symptoms, and avoid pushing through sharp pain or increasing activity too quickly. It says guidance and reviews support combined medication, movement and lifestyle support, while new swelling, fever, rapid functional loss or severe symptoms need clinician review.
-
 ## Arthritis Support Groups Near Me Wales
 URL: https://livingwitharthritis.org.uk/blog/arthritis-support-groups-wales
 Last updated: 2026-07-24
@@ -2459,6 +2453,12 @@ URL: https://livingwitharthritis.org.uk/blog/arthritis-support-groups-glasgow
 Last updated: 2026-07-24
 Q: Arthritis Support Groups Near Me Glasgow
 A: Arthritis support groups Glasgow: search versusarthritis.org by postcode or call 0800 5200 520, ask GP for NHS GGC community link worker referral, contact Glasgow Disability Alliance (gdalliance.org.uk) for broader disability support services.
+
+## Expert Q&A: Exercising Through a Flare-Up
+URL: https://livingwitharthritis.org.uk/blog/expert-qa-exercising-through-a-flare-up
+Last updated: 2026-06-08
+Q: Expert Q&A: Exercising Through a Flare-Up
+A: During an arthritis flare-up, the article advises adapting rather than stopping exercise: keep gentle, regular, low-impact movement within comfort, track symptoms, and avoid pushing through sharp pain or increasing activity too quickly. It says guidance and reviews support combined medication, movement and lifestyle support, while new swelling, fever, rapid functional loss or severe symptoms need clinician review.
 
 ## 10 Arthritis-Friendly Hobbies UK Patients Love
 URL: https://livingwitharthritis.org.uk/blog/hobbies-arthritis-friendly-uk
@@ -2502,12 +2502,6 @@ Last updated: 2026-06-08
 Q: Managing Anxiety When You Have Arthritis: A UK Guide
 A: Anxiety often travels with chronic pain. Here's how UK patients can use CBT, breathwork and NHS-recommended tools to take the edge off.
 
-## The Best Supplement for Knee Joint Health: Evidence-Based Ra
-URL: https://livingwitharthritis.org.uk/blog/best-supplement-for-knee-joint
-Last updated: 2026-07-28
-Q: The Best Supplement for Knee Joint Health: Evidence-Based Ra
-A: Evidence for knee joint supplements is strongest for glucosamine sulphate, UC-II collagen, chondroitin sulphate, Boswellia serrata, bioavailable curcumin and high-dose omega-3, with oral hyaluronic acid as a possible addition. It stresses product quality, pharmaceutical-grade forms and third-party testing, and says supplements should sit alongside weight management, physiotherapy, medical care and GP advice.
-
 ## Foods to Avoid With Arthritis: A Complete UK Guide
 URL: https://livingwitharthritis.org.uk/blog/foods-to-avoid-with-arthritis
 Last updated: 2026-06-08
@@ -2519,6 +2513,12 @@ URL: https://livingwitharthritis.org.uk/blog/nutrition-strategies-reduce-frailty
 Last updated: 2026-06-21
 Q: Nutrition Strategies to Reduce Frailty Risk
 A: Frailty is linked to unintentional weight loss and inadequate nutrient intake. Optimising nutrition — particularly protein intake of 1.0–1.2 grams per kilogram of body weight daily, plus Vitamin D, calcium, B vitamins and adequate fluid — helps manage it. Addressing barriers like reduced appetite or dental issues, and seeking guidance from a registered dietitian, improves outcomes.
+
+## The Best Supplement for Knee Joint Health: Evidence-Based Ra
+URL: https://livingwitharthritis.org.uk/blog/best-supplement-for-knee-joint
+Last updated: 2026-07-28
+Q: The Best Supplement for Knee Joint Health: Evidence-Based Ra
+A: Evidence for knee joint supplements is strongest for glucosamine sulphate, UC-II collagen, chondroitin sulphate, Boswellia serrata, bioavailable curcumin and high-dose omega-3, with oral hyaluronic acid as a possible addition. It stresses product quality, pharmaceutical-grade forms and third-party testing, and says supplements should sit alongside weight management, physiotherapy, medical care and GP advice.
 
 ## Inflammatory Arthritis: Types, Causes and Treatment
 URL: https://livingwitharthritis.org.uk/blog/inflammatory-arthritis-guide
@@ -2550,17 +2550,17 @@ Last updated: 2026-07-28
 Q: Best Knee Exercises for Arthritis
 A: Knee exercises are beneficial for arthritis by strengthening muscles, particularly the quadriceps, which can act as shock absorbers and reduce cartilage load. Key exercises include straight leg raises, wall sits, step-ups, hamstring curls, calf raises, and seated knee extensions, performed consistently three times a week. These help reduce pain and improve physical function.
 
-## Expert Brief: Frozen Shoulder vs Rheumatoid Shoulder
-URL: https://livingwitharthritis.org.uk/blog/expert-brief-frozen-shoulder-vs-ra
-Last updated: 2026-06-08
-Q: Expert Brief: Frozen Shoulder vs Rheumatoid Shoulder
-A: This guide says arthritis pain can involve cartilage, synovial fluid, ligaments, muscle and the nervous system, and management depends on whether symptoms fit inflammatory or degenerative patterns. It recommends graded movement, Mediterranean-style eating, weight management, heat or cold, sleep routines and simple tracking, while advising GP or physiotherapist review for hot swollen joints, weight loss, prolonged stiffness, numbness or weakness.
-
 ## Berries and Antioxidants: Food Medicine for Inflammation
 URL: https://livingwitharthritis.org.uk/blog/berries-antioxidants-inflammation
 Last updated: 2026-06-08
 Q: Berries and Antioxidants: Food Medicine for Inflammation
 A: Evidence in this guide frames arthritis pain as multifactorial, with inflammatory and degenerative patterns needing different management. It highlights structured movement, Mediterranean-style anti-inflammatory eating, weight management, heat or cold, and sleep habits as helpful. Start small, track simple weekly outcomes, and seek GP or physiotherapy advice for red, swollen joints, weight loss, prolonged morning stiffness, numbness or weakness.
+
+## Expert Brief: Frozen Shoulder vs Rheumatoid Shoulder
+URL: https://livingwitharthritis.org.uk/blog/expert-brief-frozen-shoulder-vs-ra
+Last updated: 2026-06-08
+Q: Expert Brief: Frozen Shoulder vs Rheumatoid Shoulder
+A: This guide says arthritis pain can involve cartilage, synovial fluid, ligaments, muscle and the nervous system, and management depends on whether symptoms fit inflammatory or degenerative patterns. It recommends graded movement, Mediterranean-style eating, weight management, heat or cold, sleep routines and simple tracking, while advising GP or physiotherapist review for hot swollen joints, weight loss, prolonged stiffness, numbness or weakness.
 
 ## Joint Fusion vs Replacement: How Surgeons Choose
 URL: https://livingwitharthritis.org.uk/blog/joint-fusion-vs-replacement-how-surgeons-choose
@@ -2592,17 +2592,17 @@ Last updated: 2026-06-08
 Q: 5 Longevity Habits That Help People With Arthritis Live Long
 A: Mediterranean diet, social connection, strength training, sleep and stress management — the evidence stack.
 
-## Straight Leg Raises: The Foundation Exercise for Knee Osteoa
-URL: https://livingwitharthritis.org.uk/blog/straight-leg-raises-knee-osteoarthritis
-Last updated: 2026-06-08
-Q: Straight Leg Raises: The Foundation Exercise for Knee Osteoa
-A: The guide explains that knee osteoarthritis pain can involve cartilage, fluid, ligaments, muscle and the nervous system, and that management depends on symptom patterns. It recommends graded movement, anti-inflammatory eating, weight management, heat or cold, sleep hygiene, and small weekly tracking goals. It advises seeking GP or physiotherapy help for hot swollen joints, weight loss, prolonged stiffness, numbness or weakness.
-
 ## Expert Q&A: How to Ask for Help Without Feeling Guilty
 URL: https://livingwitharthritis.org.uk/blog/expert-qa-how-to-ask-for-help-without-feeling-guilty
 Last updated: 2026-06-08
 Q: Expert Q&A: How to Ask for Help Without Feeling Guilty
 A: Asking for help with arthritis is framed as a strength and part of self-management, not a personal failing. The post advises personalised clinical input, symptom tracking, gentle regular movement, accepting practical support and making specific requests. It warns against minimising symptoms or waiting for crisis, and recommends prompt review for swelling, fever, rapid functional loss, side effects or emotional distress.
+
+## Straight Leg Raises: The Foundation Exercise for Knee Osteoa
+URL: https://livingwitharthritis.org.uk/blog/straight-leg-raises-knee-osteoarthritis
+Last updated: 2026-06-08
+Q: Straight Leg Raises: The Foundation Exercise for Knee Osteoa
+A: The guide explains that knee osteoarthritis pain can involve cartilage, fluid, ligaments, muscle and the nervous system, and that management depends on symptom patterns. It recommends graded movement, anti-inflammatory eating, weight management, heat or cold, sleep hygiene, and small weekly tracking goals. It advises seeking GP or physiotherapy help for hot swollen joints, weight loss, prolonged stiffness, numbness or weakness.
 
 ## Yoga for Arthritis: Gentle Poses That Help
 URL: https://livingwitharthritis.org.uk/blog/yoga-for-arthritis
@@ -2664,17 +2664,17 @@ Last updated: 2026-06-08
 Q: Glucosamine vs Collagen: Which Is Better for Joints?
 A: Glucosamine and collagen are both popular joint supplements. Glucosamine sulfate, typically 1,500 mg daily, is well-researched for osteoarthritis and may offer modest pain relief. Hydrolysed collagen, often 10g daily, provides cartilage building blocks and has shown promise for reducing joint pain. There is no definitive winner, as benefits and onset times vary, with glucosamine effects typically seen in 4–8 weeks and collagen in 3–6 months.
 
-## The Gut-Joint Connection: How Your Microbiome Affects Arthri
-URL: https://livingwitharthritis.org.uk/blog/gut-joint-connection-microbiome-arthritis
-Last updated: 2026-06-08
-Q: The Gut-Joint Connection: How Your Microbiome Affects Arthri
-A: The gut-joint connection suggests that gut microbiome imbalances can influence arthritis. People with inflammatory arthritis often have less diverse gut bacteria and higher levels of inflammatory strains like *Prevotella copri*. Leaky gut can trigger immune responses. Supporting your microbiome with fermented foods, prebiotic fibre, and polyphenol-rich foods, while avoiding ultra-processed items, may help. Probiotic strains like *Lactobacillus* and *Bifidobacterium* show promise in early research.
-
 ## Managing Arthritis at Work: Practical Tips
 URL: https://livingwitharthritis.org.uk/blog/managing-arthritis-at-work
 Last updated: 2026-06-08
 Q: Managing Arthritis at Work: Practical Tips
 A: Managing arthritis at work involves practical adjustments and communication. This includes using ergonomic equipment like adjustable chairs and split keyboards, taking regular breaks to move, and having a plan for flare-ups. Under the Equality Act 2010, employers must make reasonable adjustments if arthritis substantially affects daily activities. Discussing needs with your employer, focusing on solutions, and suggesting specific adjustments is key.
+
+## The Gut-Joint Connection: How Your Microbiome Affects Arthri
+URL: https://livingwitharthritis.org.uk/blog/gut-joint-connection-microbiome-arthritis
+Last updated: 2026-06-08
+Q: The Gut-Joint Connection: How Your Microbiome Affects Arthri
+A: The gut-joint connection suggests that gut microbiome imbalances can influence arthritis. People with inflammatory arthritis often have less diverse gut bacteria and higher levels of inflammatory strains like *Prevotella copri*. Leaky gut can trigger immune responses. Supporting your microbiome with fermented foods, prebiotic fibre, and polyphenol-rich foods, while avoiding ultra-processed items, may help. Probiotic strains like *Lactobacillus* and *Bifidobacterium* show promise in early research.
 
 ## Mediterranean Diet for Arthritis: A 14-Day UK Meal Plan
 URL: https://livingwitharthritis.org.uk/blog/mediterranean-diet-arthritis-14-day-plan
