@@ -1,10 +1,10 @@
+import { supabase } from "@/integrations/supabase/client";
 import { memo, useState } from "react";
 import { Quote } from "lucide-react";
 import { toast } from "sonner";
 import { trackTestimonialSubmit } from "@/lib/ga-events";
 
 // Supabase client removed - restore
-const supabase = { from: () => ({ insert: async () => ({ error: null }) }) };
 
 /**
  * Ethical placeholder testimonial section.

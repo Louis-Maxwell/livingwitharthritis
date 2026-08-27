@@ -1,9 +1,9 @@
+import { supabase } from "@/integrations/supabase/client";
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
 // Supabase auth removed - restore Auth UI component and supabase client
-const Auth = null;
+const Auth = (_props: Record<string, unknown>) => null;
 const ThemeSupa = null;
-const supabase = { auth: { getSession: async () => ({ data: { session: null } }), onAuthStateChange: () => ({ data: { subscription: { unsubscribe: () => {} } } }) } };
 import { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import SeoHead from '@/components/SeoHead';
@@ -50,8 +50,6 @@ export default function AuthPage() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-muted/30 p-4 py-16">
       <SeoHead
         title="Sign In or Create Account"
-        description="Sign in or create an account"
-        path="/auth"
         description="Sign in to Living With Arthritis UK to access your free arthritis support tools, virtual physiotherapy and personalised resources."
         path="/auth"
         noindex

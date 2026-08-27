@@ -1,5 +1,5 @@
 import { describe, expect, it, beforeEach, vi } from "vitest";
-import { getAnalyticsStatus, isGAEnabled, isGSCVerified, getConsentStatus } from "@/lib/analytics-monitor";
+import { getAnalyticsStatus, isGA4Ready, isGSCVerified, getConsentStatus } from "@/lib/analytics-monitor";
 
 describe("analytics-monitor", () => {
   beforeEach(() => {
@@ -10,16 +10,16 @@ describe("analytics-monitor", () => {
   describe("getAnalyticsStatus", () => {
     it("returns analytics status object", () => {
       const status = getAnalyticsStatus();
-      expect(status).toHaveProperty("gaEnabled");
+      expect(status).toHaveProperty("ga4Ready");
       expect(status).toHaveProperty("gscVerified");
       expect(status).toHaveProperty("consentStatus");
-      expect(typeof status.gaEnabled).toBe("boolean");
+      expect(typeof status.ga4Ready).toBe("boolean");
     });
   });
 
-  describe("isGAEnabled", () => {
+  describe("isGA4Ready", () => {
     it("returns boolean", () => {
-      const result = isGAEnabled();
+      const result = isGA4Ready();
       expect(typeof result).toBe("boolean");
     });
   });

@@ -1,9 +1,9 @@
+import { supabase } from "@/integrations/supabase/client";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import SeoHead from "@/components/SeoHead";
 
 // Supabase auth removed - restore for OAuth functionality
-const supabase = { auth: { getSession: async () => ({ data: { session: null } }), oauth: {} } };
 
 // Beta typed wrapper for supabase.auth.oauth — TypeScript may not see it yet.
 type OAuthClient = { name?: string; client_name?: string; redirect_uri?: string; redirect_uris?: string[] };

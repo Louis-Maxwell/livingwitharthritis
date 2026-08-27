@@ -1,3 +1,4 @@
+import { supabase } from "@/integrations/supabase/client";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -7,7 +8,6 @@ import SeoHead from "@/components/SeoHead";
 // Supabase config removed - restore URL and API key
 const SUPABASE_URL = "";
 const SUPABASE_PUBLISHABLE_KEY = "";
-const supabase = { functions: { invoke: async () => ({ error: null, data: null }) } };
 
 type Status = "loading" | "valid" | "already" | "invalid" | "confirming" | "done" | "error";
 

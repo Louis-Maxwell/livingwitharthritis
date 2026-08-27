@@ -1,8 +1,8 @@
+import { supabase } from "@/integrations/supabase/client";
 import { useState, useEffect, useCallback } from "react";
 import { X } from "lucide-react";
 
 // Supabase client removed - restore
-const supabase = { from: () => ({ select: () => ({ eq: () => ({ order: () => ({ limit: async () => ({ data: null }) }) }) }) }) };
 import { AnimatePresence, motion } from "framer-motion";
 
 interface Donation {

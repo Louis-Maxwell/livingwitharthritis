@@ -1,10 +1,10 @@
+import { supabase } from "@/integrations/supabase/client";
 import { useState, useCallback } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { unwrapResponse, friendlyErrorMessage } from "@/lib/apiResponse";
 
 // Supabase client removed - restore
-const supabase = { functions: { invoke: async () => ({ error: null, data: null }) } };
 import { Loader2, Heart, CreditCard, ShieldCheck, Gift, ArrowRight, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
