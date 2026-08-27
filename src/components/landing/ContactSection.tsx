@@ -1,4 +1,5 @@
 import { memo, useRef, useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import {
@@ -115,7 +116,7 @@ const ContactSection = memo(() => {
         },
       });
       if (error) throw error;
-      const apiError = (data as { error?: unknown } | null)?.error;
+      const apiError = (data as { error?: { code: string; message: string } } | null)?.error;
       if (apiError) throw new Error(friendlyErrorMessage(apiError));
 
       setSubmitted(true);
