@@ -126,6 +126,7 @@ export const getLocationInfo = async (): Promise<{
 /**
  * Identify visitor as known user
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const identifyVisitor = (userId: string, userInfo?: any): void => {
   try {
     if (typeof window === 'undefined') return;
@@ -324,6 +325,7 @@ export const resetPageTimer = (): void => {
 /**
  * Track visitor behavior
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const trackVisitorBehavior = (behavior: string, details?: any): void => {
   try {
     const visitorId = getVisitorId();

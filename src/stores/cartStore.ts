@@ -60,6 +60,7 @@ export const useCartStore = create<CartStore>()(
             } else if (result.cartNotFound) clearCart();
           }
         } catch (error) {
+          console.error('Cart operation error:', error);
         } finally {
           set({ isLoading: false });
         }
@@ -77,6 +78,7 @@ export const useCartStore = create<CartStore>()(
             set({ items: get().items.map(i => i.variantId === variantId ? { ...i, quantity } : i) });
           } else if (result.cartNotFound) clearCart();
         } catch (error) {
+          console.error('Cart operation error:', error);
         } finally {
           set({ isLoading: false });
         }
@@ -98,6 +100,7 @@ export const useCartStore = create<CartStore>()(
             }
           } else if (result.cartNotFound) clearCart();
         } catch (error) {
+          console.error('Cart operation error:', error);
         } finally {
           set({ isLoading: false });
         }
@@ -116,6 +119,7 @@ export const useCartStore = create<CartStore>()(
           const cart = data?.data?.cart;
           if (!cart || cart.totalQuantity === 0) clearCart();
         } catch (error) {
+          console.error('Cart operation error:', error);
         } finally {
           set({ isSyncing: false });
         }

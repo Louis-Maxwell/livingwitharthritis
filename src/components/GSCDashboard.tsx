@@ -34,7 +34,7 @@ const GSCDashboard: React.FC<GSCDashboardProps> = ({
   showCharts = true,
   showRecommendations = true,
 }) => {
-  const [metrics, setMetrics] = useState<any>(null);
+  const [metrics, setMetrics] = useState<GSCInsights | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -126,7 +126,7 @@ const GSCDashboard: React.FC<GSCDashboardProps> = ({
         />
         <MetricCard
           label="Avg CTR"
-          value={`${(performance?.averageCTR * 100 || 0).toFixed(2)}%` || '—'}
+          value={`${((performance?.averageCTR ?? 0) * 100).toFixed(2)}%`}
           icon={<TrendingUp className="w-4 h-4" />}
         />
         <MetricCard
@@ -146,7 +146,7 @@ const GSCDashboard: React.FC<GSCDashboardProps> = ({
         />
         <MetricCard
           label="Indexation Rate"
-          value={`${(coverage?.indexationRate * 100 || 0).toFixed(1)}%` || '—'}
+          value={`${((coverage?.indexationRate ?? 0) * 100).toFixed(1)}%`}
           icon={<TrendingUp className="w-4 h-4" />}
         />
       </div>

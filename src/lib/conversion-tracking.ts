@@ -245,7 +245,7 @@ export interface ConversionFunnelReport {
 export const calculateFunnelCompletion = (
   startEvent: string,
   completionEvent: string,
-  sessionData: any[],
+  sessionData: Array<{ event: string; [key: string]: unknown }>,
 ): { completion: number; dropoff: number } => {
   const startCount = sessionData.filter((e) => e.event === startEvent).length;
   const completionCount = sessionData.filter((e) => e.event === completionEvent).length;

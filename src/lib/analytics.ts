@@ -378,11 +378,13 @@ export const getThresholds = () => ({
 
 export const enableGTAGDebug = (): void => {
   if (typeof window === "undefined") return;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (window as any).__GTAG_DEBUG__ = true;
   console.log("[GA4] Debug mode enabled. Events will log to console.");
 };
 
 export const getDebugStatus = (): boolean => {
   if (typeof window === "undefined") return false;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return (window as any).__GTAG_DEBUG__ === true;
 };

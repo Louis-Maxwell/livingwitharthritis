@@ -269,10 +269,8 @@ export function useStreamingChat() {
     loadHistoryRef.current = loadHistory;
 
     // Supabase auth session check removed - functionality to be restored later
-    if (true) {
-      const saved = loadAnonChatHistory();
-      if (saved.length) setMessages(saved);
-    }
+    const saved = loadAnonChatHistory();
+    if (saved.length) setMessages(saved);
 
     // Supabase auth state listener removed - functionality to be restored later
     const unsubscribe = () => {

@@ -85,6 +85,7 @@ export const trackCustomEvent = (
     currency?: string;
     userId?: string;
     sessionId?: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [key: string]: any;
   },
 ): void => {
@@ -261,6 +262,7 @@ export const CONVERSION_FUNNELS: Record<string, ConversionFunnel> = {
 /**
  * Track funnel step
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const trackFunnelStep = (funnelName: string, stepName: string, metadata?: any): void => {
   trackCustomEvent('funnel_step', {
     funnel_name: funnelName,
@@ -288,6 +290,7 @@ export interface UserJourney {
 /**
  * Track user journey milestone
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const trackJourneyMilestone = (milestone: string, details?: any): void => {
   trackCustomEvent('journey_milestone', {
     milestone,
@@ -328,6 +331,7 @@ export const trackContentPerformance = (content: ContentPerformance): void => {
 /**
  * User Behavior Tracking
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const trackUserBehavior = (behavior: string, params?: any): void => {
   trackCustomEvent(`user_behavior_${behavior}`, params);
 };

@@ -35,6 +35,7 @@ export const isGA4Ready = (): boolean => {
  */
 export const isEvaristReady = (): boolean => {
   if (typeof window === 'undefined') return false;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return typeof (window as any).evarist === 'function';
 };
 
@@ -74,7 +75,9 @@ export const getAnalyticsStatus = (): AnalyticsStatus => {
     evaristReady: isEvaristReady(),
     consentStatus: getConsentStatus(),
     sessionStartTime: performance.timing?.navigationStart || 0,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     pageViewCount: (window as any).__pageViewCount__ || 0,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     eventCount: (window as any).__eventCount__ || 0,
   };
 };

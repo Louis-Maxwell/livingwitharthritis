@@ -1,8 +1,5 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-
-// Supabase client removed - restore
-const supabase = { from: () => ({ select: () => ({ eq: () => ({ order: () => ({ then: async () => ({ data: [] }) }) }) }) }), insert: async () => ({ error: null }) }) };
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";

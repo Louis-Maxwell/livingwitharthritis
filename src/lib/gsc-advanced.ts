@@ -320,6 +320,7 @@ export const monitorGSCMetrics = async (
         const insights = await generateGSCInsights(performance, coverage, webVitals);
 
         // Store in window for dashboard access
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (window as any).__GSCMetrics__ = {
           performance,
           coverage,
@@ -356,6 +357,7 @@ export const monitorGSCMetrics = async (
  */
 export const getCachedGSCMetrics = () => {
   if (typeof window === 'undefined') return null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return (window as any).__GSCMetrics__ || null;
 };
 

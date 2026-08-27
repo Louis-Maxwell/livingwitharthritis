@@ -22,6 +22,7 @@ const TestimonialDisplay = memo(() => {
         // Supabase client removed - functionality to be restored later
         setTestimonials([]);
       } catch (error) {
+        console.error('Failed to fetch testimonials:', error);
       } finally {
         setLoading(false);
       }

@@ -68,7 +68,7 @@ export function enforceDescription(
     return truncateOnWord(desc, MAX_DESC);
   }
   if (isDev && desc.length > 0 && desc.length < MIN_DESC) {
-     
+    warnLength("description", desc.length, MIN_DESC, route, desc);
   }
   return desc;
 }
@@ -86,7 +86,7 @@ export function assertMetaLengths(
   if (description.length > MAX_DESC) {
     warnLength("description", description.length, MAX_DESC, route, description);
   } else if (description.length > 0 && description.length < MIN_DESC) {
-     
+    warnLength("description", description.length, MIN_DESC, route, description);
   }
 }
 

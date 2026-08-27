@@ -37,9 +37,9 @@ const emit = (event: HeroMonitorEvent) => {
   if (typeof window === 'undefined') return;
   if (event.type === 'hero:alert') {
     // Use console.warn so it surfaces in monitoring dashboards / Sentry breadcrumbs.
-     
+    console.warn(EVENT_NAME, event);
   } else {
-     
+    console.log(EVENT_NAME, event);
   }
   try {
     window.dispatchEvent(new CustomEvent(EVENT_NAME, { detail: event }));
