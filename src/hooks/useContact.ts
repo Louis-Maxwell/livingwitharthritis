@@ -1,9 +1,9 @@
+import { supabase } from "@/integrations/supabase/client";
 import { useState, useRef, useCallback } from "react";
 import { toast } from "sonner";
 import { sanitizeInput, sanitizeEmail, sanitizePhone } from "@/lib/sanitize";
 
 // Supabase client removed - restore
-const supabase = { functions: { invoke: async () => ({ error: null, data: null }) } };
 import { unwrapResponse, friendlyErrorMessage } from "@/lib/apiResponse";
 
 interface ContactData {

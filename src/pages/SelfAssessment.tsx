@@ -1,10 +1,10 @@
+import { supabase } from "@/integrations/supabase/client";
 import { useState } from "react";
 import SeoHead from "@/components/SeoHead";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 
 // Supabase client removed - functionality to be restored later
-const supabase = { from: () => ({ insert: async () => ({ error: null, data: null }) }) };
 import PageHero from "@/components/ui/PageHero";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";

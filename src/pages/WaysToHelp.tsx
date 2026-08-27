@@ -1,3 +1,4 @@
+import { supabase } from "@/integrations/supabase/client";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";

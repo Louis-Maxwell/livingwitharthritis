@@ -1,3 +1,4 @@
+import { supabase } from "@/integrations/supabase/client";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState, lazy, Suspense } from "react";
 import { useNavigate, Link } from "react-router-dom";

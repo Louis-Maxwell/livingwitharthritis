@@ -100,3 +100,5 @@ const OptimizedImage = memo(({
 OptimizedImage.displayName = "OptimizedImage";
 
 export { OptimizedImage };
+
+export default OptimizedImage;

@@ -1,3 +1,4 @@
+import { supabase } from "@/integrations/supabase/client";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { unwrapResponse, friendlyErrorMessage } from "@/lib/apiResponse";
@@ -16,7 +17,6 @@ type Appointment = {
 };
 
 // Supabase client removed - restore
-const supabase = { from: () => ({ select: () => ({ order: async () => ({ data: [] }) }) }), functions: { invoke: async () => ({ error: null, data: null }) } };
 
 export function useAdminAppointments() {
   const [appointments, setAppointments] = useState<Appointment[]>([]);
@@ -33,7 +33,7 @@ export function useAdminAppointments() {
         .order("preferred_time", { ascending: true });
 
       if (fetchError) throw fetchError;
-      setAppointments(data || []);
+      setAppointments((data || []) as Appointment[]);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to fetch appointments");
     } finally {

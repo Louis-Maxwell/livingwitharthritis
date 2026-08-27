@@ -1,8 +1,8 @@
+import { supabase } from "@/integrations/supabase/client";
 import { useQuery } from "@tanstack/react-query";
 import { getClustersForArticle, scoreCandidate } from "@/lib/relatedClusters";
 
 // Supabase client removed - restore for database queries
-const supabase = { from: () => ({ select: () => ({ eq: () => ({ single: async () => ({ data: null, error: null }) }) }) }) };
 
 export interface BlogArticleCitation {
   label: string;
