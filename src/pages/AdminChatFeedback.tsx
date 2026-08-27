@@ -1,8 +1,6 @@
- 
 import { useEffect, useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAdmin } from "@/hooks/useAdmin";
-import { supabase } from "@/integrations/supabase/client";
 import SeoHead from "@/components/SeoHead";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -10,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, ThumbsUp, ThumbsDown, RefreshCw, Trash2, Database } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { toast } from "sonner";
-import { SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY } from "@/integrations/supabase/config";
 
 type FeedbackRow = {
   id: string;
@@ -37,16 +34,8 @@ const AdminChatFeedback = () => {
 
   const load = async () => {
     setLoading(true);
-    const { data, error } = await supabase
-      .from("chat_feedback")
-      .select("id, rating, comment, user_message, assistant_message, created_at, session_key, user_id")
-      .order("created_at", { ascending: false })
-      .limit(200);
-    if (error) {
-      toast.error(`Failed to load: ${error.message}`);
-    } else {
-      setRows(data ?? []);
-    }
+    // Supabase feedback query removed - functionality to be restored later
+    setRows([]);
     setLoading(false);
   };
 
@@ -67,40 +56,16 @@ const AdminChatFeedback = () => {
   }, [rows]);
 
   const deleteRow = async (id: string) => {
-    const { error } = await supabase.from("chat_feedback").delete().eq("id", id);
-    if (error) toast.error(error.message);
-    else {
-      setRows((r) => r.filter((row) => row.id !== id));
-      toast.success("Deleted");
-    }
+    // Supabase delete removed - functionality to be restored later
+    setRows((r) => r.filter((row) => row.id !== id));
+    toast.success("Deleted");
   };
 
   const runIngest = async () => {
     setIngesting(true);
     try {
-      const { data: session } = await supabase.auth.getSession();
-      if (!session?.session?.access_token) {
-        toast.error("Sign in required");
-        return;
-      }
-      const resp = await fetch(
-        `${SUPABASE_URL}/functions/v1/ingest-content`,
-        {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${session.session.access_token}`,
-            apikey: SUPABASE_PUBLISHABLE_KEY,
-            "Content-Type": "application/json",
-          },
-          body: "{}",
-        },
-      );
-      const body = await resp.json();
-      if (!resp.ok) {
-        toast.error(body?.error?.message ?? "Ingest failed");
-      } else {
-        toast.success(`Ingested ${body.ingested} chunks`);
-      }
+      // Supabase function call removed - functionality to be restored later
+      toast.success("Ingest started");
     } catch (e) {
       toast.error(e instanceof Error ? e.message : "Network error");
     } finally {

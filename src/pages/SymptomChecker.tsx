@@ -5,7 +5,6 @@ import { ArrowRight, Loader2, AlertCircle, CheckCircle2, Printer, Share2, Stetho
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { supabase } from "@/integrations/supabase/client";
 
 const SYMPTOM_FAQS = [
   { q: "Is the symptom checker a diagnosis?", a: "No. It's an educational tool that suggests arthritis conditions whose typical pattern matches your answers. Only a GP or rheumatologist can diagnose arthritis using examination, blood tests and imaging." },

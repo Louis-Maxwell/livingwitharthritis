@@ -1,5 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
+
+// Supabase client removed - restore
+const supabase = { from: () => ({ select: () => ({ eq: () => ({ order: async () => ({ data: [] }) }) }) }) };
 
 export interface Service {
   id: string;

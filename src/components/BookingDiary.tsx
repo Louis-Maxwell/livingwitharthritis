@@ -8,9 +8,19 @@ import { format, startOfMonth, endOfMonth, eachDayOfInterval, isSameDay, isSameM
 import { useAdminAppointments } from "@/hooks/useAdminAppointments";
 import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "sonner";
-import type { Tables } from "@/integrations/supabase/types";
 
-type Appointment = Tables<"appointments">;
+// Supabase type removed - define Appointment inline
+type Appointment = {
+  id: string;
+  name: string;
+  email: string;
+  phone?: string;
+  appointment_type: string;
+  preferred_date: string;
+  preferred_time: string;
+  notes?: string;
+  status: string;
+};
 
 const statusColors: Record<string, string> = {
   pending: "bg-primary/15 text-primary border-primary",

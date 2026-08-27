@@ -6,7 +6,9 @@ import SeoHead from "@/components/SeoHead";
 import { Button } from "@/components/ui/button";
 import { injectJsonLd, buildBreadcrumb } from "@/lib/jsonLd";
 import { Copy, Check, Plug } from "lucide-react";
-import { SUPABASE_PROJECT_ID } from "@/integrations/supabase/config";
+
+// Supabase config removed - restore PROJECT_ID
+const SUPABASE_PROJECT_ID = "";
 
 const PATH = "/connect";
 

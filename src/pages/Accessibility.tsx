@@ -4,7 +4,6 @@ import Header from "@/components/Header";
 import PageHero from "@/components/ui/PageHero";
 import { Accessibility, Eye, Ear, Keyboard, Monitor, Globe, MessageSquare, CheckCircle2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { supabase } from "@/integrations/supabase/client";
 import { CONTACT_EMAILS } from "@/config/contact";
 
 const Footer = lazy(() => import("@/components/Footer"));
@@ -22,18 +21,8 @@ const Accessibility_Page = () => {
   const [backendSettings, setBackendSettings] = useState<Array<{ title: string; value: string }>>([]);
 
   useEffect(() => {
-    // Attempt to load any accessibility settings from about_us_sections tagged with accessibility
-    supabase
-      .from("about_us_sections")
-      .select("title, content")
-      .eq("is_active", true)
-      .ilike("title", "%accessib%")
-      .order("display_order")
-      .then(({ data }) => {
-        if (data && data.length > 0) {
-          setBackendSettings(data.map((d) => ({ title: d.title, value: d.content })));
-        }
-      });
+    // Supabase accessibility settings query removed - functionality to be restored later
+    setBackendSettings([]);
   }, []);
 
   return (

@@ -1,6 +1,5 @@
 import { memo, useEffect, useState } from "react";
 import { Quote, Star } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 
 interface Testimonial {
   id: string;
@@ -20,14 +19,8 @@ const TestimonialDisplay = memo(() => {
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const { data, error } = await supabase
-          .from("testimonials")
-          .select("*")
-          .eq("is_published", true)
-          .order("display_order", { ascending: true });
-
-        if (error) throw error;
-        setTestimonials((data || []) as unknown as Testimonial[]);
+        // Supabase client removed - functionality to be restored later
+        setTestimonials([]);
       } catch (error) {
       } finally {
         setLoading(false);

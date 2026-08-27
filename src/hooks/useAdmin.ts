@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { supabase } from "@/integrations/supabase/client";
 
 export function useAdmin() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -8,21 +7,8 @@ export function useAdmin() {
   useEffect(() => {
     const checkAdminStatus = async () => {
       try {
-        const { data: { user } } = await supabase.auth.getUser();
-        
-        if (!user) {
-          setIsAdmin(false);
-          setIsLoading(false);
-          return;
-        }
-
-        const { data, error } = await supabase.rpc("is_admin");
-
-        if (error) {
-          setIsAdmin(false);
-        } else {
-          setIsAdmin(!!data);
-        }
+        // Supabase auth and RPC call removed - functionality to be restored later
+        setIsAdmin(false);
       } catch (error) {
         setIsAdmin(false);
       } finally {
@@ -32,11 +18,12 @@ export function useAdmin() {
 
     checkAdminStatus();
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(() => {
-      checkAdminStatus();
-    });
+    // Supabase auth state listener removed - functionality to be restored later
+    const unsubscribe = () => {
+      // no-op
+    };
 
-    return () => subscription.unsubscribe();
+    return () => unsubscribe();
   }, []);
 
   return { isAdmin, isLoading };

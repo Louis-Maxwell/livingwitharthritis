@@ -4,7 +4,6 @@ import { useNavigate, Link } from "react-router-dom";
 import { useAdmin } from "@/hooks/useAdmin";
 import SeoHead from "@/components/SeoHead";
 import { useAdminDonations } from "@/hooks/useAdminDonations";
-import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow,

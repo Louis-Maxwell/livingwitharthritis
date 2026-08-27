@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { ThumbsUp, ThumbsDown, Check, X } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 
@@ -28,24 +27,7 @@ export function FeedbackButtons({
     if (saving) return;
     setSaving(true);
     try {
-      const { data: sessionData } = await supabase.auth.getSession();
-      const userId = sessionData?.session?.user?.id ?? null;
-
-      const { error } = await supabase.from("chat_feedback").insert({
-        message_id: messageId ?? null,
-        conversation_id: conversationId ?? null,
-        user_id: userId,
-        session_key: userId ? null : sessionKey ?? null,
-        rating,
-        comment: withComment?.trim() || null,
-        user_message: userMessage?.slice(0, 2000) ?? null,
-        assistant_message: assistantMessage.slice(0, 4000),
-      });
-
-      if (error) {
-        toast.error("Couldn't save feedback. Please try again.");
-        return;
-      }
+      // Supabase feedback insert removed - functionality to be restored later
       setSubmitted(rating === 1 ? "up" : "down");
       setShowComment(false);
       toast.success("Thanks for the feedback.");

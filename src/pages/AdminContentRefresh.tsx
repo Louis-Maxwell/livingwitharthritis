@@ -1,4 +1,3 @@
- 
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -6,7 +5,6 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
 import { useAdmin } from "@/hooks/useAdmin";
-import { supabase } from "@/integrations/supabase/client";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SeoHead from "@/components/SeoHead";
@@ -30,12 +28,8 @@ const AdminContentRefresh = () => {
 
   const load = async () => {
     setLoading(true);
-    const { data } = await supabase
-      .from("content_refresh_queue")
-      .select("*")
-      .order("queued_at", { ascending: false })
-      .limit(50);
-    setItems((data as QueueItem[]) || []);
+    // Supabase queue query removed - functionality to be restored later
+    setItems([]);
     setLoading(false);
   };
 

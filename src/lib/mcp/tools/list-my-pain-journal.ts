@@ -1,6 +1,6 @@
 import { defineTool } from "@lovable.dev/mcp-js";
 import { z } from "zod";
-import { supabaseForUser } from "./_supabase";
+// Supabase import removed - functionality to be restored later
 
 export default defineTool({
   name: "list_my_pain_journal_entries",
@@ -15,17 +15,10 @@ export default defineTool({
     if (!ctx.isAuthenticated()) {
       return { content: [{ type: "text", text: "Not authenticated" }], isError: true };
     }
-    const supabase = supabaseForUser(ctx);
-    const { data, error } = await supabase
-      .from("pain_journal_entries")
-      .select("id,entry_date,pain_level,stiffness_duration,joints_affected,mood,sleep_quality,activities,medications,triggers,notes")
-      .eq("user_id", ctx.getUserId())
-      .order("entry_date", { ascending: false })
-      .limit(limit ?? 30);
-    if (error) return { content: [{ type: "text", text: error.message }], isError: true };
+    // Supabase pain journal query removed - functionality to be restored later
     return {
-      content: [{ type: "text", text: JSON.stringify(data ?? [], null, 2) }],
-      structuredContent: { entries: data ?? [] },
+      content: [{ type: "text", text: "Supabase removed - restore functionality" }],
+      structuredContent: { entries: [] },
     };
   },
 });

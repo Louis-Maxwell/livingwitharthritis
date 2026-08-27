@@ -1,10 +1,8 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
 import { getFallbackAnswer } from "@/lib/arthritisChatFallback";
 import type { ChatProfile } from "@/lib/chatProfile";
 import { loadAnonChatHistory, saveAnonChatHistory, clearAnonChatHistory } from "@/lib/chatHistory";
-import { SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY } from "@/integrations/supabase/config";
 
 export type Message = {
   role: "user" | "assistant";
@@ -19,7 +17,7 @@ export type ConversationSummary = {
   updated_at: string;
 };
 
-const CHAT_URL = `${SUPABASE_URL}/functions/v1/chat`;
+const CHAT_URL = `https://replaceme.supabase.co/functions/v1/chat`; // Supabase config removed - restore URL
 
 function makeId(): string {
   if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
@@ -29,14 +27,11 @@ function makeId(): string {
 }
 
 async function getAuthHeaders(): Promise<Record<string, string>> {
-  const { data: { session } } = await supabase.auth.getSession();
+  // Supabase auth removed - restore session handling
   const headers: Record<string, string> = {
     "Content-Type": "application/json",
-    apikey: SUPABASE_PUBLISHABLE_KEY,
+    apikey: "pk_replaceme", // Restore SUPABASE_PUBLISHABLE_KEY
   };
-  if (session?.access_token) {
-    headers.Authorization = `Bearer ${session.access_token}`;
-  }
   return headers;
 }
 
@@ -256,13 +251,8 @@ export function useStreamingChat() {
     let active = true;
 
     const refreshConversations = async (uid: string) => {
-      const { data } = await supabase
-        .from("chat_conversations")
-        .select("id, title, updated_at")
-        .eq("user_id", uid)
-        .order("updated_at", { ascending: false })
-        .limit(50);
-      if (active && data) setConversations(data);
+      // Supabase conversation query removed - functionality to be restored later
+      if (active) setConversations([]);
     };
     refreshConversationsRef.current = refreshConversations;
 
@@ -272,66 +262,26 @@ export function useStreamingChat() {
 
       await refreshConversations(uid);
 
-      const { data: convo } = await supabase
-        .from("chat_conversations")
-        .select("id")
-        .eq("user_id", uid)
-        .order("updated_at", { ascending: false })
-        .limit(1)
-        .maybeSingle();
-
+      // Supabase conversation/message queries removed - functionality to be restored later
       if (!active) return;
-
-      if (convo?.id) {
-        conversationIdRef.current = convo.id;
-        // Load only the last 30 messages for speed
-        const { data: msgs } = await supabase
-          .from("chat_messages")
-          .select("id, role, content, created_at")
-          .eq("conversation_id", convo.id)
-          .order("created_at", { ascending: false })
-          .limit(30);
-
-        if (active && msgs) {
-          setMessages(
-            msgs
-              .reverse()
-              .filter((m) => m.role === "user" || m.role === "assistant")
-              .map((m) => ({ id: m.id, role: m.role as "user" | "assistant", content: m.content })),
-          );
-        }
-      }
     };
 
     loadHistoryRef.current = loadHistory;
 
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (!active) return;
-      const uid = session?.user?.id ?? null;
-      setUserId(uid);
-      // History loaded lazily on first sendMessage to keep page-load fast
-      // (signed-in users). Anonymous visitors have no server-side history
-      // to lazy-load, so restore any locally-saved thread immediately.
-      if (!uid) {
-        const saved = loadAnonChatHistory();
-        if (saved.length) setMessages(saved);
-      }
-    });
+    // Supabase auth session check removed - functionality to be restored later
+    if (true) {
+      const saved = loadAnonChatHistory();
+      if (saved.length) setMessages(saved);
+    }
 
-    const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
-      const uid = session?.user?.id ?? null;
-      setUserId(uid);
-      conversationIdRef.current = null;
-      historyLoadedRef.current = false;
-      if (!uid) {
-        setMessages([]);
-        setConversations([]);
-      }
-    });
+    // Supabase auth state listener removed - functionality to be restored later
+    const unsubscribe = () => {
+      // no-op
+    };
 
     return () => {
       active = false;
-      sub.subscription.unsubscribe();
+      unsubscribe();
     };
   }, []);
 
@@ -346,17 +296,8 @@ export function useStreamingChat() {
 
   const ensureConversation = useCallback(async (uid: string, firstMessage: string): Promise<string | null> => {
     if (conversationIdRef.current) return conversationIdRef.current;
-    const title = firstMessage.slice(0, 60);
-    const { data, error } = await supabase
-      .from("chat_conversations")
-      .insert({ user_id: uid, title })
-      .select("id")
-      .single();
-    if (error) {
-      return null;
-    }
-    conversationIdRef.current = data.id;
-    return data.id;
+    // Supabase conversation insert removed - functionality to be restored later
+    return null;
   }, []);
 
   const sendMessage = useCallback(async (input: string, userProfile?: ChatProfile) => {
@@ -375,13 +316,7 @@ export function useStreamingChat() {
     let convoIdPromise: Promise<string | null> = Promise.resolve(null);
     if (userId) {
       convoIdPromise = ensureConversation(userId, userMsg.content).then((cid) => {
-        if (cid) {
-          supabase.from("chat_messages").insert({
-            conversation_id: cid,
-            role: "user",
-            content: userMsg.content,
-          }).then(() => {});
-        }
+        // Supabase message insert removed - functionality to be restored later
         return cid;
       });
     }
@@ -419,31 +354,7 @@ export function useStreamingChat() {
         onDelta: (chunk) => upsertAssistant(chunk),
         onDone: async () => {
           setIsLoading(false);
-          if (userId && assistantSoFar.trim()) {
-            const convoId = await convoIdPromise;
-            if (convoId) {
-              // Insert assistant message and adopt the DB id so feedback links to it.
-              supabase
-                .from("chat_messages")
-                .insert({
-                  conversation_id: convoId,
-                  role: "assistant",
-                  content: assistantSoFar,
-                })
-                .select("id")
-                .single()
-                .then(({ data }) => {
-                  if (data?.id) assignAssistantDbId(data.id);
-                });
-              supabase
-                .from("chat_conversations")
-                .update({ updated_at: new Date().toISOString() })
-                .eq("id", convoId)
-                .then(() => {
-                  refreshConversationsRef.current?.(userId);
-                });
-            }
-          }
+          // Supabase message and conversation updates removed - functionality to be restored later
         },
       });
     } catch (error) {
@@ -460,28 +371,7 @@ export function useStreamingChat() {
       setIsLoading(false);
 
       if (userId) {
-        const convoId = await convoIdPromise;
-        if (convoId) {
-          supabase
-            .from("chat_messages")
-            .insert({
-              conversation_id: convoId,
-              role: "assistant",
-              content: fallback,
-            })
-            .select("id")
-            .single()
-            .then(({ data }) => {
-              if (data?.id) assignAssistantDbId(data.id);
-            });
-          supabase
-            .from("chat_conversations")
-            .update({ updated_at: new Date().toISOString() })
-            .eq("id", convoId)
-            .then(() => {
-              refreshConversationsRef.current?.(userId);
-            });
-        }
+        // Supabase fallback message insert removed - functionality to be restored later
       }
     }
   }, [messages, isLoading, userId, ensureConversation]);
@@ -510,32 +400,16 @@ export function useStreamingChat() {
     if (!userId) return;
     conversationIdRef.current = conversationId;
     historyLoadedRef.current = true;
-    const { data: msgs } = await supabase
-      .from("chat_messages")
-      .select("id, role, content, created_at")
-      .eq("conversation_id", conversationId)
-      .order("created_at", { ascending: false })
-      .limit(30);
-    if (msgs) {
-      setMessages(
-        msgs
-          .reverse()
-          .filter((m) => m.role === "user" || m.role === "assistant")
-          .map((m) => ({ id: m.id, role: m.role as "user" | "assistant", content: m.content })),
-      );
-    }
+    // Supabase message query removed - functionality to be restored later
+    setMessages([]);
   }, [userId]);
 
   const deleteConversation = useCallback(async (conversationId: string) => {
     if (!userId) return;
-    await supabase.from("chat_messages").delete().eq("conversation_id", conversationId);
-    await supabase.from("chat_conversations").delete().eq("id", conversationId);
+    // Supabase message and conversation deletes removed - functionality to be restored later
     if (conversationIdRef.current === conversationId) {
       setMessages([]);
       conversationIdRef.current = null;
-    }
-    if (refreshConversationsRef.current) {
-      await refreshConversationsRef.current(userId);
     }
   }, [userId]);
 

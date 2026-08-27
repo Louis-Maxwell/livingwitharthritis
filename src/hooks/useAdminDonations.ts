@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import { supabase } from "@/integrations/supabase/client";
+
+// Supabase client removed - restore
+const supabase = { from: () => ({ select: () => ({ eq: () => ({ order: async () => ({ data: [] }) }) }) }) };
 
 interface Donation {
   id: string;

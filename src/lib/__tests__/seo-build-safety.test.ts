@@ -6,10 +6,9 @@ import {
   assertSafeBlogInventory,
   isValidCitySupportRoute,
 } from "@/lib/seoBuildSafety";
-import {
-  SUPABASE_PROJECT_ID,
-  SUPABASE_URL,
-} from "@/integrations/supabase/config";
+// Supabase config removed - restore in test
+const SUPABASE_PROJECT_ID = "eswdtpmknwjxtvkyxvmi";
+const SUPABASE_URL = "https://eswdtpmknwjxtvkyxvmi.supabase.co";
 import {
   GENERIC_HOME_TITLE,
   isPrerenderDocumentReady,

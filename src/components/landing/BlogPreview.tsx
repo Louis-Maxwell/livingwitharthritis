@@ -1,8 +1,10 @@
 import { memo, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import SkeletonSection from "./SkeletonSection";
+
+// Supabase client removed - functionality to be restored later
+const supabase = { from: () => ({ select: () => ({ eq: () => ({ limit: async () => ({ data: [] }) }) }) }) };
 
 interface DBArticle {
   slug: string;

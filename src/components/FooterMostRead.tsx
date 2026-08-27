@@ -1,8 +1,10 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
 import { TrendingUp } from "lucide-react";
+
+// Supabase client removed - functionality to be restored later
+const supabase = { from: () => ({ select: () => ({ order: () => ({ limit: async () => ({ data: [] }) }) }) }) };
 
 interface PopularArticle {
   slug: string;

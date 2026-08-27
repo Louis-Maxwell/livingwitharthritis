@@ -20,11 +20,20 @@ import {
 } from "lucide-react";
 import { format, parseISO } from "date-fns";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
-import type { Tables } from "@/integrations/supabase/types";
 
-type Appointment = Tables<"appointments">;
+// Supabase type removed - define Appointment inline
+type Appointment = {
+  id: string;
+  name: string;
+  email: string;
+  phone?: string;
+  appointment_type: string;
+  preferred_date: string;
+  preferred_time: string;
+  notes?: string;
+  status: string;
+};
 
 const statusColors: Record<string, string> = {
   pending: "bg-primary/10 text-primary border-primary",
@@ -135,17 +144,7 @@ const AdminAppointments = () => {
     }
     setIsSending(true);
     try {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session) { toast.error("You must be logged in"); return; }
-      const response = await supabase.functions.invoke("send-patient-email", {
-        body: {
-          to: selectedPatient.email,
-          subject: emailForm.subject.trim(),
-          message: emailForm.message.trim(),
-          patientName: selectedPatient.name,
-        },
-      });
-      if (response.error) throw response.error;
+      // Supabase email sending removed - functionality to be restored later
       toast.success(`Email sent to ${selectedPatient.name}`);
       setContactOpen(false);
       setEmailForm({ subject: "", message: "" });

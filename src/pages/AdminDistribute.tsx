@@ -1,8 +1,6 @@
- 
 import { useEffect, useMemo, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { supabase } from "@/integrations/supabase/client";
 import { useAdmin } from "@/hooks/useAdmin";
 import { useBlogArticlesList } from "@/hooks/useBlogArticles";
 import { Button } from "@/components/ui/button";

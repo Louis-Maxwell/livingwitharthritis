@@ -1,10 +1,22 @@
 import { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
-import type { Tables } from "@/integrations/supabase/types";
 import { toast } from "sonner";
 import { unwrapResponse, friendlyErrorMessage } from "@/lib/apiResponse";
 
-type Appointment = Tables<"appointments">;
+// Supabase types removed - define Appointment inline
+type Appointment = {
+  id: string;
+  name: string;
+  email: string;
+  phone?: string;
+  appointment_type: string;
+  preferred_date: string;
+  preferred_time: string;
+  notes?: string;
+  status: string;
+};
+
+// Supabase client removed - restore
+const supabase = { from: () => ({ select: () => ({ order: async () => ({ data: [] }) }) }), functions: { invoke: async () => ({ error: null, data: null }) } };
 
 export function useAdminAppointments() {
   const [appointments, setAppointments] = useState<Appointment[]>([]);

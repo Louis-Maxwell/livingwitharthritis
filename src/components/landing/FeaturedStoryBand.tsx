@@ -8,7 +8,6 @@
 import { memo, useEffect, useState } from "react";
 import { ArrowRight, Quote } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "@/integrations/supabase/client";
 
 type FeaturedStory = {
   id: string;
@@ -48,16 +47,9 @@ const FeaturedStoryBand = memo(() => {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const { data, error } = await supabase
-        .from("featured_stories")
-        .select(
-          "id,name,location,age,diagnosis,with_us_since,kicker,headline,body,portrait_url,portrait_alt"
-        )
-        .eq("published", true)
-        .order("sort_order", { ascending: false })
-        .order("published_at", { ascending: false })
-        .limit(1)
-        .maybeSingle();
+      // Supabase featured stories query removed - functionality to be restored later
+      const data = null;
+      const error = null;
       if (!cancelled && !error && data) setStory(data as FeaturedStory);
     })();
     return () => {

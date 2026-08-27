@@ -1,8 +1,6 @@
- 
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAdmin } from "@/hooks/useAdmin";
-import { supabase } from "@/integrations/supabase/client";
 import SeoHead from "@/components/SeoHead";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";

@@ -1,4 +1,3 @@
- 
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import SeoHead from "@/components/SeoHead";
@@ -6,7 +5,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useAdmin } from "@/hooks/useAdmin";
-import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
 type RefreshRun = {
@@ -37,16 +35,8 @@ export default function AdminSeoHealth() {
 
   const loadRuns = async () => {
     setLoading(true);
-    const { data, error } = await supabase
-      .from("seo_refresh_runs")
-      .select("*")
-      .order("ran_at", { ascending: false })
-      .limit(14);
-    if (error) {
-      toast({ title: "Failed to load runs", description: error.message });
-    } else {
-      setRuns((data ?? []) as unknown as RefreshRun[]);
-    }
+    // Supabase SEO runs query removed - functionality to be restored later
+    setRuns([]);
     setLoading(false);
   };
 

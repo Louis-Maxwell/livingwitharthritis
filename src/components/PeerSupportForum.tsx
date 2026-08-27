@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
-import { supabase } from "@/integrations/supabase/client";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+
+// Supabase client removed - restore
+const supabase = { from: () => ({ select: () => ({ eq: () => ({ order: async () => ({ data: [] }) }) }) }), auth: { getSession: async () => ({ data: { session: null } }) } };
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";

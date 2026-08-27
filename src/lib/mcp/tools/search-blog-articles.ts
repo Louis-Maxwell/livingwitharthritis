@@ -1,6 +1,6 @@
 import { defineTool } from "@lovable.dev/mcp-js";
 import { z } from "zod";
-import { supabaseForUser } from "./_supabase";
+// Supabase import removed - functionality to be restored later
 
 export default defineTool({
   name: "search_blog_articles",
@@ -16,22 +16,10 @@ export default defineTool({
     if (!ctx.isAuthenticated()) {
       return { content: [{ type: "text", text: "Not authenticated" }], isError: true };
     }
-    const supabase = supabaseForUser(ctx);
-    // Escape backslash, comma, period, and parens (PostgREST or-filter structural
-    // characters) in addition to %/_ (ILIKE wildcards) — otherwise a query like
-    // "a,is_published.eq.false" or "a)or(x.eq.y" could inject extra filter clauses.
-    const like = `%${query.replace(/[\\,.()%_]/g, (m) => `\\${m}`)}%`;
-    const { data, error } = await supabase
-      .from("blog_articles")
-      .select("slug,title,category,excerpt,direct_answer,date")
-      .eq("is_published", true)
-      .or(`title.ilike.${like},excerpt.ilike.${like},category.ilike.${like},keywords.ilike.${like}`)
-      .order("date", { ascending: false })
-      .limit(limit ?? 10);
-    if (error) return { content: [{ type: "text", text: error.message }], isError: true };
+    // Supabase blog query removed - functionality to be restored later
     return {
-      content: [{ type: "text", text: JSON.stringify(data ?? [], null, 2) }],
-      structuredContent: { articles: data ?? [] },
+      content: [{ type: "text", text: "Supabase removed - restore functionality" }],
+      structuredContent: { articles: [] },
     };
   },
 });

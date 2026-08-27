@@ -1,6 +1,6 @@
 import { defineTool } from "@lovable.dev/mcp-js";
 import { z } from "zod";
-import { supabaseForUser } from "./_supabase";
+// Supabase import removed - functionality to be restored later
 
 export default defineTool({
   name: "list_my_appointments",
@@ -15,17 +15,10 @@ export default defineTool({
     if (!ctx.isAuthenticated()) {
       return { content: [{ type: "text", text: "Not authenticated" }], isError: true };
     }
-    const supabase = supabaseForUser(ctx);
-    const { data, error } = await supabase
-      .from("appointments")
-      .select("id,appointment_type,preferred_date,preferred_time,status,notes,created_at")
-      .eq("user_id", ctx.getUserId())
-      .order("created_at", { ascending: false })
-      .limit(limit ?? 20);
-    if (error) return { content: [{ type: "text", text: error.message }], isError: true };
+    // Supabase appointments query removed - functionality to be restored later
     return {
-      content: [{ type: "text", text: JSON.stringify(data ?? [], null, 2) }],
-      structuredContent: { appointments: data ?? [] },
+      content: [{ type: "text", text: "Supabase removed - restore functionality" }],
+      structuredContent: { appointments: [] },
     };
   },
 });

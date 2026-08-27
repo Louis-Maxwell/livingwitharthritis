@@ -1,5 +1,4 @@
 import { useEffect, useState, useMemo } from "react";
-import { supabase } from "@/integrations/supabase/client";
 
 interface BlogView {
   slug: string;
@@ -11,10 +10,8 @@ export function useBlogViews(slug: string | undefined) {
 
   useEffect(() => {
     if (!slug) return;
-    // Increment view and get count
-    supabase.rpc("increment_blog_view", { p_slug: slug }).then(({ data }) => {
-      if (typeof data === "number") setViewCount(data);
-    });
+    // Supabase increment view RPC removed - functionality to be restored later
+    setViewCount(0);
   }, [slug]);
 
   return viewCount;
@@ -26,18 +23,8 @@ export function useBlogViewCounts(slugs: string[]) {
 
   useEffect(() => {
     if (!slugs.length) return;
-    supabase
-      .from("blog_views")
-      .select("slug, view_count")
-      .in("slug", slugs)
-      .then(({ data }) => {
-        if (data) {
-          const map: Record<string, number> = {};
-          const records = data as BlogView[];
-          records.forEach((r) => { map[r.slug] = r.view_count; });
-          setCounts(map);
-        }
-      });
+    // Supabase blog views query removed - functionality to be restored later
+    setCounts({});
   }, [slugKey]);
 
   return counts;

@@ -2,7 +2,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAdmin } from "@/hooks/useAdmin";
-import { supabase } from "@/integrations/supabase/client";
 import SeoHead from "@/components/SeoHead";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -65,26 +64,8 @@ const AdminEmails = () => {
 
   const fetchLogs = async () => {
     setLoading(true);
-    const since = new Date(Date.now() - RANGES[range] * 86400 * 1000).toISOString();
-    const { data, error } = await supabase
-      .from("email_send_log")
-      .select("id, message_id, template_name, recipient_email, status, error_message, created_at")
-      .gte("created_at", since)
-      .order("created_at", { ascending: false })
-      .limit(2000);
-    if (error) {
-      setRows([]);
-    } else {
-      const seen = new Set<string>();
-      const deduped: LogRow[] = [];
-      for (const r of (data ?? []) as LogRow[]) {
-        const key = r.message_id ?? r.id;
-        if (seen.has(key)) continue;
-        seen.add(key);
-        deduped.push(r);
-      }
-      setRows(deduped);
-    }
+    // Supabase email log query removed - functionality to be restored later
+    setRows([]);
     setLoading(false);
   };
 

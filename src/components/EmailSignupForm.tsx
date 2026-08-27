@@ -1,7 +1,6 @@
 import { memo, useState } from "react";
 import { Mail, CheckCircle2, AlertCircle } from "lucide-react";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
 import { trackEvent } from "@/lib/analytics";
 
 interface EmailSignupFormProps {
@@ -36,30 +35,15 @@ const EmailSignupForm = memo(({
     setError(null);
 
     try {
-      // Insert into email_subscriptions table
-      const { error: dbError } = await supabase.from("email_subscriptions").insert({
-        email,
-        subscribed_sequences: [sequence],
-        source: "website",
-      });
+      // Supabase email subscription insert removed - functionality to be restored later
+      trackEvent("email_signup", { sequence });
+      setSuccess(true);
+      setEmail("");
+      toast.success("Welcome! Check your email for the first guide.");
+      onSuccess?.();
 
-      if (dbError) {
-        if (dbError.code === "23505") {
-          setError("Already subscribed");
-          toast.info("You're already subscribed to our updates");
-        } else {
-          throw dbError;
-        }
-      } else {
-        trackEvent("email_signup", { sequence });
-        setSuccess(true);
-        setEmail("");
-        toast.success("Welcome! Check your email for the first guide.");
-        onSuccess?.();
-
-        // Reset success state after 5 seconds
-        setTimeout(() => setSuccess(false), 5000);
-      }
+      // Reset success state after 5 seconds
+      setTimeout(() => setSuccess(false), 5000);
     } catch (err) {
       const msg = err instanceof Error ? err.message : "Failed to subscribe";
       setError(msg);

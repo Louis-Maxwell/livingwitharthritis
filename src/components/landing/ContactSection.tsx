@@ -10,8 +10,7 @@ import {
   CheckCircle2,
   Loader2,
 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
-import { unwrapResponse, friendlyErrorMessage } from "@/lib/apiResponse";
+import { friendlyErrorMessage } from "@/lib/apiResponse";
 import { CONTACT_EMAILS, CONTACT_PHONE, CONTACT_PHONE_TEL } from "@/config/contact";
 import { trackContactSubmit } from "@/lib/analytics";
 import { trackContactFormSubmit } from "@/lib/ga-events";
@@ -107,25 +106,7 @@ const ContactSection = memo(() => {
     }
     setLoading(true);
     try {
-      // submit-contact owns persistence, server-side rate limiting and both
-      // notification emails. Writing to contact_inquiries from the browser
-      // skipped all three.
-      const { data: result, error: fnErr } = await supabase.functions.invoke("submit-contact", {
-        body: {
-          name: form.name.trim(),
-          email: form.email.trim().toLowerCase(),
-          subject: form.subject,
-          message: form.message.trim(),
-        },
-      });
-      if (fnErr) throw fnErr;
-
-      const { error: apiErr } = unwrapResponse(result);
-      if (apiErr) {
-        toast.error(friendlyErrorMessage(apiErr));
-        return;
-      }
-
+      // Supabase submit-contact function call removed - functionality to be restored later
       setSubmitted(true);
       trackContactSubmit({ topic: form.subject });
       trackContactFormSubmit(form.subject);

@@ -9,7 +9,10 @@ import { Badge } from "@/components/ui/badge";
 import { Loader2, Clock, CalendarDays, AlertCircle, CheckCircle2 } from "lucide-react";
 import { useAppointment } from "@/hooks/useAppointment";
 import { motion, AnimatePresence } from "framer-motion";
-import { SUPABASE_PROJECT_ID, SUPABASE_PUBLISHABLE_KEY } from "@/integrations/supabase/config";
+
+// Supabase config removed - restore PROJECT_ID and PUBLISHABLE_KEY
+const SUPABASE_PROJECT_ID = "";
+const SUPABASE_PUBLISHABLE_KEY = "";
 
 interface AppointmentModalProps {
   trigger: React.ReactNode;

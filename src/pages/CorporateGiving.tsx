@@ -9,7 +9,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { motion } from "framer-motion";
 import { Building2, Heart, Users, Award, Handshake, CheckCircle, ArrowRight, Shield, Mail } from "lucide-react";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
 import { z } from "zod";
 
 const inquirySchema = z.object({
