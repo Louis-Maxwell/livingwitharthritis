@@ -1,4 +1,5 @@
 import { memo, useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
 import { Mail, CheckCircle2, AlertCircle } from "lucide-react";
 import { toast } from "sonner";
 import { trackEvent } from "@/lib/analytics";
