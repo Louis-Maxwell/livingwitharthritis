@@ -35,6 +35,7 @@ export function BreadcrumbSchema({ items, baseUrl = 'https://livingwitharthritis
 }
 
 // Helper to generate breadcrumbs from current path
+// eslint-disable-next-line react-refresh/only-export-components
 export const generateBreadcrumbsFromPath = (pathname: string): BreadcrumbItem[] => {
   const breadcrumbs: BreadcrumbItem[] = [
     { name: 'Home', path: '/', position: 1 },

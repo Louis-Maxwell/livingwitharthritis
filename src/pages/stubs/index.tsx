@@ -453,4 +453,5 @@ export const GrantsStub = () => (
 );
 
 // Re-export shared related links for any future custom stub
+// eslint-disable-next-line react-refresh/only-export-components
 export { sharedRelated };

@@ -19,13 +19,12 @@ export function useBlogViews(slug: string | undefined) {
 
 export function useBlogViewCounts(slugs: string[]) {
   const [counts, setCounts] = useState<Record<string, number>>({});
-  const slugKey = useMemo(() => slugs.join(","), [slugs]);
 
   useEffect(() => {
     if (!slugs.length) return;
     // Supabase blog views query removed - functionality to be restored later
     setCounts({});
-  }, [slugKey]);
+  }, [slugs]);
 
   return counts;
 }

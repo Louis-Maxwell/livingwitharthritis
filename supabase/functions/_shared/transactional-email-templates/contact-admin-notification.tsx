@@ -56,6 +56,7 @@ const ContactAdminNotification = ({
   </Html>
 )
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const template = {
   component: ContactAdminNotification,
   subject: (data: Record<string, any>) => `New Contact: ${data.subject || 'Enquiry'} — ${data.name || 'Unknown'}`,

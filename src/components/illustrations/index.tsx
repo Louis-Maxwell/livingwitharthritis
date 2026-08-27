@@ -153,6 +153,7 @@ export const Spark = (p: IconProps) =>
     p,
   );
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const ILLUSTRATIONS = {
   JointKnee,
   JointHand,

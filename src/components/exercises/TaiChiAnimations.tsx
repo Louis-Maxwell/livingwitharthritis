@@ -21,6 +21,7 @@ export const CloudHands = make(CloudHandsAsset.url, "Cloud Hands");
 export const BrushKnee = make(BrushKneeAsset.url, "Brush Knee");
 export const ClosingPosture = make(ClosingPostureAsset.url, "Closing Posture");
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const TAI_CHI_ANIMATIONS = {
   "rooted-stance": RootedStance,
   "weight-shift": WeightShift,
@@ -31,6 +32,7 @@ export const TAI_CHI_ANIMATIONS = {
 
 export type TaiChiAnimKey = keyof typeof TAI_CHI_ANIMATIONS;
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const TAI_CHI_VIDEOS: Record<TaiChiAnimKey, { src: string; label: string }> = {
   "rooted-stance": { src: RootedStanceAsset.url, label: "Rooted Stance" },
   "weight-shift": { src: WeightShiftAsset.url, label: "Weight Shift" },

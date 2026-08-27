@@ -32,6 +32,7 @@ export const HandFingerSpread = make(HandAsset.url, "Hand finger spread");
 export const HandExercise = HandFingerSpread;
 export const ChairMarch = make(ChairAsset.url, "Seated march");
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const EXERCISE_ANIMATIONS = {
   // Joint Exercise Section ids
   neck: NeckBends,

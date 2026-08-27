@@ -68,6 +68,7 @@ const ContactConfirmationEmail = ({
   </Html>
 )
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const template = {
   component: ContactConfirmationEmail,
   subject: "We've received your message — Living With Arthritis",

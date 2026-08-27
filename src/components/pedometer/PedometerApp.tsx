@@ -616,7 +616,7 @@ function SettingsPanel({ goal, setGoal, unit, setUnit, onClose, returnFocusRef }
     return () => {
       elementToFocus?.focus();
     };
-  }, []);
+  }, [returnFocusRef]);
 
   // Escape + focus trap
   const handleKey = useCallback((e: globalThis.KeyboardEvent) => {

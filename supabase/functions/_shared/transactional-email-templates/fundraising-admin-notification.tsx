@@ -63,6 +63,7 @@ const FundraisingAdminNotification = ({
   </Html>
 )
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const template = {
   component: FundraisingAdminNotification,
   subject: (data: Record<string, any>) => `New Fundraising Inquiry: ${data.inquiryType || 'General'} — ${data.contactName || 'Unknown'}`,

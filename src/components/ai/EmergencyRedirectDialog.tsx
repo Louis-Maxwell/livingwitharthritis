@@ -97,6 +97,7 @@ const RED_FLAG_PATTERNS: { category: string; pattern: RegExp }[] = [
   { category: "severe_bleed", pattern: /\b(uncontrolled bleeding|bleeding.*won'?t stop|coughing up blood)\b/i },
 ];
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function detectClientRedFlag(text: string): { matched: boolean; category: string | null } {
   for (const { category, pattern } of RED_FLAG_PATTERNS) {
     if (pattern.test(text)) return { matched: true, category };

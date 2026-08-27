@@ -90,6 +90,7 @@ TableOfContents.displayName = "TableOfContents";
 export default TableOfContents;
 
 /** Adds id attributes to h2/h3 tags that don't have them */
+// eslint-disable-next-line react-refresh/only-export-components
 export function addHeadingIds(html: string): string {
   return html.replace(/<h([2-3])([^>]*)>(.*?)<\/h[2-3]>/gi, (match, level, attrs, content) => {
     if (/id="/.test(attrs)) return match;

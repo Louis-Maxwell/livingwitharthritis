@@ -63,7 +63,7 @@ export default function ArthritisMentalHealth() {
     const c1 = injectJsonLd('mental-health-article', article);
     const c2 = injectJsonLd('mental-health-breadcrumb', breadcrumb);
     return () => { c1(); c2(); };
-  }, []);
+  }, [pillar.metaDescription, pillar.route, pillar.title]);
 
   return (
     <article className="max-w-4xl mx-auto py-12 px-4">

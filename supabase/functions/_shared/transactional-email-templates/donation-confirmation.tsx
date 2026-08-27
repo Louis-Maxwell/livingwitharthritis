@@ -100,6 +100,7 @@ const DonationConfirmationEmail = ({
   </Html>
 )
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const template = {
   component: DonationConfirmationEmail,
   subject: 'Thank you for your donation!',
