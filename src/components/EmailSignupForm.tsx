@@ -35,7 +35,18 @@ const EmailSignupForm = memo(({
     setError(null);
 
     try {
-      // Supabase email subscription insert removed - functionality to be restored later
+      const { error: insertError } = await supabase
+        .from("email_subscriptions")
+        .upsert(
+          {
+            email: email.trim().toLowerCase(),
+            source: "website",
+            subscribed_sequences: [sequence],
+          },
+          { onConflict: "email" },
+        );
+      if (insertError) throw new Error(insertError.message);
+
       trackEvent("email_signup", { sequence });
       setSuccess(true);
       setEmail("");
