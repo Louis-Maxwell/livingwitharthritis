@@ -32,7 +32,7 @@ describe("analytics-monitor", () => {
 
     it("returns false when document is undefined", () => {
       const originalDocument = global.document;
-      // @ts-ignore
+      // @ts-expect-error - testing undefined document
       global.document = undefined;
       const result = isGSCVerified();
       expect(result).toBe(false);
