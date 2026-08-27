@@ -1,4 +1,5 @@
 import { memo, useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
 import { Mail, CheckCircle2, AlertCircle } from "lucide-react";
 import { toast } from "sonner";
 import { trackEvent } from "@/lib/analytics";
@@ -35,7 +36,18 @@ const EmailSignupForm = memo(({
     setError(null);
 
     try {
-      // Supabase email subscription insert removed - functionality to be restored later
+      const { error: insertError } = await supabase
+        .from("email_subscriptions")
+        .upsert(
+          {
+            email: email.trim().toLowerCase(),
+            source: "website",
+            subscribed_sequences: [sequence],
+          },
+          { onConflict: "email" },
+        );
+      if (insertError) throw new Error(insertError.message);
+
       trackEvent("email_signup", { sequence });
       setSuccess(true);
       setEmail("");

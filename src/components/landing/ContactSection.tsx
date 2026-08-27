@@ -1,4 +1,5 @@
 import { memo, useRef, useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import {
@@ -106,7 +107,18 @@ const ContactSection = memo(() => {
     }
     setLoading(true);
     try {
-      // Supabase submit-contact function call removed - functionality to be restored later
+      const { data, error } = await supabase.functions.invoke('submit-contact', {
+        body: {
+          name: form.name.trim(),
+          email: form.email.trim(),
+          subject: form.subject,
+          message: form.message.trim(),
+        },
+      });
+      if (error) throw error;
+      const apiError = (data as { error?: { code: string; message: string } } | null)?.error;
+      if (apiError) throw new Error(friendlyErrorMessage(apiError));
+
       setSubmitted(true);
       trackContactSubmit({ topic: form.subject });
       trackContactFormSubmit(form.subject);
