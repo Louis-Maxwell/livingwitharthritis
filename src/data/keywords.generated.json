@@ -1,4 +1,4 @@
-[
+﻿[
 {
 "keyword": "osteoarthritis symptoms",
 "intent": "informational",
@@ -133,7 +133,7 @@
 "targetPage": "/conditions/osteoarthritis"
 },
 {
-"keyword": "osteoarthritis nhs waiting times",
+"keyword": "osteoarthritis healthcare waiting times",
 "intent": "informational",
 "category": "condition",
 "cluster": "osteoarthritis",
@@ -588,7 +588,7 @@
 "targetPage": "/conditions/rheumatoid-arthritis"
 },
 {
-"keyword": "rheumatoid arthritis nhs waiting times",
+"keyword": "rheumatoid arthritis healthcare waiting times",
 "intent": "informational",
 "category": "condition",
 "cluster": "rheumatoid arthritis",
@@ -1043,7 +1043,7 @@
 "targetPage": "/conditions/psoriatic-arthritis"
 },
 {
-"keyword": "psoriatic arthritis nhs waiting times",
+"keyword": "psoriatic arthritis healthcare waiting times",
 "intent": "informational",
 "category": "condition",
 "cluster": "psoriatic arthritis",
@@ -1498,7 +1498,7 @@
 "targetPage": "/conditions/gout"
 },
 {
-"keyword": "gout nhs waiting times",
+"keyword": "gout healthcare waiting times",
 "intent": "informational",
 "category": "condition",
 "cluster": "gout",
@@ -1953,7 +1953,7 @@
 "targetPage": "/conditions/ankylosing-spondylitis"
 },
 {
-"keyword": "ankylosing spondylitis nhs waiting times",
+"keyword": "ankylosing spondylitis healthcare waiting times",
 "intent": "informational",
 "category": "condition",
 "cluster": "ankylosing spondylitis",
@@ -2408,7 +2408,7 @@
 "targetPage": "/conditions/fibromyalgia"
 },
 {
-"keyword": "fibromyalgia nhs waiting times",
+"keyword": "fibromyalgia healthcare waiting times",
 "intent": "informational",
 "category": "condition",
 "cluster": "fibromyalgia",
@@ -2863,7 +2863,7 @@
 "targetPage": "/conditions/lupus"
 },
 {
-"keyword": "lupus nhs waiting times",
+"keyword": "lupus healthcare waiting times",
 "intent": "informational",
 "category": "condition",
 "cluster": "lupus",
@@ -3318,7 +3318,7 @@
 "targetPage": "/conditions/juvenile-arthritis"
 },
 {
-"keyword": "juvenile arthritis nhs waiting times",
+"keyword": "juvenile arthritis healthcare waiting times",
 "intent": "informational",
 "category": "condition",
 "cluster": "juvenile arthritis",
@@ -3773,7 +3773,7 @@
 "targetPage": "/conditions/reactive-arthritis"
 },
 {
-"keyword": "reactive arthritis nhs waiting times",
+"keyword": "reactive arthritis healthcare waiting times",
 "intent": "informational",
 "category": "condition",
 "cluster": "reactive arthritis",
@@ -4228,7 +4228,7 @@
 "targetPage": "/conditions/polymyalgia-rheumatica"
 },
 {
-"keyword": "polymyalgia rheumatica nhs waiting times",
+"keyword": "polymyalgia rheumatica healthcare waiting times",
 "intent": "informational",
 "category": "condition",
 "cluster": "polymyalgia rheumatica",
@@ -4683,7 +4683,7 @@
 "targetPage": "/conditions/knee-arthritis"
 },
 {
-"keyword": "knee arthritis nhs waiting times",
+"keyword": "knee arthritis healthcare waiting times",
 "intent": "informational",
 "category": "condition",
 "cluster": "knee arthritis",
@@ -5138,7 +5138,7 @@
 "targetPage": "/conditions/hip-arthritis"
 },
 {
-"keyword": "hip arthritis nhs waiting times",
+"keyword": "hip arthritis healthcare waiting times",
 "intent": "informational",
 "category": "condition",
 "cluster": "hip arthritis",
@@ -5593,7 +5593,7 @@
 "targetPage": "/conditions/hand-arthritis"
 },
 {
-"keyword": "hand arthritis nhs waiting times",
+"keyword": "hand arthritis healthcare waiting times",
 "intent": "informational",
 "category": "condition",
 "cluster": "hand arthritis",
@@ -6048,7 +6048,7 @@
 "targetPage": "/conditions/shoulder-arthritis"
 },
 {
-"keyword": "shoulder arthritis nhs waiting times",
+"keyword": "shoulder arthritis healthcare waiting times",
 "intent": "informational",
 "category": "condition",
 "cluster": "shoulder arthritis",
@@ -6503,7 +6503,7 @@
 "targetPage": "/conditions/elbow-arthritis"
 },
 {
-"keyword": "elbow arthritis nhs waiting times",
+"keyword": "elbow arthritis healthcare waiting times",
 "intent": "informational",
 "category": "condition",
 "cluster": "elbow arthritis",
@@ -6958,7 +6958,7 @@
 "targetPage": "/conditions/osteoarthritis"
 },
 {
-"keyword": "spinal arthritis nhs waiting times",
+"keyword": "spinal arthritis healthcare waiting times",
 "intent": "informational",
 "category": "condition",
 "cluster": "spinal arthritis",
@@ -7413,7 +7413,7 @@
 "targetPage": "/conditions/hand-arthritis"
 },
 {
-"keyword": "thumb arthritis nhs waiting times",
+"keyword": "thumb arthritis healthcare waiting times",
 "intent": "informational",
 "category": "condition",
 "cluster": "thumb arthritis",
@@ -7868,7 +7868,7 @@
 "targetPage": "/conditions/hand-arthritis"
 },
 {
-"keyword": "wrist arthritis nhs waiting times",
+"keyword": "wrist arthritis healthcare waiting times",
 "intent": "informational",
 "category": "condition",
 "cluster": "wrist arthritis",
@@ -8323,7 +8323,7 @@
 "targetPage": "/conditions/knee-arthritis"
 },
 {
-"keyword": "ankle arthritis nhs waiting times",
+"keyword": "ankle arthritis healthcare waiting times",
 "intent": "informational",
 "category": "condition",
 "cluster": "ankle arthritis",
@@ -8778,7 +8778,7 @@
 "targetPage": "/conditions/knee-arthritis"
 },
 {
-"keyword": "foot arthritis nhs waiting times",
+"keyword": "foot arthritis healthcare waiting times",
 "intent": "informational",
 "category": "condition",
 "cluster": "foot arthritis",
@@ -9233,7 +9233,7 @@
 "targetPage": "/conditions/osteoarthritis"
 },
 {
-"keyword": "neck arthritis nhs waiting times",
+"keyword": "neck arthritis healthcare waiting times",
 "intent": "informational",
 "category": "condition",
 "cluster": "neck arthritis",
@@ -9688,7 +9688,7 @@
 "targetPage": "/conditions/osteoarthritis"
 },
 {
-"keyword": "facet joint arthritis nhs waiting times",
+"keyword": "facet joint arthritis healthcare waiting times",
 "intent": "informational",
 "category": "condition",
 "cluster": "facet joint arthritis",
@@ -10143,7 +10143,7 @@
 "targetPage": "/conditions/osteoarthritis"
 },
 {
-"keyword": "cervical arthritis nhs waiting times",
+"keyword": "cervical arthritis healthcare waiting times",
 "intent": "informational",
 "category": "condition",
 "cluster": "cervical arthritis",
@@ -10598,7 +10598,7 @@
 "targetPage": "/conditions/rheumatoid-arthritis"
 },
 {
-"keyword": "inflammatory arthritis nhs waiting times",
+"keyword": "inflammatory arthritis healthcare waiting times",
 "intent": "informational",
 "category": "condition",
 "cluster": "inflammatory arthritis",
@@ -11053,7 +11053,7 @@
 "targetPage": "/conditions/osteoarthritis"
 },
 {
-"keyword": "degenerative arthritis nhs waiting times",
+"keyword": "degenerative arthritis healthcare waiting times",
 "intent": "informational",
 "category": "condition",
 "cluster": "degenerative arthritis",
@@ -11508,7 +11508,7 @@
 "targetPage": "/conditions/rheumatoid-arthritis"
 },
 {
-"keyword": "seronegative arthritis nhs waiting times",
+"keyword": "seronegative arthritis healthcare waiting times",
 "intent": "informational",
 "category": "condition",
 "cluster": "seronegative arthritis",
@@ -17493,49 +17493,49 @@
 "targetPage": "/guides/musculoskeletal-health"
 },
 {
-"keyword": "msk waiting list nhs uk",
+"keyword": "msk waiting list UK healthcare uk",
 "intent": "informational",
 "category": "msk",
 "cluster": "musculoskeletal",
 "targetPage": "/guides/musculoskeletal-health"
 },
 {
-"keyword": "msk waiting list nhs nhs",
+"keyword": "msk waiting list UK healthcare nhs",
 "intent": "informational",
 "category": "msk",
 "cluster": "musculoskeletal",
 "targetPage": "/guides/musculoskeletal-health"
 },
 {
-"keyword": "msk waiting list nhs for over 60s",
+"keyword": "msk waiting list UK healthcare for over 60s",
 "intent": "informational",
 "category": "msk",
 "cluster": "musculoskeletal",
 "targetPage": "/guides/musculoskeletal-health"
 },
 {
-"keyword": "msk waiting list nhs for elderly",
+"keyword": "msk waiting list UK healthcare for elderly",
 "intent": "informational",
 "category": "msk",
 "cluster": "musculoskeletal",
 "targetPage": "/guides/musculoskeletal-health"
 },
 {
-"keyword": "msk waiting list nhs at home",
+"keyword": "msk waiting list UK healthcare at home",
 "intent": "informational",
 "category": "msk",
 "cluster": "musculoskeletal",
 "targetPage": "/guides/musculoskeletal-health"
 },
 {
-"keyword": "msk waiting list nhs guide",
+"keyword": "msk waiting list UK healthcare guide",
 "intent": "informational",
 "category": "msk",
 "cluster": "musculoskeletal",
 "targetPage": "/guides/musculoskeletal-health"
 },
 {
-"keyword": "msk waiting list nhs exercises",
+"keyword": "msk waiting list UK healthcare exercises",
 "intent": "informational",
 "category": "msk",
 "cluster": "musculoskeletal",
@@ -24717,7 +24717,7 @@
 "targetPage": "/trust-credibility"
 },
 {
-"keyword": "nhs approved arthritis exercises",
+"keyword": "UK healthcare approved arthritis exercises",
 "intent": "informational",
 "category": "trust",
 "cluster": "trust & brand",
@@ -25648,42 +25648,42 @@
 "targetPage": "/guides/arthritis-pain-relief"
 },
 {
-"keyword": "nhs vs private rheumatology",
+"keyword": "UK healthcare vs private rheumatology",
 "intent": "commercial",
 "category": "treatment",
 "cluster": "comparisons",
 "targetPage": "/guides/arthritis-pain-relief"
 },
 {
-"keyword": "nhs vs private rheumatology uk",
+"keyword": "UK healthcare vs private rheumatology uk",
 "intent": "commercial",
 "category": "treatment",
 "cluster": "comparisons",
 "targetPage": "/guides/arthritis-pain-relief"
 },
 {
-"keyword": "nhs vs private rheumatology which is better",
+"keyword": "UK healthcare vs private rheumatology which is better",
 "intent": "commercial",
 "category": "treatment",
 "cluster": "comparisons",
 "targetPage": "/guides/arthritis-pain-relief"
 },
 {
-"keyword": "nhs vs private rheumatology for seniors",
+"keyword": "UK healthcare vs private rheumatology for seniors",
 "intent": "commercial",
 "category": "treatment",
 "cluster": "comparisons",
 "targetPage": "/guides/arthritis-pain-relief"
 },
 {
-"keyword": "nhs vs private rheumatology nhs",
+"keyword": "UK healthcare vs private rheumatology nhs",
 "intent": "commercial",
 "category": "treatment",
 "cluster": "comparisons",
 "targetPage": "/guides/arthritis-pain-relief"
 },
 {
-"keyword": "nhs vs private rheumatology reviews",
+"keyword": "UK healthcare vs private rheumatology reviews",
 "intent": "commercial",
 "category": "treatment",
 "cluster": "comparisons",
@@ -33817,42 +33817,42 @@
 "targetPage": "/guides/uk-arthritis"
 },
 {
-"keyword": "cost of arthritis to nhs 2026",
+"keyword": "cost of arthritis to UK healthcare 2026",
 "intent": "informational",
 "category": "trust",
 "cluster": "research & stats",
 "targetPage": "/guides/uk-arthritis"
 },
 {
-"keyword": "cost of arthritis to nhs latest",
+"keyword": "cost of arthritis to UK healthcare latest",
 "intent": "informational",
 "category": "trust",
 "cluster": "research & stats",
 "targetPage": "/guides/uk-arthritis"
 },
 {
-"keyword": "cost of arthritis to nhs report",
+"keyword": "cost of arthritis to UK healthcare report",
 "intent": "informational",
 "category": "trust",
 "cluster": "research & stats",
 "targetPage": "/guides/uk-arthritis"
 },
 {
-"keyword": "cost of arthritis to nhs data",
+"keyword": "cost of arthritis to UK healthcare data",
 "intent": "informational",
 "category": "trust",
 "cluster": "research & stats",
 "targetPage": "/guides/uk-arthritis"
 },
 {
-"keyword": "cost of arthritis to nhs nhs",
+"keyword": "cost of arthritis to UK healthcare nhs",
 "intent": "informational",
 "category": "trust",
 "cluster": "research & stats",
 "targetPage": "/guides/uk-arthritis"
 },
 {
-"keyword": "cost of arthritis to nhs explained",
+"keyword": "cost of arthritis to UK healthcare explained",
 "intent": "informational",
 "category": "trust",
 "cluster": "research & stats",
@@ -34258,42 +34258,42 @@
 "targetPage": "/guides/uk-arthritis"
 },
 {
-"keyword": "arthritis waiting times nhs 2026",
+"keyword": "arthritis waiting times UK healthcare 2026",
 "intent": "informational",
 "category": "trust",
 "cluster": "research & stats",
 "targetPage": "/guides/uk-arthritis"
 },
 {
-"keyword": "arthritis waiting times nhs latest",
+"keyword": "arthritis waiting times UK healthcare latest",
 "intent": "informational",
 "category": "trust",
 "cluster": "research & stats",
 "targetPage": "/guides/uk-arthritis"
 },
 {
-"keyword": "arthritis waiting times nhs report",
+"keyword": "arthritis waiting times UK healthcare report",
 "intent": "informational",
 "category": "trust",
 "cluster": "research & stats",
 "targetPage": "/guides/uk-arthritis"
 },
 {
-"keyword": "arthritis waiting times nhs data",
+"keyword": "arthritis waiting times UK healthcare data",
 "intent": "informational",
 "category": "trust",
 "cluster": "research & stats",
 "targetPage": "/guides/uk-arthritis"
 },
 {
-"keyword": "arthritis waiting times nhs nhs",
+"keyword": "arthritis waiting times UK healthcare nhs",
 "intent": "informational",
 "category": "trust",
 "cluster": "research & stats",
 "targetPage": "/guides/uk-arthritis"
 },
 {
-"keyword": "arthritis waiting times nhs explained",
+"keyword": "arthritis waiting times UK healthcare explained",
 "intent": "informational",
 "category": "trust",
 "cluster": "research & stats",

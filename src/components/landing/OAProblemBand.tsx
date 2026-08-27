@@ -1,4 +1,4 @@
-import { memo } from "react";
+﻿import { memo } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Activity, Heart, AlertCircle } from "lucide-react";
 
@@ -7,7 +7,7 @@ const STATS = [
     icon: Activity,
     big: "8.75M",
     label: "people across the UK live with osteoarthritis",
-    note: "If you wake up with stiff, sore joints — you are in good company.",
+    note: "If you wake up with stiff, sore joints â€” you are in good company.",
   },
   {
     icon: AlertCircle,
@@ -17,8 +17,8 @@ const STATS = [
   },
   {
     icon: Heart,
-    big: "£10bn+",
-    label: "the cost to families, workplaces and the NHS each year",
+    big: "Â£10bn+",
+    label: "the cost to families, workplaces and the UK healthcare system each year",
     note: "Behind every number is a person trying to keep moving.",
   },
 ] as const;

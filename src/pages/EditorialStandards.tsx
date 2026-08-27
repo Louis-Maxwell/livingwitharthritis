@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+﻿import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { ShieldCheck, BookOpen, UserCheck, RefreshCw, Scale, AlertCircle } from "lucide-react";
@@ -17,7 +17,7 @@ export default function EditorialStandards() {
     const ld = {
       "@context": "https://schema.org",
       "@type": "AboutPage",
-      name: "Editorial Standards — Living With Arthritis UK",
+      name: "Editorial Standards â€” Living With Arthritis UK",
       url: URL,
       inLanguage: "en-GB",
       publisher: {
@@ -89,7 +89,7 @@ export default function EditorialStandards() {
             </p>
             <ul>
               <li>
-                <strong>{maxwell.name}</strong> — {maxwell.title},{" "}
+                <strong>{maxwell.name}</strong> â€” {maxwell.title},{" "}
                 {maxwell.credential}, {maxwell.organization}
               </li>
               <li>Additional specialist input from physiotherapists and clinical experts</li>
@@ -100,7 +100,7 @@ export default function EditorialStandards() {
             <p>Our content is based on:</p>
             <ul>
               <li>NICE (National Institute for Health and Care Excellence) guidelines</li>
-              <li>NHS evidence-based recommendations</li>
+              <li>UK healthcare evidence-based recommendations</li>
               <li>Peer-reviewed medical research</li>
               <li>Cochrane systematic reviews</li>
               <li>Royal College guidance (RCP, RCGP)</li>
@@ -127,7 +127,7 @@ export default function EditorialStandards() {
             <p>
               Content is reviewed and updated regularly to reflect the latest
               evidence. Each article shows the date it was last updated. Pages
-              referencing NICE or NHS guidance are re-checked whenever those
+              referencing NICE or UK healthcare guidance are re-checked whenever those
               sources publish revisions.
             </p>
           </Section>
@@ -147,7 +147,7 @@ export default function EditorialStandards() {
               <Link to="/contact" className="text-primary underline hover:no-underline">
                 contact us
               </Link>{" "}
-              with the page URL and a short note — a clinician will review it.
+              with the page URL and a short note â€” a clinician will review it.
             </p>
           </Section>
         </main>

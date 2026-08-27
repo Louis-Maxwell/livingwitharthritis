@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+﻿import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SeoHead from '@/components/SeoHead';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
@@ -6,7 +6,7 @@ import { pillarScaffolds, tier2OutlinesByPillar } from '@/data/tier2Outlines';
 import FaqAccordion from '@/components/faq/FaqAccordion';
 
 /**
- * Pillar page — "Arthritis & Mental Health" complete guide. Scaffold (sections,
+ * Pillar page â€” "Arthritis & Mental Health" complete guide. Scaffold (sections,
  * intro copy, internal-link rail, FAQ schema) ready for Maxwell to expand to
  * ~1,200 words of full clinical content. Article + Breadcrumb + FAQPage JSON-LD
  * injected via useEffect (per project memory).
@@ -24,7 +24,7 @@ export default function ArthritisMentalHealth() {
     {
       question: 'Is it normal to feel depressed with arthritis?',
       answer:
-        'Low mood is common, but persistent depression is treatable — not something you have to live with. If you have had low mood, loss of pleasure or hopelessness most days for two weeks or more, speak to your GP or self-refer to NHS Talking Therapies.',
+        'Low mood is common, but persistent depression is treatable â€” not something you have to live with. If you have had low mood, loss of pleasure or hopelessness most days for two weeks or more, speak to your GP or self-refer to UK healthcare Talking Therapies.',
     },
     {
       question: 'Can mindfulness really help joint pain?',
@@ -34,7 +34,7 @@ export default function ArthritisMentalHealth() {
     {
       question: 'When should I seek urgent help?',
       answer:
-        'If you have thoughts of harming yourself or ending your life, contact 999, Samaritans on 116 123, or NHS 111. You are not alone, and help is available 24/7.',
+        'If you have thoughts of harming yourself or ending your life, contact 999, Samaritans on 116 123, or 999 or 112. You are not alone, and help is available 24/7.',
     },
   ];
 
@@ -59,7 +59,7 @@ export default function ArthritisMentalHealth() {
       { name: 'Home', path: '/' },
       { name: 'Arthritis & Mental Health', path: pillar.route },
     ]);
-    // FAQPage intentionally not emitted here — <FaqAccordion> below covers it.
+    // FAQPage intentionally not emitted here â€” <FaqAccordion> below covers it.
     const c1 = injectJsonLd('mental-health-article', article);
     const c2 = injectJsonLd('mental-health-breadcrumb', breadcrumb);
     return () => { c1(); c2(); };
@@ -83,7 +83,7 @@ export default function ArthritisMentalHealth() {
         Living with arthritis is not just a physical experience. Persistent pain,
         fatigue and uncertainty take a real toll on mood, sleep and identity. This
         evidence-based guide covers what to look out for, what helps, and where to
-        get support — for you and the people around you.
+        get support â€” for you and the people around you.
       </p>
 
 
@@ -123,7 +123,7 @@ export default function ArthritisMentalHealth() {
                 {c.title}
               </Link>
               <p className="text-sm text-muted-foreground mt-1">
-                {c.targetKeywords.slice(0, 2).join(' · ')}
+                {c.targetKeywords.slice(0, 2).join(' Â· ')}
               </p>
             </li>
           ))}

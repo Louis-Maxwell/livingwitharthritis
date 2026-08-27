@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+﻿import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SeoHead from '@/components/SeoHead';
 import MedicalReviewBadge from '@/components/MedicalReviewBadge';
@@ -8,10 +8,10 @@ import AeoEnhancement from "@/components/seo/AeoEnhancement";
 
 const FAQS = [
   { q: 'What is frailty?', a: 'Frailty is a clinical state of reduced reserve and resilience across multiple body systems, leaving older adults more vulnerable to falls, hospital admission and slower recovery.' },
-  { q: 'Does arthritis cause frailty?', a: 'Arthritis does not directly cause frailty, but pain, inflammation and inactivity accelerate muscle loss and reduce function — pushing people into pre-frail or frail states earlier.' },
-  { q: 'Can frailty be reversed?', a: 'Yes. Mild and moderate frailty often improves with progressive resistance training, adequate protein (1.0–1.2 g/kg/day), social engagement and treatment of underlying conditions.' },
+  { q: 'Does arthritis cause frailty?', a: 'Arthritis does not directly cause frailty, but pain, inflammation and inactivity accelerate muscle loss and reduce function â€” pushing people into pre-frail or frail states earlier.' },
+  { q: 'Can frailty be reversed?', a: 'Yes. Mild and moderate frailty often improves with progressive resistance training, adequate protein (1.0â€“1.2 g/kg/day), social engagement and treatment of underlying conditions.' },
   { q: 'How is frailty measured?', a: 'Clinicians use tools such as the Clinical Frailty Scale, gait speed (<0.8 m/s), grip strength and the Fried phenotype (weakness, slowness, exhaustion, low activity, weight loss).' },
-  { q: 'What exercise is safest for frail older adults?', a: 'Supervised seated strength work, sit-to-stand repetitions, resistance bands and balance drills — progressed gradually. Avoid high-impact loading until strength returns.' },
+  { q: 'What exercise is safest for frail older adults?', a: 'Supervised seated strength work, sit-to-stand repetitions, resistance bands and balance drills â€” progressed gradually. Avoid high-impact loading until strength returns.' },
   { q: 'When should I ask for help?', a: 'Speak to your GP if you notice unintentional weight loss, more than one fall in 12 months, exhaustion, or struggling with daily tasks like dressing or shopping.' },
 ];
 
@@ -66,30 +66,30 @@ export default function FrailtyManagementHub() {
 
       <section id="what-is" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">1. What is frailty and how does it connect to arthritis?</h2>
-        <p className="mb-4 leading-relaxed">Frailty is a clinical syndrome of reduced reserve across multiple body systems — muscle, bone, balance, cognition and immunity. Adults with arthritis are at higher risk because chronic pain reduces activity, accelerating muscle loss (sarcopenia) and balance decline.</p>
-        <p className="leading-relaxed">Around 10% of people aged 65+ in the UK are living with frailty, rising to 25–50% over 85. The Clinical Frailty Scale, gait speed and grip strength help clinicians identify who is pre-frail or frail.</p>
+        <p className="mb-4 leading-relaxed">Frailty is a clinical syndrome of reduced reserve across multiple body systems â€” muscle, bone, balance, cognition and immunity. Adults with arthritis are at higher risk because chronic pain reduces activity, accelerating muscle loss (sarcopenia) and balance decline.</p>
+        <p className="leading-relaxed">Around 10% of people aged 65+ in the UK are living with frailty, rising to 25â€“50% over 85. The Clinical Frailty Scale, gait speed and grip strength help clinicians identify who is pre-frail or frail.</p>
       </section>
 
       <section id="pillars" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">2. The five pillars of frailty prevention</h2>
         <ul className="list-disc pl-6 space-y-2">
-          <li><strong>Strength:</strong> progressive resistance training 2–3 times per week.</li>
-          <li><strong>Nutrition:</strong> 1.0–1.2 g/kg protein/day plus vitamin D, calcium and adequate calories.</li>
+          <li><strong>Strength:</strong> progressive resistance training 2â€“3 times per week.</li>
+          <li><strong>Nutrition:</strong> 1.0â€“1.2 g/kg protein/day plus vitamin D, calcium and adequate calories.</li>
           <li><strong>Cognition:</strong> regular mental stimulation, reading, puzzles, learning.</li>
           <li><strong>Mood:</strong> identify and treat depression and anxiety early.</li>
-          <li><strong>Social connection:</strong> isolation doubles frailty risk — community, family and groups protect.</li>
+          <li><strong>Social connection:</strong> isolation doubles frailty risk â€” community, family and groups protect.</li>
         </ul>
       </section>
 
       <section id="exercise" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">3. Exercise for frailty: safe progressions</h2>
-        <p className="mb-4 leading-relaxed">Start seated. Sit-to-stand from a chair (aim for 10–15 reps), heel raises, knee extensions with ankle weights, and resistance band rows build the legs and trunk safely. Add balance work — single-leg standing at a counter — once strength returns.</p>
+        <p className="mb-4 leading-relaxed">Start seated. Sit-to-stand from a chair (aim for 10â€“15 reps), heel raises, knee extensions with ankle weights, and resistance band rows build the legs and trunk safely. Add balance work â€” single-leg standing at a counter â€” once strength returns.</p>
         <p className="leading-relaxed">See our <Link to="/exercises" className="text-primary underline">exercise hub</Link> for progressions.</p>
       </section>
 
       <section id="nutrition" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">4. Nutrition strategies for muscle preservation</h2>
-        <p className="mb-4 leading-relaxed">Spread protein across meals: 25–30 g per meal triggers muscle protein synthesis better than one large serving. Sources include eggs, Greek yoghurt, fish, lean meat, beans and tofu. Pair with vitamin D (10 µg/day October–March, NHS guidance) and adequate calories.</p>
+        <p className="mb-4 leading-relaxed">Spread protein across meals: 25â€“30 g per meal triggers muscle protein synthesis better than one large serving. Sources include eggs, Greek yoghurt, fish, lean meat, beans and tofu. Pair with vitamin D (10 Âµg/day Octoberâ€“March, UK healthcare guidance) and adequate calories.</p>
         <p className="leading-relaxed">Read our <Link to="/diet" className="text-primary underline">diet hub</Link> and <Link to="/diet/foods-to-avoid-with-arthritis" className="text-primary underline">foods to avoid with arthritis</Link>.</p>
       </section>
 
@@ -107,18 +107,18 @@ export default function FrailtyManagementHub() {
 
       <section id="family-focus" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">6. What families are looking for</h2>
-        <p className="mb-4 leading-relaxed">Many adult children begin researching frailty after a parent has a fall, loses weight or struggles with day-to-day tasks. The most effective interventions are preventative rather than reactive — nutritional support, balance and strength work, home safety changes and assistive technology — and the earlier they start, the better the outcome.</p>
+        <p className="mb-4 leading-relaxed">Many adult children begin researching frailty after a parent has a fall, loses weight or struggles with day-to-day tasks. The most effective interventions are preventative rather than reactive â€” nutritional support, balance and strength work, home safety changes and assistive technology â€” and the earlier they start, the better the outcome.</p>
         <p className="leading-relaxed mb-4">A community geriatric or occupational therapy assessment is the highest-value starting point: it pulls together the medical, functional and home-environment picture and signposts the right combination of services and equipment.</p>
         <h3 className="text-xl font-bold mt-6 mb-3">Common frailty solutions</h3>
         <ul className="list-disc pl-6 space-y-2">
           <li>High-protein supplements and fortified foods to counter sarcopenia</li>
           <li>Vitamin D and other targeted nutritional intervention</li>
           <li>Medical alert systems, personal alarms and fall detectors</li>
-          <li>Home modifications — grab rails, ramps, improved lighting, removing trip hazards</li>
+          <li>Home modifications â€” grab rails, ramps, improved lighting, removing trip hazards</li>
           <li>Geriatric assessments (Comprehensive Geriatric Assessment) and frailty case management</li>
-          <li>Balance, resistance and tai chi programmes — group or one-to-one</li>
+          <li>Balance, resistance and tai chi programmes â€” group or one-to-one</li>
         </ul>
-        <p className="mt-4 text-sm text-muted-foreground italic">Educational information only — we don&apos;t endorse specific brands or providers. Speak to your GP, community physiotherapy or social services for personalised recommendations.</p>
+        <p className="mt-4 text-sm text-muted-foreground italic">Educational information only â€” we don&apos;t endorse specific brands or providers. Speak to your GP, community physiotherapy or social services for personalised recommendations.</p>
       </section>
 
       <section id="related" className="mb-12 bg-muted p-6 rounded-lg border-l-4 border-primary">

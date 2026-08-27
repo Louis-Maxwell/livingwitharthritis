@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+﻿import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import {
@@ -23,16 +23,16 @@ const REVIEWED = '2026-07-31';
 
 const META_TITLE = 'Collagen for Arthritis: Does It Work? UK Guide';
 const META_DESC =
-  'UK guide to collagen for arthritis — hydrolysed peptides vs undenatured type II, the evidence for joint pain, dosage, side effects, and how collagen compares with glucosamine.';
+  'UK guide to collagen for arthritis â€” hydrolysed peptides vs undenatured type II, the evidence for joint pain, dosage, side effects, and how collagen compares with glucosamine.';
 
 const FAQS = [
   {
     q: 'Does collagen help arthritis?',
-    a: 'The evidence is promising but early. Trials of hydrolysed collagen peptides (10 g/day) and undenatured type II collagen (40 mg/day) show small-to-moderate improvements in knee osteoarthritis pain, stiffness and function over 3–6 months. Collagen does not rebuild worn cartilage and is not a substitute for exercise or weight management.',
+    a: 'The evidence is promising but early. Trials of hydrolysed collagen peptides (10 g/day) and undenatured type II collagen (40 mg/day) show small-to-moderate improvements in knee osteoarthritis pain, stiffness and function over 3â€“6 months. Collagen does not rebuild worn cartilage and is not a substitute for exercise or weight management.',
   },
   {
     q: 'Which type of collagen is best for joints?',
-    a: 'Two forms are used in joint research. Hydrolysed collagen peptides (usually type I and III, from bovine or marine sources) are taken at 10 g/day. Undenatured type II collagen (UC-II, from chicken sternum) is taken at just 40 mg/day and works differently — it appears to calm the immune response to cartilage rather than supply building blocks.',
+    a: 'Two forms are used in joint research. Hydrolysed collagen peptides (usually type I and III, from bovine or marine sources) are taken at 10 g/day. Undenatured type II collagen (UC-II, from chicken sternum) is taken at just 40 mg/day and works differently â€” it appears to calm the immune response to cartilage rather than supply building blocks.',
   },
   {
     q: 'How much collagen should I take for arthritis?',
@@ -40,18 +40,18 @@ const FAQS = [
   },
   {
     q: 'How long does collagen take to work for joint pain?',
-    a: 'Most studies report the first measurable change at around 8 weeks, with the fullest effect at 12–24 weeks. If you have felt nothing after three consistent months, stop — the money is better spent on strength training or a physiotherapy course.',
+    a: 'Most studies report the first measurable change at around 8 weeks, with the fullest effect at 12â€“24 weeks. If you have felt nothing after three consistent months, stop â€” the money is better spent on strength training or a physiotherapy course.',
   },
   {
-    q: 'Collagen or glucosamine — which is better for arthritis?',
+    q: 'Collagen or glucosamine â€” which is better for arthritis?',
     a: 'Glucosamine sulfate has more long-term data but inconsistent results; collagen has fewer trials but several of them are positive. Head-to-head comparisons are scarce. Neither slows disease progression reliably. If you want to try one, run a single 12-week trial of one product rather than stacking both, so you can tell what is working.',
   },
   {
     q: 'Are there side effects to collagen supplements?',
-    a: 'Collagen is generally very well tolerated. Reported side effects are mild — a full or bloated feeling, mild heartburn, or an unpleasant aftertaste. Marine collagen should be avoided if you have a fish allergy, and bovine or chicken-derived collagen may not suit some religious or vegetarian diets.',
+    a: 'Collagen is generally very well tolerated. Reported side effects are mild â€” a full or bloated feeling, mild heartburn, or an unpleasant aftertaste. Marine collagen should be avoided if you have a fish allergy, and bovine or chicken-derived collagen may not suit some religious or vegetarian diets.',
   },
   {
-    q: 'Is collagen available on the NHS?',
+    q: 'Is collagen available on the UK healthcare system?',
     a: 'No. Collagen is a food supplement, not a prescription medicine, and NICE does not recommend it for osteoarthritis. It is sold freely in UK pharmacies and supermarkets, so any trial is at your own cost.',
   },
   {
@@ -94,8 +94,8 @@ export default function Collagen() {
         logo: { '@type': 'ImageObject', url: `${BASE}/favicon.ico` },
       },
     };
-    // FAQPage intentionally not emitted here — <FaqAccordion> below covers it.
-    // BreadcrumbList intentionally not emitted here — <PageBreadcrumb> below covers it.
+    // FAQPage intentionally not emitted here â€” <FaqAccordion> below covers it.
+    // BreadcrumbList intentionally not emitted here â€” <PageBreadcrumb> below covers it.
     const scripts = [medical].map((d) => {
       const s = document.createElement('script');
       s.type = 'application/ld+json';
@@ -172,7 +172,7 @@ export default function Collagen() {
             <p>
               In trials, <strong>10 g/day of hydrolysed collagen peptides</strong> or{' '}
               <strong>40 mg/day of undenatured type II collagen</strong> produced small-to-moderate
-              improvements in knee osteoarthritis pain and stiffness after 12–24 weeks. The
+              improvements in knee osteoarthritis pain and stiffness after 12â€“24 weeks. The
               evidence is younger and thinner than for glucosamine, and collagen does not
               regrow worn cartilage. It is safe and worth a single 12-week trial if exercise,
               weight management and diet have not been enough.
@@ -190,7 +190,7 @@ export default function Collagen() {
             </div>
             <div className="prose prose-lg max-w-none text-foreground/85 prose-strong:text-foreground prose-headings:font-display prose-headings:text-foreground">
               <p>
-                Collagen is the main structural protein in your body — it makes up the framework
+                Collagen is the main structural protein in your body â€” it makes up the framework
                 of skin, tendon, bone and the cartilage that cushions a joint. Cartilage is
                 mostly <strong>type II collagen</strong> held in a water-rich matrix. In{' '}
                 <Link to="/conditions/osteoarthritis" className="text-primary underline">
@@ -201,25 +201,25 @@ export default function Collagen() {
               <p>Supplements come in two very different forms:</p>
               <ul>
                 <li>
-                  <strong>Hydrolysed collagen peptides</strong> — collagen broken into short
+                  <strong>Hydrolysed collagen peptides</strong> â€” collagen broken into short
                   amino-acid chains so they absorb easily. Usually type I and III from bovine
                   hide or fish skin (marine collagen). Dose in trials: <strong>10 g/day</strong>.
                 </li>
                 <li>
-                  <strong>Undenatured type II collagen (UC-II)</strong> — a tiny dose of
+                  <strong>Undenatured type II collagen (UC-II)</strong> â€” a tiny dose of
                   intact chicken-sternum collagen, taken at <strong>40 mg/day</strong>. It is
                   thought to work through oral tolerance: teaching the immune system to stop
                   attacking cartilage collagen, rather than acting as raw material.
                 </li>
                 <li>
-                  <strong>Gelatin and bone broth</strong> — the same protein, but the collagen
+                  <strong>Gelatin and bone broth</strong> â€” the same protein, but the collagen
                   content is unpredictable, so results are hard to compare with trials.
                 </li>
               </ul>
               <p>
                 Collagen only forms properly when vitamin C is present, which is why many joint
                 formulas add it. A diet with adequate protein plus fruit and vegetables supports
-                your own production too — see our{' '}
+                your own production too â€” see our{' '}
                 <Link to="/diet" className="text-primary underline">
                   anti-inflammatory diet guide
                 </Link>
@@ -247,7 +247,7 @@ export default function Collagen() {
                 <li>
                   <strong>Hydrolysed collagen peptides.</strong> Pooled analyses of randomised
                   trials report a statistically significant reduction in WOMAC pain and stiffness
-                  scores at 10 g/day over 3–6 months, with the effect size described as small
+                  scores at 10 g/day over 3â€“6 months, with the effect size described as small
                   to moderate.
                 </li>
                 <li>
@@ -258,7 +258,7 @@ export default function Collagen() {
                 </li>
                 <li>
                   <strong>Activity-related knee pain.</strong> Trials in athletes and active
-                  adults without diagnosed arthritis show reduced knee pain during exercise —
+                  adults without diagnosed arthritis show reduced knee pain during exercise â€”
                   useful if joint discomfort is what stops you training.
                 </li>
                 <li>
@@ -267,7 +267,7 @@ export default function Collagen() {
                 </li>
                 <li>
                   <strong>UK guidance.</strong> NICE guideline NG226 does not recommend any oral
-                  supplement, including collagen, for osteoarthritis on the NHS.
+                  supplement, including collagen, for osteoarthritis on the UK healthcare system.
                 </li>
               </ul>
               <p>
@@ -294,7 +294,7 @@ export default function Collagen() {
                 </li>
                 <li>
                   <strong>UC-II:</strong> 40 mg once a day as a capsule. Do not assume more is
-                  better — the low dose is the point.
+                  better â€” the low dose is the point.
                 </li>
                 <li>
                   <strong>Timing:</strong> any time of day; consistency matters far more than
@@ -333,10 +333,10 @@ export default function Collagen() {
               </ul>
               <h3>Take extra care if you</h3>
               <ul>
-                <li>Have a fish or shellfish allergy — avoid marine collagen</li>
-                <li>Follow a vegetarian, vegan, halal or kosher diet — all collagen is animal-derived</li>
-                <li>Have kidney disease or are on a protein-restricted diet — check with your GP</li>
-                <li>Are pregnant or breastfeeding — safety data is limited</li>
+                <li>Have a fish or shellfish allergy â€” avoid marine collagen</li>
+                <li>Follow a vegetarian, vegan, halal or kosher diet â€” all collagen is animal-derived</li>
+                <li>Have kidney disease or are on a protein-restricted diet â€” check with your GP</li>
+                <li>Are pregnant or breastfeeding â€” safety data is limited</li>
               </ul>
               <p>
                 Tell your GP or pharmacist about any supplement you start, particularly if you
@@ -366,11 +366,11 @@ export default function Collagen() {
                       Glucosamine
                     </Link>
                   </strong>{' '}
-                  — far more trial data, but the results are inconsistent and NICE does not
+                  â€” far more trial data, but the results are inconsistent and NICE does not
                   recommend it. Best evidence is for glucosamine sulfate at 1,500 mg/day.
                 </li>
                 <li>
-                  <strong>Collagen</strong> — fewer trials, but a higher proportion of them are
+                  <strong>Collagen</strong> â€” fewer trials, but a higher proportion of them are
                   positive, and tolerability is better. Reasonable first choice if you have a
                   shellfish allergy or take warfarin (glucosamine can raise INR).
                 </li>
@@ -380,7 +380,7 @@ export default function Collagen() {
                       MSM
                     </Link>
                   </strong>{' '}
-                  — modest pain and stiffness improvement in small knee OA studies.
+                  â€” modest pain and stiffness improvement in small knee OA studies.
                 </li>
                 <li>
                   <strong>
@@ -388,17 +388,17 @@ export default function Collagen() {
                       Turmeric / curcumin
                     </Link>
                   </strong>{' '}
-                  — the strongest anti-inflammatory evidence of the group; around 1,000 mg/day
+                  â€” the strongest anti-inflammatory evidence of the group; around 1,000 mg/day
                   curcumin has performed comparably to ibuprofen in knee OA trials.
                 </li>
                 <li>
-                  <strong>Omega-3 fish oil</strong> — best evidence in rheumatoid arthritis
+                  <strong>Omega-3 fish oil</strong> â€” best evidence in rheumatoid arthritis
                   rather than osteoarthritis.
                 </li>
               </ul>
               <p>
                 Run one supplement at a time for 12 weeks. Stacking three at once makes it
-                impossible to know which — if any — is doing the work.
+                impossible to know which â€” if any â€” is doing the work.
               </p>
             </div>
           </section>

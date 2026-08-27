@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+﻿import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Pill, FlaskConical, ShieldAlert, HelpCircle, BookOpen } from "lucide-react";
@@ -18,31 +18,31 @@ const META_DESC =
 const FAQS = [
   {
     q: "What is MSM?",
-    a: "MSM stands for methylsulfonylmethane — an organic sulfur compound found naturally in plants, animals and humans. As a supplement it's sold for joint pain, stiffness and inflammation, usually as a white odourless powder or tablet.",
+    a: "MSM stands for methylsulfonylmethane â€” an organic sulfur compound found naturally in plants, animals and humans. As a supplement it's sold for joint pain, stiffness and inflammation, usually as a white odourless powder or tablet.",
   },
   {
     q: "Does MSM work for arthritis and joint pain?",
-    a: "Small-to-medium trials of MSM (1,500–6,000 mg/day) show modest reductions in knee osteoarthritis pain and stiffness over 12 weeks. Evidence is less strong than for glucosamine sulfate or curcumin, but MSM is well tolerated and often combined with glucosamine.",
+    a: "Small-to-medium trials of MSM (1,500â€“6,000 mg/day) show modest reductions in knee osteoarthritis pain and stiffness over 12 weeks. Evidence is less strong than for glucosamine sulfate or curcumin, but MSM is well tolerated and often combined with glucosamine.",
   },
   {
     q: "What is the correct MSM dosage?",
-    a: "Most trials use 1,500–3,000 mg per day, split into two or three doses with food. Doses up to 6,000 mg have been used safely short term but offer no clear extra benefit.",
+    a: "Most trials use 1,500â€“3,000 mg per day, split into two or three doses with food. Doses up to 6,000 mg have been used safely short term but offer no clear extra benefit.",
   },
   {
     q: "How long does MSM take to work?",
-    a: "Allow 8–12 weeks of daily use. If you feel no improvement in pain or stiffness by 3 months, stop.",
+    a: "Allow 8â€“12 weeks of daily use. If you feel no improvement in pain or stiffness by 3 months, stop.",
   },
   {
     q: "Are there any side effects of MSM?",
-    a: "MSM is one of the better-tolerated joint supplements. Mild bloating, diarrhoea, nausea, headache or skin rash are the most common issues. Avoid if you are pregnant, breastfeeding, or take blood thinners — and speak to your GP first if you take regular medication.",
+    a: "MSM is one of the better-tolerated joint supplements. Mild bloating, diarrhoea, nausea, headache or skin rash are the most common issues. Avoid if you are pregnant, breastfeeding, or take blood thinners â€” and speak to your GP first if you take regular medication.",
   },
   {
-    q: "MSM vs glucosamine — which is better?",
+    q: "MSM vs glucosamine â€” which is better?",
     a: "They work differently. Glucosamine supports cartilage structure; MSM appears to reduce inflammation and oxidative stress in the joint. The combination is more studied than MSM alone and tends to be the formulation most UK brands sell.",
   },
   {
     q: "Is MSM safe long term?",
-    a: "There are no good long-term safety studies beyond 12 weeks. Most people use it in cycles — 3 months on, then a break to judge benefit before continuing.",
+    a: "There are no good long-term safety studies beyond 12 weeks. Most people use it in cycles â€” 3 months on, then a break to judge benefit before continuing.",
   },
 ];
 
@@ -74,8 +74,8 @@ export default function Msm() {
         logo: { "@type": "ImageObject", url: `${BASE}/favicon.ico` },
       },
     };
-    // BreadcrumbList intentionally not emitted here — <PageBreadcrumb> below covers it.
-    // FAQPage intentionally not emitted here — <FaqAccordion> below covers it.
+    // BreadcrumbList intentionally not emitted here â€” <PageBreadcrumb> below covers it.
+    // FAQPage intentionally not emitted here â€” <FaqAccordion> below covers it.
     const scripts = [medical].map((d) => {
       const s = document.createElement("script");
       s.type = "application/ld+json";
@@ -141,7 +141,7 @@ export default function Msm() {
           <AnswerBox question="What is MSM and does it help arthritis?" reviewed="2026-06-18">
             <p>
               MSM is an organic sulfur compound (methylsulfonylmethane). Small trials at
-              <strong> 1,500–3,000 mg/day</strong> show modest reductions in knee osteoarthritis
+              <strong> 1,500â€“3,000 mg/day</strong> show modest reductions in knee osteoarthritis
               pain and stiffness over 12 weeks. It is well tolerated and often combined with
               glucosamine sulfate. Evidence is weaker than for curcumin or glucosamine alone.
             </p>
@@ -183,28 +183,28 @@ export default function Msm() {
             <div className="prose prose-lg max-w-none text-foreground/85 prose-strong:text-foreground prose-headings:font-display prose-headings:text-foreground">
               <ul>
                 <li>
-                  <strong>Kim 2006</strong> — 3,000 mg MSM twice daily for 12 weeks improved knee OA
+                  <strong>Kim 2006</strong> â€” 3,000 mg MSM twice daily for 12 weeks improved knee OA
                   pain and physical function vs placebo.
                 </li>
                 <li>
-                  <strong>Debbi 2011</strong> — 1.125 g MSM three times daily for 12 weeks reduced
+                  <strong>Debbi 2011</strong> â€” 1.125 g MSM three times daily for 12 weeks reduced
                   pain and improved knee OA function vs placebo.
                 </li>
                 <li>
-                  <strong>2017 systematic review</strong> (Brien et al.) — MSM produced statistically
+                  <strong>2017 systematic review</strong> (Brien et al.) â€” MSM produced statistically
                   significant but small improvements in pain and function for knee OA.
                 </li>
                 <li>
-                  <strong>Combined with glucosamine</strong> — several trials suggest the combination
+                  <strong>Combined with glucosamine</strong> â€” several trials suggest the combination
                   outperforms either ingredient alone for moderate OA pain.
                 </li>
                 <li>
-                  <strong>NICE NG226</strong> does not currently recommend MSM on the NHS.
+                  <strong>NICE NG226</strong> does not currently recommend MSM on the UK healthcare system.
                 </li>
               </ul>
               <p>
                 The honest summary: real but modest effect, decent safety profile, and best used as a
-                12-week trial alongside exercise and weight management — not as a replacement for
+                12-week trial alongside exercise and weight management â€” not as a replacement for
                 them.
               </p>
             </div>
@@ -221,10 +221,10 @@ export default function Msm() {
             </div>
             <div className="prose prose-lg max-w-none text-foreground/85 prose-strong:text-foreground prose-headings:font-display prose-headings:text-foreground">
               <ul>
-                <li><strong>Typical dose:</strong> 1,500–3,000 mg per day.</li>
+                <li><strong>Typical dose:</strong> 1,500â€“3,000 mg per day.</li>
                 <li><strong>Split:</strong> two or three doses, taken with food.</li>
                 <li><strong>Form:</strong> capsule, tablet or unflavoured powder dissolved in water.</li>
-                <li><strong>Trial length:</strong> 8–12 weeks before judging the effect.</li>
+                <li><strong>Trial length:</strong> 8â€“12 weeks before judging the effect.</li>
                 <li><strong>Stack:</strong> commonly combined with 1,500 mg glucosamine sulfate.</li>
               </ul>
             </div>
@@ -249,8 +249,8 @@ export default function Msm() {
               </ul>
               <h3>Take care if you</h3>
               <ul>
-                <li>Are pregnant or breastfeeding — not enough safety data, avoid</li>
-                <li>Take blood thinners (warfarin, apixaban) — speak to your GP first</li>
+                <li>Are pregnant or breastfeeding â€” not enough safety data, avoid</li>
+                <li>Take blood thinners (warfarin, apixaban) â€” speak to your GP first</li>
                 <li>Have liver or kidney disease</li>
               </ul>
               <p>

@@ -1,4 +1,4 @@
-// Per-condition content for the 4 sub-pages:
+﻿// Per-condition content for the 4 sub-pages:
 // /conditions/:condition/symptoms | treatment | exercises | diet
 // Keyed by the same slugs used in src/App.tsx /conditions/* routes.
 
@@ -47,13 +47,13 @@ export interface ConditionSubpages {
 }
 
 // UK-aligned, plain-English content. Sources: NHS, NICE, Versus Arthritis,
-// NRAS, NASS, Lupus UK, PMRGCAuk, FMA UK clinical summaries (2024–2025).
+// NRAS, NASS, Lupus UK, PMRGCAuk, FMA UK clinical summaries (2024â€“2025).
 export const conditionSubpages: Record<string, ConditionSubpages> = {
   osteoarthritis: {
     symptoms: {
-      headline: "Osteoarthritis symptoms — what to look for",
+      headline: "Osteoarthritis symptoms â€” what to look for",
       intro:
-        "Osteoarthritis (OA) is the most common form of arthritis in the UK, affecting around 8.5 million adults. Symptoms develop gradually as cartilage wears down in weight-bearing and high-use joints — most often the knees, hips, hands, and spine.",
+        "Osteoarthritis (OA) is the most common form of arthritis in the UK, affecting around 8.5 million adults. Symptoms develop gradually as cartilage wears down in weight-bearing and high-use joints â€” most often the knees, hips, hands, and spine.",
       commonSymptoms: [
         "Joint pain that worsens with activity and eases with rest",
         "Morning stiffness lasting under 30 minutes",
@@ -74,7 +74,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
         { name: "Weight management", description: "Every kilogram lost reduces knee joint load by up to four kilograms during walking." },
         { name: "Topical NSAIDs", description: "First-line pharmacological option for hand and knee OA per NICE 2022 guidance." },
         { name: "Oral NSAIDs and paracetamol", description: "Short-term use for flare control, taken at the lowest effective dose." },
-        { name: "Steroid injections", description: "Short-term relief for severe flares — typically no more than three per year per joint." },
+        { name: "Steroid injections", description: "Short-term relief for severe flares â€” typically no more than three per year per joint." },
         { name: "Joint replacement surgery", description: "Considered when conservative treatment no longer controls pain or function." },
       ],
     },
@@ -83,7 +83,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
       intro:
         "Movement is the single most effective self-management tool for OA. Combine low-impact aerobic activity with strength work targeting the muscles around affected joints.",
       keyBenefits: [
-        "Reduces joint pain and stiffness within 6–8 weeks of consistent practice",
+        "Reduces joint pain and stiffness within 6â€“8 weeks of consistent practice",
         "Strengthens supporting muscles, reducing joint load",
         "Maintains range of motion and prevents deconditioning",
         "Supports healthy weight and cardiovascular health",
@@ -114,22 +114,22 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     symptoms: {
       headline: "Rheumatoid arthritis symptoms",
       intro:
-        "Rheumatoid arthritis (RA) is an autoimmune condition affecting around 450,000 adults in the UK. Early symptoms can be subtle — recognising them matters because early DMARD treatment dramatically improves long-term outcomes.",
+        "Rheumatoid arthritis (RA) is an autoimmune condition affecting around 450,000 adults in the UK. Early symptoms can be subtle â€” recognising them matters because early DMARD treatment dramatically improves long-term outcomes.",
       commonSymptoms: [
         "Symmetrical joint pain and swelling, often in the small joints of the hands and feet",
         "Morning stiffness lasting over an hour",
         "Warm, tender, swollen joints",
         "Persistent fatigue and a general feeling of being unwell",
         "Low-grade fever during active disease",
-        "Rheumatoid nodules — firm lumps under the skin near affected joints",
+        "Rheumatoid nodules â€” firm lumps under the skin near affected joints",
       ],
       whenToSeeGP:
-        "See your GP urgently if you have persistent joint swelling, especially in the small joints of the hands or feet — early referral to rheumatology improves long-term outcomes.",
+        "See your GP urgently if you have persistent joint swelling, especially in the small joints of the hands or feet â€” early referral to rheumatology improves long-term outcomes.",
     },
     treatment: {
       headline: "Rheumatoid arthritis treatment",
       intro:
-        "RA is treated with disease-modifying anti-rheumatic drugs (DMARDs) that slow or stop joint damage. Treatment is started as early as possible — ideally within 12 weeks of symptoms.",
+        "RA is treated with disease-modifying anti-rheumatic drugs (DMARDs) that slow or stop joint damage. Treatment is started as early as possible â€” ideally within 12 weeks of symptoms.",
       approaches: [
         { name: "Conventional DMARDs", description: "Methotrexate is the first-line treatment, often combined with sulfasalazine or hydroxychloroquine." },
         { name: "Biologic DMARDs", description: "Anti-TNF and other biologics are used when conventional DMARDs aren't enough." },
@@ -147,7 +147,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
         "Maintains joint range of motion and reduces stiffness",
         "Strengthens the muscles that protect inflamed joints",
         "Reduces fatigue (counter-intuitive but well-evidenced)",
-        "Supports cardiovascular health — important because RA increases heart risk",
+        "Supports cardiovascular health â€” important because RA increases heart risk",
         "Improves mood and reduces flare-related anxiety",
       ],
     },
@@ -178,10 +178,10 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
         "Psoriatic arthritis (PsA) is an inflammatory arthritis associated with psoriasis. Around 150,000 people in the UK live with PsA, and roughly 1 in 5 people with psoriasis develop it.",
       commonSymptoms: [
         "Joint pain and stiffness, often asymmetrical",
-        "Dactylitis — sausage-like swelling of a whole finger or toe",
+        "Dactylitis â€” sausage-like swelling of a whole finger or toe",
         "Nail changes: pitting, ridging, or separation from the nail bed",
         "Lower back and buttock pain (axial involvement)",
-        "Enthesitis — pain where tendons attach to bone, especially at the heel",
+        "Enthesitis â€” pain where tendons attach to bone, especially at the heel",
         "Fatigue and reduced exercise tolerance",
       ],
       whenToSeeGP:
@@ -239,10 +239,10 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
         "Gout is caused by sharp urate crystals forming in joints, leading to sudden, severe attacks. It affects around 1 in 40 adults in the UK and is the most common form of inflammatory arthritis in men.",
       commonSymptoms: [
         "Sudden onset of severe joint pain, often overnight or in the early morning",
-        "Hot, red, swollen joint — most commonly the base of the big toe",
+        "Hot, red, swollen joint â€” most commonly the base of the big toe",
         "Skin over the joint may look shiny and peel as the attack settles",
         "Even bedsheet pressure can feel unbearable during an attack",
-        "Attacks typically last 5–10 days and resolve fully between flares",
+        "Attacks typically last 5â€“10 days and resolve fully between flares",
         "Long-standing gout can cause visible lumps called tophi",
       ],
       whenToSeeGP:
@@ -253,10 +253,10 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
       intro:
         "Gout treatment has two parts: managing the acute attack, and lowering uric acid long term to prevent further attacks and joint damage.",
       approaches: [
-        { name: "NSAIDs during attacks", description: "First-line for most people — start as soon as the attack begins." },
+        { name: "NSAIDs during attacks", description: "First-line for most people â€” start as soon as the attack begins." },
         { name: "Colchicine", description: "Effective for acute attacks, particularly if NSAIDs aren't suitable." },
         { name: "Short steroid course", description: "Used when NSAIDs and colchicine aren't appropriate." },
-        { name: "Allopurinol", description: "Long-term urate-lowering therapy — the cornerstone of preventing future attacks." },
+        { name: "Allopurinol", description: "Long-term urate-lowering therapy â€” the cornerstone of preventing future attacks." },
         { name: "Febuxostat", description: "Alternative urate-lowering option when allopurinol isn't tolerated." },
         { name: "Lifestyle measures", description: "Weight management, reduced alcohol, and good hydration alongside medication." },
       ],
@@ -279,13 +279,13 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
         "Diet alone won't control gout, but it makes a meaningful difference alongside urate-lowering medication. Focus on hydration, alcohol moderation, and limiting high-purine foods.",
       foodsToFavor: [
         "Plenty of water (aim for 2 litres daily)",
-        "Low-fat dairy — protective against gout attacks",
+        "Low-fat dairy â€” protective against gout attacks",
         "Cherries and cherry juice (modest evidence for reducing flares)",
         "Coffee in moderation",
         "Vegetables, wholegrains, and plant proteins",
       ],
       foodsToLimit: [
-        "Beer and spirits — strongly associated with attacks",
+        "Beer and spirits â€” strongly associated with attacks",
         "Sugar-sweetened drinks and foods high in fructose",
         "Organ meats (liver, kidney, sweetbreads)",
         "Shellfish and oily fish in large amounts",
@@ -308,12 +308,12 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
         "Heel pain, eye inflammation (uveitis), or fatigue in some people",
       ],
       whenToSeeGP:
-        "See your GP if you've had back pain for more than three months that improves with movement and worsens with rest — this is a recognised red flag for inflammatory back pain.",
+        "See your GP if you've had back pain for more than three months that improves with movement and worsens with rest â€” this is a recognised red flag for inflammatory back pain.",
     },
     treatment: {
       headline: "Ankylosing spondylitis treatment",
       intro:
-        "AS treatment combines daily exercise — the single most important self-management step — with medication to control inflammation and prevent spinal fusion.",
+        "AS treatment combines daily exercise â€” the single most important self-management step â€” with medication to control inflammation and prevent spinal fusion.",
       approaches: [
         { name: "Daily spinal exercise", description: "Mobility, stretching, and posture work are the foundation of AS management." },
         { name: "NSAIDs", description: "First-line pharmacological treatment, often taken regularly rather than as needed." },
@@ -326,7 +326,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     exercises: {
       headline: "Best exercises for ankylosing spondylitis",
       intro:
-        "Daily exercise is the single most important self-management step in AS. It preserves spinal range of motion, maintains posture, and reduces stiffness — and is recommended by NASS as a daily routine.",
+        "Daily exercise is the single most important self-management step in AS. It preserves spinal range of motion, maintains posture, and reduces stiffness â€” and is recommended by NASS as a daily routine.",
       keyBenefits: [
         "Preserves spinal mobility and prevents stiffening",
         "Maintains posture and reduces deformity risk",
@@ -365,7 +365,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
         "Morning stiffness or a limp on waking",
         "A reluctance to use a particular limb or joint",
         "Unexplained fevers, rashes, or fatigue (in systemic JIA)",
-        "Eye inflammation (uveitis) — often without symptoms, so screening is essential",
+        "Eye inflammation (uveitis) â€” often without symptoms, so screening is essential",
         "Growth delay or limb-length differences in long-standing disease",
       ],
       whenToSeeGP:
@@ -423,7 +423,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
       commonSymptoms: [
         "Widespread pain lasting more than three months",
         "Persistent fatigue, even after sleep",
-        "Cognitive difficulties — often called 'fibro fog'",
+        "Cognitive difficulties â€” often called 'fibro fog'",
         "Sleep that doesn't feel restorative",
         "Heightened sensitivity to touch, light, sound, or temperature",
         "Irritable bowel symptoms, headaches, and mood changes",
@@ -434,22 +434,22 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     treatment: {
       headline: "Fibromyalgia treatment",
       intro:
-        "Fibromyalgia treatment focuses on self-management — graded exercise, pacing, and sleep — supported by medication where helpful. There's no single cure.",
+        "Fibromyalgia treatment focuses on self-management â€” graded exercise, pacing, and sleep â€” supported by medication where helpful. There's no single cure.",
       approaches: [
         { name: "Graded exercise", description: "The strongest evidence-based treatment for reducing pain and fatigue." },
         { name: "Cognitive behavioural therapy", description: "Helps with pain coping, sleep, and mood." },
         { name: "Pacing strategies", description: "Spreading activity across the week to avoid post-exertional crashes." },
         { name: "Amitriptyline or duloxetine", description: "Low-dose medications used for pain and sleep, prescribed by your GP." },
         { name: "Sleep hygiene", description: "Targeted improvements often reduce pain and fatigue significantly." },
-        { name: "Pain management programmes", description: "Multidisciplinary NHS programmes for complex cases." },
+        { name: "Pain management programmes", description: "Multidisciplinary UK healthcare programmes for complex cases." },
       ],
     },
     exercises: {
       headline: "Best exercises for fibromyalgia",
       intro:
-        "Very gentle, graded exercise is one of the most strongly evidenced treatments for fibromyalgia, reducing widespread pain, improving sleep, and easing fatigue over 8–12 weeks of consistent practice.",
+        "Very gentle, graded exercise is one of the most strongly evidenced treatments for fibromyalgia, reducing widespread pain, improving sleep, and easing fatigue over 8â€“12 weeks of consistent practice.",
       keyBenefits: [
-        "Reduces widespread pain over 8–12 weeks of consistent practice",
+        "Reduces widespread pain over 8â€“12 weeks of consistent practice",
         "Improves sleep quality",
         "Reduces fatigue (counter-intuitive but well-evidenced)",
         "Improves mood and reduces anxiety",
@@ -490,7 +490,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
         "Fevers, chest pain, or kidney involvement during flares",
       ],
       whenToSeeGP:
-        "See your GP if you have persistent unexplained fatigue, joint pain, rashes — particularly sun-triggered — or recurrent mouth ulcers. Blood tests can screen for lupus.",
+        "See your GP if you have persistent unexplained fatigue, joint pain, rashes â€” particularly sun-triggered â€” or recurrent mouth ulcers. Blood tests can screen for lupus.",
     },
     treatment: {
       headline: "Lupus treatment",
@@ -501,14 +501,14 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
         { name: "Corticosteroids", description: "Short courses for flares, kept at the lowest effective dose." },
         { name: "Immunosuppressants", description: "Methotrexate, mycophenolate, or azathioprine for more active disease." },
         { name: "Biologic therapies", description: "Belimumab and other biologics for selected cases." },
-        { name: "Sun protection", description: "SPF 50+ daily — UV light is a major trigger for lupus flares." },
+        { name: "Sun protection", description: "SPF 50+ daily â€” UV light is a major trigger for lupus flares." },
         { name: "Specialist monitoring", description: "Regular blood and urine tests to detect organ involvement early." },
       ],
     },
     exercises: {
       headline: "Best exercises for lupus",
       intro:
-        "Regular gentle exercise reduces lupus fatigue, supports cardiovascular health — an important consideration in SLE — and protects joint and muscle function.",
+        "Regular gentle exercise reduces lupus fatigue, supports cardiovascular health â€” an important consideration in SLE â€” and protects joint and muscle function.",
       keyBenefits: [
         "Reduces lupus fatigue",
         "Supports cardiovascular health (lupus increases heart risk)",
@@ -532,7 +532,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
         "Excess salt (important during steroid treatment)",
         "Ultra-processed and high-sugar foods",
         "Excess alcohol",
-        "Alfalfa sprouts — anecdotally linked to lupus flares",
+        "Alfalfa sprouts â€” anecdotally linked to lupus flares",
       ],
     },
   },
@@ -558,11 +558,11 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
       intro:
         "NICE recommends starting with exercise, weight management, and topical pain relief. Surgery is considered only when conservative measures no longer control symptoms.",
       approaches: [
-        { name: "Quadriceps strengthening", description: "Stronger quads reliably reduce knee OA pain — more so than any single drug." },
+        { name: "Quadriceps strengthening", description: "Stronger quads reliably reduce knee OA pain â€” more so than any single drug." },
         { name: "Weight management", description: "Every kilogram lost reduces knee load by up to four kilograms during walking." },
         { name: "Topical NSAIDs", description: "First-line drug treatment per NICE 2022 guidance." },
         { name: "Walking aids", description: "A stick used in the opposite hand reduces knee load by up to 25%." },
-        { name: "Steroid injections", description: "Short-term relief for flares — typically no more than three per year." },
+        { name: "Steroid injections", description: "Short-term relief for flares â€” typically no more than three per year." },
         { name: "Knee replacement surgery", description: "Considered when conservative care no longer manages pain or function." },
       ],
     },
@@ -571,8 +571,8 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
       intro:
         "Strengthening the quadriceps and glutes reduces knee pain more reliably than any non-surgical treatment. Combine with low-impact aerobic activity for best results.",
       keyBenefits: [
-        "Reduces knee pain within 6–8 weeks of consistent practice",
-        "Strengthens quads and glutes — the muscles that protect the knee",
+        "Reduces knee pain within 6â€“8 weeks of consistent practice",
+        "Strengthens quads and glutes â€” the muscles that protect the knee",
         "Improves balance and reduces fall risk",
         "Supports a healthy weight",
         "May delay or avoid the need for knee replacement",
@@ -585,7 +585,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
       foodsToFavor: [
         "Oily fish for omega-3s",
         "Olive oil, nuts, and seeds",
-        "Plenty of vegetables and fruit — aim for 7+ portions daily",
+        "Plenty of vegetables and fruit â€” aim for 7+ portions daily",
         "Wholegrains and pulses for fibre and satiety",
         "Lean protein to support muscle around the joint",
       ],
@@ -606,7 +606,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
       commonSymptoms: [
         "Pain or aching in the fingers, thumb base, or wrist",
         "Morning stiffness in the hands",
-        "Reduced grip strength — opening jars or turning keys becomes difficult",
+        "Reduced grip strength â€” opening jars or turning keys becomes difficult",
         "Visible bony lumps at the finger joints (Heberden's and Bouchard's nodes)",
         "Swelling and warmth in finger joints (suggests inflammatory arthritis)",
         "Loss of fine motor control for buttons, zips, or handwriting",
@@ -664,7 +664,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
       intro:
         "Shoulder arthritis affects the glenohumeral or acromioclavicular joint and is most common after age 50. It can also follow rotator cuff injury.",
       commonSymptoms: [
-        "Deep, aching shoulder pain — often worse at night",
+        "Deep, aching shoulder pain â€” often worse at night",
         "Stiffness and reduced range of motion",
         "Difficulty reaching overhead, behind the back, or across the body",
         "Clicking or grinding sensations during movement",
@@ -682,7 +682,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
         { name: "Physiotherapy", description: "Tailored range-of-motion and strengthening programmes preserve function." },
         { name: "Pain relief", description: "Paracetamol, topical NSAIDs, and short-term oral NSAIDs for flares." },
         { name: "Heat or ice", description: "Heat before exercise; ice after activity for inflammation." },
-        { name: "Steroid injections", description: "Often very effective for shoulder OA pain — used selectively." },
+        { name: "Steroid injections", description: "Often very effective for shoulder OA pain â€” used selectively." },
         { name: "Activity modification", description: "Adapting overhead tasks and lifting to protect the shoulder." },
         { name: "Joint replacement surgery", description: "Considered for severe arthritis when conservative care fails." },
       ],
@@ -738,10 +738,10 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     treatment: {
       headline: "Polymyalgia rheumatica treatment",
       intro:
-        "PMR responds dramatically well to low-dose corticosteroids. Treatment is usually continued for 1–2 years with very gradual dose tapering.",
+        "PMR responds dramatically well to low-dose corticosteroids. Treatment is usually continued for 1â€“2 years with very gradual dose tapering.",
       approaches: [
         { name: "Low-dose prednisolone", description: "Most people feel much better within a few days of starting treatment." },
-        { name: "Slow steroid taper", description: "Dose is reduced gradually over 1–2 years to prevent relapse." },
+        { name: "Slow steroid taper", description: "Dose is reduced gradually over 1â€“2 years to prevent relapse." },
         { name: "Bone protection", description: "Calcium, vitamin D, and often a bisphosphonate to protect against steroid-induced osteoporosis." },
         { name: "Gastric protection", description: "PPIs are often co-prescribed during steroid treatment." },
         { name: "Methotrexate", description: "Sometimes added to help reduce the steroid dose if relapses are frequent." },
@@ -784,17 +784,17 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     symptoms: {
       headline: "Reactive arthritis symptoms",
       intro:
-        "Reactive arthritis is joint inflammation triggered by an infection elsewhere in the body — usually a gut or urinary infection. Symptoms typically appear 2–4 weeks after the triggering infection.",
+        "Reactive arthritis is joint inflammation triggered by an infection elsewhere in the body â€” usually a gut or urinary infection. Symptoms typically appear 2â€“4 weeks after the triggering infection.",
       commonSymptoms: [
         "Joint pain and swelling, often in the knees, ankles, or feet",
         "Lower back or buttock pain",
         "Heel pain (enthesitis)",
-        "Dactylitis — sausage-like swelling of a toe or finger",
+        "Dactylitis â€” sausage-like swelling of a toe or finger",
         "Eye inflammation (conjunctivitis or uveitis)",
         "Burning on passing urine, even after the triggering infection has cleared",
       ],
       whenToSeeGP:
-        "See your GP if you develop joint pain and swelling within a few weeks of a gut or urinary infection. Mention the recent infection — it's an important clue for diagnosis.",
+        "See your GP if you develop joint pain and swelling within a few weeks of a gut or urinary infection. Mention the recent infection â€” it's an important clue for diagnosis.",
     },
     treatment: {
       headline: "Reactive arthritis treatment",
@@ -824,7 +824,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     diet: {
       headline: "Diet for reactive arthritis",
       intro:
-        "A Mediterranean-style anti-inflammatory diet supports recovery and gut health — particularly important if the triggering infection was gastrointestinal.",
+        "A Mediterranean-style anti-inflammatory diet supports recovery and gut health â€” particularly important if the triggering infection was gastrointestinal.",
       foodsToFavor: [
         "Plenty of water for hydration during recovery",
         "Oily fish for omega-3s",

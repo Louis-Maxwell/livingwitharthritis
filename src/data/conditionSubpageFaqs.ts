@@ -1,6 +1,6 @@
-// Programmatic FAQ generator for /conditions/:condition/:subpage pages.
+﻿// Programmatic FAQ generator for /conditions/:condition/:subpage pages.
 // Produces 5 question-based long-tail keyword variations per page,
-// applied to all 13 conditions × 4 sub-pages = 52 unique FAQ blocks.
+// applied to all 13 conditions Ã— 4 sub-pages = 52 unique FAQ blocks.
 
 import type { SubpageSlug } from "./conditionSubpages";
 
@@ -21,15 +21,15 @@ export function buildSubpageFaqs(
     return [
       {
         question: `What are the first signs of ${lcName}?`,
-        answer: `The earliest signs of ${lcName} often include joint pain, stiffness — particularly in the morning or after rest — and reduced flexibility in the affected area. Symptoms typically develop gradually, so keep a short symptom diary and speak to your GP if pain persists for more than a few weeks.`,
+        answer: `The earliest signs of ${lcName} often include joint pain, stiffness â€” particularly in the morning or after rest â€” and reduced flexibility in the affected area. Symptoms typically develop gradually, so keep a short symptom diary and speak to your GP if pain persists for more than a few weeks.`,
       },
       {
         question: `How is ${lcName} diagnosed in the UK?`,
-        answer: `In the UK, GPs diagnose ${lcName} from your symptoms, a clinical examination, and — where appropriate — blood tests, X-rays, ultrasound or MRI. For inflammatory types, your GP may refer you to NHS rheumatology for specialist review under NICE guidance.`,
+        answer: `In the UK, GPs diagnose ${lcName} from your symptoms, a clinical examination, and â€” where appropriate â€” blood tests, X-rays, ultrasound or MRI. For inflammatory types, your GP may refer you to UK healthcare rheumatology for specialist review under NICE guidance.`,
       },
       {
         question: `Can ${lcShort} symptoms come and go?`,
-        answer: `Yes. Many people with ${lcShort} experience flares — periods of worse pain, swelling and stiffness — followed by quieter spells. Tracking your flares helps you and your GP spot triggers and adjust treatment.`,
+        answer: `Yes. Many people with ${lcShort} experience flares â€” periods of worse pain, swelling and stiffness â€” followed by quieter spells. Tracking your flares helps you and your GP spot triggers and adjust treatment.`,
       },
       {
         question: `When should I see a GP about ${lcName} symptoms?`,
@@ -37,7 +37,7 @@ export function buildSubpageFaqs(
       },
       {
         question: `Is ${lcName} the same as general arthritis pain?`,
-        answer: `No — there are over 100 forms of arthritis, and ${lcName} has its own pattern of symptoms, affected joints and treatment pathway. Getting the right diagnosis matters because the most effective treatments differ between conditions.`,
+        answer: `No â€” there are over 100 forms of arthritis, and ${lcName} has its own pattern of symptoms, affected joints and treatment pathway. Getting the right diagnosis matters because the most effective treatments differ between conditions.`,
       },
     ];
   }
@@ -46,7 +46,7 @@ export function buildSubpageFaqs(
     return [
       {
         question: `What is the best treatment for ${lcName} in the UK?`,
-        answer: `UK treatment for ${lcName} follows NICE guidance and usually combines self-management (exercise, weight control, pacing), pain relief, and — where needed — specialist medication or therapy. There is no single "best" option; the right plan depends on the type, severity and joints involved.`,
+        answer: `UK treatment for ${lcName} follows NICE guidance and usually combines self-management (exercise, weight control, pacing), pain relief, and â€” where needed â€” specialist medication or therapy. There is no single "best" option; the right plan depends on the type, severity and joints involved.`,
       },
       {
         question: `Can ${lcName} be cured?`,
@@ -58,11 +58,11 @@ export function buildSubpageFaqs(
       },
       {
         question: `Do I need a referral to see a rheumatologist for ${lcShort}?`,
-        answer: `Yes — in the UK, you'll usually need a referral from your GP to access NHS rheumatology services. If your GP suspects an inflammatory arthritis, NICE recommends urgent referral so that treatment can start early.`,
+        answer: `Yes â€” in the UK, you'll usually need a referral from your GP to access UK healthcare rheumatology services. If your GP suspects an inflammatory arthritis, NICE recommends urgent referral so that treatment can start early.`,
       },
       {
-        question: `Are there free NHS resources for ${lcName} treatment?`,
-        answer: `Yes. NHS physiotherapy, occupational therapy, pain clinics and self-management programmes are available — many free at the point of use. Ask your GP or check the NHS website for services in your area.`,
+        question: `Are there free UK healthcare resources for ${lcName} treatment?`,
+        answer: `Yes. UK healthcare physiotherapy, occupational therapy, pain clinics and self-management programmes are available â€” many free at the point of use. Ask your GP or check the UK healthcare system website for services in your area.`,
       },
     ];
   }
@@ -75,7 +75,7 @@ export function buildSubpageFaqs(
       },
       {
         question: `Is it safe to exercise with ${lcShort}?`,
-        answer: `Yes — for most people with ${lcShort}, regular movement is one of the most effective self-management tools. Some short-term discomfort can be normal, but stop if you have sharp pain or sudden swelling and speak to a physiotherapist.`,
+        answer: `Yes â€” for most people with ${lcShort}, regular movement is one of the most effective self-management tools. Some short-term discomfort can be normal, but stop if you have sharp pain or sudden swelling and speak to a physiotherapist.`,
       },
       {
         question: `What exercises should I avoid with ${lcName}?`,
@@ -83,11 +83,11 @@ export function buildSubpageFaqs(
       },
       {
         question: `How often should I exercise with ${lcShort}?`,
-        answer: `Aim for short, regular sessions — most days of the week — rather than long, intense workouts. UK physiotherapy guidance suggests building up to around 150 minutes of moderate activity per week, split into manageable sessions.`,
+        answer: `Aim for short, regular sessions â€” most days of the week â€” rather than long, intense workouts. UK physiotherapy guidance suggests building up to around 150 minutes of moderate activity per week, split into manageable sessions.`,
       },
       {
         question: `Can exercise reduce ${lcName} pain?`,
-        answer: `Yes — strong evidence shows that consistent exercise reduces pain, stiffness and fatigue in ${lcName}, while improving sleep, mood and overall function. Benefits usually appear within 6–8 weeks of regular practice.`,
+        answer: `Yes â€” strong evidence shows that consistent exercise reduces pain, stiffness and fatigue in ${lcName}, while improving sleep, mood and overall function. Benefits usually appear within 6â€“8 weeks of regular practice.`,
       },
     ];
   }
@@ -100,11 +100,11 @@ export function buildSubpageFaqs(
     },
     {
       question: `What foods should I avoid with ${lcShort}?`,
-      answer: `Limit ultra-processed foods, sugary drinks, excess alcohol, and large amounts of red or processed meat. Many people also notice individual triggers — a short food diary can help you spot them.`,
+      answer: `Limit ultra-processed foods, sugary drinks, excess alcohol, and large amounts of red or processed meat. Many people also notice individual triggers â€” a short food diary can help you spot them.`,
     },
     {
       question: `Can diet reduce ${lcName} inflammation?`,
-      answer: `Yes — an anti-inflammatory eating pattern, combined with maintaining a healthy weight, has been shown to reduce joint pain and inflammatory markers in ${lcName}. Diet works best alongside exercise and any prescribed medication.`,
+      answer: `Yes â€” an anti-inflammatory eating pattern, combined with maintaining a healthy weight, has been shown to reduce joint pain and inflammatory markers in ${lcName}. Diet works best alongside exercise and any prescribed medication.`,
     },
     {
       question: `Do supplements help with ${lcShort}?`,
@@ -117,7 +117,7 @@ export function buildSubpageFaqs(
   ];
 }
 
-// Long-tail H2 sub-section labels per page type — used to enrich on-page
+// Long-tail H2 sub-section labels per page type â€” used to enrich on-page
 // keyword coverage without inventing condition-specific copy.
 export function buildSubpageH2Variants(
   conditionName: string,
@@ -133,7 +133,7 @@ export function buildSubpageH2Variants(
   }
   if (subpage === "treatment") {
     return [
-      `NHS treatment options for ${lc}`,
+      `UK healthcare treatment options for ${lc}`,
       `Medication and pain relief for ${lc}`,
       `Self-management and lifestyle support for ${lc}`,
     ];
@@ -148,6 +148,6 @@ export function buildSubpageH2Variants(
   return [
     `Anti-inflammatory diet for ${lc}`,
     `Foods to avoid with ${lc}`,
-    `Supplements and ${lc} — what the evidence says`,
+    `Supplements and ${lc} â€” what the evidence says`,
   ];
 }

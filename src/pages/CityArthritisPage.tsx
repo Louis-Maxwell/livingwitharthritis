@@ -1,4 +1,4 @@
-import { useParams, Navigate, Link } from "react-router-dom";
+﻿import { useParams, Navigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -69,7 +69,7 @@ const CityArthritisPage = () => {
     mainEntity: [
       { "@type": "Question", name: `Where can I get arthritis treatment in ${cityData.name}?`, acceptedAnswer: { "@type": "Answer", text: `${cityData.name} patients are typically referred to ${cityData.localTrust} for rheumatology. Ask your GP for a referral.` } },
       { "@type": "Question", name: `How long is the rheumatology waiting list in ${cityData.name}?`, acceptedAnswer: { "@type": "Answer", text: `Waiting times in ${cityData.region} typically range from 14 to 22 weeks in 2026. Use our free Rheumatology Waiting Time Calculator for a regional estimate.` } },
-      { "@type": "Question", name: `Are there free arthritis support groups in ${cityData.name}?`, acceptedAnswer: { "@type": "Answer", text: `Yes — local resources include ${cityData.localResources.slice(0, 2).join(" and ")}. Living With Arthritis also offers a free online community.` } },
+      { "@type": "Question", name: `Are there free arthritis support groups in ${cityData.name}?`, acceptedAnswer: { "@type": "Answer", text: `Yes â€” local resources include ${cityData.localResources.slice(0, 2).join(" and ")}. Living With Arthritis also offers a free online community.` } },
     ],
   };
 
@@ -123,7 +123,7 @@ const CityArthritisPage = () => {
             <AeoEnhancement
               route={`/arthritis-support/${cityData.slug}`}
               question={`Where can I get arthritis support in ${cityData.name}?`}
-              answer={`In ${cityData.name} (${cityData.region}), NHS rheumatology referrals are typically made via ${cityData.localTrust}. Local resources include ${cityData.localResources.slice(0, 2).join(" and ")}. Living With Arthritis UK also runs a free online community and exercise programme accessible from anywhere.`}
+              answer={`In ${cityData.name} (${cityData.region}), UK healthcare rheumatology referrals are typically made via ${cityData.localTrust}. Local resources include ${cityData.localResources.slice(0, 2).join(" and ")}. Living With Arthritis UK also runs a free online community and exercise programme accessible from anywhere.`}
               updatedAt={LAST_REVIEWED_ISO}
             />
             <p className="text-lg text-muted-foreground leading-relaxed">{cityData.description}</p>
@@ -206,7 +206,7 @@ const CityArthritisPage = () => {
               <li>Visit your GP and describe your symptoms (pain, stiffness, swelling)</li>
               <li>Ask specifically for a referral to rheumatology</li>
               <li>You may be referred to <strong>{cityData.localTrust}</strong></li>
-              <li>Waiting times vary — ask your GP about the current wait</li>
+              <li>Waiting times vary â€” ask your GP about the current wait</li>
               <li>While waiting, try our <Link to="/self-help" className="text-primary underline underline-offset-2">self-help tools</Link></li>
             </ol>
           </section>
@@ -267,7 +267,7 @@ const CityArthritisPage = () => {
                 to: "/conditions/osteoarthritis",
                 eyebrow: "Condition guide",
                 title: "Osteoarthritis: full UK guide",
-                description: "The most common form of arthritis — symptoms, exercises and treatment options.",
+                description: "The most common form of arthritis â€” symptoms, exercises and treatment options.",
                 readTime: "8 min read",
                 icon: BookOpen,
                 tint: "bg-tint-emerald",

@@ -1,4 +1,4 @@
-import {
+﻿import {
   Dialog,
   DialogContent,
   DialogDescription,
@@ -17,10 +17,10 @@ interface EmergencyRedirectDialogProps {
 }
 
 const COPY: Record<string, string> = {
-  self_harm: "It sounds like you're going through something incredibly difficult. You are not alone — please reach out now.",
+  self_harm: "It sounds like you're going through something incredibly difficult. You are not alone â€” please reach out now.",
   cardiac: "These symptoms can indicate a heart problem. Please get help immediately.",
-  stroke: "These symptoms can indicate a stroke. Time is critical — call 999 now.",
-  septic_joint: "A hot, swollen joint with fever needs urgent assessment — please contact NHS 111 or your GP today.",
+  stroke: "These symptoms can indicate a stroke. Time is critical â€” call 999 now.",
+  septic_joint: "A hot, swollen joint with fever needs urgent assessment â€” please contact 999 or 112 or your GP today.",
   anaphylaxis: "These symptoms may indicate a severe allergic reaction. Call 999 immediately.",
   severe_bleed: "Please get urgent medical help.",
   default: "Some of what you described needs a real person, not online information. Please use one of the contacts below.",
@@ -60,7 +60,7 @@ export default function EmergencyRedirectDialog({
             className="flex items-center justify-between rounded-xl border border-border bg-card p-4 transition-colors hover:bg-muted/40"
           >
             <div>
-              <div className="font-semibold text-foreground">NHS 111</div>
+              <div className="font-semibold text-foreground">999 or 112</div>
               <div className="text-xs text-muted-foreground">Urgent but not life-threatening</div>
             </div>
             <Phone className="h-5 w-5 text-primary" aria-hidden="true" />
@@ -87,7 +87,7 @@ export default function EmergencyRedirectDialog({
   );
 }
 
-/* ─── Helper used by callers to detect red flags client-side ───────────── */
+/* â”€â”€â”€ Helper used by callers to detect red flags client-side â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 const RED_FLAG_PATTERNS: { category: string; pattern: RegExp }[] = [
   { category: "self_harm", pattern: /\b(suicide|kill myself|end my life|self[- ]harm|hurt myself|want to die)\b/i },
   { category: "cardiac", pattern: /\b(chest pain|crushing chest|left arm.*(pain|numb))\b/i },

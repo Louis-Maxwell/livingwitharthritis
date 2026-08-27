@@ -1,4 +1,4 @@
-import taxonomy from "@/data/keyword-taxonomy.json";
+﻿import taxonomy from "@/data/keyword-taxonomy.json";
 import contentMap from "@/data/keyword-content-map.json";
 import type { KeywordTaxonomy, ArticleKeywordMap } from "@/types/keyword";
 
@@ -6,7 +6,7 @@ const TAX = taxonomy as unknown as KeywordTaxonomy;
 
 const LONG_TAIL_MODIFIERS = [
   "best", "how to", "symptoms of", "treatment for",
-  "uk", "nhs alternative", "exercises for", "diet for", "2026",
+  "uk", "affordable alternative", "exercises for", "diet for", "2026",
 ];
 
 /** Expand a head keyword into long-tail variants (used to reach 5k coverage). */

@@ -1,4 +1,4 @@
-import { memo } from "react";
+﻿import { memo } from "react";
 import { Heart, Stethoscope } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -27,9 +27,9 @@ const FounderStoryBand = memo(() => {
           {/* Body copy */}
           <div className="prose prose-sm md:prose-base max-w-none text-foreground/80 space-y-4 mb-8">
             <p>
-              Louis Maxwell is a First Contact Practitioner in NHS primary care. When he was diagnosed
+              Louis Maxwell is a First Contact Practitioner in UK healthcare primary care. When he was diagnosed
               with lumbar spine degeneration at just 28, he expected clear guidance. Instead, his GP
-              handed him a sheet of home exercises—nothing else.
+              handed him a sheet of home exercisesâ€”nothing else.
             </p>
 
             <p>
@@ -49,7 +49,7 @@ const FounderStoryBand = memo(() => {
             </p>
 
             <p>
-              And every resource is free—because no one should choose between affordability and care.
+              And every resource is freeâ€”because no one should choose between affordability and care.
             </p>
           </div>
 

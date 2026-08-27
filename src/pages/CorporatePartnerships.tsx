@@ -1,4 +1,4 @@
-import { Building2, Users, TrendingUp, Gift } from "lucide-react";
+﻿import { Building2, Users, TrendingUp, Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SeoHead from "@/components/SeoHead";
 
@@ -40,7 +40,7 @@ export default function CorporatePartnerships() {
               <Building2 className="w-8 h-8 text-black mb-3" />
               <h3 className="font-bold text-xl mb-2">Employee Wellness</h3>
               <p className="text-gray-700">
-                <strong>2M UK employees manage arthritis.</strong> Your workforce likely includes many of them. Partnering gives them free, workplace-ready guidance on managing pain, staying active, and accessing NHS care.
+                <strong>2M UK employees manage arthritis.</strong> Your workforce likely includes many of them. Partnering gives them free, workplace-ready guidance on managing pain, staying active, and accessing UK healthcare care.
               </p>
             </div>
             <div className="bg-secondary/5 p-8 rounded-lg border-l-4 border-secondary">
@@ -74,7 +74,7 @@ export default function CorporatePartnerships() {
             {[
               {
                 tier: "Supporter",
-                amount: "£25K–50K",
+                amount: "Â£25Kâ€“50K",
                 benefits: [
                   "Your logo on homepage partner section",
                   "Joint press release",
@@ -84,7 +84,7 @@ export default function CorporatePartnerships() {
               },
               {
                 tier: "Champion",
-                amount: "£50K–250K",
+                amount: "Â£50Kâ€“250K",
                 benefits: [
                   "Everything in Supporter, plus:",
                   "Branded employee wellness module (custom to your company)",
@@ -95,7 +95,7 @@ export default function CorporatePartnerships() {
               },
               {
                 tier: "Founding Partner",
-                amount: "£250K+",
+                amount: "Â£250K+",
                 benefits: [
                   "Everything in Champion, plus:",
                   "Executive seat on advisory board (quarterly)",
@@ -114,7 +114,7 @@ export default function CorporatePartnerships() {
                 <ul className="space-y-2 text-sm mb-6">
                   {t.benefits.map((b, j) => (
                     <li key={j} className="flex gap-2">
-                      <span className="text-primary">✓</span>
+                      <span className="text-primary">âœ“</span>
                       <span>{b}</span>
                     </li>
                   ))}
@@ -134,7 +134,7 @@ export default function CorporatePartnerships() {
             <p className="text-lg italic text-gray-700 mb-4">
               "Partnering with Living With Arthritis let us reach 15,000 of our employees who have arthritis or family members with it. We saw a 22% increase in our wellness programme participation, and the partnership strengthened our ESG story with investors."
             </p>
-            <footer className="font-semibold">— Sarah Chen, Head of Wellness, TechCorp UK</footer>
+            <footer className="font-semibold">â€” Sarah Chen, Head of Wellness, TechCorp UK</footer>
           </blockquote>
         </section>
 
@@ -151,7 +151,7 @@ export default function CorporatePartnerships() {
                 Download Partnership Deck (PDF)
               </Button>
             </div>
-            <p className="text-sm mt-6">📧 partnerships@livingwitharthritis.org.uk</p>
+            <p className="text-sm mt-6">ðŸ“§ partnerships@livingwitharthritis.org.uk</p>
           </div>
         </section>
       </main>

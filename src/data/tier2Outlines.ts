@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Tier 2 topical-authority scaffolds.
  *
  * 4 pillar pages + 40 cluster article outlines. Maxwell expands each outline
@@ -45,7 +45,7 @@ export const pillarScaffolds: PillarScaffold[] = [
     route: '/conditions/osteoarthritis',
     title: 'Osteoarthritis: Complete UK Guide',
     metaDescription:
-      'Evidence-based osteoarthritis guide — causes, symptoms, diagnosis, treatment, exercise and diet. Reviewed by HCPC physiotherapist.',
+      'Evidence-based osteoarthritis guide â€” causes, symptoms, diagnosis, treatment, exercise and diet. Reviewed by HCPC physiotherapist.',
     targetKeywords: ['osteoarthritis', 'how to manage osteoarthritis', 'osteoarthritis treatment'],
     wordCountTarget: 1200,
     sections: [
@@ -66,7 +66,7 @@ export const pillarScaffolds: PillarScaffold[] = [
     route: '/conditions/rheumatoid-arthritis',
     title: 'Rheumatoid Arthritis: Complete UK Guide',
     metaDescription:
-      'Evidence-based RA guide — autoimmune mechanism, early symptoms, DMARDs, biologics, exercise, work and pregnancy. HCPC-reviewed.',
+      'Evidence-based RA guide â€” autoimmune mechanism, early symptoms, DMARDs, biologics, exercise, work and pregnancy. HCPC-reviewed.',
     targetKeywords: ['rheumatoid arthritis', 'living with RA', 'RA treatment'],
     wordCountTarget: 1200,
     sections: [
@@ -87,7 +87,7 @@ export const pillarScaffolds: PillarScaffold[] = [
     route: '/conditions/juvenile-arthritis',
     title: 'Juvenile Arthritis: Complete Parent Guide',
     metaDescription:
-      'Evidence-based juvenile arthritis guide for UK parents — types, symptoms, diagnosis, school, sports, treatment and family support.',
+      'Evidence-based juvenile arthritis guide for UK parents â€” types, symptoms, diagnosis, school, sports, treatment and family support.',
     targetKeywords: ['juvenile arthritis', 'arthritis in children', 'JA treatment'],
     wordCountTarget: 1200,
     sections: [
@@ -217,11 +217,11 @@ const osteoarthritis: Tier2Outline[] = [
     'Weight Management & Osteoarthritis',
     ['weight loss osteoarthritis', 'obesity and arthritis'],
     [
-      { title: 'How weight affects joints', keyPoints: ['4× load on knees', 'Inflammation'] },
+      { title: 'How weight affects joints', keyPoints: ['4Ã— load on knees', 'Inflammation'] },
       { title: 'Safe weight loss', keyPoints: ['Sustainable pace', 'Avoiding crash diets'] },
       { title: 'Nutrition', keyPoints: ['Mediterranean pattern', 'Protein'] },
       { title: 'Exercise', keyPoints: ['Low-impact options', 'Strength training'] },
-      { title: 'Medical support', keyPoints: ['NHS Tier 2/3', 'GP referral'] },
+      { title: 'Medical support', keyPoints: ['UK healthcare Tier 2/3', 'GP referral'] },
     ],
     [
       { slug: 'knee-osteoarthritis-complete-guide', title: 'Knee Osteoarthritis Guide' },
@@ -725,7 +725,7 @@ const mentalHealth: Tier2Outline[] = [
     ['therapist arthritis', 'counseling chronic illness'],
     [
       { title: 'Types of therapy', keyPoints: ['CBT', 'ACT', 'Counselling'] },
-      { title: 'Finding providers', keyPoints: ['NHS Talking Therapies', 'BABCP'] },
+      { title: 'Finding providers', keyPoints: ['UK healthcare Talking Therapies', 'BABCP'] },
       { title: 'What to expect', keyPoints: ['First session', 'Goals'] },
       { title: 'Working with mental health professionals', keyPoints: ['Sharing pain context'] },
     ],

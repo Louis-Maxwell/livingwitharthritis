@@ -1,12 +1,12 @@
-/**
- * 1,000 UK-focused arthritis keywords — split into two clearly labelled groups:
- *   • 500 "organic" (informational, long-tail, question-based)
- *   • 500 "paid" (commercial / transactional intent for PPC campaigns)
+﻿/**
+ * 1,000 UK-focused arthritis keywords â€” split into two clearly labelled groups:
+ *   â€¢ 500 "organic" (informational, long-tail, question-based)
+ *   â€¢ 500 "paid" (commercial / transactional intent for PPC campaigns)
  *
  * This file is the single source of truth for the /admin/keyword-strategy
  * dashboard and for editorial teams building meta titles / descriptions.
  * It's expanded programmatically from seed matrices so the taxonomy stays
- * consistent — but the exported array is a plain, immutable list of 1000
+ * consistent â€” but the exported array is a plain, immutable list of 1000
  * entries.
  */
 
@@ -43,9 +43,9 @@ export interface KeywordEntry {
   group: KeywordGroup;
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // Seed data
-// ─────────────────────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const CONDITIONS = [
   "osteoarthritis",
@@ -86,9 +86,9 @@ const CITIES = [
   "cardiff",
 ] as const;
 
-// ─────────────────────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // Helper
-// ─────────────────────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const conditionSlug = (c: string) =>
   c.replace(/ /g, "-").replace("arthritis", "arthritis");
@@ -103,9 +103,9 @@ const add = (entry: KeywordEntry) => {
   out.push(entry);
 };
 
-// ─────────────────────────────────────────────────────────────────────────────
-// ORGANIC (500) — informational, long-tail, question-based
-// ─────────────────────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ORGANIC (500) â€” informational, long-tail, question-based
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const ORG_TEMPLATES: Array<
   (c: string) => Omit<KeywordEntry, "group"> | null
@@ -221,7 +221,7 @@ for (const q of ORG_QUESTIONS) {
 // Long-tail expansion until we hit 500 organic
 const ORG_MODIFIERS = [
   "in the uk",
-  "nhs",
+  "UK healthcare system",
   "at home",
   "for beginners",
   "for over 60s",
@@ -276,9 +276,9 @@ for (const s of seeds) {
   }
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// PAID (500) — commercial / transactional intent
-// ─────────────────────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// PAID (500) â€” commercial / transactional intent
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const PAID_SERVICE_TEMPLATES: Array<(city: string) => Omit<KeywordEntry, "group">> = [
   (city) => ({ keyword: `arthritis physiotherapy ${city}`, intent: "commercial", category: "physio", targetPage: `/exercise-hub` }),
@@ -341,7 +341,7 @@ const PAID_PRODUCTS: Array<Omit<KeywordEntry, "group">> = [
 ];
 for (const e of PAID_PRODUCTS) add({ ...e, group: "paid" });
 
-// Bulk paid expansion via city × modifier until we hit 500 paid
+// Bulk paid expansion via city Ã— modifier until we hit 500 paid
 const PAID_MODIFIERS = [
   "cost",
   "price",
@@ -403,9 +403,9 @@ for (const s of PAID_SEEDS) {
   }
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // Trim / pad exports
-// ─────────────────────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const organic = out.filter((k) => k.group === "organic").slice(0, 500);
 const paid = out.filter((k) => k.group === "paid").slice(0, 500);

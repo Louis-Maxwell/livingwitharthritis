@@ -1,7 +1,7 @@
-// AUTO-GENERATED — Article scaffolds for top-priority keyword gaps
+﻿// AUTO-GENERATED â€” Article scaffolds for top-priority keyword gaps
 // STATUS: STUBS ONLY. Every faq_shell answer contains a [REVIEWER: ...]
 // placeholder. Do NOT route or publish until a clinical reviewer replaces
-// every placeholder — see ARTICLE-SCAFFOLDING-GUIDE.md for the workflow.
+// every placeholder â€” see ARTICLE-SCAFFOLDING-GUIDE.md for the workflow.
 // This file is intentionally NOT imported into App.tsx or ai-head-data.json.
 
 export interface ArticleScaffold {
@@ -29,7 +29,7 @@ export const ARTICLE_SCAFFOLDS: ArticleScaffold[] = [
         "a": "[REVIEWER: safety summary + when to consult a GP/rheumatologist]"
       },
       {
-        "q": "What does the NHS recommend?",
+        "q": "What Does the UK healthcare system recommend?",
         "a": "[REVIEWER: cite relevant NICE guideline number]"
       }
     ]
@@ -52,7 +52,7 @@ export const ARTICLE_SCAFFOLDS: ArticleScaffold[] = [
         "a": "[REVIEWER: safety summary + when to consult a GP/rheumatologist]"
       },
       {
-        "q": "What does the NHS recommend?",
+        "q": "What Does the UK healthcare system recommend?",
         "a": "[REVIEWER: cite relevant NICE guideline number]"
       }
     ]
@@ -75,7 +75,7 @@ export const ARTICLE_SCAFFOLDS: ArticleScaffold[] = [
         "a": "[REVIEWER: safety summary + when to consult a GP/rheumatologist]"
       },
       {
-        "q": "What does the NHS recommend?",
+        "q": "What Does the UK healthcare system recommend?",
         "a": "[REVIEWER: cite relevant NICE guideline number]"
       }
     ]
@@ -98,7 +98,7 @@ export const ARTICLE_SCAFFOLDS: ArticleScaffold[] = [
         "a": "[REVIEWER: safety summary + when to consult a GP/rheumatologist]"
       },
       {
-        "q": "What does the NHS recommend?",
+        "q": "What Does the UK healthcare system recommend?",
         "a": "[REVIEWER: cite relevant NICE guideline number]"
       }
     ]
@@ -121,7 +121,7 @@ export const ARTICLE_SCAFFOLDS: ArticleScaffold[] = [
         "a": "[REVIEWER: safety summary + when to consult a GP/rheumatologist]"
       },
       {
-        "q": "What does the NHS recommend?",
+        "q": "What Does the UK healthcare system recommend?",
         "a": "[REVIEWER: cite relevant NICE guideline number]"
       }
     ]
@@ -144,7 +144,7 @@ export const ARTICLE_SCAFFOLDS: ArticleScaffold[] = [
         "a": "[REVIEWER: safety summary + when to consult a GP/rheumatologist]"
       },
       {
-        "q": "What does the NHS recommend?",
+        "q": "What Does the UK healthcare system recommend?",
         "a": "[REVIEWER: cite relevant NICE guideline number]"
       }
     ]
@@ -167,7 +167,7 @@ export const ARTICLE_SCAFFOLDS: ArticleScaffold[] = [
         "a": "[REVIEWER: safety summary + when to consult a GP/rheumatologist]"
       },
       {
-        "q": "What does the NHS recommend?",
+        "q": "What Does the UK healthcare system recommend?",
         "a": "[REVIEWER: cite relevant NICE guideline number]"
       }
     ]
@@ -190,7 +190,7 @@ export const ARTICLE_SCAFFOLDS: ArticleScaffold[] = [
         "a": "[REVIEWER: safety summary + when to consult a GP/rheumatologist]"
       },
       {
-        "q": "What does the NHS recommend?",
+        "q": "What Does the UK healthcare system recommend?",
         "a": "[REVIEWER: cite relevant NICE guideline number]"
       }
     ]
@@ -213,7 +213,7 @@ export const ARTICLE_SCAFFOLDS: ArticleScaffold[] = [
         "a": "[REVIEWER: safety summary + when to consult a GP/rheumatologist]"
       },
       {
-        "q": "What does the NHS recommend?",
+        "q": "What Does the UK healthcare system recommend?",
         "a": "[REVIEWER: cite relevant NICE guideline number]"
       }
     ]
@@ -236,7 +236,7 @@ export const ARTICLE_SCAFFOLDS: ArticleScaffold[] = [
         "a": "[REVIEWER: safety summary + when to consult a GP/rheumatologist]"
       },
       {
-        "q": "What does the NHS recommend?",
+        "q": "What Does the UK healthcare system recommend?",
         "a": "[REVIEWER: cite relevant NICE guideline number]"
       }
     ]
@@ -259,7 +259,7 @@ export const ARTICLE_SCAFFOLDS: ArticleScaffold[] = [
         "a": "[REVIEWER: safety summary + when to consult a GP/rheumatologist]"
       },
       {
-        "q": "What does the NHS recommend?",
+        "q": "What Does the UK healthcare system recommend?",
         "a": "[REVIEWER: cite relevant NICE guideline number]"
       }
     ]
@@ -282,7 +282,7 @@ export const ARTICLE_SCAFFOLDS: ArticleScaffold[] = [
         "a": "[REVIEWER: safety summary + when to consult a GP/rheumatologist]"
       },
       {
-        "q": "What does the NHS recommend?",
+        "q": "What Does the UK healthcare system recommend?",
         "a": "[REVIEWER: cite relevant NICE guideline number]"
       }
     ]
@@ -305,7 +305,7 @@ export const ARTICLE_SCAFFOLDS: ArticleScaffold[] = [
         "a": "[REVIEWER: safety summary + when to consult a GP/rheumatologist]"
       },
       {
-        "q": "What does the NHS recommend?",
+        "q": "What Does the UK healthcare system recommend?",
         "a": "[REVIEWER: cite relevant NICE guideline number]"
       }
     ]
@@ -328,7 +328,7 @@ export const ARTICLE_SCAFFOLDS: ArticleScaffold[] = [
         "a": "[REVIEWER: safety summary + when to consult a GP/rheumatologist]"
       },
       {
-        "q": "What does the NHS recommend?",
+        "q": "What Does the UK healthcare system recommend?",
         "a": "[REVIEWER: cite relevant NICE guideline number]"
       }
     ]
@@ -351,7 +351,7 @@ export const ARTICLE_SCAFFOLDS: ArticleScaffold[] = [
         "a": "[REVIEWER: safety summary + when to consult a GP/rheumatologist]"
       },
       {
-        "q": "What does the NHS recommend?",
+        "q": "What Does the UK healthcare system recommend?",
         "a": "[REVIEWER: cite relevant NICE guideline number]"
       }
     ]
@@ -374,7 +374,7 @@ export const ARTICLE_SCAFFOLDS: ArticleScaffold[] = [
         "a": "[REVIEWER: safety summary + when to consult a GP/rheumatologist]"
       },
       {
-        "q": "What does the NHS recommend?",
+        "q": "What Does the UK healthcare system recommend?",
         "a": "[REVIEWER: cite relevant NICE guideline number]"
       }
     ]
@@ -397,7 +397,7 @@ export const ARTICLE_SCAFFOLDS: ArticleScaffold[] = [
         "a": "[REVIEWER: safety summary + when to consult a GP/rheumatologist]"
       },
       {
-        "q": "What does the NHS recommend?",
+        "q": "What Does the UK healthcare system recommend?",
         "a": "[REVIEWER: cite relevant NICE guideline number]"
       }
     ]
@@ -420,7 +420,7 @@ export const ARTICLE_SCAFFOLDS: ArticleScaffold[] = [
         "a": "[REVIEWER: safety summary + when to consult a GP/rheumatologist]"
       },
       {
-        "q": "What does the NHS recommend?",
+        "q": "What Does the UK healthcare system recommend?",
         "a": "[REVIEWER: cite relevant NICE guideline number]"
       }
     ]
@@ -443,7 +443,7 @@ export const ARTICLE_SCAFFOLDS: ArticleScaffold[] = [
         "a": "[REVIEWER: safety summary + when to consult a GP/rheumatologist]"
       },
       {
-        "q": "What does the NHS recommend?",
+        "q": "What Does the UK healthcare system recommend?",
         "a": "[REVIEWER: cite relevant NICE guideline number]"
       }
     ]
@@ -466,7 +466,7 @@ export const ARTICLE_SCAFFOLDS: ArticleScaffold[] = [
         "a": "[REVIEWER: safety summary + when to consult a GP/rheumatologist]"
       },
       {
-        "q": "What does the NHS recommend?",
+        "q": "What Does the UK healthcare system recommend?",
         "a": "[REVIEWER: cite relevant NICE guideline number]"
       }
     ]
@@ -489,7 +489,7 @@ export const ARTICLE_SCAFFOLDS: ArticleScaffold[] = [
         "a": "[REVIEWER: safety summary + when to consult a GP/rheumatologist]"
       },
       {
-        "q": "What does the NHS recommend?",
+        "q": "What Does the UK healthcare system recommend?",
         "a": "[REVIEWER: cite relevant NICE guideline number]"
       }
     ]
@@ -512,7 +512,7 @@ export const ARTICLE_SCAFFOLDS: ArticleScaffold[] = [
         "a": "[REVIEWER: safety summary + when to consult a GP/rheumatologist]"
       },
       {
-        "q": "What does the NHS recommend?",
+        "q": "What Does the UK healthcare system recommend?",
         "a": "[REVIEWER: cite relevant NICE guideline number]"
       }
     ]
@@ -535,7 +535,7 @@ export const ARTICLE_SCAFFOLDS: ArticleScaffold[] = [
         "a": "[REVIEWER: safety summary + when to consult a GP/rheumatologist]"
       },
       {
-        "q": "What does the NHS recommend?",
+        "q": "What Does the UK healthcare system recommend?",
         "a": "[REVIEWER: cite relevant NICE guideline number]"
       }
     ]
@@ -558,7 +558,7 @@ export const ARTICLE_SCAFFOLDS: ArticleScaffold[] = [
         "a": "[REVIEWER: safety summary + when to consult a GP/rheumatologist]"
       },
       {
-        "q": "What does the NHS recommend?",
+        "q": "What Does the UK healthcare system recommend?",
         "a": "[REVIEWER: cite relevant NICE guideline number]"
       }
     ]
@@ -581,7 +581,7 @@ export const ARTICLE_SCAFFOLDS: ArticleScaffold[] = [
         "a": "[REVIEWER: safety summary + when to consult a GP/rheumatologist]"
       },
       {
-        "q": "What does the NHS recommend?",
+        "q": "What Does the UK healthcare system recommend?",
         "a": "[REVIEWER: cite relevant NICE guideline number]"
       }
     ]

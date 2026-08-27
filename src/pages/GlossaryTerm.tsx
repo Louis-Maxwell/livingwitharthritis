@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+﻿import { Helmet } from "react-helmet-async";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { ChevronLeft, BookOpen } from "lucide-react";
@@ -24,7 +24,7 @@ const prettify = (slug: string) =>
     .join(" ");
 
 /**
- * /glossary/:term — Individual glossary entry.
+ * /glossary/:term â€” Individual glossary entry.
  *
  * Uses GLOSSARY_CONTENT for real, evidence-based definitions where available,
  * with a lightweight editorial fallback for terms not yet fleshed out.
@@ -57,7 +57,7 @@ export default function GlossaryTerm() {
   return (
     <>
       <SeoHead
-        title={`${label} — Arthritis Glossary`}
+        title={`${label} â€” Arthritis Glossary`}
         description={description}
         path={href}
         noindex={!entry}
@@ -131,7 +131,7 @@ export default function GlossaryTerm() {
             <h2 className="text-lg font-bold mb-2">Talk to your team</h2>
             <p className="text-sm text-muted-foreground">
               This page is general information, not medical advice. If you've seen{" "}
-              <strong>{label}</strong> mentioned in an NHS letter or clinic and want it
+              <strong>{label}</strong> mentioned in an UK healthcare letter or clinic and want it
               explained for your situation, ask your GP, rheumatology nurse or pharmacist.
             </p>
           </section>

@@ -1,7 +1,7 @@
-{
+﻿{
   "total_keywords": 5000,
   "last_updated": "2026-06-10",
-  "notes": "Representative seed taxonomy. Cluster keyword arrays show the head terms; long-tail variations are generated programmatically by src/lib/keyword-clustering.ts (modifiers: 'best', 'how to', 'symptoms', 'treatment', 'uk', 'nhs alternative', 'exercises for', 'diet for', '2026').",
+  "notes": "Representative seed taxonomy. Cluster keyword arrays show the head terms; long-tail variations are generated programmatically by src/lib/keyword-clustering.ts (modifiers: 'best', 'how to', 'symptoms', 'treatment', 'uk', 'affordable alternative', 'exercises for', 'diet for', '2026').",
   "categories": [
     {
       "id": "musculoskeletal",
@@ -116,7 +116,7 @@
           "keywords": [
             "osteoarthritis symptoms", "knee osteoarthritis exercises",
             "hip osteoarthritis treatment", "hand osteoarthritis",
-            "osteoarthritis diet uk", "osteoarthritis nhs waiting list",
+            "osteoarthritis diet uk", "osteoarthritis healthcare waiting list",
             "early signs osteoarthritis", "osteoarthritis vs rheumatoid",
             "osteoarthritis flare up", "osteoarthritis grading kellgren"
           ]

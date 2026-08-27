@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+﻿import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SeoHead from "@/components/SeoHead";
@@ -14,39 +14,39 @@ const sections: { title: string; id: string; items: SrcLink[] }[] = [
     title: "UK Clinical Guidelines",
     id: "uk-guidelines",
     items: [
-      { id: "nice-oa", label: "NICE — Osteoarthritis: care and management (NG226)", url: "https://www.nice.org.uk/guidance/ng226" },
-      { label: "NICE — Rheumatoid arthritis in adults: management (NG100)", url: "https://www.nice.org.uk/guidance/ng100" },
-      { label: "Royal College of Physicians — Rheumatology clinical guidance", url: "https://www.rcp.ac.uk/" },
-      { label: "Versus Arthritis — patient resources", url: "https://www.versusarthritis.org/" },
-      { label: "Arthritis Society Canada — exercise & lifestyle", url: "https://arthritis.ca/" },
-      { label: "Chartered Society of Physiotherapy (CSP) — practice standards", url: "https://www.csp.org.uk/" },
+      { id: "nice-oa", label: "NICE â€” Osteoarthritis: care and management (NG226)", url: "https://www.nice.org.uk/guidance/ng226" },
+      { label: "NICE â€” Rheumatoid arthritis in adults: management (NG100)", url: "https://www.nice.org.uk/guidance/ng100" },
+      { label: "Royal College of Physicians â€” Rheumatology clinical guidance", url: "https://www.rcp.ac.uk/" },
+      { label: "Versus Arthritis â€” patient resources", url: "https://www.versusarthritis.org/" },
+      { label: "Arthritis Society Canada â€” exercise & lifestyle", url: "https://arthritis.ca/" },
+      { label: "Chartered Society of Physiotherapy (CSP) â€” practice standards", url: "https://www.csp.org.uk/" },
     ],
   },
   {
     title: "Evidence & Research",
     id: "research",
     items: [
-      { label: "Cochrane Library — systematic reviews on arthritis treatments and exercise", url: "https://www.cochranelibrary.com/" },
-      { label: "PubMed Central — peer-reviewed medical and physiotherapy journals", url: "https://www.ncbi.nlm.nih.gov/pmc/" },
+      { label: "Cochrane Library â€” systematic reviews on arthritis treatments and exercise", url: "https://www.cochranelibrary.com/" },
+      { label: "PubMed Central â€” peer-reviewed medical and physiotherapy journals", url: "https://www.ncbi.nlm.nih.gov/pmc/" },
     ],
   },
   {
     title: "Condition-Specific Sources",
     id: "conditions",
     items: [
-      { label: "Osteoarthritis — NICE NG226, Versus Arthritis", url: "https://www.nice.org.uk/guidance/ng226" },
-      { label: "Rheumatoid Arthritis — British Society for Rheumatology guidelines", url: "https://www.rheumatology.org.uk/practice-quality/guidelines" },
-      { label: "Frailty — British Geriatrics Society", url: "https://www.bgs.org.uk/" },
-      { label: "Musculoskeletal — CSP guidelines", url: "https://www.csp.org.uk/" },
+      { label: "Osteoarthritis â€” NICE NG226, Versus Arthritis", url: "https://www.nice.org.uk/guidance/ng226" },
+      { label: "Rheumatoid Arthritis â€” British Society for Rheumatology guidelines", url: "https://www.rheumatology.org.uk/practice-quality/guidelines" },
+      { label: "Frailty â€” British Geriatrics Society", url: "https://www.bgs.org.uk/" },
+      { label: "Musculoskeletal â€” CSP guidelines", url: "https://www.csp.org.uk/" },
     ],
   },
   {
     title: "Lifestyle & Nutrition",
     id: "lifestyle",
     items: [
-      { label: "Mediterranean Diet — WHO and NHS nutrition guidance", url: "https://www.who.int/news-room/fact-sheets/detail/healthy-diet" },
-      { label: "Supplements — Natural Medicines Database (evidence-based)", url: "https://naturalmedicines.therapeuticresearch.com/" },
-      { label: "Exercise — American College of Sports Medicine (ACSM)", url: "https://www.acsm.org/" },
+      { label: "Mediterranean Diet â€” WHO and UK healthcare nutrition guidance", url: "https://www.who.int/news-room/fact-sheets/detail/healthy-diet" },
+      { label: "Supplements â€” Natural Medicines Database (evidence-based)", url: "https://naturalmedicines.therapeuticresearch.com/" },
+      { label: "Exercise â€” American College of Sports Medicine (ACSM)", url: "https://www.acsm.org/" },
     ],
   },
 ];
@@ -115,7 +115,7 @@ const Sources = () => {
                   >
                     {item.label}
                   </a>
-                  {item.note && <span className="text-foreground/70"> — {item.note}</span>}
+                  {item.note && <span className="text-foreground/70"> â€” {item.note}</span>}
                 </li>
               ))}
             </ul>

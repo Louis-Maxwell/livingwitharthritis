@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+﻿import { Helmet } from "react-helmet-async";
 import { Link, useLocation, Navigate } from "react-router-dom";
 import { lazy, Suspense, useMemo } from "react";
 import { ChevronLeft, Scale, ArrowRight, CheckCircle2 } from "lucide-react";
@@ -80,7 +80,7 @@ export default function ComparisonPage() {
     dateModified: LAST_REVIEWED_ISO,
   };
 
-  const fullTitle = enforceTitle(`${title} — Compared`, { route: path });
+  const fullTitle = enforceTitle(`${title} â€” Compared`, { route: path });
   const safeDesc = enforceDescription(metaDescription, path);
   const aeoQuestion = `How do ${a} and ${b} compare${context ? ` for ${context.toLowerCase()}` : ""}?`;
   const aeoAnswer = article?.intro ?? metaDescription;
@@ -135,7 +135,7 @@ export default function ComparisonPage() {
           </p>
           <p className="text-lg text-muted-foreground mb-10">
             {article?.intro ??
-              `A plain-English comparison of ${a} and ${b}${context ? ` for ${context}` : ""}, written for UK arthritis patients. We cover what each option actually is, how effective it tends to be, common side-effects, NHS availability and typical cost.`}
+              `A plain-English comparison of ${a} and ${b}${context ? ` for ${context}` : ""}, written for UK arthritis patients. We cover what each option actually is, how effective it tends to be, common side-effects, UK healthcare availability and typical cost.`}
           </p>
 
           <div className="grid md:grid-cols-2 gap-6 mb-12">
@@ -153,13 +153,13 @@ export default function ComparisonPage() {
                     <li><strong>How it works:</strong> {opt.howItWorks}</li>
                     <li><strong>Best for:</strong> {opt.bestFor}</li>
                     <li><strong>Common side-effects:</strong> {opt.sideEffects}</li>
-                    <li><strong>NHS availability:</strong> {opt.nhs}</li>
+                    <li><strong>UK healthcare availability:</strong> {opt.nhs}</li>
                     <li><strong>Typical UK cost:</strong> {opt.cost}</li>
                   </ul>
                 ) : (
                   <p className="text-sm text-muted-foreground">
                     Detailed evidence for {opt.name} is being written by our clinical
-                    team — see the summary sections below for now.
+                    team â€” see the summary sections below for now.
                   </p>
                 )}
               </section>

@@ -157,7 +157,7 @@ const CONTENT = `
 
 <h3 id="mh-support">Where to get help</h3>
 <ul>
-<li><strong>NHS Talking Therapies (IAPT)</strong> â€” free talking therapy and CBT. Self-referral is available.</li>
+<li><strong>UK healthcare Talking Therapies (IAPT)</strong> â€” free talking therapy and CBT. Self-referral is available.</li>
 <li><strong>Pain management programmes</strong> â€” group programmes mixing physio, psychology and OT.</li>
 <li><strong>Versus Arthritis helpline</strong> â€” 0800 5200 520 (free, weekdays).</li>
 <li><strong>Mind</strong> â€” 0300 123 3393 for general mental health support.</li>

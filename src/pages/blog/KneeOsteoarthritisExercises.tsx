@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+﻿import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -112,7 +112,7 @@ const articleJsonLd = {
   '@type': 'MedicalWebPage',
   headline: 'Knee Arthritis Exercises: Safe Exercises for Pain, Strength & Mobility',
   description:
-    'A practical guide to strengthening, mobility and low-impact activity for knee arthritis, with safety advice and links to NHS and NICE information.',
+    'A practical guide to strengthening, mobility and low-impact activity for knee arthritis, with safety advice and links to UK healthcare and NICE information.',
   inLanguage: 'en-GB',
   image: heroImage,
   datePublished: '2026-06-21',
@@ -120,7 +120,7 @@ const articleJsonLd = {
   author: {
     '@type': 'Person',
     name: 'Maxwell',
-    jobTitle: 'First Contact Practitioner — Chartered Physiotherapist',
+    jobTitle: 'First Contact Practitioner â€” Chartered Physiotherapist',
     identifier: 'HCPC PH128483',
     affiliation: {
       '@type': 'Organization',
@@ -188,7 +188,7 @@ const howToJsonLd = {
       '@type': 'HowToStep',
       position: 3,
       name: 'Hold briefly',
-      text: 'Hold the leg straight for 2–3 seconds, tightening the thigh muscle.',
+      text: 'Hold the leg straight for 2â€“3 seconds, tightening the thigh muscle.',
     },
     {
       '@type': 'HowToStep',
@@ -236,7 +236,7 @@ export default function KneeOsteoarthritisExercises() {
         <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
           <div className="mb-6">
             <Badge variant="secondary" className="bg-background text-primary border-0">
-              Exercise · Knee OA · Evidence-based
+              Exercise Â· Knee OA Â· Evidence-based
             </Badge>
           </div>
           <h1 className="font-display text-4xl md:text-5xl font-bold tracking-tight mb-4">
@@ -351,7 +351,7 @@ export default function KneeOsteoarthritisExercises() {
               Additional strength exercises
             </h2>
             <p className="text-lg text-muted-foreground">
-              Add these after Tier 1 feels comfortable. Build gradually — one new exercise per week.
+              Add these after Tier 1 feels comfortable. Build gradually â€” one new exercise per week.
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-5">
@@ -428,7 +428,7 @@ export default function KneeOsteoarthritisExercises() {
                 rel="noopener noreferrer"
                 className="text-primary underline underline-offset-2"
               >
-                NICE NG226: Osteoarthritis in over 16s — diagnosis and management
+                NICE NG226: Osteoarthritis in over 16s â€” diagnosis and management
               </a>
             </li>
             <li>

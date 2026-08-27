@@ -1,6 +1,6 @@
-/**
- * Map of legacy blog slugs → current slugs.
- * Keeps inbound links and shared URLs working after the NHS-reference clean-up.
+﻿/**
+ * Map of legacy blog slugs â†’ current slugs.
+ * Keeps inbound links and shared URLs working after the UK healthcare system-reference clean-up.
  */
 export const BLOG_SLUG_REDIRECTS: Record<string, string> = {
   "nhs-arthritis-exercises": "arthritis-exercises-uk-clinical",

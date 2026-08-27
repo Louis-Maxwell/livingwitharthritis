@@ -79,7 +79,7 @@ const CONTENT = `
 <li>Pain that wakes you at night or is unrelieved by rest</li>
 <li>A new symptom you cannot explain</li>
 </ul>
-<p>A physiotherapist can tailor a programme to your joints, stage of disease and goals. In the UK you can refer yourself directly to NHS musculoskeletal physiotherapy in most areas, without going via your GP.</p>
+<p>A physiotherapist can tailor a programme to your joints, stage of disease and goals. In the UK you can refer yourself directly to UK healthcare musculoskeletal physiotherapy in most areas, without going via your GP.</p>
 
 <h2 id="bottom-line">Bottom line</h2>
 <p>Exercise does not wear osteoarthritis joints out. Avoiding movement does far more harm than careful, progressive activity ever will. Start small, progress slowly, distinguish productive soreness from flare pain, and treat exercise as treatment â€” because that is what the evidence says it is.</p>
