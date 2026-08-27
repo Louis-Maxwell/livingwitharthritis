@@ -1,4 +1,4 @@
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import fs from "node:fs";
@@ -8,6 +8,7 @@ import Prerender from "@prerenderer/rollup-plugin";
 import { visualizer } from "rollup-plugin-visualizer";
 import { sentryVitePlugin } from "@sentry/vite-plugin";
 import { mcpPlugin } from "@lovable.dev/mcp-js/stacks/supabase/vite";
+import { PUBLIC_SUPABASE_DEFAULTS } from "./src/integrations/supabase/publicDefaults";
 // @ts-expect-error - plain .mjs route list, no type declarations needed
 import { PRERENDER_ROUTES } from "./scripts/prerender-routes.mjs";
 
@@ -46,7 +47,41 @@ if (!ENABLE_PRERENDER) {
 // Bundle analyzer is opt-in via ANALYZE=1 npm run build → dist/stats.html
 const ENABLE_ANALYZE = process.env.ANALYZE === "1";
 
-export default defineConfig(({ mode }) => ({
+function resolvePublicBackendConfig(mode: string) {
+  const env = loadEnv(mode, process.cwd(), "");
+  const url = env.VITE_SUPABASE_URL || PUBLIC_SUPABASE_DEFAULTS.url;
+  const publishableKey =
+    env.VITE_SUPABASE_PUBLISHABLE_KEY ||
+    PUBLIC_SUPABASE_DEFAULTS.publishableKey;
+
+  try {
+    const parsedUrl = new URL(url);
+    if (parsedUrl.protocol !== "https:") throw new Error("URL must use HTTPS");
+  } catch {
+    throw new Error(
+      "Invalid public backend URL. Restore VITE_SUPABASE_URL before building.",
+    );
+  }
+
+  if (!publishableKey.trim()) {
+    throw new Error(
+      "Missing public backend key. Restore VITE_SUPABASE_PUBLISHABLE_KEY before building.",
+    );
+  }
+
+  return { url, publishableKey };
+}
+
+export default defineConfig(({ mode }) => {
+  const backend = resolvePublicBackendConfig(mode);
+
+  return ({
+  define: {
+    "import.meta.env.VITE_SUPABASE_URL": JSON.stringify(backend.url),
+    "import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY": JSON.stringify(
+      backend.publishableKey,
+    ),
+  },
   server: {
     host: "::",
     port: 8080,
@@ -181,4 +216,5 @@ export default defineConfig(({ mode }) => ({
       },
     },
   },
-}));
+  });
+});
