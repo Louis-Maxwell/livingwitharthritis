@@ -131,7 +131,7 @@
     "@vitest/coverage-v8": "^4.1.10",
     "autoprefixer": "^10.4.21",
     "axe-core": "^4.12.1",
-    "esbuild": "^0.28.2",
+    "esbuild": "^0.25.12",
     "eslint": "^9.32.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
@@ -166,7 +166,7 @@
     "picomatch": "^4.0.5",
     "lodash": "^4.17.21",
     "ts-deepmerge": "^8.0.0",
-    "esbuild": "^0.28.2"
+    "esbuild": "^0.25.12"
   },
   "resolutions": {
     "minimatch": "^10.2.6",
