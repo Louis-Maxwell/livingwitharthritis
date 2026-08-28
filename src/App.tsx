@@ -1,7 +1,7 @@
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { lazy, Suspense, useEffect } from "react";
 
 // Defer Sonner toaster — it triggers layout reads on mount that cause forced reflow
@@ -480,6 +480,19 @@ function AnimatedRoutes() {
             explicitly so they don't fight the /guides/* catch-alls above. */}
         {COMPARISON_ROUTES.map((path) => (
           <Route key={path} path={path} element={<ComparisonPage />} />
+        ))}
+
+        {/* Legacy/alias paths → canonical routes (client-side replace; the
+            static host has no edge redirect layer for this project). */}
+        {([
+          ["/about-us", "/about"],
+          ["/trust-credibility", "/trust"],
+          ["/privacy-policy", "/privacy"],
+          ["/cookies-policy", "/cookies"],
+          ["/terms-conditions", "/terms"],
+          ["/exercise-hub", "/exercises"],
+        ] as const).map(([from, to]) => (
+          <Route key={from} path={from} element={<Navigate to={to} replace />} />
         ))}
 
         <Route path="*" element={<NotFound />} />
