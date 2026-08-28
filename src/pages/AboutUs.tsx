@@ -175,6 +175,14 @@ const AboutUs = () => {
           </div>
         </PageHero>
 
+        {/* Disambiguation line — who we are and who we are not */}
+        <section className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-5xl -mt-4 mb-4">
+          <p className="text-center text-base lg:text-lg font-medium text-foreground leading-relaxed">
+            Living With Arthritis is a registered charity in England and Wales
+            (no.&nbsp;1218461), based in Oswestry. We are independent of Arthritis UK.
+          </p>
+        </section>
+
         {/* Our Story — founder narrative moved from landing page */}
         <Suspense fallback={<div className="py-16" />}>
           <FounderStoryBand />
