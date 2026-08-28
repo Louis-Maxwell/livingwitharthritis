@@ -99,6 +99,14 @@ const ZakatAppeal = () => {
     if (activeAmount > 0) setIsModalOpen(true);
   };
 
+  /** Select an amount from a tier or giving card and open the payment modal. */
+  const handleGive = (amount: number) => {
+    setCustomAmount("");
+    setSelectedAmount(amount);
+    setIsModalOpen(true);
+  };
+
+
   return (
     <>
       <Helmet>
@@ -265,13 +273,20 @@ const ZakatAppeal = () => {
 
                   {/* Donate button */}
                   <Button
-                    onClick={handleDonate}
+                    onClick={() => {
+                      trackDonationClick({
+                        source: "gaza_appeal_form",
+                        amount: activeAmount,
+                      });
+                      handleDonate();
+                    }}
                     disabled={activeAmount <= 0}
                     className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground text-base font-bold rounded-xl shadow-md hover:shadow-lg transition-all"
                   >
                     <Heart className="mr-2 h-5 w-5" />
                     Donate £{activeAmount > 0 ? activeAmount.toLocaleString() : "0"}
                   </Button>
+
 
                   <p className="text-[11px] text-muted-foreground text-center">
                     Secure payment via Stripe. Your data is protected.
@@ -282,28 +297,47 @@ const ZakatAppeal = () => {
           </div>
         </section>
 
-        {/* Impact stats strip */}
-        <section className="bg-primary text-primary-foreground py-10">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-              {[
-                { icon: Users, stat: "500+", label: "Survivors Supported" },
-                { icon: Heart, stat: "£180K+", label: "Zakat Distributed" },
-                { icon: BookOpen, stat: "1,200+", label: "Rehab Sessions Funded" },
-                { icon: Shield, stat: "100%", label: "Shariah Compliant" },
-              ].map((item) => (
-                <div key={item.label} className="space-y-1">
-                  <item.icon className="w-6 h-6 mx-auto mb-2 opacity-80" />
-                  <p className="text-2xl sm:text-3xl font-display font-bold">{item.stat}</p>
-                  <p className="text-xs text-primary-foreground">{item.label}</p>
-                </div>
-              ))}
+        {/* Impact tiers */}
+        <GazaImpactTiers onSelect={handleGive} />
+
+        {/* Empathy story block */}
+        <section className="py-14 bg-background">
+          <div className="container mx-auto px-4 max-w-5xl grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <img
+              src={gazaRehabStory}
+              alt="A physiotherapist supporting a patient through a gentle rehabilitation exercise"
+              width={1200}
+              height={800}
+              loading="lazy"
+              decoding="async"
+              className="w-full h-auto rounded-2xl object-cover shadow-lg"
+            />
+            <div className="space-y-4">
+              <h2 className="text-xl sm:text-2xl font-display font-bold text-foreground">
+                What rehabilitation really means
+              </h2>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                After a blast injury, the emergency care is only the beginning. Bones knit crookedly, scar tissue locks a joint, a limb that is saved still cannot bear weight. Recovery is measured in months of patient, repeated movement — and someone qualified to guide it.
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                That work is unglamorous and it is rarely funded. It is also the difference between a person who is dependent for the rest of their life and a person who can wash, walk, work and pray without help.
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Your Zakat and Sadaqah pay for exactly that: assessments, physiotherapy sessions, personalised exercise plans and pain management for survivors who could never afford them.
+              </p>
+              <blockquote className="border-l-4 border-primary/40 pl-4 italic text-muted-foreground text-sm">
+                "Take from their wealth to purify and bless them" — Qur'an 9:103
+              </blockquote>
             </div>
           </div>
         </section>
 
+        {/* Islamic giving: Zakat, Sadaqah, Sadaqah Jariyah */}
+        <IslamicGivingCards onGive={(amount) => handleGive(amount)} />
+
         {/* Zakat Calculator */}
         <ZakatCalculator />
+
 
         {/* Trust & promise section */}
         <section className="bg-muted/30 py-14">
