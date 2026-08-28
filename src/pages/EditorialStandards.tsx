@@ -17,7 +17,7 @@ export default function EditorialStandards() {
     const ld = {
       "@context": "https://schema.org",
       "@type": "AboutPage",
-      name: "Editorial Standards â€” Living With Arthritis UK",
+      name: "Editorial Standards — Living With Arthritis UK",
       url: URL,
       inLanguage: "en-GB",
       publisher: {
@@ -89,7 +89,7 @@ export default function EditorialStandards() {
             </p>
             <ul>
               <li>
-                <strong>{maxwell.name}</strong> â€” {maxwell.title},{" "}
+                <strong>{maxwell.name}</strong> — {maxwell.title},{" "}
                 {maxwell.credential}, {maxwell.organization}
               </li>
               <li>Additional specialist input from physiotherapists and clinical experts</li>
@@ -147,7 +147,7 @@ export default function EditorialStandards() {
               <Link to="/contact" className="text-primary underline hover:no-underline">
                 contact us
               </Link>{" "}
-              with the page URL and a short note â€” a clinician will review it.
+              with the page URL and a short note — a clinician will review it.
             </p>
           </Section>
         </main>

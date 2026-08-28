@@ -110,7 +110,7 @@ const Header = () => {
         { label: "Osteoarthritis", desc: "The most common form", icon: Bone, href: "/conditions/osteoarthritis", action: () => navigate("/conditions/osteoarthritis"), color: "text-primary bg-primary/10" },
         { label: "Rheumatoid Arthritis", desc: "Autoimmune joint inflammation", icon: HeartPulse, href: "/conditions/rheumatoid-arthritis", action: () => navigate("/conditions/rheumatoid-arthritis"), color: "text-primary bg-primary/10" },
         { label: "Psoriatic Arthritis", desc: "Joint pain with psoriasis", icon: ShieldCheck, href: "/conditions/psoriatic-arthritis", action: () => navigate("/conditions/psoriatic-arthritis"), color: "text-primary bg-primary/10" },
-        { label: "Gout", desc: "Crystal arthritis â€” sudden, severe pain", icon: Stethoscope, href: "/conditions/gout", action: () => navigate("/conditions/gout"), color: "text-primary bg-primary/10" },
+        { label: "Gout", desc: "Crystal arthritis — sudden, severe pain", icon: Stethoscope, href: "/conditions/gout", action: () => navigate("/conditions/gout"), color: "text-primary bg-primary/10" },
         { label: "Ankylosing Spondylitis", desc: "Spine & back arthritis", icon: Stethoscope, href: "/conditions/ankylosing-spondylitis", action: () => navigate("/conditions/ankylosing-spondylitis"), color: "text-primary bg-primary/10" },
         { label: "Juvenile Arthritis", desc: "Arthritis in children", icon: Stethoscope, href: "/conditions/juvenile-arthritis", action: () => navigate("/conditions/juvenile-arthritis"), color: "text-primary bg-primary/10" },
         { label: "Fibromyalgia", desc: "Widespread pain & fatigue", icon: Stethoscope, href: "/conditions/fibromyalgia", action: () => navigate("/conditions/fibromyalgia"), color: "text-primary bg-primary/10" },
@@ -146,11 +146,11 @@ const Header = () => {
         { label: "Connect Groups", desc: "Free peer-support communities", icon: HandHeart, href: "/community/connect-groups", action: () => navigate("/community/connect-groups"), color: "text-primary bg-primary/10" },
         { label: "Helpline & Support", desc: "Real people, 2-day response", icon: MessageCircle, href: "/helpline", action: () => navigate("/helpline"), color: "text-primary bg-primary/10" },
         { label: "Events & Webinars", desc: "Free monthly online events", icon: Globe, href: "/events", action: () => navigate("/events"), color: "text-primary bg-primary/10" },
-        { label: "Podcasts", desc: "Coming soon â€” UK arthritis podcast", icon: Newspaper, href: "/podcasts", action: () => navigate("/podcasts"), color: "text-primary bg-primary/10" },
+        { label: "Podcasts", desc: "Coming soon — UK arthritis podcast", icon: Newspaper, href: "/podcasts", action: () => navigate("/podcasts"), color: "text-primary bg-primary/10" },
         { label: "Patient Stories", desc: "Lived experience from real people", icon: Heart, href: "/stories", action: () => navigate("/stories"), color: "text-primary bg-primary/10" },
         { label: "Buddy Programme", desc: "1-to-1 peer mentoring", icon: HandHeart, href: "/buddy", action: () => navigate("/buddy"), color: "text-primary bg-primary/10" },
         { label: "Blog & Library", desc: "100+ evidence-based articles", icon: BookOpen, href: "/blog", action: () => navigate("/blog"), color: "text-primary bg-primary/10" },
-        { label: "Glossary Aâ€“Z", desc: "Plain-English arthritis terms", icon: BookOpen, href: "/glossary", action: () => navigate("/glossary"), color: "text-primary bg-primary/10" },
+        { label: "Glossary A–Z", desc: "Plain-English arthritis terms", icon: BookOpen, href: "/glossary", action: () => navigate("/glossary"), color: "text-primary bg-primary/10" },
         { label: "Pets & Arthritis", desc: "Dogs, cats, horses & more", icon: HeartPulse, href: "/pets", action: () => navigate("/pets"), color: "text-primary bg-primary/10" },
       ],
     },
@@ -218,7 +218,7 @@ const Header = () => {
     { label: "Pets & Arthritis", icon: HeartPulse, desc: "Dogs, cats, horses & more", href: "/pets", action: () => navigate("/pets") },
     { label: "Conditions", icon: HeartPulse, desc: "OA, RA, Gout, PsA & more", href: "#conditions" },
     { label: "Blog & Stories", icon: Newspaper, desc: "40+ evidence-based articles", href: "/blog", action: () => navigate("/blog") },
-    { label: "Glossary", icon: BookOpen, desc: "Plain-English arthritis Aâ€“Z", href: "/glossary", action: () => navigate("/glossary") },
+    { label: "Glossary", icon: BookOpen, desc: "Plain-English arthritis A–Z", href: "/glossary", action: () => navigate("/glossary") },
     { label: "Trust & Credibility", icon: ShieldCheck, desc: "Evidence, authors & governance", href: "/trust", action: () => navigate("/trust") },
     { label: "Support Us", icon: HandHeart, desc: "Donate, volunteer & fundraise", href: "#involved" },
     { label: "Corporate Partnerships", icon: Globe, desc: "Formal partnership programme", href: "/corporate-partnerships", action: () => navigate("/corporate-partnerships") },
@@ -230,13 +230,13 @@ const Header = () => {
 
   return (
     <>
-      {/* â”€â”€ STICKY WRAPPER â€” entire header block sticks together â”€â”€ */}
+      {/* â”€â”€ STICKY WRAPPER — entire header block sticks together â”€â”€ */}
       <div
         className={`sticky top-0 z-50 transition-transform duration-300 ${isHidden ? "-translate-y-full" : "translate-y-0"}`}
       >
 
 
-        {/* Donation Quick Bar â€” top of sticky header */}
+        {/* Donation Quick Bar — top of sticky header */}
         <Suspense fallback={<div className="bg-primary h-[52px]" />}>
           <DonationQuickBar />
         </Suspense>
@@ -250,11 +250,11 @@ const Header = () => {
           }`}
         >
           <div className="container mx-auto px-4 sm:px-6 md:px-10 py-2.5 flex items-center justify-between gap-2 sm:gap-4">
-            {/* Logo â€” stick figure mark + wordmark */}
+            {/* Logo — stick figure mark + wordmark */}
             <button
               onClick={() => navigate("/")}
               className="group cursor-pointer select-none shrink-0 transition-opacity hover:opacity-80"
-              aria-label="Living With Arthritis â€” Go to homepage"
+              aria-label="Living With Arthritis — Go to homepage"
             >
               <span className="flex flex-col items-start leading-none">
                 <SiteLogo
@@ -316,7 +316,7 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Mobile search bar â€” slides in below logo */}
+          {/* Mobile search bar — slides in below logo */}
           {mobileSearchOpen && (
             <div className="lg:hidden px-4 pb-3 border-t border-border/20 pt-3 bg-background/95 backdrop-blur-xl">
               <Suspense fallback={null}><SiteSearch /></Suspense>
@@ -391,7 +391,7 @@ const Header = () => {
                   return (
                   <div key={link.label} className="relative" data-nav-dropdown>
                     {/* A real <Link>/<a href> is required here (not a <button>) so
-                        crawlers that parse hrefs â€” not just those that execute JS â€”
+                        crawlers that parse hrefs — not just those that execute JS —
                         can discover every hub page linked from this mega-menu. A
                         <button onClick={navigate(...)}> has no href at all and is
                         invisible to link-discovery crawling regardless of JS
@@ -404,7 +404,7 @@ const Header = () => {
                       <Link to={link.href} {...topLevelHandlers}>{topLevelContent}</Link>
                     )}
 
-                    {/* Rich sub-menu dropdown â€” always rendered in the DOM (not
+                    {/* Rich sub-menu dropdown — always rendered in the DOM (not
                         conditionally mounted) so every link inside it is
                         crawlable even though it's only visually revealed on
                         hover/click. Visibility toggles via CSS, not JSX mount. */}
@@ -459,7 +459,7 @@ const Header = () => {
                   );
                 })}
 
-                {/* Persistent Donate button â€” charity red, matches Ways to Help pill style */}
+                {/* Persistent Donate button — charity red, matches Ways to Help pill style */}
                 <Link
                   to="/zakat-appeal"
                   className="ms-3 group relative inline-flex items-center gap-1.5 px-5 py-2 text-[13px] font-bold rounded-full bg-destructive text-destructive-foreground border border-destructive/80 hover:bg-destructive/90 hover:shadow-md hover:shadow-destructive/25 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
@@ -468,7 +468,7 @@ const Header = () => {
                   Donate Now
                 </Link>
 
-                {/* Ways to Help â€” demoted to a quiet text link to avoid competing with primary Donate CTA */}
+                {/* Ways to Help — demoted to a quiet text link to avoid competing with primary Donate CTA */}
                 <Link
                   to="/ways-to-help"
                   className="ms-3 inline-flex items-center gap-1 text-[12px] font-semibold text-muted-foreground hover:text-primary underline-offset-4 hover:underline transition-colors duration-200"
@@ -477,7 +477,7 @@ const Header = () => {
                 </Link>
               </nav>
 
-              {/* Mobile placeholder â€” keeps header height consistent on mobile */}
+              {/* Mobile placeholder — keeps header height consistent on mobile */}
               <div className="lg:hidden w-full" />
             </div>
           </div>
@@ -537,7 +537,7 @@ const Header = () => {
                   "aria-current": active ? ("page" as const) : undefined,
                   onClick: () => {
                     setMobileMenuOpen(false);
-                    // Hash items (no real route) still need their own handler â€”
+                    // Hash items (no real route) still need their own handler —
                     // either a custom action (e.g. opening the resource drawer)
                     // or a scroll-to-section fallback. Non-hash items are real
                     // <Link> elements now; every mobileNavItems action for those

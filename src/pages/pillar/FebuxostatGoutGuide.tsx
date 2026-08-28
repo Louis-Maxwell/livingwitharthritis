@@ -12,24 +12,24 @@ const Footer = lazy(() => import("@/components/Footer"));
 
 const FEBUXOSTAT_FAQS = [
   { question: "What is febuxostat used for?", answer: "Febuxostat (brand names Adenuric, Uloric) is a urate-lowering medication used to prevent gout attacks in adults whose uric acid levels remain high despite lifestyle measures, or who cannot tolerate allopurinol. By lowering uric acid in the blood, it gradually dissolves the crystals in joints that cause gout flares." },
-  { question: "How long does febuxostat take to work?", answer: "Febuxostat begins lowering uric acid within 24â€“48 hours, but it can take 3â€“6 months of consistent daily dosing to dissolve existing crystal deposits in the joints. Many people experience more frequent gout flares in the first 3â€“6 months as the crystals shift â€” this does not mean the medication has failed." },
-  { question: "What are the side effects of febuxostat?", answer: "Common side effects include nausea, diarrhoea, headache, raised liver enzymes and a rash. More serious risks include cardiovascular events in people with existing heart disease, severe skin reactions (Stevensâ€“Johnson syndrome) and liver injury. Tell your prescriber immediately about chest pain, breathlessness, jaundice or a spreading rash." },
+  { question: "How long does febuxostat take to work?", answer: "Febuxostat begins lowering uric acid within 24–48 hours, but it can take 3–6 months of consistent daily dosing to dissolve existing crystal deposits in the joints. Many people experience more frequent gout flares in the first 3–6 months as the crystals shift — this does not mean the medication has failed." },
+  { question: "What are the side effects of febuxostat?", answer: "Common side effects include nausea, diarrhoea, headache, raised liver enzymes and a rash. More serious risks include cardiovascular events in people with existing heart disease, severe skin reactions (Stevens–Johnson syndrome) and liver injury. Tell your prescriber immediately about chest pain, breathlessness, jaundice or a spreading rash." },
   { question: "Is febuxostat better than allopurinol?", answer: "For most people, allopurinol is tried first because it is cheaper and has decades of safety data. Febuxostat is used when allopurinol is not tolerated, when uric acid targets cannot be reached on maximum allopurinol, or in people with reduced kidney function where allopurinol dosing is restricted. Febuxostat is at least as effective at lowering uric acid." },
-  { question: "What is the target uric acid level on febuxostat?", answer: "For most people the target is below 360 Âµmol/L (6 mg/dL). In severe gout with tophi or frequent flares, the target is lower â€” below 300 Âµmol/L (5 mg/dL) â€” to encourage faster crystal dissolution. Your prescriber will check blood levels at 2â€“4 weeks, then every 3â€“6 months." },
-  { question: "Do I need to take colchicine with febuxostat?", answer: "Yes â€” for the first 3â€“6 months. Starting any urate-lowering treatment can trigger gout flares as crystals begin to dissolve. A low daily dose of colchicine (or a low-dose NSAID if colchicine isn't suitable) is usually prescribed alongside febuxostat as 'flare prophylaxis' until uric acid is stable at target." },
-  { question: "Can I drink alcohol on febuxostat?", answer: "Alcohol â€” especially beer and spirits â€” raises uric acid and provokes gout flares. Febuxostat will still work, but heavy drinking undermines the treatment and increases pressure on the liver. Moderate wine intake is the lowest-risk choice; staying within 14 UK units per week is sensible." },
+  { question: "What is the target uric acid level on febuxostat?", answer: "For most people the target is below 360 Âµmol/L (6 mg/dL). In severe gout with tophi or frequent flares, the target is lower — below 300 Âµmol/L (5 mg/dL) — to encourage faster crystal dissolution. Your prescriber will check blood levels at 2–4 weeks, then every 3–6 months." },
+  { question: "Do I need to take colchicine with febuxostat?", answer: "Yes — for the first 3–6 months. Starting any urate-lowering treatment can trigger gout flares as crystals begin to dissolve. A low daily dose of colchicine (or a low-dose NSAID if colchicine isn't suitable) is usually prescribed alongside febuxostat as 'flare prophylaxis' until uric acid is stable at target." },
+  { question: "Can I drink alcohol on febuxostat?", answer: "Alcohol — especially beer and spirits — raises uric acid and provokes gout flares. Febuxostat will still work, but heavy drinking undermines the treatment and increases pressure on the liver. Moderate wine intake is the lowest-risk choice; staying within 14 UK units per week is sensible." },
 ];
 
 const CONTENT = `
 <h2 id="overview">Febuxostat for gout: an overview</h2>
-<p>Gout is the most common form of inflammatory arthritis, affecting around <strong>1 in 40 adults</strong> in the UK. It happens when uric acid in the blood rises high enough to form sharp crystals inside joints â€” most often the big toe, but also the ankle, knee, wrist and fingers. The body's immune response to these crystals causes the sudden, severe pain of a gout attack.</p>
+<p>Gout is the most common form of inflammatory arthritis, affecting around <strong>1 in 40 adults</strong> in the UK. It happens when uric acid in the blood rises high enough to form sharp crystals inside joints — most often the big toe, but also the ankle, knee, wrist and fingers. The body's immune response to these crystals causes the sudden, severe pain of a gout attack.</p>
 <p>Febuxostat (sold as <strong>Adenuric</strong> in the UK and <strong>Uloric</strong> in the US) is a <strong>urate-lowering therapy</strong>: it doesn't treat the pain of an attack, but taken every day it lowers the level of uric acid in the blood, gradually dissolves the crystal deposits already in the joints, and over time prevents new attacks.</p>
 <p>It is one of two main long-term gout medications used in the UK, the other being <strong>allopurinol</strong>. Both work by blocking <em>xanthine oxidase</em>, the enzyme that produces uric acid. Febuxostat is a more targeted blocker and is the recommended option when allopurinol has not worked, has caused side effects, or cannot be dosed high enough because of reduced kidney function.</p>
 
 <h2 id="how-it-works">How febuxostat works</h2>
-<p>Uric acid is a normal waste product made when the body breaks down purines â€” chemicals found in cells and in some foods. Most people clear it efficiently through the kidneys. In gout, either too much uric acid is produced, too little is excreted, or both.</p>
-<p>Febuxostat blocks the xanthine oxidase enzyme so the body produces less uric acid in the first place. Blood levels begin to fall within 24â€“48 hours, and most people reach the recommended target of below <strong>360 Âµmol/L (6 mg/dL)</strong> within 4â€“8 weeks of starting treatment.</p>
-<p>Once uric acid is below this threshold for long enough, the crystal deposits in the joints â€” and the larger lumps known as <strong>tophi</strong> under the skin â€” slowly dissolve. This is what protects against future attacks and reverses long-term joint damage.</p>
+<p>Uric acid is a normal waste product made when the body breaks down purines — chemicals found in cells and in some foods. Most people clear it efficiently through the kidneys. In gout, either too much uric acid is produced, too little is excreted, or both.</p>
+<p>Febuxostat blocks the xanthine oxidase enzyme so the body produces less uric acid in the first place. Blood levels begin to fall within 24–48 hours, and most people reach the recommended target of below <strong>360 Âµmol/L (6 mg/dL)</strong> within 4–8 weeks of starting treatment.</p>
+<p>Once uric acid is below this threshold for long enough, the crystal deposits in the joints — and the larger lumps known as <strong>tophi</strong> under the skin — slowly dissolve. This is what protects against future attacks and reverses long-term joint damage.</p>
 
 <h2 id="who-its-for">Who febuxostat is for</h2>
 <p>NICE guidance (TA164) recommends febuxostat for adults with chronic gout where uric acid crystal deposition has already caused damage and where allopurinol is either contraindicated or not tolerated. In practice, your GP or rheumatologist may consider febuxostat if:</p>
@@ -43,12 +43,12 @@ const CONTENT = `
 </ul>
 
 <h2 id="dose-and-monitoring">Dosing and monitoring</h2>
-<p>Febuxostat is usually started at <strong>80 mg once daily</strong>, taken with or without food at the same time each day. If uric acid is still above target after 2â€“4 weeks, the dose is increased to <strong>120 mg daily</strong>.</p>
+<p>Febuxostat is usually started at <strong>80 mg once daily</strong>, taken with or without food at the same time each day. If uric acid is still above target after 2–4 weeks, the dose is increased to <strong>120 mg daily</strong>.</p>
 <p>Your prescriber will arrange:</p>
 <ul>
-<li>A blood test for <strong>uric acid</strong> at 2â€“4 weeks, then every 3â€“6 months</li>
+<li>A blood test for <strong>uric acid</strong> at 2–4 weeks, then every 3–6 months</li>
 <li>A blood test for <strong>liver function</strong> at 2 months and then yearly</li>
-<li>A discussion about <strong>flare prophylaxis</strong> with colchicine or a low-dose NSAID for the first 3â€“6 months</li>
+<li>A discussion about <strong>flare prophylaxis</strong> with colchicine or a low-dose NSAID for the first 3–6 months</li>
 </ul>
 <p>It is essential to keep taking febuxostat <strong>every day</strong>, including during a gout attack. Stopping and starting urate-lowering therapy causes the uric acid level to swing, which triggers more attacks.</p>
 
@@ -62,9 +62,9 @@ const CONTENT = `
 </ul>
 <p>Less common but more serious risks include:</p>
 <ul>
-<li><strong>Cardiovascular events</strong> â€” large trials have shown a small increase in heart-related events in people with established heart or vascular disease. The European Medicines Agency advises caution in this group; allopurinol is usually preferred unless not tolerated.</li>
-<li><strong>Severe skin reactions</strong> â€” including Stevensâ€“Johnson syndrome. Stop the medication and seek urgent medical advice if a rash spreads or blisters appear.</li>
-<li><strong>Liver injury</strong> â€” rare but reported. Report yellowing of the skin or eyes, dark urine or persistent abdominal pain.</li>
+<li><strong>Cardiovascular events</strong> — large trials have shown a small increase in heart-related events in people with established heart or vascular disease. The European Medicines Agency advises caution in this group; allopurinol is usually preferred unless not tolerated.</li>
+<li><strong>Severe skin reactions</strong> — including Stevens–Johnson syndrome. Stop the medication and seek urgent medical advice if a rash spreads or blisters appear.</li>
+<li><strong>Liver injury</strong> — rare but reported. Report yellowing of the skin or eyes, dark urine or persistent abdominal pain.</li>
 </ul>
 
 <h2 id="febuxostat-vs-allopurinol">Febuxostat vs allopurinol: which is better?</h2>
@@ -74,21 +74,21 @@ const CONTENT = `
 <h2 id="lifestyle">Lifestyle alongside febuxostat</h2>
 <p>Medication does the heavy lifting in lowering uric acid, but diet and lifestyle reduce the burden and protect kidney function:</p>
 <ul>
-<li><strong>Limit alcohol</strong> â€” especially beer (high in purines) and spirits</li>
-<li><strong>Cut sugary drinks</strong> â€” fructose raises uric acid as much as alcohol</li>
-<li><strong>Reduce red meat, offal and shellfish</strong> â€” the highest-purine foods</li>
+<li><strong>Limit alcohol</strong> — especially beer (high in purines) and spirits</li>
+<li><strong>Cut sugary drinks</strong> — fructose raises uric acid as much as alcohol</li>
+<li><strong>Reduce red meat, offal and shellfish</strong> — the highest-purine foods</li>
 <li><strong>Drink 2 litres of water a day</strong> to help the kidneys clear urate</li>
-<li><strong>Lose excess weight gradually</strong> â€” crash dieting and fasting raise uric acid temporarily</li>
-<li><strong>Eat low-fat dairy and cherries</strong> â€” both associated with lower flare risk</li>
+<li><strong>Lose excess weight gradually</strong> — crash dieting and fasting raise uric acid temporarily</li>
+<li><strong>Eat low-fat dairy and cherries</strong> — both associated with lower flare risk</li>
 </ul>
 <p>For a full anti-inflammatory eating pattern that supports gout and other forms of arthritis, see our <a href="/diet/foods-to-avoid-with-arthritis">foods to avoid with arthritis</a> guide.</p>
 
 <h2 id="when-to-seek-help">When to seek urgent help</h2>
 <ul>
-<li>A <strong>spreading rash, blistering, or peeling skin</strong> â€” stop febuxostat and contact a doctor immediately.</li>
-<li><strong>Chest pain, breathlessness or signs of stroke</strong> â€” call 999.</li>
-<li><strong>Yellow skin or eyes, dark urine, or persistent right-sided abdominal pain</strong> â€” possible liver injury.</li>
-<li>A gout attack that <strong>doesn't settle within a week</strong> on usual treatment â€” speak to your GP about flare control.</li>
+<li>A <strong>spreading rash, blistering, or peeling skin</strong> — stop febuxostat and contact a doctor immediately.</li>
+<li><strong>Chest pain, breathlessness or signs of stroke</strong> — call 999.</li>
+<li><strong>Yellow skin or eyes, dark urine, or persistent right-sided abdominal pain</strong> — possible liver injury.</li>
+<li>A gout attack that <strong>doesn't settle within a week</strong> on usual treatment — speak to your GP about flare control.</li>
 </ul>
 
 <h2 id="key-takeaways">Key takeaways</h2>
@@ -96,7 +96,7 @@ const CONTENT = `
 <li>Febuxostat lowers uric acid by blocking xanthine oxidase, gradually dissolving crystal deposits in joints.</li>
 <li>It is used when allopurinol is not tolerated or not effective, and when kidney function limits allopurinol dosing.</li>
 <li>Target uric acid is below 360 Âµmol/L (300 Âµmol/L in severe gout with tophi).</li>
-<li>Take it every single day â€” including during a flare â€” and pair it with colchicine for the first 3â€“6 months.</li>
+<li>Take it every single day — including during a flare — and pair it with colchicine for the first 3–6 months.</li>
 <li>Watch for skin reactions, liver changes and cardiovascular risk in people with established heart disease.</li>
 <li>Diet, alcohol and weight management amplify the benefit but do not replace daily medication.</li>
 </ul>
@@ -107,12 +107,12 @@ export default function FebuxostatGoutGuide() {
   return (
     <>
       <Helmet>
-        <title>Febuxostat for Gout â€” UK Guide | Living With Arthritis</title>
+        <title>Febuxostat for Gout — UK Guide | Living With Arthritis</title>
         <meta name="description" content="UK guide to febuxostat (Adenuric) for gout: how it works, dosing, monitoring, side effects, how it compares with allopurinol, and lifestyle tips." />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
-        <meta property="og:title" content="Febuxostat for Gout â€“ UK Guide to Dose, Side Effects & Monitoring" />
-        <meta property="og:description" content="How febuxostat lowers uric acid and prevents gout attacks â€” dosing, monitoring, side effects, and how it compares with allopurinol." />
+        <meta property="og:title" content="Febuxostat for Gout – UK Guide to Dose, Side Effects & Monitoring" />
+        <meta property="og:description" content="How febuxostat lowers uric acid and prevents gout attacks — dosing, monitoring, side effects, and how it compares with allopurinol." />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/guides/febuxostat-for-gout" />
         <meta property="og:site_name" content="Living With Arthritis UK" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
@@ -121,7 +121,7 @@ export default function FebuxostatGoutGuide() {
       <PageSchema
         url="/guides/febuxostat-for-gout"
         name="Febuxostat for Gout: UK Guide"
-        description="How febuxostat lowers uric acid and prevents gout attacks â€” dose, monitoring, side effects and lifestyle support."
+        description="How febuxostat lowers uric acid and prevents gout attacks — dose, monitoring, side effects and lifestyle support."
         medical={{ condition: "Gout" }}
         speakableSelector=".speakable-intro"
         breadcrumbs={[

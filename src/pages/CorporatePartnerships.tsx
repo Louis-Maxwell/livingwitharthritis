@@ -74,7 +74,7 @@ export default function CorporatePartnerships() {
             {[
               {
                 tier: "Supporter",
-                amount: "Â£25Kâ€“50K",
+                amount: "£25K–50K",
                 benefits: [
                   "Your logo on homepage partner section",
                   "Joint press release",
@@ -84,7 +84,7 @@ export default function CorporatePartnerships() {
               },
               {
                 tier: "Champion",
-                amount: "Â£50Kâ€“250K",
+                amount: "£50K–250K",
                 benefits: [
                   "Everything in Supporter, plus:",
                   "Branded employee wellness module (custom to your company)",
@@ -95,7 +95,7 @@ export default function CorporatePartnerships() {
               },
               {
                 tier: "Founding Partner",
-                amount: "Â£250K+",
+                amount: "£250K+",
                 benefits: [
                   "Everything in Champion, plus:",
                   "Executive seat on advisory board (quarterly)",
@@ -134,7 +134,7 @@ export default function CorporatePartnerships() {
             <p className="text-lg italic text-gray-700 mb-4">
               "Partnering with Living With Arthritis let us reach 15,000 of our employees who have arthritis or family members with it. We saw a 22% increase in our wellness programme participation, and the partnership strengthened our ESG story with investors."
             </p>
-            <footer className="font-semibold">â€” Sarah Chen, Head of Wellness, TechCorp UK</footer>
+            <footer className="font-semibold">— Sarah Chen, Head of Wellness, TechCorp UK</footer>
           </blockquote>
         </section>
 

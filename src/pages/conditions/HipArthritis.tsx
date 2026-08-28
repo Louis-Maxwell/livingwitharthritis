@@ -23,7 +23,7 @@ const URL = `${BASE}/conditions/hip-arthritis`;
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MedicalWebPage",
-  "name": "Hip Arthritis â€“ Symptoms, Exercises & Pain Relief | Living With Arthritis",
+  "name": "Hip Arthritis – Symptoms, Exercises & Pain Relief | Living With Arthritis",
   "description": "UK guide to hip arthritis (osteoarthritis of the hip): symptoms, causes, best exercises, how to relieve hip pain while sleeping, treatment options and when to consider hip replacement.",
   "url": URL,
   "inLanguage": "en-GB",
@@ -54,16 +54,16 @@ const faqLd = {
   "@type": "FAQPage",
   "mainEntity": [
     { "@type": "Question", "name": "What does hip arthritis feel like?", "acceptedAnswer": { "@type": "Answer", "text": "Most people feel a deep ache in the groin or front of the hip that worsens with walking, standing up from a chair, or putting on socks. Stiffness is common after sitting and first thing in the morning, usually easing within 30 minutes of moving." } },
-    { "@type": "Question", "name": "How do I relieve hip pain while sleeping?", "acceptedAnswer": { "@type": "Answer", "text": "Sleep on your back or on the unaffected side with a firm pillow between your knees to keep the hips aligned. A medium-firm mattress, a warm bath before bed, and a topical NSAID gel applied to the hip help reduce night pain. Avoid sleeping on the painful side and don't tuck your top knee in front of the bottom one â€” it twists the joint." } },
+    { "@type": "Question", "name": "How do I relieve hip pain while sleeping?", "acceptedAnswer": { "@type": "Answer", "text": "Sleep on your back or on the unaffected side with a firm pillow between your knees to keep the hips aligned. A medium-firm mattress, a warm bath before bed, and a topical NSAID gel applied to the hip help reduce night pain. Avoid sleeping on the painful side and don't tuck your top knee in front of the bottom one — it twists the joint." } },
     { "@type": "Question", "name": "What is the best exercise for hip arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Glute and hip-abductor strengthening (bridges, clams, side-lying leg raises) combined with low-impact cardio such as cycling, swimming or pool walking is the most evidence-based approach. NICE recommends exercise as a core treatment for everyone with hip OA." } },
     { "@type": "Question", "name": "Should I keep walking with hip arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Regular walking strengthens the muscles that support the hip and reduces pain over time. Build up gradually, wear cushioned shoes, and use a walking pole in the hand opposite to the painful hip to offload the joint by up to 25%." } },
-    { "@type": "Question", "name": "When is a hip replacement needed?", "acceptedAnswer": { "@type": "Answer", "text": "Hip replacement is usually considered when pain disturbs sleep, severely limits walking or daily activity, and conservative measures (exercise, weight management, painkillers, injections) have not worked over several months. UK outcomes are excellent â€” over 95% of hip replacements still function well at 10 years." } },
+    { "@type": "Question", "name": "When is a hip replacement needed?", "acceptedAnswer": { "@type": "Answer", "text": "Hip replacement is usually considered when pain disturbs sleep, severely limits walking or daily activity, and conservative measures (exercise, weight management, painkillers, injections) have not worked over several months. UK outcomes are excellent — over 95% of hip replacements still function well at 10 years." } },
     { "@type": "Question", "name": "Does losing weight help hip arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The hip carries roughly three times body weight when walking and up to five times when climbing stairs, so even small weight loss meaningfully reduces joint load and pain." } },
-    /* DRAFT â€” added 2026-07-28, NOT yet clinically reviewed. Flagging for
+    /* DRAFT — added 2026-07-28, NOT yet clinically reviewed. Flagging for
        the site's clinical reviewer before this is treated as reviewed
        content; do not update LAST_REVIEWED_ISO/reviewer badge for this
        page until it's been checked. */
-    { "@type": "Question", "name": "Can hip arthritis cause pain down the leg?", "acceptedAnswer": { "@type": "Answer", "text": "Yes â€” this is a well-recognised pattern called referred pain. Hip arthritis pain often radiates to the groin, the front or side of the thigh, and sometimes as far as the knee, because the hip joint shares nerve pathways with these areas. This can make it feel like the problem is in your leg or knee rather than your hip, which is one reason hip arthritis is sometimes initially misdiagnosed. Pain that's worse with weight-bearing or walking, combined with stiffness after rest, points more toward the hip as the true source." } }
+    { "@type": "Question", "name": "Can hip arthritis cause pain down the leg?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — this is a well-recognised pattern called referred pain. Hip arthritis pain often radiates to the groin, the front or side of the thigh, and sometimes as far as the knee, because the hip joint shares nerve pathways with these areas. This can make it feel like the problem is in your leg or knee rather than your hip, which is one reason hip arthritis is sometimes initially misdiagnosed. Pain that's worse with weight-bearing or walking, combined with stiffness after rest, points more toward the hip as the true source." } }
   ]
 };
 
@@ -93,7 +93,7 @@ const HipArthritis = () => (
       <title>Hip Arthritis: Symptoms, Exercises & Relief | UK</title>
       <meta name="description" content="Hip arthritis treatment: Exercise, mobility aids, injections & surgery options. Manage pain & maintain independence with evidence-based strategies." />
       <meta name="keywords" content="hip arthritis, hip osteoarthritis, hip OA, hip pain, how to relieve hip pain while sleeping, hip arthritis exercises, hip arthritis treatment, hip replacement, glute exercises hip" />
-      <meta property="og:title" content="Hip Arthritis â€“ Symptoms, Exercises & Pain Relief" />
+      <meta property="og:title" content="Hip Arthritis – Symptoms, Exercises & Pain Relief" />
       <meta property="og:description" content="Hip arthritis treatment: Exercise, mobility aids, injections & surgery options. Manage pain & maintain independence with evidence-based strategies." />
       <meta property="og:url" content={URL} />
       <meta property="og:type" content="article" />
@@ -102,9 +102,9 @@ const HipArthritis = () => (
       <meta property="og:image" content={`${BASE}/images/og-osteoarthritis.webp`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content="Hip arthritis â€“ symptoms, exercises and treatment guide" />
+      <meta property="og:image:alt" content="Hip arthritis – symptoms, exercises and treatment guide" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Hip Arthritis â€“ Symptoms, Exercises & Pain Relief" />
+      <meta name="twitter:title" content="Hip Arthritis – Symptoms, Exercises & Pain Relief" />
       <meta name="twitter:description" content="Hip arthritis treatment: Exercise, mobility aids, injections & surgery options. Manage pain & maintain independence with evidence-based strategies." />
       <meta name="twitter:image" content={`${BASE}/images/og-osteoarthritis.webp`} />
       <meta name="geo.region" content="GB" />
@@ -133,7 +133,7 @@ const HipArthritis = () => (
             <LastReviewed date={LAST_REVIEWED_ISO} className="mb-5" />
             <AeoEnhancement route="/conditions/hip-arthritis" />
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Hip osteoarthritis is one of the most common causes of groin and outer-hip pain in adults over 45. This guide covers what hip arthritis feels like, the exercises that help most, how to sleep without flaring it up, and the UK treatment ladder â€” from self-management through to hip replacement.
+              Hip osteoarthritis is one of the most common causes of groin and outer-hip pain in adults over 45. This guide covers what hip arthritis feels like, the exercises that help most, how to sleep without flaring it up, and the UK treatment ladder — from self-management through to hip replacement.
             </p>
           </motion.div>
         </div>
@@ -147,10 +147,10 @@ const HipArthritis = () => (
           <p>
             UK NICE guidance ranks <strong>hip strengthening exercise</strong> and
             <strong> weight loss</strong> as the most effective treatments for hip osteoarthritis,
-            cutting pain by around 40â€“50%. Add topical NSAID gel or oral NSAIDs for flares,
+            cutting pain by around 40–50%. Add topical NSAID gel or oral NSAIDs for flares,
             a steroid injection if needed, and a walking pole in the opposite hand to offload
             the joint. Total hip replacement is one of the most successful operations in
-            medicine â€” reserved for severe pain that limits daily life after non-surgical
+            medicine — reserved for severe pain that limits daily life after non-surgical
             options have been tried.
           </p>
         </AnswerBox>
@@ -173,30 +173,30 @@ const HipArthritis = () => (
       <main id="main-content" className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
 
         <Section icon={Activity} title="What is hip arthritis?">
-          <p>Hip arthritis is the gradual wearing down of the cartilage lining the ball-and-socket hip joint (the femoral head and acetabulum). As cartilage thins, the bones underneath thicken, small bony spurs (osteophytes) form, and the joint capsule can become inflamed â€” producing the familiar mix of groin pain, stiffness and reduced range of motion.</p>
+          <p>Hip arthritis is the gradual wearing down of the cartilage lining the ball-and-socket hip joint (the femoral head and acetabulum). As cartilage thins, the bones underneath thicken, small bony spurs (osteophytes) form, and the joint capsule can become inflamed — producing the familiar mix of groin pain, stiffness and reduced range of motion.</p>
           <h3>How common is it in the UK?</h3>
           <p>Around <strong>3.2 million</strong> people in the UK live with hip osteoarthritis. Roughly 100,000 hip replacements are performed each year through the UK healthcare system and private sector combined.</p>
         </Section>
 
         <Section icon={ThermometerSun} title="What are the symptoms of hip arthritis?">
           <ul>
-            <li><strong>Groin or front-of-thigh pain</strong> â€” the most reliable sign; pain felt only on the outside of the hip is more often bursitis or gluteal tendinopathy</li>
-            <li><strong>Stiffness after sitting</strong> â€” the "movie-theatre sign" of having to walk a few stiff steps after standing up</li>
-            <li><strong>Difficulty with socks and shoes</strong> â€” reduced hip flexion and internal rotation make foot care harder</li>
-            <li><strong>Night pain</strong> â€” aching that wakes you up, especially when lying on the affected side</li>
-            <li><strong>Limp</strong> â€” a shortened stance phase on the painful leg</li>
-            <li><strong>Reduced walking distance</strong> â€” a gradual drop in how far you can comfortably walk</li>
+            <li><strong>Groin or front-of-thigh pain</strong> — the most reliable sign; pain felt only on the outside of the hip is more often bursitis or gluteal tendinopathy</li>
+            <li><strong>Stiffness after sitting</strong> — the "movie-theatre sign" of having to walk a few stiff steps after standing up</li>
+            <li><strong>Difficulty with socks and shoes</strong> — reduced hip flexion and internal rotation make foot care harder</li>
+            <li><strong>Night pain</strong> — aching that wakes you up, especially when lying on the affected side</li>
+            <li><strong>Limp</strong> — a shortened stance phase on the painful leg</li>
+            <li><strong>Reduced walking distance</strong> — a gradual drop in how far you can comfortably walk</li>
           </ul>
         </Section>
 
         <Section icon={Heart} title="What causes hip arthritis?">
           <ul>
-            <li><strong>Age</strong> â€” most cases develop after 45</li>
-            <li><strong>Body weight</strong> â€” the hip carries 3Ã— body weight when walking and up to 5Ã— when climbing stairs</li>
-            <li><strong>Previous hip injury</strong> â€” fractures, labral tears and dislocations multiply risk</li>
-            <li><strong>Hip dysplasia or impingement (FAI)</strong> â€” abnormal joint shape concentrates load on a small area of cartilage</li>
-            <li><strong>Occupation</strong> â€” heavy lifting, prolonged standing and farming</li>
-            <li><strong>Genetics</strong> â€” strong family history increases risk roughly 2Ã—</li>
+            <li><strong>Age</strong> — most cases develop after 45</li>
+            <li><strong>Body weight</strong> — the hip carries 3Ã— body weight when walking and up to 5Ã— when climbing stairs</li>
+            <li><strong>Previous hip injury</strong> — fractures, labral tears and dislocations multiply risk</li>
+            <li><strong>Hip dysplasia or impingement (FAI)</strong> — abnormal joint shape concentrates load on a small area of cartilage</li>
+            <li><strong>Occupation</strong> — heavy lifting, prolonged standing and farming</li>
+            <li><strong>Genetics</strong> — strong family history increases risk roughly 2Ã—</li>
           </ul>
         </Section>
 
@@ -212,19 +212,19 @@ const HipArthritis = () => (
         </motion.div>
 
         <Section icon={Dumbbell} title="What are the best exercises for hip arthritis?">
-          <p>NICE lists exercise as a <strong>core treatment</strong> for everyone with hip OA â€” not optional. The most effective programmes combine glute and hip-abductor strengthening with low-impact aerobic work.</p>
+          <p>NICE lists exercise as a <strong>core treatment</strong> for everyone with hip OA — not optional. The most effective programmes combine glute and hip-abductor strengthening with low-impact aerobic work.</p>
           <h3>Strengthening</h3>
           <ul>
-            <li><strong>Glute bridges</strong> â€” 3 sets of 10, daily. Builds the hip extensors that protect the joint.</li>
-            <li><strong>Side-lying leg raises</strong> â€” strengthens gluteus medius, the key hip-stabiliser.</li>
-            <li><strong>Clams</strong> â€” knees bent, lift the top knee against a band. Targets external rotators.</li>
-            <li><strong>Sit-to-stand</strong> â€” from a kitchen chair, hands off. Builds quad and glute strength in one move.</li>
+            <li><strong>Glute bridges</strong> — 3 sets of 10, daily. Builds the hip extensors that protect the joint.</li>
+            <li><strong>Side-lying leg raises</strong> — strengthens gluteus medius, the key hip-stabiliser.</li>
+            <li><strong>Clams</strong> — knees bent, lift the top knee against a band. Targets external rotators.</li>
+            <li><strong>Sit-to-stand</strong> — from a kitchen chair, hands off. Builds quad and glute strength in one move.</li>
           </ul>
           <h3>Low-impact cardio</h3>
           <ul>
-            <li><strong>Stationary cycling</strong> â€” raise the saddle so the hip never bends past 90Â°</li>
-            <li><strong>Swimming or aqua-aerobics</strong> â€” buoyancy removes 70â€“90% of body weight from the joint; avoid breaststroke kick if it provokes groin pain</li>
-            <li><strong>Walking</strong> â€” start with 10-minute blocks, build to 30; cushioned shoes and a pole in the opposite hand</li>
+            <li><strong>Stationary cycling</strong> — raise the saddle so the hip never bends past 90°</li>
+            <li><strong>Swimming or aqua-aerobics</strong> — buoyancy removes 70–90% of body weight from the joint; avoid breaststroke kick if it provokes groin pain</li>
+            <li><strong>Walking</strong> — start with 10-minute blocks, build to 30; cushioned shoes and a pole in the opposite hand</li>
           </ul>
           <p>For a step-by-step home routine, follow our <Link to="/guides/hip-exercises-for-osteoarthritis" className="text-primary underline">8-move hip osteoarthritis exercise guide</Link>, or pair this page with our <Link to="/exercises" className="text-primary underline">exercise library</Link> for video-guided sessions.</p>
         </Section>
@@ -234,16 +234,16 @@ const HipArthritis = () => (
           <ul>
             <li><strong>Sleep on your back</strong> with a pillow under the knees to take tension off the hip flexors</li>
             <li><strong>If you side-sleep</strong>, lie on the unaffected side with a firm pillow between the knees so the top leg doesn't drop across the body and twist the painful hip</li>
-            <li><strong>Avoid the painful side</strong> â€” direct pressure on an arthritic hip almost always worsens night pain</li>
-            <li><strong>Mattress</strong> â€” a medium-firm mattress (or a memory-foam topper on a too-firm bed) reduces pressure points</li>
-            <li><strong>Pre-bed routine</strong> â€” a warm bath or shower for 10 minutes plus topical NSAID gel applied to the hip 30 minutes before bed</li>
-            <li><strong>Stay warm</strong> â€” a cold joint stiffens overnight; an extra layer or heated underblanket helps</li>
+            <li><strong>Avoid the painful side</strong> — direct pressure on an arthritic hip almost always worsens night pain</li>
+            <li><strong>Mattress</strong> — a medium-firm mattress (or a memory-foam topper on a too-firm bed) reduces pressure points</li>
+            <li><strong>Pre-bed routine</strong> — a warm bath or shower for 10 minutes plus topical NSAID gel applied to the hip 30 minutes before bed</li>
+            <li><strong>Stay warm</strong> — a cold joint stiffens overnight; an extra layer or heated underblanket helps</li>
           </ul>
           <p>If pain still wakes you most nights despite these changes, ask your GP about a short course of oral NSAIDs or a hip injection. Persistent night pain is also one of the clearest signals it's time to discuss <Link to="/conditions/hip-arthritis" className="text-primary underline">surgical options</Link>.</p>
         </Section>
 
         <Section icon={Apple} title="What diet helps hip arthritis?">
-          <p>Weight loss is the single most powerful non-surgical treatment for hip arthritis. A 5% reduction in body weight typically delivers a 20â€“30% drop in hip pain. Pair calorie control with the Mediterranean pattern covered in our <Link to="/diet" className="text-primary underline">Diet Hub</Link>:</p>
+          <p>Weight loss is the single most powerful non-surgical treatment for hip arthritis. A 5% reduction in body weight typically delivers a 20–30% drop in hip pain. Pair calorie control with the Mediterranean pattern covered in our <Link to="/diet" className="text-primary underline">Diet Hub</Link>:</p>
           <ul>
             <li>Oily fish twice a week (salmon, mackerel, sardines)</li>
             <li>Plenty of vegetables, berries, nuts, olive oil and whole grains</li>
@@ -267,17 +267,17 @@ const HipArthritis = () => (
             <li>Daily glute and hip-abductor programme</li>
             <li>Weight management</li>
             <li>Heat before activity, ice after</li>
-            <li>Walking pole in the hand opposite the painful hip â€” offloads the joint by ~25%</li>
+            <li>Walking pole in the hand opposite the painful hip — offloads the joint by ~25%</li>
           </ul>
           <h3>Medical treatments</h3>
           <ul>
-            <li><strong>Topical NSAIDs</strong> (ibuprofen or diclofenac gel) â€” useful for surface ache</li>
-            <li><strong>Oral NSAIDs / paracetamol</strong> â€” short courses where topical isn't enough</li>
-            <li><strong>Intra-articular steroid injection</strong> â€” usually image-guided for the hip; relief typically lasts 4â€“12 weeks</li>
-            <li><strong>Physiotherapy</strong> â€” supervised exercise plus manual therapy</li>
+            <li><strong>Topical NSAIDs</strong> (ibuprofen or diclofenac gel) — useful for surface ache</li>
+            <li><strong>Oral NSAIDs / paracetamol</strong> — short courses where topical isn't enough</li>
+            <li><strong>Intra-articular steroid injection</strong> — usually image-guided for the hip; relief typically lasts 4–12 weeks</li>
+            <li><strong>Physiotherapy</strong> — supervised exercise plus manual therapy</li>
           </ul>
           <h3>Surgery</h3>
-          <p><strong>Total hip replacement</strong> is considered when pain disturbs sleep, severely limits daily activity, and at least 3â€“6 months of conservative treatment has not worked. UK outcomes are excellent â€” over 95% of hip replacements are still functioning well at 10 years and around 85% at 20 years.</p>
+          <p><strong>Total hip replacement</strong> is considered when pain disturbs sleep, severely limits daily activity, and at least 3–6 months of conservative treatment has not worked. UK outcomes are excellent — over 95% of hip replacements are still functioning well at 10 years and around 85% at 20 years.</p>
         </Section>
 
         <ArticleFaqSection
@@ -296,7 +296,7 @@ const HipArthritis = () => (
 
         <ContextualLinks
           heading="Pair hip care with the right resources"
-          intro="Use these guides alongside your treatment â€” exercises, diet and the wider osteoarthritis picture."
+          intro="Use these guides alongside your treatment — exercises, diet and the wider osteoarthritis picture."
           groups={[
             {
               title: "Exercises & movement",

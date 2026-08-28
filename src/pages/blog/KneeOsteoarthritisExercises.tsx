@@ -120,7 +120,7 @@ const articleJsonLd = {
   author: {
     '@type': 'Person',
     name: 'Maxwell',
-    jobTitle: 'First Contact Practitioner â€” Chartered Physiotherapist',
+    jobTitle: 'First Contact Practitioner — Chartered Physiotherapist',
     identifier: 'HCPC PH128483',
     affiliation: {
       '@type': 'Organization',
@@ -188,7 +188,7 @@ const howToJsonLd = {
       '@type': 'HowToStep',
       position: 3,
       name: 'Hold briefly',
-      text: 'Hold the leg straight for 2â€“3 seconds, tightening the thigh muscle.',
+      text: 'Hold the leg straight for 2–3 seconds, tightening the thigh muscle.',
     },
     {
       '@type': 'HowToStep',
@@ -351,7 +351,7 @@ export default function KneeOsteoarthritisExercises() {
               Additional strength exercises
             </h2>
             <p className="text-lg text-muted-foreground">
-              Add these after Tier 1 feels comfortable. Build gradually â€” one new exercise per week.
+              Add these after Tier 1 feels comfortable. Build gradually — one new exercise per week.
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-5">
@@ -428,7 +428,7 @@ export default function KneeOsteoarthritisExercises() {
                 rel="noopener noreferrer"
                 className="text-primary underline underline-offset-2"
               >
-                NICE NG226: Osteoarthritis in over 16s â€” diagnosis and management
+                NICE NG226: Osteoarthritis in over 16s — diagnosis and management
               </a>
             </li>
             <li>

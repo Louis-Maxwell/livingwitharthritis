@@ -17,10 +17,10 @@ interface EmergencyRedirectDialogProps {
 }
 
 const COPY: Record<string, string> = {
-  self_harm: "It sounds like you're going through something incredibly difficult. You are not alone â€” please reach out now.",
+  self_harm: "It sounds like you're going through something incredibly difficult. You are not alone — please reach out now.",
   cardiac: "These symptoms can indicate a heart problem. Please get help immediately.",
-  stroke: "These symptoms can indicate a stroke. Time is critical â€” call 999 now.",
-  septic_joint: "A hot, swollen joint with fever needs urgent assessment â€” please contact 999 or 112 or your GP today.",
+  stroke: "These symptoms can indicate a stroke. Time is critical — call 999 now.",
+  septic_joint: "A hot, swollen joint with fever needs urgent assessment — please contact 999 or 112 or your GP today.",
   anaphylaxis: "These symptoms may indicate a severe allergic reaction. Call 999 immediately.",
   severe_bleed: "Please get urgent medical help.",
   default: "Some of what you described needs a real person, not online information. Please use one of the contacts below.",
