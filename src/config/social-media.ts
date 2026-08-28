@@ -33,6 +33,7 @@ export const SOCIAL_LINKS: Record<SocialPlatform, SocialLink> = {
   twitter: {
     platform: 'twitter',
     url: 'https://x.com/ArthritisOrg',
+    enabled: false, // not our account — removed pending ownership verification
     label: 'X / Twitter',
     displayName: 'X (Twitter)',
     icon: 'Twitter',
