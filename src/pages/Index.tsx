@@ -64,6 +64,7 @@ const StartHereBand = lazy(() => import("@/components/landing/StartHereBand"));
 const ImpactFactBand = lazy(() => import("@/components/landing/ImpactFactBand"));
 const ImpactProgressBand = lazy(() => import("@/components/landing/ImpactProgressBand"));
 const FinalDonateBand = lazy(() => import("@/components/landing/FinalDonateBand"));
+const GazaAppealBand = lazy(() => import("@/components/appeal/GazaAppealBand"));
 
 // MAP-inspired landing sections
 const HowYouCanHelp = lazy(() => import("@/components/landing/HowYouCanHelp"));
@@ -172,6 +173,13 @@ function HomePage() {
         <main id="main-content" role="main" tabIndex={-1}>
           {/* 01 — Editorial hero */}
           <OAHero />
+
+          {/* 01a — Urgent appeal: Palestine & Gaza rehabilitation */}
+          <Suspense fallback={<SectionFallback />}>
+            <GazaAppealBand />
+          </Suspense>
+
+
 
           {/* 01b — Founder story: why we exist */}
           <Suspense fallback={<SectionFallback />}>

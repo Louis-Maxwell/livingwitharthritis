@@ -34,6 +34,9 @@ export const photoBreakActive = "https://images.unsplash.com/photo-1476480862126
 export const videoCtaExercise = "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1200&q=75&fm=webp"; // physiotherapy session
 export const mobileAppMockup = "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1080&q=80"; // phone mockup
 export const zakatAppealHero = "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1200&q=80"; // helping hands
+// ── Palestine & Gaza rehabilitation appeal ──────────────────
+export const gazaAppealHero = "https://images.unsplash.com/photo-1526976668912-1a811878dd37?w=1600&q=75&fm=webp"; // hands held together in solidarity
+export const gazaRehabStory = "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&q=75&fm=webp"; // physiotherapist supporting a patient
 
 // ── Founder / About ─────────────────────────────────────────
 export const founderPortrait = "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1080&q=80"; // professional woman doctor
