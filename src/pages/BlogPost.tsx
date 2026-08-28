@@ -169,10 +169,19 @@ const BlogPost = () => {
   const authorCreds = /PH123456/i.test(rawAuthorCreds)
     ? "Editorial content"
     : rawAuthorCreds;
-  const reviewerName = article.reviewed_by || "";
-  const reviewerCreds = article.reviewer_credentials || "";
+  const MAXWELL_NAME = "Maxwell";
+  const MAXWELL_CREDS = "First Contact Practitioner, HCPC PH128483, CSP member";
+  const rawReviewerName = article.reviewed_by || "";
+  const rawReviewerCreds = article.reviewer_credentials || "";
+  // Normalise any legacy placeholder credit (e.g. "Sarah Jennings" /
+  // HCPC PH123456) to the only verified clinician.
+  const isPlaceholderReviewer =
+    /sarah\s+jennings/i.test(rawReviewerName) ||
+    /PH123456/i.test(rawReviewerCreds);
+  const reviewerName = isPlaceholderReviewer ? MAXWELL_NAME : rawReviewerName;
+  const reviewerCreds = isPlaceholderReviewer ? MAXWELL_CREDS : rawReviewerCreds;
   const hasVerifiedReviewer =
-    reviewerName === "Maxwell" && /\bPH128483\b/.test(reviewerCreds);
+    reviewerName === MAXWELL_NAME && /\bPH128483\b/.test(reviewerCreds);
   const citations = Array.isArray(article.citations)
     ? article.citations.filter(
         (citation): citation is Citation =>
