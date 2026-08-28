@@ -18,7 +18,18 @@ const PAYLOAD = {
   url: BASE,
   logo: {
     "@type": "ImageObject",
-    url: `${BASE}/favicon.ico`,
+    url: `${BASE}/icons/icon-512.png`,
+    width: 512,
+    height: 512,
+  },
+  foundingDate: "2026-06-15",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Oswestry Primary Care Centre, Thomas Savin Road",
+    addressLocality: "Oswestry",
+    addressRegion: "Shropshire",
+    postalCode: "SY11 1GA",
+    addressCountry: "GB",
   },
   description:
     "UK charity providing free virtual physiotherapy, NICE-aligned exercise programmes, anti-inflammatory diet guidance, benefits advice and peer support for the ~10 million people living with arthritis across the United Kingdom.",
