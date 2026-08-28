@@ -338,7 +338,7 @@ const ZakatAppeal = () => {
         </section>
 
         {/* Islamic giving: Zakat, Sadaqah, Sadaqah Jariyah */}
-        <IslamicGivingCards onGive={(amount) => handleGive(amount)} />
+        <IslamicGivingCards onGive={(amount, source) => handleGive(amount, source)} />
 
         {/* Zakat Calculator */}
         <ZakatCalculator />
@@ -413,10 +413,11 @@ const ZakatAppeal = () => {
 
       <StripeDonationModal
         isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        onClose={() => { setIsModalOpen(false); setIsRecurring(false); }}
         amount={activeAmount}
         currency="GBP"
         fundType="zakat"
+        recurring={isRecurring}
       />
     </>
   );
