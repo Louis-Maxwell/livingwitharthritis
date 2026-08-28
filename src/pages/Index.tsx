@@ -174,6 +174,13 @@ function HomePage() {
           {/* 01 — Editorial hero */}
           <OAHero />
 
+          {/* 01a — Urgent appeal: Palestine & Gaza rehabilitation */}
+          <Suspense fallback={<SectionFallback />}>
+            <GazaAppealBand />
+          </Suspense>
+
+
+
           {/* 01b — Founder story: why we exist */}
           <Suspense fallback={<SectionFallback />}>
             <FounderStoryBand />
