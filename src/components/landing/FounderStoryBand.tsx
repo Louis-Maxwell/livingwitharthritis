@@ -55,15 +55,15 @@ const FounderStoryBand = memo(() => {
 
           {/* CTA Group */}
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link
-              to="/about"
+            <a
+              href="#team"
               className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary/95 transition-colors shadow-lg shadow-primary/20"
             >
               <Stethoscope className="w-5 h-5 mr-2" aria-hidden="true" />
               Meet the team
-            </Link>
+            </a>
             <Link
-              to="/about"
+              to="/editorial-standards"
               className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-border bg-card hover:bg-muted/50 text-foreground font-semibold transition-colors"
             >
               Read our clinical policy
