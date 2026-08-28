@@ -31,7 +31,7 @@ const articles = [
     summary: "Biologics have transformed rheumatoid arthritis treatment. This evidence-based guide explains how they work, who they're suitable for, and what to expect from treatment in the UK public health system.",
     keyPoints: [
       "Biologics target specific parts of the immune system, unlike traditional DMARDs which suppress broadly",
-      "In the UK, biologics are typically prescribed when two conventional DMARDs have failed â€” following NICE guidelines (TA375)",
+      "In the UK, biologics are typically prescribed when two conventional DMARDs have failed — following NICE guidelines (TA375)",
       "TNF inhibitors (adalimumab, etanercept) remain the most commonly prescribed first-line biologics",
       "Response rates: approximately 60-70% of patients achieve significant improvement within 3-6 months",
       "Biosimilars have made biologics more cost-effective for the public health service, with no clinically meaningful differences from originator drugs",
@@ -53,7 +53,7 @@ Under current NICE guidelines, biologics are available through the public health
 
 **What Patients Should Know**
 
-Starting a biologic requires screening for tuberculosis and hepatitis B/C. Most biologics are self-injected at home (typically fortnightly or monthly), though some (infliximab, rituximab) are given as intravenous infusions in hospital. Side effects are generally manageable â€” injection site reactions, increased infection risk, and fatigue are most common.
+Starting a biologic requires screening for tuberculosis and hepatitis B/C. Most biologics are self-injected at home (typically fortnightly or monthly), though some (infliximab, rituximab) are given as intravenous infusions in hospital. Side effects are generally manageable — injection site reactions, increased infection risk, and fatigue are most common.
 
 Regular monitoring with blood tests every 3-6 months is essential. If a biologic isn't working after 6 months, switching to a different mechanism of action is standard practice.`
   },
@@ -67,17 +67,17 @@ Regular monitoring with blood tests every 3-6 months is essential. If a biologic
     icon: Activity,
     summary: "Contrary to outdated beliefs, exercise doesn't 'wear out' joints. This article reviews the latest research on how movement actually nourishes cartilage and slows osteoarthritis progression.",
     keyPoints: [
-      "Articular cartilage has no blood supply â€” it relies on compression and release during movement to receive nutrients from synovial fluid",
+      "Articular cartilage has no blood supply — it relies on compression and release during movement to receive nutrients from synovial fluid",
       "A 2022 Cochrane review confirmed that exercise therapy reduces OA knee pain by 25-40% compared to no exercise",
       "The 'sweet spot' for joint health is moderate-intensity exercise: enough to stimulate cartilage, not so much as to cause acute injury",
       "Quadriceps strengthening reduces the risk of OA progression in the knee by up to 60%",
       "Aquatic exercise is particularly effective for those with severe OA, reducing pain while allowing greater range of motion",
     ],
-    content: `One of the most persistent myths in arthritis care is that exercise damages joints. Many patients tell me they've been avoiding movement to 'protect' their joints. In reality, the opposite is true â€” controlled, appropriate exercise is one of the most effective treatments we have for osteoarthritis.
+    content: `One of the most persistent myths in arthritis care is that exercise damages joints. Many patients tell me they've been avoiding movement to 'protect' their joints. In reality, the opposite is true — controlled, appropriate exercise is one of the most effective treatments we have for osteoarthritis.
 
 **Why Movement Matters for Cartilage**
 
-Joint cartilage is unique among body tissues. It has no blood supply â€” instead, it receives nutrients through a process called 'imbibition,' where compression during movement pushes waste products out and draws fresh synovial fluid (and its nutrients) in. Think of it like a sponge: you need to squeeze and release it to keep it healthy.
+Joint cartilage is unique among body tissues. It has no blood supply — instead, it receives nutrients through a process called 'imbibition,' where compression during movement pushes waste products out and draws fresh synovial fluid (and its nutrients) in. Think of it like a sponge: you need to squeeze and release it to keep it healthy.
 
 Studies using MRI imaging have shown that regular exercisers maintain thicker, healthier cartilage than sedentary individuals of the same age. A landmark study published in Osteoarthritis and Cartilage (2019) demonstrated that moderate physical activity was associated with better cartilage quality over a 4-year period.
 
@@ -107,15 +107,15 @@ Start slowly and progress gradually. Some discomfort during exercise is normal, 
     readTime: "14 min read",
     category: "Nutrition",
     icon: Utensils,
-    summary: "Separating fact from marketing hype â€” a registered dietitian reviews the evidence for dietary approaches to arthritis management, including the Mediterranean diet, omega-3s, and popular supplements.",
+    summary: "Separating fact from marketing hype — a registered dietitian reviews the evidence for dietary approaches to arthritis management, including the Mediterranean diet, omega-3s, and popular supplements.",
     keyPoints: [
       "The Mediterranean diet has the strongest evidence base for reducing inflammatory markers (CRP, IL-6) in arthritis patients",
       "Omega-3 fatty acids (EPA/DHA) at doses of 2-3g/day can reduce RA morning stiffness and tender joint count",
-      "Curcumin (turmeric extract) at 1000mg/day shows moderate evidence for OA pain relief â€” comparable to ibuprofen in some trials",
+      "Curcumin (turmeric extract) at 1000mg/day shows moderate evidence for OA pain relief — comparable to ibuprofen in some trials",
       "No supplement has been proven to slow structural joint damage or reverse arthritis",
       "Weight management is the single most impactful dietary intervention for knee and hip OA",
     ],
-    content: `The relationship between diet and arthritis is an area where patient interest far exceeds the current evidence base. Social media is full of claims about 'miracle foods' and 'anti-inflammatory superfoods,' but the reality is more nuanced â€” and, in some ways, more encouraging.
+    content: `The relationship between diet and arthritis is an area where patient interest far exceeds the current evidence base. Social media is full of claims about 'miracle foods' and 'anti-inflammatory superfoods,' but the reality is more nuanced — and, in some ways, more encouraging.
 
 **The Mediterranean Diet: Our Best Evidence**
 
@@ -142,7 +142,7 @@ For OA, the evidence is weaker but still suggests a modest anti-inflammatory eff
 Patients frequently ask about glucosamine, chondroitin, collagen, and turmeric. Here's what the evidence shows:
 
 - **Glucosamine sulphate** (1500mg/day): Mixed results; some trials show modest pain reduction in knee OA, others show no benefit beyond placebo. NICE does not recommend it.
-- **Turmeric/Curcumin** (1000mg/day standardised extract): Moderate evidence for OA pain relief. Bioavailability is a key issue â€” look for formulations with piperine or phospholipid complexes.
+- **Turmeric/Curcumin** (1000mg/day standardised extract): Moderate evidence for OA pain relief. Bioavailability is a key issue — look for formulations with piperine or phospholipid complexes.
 - **Collagen** (hydrolysed, 10g/day): Emerging evidence, but limited high-quality trials. May have modest benefit for OA symptoms.
 - **Vitamin D**: Deficiency is common in arthritis patients and associated with worse outcomes. Supplementation (800-1000 IU/day) is recommended if deficient.
 
@@ -160,17 +160,17 @@ For knee and hip OA, weight management is arguably the most powerful dietary int
     icon: Brain,
     summary: "Arthritis affects far more than joints. This clinical psychologist explores the psychological impact of chronic pain, practical coping strategies, and when to seek professional support.",
     keyPoints: [
-      "Depression affects up to 40% of people with inflammatory arthritis â€” double the rate in the general population",
+      "Depression affects up to 40% of people with inflammatory arthritis — double the rate in the general population",
       "Pain catastrophising (amplifying threat, rumination, helplessness) is a stronger predictor of disability than X-ray severity",
       "Cognitive Behavioural Therapy (CBT) for chronic pain has a strong evidence base, with NICE recommending it alongside medical treatment",
       "Acceptance and Commitment Therapy (ACT) helps patients engage in valued activities despite pain",
-      "Social isolation is a significant risk factor â€” peer support reduces depression scores by an average of 30%",
+      "Social isolation is a significant risk factor — peer support reduces depression scores by an average of 30%",
     ],
-    content: `When we talk about arthritis, we usually talk about joints, inflammation, and physical function. But the psychological impact of living with chronic pain is profound, and frequently underestimated â€” both by healthcare professionals and by patients themselves.
+    content: `When we talk about arthritis, we usually talk about joints, inflammation, and physical function. But the psychological impact of living with chronic pain is profound, and frequently underestimated — both by healthcare professionals and by patients themselves.
 
 **The Mind-Body Connection in Arthritis**
 
-Pain is not simply a signal from damaged joints to the brain. It's a complex experience influenced by thoughts, emotions, beliefs, past experiences, and social context. This isn't to say pain is 'in your head' â€” it's very real â€” but understanding the psychological dimension opens up additional avenues for management.
+Pain is not simply a signal from damaged joints to the brain. It's a complex experience influenced by thoughts, emotions, beliefs, past experiences, and social context. This isn't to say pain is 'in your head' — it's very real — but understanding the psychological dimension opens up additional avenues for management.
 
 Research consistently shows that psychological factors like depression, anxiety, and pain catastrophising are stronger predictors of disability and quality of life than objective measures of joint damage. Two patients with identical X-rays can have vastly different experiences of their arthritis, depending on their psychological coping resources.
 
@@ -178,31 +178,31 @@ Research consistently shows that psychological factors like depression, anxiety,
 
 In my clinical practice with arthritis patients, I frequently encounter:
 
-1. **Grief and loss** â€” mourning the life and abilities you had before diagnosis
-2. **Uncertainty anxiety** â€” fear about disease progression and future disability
-3. **Identity disruption** â€” 'I'm not the person I used to be'
-4. **Social withdrawal** â€” avoiding activities and relationships due to pain or fatigue
-5. **Frustration and anger** â€” 'Why me?' and frustration with limitations
-6. **Guilt** â€” feeling like a burden to family and friends
+1. **Grief and loss** — mourning the life and abilities you had before diagnosis
+2. **Uncertainty anxiety** — fear about disease progression and future disability
+3. **Identity disruption** — 'I'm not the person I used to be'
+4. **Social withdrawal** — avoiding activities and relationships due to pain or fatigue
+5. **Frustration and anger** — 'Why me?' and frustration with limitations
+6. **Guilt** — feeling like a burden to family and friends
 
 **Evidence-Based Psychological Approaches**
 
 Cognitive Behavioural Therapy (CBT) adapted for chronic pain has a robust evidence base. Key components include:
 
 - Identifying and challenging unhelpful pain-related thoughts
-- Activity pacing â€” learning to balance activity and rest
-- Relaxation techniques â€” diaphragmatic breathing, progressive muscle relaxation
-- Sleep hygiene â€” insomnia is common in arthritis and worsens pain perception
+- Activity pacing — learning to balance activity and rest
+- Relaxation techniques — diaphragmatic breathing, progressive muscle relaxation
+- Sleep hygiene — insomnia is common in arthritis and worsens pain perception
 - Graded exposure to feared activities
 
 Acceptance and Commitment Therapy (ACT) takes a different approach, focusing not on changing thoughts but on changing your relationship to them. ACT has shown promising results for chronic pain, helping patients engage in meaningful activities even when pain is present.
 
 **Practical Self-Help Strategies**
 
-- **Mindfulness meditation** â€” even 10 minutes daily can reduce pain perception and stress hormones
-- **Gratitude journaling** â€” shifting attention from losses to retained abilities
-- **Social connection** â€” peer support groups, whether in-person or online, consistently reduce isolation and improve mood
-- **Values-based goal setting** â€” focusing on what matters most to you, not just pain reduction
+- **Mindfulness meditation** — even 10 minutes daily can reduce pain perception and stress hormones
+- **Gratitude journaling** — shifting attention from losses to retained abilities
+- **Social connection** — peer support groups, whether in-person or online, consistently reduce isolation and improve mood
+- **Values-based goal setting** — focusing on what matters most to you, not just pain reduction
 
 **When to Seek Professional Help**
 
@@ -242,7 +242,7 @@ export default function ExpertArticles() {
           }))
         })}</script>
         <meta name="description" content="Evidence-based arthritis articles by HCPC physiotherapists, consultant rheumatologists, registered dietitians and clinical psychologists." />
-      <meta property="og:title" content="Expert Articles â€“ Clinician-Written Arthritis Guides | Living With Arthritis UK" />
+      <meta property="og:title" content="Expert Articles – Clinician-Written Arthritis Guides | Living With Arthritis UK" />
       <meta property="og:description" content="Evidence-based arthritis articles written by HCPC physiotherapists, consultant rheumatologists, registered dietitians, and clinical psychologists. Expert UK health content." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/expert-articles" />
@@ -253,7 +253,7 @@ export default function ExpertArticles() {
       <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Expert Articles | Living With Arthritis UK" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Expert Articles â€“ Clinician-Written Arthritis Guides | Living With Arthritis UK" />
+      <meta name="twitter:title" content="Expert Articles – Clinician-Written Arthritis Guides | Living With Arthritis UK" />
       <meta name="twitter:description" content="Evidence-based arthritis articles written by HCPC physiotherapists, consultant rheumatologists, registered dietitians, and clinical psychologists. Expert UK health content." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
@@ -309,7 +309,7 @@ export default function ExpertArticles() {
                       <CardTitle className="text-xl leading-tight">{article.title}</CardTitle>
                       <div className="flex items-center gap-2 mt-2">
                         <Shield className="w-4 h-4 text-primary" />
-                        <span className="text-sm text-muted-foreground">{article.author} â€” <span className="text-primary">{article.authorRole}</span></span>
+                        <span className="text-sm text-muted-foreground">{article.author} — <span className="text-primary">{article.authorRole}</span></span>
                       </div>
                     </CardHeader>
                     <CardContent className="space-y-4">
@@ -320,7 +320,7 @@ export default function ExpertArticles() {
                         <ul className="space-y-2">
                           {article.keyPoints.map((point, j) => (
                             <li key={j} className="flex gap-2 text-sm text-foreground/80">
-                              <span className="text-primary font-bold mt-0.5">â€¢</span>
+                              <span className="text-primary font-bold mt-0.5">•</span>
                               <span>{point}</span>
                             </li>
                           ))}

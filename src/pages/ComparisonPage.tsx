@@ -80,7 +80,7 @@ export default function ComparisonPage() {
     dateModified: LAST_REVIEWED_ISO,
   };
 
-  const fullTitle = enforceTitle(`${title} â€” Compared`, { route: path });
+  const fullTitle = enforceTitle(`${title} — Compared`, { route: path });
   const safeDesc = enforceDescription(metaDescription, path);
   const aeoQuestion = `How do ${a} and ${b} compare${context ? ` for ${context.toLowerCase()}` : ""}?`;
   const aeoAnswer = article?.intro ?? metaDescription;
@@ -159,7 +159,7 @@ export default function ComparisonPage() {
                 ) : (
                   <p className="text-sm text-muted-foreground">
                     Detailed evidence for {opt.name} is being written by our clinical
-                    team â€” see the summary sections below for now.
+                    team — see the summary sections below for now.
                   </p>
                 )}
               </section>

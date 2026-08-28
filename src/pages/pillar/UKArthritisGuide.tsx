@@ -11,10 +11,10 @@ import { sanitizeHtml } from "@/utils/sanitizeHtml";
 const Footer = lazy(() => import("@/components/Footer"));
 
 const UK_ARTHRITIS_FAQS = [
-  { question: "How many people in the UK have arthritis?", answer: "Around 10 million people in the UK live with arthritis â€” roughly 1 in 6 adults. Osteoarthritis is by far the most common type, affecting more than 8.75 million people, followed by rheumatoid arthritis (around 400,000) and psoriatic arthritis (around 146,000)." },
+  { question: "How many people in the UK have arthritis?", answer: "Around 10 million people in the UK live with arthritis — roughly 1 in 6 adults. Osteoarthritis is by far the most common type, affecting more than 8.75 million people, followed by rheumatoid arthritis (around 400,000) and psoriatic arthritis (around 146,000)." },
   { question: "What is the most common type of arthritis in the UK?", answer: "Osteoarthritis is the most common type, accounting for the large majority of cases. It is sometimes called 'wear and tear' arthritis and most often affects the knees, hips, hands and spine." },
   { question: "Is arthritis a disability in the UK?", answer: "Arthritis is recognised as a disability under the Equality Act 2010 when it has a substantial, long-term effect on day-to-day activities. Many people with arthritis qualify for reasonable workplace adjustments and may be eligible for Personal Independence Payment (PIP)." },
-  { question: "Can arthritis be cured?", answer: "There is no cure for most forms of arthritis, but symptoms can be managed effectively with a combination of exercise, weight management, anti-inflammatory diet, physiotherapy and â€” for inflammatory types â€” disease-modifying medications that can put the condition into remission." },
+  { question: "Can arthritis be cured?", answer: "There is no cure for most forms of arthritis, but symptoms can be managed effectively with a combination of exercise, weight management, anti-inflammatory diet, physiotherapy and — for inflammatory types — disease-modifying medications that can put the condition into remission." },
   { question: "What is the best treatment for arthritis in the UK?", answer: "NICE guidelines (NG226) recommend a core package of exercise, weight management and patient education first, with medications, physiotherapy and joint replacement surgery added as needed. For inflammatory arthritis, early DMARD treatment from a rheumatology team is critical." },
   { question: "How long do I have to wait to see a rheumatologist on the public health service?", answer: "Waiting times vary widely. The national target is 18 weeks from referral to first appointment, but actual waits range from around 8 weeks in some areas to over 30 weeks in others. Urgent inflammatory arthritis referrals are typically seen within 3 weeks." },
 ];
@@ -26,12 +26,12 @@ const CONTENT = `
 
 <h3 id="main-types-quick">The Main Types at a Glance</h3>
 <ul>
-<li><strong>Osteoarthritis (OA)</strong> â€” the "wear and tear" type. Cartilage in the joints thins over time.</li>
-<li><strong>Rheumatoid arthritis (RA)</strong> â€” an autoimmune type. The immune system attacks the joint lining.</li>
-<li><strong>Psoriatic arthritis (PsA)</strong> â€” linked to the skin condition psoriasis.</li>
-<li><strong>Gout</strong> â€” caused by uric acid crystals in the joints.</li>
-<li><strong>Ankylosing spondylitis</strong> â€” mainly affects the spine.</li>
-<li><strong>Juvenile idiopathic arthritis</strong> â€” the main type in children.</li>
+<li><strong>Osteoarthritis (OA)</strong> — the "wear and tear" type. Cartilage in the joints thins over time.</li>
+<li><strong>Rheumatoid arthritis (RA)</strong> — an autoimmune type. The immune system attacks the joint lining.</li>
+<li><strong>Psoriatic arthritis (PsA)</strong> — linked to the skin condition psoriasis.</li>
+<li><strong>Gout</strong> — caused by uric acid crystals in the joints.</li>
+<li><strong>Ankylosing spondylitis</strong> — mainly affects the spine.</li>
+<li><strong>Juvenile idiopathic arthritis</strong> — the main type in children.</li>
 </ul>
 
 <h2 id="how-common-is-arthritis-uk">How Common Is Arthritis in the UK?</h2>
@@ -40,7 +40,7 @@ const CONTENT = `
 
 <h3 id="economic-impact">The Cost to the UK</h3>
 <p>The numbers are huge. Arthritis and bone or joint problems make up <strong>30% of all GP visits</strong> in England. They are the biggest cause of time off work.</p>
-<p>The total cost to the UK is about <strong>Â£12.6 billion a year</strong> in lost work, sick days and care (Versus Arthritis, 2024). Even so, arthritis gets far less research funding than cancer or heart disease.</p>
+<p>The total cost to the UK is about <strong>£12.6 billion a year</strong> in lost work, sick days and care (Versus Arthritis, 2024). Even so, arthritis gets far less research funding than cancer or heart disease.</p>
 <p>Cases are rising. The UK is ageing. More people are living with obesity and sitting more. By 2030, over <strong>12 million</strong> people in the UK are expected to have arthritis.</p>
 
 <h2 id="types-of-arthritis">Types of Arthritis Explained</h2>
@@ -86,23 +86,23 @@ const CONTENT = `
 
 <h3 id="other-types">Other Types</h3>
 <ul>
-<li><strong>Gout</strong> â€” affects about 1.6 million people. Caused by uric acid crystals, often in the big toe.</li>
-<li><strong>Ankylosing spondylitis</strong> â€” mainly the spine. Can cause inflammatory back pain and stiffening over time.</li>
-<li><strong>Juvenile idiopathic arthritis (JIA)</strong> â€” the main type in children. Around 15,000 under-16s in the UK.</li>
-<li><strong>Reactive arthritis</strong> â€” starts after an infection.</li>
-<li><strong>Fibromyalgia</strong> â€” not arthritis, but a related chronic pain condition. Affects an estimated 2.9 million UK adults.</li>
+<li><strong>Gout</strong> — affects about 1.6 million people. Caused by uric acid crystals, often in the big toe.</li>
+<li><strong>Ankylosing spondylitis</strong> — mainly the spine. Can cause inflammatory back pain and stiffening over time.</li>
+<li><strong>Juvenile idiopathic arthritis (JIA)</strong> — the main type in children. Around 15,000 under-16s in the UK.</li>
+<li><strong>Reactive arthritis</strong> — starts after an infection.</li>
+<li><strong>Fibromyalgia</strong> — not arthritis, but a related chronic pain condition. Affects an estimated 2.9 million UK adults.</li>
 </ul>
 
 <h2 id="symptoms-and-diagnosis">Symptoms and Diagnosis</h2>
 <p>Most types of arthritis share a core set of symptoms:</p>
 <ul>
-<li><strong>Joint pain</strong> â€” from a dull ache to sharp pain</li>
-<li><strong>Stiffness</strong> â€” often after rest or in the morning</li>
-<li><strong>Swelling</strong> â€” from inflammation or fluid</li>
-<li><strong>Redness and warmth</strong> â€” around the joint</li>
-<li><strong>Less movement</strong> â€” harder to bend, grip or walk</li>
-<li><strong>Fatigue</strong> â€” common in RA and other inflammatory types</li>
-<li><strong>Crepitus</strong> â€” grinding, clicking or popping</li>
+<li><strong>Joint pain</strong> — from a dull ache to sharp pain</li>
+<li><strong>Stiffness</strong> — often after rest or in the morning</li>
+<li><strong>Swelling</strong> — from inflammation or fluid</li>
+<li><strong>Redness and warmth</strong> — around the joint</li>
+<li><strong>Less movement</strong> — harder to bend, grip or walk</li>
+<li><strong>Fatigue</strong> — common in RA and other inflammatory types</li>
+<li><strong>Crepitus</strong> — grinding, clicking or popping</li>
 </ul>
 
 <h3 id="how-diagnosis-works">How diagnosis works</h3>
@@ -114,28 +114,28 @@ const CONTENT = `
 
 <h3>Conservative Management</h3>
 <ul>
-<li><strong>Exercise</strong> â€” the most effective non-drug treatment. Try walking, swimming or cycling.</li>
-<li><strong>Weight management</strong> â€” losing just 5% of body weight can cut knee pain in OA.</li>
-<li><strong>Physiotherapy</strong> â€” guided exercises, hands-on therapy and electrotherapy.</li>
-<li><strong>Occupational therapy</strong> â€” joint protection, aids and home changes.</li>
-<li><strong>Diet</strong> â€” a Mediterranean-style diet can lower inflammation.</li>
+<li><strong>Exercise</strong> — the most effective non-drug treatment. Try walking, swimming or cycling.</li>
+<li><strong>Weight management</strong> — losing just 5% of body weight can cut knee pain in OA.</li>
+<li><strong>Physiotherapy</strong> — guided exercises, hands-on therapy and electrotherapy.</li>
+<li><strong>Occupational therapy</strong> — joint protection, aids and home changes.</li>
+<li><strong>Diet</strong> — a Mediterranean-style diet can lower inflammation.</li>
 </ul>
 
 <h3>Medications</h3>
 <ul>
-<li><strong>Paracetamol</strong> â€” first choice for mild OA pain</li>
-<li><strong>NSAIDs</strong> â€” such as ibuprofen or naproxen</li>
-<li><strong>Steroid injections</strong> â€” short-term relief for badly inflamed joints</li>
-<li><strong>DMARDs</strong> â€” such as methotrexate for RA and PsA</li>
-<li><strong>Biologics</strong> â€” such as adalimumab or etanercept for severe cases</li>
-<li><strong>JAK inhibitors</strong> â€” newer targeted drugs for RA</li>
+<li><strong>Paracetamol</strong> — first choice for mild OA pain</li>
+<li><strong>NSAIDs</strong> — such as ibuprofen or naproxen</li>
+<li><strong>Steroid injections</strong> — short-term relief for badly inflamed joints</li>
+<li><strong>DMARDs</strong> — such as methotrexate for RA and PsA</li>
+<li><strong>Biologics</strong> — such as adalimumab or etanercept for severe cases</li>
+<li><strong>JAK inhibitors</strong> — newer targeted drugs for RA</li>
 </ul>
 
 <h3>Surgical Options</h3>
 <ul>
-<li><strong>Joint replacement</strong> â€” knee and hip replacements are very successful. Over 160,000 are done each year in the UK.</li>
-<li><strong>Arthroscopy</strong> â€” keyhole surgery for diagnosis or minor repairs.</li>
-<li><strong>Joint fusion</strong> â€” used for badly damaged small joints.</li>
+<li><strong>Joint replacement</strong> — knee and hip replacements are very successful. Over 160,000 are done each year in the UK.</li>
+<li><strong>Arthroscopy</strong> — keyhole surgery for diagnosis or minor repairs.</li>
+<li><strong>Joint fusion</strong> — used for badly damaged small joints.</li>
 </ul>
 
 <h2 id="living-well-with-arthritis">Living Well With Arthritis</h2>
@@ -143,24 +143,24 @@ const CONTENT = `
 
 <h3 id="seven-habits">Seven habits that help</h3>
 <ul>
-<li><strong>Stay active</strong> â€” aim for 150 minutes of moderate activity a week.</li>
-<li><strong>Eat well</strong> â€” a Mediterranean-style diet rich in oily fish, fruit, veg and whole grains.</li>
-<li><strong>Manage stress</strong> â€” try mindfulness, meditation or CBT.</li>
-<li><strong>Sleep well</strong> â€” aim for 7â€“9 hours. Poor sleep makes pain feel worse.</li>
-<li><strong>Pace yourself</strong> â€” mix activity with rest to avoid flare-ups.</li>
-<li><strong>Use aids</strong> â€” jar openers, long-handled reachers and walking aids can help a lot.</li>
-<li><strong>Connect with others</strong> â€” peer groups reduce isolation and improve coping.</li>
+<li><strong>Stay active</strong> — aim for 150 minutes of moderate activity a week.</li>
+<li><strong>Eat well</strong> — a Mediterranean-style diet rich in oily fish, fruit, veg and whole grains.</li>
+<li><strong>Manage stress</strong> — try mindfulness, meditation or CBT.</li>
+<li><strong>Sleep well</strong> — aim for 7–9 hours. Poor sleep makes pain feel worse.</li>
+<li><strong>Pace yourself</strong> — mix activity with rest to avoid flare-ups.</li>
+<li><strong>Use aids</strong> — jar openers, long-handled reachers and walking aids can help a lot.</li>
+<li><strong>Connect with others</strong> — peer groups reduce isolation and improve coping.</li>
 </ul>
 
 <h2 id="mental-health-and-arthritis">Mental Health and Arthritis</h2>
-<p>Chronic pain wears people down. People with arthritis are <strong>2â€“3 times more likely</strong> to have depression or anxiety (Arthritis Research UK). The link works both ways. Pain lowers mood, and low mood makes pain feel worse.</p>
+<p>Chronic pain wears people down. People with arthritis are <strong>2–3 times more likely</strong> to have depression or anxiety (Arthritis Research UK). The link works both ways. Pain lowers mood, and low mood makes pain feel worse.</p>
 
 <h3 id="mh-support">Where to get help</h3>
 <ul>
-<li><strong>UK healthcare Talking Therapies (IAPT)</strong> â€” free talking therapy and CBT. Self-referral is available.</li>
-<li><strong>Pain management programmes</strong> â€” group programmes mixing physio, psychology and OT.</li>
-<li><strong>Versus Arthritis helpline</strong> â€” 0800 5200 520 (free, weekdays).</li>
-<li><strong>Mind</strong> â€” 0300 123 3393 for general mental health support.</li>
+<li><strong>UK healthcare Talking Therapies (IAPT)</strong> — free talking therapy and CBT. Self-referral is available.</li>
+<li><strong>Pain management programmes</strong> — group programmes mixing physio, psychology and OT.</li>
+<li><strong>Versus Arthritis helpline</strong> — 0800 5200 520 (free, weekdays).</li>
+<li><strong>Mind</strong> — 0300 123 3393 for general mental health support.</li>
 </ul>
 
 <h2 id="arthritis-in-younger-people">Arthritis in Younger People</h2>
@@ -171,22 +171,22 @@ const CONTENT = `
 <h2 id="research-and-future-treatments">Research and Future Treatments</h2>
 <p>UK arthritis research is moving fast. Key areas include:</p>
 <ul>
-<li><strong>Regenerative medicine</strong> â€” stem cell therapy to regrow cartilage</li>
-<li><strong>Precision medicine</strong> â€” using DNA to pick the best drug for each person</li>
-<li><strong>Digital health</strong> â€” apps, wearables and remote monitoring</li>
-<li><strong>New biologics</strong> â€” drugs that target inflammation more precisely</li>
-<li><strong>The gut microbiome</strong> â€” how gut bacteria affect autoimmune arthritis</li>
+<li><strong>Regenerative medicine</strong> — stem cell therapy to regrow cartilage</li>
+<li><strong>Precision medicine</strong> — using DNA to pick the best drug for each person</li>
+<li><strong>Digital health</strong> — apps, wearables and remote monitoring</li>
+<li><strong>New biologics</strong> — drugs that target inflammation more precisely</li>
+<li><strong>The gut microbiome</strong> — how gut bacteria affect autoimmune arthritis</li>
 </ul>
-<p>Main UK funders include <strong>Versus Arthritis</strong> (over Â£9 million a year), the <strong>NIHR</strong> and the <strong>Medical Research Council</strong>. Clinical trials are open via the NIHR Clinical Research Network.</p>
+<p>Main UK funders include <strong>Versus Arthritis</strong> (over £9 million a year), the <strong>NIHR</strong> and the <strong>Medical Research Council</strong>. Clinical trials are open via the NIHR Clinical Research Network.</p>
 
 <h2 id="key-uk-resources">Key UK Resources</h2>
 <ul>
-<li><strong>Versus Arthritis</strong> â€” <a href="https://www.versusarthritis.org" target="_blank" rel="noopener noreferrer">versusarthritis.org</a> â€” helpline: 0800 5200 520</li>
-<li><strong>NRAS</strong> â€” <a href="https://nras.org.uk" target="_blank" rel="noopener noreferrer">nras.org.uk</a> â€” helpline: 0800 298 7650</li>
-<li><strong>Health and social care (UK Government)</strong> â€” <a href="https://www.gov.uk/browse/health-and-social-care" target="_blank" rel="noopener noreferrer">gov.uk/browse/health-and-social-care</a></li>
-<li><strong>Arthritis Action</strong> â€” <a href="https://www.arthritisaction.org.uk" target="_blank" rel="noopener noreferrer">arthritisaction.org.uk</a></li>
-<li><strong>Citizens Advice</strong> â€” help with benefits and PIP</li>
-<li><strong>Living With Arthritis</strong> â€” free virtual physio, diet plans and community support</li>
+<li><strong>Versus Arthritis</strong> — <a href="https://www.versusarthritis.org" target="_blank" rel="noopener noreferrer">versusarthritis.org</a> — helpline: 0800 5200 520</li>
+<li><strong>NRAS</strong> — <a href="https://nras.org.uk" target="_blank" rel="noopener noreferrer">nras.org.uk</a> — helpline: 0800 298 7650</li>
+<li><strong>Health and social care (UK Government)</strong> — <a href="https://www.gov.uk/browse/health-and-social-care" target="_blank" rel="noopener noreferrer">gov.uk/browse/health-and-social-care</a></li>
+<li><strong>Arthritis Action</strong> — <a href="https://www.arthritisaction.org.uk" target="_blank" rel="noopener noreferrer">arthritisaction.org.uk</a></li>
+<li><strong>Citizens Advice</strong> — help with benefits and PIP</li>
+<li><strong>Living With Arthritis</strong> — free virtual physio, diet plans and community support</li>
 </ul>
 
 <h2 id="sources-disclaimer">Sources &amp; Disclaimer</h2>
@@ -214,7 +214,7 @@ export default function UKArthritisGuide() {
           "medicalAudience": { "@type": "PatientAudience" },
           "lastReviewed": "2025-01-15"
         })}</script>
-      <meta property="og:title" content="Complete UK Arthritis Guide 2025 â€“ Types, Symptoms, Treatment &amp; Support" />
+      <meta property="og:title" content="Complete UK Arthritis Guide 2025 – Types, Symptoms, Treatment &amp; Support" />
       <meta property="og:description" content="The definitive UK guide to arthritis: types (OA, RA, PsA), symptoms, standard treatment options, self-management strategies, and support resources. Covers 100+ types affecting 10 million people." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/guides/uk-arthritis" />
@@ -224,14 +224,14 @@ export default function UKArthritisGuide() {
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Complete UK Arthritis Guide 2025 â€“ Types, Symptoms, Treatment &amp; Support" />
+      <meta name="twitter:title" content="Complete UK Arthritis Guide 2025 – Types, Symptoms, Treatment &amp; Support" />
       <meta name="twitter:description" content="The definitive UK guide to arthritis: types (OA, RA, PsA), symptoms, standard treatment options, self-management strategies, and support resources. Covers 100+ types affecting 10 million people." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
       <PageSchema
         url="/guides/uk-arthritis"
         name="The Complete UK Arthritis Guide"
-        description="Everything you need to know about arthritis in the UK â€” types, symptoms, treatments, services and support."
+        description="Everything you need to know about arthritis in the UK — types, symptoms, treatments, services and support."
         medical={{ condition: "Arthritis" }}
         speakableSelector=".speakable-intro"
         breadcrumbs={[
@@ -246,13 +246,13 @@ export default function UKArthritisGuide() {
       <main id="main-content" className="min-h-screen bg-background">
         <PageHero
           title="The Complete UK Arthritis Guide"
-          subtitle="Everything you need to know about arthritis â€” types, symptoms, treatments and support available across the United Kingdom."
+          subtitle="Everything you need to know about arthritis — types, symptoms, treatments and support available across the United Kingdom."
           badge="Pillar Guide"
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
           <p className="speakable-intro text-lg md:text-xl text-foreground/85 leading-relaxed mb-8">
             Arthritis is an umbrella term for more than 100 conditions that cause joint pain,
-            swelling and stiffness. In the UK, around 10 million people live with arthritis â€”
+            swelling and stiffness. In the UK, around 10 million people live with arthritis —
             roughly 1 in 6 adults. The most common type is osteoarthritis, followed by
             rheumatoid arthritis and gout. This guide covers the main types, how they are
             diagnosed and treated, and the UK services and benefits available to you.

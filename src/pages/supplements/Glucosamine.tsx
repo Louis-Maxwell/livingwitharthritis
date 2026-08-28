@@ -13,7 +13,7 @@ const URL = `${BASE}/supplements/glucosamine`;
 
 const META_TITLE = "Glucosamine for Arthritis: Does It Work? UK Guide";
 const META_DESC =
-  "UK guide to glucosamine for arthritis â€” what the evidence really says, glucosamine sulfate vs HCl, dosage, side effects and how it compares to chondroitin, MSM and collagen.";
+  "UK guide to glucosamine for arthritis — what the evidence really says, glucosamine sulfate vs HCl, dosage, side effects and how it compares to chondroitin, MSM and collagen.";
 
 const FAQS = [
   {
@@ -37,7 +37,7 @@ const FAQS = [
     a: "Side effects can include stomach upset, heartburn, nausea or headache. Ask a pharmacist or GP before taking it if you use warfarin, have allergies, are pregnant or breastfeeding, or have another health condition.",
   },
   {
-    q: "Glucosamine vs chondroitin â€” which is better?",
+    q: "Glucosamine vs chondroitin — which is better?",
     a: "Evidence for both products, alone or together, is inconsistent. Neither should replace exercise, weight management where appropriate, or treatment recommended by your healthcare professional.",
   },
   {
@@ -74,8 +74,8 @@ export default function Glucosamine() {
         logo: { "@type": "ImageObject", url: `${BASE}/favicon.ico` },
       },
     };
-    // BreadcrumbList intentionally not emitted here â€” <PageBreadcrumb> below covers it.
-    // FAQPage intentionally not emitted here â€” <FaqAccordion> below covers it.
+    // BreadcrumbList intentionally not emitted here — <PageBreadcrumb> below covers it.
+    // FAQPage intentionally not emitted here — <FaqAccordion> below covers it.
     const scripts = [medical].map((d) => {
       const s = document.createElement("script");
       s.type = "application/ld+json";
@@ -134,7 +134,7 @@ export default function Glucosamine() {
             <p className="text-lg text-muted-foreground leading-relaxed">
               Glucosamine is one of the most-bought joint supplements in the UK. Here's what the
               evidence actually shows, the right dose to take, and how it compares to chondroitin,
-              MSM and collagen â€” written in plain English.
+              MSM and collagen — written in plain English.
             </p>
           </div>
         </div>
@@ -163,7 +163,7 @@ export default function Glucosamine() {
             <div className="prose prose-lg max-w-none text-foreground/85 prose-strong:text-foreground prose-headings:font-display prose-headings:text-foreground">
               <p>
                 Glucosamine is a natural amino sugar that the body uses to build and repair
-                cartilage â€” the smooth tissue that cushions the ends of bones in a joint. As we
+                cartilage — the smooth tissue that cushions the ends of bones in a joint. As we
                 age, cartilage breaks down faster than it can be replaced, which is the main driver
                 of <Link to="/conditions/osteoarthritis" className="text-primary underline">osteoarthritis</Link>.
               </p>
@@ -172,9 +172,9 @@ export default function Glucosamine() {
                 vegetarian/vegan versions are fermented from corn). They come in three main forms:
               </p>
               <ul>
-                <li><strong>Glucosamine sulfate</strong> â€” the form used in most positive UK and European trials. This is what to look for on the label.</li>
-                <li><strong>Glucosamine hydrochloride (HCl)</strong> â€” cheaper, but weaker evidence.</li>
-                <li><strong>N-acetyl glucosamine</strong> â€” sometimes added; very little evidence for arthritis.</li>
+                <li><strong>Glucosamine sulfate</strong> — the form used in most positive UK and European trials. This is what to look for on the label.</li>
+                <li><strong>Glucosamine hydrochloride (HCl)</strong> — cheaper, but weaker evidence.</li>
+                <li><strong>N-acetyl glucosamine</strong> — sometimes added; very little evidence for arthritis.</li>
               </ul>
             </div>
           </section>
@@ -218,7 +218,7 @@ export default function Glucosamine() {
             </div>
             <div className="prose prose-lg max-w-none text-foreground/85 prose-strong:text-foreground prose-headings:font-display prose-headings:text-foreground">
               <p>
-                Glucosamine is one of the most-studied joint supplements in the world â€” and the
+                Glucosamine is one of the most-studied joint supplements in the world — and the
                 results are mixed.
               </p>
               <ul>
@@ -314,23 +314,23 @@ export default function Glucosamine() {
             <div className="prose prose-lg max-w-none text-foreground/85 prose-strong:text-foreground prose-headings:font-display prose-headings:text-foreground">
               <ul>
                 <li>
-                  <strong>Chondroitin</strong> â€” often combined with glucosamine,
+                  <strong>Chondroitin</strong> — often combined with glucosamine,
                   but evidence of meaningful benefit is inconsistent.
                 </li>
                 <li>
-                  <strong><Link to="/supplements/msm" className="text-primary underline">MSM</Link></strong> â€” small
+                  <strong><Link to="/supplements/msm" className="text-primary underline">MSM</Link></strong> — small
                   studies exist, but the evidence base remains limited.
                 </li>
                 <li>
-                  <strong>Collagen products</strong> â€” formulations vary and
+                  <strong>Collagen products</strong> — formulations vary and
                   evidence is not strong enough to promise benefit.
                 </li>
                 <li>
-                  <strong>Turmeric / curcumin</strong> â€” research is ongoing;
+                  <strong>Turmeric / curcumin</strong> — research is ongoing;
                   products vary and interactions are possible.
                 </li>
                 <li>
-                  <strong>Omega-3 (fish oil)</strong> â€” best evidence is in rheumatoid arthritis, not OA.
+                  <strong>Omega-3 (fish oil)</strong> — best evidence is in rheumatoid arthritis, not OA.
                 </li>
               </ul>
               <p>

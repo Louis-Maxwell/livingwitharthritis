@@ -37,8 +37,8 @@ function ExerciseCircuit500() {
           <Suspense fallback={<div className="h-96 bg-muted" />}>
             <CampaignBand
               title="Fund 500 Personalised Exercise Plans"
-              subtitle="Movement is medicine â€” help us reach people who need it most"
-              description="Every person living with arthritis deserves a personalised recovery plan. We're partnering with UK healthcare physiotherapists to create 500 free, tailored exercise programmesâ€”one for each person. Each Â£100 funds one complete plan: assessment, exercises, progress tracking, and ongoing support. No paywalls. No waiting lists. Just evidence-based care for everyone."
+              subtitle="Movement is medicine — help us reach people who need it most"
+              description="Every person living with arthritis deserves a personalised recovery plan. We're partnering with UK healthcare physiotherapists to create 500 free, tailored exercise programmes—one for each person. Each £100 funds one complete plan: assessment, exercises, progress tracking, and ongoing support. No paywalls. No waiting lists. Just evidence-based care for everyone."
               goalGbp={50000}
               raisedGbp={12500}
               impactMetric={{
@@ -47,7 +47,7 @@ function ExerciseCircuit500() {
               }}
               beneficiaries={500}
               urgency="high"
-              cta="Give Â£100 to fund one person's recovery"
+              cta="Give £100 to fund one person's recovery"
             />
           </Suspense>
 
@@ -56,7 +56,7 @@ function ExerciseCircuit500() {
             <div className="container mx-auto px-6 lg:px-16">
               <div className="max-w-3xl mx-auto">
                 <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-6">
-                  What Â£100 pays for
+                  What £100 pays for
                 </h2>
                 <div className="grid md:grid-cols-3 gap-6">
                   <div className="rounded-xl bg-card border border-border p-6">

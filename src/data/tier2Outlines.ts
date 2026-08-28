@@ -45,7 +45,7 @@ export const pillarScaffolds: PillarScaffold[] = [
     route: '/conditions/osteoarthritis',
     title: 'Osteoarthritis: Complete UK Guide',
     metaDescription:
-      'Evidence-based osteoarthritis guide â€” causes, symptoms, diagnosis, treatment, exercise and diet. Reviewed by HCPC physiotherapist.',
+      'Evidence-based osteoarthritis guide — causes, symptoms, diagnosis, treatment, exercise and diet. Reviewed by HCPC physiotherapist.',
     targetKeywords: ['osteoarthritis', 'how to manage osteoarthritis', 'osteoarthritis treatment'],
     wordCountTarget: 1200,
     sections: [
@@ -66,7 +66,7 @@ export const pillarScaffolds: PillarScaffold[] = [
     route: '/conditions/rheumatoid-arthritis',
     title: 'Rheumatoid Arthritis: Complete UK Guide',
     metaDescription:
-      'Evidence-based RA guide â€” autoimmune mechanism, early symptoms, DMARDs, biologics, exercise, work and pregnancy. HCPC-reviewed.',
+      'Evidence-based RA guide — autoimmune mechanism, early symptoms, DMARDs, biologics, exercise, work and pregnancy. HCPC-reviewed.',
     targetKeywords: ['rheumatoid arthritis', 'living with RA', 'RA treatment'],
     wordCountTarget: 1200,
     sections: [
@@ -87,7 +87,7 @@ export const pillarScaffolds: PillarScaffold[] = [
     route: '/conditions/juvenile-arthritis',
     title: 'Juvenile Arthritis: Complete Parent Guide',
     metaDescription:
-      'Evidence-based juvenile arthritis guide for UK parents â€” types, symptoms, diagnosis, school, sports, treatment and family support.',
+      'Evidence-based juvenile arthritis guide for UK parents — types, symptoms, diagnosis, school, sports, treatment and family support.',
     targetKeywords: ['juvenile arthritis', 'arthritis in children', 'JA treatment'],
     wordCountTarget: 1200,
     sections: [

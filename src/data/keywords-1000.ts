@@ -1,12 +1,12 @@
 ﻿/**
- * 1,000 UK-focused arthritis keywords â€” split into two clearly labelled groups:
- *   â€¢ 500 "organic" (informational, long-tail, question-based)
- *   â€¢ 500 "paid" (commercial / transactional intent for PPC campaigns)
+ * 1,000 UK-focused arthritis keywords — split into two clearly labelled groups:
+ *   • 500 "organic" (informational, long-tail, question-based)
+ *   • 500 "paid" (commercial / transactional intent for PPC campaigns)
  *
  * This file is the single source of truth for the /admin/keyword-strategy
  * dashboard and for editorial teams building meta titles / descriptions.
  * It's expanded programmatically from seed matrices so the taxonomy stays
- * consistent â€” but the exported array is a plain, immutable list of 1000
+ * consistent — but the exported array is a plain, immutable list of 1000
  * entries.
  */
 
@@ -104,7 +104,7 @@ const add = (entry: KeywordEntry) => {
 };
 
 // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-// ORGANIC (500) â€” informational, long-tail, question-based
+// ORGANIC (500) — informational, long-tail, question-based
 // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const ORG_TEMPLATES: Array<
@@ -277,7 +277,7 @@ for (const s of seeds) {
 }
 
 // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-// PAID (500) â€” commercial / transactional intent
+// PAID (500) — commercial / transactional intent
 // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const PAID_SERVICE_TEMPLATES: Array<(city: string) => Omit<KeywordEntry, "group">> = [
