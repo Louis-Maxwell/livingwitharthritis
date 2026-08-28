@@ -72,7 +72,7 @@ import HeaderSocial from '@/components/HeaderSocial';
 
 | Platform | URL | Status | Tracking |
 |----------|-----|--------|----------|
-| X/Twitter | https://x.com/ArthritisOrg | ✅ Enabled | ✅ Yes |
+| X/Twitter | — | ❌ Disabled (wrong organisation) | — |
 | Facebook | https://www.facebook.com/livingwitharthritisuk | ✅ Enabled | ✅ Yes |
 | Instagram | https://www.instagram.com/livingwitharthritisuk | ✅ Enabled | ✅ Yes |
 | LinkedIn | https://www.linkedin.com/company/112596569/ | ✅ Enabled | ✅ Yes |

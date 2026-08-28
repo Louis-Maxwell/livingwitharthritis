@@ -43,7 +43,7 @@ CONSTITUTION OF LIVING WITH ARTHRITIS
 ======================================
 A Charitable Incorporated Organisation (CIO)
 
-Date of Registration: 15 March 2020
+Date of Registration: 15 June 2026
 
 1. NAME
 The name of the Charitable Incorporated Organisation is "Living With Arthritis" ("the CIO").
@@ -89,7 +89,7 @@ This constitution may be amended by a resolution agreed by not less than two-thi
 (a) If the CIO is wound up, any remaining assets shall be given to another charity with similar purposes.
 (b) Assets may not be distributed to trustees or members.
 
-Adopted on 15 March 2020.
+Adopted on 15 June 2026.
 Amended on 1 January 2024.
 
 Regulated by the Charity Commission for England and Wales.
@@ -185,7 +185,7 @@ Regulated by the Charity Commission for England and Wales.
                     </div>
                     <div>
                       <dt className="font-semibold text-foreground">Date of Registration</dt>
-                      <dd className="text-muted-foreground">15 March {CHARITY.foundedYear}</dd>
+                      <dd className="text-muted-foreground">15 June {CHARITY.foundedYear}</dd>
                     </div>
                     <div>
                       <dt className="font-semibold text-foreground">Regulator</dt>

@@ -30,6 +30,9 @@ export interface SocialLink {
  * These should match actual, verified accounts
  */
 export const SOCIAL_LINKS: Record<SocialPlatform, SocialLink> = {
+  // Only profiles confirmed as owned by the charity are enabled.
+  // HTTP 200 responses from social platforms are login-wall responses and
+  // do not prove ownership — enable others only after verifying the account.
   twitter: {
     platform: 'twitter',
     url: 'https://x.com/ArthritisOrg',
@@ -38,7 +41,7 @@ export const SOCIAL_LINKS: Record<SocialPlatform, SocialLink> = {
     icon: 'Twitter',
     color: 'hover:text-blue-400',
     description: 'Follow us on X for daily arthritis tips and updates',
-    enabled: true,
+    enabled: false, // @ArthritisOrg is a different organisation — do not link
   },
   facebook: {
     platform: 'facebook',
@@ -48,17 +51,17 @@ export const SOCIAL_LINKS: Record<SocialPlatform, SocialLink> = {
     icon: 'Facebook',
     color: 'hover:text-blue-600',
     description: 'Connect with us on Facebook',
-    enabled: true,
+    enabled: false, // ownership not verified
   },
   instagram: {
     platform: 'instagram',
-    url: 'https://www.instagram.com/livingwitharthritisuk',
+    url: 'https://www.instagram.com/livingwitharthritisuk/',
     label: 'Instagram',
     displayName: 'Instagram',
     icon: 'Instagram',
     color: 'hover:text-pink-500',
     description: 'Follow us on Instagram for exercise videos and wellness tips',
-    enabled: true,
+    enabled: true, // confirmed charity-owned profile
   },
   linkedin: {
     platform: 'linkedin',
@@ -68,7 +71,7 @@ export const SOCIAL_LINKS: Record<SocialPlatform, SocialLink> = {
     icon: 'Linkedin',
     color: 'hover:text-blue-700',
     description: 'Follow us on LinkedIn for professional updates',
-    enabled: true,
+    enabled: false, // ownership not verified
   },
   youtube: {
     platform: 'youtube',
@@ -78,7 +81,7 @@ export const SOCIAL_LINKS: Record<SocialPlatform, SocialLink> = {
     icon: 'Youtube',
     color: 'hover:text-red-600',
     description: 'Subscribe to our YouTube channel for exercise videos and tutorials',
-    enabled: true,
+    enabled: true, // confirmed charity-owned profile
   },
   tiktok: {
     platform: 'tiktok',
@@ -88,7 +91,7 @@ export const SOCIAL_LINKS: Record<SocialPlatform, SocialLink> = {
     icon: 'Music',
     color: 'hover:text-black dark:hover:text-white',
     description: 'Follow us on TikTok for quick arthritis tips',
-    enabled: true,
+    enabled: false, // ownership not verified
   },
   pinterest: {
     platform: 'pinterest',
@@ -98,7 +101,7 @@ export const SOCIAL_LINKS: Record<SocialPlatform, SocialLink> = {
     icon: 'Github', // Using as Pinterest icon placeholder
     color: 'hover:text-red-600',
     description: 'Save our arthritis tips and recipes on Pinterest',
-    enabled: true,
+    enabled: false, // ownership not verified
   },
   reddit: {
     platform: 'reddit',
