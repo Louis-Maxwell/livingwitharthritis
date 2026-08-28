@@ -354,7 +354,11 @@ function build(entries: SitemapEntry[]): string {
 async function main() {
   const entries: SitemapEntry[] = [];
 
-  for (const p of parseStaticRoutes()) entries.push({ path: p });
+  for (const p of parseStaticRoutes()) {
+    // lastmod only for pages with a known significant content change; others omit it.
+    const lastmod = p === "/" || p === "/about" ? "2026-08-28" : undefined;
+    entries.push({ path: p, ...(lastmod ? { lastmod } : {}) });
+  }
 
   for (const slug of dailyTipSlugs()) entries.push({ path: `/daily-tips/${slug}` });
   for (const id of productIds()) entries.push({ path: `/product/${id}` });
