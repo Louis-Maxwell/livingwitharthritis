@@ -14,7 +14,8 @@ const PAYLOAD = {
   "@type": "MedicalOrganization",
   "@id": `${BASE}/#organization`,
   name: "Living With Arthritis UK",
-  alternateName: "Living With Arthritis",
+  legalName: "Living With Arthritis",
+  alternateName: ["Living With Arthritis UK", "Living With Arthritis charity"],
   url: BASE,
   logo: {
     "@type": "ImageObject",
@@ -23,6 +24,18 @@ const PAYLOAD = {
     height: 512,
   },
   foundingDate: "2026-06-15",
+  founder: {
+    "@type": "Person",
+    name: "Louis Maxwell",
+    alternateName: "Maxwell",
+    jobTitle: "First Contact Practitioner",
+    identifier: {
+      "@type": "PropertyValue",
+      propertyID: "HCPC",
+      value: "PH128483",
+    },
+    url: `${BASE}/authors/maxwell`,
+  },
   address: {
     "@type": "PostalAddress",
     streetAddress: "Oswestry Primary Care Centre, Thomas Savin Road",
@@ -32,7 +45,7 @@ const PAYLOAD = {
     addressCountry: "GB",
   },
   description:
-    "UK charity providing free virtual physiotherapy, NICE-aligned exercise programmes, anti-inflammatory diet guidance, benefits advice and peer support for the ~10 million people living with arthritis across the United Kingdom.",
+    "Living With Arthritis is a registered charity in England and Wales no. 1218461, independent of Arthritis UK, providing free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory nutrition guidance and peer support for people living with joint pain across the United Kingdom.",
   email: "info@livingwitharthritis.org.uk",
   areaServed: {
     "@type": "Country",
@@ -45,22 +58,6 @@ const PAYLOAD = {
     value: "1218461",
     url: "https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/5274747/charity-overview",
   },
-  founder: {
-    "@type": "Person",
-    name: "Maxwell",
-    jobTitle: "First Contact Practitioner",
-    identifier: "HCPC PH128483",
-    url: `${BASE}/authors/maxwell`,
-  },
-  member: [
-    {
-      "@type": "Person",
-      name: "Maxwell",
-      jobTitle: "First Contact Practitioner",
-      identifier: "HCPC PH128483",
-      url: `${BASE}/authors/maxwell`,
-    },
-  ],
   knowsAbout: [
     "Osteoarthritis",
     "Rheumatoid arthritis",
