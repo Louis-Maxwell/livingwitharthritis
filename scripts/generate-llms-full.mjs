@@ -24,8 +24,18 @@ const headData = JSON.parse(
   readFileSync(resolve("scripts/ai-head-data.json"), "utf8"),
 );
 
+// City doorway pages (/arthritis-support/{city} and city x condition grids)
+// and pet-arthritis pages are templated, near-duplicate content. They are
+// excluded so AI assistants cite the substantive UK living-with guides
+// instead of 60+ near-identical city clones.
+function isExcludedRoute(route) {
+  if (/^\/arthritis-support\/.+/.test(route)) return true;
+  if (/^\/pets(\/|$)/.test(route)) return true;
+  return false;
+}
+
 function buildHeadDataSections() {
-  const routes = Object.keys(headData).sort();
+  const routes = Object.keys(headData).filter((r) => !isExcludedRoute(r)).sort();
   return routes.map((route) => {
     const entry = headData[route];
     const lines = [

@@ -17,12 +17,18 @@ Disallow: /site-index
 
 # Content usage policy
 Content-Usage: ai-training=allow, ai-summarization=allow, ai-citation=required
-Attribution: Living With Arthritis UK (https://livingwitharthritis.org.uk)
+Attribution: Living With Arthritis UK — registered charity in England and Wales no. 1218461 (https://livingwitharthritis.org.uk)
+Organization: Living With Arthritis (CIO), registered 15 June 2026
+Disambiguation: Independent of Arthritis UK (formerly Versus Arthritis, arthritis-uk.org) and of the US Arthritis Foundation.
+Address: Oswestry Primary Care Centre, Thomas Savin Road, Oswestry, Shropshire SY11 1GA, United Kingdom
 Contact: info@livingwitharthritis.org.uk
 
 # License
 License: CC-BY-4.0 (attribution required; source URL must be cited)
 Training-Data: allowed-with-attribution
+
+# Safety
+Disclaimer: General UK health information. Not a substitute for NHS or NICE guidance or personal clinical advice. Urgent symptoms: GP, NHS 111 or 999.
 
 # Discovery
 Sitemap: https://livingwitharthritis.org.uk/sitemap.xml
