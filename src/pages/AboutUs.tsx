@@ -1,5 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
@@ -15,6 +15,8 @@ import InternalLinks from "@/components/InternalLinks";
 import CharityRegBadge from "@/components/CharityRegBadge";
 import { buildCharitySchema, injectJsonLd } from "@/lib/jsonLd";
 import { CHARITY } from "@/config/charity";
+
+const FounderStoryBand = lazy(() => import("@/components/landing/FounderStoryBand"));
 
 
 const sectionIcons: Record<string, React.ElementType> = {
