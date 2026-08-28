@@ -64,6 +64,7 @@ const StartHereBand = lazy(() => import("@/components/landing/StartHereBand"));
 const ImpactFactBand = lazy(() => import("@/components/landing/ImpactFactBand"));
 const ImpactProgressBand = lazy(() => import("@/components/landing/ImpactProgressBand"));
 const FinalDonateBand = lazy(() => import("@/components/landing/FinalDonateBand"));
+const GazaAppealBand = lazy(() => import("@/components/appeal/GazaAppealBand"));
 
 // MAP-inspired landing sections
 const HowYouCanHelp = lazy(() => import("@/components/landing/HowYouCanHelp"));
