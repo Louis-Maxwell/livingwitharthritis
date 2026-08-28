@@ -34,7 +34,7 @@ const withVisitorSnippet = (rest: string) =>
 const HeroStatsStrip = lazy(() => import("@/components/landing/HeroStatsStrip"));
 const OAProblemBand = lazy(() => import("@/components/landing/OAProblemBand"));
 const JointExerciseSection = lazy(() => import("@/components/JointExerciseSection"));
-const FounderStoryBand = lazy(() => import("@/components/landing/FounderStoryBand"));
+
 const FacesStrip = lazy(() => import("@/components/landing/FacesStrip"));
 const OAPlanPillarsSection = lazy(() => import("@/components/landing/OAPlanPillarsSection"));
 const MissionStatementBand = lazy(() => import("@/components/landing/MissionStatementBand"));
@@ -181,10 +181,6 @@ function HomePage() {
 
 
 
-          {/* 01b — Founder story: why we exist */}
-          <Suspense fallback={<SectionFallback />}>
-            <FounderStoryBand />
-          </Suspense>
 
           {/* 02 — Beginner journey chooser */}
           <Suspense fallback={<SectionFallback />}>
