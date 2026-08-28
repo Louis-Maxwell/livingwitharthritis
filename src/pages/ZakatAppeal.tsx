@@ -102,31 +102,42 @@ const ZakatAppeal = () => {
   return (
     <>
       <Helmet>
-        <title>Zakat Appeal | Living With Arthritis UK</title>
-        <meta name="description" content="Give your Zakat to fund physiotherapy and rehabilitation sessions for war and trauma survivors. Shariah-compliant, transparent and life-changing." />
-        <meta property="og:title" content="Zakat Appeal – Fund Rehab for War & Trauma Survivors" />
-        <meta property="og:description" content="Your Zakat could fund life-changing physiotherapy for someone recovering from war injuries. Shariah-compliant. 100% transparent." />
+        <title>Palestine & Gaza Appeal | Zakat & Sadaqah | Living With Arthritis UK</title>
+        <meta name="description" content="Give your Zakat or Sadaqah to fund physiotherapy and rehabilitation for war and trauma survivors in Gaza. Shariah-compliant, scholar-guided, Gift Aid +25%." />
+        <meta property="og:title" content="Palestine & Gaza Appeal – Zakat & Sadaqah for Rehabilitation" />
+        <meta property="og:description" content="Thousands in Gaza are living with crushed joints and amputations. Your Zakat and Sadaqah fund the physiotherapy that helps them walk again." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/zakat-appeal" />
         <meta property="og:locale" content="en_GB" />
-        <meta name="keywords" content="zakat donation UK, zakat arthritis, zakat rehab, zakat war survivors, Islamic charity UK, zakat physiotherapy, shariah compliant charity" />
+        <meta name="keywords" content="Gaza appeal UK, donate to Palestine, zakat Gaza, sadaqah Gaza, zakat donation UK, Islamic charity UK, sadaqah jariyah, shariah compliant charity, zakat physiotherapy" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "DonateAction",
-          "name": "Zakat Appeal – Rehabilitation for War & Trauma Survivors",
-          "description": "Fund physiotherapy and rehabilitation sessions for individuals recovering from war and trauma injuries.",
+          "name": "Palestine & Gaza Appeal – Rehabilitation for War & Trauma Survivors",
+          "description": "Give Zakat or Sadaqah to fund physiotherapy and rehabilitation sessions for people recovering from war and trauma injuries in Gaza.",
           "recipient": { "@type": "Organization", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" },
           "price": "100",
           "priceCurrency": "GBP",
         })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "@id": "https://livingwitharthritis.org.uk/zakat-appeal#faq",
+          "url": "https://livingwitharthritis.org.uk/zakat-appeal",
+          "inLanguage": "en-GB",
+          "mainEntity": FAQ_ITEMS.map((item) => ({
+            "@type": "Question",
+            "name": item.q,
+            "acceptedAnswer": { "@type": "Answer", "text": item.a },
+          })),
+        })}</script>
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Zakat Appeal – Fund Rehab for War & Trauma Survivors | Living With Arthritis UK" />
-      <meta name="twitter:description" content="Give your Zakat to fund physiotherapy and rehabilitation sessions for war and trauma survivors. Shariah-compliant, transparent and life-changing." />
-      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
+      <meta name="twitter:title" content="Palestine & Gaza Appeal – Zakat & Sadaqah | Living With Arthritis UK" />
+      <meta name="twitter:description" content="Give your Zakat or Sadaqah to fund physiotherapy and rehabilitation for war and trauma survivors in Gaza." />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Zakat Appeal | Living With Arthritis UK" />
+        <meta property="og:image:alt" content="Palestine & Gaza Appeal | Living With Arthritis UK" />
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
 
@@ -140,31 +151,35 @@ const ZakatAppeal = () => {
             <div className="animate-fade-in">
               <div className="rounded-2xl overflow-hidden shadow-lg">
                 <img
-                  src={zakatHeroImg}
-                  alt="Hands raised in prayer at sunrise symbolising charity and hope"
+                  src={gazaAppealHero}
+                  alt="Hands held together in solidarity, symbolising support for families in Palestine"
                   className="w-full h-auto object-cover"
                   loading="eager"
                   decoding="async"
                   width={720}
                   height={480}
-                  srcSet={`${zakatHeroImg.split("?")[0]}?w=640&q=80&auto=format 640w, ${zakatHeroImg.split("?")[0]}?w=800&q=80&auto=format 800w, ${zakatHeroImg.split("?")[0]}?w=1200&q=80&auto=format 1200w`}
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
 
               <div className="mt-8 space-y-5">
                 <h2 className="text-xl sm:text-2xl font-display font-bold text-foreground">
-                  Zakat — Rebuilding Lives After War & Trauma
+                  Palestine — rebuilding bodies broken by war
                 </h2>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Zakat is one of the five fundamental pillars of Islam — an act of worship through giving that purifies wealth and draws the believer closer to Allah. The obligation applies to 2.5% of qualifying savings and assets held for a full lunar year.
+                  In Gaza, thousands of people are living with crushed joints, amputations, nerve damage and pain that never lets go. Hospitals that survived are overwhelmed, and rehabilitation — the slow, patient work of learning to move again — is one of the first things to disappear.
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Across the world, millions affected by war and trauma are left with devastating physical injuries — shattered joints, chronic pain, and mobility loss. Many cannot afford rehabilitation, leaving them trapped in cycles of pain and poverty. Your Zakat can fund life-changing physiotherapy and rehab sessions.
+                  Without it, a survivable injury becomes a lifetime of immobility. With it, a father learns to walk to the water queue, a child regains the use of a hand, a mother can lift her baby again. This is the work your Zakat and Sadaqah fund.
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  At Living With Arthritis, every Zakat contribution is managed with the utmost care, integrity, and in full alignment with Shariah guidelines. Our approach is guided by qualified scholars to ensure your Zakat reaches those who are most deserving.
+                  Zakat is one of the five pillars of Islam — 2.5% of qualifying wealth held for a lunar year, given as worship. At Living With Arthritis, every Zakat contribution is managed with care, integrity and in full alignment with Shariah guidelines, guided by qualified scholars so it reaches those most deserving.
                 </p>
+                <blockquote className="border-l-4 border-primary/40 pl-4 italic text-muted-foreground text-sm">
+                  "Whoever relieves a believer of a hardship of this world, Allah will relieve him of a hardship on the Day of Resurrection." — Prophet Muhammad ﷺ (Sahih Muslim)
+                </blockquote>
+              </div>
+
 
                 {/* Gift Aid callout */}
                 <div className="bg-primary/5 border border-primary/20 rounded-xl p-5 flex gap-3 items-start">
