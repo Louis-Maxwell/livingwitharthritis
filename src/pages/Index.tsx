@@ -139,7 +139,7 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Free arthritis exercises, diet &amp; support for the UK</title>
+        <title>Living With Arthritis | UK charity for joint pain support</title>
         <meta
           name="description"
           content={withVisitorSnippet(
@@ -150,7 +150,11 @@ function HomePage() {
         <meta property="og:url" content={SITE_URL + "/"} />
         <meta
           property="og:title"
-          content="Free arthritis exercises, diet & support for the UK"
+          content="Living With Arthritis | UK charity for joint pain support"
+        />
+        <meta
+          name="twitter:title"
+          content="Living With Arthritis | UK charity for joint pain support"
         />
         <meta
           property="og:description"
