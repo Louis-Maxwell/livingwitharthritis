@@ -1,52 +1,45 @@
-# Fix "Give monthly" one-off charge + sitemap & internal-link check
+# Finish "Give monthly" fix + sitemap/links + founder story a11y
 
-## 1. Fix: "Give monthly" (Sadaqah Jariyah) takes a one-off payment
+## Accessibility validation result (moved founder story on /about)
 
-Confirmed real. On `/zakat-appeal`, the "Give monthly" button flows through
-`handleGive(amount)` which opens `StripeDonationModal` without the `recurring`
-prop, so the donor is charged once. The backend (`create-donation-checkout`)
-already supports `recurring: true` (creates a Stripe subscription), so only
-frontend wiring is needed.
+Checked `FounderStoryBand` in its new home on the About page:
 
-- **`src/pages/ZakatAppeal.tsx`**
-  - Add a `isRecurring` state; extend `handleGive(amount, source?)` to set it
-    when `source === "sadaqah-jariyah"`.
-  - Pass `recurring={isRecurring}` to `StripeDonationModal`; reset it when the
-    modal closes or a non-monthly card/tier is chosen.
-- **`src/components/appeal/IslamicGivingCards.tsx`**
-  - Already calls `onGive(amount, type.id)` — update the call site in
-    ZakatAppeal to forward the id (currently dropped: `onGive={(amount) => handleGive(amount)}`).
+- **Headings: pass.** About has exactly one `<h1>` (via `PageHero`), and the
+  story section uses an `<h2>` with a matching `aria-labelledby`
+  (`founder-story-heading`). Heading order is intact.
+- **Link targets: pass.** "Meet the team" (`#team`) matches
+  `id="team"` on the Team section; "Read our clinical policy" points to the
+  existing `/editorial-standards` route.
+- **Focus states: pass.** Global `:focus-visible` outlines in `index.css`
+  cover links and buttons; both CTAs have visible accessible names and
+  `aria-hidden` icons.
+- **Two minor issues found (will fix):**
+  1. `FounderStoryBand.tsx` contains two corrupted em dashes (`â€"`) from a
+     bad encoding — replace with proper `—`.
+  2. The `#team` anchor jump scrolls but doesn't move keyboard focus — add
+     `tabIndex={-1}` and `scroll-mt-24` to the Team section so keyboard and
+     screen-reader users land on it properly.
 
-No backend changes. Monthly donors will now get a Stripe subscription checkout
-with the "Monthly Giving" modal UI that already exists.
+## Remaining items from the approved plan
 
-## 2. Sitemap update
-
-Verified: `scripts/generate-sitemap.ts` auto-discovers routes from `src/App.tsx`,
-so `/about` (where the founder story now lives) is already included and no
-founder-specific sitemap entries exist. Action: run the generator so
-`public/sitemap.xml` is regenerated from current routes (no manual edits
-needed; no `<lastmod>` changes — the script does not emit them).
-
-## 3. Internal link re-check (founder story)
-
-Verified clean:
-- `FounderStoryBand` is only referenced from `AboutUs.tsx` (intended new home).
-- Its "Meet the team" button (`#team`) matches `id="team"` on the About page.
-- No links anywhere point to the removed landing-page founder section.
-
-Bonus fix found during the audit (pre-existing, unrelated to the founder move):
-several pages link to `/#conditions`, `/#donate`, and `/#involved`, but those
-anchor ids do not exist on the landing page, so the links land at the top of
-the homepage. Fix by adding the missing ids to the matching landing sections
-(`conditions` → conditions band, `donate` → donate band, `involved` →
-get-involved section) rather than editing the ~10 linking pages.
+1. **"Give monthly" recurring wiring (state edits already applied):**
+   - `src/pages/ZakatAppeal.tsx`: forward the giving-card id —
+     `onGive={(amount, source) => handleGive(amount, source)}` — and pass
+     `recurring={isRecurring}` to `StripeDonationModal` (reset on close).
+2. **Sitemap:** run `bun scripts/generate-sitemap.ts` to regenerate
+   `public/sitemap.xml` from current routes (auto-discovers `/about`; no
+   founder-specific entries exist).
+3. **Dead homepage anchors:** add missing ids so `/#conditions`, `/#donate`,
+   and `/#involved` links resolve:
+   - `ConditionPillBand.tsx` section → `id="conditions"`
+   - `DonationImpactSection.tsx` section → `id="donate"`
+   - `HowYouCanHelp.tsx` section → `id="involved"`
 
 ## Technical details
 
-- Files touched: `src/pages/ZakatAppeal.tsx`,
-  `src/components/appeal/IslamicGivingCards.tsx` (call-site only),
-  landing section components for the three anchor ids, regenerated
-  `public/sitemap.xml`.
-- Verification: production build + typecheck; resolve monitoring finding
+- Files: `src/pages/ZakatAppeal.tsx`, `src/pages/AboutUs.tsx` (team section
+  attributes), `src/components/landing/FounderStoryBand.tsx` (encoding fix),
+  `src/components/landing/{ConditionPillBand,DonationImpactSection,HowYouCanHelp}.tsx`,
+  regenerated `public/sitemap.xml`.
+- Verification: production build + typecheck, then resolve monitoring finding
   `ee654c07-cd40-58d7-9668-89e498b9e978` as fixed.

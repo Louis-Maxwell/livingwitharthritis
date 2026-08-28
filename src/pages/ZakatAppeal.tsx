@@ -88,6 +88,7 @@ const ZakatAppeal = () => {
   const [selectedAmount, setSelectedAmount] = useState<number>(100);
   const [customAmount, setCustomAmount] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isRecurring, setIsRecurring] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const activeAmount = customAmount ? parseFloat(customAmount) : selectedAmount;
@@ -96,13 +97,17 @@ const ZakatAppeal = () => {
     : AMOUNT_DESCRIPTIONS[selectedAmount] || "";
 
   const handleDonate = () => {
-    if (activeAmount > 0) setIsModalOpen(true);
+    if (activeAmount > 0) {
+      setIsRecurring(false);
+      setIsModalOpen(true);
+    }
   };
 
   /** Select an amount from a tier or giving card and open the payment modal. */
-  const handleGive = (amount: number) => {
+  const handleGive = (amount: number, source?: string) => {
     setCustomAmount("");
     setSelectedAmount(amount);
+    setIsRecurring(source === "sadaqah-jariyah");
     setIsModalOpen(true);
   };
 
