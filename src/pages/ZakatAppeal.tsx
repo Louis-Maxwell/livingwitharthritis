@@ -16,8 +16,11 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import NextReadStrip from "@/components/NextReadStrip";
 import StripeDonationModal from "@/components/StripeDonationModal";
-import { zakatAppealHero as zakatHeroImg } from "@/data/images";
+import { gazaAppealHero, gazaRehabStory } from "@/data/images";
 import ZakatCalculator from "@/components/ZakatCalculator";
+import GazaImpactTiers from "@/components/appeal/GazaImpactTiers";
+import IslamicGivingCards from "@/components/appeal/IslamicGivingCards";
+import { trackDonationClick } from "@/lib/ga-events";
 
 const ZAKAT_AMOUNTS = [25, 50, 100, 250, 500, 1000];
 
@@ -55,8 +58,16 @@ const TRUST_ITEMS = [
 
 const FAQ_ITEMS = [
   {
-    q: "Is my Zakat eligible to fund rehabilitation?",
-    a: "Yes. Zakat can be given to those in genuine need (the poor and needy — al-fuqara and al-masakin). War and trauma survivors who cannot afford rehabilitation fall under these categories. Our Zakat distribution is overseen by qualified Islamic scholars.",
+    q: "Where exactly does my donation go?",
+    a: "Your gift funds physiotherapy, pain management and rehabilitation for people living with war and trauma injuries, including survivors in Gaza, alongside our free arthritis guidance for people in the UK. We do not fund political activity of any kind.",
+  },
+  {
+    q: "Is my Zakat valid for this appeal?",
+    a: "Yes. Zakat can be given to those in genuine need (al-fuqara and al-masakin). War and trauma survivors who cannot afford rehabilitation fall under these categories. Our Zakat distribution is overseen by qualified Islamic scholars.",
+  },
+  {
+    q: "Can I give Sadaqah instead of Zakat?",
+    a: "Absolutely. Sadaqah is voluntary and can be given at any time, in any amount. Sadaqah covers the costs that Zakat cannot, such as mobility aids, equipment and follow-up care.",
   },
   {
     q: "How do I know my Zakat is Shariah-compliant?",
@@ -64,17 +75,14 @@ const FAQ_ITEMS = [
   },
   {
     q: "Can I claim Gift Aid on my Zakat?",
-    a: "Yes! If you are a UK taxpayer, we can claim an extra 25p for every £1 you donate through Gift Aid at no extra cost to you. This means a £100 donation becomes £125 for our beneficiaries.",
+    a: "Yes. If you are a UK taxpayer, we can claim an extra 25p for every £1 you donate through Gift Aid at no extra cost to you. This means a £100 donation becomes £125 for our beneficiaries.",
   },
   {
-    q: "How is my donation used?",
-    a: "100% of your Zakat goes directly to funding physiotherapy and rehabilitation sessions for eligible individuals. Administrative costs are covered by separate general funds, not Zakat.",
-  },
-  {
-    q: "Can I set up a recurring Zakat payment?",
-    a: "Zakat is given as a one-off annual obligation, so we keep this page single-payment only. If you'd like to support our wider work every month, you can set up monthly giving on our main donate page.",
+    q: "Can I set up a recurring payment?",
+    a: "Zakat is given as a one-off annual obligation, so we keep the Zakat payment single-payment only. If you would like to give every month as Sadaqah Jariyah, you can set up monthly giving on our main donate page.",
   },
 ];
+
 
 const ZakatAppeal = () => {
   const [selectedAmount, setSelectedAmount] = useState<number>(100);
