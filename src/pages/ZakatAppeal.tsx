@@ -178,7 +178,6 @@ const ZakatAppeal = () => {
                 <blockquote className="border-l-4 border-primary/40 pl-4 italic text-muted-foreground text-sm">
                   "Whoever relieves a believer of a hardship of this world, Allah will relieve him of a hardship on the Day of Resurrection." — Prophet Muhammad ﷺ (Sahih Muslim)
                 </blockquote>
-              </div>
 
 
                 {/* Gift Aid callout */}
