@@ -142,9 +142,7 @@ function HomePage() {
         <title>Living With Arthritis UK | Evidence-Based Health Guides</title>
         <meta
           name="description"
-          content={withVisitorSnippet(
-            "Free UK arthritis support: clinically reviewed diet, movement and pain-relief guidance in plain English.",
-          )}
+          content="Evidence-based UK guides for living with arthritis. Clinically reviewed exercises, diet, PIP and daily-life support. Registered charity 1218461."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={SITE_URL + "/"} />
@@ -154,15 +152,11 @@ function HomePage() {
         />
         <meta
           property="og:description"
-          content={withVisitorSnippet(
-            "Clinically reviewed arthritis guidance in plain English — free for everyone in the UK.",
-          )}
+          content="Evidence-based UK guides for living with arthritis. Clinically reviewed exercises, diet, PIP and daily-life support. Registered charity 1218461."
         />
         <meta
           name="twitter:description"
-          content={withVisitorSnippet(
-            "Free, clinically reviewed arthritis guidance for the UK.",
-          )}
+          content="Evidence-based UK guides for living with arthritis. Clinically reviewed exercises, diet, PIP and daily-life support. Registered charity 1218461."
         />
       </Helmet>
 
