@@ -85,8 +85,8 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
 const RheumatoidArthritis = () => (
   <>
     <Helmet>
-      <title>Rheumatoid Arthritis: Symptoms, Causes & Treatment (UK)</title>
-      <meta name="description" content="Rheumatoid arthritis treatment: Inflammatory arthritis guide covering medications, flare management & achieving remission. Expert care plan." />
+      <title>Rheumatoid arthritis in the UK: symptoms, treatment &amp; flares</title>
+      <meta name="description" content="Rheumatoid arthritis (RA) in the UK: early symptoms, GP referral, DMARDs, flares and self-care — a plain-English guide for patients." />
       <meta name="keywords" content="rheumatoid arthritis, what is rheumatoid arthritis, rheumatoid arthritis symptoms, rheumatoid arthritis treatment, RA, autoimmune arthritis, DMARDs, methotrexate, biologic therapy, rheumatoid arthritis UK, rheumatoid arthritis diet, anti-inflammatory diet, difference between osteoarthritis and rheumatoid arthritis, is rheumatoid arthritis curable, early signs of RA, rheumatoid arthritis hands, joint inflammation" />
       <meta property="og:title" content="Rheumatoid Arthritis – Symptoms, Causes & Treatment" />
       <meta property="og:description" content="Rheumatoid arthritis treatment: Inflammatory arthritis guide covering medications, flare management & achieving remission. Expert care plan." />

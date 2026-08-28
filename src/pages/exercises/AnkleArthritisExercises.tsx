@@ -215,9 +215,9 @@ export default function AnkleArthritisExercises() {
             <h2 className="font-serif text-2xl font-semibold mb-6">Related guides</h2>
             <div className="grid sm:grid-cols-2 gap-3">
               {[
-                { to: "/exercises/ankle/for/osteoarthritis", label: "Ankle exercises for osteoarthritis" },
-                { to: "/exercises/ankle/for/rheumatoid-arthritis", label: "Ankle exercises for rheumatoid arthritis" },
-                { to: "/exercises/ankle/for/gout", label: "Ankle exercises for gout" },
+                { to: "/conditions/osteoarthritis", label: "Osteoarthritis guide" },
+                { to: "/conditions/rheumatoid-arthritis", label: "Rheumatoid arthritis guide" },
+                { to: "/conditions/gout", label: "Gout guide" },
                 { to: "/exercises/swimming-for-ankle", label: "Swimming for the ankle" },
                 { to: "/exercises/tai-chi-for-ankle", label: "Tai chi for the ankle" },
                 { to: "/conditions/osteoarthritis", label: "About osteoarthritis" },

@@ -85,8 +85,8 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
 const Osteoarthritis = () => (
   <>
     <Helmet>
-      <title>Osteoarthritis Treatment in the UK: Symptoms & Management | Living With Arthritis</title>
-      <meta name="description" content="Osteoarthritis treatment & management: Degenerative joint disease explained. Learn about medications, injections, surgery & lifestyle strategies." />
+      <title>Osteoarthritis in the UK: symptoms, treatment &amp; exercises</title>
+      <meta name="description" content="Osteoarthritis (OA) in the UK: how to recognise symptoms, when to see a GP, NICE-aligned treatment, exercises and diet — written for patients." />
       <meta name="keywords" content="osteoarthritis, osteoarthritis symptoms, osteoarthritis treatment, osteoarthritis exercises, osteoarthritis diet, OA, degenerative joint disease, knee arthritis, hip arthritis, hand arthritis, joint pain relief, what causes arthritis, is arthritis curable, difference between osteoarthritis and rheumatoid arthritis, anti-inflammatory diet, arthritis medication, mobility aids for arthritis, musculoskeletal conditions" />
       <meta property="og:title" content="Osteoarthritis – Symptoms, Causes & Management" />
       <meta property="og:description" content="Osteoarthritis treatment & management: Degenerative joint disease explained. Learn about medications, injections, surgery & lifestyle strategies." />
@@ -132,7 +132,7 @@ const Osteoarthritis = () => (
               <Activity className="w-3 h-3" /> Condition Guide
             </span>
             <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-5 leading-tight tracking-tight">
-              Osteoarthritis
+              Osteoarthritis: UK symptoms, treatment and exercises
             </h1>
             <LastReviewed date={LAST_REVIEWED_ISO} className="mb-5" />
             <AeoEnhancement route="/conditions/osteoarthritis" />

@@ -102,7 +102,7 @@ const CityServicePage = () => {
     return () => nodes.forEach((n) => n.remove());
   }, [citySlug, serviceSlug]);
 
-  if (!data) return <Navigate to="/404" replace />;
+  if (!data) return <Navigate to="/arthritis-support" replace />;
 
   const { city, service, content } = data;
   const path = `/uk/${city.slug}/${service}`;
@@ -121,6 +121,7 @@ const CityServicePage = () => {
         title={title}
         description={description}
         path={path}
+        noindex
         keywords={content.keywords}
       />
       <Header />

@@ -99,9 +99,9 @@ const ExerciseConditionPage = () => {
     return () => s.remove();
   }, [joint, condition]);
 
-  if (!isJoint(joint)) return <Navigate to="/404" replace />;
+  if (!isJoint(joint)) return <Navigate to="/exercises" replace />;
   const cond = condition ? conditionBySlug.get(condition) : undefined;
-  if (!cond) return <Navigate to="/404" replace />;
+  if (!cond) return <Navigate to="/exercises" replace />;
 
   const jointName = jointLabel[joint];
   const path = `/exercises/${joint}/for/${cond.slug}`;
@@ -135,6 +135,7 @@ const ExerciseConditionPage = () => {
         title={title}
         description={description}
         path={path}
+        noindex
         keywords={`${jointName.toLowerCase()} exercises, ${cond.name.toLowerCase()}, arthritis exercises, physiotherapy, safe movement`}
       />
       <Header />

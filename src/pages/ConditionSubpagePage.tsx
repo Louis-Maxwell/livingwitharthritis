@@ -110,10 +110,12 @@ const ConditionSubpagePage = () => {
     return () => s.remove();
   }, [condition, subpage]);
 
-  if (!isSubpage(subpage)) return <Navigate to="/404" replace />;
+  if (!isSubpage(subpage)) return <Navigate to="/conditions/arthritis" replace />;
   const cond = condition ? conditionBySlug.get(condition) : undefined;
   const content = condition ? conditionSubpages[condition] : undefined;
-  if (!cond || !content) return <Navigate to="/404" replace />;
+  if (!cond || !content) {
+    return <Navigate to={cond?.hasConditionPage ? `/conditions/${cond.slug}` : "/conditions/arthritis"} replace />;
+  }
 
   const sub = content[subpage];
   const path = `/conditions/${cond.slug}/${subpage}`;
@@ -215,7 +217,7 @@ const ConditionSubpagePage = () => {
               ))}
             </ul>
             <Link
-              to={`/exercises/knee/for/${cond.slug}`}
+              to="/guides/exercise"
               className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
             >
               See joint-by-joint exercise guides for {cond.shortName} <ArrowRight className="w-4 h-4" />

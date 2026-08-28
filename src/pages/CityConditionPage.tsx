@@ -39,7 +39,9 @@ const CityConditionPage = () => {
   const cityData = ukCities.find((c) => c.slug === city);
   const conditionData = arthritisConditions.find((c) => c.slug === condition);
 
-  if (!cityData || !conditionData) return <Navigate to="/404" replace />;
+  if (!cityData || !conditionData) {
+    return <Navigate to={cityData ? `/arthritis-support/${cityData.slug}` : "/arthritis-support"} replace />;
+  }
 
   const url = `${BASE}/arthritis-support/${cityData.slug}/${conditionData.slug}`;
   const title = `${conditionData.name} Support in ${cityData.name} — Rheumatology & Local Help`;
@@ -129,6 +131,7 @@ const CityConditionPage = () => {
   return (
     <>
       <Helmet>
+        <meta name="robots" content="noindex,follow" />
         <title>{enforceTitle(title, { route: url })}</title>
         <meta name="description" content={enforceDescription(metaDescription, url)} />
         <meta property="og:title" content={title} />

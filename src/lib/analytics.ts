@@ -75,6 +75,8 @@ export const trackNewsletterSignup = (): void => {
     event_category: "conversion",
     value: 0,
   });
+  trackEvent("sign_up", { method: "newsletter" });
+  trackEvent("generate_lead", { method: "newsletter", value: 1, currency: "GBP" });
 };
 
 export const trackBuddySchemeSignup = (): void => {
@@ -113,6 +115,12 @@ export const trackDonationComplete = (opts: {
   amount: number;
   donationType?: "one-time" | "monthly";
 }): void => {
+  trackEvent("donate", {
+    transaction_id: opts.transactionId,
+    value: opts.amount,
+    currency: "GBP",
+    donation_type: opts.donationType ?? "one-time",
+  });
   trackEvent("purchase", {
     transaction_id: opts.transactionId,
     value: opts.amount,

@@ -1075,756 +1075,156 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/london/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/london/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/london/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/birmingham/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/birmingham/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/birmingham/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/manchester/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/manchester/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/manchester/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/leeds/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/leeds/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/leeds/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/glasgow/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/glasgow/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/glasgow/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/liverpool/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/liverpool/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/liverpool/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/edinburgh/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/edinburgh/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/edinburgh/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/bristol/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/bristol/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/bristol/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/sheffield/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/sheffield/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/sheffield/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/newcastle/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/newcastle/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/newcastle/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/cardiff/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/cardiff/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/cardiff/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/nottingham/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/nottingham/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/nottingham/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/leicester/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/leicester/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/leicester/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/coventry/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/coventry/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/coventry/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/belfast/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/belfast/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/belfast/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/brighton/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/brighton/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/brighton/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/plymouth/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/plymouth/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/plymouth/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/stoke-on-trent/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/stoke-on-trent/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/stoke-on-trent/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/wolverhampton/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/wolverhampton/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/wolverhampton/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/southampton/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/southampton/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/southampton/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/derby/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/derby/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/derby/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/swansea/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/swansea/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/swansea/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/aberdeen/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/aberdeen/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/aberdeen/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/oxford/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/oxford/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/oxford/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/cambridge/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/cambridge/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/cambridge/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/exeter/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/exeter/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/exeter/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/york/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/york/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/york/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/norwich/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/norwich/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/norwich/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/bath/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/bath/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/bath/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/hull/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/hull/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/hull/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/portsmouth/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/portsmouth/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/portsmouth/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/sunderland/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/sunderland/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/sunderland/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/dundee/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/dundee/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/dundee/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/middlesbrough/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/middlesbrough/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/middlesbrough/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/reading/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/reading/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/reading/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/peterborough/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/peterborough/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/peterborough/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/blackpool/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/blackpool/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/blackpool/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/ipswich/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/ipswich/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/ipswich/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/preston/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/preston/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/preston/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/luton/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/luton/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/luton/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/warrington/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/warrington/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/warrington/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/slough/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/slough/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/slough/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/bournemouth/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/bournemouth/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/bournemouth/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/cheltenham/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/cheltenham/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/cheltenham/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/doncaster/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/doncaster/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/doncaster/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/wigan/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/wigan/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/wigan/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/wakefield/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/wakefield/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/wakefield/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/gloucester/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/gloucester/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/gloucester/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/lincoln/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/lincoln/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/lincoln/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/worcester/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/worcester/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/worcester/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <url>
     <loc>https://livingwitharthritis.org.uk/exercises/swimming-for-knee-arthritis</loc>
     <changefreq>monthly</changefreq>
@@ -2065,396 +1465,84 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/knee/for/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/knee/for/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/knee/for/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/knee/for/gout</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/knee/for/ankylosing-spondylitis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/knee/for/juvenile-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/knee/for/fibromyalgia</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/knee/for/lupus</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/knee/for/knee-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/knee/for/hand-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/knee/for/shoulder-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/knee/for/polymyalgia-rheumatica</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/knee/for/reactive-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/hip/for/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/hip/for/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/hip/for/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/hip/for/gout</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/hip/for/ankylosing-spondylitis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/hip/for/juvenile-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/hip/for/fibromyalgia</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/hip/for/lupus</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/hip/for/knee-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/hip/for/hand-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/hip/for/shoulder-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/hip/for/polymyalgia-rheumatica</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/hip/for/reactive-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/shoulder/for/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/shoulder/for/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/shoulder/for/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/shoulder/for/gout</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/shoulder/for/ankylosing-spondylitis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/shoulder/for/juvenile-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/shoulder/for/fibromyalgia</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/shoulder/for/lupus</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/shoulder/for/knee-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/shoulder/for/hand-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/shoulder/for/shoulder-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/shoulder/for/polymyalgia-rheumatica</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/shoulder/for/reactive-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/hand/for/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/hand/for/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/hand/for/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/hand/for/gout</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/hand/for/ankylosing-spondylitis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/hand/for/juvenile-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/hand/for/fibromyalgia</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/hand/for/lupus</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/hand/for/knee-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/hand/for/hand-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/hand/for/shoulder-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/hand/for/polymyalgia-rheumatica</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/hand/for/reactive-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/back/for/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/back/for/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/back/for/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/back/for/gout</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/back/for/ankylosing-spondylitis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/back/for/juvenile-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/back/for/fibromyalgia</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/back/for/lupus</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/back/for/knee-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/back/for/hand-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/back/for/shoulder-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/back/for/polymyalgia-rheumatica</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/back/for/reactive-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/ankle/for/osteoarthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/ankle/for/rheumatoid-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/ankle/for/psoriatic-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/ankle/for/gout</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/ankle/for/ankylosing-spondylitis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/ankle/for/juvenile-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/ankle/for/fibromyalgia</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/ankle/for/lupus</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/ankle/for/knee-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/ankle/for/hand-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/ankle/for/shoulder-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/ankle/for/polymyalgia-rheumatica</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/exercises/ankle/for/reactive-arthritis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <url>
     <loc>https://livingwitharthritis.org.uk/conditions/osteoarthritis/symptoms</loc>
     <changefreq>monthly</changefreq>
@@ -2715,526 +1803,110 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/london/physiotherapy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/london/support-groups</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/london/diet-support</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/london/waiting-list-help</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/birmingham/physiotherapy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/birmingham/support-groups</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/birmingham/diet-support</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/birmingham/waiting-list-help</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/manchester/physiotherapy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/manchester/support-groups</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/manchester/diet-support</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/manchester/waiting-list-help</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/leeds/physiotherapy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/leeds/support-groups</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/leeds/diet-support</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/leeds/waiting-list-help</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/glasgow/physiotherapy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/glasgow/support-groups</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/glasgow/diet-support</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/glasgow/waiting-list-help</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/liverpool/physiotherapy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/liverpool/support-groups</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/liverpool/diet-support</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/liverpool/waiting-list-help</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/edinburgh/physiotherapy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/edinburgh/support-groups</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/edinburgh/diet-support</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/edinburgh/waiting-list-help</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/bristol/physiotherapy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/bristol/support-groups</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/bristol/diet-support</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/bristol/waiting-list-help</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/sheffield/physiotherapy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/sheffield/support-groups</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/sheffield/diet-support</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/sheffield/waiting-list-help</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/newcastle/physiotherapy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/newcastle/support-groups</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/newcastle/diet-support</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/newcastle/waiting-list-help</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/cardiff/physiotherapy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/cardiff/support-groups</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/cardiff/diet-support</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/cardiff/waiting-list-help</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/nottingham/physiotherapy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/nottingham/support-groups</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/nottingham/diet-support</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/nottingham/waiting-list-help</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/leicester/physiotherapy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/leicester/support-groups</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/leicester/diet-support</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/leicester/waiting-list-help</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/coventry/physiotherapy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/coventry/support-groups</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/coventry/diet-support</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/coventry/waiting-list-help</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/belfast/physiotherapy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/belfast/support-groups</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/belfast/diet-support</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/belfast/waiting-list-help</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/brighton/physiotherapy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/brighton/support-groups</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/brighton/diet-support</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/brighton/waiting-list-help</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/plymouth/physiotherapy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/plymouth/support-groups</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/plymouth/diet-support</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/plymouth/waiting-list-help</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/stoke-on-trent/physiotherapy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/stoke-on-trent/support-groups</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/stoke-on-trent/diet-support</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/stoke-on-trent/waiting-list-help</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/wolverhampton/physiotherapy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/wolverhampton/support-groups</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/wolverhampton/diet-support</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/wolverhampton/waiting-list-help</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/southampton/physiotherapy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/southampton/support-groups</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/southampton/diet-support</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/southampton/waiting-list-help</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/derby/physiotherapy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/derby/support-groups</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/derby/diet-support</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/derby/waiting-list-help</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/swansea/physiotherapy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/swansea/support-groups</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/swansea/diet-support</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/swansea/waiting-list-help</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/aberdeen/physiotherapy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/aberdeen/support-groups</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/aberdeen/diet-support</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/aberdeen/waiting-list-help</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/oxford/physiotherapy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/oxford/support-groups</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/oxford/diet-support</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/oxford/waiting-list-help</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/cambridge/physiotherapy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/cambridge/support-groups</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/cambridge/diet-support</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/cambridge/waiting-list-help</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/exeter/physiotherapy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/exeter/support-groups</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/exeter/diet-support</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/uk/exeter/waiting-list-help</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/free-arthritis-support-northern-ireland</loc>
     <lastmod>2026-07-24</lastmod>

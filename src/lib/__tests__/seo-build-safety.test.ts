@@ -113,6 +113,55 @@ describe("SEO build safety", () => {
     expect(sitemapSource).toContain('p.startsWith("/blog/category/")');
   });
 
+  it("does not auto-prefix the current path into empty locale stubs", () => {
+    const source = readFileSync(
+      resolve(process.cwd(), "src/components/LanguageSwitcher.tsx"),
+      "utf8",
+    );
+    expect(source).toContain("TRANSLATED_BASE_PATHS");
+    expect(source).not.toContain("First-visit browser language auto-redirect");
+    expect(source).not.toContain("navigate(buildLangUrl(browser, basePath)");
+  });
+
+  it("does not emit thin city×condition, city×service or exercise×condition URLs", () => {
+    const sitemapSource = readFileSync(
+      resolve(process.cwd(), "scripts/generate-sitemap.ts"),
+      "utf8",
+    );
+
+    expect(sitemapSource).not.toContain("`/arthritis-support/${c}/${cond}`");
+    expect(sitemapSource).not.toContain("`/uk/${city}/${svc}`");
+    expect(sitemapSource).not.toContain("`/exercises/${j}/for/${c}`");
+    expect(sitemapSource).toContain("`/conditions/${c}/${s}`");
+  });
+
+  it("does not list thin combinatorial URLs on the HTML sitemap or city hubs", () => {
+    const htmlSitemap = readFileSync(
+      resolve(process.cwd(), "src/pages/Sitemap.tsx"),
+      "utf8",
+    );
+    const cityHub = readFileSync(
+      resolve(process.cwd(), "src/pages/CityArthritisPage.tsx"),
+      "utf8",
+    );
+    const xml = readFileSync(
+      resolve(process.cwd(), "public/sitemap.xml"),
+      "utf8",
+    );
+
+    expect(htmlSitemap).not.toContain("`/exercises/${j}/for/${condSlug}`");
+    expect(htmlSitemap).not.toContain("`/uk/${c}/${sSlug}`");
+    expect(htmlSitemap).not.toContain("`/arthritis-support/${c.slug}/${condSlug}`");
+    expect(htmlSitemap).toContain('href: "/chat"');
+    expect(cityHub).not.toContain("`/arthritis-support/${cityData.slug}/${c.slug}`");
+    expect(xml).not.toMatch(/\/arthritis-support\/[^/<]+\/[^/<]+</);
+    expect(xml).not.toMatch(/\/uk\/[^/<]+\/[^/<]+</);
+    expect(xml).not.toMatch(/\/exercises\/[^/<]+\/for\//);
+    expect(xml).toContain("/donate");
+    expect(xml).toContain("/community");
+    expect(xml).toContain("/chat");
+  });
+
   it("consolidates database category variants onto canonical hubs", () => {
     expect(canonicalBlogCategoryKey("Exercise Guides")).toBe("exercise");
     expect(canonicalBlogCategoryKey("Treatments")).toBe("treatment");

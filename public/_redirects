@@ -1,0 +1,71 @@
+# HTTP 301s for Google Search Console clean-up (Cloudflare Pages / Lovable).
+# First matching rule wins. Keep real translated pages and real English pages
+# above the locale splats. Client-side fallback: src/lib/seoRedirects.ts
+
+# --- Known GSC hard 404 / soft 404 exact URLs ---
+/blog/mindfulness-meditation-chronic-pain /blog/mindfulness-chronic-pain-arthritis-guide 301
+/exercise-hub /exercises 301
+/about-us /about 301
+/trust-credibility /trust 301
+/privacy-policy /privacy 301
+/cookies-policy /cookies 301
+/terms-conditions /terms 301
+/exercises/pilates-for-knee /exercises/pilates-for-knee-arthritis 301
+/exercises/stretching-for-knee /exercises/stretching-for-knee-arthritis 301
+/exercises/walking-for-back /exercises/walking-for-back-arthritis 301
+/arthritis-support/stockport /arthritis-support/manchester 301
+/arthritis-support/stirling /arthritis-support/glasgow 301
+/arthritis-support/winchester /arthritis-support/southampton 301
+
+# --- Locale 404s (must sit above the /{lang}/* splats) ---
+/es/404 / 301
+/fr/404 / 301
+/de/404 / 301
+/pt/404 / 301
+
+# --- Real translated routes: pass through (do not splat-redirect) ---
+/es /es 200
+/fr /fr 200
+/de /de 200
+/pt /pt 200
+/es/conditions/osteoarthritis /es/conditions/osteoarthritis 200
+/fr/conditions/osteoarthritis /fr/conditions/osteoarthritis 200
+/de/conditions/osteoarthritis /de/conditions/osteoarthritis 200
+/pt/conditions/osteoarthritis /pt/conditions/osteoarthritis 200
+
+# --- Empty locale stubs → English equivalent ---
+/es/* /:splat 301
+/fr/* /:splat 301
+/de/* /:splat 301
+/pt/* /:splat 301
+
+# --- Combinatorial thin templates → closest real English page ---
+/arthritis-support/:city/:condition /arthritis-support/:city 301
+/uk/:city/:service /arthritis-support/:city 301
+/exercises/knee/for/:condition /conditions/knee-arthritis 301
+/exercises/hip/for/:condition /conditions/hip-arthritis 301
+/exercises/shoulder/for/:condition /conditions/shoulder-arthritis 301
+/exercises/hand/for/:condition /conditions/hand-arthritis 301
+/exercises/neck/for/:condition /exercises/neck-arthritis-exercises 301
+/exercises/ankle/for/:condition /exercises/ankle-arthritis-exercises 301
+/exercises/:joint/for/:condition /exercises 301
+
+# --- Blog slug consolidations (keep in sync with src/data/blogRedirects.ts) ---
+/blog/nhs-arthritis-exercises /blog/arthritis-exercises-uk-clinical 301
+/blog/nhs-rheumatology-waiting-times-uk /blog/rheumatology-waiting-times-uk 301
+/blog/knee-osteoarthritis-exercises /blog/knee-arthritis-exercises-uk 301
+/blog/knee-exercises-arthritis /blog/knee-arthritis-exercises-uk 301
+/blog/food-supplements-for-joint-pain /blog/best-supplements-joint-pain 301
+/blog/arthritis-medication-uk /blog/arthritis-medication-guide 301
+/blog/arthritis-and-weight-management-uk /blog/weight-management-arthritis-evidence 301
+/blog/swimming-for-arthritis-uk /blog/swimming-for-arthritis 301
+/blog/turmeric-for-arthritis-uk /blog/turmeric-for-arthritis 301
+/blog/vitamin-d-arthritis-uk-risk /blog/vitamin-d-arthritis-uk 301
+/blog/arthritis-and-cold-weather-uk /blog/cold-weather-arthritis-uk-winter 301
+/blog/cold-weather-and-arthritis /blog/cold-weather-arthritis-uk-winter 301
+/blog/arthritis-and-sleep-uk /blog/how-to-sleep-with-arthritis-uk 301
+/blog/glucosamine-vs-collagen-arthritis /blog/glucosamine-vs-collagen 301
+/blog/hand-arthritis-exercises-uk /blog/hand-exercises-for-arthritis 301
+/blog/arthritis-and-mental-health /blog/arthritis-and-mental-health-uk 301
+/blog/arthritis-diet-myths-debunked /blog/arthritis-and-diet-myths-uk 301
+/blog/arthritis-fatigue-management /blog/arthritis-fatigue-management-uk 301

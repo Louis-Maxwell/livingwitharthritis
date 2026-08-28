@@ -21,7 +21,7 @@ const ExerciseJointPage = () => {
     if (legacy) return <Navigate to={`/exercises/${legacy.slug}`} replace />;
   }
 
-  if (!page) return <Navigate to="/404" replace />;
+  if (!page) return <Navigate to="/exercises" replace />;
 
   const jsonLd = {
     "@context": "https://schema.org",

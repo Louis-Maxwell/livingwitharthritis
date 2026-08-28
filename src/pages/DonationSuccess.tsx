@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useSearchParams, useLocation, Link } from "react-router-dom";
 import SeoHead from "@/components/SeoHead";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, XCircle, Heart, ArrowLeft, Home } from "lucide-react";
+import { trackDonationComplete } from "@/lib/analytics";
 
 const DonationSuccess = () => {
   const [searchParams] = useSearchParams();
@@ -16,12 +17,33 @@ const DonationSuccess = () => {
   // The query param is still checked for any in-flight Stripe sessions
   // created before this path existed.
   const isSuccess = status === "success" || location.pathname === "/donation-result/success";
+  const tracked = useRef(false);
 
   useEffect(() => {
     if (isSuccess) {
       document.title = "Thank You! | Living With Arthritis";
     }
   }, [isSuccess]);
+
+  useEffect(() => {
+    if (!isSuccess || tracked.current) return;
+    tracked.current = true;
+    const sessionId =
+      searchParams.get("session_id") ||
+      searchParams.get("transaction_id") ||
+      `donation_${Date.now()}`;
+    const amountRaw = searchParams.get("amount");
+    const amount = amountRaw && Number.isFinite(Number(amountRaw)) ? Number(amountRaw) : 0;
+    const donationType =
+      searchParams.get("interval") === "monthly" || searchParams.get("type") === "monthly"
+        ? "monthly"
+        : "one-time";
+    trackDonationComplete({
+      transactionId: sessionId,
+      amount,
+      donationType,
+    });
+  }, [isSuccess, searchParams]);
 
   return (
     <>
