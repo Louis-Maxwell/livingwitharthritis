@@ -362,44 +362,21 @@ async function main() {
   for (const r of regionSlugs()) entries.push({ path: `/regions/${r}` });
 
   const conds = conditionSlugs();
-  for (const c of citySlugs())
-    for (const cond of conds) entries.push({ path: `/arthritis-support/${c}/${cond}` });
-
   for (const s of exerciseJointSlugs()) entries.push({ path: `/exercises/${s}` });
 
-  // Programmatic SEO: joint × condition exercise pages.
-  // Mirrors src/data/exerciseConditionRecommendations.ts (6 joints × 13 conditions = 78).
-  const ECR_JOINTS = ["knee", "hip", "shoulder", "hand", "back", "ankle"];
-  const ECR_CONDITIONS = [
+  // Condition sub-pages have unique written content (src/data/conditionSubpages.ts).
+  // City×condition, city×service and exercise×condition matrices are thin
+  // templates — they 301 to a hub and must not appear in the sitemap.
+  const SUBPAGE_CONDITIONS = [
     "osteoarthritis", "rheumatoid-arthritis", "psoriatic-arthritis", "gout",
     "ankylosing-spondylitis", "juvenile-arthritis", "fibromyalgia", "lupus",
     "knee-arthritis", "hand-arthritis", "shoulder-arthritis",
     "polymyalgia-rheumatica", "reactive-arthritis",
   ];
-  for (const j of ECR_JOINTS)
-    for (const c of ECR_CONDITIONS)
-      entries.push({ path: `/exercises/${j}/for/${c}`, priority: "0.7", changefreq: "monthly" });
-
-  // Programmatic SEO: condition sub-pages.
-  // Mirrors src/data/conditionSubpages.ts (13 conditions × 4 sub-pages = 52).
   const SUBPAGES = ["symptoms", "treatment", "exercises", "diet"];
-  for (const c of ECR_CONDITIONS)
+  for (const c of SUBPAGE_CONDITIONS)
     for (const s of SUBPAGES)
       entries.push({ path: `/conditions/${c}/${s}`, priority: "0.8", changefreq: "monthly" });
-
-  // Programmatic SEO: UK city × service pages.
-  // Mirrors src/data/city-services.ts (26 cities × 4 services = 104).
-  const CS_CITIES = [
-    "london", "birmingham", "manchester", "leeds", "glasgow",
-    "liverpool", "edinburgh", "bristol", "sheffield", "newcastle",
-    "cardiff", "nottingham", "leicester", "coventry", "belfast",
-    "brighton", "plymouth", "stoke-on-trent", "wolverhampton", "southampton",
-    "derby", "swansea", "aberdeen", "oxford", "cambridge", "exeter",
-  ];
-  const CS_SERVICES = ["physiotherapy", "support-groups", "diet-support", "waiting-list-help"];
-  for (const city of CS_CITIES)
-    for (const svc of CS_SERVICES)
-      entries.push({ path: `/uk/${city}/${svc}`, priority: "0.6", changefreq: "monthly" });
 
   const blogInventory = await blogPosts();
   const posts = blogInventory.posts;
@@ -440,6 +417,8 @@ async function main() {
   const validConditions = new Set(conds);
   for (const p of extractAll(/"(\/arthritis-support\/[^"]+)"/g, cityRoutesSrc)) {
     if (!isValidCitySupportRoute(p, validCities, validConditions)) continue;
+    // Hubs only — nested /arthritis-support/{city}/{condition} URLs are thin.
+    if (p.split("/").filter(Boolean).length !== 2) continue;
     entries.push({ path: p, priority: "0.6", changefreq: "monthly" });
   }
 
@@ -495,7 +474,12 @@ async function main() {
   console.log(`[sitemap] wrote ${otherPaths.length} routes -> src/data/prerender-routes.generated.json`);
 }
 
-if ((import.meta as ImportMeta & { main?: boolean }).main) {
+const isDirectRun =
+  (import.meta as ImportMeta & { main?: boolean }).main === true ||
+  (typeof process !== "undefined" &&
+    Boolean(process.argv[1]?.includes("generate-sitemap")));
+
+if (isDirectRun) {
   main().catch((e) => {
     console.error("[sitemap] failed:", e);
     process.exit(1);

@@ -182,7 +182,7 @@ export default function ExerciseGuide() {
   return (
     <>
       <Helmet>
-        <title>Best Arthritis Exercises | UK Patient Guide</title>
+        <title>Best arthritis exercises in the UK (NICE-aligned)</title>
         <meta name="description" content="Evidence-based arthritis exercise guide: low-impact aerobic, strength, flexibility, water and chair routines for knee, hip, hand & shoulder." />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />

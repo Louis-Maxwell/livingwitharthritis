@@ -1,5 +1,5 @@
 export const GENERIC_HOME_TITLE =
-  "Living With Arthritis UK — Free Physio, Exercises & Diet";
+  "Free arthritis exercises, diet & support for the UK";
 
 const SITE_URL = "https://livingwitharthritis.org.uk";
 

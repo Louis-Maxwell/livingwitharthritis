@@ -29,12 +29,6 @@ const JOINT_TYPES = [
   ["back", "Back"],
   ["ankle", "Ankle"],
 ] as const;
-const CONDITION_SLUGS = [
-  ["osteoarthritis", "Osteoarthritis"],
-  ["rheumatoid-arthritis", "Rheumatoid Arthritis"],
-  ["psoriatic-arthritis", "Psoriatic Arthritis"],
-] as const;
-
 // Programmatic /conditions/:condition/:subpage URLs — previously only linked
 // from their parent condition page, so they appeared as orphans in audits.
 // Mirrors the 13 conditions in src/data/conditionSubpages.ts (× 4 sub-pages = 52).
@@ -75,52 +69,17 @@ const conditionSubpageLinks: SitemapLink[] = CONDITION_SUBPAGE_SLUGS.flatMap(
     })),
 );
 
-// Exercise × condition matrix — /exercises/:joint/for/:condition
-// Mirrors src/data/exerciseConditionRecommendations.ts (6 joints × 13 conditions = 78).
-const EXERCISE_JOINTS = ["knee", "hip", "shoulder", "hand", "back", "ankle"] as const;
-const exerciseConditionLinks: SitemapLink[] = EXERCISE_JOINTS.flatMap((j) =>
-  CONDITION_SUBPAGE_SLUGS.map(([condSlug, condLabel]) => ({
-    label: `${condLabel} – ${j.charAt(0).toUpperCase() + j.slice(1)} Exercises`,
-    href: `/exercises/${j}/for/${condSlug}`,
-  })),
-);
-
-// City × service matrix — /uk/:city/:service
-const CITY_SERVICE_CITIES = [
-  "london", "birmingham", "manchester", "leeds", "glasgow", "liverpool",
-  "edinburgh", "bristol", "sheffield", "newcastle", "cardiff", "nottingham",
-  "leicester", "coventry", "belfast", "brighton", "plymouth", "stoke-on-trent",
-  "wolverhampton", "southampton", "derby", "swansea", "aberdeen", "oxford",
-  "cambridge", "exeter",
-] as const;
-const CITY_SERVICES = [
-  ["physiotherapy", "Physiotherapy"],
-  ["support-groups", "Support Groups"],
-  ["diet-support", "Diet Support"],
-  ["waiting-list-help", "Waiting-List Help"],
-] as const;
-const cityServiceLinks: SitemapLink[] = CITY_SERVICE_CITIES.flatMap((c) =>
-  CITY_SERVICES.map(([sSlug, sLabel]) => ({
-    label: `${c.charAt(0).toUpperCase() + c.slice(1).replace(/-/g, " ")} – ${sLabel}`,
-    href: `/uk/${c}/${sSlug}`,
-  })),
-);
-
 const cityLinks: SitemapLink[] = ukCities.map((c) => ({
   label: `Arthritis Support in ${c.name}`,
   href: `/arthritis-support/${c.slug}`,
 }));
 
-const cityConditionLinks: SitemapLink[] = ukCities.flatMap((c) =>
-  CONDITION_SLUGS.map(([condSlug, condLabel]) => ({
-    label: `${c.name} – ${condLabel}`,
-    href: `/arthritis-support/${c.slug}/${condSlug}`,
-  })),
-);
-
 // Curated set of every public, indexable page. Auth/admin/utility routes
-// (/auth, /admin/*, /chat, /donation-result, /unsubscribe,
+// (/auth, /admin/*, /donation-result, /unsubscribe,
 // /debug/*) are intentionally omitted from this user-facing index.
+// Thin combinatorial templates (city×condition, /uk/{city}/{service},
+// /exercises/{joint}/for/{condition}) are omitted so Google is not
+// re-fed empty URLs. /chat is public and indexable.
 const ALL_LINKS: SitemapLink[] = [
   // Main pages
   { label: "Home", href: "/" },
@@ -130,6 +89,7 @@ const ALL_LINKS: SitemapLink[] = [
   { label: "Blog Hub", href: "/blog-hub" },
   { label: "Community Hub", href: "/community" },
   { label: "Complaints", href: "/complaints" },
+  { label: "Chat / Help & Support", href: "/chat" },
   { label: "Contact", href: "/contact" },
   { label: "Cookies Policy", href: "/cookies" },
   { label: "Corporate Giving", href: "/corporate-giving" },
@@ -224,7 +184,7 @@ const ALL_LINKS: SitemapLink[] = [
 
   // Blog – Exercise articles
   { label: "Arthritis Exercises", href: "/blog/arthritis-exercises" },
-  { label: "Knee Arthritis Exercises", href: "/blog/knee-osteoarthritis-exercises" },
+  { label: "Knee Arthritis Exercises", href: "/blog/knee-arthritis-exercises-uk" },
   { label: "Hand Exercises for Arthritis", href: "/blog/hand-exercises-for-arthritis" },
   { label: "Shoulder Arthritis Exercises", href: "/blog/shoulder-arthritis-exercises-uk" },
   { label: "Foot & Ankle Arthritis", href: "/blog/foot-and-ankle-arthritis-uk" },
@@ -260,13 +220,10 @@ const ALL_LINKS: SitemapLink[] = [
   { label: "Prioritise Sleep", href: "/daily-tips/prioritise-sleep" },
   { label: "Pace Yourself", href: "/daily-tips/pace-yourself" },
 
-  // Generated matrices
+  // Real generated pages (exercise joint guides, condition sub-pages, city hubs)
   ...exerciseMatrixLinks,
   ...conditionSubpageLinks,
-  ...exerciseConditionLinks,
-  ...cityServiceLinks,
   ...cityLinks,
-  ...cityConditionLinks,
 
   // XML sitemap (external)
   { label: "XML Sitemap (machine-readable)", href: "/sitemap.xml", external: true },

@@ -4,7 +4,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { ukCities } from "@/data/ukCities";
-import { services, serviceShortLabel, cityServiceCities } from "@/data/city-services";
 import { MapPin, Search } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -107,9 +106,9 @@ const ArthritisSupportIndex = () => {
                           </div>
                         </Link>
                         <div className="flex flex-wrap gap-x-3 gap-y-1 mt-2 ml-6 text-xs">
-                          <Link to={`/arthritis-support/${city.slug}/osteoarthritis`} className="text-muted-foreground hover:text-primary">Osteoarthritis</Link>
-                          <Link to={`/arthritis-support/${city.slug}/rheumatoid-arthritis`} className="text-muted-foreground hover:text-primary">Rheumatoid</Link>
-                          <Link to={`/arthritis-support/${city.slug}/psoriatic-arthritis`} className="text-muted-foreground hover:text-primary">Psoriatic</Link>
+                          <Link to="/conditions/osteoarthritis" className="text-muted-foreground hover:text-primary">Osteoarthritis guide</Link>
+                          <Link to="/conditions/rheumatoid-arthritis" className="text-muted-foreground hover:text-primary">Rheumatoid guide</Link>
+                          <Link to="/guides/diet" className="text-muted-foreground hover:text-primary">Diet</Link>
                         </div>
                       </div>
                     ))}
@@ -118,30 +117,23 @@ const ArthritisSupportIndex = () => {
             ))
           )}
 
-          {/* Local services directory — internal link discovery for /uk/:city/:service */}
+          {/* Local services — point at real city hubs, not thin /uk/{city}/{service} templates */}
           <section className="mt-16 border-t border-border pt-12" aria-labelledby="local-services">
             <h2 id="local-services" className="text-2xl font-bold text-foreground mb-2">
-              Local arthritis services by city
+              Arthritis support by city
             </h2>
             <p className="text-muted-foreground mb-6">
-              Physiotherapy, support groups, diet support and waiting-list help in {cityServiceCities.length} UK cities.
+              Rheumatology referrals, local trusts and community resources in {ukCities.length} UK cities.
             </p>
-            <div className="space-y-6">
-              {cityServiceCities.map((city) => (
-                <div key={city.slug}>
-                  <h3 className="font-semibold text-foreground mb-2">{city.name}</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {services.map((s) => (
-                      <Link
-                        key={`${city.slug}-${s}`}
-                        to={`/uk/${city.slug}/${s}`}
-                        className="text-sm px-3 py-1.5 rounded-full bg-card border border-border hover:border-primary hover:bg-accent transition-colors text-foreground"
-                      >
-                        {serviceShortLabel[s]} in {city.name}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
+            <div className="flex flex-wrap gap-2">
+              {ukCities.slice(0, 26).map((city) => (
+                <Link
+                  key={city.slug}
+                  to={`/arthritis-support/${city.slug}`}
+                  className="text-sm px-3 py-1.5 rounded-full bg-card border border-border hover:border-primary hover:bg-accent transition-colors text-foreground"
+                >
+                  {city.name}
+                </Link>
               ))}
             </div>
           </section>

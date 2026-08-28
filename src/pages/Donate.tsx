@@ -118,11 +118,11 @@ export default function Donate() {
   return (
     <>
       <Helmet>
-        <title>Donate to {CHARITY.shortName}</title>
-        <meta name="description" content={`Support ${CHARITY.shortName}: Donate to fund free arthritis education, research & community support. Help others manage arthritis better.`} />
+        <title>Donate to Living With Arthritis UK | Gift Aid</title>
+        <meta name="description" content={`Give to ${CHARITY.shortName}: your donation funds free arthritis exercises, diet guides and UK support. Gift Aid adds 25p for every £1 at no extra cost.`} />
         <meta name="keywords" content="donate to arthritis charity, arthritis charity, arthritis foundation, arthritis research, arthritis helpline, fundraising ideas for health charity, arthritis events, arthritis advocacy, financial help for arthritis patients, joint pain charity, arthritis support, arthritis awareness, volunteer for charity" />
-      <meta property="og:title" content="Donate to Arthritis Support UK: Fund Free Physio, Diet & Help" />
-      <meta property="og:description" content={`Support ${CHARITY.shortName}: Donate to fund free arthritis education, research & community support. Help others manage arthritis better.`} />
+      <meta property="og:title" content="Donate to Living With Arthritis UK | Gift Aid" />
+      <meta property="og:description" content={`Give to ${CHARITY.shortName}: your donation funds free arthritis exercises, diet guides and UK support. Gift Aid adds 25p for every £1 at no extra cost.`} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={`${CHARITY.siteUrl}/donate`} />
       <meta property="og:site_name" content={CHARITY.shortName} />
@@ -132,8 +132,8 @@ export default function Donate() {
       <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Donate | Living With Arthritis UK" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Donate to Arthritis Support UK: Fund Free Physio, Diet & Help" />
-      <meta name="twitter:description" content={`Support ${CHARITY.shortName}: Donate to fund free arthritis education, research & community support. Help others manage arthritis better.`} />
+      <meta name="twitter:title" content="Donate to Living With Arthritis UK | Gift Aid" />
+      <meta name="twitter:description" content={`Give to ${CHARITY.shortName}: your donation funds free arthritis exercises, diet guides and UK support. Gift Aid adds 25p for every £1 at no extra cost.`} />
       <meta name="twitter:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
     </Helmet>
       <Header />
@@ -146,8 +146,7 @@ export default function Donate() {
               <span className="text-xs font-bold text-primary tracking-wider uppercase">Every Donation Matters</span>
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-tight mb-5">
-              Help us keep arthritis support{" "}
-              <span className="text-gradient italic">free for everyone</span>
+              Donate to keep free arthritis support in the UK
             </h1>
             <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-8">
               Your generosity funds free virtual physiotherapy, evidence-based diet plans, online health support and community programmes for thousands of people across the UK living with arthritis.

@@ -25,7 +25,7 @@ const CityArthritisPage = () => {
   const { city } = useParams<{ city: string }>();
   const cityData = ukCities.find((c) => c.slug === city);
 
-  if (!cityData) return <Navigate to="/404" replace />;
+  if (!cityData) return <Navigate to="/arthritis-support" replace />;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -211,7 +211,7 @@ const CityArthritisPage = () => {
             </ol>
           </section>
 
-          {/* Condition-specific local pages */}
+          {/* Condition guides — real unique pages, not thin city×condition templates */}
           <section className="mb-8">
             <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
               <Stethoscope className="w-5 h-5 text-primary" /> Arthritis Types in {cityData.name}
@@ -220,11 +220,11 @@ const CityArthritisPage = () => {
               {arthritisConditions.map((c) => (
                 <Link
                   key={c.slug}
-                  to={`/arthritis-support/${cityData.slug}/${c.slug}`}
+                  to={c.conditionPagePath}
                   className="bg-card border border-border rounded-xl p-4 hover:border-primary/50 hover:shadow-sm transition-all"
                 >
                   <p className="font-semibold text-foreground text-sm">{c.name}</p>
-                  <p className="text-xs text-muted-foreground mt-1">in {cityData.name}</p>
+                  <p className="text-xs text-muted-foreground mt-1">UK guide</p>
                 </Link>
               ))}
             </div>

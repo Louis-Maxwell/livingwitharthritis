@@ -139,24 +139,30 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Living With Arthritis UK | Evidence-Based Health Guides</title>
+        <title>Free arthritis exercises, diet &amp; support for the UK</title>
         <meta
           name="description"
-          content="Evidence-based UK guides for living with arthritis. Clinically reviewed exercises, diet, PIP and daily-life support. Registered charity 1218461."
+          content={withVisitorSnippet(
+            "Free UK arthritis support: NICE-aligned exercises, anti-inflammatory diet guidance, condition guides and a help chat — written in plain English. Registered charity 1218461.",
+          )}
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={SITE_URL + "/"} />
         <meta
           property="og:title"
-          content="Living With Arthritis UK | Evidence-Based Health Guides"
+          content="Free arthritis exercises, diet & support for the UK"
         />
         <meta
           property="og:description"
-          content="Evidence-based UK guides for living with arthritis. Clinically reviewed exercises, diet, PIP and daily-life support. Registered charity 1218461."
+          content={withVisitorSnippet(
+            "Clinically reviewed arthritis guidance in plain English — free for everyone in the UK. Registered charity 1218461.",
+          )}
         />
         <meta
           name="twitter:description"
-          content="Evidence-based UK guides for living with arthritis. Clinically reviewed exercises, diet, PIP and daily-life support. Registered charity 1218461."
+          content={withVisitorSnippet(
+            "Free UK arthritis exercises, diet guidance and support. No sign-up required. Registered charity 1218461.",
+          )}
         />
       </Helmet>
 

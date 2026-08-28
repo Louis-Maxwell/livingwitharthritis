@@ -2,6 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
+import SeoRedirectGate from "./components/SeoRedirectGate";
 import { lazy, Suspense, useEffect } from "react";
 
 // Defer Sonner toaster — it triggers layout reads on mount that cause forced reflow
@@ -283,6 +284,7 @@ function AnimatedRoutes() {
 
 
   return (
+    <SeoRedirectGate>
     <PageTransition key={location.pathname}>
       <Routes location={location}>
         <Route path="/" element={<Index />} />
@@ -482,8 +484,8 @@ function AnimatedRoutes() {
           <Route key={path} path={path} element={<ComparisonPage />} />
         ))}
 
-        {/* Legacy/alias paths → canonical routes (client-side replace; the
-            static host has no edge redirect layer for this project). */}
+        {/* Legacy/alias paths → canonical routes. HTTP 301s also live in
+            public/_redirects; these client Navigates cover hosts that ignore it. */}
         {([
           ["/about-us", "/about"],
           ["/trust-credibility", "/trust"],
@@ -498,6 +500,7 @@ function AnimatedRoutes() {
         <Route path="*" element={<NotFound />} />
       </Routes>
     </PageTransition>
+    </SeoRedirectGate>
   );
 }
 

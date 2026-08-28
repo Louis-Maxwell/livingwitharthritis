@@ -13,6 +13,7 @@ import { ResourceCards } from "@/components/chat/ResourceCards";
 import { FeedbackButtons } from "@/components/chat/FeedbackButtons";
 import { loadChatProfile, saveChatProfile, type ChatProfile } from "@/lib/chatProfile";
 import { extractResources, stripStreamingResourceFence } from "@/lib/chatResources";
+import { trackChatStart } from "@/lib/ga-events";
 
 const quickSuggestions = [
   { icon: Stethoscope, label: "What is rheumatoid arthritis?", image: chatRheumatoid },
@@ -152,6 +153,7 @@ export function ChatBot() {
   } = useStreamingChat();
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
+  const chatStarted = useRef(false);
 
   useEffect(() => {
     setProfile(loadChatProfile());
@@ -174,6 +176,10 @@ export function ChatBot() {
     if (flag.matched) {
       setEmergency({ open: true, category: flag.category });
       return;
+    }
+    if (!chatStarted.current) {
+      chatStarted.current = true;
+      trackChatStart("help_chat");
     }
     sendMessage(text, profile);
   };
