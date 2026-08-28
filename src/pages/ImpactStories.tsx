@@ -62,7 +62,7 @@ const caseStudies = [
 ];
 
 const impactNumbers = [
-  { value: "10,000+", label: "People supported since 2020", icon: Users },
+  { value: "10,000+", label: "People supported since our founding", icon: Users },
   { value: "3,200", label: "Virtual physio consultations (2024/25)", icon: Activity },
   { value: "4,500", label: "Active community forum members", icon: MessageCircle },
   { value: "18,000+", label: "symptom checker uses", icon: Target },
