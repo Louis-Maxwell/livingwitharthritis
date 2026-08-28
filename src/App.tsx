@@ -482,6 +482,19 @@ function AnimatedRoutes() {
           <Route key={path} path={path} element={<ComparisonPage />} />
         ))}
 
+        {/* Legacy/alias paths → canonical routes (client-side replace; the
+            static host has no edge redirect layer for this project). */}
+        {([
+          ["/about-us", "/about"],
+          ["/trust-credibility", "/trust"],
+          ["/privacy-policy", "/privacy"],
+          ["/cookies-policy", "/cookies"],
+          ["/terms-conditions", "/terms"],
+          ["/exercise-hub", "/exercises"],
+        ] as const).map(([from, to]) => (
+          <Route key={from} path={from} element={<Navigate to={to} replace />} />
+        ))}
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </PageTransition>
