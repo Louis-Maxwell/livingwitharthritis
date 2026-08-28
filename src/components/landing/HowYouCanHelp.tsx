@@ -10,6 +10,7 @@ import { photoBreakCommunity, photoBreakActive, videoCtaExercise } from "@/data/
 export default function HowYouCanHelp() {
   return (
     <section
+      id="involved"
       aria-labelledby="hych-heading"
       className="bg-[hsl(34_45%_92%)] py-16 md:py-24"
     >

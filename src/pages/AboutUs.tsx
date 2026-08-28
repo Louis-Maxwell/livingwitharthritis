@@ -181,7 +181,7 @@ const AboutUs = () => {
         </Suspense>
 
         {/* Team Section */}
-        <section id="team" className="py-14 lg:py-20">
+        <section id="team" tabIndex={-1} className="py-14 lg:py-20 scroll-mt-24">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
               <Badge className="bg-background text-primary border-0 text-xs font-bold px-3 py-1.5 mb-4">
