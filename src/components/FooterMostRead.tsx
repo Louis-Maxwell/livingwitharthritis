@@ -79,7 +79,7 @@ const FooterMostRead = memo(() => {
                 <span className="text-[11px] font-bold text-primary tabular-nums">
                   0{i + 1}
                 </span>
-                <p className="mt-1 text-sm font-semibold text-foreground leading-snug group-hover:text-primary transition-colors line-clamp-3">
+                <p className="mt-1 text-sm font-semibold text-foreground leading-snug group-hover:text-primary transition-colors">
                   {a.title}
                 </p>
               </Link>
