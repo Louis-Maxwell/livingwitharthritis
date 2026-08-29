@@ -55,7 +55,7 @@ async function main() {
   let rows = [];
   try {
     const res = await fetch(
-      `${url}/rest/v1/blog_articles?select=slug,title,excerpt,direct_answer,meta_description,category,content,updated_at,date&is_published=eq.true&limit=2000`,
+      `${url}/rest/v1/blog_articles?select=slug,title,meta_title,excerpt,direct_answer,meta_description,category,content,updated_at,date&is_published=eq.true&limit=2000`,
       { headers: { apikey: key, Authorization: `Bearer ${key}` } },
     );
     if (!res.ok) keepExisting(`blog fetch ${res.status}`);
