@@ -20,7 +20,7 @@ export default function SeoRedirectGate({ children }: { children: ReactNode }) {
   return (
     <>
       <Helmet>
-        <link rel="canonical" href={`${SITE}${dest}`} />
+        
         <meta name="robots" content="noindex,follow" />
         <meta httpEquiv="refresh" content={`0;url=${href}`} />
       </Helmet>

@@ -1,27 +1,18 @@
 export const GENERIC_HOME_TITLE =
-  "Living With Arthritis | UK charity for joint pain support";
-
-const SITE_URL = "https://livingwitharthritis.org.uk";
+  'Living With Arthritis | UK charity for joint pain support';
 
 export function isPrerenderDocumentReady(
   document: Document,
   pathname: string,
 ): boolean {
   const normalisedPath =
-    pathname === "/" ? "/" : `/${pathname.replace(/^\/+|\/+$/g, "")}`;
-  const canonical = document.querySelector<HTMLLinkElement>(
-    'link[rel="canonical"]',
-  );
-  const h1 = document.querySelector("h1");
+    pathname === '/' ? '/' : `/${pathname.replace(/^\/+|\/+$/g, '')}`;
+  const h1 = document.querySelector('h1');
+  const title = document.title.trim();
 
-  if (!canonical?.href || !h1?.textContent?.trim()) return false;
+  if (!h1?.textContent?.trim() || !title) return false;
 
-  if (normalisedPath === "/") {
-    return canonical.href === `${SITE_URL}/`;
-  }
+  if (normalisedPath === '/') return true;
 
-  return (
-    document.title.trim() !== GENERIC_HOME_TITLE &&
-    canonical.href !== `${SITE_URL}/`
-  );
+  return title !== GENERIC_HOME_TITLE;
 }
