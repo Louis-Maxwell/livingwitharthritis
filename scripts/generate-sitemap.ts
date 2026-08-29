@@ -436,11 +436,18 @@ async function main() {
   entries.push({ path: "/corporate-partnerships", priority: "0.7", changefreq: "monthly" });
 
   // Author & reviewer bio pages (E-E-A-T signals for AEO/GEO).
+  entries.push({ path: "/authors", priority: "0.6", changefreq: "yearly" });
+  entries.push({ path: "/reviewers", priority: "0.6", changefreq: "yearly" });
   const authorsSrc = read("src/data/medical-authors.json");
-  const authors = JSON.parse(authorsSrc) as Record<string, { slug: string; kind: "author" | "reviewer" }>;
+  const authors = JSON.parse(authorsSrc) as Record<string, { slug: string; kind: "author" | "reviewer"; credential?: string }>;
   for (const rec of Object.values(authors)) {
     const prefix = rec.kind === "reviewer" ? "reviewers" : "authors";
     entries.push({ path: `/${prefix}/${rec.slug}`, priority: "0.6", changefreq: "yearly" });
+    // HCPC/GMC-registered authors also review content, so their /reviewers
+    // bio URL is a real page and belongs in the sitemap.
+    if (prefix === "authors" && /HCPC|GMC|NMC/i.test(rec.credential ?? "")) {
+      entries.push({ path: `/reviewers/${rec.slug}`, priority: "0.5", changefreq: "yearly" });
+    }
   }
 
   const xml = build(entries);
