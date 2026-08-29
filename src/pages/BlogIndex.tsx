@@ -12,11 +12,36 @@ import { useBlogViewCounts } from "@/hooks/useBlogViews";
 import { useBlogArticlesList, useFeaturedArticles } from "@/hooks/useBlogArticles";
 import { Skeleton } from "@/components/ui/skeleton";
 import { getArticleImages } from "@/lib/articleImages";
+import { displayTitle } from "@/lib/blogTitle";
 
 type Category = "All" | "Exercise" | "Nutrition" | "Lifestyle" | "Health" | "Mental Health" | "Supplements" | "Treatment";
 
 const categories: Category[] = ["All", "Exercise", "Nutrition", "Lifestyle", "Health", "Mental Health", "Supplements", "Treatment"];
-const POSTS_PER_PAGE = 9;
+const POSTS_PER_PAGE = 24;
+
+/**
+ * Posts already earning UK impressions in Semrush — they lead Editor's Picks
+ * so the strongest pages are linked from the first screen of /blog.
+ */
+const PRIORITY_SLUGS = [
+  "knee-arthritis-exercises-uk",
+  "turmeric-for-arthritis",
+  "omega-3-foods-for-joints",
+  "mediterranean-diet-arthritis-14-day-plan",
+  "pip-for-arthritis-uk",
+  "expert-qa-should-i-apply-for-pip-if-my-arthritis-is-mild",
+  "best-supplement-for-knee-joint",
+  "best-walking-shoes-arthritis-uk",
+] as const;
+
+/** Real, crawlable topic hubs surfaced above the grid. */
+const TOPIC_HUBS: { label: string; to: string; blurb: string }[] = [
+  { label: "Exercise", to: "/blog/category/exercise", blurb: "Knee, hip and hand routines" },
+  { label: "Nutrition", to: "/blog/category/nutrition", blurb: "Anti-inflammatory eating" },
+  { label: "Benefits & PIP", to: "/blog/pip-for-arthritis-uk", blurb: "Claims, evidence and appeals" },
+  { label: "Treatments", to: "/blog/category/treatment", blurb: "Medication, physio and surgery" },
+  { label: "Flare-ups", to: "/blog/arthritis-flare-up-what-to-do", blurb: "What to do when pain spikes" },
+];
 
 const categoryColors: Record<Category, string> = {
   All: "bg-background text-primary hover:bg-primary/10 border-primary/40",
@@ -51,7 +76,24 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
   const [searchQuery, setSearchQuery] = useState("");
 
   const { data: blogPosts = [], isLoading } = useBlogArticlesList();
-  const { data: featuredPosts = [] } = useFeaturedArticles(3);
+  const { data: editorPicks = [] } = useFeaturedArticles(6);
+
+  // Ranking posts first, then the editorial picks, capped at six cards.
+  const featuredPosts = useMemo(() => {
+    const bySlug = new Map(blogPosts.map((p) => [p.slug, p]));
+    const picked: typeof blogPosts = [];
+    const seen = new Set<string>();
+    for (const slug of PRIORITY_SLUGS) {
+      const post = bySlug.get(slug);
+      if (post && !seen.has(slug)) { picked.push(post); seen.add(slug); }
+    }
+    for (const post of editorPicks) {
+      if (picked.length >= 6) break;
+      if (!seen.has(post.slug)) { picked.push(post); seen.add(post.slug); }
+    }
+    return picked.slice(0, 6);
+  }, [blogPosts, editorPicks]);
+
   const featuredSlugs = useMemo(() => new Set(featuredPosts.map((p) => p.slug)), [featuredPosts]);
 
   const allSlugs = useMemo(() => blogPosts.map((p) => p.slug), [blogPosts]);
@@ -86,11 +128,11 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
   return (
     <>
       <Helmet>
-        <title>Arthritis Blog UK | Diet, Exercise & Pain Management Guides</title>
-        <meta name="description" content="Arthritis blog index: Browse all articles on pain, exercise, diet, mental health & lifestyle. Evidence-based, clinically reviewed content." />
+        <title>Arthritis blog UK | Exercise, diet, PIP and pain guides</title>
+        <meta name="description" content="Arthritis blog UK: clinically reviewed guides on exercise, anti-inflammatory diet, PIP and benefits, treatments and flare-ups from Living With Arthritis." />
         <meta name="keywords" content="arthritis blog UK, joint pain advice, arthritis, anti-inflammatory diet UK, osteoarthritis exercises, arthritis help UK, joint pain diet, rheumatoid arthritis UK, swimming arthritis, yoga arthritis, turmeric arthritis, arthritis flare up" />
-        <meta property="og:title" content="Arthritis Blog UK – Joint Pain, Diet & Exercise Advice" />
-        <meta property="og:description" content="Arthritis blog index: Browse all articles on pain, exercise, diet, mental health & lifestyle. Evidence-based, clinically reviewed content." />
+        <meta property="og:title" content="Arthritis blog UK | Exercise, diet, PIP and pain guides" />
+        <meta property="og:description" content="Arthritis blog UK: clinically reviewed guides on exercise, anti-inflammatory diet, PIP and benefits, treatments and flare-ups from Living With Arthritis." />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/blog" />
@@ -98,11 +140,11 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Arthritis Blog UK – Joint Pain, Diet & Exercise Advice" />
+        <meta property="og:image:alt" content="Arthritis blog UK | Exercise, diet, PIP and pain guides" />
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Arthritis Blog UK – Joint Pain, Diet & Exercise Advice" />
-        <meta name="twitter:description" content="Arthritis blog index: Browse all articles on pain, exercise, diet, mental health & lifestyle. Evidence-based, clinically reviewed content." />
+        <meta name="twitter:title" content="Arthritis blog UK | Exercise, diet, PIP and pain guides" />
+        <meta name="twitter:description" content="Arthritis blog UK: clinically reviewed guides on exercise, anti-inflammatory diet, PIP and benefits, treatments and flare-ups from Living With Arthritis." />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/blog" />
@@ -144,8 +186,8 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
               </Badge>
             </div>
           }
-          title={heroTitle ?? <>Arthritis Advice: <span className="text-primary">Evidence-Based Health Guides</span></>}
-          subtitle={heroSubtitle ?? `${blogPosts.length} evidence-based articles and counting — helping UK residents manage arthritis, reduce joint pain and live well.`}
+          title={heroTitle ?? <>Arthritis blog UK: <span className="text-primary">exercise, diet, PIP and pain guides</span></>}
+          subtitle={heroSubtitle ?? `${blogPosts.length} clinically reviewed articles helping UK residents manage arthritis, reduce joint pain and live well.`}
         />
 
         <main id="main-content" className="container mx-auto px-6 md:px-10 py-6 md:py-8">
@@ -154,7 +196,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
             <section aria-labelledby="featured-heading" className="mb-12">
               <div className="flex items-baseline justify-between mb-5">
                 <h2 id="featured-heading" className="flex items-center gap-2 font-display text-xl font-bold text-foreground">
-                  <Sparkles className="w-5 h-5 text-primary" /> Editor's Picks
+                  <Sparkles className="w-5 h-5 text-primary" /> Editor&rsquo;s Picks
                 </h2>
                 <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Featured</span>
               </div>
@@ -163,13 +205,13 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
                   <Link
                     key={post.slug}
                     to={`/blog/${post.slug}`}
-                    aria-label={`Read featured article: ${post.title}`}
                     className="card-accent-top group rounded-2xl overflow-hidden border border-border/30 bg-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                   >
                     <div className="aspect-[16/9] overflow-hidden bg-muted/20">
                       <img
                         src={post.image_url || getArticleImages(post.category, post.title, post.slug)[0].src}
-                        alt={post.title}
+                        alt=""
+                        aria-hidden="true"
                         loading="lazy"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
@@ -178,14 +220,14 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
                       <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
                         {post.category}
                       </span>
-                      <h3 className="font-display text-lg font-semibold text-foreground mt-2 mb-2 group-hover:text-primary transition-colors leading-snug line-clamp-2">
-                        {post.title}
+                      <h3 className="font-display text-lg font-semibold text-foreground mt-2 mb-2 group-hover:text-primary transition-colors leading-snug">
+                        {displayTitle(post)}
                       </h3>
                       <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed mb-3">
                         {post.excerpt}
                       </p>
                       <span className="text-primary text-sm font-medium inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
-                        Read featured article<span className="sr-only">: {post.title}</span> <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+                        Read article <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
                       </span>
                     </div>
                   </Link>
@@ -270,8 +312,8 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
                           {i + 1}
                         </span>
                         <div className="flex-1 min-w-0">
-                          <h3 className="text-base font-bold text-foreground group-hover:text-primary transition-colors leading-snug line-clamp-2 mb-2">
-                            {post.title}
+                          <h3 className="text-base font-bold text-foreground group-hover:text-primary transition-colors leading-snug mb-2">
+                            {displayTitle(post)}
                           </h3>
                           <p className="text-xs text-muted-foreground line-clamp-2 mb-3 leading-relaxed">{post.excerpt}</p>
                           <span className="text-xs text-muted-foreground flex items-center gap-1.5 font-medium">
@@ -293,7 +335,6 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
                 <Link
                   key={post.slug}
                   to={`/blog/${post.slug}`}
-                  aria-label={`Read full article: ${post.title}`}
                   className="group rounded-2xl border border-border/30 bg-card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                 >
                   <div className="h-1 bg-primary" />
@@ -305,12 +346,12 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
                       </span>
                     </div>
                     <h2 className="font-display text-lg font-semibold text-foreground mt-2 mb-3 group-hover:text-primary transition-colors leading-snug">
-                      {post.title}
+                      {displayTitle(post)}
                     </h2>
                     <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">{post.excerpt}</p>
                     <div className="flex items-center justify-between pt-3 border-t border-border/15">
                       <span className="text-primary text-sm font-medium inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
-                        Read full article<span className="sr-only">: {post.title}</span> <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+                        Read article <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
                       </span>
                       <div className="flex items-center gap-3 text-[11px] text-muted-foreground">
                         <span className="flex items-center gap-1">
