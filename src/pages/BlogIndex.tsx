@@ -191,6 +191,28 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
         />
 
         <main id="main-content" className="container mx-auto px-6 md:px-10 py-6 md:py-8">
+          {/* Topic hubs — real links, crawlable from the first screen */}
+          <nav aria-label="Browse arthritis topics" className="mb-10">
+            <h2 className="font-display text-sm font-bold uppercase tracking-[0.18em] text-muted-foreground mb-4">
+              Browse by topic
+            </h2>
+            <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+              {TOPIC_HUBS.map((hub) => (
+                <li key={hub.to}>
+                  <Link
+                    to={hub.to}
+                    className="group flex h-full flex-col rounded-xl border border-border/40 bg-card p-4 transition-all duration-200 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5"
+                  >
+                    <span className="font-display text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
+                      {hub.label}
+                    </span>
+                    <span className="text-xs text-muted-foreground mt-1 leading-relaxed">{hub.blurb}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
           {/* Featured / Editor's picks */}
           {activeCategory === "All" && !searchQuery && currentPage === 1 && featuredPosts.length > 0 && (
             <section aria-labelledby="featured-heading" className="mb-12">
