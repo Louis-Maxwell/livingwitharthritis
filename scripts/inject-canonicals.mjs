@@ -22,11 +22,13 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { resolve, join, dirname } from "node:path";
 import { PRERENDER_ROUTES } from "./prerender-routes.mjs";
+import { deriveHeadData } from "./route-head-fallback.mjs";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const DIST = resolve("dist");
 const SRC = join(DIST, "index.html");
 const AI_DATA_PATH = resolve("scripts/ai-head-data.json");
+const BLOG_DATA_PATH = resolve("scripts/blog-head-data.json");
 
 if (!existsSync(SRC)) {
   console.warn("[inject-canonicals] dist/index.html missing — skipping");
@@ -35,9 +37,17 @@ if (!existsSync(SRC)) {
 
 const template = readFileSync(SRC, "utf8");
 
-const AI_DATA = existsSync(AI_DATA_PATH)
-  ? JSON.parse(readFileSync(AI_DATA_PATH, "utf8"))
-  : {};
+const readJson = (path) =>
+  existsSync(path) ? JSON.parse(readFileSync(path, "utf8")) : {};
+
+// Curated entries win over auto-generated blog entries; both win over the
+// slug-derived fallback applied in headDataFor().
+const AI_DATA = { ...readJson(BLOG_DATA_PATH), ...readJson(AI_DATA_PATH) };
+
+function headDataFor(route) {
+  return AI_DATA[route] ?? deriveHeadData(route);
+}
+
 
 function collectRoutes() {
   const set = new Set(PRERENDER_ROUTES);
