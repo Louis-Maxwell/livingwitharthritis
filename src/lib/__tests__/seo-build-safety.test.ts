@@ -181,10 +181,6 @@ describe("SEO build safety", () => {
 
   it("waits for route-specific prerender content and metadata", () => {
     document.title = GENERIC_HOME_TITLE;
-    document.head.insertAdjacentHTML(
-      "beforeend",
-      '<link rel="canonical" href="https://livingwitharthritis.org.uk/blog/anti-inflammatory-diet">',
-    );
     document.body.innerHTML = "<main><h1>Anti-Inflammatory Diet</h1></main>";
 
     expect(
