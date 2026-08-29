@@ -87,7 +87,7 @@ export default function SeoDefaults() {
 
   return (
     <Helmet>
-      <link rel="canonical" href={canonical} />
+      
       {untranslatedLangPath && <meta name="robots" content="noindex,follow" />}
       {hasTranslations && SUPPORTED_LANGS.map((lang) => (
         <link

@@ -237,15 +237,8 @@ function rewriteHead(html, route) {
     /<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/i,
     `<meta property="og:url" content="${url}" />`,
   );
-  // Replace homepage canonical with route-specific canonical.
-  if (/<link\s+rel="canonical"[^>]*>/i.test(out)) {
-    out = out.replace(
-      /<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/i,
-      `<link rel="canonical" href="${url}" />`,
-    );
-  } else {
-    out = out.replace(/<\/head>/i, `  <link rel="canonical" href="${url}" />\n</head>`);
-  }
+  // Canonical tags are intentionally NOT emitted anywhere on this site.
+  out = out.replace(/[ \t]*<link\s+rel="canonical"[^>]*>\s*\n?/gi, "");
   // Also update twitter:url if present.
   out = out.replace(
     /<meta\s+name="twitter:url"\s+content="[^"]*"\s*\/?>/i,

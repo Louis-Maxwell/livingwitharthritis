@@ -14,7 +14,6 @@ import { useScrollDepth } from "@/hooks/useScrollDepth";
 import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "next-themes";
 import { DeferredMount } from "@/components/DeferredMount";
-import CanonicalEnforcer from "@/components/CanonicalEnforcer";
 import SeoDefaults from "@/components/SeoDefaults";
 import RootOrganizationSchema from "@/components/seo/RootOrganizationSchema";
 import SkipToContent from "@/components/SkipToContent";
@@ -543,7 +542,6 @@ function AppWithSync() {
     <>
       <SkipToContent />
       <RouteFocus />
-      <CanonicalEnforcer />
       <RootOrganizationSchema />
       <AnimatedRoutes />
     </>
