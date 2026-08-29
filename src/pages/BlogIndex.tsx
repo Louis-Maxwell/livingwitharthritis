@@ -405,17 +405,30 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
                 <ChevronLeft className="w-4 h-4" /> Previous
               </Button>
 
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                <Button
-                  key={page}
-                  variant={page === currentPage ? "default" : "outline"}
-                  size="icon"
-                  className="w-9 h-9 text-xs rounded-full"
-                  onClick={() => setCurrentPage(page)}
-                >
-                  {page}
-                </Button>
-              ))}
+              {Array.from({ length: totalPages }, (_, i) => i + 1)
+                .filter(
+                  (page) =>
+                    page === 1 ||
+                    page === totalPages ||
+                    Math.abs(page - currentPage) <= 1,
+                )
+                .map((page, i, pages) => (
+                  <span key={page} className="flex items-center gap-2">
+                    {i > 0 && page - pages[i - 1] > 1 && (
+                      <span className="text-xs text-muted-foreground" aria-hidden="true">…</span>
+                    )}
+                    <Button
+                      variant={page === currentPage ? "default" : "outline"}
+                      size="icon"
+                      aria-label={`Page ${page}`}
+                      aria-current={page === currentPage ? "page" : undefined}
+                      className="w-9 h-9 text-xs rounded-full"
+                      onClick={() => setCurrentPage(page)}
+                    >
+                      {page}
+                    </Button>
+                  </span>
+                ))}
 
               <Button
                 variant="outline"
