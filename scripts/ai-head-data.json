@@ -1,4 +1,12 @@
 {
+  "/blog": {
+    "title": "Arthritis blog UK | Exercise, diet, PIP and pain guides",
+    "description": "Arthritis blog UK: clinically reviewed guides on exercise, anti-inflammatory diet, PIP and benefits, treatments and flare-ups from Living With Arthritis.",
+    "question": "Where can I read UK arthritis guides on exercise, diet and PIP?",
+    "answer": "The Living With Arthritis blog collects clinically reviewed UK guides on arthritis exercise, anti-inflammatory diet, PIP and benefits claims, treatments and managing flare-ups. Browse by topic hub or read the featured guides on knee exercises, turmeric, omega-3 and PIP applications.",
+    "breadcrumb": "Blog",
+    "about": "Arthritis"
+  },
   "/conditions/osteoarthritis": {
     "title": "Osteoarthritis: Symptoms, Treatment & Exercises | UK",
     "description": "UK guide to osteoarthritis: symptoms, diagnosis, NICE-recommended exercise, weight management, pain relief and when to see a GP.",
