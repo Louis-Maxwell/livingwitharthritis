@@ -56,7 +56,7 @@ const PAYLOAD = {
     "@type": "PropertyValue",
     propertyID: "GB-CHC",
     value: "1218461",
-    url: "https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/5274747/charity-overview",
+    url: "https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1218461&subId=0",
   },
   knowsAbout: [
     "Osteoarthritis",
@@ -77,7 +77,9 @@ const PAYLOAD = {
   // owned by this charity. Generated from centralized social-media.ts config.
   sameAs: [
     ...getSchemaOrgSameAs(),
-    "https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/5274747/charity-overview",
+    "https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1218461&subId=0",
+    "https://findthatcharity.uk/orgid/GB-CHC-1218461",
+    "https://ngoexplorer.org/charity/1218461",
   ],
 };
 
