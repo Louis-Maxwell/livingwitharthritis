@@ -124,9 +124,11 @@ function buildJsonLd(route, url, d) {
   // 3) FAQPage — the primary Q&A plus any configured FAQs. This is the
   //    highest-value block for answer engines: it hands them a quotable,
   //    attributed question/answer pair per page.
-  const qaPairs = [];
-  if (d.question && d.answer) qaPairs.push({ q: d.question, a: d.answer });
-  if (Array.isArray(d.faqs)) qaPairs.push(...d.faqs);
+  // FAQPage is emitted ONLY when the page also renders the same visible
+  // Q&A copy (d.faqs drives the visible FAQ section below), per Google's
+  // structured-data policy. A lone question/answer pair is expressed as the
+  // MedicalWebPage headline/speakable instead.
+  const qaPairs = Array.isArray(d.faqs) ? [...d.faqs] : [];
   if (qaPairs.length > 0) {
     graphs.push({
       "@context": "https://schema.org",
@@ -149,7 +151,7 @@ function buildJsonLd(route, url, d) {
 }
 
 function enrichHead(html, route, url) {
-  const d = AI_DATA[route];
+  const d = headDataFor(route);
   if (!d) return html;
 
   let out = html;
@@ -274,7 +276,7 @@ for (const route of routes) {
   mkdirSync(dirname(file), { recursive: true });
   writeFileSync(file, rewriteHead(template, route));
   written++;
-  if (AI_DATA[route]) enriched++;
+  if (headDataFor(route)) enriched++;
 }
 
 console.log(
