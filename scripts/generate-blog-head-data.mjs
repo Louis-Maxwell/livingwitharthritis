@@ -126,11 +126,12 @@ async function main() {
       // Keep the full article title readable, appending the brand suffix
       // only when the combined string still fits a sensible SERP length.
       title:
-        row.title.length <= 72
-          ? `${row.title} | Living With Arthritis UK`
-          : clip(row.title, 110),
+        headline.length <= 72
+          ? `${headline} | Living With Arthritis UK`
+          : clip(headline, 110),
       description: clip(description, 158),
-      question: row.title,
+      question: headline,
+
       answer: answer ? clip(answer, 600) : undefined,
       breadcrumb: headline,
       about: row.category || undefined,
