@@ -21,6 +21,8 @@
   "/ai",
   "/accessibility-for-ai",
   "/editorial-standards",
+  "/authors",
+  "/reviewers",
   "/conditions/osteoarthritis",
   "/conditions/rheumatoid-arthritis",
   "/conditions/psoriatic-arthritis",
@@ -388,5 +390,6 @@
   "/pets/pet-weight-and-joint-health",
   "/pets/home-adaptations-for-arthritic-pets",
   "/pets/when-to-see-the-vet-pet-arthritis",
-  "/authors/maxwell"
+  "/authors/maxwell",
+  "/reviewers/maxwell"
 ]

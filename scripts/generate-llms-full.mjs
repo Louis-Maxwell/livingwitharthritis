@@ -62,8 +62,8 @@ function publicSupabaseDefaults() {
       resolve("src/integrations/supabase/publicDefaults.ts"),
       "utf8",
     );
-    const url = src.match(/url:\s*"([^"]+)"/)?.[1];
-    const key = src.match(/publishableKey:\s*"([^"]+)"/)?.[1];
+    const url = src.match(/url:\s*['"]([^'"]+)['"]/)?.[1];
+    const key = src.match(/publishableKey:\s*['"\s]+([^'"]+)['"]/)?.[1];
     return { url, key };
   } catch {
     return {};

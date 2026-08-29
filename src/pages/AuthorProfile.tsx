@@ -1,9 +1,10 @@
 import { Helmet } from "react-helmet-async";
-import { Link, useParams, Navigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { ChevronLeft, ShieldCheck } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import authors from "@/data/medical-authors.json";
+import NotFound from "@/pages/NotFound";
 
 const BASE = "https://livingwitharthritis.org.uk";
 
@@ -39,7 +40,9 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
   const { slug = "" } = useParams<{ slug: string }>();
   const record = (authors as AuthorsMap)[slug];
 
-  if (!record) return <Navigate to="/editorial-standards" replace />;
+  // Unknown slug: render the real 404 page (noindex) instead of redirecting
+  // to a 200 page — soft 404s on author URLs damage E-E-A-T signals.
+  if (!record) return <NotFound />;
 
   const prefix = variant === "reviewer" ? "reviewers" : "authors";
   const url = `${BASE}/${prefix}/${slug}`;

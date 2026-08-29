@@ -164,6 +164,7 @@ const BuddyMatch = lazy(() => import("./pages/BuddyMatch"));
 const DebugSchema = lazy(() => import("./pages/DebugSchema"));
 const EditorialStandards = lazy(() => import("./pages/EditorialStandards"));
 const AuthorProfile = lazy(() => import("./pages/AuthorProfile"));
+const AuthorsIndex = lazy(() => import("./pages/AuthorsIndex"));
 const SupplementsHub = lazy(() => import("./pages/supplements/SupplementsHub"));
 const Glucosamine = lazy(() => import("./pages/supplements/Glucosamine"));
 const Msm = lazy(() => import("./pages/supplements/Msm"));
@@ -329,6 +330,8 @@ function AnimatedRoutes() {
         <Route path="/ai" element={<AiHub />} />
         <Route path="/accessibility-for-ai" element={<AccessibilityForAi />} />
         <Route path="/editorial-standards" element={<EditorialStandards />} />
+        <Route path="/authors" element={<AuthorsIndex variant="author" />} />
+        <Route path="/reviewers" element={<AuthorsIndex variant="reviewer" />} />
         <Route path="/authors/:slug" element={<AuthorProfile variant="author" />} />
         <Route path="/reviewers/:slug" element={<AuthorProfile variant="reviewer" />} />
         <Route path="/conditions/osteoarthritis" element={<Osteoarthritis />} />

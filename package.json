@@ -13,7 +13,7 @@
   "scripts": {
     "predev": "bun scripts/generate-sitemap.ts || true; node scripts/generate-llms-full.mjs || true",
     "dev": "vite",
-    "prebuild": "bun scripts/generate-sitemap.ts && node scripts/generate-llms-full.mjs && bun scripts/generate-og-images.ts",
+    "prebuild": "bun scripts/generate-sitemap.ts && node scripts/generate-blog-head-data.mjs && node scripts/generate-llms-full.mjs && bun scripts/generate-og-images.ts",
     "build": "vite build",
     "postbuild": "node scripts/inject-canonicals.mjs && node scripts/generate-404.mjs",
     "og:generate": "bun scripts/generate-og-images.ts",

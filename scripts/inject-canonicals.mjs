@@ -22,11 +22,13 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { resolve, join, dirname } from "node:path";
 import { PRERENDER_ROUTES } from "./prerender-routes.mjs";
+import { deriveHeadData } from "./route-head-fallback.mjs";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const DIST = resolve("dist");
 const SRC = join(DIST, "index.html");
 const AI_DATA_PATH = resolve("scripts/ai-head-data.json");
+const BLOG_DATA_PATH = resolve("scripts/blog-head-data.json");
 
 if (!existsSync(SRC)) {
   console.warn("[inject-canonicals] dist/index.html missing — skipping");
@@ -35,9 +37,54 @@ if (!existsSync(SRC)) {
 
 const template = readFileSync(SRC, "utf8");
 
-const AI_DATA = existsSync(AI_DATA_PATH)
-  ? JSON.parse(readFileSync(AI_DATA_PATH, "utf8"))
-  : {};
+const readJson = (path) =>
+  existsSync(path) ? JSON.parse(readFileSync(path, "utf8")) : {};
+
+// Author/reviewer bio pages: real named heads built from the same reviewed
+// records the React page renders, so E-E-A-T signals survive without JS.
+function authorHeadData() {
+  const records = readJson(resolve("src/data/medical-authors.json"));
+  const out = {};
+  for (const record of Object.values(records)) {
+    if (!record?.slug || !record?.name) continue;
+    const clean = (value) =>
+      typeof value === "string" && !value.includes("[PLACEHOLDER") ? value : "";
+    const credential = clean(record.credential);
+    const bio = clean(record.bio);
+    for (const prefix of ["authors", "reviewers"]) {
+      const label = prefix === "reviewers" ? "Medical reviewer" : "Author";
+      out[`/${prefix}/${record.slug}`] = {
+        title: `${record.name} — ${record.title} | Living With Arthritis UK`,
+        description: (
+          bio || `${record.name}, ${record.title}. ${label} on Living With Arthritis UK.`
+        ).slice(0, 158),
+        question: `${record.name} — ${record.title}`,
+        answer: [
+          `${record.name} is a ${record.title}${credential ? ` (${credential})` : ""} contributing to Living With Arthritis UK as ${label.toLowerCase()}.`,
+          bio,
+        ]
+          .filter(Boolean)
+          .join(" "),
+        breadcrumb: record.name,
+      };
+    }
+  }
+  return out;
+}
+
+// Curated entries win over auto-generated blog/author entries; all of them
+// win over the slug-derived fallback applied in headDataFor().
+const AI_DATA = {
+  ...readJson(BLOG_DATA_PATH),
+  ...authorHeadData(),
+  ...readJson(AI_DATA_PATH),
+};
+
+
+function headDataFor(route) {
+  return AI_DATA[route] ?? deriveHeadData(route);
+}
+
 
 function collectRoutes() {
   const set = new Set(PRERENDER_ROUTES);
@@ -114,9 +161,11 @@ function buildJsonLd(route, url, d) {
   // 3) FAQPage — the primary Q&A plus any configured FAQs. This is the
   //    highest-value block for answer engines: it hands them a quotable,
   //    attributed question/answer pair per page.
-  const qaPairs = [];
-  if (d.question && d.answer) qaPairs.push({ q: d.question, a: d.answer });
-  if (Array.isArray(d.faqs)) qaPairs.push(...d.faqs);
+  // FAQPage is emitted ONLY when the page also renders the same visible
+  // Q&A copy (d.faqs drives the visible FAQ section below), per Google's
+  // structured-data policy. A lone question/answer pair is expressed as the
+  // MedicalWebPage headline/speakable instead.
+  const qaPairs = Array.isArray(d.faqs) ? [...d.faqs] : [];
   if (qaPairs.length > 0) {
     graphs.push({
       "@context": "https://schema.org",
@@ -139,7 +188,7 @@ function buildJsonLd(route, url, d) {
 }
 
 function enrichHead(html, route, url) {
-  const d = AI_DATA[route];
+  const d = headDataFor(route);
   if (!d) return html;
 
   let out = html;
@@ -264,7 +313,7 @@ for (const route of routes) {
   mkdirSync(dirname(file), { recursive: true });
   writeFileSync(file, rewriteHead(template, route));
   written++;
-  if (AI_DATA[route]) enriched++;
+  if (headDataFor(route)) enriched++;
 }
 
 console.log(

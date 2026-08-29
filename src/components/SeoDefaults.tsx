@@ -26,6 +26,10 @@ const SITE_URL = "https://livingwitharthritis.org.uk";
 // non-JS crawlers, which never run this effect.
 const MANAGED_META = [
   { attr: "name", value: "description" },
+  // Static index.html ships an index,follow default; without pruning it the
+  // first match wins and noindex routes (404, unknown author slugs) leak.
+  { attr: "name", value: "robots" },
+
   { attr: "property", value: "og:title" },
   { attr: "property", value: "og:description" },
   { attr: "property", value: "og:type" },

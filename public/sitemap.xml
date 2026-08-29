@@ -118,6 +118,16 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://livingwitharthritis.org.uk/authors</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/reviewers</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://livingwitharthritis.org.uk/conditions/osteoarthritis</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -3378,5 +3388,10 @@
     <loc>https://livingwitharthritis.org.uk/authors/maxwell</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/reviewers/maxwell</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>
