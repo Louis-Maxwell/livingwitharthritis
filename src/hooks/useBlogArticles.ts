@@ -36,7 +36,7 @@ export interface DBBlogArticle {
 }
 
 const FIELDS = "slug, title, excerpt, content, date, category, image_url, meta_title, meta_description, keywords, author, author_credentials, reviewed_by, reviewer_credentials, is_published, display_order, updated_at, direct_answer, citations";
-const LIST_FIELDS = "slug, title, excerpt, date, category, image_url, display_order";
+const LIST_FIELDS = "slug, title, meta_title, excerpt, date, category, image_url, display_order";
 
 /** Single article by slug */
 export function useBlogArticle(slug: string | undefined) {
@@ -69,7 +69,7 @@ export function useBlogArticlesList() {
         .order("display_order", { ascending: false })
         .order("date", { ascending: false });
       if (error) throw error;
-      return (data ?? []) as Pick<DBBlogArticle, "slug" | "title" | "excerpt" | "date" | "category" | "image_url" | "display_order">[];
+      return (data ?? []) as Pick<DBBlogArticle, "slug" | "title" | "meta_title" | "excerpt" | "date" | "category" | "image_url" | "display_order">[];
     },
   });
 }
@@ -87,7 +87,7 @@ export function useFeaturedArticles(limit = 3) {
         .order("date", { ascending: false })
         .limit(limit);
       if (error) throw error;
-      return (data ?? []) as Pick<DBBlogArticle, "slug" | "title" | "excerpt" | "date" | "category" | "image_url" | "display_order">[];
+      return (data ?? []) as Pick<DBBlogArticle, "slug" | "title" | "meta_title" | "excerpt" | "date" | "category" | "image_url" | "display_order">[];
     },
   });
 }
@@ -132,7 +132,7 @@ export function useConditionArticles(categories: string[] = [], limit = 4) {
         .order("date", { ascending: false })
         .limit(limit);
       if (error) throw error;
-      return (data ?? []) as Pick<DBBlogArticle, "slug" | "title" | "excerpt" | "date" | "category" | "image_url" | "display_order">[];
+      return (data ?? []) as Pick<DBBlogArticle, "slug" | "title" | "meta_title" | "excerpt" | "date" | "category" | "image_url" | "display_order">[];
     },
   });
 }
