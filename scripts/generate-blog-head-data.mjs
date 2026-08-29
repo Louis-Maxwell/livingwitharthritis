@@ -118,7 +118,10 @@ async function main() {
     const answer = row.direct_answer || row.excerpt || '';
     const description =
       row.meta_description || row.excerpt || row.direct_answer || '';
-    if (!row.title || !description) continue;
+    // Some legacy rows store a truncated `title`; meta_title is the curated
+    // SERP headline where present.
+    const headline = row.meta_title || row.title;
+    if (!headline || !description) continue;
     data[`/blog/${row.slug}`] = {
       // Keep the full article title readable, appending the brand suffix
       // only when the combined string still fits a sensible SERP length.
@@ -129,7 +132,7 @@ async function main() {
       description: clip(description, 158),
       question: row.title,
       answer: answer ? clip(answer, 600) : undefined,
-      breadcrumb: row.title,
+      breadcrumb: headline,
       about: row.category || undefined,
       updatedAt: String(row.updated_at || row.date || '').slice(0, 10) || undefined,
     };
