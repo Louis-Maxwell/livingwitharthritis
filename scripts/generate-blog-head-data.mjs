@@ -55,7 +55,7 @@ async function main() {
   let rows = [];
   try {
     const res = await fetch(
-      `${url}/rest/v1/blog_articles?select=slug,title,excerpt,direct_answer,meta_description,category,updated_at,date&is_published=eq.true&limit=2000`,
+      `${url}/rest/v1/blog_articles?select=slug,title,excerpt,direct_answer,meta_description,category,content,updated_at,date&is_published=eq.true&limit=2000`,
       { headers: { apikey: key, Authorization: `Bearer ${key}` } },
     );
     if (!res.ok) keepExisting(`blog fetch ${res.status}`);
@@ -76,6 +76,42 @@ async function main() {
     return `${value.slice(0, max - 1).replace(/[\s,;:.-]+$/, '')}…`;
   };
 
+  // Mirrors extractFaqs() in src/pages/BlogPost.tsx: only headings that end
+  // in "?" and are followed by real answer text. Those same pairs render in
+  // the visible FAQ section, so FAQPage JSON-LD never describes hidden copy.
+  const extractFaqs = (content) => {
+    if (!content) return [];
+    const body = String(content).replace(/\\n/g, '\n');
+    const isHtml = body.trim().startsWith('<');
+    const pairs = [];
+    if (isHtml) {
+      const re = /<h[23][^>]*>([\s\S]*?)<\/h[23]>([\s\S]*?)(?=<h[23][^>]*>|$)/gi;
+      let m;
+      while ((m = re.exec(body)) !== null) {
+        const q = m[1].replace(/<[^>]*>/g, '').trim();
+        const a = m[2].replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 500);
+        if (q.endsWith('?') && a.length > 30) pairs.push({ q, a });
+        if (pairs.length >= 6) break;
+      }
+      return pairs;
+    }
+    const re = /^#{2,3}\s+(.+\?)\s*$/gm;
+    let m;
+    while ((m = re.exec(body)) !== null) {
+      const q = m[1].trim();
+      const rest = body.slice(m.index + m[0].length);
+      const a = rest
+        .split(/^#{1,3}\s+/m)[0]
+        .replace(/[*_`>#\[\]]/g, '')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .slice(0, 500);
+      if (a.length > 30) pairs.push({ q, a });
+      if (pairs.length >= 6) break;
+    }
+    return pairs;
+  };
+
   const data = {};
   for (const row of rows) {
     if (!row.slug || redirectSlugs.has(row.slug)) continue;
@@ -92,6 +128,8 @@ async function main() {
       about: row.category || undefined,
       updatedAt: String(row.updated_at || row.date || '').slice(0, 10) || undefined,
     };
+    const faqs = extractFaqs(row.content);
+    if (faqs.length >= 2) data[`/blog/${row.slug}`].faqs = faqs;
   }
 
   writeFileSync(OUT, `${JSON.stringify(data, null, 2)}\n`);
