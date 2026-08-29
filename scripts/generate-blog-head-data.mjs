@@ -120,7 +120,12 @@ async function main() {
       row.meta_description || row.excerpt || row.direct_answer || '';
     if (!row.title || !description) continue;
     data[`/blog/${row.slug}`] = {
-      title: clip(`${row.title} | Living With Arthritis UK`, 110),
+      // Keep the full article title readable, appending the brand suffix
+      // only when the combined string still fits a sensible SERP length.
+      title:
+        row.title.length <= 72
+          ? `${row.title} | Living With Arthritis UK`
+          : clip(row.title, 110),
       description: clip(description, 158),
       question: row.title,
       answer: answer ? clip(answer, 600) : undefined,
