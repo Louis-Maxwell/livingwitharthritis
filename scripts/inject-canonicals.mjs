@@ -40,9 +40,46 @@ const template = readFileSync(SRC, "utf8");
 const readJson = (path) =>
   existsSync(path) ? JSON.parse(readFileSync(path, "utf8")) : {};
 
-// Curated entries win over auto-generated blog entries; both win over the
-// slug-derived fallback applied in headDataFor().
-const AI_DATA = { ...readJson(BLOG_DATA_PATH), ...readJson(AI_DATA_PATH) };
+// Author/reviewer bio pages: real named heads built from the same reviewed
+// records the React page renders, so E-E-A-T signals survive without JS.
+function authorHeadData() {
+  const records = readJson(resolve("src/data/medical-authors.json"));
+  const out = {};
+  for (const record of Object.values(records)) {
+    if (!record?.slug || !record?.name) continue;
+    const clean = (value) =>
+      typeof value === "string" && !value.includes("[PLACEHOLDER") ? value : "";
+    const credential = clean(record.credential);
+    const bio = clean(record.bio);
+    for (const prefix of ["authors", "reviewers"]) {
+      const label = prefix === "reviewers" ? "Medical reviewer" : "Author";
+      out[`/${prefix}/${record.slug}`] = {
+        title: `${record.name} — ${record.title} | Living With Arthritis UK`,
+        description: (
+          bio || `${record.name}, ${record.title}. ${label} on Living With Arthritis UK.`
+        ).slice(0, 158),
+        question: `${record.name} — ${record.title}`,
+        answer: [
+          `${record.name} is a ${record.title}${credential ? ` (${credential})` : ""} contributing to Living With Arthritis UK as ${label.toLowerCase()}.`,
+          bio,
+        ]
+          .filter(Boolean)
+          .join(" "),
+        breadcrumb: record.name,
+      };
+    }
+  }
+  return out;
+}
+
+// Curated entries win over auto-generated blog/author entries; all of them
+// win over the slug-derived fallback applied in headDataFor().
+const AI_DATA = {
+  ...readJson(BLOG_DATA_PATH),
+  ...authorHeadData(),
+  ...readJson(AI_DATA_PATH),
+};
+
 
 function headDataFor(route) {
   return AI_DATA[route] ?? deriveHeadData(route);
