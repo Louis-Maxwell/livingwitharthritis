@@ -25,8 +25,8 @@ function publicSupabaseDefaults() {
       'utf8',
     );
     return {
-      url: src.match(/url:\s*"([^"]+)"/)?.[1],
-      key: src.match(/publishableKey:\s*"([^"]+)"/)?.[1],
+      url: src.match(/url:\s*['"]([^'"]+)['"]/)?.[1],
+      key: src.match(/publishableKey:\s*['"\s]+([^'"]+)['"]/)?.[1],
     };
   } catch {
     return {};
