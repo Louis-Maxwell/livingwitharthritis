@@ -286,8 +286,13 @@ function rewriteHead(html, route) {
     /<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/i,
     `<meta property="og:url" content="${url}" />`,
   );
-  // Canonical tags are intentionally NOT emitted anywhere on this site.
+  // Exactly one self-referencing canonical per page: drop any inherited
+  // homepage canonical from the template, then insert this route's own.
   out = out.replace(/[ \t]*<link\s+rel="canonical"[^>]*>\s*\n?/gi, "");
+  out = out.replace(
+    /<\/head>/i,
+    `  <link rel="canonical" href="${url}" />\n</head>`,
+  );
   // Also update twitter:url if present.
   out = out.replace(
     /<meta\s+name="twitter:url"\s+content="[^"]*"\s*\/?>/i,

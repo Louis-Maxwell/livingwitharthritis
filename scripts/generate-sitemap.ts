@@ -362,7 +362,8 @@ async function main() {
 
   for (const slug of dailyTipSlugs()) entries.push({ path: `/daily-tips/${slug}` });
   for (const id of productIds()) entries.push({ path: `/product/${id}` });
-  for (const c of citySlugs()) entries.push({ path: `/arthritis-support/${c}` });
+  // City hubs (/arthritis-support/{city}) are thin doorway templates and are
+  // deliberately excluded from the sitemap (see EXCLUDE_FROM_SITEMAP below).
   for (const r of regionSlugs()) entries.push({ path: `/regions/${r}` });
 
   const conds = conditionSlugs();
@@ -416,15 +417,10 @@ async function main() {
   for (const p of extractAll(/"(\/guides\/[^"]+)"/g, comparisonSrc))
     entries.push({ path: p, priority: "0.7", changefreq: "monthly" });
 
-  const cityRoutesSrc = read("src/data/city-routes.generated.ts");
-  const validCities = new Set(citySlugs());
-  const validConditions = new Set(conds);
-  for (const p of extractAll(/"(\/arthritis-support\/[^"]+)"/g, cityRoutesSrc)) {
-    if (!isValidCitySupportRoute(p, validCities, validConditions)) continue;
-    // Hubs only — nested /arthritis-support/{city}/{condition} URLs are thin.
-    if (p.split("/").filter(Boolean).length !== 2) continue;
-    entries.push({ path: p, priority: "0.6", changefreq: "monthly" });
-  }
+  // /arthritis-support/{city} doorway pages are intentionally NOT listed.
+  // They are city-templated variants of the same guidance and were diluting
+  // crawl budget; the hub /arthritis-support still links them internally.
+
 
   const petsSrc = read("src/data/pets-arthritis.generated.ts");
   entries.push({ path: "/pets", priority: "0.8", changefreq: "weekly" });
@@ -450,9 +446,21 @@ async function main() {
     }
   }
 
-  const xml = build(entries);
+  // Final safety net: never ship empty locale stubs (/es|/fr|/de|/pt and their
+  // clones) or /arthritis-support/{city} doorway URLs in the XML sitemap.
+  const EXCLUDE_FROM_SITEMAP = [
+    /^\/(es|fr|de|pt)(\/|$)/,
+    /^\/arthritis-support\/.+/,
+  ];
+  const cleaned = entries.filter(
+    (e) => !EXCLUDE_FROM_SITEMAP.some((re) => re.test(e.path)),
+  );
+
+  const xml = build(cleaned);
   writeFileSync(resolve("public/sitemap.xml"), xml);
-  console.log(`[sitemap] wrote ${entries.length} entries -> public/sitemap.xml`);
+  console.log(
+    `[sitemap] wrote ${cleaned.length} entries (dropped ${entries.length - cleaned.length} locale/doorway URLs) -> public/sitemap.xml`,
+  );
 
   // Also emit a slug list for the prerender pipeline. Sorted newest-first by
   // lastmod so `PRERENDER_LIMIT` can trim to the freshest N without missing

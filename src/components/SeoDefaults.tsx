@@ -58,6 +58,20 @@ function pruneStaticMetaDuplicates() {
       if (!el.hasAttribute("data-rh")) el.remove();
     }
   }
+
+  // Same problem for <link rel="canonical">: index.html ships the homepage
+  // canonical for non-JS crawlers, and Helmet does not dedupe <link> by rel.
+  // Once Helmet's per-route canonical is mounted, remove the static one so
+  // exactly one self-referencing canonical is present.
+  const canonicals = document.head.querySelectorAll('link[rel="canonical"]');
+  if (canonicals.length > 1) {
+    const hasHelmetCanonical = Array.from(canonicals).some((el) => el.hasAttribute("data-rh"));
+    if (hasHelmetCanonical) {
+      for (const el of Array.from(canonicals)) {
+        if (!el.hasAttribute("data-rh")) el.remove();
+      }
+    }
+  }
 }
 
 /**
@@ -91,7 +105,9 @@ export default function SeoDefaults() {
 
   return (
     <Helmet>
-      
+      {/* Single self-referencing canonical for every route. Emitted here (not
+          in SeoHead) so it exists exactly once per page. */}
+      <link rel="canonical" href={canonical === `${SITE_URL}/` ? `${SITE_URL}/` : canonical} />
       {untranslatedLangPath && <meta name="robots" content="noindex,follow" />}
       {hasTranslations && SUPPORTED_LANGS.map((lang) => (
         <link

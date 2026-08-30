@@ -75,9 +75,12 @@
          og:title / og:description for JS-executing crawlers on subpages. -->
     <title>Living With Arthritis | UK charity for joint pain support</title>
     <meta name="description" content="Free UK arthritis support: NICE-aligned exercises, anti-inflammatory diet guidance, condition guides and a help chat — written in plain English. Registered charity 1218461." />
-    <!-- Static homepage canonical for non-JS crawlers. CanonicalEnforcer removes
-         this on mount and <SeoDefaults /> emits the live per-route canonical via
-         Helmet, so JS consumers see exactly one self-referencing canonical. -->
+    <!-- Static homepage canonical for non-JS crawlers. Per-route static HTML
+         gets its own self-referencing canonical at build time
+         (scripts/inject-canonicals.mjs), and <SeoDefaults /> replaces this tag
+         with the live per-route canonical for JS consumers, so exactly one
+         canonical is ever present. -->
+    <link rel="canonical" href="https://livingwitharthritis.org.uk/" />
     <meta name="author" content="Living With Arthritis UK" />
     <meta name="publisher" content="Living With Arthritis UK" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
