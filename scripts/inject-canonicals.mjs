@@ -338,11 +338,20 @@ function rewriteHead(html, route) {
     /<\/head>/i,
     `  <link rel="canonical" href="${url}" />\n</head>`,
   );
+  // App-only screens keep their unique head but must stay out of the index.
+  if (isNoindexRoute(route)) {
+    out = out.replace(/[ \t]*<meta\s+name="robots"[^>]*>\s*\n?/gi, "");
+    out = out.replace(
+      /<\/head>/i,
+      `  <meta name="robots" content="noindex, follow" />\n</head>`,
+    );
+  }
   // Also update twitter:url if present.
   out = out.replace(
     /<meta\s+name="twitter:url"\s+content="[^"]*"\s*\/?>/i,
     `<meta name="twitter:url" content="${url}" />`,
   );
+
   // AI-visibility enrichment (title, description, JSON-LD) for curated routes.
   out = enrichHead(out, route, url);
   return out;
