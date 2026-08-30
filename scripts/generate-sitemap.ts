@@ -362,7 +362,8 @@ async function main() {
 
   for (const slug of dailyTipSlugs()) entries.push({ path: `/daily-tips/${slug}` });
   for (const id of productIds()) entries.push({ path: `/product/${id}` });
-  for (const c of citySlugs()) entries.push({ path: `/arthritis-support/${c}` });
+  // City hubs (/arthritis-support/{city}) are thin doorway templates and are
+  // deliberately excluded from the sitemap (see EXCLUDE_FROM_SITEMAP below).
   for (const r of regionSlugs()) entries.push({ path: `/regions/${r}` });
 
   const conds = conditionSlugs();
