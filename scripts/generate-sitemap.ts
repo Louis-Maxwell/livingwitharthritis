@@ -446,9 +446,21 @@ async function main() {
     }
   }
 
-  const xml = build(entries);
+  // Final safety net: never ship empty locale stubs (/es|/fr|/de|/pt and their
+  // clones) or /arthritis-support/{city} doorway URLs in the XML sitemap.
+  const EXCLUDE_FROM_SITEMAP = [
+    /^\/(es|fr|de|pt)(\/|$)/,
+    /^\/arthritis-support\/.+/,
+  ];
+  const cleaned = entries.filter(
+    (e) => !EXCLUDE_FROM_SITEMAP.some((re) => re.test(e.path)),
+  );
+
+  const xml = build(cleaned);
   writeFileSync(resolve("public/sitemap.xml"), xml);
-  console.log(`[sitemap] wrote ${entries.length} entries -> public/sitemap.xml`);
+  console.log(
+    `[sitemap] wrote ${cleaned.length} entries (dropped ${entries.length - cleaned.length} locale/doorway URLs) -> public/sitemap.xml`,
+  );
 
   // Also emit a slug list for the prerender pipeline. Sorted newest-first by
   // lastmod so `PRERENDER_LIMIT` can trim to the freshest N without missing
