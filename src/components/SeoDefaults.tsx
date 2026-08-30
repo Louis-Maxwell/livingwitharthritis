@@ -58,6 +58,20 @@ function pruneStaticMetaDuplicates() {
       if (!el.hasAttribute("data-rh")) el.remove();
     }
   }
+
+  // Same problem for <link rel="canonical">: index.html ships the homepage
+  // canonical for non-JS crawlers, and Helmet does not dedupe <link> by rel.
+  // Once Helmet's per-route canonical is mounted, remove the static one so
+  // exactly one self-referencing canonical is present.
+  const canonicals = document.head.querySelectorAll('link[rel="canonical"]');
+  if (canonicals.length > 1) {
+    const hasHelmetCanonical = Array.from(canonicals).some((el) => el.hasAttribute("data-rh"));
+    if (hasHelmetCanonical) {
+      for (const el of Array.from(canonicals)) {
+        if (!el.hasAttribute("data-rh")) el.remove();
+      }
+    }
+  }
 }
 
 /**
