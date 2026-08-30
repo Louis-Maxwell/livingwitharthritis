@@ -105,7 +105,9 @@ export default function SeoDefaults() {
 
   return (
     <Helmet>
-      
+      {/* Single self-referencing canonical for every route. Emitted here (not
+          in SeoHead) so it exists exactly once per page. */}
+      <link rel="canonical" href={canonical === `${SITE_URL}/` ? `${SITE_URL}/` : canonical} />
       {untranslatedLangPath && <meta name="robots" content="noindex,follow" />}
       {hasTranslations && SUPPORTED_LANGS.map((lang) => (
         <link
