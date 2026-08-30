@@ -141,6 +141,8 @@ function collectRoutes() {
     }
   }
   for (const p of appRoutes()) set.add(p);
+  // Prefix landing screens that the router mounts via nested/wildcard routes.
+  for (const p of NOINDEX_PREFIXES) if (p !== "/.lovable") set.add(p);
   set.delete("/");
   return [...set].filter((p) => p.startsWith("/") && !p.includes("*"));
 }
