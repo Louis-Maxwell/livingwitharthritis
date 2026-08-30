@@ -53,21 +53,30 @@ function authorHeadData() {
     const bio = clean(record.bio);
     for (const prefix of ["authors", "reviewers"]) {
       const label = prefix === "reviewers" ? "Medical reviewer" : "Author";
+      // /authors/x and /reviewers/x are separate URLs, so their head and
+      // opening paragraph must differ — otherwise they read as duplicates.
+      const role =
+        prefix === "reviewers"
+          ? `Medical reviewer profile`
+          : `Author profile`;
       out[`/${prefix}/${record.slug}`] = {
-        title: `${record.name} — ${record.title} | Living With Arthritis UK`,
-        description: (
-          bio || `${record.name}, ${record.title}. ${label} on Living With Arthritis UK.`
-        ).slice(0, 158),
-        question: `${record.name} — ${record.title}`,
+        title: `${record.name}, ${record.title} — ${label} | Living With Arthritis UK`.slice(0, 115),
+        description: `${role}: ${record.name}, ${record.title}${credential ? ` (${credential})` : ""}. ${bio}`
+          .replace(/\s+/g, " ")
+          .slice(0, 158),
+        question: `${record.name} — ${label.toLowerCase()} profile`,
         answer: [
-          `${record.name} is a ${record.title}${credential ? ` (${credential})` : ""} contributing to Living With Arthritis UK as ${label.toLowerCase()}.`,
+          prefix === "reviewers"
+            ? `${record.name} medically reviews Living With Arthritis UK content as a ${record.title}${credential ? ` (${credential})` : ""}, checking each guide for clinical accuracy before publication.`
+            : `${record.name} writes Living With Arthritis UK guides as a ${record.title}${credential ? ` (${credential})` : ""}, drawing on day-to-day UK musculoskeletal practice.`,
           bio,
         ]
           .filter(Boolean)
           .join(" "),
-        breadcrumb: record.name,
+        breadcrumb: `${record.name} (${label.toLowerCase()})`,
       };
     }
+
   }
   return out;
 }
@@ -86,6 +95,40 @@ function headDataFor(route) {
 }
 
 
+// App-only screens: real 200 pages (the SPA needs them) but never indexable.
+// They still get a unique static title/description so no URL on the domain
+// serves the homepage head.
+const NOINDEX_PREFIXES = [
+  "/.lovable",
+  "/account",
+  "/admin",
+  "/auth",
+  "/buddy",
+  "/callback",
+  "/checkout",
+  "/dashboard",
+  "/debug",
+  "/donation-result",
+  "/unsubscribe",
+];
+
+export function isNoindexRoute(route) {
+  return NOINDEX_PREFIXES.some((p) => route === p || route.startsWith(`${p}/`));
+}
+
+// Static (non-parameterised) routes declared in the router. Without these,
+// hosting falls back to the SPA shell and the URL inherits the homepage
+// title, description and body — Semrush's duplicate title/description/content
+// findings were almost entirely these routes.
+function appRoutes() {
+  const appPath = resolve("src/App.tsx");
+  if (!existsSync(appPath)) return [];
+  const src = readFileSync(appPath, "utf8");
+  return [...src.matchAll(/<Route\s+path="([^"]+)"/g)]
+    .map((m) => m[1])
+    .filter((p) => p.startsWith("/") && p !== "/" && !p.includes(":") && !p.includes("*"));
+}
+
 function collectRoutes() {
   const set = new Set(PRERENDER_ROUTES);
   const sitemapPath = resolve("public/sitemap.xml");
@@ -97,9 +140,13 @@ function collectRoutes() {
       set.add(path);
     }
   }
+  for (const p of appRoutes()) set.add(p);
+  // Prefix landing screens that the router mounts via nested/wildcard routes.
+  for (const p of NOINDEX_PREFIXES) if (p !== "/.lovable") set.add(p);
   set.delete("/");
   return [...set].filter((p) => p.startsWith("/") && !p.includes("*"));
 }
+
 
 // ---------- AI head enrichment helpers ----------
 
@@ -293,11 +340,20 @@ function rewriteHead(html, route) {
     /<\/head>/i,
     `  <link rel="canonical" href="${url}" />\n</head>`,
   );
+  // App-only screens keep their unique head but must stay out of the index.
+  if (isNoindexRoute(route)) {
+    out = out.replace(/[ \t]*<meta\s+name="robots"[^>]*>\s*\n?/gi, "");
+    out = out.replace(
+      /<\/head>/i,
+      `  <meta name="robots" content="noindex, follow" />\n</head>`,
+    );
+  }
   // Also update twitter:url if present.
   out = out.replace(
     /<meta\s+name="twitter:url"\s+content="[^"]*"\s*\/?>/i,
     `<meta name="twitter:url" content="${url}" />`,
   );
+
   // AI-visibility enrichment (title, description, JSON-LD) for curated routes.
   out = enrichHead(out, route, url);
   return out;

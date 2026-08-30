@@ -90,12 +90,21 @@ const routePaths = [...appSrc.matchAll(/<Route\s+path="([^"]+)"/g)].map((m) => m
 // Prefixes whose sub-paths are app-only (never prerendered, never indexed).
 const SPA_PREFIXES = ['/admin', '/auth', '/dashboard', '/checkout', '/callback', '/debug', '/donation-result', '/account'];
 
+// A route that has its own prerendered file must NOT be rewritten to the
+// SPA shell — that rewrite is what made ~40 URLs serve the homepage title,
+// description and body copy (Semrush's duplicate title/description/content
+// errors). Only routes without a real file need the shell.
+const hasOwnFile = (p) => existsSync(resolve(DIST, `${p.replace(/^\//, '')}/index.html`));
+
 const spaRules = new Set();
-for (const p of SPA_PREFIXES) spaRules.add(`${p} /index.html 200`);
-for (const p of SPA_PREFIXES) spaRules.add(`${p}/* /index.html 200`);
+for (const p of SPA_PREFIXES) {
+  if (!hasOwnFile(p)) spaRules.add(`${p} /index.html 200`);
+  spaRules.add(`${p}/* /index.html 200`);
+}
 for (const p of routePaths) {
   if (p === '*' || p === '/') continue;
   if (p.includes(':')) continue;
+  if (hasOwnFile(p)) continue;
   spaRules.add(`${p} /index.html 200`);
 }
 
