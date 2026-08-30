@@ -95,6 +95,40 @@ function headDataFor(route) {
 }
 
 
+// App-only screens: real 200 pages (the SPA needs them) but never indexable.
+// They still get a unique static title/description so no URL on the domain
+// serves the homepage head.
+const NOINDEX_PREFIXES = [
+  "/.lovable",
+  "/account",
+  "/admin",
+  "/auth",
+  "/buddy",
+  "/callback",
+  "/checkout",
+  "/dashboard",
+  "/debug",
+  "/donation-result",
+  "/unsubscribe",
+];
+
+export function isNoindexRoute(route) {
+  return NOINDEX_PREFIXES.some((p) => route === p || route.startsWith(`${p}/`));
+}
+
+// Static (non-parameterised) routes declared in the router. Without these,
+// hosting falls back to the SPA shell and the URL inherits the homepage
+// title, description and body — Semrush's duplicate title/description/content
+// findings were almost entirely these routes.
+function appRoutes() {
+  const appPath = resolve("src/App.tsx");
+  if (!existsSync(appPath)) return [];
+  const src = readFileSync(appPath, "utf8");
+  return [...src.matchAll(/<Route\s+path="([^"]+)"/g)]
+    .map((m) => m[1])
+    .filter((p) => p.startsWith("/") && p !== "/" && !p.includes(":") && !p.includes("*"));
+}
+
 function collectRoutes() {
   const set = new Set(PRERENDER_ROUTES);
   const sitemapPath = resolve("public/sitemap.xml");
@@ -106,9 +140,11 @@ function collectRoutes() {
       set.add(path);
     }
   }
+  for (const p of appRoutes()) set.add(p);
   set.delete("/");
   return [...set].filter((p) => p.startsWith("/") && !p.includes("*"));
 }
+
 
 // ---------- AI head enrichment helpers ----------
 
