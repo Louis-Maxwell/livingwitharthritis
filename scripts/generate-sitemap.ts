@@ -417,15 +417,10 @@ async function main() {
   for (const p of extractAll(/"(\/guides\/[^"]+)"/g, comparisonSrc))
     entries.push({ path: p, priority: "0.7", changefreq: "monthly" });
 
-  const cityRoutesSrc = read("src/data/city-routes.generated.ts");
-  const validCities = new Set(citySlugs());
-  const validConditions = new Set(conds);
-  for (const p of extractAll(/"(\/arthritis-support\/[^"]+)"/g, cityRoutesSrc)) {
-    if (!isValidCitySupportRoute(p, validCities, validConditions)) continue;
-    // Hubs only — nested /arthritis-support/{city}/{condition} URLs are thin.
-    if (p.split("/").filter(Boolean).length !== 2) continue;
-    entries.push({ path: p, priority: "0.6", changefreq: "monthly" });
-  }
+  // /arthritis-support/{city} doorway pages are intentionally NOT listed.
+  // They are city-templated variants of the same guidance and were diluting
+  // crawl budget; the hub /arthritis-support still links them internally.
+
 
   const petsSrc = read("src/data/pets-arthritis.generated.ts");
   entries.push({ path: "/pets", priority: "0.8", changefreq: "weekly" });
