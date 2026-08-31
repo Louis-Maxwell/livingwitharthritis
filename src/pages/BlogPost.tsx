@@ -407,6 +407,9 @@ const BlogPost = () => {
                   </>
                 )}
               </div>
+
+              <ArticleVoiceover slug={article.slug} className="mt-6 max-w-[640px]" />
+
             </div>
           </div>
         </header>
