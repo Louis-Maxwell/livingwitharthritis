@@ -2,13 +2,8 @@ import { useState, useCallback, useEffect, useRef } from "react";
 import { toast } from "sonner";
 import { getFallbackAnswer } from "@/lib/arthritisChatFallback";
 import type { ChatProfile } from "@/lib/chatProfile";
-import { supabase } from "@/integrations/supabase/client";
-import { PUBLIC_SUPABASE_DEFAULTS } from "@/integrations/supabase/publicDefaults";
 import { loadAnonChatHistory, saveAnonChatHistory, clearAnonChatHistory } from "@/lib/chatHistory";
-
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || PUBLIC_SUPABASE_DEFAULTS.url;
-const SUPABASE_PUBLISHABLE_KEY =
-  import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || PUBLIC_SUPABASE_DEFAULTS.publishableKey;
+import { chatService } from "@/lib/chatbot/optimizedChatService";
 
 export type Message = {
   role: "user" | "assistant";
@@ -23,8 +18,6 @@ export type ConversationSummary = {
   updated_at: string;
 };
 
-const CHAT_URL = `${SUPABASE_URL}/functions/v1/chat`;
-
 function makeId(): string {
   if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
     return crypto.randomUUID();
@@ -32,217 +25,7 @@ function makeId(): string {
   return `msg_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
 }
 
-async function getAuthHeaders(): Promise<Record<string, string>> {
-  const headers: Record<string, string> = {
-    "Content-Type": "application/json",
-    apikey: SUPABASE_PUBLISHABLE_KEY,
-  };
-  const { data } = await supabase.auth.getSession();
-  const token = data.session?.access_token;
-  if (token) headers.Authorization = `Bearer ${token}`;
-  return headers;
-}
-
 type WireMessage = { role: "user" | "assistant"; content: string };
-
-/** No response at all within this many ms — abort rather than hang forever. */
-const REQUEST_TIMEOUT_MS = 30_000;
-
-/**
- * Aborts `controller` after `ms` of inactivity. Call `bump()` on every
- * received chunk to reset the window, so a genuinely long-but-progressing
- * streamed answer isn't cut off — only a stalled connection is.
- */
-function createInactivityWatchdog(controller: AbortController, ms: number) {
-  let timer: ReturnType<typeof setTimeout> | null = null;
-  const bump = () => {
-    if (timer) clearTimeout(timer);
-    timer = setTimeout(() => controller.abort(), ms);
-  };
-  const cancel = () => {
-    if (timer) clearTimeout(timer);
-    timer = null;
-  };
-  bump();
-  return { bump, cancel };
-}
-
-async function fetchJsonFallback({
-  messages,
-  userProfile,
-  onDelta,
-  onDone,
-}: {
-  messages: WireMessage[];
-  userProfile?: ChatProfile;
-  onDelta: (deltaText: string) => void;
-  onDone: () => void;
-}) {
-  const authHeaders = await getAuthHeaders();
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
-  let resp: Response;
-  try {
-    resp = await fetch(`${CHAT_URL}?stream=0`, {
-      method: "POST",
-      headers: {
-        ...authHeaders,
-        Accept: "application/json",
-      },
-      body: JSON.stringify({ messages, userProfile }),
-      signal: controller.signal,
-    });
-  } catch (e) {
-    if (e instanceof DOMException && e.name === "AbortError") {
-      throw new Error("The request timed out. Please try again.");
-    }
-    throw e;
-  } finally {
-    clearTimeout(timer);
-  }
-  if (!resp.ok) {
-    const errorData = await resp.json().catch(() => null);
-    const err = errorData?.error;
-    const message =
-      typeof err === "object" && err?.message
-        ? err.message
-        : typeof err === "string"
-          ? err
-          : "Failed to get response";
-    throw new Error(message);
-  }
-  const data = await resp.json();
-  const content: string = data?.data?.content ?? "";
-  if (content) onDelta(content);
-  onDone();
-}
-
-async function streamChat({
-  messages,
-  userProfile,
-  onDelta,
-  onDone,
-}: {
-  messages: WireMessage[];
-  userProfile?: ChatProfile;
-  onDelta: (deltaText: string) => void;
-  onDone: () => void;
-}) {
-  const controller = new AbortController();
-  const watchdog = createInactivityWatchdog(controller, REQUEST_TIMEOUT_MS);
-
-  let resp: Response;
-  try {
-    const authHeaders = await getAuthHeaders();
-    resp = await fetch(CHAT_URL, {
-      method: "POST",
-      headers: authHeaders,
-      body: JSON.stringify({ messages, userProfile }),
-      signal: controller.signal,
-    });
-  } catch (e) {
-    watchdog.cancel();
-    // Network/proxy blocked the streaming request, or it timed out — try
-    // the non-streaming JSON path once (its own fresh timeout applies).
-    return fetchJsonFallback({ messages, userProfile, onDelta, onDone });
-  }
-
-  if (!resp.ok) {
-    watchdog.cancel();
-    const errorData = await resp.json().catch(() => null);
-    if (resp.status === 429) {
-      throw new Error("Rate limit exceeded. Please try again later.");
-    }
-    const err = errorData?.error;
-    const message =
-      typeof err === "object" && err?.message
-        ? err.message
-        : typeof err === "string"
-          ? err
-          : "Failed to get response";
-    throw new Error(message);
-  }
-
-  if (!resp.body) {
-    watchdog.cancel();
-    return fetchJsonFallback({ messages, userProfile, onDelta, onDone });
-  }
-
-  const reader = resp.body.getReader();
-  const decoder = new TextDecoder();
-  let textBuffer = "";
-  let streamDone = false;
-  let receivedAny = false;
-
-  try {
-    while (!streamDone) {
-      const { done, value } = await reader.read();
-      watchdog.bump(); // any activity (including keep-alives) resets the window
-      if (done) break;
-      textBuffer += decoder.decode(value, { stream: true });
-
-      let newlineIndex: number;
-      while ((newlineIndex = textBuffer.indexOf("\n")) !== -1) {
-        let line = textBuffer.slice(0, newlineIndex);
-        textBuffer = textBuffer.slice(newlineIndex + 1);
-
-        if (line.endsWith("\r")) line = line.slice(0, -1);
-        if (line.startsWith(":") || line.trim() === "") continue;
-        if (!line.startsWith("data: ")) continue;
-
-        const jsonStr = line.slice(6).trim();
-        if (jsonStr === "[DONE]") {
-          streamDone = true;
-          break;
-        }
-
-        try {
-          const parsed = JSON.parse(jsonStr);
-          const content = parsed.choices?.[0]?.delta?.content as string | undefined;
-          if (content) {
-            receivedAny = true;
-            onDelta(content);
-          }
-        } catch {
-          textBuffer = line + "\n" + textBuffer;
-          break;
-        }
-      }
-    }
-  } catch (e) {
-    watchdog.cancel();
-    if (!receivedAny) {
-      return fetchJsonFallback({ messages, userProfile, onDelta, onDone });
-    }
-    throw e;
-  }
-
-  watchdog.cancel();
-
-  if (textBuffer.trim()) {
-    for (let raw of textBuffer.split("\n")) {
-      if (!raw) continue;
-      if (raw.endsWith("\r")) raw = raw.slice(0, -1);
-      if (raw.startsWith(":") || raw.trim() === "") continue;
-      if (!raw.startsWith("data: ")) continue;
-      const jsonStr = raw.slice(6).trim();
-      if (jsonStr === "[DONE]") continue;
-      try {
-        const parsed = JSON.parse(jsonStr);
-        const content = parsed.choices?.[0]?.delta?.content as string | undefined;
-        if (content) onDelta(content);
-      } catch {
-        /* ignore */
-      }
-    }
-  }
-
-  if (!receivedAny) {
-    return fetchJsonFallback({ messages, userProfile, onDelta, onDone });
-  }
-
-  onDone();
-}
 
 export function useStreamingChat() {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -349,20 +132,19 @@ export function useStreamingChat() {
     };
 
     try {
-      // Trim context sent to AI: last 10 messages keeps responses snappy.
-      // Strip client-only fields (id) before sending to the server.
-      const recentContext: WireMessage[] = [...messages, userMsg]
-        .slice(-10)
-        .map((m) => ({ role: m.role, content: m.content }));
-      await streamChat({
-        messages: recentContext,
-        userProfile,
-        onDelta: (chunk) => upsertAssistant(chunk),
-        onDone: async () => {
+      // Use optimized chat service for instant, cached responses
+      await chatService.sendMessage(
+        userMsg.content,
+        userId || makeId(), // Use session ID for anonymous users
+        (chunk) => upsertAssistant(chunk), // Stream chunks as they come
+        async () => {
           setIsLoading(false);
-          // Supabase message and conversation updates removed - functionality to be restored later
-        },
-      });
+          // Optionally save to local history for anonymous users
+          if (userId === null) {
+            saveAnonChatHistory([...messages, userMsg]);
+          }
+        }
+      );
     } catch (error) {
       const msg = error instanceof Error ? error.message : "Failed to send message";
 
@@ -375,10 +157,6 @@ export function useStreamingChat() {
       const fallback = getFallbackAnswer(userMsg.content);
       upsertAssistant(fallback);
       setIsLoading(false);
-
-      if (userId) {
-        // Supabase fallback message insert removed - functionality to be restored later
-      }
     }
   }, [messages, isLoading, userId, ensureConversation]);
 
