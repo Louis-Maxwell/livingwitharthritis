@@ -34,6 +34,7 @@ import FeedbackPoll from "@/components/article/FeedbackPoll";
 import InlineRelatedStrip from "@/components/article/InlineRelatedStrip";
 import ArticleFaqSection from "@/components/article/ArticleFaqSection";
 import ArticleClosingCTA from "@/components/article/ArticleClosingCTA";
+import ArticleVoiceover from "@/components/article/ArticleVoiceover";
 import { renderCallouts } from "@/components/article/Callouts";
 import { markVisited } from "@/lib/visitedArticles";
 import { getArticleImages } from "@/lib/articleImages";
