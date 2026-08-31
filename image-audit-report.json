@@ -1,0 +1,22 @@
+{
+  "timestamp": "2026-08-31T20:40:53.224Z",
+  "total": 2,
+  "critical": 1,
+  "warnings": 1,
+  "issues": [
+    {
+      "file": "src\\components\\landing\\ContactSection.test.tsx",
+      "line": 170,
+      "severity": "critical",
+      "type": "missing-alt",
+      "tag": "<img src=x onerror=alert(1)>"
+    },
+    {
+      "file": "src\\components\\landing\\ContactSection.test.tsx",
+      "line": 170,
+      "severity": "warning",
+      "type": "missing-dimensions",
+      "tag": "<img src=x onerror=alert(1)>"
+    }
+  ]
+}
