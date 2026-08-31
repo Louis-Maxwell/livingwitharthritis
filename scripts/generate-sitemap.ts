@@ -377,7 +377,7 @@ async function main() {
 
   for (const p of parseStaticRoutes()) {
     // lastmod only for pages with a known significant content change; others omit it.
-    const lastmod = p === "/" || p === "/about" ? "2026-08-28" : undefined;
+    const lastmod = p === "/" || p === "/about" ? "2026-08-31" : undefined;
     entries.push({ path: p, ...(lastmod ? { lastmod } : {}) });
   }
 
