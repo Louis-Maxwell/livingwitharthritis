@@ -485,6 +485,38 @@ async function main() {
     `[sitemap] wrote ${cleaned.length} entries (dropped ${entries.length - cleaned.length} locale/doorway URLs) -> public/sitemap.xml`,
   );
 
+  // Dedicated sitemaps so Search Console and answer engines can request
+  // the FAQ + library families without downloading the full URL set.
+  const faqEntries = cleaned.filter((e) => e.path.startsWith("/faq/"));
+  const libraryEntries = cleaned.filter((e) => e.path.startsWith("/library/"));
+  writeFileSync(resolve("public/sitemap-faq.xml"), build(faqEntries));
+  writeFileSync(resolve("public/sitemap-library.xml"), build(libraryEntries));
+  const today = new Date().toISOString().slice(0, 10);
+  const indexXml = [
+    `<?xml version="1.0" encoding="UTF-8"?>`,
+    `<!-- Locale sitemaps removed: /es, /fr, /de and /pt were empty stubs that`,
+    `     served the English page and were being indexed as duplicates. -->`,
+    `<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`,
+    `  <sitemap>`,
+    `    <loc>${BASE_URL}/sitemap.xml</loc>`,
+    `    <lastmod>${today}</lastmod>`,
+    `  </sitemap>`,
+    `  <sitemap>`,
+    `    <loc>${BASE_URL}/sitemap-faq.xml</loc>`,
+    `    <lastmod>${today}</lastmod>`,
+    `  </sitemap>`,
+    `  <sitemap>`,
+    `    <loc>${BASE_URL}/sitemap-library.xml</loc>`,
+    `    <lastmod>${today}</lastmod>`,
+    `  </sitemap>`,
+    `</sitemapindex>`,
+    "",
+  ].join("\n");
+  writeFileSync(resolve("public/sitemap-index.xml"), indexXml);
+  console.log(
+    `[sitemap] wrote ${faqEntries.length} FAQ + ${libraryEntries.length} library URLs -> sitemap-faq.xml / sitemap-library.xml`,
+  );
+
   // Also emit a slug list for the prerender pipeline. Sorted newest-first by
   // lastmod so `PRERENDER_LIMIT` can trim to the freshest N without missing
   // recently-published posts. Consumed by scripts/prerender-routes.mjs.

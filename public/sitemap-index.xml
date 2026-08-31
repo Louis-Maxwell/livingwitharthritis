@@ -4,5 +4,14 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
     <loc>https://livingwitharthritis.org.uk/sitemap.xml</loc>
+    <lastmod>2026-08-31</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://livingwitharthritis.org.uk/sitemap-faq.xml</loc>
+    <lastmod>2026-08-31</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://livingwitharthritis.org.uk/sitemap-library.xml</loc>
+    <lastmod>2026-08-31</lastmod>
   </sitemap>
 </sitemapindex>

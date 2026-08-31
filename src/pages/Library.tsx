@@ -72,6 +72,18 @@ const Library = () => {
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "Health library topics",
+          "numberOfItems": healthTopics.length,
+          "itemListElement": healthTopics.map((topic, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "url": `https://livingwitharthritis.org.uk/library/${topic.slug}`,
+            "name": topic.title,
+          })),
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },

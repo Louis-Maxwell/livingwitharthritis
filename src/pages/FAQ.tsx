@@ -3,9 +3,23 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import SkeletonSection from "@/components/landing/SkeletonSection";
 import PageHero from "@/components/ui/PageHero";
+import FaqArticleIndex from "@/components/FaqArticleIndex";
+import { faqArticles } from "@/data/faqArticles";
 
 const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
 const Footer = lazy(() => import("@/components/Footer"));
+
+const faqItemList = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Arthritis FAQ guides",
+  itemListElement: faqArticles.map((article, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    url: `https://livingwitharthritis.org.uk/faq/${article.slug}`,
+    name: article.question,
+  })),
+};
 
 const FAQ = () => (
   <>
@@ -27,6 +41,7 @@ const FAQ = () => (
       <meta name="twitter:title" content="Arthritis FAQs UK – Symptoms, Treatment & Diet" />
       <meta name="twitter:description" content="Arthritis FAQs answered by UK clinicians — symptoms, treatment, diet, exercise & how to access free Living With Arthritis support." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
+      <script type="application/ld+json">{JSON.stringify(faqItemList)}</script>
     </Helmet>
     <Header />
     <main id="main-content" role="main" tabIndex={-1}>
@@ -38,6 +53,7 @@ const FAQ = () => (
       <Suspense fallback={<SkeletonSection />}>
         <FAQSection />
       </Suspense>
+      <FaqArticleIndex />
     </main>
     <Suspense fallback={<div className="h-80 bg-secondary" aria-hidden="true" />}>
       <Footer />

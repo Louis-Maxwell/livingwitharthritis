@@ -184,6 +184,44 @@ describe("SEO build safety", () => {
     expect(xml).toContain("/library/fibromyalgia");
   });
 
+  it("lists FAQ and library pages from the public FAQ and library hubs", () => {
+    const faqPage = readFileSync(
+      resolve(process.cwd(), "src/pages/FAQ.tsx"),
+      "utf8",
+    );
+    const faqArticle = readFileSync(
+      resolve(process.cwd(), "src/pages/FaqArticle.tsx"),
+      "utf8",
+    );
+    const index = readFileSync(
+      resolve(process.cwd(), "src/components/FaqArticleIndex.tsx"),
+      "utf8",
+    );
+
+    expect(faqPage).toContain("FaqArticleIndex");
+    expect(faqPage).toContain("ItemList");
+    expect(index).toContain("`/faq/${article.slug}`");
+    expect(faqArticle).toContain('path: "/faq"');
+    expect(faqArticle).toContain('to="/donate"');
+    expect(faqArticle).toContain("speakable-intro");
+  });
+
+  it("exposes dedicated FAQ and library sitemaps from the index", () => {
+    const generator = readFileSync(
+      resolve(process.cwd(), "scripts/generate-sitemap.ts"),
+      "utf8",
+    );
+    const indexXml = readFileSync(
+      resolve(process.cwd(), "public/sitemap-index.xml"),
+      "utf8",
+    );
+
+    expect(generator).toContain("sitemap-faq.xml");
+    expect(generator).toContain("sitemap-library.xml");
+    expect(indexXml).toContain("/sitemap-faq.xml");
+    expect(indexXml).toContain("/sitemap-library.xml");
+  });
+
   it("consolidates database category variants onto canonical hubs", () => {
     expect(canonicalBlogCategoryKey("Exercise Guides")).toBe("exercise");
     expect(canonicalBlogCategoryKey("Treatments")).toBe("treatment");
