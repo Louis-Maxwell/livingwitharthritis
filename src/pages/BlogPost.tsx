@@ -174,10 +174,8 @@ const BlogPost = () => {
   const MAXWELL_CREDS = "First Contact Practitioner, HCPC PH128483, CSP member";
   const rawReviewerName = article.reviewed_by || "";
   const rawReviewerCreds = article.reviewer_credentials || "";
-  // Normalise any legacy placeholder credit (e.g. "Sarah Jennings" /
-  // HCPC PH123456) to the only verified clinician.
+  // Normalise any legacy placeholder credentials to the verified clinician
   const isPlaceholderReviewer =
-    /sarah\s+jennings/i.test(rawReviewerName) ||
     /PH123456/i.test(rawReviewerCreds);
   const reviewerName = isPlaceholderReviewer ? MAXWELL_NAME : rawReviewerName;
   const reviewerCreds = isPlaceholderReviewer ? MAXWELL_CREDS : rawReviewerCreds;
