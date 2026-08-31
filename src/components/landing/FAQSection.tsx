@@ -65,9 +65,9 @@ const FAQSection = memo(() => {
             <MessageCircle className="w-4 h-4 me-2" />
             Ask our help chat helper
           </Button>
-          <Link to="/blog">
+          <Link to="/faq#faq-guides-heading">
             <Button variant="outline" className="rounded-full h-[54px] px-10 text-sm font-bold tracking-wider border-2 border-primary/15 text-primary hover:bg-primary/[0.03]">
-              Read our gentle guides <ArrowRight className="w-4 h-4 ms-2 rtl:rotate-180" />
+              Browse every full answer <ArrowRight className="w-4 h-4 ms-2 rtl:rotate-180" />
             </Button>
           </Link>
         </div>

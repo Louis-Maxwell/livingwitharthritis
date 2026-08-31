@@ -99,6 +99,26 @@ async function fetchBlogArticles() {
   }
 }
 
+function buildFaqSections() {
+  const src = readFileSync(resolve("src/data/faqArticles.ts"), "utf8");
+  const sections = [];
+  const re =
+    /\bslug:\s*['"]([^'"]+)['"][\s\S]*?\bquestion:\s*['"]([^'"]+)['"][\s\S]*?quickAnswer:\s*['"]([^'"]+)['"]/g;
+  let match;
+  while ((match = re.exec(src)) !== null) {
+    sections.push(
+      [
+        `## ${match[2]}`,
+        `URL: ${BASE}/faq/${match[1]}`,
+        `Last updated: 2026-08-31`,
+        `Q: ${match[2]}`,
+        `A: ${match[3]}`,
+      ].join("\n"),
+    );
+  }
+  return sections;
+}
+
 function buildBlogSections(rows) {
   // Exclude legacy slugs that redirect to a newer canonical slug — same
   // rule generate-sitemap.ts applies, so this file doesn't cite a URL
@@ -127,6 +147,7 @@ function buildBlogSections(rows) {
 
 async function main() {
   const headDataSections = buildHeadDataSections();
+  const faqSections = buildFaqSections();
   const blogRows = await fetchBlogArticles();
   const blogSections = buildBlogSections(blogRows);
 
@@ -161,12 +182,12 @@ async function main() {
     }
   }
 
-  const allSections = [...headDataSections, ...finalBlogSections];
+  const allSections = [...headDataSections, ...faqSections, ...finalBlogSections];
   const output = [header, "", allSections.join("\n\n"), ""].join("\n");
 
   writeFileSync(resolve("public/llms-full.txt"), output);
   console.log(
-    `[llms-full] wrote ${headDataSections.length} condition/guide sections + ${finalBlogSections.length} blog sections (${allSections.length} total) -> public/llms-full.txt`,
+    `[llms-full] wrote ${headDataSections.length} condition/guide sections + ${faqSections.length} FAQ sections + ${finalBlogSections.length} blog sections (${allSections.length} total) -> public/llms-full.txt`,
   );
 }
 
