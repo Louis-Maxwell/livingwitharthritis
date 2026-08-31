@@ -133,6 +133,19 @@ describe("SEO build safety", () => {
     expect(sitemapSource).not.toContain("`/uk/${city}/${svc}`");
     expect(sitemapSource).not.toContain("`/exercises/${j}/for/${c}`");
     expect(sitemapSource).toContain("`/conditions/${c}/${s}`");
+    expect(sitemapSource).toContain("src/data/conditionSubpages.ts");
+    expect(sitemapSource).toContain("src/data/faqArticles.ts");
+    expect(sitemapSource).toContain("src/data/healthTopics.ts");
+    expect(sitemapSource).toContain("`/faq/${slug}`");
+    expect(sitemapSource).toContain("`/library/${slug}`");
+
+    const edgeSitemap = readFileSync(
+      resolve(process.cwd(), "supabase/functions/generate-sitemap/index.ts"),
+      "utf8",
+    );
+    expect(edgeSitemap).not.toContain("`/arthritis-support/${slug}/${cond}`");
+    expect(edgeSitemap).toContain("`/conditions/${c}/${s}`");
+    expect(edgeSitemap).toContain('loc: "/donate"');
   });
 
   it("does not list thin combinatorial URLs on the HTML sitemap or city hubs", () => {
@@ -157,9 +170,18 @@ describe("SEO build safety", () => {
     expect(xml).not.toMatch(/\/arthritis-support\/[^/<]+\/[^/<]+</);
     expect(xml).not.toMatch(/\/uk\/[^/<]+\/[^/<]+</);
     expect(xml).not.toMatch(/\/exercises\/[^/<]+\/for\//);
+    expect(xml).not.toMatch(/https:\/\/livingwitharthritis\.org\.uk\/(es|fr|de|pt)(\/|<)/);
     expect(xml).toContain("/donate");
     expect(xml).toContain("/community");
     expect(xml).toContain("/chat");
+    expect(xml).toContain("/about");
+    expect(xml).toContain("/conditions/fibromyalgia/exercises");
+    expect(xml).toContain("/conditions/polymyalgia-rheumatica/diet");
+    expect(xml).toContain("/conditions/shoulder-arthritis");
+    expect(xml).toContain("/conditions/gout/diet");
+    expect(xml).toContain("/conditions/knee-arthritis/treatment");
+    expect(xml).toContain("/faq/can-arthritis-cause-fatigue");
+    expect(xml).toContain("/library/fibromyalgia");
   });
 
   it("consolidates database category variants onto canonical hubs", () => {

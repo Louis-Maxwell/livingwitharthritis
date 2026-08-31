@@ -144,10 +144,31 @@ function regionSlugs(): string[] {
   return ["north-west", "midlands", "scotland", "wales"];
 }
 
-function conditionSlugs(): string[] {
-  const src = read("src/data/arthritisConditions.ts");
-  const re = /\bslug:\s*"([^"]+)"/g;
-  return extractAll(re, src);
+// Unique /conditions/:slug/:subpage URLs that have written copy in
+// conditionSubpages.ts. Do not invent combinations for hub-only conditions
+// (hip-arthritis, elbow-arthritis, calcific-periarthritis) — those would be
+// empty templates.
+function conditionSubpageSlugs(): string[] {
+  const src = read("src/data/conditionSubpages.ts");
+  const start = src.indexOf("export const conditionSubpages");
+  if (start < 0) return [];
+  const nested = new Set(["symptoms", "treatment", "exercises", "diet"]);
+  return extractAll(/^\s{2}"?([a-z0-9-]+)"?:\s*\{/gm, src.slice(start)).filter(
+    (slug) => !nested.has(slug),
+  );
+}
+
+// Unique FAQ articles at /faq/:slug (src/data/faqArticles.ts).
+function faqArticleSlugs(): string[] {
+  const src = read("src/data/faqArticles.ts");
+  return [...new Set(extractAll(/\bslug:\s*['"]([^'"]+)['"]/g, src))];
+}
+
+// Unique library topics at /library/:slug (src/data/healthTopics.ts).
+// Deduped — the source file has one repeated slug.
+function libraryTopicSlugs(): string[] {
+  const src = read("src/data/healthTopics.ts");
+  return [...new Set(extractAll(/"slug":\s*"([^"]+)"/g, src))];
 }
 
 function exerciseJointSlugs(): string[] {
@@ -366,22 +387,24 @@ async function main() {
   // deliberately excluded from the sitemap (see EXCLUDE_FROM_SITEMAP below).
   for (const r of regionSlugs()) entries.push({ path: `/regions/${r}` });
 
-  const conds = conditionSlugs();
   for (const s of exerciseJointSlugs()) entries.push({ path: `/exercises/${s}` });
 
   // Condition sub-pages have unique written content (src/data/conditionSubpages.ts).
   // City×condition, city×service and exercise×condition matrices are thin
   // templates — they 301 to a hub and must not appear in the sitemap.
-  const SUBPAGE_CONDITIONS = [
-    "osteoarthritis", "rheumatoid-arthritis", "psoriatic-arthritis", "gout",
-    "ankylosing-spondylitis", "juvenile-arthritis", "fibromyalgia", "lupus",
-    "knee-arthritis", "hand-arthritis", "shoulder-arthritis",
-    "polymyalgia-rheumatica", "reactive-arthritis",
-  ];
   const SUBPAGES = ["symptoms", "treatment", "exercises", "diet"];
-  for (const c of SUBPAGE_CONDITIONS)
+  for (const c of conditionSubpageSlugs())
     for (const s of SUBPAGES)
       entries.push({ path: `/conditions/${c}/${s}`, priority: "0.8", changefreq: "monthly" });
+
+  // Unique FAQ + library articles. These 200 with written copy but were
+  // previously omitted because parseStaticRoutes() skips /faq/:slug and
+  // /library/:slug. Do not add /expert/:slug or /stories/:slug — those
+  // arrays are empty placeholders.
+  for (const slug of faqArticleSlugs())
+    entries.push({ path: `/faq/${slug}`, priority: "0.7", changefreq: "monthly" });
+  for (const slug of libraryTopicSlugs())
+    entries.push({ path: `/library/${slug}`, priority: "0.6", changefreq: "monthly" });
 
   const blogInventory = await blogPosts();
   const posts = blogInventory.posts;
