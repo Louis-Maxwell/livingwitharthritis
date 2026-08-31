@@ -48,7 +48,8 @@
     "test:e2e:debug": "playwright test --debug",
     "smoke:prepublish": "node scripts/prepublish-smoke.mjs",
     "diagnose:functions": "node scripts/diagnose-edge-functions.mjs",
-    "backfill-images": "node scripts/backfill-missing-images.mjs"
+    "backfill-images": "node scripts/backfill-missing-images.mjs",
+    "fix:branded-search": "node scripts/fix-branded-search.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
