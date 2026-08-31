@@ -4,6 +4,7 @@
  */
 
 import { ALL_SITE_PAGES } from './bulk-indexing';
+import blogSlugs from '../data/blog-slugs.generated.json';
 
 export interface SitemapPage {
   url: string;
@@ -11,6 +12,7 @@ export interface SitemapPage {
   changeFrequency?: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
   priority?: number; // 0.0 to 1.0
   category: string;
+  audioUrl?: string; // Optional audio file URL for the page
 }
 
 /**
@@ -355,28 +357,56 @@ export const ENHANCED_SITE_PAGES: SitemapPage[] = [
 ];
 
 /**
- * Generate XML sitemap
+ * Generate blog post sitemap entries with audio URLs
+ * Each blog post can have an optional audio file for the listening experience
+ */
+export const generateBlogPostEntries = (): SitemapPage[] => {
+  return blogSlugs.map((slug: string) => ({
+    url: `https://livingwitharthritis.org.uk/blog/${slug}`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+    category: 'blog',
+    audioUrl: `https://livingwitharthritis.org.uk/audio/blog/${slug}.mp3`, // Audio file URL for the blog post
+  }));
+};
+
+/**
+ * Generate XML sitemap with audio support
+ * Includes both static pages and blog posts with audio files
  */
 export const generateSitemapXML = (): string => {
   const today = new Date().toISOString().split('T')[0];
 
-  const urlEntries = ENHANCED_SITE_PAGES.map(page => {
+  // Combine static pages and blog post entries
+  const allPages = [...ENHANCED_SITE_PAGES, ...generateBlogPostEntries()];
+
+  const urlEntries = allPages.map(page => {
     const changeFreq = page.changeFrequency || 'monthly';
     const priority = page.priority || 0.5;
     const lastMod = page.lastModified || today;
+
+    let audioEntry = '';
+    if (page.audioUrl) {
+      const fileName = page.audioUrl.split('/').pop() || 'audio';
+      audioEntry = `
+    <media:content url="${escapeXml(page.audioUrl)}" type="audio/mpeg">
+      <media:title type="plain">${escapeXml(fileName)}</media:title>
+    </media:content>`;
+    }
 
     return `  <url>
     <loc>${page.url}</loc>
     <lastmod>${lastMod}</lastmod>
     <changefreq>${changeFreq}</changefreq>
-    <priority>${priority.toFixed(2)}</priority>
+    <priority>${priority.toFixed(2)}</priority>${audioEntry}
   </url>`;
   });
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0">
+        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0"
+        xmlns:media="http://search.google.com/schemas/sitemap-media/1.0">
 ${urlEntries.join('\n')}
 </urlset>`;
 };
@@ -534,6 +564,18 @@ export const exportSitemap = (): void => {
 
   console.log('[Sitemap] Exported sitemap.xml');
 };
+
+/**
+ * Escape special XML characters
+ */
+function escapeXml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
 
 /**
  * Initialize sitemap system
