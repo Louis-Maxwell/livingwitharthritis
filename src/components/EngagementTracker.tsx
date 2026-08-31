@@ -37,13 +37,11 @@ const EngagementTracker = () => {
     engaged240Fired: false,
     clickedFired: false,
     scrollMarks: new Set<number>(),
-    initialPageView: true,
   });
 
 
 
   useEffect(() => {
-    const isInitial = stateRef.current.initialPageView;
     // Reset on every SPA navigation
     stateRef.current = {
       activeMs: 0,
@@ -55,7 +53,6 @@ const EngagementTracker = () => {
       engaged240Fired: false,
       clickedFired: false,
       scrollMarks: new Set<number>(),
-      initialPageView: false,
     };
 
 
