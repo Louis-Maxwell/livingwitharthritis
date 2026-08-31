@@ -212,6 +212,33 @@ export type Database = {
         }
         Relationships: []
       }
+      article_audio: {
+        Row: {
+          audio_path: string
+          content_hash: string
+          created_at: string
+          duration_seconds: number | null
+          id: string
+          slug: string
+        }
+        Insert: {
+          audio_path: string
+          content_hash: string
+          created_at?: string
+          duration_seconds?: number | null
+          id?: string
+          slug: string
+        }
+        Update: {
+          audio_path?: string
+          content_hash?: string
+          created_at?: string
+          duration_seconds?: number | null
+          id?: string
+          slug?: string
+        }
+        Relationships: []
+      }
       backlink_submissions: {
         Row: {
           category: string
