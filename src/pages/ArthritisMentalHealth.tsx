@@ -6,7 +6,7 @@ import { pillarScaffolds, tier2OutlinesByPillar } from '@/data/tier2Outlines';
 import FaqAccordion from '@/components/faq/FaqAccordion';
 
 /**
- * Pillar page â€” "Arthritis & Mental Health" complete guide. Scaffold (sections,
+ * Pillar page — "Arthritis & Mental Health" complete guide. Scaffold (sections,
  * intro copy, internal-link rail, FAQ schema) ready for Maxwell to expand to
  * ~1,200 words of full clinical content. Article + Breadcrumb + FAQPage JSON-LD
  * injected via useEffect (per project memory).
@@ -24,7 +24,7 @@ export default function ArthritisMentalHealth() {
     {
       question: 'Is it normal to feel depressed with arthritis?',
       answer:
-        'Low mood is common, but persistent depression is treatable â€” not something you have to live with. If you have had low mood, loss of pleasure or hopelessness most days for two weeks or more, speak to your GP or self-refer to UK healthcare Talking Therapies.',
+        'Low mood is common, but persistent depression is treatable — not something you have to live with. If you have had low mood, loss of pleasure or hopelessness most days for two weeks or more, speak to your GP or self-refer to UK healthcare Talking Therapies.',
     },
     {
       question: 'Can mindfulness really help joint pain?',
@@ -59,7 +59,7 @@ export default function ArthritisMentalHealth() {
       { name: 'Home', path: '/' },
       { name: 'Arthritis & Mental Health', path: pillar.route },
     ]);
-    // FAQPage intentionally not emitted here â€” <FaqAccordion> below covers it.
+    // FAQPage intentionally not emitted here — <FaqAccordion> below covers it.
     const c1 = injectJsonLd('mental-health-article', article);
     const c2 = injectJsonLd('mental-health-breadcrumb', breadcrumb);
     return () => { c1(); c2(); };
@@ -83,7 +83,7 @@ export default function ArthritisMentalHealth() {
         Living with arthritis is not just a physical experience. Persistent pain,
         fatigue and uncertainty take a real toll on mood, sleep and identity. This
         evidence-based guide covers what to look out for, what helps, and where to
-        get support â€” for you and the people around you.
+        get support — for you and the people around you.
       </p>
 
 

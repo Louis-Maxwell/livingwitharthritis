@@ -15,6 +15,7 @@ const staticPages: { loc: string; priority: string; changefreq: string; lastmod?
   { loc: "/", priority: "1.0", changefreq: "weekly", hreflang: true },
   { loc: "/about", priority: "0.7", changefreq: "monthly" },
   { loc: "/chat", priority: "0.8", changefreq: "monthly" },
+  { loc: "/donate", priority: "0.9", changefreq: "monthly" },
   { loc: "/exercises", priority: "0.9", changefreq: "weekly", hreflang: true },
   { loc: "/diet", priority: "0.9", changefreq: "weekly", hreflang: true },
   { loc: "/self-help", priority: "0.8", changefreq: "monthly" },
@@ -33,29 +34,38 @@ const staticPages: { loc: string; priority: string; changefreq: string; lastmod?
   { loc: "/privacy", priority: "0.4", changefreq: "yearly" },
   { loc: "/cookies", priority: "0.4", changefreq: "yearly" },
   { loc: "/accessibility", priority: "0.5", changefreq: "monthly" },
-  { loc: "/sitemap", priority: "0.3", changefreq: "monthly" },
 ];
 
-/* ── Condition pages ── */
+/* ── Condition hub pages (unique editorial pages, not city matrices) ── */
 const conditionPages = [
   "/conditions/osteoarthritis",
   "/conditions/rheumatoid-arthritis",
   "/conditions/psoriatic-arthritis",
   "/conditions/gout",
   "/conditions/ankylosing-spondylitis",
+  "/conditions/juvenile-arthritis",
   "/conditions/fibromyalgia",
+  "/conditions/lupus",
+  "/conditions/knee-arthritis",
+  "/conditions/hand-arthritis",
+  "/conditions/hip-arthritis",
+  "/conditions/shoulder-arthritis",
+  "/conditions/elbow-arthritis",
+  "/conditions/polymyalgia-rheumatica",
+  "/conditions/reactive-arthritis",
+  "/conditions/calcific-periarthritis",
+  "/conditions/arthritis",
 ];
 
-/* ── UK City pages ── */
-const ukCitySlugs = [
-  "london", "birmingham", "manchester", "leeds", "glasgow", "liverpool", "edinburgh",
-  "bristol", "sheffield", "newcastle", "cardiff", "nottingham", "leicester", "coventry",
-  "belfast", "brighton", "plymouth", "stoke-on-trent", "wolverhampton", "southampton",
-  "derby", "swansea", "aberdeen", "oxford", "cambridge", "exeter", "york", "norwich",
-  "bath", "hull", "portsmouth", "sunderland", "dundee", "middlesbrough", "reading",
-  "peterborough", "blackpool", "ipswich", "preston", "luton", "warrington", "slough",
-  "bournemouth", "cheltenham", "doncaster", "wigan", "wakefield", "gloucester", "lincoln", "worcester",
+// Written condition × subpage copy only. Do not emit city×condition,
+// /uk/{city}/, or /es|/de|/fr|/pt stubs from this function.
+const conditionSubpageConditions = [
+  "osteoarthritis", "rheumatoid-arthritis", "psoriatic-arthritis", "gout",
+  "ankylosing-spondylitis", "juvenile-arthritis", "fibromyalgia", "lupus",
+  "knee-arthritis", "hand-arthritis", "shoulder-arthritis",
+  "polymyalgia-rheumatica", "reactive-arthritis",
 ];
+const conditionSubpages = ["symptoms", "treatment", "exercises", "diet"];
 
 /* ── Exercise × Joint matrix pages ── */
 const exerciseTypes = ["swimming", "yoga", "cycling", "walking", "tai-chi", "pilates", "stretching", "strength-training"];
@@ -134,6 +144,11 @@ Deno.serve(async (req) => {
     for (const c of conditionPages) {
       entries.push(urlEntry(c, TODAY, "monthly", "0.9", true));
     }
+    for (const c of conditionSubpageConditions) {
+      for (const s of conditionSubpages) {
+        entries.push(urlEntry(`/conditions/${c}/${s}`, TODAY, "monthly", "0.8"));
+      }
+    }
 
     // Blog articles
     for (const [slug, lastmod] of blogMap) {
@@ -145,15 +160,9 @@ Deno.serve(async (req) => {
       entries.push(urlEntry(`/daily-tips/${slug}`, TODAY, "monthly", "0.7"));
     }
 
-    // UK City pages
+    // City support hub only — do not emit /arthritis-support/{city} doorways
+    // or city×condition matrix URLs (thin templates that dilute crawl budget).
     entries.push(urlEntry("/arthritis-support", TODAY, "weekly", "0.9", true));
-    const conditionSlugs = ["osteoarthritis", "rheumatoid-arthritis", "psoriatic-arthritis"];
-    for (const slug of ukCitySlugs) {
-      entries.push(urlEntry(`/arthritis-support/${slug}`, TODAY, "weekly", "0.85", true));
-      for (const cond of conditionSlugs) {
-        entries.push(urlEntry(`/arthritis-support/${slug}/${cond}`, TODAY, "monthly", "0.75", true));
-      }
-    }
 
     // Exercise × Joint matrix pages
     for (const ex of exerciseTypes) {

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <!-- X-Frame-Options must be sent as an HTTP header (see public/_headers) — browsers ignore it in <meta> and log a console error. -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.supabase.co https://js.stripe.com https://*.evarist.ai https://*.googletagmanager.com https://*.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; media-src 'self' https://*.supabase.co; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.resend.com https://api-m.paypal.com https://api-m.sandbox.paypal.com https://ai.gateway.lovable.dev https://api.stripe.com https://*.lovable.app https://*.lovableproject.com https://*.evarist.ai https://*.google-analytics.com https://analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net; frame-src 'self' https://*.paypal.com https://js.stripe.com https://hooks.stripe.com; object-src 'none'; base-uri 'self'; form-action 'self' https://checkout.stripe.com;" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.supabase.co https://js.stripe.com https://*.evarist.ai https://www.googletagmanager.com https://*.googletagmanager.com https://*.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; media-src 'self' https://*.supabase.co; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.resend.com https://api-m.paypal.com https://api-m.sandbox.paypal.com https://ai.gateway.lovable.dev https://api.stripe.com https://*.lovable.app https://*.lovableproject.com https://*.evarist.ai https://www.googletagmanager.com https://region1.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net; frame-src 'self' https://*.paypal.com https://js.stripe.com https://hooks.stripe.com; object-src 'none'; base-uri 'self'; form-action 'self' https://checkout.stripe.com;" />
 
     <!-- Analytics are consent-gated: nothing loads until the visitor has
          explicitly accepted analytics cookies in the site cookie banner.
@@ -73,8 +73,14 @@
     <!-- Static fallbacks for non-JS crawlers (social previews, basic SEO bots).
          Per-route SeoHead (react-helmet-async) overrides title / description /
          og:title / og:description for JS-executing crawlers on subpages. -->
-    <title>Living With Arthritis UK — Free Physio, Exercises & Diet</title>
-    <meta name="description" content="Free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory nutrition and arthritis support." />
+    <title>Living With Arthritis | UK charity for joint pain support</title>
+    <meta name="description" content="Free UK arthritis support: NICE-aligned exercises, anti-inflammatory diet guidance, condition guides and a help chat — written in plain English. Registered charity 1218461." />
+    <!-- Static homepage canonical for non-JS crawlers. Per-route static HTML
+         gets its own self-referencing canonical at build time
+         (scripts/inject-canonicals.mjs), and <SeoDefaults /> replaces this tag
+         with the live per-route canonical for JS consumers, so exactly one
+         canonical is ever present. -->
+    <link rel="canonical" href="https://livingwitharthritis.org.uk/" />
     <meta name="author" content="Living With Arthritis UK" />
     <meta name="publisher" content="Living With Arthritis UK" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -92,9 +98,9 @@
     <!-- Geo targeting for UK -->
     <meta name="geo.region" content="GB" />
     <meta name="geo.country" content="GB" />
-    <meta name="geo.placename" content="London, United Kingdom" />
-    <meta name="geo.position" content="51.5074;-0.1278" />
-    <meta name="ICBM" content="51.5074, -0.1278" />
+    <meta name="geo.placename" content="Oswestry, Shropshire, United Kingdom" />
+    <meta name="geo.position" content="52.8598;-3.0538" />
+    <meta name="ICBM" content="52.8598, -3.0538" />
     <meta name="content-language" content="en-GB" />
     <meta http-equiv="content-language" content="en-GB" />
 
@@ -141,8 +147,8 @@
          JS-executing crawlers (Googlebot, Twitterbot). Subpages shared on
          non-JS social platforms will preview with the homepage copy below
          until SSR/prerender is added. -->
-    <meta property="og:title" content="Living With Arthritis UK — Free Physio, Exercises & Diet" />
-    <meta property="og:description" content="Free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory nutrition and arthritis support." />
+    <meta property="og:title" content="Living With Arthritis | UK charity for joint pain support" />
+    <meta property="og:description" content="Free UK arthritis support: NICE-aligned exercises, anti-inflammatory diet guidance, condition guides and a help chat — written in plain English. Registered charity 1218461." />
     <meta property="og:url" content="https://livingwitharthritis.org.uk/" />
     <!-- Per-route canonical is emitted via SeoHead/Helmet; the homepage fallback lives on the Index route's Helmet block. -->
     <meta property="og:type" content="website" />
@@ -156,8 +162,8 @@
 
     <!-- Twitter / X Card (per-route SeoHead overrides title/description for JS crawlers) -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Living With Arthritis UK — Free Physio, Exercises & Diet" />
-    <meta name="twitter:description" content="Free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory nutrition and arthritis support." />
+    <meta name="twitter:title" content="Living With Arthritis | UK charity for joint pain support" />
+    <meta name="twitter:description" content="Free UK arthritis support: NICE-aligned exercises, anti-inflammatory diet guidance, condition guides and a help chat — written in plain English. Registered charity 1218461." />
     <meta name="twitter:image" content="https://livingwitharthritis.org.uk/og/home.png">
     <meta name="twitter:image:alt" content="Living With Arthritis UK logo – free physiotherapy and arthritis support across the United Kingdom" />
 
@@ -165,7 +171,7 @@
 
 
     <!-- JSON-LD Structured Data: Organisation -->
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":["MedicalOrganization","NGO","Organization"],"@id":"https://livingwitharthritis.org.uk/#organization","name":"Living With Arthritis UK","legalName":"Living With Arthritis","alternateName":["Living With Arthritis","Arthritis Help UK"],"url":"https://livingwitharthritis.org.uk","logo":"https://livingwitharthritis.org.uk/favicon.png","taxID":"1218461","foundingDate":"2020-03-15","identifier":[{"@type":"PropertyValue","propertyID":"UK Charity Commission Registration","value":"1218461"}],"subjectOf":{"@type":"CreativeWork","name":"UK Charity Commission Register entry","url":"https://register-of-charities.charitycommission.gov.uk/charity-search?search=1218461"},"description":"UK arthritis charity supporting people across England, Scotland, Wales and Northern Ireland with free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory nutrition, waiting list help and a help chat.","medicalSpecialty":["Rheumatology","Physiotherapy","Nutrition"],"areaServed":[{"@type":"Country","name":"United Kingdom"},{"@type":"AdministrativeArea","name":"England"},{"@type":"AdministrativeArea","name":"Scotland"},{"@type":"AdministrativeArea","name":"Wales"},{"@type":"AdministrativeArea","name":"Northern Ireland"}],"address":{"@type":"PostalAddress","addressCountry":"GB"},"contactPoint":[{"@type":"ContactPoint","telephone":"+44-7760-512-084","email":"info@livingwitharthritis.org.uk","contactType":"customer support","availableLanguage":["English","en-GB"],"areaServed":"GB"}],"knowsAbout":["Osteoarthritis","Rheumatoid Arthritis","Psoriatic Arthritis","Joint Pain","Physiotherapy","Anti-inflammatory Diet","Arthritis Services","PIP Disability Benefits","NICE Guidelines"],"sameAs":[]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":["MedicalOrganization","NGO","Organization"],"@id":"https://livingwitharthritis.org.uk/#organization","name":"Living With Arthritis UK","legalName":"Living With Arthritis","alternateName":["Living With Arthritis UK","Living With Arthritis charity"],"url":"https://livingwitharthritis.org.uk","logo":{"@type":"ImageObject","url":"https://livingwitharthritis.org.uk/icons/icon-512.png","width":512,"height":512},"foundingDate":"2026-06-15","founder":{"@type":"Person","name":"Louis Maxwell","alternateName":"Maxwell","jobTitle":"First Contact Practitioner","identifier":{"@type":"PropertyValue","propertyID":"HCPC","value":"PH128483"},"url":"https://livingwitharthritis.org.uk/authors/maxwell"},"identifier":[{"@type":"PropertyValue","propertyID":"GB-CHC","value":"1218461","url":"https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1218461&subId=0"}],"subjectOf":{"@type":"CreativeWork","name":"UK Charity Commission Register entry","url":"https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1218461&subId=0"},"description":"Living With Arthritis is a registered charity in England and Wales no. 1218461, independent of Arthritis UK, providing free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory nutrition guidance and peer support for people living with joint pain across the United Kingdom.","medicalSpecialty":["Rheumatology","Physiotherapy","Nutrition"],"areaServed":[{"@type":"Country","name":"United Kingdom"},{"@type":"AdministrativeArea","name":"England"},{"@type":"AdministrativeArea","name":"Scotland"},{"@type":"AdministrativeArea","name":"Wales"},{"@type":"AdministrativeArea","name":"Northern Ireland"}],"address":{"@type":"PostalAddress","streetAddress":"Oswestry Primary Care Centre, Thomas Savin Road","addressLocality":"Oswestry","addressRegion":"Shropshire","postalCode":"SY11 1GA","addressCountry":"GB"},"contactPoint":[{"@type":"ContactPoint","telephone":"+44-7760-512-084","email":"info@livingwitharthritis.org.uk","contactType":"customer support","availableLanguage":["English","en-GB"],"areaServed":"GB"}],"knowsAbout":["Osteoarthritis","Rheumatoid Arthritis","Psoriatic Arthritis","Joint Pain","Physiotherapy","Anti-inflammatory Diet","Arthritis Services","PIP Disability Benefits","NICE Guidelines"],"sameAs":["https://www.instagram.com/livingwitharthritisuk/","https://www.youtube.com/@livingwitharthritisuk","https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1218461&subId=0","https://findthatcharity.uk/orgid/GB-CHC-1218461","https://ngoexplorer.org/charity/1218461"]}</script>
 
     <!-- Per-page schemas (MedicalWebPage, BreadcrumbList, FAQPage) are injected
          per-route via react-helmet-async to avoid duplicate/irrelevant rich
@@ -209,7 +215,7 @@
       -->
       <div id="seo-fallback" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;">
       <main>
-        <h1>Living With Arthritis UK — Free Support, Exercises and Diet Guidance</h1>
+        <h1>Living With Arthritis — UK charity for people with joint pain</h1>
         <p>Living With Arthritis is a UK charity helping the 10 million people in Britain living with arthritis and joint pain. We provide free, evidence-based information on exercise, diet, pain management and local support — written in plain English and reviewed by qualified clinicians. Everything on this site is free for everyone, with no paywalls and no sign-up required.</p>
         <p>Whether you have just been diagnosed with osteoarthritis, are managing a flare of rheumatoid arthritis, or supporting a family member with fibromyalgia, you will find practical guides, gentle exercise programmes, anti-inflammatory recipes and a friendly community here.</p>
 

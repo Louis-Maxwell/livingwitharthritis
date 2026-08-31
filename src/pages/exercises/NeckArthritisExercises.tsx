@@ -213,8 +213,8 @@ export default function NeckArthritisExercises() {
             <h2 className="font-serif text-2xl font-semibold mb-6">Related guides</h2>
             <div className="grid sm:grid-cols-2 gap-3">
               {[
-                { to: "/exercises/neck/for/osteoarthritis", label: "Neck exercises for osteoarthritis" },
-                { to: "/exercises/neck/for/rheumatoid-arthritis", label: "Neck exercises for rheumatoid arthritis" },
+                { to: "/conditions/osteoarthritis", label: "Osteoarthritis guide" },
+                { to: "/conditions/rheumatoid-arthritis", label: "Rheumatoid arthritis guide" },
                 { to: "/exercises/shoulder-arthritis-exercises", label: "Shoulder arthritis exercises" },
                 { to: "/exercises/tai-chi-for-arthritis", label: "Tai chi for arthritis" },
                 { to: "/conditions/osteoarthritis", label: "About osteoarthritis" },

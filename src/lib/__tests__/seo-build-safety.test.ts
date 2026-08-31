@@ -113,6 +113,77 @@ describe("SEO build safety", () => {
     expect(sitemapSource).toContain('p.startsWith("/blog/category/")');
   });
 
+  it("does not auto-prefix the current path into empty locale stubs", () => {
+    const source = readFileSync(
+      resolve(process.cwd(), "src/components/LanguageSwitcher.tsx"),
+      "utf8",
+    );
+    expect(source).toContain("TRANSLATED_BASE_PATHS");
+    expect(source).not.toContain("First-visit browser language auto-redirect");
+    expect(source).not.toContain("navigate(buildLangUrl(browser, basePath)");
+  });
+
+  it("does not emit thin city×condition, city×service or exercise×condition URLs", () => {
+    const sitemapSource = readFileSync(
+      resolve(process.cwd(), "scripts/generate-sitemap.ts"),
+      "utf8",
+    );
+
+    expect(sitemapSource).not.toContain("`/arthritis-support/${c}/${cond}`");
+    expect(sitemapSource).not.toContain("`/uk/${city}/${svc}`");
+    expect(sitemapSource).not.toContain("`/exercises/${j}/for/${c}`");
+    expect(sitemapSource).toContain("`/conditions/${c}/${s}`");
+    expect(sitemapSource).toContain("src/data/conditionSubpages.ts");
+    expect(sitemapSource).toContain("src/data/faqArticles.ts");
+    expect(sitemapSource).toContain("src/data/healthTopics.ts");
+    expect(sitemapSource).toContain("`/faq/${slug}`");
+    expect(sitemapSource).toContain("`/library/${slug}`");
+
+    const edgeSitemap = readFileSync(
+      resolve(process.cwd(), "supabase/functions/generate-sitemap/index.ts"),
+      "utf8",
+    );
+    expect(edgeSitemap).not.toContain("`/arthritis-support/${slug}/${cond}`");
+    expect(edgeSitemap).toContain("`/conditions/${c}/${s}`");
+    expect(edgeSitemap).toContain('loc: "/donate"');
+  });
+
+  it("does not list thin combinatorial URLs on the HTML sitemap or city hubs", () => {
+    const htmlSitemap = readFileSync(
+      resolve(process.cwd(), "src/pages/Sitemap.tsx"),
+      "utf8",
+    );
+    const cityHub = readFileSync(
+      resolve(process.cwd(), "src/pages/CityArthritisPage.tsx"),
+      "utf8",
+    );
+    const xml = readFileSync(
+      resolve(process.cwd(), "public/sitemap.xml"),
+      "utf8",
+    );
+
+    expect(htmlSitemap).not.toContain("`/exercises/${j}/for/${condSlug}`");
+    expect(htmlSitemap).not.toContain("`/uk/${c}/${sSlug}`");
+    expect(htmlSitemap).not.toContain("`/arthritis-support/${c.slug}/${condSlug}`");
+    expect(htmlSitemap).toContain('href: "/chat"');
+    expect(cityHub).not.toContain("`/arthritis-support/${cityData.slug}/${c.slug}`");
+    expect(xml).not.toMatch(/\/arthritis-support\/[^/<]+\/[^/<]+</);
+    expect(xml).not.toMatch(/\/uk\/[^/<]+\/[^/<]+</);
+    expect(xml).not.toMatch(/\/exercises\/[^/<]+\/for\//);
+    expect(xml).not.toMatch(/https:\/\/livingwitharthritis\.org\.uk\/(es|fr|de|pt)(\/|<)/);
+    expect(xml).toContain("/donate");
+    expect(xml).toContain("/community");
+    expect(xml).toContain("/chat");
+    expect(xml).toContain("/about");
+    expect(xml).toContain("/conditions/fibromyalgia/exercises");
+    expect(xml).toContain("/conditions/polymyalgia-rheumatica/diet");
+    expect(xml).toContain("/conditions/shoulder-arthritis");
+    expect(xml).toContain("/conditions/gout/diet");
+    expect(xml).toContain("/conditions/knee-arthritis/treatment");
+    expect(xml).toContain("/faq/can-arthritis-cause-fatigue");
+    expect(xml).toContain("/library/fibromyalgia");
+  });
+
   it("consolidates database category variants onto canonical hubs", () => {
     expect(canonicalBlogCategoryKey("Exercise Guides")).toBe("exercise");
     expect(canonicalBlogCategoryKey("Treatments")).toBe("treatment");
@@ -132,10 +203,6 @@ describe("SEO build safety", () => {
 
   it("waits for route-specific prerender content and metadata", () => {
     document.title = GENERIC_HOME_TITLE;
-    document.head.insertAdjacentHTML(
-      "beforeend",
-      '<link rel="canonical" href="https://livingwitharthritis.org.uk/blog/anti-inflammatory-diet">',
-    );
     document.body.innerHTML = "<main><h1>Anti-Inflammatory Diet</h1></main>";
 
     expect(

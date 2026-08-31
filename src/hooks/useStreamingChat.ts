@@ -2,7 +2,13 @@ import { useState, useCallback, useEffect, useRef } from "react";
 import { toast } from "sonner";
 import { getFallbackAnswer } from "@/lib/arthritisChatFallback";
 import type { ChatProfile } from "@/lib/chatProfile";
+import { supabase } from "@/integrations/supabase/client";
+import { PUBLIC_SUPABASE_DEFAULTS } from "@/integrations/supabase/publicDefaults";
 import { loadAnonChatHistory, saveAnonChatHistory, clearAnonChatHistory } from "@/lib/chatHistory";
+
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || PUBLIC_SUPABASE_DEFAULTS.url;
+const SUPABASE_PUBLISHABLE_KEY =
+  import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || PUBLIC_SUPABASE_DEFAULTS.publishableKey;
 
 export type Message = {
   role: "user" | "assistant";
@@ -17,7 +23,7 @@ export type ConversationSummary = {
   updated_at: string;
 };
 
-const CHAT_URL = `https://replaceme.supabase.co/functions/v1/chat`; // Supabase config removed - restore URL
+const CHAT_URL = `${SUPABASE_URL}/functions/v1/chat`;
 
 function makeId(): string {
   if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
@@ -27,11 +33,13 @@ function makeId(): string {
 }
 
 async function getAuthHeaders(): Promise<Record<string, string>> {
-  // Supabase auth removed - restore session handling
   const headers: Record<string, string> = {
     "Content-Type": "application/json",
-    apikey: "pk_replaceme", // Restore SUPABASE_PUBLISHABLE_KEY
+    apikey: SUPABASE_PUBLISHABLE_KEY,
   };
+  const { data } = await supabase.auth.getSession();
+  const token = data.session?.access_token;
+  if (token) headers.Authorization = `Bearer ${token}`;
   return headers;
 }
 

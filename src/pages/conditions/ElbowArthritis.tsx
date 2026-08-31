@@ -22,7 +22,7 @@ const URL = `${BASE}/conditions/elbow-arthritis`;
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MedicalWebPage",
-  "name": "Elbow Pain & Arthritis â€“ Symptoms, Causes & Exercises | Living With Arthritis",
+  "name": "Elbow Pain & Arthritis – Symptoms, Causes & Exercises | Living With Arthritis",
   "description": "UK guide to elbow pain and elbow arthritis: causes of elbow joint pain, tennis and golfer's elbow, osteoarthritis and rheumatoid involvement, the best gentle exercises, UK healthcare treatment options and when to see a GP.",
   "url": URL,
   "inLanguage": "en-GB",
@@ -53,9 +53,9 @@ const faqLd = {
   "@type": "FAQPage",
   "mainEntity": [
     { "@type": "Question", "name": "What does elbow arthritis feel like?", "acceptedAnswer": { "@type": "Answer", "text": "Most people describe a deep ache on the outside or back of the elbow that worsens when straightening the arm fully or carrying a heavy bag. Many lose the last few degrees of extension, so the arm no longer goes completely straight." } },
-    { "@type": "Question", "name": "Is elbow pain always arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "No. The most common causes of elbow pain in UK adults are tennis elbow (lateral epicondylitis) and golfer's elbow (medial epicondylitis) â€” tendon overload conditions rather than joint arthritis. True elbow arthritis is less common and usually follows an old fracture or develops in people with rheumatoid arthritis." } },
-    { "@type": "Question", "name": "What is the best exercise for elbow arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Gentle range-of-motion work â€” bending and straightening the elbow within a pain-free range, plus forearm rotations (palm up, palm down) â€” is the most evidence-supported routine. Light isometric grip work protects forearm strength without loading the joint." } },
-    { "@type": "Question", "name": "Should I see a GP about elbow pain?", "acceptedAnswer": { "@type": "Answer", "text": "See your GP if elbow pain lasts more than six weeks, wakes you at night, locks or catches, or is accompanied by tingling into the ring and little fingers â€” that pattern can indicate ulnar nerve irritation that benefits from early treatment." } },
+    { "@type": "Question", "name": "Is elbow pain always arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "No. The most common causes of elbow pain in UK adults are tennis elbow (lateral epicondylitis) and golfer's elbow (medial epicondylitis) — tendon overload conditions rather than joint arthritis. True elbow arthritis is less common and usually follows an old fracture or develops in people with rheumatoid arthritis." } },
+    { "@type": "Question", "name": "What is the best exercise for elbow arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Gentle range-of-motion work — bending and straightening the elbow within a pain-free range, plus forearm rotations (palm up, palm down) — is the most evidence-supported routine. Light isometric grip work protects forearm strength without loading the joint." } },
+    { "@type": "Question", "name": "Should I see a GP about elbow pain?", "acceptedAnswer": { "@type": "Answer", "text": "See your GP if elbow pain lasts more than six weeks, wakes you at night, locks or catches, or is accompanied by tingling into the ring and little fingers — that pattern can indicate ulnar nerve irritation that benefits from early treatment." } },
     { "@type": "Question", "name": "Can elbow arthritis be cured?", "acceptedAnswer": { "@type": "Answer", "text": "Arthritis itself isn't cured, but most people manage symptoms well with exercise, activity modification, topical NSAIDs and occasional corticosteroid injections. Elbow replacement is reserved for severe pain or loss of function and gives good relief in around 85% of cases." } }
   ]
 };
@@ -86,7 +86,7 @@ const ElbowArthritis = () => (
       <title>Elbow Arthritis in the UK: Causes & Exercises | LWA UK</title>
       <meta name="description" content="UK guide to elbow pain and arthritis: causes of elbow joint pain, tennis and golfer's elbow, osteoarthritis, the best gentle exercises and when to see a GP." />
       <meta name="keywords" content="elbow pain, elbow joint pain, elbow arthritis, elbow osteoarthritis, tennis elbow, golfer's elbow, elbow pain causes, elbow exercises, elbow pain uk, painful elbow" />
-      <meta property="og:title" content="Elbow Pain & Arthritis â€“ Causes, Exercises & UK Treatment" />
+      <meta property="og:title" content="Elbow Pain & Arthritis – Causes, Exercises & UK Treatment" />
       <meta property="og:description" content="Evidence-based UK guide to elbow pain and arthritis: gentle exercises, injections, physiotherapy and when to see your GP." />
       <meta property="og:url" content={URL} />
       <meta property="og:type" content="article" />
@@ -95,9 +95,9 @@ const ElbowArthritis = () => (
       <meta property="og:image" content={`${BASE}/images/og-osteoarthritis.webp`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content="Elbow pain and arthritis â€“ causes, exercises and treatment guide" />
+      <meta property="og:image:alt" content="Elbow pain and arthritis – causes, exercises and treatment guide" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Elbow Pain & Arthritis â€“ Causes & Exercises" />
+      <meta name="twitter:title" content="Elbow Pain & Arthritis – Causes & Exercises" />
       <meta name="twitter:description" content="UK guide to elbow pain and arthritis: gentle exercises, injections and treatment." />
       <meta name="twitter:image" content={`${BASE}/images/og-osteoarthritis.webp`} />
       <meta name="geo.region" content="GB" />
@@ -126,7 +126,7 @@ const ElbowArthritis = () => (
             <LastReviewed date={LAST_REVIEWED_ISO} className="mb-5" />
             <AeoEnhancement route="/conditions/elbow-arthritis" />
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Elbow pain affects roughly 1 in 20 UK adults each year. Most cases are tendon overload â€” tennis or golfer's elbow â€” but true elbow arthritis is increasingly recognised, particularly after old fractures and in people with rheumatoid arthritis. This UK guide explains the main causes, the exercises that help, and when to ask your GP for a referral.
+              Elbow pain affects roughly 1 in 20 UK adults each year. Most cases are tendon overload — tennis or golfer's elbow — but true elbow arthritis is increasingly recognised, particularly after old fractures and in people with rheumatoid arthritis. This UK guide explains the main causes, the exercises that help, and when to ask your GP for a referral.
             </p>
           </motion.div>
         </div>
@@ -138,8 +138,8 @@ const ElbowArthritis = () => (
           reviewed="2026-06-13"
         >
           <p>
-            Gentle range-of-motion work â€” bending and straightening the elbow within a
-            pain-free range, plus forearm rotations â€” is the most evidence-supported daily
+            Gentle range-of-motion work — bending and straightening the elbow within a
+            pain-free range, plus forearm rotations — is the most evidence-supported daily
             routine. For flare-ups, <strong>topical NSAID gel</strong> or a <strong>corticosteroid
             injection</strong> settles pain. <strong>Elbow replacement</strong> is reserved for
             severe pain or loss of function and gives good relief in around 85% of cases.
@@ -166,33 +166,33 @@ const ElbowArthritis = () => (
         <Section icon={Activity} title="What causes elbow pain?">
           <p>"Elbow pain" is a symptom, not a diagnosis. The four most common UK causes are:</p>
           <ul>
-            <li><strong>Tennis elbow (lateral epicondylitis)</strong> â€” pain on the outer elbow from overload of the forearm extensor tendons. Affects manual workers, racquet-sport players and anyone doing repetitive gripping.</li>
-            <li><strong>Golfer's elbow (medial epicondylitis)</strong> â€” pain on the inner elbow from overload of the forearm flexor tendons.</li>
-            <li><strong>Elbow osteoarthritis</strong> â€” cartilage wear in the joint itself, usually after an old fracture, dislocation or years of heavy manual work.</li>
-            <li><strong>Inflammatory arthritis</strong> â€” rheumatoid, psoriatic and juvenile arthritis frequently involve the elbow, causing warm swelling and morning stiffness lasting over an hour.</li>
+            <li><strong>Tennis elbow (lateral epicondylitis)</strong> — pain on the outer elbow from overload of the forearm extensor tendons. Affects manual workers, racquet-sport players and anyone doing repetitive gripping.</li>
+            <li><strong>Golfer's elbow (medial epicondylitis)</strong> — pain on the inner elbow from overload of the forearm flexor tendons.</li>
+            <li><strong>Elbow osteoarthritis</strong> — cartilage wear in the joint itself, usually after an old fracture, dislocation or years of heavy manual work.</li>
+            <li><strong>Inflammatory arthritis</strong> — rheumatoid, psoriatic and juvenile arthritis frequently involve the elbow, causing warm swelling and morning stiffness lasting over an hour.</li>
           </ul>
-          <p>Other causes include cubital tunnel syndrome (ulnar nerve irritation), olecranon bursitis ("student's elbow"), and gout â€” see our <Link to="/conditions/gout" className="text-primary underline">gout guide</Link> for more.</p>
+          <p>Other causes include cubital tunnel syndrome (ulnar nerve irritation), olecranon bursitis ("student's elbow"), and gout — see our <Link to="/conditions/gout" className="text-primary underline">gout guide</Link> for more.</p>
         </Section>
 
         <Section icon={ThermometerSun} title="What are the symptoms of elbow arthritis?">
           <ul>
-            <li><strong>Deep elbow ache</strong> â€” worse when bending or straightening fully, often felt at the back of the joint</li>
-            <li><strong>Loss of full extension</strong> â€” the arm no longer straightens the last few degrees, an early and very specific sign</li>
-            <li><strong>Locking or catching</strong> â€” loose fragments of cartilage can cause sudden brief locks</li>
-            <li><strong>Crepitus</strong> â€” grinding when rotating the forearm (palm up, palm down)</li>
-            <li><strong>Tingling in the ring and little fingers</strong> â€” bone spurs can press on the ulnar nerve as it runs behind the elbow</li>
-            <li><strong>Morning stiffness</strong> â€” brief in osteoarthritis (under 30 minutes), prolonged in rheumatoid arthritis (over an hour)</li>
+            <li><strong>Deep elbow ache</strong> — worse when bending or straightening fully, often felt at the back of the joint</li>
+            <li><strong>Loss of full extension</strong> — the arm no longer straightens the last few degrees, an early and very specific sign</li>
+            <li><strong>Locking or catching</strong> — loose fragments of cartilage can cause sudden brief locks</li>
+            <li><strong>Crepitus</strong> — grinding when rotating the forearm (palm up, palm down)</li>
+            <li><strong>Tingling in the ring and little fingers</strong> — bone spurs can press on the ulnar nerve as it runs behind the elbow</li>
+            <li><strong>Morning stiffness</strong> — brief in osteoarthritis (under 30 minutes), prolonged in rheumatoid arthritis (over an hour)</li>
           </ul>
         </Section>
 
         <Section icon={Heart} title="What causes elbow arthritis?">
           <ul>
-            <li><strong>Previous fracture or dislocation</strong> â€” the single biggest risk factor for elbow OA; arthritis can develop 10â€“20 years later</li>
-            <li><strong>Heavy manual or overhead work</strong> â€” builders, decorators, mechanics and labourers</li>
-            <li><strong>Throwing and racquet sports</strong> â€” repetitive valgus stress damages the inner elbow</li>
-            <li><strong>Rheumatoid arthritis</strong> â€” the elbow is one of the most frequently affected joints in RA</li>
-            <li><strong>Gout and pseudogout</strong> â€” crystal deposits can trigger sudden, intensely painful elbow flares</li>
-            <li><strong>Age</strong> â€” symptoms most often appear after 40</li>
+            <li><strong>Previous fracture or dislocation</strong> — the single biggest risk factor for elbow OA; arthritis can develop 10–20 years later</li>
+            <li><strong>Heavy manual or overhead work</strong> — builders, decorators, mechanics and labourers</li>
+            <li><strong>Throwing and racquet sports</strong> — repetitive valgus stress damages the inner elbow</li>
+            <li><strong>Rheumatoid arthritis</strong> — the elbow is one of the most frequently affected joints in RA</li>
+            <li><strong>Gout and pseudogout</strong> — crystal deposits can trigger sudden, intensely painful elbow flares</li>
+            <li><strong>Age</strong> — symptoms most often appear after 40</li>
           </ul>
         </Section>
 
@@ -211,27 +211,27 @@ const ElbowArthritis = () => (
           <p>The aim is to preserve bending, straightening and forearm rotation <em>without</em> overloading the joint. Stop short of sharp pain, and use heat for 10 minutes before starting.</p>
           <h3>Range of motion</h3>
           <ul>
-            <li><strong>Active elbow bends</strong> â€” sit with the arm supported on a table, slowly bend and straighten the elbow. 10 reps, 2â€“3Ã— a day.</li>
-            <li><strong>Forearm rotations</strong> â€” elbow tucked at the side, turn the palm up then down. 10 each way.</li>
-            <li><strong>Wall-supported triceps stretch</strong> â€” gently encourage the last few degrees of extension by placing the forearm flat on a wall.</li>
+            <li><strong>Active elbow bends</strong> — sit with the arm supported on a table, slowly bend and straighten the elbow. 10 reps, 2–3Ã— a day.</li>
+            <li><strong>Forearm rotations</strong> — elbow tucked at the side, turn the palm up then down. 10 each way.</li>
+            <li><strong>Wall-supported triceps stretch</strong> — gently encourage the last few degrees of extension by placing the forearm flat on a wall.</li>
           </ul>
           <h3>Strength</h3>
           <ul>
-            <li><strong>Isometric grip</strong> â€” squeeze a soft ball for 5 seconds, release. 10 reps. Builds forearm strength without joint loading.</li>
-            <li><strong>Light wrist curls</strong> â€” 0.5â€“1 kg, palm up and palm down. 2 sets of 10.</li>
-            <li><strong>Banded biceps curls</strong> â€” light resistance band, full range, slow tempo. 2 sets of 12.</li>
+            <li><strong>Isometric grip</strong> — squeeze a soft ball for 5 seconds, release. 10 reps. Builds forearm strength without joint loading.</li>
+            <li><strong>Light wrist curls</strong> — 0.5–1 kg, palm up and palm down. 2 sets of 10.</li>
+            <li><strong>Banded biceps curls</strong> — light resistance band, full range, slow tempo. 2 sets of 12.</li>
           </ul>
-          <p><strong>Avoid:</strong> heavy bench press, dips, kettlebell snatches, locked-out triceps extensions and any throwing â€” all spike compressive load through the elbow.</p>
+          <p><strong>Avoid:</strong> heavy bench press, dips, kettlebell snatches, locked-out triceps extensions and any throwing — all spike compressive load through the elbow.</p>
           <p>For joint-by-joint routines that pair with elbow care, browse our <Link to="/exercises" className="text-primary underline">exercise hub</Link>.</p>
         </Section>
 
         <Section icon={Apple} title="What diet and lifestyle changes help elbow arthritis?">
-          <p>The same anti-inflammatory eating pattern that helps every form of arthritis applies â€” see our <Link to="/diet" className="text-primary underline">Diet Hub</Link>. For elbows specifically:</p>
+          <p>The same anti-inflammatory eating pattern that helps every form of arthritis applies — see our <Link to="/diet" className="text-primary underline">Diet Hub</Link>. For elbows specifically:</p>
           <ul>
             <li>Switch a heavy shoulder bag for a backpack to take load off the arm</li>
-            <li>Use a thicker pen, kitchen-knife handle or gardening-tool grip â€” wider grips reduce flexor-tendon strain</li>
+            <li>Use a thicker pen, kitchen-knife handle or gardening-tool grip — wider grips reduce flexor-tendon strain</li>
             <li>If you wake with a bent, painful elbow, a soft night splint can ease symptoms by morning</li>
-            <li>Lose excess weight â€” every kilogram off the body lowers systemic inflammation</li>
+            <li>Lose excess weight — every kilogram off the body lowers systemic inflammation</li>
           </ul>
         </Section>
 
@@ -249,16 +249,16 @@ const ElbowArthritis = () => (
           <h3>Self-management</h3>
           <ul>
             <li>Daily mobility and grip routine (above)</li>
-            <li>Activity modification â€” share heavy loads between both hands</li>
+            <li>Activity modification — share heavy loads between both hands</li>
             <li>Heat before activity, ice for 10 minutes after a flare</li>
             <li>Topical NSAID gel applied around the joint 3Ã— daily</li>
           </ul>
           <h3>Medical treatments</h3>
           <ul>
-            <li><strong>Paracetamol &amp; oral NSAIDs</strong> â€” short courses for flares, taken with food</li>
-            <li><strong>Physiotherapy</strong> â€” supervised graded loading; the most cost-effective single intervention</li>
-            <li><strong>Corticosteroid injection</strong> â€” into the joint or around the epicondyle depending on diagnosis; usually 6â€“12 weeks of relief</li>
-            <li><strong>Ultrasound-guided injection</strong> â€” used when surface landmarks are unclear or for recurrent tennis elbow</li>
+            <li><strong>Paracetamol &amp; oral NSAIDs</strong> — short courses for flares, taken with food</li>
+            <li><strong>Physiotherapy</strong> — supervised graded loading; the most cost-effective single intervention</li>
+            <li><strong>Corticosteroid injection</strong> — into the joint or around the epicondyle depending on diagnosis; usually 6–12 weeks of relief</li>
+            <li><strong>Ultrasound-guided injection</strong> — used when surface landmarks are unclear or for recurrent tennis elbow</li>
           </ul>
           <h3>Surgery</h3>
           <p><strong>Arthroscopic debridement</strong> (keyhole clean-up of loose bodies and bone spurs) can buy years of relief in earlier disease. <strong>Total elbow replacement</strong> is reserved for severe rheumatoid involvement or end-stage OA, with around 85% of patients reporting good pain relief at 5 years. Replacements have stricter lifting limits than knees or hips, so they're used selectively.</p>
@@ -268,7 +268,7 @@ const ElbowArthritis = () => (
           <p>Book an appointment if any of the following apply:</p>
           <ul>
             <li>Elbow pain has lasted more than six weeks</li>
-            <li>The joint is warm, red or swollen â€” possible inflammatory or septic cause</li>
+            <li>The joint is warm, red or swollen — possible inflammatory or septic cause</li>
             <li>You can't fully straighten the elbow</li>
             <li>Tingling or numbness in the ring and little fingers</li>
             <li>Night pain wakes you regularly</li>
@@ -291,7 +291,7 @@ const ElbowArthritis = () => (
 
         <ContextualLinks
           heading="Pair elbow care with the right resources"
-          intro="Use these guides alongside your treatment â€” exercises, diet and related conditions."
+          intro="Use these guides alongside your treatment — exercises, diet and related conditions."
           groups={[
             {
               title: "Exercises &amp; movement",

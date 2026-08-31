@@ -1,7 +1,8 @@
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
+import SeoRedirectGate from "./components/SeoRedirectGate";
 import { lazy, Suspense, useEffect } from "react";
 
 // Defer Sonner toaster — it triggers layout reads on mount that cause forced reflow
@@ -13,7 +14,6 @@ import { useScrollDepth } from "@/hooks/useScrollDepth";
 import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "next-themes";
 import { DeferredMount } from "@/components/DeferredMount";
-import CanonicalEnforcer from "@/components/CanonicalEnforcer";
 import SeoDefaults from "@/components/SeoDefaults";
 import RootOrganizationSchema from "@/components/seo/RootOrganizationSchema";
 import SkipToContent from "@/components/SkipToContent";
@@ -164,6 +164,7 @@ const BuddyMatch = lazy(() => import("./pages/BuddyMatch"));
 const DebugSchema = lazy(() => import("./pages/DebugSchema"));
 const EditorialStandards = lazy(() => import("./pages/EditorialStandards"));
 const AuthorProfile = lazy(() => import("./pages/AuthorProfile"));
+const AuthorsIndex = lazy(() => import("./pages/AuthorsIndex"));
 const SupplementsHub = lazy(() => import("./pages/supplements/SupplementsHub"));
 const Glucosamine = lazy(() => import("./pages/supplements/Glucosamine"));
 const Msm = lazy(() => import("./pages/supplements/Msm"));
@@ -283,6 +284,7 @@ function AnimatedRoutes() {
 
 
   return (
+    <SeoRedirectGate>
     <PageTransition key={location.pathname}>
       <Routes location={location}>
         <Route path="/" element={<Index />} />
@@ -328,6 +330,8 @@ function AnimatedRoutes() {
         <Route path="/ai" element={<AiHub />} />
         <Route path="/accessibility-for-ai" element={<AccessibilityForAi />} />
         <Route path="/editorial-standards" element={<EditorialStandards />} />
+        <Route path="/authors" element={<AuthorsIndex variant="author" />} />
+        <Route path="/reviewers" element={<AuthorsIndex variant="reviewer" />} />
         <Route path="/authors/:slug" element={<AuthorProfile variant="author" />} />
         <Route path="/reviewers/:slug" element={<AuthorProfile variant="reviewer" />} />
         <Route path="/conditions/osteoarthritis" element={<Osteoarthritis />} />
@@ -482,9 +486,23 @@ function AnimatedRoutes() {
           <Route key={path} path={path} element={<ComparisonPage />} />
         ))}
 
+        {/* Legacy/alias paths → canonical routes. HTTP 301s also live in
+            public/_redirects; these client Navigates cover hosts that ignore it. */}
+        {([
+          ["/about-us", "/about"],
+          ["/trust-credibility", "/trust"],
+          ["/privacy-policy", "/privacy"],
+          ["/cookies-policy", "/cookies"],
+          ["/terms-conditions", "/terms"],
+          ["/exercise-hub", "/exercises"],
+        ] as const).map(([from, to]) => (
+          <Route key={from} path={from} element={<Navigate to={to} replace />} />
+        ))}
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </PageTransition>
+    </SeoRedirectGate>
   );
 }
 
@@ -527,7 +545,6 @@ function AppWithSync() {
     <>
       <SkipToContent />
       <RouteFocus />
-      <CanonicalEnforcer />
       <RootOrganizationSchema />
       <AnimatedRoutes />
     </>

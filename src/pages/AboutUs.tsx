@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { lazy, Suspense, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
@@ -14,6 +15,8 @@ import InternalLinks from "@/components/InternalLinks";
 import CharityRegBadge from "@/components/CharityRegBadge";
 import { buildCharitySchema, injectJsonLd } from "@/lib/jsonLd";
 import { CHARITY } from "@/config/charity";
+
+const FounderStoryBand = lazy(() => import("@/components/landing/FounderStoryBand"));
 
 
 const sectionIcons: Record<string, React.ElementType> = {
@@ -172,8 +175,21 @@ const AboutUs = () => {
           </div>
         </PageHero>
 
+        {/* Disambiguation line — who we are and who we are not */}
+        <section className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-5xl -mt-4 mb-4">
+          <p className="text-center text-base lg:text-lg font-medium text-foreground leading-relaxed">
+            Living With Arthritis is a registered charity in England and Wales
+            (no.&nbsp;1218461), based in Oswestry. We are independent of Arthritis UK.
+          </p>
+        </section>
+
+        {/* Our Story — founder narrative moved from landing page */}
+        <Suspense fallback={<div className="py-16" />}>
+          <FounderStoryBand />
+        </Suspense>
+
         {/* Team Section */}
-        <section className="py-14 lg:py-20">
+        <section id="team" tabIndex={-1} className="py-14 lg:py-20 scroll-mt-24">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
               <Badge className="bg-background text-primary border-0 text-xs font-bold px-3 py-1.5 mb-4">

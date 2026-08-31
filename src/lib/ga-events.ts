@@ -85,6 +85,6 @@ export function trackPillarClick(pillar: string, path: string) {
   trackEvent("pillar_click", { pillar_label: pillar, destination_path: path });
 }
 
-export function trackFeaturedGuide(title: string, path: string) {
-  trackEvent("featured_guide_click", { guide_title: title, destination_path: path });
+export function trackChatStart(source: string = "chat_page") {
+  trackEvent("chat_start", { source });
 }

@@ -34,7 +34,7 @@ const withVisitorSnippet = (rest: string) =>
 const HeroStatsStrip = lazy(() => import("@/components/landing/HeroStatsStrip"));
 const OAProblemBand = lazy(() => import("@/components/landing/OAProblemBand"));
 const JointExerciseSection = lazy(() => import("@/components/JointExerciseSection"));
-const FounderStoryBand = lazy(() => import("@/components/landing/FounderStoryBand"));
+
 const FacesStrip = lazy(() => import("@/components/landing/FacesStrip"));
 const OAPlanPillarsSection = lazy(() => import("@/components/landing/OAPlanPillarsSection"));
 const MissionStatementBand = lazy(() => import("@/components/landing/MissionStatementBand"));
@@ -64,6 +64,7 @@ const StartHereBand = lazy(() => import("@/components/landing/StartHereBand"));
 const ImpactFactBand = lazy(() => import("@/components/landing/ImpactFactBand"));
 const ImpactProgressBand = lazy(() => import("@/components/landing/ImpactProgressBand"));
 const FinalDonateBand = lazy(() => import("@/components/landing/FinalDonateBand"));
+const GazaAppealBand = lazy(() => import("@/components/appeal/GazaAppealBand"));
 
 // MAP-inspired landing sections
 const HowYouCanHelp = lazy(() => import("@/components/landing/HowYouCanHelp"));
@@ -138,29 +139,33 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Living With Arthritis UK | Evidence-Based Health Guides</title>
+        <title>Living With Arthritis | UK charity for joint pain support</title>
         <meta
           name="description"
           content={withVisitorSnippet(
-            "Free UK arthritis support: clinically reviewed diet, movement and pain-relief guidance in plain English.",
+            "Free UK arthritis support: NICE-aligned exercises, anti-inflammatory diet guidance, condition guides and a help chat — written in plain English. Registered charity 1218461.",
           )}
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={SITE_URL + "/"} />
         <meta
           property="og:title"
-          content="Living With Arthritis UK | Evidence-Based Health Guides"
+          content="Living With Arthritis | UK charity for joint pain support"
+        />
+        <meta
+          name="twitter:title"
+          content="Living With Arthritis | UK charity for joint pain support"
         />
         <meta
           property="og:description"
           content={withVisitorSnippet(
-            "Clinically reviewed arthritis guidance in plain English — free for everyone in the UK.",
+            "Clinically reviewed arthritis guidance in plain English — free for everyone in the UK. Registered charity 1218461.",
           )}
         />
         <meta
           name="twitter:description"
           content={withVisitorSnippet(
-            "Free, clinically reviewed arthritis guidance for the UK.",
+            "Free UK arthritis exercises, diet guidance and support. No sign-up required. Registered charity 1218461.",
           )}
         />
       </Helmet>
@@ -173,10 +178,13 @@ function HomePage() {
           {/* 01 — Editorial hero */}
           <OAHero />
 
-          {/* 01b — Founder story: why we exist */}
+          {/* 01a — Urgent appeal: Palestine & Gaza rehabilitation */}
           <Suspense fallback={<SectionFallback />}>
-            <FounderStoryBand />
+            <GazaAppealBand />
           </Suspense>
+
+
+
 
           {/* 02 — Beginner journey chooser */}
           <Suspense fallback={<SectionFallback />}>

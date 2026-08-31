@@ -5,7 +5,9 @@ import { Helmet } from "react-helmet-async";
 import { Heart, ArrowRight, Globe, HandHeart, Users, Building2, Gift, Landmark, Receipt, Briefcase, RefreshCw, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { gazaAppealHero } from "@/data/images";
+import { trackDonationClick } from "@/lib/ga-events";
 import StripeDonationModal from "@/components/StripeDonationModal";
 import CharityRegBadge from "@/components/CharityRegBadge";
 import { buildCharitySchema, injectJsonLd } from "@/lib/jsonLd";
@@ -50,12 +52,13 @@ const WAYS_TO_GIVE = [
   },
   {
     icon: Globe,
-    title: "Zakat Appeal",
-    desc: "Give your Zakat to joint health research and support",
+    title: "Zakat & Sadaqah",
+    desc: "Give your Zakat or Sadaqah to our Palestine & Gaza rehabilitation appeal",
     action: "Give Zakat",
     href: "/zakat-appeal",
     color: "text-primary bg-primary/10",
   },
+
   {
     icon: HandHeart,
     title: "Fundraise for Us",
@@ -115,11 +118,11 @@ export default function Donate() {
   return (
     <>
       <Helmet>
-        <title>Donate to {CHARITY.shortName}</title>
-        <meta name="description" content={`Support ${CHARITY.shortName}: Donate to fund free arthritis education, research & community support. Help others manage arthritis better.`} />
+        <title>Donate to Living With Arthritis UK | Gift Aid</title>
+        <meta name="description" content={`Give to ${CHARITY.shortName}: your donation funds free arthritis exercises, diet guides and UK support. Gift Aid adds 25p for every £1 at no extra cost.`} />
         <meta name="keywords" content="donate to arthritis charity, arthritis charity, arthritis foundation, arthritis research, arthritis helpline, fundraising ideas for health charity, arthritis events, arthritis advocacy, financial help for arthritis patients, joint pain charity, arthritis support, arthritis awareness, volunteer for charity" />
-      <meta property="og:title" content="Donate to Arthritis Support UK: Fund Free Physio, Diet & Help" />
-      <meta property="og:description" content={`Support ${CHARITY.shortName}: Donate to fund free arthritis education, research & community support. Help others manage arthritis better.`} />
+      <meta property="og:title" content="Donate to Living With Arthritis UK | Gift Aid" />
+      <meta property="og:description" content={`Give to ${CHARITY.shortName}: your donation funds free arthritis exercises, diet guides and UK support. Gift Aid adds 25p for every £1 at no extra cost.`} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={`${CHARITY.siteUrl}/donate`} />
       <meta property="og:site_name" content={CHARITY.shortName} />
@@ -129,8 +132,8 @@ export default function Donate() {
       <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Donate | Living With Arthritis UK" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Donate to Arthritis Support UK: Fund Free Physio, Diet & Help" />
-      <meta name="twitter:description" content={`Support ${CHARITY.shortName}: Donate to fund free arthritis education, research & community support. Help others manage arthritis better.`} />
+      <meta name="twitter:title" content="Donate to Living With Arthritis UK | Gift Aid" />
+      <meta name="twitter:description" content={`Give to ${CHARITY.shortName}: your donation funds free arthritis exercises, diet guides and UK support. Gift Aid adds 25p for every £1 at no extra cost.`} />
       <meta name="twitter:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
     </Helmet>
       <Header />
@@ -143,11 +146,10 @@ export default function Donate() {
               <span className="text-xs font-bold text-primary tracking-wider uppercase">Every Donation Matters</span>
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-tight mb-5">
-              Help us keep arthritis support{" "}
-              <span className="text-gradient italic">free for everyone</span>
+              Donate to keep free arthritis support in the UK
             </h1>
             <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-8">
-              Your generosity funds free virtual physiotherapy, evidence-based diet plans, online health support and community programmes for over 10,000 people across the UK living with arthritis.
+              Your generosity funds free virtual physiotherapy, evidence-based diet plans, online health support and community programmes for thousands of people across the UK living with arthritis.
             </p>
             <Button
               size="lg"
@@ -160,6 +162,44 @@ export default function Donate() {
             </Button>
           </div>
         </section>
+
+        {/* Urgent appeal: Palestine & Gaza */}
+        <section className="container mx-auto px-6 md:px-10 pt-12 max-w-5xl">
+          <div className="relative overflow-hidden rounded-2xl bg-foreground">
+            <img
+              src={gazaAppealHero}
+              alt="Hands held together in solidarity, symbolising support for families in Palestine"
+              width={1600}
+              height={700}
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 w-full h-full object-cover opacity-40"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30" />
+            <div className="relative p-8 md:p-12 max-w-2xl">
+              <p className="inline-block bg-primary text-primary-foreground px-3 py-1 text-[11px] font-bold uppercase tracking-[0.14em]">
+                Urgent appeal
+              </p>
+              <h2 className="mt-4 text-2xl md:text-3xl font-extrabold text-white leading-tight">
+                Palestine & Gaza: fund rehabilitation for war survivors
+              </h2>
+              <p className="mt-3 text-sm md:text-base text-white/90 leading-relaxed">
+                Give your Zakat or Sadaqah to fund physiotherapy and pain care for
+                people living with crushed joints and amputations in Gaza.
+                Shariah-compliant and scholar-guided.
+              </p>
+              <Link
+                to="/zakat-appeal"
+                onClick={() => trackDonationClick({ source: "donate_page_gaza_card" })}
+                className="mt-6 inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full text-sm font-bold hover:bg-primary/90 transition-colors"
+              >
+                Give to the appeal <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+
 
         {/* Donation Widget */}
         <section id="give" className="container mx-auto px-6 md:px-10 py-16 max-w-3xl scroll-mt-24">

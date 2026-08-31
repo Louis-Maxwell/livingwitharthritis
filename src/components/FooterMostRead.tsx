@@ -1,10 +1,10 @@
+import { supabase } from "@/integrations/supabase/client";
 import { memo } from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { TrendingUp } from "lucide-react";
 
 // Supabase client removed - functionality to be restored later
-const supabase = { from: () => ({ select: () => ({ order: () => ({ limit: async () => ({ data: [] }) }) }) }) };
 
 interface PopularArticle {
   slug: string;
@@ -79,7 +79,7 @@ const FooterMostRead = memo(() => {
                 <span className="text-[11px] font-bold text-primary tabular-nums">
                   0{i + 1}
                 </span>
-                <p className="mt-1 text-sm font-semibold text-foreground leading-snug group-hover:text-primary transition-colors line-clamp-3">
+                <p className="mt-1 text-sm font-semibold text-foreground leading-snug group-hover:text-primary transition-colors">
                   {a.title}
                 </p>
               </Link>

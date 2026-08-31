@@ -24,7 +24,7 @@ const DonationImpactSection = () => {
   const Icon = currentImpact.icon;
 
   return (
-    <section className="py-24 lg:py-32">
+    <section id="donate" className="py-24 lg:py-32 scroll-mt-24">
       <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-4xl">
         <div className="text-center mb-16">
           <span className="section-label text-primary mb-5 block">A small gift, a real difference</span>

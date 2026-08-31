@@ -53,9 +53,10 @@ const NotFound = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <SeoHead
-        title="Page Not Found (404)"
+        title="Page not found | Living With Arthritis UK"
+        includeSiteName={false}
         description="The page you are looking for could not be found. Search Living With Arthritis UK or pick a popular guide instead."
-        path="/404"
+        path={location.pathname}
         noindex
       />
       <Header />

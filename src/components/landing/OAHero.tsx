@@ -28,10 +28,15 @@ const OAHero = memo(() => {
               id="oa-hero"
               className="hero-item text-balance text-[clamp(2.75rem,6vw,5.5rem)] leading-[0.95] uppercase"
             >
-              Evidence-based arthritis support and health guides for the UK
+              Living With Arthritis — UK charity for people with joint pain
             </h1>
 
-            <p className="hero-item mt-8 text-lg lg:text-xl max-w-xl leading-relaxed">
+            <p className="hero-item mt-6 text-sm lg:text-base font-medium max-w-xl leading-relaxed">
+              Living With Arthritis is a registered charity in England and Wales
+              (no.&nbsp;1218461), based in Oswestry. We are independent of Arthritis UK.
+            </p>
+
+            <p className="hero-item mt-4 text-lg lg:text-xl max-w-xl leading-relaxed">
               Millions of people across the UK live with arthritis pain and stiffness.
               Living With Arthritis provides clinically-reviewed guidance, exercise plans and
               nutrition support — free, for everyone.

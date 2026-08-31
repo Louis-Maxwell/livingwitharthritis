@@ -75,10 +75,6 @@ export const getHrefLangTags = (currentPath: string, baseUrl: string = 'https://
       hrefLang: 'en',
       href: `${baseUrl}${currentPath}`,
     },
-    {
-      rel: 'canonical',
-      href: `${baseUrl}${currentPath}`,
-    },
   ];
 };
 

@@ -16,8 +16,8 @@ export const CHARITY = {
   registerUrl:
     'https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/5274747/charity-overview',
   fundraisingCodeUrl: 'https://www.fundraisingregulator.org.uk/code',
-  registrationDate: '2020-03-15',
-  foundedYear: 2020,
+  registrationDate: '2026-06-15',
+  foundedYear: 2026,
   siteUrl: 'https://livingwitharthritis.org.uk',
   websiteDomain: 'livingwitharthritis.org.uk',
   contactEmail: 'info@livingwitharthritis.org.uk',

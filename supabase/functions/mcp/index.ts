@@ -8,17 +8,6 @@ import { auth, defineMcp } from "npm:@lovable.dev/mcp-js@0.22.0";
 // src/lib/mcp/tools/search-blog-articles.ts
 import { defineTool } from "npm:@lovable.dev/mcp-js@0.22.0";
 import { z } from "npm:zod@^3.25.76";
-
-// src/lib/mcp/tools/_supabase.ts
-import { createClient } from "npm:@supabase/supabase-js@^2.109.0";
-function supabaseForUser(ctx) {
-  return createClient(process.env.SUPABASE_URL, process.env.SUPABASE_PUBLISHABLE_KEY, {
-    global: { headers: { Authorization: `Bearer ${ctx.getToken()}` } },
-    auth: { persistSession: false, autoRefreshToken: false }
-  });
-}
-
-// src/lib/mcp/tools/search-blog-articles.ts
 var search_blog_articles_default = defineTool({
   name: "search_blog_articles",
   title: "Search blog articles",
@@ -32,13 +21,9 @@ var search_blog_articles_default = defineTool({
     if (!ctx.isAuthenticated()) {
       return { content: [{ type: "text", text: "Not authenticated" }], isError: true };
     }
-    const supabase = supabaseForUser(ctx);
-    const like = `%${query.replace(/[\\,.()%_]/g, (m) => `\\${m}`)}%`;
-    const { data, error } = await supabase.from("blog_articles").select("slug,title,category,excerpt,direct_answer,date").eq("is_published", true).or(`title.ilike.${like},excerpt.ilike.${like},category.ilike.${like},keywords.ilike.${like}`).order("date", { ascending: false }).limit(limit ?? 10);
-    if (error) return { content: [{ type: "text", text: error.message }], isError: true };
     return {
-      content: [{ type: "text", text: JSON.stringify(data ?? [], null, 2) }],
-      structuredContent: { articles: data ?? [] }
+      content: [{ type: "text", text: "Supabase removed - restore functionality" }],
+      structuredContent: { articles: [] }
     };
   }
 });
@@ -58,14 +43,7 @@ var get_blog_article_default = defineTool2({
     if (!ctx.isAuthenticated()) {
       return { content: [{ type: "text", text: "Not authenticated" }], isError: true };
     }
-    const supabase = supabaseForUser(ctx);
-    const { data, error } = await supabase.from("blog_articles").select("slug,title,category,excerpt,direct_answer,content,author,author_credentials,reviewed_by,reviewer_credentials,date").eq("slug", slug).eq("is_published", true).maybeSingle();
-    if (error) return { content: [{ type: "text", text: error.message }], isError: true };
-    if (!data) return { content: [{ type: "text", text: `No published article with slug '${slug}'.` }], isError: true };
-    return {
-      content: [{ type: "text", text: JSON.stringify(data, null, 2) }],
-      structuredContent: { article: data }
-    };
+    return { content: [{ type: "text", text: "Supabase removed - restore functionality" }], isError: true };
   }
 });
 
@@ -84,12 +62,9 @@ var list_my_appointments_default = defineTool3({
     if (!ctx.isAuthenticated()) {
       return { content: [{ type: "text", text: "Not authenticated" }], isError: true };
     }
-    const supabase = supabaseForUser(ctx);
-    const { data, error } = await supabase.from("appointments").select("id,appointment_type,preferred_date,preferred_time,status,notes,created_at").eq("user_id", ctx.getUserId()).order("created_at", { ascending: false }).limit(limit ?? 20);
-    if (error) return { content: [{ type: "text", text: error.message }], isError: true };
     return {
-      content: [{ type: "text", text: JSON.stringify(data ?? [], null, 2) }],
-      structuredContent: { appointments: data ?? [] }
+      content: [{ type: "text", text: "Supabase removed - restore functionality" }],
+      structuredContent: { appointments: [] }
     };
   }
 });
@@ -109,12 +84,9 @@ var list_my_pain_journal_default = defineTool4({
     if (!ctx.isAuthenticated()) {
       return { content: [{ type: "text", text: "Not authenticated" }], isError: true };
     }
-    const supabase = supabaseForUser(ctx);
-    const { data, error } = await supabase.from("pain_journal_entries").select("id,entry_date,pain_level,stiffness_duration,joints_affected,mood,sleep_quality,activities,medications,triggers,notes").eq("user_id", ctx.getUserId()).order("entry_date", { ascending: false }).limit(limit ?? 30);
-    if (error) return { content: [{ type: "text", text: error.message }], isError: true };
     return {
-      content: [{ type: "text", text: JSON.stringify(data ?? [], null, 2) }],
-      structuredContent: { entries: data ?? [] }
+      content: [{ type: "text", text: "Supabase removed - restore functionality" }],
+      structuredContent: { entries: [] }
     };
   }
 });
@@ -143,25 +115,10 @@ var create_pain_journal_entry_default = defineTool5({
     if (!ctx.isAuthenticated()) {
       return { content: [{ type: "text", text: "Not authenticated" }], isError: true };
     }
-    const supabase = supabaseForUser(ctx);
     const today = (/* @__PURE__ */ new Date()).toISOString().slice(0, 10);
-    const { data, error } = await supabase.from("pain_journal_entries").insert({
-      user_id: ctx.getUserId(),
-      entry_date: input.entry_date ?? today,
-      pain_level: input.pain_level,
-      stiffness_duration: input.stiffness_duration ?? null,
-      joints_affected: input.joints_affected ?? null,
-      mood: input.mood ?? null,
-      sleep_quality: input.sleep_quality ?? null,
-      activities: input.activities ?? null,
-      medications: input.medications ?? null,
-      triggers: input.triggers ?? null,
-      notes: input.notes ?? null
-    }).select().single();
-    if (error) return { content: [{ type: "text", text: error.message }], isError: true };
     return {
-      content: [{ type: "text", text: `Saved pain journal entry for ${data.entry_date}.` }],
-      structuredContent: { entry: data }
+      content: [{ type: "text", text: `Supabase removed - restore functionality` }],
+      structuredContent: { entry: null }
     };
   }
 });

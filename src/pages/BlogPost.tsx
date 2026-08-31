@@ -34,6 +34,7 @@ import FeedbackPoll from "@/components/article/FeedbackPoll";
 import InlineRelatedStrip from "@/components/article/InlineRelatedStrip";
 import ArticleFaqSection from "@/components/article/ArticleFaqSection";
 import ArticleClosingCTA from "@/components/article/ArticleClosingCTA";
+import ArticleVoiceover from "@/components/article/ArticleVoiceover";
 import { renderCallouts } from "@/components/article/Callouts";
 import { markVisited } from "@/lib/visitedArticles";
 import { getArticleImages } from "@/lib/articleImages";
@@ -169,10 +170,19 @@ const BlogPost = () => {
   const authorCreds = /PH123456/i.test(rawAuthorCreds)
     ? "Editorial content"
     : rawAuthorCreds;
-  const reviewerName = article.reviewed_by || "";
-  const reviewerCreds = article.reviewer_credentials || "";
+  const MAXWELL_NAME = "Maxwell";
+  const MAXWELL_CREDS = "First Contact Practitioner, HCPC PH128483, CSP member";
+  const rawReviewerName = article.reviewed_by || "";
+  const rawReviewerCreds = article.reviewer_credentials || "";
+  // Normalise any legacy placeholder credit (e.g. "Sarah Jennings" /
+  // HCPC PH123456) to the only verified clinician.
+  const isPlaceholderReviewer =
+    /sarah\s+jennings/i.test(rawReviewerName) ||
+    /PH123456/i.test(rawReviewerCreds);
+  const reviewerName = isPlaceholderReviewer ? MAXWELL_NAME : rawReviewerName;
+  const reviewerCreds = isPlaceholderReviewer ? MAXWELL_CREDS : rawReviewerCreds;
   const hasVerifiedReviewer =
-    reviewerName === "Maxwell" && /\bPH128483\b/.test(reviewerCreds);
+    reviewerName === MAXWELL_NAME && /\bPH128483\b/.test(reviewerCreds);
   const citations = Array.isArray(article.citations)
     ? article.citations.filter(
         (citation): citation is Citation =>
@@ -398,6 +408,9 @@ const BlogPost = () => {
                   </>
                 )}
               </div>
+
+              <ArticleVoiceover slug={article.slug} className="mt-6 max-w-[640px]" />
+
             </div>
           </div>
         </header>

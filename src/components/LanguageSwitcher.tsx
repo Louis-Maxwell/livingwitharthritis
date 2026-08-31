@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Globe, Check } from "lucide-react";
 import {
@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import {
   SUPPORTED_LANGS,
   LANG_LABELS,
+  TRANSLATED_BASE_PATHS,
   detectLangFromPath,
   stripLangPrefix,
   buildLangUrl,
@@ -23,9 +24,9 @@ const STORAGE_KEY = "lwa.lang";
 
 /**
  * Header dropdown to switch between English, Spanish, French, German
- * and Portuguese. Persists the choice in localStorage and (on first
- * visit) auto-redirects when the browser language matches a supported
- * non-English locale.
+ * and Portuguese. Only prefixes URLs that have a real translated route
+ * (see TRANSLATED_BASE_PATHS). Every other page switches to the locale
+ * homepage so we do not mint empty /fr/... stubs for Google to crawl.
  */
 export default function LanguageSwitcher() {
   const navigate = useNavigate();
@@ -33,30 +34,18 @@ export default function LanguageSwitcher() {
   const currentLang: Lang = detectLangFromPath(pathname);
   const [open, setOpen] = useState(false);
 
-  // First-visit browser language auto-redirect (one-shot, opt-out via cookie).
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const stored = window.localStorage.getItem(STORAGE_KEY) as Lang | null;
-    if (stored) return; // user has chosen — respect it
-    const browser = (navigator.language || "en").slice(0, 2).toLowerCase() as Lang;
-    if (
-      browser !== "en" &&
-      (SUPPORTED_LANGS as string[]).includes(browser) &&
-      currentLang === "en"
-    ) {
-      window.localStorage.setItem(STORAGE_KEY, browser);
-      const basePath = stripLangPrefix(pathname);
-      navigate(buildLangUrl(browser, basePath) + search + hash, { replace: true });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const handleSelect = (lang: Lang) => {
     if (typeof window !== "undefined") {
       window.localStorage.setItem(STORAGE_KEY, lang);
     }
     const basePath = stripLangPrefix(pathname);
-    navigate(buildLangUrl(lang, basePath) + search + hash);
+    if (basePath === "/404") {
+      navigate(buildLangUrl(lang, "/"));
+      setOpen(false);
+      return;
+    }
+    const targetBase = TRANSLATED_BASE_PATHS.includes(basePath) ? basePath : "/";
+    navigate(buildLangUrl(lang, targetBase) + (targetBase === basePath ? search + hash : ""));
     setOpen(false);
   };
 

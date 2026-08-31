@@ -1,10 +1,11 @@
+import { supabase } from "@/integrations/supabase/client";
 import { useState, useCallback } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { unwrapResponse, friendlyErrorMessage } from "@/lib/apiResponse";
+import { trackDonationInitiate } from "@/lib/analytics";
 
 // Supabase client removed - restore
-const supabase = { functions: { invoke: async () => ({ error: null, data: null }) } };
 import { Loader2, Heart, CreditCard, ShieldCheck, Gift, ArrowRight, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -61,6 +62,7 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
       if (apiError) throw new Error(friendlyErrorMessage(apiError));
       if (!payload?.url) throw new Error("No checkout URL returned");
 
+      trackDonationInitiate(amount);
       onClose();
       window.location.href = payload.url;
     } catch (err) {

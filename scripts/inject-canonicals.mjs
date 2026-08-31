@@ -22,11 +22,13 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { resolve, join, dirname } from "node:path";
 import { PRERENDER_ROUTES } from "./prerender-routes.mjs";
+import { deriveHeadData } from "./route-head-fallback.mjs";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const DIST = resolve("dist");
 const SRC = join(DIST, "index.html");
 const AI_DATA_PATH = resolve("scripts/ai-head-data.json");
+const BLOG_DATA_PATH = resolve("scripts/blog-head-data.json");
 
 if (!existsSync(SRC)) {
   console.warn("[inject-canonicals] dist/index.html missing — skipping");
@@ -35,9 +37,97 @@ if (!existsSync(SRC)) {
 
 const template = readFileSync(SRC, "utf8");
 
-const AI_DATA = existsSync(AI_DATA_PATH)
-  ? JSON.parse(readFileSync(AI_DATA_PATH, "utf8"))
-  : {};
+const readJson = (path) =>
+  existsSync(path) ? JSON.parse(readFileSync(path, "utf8")) : {};
+
+// Author/reviewer bio pages: real named heads built from the same reviewed
+// records the React page renders, so E-E-A-T signals survive without JS.
+function authorHeadData() {
+  const records = readJson(resolve("src/data/medical-authors.json"));
+  const out = {};
+  for (const record of Object.values(records)) {
+    if (!record?.slug || !record?.name) continue;
+    const clean = (value) =>
+      typeof value === "string" && !value.includes("[PLACEHOLDER") ? value : "";
+    const credential = clean(record.credential);
+    const bio = clean(record.bio);
+    for (const prefix of ["authors", "reviewers"]) {
+      const label = prefix === "reviewers" ? "Medical reviewer" : "Author";
+      // /authors/x and /reviewers/x are separate URLs, so their head and
+      // opening paragraph must differ — otherwise they read as duplicates.
+      const role =
+        prefix === "reviewers"
+          ? `Medical reviewer profile`
+          : `Author profile`;
+      out[`/${prefix}/${record.slug}`] = {
+        title: `${record.name}, ${record.title} — ${label} | Living With Arthritis UK`.slice(0, 115),
+        description: `${role}: ${record.name}, ${record.title}${credential ? ` (${credential})` : ""}. ${bio}`
+          .replace(/\s+/g, " ")
+          .slice(0, 158),
+        question: `${record.name} — ${label.toLowerCase()} profile`,
+        answer: [
+          prefix === "reviewers"
+            ? `${record.name} medically reviews Living With Arthritis UK content as a ${record.title}${credential ? ` (${credential})` : ""}, checking each guide for clinical accuracy before publication.`
+            : `${record.name} writes Living With Arthritis UK guides as a ${record.title}${credential ? ` (${credential})` : ""}, drawing on day-to-day UK musculoskeletal practice.`,
+          bio,
+        ]
+          .filter(Boolean)
+          .join(" "),
+        breadcrumb: `${record.name} (${label.toLowerCase()})`,
+      };
+    }
+
+  }
+  return out;
+}
+
+// Curated entries win over auto-generated blog/author entries; all of them
+// win over the slug-derived fallback applied in headDataFor().
+const AI_DATA = {
+  ...readJson(BLOG_DATA_PATH),
+  ...authorHeadData(),
+  ...readJson(AI_DATA_PATH),
+};
+
+
+function headDataFor(route) {
+  return AI_DATA[route] ?? deriveHeadData(route);
+}
+
+
+// App-only screens: real 200 pages (the SPA needs them) but never indexable.
+// They still get a unique static title/description so no URL on the domain
+// serves the homepage head.
+const NOINDEX_PREFIXES = [
+  "/.lovable",
+  "/account",
+  "/admin",
+  "/auth",
+  "/buddy",
+  "/callback",
+  "/checkout",
+  "/dashboard",
+  "/debug",
+  "/donation-result",
+  "/unsubscribe",
+];
+
+export function isNoindexRoute(route) {
+  return NOINDEX_PREFIXES.some((p) => route === p || route.startsWith(`${p}/`));
+}
+
+// Static (non-parameterised) routes declared in the router. Without these,
+// hosting falls back to the SPA shell and the URL inherits the homepage
+// title, description and body — Semrush's duplicate title/description/content
+// findings were almost entirely these routes.
+function appRoutes() {
+  const appPath = resolve("src/App.tsx");
+  if (!existsSync(appPath)) return [];
+  const src = readFileSync(appPath, "utf8");
+  return [...src.matchAll(/<Route\s+path="([^"]+)"/g)]
+    .map((m) => m[1])
+    .filter((p) => p.startsWith("/") && p !== "/" && !p.includes(":") && !p.includes("*"));
+}
 
 function collectRoutes() {
   const set = new Set(PRERENDER_ROUTES);
@@ -50,9 +140,13 @@ function collectRoutes() {
       set.add(path);
     }
   }
+  for (const p of appRoutes()) set.add(p);
+  // Prefix landing screens that the router mounts via nested/wildcard routes.
+  for (const p of NOINDEX_PREFIXES) if (p !== "/.lovable") set.add(p);
   set.delete("/");
   return [...set].filter((p) => p.startsWith("/") && !p.includes("*"));
 }
+
 
 // ---------- AI head enrichment helpers ----------
 
@@ -114,9 +208,11 @@ function buildJsonLd(route, url, d) {
   // 3) FAQPage — the primary Q&A plus any configured FAQs. This is the
   //    highest-value block for answer engines: it hands them a quotable,
   //    attributed question/answer pair per page.
-  const qaPairs = [];
-  if (d.question && d.answer) qaPairs.push({ q: d.question, a: d.answer });
-  if (Array.isArray(d.faqs)) qaPairs.push(...d.faqs);
+  // FAQPage is emitted ONLY when the page also renders the same visible
+  // Q&A copy (d.faqs drives the visible FAQ section below), per Google's
+  // structured-data policy. A lone question/answer pair is expressed as the
+  // MedicalWebPage headline/speakable instead.
+  const qaPairs = Array.isArray(d.faqs) ? [...d.faqs] : [];
   if (qaPairs.length > 0) {
     graphs.push({
       "@context": "https://schema.org",
@@ -139,7 +235,7 @@ function buildJsonLd(route, url, d) {
 }
 
 function enrichHead(html, route, url) {
-  const d = AI_DATA[route];
+  const d = headDataFor(route);
   if (!d) return html;
 
   let out = html;
@@ -237,20 +333,27 @@ function rewriteHead(html, route) {
     /<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/i,
     `<meta property="og:url" content="${url}" />`,
   );
-  // Replace homepage canonical with route-specific canonical.
-  if (/<link\s+rel="canonical"[^>]*>/i.test(out)) {
+  // Exactly one self-referencing canonical per page: drop any inherited
+  // homepage canonical from the template, then insert this route's own.
+  out = out.replace(/[ \t]*<link\s+rel="canonical"[^>]*>\s*\n?/gi, "");
+  out = out.replace(
+    /<\/head>/i,
+    `  <link rel="canonical" href="${url}" />\n</head>`,
+  );
+  // App-only screens keep their unique head but must stay out of the index.
+  if (isNoindexRoute(route)) {
+    out = out.replace(/[ \t]*<meta\s+name="robots"[^>]*>\s*\n?/gi, "");
     out = out.replace(
-      /<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/i,
-      `<link rel="canonical" href="${url}" />`,
+      /<\/head>/i,
+      `  <meta name="robots" content="noindex, follow" />\n</head>`,
     );
-  } else {
-    out = out.replace(/<\/head>/i, `  <link rel="canonical" href="${url}" />\n</head>`);
   }
   // Also update twitter:url if present.
   out = out.replace(
     /<meta\s+name="twitter:url"\s+content="[^"]*"\s*\/?>/i,
     `<meta name="twitter:url" content="${url}" />`,
   );
+
   // AI-visibility enrichment (title, description, JSON-LD) for curated routes.
   out = enrichHead(out, route, url);
   return out;
@@ -271,7 +374,7 @@ for (const route of routes) {
   mkdirSync(dirname(file), { recursive: true });
   writeFileSync(file, rewriteHead(template, route));
   written++;
-  if (AI_DATA[route]) enriched++;
+  if (headDataFor(route)) enriched++;
 }
 
 console.log(

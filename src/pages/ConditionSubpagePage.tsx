@@ -52,9 +52,9 @@ function subpageDescription(condName: string, subpage: SubpageSlug): string {
   const lcName = condName.toLowerCase();
   const descMap: Record<SubpageSlug, string> = {
     symptoms: `Recognise the early signs of ${lcName}, common flare-up symptoms, and when to see your GP. Plain-English UK guidance aligned with UK healthcare and NICE.`,
-    treatment: `Evidence-based ${lcName} treatment in the UK â€” UK healthcare pathways, medication options, pain relief and self-management strategies that actually work.`,
+    treatment: `Evidence-based ${lcName} treatment in the UK — UK healthcare pathways, medication options, pain relief and self-management strategies that actually work.`,
     exercises: `Safe, effective ${lcName} exercises aligned with UK physiotherapy guidance. Movements to try, exercises to avoid, and how to build a weekly routine.`,
-    diet: `What to eat â€” and what to limit â€” with ${lcName}. UK-aligned anti-inflammatory diet guidance, food triggers, and the supplements with the best evidence.`,
+    diet: `What to eat — and what to limit — with ${lcName}. UK-aligned anti-inflammatory diet guidance, food triggers, and the supplements with the best evidence.`,
   };
   return descMap[subpage];
 }
@@ -101,8 +101,8 @@ const ConditionSubpagePage = () => {
       },
       dateModified: new Date().toISOString().slice(0, 10),
     };
-    // BreadcrumbList intentionally not emitted here â€” <PageBreadcrumb> below covers it.
-    // FAQPage intentionally not emitted here â€” <FaqAccordion> below covers it.
+    // BreadcrumbList intentionally not emitted here — <PageBreadcrumb> below covers it.
+    // FAQPage intentionally not emitted here — <FaqAccordion> below covers it.
     const s = document.createElement("script");
     s.type = "application/ld+json";
     s.text = JSON.stringify(medicalLd);
@@ -110,10 +110,12 @@ const ConditionSubpagePage = () => {
     return () => s.remove();
   }, [condition, subpage]);
 
-  if (!isSubpage(subpage)) return <Navigate to="/404" replace />;
+  if (!isSubpage(subpage)) return <Navigate to="/conditions/arthritis" replace />;
   const cond = condition ? conditionBySlug.get(condition) : undefined;
   const content = condition ? conditionSubpages[condition] : undefined;
-  if (!cond || !content) return <Navigate to="/404" replace />;
+  if (!cond || !content) {
+    return <Navigate to={cond?.hasConditionPage ? `/conditions/${cond.slug}` : "/conditions/arthritis"} replace />;
+  }
 
   const sub = content[subpage];
   const path = `/conditions/${cond.slug}/${subpage}`;
@@ -150,7 +152,7 @@ const ConditionSubpagePage = () => {
           <div className="flex items-center gap-2 text-primary mb-3">
             <Icon className="w-5 h-5" />
             <span className="text-sm font-medium">
-              {cond.name} â€¢ {subLabel}
+              {cond.name} • {subLabel}
             </span>
           </div>
           <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -215,7 +217,7 @@ const ConditionSubpagePage = () => {
               ))}
             </ul>
             <Link
-              to={`/exercises/knee/for/${cond.slug}`}
+              to="/guides/exercise"
               className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
             >
               See joint-by-joint exercise guides for {cond.shortName} <ArrowRight className="w-4 h-4" />
@@ -250,7 +252,7 @@ const ConditionSubpagePage = () => {
           </>
         )}
 
-        {/* People also ask â€” long-tail question keywords + FAQPage schema */}
+        {/* People also ask — long-tail question keywords + FAQPage schema */}
         <section className="mb-10">
           <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
             <HelpCircle className="w-5 h-5 text-primary" />
@@ -259,7 +261,7 @@ const ConditionSubpagePage = () => {
           <FaqAccordion idPrefix={`${cond.slug}-${subpage}-faq`} items={faqs} />
         </section>
 
-        {/* Sibling sub-pages â€” same condition */}
+        {/* Sibling sub-pages — same condition */}
         <section className="mb-10">
           <h2 className="text-xl font-semibold text-foreground mb-4">
             More on {cond.name.toLowerCase()}

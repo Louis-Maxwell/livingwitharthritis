@@ -144,10 +144,31 @@ function regionSlugs(): string[] {
   return ["north-west", "midlands", "scotland", "wales"];
 }
 
-function conditionSlugs(): string[] {
-  const src = read("src/data/arthritisConditions.ts");
-  const re = /\bslug:\s*"([^"]+)"/g;
-  return extractAll(re, src);
+// Unique /conditions/:slug/:subpage URLs that have written copy in
+// conditionSubpages.ts. Do not invent combinations for hub-only conditions
+// (hip-arthritis, elbow-arthritis, calcific-periarthritis) — those would be
+// empty templates.
+function conditionSubpageSlugs(): string[] {
+  const src = read("src/data/conditionSubpages.ts");
+  const start = src.indexOf("export const conditionSubpages");
+  if (start < 0) return [];
+  const nested = new Set(["symptoms", "treatment", "exercises", "diet"]);
+  return extractAll(/^\s{2}"?([a-z0-9-]+)"?:\s*\{/gm, src.slice(start)).filter(
+    (slug) => !nested.has(slug),
+  );
+}
+
+// Unique FAQ articles at /faq/:slug (src/data/faqArticles.ts).
+function faqArticleSlugs(): string[] {
+  const src = read("src/data/faqArticles.ts");
+  return [...new Set(extractAll(/\bslug:\s*['"]([^'"]+)['"]/g, src))];
+}
+
+// Unique library topics at /library/:slug (src/data/healthTopics.ts).
+// Deduped — the source file has one repeated slug.
+function libraryTopicSlugs(): string[] {
+  const src = read("src/data/healthTopics.ts");
+  return [...new Set(extractAll(/"slug":\s*"([^"]+)"/g, src))];
 }
 
 function exerciseJointSlugs(): string[] {
@@ -354,52 +375,36 @@ function build(entries: SitemapEntry[]): string {
 async function main() {
   const entries: SitemapEntry[] = [];
 
-  for (const p of parseStaticRoutes()) entries.push({ path: p });
+  for (const p of parseStaticRoutes()) {
+    // lastmod only for pages with a known significant content change; others omit it.
+    const lastmod = p === "/" || p === "/about" ? "2026-08-31" : undefined;
+    entries.push({ path: p, ...(lastmod ? { lastmod } : {}) });
+  }
 
   for (const slug of dailyTipSlugs()) entries.push({ path: `/daily-tips/${slug}` });
   for (const id of productIds()) entries.push({ path: `/product/${id}` });
-  for (const c of citySlugs()) entries.push({ path: `/arthritis-support/${c}` });
+  // City hubs (/arthritis-support/{city}) are thin doorway templates and are
+  // deliberately excluded from the sitemap (see EXCLUDE_FROM_SITEMAP below).
   for (const r of regionSlugs()) entries.push({ path: `/regions/${r}` });
-
-  const conds = conditionSlugs();
-  for (const c of citySlugs())
-    for (const cond of conds) entries.push({ path: `/arthritis-support/${c}/${cond}` });
 
   for (const s of exerciseJointSlugs()) entries.push({ path: `/exercises/${s}` });
 
-  // Programmatic SEO: joint × condition exercise pages.
-  // Mirrors src/data/exerciseConditionRecommendations.ts (6 joints × 13 conditions = 78).
-  const ECR_JOINTS = ["knee", "hip", "shoulder", "hand", "back", "ankle"];
-  const ECR_CONDITIONS = [
-    "osteoarthritis", "rheumatoid-arthritis", "psoriatic-arthritis", "gout",
-    "ankylosing-spondylitis", "juvenile-arthritis", "fibromyalgia", "lupus",
-    "knee-arthritis", "hand-arthritis", "shoulder-arthritis",
-    "polymyalgia-rheumatica", "reactive-arthritis",
-  ];
-  for (const j of ECR_JOINTS)
-    for (const c of ECR_CONDITIONS)
-      entries.push({ path: `/exercises/${j}/for/${c}`, priority: "0.7", changefreq: "monthly" });
-
-  // Programmatic SEO: condition sub-pages.
-  // Mirrors src/data/conditionSubpages.ts (13 conditions × 4 sub-pages = 52).
+  // Condition sub-pages have unique written content (src/data/conditionSubpages.ts).
+  // City×condition, city×service and exercise×condition matrices are thin
+  // templates — they 301 to a hub and must not appear in the sitemap.
   const SUBPAGES = ["symptoms", "treatment", "exercises", "diet"];
-  for (const c of ECR_CONDITIONS)
+  for (const c of conditionSubpageSlugs())
     for (const s of SUBPAGES)
       entries.push({ path: `/conditions/${c}/${s}`, priority: "0.8", changefreq: "monthly" });
 
-  // Programmatic SEO: UK city × service pages.
-  // Mirrors src/data/city-services.ts (26 cities × 4 services = 104).
-  const CS_CITIES = [
-    "london", "birmingham", "manchester", "leeds", "glasgow",
-    "liverpool", "edinburgh", "bristol", "sheffield", "newcastle",
-    "cardiff", "nottingham", "leicester", "coventry", "belfast",
-    "brighton", "plymouth", "stoke-on-trent", "wolverhampton", "southampton",
-    "derby", "swansea", "aberdeen", "oxford", "cambridge", "exeter",
-  ];
-  const CS_SERVICES = ["physiotherapy", "support-groups", "diet-support", "waiting-list-help"];
-  for (const city of CS_CITIES)
-    for (const svc of CS_SERVICES)
-      entries.push({ path: `/uk/${city}/${svc}`, priority: "0.6", changefreq: "monthly" });
+  // Unique FAQ + library articles. These 200 with written copy but were
+  // previously omitted because parseStaticRoutes() skips /faq/:slug and
+  // /library/:slug. Do not add /expert/:slug or /stories/:slug — those
+  // arrays are empty placeholders.
+  for (const slug of faqArticleSlugs())
+    entries.push({ path: `/faq/${slug}`, priority: "0.7", changefreq: "monthly" });
+  for (const slug of libraryTopicSlugs())
+    entries.push({ path: `/library/${slug}`, priority: "0.6", changefreq: "monthly" });
 
   const blogInventory = await blogPosts();
   const posts = blogInventory.posts;
@@ -435,13 +440,10 @@ async function main() {
   for (const p of extractAll(/"(\/guides\/[^"]+)"/g, comparisonSrc))
     entries.push({ path: p, priority: "0.7", changefreq: "monthly" });
 
-  const cityRoutesSrc = read("src/data/city-routes.generated.ts");
-  const validCities = new Set(citySlugs());
-  const validConditions = new Set(conds);
-  for (const p of extractAll(/"(\/arthritis-support\/[^"]+)"/g, cityRoutesSrc)) {
-    if (!isValidCitySupportRoute(p, validCities, validConditions)) continue;
-    entries.push({ path: p, priority: "0.6", changefreq: "monthly" });
-  }
+  // /arthritis-support/{city} doorway pages are intentionally NOT listed.
+  // They are city-templated variants of the same guidance and were diluting
+  // crawl budget; the hub /arthritis-support still links them internally.
+
 
   const petsSrc = read("src/data/pets-arthritis.generated.ts");
   entries.push({ path: "/pets", priority: "0.8", changefreq: "weekly" });
@@ -453,16 +455,35 @@ async function main() {
   entries.push({ path: "/corporate-partnerships", priority: "0.7", changefreq: "monthly" });
 
   // Author & reviewer bio pages (E-E-A-T signals for AEO/GEO).
+  entries.push({ path: "/authors", priority: "0.6", changefreq: "yearly" });
+  entries.push({ path: "/reviewers", priority: "0.6", changefreq: "yearly" });
   const authorsSrc = read("src/data/medical-authors.json");
-  const authors = JSON.parse(authorsSrc) as Record<string, { slug: string; kind: "author" | "reviewer" }>;
+  const authors = JSON.parse(authorsSrc) as Record<string, { slug: string; kind: "author" | "reviewer"; credential?: string }>;
   for (const rec of Object.values(authors)) {
     const prefix = rec.kind === "reviewer" ? "reviewers" : "authors";
     entries.push({ path: `/${prefix}/${rec.slug}`, priority: "0.6", changefreq: "yearly" });
+    // HCPC/GMC-registered authors also review content, so their /reviewers
+    // bio URL is a real page and belongs in the sitemap.
+    if (prefix === "authors" && /HCPC|GMC|NMC/i.test(rec.credential ?? "")) {
+      entries.push({ path: `/reviewers/${rec.slug}`, priority: "0.5", changefreq: "yearly" });
+    }
   }
 
-  const xml = build(entries);
+  // Final safety net: never ship empty locale stubs (/es|/fr|/de|/pt and their
+  // clones) or /arthritis-support/{city} doorway URLs in the XML sitemap.
+  const EXCLUDE_FROM_SITEMAP = [
+    /^\/(es|fr|de|pt)(\/|$)/,
+    /^\/arthritis-support\/.+/,
+  ];
+  const cleaned = entries.filter(
+    (e) => !EXCLUDE_FROM_SITEMAP.some((re) => re.test(e.path)),
+  );
+
+  const xml = build(cleaned);
   writeFileSync(resolve("public/sitemap.xml"), xml);
-  console.log(`[sitemap] wrote ${entries.length} entries -> public/sitemap.xml`);
+  console.log(
+    `[sitemap] wrote ${cleaned.length} entries (dropped ${entries.length - cleaned.length} locale/doorway URLs) -> public/sitemap.xml`,
+  );
 
   // Also emit a slug list for the prerender pipeline. Sorted newest-first by
   // lastmod so `PRERENDER_LIMIT` can trim to the freshest N without missing
@@ -495,7 +516,12 @@ async function main() {
   console.log(`[sitemap] wrote ${otherPaths.length} routes -> src/data/prerender-routes.generated.json`);
 }
 
-if ((import.meta as ImportMeta & { main?: boolean }).main) {
+const isDirectRun =
+  (import.meta as ImportMeta & { main?: boolean }).main === true ||
+  (typeof process !== "undefined" &&
+    Boolean(process.argv[1]?.includes("generate-sitemap")));
+
+if (isDirectRun) {
   main().catch((e) => {
     console.error("[sitemap] failed:", e);
     process.exit(1);

@@ -24,7 +24,7 @@ const prettify = (slug: string) =>
     .join(" ");
 
 /**
- * /glossary/:term â€” Individual glossary entry.
+ * /glossary/:term — Individual glossary entry.
  *
  * Uses GLOSSARY_CONTENT for real, evidence-based definitions where available,
  * with a lightweight editorial fallback for terms not yet fleshed out.
@@ -57,7 +57,7 @@ export default function GlossaryTerm() {
   return (
     <>
       <SeoHead
-        title={`${label} â€” Arthritis Glossary`}
+        title={`${label} — Arthritis Glossary`}
         description={description}
         path={href}
         noindex={!entry}
