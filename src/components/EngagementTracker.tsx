@@ -9,15 +9,18 @@ import { trackEvent, isLandingPage } from "@/lib/analytics";
  * (bounce = session with NO engagement signal) and so bounce rate
  * is measurable PER PAGE in GA4.
  *
- *  - page_view          → fired on every SPA route change (initial load
- *                         uses index.html's bot-aware loader instead)
  *  - landing_page_view  → fired only on the 6 canonical landing pages
  *  - engaged_session    → fired at 10s active time (GA4 standard threshold)
  *  - engagement_30s     → fired at 30s active time (our richer signal)
+ *  - engagement_60s     → fired at 60s active time
+ *  - engagement_180s    → fired at 180s active time
+ *  - engagement_240s    → fired at 240s active time
  *  - scroll_depth       → fired at 25 / 50 / 75 / 100 %
  *  - first_click        → fired on the first internal interaction
  *
  * Notes:
+ *  - page_view is NOT sent here. GA4 is loaded with send_page_view:false
+ *    and App.tsx fires page_view on every route change.
  *  - Pauses timers when the tab is hidden (GA4-style "active" time).
  *  - Resets on route change (SPA navigation = new pageview).
  *  - Tiny, idle-callback friendly, never throws.
@@ -58,18 +61,6 @@ const EngagementTracker = () => {
 
     const path = location.pathname;
     const landing = isLandingPage(path);
-
-    // Fire SPA page_view on every navigation EXCEPT the very first load
-    // (index.html's gtag config sends that one already to keep early
-    // pageviews from being lost while React boots).
-    if (!isInitial) {
-      trackEvent("page_view", {
-        page_path: path,
-        page_location: window.location.href,
-        page_title: document.title,
-        is_landing_page: landing,
-      });
-    }
 
     if (landing) {
       trackEvent("landing_page_view", {
