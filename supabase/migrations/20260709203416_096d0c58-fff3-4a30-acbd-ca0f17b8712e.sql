@@ -1,6 +1,0 @@
-UPDATE public.blog_articles
-SET
-  meta_title = 'Ginger vs Turmeric for Arthritis: UK Clinician Guide',
-  content = content || E'\n\n## Read next\n\n- [Turmeric and Curcumin: Evidence-Based Arthritis Relief](/blog/turmeric-curcumin-arthritis-evidence) — a deeper dive into curcumin dosing, absorption and the strongest trial evidence.\n- [Ginger Root: A Natural Anti-Inflammatory Food](/blog/ginger-root-natural-anti-inflammatory) — how to use ginger day-to-day, including tea, food and supplement forms.\n- [Mediterranean Diet for Arthritis: A 14-Day UK Meal Plan](/blog/mediterranean-diet-arthritis-14-day-plan) — the anti-inflammatory eating pattern most patients should start with before adding supplements.\n- [Anti-Inflammatory Herbs and Spices for Arthritis](/blog/anti-inflammatory-herbs-spices-arthritis) — the wider evidence-based herb and spice list, beyond ginger and turmeric.\n- [Anti-Inflammatory Smoothie Recipes for Joint Pain](/blog/anti-inflammatory-smoothie-recipes) — practical recipes that pair ginger and turmeric with berries and leafy greens.\n',
-  updated_at = now()
-WHERE slug = 'ginger-vs-turmeric-for-arthritis';

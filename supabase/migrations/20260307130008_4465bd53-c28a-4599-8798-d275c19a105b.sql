@@ -1,1 +1,0 @@
-DROP TABLE IF EXISTS public.nutrition_food_gallery;

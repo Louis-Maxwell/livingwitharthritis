@@ -1,1 +1,0 @@
-UPDATE services SET is_active = false WHERE title IN ('Virtual Physiotherapy', 'Appointment Booking');

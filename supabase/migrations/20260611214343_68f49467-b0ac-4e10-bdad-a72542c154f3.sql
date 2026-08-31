@@ -1,1 +1,0 @@
-CREATE INDEX IF NOT EXISTS idx_blog_articles_published_date ON public.blog_articles (is_published, date DESC, display_order);

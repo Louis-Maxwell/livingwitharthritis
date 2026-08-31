@@ -1,1 +1,0 @@
-GRANT SELECT, INSERT, UPDATE, DELETE, TRUNCATE ON public._blog_expansions_tmp TO sandbox_exec;
