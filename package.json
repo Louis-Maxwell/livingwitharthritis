@@ -46,7 +46,9 @@
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:debug": "playwright test --debug",
-    "smoke:prepublish": "node scripts/prepublish-smoke.mjs"
+    "smoke:prepublish": "node scripts/prepublish-smoke.mjs",
+    "diagnose:functions": "node scripts/diagnose-edge-functions.mjs",
+    "backfill-images": "node scripts/backfill-missing-images.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
