@@ -272,9 +272,11 @@ Deno.serve(async (req) => {
   const limit = await checkRateLimit(supabase, {
     tier: 'public',
     ip: getClientIp(req),
-    route: 'article-audio',
+    scope: 'article-audio',
   });
-  if (!limit.allowed) return rateLimitResponse(limit, getCorsHeaders(req));
+  if (!limit.allowed) {
+    return rateLimitResponse(getCorsHeaders(req), limit.retryAfterSeconds);
+  }
 
   // 3. Synthesise chunk by chunk and concatenate the MP3 frames.
   const chunks = chunkForTts(narration);
