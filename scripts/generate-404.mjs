@@ -103,10 +103,21 @@ for (const p of SPA_PREFIXES) {
 }
 for (const p of routePaths) {
   if (p === '*' || p === '/') continue;
-  if (p.includes(':')) continue;
+  if (p.includes(':')) {
+    // Parameterised routes (/library/:slug, /arthritis-support/:city, ...) can
+    // never have a rule per value here. Emit a wildcard SPA rewrite for the
+    // static prefix so real visits resolve instead of hitting the catch-all
+    // 404. Real prerendered files still win over rewrite rules, so pages that
+    // were prerendered keep their own unique head — only unprerendered values
+    // fall back to the SPA shell.
+    const prefix = p.slice(0, p.indexOf('/:'));
+    if (prefix) spaRules.add(`${prefix}/* /index.html 200`);
+    continue;
+  }
   if (hasOwnFile(p)) continue;
   spaRules.add(`${p} /index.html 200`);
 }
+
 
 const redirectsPath = resolve(DIST, '_redirects');
 const existing = existsSync(redirectsPath) ? readFileSync(redirectsPath, 'utf8') : '';
