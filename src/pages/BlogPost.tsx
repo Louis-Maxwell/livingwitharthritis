@@ -176,7 +176,7 @@ const BlogPost = () => {
   const rawReviewerCreds = article.reviewer_credentials || "";
   // Normalise any legacy placeholder credentials to the verified clinician
   const isPlaceholderReviewer =
-    /PH123456/i.test(rawReviewerCreds);
+    /sarah\s+jennings/i.test(rawReviewerName) || /PH123456/i.test(rawReviewerCreds);
   const reviewerName = isPlaceholderReviewer ? MAXWELL_NAME : rawReviewerName;
   const reviewerCreds = isPlaceholderReviewer ? MAXWELL_CREDS : rawReviewerCreds;
   const hasVerifiedReviewer =
