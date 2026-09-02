@@ -9,9 +9,11 @@
  * the generic homepage shell. scripts/inject-canonicals.mjs merges this
  * file into the static per-route HTML it writes at postbuild.
  *
- * Content is NOT invented: title, excerpt/direct_answer and dates all come
- * from the already-reviewed blog_articles rows. If the fetch fails the
- * previous JSON is preserved rather than emptied.
+ * Content is NOT invented: title, excerpt/direct_answer, dates and the
+ * reviewed article body all come from the already-reviewed blog_articles
+ * rows. The body is required so inject-canonicals can put unique article
+ * HTML in the first response (Google Soft 404s on empty SPA shells).
+ * If the fetch fails the previous JSON is preserved rather than emptied.
  */
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -55,7 +57,7 @@ async function main() {
   let rows = [];
   try {
     const res = await fetch(
-      `${url}/rest/v1/blog_articles?select=slug,title,meta_title,excerpt,direct_answer,meta_description,category,content,updated_at,date&is_published=eq.true&limit=2000`,
+      `${url}/rest/v1/blog_articles?select=slug,title,meta_title,excerpt,direct_answer,meta_description,category,content,updated_at,date,image_url,keywords,author,author_credentials,reviewed_by,reviewer_credentials,display_order,citations&is_published=eq.true&limit=2000`,
       { headers: { apikey: key, Authorization: `Bearer ${key}` } },
     );
     if (!res.ok) keepExisting(`blog fetch ${res.status}`);
@@ -136,6 +138,30 @@ async function main() {
       breadcrumb: headline,
       about: row.category || undefined,
       updatedAt: String(row.updated_at || row.date || '').slice(0, 10) || undefined,
+      // Full reviewed body so inject-canonicals can put unique article
+      // HTML in the first response. Without this, Google's no-JS pass
+      // only sees a homepage shell and reports Soft 404.
+      article: {
+        slug: row.slug,
+        title: row.title,
+        excerpt: row.excerpt ?? '',
+        content: row.content ?? '',
+        date: row.date,
+        category: row.category,
+        image_url: row.image_url ?? null,
+        meta_title: row.meta_title ?? null,
+        meta_description: row.meta_description ?? null,
+        keywords: row.keywords ?? null,
+        author: row.author ?? null,
+        author_credentials: row.author_credentials ?? null,
+        reviewed_by: row.reviewed_by ?? null,
+        reviewer_credentials: row.reviewer_credentials ?? null,
+        is_published: true,
+        display_order: row.display_order ?? 0,
+        updated_at: row.updated_at ?? null,
+        direct_answer: row.direct_answer ?? null,
+        citations: row.citations ?? null,
+      },
     };
     const faqs = extractFaqs(row.content);
     if (faqs.length >= 2) data[`/blog/${row.slug}`].faqs = faqs;
