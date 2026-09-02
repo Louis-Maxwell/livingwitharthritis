@@ -16,26 +16,30 @@
 // Reads routes from public/sitemap.xml (covers every page in the
 // sitemap) plus the curated PRERENDER_ROUTES list as a fallback.
 // Copies dist/index.html into dist/<route>/index.html with the head
-// rewritten. Skips routes whose index.html already exists (so the
-// puppeteer prerender `build:prerender` path keeps working).
+// rewritten and a unique article body. Keeps a Puppeteer snapshot only
+// when it already contains the full article; thin homepage shells are
+// rebuilt so Google does not see a Soft 404.
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { resolve, join, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 import { PRERENDER_ROUTES } from "./prerender-routes.mjs";
 import { deriveHeadData } from "./route-head-fallback.mjs";
+import {
+  buildStaticArticleInner,
+  embedArticleJson,
+  htmlHasFullArticle,
+  replaceSeoFallback,
+} from "./static-article-html.mjs";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const DIST = resolve("dist");
 const SRC = join(DIST, "index.html");
 const AI_DATA_PATH = resolve("scripts/ai-head-data.json");
 const BLOG_DATA_PATH = resolve("scripts/blog-head-data.json");
+const CONDITION_DATA_PATH = resolve("scripts/condition-head-data.json");
 
-if (!existsSync(SRC)) {
-  console.warn("[inject-canonicals] dist/index.html missing — skipping");
-  process.exit(0);
-}
-
-const template = readFileSync(SRC, "utf8");
+const template = existsSync(SRC) ? readFileSync(SRC, "utf8") : "";
 
 const readJson = (path) =>
   existsSync(path) ? JSON.parse(readFileSync(path, "utf8")) : {};
@@ -85,13 +89,14 @@ function authorHeadData() {
 // win over the slug-derived fallback applied in headDataFor().
 const AI_DATA = {
   ...readJson(BLOG_DATA_PATH),
+  ...readJson(CONDITION_DATA_PATH),
   ...authorHeadData(),
   ...readJson(AI_DATA_PATH),
 };
 
 
-function headDataFor(route) {
-  return AI_DATA[route] ?? deriveHeadData(route);
+function headDataFor(route, override) {
+  return override ?? AI_DATA[route] ?? deriveHeadData(route);
 }
 
 
@@ -234,8 +239,8 @@ function buildJsonLd(route, url, d) {
     .join("\n");
 }
 
-function enrichHead(html, route, url) {
-  const d = headDataFor(route);
+function enrichHead(html, route, url, override) {
+  const d = headDataFor(route, override);
   if (!d) return html;
 
   let out = html;
@@ -283,24 +288,9 @@ function enrichHead(html, route, url) {
   // Organization/WebSite blocks (which stay untouched).
   out = out.replace(/<\/head>/i, `${buildJsonLd(route, url, d)}\n</head>`);
 
-  // ---- VISIBLE static content for non-JS readers (AEO/GEO checkers, AI
-  // crawlers). Replaces the homepage <h1> inside the #seo-fallback with a
-  // route-specific question H1, a direct-answer opening paragraph, reviewer
-  // attribution + freshness line, a question-headed FAQ section, and an
-  // authoritative-sources list. The rest of the fallback (internal links,
-  // site sections) is kept for link equity and word count.
-  const updated = d.updatedAt
-    ? `Last updated ${d.updatedAt}. `
-    : "";
-
-  const faqPairs = [];
-  if (Array.isArray(d.faqs)) faqPairs.push(...d.faqs);
-  const faqHtml = faqPairs.length
-    ? `<section><h2>Frequently asked questions</h2>${faqPairs
-        .map((f) => `<h3>${escText(f.q)}</h3><p>${escText(f.a)}</p>`)
-        .join("")}</section>`
-    : "";
-
+  // Unique visible article for non-JS readers. Replaces the entire
+  // homepage #seo-fallback (not just the first H1) so Google cannot
+  // treat the URL as an empty SPA shell or a homepage duplicate.
   const sources = Array.isArray(d.sources) ? d.sources : [];
   const sourcesHtml = sources.length
     ? `<section><h2>Sources and further reading</h2><ul>${sources
@@ -311,22 +301,17 @@ function enrichHead(html, route, url) {
         .join("")}</ul></section>`
     : "";
 
-  const answerBlock =
-    `<h1>${escText(d.question || d.title)}</h1>` +
-    (d.answer ? `<p class="answer-box"><strong>${escText(d.answer)}</strong></p>` : "") +
-    `<p><em>${escText(updated)}This is general information, not a substitute for personalised medical advice.</em></p>` +
-    faqHtml +
-    sourcesHtml;
-
-  // Swap only the first <h1>…</h1> (the homepage headline in the fallback).
-  out = out.replace(/<h1>[^<]*<\/h1>/, answerBlock);
+  out = replaceSeoFallback(out, `${buildStaticArticleInner(d)}${sourcesHtml}`, {
+    visible: true,
+  });
+  if (d.article) out = embedArticleJson(out, d.article);
 
   return out;
 }
 
 // ---------- head rewrite (canonical/og:url — unchanged behaviour) ----------
 
-function rewriteHead(html, route) {
+export function rewriteHead(html, route, dataOverride) {
   const url = `${BASE}${route}`;
   // Replace homepage og:url with route-specific og:url.
   let out = html.replace(
@@ -355,28 +340,56 @@ function rewriteHead(html, route) {
   );
 
   // AI-visibility enrichment (title, description, JSON-LD) for curated routes.
-  out = enrichHead(out, route, url);
+  out = enrichHead(out, route, url, dataOverride);
   return out;
 }
 
-const routes = collectRoutes();
-let written = 0;
-let skipped = 0;
-let enriched = 0;
-
-for (const route of routes) {
-  const dir = join(DIST, route.replace(/^\//, ""));
-  const file = join(dir, "index.html");
-  if (existsSync(file)) {
-    skipped++;
-    continue;
+function isDirectRun() {
+  const entry = process.argv[1];
+  if (!entry) return false;
+  try {
+    return fileURLToPath(import.meta.url) === resolve(entry);
+  } catch {
+    return /inject-canonicals\.mjs$/.test(entry);
   }
-  mkdirSync(dirname(file), { recursive: true });
-  writeFileSync(file, rewriteHead(template, route));
-  written++;
-  if (headDataFor(route)) enriched++;
 }
 
-console.log(
-  `[inject-canonicals] wrote ${written} per-route HTML files (skipped ${skipped} existing, ${enriched} AI-enriched with static JSON-LD)`,
-);
+function writeRouteFiles() {
+  if (!template) {
+    console.warn("[inject-canonicals] dist/index.html missing — skipping");
+    return;
+  }
+  const routes = collectRoutes();
+  let written = 0;
+  let skipped = 0;
+  let rebuilt = 0;
+  let enriched = 0;
+
+  for (const route of routes) {
+    const dir = join(DIST, route.replace(/^\//, ""));
+    const file = join(dir, "index.html");
+    const data = headDataFor(route);
+    if (existsSync(file)) {
+      const existing = readFileSync(file, "utf8");
+      // Keep a successful Puppeteer snapshot. Rebuild thin shells that
+      // still look like the homepage or only have a short answer teaser.
+      if (htmlHasFullArticle(existing, data)) {
+        skipped++;
+        continue;
+      }
+      rebuilt++;
+    }
+    mkdirSync(dirname(file), { recursive: true });
+    writeFileSync(file, rewriteHead(template, route));
+    written++;
+    if (data) enriched++;
+  }
+
+  console.log(
+    `[inject-canonicals] wrote ${written} per-route HTML files (skipped ${skipped} existing, rebuilt ${rebuilt} thin snapshots, ${enriched} AI-enriched with static JSON-LD)`,
+  );
+}
+
+if (isDirectRun()) {
+  writeRouteFiles();
+}

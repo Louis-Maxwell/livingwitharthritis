@@ -113,6 +113,23 @@ describe("SEO build safety", () => {
     expect(sitemapSource).toContain('p.startsWith("/blog/category/")');
   });
 
+  it("bakes unique blog and condition bodies into the first HTML response", () => {
+    const inject = readFileSync(
+      resolve(process.cwd(), "scripts/inject-canonicals.mjs"),
+      "utf8",
+    );
+    const blogHead = readFileSync(
+      resolve(process.cwd(), "scripts/generate-blog-head-data.mjs"),
+      "utf8",
+    );
+
+    expect(inject).toContain("replaceSeoFallback");
+    expect(inject).toContain("condition-head-data.json");
+    expect(inject).toContain("htmlHasFullArticle");
+    expect(blogHead).toContain("article:");
+    expect(blogHead).toContain("content: row.content");
+  });
+
   it("does not auto-prefix the current path into empty locale stubs", () => {
     const source = readFileSync(
       resolve(process.cwd(), "src/components/LanguageSwitcher.tsx"),

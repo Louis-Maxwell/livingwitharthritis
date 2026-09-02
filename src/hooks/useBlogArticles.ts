@@ -1,6 +1,9 @@
 import { supabase } from "@/integrations/supabase/client";
 import { useQuery } from "@tanstack/react-query";
 import { getClustersForArticle, scoreCandidate } from "@/lib/relatedClusters";
+import { readEmbeddedBlogArticle } from "@/lib/embeddedBlogArticle";
+
+export { readEmbeddedBlogArticle } from "@/lib/embeddedBlogArticle";
 
 // Supabase client removed - restore for database queries
 
@@ -40,6 +43,10 @@ const LIST_FIELDS = "slug, title, meta_title, excerpt, date, category, image_url
 
 /** Single article by slug */
 export function useBlogArticle(slug: string | undefined) {
+  const initialData =
+    typeof document === "undefined"
+      ? null
+      : readEmbeddedBlogArticle<DBBlogArticle>(document, slug);
   return useQuery({
     queryKey: ["blog_article", slug],
     queryFn: async () => {
@@ -54,6 +61,9 @@ export function useBlogArticle(slug: string | undefined) {
       return data as unknown as DBBlogArticle;
     },
     enabled: !!slug,
+    ...(initialData
+      ? { initialData, initialDataUpdatedAt: Date.now() }
+      : {}),
   });
 }
 
