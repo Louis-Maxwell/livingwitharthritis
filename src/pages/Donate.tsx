@@ -20,23 +20,23 @@ const MAX_AMOUNT = 100000;
 
 const DONATION_OPTIONS = [
   {
+    amount: "£25",
+    impact: "Three guided sessions so someone in pain can start moving again this week",
+    color: "bg-primary/10 border-primary/20 text-primary dark:text-primary",
+  },
+  {
     amount: "£50",
-    impact: "Funds a personalised exercise plan and a virtual physio session",
+    impact: "A personalised exercise plan and a virtual physio session for one person",
     color: "bg-primary/10 border-primary/20 text-primary dark:text-primary",
   },
   {
     amount: "£150",
-    impact: "Supports our help chat for a full month",
-    color: "bg-primary/10 border-primary/20 text-primary dark:text-primary",
-  },
-  {
-    amount: "£200",
-    impact: "Keeps the platform free for 1,000 users for a month",
+    impact: "A month of real-person help-chat replies for people stuck in a flare",
     color: "bg-primary/10 border-primary/20 text-primary dark:text-primary",
   },
   {
     amount: "£500",
-    impact: "Powers a full quarter of patient guidance content",
+    impact: "Keeps the free guides, exercises and diet plans online for the season ahead",
     color: "bg-primary/10 border-primary/20 text-primary",
   },
 ];
@@ -45,9 +45,9 @@ const WAYS_TO_GIVE = [
   {
     icon: Heart,
     title: "One-Off Donation",
-    desc: "Make a single gift to support our work",
-    action: "Donate Now",
-    href: "/zakat-appeal",
+    desc: "A one-off gift that keeps free arthritis support in reach for someone who needs it today",
+    action: "Give once",
+    href: "/donate#give",
     color: "text-primary bg-primary/10",
   },
   {
@@ -80,7 +80,7 @@ const WAYS_TO_GIVE = [
     title: "Gift Aid",
     desc: "UK taxpayers can boost their donation by 25% at no extra cost",
     action: "Learn about Gift Aid",
-    href: "/zakat-appeal",
+    href: "/donate#gift-aid",
     color: "text-primary bg-primary/10",
   },
   {
@@ -138,18 +138,21 @@ export default function Donate() {
     </Helmet>
       <Header />
       <main id="main-content" className="min-h-screen bg-background">
-        {/* Hero */}
+        {/* Hero — story first, then the ask */}
         <section className="bg-gradient-to-br from-primary/5 via-background to-primary/5 border-b border-border/20">
           <div className="container mx-auto px-6 md:px-10 py-16 md:py-24 max-w-4xl text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
               <Heart className="w-4 h-4 text-primary fill-primary/20" />
-              <span className="text-xs font-bold text-primary tracking-wider uppercase">Every Donation Matters</span>
+              <span className="text-xs font-bold text-primary tracking-wider uppercase">Help someone move again</span>
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-tight mb-5">
-              Donate to keep free arthritis support in the UK
+              Give so someone with arthritis can walk, work, and hold the people they love
             </h1>
+            <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-4">
+              When our founder, Louis Maxwell, was 28, a GP handed him a sheet of home exercises and nothing else. No plan. No follow-up. That gap is why this charity exists.
+            </p>
             <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-8">
-              Your generosity funds free virtual physiotherapy, evidence-based diet plans, online health support and community programmes for thousands of people across the UK living with arthritis.
+              Your gift keeps free, clinician-reviewed exercises, diet guidance and a real person on the end of the phone — for a neighbour in the UK living with joint pain, and for survivors who need rehabilitation after war injuries.
             </p>
             <Button
               size="lg"
@@ -203,9 +206,9 @@ export default function Donate() {
 
         {/* Donation Widget */}
         <section id="give" className="container mx-auto px-6 md:px-10 py-16 max-w-3xl scroll-mt-24">
-          <h2 className="text-2xl font-bold text-foreground text-center mb-3">Make a Donation</h2>
+          <h2 className="text-2xl font-bold text-foreground text-center mb-3">Choose what you can give</h2>
           <p className="text-muted-foreground text-center mb-8 max-w-lg mx-auto">
-            Choose a one-time gift or set up monthly giving. Every contribution funds free arthritis support.
+            One-time or monthly. Gift Aid adds 25p in every £1 from UK taxpayers, at no extra cost to you.
           </p>
 
           <div className="bg-card rounded-2xl border border-border/40 p-6 sm:p-8 shadow-sm">
@@ -308,15 +311,20 @@ export default function Donate() {
             </Button>
 
             <p className="text-[11px] text-muted-foreground text-center mt-4">
-              Secured by Stripe · 256-bit encryption{isMonthly ? " · Cancel anytime" : ""}
+              Secured by Stripe · 256-bit encryption{isMonthly ? " · Cancel anytime" : ""} · Gift Aid eligible
             </p>
           </div>
+          <p className="text-xs text-muted-foreground text-center mt-6 max-w-xl mx-auto leading-relaxed">
+            Living With Arthritis is a registered charity in England and Wales (no. {CHARITY.number}).
+            Card fees are taken by Stripe. What we receive funds free UK arthritis support and,
+            if you choose the Zakat appeal, rehabilitation for people living with war injuries.
+          </p>
         </section>
 
         {/* Impact Cards */}
         <section className="container mx-auto px-6 md:px-10 pb-16 max-w-5xl">
-          <h2 className="text-2xl font-bold text-foreground text-center mb-3">Your Impact</h2>
-          <p className="text-muted-foreground text-center mb-10 max-w-lg mx-auto">See exactly how your donation helps people living with arthritis across the UK.</p>
+          <h2 className="text-2xl font-bold text-foreground text-center mb-3">What your gift does</h2>
+          <p className="text-muted-foreground text-center mb-10 max-w-lg mx-auto">Not a slogan. A real unit of care for one person.</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {DONATION_OPTIONS.map((opt) => (
               <div key={opt.amount} className={`rounded-2xl border p-6 text-center ${opt.color}`}>
@@ -325,7 +333,7 @@ export default function Donate() {
               </div>
             ))}
           </div>
-          <p className="text-[10px] text-muted-foreground text-center mt-4">Impact estimates based on average programme costs, 2024–2025.</p>
+          <p className="text-[10px] text-muted-foreground text-center mt-4">Illustrative units of care based on typical session and programme costs. Not a guarantee of a named recipient.</p>
         </section>
 
         {/* Ways to Give */}
@@ -360,7 +368,7 @@ export default function Donate() {
         </section>
 
         {/* Tax-Efficient Giving */}
-        <section className="container mx-auto px-6 md:px-10 py-16 max-w-5xl">
+        <section id="gift-aid" className="container mx-auto px-6 md:px-10 py-16 max-w-5xl scroll-mt-24">
           <div className="mb-10 max-w-3xl mx-auto">
             <CharityRegBadge variant="card" />
           </div>

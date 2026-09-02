@@ -390,6 +390,7 @@ function AnimatedRoutes() {
         <Route path="/diet/foods-to-avoid-with-arthritis" element={<FoodsToAvoidWithArthritis />} />
         <Route path="/myths/does-cracking-knuckles-cause-arthritis" element={<DoesCrackingKnucklesCauseArthritis />} />
         <Route path="/zakat-appeal" element={<ZakatAppeal />} />
+        <Route path="/zakat" element={<Navigate to="/zakat-appeal" replace />} />
         <Route path="/trust" element={<TrustCredibility />} />
         <Route path="/community" element={<CommunityHub />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
