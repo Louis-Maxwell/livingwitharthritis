@@ -11,6 +11,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import NextReadStrip from "@/components/NextReadStrip";
 import InternalLinks from "@/components/InternalLinks";
+import FaqAccordion from "@/components/faq/FaqAccordion";
+
 import CharityRegBadge from "@/components/CharityRegBadge";
 import { buildCharitySchema, injectJsonLd } from "@/lib/jsonLd";
 import { CHARITY } from "@/config/charity";
@@ -457,7 +459,20 @@ const AboutUs = () => {
           </div>
         </section>
 
+        <section id="about-faq" className="py-16 px-4">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+              Frequently asked questions about the charity
+            </h2>
+            <FaqAccordion
+              idPrefix="about-faq"
+              items={ABOUT_FAQS}
+            />
+          </div>
+        </section>
+
         <InternalLinks />
+
         <NextReadStrip currentPath="/about" />
         <Footer />
       </div>
