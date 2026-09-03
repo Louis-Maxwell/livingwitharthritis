@@ -409,6 +409,10 @@ const BlogPost = () => {
 
               <ArticleVoiceover slug={article.slug} className="mt-6 max-w-[640px]" />
 
+              {slug && (
+                <SocialShareButtons title={article.title} slug={slug} />
+              )}
+
             </div>
           </div>
         </header>
