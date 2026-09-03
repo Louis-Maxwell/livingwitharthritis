@@ -100,19 +100,20 @@ export default function ArthritisMentalHealth() {
         </ul>
       </nav>
 
-      {pillar.sections.map((s) => {
-        const id = s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-        return (
-          <section key={id} id={id} className="mb-12 prose prose-lg max-w-none">
-            <h2>{s}</h2>
-            <p className="text-muted-foreground italic">
-              Maxwell will expand this section with full clinical detail in line with the
-              pillar word-count target ({pillar.wordCountTarget} words total). Outline points
-              live in <code>src/data/tier2Outlines.ts</code>.
-            </p>
-          </section>
-        );
-      })}
+      {pillar.sections
+        .filter((s) => s !== 'FAQs')
+        .map((s) => {
+          const id = s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+          return (
+            <section key={id} id={id} className="mb-12 prose prose-lg max-w-none">
+              <h2>{s}</h2>
+              {(sectionCopy[s] ?? []).map((para, i) => (
+                <p key={i}>{para}</p>
+              ))}
+            </section>
+          );
+        })}
+
 
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-4">In-depth articles</h2>
