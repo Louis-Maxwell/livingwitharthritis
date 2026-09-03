@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import InternalLinks from "@/components/InternalLinks";
+import FaqAccordion from "@/components/faq/FaqAccordion";
+
 import ContextualLinks from "@/components/ContextualLinks";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
