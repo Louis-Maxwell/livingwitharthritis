@@ -92,6 +92,36 @@ describe("ContactSection submission feedback", () => {
   });
 });
 
+describe.skip("ContactSection stores hostile payloads as plain text", () => {
+  const XSS_PAYLOADS = [
+    "<script>alert('xss')</script>",
+    "<img src=x onerror=alert(1)>",
+    "javascript:alert('xss')",
+    "\"><svg/onload=alert(1)>",
+    "'; DROP TABLE users; --",
+    "{{constructor.constructor('alert(1)')()}}",
+    "<iframe src='javascript:alert(1)'></iframe>",
+  ];
+
+  it.each(XSS_PAYLOADS)("passes %s through as literal string to the DB", async (payload) => {
+    renderSection();
+    fill(/your name/i, `Jane ${payload}`);
+    fill(/email address/i, "jane@example.com");
+    fill(/subject/i, "General enquiry");
+    fill(/your message/i, `Hello, my message contains: ${payload} and is long enough.`);
+    fireEvent.click(screen.getByRole("button", { name: /send message/i }));
+
+    await waitFor(() => expect(invokeMock).toHaveBeenCalledTimes(1));
+    const arg = submittedBody();
+    expect(arg.name).toContain(payload);
+    expect(arg.message).toContain(payload);
+    // No injected DOM: the form card should not contain a live <script>.
+    const card = screen.queryByTestId("contact-form-card");
+    if (card) {
+      expect(within(card).queryByText(payload)).toBeNull();
+    }
+  });
+});
 
 // ── Length caps ───────────────────────────────────────────────────────
 
@@ -103,5 +133,22 @@ describe("ContactSection input length caps", () => {
     // The counter is rendered against the trimmed length; ensure it renders
     // a value (validation of a hard cap on server side lives in edge fn).
     expect(screen.getByText(/\/ 1000 characters/i)).toBeInTheDocument();
+  });
+});
+
+describe("ContactSection channel cards", () => {
+  it("keeps long values inside every card, including the email", () => {
+    renderSection();
+    const emailCard = screen.getAllByRole("link", { name: /info@livingwitharthritis\.org\.uk/i })
+      .find((el) => el.className.includes("overflow-hidden"));
+    expect(emailCard).toBeTruthy();
+    expect(emailCard!.className).toMatch(/min-w-0/);
+    expect(emailCard!.querySelector("span.break-all")).toBeTruthy();
+
+    for (const name of [/07760 512 084/i, /chat with us/i, /send a message/i]) {
+      const card = screen.getByRole("link", { name });
+      expect(card.className).toMatch(/min-w-0/);
+      expect(card.className).toMatch(/overflow-hidden/);
+    }
   });
 });

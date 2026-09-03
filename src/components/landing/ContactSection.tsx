@@ -142,14 +142,14 @@ const ContactSection = memo(() => {
         </div>
 
         {/* 4-across on desktop, 2x2 on tablet, single column on mobile */}
-        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mb-16 motion-safe:animate-fade-in-up">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-5 mb-16 motion-safe:animate-fade-in-up">
           {channels.map(({ Icon, label, value, sub, href, internal, external }) => {
             const cardClass =
-              "group flex flex-col items-center text-center gap-3 p-7 rounded-2xl bg-white border border-border hover:border-primary hover:-translate-y-0.5 transition-all duration-300 h-full min-h-[220px] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary";
+              "group flex min-w-0 w-full max-w-full flex-col items-center text-center gap-3 overflow-hidden p-5 sm:p-6 rounded-2xl bg-white border border-border hover:border-primary hover:-translate-y-0.5 transition-all duration-300 h-full min-h-[220px] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary";
             const inner = (
               <>
                 <span
-                  className="w-14 h-14 rounded-full border border-primary/40 bg-white flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-300"
+                  className="w-14 h-14 shrink-0 rounded-full border border-primary/40 bg-white flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-300"
                   aria-hidden
                 >
                   <Icon className="w-6 h-6 text-primary group-hover:text-white transition-colors" />
@@ -157,10 +157,12 @@ const ContactSection = memo(() => {
                 <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-foreground/70">
                   {label}
                 </span>
-                <span className="font-bold text-base text-foreground break-words leading-snug">
+                <span className="font-bold text-sm sm:text-base text-foreground leading-snug w-full min-w-0 max-w-full px-1 break-all [overflow-wrap:anywhere]">
                   {value}
                 </span>
-                <span className="text-xs text-muted-foreground leading-relaxed">{sub}</span>
+                <span className="text-xs text-muted-foreground leading-relaxed w-full min-w-0 px-1 break-words">
+                  {sub}
+                </span>
               </>
             );
             return (
@@ -270,7 +272,7 @@ const ContactSection = memo(() => {
 
               <p className="text-center text-xs text-muted-foreground">
                 Your message is sent to{" "}
-                <a href={`mailto:${CONTACT_EMAIL}`} className="text-primary underline underline-offset-2">{CONTACT_EMAIL}</a>
+                <a href={`mailto:${CONTACT_EMAIL}`} className="text-primary underline underline-offset-2 break-all [overflow-wrap:anywhere]">{CONTACT_EMAIL}</a>
                 . We reply within 2 business days.
               </p>
             </div>
