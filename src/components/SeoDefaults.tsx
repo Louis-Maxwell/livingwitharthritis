@@ -59,17 +59,24 @@ function pruneStaticMetaDuplicates() {
     }
   }
 
-  // Louis asked all <link rel="canonical"> tags removed. Strip leftovers
-  // from static HTML or Helmet so none remain in the live document.
-  for (const el of Array.from(document.head.querySelectorAll('link[rel="canonical"]'))) {
-    el.remove();
+  // Exactly one self-referencing <link rel="canonical"> per page. Helmet
+  // does not dedupe <link> by rel, so once <SeoHead> mounts its canonical
+  // (data-rh="true") the static one from index.html must go, or the page
+  // ships two canonicals.
+  const canonicals = Array.from(
+    document.head.querySelectorAll('link[rel="canonical"]'),
+  );
+  if (canonicals.length > 1 && canonicals.some((el) => el.hasAttribute("data-rh"))) {
+    for (const el of canonicals) {
+      if (!el.hasAttribute("data-rh")) el.remove();
+    }
   }
 }
 
 /**
  * Global hreflang emitter. Translated routes get a full language cluster.
  * Every other route gets self-referencing en-GB + x-default tags (not
- * homepage-only). Canonical <link> tags are not emitted.
+ * homepage-only). Canonical <link> tags are emitted by <SeoHead>.
  */
 export default function SeoDefaults() {
   const { pathname } = useLocation();

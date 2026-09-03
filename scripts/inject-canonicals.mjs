@@ -2,7 +2,8 @@
 // <meta property="og:url">, titles, descriptions, FAQ JSON-LD and
 // unique article bodies so non-JS crawlers (Semrush, Bing, social
 // previewers, GPTBot, OAI-SearchBot) see each sitemap URL as itself,
-// not as the homepage shell. <link rel="canonical"> is stripped, not written.
+// not as the homepage shell. One self-referencing <link rel="canonical">
+// is written per route.
 //
 // AI-VISIBILITY UPGRADE: for routes listed in scripts/ai-head-data.json,
 // this script also rewrites the static <title>, meta description and
@@ -312,7 +313,7 @@ function enrichHead(html, route, url, override) {
   return out;
 }
 
-// ---------- head rewrite (og:url + strip canonicals; keep AEO injection) ----------
+// ---------- head rewrite (og:url + self-referencing canonical; keep AEO injection) ----------
 
 export function rewriteHead(html, route, dataOverride) {
   const url = `${BASE}${route}`;
@@ -321,10 +322,13 @@ export function rewriteHead(html, route, dataOverride) {
     /<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/i,
     `<meta property="og:url" content="${url}" />`,
   );
-  // Louis asked all <link rel="canonical"> tags removed. Strip any
-  // inherited homepage canonical; do not insert a replacement. Titles,
-  // descriptions, FAQ JSON-LD and static article HTML still run below.
+  // Exactly one self-referencing canonical per route: drop the inherited
+  // homepage canonical, then insert this URL's own.
   out = out.replace(/[ \t]*<link\s+rel="canonical"[^>]*>\s*\n?/gi, "");
+  out = out.replace(
+    /<\/head>/i,
+    `  <link rel="canonical" href="${url}" />\n</head>`,
+  );
   // App-only screens keep their unique head but must stay out of the index.
   if (isNoindexRoute(route)) {
     out = out.replace(/[ \t]*<meta\s+name="robots"[^>]*>\s*\n?/gi, "");
