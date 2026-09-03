@@ -1,5 +1,4 @@
 import { memo, useRef, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import {
@@ -11,9 +10,9 @@ import {
   CheckCircle2,
   Loader2,
 } from "lucide-react";
-import { friendlyErrorMessage } from "@/lib/apiResponse";
 import { CONTACT_EMAILS, CONTACT_PHONE, CONTACT_PHONE_TEL } from "@/config/contact";
 import { trackContactSubmit } from "@/lib/analytics";
+import { openMailto } from "@/lib/mailtoSubmit";
 import { trackContactFormSubmit } from "@/lib/ga-events";
 
 const CONTACT_EMAIL = CONTACT_EMAILS.info;
@@ -107,24 +106,14 @@ const ContactSection = memo(() => {
     }
     setLoading(true);
     try {
-      const { data, error } = await supabase.functions.invoke('submit-contact', {
-        body: {
-          name: form.name.trim(),
-          email: form.email.trim(),
-          subject: form.subject,
-          message: form.message.trim(),
-        },
+      openMailto({
+        subject: form.subject,
+        body: `Name: ${form.name.trim()}\nEmail: ${form.email.trim()}\n\n${form.message.trim()}`,
       });
-      if (error) throw error;
-      const apiError = (data as { error?: { code: string; message: string } } | null)?.error;
-      if (apiError) throw new Error(friendlyErrorMessage(apiError));
-
       setSubmitted(true);
       trackContactSubmit({ topic: form.subject });
       trackContactFormSubmit(form.subject);
-      toast.success("Message sent! We'll reply to " + form.email.trim() + " within 2 business days.");
-    } catch (err) {
-      toast.error("Something went wrong. Please email us directly at " + CONTACT_EMAIL);
+      toast.success("Please send the email that opened, or write to " + CONTACT_EMAIL + ". We do not store form submissions on this site.");
     } finally {
       setLoading(false);
     }
@@ -198,9 +187,10 @@ const ContactSection = memo(() => {
               <div className="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mx-auto mb-4">
                 <CheckCircle2 className="w-8 h-8 text-primary" aria-hidden="true" />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-2">Message received!</h3>
+              <h3 className="text-xl font-bold text-foreground mb-2">Please send your email</h3>
               <p className="text-muted-foreground mb-6">
-                Thank you for reaching out. We'll reply to <strong>{form.email}</strong> within 2 business days.
+                Your email app should have opened a message to <strong>{CONTACT_EMAIL}</strong>.
+                If it did not, please email us directly. We do not store contact forms on this site.
               </p>
               <button
                 onClick={() => { setForm(blank); setSubmitted(false); }}

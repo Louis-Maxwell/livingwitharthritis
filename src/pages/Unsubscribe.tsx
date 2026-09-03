@@ -1,13 +1,9 @@
-import { supabase } from "@/integrations/supabase/client";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { MailX, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import SeoHead from "@/components/SeoHead";
 
-// Supabase config removed - restore URL and API key
-const SUPABASE_URL = "";
-const SUPABASE_PUBLISHABLE_KEY = "";
 
 type Status = "loading" | "valid" | "already" | "invalid" | "confirming" | "done" | "error";
 
@@ -19,37 +15,15 @@ const Unsubscribe = () => {
   useEffect(() => {
     if (!token) { setStatus("invalid"); return; }
 
-    const validate = async () => {
-      try {
-        const url = `${SUPABASE_URL}/functions/v1/handle-email-unsubscribe?token=${token}`;
-        const res = await fetch(url, {
-          headers: { apikey: SUPABASE_PUBLISHABLE_KEY },
-        });
-        const data = await res.json();
-        if (!res.ok) { setStatus("invalid"); return; }
-        if (data.valid === false && data.reason === "already_unsubscribed") {
-          setStatus("already");
-        } else if (data.valid) {
-          setStatus("valid");
-        } else {
-          setStatus("invalid");
-        }
-      } catch { setStatus("error"); }
-    };
-    validate();
+    setStatus("valid");
   }, [token]);
 
   const handleConfirm = async () => {
     setStatus("confirming");
-    try {
-      const { data, error } = await supabase.functions.invoke("handle-email-unsubscribe", {
-        body: { token },
-      });
-      if (error) { setStatus("error"); return; }
-      if (data?.success) { setStatus("done"); }
-      else if (data?.reason === "already_unsubscribed") { setStatus("already"); }
-      else { setStatus("error"); }
-    } catch { setStatus("error"); }
+    window.location.href = "mailto:info@livingwitharthritis.org.uk?subject=" +
+      encodeURIComponent("Please unsubscribe me") +
+      "&body=" + encodeURIComponent("Please remove me from the email list. Token: " + (token || "none"));
+    setStatus("done");
   };
 
   return (

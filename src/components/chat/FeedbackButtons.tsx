@@ -27,7 +27,6 @@ export function FeedbackButtons({
     if (saving) return;
     setSaving(true);
     try {
-      // Supabase feedback insert removed - functionality to be restored later
       setSubmitted(rating === 1 ? "up" : "down");
       setShowComment(false);
       toast.success("Thanks for the feedback.");

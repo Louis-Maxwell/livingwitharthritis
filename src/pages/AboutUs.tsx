@@ -1,4 +1,3 @@
-import { supabase } from "@/integrations/supabase/client";
 import { lazy, Suspense, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
@@ -72,28 +71,12 @@ const AboutUs = () => {
   useEffect(() => injectJsonLd("ld-charity-about", buildCharitySchema()), []);
   const { data: sections = [], isLoading } = useQuery({
     queryKey: ["about_us_sections"],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from("about_us_sections")
-        .select("*")
-        .eq("is_active", true)
-        .order("display_order", { ascending: true });
-      if (error) throw error;
-      return data;
-    },
+    queryFn: async () => [],
   });
 
   const { data: chapters = [] } = useQuery<JourneyChapter[]>({
     queryKey: ["journey_chapters"],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from("journey_chapters")
-        .select("id, year, title, description, display_order")
-        .eq("is_active", true)
-        .order("display_order", { ascending: true });
-      if (error) throw error;
-      return data as JourneyChapter[];
-    },
+    queryFn: async () => [] as JourneyChapter[],
   });
 
   return (

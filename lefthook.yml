@@ -1,15 +1,4 @@
-# Lefthook configuration — local git hooks
-#
-# Setup (one-time, after cloning the repo locally):
-#   bun add -d lefthook
-#   bunx lefthook install
-#
-# This registers the hooks below in .git/hooks. From then on, every
-# `git push` will run `supabase db lint` and abort the push if the
-# linter reports any migration or RLS policy issues.
-#
-# Requires the Supabase CLI to be installed locally:
-#   https://supabase.com/docs/guides/cli
+# Lefthook configuration - local git hooks
 
 pre-push:
   parallel: true
@@ -17,13 +6,5 @@ pre-push:
     css-utilities:
       run: node scripts/check-css-utilities.mjs
       fail_text: |
-        ✖ CSS utility check failed.
-        Ambiguous or non-tokenised Tailwind utilities were found above.
-        Fix them before pushing, or run `git push --no-verify` to bypass.
-    supabase-db-lint:
-      run: supabase db lint --level warning
-      fail_text: |
-        ✖ supabase db lint reported issues.
-        Fix the migration/policy warnings above before pushing,
-        or run `git push --no-verify` to bypass (not recommended).
-
+        CSS utility check failed.
+        Fix ambiguous or non-tokenised Tailwind utilities before pushing.

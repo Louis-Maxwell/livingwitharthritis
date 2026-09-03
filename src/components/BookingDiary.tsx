@@ -9,7 +9,6 @@ import { useAdminAppointments } from "@/hooks/useAdminAppointments";
 import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "sonner";
 
-// Supabase type removed - define Appointment inline
 type Appointment = {
   id: string;
   name: string;

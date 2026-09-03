@@ -3,9 +3,8 @@
  * Generates public/llms-full.txt from two already-reviewed sources:
  *  1. scripts/ai-head-data.json — condition/guide/city/glossary/pet pages
  *     (238 routes), the same data used for on-page schema injection.
- *  2. Supabase blog_articles — each article's existing `direct_answer`
- *     (a 40-60 word plain-English summary already rendered on the live
- *     page's AnswerBox) or `excerpt` as a fallback.
+ *  2. scripts/blog-head-data.json — each article's existing `direct_answer`
+ *     or `excerpt` from the checked-in snapshot.
  *
  * This does NOT invent new content — every line here already exists,
  * reviewed, on a live page. It just re-exports it in the plain-text Q&A
@@ -56,48 +55,22 @@ function buildHeadDataSections() {
   });
 }
 
-function publicSupabaseDefaults() {
-  try {
-    const src = readFileSync(
-      resolve("src/integrations/supabase/publicDefaults.ts"),
-      "utf8",
-    );
-    const url = src.match(/url:\s*['"]([^'"]+)['"]/)?.[1];
-    const key = src.match(/publishableKey:\s*['"\s]+([^'"]+)['"]/)?.[1];
-    return { url, key };
-  } catch {
-    return {};
-  }
+function readLocalBlogArticles() {
+  const data = JSON.parse(readFileSync(resolve("scripts/blog-head-data.json"), "utf8"));
+  return Object.values(data)
+    .map((entry) => entry?.article)
+    .filter(Boolean)
+    .map((a) => ({
+      slug: a.slug,
+      title: a.title,
+      excerpt: a.excerpt,
+      direct_answer: a.direct_answer,
+      category: a.category,
+      updated_at: a.updated_at,
+      date: a.date,
+    }));
 }
 
-async function fetchBlogArticles() {
-  const defaults = publicSupabaseDefaults();
-  const url =
-    process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL || defaults.url;
-  const key =
-    process.env.VITE_SUPABASE_PUBLISHABLE_KEY ||
-    process.env.SUPABASE_PUBLISHABLE_KEY ||
-    process.env.SUPABASE_ANON_KEY ||
-    defaults.key;
-  if (!url || !key) {
-    console.warn("[llms-full] Supabase env missing — skipping blog_articles");
-    return [];
-  }
-  try {
-    const res = await fetch(
-      `${url}/rest/v1/blog_articles?select=slug,title,excerpt,direct_answer,category,updated_at,date&is_published=eq.true&limit=2000`,
-      { headers: { apikey: key, Authorization: `Bearer ${key}` } },
-    );
-    if (!res.ok) {
-      console.warn(`[llms-full] blog fetch ${res.status} — skipping`);
-      return [];
-    }
-    return await res.json();
-  } catch (e) {
-    console.warn("[llms-full] blog fetch failed:", e.message);
-    return [];
-  }
-}
 
 function buildBlogSections(rows) {
   // Exclude legacy slugs that redirect to a newer canonical slug — same
@@ -127,7 +100,7 @@ function buildBlogSections(rows) {
 
 async function main() {
   const headDataSections = buildHeadDataSections();
-  const blogRows = await fetchBlogArticles();
+  const blogRows = readLocalBlogArticles();
   const blogSections = buildBlogSections(blogRows);
 
   const header = [
@@ -152,7 +125,7 @@ async function main() {
         .filter(Boolean);
       if (kept.length > 0) {
         console.warn(
-          `[llms-full] blog fetch empty — preserving ${kept.length} existing blog sections`,
+          `[llms-full] local blog snapshot empty — preserving ${kept.length} existing blog sections`,
         );
         finalBlogSections = kept;
       }

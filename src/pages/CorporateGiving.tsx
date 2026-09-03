@@ -1,4 +1,4 @@
-import { supabase } from "@/integrations/supabase/client";
+import { openMailto } from "@/lib/mailtoSubmit";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
@@ -103,17 +103,18 @@ const CorporateGiving = () => {
 
     setIsSubmitting(true);
     try {
-      const { error } = await supabase.from("fundraising_inquiries").insert({
-        contact_name: parsed.data.contact_name,
-        email: parsed.data.email,
-        organization_name: parsed.data.organization_name || null,
-        inquiry_type: parsed.data.inquiry_type,
-        phone: parsed.data.phone || null,
-        message: parsed.data.message || null,
+      openMailto({
+        subject: "Corporate giving enquiry",
+        body: [
+          "Name: " + parsed.data.contact_name,
+          "Email: " + parsed.data.email,
+          parsed.data.organization_name ? "Organisation: " + parsed.data.organization_name : "",
+          "Type: " + parsed.data.inquiry_type,
+          parsed.data.phone ? "Phone: " + parsed.data.phone : "",
+          parsed.data.message ? parsed.data.message : "",
+        ].filter(Boolean).join("\n"),
       });
-
-      if (error) throw error;
-      toast.success("Thank you! We'll be in touch within 2 business days.");
+      toast.success("Please send the email that opened. We do not store enquiries on this site.");
       setFormData({ contact_name: "", email: "", organization_name: "", inquiry_type: "", phone: "", message: "" });
     } catch {
       toast.error("Something went wrong. Please try again.");

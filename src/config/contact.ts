@@ -4,8 +4,6 @@
  * Update values here and they will propagate everywhere in the frontend
  * (pages, components, footer, exit-intent flows, transactional copy).
  *
- * Edge functions cannot import from `src/`; mirror values in
- * `supabase/functions/_shared/contact.ts` if a server-side change is needed.
  */
 export const CONTACT_EMAILS = {
   info: "info@livingwitharthritis.org.uk",

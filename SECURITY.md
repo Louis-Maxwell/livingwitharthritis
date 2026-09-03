@@ -1,38 +1,14 @@
-# Security Policy
+# Security
 
-Living With Arthritis UK (registered charity 1218461) serves people managing
-long-term health conditions. We take the security of our website and our
-visitors' data seriously.
+If you find a vulnerability or a leaked credential, do not open a public issue.
 
-## Reporting a vulnerability
+Email info@livingwitharthritis.org.uk with the subject SECURITY: short description.
+We aim to acknowledge reports within 2 working days.
 
-If you believe you have found a security vulnerability in
-livingwitharthritis.org.uk or this repository, please report it privately:
+Only the main branch and the live site at https://livingwitharthritis.org.uk receive updates.
 
-- **Email:** info@livingwitharthritis.org.uk with the subject line
-  `SECURITY: <short description>`
-- Or use GitHub's **"Report a vulnerability"** button (Security tab →
-  Advisories) if enabled on this repository.
+Never commit secret API tokens or real .env / .env.local files.
+Stripe publishable keys and Google Analytics IDs are public by design.
 
-Please include steps to reproduce, the affected URL or file, and any proof of
-concept. Please do **not** open a public issue for security problems, access
-other users' data, or run automated scanning against the production site
-without contacting us first.
-
-We aim to acknowledge reports within **5 working days** and to remediate
-confirmed issues promptly. We are grateful to researchers who disclose
-responsibly — with your permission we will credit you once a fix ships.
-
-## Scope
-
-- livingwitharthritis.org.uk (production website)
-- This repository's application code, build scripts and CI workflows
-- Supabase edge functions belonging to this project
-
-Out of scope: third-party platforms we rely on (Lovable, Supabase, Stripe,
-PayPal, GitHub) — please report issues in those directly to the vendor.
-
-## Supported versions
-
-The production deployment always tracks the `main` branch. Only the latest
-deployed version is supported.
+GitHub Push Protection and the Gitleaks workflow scan every push.
+Lefthook runs a CSS utility check on pre-push.

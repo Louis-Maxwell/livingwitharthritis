@@ -168,14 +168,14 @@ function gatherText(entry: string, seen = new Set<string>()): string {
   while ((m = importRe.exec(raw))) {
     const resolved = resolveImport(m[1], entry);
     if (!resolved) continue;
-    if (/\/(node_modules|integrations\/supabase)\//.test(resolved)) continue;
+    if (/\/(node_modules)\//.test(resolved)) continue;
     text += " " + gatherText(resolved, seen);
   }
   const dynImportRe = /import\(\s*["']([^"']+)["']\s*\)/g;
   while ((m = dynImportRe.exec(raw))) {
     const resolved = resolveImport(m[1], entry);
     if (!resolved) continue;
-    if (/\/(node_modules|integrations\/supabase)\//.test(resolved)) continue;
+    if (/\/(node_modules)\//.test(resolved)) continue;
     text += " " + gatherText(resolved, seen);
   }
   return text;

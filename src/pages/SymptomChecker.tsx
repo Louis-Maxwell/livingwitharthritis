@@ -1,4 +1,3 @@
-import { supabase } from "@/integrations/supabase/client";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
@@ -97,12 +96,8 @@ export default function SymptomChecker() {
     setLoading(true);
     setError(null);
     try {
-      const { data, error: fnErr } = await supabase.functions.invoke("symptom-ranker", {
-        body: { answers: next },
-      });
-      if (fnErr) throw fnErr;
-      if (data?.error) throw new Error(data.error);
-      setResults(data.results ?? []);
+      setResults([]);
+      setError("The symptom checker ranking service is paused. Please browse our condition guides or email info@livingwitharthritis.org.uk.");
     } catch (e) {
       setError(e instanceof Error ? e.message : "Something went wrong. Please try again.");
     } finally {

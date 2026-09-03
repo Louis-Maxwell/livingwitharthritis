@@ -21,7 +21,6 @@ const Accessibility_Page = () => {
   const [backendSettings, setBackendSettings] = useState<Array<{ title: string; value: string }>>([]);
 
   useEffect(() => {
-    // Supabase accessibility settings query removed - functionality to be restored later
     setBackendSettings([]);
   }, []);
 

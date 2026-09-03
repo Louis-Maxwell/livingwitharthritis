@@ -1,10 +1,8 @@
-import { supabase } from "@/integrations/supabase/client";
 import { useState, useRef, useCallback } from "react";
 import { toast } from "sonner";
 import { sanitizeInput, sanitizeEmail, sanitizePhone } from "@/lib/sanitize";
-
-// Supabase client removed - restore
-import { unwrapResponse, friendlyErrorMessage } from "@/lib/apiResponse";
+import { openMailto } from "@/lib/mailtoSubmit";
+import { CONTACT_EMAILS } from "@/config/contact";
 
 interface AppointmentData {
   name: string;
@@ -17,7 +15,7 @@ interface AppointmentData {
 }
 
 const MAX_ATTEMPTS = 10;
-const WINDOW_MS = 300000; // 5 minutes
+const WINDOW_MS = 300000;
 
 export function useAppointment() {
   const [isLoading, setIsLoading] = useState(false);
@@ -48,29 +46,20 @@ export function useAppointment() {
 
     setIsLoading(true);
     try {
-      const { data: result, error } = await supabase.functions.invoke("book-appointment", {
-        body: sanitizedData,
-      });
-
-      if (error) throw new Error(error.message || "Failed to book appointment");
-
-      const { data: payload, error: apiError } = unwrapResponse<{
-        appointmentId?: string;
-        message?: string;
-      }>(result);
-
-      if (apiError) {
-        const msg = friendlyErrorMessage(apiError);
-        toast.error(msg);
-        return { success: false, error: msg };
-      }
-
-      toast.success(payload?.message || "Appointment booked successfully!");
-      return { success: true, appointmentId: payload?.appointmentId };
-    } catch (error) {
-      const message = error instanceof Error ? error.message : "Failed to book appointment";
-      toast.error(message);
-      return { success: false, error: message };
+      const body = [
+        `Name: ${sanitizedData.name}`,
+        `Email: ${sanitizedData.email}`,
+        sanitizedData.phone ? `Phone: ${sanitizedData.phone}` : "",
+        `Type: ${sanitizedData.appointmentType}`,
+        `Preferred date: ${sanitizedData.preferredDate}`,
+        `Preferred time: ${sanitizedData.preferredTime}`,
+        sanitizedData.notes ? `Notes: ${sanitizedData.notes}` : "",
+      ].filter(Boolean).join("\n");
+      openMailto({ subject: "Appointment request", body });
+      toast.success(
+        `Please send the email that opened, or write to ${CONTACT_EMAILS.info}. Appointments are not stored on this site.`,
+      );
+      return { success: true };
     } finally {
       setIsLoading(false);
     }

@@ -6,9 +6,6 @@ import {
   assertSafeBlogInventory,
   isValidCitySupportRoute,
 } from "@/lib/seoBuildSafety";
-// Supabase config removed - restore in test
-const SUPABASE_PROJECT_ID = "eswdtpmknwjxtvkyxvmi";
-const SUPABASE_URL = "https://eswdtpmknwjxtvkyxvmi.supabase.co";
 import {
   GENERIC_HOME_TITLE,
   isPrerenderDocumentReady,
@@ -128,6 +125,7 @@ describe("SEO build safety", () => {
     expect(inject).toContain("htmlHasFullArticle");
     expect(blogHead).toContain("article:");
     expect(blogHead).toContain("content: row.content");
+    expect(blogHead).toContain("local JSON only");
   });
 
   it("does not auto-prefix the current path into empty locale stubs", () => {
@@ -155,14 +153,6 @@ describe("SEO build safety", () => {
     expect(sitemapSource).toContain("src/data/healthTopics.ts");
     expect(sitemapSource).toContain("`/faq/${slug}`");
     expect(sitemapSource).toContain("`/library/${slug}`");
-
-    const edgeSitemap = readFileSync(
-      resolve(process.cwd(), "supabase/functions/generate-sitemap/index.ts"),
-      "utf8",
-    );
-    expect(edgeSitemap).not.toContain("`/arthritis-support/${slug}/${cond}`");
-    expect(edgeSitemap).toContain("`/conditions/${c}/${s}`");
-    expect(edgeSitemap).toContain('loc: "/donate"');
   });
 
   it("does not list thin combinatorial URLs on the HTML sitemap or city hubs", () => {
@@ -211,12 +201,6 @@ describe("SEO build safety", () => {
     expect(new Set(BLOG_CATEGORY_KEYS).size).toBe(BLOG_CATEGORY_KEYS.length);
   });
 
-  it("falls back to the active production Supabase project", () => {
-    expect(SUPABASE_PROJECT_ID).toBe("eswdtpmknwjxtvkyxvmi");
-    expect(SUPABASE_URL).toBe(
-      "https://eswdtpmknwjxtvkyxvmi.supabase.co",
-    );
-  });
 
   it("waits for route-specific prerender content and metadata", () => {
     document.title = GENERIC_HOME_TITLE;

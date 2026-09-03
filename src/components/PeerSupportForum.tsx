@@ -1,8 +1,6 @@
-import { supabase } from "@/integrations/supabase/client";
 import { useState, useEffect } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 
-// Supabase client removed - restore
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -100,27 +98,14 @@ function ThreadView({
   const { data: replies = [], isLoading } = useQuery({
     queryKey: ["forum_replies", topic.id],
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from("forum_replies")
-        .select("*")
-        .eq("topic_id", topic.id)
-        .eq("status", "published")
-        .order("created_at", { ascending: true });
-      if (error) throw error;
-      return data as Reply[];
+      return [];
     },
   });
 
   const postReply = useMutation({
     mutationFn: async (content: string) => {
       if (!currentUserId) throw new Error("not-logged-in");
-      const { error } = await supabase.from("forum_replies").insert({
-        topic_id: topic.id,
-        user_id: currentUserId,
-        content: content.trim(),
-        status: "published",
-      });
-      if (error) throw error;
+      throw new Error("not-logged-in");
     },
     onSuccess: () => {
       setReplyText("");
@@ -230,24 +215,15 @@ export default function PeerSupportForum() {
   const [currentUserId, setCurrentUserId] = useState<string | null>(null);
 
   useEffect(() => {
-    supabase.auth.getUser().then(({ data }) => setCurrentUserId(data.user?.id ?? null));
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_e, session) => {
-      setCurrentUserId(session?.user?.id ?? null);
-    });
+    setCurrentUserId(null);
+    const subscription = { unsubscribe() {} };
     return () => subscription.unsubscribe();
   }, []);
 
   const { data: topics = [], isLoading: topicsLoading } = useQuery({
     queryKey: ["forum_topics"],
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from("forum_topics")
-        .select("*")
-        .eq("status", "published")
-        .order("is_pinned", { ascending: false })
-        .order("updated_at", { ascending: false });
-      if (error) throw error;
-      return data as Topic[];
+      return [];
     },
   });
 
@@ -260,12 +236,7 @@ export default function PeerSupportForum() {
     queryKey: ["forum_profiles", userIds.join(",")],
     enabled: userIds.length > 0,
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from("profiles")
-        .select("user_id, display_name, avatar_initial, condition, bio")
-        .in("user_id", userIds);
-      if (error) throw error;
-      return data as Profile[];
+      return [];
     },
   });
 

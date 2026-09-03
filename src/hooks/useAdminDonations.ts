@@ -1,7 +1,4 @@
-import { supabase } from "@/integrations/supabase/client";
-import { useState, useEffect } from "react";
-
-// Supabase client removed - restore
+import { useState } from "react";
 
 interface Donation {
   id: string;
@@ -24,54 +21,14 @@ interface DonationStats {
 }
 
 export function useAdminDonations() {
-  const [donations, setDonations] = useState<Donation[]>([]);
-  const [stats, setStats] = useState<DonationStats>({
+  const [donations] = useState<Donation[]>([]);
+  const [stats] = useState<DonationStats>({
     totalAmount: 0,
     totalCount: 0,
     averageAmount: 0,
     byFundType: {},
   });
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchDonations = async () => {
-      try {
-        const { data, error } = await supabase
-          .from("donations")
-          .select("*")
-          .eq("status", "completed")
-          .order("created_at", { ascending: false });
-
-        if (error) throw error;
-
-        const donationsList = data as Donation[];
-        setDonations(donationsList);
-
-        // Calculate stats
-        const totalAmount = donationsList.reduce((sum, d) => sum + Number(d.amount), 0);
-        const totalCount = donationsList.length;
-        const averageAmount = totalCount > 0 ? totalAmount / totalCount : 0;
-
-        const byFundType: Record<string, { amount: number; count: number }> = {};
-        donationsList.forEach((d) => {
-          if (!byFundType[d.fund_type]) {
-            byFundType[d.fund_type] = { amount: 0, count: 0 };
-          }
-          byFundType[d.fund_type].amount += Number(d.amount);
-          byFundType[d.fund_type].count += 1;
-        });
-
-        setStats({ totalAmount, totalCount, averageAmount, byFundType });
-      } catch (err) {
-        setError(err instanceof Error ? err.message : "Failed to fetch donations");
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchDonations();
-  }, []);
-
+  const [isLoading] = useState(false);
+  const [error] = useState<string | null>(null);
   return { donations, stats, isLoading, error };
 }

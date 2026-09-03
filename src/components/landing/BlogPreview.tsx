@@ -1,49 +1,22 @@
-import { supabase } from "@/integrations/supabase/client";
-import { memo, useEffect, useState } from "react";
+import { memo } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { coverImage } from "@/lib/articleImages";
-import SkeletonSection from "./SkeletonSection";
+import { listPublishedArticles, type BlogListItem } from "@/data/staticBlog";
 
-// Supabase client removed - functionality to be restored later
-
-interface DBArticle {
-  slug: string;
-  title: string;
-  excerpt: string;
-  image_url: string | null;
-  category: string;
-  date: string;
-  content: string;
-}
-
-function estimateReadingTime(content: string): string {
-  const words = content.split(/\s+/).length;
+function estimateReadingTime(text: string | null | undefined): string {
+  const words = (text ?? "").split(/\s+/).filter(Boolean).length;
   return `${Math.max(1, Math.ceil(words / 220))} min read`;
 }
 
-function pickImage(a: DBArticle): string {
+function pickImage(a: BlogListItem): string {
   return coverImage(a.category, a.title, a.slug).src;
 }
 
+const PREVIEW = listPublishedArticles().slice(0, 4);
+
 const BlogPreview = memo(() => {
-  const [articles, setArticles] = useState<DBArticle[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    supabase
-      .from("blog_articles")
-      .select("slug, title, excerpt, image_url, category, date, content")
-      .eq("is_published", true)
-      .order("date", { ascending: false })
-      .limit(4)
-      .then(({ data, error }) => {
-        if (!error && data?.length) setArticles(data);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) return <SkeletonSection />;
+  const articles = PREVIEW;
   if (!articles.length) return null;
 
   const [featured, ...rest] = articles;
@@ -72,7 +45,7 @@ const BlogPreview = memo(() => {
               </h3>
               <p className="text-muted-foreground mt-2">{featured.excerpt}</p>
               <p className="mt-4 text-sm text-muted-foreground">
-                {estimateReadingTime(featured.content)} ·{" "}
+                {estimateReadingTime(featured.excerpt)} ·{" "}
                 {new Date(featured.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
               </p>
             </div>
@@ -94,7 +67,7 @@ const BlogPreview = memo(() => {
                 </h3>
                 <p className="text-sm text-muted-foreground mt-2 line-clamp-2">{a.excerpt}</p>
                 <p className="mt-3 text-xs text-muted-foreground">
-                  {estimateReadingTime(a.content)} ·{" "}
+                  {estimateReadingTime(a.excerpt)} ·{" "}
                   {new Date(a.date).toLocaleDateString("en-GB", { day: "numeric", month: "short" })}
                 </p>
               </div>

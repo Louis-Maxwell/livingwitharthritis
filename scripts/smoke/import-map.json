@@ -1,7 +1,0 @@
-{
-  "imports": {
-    "npm:@supabase/supabase-js@2": "./mocks/supabase-js.ts",
-    "https://esm.sh/stripe@18.5.0": "./mocks/stripe.ts",
-    "npm:@lovable.dev/email-js": "./mocks/email-js.ts"
-  }
-}

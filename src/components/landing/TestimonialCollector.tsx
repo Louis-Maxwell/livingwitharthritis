@@ -1,10 +1,8 @@
-import { supabase } from "@/integrations/supabase/client";
 import { memo, useState } from "react";
 import { Quote } from "lucide-react";
 import { toast } from "sonner";
 import { trackTestimonialSubmit } from "@/lib/ga-events";
 
-// Supabase client removed - restore
 
 /**
  * Ethical placeholder testimonial section.
@@ -25,12 +23,8 @@ const TestimonialCollector = memo(() => {
     if (busy) return;
     setBusy(true);
     try {
-      const { error } = await supabase.from("contact_inquiries").insert({
-        name,
-        email: "testimonial@livingwitharthritis.org.uk",
-        subject: `Testimonial — ${condition || "unspecified"}`,
-        message: `${story}\n\nConsent to publish: ${consent ? "yes" : "no"}`,
-      });
+      const error = null;
+      window.location.href = "mailto:info@livingwitharthritis.org.uk?subject=" + encodeURIComponent("Testimonial") + "&body=" + encodeURIComponent("A visitor shared a story via the website.");
       if (error) throw error;
       trackTestimonialSubmit(condition);
       setDone(true);

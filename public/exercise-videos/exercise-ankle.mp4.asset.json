@@ -2,7 +2,7 @@
   "version": 1,
   "asset_id": "a724e5da-9dfe-4fb0-9f60-b2139219ab3c",
   "project_id": "0b2fd6ca-4e21-4ac7-99fa-d741e996f45e",
-  "url": "https://nfijkdoifihbgomcnbnb.supabase.co/storage/v1/object/public/exercise-videos/exercise-ankle.mp4",
+  "url": "/exercise-videos/exercise-ankle.mp4",
   "original_filename": "exercise-ankle.mp4",
   "size": 1268689,
   "created_at": "2026-05-03T21:30:56Z"

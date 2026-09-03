@@ -1,11 +1,10 @@
-import { supabase } from "@/integrations/supabase/client";
 import { useState, useCallback } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { toast } from "sonner";
-import { unwrapResponse, friendlyErrorMessage } from "@/lib/apiResponse";
 import { trackDonationInitiate } from "@/lib/analytics";
+import { openMailto } from "@/lib/mailtoSubmit";
+import { CONTACT_EMAILS } from "@/config/contact";
 
-// Supabase client removed - restore
 import { Loader2, Heart, CreditCard, ShieldCheck, Gift, ArrowRight, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -52,19 +51,27 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
     setIsLoading(true);
     setError(null);
     try {
-      const { data, error: fnError } = await supabase.functions.invoke("create-donation-checkout", {
-        body: { amount, currency, fundType, giftAid, recurring },
-      });
-
-      if (fnError) throw new Error(fnError.message);
-
-      const { data: payload, error: apiError } = unwrapResponse<{ url?: string }>(data);
-      if (apiError) throw new Error(friendlyErrorMessage(apiError));
-      if (!payload?.url) throw new Error("No checkout URL returned");
-
+      const donateUrl = import.meta.env.VITE_STRIPE_DONATE_URL as string | undefined;
       trackDonationInitiate(amount);
+      if (donateUrl) {
+        onClose();
+        const url = new URL(donateUrl);
+        window.location.href = url.toString();
+        return;
+      }
+      openMailto({
+        subject: `Donation of ${sym}${amount.toFixed(2)} (${getFundLabel()})`,
+        body: [
+          `I would like to donate ${sym}${amount.toFixed(2)} to ${getFundLabel()}.`,
+          recurring ? "This would be a monthly gift." : "This would be a one-off gift.",
+          giftAid ? "I would like Gift Aid applied." : "",
+          "",
+          `Please send a Stripe or PayPal payment link to this address.`,
+        ].filter(Boolean).join("\n"),
+        email: CONTACT_EMAILS.info,
+      });
       onClose();
-      window.location.href = payload.url;
+      toast.success(`Please send the email that opened, or donate via the PayPal option if shown. Card checkout needs a hosted Stripe link (VITE_STRIPE_DONATE_URL).`);
     } catch (err) {
       const msg = err instanceof Error ? err.message : "Failed to create checkout";
       setError(msg);

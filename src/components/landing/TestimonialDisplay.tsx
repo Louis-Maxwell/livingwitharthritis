@@ -19,7 +19,6 @@ const TestimonialDisplay = memo(() => {
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        // Supabase client removed - functionality to be restored later
         setTestimonials([]);
       } catch (error) {
         console.error('Failed to fetch testimonials:', error);

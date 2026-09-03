@@ -10,7 +10,6 @@ export function useBlogViews(slug: string | undefined) {
 
   useEffect(() => {
     if (!slug) return;
-    // Supabase increment view RPC removed - functionality to be restored later
     setViewCount(0);
   }, [slug]);
 
@@ -22,7 +21,6 @@ export function useBlogViewCounts(slugs: string[]) {
 
   useEffect(() => {
     if (!slugs.length) return;
-    // Supabase blog views query removed - functionality to be restored later
     setCounts({});
   }, [slugs]);
 

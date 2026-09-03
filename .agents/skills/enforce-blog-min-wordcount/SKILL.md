@@ -14,7 +14,7 @@ Ensure every row in the `blog_articles` table (Lovable Cloud) where `is_publishe
 
 ## Step 1 — Audit (read-only)
 
-Run the query in `scripts/audit.sql` via `supabase--read_query`. It returns `(slug, title, word_count)` for every published article under 1,400 words, ascending.
+Run the query in `scripts/audit.sql` against the checked-in article JSON. It returns `(slug, title, word_count)` for every published article under 1,400 words, ascending.
 
 ```sql
 SELECT slug, title,
@@ -40,7 +40,7 @@ Process in batches of 10 to bound blast radius. Never run more than 25 concurren
 
 ## Step 3 — Persist
 
-For each validated file, `UPDATE public.blog_articles SET content = $1, updated_at = now() WHERE slug = $2` via the `supabase--insert` tool. Do the writes in one batch per 10 slugs; commit between batches so a mid-run failure leaves earlier batches saved.
+For each validated file, write the new `content` back into `src/data/blogArticles.json` for that slug and refresh `updated_at`. Do the writes in one batch per 10 slugs.
 
 ## Step 4 — Verify
 

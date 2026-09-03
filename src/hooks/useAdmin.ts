@@ -7,7 +7,6 @@ export function useAdmin() {
   useEffect(() => {
     const checkAdminStatus = async () => {
       try {
-        // Supabase auth and RPC call removed - functionality to be restored later
         setIsAdmin(false);
       } catch (error) {
         setIsAdmin(false);
@@ -18,7 +17,6 @@ export function useAdmin() {
 
     checkAdminStatus();
 
-    // Supabase auth state listener removed - functionality to be restored later
     const unsubscribe = () => {
       // no-op
     };

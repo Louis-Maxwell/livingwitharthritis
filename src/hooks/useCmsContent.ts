@@ -1,7 +1,4 @@
-import { supabase } from "@/integrations/supabase/client";
 import { useQuery } from "@tanstack/react-query";
-
-// Supabase client removed - restore
 
 export interface Service {
   id: string;
@@ -11,7 +8,6 @@ export interface Service {
   gradient: string;
   display_order: number;
 }
-
 export interface Condition {
   id: string;
   title: string;
@@ -21,14 +17,12 @@ export interface Condition {
   image_url: string | null;
   display_order: number;
 }
-
 export interface ArthritisType {
   id: string;
   title: string;
   description: string;
   display_order: number;
 }
-
 export interface Statistic {
   id: string;
   number_value: string;
@@ -36,7 +30,6 @@ export interface Statistic {
   icon_name: string;
   display_order: number;
 }
-
 export interface PhysioMyth {
   id: string;
   myth: string;
@@ -44,7 +37,6 @@ export interface PhysioMyth {
   image_url: string | null;
   display_order: number;
 }
-
 export interface DonationTier {
   id: string;
   amount: string;
@@ -52,125 +44,11 @@ export interface DonationTier {
   benefits: string[];
   display_order: number;
 }
-
 export interface FundraisingOption {
   id: string;
   title: string;
   display_order: number;
 }
-
-export function useServices() {
-  return useQuery({
-    queryKey: ["services"],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from("services")
-        .select("*")
-        .eq("is_active", true)
-        .order("display_order", { ascending: true });
-      
-      if (error) throw error;
-      return data as Service[];
-    },
-  });
-}
-
-export function useConditions() {
-  return useQuery({
-    queryKey: ["conditions"],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from("conditions")
-        .select("*")
-        .eq("is_active", true)
-        .order("display_order", { ascending: true });
-      
-      if (error) throw error;
-      return data as Condition[];
-    },
-  });
-}
-
-export function useArthritisTypes() {
-  return useQuery({
-    queryKey: ["arthritis_types"],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from("arthritis_types")
-        .select("*")
-        .eq("is_active", true)
-        .order("display_order", { ascending: true });
-      
-      if (error) throw error;
-      return data as ArthritisType[];
-    },
-  });
-}
-
-export function useStatistics() {
-  return useQuery({
-    queryKey: ["statistics"],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from("statistics")
-        .select("*")
-        .eq("is_active", true)
-        .order("display_order", { ascending: true });
-      
-      if (error) throw error;
-      return data as Statistic[];
-    },
-  });
-}
-
-export function usePhysioMyths() {
-  return useQuery({
-    queryKey: ["physio_myths"],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from("physio_myths")
-        .select("*")
-        .eq("is_active", true)
-        .order("display_order", { ascending: true });
-      
-      if (error) throw error;
-      return data as PhysioMyth[];
-    },
-  });
-}
-
-export function useDonationTiers() {
-  return useQuery({
-    queryKey: ["donation_tiers"],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from("donation_tiers")
-        .select("*")
-        .eq("is_active", true)
-        .order("display_order", { ascending: true });
-      
-      if (error) throw error;
-      return data as DonationTier[];
-    },
-  });
-}
-
-export function useFundraisingOptions() {
-  return useQuery({
-    queryKey: ["fundraising_options"],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from("fundraising_options")
-        .select("*")
-        .eq("is_active", true)
-        .order("display_order", { ascending: true });
-      
-      if (error) throw error;
-      return data as FundraisingOption[];
-    },
-  });
-}
-
 export interface NutritionSection {
   id: string;
   title: string;
@@ -180,19 +58,29 @@ export interface NutritionSection {
   display_order: number;
 }
 
-export function useNutritionSections() {
-  return useQuery({
-    queryKey: ["nutrition_sections"],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from("nutrition_sections")
-        .select("*")
-        .eq("is_active", true)
-        .order("display_order", { ascending: true });
-      
-      if (error) throw error;
-      return data as NutritionSection[];
-    },
-  });
-}
+const empty = async <T,>(): Promise<T[]> => [];
 
+export function useServices() {
+  return useQuery({ queryKey: ["services"], queryFn: empty<Service>, initialData: [] });
+}
+export function useConditions() {
+  return useQuery({ queryKey: ["conditions"], queryFn: empty<Condition>, initialData: [] });
+}
+export function useArthritisTypes() {
+  return useQuery({ queryKey: ["arthritis_types"], queryFn: empty<ArthritisType>, initialData: [] });
+}
+export function useStatistics() {
+  return useQuery({ queryKey: ["statistics"], queryFn: empty<Statistic>, initialData: [] });
+}
+export function usePhysioMyths() {
+  return useQuery({ queryKey: ["physio_myths"], queryFn: empty<PhysioMyth>, initialData: [] });
+}
+export function useDonationTiers() {
+  return useQuery({ queryKey: ["donation_tiers"], queryFn: empty<DonationTier>, initialData: [] });
+}
+export function useFundraisingOptions() {
+  return useQuery({ queryKey: ["fundraising_options"], queryFn: empty<FundraisingOption>, initialData: [] });
+}
+export function useNutritionSections() {
+  return useQuery({ queryKey: ["nutrition_sections"], queryFn: empty<NutritionSection>, initialData: [] });
+}

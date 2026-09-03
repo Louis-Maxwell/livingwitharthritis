@@ -1,7 +1,4 @@
-import { supabase } from "@/integrations/supabase/client";
 import { useQuery } from "@tanstack/react-query";
-
-// Supabase client removed - restore
 
 export interface FaceStoryRow {
   id: string;
@@ -31,29 +28,15 @@ export interface FacesTrustFactRow {
 export function useFaceStories() {
   return useQuery({
     queryKey: ["face_stories"],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from("face_stories")
-        .select("*")
-        .eq("is_active", true)
-        .order("display_order", { ascending: true });
-      if (error) throw error;
-      return data as FaceStoryRow[];
-    },
+    queryFn: async (): Promise<FaceStoryRow[]> => [],
+    initialData: [],
   });
 }
 
 export function useFacesTrustFacts() {
   return useQuery({
     queryKey: ["faces_trust_facts"],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from("faces_trust_facts")
-        .select("*")
-        .eq("is_active", true)
-        .order("display_order", { ascending: true });
-      if (error) throw error;
-      return data as FacesTrustFactRow[];
-    },
+    queryFn: async (): Promise<FacesTrustFactRow[]> => [],
+    initialData: [],
   });
 }

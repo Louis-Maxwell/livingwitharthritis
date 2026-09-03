@@ -20,7 +20,6 @@ export default function BlogHelpfulness({ slug }: Props) {
     const saved = sessionStorage.getItem(storageKey);
     if (saved !== null) setVote(saved === "true");
 
-    // Supabase helpfulness query removed - functionality to be restored later
     setCounts({ up: 0, down: 0 });
   }, [slug, storageKey]);
 
@@ -30,7 +29,6 @@ export default function BlogHelpfulness({ slug }: Props) {
     sessionStorage.setItem(storageKey, String(helpful));
     setCounts((c) => helpful ? { ...c, up: c.up + 1 } : { ...c, down: c.down + 1 });
 
-    // Supabase helpfulness insert removed - functionality to be restored later
   };
 
   const total = counts.up + counts.down;

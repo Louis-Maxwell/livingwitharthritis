@@ -164,7 +164,7 @@ function resolveNarration(textProp?: string): string {
 
 /**
  * In-browser "Listen to this article" player.
- * Speaks immediately via the Web Speech API (no network / no Supabase).
+ * Speaks immediately via the Web Speech API (no network request).
  * Falls back to a static `/audio/{slug}.mp3` when that file exists.
  */
 export default function ArticleVoiceover({ slug, className, text }: ArticleVoiceoverProps) {

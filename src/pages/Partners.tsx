@@ -1,4 +1,3 @@
-import { supabase } from "@/integrations/supabase/client";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
@@ -15,6 +14,7 @@ import { toast } from "sonner";
 import { z } from "zod";
 import { sanitizeInput } from "@/lib/sanitize";
 import { CONTACT_EMAILS } from "@/config/contact";
+import { openMailto } from "@/lib/mailtoSubmit";
 
 const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
 
@@ -54,16 +54,16 @@ export default function Partners() {
 
     setSubmitting(true);
     try {
-      const { error } = await supabase.functions.invoke("submit-contact", {
-        body: {
-          name: sanitizeInput(form.name),
-          email: form.email,
+      openMailto({
           subject: `Partnership Enquiry: ${form.type}`,
-          message: sanitizeInput(`Organisation: ${form.organisation || "N/A"}\nType: ${form.type}\n\n${form.message || ""}`),
-        },
-      });
-      if (error) throw error;
-      toast.success("Enquiry submitted! We'll be in touch within 48 hours.");
+          body: `Organisation: ${form.organisation || "N/A"}
+Type: ${form.type}
+Name: ${form.name}
+Email: ${form.email}
+
+${form.message || ""}`,
+        });
+      toast.success("Please send the email that opened. We do not store partnership forms on this site.");
       setForm({ name: "", email: "", organisation: "", type: "", message: "" });
     } catch {
       toast.error(`Something went wrong. Please try again or email ${CONTACT_EMAILS.info}`);

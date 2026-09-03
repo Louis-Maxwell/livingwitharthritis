@@ -11,12 +11,6 @@ import { MemoryRouter } from "react-router-dom";
 import axe, { type AxeResults, type Result } from "axe-core";
 import ContactSection from "./ContactSection";
 
-vi.mock("@/integrations/supabase/client", () => ({
-  supabase: {
-    from: () => ({ insert: vi.fn().mockResolvedValue({ error: null }) }),
-    functions: { invoke: vi.fn().mockResolvedValue({ error: null }) },
-  },
-}));
 vi.mock("sonner", () => ({ toast: { success: vi.fn(), error: vi.fn() } }));
 vi.mock("@/lib/analytics", () => ({ trackContactSubmit: vi.fn() }));
 vi.mock("@/lib/ga-events", () => ({ trackContactFormSubmit: vi.fn() }));

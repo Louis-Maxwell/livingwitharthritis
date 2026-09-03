@@ -7,18 +7,13 @@ import { Button } from "@/components/ui/button";
 import { injectJsonLd, buildBreadcrumb } from "@/lib/jsonLd";
 import { Copy, Check, Plug } from "lucide-react";
 
-// Supabase config removed - restore PROJECT_ID
-const SUPABASE_PROJECT_ID = "";
 
 const PATH = "/connect";
 
 const Connect = () => {
   const [copied, setCopied] = useState(false);
 
-  const projectRef = SUPABASE_PROJECT_ID;
-  const mcpUrl = projectRef
-    ? `https://${projectRef}.supabase.co/functions/v1/mcp`
-    : "";
+  const mcpUrl = "";
 
   useEffect(() => {
     const c1 = injectJsonLd(

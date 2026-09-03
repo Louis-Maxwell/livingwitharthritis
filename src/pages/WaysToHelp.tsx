@@ -1,4 +1,3 @@
-import { supabase } from "@/integrations/supabase/client";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
@@ -117,17 +116,18 @@ export default function WaysToHelp() {
 
     setSubmitting(true);
     try {
-      const { error } = await supabase.from("volunteer_signups" as any).insert({
-        name: formData.name.trim(),
-        email: formData.email.trim(),
-        area_of_interest: formData.area_of_interest,
-        message: formData.message.trim() || null,
-      } as any);
-
-      if (error) throw error;
-
+      window.location.href = "mailto:info@livingwitharthritis.org.uk?subject=" +
+        encodeURIComponent("Volunteer enquiry") +
+        "&body=" + encodeURIComponent(
+          [
+            "Name: " + formData.name.trim(),
+            "Email: " + formData.email.trim(),
+            "Interest: " + formData.area_of_interest,
+            formData.message.trim() || "",
+          ].filter(Boolean).join("\\n"),
+        );
       setSubmitted(true);
-      toast.success("Thank you for volunteering! We'll be in touch soon.");
+      toast.success("Please send the email that opened. We do not store volunteer forms on this site.");
     } catch {
       toast.error("Something went wrong. Please try again.");
     } finally {

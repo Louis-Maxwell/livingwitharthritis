@@ -1,10 +1,8 @@
-import { supabase } from "@/integrations/supabase/client";
 import { useState, useRef, useCallback } from "react";
 import { toast } from "sonner";
 import { sanitizeInput, sanitizeEmail, sanitizePhone } from "@/lib/sanitize";
-
-// Supabase client removed - restore
-import { unwrapResponse, friendlyErrorMessage } from "@/lib/apiResponse";
+import { openMailto } from "@/lib/mailtoSubmit";
+import { CONTACT_EMAILS } from "@/config/contact";
 
 interface ContactData {
   name: string;
@@ -46,25 +44,21 @@ export function useContact() {
 
     setIsLoading(true);
     try {
-      const { data: result, error } = await supabase.functions.invoke("submit-contact", {
-        body: sanitizedData,
+      const lines = [
+        `Name: ${sanitizedData.name}`,
+        `Email: ${sanitizedData.email}`,
+        sanitizedData.phone ? `Phone: ${sanitizedData.phone}` : "",
+        "",
+        sanitizedData.message,
+      ].filter(Boolean);
+      openMailto({
+        subject: sanitizedData.subject || "Website enquiry",
+        body: lines.join("\n"),
       });
-
-      if (error) throw new Error(error.message || "Failed to submit contact form");
-
-      const { data: payload, error: apiError } = unwrapResponse<{ message?: string; contactId?: string }>(result);
-      if (apiError) {
-        const msg = friendlyErrorMessage(apiError);
-        toast.error(msg);
-        return { success: false, error: msg };
-      }
-
-      toast.success(payload?.message || "Thank you for contacting us!");
+      toast.success(
+        `Your email app should open. If it does not, write to ${CONTACT_EMAILS.info}.`,
+      );
       return { success: true };
-    } catch (error) {
-      const message = error instanceof Error ? error.message : "Failed to submit contact form";
-      toast.error(message);
-      return { success: false, error: message };
     } finally {
       setIsLoading(false);
     }

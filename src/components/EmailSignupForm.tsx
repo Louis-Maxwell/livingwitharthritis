@@ -1,5 +1,4 @@
 import { memo, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
 import { Mail, CheckCircle2, AlertCircle } from "lucide-react";
 import { toast } from "sonner";
 import { trackEvent, trackNewsletterSignup } from "@/lib/analytics";
@@ -36,26 +35,17 @@ const EmailSignupForm = memo(({
     setError(null);
 
     try {
-      const { error: insertError } = await supabase
-        .from("email_subscriptions")
-        .upsert(
-          {
-            email: email.trim().toLowerCase(),
-            source: "website",
-            subscribed_sequences: [sequence],
-          },
-          { onConflict: "email" },
-        );
-      if (insertError) throw new Error(insertError.message);
-
+      const addr = email.trim().toLowerCase();
+      window.location.href =
+        "mailto:info@livingwitharthritis.org.uk" +
+        "?subject=" + encodeURIComponent("Newsletter signup") +
+        "&body=" + encodeURIComponent("Please add this email to the newsletter list: " + addr);
       trackNewsletterSignup();
       trackEvent("email_signup", { sequence });
       setSuccess(true);
       setEmail("");
-      toast.success("Welcome! Check your email for the first guide.");
+      toast.success("Please send the email that opened. We do not store signups on this site yet.");
       onSuccess?.();
-
-      // Reset success state after 5 seconds
       setTimeout(() => setSuccess(false), 5000);
     } catch (err) {
       const msg = err instanceof Error ? err.message : "Failed to subscribe";

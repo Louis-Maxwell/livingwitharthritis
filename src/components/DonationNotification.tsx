@@ -1,8 +1,6 @@
-import { supabase } from "@/integrations/supabase/client";
 import { useState, useEffect, useCallback } from "react";
 import { X } from "lucide-react";
 
-// Supabase client removed - restore
 import { AnimatePresence, motion } from "framer-motion";
 
 interface Donation {
@@ -54,12 +52,7 @@ const DonationNotification = () => {
 
   useEffect(() => {
     const fetchDonations = async () => {
-      const { data } = await supabase
-        .from("donations")
-        .select("id, donor_name, donor_location, amount, currency, created_at")
-        .eq("status", "completed")
-        .order("created_at", { ascending: false })
-        .limit(20);
+      const data: never[] = [];
 
       setDonations(data && data.length > 0 ? data : prepareFakeDonations());
     };

@@ -17,8 +17,6 @@ paths = [
   '''(^|/)build/''',
   '''(^|/)node_modules/''',
   '''(^|/)\.lovable/''',
-  '''(^|/)src/integrations/supabase/client\.ts$''',
-  '''(^|/)src/integrations/supabase/types\.ts$''',
   '''(^|/)\.env$''',
   '''(^|/)\.env\.local$''',
 ]
@@ -28,15 +26,10 @@ paths = [
 # non-secret, so the two layers agree and don't produce conflicting
 # verdicts on the same line.
 #
-# Supabase anon / publishable JWTs are PUBLIC by design and gated by RLS.
-# Supabase's newer sb_publishable_* key format is the same public/RLS-gated
-# key, just a different format (see https://supabase.com/docs/guides/api/api-keys) —
 # not a secret, same as the JWT form above.
 # Stripe `pk_*` keys are publishable by design.
 # Google Analytics measurement IDs are public by design.
 regexes = [
-  '''eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9\.[A-Za-z0-9_\-]+\.[A-Za-z0-9_\-]+''',
-  '''sb_publishable_[A-Za-z0-9_\-]+''',
   '''pk_(live|test)_[A-Za-z0-9]+''',
   '''G-[A-Z0-9]{8,}''',
 ]

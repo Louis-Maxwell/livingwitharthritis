@@ -10,9 +10,6 @@ import { Loader2, Clock, CalendarDays, AlertCircle, CheckCircle2 } from "lucide-
 import { useAppointment } from "@/hooks/useAppointment";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Supabase config removed - restore PROJECT_ID and PUBLISHABLE_KEY
-const SUPABASE_PROJECT_ID = "";
-const SUPABASE_PUBLISHABLE_KEY = "";
 
 interface AppointmentModalProps {
   trigger: React.ReactNode;
@@ -41,40 +38,14 @@ export function AppointmentModal({ trigger }: AppointmentModalProps) {
     setForm((prev) => ({ ...prev, preferredTime: "" }));
 
     try {
-      const projectId = SUPABASE_PROJECT_ID;
-      const anonKey = SUPABASE_PUBLISHABLE_KEY;
-
-      const res = await fetch(
-        `https://${projectId}.supabase.co/functions/v1/book-appointment?date=${date}`,
-        {
-          method: "GET",
-          headers: {
-            "apikey": anonKey,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      if (!res.ok) {
-        const err = await res.json().catch(() => null);
-        const msg =
-          (typeof err?.error === "object" && err?.error?.message) ||
-          (typeof err?.error === "string" && err.error) ||
-          err?.message ||
-          "Failed to load available times";
-        setSlotsError(msg);
+      const d = new Date(date + "T00:00:00");
+      if (d.getDay() === 0 || d.getDay() === 6) {
+        setSlotsError("Please pick a weekday. We will confirm a time by email.");
         return;
       }
-
-      const result = await res.json();
-      // Support both new envelope { ok:true, data:{availableSlots} } and legacy flat shape
-      const payload = result?.ok === true ? result.data : result;
-      setAvailableSlots(payload?.availableSlots || []);
-      if (payload?.availableSlots?.length === 0) {
-        setSlotsError(payload?.message || "No available slots for this date");
-      }
+      setAvailableSlots(["09:00", "10:00", "11:00", "13:00", "14:00", "15:00", "16:00"]);
     } catch {
-      setSlotsError("Failed to check availability");
+      setSlotsError("Please email info@livingwitharthritis.org.uk to book.");
     } finally {
       setSlotsLoading(false);
     }

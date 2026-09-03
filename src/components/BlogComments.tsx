@@ -1,4 +1,3 @@
-import { supabase } from "@/integrations/supabase/client";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -27,12 +26,7 @@ export default function BlogComments({ slug }: { slug: string }) {
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
-    supabase
-      .from("blog_comments")
-      .select("id, author_name, content, created_at")
-      .eq("slug", slug)
-      .order("created_at", { ascending: false })
-      .then(({ data }) => setComments((data as Comment[]) || []));
+    setComments([]);
   }, [slug]);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -43,17 +37,12 @@ export default function BlogComments({ slug }: { slug: string }) {
       return;
     }
     setSubmitting(true);
-    const { error } = await supabase.from("blog_comments").insert({
-      slug,
-      author_name: parsed.data.author_name,
-      content: parsed.data.content,
-    });
+    window.location.href =
+      "mailto:info@livingwitharthritis.org.uk" +
+      "?subject=" + encodeURIComponent("Comment on " + slug) +
+      "&body=" + encodeURIComponent(parsed.data.author_name + " wrote:\n\n" + parsed.data.content);
     setSubmitting(false);
-    if (error) {
-      toast.error("Failed to submit comment");
-      return;
-    }
-    toast.success("Comment submitted for review");
+    toast.success("Please send the email that opened. Comments are not stored on this site.");
     setName("");
     setContent("");
   };

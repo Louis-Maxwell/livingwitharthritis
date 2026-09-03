@@ -47,7 +47,6 @@ const FeaturedStoryBand = memo(() => {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      // Supabase featured stories query removed - functionality to be restored later
       const data = null;
       const error = null;
       if (!cancelled && !error && data) setStory(data as FeaturedStory);

@@ -1,58 +1,20 @@
-import { supabase } from "@/integrations/supabase/client";
 import { memo } from "react";
 import { Link } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
 import { TrendingUp } from "lucide-react";
-
-// Supabase client removed - functionality to be restored later
+import { listPublishedArticles } from "@/data/staticBlog";
 
 interface PopularArticle {
   slug: string;
   title: string | null;
-  view_count: number;
 }
 
-/**
- * FooterMostRead
- *
- * Lightweight "Most read this week" rail driven by blog_views.
- * Surfaces the strongest internal-link gravity at the very end of every
- * page — the bottom of the page is currently a dead end (1.17 pages/visit).
- *
- *  - Joins blog_views → articles (when title available)
- *  - Caches for 30 min, no skeleton flash if cache warm
- *  - Silently renders nothing if there's no data or the query fails
- */
+const STATIC_MOST_READ: PopularArticle[] = listPublishedArticles()
+  .slice(0, 5)
+  .map((a) => ({ slug: a.slug, title: a.title }));
+
 const FooterMostRead = memo(() => {
-  const { data } = useQuery<PopularArticle[]>({
-    queryKey: ["footer-most-read"],
-    staleTime: 1000 * 60 * 30,
-    gcTime: 1000 * 60 * 60,
-    queryFn: async () => {
-      // Get top 5 most-viewed slugs, then fetch their titles in one round-trip.
-      const { data: views, error: vErr } = await supabase
-        .from("blog_views")
-        .select("slug, view_count")
-        .order("view_count", { ascending: false })
-        .limit(5);
-      if (vErr || !views?.length) return [];
-
-      const slugs = views.map((v) => v.slug);
-      const { data: posts } = await supabase
-        .from("blog_articles")
-        .select("slug, title")
-        .in("slug", slugs);
-
-      const titleBySlug = new Map((posts ?? []).map((p) => [p.slug, p.title]));
-      return views.map((v) => ({
-        slug: v.slug,
-        title: titleBySlug.get(v.slug) ?? humanise(v.slug),
-        view_count: v.view_count,
-      }));
-    },
-  });
-
-  if (!data?.length) return null;
+  const data = STATIC_MOST_READ;
+  if (!data.length) return null;
 
   return (
     <section
@@ -90,13 +52,6 @@ const FooterMostRead = memo(() => {
     </section>
   );
 });
-
-function humanise(slug: string) {
-  return slug
-    .split("-")
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(" ");
-}
 
 FooterMostRead.displayName = "FooterMostRead";
 export default FooterMostRead;
