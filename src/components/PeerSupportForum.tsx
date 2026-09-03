@@ -95,10 +95,10 @@ function ThreadView({
   const qc = useQueryClient();
   const [replyText, setReplyText] = useState("");
 
-  const { data: replies = [], isLoading } = useQuery({
+  const { data: replies = [], isLoading } = useQuery<Reply[]>({
     queryKey: ["forum_replies", topic.id],
     queryFn: async () => {
-      return [];
+      return [] as Reply[];
     },
   });
 
@@ -220,10 +220,10 @@ export default function PeerSupportForum() {
     return () => subscription.unsubscribe();
   }, []);
 
-  const { data: topics = [], isLoading: topicsLoading } = useQuery({
+  const { data: topics = [], isLoading: topicsLoading } = useQuery<Topic[]>({
     queryKey: ["forum_topics"],
     queryFn: async () => {
-      return [];
+      return [] as Topic[];
     },
   });
 
@@ -232,11 +232,11 @@ export default function PeerSupportForum() {
     ...topics.map((t) => t.user_id),
   ].filter(Boolean) as string[])];
 
-  const { data: profiles = [] } = useQuery({
+  const { data: profiles = [] } = useQuery<Profile[]>({
     queryKey: ["forum_profiles", userIds.join(",")],
     enabled: userIds.length > 0,
     queryFn: async () => {
-      return [];
+      return [] as Profile[];
     },
   });
 
