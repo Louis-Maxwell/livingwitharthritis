@@ -14,9 +14,10 @@ import { toast } from 'sonner';
 interface SocialShareButtonsProps {
   title: string;
   slug: string;
+  instance?: "header" | "footer";
 }
 
-const SocialShareButtons = ({ title, slug }: SocialShareButtonsProps) => {
+const SocialShareButtons = ({ title, slug, instance = "footer" }: SocialShareButtonsProps) => {
   const url = `https://livingwitharthritis.org.uk/blog/${slug}`;
   const encodedUrl = encodeURIComponent(url);
   const encodedTitle = encodeURIComponent(title);
@@ -90,12 +91,12 @@ const SocialShareButtons = ({ title, slug }: SocialShareButtonsProps) => {
 
       {/* Shareable link row */}
       <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-2.5">
-        <label htmlFor={`share-url-${slug}`} className="sr-only">
+        <label htmlFor={`share-url-${instance}-${slug}`} className="sr-only">
           Article link
         </label>
         <input
           ref={inputRef}
-          id={`share-url-${slug}`}
+          id={`share-url-${instance}-${slug}`}
           type="text"
           readOnly
           value={url}
