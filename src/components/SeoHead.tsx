@@ -63,9 +63,8 @@ export default function SeoHead({
           content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
         />
       )}
-      {/* canonical + hreflang are emitted globally by <SeoDefaults /> to
-          guarantee a single self-referencing set per route (Helmet does
-          not dedupe <link> by rel). */}
+      {/* hreflang is emitted globally by <SeoDefaults />. Canonical <link>
+          tags are not used. Helmet does not dedupe <link> by rel. */}
       <meta name="geo.region" content="GB" />
       <meta name="theme-color" content="#D60000" media="(prefers-color-scheme: light)" />
       <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />

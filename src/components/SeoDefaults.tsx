@@ -59,24 +59,17 @@ function pruneStaticMetaDuplicates() {
     }
   }
 
-  // Same problem for <link rel="canonical">: index.html ships the homepage
-  // canonical for non-JS crawlers, and Helmet does not dedupe <link> by rel.
-  // Once Helmet's per-route canonical is mounted, remove the static one so
-  // exactly one self-referencing canonical is present.
-  const canonicals = document.head.querySelectorAll('link[rel="canonical"]');
-  if (canonicals.length > 1) {
-    const hasHelmetCanonical = Array.from(canonicals).some((el) => el.hasAttribute("data-rh"));
-    if (hasHelmetCanonical) {
-      for (const el of Array.from(canonicals)) {
-        if (!el.hasAttribute("data-rh")) el.remove();
-      }
-    }
+  // Louis asked all <link rel="canonical"> tags removed. Strip leftovers
+  // from static HTML or Helmet so none remain in the live document.
+  for (const el of Array.from(document.head.querySelectorAll('link[rel="canonical"]'))) {
+    el.remove();
   }
 }
 
 /**
- * Global canonical + hreflang emitter. Emits a full hreflang cluster
- * for every supported language (EN/ES/FR/DE/PT) plus x-default → EN.
+ * Global hreflang emitter. Translated routes get a full language cluster.
+ * Every other route gets self-referencing en-GB + x-default tags (not
+ * homepage-only). Canonical <link> tags are not emitted.
  */
 export default function SeoDefaults() {
   const { pathname } = useLocation();
@@ -95,30 +88,35 @@ export default function SeoDefaults() {
   const currentLang = detectLangFromPath(path);
   const basePath = stripLangPrefix(path);
   // A /es|/fr|/de|/pt URL with no translated route serves the English page,
-  // so it must canonicalise to (and not be indexed alongside) the English URL.
+  // so it must not be indexed alongside the English URL.
   const untranslatedLangPath = basePath !== path && !TRANSLATED_BASE_PATHS.includes(basePath);
-  const canonical = `${SITE_URL}${untranslatedLangPath ? basePath : path}`;
-  // Only emit hreflang alternates when a translated route genuinely
-  // exists for this page — otherwise we'd link to 404s on every one
-  // of the ~800+ pages that aren't translated (see TRANSLATED_BASE_PATHS).
+  const pagePath = untranslatedLangPath ? basePath : path;
+  const pageUrl = `${SITE_URL}${pagePath === "/" ? "/" : pagePath}`;
+  // Full hreflang cluster only when a translated route genuinely exists
+  // (see TRANSLATED_BASE_PATHS). Other routes get self-referencing en-GB
+  // + x-default so they are not all pointed at the homepage.
   const hasTranslations = TRANSLATED_BASE_PATHS.includes(basePath);
 
   return (
     <Helmet>
-      {/* Single self-referencing canonical for every route. Emitted here (not
-          in SeoHead) so it exists exactly once per page. */}
-      <link rel="canonical" href={canonical === `${SITE_URL}/` ? `${SITE_URL}/` : canonical} />
       {untranslatedLangPath && <meta name="robots" content="noindex,follow" />}
-      {hasTranslations && SUPPORTED_LANGS.map((lang) => (
-        <link
-          key={lang}
-          rel="alternate"
-          hrefLang={HREFLANG_CODES[lang]}
-          href={`${SITE_URL}${buildLangUrl(lang, basePath)}`}
-        />
-      ))}
-      {hasTranslations && (
-        <link rel="alternate" hrefLang="x-default" href={`${SITE_URL}${basePath}`} />
+      {hasTranslations ? (
+        <>
+          {SUPPORTED_LANGS.map((lang) => (
+            <link
+              key={lang}
+              rel="alternate"
+              hrefLang={HREFLANG_CODES[lang]}
+              href={`${SITE_URL}${buildLangUrl(lang, basePath)}`}
+            />
+          ))}
+          <link rel="alternate" hrefLang="x-default" href={`${SITE_URL}${basePath}`} />
+        </>
+      ) : (
+        <>
+          <link rel="alternate" hrefLang="en-GB" href={pageUrl} />
+          <link rel="alternate" hrefLang="x-default" href={pageUrl} />
+        </>
       )}
       <html lang={HREFLANG_CODES[currentLang]} />
     </Helmet>

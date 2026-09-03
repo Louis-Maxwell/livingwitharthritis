@@ -92,7 +92,7 @@ describe("static blog HTML for Soft 404s", () => {
     ).toEqual([]);
   });
 
-  it("writes unique article heading, body and self-canonical into the first HTML", () => {
+  it("writes unique article heading and body into the first HTML", () => {
     const html = rewriteHead(
       TEMPLATE,
       "/blog/arthritis-and-work-uk",
@@ -102,9 +102,7 @@ describe("static blog HTML for Soft 404s", () => {
     expect(html).toContain(
       "<title>Arthritis at Work UK – Rights, Adjustments &amp; Practical Tips | Living With Arthritis UK</title>",
     );
-    expect(html).toContain(
-      'rel="canonical" href="https://livingwitharthritis.org.uk/blog/arthritis-and-work-uk"',
-    );
+    expect(html).not.toContain('rel="canonical"');
     expect(html).toContain("Equality Act 2010");
     expect(html).toContain("Access to Work");
     expect(html).toContain("Occupational health");

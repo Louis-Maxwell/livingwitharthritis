@@ -75,12 +75,6 @@
          og:title / og:description for JS-executing crawlers on subpages. -->
     <title>Living With Arthritis | UK charity for joint pain support</title>
     <meta name="description" content="Free UK arthritis support: NICE-aligned exercises, anti-inflammatory diet guidance, condition guides and a help chat — written in plain English. Registered charity 1218461." />
-    <!-- Static homepage canonical for non-JS crawlers. Per-route static HTML
-         gets its own self-referencing canonical at build time
-         (scripts/inject-canonicals.mjs), and <SeoDefaults /> replaces this tag
-         with the live per-route canonical for JS consumers, so exactly one
-         canonical is ever present. -->
-    <link rel="canonical" href="https://livingwitharthritis.org.uk/" />
     <meta name="author" content="Living With Arthritis UK" />
     <meta name="publisher" content="Living With Arthritis UK" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -118,8 +112,8 @@
     <link
       rel="preload"
       as="image"
-      href="/openverse/hero-couple-800.webp"
-      imagesrcset="/openverse/hero-couple-400.webp 400w, /openverse/hero-couple-800.webp 800w"
+      href="/openverse/hero-friends-800.webp"
+      imagesrcset="/openverse/hero-friends-400.webp 400w, /openverse/hero-friends-800.webp 800w"
       imagesizes="(min-width: 1024px) 560px, 100vw"
       fetchpriority="high"
     />
@@ -133,8 +127,6 @@
     <!-- Preconnect to API backend for faster first data fetch -->
     <link rel="preconnect" href="https://zrvcejlncpndjfyuvcrd.supabase.co" crossorigin />
     <link rel="dns-prefetch" href="https://zrvcejlncpndjfyuvcrd.supabase.co" />
-    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
-    <link rel="dns-prefetch" href="https://images.unsplash.com" />
 
     <!-- LCP hero image is bundled via Vite (hashed filename); the <img> tag in
          OAHero uses fetchpriority="high" + loading="eager" to prioritise it.
@@ -150,7 +142,6 @@
     <meta property="og:title" content="Living With Arthritis | UK charity for joint pain support" />
     <meta property="og:description" content="Free UK arthritis support: NICE-aligned exercises, anti-inflammatory diet guidance, condition guides and a help chat — written in plain English. Registered charity 1218461." />
     <meta property="og:url" content="https://livingwitharthritis.org.uk/" />
-    <!-- Per-route canonical is emitted via SeoHead/Helmet; the homepage fallback lives on the Index route's Helmet block. -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:locale:alternate" content="en_GB" />

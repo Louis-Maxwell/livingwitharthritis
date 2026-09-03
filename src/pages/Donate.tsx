@@ -10,8 +10,9 @@ import { gazaAppealHero } from "@/data/images";
 import { trackDonationClick } from "@/lib/ga-events";
 import StripeDonationModal from "@/components/StripeDonationModal";
 import CharityRegBadge from "@/components/CharityRegBadge";
-import { buildCharitySchema, injectJsonLd } from "@/lib/jsonLd";
+import { buildCharitySchema, injectJsonLd, type FAQItem } from "@/lib/jsonLd";
 import { CHARITY } from "@/config/charity";
+import FaqAccordion from "@/components/faq/FaqAccordion";
 
 const PRESET_AMOUNTS = [50, 150, 200, 500];
 const MIN_AMOUNT = 1;
@@ -90,6 +91,25 @@ const WAYS_TO_GIVE = [
     action: "Get Involved",
     href: "/ways-to-help",
     color: "text-primary bg-primary/10",
+  },
+];
+
+
+const DONATE_FAQS: FAQItem[] = [
+  {
+    question: "Can I add Gift Aid to my donation?",
+    answer:
+      "Yes, if you are a UK taxpayer. Tick Gift Aid when you donate and we reclaim 25p from HMRC for every £1 you give, at no extra cost to you. A £100 gift becomes £125.",
+  },
+  {
+    question: "What is your charity number?",
+    answer:
+      "Living With Arthritis is a registered charity in England and Wales, no. 1218461, based in Oswestry. We are independent of Arthritis UK.",
+  },
+  {
+    question: "Should I donate here or through the Zakat appeal?",
+    answer:
+      "Use this page for a general donation that funds our free UK arthritis support. To give Zakat or Sadaqah, use the Palestine & Gaza rehabilitation appeal at /zakat-appeal.",
   },
 ];
 
@@ -444,6 +464,10 @@ export default function Donate() {
               </span>
             </div>
           </div>
+        </section>
+        <section id="donate-faq" className="container mx-auto px-6 md:px-10 pb-16 max-w-3xl" aria-labelledby="donate-faq-heading">
+          <h2 id="donate-faq-heading" className="text-2xl font-bold text-foreground mb-6 text-center">Donation FAQs</h2>
+          <FaqAccordion idPrefix="donate-faq" items={DONATE_FAQS} />
         </section>
       </main>
       <Footer />

@@ -14,7 +14,7 @@ export const CHARITY = {
   regulatorUrl: 'https://www.gov.uk/government/organisations/charity-commission',
   charityCommissionUrl: 'https://www.gov.uk/find-charity-information',
   registerUrl:
-    'https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/5274747/charity-overview',
+    'https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1218461&subId=0',
   fundraisingCodeUrl: 'https://www.fundraisingregulator.org.uk/code',
   registrationDate: '2026-06-15',
   foundedYear: 2026,

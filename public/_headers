@@ -60,10 +60,15 @@
   Cache-Control: public, max-age=86400
 /llms*.txt
   Cache-Control: public, max-age=86400
+/ai.txt
+  Cache-Control: public, max-age=86400
 
-# HTML must revalidate so users see new deploys.
+# HTML: browsers always revalidate so new deploys show immediately.
+# CDN may keep a short fresh copy (Cloudflare/Lovable often override Cache-Control).
 /*
   Cache-Control: public, max-age=0, must-revalidate
+  CDN-Cache-Control: public, s-maxage=60, stale-while-revalidate=600
+  Cloudflare-CDN-Cache-Control: public, s-maxage=60, stale-while-revalidate=600
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY

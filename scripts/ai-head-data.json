@@ -1,4 +1,26 @@
 {
+  "/donate": {
+    "title": "Donate to Living With Arthritis UK | Gift Aid",
+    "description": "Give to Living With Arthritis UK: your donation funds free arthritis exercises, diet guides and UK support. Gift Aid adds 25p for every £1 at no extra cost.",
+    "question": "How do I donate to Living With Arthritis UK?",
+    "answer": "Give a one-off or monthly donation on this page to fund free UK arthritis exercises, diet guides and support. UK taxpayers can add Gift Aid. Living With Arthritis is a registered charity in England and Wales, no. 1218461, based in Oswestry and independent of Arthritis UK. To give Zakat or Sadaqah, use the Palestine and Gaza rehabilitation appeal.",
+    "breadcrumb": "Donate",
+    "about": "Charitable donations",
+    "faqs": [
+      {
+        "q": "Can I add Gift Aid to my donation?",
+        "a": "Yes, if you are a UK taxpayer. Tick Gift Aid when you donate and we reclaim 25p from HMRC for every £1 you give, at no extra cost to you. A £100 gift becomes £125."
+      },
+      {
+        "q": "What is your charity number?",
+        "a": "Living With Arthritis is a registered charity in England and Wales, no. 1218461, based in Oswestry. We are independent of Arthritis UK."
+      },
+      {
+        "q": "Should I donate here or through the Zakat appeal?",
+        "a": "Use this page for a general donation that funds our free UK arthritis support. To give Zakat or Sadaqah, use the Palestine & Gaza rehabilitation appeal at https://livingwitharthritis.org.uk/zakat-appeal."
+      }
+    ]
+  },
   "/blog": {
     "title": "Arthritis blog UK | Exercise, diet, PIP and pain guides",
     "description": "Arthritis blog UK: clinically reviewed guides on exercise, anti-inflammatory diet, PIP and benefits, treatments and flare-ups from Living With Arthritis.",
