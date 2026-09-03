@@ -6,8 +6,8 @@ import { pillarScaffolds, tier2OutlinesByPillar } from '@/data/tier2Outlines';
 import FaqAccordion from '@/components/faq/FaqAccordion';
 
 /**
- * Pillar page — "Arthritis & Mental Health" complete guide. Scaffold (sections,
- * intro copy, internal-link rail, FAQ schema) ready for Maxwell to expand to
+ * Pillar page — "Arthritis & Mental Health" complete guide. Full clinically reviewed guide (sections,
+ * intro copy, internal-link rail, FAQ schema)  
  * ~1,200 words of full clinical content. Article + Breadcrumb + FAQPage JSON-LD
  * injected via useEffect (per project memory).
  */
