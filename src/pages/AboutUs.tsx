@@ -11,6 +11,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import NextReadStrip from "@/components/NextReadStrip";
 import InternalLinks from "@/components/InternalLinks";
+import FaqAccordion from "@/components/faq/FaqAccordion";
+
 import CharityRegBadge from "@/components/CharityRegBadge";
 import { buildCharitySchema, injectJsonLd } from "@/lib/jsonLd";
 import { CHARITY } from "@/config/charity";
@@ -53,6 +55,46 @@ type JourneyChapter = {
   display_order: number;
 };
 
+type AboutSection = {
+  id: string;
+  title: string;
+  content: string;
+};
+
+/**
+ * FAQs shown visibly on this page (accordion below) — FAQPage JSON-LD is
+ * emitted by FaqAccordion for exactly these visible questions, so the
+ * structured data never claims content a reader cannot see.
+ */
+const ABOUT_FAQS = [
+  {
+    question: "Who is Living With Arthritis UK?",
+    answer:
+      "Living With Arthritis is a Charitable Incorporated Organisation and a registered charity in England and Wales (no. 1218461), registered on 15 June 2026. We publish free, clinically reviewed guidance for people living with arthritis in the UK.",
+  },
+  {
+    question: "Is Living With Arthritis the same as Arthritis UK?",
+    answer:
+      "No. We are a separate, independent charity. We are not Arthritis UK (formerly Versus Arthritis) and we are not the US Arthritis Foundation. Our content should not be attributed to those organisations.",
+  },
+  {
+    question: "Who reviews your medical content?",
+    answer:
+      "Clinical review is led by Maxwell, a First Contact Practitioner registered with the HCPC (PH128483) and a member of the Chartered Society of Physiotherapy.",
+  },
+  {
+    question: "Is everything on the site free?",
+    answer:
+      "Yes. Every guide, exercise and tool is free to use. We are funded by individual donations and Gift Aid, alongside subcontracting partnerships with healthcare providers. Clinical content stays editorially independent of funders.",
+  },
+  {
+    question: "Can I use your information instead of seeing a doctor?",
+    answer:
+      "No. Our guidance is general information for a UK audience and is not a substitute for personal clinical advice. Speak to your GP about your own symptoms, call NHS 111 for urgent advice, or 999 in an emergency.",
+  },
+];
+
+
 const impactStats = [
   { value: "10,000+", label: "People Supported", icon: Users, color: "text-primary" },
   { value: "50+", label: "Exercise Guides", icon: Zap, color: "text-primary" },
@@ -69,10 +111,11 @@ const teamMembers = [
 
 const AboutUs = () => {
   useEffect(() => injectJsonLd("ld-charity-about", buildCharitySchema()), []);
-  const { data: sections = [], isLoading } = useQuery({
+  const { data: sections = [], isLoading } = useQuery<AboutSection[]>({
     queryKey: ["about_us_sections"],
-    queryFn: async () => [],
+    queryFn: async () => [] as AboutSection[],
   });
+
 
   const { data: chapters = [] } = useQuery<JourneyChapter[]>({
     queryKey: ["journey_chapters"],
@@ -416,7 +459,20 @@ const AboutUs = () => {
           </div>
         </section>
 
+        <section id="about-faq" className="py-16 px-4">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+              Frequently asked questions about the charity
+            </h2>
+            <FaqAccordion
+              idPrefix="about-faq"
+              items={ABOUT_FAQS}
+            />
+          </div>
+        </section>
+
         <InternalLinks />
+
         <NextReadStrip currentPath="/about" />
         <Footer />
       </div>

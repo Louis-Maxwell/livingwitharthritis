@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import InternalLinks from "@/components/InternalLinks";
+import FaqAccordion from "@/components/faq/FaqAccordion";
+
 import ContextualLinks from "@/components/ContextualLinks";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
@@ -95,7 +97,46 @@ const relatedTopics = [
   { title: "Meal Planning", icon: Utensils, href: "/blog/meal-planning-arthritis-uk", desc: "Weekly meal plans for joint health" },
 ];
 
+/**
+ * FAQs rendered visibly on this page (accordion near the foot of the
+ * page). FaqAccordion emits the FAQPage JSON-LD for exactly these
+ * visible questions, so structured data matches the copy a reader sees.
+ */
+const DIET_HUB_FAQS = [
+  {
+    question: "What is the best diet for arthritis?",
+    answer:
+      "A Mediterranean-style pattern has the strongest evidence: plenty of vegetables, fruit, wholegrains, beans, olive oil, nuts and oily fish, with less red and processed meat. It supports joint symptoms indirectly through weight management and overall inflammation.",
+  },
+  {
+    question: "Are there foods to avoid with arthritis?",
+    answer:
+      "There is no universal banned list. Most people benefit from cutting back on ultra-processed food, added sugar, excess salt and alcohol. Blanket elimination diets are not supported by the evidence and can leave you short of nutrients.",
+  },
+  {
+    question: "Can diet cure arthritis?",
+    answer:
+      "No. No food, supplement or eating pattern cures arthritis. Diet is one part of self-management alongside exercise, pacing, weight management and any treatment your GP or rheumatology team recommends.",
+  },
+  {
+    question: "Does losing weight help joint pain?",
+    answer:
+      "For weight-bearing joints such as knees and hips, yes. Reducing excess weight lowers the load through the joint and is recommended alongside exercise as a core part of osteoarthritis care in the UK.",
+  },
+  {
+    question: "Do supplements like turmeric and omega-3 work?",
+    answer:
+      "Some people report modest symptom relief from curcumin (turmeric) and omega-3, and there is reasonable trial evidence for both. Effects are small and vary between individuals. Check with your GP or pharmacist first if you take other medicines, particularly blood thinners.",
+  },
+  {
+    question: "Should I speak to someone before changing my diet?",
+    answer:
+      "Yes, if you have other health conditions, take regular medication, or plan to cut out whole food groups. Speak to your GP, pharmacist or a registered dietitian. Call NHS 111 for urgent advice, or 999 in an emergency.",
+  },
+];
+
 const DietHub = () => {
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "MedicalWebPage",
@@ -555,7 +596,17 @@ const DietHub = () => {
         </div>
       </main>
 
+      <section id="diet-faq" className="py-16">
+        <div className="container mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-6">
+            Arthritis and diet — your questions answered
+          </h2>
+          <FaqAccordion idPrefix="diet-hub-faq" items={DIET_HUB_FAQS} />
+        </div>
+      </section>
+
       <InternalLinks />
+
       <Footer />
     </>
   );
