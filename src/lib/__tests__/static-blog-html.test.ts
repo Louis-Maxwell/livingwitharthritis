@@ -102,7 +102,9 @@ describe("static blog HTML for Soft 404s", () => {
     expect(html).toContain(
       "<title>Arthritis at Work UK – Rights, Adjustments &amp; Practical Tips | Living With Arthritis UK</title>",
     );
-    expect(html).not.toContain('rel="canonical"');
+    expect(html).toContain(
+      'rel="canonical" href="https://livingwitharthritis.org.uk/blog/arthritis-and-work-uk"',
+    );
     expect(html).toContain("Equality Act 2010");
     expect(html).toContain("Access to Work");
     expect(html).toContain("Occupational health");

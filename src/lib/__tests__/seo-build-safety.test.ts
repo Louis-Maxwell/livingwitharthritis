@@ -174,6 +174,16 @@ describe("SEO build safety", () => {
     expect(htmlSitemap).not.toContain("`/arthritis-support/${c.slug}/${condSlug}`");
     expect(htmlSitemap).toContain('href: "/chat"');
     expect(cityHub).not.toContain("`/arthritis-support/${cityData.slug}/${c.slug}`");
+    const cityRoutes = readFileSync(
+      resolve(process.cwd(), "src/data/city-routes.generated.ts"),
+      "utf8",
+    );
+    expect(cityRoutes).not.toContain("/arthritis-support/stockport");
+    expect(cityRoutes).not.toContain("/arthritis-support/stirling");
+    expect(cityRoutes).not.toContain("/arthritis-support/winchester");
+    expect(xml).not.toContain("/arthritis-support/stockport");
+    expect(xml).not.toContain("/blog/mindfulness-meditation-chronic-pain");
+    expect(xml).toContain("/blog/mindfulness-chronic-pain-arthritis-guide");
     expect(xml).not.toMatch(/\/arthritis-support\/[^/<]+\/[^/<]+</);
     expect(xml).not.toMatch(/\/uk\/[^/<]+\/[^/<]+</);
     expect(xml).not.toMatch(/\/exercises\/[^/<]+\/for\//);

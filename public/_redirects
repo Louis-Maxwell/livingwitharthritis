@@ -1,6 +1,10 @@
-# HTTP 301s for Google Search Console clean-up (Cloudflare Pages / Lovable).
-# First matching rule wins. Keep real translated pages and real English pages
-# above the locale splats. Client-side fallback: src/lib/seoRedirects.ts
+# HTTP 301s for Google Search Console clean-up.
+# Honoured by Netlify and Cloudflare Pages (first matching rule wins).
+# The live Lovable CDN ignores this file and serves the SPA shell as 200 —
+# postbuild scripts/write-redirect-html.mjs drops noindex+canonical stubs
+# at these paths so crawlers do not see the homepage. vercel.json and
+# functions/_middleware.js cover Vercel / Cloudflare Pages Functions.
+# Client fallback: src/lib/seoRedirects.ts + SeoRedirectGate.
 
 # --- Known GSC hard 404 / soft 404 exact URLs ---
 /blog/mindfulness-meditation-chronic-pain /blog/mindfulness-chronic-pain-arthritis-guide 301
@@ -16,6 +20,11 @@
 /arthritis-support/stockport /arthritis-support/manchester 301
 /arthritis-support/stirling /arthritis-support/glasgow 301
 /arthritis-support/winchester /arthritis-support/southampton 301
+/arthritis-support/bradford /arthritis-support/leeds 301
+/arthritis-support/milton-keynes /arthritis-support/cambridge 301
+/arthritis-support/oswestry /arthritis-support/stoke-on-trent 301
+/arthritis-support/shrewsbury /arthritis-support/wolverhampton 301
+/zakat /zakat-appeal 301
 
 # --- Locale 404s (must sit above the /{lang}/* splats) ---
 /es/404 / 301

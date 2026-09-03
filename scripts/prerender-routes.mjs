@@ -17,6 +17,7 @@
 
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { exactRedirectPathSet } from "./seo-redirect-map.mjs";
 
 const CURATED = [
   "/",
@@ -159,9 +160,11 @@ const blogRoutes = trimmedBlogSlugs.map((s) => `/blog/${s}`);
 const otherRoutes = loadGeneratedList("src/data/prerender-routes.generated.json");
 
 // Deduplicate. Curated wins if a slug is also hard-coded above.
-const seen = new Set(CURATED);
-for (const r of otherRoutes) seen.add(r);
-for (const r of blogRoutes) seen.add(r);
+// Drop exact redirect sources so Puppeteer never snapshots a stub as a page.
+const redirectSources = exactRedirectPathSet();
+const seen = new Set(CURATED.filter((r) => !redirectSources.has(r)));
+for (const r of otherRoutes) if (!redirectSources.has(r)) seen.add(r);
+for (const r of blogRoutes) if (!redirectSources.has(r)) seen.add(r);
 
 // Hard cap so the published output can never approach the hosting limits
 // (50,000 files / 3 GiB). Curated routes are first in the set, so a cap

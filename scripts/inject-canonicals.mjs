@@ -33,6 +33,7 @@ import {
   htmlHasFullArticle,
   replaceSeoFallback,
 } from "./static-article-html.mjs";
+import { exactRedirectPathSet } from "./seo-redirect-map.mjs";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const DIST = resolve("dist");
@@ -136,7 +137,7 @@ function appRoutes() {
     .filter((p) => p.startsWith("/") && p !== "/" && !p.includes(":") && !p.includes("*"));
 }
 
-function collectRoutes() {
+export function collectRoutes() {
   const set = new Set(PRERENDER_ROUTES);
   const sitemapPath = resolve("public/sitemap.xml");
   if (existsSync(sitemapPath)) {
@@ -151,7 +152,12 @@ function collectRoutes() {
   // Prefix landing screens that the router mounts via nested/wildcard routes.
   for (const p of NOINDEX_PREFIXES) if (p !== "/.lovable") set.add(p);
   set.delete("/");
-  return [...set].filter((p) => p.startsWith("/") && !p.includes("*"));
+  const redirectSources = exactRedirectPathSet();
+  // Never bake article HTML onto a URL that must 301 / noindex away.
+  // write-redirect-html.mjs owns those paths.
+  return [...set].filter(
+    (p) => p.startsWith("/") && !p.includes("*") && !redirectSources.has(p),
+  );
 }
 
 
