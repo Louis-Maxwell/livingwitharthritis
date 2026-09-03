@@ -86,7 +86,7 @@ describe("static blog HTML for Soft 404s", () => {
     expect(PRERENDER_ROUTES).toContain("/blog/best-diet-for-joint-pain-uk");
     expect(PRERENDER_ROUTES).toContain("/conditions/hand-arthritis/exercises");
     expect(
-      PRERENDER_ROUTES.filter((route) =>
+      PRERENDER_ROUTES.filter((route: string) =>
         /^\/arthritis-support\/[^/]+\/[^/]+$/.test(route),
       ),
     ).toEqual([]);
@@ -147,7 +147,7 @@ describe("static blog HTML for Soft 404s", () => {
       WORK_ARTICLE,
     )}</script>`;
 
-    expect(readEmbeddedBlogArticle(document, "arthritis-and-work-uk")?.title).toBe(
+    expect(readEmbeddedBlogArticle<{ slug?: string; content?: string; title?: string }>(document, "arthritis-and-work-uk")?.title).toBe(
       WORK_ARTICLE.title,
     );
     expect(readEmbeddedBlogArticle(document, "best-diet-for-joint-pain-uk")).toBeNull();
@@ -164,7 +164,7 @@ describe("static blog HTML for Soft 404s", () => {
       heads["/blog/arthritis-and-work-uk"].article?.content,
     ).toMatch(/Equality Act|workplace|Access to Work/i);
     expect(
-      heads["/blog/best-diet-for-joint-pain-uk"].article?.content.length,
+      heads["/blog/best-diet-for-joint-pain-uk"].article?.content?.length ?? 0,
     ).toBeGreaterThan(400);
     const missing = (blogSlugs as string[]).filter(
       (slug) => !heads[`/blog/${slug}`]?.article?.content,
