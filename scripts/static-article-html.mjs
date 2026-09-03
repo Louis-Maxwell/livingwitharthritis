@@ -102,7 +102,7 @@ export function buildStaticArticleInner(data) {
 const SEO_FALLBACK_RE =
   /<div id="seo-fallback"[^>]*>[\s\S]*?<\/main>\s*<\/div>/i;
 
-export function replaceSeoFallback(html, innerHtml, { visible = true } = {}) {
+export function replaceSeoFallback(html, innerHtml, { visible = false } = {}) {
   const attrs = visible
     ? `id="seo-fallback"`
     : `id="seo-fallback" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;"`;

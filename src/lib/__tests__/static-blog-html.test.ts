@@ -114,7 +114,7 @@ describe("static blog HTML for Soft 404s", () => {
     expect(htmlHasFullArticle(html, WORK_HEAD)).toBe(true);
   });
 
-  it("replaces a hidden homepage fallback with a visible unique article", () => {
+  it("replaces the homepage fallback with a clipped unique article (no FOUC)", () => {
     const inner = buildStaticArticleInner({
       question: "Best exercises for hand arthritis",
       answer:
@@ -122,12 +122,24 @@ describe("static blog HTML for Soft 404s", () => {
       bodyHtml:
         "<p>Daily range-of-motion and gentle grip work preserves hand function, reduces stiffness, and protects the small joints from contracture.</p><ul><li>Maintains finger and thumb range of motion</li></ul>",
     });
-    const html = replaceSeoFallback(TEMPLATE, inner, { visible: true });
+    const html = replaceSeoFallback(TEMPLATE, inner, { visible: false });
 
     expect(html).toContain("Best exercises for hand arthritis");
     expect(html).toContain("small joints from contracture");
-    expect(html).not.toContain("clip:rect(0 0 0 0)");
+    expect(html).toContain("clip:rect(0 0 0 0)");
+    expect(html).toContain('aria-hidden="true"');
     expect(html).not.toContain(HOME_SHELL_HEADING);
+  });
+
+  it("keeps unique article HTML in rewriteHead without painting it", () => {
+    const html = rewriteHead(
+      TEMPLATE,
+      "/blog/arthritis-and-work-uk",
+      WORK_HEAD,
+    );
+    expect(html).toContain("Equality Act 2010");
+    expect(html).toContain("clip:rect(0 0 0 0)");
+    expect(html).toContain('aria-hidden="true"');
   });
 
   it("reads an embedded article only when the slug matches", () => {

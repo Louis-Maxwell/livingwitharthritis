@@ -302,8 +302,10 @@ function enrichHead(html, route, url, override) {
         .join("")}</ul></section>`
     : "";
 
+  // Keep unique article HTML for crawlers, but clip it so JS visitors never
+  // see a wall of unstyled text before React paints the designed page.
   out = replaceSeoFallback(out, `${buildStaticArticleInner(d)}${sourcesHtml}`, {
-    visible: true,
+    visible: false,
   });
   if (d.article) out = embedArticleJson(out, d.article);
 
