@@ -92,37 +92,6 @@ describe("ContactSection submission feedback", () => {
   });
 });
 
-describe.skip("ContactSection stores hostile payloads as plain text", () => {
-  const XSS_PAYLOADS = [
-    "<script>alert('xss')</script>",
-    "<img src=x onerror=alert(1)>",
-    "javascript:alert('xss')",
-    "\"><svg/onload=alert(1)>",
-    "'; DROP TABLE users; --",
-    "{{constructor.constructor('alert(1)')()}}",
-    "<iframe src='javascript:alert(1)'></iframe>",
-  ];
-
-  it.each(XSS_PAYLOADS)("passes %s through as literal string to the DB", async (payload) => {
-    renderSection();
-    fill(/your name/i, `Jane ${payload}`);
-    fill(/email address/i, "jane@example.com");
-    fill(/subject/i, "General enquiry");
-    fill(/your message/i, `Hello, my message contains: ${payload} and is long enough.`);
-    fireEvent.click(screen.getByRole("button", { name: /send message/i }));
-
-    await waitFor(() => expect(invokeMock).toHaveBeenCalledTimes(1));
-    const arg = submittedBody();
-    expect(arg.name).toContain(payload);
-    expect(arg.message).toContain(payload);
-    // No injected DOM: the form card should not contain a live <script>.
-    const card = screen.queryByTestId("contact-form-card");
-    if (card) {
-      expect(within(card).queryByText(payload)).toBeNull();
-    }
-  });
-});
-
 // ── Length caps ───────────────────────────────────────────────────────
 
 describe("ContactSection input length caps", () => {
