@@ -14,9 +14,10 @@ import { toast } from 'sonner';
 interface SocialShareButtonsProps {
   title: string;
   slug: string;
+  instance?: "header" | "footer";
 }
 
-const SocialShareButtons = ({ title, slug }: SocialShareButtonsProps) => {
+const SocialShareButtons = ({ title, slug, instance = "footer" }: SocialShareButtonsProps) => {
   const url = `https://livingwitharthritis.org.uk/blog/${slug}`;
   const encodedUrl = encodeURIComponent(url);
   const encodedTitle = encodeURIComponent(title);
