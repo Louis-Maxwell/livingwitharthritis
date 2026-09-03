@@ -191,7 +191,7 @@ const MobileNextStepBar = memo(() => {
               type="button"
               onClick={handleDismiss}
               aria-label="Dismiss"
-              className="p-1 -mr-1 text-muted-foreground hover:text-foreground active:scale-95 transition"
+              className="min-h-11 min-w-11 inline-flex items-center justify-center -mr-1 text-muted-foreground hover:text-foreground active:scale-95 transition"
             >
               <X className="w-3.5 h-3.5" />
             </button>

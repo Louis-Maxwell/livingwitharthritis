@@ -9,7 +9,7 @@ import "@/components/HeroSection.css";
 // LCP element stays tiny on mobile (~14KB at 400w).
 const HERO_IMG = "/openverse/hero-friends-800.webp";
 const HERO_SRCSET = "/openverse/hero-friends-400.webp 400w, /openverse/hero-friends-800.webp 800w";
-const HERO_SIZES = "(min-width: 1024px) 560px, 100vw";
+const HERO_SIZES = "(min-width: 1024px) 560px, 100%";
 
 const OAHero = memo(() => {
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ const OAHero = memo(() => {
   return (
     <section
       aria-labelledby="oa-hero"
-      className="band-red relative w-full overflow-hidden"
+      className="band-red relative w-full max-w-full overflow-hidden"
     >
       <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl py-16 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -26,7 +26,7 @@ const OAHero = memo(() => {
           <div className="hero-stagger">
             <h1
               id="oa-hero"
-              className="hero-item text-balance text-[clamp(2.75rem,6vw,5.5rem)] leading-[0.95] uppercase"
+              className="hero-item text-balance break-words text-[clamp(2rem,8vw,5.5rem)] leading-[0.95] uppercase"
             >
               Living With Arthritis — UK charity for people with joint pain
             </h1>
@@ -42,16 +42,16 @@ const OAHero = memo(() => {
               nutrition support — free, for everyone.
             </p>
 
-            <div className="hero-item mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <div className="hero-item mt-10 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 min-w-0">
               <button
                 onClick={() => navigate("/conditions/osteoarthritis")}
-                className="btn-map btn-map-dark group"
+                className="btn-map btn-map-dark group w-full sm:w-auto justify-center"
               >
                 <Heart className="w-4 h-4 mr-2" aria-hidden="true" />
                 Start your gentle plan
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </button>
-              <a href="/donate" className="btn-map" style={{ background: "white", color: "hsl(var(--foreground))" }}>
+              <a href="/donate" className="btn-map w-full sm:w-auto justify-center" style={{ background: "white", color: "hsl(var(--foreground))" }}>
                 Donate — keep it free
               </a>
             </div>
@@ -96,7 +96,7 @@ const OAHero = memo(() => {
           </div>
 
           {/* Octagon image — MAP signature shape */}
-          <div className="reveal relative aspect-square w-full max-w-[560px] mx-auto">
+          <div className="reveal relative aspect-square w-full max-w-[min(560px,100%)] mx-auto min-w-0">
             <img
               src={HERO_IMG}
               srcSet={HERO_SRCSET}

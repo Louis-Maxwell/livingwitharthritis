@@ -29,7 +29,12 @@ const CookieBanner = memo(({ onAnalyticsChange }: CookieBannerProps) => {
   if (!show) return null;
 
   return (
-    <div className="fixed bottom-4 right-4 left-4 sm:left-auto z-[100] sm:max-w-sm" role="region" aria-label="Cookie consent">
+    <div
+      className="fixed right-4 left-4 sm:left-auto z-[100] sm:max-w-sm max-w-full"
+      style={{ bottom: "calc(var(--mobile-bottom-nav, 68px) + env(safe-area-inset-bottom, 0px) + 5.75rem + 0.5rem)" }}
+      role="region"
+      aria-label="Cookie consent"
+    >
       <div className="bg-card/95 backdrop-blur-xl border border-border rounded-2xl shadow-2xl overflow-hidden">
         <div className="p-5">
           <div className="flex items-start gap-3">

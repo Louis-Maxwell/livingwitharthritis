@@ -226,6 +226,49 @@ const Header = () => {
     { label: "Shop", icon: ShoppingBag, desc: "Recommended arthritis products", href: "/shop", action: () => navigate("/shop") },
   ];
 
+  // Lock page scroll and trap focus inside the mobile nav while open
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const panel = document.querySelector<HTMLElement>("[data-mobile-nav-panel]");
+    const focusableSelector =
+      'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+    const focusFirst = () => {
+      const first = panel?.querySelector<HTMLElement>(focusableSelector);
+      first?.focus();
+    };
+    const t = window.setTimeout(focusFirst, 0);
+
+    const onKeyDown = (e: globalThis.KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMobileMenuOpen(false);
+        return;
+      }
+      if (e.key !== "Tab" || !panel) return;
+      const nodes = Array.from(panel.querySelectorAll<HTMLElement>(focusableSelector)).filter(
+        (el) => !el.hasAttribute("disabled") && el.offsetParent !== null,
+      );
+      if (nodes.length === 0) return;
+      const first = nodes[0];
+      const last = nodes[nodes.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      window.clearTimeout(t);
+      document.body.style.overflow = prevOverflow;
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [mobileMenuOpen]);
+
   const isHidden = !visible && !mobileMenuOpen;
 
   return (
@@ -287,7 +330,7 @@ const Header = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="hidden sm:inline-flex rounded-lg h-9 w-9 shrink-0"
+                className="hidden sm:inline-flex rounded-lg h-11 w-11 min-h-11 min-w-11 shrink-0"
                 onClick={() => setMobileSearchOpen((v) => !v)}
                 aria-label="Open search"
               >
@@ -296,7 +339,7 @@ const Header = () => {
               <Button
                 size="sm"
                 onClick={() => navigate("/donate")}
-                className="h-9 px-3 sm:px-4 rounded-full text-[11px] font-bold tracking-wider bg-primary hover:bg-primary/90 text-primary-foreground shadow-md shadow-primary/20 shrink-0"
+                className="h-11 min-h-11 px-3 sm:px-4 rounded-full text-[11px] font-bold tracking-wider bg-primary hover:bg-primary/90 text-primary-foreground shadow-md shadow-primary/20 shrink-0"
               >
                 <Heart className="w-3 h-3 mr-1.5 fill-background/30" />
                 <span className="hidden sm:inline">Donate Now</span>
@@ -306,7 +349,7 @@ const Header = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-lg h-9 w-9"
+                className="rounded-lg h-11 w-11 min-h-11 min-w-11 shrink-0"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={mobileMenuOpen}
@@ -417,7 +460,7 @@ const Header = () => {
                         aria-label={`${link.label} submenu`}
                         aria-hidden={!open}
                       >
-                        <div className="relative bg-background border border-border/30 rounded-xl shadow-2xl shadow-primary/8 p-1.5 min-w-[340px] max-h-[min(70vh,32rem)] overflow-y-auto overscroll-contain scrollbar-thin">
+                        <div className="relative bg-background border border-border/30 rounded-xl shadow-2xl shadow-primary/8 p-1.5 w-[min(340px,calc(100vw-1.5rem))] max-w-[calc(100vw-1.5rem)] max-h-[min(70vh,32rem)] overflow-y-auto overscroll-contain scrollbar-thin">
                           {/* Top notch */}
                           <div className="absolute -top-[6px] left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 bg-background border-l border-t border-border/30" />
                           {link.subs.map((sub, idx) => {
@@ -492,7 +535,7 @@ const Header = () => {
             onClick={() => setMobileMenuOpen(false)}
             aria-hidden="true"
           />
-          <div className="fixed top-0 end-0 bottom-0 w-[80%] max-w-sm bg-background z-[70] lg:hidden shadow-2xl flex flex-col border-s border-border/30 animate-in slide-in-from-right rtl:slide-in-from-left duration-300" role="dialog" aria-modal="true" aria-label="Navigation menu">
+          <div className="fixed inset-y-0 end-0 w-[min(80%,24rem)] max-w-sm bg-background z-[70] lg:hidden shadow-2xl flex flex-col border-s border-border/30 animate-in slide-in-from-right rtl:slide-in-from-left duration-300 pt-[env(safe-area-inset-top,0px)] pb-[env(safe-area-inset-bottom,0px)]" role="dialog" aria-modal="true" aria-label="Navigation menu" data-mobile-nav-panel>
             <div className="flex items-center justify-between p-6 border-b border-border/20">
               <div className="flex items-center gap-2.5">
                 <SiteLogo variant="mark" markClassName="h-8 w-auto" />
@@ -507,7 +550,7 @@ const Header = () => {
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="rounded-lg h-9 w-9"
+                    className="rounded-lg h-11 w-11 min-h-11 min-w-11"
                     onClick={() => {
                       setMobileMenuOpen(false);
                       setMobileSearchOpen(true);
@@ -517,7 +560,7 @@ const Header = () => {
                     <Search size={18} aria-hidden="true" />
                   </Button>
                 </span>
-                <Button variant="ghost" size="icon" className="rounded-lg h-9 w-9" onClick={() => setMobileMenuOpen(false)} aria-label="Close menu">
+                <Button variant="ghost" size="icon" className="rounded-lg h-11 w-11 min-h-11 min-w-11" onClick={() => setMobileMenuOpen(false)} aria-label="Close menu">
                   <X size={18} />
                 </Button>
               </div>

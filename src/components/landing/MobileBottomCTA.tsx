@@ -40,14 +40,17 @@ const MobileBottomCTA = memo(() => {
   if (hidden) return null;
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 lg:hidden pointer-events-none">
-      <div className="mx-3 mb-3 pointer-events-auto">
+    <div
+      className="fixed inset-x-0 z-40 lg:hidden pointer-events-none"
+      style={{ bottom: "calc(var(--mobile-bottom-nav, 68px) + env(safe-area-inset-bottom, 0px) + 5.75rem)" }}
+    >
+      <div className="mx-3 mb-2 pointer-events-auto max-w-full">
         <div className="relative rounded-2xl bg-background border border-border shadow-2xl p-2 flex gap-2">
           <button
             type="button"
             onClick={dismiss}
             aria-label="Dismiss"
-            className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-foreground text-background flex items-center justify-center shadow-md"
+            className="absolute -top-2 -right-2 min-h-11 min-w-11 w-11 h-11 rounded-full bg-foreground text-background flex items-center justify-center shadow-md"
           >
             <X className="w-3 h-3" aria-hidden="true" />
           </button>

@@ -83,7 +83,7 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="sm:max-w-md p-0 gap-0 rounded-2xl border-border/50 overflow-hidden">
+      <DialogContent className="w-[calc(100%-1.5rem)] max-w-[calc(100vw-1.5rem)] sm:max-w-md p-0 gap-0 rounded-2xl border-border/50 overflow-x-hidden overflow-y-auto max-h-[min(90vh,40rem)]">
         {/* Header */}
         <div className="bg-gradient-to-br from-primary/12 via-primary/6 to-accent px-6 pt-8 pb-6 border-b border-border/30">
           <DialogHeader>

@@ -1,7 +1,15 @@
 import DOMPurify from "dompurify";
 
+function wrapTablesForMobile(html: string): string {
+  // Scroll wide tables inside a wrapper so the page itself never side-scrolls.
+  return html.replace(/<table(\b[^>]*)>[\s\S]*?<\/table>/gi, (match) => {
+    if (/class=["'][^"']*\btable-scroll\b/.test(match)) return match;
+    return `<div class="table-scroll">${match}</div>`;
+  });
+}
+
 export function sanitizeHtml(rawHtml: string): string {
-  return DOMPurify.sanitize(rawHtml, {
+  const clean = DOMPurify.sanitize(rawHtml, {
     ALLOWED_TAGS: [
       "p", "br", "strong", "em", "u", "h1", "h2", "h3", "h4", "h5", "h6",
       "ul", "ol", "li", "blockquote", "a", "img", "table", "thead", "tbody",
@@ -16,4 +24,5 @@ export function sanitizeHtml(rawHtml: string): string {
     KEEP_CONTENT: true,
     RETURN_DOM: false,
   });
+  return wrapTablesForMobile(clean);
 }

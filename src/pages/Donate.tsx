@@ -231,7 +231,7 @@ export default function Donate() {
             One-time or monthly. Gift Aid adds 25p in every £1 from UK taxpayers, at no extra cost to you.
           </p>
 
-          <div className="bg-card rounded-2xl border border-border/40 p-6 sm:p-8 shadow-sm">
+          <div className="bg-card rounded-2xl border border-border/40 p-4 sm:p-8 shadow-sm max-w-full overflow-x-hidden">
             {/* Frequency toggle */}
             <div
               role="radiogroup"

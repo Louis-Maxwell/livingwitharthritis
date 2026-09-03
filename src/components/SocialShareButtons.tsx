@@ -102,9 +102,9 @@ const SocialShareButtons = ({ title, slug, instance = "footer" }: SocialShareBut
           aria-label="Article URL"
           value={url}
           onFocus={(e) => e.currentTarget.select()}
-          className="min-w-0 flex-1 rounded-full border border-border/50 bg-background px-4 py-2 text-sm text-foreground/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="min-w-0 w-full flex-1 rounded-full border border-border/50 bg-background px-4 py-2.5 text-sm text-foreground/80 overflow-x-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         />
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 min-w-0 w-full sm:w-auto shrink-0">
           <Button
             type="button"
             variant="default"
@@ -139,7 +139,7 @@ const SocialShareButtons = ({ title, slug, instance = "footer" }: SocialShareBut
             variant="outline"
             size="sm"
             asChild
-            className="h-9 w-9 p-0 rounded-full border-border/40 text-muted-foreground hover:text-primary hover:border-primary/30 hover:bg-primary/5 transition-all"
+            className="h-11 w-11 min-h-11 min-w-11 p-0 rounded-full border-border/40 text-muted-foreground hover:text-primary hover:border-primary/30 hover:bg-primary/5 transition-all"
           >
             <a href={href} target="_blank" rel="noopener noreferrer" aria-label={`Share on ${label}`}>
               <Icon className="w-4 h-4" aria-hidden="true" />

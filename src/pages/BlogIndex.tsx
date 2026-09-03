@@ -242,7 +242,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
                       <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
                         {post.category}
                       </span>
-                      <h3 className="font-display text-lg font-semibold text-foreground mt-2 mb-2 group-hover:text-primary transition-colors leading-snug">
+                      <h3 className="font-display text-lg font-semibold text-foreground mt-2 mb-2 group-hover:text-primary transition-colors leading-snug break-words">
                         {displayTitle(post)}
                       </h3>
                       <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed mb-3">
@@ -337,7 +337,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
                           {i + 1}
                         </span>
                         <div className="flex-1 min-w-0">
-                          <h3 className="text-base font-bold text-foreground group-hover:text-primary transition-colors leading-snug mb-2">
+                          <h3 className="text-base font-bold text-foreground group-hover:text-primary transition-colors leading-snug mb-2 break-words">
                             {displayTitle(post)}
                           </h3>
                           <p className="text-xs text-muted-foreground line-clamp-2 mb-3 leading-relaxed">{post.excerpt}</p>
@@ -378,7 +378,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
                         {post.category}
                       </span>
                     </div>
-                    <h2 className="font-display text-lg font-semibold text-foreground mt-2 mb-3 group-hover:text-primary transition-colors leading-snug">
+                    <h2 className="font-display text-lg font-semibold text-foreground mt-2 mb-3 group-hover:text-primary transition-colors leading-snug break-words">
                       {displayTitle(post)}
                     </h2>
                     <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">{post.excerpt}</p>

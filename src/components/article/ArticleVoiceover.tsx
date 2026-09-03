@@ -507,7 +507,7 @@ export default function ArticleVoiceover({ slug, className, text }: ArticleVoice
     <section
       aria-label="Listen to this article"
       className={cn(
-        'no-print rounded-2xl bg-card bg-gradient-to-br from-primary/[0.07] via-card to-card',
+        'no-print min-w-0 max-w-full overflow-hidden rounded-2xl bg-card bg-gradient-to-br from-primary/[0.07] via-card to-card',
         'px-4 py-3.5 shadow-sm ring-1 ring-primary/15 sm:px-5 sm:py-4',
         className,
       )}

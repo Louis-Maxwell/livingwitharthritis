@@ -146,6 +146,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
   }
 
   body {
@@ -162,6 +163,20 @@
     letter-spacing: 0.03em;
     /* Keep 200% zoom free of horizontal scrolling */
     overflow-x: hidden;
+  }
+
+  /* Media & preformatted content must never force page-level side-scroll */
+  img, video, iframe, table, pre {
+    max-width: 100%;
+  }
+  img, video {
+    height: auto;
+  }
+
+  /* Long URLs / unbroken strings wrap instead of overflowing */
+  a, p, li, td, th, code, pre {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
 
   p { font-size: 1.125rem; line-height: 1.7; letter-spacing: 0.03em; color: hsl(var(--foreground)); }
@@ -1089,11 +1104,41 @@
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
+:root {
+  /* MobileBottomNav height (h-[68px]) */
+  --mobile-bottom-nav: 68px;
+  /* Reserve room for bottom nav + next-step / donate sticky bars */
+  --mobile-sticky-stack: calc(var(--mobile-bottom-nav) + 12rem + env(safe-area-inset-bottom, 0px));
+}
+
 @media (max-width: 1023px) {
+  /* Keep last paragraph / CTAs clear of stacked sticky bars */
+  main,
+  #main-content,
+  article {
+    padding-bottom: max(var(--mobile-sticky-stack), 8rem);
+  }
   footer,
   .cookie-consent-wrapper {
-    padding-bottom: 4rem;
+    padding-bottom: calc(var(--mobile-bottom-nav) + env(safe-area-inset-bottom, 0px) + 1.25rem);
   }
+}
+
+/* Article HTML tables: scroll inside the table, not the page */
+.blog-prose .table-scroll,
+.prose .table-scroll {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.25rem 0;
+}
+.blog-prose .table-scroll > table,
+.prose .table-scroll > table {
+  width: max-content;
+  min-width: 100%;
+  max-width: none;
 }
 
 /* Lightweight CSS page transition */

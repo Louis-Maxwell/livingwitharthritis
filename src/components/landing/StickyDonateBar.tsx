@@ -56,11 +56,12 @@ const StickyDonateBar = memo(() => {
       {/* Mobile — bottom bar */}
       <div
         {...(!visible ? { inert: "" as unknown as undefined } : {})}
-        className={`fixed inset-x-0 bottom-0 z-50 lg:hidden transition-transform duration-300 ${
+        className={`fixed inset-x-0 z-50 lg:hidden transition-transform duration-300 ${
           visible ? "translate-y-0" : "translate-y-full pointer-events-none"
         }`}
+        style={{ bottom: "calc(var(--mobile-bottom-nav, 68px) + env(safe-area-inset-bottom, 0px) + 5.75rem)" }}
       >
-        <div className="mx-3 mb-3 rounded-2xl bg-foreground text-background shadow-2xl border border-background/10 overflow-hidden">
+        <div className="mx-3 mb-2 rounded-2xl bg-foreground text-background shadow-2xl border border-background/10 overflow-hidden max-w-full">
           <button
             type="button"
             onClick={handleClick}
