@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
+import FaqAccordion from "@/components/faq/FaqAccordion";
+
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
 const Footer = lazy(() => import("@/components/Footer"));
@@ -242,16 +244,10 @@ export default function BenefitsPIPGuide() {
           { "@type": "ListItem", "position": 3, "name": "Benefits & PIP Guide", "item": "https://livingwitharthritis.org.uk/guides/benefits-pip" }
         ]
       })}</script>
-      <script type="application/ld+json">{JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          { "@type": "Question", "name": "Can I get PIP for arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. PIP is assessed on how your condition affects you, not on your diagnosis. Many people with osteoarthritis, rheumatoid arthritis, psoriatic arthritis and other forms qualify. You must have been affected for at least 3 months and expect it to continue for at least 9 months." } },
-          { "@type": "Question", "name": "How much PIP can I get for arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "At the enhanced rate for both components, PIP provides up to £184.30 per week (£9,584 per year) in 2024/25. The daily living component alone ranges from £72.65 to £108.55 per week." } },
-          { "@type": "Question", "name": "What is the difference between PIP and Attendance Allowance for arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "PIP is for people of working age (16 to State Pension age). Attendance Allowance is for people over State Pension age. Both are non-means-tested and can be claimed whether you work or not." } },
-          { "@type": "Question", "name": "What if my PIP claim is refused?", "acceptedAnswer": { "@type": "Answer", "text": "Request a Mandatory Reconsideration within one month. If that fails, appeal to the Social Security and Child Support Tribunal — around 70% of PIP appeals succeed at tribunal (Ministry of Justice, 2024)." } }
-        ]
-      })}</script>
+      {/* FAQPage JSON-LD is emitted once by PageSchema (faqs={PIP_GUIDE_FAQS})
+          for the questions rendered visibly in the accordion below. The
+          second, hand-written FAQPage block that used to sit here duplicated
+          the schema and covered questions that were not visible on the page. */}
     </Helmet>
       <Header />
       <main id="main-content" className="min-h-screen bg-background">
@@ -263,7 +259,16 @@ export default function BenefitsPIPGuide() {
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
           <TableOfContents html={html} />
           <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" dangerouslySetInnerHTML={{ __html: sanitizeHtml(html) }} />
+          <section id="benefits-pip-faq" className="mt-16 pt-8 border-t border-border/30">
+            <h2 className="font-display font-bold text-2xl mb-6">Frequently asked questions</h2>
+            <FaqAccordion
+              idPrefix="benefits-pip-faq"
+              items={PIP_GUIDE_FAQS}
+              injectSchema={false}
+            />
+          </section>
           <div className="mt-16 pt-8 border-t border-border/30">
+
             <h3 className="font-display font-bold text-lg mb-4">Continue Reading</h3>
             <div className="grid sm:grid-cols-2 gap-4">
               <Link to="/guides/health-services" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
