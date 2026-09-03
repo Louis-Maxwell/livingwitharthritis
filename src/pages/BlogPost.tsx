@@ -410,7 +410,7 @@ const BlogPost = () => {
               <ArticleVoiceover slug={article.slug} className="mt-6 max-w-[640px]" />
 
               {slug && (
-                <SocialShareButtons title={article.title} slug={slug} />
+                <SocialShareButtons title={article.title} slug={slug} instance="header" />
               )}
 
             </div>
@@ -570,7 +570,7 @@ const BlogPost = () => {
 
 
           <footer className="mt-14 pt-8 border-t border-border/20">
-            {slug && <SocialShareButtons title={article.title} slug={slug} />}
+            {slug && <SocialShareButtons title={article.title} slug={slug} instance="footer" />}
             {slug && <BlogHelpfulness slug={slug} />}
 
             <CrossLinkBanner preset="blog" exclude={`/blog/${slug}`} title="Related resources" />
