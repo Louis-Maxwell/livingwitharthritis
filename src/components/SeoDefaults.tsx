@@ -107,6 +107,11 @@ export default function SeoDefaults() {
   return (
     <Helmet>
       {untranslatedLangPath && <meta name="robots" content="noindex,follow" />}
+      {/* Exactly one self-referencing canonical per page. Emitted here so
+          every route gets one, including pages that use raw Helmet rather
+          than <SeoHead />. The static index.html canonical is pruned above
+          once this one mounts. */}
+      <link rel="canonical" key="canonical" href={pageUrl} />
       {hasTranslations ? (
         <>
           {SUPPORTED_LANGS.map((lang) => (

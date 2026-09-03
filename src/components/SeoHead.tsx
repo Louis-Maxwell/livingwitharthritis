@@ -63,10 +63,10 @@ export default function SeoHead({
           content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
         />
       )}
-      {/* Self-referencing canonical. Helmet does not dedupe <link> by rel,
-          so SeoDefaults prunes the static index.html canonical once this
-          one mounts. hreflang is emitted globally by <SeoDefaults />. */}
-      <link rel="canonical" key="canonical" href={canonical} />
+      {/* The self-referencing canonical and hreflang are emitted globally by
+          <SeoDefaults /> for every route, including pages that use raw
+          Helmet instead of this component. Emitting one here too would ship
+          two canonicals (Helmet does not dedupe <link> by rel). */}
       <meta name="geo.region" content="GB" />
       <meta name="theme-color" content="#D60000" media="(prefers-color-scheme: light)" />
       <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />

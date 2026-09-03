@@ -6403,5 +6403,33 @@
     "answer": "Our clinical content is reviewed by Louis Maxwell (Maxwell), a First Contact Practitioner registered with the Health and Care Professions Council (HCPC PH128483) and a member of the Chartered Society of Physiotherapy. Reviews check each page against current NHS and NICE guidance.",
     "breadcrumb": "Medical reviewers",
     "updatedAt": "2026-08-29"
+  },
+  "/about": {
+    "title": "About Living With Arthritis UK | Registered charity 1218461",
+    "description": "Living With Arthritis is an independent UK charity (no. 1218461) publishing free, clinically reviewed arthritis guidance. Who we are, how we are funded and who reviews our content.",
+    "question": "Who is Living With Arthritis UK?",
+    "answer": "Living With Arthritis is a Charitable Incorporated Organisation registered in England and Wales (no. 1218461). We publish free, clinically reviewed guidance on exercise, diet, pain management and UK benefits for people living with arthritis. We are independent of Arthritis UK and the US Arthritis Foundation. Clinical review is led by Maxwell, a First Contact Practitioner registered with the HCPC (PH128483).",
+    "breadcrumb": "About us"
+  },
+  "/diet": {
+    "title": "Best Arthritis Diet UK | Anti-Inflammatory Foods",
+    "description": "Foods to avoid with arthritis and what to eat instead: Mediterranean eating, anti-inflammatory foods, weight management and practical UK meal ideas.",
+    "question": "What is the best diet for arthritis?",
+    "answer": "A Mediterranean-style pattern has the strongest evidence: plenty of vegetables, fruit, wholegrains, beans, olive oil, nuts and oily fish twice a week, with less red and processed meat, added sugar and ultra-processed food. For weight-bearing joints, losing excess weight lowers the load through the joint. No food cures arthritis.",
+    "breadcrumb": "Diet"
+  },
+  "/guides/exercise": {
+    "title": "Best arthritis exercises in the UK (NICE-aligned)",
+    "description": "Evidence-based arthritis exercise guide: low-impact aerobic, strength, flexibility, water-based and chair routines for knee, hip, hand and shoulder.",
+    "question": "What exercise is best for arthritis?",
+    "answer": "Exercise is first-line care for osteoarthritis in the UK. Combine low-impact aerobic activity (walking, cycling, swimming), strengthening work for the muscles around the affected joint, and flexibility or balance work. Build up gradually; some discomfort that settles within 24 hours is expected and does not mean harm.",
+    "breadcrumb": "Exercise guide"
+  },
+  "/guides/benefits-pip": {
+    "title": "UK Arthritis Benefits & PIP Guide | Living With Arthritis",
+    "description": "Guide to UK benefits for arthritis: PIP, Attendance Allowance, Blue Badge, Motability, workplace rights and the Disabled Facilities Grant.",
+    "question": "Can you claim PIP for arthritis?",
+    "answer": "Yes. Personal Independence Payment is not awarded for a diagnosis but for how arthritis affects daily living and mobility. Under State Pension age you claim PIP (Adult Disability Payment in Scotland); over it, Attendance Allowance. If you are refused, ask for a mandatory reconsideration within one month, then appeal to a tribunal.",
+    "breadcrumb": "Benefits and PIP guide"
   }
 }
