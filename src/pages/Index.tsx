@@ -34,6 +34,7 @@ const withVisitorSnippet = (rest: string) =>
 const HeroStatsStrip = lazy(() => import("@/components/landing/HeroStatsStrip"));
 const OAProblemBand = lazy(() => import("@/components/landing/OAProblemBand"));
 const JointExerciseSection = lazy(() => import("@/components/JointExerciseSection"));
+const InteractiveStartPath = lazy(() => import("@/components/landing/InteractiveStartPath"));
 
 const FacesStrip = lazy(() => import("@/components/landing/FacesStrip"));
 const OAPlanPillarsSection = lazy(() => import("@/components/landing/OAPlanPillarsSection"));
@@ -175,27 +176,27 @@ function HomePage() {
         <ScrollProgress />
 
         <main id="main-content" role="main" tabIndex={-1}>
-          {/* 01 — Editorial hero */}
+          {/* 01 — Editorial hero (eager LCP) */}
           <OAHero />
+
+          {/* 01b — Interactive start-here path, immediately after the hero. */}
+          <Suspense fallback={<SectionFallback />}>
+            <InteractiveStartPath />
+          </Suspense>
+
+          {/* 01c — Anatomy figure + tap-friendly joint chips, next to the chooser. */}
+          <Suspense fallback={<SectionFallback />}>
+            <JointExerciseSection />
+          </Suspense>
 
           {/* 01a — Urgent appeal: Palestine & Gaza rehabilitation */}
           <Suspense fallback={<SectionFallback />}>
             <GazaAppealBand />
           </Suspense>
 
-
-
-
           {/* 02 — Beginner journey chooser */}
           <Suspense fallback={<SectionFallback />}>
             <StartHereBand />
-          </Suspense>
-
-
-          {/* 03 — Where does it hurt? Interactive anatomy diagram — click a
-              joint to reveal a personalised home exercise plan inline. */}
-          <Suspense fallback={<SectionFallback />}>
-            <JointExerciseSection />
           </Suspense>
 
           {/* 03b — Bridge to the fuller symptom-matching quiz for visitors

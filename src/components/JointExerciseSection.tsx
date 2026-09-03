@@ -162,14 +162,14 @@ const JointMarker = ({
     onClick={() => onClick(selectionId)}
     aria-label={`Exercise plan for ${label}`}
     aria-pressed={active}
-    className="absolute -translate-x-1/2 -translate-y-1/2 group focus:outline-none focus-visible:outline-none"
+    className="absolute -translate-x-1/2 -translate-y-1/2 group min-h-11 min-w-11 flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-full"
     style={{ top: `${top}%`, left: `${left}%` }}
   >
-    {/* Pulsing outer ring when active */}
+    {/* Pulsing outer ring when active — skipped when the visitor prefers reduced motion */}
     {active && (
       <span
         aria-hidden="true"
-        className="absolute inset-0 m-auto w-7 h-7 rounded-full bg-primary/30 animate-ping"
+        className="absolute inset-0 m-auto w-7 h-7 rounded-full bg-primary/30 motion-safe:animate-ping"
       />
     )}
     {/* Marker dot */}
@@ -264,7 +264,7 @@ const ExercisePanel = memo(({ joint, side, onClose }: { joint: JointData; side: 
     <div className="p-5 relative" style={{ background: "linear-gradient(135deg, hsl(180 70% 40%), hsl(200 75% 45%))" }}>
       <button
         onClick={onClose}
-        className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center transition-colors text-primary-foreground/90 hover:text-primary-foreground"
+        className="absolute top-3 right-3 min-h-11 min-w-11 w-11 h-11 rounded-full flex items-center justify-center transition-colors text-primary-foreground/90 hover:text-primary-foreground"
         style={{ background: "hsl(0 0% 100% / 0.2)" }}
         aria-label="Close exercise panel"
       >
@@ -388,9 +388,30 @@ const JointExerciseSection = memo(() => {
             Choose an area
           </h2>
           <p className="text-base text-muted-foreground max-w-lg mx-auto leading-relaxed">
-            Click a joint on the body to get a home exercise plan
+            Tap a joint chip — or a marker on the figure — for a short home exercise plan.
           </p>
         </motion.div>
+
+        <div className="flex flex-wrap justify-center gap-2 mb-8 max-w-xl mx-auto" role="group" aria-label="Choose a joint">
+          {HOTSPOTS.map((h) => {
+            const pressed = activeJointId === h.id;
+            return (
+              <button
+                key={h.id}
+                type="button"
+                onClick={() => handleJointClick(h.id)}
+                aria-pressed={pressed}
+                className={`inline-flex items-center justify-center min-h-11 min-w-[44px] px-3.5 rounded-full border text-sm font-semibold leading-tight focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
+                  pressed
+                    ? "bg-primary text-primary-foreground border-primary"
+                    : "bg-card text-foreground border-border hover:border-primary/50"
+                }`}
+              >
+                {h.label}
+              </button>
+            );
+          })}
+        </div>
 
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-start">
           {/* Body silhouette with gradient overlay and joint markers */}
@@ -447,7 +468,7 @@ const JointExerciseSection = memo(() => {
                       Select a Joint
                     </h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">
-                      Click on any joint marker on the body to view a personalised home exercise plan.
+                      Tap a joint chip above, or a marker on the figure, for a personalised home exercise plan.
                     </p>
                   </div>
                 </motion.div>

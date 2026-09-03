@@ -1,9 +1,17 @@
-import { memo } from "react";
+import { memo, type MouseEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight, Heart } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { useReveal } from "@/hooks/useReveal";
 import "@/components/HeroSection.css";
+
+
+const scrollToStartHere = (event: MouseEvent<HTMLAnchorElement>) => {
+  const target = document.getElementById("start-here");
+  if (!target) return;
+  event.preventDefault();
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  target.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+};
 
 // Hero photo, compressed locally to WebP at 400/800 square variants so the
 // LCP element stays tiny on mobile (~14KB at 400w).
@@ -44,15 +52,24 @@ const OAHero = memo(() => {
 
             <div className="hero-item mt-10 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 min-w-0">
               <button
+                type="button"
                 onClick={() => navigate("/conditions/osteoarthritis")}
-                className="btn-map btn-map-dark group w-full sm:w-auto justify-center"
+                className="btn-map btn-map-dark group w-full sm:w-auto justify-center min-h-11"
               >
                 <Heart className="w-4 h-4 mr-2" aria-hidden="true" />
                 Start your gentle plan
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </button>
-              <a href="/donate" className="btn-map w-full sm:w-auto justify-center" style={{ background: "white", color: "hsl(var(--foreground))" }}>
+              <a href="/donate" className="btn-map w-full sm:w-auto justify-center min-h-11" style={{ background: "white", color: "hsl(var(--foreground))" }}>
                 Donate — keep it free
+              </a>
+              <a
+                href="#start-here"
+                onClick={scrollToStartHere}
+                className="btn-map w-full sm:w-auto justify-center min-h-11"
+                style={{ background: "transparent", color: "inherit", border: "2px solid currentColor" }}
+              >
+                Find your starting point
               </a>
             </div>
 
