@@ -596,7 +596,17 @@ const DietHub = () => {
         </div>
       </main>
 
+      <section id="diet-faq" className="py-16">
+        <div className="container mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-6">
+            Arthritis and diet — your questions answered
+          </h2>
+          <FaqAccordion idPrefix="diet-hub-faq" items={DIET_HUB_FAQS} />
+        </div>
+      </section>
+
       <InternalLinks />
+
       <Footer />
     </>
   );
