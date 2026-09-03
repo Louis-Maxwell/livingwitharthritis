@@ -38,6 +38,15 @@ vi.mock("@/integrations/supabase/client", () => ({
   },
 }));
 
+
+vi.mock("@/lib/staticBlogCatalog", () => ({
+  getStaticBlogArticle: () => undefined,
+  getStaticBlogArticles: () => [],
+  getStaticBlogList: () => [],
+  mergePreferStatic: (_staticItems: unknown, remoteItems: unknown) => remoteItems ?? [],
+  sortBlogList: (items: unknown[]) => items ?? [],
+}));
+
 import {
   useBlogArticle,
   useBlogArticlesList,
@@ -126,5 +135,12 @@ describe("useRelatedArticles", () => {
     // useRelatedArticles requires complex chained queries that are hard to mock;
     // verify the export exists and is a function
     expect(typeof useRelatedArticles).toBe("function");
+  });
+});
+
+describe("static catalog merge (contract)", () => {
+  it("exports list and article hooks that remain callable", () => {
+    expect(typeof useBlogArticlesList).toBe("function");
+    expect(typeof useBlogArticle).toBe("function");
   });
 });

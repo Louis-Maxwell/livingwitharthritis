@@ -15,57 +15,106 @@
  * HTML in the first response (Google Soft 404s on empty SPA shells).
  * If the fetch fails the previous JSON is preserved rather than emptied.
  */
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const OUT = resolve('scripts/blog-head-data.json');
+const LOCAL_BLOG_DIR = resolve('src/content/blog');
 
-function publicSupabaseDefaults() {
+function loadLocalStaticArticles() {
+  const articles = [];
   try {
-    const src = readFileSync(
-      resolve('src/integrations/supabase/publicDefaults.ts'),
-      'utf8',
-    );
-    return {
-      url: src.match(/url:\s*['"]([^'"]+)['"]/)?.[1],
-      key: src.match(/publishableKey:\s*['"\s]+([^'"]+)['"]/)?.[1],
-    };
+    for (const name of readdirSync(LOCAL_BLOG_DIR)) {
+      if (!name.endsWith('.json')) continue;
+      const raw = JSON.parse(readFileSync(resolve(LOCAL_BLOG_DIR, name), 'utf8'));
+      const rows = Array.isArray(raw) ? raw : [raw];
+      for (const row of rows) {
+        if (row?.slug && row?.title && row?.is_published !== false) articles.push(row);
+      }
+    }
   } catch {
-    return {};
+    // Catalog is optional at bootstrap.
   }
+  return articles;
 }
 
-function keepExisting(reason) {
-  const count = existsSync(OUT)
-    ? Object.keys(JSON.parse(readFileSync(OUT, 'utf8'))).length
-    : 0;
-  console.warn(`[blog-head-data] ${reason} — keeping existing ${count} entries`);
-  process.exit(0);
+function clipText(text, max) {
+  const value = String(text ?? '').replace(/\s+/g, ' ').trim();
+  if (value.length <= max) return value;
+  return `${value.slice(0, max - 1).replace(/[\s,;:.-]+$/, '')}…`;
+}
+
+function mergeLocalStatic(data, extractFaqs) {
+  for (const row of loadLocalStaticArticles()) {
+    const answer = row.direct_answer || row.excerpt || '';
+    const description = row.meta_description || row.excerpt || row.direct_answer || '';
+    const headline = row.meta_title || row.title;
+    if (!headline || !description) continue;
+    data[`/blog/${row.slug}`] = {
+      title: headline.length <= 72 ? `${headline} | Living With Arthritis UK` : clipText(headline, 110),
+      description: clipText(description, 158),
+      question: headline,
+      answer: answer ? clipText(answer, 600) : undefined,
+      breadcrumb: headline,
+      about: row.category || undefined,
+      updatedAt: String(row.updated_at || row.date || '').slice(0, 10) || undefined,
+      article: {
+        slug: row.slug,
+        title: row.title,
+        excerpt: row.excerpt ?? '',
+        content: row.content ?? '',
+        date: row.date,
+        category: row.category,
+        image_url: row.image_url ?? null,
+        meta_title: row.meta_title ?? null,
+        meta_description: row.meta_description ?? null,
+        keywords: row.keywords ?? null,
+        author: row.author ?? null,
+        author_credentials: row.author_credentials ?? null,
+        reviewed_by: row.reviewed_by ?? null,
+        reviewer_credentials: row.reviewer_credentials ?? null,
+        is_published: true,
+        display_order: row.display_order ?? 0,
+        updated_at: row.updated_at ?? null,
+        direct_answer: row.direct_answer ?? null,
+        citations: row.citations ?? null,
+      },
+    };
+    if (typeof extractFaqs === 'function') {
+      const faqs = extractFaqs(row.content);
+      if (faqs.length >= 2) data[`/blog/${row.slug}`].faqs = faqs;
+    }
+  }
+  return data;
+}
+
+
+function loadRowsFromLocalJson() {
+  const rows = [];
+  if (existsSync(OUT)) {
+    const data = JSON.parse(readFileSync(OUT, 'utf8'));
+    for (const entry of Object.values(data)) {
+      if (entry?.article) rows.push(entry.article);
+    }
+  }
+  const snap = resolve('src/data/blogArticles.json');
+  if (existsSync(snap)) {
+    const arr = JSON.parse(readFileSync(snap, 'utf8'));
+    if (Array.isArray(arr)) rows.push(...arr);
+  }
+  for (const row of loadLocalStaticArticles()) {
+    rows.push(row);
+  }
+  const map = new Map();
+  for (const row of rows) {
+    if (row?.slug) map.set(row.slug, row);
+  }
+  return [...map.values()];
 }
 
 async function main() {
-  const defaults = publicSupabaseDefaults();
-  const url =
-    process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL || defaults.url;
-  const key =
-    process.env.VITE_SUPABASE_PUBLISHABLE_KEY ||
-    process.env.SUPABASE_PUBLISHABLE_KEY ||
-    process.env.SUPABASE_ANON_KEY ||
-    defaults.key;
-  if (!url || !key) keepExisting('Supabase credentials missing');
-
-  let rows = [];
-  try {
-    const res = await fetch(
-      `${url}/rest/v1/blog_articles?select=slug,title,meta_title,excerpt,direct_answer,meta_description,category,content,updated_at,date,image_url,keywords,author,author_credentials,reviewed_by,reviewer_credentials,display_order,citations&is_published=eq.true&limit=2000`,
-      { headers: { apikey: key, Authorization: `Bearer ${key}` } },
-    );
-    if (!res.ok) keepExisting(`blog fetch ${res.status}`);
-    rows = await res.json();
-  } catch (error) {
-    keepExisting(`blog fetch failed (${error.message})`);
-  }
-  if (!Array.isArray(rows) || rows.length === 0) keepExisting('no rows returned');
+  // local JSON only — never fetch a remote CMS
+  const rows = loadRowsFromLocalJson();
 
   const redirectSrc = readFileSync(resolve('src/data/blogRedirects.ts'), 'utf8');
   const redirectSlugs = new Set(
@@ -78,9 +127,6 @@ async function main() {
     return `${value.slice(0, max - 1).replace(/[\s,;:.-]+$/, '')}…`;
   };
 
-  // Mirrors extractFaqs() in src/pages/BlogPost.tsx: only headings that end
-  // in "?" and are followed by real answer text. Those same pairs render in
-  // the visible FAQ section, so FAQPage JSON-LD never describes hidden copy.
   const extractFaqs = (content) => {
     if (!content) return [];
     const body = String(content).replace(/\\n/g, '\n');
@@ -120,27 +166,19 @@ async function main() {
     const answer = row.direct_answer || row.excerpt || '';
     const description =
       row.meta_description || row.excerpt || row.direct_answer || '';
-    // Some legacy rows store a truncated `title`; meta_title is the curated
-    // SERP headline where present.
     const headline = row.meta_title || row.title;
     if (!headline || !description) continue;
     data[`/blog/${row.slug}`] = {
-      // Keep the full article title readable, appending the brand suffix
-      // only when the combined string still fits a sensible SERP length.
       title:
         headline.length <= 72
           ? `${headline} | Living With Arthritis UK`
           : clip(headline, 110),
       description: clip(description, 158),
       question: headline,
-
       answer: answer ? clip(answer, 600) : undefined,
       breadcrumb: headline,
       about: row.category || undefined,
       updatedAt: String(row.updated_at || row.date || '').slice(0, 10) || undefined,
-      // Full reviewed body so inject-canonicals can put unique article
-      // HTML in the first response. Without this, Google's no-JS pass
-      // only sees a homepage shell and reports Soft 404.
       article: {
         slug: row.slug,
         title: row.title,
@@ -167,8 +205,10 @@ async function main() {
     if (faqs.length >= 2) data[`/blog/${row.slug}`].faqs = faqs;
   }
 
+  mergeLocalStatic(data, extractFaqs);
   writeFileSync(OUT, `${JSON.stringify(data, null, 2)}\n`);
-  console.log(`[blog-head-data] wrote ${Object.keys(data).length} blog entries`);
+  const withContent = Object.values(data).filter((e) => e?.article?.content).length;
+  console.log(`[blog-head-data] local JSON only — ${Object.keys(data).length} entries, ${withContent} with article content`);
 }
 
 main();

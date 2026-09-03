@@ -1,16 +1,15 @@
 // Auto-generates public/sitemap.xml.
 // Runs via `predev` and `prebuild` hooks. Discovers static routes from
-// src/App.tsx and dynamic routes from data files + Supabase.
+// src/App.tsx and dynamic routes from data files and local JSON.
 //
 // Run manually:  bun scripts/generate-sitemap.ts
 
-import { writeFileSync, readFileSync } from "node:fs";
+import { writeFileSync, readFileSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
 import {
   assertSafeBlogInventory,
   isValidCitySupportRoute,
 } from "../src/lib/seoBuildSafety";
-import { PUBLIC_SUPABASE_DEFAULTS } from "../src/integrations/supabase/publicDefaults";
 import {
   BLOG_CATEGORY_KEYS,
   canonicalBlogCategoryKey,
@@ -40,7 +39,7 @@ interface BlogPostEntry {
 
 interface BlogInventory {
   posts: BlogPostEntry[];
-  source: "supabase" | "checked-in-fallback";
+  source: "local-json" | "checked-in-fallback";
 }
 
 const read = (p: string) => readFileSync(resolve(p), "utf8");
@@ -188,7 +187,7 @@ function exerciseJointSlugs(): string[] {
   return slugs;
 }
 
-// ---------- 3. SUPABASE: blog_articles ----------
+// ---------- 3. LOCAL JSON: blog articles ----------
 function blogRedirectSlugs(): Set<string> {
   const redirectSrc = read("src/data/blogRedirects.ts");
   return new Set(
@@ -207,6 +206,41 @@ function previousBlogLastmods(): Map<string, string> {
     // The generated slug snapshot below remains the fallback source of truth.
   }
   return lastmods;
+}
+
+function staticCatalogBlogPosts(): BlogPostEntry[] {
+  const dir = resolve("src/content/blog");
+  const posts: BlogPostEntry[] = [];
+  try {
+    for (const name of readdirSync(dir)) {
+      if (!name.endsWith(".json")) continue;
+      const raw = JSON.parse(read(`src/content/blog/${name}`)) as unknown;
+      const rows = Array.isArray(raw) ? raw : [raw];
+      for (const row of rows) {
+        const r = row as { slug?: string; updated_at?: string; date?: string; category?: string };
+        if (r.slug && BLOG_SLUG_PATTERN.test(r.slug)) {
+          posts.push({
+            slug: r.slug,
+            lastmod: String(r.updated_at || r.date || "").slice(0, 10) || undefined,
+            category: r.category,
+          });
+        }
+      }
+    }
+  } catch {
+    // Catalog is optional at bootstrap.
+  }
+  return posts;
+}
+
+function unionBlogPosts(primary: BlogPostEntry[], extra: BlogPostEntry[]): BlogPostEntry[] {
+  const map = new Map<string, BlogPostEntry>();
+  for (const p of primary) map.set(p.slug, p);
+  for (const p of extra) {
+    const cur = map.get(p.slug);
+    map.set(p.slug, cur ? { ...cur, lastmod: p.lastmod || cur.lastmod, category: p.category || cur.category } : p);
+  }
+  return [...map.values()];
 }
 
 function checkedInBlogSlugs(): string[] {
@@ -264,7 +298,7 @@ function previousBlogCategoryPaths(): string[] {
 }
 
 function checkedInBlogFallback(reason: string): BlogInventory {
-  const posts = checkedInBlogPosts();
+  const posts = unionBlogPosts(checkedInBlogPosts(), staticCatalogBlogPosts());
   if (posts.length === 0) {
     throw new Error(
       `[sitemap] ${reason}; no checked-in blog inventory is available, so the build cannot continue safely.`,
@@ -277,59 +311,31 @@ function checkedInBlogFallback(reason: string): BlogInventory {
 }
 
 async function blogPosts(): Promise<BlogInventory> {
-  const url =
-    process.env.VITE_SUPABASE_URL ||
-    process.env.SUPABASE_URL ||
-    PUBLIC_SUPABASE_DEFAULTS.url;
-  const key =
-    process.env.VITE_SUPABASE_PUBLISHABLE_KEY ||
-    process.env.SUPABASE_PUBLISHABLE_KEY ||
-    process.env.SUPABASE_ANON_KEY ||
-    PUBLIC_SUPABASE_DEFAULTS.publishableKey;
-  if (!url || !key) {
-    return checkedInBlogFallback("Supabase environment is unavailable");
-  }
+  const posts: BlogPostEntry[] = [];
   try {
-    const res = await fetch(
-      `${url}/rest/v1/blog_articles?select=slug,updated_at,category&is_published=eq.true&limit=2000`,
-      { headers: { apikey: key, Authorization: `Bearer ${key}` } },
-    );
-    if (!res.ok) {
-      return checkedInBlogFallback(`blog fetch returned HTTP ${res.status}`);
+    const data = JSON.parse(read("scripts/blog-head-data.json")) as Record<
+      string,
+      { article?: { slug?: string; updated_at?: string; date?: string; category?: string } }
+    >;
+    const redirects = blogRedirectSlugs();
+    for (const entry of Object.values(data)) {
+      const a = entry?.article;
+      if (a?.slug && BLOG_SLUG_PATTERN.test(a.slug) && !redirects.has(a.slug)) {
+        posts.push({
+          slug: a.slug,
+          lastmod: String(a.updated_at || a.date || "").slice(0, 10) || undefined,
+          category: a.category,
+        });
+      }
     }
-    const rows = (await res.json()) as Array<{
-      slug: string;
-      updated_at?: string;
-      category?: string;
-    }>;
-    const redirectSlugs = blogRedirectSlugs();
-    const posts = rows
-      .filter(
-        (r) =>
-          r.slug &&
-          BLOG_SLUG_PATTERN.test(r.slug) &&
-          !redirectSlugs.has(r.slug),
-      )
-      .map((r) => ({
-        slug: r.slug,
-        lastmod: r.updated_at?.slice(0, 10),
-        category: r.category,
-      }));
-    assertSafeBlogInventory(
-      checkedInBlogPosts().length,
-      posts.length,
-      process.env.ALLOW_SITEMAP_URL_LOSS === "1",
-    );
-    return { posts, source: "supabase" };
-  } catch (e) {
-    if (
-      e instanceof Error &&
-      e.message.startsWith("[sitemap] refusing to reduce canonical blog inventory")
-    ) {
-      throw e;
-    }
-    return checkedInBlogFallback(`blog fetch failed: ${(e as Error).message}`);
+  } catch {
+    return checkedInBlogFallback("local blog-head-data.json unavailable");
   }
+  const union = unionBlogPosts(posts, staticCatalogBlogPosts());
+  if (union.length === 0) {
+    return checkedInBlogFallback("local JSON produced no blog posts");
+  }
+  return { posts: union, source: "local-json" };
 }
 
 // ---------- 4. ASSEMBLE ----------

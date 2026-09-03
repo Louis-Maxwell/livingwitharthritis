@@ -1,47 +1,40 @@
-import { supabase } from "@/integrations/supabase/client";
 import { useQuery } from "@tanstack/react-query";
 import { getClustersForArticle, scoreCandidate } from "@/lib/relatedClusters";
 import { readEmbeddedBlogArticle } from "@/lib/embeddedBlogArticle";
+import {
+  getStaticBlogArticle,
+  getStaticBlogArticles,
+  getStaticBlogList,
+  mergePreferStatic,
+  sortBlogList,
+} from "@/lib/staticBlogCatalog";
+import {
+  getPublishedArticle,
+  listArticlesByCategory,
+  listPublishedArticles,
+  nextArticle,
+  type DBBlogArticle,
+} from "@/data/staticBlog";
 
 export { readEmbeddedBlogArticle } from "@/lib/embeddedBlogArticle";
+export type { DBBlogArticle, BlogArticleCitation } from "@/data/staticBlog";
 
-// Supabase client removed - restore for database queries
+type BlogListItem = Pick<
+  DBBlogArticle,
+  "slug" | "title" | "meta_title" | "excerpt" | "date" | "category" | "image_url" | "display_order"
+>;
 
-export interface BlogArticleCitation {
-  label: string;
-  url: string;
-  publisher?: string;
+function asArticle(row: unknown): DBBlogArticle {
+  return row as DBBlogArticle;
 }
 
-export interface DBBlogArticle {
-  slug: string;
-  title: string;
-  excerpt: string;
-  content: string;
-  date: string;
-  category: string;
-  image_url: string | null;
-  meta_title: string | null;
-  meta_description: string | null;
-  keywords: string | null;
-  author: string | null;
-  author_credentials: string | null;
-  reviewed_by: string | null;
-  reviewer_credentials: string | null;
-  is_published: boolean;
-  display_order: number;
-  updated_at?: string | null;
-  /** 40–60 word plain-English answer rendered in the on-page AnswerBox. */
-  direct_answer?: string | null;
-  /** Optional per-article citations (JSONB). When set, overrides/extends the
-   *  shared NHS/NICE defaults on ArticleCitations. */
-  citations?: BlogArticleCitation[] | null;
+function snapshotList(): BlogListItem[] {
+  return sortBlogList(
+    mergePreferStatic(getStaticBlogList(), listPublishedArticles() as BlogListItem[]),
+  );
 }
 
-const FIELDS = "slug, title, excerpt, content, date, category, image_url, meta_title, meta_description, keywords, author, author_credentials, reviewed_by, reviewer_credentials, is_published, display_order, updated_at, direct_answer, citations";
-const LIST_FIELDS = "slug, title, meta_title, excerpt, date, category, image_url, display_order";
-
-/** Single article by slug */
+/** Single article by slug from the checked-in snapshot. */
 export function useBlogArticle(slug: string | undefined) {
   const initialData =
     typeof document === "undefined"
@@ -51,19 +44,13 @@ export function useBlogArticle(slug: string | undefined) {
     queryKey: ["blog_article", slug],
     queryFn: async () => {
       if (!slug) return null;
-      const { data, error } = await supabase
-        .from("blog_articles")
-        .select(FIELDS)
-        .eq("slug", slug)
-        .eq("is_published", true)
-        .single();
-      if (error) throw error;
-      return data as unknown as DBBlogArticle;
+      const catalog = getStaticBlogArticle(slug);
+      if (catalog) return asArticle(catalog);
+      const snapshot = await getPublishedArticle(slug);
+      return snapshot ? asArticle(snapshot) : null;
     },
     enabled: !!slug,
-    ...(initialData
-      ? { initialData, initialDataUpdatedAt: Date.now() }
-      : {}),
+    ...(initialData ? { initialData, initialDataUpdatedAt: Date.now() } : {}),
   });
 }
 
@@ -71,48 +58,18 @@ export function useBlogArticle(slug: string | undefined) {
 export function useBlogArticlesList() {
   return useQuery({
     queryKey: ["blog_articles_list"],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from("blog_articles")
-        .select(LIST_FIELDS)
-        .eq("is_published", true)
-        .order("display_order", { ascending: false })
-        .order("date", { ascending: false });
-      if (error) throw error;
-      return (data ?? []) as Pick<DBBlogArticle, "slug" | "title" | "meta_title" | "excerpt" | "date" | "category" | "image_url" | "display_order">[];
-    },
+    queryFn: async () => snapshotList(),
   });
 }
 
-/** Top 3 editor's-pick articles for the featured strip */
+/** Top editor's-pick articles for the featured strip */
 export function useFeaturedArticles(limit = 3) {
   return useQuery({
     queryKey: ["blog_articles_featured", limit],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from("blog_articles")
-        .select(LIST_FIELDS)
-        .eq("is_published", true)
-        .order("display_order", { ascending: false })
-        .order("date", { ascending: false })
-        .limit(limit);
-      if (error) throw error;
-      return (data ?? []) as Pick<DBBlogArticle, "slug" | "title" | "meta_title" | "excerpt" | "date" | "category" | "image_url" | "display_order">[];
-    },
+    queryFn: async () => snapshotList().slice(0, limit),
   });
 }
 
-/**
- * The `category` column has accumulated inconsistent labels over time
- * (e.g. "Exercise" vs "Exercises" vs "Exercise Guides" vs lowercase
- * "exercises" — confirmed via a real query against blog_articles: 11
- * published articles under Exercise-family labels and 22 under
- * Treatment-family labels were invisible to every condition page
- * requesting the canonical "Exercise"/"Treatment" category, since the
- * lookup below is an exact-match `IN` query). This expands each
- * requested category to its known real-world aliases before querying,
- * rather than requiring a data migration to fix at the source.
- */
 const CATEGORY_ALIASES: Record<string, string[]> = {
   Exercise: ["Exercise", "Exercises", "Exercise Guides", "exercises"],
   Treatment: ["Treatment", "Treatment Guides", "treatments"],
@@ -131,18 +88,15 @@ export function useConditionArticles(categories: string[] = [], limit = 4) {
   return useQuery({
     queryKey: ["blog_articles_by_categories", categories, limit],
     queryFn: async () => {
-      let q = supabase
-        .from("blog_articles")
-        .select(LIST_FIELDS)
-        .eq("is_published", true);
-      if (categories.length > 0) {
-        q = q.in("category", expandCategoryAliases(categories));
-      }
-      const { data, error } = await q
-        .order("date", { ascending: false })
-        .limit(limit);
-      if (error) throw error;
-      return (data ?? []) as Pick<DBBlogArticle, "slug" | "title" | "meta_title" | "excerpt" | "date" | "category" | "image_url" | "display_order">[];
+      const aliases = new Set(expandCategoryAliases(categories));
+      const fromSnapshot = listArticlesByCategory(categories, Math.max(limit, 30));
+      const merged = snapshotList().filter((article) =>
+        categories.length === 0 ? true : aliases.has(article.category),
+      );
+      const combined = sortBlogList(mergePreferStatic(merged, fromSnapshot)).filter((article) =>
+        categories.length === 0 ? true : aliases.has(article.category),
+      );
+      return combined.slice(0, limit);
     },
   });
 }
@@ -152,38 +106,16 @@ export function useNextArticle(currentSlug: string) {
   return useQuery({
     queryKey: ["next_article", currentSlug],
     queryFn: async () => {
-      // Get the current article's date
-      const { data: current } = await supabase
-        .from("blog_articles")
-        .select("date, display_order")
-        .eq("slug", currentSlug)
-        .single();
-
-      if (!current) return null;
-
-      // Get next article by date (older)
-      const { data: next } = await supabase
-        .from("blog_articles")
-        .select("slug, title")
-        .eq("is_published", true)
-        .lt("date", current.date)
-        .order("date", { ascending: false })
-        .limit(1)
-        .single();
-
-      if (next) return next;
-
-      // Wrap around to newest
-      const { data: first } = await supabase
-        .from("blog_articles")
-        .select("slug, title")
-        .eq("is_published", true)
-        .neq("slug", currentSlug)
-        .order("date", { ascending: false })
-        .limit(1)
-        .single();
-
-      return first ?? null;
+      const fromSnapshot = nextArticle(currentSlug);
+      const list = snapshotList();
+      const current = list.find((a) => a.slug === currentSlug) ?? getStaticBlogArticle(currentSlug);
+      if (!current) return fromSnapshot;
+      const older = list
+        .filter((a) => a.slug !== currentSlug && (a.date ?? "") < (current.date ?? ""))
+        .sort((a, b) => (b.date ?? "").localeCompare(a.date ?? ""));
+      if (older[0]) return { slug: older[0].slug, title: older[0].title };
+      const newest = list.find((a) => a.slug !== currentSlug);
+      return newest ? { slug: newest.slug, title: newest.title } : fromSnapshot;
     },
   });
 }
@@ -198,20 +130,13 @@ export interface RelatedArticle {
 }
 
 export interface RelatedArticlesOptions {
-  /** Pre-seed clusters (used by non-blog pages like /conditions/*). */
   seedClusters?: string[];
-  /** Pre-seed category (used when there is no DB row to read). */
   seedCategory?: string;
-  /** Pre-seed title/excerpt/keywords for cluster detection. */
   seedTitle?: string;
   seedExcerpt?: string;
   seedKeywords?: string;
 }
 
-/**
- * Related articles, scored by content-cluster overlap (knee OA, flare-ups,
- * diet, exercise, frailty, etc.) with category and recency as tiebreakers.
- */
 export function useRelatedArticles(
   currentSlug: string,
   options: RelatedArticlesOptions = {},
@@ -227,21 +152,18 @@ export function useRelatedArticles(
       seedTitle ?? null,
     ],
     queryFn: async () => {
-      // 1. Resolve the source article's clusters + category.
       let sourceClusters: string[] = seedClusters ?? [];
       let sourceCategory: string | null = seedCategory ?? null;
 
+      const staticCurrent =
+        getStaticBlogArticle(currentSlug) ??
+        listPublishedArticles().find((a) => a.slug === currentSlug) ??
+        null;
       if (currentSlug && (sourceClusters.length === 0 || !sourceCategory)) {
-        const { data: current } = await supabase
-          .from("blog_articles")
-          .select("title, excerpt, category, keywords")
-          .eq("slug", currentSlug)
-          .maybeSingle();
-
-        if (current) {
-          sourceCategory = sourceCategory ?? current.category ?? null;
+        if (staticCurrent) {
+          sourceCategory = sourceCategory ?? staticCurrent.category ?? null;
           if (sourceClusters.length === 0) {
-            sourceClusters = getClustersForArticle(current);
+            sourceClusters = getClustersForArticle(staticCurrent);
           }
         }
       }
@@ -255,18 +177,22 @@ export function useRelatedArticles(
         });
       }
 
-      // 2. Pull a candidate pool (one round-trip).
-      const { data: pool } = await supabase
-        .from("blog_articles")
-        .select("slug, title, excerpt, date, category, keywords")
-        .eq("is_published", true)
-        .neq("slug", currentSlug)
-        .order("date", { ascending: false })
-        .limit(30);
+      const staticPool: RelatedArticle[] = [
+        ...getStaticBlogArticles(),
+        ...listPublishedArticles(),
+      ]
+        .filter((a) => a.slug !== currentSlug)
+        .map((a) => ({
+          slug: a.slug,
+          title: a.title,
+          excerpt: a.excerpt,
+          date: a.date,
+          category: a.category,
+          keywords: a.keywords,
+        }));
 
-      const candidates = (pool ?? []) as RelatedArticle[];
+      const candidates = mergePreferStatic(staticPool, []).slice(0, 40);
 
-      // 3. Score + sort.
       const scored = candidates
         .map((a) => ({
           article: a,
@@ -277,7 +203,6 @@ export function useRelatedArticles(
           return (b.article.date ?? "").localeCompare(a.article.date ?? "");
         });
 
-      // 4. Fallback: if nothing scored, return latest 3.
       const top = scored.filter((s) => s.score > 0).slice(0, 3);
       if (top.length >= 3) return top.map((s) => s.article);
 
@@ -289,4 +214,3 @@ export function useRelatedArticles(
     },
   });
 }
-
