@@ -130,3 +130,15 @@ export function getArticleImages(
 
   return [toImg(first), toImg(second), toImg(third)];
 }
+
+/**
+ * Primary cover for listings, Open Graph, and JSON-LD.
+ * Always an Openverse file from /public/openverse — never a null/empty/broken DB URL.
+ */
+export function coverImage(
+  category: string,
+  title: string,
+  slug: string,
+): ArticleImage {
+  return getArticleImages(category, title, slug)[0];
+}

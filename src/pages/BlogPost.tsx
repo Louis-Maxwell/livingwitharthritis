@@ -37,7 +37,7 @@ import ArticleClosingCTA from "@/components/article/ArticleClosingCTA";
 import ArticleVoiceover from "@/components/article/ArticleVoiceover";
 import { renderCallouts } from "@/components/article/Callouts";
 import { markVisited } from "@/lib/visitedArticles";
-import { getArticleImages } from "@/lib/articleImages";
+import { getArticleImages, coverImage } from "@/lib/articleImages";
 import NotFound from "@/pages/NotFound";
 
 /**
@@ -154,6 +154,10 @@ const BlogPost = () => {
   const htmlBeforeStrip = splitAt > 0 ? htmlWithIds.slice(0, splitAt) : htmlWithIds;
   const htmlAfterStrip = splitAt > 0 ? htmlWithIds.slice(splitAt) : "";
   const articleImages = getArticleImages(article.category, article.title, slug || article.title);
+  const cover = coverImage(article.category, article.title, slug || article.title);
+  const coverAbsolute = cover?.src
+    ? `https://livingwitharthritis.org.uk${cover.src}`
+    : "https://livingwitharthritis.org.uk/images/og-blog-default.webp";
   const directAnswer = article.direct_answer || firstParagraphSummary(htmlContent);
   const readingTime = getReadingTime(htmlContent);
   const publishDate = new Date(article.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
@@ -240,7 +244,7 @@ const BlogPost = () => {
         <meta property="og:type" content="article" />
         <meta property="og:url" content={pageUrl} />
         <meta property="og:site_name" content="Living With Arthritis UK" />
-        <meta property="og:image" content={article.image_url || "https://livingwitharthritis.org.uk/images/og-blog-default.webp"} />
+        <meta property="og:image" content={coverAbsolute} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content={article.title} />
@@ -252,7 +256,7 @@ const BlogPost = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={metaTitle} />
         <meta name="twitter:description" content={metaDesc} />
-        <meta name="twitter:image" content={article.image_url || "https://livingwitharthritis.org.uk/images/og-blog-default.webp"} />
+        <meta name="twitter:image" content={coverAbsolute} />
         <meta name="geo.region" content="GB" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
@@ -280,7 +284,7 @@ const BlogPost = () => {
           "@id": `${pageUrl}#article`,
           "headline": article.title,
           "description": metaDesc,
-          "image": article.image_url || "https://livingwitharthritis.org.uk/images/og-blog-default.webp",
+          "image": coverAbsolute,
           "datePublished": article.date,
           "dateModified": dateModifiedIso,
           "author": authorSchema,

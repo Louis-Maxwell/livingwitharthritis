@@ -9,6 +9,7 @@ import {
 } from "@/lib/relatedClusters";
 import { partitionByVisited } from "@/lib/visitedArticles";
 import { trackEvent } from "@/lib/analytics";
+import { coverImage } from "@/lib/articleImages";
 
 interface RelatedArticlesProps extends RelatedArticlesOptions {
   currentSlug: string;
@@ -96,8 +97,18 @@ const RelatedArticles = memo(
                     unvisited: isUnvisited,
                   })
                 }
-                className="group rounded-xl border border-border/60 bg-card p-5 hover:shadow-medium hover:border-primary/20 transition-all duration-300"
+                className="group rounded-xl border border-border/60 bg-card overflow-hidden hover:shadow-medium hover:border-primary/20 transition-all duration-300"
               >
+                <div className="aspect-[16/9] overflow-hidden bg-muted/20">
+                  <img
+                    src={coverImage(post.category, post.title, post.slug).src}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-5">
                 <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-primary mb-2 block">
                   {eyebrow}
                 </span>
@@ -110,6 +121,7 @@ const RelatedArticles = memo(
                 <span className="text-primary text-xs font-medium inline-flex items-center gap-1 group-hover:gap-1.5 transition-all">
                   Read article <ArrowRight className="w-3 h-3" />
                 </span>
+                </div>
               </Link>
             );
           })}

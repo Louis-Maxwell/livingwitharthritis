@@ -11,7 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { useBlogViewCounts } from "@/hooks/useBlogViews";
 import { useBlogArticlesList, useFeaturedArticles } from "@/hooks/useBlogArticles";
 import { Skeleton } from "@/components/ui/skeleton";
-import { getArticleImages } from "@/lib/articleImages";
+import { coverImage } from "@/lib/articleImages";
 import { displayTitle } from "@/lib/blogTitle";
 
 type Category = "All" | "Exercise" | "Nutrition" | "Lifestyle" | "Health" | "Mental Health" | "Supplements" | "Treatment";
@@ -231,7 +231,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
                   >
                     <div className="aspect-[16/9] overflow-hidden bg-muted/20">
                       <img
-                        src={post.image_url || getArticleImages(post.category, post.title, post.slug)[0].src}
+                        src={coverImage(post.category, post.title, post.slug).src}
                         alt=""
                         aria-hidden="true"
                         loading="lazy"
@@ -301,10 +301,13 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
           {isLoading && (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {Array.from({ length: 6 }).map((_, i) => (
-                <div key={i} className="rounded-2xl border border-border/30 bg-card overflow-hidden p-6">
-                  <Skeleton className="h-4 w-24 mb-3" />
-                  <Skeleton className="h-6 w-full mb-3" />
-                  <Skeleton className="h-4 w-3/4" />
+                <div key={i} className="rounded-2xl border border-border/30 bg-card overflow-hidden">
+                  <Skeleton className="aspect-[16/9] w-full rounded-none" />
+                  <div className="p-6">
+                    <Skeleton className="h-4 w-24 mb-3" />
+                    <Skeleton className="h-6 w-full mb-3" />
+                    <Skeleton className="h-4 w-3/4" />
+                  </div>
                 </div>
               ))}
             </div>
@@ -359,7 +362,15 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
                   to={`/blog/${post.slug}`}
                   className="group rounded-2xl border border-border/30 bg-card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                 >
-                  <div className="h-1 bg-primary" />
+                  <div className="aspect-[16/9] overflow-hidden bg-muted/20">
+                    <img
+                      src={coverImage(post.category, post.title, post.slug).src}
+                      alt=""
+                      aria-hidden="true"
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
                   <div className="p-6">
                     <div className="flex items-center justify-between mb-3">
                       <time className="text-xs text-muted-foreground">{new Date(post.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</time>
