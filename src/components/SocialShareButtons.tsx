@@ -92,13 +92,14 @@ const SocialShareButtons = ({ title, slug, instance = "footer" }: SocialShareBut
       {/* Shareable link row */}
       <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-2.5">
         <label htmlFor={`share-url-${instance}-${slug}`} className="sr-only">
-          Article link
+          Copy link
         </label>
         <input
           ref={inputRef}
           id={`share-url-${instance}-${slug}`}
           type="text"
           readOnly
+          aria-label="Article URL"
           value={url}
           onFocus={(e) => e.currentTarget.select()}
           className="min-w-0 flex-1 rounded-full border border-border/50 bg-background px-4 py-2 text-sm text-foreground/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
@@ -109,6 +110,7 @@ const SocialShareButtons = ({ title, slug, instance = "footer" }: SocialShareBut
             variant="default"
             size="sm"
             onClick={handleCopy}
+            aria-label="Copy link"
             className="gap-2 rounded-full bg-primary px-4 text-primary-foreground hover:bg-primary/90"
           >
             {copied ? <Copy className="h-4 w-4" aria-hidden="true" /> : <LinkIcon className="h-4 w-4" aria-hidden="true" />}
