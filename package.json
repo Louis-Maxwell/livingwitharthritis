@@ -15,12 +15,12 @@
     "dev": "vite",
     "prebuild": "bun scripts/generate-sitemap.ts && node scripts/generate-blog-head-data.mjs && bun scripts/generate-condition-head-data.ts && node scripts/generate-llms-full.mjs && bun scripts/generate-og-images.ts",
     "build": "vite build",
-    "postbuild": "node scripts/inject-canonicals.mjs && node scripts/generate-404.mjs",
+    "postbuild": "node scripts/inject-canonicals.mjs && node scripts/generate-404.mjs && (node scripts/indexnow-ping.mjs || true)",
     "og:generate": "bun scripts/generate-og-images.ts",
     "og:regenerate": "bun scripts/generate-og-images.ts --force",
     "aeo:apply": "node scripts/apply-aeo.mjs",
     "build:prerender": "PRERENDER=1 vite build",
-    "postbuild:prerender": "node scripts/inject-canonicals.mjs && node scripts/generate-404.mjs",
+    "postbuild:prerender": "node scripts/inject-canonicals.mjs && node scripts/generate-404.mjs && (node scripts/indexnow-ping.mjs || true)",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -44,7 +44,8 @@
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:debug": "playwright test --debug",
-    "fix:branded-search": "node scripts/fix-branded-search.mjs"
+    "fix:branded-search": "node scripts/fix-branded-search.mjs",
+    "indexnow": "INDEXNOW=1 node scripts/indexnow-ping.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
