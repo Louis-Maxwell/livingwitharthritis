@@ -121,4 +121,11 @@ describe("isIndexableCityHubPath", () => {
       isIndexableCityHubPath("/arthritis-support/manchester/osteoarthritis"),
     ).toBe(false);
   });
+
+  it("301s bare hub stubs that previously soft-404ed", () => {
+    expect(resolveSeoRedirect("/exercise-hub")).toBe("/exercises");
+    expect(resolveSeoRedirect("/conditions")).toBe("/conditions/arthritis");
+    expect(resolveSeoRedirect("/guides")).toBe("/library");
+  });
+
 });

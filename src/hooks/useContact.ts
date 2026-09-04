@@ -2,6 +2,7 @@ import { useState, useRef, useCallback } from "react";
 import { toast } from "sonner";
 import { sanitizeInput, sanitizeEmail, sanitizePhone } from "@/lib/sanitize";
 import { openMailto } from "@/lib/mailtoSubmit";
+import { postFormApi } from "@/lib/formApi";
 import { CONTACT_EMAILS } from "@/config/contact";
 
 interface ContactData {
@@ -10,6 +11,8 @@ interface ContactData {
   phone?: string;
   subject: string;
   message: string;
+  /** Honeypot — leave empty. */
+  website?: string;
 }
 
 const MAX_ATTEMPTS = 3;
@@ -40,25 +43,36 @@ export function useContact() {
       phone: data.phone ? sanitizePhone(data.phone) : undefined,
       subject: sanitizeInput(data.subject, 200),
       message: sanitizeInput(data.message, 1000),
+      website: data.website ? String(data.website) : "",
+      kind: "contact",
     };
 
     setIsLoading(true);
     try {
-      const lines = [
-        `Name: ${sanitizedData.name}`,
-        `Email: ${sanitizedData.email}`,
-        sanitizedData.phone ? `Phone: ${sanitizedData.phone}` : "",
-        "",
-        sanitizedData.message,
-      ].filter(Boolean);
-      openMailto({
-        subject: sanitizedData.subject || "Website enquiry",
-        body: lines.join("\n"),
-      });
-      toast.success(
-        `Your email app should open. If it does not, write to ${CONTACT_EMAILS.info}.`,
+      const result = await postFormApi("/api/contact", sanitizedData);
+      if (result.ok) {
+        toast.success("Message received — we will reply within two working days.");
+        return { success: true };
+      }
+
+      toast.error(
+        result.error ||
+          `We could not deliver your message. Please email ${CONTACT_EMAILS.info}.`,
       );
-      return { success: true };
+      if (result.mailtoSuggested) {
+        const lines = [
+          `Name: ${sanitizedData.name}`,
+          `Email: ${sanitizedData.email}`,
+          sanitizedData.phone ? `Phone: ${sanitizedData.phone}` : "",
+          "",
+          sanitizedData.message,
+        ].filter(Boolean);
+        openMailto({
+          subject: sanitizedData.subject || "Website enquiry",
+          body: lines.join("\n"),
+        });
+      }
+      return { success: false, error: result.error || "Delivery failed" };
     } finally {
       setIsLoading(false);
     }

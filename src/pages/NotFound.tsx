@@ -27,7 +27,10 @@ const TOP_ARTICLES = [
 
 const QUICK_LINKS = [
   { to: "/", label: "Home", icon: Home },
+  { to: "/blog", label: "Blog", icon: Search },
   { to: "/library", label: "Article library", icon: Map },
+  { to: "/exercises", label: "Exercises", icon: ArrowRight },
+  { to: "/donate", label: "Donate", icon: ArrowRight },
   { to: "/contact", label: "Report a broken link", icon: Mail },
 ];
 

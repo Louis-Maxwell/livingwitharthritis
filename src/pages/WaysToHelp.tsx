@@ -13,6 +13,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import { openMailto } from "@/lib/mailtoSubmit";
+import { postFormApi } from "@/lib/formApi";
+import { CONTACT_EMAILS } from "@/config/contact";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
@@ -116,18 +119,34 @@ export default function WaysToHelp() {
 
     setSubmitting(true);
     try {
-      window.location.href = "mailto:info@livingwitharthritis.org.uk?subject=" +
-        encodeURIComponent("Volunteer enquiry") +
-        "&body=" + encodeURIComponent(
-          [
+      const result = await postFormApi("/api/contact", {
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        subject: "Volunteer enquiry",
+        message: [
+          "Interest: " + formData.area_of_interest,
+          formData.message.trim() || "",
+        ].filter(Boolean).join("\n"),
+        kind: "volunteer",
+        website: "",
+      });
+      if (result.ok) {
+        setSubmitted(true);
+        toast.success("Volunteer enquiry received — we will reply within two working days.");
+        return;
+      }
+      toast.error(result.error || `We could not deliver your enquiry. Please email ${CONTACT_EMAILS.info}.`);
+      if (result.mailtoSuggested) {
+        openMailto({
+          subject: "Volunteer enquiry",
+          body: [
             "Name: " + formData.name.trim(),
             "Email: " + formData.email.trim(),
             "Interest: " + formData.area_of_interest,
             formData.message.trim() || "",
-          ].filter(Boolean).join("\\n"),
-        );
-      setSubmitted(true);
-      toast.success("Please send the email that opened. We do not store volunteer forms on this site.");
+          ].filter(Boolean).join("\n"),
+        });
+      }
     } catch {
       toast.error("Something went wrong. Please try again.");
     } finally {

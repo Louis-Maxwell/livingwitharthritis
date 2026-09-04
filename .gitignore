@@ -34,3 +34,7 @@ dist-ssr
 .lighthouseci/
 .lighthouseci-desktop/
 .preflight-reports/
+
+# Cloudflare Wrangler local secrets
+.dev.vars
+.wrangler/

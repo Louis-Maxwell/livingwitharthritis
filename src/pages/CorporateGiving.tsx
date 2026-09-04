@@ -1,4 +1,6 @@
 import { openMailto } from "@/lib/mailtoSubmit";
+import { postFormApi } from "@/lib/formApi";
+import { CONTACT_EMAILS } from "@/config/contact";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
@@ -103,19 +105,37 @@ const CorporateGiving = () => {
 
     setIsSubmitting(true);
     try {
-      openMailto({
+      const result = await postFormApi("/api/contact", {
+        name: parsed.data.contact_name,
+        contact_name: parsed.data.contact_name,
+        email: parsed.data.email,
+        organization_name: parsed.data.organization_name,
+        inquiry_type: parsed.data.inquiry_type,
+        phone: parsed.data.phone,
+        message: parsed.data.message || "Corporate giving enquiry",
         subject: "Corporate giving enquiry",
-        body: [
-          "Name: " + parsed.data.contact_name,
-          "Email: " + parsed.data.email,
-          parsed.data.organization_name ? "Organisation: " + parsed.data.organization_name : "",
-          "Type: " + parsed.data.inquiry_type,
-          parsed.data.phone ? "Phone: " + parsed.data.phone : "",
-          parsed.data.message ? parsed.data.message : "",
-        ].filter(Boolean).join("\n"),
+        kind: "corporate",
+        website: "",
       });
-      toast.success("Please send the email that opened. We do not store enquiries on this site.");
-      setFormData({ contact_name: "", email: "", organization_name: "", inquiry_type: "", phone: "", message: "" });
+      if (result.ok) {
+        toast.success("Enquiry received — we will reply within two working days.");
+        setFormData({ contact_name: "", email: "", organization_name: "", inquiry_type: "", phone: "", message: "" });
+        return;
+      }
+      toast.error(result.error || `We could not deliver your enquiry. Please email ${CONTACT_EMAILS.info}.`);
+      if (result.mailtoSuggested) {
+        openMailto({
+          subject: "Corporate giving enquiry",
+          body: [
+            "Name: " + parsed.data.contact_name,
+            "Email: " + parsed.data.email,
+            parsed.data.organization_name ? "Organisation: " + parsed.data.organization_name : "",
+            "Type: " + parsed.data.inquiry_type,
+            parsed.data.phone ? "Phone: " + parsed.data.phone : "",
+            parsed.data.message ? parsed.data.message : "",
+          ].filter(Boolean).join("\n"),
+        });
+      }
     } catch {
       toast.error("Something went wrong. Please try again.");
     } finally {
@@ -127,10 +147,10 @@ const CorporateGiving = () => {
     <>
       <Helmet>
         <title>Corporate Giving & Partnerships UK | Living With Arthritis</title>
-        <meta name="description" content="Partner with Living With Arthritis UK to support 10 million UK patients. Corporate sponsorship, matched giving, employee wellness and CSR partnerships." />
+        <meta name="description" content="Partner with Living With Arthritis UK (charity 1218461) through corporate sponsorship, matched giving, employee wellness and CSR partnerships." />
         <meta name="keywords" content="corporate giving arthritis UK, arthritis charity partnership, CSR arthritis UK, corporate sponsorship charity, employee wellness arthritis, matched giving UK, arthritis fundraising corporate, charity partnership UK" />
         <meta property="og:title" content="Corporate Giving & Partnerships UK | Living With Arthritis" />
-        <meta property="og:description" content="Partner with us to support 10 million UK arthritis patients. Corporate sponsorship, matched giving and employee wellness." />
+        <meta property="og:description" content="Partner with Living With Arthritis UK through corporate sponsorship, matched giving and employee wellness." />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/corporate-giving" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
@@ -142,7 +162,7 @@ const CorporateGiving = () => {
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Corporate Giving & Partnerships UK" />
-        <meta name="twitter:description" content="Support 10 million UK arthritis patients through corporate partnerships." />
+        <meta name="twitter:description" content="Corporate partnerships with Living With Arthritis UK charity 1218461." />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/corporate-giving" />
@@ -175,7 +195,7 @@ const CorporateGiving = () => {
                 Together, we can make a <span className="text-primary italic">bigger impact</span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                Join leading organisations supporting the 10 million people in the UK living with arthritis. 
+                Join organisations supporting people in the UK living with arthritis. 
                 From matched giving to employee wellness, we'll tailor a partnership that aligns with your CSR goals.
               </p>
             </motion.div>
@@ -190,7 +210,7 @@ const CorporateGiving = () => {
                 { value: "10M+", label: "People affected in UK", icon: Users },
                 { value: "88p", label: "Of every £1 to patients", icon: Heart },
                 { value: "100%", label: "Tax deductible", icon: Shield },
-                { value: "50+", label: "Corporate partners", icon: Building2 },
+                { value: "CSR", label: "Partnership routes", icon: Building2 },
               ].map((stat, i) => (
                 <motion.div
                   key={i}

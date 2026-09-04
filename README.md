@@ -1,6 +1,6 @@
 # Living With Arthritis
 
-Vite + React + TypeScript charity site for Living With Arthritis UK, published via Lovable as a static site.
+Vite + React + TypeScript charity site for Living With Arthritis UK, built with Vite and deployable on Cloudflare Workers (static assets + API).
 
 Live URL: https://livingwitharthritis.org.uk
 
@@ -28,8 +28,9 @@ Copy .env.example to .env.local if you need Stripe, PayPal or analytics keys. Ne
 
 - Homepage, about, donate, zakat appeal, guides, conditions and the static blog
 - Stripe/PayPal donate UI (hosted payment link via VITE_STRIPE_DONATE_URL, otherwise email)
-- Contact and newsletter forms open mailto:info@livingwitharthritis.org.uk - they do not store a submission
-- Help chat uses the on-site guidance library and asks people to email if they want a person
+- Contact, appointment, volunteer and partnership forms POST to Cloudflare Worker /api/* and email info@ via Resend (success toast only after 2xx)
+- Help chat streams from /api/chat (Workers AI or OPENAI_API_KEY) with canned fallback if AI fails
+- See docs/CLOUDFLARE-API.md for secrets and deploy
 
 Admin, sign-in, comments, forum, appointments, CMS and article audio are paused.
 

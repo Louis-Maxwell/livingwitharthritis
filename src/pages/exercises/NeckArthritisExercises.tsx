@@ -237,7 +237,7 @@ export default function NeckArthritisExercises() {
 
           <div className="mt-12 text-center">
             <Button asChild>
-              <Link to="/exercise-hub">Browse the full Exercise Hub</Link>
+              <Link to="/exercises">Browse the full Exercise Hub</Link>
             </Button>
           </div>
         </article>

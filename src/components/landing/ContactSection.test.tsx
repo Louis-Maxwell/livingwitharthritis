@@ -11,6 +11,9 @@ vi.mock("sonner", () => ({
 
 vi.mock("@/lib/analytics", () => ({ trackContactSubmit: vi.fn() }));
 vi.mock("@/lib/ga-events", () => ({ trackContactFormSubmit: vi.fn() }));
+vi.mock("@/lib/formApi", () => ({
+  postFormApi: vi.fn(async () => ({ ok: true })),
+}));
 
 const renderSection = () =>
   render(
@@ -84,11 +87,33 @@ describe("ContactSection submission feedback", () => {
     fill(/your message/i, "I would like to know more about knee osteoarthritis exercises.");
   };
 
-  it("asks the visitor to email rather than storing a submission", async () => {
+  it("shows success only after the server accepts the submission", async () => {
+    const { postFormApi } = await import("@/lib/formApi");
+    vi.mocked(postFormApi).mockResolvedValueOnce({ ok: true });
     renderSection();
     fillValid();
     fireEvent.click(screen.getByRole("button", { name: /send message/i }));
-    expect(await screen.findByText(/please send your email/i)).toBeInTheDocument();
+    expect(await screen.findByText(/message received/i)).toBeInTheDocument();
+    expect(postFormApi).toHaveBeenCalledWith(
+      "/api/contact",
+      expect.objectContaining({ email: "jane@example.com" }),
+    );
+  });
+
+  it("does not show success when the server rejects the submission", async () => {
+    const { postFormApi } = await import("@/lib/formApi");
+    vi.mocked(postFormApi).mockResolvedValueOnce({
+      ok: false,
+      error: "Email delivery is not configured",
+      mailtoSuggested: true,
+    });
+    renderSection();
+    fillValid();
+    fireEvent.click(screen.getByRole("button", { name: /send message/i }));
+    await waitFor(() => {
+      expect(screen.queryByText(/message received/i)).not.toBeInTheDocument();
+    });
+    expect(screen.getByRole("button", { name: /send message/i })).toBeInTheDocument();
   });
 });
 

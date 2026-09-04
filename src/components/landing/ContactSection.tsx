@@ -13,6 +13,7 @@ import {
 import { CONTACT_EMAILS, CONTACT_PHONE, CONTACT_PHONE_TEL } from "@/config/contact";
 import { trackContactSubmit } from "@/lib/analytics";
 import { openMailto } from "@/lib/mailtoSubmit";
+import { postFormApi } from "@/lib/formApi";
 import { trackContactFormSubmit } from "@/lib/ga-events";
 
 const CONTACT_EMAIL = CONTACT_EMAILS.info;
@@ -89,6 +90,7 @@ const ContactSection = memo(() => {
   const [errors, setErrors] = useState<FieldErr>({});
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
   const firstErrRef = useRef<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null>(null);
 
   const set =
@@ -106,14 +108,32 @@ const ContactSection = memo(() => {
     }
     setLoading(true);
     try {
-      openMailto({
+      const payload = {
+        name: form.name.trim(),
+        email: form.email.trim(),
         subject: form.subject,
-        body: `Name: ${form.name.trim()}\nEmail: ${form.email.trim()}\n\n${form.message.trim()}`,
-      });
-      setSubmitted(true);
-      trackContactSubmit({ topic: form.subject });
-      trackContactFormSubmit(form.subject);
-      toast.success("Please send the email that opened, or write to " + CONTACT_EMAIL + ". We do not store form submissions on this site.");
+        message: form.message.trim(),
+        website: honeypot,
+        kind: "contact",
+      };
+      const result = await postFormApi("/api/contact", payload);
+      if (result.ok) {
+        setSubmitted(true);
+        trackContactSubmit({ topic: form.subject });
+        trackContactFormSubmit(form.subject);
+        toast.success("Message received — we will reply within two working days.");
+        return;
+      }
+      toast.error(
+        result.error ||
+          `We could not deliver your message. Please email ${CONTACT_EMAIL}.`,
+      );
+      if (result.mailtoSuggested) {
+        openMailto({
+          subject: form.subject,
+          body: `Name: ${form.name.trim()}\nEmail: ${form.email.trim()}\n\n${form.message.trim()}`,
+        });
+      }
     } finally {
       setLoading(false);
     }
@@ -189,10 +209,10 @@ const ContactSection = memo(() => {
               <div className="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mx-auto mb-4">
                 <CheckCircle2 className="w-8 h-8 text-primary" aria-hidden="true" />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-2">Please send your email</h3>
+              <h3 className="text-xl font-bold text-foreground mb-2">Message received</h3>
               <p className="text-muted-foreground mb-6">
-                Your email app should have opened a message to <strong>{CONTACT_EMAIL}</strong>.
-                If it did not, please email us directly. We do not store contact forms on this site.
+                Thanks — your message was delivered to <strong>{CONTACT_EMAIL}</strong>.
+                A real person will reply within two working days.
               </p>
               <button
                 onClick={() => { setForm(blank); setSubmitted(false); }}
@@ -259,6 +279,19 @@ const ContactSection = memo(() => {
                 <p className="text-xs text-muted-foreground mt-1">{form.message.trim().length} / 1000 characters</p>
               </div>
 
+              <div className="hidden" aria-hidden="true">
+                <label htmlFor="c-website">Website</label>
+                <input
+                  id="c-website"
+                  name="website"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                />
+              </div>
+
               <button
                 onClick={handleSend} disabled={loading}
                 className="w-full flex items-center justify-center gap-2 py-3.5 px-6 bg-primary text-primary-foreground font-semibold rounded-xl hover:bg-primary/90 transition-colors disabled:opacity-60 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 shadow-sm"
@@ -271,7 +304,7 @@ const ContactSection = memo(() => {
               </button>
 
               <p className="text-center text-xs text-muted-foreground">
-                Your message is sent to{" "}
+                Delivered securely to{" "}
                 <a href={`mailto:${CONTACT_EMAIL}`} className="text-primary underline underline-offset-2 break-all [overflow-wrap:anywhere]">{CONTACT_EMAIL}</a>
                 . We reply within 2 business days.
               </p>

@@ -15,6 +15,7 @@ import { z } from "zod";
 import { sanitizeInput } from "@/lib/sanitize";
 import { CONTACT_EMAILS } from "@/config/contact";
 import { openMailto } from "@/lib/mailtoSubmit";
+import { postFormApi } from "@/lib/formApi";
 
 const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
 
@@ -54,7 +55,24 @@ export default function Partners() {
 
     setSubmitting(true);
     try {
-      openMailto({
+      const result = await postFormApi("/api/contact", {
+        name: form.name.trim(),
+        email: form.email.trim(),
+        organization_name: form.organisation.trim(),
+        inquiry_type: form.type,
+        subject: `Partnership Enquiry: ${form.type}`,
+        message: form.message.trim() || "Partnership enquiry",
+        kind: "partnership",
+        website: "",
+      });
+      if (result.ok) {
+        toast.success("Partnership enquiry received — we will reply within two working days.");
+        setForm({ name: "", email: "", organisation: "", type: "", message: "" });
+        return;
+      }
+      toast.error(result.error || `We could not deliver your enquiry. Please email ${CONTACT_EMAILS.info}`);
+      if (result.mailtoSuggested) {
+        openMailto({
           subject: `Partnership Enquiry: ${form.type}`,
           body: `Organisation: ${form.organisation || "N/A"}
 Type: ${form.type}
@@ -63,8 +81,7 @@ Email: ${form.email}
 
 ${form.message || ""}`,
         });
-      toast.success("Please send the email that opened. We do not store partnership forms on this site.");
-      setForm({ name: "", email: "", organisation: "", type: "", message: "" });
+      }
     } catch {
       toast.error(`Something went wrong. Please try again or email ${CONTACT_EMAILS.info}`);
     } finally {

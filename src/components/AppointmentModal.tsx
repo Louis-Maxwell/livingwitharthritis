@@ -24,6 +24,7 @@ export function AppointmentModal({ trigger }: AppointmentModalProps) {
     name: "", email: "", phone: "",
     appointmentType: "consultation",
     preferredDate: "", preferredTime: "", notes: "",
+    website: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [availableSlots, setAvailableSlots] = useState<string[]>([]);
@@ -82,7 +83,7 @@ export function AppointmentModal({ trigger }: AppointmentModalProps) {
     if (result.success) {
       setSuccess(true);
       setTimeout(() => {
-        setForm({ name: "", email: "", phone: "", appointmentType: "consultation", preferredDate: "", preferredTime: "", notes: "" });
+        setForm({ name: "", email: "", phone: "", appointmentType: "consultation", preferredDate: "", preferredTime: "", notes: "", website: "" });
         setAvailableSlots([]);
         setSuccess(false);
         setStep(1);
@@ -261,6 +262,18 @@ export function AppointmentModal({ trigger }: AppointmentModalProps) {
                   <Textarea rows={3} maxLength={1000} value={form.notes} onChange={(e) => setForm({ ...form, notes: e.target.value })} placeholder="Any additional information..." />
                 </div>
 
+
+                <div className="hidden" aria-hidden="true">
+                  <Label htmlFor="appt-website">Website</Label>
+                  <Input
+                    id="appt-website"
+                    name="website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={form.website}
+                    onChange={(e) => setForm({ ...form, website: e.target.value })}
+                  />
+                </div>
                 <div className="flex gap-3">
                   <Button type="button" variant="outline" onClick={() => setStep(1)} className="flex-1 h-12 rounded-xl text-sm font-bold">
                     ← Back

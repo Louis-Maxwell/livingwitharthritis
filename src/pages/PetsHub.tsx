@@ -112,7 +112,7 @@ export default function PetsHub() {
               guides cover gentle exercise, pain relief and daily living aids.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
-              <Link to="/exercise-hub" className="px-5 py-2.5 rounded-lg bg-primary text-white font-semibold hover:bg-secondary">
+              <Link to="/exercises" className="px-5 py-2.5 rounded-lg bg-primary text-white font-semibold hover:bg-secondary">
                 Exercise Hub
               </Link>
               <Link to="/glossary" className="px-5 py-2.5 rounded-lg border border-gray-300 font-semibold hover:border-primary">

@@ -1,5 +1,5 @@
 {
-  // Static-asset hosting config (Cloudflare Workers static assets).
+  // Static-asset hosting + API Worker.
   //
   // The site is prerendered: every indexable route has its own real file in
   // ./dist with a unique <title>, <h1> and self-referencing canonical.
@@ -18,10 +18,19 @@
   // are evaluated before the not-found handling. Alias 301s
   // (/about-us -> /about, /trust-credibility -> /trust) sit at the top of
   // public/_redirects, first match wins.
+  //
+  // Worker `main` handles POST /api/* (contact, appointment, chat). Selective
+  // run_worker_first keeps asset-first + 404-page behaviour for everything else.
   "name": "living-with-arthritis",
   "compatibility_date": "2026-09-03",
+  "main": "worker/index.ts",
   "assets": {
     "directory": "./dist",
-    "not_found_handling": "404-page"
+    "not_found_handling": "404-page",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "ai": {
+    "binding": "AI"
   }
 }

@@ -50,6 +50,13 @@ export default defineConfig(({ mode }) => {
   server: {
     host: "::",
     port: 8080,
+    // Local API: run `npx wrangler dev` (port 8787) alongside Vite.
+    proxy: {
+      "/api": {
+        target: "http://127.0.0.1:8787",
+        changeOrigin: true,
+      },
+    },
   },
   plugins: [
     react(),

@@ -1,6 +1,9 @@
 import { CONTACT_EMAILS } from "@/config/contact";
 
-/** Open the visitor's email client. Does not store a submission. */
+/**
+ * Open the visitor's email client as a last-resort fallback.
+ * Does NOT store a submission and must never be treated as success.
+ */
 export function openMailto(opts: {
   subject: string;
   body: string;

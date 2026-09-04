@@ -87,7 +87,7 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-8 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-8 mb-10">
           {columns.map((col) => (
             <div key={col.title}>
               <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-5">{col.title}</h3>

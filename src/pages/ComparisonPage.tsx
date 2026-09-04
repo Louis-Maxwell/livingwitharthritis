@@ -47,7 +47,7 @@ export default function ComparisonPage() {
   const parsed = useMemo(() => parseComparison(slug), [slug]);
 
   if (!COMPARISON_ROUTES.includes(path) || !parsed) {
-    return <Navigate to="/guides" replace />;
+    return <Navigate to="/library" replace />;
   }
 
   const article = getComparisonArticle(path);
@@ -105,7 +105,7 @@ export default function ComparisonPage() {
       <main id="main-content" role="main" tabIndex={-1} className="bg-white">
         <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <Link
-            to="/guides"
+            to="/library"
             className="inline-flex items-center gap-1 text-sm text-primary font-semibold mb-6 hover:underline"
           >
             <ChevronLeft className="w-4 h-4" aria-hidden="true" /> All guides
