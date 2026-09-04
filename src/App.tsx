@@ -54,6 +54,9 @@ const AdminBacklinks = lazy(() => import("./pages/AdminBacklinks"));
 const AdminChatFeedback = lazy(() => import("./pages/AdminChatFeedback"));
 const BlogIndex = lazy(() => import("./pages/BlogIndex"));
 const Library = lazy(() => import("./pages/Library"));
+const GuidesHub = lazy(() => import("./pages/GuidesHub"));
+const BenefitsPipHub = lazy(() => import("./pages/BenefitsPipHub"));
+const SearchPage = lazy(() => import("./pages/SearchPage"));
 const LibraryTopic = lazy(() => import("./pages/LibraryTopic"));
 const BlogHub = lazy(() => import("./pages/BlogHub"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
@@ -315,6 +318,9 @@ function AnimatedRoutes() {
         <Route path="/admin/chat-feedback" element={<AdminChatFeedback />} />
         <Route path="/blog" element={<BlogIndex />} />
         <Route path="/library" element={<Library />} />
+        <Route path="/guides" element={<GuidesHub />} />
+        <Route path="/benefits-pip" element={<BenefitsPipHub />} />
+        <Route path="/search" element={<SearchPage />} />
         <Route path="/library/:slug" element={<LibraryTopic />} />
         <Route path="/blog-hub" element={<BlogHub />} />
         <Route path="/blog/category/:category" element={<BlogCategory />} />

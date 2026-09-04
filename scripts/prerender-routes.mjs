@@ -21,6 +21,9 @@ import { resolve } from "node:path";
 const CURATED = [
   "/",
   "/about",
+  "/guides",
+  "/benefits-pip",
+  "/search",
   "/authors/maxwell",
   // Correction (2026-07-23): a previous pass here added several routes
   // based on GUESSED URL slugs from a Semrush crawl report, without

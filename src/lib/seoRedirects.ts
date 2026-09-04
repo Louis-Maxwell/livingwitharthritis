@@ -59,7 +59,6 @@ const JOINT_EXERCISE_HUB: Record<string, string> = {
 export const EXACT_SEO_REDIRECTS: Record<string, string> = {
   "/exercise-hub": "/exercises",
   "/conditions": "/conditions/arthritis",
-  "/guides": "/library",
   "/about-us": "/about",
   "/trust-credibility": "/trust",
   "/privacy-policy": "/privacy",

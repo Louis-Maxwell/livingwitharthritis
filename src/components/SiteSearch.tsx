@@ -1,7 +1,7 @@
 import { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import { Search, X, ArrowRight, FileText, Dumbbell, Utensils, Sun, Stethoscope } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { exerciseJointPages } from "@/data/exerciseJointMatrix";
 
 interface SearchItem {
@@ -179,14 +179,14 @@ export default function SiteSearch() {
       </div>
 
       {results.length > 0 && (
-        <div className="absolute top-full left-0 right-0 mt-1.5 bg-background border border-border/60 rounded-xl shadow-xl z-50 overflow-hidden max-h-[320px] overflow-y-auto">
+        <div className="absolute top-full left-0 right-0 mt-1.5 bg-background border border-border/60 rounded-xl shadow-xl z-50 overflow-hidden max-h-[360px] overflow-y-auto">
           {results.map((item) => {
             const Icon = item.icon;
             return (
               <button
                 key={item.href}
                 onClick={() => goTo(item.href)}
-                className="w-full flex items-center gap-3 px-4 py-3 hover:bg-muted/50 transition-colors text-left border-b border-border/20 last:border-0"
+                className="w-full flex items-center gap-3 px-4 py-3 hover:bg-muted/50 transition-colors text-left border-b border-border/20"
               >
                 <Icon className="w-4 h-4 text-primary shrink-0" />
                 <div className="flex-1 min-w-0">
@@ -197,6 +197,13 @@ export default function SiteSearch() {
               </button>
             );
           })}
+          <Link
+            to={`/search?q=${encodeURIComponent(debounced || query)}`}
+            className="block px-4 py-2.5 text-center text-xs font-medium text-primary hover:bg-muted/40"
+            onClick={() => setOpen(false)}
+          >
+            View all results on Search
+          </Link>
         </div>
       )}
 
@@ -204,6 +211,13 @@ export default function SiteSearch() {
         <div className="absolute top-full left-0 right-0 mt-1.5 bg-background border border-border/60 rounded-xl shadow-xl z-50 p-4 text-center">
           <p className="text-sm text-muted-foreground">No results for "{debounced}"</p>
           <p className="text-xs text-muted-foreground mt-1">Try searching for a joint (knee, hip) or exercise (yoga, swimming)</p>
+          <Link
+            to={`/search?q=${encodeURIComponent(debounced)}`}
+            className="inline-block mt-2 text-xs font-medium text-primary underline underline-offset-2"
+            onClick={() => setOpen(false)}
+          >
+            Open full search
+          </Link>
         </div>
       )}
     </div>

@@ -125,7 +125,9 @@ describe("isIndexableCityHubPath", () => {
   it("301s bare hub stubs that previously soft-404ed", () => {
     expect(resolveSeoRedirect("/exercise-hub")).toBe("/exercises");
     expect(resolveSeoRedirect("/conditions")).toBe("/conditions/arthritis");
-    expect(resolveSeoRedirect("/guides")).toBe("/library");
+    expect(resolveSeoRedirect("/guides")).toBeNull();
+    expect(resolveSeoRedirect("/about-us")).toBe("/about");
+    expect(resolveSeoRedirect("/search")).toBeNull();
   });
 
 });
