@@ -3,9 +3,10 @@
  * already vetted and stored in /public/openverse — no watermarks, no new
  * network fetches) for a blog article, based on its category/title.
  *
- * Deterministic (hash of slug/title) so the same article always shows the
- * same images on every render/visit — no flicker, no random reshuffle.
+ * Listing/OG covers use a generated 1:1 slug → unique file map so no two
+ * blog cards share the same cover. In-article images still use topic buckets.
  */
+import blogCoverMap from "@/data/blog-cover-map.generated.json";
 
 type Bucket = "arthritis" | "community" | "nutrition" | "wellness";
 
@@ -70,11 +71,15 @@ const CATEGORY_FILES: Record<Bucket, string[]> = {
   ],
 };
 
+const COVER_BY_SLUG = blogCoverMap as Record<string, string>;
+
 function humanizeAlt(filename: string): string {
   const base = filename.replace(/\.webp$/, "");
-  const withoutPrefix = base.replace(/^[a-z]+-\d+-/, "");
+  const withoutPrefix = base
+    .replace(/^cover-\d+-/, "")
+    .replace(/^[a-z]+-\d+-/, "");
   const words = withoutPrefix.replace(/-/g, " ").trim();
-  return words.replace(/\b\w/g, (c) => c.toUpperCase());
+  return words.replace(/\b\w/g, (c) => c.toUpperCase()) || "Openverse cover image";
 }
 
 function bucketFor(category: string, title: string): Bucket {
@@ -91,6 +96,14 @@ function hashStr(s: string): number {
     h = (h * 31 + s.charCodeAt(i)) | 0;
   }
   return Math.abs(h);
+}
+
+function toImg(f: string): ArticleImage {
+  return {
+    src: `/openverse/${f}`,
+    alt: humanizeAlt(f),
+    credit: "Openly licensed image via Openverse",
+  };
 }
 
 export interface ArticleImage {
@@ -122,23 +135,20 @@ export function getArticleImages(
   if (second === first && primary.length > 1) second = pick(primary, 2);
   const third = pick(secondary, 0);
 
-  const toImg = (f: string): ArticleImage => ({
-    src: `/openverse/${f}`,
-    alt: humanizeAlt(f),
-    credit: "Openly licensed image via Openverse",
-  });
-
   return [toImg(first), toImg(second), toImg(third)];
 }
 
 /**
  * Primary cover for listings, Open Graph, and JSON-LD.
- * Always an Openverse file from /public/openverse — never a null/empty/broken DB URL.
+ * Unique per blog slug via blog-cover-map.generated.json (1:1).
+ * Falls back to the legacy bucket picker only for unknown slugs.
  */
 export function coverImage(
   category: string,
   title: string,
   slug: string,
 ): ArticleImage {
-  return getArticleImages(category, title, slug)[0];
+  const mapped = slug ? COVER_BY_SLUG[slug] : undefined;
+  if (mapped) return toImg(mapped);
+  return getArticleImages(category, title, slug || title || "default")[0];
 }
