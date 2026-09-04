@@ -6431,5 +6431,17 @@
     "question": "Can you claim PIP for arthritis?",
     "answer": "Yes. Personal Independence Payment is not awarded for a diagnosis but for how arthritis affects daily living and mobility. Under State Pension age you claim PIP (Adult Disability Payment in Scotland); over it, Attendance Allowance. If you are refused, ask for a mandatory reconsideration within one month, then appeal to a tribunal.",
     "breadcrumb": "Benefits and PIP guide"
+  },
+  "/": {
+    "title": "Living With Arthritis UK | Evidence-Based Health Guides",
+    "description": "Living With Arthritis UK (charity 1218461): evidence-based guides for joint pain — NICE-aligned exercise, diet, PIP and waiting-list help across the United Kingdom.",
+    "question": "What is Living With Arthritis UK?",
+    "answer": "Living With Arthritis UK is a registered charity in England and Wales (no. 1218461) publishing free, clinically reviewed guidance for people living with arthritis across the UK — exercise, diet, PIP and benefits, and help while waiting for NHS appointments. Independent of Arthritis UK."
+  },
+  "/arthritis-waiting-list-help": {
+    "title": "Arthritis Waiting List Help UK | Rheumatology & Physio",
+    "description": "What to do while waiting for rheumatology, physiotherapy or joint replacement in the UK: pacing, self-referral, when to go back to your GP, and how to ask about cancellation lists.",
+    "question": "What can I do while waiting for a rheumatology appointment?",
+    "answer": "Keep gently active, ask about physiotherapy self-referral in your area, track worsening symptoms, and contact your GP surgery if pain, function or sleep get worse so the referral can be reviewed. Waiting times vary by NHS trust."
   }
 }

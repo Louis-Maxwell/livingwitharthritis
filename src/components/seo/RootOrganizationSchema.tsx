@@ -47,10 +47,13 @@ const PAYLOAD = {
   description:
     "Living With Arthritis is a registered charity in England and Wales no. 1218461, independent of Arthritis UK, providing free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory nutrition guidance and peer support for people living with joint pain across the United Kingdom.",
   email: "info@livingwitharthritis.org.uk",
-  areaServed: {
-    "@type": "Country",
-    name: "United Kingdom",
-  },
+  areaServed: [
+    { "@type": "Country", name: "United Kingdom" },
+    { "@type": "AdministrativeArea", name: "England" },
+    { "@type": "AdministrativeArea", name: "Scotland" },
+    { "@type": "AdministrativeArea", name: "Wales" },
+    { "@type": "AdministrativeArea", name: "Northern Ireland" },
+  ],
   medicalSpecialty: ["Rheumatology", "Physiotherapy", "Nutrition"],
   identifier: {
     "@type": "PropertyValue",
@@ -71,6 +74,13 @@ const PAYLOAD = {
     "Mediterranean diet",
     "Joint exercises",
     "PIP arthritis benefits",
+    "Adult Disability Payment Scotland",
+    "Blue Badge arthritis",
+    "Access to Work",
+    "Equality Act reasonable adjustments",
+    "Rheumatology waiting lists UK",
+    "Methotrexate side effects",
+    "NICE osteoarthritis exercise",
   ],
   // sameAs strengthens the entity graph for LLMs and search engines.
   // Only include URLs that resolve to a real, publicly-visible profile

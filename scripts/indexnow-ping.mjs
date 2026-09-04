@@ -14,11 +14,19 @@ const ORIGIN = `https://${HOST}`;
 const PATHS = [
   '/',
   '/llms.txt',
+  '/ai.txt',
+  '/.well-known/ai.txt',
   '/guides/benefits-pip',
   '/arthritis-waiting-list-help',
   '/diet',
   '/guides/exercise',
+  '/guides/newly-diagnosed',
   '/about',
+  '/blog/working-with-arthritis-uk-rights',
+  '/blog/managing-methotrexate-side-effects-practical-tips',
+  '/conditions/osteoarthritis',
+  '/conditions/rheumatoid-arthritis',
+  '/editorial-standards',
 ];
 
 async function main() {
