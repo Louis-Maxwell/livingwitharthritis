@@ -11,6 +11,7 @@ const _CartDrawer = lazy(() => import("@/components/CartDrawer"));
 const ResourceLibraryDrawer = lazy(() => import("@/components/ResourceLibraryDrawer"));
 const SiteSearch = lazy(() => import("@/components/SiteSearch"));
 const DonationQuickBar = lazy(() => import("@/components/DonationQuickBar"));
+import SiteAnnouncementBanner from "@/components/SiteAnnouncementBanner";
 
 
 type SubItem = {
