@@ -26,8 +26,8 @@ describe("coverImage uniqueness", () => {
     expect(Object.keys(map).sort()).toEqual([...slugs].sort());
     const files = Object.values(map);
     expect(new Set(files).size).toBe(files.length);
-    // Deterministic: calling coverImage twice yields the same path
     const sample = slugs[0];
     expect(coverImage("x", "y", sample).src).toBe(coverImage("x", "y", sample).src);
+    expect(coverImage("x", "y", sample).src).toBe(`/openverse/${map[sample]}`);
   });
 });

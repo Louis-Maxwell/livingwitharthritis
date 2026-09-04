@@ -3,12 +3,15 @@
  * already vetted and stored in /public/openverse — no watermarks, no new
  * network fetches) for a blog article, based on its category/title.
  *
- * Listing/OG covers use a generated 1:1 slug → unique file map so no two
- * blog cards share the same cover. In-article images still use topic buckets.
+ * Covers: 1:1 slug → unique file via blog-cover-map.generated.json.
+ * In-article gallery: category buckets (may share within body images).
  */
+
 import blogCoverMap from "@/data/blog-cover-map.generated.json";
 
 type Bucket = "arthritis" | "community" | "nutrition" | "wellness";
+
+const COVER_MAP = blogCoverMap as Record<string, string>;
 
 const CATEGORY_FILES: Record<Bucket, string[]> = {
   arthritis: [
@@ -71,15 +74,13 @@ const CATEGORY_FILES: Record<Bucket, string[]> = {
   ],
 };
 
-const COVER_BY_SLUG = blogCoverMap as Record<string, string>;
-
 function humanizeAlt(filename: string): string {
   const base = filename.replace(/\.webp$/, "");
   const withoutPrefix = base
-    .replace(/^cover-\d+-/, "")
-    .replace(/^[a-z]+-\d+-/, "");
+    .replace(/^[a-z]+-\d+-/, "")
+    .replace(/^cover-\d+-/, "");
   const words = withoutPrefix.replace(/-/g, " ").trim();
-  return words.replace(/\b\w/g, (c) => c.toUpperCase()) || "Openverse cover image";
+  return words.replace(/\b\w/g, (c) => c.toUpperCase()) || "Article cover image";
 }
 
 function bucketFor(category: string, title: string): Bucket {
@@ -98,10 +99,10 @@ function hashStr(s: string): number {
   return Math.abs(h);
 }
 
-function toImg(f: string): ArticleImage {
+function toImg(filename: string): ArticleImage {
   return {
-    src: `/openverse/${f}`,
-    alt: humanizeAlt(f),
+    src: `/openverse/${filename}`,
+    alt: humanizeAlt(filename),
     credit: "Openly licensed image via Openverse",
   };
 }
@@ -140,15 +141,17 @@ export function getArticleImages(
 
 /**
  * Primary cover for listings, Open Graph, and JSON-LD.
- * Unique per blog slug via blog-cover-map.generated.json (1:1).
- * Falls back to the legacy bucket picker only for unknown slugs.
+ * Unique per blog slug via generated Openverse cover map (1:1).
+ * Falls back to category hash pick only if slug is absent from the map.
  */
 export function coverImage(
   category: string,
   title: string,
   slug: string,
 ): ArticleImage {
-  const mapped = slug ? COVER_BY_SLUG[slug] : undefined;
-  if (mapped) return toImg(mapped);
-  return getArticleImages(category, title, slug || title || "default")[0];
+  const mapped = slug ? COVER_MAP[slug] : undefined;
+  if (mapped) {
+    return toImg(mapped);
+  }
+  return getArticleImages(category, title, slug || title)[0];
 }
