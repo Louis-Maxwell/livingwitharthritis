@@ -227,3 +227,10 @@ Disallow: /site-index
 
 Sitemap: https://livingwitharthritis.org.uk/sitemap-index.xml
 Sitemap: https://livingwitharthritis.org.uk/sitemap.xml
+
+# Answer-engine citation files (plain text; not XML sitemaps)
+# https://livingwitharthritis.org.uk/llms.txt
+# https://livingwitharthritis.org.uk/llms-full.txt
+# https://livingwitharthritis.org.uk/ai.txt
+# https://livingwitharthritis.org.uk/humans.txt
+# https://livingwitharthritis.org.uk/.well-known/ai.txt

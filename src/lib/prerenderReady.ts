@@ -1,5 +1,7 @@
-export const GENERIC_HOME_TITLE =
-  'Living With Arthritis | UK charity for joint pain support';
+import { HOME_PAGE_TITLE } from "@/lib/homeSeo";
+
+/** Homepage <title> — must match index.html and Index.tsx Helmet. */
+export const GENERIC_HOME_TITLE = HOME_PAGE_TITLE;
 
 export function isPrerenderDocumentReady(
   document: Document,
