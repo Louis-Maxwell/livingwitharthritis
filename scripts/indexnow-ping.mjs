@@ -27,7 +27,11 @@ const PATHS = [
   '/conditions/osteoarthritis',
   '/conditions/rheumatoid-arthritis',
   '/editorial-standards',
-];
+  '/guides',
+  '/benefits-pip',
+  '/search',
+  '/donate',
+  '/blog',];
 
 async function main() {
   // Only ping for real production builds — local/dev builds would
