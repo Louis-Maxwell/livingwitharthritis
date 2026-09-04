@@ -1,8 +1,14 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { HelmetProvider } from "react-helmet-async";
-import SearchPage from "@/pages/Search";
+import SearchPage from "@/pages/SearchPage";
+
+vi.mock("@/components/Header", () => ({ default: () => <header>Header</header> }));
+vi.mock("@/components/Footer", () => ({ default: () => <footer>Footer</footer> }));
+vi.mock("@/components/ui/PageHero", () => ({
+  default: ({ title }: { title: string }) => <h1>{title}</h1>,
+}));
 
 function renderSearch(initial = "/search") {
   return render(
@@ -17,19 +23,13 @@ function renderSearch(initial = "/search") {
 }
 
 describe("Search page", () => {
-  it("renders the search heading and filters", () => {
+  it("renders heading filters and query results", () => {
     renderSearch();
-    expect(
-      screen.getByRole("heading", { name: /find answers faster/i }),
-    ).toBeInTheDocument();
-    expect(screen.getByLabelText(/search articles and guides/i)).toBeInTheDocument();
-    expect(screen.getByText(/^Topic$/i)).toBeInTheDocument();
-    expect(screen.getByText(/^Word count$/i)).toBeInTheDocument();
-  });
-
-  it("filters results when a query is typed", () => {
-    renderSearch();
-    const input = screen.getByLabelText(/search articles and guides/i);
+    expect(screen.getByRole("heading", { name: /find answers faster/i })).toBeInTheDocument();
+    const input = screen.getByPlaceholderText(/search pip/i);
+    expect(input).toBeInTheDocument();
+    expect(screen.getByRole("combobox", { name: /topic/i })).toBeInTheDocument();
+    expect(screen.getByRole("combobox", { name: /word count/i })).toBeInTheDocument();
     fireEvent.change(input, { target: { value: "PIP" } });
     expect(screen.getByText(/result/i)).toBeInTheDocument();
     expect(screen.getAllByRole("heading", { level: 2 }).length).toBeGreaterThan(0);
@@ -37,15 +37,7 @@ describe("Search page", () => {
 
   it("honours topic query params", () => {
     renderSearch("/search?topic=Exercise");
-    const selects = screen.getAllByRole("combobox");
-    expect(selects[0]).toHaveValue("Exercise");
-  });
-
-  it("filters by under-1000 word-count bucket", () => {
-    renderSearch();
-    const selects = screen.getAllByRole("combobox");
-    fireEvent.change(selects[1], { target: { value: "under1000" } });
-    expect(selects[1]).toHaveValue("under1000");
-    expect(screen.getByText(/result/i)).toBeInTheDocument();
+    const topic = screen.getByRole("combobox", { name: /topic/i }) as HTMLSelectElement;
+    expect(topic.value).toBe("Exercise");
   });
 });

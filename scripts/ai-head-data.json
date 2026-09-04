@@ -6443,5 +6443,26 @@
     "description": "What to do while waiting for rheumatology, physiotherapy or joint replacement in the UK: pacing, self-referral, when to go back to your GP, and how to ask about cancellation lists.",
     "question": "What can I do while waiting for a rheumatology appointment?",
     "answer": "Keep gently active, ask about physiotherapy self-referral in your area, track worsening symptoms, and contact your GP surgery if pain, function or sleep get worse so the referral can be reviewed. Waiting times vary by NHS trust."
+  },
+  "/guides": {
+    "title": "Arthritis Guides Hub | Living With Arthritis UK",
+    "description": "Browse clinician-written UK arthritis guides: PIP and benefits, exercise, diet, pain relief, newly diagnosed steps, and navigating NHS care.",
+    "question": "Where can I find UK arthritis guides?",
+    "answer": "The Living With Arthritis UK guides hub collects practical pages on PIP and benefits, exercise, diet, pain relief and NHS care. Each guide is written for people in the United Kingdom and reviewed against current clinical guidance.",
+    "breadcrumb": "Guides"
+  },
+  "/benefits-pip": {
+    "title": "Benefits & PIP Hub | Living With Arthritis UK",
+    "description": "UK hub for arthritis benefits and PIP: start with our full PIP guide, then explore disability support, work rights and related FAQs.",
+    "question": "Where should I start with PIP for arthritis?",
+    "answer": "Begin with our Benefits & PIP hub for a clear overview, then read the full PIP guide for eligibility, daily living and mobility points, and what to prepare for the assessment. Check GOV.UK for the latest official rules.",
+    "breadcrumb": "Benefits & PIP"
+  },
+  "/search": {
+    "title": "Search Arthritis Guides & Articles | Living With Arthritis UK",
+    "description": "Search Living With Arthritis UK blogs and hubs. Filter by topic and article length to find PIP, exercise, diet and condition guidance.",
+    "question": "How do I search Living With Arthritis UK?",
+    "answer": "Use the site search page to filter blogs and hub pages by keyword, topic and approximate word count. Results update in your browser without needing an account.",
+    "breadcrumb": "Search"
   }
 }

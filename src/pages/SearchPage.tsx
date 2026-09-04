@@ -99,7 +99,7 @@ const SearchPage = () => {
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search PIP, knee exercises, diet..."
               className="ps-12 h-12"
-              aria-label="Search articles and guides"
+              aria-label="Search articles and hubs"
             />
           </div>
 
@@ -108,6 +108,7 @@ const SearchPage = () => {
               <span className="font-medium">Topic</span>
               <select
                 className="w-full h-10 rounded-md border border-input bg-background px-3 text-sm"
+                aria-label="Filter by topic"
                 value={topic}
                 onChange={(e) => setTopic(normalizeTopic(e.target.value))}
               >
@@ -122,6 +123,7 @@ const SearchPage = () => {
               <span className="font-medium">Word count</span>
               <select
                 className="w-full h-10 rounded-md border border-input bg-background px-3 text-sm"
+                aria-label="Filter by word count"
                 value={wordCount}
                 onChange={(e) => setWordCount(e.target.value as WordCountBucket)}
               >

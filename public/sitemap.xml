@@ -22,6 +22,21 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://livingwitharthritis.org.uk/guides</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/benefits-pip</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/search</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://livingwitharthritis.org.uk/blog-hub</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1799,13 +1814,13 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/free-arthritis-support-northern-ireland</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-and-travel-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1841,55 +1856,55 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/dmards-explained-how-methotrexate-slows-rheumatoid-arthritis</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/foot-and-ankle-arthritis-uk</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/gut-health-arthritis-connection</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/hip-arthritis-symptoms-uk</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/hydrotherapy-arthritis-uk</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-exercises-uk-clinical</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/caring-for-parent-with-arthritis</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/psoriatic-vs-rheumatoid-arthritis</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-flare-up-what-to-do</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1901,31 +1916,31 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/mindfulness-chronic-pain-arthritis-guide</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/resistance-training-arthritis-longevity</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/rheumatoid-arthritis-diet-uk</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/tai-chi-arthritis-joint-pain</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/seasonal-arthritis-guide-uk</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1937,25 +1952,25 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/best-walking-shoes-arthritis-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-physiotherapy-nhs-waiting-list</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/signs-rheumatoid-arthritis-early-stages</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-in-young-people-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1967,37 +1982,37 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/shoulder-arthroscopy-and-arthritis-what-it-can-and-cant-fix</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/spinal-arthritis-back-pain-uk</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/staying-active-arthritis-winter-uk</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/strength-training-arthritis-beginners</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/pip-for-arthritis-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/tens-machines-arthritis-uk</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2009,277 +2024,277 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/sleep-quality-arthritis-pain</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/gout-flare-up-diet-foods-avoid</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/swimming-for-arthritis</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/turmeric-for-arthritis</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/clinical-trials-for-arthritis-how-to-find-and-join-one</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/hip-replacement-arthritis-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-and-pets-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/pip-fibromyalgia-uk-apply</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/anti-inflammatory-diet-rheumatoid-arthritis</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/best-exercises-osteoarthritis-knee-pain-home</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/free-arthritis-exercise-classes-england</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/talk-employer-rheumatoid-arthritis-work</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/mediterranean-diet-shopping-list-arthritis</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/expert-qa-track-progress-without-measuring</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/grip-strength-exercises-hand-oa</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/appeal-rejected-pip-arthritis</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/juvenile-arthritis-school-support-parents</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/best-supplements-joint-pain</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/expert-qa-spinal-injections-vs-exercise</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/hip-pain-climbing-stairs-causes-relief</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/yoga-ankylosing-spondylitis-stiffness</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/fibromyalgia-flare-ups-without-medication</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/fatty-fish-omega-3-arthritis-evidence</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/hip-replacement-recovery-week-by-week</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/support-friend-diagnosed-lupus</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/chair-yoga-elderly-arthritis-stiffness</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/pip-osteoarthritis-both-knees</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/manage-arthritis-pain-flare-ups-night</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/nhs-rheumatologist-northern-ireland</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/early-signs-gout-big-toe</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/expert-qa-will-my-children-inherit-my-arthritis</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/blue-badge-arthritis-scotland</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/swimming-exercises-hip-osteoarthritis</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/explain-juvenile-arthritis-school-teachers</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/expert-qa-how-to-evaluate-a-clinical-trial-invitation</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-support-groups-scotland</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-support-groups-wales</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-support-groups-glasgow</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/expert-qa-exercising-through-a-flare-up</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/hobbies-arthritis-friendly-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/hotel-rooms-accessibility-arthritis</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-support-groups-manchester</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/pip-fibromyalgia-denied-reapply</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/exercises-rheumatoid-arthritis-hands-wrists</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/bedtime-routine-arthritis-relief</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/anxiety-arthritis-uk-guide</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2291,7 +2306,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/nutrition-strategies-reduce-frailty-risk</loc>
-    <lastmod>2026-06-21</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2303,13 +2318,13 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/jak-inhibitors-the-next-wave-of-ra-treatment</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/anti-inflammatory-herbs-spices-arthritis</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2321,199 +2336,199 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/knee-exercises-for-arthritis</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/berries-antioxidants-inflammation</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/expert-brief-frozen-shoulder-vs-ra</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/longevity-habits-arthritis-patients</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/joint-fusion-vs-replacement-how-surgeons-choose</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/joint-replacement-surgery</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/knee-arthroscopy-for-osteoarthritis-helpful-or-hype</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/straight-leg-raises-knee-osteoarthritis</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/expert-qa-how-to-ask-for-help-without-feeling-guilty</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/yoga-for-arthritis</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-and-alcohol-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/biologics-for-ra-a-realistic-year-one-roadmap</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/anti-inflammatory-smoothie-recipes</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/aquatic-therapy-arthritis-guide</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-friendly-recipes-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-relationships-honest-conversations</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/building-strength-resilience-exercise-frailty-prevention</loc>
-    <lastmod>2026-06-21</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/cycling-with-arthritis</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/gut-joint-connection-microbiome-arthritis</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/glucosamine-vs-collagen</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/managing-arthritis-at-work</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/mediterranean-diet-arthritis-14-day-plan</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/mindfulness-for-arthritis-pain</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/omega-3-foods-for-joints</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/preventing-falls-guide-frail-adults</loc>
-    <lastmod>2026-06-21</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/sarcopenia-muscle-loss-how-to-combat</loc>
-    <lastmod>2026-06-21</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/exercise-for-hip-arthritis</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/best-diet-for-joint-pain-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/hand-exercises-for-arthritis</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/anti-inflammatory-diet</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-flare-management</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/tai-chi-for-arthritis-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/travelling-with-arthritis-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2531,7 +2546,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/managing-arthritis-flare-ups-at-home</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2543,73 +2558,73 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-and-pregnancy-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/lower-back-stiffness-worse-after-sitting</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/working-with-arthritis-uk-rights</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/driving-with-arthritis-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/alcohol-arthritis-uk-guidance</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-and-mental-health-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/best-supplements-arthritis-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/how-to-sleep-with-arthritis-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-and-diet-myths-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/hydrotherapy-pools-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/anti-inflammatory-shopping-list-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/apprenticeships-and-arthritis-a-realistic-look</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2621,25 +2636,25 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-medication-guide</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-pain-management</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-treatment-hub</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/biologic-side-effects-infections-injections-and-monitoring</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2651,175 +2666,175 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/rheumatology-waiting-times-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/caregiver-burnout-in-arthritis-families-spot-it-early</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/cbt-chronic-pain-arthritis</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/circadian-rhythm-arthritis-inflammation</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/cold-weather-arthritis-uk-winter</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/core-strengthening-spinal-arthritis</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/dating-with-arthritis-confidence</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/depression-arthritis-when-to-seek-help</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/desk-setup-arthritis-uk-workers</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/disability-rights-workplace-arthritis</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/knee-replacement-arthritis-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/early-arthritis-intervention-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/exam-adjustments-for-students-with-arthritis</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/expert-brief-12-week-hip-exercise-protocol</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/expert-brief-activity-safety-knee-arthritis</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/expert-brief-exercise-order-pain-relief</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/expert-qa-are-steroid-tapers-always-necessary</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/expert-qa-choosing-a-career-friendly-to-arthritis</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/expert-qa-how-do-i-know-if-surgery-is-right-for-me</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/expert-qa-how-to-talk-to-your-gp-about-medication-worries</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/expert-qa-is-it-too-soon-for-joint-replacement</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/expert-qa-is-it-worth-paying-for-a-second-opinion</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/expert-qa-occupational-therapy-hand-pain</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/expert-qa-returning-to-work-after-a-bad-flare</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/expert-qa-should-i-apply-for-pip-if-my-arthritis-is-mild</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/expert-qa-should-you-start-dmards-at-diagnosis</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-and-gardening-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-fatigue-management-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-meal-planning-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2831,391 +2846,391 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/back-arthritis-exercises-uk</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/occupational-therapy-arthritis-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/osteoarthritis-symptoms-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/hot-weather-arthritis-management</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/walking-aids-arthritis-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/expert-qa-why-did-my-arthritis-come-back</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/flare-management-pain-spikes</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/flexible-working-arthritis-pacing</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/flying-with-arthritis-uk-airports</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/gene-therapy-and-arthritis-where-are-we-in-2026</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/understanding-frailty-older-adults</loc>
-    <lastmod>2026-06-21</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/best-sleep-positions-joint-pain</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/ginger-root-natural-anti-inflammatory</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/glute-bridges-hip-osteoarthritis-guide</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/grants-for-adapting-your-home-with-arthritis</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/managing-methotrexate-side-effects-practical-tips</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/medication-management-travel-arthritis</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/mindfulness-arthritis-beginners</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/morning-knee-stiffness-30-minutes</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/morning-routine-multi-joint-arthritis</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/nhs-access-to-biologics-how-the-approval-pathway-works</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/nsaid-stomach-protection-when-you-need-a-ppi</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/nsaids-and-arthritis-benefits-risks-and-safer-use</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/oa-vs-ra-comparison</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/olive-oil-polyphenols-pain-management</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/pacing-techniques-arthritis-pain</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/packing-list-arthritis-traveller</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/paracetamol-for-arthritis-pain-what-the-evidence-says</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/parenting-with-arthritis-hacks-for-babies-and-toddlers</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/pendulum-swings-wall-slides-shoulder</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/physiotherapy-arthritis</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/pip-for-arthritis-how-to-build-a-strong-application</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/pregnancy-and-arthritis-what-uk-guidelines-recommend</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/prehabilitation-how-pre-op-exercise-speeds-recovery</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/prescription-costs-and-arthritis-nhs-prepayment-certificates</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/preventing-knee-osteoarthritis-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/private-rheumatology-in-the-uk-when-its-worth-considering</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/reasonable-adjustments-that-actually-help</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/relationships-chronic-pain-arthritis</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/school-run-survival-for-parents-with-arthritis</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/seasonal-affective-disorder-arthritis</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/should-you-tell-your-employer-about-your-arthritis</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/shoulder-pain-reaching-ra-vs-oa</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/standing-desk-arthritis-pros-cons</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/steroid-injections-vs-oral-steroids-when-each-makes-sense</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/stopping-arthritis-medication-safely-a-step-by-step-guide</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/strength-training-on-biologics-is-it-safe</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/supporting-a-partner-with-arthritis-a-practical-handbook</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/swimming-full-body-arthritis</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/talking-to-children-about-your-arthritis</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/tapering-biologics-what-the-latest-trials-show</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/thumb-base-pain-early-hand-arthritis</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/topical-nsaids-often-overlooked-often-effective</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/total-knee-replacement-a-uk-patients-guide-for-2026</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/turmeric-curcumin-arthritis-evidence</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/universal-credit-and-arthritis-limited-capability-for-work</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/university-with-arthritis-disability-support-and-dsa</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/vitamin-d-arthritis-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/walking-30-minutes-a-day-while-on-dmards-a-practical-plan</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/weight-management-arthritis-evidence</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/what-sustained-remission-means-in-ra</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/why-exercise-makes-your-arthritis-medication-work-better</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/your-workplace-rights-with-arthritis-the-equality-act-2010</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/gadgets-aids-arthritis-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/assistive-devices-arthritis-uk</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
