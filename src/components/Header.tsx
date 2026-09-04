@@ -280,6 +280,8 @@ const Header = () => {
       >
 
 
+        {/* Site-wide update announcement banner — top of sticky header */}
+        <SiteAnnouncementBanner />
         {/* Donation Quick Bar — top of sticky header */}
         <Suspense fallback={<div className="bg-primary h-[52px]" />}>
           <DonationQuickBar />
