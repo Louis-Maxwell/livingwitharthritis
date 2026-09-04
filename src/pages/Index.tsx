@@ -24,6 +24,7 @@ import ViewportSection from "@/components/ViewportSection";
 import OAHero from "@/components/landing/OAHero";
 
 import { VISITOR_STATS_SNIPPET } from "@/config/visitorStats";
+import { HOME_PAGE_DESCRIPTION, HOME_PAGE_TITLE } from "@/lib/homeSeo";
 
 /** Prefixes `rest` with the visitor-stats snippet when one is set (a real,
  * verified count), without leaving a stray leading space when it's empty. */
@@ -52,6 +53,7 @@ const InspiredHeroBand = lazy(() => import("@/components/landing/InspiredHeroBan
 const QuoteSection = lazy(() => import("@/components/landing/QuoteSection"));
 const BlogPreview = lazy(() => import("@/components/landing/BlogPreview"));
 const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
+const UKCoverageBand = lazy(() => import("@/components/landing/UKCoverageBand"));
 const Footer = lazy(() => import("@/components/Footer"));
 const NextReadStrip = lazy(() => import("@/components/NextReadStrip"));
 const BackToTopButton = lazy(() => import("@/components/landing/BackToTopButton"));
@@ -80,27 +82,34 @@ const SectionFallback = () => <div className="h-32" aria-hidden="true" />;
 function HomePage() {
   // JSON-LD injected manually (per project memory) to avoid Helmet crashes.
   useEffect(() => {
-    const id = "ld-home-ngo";
+    const id = "ld-home-website";
     const existing = document.getElementById(id);
     if (existing) existing.remove();
 
     const script = document.createElement("script");
     script.type = "application/ld+json";
     script.id = id;
+    // WebSite only — organisation JSON-LD is already on index.html and
+    // RootOrganizationSchema. A second thin MedicalOrganization block
+    // weakens entity matching for search and answer engines.
     script.text = JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "MedicalOrganization",
-      name: "Living With Arthritis UK",
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
       url: SITE_URL,
-      description:
-        "An open-source osteoarthritis management plan — clinically reviewed, freely published, and made for everyone living with OA in the UK.",
-      areaServed: { "@type": "Country", name: "United Kingdom" },
-      knowsAbout: [
-        "Osteoarthritis",
-        "Anti-inflammatory diet",
-        "Physiotherapy",
-        "Chronic pain management",
-      ],
+      name: "Living With Arthritis UK",
+      inLanguage: "en-GB",
+      description: HOME_PAGE_DESCRIPTION,
+      publisher: { "@id": `${SITE_URL}/#organization` },
+      about: {
+        "@type": "Country",
+        name: "United Kingdom",
+        identifier: "GB",
+      },
+      speakable: {
+        "@type": "SpeakableSpecification",
+        cssSelector: ["h1", ".speakable-intro"],
+      },
     });
     document.head.appendChild(script);
 
@@ -140,22 +149,20 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Living With Arthritis | UK charity for joint pain support</title>
+        <title>{HOME_PAGE_TITLE}</title>
         <meta
           name="description"
-          content={withVisitorSnippet(
-            "Free UK arthritis support: NICE-aligned exercises, anti-inflammatory diet guidance, condition guides and a help chat — written in plain English. Registered charity 1218461.",
-          )}
+          content={withVisitorSnippet(HOME_PAGE_DESCRIPTION)}
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={SITE_URL + "/"} />
         <meta
           property="og:title"
-          content="Living With Arthritis | UK charity for joint pain support"
+          content={HOME_PAGE_TITLE}
         />
         <meta
           name="twitter:title"
-          content="Living With Arthritis | UK charity for joint pain support"
+          content={HOME_PAGE_TITLE}
         />
         <meta
           property="og:description"
@@ -182,6 +189,10 @@ function HomePage() {
           {/* 01b — Interactive start-here path, immediately after the hero. */}
           <Suspense fallback={<SectionFallback />}>
             <InteractiveStartPath />
+          </Suspense>
+
+          <Suspense fallback={<SectionFallback />}>
+            <UKCoverageBand />
           </Suspense>
 
           {/* 01c — Anatomy figure + tap-friendly joint chips, next to the chooser. */}
@@ -292,6 +303,10 @@ function HomePage() {
               </div>
             </div>
           </section>
+
+          <ViewportSection fallback={<SectionFallback />}>
+            <SEOTeaserSection />
+          </ViewportSection>
 
           {/* 10–14 — Progress, quote, search, FAQ and closing CTA */}
           <ViewportSection fallback={<SectionFallback />}>

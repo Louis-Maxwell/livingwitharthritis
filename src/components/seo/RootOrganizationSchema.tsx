@@ -11,7 +11,7 @@ const BASE = "https://livingwitharthritis.org.uk";
 
 const PAYLOAD = {
   "@context": "https://schema.org",
-  "@type": "MedicalOrganization",
+  "@type": ["MedicalOrganization", "NGO", "Organization"],
   "@id": `${BASE}/#organization`,
   name: "Living With Arthritis UK",
   legalName: "Living With Arthritis",
@@ -47,8 +47,17 @@ const PAYLOAD = {
   description:
     "Living With Arthritis is a registered charity in England and Wales no. 1218461, independent of Arthritis UK, providing free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory nutrition guidance and peer support for people living with joint pain across the United Kingdom.",
   email: "info@livingwitharthritis.org.uk",
+  availableLanguage: ["en-GB", "English"],
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+44-7760-512-084",
+    email: "info@livingwitharthritis.org.uk",
+    contactType: "customer support",
+    availableLanguage: ["English", "en-GB"],
+    areaServed: "GB",
+  },
   areaServed: [
-    { "@type": "Country", name: "United Kingdom" },
+    { "@type": "Country", name: "United Kingdom", identifier: "GB" },
     { "@type": "AdministrativeArea", name: "England" },
     { "@type": "AdministrativeArea", name: "Scotland" },
     { "@type": "AdministrativeArea", name: "Wales" },

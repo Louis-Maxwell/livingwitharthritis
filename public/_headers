@@ -62,6 +62,15 @@
   Cache-Control: public, max-age=86400
 /ai.txt
   Cache-Control: public, max-age=86400
+/humans.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=86400
+/.well-known/ai.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=86400
+/.well-known/llms.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=86400
 
 # HTML: browsers always revalidate so new deploys show immediately.
 # CDN may keep a short fresh copy (Cloudflare/Lovable often override Cache-Control).

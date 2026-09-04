@@ -28,18 +28,18 @@ const CARDS: TeaserCard[] = [
     href: "/exercises",
   },
   {
-    tag: "Pain relief",
-    title: "Evidence-based management of arthritis and chronic pain",
+    tag: "UK benefits",
+    title: "PIP, Blue Badge and waiting-list help",
     teaser:
-      "Managing osteoarthritis, fibromyalgia and back pain well requires a combined approach: medical input, physiotherapy and steady lifestyle change.",
-    href: "/arthritis-flare-ups",
+      "Plain-English UK guides on PIP, Adult Disability Payment in Scotland, Blue Badge, and what to do while you wait for rheumatology or physiotherapy.",
+    href: "/guides/benefits-pip",
   },
   {
-    tag: "Medication",
-    title: "Medications and supplements for joint health",
+    tag: "NHS waits",
+    title: "Help while you wait for an appointment",
     teaser:
-      "When exercise and physiotherapy are not enough, understanding the real benefits and risks of drugs like allopurinol and options like turmeric helps people make safer choices.",
-    href: "/self-help",
+      "Pacing, gentle strengthening, physiotherapy self-referral where it is available, and when to go back to your GP if symptoms worsen.",
+    href: "/arthritis-waiting-list-help",
   },
 ];
 
@@ -62,8 +62,7 @@ const SEOTeaserSection = memo(() => {
             Go deeper on the topics that matter
           </h2>
           <p className="mt-5 text-base sm:text-lg text-muted-foreground max-w-2xl">
-            Plain-English guides on movement, pain management and the medications
-            people most often ask about.
+            Plain-English guides on movement, UK benefits and NHS waiting lists.
           </p>
         </div>
 
