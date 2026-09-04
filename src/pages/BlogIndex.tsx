@@ -196,7 +196,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
             <h2 className="font-display text-sm font-bold uppercase tracking-[0.18em] text-muted-foreground mb-4">
               Browse by topic
             </h2>
-            <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+            <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
               {TOPIC_HUBS.map((hub) => (
                 <li key={hub.to}>
                   <Link
@@ -277,7 +277,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
               <button
                 key={cat}
                 onClick={() => handleCategory(cat)}
-                className={`px-4 py-2 rounded-full text-xs font-bold tracking-wide border transition-all duration-200 cursor-pointer ${
+                className={`min-h-11 px-4 py-2.5 rounded-full text-xs font-bold tracking-wide border transition-all duration-200 cursor-pointer inline-flex items-center ${
                   activeCategory === cat
                     ? `${categoryColors[cat]} border-current shadow-sm scale-105`
                     : "bg-muted/30 text-muted-foreground border-border/30 hover:bg-muted/50"
