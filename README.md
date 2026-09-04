@@ -41,3 +41,7 @@ npm run seo:ai-identity asserts charity 1218461, Oswestry, independent of Arthri
 ## License
 
 MIT - see LICENSE.
+
+## Production hosting
+
+For real HTTP 404s (not homepage soft-404s), publish with Cloudflare static assets. See docs/STATIC-HOSTING.md.
