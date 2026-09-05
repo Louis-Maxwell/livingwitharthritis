@@ -34,7 +34,7 @@ const GSCDashboard: React.FC<GSCDashboardProps> = ({
   showCharts = true,
   showRecommendations = true,
 }) => {
-  const [metrics, setMetrics] = useState<{ performance: any; coverage: any; webVitals: any; insights: GSCInsights } | null>(null);
+  const [metrics, setMetrics] = useState<{ performance: Record<string, unknown>; coverage: Record<string, unknown>; webVitals: Record<string, unknown>; insights: GSCInsights } | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 

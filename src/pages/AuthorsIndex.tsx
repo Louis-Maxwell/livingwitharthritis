@@ -85,7 +85,6 @@ export default function AuthorsIndex({ variant }: AuthorsIndexProps) {
       <SeoHead title={title} includeSiteName={false} description={description} path={`/${prefix}`} />
       <script
         type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }}
       />
       <Header />

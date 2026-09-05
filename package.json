@@ -171,7 +171,8 @@
     "picomatch": "^4.0.5",
     "lodash": "^4.17.21",
     "ts-deepmerge": "^8.0.0",
-    "esbuild": "^0.25.12"
+    "esbuild": "^0.25.12",
+    "qs": "^6.16.0"
   },
   "resolutions": {
     "minimatch": "^10.2.6",
