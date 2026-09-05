@@ -18,16 +18,20 @@
  */
 import { createClient } from '@supabase/supabase-js';
 import { writeFileSync } from 'node:fs';
-import {
-  PUBLIC_SUPABASE_URL,
-  PUBLIC_SUPABASE_PUBLISHABLE_KEY,
-} from '../src/integrations/supabase/publicDefaults.ts';
-
 const MIN = 155;
 const MAX = 160;
+
+// Bun auto-loads .env; fall back to parsing it manually for plain node.
+if (!process.env.VITE_SUPABASE_URL) {
+  const { readFileSync } = await import('node:fs');
+  for (const line of readFileSync('.env', 'utf8').split('\n')) {
+    const m = line.match(/^([A-Z0-9_]+)=(.*)$/);
+    if (m && !process.env[m[1]]) process.env[m[1]] = m[2];
+  }
+}
 const supabase = createClient(
-  PUBLIC_SUPABASE_URL,
-  PUBLIC_SUPABASE_PUBLISHABLE_KEY,
+  process.env.VITE_SUPABASE_URL,
+  process.env.VITE_SUPABASE_PUBLISHABLE_KEY,
 );
 
 const CTAS = [
