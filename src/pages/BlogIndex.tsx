@@ -187,10 +187,14 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
             </div>
           }
           title={heroTitle ?? <>Arthritis blog UK: <span className="text-primary">exercise, diet, PIP and pain guides</span></>}
-          subtitle={heroSubtitle ?? `${blogPosts.length} clinically reviewed articles helping UK residents manage arthritis, reduce joint pain and live well.`}
+          subtitle={heroSubtitle ?? `Clinically reviewed articles for UK readers — practical help when living with arthritis feels exhausting. You are not alone.`}
         />
 
         <main id="main-content" className="container mx-auto px-6 md:px-10 py-6 md:py-8">
+          <p className="text-muted-foreground text-base leading-relaxed max-w-3xl mb-8">
+            Browse by topic below, or search when you know what you need. We are a young charity
+            building this library with you — honest guidance, no invented miracle cures.
+          </p>
           {/* Topic hubs — real links, crawlable from the first screen */}
           <nav aria-label="Browse arthritis topics" className="mb-10">
             <h2 className="font-display text-sm font-bold uppercase tracking-[0.18em] text-muted-foreground mb-4">

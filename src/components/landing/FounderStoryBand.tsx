@@ -21,35 +21,37 @@ const FounderStoryBand = memo(() => {
             id="founder-story-heading"
             className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-6"
           >
-            Founded by a clinician who lived it
+            Founded by a clinician who lived the lonely bit too
           </h2>
 
           {/* Body copy */}
           <div className="prose prose-sm md:prose-base max-w-none text-foreground/80 space-y-4 mb-8">
             <p>
-              Louis Maxwell is a First Contact Practitioner in UK healthcare primary care. When he was diagnosed
-              with lumbar spine degeneration at just 28, he expected clear guidance. Instead, his GP
-              handed him a sheet of home exercises—nothing else.
+              Louis Maxwell is a First Contact Practitioner in UK primary care (HCPC PH128483).
+              When he was diagnosed with lumbar spine degeneration at just 28, he expected clear
+              guidance. Instead, his GP handed him a sheet of home exercises — nothing else.
             </p>
 
             <p>
               No treatment plan. No follow-up. No support for managing a lifelong condition.
+              Living with that kind of pain is exhausting.
             </p>
 
             <p>
-              That gap between diagnosis and real support became the mission of
-              <strong className="text-foreground"> Living with Arthritis</strong>. We exist to give every person living
-              with arthritis what Louis didn't get: a clinically rigorous, emotionally honest guide to
-              managing their condition, regaining mobility, and reclaiming their life.
+              You are not alone in that gap. It became the mission of
+              <strong className="text-foreground"> Living With Arthritis</strong>. We exist to give
+              people what Louis did not get: clinically honest, emotionally kind guidance — and a
+              human reply when you need one.
             </p>
 
             <p>
-              Every resource we create is reviewed by clinical experts. Every exercise is backed by evidence.
-              Every word is written for real people, not textbooks.
+              We are a young charity (registered 15 June 2026, no.&nbsp;1218461), based in Oswestry
+              and independent of Arthritis UK. We will not invent a large clinical board. Louis
+              reviews our content. Motion is lotion — and we are building this with you.
             </p>
 
             <p>
-              And every resource is free—because no one should choose between affordability and care.
+              Every resource is free, because no one should choose between affordability and care.
             </p>
           </div>
 
@@ -60,7 +62,7 @@ const FounderStoryBand = memo(() => {
               className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary/95 transition-colors shadow-lg shadow-primary/20"
             >
               <Stethoscope className="w-5 h-5 mr-2" aria-hidden="true" />
-              Meet the team
+              Meet Louis
             </a>
             <Link
               to="/editorial-standards"

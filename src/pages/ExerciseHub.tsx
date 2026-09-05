@@ -213,7 +213,7 @@ const ExerciseHub = () => {
       <PageHero
         badge={<Badge variant="outline" className="bg-primary/5 text-primary border-primary/20"><Dumbbell className="w-3.5 h-3.5 mr-1.5" /> Exercise Hub</Badge>}
         title={<>Best Exercises for <span className="text-primary">Arthritis</span> UK</>}
-        subtitle="clinically aligned physiotherapy routines you can do at home — for knees, hands, shoulders and whole-body relief."
+        subtitle="Motion is lotion — but only at a pace your joints can trust. Clinically aligned home routines for knees, hands, shoulders and whole-body relief. Stop if it hurts; you are not alone in starting gently."
       >
         <div className="flex flex-wrap gap-3 mt-2">
           <Button asChild size="lg" className="min-h-[48px] text-base font-semibold shadow-lg hover:shadow-xl transition-shadow">
@@ -229,6 +229,13 @@ const ExerciseHub = () => {
           <span className="flex items-center gap-1.5"><Clock className="w-4 h-4 text-primary" /> 10–20 min routines</span>
         </div>
       </PageHero>
+
+      <section className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-4xl pt-8" aria-label="Introduction">
+        <p id="exercise-empathy-lead" className="text-muted-foreground text-base leading-relaxed max-w-3xl">
+          Living with arthritis can make movement feel scary. These routines are gentle on purpose —
+          free, plain-English, and designed so you can take one small step today without a gym or a lecture.
+        </p>
+      </section>
 
       {/* Editorial photo band — movement as discipline */}
       <section aria-label="Movement is medicine" className="relative h-[320px] md:h-[420px] overflow-hidden bg-foreground">

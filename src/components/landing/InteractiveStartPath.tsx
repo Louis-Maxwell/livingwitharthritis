@@ -310,7 +310,8 @@ const InteractiveStartPath = memo(() => {
           Find your starting point
         </h2>
         <p className="mt-2 text-sm sm:text-base text-muted-foreground max-w-xl">
-          Two taps. Specific pages. No diagnosis — this is general information, not personal medical advice.
+          Living with pain is tiring enough without hunting for answers. Two taps, specific pages,
+          and a clear next step. No diagnosis — this is general information, not personal medical advice.
         </p>
 
         <div className="mt-6 space-y-5">

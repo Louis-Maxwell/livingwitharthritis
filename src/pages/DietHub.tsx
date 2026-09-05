@@ -187,7 +187,7 @@ const DietHub = () => {
       <PageHero
         badge={<Badge variant="outline" className="bg-primary/5 text-primary border-primary/20"><Utensils className="w-3.5 h-3.5 mr-1.5" /> Diet Hub</Badge>}
         title={<>Diet for <span className="text-primary">Arthritis</span> Pain UK</>}
-        subtitle="Anti-inflammatory foods, Mediterranean eating and practical meal plans for joint pain relief."
+        subtitle="Living with joint pain is hard enough — food should feel doable. Anti-inflammatory ideas, Mediterranean-style eating and practical meal plans you can try this week. Not a cure; a kinder plate."
       >
         <div className="flex flex-wrap gap-3 mt-2">
           <Button asChild size="lg" className="min-h-[48px] text-base font-semibold shadow-lg hover:shadow-xl transition-shadow">
@@ -203,6 +203,14 @@ const DietHub = () => {
           <span className="flex items-center gap-1.5"><Apple className="w-4 h-4 text-primary" /> Practical Meal Plans</span>
         </div>
       </PageHero>
+
+      <section className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-4xl pt-8" aria-label="Introduction">
+        <p id="diet-empathy-lead" className="text-muted-foreground text-base leading-relaxed max-w-3xl">
+          Some days cooking feels impossible. Start small. These guides are for real kitchens and
+          sore hands — clinically honest, free, and written so you do not have to feel alone at
+          the supermarket shelf.
+        </p>
+      </section>
 
       <main id="main-content">
         <section className="container mx-auto px-6 md:px-10 max-w-3xl pt-8">

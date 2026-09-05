@@ -63,7 +63,7 @@ const Contact = () => (
       <PageHero
         badge="Contact"
         title="Contact Living With Arthritis UK"
-        subtitle="Email, phone or message our UK-based team — we reply to every enquiry personally within two business days."
+        subtitle="Living with pain is hard enough — you should not have to shout into the void. Email, phone or message us; a real person in the UK will reply within two working days."
       />
       <Suspense fallback={<SkeletonSection />}>
         <ContactSection />

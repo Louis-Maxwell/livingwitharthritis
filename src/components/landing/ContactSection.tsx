@@ -78,7 +78,7 @@ const channels: ChannelCard[] = [
     Icon: FileText,
     label: "Contact form",
     value: "Send a message",
-    sub: "We’ll get back to you",
+    sub: "A human will read it",
     href: "/contact",
     internal: true,
   },
@@ -121,12 +121,12 @@ const ContactSection = memo(() => {
         setSubmitted(true);
         trackContactSubmit({ topic: form.subject });
         trackContactFormSubmit(form.subject);
-        toast.success("Message received — we will reply within two working days.");
+        toast.success("Thank you — a real person will reply within two working days.");
         return;
       }
       toast.error(
         result.error ||
-          `We could not deliver your message. Please email ${CONTACT_EMAIL}.`,
+          `Sorry — we could not send that just now. Please email ${CONTACT_EMAIL} and we will help.`,
       );
       if (result.mailtoSuggested) {
         openMailto({
@@ -153,11 +153,12 @@ const ContactSection = memo(() => {
             Get in touch
           </span>
           <h2 id="contact-heading" className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
-            We're here to help.
+            A real person will reply.
           </h2>
           <p className="mt-5 text-muted-foreground text-base sm:text-lg leading-relaxed">
-            A real person — not a chatbot — replies within 2 working days.
-            Available Monday to Friday, 9am – 5pm.
+            Living with arthritis can feel lonely. When you write to us, a human reads it —
+            usually Louis or someone on our small Oswestry team — and we aim to reply within
+            two working days (Monday to Friday, 9am – 5pm).
           </p>
         </div>
 
@@ -209,10 +210,11 @@ const ContactSection = memo(() => {
               <div className="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mx-auto mb-4">
                 <CheckCircle2 className="w-8 h-8 text-primary" aria-hidden="true" />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-2">Message received</h3>
+              <h3 className="text-xl font-bold text-foreground mb-2">Message received — thank you</h3>
               <p className="text-muted-foreground mb-6">
-                Thanks — your message was delivered to <strong>{CONTACT_EMAIL}</strong>.
-                A real person will reply within two working days.
+                We know it takes courage to reach out. Your note was delivered to{" "}
+                <strong>{CONTACT_EMAIL}</strong>. A real person will read it and reply within
+                two working days.
               </p>
               <button
                 onClick={() => { setForm(blank); setSubmitted(false); }}

@@ -40,14 +40,14 @@ const OAHero = memo(() => {
             </h1>
 
             <p className="hero-item mt-6 text-sm lg:text-base font-medium max-w-xl leading-relaxed">
-              Living With Arthritis is a registered charity in England and Wales
-              (no.&nbsp;1218461), based in Oswestry. We are independent of Arthritis UK.
+              Living with joint pain is exhausting — the stiff mornings, the cancelled plans,
+              the feeling that nobody quite gets it. You are not alone.
             </p>
 
             <p className="hero-item mt-4 text-lg lg:text-xl max-w-xl leading-relaxed">
-              Millions of people across the UK live with arthritis pain and stiffness.
-              Living With Arthritis provides clinically-reviewed guidance, exercise plans and
-              nutrition support — free, for everyone.
+              We are a young UK charity (no.&nbsp;1218461) in Oswestry, independent of Arthritis UK.
+              Here you will find clinically reviewed exercises, diet guidance and plain-English
+              support you can use today — free, honest, and built with people who live this too.
             </p>
 
             <div className="hero-item mt-10 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 min-w-0">

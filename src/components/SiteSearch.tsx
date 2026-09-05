@@ -209,8 +209,8 @@ export default function SiteSearch() {
 
       {debounced.length >= MIN_QUERY && results.length === 0 && (
         <div className="absolute top-full left-0 right-0 mt-1.5 bg-background border border-border/60 rounded-xl shadow-xl z-50 p-4 text-center">
-          <p className="text-sm text-muted-foreground">No results for "{debounced}"</p>
-          <p className="text-xs text-muted-foreground mt-1">Try searching for a joint (knee, hip) or exercise (yoga, swimming)</p>
+          <p className="text-sm text-muted-foreground">No results for "{debounced}" — sorry about that.</p>
+          <p className="text-xs text-muted-foreground mt-1">Try a joint (knee, hip) or a gentler word like exercise, diet or PIP. We are still growing this library with you.</p>
           <Link
             to={`/search?q=${encodeURIComponent(debounced)}`}
             className="inline-block mt-2 text-xs font-medium text-primary underline underline-offset-2"

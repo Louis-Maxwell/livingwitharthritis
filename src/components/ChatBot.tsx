@@ -378,8 +378,9 @@ export function ChatBot() {
               </div>
 
               <p className="font-semibold text-lg text-foreground mb-1">How can I help?</p>
-              <p className="text-sm text-muted-foreground mb-5 max-w-[260px] leading-relaxed">
-                Ask about symptoms, diet, exercises, or treatments for arthritis.
+              <p className="text-sm text-muted-foreground mb-5 max-w-[280px] leading-relaxed">
+                Living with joint pain is exhausting. Ask about symptoms, diet, exercises or
+                treatments — warm, UK-safe guidance (we do not prescribe).
               </p>
 
               <div className="w-full grid grid-cols-2 gap-2">

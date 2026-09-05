@@ -220,10 +220,11 @@ function HomePage() {
             <div className="container mx-auto px-6 max-w-3xl text-center">
               <Stethoscope className="w-6 h-6 text-primary mx-auto mb-3" aria-hidden="true" />
               <p className="text-foreground font-semibold mb-1">
-                Not sure which condition matches your symptoms?
+                Not sure where to begin — and tired of guessing?
               </p>
               <p className="text-sm text-muted-foreground mb-4">
-                Answer five quick questions and we'll suggest which conditions to read about first.
+                Answer five gentle questions and we will point you to the guides that fit your symptoms first.
+                You are not alone in figuring this out.
               </p>
               <Link
                 to="/symptom-checker"

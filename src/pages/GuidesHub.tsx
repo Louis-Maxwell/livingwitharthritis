@@ -87,7 +87,9 @@ const GuidesHub = () => {
 
         <section className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-6xl py-12 space-y-12">
           <p className="text-muted-foreground max-w-3xl">
-            Every guide below is written for people in the UK. Prefer to search by topic or length? Use the{" "}
+            Living with arthritis is exhausting — and hunting for trustworthy answers should not
+            be another job. Every guide below is written for people in the UK, in plain English.
+            Prefer to search by topic? Use the{" "}
             <Link to="/search" className="text-primary underline underline-offset-2">
               site search
             </Link>
@@ -95,7 +97,7 @@ const GuidesHub = () => {
             <Link to="/benefits-pip" className="text-primary underline underline-offset-2">
               Benefits &amp; PIP hub
             </Link>
-            .
+            . You are not alone in figuring this out.
           </p>
 
           {CLUSTER_ORDER.map((cluster) => {

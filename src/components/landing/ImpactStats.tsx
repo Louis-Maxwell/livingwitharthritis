@@ -1,34 +1,33 @@
-import { Users, BookOpen, HeartPulse } from "lucide-react";
+import { Heart, BookOpen, Users } from "lucide-react";
 
 /**
- * MAP-style "Our Impact" stat blocks.
- * Three coloured panels — teal tint, deep green, MAP red — with huge
- * Anton numerals and bold labels. Contrast tuned for AA.
+ * Honest "what we stand for" panels for a young charity.
+ * No invented visitor counts or scale claims — prefer building-with-you language.
  */
 const stats = [
   {
-    icon: Users,
-    value: "10,000+",
-    label: "Visitors helped each month",
-    desc: "People across the UK using our guides to manage arthritis at home.",
+    icon: Heart,
+    value: "Free",
+    label: "Support you can use today",
+    desc: "Exercises, diet guidance and plain-English help — no paywall, no app download.",
     bg: "bg-[hsl(199_45%_75%)]",
     fg: "text-foreground",
     iconBg: "bg-primary text-white",
   },
   {
     icon: BookOpen,
-    value: "200+",
-    label: "Clinically reviewed guides",
-    desc: "Plain-English articles covering exercise, diet, medication and self-management.",
+    value: "FCP-led",
+    label: "Clinically honest reviews",
+    desc: "Content reviewed by Louis Maxwell, HCPC-registered physiotherapist (PH128483).",
     bg: "bg-[hsl(150_25%_30%)]",
     fg: "text-white",
     iconBg: "bg-white text-[hsl(150_25%_30%)]",
   },
   {
-    icon: HeartPulse,
-    value: "60+",
-    label: "Conditions covered",
-    desc: "From osteoarthritis to rare inflammatory diseases — written for the UK.",
+    icon: Users,
+    value: "Young",
+    label: "Built with you, not for a brochure",
+    desc: "Registered charity 1218461 (June 2026), based in Oswestry. We are still growing — tell us what you need.",
     bg: "bg-primary",
     fg: "text-white",
     iconBg: "bg-white text-primary",
@@ -47,11 +46,12 @@ export default function ImpactStats() {
             id="impact-heading"
             className="font-display uppercase tracking-tight text-4xl md:text-6xl text-foreground leading-[0.95]"
           >
-            Our impact
+            Why we are here
           </h2>
           <p className="mt-4 text-base md:text-lg text-foreground/90 leading-relaxed">
-            We deliver lasting change. Our work brings tangible, free support
-            to people living with arthritis across the UK.
+            Living with arthritis is exhausting. We are a small, independent UK charity
+            building practical help with the people who need it — honestly, and without
+            overclaiming how far we have come.
           </p>
         </header>
 

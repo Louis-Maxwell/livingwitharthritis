@@ -48,10 +48,11 @@ const StartHereBand = memo(() => {
     >
       <div className="container mx-auto px-6 lg:px-16 max-w-6xl">
         <h2 className="text-center font-display text-2xl sm:text-3xl font-bold text-foreground mb-2 tracking-tight">
-          Start here
+          Start here — we will meet you where you are
         </h2>
-        <p className="text-center text-sm text-foreground/60 mb-8">
-          Pick the path that fits where you are today.
+        <p className="text-center text-sm text-foreground/60 mb-8 max-w-2xl mx-auto">
+          Some days the pain is loud. Some days you just need one practical next step.
+          Pick the path that fits today — no quiz required, no judgement.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
           {cards.map(({ icon: Icon, label, sub, href }) => {

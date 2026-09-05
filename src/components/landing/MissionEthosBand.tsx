@@ -10,9 +10,9 @@ const UPDATES = [
 ] as const;
 
 const STATS = [
-  { icon: FileText, label: "Caring articles, all free to read", value: "180+" },
-  { icon: Users, label: "People we've helped so far", value: "10,000+" },
-  { icon: CheckCircle2, label: "Updates made this quarter, with love", value: "47" },
+  { icon: FileText, label: "Guides free to read, always", value: "Free" },
+  { icon: Users, label: "Building this with you", value: "Together" },
+  { icon: CheckCircle2, label: "Clinician-reviewed, plain English", value: "Honest" },
 ] as const;
 
 const MissionEthosBand = memo(() => {
@@ -40,9 +40,10 @@ const MissionEthosBand = memo(() => {
             </h2>
 
             <p className="text-primary-foreground text-base sm:text-lg leading-relaxed mb-10 max-w-xl">
-              We share our arthritis guides the way good neighbours share a recipe — clearly,
-              warmly, and so anyone can pick it up. If something can be said more kindly or
-              more simply, tell us. A clinician checks every change before it goes out.
+              Living with arthritis is exhausting. We share guides the way good neighbours
+              share a recipe — clearly, warmly, and so anyone can pick it up. If something
+              can be said more kindly or more simply, tell us. We are still growing; a
+              clinician checks every change before it goes out.
             </p>
 
             <div className="grid grid-cols-3 gap-6 sm:gap-8 pt-8 border-t border-primary-foreground/15">

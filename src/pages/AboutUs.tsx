@@ -2,7 +2,7 @@ import { lazy, Suspense, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-import { Heart, BookOpen, Rocket, Users, Target, TrendingUp, ArrowLeft, Shield, Sparkles, Globe, Zap, Award } from "lucide-react";
+import { Heart, BookOpen, Rocket, Users, Target, TrendingUp, ArrowLeft, Shield, Sparkles, Globe, Award } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -96,17 +96,19 @@ const ABOUT_FAQS = [
 
 
 const impactStats = [
-  { value: "10,000+", label: "People Supported", icon: Users, color: "text-primary" },
-  { value: "50+", label: "Exercise Guides", icon: Zap, color: "text-primary" },
-  { value: "100%", label: "Free Access", icon: Shield, color: "text-primary" },
-  { value: "UK-Wide", label: "Coverage", icon: Globe, color: "text-primary" },
+  { value: "2026", label: "Charity registered", icon: Shield, color: "text-primary" },
+  { value: "1218461", label: "Charity number", icon: Award, color: "text-primary" },
+  { value: "Free", label: "Guides & tools", icon: Heart, color: "text-primary" },
+  { value: "Oswestry", label: "Based in the UK", icon: Globe, color: "text-primary" },
 ];
 
 const teamMembers = [
-  { name: "Operations Director", role: "First Contact Practitioner", credentials: "HCPC Registered · BSc Physiotherapy", bio: "Founded Living With Arthritis after seeing thousands of patients struggle to find reliable, free arthritis support outside clinical settings." },
-  { name: "Clinical Lead", role: "Senior Physiotherapist", credentials: "HCPC Registered · MSc Musculoskeletal", bio: "Oversees clinical content accuracy and develops our evidence-based exercise programmes." },
-  { name: "Nutrition Advisor", role: "Registered Dietitian", credentials: "HCPC Registered · BSc Nutrition", bio: "Designs our anti-inflammatory diet plans and Mediterranean meal guides for joint health." },
-  { name: "Digital Health Lead", role: "Health Technology Specialist", credentials: "MSc Health Informatics", bio: "Builds our help chat, symptom tools, and digital patient experience." },
+  {
+    name: "Louis Maxwell",
+    role: "Founder · First Contact Practitioner",
+    credentials: "HCPC PH128483 · Chartered Society of Physiotherapy",
+    bio: "Founded Living With Arthritis after his own diagnosis at 28 left him with a photocopied exercise sheet and little else. He reviews our clinical content and replies to many of the messages that come in — we are still a small charity, building this with you.",
+  },
 ];
 
 const AboutUs = () => {
@@ -183,12 +185,12 @@ const AboutUs = () => {
               </Link>
               <Badge className="bg-secondary/10 text-secondary border-0 text-xs font-bold px-3 py-1.5">
                 <Sparkles className="w-3 h-3 mr-1.5" />
-                Est. 2020
+                Est. 2026
               </Badge>
             </div>
           }
-          title={<>From a personal mission to a <span className="text-primary">national movement</span></>}
-          subtitle="How Living with Arthritis grew from one family's experience into a platform supporting thousands across the United Kingdom."
+          title={<>From one hard diagnosis to a <span className="text-primary">small charity with a big heart</span></>}
+          subtitle="Living with arthritis is exhausting. We started because Louis Maxwell — an HCPC-registered First Contact Practitioner — lived that gap between diagnosis and real support. We are still young, independent of Arthritis UK, and building this with you."
         >
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {impactStats.map((stat) => (
@@ -223,21 +225,22 @@ const AboutUs = () => {
                 Our Team
               </Badge>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground mb-3">
-                Led by <span className="text-primary">clinicians</span>, built with care
+                A real person, <span className="text-primary">not a faceless brand</span>
               </h2>
               <p className="text-sm text-muted-foreground max-w-lg mx-auto">
-                Our team includes HCPC-registered physiotherapists, First Contact Practitioners, registered dietitians, and digital health specialists.
+                We will not invent a large clinical board. Clinical review is led by Louis Maxwell
+                (HCPC PH128483). As we grow, we will say so clearly.
               </p>
               <p className="text-sm text-muted-foreground max-w-lg mx-auto mt-2">
-                All our content is reviewed by HCPC-registered clinicians.{" "}
+                Prefer the detail?{" "}
                 <Link to="/editorial-standards" className="text-primary underline hover:no-underline font-medium">
-                  Read our full editorial standards
+                  Read our editorial standards
                 </Link>
                 .
               </p>
             </motion.div>
 
-            <div className="grid sm:grid-cols-2 gap-5">
+            <div className="grid sm:grid-cols-1 max-w-xl mx-auto gap-5">
               {teamMembers.map((member, i) => (
                 <motion.div
                   key={member.name}
@@ -320,12 +323,14 @@ const AboutUs = () => {
                 Our Journey
               </Badge>
               <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-tight leading-[1.05]">
-                Six years of<br className="hidden sm:block" />
-                <span className="text-primary italic"> measurable impact.</span>
+                A young charity<br className="hidden sm:block" />
+                <span className="text-primary italic"> with honest roots.</span>
               </h2>
               <div className="w-16 h-[2px] bg-primary/30 mx-auto mt-8" />
               <p className="mt-8 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                From a clinician-led idea to a national movement — every chapter built on evidence, accessibility, and trust.
+                Registered 15 June 2026. We are still early — and we would rather say that
+                plainly than invent a longer history. Every chapter is built on evidence,
+                accessibility, and trust.
               </p>
             </motion.div>
 
@@ -425,34 +430,34 @@ const AboutUs = () => {
         <section id="maxwell" className="py-16 px-4 bg-white">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
-              Our Team & Clinical Leadership
+              Who reviews our content
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="border border-border rounded-lg p-6 bg-background">
-                <h3 className="text-xl font-bold mb-1">Maxwell</h3>
+                <h3 className="text-xl font-bold mb-1">Louis Maxwell</h3>
                 <p className="text-primary font-semibold mb-3 text-sm">
-                  First Contact Practitioner · HCPC PH128483 · CSP Member
+                  Founder · First Contact Practitioner · HCPC PH128483 · CSP Member
                 </p>
                 <p className="text-sm text-muted-foreground mb-4">
-                  Clinical Leadership & Content Review
+                  Clinical review &amp; a human reply when you write in
                 </p>
                 <p className="leading-relaxed mb-4">
-                  Maxwell is a Band 8 Advanced Physiotherapy Practitioner with over
-                  20 years of clinical experience in arthritis management, joint
-                  pain relief, and patient education. He leads all clinical review
-                  and medical accuracy standards for Living With Arthritis UK.
+                  Louis founded Living With Arthritis after living the gap between a
+                  diagnosis and real support. He leads clinical review for our guides
+                  and often answers messages himself. We will not invent extra clinicians
+                  to look bigger than we are.
                 </p>
                 <p className="text-xs font-semibold mb-2">Credentials:</p>
                 <ul className="text-xs text-muted-foreground list-disc list-inside space-y-1">
                   <li>HCPC Registration: PH128483</li>
                   <li>CSP Member (Chartered Society of Physiotherapy)</li>
-                  <li>Evidence-based Practice Certification</li>
-                  <li>Patient Education Specialist</li>
+                  <li>First Contact Practitioner in UK primary care</li>
                 </ul>
               </div>
               <div className="border border-dashed border-border rounded-lg p-6 bg-muted/30 flex items-center justify-center">
-                <p className="text-muted-foreground text-center text-sm">
-                  Additional trustees and clinical advisors joining soon.
+                <p className="text-muted-foreground text-center text-sm leading-relaxed">
+                  We are building this with you. Trustees and advisors will be named here
+                  as they join — no placeholder titles, no fake scale.
                 </p>
               </div>
             </div>

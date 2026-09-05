@@ -15,7 +15,7 @@ const points = [
   {
     icon: <BookOpen className="w-5 h-5 text-primary" />,
     title: "Clinician-reviewed content",
-    desc: "Every exercise programme, diet guide, and management strategy is reviewed by HCPC-registered physiotherapists and rheumatologists.",
+    desc: "Exercise and diet guidance is clinically reviewed by Louis Maxwell, HCPC-registered physiotherapist (PH128483) — we do not invent a larger clinical board.",
   },
   {
     icon: <Users className="w-5 h-5 text-primary" />,
@@ -44,8 +44,8 @@ const WhyUsSection = memo(() => (
           <span className="text-primary">Built just for you.</span>
         </h2>
         <p className="mt-4 text-muted-foreground">
-          There are plenty of generic health resources out there. Here's why thousands of people with arthritis choose
-          us instead.
+          There are plenty of generic health resources out there. Here is why people living with
+          arthritis keep coming back — and why we would rather stay honest about being a young charity.
         </p>
       </div>
 

@@ -37,8 +37,9 @@ const FinalDonateBand = () => {
             Funded entirely by people <span className="italic">like you.</span>
           </h2>
           <p className="text-base lg:text-lg text-background/70 leading-relaxed max-w-2xl mx-auto">
-            We don't sell ads. We don't take government funding. Every guide
-            stays free because of small, regular gifts from readers across the UK.
+            We are a young charity building this with you. No ads. No inflated claims.
+            Your gift keeps free guides and a human reply in reach for someone whose joints
+            hurt today.
           </p>
         </RevealOnScroll>
 

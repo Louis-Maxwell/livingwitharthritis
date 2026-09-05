@@ -44,11 +44,11 @@ const EmailSignupForm = memo(({
       trackEvent("email_signup", { sequence });
       setSuccess(true);
       setEmail("");
-      toast.success("Please send the email that opened. We do not store signups on this site yet.");
+      toast.success("Almost there — please send the email that opened. We do not store signups on this site yet.");
       onSuccess?.();
       setTimeout(() => setSuccess(false), 5000);
     } catch (err) {
-      const msg = err instanceof Error ? err.message : "Failed to subscribe";
+      const msg = err instanceof Error ? err.message : "Sorry — that did not work. Please try again or email info@livingwitharthritis.org.uk.";
       setError(msg);
       toast.error(msg);
     } finally {
@@ -99,8 +99,8 @@ const EmailSignupForm = memo(({
           <div className="rounded-lg bg-emerald-500/10 border border-emerald-200 p-4 flex gap-3">
             <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
             <div>
-              <p className="font-semibold text-emerald-900 text-sm">Welcome!</p>
-              <p className="text-xs text-emerald-800 mt-1">Check your email for the first guide and exclusive resources.</p>
+              <p className="font-semibold text-emerald-900 text-sm">Thank you — you are on the list once you send that email.</p>
+              <p className="text-xs text-emerald-800 mt-1">We will keep it kind and useful. No spam, and you can leave anytime.</p>
             </div>
           </div>
         ) : (

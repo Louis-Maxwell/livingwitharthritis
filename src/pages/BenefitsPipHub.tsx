@@ -94,7 +94,8 @@ const BenefitsPipHub = () => {
         <section className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-4xl py-12 space-y-8">
           <div className="prose prose-neutral dark:prose-invert max-w-none">
             <p>
-              Arthritis can make dressing, cooking, walking and working harder. In the UK,{" "}
+              If getting dressed, cooking or walking to the shops feels harder than it should,
+              you are not imagining it — and you are not alone. In the UK,{" "}
               <strong>Personal Independence Payment (PIP)</strong> is the main working-age benefit
               that looks at how your condition affects daily living and mobility — not just your
               diagnosis name. This hub points you to our full guide and the related pages most
