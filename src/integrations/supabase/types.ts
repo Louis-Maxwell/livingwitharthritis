@@ -1527,6 +1527,24 @@ export type Database = {
         }
         Relationships: []
       }
+      meta_description_staging: {
+        Row: {
+          created_at: string
+          description: string
+          slug: string
+        }
+        Insert: {
+          created_at?: string
+          description: string
+          slug: string
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          slug?: string
+        }
+        Relationships: []
+      }
       newsletter_subscriptions: {
         Row: {
           categories: string[]
