@@ -141,11 +141,17 @@ export function getArticleImages(
 
 /**
  * Primary cover for listings, Open Graph, and JSON-LD.
- * Unique per blog slug via generated Openverse cover map (1:1).
- * Falls back to category hash pick only if slug is absent from the map.
+ * ALWAYS uses the 1:1 slug → file map (blog-cover-map.generated.json).
+ * Never falls back to category buckets — those ~50 shared files make cards
+ * look identical and are what made blog images "keep breaking" after fixes.
+ *
+ * If a slug is somehow unmapped (new blog before map regen), pick a
+ * deterministic file from the existing unique corpus so cards stay distinct
+ * until `python3 scripts/download-unique-openverse-covers.py` is re-run.
+ * Do not use article.image_url for listing covers.
  */
 export function coverImage(
-  category: string,
+  _category: string,
   title: string,
   slug: string,
 ): ArticleImage {
@@ -153,5 +159,11 @@ export function coverImage(
   if (mapped) {
     return toImg(mapped);
   }
-  return getArticleImages(category, title, slug || title)[0];
+  const corpus = Object.values(COVER_MAP);
+  if (corpus.length > 0) {
+    const file = corpus[hashStr(slug || title || "unmapped") % corpus.length];
+    return toImg(file);
+  }
+  // Last resort: branded hero that exists in public/openverse (never 404).
+  return toImg("hero-friends-800.webp");
 }

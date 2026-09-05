@@ -1,13 +1,11 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useBlogArticlesList } from "@/hooks/useBlogArticles";
-import { getArticleImages } from "@/lib/articleImages";
+import { coverImage } from "@/lib/articleImages";
 
 /**
- * MAP-style "Latest" 3-up grid, matching the image fallback pattern used by
- * BlogPreview/BlogIndex/ConditionBlogStrip (DB image_url, else curated
- * openverse image) so newly published articles without an image_url yet
- * still show a photo instead of a blank cover.
+ * MAP-style "Latest" 3-up grid. Covers always come from coverImage()
+ * (1:1 blog-cover-map) — never article.image_url or category buckets.
  */
 function formatDate(iso: string) {
   try {
@@ -65,7 +63,7 @@ export default function LatestGrid() {
               >
                 <div className="aspect-[4/3] overflow-hidden bg-primary flex items-center justify-center">
                   <img
-                    src={a.image_url || getArticleImages(a.category, a.title, a.slug)[0].src}
+                    src={coverImage(a.category, a.title, a.slug).src}
                     alt=""
                     aria-hidden="true"
                     width={400}

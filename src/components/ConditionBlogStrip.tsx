@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, BookOpen, Sparkles } from "lucide-react";
 import { useFeaturedArticles, useConditionArticles } from "@/hooks/useBlogArticles";
-import { getArticleImages } from "@/lib/articleImages";
+import { coverImage } from "@/lib/articleImages";
 
 interface ConditionBlogStripProps {
   /** Friendly condition name, e.g. "Osteoarthritis" — shown in copy */
@@ -33,7 +33,7 @@ const FeatureCard = ({ a }: { a: CardArticle }) => (
   >
     <div className="aspect-[16/10] overflow-hidden bg-muted">
       <img
-        src={a.image_url || getArticleImages(a.category, a.title, a.slug)[0].src}
+        src={coverImage(a.category, a.title, a.slug).src}
         alt={a.title}
         width={400}
         height={250}
