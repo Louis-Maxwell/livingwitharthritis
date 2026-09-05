@@ -239,6 +239,113 @@ export type Database = {
         }
         Relationships: []
       }
+      article_categories: {
+        Row: {
+          created_at: string
+          description: string | null
+          display_order: number
+          id: string
+          is_active: boolean
+          name: string
+          pillar_slug: string | null
+          slug: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          display_order?: number
+          id?: string
+          is_active?: boolean
+          name: string
+          pillar_slug?: string | null
+          slug: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          display_order?: number
+          id?: string
+          is_active?: boolean
+          name?: string
+          pillar_slug?: string | null
+          slug?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      article_category_links: {
+        Row: {
+          article_slug: string
+          category_id: string
+          created_at: string
+          id: string
+          is_primary: boolean
+        }
+        Insert: {
+          article_slug: string
+          category_id: string
+          created_at?: string
+          id?: string
+          is_primary?: boolean
+        }
+        Update: {
+          article_slug?: string
+          category_id?: string
+          created_at?: string
+          id?: string
+          is_primary?: boolean
+        }
+        Relationships: [
+          {
+            foreignKeyName: "article_category_links_category_id_fkey"
+            columns: ["category_id"]
+            isOneToOne: false
+            referencedRelation: "article_categories"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      article_internal_links: {
+        Row: {
+          anchor_text: string | null
+          created_at: string
+          id: string
+          is_applied: boolean
+          link_type: string
+          rationale: string | null
+          score: number | null
+          source_slug: string
+          target_slug: string
+          updated_at: string
+        }
+        Insert: {
+          anchor_text?: string | null
+          created_at?: string
+          id?: string
+          is_applied?: boolean
+          link_type?: string
+          rationale?: string | null
+          score?: number | null
+          source_slug: string
+          target_slug: string
+          updated_at?: string
+        }
+        Update: {
+          anchor_text?: string | null
+          created_at?: string
+          id?: string
+          is_applied?: boolean
+          link_type?: string
+          rationale?: string | null
+          score?: number | null
+          source_slug?: string
+          target_slug?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       backlink_submissions: {
         Row: {
           category: string
@@ -1183,6 +1290,48 @@ export type Database = {
         }
         Relationships: []
       }
+      featured_snippets: {
+        Row: {
+          answer_text: string | null
+          article_slug: string
+          created_at: string
+          first_seen_on: string
+          id: string
+          is_active: boolean
+          keyword: string
+          last_seen_on: string | null
+          position: number | null
+          snippet_type: string
+          updated_at: string
+        }
+        Insert: {
+          answer_text?: string | null
+          article_slug: string
+          created_at?: string
+          first_seen_on?: string
+          id?: string
+          is_active?: boolean
+          keyword: string
+          last_seen_on?: string | null
+          position?: number | null
+          snippet_type?: string
+          updated_at?: string
+        }
+        Update: {
+          answer_text?: string | null
+          article_slug?: string
+          created_at?: string
+          first_seen_on?: string
+          id?: string
+          is_active?: boolean
+          keyword?: string
+          last_seen_on?: string | null
+          position?: number | null
+          snippet_type?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       featured_stories: {
         Row: {
           age: string | null
@@ -1844,6 +1993,54 @@ export type Database = {
           key?: string
           updated_at?: string
           window_start?: string
+        }
+        Relationships: []
+      }
+      seo_analytics: {
+        Row: {
+          article_slug: string | null
+          captured_on: string
+          clicks: number
+          country: string
+          created_at: string
+          ctr: number
+          device: string
+          id: string
+          impressions: number
+          keyword: string
+          page_url: string
+          position: number | null
+          source: string
+        }
+        Insert: {
+          article_slug?: string | null
+          captured_on: string
+          clicks?: number
+          country?: string
+          created_at?: string
+          ctr?: number
+          device?: string
+          id?: string
+          impressions?: number
+          keyword: string
+          page_url: string
+          position?: number | null
+          source?: string
+        }
+        Update: {
+          article_slug?: string | null
+          captured_on?: string
+          clicks?: number
+          country?: string
+          created_at?: string
+          ctr?: number
+          device?: string
+          id?: string
+          impressions?: number
+          keyword?: string
+          page_url?: string
+          position?: number | null
+          source?: string
         }
         Relationships: []
       }
