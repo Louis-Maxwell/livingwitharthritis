@@ -14,6 +14,7 @@ import {
   BLOG_CATEGORY_KEYS,
   canonicalBlogCategoryKey,
 } from "../src/data/blogCategories";
+import { CITY_ROUTES } from "../src/data/city-routes.generated";
 
 const BASE_URL = "https://livingwitharthritis.org.uk";
 
@@ -446,9 +447,10 @@ async function main() {
   for (const p of extractAll(/"(\/guides\/[^"]+)"/g, comparisonSrc))
     entries.push({ path: p, priority: "0.7", changefreq: "monthly" });
 
-  // /arthritis-support/{city} doorway pages are intentionally NOT listed.
-  // They are city-templated variants of the same guidance and were diluting
-  // crawl budget; the hub /arthritis-support still links them internally.
+  // City support hubs (/arthritis-support/{city}). These return HTTP 200,
+  // are indexable, and are linked from the /arthritis-support pillar page;
+  // they belong in the sitemap so Google can discover them.
+  for (const p of CITY_ROUTES) entries.push({ path: p, priority: "0.7", changefreq: "monthly" });
 
 
   const petsSrc = read("src/data/pets-arthritis.generated.ts");
@@ -476,10 +478,9 @@ async function main() {
   }
 
   // Final safety net: never ship empty locale stubs (/es|/fr|/de|/pt and their
-  // clones) or /arthritis-support/{city} doorway URLs in the XML sitemap.
+  // clones) in the XML sitemap.
   const EXCLUDE_FROM_SITEMAP = [
     /^\/(es|fr|de|pt)(\/|$)/,
-    /^\/arthritis-support\/.+/,
   ];
   const cleaned = entries.filter(
     (e) => !EXCLUDE_FROM_SITEMAP.some((re) => re.test(e.path)),
