@@ -295,9 +295,6 @@ npm run build
 
 **Step 2: Deploy to production**
 ```bash
-# Using Vercel
-vercel deploy --prod
-
 # Using Lovable
 # Call deploy_project API with project ID
 
@@ -344,10 +341,7 @@ getTTFB(console.log);
 # 2. Sentry for error tracking
 npm install @sentry/react
 
-# 3. Vercel Analytics (if using Vercel)
-npm install @vercel/analytics
-
-# 4. Custom monitoring
+# 3. Custom monitoring
 # Use AnalyticsTracker to track page load times
 ```
 
