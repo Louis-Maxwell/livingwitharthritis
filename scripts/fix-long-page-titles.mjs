@@ -111,27 +111,18 @@ function build(title) {
   const kw = keywordFrom(title);
   const full = stripMd(title).replace(/\s*[|:–—-]\s*Living With Arthritis.*$/i, '');
 
-  // If the keyword alone already fits, add an angle.
-  for (const angle of ANGLES) {
-    const candidate = `${kw} | ${angle}`;
-    if (candidate.length <= MAX && hash(full) % 3 === ANGLES.indexOf(angle) % 3) {
-      if (candidate.length >= 30) return candidate;
-    }
-  }
-  // Deterministic angle choice.
-  const angle = ANGLES[hash(full) % ANGLES.length];
-  let candidate = `${kw} | ${angle}`;
-  if (candidate.length <= MAX) return candidate;
+  // Deterministic angle choice; skip angles that repeat the keyword's tail
+  // (e.g. "Juvenile Arthritis UK | UK Guide").
+  const ordered = [...ANGLES.slice(hash(full) % ANGLES.length), ...ANGLES.slice(0, hash(full) % ANGLES.length)];
+  const usable = ordered.filter((a) => !kw.toLowerCase().endsWith(a.split(' ')[0].toLowerCase()) || !/uk/i.test(a));
 
-  // Too long: trim keyword word by word.
-  let words = kw.split(' ');
-  while (words.length > 2) {
-    words = words.slice(0, -1);
-    candidate = `${words.join(' ')} | ${angle}`;
-    if (candidate.length <= MAX) return candidate;
+  for (const angle of usable) {
+    const candidate = `${kw} | ${angle}`;
+    if (candidate.length <= MAX && candidate.length >= 25) return candidate;
   }
-  // Last resort: keyword only, hard-capped.
-  return kw.length <= MAX ? kw : kw.slice(0, MAX).replace(/\s+\S*$/, '');
+  // Keyword alone already fits within the cap.
+  if (kw.length <= MAX) return kw;
+  return trimTo(kw, MAX);
 }
 
 async function main() {
