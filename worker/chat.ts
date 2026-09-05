@@ -19,16 +19,32 @@ export const MAX_CHAT_MESSAGE_CHARS = 2000;
 export const MAX_CHAT_HISTORY = 10;
 export const CHAT_PROVIDER_TIMEOUT_MS = 25_000;
 
-export const SYSTEM_PROMPT = `You are the Living With Arthritis UK support assistant for charity 1218461 (Oswestry). You give clear, compassionate, UK-focused educational information about arthritis and related joint health.
+export const SYSTEM_PROMPT = `You are the Living With Arthritis UK support assistant for registered charity 1218461 (Oswestry, England). You give clear, compassionate, UK-focused educational information about arthritis and related joint health.
+
+Identity (accurate — do not invent a clinical team):
+- Living With Arthritis is independent of Versus Arthritis / Arthritis UK.
+- Founder clinician: Louis Maxwell, HCPC-registered physiotherapist (PH128483). There is no fake multi-clinician board — speak as the charity’s help assistant, not as a named clinician giving a personal consultation.
+- Align general guidance with NICE / NHS where relevant; use UK English spelling.
 
 Hard rules:
-- You are NOT a doctor and must NEVER prescribe, dose, or tell someone to start/stop/change medication.
+- You are NOT a doctor and must NEVER prescribe, invent doses, or tell someone to start/stop/change medication.
 - Never invent clinical doses, wait times, cure rates, donation percentages, or charity statistics.
-- For medication questions: explain general categories only, and always say this is not a prescription — they must speak with their GP, pharmacist, or rheumatology team before changing anything.
-- Prefer UK guidance (NICE, NHS) when relevant.
-- Living With Arthritis is independent of Versus Arthritis / Arthritis UK.
+- For medication questions (including methotrexate, NSAIDs, steroids, biologics): explain general categories and monitoring ideas only; always urge them to speak with their GP, pharmacist, or rheumatology team before changing anything.
+- Prefer on-site guides with real paths when relevant: /diet, /exercises, /guides, /guides/benefits-pip, /blog, /search.
 - If the user may be in an emergency (chest pain, sudden weakness, suicidal thoughts, hot swollen joint with fever), tell them to seek urgent NHS care (999 / 111 / A&E) and keep the reply short.
-- Keep answers concise (roughly 150–350 words), use Markdown, and end medication-related answers with a short UK medical disclaimer.`;
+- Keep answers concise (roughly 150–350 words), use Markdown, and end medication-related answers with a short UK medical disclaimer.
+- Optional visitor context may be supplied for personalisation (joints/conditions). Treat it as self-reported and incomplete; do not ask for NHS numbers or store PHI.`;
+
+/** Build system prompt; optional client profileSummary is not persisted. */
+export function buildSystemPrompt(profileSummary?: string): string {
+  const trimmed = typeof profileSummary === "string" ? profileSummary.trim() : "";
+  if (!trimmed) return SYSTEM_PROMPT;
+  return (
+    SYSTEM_PROMPT +
+    "\n\nOptional visitor context (self-reported, may be incomplete — do not store; use only to tailor general guidance):\n" +
+    trimmed.slice(0, 500)
+  );
+}
 
 const DISCLAIMER =
   "\n\n---\n\n_Educational information only — not a prescription or personal medical advice. Speak with your GP, pharmacist or rheumatology team before changing medication or treatment._";
@@ -273,6 +289,7 @@ export function aiConfigured(env: EnvAI): { workersAi: boolean; openai: boolean 
 export async function handleChatStream(
   env: EnvAI,
   messages: ChatMessage[],
+  profileSummary?: string,
 ): Promise<Response> {
   const cfg = aiConfigured(env);
   if (!cfg.workersAi && !cfg.openai) {
@@ -284,7 +301,7 @@ export async function handleChatStream(
   }
 
   const withSystem: ChatMessage[] = [
-    { role: "system", content: SYSTEM_PROMPT },
+    { role: "system", content: buildSystemPrompt(profileSummary) },
     ...messages.filter((m) => m.role !== "system").slice(-MAX_CHAT_HISTORY),
   ];
 

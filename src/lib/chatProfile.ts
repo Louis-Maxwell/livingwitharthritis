@@ -97,3 +97,15 @@ export function hasAnyProfileFields(profile: ChatProfile): boolean {
       (profile.affectedJoints && profile.affectedJoints.length),
   );
 }
+
+/** Short non-PHI summary for the chat API (not stored server-side). */
+export function formatProfileSummary(profile: ChatProfile): string | undefined {
+  if (!hasAnyProfileFields(profile)) return undefined;
+  const parts: string[] = [];
+  if (profile.arthritisType) parts.push(`Condition: ${profile.arthritisType}`);
+  if (profile.affectedJoints?.length) parts.push(`Joints: ${profile.affectedJoints.join(", ")}`);
+  if (profile.severity) parts.push(`Severity: ${profile.severity}`);
+  if (profile.ageRange) parts.push(`Age range: ${profile.ageRange}`);
+  return parts.join("; ");
+}
+

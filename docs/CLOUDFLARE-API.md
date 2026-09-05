@@ -24,7 +24,10 @@ In-memory by default. Optional RATE_LIMIT and SUBMISSIONS KV with real ids only.
 Set Resend and optional OpenAI / Turnstile / IndexNow via Wrangler secrets. AI binding needs none.
 
 ## Chat
-Max 2000 chars, 10 history, 25s timeout, clear 503 if no provider. UK disclaimer; no invented doses.
+POST /api/chat JSON: `{ messages: [{role, content}], profileSummary?: string }`.
+`profileSummary` is optional client-side About You text (joints/conditions) for personalisation — sanitised, max 500 chars, not stored server-side.
+SSE events: `{type:"token", content}`, `{type:"done"}`, `{type:"error", error}`. JSON error bodies use `{ok:false, error, code}` (429 `rate_limited`, 503 `not_configured`).
+Max 2000 chars/message, 10 history, 25s provider timeout. UK NICE-aligned prompt; no invented doses; mailto is client fallback only when the API fails.
 
 ## Tests and CORS
 Vitest worker tests. CORS allows production domain and localhost 8787/8080.

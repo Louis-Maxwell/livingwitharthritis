@@ -12,6 +12,42 @@ type Entry = { keywords: RegExp; answer: string };
 
 const ENTRIES: Entry[] = [
   {
+    keywords: /\b(pip|personal independence payment|disability benefit|dla|attendance allowance)\b/i,
+    answer: `**PIP and arthritis benefits (UK) — general orientation**
+
+**Personal Independence Payment (PIP)** is a UK disability benefit for people of working age who need help with daily living or getting around because of a long-term condition — including many forms of arthritis. It is **not means-tested** and you can claim whether or not you work.
+
+**In broad terms:**
+- There are two components: **daily living** and **mobility**, each with standard or enhanced rates after assessment.
+- Assessment focuses on how your condition affects **activities** (cooking, dressing, managing treatment, moving around), not only diagnosis labels.
+- Keep a brief symptom/flare diary and examples of bad days — assessors look at reliability, safety, and needing help or aids.
+
+**Practical next steps:**
+- Read our plain-English hub: **/guides/benefits-pip**
+- Check official GOV.UK guidance for current rules and how to claim
+- Citizens Advice or a local welfare-rights adviser can help with forms and mandatory reconsiderations
+
+This is educational orientation only — benefit rules change, and we cannot assess your entitlement.`,
+  },
+  {
+    keywords: /\b(methotrexate|mtx)\b/i,
+    answer: `**Methotrexate — general information (not prescribing advice)**
+
+Methotrexate is a common **DMARD** used in rheumatoid arthritis, psoriatic arthritis and related inflammatory conditions. It dampens over-active immune activity that drives joint inflammation.
+
+**What people usually discuss with their team:**
+- It is typically taken **once weekly** (not daily) — timing and folic acid cover are decided by your clinician.
+- Blood monitoring (liver, blood count, sometimes kidney) is routine because the medicine needs careful supervision.
+- Alcohol limits, infection risk, and pregnancy/contraception planning are important safety topics for your rheumatology team or pharmacist.
+- Never start, stop, or change the dose yourself.
+
+**If you miss a dose or feel unwell:** contact your rheumatology advice line, GP or pharmacist — do not double up without advice.
+
+**Urgent care:** seek same-day medical help for high fever, unexplained bruising, severe mouth ulcers, marked shortness of breath, or yellowing of the skin/eyes while on methotrexate.
+
+For broader medicine explainers see **/guides** (e.g. painkillers/NSAIDs guides). Always confirm personal advice with your GP, pharmacist or rheumatology team.`,
+  },
+  {
     keywords: /\b(anti[- ]?inflammatory|inflammation).*(food|diet|eat)|\b(food|diet|eat).*(anti[- ]?inflammatory|inflammation)\b/i,
     answer: `**Best anti-inflammatory foods for arthritis**
 
@@ -30,7 +66,7 @@ A **Mediterranean-style diet** has the strongest evidence for reducing arthritis
 - Fried and heavily processed meats.
 - Excess alcohol.
 
-A 2018 *Frontiers in Nutrition* review and NICE NG226 both support Mediterranean eating for joint health. Combine it with gentle weight management — every 1 kg lost takes ~4 kg of load off the knees.`,
+A 2018 *Frontiers in Nutrition* review and NICE NG226 both support Mediterranean eating for joint health. Combine it with gentle weight management — even modest weight loss can meaningfully reduce load on the knees and hips.`,
   },
   {
     keywords: /\b(osteoarthritis|\boa\b).*(exercise|workout|activity)|exercise.*(osteoarthritis|\boa\b)|safe exercise/i,
@@ -43,10 +79,10 @@ Low-impact movement is one of the most effective treatments for OA — it eases 
 - Stationary cycling
 - Swimming or aqua-aerobics (excellent for knees and hips)
 
-**Strength (2–3Ã— per week):**
+**Strength (2–3 times per week):**
 - **Straight-leg raises** — 2 sets of 10
 - **Sit-to-stands** from a chair — 2 sets of 10
-- **Wall sits** — hold 10–20 seconds, repeat 5Ã—
+- **Wall sits** — hold 10–20 seconds, repeat 5 times
 - **Glute bridges** — 2 sets of 10
 
 **Flexibility and balance (daily, 5–10 min):**
@@ -58,7 +94,7 @@ Low-impact movement is one of the most effective treatments for OA — it eases 
 - "Soreness rule": if joint pain lasts >2 hours after exercise, ease back next time.
 - Start small and build slowly.
 
-Our free Exercise Hub has follow-along videos tailored to joint and ability.`,
+See our free Exercise Hub at **/exercises** for follow-along routines tailored to joint and ability.`,
   },
   {
     keywords: /\b(rheumatoid|\bra\b)\b/i,
@@ -115,9 +151,9 @@ Early diagnosis of inflammatory arthritis (e.g. RA, PsA) makes a real difference
 
 No supplement reverses arthritis, but a few may help symptoms modestly.
 
-- **Omega-3 (fish oil)** — best evidence; ~2 g EPA+DHA/day may reduce RA joint tenderness and morning stiffness.
-- **Curcumin (turmeric extract)** — ~1000 mg/day with piperine; meta-analyses show pain relief similar to NSAIDs in knee OA.
-- **Ginger** — ~500–1000 mg/day extract; modest pain reduction.
+- **Omega-3 (fish oil)** — among the better-studied options for inflammatory joint symptoms; ask a pharmacist about a suitable product.
+- **Curcumin (turmeric extract)** — some trials suggest modest pain relief in knee OA when taken with piperine; check interactions first.
+- **Ginger** — may offer modest symptom relief for some people.
 - **Glucosamine + chondroitin** — mixed evidence; some people find it helps knee OA over 8–12 weeks.
 - **Collagen peptides** — emerging evidence for joint comfort, less established than the above.
 - **Vitamin D** — worth checking levels, especially in the UK winter; deficiency worsens pain.
@@ -160,7 +196,7 @@ A stepped approach works best, alongside exercise and weight management.
 
 **First line:**
 - **Topical NSAID gel** (e.g. ibuprofen, diclofenac) — rubbed into the painful joint. NICE recommends this **before** oral painkillers for knee/hand OA.
-- **Paracetamol** for mild pain (max 4 g/day in adults).
+- **Paracetamol** for mild pain — follow the label and pharmacist advice (do not exceed the stated daily maximum).
 
 **Second line — short courses only, with food:**
 - **Oral NSAIDs** (ibuprofen, naproxen) — effective but can affect the stomach, kidneys and blood pressure. Always with a stomach protector (PPI) if used regularly.
@@ -189,11 +225,11 @@ The single most powerful dietary change for joint health is moving towards a **M
 - **Limit** sugar, refined carbs, ultra-processed foods and alcohol.
 
 **If you carry extra weight:**
-Losing even **5–10%** of body weight significantly reduces knee and hip OA pain. Pair small calorie reductions with strength training to preserve muscle.
+If relevant, modest weight loss often eases knee and hip OA pain. Pair small calorie reductions with strength training to preserve muscle.
 
 **Hydration and gut health matter too** — aim for 1.5–2 L water/day and include fibre-rich foods (oats, beans, vegetables) which support a healthier inflammatory profile.
 
-For UK-specific recipes and meal plans, see our free Diet Hub.`,
+For UK-specific recipes and meal plans, see our free Diet Hub at **/diet**.`,
   },
   {
     keywords: /\b(tai chi|yoga|pilates|stretch|flexibility)/i,
@@ -209,7 +245,7 @@ For UK-specific recipes and meal plans, see our free Diet Hub.`,
 - Skip any pose that causes sharp joint pain.
 - Tell the instructor about your condition.
 
-Our free Exercise Hub has seated tai chi and beginner tai chi videos designed for arthritis.`,
+Our Exercise Hub at **/exercises** has seated and beginner tai chi videos designed for arthritis.`,
   },
   {
     keywords: /\bvitamin\s*d\b|\bvit\s*d\b/i,
@@ -228,7 +264,7 @@ Vitamin D supports **bone strength, muscle function and immune balance** — all
 - Some evidence of lower flare frequency in rheumatoid arthritis when levels are normalised.
 
 **Practical tips:**
-- A daily **10–25 Âµg (400–1000 IU)** supplement is safe for most adults.
+- A daily low-dose supplement in line with UK autumn/winter advice is suitable for most adults — confirm with a pharmacist if you take other medicines.
 - Ask your GP for a blood test if you have ongoing fatigue, bone pain or frequent flares.
 - Pair with **calcium-rich foods** (dairy, fortified plant milks, leafy greens) and weight-bearing exercise.
 
@@ -248,7 +284,7 @@ OA is the most common form of arthritis. The smooth cartilage that cushions the 
 
 **What helps most (NICE NG226):**
 - **Movement** — low-impact exercise is the single most effective treatment.
-- **Weight management** — losing 5–10% of body weight can significantly reduce knee and hip pain.
+- **Weight management** — modest weight loss often eases knee and hip pain.
 - **Strength work** for the muscles around the affected joint.
 - **Topical NSAID gels** before oral painkillers for knee and hand OA.
 - **Heat, supportive footwear** and walking aids when useful.
@@ -269,8 +305,8 @@ Knee and hip pain are usually due to **osteoarthritis**, soft-tissue strain or, 
 **Self-care that helps most people:**
 - **Keep moving** — gentle walking, cycling or swimming most days.
 - **Strengthen the supporting muscles** — quadriceps, glutes and core. Try sit-to-stands, glute bridges and straight-leg raises.
-- **Lose excess weight** if relevant — each kilogram lost removes ~4 kg of load from the knee.
-- **Topical NSAID gel** (e.g. ibuprofen, diclofenac) rubbed in 3–4Ã— a day.
+- **Lose excess weight** if relevant — even modest loss can ease load on the knee.
+- **Topical NSAID gel** (e.g. ibuprofen, diclofenac) rubbed in 3–4 times a day.
 - **Heat** for stiffness, **ice** for swelling (20 minutes, with a cloth barrier).
 - Supportive footwear; avoid worn-out shoes.
 
@@ -333,20 +369,41 @@ Chronic low-grade inflammation drives both joint damage and fatigue. The most ef
 
 Early diagnosis matters most for inflammatory arthritis — treatment in the first weeks can prevent long-term joint damage.`,
   },
+  {
+    keywords: /\b(exercise|workout|physio|activity|walking|swim)\b/i,
+    answer: `**Exercise with arthritis — practical UK guidance**
+
+Movement is one of the most effective self-management tools for osteoarthritis and inflammatory arthritis — when paced sensibly.
+
+**Helpful patterns:**
+- **Low-impact aerobic** most days: walking, cycling, swimming or aqua classes
+- **Strength** 2–3 times a week for muscles that support sore joints
+- **Flexibility and balance** little and often (tai chi, gentle yoga, stretches)
+
+**Pacing tips:**
+- A little discomfort can be OK; sharp or lasting pain means ease back
+- On flare days, reduce intensity rather than stopping completely
+- Build up gradually over weeks
+
+Browse free routines on **/exercises** and written guides under **/guides/exercise**. A physiotherapist (including First Contact Practitioners in many GP practices) can tailor a plan.`,
+  },
+
 ];
 
 const GENERIC_ANSWER = `**Thanks for your question.**
 
-I can help with **arthritis-related** topics — symptoms, exercises, anti-inflammatory diet, pain relief, supplements, flare management, and UK care pathways.
+I can help with **arthritis-related** topics — symptoms, exercises, anti-inflammatory diet, pain relief, flares, methotrexate (general info), PIP/benefits orientation, and UK care pathways.
 
 Some things you can ask:
 - "What are the best anti-inflammatory foods?"
 - "Safe exercises for knee osteoarthritis"
 - "How do I manage a flare-up?"
-- "When should I see a doctor about joint pain?"
-- "What supplements help with arthritis?"
+- "What is methotrexate used for?"
+- "Can I claim PIP with arthritis?"
 
-If your concern is urgent (sudden severe pain, a hot swollen joint with fever, chest pain or weakness), please contact **999 or 112** or call **999** rather than waiting on chat.`;
+Browse **/diet**, **/exercises**, **/guides**, **/blog** or **/search** for more on this site.
+
+If your concern is urgent (sudden severe pain, a hot swollen joint with fever, chest pain or weakness), call **999** or **111** rather than waiting on chat.`;
 
 export function getFallbackAnswer(userInput: string): string {
   const text = userInput.trim();

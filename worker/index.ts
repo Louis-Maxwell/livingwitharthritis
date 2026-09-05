@@ -411,7 +411,12 @@ async function handleChat(request: Request, env: Env, requestId: string): Promis
     );
   }
 
-  return handleChatStream(env, messages);
+  const profileSummary =
+    typeof body.profileSummary === "string"
+      ? sanitizeInput(body.profileSummary, 500)
+      : undefined;
+
+  return handleChatStream(env, messages, profileSummary || undefined);
 }
 
 async function handleIndexNow(request: Request, env: Env, requestId: string): Promise<Response> {

@@ -108,9 +108,14 @@ const ChatMessage = ({ message, isLatest, isStreaming, sessionKey, previousUserM
         >
           {isUser ? (
             <p>{message.content}</p>
+          ) : streaming && !displayText.trim() ? (
+            <TypingIndicator />
           ) : (
             <div className="prose prose-sm dark:prose-invert max-w-none prose-p:my-1.5 prose-p:text-sm prose-p:leading-relaxed prose-ul:my-1.5 prose-li:my-0.5 prose-li:text-sm prose-headings:my-2 prose-headings:text-base prose-headings:font-semibold prose-headings:text-foreground prose-strong:text-foreground">
               <ReactMarkdown>{displayText}</ReactMarkdown>
+              {streaming && displayText.trim() ? (
+                <span className="inline-block w-1.5 h-3.5 ml-0.5 align-middle bg-primary/50 animate-pulse rounded-sm" aria-hidden="true" />
+              ) : null}
             </div>
           )}
         </div>
