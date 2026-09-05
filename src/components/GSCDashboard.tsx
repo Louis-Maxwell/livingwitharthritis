@@ -83,7 +83,10 @@ const GSCDashboard: React.FC<GSCDashboardProps> = ({
     return null;
   }
 
-  const { performance, coverage, webVitals } = metrics;
+  type NumMap = Record<string, number | undefined> & Record<string, any>;
+  const performance = metrics.performance as NumMap;
+  const coverage = metrics.coverage as NumMap;
+  const webVitals = metrics.webVitals as NumMap;
   const insights = metrics.insights as GSCInsights;
 
   return (
