@@ -152,7 +152,7 @@ for (const source of articles) {
 }
 
 // ---------------------------------------------------------- content edits
-const BLOCK_RE = /\n?\s*<section class="internal-links"[\s\S]*?<\/aside>\s*/g;
+const BLOCK_RE = /\n?\s*<(?:aside|section) class="internal-links"[\s\S]*?<\/(?:aside|section)>\s*/g;
 const anchorText = (t) => t.row.meta_title && t.row.meta_title.length <= 60 ? t.row.meta_title : t.title;
 
 function linkBlock(targets) {
