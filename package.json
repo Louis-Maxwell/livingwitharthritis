@@ -13,7 +13,7 @@
   "scripts": {
     "predev": "bun scripts/generate-sitemap.ts || true; node scripts/generate-llms-full.mjs || true",
     "dev": "vite",
-    "prebuild": "bun scripts/generate-sitemap.ts && node scripts/generate-blog-head-data.mjs && bun scripts/generate-condition-head-data.ts && node scripts/generate-llms-full.mjs && bun scripts/generate-og-images.ts",
+    "prebuild": "node scripts/generate-search-index.mjs || true; bun scripts/generate-sitemap.ts && node scripts/generate-blog-head-data.mjs && bun scripts/generate-condition-head-data.ts && node scripts/generate-llms-full.mjs && bun scripts/generate-og-images.ts",
     "build": "vite build",
     "postbuild": "node scripts/inject-canonicals.mjs && node scripts/generate-404.mjs && (node scripts/indexnow-ping.mjs || true)",
     "og:generate": "bun scripts/generate-og-images.ts",
@@ -48,6 +48,9 @@
     "indexnow": "INDEXNOW=1 node scripts/indexnow-ping.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
+    "search:index": "node scripts/generate-search-index.mjs",
+    "cf:dev": "wrangler dev",
+    "api:health": "curl -sS https://livingwitharthritis.org.uk/api/health",
     "cf:deploy": "wrangler deploy",
     "cf:secret:resend": "wrangler secret put RESEND_API_KEY",
     "worker:dev": "wrangler dev",

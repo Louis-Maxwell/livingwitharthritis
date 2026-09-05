@@ -22,3 +22,9 @@ export function sanitizeEmail(email: string): string | null {
 export function sanitizePhone(phone: string): string {
   return phone.replace(/[^\d\s\-+()]/g, "").trim().slice(0, 20);
 }
+
+/** True when a common honeypot field is filled (bots). */
+export function isHoneypotFilled(body: Record<string, unknown>): boolean {
+  const hp = body.website ?? body.company_url ?? body.fax;
+  return typeof hp === "string" && hp.trim().length > 0;
+}

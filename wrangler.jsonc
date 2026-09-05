@@ -19,8 +19,18 @@
   // (/about-us -> /about, /trust-credibility -> /trust) sit at the top of
   // public/_redirects, first match wins.
   //
-  // Worker `main` handles POST /api/* (contact, appointment, chat). Selective
-  // run_worker_first keeps asset-first + 404-page behaviour for everything else.
+  // Worker `main` handles /api/* (contact, appointment, chat, health, search).
+  // Selective run_worker_first keeps asset-first + 404-page behaviour elsewhere.
+  //
+  // Optional KV (do NOT invent IDs — create then paste real ids):
+  //   npx wrangler kv namespace create RATE_LIMIT
+  //   npx wrangler kv namespace create SUBMISSIONS
+  // Then add under this file:
+  //   "kv_namespaces": [
+  //     { "binding": "RATE_LIMIT", "id": "<real-id>" },
+  //     { "binding": "SUBMISSIONS", "id": "<real-id>" }
+  //   ]
+  // Without KV the Worker uses an improved in-memory rate limiter (per isolate).
   "name": "living-with-arthritis",
   "compatibility_date": "2026-09-03",
   "main": "worker/index.ts",

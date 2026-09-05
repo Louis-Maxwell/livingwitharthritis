@@ -14,12 +14,18 @@ export type EnvAI = {
   OPENAI_MODEL?: string;
 };
 
+/** Hard caps — charity-scale, keep costs and abuse low. */
+export const MAX_CHAT_MESSAGE_CHARS = 2000;
+export const MAX_CHAT_HISTORY = 10;
+export const CHAT_PROVIDER_TIMEOUT_MS = 25_000;
+
 export const SYSTEM_PROMPT = `You are the Living With Arthritis UK support assistant for charity 1218461 (Oswestry). You give clear, compassionate, UK-focused educational information about arthritis and related joint health.
 
 Hard rules:
 - You are NOT a doctor and must NEVER prescribe, dose, or tell someone to start/stop/change medication.
+- Never invent clinical doses, wait times, cure rates, donation percentages, or charity statistics.
 - For medication questions: explain general categories only, and always say this is not a prescription — they must speak with their GP, pharmacist, or rheumatology team before changing anything.
-- Prefer UK guidance (NICE, NHS) when relevant. Do not invent clinic wait times, cure rates, donation percentages, or charity statistics.
+- Prefer UK guidance (NICE, NHS) when relevant.
 - Living With Arthritis is independent of Versus Arthritis / Arthritis UK.
 - If the user may be in an emergency (chest pain, sudden weakness, suicidal thoughts, hot swollen joint with fever), tell them to seek urgent NHS care (999 / 111 / A&E) and keep the reply short.
 - Keep answers concise (roughly 150–350 words), use Markdown, and end medication-related answers with a short UK medical disclaimer.`;
@@ -47,6 +53,22 @@ function sseData(obj: unknown): string {
   return `data: ${JSON.stringify(obj)}\n\n`;
 }
 
+function withTimeout<T>(promise: Promise<T>, ms: number, label: string): Promise<T> {
+  return new Promise<T>((resolve, reject) => {
+    const t = setTimeout(() => reject(new Error(`${label} timed out after ${ms}ms`)), ms);
+    promise.then(
+      (v) => {
+        clearTimeout(t);
+        resolve(v);
+      },
+      (e) => {
+        clearTimeout(t);
+        reject(e);
+      },
+    );
+  });
+}
+
 /** Parse OpenAI-style SSE into plain text chunks. */
 async function* readOpenAiSse(stream: ReadableStream<Uint8Array>): AsyncGenerator<string> {
   const reader = stream.getReader();
@@ -68,7 +90,10 @@ async function* readOpenAiSse(stream: ReadableStream<Uint8Array>): AsyncGenerato
           choices?: Array<{ delta?: { content?: string }; message?: { content?: string } }>;
           response?: string;
         };
-        const delta = json.choices?.[0]?.delta?.content ?? json.choices?.[0]?.message?.content ?? json.response;
+        const delta =
+          json.choices?.[0]?.delta?.content ??
+          json.choices?.[0]?.message?.content ??
+          json.response;
         if (delta) yield delta;
       } catch {
         // ignore partial JSON
@@ -104,6 +129,16 @@ async function* readWorkersAiStream(stream: ReadableStream): AsyncGenerator<stri
   }
 }
 
+function sseResponse(readable: ReadableStream): Response {
+  return new Response(readable, {
+    headers: {
+      "Content-Type": "text/event-stream; charset=utf-8",
+      "Cache-Control": "no-cache",
+      Connection: "keep-alive",
+    },
+  });
+}
+
 async function streamOpenAiCompatible(
   env: EnvAI,
   messages: ChatMessage[],
@@ -111,14 +146,25 @@ async function streamOpenAiCompatible(
   if (!env.OPENAI_API_KEY) return null;
   const base = (env.OPENAI_BASE_URL || "https://api.openai.com/v1").replace(/\/$/, "");
   const model = env.OPENAI_MODEL || "gpt-4o-mini";
-  const res = await fetch(`${base}/chat/completions`, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${env.OPENAI_API_KEY}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ model, messages, stream: true, temperature: 0.4 }),
-  });
+
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), CHAT_PROVIDER_TIMEOUT_MS);
+
+  let res: Response;
+  try {
+    res = await fetch(`${base}/chat/completions`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${env.OPENAI_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ model, messages, stream: true, temperature: 0.4 }),
+      signal: controller.signal,
+    });
+  } finally {
+    clearTimeout(timer);
+  }
+
   if (!res.ok || !res.body) {
     const errText = await res.text().catch(() => "");
     throw new Error(`OpenAI-compatible HTTP ${res.status}: ${errText.slice(0, 200)}`);
@@ -150,13 +196,7 @@ async function streamOpenAiCompatible(
     }
   })();
 
-  return new Response(readable, {
-    headers: {
-      "Content-Type": "text/event-stream; charset=utf-8",
-      "Cache-Control": "no-cache",
-      Connection: "keep-alive",
-    },
-  });
+  return sseResponse(readable);
 }
 
 async function streamWorkersAi(
@@ -165,11 +205,15 @@ async function streamWorkersAi(
 ): Promise<Response | null> {
   if (!env.AI) return null;
   const model = "@cf/meta/llama-3.1-8b-instruct";
-  const result = await env.AI.run(model, {
-    messages,
-    stream: true,
-    max_tokens: 900,
-  });
+  const result = await withTimeout(
+    env.AI.run(model, {
+      messages,
+      stream: true,
+      max_tokens: 900,
+    }),
+    CHAT_PROVIDER_TIMEOUT_MS,
+    "Workers AI",
+  );
 
   if (!(result instanceof ReadableStream)) {
     const text =
@@ -186,12 +230,7 @@ async function streamWorkersAi(
         controller.close();
       },
     });
-    return new Response(stream, {
-      headers: {
-        "Content-Type": "text/event-stream; charset=utf-8",
-        "Cache-Control": "no-cache",
-      },
-    });
+    return sseResponse(stream);
   }
 
   const userText = [...messages].reverse().find((m) => m.role === "user")?.content ?? "";
@@ -221,22 +260,32 @@ async function streamWorkersAi(
     }
   })();
 
-  return new Response(readable, {
-    headers: {
-      "Content-Type": "text/event-stream; charset=utf-8",
-      "Cache-Control": "no-cache",
-      Connection: "keep-alive",
-    },
-  });
+  return sseResponse(readable);
+}
+
+export function aiConfigured(env: EnvAI): { workersAi: boolean; openai: boolean } {
+  return {
+    workersAi: Boolean(env.AI),
+    openai: Boolean(env.OPENAI_API_KEY),
+  };
 }
 
 export async function handleChatStream(
   env: EnvAI,
   messages: ChatMessage[],
 ): Promise<Response> {
+  const cfg = aiConfigured(env);
+  if (!cfg.workersAi && !cfg.openai) {
+    return jsonError(
+      503,
+      "AI chat is not configured. Enable Workers AI on this Worker, or set the OPENAI_API_KEY secret.",
+      "not_configured",
+    );
+  }
+
   const withSystem: ChatMessage[] = [
     { role: "system", content: SYSTEM_PROMPT },
-    ...messages.filter((m) => m.role !== "system").slice(-12),
+    ...messages.filter((m) => m.role !== "system").slice(-MAX_CHAT_HISTORY),
   ];
 
   // Prefer Workers AI binding; fall back to OpenAI-compatible secret.
@@ -245,6 +294,10 @@ export async function handleChatStream(
     if (aiRes) return aiRes;
   } catch (err) {
     console.error("Workers AI failed, trying OpenAI-compatible", err);
+    if (!cfg.openai) {
+      const msg = err instanceof Error ? err.message : "Workers AI error";
+      return jsonError(502, msg, "provider_error");
+    }
   }
 
   try {
@@ -258,7 +311,7 @@ export async function handleChatStream(
 
   return jsonError(
     503,
-    "AI chat is not configured yet. Set Workers AI binding or OPENAI_API_KEY.",
+    "AI chat is not configured. Enable Workers AI on this Worker, or set the OPENAI_API_KEY secret.",
     "not_configured",
   );
 }
@@ -266,6 +319,6 @@ export async function handleChatStream(
 function jsonError(status: number, error: string, code: string): Response {
   return new Response(JSON.stringify({ ok: false, error, code }), {
     status,
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" },
   });
 }
