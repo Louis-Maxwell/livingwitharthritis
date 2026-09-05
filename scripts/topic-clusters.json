@@ -1,0 +1,3356 @@
+[
+  {
+    "slug": "knee-osteoarthritis-frailty-staying-steady-home-uk",
+    "clusters": [
+      "exercise-movement",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "hip-osteoarthritis-frailty-chair-rise-uk",
+    "clusters": [
+      "condition-specific",
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "hand-osteoarthritis-frailty-dressing-cooking-uk",
+    "clusters": [
+      "daily-living",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "spinal-osteoarthritis-frailty-standing-pacing-uk",
+    "clusters": [
+      "fatigue-management",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "shoulder-osteoarthritis-frailty-washing-dressing-uk",
+    "clusters": [
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "foot-ankle-osteoarthritis-frailty-indoor-walking-uk",
+    "clusters": [
+      "exercise-movement",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "neck-osteoarthritis-frailty-balance-looking-down-uk",
+    "clusters": [
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "thumb-base-osteoarthritis-frailty-daily-grip-uk",
+    "clusters": [
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "wrist-osteoarthritis-frailty-walking-aids-uk",
+    "clusters": [
+      "daily-living",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "elbow-osteoarthritis-frailty-kitchen-tasks-uk",
+    "clusters": [
+      "pain-management",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "big-toe-osteoarthritis-frailty-shoes-balance-uk",
+    "clusters": [
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "polyarticular-oa-frailty-pacing-several-joints-uk",
+    "clusters": [
+      "fatigue-management",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "hip-and-knee-oa-frailty-transfers-uk",
+    "clusters": [
+      "condition-specific",
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "midfoot-osteoarthritis-frailty-standing-time-uk",
+    "clusters": [
+      "condition-specific",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "knee-oa-frailty-stairs-banisters-uk",
+    "clusters": [
+      "fatigue-management",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "hip-oa-frailty-getting-into-car-uk",
+    "clusters": [
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "hand-oa-frailty-opening-packaging-uk",
+    "clusters": [
+      "condition-specific",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "spine-oa-frailty-gardening-pacing-uk",
+    "clusters": [
+      "fatigue-management",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "shoulder-oa-frailty-high-cupboards-uk",
+    "clusters": [
+      "condition-specific",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "knee-oa-frailty-rising-from-low-sofa-uk",
+    "clusters": [
+      "condition-specific",
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "late-onset-ra-frailty-first-months-uk",
+    "clusters": [
+      "condition-specific",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "ra-frailty-older-adults-daily-rhythm-uk",
+    "clusters": [
+      "pain-management",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "ra-fatigue-frailty-energy-envelope-uk",
+    "clusters": [
+      "fatigue-management",
+      "mental-health"
+    ]
+  },
+  {
+    "slug": "ra-steroids-frailty-infection-watch-uk",
+    "clusters": [
+      "condition-specific",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "ra-monitoring-older-frail-adults-uk",
+    "clusters": [
+      "condition-specific",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "pmr-frailty-morning-stiffness-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "pmr-steroid-taper-frailty-weakness-uk",
+    "clusters": [
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "gout-older-people-frailty-hydration-uk",
+    "clusters": [
+      "condition-specific",
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "gout-winter-dehydration-frailty-uk",
+    "clusters": [
+      "condition-specific",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "cppd-pseudogout-frailty-sudden-hot-joint-uk",
+    "clusters": [
+      "condition-specific",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "psoriatic-arthritis-later-life-frailty-uk",
+    "clusters": [
+      "condition-specific",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "inflammatory-arthritis-frailty-flare-week-uk",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "osteoporosis-arthritis-frailty-bone-joint-uk",
+    "clusters": [
+      "condition-specific",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "spinal-stenosis-oa-frailty-walking-stops-uk",
+    "clusters": [
+      "exercise-movement",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "post-knee-replacement-frailty-rehab-uk",
+    "clusters": [
+      "condition-specific",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "post-hip-replacement-frailty-home-uk",
+    "clusters": [
+      "condition-specific",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "generalised-oa-frailty-whole-body-day-uk",
+    "clusters": [
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "wrist-hand-oa-frailty-self-care-uk",
+    "clusters": [
+      "condition-specific",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "knee-oa-frailty-outdoor-pavements-uk",
+    "clusters": [
+      "exercise-movement",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "hip-oa-frailty-bed-mobility-uk",
+    "clusters": [
+      "condition-specific",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "rockwood-clinical-frailty-scale-arthritis-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "fried-frailty-phenotype-painful-joints-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "prefrailty-osteoarthritis-early-action-uk",
+    "clusters": [
+      "condition-specific",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "flare-versus-frailty-arthritis-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "deconditioning-after-arthritis-flare-uk",
+    "clusters": [
+      "exercise-movement",
+      "fatigue-management"
+    ]
+  },
+  {
+    "slug": "hospital-deconditioning-arthritis-stay-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "multimorbidity-arthritis-frailty-whole-picture-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "comprehensive-geriatric-assessment-arthritis-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "nhs-frailty-pathway-arthritis-england",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "frailty-services-arthritis-scotland-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "frailty-older-people-arthritis-wales-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "older-adults-arthritis-frailty-northern-ireland-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "sarcopenia-knee-oa-frailty-overlap-uk",
+    "clusters": [
+      "condition-specific",
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "fear-of-falling-hip-oa-frailty-uk",
+    "clusters": [
+      "mental-health",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "falls-clinic-arthritis-what-to-expect-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "sit-to-stand-practice-frail-arthritis-uk",
+    "clusters": [
+      "exercise-movement",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "indoor-walking-frame-arthritis-frailty-uk",
+    "clusters": [
+      "exercise-movement",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "balance-painful-feet-frailty-arthritis-uk",
+    "clusters": [
+      "condition-specific",
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "vision-falls-arthritis-frailty-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "continence-night-trips-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "night-lights-arthritis-falls-frailty-uk",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "seated-strength-frail-osteoarthritis-uk",
+    "clusters": [
+      "exercise-movement",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "chair-based-exercise-ra-frailty-uk",
+    "clusters": [
+      "condition-specific",
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "tai-chi-balance-arthritis-frailty-uk",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "hydrotherapy-frail-arthritis-uk",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "community-physio-wait-frail-arthritis-uk",
+    "clusters": [
+      "exercise-movement",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "slow-walking-groups-arthritis-frailty-uk",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "resistance-bands-seated-frail-oa-uk",
+    "clusters": [
+      "condition-specific",
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "bed-exercises-hospital-arthritis-frailty-uk",
+    "clusters": [
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "reablement-after-discharge-arthritis-uk",
+    "clusters": [
+      "daily-living",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "walking-stick-vs-frame-arthritis-frailty-uk",
+    "clusters": [
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "protein-painful-joints-frailty-uk",
+    "clusters": [
+      "nutrition",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "mediterranean-eating-frail-osteoarthritis-uk",
+    "clusters": [
+      "nutrition",
+      "fatigue-management"
+    ]
+  },
+  {
+    "slug": "vitamin-d-winter-arthritis-frailty-uk",
+    "clusters": [
+      "nutrition"
+    ]
+  },
+  {
+    "slug": "appetite-loss-arthritis-frailty-uk",
+    "clusters": [
+      "mental-health",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "cooking-with-hand-oa-frailty-uk",
+    "clusters": [
+      "daily-living",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "meal-times-care-home-arthritis-uk",
+    "clusters": [
+      "nutrition",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "hydration-gout-frailty-older-adults-uk",
+    "clusters": [
+      "condition-specific",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "constipation-pain-medicines-frailty-arthritis-uk",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "polypharmacy-arthritis-frailty-review-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "painkillers-older-adults-arthritis-caution-uk",
+    "clusters": [
+      "medication-safety",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "nsaids-kidneys-heart-frail-arthritis-uk",
+    "clusters": [
+      "medication-safety",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "codeine-drowsiness-falls-arthritis-uk",
+    "clusters": [
+      "fatigue-management",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "gabapentinoids-unsteadiness-arthritis-frailty-uk",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "topical-nsaids-frail-hand-knee-oa-uk",
+    "clusters": [
+      "medication-safety",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "paracetamol-older-frail-arthritis-uk",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "steroid-emergency-card-frail-arthritis-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "methotrexate-older-frail-adults-uk",
+    "clusters": [
+      "medication-safety",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "bone-protection-steroids-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "pharmacist-medication-review-frail-arthritis-uk",
+    "clusters": [
+      "medication-safety",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "dosette-boxes-arthritis-frailty-hands-uk",
+    "clusters": [
+      "condition-specific",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "grab-rails-arthritis-frailty-home-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "stairlifts-arthritis-frailty-uk-home",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "wet-rooms-arthritis-frailty-washing-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "rise-recline-chair-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "kitchen-adaptations-arthritis-frailty-uk",
+    "clusters": [
+      "nutrition"
+    ]
+  },
+  {
+    "slug": "ot-assessment-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "disabled-facilities-grant-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "care-home-life-arthritis-pain-frailty-uk",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "sheltered-housing-arthritis-frailty-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "pip-arthritis-frailty-honest-uk",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "attendance-allowance-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "carers-assessment-arthritis-frailty-uk",
+    "clusters": [
+      "caregiver-support",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "blue-badge-frailty-arthritis-uk",
+    "clusters": [
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "social-care-needs-assessment-arthritis-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "depression-osteoarthritis-frailty-uk",
+    "clusters": [
+      "mental-health",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "loneliness-arthritis-frailty-social-contact-uk",
+    "clusters": [
+      "mental-health",
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "sleep-arthritis-frailty-night-pain-uk",
+    "clusters": [
+      "fatigue-management",
+      "mental-health"
+    ]
+  },
+  {
+    "slug": "anxiety-about-falling-arthritis-uk",
+    "clusters": [
+      "mental-health",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "confidence-after-fall-arthritis-frailty-uk",
+    "clusters": [
+      "mental-health",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "hospital-stay-arthritis-frailty-what-to-pack-uk",
+    "clusters": [
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "discharge-planning-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "rural-living-arthritis-frailty-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "high-rise-flat-arthritis-frailty-lifts-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "winter-arthritis-frailty-cold-houses-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "heatwave-arthritis-frailty-hydration-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "community-alarm-arthritis-frailty-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "podiatry-footcare-arthritis-frailty-uk",
+    "clusters": [
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "hearing-balance-arthritis-frailty-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "dental-care-arthritis-frailty-hands-uk",
+    "clusters": [
+      "condition-specific",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "skin-pressure-care-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "chair-yoga-frailty-inflammatory-arthritis-uk",
+    "clusters": [
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "community-strength-classes-frail-oa-uk",
+    "clusters": [
+      "exercise-movement",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "gp-frailty-register-arthritis-uk",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "community-matron-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "intermediate-care-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "day-centres-arthritis-frailty-uk",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "befriending-arthritis-frailty-uk",
+    "clusters": [
+      "mental-health",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "grandparenting-arthritis-frailty-uk",
+    "clusters": [
+      "fatigue-management",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "pets-arthritis-frailty-walking-dogs-uk",
+    "clusters": [
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "faith-groups-arthritis-frailty-access-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "libraries-arthritis-frailty-getting-out-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "community-transport-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "hospital-appointments-frailty-arthritis-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "flu-jab-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "shingles-vaccine-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "covid-winter-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "delirium-hospital-arthritis-frailty-uk",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "cognition-arthritis-frailty-remembering-tablets-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "uti-confusion-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "chest-infection-arthritis-frailty-uk",
+    "clusters": [
+      "fatigue-management",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "heart-failure-arthritis-frailty-overlap-uk",
+    "clusters": [
+      "fatigue-management"
+    ]
+  },
+  {
+    "slug": "copd-arthritis-frailty-breathlessness-uk",
+    "clusters": [
+      "daily-living",
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "diabetes-arthritis-frailty-feet-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "ckd-nsaids-arthritis-frailty-uk",
+    "clusters": [
+      "medication-safety",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "blood-pressure-tablets-falls-arthritis-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "sleeping-tablets-falls-arthritis-frailty-uk",
+    "clusters": [
+      "fatigue-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "anticholinergic-load-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "direct-payments-arthritis-frailty-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "respite-care-arthritis-frailty-carers-uk",
+    "clusters": [
+      "caregiver-support",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "extra-care-housing-arthritis-frailty-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "nursing-home-arthritis-pain-review-uk",
+    "clusters": [
+      "pain-management",
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "reablement-team-arthritis-home-practice-uk",
+    "clusters": [
+      "daily-living",
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "community-ot-waiting-arthritis-frailty-uk",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "falls-response-service-arthritis-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "nine-nine-nine-vs-111-arthritis-frailty-uk",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "gp-home-visit-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "paramedic-fall-lift-arthritis-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "occupational-therapist-kitchen-visit-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "physiotherapy-home-visit-frail-oa-uk",
+    "clusters": [
+      "exercise-movement",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "speech-swallowing-meals-arthritis-frailty-uk",
+    "clusters": [
+      "nutrition",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "vitamin-d-and-falls-arthritis-uk",
+    "clusters": [
+      "nutrition",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "calcium-foods-arthritis-frailty-uk",
+    "clusters": [
+      "nutrition",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "oily-fish-arthritis-frailty-simple-meals-uk",
+    "clusters": [
+      "fatigue-management",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "soft-foods-jaw-arthritis-frailty-uk",
+    "clusters": [
+      "nutrition",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "shopping-online-arthritis-frailty-uk",
+    "clusters": [
+      "nutrition",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "meal-delivery-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living",
+      "nutrition"
+    ]
+  },
+  {
+    "slug": "kettle-safety-arthritis-frailty-uk",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "toilet-frame-arthritis-frailty-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "commode-night-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "bed-lever-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living",
+      "sexual-health"
+    ]
+  },
+  {
+    "slug": "sofa-height-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "threshold-ramps-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "outdoor-steps-handrails-arthritis-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "ice-snow-arthritis-frailty-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "heat-packs-frail-arthritis-uk",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "pacing-housework-arthritis-frailty-uk",
+    "clusters": [
+      "fatigue-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "pacing-visitors-arthritis-frailty-uk",
+    "clusters": [
+      "caregiver-support",
+      "fatigue-management"
+    ]
+  },
+  {
+    "slug": "activity-diary-arthritis-frailty-uk",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "goal-setting-tiny-wins-arthritis-frailty-uk",
+    "clusters": [
+      "mental-health",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "motivation-after-setback-arthritis-frailty-uk",
+    "clusters": [
+      "mental-health",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "carers-how-to-help-without-taking-over-uk",
+    "clusters": [
+      "caregiver-support",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "carer-burnout-arthritis-frailty-uk",
+    "clusters": [
+      "mental-health",
+      "caregiver-support"
+    ]
+  },
+  {
+    "slug": "family-meetings-arthritis-frailty-uk",
+    "clusters": [
+      "caregiver-support",
+      "mental-health"
+    ]
+  },
+  {
+    "slug": "lasting-power-of-attorney-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "advance-care-planning-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "dnacpr-conversations-arthritis-frailty-uk",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "end-of-life-joint-pain-frailty-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "spiritual-care-arthritis-frailty-uk",
+    "clusters": [
+      "mental-health"
+    ]
+  },
+  {
+    "slug": "bereavement-arthritis-frailty-living-alone-uk",
+    "clusters": [
+      "mental-health"
+    ]
+  },
+  {
+    "slug": "widowhood-meals-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living",
+      "nutrition"
+    ]
+  },
+  {
+    "slug": "living-alone-falls-plan-arthritis-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "pendant-alarm-arthritis-swollen-fingers-uk",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "smart-speakers-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "remote-gp-apps-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "repeat-prescriptions-arthritis-frailty-uk",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "blood-test-transport-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "eye-clinic-day-arthritis-frailty-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "rheumatology-clinic-frail-older-adult-uk",
+    "clusters": [
+      "condition-specific",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "geriatric-clinic-plus-arthritis-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "bone-clinic-arthritis-frailty-uk",
+    "clusters": [
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "pain-clinic-older-frail-arthritis-uk",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "injections-knee-frail-adults-uk",
+    "clusters": [
+      "condition-specific",
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "joint-replacement-decision-frailty-uk",
+    "clusters": [
+      "condition-specific",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "anaesthetic-risk-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "prehabilitation-frail-arthritis-before-surgery-uk",
+    "clusters": [
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "post-op-constipation-arthritis-frailty-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "wound-care-reaching-arthritis-frailty-uk",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "compression-stockings-hand-oa-frailty-uk",
+    "clusters": [
+      "condition-specific",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "swelling-legs-arthritis-frailty-uk",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "lymphoedema-arthritis-frailty-uk",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "sleep-apnoea-arthritis-frailty-uk",
+    "clusters": [
+      "fatigue-management",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "restless-nights-joint-pain-frailty-uk",
+    "clusters": [
+      "fatigue-management",
+      "mental-health"
+    ]
+  },
+  {
+    "slug": "naps-versus-inactivity-arthritis-frailty-uk",
+    "clusters": [
+      "fatigue-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "morning-stiffness-frailty-routine-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "evening-routine-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "weekend-plan-arthritis-frailty-uk",
+    "clusters": [
+      "fatigue-management",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "holiday-at-home-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "short-breaks-accessible-arthritis-frailty-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "hospital-parking-walking-frail-arthritis-uk",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "wheelchair-for-distance-arthritis-frailty-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "mobility-scooter-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "transfer-board-arthritis-frailty-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "hoist-conversations-family-carers-uk",
+    "clusters": [
+      "caregiver-support",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "pressure-cushion-arthritis-frailty-uk",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "footwear-indoor-slippers-frailty-arthritis-uk",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "orthotics-insoles-arthritis-frailty-uk",
+    "clusters": [
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "podiatry-nails-diabetes-arthritis-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "bunions-arthritis-frailty-shoes-uk",
+    "clusters": [
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "calluses-pressure-spots-frail-arthritis-uk",
+    "clusters": [
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "two-walking-aids-arthritis-frailty-uk",
+    "clusters": [
+      "exercise-movement",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "stair-assessments-arthritis-frailty-uk",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "downstairs-living-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "second-hand-equipment-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "short-term-equipment-loans-arthritis-uk",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "local-wheelchair-service-arthritis-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "hand-therapy-frail-ra-uk",
+    "clusters": [
+      "condition-specific",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "splints-night-hand-oa-frailty-uk",
+    "clusters": [
+      "fatigue-management",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "heat-versus-ice-frail-arthritis-uk",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "tens-machine-older-frail-arthritis-uk",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "mindfulness-pain-arthritis-frailty-uk",
+    "clusters": [
+      "mental-health",
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "talking-therapies-pain-older-arthritis-uk",
+    "clusters": [
+      "mental-health",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "social-prescribing-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "walking-sport-too-much-frail-arthritis-uk",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "swimming-frail-arthritis-changing-rooms-uk",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "static-bike-frail-osteoarthritis-uk",
+    "clusters": [
+      "condition-specific",
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "nordic-poles-arthritis-frailty-uk",
+    "clusters": [
+      "exercise-movement",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "garden-raised-beds-arthritis-frailty-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "allotment-identity-arthritis-frailty-uk",
+    "clusters": [
+      "mental-health",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "volunteering-seated-arthritis-frailty-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "sex-and-intimacy-with-arthritis",
+    "clusters": [
+      "sexual-health",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "arthritis-medications-and-sexual-function",
+    "clusters": [
+      "medication-safety",
+      "sexual-health"
+    ]
+  },
+  {
+    "slug": "rebuilding-intimacy-after-arthritis-diagnosis",
+    "clusters": [
+      "sexual-health",
+      "caregiver-support"
+    ]
+  },
+  {
+    "slug": "talking-to-your-partner-about-arthritis",
+    "clusters": [
+      "sexual-health",
+      "caregiver-support"
+    ]
+  },
+  {
+    "slug": "supporting-a-partner-with-arthritis-strategies",
+    "clusters": [
+      "caregiver-support",
+      "sexual-health"
+    ]
+  },
+  {
+    "slug": "caregiver-burnout-warning-signs-prevention",
+    "clusters": [
+      "caregiver-support",
+      "mental-health"
+    ]
+  },
+  {
+    "slug": "adult-children-as-caregivers-arthritis",
+    "clusters": [
+      "caregiver-support",
+      "sexual-health"
+    ]
+  },
+  {
+    "slug": "arthritis-fatigue-explained",
+    "clusters": [
+      "fatigue-management",
+      "mental-health"
+    ]
+  },
+  {
+    "slug": "energy-management-and-pacing-arthritis",
+    "clusters": [
+      "fatigue-management",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "sleep-and-pain-management-arthritis",
+    "clusters": [
+      "fatigue-management",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "exercise-for-energy-arthritis-fatigue",
+    "clusters": [
+      "fatigue-management",
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "turmeric-and-methotrexate-interaction",
+    "clusters": [
+      "medication-safety",
+      "nutrition"
+    ]
+  },
+  {
+    "slug": "medication-supplement-interactions-arthritis",
+    "clusters": [
+      "medication-safety",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "anxiety-and-arthritis-management",
+    "clusters": [
+      "mental-health",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "grief-and-loss-after-arthritis-diagnosis",
+    "clusters": [
+      "mental-health",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "psoriatic-arthritis-vs-rheumatoid-arthritis-tests-treatments",
+    "clusters": [
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "access-to-work-scheme-arthritis-guide",
+    "clusters": [
+      "mental-health",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "physiotherapy-arthritis",
+    "clusters": [
+      "exercise-movement",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "arthritis-pain-management",
+    "clusters": [
+      "fatigue-management",
+      "medication-safety"
+    ]
+  },
+  {
+    "slug": "anti-inflammatory-diet",
+    "clusters": [
+      "nutrition",
+      "medication-safety"
+    ]
+  },
+  {
+    "slug": "oa-vs-ra-comparison",
+    "clusters": [
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "arthritis-flare-management",
+    "clusters": [
+      "medication-safety",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "best-supplement-for-knee-joint",
+    "clusters": [
+      "medication-safety",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "gout-medication-uk",
+    "clusters": [
+      "medication-safety",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "joint-replacement-surgery",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "best-foods-to-eat-for-arthritis",
+    "clusters": [
+      "nutrition",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "arthritis-medication-guide",
+    "clusters": [
+      "medication-safety",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "arthritis-treatment-hub",
+    "clusters": [
+      "exercise-movement",
+      "medication-safety"
+    ]
+  },
+  {
+    "slug": "foods-to-avoid-with-arthritis",
+    "clusters": [
+      "nutrition",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "managing-arthritis-flare-ups-at-home",
+    "clusters": [
+      "pain-management",
+      "fatigue-management"
+    ]
+  },
+  {
+    "slug": "sleep-quality-arthritis-pain",
+    "clusters": [
+      "fatigue-management",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "rheumatoid-arthritis-diet-uk",
+    "clusters": [
+      "nutrition",
+      "medication-safety"
+    ]
+  },
+  {
+    "slug": "mediterranean-diet-arthritis-14-day-plan",
+    "clusters": [
+      "nutrition",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "strength-training-arthritis-beginners",
+    "clusters": [
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "gut-joint-connection-microbiome-arthritis",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "mindfulness-chronic-pain-arthritis-guide",
+    "clusters": [
+      "mental-health",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "arthritis-and-pregnancy-uk",
+    "clusters": [
+      "medication-safety",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "working-with-arthritis-uk-rights",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "driving-with-arthritis-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "best-supplements-arthritis-uk",
+    "clusters": [
+      "nutrition",
+      "medication-safety"
+    ]
+  },
+  {
+    "slug": "arthritis-and-mental-health-uk",
+    "clusters": [
+      "mental-health",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "aquatic-therapy-arthritis-guide",
+    "clusters": [
+      "exercise-movement",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "how-to-sleep-with-arthritis-uk",
+    "clusters": [
+      "fatigue-management",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "anti-inflammatory-smoothie-recipes",
+    "clusters": [
+      "pain-management",
+      "nutrition"
+    ]
+  },
+  {
+    "slug": "arthritis-exercises-uk-clinical",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "arthritis-flare-up-what-to-do",
+    "clusters": [
+      "pain-management",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "arthritis-friendly-recipes-uk",
+    "clusters": [
+      "nutrition",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "best-diet-for-joint-pain-uk",
+    "clusters": [
+      "nutrition",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "cycling-with-arthritis",
+    "clusters": [
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "exercise-for-hip-arthritis",
+    "clusters": [
+      "exercise-movement",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "gadgets-aids-arthritis-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "glucosamine-vs-collagen",
+    "clusters": [
+      "medication-safety",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "hand-exercises-for-arthritis",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "knee-exercises-for-arthritis",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "managing-arthritis-at-work",
+    "clusters": [
+      "condition-specific",
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "mindfulness-for-arthritis-pain",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "omega-3-foods-for-joints",
+    "clusters": [
+      "nutrition",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "seasonal-arthritis-guide-uk",
+    "clusters": [
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "swimming-for-arthritis",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "tai-chi-for-arthritis-uk",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "travelling-with-arthritis-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "turmeric-for-arthritis",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "yoga-for-arthritis",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "arthritis-in-young-people-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "arthritis-relationships-honest-conversations",
+    "clusters": [
+      "sexual-health",
+      "mental-health"
+    ]
+  },
+  {
+    "slug": "best-walking-shoes-arthritis-uk",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "pip-for-arthritis-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "arthritis-and-diet-myths-uk",
+    "clusters": [
+      "nutrition",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "hydrotherapy-pools-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "arthritis-and-alcohol-uk",
+    "clusters": [
+      "medication-safety",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "occupational-therapy-arthritis-uk",
+    "clusters": [
+      "fatigue-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "arthritis-and-sleep-problems",
+    "clusters": [
+      "fatigue-management",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "yoga-for-arthritis-beginners",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "arthritis-fatigue-management-uk",
+    "clusters": [
+      "fatigue-management"
+    ]
+  },
+  {
+    "slug": "osteoarthritis-symptoms-uk",
+    "clusters": [
+      "condition-specific",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "arthritis-and-cycling-uk",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "rheumatology-waiting-times-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "arthritis-and-omega-3-fish-oil",
+    "clusters": [
+      "nutrition",
+      "medication-safety"
+    ]
+  },
+  {
+    "slug": "arthritis-and-weight-loss-uk",
+    "clusters": [
+      "nutrition",
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "arthritis-and-work-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "knee-arthritis-exercises-uk",
+    "clusters": [
+      "exercise-movement",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "arthritis-pain-relief-natural",
+    "clusters": [
+      "medication-safety",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "assistive-devices-arthritis-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "hip-arthritis-symptoms-uk",
+    "clusters": [
+      "condition-specific",
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "knee-replacement-arthritis-uk",
+    "clusters": [
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "walking-aids-arthritis-uk",
+    "clusters": [
+      "exercise-movement",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "juvenile-arthritis-uk",
+    "clusters": [
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "shoulder-arthritis-exercises-uk",
+    "clusters": [
+      "exercise-movement",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "foot-and-ankle-arthritis-uk",
+    "clusters": [
+      "condition-specific",
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "hip-replacement-arthritis-uk",
+    "clusters": [
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "anti-inflammatory-herbs-spices-arthritis",
+    "clusters": [
+      "pain-management",
+      "nutrition"
+    ]
+  },
+  {
+    "slug": "staying-active-arthritis-winter-uk",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "tens-machines-arthritis-uk",
+    "clusters": [
+      "pain-management",
+      "medication-safety"
+    ]
+  },
+  {
+    "slug": "arthritis-and-gardening-uk",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "spinal-arthritis-back-pain-uk",
+    "clusters": [
+      "condition-specific",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "gut-health-arthritis-connection",
+    "clusters": [
+      "pain-management",
+      "nutrition"
+    ]
+  },
+  {
+    "slug": "hydrotherapy-arthritis-uk",
+    "clusters": [
+      "exercise-movement",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "arthritis-and-pets-uk",
+    "clusters": [
+      "exercise-movement",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "arthritis-meal-planning-uk",
+    "clusters": [
+      "nutrition",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "arthritis-and-travel-uk",
+    "clusters": [
+      "medication-safety",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "expert-qa-track-progress-without-measuring",
+    "clusters": [
+      "pain-management",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "weight-management-arthritis-evidence",
+    "clusters": [
+      "pain-management",
+      "nutrition"
+    ]
+  },
+  {
+    "slug": "pacing-techniques-arthritis-pain",
+    "clusters": [
+      "pain-management",
+      "fatigue-management"
+    ]
+  },
+  {
+    "slug": "flare-management-pain-spikes",
+    "clusters": [
+      "pain-management",
+      "fatigue-management"
+    ]
+  },
+  {
+    "slug": "expert-brief-exercise-order-pain-relief",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "anti-inflammatory-shopping-list-uk",
+    "clusters": [
+      "nutrition",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "swimming-full-body-arthritis",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "morning-routine-multi-joint-arthritis",
+    "clusters": [
+      "pain-management",
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "expert-qa-spinal-injections-vs-exercise",
+    "clusters": [
+      "pain-management",
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "olive-oil-polyphenols-pain-management",
+    "clusters": [
+      "pain-management",
+      "nutrition"
+    ]
+  },
+  {
+    "slug": "core-strengthening-spinal-arthritis",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "lower-back-stiffness-worse-after-sitting",
+    "clusters": [
+      "pain-management",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "expert-brief-frozen-shoulder-vs-ra",
+    "clusters": [
+      "pain-management",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "berries-antioxidants-inflammation",
+    "clusters": [
+      "pain-management",
+      "nutrition"
+    ]
+  },
+  {
+    "slug": "pendulum-swings-wall-slides-shoulder",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "shoulder-pain-reaching-ra-vs-oa",
+    "clusters": [
+      "pain-management",
+      "fatigue-management"
+    ]
+  },
+  {
+    "slug": "expert-qa-occupational-therapy-hand-pain",
+    "clusters": [
+      "pain-management",
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "ginger-root-natural-anti-inflammatory",
+    "clusters": [
+      "nutrition",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "grip-strength-exercises-hand-oa",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "thumb-base-pain-early-hand-arthritis",
+    "clusters": [
+      "pain-management",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "expert-brief-12-week-hip-exercise-protocol",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "fatty-fish-omega-3-arthritis-evidence",
+    "clusters": [
+      "nutrition",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "glute-bridges-hip-osteoarthritis-guide",
+    "clusters": [
+      "pain-management",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "hip-pain-climbing-stairs-causes-relief",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "expert-brief-activity-safety-knee-arthritis",
+    "clusters": [
+      "pain-management",
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "turmeric-curcumin-arthritis-evidence",
+    "clusters": [
+      "pain-management",
+      "nutrition"
+    ]
+  },
+  {
+    "slug": "straight-leg-raises-knee-osteoarthritis",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "morning-knee-stiffness-30-minutes",
+    "clusters": [
+      "pain-management",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "building-strength-resilience-exercise-frailty-prevention",
+    "clusters": [
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "nutrition-strategies-reduce-frailty-risk",
+    "clusters": [
+      "nutrition"
+    ]
+  },
+  {
+    "slug": "sarcopenia-muscle-loss-how-to-combat",
+    "clusters": [
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "preventing-falls-guide-frail-adults",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "understanding-frailty-older-adults",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "ginger-vs-turmeric-for-arthritis",
+    "clusters": [
+      "nutrition",
+      "medication-safety"
+    ]
+  },
+  {
+    "slug": "best-plantar-fasciitis-shoes-women-uk",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "inflammatory-arthritis-guide",
+    "clusters": [
+      "condition-specific",
+      "medication-safety"
+    ]
+  },
+  {
+    "slug": "arthritis-in-young-adults",
+    "clusters": [
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "arthritis-in-older-adults",
+    "clusters": [
+      "medication-safety",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "free-arthritis-support-northern-ireland",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "caring-for-parent-with-arthritis",
+    "clusters": [
+      "caregiver-support",
+      "sexual-health"
+    ]
+  },
+  {
+    "slug": "psoriatic-vs-rheumatoid-arthritis",
+    "clusters": [
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "tai-chi-arthritis-joint-pain",
+    "clusters": [
+      "mental-health",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "arthritis-physiotherapy-nhs-waiting-list",
+    "clusters": [
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "signs-rheumatoid-arthritis-early-stages",
+    "clusters": [
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "gout-flare-up-diet-foods-avoid",
+    "clusters": [
+      "nutrition",
+      "medication-safety"
+    ]
+  },
+  {
+    "slug": "pip-fibromyalgia-uk-apply",
+    "clusters": [
+      "condition-specific",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "anti-inflammatory-diet-rheumatoid-arthritis",
+    "clusters": [
+      "nutrition",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "best-exercises-osteoarthritis-knee-pain-home",
+    "clusters": [
+      "condition-specific",
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "free-arthritis-exercise-classes-england",
+    "clusters": [
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "talk-employer-rheumatoid-arthritis-work",
+    "clusters": [
+      "condition-specific",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "mediterranean-diet-shopping-list-arthritis",
+    "clusters": [
+      "nutrition",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "appeal-rejected-pip-arthritis",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "juvenile-arthritis-school-support-parents",
+    "clusters": [
+      "sexual-health",
+      "caregiver-support"
+    ]
+  },
+  {
+    "slug": "best-supplements-joint-pain",
+    "clusters": [
+      "medication-safety",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "yoga-ankylosing-spondylitis-stiffness",
+    "clusters": [
+      "exercise-movement",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "fibromyalgia-flare-ups-without-medication",
+    "clusters": [
+      "fatigue-management",
+      "medication-safety"
+    ]
+  },
+  {
+    "slug": "support-friend-diagnosed-lupus",
+    "clusters": [
+      "condition-specific",
+      "sexual-health"
+    ]
+  },
+  {
+    "slug": "chair-yoga-elderly-arthritis-stiffness",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "pip-osteoarthritis-both-knees",
+    "clusters": [
+      "condition-specific",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "manage-arthritis-pain-flare-ups-night",
+    "clusters": [
+      "pain-management",
+      "fatigue-management"
+    ]
+  },
+  {
+    "slug": "nhs-rheumatologist-northern-ireland",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "early-signs-gout-big-toe",
+    "clusters": [
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "blue-badge-arthritis-scotland",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "swimming-exercises-hip-osteoarthritis",
+    "clusters": [
+      "exercise-movement",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "explain-juvenile-arthritis-school-teachers",
+    "clusters": [
+      "sexual-health",
+      "caregiver-support"
+    ]
+  },
+  {
+    "slug": "arthritis-support-groups-scotland",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "arthritis-support-groups-wales",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "arthritis-support-groups-glasgow",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "arthritis-support-groups-manchester",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "pip-fibromyalgia-denied-reapply",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "exercises-rheumatoid-arthritis-hands-wrists",
+    "clusters": [
+      "condition-specific",
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "expert-qa-should-i-apply-for-pip-if-my-arthritis-is-mild",
+    "clusters": [
+      "condition-specific",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "grants-for-adapting-your-home-with-arthritis",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "pip-for-arthritis-how-to-build-a-strong-application",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "universal-credit-and-arthritis-limited-capability-for-work",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "apprenticeships-and-arthritis-a-realistic-look",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "exam-adjustments-for-students-with-arthritis",
+    "clusters": [
+      "fatigue-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "expert-qa-choosing-a-career-friendly-to-arthritis",
+    "clusters": [
+      "fatigue-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "university-with-arthritis-disability-support-and-dsa",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "expert-qa-returning-to-work-after-a-bad-flare",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "reasonable-adjustments-that-actually-help",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "should-you-tell-your-employer-about-your-arthritis",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "your-workplace-rights-with-arthritis-the-equality-act-2010",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "expert-qa-will-my-children-inherit-my-arthritis",
+    "clusters": [
+      "caregiver-support"
+    ]
+  },
+  {
+    "slug": "parenting-with-arthritis-hacks-for-babies-and-toddlers",
+    "clusters": [
+      "sexual-health",
+      "caregiver-support"
+    ]
+  },
+  {
+    "slug": "pregnancy-and-arthritis-what-uk-guidelines-recommend",
+    "clusters": [
+      "medication-safety",
+      "sexual-health"
+    ]
+  },
+  {
+    "slug": "school-run-survival-for-parents-with-arthritis",
+    "clusters": [
+      "sexual-health",
+      "caregiver-support"
+    ]
+  },
+  {
+    "slug": "expert-qa-how-to-ask-for-help-without-feeling-guilty",
+    "clusters": [
+      "caregiver-support",
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "caregiver-burnout-in-arthritis-families-spot-it-early",
+    "clusters": [
+      "caregiver-support",
+      "sexual-health"
+    ]
+  },
+  {
+    "slug": "supporting-a-partner-with-arthritis-a-practical-handbook",
+    "clusters": [
+      "sexual-health",
+      "caregiver-support"
+    ]
+  },
+  {
+    "slug": "talking-to-children-about-your-arthritis",
+    "clusters": [
+      "caregiver-support",
+      "sexual-health"
+    ]
+  },
+  {
+    "slug": "shoulder-arthroscopy-and-arthritis-what-it-can-and-cant-fix",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "joint-fusion-vs-replacement-how-surgeons-choose",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "knee-arthroscopy-for-osteoarthritis-helpful-or-hype",
+    "clusters": [
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "expert-qa-how-do-i-know-if-surgery-is-right-for-me",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "hip-replacement-recovery-week-by-week",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "expert-qa-is-it-too-soon-for-joint-replacement",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "prehabilitation-how-pre-op-exercise-speeds-recovery",
+    "clusters": [
+      "exercise-movement",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "total-knee-replacement-a-uk-patients-guide-for-2026",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "clinical-trials-for-arthritis-how-to-find-and-join-one",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "expert-qa-how-to-evaluate-a-clinical-trial-invitation",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "jak-inhibitors-the-next-wave-of-ra-treatment",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "gene-therapy-and-arthritis-where-are-we-in-2026",
+    "clusters": [
+      "mental-health"
+    ]
+  },
+  {
+    "slug": "expert-qa-is-it-worth-paying-for-a-second-opinion",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "nhs-access-to-biologics-how-the-approval-pathway-works",
+    "clusters": [
+      "medication-safety",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "prescription-costs-and-arthritis-nhs-prepayment-certificates",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "private-rheumatology-in-the-uk-when-its-worth-considering",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "expert-qa-exercising-through-a-flare-up",
+    "clusters": [
+      "fatigue-management",
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "strength-training-on-biologics-is-it-safe",
+    "clusters": [
+      "exercise-movement",
+      "medication-safety"
+    ]
+  },
+  {
+    "slug": "walking-30-minutes-a-day-while-on-dmards-a-practical-plan",
+    "clusters": [
+      "exercise-movement",
+      "medication-safety"
+    ]
+  },
+  {
+    "slug": "why-exercise-makes-your-arthritis-medication-work-better",
+    "clusters": [
+      "medication-safety",
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "expert-qa-why-did-my-arthritis-come-back",
+    "clusters": [
+      "fatigue-management",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "stopping-arthritis-medication-safely-a-step-by-step-guide",
+    "clusters": [
+      "medication-safety",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "tapering-biologics-what-the-latest-trials-show",
+    "clusters": [
+      "medication-safety"
+    ]
+  },
+  {
+    "slug": "what-sustained-remission-means-in-ra",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "biologic-side-effects-infections-injections-and-monitoring",
+    "clusters": [
+      "medication-safety"
+    ]
+  },
+  {
+    "slug": "expert-qa-how-to-talk-to-your-gp-about-medication-worries",
+    "clusters": [
+      "medication-safety"
+    ]
+  },
+  {
+    "slug": "managing-methotrexate-side-effects-practical-tips",
+    "clusters": [
+      "fatigue-management",
+      "medication-safety"
+    ]
+  },
+  {
+    "slug": "nsaid-stomach-protection-when-you-need-a-ppi",
+    "clusters": [
+      "medication-safety"
+    ]
+  },
+  {
+    "slug": "expert-qa-are-steroid-tapers-always-necessary",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "nsaids-and-arthritis-benefits-risks-and-safer-use",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "paracetamol-for-arthritis-pain-what-the-evidence-says",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "topical-nsaids-often-overlooked-often-effective",
+    "clusters": [
+      "pain-management",
+      "medication-safety"
+    ]
+  },
+  {
+    "slug": "dmards-explained-how-methotrexate-slows-rheumatoid-arthritis",
+    "clusters": [
+      "medication-safety",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "biologics-for-ra-a-realistic-year-one-roadmap",
+    "clusters": [
+      "medication-safety"
+    ]
+  },
+  {
+    "slug": "expert-qa-should-you-start-dmards-at-diagnosis",
+    "clusters": [
+      "medication-safety",
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "steroid-injections-vs-oral-steroids-when-each-makes-sense",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "resistance-training-arthritis-longevity",
+    "clusters": [
+      "exercise-movement"
+    ]
+  },
+  {
+    "slug": "longevity-habits-arthritis-patients",
+    "clusters": [
+      "fatigue-management",
+      "mental-health"
+    ]
+  },
+  {
+    "slug": "early-arthritis-intervention-uk",
+    "clusters": [
+      "condition-specific"
+    ]
+  },
+  {
+    "slug": "preventing-knee-osteoarthritis-uk",
+    "clusters": [
+      "condition-specific",
+      "nutrition"
+    ]
+  },
+  {
+    "slug": "hotel-rooms-accessibility-arthritis",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "flying-with-arthritis-uk-airports",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "medication-management-travel-arthritis",
+    "clusters": [
+      "medication-safety",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "packing-list-arthritis-traveller",
+    "clusters": [
+      "exercise-movement",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "hobbies-arthritis-friendly-uk",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "alcohol-arthritis-uk-guidance",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "dating-with-arthritis-confidence",
+    "clusters": [
+      "sexual-health",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "relationships-chronic-pain-arthritis",
+    "clusters": [
+      "sexual-health",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "cold-weather-arthritis-uk-winter",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "hot-weather-arthritis-management",
+    "clusters": [
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "seasonal-affective-disorder-arthritis",
+    "clusters": [
+      "mental-health",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "vitamin-d-arthritis-uk",
+    "clusters": [
+      "pain-management",
+      "nutrition"
+    ]
+  },
+  {
+    "slug": "desk-setup-arthritis-uk-workers",
+    "clusters": [
+      "pain-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "disability-rights-workplace-arthritis",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "flexible-working-arthritis-pacing",
+    "clusters": [
+      "fatigue-management",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "standing-desk-arthritis-pros-cons",
+    "clusters": [
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "bedtime-routine-arthritis-relief",
+    "clusters": [
+      "pain-management",
+      "fatigue-management"
+    ]
+  },
+  {
+    "slug": "circadian-rhythm-arthritis-inflammation",
+    "clusters": [
+      "pain-management",
+      "fatigue-management"
+    ]
+  },
+  {
+    "slug": "best-sleep-positions-joint-pain",
+    "clusters": [
+      "fatigue-management",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "anxiety-arthritis-uk-guide",
+    "clusters": [
+      "mental-health",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "cbt-chronic-pain-arthritis",
+    "clusters": [
+      "mental-health",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "depression-arthritis-when-to-seek-help",
+    "clusters": [
+      "mental-health",
+      "daily-living"
+    ]
+  },
+  {
+    "slug": "mindfulness-arthritis-beginners",
+    "clusters": [
+      "mental-health",
+      "pain-management"
+    ]
+  },
+  {
+    "slug": "back-arthritis-exercises-uk",
+    "clusters": [
+      "exercise-movement",
+      "condition-specific"
+    ]
+  }
+]
