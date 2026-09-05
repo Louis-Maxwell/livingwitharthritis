@@ -97,13 +97,19 @@ function keywordFrom(title) {
     .filter((p) => p.length >= 3);
   if (!cleaned.length) cleaned = [cleanPart(t) || titleCase(t.split(' ').slice(0, 5).join(' '))];
 
-  // Prefer the longest part that still leaves room for " | Angle" (10 chars),
-  // skipping fragments that end mid-thought.
+  // Prefer the lead part (titles lead with the keyword) when it leaves room
+  // for " | Angle" (10 chars) and isn't a stub; otherwise the longest viable
+  // part, skipping fragments that end mid-thought.
   const budget = MAX - 10;
   const viable = cleaned.filter((p) => p.length <= budget && !CONNECTOR_END.test(p));
-  const kw = viable.length
-    ? viable.reduce((a, b) => (b.length > a.length ? b : a))
-    : trimTo(cleaned.reduce((a, b) => (b.length > a.length ? b : a), cleaned[0]), MAX);
+  let kw;
+  if (viable.includes(cleaned[0]) && cleaned[0].length >= 15) {
+    kw = cleaned[0];
+  } else if (viable.length) {
+    kw = viable.reduce((a, b) => (b.length > a.length ? b : a));
+  } else {
+    kw = trimTo(cleaned.reduce((a, b) => (b.length > a.length ? b : a), cleaned[0]), MAX);
+  }
   return titleCase(kw);
 }
 
