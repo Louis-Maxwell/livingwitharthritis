@@ -125,17 +125,18 @@ const ArthritisSupportIndex = () => {
             <p className="text-muted-foreground mb-6">
               Rheumatology referrals, local trusts and community resources in {ukCities.length} UK cities.
             </p>
-            <div className="flex flex-wrap gap-2">
-              {ukCities.slice(0, 26).map((city) => (
-                <Link
-                  key={city.slug}
-                  to={`/arthritis-support/${city.slug}`}
-                  className="text-sm px-3 py-1.5 rounded-full bg-card border border-border hover:border-primary hover:bg-accent transition-colors text-foreground"
-                >
-                  {city.name}
-                </Link>
+            <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2">
+              {ukCities.map((city) => (
+                <li key={city.slug}>
+                  <Link
+                    to={`/arthritis-support/${city.slug}`}
+                    className="text-sm text-foreground hover:text-primary transition-colors"
+                  >
+                    Arthritis support in {city.name}
+                  </Link>
+                </li>
               ))}
-            </div>
+            </ul>
           </section>
         </motion.div>
       </main>
