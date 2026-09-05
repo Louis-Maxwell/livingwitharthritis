@@ -60,6 +60,9 @@ const stripHtml = (html = '') =>
     .replace(/<script[\s\S]*?<\/script>/gi, ' ')
     .replace(/<style[\s\S]*?<\/style>/gi, ' ')
     .replace(/<[^>]+>/g, ' ')
+    .replace(/^#{1,6}\s+/gm, ' ')
+    .replace(/[*_`>#]/g, ' ')
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
     .replace(/&nbsp;/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
@@ -213,11 +216,15 @@ async function main() {
 
   const audit = top20.map((a) => {
     const text = stripHtml(a.content || '');
-    const h2Count = (a.content || '').match(/<h2/gi)?.length || 0;
-    const h3Count = (a.content || '').match(/<h3/gi)?.length || 0;
-    const hasFaq = /frequently asked|<h2[^>]*>\s*(what|how|why|can|is|are|does|do|when|should)/i.test(a.content || '');
-    const hasQuickAnswer = /quick answer/i.test(a.content || '');
-    const hasTakeaways = /key takeaways|key points/i.test(a.content || '');
+    const raw = a.content || '';
+    const h2Count = (raw.match(/<h2/gi)?.length || 0) + (raw.match(/^##\s+/gm)?.length || 0);
+    const h3Count = (raw.match(/<h3/gi)?.length || 0) + (raw.match(/^###\s+/gm)?.length || 0);
+    const hasFaq =
+      /frequently asked/i.test(raw) ||
+      /<h2[^>]*>\s*(what|how|why|can|is|are|does|do|when|should)/i.test(raw) ||
+      /^##\s+(what|how|why|can|is|are|does|do|when|should)/im.test(raw);
+    const hasQuickAnswer = /quick answer/i.test(raw);
+    const hasTakeaways = /key takeaways|key points/i.test(raw);
     const topic = shortTopic(a.title);
 
     const answerBox = `${topic}: what helps, what to avoid.`.slice(0, 60);
