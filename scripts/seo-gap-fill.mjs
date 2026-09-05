@@ -66,6 +66,10 @@ for (const file of files) {
     if (!bySlug.has(row.slug)) bySlug.set(row.slug, { row, file });
   }
 }
+const STRIP_RE = /\n?\s*<(?:aside|section) class="internal-links"[\s\S]*?<\/(?:aside|section)>\s*/g;
+for (const { row } of bySlug.values()) {
+  row.content = String(row.content).replace(STRIP_RE, '\n');
+}
 const articles = [...bySlug.values()].map(({ row, file }) => ({
   slug: row.slug,
   title: row.title,
