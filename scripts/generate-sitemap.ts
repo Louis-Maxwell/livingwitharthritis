@@ -492,6 +492,36 @@ async function main() {
     `[sitemap] wrote ${cleaned.length} entries (dropped ${entries.length - cleaned.length} locale/doorway URLs) -> public/sitemap.xml`,
   );
 
+  const faqEntries = cleaned.filter(
+    (e) => e.path === "/faq" || e.path.startsWith("/faq/"),
+  );
+  const libraryEntries = cleaned.filter(
+    (e) => e.path === "/library" || e.path.startsWith("/library/"),
+  );
+  writeFileSync(resolve("public/sitemap-faq.xml"), build(faqEntries));
+  writeFileSync(resolve("public/sitemap-library.xml"), build(libraryEntries));
+  writeFileSync(
+    resolve("public/sitemap-index.xml"),
+    [
+      `<?xml version="1.0" encoding="UTF-8"?>`,
+      `<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`,
+      `  <sitemap>`,
+      `    <loc>${BASE_URL}/sitemap.xml</loc>`,
+      `  </sitemap>`,
+      `  <sitemap>`,
+      `    <loc>${BASE_URL}/sitemap-faq.xml</loc>`,
+      `  </sitemap>`,
+      `  <sitemap>`,
+      `    <loc>${BASE_URL}/sitemap-library.xml</loc>`,
+      `  </sitemap>`,
+      `</sitemapindex>`,
+      "",
+    ].join("\n"),
+  );
+  console.log(
+    `[sitemap] wrote ${faqEntries.length} FAQ URLs -> public/sitemap-faq.xml; ${libraryEntries.length} library URLs -> public/sitemap-library.xml`,
+  );
+
   // Also emit a slug list for the prerender pipeline. Sorted newest-first by
   // lastmod so `PRERENDER_LIMIT` can trim to the freshest N without missing
   // recently-published posts. Consumed by scripts/prerender-routes.mjs.

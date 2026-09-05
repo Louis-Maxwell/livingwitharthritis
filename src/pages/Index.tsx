@@ -24,6 +24,7 @@ import ViewportSection from "@/components/ViewportSection";
 import OAHero from "@/components/landing/OAHero";
 
 import { VISITOR_STATS_SNIPPET } from "@/config/visitorStats";
+import { HOME_PAGE_DESCRIPTION, HOME_PAGE_TITLE } from "@/lib/homeSeo";
 
 /** Prefixes `rest` with the visitor-stats snippet when one is set (a real,
  * verified count), without leaving a stray leading space when it's empty. */
@@ -62,6 +63,7 @@ const SearchBar = lazy(() => import("@/components/landing/SearchBar"));
 const TestimonialCollector = lazy(() => import("@/components/landing/TestimonialCollector"));
 const TestimonialDisplay = lazy(() => import("@/components/landing/TestimonialDisplay"));
 const StartHereBand = lazy(() => import("@/components/landing/StartHereBand"));
+const UKCoverageBand = lazy(() => import("@/components/landing/UKCoverageBand"));
 const ImpactFactBand = lazy(() => import("@/components/landing/ImpactFactBand"));
 const ImpactProgressBand = lazy(() => import("@/components/landing/ImpactProgressBand"));
 const FinalDonateBand = lazy(() => import("@/components/landing/FinalDonateBand"));
@@ -80,31 +82,8 @@ const SectionFallback = () => <div className="h-32" aria-hidden="true" />;
 function HomePage() {
   // JSON-LD injected manually (per project memory) to avoid Helmet crashes.
   useEffect(() => {
-    const id = "ld-home-ngo";
-    const existing = document.getElementById(id);
-    if (existing) existing.remove();
+    document.getElementById("ld-home-ngo")?.remove();
 
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.id = id;
-    script.text = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "MedicalOrganization",
-      name: "Living With Arthritis UK",
-      url: SITE_URL,
-      description:
-        "An open-source osteoarthritis management plan — clinically reviewed, freely published, and made for everyone living with OA in the UK.",
-      areaServed: { "@type": "Country", name: "United Kingdom" },
-      knowsAbout: [
-        "Osteoarthritis",
-        "Anti-inflammatory diet",
-        "Physiotherapy",
-        "Chronic pain management",
-      ],
-    });
-    document.head.appendChild(script);
-
-    // BreadcrumbList — home anchors the breadcrumb trail.
     const breadcrumbId = "ld-home-breadcrumb";
     document.getElementById(breadcrumbId)?.remove();
     const breadcrumbScript = document.createElement("script");
@@ -124,15 +103,8 @@ function HomePage() {
     });
     document.head.appendChild(breadcrumbScript);
 
-    // FAQPage schema is emitted by FAQSection itself (rendered below) — not
-    // duplicated here, since two FAQPage blocks with different question sets
-    // on one page confuses structured-data validators and rich-result eligibility.
-
     return () => {
-      [id, breadcrumbId].forEach((scriptId) => {
-        const el = document.getElementById(scriptId);
-        if (el) el.remove();
-      });
+      document.getElementById(breadcrumbId)?.remove();
     };
   }, []);
 
@@ -140,22 +112,20 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Living With Arthritis | UK charity for joint pain support</title>
+        <title>{HOME_PAGE_TITLE}</title>
         <meta
           name="description"
-          content={withVisitorSnippet(
-            "Free UK arthritis support: NICE-aligned exercises, anti-inflammatory diet guidance, condition guides and a help chat — written in plain English. Registered charity 1218461.",
-          )}
+          content={withVisitorSnippet(HOME_PAGE_DESCRIPTION)}
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={SITE_URL + "/"} />
         <meta
           property="og:title"
-          content="Living With Arthritis | UK charity for joint pain support"
+          content={HOME_PAGE_TITLE}
         />
         <meta
           name="twitter:title"
-          content="Living With Arthritis | UK charity for joint pain support"
+          content={HOME_PAGE_TITLE}
         />
         <meta
           property="og:description"
@@ -193,6 +163,10 @@ function HomePage() {
         <main id="main-content" role="main" tabIndex={-1}>
           {/* 01 — Editorial hero (eager LCP) */}
           <OAHero />
+
+          <Suspense fallback={<SectionFallback />}>
+            <UKCoverageBand />
+          </Suspense>
 
           {/* 01b — Interactive start-here path, immediately after the hero. */}
           <Suspense fallback={<SectionFallback />}>
