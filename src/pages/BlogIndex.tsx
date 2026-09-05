@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import InternalLinks from "@/components/InternalLinks";
 import PageHero from "@/components/ui/PageHero";
-import { ArrowRight, ChevronLeft, ChevronRight, Eye, Sparkles, Newspaper, Search, Clock, Flame } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Eye, Sparkles, Newspaper, Search, Clock, Flame, Headphones } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useBlogViewCounts } from "@/hooks/useBlogViews";
@@ -224,35 +224,51 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
               </div>
               <div className="grid md:grid-cols-3 gap-6">
                 {featuredPosts.map((post) => (
-                  <Link
+                  <article
                     key={post.slug}
-                    to={`/blog/${post.slug}`}
                     className="card-accent-top group rounded-2xl overflow-hidden border border-border/30 bg-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                   >
-                    <div className="aspect-[16/9] overflow-hidden bg-muted/20">
-                      <img
-                        src={coverImage(post.category, post.title, post.slug).src}
-                        alt=""
-                        aria-hidden="true"
-                        loading="lazy"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
-                    <div className="p-5">
-                      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
-                        {post.category}
-                      </span>
-                      <h3 className="font-display text-lg font-semibold text-foreground mt-2 mb-2 group-hover:text-primary transition-colors leading-snug break-words">
-                        {displayTitle(post)}
-                      </h3>
-                      <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed mb-3">
-                        {post.excerpt}
-                      </p>
-                      <span className="text-primary text-sm font-medium inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+                    <Link to={`/blog/${post.slug}`} className="block">
+                      <div className="aspect-[16/9] overflow-hidden bg-muted/20">
+                        <img
+                          src={coverImage(post.category, post.title, post.slug).src}
+                          alt=""
+                          aria-hidden="true"
+                          width={640}
+                          height={360}
+                          loading="lazy"
+                          decoding="async"
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      </div>
+                      <div className="p-5 pb-2">
+                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
+                          {post.category}
+                        </span>
+                        <h3 className="font-display text-lg font-semibold text-foreground mt-2 mb-2 group-hover:text-primary transition-colors leading-snug break-words">
+                          {displayTitle(post)}
+                        </h3>
+                        <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed mb-3">
+                          {post.excerpt}
+                        </p>
+                      </div>
+                    </Link>
+                    <div className="px-5 pb-5 flex flex-wrap items-center gap-x-4 gap-y-2">
+                      <Link
+                        to={`/blog/${post.slug}`}
+                        className="text-primary text-sm font-medium inline-flex items-center gap-1.5 hover:gap-2.5 transition-all"
+                      >
                         Read article <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
-                      </span>
+                      </Link>
+                      <Link
+                        to={`/blog/${post.slug}#listen`}
+                        className="text-muted-foreground text-sm font-medium inline-flex items-center gap-1.5 hover:text-primary transition-colors"
+                        aria-label={`Listen to ${displayTitle(post)}`}
+                      >
+                        <Headphones className="w-3.5 h-3.5" aria-hidden="true" /> Listen
+                      </Link>
                     </div>
-                  </Link>
+                  </article>
                 ))}
               </div>
             </section>
@@ -357,17 +373,21 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
           {!isLoading && (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {paginated.map((post) => (
-                <Link
+                <article
                   key={post.slug}
-                  to={`/blog/${post.slug}`}
                   className="group rounded-2xl border border-border/30 bg-card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                 >
+                  <Link to={`/blog/${post.slug}`} className="block">
+
                   <div className="aspect-[16/9] overflow-hidden bg-muted/20">
                     <img
                       src={coverImage(post.category, post.title, post.slug).src}
                       alt=""
                       aria-hidden="true"
+                      width={640}
+                      height={360}
                       loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
@@ -398,7 +418,17 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
                       </div>
                     </div>
                   </div>
-                </Link>
+                                  </Link>
+                  <div className="px-6 pb-5 -mt-1">
+                    <Link
+                      to={`/blog/${post.slug}#listen`}
+                      className="text-muted-foreground text-sm font-medium inline-flex items-center gap-1.5 hover:text-primary transition-colors"
+                      aria-label={`Listen to ${displayTitle(post)}`}
+                    >
+                      <Headphones className="w-3.5 h-3.5" aria-hidden="true" /> Listen
+                    </Link>
+                  </div>
+                </article>
               ))}
             </div>
           )}

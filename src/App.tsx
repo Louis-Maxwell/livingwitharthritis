@@ -270,11 +270,18 @@ function AnimatedRoutes() {
   // after analytics consent, so this sends every pageview — including the first
   // one, which is re-sent when `analytics-ready` fires post-consent.
   useEffect(() => {
+    let lastKey = "";
+    let lastAt = 0;
     const sendPageView = () => {
       const w = window as unknown as { gtag?: (...a: unknown[]) => void };
       if (typeof w.gtag !== "function") return;
+      const page_path = location.pathname + location.search;
+      const now = Date.now();
+      if (page_path === lastKey && now - lastAt < 1000) return;
+      lastKey = page_path;
+      lastAt = now;
       w.gtag("event", "page_view", {
-        page_path: location.pathname + location.search,
+        page_path,
         page_location: window.location.href,
         page_title: document.title,
         send_to: "G-ZLLSD3PXZ9",

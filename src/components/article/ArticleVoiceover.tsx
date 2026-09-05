@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 
 const SPEEDS = [1, 1.25, 1.5, 1.75, 2] as const;
 const WPM = 155;
-const MAX_WORDS = 3500;
+const MAX_WORDS = 12000;
 const SKIP_SELECTORS = [
   'nav',
   'footer',
@@ -329,17 +329,32 @@ export default function ArticleVoiceover({ slug, className, text }: ArticleVoice
 
     const ctrl = new AbortController();
     const mp3Path = `/audio/${slug}.mp3`;
-    fetch(mp3Path, { method: 'HEAD', cache: 'force-cache', signal: ctrl.signal })
-      .then((res) => {
-        if (res.ok) {
-          setMp3Url(mp3Path);
-          mp3UrlRef.current = mp3Path;
-        }
-      })
-      .catch(() => undefined);
+    const probeMp3 = () => {
+      fetch(mp3Path, { method: 'HEAD', cache: 'force-cache', signal: ctrl.signal })
+        .then((res) => {
+          if (res.ok) {
+            setMp3Url(mp3Path);
+            mp3UrlRef.current = mp3Path;
+          }
+        })
+        .catch(() => undefined);
+    };
+    // Defer optional MP3 probe so it does not contend with article LCP.
+    let idleId = 0;
+    const w = window as Window & {
+      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+    if (typeof w.requestIdleCallback === 'function') {
+      idleId = w.requestIdleCallback(probeMp3, { timeout: 2000 });
+    } else {
+      idleId = window.setTimeout(probeMp3, 1200);
+    }
 
     return () => {
       window.cancelAnimationFrame(raf);
+      if (typeof w.cancelIdleCallback === 'function') w.cancelIdleCallback(idleId);
+      else window.clearTimeout(idleId);
       ctrl.abort();
       cleanupVoices();
       cancelSpeech();
@@ -387,11 +402,22 @@ export default function ArticleVoiceover({ slug, className, text }: ArticleVoice
     return () => window.clearInterval(id);
   }, [isPlaying, usingMp3]);
 
-  // ?listen=1 — try to start after voices are ready; fail quietly if the browser blocks it.
+  // ?listen=1 or #listen — scroll into view; try autoplay after voices are ready
+  // (browsers often block autoplay without a gesture — Play stays ready).
   useEffect(() => {
-    if (autoplayTriedRef.current) return;
     if (typeof window === 'undefined') return;
-    if (new URLSearchParams(window.location.search).get('listen') !== '1') return;
+    const params = new URLSearchParams(window.location.search);
+    const wantsListen = params.get('listen') === '1' || window.location.hash === '#listen';
+    if (!wantsListen) return;
+    const el = document.getElementById('listen');
+    if (el) {
+      try {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } catch {
+        el.scrollIntoView();
+      }
+    }
+    if (autoplayTriedRef.current) return;
     if (!voicesReady && !mp3Url) return;
     autoplayTriedRef.current = true;
     try {
@@ -505,6 +531,7 @@ export default function ArticleVoiceover({ slug, className, text }: ArticleVoice
 
   return (
     <section
+      id="listen"
       aria-label="Listen to this article"
       className={cn(
         'no-print min-w-0 max-w-full overflow-hidden rounded-2xl bg-card bg-gradient-to-br from-primary/[0.07] via-card to-card',

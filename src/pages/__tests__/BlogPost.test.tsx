@@ -154,7 +154,7 @@ describe("BlogPost Page", () => {
     expect(screen.getByText("Blog")).toBeInTheDocument();
   });
 
-  it("renders related articles and comments sections", () => {
+  it("renders related articles and comments sections", async () => {
     (useBlogArticle as ReturnType<typeof vi.fn>).mockReturnValue({
       data: mockArticle,
       isLoading: false,
@@ -163,10 +163,12 @@ describe("BlogPost Page", () => {
     });
 
     renderBlogPost("test-article");
-    expect(screen.getByTestId("related")).toBeInTheDocument();
-    expect(screen.getByTestId("comments")).toBeInTheDocument();
-    expect(screen.getByTestId("share")).toBeInTheDocument();
-    expect(screen.getByTestId("helpfulness")).toBeInTheDocument();
+    expect(screen.getAllByTestId("share").length).toBeGreaterThan(0);
+    await waitFor(() => {
+      expect(screen.getByTestId("related")).toBeInTheDocument();
+      expect(screen.getByTestId("comments")).toBeInTheDocument();
+      expect(screen.getByTestId("helpfulness")).toBeInTheDocument();
+    });
   });
 
   it("uses default author when article has no author", () => {

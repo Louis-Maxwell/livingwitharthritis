@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { BLOG_SLUG_REDIRECTS } from "@/data/blogRedirects";
 import { Helmet } from "react-helmet-async";
@@ -11,34 +11,37 @@ import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
 import { useBlogArticle } from "@/hooks/useBlogArticles";
 import { useBlogViews } from "@/hooks/useBlogViews";
-import BlogComments from "@/components/BlogComments";
-import BlogHelpfulness from "@/components/BlogHelpfulness";
-import RelatedArticles from "@/components/RelatedArticles";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import ScrollProgress from "@/components/ScrollProgress";
-import ContinueReadingBar from "@/components/ContinueReadingBar";
-import HealthToolsCTA from "@/components/HealthToolsCTA";
-import CrossLinkBanner from "@/components/CrossLinkBanner";
-import InternalLinks from "@/components/InternalLinks";
 import { Skeleton } from "@/components/ui/skeleton";
 import { marked } from "marked";
 import DOMPurify from "dompurify";
-import ArticleCitations, { type Citation } from "@/components/blog/ArticleCitations";
+import type { Citation } from "@/components/blog/ArticleCitations";
 import AnswerBox from "@/components/seo/AnswerBox";
-import NextReadStrip from "@/components/NextReadStrip";
 import KeyTakeaways from "@/components/article/KeyTakeaways";
-import FeedbackPoll from "@/components/article/FeedbackPoll";
-import InlineRelatedStrip from "@/components/article/InlineRelatedStrip";
-import ArticleFaqSection from "@/components/article/ArticleFaqSection";
-import ArticleClosingCTA from "@/components/article/ArticleClosingCTA";
 import ArticleVoiceover from "@/components/article/ArticleVoiceover";
 import { renderCallouts } from "@/components/article/Callouts";
 import { markVisited } from "@/lib/visitedArticles";
 import { getArticleImages, coverImage } from "@/lib/articleImages";
 import NotFound from "@/pages/NotFound";
+
+const BlogComments = lazy(() => import("@/components/BlogComments"));
+const BlogHelpfulness = lazy(() => import("@/components/BlogHelpfulness"));
+const RelatedArticles = lazy(() => import("@/components/RelatedArticles"));
+const ContinueReadingBar = lazy(() => import("@/components/ContinueReadingBar"));
+const HealthToolsCTA = lazy(() => import("@/components/HealthToolsCTA"));
+const CrossLinkBanner = lazy(() => import("@/components/CrossLinkBanner"));
+const InternalLinks = lazy(() => import("@/components/InternalLinks"));
+const NextReadStrip = lazy(() => import("@/components/NextReadStrip"));
+const FeedbackPoll = lazy(() => import("@/components/article/FeedbackPoll"));
+const InlineRelatedStrip = lazy(() => import("@/components/article/InlineRelatedStrip"));
+const ArticleFaqSection = lazy(() => import("@/components/article/ArticleFaqSection"));
+const ArticleClosingCTA = lazy(() => import("@/components/article/ArticleClosingCTA"));
+const ArticleCitations = lazy(() => import("@/components/blog/ArticleCitations"));
+
 
 /**
  * Remove any H2/H3 whose text ends in "?" plus everything up to the next
@@ -411,7 +414,7 @@ const BlogPost = () => {
                 )}
               </div>
 
-              <ArticleVoiceover slug={article.slug} className="mt-6 max-w-[640px]" />
+              <ArticleVoiceover slug={article.slug} text={htmlContent} className="mt-6 max-w-[640px]" />
 
               {slug && (
                 <SocialShareButtons title={article.title} slug={slug} instance="header" />
@@ -428,8 +431,10 @@ const BlogPost = () => {
               alt={articleImages[0].alt}
               width={1600}
               height={900}
+              sizes="(min-width: 860px) 860px, 100vw"
               loading="eager"
               decoding="async"
+              {...({ fetchpriority: "high" } as Record<string, string>)}
               className="w-full h-auto rounded-2xl shadow-sm object-cover aspect-[16/9]"
             />
             <figcaption className="text-xs text-muted-foreground/70 mt-2">
@@ -521,13 +526,15 @@ const BlogPost = () => {
               </figure>
             )}
             {slug && htmlAfterStrip && (
-              <InlineRelatedStrip
-                currentSlug={slug}
-                currentCategory={article.category}
-                currentTitle={article.title}
-                currentExcerpt={article.excerpt}
-                currentKeywords={article.keywords ?? undefined}
-              />
+              <Suspense fallback={null}>
+                <InlineRelatedStrip
+                  currentSlug={slug}
+                  currentCategory={article.category}
+                  currentTitle={article.title}
+                  currentExcerpt={article.excerpt}
+                  currentKeywords={article.keywords ?? undefined}
+                />
+              </Suspense>
             )}
             {htmlAfterStrip && (
               <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(htmlAfterStrip) }} />
@@ -549,8 +556,10 @@ const BlogPost = () => {
             </figure>
           </section>
 
-          <ArticleFaqSection faqs={faqs} />
-          <ArticleClosingCTA title={article.title} />
+          <Suspense fallback={null}>
+            <ArticleFaqSection faqs={faqs} />
+            <ArticleClosingCTA title={article.title} />
+          </Suspense>
 
           {/* Print footer: only visible when saving to PDF / printing */}
           <div className="print-only mt-8 pt-4 border-t border-black text-[10px] leading-snug">
@@ -566,38 +575,41 @@ const BlogPost = () => {
 
 
 
-          <ArticleCitations citations={citations} />
+          <Suspense fallback={null}>
+            <ArticleCitations citations={citations} />
+          </Suspense>
 
-          {slug && <FeedbackPoll slug={slug} title={article.title} />}
-
-          <HealthToolsCTA />
-
+          <Suspense fallback={null}>
+            {slug && <FeedbackPoll slug={slug} title={article.title} />}
+            <HealthToolsCTA />
+          </Suspense>
 
           <footer className="mt-14 pt-8 border-t border-border/20">
             {slug && <SocialShareButtons title={article.title} slug={slug} instance="footer" />}
-            {slug && <BlogHelpfulness slug={slug} />}
-
-            <CrossLinkBanner preset="blog" exclude={`/blog/${slug}`} title="Related resources" />
-
-            {slug && (
-              <RelatedArticles
-                currentSlug={slug}
-                currentCategory={article.category}
-                currentTitle={article.title}
-                currentExcerpt={article.excerpt}
-                currentKeywords={article.keywords ?? undefined}
-                preferUnvisited
-              />
-
-            )}
-            {slug && <BlogComments slug={slug} />}
+            <Suspense fallback={null}>
+              {slug && <BlogHelpfulness slug={slug} />}
+              <CrossLinkBanner preset="blog" exclude={`/blog/${slug}`} title="Related resources" />
+              {slug && (
+                <RelatedArticles
+                  currentSlug={slug}
+                  currentCategory={article.category}
+                  currentTitle={article.title}
+                  currentExcerpt={article.excerpt}
+                  currentKeywords={article.keywords ?? undefined}
+                  preferUnvisited
+                />
+              )}
+              {slug && <BlogComments slug={slug} />}
+            </Suspense>
           </footer>
         </main>
         </article>
         <div className="no-print">
-          {slug && <ContinueReadingBar currentSlug={slug} />}
-          <InternalLinks />
-          <NextReadStrip currentPath={`/blog/${slug}`} heading="Keep reading arthritis insights" />
+          <Suspense fallback={null}>
+            {slug && <ContinueReadingBar currentSlug={slug} />}
+            <InternalLinks />
+            <NextReadStrip currentPath={`/blog/${slug}`} heading="Keep reading arthritis insights" />
+          </Suspense>
           <Footer />
         </div>
 
