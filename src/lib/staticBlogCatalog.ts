@@ -1,4 +1,5 @@
 import frailtyBatch from "@/content/blog/frailty-batch.json";
+import phase2Batch from "@/content/blog/phase2-batch.json";
 
 export interface StaticBlogArticle {
   slug: string;
@@ -27,7 +28,10 @@ export type BlogListItem = Pick<
   "slug" | "title" | "meta_title" | "excerpt" | "date" | "category" | "image_url" | "display_order"
 >;
 
-const STATIC_ARTICLES: StaticBlogArticle[] = (frailtyBatch as StaticBlogArticle[]).filter(
+const STATIC_ARTICLES: StaticBlogArticle[] = [
+  ...(frailtyBatch as StaticBlogArticle[]),
+  ...(phase2Batch as StaticBlogArticle[]),
+].filter(
   (article) => article?.is_published && typeof article.slug === "string" && article.slug.length > 0,
 );
 
