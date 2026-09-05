@@ -31,3 +31,5 @@ Vitest worker tests. CORS allows production domain and localhost 8787/8080.
 
 ## Out of scope
 No Supabase/Vercel re-add. No workflow edits.
+
+See also docs/SPEED-NOTES.md.
