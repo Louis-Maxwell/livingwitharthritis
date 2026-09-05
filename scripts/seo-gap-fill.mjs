@@ -152,7 +152,7 @@ for (const source of articles) {
 }
 
 // ---------------------------------------------------------- content edits
-const BLOCK_RE = /\n?\s*<aside class="internal-links"[\s\S]*?<\/aside>\s*/g;
+const BLOCK_RE = /\n?\s*<section class="internal-links"[\s\S]*?<\/aside>\s*/g;
 const anchorText = (t) => t.row.meta_title && t.row.meta_title.length <= 60 ? t.row.meta_title : t.title;
 
 function linkBlock(targets) {
@@ -164,7 +164,7 @@ function linkBlock(targets) {
         )}</li>`,
     )
     .join('\n');
-  return `\n  <aside class="internal-links" aria-labelledby="continue-reading">\n    <h2 id="continue-reading">Continue reading</h2>\n    <ul>\n${items}\n    </ul>\n  </aside>\n`;
+  return `\n  <section class="internal-links" aria-labelledby="continue-reading">\n    <h2 id="continue-reading">Continue reading</h2>\n    <ul>\n${items}\n    </ul>\n  </section>\n`;
 }
 
 function shortenExcerpt(text) {
