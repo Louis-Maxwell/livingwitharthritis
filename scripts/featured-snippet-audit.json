@@ -1,0 +1,412 @@
+{
+  "generated_at": "2026-09-05T10:02:19.545Z",
+  "ranking_proxy": "inbound internal links + content depth (no analytics data in database)",
+  "articles": [
+    {
+      "article_slug": "arthritis-exercises-uk-clinical",
+      "main_query": "clinically recommended arthritis exercises uk",
+      "answer_box_text": "Clinically recommended Arthritis Exercises: what helps, what",
+      "current_faq_quality": "needs-work",
+      "recommended_changes": [
+        "Add a bold \"Quick Answer\" paragraph directly after the introduction.",
+        "Add an FAQ block with 4-6 question-style H2s and 50-100 word answers.",
+        "Increase section structure: only 3 H2 headings found.",
+        "Add a \"Key takeaways\" bulleted list at the end (4-6 bullets, one line each)."
+      ],
+      "metrics": {
+        "word_count": 5957,
+        "h2_count": 3,
+        "h3_count": 15,
+        "inbound_internal_links": 0,
+        "has_quick_answer": false,
+        "has_key_takeaways": false
+      },
+      "first_sentence": "NHS-Recommended Exercises for Arthritis The NHS and NICE guidelines strongly recommend exercise as a core treatment for arthritis."
+    },
+    {
+      "article_slug": "knee-arthritis-exercises-uk",
+      "main_query": "best exercises for knee arthritis uk",
+      "answer_box_text": "Best Exercises for Knee Arthritis: what helps, what to avoid",
+      "current_faq_quality": "good",
+      "recommended_changes": [
+        "Add a bold \"Quick Answer\" paragraph directly after the introduction.",
+        "Tighten existing FAQ answers to 50-100 words and keep each question as a clear H2.",
+        "Add a \"Key takeaways\" bulleted list at the end (4-6 bullets, one line each)."
+      ],
+      "metrics": {
+        "word_count": 3245,
+        "h2_count": 21,
+        "h3_count": 34,
+        "inbound_internal_links": 0,
+        "has_quick_answer": false,
+        "has_key_takeaways": false
+      },
+      "first_sentence": "Knee arthritis affects millions of people across the UK and is the most common reason for joint replacement surgery."
+    },
+    {
+      "article_slug": "glucosamine-vs-collagen",
+      "main_query": "glucosamine vs collagen uk",
+      "answer_box_text": "Glucosamine vs Collagen: what helps, what to avoid.",
+      "current_faq_quality": "needs-work",
+      "recommended_changes": [
+        "Add a bold \"Quick Answer\" paragraph directly after the introduction.",
+        "Add an FAQ block with 4-6 question-style H2s and 50-100 word answers.",
+        "Increase section structure: only 1 H2 headings found.",
+        "Add a \"Key takeaways\" bulleted list at the end (4-6 bullets, one line each)."
+      ],
+      "metrics": {
+        "word_count": 1871,
+        "h2_count": 1,
+        "h3_count": 6,
+        "inbound_internal_links": 1,
+        "has_quick_answer": false,
+        "has_key_takeaways": false
+      },
+      "first_sentence": "Glucosamine vs Collagen: The Evidence Both glucosamine and collagen are among the most popular joint health supplements in the UK, but how do they compare? This guide breaks down the science behind ea"
+    },
+    {
+      "article_slug": "anti-inflammatory-smoothie-recipes",
+      "main_query": "anti uk",
+      "answer_box_text": "Anti: what helps, what to avoid.",
+      "current_faq_quality": "needs-work",
+      "recommended_changes": [
+        "Add a bold \"Quick Answer\" paragraph directly after the introduction.",
+        "Add an FAQ block with 4-6 question-style H2s and 50-100 word answers.",
+        "Increase section structure: only 1 H2 headings found.",
+        "Add a \"Key takeaways\" bulleted list at the end (4-6 bullets, one line each)."
+      ],
+      "metrics": {
+        "word_count": 1702,
+        "h2_count": 1,
+        "h3_count": 8,
+        "inbound_internal_links": 1,
+        "has_quick_answer": false,
+        "has_key_takeaways": false
+      },
+      "first_sentence": "Anti-Inflammatory Smoothie Recipes Smoothies can be a simple, tasty way to include more fruit, fibre, healthy fats and spices in your day, which may help support a balanced, anti-inflammatory diet."
+    },
+    {
+      "article_slug": "arthritis-and-omega-3-fish-oil",
+      "main_query": "omega uk",
+      "answer_box_text": "Omega: what helps, what to avoid.",
+      "current_faq_quality": "needs-work",
+      "recommended_changes": [
+        "Add a bold \"Quick Answer\" paragraph directly after the introduction.",
+        "Add an FAQ block with 4-6 question-style H2s and 50-100 word answers.",
+        "Add a \"Key takeaways\" bulleted list at the end (4-6 bullets, one line each)."
+      ],
+      "metrics": {
+        "word_count": 1295,
+        "h2_count": 6,
+        "h3_count": 8,
+        "inbound_internal_links": 1,
+        "has_quick_answer": false,
+        "has_key_takeaways": false
+      },
+      "first_sentence": "Omega-3 fatty acids — particularly those found in oily fish and fish oil supplements — are among the most extensively researched natural interventions for arthritis."
+    },
+    {
+      "article_slug": "arthritis-and-pets-uk",
+      "main_query": "arthritis and pet ownership uk",
+      "answer_box_text": "Arthritis and Pet Ownership: what helps, what to avoid.",
+      "current_faq_quality": "needs-work",
+      "recommended_changes": [
+        "Add an FAQ block with 4-6 question-style H2s and 50-100 word answers."
+      ],
+      "metrics": {
+        "word_count": 2009,
+        "h2_count": 7,
+        "h3_count": 10,
+        "inbound_internal_links": 0,
+        "has_quick_answer": true,
+        "has_key_takeaways": true
+      },
+      "first_sentence": "Pets can bring immense joy, companionship, and even health benefits to people with arthritis."
+    },
+    {
+      "article_slug": "arthritis-and-gardening-uk",
+      "main_query": "gardening with arthritis uk",
+      "answer_box_text": "Gardening with Arthritis: what helps, what to avoid.",
+      "current_faq_quality": "good",
+      "recommended_changes": [
+        "Add a bold \"Quick Answer\" paragraph directly after the introduction.",
+        "Tighten existing FAQ answers to 50-100 words and keep each question as a clear H2.",
+        "Add a \"Key takeaways\" bulleted list at the end (4-6 bullets, one line each)."
+      ],
+      "metrics": {
+        "word_count": 2002,
+        "h2_count": 7,
+        "h3_count": 1,
+        "inbound_internal_links": 0,
+        "has_quick_answer": false,
+        "has_key_takeaways": false
+      },
+      "first_sentence": "Gardening is one of the UK's most popular hobbies, and arthritis shouldn't stop you enjoying it."
+    },
+    {
+      "article_slug": "managing-arthritis-at-work",
+      "main_query": "managing arthritis at work uk",
+      "answer_box_text": "Managing Arthritis at Work: what helps, what to avoid.",
+      "current_faq_quality": "needs-work",
+      "recommended_changes": [
+        "Add a bold \"Quick Answer\" paragraph directly after the introduction.",
+        "Add an FAQ block with 4-6 question-style H2s and 50-100 word answers.",
+        "Increase section structure: only 1 H2 headings found.",
+        "Add a \"Key takeaways\" bulleted list at the end (4-6 bullets, one line each)."
+      ],
+      "metrics": {
+        "word_count": 2000,
+        "h2_count": 1,
+        "h3_count": 7,
+        "inbound_internal_links": 0,
+        "has_quick_answer": false,
+        "has_key_takeaways": false
+      },
+      "first_sentence": "Arthritis at Work: You Are Not Alone Over 8.5 million working-age adults in the UK live with arthritis."
+    },
+    {
+      "article_slug": "flexible-working-arthritis-pacing",
+      "main_query": "how to pitch flexible working because of arthritis uk",
+      "answer_box_text": "How to Pitch Flexible Working Because of Arthritis: what hel",
+      "current_faq_quality": "good",
+      "recommended_changes": [
+        "Add a bold \"Quick Answer\" paragraph directly after the introduction.",
+        "Tighten existing FAQ answers to 50-100 words and keep each question as a clear H2.",
+        "Add H3 subheadings under long H2 sections to improve list-snippet eligibility.",
+        "Add a \"Key takeaways\" bulleted list at the end (4-6 bullets, one line each)."
+      ],
+      "metrics": {
+        "word_count": 1983,
+        "h2_count": 6,
+        "h3_count": 0,
+        "inbound_internal_links": 0,
+        "has_quick_answer": false,
+        "has_key_takeaways": false
+      },
+      "first_sentence": "What the evidence says How to Pitch Flexible Working Because of Arthritis is one of the most discussed challenges in UK arthritis care."
+    },
+    {
+      "article_slug": "medication-management-travel-arthritis",
+      "main_query": "travelling abroad with arthritis medication uk",
+      "answer_box_text": "Travelling Abroad With Arthritis Medication: what helps, wha",
+      "current_faq_quality": "good",
+      "recommended_changes": [
+        "Add a bold \"Quick Answer\" paragraph directly after the introduction.",
+        "Tighten existing FAQ answers to 50-100 words and keep each question as a clear H2.",
+        "Add H3 subheadings under long H2 sections to improve list-snippet eligibility.",
+        "Add a \"Key takeaways\" bulleted list at the end (4-6 bullets, one line each)."
+      ],
+      "metrics": {
+        "word_count": 1980,
+        "h2_count": 6,
+        "h3_count": 0,
+        "inbound_internal_links": 0,
+        "has_quick_answer": false,
+        "has_key_takeaways": false
+      },
+      "first_sentence": "What the evidence says Travelling Abroad With Arthritis Medication is one of the most discussed challenges in UK arthritis care."
+    },
+    {
+      "article_slug": "arthritis-in-young-people-uk",
+      "main_query": "arthritis in young people uk",
+      "answer_box_text": "Arthritis in Young People: what helps, what to avoid.",
+      "current_faq_quality": "good",
+      "recommended_changes": [
+        "Tighten existing FAQ answers to 50-100 words and keep each question as a clear H2."
+      ],
+      "metrics": {
+        "word_count": 1969,
+        "h2_count": 6,
+        "h3_count": 8,
+        "inbound_internal_links": 0,
+        "has_quick_answer": true,
+        "has_key_takeaways": true
+      },
+      "first_sentence": "Arthritis is often thought of as a condition affecting older adults, but in the UK, around 15,000 children and young people are living with arthritis."
+    },
+    {
+      "article_slug": "yoga-for-arthritis-beginners",
+      "main_query": "yoga for arthritis beginners uk",
+      "answer_box_text": "Yoga for Arthritis Beginners: what helps, what to avoid.",
+      "current_faq_quality": "good",
+      "recommended_changes": [
+        "Add a bold \"Quick Answer\" paragraph directly after the introduction.",
+        "Tighten existing FAQ answers to 50-100 words and keep each question as a clear H2.",
+        "Add a \"Key takeaways\" bulleted list at the end (4-6 bullets, one line each)."
+      ],
+      "metrics": {
+        "word_count": 1203,
+        "h2_count": 6,
+        "h3_count": 8,
+        "inbound_internal_links": 1,
+        "has_quick_answer": false,
+        "has_key_takeaways": false
+      },
+      "first_sentence": "Yoga has emerged as one of the most recommended complementary therapies for arthritis, endorsed by the NHS, NICE, Versus Arthritis and the Arthritis Foundation globally."
+    },
+    {
+      "article_slug": "arthritis-and-pregnancy-uk",
+      "main_query": "arthritis and pregnancy in the uk",
+      "answer_box_text": "Arthritis and Pregnancy in the: what helps, what to avoid.",
+      "current_faq_quality": "good",
+      "recommended_changes": [
+        "Add a bold \"Quick Answer\" paragraph directly after the introduction.",
+        "Tighten existing FAQ answers to 50-100 words and keep each question as a clear H2.",
+        "Add a \"Key takeaways\" bulleted list at the end (4-6 bullets, one line each)."
+      ],
+      "metrics": {
+        "word_count": 1942,
+        "h2_count": 7,
+        "h3_count": 3,
+        "inbound_internal_links": 0,
+        "has_quick_answer": false,
+        "has_key_takeaways": false
+      },
+      "first_sentence": "If you're living with arthritis and planning a pregnancy, or are already pregnant, there's good news: many women with arthritis have healthy pregnancies ."
+    },
+    {
+      "article_slug": "arthritis-and-alcohol-uk",
+      "main_query": "arthritis and alcohol uk",
+      "answer_box_text": "Arthritis and Alcohol: what helps, what to avoid.",
+      "current_faq_quality": "good",
+      "recommended_changes": [
+        "Add a bold \"Quick Answer\" paragraph directly after the introduction.",
+        "Tighten existing FAQ answers to 50-100 words and keep each question as a clear H2.",
+        "Add a \"Key takeaways\" bulleted list at the end (4-6 bullets, one line each)."
+      ],
+      "metrics": {
+        "word_count": 1932,
+        "h2_count": 6,
+        "h3_count": 5,
+        "inbound_internal_links": 0,
+        "has_quick_answer": false,
+        "has_key_takeaways": false
+      },
+      "first_sentence": "Alcohol and arthritis is a topic that causes confusion."
+    },
+    {
+      "article_slug": "seasonal-affective-disorder-arthritis",
+      "main_query": "sad and arthritis uk",
+      "answer_box_text": "SAD and Arthritis: what helps, what to avoid.",
+      "current_faq_quality": "good",
+      "recommended_changes": [
+        "Add a bold \"Quick Answer\" paragraph directly after the introduction.",
+        "Tighten existing FAQ answers to 50-100 words and keep each question as a clear H2.",
+        "Add H3 subheadings under long H2 sections to improve list-snippet eligibility.",
+        "Add a \"Key takeaways\" bulleted list at the end (4-6 bullets, one line each)."
+      ],
+      "metrics": {
+        "word_count": 1926,
+        "h2_count": 6,
+        "h3_count": 0,
+        "inbound_internal_links": 0,
+        "has_quick_answer": false,
+        "has_key_takeaways": false
+      },
+      "first_sentence": "What the evidence says SAD and Arthritis is one of the most discussed challenges in UK arthritis care."
+    },
+    {
+      "article_slug": "turmeric-for-arthritis",
+      "main_query": "turmeric for arthritis uk",
+      "answer_box_text": "Turmeric for Arthritis: what helps, what to avoid.",
+      "current_faq_quality": "needs-work",
+      "recommended_changes": [
+        "Add a bold \"Quick Answer\" paragraph directly after the introduction.",
+        "Add an FAQ block with 4-6 question-style H2s and 50-100 word answers.",
+        "Increase section structure: only 1 H2 headings found.",
+        "Add a \"Key takeaways\" bulleted list at the end (4-6 bullets, one line each)."
+      ],
+      "metrics": {
+        "word_count": 1899,
+        "h2_count": 1,
+        "h3_count": 8,
+        "inbound_internal_links": 0,
+        "has_quick_answer": false,
+        "has_key_takeaways": false
+      },
+      "first_sentence": "Turmeric for Arthritis: The Science Turmeric is one of the most researched natural anti-inflammatories."
+    },
+    {
+      "article_slug": "cold-weather-and-arthritis",
+      "main_query": "does cold weather make arthritis worse? uk",
+      "answer_box_text": "Does Cold Weather Make Arthritis Worse?: what helps, what to",
+      "current_faq_quality": "needs-work",
+      "recommended_changes": [
+        "Add a bold \"Quick Answer\" paragraph directly after the introduction.",
+        "Add an FAQ block with 4-6 question-style H2s and 50-100 word answers.",
+        "Increase section structure: only 1 H2 headings found.",
+        "Add a \"Key takeaways\" bulleted list at the end (4-6 bullets, one line each)."
+      ],
+      "metrics": {
+        "word_count": 1897,
+        "h2_count": 1,
+        "h3_count": 5,
+        "inbound_internal_links": 0,
+        "has_quick_answer": false,
+        "has_key_takeaways": false
+      },
+      "first_sentence": "The Cold-Arthritis Connection Nearly 70% of people with arthritis report that cold weather worsens their symptoms."
+    },
+    {
+      "article_slug": "hobbies-arthritis-friendly-uk",
+      "main_query": "10 arthritis uk",
+      "answer_box_text": "10 Arthritis: what helps, what to avoid.",
+      "current_faq_quality": "good",
+      "recommended_changes": [
+        "Add a bold \"Quick Answer\" paragraph directly after the introduction.",
+        "Tighten existing FAQ answers to 50-100 words and keep each question as a clear H2.",
+        "Add H3 subheadings under long H2 sections to improve list-snippet eligibility.",
+        "Add a \"Key takeaways\" bulleted list at the end (4-6 bullets, one line each)."
+      ],
+      "metrics": {
+        "word_count": 1896,
+        "h2_count": 6,
+        "h3_count": 0,
+        "inbound_internal_links": 0,
+        "has_quick_answer": false,
+        "has_key_takeaways": false
+      },
+      "first_sentence": "What the evidence says 10 Arthritis-Friendly Hobbies UK Patients Love is one of the most discussed challenges in UK arthritis care."
+    },
+    {
+      "article_slug": "driving-with-arthritis-uk",
+      "main_query": "driving with arthritis in the uk",
+      "answer_box_text": "Driving with Arthritis in the: what helps, what to avoid.",
+      "current_faq_quality": "good",
+      "recommended_changes": [
+        "Add a bold \"Quick Answer\" paragraph directly after the introduction.",
+        "Tighten existing FAQ answers to 50-100 words and keep each question as a clear H2.",
+        "Add a \"Key takeaways\" bulleted list at the end (4-6 bullets, one line each)."
+      ],
+      "metrics": {
+        "word_count": 1880,
+        "h2_count": 6,
+        "h3_count": 5,
+        "inbound_internal_links": 0,
+        "has_quick_answer": false,
+        "has_key_takeaways": false
+      },
+      "first_sentence": "Many people with arthritis continue to drive safely with the right adaptations and awareness."
+    },
+    {
+      "article_slug": "dating-with-arthritis-confidence",
+      "main_query": "dating with arthritis uk",
+      "answer_box_text": "Dating With Arthritis: what helps, what to avoid.",
+      "current_faq_quality": "good",
+      "recommended_changes": [
+        "Add a bold \"Quick Answer\" paragraph directly after the introduction.",
+        "Tighten existing FAQ answers to 50-100 words and keep each question as a clear H2.",
+        "Add a \"Key takeaways\" bulleted list at the end (4-6 bullets, one line each)."
+      ],
+      "metrics": {
+        "word_count": 1872,
+        "h2_count": 6,
+        "h3_count": 2,
+        "inbound_internal_links": 0,
+        "has_quick_answer": false,
+        "has_key_takeaways": false
+      },
+      "first_sentence": "What the evidence says Dating With Arthritis is one of the most discussed challenges in UK arthritis care, because relationships are affected not only by pain and stiffness, but also by fatigue, confi"
+    }
+  ]
+}
