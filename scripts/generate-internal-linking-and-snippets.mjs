@@ -21,7 +21,7 @@ if (!SUPABASE_URL || !SUPABASE_KEY) {
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-const THREE_MONTHS_MS = 1000 * 60 * 60 * 24 * 90;
+const THREE_MONTHS_MS = 1000 * 60 * 60 * 24 * 60;
 
 /** Topic buckets used to score relevance between an orphan and a pillar. */
 const TOPIC_RULES = [
@@ -255,7 +255,7 @@ async function main() {
   );
 
   console.log(`Published articles: ${articles.length}`);
-  console.log(`Orphan pages (0 inbound internal links, older than 90 days): ${orphans.length}`);
+  console.log(`Orphan pages (0 inbound internal links, older than 60 days): ${orphans.length}`);
   console.log(`Linking recommendations generated: ${rows.length} (top 50 written to CSV)`);
   console.log(`Featured snippet audit entries: ${audit.length}`);
   console.log(`Needs-work FAQ sections: ${audit.filter((a) => a.current_faq_quality === 'needs-work').length}`);
