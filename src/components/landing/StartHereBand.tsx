@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
-import { Stethoscope, MapPin, Dumbbell, ClipboardList, LifeBuoy } from "lucide-react";
+import { Stethoscope, MapPin, Dumbbell, ClipboardList, LifeBuoy, Landmark } from "lucide-react";
 import { trackStartHereCard } from "@/lib/ga-events";
 
 /**
@@ -38,6 +38,12 @@ const cards = [
     sub: "Jump straight to the plan",
     href: "/exercises",
   },
+  {
+    icon: Landmark,
+    label: "I need PIP or benefits help",
+    sub: "UK disability benefits, step by step",
+    href: "/guides/benefits-pip",
+  },
 ] as const;
 
 const StartHereBand = memo(() => {
@@ -53,7 +59,7 @@ const StartHereBand = memo(() => {
         <p className="text-center text-sm text-foreground/60 mb-8">
           Pick the path that fits where you are today.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {cards.map(({ icon: Icon, label, sub, href }) => {
             const inner = (
               <>
