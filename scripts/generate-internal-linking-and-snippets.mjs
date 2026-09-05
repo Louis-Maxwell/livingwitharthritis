@@ -98,7 +98,7 @@ async function fetchArticles() {
   for (let from = 0; ; from += pageSize) {
     const { data, error } = await supabase
       .from('blog_articles')
-      .select('slug,title,excerpt,category,content,created_at,updated_at,read_time')
+      .select('slug,title,excerpt,category,content,created_at,updated_at')
       .eq('is_published', true)
       .order('created_at', { ascending: true })
       .range(from, from + pageSize - 1);
