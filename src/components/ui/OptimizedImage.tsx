@@ -35,7 +35,8 @@ const OptimizedImage = memo(({
   srcSet,
   sizes,
 }: OptimizedImageProps) => {
-  const [isLoaded, setIsLoaded] = useState(false);
+  // Above-fold / LCP: never start at opacity-0 — that leaves the LCP element invisible.
+  const [isLoaded, setIsLoaded] = useState(priority);
   const [isInView, setIsInView] = useState(priority);
   const imgRef = useRef<HTMLDivElement>(null);
 
@@ -43,6 +44,11 @@ const OptimizedImage = memo(({
 
   useEffect(() => {
     if (priority) return;
+
+    if (typeof IntersectionObserver === "undefined") {
+      setIsInView(true);
+      return;
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -85,10 +91,15 @@ const OptimizedImage = memo(({
             sizes={sizes}
             loading={priority ? "eager" : "lazy"}
             decoding="async"
+            {...(priority
+              ? ({ fetchpriority: "high" } as Record<string, string>)
+              : {})}
             onLoad={() => setIsLoaded(true)}
             className={cn(
-              "w-full h-full object-cover transition-opacity duration-500",
-              isLoaded ? "opacity-100" : "opacity-0"
+              "w-full h-full object-cover",
+              // Soft fade only for below-fold; priority/LCP stays visible from first paint.
+              !priority && "transition-opacity duration-500",
+              priority || isLoaded ? "opacity-100" : "opacity-0"
             )}
           />
         </picture>
