@@ -17,11 +17,12 @@ filename). Every published slug has exactly one unique webp under
 **Do not** use for blog listing covers:
 
 - `article.image_url` (often `null` on batch posts, or shared category paths)
-- `getArticleImages(...)[0]` (category buckets — ~50 files shared across 500+ posts)
+- `getArticleImages(...)` body picks for listing cards (listings must stay on `coverImage` only)
 - Remote Unsplash / Lovable CDN URLs
 
-`getArticleImages()` is only for **in-article body gallery** images, which may
-share within a category.
+`getArticleImages()` builds the **in-article** set: unique cover at `[0]`, then
+zero–two topic-matched Openverse files. It must not force category buckets
+(especially nutrition/fruit) onto unrelated posts.
 
 ## Why images “keep breaking”
 
@@ -51,7 +52,7 @@ file. Sample `/openverse/*.webp` URLs should return HTTP 200.
 3. Run the CI guard:
 
    ```bash
-   bun test src/lib/__tests__/articleImages.unique-covers.test.ts
+   bun test src/lib/__tests__/articleImages.unique-covers.test.ts src/lib/__tests__/articleImages.topic-match.test.ts
    ```
 
 4. Commit map + new `public/openverse/*.webp` files together.
@@ -65,3 +66,22 @@ file. Sample `/openverse/*.webp` URLs should return HTTP 200.
 - Overwrite the cover map from Lovable without running the script above.
 - Point cards at missing files or a single shared default for all posts.
 - Re-introduce `image_url || getArticleImages(...)` on listing UIs.
+
+## In-article figures (topic-matched)
+
+`BlogPost` uses **`coverImage()` for the hero** and **`getArticleImages(...).slice(1)`**
+for optional mid/end figures.
+
+`getArticleImages()`:
+
+1. Always returns the unique mapped cover as `[0]`.
+2. Adds at most two further Openverse files from the curated
+   arthritis / community / wellness / nutrition pools whose **filenames
+   overlap** the post title, category, slug, or keywords.
+3. **Never** selects nutrition/fruit stock unless the post is a diet/nutrition
+   topic (lone “supplement” on a medication page does **not** count).
+4. Prefers **fewer related figures** over padding with unrelated category
+   stock (the old fruit-on-treatment bug).
+
+Listing UIs must still use `coverImage` only — never body gallery picks.
+

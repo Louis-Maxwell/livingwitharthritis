@@ -156,8 +156,9 @@ const BlogPost = () => {
   const splitAt = firstH2End >= 0 ? firstH2End + "</h2>".length : -1;
   const htmlBeforeStrip = splitAt > 0 ? htmlWithIds.slice(0, splitAt) : htmlWithIds;
   const htmlAfterStrip = splitAt > 0 ? htmlWithIds.slice(splitAt) : "";
-  const articleImages = getArticleImages(article.category, article.title, slug || article.title);
   const cover = coverImage(article.category, article.title, slug || article.title);
+  // Topic-matched body figures only (may be empty). Hero always uses unique cover.
+  const relatedImages = getArticleImages(article.category, article.title, slug || article.title, article.keywords).slice(1);
   const coverAbsolute = cover?.src
     ? `https://livingwitharthritis.org.uk${cover.src}`
     : "https://livingwitharthritis.org.uk/images/og-blog-default.webp";
@@ -427,8 +428,8 @@ const BlogPost = () => {
         <div className="container mx-auto px-6 md:px-10 max-w-[860px]">
           <figure className="mt-6 md:mt-8 mb-2">
             <img
-              src={articleImages[0].src}
-              alt={articleImages[0].alt}
+              src={cover.src}
+              alt={cover.alt}
               width={1600}
               height={900}
               sizes="(min-width: 860px) 860px, 100vw"
@@ -438,7 +439,7 @@ const BlogPost = () => {
               className="w-full h-auto rounded-2xl shadow-sm object-cover aspect-[16/9]"
             />
             <figcaption className="text-xs text-muted-foreground/70 mt-2">
-              {articleImages[0].credit}
+              {cover.credit}
             </figcaption>
           </figure>
         </div>
@@ -509,11 +510,11 @@ const BlogPost = () => {
               first:prose-p:first-letter:text-5xl first:prose-p:first-letter:font-bold first:prose-p:first-letter:text-primary first:prose-p:first-letter:float-left first:prose-p:first-letter:mr-3 first:prose-p:first-letter:mt-1 first:prose-p:first-letter:leading-none"
           >
             <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(htmlBeforeStrip) }} />
-            {htmlAfterStrip && (
+            {htmlAfterStrip && relatedImages[0] && (
               <figure className="not-prose my-8">
                 <img
-                  src={articleImages[1].src}
-                  alt={articleImages[1].alt}
+                  src={relatedImages[0].src}
+                  alt={relatedImages[0].alt}
                   width={1200}
                   height={800}
                   loading="lazy"
@@ -521,7 +522,7 @@ const BlogPost = () => {
                   className="w-full h-auto rounded-xl shadow-sm object-cover aspect-[3/2]"
                 />
                 <figcaption className="text-xs text-muted-foreground/70 mt-2">
-                  {articleImages[1].credit}
+                  {relatedImages[0].credit}
                 </figcaption>
               </figure>
             )}
@@ -540,20 +541,22 @@ const BlogPost = () => {
               <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(htmlAfterStrip) }} />
             )}
 
-            <figure className="not-prose my-8">
-              <img
-                src={articleImages[2].src}
-                alt={articleImages[2].alt}
-                width={1200}
-                height={800}
-                loading="lazy"
-                decoding="async"
-                className="w-full h-auto rounded-xl shadow-sm object-cover aspect-[3/2]"
-              />
-              <figcaption className="text-xs text-muted-foreground/70 mt-2">
-                {articleImages[2].credit}
-              </figcaption>
-            </figure>
+            {relatedImages[1] && (
+              <figure className="not-prose my-8">
+                <img
+                  src={relatedImages[1].src}
+                  alt={relatedImages[1].alt}
+                  width={1200}
+                  height={800}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-auto rounded-xl shadow-sm object-cover aspect-[3/2]"
+                />
+                <figcaption className="text-xs text-muted-foreground/70 mt-2">
+                  {relatedImages[1].credit}
+                </figcaption>
+              </figure>
+            )}
           </section>
 
           <Suspense fallback={null}>
