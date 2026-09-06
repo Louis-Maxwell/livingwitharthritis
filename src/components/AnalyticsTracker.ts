@@ -107,7 +107,7 @@ class AnalyticsTracker {
   /**
    * Track engagement (scrolling, interactions)
    */
-  trackEngagement(pageType: 'city' | 'library', slug: string, scrollDepth: number) {
+  trackEngagement(pageType: 'city' | 'library' | 'article', slug: string, scrollDepth: number) {
     const event: AnalyticsEvent = {
       type: 'engagement',
       page: `/${pageType === 'city' ? 'arthritis-support' : 'library'}/${slug}`,
