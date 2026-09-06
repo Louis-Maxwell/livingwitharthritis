@@ -8,9 +8,8 @@ export default defineConfig({
     environment: "jsdom",
     globals: true,
     setupFiles: ["./src/test/setup.ts"],
-    include: ["src/**/*.{test,spec}.{ts,tsx}", "worker/**/*.{test,spec}.ts", "scripts/__tests__/**/*.{test,spec}.{ts,mjs}"],
+    include: ["src/**/*.{test,spec}.{ts,tsx}", "scripts/__tests__/**/*.{test,spec}.{ts,mjs}"],
     environmentMatchGlobs: [
-      ["worker/**", "node"],
       ["scripts/__tests__/**", "node"],
     ],
   },

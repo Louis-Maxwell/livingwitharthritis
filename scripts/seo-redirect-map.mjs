@@ -1,8 +1,7 @@
 /**
  * Single source of exact-path SEO redirects for every host adapter:
- *   - public/_redirects          (Netlify / Cloudflare Pages)
+ *   - public/_redirects          (Netlify / static hosts)
  *   - vercel.json                (Vercel edge 308)
- *   - functions/_middleware.js   (Cloudflare Pages Functions)
  *   - scripts/write-redirect-html.mjs  (static HTML for Lovable SPA hosts)
  *   - src/lib/seoRedirects.ts    (client Navigate; kept in sync by tests)
  *
