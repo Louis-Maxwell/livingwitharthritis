@@ -110,7 +110,7 @@ describe("blog share / cover regression guards", () => {
     const slug = "supporting-a-partner-with-arthritis-strategies";
     const entry = heads[`/blog/${slug}`];
     expect(entry?.title).toBe(
-      "Supporting a Partner With Arthritis: Practical and Emotional Strategies",
+      "Supporting a Partner With Arthritis: Strategies",
     );
     expect(entry?.title).not.toMatch(/Partner With \|/);
     expect(entry?.ogImage).toBe(`${SITE}/openverse/${map[slug]}`);

@@ -4,16 +4,16 @@ Generated: 2026-09-06 (Europe/London). Inventory: **505** published blog slugs.
 
 ## Summary
 
-Overall Semrush-style pass rate (averaged across core checks): **99.0%**.
+Overall Semrush-style pass rate (averaged across core checks): **100.0%**.
 
 | Check | Pass | Fail | Pass % |
 | --- | ---: | ---: | ---: |
-| Title length 30–70 chars | 495 | 10 | 98.0% |
-| Keyword token in title | 504 | 1 | 99.8% |
+| Title length 30–70 chars | 505 | 0 | 100.0% |
+| Keyword token in title | 505 | 0 | 100.0% |
 | Meta description present | 505 | 0 | 100.0% |
-| Meta description 70–160 chars | 497 | 8 | 98.4% |
+| Meta description 70–160 chars | 505 | 0 | 100.0% |
 | Single H1 in body (≤1) | 505 | 0 | 100.0% |
-| H2 outline present (≥2) | 471 | 34 | 93.3% |
+| H2 outline present (≥2) | 505 | 0 | 100.0% |
 | Word count ≥ 300 | 505 | 0 | 100.0% |
 | Word count ≥ 1000 (stretch) | 505 | 0 | 100.0% |
 | Cover file exists on disk | 505 | 0 | 100.0% |
@@ -71,43 +71,27 @@ Swapped **39** diet/nutrition posts onto food Openverse covers (1:1 uniqueness p
 | `vitamin-d-winter-arthritis-frailty-uk` | `cover-0446-hearty-autumn-salad.webp` |
 | `weight-management-arthritis-evidence` | `cover-0447-pasta-salad.webp` |
 
+## Gap-fill round (titles / meta / H2)
+
+Closed the remaining Semrush-style fails from the 99.0% baseline:
+
+- **Titles (10):** replaced mid-phrase clipped `meta_title` values with complete 30–70 char headlines (phase2 batch + head regen).
+- **Keyword-in-title (1):** `oa-vs-ra-comparison` meta_title now includes “comparison”.
+- **Meta length (8):** word-boundary clipped `meta_description` (or set from long excerpt) into 70–160.
+- **H2 outline (34):** promoted existing structural H3s (Practical next steps / Quick questions / Safety / related sections) to H2 — no new medical claims; charity identity unchanged.
 
 ## Worst offenders (sample)
 
-### metaLength (8 fail)
-
-- free-arthritis-support-northern-ireland (178 chars)
-- caring-for-parent-with-arthritis (164 chars)
-- tai-chi-arthritis-joint-pain (165 chars)
-- pip-fibromyalgia-uk-apply (176 chars)
-- anti-inflammatory-diet-rheumatoid-arthritis (162 chars)
-- inflammatory-arthritis-guide (162 chars)
-- arthritis-in-young-adults (190 chars)
-- arthritis-in-older-adults (169 chars)
-
-### h2Outline (34 fail)
-
-- arthritis-and-travel-uk (h2=1)
-- foot-and-ankle-arthritis-uk (h2=1)
-- gut-health-arthritis-connection (h2=1)
-- hip-arthritis-symptoms-uk (h2=1)
-- hydrotherapy-arthritis-uk (h2=1)
-- rheumatoid-arthritis-diet-uk (h2=1)
-- best-walking-shoes-arthritis-uk (h2=1)
-- arthritis-in-young-people-uk (h2=1)
-- spinal-arthritis-back-pain-uk (h2=1)
-- staying-active-arthritis-winter-uk (h2=1)
-- pip-for-arthritis-uk (h2=1)
-- tens-machines-arthritis-uk (h2=1)
+_None — all core checks at 0 fails._
 
 ## Method notes
 
 - Mirrors Semrush On-Page / Content Quality factors: title & meta length, H1/H2 structure, word count, images, internal links, thin/duplicate titles.
 - Charity identity preserved; fake clinicians (Priya Sharma / PH123456) flagged and stripped where found.
 - Cover uniqueness still enforced by `seo:blog-guards` (1:1 slug → openverse file).
-- Systemic renderer fix: `BlogPost.markdownToHtml` + `scripts/static-article-html.mjs` now run mixed HTML+markdown through `marked` after expanding literal `\\n`.
-- `getArticleImages` now backfills nutrition mid/end images for diet topics even when historical covers were wrong.
+- Title/meta fixes use `meta_title` / `meta_description` then `generate-blog-head-data` (`buildPageTitle` / `clipText`) — no mid-phrase SERP clips.
+- H2 repair prefers promoting existing H3 section headers over inventing new copy.
 
 ## Deploy note
 
-After push to `main`, run the dual-pipeline deploy (Vite/static + worker as documented). Regenerate head data is included in prebuild (`generate-blog-head-data` + `seo:blog-guards`). Soft-publish is not enough for crawlers — production deploy required for OG/cover changes.
+After push to `main`, run the dual-pipeline deploy (Vite/static + worker as documented). Regenerate head data is included in prebuild (`generate-blog-head-data` + `seo:blog-guards`). Soft-publish is not enough for crawlers — production deploy required for title/meta/H2 HTML changes.
