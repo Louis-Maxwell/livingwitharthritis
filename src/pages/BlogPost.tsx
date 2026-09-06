@@ -18,6 +18,10 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import ScrollProgress from "@/components/ScrollProgress";
 import { Skeleton } from "@/components/ui/skeleton";
 import { marked } from "marked";
+import {
+  dedentIndentedHtmlForMarked,
+  unwrapEscapedHtmlCodeBlocks,
+} from "@/lib/articleHtmlCodeBlocks.mjs";
 import DOMPurify from "dompurify";
 import type { Citation } from "@/components/blog/ArticleCitations";
 import AnswerBox from "@/components/seo/AnswerBox";
@@ -80,14 +84,20 @@ function markdownToHtml(md: string): string {
   // Database may store literal \n instead of real newlines
   const normalized = md.replace(/\\n/g, "\n");
   const trimmed = normalized.trim();
+  // Already-stored escaped HTML inside <pre><code> (legacy marked bug) → real HTML.
+  const unwrapped = unwrapEscapedHtmlCodeBlocks(trimmed);
   // Pure HTML (no leftover markdown) — sanitize only.
   // Mixed HTML + markdown (common after quick-answer blocks) must go through marked,
   // otherwise headings/lists stay as literal text and KeyTakeaways scrape related-links.
-  if (trimmed.startsWith("<") && !looksLikeMarkdown(normalized)) {
-    return DOMPurify.sanitize(normalized, { USE_PROFILES: { html: true } });
+  if (unwrapped.startsWith("<") && !looksLikeMarkdown(unwrapped)) {
+    return DOMPurify.sanitize(unwrapped, { USE_PROFILES: { html: true } });
   }
-  const rawHtml = marked.parse(normalized, { async: false }) as string;
-  return DOMPurify.sanitize(rawHtml, { USE_PROFILES: { html: true } });
+  // Dedent indented HTML so marked never fences block tags as <pre><code>.
+  const forMarked = dedentIndentedHtmlForMarked(unwrapped);
+  const rawHtml = marked.parse(forMarked, { async: false }) as string;
+  return DOMPurify.sanitize(unwrapEscapedHtmlCodeBlocks(rawHtml), {
+    USE_PROFILES: { html: true },
+  });
 }
 
 function getReadingTime(html: string) {

@@ -3,6 +3,10 @@
 // shell or a homepage-duplicate fallback. Used by inject-canonicals.mjs.
 
 import { marked } from "marked";
+import {
+  dedentIndentedHtmlForMarked,
+  unwrapEscapedHtmlCodeBlocks,
+} from "../src/lib/articleHtmlCodeBlocks.mjs";
 
 const ALLOWED_ATTR = new Set([
   "href",
@@ -65,11 +69,16 @@ function looksLikeMarkdown(src) {
 export function renderArticleHtml(content) {
   const raw = String(content ?? "").replace(/\\n/g, "\n").trim();
   if (!raw) return "";
+  // Legacy stored content: escaped block HTML inside <pre><code>.
+  const unwrapped = unwrapEscapedHtmlCodeBlocks(raw);
   // Mixed HTML + markdown must go through marked (same rule as BlogPost).
+  // Dedent indented HTML first so marked never fences real tags as code.
   const html =
-    raw.startsWith("<") && !looksLikeMarkdown(raw)
-      ? raw
-      : String(marked.parse(raw, { async: false }));
+    unwrapped.startsWith("<") && !looksLikeMarkdown(unwrapped)
+      ? unwrapped
+      : unwrapEscapedHtmlCodeBlocks(
+          String(marked.parse(dedentIndentedHtmlForMarked(unwrapped), { async: false })),
+        );
   return sanitizeStaticHtml(html);
 }
 
