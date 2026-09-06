@@ -231,7 +231,7 @@ const ExerciseHub = () => {
       </PageHero>
 
       <section className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-4xl pt-8" aria-label="Introduction">
-        <p id="exercise-empathy-lead" className="text-muted-foreground text-base leading-relaxed max-w-3xl">
+        <p id="exercise-empathy-lead" className="speakable-intro text-muted-foreground text-base leading-relaxed max-w-3xl">
           Living with arthritis can make movement feel scary. These routines are gentle on purpose —
           free, plain-English, and designed so you can take one small step today without a gym or a lecture.
         </p>

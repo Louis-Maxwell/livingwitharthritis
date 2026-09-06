@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import InternalLinks from "@/components/InternalLinks";
 import PageHero from "@/components/ui/PageHero";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
@@ -77,6 +78,10 @@ const BenefitsPipHub = () => {
             { "@type": "ListItem", position: 2, name: "Benefits & PIP", item: "https://livingwitharthritis.org.uk/benefits-pip" },
           ],
         })}</script>
+        <meta property="og:locale" content="en_GB" />
+        <meta name="geo.region" content="GB" />
+        <meta name="geo.placename" content="United Kingdom" />
+        <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/benefits-pip" />
       </Helmet>
 
       <Header />
@@ -136,15 +141,30 @@ const BenefitsPipHub = () => {
             ))}
           </div>
 
-          <p className="text-sm text-muted-foreground">
-            Looking for every guide we publish? Visit the{" "}
-            <Link to="/guides" className="text-primary underline underline-offset-2">
-              guides hub
-            </Link>
-            .
-          </p>
+          <nav aria-label="Related hubs" className="rounded-xl border border-border/40 bg-muted/20 p-5 space-y-3">
+            <p className="text-sm font-semibold text-foreground m-0">Continue with related hubs</p>
+            <ul className="text-sm text-muted-foreground space-y-2 m-0 list-disc list-inside">
+              <li>
+                <Link to="/guides" className="text-primary underline underline-offset-2">Guides hub</Link>
+                {" — "}full library of UK arthritis guides
+              </li>
+              <li>
+                <Link to="/blog" className="text-primary underline underline-offset-2">Arthritis blog</Link>
+                {" — "}PIP explainers and lived-experience articles
+              </li>
+              <li>
+                <Link to="/search?topic=Finances+%26+Benefits" className="text-primary underline underline-offset-2">Search finances &amp; benefits</Link>
+              </li>
+              <li>
+                <Link to="/exercises" className="text-primary underline underline-offset-2">Exercise hub</Link>
+                {" · "}
+                <Link to="/diet" className="text-primary underline underline-offset-2">Diet hub</Link>
+              </li>
+            </ul>
+          </nav>
         </section>
       </main>
+      <InternalLinks />
       <Footer />
     </>
   );

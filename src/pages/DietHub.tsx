@@ -205,7 +205,7 @@ const DietHub = () => {
       </PageHero>
 
       <section className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-4xl pt-8" aria-label="Introduction">
-        <p id="diet-empathy-lead" className="text-muted-foreground text-base leading-relaxed max-w-3xl">
+        <p id="diet-empathy-lead" className="speakable-intro text-muted-foreground text-base leading-relaxed max-w-3xl">
           Some days cooking feels impossible. Start small. These guides are for real kitchens and
           sore hands — clinically honest, free, and written so you do not have to feel alone at
           the supermarket shelf.

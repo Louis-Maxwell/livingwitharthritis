@@ -27,7 +27,7 @@ interface TableOfContentsProps {
 const TableOfContents = memo(({ html }: TableOfContentsProps) => {
   const headings = useMemo(() => extractHeadings(html), [html]);
   const [activeId, setActiveId] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   useEffect(() => {
     if (headings.length === 0) return;
@@ -50,17 +50,20 @@ const TableOfContents = memo(({ html }: TableOfContentsProps) => {
   return (
     <nav
       aria-label="Table of contents"
-      className="mb-12 rounded-xl border border-border/20 bg-muted/30 overflow-hidden"
+      className="mb-10 rounded-xl border border-border/30 bg-muted/40 overflow-hidden shadow-sm"
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex items-center justify-between px-5 py-3.5 text-left hover:bg-muted/50 transition-colors"
       >
         <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-          <List className="w-3.5 h-3.5 text-primary" />
-          Contents
+          <List className="w-3.5 h-3.5 text-primary" aria-hidden="true" />
+          On this page
         </span>
-        <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
+        <span className="flex items-center gap-2 text-xs text-muted-foreground">
+          <span className="hidden sm:inline">{headings.length} sections</span>
+          <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} aria-hidden="true" />
+        </span>
       </button>
       {isOpen && (
         <ol className="px-5 pb-5 space-y-0.5">

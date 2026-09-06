@@ -226,6 +226,9 @@ const BlogHub = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Arthritis Advice Hub: Diet, Exercises, Flare-Ups & Treatment" />
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
+        <meta name="geo.region" content="GB" />
+        <meta name="geo.placename" content="United Kingdom" />
+        <link rel="alternate" hrefLang="en-GB" href={`${SITE}/blog-hub`} />
       </Helmet>
 
       <Header />

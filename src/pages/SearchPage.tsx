@@ -3,6 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import InternalLinks from "@/components/InternalLinks";
 import PageHero from "@/components/ui/PageHero";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -73,6 +74,10 @@ const SearchPage = () => {
             "query-input": "required name=search_term_string",
           },
         })}</script>
+        <meta property="og:locale" content="en_GB" />
+        <meta name="geo.region" content="GB" />
+        <meta name="geo.placename" content="United Kingdom" />
+        <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/search" />
       </Helmet>
 
       <Header />
@@ -84,10 +89,17 @@ const SearchPage = () => {
             </span>
           }
           title="Find answers faster"
-          subtitle="Search our blog and hub pages, then filter by topic and article length so you can skip the scroll."
+          subtitle="Search with intent: type a symptom, benefit, diet or exercise question, then filter by topic and length so you can skip the scroll."
         />
 
         <section className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-5xl py-10 space-y-6">
+          <p className="text-sm text-muted-foreground max-w-2xl leading-relaxed">
+            Looking for a starting point instead of a keyword? Try the{" "}
+            <Link to="/guides" className="text-primary underline underline-offset-2">guides hub</Link>,{" "}
+            <Link to="/exercises" className="text-primary underline underline-offset-2">exercise hub</Link>,{" "}
+            <Link to="/diet" className="text-primary underline underline-offset-2">diet hub</Link>, or{" "}
+            <Link to="/benefits-pip" className="text-primary underline underline-offset-2">benefits &amp; PIP</Link>.
+          </p>
           <div className="relative">
             <Search
               className="absolute start-4 top-1/2 -translate-y-1/2 text-muted-foreground"
@@ -203,6 +215,7 @@ const SearchPage = () => {
           </div>
         </section>
       </main>
+      <InternalLinks />
       <Footer />
     </>
   );

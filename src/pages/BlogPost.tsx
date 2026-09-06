@@ -27,6 +27,7 @@ import { renderCallouts } from "@/components/article/Callouts";
 import { markVisited } from "@/lib/visitedArticles";
 import { getArticleImages, coverImage } from "@/lib/articleImages";
 import NotFound from "@/pages/NotFound";
+import { enforceTitle, enforceDescription } from "@/lib/seoMeta";
 
 const BlogComments = lazy(() => import("@/components/BlogComments"));
 const BlogHelpfulness = lazy(() => import("@/components/BlogHelpfulness"));
@@ -170,8 +171,14 @@ const BlogPost = () => {
     ? new Date(updatedAtRaw).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })
     : null;
   const showUpdated = !!updatedAtRaw && new Date(updatedAtRaw).toDateString() !== new Date(article.date).toDateString();
-  const metaTitle = article.meta_title || article.title;
-  const metaDesc = article.meta_description || article.excerpt;
+  const metaTitle = enforceTitle(article.meta_title || article.title, {
+    includeSiteName: false,
+    route: `/blog/${slug}`,
+  });
+  const metaDesc = enforceDescription(
+    article.meta_description || article.excerpt || "",
+    `/blog/${slug}`,
+  );
   const pageUrl = `https://livingwitharthritis.org.uk/blog/${slug}`;
   const authorName = article.author || "Living With Arthritis UK Editorial Team";
   const rawAuthorCreds = article.author_credentials || "Editorial content";
@@ -279,7 +286,7 @@ const BlogPost = () => {
           "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } },
           ...(reviewedBySchema ? { "reviewedBy": reviewedBySchema } : {}),
           "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Patient" },
-          "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".speakable-intro"] },
+          "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".speakable-intro", ".speakable-takeaways", ".speakable-faq"] },
           ...(citationSchema.length ? { "citation": citationSchema } : {})
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
@@ -298,7 +305,7 @@ const BlogPost = () => {
           "inLanguage": "en-GB",
           "isAccessibleForFree": true,
           "articleSection": article.category || "Health",
-          "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".speakable-intro"] },
+          "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".speakable-intro", ".speakable-takeaways", ".speakable-faq"] },
           ...(reviewedBySchema ? { "reviewedBy": reviewedBySchema } : {}),
           ...(citationSchema.length ? { "citation": citationSchema } : {})
         })}</script>
@@ -383,11 +390,11 @@ const BlogPost = () => {
               </div>
 
 
-              <h1 className="font-display text-[1.75rem] md:text-[2.5rem] lg:text-[3rem] font-extrabold text-foreground leading-[1.15] tracking-tight mb-6 break-words">
+              <h1 itemProp="headline" className="font-display text-[1.75rem] md:text-[2.5rem] lg:text-[3rem] font-extrabold text-foreground leading-[1.15] tracking-tight mb-6 break-words">
                 {article.title}
               </h1>
 
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-[600px]">
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-[640px] text-pretty">
                 {metaDesc}
               </p>
 
@@ -489,7 +496,7 @@ const BlogPost = () => {
           )}
 
           <KeyTakeaways html={htmlContent} title={article.title} />
-          <TableOfContents html={htmlContent} />
+          <TableOfContents html={htmlWithIds} />
 
 
 
@@ -610,7 +617,10 @@ const BlogPost = () => {
         <div className="no-print">
           <Suspense fallback={null}>
             {slug && <ContinueReadingBar currentSlug={slug} />}
-            <InternalLinks />
+            <InternalLinks
+              tags={[article.category, "blog", "articles"].filter(Boolean) as string[]}
+              keywords={article.keywords ?? undefined}
+            />
             <NextReadStrip currentPath={`/blog/${slug}`} heading="Keep reading arthritis insights" />
           </Suspense>
           <Footer />

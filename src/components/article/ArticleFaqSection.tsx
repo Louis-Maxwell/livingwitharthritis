@@ -21,8 +21,9 @@ const ArticleFaqSection = ({ faqs }: Props) => {
 
   return (
     <section
+      id="faq"
       aria-label="Frequently asked questions"
-      className="not-prose mt-14 pt-10 border-t border-border/20"
+      className="speakable-faq not-prose mt-14 pt-10 border-t border-border/20"
     >
       <div className="flex items-center gap-2 mb-6">
         <HelpCircle className="w-5 h-5 text-primary" aria-hidden="true" />
@@ -32,7 +33,7 @@ const ArticleFaqSection = ({ faqs }: Props) => {
       </div>
       <dl className="space-y-6">
         {faqs.map((f, i) => (
-          <div key={i} className="rounded-xl border border-border/40 bg-secondary/30 p-5">
+          <div key={i} className="rounded-xl border border-border/50 bg-secondary/40 p-5 md:p-6 shadow-sm">
             <dt className="font-semibold text-foreground mb-2">{f.question}</dt>
             <dd className="text-foreground/80 leading-relaxed m-0">{f.answer}</dd>
           </div>

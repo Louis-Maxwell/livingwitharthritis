@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import InternalLinks from "@/components/InternalLinks";
 import PageHero from "@/components/ui/PageHero";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -71,6 +72,10 @@ const GuidesHub = () => {
             { "@type": "ListItem", position: 2, name: "Guides", item: "https://livingwitharthritis.org.uk/guides" },
           ],
         })}</script>
+        <meta property="og:locale" content="en_GB" />
+        <meta name="geo.region" content="GB" />
+        <meta name="geo.placename" content="United Kingdom" />
+        <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/guides" />
       </Helmet>
 
       <Header />
@@ -86,19 +91,31 @@ const GuidesHub = () => {
         />
 
         <section className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-6xl py-12 space-y-12">
-          <p className="text-muted-foreground max-w-3xl">
+          <p className="text-muted-foreground max-w-3xl leading-relaxed">
             Living with arthritis is exhausting — and hunting for trustworthy answers should not
-            be another job. Every guide below is written for people in the UK, in plain English.
+            be another job. This hub is for UK readers who want clear next steps: benefits and PIP,
+            safe movement, anti-inflammatory eating, and finding your way through NHS care.
             Prefer to search by topic? Use the{" "}
             <Link to="/search" className="text-primary underline underline-offset-2">
               site search
             </Link>
-            , or jump straight to the{" "}
+            , browse the{" "}
+            <Link to="/blog" className="text-primary underline underline-offset-2">
+              arthritis blog
+            </Link>
+            , or jump to the{" "}
             <Link to="/benefits-pip" className="text-primary underline underline-offset-2">
               Benefits &amp; PIP hub
             </Link>
             . You are not alone in figuring this out.
           </p>
+          <nav aria-label="Related hubs" className="flex flex-wrap gap-2 text-sm">
+            <Link to="/exercises" className="rounded-full border border-border/60 px-3 py-1.5 hover:border-primary/40 hover:text-primary">Exercise hub</Link>
+            <Link to="/diet" className="rounded-full border border-border/60 px-3 py-1.5 hover:border-primary/40 hover:text-primary">Diet hub</Link>
+            <Link to="/benefits-pip" className="rounded-full border border-border/60 px-3 py-1.5 hover:border-primary/40 hover:text-primary">Benefits &amp; PIP</Link>
+            <Link to="/blog" className="rounded-full border border-border/60 px-3 py-1.5 hover:border-primary/40 hover:text-primary">Blog</Link>
+            <Link to="/editorial-standards" className="rounded-full border border-border/60 px-3 py-1.5 hover:border-primary/40 hover:text-primary">How we write</Link>
+          </nav>
 
           {CLUSTER_ORDER.map((cluster) => {
             const guides = byCluster(cluster);
@@ -135,6 +152,7 @@ const GuidesHub = () => {
           })}
         </section>
       </main>
+      <InternalLinks />
       <Footer />
     </>
   );

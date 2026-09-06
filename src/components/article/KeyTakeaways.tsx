@@ -37,7 +37,7 @@ const KeyTakeaways = ({ html, title }: KeyTakeawaysProps) => {
   return (
     <aside
       aria-label={`Key takeaways from ${title}`}
-      className="not-prose mb-10 rounded-xl border border-primary/15 bg-primary/[0.03] p-5 md:p-6"
+      className="speakable-takeaways not-prose mb-10 rounded-xl border border-primary/20 bg-primary/[0.04] p-5 md:p-6 shadow-sm"
     >
       <div className="flex items-center gap-2 mb-3">
         <Sparkles className="w-4 h-4 text-primary" aria-hidden="true" />
