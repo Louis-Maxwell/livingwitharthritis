@@ -225,10 +225,19 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
 
         <main id="main-content" className="container mx-auto px-6 md:px-10 py-6 md:py-8">
           <p className="text-muted-foreground text-base leading-relaxed max-w-3xl mb-8">
-            Browse by topic below, or{" "}
+            This arthritis blog is written for people in the United Kingdom who need plain-English
+            help with joint pain, flare-ups, exercise, diet, PIP and treatments. Browse by topic
+            below, or{" "}
             <Link to="/search" className="text-primary underline underline-offset-2">search</Link>{" "}
-            when you know what you need. We are a young charity building this library with you —
-            honest guidance, no invented miracle cures. Curious how articles are planned? See{" "}
+            when you know what you need. Living With Arthritis UK (registered charity 1218461)
+            publishes clinically reviewed guides — honest evidence, no invented miracle cures.
+            Start with{" "}
+            <Link to="/blog/category/exercise" className="text-primary underline underline-offset-2">
+              exercise articles
+            </Link>
+            , the{" "}
+            <Link to="/exercises" className="text-primary underline underline-offset-2">exercise hub</Link>
+            , or see{" "}
             <Link to="/seo-content-framework" className="text-primary underline underline-offset-2">
               how we write SEO content
             </Link>

@@ -50,7 +50,18 @@ const ArthritisSupportIndex = () => {
           </h1>
           <p className="text-lg text-muted-foreground mb-8">
             Find rheumatology services, local support groups, and arthritis resources in your city.
-            Select your city below to see tailored information.
+            Select your city below to see tailored information. This directory covers England,
+            Scotland, Wales and Northern Ireland with links to NHS trusts, waiting-list help and
+            condition guides from Living With Arthritis UK (charity 1218461). Unknown city aliases
+            such as Stockport, Stirling or Winchester permanently redirect to the nearest live hub.
+          </p>
+          <p className="text-base text-muted-foreground mb-8 max-w-3xl">
+            Looking for exercises or diet instead? Visit the{" "}
+            <Link to="/exercises" className="text-primary underline underline-offset-2">exercise hub</Link>
+            ,{" "}
+            <Link to="/diet" className="text-primary underline underline-offset-2">diet hub</Link>
+            , or{" "}
+            <Link to="/blog" className="text-primary underline underline-offset-2">arthritis blog</Link>.
           </p>
 
           {/* Search */}
