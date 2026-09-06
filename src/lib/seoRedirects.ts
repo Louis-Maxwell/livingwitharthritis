@@ -69,6 +69,12 @@ export const EXACT_SEO_REDIRECTS: Record<string, string> = {
   "/fr/corporate-partnerships": "/corporate-partnerships",
   "/de/corporate-partnerships": "/corporate-partnerships",
   "/pt/corporate-partnerships": "/corporate-partnerships",
+  // Unrouted cluster-hub stubs that previously 200'd as empty library topics.
+  "/library/osteoarthritis-hub": "/conditions/osteoarthritis",
+  "/library/rheumatoid-arthritis-hub": "/conditions/rheumatoid-arthritis",
+  "/library/pain-management-hub": "/guides/arthritis-pain-relief",
+  "/library/exercise-hub": "/exercises",
+  "/library/nutrition-hub": "/diet",
 };
 
 function normalizePath(pathname: string): string {

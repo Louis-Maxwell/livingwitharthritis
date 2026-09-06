@@ -317,6 +317,8 @@ const RheumatoidArthritis = () => (
                 { label: "Help while waiting for rheumatology", to: "/arthritis-waiting-list-help" },
                 { label: "Community & peer support", to: "/community" },
                 { label: "Browse the Advice Hub", to: "/blog-hub" },
+                { label: "What is rheumatoid arthritis? FAQ", to: "/faq/what-is-rheumatoid-arthritis" },
+                { label: "OA vs RA FAQ", to: "/faq/osteoarthritis-vs-rheumatoid-arthritis" },
               ],
             },
             {

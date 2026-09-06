@@ -52,7 +52,7 @@ const ConditionPillBand = () => {
 
         <div className="mt-10 flex justify-end">
           <Link
-            to="/conditions/osteoarthritis"
+            to="/conditions/arthritis"
             className="inline-flex items-center gap-2 text-sm font-semibold text-primary-foreground hover:gap-3 transition-all"
           >
             See all arthritis types

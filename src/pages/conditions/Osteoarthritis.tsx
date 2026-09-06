@@ -374,6 +374,9 @@ const Osteoarthritis = () => (
                 { label: "Help while waiting for rheumatology", to: "/arthritis-waiting-list-help" },
                 { label: "Community & peer support", to: "/community" },
                 { label: "Browse the Advice Hub", to: "/blog-hub" },
+                { label: "Osteoarthritis library note", to: "/library/osteoarthritis" },
+                { label: "What is osteoarthritis? FAQ", to: "/faq/what-is-osteoarthritis" },
+                { label: "OA vs RA FAQ", to: "/faq/osteoarthritis-vs-rheumatoid-arthritis" },
               ],
             },
             {

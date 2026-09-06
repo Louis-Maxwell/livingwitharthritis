@@ -127,11 +127,11 @@ const AboutUs = () => {
   return (
     <>
       <Helmet>
-        <title>About Our Mission | {CHARITY.shortName}</title>
-        <meta name="description" content={`About ${CHARITY.shortName}: Free, evidence-based arthritis education charity. Maxwell's mission to support independent living.`} />
+        <title>About Living With Arthritis UK | Independent CIO charity</title>
+        <meta name="description" content="About Living With Arthritis UK: an independent CIO (charity 1218461) in Oswestry, founded by Louis Maxwell after his own diagnosis. Free, clinician-reviewed UK arthritis support." />
         <meta name="keywords" content="arthritis charity, arthritis foundation, arthritis organisation, arthritis support, joint pain charity, arthritis awareness, arthritis advocacy, arthritis research, arthritis helpline, arthritis UK charity, living with arthritis, musculoskeletal conditions, volunteer for charity, donate to arthritis charity" />
-        <meta property="og:title" content={`About Us — ${CHARITY.shortName}`} />
-        <meta property="og:description" content={`About ${CHARITY.shortName}: Free, evidence-based arthritis education charity. Maxwell's mission to support independent living.`} />
+        <meta property="og:title" content="About Living With Arthritis UK | Independent CIO charity" />
+        <meta property="og:description" content="About Living With Arthritis UK: an independent CIO (charity 1218461) in Oswestry, founded by Louis Maxwell after his own diagnosis. Free, clinician-reviewed UK arthritis support." />
         <meta property="og:url" content={`${CHARITY.siteUrl}/about`} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
@@ -142,8 +142,8 @@ const AboutUs = () => {
         <meta property="og:image:alt" content={`About Us — ${CHARITY.shortName}`} />
         <meta name="twitter:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`About Us — ${CHARITY.shortName}`} />
-        <meta name="twitter:description" content={`About ${CHARITY.shortName}: Free, evidence-based arthritis education charity. Maxwell's mission to support independent living.`} />
+        <meta name="twitter:title" content="About Living With Arthritis UK | Independent CIO charity" />
+        <meta name="twitter:description" content="About Living With Arthritis UK: an independent CIO (charity 1218461) in Oswestry, founded by Louis Maxwell after his own diagnosis. Free, clinician-reviewed UK arthritis support." />
         <meta name="geo.region" content="GB" />
         <link rel="alternate" hrefLang="en-GB" href={`${CHARITY.siteUrl}/about`} />
         <script type="application/ld+json">{JSON.stringify({

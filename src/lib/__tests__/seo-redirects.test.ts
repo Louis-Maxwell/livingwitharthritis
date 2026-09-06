@@ -98,6 +98,26 @@ describe("resolveSeoRedirect", () => {
     expect(resolveSeoRedirect("/exercise-hub")).toBe("/exercises");
   });
 
+  it("301s unrouted library cluster hubs onto real condition or guide pages", () => {
+    expect(resolveSeoRedirect("/library/osteoarthritis-hub")).toBe(
+      "/conditions/osteoarthritis",
+    );
+    expect(resolveSeoRedirect("/library/rheumatoid-arthritis-hub")).toBe(
+      "/conditions/rheumatoid-arthritis",
+    );
+    expect(resolveSeoRedirect("/library/pain-management-hub")).toBe(
+      "/guides/arthritis-pain-relief",
+    );
+    expect(resolveSeoRedirect("/library/exercise-hub")).toBe("/exercises");
+    expect(resolveSeoRedirect("/library/nutrition-hub")).toBe("/diet");
+  });
+
+  it("does not redirect real library or FAQ articles that still have copy", () => {
+    expect(resolveSeoRedirect("/library/fibromyalgia")).toBeNull();
+    expect(resolveSeoRedirect("/conditions/gout/symptoms")).toBeNull();
+    expect(resolveSeoRedirect("/faq/arthritis-and-cold-weather")).toBeNull();
+  });
+
   it("301s /zakat onto the appeal page", () => {
     expect(resolveSeoRedirect("/zakat")).toBe("/zakat-appeal");
   });

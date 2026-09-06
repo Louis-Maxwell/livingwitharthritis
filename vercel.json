@@ -6,6 +6,11 @@
       "permanent": true
     },
     {
+      "source": "/conditions",
+      "destination": "/conditions/arthritis",
+      "permanent": true
+    },
+    {
       "source": "/about-us",
       "destination": "/about",
       "permanent": true
@@ -53,6 +58,31 @@
     {
       "source": "/pt/corporate-partnerships",
       "destination": "/corporate-partnerships",
+      "permanent": true
+    },
+    {
+      "source": "/library/osteoarthritis-hub",
+      "destination": "/conditions/osteoarthritis",
+      "permanent": true
+    },
+    {
+      "source": "/library/rheumatoid-arthritis-hub",
+      "destination": "/conditions/rheumatoid-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/library/pain-management-hub",
+      "destination": "/guides/arthritis-pain-relief",
+      "permanent": true
+    },
+    {
+      "source": "/library/exercise-hub",
+      "destination": "/exercises",
+      "permanent": true
+    },
+    {
+      "source": "/library/nutrition-hub",
+      "destination": "/diet",
       "permanent": true
     },
     {

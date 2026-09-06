@@ -32,6 +32,13 @@ const SITE_PAGES: SitePage[] = [
   { path: "/diet", title: "Diet & Nutrition Hub", description: "Anti-inflammatory recipes, Mediterranean diet plans and foods that help manage arthritis symptoms.", icon: Apple, tags: ["diet", "nutrition", "anti-inflammatory", "food"] },
   { path: "/community", title: "Community Hub", description: "Connect with others living with arthritis through peer support forums and shared stories.", icon: Users, tags: ["community", "support", "forum", "stories"] },
   { path: "/blog", title: "Blog & Articles", description: "Expert articles on managing arthritis, from cold-weather tips to supplement reviews.", icon: BookOpen, tags: ["blog", "articles", "tips", "research"] },
+  { path: "/faq", title: "Arthritis FAQs", description: "UK answers on OA, RA, gout, PIP, diet, exercise and cold-weather flares.", icon: BookOpen, tags: ["faq", "questions", "osteoarthritis", "rheumatoid"] },
+  { path: "/library", title: "Health Library", description: "Plain-English notes on conditions, medications and treatments, including fibromyalgia.", icon: BookOpen, tags: ["library", "fibromyalgia", "condition"] },
+  { path: "/library/fibromyalgia", title: "Fibromyalgia library", description: "UK library guide to widespread pain, fatigue, fibro fog and self-management.", icon: Activity, tags: ["condition", "fibromyalgia", "pain", "fatigue"] },
+  { path: "/faq/arthritis-and-cold-weather", title: "Cold weather and arthritis", description: "Why UK winters stiffen joints and what actually helps on cold, damp days.", icon: BookOpen, tags: ["faq", "pain", "flare"] },
+  { path: "/conditions/gout/symptoms", title: "Gout symptoms", description: "First signs of a gout attack, big-toe pain, and when to see a GP in the UK.", icon: Activity, tags: ["condition", "gout", "flare"] },
+  { path: "/living-with-arthritis", title: "Living with arthritis guide", description: "The long-form UK pillar on symptoms, work, benefits, diet and daily routines.", icon: BookOpen, tags: ["guide", "arthritis", "UK"] },
+  { path: "/guides/newly-diagnosed", title: "Newly diagnosed", description: "Step-by-step UK checklist after an arthritis diagnosis — GP, referrals and first treatments.", icon: BookOpen, tags: ["guide", "arthritis", "UK"] },
   { path: "/arthritis-flare-ups", title: "Flare-Up Guide", description: "What to do during an arthritis flare-up: triggers, relief strategies and when to seek help.", icon: Activity, tags: ["flare", "pain", "management", "relief"] },
   
   { path: "/about", title: "About Us", description: "Our mission, team and commitment to supporting people living with arthritis across the UK.", icon: Heart, tags: ["about", "charity", "mission"] },

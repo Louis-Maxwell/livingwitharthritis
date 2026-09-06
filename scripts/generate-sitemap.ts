@@ -6,17 +6,12 @@
 
 import { writeFileSync, readFileSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
-import {
-  assertSafeBlogInventory,
-  isValidCitySupportRoute,
-} from "../src/lib/seoBuildSafety";
+import { assertSafeBlogInventory } from "../src/lib/seoBuildSafety";
 import { exactRedirectPathSet } from "./seo-redirect-map.mjs";
 import {
   BLOG_CATEGORY_KEYS,
   canonicalBlogCategoryKey,
 } from "../src/data/blogCategories";
-import { CITY_ROUTES } from "../src/data/city-routes.generated";
-
 const BASE_URL = "https://livingwitharthritis.org.uk";
 
 interface SitemapEntry {
@@ -448,12 +443,9 @@ async function main() {
   for (const p of extractAll(/"(\/guides\/[^"]+)"/g, comparisonSrc))
     entries.push({ path: p, priority: "0.7", changefreq: "monthly" });
 
-  // City support hubs (/arthritis-support/{city}). These return HTTP 200,
-  // are indexable, and are linked from the /arthritis-support pillar page;
-  // they belong in the sitemap so Google can discover them.
-  for (const p of CITY_ROUTES) entries.push({ path: p, priority: "0.7", changefreq: "monthly" });
-
-
+  // City support hubs (/arthritis-support/{city}) are thin doorway templates.
+  // Keep the /arthritis-support index (parsed from App.tsx) but never list
+  // per-city URLs — several also 301 (stockport, stirling, winchester, …).
   const petsSrc = read("src/data/pets-arthritis.generated.ts");
   entries.push({ path: "/pets", priority: "0.8", changefreq: "weekly" });
   for (const s of extractAll(/"slug":\s*"([^"]+)"/g, petsSrc))
@@ -478,10 +470,10 @@ async function main() {
     }
   }
 
-  // Final safety net: never ship empty locale stubs (/es|/fr|/de|/pt and their
-  // clones) in the XML sitemap.
+  // Final safety net: never ship empty locale stubs or city doorways.
   const EXCLUDE_FROM_SITEMAP = [
     /^\/(es|fr|de|pt)(\/|$)/,
+    /^\/arthritis-support\/[^/]+/,
   ];
   const redirectSources = exactRedirectPathSet();
   const cleaned = entries.filter(
@@ -517,7 +509,7 @@ async function main() {
   // only knew about a small hand-curated list plus blog posts. Excludes
   // /blog/* (already covered by blogSlugList above) to avoid duplicating a
   // large array across two generated files.
-  const otherPaths = [...new Set(entries.map((e) => e.path))].filter(
+  const otherPaths = [...new Set(cleaned.map((e) => e.path))].filter(
     (p) => !p.startsWith("/blog/") || p.startsWith("/blog/category/"),
   );
   writeFileSync(

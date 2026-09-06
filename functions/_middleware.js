@@ -7,6 +7,7 @@
  */
 const EXACT = {
   "/exercise-hub": "/exercises",
+  "/conditions": "/conditions/arthritis",
   "/about-us": "/about",
   "/trust-credibility": "/trust",
   "/privacy-policy": "/privacy",
@@ -17,6 +18,11 @@ const EXACT = {
   "/fr/corporate-partnerships": "/corporate-partnerships",
   "/de/corporate-partnerships": "/corporate-partnerships",
   "/pt/corporate-partnerships": "/corporate-partnerships",
+  "/library/osteoarthritis-hub": "/conditions/osteoarthritis",
+  "/library/rheumatoid-arthritis-hub": "/conditions/rheumatoid-arthritis",
+  "/library/pain-management-hub": "/guides/arthritis-pain-relief",
+  "/library/exercise-hub": "/exercises",
+  "/library/nutrition-hub": "/diet",
   "/blog/nhs-arthritis-exercises": "/blog/arthritis-exercises-uk-clinical",
   "/blog/nhs-rheumatology-waiting-times-uk": "/blog/rheumatology-waiting-times-uk",
   "/blog/knee-osteoarthritis-exercises": "/blog/knee-arthritis-exercises-uk",

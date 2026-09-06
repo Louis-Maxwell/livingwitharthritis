@@ -185,6 +185,11 @@ describe("SEO build safety", () => {
     expect(xml).not.toContain("/blog/mindfulness-meditation-chronic-pain");
     expect(xml).toContain("/blog/mindfulness-chronic-pain-arthritis-guide");
     expect(xml).not.toMatch(/\/arthritis-support\/[^/<]+\/[^/<]+</);
+    expect(xml).not.toMatch(/\/arthritis-support\/[a-z0-9-]+</);
+    expect(xml).toContain("/arthritis-support</loc>");
+    expect(xml).toContain("/library/fibromyalgia");
+    expect(xml).toContain("/conditions/gout/symptoms");
+    expect(xml).toContain("/faq/arthritis-and-cold-weather");
     expect(xml).not.toMatch(/\/uk\/[^/<]+\/[^/<]+</);
     expect(xml).not.toMatch(/\/exercises\/[^/<]+\/for\//);
     expect(xml).not.toMatch(/https:\/\/livingwitharthritis\.org\.uk\/(es|fr|de|pt)(\/|<)/);

@@ -116,6 +116,11 @@ const data: ConditionPageData = {
   ],
   related: [
     {
+      label: "Fibromyalgia library guide",
+      to: "/library/fibromyalgia",
+      desc: "Shorter library note on widespread pain, fibro fog and UK diagnosis",
+    },
+    {
       label: "Lupus",
       to: "/conditions/lupus",
       desc: "Another common fellow-traveller of fibromyalgia",
