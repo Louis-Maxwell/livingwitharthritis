@@ -1,0 +1,494 @@
+{
+  "redirects": [
+    {
+      "source": "/exercise-hub",
+      "destination": "/exercises",
+      "permanent": true
+    },
+    {
+      "source": "/conditions",
+      "destination": "/conditions/arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/about-us",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/trust-credibility",
+      "destination": "/trust",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/cookies-policy",
+      "destination": "/cookies",
+      "permanent": true
+    },
+    {
+      "source": "/terms-conditions",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/zakat",
+      "destination": "/zakat-appeal",
+      "permanent": true
+    },
+    {
+      "source": "/es/corporate-partnerships",
+      "destination": "/corporate-partnerships",
+      "permanent": true
+    },
+    {
+      "source": "/fr/corporate-partnerships",
+      "destination": "/corporate-partnerships",
+      "permanent": true
+    },
+    {
+      "source": "/de/corporate-partnerships",
+      "destination": "/corporate-partnerships",
+      "permanent": true
+    },
+    {
+      "source": "/pt/corporate-partnerships",
+      "destination": "/corporate-partnerships",
+      "permanent": true
+    },
+    {
+      "source": "/library/osteoarthritis-hub",
+      "destination": "/conditions/osteoarthritis",
+      "permanent": true
+    },
+    {
+      "source": "/library/rheumatoid-arthritis-hub",
+      "destination": "/conditions/rheumatoid-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/library/pain-management-hub",
+      "destination": "/guides/arthritis-pain-relief",
+      "permanent": true
+    },
+    {
+      "source": "/library/exercise-hub",
+      "destination": "/exercises",
+      "permanent": true
+    },
+    {
+      "source": "/library/nutrition-hub",
+      "destination": "/diet",
+      "permanent": true
+    },
+    {
+      "source": "/blog/nhs-arthritis-exercises",
+      "destination": "/blog/arthritis-exercises-uk-clinical",
+      "permanent": true
+    },
+    {
+      "source": "/blog/nhs-rheumatology-waiting-times-uk",
+      "destination": "/blog/rheumatology-waiting-times-uk",
+      "permanent": true
+    },
+    {
+      "source": "/blog/knee-osteoarthritis-exercises",
+      "destination": "/blog/knee-arthritis-exercises-uk",
+      "permanent": true
+    },
+    {
+      "source": "/blog/knee-exercises-arthritis",
+      "destination": "/blog/knee-arthritis-exercises-uk",
+      "permanent": true
+    },
+    {
+      "source": "/blog/food-supplements-for-joint-pain",
+      "destination": "/blog/best-supplements-joint-pain",
+      "permanent": true
+    },
+    {
+      "source": "/blog/arthritis-medication-uk",
+      "destination": "/blog/arthritis-medication-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/arthritis-and-weight-management-uk",
+      "destination": "/blog/weight-management-arthritis-evidence",
+      "permanent": true
+    },
+    {
+      "source": "/blog/swimming-for-arthritis-uk",
+      "destination": "/blog/swimming-for-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/blog/turmeric-for-arthritis-uk",
+      "destination": "/blog/turmeric-for-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/blog/mindfulness-meditation-chronic-pain",
+      "destination": "/blog/mindfulness-chronic-pain-arthritis-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/vitamin-d-arthritis-uk-risk",
+      "destination": "/blog/vitamin-d-arthritis-uk",
+      "permanent": true
+    },
+    {
+      "source": "/blog/arthritis-and-cold-weather-uk",
+      "destination": "/blog/cold-weather-arthritis-uk-winter",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cold-weather-and-arthritis",
+      "destination": "/blog/cold-weather-arthritis-uk-winter",
+      "permanent": true
+    },
+    {
+      "source": "/blog/arthritis-and-sleep-uk",
+      "destination": "/blog/how-to-sleep-with-arthritis-uk",
+      "permanent": true
+    },
+    {
+      "source": "/blog/glucosamine-vs-collagen-arthritis",
+      "destination": "/blog/glucosamine-vs-collagen",
+      "permanent": true
+    },
+    {
+      "source": "/blog/hand-arthritis-exercises-uk",
+      "destination": "/blog/hand-exercises-for-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/blog/arthritis-and-mental-health",
+      "destination": "/blog/arthritis-and-mental-health-uk",
+      "permanent": true
+    },
+    {
+      "source": "/blog/arthritis-diet-myths-debunked",
+      "destination": "/blog/arthritis-and-diet-myths-uk",
+      "permanent": true
+    },
+    {
+      "source": "/blog/arthritis-fatigue-management",
+      "destination": "/blog/arthritis-fatigue-management-uk",
+      "permanent": true
+    },
+    {
+      "source": "/arthritis-support/stockport",
+      "destination": "/arthritis-support/manchester",
+      "permanent": true
+    },
+    {
+      "source": "/arthritis-support/stirling",
+      "destination": "/arthritis-support/glasgow",
+      "permanent": true
+    },
+    {
+      "source": "/arthritis-support/winchester",
+      "destination": "/arthritis-support/southampton",
+      "permanent": true
+    },
+    {
+      "source": "/arthritis-support/bradford",
+      "destination": "/arthritis-support/leeds",
+      "permanent": true
+    },
+    {
+      "source": "/arthritis-support/milton-keynes",
+      "destination": "/arthritis-support/cambridge",
+      "permanent": true
+    },
+    {
+      "source": "/arthritis-support/oswestry",
+      "destination": "/arthritis-support/stoke-on-trent",
+      "permanent": true
+    },
+    {
+      "source": "/arthritis-support/shrewsbury",
+      "destination": "/arthritis-support/wolverhampton",
+      "permanent": true
+    },
+    {
+      "source": "/es/404",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/404",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/de/404",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/pt/404",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/swimming-for-knee",
+      "destination": "/exercises/swimming-for-knee-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/swimming-for-hip",
+      "destination": "/exercises/swimming-for-hip-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/swimming-for-shoulder",
+      "destination": "/exercises/swimming-for-shoulder-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/swimming-for-hand",
+      "destination": "/exercises/swimming-for-hand-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/swimming-for-back",
+      "destination": "/exercises/swimming-for-back-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/swimming-for-ankle",
+      "destination": "/exercises/swimming-for-ankle-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/yoga-for-knee",
+      "destination": "/exercises/yoga-for-knee-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/yoga-for-hip",
+      "destination": "/exercises/yoga-for-hip-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/yoga-for-shoulder",
+      "destination": "/exercises/yoga-for-shoulder-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/yoga-for-hand",
+      "destination": "/exercises/yoga-for-hand-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/yoga-for-back",
+      "destination": "/exercises/yoga-for-back-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/yoga-for-ankle",
+      "destination": "/exercises/yoga-for-ankle-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/cycling-for-knee",
+      "destination": "/exercises/cycling-for-knee-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/cycling-for-hip",
+      "destination": "/exercises/cycling-for-hip-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/cycling-for-shoulder",
+      "destination": "/exercises/cycling-for-shoulder-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/cycling-for-hand",
+      "destination": "/exercises/cycling-for-hand-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/cycling-for-back",
+      "destination": "/exercises/cycling-for-back-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/cycling-for-ankle",
+      "destination": "/exercises/cycling-for-ankle-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/walking-for-knee",
+      "destination": "/exercises/walking-for-knee-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/walking-for-hip",
+      "destination": "/exercises/walking-for-hip-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/walking-for-shoulder",
+      "destination": "/exercises/walking-for-shoulder-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/walking-for-hand",
+      "destination": "/exercises/walking-for-hand-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/walking-for-back",
+      "destination": "/exercises/walking-for-back-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/walking-for-ankle",
+      "destination": "/exercises/walking-for-ankle-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/tai-chi-for-knee",
+      "destination": "/exercises/tai-chi-for-knee-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/tai-chi-for-hip",
+      "destination": "/exercises/tai-chi-for-hip-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/tai-chi-for-shoulder",
+      "destination": "/exercises/tai-chi-for-shoulder-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/tai-chi-for-hand",
+      "destination": "/exercises/tai-chi-for-hand-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/tai-chi-for-back",
+      "destination": "/exercises/tai-chi-for-back-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/tai-chi-for-ankle",
+      "destination": "/exercises/tai-chi-for-ankle-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/pilates-for-knee",
+      "destination": "/exercises/pilates-for-knee-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/pilates-for-hip",
+      "destination": "/exercises/pilates-for-hip-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/pilates-for-shoulder",
+      "destination": "/exercises/pilates-for-shoulder-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/pilates-for-hand",
+      "destination": "/exercises/pilates-for-hand-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/pilates-for-back",
+      "destination": "/exercises/pilates-for-back-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/pilates-for-ankle",
+      "destination": "/exercises/pilates-for-ankle-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/stretching-for-knee",
+      "destination": "/exercises/stretching-for-knee-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/stretching-for-hip",
+      "destination": "/exercises/stretching-for-hip-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/stretching-for-shoulder",
+      "destination": "/exercises/stretching-for-shoulder-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/stretching-for-hand",
+      "destination": "/exercises/stretching-for-hand-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/stretching-for-back",
+      "destination": "/exercises/stretching-for-back-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/stretching-for-ankle",
+      "destination": "/exercises/stretching-for-ankle-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/strength-training-for-knee",
+      "destination": "/exercises/strength-training-for-knee-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/strength-training-for-hip",
+      "destination": "/exercises/strength-training-for-hip-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/strength-training-for-shoulder",
+      "destination": "/exercises/strength-training-for-shoulder-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/strength-training-for-hand",
+      "destination": "/exercises/strength-training-for-hand-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/strength-training-for-back",
+      "destination": "/exercises/strength-training-for-back-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/strength-training-for-ankle",
+      "destination": "/exercises/strength-training-for-ankle-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/arthritis-support/:city/:condition",
+      "destination": "/arthritis-support/:city",
+      "permanent": true
+    },
+    {
+      "source": "/uk/:city/:service",
+      "destination": "/arthritis-support/:city",
+      "permanent": true
+    },
+    {
+      "source": "/exercises/:joint/for/:condition",
+      "destination": "/exercises",
+      "permanent": true
+    }
+  ]
+}

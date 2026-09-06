@@ -7,6 +7,7 @@
 import { writeFileSync, readFileSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { assertSafeBlogInventory } from "../src/lib/seoBuildSafety";
+import { exactRedirectPathSet } from "./seo-redirect-map.mjs";
 import {
   BLOG_CATEGORY_KEYS,
   canonicalBlogCategoryKey,
@@ -474,8 +475,11 @@ async function main() {
     /^\/(es|fr|de|pt)(\/|$)/,
     /^\/arthritis-support\/[^/]+/,
   ];
+  const redirectSources = exactRedirectPathSet();
   const cleaned = entries.filter(
-    (e) => !EXCLUDE_FROM_SITEMAP.some((re) => re.test(e.path)),
+    (e) =>
+      !EXCLUDE_FROM_SITEMAP.some((re) => re.test(e.path)) &&
+      !redirectSources.has(e.path),
   );
 
   const xml = build(cleaned);

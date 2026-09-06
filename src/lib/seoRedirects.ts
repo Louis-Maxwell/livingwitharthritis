@@ -64,6 +64,7 @@ export const EXACT_SEO_REDIRECTS: Record<string, string> = {
   "/privacy-policy": "/privacy",
   "/cookies-policy": "/cookies",
   "/terms-conditions": "/terms",
+  "/zakat": "/zakat-appeal",
   "/es/corporate-partnerships": "/corporate-partnerships",
   "/fr/corporate-partnerships": "/corporate-partnerships",
   "/de/corporate-partnerships": "/corporate-partnerships",

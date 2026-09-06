@@ -118,6 +118,10 @@ describe("resolveSeoRedirect", () => {
     expect(resolveSeoRedirect("/faq/arthritis-and-cold-weather")).toBeNull();
   });
 
+  it("301s /zakat onto the appeal page", () => {
+    expect(resolveSeoRedirect("/zakat")).toBe("/zakat-appeal");
+  });
+
   it("301s legacy alias paths onto their canonical English pages", () => {
     expect(resolveSeoRedirect("/about-us")).toBe("/about");
     expect(resolveSeoRedirect("/privacy-policy")).toBe("/privacy");
