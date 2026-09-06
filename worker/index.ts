@@ -37,6 +37,7 @@ export interface Env {
   /**
    * Optional IndexNow key for POST /api/indexnow.
    * Prefer scripts/indexnow-ping.mjs after deploy; endpoint is for authenticated ops only.
+   * Must be set via Wrangler — no hardcoded fallback in the Worker.
    */
   INDEXNOW_KEY?: string;
 }
@@ -82,7 +83,8 @@ function corsHeaders(request: Request): HeadersInit {
   return {
     "Access-Control-Allow-Origin": allow,
     "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type, x-request-id, Authorization",
+    "Access-Control-Allow-Headers": "Content-Type, Accept, x-request-id, Authorization",
+    "Access-Control-Expose-Headers": "x-request-id, Retry-After",
     Vary: "Origin",
   };
 }
@@ -93,6 +95,10 @@ function withApiHeaders(response: Response, request: Request, requestId: string)
     headers.set(k, v);
   }
   headers.set("x-request-id", requestId);
+  // Never let intermediaries cache mutating API responses.
+  if (!headers.has("Cache-Control")) {
+    headers.set("Cache-Control", "no-store");
+  }
   return new Response(response.body, {
     status: response.status,
     statusText: response.statusText,
@@ -136,16 +142,62 @@ function contentLengthTooLarge(request: Request, max = MAX_BODY_BYTES): boolean 
   return Number.isFinite(n) && n > max;
 }
 
-async function readJson(request: Request): Promise<Record<string, unknown> | null> {
-  if (contentLengthTooLarge(request)) return null;
-  try {
-    const data = await request.json();
-    return data && typeof data === "object" && !Array.isArray(data)
-      ? (data as Record<string, unknown>)
-      : null;
-  } catch {
-    return null;
+function expectsJsonBody(request: Request): boolean {
+  const ct = (request.headers.get("content-type") || "").toLowerCase();
+  // Allow missing Content-Type for simple clients; reject clearly wrong types.
+  if (!ct) return true;
+  return ct.includes("application/json") || ct.includes("text/json") || ct.includes("+json");
+}
+
+type ReadBodyResult =
+  | { ok: true; data: Record<string, unknown> }
+  | { ok: false; reason: "payload_too_large" | "bad_request" };
+
+/** Read JSON with a hard byte cap even when Content-Length is absent. */
+async function readJsonLimited(request: Request, max = MAX_BODY_BYTES): Promise<ReadBodyResult> {
+  if (contentLengthTooLarge(request, max)) {
+    return { ok: false, reason: "payload_too_large" };
   }
+  if (!expectsJsonBody(request)) {
+    return { ok: false, reason: "bad_request" };
+  }
+  try {
+    const buf = await request.arrayBuffer();
+    if (buf.byteLength > max) {
+      return { ok: false, reason: "payload_too_large" };
+    }
+    if (buf.byteLength === 0) {
+      // Empty body is treated as {} so bearer-only IndexNow calls still work.
+      return { ok: true, data: {} };
+    }
+    const text = new TextDecoder("utf-8").decode(buf);
+    const data = JSON.parse(text) as unknown;
+    if (!data || typeof data !== "object" || Array.isArray(data)) {
+      return { ok: false, reason: "bad_request" };
+    }
+    return { ok: true, data: data as Record<string, unknown> };
+  } catch {
+    return { ok: false, reason: "bad_request" };
+  }
+}
+
+function bodyError(reason: "payload_too_large" | "bad_request", requestId: string): Response {
+  if (reason === "payload_too_large") {
+    return json(
+      { ok: false, error: "Request body too large.", code: "payload_too_large" },
+      413,
+      undefined,
+      requestId,
+    );
+  }
+  return json({ ok: false, error: "Invalid JSON body.", code: "bad_request" }, 400, undefined, requestId);
+}
+
+/** Soft date check YYYY-MM-DD (or ISO prefix). */
+function looksLikeDate(value: string): boolean {
+  if (!/^\d{4}-\d{2}-\d{2}/.test(value)) return false;
+  const t = Date.parse(value.slice(0, 10));
+  return Number.isFinite(t);
 }
 
 function handleHealth(env: Env, requestId: string): Response {
@@ -188,9 +240,11 @@ async function handleContact(request: Request, env: Env, requestId: string): Pro
     );
   }
 
-  const body = await readJson(request);
-  if (!body) return json({ ok: false, error: "Invalid JSON body.", code: "bad_request" }, 400, undefined, requestId);
+  const parsed = await readJsonLimited(request);
+  if (!parsed.ok) return bodyError(parsed.reason, requestId);
+  const body = parsed.data;
   if (isHoneypotFilled(body)) {
+    // Silent accept for bots — do not send email.
     return json({ ok: true }, 200, undefined, requestId);
   }
 
@@ -204,10 +258,19 @@ async function handleContact(request: Request, env: Env, requestId: string): Pro
   }
 
   const email = sanitizeEmail(String(body.email ?? ""));
-  if (!email) return json({ ok: false, error: "Please enter a valid email address.", code: "invalid_email" }, 400, undefined, requestId);
+  if (!email) {
+    return json(
+      { ok: false, error: "Please enter a valid email address.", code: "invalid_email" },
+      400,
+      undefined,
+      requestId,
+    );
+  }
 
   const name = sanitizeInput(String(body.name ?? body.contact_name ?? ""), 100);
-  if (!name) return json({ ok: false, error: "Please enter your name.", code: "invalid_name" }, 400, undefined, requestId);
+  if (!name) {
+    return json({ ok: false, error: "Please enter your name.", code: "invalid_name" }, 400, undefined, requestId);
+  }
 
   const subject = sanitizeInput(String(body.subject ?? "Website enquiry"), 200) || "Website enquiry";
   const message = sanitizeInput(String(body.message ?? ""), 2000);
@@ -247,6 +310,7 @@ async function handleContact(request: Request, env: Env, requestId: string): Pro
   });
 
   if (!result.ok) {
+    // Honest failure — never fake mailto success from the Worker.
     return json(
       {
         ok: false,
@@ -287,8 +351,9 @@ async function handleAppointment(request: Request, env: Env, requestId: string):
     );
   }
 
-  const body = await readJson(request);
-  if (!body) return json({ ok: false, error: "Invalid JSON body.", code: "bad_request" }, 400, undefined, requestId);
+  const parsed = await readJsonLimited(request);
+  if (!parsed.ok) return bodyError(parsed.reason, requestId);
+  const body = parsed.data;
   if (isHoneypotFilled(body)) return json({ ok: true }, 200, undefined, requestId);
 
   const turnstile = await verifyTurnstile({
@@ -301,10 +366,19 @@ async function handleAppointment(request: Request, env: Env, requestId: string):
   }
 
   const email = sanitizeEmail(String(body.email ?? ""));
-  if (!email) return json({ ok: false, error: "Please enter a valid email address.", code: "invalid_email" }, 400, undefined, requestId);
+  if (!email) {
+    return json(
+      { ok: false, error: "Please enter a valid email address.", code: "invalid_email" },
+      400,
+      undefined,
+      requestId,
+    );
+  }
 
   const name = sanitizeInput(String(body.name ?? ""), 100);
-  if (!name) return json({ ok: false, error: "Please enter your name.", code: "invalid_name" }, 400, undefined, requestId);
+  if (!name) {
+    return json({ ok: false, error: "Please enter your name.", code: "invalid_name" }, 400, undefined, requestId);
+  }
 
   const appointmentType = sanitizeInput(String(body.appointmentType ?? ""), 100);
   const preferredDate = sanitizeInput(String(body.preferredDate ?? ""), 40);
@@ -312,6 +386,26 @@ async function handleAppointment(request: Request, env: Env, requestId: string):
   if (!appointmentType || !preferredDate || !preferredTime) {
     return json(
       { ok: false, error: "Appointment type, date and time are required.", code: "bad_request" },
+      400,
+      undefined,
+      requestId,
+    );
+  }
+  if (!looksLikeDate(preferredDate)) {
+    return json(
+      {
+        ok: false,
+        error: "Please provide a preferred date as YYYY-MM-DD.",
+        code: "invalid_date",
+      },
+      400,
+      undefined,
+      requestId,
+    );
+  }
+  if (preferredTime.length < 1) {
+    return json(
+      { ok: false, error: "Please provide a preferred time.", code: "invalid_time" },
       400,
       undefined,
       requestId,
@@ -385,29 +479,12 @@ async function handleChat(request: Request, env: Env, requestId: string): Promis
     );
   }
 
-  const body = await readJson(request);
-  if (!body) return json({ ok: false, error: "Invalid JSON body.", code: "bad_request" }, 400, undefined, requestId);
+  const parsed = await readJsonLimited(request);
+  if (!parsed.ok) return bodyError(parsed.reason, requestId);
+  const body = parsed.data;
 
   const rawMessages = Array.isArray(body.messages) ? body.messages : null;
   const single = typeof body.message === "string" ? body.message : null;
-
-  let messages: ChatMessage[] = [];
-  if (rawMessages) {
-    messages = rawMessages
-      .filter((m): m is { role: string; content: string } => !!m && typeof m === "object")
-      .map((m) => ({
-        role: m.role === "assistant" ? ("assistant" as const) : ("user" as const),
-        content: sanitizeInput(String(m.content ?? ""), MAX_CHAT_MESSAGE_CHARS),
-      }))
-      .filter((m) => m.content.length > 0)
-      .slice(-MAX_CHAT_HISTORY);
-  } else if (single) {
-    messages = [{ role: "user", content: sanitizeInput(single, MAX_CHAT_MESSAGE_CHARS) }];
-  }
-
-  if (!messages.length) {
-    return json({ ok: false, error: "Message is required.", code: "bad_request" }, 400, undefined, requestId);
-  }
 
   if (typeof single === "string" && single.length > MAX_CHAT_MESSAGE_CHARS) {
     return json(
@@ -422,6 +499,41 @@ async function handleChat(request: Request, env: Env, requestId: string): Promis
     );
   }
 
+  let messages: ChatMessage[] = [];
+  if (rawMessages) {
+    for (const m of rawMessages) {
+      if (!m || typeof m !== "object") continue;
+      const content = String((m as { content?: unknown }).content ?? "");
+      if (content.length > MAX_CHAT_MESSAGE_CHARS) {
+        return json(
+          {
+            ok: false,
+            error: `Message is too long (max ${MAX_CHAT_MESSAGE_CHARS} characters).`,
+            code: "message_too_long",
+          },
+          400,
+          undefined,
+          requestId,
+        );
+      }
+    }
+    messages = rawMessages
+      .filter((m): m is { role: string; content: string } => !!m && typeof m === "object")
+      .map((m) => ({
+        role: m.role === "assistant" ? ("assistant" as const) : ("user" as const),
+        content: sanitizeInput(String(m.content ?? ""), MAX_CHAT_MESSAGE_CHARS),
+      }))
+      .filter((m) => m.content.length > 0)
+      .slice(-MAX_CHAT_HISTORY);
+  } else if (single) {
+    const content = sanitizeInput(single, MAX_CHAT_MESSAGE_CHARS);
+    if (content) messages = [{ role: "user", content }];
+  }
+
+  if (!messages.length) {
+    return json({ ok: false, error: "Message is required.", code: "bad_request" }, 400, undefined, requestId);
+  }
+
   const profileSummary =
     typeof body.profileSummary === "string"
       ? sanitizeInput(body.profileSummary, 500)
@@ -432,11 +544,26 @@ async function handleChat(request: Request, env: Env, requestId: string): Promis
 
 async function handleIndexNow(request: Request, env: Env, requestId: string): Promise<Response> {
   // Prefer scripts/indexnow-ping.mjs after deploy. This endpoint is optional ops glue.
-  const expected = env.INDEXNOW_KEY || "c98cc1e7f04d43b213d256e243f9ddd6";
+  const expected = (env.INDEXNOW_KEY || "").trim();
+  if (!expected) {
+    return json(
+      {
+        ok: false,
+        error: "IndexNow is not configured on this Worker (missing INDEXNOW_KEY).",
+        code: "not_configured",
+      },
+      503,
+      undefined,
+      requestId,
+    );
+  }
+
   const auth = request.headers.get("Authorization") || "";
   const bearer = auth.startsWith("Bearer ") ? auth.slice(7).trim() : "";
-  const body = await readJson(request);
-  const keyFromBody = typeof body?.key === "string" ? body.key : "";
+  const parsed = await readJsonLimited(request);
+  if (!parsed.ok) return bodyError(parsed.reason, requestId);
+  const body = parsed.data;
+  const keyFromBody = typeof body.key === "string" ? body.key : "";
   const provided = bearer || keyFromBody;
   if (!provided || provided !== expected) {
     return json({ ok: false, error: "Unauthorized", code: "unauthorized" }, 401, undefined, requestId);
@@ -444,27 +571,35 @@ async function handleIndexNow(request: Request, env: Env, requestId: string): Pr
 
   const host = "livingwitharthritis.org.uk";
   const urlList =
-    body && Array.isArray(body.urlList) && body.urlList.every((u) => typeof u === "string")
+    Array.isArray(body.urlList) && body.urlList.every((u) => typeof u === "string")
       ? (body.urlList as string[]).slice(0, 50)
       : INDEXNOW_HUB_PATHS.map((p) => `https://${host}${p}`);
 
   try {
-    const res = await fetch("https://api.indexnow.org/indexnow", {
-      method: "POST",
-      headers: { "Content-Type": "application/json; charset=utf-8" },
-      body: JSON.stringify({
-        host,
-        key: expected,
-        keyLocation: `https://${host}/${expected}.txt`,
-        urlList,
-      }),
-    });
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 15_000);
+    let res: Response;
+    try {
+      res = await fetch("https://api.indexnow.org/indexnow", {
+        method: "POST",
+        headers: { "Content-Type": "application/json; charset=utf-8" },
+        body: JSON.stringify({
+          host,
+          key: expected,
+          keyLocation: `https://${host}/${expected}.txt`,
+          urlList,
+        }),
+        signal: controller.signal,
+      });
+    } finally {
+      clearTimeout(timer);
+    }
     if (!res.ok && res.status !== 202) {
-      const text = await res.text().catch(() => "");
+      console.error("IndexNow HTTP", res.status);
       return json(
         {
           ok: false,
-          error: `IndexNow HTTP ${res.status}: ${text.slice(0, 200)}`,
+          error: "IndexNow provider rejected the request.",
           code: "provider_error",
         },
         502,
@@ -474,9 +609,119 @@ async function handleIndexNow(request: Request, env: Env, requestId: string): Pr
     }
     return json({ ok: true, submitted: urlList.length }, 200, undefined, requestId);
   } catch (err) {
-    const msg = err instanceof Error ? err.message : "IndexNow failed";
-    return json({ ok: false, error: msg, code: "provider_error" }, 502, undefined, requestId);
+    console.error("IndexNow failed", err);
+    return json(
+      {
+        ok: false,
+        error: "IndexNow provider is temporarily unreachable.",
+        code: "provider_error",
+      },
+      502,
+      undefined,
+      requestId,
+    );
   }
+}
+
+async function handleApi(request: Request, env: Env, requestId: string): Promise<Response> {
+  const url = new URL(request.url);
+
+  if (request.method === "OPTIONS") {
+    return new Response(null, {
+      status: 204,
+      headers: {
+        ...corsHeaders(request),
+        "Access-Control-Max-Age": "86400",
+        "Cache-Control": "no-store",
+        "x-request-id": requestId,
+      },
+    });
+  }
+
+  pruneRateLimits();
+
+  if (url.pathname === "/api/health" && request.method === "GET") {
+    return withApiHeaders(handleHealth(env, requestId), request, requestId);
+  }
+
+  if (url.pathname === "/api/search" && request.method === "GET") {
+    return withApiHeaders(await handleSearch(request, env, requestId), request, requestId);
+  }
+
+  if (
+    request.method === "POST" &&
+    (url.pathname === "/api/contact" ||
+      url.pathname === "/api/appointment" ||
+      url.pathname === "/api/chat" ||
+      url.pathname === "/api/chat/stream" ||
+      url.pathname === "/api/indexnow") &&
+    contentLengthTooLarge(request)
+  ) {
+    return withApiHeaders(
+      json(
+        { ok: false, error: "Request body too large.", code: "payload_too_large" },
+        413,
+        undefined,
+        requestId,
+      ),
+      request,
+      requestId,
+    );
+  }
+
+  if (url.pathname === "/api/contact" && request.method === "POST") {
+    return withApiHeaders(await handleContact(request, env, requestId), request, requestId);
+  }
+  if (url.pathname === "/api/appointment" && request.method === "POST") {
+    return withApiHeaders(await handleAppointment(request, env, requestId), request, requestId);
+  }
+  if (
+    (url.pathname === "/api/chat" || url.pathname === "/api/chat/stream") &&
+    request.method === "POST"
+  ) {
+    return withApiHeaders(await handleChat(request, env, requestId), request, requestId);
+  }
+
+  if (url.pathname === "/api/indexnow" && request.method === "POST") {
+    return withApiHeaders(await handleIndexNow(request, env, requestId), request, requestId);
+  }
+
+  const knownApi = new Set([
+    "/api/health",
+    "/api/search",
+    "/api/contact",
+    "/api/appointment",
+    "/api/chat",
+    "/api/chat/stream",
+    "/api/indexnow",
+  ]);
+  if (knownApi.has(url.pathname)) {
+    return withApiHeaders(
+      json(
+        {
+          ok: false,
+          error: `Method ${request.method} not allowed for ${url.pathname}.`,
+          code: "method_not_allowed",
+        },
+        405,
+        {
+          Allow:
+            url.pathname === "/api/health" || url.pathname === "/api/search"
+              ? "GET, OPTIONS"
+              : "POST, OPTIONS",
+        },
+        requestId,
+      ),
+      request,
+      requestId,
+    );
+  }
+
+  return withApiHeaders(
+    json({ ok: false, error: "Not found", code: "not_found" }, 404, undefined, requestId),
+    request,
+    requestId,
+  );
 }
 
 export default {
@@ -484,42 +729,45 @@ export default {
     const url = new URL(request.url);
     const requestId = getRequestId(request);
 
-    if (request.method === "OPTIONS" && url.pathname.startsWith("/api/")) {
-      return new Response(null, {
-        status: 204,
-        headers: {
-          ...corsHeaders(request),
-          "Access-Control-Max-Age": "86400",
-          "x-request-id": requestId,
-        },
-      });
-    }
+    try {
+      if (url.pathname.startsWith("/api/")) {
+        return await handleApi(request, env, requestId);
+      }
 
-    if (url.pathname.startsWith("/api/")) {
-      pruneRateLimits();
-    }
-
-    if (url.pathname === "/api/health" && request.method === "GET") {
-      return withApiHeaders(handleHealth(env, requestId), request, requestId);
-    }
-
-    if (url.pathname === "/api/search" && request.method === "GET") {
-      return withApiHeaders(await handleSearch(request, env, requestId), request, requestId);
-    }
-
-    if (
-      request.method === "POST" &&
-      (url.pathname === "/api/contact" ||
-        url.pathname === "/api/appointment" ||
-        url.pathname === "/api/chat" ||
-        url.pathname === "/api/chat/stream" ||
-        url.pathname === "/api/indexnow") &&
-      contentLengthTooLarge(request)
-    ) {
+      // Asset fallback only if binding present (run_worker_first paths).
+      // Preserves assets not_found_handling: 404-page for non-/api routes.
+      // With run_worker_first only /api/*, this branch rarely runs — keep lean.
+      if (env.ASSETS) {
+        const assetRes = await env.ASSETS.fetch(request);
+        // Fingerprinted Vite bundles under /assets/* can be cached long-term.
+        if (
+          assetRes.ok &&
+          (url.pathname.startsWith("/assets/") ||
+            /\.[a-f0-9]{8,}\.(js|css|woff2?|webp|avif|png|jpg|svg)$/i.test(url.pathname))
+        ) {
+          const headers = new Headers(assetRes.headers);
+          if (!headers.has("Cache-Control")) {
+            headers.set("Cache-Control", "public, max-age=31536000, immutable");
+          }
+          return new Response(assetRes.body, {
+            status: assetRes.status,
+            statusText: assetRes.statusText,
+            headers,
+          });
+        }
+        return assetRes;
+      }
+      return json({ ok: false, error: "Not found", code: "not_found" }, 404, undefined, requestId);
+    } catch (err) {
+      console.error("Unhandled Worker error", requestId, err);
       return withApiHeaders(
         json(
-          { ok: false, error: "Request body too large.", code: "payload_too_large" },
-          413,
+          {
+            ok: false,
+            error: "Unexpected server error. Please try again shortly.",
+            code: "internal_error",
+          },
+          500,
           undefined,
           requestId,
         ),
@@ -527,81 +775,5 @@ export default {
         requestId,
       );
     }
-
-    if (url.pathname === "/api/contact" && request.method === "POST") {
-      return withApiHeaders(await handleContact(request, env, requestId), request, requestId);
-    }
-    if (url.pathname === "/api/appointment" && request.method === "POST") {
-      return withApiHeaders(await handleAppointment(request, env, requestId), request, requestId);
-    }
-    if (
-      (url.pathname === "/api/chat" || url.pathname === "/api/chat/stream") &&
-      request.method === "POST"
-    ) {
-      return withApiHeaders(await handleChat(request, env, requestId), request, requestId);
-    }
-
-    if (url.pathname === "/api/indexnow" && request.method === "POST") {
-      return withApiHeaders(await handleIndexNow(request, env, requestId), request, requestId);
-    }
-
-    const knownApi = new Set([
-      "/api/health",
-      "/api/search",
-      "/api/contact",
-      "/api/appointment",
-      "/api/chat",
-      "/api/chat/stream",
-      "/api/indexnow",
-    ]);
-    if (knownApi.has(url.pathname)) {
-      return withApiHeaders(
-        json(
-          {
-            ok: false,
-            error: `Method ${request.method} not allowed for ${url.pathname}.`,
-            code: "method_not_allowed",
-          },
-          405,
-          { Allow: url.pathname === "/api/health" || url.pathname === "/api/search" ? "GET, OPTIONS" : "POST, OPTIONS" },
-          requestId,
-        ),
-        request,
-        requestId,
-      );
-    }
-
-    if (url.pathname.startsWith("/api/")) {
-      return withApiHeaders(
-        json({ ok: false, error: "Not found", code: "not_found" }, 404, undefined, requestId),
-        request,
-        requestId,
-      );
-    }
-
-    // Asset fallback only if binding present (run_worker_first paths).
-    // Preserves assets not_found_handling: 404-page for non-/api routes.
-    // With run_worker_first only /api/*, this branch rarely runs — keep lean.
-    if (env.ASSETS) {
-      const assetRes = await env.ASSETS.fetch(request);
-      // Fingerprinted Vite bundles under /assets/* can be cached long-term.
-      if (
-        assetRes.ok &&
-        (url.pathname.startsWith("/assets/") ||
-          /\.[a-f0-9]{8,}\.(js|css|woff2?|webp|avif|png|jpg|svg)$/i.test(url.pathname))
-      ) {
-        const headers = new Headers(assetRes.headers);
-        if (!headers.has("Cache-Control")) {
-          headers.set("Cache-Control", "public, max-age=31536000, immutable");
-        }
-        return new Response(assetRes.body, {
-          status: assetRes.status,
-          statusText: assetRes.statusText,
-          headers,
-        });
-      }
-      return assetRes;
-    }
-    return json({ ok: false, error: "Not found", code: "not_found" }, 404, undefined, requestId);
   },
 };

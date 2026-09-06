@@ -51,6 +51,9 @@ export function buildSystemPrompt(profileSummary?: string): string {
 const DISCLAIMER =
   "\n\n---\n\n_Educational information only — not a prescription or personal medical advice. Speak with your GP, pharmacist or rheumatology team before changing medication or treatment._";
 
+const SAFE_PROVIDER_ERROR =
+  "The support assistant is temporarily unavailable. Please try again shortly, or browse /guides, /diet, /exercises, /blog, or /search.";
+
 function needsMedDisclaimer(text: string): boolean {
   return /\b(medicin|medication|drug|dose|methotrexate|nsaid|ibuprofen|steroid|biologic|dmard|paracetamol|prescription|tablet|pill)\b/i.test(
     text,
@@ -88,61 +91,99 @@ function withTimeout<T>(promise: Promise<T>, ms: number, label: string): Promise
 }
 
 /** Parse OpenAI-style SSE into plain text chunks. */
-async function* readOpenAiSse(stream: ReadableStream<Uint8Array>): AsyncGenerator<string> {
+async function* readOpenAiSse(
+  stream: ReadableStream<Uint8Array>,
+  signal?: AbortSignal,
+): AsyncGenerator<string> {
   const reader = stream.getReader();
   const decoder = new TextDecoder();
   let buffer = "";
-  while (true) {
-    const { done, value } = await reader.read();
-    if (done) break;
-    buffer += decoder.decode(value, { stream: true });
-    const parts = buffer.split("\n");
-    buffer = parts.pop() ?? "";
-    for (const line of parts) {
-      const trimmed = line.trim();
-      if (!trimmed.startsWith("data:")) continue;
-      const payload = trimmed.slice(5).trim();
-      if (payload === "[DONE]") return;
-      try {
-        const json = JSON.parse(payload) as {
-          choices?: Array<{ delta?: { content?: string }; message?: { content?: string } }>;
-          response?: string;
-        };
-        const delta =
-          json.choices?.[0]?.delta?.content ??
-          json.choices?.[0]?.message?.content ??
-          json.response;
-        if (delta) yield delta;
-      } catch {
-        // ignore partial JSON
+  try {
+    while (true) {
+      if (signal?.aborted) {
+        try {
+          await reader.cancel("aborted");
+        } catch {
+          /* ignore */
+        }
+        throw new Error("stream aborted");
       }
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      const parts = buffer.split("\n");
+      buffer = parts.pop() ?? "";
+      for (const line of parts) {
+        const trimmed = line.trim();
+        if (!trimmed.startsWith("data:")) continue;
+        const payload = trimmed.slice(5).trim();
+        if (payload === "[DONE]") return;
+        try {
+          const json = JSON.parse(payload) as {
+            choices?: Array<{ delta?: { content?: string }; message?: { content?: string } }>;
+            response?: string;
+          };
+          const delta =
+            json.choices?.[0]?.delta?.content ??
+            json.choices?.[0]?.message?.content ??
+            json.response;
+          if (delta) yield delta;
+        } catch {
+          // ignore partial JSON
+        }
+      }
+    }
+  } finally {
+    try {
+      reader.releaseLock();
+    } catch {
+      /* ignore */
     }
   }
 }
 
 /** Parse Workers AI SSE / newline JSON stream. */
-async function* readWorkersAiStream(stream: ReadableStream): AsyncGenerator<string> {
+async function* readWorkersAiStream(
+  stream: ReadableStream,
+  signal?: AbortSignal,
+): AsyncGenerator<string> {
   const reader = stream.getReader();
   const decoder = new TextDecoder();
   let buffer = "";
-  while (true) {
-    const { done, value } = await reader.read();
-    if (done) break;
-    buffer += decoder.decode(value as Uint8Array, { stream: true });
-    const parts = buffer.split("\n");
-    buffer = parts.pop() ?? "";
-    for (const line of parts) {
-      const trimmed = line.trim();
-      if (!trimmed) continue;
-      const payload = trimmed.startsWith("data:") ? trimmed.slice(5).trim() : trimmed;
-      if (payload === "[DONE]") return;
-      try {
-        const json = JSON.parse(payload) as { response?: string; text?: string };
-        const chunk = json.response ?? json.text;
-        if (chunk) yield chunk;
-      } catch {
-        // ignore
+  try {
+    while (true) {
+      if (signal?.aborted) {
+        try {
+          await reader.cancel("aborted");
+        } catch {
+          /* ignore */
+        }
+        throw new Error("stream aborted");
       }
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value as Uint8Array, { stream: true });
+      const parts = buffer.split("\n");
+      buffer = parts.pop() ?? "";
+      for (const line of parts) {
+        const trimmed = line.trim();
+        if (!trimmed) continue;
+        const payload = trimmed.startsWith("data:") ? trimmed.slice(5).trim() : trimmed;
+        if (payload === "[DONE]") return;
+        try {
+          const json = JSON.parse(payload) as { response?: string; text?: string };
+          const chunk = json.response ?? json.text;
+          if (chunk) yield chunk;
+        } catch {
+          // ignore
+        }
+      }
+    }
+  } finally {
+    try {
+      reader.releaseLock();
+    } catch {
+      /* ignore */
     }
   }
 }
@@ -150,13 +191,48 @@ async function* readWorkersAiStream(stream: ReadableStream): AsyncGenerator<stri
 function sseResponse(readable: ReadableStream, requestId?: string): Response {
   const headers: Record<string, string> = {
     "Content-Type": "text/event-stream; charset=utf-8",
-    "Cache-Control": "no-cache, no-transform",
+    "Cache-Control": "no-cache, no-store, no-transform",
     Connection: "keep-alive",
     // Discourage intermediary buffering so tokens reach the browser promptly.
     "X-Accel-Buffering": "no",
   };
   if (requestId) headers["x-request-id"] = requestId;
   return new Response(readable, { headers });
+}
+
+function pumpSse(
+  requestId: string | undefined,
+  run: (write: (obj: unknown) => Promise<void>) => Promise<void>,
+): Response {
+  const { readable, writable } = new TransformStream();
+  const writer = writable.getWriter();
+  const encoder = new TextEncoder();
+
+  const write = async (obj: unknown) => {
+    await writer.write(encoder.encode(sseData(obj)));
+  };
+
+  void (async () => {
+    try {
+      await run(write);
+      await write({ type: "done" });
+    } catch (err) {
+      console.error("chat SSE pump failed", err);
+      try {
+        await write({ type: "error", error: SAFE_PROVIDER_ERROR });
+      } catch {
+        /* ignore */
+      }
+    } finally {
+      try {
+        await writer.close();
+      } catch {
+        /* ignore */
+      }
+    }
+  })();
+
+  return sseResponse(readable, requestId);
 }
 
 async function streamOpenAiCompatible(
@@ -182,42 +258,40 @@ async function streamOpenAiCompatible(
       body: JSON.stringify({ model, messages, stream: true, temperature: 0.4 }),
       signal: controller.signal,
     });
-  } finally {
+  } catch (err) {
     clearTimeout(timer);
+    const aborted =
+      (err instanceof Error && err.name === "AbortError") || controller.signal.aborted;
+    console.error("OpenAI-compatible fetch failed", aborted ? "timeout/abort" : err);
+    throw new Error(aborted ? "provider_timeout" : "provider_unreachable");
   }
 
+  // Keep abort armed while streaming so hung token streams die.
   if (!res.ok || !res.body) {
+    clearTimeout(timer);
     const errText = await res.text().catch(() => "");
-    throw new Error(`OpenAI-compatible HTTP ${res.status}: ${errText.slice(0, 200)}`);
+    console.error("OpenAI-compatible HTTP", res.status, errText.slice(0, 200));
+    throw new Error("provider_http_error");
   }
 
   const userText = [...messages].reverse().find((m) => m.role === "user")?.content ?? "";
-  const { readable, writable } = new TransformStream();
-  const writer = writable.getWriter();
-  const encoder = new TextEncoder();
+  const body = res.body;
 
-  (async () => {
+  return pumpSse(requestId, async (write) => {
     let full = "";
     try {
-      for await (const chunk of readOpenAiSse(res.body!)) {
+      for await (const chunk of readOpenAiSse(body, controller.signal)) {
         full += chunk;
-        await writer.write(encoder.encode(sseData({ type: "token", content: chunk })));
+        await write({ type: "token", content: chunk });
       }
       const finalText = appendDisclaimerIfNeeded(full, userText);
       if (finalText.length > full.length) {
-        const extra = finalText.slice(full.length);
-        await writer.write(encoder.encode(sseData({ type: "token", content: extra })));
+        await write({ type: "token", content: finalText.slice(full.length) });
       }
-      await writer.write(encoder.encode(sseData({ type: "done" })));
-    } catch (err) {
-      const msg = err instanceof Error ? err.message : "stream failed";
-      await writer.write(encoder.encode(sseData({ type: "error", error: msg })));
     } finally {
-      await writer.close();
+      clearTimeout(timer);
     }
-  })();
-
-  return sseResponse(readable, requestId);
+  });
 }
 
 async function streamWorkersAi(
@@ -227,62 +301,56 @@ async function streamWorkersAi(
 ): Promise<Response | null> {
   if (!env.AI) return null;
   const model = "@cf/meta/llama-3.1-8b-instruct";
-  const result = await withTimeout(
-    env.AI.run(model, {
-      messages,
-      stream: true,
-      max_tokens: 900,
-    }),
-    CHAT_PROVIDER_TIMEOUT_MS,
-    "Workers AI",
-  );
+  const streamAbort = new AbortController();
+  const streamTimer = setTimeout(() => streamAbort.abort(), CHAT_PROVIDER_TIMEOUT_MS);
+
+  let result: ReadableStream | { response?: string } | string;
+  try {
+    result = await withTimeout(
+      env.AI.run(model, {
+        messages,
+        stream: true,
+        max_tokens: 900,
+      }),
+      CHAT_PROVIDER_TIMEOUT_MS,
+      "Workers AI",
+    );
+  } catch (err) {
+    clearTimeout(streamTimer);
+    console.error("Workers AI run failed", err);
+    throw err;
+  }
+
+  const userText = [...messages].reverse().find((m) => m.role === "user")?.content ?? "";
 
   if (!(result instanceof ReadableStream)) {
+    clearTimeout(streamTimer);
     const text =
       typeof result === "string"
         ? result
         : (result as { response?: string })?.response || "";
-    const userText = [...messages].reverse().find((m) => m.role === "user")?.content ?? "";
     const finalText = appendDisclaimerIfNeeded(text, userText);
-    const encoder = new TextEncoder();
-    const stream = new ReadableStream({
-      start(controller) {
-        controller.enqueue(encoder.encode(sseData({ type: "token", content: finalText })));
-        controller.enqueue(encoder.encode(sseData({ type: "done" })));
-        controller.close();
-      },
+    return pumpSse(requestId, async (write) => {
+      await write({ type: "token", content: finalText });
     });
-    return sseResponse(stream, requestId);
   }
 
-  const userText = [...messages].reverse().find((m) => m.role === "user")?.content ?? "";
-  const { readable, writable } = new TransformStream();
-  const writer = writable.getWriter();
-  const encoder = new TextEncoder();
-
-  (async () => {
+  const stream = result;
+  return pumpSse(requestId, async (write) => {
     let full = "";
     try {
-      for await (const chunk of readWorkersAiStream(result)) {
+      for await (const chunk of readWorkersAiStream(stream, streamAbort.signal)) {
         full += chunk;
-        await writer.write(encoder.encode(sseData({ type: "token", content: chunk })));
+        await write({ type: "token", content: chunk });
       }
       const finalText = appendDisclaimerIfNeeded(full, userText);
       if (finalText.length > full.length) {
-        await writer.write(
-          encoder.encode(sseData({ type: "token", content: finalText.slice(full.length) })),
-        );
+        await write({ type: "token", content: finalText.slice(full.length) });
       }
-      await writer.write(encoder.encode(sseData({ type: "done" })));
-    } catch (err) {
-      const msg = err instanceof Error ? err.message : "Workers AI stream failed";
-      await writer.write(encoder.encode(sseData({ type: "error", error: msg })));
     } finally {
-      await writer.close();
+      clearTimeout(streamTimer);
     }
-  })();
-
-  return sseResponse(readable, requestId);
+  });
 }
 
 export function aiConfigured(env: EnvAI): { workersAi: boolean; openai: boolean } {
@@ -320,8 +388,7 @@ export async function handleChatStream(
   } catch (err) {
     console.error("Workers AI failed, trying OpenAI-compatible", err);
     if (!cfg.openai) {
-      const msg = err instanceof Error ? err.message : "Workers AI error";
-      return jsonError(502, msg, "provider_error", requestId);
+      return jsonError(502, SAFE_PROVIDER_ERROR, "provider_error", requestId);
     }
   }
 
@@ -330,8 +397,7 @@ export async function handleChatStream(
     if (openAiRes) return openAiRes;
   } catch (err) {
     console.error("OpenAI-compatible chat failed", err);
-    const msg = err instanceof Error ? err.message : "AI provider error";
-    return jsonError(502, msg, "provider_error", requestId);
+    return jsonError(502, SAFE_PROVIDER_ERROR, "provider_error", requestId);
   }
 
   return jsonError(

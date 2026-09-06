@@ -107,9 +107,11 @@ export async function handleSearch(
   requestId?: string,
 ): Promise<Response> {
   const url = new URL(request.url);
-  const q = url.searchParams.get("q") || "";
-  const topic = url.searchParams.get("topic") || "";
-  const words = url.searchParams.get("words") || "any";
+  const qRaw = url.searchParams.get("q") || "";
+  // Cap query length to keep filter work bounded (GET remains cacheable).
+  const q = qRaw.length > 200 ? qRaw.slice(0, 200) : qRaw;
+  const topic = (url.searchParams.get("topic") || "").slice(0, 80);
+  const words = (url.searchParams.get("words") || "any").slice(0, 40);
   const limitRaw = Number(url.searchParams.get("limit") || "40");
   const limit = Math.min(100, Math.max(1, Number.isFinite(limitRaw) ? limitRaw : 40));
 

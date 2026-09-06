@@ -23,6 +23,15 @@ function humaniseError(
   if (status === 413 || data.code === "payload_too_large") {
     return data.error || "That message is too large. Please shorten it and try again.";
   }
+  if (status === 503 || data.code === "not_configured") {
+    return (
+      data.error ||
+      "Message delivery is temporarily unavailable. Please email info@livingwitharthritis.org.uk."
+    );
+  }
+  if (status === 405 || data.code === "method_not_allowed") {
+    return data.error || "This action is not available right now.";
+  }
   return data.error || `Request failed (${status})`;
 }
 
@@ -58,6 +67,7 @@ export async function postFormApi(
           ? Number(retryHeader)
           : undefined;
 
+    // Success only on HTTP 2xx with ok !== false — never treat mailto/fallback as success.
     if (res.ok && data.ok !== false) {
       return { ok: true, requestId };
     }
